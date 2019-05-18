@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lost Gnome" nameDescription="a lost gnome" race="blood" experience="0" speed="200" manacost="0">
+	<health now="10000" max="10000" />
+	<look type="493" head="10" body="32" legs="15" feet="7" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+	</attacks>
+	<defenses armor="45" defense="33" />
+	<elements>
+		<element firePercent="100" />
+		<element physicalPercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+		<element icePercent="0" />
+		<element earthPercent="0" />
+		<element energyPercent="0" />
+	</elements>
+	<immunities>
+		<immunity fire="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Are we there yet?" />
+		<voice sentence="Think I saw a nice gem back there, I need to..." />
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="2" chance="10000" />
+		<item name="heavy old tome" countmax="2" chance="10000" />
+	</loot>
+</monster>

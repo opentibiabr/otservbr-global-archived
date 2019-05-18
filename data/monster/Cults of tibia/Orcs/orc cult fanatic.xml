@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Orc Cult Fanatic" nameDescription="an orc cult fanatic" race="blood" experience="1100" speed="115">
+	<health now="1300" max="1300" />
+	<look type="59" corpse="6001" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300" />
+		<attack name="physical" interval="2000" chance="20" range="7" min="-250" max="-330">
+			<attribute key="shootEffect" value="throwingknife" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="WAAARRRG!" />
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="135" chance="100000" />
+		<item name="sword ring" chance="7770" />
+		<item name="plate shield" chance="16350" />
+		<item name="plate armor" chance="5900" />
+		<item name="brass legs" chance="2950" />
+		<item name="plate legs" chance="4830" />
+		<item id="2667" countmax="1" chance="29760" />			<!-- FISH -->
+		<item name="great health potion" chance="10190" />
+		<item name="orc tooth" chance="1340" />
+		<item name="warrior helmet" chance="10190" />
+		<item name="orc leather" chance="22250" />
+		<item name="skull belt" chance="13940" />
+		<item name="small ruby" countmax="3" chance="10990" />
+		<item name="brown mushroom" countmax="4" chance="15820" />
+		<item name="cultish robe" chance="10460" />
+	</loot>
+</monster>

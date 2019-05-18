@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Count Of The Core" nameDescription="The Count Of The Core" race="blood" experience="40000" speed="270" script="boss.lua">
+	<health now="50000" max="50000" />
+	<look type="1046" corpse="30872" />
+	<targetchange interval="5000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1500" />
+		<attack name="death" interval="2000" chance="20" range="3" length="9" spread="3" min="0" max="-1500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="20" range="3" length="9" spread="4" min="0" max="-1500">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="8" min="0" max="-1500">
+			<attribute key="areaEffect" value="blackspark" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" radius="8" min="0" max="-1500">
+			<attribute key="areaEffect" value="blacksmoke" />
+		</attack>
+	</attacks>
+	<elements>
+		<element firePercent="-100" />
+		<element physicalPercent="60" />
+		<element holyPercent="60" />
+		<element deathPercent="60" />
+		<element icePercent="60" />
+		<element earthPercent="60" />
+		<element energyPercent="60" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities> 
+	<voices interval="5000" chance="10">
+		<voice sentence="Sluuuurp! Sluuuuurp!" />
+		<voice sentence="Shluush!" />
+	</voices>
+	<loot>
+	<!--Sempre-->
+		<item name="Platinum Coin" count="36" chance="10000" /> 
+		<item name="Great Mana Potion" count="18" chance="10000" /> 
+		<item name="Great Spirit Potion" count="10" chance="10000" /> 
+		<item name="Green Crystal Shard" count="4" chance="10000" /> 
+		<item name="Huge Chunk of Crude Iron" count="2" chance="10000" /> 
+		<item name="Magic Sulphur" count="2" chance="10000" /> 
+		<item name="Mastermind Potion" count="2" chance="10000" /> 
+		<item name="Small Amethyst" count="10" chance="10000" /> 
+		<item name="Small Diamond" count="10" chance="10000" /> 
+		<item name="Small Emerald" count="12" chance="10000" /> 
+		<item name="Small Ruby" count="10" chance="10000" /> 
+		<item name="Small Topaz" count="10" chance="10000" /> 
+		<item name="Ultimate Health Potion" count="5" chance="10000" />
+		<item name="Amber Staff" chance="10000" />
+		<item name="Blue Gem" chance="10000" />
+		<item id="30861" chance="10000" />   <!--	Chitinous Mouth (Count of the Core)-->
+		<item name="Crystal Coin" chance="10000" />
+		<item name="Crystalline Armor" chance="5000" />
+		<item name="Dragon Necklace" chance="10000" />
+		<item name="Fire Axe" chance="10000" />
+		<item name="Fire Sword" chance="10000" />
+		<item id="7632" chance="10000" /> <!--Giant Shimmering Pearl-->
+		<item name="Giant Sword" chance="10000" />
+		<item name="Guardian Axe" chance="10000" />
+		<item name="Gold Token" chance="10000" />
+		<item name="Green Gem" chance="10000" />
+		<item name="Harpoon of a Giant Snail" chance="10000" />
+		<item name="Huge Spiky Snail Shell" chance="10000" />
+		<item name="Luminous Orb" chance="10000" />
+		<item name="Red Gem" chance="10000" />	
+		<!--Raro-->
+		<item name="Silver Token" chance="1000" />	
+		<item name="Stone Skin Amulet" chance="1000" />	
+		<item name="Twiceslicer" chance="1000" />	
+		<item name="Wand of Inferno" chance="1000" />	
+		<item name="Yellow Gem" chance="1000" />	
+		<item name="Candle Stump" chance="1000" />	
+		<item name="Gnome Shield" chance="1000" />	
+		<item name="Gnome Sword" chance="1000" />	
+		<item name="Mallet Handle" chance="1000" />	
+		<item name="Tinged Pot" chance="1000" />
+		<!--Muito Raro-->
+		<item name="Gnome Helmet" chance="100" />
+	</loot>
+</monster>

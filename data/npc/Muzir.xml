@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Muzir" script="Muzir.lua" walkinterval="0" floorchange="0">
+  <health now="100" max="100" />
+  <look type="146" head="95" body="4" legs="11" feet="76" addons="0" />
+  <voices>
+    <voice text="Daraman's blessings." interval2="120" margin="1" yell="no" />
+  </voices>
+</npc>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Minotaur Invader" nameDescription="a minotaur invader" race="blood" experience="1600" speed="250" manacost="0">
+	<health now="1850" max="1850" />
+	<look type="29" corpse="5983" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="85" attack="75"/>
+	</attacks>
+	<defenses armor="20" defense="20" />
+	<elements>
+		<element firePercent="20" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="For victory!" />
+		<voice sentence="No mercy to the black skins!" />
+		<voice sentence="We are invincible!" />
+		<voice sentence="We will crush the enemy!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="175" chance="100000" /> <!-- gold coin -->
+		<item id="2152" countmax="4" chance="100000" /> <!-- platinum coin -->
+		<item id="12428" countmax="2" chance="14285" /> <!-- minotaur horn -->
+		<item id="9970" chance="10000" /> <!-- small topaz -->
+		<item id="12438" chance="9090" /> <!-- piece of warrior armor -->
+		<item id="2150" chance="7692" /> <!-- small amethyst -->
+		<item id="5878" chance="5000" /> <!-- minotaur leather -->
+		<item id="2147" chance="3703" /> <!-- small ruby -->
+		<item id="2430" chance="1250" /> <!-- knight axe -->
+		<item id="2515" chance="1250" /> <!-- guardian shield -->
+		<item id="2156" chance="1250" /> <!-- red gem -->
+		<item id="5911" chance="1250" /> <!-- red piece of cloth -->
+	</loot>
+</monster>

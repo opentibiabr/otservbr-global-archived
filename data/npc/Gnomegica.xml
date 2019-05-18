@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Gnomegica" script="Gnomegica.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="507" head="79" body="94" legs="94" feet="52" addons="0" />
+	<parameters>
+		<parameter key="message_greet" value="Hello |PLAYERNAME|. I sell potions, runes, rods and wands!" />
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="			Avalanche Rune,2274,25;			Blank Rune,2260,10;			Chameleon Rune,2291,210;			Convince Creature Rune,2290,80;			Destroy Field Rune,2261,15;			Energy Field Rune,2277,38;			Energy Wall Rune,2279,85;			Explosion Rune,2313,31;			fire bomb rune,2305,55;			Fire Field Rune,2301,28;			Fire Wall Rune,2303,61;			Great Fireball Rune,2304,45;			Great Health Potion,7591,190;			Great Mana Potion,7590,120;			Great Spirit Potion,8472,190;			Health Potion,7618,45;			Heavy Magic Missile Rune,2311,12;			Light Magic Missile Rune,2287,4;			Mana Potion,7620,50;			Moonlight Rod,2186,1000;			Necrotic Rod,2185,5000;			Poison Field Rune,2285,21;			Poison Wall Rune,2289,52;			Snakebite Rod,2182,500;			Spellbook,2217,150;			Stalagmite Rune,2292,12;			Strong Health Potion,7588,100;			Strong Mana Potion,7589,80;			Sudden Death Rune,2268,50;			Terra Rod,2181,10000;			Ultimate Health Potion,8473,310;			Wand of Cosmic Energy,2189,10000;			Wand of Decay,2188,5000;			Wand of Dragonbreath,2191,1000;			Wand of Vortex,2190,500		" />
+		<parameter key="shop_sellable" value="			Spellwand,7735,299;			Vial,2006,5		" />
+	</parameters>
+</npc>

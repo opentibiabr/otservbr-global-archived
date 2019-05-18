@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Simon The Beggar" script="Simon the Beggar.lua" walkinterval="2000">
+	<health now="100" max="100" />
+	<look type="153" head="116" body="123" legs="123" feet="40" addons="3" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="shovel,2554,50;" />
+	</parameters>
+</npc>

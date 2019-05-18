@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Strong Glooth Horror" nameDescription="a strong glooth horror" race="blood" experience="1500" speed="170" manacost="330">
+	<health now="20000" max="20000"/>
+	<look type="677" corpse="0"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="500" max="650">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+</monster>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Control Tower" nameDescription="a control tower" race="energy" experience="3000" speed="0" manacost="330">
+	<health now="7500" max="7500"/>
+	<look typeex="23265" corpse="24309"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag hidehealth="1"/>
+	</flags>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element firePercent="55"/>
+		<element holyPercent="55"/>
+		<element energyPercent="55"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2152" countmax="5" chance="100000"/> <!-- platinum coin -->
+		<item id="7590" countmax="1" chance="14285"/> <!-- great mana potion -->
+		<item id="10571" countmax="1" chance="14285"/> <!-- war crystal -->
+		<item id="7591" countmax="1" chance="14285"/> <!-- great health potion -->
+	</loot>
+</monster>

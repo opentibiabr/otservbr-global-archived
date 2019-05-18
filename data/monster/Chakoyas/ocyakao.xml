@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ocyakao" nameDescription="Ocyakao" race="blood" experience="490" speed="400" manacost="0">
+	<health now="700" max="700" />
+	<look type="259" corpse="7320" />
+	<targetchange interval="60000" chance="60" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag staticattack="80" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="25" attack="50" />
+		<attack name="physical" interval="2000" chance="10" range="7" radius="3" target="1" min="70" max="-185">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10" />
+	<elements>
+		<element firePercent="40" />
+		<element holyPercent="10" />
+		<element energyPercent="-15" />
+		<element deathPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity ice="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Chikuva!!" />
+		<voice sentence="Jinuma jamjam!" />
+		<voice sentence="Suvituka siq chuqua!" />
+		<voice sentence="Kiyosa sipaju!" />
+	</voices>
+	<loot>
+		<item id="21400" chance="200" /> <!-- silver token -->
+		<item id="2148" countmax="20" chance="100000" /> <!-- gold coin -->
+		<item id="2667" countmax="5" chance="100000" /> <!-- fish -->
+		<item id="2143" countmax="1" chance="100000" /> <!-- white pearl -->
+		<item id="5909" chance="100000" /> <!-- white piece of cloth -->
+		<item id="2398" chance="37500" /> <!-- mace-->
+		<item id="21703" unique="1" chance="200" /> <!-- eye of the storm -->
+		<item id="2541" chance="37570" /> <!-- bone shield -->
+		<item id="7381" chance="25050" /> <!-- mammoth whopper -->
+		<item id="7441" chance="62570" /> <!-- ice cube -->
+		<item id="7159" chance="12500" /> <!-- green perch -->
+		<item id="2669" chance="12520" /> <!-- northern pike -->
+	</loot>
+</monster>

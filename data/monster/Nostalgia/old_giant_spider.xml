@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Giant Spider" nameDescription="a giant spider" race="venom" experience="840" speed="230" manacost="0">
+	<health now="1350" max="1350" />
+	<look type="911" corpse="5977" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300" poison="160" />
+		<attack name="poisonfield" interval="2000" chance="10" range="7" radius="1" target="1">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="10" range="7" radius="1" target="1" min="-40" max="-70">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="speed" interval="2000" chance="15" speedchange="390" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="20" />
+		<element icePercent="20" />
+		<element firePercent="-10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity earth="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="85" chance="100000" /> <!-- gold coin -->
+		<item id="2545" countmax="11" chance="11900" /> <!-- poison arrow -->
+		<item id="2647" chance="7933" /> <!-- plate legs -->
+		<item id="2463" chance="10010" /> <!-- plate armor -->
+		<item id="2457" chance="4945" /> <!-- steel helmet -->
+		<item id="7588" chance="3571" /> <!-- strong health potion -->
+		<item id="2477" chance="850" /> <!-- knight legs -->
+		<item id="2171" chance="280" /> <!-- platinum amulet -->
+		<item id="2476" chance="500" /> <!-- knight armor -->
+	</loot>
+</monster>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Klesar" script="Klesar.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="128" head="79" body="0" legs="38" feet="76" addons="0" />
+</npc>

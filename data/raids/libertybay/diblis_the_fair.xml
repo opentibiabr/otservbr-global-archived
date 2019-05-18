@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+    <!--
+	// Raid System by 5mok3
+	// DO NOT CHANGE INTERVAL UNLESS YOU ARE SURE WHAT YOU ARE DOING!!
+	-->
+
+  <!--Announcements-->
+<announce delay="1000" type="event" message="Beware of Diblis The Fair!" />
+  <!--Single Spawns-->
+  <singlespawn delay="1000" name="Diblis The Fair" x="32009" y="32795" z="10" />
+</raid>

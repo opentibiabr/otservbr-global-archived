@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Skullfrost" nameDescription="a Skullfrost" race="undead" speed="500" manacost="1000">
+	<health now="10000" max="10000" />
+	<look type="991" corpse="0" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag pet="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="0" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag staticattack="98" />
+		<flag targetdistance="3" />
+		<flag runonhealth="9000" />
+	</flags>
+	<attacks>
+		<attack name="death" interval="200" chance="25" skill="153" min="-100" max="-280" />
+		<attack name="death" interval="500" chance="10" length="6" spread="0" target="1" min="-200" max="-500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="500" chance="10" radius="7" min="-50" max="-500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="ice" interval="2000" chance="15" target="1" radius="7" min="-100" max="-240">
+			<attribute key="areaEffect" value="icearea" />
+		</attack>
+		<attack name="ice" interval="2000" chance="15" radius="7" target="0" min="-60" max="-400">
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="95">
+		<defense name="healing" interval="3000" chance="25" min="80" max="400">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="0" />
+		<element earthPercent="0" />
+		<element energyPercent="0" />
+		<element deathPercent="0" />
+		<element physicalPercent="0" />
+		<element holyPercent="0" />
+		<element icePercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

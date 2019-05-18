@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Bezil" script="Bezil.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="160" head="116" body="60" legs="76" feet="95" />
+<voices>
+<voice text="General equipment and all sorts of goods. Visit my store!" interval2="120" margin="1" yell="no" />
+</voices>
+	<parameters>
+		<parameter key="module_keywords" value="1" />
+		<parameter key="keywords" value="equipment;" />
+		<parameter key="keyword_reply1" value="I sell equipment for your adventure! Just ask me for a {trade} to see my wares." />
+		<parameter key="message_greet" value="Hiho, Bezil at your service, |PLAYERNAME|. We sell {equipment} of all kinds." />
+		<parameter key="message_farewell" value="Good bye, |PLAYERNAME|." />
+		<parameter key="message_walkaway" value="Good bye, |PLAYERNAME|." />
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="crowbar,2416,260;fishing rod,2580,150;pick,2553,50;rope,2120,50;scythe,2550,50;shovel,2554,50;grey bag,1996,4;grey backpack,2003,10" />
+		<parameter key="shop_sellable" value="empty potion flask,7634,5;empty potion flask,7635,5;empty potion flask,7636,5;vial,2006,5" />
+	</parameters>
+</npc>

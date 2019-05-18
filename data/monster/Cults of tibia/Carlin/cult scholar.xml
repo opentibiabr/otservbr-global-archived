@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cult Scholar" nameDescription="a cult scholar" race="blood" experience="1100" speed="240" manacost="390">
+	<health now="1650" max="1650" />
+	<look type="145" head="0" body="77" legs="21" feet="21" addons="1" corpse="6080" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="10" max="-580" />
+	</attacks>
+	<defenses armor="35" defense="50">
+		<defense name="healing" interval="4000" chance="25" min="20" max="80">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<immunities>
+		
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="13">
+		<voice sentence="The secrets are ours alone!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="70" chance="100000" />	<!-- GOLD COIN -->
+		<item id="2150" countmax="1" chance="1490" />		<!-- SMALL AMETHYST  -->			
+		<item id="7591" countmax="1" chance="9410" />		<!-- GREAT HEALTH POTION -->
+		<item id="2149" countmax="1" chance="4460" />		<!-- SMALL EMERALD  -->	
+		<item id="2666" countmax="1" chance="8420" />		<!-- MEAT -->
+	</loot>
+</monster>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Serafin" script="Serafin.lua" walkinterval="2000">
+	<health now="100" max="100" />
+	<look type="129" head="96" body="123" legs="86" feet="98" addons="0" />
+	<parameters>
+		<parameter key="message_greet" value="Greetings, |PLAYERNAME|. In case you're looking for fruit and vegetables, you've come to the right place!" />
+		<parameter key="message_farewell" value="You better show some politeness." />
+		<parameter key="message_walkaway" value="Good bye." />
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="orange,2675,10;banana,2676,5;cherry,2679,1;strawberry,2680,2;grapes,2681,3;melon,2682,10;pumpkin,2683,10;carrot,2684,3;corncob,2686,3;white mushroom,2787,10;mango,5097,10;potato,8838,4;lemon,8841,3" />
+	</parameters>
+</npc>

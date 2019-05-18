@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Irmana" script="Irmana.lua" walkinterval="2000">
+	<health now="100" max="100" />
+	<look type="140" head="78" body="90" legs="13" feet="14" addons="3" />
+<voices>
+<voice text="Welcome to the house of fashion, Iron Sparrow!" interval2="100" margin="1" yell="no" />
+</voices>
+	<parameters>
+		<parameter key="message_greet" value="Welcome to the house of fashion, |PLAYERNAME|,also {recycle} Red Robe, Mystic Turban or Green Tunics or buy few things ask me for a {trade}!" />
+		<parameter key="message_farewell" value="Good bye, |PLAYERNAME|." />
+		<parameter key="message_walkaway" value="Good bye, |PLAYERNAME|." />
+		<parameter key="message_onsendtrade" value="I'm currently interested in these materials." />
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_sellable" value="			Ape Fur,5883,120;			Badger Fur,11216,15;			Black Wool,12404,300;			Blue Piece of Cloth,5912,200;			Brown Piece of Cloth,5913,100;			Bunch of Troll Hair,10606,30;			Dirty Turban,12412,120;			Downy Feather,12640,20;			Earflap,20099,40;			Frost Giant Pelt,10575,160;			Geomancer's Robe,12414,80;			Ghostly Tissue,10607,90;			Green Dragon Leather,5877,100;			Green Piece of Cloth,5910,200;			Jewelled Belt,12426,180;			Lion's Mane,10608,60;			Lizard Leather,5876,150;			Minotaur Leather,5878,80;			Necromantic Robe,12431,250;			Noble Turban,12442,430;			Piece of Crocodile Leather,11196,15;			Purple Robe,12429,110;			Red Dragon Leather,5948,200;			Red Piece of Cloth,5911,300;			Rope Belt,12448,66;			Royal Tapestry,9958,1000;			Safety Pin,12449,120;			Shaggy Tail,11324,25;			Silky Fur,11209,35;			Simple Dress,2657,50;			Skunk Tail,11191,50;			Snake Skin,10611,400;			Spool of Yarn,5886,1000;			Striped Fur,11210,50;			Tattered Piece of Robe,10601,120;			Thick Fur,11224,150;			Velvet Tapestry,9837,800;			Warwolf Fur,11235,30;			Werewolf Fur,11234,380;			White Piece of Cloth,5909,100;			Winter Wolf Fur,11212,20;			Wool,11236,15;			Yellow Piece of Cloth,5914,150		" />
+	</parameters>
+</npc>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups>
+	<group id="1" name="Player" flags="0" access="0" maxdepotitems="0" maxvipentries="0" />
+	<group id="2" name="Tutor" flags="16777216" access="0" maxdepotitems="0" maxvipentries="200" />
+	<group id="3" name="Sennior Tutor" flags="29360128" access="0" maxdepotitems="0" maxvipentries="200" />
+	<group id="4" name="Gamemaster" flags="66567897594" access="1" maxdepotitems="0" maxvipentries="200" />
+	<group id="5" name="Community Manager" flags="135291445242" access="1" maxdepotitems="0" maxvipentries="200" />
+</groups>

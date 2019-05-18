@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Brutus" script="Brutus.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="143" head="97" body="77" legs="78" feet="116" addons="3" />
+</npc>

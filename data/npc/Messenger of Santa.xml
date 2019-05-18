@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Messenger of Santa" script="Messenger of Santa.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="159" head="39" body="99" legs="60" feet="117" addons="0" />
+  
+  <parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="arvore,3910,100;
+		card,6388,100;
+		parede,6503,100;
+		parede,6502,100;		
+		parede,6504,100;		
+		parede,6505,100;
+		parede,6501,100;
+		parede,22644,100;
+		candy,2688,100		
+		" />
+	</parameters>
+</npc>

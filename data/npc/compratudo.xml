@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Compra Tudo" script="djinvip.lua" walkinterval="2000" speechbubble="2" floorchange="0">
+  <health now="100" max="100" />
+	<look type="80" head="0" body="0" legs="0" feet="0" addons="0"/>
+  <parameters>
+    <parameter key="message_greet" value="What do you want from me, |PLAYERNAME|?" />
+	
+	<parameter key="module_shop" value="1" /> <!-- added shop module to show the icon in npc (10:36 +) -->
+		<parameter key="shop_sellable" value="0,0,0;"/>
+		<parameter key="shop_buyable" value="0,0,0;"/>
+		
+  </parameters>	
+</npc>

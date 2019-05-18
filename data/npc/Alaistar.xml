@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Alaistar" script="Alaistar.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="133" head="19" body="76" legs="60" feet="1" addons="0" />
+<voices>
+<voice text="Potions, runes, wands and rods, all here in the great Malunga's house." interval2="90" margin="1" yell="no" />
+</voices>
+	<parameters>
+		<parameter key="keywords" value="magic;" />
+		<parameter key="keyword_reply1" value="I'm selling spirit, health and mana potions, runes, wands, rods and spellbooks. If you'd like to see my offers, ask me for a {trade}." />
+		<parameter key="message_greet" value="Hi there and welcome to my little {magic} shop." />
+		<parameter key="message_farewell" value="Yeah, bye." />
+		<parameter key="message_walkaway" value="However." />
+		<parameter key="message_sendtrade" value="Of course, just browse through my wares. Or do you want to look only at {potions}, {wands} or {runes}?" />
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+			ultimate mp,26029,350;
+			Supreme Health Potion,26031,500;
+			ultimate spirit potion,26030,350;
+			great health potion,7591,190;
+			great mana potion,7590,120;
+			great spirit potion,8472,190;
+			health potion,7618,45;
+			mana potion,7620,50;
+			strong health potion,7588,100;
+			strong mana potion,7589,80;
+			ultimate health potion,8473,310" />
+
+		<parameter key="shop_sellable" value="
+		Cowbell,23575,210;
+		empty potion flask,7634,5;
+		empty potion flask,7635,5;
+		empty potion flask,7636,5;		
+		Execowtioner Mask,23572,240;
+		Giant Pacifier,23570,170;
+		Glob of Glooth,23553,125;
+		Glooth Injection Tube,23474,350;
+		Metal Jaw,23564,260;
+		Metal Toe,23569,430;
+		
+		Moohtant Horn,23571,140;
+		Necromantic Rust,23567,390;
+		Poisoned Fang,23566,130;
+		Slime Heart,23565,160;
+		Seacrest Pearl, 24116, 400;
+		Seacrest Scale, 24169, 150;
+		Seacrest Hair, 24170, 260;
+		Slimy Leaf Tentacle,23568,320;		
+		vial,2006,5;" />
+	</parameters>
+</npc>

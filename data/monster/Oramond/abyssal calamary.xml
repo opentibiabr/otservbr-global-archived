@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Abyssal Calamary" nameDescription="a abyssal calamary" race="blood" experience="200" speed="200" manacost="330">
+	<health now="300" max="300"/>
+	<look type="451" corpse="15280"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="89"/>
+	</flags>
+	<attacks>
+		<attack name="drunk" interval="2000" chance="10" range="2" duration="5000"/>
+	</attacks>
+	<defenses armor="12" defense="12"/>
+	<elements>
+		<element physicalPercent="-5"/>
+		<element energyPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity earth="1" />
+		<immunity drown="1" />
+		<immunity fire="1" />
+	</immunities>
+	<loot>
+		<item id="2670" chance="10000"/> <!-- shrimp -->
+		<item id="2667" chance="9090"/> <!-- fish -->
+		<item id="2146" countmax="2" chance="2040"/> <!-- small sapphire -->
+		<item id="2147" countmax="3" chance="2040"/> <!-- small ruby -->
+		<item id="2144" chance="1369"/> <!-- black pearl -->
+	</loot>
+</monster>

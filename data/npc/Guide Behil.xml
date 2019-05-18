@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Guide Behil" script="Guide Behil.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="146" head="114" body="87" legs="85" feet="126" addons="0" />
+</npc>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cave Devourer" nameDescription="a Cave Devourer" race="blood" experience="2800" speed="200" manacost="0">
+	<health now="3000" max="3000" />
+	<look type="1057" corpse="8721" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-290" />
+		<attack name="physical" interval="2000" chance="15" radius="3" min="0" max="-200">
+			<attribute key="areaEffect" value="blackspark" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" radius="4" target="1" min="-100" max="-225">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="healing" interval="4000" chance="15" min="50" max="145">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="1" />
+		<element firePercent="1" />
+		<element holyPercent="90" />
+	</elements>
+	<immunities>
+		<immunity earth="1" />
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmin="9" countmax="196" chance="100000" />	<!-- gold coin -->
+		<item id="2671" countmax="1" chance="60780" />		<!-- ham -->
+		<item id="2666" countmax="1" chance="4920" />		<!-- meat -->
+		<item id="2152" countmax="3" chance="62080" />		<!-- platinum coin -->
+		<item id="7591" countmax="1" chance="7670" />		<!-- great health potion -->
+		<item id="7590" countmax="1" chance="7380" />		<!-- great mana potion -->
+		<item id="2147" countmax="2" chance="5500" />		<!-- small ruby -->
+		<item id="9970" countmax="2" chance="900" />		<!-- small topaz -->
+		<item id="2150" countmax="2" chance="970" />		<!-- small amethyst -->
+		<item id="2149" countmax="2" chance="4050" />		<!-- small emerald -->
+	</loot>
+</monster>

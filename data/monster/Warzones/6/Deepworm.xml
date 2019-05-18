@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deepworm" nameDescription="a deepworm" race="blood" experience="2300" speed="102" manacost="0">
+	<health now="4500" max="4500" />
+	<look type="1033" corpse="30780" />
+	<targetchange interval="5000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300" />
+		<attack name="earth" interval="2000" chance="25" target="0" length="5" spread="0" min="-200" max="-300">
+			<attribute key="areaEffect" value="greenspark" />
+		</attack>
+		<attack name="earth" interval="2000" chance="21" range="7" radius="4" target="1" min="-250" max="-350">
+			<attribute key="shootEffect" value="poison" />
+			<attribute key="areaEffect" value="greenspark" />
+		</attack>
+	</attacks> 
+	<elements>
+		<element firePercent="0" />
+		<element physicalPercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+		<element icePercent="0" />
+		<element earthPercent="30" />
+		<element energyPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities> 
+	<voices interval="5000" chance="10">
+		<voice sentence="*bluuuuuure*" />
+		<voice sentence="*slurp slurp ... slurp*" />
+	</voices>
+	<loot>
+	<!--Sempre-->
+		<item name="Deepworm Jaws"  chance="24010" />
+		
+			<!--quase sempre-->
+			<item name="Life Ring"  chance="7320" />  
+			<item name="Meat" count="4" chance="19660" />  
+			<item name="Ham" count="4" chance="19660" />  
+			<item name="Wood Mushroom"  chance="22280" />  
+			<item name="Dark Mushroom"  chance="14960" />  
+			<item name="Green Mushroom"  chance="18520" />  
+			<item name="Green Crystal Shard"  chance="5360" />  
+			<item id="30828" count="2"  chance="13210" />   <!-- Deepworm Spike Roots -->
+			<item name="Deepworm Spikes"  chance="9880" /> 
+			
+				<!--semi raro-->
+				<item name="Small Enchanted Amethyst" count="2"  chance="3430" />  
+				<item name="Terra Amulet"  chance="5060" />  
+				<item name="Springsprout Rod"  chance="1120" />  
+				<item name="Sacred Tree Amulet"  chance="2390" />  
+				
+						<!--raro-->  
+						<item id="7632"  chance="860" />  <!--Giant Shimmering Pearl-->
+						<item name="Suspicious Device"  chance="530" />  
+
+	</loot>
+</monster>

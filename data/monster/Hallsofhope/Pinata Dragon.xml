@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Piñata Dragon" nameDescription="a Pinata Dragon" race="undead" experience="85" speed="0" manacost="0">
+	<health now="10000" max="10000" />
+	<look typeex="27730" />
+	<targetchange interval="2000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<summons maxSummons="3">
+		<summon name="Demon" interval="2000" chance="7" />
+	</summons>
+	<defenses armor="1" defense="1">
+		<defense name="healing" interval="2000" chance="30" min="0" max="0">
+			<attribute key="areaEffect" value="mortarea" />
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity physical="1" />
+		<immunity energy="1" />
+		<immunity fire="1" />
+		<immunity poison="1" />
+		<immunity ice="1" />
+		<immunity holy="1" />
+		<immunity death="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity drown="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

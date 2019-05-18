@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Darkfang" nameDescription="a darkfang" race="blood" experience="4000" speed="250" manacost="0" script="boss.lua">
+	<health now="4800" max="4800" />
+	<look type="308" corpse="20380" />
+		<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" /> 
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-290" />
+	
+			<attack name="werewolf skill reducer" interval="2000" range="1" chance="15" />
+	
+		<attack name="lifedrain" interval="2000" chance="15" radius="8" target="0" min="-100" max="-300">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+		
+		<attack name="physical" interval="2000" chance="18" radius="3"  min="200" max="340">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+		 
+			<attack name="speed" interval="2000" chance="15" range="7" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		 
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="healing" interval="4000" chance="15" min="150" max="345">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		
+		
+		
+		
+	</defenses>
+		<summons maxSummons="2">
+		<summon name="Gloom Wolf" interval="2000" chance="20" />
+	</summons>
+	
+		<voices interval="2000" chance="5">
+		<voice sentence="The ferocity of wolves will frighten the fearful! Roarrr!" />
+		<voice sentence="You are my next meal! Grrr!" />
+ 
+	</voices> 
+ 
+	<elements>
+	    <element physicalPercent="50" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element deathPercent="50" />
+		<element icePercent="50" />
+		<element holyPercent="50" />
+	</elements>
+	<immunities>
+	 
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+	<!-- Comum-->
+
+ 		<item name="Gold Coin" countmax="100" chance="13600000" />
+		<item name="Gold Coin" countmax="100" chance="13600000" />	
+		<item name="Platinum Coin" countmax="10" chance="13600000" />	
+		<item name="Berserk Potions" countmax="3" chance="13600000" />	
+		<item name="Black Pearl" countmax="3" chance="13600000" />	
+		<item name="Onyx Chips" countmax="5" chance="13600000" />	
+		<item name="Small Enchanted Sapphire" countmax="10" chance="13600000" />	
+		<item name="Ultimate Health Potion" countmax="5" chance="13600000" />	
+		<item name="Platinum Amulet" chance="13600000" />	
+		<item name="Stone Skin Amulet"  chance="13600000" />	
+		<item name="Time Ring" chance="13600000" />	
+		<item name="Troll Green" countmax="2" chance="13600000" />	
+		<item name="Werewolf Fur" countmax="2" chance="13600000" />	
+		<item name="Wolf Paw" countmax="2" chance="13600000" />	
+		
+		
+<!-- Semi-raro-->
+		
+		<item name="Bonebreaker"  chance="400" />	
+		<item name="Dreaded Cleaver" chance="400" />	
+		<item name="Werewolf Amulet"  chance="400" />	
+		<item name="Sai	" chance="250" />
+		<item name="Wolf Trophy" chance="250" />
+<!-- raro-->
+		 
+		<item name="Silver Token"  chance="250" />	 
+
+<!-- raro-->
+		 
+		<item name="Wolf Backpack" chance="100" />	 
+ 
+
+<!-- Evento-->
+ 		<item name="Moonlight Crystal"  chance="50" />	
+ 
+	</loot>
+</monster>
+ 
+  

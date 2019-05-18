@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grovebeast" nameDescription="Grovebeast" race="undead" speed="500" manacost="3000">
+	<health now="15000" max="15000" />
+	<look type="993" corpse="0" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag pet="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="0" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag staticattack="98" />
+		<flag targetdistance="0" />
+		<flag runonhealth="9000" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="200" chance="45" skill="153" min="-100" max="-300" />
+		<attack name="earth" interval="1000" chance="10" target="1" spread="0" min="0" max="-800">
+			<attribute key="areaEffect" value="stones" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" target="1" range="1" min="-50" max="-200">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="earth" interval="2000" chance="15" length="2" spread="3" min="-250" max="-500">
+			<attribute key="areaEffect" value="carniphila" />
+		</attack>
+		<attack name="Challenge" interval="500" chance="3" radius="8">
+			<attribute key="areaEffect" value="exeta res" />
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="95">
+		<defense name="healing" interval="3000" chance="16" min="80" max="600">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="Challenge" interval="100" chance="15">
+			<attribute key="areaEffect" value="exeta res" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="0" />
+		<element earthPercent="0" />
+		<element energyPercent="0" />
+		<element deathPercent="0" />
+		<element physicalPercent="0" />
+		<element holyPercent="0" />
+		<element icePercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

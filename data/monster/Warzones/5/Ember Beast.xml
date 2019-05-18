@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Ember Beast" nameDescription="an ember beast" race="undead" experience="0" speed="220">
+	<health now="4000" max="4000" />
+	<look type="498" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400" />
+		<attack name="emberBeastArea" interval="1000" chance="20" min="-200" max="-450"/>
+		<attack name="emberBeastHur" interval="2000" chance="10" min="-200" max="-450"/>
+	</attacks>
+	<elements>
+		<element icePercent="50" />
+		<element firePercent="50" />
+		<element energyPercent="50" />
+		<element holyPercent="50" />
+		<element deathPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

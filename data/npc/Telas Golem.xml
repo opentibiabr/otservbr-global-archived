@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Telas Golem" script="Telas Golem.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="304" />
+</npc>

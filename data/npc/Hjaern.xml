@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Hjaern" script="Hjaern.lua" walkinterval="2000">
+	<health now="100" max="100" />
+	<look type="154" head="0" body="94" legs="95" feet="114" addons="3" />
+	<parameters>
+		<parameter key="message_greet" value="Be greeted, |PLAYERNAME|. The spiritual world looks upon you and your deeds." />
+	</parameters>
+</npc>
+

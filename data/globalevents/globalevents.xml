@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<globalevents>
+
+	<!-- AUTO LOOT -->
+	<globalevent name="autoloot" type="startup" script="autoloot.lua"/>
+
+		<!-- boss falcon -->
+	<globalevent name="Canon Dominus" interval="900000" script="bosses/Grand Canon Dominus.lua" />
+	<globalevent name="Chaplaingaunder" interval="900000" script="bosses/Grand Chaplain Gaunder.lua" />
+    <globalevent name="Preceptor Lazare" interval="900000" script="bosses/Preceptor Lazare.lua" />
+	<globalevent name="Grand Commander" interval="900000" script="bosses/Grand Commander Soeren.lua" />
+    <globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" /> 
+	
+	
+	<!--Gray Island Bosses -->
+    <globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>
+	
+    <!----- Mawhawk a cada 4 horas  Funcionando	-->
+    <globalevent name="Mawhawk" interval="14399999" script="bosses/Mawhawk.lua"/>
+	    
+
+    <!----- Boss poi a cada 13 um randon boss horas  Funcionando	-->
+    <globalevent name="bosspoi" interval="46800000" script="bosses/bosspoi.lua"/>
+	 
+ 	 
+	 
+    <!----- Mad mage a cada 4 horas  Funcionando	-->
+    <globalevent name="Mad" interval="14400000" script="bosses/Mad.lua"/>	
+  
+	
+	
+	
+	
+    <globalevent name="npcs" type="startup" script="others/npcspawn.lua"/>
+
+	<!-- grimvale raid -->
+	<globalevent name="Grimvale" interval="60000" script="others/grimvale.lua" />
+	<globalevent name="Respawn" type="startup" script="others/grimvaleRespawn.lua" />
+
+	<!-- Ferumbras Ascendant Quest -->
+    <globalevent name="Effect" interval="3000" script="FerumbrasAscedantQuest/effect.lua"/>
+    <globalevent name="Effcts" interval="4000" script="FerumbrasAscedantQuest/effects.lua"/>
+
+	<!-- Blooming Griffinclaw -->
+	<globalevent name="GriffinclawFlower" type="startup" script="others/griffinclawFlower.lua" />
+
+	<!-- Demon Oak Quest -->
+	<globalevent name="DemonOakVoices" interval="15000" script="demon oak quest/voices.lua" />
+
+	<!-- Rent Horses -->
+	<globalevent name="RentedMounts" interval="15000" script="others/checkMount.lua" />
+
+	<!-- World Changes -->
+	<globalevent name="FuryGates" type="startup" script="worldchanges/furygates.lua" />
+	<globalevent name="TheirMastersVoice" type="startup" script="worldchanges/theirmastersvoice.lua" />
+
+	<!-- Raids --> 
+	<globalevent name="SpawnRaid" interval="60000" script="spawn/raids.lua"/>
+
+	<!-- Others --> 
+	<globalevent name="respawndano" interval="9000" script="respawndano.lua" />
+	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
+	<globalevent type="record" name="PlayerRecord" script="record.lua" />
+	<globalevent name="ServerSave" time="05:55:00" script="serversave.lua" />	
+	<globalevent type="startup" name="rashid" script="rashid.lua"/>
+	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
+    <globalevent name="text" interval="4550" script="textotp.lua"/>
+	<globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" />
+	<globalevent name="checkInbox" interval="30000" script="others/checkInbox.lua"/>
+	<globalevent interval="100000" name="GuildWar" script="guildwar.lua"/>
+	<globalevent interval="180000000" name="AutoSave" script="autosave.lua"/>
+	<globalevent name="autoBroadcast" interval="900000" script="autobroadcast.lua"/>
+</globalevents>

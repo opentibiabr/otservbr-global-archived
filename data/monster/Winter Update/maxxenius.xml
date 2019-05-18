@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Maxxenius" nameDescription="a Maxxenius" race="blood" experience="55000" speed="250">
+	<health now="20000" max="20000" />
+	<look type="1142" corpse="34789" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+	    <flag boss="1" />
+        <flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag isblockable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1000" />
+		<attack name="energy beam" chance="10" min="-500" max="-1200">
+			<attribute key="shootEffect" value="energy" />
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+		<attack name="energy wave"  chance="10" min="-500" max="-1200">
+			<attribute key="shootEffect" value="energy" />
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+	</attacks>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+		<immunity energy="1" />
+	</immunities>
+	<loot>
+<!--common-->
+<item name="Platinum Coin" count="5" chance="100000" />
+<item name="Mysterious Remains" chance="100000" />
+<item name="Piggy Bank" chance="100000" />
+<item name="Brain in a Jar" chance="100000" />
+<item name="Maxxenius Head" chance="100000" />
+<item name="Silver Token" countmin="2" countmax="3" chance="100000" />
+<item name="Energy Bar" chance="100000" />
+<item name="Crystal Coin" chance="13790" />
+<item name="Gold Ingot" chance="17240" /> 
+<item name="Bullseye Potion" count="10" chance="24114" />
+<item name="Mastermind Potion" count="10" chance="17240" />
+<item name="Royal Star" count="100" chance="100000" />
+<item name="Supreme Health Potion" countmin="14" countmax="20" chance="41380" />
+<item name="Ultimate Spirit Potion" countmin="6" countmax="60" chance="48280" /> 
+<item name="Ultimate Mana Potion" count="14" chance="68970" /> 
+<item name="Giant Ruby" chance="3450" />  
+<item name="Ornate Locket" chance="3450" />  
+<item name="Gold Token" count="2" chance="68970" />
+<item id="7632" chance="28540" /> <!-- Giant Shimmering Pearl -->
+<item name="Pomegranate" chance="24140" />
+<item name="Chaos Mace" chance="6900" /> 
+<item id="26184" chance="17240" /> <!-- Collar of Red Plasma-->
+<item id="26199" chance="13790" /> <!-- collar of green plasma-->
+<item name="Green Gem" chance="31030" /> 
+<item name="Yellow Gem" chance="31030" /> 
+<item name="Violet Gem" chance="6900" /> 
+<item name="Blue Gem" chance="10340" /> 
+<item name="Huge Chunk of Crude Iron" chance="17240" />
+
+<item id="26185" chance="3450" /> <!-- ring of blue plasma-->
+<item name="Skull Staff" chance="13790" />
+<!-- rare-->
+<item name="Energized Limb" chance="3450" />
+<item name="Purple Tendril Lantern" chance="1500" />
+</loot>
+</monster>
+5× Platinum Coin (100%)2-3× Silver Token (100%)Energy Bar (100%)Mysterious Remains (100%)Piggy Bank (100%)6-14× Ultimate Mana Potion (68.97%)2× Gold Token (68.97%)100× Royal Star (55.17%)6-60× Ultimate Spirit Potion (48.28%)14-20× Supreme Health Potion (41.38%)Green Gem (31.03%)Yellow Gem (31.03%)Giant Shimmering Pearl (27.59%)Giant Shimmering Pearl (27.59%)10× Bullseye Potion (24.14%)Pomegranate (24.14%)Gold Ingot (17.24%)10× Mastermind Potion (17.24%)Collar of Red Plasma (17.24%)Huge Chunk of Crude Iron (17.24%)1-3× Crystal Coin (13.79%)Collar of Green Plasma (13.79%)Skull Staff (13.79%)Blue Gem (10.34%)Chaos Mace (6.9%)Violet Gem (6.9%)Giant Ruby (3.45%)Ornate Locket (3.45%)Ring of Blue Plasma (3.45%)Energized Limb (3.45%)Brain in a JarMaxxenius HeadPurple Tendril Lantern

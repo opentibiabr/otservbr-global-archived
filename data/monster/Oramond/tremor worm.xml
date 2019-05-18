@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="tremor worm" nameDescription="a tremor worm" race="blood" experience="80000" speed="170" manacost="330">
+	<health now="100000" max="100000"/>
+	<look type="295" corpse="0" />
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="80"/>
+	</attacks>
+	<defenses armor="100" defense="100"/>
+	<elements>
+		<element physicalPercent="75"/>
+		<element holyPercent="75"/>
+		<element deathPercent="75"/>
+		<element firePercent="75"/>
+		<element energyPercent="75"/>
+		<element icePercent="75"/>
+		<element earthPercent="75"/>
+	</elements>
+	<loot>
+		<item id="2152" countmax="5" chance="33000"/> <!-- platinum coin -->
+		<item id="7591" countmax="1" chance="10000"/> <!-- great health potion -->
+		<item id="7590" countmax="1" chance="10000"/> <!-- great mana potion -->
+		<item id="9690" chance="1500"/> <!-- gear wheel -->
+		<item id="23522" chance="1000"/> <!-- gearwheel chain -->
+		<item id="10571" countmax="1" chance="900"/> <!-- war crystal -->
+	</loot>
+</monster>

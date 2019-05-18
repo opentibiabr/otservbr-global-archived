@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Renegade Quara Hydromancer" nameDescription="a renegade quara hydromancer" race="blood" experience="1700" speed="250" manacost="330">
+	<health now="2000" max="2000"/>
+	<look type="47" corpse="6066" />
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="110" attack="90" poison="5" />
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-350" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="2000" chance="15" min="100" max="120">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-25" />
+		<element earthPercent="-1" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity drown="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="77" chance="100000"/> <!-- gold coin -->
+		<item id="2152" countmax="4" chance="100000"/> <!-- platinum coin -->
+		<item id="12444" chance="25000"/> <!-- quara eye -->
+		<item id="7591" countmax="2" chance="14285"/> <!-- great health potion -->
+		<item id="2178" chance="12500"/> <!-- mind stone -->
+		<item id="7590" countmax="2" chance="9090"/> <!-- great mana potion -->
+		<item id="2670" chance="5000"/> <!-- shrimp -->
+		<item id="2149" chance="4347"/> <!-- small emerald -->
+		<item id="9970" countmax="2" chance="4347"/> <!-- small topaz -->
+		<item id="18415" chance="3571"/> <!-- green crystal shard -->
+		<item id="8870" chance="3571"/> <!-- spirit cloak -->
+		<item id="5914" chance="1428"/> <!-- yellow piece of cloth -->
+		<item id="2189" chance="1428"/> <!-- wand of cosmic energy -->
+		<item id="2143" chance="719"/> <!-- white pearl -->
+		<item id="2144" chance="719"/> <!-- black pearl -->
+		<item id="5895" chance="719"/> <!-- fish fin -->
+		<item id="2168" chance="719"/> <!-- life ring -->
+		<item id="2476" chance="719"/> <!-- knight armor -->
+		<item id="2155" chance="719"/> <!-- green gem -->
+	</loot>
+</monster>

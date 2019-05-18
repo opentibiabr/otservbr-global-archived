@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Edmund" script="Edmund.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="472" head="116" body="114" legs="95" feet="78" addons="0" />
+	
+	<voices>
+<voice text="Shop Jewels, come to trade with me." interval2="90" margin="1" yell="no" />
+</voices>
+	<parameters>
+	<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+Black Pearl,2144,560;
+Bronze Goblet,5807,2000;
+Golden Amulet,2130,6600;
+Golden Goblet,5805,5000;
+Ruby Necklace,2133,3560;
+Silver Goblet,5806,3000;
+Small Amethyst,2150,400;
+Small Emerald,2149,500;
+Small Ruby,2147,500;
+Small Sapphire,2146,500;
+Wedding Ring,2121,990;
+White Pearl,2143,320;
+Small Diamond,2145,600" />
+
+		<parameter key="shop_sellable" value="
+		Black Pearl,2144,280;
+		Blue Crystal Shard,18413,1500;
+		Blue Crystal Splinter,18418,400;
+		Brown Crystal Splinter,18417,400;		
+		Cyan Crystal Fragment,18419,800;		
+		Giant Shimmering Pearl,7632,3000;
+		Gold Ingot,9971,5000;
+		Green Crystal Fragment,18421,800;
+		Green Crystal Shard,18415,1500;
+		Green Crystal Splinter,18416,400;		
+		Red Crystal Fragment,18420,800;
+		Small Amethyst,2150,200;
+		Small Diamond,2145,300;
+		Small Emerald,2149,250;		
+		Small Topaz,9970,200;
+		Violet Crystal Shard,18414,1500;
+		Wedding Ring,2121,100;
+		White Pearl,2143,160;		
+		Small Ruby,2147,250;		
+		Small Sapphire,2146,250;" />
+	</parameters>
+</npc>

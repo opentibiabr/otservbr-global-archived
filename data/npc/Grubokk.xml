@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Grubokk" script="grubokk.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="857" />
+	
+</npc>

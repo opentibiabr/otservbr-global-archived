@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Iron Servant Replica" nameDescription="an iron servant replica" race="energy" experience="210" speed="190" manacost="0">
+	<health now="350" max="350"/>
+	<look type="395" corpse="13483"/>
+	<targetchange interval="5000" chance="8"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag isblockable="0" />
+		
+	</flags>
+	<attacks>
+      		<attack name="melee" interval="2000" skill="20" attack="30"/>
+		<attack name="physical" interval="2000" chance="12" range="7" min="-0" max="-60">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="14" range="7" duration="2000">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="45"/>
+	<elements>
+		<element earthPercent="-5"/>
+		<element holyPercent="5"/>
+		<element firePercent="10"/>
+		<element energyPercent="5"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Error. LOAD 'PROGRAM',8,1" yell="1"/>
+		<voice sentence="Remain. Obedient." yell="1"/>
+	</voices>
+	<loot>
+		<item id="9690" chance="4840"/><!-- gear wheel -->
+		<item id="2148" countmax="55" chance="82190"/><!-- gold coin -->
+		<item id="7618" chance="1980"/><!-- health potion -->
+		<item id="2381" chance="1000"/><!-- halberd -->
+		<item id="9808" chance="530"/><!-- rusty armor -->
+		<item id="13758" chance="310"/><!-- slime mould -->
+	</loot>
+</monster>

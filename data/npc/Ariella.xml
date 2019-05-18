@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Ariella" script="Ariella.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="155" head="115" body="3" legs="1" feet="76" addons="2" />
+	<voices>
+		<voice text="Have a drink in Meriana's only tavern!" interval2="120" margin="1" yell="no" />
+	</voices>
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="cheese,2696,6;ham,2671,8;meat,2666,5;valentine's Cake,6393,100;apple,2674,5;banana,2676,5;blueberry,2677,1;mango,5097,10;melon,2682,10;orange,2675,10;pear,2673,5;pumpkin,2683,10;strawberry,2680,2;juice squeezer,5865,100;" />
+		<parameter key="message_greet" value="Hi there |PLAYERNAME|, and welcome to my tavern." />
+		<parameter key="message_farewell" value="Good bye." />
+		<parameter key="message_walkaway" value="Good bye." />
+		<parameter key="message_sendtrade" value="Of course, take a look at my tasty offers." />
+	</parameters>
+</npc>

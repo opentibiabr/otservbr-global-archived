@@ -1,0 +1,85 @@
+	
+	<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Omnivora" nameDescription="a omnivora" race="blood" experience="750" speed="210" manacost="0">
+	<health now="1200" max="1200" />
+	<look type="717" corpse="24651" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="80" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-150" />
+		<attack name="speed" interval="4000" chance="20" range="7" target="1" speedchange="-350" duration="12000">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="earth" interval="2000" chance="20" range="7" min="-80" max="-100">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		
+		<attack name="earth" interval="2000" chance="10" length="8" spread="3" min="-50" max="-100">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="2000" chance="15" min="250" max="400">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		
+	</defenses>
+	<elements>
+		<element icePercent="20" />
+		<element firePercent="-10" />
+		<element energyPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity earth="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Sssssouls for the one" />
+		<voice sentence="HISSSS" yell="1" />
+		<voice sentence="Tsssse one will risssse again" />
+		<voice sentence="I bring your deathhh, mortalssss" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->
+		
+		<item id="2667" countmax="2" chance="18200" />				<!-- fish -->
+		
+		<item id="18418" chance="2000" />				<!-- Blue Crystal Splinter -->
+		
+		<item id="18417" chance="2000" />				<!-- Brown Crystal Splinter, -->
+		
+		<item id="18416" chance="2210" />					<!-- Green Crystal Splinter -->		
+		
+		<item id="2671" chance="1200" />					<!-- ham -->
+		
+		<item id="2787" chance="1900" />					<!-- White Mushrooms -->
+		
+		<item id="2168" chance="950" />					<!-- Life Ring -->
+		
+		<item id="2409" chance="780" />					<!-- serpent sword -->
+		
+		
+		<item id="7887" chance="700" />					<!-- Terra Amulet -->
+		
+		<item id="7886" chance="560" />					<!-- Terra Boots -->
+		<item id="2185" chance="430" />					<!-- Necrotic Rod -->
+		
+		<item id="8900" chance="320" />					<!-- Spellbook of Enlightenment -->
+		
+		<item id="13298" chance="100" />					<!-- Carrot on a Stick -->
+	
+	</loot>
+</monster>

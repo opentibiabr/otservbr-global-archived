@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Gladys" script="Gladys.lua" walkinterval="0" floorchange="0">
+	<health now="100" max="100" />
+	<look type="148" head="57" body="94" legs="78" feet="114" addons="1"/>
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+			Basket,1989,6;
+			Bottle,2007,3,0;			
+			Candelabrum,2041,8;
+			Candlestick,2047,2;
+			Closed Trap,2578,280;
+			Crowbar,2416,260;
+			Fishing Rod,2580,150;
+			Machete,2420,35;
+			Pick,2553,50;
+			Present,1990,10;			
+			Rope,2120,50;
+			Scythe,2550,50;
+			Shovel,2554,50;
+			Torch,2050,2;
+			Watch,2036,20;
+			Worm,3976,1" />
+		<parameter key="shop_sellable" value="		
+		
+		Badger Boots,24742,7500;
+		
+		Closed Trap,2578,75;
+		Crowbar,2416,50;
+		Fishing Rod,2580,40;
+		Fur Armor,24741,5000;
+		Machete,2420,6;
+		Pick,2553,15;
+		Rope,2120,15;
+		Scythe,2550,10;
+		Shovel,2554,8;
+		Watch,2036,6;
+		Werebadger Claws,24707,160;
+		Werebadger Skull,24711,185;
+		Werebear Fur,24713,185;
+		Werebear Skull,24713,195;
+		Wereboar Hooves,24709,175;
+		Wereboar Loincloth,24743,1500;
+		Wereboar Tusk,24710,165;
+		Werewolf Fang,24708,180;
+		Werewolf Fur,11234,380;
+		Wooden Hammer,2556,15" />
+	</parameters>
+</npc>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lovely Scorpion" nameDescription="a lovely scorpion" race="venom" experience="45" speed="150" manacost="310">
+	<health now="45" max="45"/>
+	<look type="43" corpse="5988"/>
+	<targetchange interval="2000" chance="10"/>
+	<strategy attack="60" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="5"/>
+		<flag isblockable="0" />
+		<flag canwalkonpoison="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonenergy="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="25" poison="350"/>
+	</attacks>
+	<defenses armor="14" defense="5"/>
+	<elements>
+		<element energyPercent="20"/>
+		<element firePercent="-10"/>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity earth="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
+		<immunity physical="1"/>
+		<immunity holy="1"/>
+		<immunity energy="1"/>
+	</immunities>
+	<loot>
+		<item id="10568" chance="4970"/> <!-- scorpion tail -->
+	</loot>
+</monster>

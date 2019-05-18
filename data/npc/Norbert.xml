@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Norbert" script="Norbert.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="128" head="6" body="79" legs="93" feet="13" addons="0" />
+<voices>
+<voice text="Wonderful and stylish clothes! Come and buy!" interval2="100" margin="1" yell="no" />
+</voices>
+	<parameters>
+		<parameter key="message_greet" value="Welcome, |PLAYERNAME|. You look as if you need new clothes." />
+		<parameter key="message_farewell" value="Bye, bye." />
+		<parameter key="message_walkaway" value="Bye, bye." />
+		<parameter key="message_onsendtrade" value="Of course, just browse through my wonderful clothes." />
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="			Coat,2651,8;			Doublet,2485,16;			Jacket,2650,12;			Leather Armor,2467,35;			Studded Armor,2484,90;			Wedding Outfit Box,10503,5000		" />
+		<parameter key="shop_sellable" value="			Coat,2651,1;			Doublet,2485,3;			Jacket,2650,1;			Leather Armor,2467,12;			Studded Armor,2484,25		" />
+	</parameters>
+</npc>
+

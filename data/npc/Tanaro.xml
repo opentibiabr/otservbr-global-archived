@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Tanaro" script="Tanaro.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="144" head="113" body="0" legs="97" feet="115" addons="1" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+			bottle of water,2007,2,1;
+			green flask of wine,2009,3,15;
+			wine,2006,10,15;" />
+	</parameters>
+</npc>

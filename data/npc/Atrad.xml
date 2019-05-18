@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Atrad" script="Atrad.lua" walkinterval="2000" speechbubble="4" floorchange="0">
+  <health now="100" max="100" />
+ <look type="152" head="77" body="113" legs="132" feet="94" addons="3"/>
+<parameters>
+		<parameter key="module_shop" value="1" />
+        <parameter key="message_greet" value="Hehe. That's a good show, |PLAYERNAME|, with all the pyro effects. You got my attention. For a minute or so."/>
+        <parameter key="message_farewell" value="Good bye."/>
+		<parameter key="message_walkaway" value="Good bye." />
+		<parameter key="message_sendtrade" value="There you go !" />
+    <parameter key="module_shop" value="1" />
+    <parameter key="shop_buyable" value="Arrow,2544,3;Bolt,2543,4;Bow,2456,400;Crossbow,2455,500;Spear,2389,9;Assassin Star,7368,100" />
+    <parameter key="shop_sellable" value="Spear,2389,3" />
+    </parameters>
+</npc>

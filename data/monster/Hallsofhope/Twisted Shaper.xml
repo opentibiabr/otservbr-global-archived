@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Twisted Shaper" nameDescription="a Twisted Shaper" race="blood" experience="1750" speed="450" manacost="290">
+	<health now="2500" max="2500" />
+	<look type="932" head="68" body="0" legs="0" feet="94" corpse="27736" />
+	<targetchange interval="5000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="10" />
+		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="-25">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10" />
+	<elements>
+		<element energyPercent="20" />
+		<element holyPercent="1" />
+		<element earthPercent="-12" />
+		<element deathPercent="-10" />
+	</elements>
+	<voices interval="2000" chance="7">
+		<voice sentence="<grunt>" />
+		<voice sentence="Raar!!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="222" chance="80320" /><!-- gold coin -->
+		<item id="2152" countmax="4" chance="50320" /><!-- platinun coin -->
+		<item id="2789" countmax="2" chance="5000" /><!-- Brown Mushrooms -->
+		<item id="2666" countmax="2" chance="10000" /><!-- Meats -->
+		<item id="27051" countmax="2" chance="20000" /><!-- cave turnip -->
+		<item id="5022" countmax="2" chance="5000" /><!-- Orichalcum Pearl -->
+		<item id="2147" countmax="5" chance="5600" /><!-- small ruby -->
+		<item id="24849" countmax="1" chance="4900" /><!-- Onyx Chip  -->
+		<item id="27055" chance="14580" /><!-- Tarnished Rhino Figurine -->
+		<item id="7591" chance="7300" /><!--  Great Health Potion-->
+		<item id="2167" chance="7660" /><!-- Energy Ring  -->
+		<item id="2189" chance="3810" /><!-- Wand of Cosmic Energy  -->
+		<item id="2171" chance="370" /><!-- Platinum Amulet  -->
+		<item id="27052"  chance="17000" /><!-- Ancient Belt Buckle -->
+		<item id="27053"  chance="20000" /><!-- Cracked Alabaster Vase -->
+		<item id="27058"  chance="4000" /><!--  Ancient Coin -->
+	</loot>
+</monster>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Minotaur Cult Prophet" nameDescription="a minotaur cult prophet" race="blood" experience="1100">
+	<health now="1700" max="1700" />
+	<look type="23" corpse="5981" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-100" />
+		<attack name="energy" interval="2000" chance="15" range="7" min="-20" max="-350">
+			<attribute key="shootEffect" value="energy" />
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" radius="1" target="1" min="-50" max="-300">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+	<defense name="Heal Monster" interval="2000" chance="20">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Learrn tha secrret uf deathhh!" />
+		<voice sentence="Kaplar!" />
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="150" chance="100000" />
+		<item name="cowbell" chance="18570" />
+		<item name="moonlight rod" countmax="1" chance="8480" />
+		<item name="cultish robe" chance="15450" />
+		<item name="great health potion" countmax="1" chance="7070" />
+		<item name="great mana potion" countmax="1" chance="16810" />
+		<item name="gold ingot" countmax="1" chance="1120" />
+		<item name="small ruby" countmax="1" chance="7160" />
+		<item name="small topaz" countmax="1" chance="7650" />
+		<item name="yellow gem" countmax="1" chance="490" />
+		<item name="platinum coin" countmax="3" chance="67040" />
+		<item name="small emerald" countmax="1" chance="11160" />
+		<item name="small diamond" countmax="2" chance="2900" />
+		<item name="small amethyst" countmax="2" chance="6680" />
+		<item name="red piece of cloth" countmax="1" chance="630" />
+		<item name="ring of healing" countmax="1" chance="6730" />
+		<!-- <item name="minotaur trophy" countmax="1" chance="220" /> -->
+		<item name="red gem" countmax="1" chance="390" />
+		<item name="meat" countmax="1" chance="8040" />
+		<item name="ham" countmax="1" chance="60140" />
+		<item name="minotaur leather" countmax="1" chance="14230" />
+		<item name="minotaur horn" countmax="2" chance="18270" />
+	</loot>
+</monster>

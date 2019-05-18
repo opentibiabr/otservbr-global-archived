@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+    <!--
+	// Raid System by 5mok3
+	// DO NOT CHANGE INTERVAL UNLESS YOU ARE SURE WHAT YOU ARE DOING!!
+	-->
+
+  <!--Announcements-->
+  <announce delay="1000" type="Event" message="An ancient evil is awakening in the grimvale mines." />
+  <announce delay="30000" type="Event" message="Werewolfs entities are entering the mortal realm in the grimvale mines." />
+  <announce delay="60000" type="Event" message="The Feroxa master has revealed itself in the mines of grimvale." />
+  <!--Single Spawns-->
+  <script delay="60000" script="feroxa.lua" />
+  <!--<singlespawn delay="60000" name="Feroxa" x="33389" y="31539" z="11" />  -->
+  <!--Area Spawns-->
+
+</raid>

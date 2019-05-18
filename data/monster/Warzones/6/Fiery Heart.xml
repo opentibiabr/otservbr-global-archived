@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Fiery Heart" nameDescription="a fiery heart" race="undead" experience="0" speed="0">
+	<health now="5000" max="5000" />
+	<look typeex="389"/>
+	<targetchange interval="4000" chance="1" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="aggresiveLavaWave" interval="2000" chance="30" min="0" max="-550" />
+	</attacks>
+	<defenses armor="30" defense="30" />
+</monster>

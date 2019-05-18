@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Vigintius" script="Vigintius.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="273" head="94" body="94" legs="88" feet="61" addons="3" />
+</npc>

@@ -1,0 +1,8 @@
+build
+*/build/**
+vscode
+.vscode
+tfs
+.vs
+x64
+theforgottenserver.vcxproj.user

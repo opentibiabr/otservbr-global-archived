@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+    <!--
+	// Raid System by 5mok3
+	// DO NOT CHANGE INTERVAL UNLESS YOU ARE SURE WHAT YOU ARE DOING!!
+	-->
+
+  <!--Announcements-->
+<announce delay="1000" type="event" message="Beware of Arachir the Ancient One!" />
+  <!--Single Spawns-->
+  <singlespawn delay="1000" name="Arachir the Ancient One" x="32965" y="32400" z="12" />
+</raid>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Ravager" nameDescription="the ravager" race="undead" experience="18000" speed="340" manacost="0">
+	<health now="53500" max="53500"/>
+	<look type="87" corpse="6031"/>
+	<targetchange interval="5000" chance="8"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="tp"/>
+	</script>	
+	<attacks>
+		<attack name="melee" interval="2000" skill="82" attack="70" poison="320"/>
+		<attack name="death" interval="2000" chance="12" range="7" min="-200" max="-750">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="9" length="8" spread="3" min="-700" max="-880">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="18" length="7" spread="0" min="-400" max="-500">
+			<attribute key="areaEffect" value="smoke"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="30">
+		<defense name="healing" interval="2000" chance="20" min="200" max="400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="10"/>
+		<element energyPercent="5"/>
+		<element icePercent="35"/>
+		<element physicalPercent="10"/>
+		<element holyPercent="-10"/>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="16">
+		<summon name="Elder Mummy" interval="2000" chance="9" max="4"/>
+		<summon name="Canopic Jar" interval="2000" chance="9" max="4"/>
+		<summon name="Greater Canopic Jar" interval="2000" chance="9" max="8"/>
+	</summons>
+	<loot>
+		<item id="2148" countmax="243" chance="95000"/><!-- gold coin -->
+		<item id="7590" countmax="5" chance="10000"/><!-- great mana potion -->
+		<item id="7591" countmax="5" chance="5000"/><!-- great health potion -->
+		<item id="2152" countmax="5" chance="37500"/><!-- platinum coin -->
+		<item id="2159" countmax="5" chance="15000"/><!-- scarab coin -->
+		<item id="2440" chance="5000"/><!-- twin axe -->
+	</loot>
+</monster>

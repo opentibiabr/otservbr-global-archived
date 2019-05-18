@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Liqour Spirit" nameDescription="a liquor spirit" race="blood" experience="0" speed="250" manacost="0">
+	<health now="7000" max="7000" />
+	<look type="986" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+	</flags>
+	<script>
+		<event name="Evaporate" />
+    </script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-0" max="-400" />
+	</attacks>
+	<defenses armor="35" defense="35">
+	</defenses>
+	<elements>
+		<element deathPercent="0" />
+		<element firePercent="0" />
+		<element energyPercent="0" />
+		<element icePercent="0" />
+		<element holyPercent="0" />
+		<element physicalPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

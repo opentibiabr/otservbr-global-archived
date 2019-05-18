@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+	
+	<areaspawn delay="2000" fromx="33580" fromy="31926" fromz="10" tox="33649" toy="31973" toz="10">
+		<monster name="Professor Maxxen" amount="1" />
+	</areaspawn>
+</raid>

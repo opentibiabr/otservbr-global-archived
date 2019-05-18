@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Captain Tiberius" script="Captain Tiberius.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="134" head="97" body="79" legs="95" feet="116" addons="0" />
+</npc>

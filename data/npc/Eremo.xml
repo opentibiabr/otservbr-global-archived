@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Eremo" script="Eremo.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="130" head="0" body="109" legs="128" feet="128" addons="0" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="amulet of loss,2173,10000;protection amulet,2200,700, 250;" />
+		<parameter key="shop_sellable" value="amulet of loss,2173,5000;broken amulet,2196,50000;" />
+	</parameters>
+</npc>
+ 

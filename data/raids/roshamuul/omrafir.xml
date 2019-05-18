@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<raid>
+    <!--
+	// Raid System by 5mok3
+	// DO NOT CHANGE INTERVAL UNLESS YOU ARE SURE WHAT YOU ARE DOING!! {x = 33587, y = 32378, z = 12}
+	-->
+
+  <!--Announcements-->
+  
+  <announce delay="20000" type="Event" message="Omrafir is about to make his way into the roshamuul prison. Run for your lives!" />
+  <announce delay="60000" type="Event" message="Bewarehas Omrafir." />
+  <!--Single Spawns-->
+   <script delay="60000" script="omrafir.lua" />
+  <!--<singlespawn delay="60000" name="Omrafir" x="33587" y="32378" z="12" />-->
+  <!--Area Spawns-->
+</raid>

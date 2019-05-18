@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Tom" script="Tom.lua" walkinterval="2000" floorchange="0">
+	<health now="100" max="100" />
+	<look type="144" head="113" body="115" legs="58" feet="115" addons="1" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_sellable" value="bear paw,5896,10;dead rabbit,2992,2;dead rat,2813,2;dead wolf,2826,5;minotaur leather,5878,12;wolf paw,5897,7" />
+	</parameters>
+</npc>

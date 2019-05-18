@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Teste Server" script="compratudo.lua" walkinterval="0" floorchange="0">
+	<health now="100" max="100" />
+	<look type="35" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+			crystal coin,2160,1;
+			infernal,6529,1;
+			
+			infernal,22424,1;
+			infernal,22403,1;
+			infernal,22412,1;
+			infernal,22415,1;
+			infernal,22421,1;
+			infernal,22418,1;
+			aol,2173,1;
+			remover,11144,1;
+			refill,12544,1;
+			
+			
+			brown,2789,6" />
+		<parameter key="shop_sellable" value="		
+		
+		jadehat,11368,9000;		
+			watch,2036,6;
+			hammer,2556,15" />
+	</parameters>
+</npc>

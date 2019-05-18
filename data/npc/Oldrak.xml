@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Oldrak" script="Oldrak.lua" walkinterval="2000" floorchange="0">
+  	<health now="150" max="150" />
+	<look type="57" head="115" body="113" legs="31" feet="38" addons="3" />
+	<parameters>
+		<parameter key="message_greet" value="Welcome |PLAYERNAME|! Rarely I can welcome visitors in these days, {trade} to buy Tible." />
+		<parameter key="message_walkaway" value="Take care, it's dangerous out there." />
+		<parameter key="message_farewell" value="Good bye, |PLAYERNAME|!" />
+		
+		<parameter key="module_shop" value="1" /> <!-- added shop module to show the icon in npc (10:36 +) -->
+		<parameter key="shop_sellable" value="0,0,0;"/>
+		<parameter key="shop_buyable" value="book,1970,1000;"/>
+	</parameters>
+</npc>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<monster name="Grand Master Oberon" nameDescription="a grand master oberon" race="blood" experience="20000" speed="230" manacost="0">
+	<health now="30000" max="30000" />
+	<look type="1072" head="57" body="75" legs="38" feet="86" addons="1" corpse="33368" />
+	<targetchange interval="4000" chance="10" />
+	<flags> 
+	
+		<flag boss="1" />
+        <flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" /> 
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+		<script>
+		<event name="OberonHeal" />
+    </script> 
+	<attacks>
+		<attack name="melee" interval="1000" min="-150" max="-800" />
+		<attack name="holy" interval="1200" chance="14" length="8" spread="0" min="-400" max="-1000">
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" range="8" radius="7"   min="-400" max="-900">
+			<attribute key="areaEffect" value="blackspark" />
+		</attack> 
+		<attack name="death" interval="2000" chance="20" range="7" min="500" max="-700">
+			<attribute key="shootEffect" value="suddendeath" />
+			<attribute key="areaEffect" value="mortarea" />
+		</attack> 
+		</attacks>
+		<defenses armor="82" defense="60">
+		<defense name="healing" interval="1000" chance="20" min="400" max="650">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="3000" chance="20" min="500" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+			<defense name="speed" interval="1000" chance="10" speedchange="260" duration="4000">
+			<attribute key="areaEffect" value="poff" />
+		</defense>
+	</defenses>
+	<elements>
+	    <element physicalPercent="70" />
+		<element deathPercent="55" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="4000" chance="10">
+		<voice sentence="Repent Heretic!" />
+		<voice sentence="Uuunngh!" />
+	</voices>
+	<script>
+    <script name="bossfalconfinal"/>
+	</script>
+	<loot> 
+ <!-- comun -->
+<item name="Spatial Warp Almanac" countmax="3" chance="100000" />
+<item name="Platinum Coin" countmax="3" chance="100000" />
+<item name="gold coin" countmax="60" chance="100000" />
+<item name="gold coin" countmax="40" chance="100000" />
+ <!-- semi raro --> 
+<item name="Grant of Arms" countmax="1" chance="600" />
+ <!-- raro -->
+<item name="Falcon Battleaxe" chance="60" />
+<item name="Falcon Bow" chance="60" />
+<item name="Falcon Circlet"  chance="60" />
+<item name="Falcon Coif" chance="60" />
+<item name="Falcon Longsword" chance="60" />
+<item name="Falcon Mace" chance="60" />
+<item name="Falcon Rod" chance="60" />
+<item name="Falcon Shield" chance="60" />
+<item name="Falcon Wand" chance="60" />
+ <!-- muito raro -->
+<item name="Falcon Greaves" chance="60" />
+<item name="Falcon Plate" chance="60" />
+<item name="Falcon Bow" chance="60" />
+<item name="Falcon Wand" chance="60" />
+<item name="Falcon Plate" chance="60" />
+</loot>
+</monster>
+
+
+
+
+
+
+

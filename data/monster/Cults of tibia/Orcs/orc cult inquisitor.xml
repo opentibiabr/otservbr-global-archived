@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Orc Cult Inquisitor" nameDescription="an orc cult inquisitor" race="blood" experience="1150" speed="125" manacost="590">
+	<health now="1500" max="1500" />
+	<look type="8" corpse="5980" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="1" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500" />
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="speed" interval="2000" chance="30" speedchange="290" duration="6000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="You unorcish scum will die!" yell="1" />
+	</voices>
+	<loot>
+		<item name="strong health potion" countmax="1" chance="18390" />
+		<item name="gold coin" countmax="221" chance="100000" />
+		<item name="black pearl" countmax="2" chance="510" />
+		<item name="berserk potion" countmax="1" chance="2940" />
+		<item name="small ruby" countmax="5" chance="4020" />
+		<item name="battle axe" chance="6340" />
+		<item name="bug meat" chance="17160" />
+		<item name="red mushroom" countmax="3" chance="7730" />
+		<item name="halberd" chance="9890" />
+		<item name="orcish axe" chance="850" />
+		<item name="cultish robe" chance="9890" />
+		<item name="ham" chance="8960" />
+		<item name="orc tooth" chance="5410" />
+		<item name="orcish gear" chance="15460" />
+		<item name="orc leather" chance="7730" />
+	</loot>
+</monster>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Blood Dilma" script="blooddilma.lua" walkinterval="0" floorchange="0">
+	<health now="100" max="100" />
+	<look type="759" head="78" body="63" legs="97" feet="76" addons="2"/>
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+			
+			
+			blood,2006,10000,2;" />
+		
+	</parameters>
+</npc>
