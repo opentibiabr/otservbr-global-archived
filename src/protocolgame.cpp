@@ -40,7 +40,7 @@
 
 extern Game g_game;
 extern ConfigManager g_config;
-extern Actions* actions;
+extern Actions actions;
 extern CreatureEvents* g_creatureEvents;
 extern Chat* g_chat;
 extern Modules* g_modules;

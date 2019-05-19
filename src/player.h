@@ -704,14 +704,13 @@ class Player final : public Creature, public Cylinder
 		void onIdleStatus() final;
 		void onPlacedCreature() final;
 
-		void getCreatureLight(LightInfo& light) const final;
+		LightInfo getCreatureLight() const final;
 
 		Skulls_t getSkull() const final;
 		Skulls_t getSkullClient(const Creature* creature) const final;
 		int64_t getSkullTicks() const { return skullTicks; }
 		void setSkullTicks(int64_t ticks) { skullTicks = ticks; }
 
-		bool hasKilled(const Player* player) const;
 		bool hasAttacked(const Player* attacked) const;
 		void addAttacked(const Player* attacked);
 		void removeAttacked(const Player* attacked);
@@ -731,6 +730,8 @@ class Player final : public Creature, public Cylinder
 		bool getOutfitAddons(const Outfit& outfit, uint8_t& addons) const;
 
 		bool canLogout();
+		
+		bool hasKilled(const Player* player) const;
 
 		size_t getMaxVIPEntries() const;
 		size_t getMaxDepotItems() const;
@@ -1140,7 +1141,7 @@ class Player final : public Creature, public Cylinder
 				client->sendCloseTrade();
 			}
 		}
-		void sendWorldLight(const LightInfo& lightInfo) {
+		void sendWorldLight(LightInfo lightInfo) {
 			if (client) {
 				client->sendWorldLight(lightInfo);
 			}

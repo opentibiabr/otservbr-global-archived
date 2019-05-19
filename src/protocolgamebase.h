@@ -56,7 +56,7 @@ class ProtocolGameBase : public Protocol {
 		void AddPlayerSkills(NetworkMessage& msg);
 		void sendBlessStatus();
 		void sendPremiumTrigger();
-		void AddWorldLight(NetworkMessage& msg, const LightInfo& lightInfo);
+		void AddWorldLight(NetworkMessage& msg, LightInfo lightInfo);
 		void AddCreatureLight(NetworkMessage& msg, const Creature* creature);
 		void AddOutfit(NetworkMessage& msg, const Outfit_t& outfit);
 

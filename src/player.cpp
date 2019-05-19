@@ -2862,7 +2862,7 @@ void Player::removeThing(Thing* thing, uint32_t count)
 		return /*RETURNVALUE_NOTPOSSIBLE*/;
 	}
 
-	if (item->isStackable()) {
+		if (item->isStackable()) {
 		if (count == item->getItemCount()) {
 			//send change to client
 			sendInventoryItem(static_cast<slots_t>(index), nullptr);
@@ -3403,27 +3403,25 @@ void Player::stopWalk()
 	cancelNextWalk = true;
 }
 
-void Player::getCreatureLight(LightInfo& light) const
+LightInfo Player::getCreatureLight() const
 {
 	if (internalLight.level > itemsLight.level) {
-		light = internalLight;
-	} else {
-		light = itemsLight;
+		return internalLight;
 	}
+	return itemsLight;
 }
 
 void Player::updateItemsLight(bool internal /*=false*/)
 {
 	LightInfo maxLight;
-	LightInfo curLight;
 
 	for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; ++i) {
 		Item* item = inventory[i];
 		if (item) {
-			item->getLight(curLight);
+			LightInfo curLight = item->getLightInfo();
 
 			if (curLight.level > maxLight.level) {
-				maxLight = curLight;
+				maxLight = std::move(curLight);
 			}
 		}
 	}

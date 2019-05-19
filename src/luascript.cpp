@@ -958,9 +958,6 @@ void LuaScriptInterface::pushOutfit(lua_State* L, const Outfit_t& outfit)
 
 void LuaScriptInterface::registerFunctions()
 {
-	//getPlayerFlagValue(cid, flag)
-	lua_register(luaState, "getPlayerFlagValue", LuaScriptInterface::luaGetPlayerFlagValue);
-
 	//doPlayerAddItem(uid, itemid, <optional: default: 1> count/subtype)
 	//doPlayerAddItem(cid, itemid, <optional: default: 1> count, <optional: default: 1> canDropOnMap, <optional: default: 1>subtype)
 	//Returns uid of the created item
@@ -968,12 +965,6 @@ void LuaScriptInterface::registerFunctions()
 
 	//doSetCreatureLight(cid, lightLevel, lightColor, time)
 	lua_register(luaState, "doSetCreatureLight", LuaScriptInterface::luaDoSetCreatureLight);
-
-	//getCreatureCondition(cid, condition[, subId])
-	lua_register(luaState, "getCreatureCondition", LuaScriptInterface::luaGetCreatureCondition);
-
-	//getPreyMonsters() table
-	lua_register(luaState, "getPreyMonsters", LuaScriptInterface::luaGetPreyMonsters);
 
 	//isValidUID(uid)
 	lua_register(luaState, "isValidUID", LuaScriptInterface::luaIsValidUID);
@@ -1055,6 +1046,9 @@ void LuaScriptInterface::registerFunctions()
 
 	//sendGuildChannelMessage(guildId, type, message)
 	lua_register(luaState, "sendGuildChannelMessage", LuaScriptInterface::luaSendGuildChannelMessage);
+
+	//getPreyMonsters() table
+	lua_register(luaState, "getPreyMonsters", LuaScriptInterface::luaGetPreyMonsters);
 
 #ifndef LUAJIT_VERSION
 	//bit operations for Lua, based on bitlib project release 24
@@ -1477,6 +1471,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CREATURETYPE_MONSTER)
 	registerEnum(CREATURETYPE_NPC)
     registerEnum(CREATURETYPE_SUMMONPLAYER)
+	registerEnum(CREATURETYPE_SUMMON_OWN)
+	registerEnum(CREATURETYPE_SUMMON_OTHERS)
 
 	registerEnum(CLIENTOS_LINUX)
 	registerEnum(CLIENTOS_WINDOWS)
@@ -3140,20 +3136,6 @@ void LuaScriptInterface::registerGlobalBoolean(const std::string& name, bool val
 	lua_setglobal(luaState, name.c_str());
 }
 
-int LuaScriptInterface::luaGetPlayerFlagValue(lua_State* L)
-{
-	//getPlayerFlagValue(cid, flag)
-	Player* player = getPlayer(L, 1);
-	if (player) {
-		PlayerFlags flag = getNumber<PlayerFlags>(L, 2);
-		pushBoolean(L, player->hasFlag(flag));
-	} else {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
-		pushBoolean(L, false);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaDoPlayerAddItem(lua_State* L)
 {
 	//doPlayerAddItem(cid, itemid, <optional: default: 1> count/subtype, <optional: default: 1> canDropOnMap)
@@ -3247,8 +3229,7 @@ int LuaScriptInterface::luaGetWorldTime(lua_State* L)
 int LuaScriptInterface::luaGetWorldLight(lua_State* L)
 {
 	//getWorldLight()
-	LightInfo lightInfo;
-	g_game.getWorldLightInfo(lightInfo);
+	LightInfo lightInfo = g_game.getWorldLightInfo();
 	lua_pushnumber(L, lightInfo.level);
 	lua_pushnumber(L, lightInfo.color);
 	return 2;
@@ -3863,21 +3844,6 @@ int LuaScriptInterface::luaStopEvent(lua_State* L)
 	}
 
 	pushBoolean(L, true);
-	return 1;
-}
-
-int LuaScriptInterface::luaGetCreatureCondition(lua_State* L)
-{
-	Creature* creature = getCreature(L, 1);
-	if (!creature) {
-		reportErrorFunc(getErrorDesc(LUA_ERROR_CREATURE_NOT_FOUND));
-		pushBoolean(L, false);
-		return 1;
-	}
-
-	ConditionType_t condition = getNumber<ConditionType_t>(L, 2);
-	uint32_t subId = getNumber<uint32_t>(L, 3, 0);
-	pushBoolean(L, creature->hasCondition(condition, subId));
 	return 1;
 }
 
@@ -5917,7 +5883,7 @@ int LuaScriptInterface::luaNetworkMessageSkipBytes(lua_State* L)
 
 int LuaScriptInterface::luaNetworkMessageSendToPlayer(lua_State* L)
 {
-	// networkMessage:sendToPlayer(player[, broadcast])
+	// networkMessage:sendToPlayer(player)
 	NetworkMessage* message = getUserdata<NetworkMessage>(L, 1);
 	if (!message) {
 		lua_pushnil(L);
@@ -5926,8 +5892,7 @@ int LuaScriptInterface::luaNetworkMessageSendToPlayer(lua_State* L)
 
 	Player* player = getPlayer(L, 2);
 	if (player) {
-		bool broadcast = getBoolean(L, 3, true);
-		player->sendNetworkMessage(*message, broadcast);
+		player->sendNetworkMessage(*message);
 		pushBoolean(L, true);
 	} else {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
@@ -7377,10 +7342,9 @@ int LuaScriptInterface::luaCreatureGetLight(lua_State* L)
 		return 1;
 	}
 
-	LightInfo light;
-	creature->getCreatureLight(light);
-	lua_pushnumber(L, light.level);
-	lua_pushnumber(L, light.color);
+	LightInfo lightInfo = creature->getCreatureLight();
+	lua_pushnumber(L, lightInfo.level);
+	lua_pushnumber(L, lightInfo.color);
 	return 2;
 }
 
@@ -12751,6 +12715,14 @@ int LuaScriptInterface::luaCombatExecute(lua_State* L)
 	if (!combat) {
 		pushBoolean(L, false);
 		return 1;
+	}
+	
+	if (isUserdata(L, 2)) {
+		LuaDataType type = getUserdataType(L, 2);
+		if (type != LuaData_Player && type != LuaData_Monster && type != LuaData_Npc) {
+			pushBoolean(L, false);
+			return 1;
+		}
 	}
 
 	Creature* creature = getCreature(L, 2);

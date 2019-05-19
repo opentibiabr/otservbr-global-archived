@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `global`
+-- Database: `OTServBR- Global`
 --
 
 -- --------------------------------------------------------
@@ -143,6 +143,25 @@ CREATE TABLE `blessings_history` (
   `loss` tinyint(1) NOT NULL,
   `timestamp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabble Structure `daily_reward`
+--
+
+CREATE TABLE `daily_reward_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `streak` smallint(2) NOT NULL DEFAULT 0,
+  `event` varchar(255) DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `instant` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `player_id` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `player_id` (`player_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 
 -- --------------------------------------------------------
 

@@ -127,6 +127,7 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 	std::cout << "A server developed by " << STATUS_SERVER_CONTRIBUTORS << "." << std::endl;
 	std::cout << "Visit our forum for updates, support, and resources: " << GIT_REPO <<"." << std::endl;
 	std::cout << "For report issues or debugs please acess: " << GIT_ISSUE <<"." << std::endl;
+	std::cout << "List of contributors: " << GIT_CONTRIBUTORS <<"." << std::endl;
 	std::cout << GIT_ISSUE_INFO << std::endl;
 	std::cout << std::endl;
 

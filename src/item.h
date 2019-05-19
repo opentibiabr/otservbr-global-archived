@@ -215,6 +215,9 @@ class ItemAttributes
 		void removeAttribute(itemAttrTypes type);
 
 		static std::string emptyString;
+		static int64_t emptyInt;
+		static double emptyDouble;
+		static bool emptyBool;
 
 		struct Attribute
 		{
@@ -620,7 +623,7 @@ class Item : virtual public Thing
 		}
 
 		uint32_t getWorth() const;
-		void getLight(LightInfo& lightInfo) const;
+		LightInfo getLightInfo() const;
 
 		bool hasProperty(ITEMPROPERTY prop) const;
 		bool isBlocking() const {

@@ -427,14 +427,10 @@ class LuaScriptInterface
 		//get item info
 		static int luaGetDepotId(lua_State* L);
 
-		//get creature info functions
-		static int luaGetPlayerFlagValue(lua_State* L);
-		static int luaGetCreatureCondition(lua_State* L);
-
+		//get world info
 		static int luaGetWorldTime(lua_State* L);
 		static int luaGetWorldLight(lua_State* L);
 		static int luaGetWorldUpTime(lua_State* L);
-		static int luaGetPreyMonsters(lua_State* L);
 
 		//type validation
 		static int luaIsDepot(lua_State* L);
@@ -475,6 +471,8 @@ class LuaScriptInterface
 
 		static int luaSendChannelMessage(lua_State* L);
 		static int luaSendGuildChannelMessage(lua_State* L);
+		
+		static int luaGetPreyMonsters(lua_State* L);
 
 #ifndef LUAJIT_VERSION
 		static int luaBitNot(lua_State* L);
