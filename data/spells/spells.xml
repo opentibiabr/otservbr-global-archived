@@ -1238,4 +1238,10 @@
 	<instant name="ravennousLavaLurkerWave2" words="###466" direction="1" selftarget="1" exhaustion="2000" needlearn="0"  script="monster/ravennousLavaLurkerWave2.lua" />
 	<instant name="Arachnophobicawavedice" words="###467" direction="1" selftarget="1" exhaustion="2000" needlearn="0"  script="monster/Arachnophobica wavedice.lua" />
 	<instant name="Arachnophobicawaveenergy" words="###468" direction="1" selftarget="1" exhaustion="2000" needlearn="0"  script="monster/Arachnophobica waveenergy.lua" />
+	<instant name="explosionArea" words="###469" blockwalls="1" aggressive="1" needtarget="1" exhaustion="2000" needlearn="1"  script="monster/explosion area.lua" />
+	<instant name="pixie skill reducer" words="###470" blockwalls="1" aggressive="1" needtarget="0" exhaustion="2000" needlearn="1"  script="monster/pixie skill reducer.lua" />
+	<instant name="kroazurWave" words="###471" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/kroazurWave.lua" />
+	<instant name="asuradeathwave" words="###472" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/asuradeathwave.lua" />
+	<instant name="asuradeathheart" words="###473" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/asuradeathheart.lua" />
+	
 	</spells>
