@@ -127,7 +127,7 @@ Also running /reload global, /reload libs and /reload scripts
 <table>
     <tbody>
         <tr>
-          <td>[RME 3.5 Opening Map 11.x](https://forums.otserv.com.br/index.php?/forums/topic/168190-remeres-map-editor-35-abrindo-mapa-11x/)</td>
+		   <td><a href="https://forums.otserv.com.br/index.php?/forums/topic/168190-remeres-map-editor-35-abrindo-mapa-11x/">RME 3.5 Opening Map 11.x</a></td>
         </tr>
     </tbody>
 </table>
@@ -135,9 +135,9 @@ Also running /reload global, /reload libs and /reload scripts
 <table>
     <tbody>
         <tr>
-			<td>[Client Tibia 11 with Notepad++](https://forums.otserv.com.br/index.php?/forums/topic/167592-cliente-tibia-11-com-notepad/)</td>
-			<td>[Client Tibia 11 with HexEditorXVI32](https://forums.otserv.com.br/index.php?/forums/topic/167611-cliente-tibia-11-com-hexeditorxvi32/)</td>
-			<td>[Tibia 10 Custom Client](https://forums.otserv.com.br/index.php?/forums/topic/167550-compila%C3%A7%C3%A3o-tibia-10-custom-client-desative-a-msg-de-atualiza%C3%A7%C3%A3o-mc-seu-ip/)</td>
+			<td><a href="https://forums.otserv.com.br/index.php?/forums/topic/167592-cliente-tibia-11-com-notepad/)">Client Tibia 11 with Notepad++</a></td>
+			<td><a href="https://forums.otserv.com.br/index.php?/forums/topic/167611-cliente-tibia-11-com-hexeditorxvi32/)">Client Tibia 11 with HexEditorXVI32</a></td>
+			<td><a href="https://forums.otserv.com.br/index.php?/forums/topic/167550-compila%C3%A7%C3%A3o-tibia-10-custom-client-desative-a-msg-de-atualiza%C3%A7%C3%A3o-mc-seu-ip/)">Tibia 10 Custom Client</a></td>
         </tr>
     </tbody>
 </table>
@@ -145,9 +145,9 @@ Also running /reload global, /reload libs and /reload scripts
 <table>
     <tbody>
         <tr>
-			<td>[OTServBR-Global + MyAAC](https://forums.otserv.com.br/index.php?/forums/topic/167681-mysqlotservbr-global-uniform-server%C2%A0-myaac/)</td>
-			<td>[OTServBR-Global + GesiorAAC](https://forums.otserv.com.br/index.php?/forums/topic/167722-mysqlotservbr-global-uniform-server-gesioraac/)</td>
-			<td>[OTServBR-Global + ZnoteAAC 1.5](https://forums.otserv.com.br/index.php?/forums/topic/167738-mysqlotservbr-global-uniform-server%C2%A0-znoteaac-15/)</td>
+			<td><a href="https://forums.otserv.com.br/index.php?/forums/topic/167681-mysqlotservbr-global-uniform-server%C2%A0-myaac/">OTServBR-Global + MyAAC</a></td>
+			<td><a href="https://forums.otserv.com.br/index.php?/forums/topic/167722-mysqlotservbr-global-uniform-server-gesioraac/">OTServBR-Global + GesiorAAC</a></td>
+			<td><a href="https://forums.otserv.com.br/index.php?/forums/topic/167738-mysqlotservbr-global-uniform-server%C2%A0-znoteaac-15/">OTServBR-Global + ZnoteAAC 1.5</a></td>
         </tr>
     </tbody>
 </table>
