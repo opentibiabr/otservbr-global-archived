@@ -120,7 +120,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Good! Finally, find the technomancer Brodrosch and travel with him to the Isle of Cormaya. After this passage report back to me here. Understood?", cid)
 			npcHandler.topic[cid] = 7
 		elseif npcHandler.topic[cid] == 7 then
-			npcHandler:say("Ok, remember: the Tibian mail service puts trust in you! Don't fail and report back soon. Just tell me about your {MISSION}.", cid)
+			npcHandler:say("Ok, remember: the Tibian mail service puts trust in you! Don't fail and report back soon. Just tell me about your {mission}.", cid)
 			player:setStorageValue(Storage.postman.Mission01, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 8 then
@@ -195,7 +195,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:addItem(2078, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 25 then
-			npcHandler:say("So listen well. Behind the lower left door you will find a bag. The letters in the bag are for none other than Santa Claus! Deliver them to his house on the isle of Vega, USE thebag on his mailbox and report back here.", cid)
+			npcHandler:say("So listen well. Behind the lower left door you will find a bag. The letters in the bag are for none other than Santa Claus! Deliver them to his house on the isle of Vega, {use} thebag on his mailbox and report back here.", cid)
 			player:setStorageValue(Storage.postman.Mission09, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 26 then
