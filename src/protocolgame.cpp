@@ -377,11 +377,8 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	setXTEAKey(key);
 
 	if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
-		NetworkMessage opcodeMessage;
-		opcodeMessage.addByte(0x32);
-		opcodeMessage.addByte(0x00);
-		opcodeMessage.add<uint16_t>(0x00);
-		writeToOutputBuffer(opcodeMessage);
+		disconnectClient("Only official client is allowed!");
+		return;
 	}
 
 	msg.skipBytes(1); // gamemaster flag
