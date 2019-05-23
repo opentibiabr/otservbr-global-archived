@@ -743,7 +743,7 @@
 	<!-- Postman Quest -->
 	<action itemid="2330" script="quests/postman/package.lua" />
 	<action itemid="2331" script="quests/postman/present.lua" />
-	<action uniqueid="3118" script="quests/postman/corpo.lua" />
+	<action uniqueid="3118" script="quests/postman/waldosPostHorn.lua" />
 
 	<!-- The Hidden City of Beregar -->
 	<action actionid="50128" script="quests/the hidden city of beregar/deeperMineWagon.lua" />
