@@ -49,7 +49,7 @@
 	<wand id="25955" level="100" mana="18" min="70" max="105" type="ice"> <!-- Rod of Remedy -->
 		<vocation name="Druid" />
 	</wand>
-	 <wand id="30693" level="100" mana="20" min="80" max="110" type="ice"> <!-- Rod of destruction -->
+	 <wand id="30693" level="200" mana="20" min="80" max="110" type="ice"> <!-- Rod of destruction -->
 		<vocation name="Druid" />
 	</wand>	
 	<wand id="29004" level="80" mana="18" min="63" max="77" type="energy"> <!-- Dream Blossom Staff -->
@@ -129,7 +129,7 @@
 	<wand id="25951" level="100" mana="18" min="70" max="105" type="energy"> <!-- Wand of Remedy -->
 		<vocation name="Sorcerer" />
 	</wand>
-	    <wand id="30692" level="100" mana="20" min="80" max="110" type="energy"> <!-- Wand of Destruction -->
+	    <wand id="30692" level="200" mana="20" min="80" max="110" type="energy"> <!-- Wand of Destruction -->
 		<vocation name="Sorcerer" />
 	</wand>
 	<wand id="32417" level="300" mana="21" min="86" max="102" type="energy"> <!-- Falcon Wand -->
@@ -751,11 +751,11 @@
 		<vocation name="Paladin" />
 		
 	</distance>
-	<distance id="30690" level="100" unproperly="1"> <!-- Bow of Destruction -->
+	<distance id="30690" level="200" unproperly="1"> <!-- Bow of Destruction -->
 		<vocation name="Paladin" />
 		
 	</distance>
-	<distance id="30691" level="100" unproperly="1"> <!-- Crossbow of Destruction -->
+	<distance id="30691" level="200" unproperly="1"> <!-- Crossbow of Destruction -->
 		<vocation name="Paladin" />
 		
 	</distance>
