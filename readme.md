@@ -8,8 +8,8 @@ We will initiate what we hope to be the revolution of the current (shameful) Ope
 PS: We apologize to the entire Open Tibia community for bugged repositories and malicious <strike>OTXBR</strike> people who have turned OTServer into a market.<br>
 
 #### Important Notes:
-We have the new language systems added to the source. However, only QuestLog per moon is with all quests registered, nor are all quests reviewed.<br>
-The actions by moon, monsters, talkactions and weapons are functional, tested and bug-free (apparently), however the moon scripts need to be created. Our proposal is that since it is difficult for people to contribute to the projects and we need help, we will add the antirollback system to the source if there are contributions in the project, and we are not talking about one or another commit, but doing serious work. .. At first we will only release the crashlog system, it is not yet 100% functional, but as soon as it is will be placed in the source.<br>
+We have the new language systems added to the source. However, only QuestLog per .lua is with all quests registered, nor are all quests reviewed.<br>
+The actions by .lua, monsters, talkactions and weapons are functional, tested and bug-free (apparently), however the moon scripts need to be created. Our proposal is that since it is difficult for people to contribute to the projects and we need help, we will add the antirollback system to the source if there are contributions in the project, and we are not talking about one or another commit, but doing serious work. .. At first we will only release the crashlog system, it is not yet 100% functional, but as soon as it is will be placed in the source.<br>
 
 The new .lua systems are located in the data/scripts/<br>
 Also running /reload global, /reload libs and /reload scripts<br>
