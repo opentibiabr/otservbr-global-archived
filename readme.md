@@ -14,6 +14,9 @@ The actions by moon, monsters, talkactions and weapons are functional, tested an
 The new .lua systems are located in the data/scripts/<br>
 Also running /reload global, /reload libs and /reload scripts<br>
 
+#### Compatible Clients:
+Click Here](https://gitlab.com/open-tibia-br/otservbr-clients/)<br>
+
 #### Contributors:
 Contributions of any kind are welcome! Can you help, but you are not thinking of c ++, mapping or script? [Download](https://github.com/opentibiabr/OTServBR-Global/archive/master.zip) or clone our Server, test and report bugs [here](https://github.com/opentibiabr/OTServBR-Global/issues)<br>
 Click on "new problem", write the "Title" for your edition, then a "Description", if possible add video, gif or photo demonstrating and a small text detailing, if you wrap the map leave the position too, we will analyze and solve as fast as we can.<br>
