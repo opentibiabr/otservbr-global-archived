@@ -580,15 +580,15 @@
 	<monster name="The Hag" file="Arena/scrapper/the hag.xml" />
 
 	<!-- Arena Warlord -->
-	<monster name="Darakan the Executioner" file="Arena/warlord/darakan_the_executioner.xml" />
+	<monster name="Darakan the Executioner" file="Arena/warlord/darakan the executioner.xml" />
 	<monster name="Deathbringer" file="Arena/warlord/deathbringer.xml" />
-	<monster name="Fallen Mooh'tah Master Ghar" file="Arena/warlord/fallen_mooh'tah_master_ghar.xml" />
-	<monster name="Gnorre Chyllson" file="Arena/warlord/gnorre_chyllson.xml" />
-	<monster name="Norgle Glacierbeard" file="Arena/warlord/norgle_glacierbeard.xml" />
-	<monster name="Svoren the Mad" file="Arena/warlord/svoren_the_mad.xml" />
-	<monster name="The Masked Marauder" file="Arena/warlord/the_masked_marauder.xml" />
-	<monster name="The Obliverator" file="Arena/warlord/the_obliverator.xml" />
-	<monster name="The Pit Lord" file="Arena/warlord/the_pit_lord.xml" />
+	<monster name="Fallen Mooh'tah Master Ghar" file="Arena/warlord/fallen mooh'tah master ghar.xml" />
+	<monster name="Gnorre Chyllson" file="Arena/warlord/gnorre chyllson.xml" />
+	<monster name="Norgle Glacierbeard" file="Arena/warlord/norgle glacierbeard.xml" />
+	<monster name="Svoren the Mad" file="Arena/warlord/svoren the mad.xml" />
+	<monster name="The Masked Marauder" file="Arena/warlord/the masked marauder.xml" />
+	<monster name="The Obliverator" file="Arena/warlord/the obliverator.xml" />
+	<monster name="The Pit Lord" file="Arena/warlord/the pit lord.xml" />
 	<monster name="Webster" file="Arena/warlord/webster.xml" />
 
 	<!-- Barbarians -->

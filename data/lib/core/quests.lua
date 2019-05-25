@@ -2305,12 +2305,12 @@ if not Quests then
 				[7] = {
 					name = "Mission 7 - Measurements", storageid = Storage.postman.Mission07, startvalue = 1, endvalue = 8,
 					states = {
-						[1] = "Kevin wants you to bring him the measurements of Ben, Lokur, Dove, Liane, Chrystal and Olrik.",
-						[2] = "You have received the measurements from 1 of 6 postofficers.",
-						[3] = "You have received the measurements from 2 of 6 postofficers.",
-						[4] = "You have received the measurements from 3 of 6 postofficers.",
-						[5] = "You have received the measurements from 4 of 6 postofficers.",
-						[6] = "You have received the measurements from 5 of 6 postofficers.",
+						[1] = "Kevin wants you to bring him the measurements of Benjamin, Lokur, Dove, Liane, Chrystal and Olrik.",
+						[2] = "You have received the measurements from 1 of 6 post officers.",
+						[3] = "You have received the measurements from 2 of 6 post officers.",
+						[4] = "You have received the measurements from 3 of 6 post officers.",
+						[5] = "You have received the measurements from 4 of 6 post officers.",
+						[6] = "You have received the measurements from 5 of 6 post officers.",
 						[7] = "You have received all measurements, report back to Kevin!",
 						[8] = "You have reported back that you have completed the mission.",
 					},

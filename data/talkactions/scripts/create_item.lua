@@ -43,18 +43,36 @@ function onSay(player, words, param)
 		end
 	end
 
-	local result = player:addItem(itemType:getId(), count)
-	if result then
-		if not itemType:isStackable() then
-			if type(result) == "table" then
-				for _, item in ipairs(result) do
-					item:decay()
+	local charges = itemType:getCharges()
+	if charges < 1 or count == 0 then
+		local result = player:addItem(itemType:getId(), count)
+		if result then
+			if not itemType:isStackable() then
+				if type(result) == "table" then
+					for _, item in ipairs(result) do
+						item:decay()
+					end
+				else
+					result:decay()
 				end
-			else
-				result:decay()
 			end
 		end
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+	else
+		for i = 1, count do
+			local result = player:addItem(itemType:getId(), charges)
+			if result then
+				if not itemType:isStackable() then
+					if type(result) == "table" then
+						for _, item in ipairs(result) do
+							item:decay()
+						end
+					else
+						result:decay()
+					end
+				end
+			end
+		end
 	end
+	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 	return false
 end

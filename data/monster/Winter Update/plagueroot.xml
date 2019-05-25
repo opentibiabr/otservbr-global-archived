@@ -57,7 +57,7 @@
 <item id="26199" chance="2500" /> <!-- collar of green plasma-->
 <item id="7632" chance="2600" /> <!-- Giant Shimmering Pearl -->
 <item name="Blue Gem" chance="2500" /> 
-<item name="Violet Gem" countmin="1" countmax="2"chance="2300" /> 
+<item name="Violet Gem" countmin="1" countmax="2" chance="2300" /> 
 <!--very rare-->  
 <item name="Living Armor" chance="1100" /> 
 <item name="Magic Sulphur" chance="1000" /> 
