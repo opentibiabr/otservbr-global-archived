@@ -19,10 +19,10 @@ Contributions of any kind are welcome! Can you help, but you are not thinking of
 Click on "new problem", write the "Title" for your edition, then a "Description", if possible add video, gif or photo demonstrating and a small text detailing, if you wrap the map leave the position too, we will analyze and solve as fast as we can.<br>
 You can see all contributors [here](https://github.com/opentibiabr/OTServBR-Global/graphs/contributors)<br>
 
-#### Client Edition:
+#### Tools Edition:
 [Client Tibia 11 with Notepad++](https://forums.otserv.com.br/index.php?/forums/topic/167592-cliente-tibia-11-com-notepad/)<br>
 [Client Tibia 11 with HexEditorXVI32](https://forums.otserv.com.br/index.php?/forums/topic/167611-cliente-tibia-11-com-hexeditorxvi32/)<br>
-[Tibia 10 Custom Client](https://gitlab.com/open-tibia-br/otservbr-clients/)<br>
+[Tibia Clients, RME, Item Editor, Map Tracker and others](https://github.com/opentibiabr/tools/)<br>
 
 #### Websites:
 Marco Oliveira [GesiorAAC](https://github.com/marcomoa/gesior-aac/archive/master.zip)<br>
