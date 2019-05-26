@@ -13,9 +13,10 @@ Based On TFS 1.3
 [GNU GPLv3](http://gplv3.fsf.org/)
 
 ### Foruns
-* [Forum](https://forums.otserv.com.br) OTBR Project 
+* [Forum OTLand](https://forums.otserv.com.br/)
+  
 
-* [Forum](https://otland.net/) TFS Project 
+* [Forum OTServ Brasil](https://otland.net/)
 
 ## File changes:
 Added: (A)<br>
