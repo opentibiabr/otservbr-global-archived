@@ -123,6 +123,7 @@ class Container : public Item, public Cylinder
 		bool isHoldingItem(const Item* item) const;
 
 		uint32_t getItemHoldingCount() const;
+		uint32_t getContainerHoldingCount() const;
 		uint16_t getFreeSlots() const;
 		uint32_t getWeight() const final;
 
@@ -171,6 +172,7 @@ class Container : public Item, public Cylinder
 		void onRemoveContainerItem(uint32_t index, Item* item);
 
 		Container* getParentContainer();
+		Container* getTopParentContainer() const;
 		void updateItemWeight(int32_t diff);
 
 	protected:

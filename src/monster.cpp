@@ -23,11 +23,11 @@
 #include "configmanager.h"
 #include "game.h"
 #include "spells.h"
-#include "events.h"
+//#include "events.h"
 
 extern Game g_game;
 extern Monsters g_monsters;
-extern Events* g_events;
+//extern Events* g_events;
 extern ConfigManager g_config;
 
 int32_t Monster::despawnRange;
@@ -723,6 +723,15 @@ void Monster::onThink(uint32_t interval)
 		if (scriptInterface->callFunction(2)) {
 			return;
 		}
+	}
+	
+	uint32_t minutes = g_game.getLightHour();
+	bool isday = false;
+	if (minutes >= ((6 * 60) + 30) && minutes <= ((17 * 60) + 30))
+		isday = true;
+
+	if ((mType->info.respawnType == RESPAWN_IN_DAY && !isday) || (mType->info.respawnType == RESPAWN_IN_NIGHT && isday) || (mType->info.respawnType == RESPAWN_IN_DAY_CAVER && !isday && position.z == 7) || (mType->info.respawnType == RESPAWN_IN_NIGHT_CAVER && isday && position.z == 7)) {
+		g_game.removeCreature(this);
 	}
 
 	if (!isInSpawnRange(position)) {
@@ -1916,7 +1925,7 @@ void Monster::updateLookDirection()
 void Monster::dropLoot(Container* corpse, Creature*)
 {
 	if (corpse && lootDrop) {
-		g_events->eventMonsterOnDropLoot(this, corpse);
+		mType->createLoot(corpse);
 	}
 }
 

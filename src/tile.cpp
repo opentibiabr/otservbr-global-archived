@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -627,6 +627,12 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 		if (items && items->size() >= 0x3E8) {
 			return RETURNVALUE_NOTPOSSIBLE;
 		}
+		
+		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
+			if (item->getWeight() >= 150000) {
+				return RETURNVALUE_NOTPOSSIBLE;
+			}
+		}
 
 		if (hasBitSet(FLAG_NOLIMIT, flags)) {
 			return RETURNVALUE_NOERROR;
@@ -843,6 +849,12 @@ void Tile::addThing(int32_t, Thing* thing)
 		TileItemVector* items = getItemList();
 		if (items && items->size() >= 0xFFFF) {
 			return /*RETURNVALUE_NOTPOSSIBLE*/;
+		}
+		
+		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
+			if (item->getWeight() >= 150000) {
+				return /*RETURNVALUE_NOTPOSSIBLE*/;
+			}
 		}
 
 		item->setParent(this);
@@ -1453,6 +1465,12 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 		TileItemVector* items = makeItemList();
 		if (items->size() >= 0xFFFF) {
 			return /*RETURNVALUE_NOTPOSSIBLE*/;
+		}
+		
+		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
+			if (item->getWeight() >= 150000) {
+				return /*RETURNVALUE_NOTPOSSIBLE*/;
+			}
 		}
 
 		if (itemType.alwaysOnTop) {

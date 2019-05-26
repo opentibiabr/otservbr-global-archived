@@ -83,6 +83,11 @@ Game::~Game()
 void Game::start(ServiceManager* manager)
 {
 	serviceManager = manager;
+	
+	time_t now = time(0);
+	const tm* tms = localtime(&now);
+	int minutes = tms->tm_min;
+	lightHour = (minutes * 1440) / 60;
 
 	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL, std::bind(&Game::checkLight, this)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
@@ -672,12 +677,11 @@ if (player->hasCondition(CONDITION_EXHAUST, 1)) {
 			return;
 		}
 
-			playerMoveItem(player, fromPos, spriteId, fromStackPos, toPos, count, thing->getItem(), toCylinder);
+		playerMoveItem(player, fromPos, spriteId, fromStackPos, toPos, count, thing->getItem(), toCylinder);
 	}
 	if (Condition* moveItem = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST, 50, 0, false, 1)) {
 		player->addCondition(moveItem);
 	}
-
 }
 
 void Game::playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, const Position& movingCreatureOrigPos, const Position& toPos)
@@ -1447,7 +1451,7 @@ bool Game::removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*
 		return false;
 	}
 
-	if (money == 0) {
+	if (money <= 0) {
 		return true;
 	}
 
@@ -2290,8 +2294,16 @@ void Game::playerMoveUpContainer(uint32_t playerId, uint8_t cid)
 		}
 	}
 
-	player->addContainer(cid, parentContainer);
-	player->sendContainer(cid, parentContainer, parentContainer->hasParent(), player->getContainerIndex(cid));
+	if (parentContainer->hasPagination() && parentContainer->hasParent()) {
+		uint16_t indexContainer = std::floor(parentContainer->getThingIndex(container) / parentContainer->capacity()) * parentContainer->capacity();
+		player->addContainer(cid, parentContainer);
+
+		player->setContainerIndex(cid, indexContainer);
+		player->sendContainer(cid, parentContainer, parentContainer->hasParent(), indexContainer);
+	} else {
+		player->addContainer(cid, parentContainer);
+		player->sendContainer(cid, parentContainer, parentContainer->hasParent(), player->getContainerIndex(cid));
+	}
 }
 
 void Game::playerUpdateContainer(uint32_t playerId, uint8_t cid)
@@ -2396,6 +2408,12 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	const ItemType& iiType = Item::items[item->getID()];
 	uint16_t newWrapId = Item::items[item->getID()].wrapableTo;
 	std::string itemName = item->getName();
+	// It is not possible to unwrap containers with one or more items inside.
+	const Container* container = item->getContainer();
+	if(container && container->getItemHoldingCount() > 0){
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
 
 	// FOR ITEMS THAT DO NOT LOSE ACTIONID TO TRANSFORM
 	if (!iiType.wrapContainer) {
@@ -3130,10 +3148,6 @@ void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos
 	}
 
 	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
-        player->sendTextMessage(MESSAGE_STATUS_SMALL, "You are exhausted.");
-        return;
-    }
-	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't look very fast.");
 		return;
 	}
@@ -3180,10 +3194,15 @@ void Game::playerLookInBattleList(uint32_t playerId, uint32_t creatureId)
 		return;
 	}
 
-	if (player->hasCondition(CONDITION_EXHAUST, 2)) {
-        player->sendTextMessage(MESSAGE_STATUS_SMALL, "You are exhausted.");
-        return;
-    }
+	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
+		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't look very fast.");
+		return;
+	}
+
+	if (Condition* conditionlook = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST, 100, 0, false, 7)) {
+		player->addCondition(conditionlook);
+	}
+	
 	Creature* creature = getCreatureByID(creatureId);
 	if (!creature) {
 		return;
@@ -3208,10 +3227,6 @@ void Game::playerLookInBattleList(uint32_t playerId, uint32_t creatureId)
 	} else {
 		lookDistance = -1;
 	}
-
-	if(Condition* conditionlook = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST, 1000, 0, false, 2)) {
-        player->addCondition(conditionlook);
-    }
 	
 	g_events->eventPlayerOnLookInBattleList(player, creature, lookDistance);
 }
@@ -3286,7 +3301,7 @@ void Game::playerSetFightModes(uint32_t playerId, fightMode_t fightMode, bool ch
 
 void Game::playerRequestAddVip(uint32_t playerId, const std::string& name)
 {
-	if (name.length() > 20) {
+	if (name.length() > 25) {
 		return;
 	}
 
@@ -3512,31 +3527,7 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 	if (channelId == CHANNEL_CAST) {
 		player->sendChannelMessage(player->getName(), text, TALKTYPE_CHANNEL_R1, channelId);
 	}
-// HERE
-    std::list<std::string> wordsList{"ferobra","global","kalibrah","riot-global.com.br","riot","riot-global",".net","kalibra-global","kalibra","ombra","ombra-global","impera","impera-global","pbotwars",".net","globalwar","fidera","fortera","fortera-global","fideraglobal","fidera-global","chaos-war","tales","talesglobal","darkot","harbor","harbor-global","descubra-global","latinum","latinum-global","descubraglobal","servegame","kalibrah","heroserv","keltera","onixserver","ddns.net","otdiferente.ddns.net","tibiatale","go.forfun","caterot","archlightonline","megatibia","taleon","forfun-global","candia-global","baiak","go.forfun-global.com","caterot.com","demolidores.com","megatibia","jservers","zapto.org",".pl",".tk","sytes.net","ddns.net",".net","go.","servegame", "calvera", "caalvera", "callvera", "calvvera", "calveera", "calverra", "baiakpesadao", "premiia", "premia", "prremia", "preemia", "premmia", "eldera", "elldera", "elddera", "eldeera", "elderra", "dolera", "dollera", "ddolerra", "doollera", "dooleera", "doleerra", "dooleerra", "doolerra", "doolera", "doleera", "doliera", "fortera", "footera", "fortiera", "auurera", "aurera", "inflame", "megatibia", "hexera", "hornera", "gunzodus", "viking", "viiking", "vikiing", "vikingg", "mtibia", "malvera", ".tk", "global.com", "global.net", "global.16mb", "luminera", "forsaken", "aurera", "aaurera", "aureera", "idm", "legendera", "underwar" };
-    std::string newText = asLowerCaseString(text);
- 
-    newText.erase(std::remove_if(newText.begin(),
-        newText.end(),
-        [](char l) {std::string removal = "123456789;_.|\"',^:-*/\\&()%$#! []´`";  return removal.find(l) != std::string::npos; }),
-        newText.end());
- 
-    replaceString(newText, "3", "e");
-    replaceString(newText, "4", "f");
-    replaceString(newText, "0", "o");
-    replaceString(newText, "@", "a");
-    replaceString(newText, "?", "a");
-    replaceString(newText, "1", "l");
- 
-    for (auto it : wordsList) {
-        if (newText.find(asLowerCaseString(it)) != std::string::npos) {
-            std::ostringstream ss;
-            ss << "Our server has anti-divulgation system. you can get banned if you continue.";
-            player->sendTextMessage(MESSAGE_STATUS_SMALL, ss.str());
-            return;
-        }
-    }
-    // END
+
 	switch (type) {
 		case TALKTYPE_SAY:
 			internalCreatureSay(player, TALKTYPE_SAY, text, false);
@@ -4827,7 +4818,16 @@ void Game::checkLight()
 
 LightInfo Game::getWorldLightInfo() const
 {
+	
 	return {lightLevel, 0xD7};
+}
+
+bool Game::gameIsDay()
+{
+	if (lightHour >= ((6 * 60) + 30) && lightHour <= ((17 * 60) + 30))
+		isDay = true;
+
+	return isDay;
 }
 
 void Game::shutdown()
@@ -5389,7 +5389,7 @@ void Game::playerBrowseMarketOwnHistory(uint32_t playerId)
 
 void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spriteId, uint16_t amount, uint32_t price, bool anonymous) //Custom: Anti bug do market
 {
-	if (amount == 0 || amount > 64000) {
+	if (amount == 0 || amount > 100) {
 		return;
 	}
 
@@ -5432,7 +5432,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		return;
 	}
 
-	if (!it.stackable && amount > 2000) {
+	if (!it.stackable && amount > 1000) {
 		return;
 	}
 
@@ -5502,10 +5502,6 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 
 	IOMarket::createOffer(player->getGUID(), static_cast<MarketAction_t>(type), it.id, amount, price, anonymous);
 
-	if(it.id == ITEM_TIBIA_COIN) {
-		player->sendCoinBalanceUpdating(true);
-	}
-
 	player->sendMarketEnter(player->getLastDepotId());
 	const MarketOfferList& buyOffers = IOMarket::getActiveOffers(MARKETACTION_BUY, it.id);
 	const MarketOfferList& sellOffers = IOMarket::getActiveOffers(MARKETACTION_SELL, it.id);
@@ -5548,7 +5544,6 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 		if (it.id == ITEM_TIBIA_COIN) {
 			IOAccount::addCoins(player->getAccount(), offer.amount);
-			player->sendCoinBalanceUpdating(true);
 		}else if (it.stackable) {
 			uint16_t tmpAmount = offer.amount;
 			while (tmpAmount > 0) {
@@ -5590,7 +5585,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter, uint16_t amount) //Custom: Anti bug do market
 {
-	if (amount == 0 || amount > 64000) {
+	if (amount == 0 || amount > 500) {
 		return;
 	}
 
@@ -5647,7 +5642,6 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			}
 
 			IOAccount::removeCoins(player->getAccount(), static_cast<int32_t>(amount));
-			player->sendCoinBalanceUpdating(true);
 			IOAccount::registerTransaction(player->getAccount(), -static_cast<int32_t>(amount), "Sold on Market");
 
 		} else {
@@ -5711,10 +5705,6 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		if (buyerPlayer->isOffline()) {
 			IOLoginData::savePlayer(buyerPlayer);
 			delete buyerPlayer;
-		} else {
-			buyerPlayer->onReceiveMail();if(it.id == ITEM_TIBIA_COIN) {
-				buyerPlayer->sendCoinBalanceUpdating(true);
-			}
 		}
 	} else {
 		if (totalPrice > player->bankBalance) {
@@ -5725,7 +5715,6 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		if (it.id == ITEM_TIBIA_COIN) {
 			IOAccount::addCoins(player->getAccount(), amount);
 			IOAccount::registerTransaction(player->getAccount(), amount, "Purchased on Market");
-			player->sendCoinBalanceUpdating(true);
 		} else if (it.stackable) {
 			uint16_t tmpAmount = amount;
 			while (tmpAmount > 0) {
@@ -6192,7 +6181,7 @@ void Game::playerCoinTransfer(uint32_t playerId, const std::string &receiverName
 				message << "You have successfully transfered " << amount << " coins to " << capitalizedReceiverName << ".";
 				sender->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(sender->getAccount()));
 				if (receiver && !receiver->isOffline()) {
-					receiver->sendCoinBalanceUpdating(true);
+					receiver->sendCoinBalance();
 				}
 			}
 		}

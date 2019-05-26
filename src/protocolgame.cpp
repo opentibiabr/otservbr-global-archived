@@ -1065,8 +1065,10 @@ void ProtocolGame::parseCoinTransfer(NetworkMessage& msg)
 	std::string receiverName =msg.getString();
 	uint32_t amount = msg.get<uint32_t>();
 
-	if(amount > 0)
+	if (amount > 0) {
 		addGameTaskTimed(350, &Game::playerCoinTransfer, player->getID(), receiverName, amount);
+}
+updateCoinBalance();
 }
 
 void ProtocolGame::parseMarketCreateOffer(NetworkMessage& msg)
@@ -1086,6 +1088,7 @@ void ProtocolGame::parseMarketCancelOffer(NetworkMessage& msg)
 	uint16_t counter = msg.get<uint16_t>();
 	if(counter > 0)
 		addGameTask(&Game::playerCancelMarketOffer, player->getID(), timestamp, counter);
+		updateCoinBalance();
 }
 
 void ProtocolGame::parseMarketAcceptOffer(NetworkMessage& msg)
@@ -1095,6 +1098,7 @@ void ProtocolGame::parseMarketAcceptOffer(NetworkMessage& msg)
 	uint16_t amount = msg.get<uint16_t>();
 	if(amount > 0 && counter > 0)
 		addGameTask(&Game::playerAcceptMarketOffer, player->getID(), timestamp, counter, amount);
+		updateCoinBalance();
 }
 
 void ProtocolGame::parseModalWindowAnswer(NetworkMessage& msg)
@@ -1553,30 +1557,9 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 	sendResourceBalance(player->getMoney(), player->getBankBalance());
 }
 
-void ProtocolGame::updateCoinBalance()
-{
-	NetworkMessage msg;
-	msg.addByte(0xF2);
-	msg.addByte(0x00);
-
-	writeToOutputBuffer(msg);
-
-	g_dispatcher.addTask(
-		createTask(std::bind([](ProtocolGame_ptr client) {
-		client->sendCoinBalance();
-	}, getThis()))
-	);
-}
-
 void ProtocolGame::sendCoinBalance()
 {
-	Database& db = Database::getInstance();
-
-	std::ostringstream query;
-
-	query << "SELECT `coins` FROM `accounts` WHERE `id`=" + std::to_string(player->getAccount());
-	DBResult_ptr result = db.storeQuery(query.str());
-	if (!result) {
+	if (!player) {
 		return;
 	}
 
@@ -1587,8 +1570,17 @@ void ProtocolGame::sendCoinBalance()
 	msg.addByte(0xDF);
 	msg.addByte(0x01);
 
-	msg.add<uint32_t>(result->getNumber<uint32_t>("coins")); //total coins
-	msg.add<uint32_t>(result->getNumber<uint32_t>("coins")); //transferable coins
+	msg.add<uint32_t>(player->coinBalance); //total coins
+	msg.add<uint32_t>(player->coinBalance); //transferable coins
+
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::updateCoinBalance()
+{
+	NetworkMessage msg;
+	msg.addByte(0xF2);
+	msg.addByte(0x00);
 
 	writeToOutputBuffer(msg);
 }
@@ -1625,6 +1617,7 @@ void ProtocolGame::sendMarketBrowseItem(uint16_t itemId, const MarketOfferList& 
 		msg.addString(offer.playerName);
 	}
 
+	updateCoinBalance();
 	writeToOutputBuffer(msg);
 }
 
@@ -2510,36 +2503,6 @@ void ProtocolGame::sendSpellGroupCooldown(SpellGroup_t groupId, uint32_t time)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendCoinBalanceUpdating(bool updating)
-{
-	//by jlcvp
-	NetworkMessage msg;
-	msg.addByte(0xF2);
-	msg.addByte(0x00);
-	writeToOutputBuffer(msg);
-
-	if(updating) {
-		sendUpdatedCoinBalance();
-	}
-}
-
-void ProtocolGame::sendUpdatedCoinBalance()
-{
-	NetworkMessage msg;
-	msg.addByte(0xF2); //balanceupdating
-	msg.addByte(0x01); //this is not the end
-
-	msg.addByte(0xDF); //coinBalance opcode
-	msg.addByte(0x01); //as follows
-
-	uint32_t  playerCoinBalance = IOAccount::getCoinBalance(player->getAccount());
-
-	msg.add<uint32_t>(playerCoinBalance);
-	msg.add<uint32_t>(playerCoinBalance); //I don't know why this duplicated entry is needed but... better keep it there
-
-	writeToOutputBuffer(msg);
-}
-
 void ProtocolGame::sendOpenStore(uint8_t)
 {
 	NetworkMessage msg;
@@ -2585,8 +2548,6 @@ void ProtocolGame::sendOpenStore(uint8_t)
 	}
 
 	writeToOutputBuffer(msg);
-	sendCoinBalanceUpdating(true);
-	addGameTaskTimed(350, &Game::playerShowStoreCategoryOffers, player->getID(), g_game.gameStore.getCategoryOffers().at(0));
 }
 
 void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category)

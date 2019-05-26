@@ -349,7 +349,7 @@ int32_t Player::getDefense() const
 	const Item* shield;
 	try{
 		getShieldAndWeapon(shield, weapon);
-	} catch (const std::exception& e) {
+	} catch (const std::exception&) {
 		std::cout << "Got exception" << std::endl;
 	}
 
@@ -4152,7 +4152,7 @@ void Player::setPremiumDays(int32_t v)
 
 void Player::setTibiaCoins(int32_t v)
 {
-	tibiaCoins = v;
+	coinBalance = v;
 }
 
 PartyShields_t Player::getPartyShield(const Player* player) const
@@ -4795,6 +4795,22 @@ void Player::doCriticalDamage(CombatDamage& damage) const
 		damage.secondary.value = (int32_t) (multiplier * damage.secondary.value);
 		damage.critical = true;
 	}
+}
+
+//Autoloot
+void Player::addAutoLootItem(uint16_t itemId)
+{
+    autoLootList.insert(itemId);
+}
+
+void Player::removeAutoLootItem(uint16_t itemId)
+{
+    autoLootList.erase(itemId);
+}
+
+bool Player::getAutoLootItem(const uint16_t itemId)
+{
+    return autoLootList.find(itemId) != autoLootList.end();
 }
 
 //Custom: Anti bug do market

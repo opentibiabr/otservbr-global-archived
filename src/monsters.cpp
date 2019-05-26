@@ -41,21 +41,250 @@ spellBlock_t::~spellBlock_t()
 	}
 }
 
-void MonsterType::loadLoot(MonsterType* monsterType, LootBlock lootBlock)
+
+uint32_t Monsters::getLootRandom()
 {
-	if (lootBlock.childLoot.empty()) {
-		bool isContainer = Item::items[lootBlock.id].isContainer();
-		if (isContainer) {
-			for (LootBlock child : lootBlock.childLoot) {
-				lootBlock.childLoot.push_back(child);
-			}
-		}
-		monsterType->info.lootItems.push_back(lootBlock);
-	} else {
-		monsterType->info.lootItems.push_back(lootBlock);
-	}
+	return uniform_random(0, MAX_LOOTCHANCE) / g_config.getNumber(ConfigManager::RATE_LOOT);
 }
 
+void MonsterType::createLoot(Container* corpse)
+{
+	if (g_config.getNumber(ConfigManager::RATE_LOOT) == 0) {
+        corpse->startDecaying();
+        return;
+    }
+
+    if (info.isRewardBoss) {
+        auto timestamp = time(nullptr);
+        Item* rewardContainer = Item::CreateItem(ITEM_REWARD_CONTAINER);
+        rewardContainer->setIntAttr(ITEM_ATTRIBUTE_DATE, timestamp);
+        corpse->setIntAttr(ITEM_ATTRIBUTE_DATE, timestamp);
+        corpse->internalAddThing(rewardContainer);
+        corpse->setRewardCorpse();
+        corpse->startDecaying();
+        return;
+    }
+
+    Player* owner = g_game.getPlayerByID(corpse->getCorpseOwner());
+    //autoloot
+    std::string autolooted = "";
+    //
+    if (!owner || owner->getStaminaMinutes() > 840) {
+
+        bool canRerollLoot = false;
+
+        if (owner) {
+            for (int i = 0; i < 3; i++) {
+                if (owner->getPreyType(i) == 3 && name == owner->getPreyName(i)) {
+                    uint32_t rand = uniform_random(0, 100);
+                    if (rand <= owner->getPreyValue(i)) {
+                        canRerollLoot = true;
+                    }
+
+                    break;
+                }
+            }
+        }
+
+        for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
+            auto itemList = createLootItem(*it, canRerollLoot);
+            if (itemList.empty()) {
+                continue;
+            }
+
+            for (Item* item : itemList) {
+                //check containers
+                if (Container* container = item->getContainer()) {
+                    if (!createLootContainer(container, *it)) {
+                        delete container;
+                        continue;
+                    }
+                }
+
+                //if (g_game.internalAddItem(corpse, item) != RETURNVALUE_NOERROR) {
+                  //  corpse->internalAddThing(item);
+                //}
+            }
+        }
+        //autoloot
+        for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
+            auto itemList = createLootItem(*it);
+            if (itemList.empty()) {
+                continue;
+            }
+
+            for (Item* item : itemList) {
+                //check containers
+                if (Container* container = item->getContainer()) {
+                    if (!createLootContainer(container, *it)) {
+                        delete container;
+                        continue;
+                    }
+                }
+
+                if (owner && owner->getAutoLootItem(item->getID()) && (g_config.getNumber(ConfigManager::AUTOLOOT_MODE) == 1)) {
+                    g_game.internalPlayerAddItem(owner, item, true, CONST_SLOT_WHEREEVER);
+                    autolooted = autolooted + ", " + item->getNameDescription();
+					
+                } else if (g_game.internalAddItem(corpse, item) != RETURNVALUE_NOERROR) {
+                    corpse->internalAddThing(item);
+                }
+            }
+        }
+        //
+
+        if (owner) {
+            std::ostringstream ss;
+            //autoloot
+            std::string lootMsg = corpse->getContentDescription();
+            //ss << "Loot of " << nameDescription << ": " << corpse->getContentDescription(); -- change for autoloot system
+            if (canRerollLoot) {
+                //ss << "Loot of " << nameDescription << " [PREY]: " << corpse->getContentDescription();
+				ss << "Loot of " << nameDescription << " [PREY]: ";
+            } else {
+                //ss << "Loot of " << nameDescription << ": " << corpse->getContentDescription();
+				ss << "Loot of " << nameDescription << ": ";
+            }
+            //autoloot
+            if (autolooted != "" && corpse->getContentDescription() == "nothing"){
+                lootMsg = autolooted.erase(0,2) + " that was autolooted";
+            } else if (autolooted != ""){
+                lootMsg = corpse->getContentDescription() + " and " + autolooted.erase(0,2) + " was auto looted";
+            }
+			ss << lootMsg;
+            //
+           
+            if (owner->getParty()) {
+            //autoloot
+                ss << " by " << owner->getName();
+            //
+                owner->getParty()->broadcastPartyLoot(ss.str());
+            } else {
+				owner->sendTextMessage(MESSAGE_LOOT, ss.str());
+			            }
+        }
+    } else {
+        std::ostringstream ss;
+        ss << "Loot of " << nameDescription << ": nothing (due to low stamina)";
+
+        if (owner->getParty()) {
+            owner->getParty()->broadcastPartyLoot(ss.str());
+        } else {
+            owner->sendTextMessage(MESSAGE_LOOT, ss.str());
+        }
+		
+    }
+if (g_config.getNumber(ConfigManager::AUTOLOOT_MODE) == 2) {
+		int32_t act = 500;
+		corpse->setActionId(act);
+	}
+	corpse->startDecaying();
+}
+
+
+std::vector<Item*> MonsterType::createLootItem(const LootBlock& lootBlock, bool canRerollLoot)
+{
+	int32_t itemCount = 0;
+	uint8_t tryTimes = 1;
+
+	if (canRerollLoot)
+		tryTimes = 2;
+
+	for (int i = 0; i < tryTimes; i++) {
+		uint32_t randvalue = Monsters::getLootRandom();
+		if (randvalue < lootBlock.chance) {
+			if (Item::items[lootBlock.id].stackable) {
+				itemCount = randvalue % lootBlock.countmax + 1;
+			} else {
+				itemCount = 1;
+			}
+
+			break;
+		}
+	}
+
+	std::vector<Item*> itemList;
+	while (itemCount > 0) {
+		uint16_t n = static_cast<uint16_t>(std::min<int32_t>(itemCount, 100));
+		Item* tmpItem = Item::CreateItem(lootBlock.id, n);
+		if (!tmpItem) {
+			break;
+		}
+
+		itemCount -= n;
+
+		if (lootBlock.subType != -1) {
+			tmpItem->setSubType(lootBlock.subType);
+		}
+
+		if (lootBlock.actionId != -1) {
+			tmpItem->setActionId(lootBlock.actionId);
+		}
+
+		if (!lootBlock.text.empty()) {
+			tmpItem->setText(lootBlock.text);
+		}
+
+		if (!lootBlock.name.empty()) {
+			tmpItem->setStrAttr(ITEM_ATTRIBUTE_NAME, lootBlock.name);
+		}
+
+		if (!lootBlock.article.empty()) {
+			tmpItem->setStrAttr(ITEM_ATTRIBUTE_ARTICLE, lootBlock.article);
+		}
+
+		if (lootBlock.attack != -1) {
+			tmpItem->setIntAttr(ITEM_ATTRIBUTE_ATTACK, lootBlock.attack);
+		}
+
+		if (lootBlock.defense != -1) {
+			tmpItem->setIntAttr(ITEM_ATTRIBUTE_DEFENSE, lootBlock.defense);
+		}
+
+		if (lootBlock.extraDefense != -1) {
+			tmpItem->setIntAttr(ITEM_ATTRIBUTE_EXTRADEFENSE, lootBlock.extraDefense);
+		}
+
+		if (lootBlock.armor != -1) {
+			tmpItem->setIntAttr(ITEM_ATTRIBUTE_ARMOR, lootBlock.armor);
+		}
+
+		if (lootBlock.shootRange != -1) {
+			tmpItem->setIntAttr(ITEM_ATTRIBUTE_SHOOTRANGE, lootBlock.shootRange);
+		}
+
+		if (lootBlock.hitChance != -1) {
+			tmpItem->setIntAttr(ITEM_ATTRIBUTE_HITCHANCE, lootBlock.hitChance);
+		}
+
+		itemList.push_back(tmpItem);
+	}
+	return itemList;
+}
+
+bool MonsterType::createLootContainer(Container* parent, const LootBlock& lootblock)
+{
+	auto it = lootblock.childLoot.begin(), end = lootblock.childLoot.end();
+	if (it == end) {
+		return true;
+	}
+
+	for (; it != end && parent->size() < parent->capacity(); ++it) {
+		auto itemList = createLootItem(*it);
+		for (Item* tmpItem : itemList) {
+			if (Container* container = tmpItem->getContainer()) {
+				if (!createLootContainer(container, *it)) {
+					delete container;
+				} else {
+					parent->internalAddThing(container);
+				}
+			} else {
+				parent->internalAddThing(tmpItem);
+			}
+		}
+	}
+	return !parent->empty();
+}
 
 bool Monsters::loadFromXml(bool reloading /*= false*/)
 {
@@ -855,8 +1084,8 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.isSummonable = attr.as_bool();
 			} else if (strcasecmp(attrName, "rewardboss") == 0) {
 				mType->info.isRewardBoss = attr.as_bool();
-			} else if (strcasecmp(attrName, "boss") == 0) {
-				mType->info.isBoss = attr.as_bool();
+			} else if (strcasecmp(attrName, "preyable") == 0) {
+				mType->info.isPreyable = attr.as_bool();
 			} else if (strcasecmp(attrName, "attackable") == 0) {
 				mType->info.isAttackable = attr.as_bool();
 			} else if (strcasecmp(attrName, "hostile") == 0) {
@@ -901,6 +1130,8 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.canWalkOnFire = attr.as_bool();
 			} else if (strcasecmp(attrName, "canwalkonpoison") == 0) {
 				mType->info.canWalkOnPoison = attr.as_bool();
+			} else if (strcasecmp(attrName, "respawntype") == 0) {
+				mType->info.respawnType = getSpawnType(asLowerCaseString(attr.as_string()));
 			} else {
 				std::cout << "[Warning - Monsters::loadMonster] Unknown flag attribute: " << attrName << ". " << file << std::endl;
 			}
@@ -1362,7 +1593,7 @@ std::vector<std::string> Monsters::getPreyMonsters()
 {
 	std::vector<std::string> monsterList;
 	for (const auto& m : monsters) {
-		if (m.second.info.experience > 0 && !m.second.info.isRewardBoss && m.second.info.staticAttackChance > 0 && !m.second.info.isBoss) {
+		if (m.second.info.experience > 0 && m.second.info.isPreyable && !m.second.info.isRewardBoss && m.second.info.staticAttackChance > 0) {
 			monsterList.push_back(m.first);
 		}
 	}

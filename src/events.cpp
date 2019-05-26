@@ -144,9 +144,9 @@ bool Events::load()
 			if (methodName == "onSpawn") {
 				info.monsterOnSpawn = event;
 			}
-			else if (methodName == "onDropLoot") {
+			/*else if (methodName == "onDropLoot") {
 				info.monsterOnDropLoot = event;
-			} else {
+			}*/ else {
 				std::cout << "[Warning - Events::load] Unknown monster method: " << methodName << std::endl;
 			}
 		} else {
@@ -963,7 +963,7 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	scriptInterface.resetScriptEnv();
 }
 
-void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
+/*void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 {
 	// Monster:onDropLoot(corpse)
 	if (info.monsterOnDropLoot == -1) {
@@ -988,7 +988,7 @@ void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 	LuaScriptInterface::setMetatable(L, -1, "Container");
 
 	return scriptInterface.callVoidFunction(2);
-}
+}*/
 
 void Events::eventPlayerOnUseWeapon(Player* player, int32_t& normalDamage, CombatType_t& elementType, int32_t& elementDamage)
 {

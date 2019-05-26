@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `OTServBR- Global`
+-- Database: `OTServBR - Global`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `accounts`
+-- Table structure `accounts`
 --
 
 CREATE TABLE `accounts` (
@@ -66,7 +66,7 @@ CREATE TABLE `accounts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `accounts`
+-- Extracting data from table `accounts`
 --
 
 INSERT INTO `accounts` (`id`, `name`, `password`, `secret`, `type`, `premdays`, `coins`, `lastday`, `email`, `creation`, `vote`, `key`, `email_new`, `email_new_time`, `rlname`, `location`, `page_access`, `email_code`, `next_email`, `premium_points`, `create_date`, `create_ip`, `last_post`, `flag`, `vip_time`, `guild_points`, `guild_points_stats`, `passed`, `block`, `refresh`, `birth_date`, `gender`, `loyalty_points`, `authToken`) VALUES
@@ -76,7 +76,7 @@ INSERT INTO `accounts` (`id`, `name`, `password`, `secret`, `type`, `premdays`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `account_bans`
+-- Table structure `account_bans`
 --
 
 CREATE TABLE `account_bans` (
@@ -90,7 +90,7 @@ CREATE TABLE `account_bans` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `account_ban_history`
+-- Table structure `account_ban_history`
 --
 
 CREATE TABLE `account_ban_history` (
@@ -105,7 +105,7 @@ CREATE TABLE `account_ban_history` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `account_viplist`
+-- Table structure `account_viplist`
 --
 
 CREATE TABLE `account_viplist` (
@@ -119,7 +119,7 @@ CREATE TABLE `account_viplist` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `announcements`
+-- Table structure `announcements`
 --
 
 CREATE TABLE `announcements` (
@@ -133,7 +133,7 @@ CREATE TABLE `announcements` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `blessings_history`
+-- Table structure `blessings_history`
 --
 
 CREATE TABLE `blessings_history` (
@@ -166,7 +166,7 @@ CREATE TABLE `daily_reward_history` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `global_storage`
+-- Table structure `global_storage`
 --
 
 CREATE TABLE `global_storage` (
@@ -177,7 +177,7 @@ CREATE TABLE `global_storage` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `guilds`
+-- Table structure `guilds`
 --
 
 CREATE TABLE `guilds` (
@@ -210,7 +210,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `guildwar_kills`
+-- Table structure `guildwar_kills`
 --
 
 CREATE TABLE `guildwar_kills` (
@@ -226,7 +226,7 @@ CREATE TABLE `guildwar_kills` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `guild_invites`
+-- Table structure `guild_invites`
 --
 
 CREATE TABLE `guild_invites` (
@@ -238,7 +238,7 @@ CREATE TABLE `guild_invites` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `guild_membership`
+-- Table structure `guild_membership`
 --
 
 CREATE TABLE `guild_membership` (
@@ -251,7 +251,7 @@ CREATE TABLE `guild_membership` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `guild_ranks`
+-- Table structure `guild_ranks`
 --
 
 CREATE TABLE `guild_ranks` (
@@ -264,7 +264,7 @@ CREATE TABLE `guild_ranks` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `guild_wars`
+-- Table structure `guild_wars`
 --
 
 CREATE TABLE `guild_wars` (
@@ -281,7 +281,7 @@ CREATE TABLE `guild_wars` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `houses`
+-- Table structure `houses`
 --
 
 CREATE TABLE `houses` (
@@ -304,7 +304,7 @@ CREATE TABLE `houses` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `house_lists`
+-- Table structure `house_lists`
 --
 
 CREATE TABLE `house_lists` (
@@ -316,7 +316,7 @@ CREATE TABLE `house_lists` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ip_bans`
+-- Table structure `ip_bans`
 --
 
 CREATE TABLE `ip_bans` (
@@ -330,7 +330,7 @@ CREATE TABLE `ip_bans` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `live_casts`
+-- Table structure `live_casts`
 --
 
 CREATE TABLE `live_casts` (
@@ -344,7 +344,7 @@ CREATE TABLE `live_casts` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `market_history`
+-- Table structure `market_history`
 --
 
 CREATE TABLE `market_history` (
@@ -362,7 +362,7 @@ CREATE TABLE `market_history` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `market_offers`
+-- Table structure `market_offers`
 --
 
 CREATE TABLE `market_offers` (
@@ -379,7 +379,7 @@ CREATE TABLE `market_offers` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `newsticker`
+-- Table structure `newsticker`
 --
 
 CREATE TABLE `newsticker` (
@@ -392,7 +392,7 @@ CREATE TABLE `newsticker` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pagseguro`
+-- Table structure `pagseguro`
 --
 
 CREATE TABLE `pagseguro` (
@@ -407,7 +407,7 @@ CREATE TABLE `pagseguro` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pagseguro_transactions`
+-- Table structure `pagseguro_transactions`
 --
 
 CREATE TABLE `pagseguro_transactions` (
@@ -423,7 +423,7 @@ CREATE TABLE `pagseguro_transactions` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `players`
+-- Table structure `players`
 --
 
 CREATE TABLE `players` (
@@ -531,7 +531,7 @@ CREATE TABLE `players` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `players`
+-- Extracting data from table `players`
 --
 
 INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `onlinetime`, `deletion`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `cast`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`, `skill_mana_leech_amount_tries`, `skill_criticalhit_chance`, `skill_criticalhit_damage`, `skill_lifeleech_chance`, `skill_lifeleech_amount`, `skill_manaleech_chance`, `skill_manaleech_amount`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `prey_column`, `bonus_reroll`, `xpboost_stamina`, `xpboost_value`, `marriage_status`, `hide_skills`, `hide_set`, `former`, `signature`, `marriage_spouse`, `loyalty_ranking`) VALUES
@@ -545,7 +545,31 @@ INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocatio
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `players_online`
+-- Table structure `player_autoloot`
+--
+
+CREATE TABLE `player_autoloot` (
+  `id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  `autoloot_list` blob
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `player_autoloot_persist`
+--
+
+CREATE TABLE `player_autoloot_persist` (
+  `player_guid` mediumint(9) DEFAULT NULL,
+  `cont_id` mediumint(9) DEFAULT NULL,
+  `item_id` mediumint(9) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure `players_online`
 --
 
 CREATE TABLE `players_online` (
@@ -555,7 +579,7 @@ CREATE TABLE `players_online` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_deaths`
+-- Table structure `player_deaths`
 --
 
 CREATE TABLE `player_deaths` (
@@ -573,7 +597,7 @@ CREATE TABLE `player_deaths` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_depotitems`
+-- Table structure `player_depotitems`
 --
 
 CREATE TABLE `player_depotitems` (
@@ -588,7 +612,7 @@ CREATE TABLE `player_depotitems` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_former_names`
+-- Table structure `player_former_names`
 --
 
 CREATE TABLE `player_former_names` (
@@ -601,7 +625,7 @@ CREATE TABLE `player_former_names` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_inboxitems`
+-- Table structure `player_inboxitems`
 --
 
 CREATE TABLE `player_inboxitems` (
@@ -616,7 +640,7 @@ CREATE TABLE `player_inboxitems` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_items`
+-- Table structure `player_items`
 --
 
 CREATE TABLE `player_items` (
@@ -631,7 +655,7 @@ CREATE TABLE `player_items` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_kills`
+-- Table structure `player_kills`
 --
 
 CREATE TABLE `player_kills` (
@@ -644,7 +668,7 @@ CREATE TABLE `player_kills` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_misc`
+-- Table structure `player_misc`
 --
 
 CREATE TABLE `player_misc` (
@@ -655,7 +679,7 @@ CREATE TABLE `player_misc` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_namelocks`
+-- Table structure `player_namelocks`
 --
 
 CREATE TABLE `player_namelocks` (
@@ -668,7 +692,7 @@ CREATE TABLE `player_namelocks` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_prey`
+-- Table structure `player_prey`
 --
 
 CREATE TABLE `player_prey` (
@@ -681,7 +705,7 @@ CREATE TABLE `player_prey` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_preytimes`
+-- Table structure `player_preytimes`
 --
 
 CREATE TABLE `player_preytimes` (
@@ -700,7 +724,7 @@ CREATE TABLE `player_preytimes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_rewards`
+-- Table structure `player_rewards`
 --
 
 CREATE TABLE `player_rewards` (
@@ -715,7 +739,7 @@ CREATE TABLE `player_rewards` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_spells`
+-- Table structure `player_spells`
 --
 
 CREATE TABLE `player_spells` (
@@ -726,7 +750,7 @@ CREATE TABLE `player_spells` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `player_storage`
+-- Table structure `player_storage`
 --
 
 CREATE TABLE `player_storage` (
@@ -738,7 +762,7 @@ CREATE TABLE `player_storage` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `sellchar`
+-- Table structure `sellchar`
 --
 
 CREATE TABLE `sellchar` (
@@ -753,7 +777,7 @@ CREATE TABLE `sellchar` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `server_config`
+-- Table structure `server_config`
 --
 
 CREATE TABLE `server_config` (
@@ -762,7 +786,7 @@ CREATE TABLE `server_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `server_config`
+-- Extracting data from table `server_config`
 --
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
@@ -775,7 +799,7 @@ INSERT INTO `server_config` (`config`, `value`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `store_history`
+-- Table structure `store_history`
 --
 
 CREATE TABLE `store_history` (
@@ -792,7 +816,7 @@ CREATE TABLE `store_history` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tile_store`
+-- Table structure `tile_store`
 --
 
 CREATE TABLE `tile_store` (
@@ -803,7 +827,7 @@ CREATE TABLE `tile_store` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_forum`
+-- Table structure `z_forum`
 --
 
 CREATE TABLE `z_forum` (
@@ -829,7 +853,7 @@ CREATE TABLE `z_forum` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_network_box`
+-- Table structure `z_network_box`
 --
 
 CREATE TABLE `z_network_box` (
@@ -841,7 +865,7 @@ CREATE TABLE `z_network_box` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_news_tickers`
+-- Table structure `z_news_tickers`
 --
 
 CREATE TABLE `z_news_tickers` (
@@ -855,7 +879,7 @@ CREATE TABLE `z_news_tickers` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_ots_comunication`
+-- Table structure `z_ots_comunication`
 --
 
 CREATE TABLE `z_ots_comunication` (
@@ -876,7 +900,7 @@ CREATE TABLE `z_ots_comunication` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_ots_guildcomunication`
+-- Table structure `z_ots_guildcomunication`
 --
 
 CREATE TABLE `z_ots_guildcomunication` (
@@ -897,7 +921,7 @@ CREATE TABLE `z_ots_guildcomunication` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_polls`
+-- Table structure `z_polls`
 --
 
 CREATE TABLE `z_polls` (
@@ -912,7 +936,7 @@ CREATE TABLE `z_polls` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_polls_answers`
+-- Table structure `z_polls_answers`
 --
 
 CREATE TABLE `z_polls_answers` (
@@ -925,7 +949,7 @@ CREATE TABLE `z_polls_answers` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_shop_category`
+-- Table structure `z_shop_category`
 --
 
 CREATE TABLE `z_shop_category` (
@@ -937,7 +961,7 @@ CREATE TABLE `z_shop_category` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `z_shop_category`
+-- Extracting data from table `z_shop_category`
 --
 
 INSERT INTO `z_shop_category` (`id`, `name`, `desc`, `button`, `hide`) VALUES
@@ -946,7 +970,7 @@ INSERT INTO `z_shop_category` (`id`, `name`, `desc`, `button`, `hide`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_shop_donates`
+-- Table structure `z_shop_donates`
 --
 
 CREATE TABLE `z_shop_donates` (
@@ -963,7 +987,7 @@ CREATE TABLE `z_shop_donates` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_shop_donate_confirm`
+-- Table structure `z_shop_donate_confirm`
 --
 
 CREATE TABLE `z_shop_donate_confirm` (
@@ -977,7 +1001,7 @@ CREATE TABLE `z_shop_donate_confirm` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_shop_history_item`
+-- Table structure `z_shop_history_item`
 --
 
 CREATE TABLE `z_shop_history_item` (
@@ -996,7 +1020,7 @@ CREATE TABLE `z_shop_history_item` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_shop_offer`
+-- Table structure `z_shop_offer`
 --
 
 CREATE TABLE `z_shop_offer` (
@@ -1017,7 +1041,7 @@ CREATE TABLE `z_shop_offer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `z_shop_offer`
+-- Extracting data from table `z_shop_offer`
 --
 
 INSERT INTO `z_shop_offer` (`id`, `category`, `coins`, `price`, `itemid`, `mount_id`, `addon_name`, `count`, `offer_type`, `offer_description`, `offer_name`, `offer_date`, `default_image`, `hide`) VALUES
@@ -1029,7 +1053,7 @@ INSERT INTO `z_shop_offer` (`id`, `category`, `coins`, `price`, `itemid`, `mount
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `z_shop_payment`
+-- Table structure `z_shop_payment`
 --
 
 CREATE TABLE `z_shop_payment` (

@@ -888,6 +888,12 @@ class Player final : public Creature, public Cylinder
 		}
 
 		//inventory
+		void sendCoinBalance() {
+			if (client) {
+				client->sendCoinBalance();
+			}
+		}
+		
 		void sendInventoryItem(slots_t slot, const Item* item) {
 			if (client) {
 				client->sendInventoryItem(slot, item);
@@ -1208,16 +1214,12 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
-		void sendCoinBalanceUpdating(bool updating) {
-			if(client) {
-				client->sendCoinBalanceUpdating(updating);
-			}
-		}
-
 		void sendStoreOpen(uint8_t serviceType) {
-			if(client)
+			if (client) {
 				client->sendOpenStore(serviceType);
 		}
+					
+				}
 
 
 
@@ -1261,6 +1263,11 @@ class Player final : public Creature, public Cylinder
 		void learnInstantSpell(const std::string& spellName);
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
+		
+		//Autoloot
+		void addAutoLootItem(uint16_t itemId);
+		void removeAutoLootItem(uint16_t itemId);
+		bool getAutoLootItem(uint16_t itemId);
 
 		bool startLiveCast(const std::string& password) {
 			return client && client->startLiveCast(password);
@@ -1387,6 +1394,8 @@ class Player final : public Creature, public Cylinder
 		void internalAddThing(uint32_t index, Thing* thing) final;
 
 		std::unordered_set<uint32_t> attackedSet;
+		std::unordered_set<uint32_t> autoLootList; //Autoloot
+		//std::unordered_set<uint32_t> autoLootList; (use this if you have ubuntu 16+)
 		std::unordered_set<uint32_t> VIPList;
 
 		std::map<uint8_t, OpenContainer> openContainers;
@@ -1476,12 +1485,12 @@ class Player final : public Creature, public Cylinder
 		int32_t saleCallback = -1;
 		int32_t MessageBufferCount = 0;
 		int32_t premiumDays = 0;
-		int32_t tibiaCoins = 0;
 		int32_t bloodHitCount = 0;
 		int32_t shieldBlockCount = 0;
 		int32_t offlineTrainingSkill = -1;
 		int32_t offlineTrainingTime = 0;
 		int32_t idleTime = 0;
+		int32_t coinBalance = 0;
 		uint16_t expBoostStamina = 0;
 
 		uint16_t lastStatsTrainingTime = 0;

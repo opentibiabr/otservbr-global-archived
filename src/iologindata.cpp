@@ -320,7 +320,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 		player->premiumDays = acc.premiumDays;
 	}
 
-	player->tibiaCoins = IOAccount::getCoinBalance(player->getAccount());
+	player->coinBalance = IOAccount::getCoinBalance(player->getAccount());
 
 	Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
 	if (!group) {
@@ -529,7 +529,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 5000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 2000";
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -562,7 +562,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	itemMap.clear();
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 5000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 2000";
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -594,7 +594,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	itemMap.clear();
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 5000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 1000";
     if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -642,7 +642,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	itemMap.clear();
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 5000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 500";
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -665,6 +665,23 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 					container->internalAddThing(item);
 				}
 			}
+		}
+	}
+	
+	//load autoloot list set
+	query.str(std::string());
+	query << "SELECT `autoloot_list` FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
+	if ((result = db.storeQuery(query.str()))) {
+		unsigned long lootlistSize;
+		const char* autolootlist = result->getStream("autoloot_list", lootlistSize);
+		PropStream propStreamList;
+		propStreamList.init(autolootlist, lootlistSize);
+
+		int16_t value;
+		int16_t item = propStreamList.read<int16_t>(value);
+		while (item) {
+			player->addAutoLootItem(value);
+			item = propStreamList.read<int16_t>(value);
 		}
 	}
 
@@ -1013,6 +1030,35 @@ bool IOLoginData::savePlayer(Player* player)
 			return false;
 		}
 	}
+	
+	//Autoloot (save autoloot list)
+		query.str(std::string());
+		query << "DELETE FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
+		if (!db.executeQuery(query.str())) {
+			return false;
+		}
+
+		PropWriteStream propWriteStreamAutoLoot;
+
+		for (auto i : player->autoLootList) {
+			propWriteStreamAutoLoot.write<uint16_t>(i);
+		}
+
+		size_t lootlistSize;
+		const char* autolootlist = propWriteStreamAutoLoot.getStream(lootlistSize);
+
+		query.str(std::string());
+
+		DBInsert autolootQuery("INSERT INTO `player_autoloot` (`player_id`, `autoloot_list`) VALUES ");
+
+			query << player->getGUID() << ',' << db.escapeBlob(autolootlist, lootlistSize);
+			if (!autolootQuery.addRow(query)) {
+				return false;
+			}
+
+		if (!autolootQuery.execute()) {
+			return false;
+		}
 
 	//save inbox items
 	query.str(std::string());
