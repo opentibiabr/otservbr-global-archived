@@ -26,7 +26,8 @@ Modified: (M)<br>
 #### .cpp archives
 * (A) - New Autoloot System for Modal (tag "//Autoloot" at the source)
 
-* (A) - Two new values to enums MESSAGE_LOOT and MAX_LOOTCHANCE
+* (A) - actions.cpp - New rewardchest feature
+
 
 * (A) New anti-wipe exhaust functions:
    * game.cpp - Can't move item very fast
@@ -63,6 +64,8 @@ Modified: (M)<br>
 
 * (A) protocolgame.cpp - Cannot login using OTC (because can use OTC for inject bytes and generate crashs)
 
+* (A) rewardchest.cpp - New rewardchest from sources
+
 * (A) tile.cpp - New Function getWeight (prevent to drag items too heavy)
 
 * (M) - optization in the getWorldLight function (from TFS)
@@ -79,6 +82,8 @@ Modified: (M)<br>
 
 #### .h archives
 * (A) const.h - News Effects
+
+* (A) rewardchest.h - New rewardchest
 
 * (D) - luaContainerGetContentDescription
 * (D) - luaContainerGetCorpseOwner
