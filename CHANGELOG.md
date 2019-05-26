@@ -49,13 +49,16 @@ game.cpp - Can't speak very fast
 
 * (A) inbox.cpp 
      - News Function setMaxInboxItem (prevent crash from mail)
+
      - getTopParent (prevent crash from mail)
 
 * (A) items.cpp - News Function builInventoryList(from TFS)
 
 
-* (A) - luascript.cpp - News FunctionS
+* (A) - luascript.cpp - News Functions
+
       - New Function getPreyMonsters
+
       - New Function getRespawnType
 
 * (A) protocolgame.cpp - Cannot login using OTC (because can use OTC for inject bytes and generate crashs)
@@ -116,8 +119,12 @@ game.cpp - Can't speak very fast
 #### lib/
 #### .lua archives
 * (A) 
-- Party moved to .lua core (Feature from TFS)
-- Added a new function to party class called broadcastPartyLoot (based on sources)
+     - Party moved to .lua core (Feature from TFS)
+
+     - Added a new function to party class called broadcastPartyLoot (based on sources)
+
+     - Moved quests.xml to lua core lib/core/quests.lua
+
 Archives: core/core.lua and core/party.lua
 
 * (A) - News functions to the system for lua added in compat.lua
@@ -157,8 +164,11 @@ spells/
 
 #### .lua archives
 * (A) - News nonsters spells 
+
       - arachnophobicawavedice
+
       - arachnophobicawaveenergy
+
       - pixie skill reducer
 
 #### talkactions/
@@ -177,4 +187,6 @@ spells/
 
 #### XML/
 #### .xml archives
-* Example
+* (M) - groups.xml - Flags moved to groups.xml
+
+* (D) - quests.xml - Moved to lib\core\quests.lua
