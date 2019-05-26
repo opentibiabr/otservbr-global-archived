@@ -29,13 +29,13 @@ Modified: (M)<br>
 * (A) - Two new values to enums MESSAGE_LOOT and MAX_LOOTCHANCE
 
 * (A) New anti-wipe exhaust functions:
-game.cpp - Can't move item very fast
-game.cpp - Can't look very fast
-game.cpp - Can't speak very fast
+   * game.cpp - Can't move item very fast
+   * game.cpp - Can't look very fast
+   * game.cpp - Can't speak very fast
 
 * (A) - News lua system from TFS
-      - [2558](https://github.com/otland/forgottenserver/commit/62dac47c01610f652a5d792d4c9e06f4f0febefa)
-      - [2571](https://github.com/otland/forgottenserver/commit/38bfbb2624ae2ed347791a0b3e955bad35c22d4a)
+   * [2558](https://github.com/otland/forgottenserver/commit/62dac47c01610f652a5d792d4c9e06f4f0febefa)
+   * [2571](https://github.com/otland/forgottenserver/commit/38bfbb2624ae2ed347791a0b3e955bad35c22d4a)
 
 * (A) spells.cpp - New function that prevents crash
 
@@ -47,19 +47,19 @@ game.cpp - Can't speak very fast
 
 * (A) game.cpp - News Function playerEquipItem (from TFS)
 
-* (A) inbox.cpp 
-     - News Function setMaxInboxItem (prevent crash from mail)
+* (A) inbox.cpp - News Function 
+     * setMaxInboxItem (prevent crash from mail)
 
-     - getTopParent (prevent crash from mail)
+     * getTopParent (prevent crash from mail)
 
 * (A) items.cpp - News Function builInventoryList(from TFS)
 
 
 * (A) - luascript.cpp - News Functions
 
-      - New Function getPreyMonsters
+  * New Function getPreyMonsters
 
-      - New Function getRespawnType
+  * New Function getRespawnType
 
 * (A) protocolgame.cpp - Cannot login using OTC (because can use OTC for inject bytes and generate crashs)
 
@@ -119,11 +119,11 @@ game.cpp - Can't speak very fast
 #### lib/
 #### .lua archives
 * (A) 
-     - Party moved to .lua core (Feature from TFS)
+  * Party moved to .lua core (Feature from TFS)
 
-     - Added a new function to party class called broadcastPartyLoot (based on sources)
+  * Added a new function to party class called broadcastPartyLoot (based on sources)
 
-     - Moved quests.xml to lua core lib/core/quests.lua
+  * Moved quests.xml to lua core lib/core/quests.lua
 
 Archives: core/core.lua and core/party.lua
 
@@ -165,11 +165,11 @@ spells/
 #### .lua archives
 * (A) - News nonsters spells 
 
-      - arachnophobicawavedice
+  * arachnophobicawavedice
 
-      - arachnophobicawaveenergy
+  * arachnophobicawaveenergy
 
-      - pixie skill reducer
+  * pixie skill reducer
 
 #### talkactions/
 #### .xml archives
@@ -180,7 +180,7 @@ spells/
 
 #### weapons/
 #### .xml archives
-* Example
+* 
 
 #### .lua archives
 * (A) - New system weapons in lua at data/scripts/weapons/example.lua
