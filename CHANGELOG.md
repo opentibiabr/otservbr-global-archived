@@ -25,6 +25,8 @@ Modified: (M)<br>
 #### src/
 #### .cpp archives
 * (A) - New Autoloot System for Modal (tag "//Autoloot" at the source)
+  * How to use: say !add monstername
+  * Add loot to the list (if added you can see * before item name)
 
 * (A) - actions.cpp - New rewardchest feature
 
