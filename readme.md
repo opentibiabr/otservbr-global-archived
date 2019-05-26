@@ -1,4 +1,4 @@
-## OTServ Brasil - Global Server
+## OTServ Brasil - Global Server [![Build status](https://ci.appveyor.com/api/projects/status/599x38f3a0luessl?svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download builds for Windows")
 
 #### Introduction:
 Our idea is to rescue the old Open Tibia community (free of charge as far as we can)<br>
