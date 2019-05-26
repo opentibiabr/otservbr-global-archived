@@ -34,8 +34,8 @@ game.cpp - Can't look very fast
 game.cpp - Can't speak very fast
 
 * (A) News lua system from TFS
-- [2558](https://github.com/otland/forgottenserver/commit/62dac47c01610f652a5d792d4c9e06f4f0febefa)
-- [2571](https://github.com/otland/forgottenserver/commit/38bfbb2624ae2ed347791a0b3e955bad35c22d4a)
+     - [2558](https://github.com/otland/forgottenserver/commit/62dac47c01610f652a5d792d4c9e06f4f0febefa)
+     - [2571](https://github.com/otland/forgottenserver/commit/38bfbb2624ae2ed347791a0b3e955bad35c22d4a)
 
 * (A) spells.cpp - New function that prevents crash
 
@@ -101,8 +101,9 @@ game.cpp - Can't speak very fast
 * (A) - function onStorageUpdate 
 * (A) - function onUseWeapon 
 * (A) - function onCombatSpell 
-
-#### .lua archives
+* (A) - function onRemoveCount
+ 
+### .lua archives
 
 #### globalevents/
 #### .xml archives
