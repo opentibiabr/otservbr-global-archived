@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Renegade Quara Pincher" nameDescription="a renegade quara pincher" race="blood" experience="2400" speed="210" manacost="330">
+	<health now="2800" max="2800"/>
+	<look type="77" corpse="6063" />
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="60"/>
+		<attack name="speed" interval="2000" chance="20" range="1" speedchange="-300" duration="3000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50" />
+	<elements>
+		<element earthPercent="-1" />
+		<element energyPercent="-25" />
+		<element physicalPercent="10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity drown="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="93" chance="100000"/> <!-- gold coin -->
+		<item id="2152" countmax="5" chance="100000"/> <!-- platinum coin -->
+		<item id="12446" chance="20000"/> <!-- quara pincers -->
+		<item id="2145" countmax="2" chance="11111"/> <!-- small diamond -->
+		<item id="7591" countmax="2" chance="10000"/> <!-- great health potion -->
+		<item id="7590" countmax="2" chance="10000"/> <!-- great mana potion -->
+		<item id="2147" countmax="2" chance="9090"/> <!-- small ruby -->
+		<item id="2670" chance="7692"/> <!-- shrimp -->
+		<item id="15649" countmax="4" chance="5000"/> <!-- vortex bolt -->
+		<item id="2156" chance="5000"/> <!-- red gem -->
+		<item id="2178" chance="4166"/> <!-- mind stone -->
+		<item id="5895" chance="1666"/> <!-- fish fin -->
+		<item id="2381" chance="840"/> <!-- halberd -->
+		<item id="2475" chance="840"/> <!-- warrior helmet -->
+		<item id="2169" chance="840"/> <!-- time ring -->
+		<item id="2487" chance="840"/> <!-- crown armor -->
+	</loot>
+</monster>

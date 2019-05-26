@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Depowered Minotaur" nameDescription="a depowered minotaur" race="blood" experience="1100" speed="106" manacost="0">
+	<health now="1500" max="1500" />
+	<look type="25" corpse="5969" />
+	<targetchange interval="4000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="80" attack="45"/>
+	</attacks>
+	<defenses armor="15" defense="15" />
+	<elements>
+		<element firePercent="20" />
+		<element holyPercent="10" />
+	</elements>
+	<voices interval="2000" chance="7">
+		<voice sentence="I want my power back" />
+		<voice sentence="Nooooo!" />
+		<voice sentence="Revenge will be sweet!" />
+		<voice sentence="They've stolen my power!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="82" chance="100000" /> <!-- gold coin -->
+		<item id="12428" chance="100000" /> <!-- minotaur horn -->
+		<item id="2152" countmax="4" chance="100000" /> <!-- platinum coin -->
+		<item id="7588" chance="25000" /> <!-- strong health potion -->
+		<item id="5878" chance="25000" /> <!-- minotaur leather -->
+		<item id="2146" chance="25000" /> <!-- small sapphire -->
+	</loot>
+</monster>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Lethal Lissy" nameDescription="Lethal Lissy" race="blood" experience="500" speed="240">
+	<health now="1450" max="1450" />
+	<look type="155" head="77" body="0" legs="76" feet="132" addons="3" corpse="20438" />
+	<targetchange interval="60000" chance="0" />
+	<flags>
+		<flag preyable="0" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag staticattack="50" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250" />
+	</attacks>
+	<defenses armor="35" defense="50">
+		<defense name="healing" interval="6000" chance="65" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<summons maxSummons="4">
+		<summon name="Pirate Cutthroat" interval="2000" chance="50" />
+	</summons>
+	<loot>
+		<item name="small diamond" chance="12500" />
+		<item name="meat" countmax="3" chance="18750" />
+		<item name="gold coin" countmax="60" chance="50000" />
+		<item name="gold coin" countmax="61" chance="50000" />
+		<item id="2229" countmax="2" chance="81250" /> <!-- skull -->
+		<item name="pirate backpack" chance="6250" />
+		<item name="plate armor" chance="56250" />
+		<item name="knight armor" chance="12500" />
+		<item name="very old piece of paper" chance="25000" />
+		<item id="6100" chance="100000" /><!-- lethal lissy's shirt -->
+	</loot>
+</monster>

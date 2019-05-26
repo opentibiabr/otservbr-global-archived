@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Troll Marauder" nameDescription="a troll marauder" race="blood" experience="40" speed="120" manacost="0">
+	<health now="70" max="70"/>
+	<look type="281" corpse="7926"/>
+	<targetchange interval="2000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+				<flag isblockable="0" />
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="25"/>
+	</attacks>
+	<defenses armor="6" defense="4"/>
+	<loot>
+		<item id="23839" countmax="3" chance="5190"/><!-- simple arrows -->
+		<item id="10606" chance="2600"/><!-- bunch of troll hair -->
+		<item id="2148" countmax="8" chance="100000"/><!-- gold coin -->
+		<item id="2643" chance="5190"/><!-- leather boots -->
+		<item id="2666" chance="24680"/><!-- meat -->
+		<item id="2170" chance="1300"/><!-- silver amulet -->
+		<item id="2389" chance="25970"/><!-- spear -->
+		<item id="2448" chance="10390"/><!-- studded club -->
+		<item id="2484" chance="9090"/> <!-- studded armor -->
+		<item id="12471" chance="5190"/><!-- trollroot -->
+		<item id="2512" chance="11690"/><!-- wooden shield -->
+	</loot>
+</monster>

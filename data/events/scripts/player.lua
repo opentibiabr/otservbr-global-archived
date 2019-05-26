@@ -2,8 +2,7 @@
 STONE_SKIN_AMULET = 2197
 GOLD_POUNCH = 26377
 ITEM_STORE_INBOX = 26052
-ITEM_PARCEL = 2595
-CONTAINER_PESO = 1000000
+CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
 -- exercise_ids
 local exercise_ids = {32384,32385,32386,32387,32388,32389}
 
@@ -554,8 +553,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 
 	-- No move parcel very heavy
-	if ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_PESO then
-        self:sendCancelMessage('You cannot move containers with more than ' .. CONTAINER_PESO .. ' oz.')
+	if ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
+        self:sendCancelMessage("Your cannot move this item too heavy.")
         return false
     end
 	

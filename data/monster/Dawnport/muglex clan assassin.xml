@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Muglex Clan Assassin" nameDescription="a muglex clan assassin" race="blood" experience="48" speed="140" manacost="0">
+	<health now="75" max="75"/>
+	<look type="296" corpse="6002"/>
+	<targetchange interval="10000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+				<flag isblockable="0" />
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="15"/>
+		<attack name="drunk" interval="2000" chance="11" duration="3000">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="9" range="6" min="-0" max="-30">
+			<attribute key="shootEffect" value="throwingknife"/>
+		</attack>
+	</attacks>
+	<defenses armor="3" defense="5">
+		<defense name="invisible" interval="2000" chance="11" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="10" speedchange="145" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<loot>
+		<item id="2230" chance="10760"/><!-- bone -->
+		<item id="2449" chance="4890"/><!-- bone club -->
+		<item id="2379" chance="18090"/><!-- dagger -->
+		<item id="2667" countmax="2" chance="11000"/><!-- fish -->
+		<item id="2148" countmax="18" chance="100000"/><!-- gold coin -->
+		<item id="2467" chance="6460"/><!-- leather armor -->
+		<item id="2461" chance="8070"/><!-- leather helmet -->
+		<item id="2235" chance="6850"/><!-- moldy cheese -->
+		<item id="2406" chance="9780"/><!-- short sword -->
+		<item id="2559" chance="9540"/><!-- small axe -->
+		<item id="1294" countmax="3" chance="11980"/><!-- small stone -->
+		<item id="2484" chance="1710" /><!-- studded armor -->
+	</loot>
+</monster>

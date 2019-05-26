@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crazed Summer Vanguard" nameDescription="a Crazed Summer Vanguard" race="blood" experience="5000" speed="195" manacost="0">
+	<health now="5500" max="5500" />
+	<look type="1136" head="20" body="94" legs="20" feet="81" addons="1" corpse="34715" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag isblockable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />	
+		<flag canwalkonfire="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-0" max="-530" />
+		<attack name="fire" interval="2000" chance="50" length="3" spread="0" min="-270" max="-710">
+		<attribute key="areaEffect" value="FIREAREA" /> 
+		</attack>
+		<attack name="fire" interval="2000" chance="50" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="50"  target="1" radius="5" min="-350" max="-380">
+		<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="2000" chance="50"  target="1" radius="5" min="-200" max="-350">
+		<attribute key="areaEffect" value="EXPLOSIONAREA" />
+		</attack>
+		 </attacks>
+ 		<defenses armor="70" defense="20"/>
+			<defense name="healing" interval="2000" chance="14" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	<elements>
+		<element holyPercent="-20" />
+		<element firePercent="-50" />
+		<element icePercent="30" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+<!--common-->
+<item name="platinum coin" count="13" chance="1000000" /> 
+<item name="elven astral observer" count="2" chance="1000000" /> 
+<!--uncommon-->
+<item name="dream essence egg" chance="15000" />
+<item name="beleted cape" chance="11550" />    
+<item name="two handed swor" chance="13550" />
+<item name="seeds" chance="14750" />
+<item name="scimitar" chance="17550" />
+<item name="knife" chance="15650" />
+<item name="dragon necklace" chance="14550" />
+<item name="magma amulet" chance="16550" />
+<item name="wand of dragonbreath" chance="15150" />
+<item name="wand of draconia" chance="12630" />
+<!--semi-rare-->
+<item name="magma boots" chance="11100" /> 
+
+<!--rare-->  
+<item name="sun fruit" chance="1800" /> 
+<!--very rare-->  
+<item name="bullseye potion" chance="800" /> 
+</loot>
+</monster>

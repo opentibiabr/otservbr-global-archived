@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Salamander Trainer" nameDescription="a salamander trainer" race="blood" experience="64" speed="300" manacost="0">
+	<health now="220" max="220"/>
+	<look type="15" corpse="5960"/>
+	<targetchange interval="2000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="25"/>
+	</attacks>
+	<defenses armor="8" defense="13">
+		<defense name="healing" interval="2000" chance="25" min="10" max="25">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="salamander trainer summon" interval="2000" chance="30"/>
+	</defenses>
+	<loot>
+		<item id="10606" chance="1050"/><!-- bunch of troll hair -->
+		<item id="2148" countmax="12" chance="65300"/><!-- gold coin -->
+		<item id="2380" chance="17960"/><!-- hand axe -->
+		<item id="2643" chance="9800"/><!-- leather boots -->
+		<item id="2461" chance="11780"/><!-- leather helmet -->
+		<item id="2666" chance="15200"/><!-- meat -->
+		<item id="2120" chance="7960"/><!-- rope -->
+		<item id="2389" countmax="3" chance="12970"/><!-- spear -->
+		<item id="2512" chance="4710"/><!-- wooden shield -->
+		<item id="2448" chance="5030"/><!-- studded club -->
+		<item id="2170" chance="80"/><!-- silver amulet -->
+	</loot>
+</monster>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Hellflayer" nameDescription="a hellflayer" race="blood" experience="11000" speed="400" manacost="0">
+	<health now="14000" max="14000" />
+	<look type="856" corpse="25440" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="200" max="-869" fire="6" />
+		<attack name="fire" interval="2000" chance="15" range="7" min="-170" max="-300">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="renegade knight" interval="2000" chance="20"/>
+		<attack name="choking fear drown" interval="2000" chance="20" />
+		<attack name="death" interval="2000" chance="20" radius="4" target="1" min="-250" max="-500">
+			<attribute key="shootEffect" value="suddendeath" />
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-200">
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+				
+		<attack name="fire" interval="2000" chance="10" radius="1" target="1" min="-300" max="-550">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+		<attack name="warlock skill reducer" range="5" interval="2000" chance="5" />
+		
+		<attack name="physical" interval="2000" chance="10" radius="1" target="1" min="300" max="-500">
+			<attribute key="shootEffect" value="explosion" />
+			<attribute key="areaEffect" value="sleep" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="10" min="80" max="95">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-10" />
+	</elements>
+	<immunities>
+		<immunity death="1" />
+		<immunity earth="1" />
+		<immunity drown="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+		
+	<voices interval="3000" chance="50">
+		<voice sentence="You should consider bargaining for you life!" />
+		<voice sentence="Your tainted soul belongs to us anyway!" />
+	    <voice sentence="Today I deal only in death!" />
+       			
+	</voices>
+	<loot>
+		<item id="2148" countmax="130" chance="90000" />	<!-- gold coin -->		
+		<item id="2152" countmax="9" chance="20000" />	<!-- gold coin -->		
+		<item id="6558" countmax="3" chance="4000" />	<!-- Concentrated Demonic Blood -->
+		<item id="9971" countmax="2" chance="1300" />	<!-- Gold Ingots -->
+		<item id="7590" countmax="2" chance="9600" />	<!-- Great Mana Potion -->
+		<item id="8472" countmax="2" chance="2300" />	<!-- Great Spirit Potions -->
+		<item id="2150" countmax="5" chance="2000" />	<!-- Small Amethysts -->
+		<item id="2145" countmax="5" chance="900" />	<!-- Small Diamonds -->
+		<item id="2149" countmax="5" chance="900" />	<!-- Small Emeralds -->
+		<item id="2147" countmax="5" chance="2000" />	<!-- Small Rubies -->
+		<item id="9970" countmax="5" chance="900" />	<!-- Small Topazes -->
+		<item id="8473" countmax="2" chance="5300" />	<!-- Ultimate Health Potions, -->
+		<item id="2136" chance="1000" />	<!-- Demonbone Amule -->
+		<item id="6500" chance="1600" />	<!-- Demonic Essence, -->
+		<item id="7632" chance="800" />	<!-- Giant Shimmering Pearl -->		
+		<item id="2155" chance="800" />	<!-- Green Gem -->
+		<item id="7891" chance="500" />	<!-- Magma Boots -->
+		<item id="7894" chance="1200" />	<!-- Magma Legs -->
+		<item id="2514" chance="350" />	<!-- Mastermind Shield -->
+		<item id="25385" chance="800" />	<!-- Pair of Hellflayer Horns -->
+		<item id="2156" chance="500" />	<!-- Red Gem -->
+		<item id="25522" chance="280" />	<!-- Rift Bow, -->
+		<item id="25523" chance="180" />	<!-- Rift Crossbow -->		
+		<item id="5741" chance="450" />	<!-- Skull helmet -->
+		<item id="25383" chance="200" />	<!-- Rift Lance -->
+		<item id="7413" chance="900" />	<!-- Titan Axe -->
+		<item id="2466" chance="750" />	<!--  Golden Armor -->		
+		<item id="8902" chance="900" />	<!--  Spellbook of Mind Control -->
+		<item id="2452" chance="400" />	<!--  Heavy Mace -->					
+	</loot>
+</monster>

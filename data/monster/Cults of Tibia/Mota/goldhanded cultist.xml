@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Goldhanded Cultist" nameDescription="a goldhanded cultist" race="blood" experience="2000" speed="230">
+	<health now="3000" max="3000" />
+	<look type="132" head="95" body="79" legs="41" feet="94" addons="2" corpse="8186" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250" />
+		<attack name="lifedrain" interval="3000" chance="15" radius="5" min="0" max="-150">
+			<attribute key="areaEffect" value="redspark" />
+		</attack>
+		<attack name="manadrain" interval="3000" chance="10" target="1" min="0" max="-200">
+			<attribute key="areaEffect" value="bluebubble" />
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" target="1" radius="2" lenght="1" range="5" min="-0" max="-250">
+			<attribute key="areaEffect" value="redspark" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="speed" interval="2000" chance="30" speedchange="290" duration="6000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-20" />
+		<element physicalPercent="-30" />
+		<element holyPercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="7000" chance="10">
+		<voice sentence="Give me your money!" />
+		<voice sentence="Your backpack looks very compelling!" />
+		<voice sentence="You can't ever be rich enough!" />
+	</voices>
+	<loot>
+		<item name="golden backpack" chance="4290" />
+		<item name="tiger eye" chance="11430" />
+		<item id="2148" countmax="235" chance="41430" />
+		<item name="golden brush" chance="20000" />
+		<item name="green gem" chance="5710" />
+		<item name="gold ingot" chance="2860" />
+		<item name="opal" chance="11430" />
+		<item name="yellow gem" chance="5710" />
+		<item id="1997" chance="1430" /> <!-- GOLDEN BAG -->
+	</loot>
+</monster>

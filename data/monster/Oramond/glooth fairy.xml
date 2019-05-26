@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Fairy" nameDescription="a glooth fairy" race="energy" experience="19000" speed="250" manacost="490">
+	<health now="59000" max="59000" />
+	<look type="600" corpse="23343" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="500" attack="75" />
+		<attack name="thunderstorm" interval="2000" chance="35" range="7" target="1" min="-200" max="-500" />
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-300" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="3000" chance="35" min="150" max="300">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="3000" chance="5" min="7500" max="8000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="15" />
+		<element energyPercent="5" />
+		<element firePercent="-5" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity earth="1"/>
+		<immunity energy="0"/>
+	</immunities>
+	<loot>
+		<item id="23474" countmax="3" chance="100000" /> <!-- glooth injection tube -->
+		<item id="2148" countmax="100" chance="100000" /> <!-- gold coin -->
+		<item id="2152" countmax="5" chance="100000" /> <!-- platinum coin -->
+		<item id="8472" countmax="5" chance="33333" /> <!-- great spirit potion -->
+		<item id="7591" countmax="5" chance="25000" /> <!-- great health potion -->
+		<item id="7590" countmax="5" chance="25000" /> <!-- great mana potion -->
+		<item id="23514" countmax="5" chance="25000" /> <!-- glooth sandwich -->
+		<item id="23554" chance="20000" /> <!-- glooth amulet -->
+		<item id="23515" countmax="5" chance="20000" /> <!-- bowl of glooth soup -->
+		<item id="23550" chance="20000" /> <!-- glooth blade -->
+		<item id="23517" countmax="5" chance="20000" /> <!-- glooth steak -->
+		<item id="5880" chance="20000" /> <!-- iron ore -->
+		<item id="23549" chance="20000" /> <!-- glooth club -->
+		<item id="2149" countmax="5" chance="20000" /> <!-- small emerald -->
+		<item id="23529" countmax="5" chance="16666" /> <!-- glooth spear -->
+		<item id="9690" chance="16666" /> <!-- gear wheel -->
+		<item id="23551" chance="14285" /> <!-- glooth axe -->
+		<item id="2145" countmax="5" chance="14285" /> <!-- small diamond -->
+		<item id="2147" countmax="5" chance="14285" /> <!-- small ruby -->
+		<item id="9970" countmax="5" chance="14285" /> <!-- small topaz -->
+		<item id="2146" countmax="5" chance="12500" /> <!-- small sapphire -->
+		<item id="2150" countmax="5" chance="10000" /> <!-- small amethyst -->
+		<item id="23535" chance="7142" /> <!-- glooth cape -->
+		<item id="23536" chance="7142" /> <!-- rubber cap -->
+		<item id="23538" chance="5000" /> <!-- heat core -->
+		<item id="2158" chance="4166" /> <!-- blue gem -->
+		<item id="2156" chance="3333" /> <!-- red gem -->
+		<item id="2154" chance="2500" /> <!-- yellow gem -->
+		<item id="23663" chance="1666" /> <!-- feedbag -->
+	</loot>
+</monster>

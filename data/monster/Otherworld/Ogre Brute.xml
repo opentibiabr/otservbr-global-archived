@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ogre Brute" nameDescription="a ogre brute" race="blood" experience="800" speed="210" manacost="0">
+	<health now="1000" max="1000" />
+	<look type="857" corpse="24799" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269" fire="6" />
+		<attack name="fire" interval="2000" chance="15" range="7" min="-70" max="-180">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+		
+		<attack name="drunk" interval="2000" chance="10" range="7">
+			<attribute key="shooteffect" value="energy" />
+			<attribute key="areaeffect" value="teleport" />
+		</attack>
+		
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="10" min="80" max="95">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-10" />
+		<element icePercent="10" />
+		<element firePercent="10" />
+	</elements>
+	<immunities>
+		
+		<immunity earth="1" />
+		
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="3000" chance="50">
+		<voice sentence="You so juicy!" />
+		<voice sentence="You stop! You lunch!" />
+		<voice sentence="Smash you face in!!!" />
+		
+	</voices>
+	<loot>
+		<item id="2148" countmax="130" chance="92000" />	<!-- gold coin -->
+		<item id="2666" chance="6200" />					<!-- meat -->		
+		<item id="2147" chance="4200" />					<!-- small ruby -->
+		<item id="2143" countmax="3" chance="6200" />					<!-- stone -->
+		<item id="12403" chance="6200" />					<!-- battle stone -->
+		<item id="2687" countmax="7" chance="6200" />					<!-- cookie -->
+		<item id="24844" chance="5200" />					<!-- ogre ear stud -->
+		<item id="24845" chance="1200" />					<!-- Ogre Nose Ring -->
+		<item id="24849" countmax="2" chance="3200" />					<!-- Onyx Chip -->
+		<item id="24850" countmax="3" chance="3200" />					<!-- Opal -->
+		<item id="2166" chance="2200" />					<!--  Power Ring -->
+		<item id="24847" chance="1200" />					<!--  Skull Fetish -->
+		<item id="7588" countmax="3" chance="6200" />					<!-- strong health potion -->
+		<item id="7428" chance="500" />					<!-- Bonebreaker -->
+		<item id="24828" chance="600" />					<!-- Ogre Choppa  -->
+		<item id="24827" chance="800" />					<!-- Ogre Klubba -->
+		
+		<item id="2562" chance="500" />					<!-- Pot -->
+		<item id="9820" chance="200" />					<!-- Rusty Helmet -->
+		<item id="24848" chance="300" />					<!-- Shamanic Mask -->
+		
+	</loot>
+</monster>

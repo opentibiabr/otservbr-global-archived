@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Nightmarish Dream" nameDescription="a Nightmarish Dream" race="undead" experience="900" speed="200">
+	<health now="1000" max="1000" />
+	<look type="78" corpse="0" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="500" />
+		<flag canwalkonenergy="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-100" poison="3" />
+		<attack name="lifedrain" interval="2000" chance="15" radius="4" target="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+		<attack name="death" interval="2000" chance="5" range="1" target="1" radius="1" min="-55" max="-350">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="speed" interval="2000" chance="10" range="7" speedchange="-300" duration="15000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="120" max="190">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-25" />
+	</elements>
+	<immunities>
+		<immunity death="1" />
+		<immunity fire="1" />
+		<immunity earth="1" />
+		<immunity drown="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Dance for me your dance of death!" />
+		<voice sentence="Let the music play!" />
+		<voice sentence="I will mourn your death!" />
+		<voice sentence="Are you ready to rock?" />
+		<voice sentence="Feel my gentle kiss of death." />
+		<voice sentence="That's what I call easy listening!" />
+		<voice sentence="IIIIEEEeeeeeehhhHHHH!" yell="1" />
+	</voices>
+
+</monster>

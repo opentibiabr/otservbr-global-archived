@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Death Priest Shargon" nameDescription="a death priest shargon" race="blood" experience="20000" speed="340" manacost="0">
+	<health now="65000" max="65000"/>
+	<look type="278" corpse="23494" addons="3"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="dark"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="200" attack="150"/>
+		<attack name="death" interval="2000" chance="12" range="7" radius="6" min="0" max="-660">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="holy" interval="2000" chance="18" length="6" spread="2" min="-350" max="-1000">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="30">
+		<defense name="healing" interval="2000" chance="20" min="0" max="699">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="6">
+		<summon name="Lesser Death Minion" interval="2000" chance="30" max="2"/>
+        <summon name="Superior Death Minion" interval="2000" chance="30" max="2"/>
+		<summon name="Greater Death Minion" interval="2000" chance="30" max="2"/>
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="Your tricks are older then my minions!" />
+		<voice sentence="You wont trap me!" />
+		<voice sentence="Amuse yourself with my slaves as long was your traps are in place!" />
+		<voice sentence="Shargon absorbs necromantic energy to regenerate!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="99" chance="100000"/><!-- gold coin -->
+		<item id="7591" countmax="3" chance="100000"/><!-- great health potion -->
+		<item id="2185" chance="100000"/><!-- necrotic rod -->
+		<item id="2152" countmax="13" chance="100000"/><!-- platinum coin -->
+		<item id="7590" countmax="4" chance="10000"/><!-- great mana potion -->
+		<item id="9971" chance="25000"/><!-- gold ingot -->
+		<item id="9969" chance="9090"/><!-- black skull -->
+		<item id="9447" chance="9090"/><!-- blood goblet -->
+	</loot>
+</monster>

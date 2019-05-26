@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Renegade Quara Predator" nameDescription="a renegade quara predator" race="blood" experience="2500" speed="280" manacost="330">
+	<health now="3250" max="3250"/>
+	<look type="20" corpse="6067" />
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="100" attack="82"/>
+	</attacks>
+	<defenses armor="45" defense="45">
+		<defense name="speed" interval="2000" chance="15" speedchange="30" duration="5000">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="10" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="-1" />
+		<element energyPercent="-25" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity drown="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="86" chance="100000"/> <!-- gold coin -->
+		<item id="2152" countmax="4" chance="100000"/> <!-- platinum coin -->
+		<item id="7378" countmax="7" chance="50000"/> <!-- royal spear -->
+		<item id="7368" countmax="10" chance="50000"/> <!-- assassin star -->
+		<item id="12447" chance="10000"/> <!-- quara bone -->
+		<item id="2145" countmax="2" chance="8333"/> <!-- small diamond -->
+		<item id="7591" countmax="2" chance="8333"/> <!-- great health potion -->
+		<item id="2178" chance="7692"/> <!-- mind stone -->
+		<item id="2670" chance="4761"/> <!-- shrimp -->
+		<item id="5895" chance="3703"/> <!-- fish fin -->
+		<item id="7383" chance="2777"/> <!-- relic sword -->
+		<item id="7897" chance="1851"/> <!-- glacier robe -->
+		<item id="18413" chance="934"/> <!-- blue crystal shard -->
+	</loot>
+</monster>

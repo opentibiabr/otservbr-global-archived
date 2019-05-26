@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Containment Machine" nameDescription="a containment machine" race="undead" experience="0" speed="0" manacost="0">
+	<health now="6000" max="6000" />
+	<look typeex="9902" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag preyable="0" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+	</attacks>
+	<defenses armor="35" defense="50">
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+	</immunities>
+</monster>

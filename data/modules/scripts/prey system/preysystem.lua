@@ -8,16 +8,8 @@ PreySystem = {
 local RerollStorages = {
 	[0] = 8420390,
 	[1] = 8420391,
-	[10] = 8420392
+	[2] = 8420392
 }
-
-local ColumId = {
-	[512] = 0,
-	[513] = 1,
-	[514] = 2
-}
-
-local monstersGenerated = {}
 
 local ServerPackets = {
 	ShowDialog = 0xED,
@@ -94,21 +86,22 @@ local function havePreyMonsterByName(playerId, name)
 end
 
 local function createMonstersColumn(player, column)
-	local monsters, newTable = getPreyMonsters(), {}
+	local monsters, newTable, finalQuery = getPreyMonsters(), {}, ""
 	local count = 1
 
-	-- Get New List
+	--local havePreyMonster = db.storeQuery("SELECT player_id FROM player_prey WHERE player_id = " ..playerId.. " AND name = " ..db.escapeString(randomName))
 	repeat
 		local randomName = monsters[math.random(#monsters)]
-		if (not havePreyMonsterByName(player:getGuid(), randomName)) then
-			if (MonsterType(randomName) and MonsterType(randomName):getOutfit().lookType > 0) then
-				newTable[count] = {Name = randomName, Index = count, Column = column}
-				db.query("INSERT INTO player_prey SET player_id = " ..player:getGuid().. ", name = " ..db.escapeString(randomName).. ", mindex = " ..(count-1).. ", mcolumn = " ..column)
-				count = count + 1
+		--if (not havePreyMonsterByName(player:getGuid(), randomName)) then
+		if (MonsterType(randomName) and MonsterType(randomName):getOutfit().lookType > 0) then
+			finalQuery = finalQuery.."(" ..player:getGuid().. ", " ..db.escapeString(randomName).. ", " ..(count-1).. ", " ..column..")" ..(count ~= 9 and ',' or ';')
+			newTable[count] = {Name = randomName, Index = count, Column = column}
+			count = count + 1
 			end
-		end
+		-- end
 	until count == 10
 
+	db.query("INSERT INTO player_prey (player_id, name, mindex, mcolumn) VALUES " ..finalQuery)
 	return newTable
 end
 

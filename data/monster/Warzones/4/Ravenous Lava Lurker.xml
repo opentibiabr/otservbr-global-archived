@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ravenous Lava Lurker" nameDescription="a ravenous lava lurker" race="fire" experience="4000" speed="58" manacost="0">
+	<health now="5000" max="5000" />
+	<look type="1041" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-150" />
+		<attack name="ravennousLavaLurkerWave" interval="2000" chance="15" min="-0" max="-400"/>
+		<attack name="ravennousLavaLurkerWave2" direction="1" interval="2000" chance="100" min="-0" max="-400"/>
+	</attacks>
+	<defenses armor="45" defense="33" />
+	<elements>
+		<element firePercent="100" />
+		<element physicalPercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+		<element icePercent="0" />
+		<element earthPercent="0" />
+		<element energyPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity fire="1" />
+	</immunities>
+	<loot>
+	<item name="small enchanted ruby" countmax="1" chance="14620" /> 
+	</loot>
+</monster>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lesser Death Minion" nameDescription="a lesser death minion" race="undead" experience="35" speed="154" manacost="300">
+	<health now="500" max="500"/>
+	<look type="33" corpse="5972"/>
+	<targetchange interval="2000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+	    <flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="70" attack="80"/>
+		<attack name="lifedrain" interval="2000" chance="8" range="1" min="-7" max="-13"/>
+	</attacks>
+	<defenses armor="2" defense="9"/>
+	<elements>
+		<element holyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity drown="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+</monster>

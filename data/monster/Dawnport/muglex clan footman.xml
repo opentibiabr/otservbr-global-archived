@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Muglex Clan Footman" nameDescription="a muglex clan footman" race="blood" experience="25" speed="120" manacost="0">
+	<health now="50" max="50"/>
+	<look type="61" corpse="6002"/>
+	<targetchange interval="2000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+				<flag isblockable="0" />
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="10"/>
+		<attack name="physical" interval="2000" chance="8" range="7" min="-0" max="-22">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+	</attacks>
+	<defenses armor="2" defense="4"/>
+	<loot>
+		<item id="2230" chance="1410"/><!-- bone -->
+		<item id="2449" chance="9440"/><!-- bone club -->
+		<item id="2379" chance="17040"/><!-- dagger -->
+		<item id="2667" countmax="2" chance="159200"/><!-- fish -->
+		<item id="12495" chance="1130"/><!-- goblin ear -->
+		<item id="2148" countmax="6" chance="100000"/><!-- gold coin -->
+		<item id="2467" chance="6060"/><!-- leather armor -->
+		<item id="2461" chance="2680"/><!-- leather helmet -->
+		<item id="2235" chance="850"/><!-- moldy cheese -->
+		<item id="2406" chance="9720"/><!-- short sword -->
+		<item id="2559" chance="7750"/><!-- small axe -->
+		<item id="1294" countmax="1" chance="15210"/><!-- small stone -->
+	</loot>
+</monster>

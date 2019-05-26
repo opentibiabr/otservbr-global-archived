@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Weakened Shlorg" nameDescription="Weakened Shlorg" race="venom" experience="6500" speed="270" manacost="0">
+	<health now="10000" max="10000"/>
+	<look type="565" corpse="21299"/>
+	<targetchange interval="60000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+        <flag rewardboss="1" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+  
+	<attacks>
+		<attack name="melee" interval="2000" skill="150" attack="50" poison="180"/>
+		<attack name="lifedrain" interval="2000" chance="10" length="4" spread="0" min="-90" max="-180">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="14" radius="5" target="0" min="-0" max="-150">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="13" radius="5" target="0" min="-360" max="-440">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="shlorg paralyze" interval="2000" chance="11"/>
+	</attacks>
+	<defenses armor="10" defense="15">
+		<defense name="healing" interval="2000" chance="35" min="95" max="150">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="5"/>
+		<element earthPercent="40"/>
+		<element icePercent="-10"/>
+		<element holyPercent="-5"/>
+		<element firePercent="80"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Tchhh!"/>
+		<voice sentence="Slurp!"/>
+	</voices>
+	<loot>
+		<item id="21400" chance="3000"/><!-- silver raid token -->
+		<item id="2148" countmax="105" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="8" chance="100000"/><!-- platinum coin -->
+		<item id="21705" chance="3000"/><!-- glass of goo -->
+		<item id="21706" chance="3000"/><!-- goo shell -->
+		<item id="2154" chance="10000"/><!-- yellow gem -->
+		<item id="2155" chance="10000"/><!-- green gem -->
+		<item id="8473" countmax="3" chance="10000"/><!-- ultimate health potion -->
+		<item id="8472" countmax="3" chance="10000"/><!-- great spirit potion -->
+		<item id="7590" countmax="3" chance="10000"/><!-- great mana potion -->
+		<item id="2149" countmax="5" chance="10000"/><!-- small emerald -->
+		<item id="9970" countmax="5" chance="10000"/><!-- small topaz -->
+		<item id="8872" chance="20000"/><!-- belted cape -->
+		<item id="5910" chance="10000"/><!-- green piece of cloth -->
+		<item id="5911" chance="10000"/><!-- red piece of cloth -->
+		<item id="5914" chance="10000"/><!-- yellow piece of cloth -->
+		<item id="2409" chance="20000"/><!-- serpent sword -->
+		<item id="8912" chance="20000"/><!-- springsprout rod -->
+		<item id="8891" chance="10000"/><!-- paladin armor -->
+		<item id="10584" countmax="1" chance="100000"/><!-- boggy dreads -->
+	</loot>
+</monster>

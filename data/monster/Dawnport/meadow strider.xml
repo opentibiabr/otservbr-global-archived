@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Meadow Strider" nameDescription="a meadow strider" race="blood" experience="50" speed="150" manacost="0">
+	<health now="100" max="100"/>
+	<look type="530" corpse="23821"/>
+	<targetchange interval="5000" chance="8"/>
+	<strategy attack="90" defense="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+				<flag isblockable="0" />
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="10"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="13"/>
+		<attack name="physical" interval="2000" chance="11" range="7" min="-0" max="-10">
+			<attribute key="shootEffect" value="smallstone"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="1" defense="2">
+		<defense name="speed" interval="2000" chance="13" speedchange="192" duration="5000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</defense>
+	</defenses>
+	<loot>
+		<item id="2120" chance="4530"/> <!-- rope -->
+		<item id="2148" countmax="10" chance="100000"/> <!-- gold coin -->
+		<item id="3976" countmax="2" chance="14280"/> <!-- worms -->
+		<item id="2667" countmax="2" chance="25180"/> <!-- fish -->
+		<item id="2666" countmax="1" chance="25250"/> <!-- meat -->
+		<item id="19741" chance="6060"/> <!-- marsh stalker beak -->
+		<item id="7732" chance="160"/> <!-- seeds -->
+		<item id="19742" chance="8980"/> <!-- marsh stalker feather -->
+		<item id="2397" chance="7640"/> <!-- longsword -->
+		<item id="2398" chance="8310"/> <!-- mace -->
+		<item id="2388" chance="6660"/> <!-- hatchet -->
+	</loot>
+</monster>

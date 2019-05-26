@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mountain Troll" nameDescription="a mountain troll" race="blood" experience="12" speed="126" manacost="290">
+	<health now="30" max="30"/>
+	<look type="15" corpse="5960"/>
+	<targetchange interval="2000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+				<flag isblockable="0" />
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="9"/>
+	</attacks>
+	<defenses armor="1" defense="2"/>
+	<loot>
+		<item id="10606" chance="920"/><!-- bunch of troll hair -->
+		<item id="2148" countmax="8" chance="100000"/><!-- gold coin -->
+		<item id="2380" chance="3590"/><!-- hand axe -->
+		<item id="2467" chance="4060"/><!-- leather armor -->
+		<item id="2666" chance="27980"/><!-- meat -->
+		<item id="2384" chance="3470"/><!-- rapier -->
+		<item id="2120" chance="7870"/><!-- rope -->
+		<item id="2389" chance="6800"/><!-- spear -->
+		<item id="2448" chance="3510"/><!-- studded club -->
+	</loot>
+</monster>

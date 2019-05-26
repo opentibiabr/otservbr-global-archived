@@ -1,4 +1,4 @@
-function Monster:onDropLoot(corpse)
+--[[function Monster:onDropLoot(corpse)
 	if configManager.getNumber(configKeys.RATE_LOOT) == 0 then
 		return
 	end
@@ -32,7 +32,7 @@ function Monster:onDropLoot(corpse)
 			player:sendTextMessage(MESSAGE_LOOT, text)
 		end
 	end
-end
+end]]
 
 function Monster:onSpawn(position)
 	local isday = false;

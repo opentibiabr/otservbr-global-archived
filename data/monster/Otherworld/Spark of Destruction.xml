@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Spark of Destruction" nameDescription="a spark of destruction" race="energy" experience="0" speed="350" manacost="0">
+	<health now="3900" max="3900"/>
+	<look type="879" corpse="0"/>
+	<targetchange interval="3000" chance="15"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-436"/>
+		<attack name="energy" interval="2000" target="1" radius="5" chance="20" range="5" min="-180" max="-400">
+			<attribute key="areaEffect" value="purpleenergy"/>
+			<attribute key="shootEffect" value="energyball"/>
+		</attack>
+		<attack name="reality reaver wave" interval="2000" chance="20" min="-100" max="-400"/>
+		<attack name="energycondition" interval="2000" radius="5" chance="20" min="-400" max="-800">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="65" defense="65"/>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

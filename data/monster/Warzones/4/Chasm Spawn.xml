@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Chasm Spawn" nameDescription="a chasm spawn" race="blood" experience="3500" speed="115" manacost="0">
+	<health now="4000" max="4000" />
+	<look type="1037" corpse="30798" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250" />
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-5" max="-16">
+		<attribute key="shootEffect" value="poison" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="7" target="1" min="-30" max="-60">
+		<attribute key="shootEffect" value="death" />
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="3" length="3" spread="3" min="-70" max="-160">
+		<attribute key="areaEffect" value="mortarea" />
+		</attack>	
+		<attack name="explosion" interval="2000" chance="15" min="-50" max="-170"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-40" max="-60" />
+		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-70" max="-140" />
+		<attack name="earth" interval="2000" chance="10" length="3" spread="3"  min="-70" max="-140" >
+		<attribute key="areaEffect" value="PLANTATTACK" />
+		</attack>
+	</attacks>
+	<elements>
+		<element firePercent="-30" />
+		<element physicalPercent="0" />
+		<element holyPercent="0" />
+		<element deathPercent="0" />
+		<element icePercent="0" />
+		<element earthPercent="0" />
+		<element energyPercent="0" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities> 
+	<voices interval="5000" chance="10">
+		<voice sentence="tzzzz tzzzz tzzzz!" />
+		<voice sentence="sloap sloap sloap!" />
+	</voices>
+	<loot>
+	<!--Sempre-->
+		<item name="gold coin" countmax="78" chance="10000" /> 
+		<item name="Wood Mushroom" countmax="5" chance="27200" />  
+		<item name="Chasm Spawn Head"  chance="33390" />  
+		<item name="Chasm Spawn Abdomen"  chance="24710" />  
+		<item name="Chasm Spawn Tail"  chance="64890" />  
+		<!--quase sempre-->
+		<item name="Small Enchanted Emerald" countmax="3" chance="11040" /> 
+		<item name="Small Enchanted Amethyst" countmax="3" chance="8170" /> 
+		<item name="Brown Mushroom" countmax="5" chance="19680" /> 
+		<item name="Orange Mushroom" chance="15140" /> 
+		<item name="Blue Crystal Shard" chance="7850" /> 
+		<item name="Green Crystal Shard" chance="7850" /> 
+		<item name="Violet Crystal Shard" chance="4690" /> 
+        <!--raro-->
+		<item name="Mushroom Backpack" chance="610" /> 
+		<item name="Suspicious Device" chance="520" /> 
+	</loot>
+</monster>

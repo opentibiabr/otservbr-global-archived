@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Renegade Quara Constrictor" nameDescription="a renegade quara constrictor" race="blood" experience="1200" speed="230" manacost="670">
+	<health now="1500" max="1500"/>
+	<look type="46" corpse="6065" />
+	<targetchange interval="2000" chance="0"/>
+	<strategy attack="100" defense="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="20"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="60" attack="40"/>
+		<attack name="quara constrictor freeze" interval="2000" chance="10" />
+		<attack name="quara constrictor electrify" range="1" interval="2000" chance="10" />
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="3000" chance="35" min="150" max="300">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-25" />
+		<element earthPercent="-1" />
+	</elements>
+	<immunities>
+		<immunity drown="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="99" chance="100000"/> <!-- gold coin -->
+		<item id="2152" countmax="3" chance="100000"/> <!-- platinum coin -->
+		<item id="12443" chance="16666"/> <!-- quara tentacle -->
+		<item id="15649" countmax="10" chance="16666"/> <!-- vortex bolt -->
+		<item id="2147" countmax="2" chance="14285"/> <!-- small ruby -->
+		<item id="7368" countmax="5" chance="7142"/> <!-- assassin star -->
+		<item id="2214" chance="6250"/> <!-- ring of healing -->
+		<item id="2670" chance="5555"/> <!-- shrimp -->
+		<item id="2178" chance="4761"/> <!-- mind stone -->
+		<item id="2150" chance="4000"/> <!-- small amethyst -->
+		<item id="7590" chance="4000"/> <!-- great mana potion -->
+		<item id="5895" chance="806"/> <!-- fish fin -->
+	</loot>
+</monster>

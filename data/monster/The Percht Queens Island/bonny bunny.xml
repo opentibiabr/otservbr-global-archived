@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Bonny Bunny" nameDescription="an bonny bunny" race="blood" experience="0" speed="170" manacost="0">
+	<health now="200" max="200" />
+	<look type="1158" head="95" body="42" legs="19" feet="57"/>
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+		<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200" />
+		<attack name="fire" interval="2000" chance="50" length="4" spread="0" min="-90" max="-150">
+			<attribute key="areaEffect" value="HEARTS" /> 
+		</attack>
+		</attacks>
+		<defenses armor="40" defense="40" />
+			<defense name="healing" interval="2000" chance="15" min="100" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+</monster>
+
