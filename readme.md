@@ -15,7 +15,7 @@ The new .lua systems are located in the data/scripts/<br>
 Also running /reload global, /reload libs and /reload scripts<br>
 
 #### Compatible Clients:
-Click Here](https://gitlab.com/open-tibia-br/otservbr-clients/)<br>
+[Click Here](https://gitlab.com/open-tibia-br/otservbr-clients/)<br>
 
 #### Contributors:
 Contributions of any kind are welcome! Can you help, but you are not thinking of c ++, mapping or script? [Download](https://github.com/opentibiabr/OTServBR-Global/archive/master.zip) or clone our Server, test and report bugs [here](https://github.com/opentibiabr/OTServBR-Global/issues)<br>
