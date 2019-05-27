@@ -3,10 +3,10 @@ image: Visual Studio 2017
 shallow_clone: true
 
 platform:
+  - Win32
   - x64
 
 configuration:
-  - Debug
   - Release
 
 matrix:
@@ -18,18 +18,12 @@ only_commits:
     - vc14/
     - appveyor.yml
 
+environment:
+  BOOST_ROOT: C:\Libraries\boost_1_66_0
+
 install:
-  - cmd : vcpkg install boost-iostreams:x64-windows
-  - cmd : vcpkg install boost-asio:x64-windows
-  - cmd : vcpkg install boost-system:x64-windows
-  - cmd : vcpkg install boost-filesystem:x64-windows
-  - cmd : vcpkg install boost-variant:x64-windows
-  - cmd : vcpkg install boost-lockfree:x64-windows
-  - cmd : vcpkg install cryptopp:x64-windows
-  - cmd : vcpkg install luajit:x64-windows
-  - cmd : vcpkg install libmariadb:x64-windows
-  - cmd : vcpkg install pugixml:x64-windows
-  - cmd : vcpkg install mpir:x64-windows
+  - ps: if (-not (Test-Path tfs-sdk-3.2)) { Start-FileDownload https://static.otland.net/dl/tfs-sdk-3.2.zip; 7z x tfs-sdk-3.2.zip }
+  - set TFSSDKDir=%CD%\tfs-sdk-3.2
 
 build:
   parallel: true
@@ -37,8 +31,7 @@ build:
   #verbosity: detailed
 
 cache:
-  - c:\tools\vcpkg\installed\
+  - tfs-sdk-3.2 -> appveyor.yml
 
 artifacts:
-  - path: vc14\**\theforgottenserver*.exe
-  - path: vc14\**\*.dll
+  - path: vc14\**\theforgottenserver.exe
