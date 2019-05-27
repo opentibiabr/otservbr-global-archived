@@ -100,4 +100,6 @@ bool isCaskItem(uint16_t itemId);
 
 int64_t OTSYS_TIME();
 
+SpellGroup_t stringToSpellGroup(std::string value);
+
 #endif
