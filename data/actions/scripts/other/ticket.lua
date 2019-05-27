@@ -1,6 +1,6 @@
 function onUse(cid, item, fromPosition, itemEx, toPosition)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -27,6 +27,6 @@ if item.itemid == lotteryid then
 		setPlayerStorageValue(cid, 21026, getPlayerStorageValue(cid, 21026) + 1)
 	end
 end
-	player:setStorageValue(Storage.Exaust.tempo, os.time())
+	player:setStorageValue(Storage.Exaust.Time, os.time())
 return TRUE
 end

@@ -1,6 +1,6 @@
 function onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -16,6 +16,6 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can only remove red or black skulls!")
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
-	player:setStorageValue(Storage.Exaust.tempo, os.time())
+	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end 

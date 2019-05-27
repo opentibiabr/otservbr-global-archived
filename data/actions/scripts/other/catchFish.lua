@@ -1,6 +1,6 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -13,7 +13,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		player:say("The golden fish escaped.", TALKTYPE_MONSTER_SAY)
 		return true
 	end
-	player:setStorageValue(Storage.Exaust.tempo, os.time())
+	player:setStorageValue(Storage.Exaust.Time, os.time())
 	player:say("You catch a golden fish in the bowl.", TALKTYPE_MONSTER_SAY)
 	item:transform(5929)
 	toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)

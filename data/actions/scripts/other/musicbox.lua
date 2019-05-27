@@ -12,7 +12,7 @@ local config = {
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -39,7 +39,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 	player:addMount(monsterConfig.mountId)
 	player:say(monsterConfig.tameMessage, TALKTYPE_MONSTER_SAY)
 	toPosition:sendMagicEffect(CONST_ME_SOUND_RED)
-	player:setStorageValue(Storage.Exaust.tempo, os.time())
+	player:setStorageValue(Storage.Exaust.Time, os.time())
 	target:say(monsterConfig.sound, TALKTYPE_MONSTER_SAY)
 	target:remove()
 

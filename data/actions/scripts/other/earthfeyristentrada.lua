@@ -1,6 +1,6 @@
 function onUse(creature, item, position, fromPosition, pos, target, toPosition)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -17,7 +17,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 	    player:removeItem(2149, 1)
 		player:teleportTo(Position(33539,32209, 7))
 		player:getPosition():sendMagicEffect(CONST_ME_SMALLPLANTS)
-		player:setStorageValue(Storage.Exaust.tempo, os.time())
+		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true	
 	end
 	return true
