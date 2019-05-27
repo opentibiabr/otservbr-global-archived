@@ -29,19 +29,24 @@ Modified: (M)<br>
   * How to use: say !add monstername
   * Add loot to the list (if added you can see * before item name)
 
-* (A) - actions.cpp - New rewardchest feature
-
-
 * (A) New anti-wipe exhaust functions:
    * game.cpp - Can't move item very fast
-   * game.cpp - Can't look very fast
+   * game.cpp - Can't look very fast (on look and battle)
    * game.cpp - Can't speak very fast
-
-* (A) - News lua system from TFS
-   * [2558](https://github.com/otland/forgottenserver/commit/62dac47c01610f652a5d792d4c9e06f4f0febefa)
-   * [2571](https://github.com/otland/forgottenserver/commit/38bfbb2624ae2ed347791a0b3e955bad35c22d4a)
-
-* (A) spells.cpp - New function that prevents crash
+   * game.cpp - Can't trade very fast
+   * game.cpp - Can't create/delete offer market very fast
+   
+   
+ * (A) revscriptsys [#2558](https://github.com/otland/forgottenserver/pull/2558) [#2584](https://github.com/otland/forgottenserver/pull/2584) [#2571](https://github.com/otland/forgottenserver/pull/2571), currently it supports:
+  * Actions
+  * TalkActions
+  * CreatureEvents
+  * GlobalEvents
+  * MoveEvents
+  * Spells
+  * Weapons
+  
+* (A) - actions.cpp - New rewardchest feature
 
 * (A) actions.cpp - Reward Chest
 
@@ -52,22 +57,34 @@ Modified: (M)<br>
 * (A) game.cpp - News Function playerEquipItem (from TFS)
 
 * (A) inbox.cpp - News Function 
-     * setMaxInboxItem (prevent crash from mail)
+   * setMaxInboxItem (prevent crash from mail)
 
-     * getTopParent (prevent crash from mail)
+   * getTopParent (prevent crash from mail)
 
 * (A) items.cpp - News Function builInventoryList(from TFS)
-
 
 * (A) - luascript.cpp - News Functions
 
   * New Function getPreyMonsters
 
   * New Function getRespawnType
+  
+  * Fix in Function luaCombatExecute (From TFS): [#2591](https://github.com/otland/forgottenserver/pull/2592)
+  
+* (A) monster.cpp: Update spells.cpp | fix very rare crash bug. [#2582](https://github.com/otland/forgottenserver/pull/2582)
+
+* (A) monsters.cpp - Random step every 1s without a target (From TFS) [#2559](https://github.com/otland/forgottenserver/pull/2559)
 
 * (A) protocolgame.cpp - Cannot login using OTC (because can use OTC for inject bytes and generate crashs)
 
+* (A) protocolgamebase.cpp - ProtocolGame::sendAddCreature: simplify sendInventoryItems (From TFS) [#2574](https://github.com/otland/forgottenserver/pull/2574)
+
 * (A) rewardchest.cpp - New rewardchest from sources
+
+* (A) spells.cpp:
+  - New function that prevents crash
+  
+  - Fix very rare crash bug [#2582](https://github.com/otland/forgottenserver/pull/2582/files)
 
 * (A) tile.cpp - New Function getWeight (prevent to drag items too heavy)
 
@@ -88,9 +105,6 @@ Modified: (M)<br>
 
 * (A) rewardchest.h - New rewardchest
 
-* (D) - luaContainerGetContentDescription
-* (D) - luaContainerGetCorpseOwner
-
 * (D) - broadcastPartyLoot
 
 #### actions/
@@ -100,6 +114,9 @@ Modified: (M)<br>
 
 #### .lua archives
 * (A) New spellbook.lua in data/scripts/actions/spellbook.lua
+
+* (M) Fix mana skill multiplier (From TFS) [#2593](https://github.com/otland/forgottenserver/pull/2593)
+  - Do not pass product of skills rate by mana/skill tries when calling addSkillTries/addManaSpent
 
 ### creaturescripts/
 #### .xml archives
@@ -197,4 +214,9 @@ spells/
 #### .xml archives
 * (M) - groups.xml - Flags moved to groups.xml
 
-* (D) - quests.xml - Moved to lib\core\quests.lua
+* (M) - mounts.xml - [News Mounts](https://github.com/opentibiabr/OTServBR-Global/commit/c897c33c799d2ec9d5bbc6ee473736bc7f37f7f2)
+
+* (M) - outfits.xml - [News Outfits](https://github.com/opentibiabr/OTServBR-Global/commit/9106640793f69011a45577885774399238c91449)
+
+* (D) - quests.xml - Moved to [LUA](https://github.com/opentibiabr/OTServBR-Global/blob/master/data/lib/core/quests.lua)
+
