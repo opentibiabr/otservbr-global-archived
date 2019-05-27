@@ -40,11 +40,11 @@ function retrieveGlobalStorage(key)
 			result.free(resultId)
 			return val
 	end
-	return -1
+	return 1
 end
 
 function Player.getCollectionTokens(self)
-	return math.max(self:getStorageValue(DailyReward.storages.collectionTokens), 0)
+	return math.max(self:getStorageValue(DailyReward.storages.collectionTokens), 1)
 end
 
 function Player.setCollectionTokens(self, value)
