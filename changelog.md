@@ -1,8 +1,11 @@
 ## CHANGELOG
 ### Project Name: OTServBR - Global 
 
+### Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira, Otavio Milani
+[See the Contributors](https://github.com/opentibiabr/OTServBR-Global/graphs/contributors)
+
 ## Credits for TFS Developers/Contributors
-[The Forgotten Server](https://github.com/otland/forgottenserver)
+[The Forgotten Server](https://github.com/otland/forgottenserver/graphs/contributors)
 
 Thanks OTXServer/Mattyx for new protocol
 
