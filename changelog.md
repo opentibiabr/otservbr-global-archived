@@ -1,5 +1,6 @@
 ## CHANGELOG
 ### Project Name: OTServBR - Global 
+* This project is supported by: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
 ### Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira, Otavio Milani
 [See the Contributors](https://github.com/opentibiabr/OTServBR-Global/graphs/contributors)

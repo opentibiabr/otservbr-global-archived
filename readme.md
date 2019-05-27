@@ -1,6 +1,7 @@
 ## OTServ Brasil - Global Server [![Build status](https://ci.appveyor.com/api/projects/status/599x38f3a0luessl?svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download builds for Windows")
 
 ### Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira, Otavio Milani
+* This project is supported by: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
 #### Introduction:
 Our idea is to rescue the old Open Tibia community (free of charge as far as we can)<br>
