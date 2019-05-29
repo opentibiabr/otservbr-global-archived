@@ -228,7 +228,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		elseif rand == 1 then
 			Game.createItem(2159, 1, toPosition)
 		elseif rand > 95 then
-			Game.createMonster("Rat", toPosition)
+			Game.createMonster("Scarab", toPosition)
 		end
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 
