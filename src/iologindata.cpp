@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -479,7 +479,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
 		if (guild) {
 			player->guild = guild;
-			  GuildRank_ptr rank = guild->getRankById(playerRankId);
+			GuildRank_ptr rank = guild->getRankById(playerRankId);
 			if (!rank) {
 				query.str(std::string());
 				query << "SELECT `id`, `name`, `level` FROM `guild_ranks` WHERE `id` = " << playerRankId;
@@ -667,7 +667,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 			}
 		}
 	}
-	
+
 	//load autoloot list set
 	query.str(std::string());
 	query << "SELECT `autoloot_list` FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
@@ -1030,35 +1030,33 @@ bool IOLoginData::savePlayer(Player* player)
 			return false;
 		}
 	}
-	
+
 	//Autoloot (save autoloot list)
-		query.str(std::string());
-		query << "DELETE FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
-		if (!db.executeQuery(query.str())) {
-			return false;
-		}
+	query.str(std::string());
+	query << "DELETE FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
+	if (!db.executeQuery(query.str())) {
+		return false;
+	}
 
-		PropWriteStream propWriteStreamAutoLoot;
+	PropWriteStream propWriteStreamAutoLoot;
 
-		for (auto i : player->autoLootList) {
-			propWriteStreamAutoLoot.write<uint16_t>(i);
-		}
+	for (auto i : player->autoLootList) {
+		propWriteStreamAutoLoot.write<uint16_t>(i);
+	}
 
-		size_t lootlistSize;
-		const char* autolootlist = propWriteStreamAutoLoot.getStream(lootlistSize);
+	size_t lootlistSize;
+	const char* autolootlist = propWriteStreamAutoLoot.getStream(lootlistSize);
 
-		query.str(std::string());
+	query.str(std::string());
 
-		DBInsert autolootQuery("INSERT INTO `player_autoloot` (`player_id`, `autoloot_list`) VALUES ");
-
-			query << player->getGUID() << ',' << db.escapeBlob(autolootlist, lootlistSize);
-			if (!autolootQuery.addRow(query)) {
-				return false;
-			}
-
-		if (!autolootQuery.execute()) {
-			return false;
-		}
+	DBInsert autolootQuery("INSERT INTO `player_autoloot` (`player_id`, `autoloot_list`) VALUES ");
+	query << player->getGUID() << ',' << db.escapeBlob(autolootlist, lootlistSize);
+	if (!autolootQuery.addRow(query)) {
+		return false;
+	}
+	if (!autolootQuery.execute()) {
+		return false;
+	}
 
 	//save inbox items
 	query.str(std::string());

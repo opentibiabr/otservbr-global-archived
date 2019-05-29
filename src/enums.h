@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -129,10 +129,9 @@ enum CreatureType_t : uint8_t {
 	CREATURETYPE_PLAYER = 0,
 	CREATURETYPE_MONSTER = 1,
 	CREATURETYPE_NPC = 2,
-    CREATURETYPE_SUMMONPLAYER = 3,
+	CREATURETYPE_SUMMONPLAYER = 3,
 	CREATURETYPE_SUMMON_OWN = 3,
 	CREATURETYPE_SUMMON_OTHERS = 4,
-
 };
 
 enum OperatingSystem_t : uint8_t {
@@ -336,7 +335,7 @@ enum ConditionType_t {
 	CONDITION_MANASHIELD = 1 << 9,
 	CONDITION_INFIGHT = 1 << 10,
 	CONDITION_DRUNK = 1 << 11,
-	CONDITION_EXHAUST = 1 << 12, // unused	  
+	CONDITION_EXHAUST = 1 << 12, // unused
 	CONDITION_REGENERATION = 1 << 13,
 	CONDITION_SOUL = 1 << 14,
 	CONDITION_DROWN = 1 << 15,
@@ -479,7 +478,6 @@ enum SpawnType_t
 	RESPAWN_IN_DAY_CAVER = 3,
 	RESPAWN_IN_NIGHT_CAVER = 4,
 };
-
 
 enum MapMark_t
 {

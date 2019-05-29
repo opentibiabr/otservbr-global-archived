@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ class Inbox final : public Container
 {
 	public:
 		explicit Inbox(uint16_t type);
-		
+
 		void setMaxInboxItems(uint32_t maxitems) {
 			maxInboxItems = maxitems;
 		}

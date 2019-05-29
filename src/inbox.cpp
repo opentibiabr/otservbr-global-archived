@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,9 +29,9 @@ Inbox::Inbox(uint16_t type) : Container(type, 30, false, true)
 
 ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 		uint32_t flags, Creature*) const
-	{
+{
 	int32_t addCount = 0;
-	
+
 	if (!hasBitSet(FLAG_NOLIMIT, flags)) {
 		return RETURNVALUE_CONTAINERNOTENOUGHROOM;
 	}
@@ -48,7 +48,7 @@ ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 	if (!item->isPickupable()) {
 		return RETURNVALUE_CANNOTPICKUP;
 	}
-	
+
 	if (item->getTopParent() != this) { //MY
 		if (const Container* container = item->getContainer()) {
 			addCount = container->getItemHoldingCount() + 1;

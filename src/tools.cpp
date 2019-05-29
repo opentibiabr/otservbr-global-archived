@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -507,7 +507,6 @@ using SpawnTypeNames = std::unordered_map<std::string, SpawnType_t>;
 
 MagicEffectNames magicEffectNames = {
 	{"assassin",			CONST_ME_ASSASSIN},
-	
 	{"bluefireworks",		CONST_ME_BLUE_FIREWORKS },
 	{"bluebubble",			CONST_ME_LOSEENERGY},
 	{"blackspark",			CONST_ME_HITAREA},
@@ -522,27 +521,22 @@ MagicEffectNames magicEffectNames = {
 	{"blueenergyspark",		CONST_ME_BLUE_ENERGY_SPARK },
 	{"blueghost",			CONST_ME_BLUE_GHOST },
 	{"blacksmoke",			CONST_ME_BLACKSMOKE},
-	
 	{"carniphila",			CONST_ME_CARNIPHILA},
 	{"cake",				CONST_ME_CAKE},
 	{"confettihorizontal",	CONST_ME_CONFETTI_HORIZONTAL},
 	{"confettivertical",	CONST_ME_CONFETTI_VERTICAL},
 	{"criticaldagame",		CONST_ME_CRITICAL_DAMAGE},
-	
 	{"dice",				CONST_ME_CRAPS},
 	{"dragonhead",			CONST_ME_DRAGONHEAD},
-	
 	{"explosionarea",		CONST_ME_EXPLOSIONAREA},
 	{"explosion",			CONST_ME_EXPLOSIONHIT},
 	{"energy",				CONST_ME_ENERGYHIT},
 	{"energyarea",			CONST_ME_ENERGYAREA},
 	{"earlythunder",		CONST_ME_EARLY_THUNDER },
-	
 	{"fire",				CONST_ME_HITBYFIRE},
 	{"firearea",			CONST_ME_FIREAREA},
 	{"fireattack",			CONST_ME_FIREATTACK},
 	{"ferumbras",			CONST_ME_FERUMBRAS},
-	
 	{"greenspark",			CONST_ME_HITBYPOISON},
 	{"greenbubble",			CONST_ME_GREEN_RINGS},
 	{"greennote",			CONST_ME_SOUND_GREEN},
@@ -553,26 +547,21 @@ MagicEffectNames magicEffectNames = {
 	{"greensmoke",			CONST_ME_GREENSMOKE},
 	{"greenenergyspark",	CONST_ME_GREEN_ENERGY_SPARK },
 	{"greenfireworks",		CONST_ME_GREEN_FIREWORKS },
-	
 	{"hearts",				CONST_ME_HEARTS},
 	{"holydamage",			CONST_ME_HOLYDAMAGE},
 	{"holyarea",			CONST_ME_HOLYAREA},
-	
 	{"icearea",				CONST_ME_ICEAREA},
 	{"icetornado",			CONST_ME_ICETORNADO},
 	{"iceattack",			CONST_ME_ICEATTACK},
 	{"insects",				CONST_ME_INSECTS},
-	
 	{"mortarea",			CONST_ME_MORTAREA},
 	{"mirrorhorizontal",	CONST_ME_MIRRORHORIZONTAL},
 	{"mirrorvertical",		CONST_ME_MIRRORVERTICAL},
 	{"magicpowder",			CONST_ME_MAGIC_POWDER },
-	
 	{"orcshaman",			CONST_ME_ORCSHAMAN},
 	{"orcshamanfire",		CONST_ME_ORCSHAMAN_FIRE},
 	{"orangeenergyspark",	CONST_ME_ORANGE_ENERGY_SPARK },
 	{"orangefireworks",		CONST_ME_ORANGE_FIREWORKS },
-	
 	{"poff",				CONST_ME_POFF},
 	{"poison",				CONST_ME_POISONAREA},
 	{"purplenote",			CONST_ME_SOUND_PURPLE},
@@ -587,14 +576,12 @@ MagicEffectNames magicEffectNames = {
 	{"pinkvortex",			CONST_ME_PINK_VORTEX },
 	{"pinkenergyspark",		CONST_ME_PINK_ENERGY_SPARK },
 	{"pinkfireworks",		CONST_ME_PINK_FIREWORKS },
-	
 	{"redspark",			CONST_ME_DRAWBLOOD},
 	{"redshimmer",			CONST_ME_MAGIC_RED},
 	{"rednote",				CONST_ME_SOUND_RED},
 	{"redfirework",			CONST_ME_FIREWORK_RED},
 	{"redsmoke",			CONST_ME_REDSMOKE},
 	{"ragiazbonecapsule",	CONST_ME_RAGIAZ_BONECAPSULE},
-	
 	{"stun",				CONST_ME_STUN},
 	{"sleep",				CONST_ME_SLEEP},
 	{"smallclouds",			CONST_ME_SMALLCLOUDS},
@@ -607,13 +594,11 @@ MagicEffectNames magicEffectNames = {
 	{"smoke",				CONST_ME_SMOKE},
 	{"storm",				CONST_ME_STORM },
 	{"stonestorm",			CONST_ME_STONE_STORM },
-	
 	{"teleport",			CONST_ME_TELEPORT},
 	{"tutorialarrow",		CONST_ME_TUTORIALARROW},
 	{"tutorialsquare",		CONST_ME_TUTORIALSQUARE},
 	{"thunder",				CONST_ME_THUNDER},
 	{"treasuremap",			CONST_ME_TREASURE_MAP },
-	
 	{"yellowspark",			CONST_ME_BLOCKHIT},
 	{"yellowbubble",		CONST_ME_YELLOW_RINGS},
 	{"yellownote",			CONST_ME_SOUND_YELLOW},
@@ -622,7 +607,6 @@ MagicEffectNames magicEffectNames = {
 	{"yalaharighost",		CONST_ME_YALAHARIGHOST},
 	{"yellowsmoke",			CONST_ME_YELLOWSMOKE},
 	{"yellowenergyspark",	CONST_ME_YELLOW_ENERGY_SPARK },
-	
 	{"whitenote",			CONST_ME_SOUND_WHITE},
 	{"watercreature",		CONST_ME_WATERCREATURE},
 	{"watersplash",			CONST_ME_WATERSPLASH},

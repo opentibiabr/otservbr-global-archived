@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -164,30 +164,30 @@ std::string Player::getDescription(int32_t lookDistance) const
 	}
 
 	if (guild && guildRank) {
-	    size_t memberCount = guild->getMemberCount();
-	    if (memberCount >= 1000) {
-	        s << "";
-	        return s.str();
-	    }
+		size_t memberCount = guild->getMemberCount();
+		if (memberCount >= 1000) {
+			s << "";
+			return s.str();
+		}
 
-	    if (lookDistance == -1) {
-	        s << " You are ";
-	    } else if (sex == PLAYERSEX_FEMALE) {
-	        s << " She is ";
-	    } else {
-	        s << " He is ";
-	    }
+		if (lookDistance == -1) {
+			s << " You are ";
+		} else if (sex == PLAYERSEX_FEMALE) {
+			s << " She is ";
+		} else {
+			s << " He is ";
+		}
 
-	    s << guildRank->name << " of the " << guild->getName();
-	    if (!guildNick.empty()) {
-	        s << " (" << guildNick << ')';
-	    }
+		s << guildRank->name << " of the " << guild->getName();
+		if (!guildNick.empty()) {
+			s << " (" << guildNick << ')';
+		}
 
-	    if (memberCount == 1) {
-	        s << ", which has 1 member, " << guild->getMembersOnline().size() << " of them online.";
-	    } else {
-	        s << ", which has " << memberCount << " members, " << guild->getMembersOnline().size() << " of them online.";
-	    }
+		if (memberCount == 1) {
+			s << ", which has 1 member, " << guild->getMembersOnline().size() << " of them online.";
+		} else {
+			s << ", which has " << memberCount << " members, " << guild->getMembersOnline().size() << " of them online.";
+		}
 	}
 
 	return s.str();
@@ -206,7 +206,7 @@ void Player::addConditionSuppressions(uint32_t conditions)
 	conditionSuppressions |= conditions;
 }
 
-void Player::removeConditionSuppressions(uint32_t conditions) 
+void Player::removeConditionSuppressions(uint32_t conditions)
 {
 	conditionSuppressions &= ~conditions;
 }
@@ -347,12 +347,12 @@ int32_t Player::getDefense() const
 	int32_t defenseValue = 7;
 	const Item* weapon;
 	const Item* shield;
-	try{
+	try {
 		getShieldAndWeapon(shield, weapon);
-	} catch (const std::exception&) {
+	}
+	catch (const std::exception&) {
 		std::cout << "Got exception" << std::endl;
 	}
-
 
 	if (weapon) {
 		defenseValue = weapon->getDefense() + weapon->getExtraDefense();
@@ -660,7 +660,7 @@ void Player::addStorageValue(const uint32_t key, const int32_t value, const bool
 		if (!isLogin) {
 			auto currentFrameTime = g_dispatcher.getDispatcherCycle();
 			g_events->eventOnStorageUpdate(this, key, value, oldValue, currentFrameTime);
-			}
+		}
 	} else {
 		storageMap.erase(key);
 	}
@@ -718,13 +718,12 @@ bool Player::canWalkthrough(const Creature* creature) const
 		return true;
 	}
 
-	if (player) {		
-	const Tile* playerTile = player->getTile();
-	if (!playerTile || (!playerTile->hasFlag(TILESTATE_NOPVPZONE) && !playerTile->hasFlag(TILESTATE_PROTECTIONZONE) && player->getLevel() > static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)))) {
-		return false;
-	}
-		
-		
+	if (player) {
+		const Tile* playerTile = player->getTile();
+		if (!playerTile || (!playerTile->hasFlag(TILESTATE_NOPVPZONE) && !playerTile->hasFlag(TILESTATE_PROTECTIONZONE) && player->getLevel() > static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)))) {
+			return false;
+		}
+
 		const Item* playerTileGround = playerTile->getGround();
 		if (!playerTileGround || !playerTileGround->hasWalkStack()) {
 			return false;
@@ -740,10 +739,10 @@ bool Player::canWalkthrough(const Creature* creature) const
 			thisPlayer->setLastWalkthroughPosition(creature->getPosition());
 			return false;
 		}
+
 		thisPlayer->setLastWalkthroughPosition(creature->getPosition());
 		return true;
-	}
-	else {
+	} else {
 		return false;
 	}
 
@@ -766,10 +765,8 @@ bool Player::canWalkthroughEx(const Creature* creature) const
 	const Player* player = creature->getPlayer();
 	if (player) {
 		const Tile* playerTile = player->getTile();
-	return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)));
-
-	}
-	else {
+		return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)));
+	} else {
 		return false;
 	}
 
@@ -2556,6 +2553,7 @@ ReturnValue Player::queryAdd(int32_t index, const Thing& thing, uint32_t count, 
 			return RETURNVALUE_CANNOTBEDRESSED;
 		}
 	}
+
 	return ret;
 }
 
@@ -2862,7 +2860,7 @@ void Player::removeThing(Thing* thing, uint32_t count)
 		return /*RETURNVALUE_NOTPOSSIBLE*/;
 	}
 
-		if (item->isStackable()) {
+	if (item->isStackable()) {
 		if (count == item->getItemCount()) {
 			//send change to client
 			sendInventoryItem(static_cast<slots_t>(index), nullptr);
@@ -4027,7 +4025,7 @@ void Player::addUnjustifiedDead(const Player* attacked)
 			skullTicks = static_cast<int64_t>(g_config.getNumber(ConfigManager::RED_SKULL_DURATION)) * 24 * 60 * 60 * 1000;
 		}
 	}
-                                                                       
+
 	sendUnjustifiedPoints();
 }
 
@@ -4770,7 +4768,7 @@ void Player::setGuild(Guild* guild)
 	this->guildRank = nullptr;
 
 	if (guild) {
-		 GuildRank_ptr rank = guild->getRankByLevel(1);
+		GuildRank_ptr rank = guild->getRankByLevel(1);
 		if (!rank) {
 			return;
 		}
@@ -4800,22 +4798,21 @@ void Player::doCriticalDamage(CombatDamage& damage) const
 //Autoloot
 void Player::addAutoLootItem(uint16_t itemId)
 {
-    autoLootList.insert(itemId);
+	autoLootList.insert(itemId);
 }
 
 void Player::removeAutoLootItem(uint16_t itemId)
 {
-    autoLootList.erase(itemId);
+	autoLootList.erase(itemId);
 }
 
 bool Player::getAutoLootItem(const uint16_t itemId)
 {
-    return autoLootList.find(itemId) != autoLootList.end();
+	return autoLootList.find(itemId) != autoLootList.end();
 }
 
 //Custom: Anti bug do market
 bool Player::isMarketExhausted() const {
-	uint32_t exhaust_time = 3000; //half second 500
-
+	uint32_t exhaust_time = 3000; // half second 500
 	return (OTSYS_TIME() - lastMarketInteraction < exhaust_time);
 }

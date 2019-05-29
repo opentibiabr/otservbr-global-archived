@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -252,7 +252,7 @@ void Connection::parsePacket(const boost::system::error_code& error)
 
 		if (!protocol) {
 			// As of 11.11+ update, we need to check if it's a outdated client or a status client server with this ugly check
-			if(msg.getLength() < 280) {
+			if (msg.getLength() < 280) {
 				msg.skipBytes(-NetworkMessage::CHECKSUM_LENGTH); //those 32bits read up there
 			}
 
