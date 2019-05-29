@@ -1234,6 +1234,11 @@ ALTER TABLE `players_online`
   ADD PRIMARY KEY (`player_id`);
 
 --
+-- Indexes for table `player_autoloot`
+--
+ALTER TABLE `player_autoloot`
+  ADD PRIMARY KEY (`id`);
+--
 -- Indexes for table `player_deaths`
 --
 ALTER TABLE `player_deaths`
@@ -1424,6 +1429,13 @@ ALTER TABLE `newsticker`
 --
 ALTER TABLE `players`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `player_autoloot`
+--
+ALTER TABLE `player_autoloot`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `player_former_names`
 --
