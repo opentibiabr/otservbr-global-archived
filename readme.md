@@ -1,6 +1,6 @@
 ## OTServ Brasil - Global Server [![Build status](https://ci.appveyor.com/api/projects/status/599x38f3a0luessl?svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download builds for Windows")
 
-### Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira, Otavio Milani
+* Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira and Otavio Milani.
 * This project is supported by: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
 #### Introduction:
@@ -23,7 +23,7 @@ Click on "new problem", write the "Title" for your edition, then a "Description"
 You can see all contributors [here](https://github.com/opentibiabr/OTServBR-Global/graphs/contributors)<br>
 
 #### Tools Edition:
-[Client Tibia 11 with Notepad++](https://forums.otserv.com.br/index.php?/forums/topic/167592-cliente-tibia-11-com-notepad/)<br>
+[Client Tibia 10 with HexEditorXVI32](https://forums.otserv.com.br/index.php?/forums/topic/167554-tibia-10-custom-client-desative-a-msg-de-atualiza%C3%A7%C3%A3o-mc-seu-ip/)<br>
 [Client Tibia 11 with HexEditorXVI32](https://forums.otserv.com.br/index.php?/forums/topic/167611-cliente-tibia-11-com-hexeditorxvi32/)<br>
 [Tibia Clients, RME, Item Editor, Map Tracker and others](https://github.com/opentibiabr/tools/)<br>
 
