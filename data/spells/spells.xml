@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spells>
 	<!-- under construction summons -->
-	<instant group="support" spellid="194" name="Summon Creature EK" words="utevo gran res eq" lvl="200" mana="1000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="support/pet.lua">
+	<instant group="support" spellid="194" name="Summon Creature EK" words="utevo gran res eq" lvl="200" mana="1000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Elite Knight"/>
 	</instant>
-	<instant group="support" spellid="195" name="Summon Creature RP" words="utevo gran res sac" lvl="200" mana="2000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="support/pet.lua">
+	<instant group="support" spellid="195" name="Summon Creature RP" words="utevo gran res sac" lvl="200" mana="2000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Royal Paladin"/>
 	</instant>
-	<instant group="support" spellid="196" name="Summon Creature MS" words="utevo gran res ven" lvl="200" mana="3000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="support/pet.lua">
+	<instant group="support" spellid="196" name="Summon Creature MS" words="utevo gran res ven" lvl="200" mana="3000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Master Sorcerer"/>
 	</instant>
-	<instant group="support" spellid="197" name="Summon Creature ED" words="utevo gran res dru" lvl="200" mana="3000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="support/pet.lua">
+	<instant group="support" spellid="197" name="Summon Creature ED" words="utevo gran res dru" lvl="200" mana="3000"  cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Elder Druid"/>
 	</instant>
 	<!-- under construction -->
@@ -409,7 +409,7 @@
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="support" spellid="9" name="Summon Creature" words="utevo res" lvl="25" params="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="support/summon creature.lua">
+	<instant group="support" spellid="9" name="Summon Creature" words="utevo res" lvl="25" params="1" cooldown="2000" groupcooldown="2000" needlearn="0" script="summon/summon creature.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 		<vocation name="Master Sorcerer" />
@@ -519,7 +519,7 @@
 
 	<!-- Summon Runes -->
 	<rune group="support" spellid="12" name="Convince Creature Rune" id="2290" allowfaruse="1" charges="1" level="16" magiclevel="5" cooldown="2000" groupcooldown="2000" needtarget="1" blocktype="solid" script="support/convince_creature.lua" />
-	<rune group="support" spellid="83" name="Animate Dead" id="2316" allowfaruse="1" charges="1" lvl="27" maglv="4" exhaustion="2000" groupcooldown="2000" blocktype="solid" script="support/animate dead rune.lua" />
+	<rune group="support" spellid="83" name="Animate Dead" id="2316" allowfaruse="1" charges="1" lvl="27" maglv="4" exhaustion="2000" groupcooldown="2000" blocktype="solid" script="summon/animate dead rune.lua" />
 
 	<!-- Support Runes -->
 	<rune group="support" spellid="78" name="Desintegrate" id="2310" allowfaruse="0" charges="3" lvl="21" maglv="4" exhaustion="2000" groupcooldown="2000" range="1" script="support/desintegrate rune.lua" />
