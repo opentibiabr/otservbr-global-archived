@@ -84,6 +84,7 @@ timeBetweenExActions = 500
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
+-- NOTE: unzip the map world.rar
 mapName = "realmap"
 mapAuthor = "Open-TibiaBR"
 
