@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Broken Shaper" nameDescription="a broken shaper" race="blood" experience="1600" speed="300" manacost="290">
+<monster name="Broken Shaper" nameDescription="a broken shaper" race="blood" experience="1600" speed="295" manacost="290">
 	<health now="2200" max="2200" />
 	<look type="932" head="132" body="95" legs="0" feet="121" corpse="27736" />
 	<targetchange interval="5000" chance="0" />
@@ -15,22 +15,31 @@
 		<flag staticattack="98" />
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="30" attack="120" />
-		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-300" duration="30000">
-			<attribute key="areaEffect" value="redshimmer" />
-		</attack>
+	<attack name="melee" interval="2000" min="0" max="-200" />
+	<attack name="physical" interval="2000" chance="35" range="7" target="1" min="0" max="-150">
+		<attribute key="shootEffect" value="smallstone" />
+	</attack>
+	<attack name="physical" interval="2000" chance="35" length="5" spread="0" min="0" max="-100">
+		<attribute key="areaEffect" value="rednote" />
+	</attack>
 	</attacks>
-	<defenses armor="10" defense="10" />
-	<defense name="healing" interval="2000" chance="15" min="0" max="250">
+	<defenses armor="25" defense="25" >
+     <defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+       <attribute key="areaEffect" value="redshimmer"/>
+     </defense>
+  	<defense name="healing" interval="2000" chance="15" min="0" max="250">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
+  </defenses>
 	<elements>
-		<element energyPercent="20" />
-		<element holyPercent="1" />
-		<element earthPercent="-12" />
-		<element deathPercent="-10" />
+		<element energyPercent="-20" />
+		<element earthPercent="20" />
+		<element firePercent="-15" />
 	</elements>
 	<voices interval="2000" chance="7">
 		<voice sentence="<grunt>" />

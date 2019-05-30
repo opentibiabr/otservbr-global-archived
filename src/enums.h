@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -129,10 +129,9 @@ enum CreatureType_t : uint8_t {
 	CREATURETYPE_PLAYER = 0,
 	CREATURETYPE_MONSTER = 1,
 	CREATURETYPE_NPC = 2,
-    CREATURETYPE_SUMMONPLAYER = 3,
+	CREATURETYPE_SUMMONPLAYER = 3,
 	CREATURETYPE_SUMMON_OWN = 3,
 	CREATURETYPE_SUMMON_OTHERS = 4,
-
 };
 
 enum OperatingSystem_t : uint8_t {
@@ -155,6 +154,12 @@ enum SpellGroup_t : uint8_t {
 	SPELLGROUP_SUPPORT = 3,
 	SPELLGROUP_SPECIAL = 4,
 	SPELLGROUP_CONJURE = 5,
+};
+
+enum SpellType_t : uint8_t {
+	SPELL_UNDEFINED = 0,
+	SPELL_INSTANT = 1,
+	SPELL_RUNE = 2,
 };
 
 enum AccountType_t : uint8_t {
@@ -266,13 +271,7 @@ enum ConditionParam_t {
 	CONDITION_PARAM_SKILL_LIFE_LEECH_AMOUNT = 50,
 	CONDITION_PARAM_SKILL_MANA_LEECH_CHANCE = 51,
 	CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNT = 52,
-	CONDITION_PARAM_SKILL_CRITICAL_HIT_CHANCEPERCENT = 53,
-	CONDITION_PARAM_SKILL_CRITICAL_HIT_DAMAGEPERCENT = 54,
-	CONDITION_PARAM_SKILL_LIFE_LEECH_CHANCEPERCENT = 55,
-	CONDITION_PARAM_SKILL_LIFE_LEECH_AMOUNTPERCENT = 56,
-	CONDITION_PARAM_SKILL_MANA_LEECH_CHANCEPERCENT = 57,
-	CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNTPERCENT = 58,
-	CONDITION_PARAM_DISABLE_DEFENSE = 59,
+	CONDITION_PARAM_DISABLE_DEFENSE = 53,
 };
 
 enum BlockType_t : uint8_t {
@@ -336,7 +335,7 @@ enum ConditionType_t {
 	CONDITION_MANASHIELD = 1 << 9,
 	CONDITION_INFIGHT = 1 << 10,
 	CONDITION_DRUNK = 1 << 11,
-	CONDITION_EXHAUST = 1 << 12, // unused	  
+	CONDITION_EXHAUST = 1 << 12, // unused
 	CONDITION_REGENERATION = 1 << 13,
 	CONDITION_SOUL = 1 << 14,
 	CONDITION_DROWN = 1 << 15,
@@ -479,7 +478,6 @@ enum SpawnType_t
 	RESPAWN_IN_DAY_CAVER = 3,
 	RESPAWN_IN_NIGHT_CAVER = 4,
 };
-
 
 enum MapMark_t
 {

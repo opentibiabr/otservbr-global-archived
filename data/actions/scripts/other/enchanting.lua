@@ -43,7 +43,7 @@ local enchantedItems = {
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -58,7 +58,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 			player:setStorageValue(Storage.ElementalSphere.MachineGemCount, math.max(1, player:getStorageValue(Storage.ElementalSphere.MachineGemCount) + 1))
 			toPosition:sendMagicEffect(CONST_ME_PURPLEENERGY)
 			item:transform(item.itemid, item.type - 1)
-			player:setStorageValue(Storage.Exaust.tempo, os.time())
+			player:setStorageValue(Storage.Exaust.Time, os.time())
 			return true
 		end
 	end
@@ -68,7 +68,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		target:decay()
 		item:remove(1)
 		toPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
-		player:setStorageValue(Storage.Exaust.tempo, os.time())
+		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 
@@ -76,7 +76,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		target:transform(9933)
 		item:remove(1)
 		toPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
-		player:setStorageValue(Storage.Exaust.tempo, os.time())
+		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 
@@ -106,9 +106,9 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		player:addMana(-mana)
 		player:addSoul(-soul)
 		item:transform(enchantedGems[targetId])
-		player:addManaSpent(mana * configManager.getNumber(configKeys.RATE_MAGIC))
+		player:addManaSpent(items.valuables.mana)
 		player:getPosition():sendMagicEffect(CONST_ME_HOLYDAMAGE)
-		player:setStorageValue(Storage.Exaust.tempo, os.time())
+		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 
@@ -117,7 +117,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		target:decay()
 		item:remove(1)
 		toPosition:sendMagicEffect(CONST_ME_MAGIC_GREEN)
-		player:setStorageValue(Storage.Exaust.tempo, os.time())
+		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 
@@ -140,7 +140,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		target:transform(enchantedItems[target.itemid][targetId], subtype)
 		target:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 		item:remove(1)
-		player:setStorageValue(Storage.Exaust.tempo, os.time())
+		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 	return false

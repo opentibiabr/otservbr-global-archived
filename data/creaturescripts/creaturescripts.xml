@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
-
+	
+	<!-- The Masters Voice Quest-->
+	<!-- <event type="kill" name="MastersVoiceServants" script="quests/their master's voice/ServantsKill.lua" />	 -->
+	<event type="death" name="Servant_Death" script="mastervoice/Servant_Death.lua"/>
+	<event type="death" name="Mage_Death" script="mastervoice/Mage_Death.lua"/>	
+	
 	<!-- AUTO LOOT -->
 	<event type="modalwindow" name="autoloot" script="autoloot.lua"/>
 

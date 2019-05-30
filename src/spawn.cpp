@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -248,6 +248,17 @@ void Spawn::checkSpawn()
 		}
 
 		spawnBlock_t& sb = it.second;
+
+		uint32_t minutes = g_game.getLightHour();
+		bool isday = false;
+		if (minutes >= ((6 * 60) + 30) && minutes <= ((17 * 60) + 30))
+			isday = true;
+
+		if ((sb.mType->info.respawnType == RESPAWN_IN_DAY && !isday) || (sb.mType->info.respawnType == RESPAWN_IN_NIGHT && isday) || (sb.mType->info.respawnType == RESPAWN_IN_DAY_CAVER && !isday && sb.pos.z == 7) || (sb.mType->info.respawnType == RESPAWN_IN_NIGHT_CAVER && isday && sb.pos.z == 7)) {
+			sb.lastSpawn = OTSYS_TIME();
+			continue;
+		}
+
 		if (OTSYS_TIME() >= sb.lastSpawn + sb.interval) {
 			if (sb.mType->info.isBlockable && findPlayer(sb.pos)) {
 				sb.lastSpawn = OTSYS_TIME();

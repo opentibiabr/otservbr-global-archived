@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -71,7 +71,7 @@ class Events
 
 		// Monster
 		int32_t monsterOnSpawn = -1;
-		int32_t monsterOnDropLoot = -1;
+		/*&int32_t monsterOnDropLoot = -1;*/
 	};
 
 	public:
@@ -120,7 +120,7 @@ class Events
 
 		// Monster
 		void eventMonsterOnSpawn(Monster* monster, const Position& position);
-		void eventMonsterOnDropLoot(Monster* monster, Container* corpse);
+		/*void eventMonsterOnDropLoot(Monster* monster, Container* corpse); */
 
 	private:
 		LuaScriptInterface scriptInterface;

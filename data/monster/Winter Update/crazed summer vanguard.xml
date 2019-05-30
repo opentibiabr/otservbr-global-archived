@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Crazed Summer Vanguard" nameDescription="a Crazed Summer Vanguard" race="blood" experience="5000" speed="195" manacost="0">
 	<health now="5500" max="5500" />
-	<look type="1137" head="20" body="94" legs="20" feet="81" addons="1" corpse="34715" />
+	<look type="1136" head="20" body="94" legs="20" feet="81" addons="1" corpse="34715" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag summonable="0" />

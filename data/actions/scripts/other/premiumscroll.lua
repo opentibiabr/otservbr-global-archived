@@ -1,6 +1,6 @@
 local function doPlayerAddPremiumPoints(cid, count)
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -14,6 +14,6 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "You have recived 30 Tibia Coins to your account.")
 	doSendMagicEffect(getCreaturePosition(cid), 28)
 	doRemoveItem(item.uid,1)
-	player:setStorageValue(Storage.Exaust.tempo, os.time())
+	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

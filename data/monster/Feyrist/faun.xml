@@ -4,6 +4,7 @@
 	<look type="980" head="81" body="115" legs="114" feet="81" corpse="29102" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
+		<flag respawntype="day" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -24,26 +25,29 @@
 	</immunities>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-370" />
-		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-60" max="-100">
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-60" max="-115">
 			<attribute key="shootEffect" value="poison" />
+			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="drunk" interval="3000" chance="11" radius="6" target="0" duration="25000">
+		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="25000">
 			<attribute key="areaEffect" value="purplenote" />
 		</attack>
+		<attack name="physical" interval="2000" chance="30" range="7" min="0" max="-100">
+			<attribute key="shootEffect" value="leafstar" />
+		</attack>
 	</attacks>
-	<defenses armor="25" defense="25">
+	<defenses armor="45" defense="45">
 		<defense name="healing" interval="2000" chance="15" min="75" max="90">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="10" />
-		<element firePercent="10" />
-		<element holyPercent="-30" />
-		<element deathPercent="-1" />
-		<element physicalPercent="-1" />
-		<element holyPercent="-30" />
-		<element earthPercent="-60" />
+		<element firePercent="-15" />
+		<element energyPercent="-10" />
+		<element holyPercent="30" />
+		<element earthPercent="70" />
+		<element deathPercent="20" />
+		<element physicalPercent="10" />
 	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="Are you posing a threat to this realm? I suppose so." />

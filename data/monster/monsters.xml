@@ -103,163 +103,185 @@
 	<monster file="Hydro-Elementals/spirit of fertility.xml" name="Spirit of Fertility"/>
 
     <!-- Ferumbras Ascendant Quest -->
-	<monster name="Disgusting Ooze" file="Bio-Elementals/disgusting ooze.xml" />
+	<monster name="Disgusting Ooze" file="Quests/Ferumbras Ascendant/disgusting ooze.xml" />
 
-	<monster name="Destabilized Ferumbras" file="Bosses/destabilized ferumbras.xml" />
-	<monster name="Ferumbras Mortal Shell" file="Bosses/ferumbras mortal shell.xml" />
-	<monster name="Ferumbras Soul Splinter" file="Bosses/ferumbras soul splinter.xml" />
-	<monster name="Mazoran" file="Bosses/mazoran.xml" />
-	<monster name="Plagirath" file="Bosses/plagirath.xml" />
-	<monster name="Ragiaz" file="Bosses/ragiaz.xml" />
-	<monster name="Razzagorn" file="Bosses/razzagorn.xml" />
-	<monster name="Shulgrax" file="Bosses/shulgrax.xml" />
-	<monster name="Tarbaz" file="Bosses/tarbaz.xml" />
-	<monster name="The Lord of The Lice" file="Bosses/the lord of the lice.xml" />
-	<monster name="The Shatterer" file="Bosses/the shatterer.xml" />
-	<monster name="Zamulosh" file="Bosses/zamulosh.xml" />
-	<monster name="Zamulosh2" file="Bosses/zamulosh2.xml" />
-	<monster name="Zamulosh3" file="Bosses/zamulosh3.xml" />
+	<monster name="Destabilized Ferumbras" file="Quests/Ferumbras Ascendant/Bosses/destabilized ferumbras.xml" />
+	<monster name="Ferumbras Mortal Shell" file="Quests/Ferumbras Ascendant/Bosses/ferumbras mortal shell.xml" />
+	<monster name="Ferumbras Soul Splinter" file="Quests/Ferumbras Ascendant/Bosses/ferumbras soul splinter.xml" />
+	<monster name="Mazoran" file="Quests/Ferumbras Ascendant/Bosses/mazoran.xml" />
+	<monster name="Plagirath" file="Quests/Ferumbras Ascendant/Bosses/plagirath.xml" />
+	<monster name="Ragiaz" file="Quests/Ferumbras Ascendant/Bosses/ragiaz.xml" />
+	<monster name="Razzagorn" file="Quests/Ferumbras Ascendant/Bosses/razzagorn.xml" />
+	<monster name="Shulgrax" file="Quests/Ferumbras Ascendant/Bosses/shulgrax.xml" />
+	<monster name="Tarbaz" file="Quests/Ferumbras Ascendant/Bosses/tarbaz.xml" />
+	<monster name="The Lord of The Lice" file="Quests/Ferumbras Ascendant/Bosses/the lord of the lice.xml" />
+	<monster name="The Shatterer" file="Quests/Ferumbras Ascendant/Bosses/the shatterer.xml" />
+	<monster name="Zamulosh" file="Quests/Ferumbras Ascendant/Bosses/zamulosh.xml" />
+	<monster name="Zamulosh2" file="Quests/Ferumbras Ascendant/Bosses/zamulosh2.xml" />
+	<monster name="Zamulosh3" file="Quests/Ferumbras Ascendant/Bosses/zamulosh3.xml" />
 
-	<monster name="Sin Devourer" file="Demons/sin devourer.xml" />
+	<monster name="Sin Devourer" file="Quests/Ferumbras Ascendant/sin devourer.xml" />
 
-	<monster name="Death Dragon" file="Dragons/death dragon.xml" />
+	<monster name="Death Dragon" file="Quests/Ferumbras Ascendant/death dragon.xml" />
 
-	<monster name="Desperate Soul" file="Ghosts/desperate soul.xml" />
-	<monster name="Enraged Soul" file="Ghosts/enraged soul.xml" />
-	<monster name="Ferumbras Essence" file="Ghosts/ferumbras essence.xml" />
-	<monster name="Redeemed Soul" file="Ghosts/redeemed soul.xml" />
+	<monster name="Desperate Soul" file="Quests/Ferumbras Ascendant/desperate soul.xml" />
+	<monster name="Enraged Soul" file="Quests/Ferumbras Ascendant/enraged soul.xml" />
+	<monster name="Ferumbras Essence" file="Quests/Ferumbras Ascendant/ferumbras essence.xml" />
+	<monster name="Redeemed Soul" file="Quests/Ferumbras Ascendant/redeemed soul.xml" />
 
-	<monster name="Lovely Deer" file="Lovely/lovely deer.xml" />
-	<monster name="Lovely Frazzlemaw" file="Lovely/lovely frazzlemaw.xml" />
-	<monster name="Lovely Polar Bear" file="Lovely/lovely polar bear.xml" />
-	<monster name="Lovely Rotworm" file="Lovely/lovely rotworm.xml" />
-	<monster name="Lovely Scorpion" file="Lovely/lovely scorpion.xml" />
-	<monster name="Lovely Snake" file="Lovely/lovely snake.xml" />
-	<monster name="Lovely Souleater" file="Lovely/lovely souleater.xml" />
-	<monster name="lovely yielothax" file="Lovely/lovely yielothax.xml" />
+	<monster name="Lovely Deer" file="Quests/Ferumbras Ascendant/Lovely/lovely deer.xml" />
+	<monster name="Lovely Frazzlemaw" file="Quests/Ferumbras Ascendant/Lovely/lovely frazzlemaw.xml" />
+	<monster name="Lovely Polar Bear" file="Quests/Ferumbras Ascendant/Lovely/lovely polar bear.xml" />
+	<monster name="Lovely Rotworm" file="Quests/Ferumbras Ascendant/Lovely/lovely rotworm.xml" />
+	<monster name="Lovely Scorpion" file="Quests/Ferumbras Ascendant/Lovely/lovely scorpion.xml" />
+	<monster name="Lovely Snake" file="Quests/Ferumbras Ascendant/Lovely/lovely snake.xml" />
+	<monster name="Lovely Souleater" file="Quests/Ferumbras Ascendant/Lovely/lovely souleater.xml" />
+	<monster name="lovely yielothax" file="Quests/Ferumbras Ascendant/Lovely/lovely yielothax.xml" />
 
-	<monster name="Rage of Mazoran" file="Pyro-Elementals/rage of mazoran.xml" />
+	<monster name="Rage of Mazoran" file="Quests/Ferumbras Ascendant/rage of mazoran.xml" />
 
-	<monster name="Damned Soul" file="Skeletons/damned soul.xml" />
+	<monster name="Damned Soul" file="Quests/Ferumbras Ascendant/damned soul.xml" />
 
-	<monster name="Enthralled Demon" file="Summons/enthralled demon.xml" />
-	<monster name="Rift Fragment" file="Summons/rift fragment.xml" />
-	<monster name="Rift Invader" file="Summons/rift invader.xml" />
+	<monster name="Enthralled Demon" file="Quests/Ferumbras Ascendant/Summons/enthralled demon.xml" />
+	<monster name="Rift Fragment" file="Quests/Ferumbras Ascendant/Summons/rift fragment.xml" />
+	<monster name="Rift Invader" file="Quests/Ferumbras Ascendant/Summons/rift invader.xml" />
 
-	<monster name="Bone Capsule" file="Traps/bone capsule.xml" />
-	<monster name="Despair" file="Traps/despair.xml" />
-	<monster name="Electric Sparks" file="Traps/electric sparks.xml" />
-	<monster name="Eruption of Destruction" file="Traps/eruption of destruction.xml" />
-	<monster name="Guilt" file="Traps/guilt.xml" />
-	<monster name="Void" file="Traps/void.xml" />
+	<monster name="Bone Capsule" file="Quests/Ferumbras Ascendant/Traps/bone capsule.xml" />
+	<monster name="Despair" file="Quests/Ferumbras Ascendant/Traps/despair.xml" />
+	<monster name="Electric Sparks" file="Quests/Ferumbras Ascendant/Traps/electric sparks.xml" />
+	<monster name="Eruption of Destruction" file="Quests/Ferumbras Ascendant/Traps/eruption of destruction.xml" />
+	<monster name="Guilt" file="Quests/Ferumbras Ascendant/Traps/guilt.xml" />
+	<monster name="Void" file="Quests/Ferumbras Ascendant/Traps/void.xml" />
 
-	<!-- Trainers -->
-    <monster name="Training Monk" file="Customs/Training Monk.xml" />
-	<monster name="Knight Training" file="Customs/Knight Training.xml" />
+	<!-- Customs -->
+    <monster name="Training Monk" file="Customs/training monk.xml" />
+	<monster name="Knight Training" file="Customs/knight training.xml" />
 	
-	<!-- Cults of Tibia bosses -->
-    <monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/ancient spawn of morgathla.xml" />
-    <monster name="Black Vixen" file="Cults of Tibia/Bosses/black vixen.xml" />
-    <monster name="Bloodback" file="Cults of Tibia/Bosses/Bboodback.xml" />
-    <monster name="Darkfang" file="Cults of Tibia/Bosses/darkfang.xml" />
-    <monster name="Last Planegazer" file="Cults of Tibia/Bosses/last planegazer.xml" />
-    <monster name="Reflection Of Mawhawk" file="Cults of Tibia/Bosses/reflection of mawhawk.xml" />
-    <monster name="Reflection Of Obujos" file="Cults of Tibia/Bosses/reflection of obujos.xml" />
-    <monster name="Shadowpelt" file="Cults of Tibia/Bosses/shadowpelt.xml" />
-    <monster name="Sharpclaw" file="Cults of Tibia/Bosses/sharpclaw.xml" />
+	<!-- Cults of tibia bosses -->
+    <monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml" />
+    <monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml" />
+    <monster name="Bloodback" file="Cults of Tibia/Bosses/Bloodback.xml" />
+    <monster name="Darkfang" file="Cults of Tibia/Bosses/Darkfang.xml" />
+    <monster name="Last Planegazer" file="Cults of Tibia/Bosses/Last Planegazer.xml" />
+    <monster name="Reflection Of Mawhawk" file="Cults of Tibia/Bosses/Reflection Of Mawhawk.xml" />
+    <monster name="Reflection Of Obujos" file="Cults of Tibia/Bosses/Reflection Of Obujos.xml" />
+    <monster name="Shadowpelt" file="Cults of Tibia/Bosses/Shadowpelt.xml" />
+    <monster name="Sharpclaw" file="Cults of Tibia/Bosses/Sharpclaw.xml" />
+ 
+
+	<!-- Cults of tibia bosses -->
+    <monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml" />
+    <monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml" />
+    <monster name="Bloodback" file="Cults of Tibia/Bosses/Bloodback.xml" />
+    <monster name="Darkfang" file="Cults of Tibia/Bosses/Darkfang.xml" />
+    <monster name="Last Planegazer" file="Cults of Tibia/Bosses/Last Planegazer.xml" />
+    <monster name="Reflection Of Mawhawk" file="Cults of Tibia/Bosses/Reflection Of Mawhawk.xml" />
+    <monster name="Reflection Of Obujos" file="Cults of Tibia/Bosses/Reflection Of Obujos.xml" />
+    <monster name="Shadowpelt" file="Cults of Tibia/Bosses/Shadowpelt.xml" />
+    <monster name="Sharpclaw" file="Cults of Tibia/Bosses/Sharpclaw.xml" />
 
 	<!-- Cults os Tibia -->
-	 <monster name="Minotaur Cult Follower" file="Cults of Tibia/Minotaurs/minotaur cult follower.xml" />
-	 <monster name="Minotaur Cult Prophet" file="Cults of Tibia/Minotaurs/minotaur cult prophet.xml" />
-	 <monster name="Minotaur Cult Zealot" file="Cults of Tibia/Minotaurs/minotaur cult zealot.xml" />
-	 <monster name="Misguided Bully" file="Cults of Tibia/Misguided/misguided bully.xml" />
-	 <monster name="Misguided Thief" file="Cults of Tibia/Misguided/misguided thief.xml" />
-	 <monster name="Misguided Shadow" file="Cults of Tibia/Misguided/misguided shadow.xml" />
-	 <monster name="Animated Stone Golen" file="Cults of Tibia/Mota/animated stone golem.xml" />
-	 <monster name="Animated Skunk" file="Cults of Tibia/Mota/animated skunk.xml" />
-	 <monster name="Animated Rotworm" file="Cults of Tibia/Mota/animated rotworm.xml" />
-	 <monster name="Animated Rhino" file="Cults of Tibia/Mota/animated rhino.xml" />
-	 <monster name="Animated Ogre Shaman" file="Cults of Tibia/Mota/animated ogre shaman.xml" />
-	 <monster name="Animated Ogre Savage" file="Cults of Tibia/Mota/animated ogre savage.xml" />
-	 <monster name="Animated Ogre Brute" file="Cults of Tibia/Mota/animated ogre brute.xml" />
-	 <monster name="Animated Mummy" file="Cults of Tibia/Mota/animated mummy.xml" />
-	 <monster name="Animated Moohtant" file="Cults of Tibia/Mota/animated moohtant.xml" />
-	 <monster name="Animated Guzzlemaw" file="Cults of Tibia/Mota/animated guzzlemaw.xml" />
-	 <monster name="Animated Cyclops" file="Cults of Tibia/Mota/animated cyclops.xml" />
-	 <monster name="Animated Clomp" file="Cults of Tibia/Mota/animated clomp.xml" />
-	 <monster name="Goldhanded Cultist" file="Cults of Tibia/Mota/goldhanded cultist.xml" />
-	 <monster name="Cult Believer" file="Cults of Tibia/Carlin/cult believer.xml" />
-	 <monster name="Cult Enforcer" file="Cults of Tibia/Carlin/cult enforcer.xml" />
-	 <monster name="Cult Scholar" file="Cults of Tibia/Carlin/cult scholar.xml" />
-	 <monster name="Barkless Fanatic" file="Cults of Tibia/Barkless/barkless fanatic.xml" />
-	 <monster name="Barkless Devotee" file="Cults of Tibia/Barkless/barkless devotee.xml" />
-	 <monster name="Orc Cult Minion" file="Cults of Tibia/Orcs/orc cult minion.xml" />
-	 <monster name="Orc Cultist" file="Cults of Tibia/Orcs/orc cultist.xml" />
-	 <monster name="Orc Cult Priest" file="Cults of Tibia/Orcs/orc cult priest.xml" />
-	 <monster name="Orc Cult Fanatic" file="Cults of Tibia/Orcs/orc cult fanatic.xml" />
-	 <monster name="Orc Cult Inquisitor" file="Cults of Tibia/Orcs/orc cult inquisitor.xml" />
-	 <monster name="Putrid Mummy" file="Cults of Tibia/Sandy/putrid mummy.xml" />
-	<monster name="Agressive Lava" file="Cults of Tibia/agressive lava.xml" />
-    <monster name="Fox" file="Cults of Tibia/fox.xml" />
-    <monster name="Stonerefiner" file="Cults of Tibia/stonerefiner.xml" />
-    <monster name="Werefox" file="Cults of Tibia/werefox.xml" />
-
-
+	 <monster name="Minotaur Cult Follower" file="Cults of Tibia/Minotaurs/Minotaur Cult Follower.xml" />
+	 <monster name="Minotaur Cult Prophet" file="Cults of Tibia/Minotaurs/Minotaur Cult Prophet.xml" />
+	 <monster name="Minotaur Cult Zealot" file="Cults of Tibia/Minotaurs/Minotaur Cult Zealot.xml" />
+	 <monster name="Misguided Bully" file="Cults of Tibia/Misguided/Misguided Bully.xml" />
+	 <monster name="Misguided Thief" file="Cults of Tibia/Misguided/Misguided Thief.xml" />
+	 <monster name="Misguided Shadow" file="Cults of Tibia/Misguided/Misguided Shadow.xml" />
+	 <monster name="Animated Stone Golen" file="Cults of Tibia/MotA/Animated Stone Golem.xml" />
+	 <monster name="Animated Skunk" file="Cults of Tibia/MotA/Animated Skunk.xml" />
+	 <monster name="Animated Rotworm" file="Cults of Tibia/MotA/Animated Rotworm.xml" />
+	 <monster name="Animated Rhino" file="Cults of Tibia/MotA/Animated Rhino.xml" />
+	 <monster name="Animated Ogre Shaman" file="Cults of Tibia/MotA/Animated Ogre Shaman.xml" />
+	 <monster name="Animated Ogre Savage" file="Cults of Tibia/MotA/Animated Ogre Savage.xml" />
+	 <monster name="Animated Ogre Brute" file="Cults of Tibia/MotA/Animated Ogre Brute.xml" />
+	 <monster name="Animated Mummy" file="Cults of Tibia/MotA/Animated Mummy.xml" />
+	 <monster name="Animated Moohtant" file="Cults of Tibia/MotA/Animated Moohtant.xml" />
+	 <monster name="Animated Guzzlemaw" file="Cults of Tibia/MotA/Animated Guzzlemaw.xml" />
+	 <monster name="Animated Cyclops" file="Cults of Tibia/MotA/Animated Cyclops.xml" />
+	 <monster name="Animated Clomp" file="Cults of Tibia/MotA/Animated Clomp.xml" />
+	 <monster name="Goldhanded Cultist" file="Cults of Tibia/MotA/Goldhanded Cultist.xml" />
+	 <monster name="Cult Believer" file="Cults of Tibia/Carlin/Cult Believer.xml" />
+	 <monster name="Cult Enforcer" file="Cults of Tibia/Carlin/Cult Enforcer.xml" />
+	 <monster name="Cult Scholar" file="Cults of Tibia/Carlin/Cult Scholar.xml" />
+	 <monster name="Barkless Fanatic" file="Cults of Tibia/Barkless/Barkless Fanatic.xml" />
+	 <monster name="Barkless Devotee" file="Cults of Tibia/Barkless/Barkless Devotee.xml" />
+	 <monster name="Orc Cult Minion" file="Cults of Tibia/Orcs/Orc Cult Minion.xml" />
+	 <monster name="Orc Cultist" file="Cults of Tibia/Orcs/Orc Cultist.xml" />
+	 <monster name="Orc Cult Priest" file="Cults of Tibia/Orcs/Orc Cult Priest.xml" />
+	 <monster name="Orc Cult Fanatic" file="Cults of Tibia/Orcs/Orc Cult Fanatic.xml" />
+	 <monster name="Orc Cult Inquisitor" file="Cults of Tibia/Orcs/Orc Cult Inquisitor.xml" />
+	 <monster name="Putrid Mummy" file="Cults of Tibia/Sandy/Putrid Mummy.xml" />
 	 <!-- BOSSES -->
-	 <monster name="Leiden" file="Cults of Tibia/Bosses/leiden.xml" />
-	 <monster name="Ravennous Hunger" file="Cults of Tibia/Bosses/ravennous hunger.xml" />
-	 <monster name="Wine Cask" file="Cults of Tibia/Bosses/wine cask.xml" />
-	 <monster name="Eshtaba The Conjurer" file="Cults of Tibia/Bosses/eshtaba the conjurer.xml" />
-	 <monster name="Malkhar Deathbringer" file="Cults of Tibia/Bosses/malkhar deathbringer.xml" />
-	 <monster name="Dorokoll The Mystic" file="Cults of Tibia/Bosses/dorokoll the mystic.xml" />
-	 <monster name="Eliz The Unyielding" file="Cults of Tibia/Bosses/eliz the unyielding.xml" />
-	 <monster name="Mezlon The Defiler" file="Cults of Tibia/Bosses/mezlon the defiler.xml" />
-	 <monster name="Essence of Malice" file="Cults of Tibia/Bosses/essence of malice.xml" />
-	 <monster name="Eshtaba The Conjurer STOP" file="Cults of Tibia/Bosses/eshtaba the conjurer stop.xml" />
-	 <monster name="Malkhar Deathbringer STOP" file="Cults of Tibia/Bosses/malkhar deathbringer stop.xml" />
-	 <monster name="Dorokoll The Mystic STOP" file="Cults of Tibia/Bosses/dorokoll the mystic stop.xml" />
-	 <monster name="Eliz The Unyielding STOP" file="Cults of Tibia/Bosses/eliz the unyielding stop.xml" />
-	 <monster name="Mezlon The Defiler STOP" file="Cults of Tibia/Bosses/mezlon the defiler stop.xml" />
-	 <monster name="Essence of Malice STOP" file="Cults of Tibia/Bosses/essence of malice stop.xml" />
-	 <monster name="The Sinister Hermit SUJO" file="Cults of Tibia/Bosses/the sinister hermit sujo.xml" />
-	 <monster name="The Sinister Hermit LIMPO" file="Cults of Tibia/Bosses/the sinister hermit limpo.xml" />
-	 <monster name="The Souldespoiler" file="Cults of Tibia/Bosses/The souldespoiler.xml" />
-	 <monster name="The Armored Voidborn" file="Cults of Tibia/Bosses/the armored voidborn.xml" />
-	 <monster name="The Unarmored Voidborn" file="Cults of Tibia/Bosses/the unarmored voidborn.xml" />
-	 <monster name="Containment Machine" file="Cults of Tibia/Bosses/containment machine.xml" />
-	 <monster name="The False God" file="Cults of Tibia/Bosses/the false god.xml" />
-	 <monster name="The Sandking" file="Cults of Tibia/Bosses/the sandking.xml" />
-	 <monster name="The Sandking Fake" file="Cults of Tibia/Bosses/the sandking Fake.xml" />
-	 <monster name="The Remorseless Corruptor" file="Cults of Tibia/Bosses/the remorseless corruptor.xml" />
-	 <monster name="Zarcorix Of Yalahar" file="Cults of Tibia/Bosses/zarcorix Of yalahar.xml" />
-	 <monster name="The Source Of Corruption" file="Cults of Tibia/Bosses/the source of corruption.xml" />
-	 <monster name="The Corruptor Of Souls" file="Cults of Tibia/Bosses/the corruptor of souls.xml" />
+	 <monster name="Leiden" file="Cults of Tibia/Bosses/Leiden.xml" />
+	 <monster name="Ravennous Hunger" file="Cults of Tibia/Bosses/Ravennous Hunger.xml" />
+	 <monster name="Wine Cask" file="Cults of Tibia/Bosses/Wine Cask.xml" />
+	 
+	 <monster name="Eshtaba The Conjurer" file="Cults of Tibia/Bosses/Eshtaba The Conjurer.xml" />
+	 <monster name="Malkhar Deathbringer" file="Cults of Tibia/Bosses/Malkhar Deathbringer.xml" />
+	 <monster name="Dorokoll The Mystic" file="Cults of Tibia/Bosses/Dorokoll The Mystic.xml" />
+	 <monster name="Eliz The Unyielding" file="Cults of Tibia/Bosses/Eliz The Unyielding.xml" />
+	 <monster name="Mezlon The Defiler" file="Cults of Tibia/Bosses/Mezlon The Defiler.xml" />
+	 <monster name="Essence of Malice" file="Cults of Tibia/Bosses/Essence of Malice.xml" />
+	 <monster name="Eshtaba The Conjurer STOP" file="Cults of Tibia/Bosses/Eshtaba The Conjurer STOP.xml" />
+	 <monster name="Malkhar Deathbringer STOP" file="Cults of Tibia/Bosses/Malkhar Deathbringer STOP.xml" />
+	 <monster name="Dorokoll The Mystic STOP" file="Cults of Tibia/Bosses/Dorokoll The Mystic STOP.xml" />
+	 <monster name="Eliz The Unyielding STOP" file="Cults of Tibia/Bosses/Eliz The Unyielding STOP.xml" />
+	 <monster name="Mezlon The Defiler STOP" file="Cults of Tibia/Bosses/Mezlon The Defiler STOP.xml" />
+	 <monster name="Essence of Malice STOP" file="Cults of Tibia/Bosses/Essence of Malice STOP.xml" />
+	 
+	 <monster name="The Sinister Hermit SUJO" file="Cults of Tibia/Bosses/The Sinister Hermit SUJO.xml" />
+	 <monster name="The Sinister Hermit LIMPO" file="Cults of Tibia/Bosses/The Sinister Hermit LIMPO.xml" />
+	 <monster name="The Souldespoiler" file="Cults of Tibia/Bosses/The Souldespoiler.xml" />
+	 
+	 <monster name="The Armored Voidborn" file="Cults of Tibia/Bosses/The Armored Voidborn.xml" />
+	 <monster name="The Unarmored Voidborn" file="Cults of Tibia/Bosses/The Unarmored Voidborn.xml" />
+	 <monster name="Containment Machine" file="Cults of Tibia/Bosses/Containment Machine.xml" />
+	 
+	 <monster name="The False God" file="Cults of Tibia/Bosses/The False God.xml" />
+	 
+	 <monster name="The Sandking" file="Cults of Tibia/Bosses/The Sandking.xml" />
+	 <monster name="The Sandking Fake" file="Cults of Tibia/Bosses/The Sandking Fake.xml" />
+	 
+	 <monster name="The Remorseless Corruptor" file="Cults of Tibia/Bosses/The Remorseless Corruptor.xml" />
+	 <monster name="Zarcorix Of Yalahar" file="Cults of Tibia/Bosses/Zarcorix Of Yalahar.xml" />
+	 <monster name="The Source Of Corruption" file="Cults of Tibia/Bosses/The Source Of Corruption.xml" />
+	 <monster name="The Corruptor Of Souls" file="Cults of Tibia/Bosses/The Corruptor Of Souls.xml" />
 	
+	 
 	 <!-- Cult Summons -->
-	 <monster name="Liqour Spirit" file="Cults of Tibia/Bosses/Summons/liqour spirit.xml" />
-	 <monster name="Dread Minion" file="Cults of Tibia/Bosses/Summons/dread minion.xml" />
-	 <monster name="Vermin Swarm" file="Cults of Tibia/Bosses/Summons/vermin swarm.xml" />
-	 <monster name="Freed Soul" file="Cults of Tibia/Bosses/Summons/freed soul.xml" />
-	 <monster name="Security Golem" file="Cults of Tibia/Bosses/Summons/security golem.xml" />
-	 <monster name="Voidshard" file="Cults of Tibia/Bosses/Summons/voidshard.xml" />
-	 <monster name="Minotaur Idol" file="Cults of Tibia/Bosses/Summons/minotaur idol.xml" />
-	 <monster name="Sphere Of Wrath" file="Cults of Tibia/Bosses/Summons/sphere of wrath.xml" />
-	 <monster name="Sand Vortex" file="Cults of Tibia/Bosses/Summons/sand vortex.xml" />
-	 <monster name="Sand Brood" file="Cults of Tibia/Bosses/Summons/sand brood.xml" />
-	 <monster name="Enraged Sand Brood" file="Cults of Tibia/Bosses/Summons/enraged sand brood.xml" />
-	 <monster name="Soul Reaper" file="Cults of Tibia/Bosses/Summons/soul reaper.xml" />
-	 <monster name="Stolen Soul" file="Cults of Tibia/Bosses/Summons/stolen soul.xml" />
-	 <monster name="Dark Soul" file="Cults of Tibia/Bosses/Summons/dark soul.xml" />
+	 <monster name="Liqour Spirit" file="Cults of Tibia/Bosses/Summons/Liqour Spirit.xml" />
+	 <monster name="Dread Minion" file="Cults of Tibia/Bosses/Summons/Dread Minion.xml" />
+	 <monster name="Vermin Swarm" file="Cults of Tibia/Bosses/Summons/Vermin Swarm.xml" />
+	 <monster name="Freed Soul" file="Cults of Tibia/Bosses/Summons/Freed Soul.xml" />
+	 <monster name="Security Golem" file="Cults of Tibia/Bosses/Summons/Security Golem.xml" />
+	 <monster name="Voidshard" file="Cults of Tibia/Bosses/Summons/Voidshard.xml" />
+	 <monster name="Minotaur Idol" file="Cults of Tibia/Bosses/Summons/Minotaur Idol.xml" />
+	 <monster name="Sphere Of Wrath" file="Cults of Tibia/Bosses/Summons/Sphere Of Wrath.xml" />
+	 <monster name="Sand Vortex" file="Cults of Tibia/Bosses/Summons/Sand Vortex.xml" />
+	 <monster name="Sand Brood" file="Cults of Tibia/Bosses/Summons/Sand Brood.xml" />
+	 <monster name="Enraged Sand Brood" file="Cults of Tibia/Bosses/Summons/Enraged Sand Brood.xml" />
+	 <monster name="Soul Reaper" file="Cults of Tibia/Bosses/Summons/Soul Reaper.xml" />
+	 <monster name="Stolen Soul" file="Cults of Tibia/Bosses/Summons/Stolen Soul.xml" />
+	 <monster name="Dark Soul" file="Cults of Tibia/Bosses/Summons/Dark Soul.xml" />
 	 
 	 <!-- Pillars -->
-	 <monster name="Pillar Of Summoning" file="Cults of Tibia/Bosses/Pillars/pillar of summoning.xml" />
-	 <monster name="Pillar Of Protection" file="Cults of Tibia/Bosses/Pillars/pillar of protection.xml" />
-	 <monster name="Pillar Of Healing" file="Cults of Tibia/Bosses/Pillars/pillar of healing.xml" />
-	 <monster name="Pillar Of Death" file="Cults of Tibia/Bosses/Pillars/pillar of death.xml" />
-	 <monster name="Pillar Of Draining" file="Cults of Tibia/Bosses/Pillars/pillar of draining.xml" />
-	 <monster name="Destroyed Pillar" file="Cults of Tibia/Bosses/Pillars/destroyed pillar.xml" />
-	 <monster name="Containment Crystal" file="Cults of Tibia/Bosses/Pillars/containment crystal.xml" />
+	 <monster name="Pillar Of Summoning" file="Cults of Tibia/Bosses/Pillars/Pillar Of Summoning.xml" />
+	 <monster name="Pillar Of Protection" file="Cults of Tibia/Bosses/Pillars/Pillar Of Protection.xml" />
+	 <monster name="Pillar Of Healing" file="Cults of Tibia/Bosses/Pillars/Pillar Of Healing.xml" />
+	 <monster name="Pillar Of Death" file="Cults of Tibia/Bosses/Pillars/Pillar Of Death.xml" />
+	 <monster name="Pillar Of Draining" file="Cults of Tibia/Bosses/Pillars/Pillar Of Draining.xml" />
+	 <monster name="Destroyed Pillar" file="Cults of Tibia/Bosses/Pillars/Destroyed Pillar.xml" />
+	 <monster name="Containment Crystal" file="Cults of Tibia/Bosses/Pillars/Containment Crystal.xml" />
 	
+	
+	<!-- Cults of tibia -->
+	<monster name="Cult Believer" file="Cults of Tibia/Cult Believer.xml" />
+    <monster name="Cult Enforcer" file="Cults of Tibia/Cult Enforcer.xml" />
+    <monster name="Cult Scholar" file="Cults of Tibia/Cult Scholar.xml" />
+	<monster name="Agressive Lava" file="Cults of Tibia/Agressive Lava.xml" />
+    <monster name="Fox" file="Cults of Tibia/Fox.xml" />
+    <monster name="Stonerefiner" file="Cults of Tibia/Stonerefiner.xml" />
+    <monster name="Werefox" file="Cults of Tibia/Werefox.xml" />
 	<!-- Hero of Rathleton Quest -->
 	<monster file="Pyro-Elementals/raging fire.xml" name="Raging Fire"/>
 
@@ -667,7 +689,7 @@
 	<monster name="Ascending Ferumbras" file="Bosses/Ascending Ferumbras.xml" />
 	<monster name="Annihilon" file="Bosses/annihilon.xml" />
 	<monster name="Apocalypse" file="Bosses/apocalypse.xml" />
-	<monster name="Apprentice Sheng" file="Bosses/apprentice_sheng.xml" />
+	<monster name="Apprentice Sheng" file="Bosses/apprentice sheng.xml" />
 	<monster name="Arachir the Ancient One" file="Bosses/arachir_the_ancient_one.xml" />
 	<monster name="Armenius" file="Bosses/armenius.xml" />
 	<monster name="Azerus" file="Bosses/azerus.xml" />
@@ -1266,9 +1288,6 @@
 	<monster name="Percht" file="The Percht Queens Island/percht.xml"/>
 	<monster name="Schiach" file="The Percht Queens Island/schiach.xml"/>
 	<monster name="The Percht Queen" file="The Percht Queens Island/the percht queen.xml"/>
-	<monster name="Bright Percht Sleigh" file="The Percht Queens Island/bright percht sleigh.xml"/>
-	<monster name="Cold Percht Sleigh" file="The Percht Queens Island/cold percht sleigh.xml"/>
-	<monster name="Dark Percht Sleigh" file="The Percht Queens Island/dark percht sleigh.xml"/>
 	
 	<!-- Pharaohs -->
 	<monster name="Ashmunrah" file="Pharaohs/ashmunrah.xml" />
@@ -1473,7 +1492,6 @@
 	<monster name="Whirling Blades" file="Winter Update/whirling blades.xml" />
 	
 	<!-- Monstros adicionados recentemente -->
-	
 	<monster name="Acolyte of Darkness" file="new/Acolyte_of_Darkness.xml" />
 	<monster name="An Observer Eye" file="new/An_Observer_Eye.xml" />
 	<monster name="Angry Demon" file="new/Angry_Demon.xml" />
@@ -1485,7 +1503,6 @@
 	<monster name="Dreadmaw" file="new/Dreadmaw.xml" />
 	<monster name="Duskbringer" file="new/Duskbringer.xml" />
 	<monster name="Eclipse Knight" file="new/Eclipse_Knight.xml" />
-	<monster name="Efreet" file="new/Efreet.xml" />
 	<monster name="Essence of Darkness" file="new/Essence_of_Darkness.xml" />
 	<monster name="Fahim the Wise" file="new/Fahim_the_Wise.xml" />
 	<monster name="Flame of Omrafir" file="new/Flame_of_Omrafir.xml" />

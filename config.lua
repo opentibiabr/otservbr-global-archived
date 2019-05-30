@@ -39,10 +39,15 @@ maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
+-- 0 = Disable,
+-- 1 = onKillMonster,
+-- 2 = onOpenCorpse -- restart required]]
+autolootmode = 2
+
 -- Version Manual
-clientVersionMin = 1000
+clientVersionMin = 1100
 clientVersionMax = 1200
-clientVersionStr = "Error"
+clientVersionStr = "Only support outdated 10.00 and versions 11.00 to 11.49"
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -79,6 +84,7 @@ timeBetweenExActions = 500
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
+-- NOTE: unzip the map world.rar
 mapName = "realmap"
 mapAuthor = "Open-TibiaBR"
 
