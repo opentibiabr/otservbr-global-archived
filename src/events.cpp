@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -143,10 +143,12 @@ bool Events::load()
 		} else if (className == "Monster") {
 			if (methodName == "onSpawn") {
 				info.monsterOnSpawn = event;
-			}
-			/*else if (methodName == "onDropLoot") {
+			/*
+			else if (methodName == "onDropLoot") {
 				info.monsterOnDropLoot = event;
-			}*/ else {
+			}
+			*/
+			} else {
 				std::cout << "[Warning - Events::load] Unknown monster method: " << methodName << std::endl;
 			}
 		} else {
@@ -400,40 +402,33 @@ bool Events::eventPartyOnDisband(Party* party)
 }
 
 void Events::eventPartyOnShareExperience(Party* party, uint64_t& exp)
- {
-		// Party:onShareExperience(exp) or Party.onShareExperience(self, exp)
-		if (info.partyOnShareExperience == -1) {
+{
+	// Party:onShareExperience(exp) or Party.onShareExperience(self, exp)
+	if (info.partyOnShareExperience == -1) {
 		return;
-		
 	}
-	
-		if (!scriptInterface.reserveScriptEnv()) {
+
+	if (!scriptInterface.reserveScriptEnv()) {
 		std::cout << "[Error - Events::eventPartyOnShareExperience] Call stack overflow" << std::endl;
 		return;
-		
 	}
-	
-		ScriptEnvironment * env = scriptInterface.getScriptEnv();
+
+	ScriptEnvironment * env = scriptInterface.getScriptEnv();
 	env->setScriptId(info.partyOnShareExperience, &scriptInterface);
-	
-		lua_State * L = scriptInterface.getLuaState();
+	lua_State * L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.partyOnShareExperience);
-	
-		LuaScriptInterface::pushUserdata<Party>(L, party);
+	LuaScriptInterface::pushUserdata<Party>(L, party);
 	LuaScriptInterface::setMetatable(L, -1, "Party");
-	
-		lua_pushnumber(L, exp);
-	
-		if (scriptInterface.protectedCall(L, 2, 1) != 0) {
+	lua_pushnumber(L, exp);
+
+	if (scriptInterface.protectedCall(L, 2, 1) != 0) {
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
-		
 	} else {
 		exp = LuaScriptInterface::getNumber<uint64_t>(L, -1);
 		lua_pop(L, 1);
-		
 	}
 
-		scriptInterface.resetScriptEnv();
+	scriptInterface.resetScriptEnv();
 }
 
 // Player
@@ -963,7 +958,8 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	scriptInterface.resetScriptEnv();
 }
 
-/*void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
+/*
+void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 {
 	// Monster:onDropLoot(corpse)
 	if (info.monsterOnDropLoot == -1) {
@@ -988,7 +984,8 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	LuaScriptInterface::setMetatable(L, -1, "Container");
 
 	return scriptInterface.callVoidFunction(2);
-}*/
+}
+*/
 
 void Events::eventPlayerOnUseWeapon(Player* player, int32_t& normalDamage, CombatType_t& elementType, int32_t& elementDamage)
 {

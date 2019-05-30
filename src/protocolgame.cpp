@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1026,7 +1026,7 @@ void ProtocolGame::parseStoreRequestOffers(NetworkMessage &message) {
 	std::string categoryName = message.getString();
 	const int16_t index = g_game.gameStore.getCategoryIndexByName(categoryName);
 
-	if(index >= 0) {
+	if (index >= 0) {
 		addGameTaskTimed(350, &Game::playerShowStoreCategoryOffers, player->getID(),
 			g_game.gameStore.getCategoryOffers().at(index));
 	} else {
@@ -1038,7 +1038,7 @@ void ProtocolGame::parseStoreBuyOffer(NetworkMessage &message) {
 	uint32_t offerId = message.get<uint32_t>();
 	uint8_t productType = message.getByte(); //used only in return of a namechange offer request
 	std::string additionalInfo;
-	if(productType == ADDITIONALINFO) {
+	if (productType == ADDITIONALINFO) {
 		additionalInfo = message.getString();
 	}
 	addGameTaskTimed(350, &Game::playerBuyStoreOffer, player->getID(), offerId, productType, additionalInfo);
@@ -1047,7 +1047,7 @@ void ProtocolGame::parseStoreBuyOffer(NetworkMessage &message) {
 void ProtocolGame::parseStoreOpenTransactionHistory(NetworkMessage& msg)
 {
 	uint8_t entriesPerPage = msg.getByte();
-	if(entriesPerPage>0 && entriesPerPage!=GameStore::HISTORY_ENTRIES_PER_PAGE) {
+	if (entriesPerPage > 0 && entriesPerPage != GameStore::HISTORY_ENTRIES_PER_PAGE) {
 		GameStore::HISTORY_ENTRIES_PER_PAGE=entriesPerPage;
 	}
 
@@ -1067,8 +1067,9 @@ void ProtocolGame::parseCoinTransfer(NetworkMessage& msg)
 
 	if (amount > 0) {
 		addGameTaskTimed(350, &Game::playerCoinTransfer, player->getID(), receiverName, amount);
-}
-updateCoinBalance();
+	}
+
+	updateCoinBalance();
 }
 
 void ProtocolGame::parseMarketCreateOffer(NetworkMessage& msg)
@@ -1078,17 +1079,20 @@ void ProtocolGame::parseMarketCreateOffer(NetworkMessage& msg)
 	uint16_t amount = msg.get<uint16_t>();
 	uint32_t price = msg.get<uint32_t>();
 	bool anonymous = (msg.getByte() != 0);
-	if(amount>0 && price >0)
+	if (amount > 0 && price > 0) {
 		addGameTask(&Game::playerCreateMarketOffer, player->getID(), type, spriteId, amount, price, anonymous);
+	}
 }
 
 void ProtocolGame::parseMarketCancelOffer(NetworkMessage& msg)
 {
 	uint32_t timestamp = msg.get<uint32_t>();
 	uint16_t counter = msg.get<uint16_t>();
-	if(counter > 0)
+	if (counter > 0) {
 		addGameTask(&Game::playerCancelMarketOffer, player->getID(), timestamp, counter);
-		updateCoinBalance();
+	}
+
+	updateCoinBalance();
 }
 
 void ProtocolGame::parseMarketAcceptOffer(NetworkMessage& msg)
@@ -1096,9 +1100,11 @@ void ProtocolGame::parseMarketAcceptOffer(NetworkMessage& msg)
 	uint32_t timestamp = msg.get<uint32_t>();
 	uint16_t counter = msg.get<uint16_t>();
 	uint16_t amount = msg.get<uint16_t>();
-	if(amount > 0 && counter > 0)
+	if (amount > 0 && counter > 0) {
 		addGameTask(&Game::playerAcceptMarketOffer, player->getID(), timestamp, counter, amount);
-		updateCoinBalance();
+	}
+
+	updateCoinBalance();
 }
 
 void ProtocolGame::parseModalWindowAnswer(NetworkMessage& msg)
@@ -1208,7 +1214,7 @@ void ProtocolGame::sendCreatureType(const Creature* creature, uint8_t creatureTy
 		msg.addByte(creatureType); // type or any byte idk
 	}
 
-		if (creatureType == CREATURETYPE_SUMMONPLAYER && player->getProtocolVersion() >= 1120) {
+	if (creatureType == CREATURETYPE_SUMMONPLAYER && player->getProtocolVersion() >= 1120) {
 		const Creature* master = creature->getMaster();
 		if (master) {
 			msg.add<uint32_t>(master->getID());
@@ -1348,10 +1354,12 @@ void ProtocolGame::sendIcons(uint16_t icons)
 {
 	NetworkMessage msg;
 	msg.addByte(0xA2);
-	if(version >= 1140) // TODO: verify compatibility of the new icon range ( 16-31 )
+	if (version >= 1140) { // TODO: verify compatibility of the new icon range ( 16-31 )
 		msg.add<uint32_t>(icons);
-	else
+	} else {
 		msg.add<uint16_t>(icons);
+	}
+
 	writeToOutputBuffer(msg);
 }
 
@@ -2560,8 +2568,8 @@ void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category)
 	for(BaseOffer* offer : category->offers) {
 		msg.add<uint32_t>(offer->id);
 		std::stringstream offername;
-		if(offer->type==Offer_t::ITEM || offer->type == Offer_t::STACKABLE_ITEM) {
-			if(((ItemOffer*)offer)->count > 1) {
+		if (offer->type==Offer_t::ITEM || offer->type == Offer_t::STACKABLE_ITEM) {
+			if (((ItemOffer*)offer)->count > 1) {
 				offername << ((ItemOffer*)offer)->count << "x ";
 			}
 		}
@@ -2579,34 +2587,34 @@ void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category)
 
 		disabledReason <<"";
 
-		if(offer->type == OUTFIT || offer->type == OUTFIT_ADDON) {
+		if (offer->type == OUTFIT || offer->type == OUTFIT_ADDON) {
 			OutfitOffer* outfitOffer = (OutfitOffer*) offer;
 
 			uint16_t looktype = (player->getSex() == PLAYERSEX_MALE) ? outfitOffer->maleLookType : outfitOffer->femaleLookType;
 			uint8_t addons = outfitOffer->addonNumber;
 
-			if(player->canWear(looktype, addons)) { //player can wear the offer already
+			if (player->canWear(looktype, addons)) { //player can wear the offer already
 				disabled=1;
-				if(addons == 0) { //addons == 0 //oufit-only offer and player already has it
+				if (addons == 0) { //addons == 0 //oufit-only offer and player already has it
 					disabledReason << "You already have this outfit.";
 				} else {
 					disabledReason << "You already have this outfit/addon.";
 				}
 			} else {
-				if(outfitOffer->type == OUTFIT_ADDON && !player->canWear(looktype,0)) { //addon offer and player doesnt have the base outfit
+				if (outfitOffer->type == OUTFIT_ADDON && !player->canWear(looktype,0)) { //addon offer and player doesnt have the base outfit
 					disabled=1;
 					disabledReason << "You don't have the outfit, you can't buy the addon.";
 				}
 			}
-	} else if(offer->type == MOUNT) {
+	} else if (offer->type == MOUNT) {
 			MountOffer* mountOffer = (MountOffer*) offer;
 			Mount* m = g_game.mounts.getMountByID(mountOffer->mountId);
-			if(player->hasMount(m)) {
+			if (player->hasMount(m)) {
 				disabled=1;
 				disabledReason << "You already have this mount.";
 			}
-		} else if(offer->type == PROMOTION) {
-			if(player->isPromoted() || !player->isPremium()) { //TODO: add support to multiple promotion levels
+		} else if (offer->type == PROMOTION) {
+			if (player->isPromoted() || !player->isPremium()) { //TODO: add support to multiple promotion levels
 				disabled=1;
 				disabledReason << "You can't get this promotion";
 			}
@@ -2614,7 +2622,7 @@ void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category)
 
 		msg.addByte(disabled);
 
-		if(disabled) {
+		if (disabled) {
 			msg.addString(disabledReason.str());
 		}
 

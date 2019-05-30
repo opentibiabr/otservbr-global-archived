@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,6 @@ spellBlock_t::~spellBlock_t()
 	}
 }
 
-
 uint32_t Monsters::getLootRandom()
 {
 	return uniform_random(0, MAX_LOOTCHANCE) / g_config.getNumber(ConfigManager::RATE_LOOT);
@@ -50,137 +49,139 @@ uint32_t Monsters::getLootRandom()
 void MonsterType::createLoot(Container* corpse)
 {
 	if (g_config.getNumber(ConfigManager::RATE_LOOT) == 0) {
-        corpse->startDecaying();
-        return;
-    }
+		corpse->startDecaying();
+		return;
+	}
 
-    if (info.isRewardBoss) {
-        auto timestamp = time(nullptr);
-        Item* rewardContainer = Item::CreateItem(ITEM_REWARD_CONTAINER);
-        rewardContainer->setIntAttr(ITEM_ATTRIBUTE_DATE, timestamp);
-        corpse->setIntAttr(ITEM_ATTRIBUTE_DATE, timestamp);
-        corpse->internalAddThing(rewardContainer);
-        corpse->setRewardCorpse();
-        corpse->startDecaying();
-        return;
-    }
+	if (info.isRewardBoss) {
+		auto timestamp = time(nullptr);
+		Item* rewardContainer = Item::CreateItem(ITEM_REWARD_CONTAINER);
+		rewardContainer->setIntAttr(ITEM_ATTRIBUTE_DATE, timestamp);
+		corpse->setIntAttr(ITEM_ATTRIBUTE_DATE, timestamp);
+		corpse->internalAddThing(rewardContainer);
+		corpse->setRewardCorpse();
+		corpse->startDecaying();
+		return;
+	}
 
-    Player* owner = g_game.getPlayerByID(corpse->getCorpseOwner());
-    //autoloot
-    std::string autolooted = "";
-    //
-    if (!owner || owner->getStaminaMinutes() > 840) {
+	Player* owner = g_game.getPlayerByID(corpse->getCorpseOwner());
 
-        bool canRerollLoot = false;
+	//autoloot
+	std::string autolooted = "";
 
-        if (owner) {
-            for (int i = 0; i < 3; i++) {
-                if (owner->getPreyType(i) == 3 && name == owner->getPreyName(i)) {
-                    uint32_t rand = uniform_random(0, 100);
-                    if (rand <= owner->getPreyValue(i)) {
-                        canRerollLoot = true;
-                    }
+	if (!owner || owner->getStaminaMinutes() > 840) {
+		bool canRerollLoot = false;
 
-                    break;
-                }
-            }
-        }
+		if (owner) {
+			for (int i = 0; i < 3; i++) {
+				if (owner->getPreyType(i) == 3 && name == owner->getPreyName(i)) {
+					uint32_t rand = uniform_random(0, 100);
+					if (rand <= owner->getPreyValue(i)) {
+						canRerollLoot = true;
+					}
 
-        for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
-            auto itemList = createLootItem(*it, canRerollLoot);
-            if (itemList.empty()) {
-                continue;
-            }
+					break;
+				}
+			}
+		}
 
-            for (Item* item : itemList) {
-                //check containers
-                if (Container* container = item->getContainer()) {
-                    if (!createLootContainer(container, *it)) {
-                        delete container;
-                        continue;
-                    }
-                }
+		for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
+			auto itemList = createLootItem(*it, canRerollLoot);
+			if (itemList.empty()) {
+				continue;
+			}
 
-                //if (g_game.internalAddItem(corpse, item) != RETURNVALUE_NOERROR) {
-                  //  corpse->internalAddThing(item);
-                //}
-            }
-        }
-        //autoloot
-        for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
-            auto itemList = createLootItem(*it);
-            if (itemList.empty()) {
-                continue;
-            }
+			for (Item* item : itemList) {
+				//check containers
+				if (Container* container = item->getContainer()) {
+					if (!createLootContainer(container, *it)) {
+						delete container;
+						continue;
+					}
+				}
 
-            for (Item* item : itemList) {
-                //check containers
-                if (Container* container = item->getContainer()) {
-                    if (!createLootContainer(container, *it)) {
-                        delete container;
-                        continue;
-                    }
-                }
+			/*
+				if (g_game.internalAddItem(corpse, item) != RETURNVALUE_NOERROR) {
+					corpse->internalAddThing(item);
+				}
+			*/
+			}
+		}
 
-                if (owner && owner->getAutoLootItem(item->getID()) && (g_config.getNumber(ConfigManager::AUTOLOOT_MODE) == 1)) {
-                    g_game.internalPlayerAddItem(owner, item, true, CONST_SLOT_WHEREEVER);
-                    autolooted = autolooted + ", " + item->getNameDescription();
-					
-                } else if (g_game.internalAddItem(corpse, item) != RETURNVALUE_NOERROR) {
-                    corpse->internalAddThing(item);
-                }
-            }
-        }
-        //
+		//autoloot
+		for (auto it = info.lootItems.rbegin(), end = info.lootItems.rend(); it != end; ++it) {
+			auto itemList = createLootItem(*it);
+			if (itemList.empty()) {
+				continue;
+			}
 
-        if (owner) {
-            std::ostringstream ss;
-            //autoloot
-            std::string lootMsg = corpse->getContentDescription();
-            //ss << "Loot of " << nameDescription << ": " << corpse->getContentDescription(); -- change for autoloot system
-            if (canRerollLoot) {
-                //ss << "Loot of " << nameDescription << " [PREY]: " << corpse->getContentDescription();
+			for (Item* item : itemList) {
+				//check containers
+				if (Container* container = item->getContainer()) {
+					if (!createLootContainer(container, *it)) {
+						delete container;
+						continue;
+					}
+				}
+
+				if (owner && owner->getAutoLootItem(item->getID()) && (g_config.getNumber(ConfigManager::AUTOLOOT_MODE) == 1)) {
+					g_game.internalPlayerAddItem(owner, item, true, CONST_SLOT_WHEREEVER);
+					autolooted = autolooted + ", " + item->getNameDescription();
+				} else if (g_game.internalAddItem(corpse, item) != RETURNVALUE_NOERROR) {
+					corpse->internalAddThing(item);
+				}
+			}
+		}
+
+		if (owner) {
+			std::ostringstream ss;
+
+			//autoloot
+			std::string lootMsg = corpse->getContentDescription();
+			//ss << "Loot of " << nameDescription << ": " << corpse->getContentDescription(); -- change for autoloot system
+
+			if (canRerollLoot) {
+				//ss << "Loot of " << nameDescription << " [PREY]: " << corpse->getContentDescription();
 				ss << "Loot of " << nameDescription << " [PREY]: ";
-            } else {
-                //ss << "Loot of " << nameDescription << ": " << corpse->getContentDescription();
+			} else {
+				//ss << "Loot of " << nameDescription << ": " << corpse->getContentDescription();
 				ss << "Loot of " << nameDescription << ": ";
-            }
-            //autoloot
-            if (autolooted != "" && corpse->getContentDescription() == "nothing"){
-                lootMsg = autolooted.erase(0,2) + " that was autolooted";
-            } else if (autolooted != ""){
-                lootMsg = corpse->getContentDescription() + " and " + autolooted.erase(0,2) + " was auto looted";
-            }
-			ss << lootMsg;
-            //
-           
-            if (owner->getParty()) {
-            //autoloot
-                ss << " by " << owner->getName();
-            //
-                owner->getParty()->broadcastPartyLoot(ss.str());
-            } else {
-				owner->sendTextMessage(MESSAGE_LOOT, ss.str());
-			            }
-        }
-    } else {
-        std::ostringstream ss;
-        ss << "Loot of " << nameDescription << ": nothing (due to low stamina)";
+			}
 
-        if (owner->getParty()) {
-            owner->getParty()->broadcastPartyLoot(ss.str());
-        } else {
-            owner->sendTextMessage(MESSAGE_LOOT, ss.str());
-        }
-		
-    }
-if (g_config.getNumber(ConfigManager::AUTOLOOT_MODE) == 2) {
+			//autoloot
+			if (autolooted != "" && corpse->getContentDescription() == "nothing"){
+				lootMsg = autolooted.erase(0,2) + " that was autolooted";
+			} else if (autolooted != ""){
+				lootMsg = corpse->getContentDescription() + " and " + autolooted.erase(0,2) + " was auto looted";
+			}
+			ss << lootMsg;
+
+			if (owner->getParty()) {
+				//autoloot
+				ss << " by " << owner->getName();
+				owner->getParty()->broadcastPartyLoot(ss.str());
+			} else {
+				owner->sendTextMessage(MESSAGE_LOOT, ss.str());
+			}
+		}
+	} else {
+		std::ostringstream ss;
+		ss << "Loot of " << nameDescription << ": nothing (due to low stamina)";
+
+		if (owner->getParty()) {
+			owner->getParty()->broadcastPartyLoot(ss.str());
+		} else {
+			owner->sendTextMessage(MESSAGE_LOOT, ss.str());
+		}
+	}
+
+	if (g_config.getNumber(ConfigManager::AUTOLOOT_MODE) == 2) {
 		int32_t act = 500;
 		corpse->setActionId(act);
 	}
+
 	corpse->startDecaying();
 }
-
 
 std::vector<Item*> MonsterType::createLootItem(const LootBlock& lootBlock, bool canRerollLoot)
 {
@@ -963,7 +964,6 @@ bool Monsters::deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std
 	return true;
 }
 
-
 MonsterType* Monsters::loadMonster(const std::string& file, const std::string& monsterName, bool reloading /*= false*/)
 {
 	MonsterType* mType = nullptr;
@@ -1136,7 +1136,6 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				std::cout << "[Warning - Monsters::loadMonster] Unknown flag attribute: " << attrName << ". " << file << std::endl;
 			}
 		}
-
 
 		//if a monster can push creatures,
 		// it should not be pushable

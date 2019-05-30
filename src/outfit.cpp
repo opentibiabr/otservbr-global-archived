@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -88,8 +88,8 @@ const Outfit *Outfits::getOpositeSexOutfitByLookType(PlayerSex_t sex, uint16_t l
 	PlayerSex_t	searchSex = (sex == PLAYERSEX_MALE)?PLAYERSEX_FEMALE:PLAYERSEX_MALE;
 
 	for(uint16_t i=0; i< outfits[sex].size(); i++) {
-		if(outfits[sex].at(i).lookType == lookType) {
-			if(outfits[searchSex].size()>i) {
+		if (outfits[sex].at(i).lookType == lookType) {
+			if (outfits[searchSex].size()>i) {
 				return &outfits[searchSex].at(i);
 			} else { //looktype found but the oposite sex array doesn't have this index.
 				return nullptr;

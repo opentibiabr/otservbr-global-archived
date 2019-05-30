@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -349,7 +349,7 @@ ReturnValue Container::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 			cylinder = cylinder->getParent();
 		}
 	}
-	
+
 	if (const Container* topParentContainer = getTopParentContainer()) {
 		uint32_t maxItem = static_cast<uint32_t>(g_config.getNumber(ConfigManager::MAX_ITEM));
 		if (const Container* addContainer = item->getContainer()) {

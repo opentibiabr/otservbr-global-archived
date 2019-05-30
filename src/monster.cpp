@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -724,7 +724,7 @@ void Monster::onThink(uint32_t interval)
 			return;
 		}
 	}
-	
+
 	uint32_t minutes = g_game.getLightHour();
 	bool isday = false;
 	if (minutes >= ((6 * 60) + 30) && minutes <= ((17 * 60) + 30))
@@ -790,7 +790,7 @@ void Monster::doAttacking(uint32_t interval)
 
 	for (const spellBlock_t& spellBlock : mType->info.attackSpells) {
 		bool inRange = false;
-		
+
 		if (attackedCreature == nullptr) {
 			break;
 		}
@@ -803,10 +803,11 @@ void Monster::doAttacking(uint32_t interval)
 				}
 
 				float multiplier;
-				if(maxCombatValue > 0) //defense
+				if (maxCombatValue > 0) { //defense
 					multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_DEFENSE);
-				else //attack
+				} else { //attack
 					multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_ATTACK);
+				}
 
 				minCombatValue = spellBlock.minCombatValue * multiplier;
 				maxCombatValue = spellBlock.maxCombatValue * multiplier;
@@ -1857,10 +1858,11 @@ bool Monster::getCombatValues(int32_t& min, int32_t& max)
 	}
 
 	float multiplier;
-	if(maxCombatValue > 0) //defense
+	if (maxCombatValue > 0) { //defense
 		multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_DEFENSE);
-	else //attack
+	} else { //attack
 		multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_ATTACK);
+	}
 
 	min = minCombatValue * multiplier;
 	max = maxCombatValue * multiplier;
@@ -1941,12 +1943,11 @@ void Monster::setNormalCreatureLight()
 void Monster::drainHealth(Creature* attacker, int32_t damage)
 {
 	Creature::drainHealth(attacker, damage);
-	
 	if (damage > 0 && randomStepping) {
 		ignoreFieldDamage = true;
 		updateMapCache();
 	}
-	
+
 	if (isInvisible()) {
 		removeCondition(CONDITION_INVISIBLE);
 	}

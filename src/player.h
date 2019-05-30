@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -645,9 +645,9 @@ class Player final : public Creature, public Cylinder
 		}
 
 		uint16_t getSkillLevel(uint8_t skill) const {
-			 if (skill == SKILL_LIFE_LEECH_CHANCE || skill == SKILL_MANA_LEECH_CHANCE) {
-                return std::min<int32_t>(100, std::max<int32_t>(0, skills[skill].level + varSkills[skill]));
-            }
+			if (skill == SKILL_LIFE_LEECH_CHANCE || skill == SKILL_MANA_LEECH_CHANCE) {
+				return std::min<int32_t>(100, std::max<int32_t>(0, skills[skill].level + varSkills[skill]));
+			}
 
 			return std::max<int32_t>(0, skills[skill].level + varSkills[skill]);
 		}
@@ -730,7 +730,7 @@ class Player final : public Creature, public Cylinder
 		bool getOutfitAddons(const Outfit& outfit, uint8_t& addons) const;
 
 		bool canLogout();
-		
+
 		bool hasKilled(const Player* player) const;
 
 		size_t getMaxVIPEntries() const;
@@ -893,7 +893,7 @@ class Player final : public Creature, public Cylinder
 				client->sendCoinBalance();
 			}
 		}
-		
+
 		void sendInventoryItem(slots_t slot, const Item* item) {
 			if (client) {
 				client->sendInventoryItem(slot, item);
@@ -1217,11 +1217,8 @@ class Player final : public Creature, public Cylinder
 		void sendStoreOpen(uint8_t serviceType) {
 			if (client) {
 				client->sendOpenStore(serviceType);
+			}
 		}
-					
-				}
-
-
 
 		void receivePing() {
 			lastPong = OTSYS_TIME();
@@ -1263,7 +1260,7 @@ class Player final : public Creature, public Cylinder
 		void learnInstantSpell(const std::string& spellName);
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
-		
+
 		//Autoloot
 		void addAutoLootItem(uint16_t itemId);
 		void removeAutoLootItem(uint16_t itemId);
@@ -1294,7 +1291,6 @@ class Player final : public Creature, public Cylinder
 			return baseXpGain;
 		}
 		void setBaseXpGain(uint16_t value) {
-
 			baseXpGain = std::min<uint16_t>(std::numeric_limits<uint16_t>::max(), value);
 		}
 		uint16_t getVoucherXpBoost() const {
@@ -1335,15 +1331,13 @@ class Player final : public Creature, public Cylinder
 		}
 
 		void doCriticalDamage(CombatDamage& damage) const;
-		
-			bool isMarketExhausted() const; //Custom: Anti bug do market
+
 		//Custom: Anti bug do market
-		void updateMarketExhausted(){
+		bool isMarketExhausted() const;
+		void updateMarketExhausted() {
 			lastMarketInteraction = OTSYS_TIME();
 		}
 
-		
-		
 	protected:
 		std::forward_list<Condition*> getMuteConditions() const;
 
@@ -1394,8 +1388,11 @@ class Player final : public Creature, public Cylinder
 		void internalAddThing(uint32_t index, Thing* thing) final;
 
 		std::unordered_set<uint32_t> attackedSet;
-		std::unordered_set<uint32_t> autoLootList; //Autoloot
+
+		 //Autoloot
+		std::unordered_set<uint32_t> autoLootList;
 		//std::unordered_set<uint32_t> autoLootList; (use this if you have ubuntu 16+)
+
 		std::unordered_set<uint32_t> VIPList;
 
 		std::map<uint8_t, OpenContainer> openContainers;
