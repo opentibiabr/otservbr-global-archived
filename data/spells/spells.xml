@@ -1239,4 +1239,5 @@
 	<instant name="arachnophobicawavedice" words="###467" direction="1" selftarget="1" exhaustion="2000" needlearn="0"  script="monster/arachnophobica wavedice.lua" />
 	<instant name="arachnophobicawaveenergy" words="###468" direction="1" selftarget="1" exhaustion="2000" needlearn="0"  script="monster/arachnophobica waveenergy.lua" />
 	<instant name="pixie skill reducer" words="###469" blockwalls="1" aggressive="1" needtarget="0" exhaustion="2000" needlearn="1"  script="monster/pixie skill reducer.lua" />
+	<instant name="Ice Crystal Bomb" words="###470"  direction="1" selftarget="1" exhaustion="2000" needlearn="0"  script="monster/ice_crystal_bomb.lua"/>
 	</spells>
