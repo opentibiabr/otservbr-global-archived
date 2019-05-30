@@ -2,9 +2,8 @@
 <creaturescripts>
 	
 	<!-- The Masters Voice Quest-->
-	<!-- <event type="kill" name="MastersVoiceServants" script="quests/their master's voice/ServantsKill.lua" />	 -->
-	<event type="death" name="Servant_Death" script="mastervoice/Servant_Death.lua"/>
-	<event type="death" name="Mage_Death" script="mastervoice/Mage_Death.lua"/>	
+	<event type="death" name="Servant_Death" script="mastervoice/servant_death.lua"/>
+	<event type="death" name="Mage_Death" script="mastervoice/mage_death.lua"/>
 	
 	<!-- AUTO LOOT -->
 	<event type="modalwindow" name="autoloot" script="autoloot.lua"/>
@@ -186,9 +185,6 @@
 	<event type="kill" name="UpperSpikeKill" script="quests/spike tasks/upperspikekill.lua"/>
 	<event type="kill" name="MiddleSpikeKill" script="quests/spike tasks/middlespikekill.lua"/>
 	<event type="kill" name="LowerSpikeKill" script="quests/spike tasks/lowerspikekill.lua"/>
-
-	<!-- The Masters Voice Quest -->
-	<event type="kill" name="MastersVoiceServants" script="quests/their master's voice/ServantsKill.lua" />
 
 	<!-- Thieves Guild Quest -->
 	<event type="kill" name="ThievesGuildNomad" script="others/nomad.lua" />
