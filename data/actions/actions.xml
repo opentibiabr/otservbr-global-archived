@@ -784,7 +784,7 @@
 	<action itemid="7496" script="quests/tibia tales/UltimateBoozebeerBottle.lua" />
 	<action itemid="8205" script="quests/tibia tales/exterminatorFlask.lua" />
 
-	<!-- Their Masters Voice Quest --> 
+	<!-- Their Masters Voice Quest -->
 	<action itemid="13601" script="quests/theirmaster/slimeGobbler.lua" />
 
 	<!-- Rottin Wood and the Married Men Quest -->
