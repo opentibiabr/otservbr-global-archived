@@ -151,16 +151,15 @@ CREATE TABLE `blessings_history` (
 --
 
 CREATE TABLE `daily_reward_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `streak` smallint(2) NOT NULL DEFAULT 0,
-  `event` varchar(255) DEFAULT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-  `instant` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
+  `daystreak` smallint(2) NOT NULL DEFAULT 0,
   `player_id` int(11) NOT NULL,
-  `timestamp` int(11) NOT NULL,
+  `timestamp` int(11) NOT NULL CURRENT_TIMESTAMP,
+  `streak` smallint(2) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `player_id` (`player_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- --------------------------------------------------------
@@ -1383,6 +1382,11 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `account_ban_history`
 --
 ALTER TABLE `account_ban_history`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `daily_reward_history`
+--
+ALTER TABLE `daily_reward_history`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `guilds`
