@@ -152,15 +152,17 @@ CREATE TABLE `blessings_history` (
 
 CREATE TABLE `daily_reward_history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `streak` smallint(2) NOT NULL DEFAULT 0,
+  `daystreak` smallint(2) NOT NULL DEFAULT '0',
   `event` varchar(255) DEFAULT NULL,
-  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-  `instant` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `instant` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `player_id` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
+  `streak` smallint(2) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `player_id` (`player_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 
 -- --------------------------------------------------------
