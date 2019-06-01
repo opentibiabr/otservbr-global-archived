@@ -154,8 +154,7 @@ CREATE TABLE `daily_reward_history` (
   `id` int(11) NOT NULL,
   `daystreak` smallint(2) NOT NULL DEFAULT 0,
   `player_id` int(11) NOT NULL,
-  `timestamp` int(11) NOT NULL CURRENT_TIMESTAMP,
-  `streak` smallint(2) NOT NULL,
+  `timestamp` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `player_id` (`player_id`)
