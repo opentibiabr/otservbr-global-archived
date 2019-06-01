@@ -1,16 +1,12 @@
 ## OTServ Brasil - Global Server [![Build status](https://ci.appveyor.com/api/projects/status/599x38f3a0luessl?svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download builds for Windows")
 
 * Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira and Otavio Milani.
-* This project is supported by: [Forum OTServ Brasil](https://forums.otserv.com.br/)
+* This project is supported: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
 #### Getting Started
 
 * [Compiling](https://github.com/otland/forgottenserver/wiki/Compiling), alternatively download [AppVeyor builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global)
 * [Scripting Reference](https://github.com/otland/forgottenserver/wiki/Script-Interface)
-
-#### Support:
-
-If you need help, please visit the [support forum on OTBR](http://otserv.com.br/). Our issue tracker is not a support forum, and using it as one will result in your issue being closed.
 
 #### Issues:
 
