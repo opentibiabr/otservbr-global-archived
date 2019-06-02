@@ -806,6 +806,9 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 		g_game.transformItem(item, it.transformDeEquipTo);
 		g_game.startDecay(item);
 	}
+	if (it.imbuingSlots > 0) {
+			g_events->eventPlayerOnDeEquipImbuement(player, item);
+		}
 
 	if (!it.abilities) {
 		return 1;
