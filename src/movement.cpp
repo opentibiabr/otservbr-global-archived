@@ -21,6 +21,8 @@
 
 #include "game.h"
 
+#include "events.h"
+
 #include "pugicast.h"
 
 #include "movement.h"
