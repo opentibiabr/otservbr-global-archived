@@ -17,7 +17,7 @@ end
 function onUse(cid, item, fromPosition, itemEx)
 
 
-if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
+if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
 	return true
     end
@@ -105,7 +105,7 @@ else doCreatureSay(cid, "Please wait for the fighters come out of the arena.", T
 end 
 
 end 
-	player:setStorageValue(Storage.Exaust.tempo, os.time())
+	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end
 

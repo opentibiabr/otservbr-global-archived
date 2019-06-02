@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="6500" speed="195" manacost="0">
 	<health now="7200" max="7200" />
-	<look type="1136" head="3" body="124" legs="38" feet="38" addons="3" corpse="6325" />
+	<look type="1136" body="123" legs="28" feet="20" addons="1" corpse="34760" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag summonable="0" />
@@ -19,11 +19,22 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400" />
-		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="-350">
-			<attribute key="shootEffect" value="arrow" />
+ 		<attack name="ice" interval="2000" chance="50"  target="1" radius="5" min="-200" max="-300">
+		<attribute key="areaEffect" value="ICEAREA" />
 		</attack>
-	</attacks>
-	<defenses armor="70" defense="20" />
+ 		<attack name="ice" interval="2000" chance="50" length="4" spread="0" min="-240" max="-300">
+		<attribute key="areaEffect" value="GIANTICE" /> 
+		</attack>
+		<attack name="ice" interval="2000" chance="70" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="ICE" />
+		</attack>
+   </attacks>
+   
+	<defenses armor="70" defense="20"/>
+			<defense name="healing" interval="2000" chance="14" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		
 	<elements>
 		<element firePercent="20" />
 	</elements>

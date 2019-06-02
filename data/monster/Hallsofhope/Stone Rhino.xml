@@ -17,18 +17,20 @@
 		<flag runonhealth="15" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="10" attack="10" />
-		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="500">
-			<attribute key="shootEffect" value="smallstone" />
-		</attack>
+		<attack name="melee" interval="2000" min="0" max="-280" />
 	</attacks>
-
+	<defenses armor="10" defense="10" >
+	<defense name="healing" interval="2000" chance="15" min="0" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+  </defenses>
 	<elements>
-		<element energyPercent="20" />
-		<element holyPercent="1" />
-		<element earthPercent="-12" />
-		<element deathPercent="-10" />
+		<element physicalPercent="20" />
+		<element icePercent="-10" />
 	</elements>
+   <immunities>
+	<immunity invisible="1"/>
+  </immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="Snarl!" />
 		<voice sentence="SNIFF!" />
@@ -38,6 +40,5 @@
 		<item id="27056" chance="50320" />
 		<item id="27057"  chance="50320" />
 		<item id="24842"  chance="50320" />
-	
 	</loot>
 </monster>

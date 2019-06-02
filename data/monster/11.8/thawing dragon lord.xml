@@ -22,15 +22,14 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-300" />		
-		<attack name="Ice" chance="30" interval="2000" target="1" min="-600" max="-700"/>	
+		<attack name="Ice Crystal Bomb" chance="30" interval="2000" target="1" min="-600" max="-700"/>	
 		<attack name="Fire Wave" chance="30" interval="2000" length="1" spread="0" target="1" min="-800" max="-1200"/>
-				<attack name="speed" interval="1000" chance="12" radius="6" target="0" speedchange="-250" duration="60000">
-				<attribute key="areaEffect" value="fire" />
-					</attack>
-						<attack name="firefield" interval="1000" chance="10" range="7" radius="4" target="1">
-							<attribute key="shootEffect" value="fire" />
-								</attack>
-
+		<attack name="speed" interval="1000" chance="12" radius="6" target="0" speedchange="-250" duration="60000">
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="firefield" interval="1000" chance="10" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
 	</attacks>
 	<defenses armor="80" defense="40" />
 	<elements>
@@ -55,10 +54,9 @@
 		<voice sentence="Nnngh!" />
 	</voices>
 	<loot>
-		<item id="9971" countmax="4" chance="90" /><!--gold ingot -->
-		<item id="8571"  chance="10000" /> <!-- ice cube -->
-		<item id="7377" countmax="1" chance="250" /> <!-- sorvete -->
-		<item id="15515" countmax="1" chance="50" /> <!-- Bar of Gold -->
-
+		<item id="9971" countmax="4" chance="50000" /><!--gold ingot -->
+		<item id="8571" chance="5560" /> <!-- ice cube -->
+		<item id="7377" chance="5560" /> <!-- ice cream cone -->
+		<item id="15515" chance="50" /> <!-- bar of gold -->
 	</loot>
 </monster>

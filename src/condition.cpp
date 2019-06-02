@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -511,10 +511,9 @@ void ConditionAttributes::endCondition(Creature* creature)
 			player->sendStats();
 		}
 	}
-	
-		if (disableDefense) {
+
+	if (disableDefense) {
 		creature->setUseDefense(true);
-		
 	}
 }
 
@@ -612,18 +611,8 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_CRITICAL_HIT_CHANCEPERCENT: {
-			skillsPercent[SKILL_CRITICAL_HIT_CHANCE] = value;
-			return true;
-		}
-
 		case CONDITION_PARAM_SKILL_CRITICAL_HIT_DAMAGE: {
 			skills[SKILL_CRITICAL_HIT_DAMAGE] = value;
-			return true;
-		}
-
-		case CONDITION_PARAM_SKILL_CRITICAL_HIT_DAMAGEPERCENT: {
-			skillsPercent[SKILL_CRITICAL_HIT_DAMAGE] = value;
 			return true;
 		}
 
@@ -632,18 +621,8 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_LIFE_LEECH_CHANCEPERCENT: {
-			skillsPercent[SKILL_LIFE_LEECH_CHANCE] = value;
-			return true;
-		}
-
 		case CONDITION_PARAM_SKILL_LIFE_LEECH_AMOUNT: {
 			skills[SKILL_LIFE_LEECH_AMOUNT] = value;
-			return true;
-		}
-
-		case CONDITION_PARAM_SKILL_LIFE_LEECH_AMOUNTPERCENT: {
-			skillsPercent[SKILL_LIFE_LEECH_AMOUNT] = value;
 			return true;
 		}
 
@@ -652,18 +631,8 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 			return true;
 		}
 
-		case CONDITION_PARAM_SKILL_MANA_LEECH_CHANCEPERCENT: {
-			skillsPercent[SKILL_MANA_LEECH_CHANCE] = value;
-			return true;
-		}
-
 		case CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNT: {
 			skills[SKILL_MANA_LEECH_AMOUNT] = value;
-			return true;
-		}
-
-		case CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNTPERCENT: {
-			skillsPercent[SKILL_MANA_LEECH_AMOUNT] = value;
 			return true;
 		}
 
@@ -702,7 +671,7 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 			return true;
 		}
 
-			default:
+		default:
 			return ret;
 	}
 }

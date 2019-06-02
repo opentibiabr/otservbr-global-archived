@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017  Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -148,6 +148,7 @@ class MonsterType
 		uint32_t conditionImmunities = 0;
 		uint32_t damageImmunities = 0;
 		uint32_t baseSpeed = 200;
+		uint32_t respawnType = RESPAWN_IN_ALL;
 
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;
@@ -175,7 +176,7 @@ class MonsterType
 		bool isPet = false;
 		bool isPassive = false;
 		bool isRewardBoss = false;
-		bool isBoss = false;
+		bool isPreyable = true;
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
 		bool canWalkOnPoison = true;
@@ -193,7 +194,11 @@ class MonsterType
 
 		MonsterInfo info;
 		
-		void loadLoot(MonsterType* monsterType, LootBlock lootblock);
+		void createLoot(Container* corpse);
+		bool createLootContainer(Container* parent, const LootBlock& lootblock);
+		std::vector<Item*> createLootItem(const LootBlock& lootBlock, bool canRerollLoot = false);
+	
+		//void loadLoot(MonsterType* monsterType, LootBlock lootblock); (from tfs)
 };
 
 class MonsterSpell
@@ -256,6 +261,7 @@ class Monsters
 		MonsterType* getMonsterType(const std::string& name);
 		void addMonsterType(const std::string& name, MonsterType* mType);
 		bool deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std::string& description = "");
+		static uint32_t getLootRandom();
 		
 		std::vector<std::string> getPreyMonsters();
 		

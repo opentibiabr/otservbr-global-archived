@@ -4,7 +4,7 @@
 	<look type="1071" head="38" body="94" legs="38" feet="86" addons="2" corpse="32426" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-	   	     <flag rewardboss="1" />
+	   	<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -18,9 +18,7 @@
 		<flag runonhealth="0" /> 
 		<flag canwalkonenergy="0" />
 		<flag canwalkonfire="0" />
-		<flag canwalkonpoison="0" />
-		
-		
+		<flag canwalkonpoison="0" />	
 	</flags>
 	<attacks>
 		<attack name="melee" interval="1500" min="150" max="700" />
@@ -28,13 +26,9 @@
 		<attack name="physical" interval="1500" chance="20" range="7" min="-200" max="720">
 			<attribute key="shootEffect" value="royalspear" />
 		</attack>
-		 
-		
-				<attack name="holy" interval="1000" chance="14" length="8" spread="0" min="-500" max="1000">
+		<attack name="holy" interval="1000" chance="14" length="8" spread="0" min="-500" max="1000">
 			<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
-		
-
 	</attacks>
 	<defenses armor="82" defense="50">
 		<defense name="healing" interval="2000" chance="20" min="200" max="650">
@@ -43,10 +37,7 @@
 	</defenses>
 	<elements>
 	    <element physicalPercent="50" />
- 
 		<element deathPercent="55" />
- 
-
 	</elements>
 	<immunities>
 		<immunity paralyze="1" />
@@ -65,18 +56,15 @@
 <item name="Great Spirit Potion" countmax="3" chance="100000" />
 <item name="gold coin" countmax="60" chance="100000" />
 <item name="gold coin" countmax="40" chance="100000" />
-	
-  <!-- Incomum -->
+ <!-- Incomum -->
 <item name="Small Ruby" countmax="3" chance="700" />
 <item name="red Gem" countmax="3" chance="700" />
 <item name="Onyx Arrow" countmax="3" chance="700" />
 <item name="Small Topaz" countmax="3" chance="700" />
-
  <!-- semi raro --> 
 <item id="7633" chance="3300" />
 <item name="Violet Gem" countmax="1" chance="300" />
 <item name="Green Gem" countmax="1" chance="300" />
-
  <!-- raro -->
 <item name="Damaged Armor Plates" countmax="3" chance="400" />
 <item name="Falcon Crest" countmax="3" chance="400" />
@@ -84,7 +72,6 @@
  <!-- muito raro -->
 <item name="Falcon Coif" countmax="1" chance="60" />
 <item name="Falcon Bow" countmax="1" chance="60" /> 
-
 	</loot>
 </monster> 
 

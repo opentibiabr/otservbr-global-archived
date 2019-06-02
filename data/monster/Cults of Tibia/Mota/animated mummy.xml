@@ -4,6 +4,7 @@
 	<look type="65" corpse="6004" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
+		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -17,7 +18,7 @@
 		<flag runonhealth="0" />
 		<flag canwalkonenergy="0" />
 		<flag canwalkonfire="0" />
-		<!-- <flag respawntype="night" /> -->
+		<flag respawntype="night" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-85" poison="4" />

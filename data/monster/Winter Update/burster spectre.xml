@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Burster Spectre" nameDescription="a Burster Spectre" race="blood" experience="15" speed="200">
 	<health now="6500" max="6500" />
-	<look type="1122" head="7" body="19" legs="86" feet="80" addons="0" corpse="34801" />
+	<look type="1122" head="7" body="19" legs="86" feet="19" addons="0" corpse="34801" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag summonable="0" />

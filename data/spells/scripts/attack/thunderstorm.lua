@@ -1,3 +1,4 @@
+
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_ENERGYDAMAGE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYHIT)
@@ -13,5 +14,9 @@ end
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
 function onCastSpell(creature, var, isHotkey)
-	return combat:execute(creature, var)
+	if creature:getStorageValue(warPrivate_RUNES) > 0 then
+  		return false
+ 	else
+  		return combat:execute(creature, var)
+ 	end
 end

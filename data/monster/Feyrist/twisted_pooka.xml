@@ -4,6 +4,7 @@
 	<look type="978" corpse="29114" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
+		<flag respawntype="night" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -23,18 +24,31 @@
 		<immunity invisible="1" />
 	</immunities>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-150" />
-		<attack name="drunk" interval="3000" chance="11" radius="6" target="0" duration="25000">
-			<attribute key="areaEffect" value="purplenote" />
+		<attack name="melee" interval="2000" min="0" max="-120" />
+		<attack name="earth" interval="2000" chance="15" range="4" target="1" min="0" max="-50">
+			<attribute key="shootEffect" value="smallstone" />
+			<attribute key="areaEffect" value="stones" />
+		</attack>
+		<attack name="earthcondition" interval="2000" chance="15" range="3" target="1"  min="-50" max="-100">
+			<attribute key="areaEffect" value="poison" />
+		</attack>
+		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="5000">
+			<attribute key="areaEffect" value="stun" />
 		</attack>
 	</attacks>
-	<defenses armor="20" defense="20" />
+	<defenses armor="38" defense="38">
+		<defense name="healing" interval="2000" chance="25" min="40" max="60">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+	</defenses>
 	<elements>
-		<element icePercent="10" />
-		<element firePercent="10" />
-		<element holyPercent="5" />
-		<element deathPercent="-5" />
-		<element physicalPercent="-5" />
+		<element physicalPercent="20" />
+		<element icePercent="20" />
+		<element firePercent="20" />
+		<element holyPercent="-20" />
+		<element deathPercent="30" />
+		<element earthPercent="40" />
+		<element energyPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="Head off!" />

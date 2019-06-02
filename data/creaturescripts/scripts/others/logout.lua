@@ -5,6 +5,7 @@ function onLogout(player)
     end
 
     player:saveSpecialStorage()
+	player:setStorageValue(Storage.Exercisedummy.exaust, 0)
 
  	local stats = player:inBossFight()
 	if stats then

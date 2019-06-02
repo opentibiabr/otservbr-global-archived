@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Disgusting Ooze" nameDescription="a disgusting ooze" race="venom" experience="3700" speed="260" manacost="0">
+	<health now="3650" max="3650"/>
+	<look type="238" corpse="6532"/>
+  <targetchange interval="5000" chance="8" />
+  <strategy attack="100" defense="0" />
+  <flags>
+    <flag summonable="0" />
+    <flag attackable="1" />
+    <flag hostile="1" />
+    <flag illusionable="1" />
+    <flag convinceable="0" />
+    <flag pushable="0" />
+    <flag canpushitems="1" />
+    <flag canpushcreatures="1" />
+    <flag targetdistance="1" />
+    <flag staticattack="90" />
+    <flag runonhealth="85" />
+  </flags>
+  	<script>
+		<event name="disgustingOoze"/>
+	</script>
+  <attacks>
+    <attack name="melee" interval="2000" skill="50" attack="80" poison="300" />
+    <attack name="lifedrain" interval="2000" chance="13" target="1" range="7" min="-160" max="-295">
+      <attribute key="areaEffect" value="greenspark" />
+      <attribute key="shootEffect" value="poison" />
+    </attack>
+    <attack name="defiler paralyze 3" interval="2000" chance="9"/>
+    <attack name="defiler paralyze 1" interval="2000" chance="6"/>
+    <attack name="defiler paralyze 2" interval="2000" chance="8"/>
+    <attack name="poisoncondition" interval="2000" chance="10" radius="8" target="0" start="32" min="-300" max="-500">
+      <attribute key="areaEffect" value="greenspark" />
+    </attack>
+    <attack name="poisoncondition" interval="2000" chance="10" length="8" spread="3" start="32" min="-400" max="-725">
+      <attribute key="areaEffect" value="smallplants" />
+    </attack>
+    <attack name="earth" interval="2000" chance="14" radius="3" target="0" min="-120" max="-170">
+      <attribute key="areaEffect" value="poison" />
+    </attack>
+  </attacks>
+  <defenses armor="15" defense="15">
+    <defense name="healing" interval="2000" chance="15" min="250" max="450">
+      <attribute key="areaEffect" value="greenshimmer" />
+    </defense>
+  </defenses>
+  <elements>
+    <element energyPercent="10" />
+    <element icePercent="20" />
+    <element firePercent="-25" />
+  </elements>
+  <immunities>
+    <immunity paralyze="1" />
+    <immunity earth="1" />
+    <immunity lifedrain="1" />
+    <immunity invisible="1" />
+    <immunity drunk="1" />
+  </immunities>
+
+	<voices interval="2000" chance="5">
+		<voice sentence="Blubb"/>
+		<voice sentence="Blubb Blubb"/>
+	</voices>
+	<loot>
+		<item id="2148" countmin="3" countmax="272" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="6" chance="95660"/><!-- platinum coin -->
+		<item id="6500" chance="20340"/><!-- demonic essence -->
+		<item id="5944" chance="20130"/><!-- soul orb -->
+		<item id="9967" chance="14190"/><!-- glob of acid slime -->
+		<item id="9968" chance="11550"/><!-- glob of tar -->
+		<item id="2151" chance="5930"/><!-- talon -->
+		<item id="2149" countmax="3" chance="5400"/><!-- small emeralds -->
+		<item id="2147" countmax="2" chance="2750"/><!-- small rubies -->
+		<item id="2145" countmax="2" chance="2650"/><!-- small diamond -->
+		<item id="6300" chance="2440"/><!-- death ring -->
+		<item id="2156" chance="1590"/><!-- red gem -->
+		<item id="2154" chance="1380"/><!-- yellow gem -->
+		<item id="2155" chance="640"/><!-- green gem -->
+		<item id="2158" chance="320"/><!-- blue gem -->
+	</loot>
+</monster>

@@ -3,7 +3,7 @@ function Container.isContainer(self)
 end
 
 
-function Container.createLootItem(self, item)
+--[[ function Container.createLootItem(self, item)
 if self:getEmptySlots() == 0 then
        return true
 end
@@ -46,4 +46,4 @@ if item.text and item.text ~= "" then
 end
 end
 return true
-end
+end]]

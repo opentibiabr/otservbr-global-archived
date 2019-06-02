@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<movements>	
+<movements>
+	<!-- Master Voice Quest -->
+	<movevent event="StepIn" actionid="47710" script="quests/mastervoice/master_voice_entrance.lua" />
 	
 	<!-- NOVOS ELF EFEITO IGUAL GLOBAL -->
 	<movevent event="StepIn" actionid="62174" script="novos elfs/winter.lua" />

@@ -15,23 +15,42 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="15" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="10" attack="10" />
-		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="-25">
-			<attribute key="shootEffect" value="smallstone" />
+		<attack name="melee" interval="2000" min="0" max="-300" />
+		<attack name="physical" interval="2000" chance="35" range="7" target="1" min="-117" max="-220">
+			<attribute key="shootEffect" value="largerock" />
 		</attack>
-	</attacks>
-	<defenses armor="10" defense="10" />
-	<elements>
-		<element energyPercent="20" />
-		<element holyPercent="1" />
-		<element earthPercent="-12" />
-		<element deathPercent="-10" />
-	</elements>
+	<attack name="cursecondition" interval="2000" chance="50" radius="4" target="1" min="-100" max="-200"><!-- means min. 25dmg and max. 50dmg per turn -->
+			<attribute key="shootEffect" value="whirlwindclub" />
+		<attribute key="areaEffect" value="explosionarea"/>
+	</attack>
+   </attacks>
+	<defenses armor="35" defense="25" >
+     <defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+       <attribute key="areaEffect" value="redshimmer"/>
+     </defense>
+  </defenses>
+   <immunities>
+	<immunity invisible="1"/>
+	<immunity paralyze="1"/>
+  </immunities>
+ <elements>
+	<element physicalPercent="10"/>
+	<element icePercent="-10"/>
+	<element deathPercent="10"/>
+	<element firePercent="15"/>
+	<element earthPercent="30"/>
+	<element energyPercent="-10"/>
+  </elements>
 	<voices interval="2000" chance="7">
-		<voice sentence="<grunt>" />
-		<voice sentence="Raar!!" />
+		<voice sentence="Me Smash!" />
+		<voice sentence="GRRRRR!" />
+		<voice sentence="Muhahaha!" />
+		<voice sentence="Me strong, You weak!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="185" chance="50320" /><!-- gold coin -->

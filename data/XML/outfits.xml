@@ -19,7 +19,7 @@
 	<outfit type="0" looktype="269" name="Nightmare" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="270" name="Jester" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="279" name="Brotherhood" premium="yes" unlocked="no" enabled="yes" />
-	<outfit type="0" looktype="288" name="Demon Hunter" premium="yes" unlocked="yes" enabled="yes" />
+	<outfit type="0" looktype="288" name="Demon Hunter" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="324" name="Yalaharian" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="329" name="Newly Wed" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="336" name="Warmaster" premium="yes" unlocked="no" enabled="yes" />
@@ -78,8 +78,10 @@
 	<outfit type="0" looktype="1147" name="Dream Warrior" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1162" name="Percht Raider" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1174" name="Owl Keeper" premium="yes" unlocked="no" enabled="yes" />
-	<outfit type="0" looktype="1187" name="novo" premium="yes" unlocked="no" enabled="yes" />
-
+	<outfit type="0" looktype="1187" name="Guidon Bearer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1203" name="Void Master" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1205" name="Veteran Paladin" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1207" name="Lion of War" premium="yes" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -101,7 +103,7 @@
 	<outfit type="1" looktype="268" name="Nightmare" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="273" name="Jester" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="278" name="Brotherhood" premium="yes" unlocked="no" enabled="yes" />
-	<outfit type="1" looktype="289" name="Demon Hunter" premium="yes" unlocked="yes" enabled="yes" />
+	<outfit type="1" looktype="289" name="Demon Hunter" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="325" name="Yalaharian" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="328" name="Newly Wed" premium="no" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="335" name="Warmaster" premium="yes" unlocked="no" enabled="yes" />
@@ -160,6 +162,9 @@
 	<outfit type="1" looktype="1146" name="Dream Warrior" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1161" name="Percht Raider" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1173" name="Owl Keeper" premium="yes" unlocked="no" enabled="yes" />
-	<outfit type="1" looktype="1186" name="novo" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1186" name="Guidon Bearer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1202" name="Void Master" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1204" name="Veteran Paladin" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1206" name="Lion of War" premium="yes" unlocked="no" enabled="yes" />
 
 </outfits>

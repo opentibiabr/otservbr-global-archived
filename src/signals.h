@@ -1,6 +1,6 @@
 /**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2017 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ class Signals
 {
 	boost::asio::signal_set set;
 	public:
-		Signals(boost::asio::io_service& service);
+		explicit Signals(boost::asio::io_service& service);
 
 	private:
 		void asyncWait();

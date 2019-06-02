@@ -4,7 +4,7 @@
 	<look type="220" corpse="4323" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-		<flag boss="1" />
+		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -62,7 +62,7 @@
 		<item id="2152" countmax="5" chance="80000" />	<!-- platinum coin -->
 		<item id="7590" countmax="4" chance="72000" />	<!-- great mana potion -->
 		<item id="2149" countmax="5" chance="68000" />	<!-- small emerald -->
-		<item id="10310" chance="45000" />				<!-- claw of 'The Noxious Spawn' -->
+		<item id="8478" chance="45000" />				<!-- claw of 'The Noxious Spawn' -->
 		<item id="7386" chance="45000" />				<!-- mercenary sword -->
 		<item id="2528" chance="43000" />				<!-- tower shield -->
 		<item id="7456" chance="39000" />				<!-- noble axe -->
