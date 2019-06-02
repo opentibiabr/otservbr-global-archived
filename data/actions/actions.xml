@@ -4,7 +4,7 @@
 	<action actionid="500" script="autoloot.lua" />
 	
     <!-- Training -->
-    <action fromid="32384" toid="32389" script="others/exercise_training.lua" allowfaruse="1"/>
+    <action fromid="32384" toid="32389" script="others/exercise training.lua" allowfaruse="1"/>
 	
 	<!-- Store -->
 	<action itemid="26378" script="others/goldconverter.lua" />
