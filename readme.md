@@ -6,6 +6,7 @@
 #### Getting Started
 
 * [Compiling](https://github.com/otland/forgottenserver/wiki/Compiling), alternatively download [AppVeyor builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global)
+* OTServBR Fórum: [Compiling](https://forums.otserv.com.br/index.php?/forums/topic/167896-windowsvc2017-compilando-sources-otservbr-global/)
 * [Scripting Reference](https://github.com/otland/forgottenserver/wiki/Script-Interface)
 
 #### Issues:
