@@ -1,21 +1,16 @@
 ## OTServ Brasil - Global Server [![Build status](https://ci.appveyor.com/api/projects/status/599x38f3a0luessl?svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download builds for Windows")
 
 * Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira and Otavio Milani.
-* This project is supported by: [Forum OTServ Brasil](https://forums.otserv.com.br/)
+* This project is supported: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
-#### Introduction:
-Our idea is to rescue the old Open Tibia community (free of charge as far as we can)<br>
-Putting an end to the sale of sources and datapacks that are in the hands of some people who call themselves developers.<br>
-People who are making thousands of reais or dollars a month on top of a project (OpenTibia) that was developed from the 0 for free, by developers who were in fact in favor of the community.<br>
-We will initiate what we hope to be the revolution of the current (shameful) Open Tibia community (unfortunately I believe it is only in the Brazilian community, this situation) ... We apologize to all who worked on OpenTibia for years to see the situation arrive in this critical point. We will do our best to reverse this situation (or at least soften it), even though many of these malicious people will get their hands on content even though they do not deserve it (those who deserve it should not pay for the error of somes)<br>
-PS: We apologize to the entire Open Tibia community for bugged repositories and malicious <strike>OTXBR</strike> people who have turned OTServer into a market.<br>
+#### Getting Started
 
-#### Important Notes:
-We have the new language systems added to the source. However, only QuestLog per lua is with all quests registered, nor are all quests reviewed.<br>
-The actions by lua, monsters, talkactions and weapons are functional, tested and bug-free (apparently), however the lua scripts need to be created. Our proposal is that since it is difficult for people to contribute to the projects and we need help, we will add the antirollback system to the source if there are contributions in the project, and we are not talking about one or another commit, but doing serious work. .. At first we will only release the crashlog system, it is not yet 100% functional, but as soon as it is will be placed in the source.<br>
+* [Compiling](https://github.com/otland/forgottenserver/wiki/Compiling), alternatively download [AppVeyor builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global)
+* [Scripting Reference](https://github.com/otland/forgottenserver/wiki/Script-Interface)
 
-The new .lua systems are located in the data/scripts/<br>
-Also running /reload global, /reload libs and /reload scripts<br>
+#### Issues:
+
+We use the [issue tracker on GitHub](https://github.com/opentibiabr/OTServBR-Global/issues). Keep in mind that everyone who is watching the repository gets notified by e-mail when there is activity, so be thoughtful and avoid writing comments that aren't meaningful for an issue (e.g. "+1"). If you'd like for an issue to be fixed faster, you should either fix it yourself and submit a pull request, or place a bounty on the issue.
 
 #### Contributors:
 Contributions of any kind are welcome! Can you help, but you are not thinking of c ++, mapping or script? [Download](https://github.com/opentibiabr/OTServBR-Global/archive/master.zip) or clone our Server, test and report bugs [here](https://github.com/opentibiabr/OTServBR-Global/issues)<br>
