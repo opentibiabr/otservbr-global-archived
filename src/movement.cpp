@@ -27,6 +27,7 @@
 
 extern Game g_game;
 extern Vocations g_vocations;
+extern Events* g_events;
 
 MoveEvents::MoveEvents() :
 	scriptInterface("MoveEvents Interface")
