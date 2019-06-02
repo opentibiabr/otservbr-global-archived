@@ -477,7 +477,7 @@
     <monster name="Greed" file="Otherworld/Greed.xml"/>
 	<monster name="Instable Breach Brood" file="Otherworld/Instable Breach Brood.xml"/>
 	<monster name="Instable Sparkion" file="Otherworld/Instable Sparkion.xml"/>
-    <monster name="Instable Breach Brood2" file="Otherworld/Instable Breach brood2.xml"/>
+    <monster name="Instable Breach Brood2" file="Otherworld/Instable Breach Brood2.xml"/>
 	<monster name="Instable Sparkion2" file="Otherworld/Instable Sparkion2.xml"/>
     <monster name="Outburst" file="Otherworld/Outburst.xml"/>
     <monster name="Overcharged Disruption" file="Otherworld/Overcharged Disruption.xml"/>
