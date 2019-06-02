@@ -704,6 +704,10 @@ uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, 
 	} else {
 		player->setItemAbility(slot, true);
 	}
+	
+	if (it.imbuingSlots > 0) {
+			g_events->eventPlayerOnEquipImbuement(player, item);
+		}
 
 	if (!it.abilities) {
 		return 1;
@@ -803,6 +807,10 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 	if (!it.abilities) {
 		return 1;
 	}
+	
+	if (it.imbuingSlots > 0) {
+			g_events->eventPlayerOnDeEquipImbuement(player, item);
+		}
 
 	if (it.abilities->invisible) {
 		player->removeCondition(CONDITION_INVISIBLE, static_cast<ConditionId_t>(slot));
