@@ -852,7 +852,7 @@ void Tile::addThing(int32_t, Thing* thing)
 		}
 
 		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			(item->getWeight() >= 1000000) {
+			if (item->getWeight() >= 1000000) {
 				return /*RETURNVALUE_NOTPOSSIBLE*/;
 			}
 		}
@@ -1468,7 +1468,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 		}
 
 		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			(item->getWeight() >= 1000000) {
+			if (item->getWeight() >= 1000000) {
 				return /*RETURNVALUE_NOTPOSSIBLE*/;
 			}
 		}
