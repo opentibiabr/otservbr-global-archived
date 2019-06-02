@@ -629,7 +629,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 		}
 
 		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 150000) {
+			if (item->getWeight() >= 1000000) {
 				return RETURNVALUE_NOTPOSSIBLE;
 			}
 		}
@@ -852,7 +852,7 @@ void Tile::addThing(int32_t, Thing* thing)
 		}
 
 		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 150000) {
+			(item->getWeight() >= 1000000) {
 				return /*RETURNVALUE_NOTPOSSIBLE*/;
 			}
 		}
@@ -1468,7 +1468,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 		}
 
 		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 150000) {
+			(item->getWeight() >= 1000000) {
 				return /*RETURNVALUE_NOTPOSSIBLE*/;
 			}
 		}
