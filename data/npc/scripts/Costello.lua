@@ -13,7 +13,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, 'fugio') then
-		if player:getStorageValue(Storage.WhiteRavenMonasteryQuest.Diary) == 1 then
+		if player:getStorageValue(Storage.QuestChests.FamilyBrooch) == 1 then
 			npcHandler:say('To be honest, I fear the omen in my dreams may be true. Perhaps Fugio is unable to see the danger down there. Perhaps ... you are willing to investigate this matter?', cid)
 			npcHandler.topic[cid] = 1
 		end
