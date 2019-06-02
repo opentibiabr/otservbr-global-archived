@@ -36238,12 +36238,30 @@
 		<attribute key="floorchange" value="south" />
 	</item>
 	<item id="27705" article="a" name="dragon lair wall" />
-	<item fromid="27715" toid="27716" article="a" name="Portal of Black Energy" />
-	<item fromid="27717" toid="27718" article="a" name="Portal of Green Energy" />
-	<item fromid="27719" toid="27720" article="a" name="Portal of Violet Energy" />
-	<item fromid="27721" toid="27722" article="a" name="Portal of Orange Energy" />
-	<item fromid="27723" toid="27724" article="a" name="Portal of Golden Energy" />
-	<item fromid="27725" toid="27726" article="a" name="Portal of Blue Energy" />
+	<item fromid="27715" toid="27716" article="a" name="portal of black energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27717" toid="27718" article="a" name="portal of green energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27719" toid="27720" article="a" name="portal of violet energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27721" toid="27722" article="a" name="portal of orange energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27723" toid="27724" article="a" name="portal of golden energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27725" toid="27726" article="a" name="portal of blue energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
 	<item id="27727" article="an" name="inert astral shaper rune">
 		<attribute key="weight" value="850" />
 		<attribute key="description" value="The rune has become inert and will need some hours to regain full strength." />
@@ -41435,8 +41453,14 @@
 	<item id="34610" article="an" name="ice flowers"/>
 	<item id="34611" article="an" name="ice flower"/>
 	<item id="34612" article="an" name="ice flower"/>
-	<item id="34617" article="a" name="portal"/>
-	<item id="34618" article="a" name="portal"/>
+	<item id="34617" article="a" name="portal">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item id="34618" article="a" name="portal">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
 	<item fromid="34619" toid="34624" article="an" name="old desk"/>
 	<item id="34626" article="a" name="minotaur skull">
 		<attribute key="weight" value="2500" />
