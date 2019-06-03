@@ -3,9 +3,9 @@ function Player.allowMovement(self, allow)
 end
 
 function Player.getLoyalty(self)
-    local resultId, loyalty = db.storeQuery('SELECT `loyalty_points` FROM `accounts` WHERE `id` = ' .. self:getAccountId()), 0
+    local resultId, loyalty = db.storeQuery('SELECT `premdays` FROM `accounts` WHERE `id` = ' .. self:getAccountId()), 0
     if resultId ~= false then
-        loyalty = result.getNumber(resultId, "loyalty_points")
+        loyalty = result.getNumber(resultId, "premdays")
         result.free(resultId)
     end
     return loyalty
