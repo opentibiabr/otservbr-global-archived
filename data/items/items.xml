@@ -40930,6 +40930,7 @@
 	<item id="33402" article="a" name="writing desk">
 		<attribute key="containerSize" value="5" />
 	</item>
+	<item id="33397" article="a" name="ladder" />
 	<item id="33403" article="a" name="dead true dawnfire asura">
 	<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="33404" />
