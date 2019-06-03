@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
+	<!-- loyalty Points -->
+	<event type="login" name="loyalty" script="loyalty.lua"/>
 	
 	<!-- The Masters Voice Quest-->
 	<!-- <event type="kill" name="MastersVoiceServants" script="quests/their master's voice/ServantsKill.lua" />	 -->
