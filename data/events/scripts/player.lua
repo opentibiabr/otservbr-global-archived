@@ -147,7 +147,7 @@ function Player:onLook(thing, position, distance)
 	local loyalty = LOYALTY_STORAGE[thing.uid]
 	for key = 1, #LOYALTY_TITLES do
 		if loyalty >= LOYALTY_TITLES[key][1] then
-			description = description .. (thing:getSex() == 0 and " She" or " He") .. " is a " .. LOYALTY_TITLES[key][2] .. " of Huntera."
+			description = description .. (thing:getSex() == 0 and " She" or " He") .. " is a " .. LOYALTY_TITLES[key][2] .. " of ' .. configManager.getString(configKeys.SERVER_NAME) .. '."
 			break
 			end
 		end
