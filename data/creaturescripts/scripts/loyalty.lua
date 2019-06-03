@@ -9,7 +9,7 @@ local parameters = {
 }
 
 function onLogin(player)
-	local attr_value = 100 + math.floor(player:getLoyalty() / 1) * 0.05
+	local attr_value = 100 + math.floor(player:getLoyalty() / 360) * 0.05
 	for key, attr_key in pairs(parameters) do
 		loyalty_condition:setParameter(attr_key, attr_value)
 	end
