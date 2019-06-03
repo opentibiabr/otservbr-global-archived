@@ -5,6 +5,9 @@
 	
     <!-- Training -->
     <action fromid="32384" toid="32389" script="others/exercise training.lua" allowfaruse="1"/>
+
+	<!-- The Secret Library -->
+	<action actionid="64019" script="quests/the secret library/asura mirror.lua" />
 	
 	<!-- Store -->
 	<action itemid="26378" script="others/goldconverter.lua" />
