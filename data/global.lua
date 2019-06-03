@@ -9,6 +9,9 @@ STORAGEVALUE_ASSISTS = 30000
 STORAGEVALUE_DEATHS = 30001
 STORAGEVALUE_KILLS = 30002
 
+LOYALTY_STORAGE = LOYALTY_STORAGE or {}
+LOYALTY_TITLES = {{3600, "King"}, {3240, "Sage"}, {2880, "Guardian"}, {2520, "Keeper"}, {2160, "Warrior"}, {1800, "Squire"}, {1440, "Warden"},
+	{1080, "Steward"}, {720, "Sentinel"}, {360, "Scout"}}
 
 
 ropeSpots = {384, 418, 8278, 8592, 13189, 14435, 14436, 15635, 19518, 26019, 24621, 24622, 24623, 24624}
