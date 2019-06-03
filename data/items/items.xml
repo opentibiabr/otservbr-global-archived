@@ -30031,7 +30031,7 @@
 	</item>
 	<item fromid="21714" toid="21719" article="a" name="basalt crystal wall" />
 	<item id="21721" article="a" name="large crystal teleporter" />
-	<item fromid="21722" toid="21723" article="an" name="Opticorder forge" />
+	<item fromid="21722" toid="21723" article="an" name="opticorder forge" />
 	<item id="21724" article="a" name="strangely shaped block" />
 	<item id="21725" article="a" name="furious frock">
 		<attribute key="weight" value="3400" />
@@ -30041,7 +30041,7 @@
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="21726" article="an" name="Opticording sphere">
+	<item id="21726" article="an" name="opticording sphere">
 		<attribute key="weight" value="200" />
 		<attribute key="description" value="This strange box holds a dark sphere. There is some kind of button at one side and a lens up front." />
 	</item>
