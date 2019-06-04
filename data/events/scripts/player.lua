@@ -143,6 +143,14 @@ function Player:onLook(thing, position, distance)
 				description = description..' (Master: ' .. master:getName() .. '). It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
 			end
 		end
+		if thing:isPlayer() then
+	local loyalty = LOYALTY_STORAGE[thing.uid]
+	for key = 1, #LOYALTY_TITLES do
+		if loyalty >= LOYALTY_TITLES[key][1] then
+			description = description .. (thing:getSex() == 0 and " She" or " He") .. " is a " .. LOYALTY_TITLES[key][2] .. " of ' .. configManager.getString(configKeys.SERVER_NAME) .. '."
+			break
+			end
+		end
 	end
 
 	if self:getGroup():getAccess() then
