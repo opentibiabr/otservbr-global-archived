@@ -275,7 +275,7 @@ void ProtocolGameBase::sendBlessStatus() {
 	if (blessCount >= 5) {
 		if (player->getProtocolVersion() >= 1120) {
 			uint8_t blessFlag = 0;
-			uint8_t maxFlag = (maxBlessings == 8) ? 256 : 64;
+			uint8_t maxFlag = static_cast<uint8_t>((maxBlessings == 8) ? 256 : 64);
 			for (int i = 2; i < maxFlag; i *= 2) {
 				blessFlag += i;
 			}
