@@ -9,6 +9,4 @@ theforgottenserver.vcxproj.user
 libmysql.dll
 lua51.dll
 theforgottenserver.exe
-data/world/otservbr-house.xml
-data/world/otservbr.otbm
-data/world/otservbr-spawn.xml
+world
