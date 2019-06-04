@@ -420,15 +420,14 @@
 	<movevent event="StepIn" fromuid="2250" touid="2255" script="quests/dreamer challenge/teleports.lua" />
 	<movevent event="StepIn" actionid="9032" script="quests/dreamer challenge/ticTeleport.lua" />
 	<movevent event="StepIn" fromuid="3048" touid="3056" script="quests/dreamer challenge/tower.lua" />
+	<movevent event="StepIn" fromaid="3200" toaid="3203" script="quests/dreamer challenge/courtPortal.lua" />
 	<movevent event="StepIn" uniqueid="9030" script="quests/dreamer challenge/wallsTeleport.lua" />
 	<movevent event="AddItem" tileitem="1" uniqueid="2244" script="quests/dreamer challenge/deathRing.lua" />
 	<movevent event="StepIn" actionid="9049" script="quests/dreamer challenge/clockTile.lua" />
 	<movevent event="StepIn" uniqueid="9234" script="quests/dreamer challenge/deathRingTeleport.lua" />
 	<movevent event="StepIn" uniqueid="50147" script="quests/dreamer challenge/riddleTeleport.lua" />
-	
 	<movevent event="StepIn" actionid="50149" script="quests/dreamer challenge/Portal.lua" />
 	<movevent event="StepIn" actionid="50150" script="quests/dreamer challenge/Portal.lua" />
-	
 	
 
 	<!-- Ice Islands Quest -->
