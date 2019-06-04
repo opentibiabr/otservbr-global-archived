@@ -2,15 +2,6 @@ function Player.allowMovement(self, allow)
 	return self:setStorageValue(STORAGE.blockMovementStorage, allow and -1 or 1)
 end
 
-function Player.getLoyalty(self)
-    local resultId, loyalty = db.storeQuery('SELECT `premdays` FROM `accounts` WHERE `id` = ' .. self:getAccountId()), 0
-    if resultId ~= false then
-        loyalty = result.getNumber(resultId, "premdays")
-        result.free(resultId)
-    end
-    return loyalty
-end
-
 function Player.checkGnomeRank(self)
 	local points = self:getStorageValue(Storage.BigfootBurden.Rank)
 	local questProgress = self:getStorageValue(Storage.BigfootBurden.QuestLine)

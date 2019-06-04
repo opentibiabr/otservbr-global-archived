@@ -964,7 +964,6 @@ end
 
 function GameStore.processPremiumPurchase(player, offerId)
   player:addPremiumDays(offerId)
-  --player:addLoyaltyPoints(offerId)
 end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName)
