@@ -1,5 +1,21 @@
-local position = {x = 32813, y = 32754, z = 9}
+local goPos = {x = 32813, y = 32754, z = 9}
 
-function onUse(cid, item, fromPosition, itemEx, toPosition)
-	doTeleportThing(cid, position)	
+function onUse(creature, item, position, fromPosition, pos, target, toPosition)
+	if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
+		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
+		return true
+    end
+	
+	local player = creature:getPlayer()
+	if not player then
+		return
+	end
+	
+	if player:getLevel() >= 250 then
+		position:sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(goPos)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	else
+		player:sendCancelMessage('You do not have enough level.')
+	end
 end
