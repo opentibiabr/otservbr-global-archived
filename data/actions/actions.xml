@@ -4,7 +4,10 @@
 	<action actionid="500" script="autoloot.lua" />
 	
     <!-- Training -->
-    <action fromid="32384" toid="32389" script="others/exercise_training.lua" allowfaruse="1"/>
+    <action fromid="32384" toid="32389" script="others/exercise training.lua" allowfaruse="1"/>
+
+	<!-- The Secret Library -->
+	<action actionid="64019" script="quests/the secret library/asura mirror.lua" />
 	
 	<!-- Store -->
 	<action itemid="26378" script="others/goldconverter.lua" />
@@ -1107,7 +1110,9 @@
 	<action fromid="13020" toid="13023" script="others/doors.lua" />
 	<action fromid="22814" toid="22831" script="others/doors.lua" />
 	<action fromid="25158" toid="25165" script="others/doors.lua" />
-	<action fromid="26541" toid="26546" script="others/doors.lua" />
+	<action fromid="27209" toid="27212" script="others/doors.lua" />
+	<action fromid="33295" toid="32965" script="others/doors.lua" />
+	<action fromid="34679" toid="34686" script="others/doors.lua" />
 	<action fromid="14755" toid="14760" script="others/hive_doors1.lua" />
 	<action fromid="14767" toid="14771" script="others/hive_doors2.lua" />
 
@@ -1146,6 +1151,7 @@
 	<action itemid="5543" script="others/teleport.lua" />
 	<action itemid="22845" script="others/teleport.lua" />
 	<action itemid="22846" script="others/teleport.lua" />
+	<action itemid="33397" script="others/teleport.lua" />
 	<action fromid="2376" toid="2404" script="others/destroy.lua" />
 	<action itemid="2406" script="others/destroy.lua" />
 	<action fromid="2408" toid="2415" script="others/destroy.lua" />

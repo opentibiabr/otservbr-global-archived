@@ -53,7 +53,7 @@
 	<mount id="52" clientid="631" name="Winter King" speed="20" premium="yes" />
 	<mount id="53" clientid="644" name="Doombringer" speed="20" premium="yes" />
 	<mount id="54" clientid="647" name="Woodland Prince" speed="20" premium="yes" />
-	<mount id="55" clientid="648" name="Hailtorm Fury" speed="20" premium="yes" />
+	<mount id="55" clientid="648" name="Hailstorm Fury" speed="20" premium="yes" />
 	<mount id="56" clientid="649" name="Siegebreaker" speed="20" premium="yes" />
 	<mount id="57" clientid="650" name="Poisonbane" speed="20" premium="yes" />
 	<mount id="58" clientid="651" name="Blackpelt" speed="20" premium="yes" />
@@ -112,10 +112,10 @@
 	<mount id="111" clientid="960" name="Ember Saurian" speed="20" premium="yes" />
 	<mount id="112" clientid="961" name="Lagoon Saurian" speed="20" premium="yes" />
 	<mount id="113" clientid="1017" name="Blazing Unicorn" speed="20" premium="yes" />
-	<mount id="114" clientid="1018" name="Artic Unicorn" speed="20" premium="yes" />
+	<mount id="114" clientid="1018" name="Arctic Unicorn" speed="20" premium="yes" />
 	<mount id="115" clientid="1019" name="Prismatic unicorn" speed="20" premium="yes" />
 	<mount id="116" clientid="1025" name="Cranium Spider" speed="20" premium="yes" />
-	<mount id="117" clientid="1026" name="Cave Spider" speed="20" premium="yes" />
+	<mount id="117" clientid="1026" name="Cave Tarantula" speed="20" premium="yes" />
 	<mount id="118" clientid="1027" name="Gloom Widow" speed="20" premium="yes" />
 	<mount id="119" clientid="1049" name="Mole" speed="20" premium="yes" />
 	<mount id="120" clientid="1052" name="Marsh Toad" speed="20" premium="yes" />
@@ -124,7 +124,7 @@
 	<mount id="123" clientid="1091" name="Ebony Tiger" speed="20" premium="yes" />
 	<mount id="124" clientid="1092" name="Feral Tiger" speed="20" premium="yes" />
 	<mount id="125" clientid="1093" name="Jungle Tiger" speed="20" premium="yes" />
-	<mount id="126" clientid="1101" name="Flying Book" speed="20" premium="yes" />
+	<mount id="126" clientid="1101" name="Fleeting Knowledge" speed="20" premium="yes" />
 	<mount id="127" clientid="1104" name="Tawny Owl" speed="20" premium="yes" />
 	<mount id="128" clientid="1105" name="Boreal Owl" speed="20" premium="yes" />
 	<mount id="129" clientid="1106" name="Snowy Owl" speed="20" premium="yes" />

@@ -5,7 +5,6 @@ local t = {
 	[9121] = {{x=33061, y=31527, z=10}, {x=32993, y=31547, z=4}, effect = true}, -- Farmine Stage 3
 	[9122] = {{x=33061, y=31527, z=12}, {x=32993, y=31547, z=4}, effect = true}, -- Farmine Stage 2	
 	[9123] = {{x=33061, y=31527, z=14}, {x=32993, y=31547, z=4}, effect = true} -- Farmine Stage 1
---	[5505] = {{x=33055, y=31527, z=10}, {x=33055, y=31527, z=10}, effect = false}
 }
  
 function onUse(cid, item, fromPosition, itemEx, toPosition)

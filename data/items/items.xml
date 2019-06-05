@@ -12536,10 +12536,9 @@
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="7385" article="a" name="crimson sword">
-		<attribute key="description" value="Its blade is very notchy." />
 		<attribute key="weight" value="3600" />
 		<attribute key="defense" value="20" />
-		<attribute key="attack" value="18" />
+		<attribute key="attack" value="28" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="extradef" value="1" />
 		<attribute key="imbuingSlots" value="2" />
@@ -15128,9 +15127,10 @@
 		<attribute key="duration" value="120" />
 	</item>
 	<item id="8209" article="a" name="crimson sword">
+		<attribute key="description" value="Its blade is very notchy." />
 		<attribute key="weight" value="3600" />
-		<attribute key="defense" value="20" />
-		<attribute key="attack" value="28" />
+		<attribute key="attack" value="18" />
+		<attribute key="defense" value="10" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="extradef" value="1" />
 	</item>
@@ -20371,13 +20371,6 @@
 	<item id="11394" article="a" name="dragon goblet">
 		<attribute key="weight" value="1800" />
 		<attribute key="description" value="A goblet forged by the dragon Khax that represents all the knowledge and wisdom of TibiaVenezuela." />
-	</item>
-	<item id="11395" article="a" name="crimson sword">
-		<attribute key="weight" value="3600" />
-		<attribute key="defense" value="20" />
-		<attribute key="attack" value="28" />
-		<attribute key="weaponType" value="sword" />
-		<attribute key="extradef" value="1" />
 	</item>
 	<item id="11396" name="special flask">
 		<attribute key="weight" value="180" />
@@ -30038,7 +30031,7 @@
 	</item>
 	<item fromid="21714" toid="21719" article="a" name="basalt crystal wall" />
 	<item id="21721" article="a" name="large crystal teleporter" />
-	<item fromid="21722" toid="21723" article="an" name="Opticorder forge" />
+	<item fromid="21722" toid="21723" article="an" name="opticorder forge" />
 	<item id="21724" article="a" name="strangely shaped block" />
 	<item id="21725" article="a" name="furious frock">
 		<attribute key="weight" value="3400" />
@@ -30048,7 +30041,7 @@
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="21726" article="an" name="Opticording sphere">
+	<item id="21726" article="an" name="opticording sphere">
 		<attribute key="weight" value="200" />
 		<attribute key="description" value="This strange box holds a dark sphere. There is some kind of button at one side and a lens up front." />
 	</item>
@@ -36238,12 +36231,30 @@
 		<attribute key="floorchange" value="south" />
 	</item>
 	<item id="27705" article="a" name="dragon lair wall" />
-	<item fromid="27715" toid="27716" article="a" name="Portal of Black Energy" />
-	<item fromid="27717" toid="27718" article="a" name="Portal of Green Energy" />
-	<item fromid="27719" toid="27720" article="a" name="Portal of Violet Energy" />
-	<item fromid="27721" toid="27722" article="a" name="Portal of Orange Energy" />
-	<item fromid="27723" toid="27724" article="a" name="Portal of Golden Energy" />
-	<item fromid="27725" toid="27726" article="a" name="Portal of Blue Energy" />
+	<item fromid="27715" toid="27716" article="a" name="portal of black energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27717" toid="27718" article="a" name="portal of green energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27719" toid="27720" article="a" name="portal of violet energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27721" toid="27722" article="a" name="portal of orange energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27723" toid="27724" article="a" name="portal of golden energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item fromid="27725" toid="27726" article="a" name="portal of blue energy">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
 	<item id="27727" article="an" name="inert astral shaper rune">
 		<attribute key="weight" value="850" />
 		<attribute key="description" value="The rune has become inert and will need some hours to regain full strength." />
@@ -40919,6 +40930,7 @@
 	<item id="33402" article="a" name="writing desk">
 		<attribute key="containerSize" value="5" />
 	</item>
+	<item id="33397" article="a" name="ladder" />
 	<item id="33403" article="a" name="dead true dawnfire asura">
 	<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="33404" />
@@ -41435,8 +41447,14 @@
 	<item id="34610" article="an" name="ice flowers"/>
 	<item id="34611" article="an" name="ice flower"/>
 	<item id="34612" article="an" name="ice flower"/>
-	<item id="34617" article="a" name="portal"/>
-	<item id="34618" article="a" name="portal"/>
+	<item id="34617" article="a" name="portal">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
+	<item id="34618" article="a" name="portal">
+		<attribute key="description" value="You can see the other side through it." />
+		<attribute key="type" value="teleport" />
+	</item>
 	<item fromid="34619" toid="34624" article="an" name="old desk"/>
 	<item id="34626" article="a" name="minotaur skull">
 		<attribute key="weight" value="2500" />

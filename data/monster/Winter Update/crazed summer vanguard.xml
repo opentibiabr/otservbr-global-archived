@@ -54,10 +54,10 @@
 <item name="elven astral observer" count="2" chance="1000000" /> 
 <!--uncommon-->
 <item name="dream essence egg" chance="15000" />
-<item name="beleted cape" chance="11550" />    
-<item name="two handed swor" chance="13550" />
+<item name="belted cape" chance="11550" />    
+<item name="two handed sword" chance="13550" />
 <item name="seeds" chance="14750" />
-<item name="scimitar" chance="17550" />
+<item id="2419" chance="17550" /> <!-- scimitar -->
 <item name="knife" chance="15650" />
 <item name="dragon necklace" chance="14550" />
 <item name="magma amulet" chance="16550" />
