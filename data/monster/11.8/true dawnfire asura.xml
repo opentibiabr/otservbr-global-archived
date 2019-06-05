@@ -25,7 +25,7 @@
 		</attack>
 		
 		
-			<attack name="fire" interval="1000" chance="15" length="3" length="1"   min="120" max="450">
+			<attack name="fire" interval="1000" chance="15" length="1"  min="120" max="450">
 			<attribute key="areaEffect" value="fire" />
 		</attack>
 		

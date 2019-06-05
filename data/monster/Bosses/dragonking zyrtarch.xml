@@ -45,7 +45,7 @@
 	</attacks>
 	<defenses armor="52" defense="64"/>
 	<voices interval="2000" chance="7">
-		<voice sentence="<grunt>" />
+		<!-- <voice sentence="<grunt>" /> -->
 		<voice sentence="Raar!!" />
 	</voices>
 	<immunities>
