@@ -1110,7 +1110,9 @@
 	<action fromid="13020" toid="13023" script="others/doors.lua" />
 	<action fromid="22814" toid="22831" script="others/doors.lua" />
 	<action fromid="25158" toid="25165" script="others/doors.lua" />
-	<action fromid="26541" toid="26546" script="others/doors.lua" />
+	<action fromid="27209" toid="27212" script="others/doors.lua" />
+	<action fromid="33295" toid="32965" script="others/doors.lua" />
+	<action fromid="34679" toid="34686" script="others/doors.lua" />
 	<action fromid="14755" toid="14760" script="others/hive_doors1.lua" />
 	<action fromid="14767" toid="14771" script="others/hive_doors2.lua" />
 
