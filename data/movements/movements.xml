@@ -31,6 +31,7 @@
 	<!-- Falcons Island -->
 	<movevent event="StepIn" actionid="57602" script="falcon castle/portal.lua" />
 	<movevent event="StepIn" actionid="57699" script="falcon castle/portal.lua" />
+	<movevent event="StepIn" actionid="3255" script="falcon castle/portal.lua" />
 	<movevent event="StepIn" fromaid="64007" toaid="64009" script="FalconsEntrance.lua" />
 	<movevent event="StepIn" fromaid="64010" toaid="64012" script="FalconsExit.lua" />
 

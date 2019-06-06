@@ -1,9 +1,9 @@
 local config = {
     [57602] = Position(33329, 31333, 9),
     [57699] = Position(33308, 31325, 8),
-    -- [missing actionid at 33305, 31347, 8] = Position(3347, 31345, 8),
+    [3255] = Position(3347, 31345, 8)
 }
-local destination = Position(33329, 31333, 9),
+local destination = Position(33329, 31333, 9)
 
 function onStepIn(creature, item, position, fromPosition)
     local player = creature:getPlayer()
