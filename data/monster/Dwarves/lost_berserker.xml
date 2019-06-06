@@ -53,7 +53,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Kill! Kill! Kill!" />
+		<voice sentence="Kill! Kiill! Kill!" />
 		<voice sentence="Death! Death! Death!" />
 	</voices>
 	<loot>

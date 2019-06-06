@@ -55,8 +55,4 @@
     <immunity earth="1" />
     <immunity drunk="1" />
   </immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="EMBRACE MY GIFTS!" yell="1"/>
-		<voice sentence="I WILL FEAST ON YOUR SOUL!" yell="1"/>
-	</voices>
 </monster>

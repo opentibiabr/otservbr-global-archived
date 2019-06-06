@@ -53,6 +53,8 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="5">
+		<voice sentence="Your new name is breakfast." yell="1" />
+		<voice sentence="I'm bad to the bone." yell="1" />
 		<voice sentence="DEATH CAN'T STOP MY HUNGER!" yell="1" />
 	</voices>
 	<loot>

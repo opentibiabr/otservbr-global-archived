@@ -44,7 +44,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="SNUFFLE" />
+		<voice sentence="GRUNT" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->		

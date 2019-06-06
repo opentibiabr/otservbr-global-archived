@@ -35,7 +35,9 @@
 		<immunity ice="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="Chikuva!!" />
+		<voice sentence="Chikuva!" />
+		<voice sentence="Grrrr! Kisavuta!" />
+		<voice sentence="Aiiee!" />
 		<voice sentence="Jinuma jamjam!" />
 		<voice sentence="Suvituka siq chuqua!" />
 		<voice sentence="Kiyosa sipaju!" />

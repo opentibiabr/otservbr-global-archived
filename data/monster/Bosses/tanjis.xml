@@ -60,7 +60,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="3000" chance="200">
-		<voice sentence="JAUL QJELL, JAKNH JEH KENH!!" />
+		<voice sentence="JAU QJELL, JAKHN JEH KENH!!" />
 	</voices>
 	<elements>
 		<element earthPercent="-20" />

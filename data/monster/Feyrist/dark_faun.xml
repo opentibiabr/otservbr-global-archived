@@ -50,9 +50,8 @@
 		<element physicalPercent="10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Are you posing a threat to this realm? I suppose so." />
-		<voice sentence="Hicks!" />
-		<voice sentence="This is will be your last dance!" />
+		<voice sentence="Blood, fight and rage!" />
+		<voice sentence="This will be your last dance!" />
 		<voice sentence="You're a threat to this realm! You have to die!" />
 		<voice sentence="This is a nightmare and you won't wake up!" />
 	</voices>

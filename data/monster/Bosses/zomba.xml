@@ -28,7 +28,7 @@
 		<element deathPercent="-8" />
 	</elements>
 	<voices interval="2000" chance="7">
-		<voice sentence="Groarrr!" />
+		<voice sentence="Groarrrr! Rwarrrr!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="25" chance="100000" /><!-- gold coin -->

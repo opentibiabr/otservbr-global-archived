@@ -59,9 +59,9 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Kazzzzuuuum!!" />
+		<voice sentence="Kazzzzzzuuum!" />
 		<voice sentence="Fissziss!" />
-		<voice sentence="Zzzzzooom!!" />
+		<voice sentence="Zzzzzooom!" />
 	</voices>
 	<loot>
 		<item name="ring of the sky" chance="370" />

@@ -59,12 +59,6 @@
 		<immunity ice="1" />
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="YOU WILL FREEZE!" yell="1" />
-		<voice sentence="ZCHHHHH!" yell="1" />
-		<voice sentence="I am so cool" />
-		<voice sentence="Chill out!." />
-	</voices>
 	<loot>
 		<item id="27605" chance="100000"/> <!-- dragon blood -->
 		<item id="2672" countmax="3" chance="80000"/> <!-- dragon ham -->

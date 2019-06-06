@@ -58,10 +58,10 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="Cool down, you will?" />
+		<voice sentence="Cool down, will you?" />
 		<voice sentence="Freeze!" />
 		<voice sentence="Is this all you've got?" />
-		<voice sentence="Rise, my servants. Destroy the trespassers!" />
+		<voice sentence="Pay for your ignorance!" />
 		<voice sentence="And stay cool." />
 		<voice sentence="Your cold dead body will be a marvelous ice statue." />
 	</voices>

@@ -52,13 +52,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="You are marked for death!" />
-		<voice sentence="This time the prey is you!" />
-		<voice sentence="You are hunted!" />
-		<voice sentence="Bullseye!" />
-		<voice sentence="You'll make a fine trophy!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="199" chance="99500" />	<!-- gold coin -->
 		<item id="2152" countmax="3" chance="33890" />	<!-- platinum coin -->

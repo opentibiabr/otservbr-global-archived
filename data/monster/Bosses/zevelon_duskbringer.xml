@@ -45,8 +45,12 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="Human blood is not suitable for drinking" />
-		<voice sentence="Your short live is coming to an end" />
+		<voice sentence="I want Your Blood" />
+		<voice sentence="Come Here!" />
+		<voice sentence="I will be still around when my 'noble' race is gone" />
+		<voice sentence="Human blood is not suitable for drinking!" />
+		<voice sentence="Human blood is a hardly suitable drink." />
+		<voice sentence="Your short live is coming to an end." />
 		<voice sentence="Ashari Mortals. Come and stay forever!" />
 	</voices>
 	<summons maxSummons="3">

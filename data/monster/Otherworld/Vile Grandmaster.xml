@@ -43,11 +43,10 @@
 	</elements>
 	<voices interval="2000" chance="13">
 		<voice sentence="I will end this now!" />
-		<voice sentence="I've seen orcs though than you!" />
+		<voice sentence="I've seen orcs tougher than you!" />
 		<voice sentence="Your gods won't help you!" />
-		<voice sentence="Is that the best, they can throw at me?" />
+		<voice sentence="Is that the best, you can throw at me?" />
 		<voice sentence="You'll make a fine trophy!" />
-		<voice sentence="Let's have a fight!" />
 	</voices>
 	<loot>
 		<item id="7364" countmax="4" chance="1210" />	<!-- Sniper Arrow -->

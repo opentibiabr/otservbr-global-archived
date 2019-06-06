@@ -50,6 +50,10 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
+	<voices interval="10000" chance="7">
+		<voice sentence="Is this real life?" /> 
+		<voice sentence="Weeeuuu weeeuuu!!!" /> 
+	</voices>
 	<loot>
 <!--common-->
 <item name="power bolt" chance="1000000" /> 

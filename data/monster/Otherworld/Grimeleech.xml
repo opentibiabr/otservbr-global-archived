@@ -63,9 +63,7 @@
     		<immunity invisible="1" />
   	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="Death!" yell="1"/>
-		<voice sentence="Come a little closer!" yell="1"/>
-		<voice sentence="The end is near!" yell="1"/>
+		<voice sentence="Death... Taste!" yell="1"/>
 	</voices>
 	<loot>
 	<item id="2148" countmax="271" chance="59020" /><!-- gold coin -->

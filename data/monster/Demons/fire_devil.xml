@@ -43,7 +43,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Hot, eh?" />
-		<voice sentence="Hell, oh hell!" />
+		<voice sentence="Hell, oh, hell!" />
 	</voices>
 	<loot>
 		<item id="2050" chance="10000" /><!-- torch -->

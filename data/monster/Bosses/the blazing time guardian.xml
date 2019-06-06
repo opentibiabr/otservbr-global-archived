@@ -59,9 +59,6 @@
 		<immunity name="drunk"/>
 		<immunity name="invisible"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="This place is sacred!"/>
-	</voices>
 	<summons maxSummons="8">
 		<summon name="time waster" interval="2000" chance="3" max="8"/>
 	</summons>

@@ -30,7 +30,7 @@
 		<immunity drown="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Luuurrrp" />
+		<voice sentence="Luuurrrp!" />
 	</voices>
 	<loot>
 		<item name="shrimp" chance="8333" />

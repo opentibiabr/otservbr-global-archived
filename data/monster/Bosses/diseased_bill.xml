@@ -52,8 +52,10 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="Tchhh!" />
-		<voice sentence="Slurp!" />
+		<voice sentence="People like you are the plague and I'll be the cure!" />
+		<voice sentence="You all will pay for not helping me!" />
+		<voice sentence="Cough! Cough!" />
+		<voice sentence="Desolate! Everything is so desolate!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="65" chance="28000" />

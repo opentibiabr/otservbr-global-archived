@@ -37,7 +37,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Clank clank!" />
+		<voice sentence="Clank! Clank!" />
 		<voice sentence="Clap!" />
 		<voice sentence="Crrrk! Crrrk!" />
 	</voices>

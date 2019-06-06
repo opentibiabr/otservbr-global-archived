@@ -62,7 +62,7 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="Learn the secret of our magic! YOUR death!" />
-		<voice sentence="Even a rat is a better mage than you." />
+		<voice sentence="Even a rat is a better mage than you!" />
 		<voice sentence="We don't like intruders!" />
 	</voices>
 	<loot>

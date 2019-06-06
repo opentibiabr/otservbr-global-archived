@@ -54,7 +54,7 @@
 		<voice sentence="Simsalabim" />
 		<voice sentence="Feel the power of my magic, tiny mortal!" />
 		<voice sentence="Be careful what you wish for." />
-		<voice sentence="Wishes can come true." />
+		<voice sentence="Wishes can come true" />
 	</voices>
 	<loot>
 		<item id="1963" chance="2350" /><!-- blue book -->

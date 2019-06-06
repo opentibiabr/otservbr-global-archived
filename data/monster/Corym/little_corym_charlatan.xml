@@ -20,9 +20,4 @@
 		<attack name="melee" interval="2000" min="0" max="-10" />
 	</attacks>
 	<defenses armor="10" defense="10" />
-	<voices interval="5000" chance="10">
-		<voice sentence="Squeeeeeeak!" />
-		<voice sentence="Must have it! Must have it!" />
-		<voice sentence="Gimme! Gimme!" />
-	</voices>
 </monster>

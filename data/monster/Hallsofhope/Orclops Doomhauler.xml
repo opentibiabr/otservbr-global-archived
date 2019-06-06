@@ -47,10 +47,10 @@
 	<element energyPercent="-10"/>
   </elements>
 	<voices interval="2000" chance="7">
-		<voice sentence="Me Smash!" />
+		<voice sentence="Me mash!" />
 		<voice sentence="GRRRRR!" />
 		<voice sentence="Muhahaha!" />
-		<voice sentence="Me strong, You weak!" />
+		<voice sentence="Me strong, you weak!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="185" chance="50320" /><!-- gold coin -->

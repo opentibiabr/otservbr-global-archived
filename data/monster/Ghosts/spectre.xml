@@ -56,8 +56,10 @@
 		<immunity drunk="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Revenge ... is so ... sweet!" />
-		<voice sentence="Life...force! Feed me your... lifeforce!" />
+		<voice sentence="Revenge ... is so ... sweet." />
+		<voice sentence="Life...force! Feed me your... lifeforce" />
+		<voice sentence="Mor... tals!" />
+		<voice sentence="Buuuuuh" />
 	</voices>
 	<loot>
 		<item id="2071" chance="9620" /><!-- lyre -->

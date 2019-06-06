@@ -35,6 +35,9 @@
 	<immunities>
 		<immunity fire="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="FCHHHRRR" />
+	</voices>
 	<loot>
 		<item name="small ruby" countmax="3" chance="3200" />
 		<item name="gold coin" countmax="65" chance="12500" />

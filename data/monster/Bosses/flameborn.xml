@@ -43,13 +43,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Your fragile bones are like toothpicks to me." />
-		<voice sentence="You little weasel will not live to see another day." />
-		<voice sentence="I'm just a messenger of what's yet to come." />
-		<voice sentence="HRAAAAAAAAAAAAAAAARRRR" yell="1" />
-		<voice sentence="I'm taking you down with me!" />
-	</voices>
 	<loot>
 		<item id="2152" countmax="1" chance="100000" /><!-- platinum coin -->
 		<item id="2152" countmax="13" chance="100000" /><!-- platinum coin -->

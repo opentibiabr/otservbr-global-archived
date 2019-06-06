@@ -55,7 +55,6 @@
 	</immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="EMBRACE MY GIFTS!" yell="1" />
-		<voice sentence="I WILL FEAST ON YOUR SOUL!" yell="1" />
 	</voices>
 	<loot>
 		<item id="11366" chance="100000" />					<!-- ghastly dragon head -->

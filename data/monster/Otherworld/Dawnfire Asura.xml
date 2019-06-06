@@ -53,8 +53,7 @@
 	<voices interval="2000" chance="7">
 		<voice sentence="Encounter the flames of destiny!" />
 		<voice sentence="Fire and destruction!" yell="1" />
-		<voice sentence="I will end your torment. Do not run, little mortal." />
-		<voice sentence="Join me, brothers, for a BLOODY FRENZY!" />
+		<voice sentence="May the flames consume you!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->		

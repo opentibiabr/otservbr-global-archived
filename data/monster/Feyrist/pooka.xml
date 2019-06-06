@@ -49,8 +49,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Hoppel-di-hopp!" />
 		<voice sentence="Jinx!" />
-		<voice sentence="This was initial trick, but the second follows quick!" />
-		<voice sentence="Do you have shiny things for me?" />
+		<voice sentence="This was the initial trick, but the second follows quick!" />
 	</voices>
 	<loot>
 		<item name="carrot on a stick" chance="20" />

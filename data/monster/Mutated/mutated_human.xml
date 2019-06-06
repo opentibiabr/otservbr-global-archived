@@ -50,9 +50,9 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Take that creature off my back!! I can fell it!" />
-		<voice sentence="HEEEEEEEELP!" />
-		<voice sentence="You will be the next infected one... GRAAAAAAAAARRR!" />
+		<voice sentence="Take that creature off my back!! I can feel it!" />
+		<voice sentence="You will regret interrupting my studies!" />
+		<voice sentence="You will be the next infected one... CRAAAHHH!" />
 		<voice sentence="Science... is a curse." />
 		<voice sentence="Run as fast as you can." />
 		<voice sentence="Oh by the gods! What is this... aaaaaargh!" />

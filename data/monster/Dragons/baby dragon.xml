@@ -49,10 +49,6 @@
 		<immunity physical="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="Fchu?" yell="0"/>
-		<voice sentence="Rooawwrr"/>
-	</voices>
 	<loot>
 		<item id="2672" chance="60990"/><!-- dragon ham -->
 		<item id="12413" chance="4310"/><!-- dragon tail -->

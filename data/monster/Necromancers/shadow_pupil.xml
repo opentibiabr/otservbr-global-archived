@@ -49,6 +49,9 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="When I'm finished with you, you'll be a shadow of your former self." />
+		<voice sentence="The shadows will swallow you..." />
+		<voice sentence="The shadows follow your every step..." />
+		<voice sentence="Come forth from the shadows, my minions..." />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="64" chance="100000" />

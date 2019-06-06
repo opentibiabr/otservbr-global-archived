@@ -49,10 +49,10 @@
 		<summon name="War Wolf" interval="1000" chance="13" />
 	</summons>
 	<voices interval="2000" chance="7">
-		<voice sentence="You desecrated this place!" />
+		<voice sentence="You desacrated this place!" />
 		<voice sentence="I will cleanse this isle!" />
 		<voice sentence="Grrrrrrr" />
-		<voice sentence="Yoooohhuuuu!" yell="1" />
+		<voice sentence="Yoooohuuuu!" yell="1" />
 	</voices>
 	<loot>
 		<item id="10563" chance="100000" />				<!-- book of prayers -->

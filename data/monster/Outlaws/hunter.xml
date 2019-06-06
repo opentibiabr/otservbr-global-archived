@@ -31,7 +31,7 @@
 		<element physicalPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Guess who we're hunting, haha!" />
+		<voice sentence="Guess who we're hunting, hahaha!" />
 		<voice sentence="Guess who we are hunting!" />
 		<voice sentence="Bullseye!" />
 		<voice sentence="You'll make a nice trophy!" />

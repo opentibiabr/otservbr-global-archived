@@ -46,7 +46,7 @@
 	</immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="I can kill a man in a thousand ways. And that`s only with a spoon!" />
-		<voice sentence="You shouldn't have come here!" />
+		<voice sentence="You shouldn`t have come here!" />
 		<voice sentence="Haiiii!" />
 	</voices>
 	<loot>

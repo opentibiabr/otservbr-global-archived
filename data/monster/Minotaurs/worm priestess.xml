@@ -53,8 +53,6 @@
 	<voices interval="2000" chance="5">
 		<voice sentence="An enemy of the worm shall become his food!" />
 		<voice sentence="The great worm will swallow you!" />
-		<voice sentence="And our enemies he will swallow!" />
-		<voice sentence="The worm may guide me in this hour of darkness!" />
 		<voice sentence="From the earthy depths he comes and brings freedom!" />
 	</voices>
 	<loot>

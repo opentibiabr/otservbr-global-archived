@@ -57,6 +57,7 @@
 		<voice sentence="I will devour your soul." />
 		<voice sentence="Souuuls!" />
 		<voice sentence="I will feed on you." />
+		<voice sentence="Aaaahh" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="33400" />

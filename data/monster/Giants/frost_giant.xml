@@ -35,12 +35,12 @@
 		<immunity ice="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Hmm Humansoup" />
+		<voice sentence="Hmm Humansoup!" />
 		<voice sentence="Stand still ya tasy snack!" />
 		<voice sentence="Joh Thun!" />
-		<voice sentence="Brore Smode!" />
-		<voice sentence="Horre Sjan Flan!" />
-		<voice sentence="Forle Bramma!" />
+		<voice sentence="Br&#246;re Sm&#246;de!" />
+		<voice sentence="H&#246;rre Sjan Flan!" />
+		<voice sentence="Forle Bramma" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="40" chance="82000" />

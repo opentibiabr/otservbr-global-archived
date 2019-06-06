@@ -45,7 +45,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Creak!" />
-		<voice sentence="Crunch!" />
+		<voice sentence="Crackle!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="90" chance="85000" />

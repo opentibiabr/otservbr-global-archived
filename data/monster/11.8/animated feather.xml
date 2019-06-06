@@ -45,10 +45,6 @@
 		<immunity ice="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Scribble scribble" />
-		<voice sentence="*scraaaatch*" />
-	</voices>
 	<loot>
 <!-- common -->	
 		<item name="Small Sapphire" countmax="5" chance="8700" />

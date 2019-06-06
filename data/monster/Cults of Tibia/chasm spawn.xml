@@ -47,12 +47,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="I'll protect the herd!" />
-		<voice sentence="Never surrender!" />
-		<voice sentence="You won't hurt us!" />
-		<voice sentence="I will not allow your evil to continue!" />
-	</voices>
 	<loot>
 		<item id="2148" countmin="9" countmax="196" chance="100000" />	<!-- gold coin -->
 		<item id="2671" countmax="1" chance="60780" />		<!-- ham -->

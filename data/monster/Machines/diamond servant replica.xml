@@ -49,10 +49,6 @@
 		<immunity invisible="1"/>
 		<immunity paralyze="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="Error. LOAD 'PROGRAM',8,1" yell="1"/>
-		<voice sentence="Remain. Obedient." yell="1"/>
-	</voices>
 	<loot>
 		<item id="10572" chance="5040"/><!-- gear crystal -->
 		<item id="9690" chance="5070"/><!-- gear wheel -->

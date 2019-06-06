@@ -46,6 +46,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
+		<voice sentence="I love the smell of firebombs in the morning." />
 		<voice sentence="I'm going to make them an offer they can't refuse." />
 		<voice sentence="My masterplan cannot fail!" />
 		<voice sentence="Gentlemen, you can't fight here! This is the War Room!" />

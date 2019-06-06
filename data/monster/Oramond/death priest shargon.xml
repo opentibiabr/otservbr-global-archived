@@ -44,12 +44,6 @@
         <summon name="Superior Death Minion" interval="2000" chance="30" max="2"/>
 		<summon name="Greater Death Minion" interval="2000" chance="30" max="2"/>
 	</summons>
-	<voices interval="2000" chance="7">
-		<voice sentence="Your tricks are older then my minions!" />
-		<voice sentence="You wont trap me!" />
-		<voice sentence="Amuse yourself with my slaves as long was your traps are in place!" />
-		<voice sentence="Shargon absorbs necromantic energy to regenerate!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="99" chance="100000"/><!-- gold coin -->
 		<item id="7591" countmax="3" chance="100000"/><!-- great health potion -->

@@ -37,4 +37,12 @@
 		<immunity drown="1" />
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You can't have my treasures!"/>
+		<voice sentence="Hit me one more time!"/>
+		<voice sentence="Na Nana Naaa Naaa!"/>
+		<voice sentence="You'll never get my stuff!"/>
+		<voice sentence="Do you really want to hurt me?"/>
+		<voice sentence="Bring it on!"/>
+	</voices>
 </monster>

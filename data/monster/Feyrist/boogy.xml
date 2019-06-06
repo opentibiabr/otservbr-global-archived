@@ -52,7 +52,6 @@
 	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="Go to sleep!" />
-		<voice sentence="Roarrr!" />
 	</voices>
 	<loot>
 		<item id="27058" countmax="5" chance="3000"/> <!-- ancient coin -->

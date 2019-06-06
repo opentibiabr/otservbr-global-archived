@@ -38,7 +38,6 @@
 	</immunities>
 	<voices interval="2000" chance="13">
 		<voice sentence="I'll teach you a lesson!" />
-		<voice sentence="Your abilities are no match for mine!" />
 		<voice sentence="Take this!" />
 		<voice sentence="Let's see how good you are!" />
 		<voice sentence="Feel my steel!" />

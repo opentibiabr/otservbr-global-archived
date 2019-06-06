@@ -29,7 +29,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="13">
-		<voice sentence="The secrets are ours alone!" />
+		<voice sentence="The Secrets are ours alone!" />
 	</voices>
 	<loot>
 		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->
