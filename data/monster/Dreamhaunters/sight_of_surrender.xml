@@ -53,7 +53,7 @@
 		<voice sentence="NOW YOU WILL SURRENDER!" />
 	</voices>
 	<loot>
-		<item name="platinum coin" countmax="20" chance="100000" />
+		<item name="platinum coin" countmax="15" chance="100000" />
 		<item name="might ring" chance="8000" />
 		<item name="stone skin amulet" chance="18000" />
 		<item name="hammer of wrath" chance="1380" />
