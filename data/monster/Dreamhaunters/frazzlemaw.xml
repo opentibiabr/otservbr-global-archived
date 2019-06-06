@@ -64,8 +64,8 @@
 		<item name="piece of iron" chance="10400" />
 		<item name="fishbone" chance="10000" />
 		<item id="2229" chance="12680" /><!-- skull -->
-		<item id="2160" chance="10000" /><!-- bone -->
-		<item id="2160" chance="5500" /><!-- big bone -->
+		<item id="2230" chance="10000" /><!-- bone -->
+		<item id="2231" chance="5500" /><!-- big bone -->
 		<item name="fish remains" chance="9420" />
 		<item name="two handed sword" chance="3200" />
 		<item id="2667" countmax="3" chance="6750" /><!-- fish -->
@@ -73,7 +73,7 @@
 		<item name="iron ore" chance="3000" />
 		<item name="fish fin" chance="4700" />
 		<item name="hardened bone" chance="5000" />
-		<item id="5951" chance="10800" /> <!-- fish tail-->
+		<item id="5951" chance="10800" />
 		<item name="assassin dagger" chance="1000" />
 		<item name="haunted blade" chance="2240" />
 		<item name="nightmare blade" chance="1100" />
