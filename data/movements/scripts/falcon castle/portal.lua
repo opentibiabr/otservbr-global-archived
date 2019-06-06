@@ -1,0 +1,22 @@
+local config = {
+    [57602] = Position(33329, 31333, 9),
+    [57699] = Position(33308, 31325, 8),
+    -- [missing actionid at 33305, 31347, 8] = Position(3347, 31345, 8),
+}
+local destination = Position(33329, 31333, 9),
+
+function onStepIn(creature, item, position, fromPosition)
+    local player = creature:getPlayer()
+    if player == nil then
+        return false
+    end
+
+    for actionId, destination in ipairs(config) do
+        if item.actionid = actionId then
+            player:teleportTo(destination)
+            destination:sendMagicEffect(CONST_ME_POFF)
+            fromPosition:sendMagicEffect(CONST_ME_POFF)
+            return true
+        end
+    end
+end

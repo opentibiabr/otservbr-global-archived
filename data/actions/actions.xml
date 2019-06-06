@@ -429,6 +429,8 @@
 	<!-- Farmine -->
 	<action fromaid="9118" toaid="9123" script="farmine/elevatorLever.lua" />
 	<action fromaid="12141" toaid="12142" script="farmine/templeofequilibrium_vines.lua" />
+	<action actionid="57601" script="farmine/boat.lua" />
+	<action actionid="64007" script="farmine/boat.lua" />
 
 	<!-- Weapons enchanting (Gems) -->
 	<action itemid="2149" script="others/earthfeyristentrada.lua" />
