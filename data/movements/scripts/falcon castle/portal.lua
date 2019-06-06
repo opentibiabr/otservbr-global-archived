@@ -10,7 +10,7 @@ function onStepIn(creature, item, position, fromPosition)
         return false
     end
 
-    for actionId, destination in ipairs(config) do
+    for actionId, destination in pairs(config) do
         if item.actionid == actionId then
             player:teleportTo(destination)
             destination:sendMagicEffect(CONST_ME_POFF)
