@@ -3,7 +3,6 @@ local config = {
     [57699] = Position(33308, 31325, 8),
     [3255] = Position(3347, 31345, 8)
 }
-local destination = Position(33329, 31333, 9)
 
 function onStepIn(creature, item, position, fromPosition)
     local player = creature:getPlayer()
@@ -12,7 +11,7 @@ function onStepIn(creature, item, position, fromPosition)
     end
 
     for actionId, destination in ipairs(config) do
-        if item.actionid = actionId then
+        if item.actionid == actionId then
             player:teleportTo(destination)
             destination:sendMagicEffect(CONST_ME_POFF)
             fromPosition:sendMagicEffect(CONST_ME_POFF)
