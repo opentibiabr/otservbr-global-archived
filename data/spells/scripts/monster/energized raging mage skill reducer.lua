@@ -1,7 +1,7 @@
 local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_ENERGYHIT)
 
-local area = createCombatArea(AREA_CROSS6X6)
+local area = createCombatArea(AREA_CIRCLE6X6)
 combat:setArea(area)
 
 local condition = Condition(CONDITION_ATTRIBUTES)

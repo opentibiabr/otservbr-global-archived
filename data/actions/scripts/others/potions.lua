@@ -80,11 +80,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	if (item:getId() >= 26029 and item:getId() <= 26031 and player:getStorageValue(warPrivate_storage) > 0) then
-		player:say("This potion can't be used in War Anti-Entrosa!", TALKTYPE_MONSTER_SAY)
-		return false
-	end
-
 	if player:getCondition(CONDITION_EXHAUST_HEAL) then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
 		return true

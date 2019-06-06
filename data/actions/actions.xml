@@ -636,7 +636,7 @@
 	<action uniqueid="2007" script="quests/behemoth/lever.lua" />
 
 	<!-- Bigfoot Burden Quest -->
-	<action uniqueid="3143" script="quests/bigfoot burden/crystalWarzone1.lua"/>
+	<action uniqueid="3143" script="quests/bigfoot burden/warzone1Crystal.lua"/>
 	<action itemid="18305" script="quests/bigfoot burden/beer.lua" />
 	<action fromuid="3124" touid="3127" script="quests/bigfoot burden/music.lua" />
 	<action fromuid="3147" touid="3150" script="quests/bigfoot burden/rewards.lua" />

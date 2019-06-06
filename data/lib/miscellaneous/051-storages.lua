@@ -435,7 +435,11 @@ Storage = {
 		Warzone2Reward = 959,
 		Warzone3Reward = 960,
 		bossKills = 961,
-		openGoldenFruits = 962
+		openGoldenFruits = 962,
+		
+		BossWarzone1 = 963,
+		BossWarzone2 = 964,
+		BossWarzone3 = 965
 	},
 	TheirMastersVoice = {
 		SlimeGobblerTimeout = 984,

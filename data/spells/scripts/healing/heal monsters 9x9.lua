@@ -19,7 +19,7 @@ local combat = Combat()
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_BLUE)
 combat:setParameter(COMBAT_PARAM_AGGRESSIVE, 0)
 combat:setParameter(COMBAT_PARAM_DISPEL, CONDITION_PARALYZE)
-combat:setArea(createCombatArea(AREA_CROSS6X6))
+combat:setArea(createCombatArea(AREA_CIRCLE6X6))
 combat:setCallback(CALLBACK_PARAM_TARGETCREATURE, "onTargetCreature")
 
 function onCastSpell(creature, var)

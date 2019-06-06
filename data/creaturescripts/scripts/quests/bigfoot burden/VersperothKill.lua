@@ -35,7 +35,7 @@ function onKill(creature, target)
 		end
 	local tp = Game.createItem(1387, 1, teleportPosition)
 	if tp then
-		tp:setActionId(45701)
+		tp:setActionId(45702)
 	end
 
 	addEvent(transformTeleport, 1 * 60 * 1000, false)

@@ -4,7 +4,7 @@
 	<look type="23" corpse="5981" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-		<flag boss="1" />
+		
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />

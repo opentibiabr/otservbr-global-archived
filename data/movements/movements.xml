@@ -1,66 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <movements>
-	<!-- Master Voice Quest -->
-	<movevent event="StepIn" actionid="47710" script="quests/mastervoice/master_voice_entrance.lua" />
 	
-	<!-- NOVOS ELF EFEITO IGUAL GLOBAL -->
-	<movevent event="StepIn" actionid="62174" script="novos elfs/winter.lua" />
-	<movevent event="StepIn" actionid="62175" script="novos elfs/summer.lua" />
-	<movevent event="StepIn" actionid="62176" script="novos elfs/winterback.lua" />
-	<movevent event="StepIn" actionid="62177" script="novos elfs/summerback.lua" />
+	<!-- Adventurer's Guild -->
+	<movevent event="StepIn" actionid="4255" script="others/adventurersguild.lua" />
 	
-	<!-- Treiners Novos -->
-	<movevent event="StepIn" actionid="14876" script="trainertp.lua"/>
-    <movevent event="StepIn" actionid="14877" script="trainertp2.lua"/>
+	<!-- Bigfoot Burden Quest -->
+	<movevent event="StepIn" fromaid="9200" toaid="9201" script="quests/bigfoot burden/tasks/xray.lua" />
+	<movevent event="StepIn" fromaid="7816" toaid="7818" script="quests/bigfoot burden/tasks/endurance.lua" />
+	<movevent event="StepIn" uniqueid="3123" script="quests/bigfoot burden/tasks/xray.lua" />
+	<movevent event="StepIn" actionid="8030" script="quests/bigfoot burden/tasks/shooting.lua" />
+	<movevent event="StepOut" actionid="8030" script="quests/bigfoot burden/tasks/shooting.lua" />
+	<movevent event="StepIn" itemid="18340" script="quests/bigfoot burden/tasks/truffles.lua" />
+	<movevent event="StepIn" actionid="4121" script="quests/bigfoot burden/GCTS.lua" />
+	<movevent event="StepIn" actionid="35669" script="quests/bigfoot burden/GCTS.lua" />
+	<movevent event="StepIn" fromaid="3215" toaid="3222" script="quests/bigfoot burden/GCTS.lua" />
+	<movevent event="StepIn" fromaid="3128" toaid="3137" script="quests/bigfoot burden/GCTS.lua" />
+	<movevent event="StepIn" fromuid="3140" touid="3142" script="quests/bigfoot burden/warzonesTeleports.lua" />
+	<movevent event="StepIn" itemid="18463" script="quests/bigfoot burden/versperothSpawn.lua" />
+	<movevent event="StepIn" fromaid="45700" toaid="45702" script="quests/bigfoot burden/warzonesBosses.lua" /> <!-- actions for the entrance of bosses warzone 1, 2 and 3 -->
 	
-	<!-- Ilha 999 -->
-	<movevent event="StepIn" actionid="15998" script="tp999.lua" />
-	<movevent event="StepIn" actionid="15999" script="tp999exit.lua" />
-
-	<!-- Dangerous Depths -->
-	<movevent event="StepIn" actionid="57231" script="quests/Dangerous Depths/lostExiles.lua"/>
-	<movevent event="StepIn" actionid="57240" script="quests/Dangerous Depths/gnomesAvalanche.lua"/>
-	<movevent event="StepIn" actionid="57241" script="quests/Dangerous Depths/gnomesOrdnance.lua"/>
-	<movevent event="StepIn" actionid="57242" script="quests/Dangerous Depths/gnomesOrdnanceEnd.lua"/>
-	<movevent event="StepIn" actionid="57243" script="quests/Dangerous Depths/bossesEntrance.lua"/>
-
-	<!-- Portais de Energia -->
-	<movevent event="StepIn" actionid="57232" script="quests/Dangerous Depths/energyEntrances.lua"/>
-	<movevent event="StepIn" actionid="57230" script="quests/Dangerous Depths/warzoneEntrances.lua"/>
-
-	<!-- Falcons Island -->
-	<movevent event="StepIn" fromaid="64007" toaid="64009" script="FalconsEntrance.lua" />
-	<movevent event="StepIn" fromaid="64010" toaid="64012" script="FalconsExit.lua" />
-
-	<!-- Deep Desert -->
-	<movevent event="StepIn" actionid="64013" script="DeepDesertEntrance.lua" />
-	<movevent event="StepIn" actionid="64014" script="DeepDesertExit.lua" />
-
-	<!-- Extension MOTA -->
-	<movevent event="StepIn" actionid="64015" script="ExtensionMOTAEntrance.lua" />
-	<movevent event="StepIn" actionid="64016" script="ExtensionMOTAExit.lua" />
-
-	<!-- Port Hope Deeplings -->
-	<movevent event="StepIn" actionid="64017" script="PHDeeplingsEntrance.lua" />
-	<movevent event="StepIn" actionid="64018" script="PHDeeplingsExit.lua" />
-
-	<!-- Feyrist -->
-	<movevent event="StepIn" actionid="24900" script="quests/feyrist/entranceKroazur.lua" />
-	<movevent event="StepIn" actionid="24901" script="quests/feyrist/exitKroazur.lua" />
-
-	<!-- Threatened Dreams -->
-	<movevent event="Equip" itemid="29003" slot="ring" level="50" function="onEquipItem" />
-	<movevent event="DeEquip" itemid="29003" slot="ring" function="onDeEquipItem" />
+	<!-- Bright Sword Quest entrance - Outlaw Camp - -->
+	<movevent event="StepIn" actionid="5634" script="others/quests/brightSwordEntrance.lua" />
 	
-	<movevent event="Equip" itemid="29004" slot="shield" level="80" function="onEquipItem">
-	    <vocation name="Sorcerer" />		
-	    <vocation name="Master Sorcerer" showInDescription="0" />
-	    <vocation name="Druid" />	
-	    <vocation name="Elder Druid" showInDescription="0" />
-	</movevent>
-	<movevent event="DeEquip" itemid="29004" slot="shield" function="onDeEquipItem" />
-
-	<!-- cults of tibia Quest -->
+	<!-- Chayenne Realm Quest -->
+	<movevent event="StepIn" actionid="55022" script="quests/chayenne realm quest/enterRealm.lua" />
+	<movevent event="StepIn" actionid="55024" script="quests/chayenne realm quest/enterRealm.lua" />
+	
+	<!-- Children of the Revolution -->
+	<movevent event="StepIn" uniqueid="3163" script="quests/children of the revolution/temple.lua" />
+	<movevent event="StepIn" uniqueid="3166" script="quests/children of the revolution/symbols.lua" />
+	<movevent event="StepIn" fromaid="8009" toaid="8011" script="quests/children of the revolution/spy.lua" />
+	<movevent event="StepIn" fromuid="3167" touid="3168" script="quests/children of the revolution/teleport.lua" />
+	<movevent event="StepIn" uniqueid="3169" script="quests/children of the revolution/stairs.lua" />
+	<movevent event="StepIn" actionid="8014" script="quests/children of the revolution/click.lua" />
+	
+	<!-- Cults of Tibia Quests -->
 	<movevent event="StepIn" actionid="4999" script="quests/cults of tibia/sandEntrance.lua" />
 	<movevent event="StepIn" fromaid="5511" toaid="5516" script="quests/cults of tibia/bossTimer.lua" />
 	<movevent event="StepIn" actionid="5517" script="quests/cults of tibia/portalRio.lua" />
@@ -81,57 +55,91 @@
 	<movevent event="Equip" itemid="28658" slot="necklace" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="28658" slot="necklace" script="quests/cults of tibia/begintask.lua" />
 	<movevent event="StepIn" itemid="28869" script="quests/cults of tibia/geyser.lua" />
+	
+	<!-- Citizen Teleport -->
+	<movevent event="StepIn" fromuid="9056" touid="9068" script="others/teleports/citizen.lua" />
+	<movevent event="StepIn" uniqueid="9510" script="others/teleports/citizen.lua" />
+	<movevent event="StepIn" uniqueid="9240" script="others/teleports/citizen.lua" />
+	<movevent event="StepIn" fromuid="9500" touid="9501" script="others/teleports/citizen.lua" />
 
-	<!-- Heart of Destruction Quest -->
-	<movevent event="StepIn" fromaid="48060" toaid="48069" script="quests/heart of destruction/tps.lua"/>
-    <movevent event="StepIn" fromaid="14321" toaid="14325" script="quests/heart of destruction/hearttps.lua"/>
-    <movevent event="StepIn" fromaid="14340" toaid="14354" script="quests/heart of destruction/hearttps.lua"/>
-    
-    <movevent event="StepIn" itemid="25550" script="quests/heart of destruction/anomalyVortex.lua"/>
-    <movevent event="StepIn" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
-    <movevent event="StepOut" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
-    <movevent event="StepIn" fromid="26125" toid="26126" script="quests/heart of destruction/hungerVortex.lua"/>
+	<!-- Dark Trails Quest -->
+	<movevent event="StepIn" actionid="9745" script="quests/oramond/darkTrail.lua" />
+	<movevent event="StepIn" actionid="13500" script="quests/oramond/darkTrail2.lua" />
+	<movevent event="StepIn" actionid="53161" script="quests/oramond/dark.lua"/>
 
-	<!-- first dragon quest -->
-	<movevent event="StepIn" fromaid="24890" toaid="24893" script="quests/first dragon/entranceTeleports.lua" />
-	<movevent event="StepIn" fromuid="24885" touid="24888" script="quests/first dragon/exit teleports.lua" />
-	<movevent event="StepIn" fromaid="24894" toaid="24896" script="quests/first dragon/zorvorax secrets.lua" />
-	<movevent event="StepIn" actionid="24889" script="quests/first dragon/last teleport.lua" />
-	<movevent event="StepIn" itemid="27646" script="quests/first dragon/bowl.lua" />
+	<!-- Dangerous Depths -->
+	<movevent event="StepIn" actionid="57231" script="quests/dangerous depth/lostExiles.lua"/>
+	<movevent event="StepIn" actionid="57240" script="quests/dangerous depth/gnomesAvalanche.lua"/>
+	<movevent event="StepIn" actionid="57241" script="quests/dangerous depth/gnomesOrdnance.lua"/>
+	<movevent event="StepIn" actionid="57242" script="quests/dangerous depth/gnomesOrdnanceEnd.lua"/>
+	<movevent event="StepIn" actionid="57243" script="quests/dangerous depth/bossesEntrance.lua"/>
+	<movevent event="StepIn" actionid="57232" script="quests/dangerous depth/energyEntrances.lua"/>
+	<movevent event="StepIn" actionid="57230" script="quests/dangerous depth/warzoneEntrances.lua"/>
+	
+	<!-- Demon Oak Quest -->
+	<movevent event="StepIn" uniqueid="9000" script="quests/demon oak/entrance.lua" />
+	<movevent event="StepIn" itemid="8292" script="quests/demon oak/areaDamage.lua" />
+	<movevent event="StepIn" fromuid="9001" touid="9005" script="quests/demon oak/squares.lua" />
 
-	<!-- grimvale quest -->
-	<movevent event="StepIn" fromid="24732" toid="24733" script="quests/grimvale/strangely glowing mark.lua" />
-	<movevent event="StepIn" itemid="24715" script="quests/grimvale/silvered trap.lua" />
-
-	<!-- hero of rathleton -->
-	<movevent event="StepIn" actionid="24862" script="quests/hero of rathleton/deepTerror.lua" />
-	<movevent event="StepIn" actionid="24864" script="quests/hero of rathleton/gloothHorror.lua" />
-	<movevent event="StepIn" actionid="24866" script="quests/hero of rathleton/lava.lua" />
-	<movevent event="StepIn" actionid="24868" script="quests/hero of rathleton/professorMaxxen.lua" />
-	<movevent event="StepIn" fromaid="24869" toaid="24871" script="quests/hero of rathleton/fastway.lua" />
-	<movevent event="StepIn" actionid="24872" script="quests/hero of rathleton/exit.lua" />
-
-	<!-- forgotten knowledge -->
-	<movevent event="StepIn" actionid="24873" script="quests/forgotten knowledge/entranceTeleports.lua" />
-	<movevent event="StepIn" itemid="26403" script="quests/forgotten knowledge/cave entrance.lua" />
-	<movevent event="StepIn" fromid="27803" toid="27806" script="quests/forgotten knowledge/fount.lua" />
-	<movevent event="StepIn" actionid="27830" script="quests/forgotten knowledge/teleport tree.lua" />
-	<movevent event="StepIn" itemid="26396" script="quests/forgotten knowledge/dragonking vortex.lua" />
-	<movevent event="StepIn" actionid="26665" script="quests/forgotten knowledge/servants teleport.lua" />
-	<movevent event="StepIn" actionid="26667" script="quests/forgotten knowledge/ice teleport.lua" />
-	<movevent event="StepIn" actionid="26668" script="quests/forgotten knowledge/lava teleport.lua" />
-	<movevent event="StepIn" fromuid="24878" touid="24884" script="quests/forgotten knowledge/challanger.lua" />
-
-	<!-- Anti-Entrosa -->
-	<movevent event="StepIn" actionid="47001" script="warPrivate_movements.lua"/>
-	<movevent event="StepIn" fromuid="18000" touid="18009" script="warPrivate_movements.lua" />
-	<movevent event="StepIn" actionid="18003" script="warPrivate_movements.lua" />
-
+	<!-- Demon Helmet Quest -->
+	<movevent event="StepIn" actionid="980" script="quests/demon helmet/walls.lua" />
+	
+	<!-- Draconia Quest -->
+	<movevent event="StepIn" actionid="4246" script="quests/draconia/escape.lua" />
+	<movevent event="StepIn" fromaid="4247" toaid="4248" script="quests/draconia/fall.lua" />
+	<movevent event="StepIn" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua" />
+	<movevent event="StepOut" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua" />
+	<movevent event="StepIn" actionid="4253" script="quests/draconia/exit.lua" />
+	
+	<!-- Dreamer Challenge Quest -->
+	<movevent event="StepIn" fromuid="2241" touid="2242" script="quests/dreamer challenge/carrot.lua" />
+	<movevent event="StepIn" uniqueid="2243" script="quests/dreamer challenge/fireBugTeleport.lua" />
+	<movevent event="StepIn" fromaid="2245" toaid="2246" script="quests/dreamer challenge/riddle.lua" />
+	<movevent event="StepOut" fromaid="2245" toaid="2246" script="quests/dreamer challenge/riddle.lua" />
+	<movevent event="StepIn" actionid="9031" script="quests/dreamer challenge/stoneTeleport.lua" />
+	<movevent event="AddItem" tileitem="1" actionid="8034" script="quests/dreamer challenge/stoneTeleport.lua" />
+	<movevent event="StepIn" fromuid="2250" touid="2255" script="quests/dreamer challenge/teleports.lua" />
+	<movevent event="StepIn" actionid="9032" script="quests/dreamer challenge/ticTeleport.lua" />
+	<movevent event="StepIn" fromuid="3048" touid="3056" script="quests/dreamer challenge/tower.lua" />
+	<movevent event="StepIn" fromaid="3200" toaid="3203" script="quests/dreamer challenge/courtPortal.lua" />
+	<movevent event="StepIn" uniqueid="9030" script="quests/dreamer challenge/wallsTeleport.lua" />
+	<movevent event="AddItem" tileitem="1" uniqueid="2244" script="quests/dreamer challenge/deathRing.lua" />
+	<movevent event="StepIn" actionid="9049" script="quests/dreamer challenge/clockTile.lua" />
+	<movevent event="StepIn" uniqueid="9234" script="quests/dreamer challenge/deathRingTeleport.lua" />
+	<movevent event="StepIn" uniqueid="50147" script="quests/dreamer challenge/riddleTeleport.lua" />
+	
+	<movevent event="StepIn" actionid="50149" script="quests/dreamer challenge/Portal.lua" />
+	<movevent event="StepIn" actionid="50150" script="quests/dreamer challenge/Portal.lua" />
+	
 	<!-- Devil Helmet Quest -->
 	<movevent event="StepIn" uniqueid="65203" script="quests/devil helmet/sewer.lua" />
 	<movevent event="StepOut" uniqueid="65203" script="quests/devil helmet/sewer.lua" />
+	
+	<!-- Edron Troll Cave - Rope Quest -->
+	<movevent event="StepIn" actionid="4254" script="others/quests/edronRope.lua" />
 
-	<!-- ferumbras ascendant quest -->
+	<!-- Extension MOTA -->
+	<movevent event="StepIn" actionid="64015" script="quests/extension MOTA/extension MOTA Entrance.lua" />
+	<movevent event="StepIn" actionid="64016" script="quests/extension MOTA/extension MOTA Exit.lua" />
+	
+	<!-- Explorer Society (Calassa) -->
+	<movevent event="StepIn" actionid="2070" script="others/teleports/calassa.lua" />
+	<movevent event="StepIn" fromaid="14171" toaid="14172" script="quests/explorer society/carvingTPPortHope.lua" /> <!-- tp Port Hope - Northport -->
+	<movevent event="StepIn" fromaid="14173" toaid="14174" script="quests/explorer society/carvingTPLibertyBay.lua" /> <!-- tp Liberty Bay - Svargrond -->
+	
+	<!-- Elemental Spheres Quest -->
+	<movevent event="AddItem" tileitem="1" itemid="8568" script="quests/elemental spheres/summonOverlord.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="8569" script="quests/elemental spheres/summonOverlord.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="8570" script="quests/elemental spheres/summonOverlord.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="8578" script="quests/elemental spheres/summonOverlord.lua" />
+	<movevent event="StepIn" actionid="9029" script="quests/elemental spheres/AOETeleportOut.lua" />
+	<movevent event="StepIn" fromuid="24541" touid="24544" script="quests/elemental spheres/soilEntrance.lua" />
+	<movevent event="StepIn" actionid="24545" script="quests/elemental spheres/soilExit.lua" />
+
+	<!-- Formorgar Mines Hoist -->
+	<movevent event="StepIn" fromuid="3059" touid="3061" script="quests/formogar mines/hoist.lua" />
+	
+	<!-- Ferumbras Ascendant quest -->
 	<movevent event="StepIn" actionid="53812" script="quests/ferumbras ascendant/redGem.lua" />
 	<movevent event="StepIn" actionid="53813" script="quests/ferumbras ascendant/blueGem.lua" />
 	<movevent event="StepIn" actionid="53814" script="quests/ferumbras ascendant/greenGem.lua" />
@@ -151,290 +159,72 @@
 	<movevent event="StepIn" fromaid="24837" toaid="24838" script="quests/ferumbras ascendant/entrance.lua" />
 	<movevent event="StepIn" fromaid="24839" toaid="24846" script="quests/ferumbras ascendant/seals.lua" />
 	<movevent event="StepIn" actionid="34200" script="quests/ferumbras ascendant/mazoran fire.lua" />
-
-	<!-- Lower Roshamuul Quest --> 
-	<movevent event="StepIn" itemid="22456" script="lowerRoshamuul.lua" />
-	<movevent event="StepIn" actionid="1500" script="lowerRoshamuul.lua" />
-
-	<movevent event="StepIn" actionid="19049" script="krailos.lua" />
-	<movevent event="StepIn" fromuid="24541" touid="24544" script="Novos/soil.lua" />
-	<movevent event="StepIn" actionid="24545" script="Novos/ek.lua" />
-
-	<movevent event="StepIn" actionid="41344" script="lionrock.lua" />
-	<movevent event="StepIn" fromaid="41346" toaid="41349" script="lionrock.lua" />
- 
-	<movevent event="StepIn" actionid="25019" script="treinon.lua" /> 
- 
-	<movevent event="StepIn" pos="33380;32308;14" script="novo.lua" /> 
-	<movevent event="StepIn" pos="33229;31500;13" script="novo.lua" />     
-	<movevent event="StepIn" pos="33388;32457;14" script="novo.lua" /> 
-	<movevent event="StepIn" pos="33593;32644;14" script="novo.lua" />
-	<movevent event="StepIn" pos="33417;32102;10" script="novo.lua" /> 
-
-	<movevent event="AddItem" pos="32516;32465;7" script="trash_prevent.lua"/>
-	<movevent event="AddItem" pos="32524;32465;7" script="trash_prevent.lua"/>	 
-    <movevent event="AddItem" pos="32524;32464;7" script="trash_prevent.lua"/>	 
-	<movevent event="AddItem" pos="32516;32464;7" script="trash_prevent.lua"/> 
-
-	<!-- Dark Trails Quest -->
-	<movevent event="StepIn" actionid="9745" script="quests/oramond/darkTrail.lua" />
-	<movevent event="StepIn" actionid="13500" script="quests/oramond/darkTrail2.lua" />
-	<movevent event="StepIn" actionid="53161" script="quests/oramond/dark.lua"/>
 	
-	 <!-- Chayenne Realm Quest -->
-	<movevent event="StepIn" actionid="55022" script="quests/chayenne realm quest/enterRealm.lua" />
-	<movevent event="StepIn" actionid="55024" script="quests/chayenne realm quest/enterRealm.lua" />
-	 
-	<movevent event="StepIn" fromaid="13400" toaid="13428" script="others/movimentos.lua"/>
-	<movevent event="StepIn" fromaid="13510" toaid="13529" script="others/movimentos.lua"/>
+	<!-- Feyrist -->
+	<movevent event="StepIn" actionid="24900" script="quests/feyrist/entranceKroazur.lua" />
+	<movevent event="StepIn" actionid="24901" script="quests/feyrist/exitKroazur.lua" />
 	
+	<!-- Forgotten Knowledge Quest -->
+	<movevent event="StepIn" actionid="24873" script="quests/forgotten knowledge/entranceTeleports.lua" />
+	<movevent event="StepIn" itemid="26403" script="quests/forgotten knowledge/cave entrance.lua" />
+	<movevent event="StepIn" fromid="27803" toid="27806" script="quests/forgotten knowledge/fount.lua" />
+	<movevent event="StepIn" actionid="27830" script="quests/forgotten knowledge/teleport tree.lua" />
+	<movevent event="StepIn" itemid="26396" script="quests/forgotten knowledge/dragonking vortex.lua" />
+	<movevent event="StepIn" actionid="26665" script="quests/forgotten knowledge/servants teleport.lua" />
+	<movevent event="StepIn" actionid="26667" script="quests/forgotten knowledge/ice teleport.lua" />
+	<movevent event="StepIn" actionid="26668" script="quests/forgotten knowledge/lava teleport.lua" />
+	<movevent event="StepIn" fromuid="24878" touid="24884" script="quests/forgotten knowledge/challanger.lua" />
 	
-	<!-- BOSS WARZONE -->
-	<movevent event="StepIn" fromaid="45700" toaid="45702" script="warzone157.lua" />
-
-	<!-- Item Teleport Destinations -->
-	<movevent event="AddItem" tileitem="1" itemid="1387" script="others/itemteleports.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="8058" script="others/itemteleports.lua" />
+	<!-- First Dragon Quest -->
+	<movevent event="StepIn" fromaid="24890" toaid="24893" script="quests/first dragon/entranceTeleports.lua" />
+	<movevent event="StepIn" fromuid="24885" touid="24888" script="quests/first dragon/exit teleports.lua" />
+	<movevent event="StepIn" fromaid="24894" toaid="24896" script="quests/first dragon/zorvorax secrets.lua" />
+	<movevent event="StepIn" actionid="24889" script="quests/first dragon/last teleport.lua" />
+	<movevent event="StepIn" itemid="27646" script="quests/first dragon/bowl.lua" />
 	
-	<!-- Teleports -->
-	<movevent event="StepIn" fromaid="9700" toaid="9705" script="others/tpab.lua" />
-	<movevent event="StepIn" actionid="5555" script="others/sorcererthais.lua" />
-	<movevent event="StepIn" fromaid="9710" toaid="9720" script="others/furygates.lua" />
-	<movevent event="StepIn" fromaid="50084" toaid="50086" script="others/deeperBanutaShortcutTeleports.lua" />
-	<movevent event="StepIn" fromaid="50220" toaid="50229" script="others/vengothTeleports.lua" />
+	<!-- Fibula -->
+	<movevent event="StepIn" actionid="50390" script="others/fibula.lua" />
 
-	<!--- Shrines Portals -->
-	<movevent event="StepIn" fromuid="9069" touid="9120" script="others/shrinesportal.lua" />
-	<movevent event="StepIn" actionid="9117" script="others/shrinesportal_out.lua" />
-
-	<!-- oramond -->
-	<movevent event="StepIn" actionid="42626" script="oramond/enterOramond.lua" />
-	<movevent event="StepIn" actionid="42627" script="oramond/enterOramond.lua" />
-	<movevent event="StepIn" actionid="42628" script="oramond/votingOramond.lua" />
-	<movevent event="StepIn" actionid="42630" script="oramond/enterCity.lua" />
-	<movevent event="StepIn" actionid="42631" script="oramond/enterCity.lua" />
-	<movevent event="StepIn" actionid="36489" script="oramond/enterGlooth.lua" />
-	<movevent event="StepIn" actionid="50389" script="oramond/enterGlooth.lua" />
-	<movevent event="StepIn" actionid="50390" script="oramond/fibula.lua" />
-	<movevent event="StepIn" uniqueid="26798" script="others/seacrest.lua" />
+	<!-- Grimvale Quest -->
+	<movevent event="StepIn" fromid="24732" toid="24733" script="quests/grimvale/strangely glowing mark.lua" />
+	<movevent event="StepIn" itemid="24715" script="quests/grimvale/silvered trap.lua" />
 	
-	
-	<!--- Treiners -->
-	
-	<movevent event="StepIn" fromuid="64001" touid="64003" script="others/isle.lua" /> <!-- ENTRADA -->
-	<movevent event="StepIn" pos="33498;32613;8" script="others/isle.lua" /> <!-- SAIDA -->
-	
-	<movevent event="StepIn" fromuid="63001" touid="63016" script="others/treinersportal.lua" />
-	<movevent event="StepIn" uniqueid="63017" script="others/treinersportal_out.lua" />
-	<movevent event="StepIn" uniqueid="63018" script="others/treinersportal.lua" />
-	
-	<movevent event="StepIn" uniqueid="63019" script="others/treinersportal_outrook.lua" /> <!-- OK -->
-	<movevent event="StepIn" uniqueid="63020" script="others/treinersportalrook.lua" /> <!-- OK -->
-
-	<!--- Oramond Portals -->
-	<movevent event="StepIn" fromuid="50500" touid="50501" script="others/oramondEntrance.lua" />
-	<movevent event="StepIn" fromuid="50510" touid="50515" script="others/oramondTeleports.lua" />
-
-	<movevent event="StepIn" fromuid="50624" touid="50625" script="others/oramondTeleports.lua" />
-	
-	<movevent event="StepIn" fromaid="64103" toaid="64127" script="others/tpIsles.lua" />
-	<movevent event="StepIn" pos="33420;32582;9" script="others/tp2.lua" /> <!-- SAIDA -->
-
-	<!-- Explorer Society (Calassa) -->
-	<movevent event="StepIn" actionid="2070" script="others/calassa.lua" />
-	<movevent event="StepIn" fromaid="14171" toaid="14172" script="quests/explorer society/carvingTPphnp.lua" /> <!-- tp Port Hope - Northport -->
-	<movevent event="StepIn" fromaid="14173" toaid="14174" script="quests/explorer society/carvingTPlbsv.lua" /> <!-- tp Liberty Bay - Svargrond -->
-
-	<!-- Formorgar Mines Hoist -->
-	<movevent event="StepIn" fromuid="3059" touid="3061" script="others/hoist.lua" />
-
-	<!-- Yalahar Demons -->
-	<movevent event="StepIn" fromaid="4244" toaid ="4245" script="others/yalaharDemons.lua" />
-
-	<!-- The Spike Portals -->
-	<movevent event="StepIn" fromaid="4226" toaid ="4243" script="others/spikeTeleports.lua" />
-
-	<!-- Magician Quarter (Warlock & Infernalist Area) -->
-	<movevent event="StepIn" actionid="7813" script="others/magicianquarter.lua" />
-
-	<!-- Waterfall Quest (Port Hope) -->
-	<movevent event="StepIn" actionid="50022" script="others/waterfallquest.lua" />
-
-	<!-- Svargrond Citizen -->
-	<movevent event="StepIn" actionid="30032" script="others/svargrondCitizen.lua" />
-
-	<!-- Meriana Turtles -->
-	<movevent event="StepIn" fromuid="3206" touid="3213" script="others/turtles.lua" />
-
-	<!-- Adventurer's Guild -->
-	<movevent event="StepIn" actionid="4255" script="others/adventurersguild.lua" />
-
-	<!-- Edron Troll Cave - Rope Quest -->
-	<movevent event="StepIn" actionid="4254" script="others/edronropequest.lua" />
-
-	<!-- Outlaw Camp - Bright Sword Quest entrance -->
-	<movevent event="StepIn" actionid="5634" script="others/brightswordentrance.lua" />
-
-	<!-- Serpentine Tower - White Pearl Quest -->
-	<movevent event="StepIn" fromaid="5630" toaid="5631" script="others/ankrahmun/whitepearlquest.lua" />
-
-	<!-- Spike Tasks Quest -->
-	<movevent event="StepIn" actionid="56421" script="quests/spike task/nestsbat.lua" />
-	
-	<!-- Goroma Energy Barrier -->
-	<movevent event="StepIn" actionid="4000" script="others/goromaenergybarrier.lua" />
-
-	<!--- Others -->
-	<movevent event="StepIn" actionid="4256" script="others/roshamuulcarpet.lua" />
-	<movevent event="StepIn" uniqueid="9238" script="others/GrayBeachVortex.lua" />
-	<movevent event="StepIn" uniqueid="9239" script="others/GrayBeachVortex.lua" />
-	<movevent event="StepIn" fromaid="50025" toaid="50026" script="others/thaislighthousequest.lua" />
-	<movevent event="StepOut" actionid="50025" script="others/thaislighthousequest.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="1485" script="others/tombCoalBasin.lua" />
-
-	<!-- KillingOfTheNameOf -->
-	<movevent event="StepIn" fromuid="3230" touid="3259" script="quests/killinginthenameof/boss.lua" />
-	<movevent event="StepIn" actionid="3244" script="quests/killinginthenameof/boss.lua" />
-	<movevent event="StepIn" fromuid="17521" touid="17523" script="quests/killinginthenameof/boss.lua" />
-
-	<!-- What a foolish Quest -->
-	<movevent event="StepIn" actionid="4201" script="quests/what a foolish/destroypies.lua" />
-
-	<!-- Draconia Quest -->
-	<movevent event="StepIn" actionid="4246" script="quests/draconia/escape.lua" />
-	<movevent event="StepIn" fromaid="4247" toaid="4248" script="quests/draconia/fall.lua" />
-	<movevent event="StepIn" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua" />
-	<movevent event="StepOut" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua" />
-	<movevent event="StepIn" actionid="4253" script="quests/draconia/exit.lua" />
-
-	<!-- The Queen of the Banshees Quest -->
-	<movevent event="StepIn" uniqueid="50004" script="quests/the queen of the banshees/theFirstSealFlame.lua" />
-	<movevent event="StepIn" uniqueid="50011" script="quests/the queen of the banshees/theSixthSealFlame.lua" />
-	<movevent event="StepIn" uniqueid="50012" script="quests/the queen of the banshees/theFifthSealFlame.lua" />
-	<movevent event="StepIn" fromaid="50014" toaid="50015" script="quests/the queen of the banshees/theFifthSealPath.lua" />
-	<movevent event="AddItem" tileitem="1" uniqueid="50013" script="quests/the queen of the banshees/theFourthSealSacrifice.lua" />
-	<movevent event="StepIn" uniqueid="50014" script="quests/the queen of the banshees/theFourthSealFlame.lua" />
-	<movevent event="StepIn" actionid="50016" script="quests/the queen of the banshees/theThirdSealWarlockTile.lua" />
-	<movevent event="StepIn" uniqueid="50020" script="quests/the queen of the banshees/theThirdSealFlame.lua" />
-	<movevent event="StepIn" actionid="50017" script="quests/the queen of the banshees/theSecondSealPearl.lua" />
-	<movevent event="StepIn" uniqueid="50021" script="quests/the queen of the banshees/theSecondSealFlame.lua" />
-	<movevent event="StepIn" uniqueid="50022" script="quests/the queen of the banshees/theLastFlame.lua" />
-
-	<!-- Children of the Revolution -->
-	<movevent event="StepIn" uniqueid="3163" script="quests/children of the revolution/temple.lua" />
-	<movevent event="StepIn" uniqueid="3166" script="quests/children of the revolution/symbols.lua" />
-	<movevent event="StepIn" fromaid="8009" toaid="8011" script="quests/children of the revolution/spy.lua" />
-	<movevent event="StepIn" fromuid="3167" touid="3168" script="quests/children of the revolution/teleport.lua" />
-	<movevent event="StepIn" uniqueid="3169" script="quests/children of the revolution/stairs.lua" />
-	<movevent event="StepIn" actionid="8014" script="quests/children of the revolution/click.lua" />
-
-	<!-- Wrath of the Emperor -->
-	<movevent event="StepIn" uniqueid="3175" script="quests/wrath of the emperor/prison.lua" />
-	<movevent event="StepIn" fromaid="8015" toaid="8023" script="quests/wrath of the emperor/crate.lua" />
-	<movevent event="StepIn" actionid="32362" script="quests/wrath of the emperor/crate.lua" />
-	<movevent event="StepIn" fromaid="12380" toaid="12381" script="quests/wrath of the emperor/teleportsmuggyplains.lua" />
-	<movevent event="StepIn" fromaid="12382" toaid="12383" script="quests/wrath of the emperor/teleportsRebeltoZlak.lua" />
-	<movevent event="StepIn" itemid="12334" script="quests/wrath of the emperor/keeper.lua" />
-	<movevent event="StepIn" uniqueid="12359" script="quests/wrath of the emperor/dragonTeleport.lua" />
-	<movevent event="StepIn" actionid="8028" script="quests/wrath of the emperor/realmTeleport.lua" />
-	<movevent event="StepIn" fromuid="3189" touid="3192" script="quests/wrath of the emperor/bossesTeleport.lua" />
-	<movevent event="StepIn" uniqueid="3197" script="quests/wrath of the emperor/teleportToZalamon.lua" />
-	
-	<movevent event="StepIn" uniqueid="33198" script="quests/wrath of the emperor/seila.lua" />
-
-	<!--- The New Frontier Quest -->
-	<movevent event="StepIn" actionid="8000" script="quests/the new frontier/wayOut.lua" />
-	<movevent event="StepIn" actionid="8007" script="quests/the new frontier/trap.lua" />
-	<movevent event="StepIn" actionid="12135" script="quests/the new frontier/minotaurBoss.lua" />
-	<movevent event="StepIn" actionid="12138" script="quests/the new frontier/jailExit.lua" />
-
-	<!--- Unnatural Selection -->
-	<movevent event="StepIn" actionid="12332" script="quests/unnatural selection/Mission2AllAroundtheWorld.lua" />
-	<movevent event="StepIn" actionid="12333" script="quests/unnatural selection/Mission3DanceDanceEvolution.lua" />
-
-	<!--- The Ape City Quest -->
-	<movevent event="StepIn" actionid="12124" script="quests/the ape city/Mission4ParchmentDecyphering.lua" />
-	<movevent event="StepIn" uniqueid="12129" script="quests/the ape city/Mission9TheDeepestCatacombsteleport.lua" />
-	<movevent event="StepIn" uniqueid="12130" script="quests/the ape city/Mission9TheDeepestCatacombsteleport.lua" />
-
-	<!--- The Ancient Tombs Quest -->
-	<movevent event="StepIn" actionid="12101" script="quests/theancienttombs/peninsulaTombmaze.lua" />
-	<movevent event="StepIn" fromuid="3950" touid="3956" script="quests/theancienttombs/tombTeleports.lua" />
-	<movevent event="StepIn" actionid="12108" script="quests/theancienttombs/tombTeleports.lua" />
-	<movevent event="AddItem" tileitem="1" actionid="60626" script="quests/theancienttombs/craftHelmet.lua" />
-	<movevent event="StepIn" uniqueid="50135" script="quests/theancienttombs/enterThalasTeleportSwitchesDone.lua" />
-	<movevent event="StepIn" uniqueid="50136" script="quests/theancienttombs/enterThalasPoisonTile.lua" />
-	<movevent event="StepIn" uniqueid="50137" script="quests/theancienttombs/enterDiprathTeleportSwitchesDone.lua" />
-	<movevent event="StepIn" uniqueid="50138" script="quests/theancienttombs/enterAshmunrahTeleportSwitchesDone.lua" />
-	<movevent event="StepIn" fromuid="50139" touid="50146" script="quests/theancienttombs/stepMorguthisBlueFlames.lua" />
-
 	<!-- Gravedigger -->
 	<movevent event="StepIn" fromaid="4530" toaid="4531" script="quests/gravedigger/amforatp.lua" />
 	<movevent event="StepIn" fromaid="4532" toaid="4533" script="quests/gravedigger/braintp.lua" />
 	<movevent event="StepIn" fromaid="4534" toaid="4535" script="quests/gravedigger/dormitoritp.lua" />
 	<movevent event="StepIn" fromaid="4541" toaid="4542" script="quests/gravedigger/sacrificetp.lua" />
 	<movevent event="StepIn" actionid="4536" script="quests/gravedigger/necro.lua" />
-
-	<!-- Elemental Spheres Quest -->
-	<movevent event="AddItem" tileitem="1" itemid="8568" script="quests/elemental spheres/summonOverlord.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="8569" script="quests/elemental spheres/summonOverlord.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="8570" script="quests/elemental spheres/summonOverlord.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="8578" script="quests/elemental spheres/summonOverlord.lua" />
-	<movevent event="StepIn" actionid="9029" script="quests/elemental spheres/AOETeleportOut.lua" />
-
-	<!-- Bigfoot Burden Quest -->
-	<movevent event="StepIn" fromaid="9200" toaid="9201" script="quests/bigfoot burden/xray.lua" />
-	<movevent event="StepIn" fromaid="7816" toaid="7818" script="quests/bigfoot burden/endurance.lua" />
-	<movevent event="StepIn" actionid="4121" script="quests/bigfoot burden/GCTS.lua" />
-	<movevent event="StepIn" fromaid="3215" toaid="3222" script="quests/bigfoot burden/GCTS.lua" />
-	<movevent event="StepIn" fromaid="3128" toaid="3137" script="quests/bigfoot burden/GCTS.lua" />
-	<movevent event="StepIn" actionid="35669" script="quests/bigfoot burden/GCTS.lua" />
-	<movevent event="StepIn" actionid="8030" script="quests/bigfoot burden/shooting.lua" />
-	<movevent event="StepOut" actionid="8030" script="quests/bigfoot burden/shooting.lua" />
-	<movevent event="StepIn" itemid="18340" script="quests/bigfoot burden/truffles.lua" />
-	<movevent event="StepIn" fromuid="3140" touid="3142" script="quests/bigfoot burden/warzoneTeleports.lua" />
-	<movevent event="StepIn" uniqueid="3123" script="quests/bigfoot burden/xray.lua" />
-	<movevent event="StepIn" itemid="18463" script="quests/bigfoot burden/versperothSpawn.lua" />
-
-	<!-- Demon Oak Quest -->
-	<movevent event="StepIn" uniqueid="9000" script="quests/demon oak/entrance.lua" />
-	<movevent event="StepIn" itemid="8292" script="quests/demon oak/areaDamage.lua" />
-	<movevent event="StepIn" fromuid="9001" touid="9005" script="quests/demon oak/squares.lua" />
-
-	<!-- Demon Helmet Quest -->
-	<movevent event="StepIn" actionid="980" script="quests/demon helmet/walls.lua" />
-
-	<!--Svargrond Arena Quest-->
- 	<movevent event="StepIn" actionid="25100" script="quests/svargrond arena/arenaEnter.lua" />
-	<movevent event="StepIn" actionid="25200" script="quests/svargrond arena/arenaPit.lua" />
-	<movevent event="StepIn" actionid="25300" script="quests/svargrond arena/arenaPit.lua" />
-	<movevent event="StepIn" fromuid="23201" touid="23203" script="quests/svargrond arena/arenaTrophy.lua" />
-
-	<!-- Dreamer Challenge Quest -->
-	<movevent event="StepIn" fromuid="2241" touid="2242" script="quests/dreamer challenge/carrot.lua" />
-	<movevent event="StepIn" uniqueid="2243" script="quests/dreamer challenge/fireBugTeleport.lua" />
-	<movevent event="StepIn" fromaid="2245" toaid="2246" script="quests/dreamer challenge/riddle.lua" />
-	<movevent event="StepOut" fromaid="2245" toaid="2246" script="quests/dreamer challenge/riddle.lua" />
-	<movevent event="StepIn" actionid="9031" script="quests/dreamer challenge/stoneTeleport.lua" />
-	<movevent event="AddItem" tileitem="1" actionid="8034" script="quests/dreamer challenge/stoneTeleport.lua" />
-	<movevent event="StepIn" fromuid="2250" touid="2255" script="quests/dreamer challenge/teleports.lua" />
-	<movevent event="StepIn" actionid="9032" script="quests/dreamer challenge/ticTeleport.lua" />
-	<movevent event="StepIn" fromuid="3048" touid="3056" script="quests/dreamer challenge/tower.lua" />
-	<movevent event="StepIn" uniqueid="9030" script="quests/dreamer challenge/wallsTeleport.lua" />
-	<movevent event="AddItem" tileitem="1" uniqueid="2244" script="quests/dreamer challenge/deathRing.lua" />
-	<movevent event="StepIn" actionid="9049" script="quests/dreamer challenge/clockTile.lua" />
-	<movevent event="StepIn" uniqueid="9234" script="quests/dreamer challenge/deathRingTeleport.lua" />
-	<movevent event="StepIn" uniqueid="50147" script="quests/dreamer challenge/riddleTeleport.lua" />
 	
-	<movevent event="StepIn" actionid="50149" script="quests/dreamer challenge/Portal.lua" />
-	<movevent event="StepIn" actionid="50150" script="quests/dreamer challenge/Portal.lua" />
+	<!-- Hero of Rathleton -->
+	<movevent event="StepIn" actionid="24862" script="quests/hero of rathleton/deepTerror.lua" />
+	<movevent event="StepIn" actionid="24864" script="quests/hero of rathleton/gloothHorror.lua" />
+	<movevent event="StepIn" actionid="24866" script="quests/hero of rathleton/lava.lua" />
+	<movevent event="StepIn" actionid="24868" script="quests/hero of rathleton/professorMaxxen.lua" />
+	<movevent event="StepIn" fromaid="24869" toaid="24871" script="quests/hero of rathleton/fastway.lua" />
+	<movevent event="StepIn" actionid="24872" script="quests/hero of rathleton/exit.lua" />
 	
+	<!-- Heart of Destruction Quest -->
+	<movevent event="StepIn" fromaid="48060" toaid="48069" script="quests/heart of destruction/tps.lua"/>
+    <movevent event="StepIn" fromaid="14321" toaid="14325" script="quests/heart of destruction/hearttps.lua"/>
+    <movevent event="StepIn" fromaid="14340" toaid="14354" script="quests/heart of destruction/hearttps.lua"/>
+    <movevent event="StepIn" itemid="25550" script="quests/heart of destruction/anomalyVortex.lua"/>
+    <movevent event="StepIn" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
+    <movevent event="StepOut" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
+    <movevent event="StepIn" fromid="26125" toid="26126" script="quests/heart of destruction/hungerVortex.lua"/>
 	
-
+	<!-- Item Teleport Destinations -->
+	<movevent event="AddItem" tileitem="1" itemid="1387" script="others/itemTeleports.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="8058" script="others/itemTeleports.lua" />
+	
+	<!-- Island 999 -->
+	<movevent event="StepIn" actionid="15998" script="island 999/tp999.lua" />
+	<movevent event="StepIn" actionid="15999" script="island 999/tp999exit.lua" />
+	
 	<!-- Ice Islands Quest -->
 	<movevent event="StepIn" uniqueid="12031" script="quests/ice islands/helheim.lua" />
 	<movevent event="StepIn" fromuid="12025" touid="12028" script="quests/ice islands/nibelorDogSled.lua" />
-
+	
 	<!-- In Service Of Yalahar Quest -->
 	<movevent event="StepIn" fromuid="3103" touid="3106" script="quests/in service of yalahar/demonTeleport.lua" />
 	<movevent event="StepIn" fromuid="7809" touid="7810" script="quests/in service of yalahar/lastFightTeleports.lua" />
@@ -447,7 +237,57 @@
 	<movevent event="StepIn" fromuid="2150" touid="2180" script="quests/inquisition/teleportMain.lua" />
 	<movevent event="StepIn" uniqueid="9014" script="quests/inquisition/entrance.lua" />
 	<movevent event="StepIn" actionid="4003" script="quests/inquisition/rewardroomtext.lua" />
+	
+	<!-- Krailos Quest -->
+	<movevent event="StepIn" actionid="19049" script="quests/krailos/acessDepot.lua" />
+	
+	<!-- KillingOfTheNameOf -->
+	<movevent event="StepIn" fromuid="3230" touid="3259" script="quests/killinginthenameof/boss.lua" />
+	<movevent event="StepIn" actionid="3244" script="quests/killinginthenameof/boss.lua" />
+	<movevent event="StepIn" fromuid="17521" touid="17523" script="quests/killinginthenameof/boss.lua" />
+	
+	<!-- Lower Roshamuul Quest --> 
+	<movevent event="StepIn" itemid="22456" script="others/lowerRoshamuul.lua" />
+	<movevent event="StepIn" actionid="1500" script="others/lowerRoshamuul.lua" />
+	
+	<!-- Lions Rock Quest -->
+	<movevent event="StepIn" actionid="41344" script="others/quests/lionRock.lua" />
+	<movevent event="StepIn" fromaid="41346" toaid="41349" script="others/quests/lionRock.lua" />
+	
+	<!-- Magician Quarter (Warlock & Infernalist Area) -->
+	<movevent event="StepIn" actionid="7813" script="others/magicianQuarter.lua" />
+	
+	<!-- Meriana Turtles -->
+	<movevent event="StepIn" fromuid="3206" touid="3213" script="others/turtles.lua" />
+	
+	<!-- Master Voice Quest -->
+	<movevent event="StepIn" actionid="47710" script="quests/mastervoice/masterVoiceEntrance.lua" />
+	
+	<!--- Others -->
+	<movevent event="StepIn" actionid="4256" script="others/teleports/roshamuulCarpet.lua" />
+	<movevent event="StepIn" uniqueid="9238" script="others/teleports/grayBeachVortex.lua" />
+	<movevent event="StepIn" uniqueid="9239" script="others/teleports/grayBeachVortex.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="1485" script="others/teleports/tombCoalBasin.lua" />
+	
+	<!-- Oramond -->
+	<movevent event="StepIn" actionid="42626" script="oramond/enterOramond.lua" />
+	<movevent event="StepIn" actionid="42627" script="oramond/enterOramond.lua" />
+	<movevent event="StepIn" actionid="42628" script="oramond/votingOramond.lua" />
+	<movevent event="StepIn" actionid="42630" script="oramond/enterCity.lua" />
+	<movevent event="StepIn" actionid="42631" script="oramond/enterCity.lua" />
+	<movevent event="StepIn" actionid="36489" script="oramond/enterGlooth.lua" />
+	<movevent event="StepIn" actionid="50389" script="oramond/enterGlooth.lua" />
+	<movevent event="StepIn" uniqueid="26798" script="oramond/seaCrest.lua" />
+	-- Portals
+	<movevent event="StepIn" fromaid="13400" toaid="13428" script="oramond/teleports/oramondMovements.lua"/>
+	<movevent event="StepIn" fromaid="13510" toaid="13529" script="oramond/teleports/oramondMovements.lua"/>
+	<movevent event="StepIn" fromuid="50500" touid="50501" script="oramond/teleports/oramondEntrance.lua" />
+	<movevent event="StepIn" fromuid="50510" touid="50515" script="oramond/teleports/oramondTeleports.lua" />
+	<movevent event="StepIn" fromuid="50624" touid="50625" script="oramond/teleports/oramondTeleports.lua" />
 
+	<!-- Parchment Room Quest -->
+	<movevent event="RemoveItem" actionid="60999" script="others/quests/edronParchmentRoom.lua" />
+	
 	<!-- Pits Of Inferno Quest -->
 	<movevent event="StepIn" fromuid="2090" touid="2096" script="quests/pits of inferno/checkThrones.lua" />
 	<movevent event="StepIn" fromaid="2040" toaid="2063" script="quests/pits of inferno/fireTiles.lua" />
@@ -465,8 +305,100 @@
 	<movevent event="StepIn" fromaid="16772" toaid="16774" script="quests/pits of inferno/bazirTiles.lua" />
 	<movevent event="StepIn" fromaid="50082" toaid="50083" script="quests/pits of inferno/bazirTiles.lua" />
 	<movevent event="StepIn" actionid="50087" script="quests/pits of inferno/puminTeleport.lua" />
+	
+	<!--- Shrines Portals -->
+	<movevent event="StepIn" fromuid="9069" touid="9120" script="others/teleports/shrinesEntrance.lua" />
+	<movevent event="StepIn" actionid="9117" script="others/teleports/shrinesExit.lua" />
+	
+	<!-- Svargrond Citizen -->
+	<movevent event="StepIn" actionid="30032" script="others/teleports/svargrondCitizen.lua" />
+	
+	<!--Svargrond Arena Quest-->
+ 	<movevent event="StepIn" actionid="25100" script="quests/svargrond arena/arenaEnter.lua" />
+	<movevent event="StepIn" actionid="25200" script="quests/svargrond arena/arenaPit.lua" />
+	<movevent event="StepIn" actionid="25300" script="quests/svargrond arena/arenaPit.lua" />
+	<movevent event="StepIn" fromuid="23201" touid="23203" script="quests/svargrond arena/arenaTrophy.lua" />
+	
+	<!-- Spike Tasks Quest -->
+	<movevent event="StepIn" actionid="56421" script="others/quests/nestsBat.lua" />
+	
+	<!-- Secret Service Quest -->
+	<movevent event="StepIn" actionid="12571" script="quests/secret service/pirates.lua" />
+	<movevent event="StepIn" fromaid="12583" toaid="12584" script="quests/secret service/amazons.lua" />
 
-	<!-- the hidden city of beregar Quest -->
+	<!-- Teleports -->
+	<movevent event="StepIn" fromaid="9700" toaid="9705" script="others/teleports/teleportAbDendriel.lua" />
+	<movevent event="StepIn" actionid="5555" script="others/teleports/sorcererGuildThais.lua" />
+	<movevent event="StepIn" fromaid="50084" toaid="50086" script="others/teleports/deeperBanutaShortcutTeleports.lua" />
+	<movevent event="StepIn" fromaid="50220" toaid="50229" script="others/teleports/vengothTeleports.lua" />
+	<movevent event="StepIn" actionid="64017" script="others/teleports/portHopeDeathlingsEntrance.lua" />
+	<movevent event="StepIn" actionid="64018" script="others/teleports/portHopeDeathlingsExit.lua" />
+
+	<!-- Thais Lighthouse Quest -->
+	<movevent event="StepIn" fromaid="50025" toaid="50026" script="others/quests/thaisLighthouse.lua" />
+	<movevent event="StepOut" actionid="50025" script="others/quests/thaisLighthouse.lua" />
+
+	<!-- The Spike Portals -->
+	<movevent event="StepIn" fromaid="4226" toaid ="4243" script="others/teleports/spikeTeleports.lua" />
+
+	<!-- The Secret Library -->
+	<movevent event="StepIn" actionid="64013" script="quests/the secret library/deep desert/deepDesertEntrance.lua" />
+	<movevent event="StepIn" actionid="64014" script="quests/the secret library/deep desert/deepDesertExit.lua" />
+	<movevent event="StepIn" fromaid="64007" toaid="64009" script="quests/the secret library/falconsEntrance.lua" />
+	<movevent event="StepIn" fromaid="64010" toaid="64012" script="quests/the secret library/falconsExit.lua" />
+	
+	<!-- The Sharttered Isles Quest -->
+	<movevent event="StepIn" actionid="12585" script="quests/the sharttered isles/teleport.lua" />
+	<movevent event="StepIn" actionid="4000" script="quests/the sharttered isles/energyBarrier.lua" />
+
+	<!-- Threatened Dreams -->
+	<movevent event="Equip" itemid="29003" slot="ring" level="50" function="onEquipItem" />
+	<movevent event="DeEquip" itemid="29003" slot="ring" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="29004" slot="shield" level="80" function="onEquipItem">
+	    <vocation name="Sorcerer" />		
+	    <vocation name="Master Sorcerer" showInDescription="0" />
+	    <vocation name="Druid" />	
+	    <vocation name="Elder Druid" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="29004" slot="shield" function="onDeEquipItem" />
+	
+	<!-- The Queen of the Banshees Quest -->
+	<movevent event="StepIn" uniqueid="50004" script="quests/the queen of the banshees/theFirstSealFlame.lua" />
+	<movevent event="StepIn" uniqueid="50011" script="quests/the queen of the banshees/theSixthSealFlame.lua" />
+	<movevent event="StepIn" uniqueid="50012" script="quests/the queen of the banshees/theFifthSealFlame.lua" />
+	<movevent event="StepIn" fromaid="50014" toaid="50015" script="quests/the queen of the banshees/theFifthSealPath.lua" />
+	<movevent event="AddItem" tileitem="1" uniqueid="50013" script="quests/the queen of the banshees/theFourthSealSacrifice.lua" />
+	<movevent event="StepIn" uniqueid="50014" script="quests/the queen of the banshees/theFourthSealFlame.lua" />
+	<movevent event="StepIn" actionid="50016" script="quests/the queen of the banshees/theThirdSealWarlockTile.lua" />
+	<movevent event="StepIn" uniqueid="50020" script="quests/the queen of the banshees/theThirdSealFlame.lua" />
+	<movevent event="StepIn" actionid="50017" script="quests/the queen of the banshees/theSecondSealPearl.lua" />
+	<movevent event="StepIn" uniqueid="50021" script="quests/the queen of the banshees/theSecondSealFlame.lua" />
+	<movevent event="StepIn" uniqueid="50022" script="quests/the queen of the banshees/theLastFlame.lua" />
+	
+	<!--- The New Frontier Quest -->
+	<movevent event="StepIn" actionid="8000" script="quests/the new frontier/wayOut.lua" />
+	<movevent event="StepIn" actionid="8007" script="quests/the new frontier/trap.lua" />
+	<movevent event="StepIn" actionid="12135" script="quests/the new frontier/minotaurBoss.lua" />
+	<movevent event="StepIn" actionid="12138" script="quests/the new frontier/jailExit.lua" />
+	
+	<!--- The Ape City Quest -->
+	<movevent event="StepIn" actionid="12124" script="quests/the ape city/Mission4ParchmentDecyphering.lua" />
+	<movevent event="StepIn" uniqueid="12129" script="quests/the ape city/Mission9TheDeepestCatacombsteleport.lua" />
+	<movevent event="StepIn" uniqueid="12130" script="quests/the ape city/Mission9TheDeepestCatacombsteleport.lua" />
+	
+	<!--- The Ancient Tombs Quest -->
+	<movevent event="StepIn" actionid="12101" script="quests/the ancient tombs/peninsulaTombmaze.lua" />
+	<movevent event="StepIn" fromuid="3950" touid="3956" script="quests/the ancient tombs/tombTeleports.lua" />
+	<movevent event="StepIn" actionid="12108" script="quests/the ancient tombs/tombTeleports.lua" />
+	<movevent event="AddItem" tileitem="1" actionid="60626" script="quests/the ancient tombs/craftHelmet.lua" />
+	<movevent event="StepIn" uniqueid="50135" script="quests/the ancient tombs/enterThalasTeleportSwitchesDone.lua" />
+	<movevent event="StepIn" uniqueid="50136" script="quests/the ancient tombs/enterThalasPoisonTile.lua" />
+	<movevent event="StepIn" uniqueid="50137" script="quests/the ancient tombs/enterDiprathTeleportSwitchesDone.lua" />
+	<movevent event="StepIn" uniqueid="50138" script="quests/the ancient tombs/enterAshmunrahTeleportSwitchesDone.lua" />
+	<movevent event="StepIn" fromuid="50139" touid="50146" script="quests/the ancient tombs/stepMorguthisBlueFlames.lua" />
+	
+	<!-- The Hidden City of Beregar Quest -->
 	<movevent event="StepIn" actionid="50091" script="quests/the hidden city of beregar/oreWagon.lua" />
 	<movevent event="StepIn" fromaid="50092" toaid="50093" script="quests/the hidden city of beregar/elevator.lua" />
 	<movevent event="StepIn" actionid="50111" script="quests/the hidden city of beregar/gap.lua" />
@@ -474,149 +406,173 @@
 	<movevent event="StepIn" uniqueid="50107" script="quests/the hidden city of beregar/bellow.lua" />
 	<movevent event="StepIn" uniqueid="50127" script="quests/the hidden city of beregar/pythiusTeleport.lua" />
 	<movevent event="StepIn" fromaid="50125" toaid="50126" script="quests/the hidden city of beregar/pythiusBossTeleport.lua" />
-
-	<!-- Secret Service Quest -->
-	<movevent event="StepIn" actionid="12571" script="quests/secret service/pirates.lua" />
-	<movevent event="StepIn" fromaid="12583" toaid="12584" script="quests/secret service/amazons.lua" />
+	
+	<!--- Unnatural Selection -->
+	<movevent event="StepIn" actionid="12332" script="quests/unnatural selection/Mission2AllAroundtheWorld.lua" />
+	<movevent event="StepIn" actionid="12333" script="quests/unnatural selection/Mission3DanceDanceEvolution.lua" />
+	
+	<!-- Yalahar Demons -->
+	<movevent event="StepIn" fromaid="4244" toaid ="4245" script="others/teleports/yalaharDemons.lua" />
+	
+	<!-- Waterfall Quest (Port Hope) -->
+	<movevent event="StepIn" actionid="50022" script="quests/waterfall/waterfall.lua" />
+	
+	<!-- White Pearl Quest - Serpentine Tower -->
+	<movevent event="StepIn" fromaid="5630" toaid="5631" script="others/quests/whitePearl.lua" />
+	
+	<!-- What a foolish Quest -->
+	<movevent event="StepIn" actionid="4201" script="quests/what a foolish/destroypies.lua" />
+	
+	<!-- Wrath of the Emperor -->
+	<movevent event="StepIn" uniqueid="3175" script="quests/wrath of the emperor/prison.lua" />
+	<movevent event="StepIn" fromaid="8015" toaid="8023" script="quests/wrath of the emperor/crate.lua" />
+	<movevent event="StepIn" actionid="32362" script="quests/wrath of the emperor/crate.lua" />
+	<movevent event="StepIn" fromaid="12380" toaid="12381" script="quests/wrath of the emperor/teleportsmuggyplains.lua" />
+	<movevent event="StepIn" fromaid="12382" toaid="12383" script="quests/wrath of the emperor/teleportsRebeltoZlak.lua" />
+	<movevent event="StepIn" itemid="12334" script="quests/wrath of the emperor/keeper.lua" />
+	<movevent event="StepIn" uniqueid="12359" script="quests/wrath of the emperor/dragonTeleport.lua" />
+	<movevent event="StepIn" actionid="8028" script="quests/wrath of the emperor/realmTeleport.lua" />
+	<movevent event="StepIn" fromuid="3189" touid="3192" script="quests/wrath of the emperor/bossesTeleport.lua" />
+	<movevent event="StepIn" uniqueid="3197" script="quests/wrath of the emperor/teleportToZalamon.lua" />
+	<movevent event="StepIn" uniqueid="33198" script="quests/wrath of the emperor/entranceTeleports.lua" />
+	
+	<!--- World Changes -->
+	-- Nightmare Isles
+	<movevent event="StepIn" fromaid="64103" toaid="64128" script="world changes/nightmare isles/teleportLadders.lua" />
+	<movevent event="StepIn" fromuid="64001" touid="64003" script="world changes/nightmare isles/teleports.lua" /> <!-- entrance -->
+	<movevent event="StepIn" pos="33498;32613;8" script="world changes/nightmare isles/teleports.lua" /> <!-- exit -->
+	-- Fury Gates
+	<movevent event="StepIn" fromaid="9710" toaid="9720" script="world changes/fury gates/teleports.lua" />
 
 	<!-- Decaying tiles -->
-	<movevent event="StepIn" itemid="293" script="decay.lua" />
-	<movevent event="StepIn" itemid="461" script="decay.lua" />
-	<movevent event="StepIn" itemid="3310" script="decay.lua" />
+	<movevent event="StepIn" itemid="293" script="others/decay.lua" />
+	<movevent event="StepIn" itemid="461" script="others/decay.lua" />
+	<movevent event="StepIn" itemid="3310" script="others/decay.lua" />
 
 	<!-- (Depot & Level) tiles -->
-	<movevent event="StepIn" itemid="416" script="tiles.lua" />
-	<movevent event="StepOut" itemid="417" script="tiles.lua" />
-	<movevent event="StepIn" itemid="426" script="tiles.lua" />
-	<movevent event="StepOut" itemid="425" script="tiles.lua" />
-	<movevent event="StepIn" itemid="446" script="tiles.lua" />
-	<movevent event="StepOut" itemid="447" script="tiles.lua" />
-	<movevent event="StepIn" itemid="3216" script="tiles.lua" />
-	<movevent event="StepOut" itemid="3217" script="tiles.lua" />
-	<movevent event="StepIn" itemid="11062" script="tiles.lua" />
-	<movevent event="StepOut" itemid="11063" script="tiles.lua" />
+	<movevent event="StepIn" itemid="416" script="others/tiles.lua" />
+	<movevent event="StepOut" itemid="417" script="others/tiles.lua" />
+	<movevent event="StepIn" itemid="426" script="others/tiles.lua" />
+	<movevent event="StepOut" itemid="425" script="others/tiles.lua" />
+	<movevent event="StepIn" itemid="446" script="others/tiles.lua" />
+	<movevent event="StepOut" itemid="447" script="others/tiles.lua" />
+	<movevent event="StepIn" itemid="3216" script="others/tiles.lua" />
+	<movevent event="StepOut" itemid="3217" script="others/tiles.lua" />
+	<movevent event="StepIn" itemid="11062" script="others/tiles.lua" />
+	<movevent event="StepOut" itemid="11063" script="others/tiles.lua" />
 
 	<!-- Traps -->
-	<movevent event="StepIn" itemid="1510" script="trap.lua" />
-	<movevent event="StepOut" itemid="1511" script="trap.lua" />
-	<movevent event="StepIn" itemid="1513" script="trap.lua" />
-	<movevent event="StepIn" itemid="2579" script="trap.lua" />
-	<movevent event="RemoveItem" itemid="2579" script="trap.lua" />
-	<movevent event="StepIn" itemid="4208" script="trap.lua" />
-	<movevent event="StepOut" itemid="4209" script="trap.lua" />
-
-	<!-- Edron parchment room -->
-	<movevent event="RemoveItem" actionid="60999" script="others/parchment.lua" />
-
-	<!-- Citizen teleport -->
-	<movevent event="StepIn" fromuid="9056" touid="9068" script="citizen.lua" />
-	<movevent event="StepIn" uniqueid="9510" script="citizen.lua" />
-	<movevent event="StepIn" uniqueid="9240" script="citizen.lua" />
-	<movevent event="StepIn" fromuid="9500" touid="9501" script="citizen.lua" />
+	<movevent event="StepIn" itemid="1510" script="others/trap.lua" />
+	<movevent event="StepOut" itemid="1511" script="others/trap.lua" />
+	<movevent event="StepIn" itemid="1513" script="others/trap.lua" />
+	<movevent event="StepIn" itemid="2579" script="others/trap.lua" />
+	<movevent event="RemoveItem" itemid="2579" script="others/trap.lua" />
+	<movevent event="StepIn" itemid="4208" script="others/trap.lua" />
+	<movevent event="StepOut" itemid="4209" script="others/trap.lua" />
 
 	<!-- Walkback when walking on quest chest -->
-	<movevent event="StepIn" itemid="1738" script="walkback.lua" />
-	<movevent event="StepIn" fromid="1740" toid="1741" script="walkback.lua" />
-	<movevent event="StepIn" fromid="1746" toid="1749" script="walkback.lua" />
-	<movevent event="StepIn" fromid="1714" toid="1717" script="walkback.lua" />
-	<movevent event="StepIn" fromid="23798" toid="23805" script="walkback.lua" />
+	<movevent event="StepIn" itemid="1738" script="others/walkback.lua" />
+	<movevent event="StepIn" fromid="1740" toid="1741" script="others/walkback.lua" />
+	<movevent event="StepIn" fromid="1746" toid="1749" script="others/walkback.lua" />
+	<movevent event="StepIn" fromid="1714" toid="1717" script="others/walkback.lua" />
+	<movevent event="StepIn" fromid="23798" toid="23805" script="others/walkback.lua" />
 
 	<!-- Dawnport and Rookgaard -->
 	<movevent event="StepIn" actionid="50998" script="rookgaard/levelbridge.lua" />
-	<movevent event="StepIn" fromaid="20001" toaid="20004" script="vocationtrial.lua" />
-	
+	<movevent event="StepIn" actionid="50999" script="rookgaard/rookVillage.lua" />
+	<movevent event="StepIn" fromaid="20001" toaid="20004" script="dawnport/vocationtrial.lua" />
 
 	<!-- (Level & quest) doors -->
-	<movevent event="StepOut" itemid="1224" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1226" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1228" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1230" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1242" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1244" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1246" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1248" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1256" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1258" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1260" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="1262" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="3541" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="3543" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="3550" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="3552" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5104" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5106" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5113" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5115" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5122" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5124" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5131" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5133" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5289" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5291" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5293" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5295" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5746" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="5749" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6203" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6205" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6207" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6209" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6260" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6262" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6264" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6266" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6897" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6899" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6906" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="6908" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="7039" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="7041" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="7048" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="7050" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="8552" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="8554" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="8556" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="8558" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9176" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9178" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9180" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9182" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9278" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9280" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9282" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="9284" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10279" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10281" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10283" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10285" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10474" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10476" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10483" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10485" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10781" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10783" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10790" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="10792" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="12194" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="12196" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="12203" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="12205" script="closingdoor.lua" />
-	<movevent event="StepOut" itemid="22822" script="closingdoor.lua"/>
-	<movevent event="StepOut" itemid="22831" script="closingdoor.lua"/>
-	<movevent event="StepOut" itemid="25163" script="closingdoor.lua"/>
+	<movevent event="StepOut" itemid="1224" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1226" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1228" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1230" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1242" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1244" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1246" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1248" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1256" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1258" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1260" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="1262" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="3541" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="3543" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="3550" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="3552" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5104" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5106" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5113" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5115" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5122" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5124" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5131" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5133" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5289" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5291" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5293" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5295" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5746" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="5749" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6203" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6205" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6207" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6209" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6260" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6262" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6264" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6266" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6897" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6899" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6906" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="6908" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="7039" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="7041" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="7048" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="7050" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="8552" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="8554" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="8556" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="8558" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9176" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9178" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9180" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9182" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9278" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9280" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9282" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="9284" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10279" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10281" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10283" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10285" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10474" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10476" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10483" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10485" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10781" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10783" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10790" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="10792" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="12194" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="12196" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="12203" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="12205" script="others/closingdoor.lua" />
+	<movevent event="StepOut" itemid="22822" script="others/closingdoor.lua"/>
+	<movevent event="StepOut" itemid="22831" script="others/closingdoor.lua"/>
+	<movevent event="StepOut" itemid="25163" script="others/closingdoor.lua"/>
 
 	<!-- Snow footprint tiles -->
-	<movevent event="StepOut" itemid="670" script="snow.lua" />
-	<movevent event="StepOut" fromid="6580" toid="6593" script="snow.lua" />
+	<movevent event="StepOut" itemid="670" script="others/snow.lua" />
+	<movevent event="StepOut" fromid="6580" toid="6593" script="others/snow.lua" />
 
 	<!-- Create bread movements -->
-	<movevent event="AddItem" tileitem="1" itemid="1786" script="dough.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="1788" script="dough.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="1790" script="dough.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="1792" script="dough.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="1786" script="others/dough.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="1788" script="others/dough.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="1790" script="others/dough.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="1792" script="others/dough.lua" />
 
-	<!-- Create party cake -->
-	<movevent event="AddItem" tileitem="1" itemid="6279" script="cake.lua" />
+	<!-- Create Party Cake -->
+	<movevent event="AddItem" tileitem="1" itemid="6279" script="others/cake.lua" />
 
 	<!-- Campfires -->
 	<movevent event="StepIn" itemid="1423" function="onStepInField" />
@@ -673,13 +629,13 @@
 	<movevent event="AddItem" itemid="7360" function="onAddField" />
 
 	<!-- Swimming -->
-	<movevent event="StepIn" fromid="4620" toid="4625" script="swimming.lua" />
-	<movevent event="StepOut" fromid="4620" toid="4625" script="swimming.lua" />
-	<movevent event="StepIn" fromid="5405" toid="5410" script="drowning.lua" />
-	<movevent event="StepOut" fromid="5405" toid="5410" script="drowning.lua" />
-	<movevent event="StepIn" itemid="10019" script="drowning.lua" />
-	<movevent event="StepOut" itemid="10019" script="drowning.lua" />
-	<movevent event="StepIn" itemid="1387" script="drowning.lua" />
+	<movevent event="StepIn" fromid="4620" toid="4625" script="others/swimming.lua" />
+	<movevent event="StepOut" fromid="4620" toid="4625" script="others/swimming.lua" />
+	<movevent event="StepIn" fromid="5405" toid="5410" script="others/drowning.lua" />
+	<movevent event="StepOut" fromid="5405" toid="5410" script="others/drowning.lua" />
+	<movevent event="StepIn" itemid="10019" script="others/drowning.lua" />
+	<movevent event="StepOut" itemid="10019" script="others/drowning.lua" />
+	<movevent event="StepIn" itemid="1387" script="others/drowning.lua" />
 
 	<!-- Boots -->
 	<movevent event="Equip" itemid="34062" level="180" slot="feet" function="onEquipItem"> <!-- Pair of Dreamwalkers -->
@@ -1057,7 +1013,7 @@
 	<movevent event="Equip" itemid="18408" level="120" slot="ring" function="onEquipItem" />
 	<movevent event="Equip" itemid="18528" level="120" slot="ring" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="18528" slot="ring" function="onDeEquipItem" />
-	<movevent event="Equip" itemid="10310" level="100" slot="ring" script="others/noxiousclaw.lua" />
+	<movevent event="Equip" itemid="10310" level="100" slot="ring" script="others/noxiousClaw.lua" />
 	<movevent event="Equip" itemid="10309" level="100" slot="ring" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="10309" level="100" slot="ring" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="10311" level="100" slot="ring" function="onEquipItem" />

@@ -8,7 +8,7 @@ for i = 35, 75 do
 	condition:setParameter(CONDITION_PARAM_TICKS, 6000)
 	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
 
-	local area = createCombatArea(AREA_CROSS1X1)
+	local area = createCombatArea(AREA_CIRCLE1X1)
 	combat[i]:setArea(area)
 	combat[i]:addCondition(condition)
 end
