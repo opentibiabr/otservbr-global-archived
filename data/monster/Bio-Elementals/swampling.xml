@@ -35,7 +35,6 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Gnark!" />
-		<voice sentence="Crrrck!" />
 	</voices>
 	<loot>
 		<item id="2120" chance="5080" /><!-- rope -->

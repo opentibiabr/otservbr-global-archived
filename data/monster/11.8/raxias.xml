@@ -34,8 +34,9 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Yooodelaaahooohooo!" />
-		<voice sentence="Yooodelaaaheeeheee!" />
+		<voice sentence="This is a nightmare and you won't wake up!" />
+		<voice sentence="This was your last chance!" />
+		<voice sentence="Blood, fight and rage!" />
 	</voices>
 	<loot>
 		<item name="snowball" countmax="22" chance="10000" />

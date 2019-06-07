@@ -60,9 +60,6 @@
 		<immunity drown="1" />
 		<immunity fire="1" />
 		</immunities>
-		<voices interval="5000" chance="10">
-		<voice sentence= "VCB J-T =I- º" />
-		</voices>
 		<loot>
 		<item name="small sapphire" countmax="10"  chance="2854" />
 		<item name="gold coin" countmax="60" chance="70000" />
