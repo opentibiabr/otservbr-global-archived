@@ -59,9 +59,6 @@
 		<immunity name="drunk"/>
 		<immunity name="invisible"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="This place is sacred!"/>
-	</voices>
 	<loot>
 		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
 		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->

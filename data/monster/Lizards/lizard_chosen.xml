@@ -47,7 +47,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Grzzzzzzz!" />
 		<voice sentence="Garrrblarrrrzzzz!" />
-		<voice sentence="Kzzzzzz!" />
+		<voice sentence="Kzzzzzzz!" />
 	</voices>
 	<loot>
 		<item name="small diamond" countmax="5" chance="2550" />

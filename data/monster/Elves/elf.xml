@@ -38,7 +38,7 @@
 		<voice sentence="Bahaha aka!" />
 		<voice sentence="You are not welcome here." />
 		<voice sentence="Flee as long as you can." />
-		<voice sentence="Death to the defilers!" />
+		<voice sentence="Death to the Defilers!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="30" chance="44000" />

@@ -38,9 +38,6 @@
 		<immunity lifedrain="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Crump!" yell="1" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="61" chance="2000" /><!-- gold coin -->
 		<item id="2148" countmax="60" chance="2000" /><!-- gold coin -->

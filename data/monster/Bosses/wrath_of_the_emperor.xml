@@ -45,6 +45,12 @@
 		<immunity death="1" />
 		<immunity earth="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="YOU DON'T EVEN UNDERSTAND WHOM YOU ARE SERVING!" />
+		<voice sentence="FLEE AND NEVER RETURN!" />
+		<voice sentence="YOU HAVE BEEN USED AND FOOLED!" />
+		<voice sentence="I WILL STOP YOU ONCE AND FOR ALL!" />
+	</voices>
 	<summons maxSummons="2">
 		<summon name="Draken Warmaster" interval="2000" chance="10" max="2" />
 	</summons>

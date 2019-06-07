@@ -64,7 +64,7 @@
 		<voice sentence="Come and fight me, cowards!" />
 		<voice sentence="I am the supreme warrior!" />
 		<voice sentence="Let me hear the music of battle." />
-		<voice sentence="Anotherone to bite the dust!" />
+		<voice sentence="Another one to bite the dust!" />
 	</voices>
 	<loot>
 		<item id="2136" chance="500" /><!-- demonbone amulet -->

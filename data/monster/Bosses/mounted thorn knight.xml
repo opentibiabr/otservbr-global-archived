@@ -57,7 +57,4 @@
 		<element physicalPercent="80" />
 		<element icePercent="80" />
 	</elements>
-	<voices interval="20000" chance="7">
-		<voice sentence="I'm the hunter and you are my prey!" />
-	</voices>
 </monster>

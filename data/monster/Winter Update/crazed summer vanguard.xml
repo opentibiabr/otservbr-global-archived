@@ -48,6 +48,10 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
+	<voices interval="10000" chance="7">
+		<voice sentence="I see colours, all colours! Or are these just illusions?" /> 
+		<voice sentence="La di da di doo!!" /> 
+	</voices>
 	<loot>
 <!--common-->
 <item name="platinum coin" count="13" chance="1000000" /> 

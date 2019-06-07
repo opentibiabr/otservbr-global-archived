@@ -43,7 +43,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Ymirs Mjalle!" />
 		<voice sentence="No run so much, must stay fat!" />
-		<voice sentence="Horre, Sjan Flan!" />
+		<voice sentence="H&#246;rre Sjan Flan!" />
 		<voice sentence="Damned fast food." />
 		<voice sentence="Come kiss the cook!" />
 	</voices>

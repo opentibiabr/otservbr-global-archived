@@ -36,11 +36,6 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Hugah!" />
-		<voice sentence="Ungh! Ungh!" />
-		<voice sentence="Huaauaauaauaa!" />
-	</voices>
 	<loot>
 		<item id="2148" chance="50000" countmax="60" /><!-- gold coin -->
 		<item id="5883" chance="2500" /><!-- ape fur -->

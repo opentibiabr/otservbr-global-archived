@@ -52,6 +52,7 @@
 		<voice sentence="Are you stalking me? You will bitterly regret this!" />
 		<voice sentence="Nightmarish monster! This dream is not meant for you!" />
 		<voice sentence="You won't steal my robe! Back off!" />
+		<voice sentence="You are not allowed to lay eyes on me in this shape!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="112" chance="30000" />

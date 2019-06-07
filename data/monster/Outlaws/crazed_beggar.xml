@@ -35,8 +35,9 @@
 		<voice sentence="Raahhh!" />
 		<voice sentence="You are one of THEM! Die!" />
 		<voice sentence="Wanna buy roses??" />
-		<voice sentence="They're coming!" />
+		<voice sentence="They're coming! They're coming!" />
 		<voice sentence="Make it stop!" />
+		<voice sentence="Gimme money!" />
 	</voices>
 	<loot>
 		<item name="small blue pillow" chance="420" />

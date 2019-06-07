@@ -46,8 +46,7 @@
 		<summon name="dragon hatchlings" interval="4000" chance="40" max="4" />
 	</summons>
 	<voices interval="2000" chance="7">
-		<voice sentence="GROOAAARRR" yell="1" />
-		<voice sentence="FCHHHHH" yell="1" />
+		<voice sentence="GROOAAARRR!" yell="1" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="70" chance="37500" /><!-- gold coin -->

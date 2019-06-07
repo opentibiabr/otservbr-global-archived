@@ -40,4 +40,7 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="5000" chance="20">
+		<voice sentence="More blood! More!" yell="1" />
+	</voices>
 </monster>

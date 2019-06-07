@@ -49,7 +49,7 @@
 		<summon name="Parasite" interval="2000" chance="10" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="Moooaaan!" />
+		<voice sentence="Moooaaan" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="198" chance="100000" />

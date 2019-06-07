@@ -53,7 +53,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="I grant you a deathwish!" />
-		<voice sentence="Muhahahaha!" />
+		<voice sentence="Muahahahahaha" />
 		<voice sentence="I wish you a merry trip to hell!" />
 		<voice sentence="Good wishes are for fairytales" />
 	</voices>

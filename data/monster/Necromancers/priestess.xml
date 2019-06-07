@@ -51,7 +51,7 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="Your energy is mine." />
-		<voice sentence="Now, your life has come to an end, hahahha!" />
+		<voice sentence="Now your life is come to the end, hahahaha!" />
 		<voice sentence="Throw the soul on the altar!" />
 	</voices>
 	<loot>

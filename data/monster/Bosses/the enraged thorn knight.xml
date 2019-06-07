@@ -56,12 +56,6 @@
 		<element physicalPercent="80" />
 		<element icePercent="80" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="NOOOOO!" />
-		<voice sentence="You killed my only friend!" />
-		<voice sentence="You will pay for this!" />
-		<voice sentence="I will hurt you!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="165" chance="50320" /><!-- gold coin -->
 		<item id="2152" countmax="30" chance="50320" /><!-- platinun coin -->

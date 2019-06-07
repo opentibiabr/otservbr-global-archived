@@ -36,12 +36,6 @@
 		<immunity invisible="1"/>
 		<immunity poison="1"/>
 	</immunities>
-	<voices interval="2000" chance="7">
-		
-		<voice sentence="Toks utat." />
-		<voice sentence="Youh ah trak!" />
-		<voice sentence="Let da mashing begin!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="100" chance="82000" /><!-- gold coin -->
 		<item id="2152" countmax="12" chance="12000" /><!-- Platinum Coins -->		

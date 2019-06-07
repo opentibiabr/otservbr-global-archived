@@ -56,9 +56,9 @@
 	</immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="Mwaaaahnducate youuuuuu *gurgle*, mwaaah!" />
-		<voice sentence="MMMWAHMWAHMWAHMWAAAAH!" />
 		<voice sentence="Mwaaahgod! Overmwaaaaah! *gurgle*" />
-		<voice sentence="Mmmwahmwahmwhah, mwaaah!" />
+		<voice sentence="MMMWAHMWAHMWAHMWAAAAH!" />
+		<voice sentence="Mmmwhamwhamwhah, mwaaah!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->

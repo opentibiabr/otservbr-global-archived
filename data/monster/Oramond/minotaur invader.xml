@@ -27,9 +27,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="For victory!" />
-		<voice sentence="No mercy to the black skins!" />
-		<voice sentence="We are invincible!" />
+		<voice sentence="For the victory!" />
 		<voice sentence="We will crush the enemy!" />
 	</voices>
 	<loot>

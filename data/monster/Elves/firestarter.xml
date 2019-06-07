@@ -38,6 +38,8 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="FIRE!" yell="1" />
 		<voice sentence="BURN!" yell="1" />
+		<voice sentence="Hey, what's that burnt stench... isn't that... YOU?" yell="1" />
+		<voice sentence="Set everything on fire!!" yell="1" />
 		<voice sentence="DEATH to the FALSE GOD!!" yell="1" />
 		<voice sentence="You shall burn in the thornfires!!" />
 		<voice sentence="DOWN with the followers of the bog!!" />

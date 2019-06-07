@@ -81,8 +81,7 @@
 		
 		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1"/>
 		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1"/>
-		<voice sentence="Minions! Follow my call!" yell="1" />
-		<voice sentence="I've beaten tougher demons then you even know" yell="1" />
+		<voice sentence="I've beaten tougher demons then you even know!" yell="1" />
 		<voice sentence="You puny humans will be my snacks!" yell="1" />
 		
 	</voices>

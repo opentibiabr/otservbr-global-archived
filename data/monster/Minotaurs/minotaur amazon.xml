@@ -51,7 +51,6 @@
 		<voice sentence="I'll protect the herd!" />
 		<voice sentence="Never surrender!" />
 		<voice sentence="You won't hurt us!" />
-		<voice sentence="I will not allow your evil to continue!" />
 	</voices>
 	<loot>
 		<item id="7368" countmax="5" chance="3040" />		<!-- assassin star -->

@@ -45,10 +45,8 @@
 	<immunity earth="1"/>
   </immunities>
   <voices interval="2000" chance="7">
-		<voice sentence="Me will break you bad!" />
+		<voice sentence="It's clobberin time!" />
 		<voice sentence="Crushing! Smashing! Ripping! Yeah!!" />
-		<voice sentence="It's Clobbering Time!" />
-		<voice sentence="Me like sound of breaking bones!!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="120" chance="50320" /><!-- gold coin -->

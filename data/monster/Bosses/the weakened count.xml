@@ -40,6 +40,9 @@
 		<immunity death="1" />
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="1... 2... 2... Uh, can't concentrate." />
+	</voices>
 	<loot>
 		<item id="2148" countmax="98" chance="40000" /><!-- gold coin -->
 		<item id="8752" chance="100000" /><!-- the ring of the count -->

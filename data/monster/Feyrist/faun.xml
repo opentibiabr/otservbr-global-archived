@@ -52,7 +52,6 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Are you posing a threat to this realm? I suppose so." />
 		<voice sentence="In vino veritas! Hahaha!" />
-		<voice sentence="Dance with me!" />
 		<voice sentence="Wine, women and song!" />
 	</voices>
 	<loot>

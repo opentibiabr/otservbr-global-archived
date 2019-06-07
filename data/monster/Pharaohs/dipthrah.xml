@@ -52,8 +52,10 @@
 		<summon name="Priestess" interval="2000" chance="15" max="3" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="Come closer to learn the final lesson." />
-		<voice sentence="You can't escape death forever." />
+		<voice sentence="You can't escape death forever" />
+		<voice sentence="Come closer to learn the final lesson" />
+		<voice sentence="Undeath will shatter my shackles." />
+		<voice sentence="You don't need this magic anymore." />
 	</voices>
 	<loot>
 		<item name="small sapphire" countmax="3" chance="7000" />

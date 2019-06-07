@@ -59,9 +59,8 @@
 	</immunities>
 		
 	<voices interval="3000" chance="50">
-		<voice sentence="You should consider bargaining for you life!" />
+		<voice sentence="You should consider bargaining for your life!" />
 		<voice sentence="Your tainted soul belongs to us anyway!" />
-	    <voice sentence="Today I deal only in death!" />
        			
 	</voices>
 	<loot>

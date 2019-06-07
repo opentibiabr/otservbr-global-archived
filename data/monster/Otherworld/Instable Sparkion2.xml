@@ -54,7 +54,6 @@
 	<voices interval="4000" chance="15">
 		<voice sentence="Zzing!"/>
 		<voice sentence="Frizzle!"/>
-		<voice sentence="Crackle!"/>
 	</voices>
 	<loot>
 		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->

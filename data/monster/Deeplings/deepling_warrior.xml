@@ -40,7 +40,7 @@
 		<immunity drown="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Jou wjil all djie!" />
+		<voice sentence="Jou wjil ajll djie!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="60000" />

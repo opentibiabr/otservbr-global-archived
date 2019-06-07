@@ -48,11 +48,6 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="MOOOOH!" yell="1" />
-		<voice sentence="Grrrr." />
-		<voice sentence="Raaaargh!" />
-	</voices>
 	<loot>
 		<item id="2148" countmin="10" countmax="195" chance="100000" />	<!-- gold coin -->
 		<item id="2152" countmax="2" chance="58160" />		<!-- platinum coin -->

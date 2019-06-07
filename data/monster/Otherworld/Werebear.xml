@@ -1,4 +1,4 @@
-	<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Werebear" nameDescription="a werebear" race="blood" experience="2000" speed="210" manacost="0">
 	<health now="2200" max="2200" />
 	<look type="720" corpse="24666" />

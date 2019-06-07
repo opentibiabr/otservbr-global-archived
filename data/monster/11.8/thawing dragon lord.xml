@@ -48,11 +48,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Mmmhaarrrgh..." />
-		<voice sentence="Repent Heretic!" />
-		<voice sentence="Nnngh!" />
-	</voices>
 	<loot>
 		<item id="9971" countmax="4" chance="50000" /><!--gold ingot -->
 		<item id="8571" chance="5560" /> <!-- ice cube -->

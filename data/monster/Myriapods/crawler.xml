@@ -38,9 +38,6 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Sssschrchrsss!" />
-	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="50000" />
 		<item name="gold coin" countmax="90" chance="50000" />

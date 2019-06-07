@@ -48,12 +48,4 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Knarrrz" />
-		<voice sentence="Huuhuuhuuuhuuaarrr" />
-		<voice sentence="Knorrrrrr" />
-	</voices>
-	<loot>
-
-	</loot>
 </monster>

@@ -41,6 +41,7 @@
 	<voices interval="2000" chance="7">
 		<voice sentence="Behold the all permeating powers I draw from this gate!!" />
 		<voice sentence="ENERGY!!" />
+		<voice sentence="I WILL RETURN!! My death will just be a door to await my homecoming, my physical hull will be... my... argh..." />
 	</voices>
 	<summons maxSummons="1">
 		<summon name="Golden Servant" interval="2000" chance="50" />

@@ -45,10 +45,6 @@
 		<immunity death="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="FEEEED MY ETERNAL HUNGER!" yell="1" />
-		<voice sentence="I SENSE LIFE" yell="1" />
-	</voices>
 	<loot>
 		<item id="2173" chance="1000"/> <!-- amulet of loss -->
 		<item id="27610" chance="100000"/> <!-- bones of Zorvorax -->

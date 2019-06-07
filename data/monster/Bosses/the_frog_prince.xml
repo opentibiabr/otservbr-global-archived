@@ -28,5 +28,6 @@
 	</elements>
 	<voices interval="2000" chance="7">
 		<voice sentence="Don't Kill me!!" />
+		<voice sentence="Have mercy!" />
 	</voices>
 </monster>

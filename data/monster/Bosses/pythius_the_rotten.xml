@@ -60,7 +60,6 @@
 		<voice sentence="MINIONS, MEET YOUR NEW BROTHER!" yell="1" />
 		<voice sentence="YOU WILL REGRET THAT YOU ARE BORN!" yell="1" />
 		<voice sentence="YOU MADE A HUGE WASTE!" yell="1" />
-		<voice sentence="I SENSE LIFE" yell="1" />
 	</voices>
 	<summons maxSummons="2">
 		<summon name="Undead Gladiator" interval="1000" chance="10" />

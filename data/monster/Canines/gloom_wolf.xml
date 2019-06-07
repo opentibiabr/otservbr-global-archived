@@ -29,10 +29,6 @@
 		<element icePercent="-5" />
 		<element deathPercent="35" />
 	</elements>
-	<voices interval="5000" chance="10">
-		<voice sentence="Yoooohhuuu!" />
-		<voice sentence="Grrrrrr" />
-	</voices>
 	<loot>
 	    <item name="ham" chance="20120" />
 		<item name="wolf tooth chain" chance="2000" />

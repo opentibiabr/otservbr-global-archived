@@ -54,7 +54,7 @@
 		<immunity earth="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="I bring your deathhh, mortalssss" />
+		<voice sentence="I bring you deathhhh, mortalssss" />
 	</voices>
 	<loot>
 		<item id="10611" chance="100000" />				<!-- snake skin -->

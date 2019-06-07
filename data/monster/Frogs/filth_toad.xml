@@ -36,10 +36,6 @@
 		<element icePercent="20" />
 		<element firePercent="-10" />
 	</elements>
-	<voices interval="5000" chance="10">
-		<voice sentence="Ribbit, ribbit!" />
-		<voice sentence="Ribbit!" />
-	</voices>
 	<loot>
 		<item name="gold coin" countmax="21" chance="75000" />
 		<item name="two handed sword" chance="500" />

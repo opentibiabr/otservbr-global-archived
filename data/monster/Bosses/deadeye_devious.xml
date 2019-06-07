@@ -36,6 +36,7 @@
 		<voice sentence="Arrrgh!" />
 		<voice sentence="You'll never take me alive!" />
 		<voice sentence="You won't get me alive!" />
+		<voice sentence="§%§&amp;§! #*$§$!!" />
 	</voices>
 	<loot>
 		<item id="6102" chance="100000" />					<!-- deadeye devious' eye patch -->

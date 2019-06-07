@@ -56,7 +56,8 @@
 	<voices interval="2000" chance="5">
 		<voice sentence="IT TOOK AN ARMY OF YOUR KIND TO DEFEAT THE WARDEN. NOW YOU ARE ALONE!" yell="1"/>
 		<voice sentence="FEELS GOOD TO BE BACK IN ACTION!" yell="1"/>
-		<voice sentence="THE WARDS ARE FAILING! MY ESCAPE IS ONLY A MATTER OF TIME!" yell="1"/>
+		<voice sentence="THE WARDS ARE FAILING! MY ESCAPE IS ONLY A MATTER OF TIME!!" yell="1"/>
+		<voice sentence="Terofar cast a greater death curse on you!" yell="1"/>
 	</voices>
 	<loot>
 		<item id="22396" chance="100000"/><!-- cluster of solace -->

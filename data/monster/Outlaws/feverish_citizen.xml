@@ -35,7 +35,7 @@
 		<element firePercent="20" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Aaaaargh!" />
+		<voice sentence="Arrrgh!" />
 		<voice sentence="I am the king of the world!" />
 		<voice sentence="Die Ferumbras!" />
 		<voice sentence="Tigerblood is running through my veins!" />

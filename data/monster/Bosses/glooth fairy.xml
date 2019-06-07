@@ -65,13 +65,6 @@
 		<element earthPercent="-10" />
 		<element deathPercent="-10" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="Il lorstok human!" />
-		<voice sentence="Toks utat." />
-		<voice sentence="Human, uh whil dyh!" />
-		<voice sentence="Youh ah trak!" />
-		<voice sentence="Let da mashing begin!" />
-	</voices>
 	<loot>
 			<item id="2148" countmax="199" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="14" chance="37170"/><!-- platinum coin -->

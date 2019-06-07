@@ -1,5 +1,4 @@
-	
-	<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Wereboar" nameDescription="a wereboar" race="blood" experience="2000" speed="210" manacost="0">
 	<health now="2200" max="2200" />
 	<look type="721" corpse="24722" />
@@ -45,7 +44,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="SNUFFLE" />
+		<voice sentence="GRUNT" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->		

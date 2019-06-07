@@ -1,5 +1,4 @@
-	
-	<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 <monster name="Omnivora" nameDescription="a omnivora" race="blood" experience="750" speed="210" manacost="0">
 	<health now="1200" max="1200" />
 	<look type="717" corpse="24651" />
@@ -46,12 +45,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Sssssouls for the one" />
-		<voice sentence="HISSSS" yell="1" />
-		<voice sentence="Tsssse one will risssse again" />
-		<voice sentence="I bring your deathhh, mortalssss" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->
 		

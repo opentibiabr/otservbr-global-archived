@@ -41,7 +41,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Attack aggrezzively! Dezztroy zze intruderzz!" />
-		<voice sentence="Hizzzzz!" />
+		<voice sentence="Hizzzzzz!" />
 	</voices>
 	<loot>
 		<item name="ring of the sky" chance="180" />

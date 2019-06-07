@@ -46,12 +46,6 @@
 		<immunity drown="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Ah, the sweet music of a beating heart!" />
-		<voice sentence="Death and Darkness"/>
-		<voice sentence="Embrace the night!" />
-		<voice sentence="May night fall upon you!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="242" chance="97000" />	            <!-- gold coin -->		
  		<item id="2148" countmax="102" chance="97000" />	            <!-- gold coin -->	

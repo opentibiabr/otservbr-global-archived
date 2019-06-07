@@ -30,7 +30,7 @@
 		<element deathPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Grrrr" />
+		<voice sentence="Grrr" />
 		<voice sentence="Groar" />
 		<voice sentence="Gruntz!" />
 		<voice sentence="Hmmm, bugs" />

@@ -46,7 +46,7 @@
 	</summons>
 	<voices interval="2000" chance="7">
 		<voice sentence="I will protect the secrets of my master!" />
-		<voice sentence="This isle will become ours alone!" />
+		<voice sentence="This isle will become ours alone" />
 		<voice sentence="Kaplar!" />
 		<voice sentence="You already know too much." />
 	</voices>

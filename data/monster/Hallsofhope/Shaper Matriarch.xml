@@ -45,7 +45,6 @@
 	<immunity invisible="1"/>
   </immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="Kur Tar Razka!" />
 		<voice sentence="Tar Marra Zik Tazz!" />
 	</voices>
 	<loot>

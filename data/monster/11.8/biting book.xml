@@ -41,9 +41,6 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
- 	<voices interval="5000" chance="10">
-		<voice sentence="Beware of the book!" /> 
-	</voices>
 	<loot>
 		<item id="2231" countmax="2" chance="500" /> <!-- big bone -->
 		<item name="Book Page" countmax="4" chance="500" />

@@ -45,10 +45,6 @@
 		<summons maxSummons="2">
 		<summon name="dragon lord" interval="2000" chance="30" max="2" />
 	</summons>
-	<voices interval="5000" chance="10">
-		<voice sentence="ZCHHHHH" yell="1" />
-		<voice sentence="YOU WILL BURN!" yell="1" />
-	</voices>
 	<loot>
 		<item id="27605" countmax="2" chance="100000"/> <!-- dragon blood -->
 		<item id="2672" countmax="10" chance="75000"/> <!-- dragon ham -->

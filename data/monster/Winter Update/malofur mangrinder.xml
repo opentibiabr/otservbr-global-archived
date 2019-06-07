@@ -30,6 +30,12 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="RAAAARGH! I'M MASHING YE TO DUST BOOM!" /> 
+		<voice sentence="BOOOM!" /> 
+		<voice sentence="BOOOOM!!!" /> 
+		<voice sentence="BOOOOOM!!!" /> 
+	</voices>
 	<loot>
 <!--common-->
 <item name="Ultimate Spirit Potion" count="6" chance="50000" /> 

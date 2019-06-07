@@ -37,11 +37,6 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Error. LOAD 'PROGRAM" />
-		<voice sentence="8,1" />
-		<voice sentence="Remain. Obedient." />
-	</voices>
 	<loot>
 		<item id="2148" countmax="55" chance="82000" /><!-- gold coin -->
 		<item id="9690" chance="4840" /><!-- gear wheel -->

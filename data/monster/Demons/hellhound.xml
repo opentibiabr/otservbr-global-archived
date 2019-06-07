@@ -62,8 +62,7 @@
 		<immunity fire="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="GROOOWL!" />
-		<voice sentence="GRRRRR!" />
+		<voice sentence="GROOOOWL!" />
 	</voices>
 	<loot>
 		<item id="7426" chance="2000" /> <!-- amber staff -->

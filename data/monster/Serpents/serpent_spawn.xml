@@ -59,7 +59,7 @@
 		<voice sentence="Sssssouls for the one" />
 		<voice sentence="HISSSS" yell="1" />
 		<voice sentence="Tsssse one will risssse again" />
-		<voice sentence="I bring your deathhh, mortalssss" />
+		<voice sentence="I bring you deathhhh, mortalssss" />
 	</voices>
 	<loot>
 		<item name="golden mug" chance="2870" />

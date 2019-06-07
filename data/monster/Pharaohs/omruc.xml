@@ -53,8 +53,10 @@
 		<summon name="Stalker" interval="2000" chance="100" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="Now chhhou shhhee me ... Now chhhou don't!!" />
+		<voice sentence="Now chhhou shhhee me ... Now chhhou don't." />
 		<voice sentence="Chhhhou are marked ashhh my prey." />
+		<voice sentence="Catchhhh me if chhhou can." />
+		<voice sentence="Die!" />
 		<voice sentence="Psssst, I am over chhhere." />
 	</voices>
 	<loot>

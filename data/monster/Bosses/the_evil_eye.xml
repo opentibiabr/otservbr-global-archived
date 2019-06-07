@@ -66,6 +66,7 @@
 	</summons>
 	<voices interval="2000" chance="7">
 		<voice sentence="Inferior creatures, bow before my power!" />
+		<voice sentence="653768764!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="45" chance="100000" /><!-- gold coin -->

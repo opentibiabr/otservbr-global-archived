@@ -31,9 +31,8 @@
 		<element deathPercent="-5" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Yeeee ha!" />
-		<voice sentence="Your head shall be mine!" />
-		<voice sentence="Your head will be mine!" />
+		<voice sentence="Feel the wrath of mother Tibia!" />
+		<voice sentence="Defiler of nature!" />
 	</voices>
 	<loot>
 		<item id="2050" chance="1005" /><!-- torch -->

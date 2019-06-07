@@ -37,6 +37,8 @@
 	
 	<voices interval="3000" chance="20">
 		<voice sentence="Snort!" />		
+		<voice sentence="Grunt!" />		
+		<voice sentence="Snarl!" />		
 	</voices>
 	<loot>
 		<item id="2148" countmax="130" chance="92000" />	<!-- gold coin -->
