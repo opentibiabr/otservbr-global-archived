@@ -53,7 +53,6 @@
 		<item id="2152" countmax="5" chance="18200" />				<!-- platinum -->	
         <item id="7591" countmax="2" chance="1200" />					<!--  great Health Potion -->
         <item id="8473" chance="2210" />					<!-- Ultimate Health Potion -->	
-		<item id="7590" chance="1200" />					<!--  great mana Potion -->		
 		<item id="5896" chance="800" />				<!-- Bear Paw -->				
 		<item id="2671" countmax="2" chance="1900" />					<!-- Ham -->		
 		<item id="5902" chance="450" />					<!-- Honeycomb -->		
@@ -68,7 +67,5 @@
 	    <item id="7383" chance="200" />					<!-- Relic Sword -->
 	    <item id="7452" chance="300" />					<!-- Spiked Squelcher -->	    
 		<item id="2169" chance="400" />					<!-- Time Ring -->
-	    <item id="24759" chance="200" />					<!-- Werebear Trophy -->	
-		<item id="24739" chance="200" />					<!-- moonlight crystals -->
 	</loot>
 </monster>

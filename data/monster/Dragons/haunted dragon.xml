@@ -66,12 +66,8 @@
 		<item id="2201" chance="32260"/><!-- dragon necklace -->
 		<item id="2177" chance="1140"/><!-- life crystal -->
 		<item id="27241" countmax="2" chance="4290"/><!-- ancient coin -->
-		<item id="2466" chance="850"/><!-- golden armor -->
 		<item id="11355" chance="850"/><!-- spellweaver's robe -->
-		<item id="2476" chance="4930"/><!-- knight armor -->
-		<item id="8885" chance="500"/><!-- divine plate -->
 		<item id="8889" chance="530"/><!-- skullcracker armor -->
-		<item id="2121" chance="11070"/><!-- dark shield -->
 		<item id="6300" chance="1950"/><!-- death ring -->
 	</loot>
 </monster>

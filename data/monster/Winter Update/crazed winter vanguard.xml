@@ -44,8 +44,6 @@
 	<loot>
 <!--common-->
 <item name="platinum coin" count="13" chance="100000" /> 
-<item name="red crystal fragment" chance="1000000" /> 
-<item name="red gem" chance="1000000" /> 
 <!--uncommon-->
 <item id="34696" count="2" chance="15000" />  <!-- ice flower -->
 <item name="small enchanted ruby" chance="11550" />    

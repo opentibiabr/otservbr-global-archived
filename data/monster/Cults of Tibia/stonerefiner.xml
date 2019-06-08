@@ -46,7 +46,6 @@
 	</voices>
 	<loot> 
 		<!--Comum-->  
-		<item name="gold coin" countmax="200" chance="4050" />
 		<item name="platinum coin" countmax="3" chance="4050" />
 		<item name="glob of acid slime" countmax="1" chance="4050" />
 		<item id="13757" countmax="5" chance="450" />

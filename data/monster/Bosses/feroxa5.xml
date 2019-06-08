@@ -46,29 +46,20 @@
 		<item id="18413" countmax="5" chance="10000"/><!-- blue crystal shard -->
 		<item id="18414" countmax="5" chance="10000"/><!-- violet crystal shard -->
 		<item id="18418" countmax="5" chance="10000"/><!-- blue crystal splinter -->
-		<item id="18417" countmax="5" chance="10000"/><!-- brown crystal splinter -->
-		<item id="18416" countmax="5" chance="10000"/><!-- green crystal splinter -->
 		<item id="2158" chance="2500"/><!-- blue gem -->
 		<item id="2156" chance="2500"/><!-- red gem -->
-		<item id="24739" countmax="6" chance="10000"/><!-- moonlight crystal -->
 		<item id="2195" chance="1500"/><!-- boots of haste -->
 		<item id="2152" countmax="50" chance="100000"/><!-- platinum coin -->
 		<item id="8473" countmax="5" chance="10000"/><!-- ultimate health potion -->
-		<item id="8472" countmax="5" chance="10000"/><!-- great spirit potion -->
 		<item id="7590" countmax="5" chance="10000"/><!-- great mana potion -->
 		<item id="7591" countmax="5" chance="10000"/><!-- great health potion -->
 		<item id="24718" chance="10000" unique="1"/><!-- werewolf helmet -->
 		<item id="24716" chance="1500"/><!-- werewolf amulet -->
 		<item id="24740" chance="1500"/><!-- wolf backpack -->
-		<item id="7383" chance="1500"/><!-- relic sword -->
 		<item id="7436" chance="1500"/><!-- angelic axe -->
-		<item id="7428" chance="1500"/><!-- bonebreaker -->
 		<item id="7419" chance="1500"/><!-- dreaded cleaver -->
 		<item id="24741" chance="1500"/><!-- fur armor -->
 		<item id="24742" chance="1500"/><!-- badger boots -->
 		<item id="24760" chance="12000"/><!-- trophy of feroxa -->
-		<item id="8922" chance="1500"/><!-- wand of voodoo -->
-		<item id="8910" chance="1500"/><!-- underworld rod -->
-		<item id="2197" chance="1500"/><!-- ssa -->
 	</loot>
 </monster>

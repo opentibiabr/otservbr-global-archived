@@ -60,16 +60,13 @@
 		<item id="28998" chance="15000"/> <!-- fairy wings -->
 		<item id="2148" countmax="200" chance="100000"/> <!-- gold coin -->
 		<item id="2418" chance="900"/> <!-- golden sickle -->
-		<item id="29035" countmax="7" chance="9000"/> <!-- leaf star -->
 		<item id="5015" chance="100"/> <!-- mandrake -->
 		<item id="27630" countmax="2" chance="2500"/> <!-- prismatic quartz -->
 		<item id="18420" countmax="2" chance="3600"/> <!-- red crystal fragment -->
-		<item id="28997" chance="18000"/> <!-- shimmering beetles -->
 		<item id="2802" chance="3200"/> <!-- sling herb -->
 		<item id="7761" countmax="3" chance="3000"/> <!-- small enchanted emerald-->
 		<item id="7588" chance="15000"/> <!-- strong health potion -->
 		<item id="7887" chance="3200"/> <!-- terra amulet -->
 		<item id="2791" chance="4500"/> <!-- wood mushroom -->
-		<item id="29003" chance="600"/> <!-- wooden spellbook -->
 	</loot>
 </monster>

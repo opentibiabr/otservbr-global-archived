@@ -43,6 +43,5 @@
     		<immunity drunk="1" />
   	</immunities>
 	<loot>
-		<item id="5909" chance="3360"/><!-- white piece of cloth -->
 	</loot>
 </monster>

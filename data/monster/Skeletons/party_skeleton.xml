@@ -28,14 +28,5 @@
 		<immunity death="1" />
 	</immunities>
 	<loot>
-		<item id="2050" chance="25000" /><!-- torch -->
-		<item id="2050" chance="25000" /><!-- torch -->
-		<item name="gold coin" countmax="10" chance="24500" />
-		<item id="2230" chance="49750" /><!-- bone -->
-		<item id="2376" chance="1500" /><!-- sword -->
-		<item name="hatchet" chance="23750" />
-		<item name="mace" chance="19500" />
-		<item name="viking helmet" chance="8250" />
-		<item name="brass shield" chance="13250" />
 	</loot>
 </monster>

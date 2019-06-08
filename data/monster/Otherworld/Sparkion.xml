@@ -79,6 +79,5 @@
 		<item id="26199" chance="240"/><!-- collar of green plasma -->
 		<item id="26198" chance="240"/><!-- collar of blue plasma -->
 		<item id="26200" chance="200"/><!-- collar of red plasma -->
-		<item id="7869" chance="170"/><!-- energy spiked sword -->
 	</loot>
 </monster>

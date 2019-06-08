@@ -61,7 +61,6 @@
 		<item id="9020" chance="100000"/><!-- vampire lord token -->
 		<item id="21244" chance="100000"/><!-- vampire's cape chain -->
 		<item id="21253" chance="5000"/><!-- the vampire count's medal -->
-		<!--<item id="21252" chance="5000"/> vampire's signet ring -->
 		<item id="12405" chance="50000"/><!-- blood preservation --> 
 		<item id="10602" chance="50000"/><!-- vampire teeth -->
 		<item id="21400" chance="5000"/><!-- silver raid token -->
@@ -85,7 +84,6 @@
 		<item id="2144" countmax="5" chance="50000"/><!-- black pearl -->
 		<item id="2146" countmax="5" chance="50000"/><!-- small sapphire -->
 		<item id="2149" countmax="5" chance="50000"/><!-- small emerald -->
-		<item id="9970" countmax="5" chance="50000"/><!-- small topaz -->
 		<item id="2153" chance="10000"/><!-- violet gem -->
 	</loot>
 	

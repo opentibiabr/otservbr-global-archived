@@ -43,15 +43,11 @@
 	<loot>
 		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->
 		<item id="2148" countmax="30" chance="75410" />	<!-- gold coin -->		
-		<item id="2681" chance="15400" />				<!-- grapes -->		
 		<item id="7591" countmax="2" chance="12340" />	<!--great health potion -->
 		<item id="2666" chance="5000" />					<!-- meat -->
 		<item id="2455" chance="830" />					<!-- crossbow -->		
-		<item id="2652" chance="760" />				<!-- Green Tunic -->		
 		<item id="2164" countmax="2" chance="700" />	<!-- Might Ring -->		
-		<item id="2120" chance="1000" />					<!-- Rope -->		
 		<item id="2661" chance="1000" />					<!-- Scarf -->		
-		<item id="1949" chance="830" />					<!-- Scroll -->
 		
 		<item id="2145" chance="830" />					<!-- Small Diamond -->
 		<item id="2391" chance="130" />					<!-- War Hammer -->

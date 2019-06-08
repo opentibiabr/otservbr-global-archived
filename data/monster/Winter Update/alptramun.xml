@@ -63,7 +63,6 @@
 <item name="Gold Token" count="2" chance="15000" /> 
 <item name="berserk potion" countmax="10" chance="8050" />  
 <item name="bullseye potion" countmax="10" chance="6780" />  
-<item id="26198"  chance="23520" />  <!--collar of blue plasma --> 
 <item id="26200"  chance="10590" />  <!-- collar of red plasma -->
 <item name="Gold Ingot"  chance="7630" />  
 <item name="Huge Chunk of Crude Iron"  chance="8900" />  
@@ -72,14 +71,11 @@
 <item name="green gem"  chance="2740" />		
 <item name="red gem"  chance="2580" />		
 <!--rare-->  
-<item name="Crunor Idol"  chance="2640" />  
-<item name="Giant Ruby"  chance="2840" /> 
 <item name="Magic Sulphur"  chance="2740" />   	
 <item name="yellow gem"  chance="2900" />		
 <item name="mastermind potion" count="10" chance="2900" />		
 <item name="violet gem"  chance="1500" />  	
 <!--very rare-->  
-<item name="Alptramun's Toothbrush"  chance="520" />  
 <item name="Dream Shroud"  chance="620" /> 
 <item name="Pair of Dreamwalkers"  chance="720" /> 
 <item name="Soul Stone"  chance="820" /> 

@@ -70,7 +70,6 @@
 		<item name="The Crown of the Percht Queen" chance="21848" />
 		<!-- semi-rare -->
 		<item name="Silver Token" countmin="1" countmax="5" chance="5480" />
-		<item name="Golden Token" countmin="1" countmax="5" chance="4584" />
 		<item name="Percht Handkerchief" chance="5808" />
 		<item name="Ring of the Sky" chance="5100" />
 		<item id="26185" chance="8486" /> <!-- ring of blue plasma -->

@@ -45,7 +45,6 @@
 <item name="Gold Token" count="2" chance="50000" />
 <item name="Silver Token" count="2" chance="100000" />
 <item id="7632" chance="100000" /> <!-- Giant Shimmering Pearl -->
-<item name="Green Gem" chance="100000" />
 <item name="Red Gem" chance="50000" /> 
 <item name="Blue Gem" chance="100000" /> 
 <item id="26185" chance="50000" /> <!-- ring of blue plasma-->

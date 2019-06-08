@@ -69,15 +69,12 @@
 		<item id="18414" tier="6" countmax="3" chance="8000"/><!-- violet crystal shard -->
 		<item id="26163" tier="6" chance="8000"/><!-- crystallized anger -->
 		<item id="26164" tier="6" chance="8000"/><!-- energy vein -->
-		<item id="26176" tier="6" chance="8000"/><!-- plasmatic lightning -->
 		<item id="2156" tier="6" chance="8000"/><!-- red gem -->
 		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
 		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
-		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
 		
 		<!-- Comum -->
 		<item id="7632;7633" tier="5" chance="8000"/><!-- giant shimmering pearl -->
-		<item id="2189" tier="5" chance="8000"/><!-- wand of cosmic energy -->
 		
 		<!-- Semi Raro -->
 		<item id="26187" tier="4" chance="6000"/><!-- ring of green plasma -->

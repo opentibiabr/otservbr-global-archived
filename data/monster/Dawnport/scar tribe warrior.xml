@@ -33,8 +33,6 @@
 		<item id="2148" countmax="8" chance="100000"/><!-- gold coin -->
 		<item id="2666" chance="13480"/><!-- meat -->
 		<item id="12435" chance="5620"/><!-- orc leather -->
-		<item id="2510" chance="1120"/><!-- plate shield -->
 		<item id="12436" chance="1120"/><!-- skull belt -->
-		<item id="2468" chance="7870"/> <!-- studded legs -->
 	</loot>
 </monster>

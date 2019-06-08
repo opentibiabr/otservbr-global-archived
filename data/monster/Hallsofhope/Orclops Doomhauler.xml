@@ -71,6 +71,5 @@
 		<item id="3953" chance="910" /><!-- War Drum --> 
 		<item id="7439" chance="910" /><!-- Berserk Potion -->
 		<item id="11374" chance="910" /><!-- Beetle Necklace --> 
-		<item id="26479" chance="300" /><!-- Reinvigorating Seeds --> 
 	</loot>
 </monster>

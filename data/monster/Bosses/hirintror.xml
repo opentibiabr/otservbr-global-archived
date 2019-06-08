@@ -55,8 +55,6 @@
 	<loot>
 		<item id="21697" chance="200" /><!-- runic shieldd -->
 		<item id="2148" countmax="100" chance="70000" /><!-- gold coin -->
-		
-		<item id="21400" chance="200" /><!-- silver token -->
 		<item id="21696" chance="200" /><!-- icicle bow -->
 		<item id="2479" chance="1200" /><!-- runic shieldd -->
 		<item id="2396" chance="2200" /><!-- ice rapier -->
