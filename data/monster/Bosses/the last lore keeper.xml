@@ -84,11 +84,5 @@
         <item id="26189" chance="3000" /><!-- rorp -->
         <item id="8473" countmax="5" chance="3000" /><!-- ultimate health potion -->
 		<item id="26031" countmax="5" chance="3000" /><!-- supreme health potion -->
-		<item id="27622" chance="500" /><!--  Part of a Rune (one) -->
-		<item id="27623" chance="500" /><!--  Part of a Rune (two) -->
-		<item id="27624" chance="500" /><!--  Part of a Rune (tree)-->
-		<item id="27625" chance="500" /><!--  Part of a Rune (four)-->
-		<item id="27626" chance="500" /><!--  Part of a Rune (five)-->
-		<item id="27627" chance="500" /><!--  Part of a Rune (six)-->
 	</loot>
 </monster>

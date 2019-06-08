@@ -75,7 +75,6 @@
 		<item id="7440" chance="2000"/><!-- mastermind potion -->
 		<item id="2214" chance="2000"/><!-- ring of healing -->
 		<item id="2436" chance="1000"/><!-- skull staff -->
-		<item id="27624" chance="500" unique="1" /><!-- Part of a Rune(terceira) -->
 		<item id="25377" chance="100000"/><!-- Gold Token -->
 	</loot>
 </monster>

@@ -71,7 +71,6 @@
 		<item id="8472" countmax="100" chance="100000"/><!-- great spirit potion -->
 		<item id="7590" countmax="100" chance="100000"/><!-- great mana potion -->
 		<item id="22613" chance="25000"/><!-- eye pod -->
-		<item id="22614" chance="25000"/><!-- nightmare beacon -->
 		<item id="22608" chance="2500"/><!-- nightmare horn -->
 		<item id="22611" chance="25000"/><!-- psychodelic tapestry -->
 		<item id="22612" chance="25000"/><!-- demonic tapestry -->

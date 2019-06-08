@@ -79,7 +79,6 @@
 		<item id="2197" chance="1000"/><!-- stone skin amulet -->
 		<item id="2539" chance="100"/><!-- Phoenix Shield -->
 		<item id="7417" chance="100"/><!-- Runed Sword -->
-		<item id="27624" chance="500" unique="1" /><!-- Part of a Rune(terceira) -->
 		<item id="25377" chance="100000"/><!-- Gold Token -->
 		<item id="25172" chance="100000"/><!-- Silver Token -->
 	</loot>

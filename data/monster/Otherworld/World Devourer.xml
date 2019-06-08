@@ -66,7 +66,6 @@
 		<item id="18414" tier="6" countmax="3" chance="10000"/><!-- violet crystal shard -->
 		<item id="26163" tier="6" chance="10000"/><!-- crystallized anger -->
 		<item id="26164" tier="6" chance="10000"/><!-- energy vein -->
-		<item id="7632;7633" tier="6" chance="10000"/><!-- giant shimmering pearl -->
 		
 		<!-- Comum -->
 		<item id="2155" tier="5" chance="10000"/><!-- green gem -->

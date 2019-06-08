@@ -52,7 +52,6 @@
 		<summon name="glooth slasher" interval="2000" chance="10"/>
 	</summons>
 	<loot>
-		<item id="9810" chance="10000"/><!-- rusty armor -->
 		<item id="24270" chance="1000" unique="1"/><!-- Glooth Glider Casing -->
 	</loot>
 </monster>
