@@ -48,7 +48,6 @@
 	<loot>
 		<item id="27605" countmax="2" chance="100000"/> <!-- dragon blood -->
 		<item id="2672" countmax="10" chance="75000"/> <!-- dragon ham -->
-		<item id="11118" chance="100"/> <!-- dragon scale boots -->
 		<item id="2492" chance="5000"/> <!-- dragon scale mail -->
 		<item id="27606" chance="100000"/> <!-- dragon tongue -->
 		<item id="2167" chance="20000"/> <!-- energy ring -->

@@ -24,7 +24,5 @@
 		<voice sentence="KRAK ORRRRRRK!" />
 	</voices>
 	<loot>
-		<item name="meat" countmax="2" chance="20000" />
-		<item id="2684" countmax="2" chance="9000" /><!-- carrot -->
 	</loot>
 </monster>

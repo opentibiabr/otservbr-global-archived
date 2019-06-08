@@ -56,10 +56,7 @@
 	<loot>
 		<item id="2745" chance="400"/> <!-- blue rose -->
 		<item id="2195" chance="150"/> <!-- boots of haste -->
-		<item id="29002" chance="1200"/> <!-- butterfly ring -->
 		<item id="29000" chance="12000"/> <!-- colourful snail shell -->
-		<item id="28999" chance="12000"/> <!-- dandelion seeds -->
-		<item id="29004" chance="600"/> <!-- dream blossom staff -->
 		<item id="2127" chance="1800"/> <!-- emerald bangle -->
 		<item id="9927" chance="500"/> <!-- flower wreath -->
 		<item id="28996" countmax="2" chance="15000"/> <!-- fresh fruit -->
@@ -70,6 +67,5 @@
 		<item id="7762" countmax="2" chance="2000"/> <!-- small enchanted amethyst -->
 		<item id="9970" countmax="2" chance="2500"/> <!-- small topaz -->
 		<item id="7589" chance="1000"/> <!-- strong mana potion -->
-		<item id="28995" chance="20000"/> <!-- wild flowers -->
 	</loot>
 </monster>

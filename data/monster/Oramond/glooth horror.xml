@@ -28,6 +28,5 @@
 		<element deathPercent="-5"/>
 	</elements>
 	<loot>
-		<item id="2148" countmax="28" chance="17500"/><!-- gold coin -->
 	</loot>
 </monster>

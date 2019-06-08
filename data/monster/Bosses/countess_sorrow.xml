@@ -75,12 +75,10 @@
 		<item id="2152" countmin="2" countmax="4" chance="55880"/><!-- platinum coin -->
 		<item id="5944" chance="85290"/><!-- soul orb -->
 		<item id="2656" chance="32350"/><!-- blue robe -->
-		<item id="2654" chance="24100"/><!-- cape -->
 		<item id="2424" chance="4210"/><!-- silver mace -->
 		<item id="2647" chance="8820"/><!-- plate legs -->
 		<item id="2200" chance="23530"/><!-- protection amulet -->
 		<item id="2165" chance="5880"/><!-- stealth ring -->
-		<item id="2393" chance="20590"/><!-- giant sword -->
 		<item id="2238" chance="47060"/><!-- worn leather boots -->
 	</loot>
 </monster>

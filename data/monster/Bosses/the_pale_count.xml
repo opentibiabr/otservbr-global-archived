@@ -85,7 +85,6 @@
 		<item id="2144" countmax="5" chance="50000"/><!-- black pearl -->
 		<item id="2146" countmax="5" chance="50000"/><!-- small sapphire -->
 		<item id="2149" countmax="5" chance="50000"/><!-- small emerald -->
-		<item id="9970" countmax="5" chance="50000"/><!-- small topaz -->
 		<item id="2153" chance="10000"/><!-- violet gem -->
 	</loot>
 

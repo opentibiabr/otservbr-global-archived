@@ -63,17 +63,5 @@
 		<voice sentence="Ahhh, your life energy tastes so delicious!" />
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="100000" />
-		<item name="gold coin" countmax="12" chance="80000" />
-		<item name="stealth ring" chance="888" />
-		<item name="platinum amulet" chance="1666" />
-		<item id="2175" chance="10000" />
-		<item name="gold ring" chance="900" />
-		<item name="dirty cape" chance="10000" />
-		<item id="2401" chance="10000" />
-		<item name="castle shield" chance="588" />
-		<item name="blue robe" chance="709" />
-		<item name="lich staff" chance="1000" />
-		<item name="lightning boots" chance="688" />
 	</loot>
 </monster>

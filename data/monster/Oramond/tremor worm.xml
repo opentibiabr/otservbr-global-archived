@@ -33,8 +33,5 @@
 		<item id="2152" countmax="5" chance="33000"/> <!-- platinum coin -->
 		<item id="7591" countmax="1" chance="10000"/> <!-- great health potion -->
 		<item id="7590" countmax="1" chance="10000"/> <!-- great mana potion -->
-		<item id="9690" chance="1500"/> <!-- gear wheel -->
-		<item id="23522" chance="1000"/> <!-- gearwheel chain -->
-		<item id="10571" countmax="1" chance="900"/> <!-- war crystal -->
 	</loot>
 </monster>

@@ -60,7 +60,6 @@
 		<item name="violet gem" chance="830" />
 		<item name="green gem" chance="869" />
 		<item name="red gem" chance="13850" />
-		<item id="2228" chance="600" /><!-- broken pottery -->
 		<item name="dragon hammer" chance="9000" />
 		<item name="heavy mace" chance="400" />
 		<item name="war axe" chance="400" />

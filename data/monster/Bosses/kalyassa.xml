@@ -59,11 +59,8 @@
 		<item id="27605" countmax="2" chance="80000" /><!-- dragon blood-->
 		<item id="7591" countmax="1" chance="8260"/><!-- great health potion -->
 		<item id="7590" countmax="1" chance="9170"/><!-- great mana potion -->
-		<item id="1976" chance="11010"/><!-- gemmed book -->
 		<item id="2498" chance="25000"/><!-- royal helmet -->
 		<item id="2492" chance="25000"/><!-- dragon scale mail -->
-		<item id="11118" chance="400"/><!-- dragon scale boots -->
-		<item id="5791" chance="4000"/><!-- stuffed dragon -->
 		<item id="27606" chance="100000" /><!-- dragon tongue -->
 		<item id="2547" countmax="1" chance="17430"/><!-- power bolt -->
 		<item id="7365" countmax="10" chance="26610"/><!-- green mushroom -->
