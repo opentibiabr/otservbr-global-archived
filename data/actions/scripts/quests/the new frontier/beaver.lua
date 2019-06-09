@@ -36,8 +36,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if player:getStorageValue(Storage.TheNewFrontier.Beaver1) == 1
-			and player:getStorageValue(Storage.TheNewFrontier.Beaver2) == 1
-			and player:getStorageValue(Storage.TheNewFrontier.Beaver3) == 1 then
+	and player:getStorageValue(Storage.TheNewFrontier.Beaver2) == 1
+	and player:getStorageValue(Storage.TheNewFrontier.Beaver3) == 1 then
 		player:setStorageValue(Storage.TheNewFrontier.Questline, 6)
 	end
 	return true

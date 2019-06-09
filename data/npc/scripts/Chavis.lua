@@ -39,6 +39,7 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.Oramond.HarvestedRootCount, harvestedCount - 5)
 				player:removeItem(23662, 5)
 				player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 0)
+				player:setStorageValue(Storage.Oramond.DoorBeggarKing, 1)
 			end
 		end
 	elseif msgcontains(msg, "root") then

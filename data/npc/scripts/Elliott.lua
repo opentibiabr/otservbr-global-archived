@@ -44,7 +44,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			setPlayerStorageValue(cid, 10062, 1)
 			setPlayerStorageValue(cid, 20062, 0)
-
+			player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
 		end
 	elseif(msgcontains(msg, "ok")) then
 		if(npcHandler.topic[cid] == 3) then

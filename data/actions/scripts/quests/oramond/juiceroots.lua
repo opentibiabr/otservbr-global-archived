@@ -1,79 +1,55 @@
-local function revertJuice(toPosition)
-	local tile = toPosition:getTile()
-	if tile then
-		local thing = tile:getItemById(23470)
-		if thing then
-			thing:transform(23468)
-		end
+local function revertRoot(position, itemId, transformId)
+	local item = Tile(position):getItemById(itemId)
+	if item then
+		item:transform(transformId)
 	end
 end
-local function revertJuicy(toPosition)
-	local tile = toPosition:getTile()
-	if tile then
-		local thing = tile:getItemById(23471)
-		if thing then
-			thing:transform(23469)
-		end
-	end
-end
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local harvestedCount = player:getStorageValue(20061)
 	local rand = math.random(1, 100)
-	local player = Player(cid)
-	local item1 = 23468
-	local item2 = 23469
-	if item.itemid == item1 then
-		if((rand >= 1) and (rand < 50)) then
+	if item.itemid == 23475 then
+		if rand <= 50 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You successfully harvest some juicy roots.')
-			doTransformItem(item.uid,23470)
-			addEvent(revertJuice, 60 * 60 * 1000, toPosition)
-			player:addItem(23655, 1)
-			doSendMagicEffect(toPosition, CONST_ME_GREENSPARK)
-			if getPlayerStorageValue(cid, 20061) <= 0 then
-				setPlayerStorageValue(cid, 20061,1)
-				setPlayerStorageValue(cid, 20060,1)
-				setPlayerStorageValue(cid, 10060, 1)
-			elseif getPlayerStorageValue(cid, 20061) == 1 then
-				setPlayerStorageValue(cid, 20061,2)
-			elseif getPlayerStorageValue(cid, 20061) == 2 then
-				setPlayerStorageValue(cid, 20061,3)
-			elseif getPlayerStorageValue(cid, 20061) == 3 then
-				setPlayerStorageValue(cid, 20061,4)
-			elseif getPlayerStorageValue(cid, 20061) == 4 then
-				setPlayerStorageValue(cid, 20061,5)			
+			player:addItem(23662, 1)
+			item:transform(item.itemid + 2)
+			addEvent(revertRoot, 120000, toPosition, 23477, 23475)
+			toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
+			if player:getStorageValue(10060) <= 0 then
+				player:setStorageValue(10060, 1)
 			end
-		elseif((rand >= 50) and (rand < 100)) then
+			if player:getStorageValue(20060) <= 0 then
+				player:setStorageValue(20060, 1)
+			end
+			player:setStorageValue(20061, harvestedCount > 0 and harvestedCount + 1 or 1)
+		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your harvesting attempt destroyed more of the juicy roots than you could salvage.')
-			doTransformItem(item.uid,23470)
-			addEvent(revertJuice, 60 * 60 * 1000, toPosition)
-			doSendMagicEffect(toPosition, CONST_ME_GREENSPARK)
+			item:transform(item.itemid + 2)
+			addEvent(revertRoot, 120000, toPosition, 23477, 23475)
+			toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
 		end
-	end
-	if item.itemid == item2 then
-		if((rand >= 1) and (rand < 50)) then
+	elseif item.itemid == 23476 then
+		if rand <= 50 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You successfully harvest some juicy roots.')
-			doTransformItem(item.uid,23471)
-			addEvent(revertJuicy, 60 * 60 * 1000, toPosition)
-			player:addItem(23655, 1)
-			doSendMagicEffect(toPosition, CONST_ME_GREENSPARK)
-			if getPlayerStorageValue(cid, 20061) <= 0 then
-				setPlayerStorageValue(cid, 20061,1)
-				setPlayerStorageValue(cid, 20060,1)
-				setPlayerStorageValue(cid, 10060, 1)
-			elseif getPlayerStorageValue(cid, 20061) == 1 then
-				setPlayerStorageValue(cid, 20061,2)
-			elseif getPlayerStorageValue(cid, 20061) == 2 then
-				setPlayerStorageValue(cid, 20061,3)
-			elseif getPlayerStorageValue(cid, 20061) == 3 then
-				setPlayerStorageValue(cid, 20061,4)
-			elseif getPlayerStorageValue(cid, 20061) == 4 then
-				setPlayerStorageValue(cid, 20061,5)			
+			player:addItem(23662, 1)
+			item:transform(item.itemid + 2)
+			addEvent(revertRoot, 120000, toPosition, 23478, 23476)
+			toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
+			if player:getStorageValue(10060) <= 0 then
+				player:setStorageValue(10060, 1)
 			end
-		elseif((rand >= 50) and (rand < 100)) then
+			if player:getStorageValue(20060) <= 0 then
+				player:setStorageValue(20060, 1)
+			end
+			player:setStorageValue(20061, harvestedCount > 0 and harvestedCount + 1 or 1)
+		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your harvesting attempt destroyed more of the juicy roots than you could salvage.')
-			doTransformItem(item.uid,23471)
-			addEvent(revertJuicy, 60 * 60 * 1000, toPosition)
-			doSendMagicEffect(toPosition, CONST_ME_GREENSPARK)
+			item:transform(item.itemid + 2)
+			addEvent(revertRoot, 120000, toPosition, 23478, 23476)
+			toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
 		end
+	elseif item.itemid == 23477 or item.itemid == 23478 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'This root has already been harvested, nothing to gain here.')
 	end
 	return true
 end
