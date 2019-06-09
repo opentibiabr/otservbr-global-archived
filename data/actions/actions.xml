@@ -326,11 +326,8 @@
 	<action itemid="23403" script="oramond/gerador.lua"/>	
 	<action itemid="23668" script="oramond/bueiroEscadaOramond.lua"/>
 	<action itemid="23669" script="oramond/bueiroOramond.lua"/>
-
-	<action itemid="23422" script="others/oramond_elevador.lua" />
-	<action itemid="23429" script="others/oramond_elevador.lua" />
-	<action fromaid="22840" toaid="22841" script="others/oramond_elevador.lua"/>
-
+	<action itemid="23422" script="oramond/elevator.lua" />
+	<action itemid="23429" script="oramond/elevator.lua" />
 
 	<action itemid="22944" script="others/teleportwest2.lua"/>
 	<action itemid="22949" script="others/teleportnorth2.lua"/>
