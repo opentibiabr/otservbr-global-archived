@@ -11,15 +11,9 @@ function onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-		return false
-    end
-
     for _, tps in pairs(teleports) do
         if item.actionid == tps.actionId then
             player:teleportTo(tps.position)
-            player:setStorageValue(Storage.Exaust.Time, os.time())
         end
     end
 
