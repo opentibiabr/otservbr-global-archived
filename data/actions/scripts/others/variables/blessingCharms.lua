@@ -9,13 +9,6 @@ local config = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -26,7 +19,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		return true
 	end
 	
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	player:addBlessing(useItem.blessId,1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, useItem.text .. ' protects you.')
 	player:getPosition():sendMagicEffect(CONST_ME_LOSEENERGY)

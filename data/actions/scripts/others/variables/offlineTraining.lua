@@ -7,12 +7,6 @@ local statues = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local skill = statues[item:getId()]
 	if not player:isPremium() then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT))
@@ -22,7 +16,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	if player:isPzLocked() then
 		return false
 	end
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	player:setOfflineTrainingSkill(skill)
 	player:remove()
 	return true

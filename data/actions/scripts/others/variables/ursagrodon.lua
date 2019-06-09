@@ -17,12 +17,6 @@ local function revertIce(toPosition)
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-	
 	local rand = math.random(1, 100)
 
 	if target.itemid == config.item1 or target.itemid  == config.item2 or target.itemid == config.item3 then
@@ -54,6 +48,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 			end
 		end
 	end
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

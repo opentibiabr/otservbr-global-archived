@@ -6,17 +6,10 @@ local backPositions = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-	if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-		return true
-	end
-
 	for _, feyrist in pairs(backPositions) do
 		if item.actionid == feyrist.actionId then
 			player:teleportTo(feyrist.toPos)
 			player:getPosition():sendMagicEffect(feyrist.effect)
-			player:setStorageValue(Storage.Exaust.Time, os.time())
 			return true
 		end
 	end

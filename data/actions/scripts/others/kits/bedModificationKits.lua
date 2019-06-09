@@ -17,13 +17,6 @@ local function internalBedTransform(item, target, toPosition, itemArray)
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
-
 	local newBed = beds[item.itemid]
 	if not newBed then
 		return false
@@ -52,8 +45,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 			break
 		end
 	end
-	
-	player:setStorageValue(Storage.Exaust.Time, os.time())
-	
 	return true
 end

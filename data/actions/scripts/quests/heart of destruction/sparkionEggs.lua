@@ -1,11 +1,4 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
-
 	local config = {
 		[26194] = {mountId = 94, message = "You receive the permission to ride a sparkion"},
 		[26340] = {mountId = 98, message = "You receive the permission to ride a neon sparkid"},
@@ -25,6 +18,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	else
 		player:sendTextMessage(19, "You already have this mount")
 	end
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

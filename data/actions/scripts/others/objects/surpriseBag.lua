@@ -17,12 +17,6 @@ local config = {
 }
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local present = config[item.itemid]
 	if not present then
 		return false
@@ -38,6 +32,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	Player(cid):addItem(gift, count)
 	Item(item.uid):remove(1)
 	fromPosition:sendMagicEffect(CONST_ME_GIFT_WRAPS)
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

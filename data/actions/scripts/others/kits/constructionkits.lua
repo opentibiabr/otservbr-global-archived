@@ -14,12 +14,6 @@ local constructionKits = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local kit = constructionKits[item.itemid]
 	if not kit then
 		return false
@@ -34,8 +28,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		fromPosition:sendMagicEffect(CONST_ME_POFF)
 		player:addAchievementProgress('Interior Decorator', 1000)
 	end
-
-	player:setStorageValue(Storage.Exaust.Time, os.time())
-
 	return true
 end

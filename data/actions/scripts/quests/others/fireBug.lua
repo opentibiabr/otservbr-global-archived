@@ -4,15 +4,7 @@ local function revert(position, itemId, transformId)
 		item:transform(transformId)
 	end
 end
--- eu editei, vc vai copiar essa parte da quest pro seu script
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
-	-- ferumbras ascendant
 	if target.actionid == 54387 and target.itemid == 25531 then
 		if player:getStorageValue(Storage.FerumbrasAscension.BasinCounter) >= 8 or player:getStorageValue(Storage.FerumbrasAscension.BoneFlute) < 1 then
 			return false
@@ -29,7 +21,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		player:setStorageValue(Storage.FerumbrasAscension.BasinCounter, player:getStorageValue(Storage.FerumbrasAscension.BasinCounter) + 1)
 		toPosition:sendMagicEffect(CONST_ME_FIREAREA)
 		addEvent(revert, 2 * 60 * 1000, toPosition, 25532, 25531)
-		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 	return true

@@ -1,10 +1,4 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local itemId = item:getId()
 	if table.contains(questDoors, itemId) then
 		if player:getStorageValue(item.actionid) ~= -1 then
@@ -13,7 +7,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		else
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "The door seems to be sealed against unwanted intruders.")
 		end
-		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	elseif table.contains(levelDoors, itemId) then
 		if item.actionid > 0 and player:getLevel() >= item.actionid - 1000 then
@@ -57,7 +50,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		if not table.contains(openSpecialDoors, itemId) then
 			item:transform(itemId - 1)
 		end
-		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 
@@ -67,7 +59,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		else
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
 		end
-		player:setStorageValue(Storage.Exaust.Time, os.time())
 		return true
 	end
 	return false
