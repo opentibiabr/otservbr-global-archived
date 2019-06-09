@@ -165,7 +165,7 @@ function checkWallArito(item, toPosition)
 		if(it[4])then
 			item:transform(it[4])
 		end
-		
+
 		addEvent(
 			function()
 				if(Tile(Position(33206, 32536, 6)):getItemCountById(8210) > 0) then
@@ -203,7 +203,7 @@ function placeSpawnRandom(fromPositon, toPosition, monsterName, ammount, hasCall
 	end
 		if ammount and ammount > 0 then
 			local summoned = 0
-			local tm = os.time()		
+			local tm = os.time()
 			repeat
 				local tile = false
 				-- repeat
@@ -256,7 +256,7 @@ function getMonstersInArea(fromPos, toPos, monsterName, ignoreMonsterId)
 						else
 							if(mt and mt:isMonster() and mt:getName():lower() == monsterName:lower() and not mt:getMaster() and ignoreMonsterId ~= mt:getId())then
 								monsters[#monsters + 1] = mt
-							end						
+							end
 						end
 					end
 				end
@@ -360,8 +360,8 @@ function kickerPlayerRoomAfferMin(playername, fromPosition, toPosition, teleport
 				end
 				if not blockmonsters then
 					blockmonsters = {}
-				end	
-				cleanAreaQuest( fromPosition, toPosition, itemtable, blockmonsters)	
+				end
+				cleanAreaQuest( fromPosition, toPosition, itemtable, blockmonsters)
 			end
 			player:teleportTo(teleportPos, true)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message)
@@ -383,8 +383,8 @@ function kickerPlayerRoomAfferMin(playername, fromPosition, toPosition, teleport
 				end
 				if not blockmonsters then
 					blockmonsters = {}
-				end	
-				cleanAreaQuest( fromPosition, toPosition, itemtable, blockmonsters)			
+				end
+				cleanAreaQuest( fromPosition, toPosition, itemtable, blockmonsters)
 			end
 			for _, pid in pairs(playername) do
 				local player = Player(pid)

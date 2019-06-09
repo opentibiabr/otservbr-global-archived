@@ -24,7 +24,7 @@ function onUse(player, item)
 	end
 
 	explosion(item)
-	
+
 	local positionItem = item:getPosition()
 	local WarzoneIV = Position(33673, 32304, 15)
 	local WarzoneV = Position(33679, 32310, 15)

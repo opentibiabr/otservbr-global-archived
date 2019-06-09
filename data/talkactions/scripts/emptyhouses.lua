@@ -2,11 +2,11 @@ function onSay(player, words, param)
     if not player:getGroup():getAccess() then
         return true
     end
- 
+
 	if player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return false
 	end
-  
+
     for _, house in ipairs(Game.getHouses()) do
         if house:getOwnerGuid() == 0 then
             --
@@ -17,8 +17,8 @@ function onSay(player, words, param)
             house:setAccessList(1, "")
         end
     end
-   
+
     print("Items moved to depot.")
-   
+
     return false
 end

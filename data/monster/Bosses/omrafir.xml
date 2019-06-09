@@ -19,7 +19,7 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-  	
+
 	<attacks>
 		<attack name="melee" interval="2000" skill="390" attack="500"/>
 		<attack name="omrafir wave" interval="2000" chance="17" min="-500" max="-1000"/>
@@ -95,7 +95,7 @@
 		<item id="7893" chance="12500"/><!-- lightning boots -->
 		<item id="7898" chance="18750"/><!-- lightning robe -->
 		<item id="22616" chance="12500"/><!-- nightmare hook -->
-		<item id="22608" chance="100000" unique="1"/><!-- nightmare horn -->		
+		<item id="22608" chance="100000" unique="1"/><!-- nightmare horn -->
 		<item id="2152" countmax="20" chance="93750"/><!-- platinum coin -->
 		<item id="22611" chance="6250"/><!-- psychedelic tapestry -->
 		<item id="18420" countmax="3" chance="6250"/><!-- red crystal fragment -->

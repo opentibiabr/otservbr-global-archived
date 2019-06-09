@@ -10,7 +10,7 @@ local cd = minionCD[cid]
         minionCD[cid] = 1
         return
     end
-    
+
     if cd >= explodeCD then
         local monsterPos = monster:getPosition()
         Game.createMonster("Overcharged Disruption", monsterPos, false, true)

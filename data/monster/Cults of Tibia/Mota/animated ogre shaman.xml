@@ -22,14 +22,14 @@
 		<attack name="melee" interval="2000" min="0" max="-269" fire="6" />
 		<attack name="fire" interval="2000" chance="15" range="7" min="-70" max="-180">
 			<attribute key="shootEffect" value="poison" />
-		</attack>		
+		</attack>
 		<attack name="outfit" interval="2000" chance="8" range="7" monster="chicken" duration="4000">
 			<attribute key="areaeffect" value="blueshimmer" />
 		</attack>
 		<attack name="earth" interval="2000" chance="20" length="8" spread="3" min="-15" max="-120">
 			<attribute key="areaEffect" value="carniphila" />
 		</attack>
-		
+
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="80" max="95">
@@ -45,20 +45,20 @@
 	<immunities>
 		<immunity death="1" />
 		<immunity earth="1" />
-	
+
 		<immunity invisible="1" />
 	</immunities>
-	
+
 	<summons maxSummons="2">
 		<summon name="Dworc Fleshhunter" interval="1000" chance="30" max="1" />
 		<summon name="Terror Bird" interval="1000" chance="30" max="1" />
 	</summons>
-	
+
 	<voices interval="3000" chance="50">
 		<voice sentence="The spirits hunger!" />
 		<voice sentence="A sacrifice for Great Hunger!" />
 	    <voice sentence="Stay here, soul food!" />
-        <voice sentence="You more delicate than clomp!" />			
+        <voice sentence="You more delicate than clomp!" />
 	</voices>
 	<summons maxSummons="2">
 		<summon name="Dworc Fleshhunter" interval="2000" chance="20" max="1" />
@@ -74,7 +74,7 @@
 		<item id="12408" chance="1200" />					<!-- broken shamanic staff -->
 		<item id="2687" countmax="7" chance="2200" />					<!-- Cookies -->
 		<item id="2185" chance="800" />					<!-- necrotic rod -->
-		<item id="24844" chance="3200" />					<!-- Ogre Ear Stud -->		
+		<item id="24844" chance="3200" />					<!-- Ogre Ear Stud -->
 		<item id="24845" chance="2200" />					<!--   Ogre Nose Ring -->
 		<item id="24840" chance="1200" />					<!-- Shamanic Talisman -->
 		<item id="2229" chance="1200" />					<!-- Skull  -->
@@ -84,12 +84,12 @@
 		<item id="2031" chance="500" />					<!-- water skin -->
 		<item id="24839" chance="300" />					<!-- Ogre Scepta -->
 		<item id="24848" chance="300" />					<!-- Shamanic Mask -->
-		
-		
+
+
 		<item id="3955" chance="100" />					<!-- voodoo doll -->
-				
+
 		<item id="3952" countmax="2" chance="100" />					<!-- Didgeridoo -->
-		
-				
+
+
 	</loot>
 </monster>

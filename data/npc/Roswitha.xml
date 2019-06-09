@@ -4,5 +4,5 @@
 	<look type="138" head="114" body="118" legs="113" feet="3" addons="0" />
 <parameters>
     <parameter key="message_greet" value="Hello, my lad. Sit down, have a drink, why don't you? " />
-  </parameters>	
+  </parameters>
 </npc>

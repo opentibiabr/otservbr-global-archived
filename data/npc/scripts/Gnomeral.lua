@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MatchmakerTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionMatchmaker) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.MatchmakerStatus) == 1 then -- can report missions 
+				if player:getStorageValue(Storage.BigfootBurden.MatchmakerStatus) == 1 then -- can report missions
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
@@ -55,7 +55,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando
@@ -84,8 +84,8 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.TinkerBellTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionTinkersBell) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.GolemCount) >= 4 then -- can report missions 
-					player:removeItem(18343, 1) 
+				if player:getStorageValue(Storage.BigfootBurden.GolemCount) >= 4 then -- can report missions
+					player:removeItem(18343, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
@@ -97,7 +97,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando
@@ -126,8 +126,8 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.SporeGatheringTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionSporeGathering) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.SporeCount) == 4 then -- can report missions 
-					player:removeItem(18332, 1) 
+				if player:getStorageValue(Storage.BigfootBurden.SporeCount) == 4 then -- can report missions
+					player:removeItem(18332, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
 					player:addItem(18422, 2)
 					player:addItem(18215, 1)
@@ -139,7 +139,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando
@@ -166,7 +166,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.GrindstoneTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionGrindstoneHunt) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.GrindstoneStatus) == 1 then -- can report missions 
+				if player:getStorageValue(Storage.BigfootBurden.GrindstoneStatus) == 1 then -- can report missions
 					player:removeItem(18337, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 10)
 					player:addItem(18422, 2)
@@ -179,7 +179,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("Gnomo arigato |PLAYERNAME|! You did well. That will help us a lot. Take your tokens and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando

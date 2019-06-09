@@ -1,7 +1,7 @@
 --- [[ Warzone 3 feito por Yuri Lagrotta ]] ---
 
-local kickposs = {x=33000, y=31899, z=9} 
- 
+local kickposs = {x=33000, y=31899, z=9}
+
 local function deAbyssador()
 if(getGlobalStorageValue(91159) < 1) then
     TOP_LEFT_CORNER = {x = 33074, y = 31896, z = 12, stackpos=253}
@@ -13,20 +13,20 @@ if(getGlobalStorageValue(91159) < 1) then
 				if getCreatureName(creature.uid) == "Abyssador" then
 					--doRemoveCreature(creature.uid)
 					setGlobalStorageValue(91159, 1)
-					addEvent(setGlobalStorageValue, 5 * 60 * 1000, 91159, 0) 
+					addEvent(setGlobalStorageValue, 5 * 60 * 1000, 91159, 0)
 					end
 				end
 			end
 		end
     end
     return false
-end   
+end
 
 local function deSummonAbyssador()
 	if(getGlobalStorageValue(99159) < 1) then
 		--addEvent(doSummonCreature, 45*1000, "abyssador", {x=33089, y=31909, z=12})
 		--setGlobalStorageValue(99159, 1)
-		addEvent(setGlobalStorageValue, 10 * 60 * 1000, 99159, 0) 
+		addEvent(setGlobalStorageValue, 10 * 60 * 1000, 99159, 0)
 	end
 end
 
@@ -34,7 +34,7 @@ function onStepIn(cid, item, position, topos, frompos)
     if not isPlayer(cid) then
         return false
     end
-           
+
 if item.actionid == 5161 then
 	doPlayerSendTextMessage(cid, 19, "You have half an hour to heroically defeat Abyssador. Otherwise you'll be teleported out by the gnomish emergency device.")
 	doTeleportThing(cid, {x=33082, y=31905, z=12})

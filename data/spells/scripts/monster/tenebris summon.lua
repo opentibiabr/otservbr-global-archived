@@ -3,7 +3,7 @@ combat:setParameter(COMBAT_PARAM_TYPE, COMBAT_NONE)
 combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
 
 function onCastSpell(creature, var)
-	local mid = Game.createMonster("shadow fiend", Position(math.random(32927, 32939), math.random(31636, 31650), 10)) 
+	local mid = Game.createMonster("shadow fiend", Position(math.random(32927, 32939), math.random(31636, 31650), 10))
     if not mid then
 		return
 	end

@@ -59,7 +59,7 @@ function onStepIn(creature, item, position, fromPosition)
 		effect = CONST_ME_GIANTICE,
 		primeiroSqm = Position(32698, 31405, 8),
 		-- segundoSqm = Position(32664, 31504, 8),
-		stg90 = Storage.CultsOfTibia.Barkless.ice,	
+		stg90 = Storage.CultsOfTibia.Barkless.ice,
 		msgs = {
 			"As you enter the icy cavern, you feel an unnatural frostiness. The ice cold air stings in your face. Survive and prove worthy.", -- ao entrar
 			"Your body temperature sinks. You can see your breath freezing in the cold.", -- 30/60 segundos
@@ -74,7 +74,7 @@ function onStepIn(creature, item, position, fromPosition)
 		sendConditionCults2(player:getId(), _type, _type.fromPos, _type.toPos, _type.fromPos2, _type.toPos2, 0)
 		return true
 	end
-	
+
 	if item:getPosition():compare(_type.primeiroSqm) then
 		if player:getStorageValue(_type.stg90) ~= 1 then
 			return true
@@ -84,7 +84,7 @@ function onStepIn(creature, item, position, fromPosition)
 		passagemPiso1Piso22(player:getId(), _type, 60)
 		return true
 	end
-	
+
 	if fromPosition.y == 31439 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "A bit of warmth returns to your body as you leave the icy cavern.")
 		return true

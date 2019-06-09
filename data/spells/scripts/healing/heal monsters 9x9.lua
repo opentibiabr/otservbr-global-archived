@@ -3,7 +3,7 @@ function onTargetCreature(creature, target)
 	local min = 0
 	local max = 1000
 	local master = target:getMaster()
-	
+
 	if target:isPlayer() then
 		return true
 	end

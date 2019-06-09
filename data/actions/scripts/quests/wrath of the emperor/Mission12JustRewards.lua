@@ -9,7 +9,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found some clothes in wardrobe")
 		player:setStorageValue(Storage.WrathoftheEmperor.Mission12, 1) --Questlog, Wrath of the Emperor "Mission 12: Just Rewards"
 		player:setStorageValue(1150, 1)
-	else		
+	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The wardrobe is empty.")
 		player:setStorageValue(1150, 1)
 	end

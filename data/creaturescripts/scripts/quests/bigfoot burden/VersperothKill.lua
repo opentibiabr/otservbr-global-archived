@@ -9,7 +9,7 @@ local function transformTeleport(open)
 
 	teleportPosition:sendMagicEffect(CONST_ME_POFF)
 	if open then
-		teleportItem:transform(18463) -- can pass and summon versperoth 
+		teleportItem:transform(18463) -- can pass and summon versperoth
 	else
 		teleportItem:transform(18462) -- cannot summon versperoth
 	end

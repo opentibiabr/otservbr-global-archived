@@ -14,7 +14,7 @@ local config = {
 	[1] = {fromPosition = Position(33865, 32009, 14), toPosition = Position(33874, 32020, 14), stgRoom = Storage.DangerousDepths.Scouts.thirdBarrel},
 	},
 	fourth = {
-	[1] = {fromPosition = Position(33837, 31984, 14), toPosition = Position(33852, 31991, 14), stgRoom = Storage.DangerousDepths.Scouts.fourthBarrel}, 
+	[1] = {fromPosition = Position(33837, 31984, 14), toPosition = Position(33852, 31991, 14), stgRoom = Storage.DangerousDepths.Scouts.fourthBarrel},
 	},
 	fifth = {
 	[1] = {fromPosition = Position(33923, 31982, 14), toPosition = Position(33942, 31998, 14), stgRoom = Storage.DangerousDepths.Scouts.fifthBarrel},
@@ -116,7 +116,7 @@ local function explode(item)
 		end
 	end, 2 * 1000)
 	item:transform(32401)
-	c:say("Tsssss...!", TALKTYPE_MONSTER_SAY, false, false, position)	
+	c:say("Tsssss...!", TALKTYPE_MONSTER_SAY, false, false, position)
 end
 
 function onUse(player, item)
@@ -129,7 +129,7 @@ function onUse(player, item)
 	local barrelTimer = player:getStorageValue(Storage.DangerousDepths.Scouts.barrelTimer)
 
 	if item:getId() == 28594 then
-		if player:getStorageValue(Storage.DangerousDepths.Scouts.Growth) == 1 and stgCount < 5 and barrelTimer <= 0 then		
+		if player:getStorageValue(Storage.DangerousDepths.Scouts.Growth) == 1 and stgCount < 5 and barrelTimer <= 0 then
 			local barril = Game.createItem(31992, 1, posBarril)
 			local stgBarril = barril:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
 			barril:setSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg, player:getId())

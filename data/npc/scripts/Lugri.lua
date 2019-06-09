@@ -119,7 +119,7 @@ local function creatureSayCallback(cid, type, msg)
 				"What is left are mainly pseudo-dark pretenders, the old wisdom and power being far beyond their grasp. They think they have the right to tap that dark power, but they don't. ...",
 				"I want you to eliminate them. As many as you can. All of the upstart necromancer orders, and those priestesses. And as I said, don't expect a reward - this is what has to be done to cleanse Tibia of its false dark prophets."
 			}, cid)
-			
+
 			-- aqui
 			player:setStorageValue(JOIN_STOR, 1)
 			-- aqui

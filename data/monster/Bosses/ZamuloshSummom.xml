@@ -42,8 +42,8 @@
 		<attack name="strength" interval="1000" chance="8" radius="5" target="0">
 			<attribute key="areaEffect" value="blackspark" />
 		</attack>
-		
-		
+
+
 		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-100" max="-300">
 			<attribute key="shootEffect" value="fire" />
 			<attribute key="areaEffect" value="firearea" />
@@ -53,18 +53,18 @@
 		</attack>
 	</attacks>
 	<defenses armor="160" defense="160">
-		
+
 		<defense name="healing" interval="1000" chance="25" min="2000" max="3000">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="speed" interval="1000" chance="8" speedchange="1901" duration="5000">
 			<attribute key="areaEffect" value="redshimmer" />
 		</defense>
-		
+
 		<defense name="invisible" interval="1000" chance="17" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
-		
+
 	</defenses>
 	<immunities>
 		<immunity physical="0" />
@@ -75,5 +75,5 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	
+
 </monster>

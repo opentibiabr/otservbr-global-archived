@@ -1,6 +1,6 @@
 local combat = {}
 
-for i = 15, 30 do	
+for i = 15, 30 do
 	combat[i] = Combat()
 	combat[i]:setParameter(COMBAT_PARAM_TYPE, COMBAT_DEATHDAMAGE)
 	combat[i]:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_SMALLCLOUDS)

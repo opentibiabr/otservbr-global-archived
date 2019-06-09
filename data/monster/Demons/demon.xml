@@ -74,11 +74,11 @@
 		<item name="gold coin" countmax="100" chance="60000" />
 		<item name="gold coin" countmax="100" chance="60000" />
 		<item name="small emerald" countmax="5" chance="9690" />
-		<item name="small amethyst" countmax="5" chance="7250" />		
-		<item name="small ruby" countmax="5" chance="7430" />		
-		<item name="small topaz" countmax="5" chance="7470" />		
+		<item name="small amethyst" countmax="5" chance="7250" />
+		<item name="small ruby" countmax="5" chance="7430" />
+		<item name="small topaz" countmax="5" chance="7470" />
 		<item name="red gem" chance="2220" />
-		<item name="demonic essence" chance="14630" />		
+		<item name="demonic essence" chance="14630" />
 		<item name="talon" chance="3430" />
 		<item name="platinum coin" countmax="8" chance="90540" />
 		<item name="might ring" chance="1890" />

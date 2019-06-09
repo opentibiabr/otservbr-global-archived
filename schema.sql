@@ -39,7 +39,7 @@ CREATE TABLE `accounts` (
   `lastday` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `email` varchar(255) NOT NULL DEFAULT '',
   `creation` int(11) NOT NULL DEFAULT '0',
-  `vote` int(11) NOT NULL,
+  `vote` int(11) NOT NULL DEFAULT '0',
   `key` varchar(20) NOT NULL DEFAULT '0',
   `email_new` varchar(255) NOT NULL DEFAULT '',
   `email_new_time` int(11) NOT NULL DEFAULT '0',
@@ -53,16 +53,16 @@ CREATE TABLE `accounts` (
   `create_ip` int(11) NOT NULL DEFAULT '0',
   `last_post` int(11) NOT NULL DEFAULT '0',
   `flag` varchar(80) NOT NULL DEFAULT '',
-  `vip_time` int(11) NOT NULL,
+  `vip_time` int(11) NOT NULL DEFAULT '0',
   `guild_points` int(11) NOT NULL DEFAULT '0',
   `guild_points_stats` int(11) NOT NULL DEFAULT '0',
   `passed` int(11) NOT NULL DEFAULT '0',
   `block` int(11) NOT NULL DEFAULT '0',
   `refresh` int(11) NOT NULL DEFAULT '0',
-  `birth_date` varchar(50) NOT NULL,
-  `gender` varchar(20) NOT NULL,
+  `birth_date` varchar(50) NOT NULL DEFAULT '',
+  `gender` varchar(20) NOT NULL DEFAULT '',
   `loyalty_points` bigint(20) NOT NULL DEFAULT '0',
-  `authToken` varchar(100) NOT NULL
+  `authToken` varchar(100) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -523,7 +523,7 @@ CREATE TABLE `players` (
   `hide_skills` int(11) DEFAULT NULL,
   `hide_set` int(11) DEFAULT NULL,
   `former` varchar(255) NOT NULL DEFAULT '-',
-  `signature` varchar(255) NOT NULL,
+  `signature` varchar(255) NOT NULL DEFAULT '',
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
   `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

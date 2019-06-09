@@ -19,34 +19,34 @@
 		<flag staticattack="90" />
 		<flag runonhealth="300" />
 	</flags>
-	 
+
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="50" />
-		
+
 		<attack name="physical" interval="100" chance="22" radius="3" min="-200" max="-310">
 		<attribute key="areaEffect" value="explosionarea" />
 		</attack>
-		
-		 
+
+
 	    <attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebear" duration="2000">
         </attack>
-		
-		
-		
+
+
+
 		<attack name="lifedrain" interval="100" chance="15" radius="3" target="0" min="-100" max="-200">
 		<attribute key="areaEffect" value="whitenote" />
 		</attack>
-		
-		
-		
- 
+
+
+
+
 	</attacks>
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	<defenses armor="30" defense="30">
 		<defense name="healing" interval="2000" chance="7" min="120" max="310">
 			<attribute key="areaEffect" value="blueshimmer" />
@@ -55,12 +55,12 @@
 			<attribute key="areaEffect" value="poff" />
 		</defense>
 	</defenses>
-	
+
 	<summons maxSummons="2">
 		<summon name="Werebear" interval="2000" chance="20" />
 	</summons>
-	
-	
+
+
 	<elements>
 		<element firePercent="10" />
 		<element holyPercent="10" />
@@ -72,10 +72,10 @@
 	</immunities>
 	<voices interval="2000" chance="5">
 		<voice sentence="The strength of bears will subdue the weak!" />
-		<voice sentence="It was a mistake to enter my cave!" /> 
+		<voice sentence="It was a mistake to enter my cave!" />
 	</voices>
-	 
-	
+
+
 	<loot>
 		<!-- Loot comum -->
 
@@ -95,7 +95,7 @@
 		<item name="Ultimate Health Potion" countmax="5" chance="13600000" />
 		<item name="Werebear Fur" countmax="2" chance="13600000" />
 		<item name="Werebear Skull" countmax="2" chance="13600000" />
- 
+
 <!-- Semi-raro-->
 		<item name="Dreaded Cleaver"  chance="550" />
 	    <item name="Fur Armor" chance="550" />
@@ -105,34 +105,10 @@
 <!-- raro-->
 		<item name="Silver Token" chance="150" />
 		<item name="Werebear Trophy" chance="150" />
-		
+
 <!-- Muito raro-->
-		<item name="Wolf Backpack" chance="100" /> 
+		<item name="Wolf Backpack" chance="100" />
 <!-- Durante eventos-->
-		<item name="Moonlight Crystal" chance="50" />  
+		<item name="Moonlight Crystal" chance="50" />
 	</loot>
 </monster>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

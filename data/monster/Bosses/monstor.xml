@@ -51,7 +51,7 @@
 	<summons maxSummons="3">
 		<summon name="Acid Blob" interval="4000" chance="40" max="3" />
 	</summons>
-	
+
 	<loot>
 	<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
 		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->

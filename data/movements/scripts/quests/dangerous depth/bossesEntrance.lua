@@ -38,7 +38,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 			creature:teleportTo(WarzoneVI_b)
 		end
 	end
-	
+
 	creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end

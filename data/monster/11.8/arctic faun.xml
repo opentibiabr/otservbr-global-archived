@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Arctic Faun" nameDescription="a arctic faun" race="blood" experience="0" speed="50" manacost="0">
 	<health now="10000" max="10000" />
-	<look type="980" head="85" body="0" legs="0" feet="85" corpse="33423" />  
+	<look type="980" head="85" body="0" legs="0" feet="85" corpse="33423" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -46,4 +46,4 @@
 		<item name="meat" countmax="4" chance="33333" />
 		<item name="ham" countmax="5" chance="10000" />
 	</loot>
-</monster> 
+</monster>

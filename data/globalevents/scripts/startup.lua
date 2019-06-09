@@ -27,7 +27,7 @@ GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats,
 GlobalStorage.FerumbrasAscendantQuest.Elements.Active,
 GlobalStorage.FerumbrasAscendantQuest.Elements.First,
 GlobalStorage.FerumbrasAscendantQuest.Elements.Second,
-GlobalStorage.FerumbrasAscendantQuest.Elements.Third, 
+GlobalStorage.FerumbrasAscendantQuest.Elements.Third,
 GlobalStorage.FerumbrasAscendantQuest.Elements.Done
 }
 
@@ -46,10 +46,10 @@ function onStartup()
 	-- deletar as guilds canceladas e rejeitadas
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 2')
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 3')
-	
+
 	-- deletar as guilds que estão muito tempo pendentes 3 dias
-	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 0 AND (`started` + 72 * 60 * 60) <= ' .. os.time()) 
-	
+	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 0 AND (`started` + 72 * 60 * 60) <= ' .. os.time())
+
 	--db.asyncQuery("UPDATE `guild_wars` SET `status` = 4, `ended` = " .. os.time() .. " WHERE `status` = 1 AND (`started` + 3* 60 * 60) < " .. os.time())
 	db.asyncQuery('DELETE FROM `players` WHERE `deletion` != 0 AND `deletion` < ' .. time)
 	db.asyncQuery('DELETE FROM `ip_bans` WHERE `expires_at` != 0 AND `expires_at` <= ' .. time)

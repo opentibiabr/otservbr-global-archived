@@ -61,4 +61,3 @@ function onDeEquipWeaponImbuement(player, item)
 	player:removeCondition(CONDITION_ATTRIBUTES, 10)
 	return true
 end
-

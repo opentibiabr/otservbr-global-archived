@@ -47,7 +47,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				sacrificeItems = false
 				break
 			elseif sacrificeItem then
-				sacrificeItem:remove()	
+				sacrificeItem:remove()
 			end
 		end
 
@@ -60,7 +60,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		if stoneItem then
 			stoneItem:remove()
 		end
-		
+
 		local teleportExists = Tile(stonePosition):getItemById(1387)
 		if not teleportExists then
 			local newItem = Game.createItem(1387, 1, stonePosition)

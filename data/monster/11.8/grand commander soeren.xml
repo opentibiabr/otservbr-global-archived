@@ -15,14 +15,14 @@
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="70" />
-		<flag runonhealth="0" /> 
+		<flag runonhealth="0" />
 		<flag canwalkonenergy="0" />
 		<flag canwalkonfire="0" />
-		<flag canwalkonpoison="0" />	
+		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="1500" min="150" max="700" />
-		
+
 		<attack name="physical" interval="1500" chance="20" range="7" min="-200" max="720">
 			<attribute key="shootEffect" value="royalspear" />
 		</attack>
@@ -43,7 +43,7 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<loot> 
+	<loot>
  <!-- comun -->
 <item name="Small Emerald" countmax="3" chance="100000" />
 <item name="Small Amethyst" countmax="3" chance="100000" />
@@ -57,7 +57,7 @@
 <item name="red Gem" countmax="3" chance="700" />
 <item name="Onyx Arrow" countmax="3" chance="700" />
 <item name="Small Topaz" countmax="3" chance="700" />
- <!-- semi raro --> 
+ <!-- semi raro -->
 <item id="7633" chance="3300" />
 <item name="Violet Gem" countmax="1" chance="300" />
 <item name="Green Gem" countmax="1" chance="300" />
@@ -67,14 +67,6 @@
 <item name="Patch of Fine Cloth" countmax="1" chance="400" />
  <!-- muito raro -->
 <item name="Falcon Coif" countmax="1" chance="60" />
-<item name="Falcon Bow" countmax="1" chance="60" /> 
+<item name="Falcon Bow" countmax="1" chance="60" />
 	</loot>
-</monster> 
-
-
-
-
-
-
-
-
+</monster>

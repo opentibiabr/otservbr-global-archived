@@ -5,7 +5,7 @@ function onUse(creature, item, position, fromPosition, pos, target, toPosition)
     if not player then
         return
     end
-    
+
     if player:getLevel() >= 250 then
         position:sendMagicEffect(CONST_ME_TELEPORT)
         player:teleportTo(goPos)

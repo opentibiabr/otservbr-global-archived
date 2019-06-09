@@ -68,11 +68,11 @@
 		<voice sentence="You can't stop me!" />
 		<voice sentence="Beware! My evil monolog is coming!" />
 	</voices>
-	
+
 	<loot>
 		<item id="10308" chance="10000" />				<!-- book of prayers -->
 		<item id="2148" countmax="95" chance="100000" />	<!-- gold coin -->
 		<item id="2152" countmax="3" chance="93000" />	<!-- platinum coin -->
-		
+
 	</loot>
 </monster>

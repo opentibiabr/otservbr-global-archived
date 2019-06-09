@@ -12,7 +12,7 @@
         [1] = {pos = {33486, 32081, 8}, monster = "Greater Canopic Jar"},
         [2] = {pos = {33486, 32083, 8}, monster = "Greater Canopic Jar"},
         [3] = {pos = {33488, 32081, 8}, monster = "Greater Canopic Jar"},
-        [4] = {pos = {33488, 32083, 8}, monster = "Greater Canopic Jar"},		
+        [4] = {pos = {33488, 32083, 8}, monster = "Greater Canopic Jar"},
         [5] = {pos = {33487, 32082, 8}, monster = "The Ravager"}
         }
 
@@ -109,7 +109,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
                         end
                 end
                 if player_room >= 1 then
-                        doPlayerSendTextMessage(cid,19,"There is already a team in the quest room.")          
+                        doPlayerSendTextMessage(cid,19,"There is already a team in the quest room.")
                 elseif player_room == 0 then
                         for x = room.fromX, room.toX do
                                 for y = room.fromY, room.toY do

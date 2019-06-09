@@ -54,7 +54,7 @@ Game.createMonster(name, position, false, true)
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey) 
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if Game.getStorageValue(GlobalStorage.InServiceOfYalahar.LastFight) == 1 then
 		player:say('You have to wait some time before this globe charges.', TALKTYPE_MONSTER_SAY)
 		return true

@@ -15,7 +15,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:say('Impossible to turn on this machine for now!', TALKTYPE_MONSTER_SAY, false, nil, toPosition)
 		return true
 	end
-	
+
 	if Game.getStorageValue(GlobalStorage.HeroRathleton.SecondMachines) == 7 then
 		player:say('All machines are working, now is possible to use the teleport at west.', TALKTYPE_MONSTER_SAY)
 	end

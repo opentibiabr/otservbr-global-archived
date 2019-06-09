@@ -22,30 +22,30 @@
 
 <attacks>
 			<attack name="melee" interval="2000" min="-100" max="-200" />
- 
+
  		<attack name="ice" interval="2000" chance="70" range="7" min="-100" max="-125">
 			<attribute key="shootEffect" value="snowball" />
 		</attack>
- 
- 
+
+
 		<attack name="ice" interval="2000" chance="50" length="3" spread="0" min="-90" max="-250">
-			<attribute key="areaEffect" value="GIANTICE" /> 
+			<attribute key="areaEffect" value="GIANTICE" />
 		</attack>
 
-	
+
 			<attack name="fire" interval="2000" chance="50"  target="1" radius="3" min="-100" max="-250">
 			<attribute key="areaEffect" value="FIREAREA" />
 		</attack>
-	
+
 	 			<attack name="fire" interval="2000" chance="50"  radius="4" min="-100" max="-250">
 			<attribute key="areaEffect" value="explosion" />
 		</attack>
 			<attack name="fire" interval="2000" chance="50"  length="3" spread="0" min="-100" max="-250">
 			<attribute key="areaEffect" value="FIREATTACK" />
 		</attack>
-	
 
-	
+
+
 		</attacks>
 	<defenses armor="43" defense="43" />
 	<elements>
@@ -63,7 +63,7 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="50" chance="100000" />
-		<item name="fireworks capsule" chance="13220" /> 
+		<item name="fireworks capsule" chance="13220" />
 		<item name="broken bell" chance="11070" />
 		<item name="grainy fireworks powder" chance="7700" />
 		<item name="versicolour fireworks powder" chance="4290" />

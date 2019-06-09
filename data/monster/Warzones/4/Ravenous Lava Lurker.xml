@@ -37,6 +37,6 @@
 		<immunity fire="1" />
 	</immunities>
 	<loot>
-	<item name="small enchanted ruby" countmax="1" chance="14620" /> 
+	<item name="small enchanted ruby" countmax="1" chance="14620" />
 	</loot>
 </monster>

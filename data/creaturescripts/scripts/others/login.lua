@@ -42,7 +42,7 @@ local events = {
     'Yielothax',
     'BossParticipation',
     'Energized Raging Mage',
-    'Raging Mage', 
+    'Raging Mage',
     'DeathCounter',
     'KillCounter',
     'bless1',
@@ -65,32 +65,32 @@ local events = {
     'deeplingBosses',
     'imbueDamage'
 }
- 
+
 local function onMovementRemoveProtection(cid, oldPosition, time)
     local player = Player(cid)
     if not player then
         return true
     end
- 
+
     local playerPosition = player:getPosition()
     if (playerPosition.x ~= oldPosition.x or playerPosition.y ~= oldPosition.y or playerPosition.z ~= oldPosition.z) or player:getTarget() then
         player:setStorageValue(Storage.combatProtectionStorage, 0)
         return true
     end
- 
-    addEvent(onMovementRemoveProtection, 1000, cid, oldPosition, time - 1) 
+
+    addEvent(onMovementRemoveProtection, 1000, cid, oldPosition, time - 1)
 end
- 
+
 function onLogin(player)
 	local loginStr = 'Welcome to ' .. configManager.getString(configKeys.SERVER_NAME) .. '!'
 	if player:getLastLoginSaved() <= 0 then
-		loginStr = loginStr .. ' Please choose your outfit.'		
+		loginStr = loginStr .. ' Please choose your outfit.'
 		player:setBankBalance(0)
 
 		if player:getSex() == 1 then
-			player:setOutfit({lookType = 128, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})		
+			player:setOutfit({lookType = 128, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})
 		else
-			player:setOutfit({lookType = 136, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})	
+			player:setOutfit({lookType = 136, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})
 		end
 
 		player:sendTutorial(1)
@@ -101,13 +101,13 @@ function onLogin(player)
 
 		loginStr = string.format('Your last visit was on %s.', os.date('%a %b %d %X %Y', player:getLastLoginSaved()))
 	end
- 
+
     player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
 	player:openChannel(10) -- LOOT CHANNEL
-   
+
     local playerId = player:getId()
 
-	DailyReward.init(playerId)    
+	DailyReward.init(playerId)
 
     player:loadSpecialStorage()
 
@@ -115,7 +115,7 @@ function onLogin(player)
     if (player:getGroup():getId() < 2) then
         return false
     else
-        
+
     end--]]
 
     if (player:getGroup():getId() >= 4) then
@@ -165,7 +165,7 @@ function onLogin(player)
             -- Comandos --]]
         player:popupFYI(msg)
     end
-   
+
  	-- OPEN CHANNERLS (ABRIR CHANNELS)
 	if table.contains({"Rookgaard", "Dawnport"}, player:getTown():getName())then
 		--player:openChannel(7) -- help channel
@@ -183,13 +183,13 @@ function onLogin(player)
     if(rewards > 0) then
         player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("You have %d %s in your reward chest.", rewards, rewards > 1 and "rewards" or "reward"))
     end
- 
+
     -- Update player id
     local stats = player:inBossFight()
     if stats then
         stats.playerId = player:getId()
     end
- 
+
 
 	player:sendTextMessage(messageType or TALKTYPE_PRIVATE_FROM, 'Bem vindo(a) ao Eduvio, aproveite a qualidade premium em nosso servidor!')
 	player:sendTextMessage(messageType or TALKTYPE_PRIVATE_FROM, 'Relate erros e seja recompensado, assim manteremos sempre a melhor experiencia in game!')
@@ -198,14 +198,14 @@ function onLogin(player)
 	player:sendTextMessage(messageType or TALKTYPE_PRIVATE_FROM, 'Fique por dentro de tudo que ocorre em nosso servidor utilize nosso forum!')
 	player:sendTextMessage(messageType or TALKTYPE_PRIVATE_FROM, '[DUVIDAS?]: Utilize o comando !tutor nele tera resposta para varias perguntas')
 	player:sendTextMessage(messageType or TALKTYPE_PRIVATE_FROM, '[!teleport]: Pode ser utilizado este comando para ir ate os Treiners Rooms, Event Room, e etc. No templo das cidades')
-	
-   
+
+
     -- Events
     for i = 1, #events do
         player:registerEvent(events[i])
     end
- 
- 
+
+
  	if player:getStorageValue(Storage.combatProtectionStorage) < 1 then
         player:setStorageValue(Storage.combatProtectionStorage, 1)
         onMovementRemoveProtection(playerId, player:getPosition(), 10)

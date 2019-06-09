@@ -22,4 +22,4 @@ function onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(position)
 	end
 	return true
-end	
+end

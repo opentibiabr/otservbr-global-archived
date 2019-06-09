@@ -12,8 +12,8 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-	
-	
+
+
 	if(msgcontains(msg, "ritual")) then
 		if(getPlayerStorageValue(cid, 10050) == 6) then
 			selfSay("Ancient structures in the sewers you say? Well, our city has had a certain bloody past, even before it has been city at all. But to investigate the archives for what you may have found is a time-consuming process. ...", cid)
@@ -37,7 +37,7 @@ function creatureSayCallback(cid, type, msg)
 		   setPlayerStorageValue(cid, 20058, 1)
 		   setPlayerStorageValue(cid, 20059, 0)
 		end
-		
+
 	elseif(msgcontains(msg, "notebook")) then
 		if(getPlayerStorageValue(cid, 10050) == 9) then
 				selfSay(" I know that handwriting you describe! It belongs to a traveller from far away. Magistrate Sholley introduced him to me and she was quite excited to learn more about our city's past. ...", cid)
@@ -45,9 +45,9 @@ function creatureSayCallback(cid, type, msg)
 			setPlayerStorageValue(cid, 10050, 13)
 		   setPlayerStorageValue(cid, 30050, 1)
 		   setPlayerStorageValue(cid, 30051, 0)
-		end	
+		end
 else
-	selfSay("You need to kill the {The Ravager}, click on statue and then come here say {ritual}, {abandoned sewers}, {notebook} and after this find Roswitha and talk with she.", cid)	
+	selfSay("You need to kill the {The Ravager}, click on statue and then come here say {ritual}, {abandoned sewers}, {notebook} and after this find Roswitha and talk with she.", cid)
 	end
 
 	return true

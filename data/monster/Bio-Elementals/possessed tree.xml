@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		
+
 	</flags>
 	<script>
 		<event name="PossessedTree"/>
@@ -24,11 +24,11 @@
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="90"/>
 		<attack name="haunted treeling paralyze" interval="2000" chance="10"/>
-		<attack name="poison" interval="2000" chance="9" target="1" radius="4" range="4" min="-86" max="-200"> 
+		<attack name="poison" interval="2000" chance="9" target="1" radius="4" range="4" min="-86" max="-200">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
-		<attack name="poison" interval="2000" chance="9" length="4" spread="0" min="-286" max="-300"> 
+		<attack name="poison" interval="2000" chance="9" length="4" spread="0" min="-286" max="-300">
 			<attribute key="areaEffect" value="carniphila"/>
 		</attack>
 	</attacks>

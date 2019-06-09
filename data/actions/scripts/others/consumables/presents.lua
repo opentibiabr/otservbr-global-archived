@@ -54,7 +54,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for i = 1, #itemsSort do
 		player:addItem(itemsSort[i][1], itemsSort[i][2])
 	end
-	
+
 	item:remove(1)
 
 	return true

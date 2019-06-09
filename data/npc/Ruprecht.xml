@@ -5,6 +5,6 @@
 
 	<parameters>
         <parameter key="message_greet" value="Merry Christmas, little |PLAYERNAME|. To exchange {Christmas Token(s)} say {offers}." />
-        <parameter key="message_farewell" value="Good bye, little |PLAYERNAME|!" />  
+        <parameter key="message_farewell" value="Good bye, little |PLAYERNAME|!" />
   </parameters>
 </npc>

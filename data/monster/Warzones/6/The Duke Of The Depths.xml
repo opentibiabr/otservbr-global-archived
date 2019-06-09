@@ -57,32 +57,32 @@
 	<loot>
 	<!--Sempre-->
 		<item id="2152" countmin="1" countmax="58" chance="67610" />	<!-- platinum coin -->
-		<item id="2160" countmax="1" chance="67610" />		<!-- crystal coin -->	
+		<item id="2160" countmax="1" chance="67610" />		<!-- crystal coin -->
 		<item id="18413" countmax="4" chance="14710" />		<!-- blue crystal shard -->
 		<item id="2149" countmax="12" chance="13160" />		<!-- small emerald-->
 		<item id="9970" countmax="12" chance="11480" />		<!-- small topaz -->
 		<item id="2150" countmax="12"  chance="14520" />		<!-- Small Amethyst-->
 		<item id="7590" countmax="18"  chance="14520" />		<!-- Great Mana Potion-->
 		<item id="2145" countmax="2"  chance="14520" />		<!-- Small Diamond-->
-		<item id="2147" countmax="12"  chance="14520" />		<!-- small ruby-->	
-		<item id="7591" countmax="8"  chance="14520" />		<!-- great health potion-->	
-		<item id="8472" countmax="10"  chance="14520" />		<!-- great spirit potion-->	
+		<item id="2147" countmax="12"  chance="14520" />		<!-- small ruby-->
+		<item id="7591" countmax="8"  chance="14520" />		<!-- great health potion-->
+		<item id="8472" countmax="10"  chance="14520" />		<!-- great spirit potion-->
 		<item id="8473" countmax="8" chance="14520" />		<!-- ultimate health potion-->
-		<item id="7440"  chance="10060" />					<!-- mastermind potion -->			
+		<item id="7440"  chance="10060" />					<!-- mastermind potion -->
 		<item id="2156"  chance="14520" />					<!-- red gem-->
 		<item id="2154"  chance="14520" />					<!-- Yellow Gem-->
-		<item id="30854" chance="10000" />					<!-- giant tentacle -->	
-		<item id="9814"  chance="17230" />					<!-- rusty shield -->	
+		<item id="30854" chance="10000" />					<!-- giant tentacle -->
+		<item id="9814"  chance="17230" />					<!-- rusty shield -->
 		<item id="5892"  chance="14520" />					<!-- huge chunk of crude iron-->
 		<item id="2187"  chance="14520" />					<!-- wand of inferno-->
-		<item id="2432"  chance="15810" />					<!-- fire axe -->	
+		<item id="2432"  chance="15810" />					<!-- fire axe -->
 		<item id="2392"  chance="14520" />					<!-- fire sword-->
 		<item id="7884"  chance="14520" />					<!-- terra mantle-->
 		<item id="12410"  chance="14520" />					<!-- luminous orb-->
 		<item id="2197"  chance="14520" />					<!-- Stone Skin Amulet-->
 		<item id="9822"  chance="14520" />					<!-- Rusty Helmet-->
 		<item id="5904"  chance="14520" />					<!-- Magic Sulphur-->
-		
+
 		<!--Raro-->
 		<item id="30892"  	chance="1000" />		<!-- crude wood planks-->
 		<!--Muito Raro-->

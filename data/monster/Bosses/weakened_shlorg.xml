@@ -20,7 +20,7 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-  
+
 	<attacks>
 		<attack name="melee" interval="2000" skill="150" attack="50" poison="180"/>
 		<attack name="lifedrain" interval="2000" chance="10" length="4" spread="0" min="-90" max="-180">

@@ -59,7 +59,7 @@
 		<immunity manadrain="0" />
 		<immunity drunk="0" />
 		<immunity invisible="0" />
-	</immunities>	
+	</immunities>
 	<loot>
 		<item name="snowball" countmax="22" chance="10000" />
 		<item name="gold coin" countmax="60" chance="100000" />

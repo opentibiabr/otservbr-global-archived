@@ -18,24 +18,24 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-290" />
-		
+
 		<attack name="physical" interval="2000" chance="15"  min="-100" max="-200">
 			<attribute key="shootEffect" value="greenstar" />
 		</attack>
-		
-		
-		
+
+
+
 		<attack name="lifedrain" interval="2000" chance="15" range="7" radius="4" target="1" min="-100" max="-225">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
-		
+
 				<attack name="death" interval="2000" chance="14" length="5" spread="0" min="-100" max="-700">
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-		
-		
+
+
 	</attacks>
-	
+
 	<defenses armor="40" defense="45">
 		<defense name="healing" interval="4000" chance="15" min="50" max="145">
 			<attribute key="areaEffect" value="blueshimmer" />
@@ -61,14 +61,14 @@
 		<voice sentence="Yelp!" />
 		<voice sentence="Grrrrrr" />
 	</voices>
-	<loot> 
-		<!--Comum-->  
+	<loot>
+		<!--Comum-->
 		<item name="Gold Coin" countmax="200" chance="405000" />
 		<item name="Platinum Coin" countmax="2" chance="4050" />
-<!--Incomum-->  
+<!--Incomum-->
 		<item name="Fox Paw" countmax="2" chance="4050" />
 		<item name="Werefox Tail" countmax="2" chance="4050" />
-<!--Semi-raro-->  
+<!--Semi-raro-->
 		<item name="Strong Mana Potion" countmax="2" chance="4050" />
 		<item name="Great Mana Potion" countmax="2" chance="4050" />
 		<item name="Mana Potion" countmax="2" chance="4050" />
@@ -77,12 +77,12 @@
 		<item name="Moonlight Rod" chance="500" />
 		<item name="Troll Green" countmax="2" chance="500" />
 		<item name="Assassin Star" countmax="5" chance="300" />
-<!--Raro--> 
+<!--Raro-->
 		<item name="Platinum Amulet" chance="130" />
 		<item name="Ring of Healing" chance="200" />
 		<item name="Werewolf Amulet" chance="50" />
- 
-<!--Muito raro--> 
+
+<!--Muito raro-->
 		<item name="Werefox Trophy" chance="30" />
 	</loot>
 </monster>

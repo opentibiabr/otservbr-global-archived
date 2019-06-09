@@ -23,7 +23,7 @@ local posAcessoSand = Position(33295, 32271, 12)
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -33,86 +33,83 @@ local posAcessoSand = Position(33295, 32271, 12)
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
-	
-	
-	
+
+
+
 	-- Minotaur boss entrance
 	if item:getPosition() == posBossMinotaurs then
 		if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) >= 3 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
+
 	-- Under investigation area MotA
 	if item:getPosition() == posAcessoInvestigation then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) > 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
+
 	-- Porta de cima para o Denominator
 	if item:getPosition() == posAcessoCimaDenomitator then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 12 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
+
 	-- Porta de baixo para o Denominator
 	if item:getPosition() == posAcessoBaixoDenominator then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 14 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
+
 	-- Entrada para o Trial da Barkless
 	if item:getPosition() == posAcessoTrial then
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) > 0 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
+
 	-- Entrada para o Barkless Boss
 	if item:getPosition() == posAcessoBoss then
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 5 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
+
 	-- Entrada para a caverna de areia
 	if item:getPosition() == posAcessoSand then
 		if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) > 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")	
-		end	
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
 	end
-	
-	
-	
+
+
+
 	return true
 end
-
-
-

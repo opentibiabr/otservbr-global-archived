@@ -1,4 +1,4 @@
-function onSay(player, words, param)	
+function onSay(player, words, param)
 	local lootlist, sum = player:getAutoLootList(), 1
 	if lootlist then
 		player:registerEvent('autoloot')
@@ -17,7 +17,7 @@ function onSay(player, words, param)
 					else
 					backvinculo = ''
 				end
-		
+
 			window:addChoice(sum, "".. string.gsub(" "..(ItemType(item)):getName(), "%W%l", string.upper):sub(2, 21) .." "..string.gsub(" "..string.lower(backvinculo), "%W%l", string.upper):sub(2).."")
 			sum = sum + 1
         end
@@ -28,9 +28,9 @@ function onSay(player, words, param)
 		window:setDefaultEnterButton(106, "Backpack")
 		end
 		window:sendToPlayer(player)
-		return true		
+		return true
     else
         player:sendCancelMessage("The list is empty.")
         return false
-    end	
+    end
 end

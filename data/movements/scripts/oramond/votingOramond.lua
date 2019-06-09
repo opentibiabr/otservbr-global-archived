@@ -1,5 +1,5 @@
 local Days = {
-		["Monday"] = { 
+		["Monday"] = {
 	Position = {x = 31254, y = 32604, z = 9} --Minos
 	},
 		["Tuesday"] = {
@@ -30,4 +30,4 @@ local Days = {
 			doCreatureSay(cid, "Slrrp!", TALKTYPE_ORANGE_1)
 		end
 	return true
-end 
+end

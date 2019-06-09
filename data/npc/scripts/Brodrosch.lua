@@ -6,7 +6,7 @@ function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()		npcHandler:onThink()		end
- 
+
 local voices = { {text = 'Passage to Cormaya! Unforgettable steamboat ride!'} }
 npcHandler:addModule(VoiceModule:new(voices))
 
@@ -54,7 +54,7 @@ addTravelKeyword('farmine', 210, {'postman', 'new frontier'},
 	function(player)
 		local destination = Position(33025, 31553, 14)
 		if player:getStorageValue(Storage.TheNewFrontier.Mission05) == 7 then --if The New Frontier Quest 'Mission 05: Getting Things Busy' complete then Stage 3
-			destination.z = 10			
+			destination.z = 10
 		elseif player:getStorageValue(Storage.TheNewFrontier.Mission03) >= 2 then --if The New Frontier Quest 'Mission 03: Strangers in the Night' complete then Stage 2
 			destination.z = 12
 		end

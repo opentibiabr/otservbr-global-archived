@@ -52,11 +52,11 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			doSendMagicEffect(getCreaturePosition(cid), 45)
 			Game.createItem(2768, 1, {x = 32662, y = 32190, z = 7}) -- small fir tree
 			----------------------- SUMMON MERCHANT -----------------------------
-			doSummonCreature("Travelling Merchant", {x = 32656, y = 32182, z = 7}) 
-			doSummonCreature("Travelling Merchant", {x = 32660, y = 32181, z = 7}) 
-			doSummonCreature("Travelling Merchant", {x = 32661, y = 32184, z = 7}) 
-			doSummonCreature("Travelling Merchant", {x = 32662, y = 32181, z = 7}) 
-			doSummonCreature("Travelling Merchant", {x = 32657, y = 32185, z = 7}) 
+			doSummonCreature("Travelling Merchant", {x = 32656, y = 32182, z = 7})
+			doSummonCreature("Travelling Merchant", {x = 32660, y = 32181, z = 7})
+			doSummonCreature("Travelling Merchant", {x = 32661, y = 32184, z = 7})
+			doSummonCreature("Travelling Merchant", {x = 32662, y = 32181, z = 7})
+			doSummonCreature("Travelling Merchant", {x = 32657, y = 32185, z = 7})
 			----------------------------------------------------------------------
 			addEvent(removeMonster, 5*60*1000)
 			addEvent(removeTrap, 5*60*1000)

@@ -18,7 +18,7 @@
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
 	</flags>
-	
+
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-560" />
 		<attack name="ice" interval="2000" chance="10" length="8" spread="3" min="0" max="-100">

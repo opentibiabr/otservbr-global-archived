@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Raxias" nameDescription="a raxias" race="blood" experience="0" speed="50" manacost="0">
 	<health now="10000" max="10000" />
-	<look type="980" head="79" body="114" legs="82" feet="79" corpse="33427" />   
+	<look type="980" head="79" body="114" legs="82" feet="79" corpse="33427" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />

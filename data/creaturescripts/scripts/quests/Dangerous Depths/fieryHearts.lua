@@ -58,7 +58,7 @@ function onThink(creature)
 		end
 		if contadorHearts < 1 then
 			if bossId then
-				local oldBossHealth = bossId:getHealth() 
+				local oldBossHealth = bossId:getHealth()
 				local oldBossPosition = bossId:getPosition()
 				bossId:remove()
 				local newBoss = Game.createMonster("the duke of the depths", oldBossPosition, true, true)

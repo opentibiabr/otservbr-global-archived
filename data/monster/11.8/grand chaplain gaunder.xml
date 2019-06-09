@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Grand Chaplain Gaunder" nameDescription="a grand chaplain gaunder" race="blood" experience="0" speed="210" manacost="0"  script="boss.lua">
 	<health now="15000" max="15000" />
 	<look type="1071" head="57" body="75" legs="38" feet="86" addons="1" corpse="32433" />
@@ -15,72 +15,72 @@
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="70" />
-		<flag runonhealth="0" /> 
+		<flag runonhealth="0" />
 		<flag canwalkonenergy="0" />
 		<flag canwalkonfire="0" />
 		<flag canwalkonpoison="0" />
-		
-		
+
+
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-150" max="-700" />
-		
-		
-		
-		
+
+
+
+
 		     <attack name="lifedrain" interval="1500" chance="15" range="4" radius="4"   min="-200" max="-890">
       <attribute key="areaEffect" value="greenspark" />
-     
+
     </attack>
 
-		
-		
+
+
 		<attack name="physical" interval="2000" chance="20" range="7" min="-200" max="-720">
 			<attribute key="shootEffect" value="etherealspear" />
 		</attack>
-		 
-		 
+
+
 		<attack name="holy" interval="1500" chance="14" length="8" spread="0" min="-300" max="-1000">
 			<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
-		
+
         <attack name="lifedrain" interval="1000" chance="15" range="5" radius="3"   min="-200" max="-700">
 			<attribute key="areaEffect" value="smallclouds" />
-		</attack> 
-		
-		 
-		
-		
-		
+		</attack>
+
+
+
+
+
 	</attacks>
 	<defenses armor="82" defense="50">
 		<defense name="healing" interval="2000" chance="20" min="200" max="550">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
-		
-		
+
+
 			<defense name="speed" interval="1000" chance="10" speedchange="220" duration="5000">
 			<attribute key="areaEffect" value="poff" />
 		</defense>
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	</defenses>
 	<elements>
 	    <element physicalPercent="50" />
- 
+
 		<element deathPercent="55" />
- 
+
 
 	</elements>
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<loot> 
+	<loot>
  <!-- comun -->
 <item name="Small Emerald" countmax="3" chance="100000" />
 <item name="Small Amethyst" countmax="3" chance="100000" />
@@ -89,14 +89,14 @@
 <item name="Great Spirit Potion" countmax="3" chance="100000" />
 <item name="gold coin" countmax="60" chance="100000" />
 <item name="gold coin" countmax="40" chance="100000" />
-	
+
   <!-- Incomum -->
 <item name="Small Ruby" countmax="3" chance="700" />
 <item name="red Gem" countmax="3" chance="700" />
 <item name="Onyx Arrow" countmax="3" chance="700" />
 <item name="Small Topaz" countmax="3" chance="700" />
 
- <!-- semi raro --> 
+ <!-- semi raro -->
 <item id="7633" chance="3300" />
 <item name="Violet Gem" countmax="1" chance="250" />
 <item name="Green Gem" countmax="1" chance="250" />
@@ -109,13 +109,9 @@
 
 
  <!-- muito raro -->
- 
+
 <item name="Falcon Longsword" countmax="1" chance="60" />
 <item name="Falcon Shield" countmax="1" chance="60" />
- 
+
 	</loot>
 </monster>
-
-
-
- 

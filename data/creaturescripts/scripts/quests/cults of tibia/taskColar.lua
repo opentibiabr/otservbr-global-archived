@@ -24,7 +24,7 @@ function onKill(creature, killed)
 	end
 	if monster:getName():lower() == "misguided bully" or monster:getName():lower() == "misguided thief" then
 		player:setStorageValue(Storage.CultsOfTibia.Misguided.Monsters, mStg+1)
-		
+
 		if player:getStorageValue(Storage.CultsOfTibia.Misguided.Monsters) >= 10 then
 			colar:remove()
 			local it = player:addItem(28658, 1)

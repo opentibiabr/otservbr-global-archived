@@ -7,7 +7,7 @@
 		<flag rewardboss="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
-		<flag passive="0" /> 
+		<flag passive="0" />
 		<flag hostile="1" />
 		<flag isblockable="0" />
 		<flag illusionable="0" />

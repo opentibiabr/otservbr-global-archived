@@ -7,14 +7,14 @@
 			<flag cannotbemuted="1" />
 		</flags>
 	</group>
-	
+
 	<group id="3" name="Sennior Tutor" access="1" maxdepotitems="0" maxvipentries="200" >
 		<flags>
 			<flag talkorangehelpchannel="1" />
 			<flag cannotbemuted="1" />
 		</flags>
 	</group>
-	
+
 	<group id="4" name="gamemaster" access="1" maxdepotitems="0" maxvipentries="200" >
 		<flags>
 			<flag cannotusecombat="1" />

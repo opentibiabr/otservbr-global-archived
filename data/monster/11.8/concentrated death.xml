@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Concentrated Death" nameDescription="a concentrated death" race="undead" experience="0" speed="350" manacost="0">
 	<health now="10000" max="10000" />
 	<look type="315" corpse="33345"/>

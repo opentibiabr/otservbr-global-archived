@@ -28,11 +28,11 @@ function onTargetTile(creature, pos)
                 local min = 4000
                 local max = 8000
                 local player = Player(creatureTable[r])
-				
+
                 if isPlayer(creatureTable[r]) == true and isInArray(voc, player:getVocation():getId()) then
                     doTargetCombatHealth(creature, creatureTable[r], COMBAT_FIREDAMAGE, -min, -max, CONST_ME_NONE)
                 elseif isMonster(creatureTable[r]) == true then
-                    doTargetCombatHealth(creature, creatureTable[r], COMBAT_FIREDAMAGE, -min, -max, CONST_ME_NONE)             
+                    doTargetCombatHealth(creature, creatureTable[r], COMBAT_FIREDAMAGE, -min, -max, CONST_ME_NONE)
 				end
             end
         end
@@ -44,9 +44,9 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local function delayedCastSpell(cid, var)
-    local creature = Creature(cid) 
-	if not creature then 
-		return 
+    local creature = Creature(cid)
+	if not creature then
+		return
 	end
 	creature:say("DIE!", TALKTYPE_ORANGE_1)
 	return combat:execute(creature, positionToVariant(creature:getPosition()))

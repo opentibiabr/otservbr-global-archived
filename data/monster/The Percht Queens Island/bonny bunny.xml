@@ -19,7 +19,7 @@
 		<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
 		<attack name="fire" interval="2000" chance="50" length="4" spread="0" min="-90" max="-150">
-			<attribute key="areaEffect" value="HEARTS" /> 
+			<attribute key="areaEffect" value="HEARTS" />
 		</attack>
 		</attacks>
 		<defenses armor="40" defense="40" />
@@ -27,4 +27,3 @@
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 </monster>
-

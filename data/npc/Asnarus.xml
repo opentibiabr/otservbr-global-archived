@@ -50,12 +50,12 @@
 			ultimate health potion,8473,310;
 			vortex bolt,15649,6;
 			wild growth rune,2269,160" />
-		
+
 		<parameter key="shop_sellable" value="
-		
+
 		    flaskpequeno,7636,5;
 			flaskgrande,7635,5;
-			flaskmedio,7634,5;			
+			flaskmedio,7634,5;
 			bow,2456,100;
 			bowl of terror sweat,22538,500;
 			broken visor,22518,1900;

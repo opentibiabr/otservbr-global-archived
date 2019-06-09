@@ -71,8 +71,8 @@
 		<item name="fresh fruit" countmax="3" chance="3400" />
 		<item name="rainbow quartz" countmax="4" chance="1086" />
 		<item name="small stone" countmax="3" chance="492" />
-		<item name="wood cape" chance="492" />		
+		<item name="wood cape" chance="492" />
 		<item id="5792" chance="80" /> <!-- Die (Dado) -->
-		<item name="mandrake" chance="50" />		
+		<item name="mandrake" chance="50" />
 	</loot>
 </monster>

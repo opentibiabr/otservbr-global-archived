@@ -22,7 +22,7 @@ function onStepIn(creature, position, fromPosition, toPosition)
 										if creature:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners) < 3 then
 											creature:setStorageValue(Storage.DangerousDepths.Dwarves.Prisoners, creature:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners) + 1)
 											creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your escort has end.")
-										end		
+										end
 									end
 								end
 							end

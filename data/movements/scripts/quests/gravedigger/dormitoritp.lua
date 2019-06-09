@@ -10,7 +10,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if item.actionid == 4534 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission55) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission56) < 1 then
-		
+
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission56,1)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission57,1)
 		player:teleportTo(dormitori2)
@@ -19,7 +19,7 @@ function onStepIn(creature, item, position, fromPosition)
 	else
 		player:teleportTo(dormitori)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The teleport is accessible only once.')
-	    
+
 	end
 
 	player:getPosition():sendMagicEffect(CONST_ME_POFF)

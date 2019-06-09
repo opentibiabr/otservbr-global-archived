@@ -1,7 +1,7 @@
 local config = {
-	{storageKey = 10130, teleportPosition = Position(33264, 31835, 10)}, --EK 
-	{storageKey = 10131, teleportPosition = Position(33272, 31835, 10)}, --RP 
-	{storageKey = 10132, teleportPosition = Position(33268, 31840, 10)}, --ED 
+	{storageKey = 10130, teleportPosition = Position(33264, 31835, 10)}, --EK
+	{storageKey = 10131, teleportPosition = Position(33272, 31835, 10)}, --RP
+	{storageKey = 10132, teleportPosition = Position(33268, 31840, 10)}, --ED
 	{storageKey = 10133, teleportPosition = Position(33268, 31831, 10)} -- SORC
 }
 

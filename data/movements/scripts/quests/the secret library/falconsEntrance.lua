@@ -18,4 +18,3 @@ function onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 end
-

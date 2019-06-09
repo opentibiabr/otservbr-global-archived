@@ -12,18 +12,18 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-	
-	
+
+
 	if(msgcontains(msg, "mission")) then
 		if(getPlayerStorageValue(cid, 10050) == 16) then
 			selfSay("Ahhhhhhhh! Find and investigate the hideout, the mission 17", cid)
 			setPlayerStorageValue(cid, 10050, 17)
-		   
+
 		end
-	
-		else 
+
+		else
 		selfSay("Ahhhhhhhh! ", cid)
-		
+
 	end
 
 	return true

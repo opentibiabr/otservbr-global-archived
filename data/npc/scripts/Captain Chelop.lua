@@ -6,7 +6,7 @@ function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()		npcHandler:onThink()		end
- 
+
 local voices = { {text = 'By direct edict of the honorable Henricus, we are ordered to give passage for all recruits to Thais.'} }
 npcHandler:addModule(VoiceModule:new(voices))
 

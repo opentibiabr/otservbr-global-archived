@@ -14,12 +14,7 @@ local posCrate = Position(33300, 32277, 12)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crate belongs to Angelo. You should talk to him before taking something out.")
 		end
 	end
-	
-	
+
+
 	return true
 end
-
-
-
-	
-		

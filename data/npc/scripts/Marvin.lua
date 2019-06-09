@@ -12,8 +12,8 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-	
-	
+
+
 	if(msgcontains(msg, "funding")) then
 		if(getPlayerStorageValue(cid, 10050) == 7) then
 			selfSay("So far you earned x votes. Each single vote can be spent on a different topic or you're also able to cast all your votes on one voting. ...", cid)
@@ -30,7 +30,7 @@ function creatureSayCallback(cid, type, msg)
 		if(npcHandler.topic[cid] == 2) then
 			npcHandler:say("Did I get that right: You want to cast 1 of your votes on funding the {archives?}", cid)
 			npcHandler.topic[cid] = 3
-		end	
+		end
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 3) then
 		   setPlayerStorageValue(cid, 10050, 8)
@@ -38,7 +38,7 @@ function creatureSayCallback(cid, type, msg)
 		   setPlayerStorageValue(cid, 20058, 0)
 			npcHandler:say("Thanks, you successfully cast your vote. Feel free to continue gathering votes by helping the city! Farewell.", cid)
 			npcHandler.topic[cid] = 0
-		end		
+		end
 	end
 
 	return true

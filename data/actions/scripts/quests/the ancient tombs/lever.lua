@@ -10,7 +10,7 @@ local config = {
 	},
 	leverPositions = {
 	Position(33115, 32797, 14),
-		Position(33118, 32790, 14), 
+		Position(33118, 32790, 14),
 		Position(33122, 32790, 14)
 	},
 	relocatePosition = Position(33120, 2791, 14),

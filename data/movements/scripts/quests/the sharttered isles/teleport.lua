@@ -33,8 +33,8 @@ function onStepIn(creature, item, position, fromPosition)
         if sacrificeTile:getThing(1).itemId == sacrificeItemId then
             sacrificeTile:getThing(1):remove()
         end
-           
-        
+
+
         if sacrificeTile:getThing(0).itemId == sacrificeTableItemId then
             sacrificeTile:getThing(0):remove()
         end

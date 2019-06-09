@@ -1,5 +1,5 @@
 function onDeath(creature)
-	
+
 	if creature:getName() == "Frenzy" then
 		rageSummon = rageSummon - 1
 		devourerSummon = devourerSummon - 1
@@ -13,11 +13,11 @@ function onDeath(creature)
 		theHungerKilled = true
 	elseif creature:getName() == "The Destruction" then
 		devourerBossesKilled = devourerBossesKilled + 1
-		theDestructionKilled = true	
+		theDestructionKilled = true
 	elseif creature:getName() == "The Rage" then
 		devourerBossesKilled = devourerBossesKilled + 1
 		theRageKilled = true
 	end
-	
+
 	return true
 end

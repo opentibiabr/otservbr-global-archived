@@ -5,7 +5,7 @@ for _, v in ipairs(customDoorsRange) do
     if not table.contains(doorIds, v.openDoor) then
         table.insert(doorIds, v.openDoor)
     end
-    
+
     if not table.contains(doorIds, v.closedDoor) then
         table.insert(doorIds, v.closedDoor)
     end
@@ -19,7 +19,7 @@ function newDoors.onUse(player, item, fromPosition, target, toPosition, isHotkey
             return true
         end
 
-        if v.openDoor == itemId then 
+        if v.openDoor == itemId then
             item:transform(v.closedDoor)
             return true
         end

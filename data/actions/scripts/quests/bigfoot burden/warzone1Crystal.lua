@@ -42,11 +42,11 @@ function onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
                 addEvent(magicEffectWz, i * 20 * 1000, pos, CONST_ME_TELEPORT)
             end
         end
-            
+
         player:say("The crystals are charging!", TALKTYPE_MONSTER_SAY, false, player, toPosition)
-        addEvent(createTp, 200000) -- 3.33 min 
-        addEvent(removeTp, 260000) -- 4.33 min 
-        addEvent(warzoneConfig.spawnBoss, 280000, config.boss, config.bossResp) -- 5 min 
+        addEvent(createTp, 200000) -- 3.33 min
+        addEvent(removeTp, 260000) -- 4.33 min
+        addEvent(warzoneConfig.spawnBoss, 280000, config.boss, config.bossResp) -- 5 min
         addEvent(warzoneConfig.resetRoom, 30 * 60 * 1000, config, "You were teleported out by the gnomish emergency device.", true)
         addEvent(Game.setStorageValue, 30 * 60 * 1000, 96974, 0)
     else

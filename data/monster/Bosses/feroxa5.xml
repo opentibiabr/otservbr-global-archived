@@ -39,7 +39,7 @@
 	</defenses>
 	<immunities>
 		<immunity paralyze="1"/>
-		<immunity invisible="1"/> 
+		<immunity invisible="1"/>
 		<immunity drunk="1"/>
 	</immunities>
 	<loot>

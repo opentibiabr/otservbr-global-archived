@@ -18,8 +18,8 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="40" max="-289" fire="6" />
-		
-				
+
+
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="80" max="95">
@@ -30,23 +30,23 @@
 		<element firePercent="-10" />
 	</elements>
 	<immunities>
-	
+
 		<immunity invisible="1" />
 	</immunities>
-	
-	
+
+
 	<voices interval="3000" chance="20">
-		<voice sentence="Snort!" />		
-		<voice sentence="Grunt!" />		
-		<voice sentence="Snarl!" />		
+		<voice sentence="Snort!" />
+		<voice sentence="Grunt!" />
+		<voice sentence="Snarl!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="130" chance="92000" />	<!-- gold coin -->
-		<item id="24842" chance="2200" />					<!-- raw meat -->		
-		<item id="5925" countmax="2" chance="1200" />					<!--  Hardened Bone -->	
-		<item id="11224" chance="900" />					<!-- Thick Fur -->			
-		<item id="3973" chance="400" />					<!-- Tusk Shield -->		
-		<item id="7432" chance="200" />					<!-- Furry Club  -->		
-				
+		<item id="24842" chance="2200" />					<!-- raw meat -->
+		<item id="5925" countmax="2" chance="1200" />					<!--  Hardened Bone -->
+		<item id="11224" chance="900" />					<!-- Thick Fur -->
+		<item id="3973" chance="400" />					<!-- Tusk Shield -->
+		<item id="7432" chance="200" />					<!-- Furry Club  -->
+
 	</loot>
 </monster>

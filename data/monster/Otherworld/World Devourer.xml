@@ -56,7 +56,7 @@
 		<!-- gold -->
 		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="20" chance="100000"/><!-- platinum coin -->
-	
+
 		<!-- all loot -->
 		<item id="18413" tier="6" countmax="3" chance="10000"/><!-- blue crystal shard -->
 		<item id="7590" tier="6" countmax="5" chance="10000"/><!-- great mana potion -->
@@ -71,23 +71,23 @@
 		<item id="26164" tier="6" chance="10000"/><!-- energy vein -->
 		<item id="7632;7633" tier="6" chance="10000"/><!-- giant shimmering pearl -->
 		<item id="26166" tier="6" chance="10000"/><!-- odd organ -->
-		<item id="26176" tier="6" chance="10000"/><!-- plasmatic lightning -->		
-		
+		<item id="26176" tier="6" chance="10000"/><!-- plasmatic lightning -->
+
 		<!-- Comum -->
 		<item id="2155" tier="5" chance="10000"/><!-- green gem -->
 		<item id="25377" tier="5" chance="100000"/><!-- gold token -->
-		
+
 		<!-- Semi Raro -->
 		<item id="7426" tier="4" chance="10000"/><!-- amber staff -->
 		<item id="7901" tier="4" chance="8000"/><!-- lightning headband -->
 		<item id="26189" tier="4" chance="8000"/><!-- ring of red plasma -->
 		<item id="2153" tier="4" chance="8000"/><!-- violet gem -->
-		
+
 		<!-- Raro -->
 		<item id="26130" tier="3" unique="1" chance="6000"/><!-- tiara of power -->
 		<item id="26133" tier="3" unique="1" chance="6000"/><!-- void boots -->
 		<item id="26342" tier="3" unique="1" chance="4000"/><!-- devourer core -->
-		
+
 		<!-- Muito Raro -->
 		<item id="26340" tier="2" unique="1" chance="2000"/><!-- crackling egg -->
 	</loot>

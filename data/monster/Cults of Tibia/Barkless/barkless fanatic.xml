@@ -43,8 +43,8 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="199" chance="100000" />	<!-- GOLD COIN -->
-		<item id="29044" countmax="1" chance="2310" />		<!-- BED OF NAILS  -->			
+		<item id="29044" countmax="1" chance="2310" />		<!-- BED OF NAILS  -->
 		<item id="29043" countmax="1" chance="12690" />		<!-- FIG LEAF -->
-		<item id="27629" countmax="1" chance="6920" />		<!-- TIGER EYE  -->	
+		<item id="27629" countmax="1" chance="6920" />		<!-- TIGER EYE  -->
 	</loot>
 </monster>

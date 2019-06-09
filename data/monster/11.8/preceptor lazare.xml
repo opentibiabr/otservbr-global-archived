@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Preceptor Lazare" nameDescription="a preceptor lazare" race="blood" experience="9200" speed="210" manacost="0" script="boss.lua">
 	<health now="15000" max="15000" />
-	<look type="1078" corpse="33384" /> 
-	<targetchange interval="2000" chance="10" />  
+	<look type="1078" corpse="33384" />
+	<targetchange interval="2000" chance="10" />
 	<flags>
 	     <flag rewardboss="1" />
 		<flag summonable="0" />
@@ -33,12 +33,12 @@
 		</attack>
 		<attack name="holy" interval="1500" chance="14" range="7"  radius="4"  min="300" max="1000">
 			<attribute key="areaEffect" value="holydamage"/>
-		</attack>	
+		</attack>
 	</attacks>
 	<defenses armor="86" defense="60">
 		<defense name="healing" interval="1500" chance="20" min="200" max="800">
 			<attribute key="areaEffect" value="blueshimmer" />
-		</defense>		
+		</defense>
 	</defenses>
 	<elements>
 	    <element physicalPercent="50" />
@@ -49,7 +49,7 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<loot> 
+	<loot>
  <!-- common -->
  <item name="Small Emerald" countmax="3" chance="100000" />
 <item name="Small Diamond" countmax="3" chance="100000" />
@@ -70,7 +70,7 @@
 <item name="Small Topaz" countmax="3" chance="700" />
 <item name="Small Diamond" countmax="3" chance="7" />
 
- <!-- semi-rare --> 
+ <!-- semi-rare -->
 <item id="7633" chance="800" />
 <item name="Violet Gem" countmax="1" chance="600" />
 <item name="Green Gem" countmax="1" chance="600" />
@@ -78,7 +78,7 @@
 <item name="Titan Axe" countmax="1" chance="600" />
 <item name="Spiked Squelcher" countmax="1" chance="600" />
 
- 
+
  <!-- raro -->
 <item name="Patch of Fine Cloth" countmax="3" chance="500" />
 <item name="Falcon Crest" countmax="3" chance="200" />
@@ -93,4 +93,4 @@
 <item name="Falcon Greaves" countmax="1" chance="100" />
 
 	</loot>
-</monster>  
+</monster>

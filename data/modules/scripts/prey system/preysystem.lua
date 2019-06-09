@@ -292,7 +292,7 @@ function CheckPrey(player, msg)
 		if (getUnlockedColumn(player) < PreyColumn) then
 			return sendError(player, "[ERROR] You don't have this column unlocked.")
 		end
-		
+
 		player:preyRerollList(PreyColumn)
 	elseif (PreyAction == 1) then
 		if (getUnlockedColumn(player) < PreyColumn) then
@@ -365,7 +365,7 @@ function getRandomBonus(player, column, name, bonusReroll)
 	}
 
 	local randomBonus = math.random(0, 3)
-	
+
 	if (player:isActive(column) and	not bonusReroll) then
 		return false
 	end
@@ -405,7 +405,7 @@ end
 
 function loadBonus(player, column)
 	local retTable = {
-		Type = player:getPreyType(column), 
+		Type = player:getPreyType(column),
 		Value = player:getPreyValue(column),
 		Name = player:getPreyName(column)
 	}
@@ -415,7 +415,7 @@ function loadBonus(player, column)
 	if (retTable.Name == "") then
 		return false
 	end
-	
+
 	return retTable
 end
 

@@ -44,18 +44,18 @@
 	</immunities>
 	<loot>
 <!--common-->
-<item name="Berserk Potion" count="10" chance="100000000000" /> 
+<item name="Berserk Potion" count="10" chance="100000000000" />
 
 <item name="Crystal Coin" chance="100000000000" />
-<item name="Energy Bar" chance="100000000000" />    
+<item name="Energy Bar" chance="100000000000" />
 <item name="Giant Sapphire" chance="100000000000" />
 <item name="Gold Token" countmin="1" countmax="2" chance="100000000000" />
 <item name="Silver Token" countmin="1" countmax="2" chance="100000000000" />
 <item name="Royal Star" countmin="1" countmax="100" chance="100000000000" />
 <item name="Green Gem" countmin="1" countmax="2" chance="100000000000" />
-<item name="Huge Chunk of Crude Iron" chance="25100" /> 
-<item name="Mysterious Remains" chance="25000" /> 
-<item name="Piggy Bank" chance="12800" /> 
+<item name="Huge Chunk of Crude Iron" chance="25100" />
+<item name="Mysterious Remains" chance="25000" />
+<item name="Piggy Bank" chance="12800" />
 <item name="Platinum Coin" countmin="1" countmax="10" chance="12000" />
 <item name="Supreme Health Potion" countmin="1" countmax="10" chance="12000" />
 <item name="Ultimate Mana Potion" countmin="1" countmax="20" chance="12000" />

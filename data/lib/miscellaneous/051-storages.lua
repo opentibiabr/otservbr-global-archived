@@ -12,7 +12,7 @@ Storage = {
 		Exercisedummy = {
 		exaust = 98231521
 	},
-	
+
 	DangerousDepths = {
 	Questline = 800,
 		Dwarves = {
@@ -42,11 +42,11 @@ Storage = {
 			timeTaskDiremaws = 820,
 			timeTaskGrowth = 821,
 			barrelStg = 822,
-			barrelTimer = 823,	
+			barrelTimer = 823,
 		},
 		Gnomes = {
 			Status = 898,
-			Ordnance = 824, -- Missão 
+			Ordnance = 824, -- Missão
 			Measurements = 825, -- Missão
 			Charting = 826, -- Missão
 			GnomeChartChest = 827, -- Measurements
@@ -62,8 +62,8 @@ Storage = {
 			OldGate = 837, -- Charting
 			TheGaze = 838, -- Charting
 			LostRuin = 839, -- Charting
-			Outpost = 840, -- Charting 
-			Bastion = 841,-- Charting 
+			Outpost = 840, -- Charting
+			Bastion = 841,-- Charting
 			BrokenTower = 842, -- Charting
 			ChartingCount = 843, -- Contador
 			timeTaskOrdnance = 844,
@@ -120,7 +120,7 @@ Storage = {
 			Acesso = 17999,
 			jamesfrancisTask = 18000,
 			Mission = 18001,
-			bossTimer = 18500,		
+			bossTimer = 18500,
 		},
 		MotA = {
 			Mission = 18002,
@@ -148,7 +148,7 @@ Storage = {
 		Life = {
 			Mission = 18005,
 			bossTimer = 18503
-			
+
 		},
 		Humans = {
 			Mission = 18006,
@@ -156,7 +156,7 @@ Storage = {
 			Decaying = 18551,
 			bossTimer = 18504
 		},
-		
+
 		Misguided = {
 			Mission = 18007,
 			Monsters = 18540,
@@ -292,7 +292,7 @@ Storage = {
 		LastLoreKilled = 10162,
 		BirdCage = 10163,
 		AccessLavaTeleport = 10164,
-		Ivalisse = 10165, 
+		Ivalisse = 10165,
 		Chalice = 10166,
 		Tomes = 10167,
 		BabyDragon = 10168,
@@ -303,7 +303,7 @@ Storage = {
 		AmuletStatus = 49
 	},
 	ExplorerSociety = {
-		QuestLine = 90,		
+		QuestLine = 90,
 		bansheeDoor = 91,
 		bonelordsDoor = 92,
 		CalassaQuest = 93,
@@ -433,7 +433,7 @@ Storage = {
 		Warzone3Reward = 960,
 		bossKills = 961,
 		openGoldenFruits = 962,
-		
+
 		BossWarzone1 = 963,
 		BossWarzone2 = 964,
 		BossWarzone3 = 965
@@ -967,7 +967,7 @@ Storage = {
 		ToAppeaseTheMightyQuest = 13330,
 		IntoTheBonePit = 3938,
 		TheExterminator = 3939,
-		
+
 		RestInHallowedGround = {
 			Questline = 3940,
 			HolyWater = 3941,
@@ -1014,7 +1014,7 @@ Storage = {
 		Thais = 12806,
 		LibertyBay = 12807,
 		Carlin = 12808,
-	},	
+	},
 	KillingInTheNameOf = {
 		LugriNecromancers = 50000,
 		LugriNecromancerCount = 65050,
@@ -1149,7 +1149,7 @@ Storage = {
 		OldParchment = 50034,
 
 		DragahsSpellbook = 50148,
-		
+
 		StealFromThieves = 19910
 	},
 	PitsOfInferno = {
@@ -1248,7 +1248,7 @@ Storage = {
 		souleaterUse = 165167,
 		ghostUse = 165168
 	},
-		
+
 	SeaOfLightQuest = {
 		Questline = 50250,
 		Mission1 = 50251,
@@ -1314,7 +1314,7 @@ Storage = {
 	DreamersChallenge = {
 		Reward = 9050
 	},
-	
+
 	HallsOfHope = {
 		Reward1 = 50801,
 		Reward2 = 50802,
@@ -1380,7 +1380,7 @@ GlobalStorage = {
 		TheShattererTimer = 566036,
 		TheShattererLever = 566037,
 		TheLordOfTheLiceTimer = 566038,
-		FlowerPuzzleTimer = 566063, 
+		FlowerPuzzleTimer = 566063,
 		Habitats = {
 			Roshamuul = 566064,
 			Grass = 566065,

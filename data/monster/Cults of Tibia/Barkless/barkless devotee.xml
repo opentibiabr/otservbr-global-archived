@@ -43,8 +43,8 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="199" chance="48000" />	<!-- GOLD COIN -->
-		<item id="29044" countmax="1" chance="1540" />		<!-- BED OF NAILS  -->			
+		<item id="29044" countmax="1" chance="1540" />		<!-- BED OF NAILS  -->
 		<item id="29043" countmax="1" chance="4050" />		<!-- FIG LEAF -->
-		<item id="29045" countmax="1" chance="970" />		<!-- TORN SHIRT  -->	
+		<item id="29045" countmax="1" chance="970" />		<!-- TORN SHIRT  -->
 	</loot>
 </monster>

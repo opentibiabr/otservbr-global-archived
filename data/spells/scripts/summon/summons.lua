@@ -33,7 +33,7 @@ function onCastSpell(cid, var)
     elseif vocationId == 8 then
         summonName = "skullfrost"
     end
-    
+
     if not summonName then return false end
 
     local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)

@@ -38,15 +38,15 @@ local effects = {
 	{fromPosition = Position(32515, 32610, 12), toPosition = Position(32515, 32612, 12), effect = CONST_ME_FIREAREA},
 	{fromPosition = Position(32520, 32610, 12), toPosition = Position(32520, 32612, 12), effect = CONST_ME_FIREAREA},
 	{fromPosition = Position(32521, 32610, 12), toPosition = Position(32521, 32612, 12), effect = CONST_ME_FIREAREA},
-	{fromPosition = Position(32526, 32610, 12), toPosition = Position(32526, 32612, 12), effect = CONST_ME_FIREAREA},	 
-    {fromPosition = Position(32532, 32610, 12), toPosition = Position(32532, 32612, 12), effect = CONST_ME_FIREAREA}, 
+	{fromPosition = Position(32526, 32610, 12), toPosition = Position(32526, 32612, 12), effect = CONST_ME_FIREAREA},
+    {fromPosition = Position(32532, 32610, 12), toPosition = Position(32532, 32612, 12), effect = CONST_ME_FIREAREA},
     {fromPosition = Position(32533, 32610, 12), toPosition = Position(32533, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32538, 32610, 12), toPosition = Position(32538, 32612, 12), effect = CONST_ME_FIREAREA}, 
+    {fromPosition = Position(32538, 32610, 12), toPosition = Position(32538, 32612, 12), effect = CONST_ME_FIREAREA},
     {fromPosition = Position(32539, 32610, 12), toPosition = Position(32539, 32612, 12), effect = CONST_ME_FIREAREA},
     {fromPosition = Position(32544, 32610, 12), toPosition = Position(32544, 32612, 12), effect = CONST_ME_FIREAREA},
     {fromPosition = Position(32545, 32610, 12), toPosition = Position(32545, 32612, 12), effect = CONST_ME_FIREAREA},
-	  
-	
+
+
 }
 
 function onThink(interval)
@@ -61,7 +61,7 @@ function onThink(interval)
 				for y = fromPosition.y, toPosition.y do
 					local newPosition = Position(fromPosition.x, y, fromPosition.z)
 					newPosition:sendMagicEffect(settings.effect)
-					
+
 					jolf = Tile(newPosition):getTopCreature()
 					if jolf and jolf:isPlayer() then
 					doTargetCombatHealth(0, jolf, COMBAT_PHYSICALDAMAGE, -500, -1000, settings.effect)

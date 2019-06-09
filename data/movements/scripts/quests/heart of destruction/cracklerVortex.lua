@@ -6,21 +6,21 @@ function onStepIn(creature, item, position, fromPosition)
 		{x = 32208, y = 31324, z = 14},
 		{x = 32210, y = 31334, z = 14},
 	}
-	
+
 	local positions2 = {
 		{x = 32202, y = 31325, z = 14},
 		{x = 32201, y = 31334, z = 14},
 		{x = 32215, y = 31332, z = 14},
 		{x = 32208, y = 31320, z = 14},
 	}
-	
+
 	local positions3 = {
 		{x = 32199, y = 31329, z = 14},
 		{x = 32207, y = 31335, z = 14},
 		{x = 32208, y = 31327, z = 14},
 		{x = 32213, y = 31322, z = 14},
 	}
-	
+
 	local positions4 = {
 		{x = 32203, y = 31319, z = 14},
 		{x = 32205, y = 31325, z = 14},
@@ -79,7 +79,7 @@ function onStepIn(creature, item, position, fromPosition)
 			creature:getPosition():sendMagicEffect(48)
 		end
 	end
-	
+
 	return true
 end
 

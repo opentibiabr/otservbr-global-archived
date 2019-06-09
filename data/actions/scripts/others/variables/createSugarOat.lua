@@ -7,7 +7,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
              player:addItem(13939, 1)
              toPosition = player:getPosition()
          end
-         toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)  
+         toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
          Item(item.uid):remove(1)
          Item(itemEx.uid):remove(1)
      end

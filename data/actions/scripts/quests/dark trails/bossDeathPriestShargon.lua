@@ -54,7 +54,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
                                         all_ready = all_ready+1
                                 end
                         end
-                end		
+                end
                 if all_ready == #players_pos then
                         for i = 1, #players_pos do
                                 player[i] = getThingfromPos(players_pos[i])
@@ -106,7 +106,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
                         end
                 end
                 if player_room >= 1 then
-                        doPlayerSendTextMessage(cid,19,"There is already a team in the quest room.")          
+                        doPlayerSendTextMessage(cid,19,"There is already a team in the quest room.")
                 elseif player_room == 0 then
                         for x = room.fromX, room.toX do
                                 for y = room.fromY, room.toY do

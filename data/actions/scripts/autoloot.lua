@@ -4,28 +4,28 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local monster = Tile(toPosition):getTopVisibleThing()
 	local corpse = getTileItemById(toPosition, monster:getId()).uid
 	local slots = getContainerSize(corpse)
-	
+
 	if not corpse or not slots then
 		return false
 	end
-	
+
 	local logic, contlogic, bplogica = 1, {}, {}
 	if getContainerSize(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid) then
 	for i = 0, getContainerSize(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid) do
 		contlogic[logic] = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)
-				
+
 		if isContainer(contlogic[logic].uid) then
 		bplogica[logic] = contlogic[logic]
 		logic = logic + 1
 		end
-	
+
 	end
 	end
-	
+
 	for times = 1, slots do
 		bodycontainer[times] = getContainerItem(corpse, slot)
 		if player:getAutoLootItem(bodycontainer[times].itemid) then
-		
+
 		local slotcorpse = bodycontainer[times].uid
 		local itemcorpse = Item(slotcorpse)
 		local slotgg
@@ -45,9 +45,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				end
 			end
 		end
-		
+
 		local destination = Item(slotgg)
-		
+
 			if destination and destination:getTopParent() == player then
 				itemcorpse:moveTo(destination)
 					if bodycontainer[times].type > 1 then
@@ -60,17 +60,17 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				table.insert(issue, bodycontainer[times].itemid)
 				end
 				itemcorpse:moveToSlot(player, 0)
-			end	
-			
+			end
+
 		else
 			slot = slot + 1
-		end		
+		end
 	end
-	
+
 	if msg ~= '' then
 	player:sendTextMessage(MESSAGE_INFO_DESCR,'Looted:'.. string.gsub(" "..msg, "%W%l", string.lower):sub(3) ..' opening corpse')
 	end
-	
+
 	if issue then
 	if #issue >= 1 then
 	for i = 1, #issue do
@@ -78,5 +78,5 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	end
 	end
-	
+
 end

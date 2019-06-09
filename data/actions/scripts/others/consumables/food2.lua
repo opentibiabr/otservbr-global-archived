@@ -3,7 +3,7 @@ local config = {
     storage = 19030, --use empty storage
     exhaust = 60 --Exhaust is in seconds 600 equals 10min
 }
- 
+
 function onUse(cid, item, fromPos, itemEx, toPos)
     if (getPlayerStorageValue(cid, config.storage) <= os.time()) then
         if (item.itemid == 9992) then

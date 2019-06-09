@@ -5,9 +5,9 @@
 	<parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-		
+
 		    potvazio,7636,20;
-			potvazio,7635,30;		
+			potvazio,7635,30;
 			vial of blood,2006,15,2;
 			great health potion,7591,190;
 			ultimate mp,26029,350;

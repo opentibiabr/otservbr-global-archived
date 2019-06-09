@@ -43,8 +43,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 3
 		end
 	end
-	
-	if msgcontains(msg, "yes") then 
+
+	if msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 3 then
 			npcHandler:say({
 				"So return to the upper tunnels where cultists and ice golems dwell. Somewhere in these tunnels you will find a small prison haunted by a ghost. South of this prison cell there is a tunnel that will lead you eastwards. ...",
@@ -53,7 +53,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.ForgottenKnowledge.BabyDragon, 1)
 			npcHandler.topic[cid] = 4
 		end
-	elseif msgcontains(msg, "no") then 
+	elseif msgcontains(msg, "no") then
 			if npcHandler.topic[cid] == 3 then
 			npcHandler:say({
 				"Grrr."
@@ -61,13 +61,13 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 1
 		end
 	end
-		
-	if msgcontains(msg, "egg") then 
+
+	if msgcontains(msg, "egg") then
 			if npcHandler.topic[cid] == 4 then
 			npcHandler:say({
 				"As I told you, fiendish ice creatures dragged my egg into the lower caves. ...",
 				" Without enough heat the egg will die soon. Venture there and save my hatchling and the knowledge you seeek shall be yours!"
-			}, cid)		
+			}, cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.BabyDragon, 1)
 		end
 	end

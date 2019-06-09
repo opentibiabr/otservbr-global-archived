@@ -35,7 +35,7 @@
 		<attack name="tenebris summon" interval="2000" chance="14"/>
 		<attack name="tenebris ultimate" interval="2000" chance="30"/>
 	</attacks>
-	
+
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="3000" chance="25" min="600" max="2700">
 			<attribute key="areaEffect" value="blueshimmer" />
@@ -63,12 +63,12 @@
 	<loot>
 	    <item id="2148" countmax="50" chance="10000" /> <!-- Gold Coin -->
 		<item id="2152" countmax="50" chance="10000" /> <!-- Platinum Coin -->
-		<item id="2150" countmax="10" chance="10000" /> <!-- small amethyst -->		
+		<item id="2150" countmax="10" chance="10000" /> <!-- small amethyst -->
 		<item id="2145" countmax="10" chance="10000" /> <!-- small diamond -->
 		<item id="2147" countmax="10" chance="10000" /> <!-- small ruby -->
 		<item id="9970" countmax="10" chance="10000" /> <!-- small topaz -->
 		<item id="7590" countmax="100" chance="10000" /> <!-- Great Mana Potions -->
-		<item id="8472" countmax="100" chance="10000" /> <!-- Great Spirit Potions -->		
+		<item id="8472" countmax="100" chance="10000" /> <!-- Great Spirit Potions -->
 		<item id="22396" countmax="2" chance="2000" /> <!-- Cluster of Solace -->
 		<item id="18413" countmax="3" chance="2000" /> <!-- blue crystal shard -->
 		<item id="18415" countmax="5" chance="5000" /> <!-- Green Crystal Shard -->
@@ -93,10 +93,10 @@
 		<item id="27641" chance="200" /> <!-- Shadow Mask -->
 		<item id="27642" chance="200" /> <!-- Shadow Paint -->
 		<item id="25411" chance="200" /> <!-- book of lies -->
-		<item id="22422" chance="200" /> <!-- Crude Umbral Spellbook -->	
+		<item id="22422" chance="200" /> <!-- Crude Umbral Spellbook -->
 		<item id="27625" chance="500" unique="1" /> <!-- part of a rune (quarta) -->
 		<item id="2138" chance="200" /> <!-- sapphire amulet -->
 		<item id="22423" chance="200" /> <!-- umbral spellbook -->
-	
+
 	</loot>
 </monster>

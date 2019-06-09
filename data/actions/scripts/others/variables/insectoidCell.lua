@@ -17,7 +17,7 @@ local insectoidcell = {
 			[61626] = {storage = 40820, reward = 15572, count = 1},
 			[61627] = {storage = 40821, reward = 15572, count = 1}
 }
- 
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
      local config = insectoidcell[item.actionid]
      if player:getStorageValue(config.storage) > os.time() then
@@ -37,7 +37,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         text = "You have received " .. text .. "."
 		player:addItem(config.reward)
 		player:sendTextMessage(MESSAGE_INFO_DESCR, text)
-         
+
          player:setStorageValue(config.storage, os.time() + 7*24*60*60)
      end
      return true

@@ -14,7 +14,7 @@
 		<flag pushable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
-		<flag targetdistance="1" />		 
+		<flag targetdistance="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-500" />
@@ -64,23 +64,3 @@
 		<item id="2498" chance="5000"/> <!-- royal helmet -->
 	</loot>
 </monster>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

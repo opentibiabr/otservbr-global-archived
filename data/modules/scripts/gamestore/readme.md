@@ -37,7 +37,7 @@ GameStore.Categories = {
 GameStore.Categories = {
 	mounts = {
 		offers = {
-			
+
 		}
 	}
 }

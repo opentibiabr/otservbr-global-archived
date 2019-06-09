@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Grand Master Oberon" nameDescription="a grand master oberon" race="human" experience="20000" speed="230" manacost="0">
 	<health now="30000" max="30000" />
 	<look type="1072" head="57" body="75" legs="38" feet="86" addons="1" corpse="33368" />
 	<targetchange interval="4000" chance="10" />
-	<flags> 
-		
+	<flags>
+
 		<flag preyable="0" />
         <flag rewardboss="1" />
 		<flag summonable="0" />
@@ -17,14 +17,14 @@
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="70" />
-		<flag runonhealth="0" /> 
+		<flag runonhealth="0" />
 		<flag canwalkonenergy="0" />
 		<flag canwalkonfire="0" />
 		<flag canwalkonpoison="0" />
 	</flags>
 		<script>
 		<event name="OberonHeal" />
-    </script> 
+    </script>
 	<attacks>
 		<attack name="melee" interval="1000" min="-150" max="-800" />
 		<attack name="holy" interval="1200" chance="14" length="8" spread="0" min="-400" max="-1000">
@@ -32,11 +32,11 @@
 		</attack>
 		<attack name="lifedrain" interval="1000" chance="15" range="8" radius="7"   min="-400" max="-900">
 			<attribute key="areaEffect" value="blackspark" />
-		</attack> 
+		</attack>
 		<attack name="death" interval="2000" chance="20" range="7" min="500" max="-700">
 			<attribute key="shootEffect" value="suddendeath" />
 			<attribute key="areaEffect" value="mortarea" />
-		</attack> 
+		</attack>
 		</attacks>
 		<defenses armor="82" defense="60">
 		<defense name="healing" interval="1000" chance="20" min="400" max="650">
@@ -60,13 +60,13 @@
 	<script>
     <script name="bossfalconfinal"/>
 	</script>
-	<loot> 
+	<loot>
  <!-- comun -->
 <item name="Spatial Warp Almanac" countmax="3" chance="100000" />
 <item name="Platinum Coin" countmax="3" chance="100000" />
 <item name="gold coin" countmax="60" chance="100000" />
 <item name="gold coin" countmax="40" chance="100000" />
- <!-- semi raro --> 
+ <!-- semi raro -->
 <item name="Grant of Arms" countmax="1" chance="600" />
  <!-- raro -->
 <item name="Falcon Battleaxe" chance="60" />
@@ -86,10 +86,3 @@
 <item name="Falcon Plate" chance="60" />
 </loot>
 </monster>
-
-
-
-
-
-
-

@@ -87,6 +87,6 @@ function onUse(player, item)
 		end
 		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneVI.smallCrystal2, os.time() + 5*60)
 	end
-	
+
 	return true
 end

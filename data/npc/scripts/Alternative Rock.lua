@@ -7,7 +7,7 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()		npcHandler:onThink()		end
 
---local voices = { {text = 'Passages to Tibia, Folda and Vega.'} } 
+--local voices = { {text = 'Passages to Tibia, Folda and Vega.'} }
 --npcHandler:addModule(VoiceModule:new(voices))
 
 -- Travel

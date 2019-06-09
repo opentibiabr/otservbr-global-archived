@@ -11,7 +11,7 @@ function getGlobalStorageValueDB(key)
     end
     return -1
 end
- 
+
 function setGlobalStorageValueDB(key, value)
     db.query("INSERT INTO `global_storage` (`key`, `value`) VALUES (".. key ..", ".. value ..") ON DUPLICATE KEY UPDATE `value` = ".. value)
 end

@@ -29,7 +29,7 @@
 	</defenses>
 	<elements>
 		<element earthPercent="10" />
-	</elements>	
+	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="Chrrch!" />
 	</voices>

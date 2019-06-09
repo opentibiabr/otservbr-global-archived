@@ -69,7 +69,7 @@ local function changeVocation(player, fromVocation, toVocation)
 			[14] = {23722, 1, true, limitStorage = 10045, limit = 1} -- 1 light stone shower rune
         }
     }
- 
+
     local vocationsOutfits = {
        	-- sorcerer
         [1] = {
@@ -120,7 +120,7 @@ local function changeVocation(player, fromVocation, toVocation)
             lookFeet = 115,
         }
     }
- 
+
     for toVocation = 1, 4 do
         for slot, info in pairs(vocationsItems[toVocation]) do
             local itemCount = player:getItemCount(info[1])
@@ -129,7 +129,7 @@ local function changeVocation(player, fromVocation, toVocation)
             end
         end
     end
- 
+
     local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
     for slot, info in pairs(vocationsItems[toVocation]) do
         local extra
@@ -141,7 +141,7 @@ local function changeVocation(player, fromVocation, toVocation)
                 equipped:moveTo(backpack)
             end
         end
- 
+
         local giveItem = true
         if info.limit and info.limitStorage then
             local given = math.max(player:getStorageValue(info.limitStorage), 0)
@@ -151,7 +151,7 @@ local function changeVocation(player, fromVocation, toVocation)
                 player:setStorageValue(info.limitStorage, given + 1)
             end
         end
- 
+
         if giveItem then
             if extra then
                 player:addItemEx(Game.createItem(info[1], info[2]), false, INDEX_WHEREEVER, 0)
@@ -163,9 +163,9 @@ local function changeVocation(player, fromVocation, toVocation)
             end
         end
     end
- 
+
    local outfit = vocationsOutfits[toVocation]
-    if toVocation ~= 0 then	
+    if toVocation ~= 0 then
 	if player:getSex() == PLAYERSEX_MALE then
 		player:setOutfit(
         {
@@ -194,7 +194,7 @@ local function changeVocation(player, fromVocation, toVocation)
 		)
 		end
 		end
-		
+
 		--
 		-- done
 		local position = player:getPosition()
@@ -208,9 +208,9 @@ local function changeVocation(player, fromVocation, toVocation)
 		player:setMaxMana(0 + (player:getVocation():getManaGain() * player:getLevel()))
 		player:addMana(player:getMaxMana())
 		player:setCapacity(40000 + (player:getVocation():getCapacityGain() * player:getLevel()))
-		
+
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('Congratulations! Now you are %s.', player:getVocation():getName()))
-		
+
 		if fromVocation ~= 0 then
 		local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(player:getName():lower()))
 		local accountId = result.getDataInt(resultId, "id")
@@ -231,7 +231,7 @@ function onStepIn(creature, item, position, fromPosition)
 			player:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
 			changeVocation(player, fromVocation, toVocation)
 		end
-		
+
     end
     return true
 end

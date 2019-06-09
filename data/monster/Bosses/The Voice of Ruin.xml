@@ -47,12 +47,12 @@
 		<item id="2148" countmax="100" chance="33000" /><!-- gold coin -->
 		<item id="2148" countmax="100" chance="32000" /><!-- gold coin -->
 		<item id="2148" countmax="36" chance="32000" /><!-- gold coin -->
-		<item id="11326" chance="5800" /><!-- corrupted flag.-->		
+		<item id="11326" chance="5800" /><!-- corrupted flag.-->
 		<item id="2152" countmax="5" chance="2920" /><!-- platinum coin -->
 		<item id="11327" chance="3800" /><!--  Cursed Shoulder Spikes -->
 		<item id="9971" chance="3800" /><!--  gold ingot -->
 		<item id="11325" chance="3800" /><!--  11325 -->
 		<item id="11303" chance="3800" /><!--  Zaoan Shoes-->
-		
+
 	</loot>
 </monster>

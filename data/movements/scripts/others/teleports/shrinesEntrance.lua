@@ -70,7 +70,7 @@ local portals = {
 	[9114] = {position = Position(32972, 32227, 7), storage = 10028}, --earth
 	[9115] = {position = Position(32911, 32336, 15), storage = 10028}, --fire
 	[9116] = {position = Position(33059, 32716, 5), storage = 10028}, --electric
-	
+
 	--Oramond
 	[9117] = {position = Position(32192, 31419, 2), storage = 10029}, --ice
 	[9118] = {position = Position(32972, 32227, 7), storage = 10029}, --earth

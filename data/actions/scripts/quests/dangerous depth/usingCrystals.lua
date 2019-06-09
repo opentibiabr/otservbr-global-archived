@@ -92,7 +92,7 @@ local function lavaHoles(i)
 											local creature = Tile(Position(x, y, z)):getTopCreature()
 											local mwCheck = Tile(Position(x, y, z)):getItemById(1497)
 											local wildCheck = Tile(Position(x, y, z)):getItemById(1499)
-											if not (mwCheck or wildCheck) then	
+											if not (mwCheck or wildCheck) then
 												if creature then
 													if creature:isPlayer() then
 														creature:addHealth(-(math.random(0, 1500)))
@@ -136,7 +136,7 @@ local function sumonarLavasIV(i)
 				position:sendMagicEffect(CONST_ME_TELEPORT)
 			end
 			i = i - 1
-			addEvent(sumonarLavasIV, 2*1000, i)	
+			addEvent(sumonarLavasIV, 2*1000, i)
 		elseif i == 0 then
 			for j, position in pairs(aggressiveLavasIV) do
 				local lava = Game.createMonster("Aggressive Lava", position)
@@ -163,7 +163,7 @@ local function sumonarLavasVI(i)
 				position:sendMagicEffect(CONST_ME_TELEPORT)
 			end
 			i = i - 1
-			addEvent(sumonarLavasVI, 2*1000, i)	
+			addEvent(sumonarLavasVI, 2*1000, i)
 		elseif i == 0 then
 			for j, position in pairs(aggressiveLavasVI) do
 				local lava = Game.createMonster("Aggressive Lava", position)
@@ -175,7 +175,7 @@ end
 
 local function sumonarFieryHearts()
 	local boss = false
-	local bossId 
+	local bossId
 	local contagemHearts = 0
 	local positionCenter = Position(33712, 32303, 15)
 	local spectator = Game.getSpectators(positionCenter, false, false, 20, 20, 20, 20)
@@ -198,7 +198,7 @@ local function sumonarFieryHearts()
 		for _, position in pairs(fieryHearts) do
 			Game.createMonster("Fiery Heart", position):registerEvent("fieryHearts")
 		end
-		local oldBossHealth = bossId:getHealth() 
+		local oldBossHealth = bossId:getHealth()
 		local oldBossPosition = bossId:getPosition()
 		bossId:remove()
 		local newBoss = Game.createMonster("the duke of the depths immortal", oldBossPosition, false, true)
@@ -242,7 +242,7 @@ local checagem = false
 														local creature = Tile(Position(x, y, z)):getTopCreature()
 														local mwCheck = Tile(Position(x, y, z)):getItemById(1497)
 														local wildCheck = Tile(Position(x, y, z)):getItemById(1499)
-														if not (mwCheck or wildCheck) then	
+														if not (mwCheck or wildCheck) then
 															if creature then
 																if creature:isMonster() then
 																	if creature:getName():lower() == "the count of the core" then
@@ -271,7 +271,7 @@ local checagem = false
 														local creature = Tile(Position(x, y, z)):getTopCreature()
 														local mwCheck = Tile(Position(x, y, z)):getItemById(1497)
 														local wildCheck = Tile(Position(x, y, z)):getItemById(1499)
-														if not (mwCheck or wildCheck) then	
+														if not (mwCheck or wildCheck) then
 															if creature then
 																if creature:isMonster() then
 																	if creature:getName():lower() == "the count of the core" then
@@ -315,7 +315,7 @@ local function summonBeasts(i)
 			position:sendMagicEffect(CONST_ME_TELEPORT)
 		end
 		i = i - 1
-		addEvent(summonBeasts, 2*1000, i)	
+		addEvent(summonBeasts, 2*1000, i)
 	elseif i == 0 then
 		for j, position in pairs(beastPositions) do
 			local beast = Game.createMonster("Ember Beast", position)
@@ -326,7 +326,7 @@ end
 local function checarSala(qnt)
 	math.randomseed(os.time())
 	local temBoss = false
-	local hpBoss 
+	local hpBoss
 	local position = Position(33681, 32334, 15)
 	local spectators = Game.getSpectators(position, false, false, 20, 20, 20, 20)
 	for _, checagem in pairs(spectators) do
@@ -412,15 +412,15 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not player then
 		return true
 	end
-	
+
 	if not target:isItem() then
 	return false
 	end
-	
+
 	if target:isCreature() then
 	return false
 	end
-	
+
 	local WarzoneVI = Position(33274, 32316, 15)
 	local WarzoneIV = Position(33459, 32267, 15)
 	local WarzoneV = Position(33323, 32109, 15)
@@ -442,7 +442,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 						spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crystal geode is shaking from a battle nearby.")
 					end
 				end
-				local stalagmites = Tile(Position(33460, 32267, 15)):getItemById(386) 
+				local stalagmites = Tile(Position(33460, 32267, 15)):getItemById(386)
 				if stalagmites then
 					stalagmites:remove()
 					local teleport = Game.createItem(1387, 1, Position(33460, 32267, 15))
@@ -477,7 +477,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 						spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crystal geode is shaking from a battle nearby.")
 					end
 				end
-				local stalagmites = Tile(Position(33324, 32109, 15)):getItemById(386) 
+				local stalagmites = Tile(Position(33324, 32109, 15)):getItemById(386)
 				if stalagmites then
 					stalagmites:remove()
 					local teleport = Game.createItem(1387, 1, Position(33324, 32109, 15))
@@ -512,7 +512,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 						spectator:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crystal geode is shaking from a battle nearby.")
 					end
 				end
-				local stalagmites = Tile(Position(33275, 32316, 15)):getItemById(386) 
+				local stalagmites = Tile(Position(33275, 32316, 15)):getItemById(386)
 				if stalagmites then
 					stalagmites:remove()
 					local teleport = Game.createItem(1387, 1, Position(33275, 32316, 15))

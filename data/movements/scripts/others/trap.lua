@@ -10,23 +10,23 @@ function onStepIn(creature, item, position, fromPosition)
     if not trap then
         return true
     end
-    
+
     if Tile(position):hasFlag(TILESTATE_PROTECTIONZONE) then
         return true
     end
-    
+
     if Tile(position):getItemCountById(2579) > 1 then
         return true
     end
-    
+
     if trap.ignorePlayer and creature:isPlayer() then
         return true
     end
-    
+
     if trap.transformTo then
         item:transform(trap.transformTo)
     end
-    
+
     doTargetCombatHealth(0, creature, trap.type or COMBAT_PHYSICALDAMAGE, trap.damage[1], trap.damage[2], CONST_ME_NONE)
     return true
 end
@@ -35,7 +35,7 @@ function onStepOut(creature, item, position, fromPosition)
     if Tile(position):hasFlag(TILESTATE_PROTECTIONZONE) then
         return true
     end
-    
+
     item:transform(item.itemid - 1)
     return true
 end

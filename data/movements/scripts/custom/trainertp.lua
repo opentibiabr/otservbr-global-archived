@@ -52,7 +52,7 @@ local function calculatingRoom(uid, position, coluna, linha)
 		if isBusyable(room_pos) then
 			player:teleportTo(room_pos)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			
+
 		else
 			calculatingRoom(uid, position, coluna + 1, linha)
 		end

@@ -15,22 +15,22 @@ function onStepIn(player, item, position, fromPosition)
 		[14352] = Position(32214, 31376, 14), -- World Devourer Exit (Main Room)
 		[14354] = Position(32112, 31375, 14), -- World Devourer (Reward Room)
 	}
-	
+
 	local accessVortex = {
 		[14323] = {position = Position(32246, 31252, 14), storage = 14320, storageTime = 14321}, -- Anomaly Enter
 		[14342] = {position = Position(32305, 31249, 14), storage = 14322, storageTime = 14323}, -- Rupture Enter
 		[14344] = {position = Position(32181, 31240, 14), storage = 14324, storageTime = 14325}, -- Realityquake Enter
 	}
-	
+
 	local finalBosses = {
 		[14346] = {position = Position(32336, 31293, 14), storage1 = 14326, storage2 = 14327, storage3 = 14328, storageTime = 14329}, -- Eradicator Enter
 		[14349] = {position = Position(32204, 31290, 14), storage1 = 14326, storage2 = 14327, storage3 = 14328, storageTime = 14331} -- Outburst Enter
 	}
-	
+
 	local normalVortex = vortexs[item.actionid]
 	local bossVortex = accessVortex[item.actionid]
 	local uBosses = finalBosses[item.actionid]
-	
+
 	if player:isPlayer() then
 		if normalVortex then
 			player:teleportTo(normalVortex)
@@ -76,8 +76,8 @@ function onStepIn(player, item, position, fromPosition)
 			player:setStorageValue(14335, -1)
 			player:setStorageValue(14336, -1)
 			player:unregisterEvent("DevourerStorage")
-		end		
+		end
 	end
-	
+
 	return true
 end

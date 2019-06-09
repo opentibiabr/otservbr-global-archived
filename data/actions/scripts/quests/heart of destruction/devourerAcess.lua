@@ -7,6 +7,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	else
 		player:sendTextMessage(19, "You access to World Devourer is already released!")
 	end
-	
+
 	return true
 end

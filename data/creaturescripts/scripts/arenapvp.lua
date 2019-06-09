@@ -1,7 +1,7 @@
 dofile('data/lib/arenapvp.lua')
 
 function onStatsChange(cid, attacker, type, combat, value)
-	
+
     if isPlayer(cid) and getPlayerStorageValue(cid, arena.pstorage) == 1 and type == STATSCHANGE_HEALTHLOSS then
         if value >= getCreatureHealth(cid) then
             local killer = attacker
@@ -28,5 +28,5 @@ function onLogin(cid)
 
 	registerCreatureEvent(cid, "ArenaPVP")
 
-	return true		
+	return true
 end

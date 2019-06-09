@@ -7,13 +7,13 @@ local spawns = {
     [6]  = {position = Position(33328,31860,9), monster = 'Mad Mage'},
     [7]  = {position = Position(33335,31873,9), monster = 'Mad Mage'}
 }
- 
+
  function onThink(interval, lastExecution)
     local spawn = spawns[math.random(#spawns)]
-    local monster = 
+    local monster =
    Game.createMonster(spawn.monster, spawn.position, true, true)
 	 monster:setReward(true)
-	 
+
     if not monster then
         print('>> Failed to spawn '..rand.bossName..'.')
         return true
