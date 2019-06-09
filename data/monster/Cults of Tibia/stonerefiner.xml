@@ -17,7 +17,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-100" />	
+		<attack name="melee" interval="2000" min="0" max="-100" />
 		<attack name="lifedrain" interval="2000" chance="15" range="7" radius="4" target="1" min="-40" max="-100">
 			<attribute key="areaEffect" value="stones" />
 		</attack>
@@ -44,8 +44,8 @@
 		<voice sentence="knak knak knak" />
 		<voice sentence="nomnomnom" />
 	</voices>
-	<loot> 
-		<!--Comum-->  
+	<loot>
+		<!--Comum-->
 		<item name="gold coin" countmax="200" chance="4050" />
 		<item name="platinum coin" countmax="3" chance="4050" />
 		<item name="glob of acid slime" countmax="1" chance="4050" />

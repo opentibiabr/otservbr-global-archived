@@ -19,7 +19,7 @@ local function creatureSayCallback(cid, type, msg)
 	if(not npcHandler:isFocused(cid)) then
 		return false
 	end
-	
+
 	if(msgcontains(msg, "fight")) then
 		npcHandler:say("Do you really want to enter the Glooth Fairy\'s hideout. There is no chickening out and I also have to charge one voting right! {Yes} or {no}?", cid)
 			npcHandler.topic[cid] = 1
@@ -39,7 +39,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	return true
 end
- 
+
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Come back soon.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, '')
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)

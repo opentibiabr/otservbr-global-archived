@@ -20,18 +20,18 @@ function onRecvbyte(player, msg, byte)
 		if not item then
 			item = player:getItemById(itemType:getTransformDeEquipId(), true)
 		end
-		
+
 		if not item then
 			return player:sendCancelMessage("Sorry not possible.")
 		end
 	end
-	
+
 	local newItemType = ItemType(item:getId())
 	local slotP = EquipObject.Slots[newItemType:getSlotPosition()]
 	if newItemType:getWeaponType() == WEAPON_SHIELD  then
 		slotP = CONST_SLOT_RIGHT
 	end
-	
+
 	if slotP == CONST_SLOT_BACKPACK then
 		player:sendCancelMessage("You can't equip a backpack.")
 	elseif slotP == SLOTP_TWO_HAND then

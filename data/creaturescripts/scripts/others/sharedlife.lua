@@ -21,8 +21,8 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	else
 		if(creature:getHealth() - secondaryDamage <= 0)then
 			killer = true
-		end	
+		end
 		creature:onReceivDamageSL(secondaryDamage, "damage", killer)
-	end	
+	end
     return primaryDamage, primaryType, secondaryDamage, secondaryType
 end

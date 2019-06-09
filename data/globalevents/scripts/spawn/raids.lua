@@ -4,32 +4,32 @@ local raids = {
 	['Monday'] = {
 		['06:00'] = {raidName = 'RatsThais'},
 	},
-	
+
 	--Terça-Feira
 	['Tuesday'] = {
 		['16:00'] = {raidName = 'Midnight Panther'}
 	},
-	
+
 	--Quarta-Feira
 	['Wednesday'] = {
 		['12:00'] = {raidName = 'Draptor'}
 	},
-	
+
 	--Quinta-Feira
 	['Thursday'] = {
 		['19:00'] = {raidName = 'Undead Cavebear'}
 	},
-	
+
 	--Sexta-feira
 	['Friday'] = {
 		['06:00'] = {raidName = 'Titanica'}
 	},
-	
+
 	--Sábado
 	['Friday'] = {
 		['20:00'] = {raidName = 'Draptor'}
 	},
-	
+
 	--Domingo
 	['Friday'] = {
 		['15:00'] = {raidName = 'Midnight Panther'}
@@ -39,7 +39,7 @@ local raids = {
 	['31/10'] = {
 		['16:00'] = {raidName = 'Halloween Hare'}
 	}
-}	
+}
 
 function onThink(interval, lastExecution, thinkInterval)
 	local day, date = os.date('%A'), getRealDate()

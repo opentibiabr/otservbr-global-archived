@@ -33,13 +33,13 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	npcHandler.topic[cid] = playerTopic[cid]
 	local player = Player(cid)
 	npc = Npc(cid)
 
 	local tempo = 20*60*60
-	
+
 	-- missão diremaws
 	if msgcontains(msg, "diremaws") and npcHandler.topic[cid] == 1 then
 		if player:getStorageValue(Storage.DangerousDepths.Scouts.Diremaw ) == 2 and player:getStorageValue(Storage.DangerousDepths.Scouts.timeTaskDiremaws) > 0 then -- Ainda não se passaram as 20h
@@ -125,7 +125,7 @@ local function creatureSayCallback(cid, type, msg)
 			else
 				player:addItem(32014, 1)
 				player:setStorageValue(Storage.DangerousDepths.Scouts.Status, player:getStorageValue(Storage.DangerousDepths.Scouts.Status) + 1)
-			end	
+			end
 			player:setStorageValue(Storage.DangerousDepths.Scouts.Growth, 2)
 			playerTopic[cid] = 1
 			npcHandler.topic[cid] = 1
@@ -155,7 +155,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 55
 	elseif npcHandler.topic[cid] == 55 then
 		quantidade[cid] = tonumber(msg)
-		if quantidade[cid] then	
+		if quantidade[cid] then
 			if quantidade[cid] > 1 then
 				plural = plural .. "s"
 			end

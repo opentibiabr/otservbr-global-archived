@@ -18,7 +18,7 @@
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
 	</flags>
-	
+
 	<attacks>
 		<attack name="melee" interval="200" chance="20" skill="153"  min="0" max="-650"/>
 		<attack name="death" interval="200" chance="20" skill="153"  min="-300" max="-500"/>

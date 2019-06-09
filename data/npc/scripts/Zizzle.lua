@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 				"A zignificant part of ze emperor'z power iz uzed to reztrain ze dragon. Ze only way to free him will be to enter hiz dreamz. Are you prepared for ziz?"
 			}, cid)
 			npcHandler.topic[cid] = 1
-		
+
 		elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 29 then ]]--
 		if player:getStorageValue(Storage.WrathoftheEmperor.Questline) < 29 then
 			npcHandler:say({
@@ -48,7 +48,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.WrathoftheEmperor.BossStatus, 1)
 			player:addItem(12318, 1)
 			npcHandler.topic[cid] = 0
-			else 
+			else
 			npcHandler:say({"Now go to the north of Sleeping Dragon room, {dont need talk} with he!"}, cid)
 		end
 	elseif msgcontains(msg, "yes") then

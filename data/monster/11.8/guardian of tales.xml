@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Guardian of Tales" nameDescription="Guardian of Tales" race="undead" experience="14000" speed="250" manacost="0">
 	<health now="15000" max="15000" />
-	<look type="1063" head="92" body="54" legs="0" feet="79" addons="3" corpse="32470" />  
+	<look type="1063" head="92" body="54" legs="0" feet="79" addons="3" corpse="32470" />
 <targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -40,18 +40,18 @@
 		<item name="burnt Scroll" countmax="5" chance="10000" />
 		<item name="Glowing Rune" countmax="5" chance="10000" />
 		<item name="Small Diamond" countmax="5" chance="10000" />
- 
+
 		<item name="Fire Axe" chance="250" />
 		<item name="Soul Orb" countmax="5" chance="260" />
 		<item name="Spellbook of Warding" chance="250" />
 		<item name="Wand of Inferno"  chance="250" />
- 
+
 
 		<item name="Fire Sword"  chance="250" />
 		<item name="Magma Coat"  chance="350" />
 		<item name="Magma Legs"  chance="250" />
 		<item name="Piece of Hellfire Armor" countmax="5" chance="500" />
-  
+
 		<item id="13757" countmax="5" chance="10000" /> <!-- coal -->
 	</loot>
-</monster> 
+</monster>

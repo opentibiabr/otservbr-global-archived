@@ -21,7 +21,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="190" attack="100"/>
-		
+
 		<attack name="death" interval="2000" chance="18" length="8" spread="0" min="-1000" max="-3000">
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
@@ -85,7 +85,7 @@
 		<item id="5914" chance="25000"/><!-- yellow piece of cloth -->
 		<item id="5741" chance="2500"/><!-- skull helmet -->
 		<item id="2470" chance="2500"/><!-- golden legs -->
-		<item id="7899" chance="2500"/><!-- magma coat --> 
+		<item id="7899" chance="2500"/><!-- magma coat -->
 	    <item id="7417" chance="2500" unique="1"/><!-- Runed Sword -->
 		<item id="22609" chance="25000"/><!-- dream warden claw -->
 		<item id="22610" chance="7000" unique="1"/><!-- dream warden mask -->

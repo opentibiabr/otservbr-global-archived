@@ -22,7 +22,7 @@
 		<attack name="earth" interval="2000" chance="11" range="5" target="1" min="-4" max="-6">
 			<attribute key="shootEffect" value="smallearth"/>
 			<attribute key="areaEffect" value="greenspark"/>
-		</attack> 
+		</attack>
 	</attacks>
 	<defenses armor="0" defense="0"/>
 	<loot>
@@ -30,7 +30,7 @@
 		<item id="2449" chance="4630"/><!-- bone club -->
 		<item id="23839" countmax="5" chance="17650"/><!-- simple arrows -->
 		<item id="2148" countmax="11" chance="100000"/><!-- gold coin -->
-		<item id="2458" chance="6300"/><!-- chain helmet --> 	
+		<item id="2458" chance="6300"/><!-- chain helmet -->
 		<item id="7618" chance="1520"/><!-- health potion -->
 		<item id="19737" countmax="5" chance="34410"/><!-- insectoid eggs -->
 		<item id="2666" chance="9940"/><!-- meat -->

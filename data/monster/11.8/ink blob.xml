@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Ink Blob" nameDescription="Ink Blob" race="undead" experience="20000" speed="150" manacost="0">
 	<health now="7300" max="7300" />
-	<look type="1064" corpse="33345"/>  
+	<look type="1064" corpse="33345"/>
 <targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -48,31 +48,29 @@
 		<immunity death="1" />
 		<immunity earth="1" />
 	</immunities>
- 
+
 	<loot>
 
 <item name="Platinum Coin" countmax="4" chance="120000" />
 		<item name="Envenomed Arrow" countmax="14" chance="1200" />
-		<item id="33315" countmax="4" chance="1200" /> 
+		<item id="33315" countmax="4" chance="1200" />
 		<item name="Poisonous Slime" countmax="4" chance="1200" />
 		<item name="Small Diamond" countmax="4" chance="1200" />
  		<item name="Small Topaz" countmax="4" chance="1200" />
-  
+
 		<item id="7633" countmax="4" chance="900" />
 		<item name="Blue Gem" countmax="4" chance="950" />
 		<item name="Terra Boots" countmax="4" chance="850" />
 		<item name="Terra Hood" countmax="4" chance="980" />
- 
+
 		<item name="Protection Amulet" countmax="4" chance="1200" />
 		<item name="Sacred Tree Amulet" countmax="4" chance="1200" />
 		<item name="Springsprout Rod" countmax="4" chance="790" />
 		<item name="Stone Skin Amulet" countmax="4" chance="1200" />
 		<item name="Terra Legs" countmax="4" chance="650" />
 		<item name="Terra Mantle" countmax="4" chance="550" />
- 
+
 		<item name="Clay Lump" countmax="4" chance="1200" />
 		<item name="Terra Amulet" countmax="4" chance="1200" />
 	</loot>
-</monster> 
- 
-		
+</monster>

@@ -28,7 +28,7 @@ local config = {
 		storage = Storage.ExplorerSociety.TheLizardUrn,
 		formerValue = 27,
 		newValue = 28
-	},	
+	},
 	[3004] = {
 		items = {
 			{itemId = 2229}, {itemId = 2151, count = 2}, {itemId = 2165}, {itemId = 2230}, {itemId = 2091, actionId = 6010}
@@ -50,7 +50,7 @@ local config = {
 		storage = Storage.ExplorerSociety.TheOrcPowder,
 		formerValue = 33,
 		newValue = 34
-	},	
+	},
 	[3007] = {
 		items = {
 			{itemId = 15389}
@@ -64,7 +64,7 @@ local config = {
 			{itemId = 4855}
 		},
 		storage = Storage.ExplorerSociety.TheElvenPoetry,
-		formerValue = 36,	
+		formerValue = 36,
 		newValue = 37
 	},
 	[3012] = {
@@ -350,13 +350,13 @@ local config = {
 			{itemId = 2642, count = 1}
 		},
 		storage = 857445
-	}, 
+	},
 	[65208] = {
 		items = {
 			{itemId = 2483, count = 1}
 		},
 		storage = 857446
-	}, 
+	},
 	[65209] = {
 		items = {
 			{itemId = 2170, count = 1}
@@ -368,7 +368,7 @@ local config = {
 			{itemId = 2260, count = 3}
 		},
 		storage = 857448
-	}, 
+	},
 	-- 65203 reservado
 }
 

@@ -203,9 +203,9 @@ if Modules == nil then
 		else
 			cost = 0
 		end
-		
+
 		local exhausts
-		
+
 		if parameters.premium and not player:isPremium() then
 			npcHandler:say("I'm sorry, but you need a premium account in order to travel onboard our ships.", cid)
 		elseif parameters.level and player:getLevel() < parameters.level then
@@ -230,10 +230,10 @@ if Modules == nil then
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
 
-			setPlayerStorageValue(cid, exhausts, 3 + os.time()) 
+			setPlayerStorageValue(cid, exhausts, 3 + os.time())
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
-			
+
 			-- What a foolish Quest - Mission 3
 			if player:getStorageValue(Storage.WhatAFoolishQuest.PieBoxTimer) > os.time() then
 				if destination ~= Position(32660, 31957, 15) then -- kazordoon steamboat

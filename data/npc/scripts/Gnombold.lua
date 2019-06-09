@@ -13,7 +13,7 @@ function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	local player = Player(cid)
 
 	if msgcontains(msg, 'job') then
@@ -35,9 +35,9 @@ function creatureSayCallback(cid, type, msg)
 			"That's where adventurers fit in to save the day. ",
 		}, cid)
 	end
-	
+
 	if msgcontains(msg, 'mission') then
-		if player:getLevel() > levels[2] then	
+		if player:getLevel() > levels[2] then
 			npcHandler:say('Sorry, but no! Your expertise could be put to better use elsewhere. Here awaits you no challenge. You are desperately needed in the deeper levels of the Spike. Report there immediately. ', cid)
 		else
 			npcHandler:say(' I can offer you several missions: to gather geomantic {charges}, to {fertilise} the mushroom caves, to destroy monster {nests} and to {kill} some crystal crushers.', cid)
@@ -118,7 +118,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_MIDDLE_CHARGE_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_MIDDLE_CHARGE_MAIN) == -1 then
 			npcHandler:say({'Our mission for you is to use a magnet on three different monoliths in the cave system here. After the magnet evaporates on the last charge, enter the magnetic extractor here to deliver your charge.', 'If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?'}, cid)
 			talkState[cid] = 'charges'
 		else
@@ -150,7 +150,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN) == -1 then
 			npcHandler:say('Your mission would be to seek out gardener mushrooms in the caves and use some fertiliser on them. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', cid)
 			talkState[cid] = 'fertilise'
 		else
@@ -182,7 +182,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_MIDDLE_NEST_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_MIDDLE_NEST_MAIN) == -1 then
 			npcHandler:say('Our mission for you is to step into the gnomish transformer and then destroy eight monster nests in the caves. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', cid)
 			talkState[cid] = 'nests'
 		else
@@ -213,7 +213,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_MIDDLE_KILL_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_MIDDLE_KILL_MAIN) == -1 then
 			npcHandler:say('This mission will require you to kill some crystal crushers for us. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', cid)
 			talkState[cid] = 'kill'
 		else
@@ -230,7 +230,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Ok then.', cid)
 			talkState[cid] = nil
 		end
-	end	
+	end
 	return true
 end
 

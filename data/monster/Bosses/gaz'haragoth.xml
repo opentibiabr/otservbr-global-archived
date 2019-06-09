@@ -78,12 +78,12 @@
 		<summon name="Nightmare of Gaz'haragoth" interval="4000" chance="33" />
 	</summons>
 	<voices interval="5000" chance="30">
-		
+
 		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1"/>
 		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1"/>
 		<voice sentence="I've beaten tougher demons then you even know!" yell="1" />
 		<voice sentence="You puny humans will be my snacks!" yell="1" />
-		
+
 	</voices>
 	<loot>
 		<item id="2152" countmax="50" chance="10000" /> <!-- Platinum Coin -->

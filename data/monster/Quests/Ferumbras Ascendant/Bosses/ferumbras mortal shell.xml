@@ -5,7 +5,7 @@
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		
+
 		<flag preyable="0" />
 		<flag rewardboss="1" />
 		<flag summonable="0"/>

@@ -22,7 +22,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addOutfitAddon(288, 1)
 		player:addOutfitAddon(289, 1)
 		player:addOutfitAddon(289, 2)
-	else		
+	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The chest is empty.")
 	end
 	return true

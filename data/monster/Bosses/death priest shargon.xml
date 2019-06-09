@@ -60,6 +60,6 @@
 		<item id="2152" countmax="15" chance="36000" />	<!-- platinum coin -->
 		<item id="9971" chance="17000" />				<!-- Gold Ingot -->
 		<item id="7591" countmax="5" chance="14000" />	<!-- Great Health Potions -->
-		
+
 	</loot>
 </monster>

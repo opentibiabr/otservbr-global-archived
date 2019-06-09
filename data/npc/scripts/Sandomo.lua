@@ -8,7 +8,7 @@ function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) 
 function onThink() npcHandler:onThink() end
 
 function Player.getInquisitionGold(self)
-    local v = {            
+    local v = {
         math.max(0, self:getStorageValue(ROSHAMUUL_MORTAR_THROWN))*100,
         math.max(0, self:getStorageValue(ROSHAMUUL_KILLED_FRAZZLEMAWS)),
         math.max(0, self:getStorageValue(ROSHAMUUL_KILLED_SILENCERS))
@@ -76,7 +76,7 @@ local function creatureSayCallback(cid, type, msg)
             }, cid)
         end
     elseif npcHandler.topic[cid] == 5 then
-        if msgcontains(msg, "yes") then        
+        if msgcontains(msg, "yes") then
             npcHandler:say({
                 "Good. Registered as... ".. player:getName() .."... with... about ".. player:getInquisitionGold() .." of righteously earned inquisition gold added. There. Thanks for your help! ..",
                 "Good. Ask me any time in case you want to know your current {record}. If you have time, Remember you can also {trade} your earnings into some of these... probably far more valuable, ahem... cluster... things, yes.",
@@ -87,14 +87,14 @@ local function creatureSayCallback(cid, type, msg)
             player:setStorageValue(ROSHAMUUL_KILLED_SILENCERS, 0)
             npcHandler.topic[cid] = nil
         end
-    elseif msgcontains(msg, "record") then    
+    elseif msgcontains(msg, "record") then
         local v = player:getStorageValue(ROSHAMUUL_GOLD_RECORD)
         if v > 0 then
             npcHandler:say("You have ".. v .." inquisition gold registered in my book.", cid)
         else
             npcHandler:say("I do not see inquisition gold registered in my book from you.", cid)
         end
-    elseif msgcontains(msg, "trade") then    
+    elseif msgcontains(msg, "trade") then
         local v = player:getStorageValue(ROSHAMUUL_GOLD_RECORD)
         if v >= 100 then
             npcHandler.topic[cid] = 6

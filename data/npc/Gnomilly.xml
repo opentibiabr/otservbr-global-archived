@@ -4,5 +4,5 @@
   	<look type="507" head="14" body="15" legs="91" feet="92" addons="0" />
   	<parameters>
   		<parameter key="message_greet" value="Hi!" />
-	</parameters>		
+	</parameters>
 </npc>

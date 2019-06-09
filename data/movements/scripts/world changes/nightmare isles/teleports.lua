@@ -30,7 +30,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	player:teleportTo(player:getTown():getTemplePosition())
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	
+
 	if not player then
 		return true
 	end

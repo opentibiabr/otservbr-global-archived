@@ -24,12 +24,12 @@ function onThink(creature)
 	local summons = creature:getSummons()
 
 	if hp <= 50 and #summons < 4 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) and Game.getStorageValue(112416) < 2  then
-		addEvent(Boom, 10, creature:getId())	
+		addEvent(Boom, 10, creature:getId())
 		addEvent(function(cid)
-			Game.createMonster("Omrafir", Position(33586, 32379, 12), false, true) 
+			Game.createMonster("Omrafir", Position(33586, 32379, 12), false, true)
 			end, 30000, creature:getId())
 	elseif hp <= 3 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
-		addEvent(Boom, 10, creature:getId()) 
+		addEvent(Boom, 10, creature:getId())
 		addEvent(function(cid)
 			local summon = Game.createMonster("Omrafir2", Position(33586, 32379, 12), false, true)
 			summon:say("OMRAFIR REFORMS HIMSELF WITH NEW STRENGTH!", TALKTYPE_ORANGE_2)

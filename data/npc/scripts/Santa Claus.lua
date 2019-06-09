@@ -2,12 +2,12 @@
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 local talkState = {}
- 
+
 function onCreatureAppear(cid)    npcHandler:onCreatureAppear(cid)   end
 function onCreatureDisappear(cid)   npcHandler:onCreatureDisappear(cid)   end
 function onCreatureSay(cid, type, msg)   npcHandler:onCreatureSay(cid, type, msg)  end
 function onThink()     npcHandler:onThink()     end
- 
+
 local normalItems = {
      {7439, 7440, 7443},
      {2688, 6508},
@@ -45,7 +45,7 @@ local veryRareItems = {
      {10521},
      {5804}
 }
- 
+
 local function getReward()
      local rewardTable = {}
      local random = math.random(100)
@@ -90,14 +90,14 @@ function creatureSayCallback(cid, type, msg)
                    reward[i] == 2688) then
                     count = 10
                end
-               
+
                cont:addItem(reward[i], count)
           end
 
           player:setStorageValue(840293, 1)
           npcHandler:say("Merry Christmas!", cid)
      end
-       
+
      return true
 end
 

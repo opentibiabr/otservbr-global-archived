@@ -21,7 +21,7 @@ local config = {
 	newPosition = Position(33392, 31479, 14)
 }
 
-	
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(33270, 31477, 14) then
@@ -48,8 +48,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			local yrand = math.random(-10, 10)
 			local position = Position(33392 + xrand, 31473 + yrand, 14)
 			if Game.createMonster("rift invader", position) then
-			end		
-		end	
+			end
+		end
 		for x = 33269, 33271 do
 			for y = 31477, 31481 do
 				local playerTile = Tile(Position(x, y, 14)):getTopCreature()
@@ -69,7 +69,3 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
-		
-		
-		
-		

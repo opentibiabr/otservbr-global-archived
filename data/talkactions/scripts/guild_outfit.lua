@@ -48,7 +48,7 @@ function onSay(player, words, param, channel, creature)
 
             local outfit, count = creature:getOutfit(), 0
 			outfit = {lookType = outfit.lookType, lookHead = outfit.lookHead, lookBody = outfit.lookBody, lookLegs = outfit.lookLegs, lookFeet = outfit.lookFeet, lookTypeEx = outfit.lookTypeEx, lookAddons = outfit.lookAddons}
-	
+
             local message = "*Guild* Your outfit has been changed by your leader " ..player:getName() .. " "
             for _, members in ipairs(Game.getPlayers()) do
                 if(members:getGuild() == playerGuild and player ~= members) then
@@ -61,7 +61,7 @@ function onSay(player, words, param, channel, creature)
                             newOutfit.lookType = tmpOutfit.lookType
                         end
                     end
-				if not Battlefield:findPlayer(members) and captureTheFlag.getPlayerState(members) == CTF_STATE_NONE then  
+				if not Battlefield:findPlayer(members) and captureTheFlag.getPlayerState(members) == CTF_STATE_NONE then
                     members:getPosition():sendMagicEffect(66)
                     members:setOutfit(newOutfit)
                     members:sendTextMessage(MESSAGE_INFO_DESCR, message)

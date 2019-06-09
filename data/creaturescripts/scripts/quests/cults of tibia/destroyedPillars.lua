@@ -7,14 +7,14 @@ function onKill(creature, target)
 	end
 
 local pilares = {
-	[1] = "pillar of summoning", 
-	[2] = "pillar of death", 
-	[3] = "pillar of protection", 
-	[4] = "pillar of healing", 
+	[1] = "pillar of summoning",
+	[2] = "pillar of death",
+	[3] = "pillar of protection",
+	[4] = "pillar of healing",
 	[5] = "pillar of draining"
 }
 
-	
+
 local monsterName = target:getName():lower()
 -- Pilares
 local summoning = "summoning"
@@ -23,8 +23,8 @@ local healing = "healing"
 local protection = "protection"
 local draining = "draining"
 
-	
-	
+
+
 for i = 1, #pilares do
 	local position = target:getPosition()
 	local pilar = ""

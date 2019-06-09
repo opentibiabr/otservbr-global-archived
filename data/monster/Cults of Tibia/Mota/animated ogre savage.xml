@@ -23,9 +23,9 @@
 		<attack name="fire" interval="2000" chance="15" range="7" min="-70" max="-180">
 			<attribute key="shootEffect" value="poison" />
 		</attack>
-		
-		
-		
+
+
+
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="80" max="95">
@@ -38,32 +38,32 @@
 		<element firePercent="10" />
 	</elements>
 	<immunities>
-	
+
 		<immunity earth="1" />
-	
+
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="3000" chance="50">
 		<voice sentence="Must! Chop! Food! Raahh!" />
 		<voice sentence="You tasty!" />
-				
+
 	</voices>
 	<loot>
 		<item id="2148" countmax="130" chance="92000" />	<!-- gold coin -->
 		<item id="2666" chance="6200" />					<!-- meat -->
 		<item id="24849" countmax="2" chance="3200" />					<!-- Onyx Chip -->
 		<item id="24850" countmax="3" chance="3200" />					<!-- Opal -->
-		<item id="2687" countmax="7" chance="2200" />					<!-- Cookies -->		
+		<item id="2687" countmax="7" chance="2200" />					<!-- Cookies -->
 		<item id="8844" countmax="2" chance="1200" />					<!-- jappenno -->
-		<item id="9970" countmax="2" chance="1200" />					<!-- small topaz -->		
-		<item id="2147" countmax="2" chance="1200" />					<!-- small ruby -->		
+		<item id="9970" countmax="2" chance="1200" />					<!-- small topaz -->
+		<item id="2147" countmax="2" chance="1200" />					<!-- small ruby -->
 		<item id="7439" chance="1200" />					<!-- Berserk Potion -->
-		<item id="2194" chance="2200" />					<!-- Mysterious Fetish -->			
-		<item id="24844" chance="1200" />					<!-- Ogre Ear Stud -->		
-		<item id="24845" chance="1200" />					<!--   Ogre Nose Ring -->		
-		<item id="24847" chance="1200" />					<!--  Skull Fetish -->		
-		<item id="7588" countmax="3" chance="2200" />					<!-- SHP -->		
-		<item id="2391" chance="600" />					<!-- war hammer -->		
-		<item id="24848" chance="300" />					<!-- Shamanic Mask -->		
+		<item id="2194" chance="2200" />					<!-- Mysterious Fetish -->
+		<item id="24844" chance="1200" />					<!-- Ogre Ear Stud -->
+		<item id="24845" chance="1200" />					<!--   Ogre Nose Ring -->
+		<item id="24847" chance="1200" />					<!--  Skull Fetish -->
+		<item id="7588" countmax="3" chance="2200" />					<!-- SHP -->
+		<item id="2391" chance="600" />					<!-- war hammer -->
+		<item id="24848" chance="300" />					<!-- Shamanic Mask -->
 	</loot>
 </monster>

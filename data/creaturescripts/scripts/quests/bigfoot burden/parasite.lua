@@ -14,7 +14,7 @@ local positionsWall = {
 local function recreateCrystals(c)
 	for i = 1, #positionsWall do
 		local crystal = Tile(positionsWall[i]):getItemById(c.wall) or nil
-		if not item then               
+		if not item then
       Game.createItem(c.wall, 1, positionsWall[i])
 		end
 	end
@@ -50,7 +50,7 @@ function onKill(player, target)
 	end
 
 	local config = warzoneConfig.findByName('Gnomevil')
-	
+
 	if config.locked then
 		targetMonster:say("It seems that someone has already destroyed the walls in the last 30 minutes.", TALKTYPE_MONSTER_SAY)
 		return false

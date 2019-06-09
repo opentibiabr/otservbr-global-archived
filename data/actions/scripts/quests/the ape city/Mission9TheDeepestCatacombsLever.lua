@@ -11,7 +11,7 @@ local config = {
 
 	gateLevers = {
 		{position = Position(32862, 32555, 11), duration = 15 * 60, ignoreLevers = true},
-		{position = Position(32862, 32557, 11), duration = 60, ignoreLevers = true} 
+		{position = Position(32862, 32557, 11), duration = 60, ignoreLevers = true}
 	},
 
 	walls = {

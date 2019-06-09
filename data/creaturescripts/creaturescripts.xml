@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
-	
+
 	<!-- The Masters Voice Quest-->
 	<event type="death" name="Servant_Death" script="mastervoice/servantDeath.lua"/>
 	<event type="death" name="Mage_Death" script="mastervoice/mageDeath.lua"/>
-	
+
 	<!-- AUTO LOOT -->
 	<event type="modalwindow" name="autoloot" script="autoloot.lua"/>
 
 	<!--  FLY -->
 	<event type="modalwindow" name="fly" script="fly.lua"/>
 
-    <!-- New Summons (Pets) -->	
+    <!-- New Summons (Pets) -->
     <event type="login" name="petlogin" script="pet.lua" />
     <event type="think" name="petthink" script="pet.lua" />
 	<event type="death" name="petdeath" script="pet.lua" />
-	
+
     <!-- Modal Window -->
-	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />  
+	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />
 
     <!-- Oramond Quest -->
     <event type="death" name="tp" script="quests/oramond/revanger.lua"/>
@@ -96,7 +96,7 @@
 	<!-- ferumbras ascedant quest-->
 	<event type="death" name="boneCapsule" script="quests/ferumbras ascendant/bone capsule.lua" />
 	<event type="kill" name="BossesKill" script="quests/ferumbras ascendant/bossesKill.lua" />
-	<event type="kill" name="TheShattererKill" script="quests/ferumbras ascendant/theShatterer.lua" />  
+	<event type="kill" name="TheShattererKill" script="quests/ferumbras ascendant/theShatterer.lua" />
 	<event type="think" name="zamuloshClone" script="quests/ferumbras ascendant/zamulosh clone.lua"/>
 	<event type="death" name="FerumbrasMortalShell" script="quests/ferumbras ascendant/ferumbras mortal shell.lua"/>
 	<event type="death" name="FerumbrasSoulSplinter" script="quests/ferumbras ascendant/ferumbras soul splinter.lua"/>
@@ -104,7 +104,7 @@
 	<event type="death" name="disgustingOoze" script="quests/ferumbras ascendant/disgusting ooze.lua"/>
 	<event type="death" name="deathDragon" script="quests/ferumbras ascendant/death dragon.lua"/>
 
-    <!-- Reward Chest 19/01 -->	
+    <!-- Reward Chest 19/01 -->
  	<event type="death" name="BossDeath" script="rewardChest/boss.lua" />
  	<event type="healthchange" name="BossParticipation" script="rewardChest/boss.lua" />
  	<event type="think" name="BossThink" script="rewardChest/boss.lua" />
@@ -121,11 +121,11 @@
 	<event type="think" name="RuptureResonance" script="quests/heart of destruction/ruptureResonance.lua"/>
 	<event type="healthchange" name="RuptureHeal" script="quests/heart of destruction/ruptureHeal.lua"/>
 	<event type="death" name="SparksDeath" script="quests/heart of destruction/sparksDeath.lua"/>
-	
+
 	<event type="death" name="ShocksDeath" script="quests/heart of destruction/shocksDeath.lua"/>
 	<event type="think" name="ForeshockTransform" script="quests/heart of destruction/foreshockTransform.lua"/>
 	<event type="think" name="AftershockTransform" script="quests/heart of destruction/aftershockTransform.lua"/>
-	
+
 	<event type="think" name="EradicatorTransform" script="quests/heart of destruction/eradicatorTransform.lua"/>
 	<event type="think" name="OutburstCharge" script="quests/heart of destruction/outburstCharge.lua"/>
 	<event type="death" name="ChargingOutDeath" script="quests/heart of destruction/chargingOutDeath.lua"/>
@@ -134,7 +134,7 @@
 	<event type="think" name="DisruptionTransform" script="quests/heart of destruction/disruptionTransform.lua"/>
 	<event type="think" name="cDisruptionTransform" script="quests/heart of destruction/cDisruptionTransform.lua"/>
 	<event type="death" name="SparkDevourerDeath" script="quests/heart of destruction/sparkDevourerDeath.lua"/>
-	
+
 	<!-- Bigfoots burden / warzone -->
 	<event type="death" name="WarzoneBossDeath" script="warzone157.lua" /> <!-- this will kick the players in 1 min after the boss is dead AND add the 20 hours delay to go in again -->
 	<event type="kill" name="ParasiteWarzone" script="quests/bigfoot burden/parasite.lua" /> <!-- opening walls -->
@@ -144,10 +144,10 @@
 
 	<!-- Recompense by level -->
 	<event type="advance" name="Recompense" script="others/recompense.lua"/>
-	
+
     <!-- ragingmagetower -->
 	<event type="kill" name="Yielothax" script="ragingmagetower/yielothax.lua"/>
-	<event type="kill" name="Energized Raging Mage" script="ragingmagetower/energized.lua"/> 
+	<event type="kill" name="Energized Raging Mage" script="ragingmagetower/energized.lua"/>
 	<event type="kill" name="Raging Mage" script="ragingmagetower/raging.lua"/>
 
 	<!-- Rookgaard Cockroach -->
@@ -155,7 +155,7 @@
 
 	<!-- Elemental Spheres Quest -->
 	<event type="kill" name="ElementalSpheresOverlords" script="quests/elemental spheres/OverlordsKill.lua" />
-	
+
 	<!-- Svargrond Arena: Killing a boss -->
 	<event type="kill" name="SvargrondArenaKill" script="quests/svargrond arena/arena_kill.lua" />
 
@@ -174,7 +174,7 @@
 
 	<!-- Killing In The Name Of Quest -->
 	<event type="kill" name="KillingInTheNameOfKills" script="quests/killing in the name of/kills.lua" />
-	
+
 	<event type="kill" name="KillingInTheNameOfKillss" script="necro.lua" />
 	<event type="kill" name="KillingInTheNameOfKillsss" script="minos.lua" />
 
@@ -191,7 +191,7 @@
 
 	<!-- Wrath of the Emperor Quest -->
 	<event type="kill" name="WotELizardMagistratus" script="quests/wrath of the emperor/lizardmagistratus.lua" />
-	<event type="kill" name="WotELizardNoble" script="quests/wrath of the emperor/lizardnoble.lua" /> 
+	<event type="kill" name="WotELizardNoble" script="quests/wrath of the emperor/lizardnoble.lua" />
 	<event type="kill" name="WotEKeeper" script="quests/wrath of the emperor/keeper.lua" />
 	<event type="kill" name="WotEBosses" script="quests/wrath of the emperor/bosses.lua" />
 	<event type="kill" name="WotEZalamon" script="quests/wrath of the emperor/zalamon.lua" />
@@ -199,7 +199,7 @@
 	<!-- Pythius The Rotten (Firewalker Boots Quest) -->
 	<event type="kill" name="PythiusTheRotten" script="others/PythiusTheRotten.lua" />
 
-	<!-- Monsters events -->	
+	<!-- Monsters events -->
 	<event type="death" name="WhiteDeerDeath" script="others/whitedeer.lua" />
 	<event type="death" name="WhiteDeerScoutsDeath" script="others/whitedeer_scouts.lua" />
 	<event type="healthchange" name="sharedLife" script="others/sharedlife.lua" />

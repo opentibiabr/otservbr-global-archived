@@ -13,9 +13,9 @@ function onStepIn(creature, item, position, fromPosition)
     end
 
     if item:getId() == 22456 then
-        creature:teleportTo(Position(33551, 32556, 7))    
+        creature:teleportTo(Position(33551, 32556, 7))
     else
-        creature:teleportTo(roshamuulCaves[math.random(#roshamuulCaves)])    
+        creature:teleportTo(roshamuulCaves[math.random(#roshamuulCaves)])
     end
     return true
 end

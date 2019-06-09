@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Floating Savant" nameDescription="Floating Savant" race="undead" experience="8000" speed="250" manacost="0">
 	<health now="8000" max="8000" />
-	<look type="1063" head="113" body="94" legs="78" feet="78" addons="0"  corpse="33341"  />  
+	<look type="1063" head="113" body="94" legs="78" feet="78" addons="0"  corpse="33341"  />
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -33,7 +33,7 @@
 	</attacks>
 		 <summons maxSummons="1">
 		<summon name="Lava Lurker Attendant" interval="2000" chance="70" />
-	</summons> 
+	</summons>
 	<defenses armor="82" defense="40" />
 	<elements>
 		<element icePercent="50" />
@@ -60,4 +60,3 @@
  		<item name="Sample of Monster Blood" countmax="5" chance="10000" />
 	</loot>
 </monster>
- 

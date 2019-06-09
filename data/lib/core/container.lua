@@ -13,7 +13,7 @@ local randvalue = getLootRandom()
 if randvalue < item.chance then
 	if ItemType(item.itemId):isStackable() then
 		itemCount = randvalue % item.maxCount + 1
-	else 
+	else
 		itemCount = 1
 	end
 end

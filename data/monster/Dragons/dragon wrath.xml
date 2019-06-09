@@ -16,7 +16,7 @@
     <flag targetdistance="1" />
     <flag staticattack="90" />
     <flag runonhealth="366" />
-	
+
 	<flag isblockable="0" />
   </flags>
   <attacks>

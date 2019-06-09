@@ -6,7 +6,7 @@ local config = {
 		bossName = 'Zavarash', -- boss name
 		keyPlayerPosition = Position(33608, 32394, 11), -- Where the player should be.
 		newPosition = Position(33567, 32422, 12), -- Position to teleport
-		bossPosition = Position(33565, 32418, 12), -- Boss Position 
+		bossPosition = Position(33565, 32418, 12), -- Boss Position
 		centerPosition = Position(33567, 32422, 12), -- Center Room
 		exitPosition = Position(33611, 32377, 11), -- Exit Position
 		rangeX = 20, -- Range in X
@@ -18,10 +18,10 @@ local config = {
 		bossName = 'Horadron', -- boss name
 		keyPlayerPosition = Position(33603, 32394, 11), -- Where the player should be.
 		newPosition = Position(33607, 32421, 12), -- Position to teleport
-		bossPosition = Position(33606, 32417, 12), -- Boss Position 
+		bossPosition = Position(33606, 32417, 12), -- Boss Position
 		centerPosition = Position(33607, 32421, 12), -- Center Room
 		exitPosition = Position(33611, 32377, 11), -- Exit Position
-		rangeX = 20, 
+		rangeX = 20,
 		rangeY = 20,
 		time = 15, -- time in minutes to remove the player
 	},
@@ -30,10 +30,10 @@ local config = {
 		bossName = 'Terofar', -- boss name
 		keyPlayerPosition = Position(33614, 32394, 11),  -- Where the player should be.
 		newPosition = Position(33526, 32421, 12), -- Position to teleport
-		bossPosition = Position(33524, 32418, 12), -- Boss Position 
+		bossPosition = Position(33524, 32418, 12), -- Boss Position
 		centerPosition = Position(33526, 32421, 12), -- Center Room
 		exitPosition = Position(33611, 32377, 11), -- Exit Position
-		rangeX = 20, 
+		rangeX = 20,
 		rangeY = 20,
 		time = 15, -- time in minutes to remove the player
 	}
@@ -77,17 +77,17 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
-	
+
 	if roomIsOccupied(tmpConfig.centerPosition, tmpConfig.rangeX, tmpConfig.rangeY) then
 		player:sendCancelMessage("There is someone in the room.")
 		return true
 	end
-	
+
 	local monster = Game.createMonster(tmpConfig.bossName, tmpConfig.bossPosition)
 	if not monster then
 		return true
 	end
-	
+
 	-- Send message
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have entered an ancient demon prison cell!')
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have fifteen minutes to kill and loot this boss, else you will lose that chance.')

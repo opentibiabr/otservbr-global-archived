@@ -1,7 +1,7 @@
 local foldedCarpet = {
-	[25393] = 25392, 
+	[25393] = 25392,
 	[25392] = 25393, --rift carpet
-	[26193] = 26192, 
+	[26193] = 26192,
 	[26192] = 26193, --void carpet
 	[26087] = 26109, --yalahahari carpet
 	[26109] = 26087, --yalahahari carpet
@@ -50,7 +50,7 @@ local foldedCarpet = {
 	[29386] = 29387, --wheat carpet
 	[29387] = 29386, --wheat carpet
 	[29388] = 29389, --crested carpet
-	[29389] = 29388, --crested carpet	
+	[29389] = 29388, --crested carpet
 	[29390] = 29391, --decorated carpet
 	[29391] = 29390, --decorated carpet
 

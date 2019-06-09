@@ -38,11 +38,11 @@
 		<item name="gold coin" countmax="50" chance="100000" />
 		<item name="Twig Arms" chance="91770" />
 		<item name="Shiver Arrow" chance="7310" />
-		<item name="Ice Rapier" chance="4750" /> 
+		<item name="Ice Rapier" chance="4750" />
 		<item name="Glacier Mask" chance="4570" />
 		<item name="Snowball" countmin="1" countmax="5" chance="4000" />
 		<item name="Hailstorm Rod" chance="3470" />
-		<item name="Glacier Mask"   chance="250" /> 
+		<item name="Glacier Mask"   chance="250" />
 		<item name="Glacier Amulet" chance="3290" />
 		<item name="Moonlight Rod" chance="1830" />
 		<item name="Glacier Kilt" chance="1100" />

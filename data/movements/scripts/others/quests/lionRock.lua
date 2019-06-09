@@ -4,7 +4,7 @@ function onStepIn(creature, item, position, fromPosition)
     if player == nil then
         return true
     end
-   
+
     if not lionrock.checkPlayerCanEnterMysticFlame(player) then
         if item.actionid == 41344 then
             player:teleportTo(fromPosition, true)
@@ -23,13 +23,13 @@ function onStepIn(creature, item, position, fromPosition)
         player:teleportTo({x = 33122, y = 32308, z = 8})
         return true
     end
-   
+
     -- Player should have the scroll to do next things.
 if player:getItemCount(lionrock.items.scroll) == 0 then
   return true
  end
- 
-      
+
+
     -- Translations
     if item.actionid == 41346 then -- 1
         if player:getStorageValue(lionrock.storages.translation1) < 1 then
@@ -40,7 +40,7 @@ if player:getItemCount(lionrock.items.scroll) == 0 then
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
         end
     end
-   
+
     if item.actionid == 41347 then -- 2
         if player:getStorageValue(lionrock.storages.translation2) < 1 then
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
@@ -50,7 +50,7 @@ if player:getItemCount(lionrock.items.scroll) == 0 then
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
         end
     end
-   
+
     if item.actionid == 41348 then -- 3
         if player:getStorageValue(lionrock.storages.translation3) < 1 then
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
@@ -60,7 +60,7 @@ if player:getItemCount(lionrock.items.scroll) == 0 then
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
         end
     end
-   
+
     if item.actionid == 41349 then -- 4
         if player:getStorageValue(lionrock.storages.translation4) < 1 then
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
@@ -70,6 +70,6 @@ if player:getItemCount(lionrock.items.scroll) == 0 then
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
         end
     end
-   
+
     return true
 end

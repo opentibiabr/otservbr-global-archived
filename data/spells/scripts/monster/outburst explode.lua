@@ -1,12 +1,12 @@
 local function outExplode()
 	local upConer = {x = 32223, y = 31273, z = 14}       -- upLeftCorner
 	local downConer = {x = 32246, y = 31297, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -43,7 +43,7 @@ arr = {
 	{0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
 }
-	
+
 local area = createCombatArea(arr)
 combat:setArea(area)
 
@@ -59,7 +59,7 @@ function removeOutburst(cid)
 	if not isCreature(creature) then return false end
 	creature:remove()
 end
-	
+
 function onCastSpell(creature, var)
 	local from = creature:getId()
 
@@ -67,7 +67,7 @@ function onCastSpell(creature, var)
 	delayedCastSpell(creature, var)
 	chargingOutKilled = true
 	addEvent(removeOutburst, 1000, creature.uid)
-	
+
 	local monster = Game.createMonster("Outburst", {x = 32234, y = 31284, z = 14}, false, true)
 	monster:addHealth(-monster:getHealth() + outburstHealth, false)
 	transferBossPoints(from, monster:getId())

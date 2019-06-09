@@ -16,13 +16,13 @@ local function insertItems(buffer, info, parent, items)
 			table.insert(buffer, ",")
 		end
 		info.running = info.running + 1
-		table.insert(buffer, "(")        
+		table.insert(buffer, "(")
 		pushSeparated(buffer, ",", info.playerGuid, parent, info.running, item:getId(), item:getSubType(), db.escapeString(serializeAttributes(item)))
 		table.insert(buffer, ")")
 
 		if item:isContainer() then
 			local size = item:getSize()
-			if size > 0 then              
+			if size > 0 then
 				local subItems = {}
 				for i = 1, size do
 					table.insert(subItems, item:getItem(i - 1))
@@ -36,11 +36,11 @@ local function insertItems(buffer, info, parent, items)
 end
 
 local function insertRewardItems(playerGuid, timestamp, itemList)
-	db.asyncStoreQuery('select `pid`, `sid` from `player_rewards` where player_id = ' .. playerGuid .. ' order by `sid` ASC;', 
+	db.asyncStoreQuery('select `pid`, `sid` from `player_rewards` where player_id = ' .. playerGuid .. ' order by `sid` ASC;',
 		function(query)
 			local lastReward = 0
-			local lastStoreId   
-			if(query) then             
+			local lastStoreId
+			if(query) then
 				repeat
 					local sid = result.getDataInt(query, 'sid')
 					local pid = result.getDataInt(query, 'pid')
@@ -82,7 +82,7 @@ local function getPlayerStats(bossId, playerGuid, autocreate)
 	local ret = globalBosses[bossId][playerGuid]
 	if not ret and autocreate then
 		ret = {
-			bossId = bossId, 
+			bossId = bossId,
 			damageIn = 0, -- damage taken from the boss
 			healing = 0, -- healing (other players) done
 		}
@@ -114,12 +114,12 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 			totalHealing = totalHealing + healing
 
 			table.insert(scores, {
-				player = player, 
+				player = player,
 				guid = guid,
-				damageOut = damageOut, 
+				damageOut = damageOut,
 				damageIn = damageIn,
 				healing = healing,
-			})            
+			})
 		end
 
 		local participants = 0
@@ -135,8 +135,8 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 		local expectedScore = 1 / participants
 
 		for _, con in ipairs(scores) do
-			local reward, stamina -- ignoring stamina for now because I heard you get receive rewards even when it's depleted   
-			if con.player then   
+			local reward, stamina -- ignoring stamina for now because I heard you get receive rewards even when it's depleted
+			if con.player then
 				reward = con.player:getReward(timestamp, true)
 				stamina = con.player:getStamina()
 			else
@@ -190,7 +190,7 @@ function onThink(creature, interval)
 		if target:isPlayer() then
 			local stats = getPlayerStats(bossId, target:getGuid(), true)
 			stats.playerId = target:getId() -- Update player id
-			stats.active = true            
+			stats.active = true
 		end
 	end
 end

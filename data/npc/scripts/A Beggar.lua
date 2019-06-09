@@ -12,8 +12,8 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-	
-	
+
+
 	if(msgcontains(msg, "want")) then
 		if(getPlayerStorageValue(cid, 10050) == 1) then
 			npcHandler:say("The guys from the magistrate sent you here, didn't they?", cid)

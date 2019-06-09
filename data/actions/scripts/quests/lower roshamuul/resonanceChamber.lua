@@ -16,19 +16,19 @@ local config = {
         timeBetweenraid = 1  * 60 * 1000, -- [1min] Waiting time between each raid
         cleanraid = true -- Clean zone after globalEventTime
 }
- 
- 
+
+
 local function isWalkable(position)
     local tile = Tile(position)
     if not tile then
         return false
     end
- 
+
     local ground = tile:getGround()
     if not ground or ground:hasProperty(CONST_PROP_BLOCKSOLID) then
         return false
     end
- 
+
     local items = tile:getItems()
     for i = 1, tile:getItemCount() do
         local item = items[i]
@@ -39,7 +39,7 @@ local function isWalkable(position)
     end
     return true
 end
- 
+
 local function raids(monster)
         local randX,randY,randZ = 0,0,0
         randX = math.random(config.position[1].x, config.position[2].x)
@@ -51,7 +51,7 @@ local function raids(monster)
                 raids(monster)
         end
 end
- 
+
 local function cleanRaid()
         local mostersraid= Game.getSpectators(config.position[3], false, false, 13, 13, 11, 11)
     for i = 1, #mostersraid do
@@ -60,11 +60,11 @@ local function cleanRaid()
                 end
         end
 end
- 
+
 function onUse(cid, item, fromPosition, itemEx, toPosition)
         local player = Player(cid)
         local max,time,monster = 0,0,""
- 
+
     if item.itemid ~= config.item then
         return true
     end
@@ -86,8 +86,8 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
                 player:sendCancelMessage('You need kill all monsters')
                 return true
         end
- 
- 
+
+
         if Game.getStorageValue(config.storage) <= 0 then
                 if math.random(0,10000) < 7000 then
                         player:say("PRRRR...*crackle*", TALKTYPE_MONSTER_SAY)
@@ -117,5 +117,5 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
                 item:remove(1)
         else
                 player:sendCancelMessage('You need to wait')
-        end    
+        end
 end

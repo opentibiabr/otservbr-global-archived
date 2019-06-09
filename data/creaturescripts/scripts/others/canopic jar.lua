@@ -1,6 +1,6 @@
 function onThink(creature)
 local hp = (creature:getHealth()/creature:getMaxHealth())*100
-	
+
     if creature:getName() == "Canopic Jar" then
 		if hp < 75 and hp > 50 then
 			creature:say("The magic of the jar is weakened!", TALKTYPE_ORANGE_1)

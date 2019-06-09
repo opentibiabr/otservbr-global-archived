@@ -38,7 +38,7 @@ function onUse(cid, item, fromPosition, itemEx)
 					doTeleportThing(getTopCreature(pos4).uid, {x = 33528, y = 32341, z = 12})
 					doTeleportThing(getTopCreature(pos5).uid, {x = 33528, y = 32341, z = 12})
 	       -- doSummonCreature("prince drazzak", {x=33528, y=32333, z=12})
-		   local monster = Game.createMonster("Prince Drazzak", Position(33528, 32333, 12))  
+		   local monster = Game.createMonster("Prince Drazzak", Position(33528, 32333, 12))
             monster:setReward(true)
 		    doRemoveItem(item.uid, 1)
 			end

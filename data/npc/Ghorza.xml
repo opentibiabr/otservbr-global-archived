@@ -7,7 +7,7 @@
     <voice text="Great Hunger is upset." interval2="0" margin="1" yell="no" />
     <voice text="All water drying up and Vuzrog does nothing!" interval2="120" margin="1" yell="no" />
   </voices>
-  
+
   <parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
@@ -22,23 +22,23 @@
 			energy bomb rune,2262,162;
 			Energy Field Rune,2277,38;
 			Energy Wall Rune,2279,85;
-			Explosion Rune,2313,31;			
+			Explosion Rune,2313,31;
 			fire bomb rune,2305,55;
 			Fire Field Rune,2301,28;
-			Fire Wall Rune,2303,61;			
-			fireball rune,2302,30;			
+			Fire Wall Rune,2303,61;
+			fireball rune,2302,30;
 			Great Fireball Rune,2304,45;
 			Great Health Potion,7591,190;
 			Great Mana Potion,7590,120;
 			Great Spirit Potion,8472,120;
 			Health Potion,7618,45;
-			Heavy Magic Missile Rune,2311,12;			
-			holy missile rune,2295,16;			
+			Heavy Magic Missile Rune,2311,12;
+			holy missile rune,2295,16;
 			icicle rune,2271,30;
 			Intense Healing Rune,2265,95;
-			Light Magic Missile Rune,2287,4;			
+			Light Magic Missile Rune,2287,4;
 			magic wall rune,2293,55;
-			Mana Potion,7620,50;		
+			Mana Potion,7620,50;
 			paralyze rune,2278,500;
 			poison bomb rune,2286,85;
 			Poison Field Rune,2285,21;
@@ -51,7 +51,7 @@
 			Sudden Death Rune,2268,50;
 			thunderstorm rune,2315,37;
 			Ultimate Healing Rune,2273,175;
-			Ultimate Health Potion,8473,310;			
+			Ultimate Health Potion,8473,310;
 			wild growth rune,2269,160;" />
 		<parameter key="shop_sellable" value="
 			empty potion flask,7634,5;

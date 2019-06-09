@@ -19,7 +19,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	
+
 	-- Pegando a quest
 	if msgcontains(msg, "mission") and player:getStorageValue(Storage.TibiaTales.ToAppeaseTheMightyQuest) < 1 then
 			if player:getStorageValue(Storage.DjinnWar.Faction.Marid) < 1 and player:getStorageValue(Storage.DjinnWar.Faction.Efreet) < 1 then

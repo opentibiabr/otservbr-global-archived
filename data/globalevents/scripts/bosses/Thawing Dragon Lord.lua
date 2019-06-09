@@ -5,7 +5,7 @@ local config = {
     rangeX = 50,
     rangeY = 50
 }
- 
+
 local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     local spectators, spec = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
     for i = 1, #spectators do
@@ -22,7 +22,7 @@ end
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
- 
+
     local boss =
 	Game.createMonster(config.monsterName, config.bossPosition, true, true)
     boss:setReward(true)

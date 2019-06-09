@@ -2,13 +2,13 @@
 <npc name="Victor" script="Victor.lua" walkinterval="2000" floorchange="0">
   <health now="100" max="100" />
   <look type="134" head="21" body="78" legs="38" feet="95" addons="3" />
-  
+
   <parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
 			stone,24173,5000;
 			rusty,24181,5000
 			" />
-		
+
 	</parameters>
 </npc>

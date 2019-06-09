@@ -49,7 +49,7 @@ function onUse(player, item)
 		elseif item:getId() == 32405 then
 			smallCrystal(player)
 		end
-		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal1, os.time() + 5*60)	
+		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal1, os.time() + 5*60)
 	elseif item:getActionId() == 57364 and player:getStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.bigCrystal2) < os.time() then
 		if item:getId() == 30738 then
 			largeCrystal(player)
@@ -58,7 +58,7 @@ function onUse(player, item)
 		elseif item:getId() == 32405 then
 			smallCrystal(player)
 		end
-		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.bigCrystal2, os.time() + 5*60)	
+		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.bigCrystal2, os.time() + 5*60)
 	elseif item:getActionId() == 57365 and player:getStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal2) < os.time() then
 		if item:getId() == 30738 then
 			largeCrystal(player)
@@ -67,7 +67,7 @@ function onUse(player, item)
 		elseif item:getId() == 32405 then
 			smallCrystal(player)
 		end
-		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal2, os.time() + 5*60)	
+		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal2, os.time() + 5*60)
 	elseif item:getActionId() == 57366 and player:getStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.smallCrystal1) < os.time() then
 		if item:getId() == 30738 then
 			largeCrystal(player)
@@ -87,6 +87,6 @@ function onUse(player, item)
 		end
 		player:setStorageValue(Storage.DangerousDepths.Crystals.WarzoneIV.smallCrystal2, os.time() + 5*60)
 	end
-	
+
 	return true
 end

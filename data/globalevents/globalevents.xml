@@ -9,20 +9,20 @@
 	<globalevent name="Chaplaingaunder" interval="900000" script="bosses/Grand Chaplain Gaunder.lua" />
     <globalevent name="Preceptor Lazare" interval="900000" script="bosses/Preceptor Lazare.lua" />
 	<globalevent name="Grand Commander" interval="900000" script="bosses/Grand Commander Soeren.lua" />
-    <globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" /> 
-	
+    <globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" />
+
 	<!--Gray Island Bosses -->
     <globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>
-	
+
     <!--Mawhawk -->
     <globalevent name="Mawhawk" interval="14399999" script="bosses/Mawhawk.lua"/>
-	    
+
     <!-- Pits of Inferno -->
     <globalevent name="bosspoi" interval="46800000" script="bosses/bosspoi.lua"/>
-	 	 
+
     <!-- Mad Mage -->
-    <globalevent name="Mad" interval="14400000" script="bosses/Mad.lua"/>	
-  
+    <globalevent name="Mad" interval="14400000" script="bosses/Mad.lua"/>
+
     <globalevent name="npcs" type="startup" script="others/npcspawn.lua"/>
 
 	<!-- Grimvale -->
@@ -46,14 +46,14 @@
 	<globalevent name="FuryGates" type="startup" script="worldchanges/furygates.lua" />
 	<globalevent name="TheirMastersVoice" type="startup" script="worldchanges/theirmastersvoice.lua" />
 
-	<!-- Raids --> 
+	<!-- Raids -->
 	<globalevent name="SpawnRaid" interval="60000" script="spawn/raids.lua"/>
 
-	<!-- Others --> 
+	<!-- Others -->
 	<globalevent name="respawndano" interval="9000" script="respawndano.lua" />
 	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
 	<globalevent type="record" name="PlayerRecord" script="record.lua" />
-	<globalevent name="ServerSave" time="05:55:00" script="serversave.lua" />	
+	<globalevent name="ServerSave" time="05:55:00" script="serversave.lua" />
 	<globalevent type="startup" name="rashid" script="rashid.lua"/>
 	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
     <globalevent name="text" interval="4550" script="textotp.lua"/>

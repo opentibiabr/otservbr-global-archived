@@ -2,7 +2,7 @@
 <npc name="Christine" script="Christine.lua" walkinterval="2000" floorchange="0">
 	<health now="100" max="100" />
 	<look type="140" head="2" body="23" legs="2" feet="115" addons="1" />
-	
+
 	<voices>
 <voice text="Selling various types of food." interval2="90" margin="1" yell="no" />
 </voices>

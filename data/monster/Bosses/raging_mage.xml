@@ -18,7 +18,7 @@
 		<flag staticattack="80" />
 		<flag runonhealth="300" />
 	</flags>
-	
+
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-50" />
 		<attack name="thunderstorm" interval="2000" chance="35" range="7" target="1" min="-100" max="-200" />

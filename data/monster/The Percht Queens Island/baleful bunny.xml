@@ -18,21 +18,21 @@
 	</flags>
 <attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
-		
+
 	  <attack name="physical" interval="2000" chance="1"  target="1" radius="4" min="-100" max="-150">
 	 <attribute key="areaEffect" value="POFF" />
 	</attack>
-		 
-		
+
+
 		  <attack name="fire" interval="2000" chance="1"  radius="1" min="-100" max="-150">
 	 <attribute key="areaEffect" value="ENERGYAREA" />
 	</attack>
-		 
+
 		 <attack name="lifedrain" interval="2000" chance="111"  target="1" radius="4" min="-100" max="-150">
 	 <attribute key="areaEffect" value="redspark" />
 	</attack>
-		
-		 
+
+
 	</attacks>
 	<defenses armor="35" defense="35" />
 	<elements>
@@ -47,9 +47,9 @@
 	</voices>
 	<loot>
 		<item name="platinum coin" chance="100000" />
-		<item name="terra amulet" chance="8480" /> 
+		<item name="terra amulet" chance="8480" />
 		<item name="snakebite rod" chance="7420" />
-		<item name="leaf star"  countmin="1" countmax="2" chance="7120" /> 
+		<item name="leaf star"  countmin="1" countmax="2" chance="7120" />
 		<item name="lightning pendant" chance="6820" />
 		<item name="strange talisman" chance="5760" />
 		<item name="sacred tree amulet" chance="2730" />

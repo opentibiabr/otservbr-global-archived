@@ -20,7 +20,7 @@ function onStepIn(creature, position, fromPosition, toPosition)
 										if c:getStorageValue(Storage.DangerousDepths.Gnomes.GnomesCount) < 5 then
 											c:setStorageValue(Storage.DangerousDepths.Gnomes.GnomesCount, c:getStorageValue(Storage.DangerousDepths.Gnomes.GnomesCount) + 1)
 											c:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your escort has end.")
-										end		
+										end
 									end
 								end
 							end
@@ -43,8 +43,8 @@ function onStepIn(creature, position, fromPosition, toPosition)
 									if c:getStorageValue(Storage.DangerousDepths.Gnomes.Ordnance) == 2 then
 										if c:getStorageValue(Storage.DangerousDepths.Gnomes.CrawlersCount) < 3 then
 											c:setStorageValue(Storage.DangerousDepths.Gnomes.CrawlersCount, c:getStorageValue(Storage.DangerousDepths.Gnomes.CrawlersCount) + 1)
-											c:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your escort has end.")	
-										end	
+											c:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your escort has end.")
+										end
 									end
 								end
 							end

@@ -16,7 +16,7 @@ setConditionParam(exhaust, CONDITION_PARAM_TICKS, (getConfigInfo('timeBetweenExA
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)
 if (item.itemid == 9993) then
-if (getPlayerStorageValue(cid, config.storage) <= os.time()) then 
+if (getPlayerStorageValue(cid, config.storage) <= os.time()) then
   setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
 if(not doAddCondition(cid, exhaust)) then
 return true

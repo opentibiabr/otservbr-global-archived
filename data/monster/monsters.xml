@@ -156,7 +156,7 @@
 	<!-- Customs -->
     <monster name="Training Monk" file="Customs/training monk.xml" />
 	<monster name="Knight Training" file="Customs/knight training.xml" />
-	
+
 	<!-- Cults of tibia bosses -->
     <monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml" />
     <monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml" />
@@ -167,7 +167,7 @@
     <monster name="Reflection Of Obujos" file="Cults of Tibia/Bosses/Reflection Of Obujos.xml" />
     <monster name="Shadowpelt" file="Cults of Tibia/Bosses/Shadowpelt.xml" />
     <monster name="Sharpclaw" file="Cults of Tibia/Bosses/Sharpclaw.xml" />
- 
+
 
 	<!-- Cults of tibia bosses -->
     <monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml" />
@@ -215,7 +215,7 @@
 	 <monster name="Leiden" file="Cults of Tibia/Bosses/Leiden.xml" />
 	 <monster name="Ravennous Hunger" file="Cults of Tibia/Bosses/Ravennous Hunger.xml" />
 	 <monster name="Wine Cask" file="Cults of Tibia/Bosses/Wine Cask.xml" />
-	 
+
 	 <monster name="Eshtaba The Conjurer" file="Cults of Tibia/Bosses/Eshtaba The Conjurer.xml" />
 	 <monster name="Malkhar Deathbringer" file="Cults of Tibia/Bosses/Malkhar Deathbringer.xml" />
 	 <monster name="Dorokoll The Mystic" file="Cults of Tibia/Bosses/Dorokoll The Mystic.xml" />
@@ -227,26 +227,26 @@
 	 <monster name="Dorokoll The Mystic STOP" file="Cults of Tibia/Bosses/Dorokoll The Mystic STOP.xml" />
 	 <monster name="Eliz The Unyielding STOP" file="Cults of Tibia/Bosses/Eliz The Unyielding STOP.xml" />
 	 <monster name="Mezlon The Defiler STOP" file="Cults of Tibia/Bosses/Mezlon The Defiler STOP.xml" />
-	 
+
 	 <monster name="The Sinister Hermit SUJO" file="Cults of Tibia/Bosses/The Sinister Hermit SUJO.xml" />
 	 <monster name="The Sinister Hermit LIMPO" file="Cults of Tibia/Bosses/The Sinister Hermit LIMPO.xml" />
 	 <monster name="The Souldespoiler" file="Cults of Tibia/Bosses/The Souldespoiler.xml" />
-	 
+
 	 <monster name="The Armored Voidborn" file="Cults of Tibia/Bosses/The Armored Voidborn.xml" />
 	 <monster name="The Unarmored Voidborn" file="Cults of Tibia/Bosses/The Unarmored Voidborn.xml" />
 	 <monster name="Containment Machine" file="Cults of Tibia/Bosses/Containment Machine.xml" />
-	 
+
 	 <monster name="The False God" file="Cults of Tibia/Bosses/The False God.xml" />
-	 
+
 	 <monster name="The Sandking" file="Cults of Tibia/Bosses/The Sandking.xml" />
 	 <monster name="The Sandking Fake" file="Cults of Tibia/Bosses/The Sandking Fake.xml" />
-	 
+
 	 <monster name="The Remorseless Corruptor" file="Cults of Tibia/Bosses/The Remorseless Corruptor.xml" />
 	 <monster name="Zarcorix Of Yalahar" file="Cults of Tibia/Bosses/Zarcorix Of Yalahar.xml" />
 	 <monster name="The Source Of Corruption" file="Cults of Tibia/Bosses/The Source Of Corruption.xml" />
 	 <monster name="The Corruptor Of Souls" file="Cults of Tibia/Bosses/The Corruptor Of Souls.xml" />
-	
-	 
+
+
 	 <!-- Cult Summons -->
 	 <monster name="Liqour Spirit" file="Cults of Tibia/Bosses/Summons/Liqour Spirit.xml" />
 	 <monster name="Dread Minion" file="Cults of Tibia/Bosses/Summons/Dread Minion.xml" />
@@ -262,7 +262,7 @@
 	 <monster name="Soul Reaper" file="Cults of Tibia/Bosses/Summons/Soul Reaper.xml" />
 	 <monster name="Stolen Soul" file="Cults of Tibia/Bosses/Summons/Stolen Soul.xml" />
 	 <monster name="Dark Soul" file="Cults of Tibia/Bosses/Summons/Dark Soul.xml" />
-	 
+
 	 <!-- Pillars -->
 	 <monster name="Pillar Of Summoning" file="Cults of Tibia/Bosses/Pillars/Pillar Of Summoning.xml" />
 	 <monster name="Pillar Of Protection" file="Cults of Tibia/Bosses/Pillars/Pillar Of Protection.xml" />
@@ -271,8 +271,8 @@
 	 <monster name="Pillar Of Draining" file="Cults of Tibia/Bosses/Pillars/Pillar Of Draining.xml" />
 	 <monster name="Destroyed Pillar" file="Cults of Tibia/Bosses/Pillars/Destroyed Pillar.xml" />
 	 <monster name="Containment Crystal" file="Cults of Tibia/Bosses/Pillars/Containment Crystal.xml" />
-	
-	
+
+
 	<!-- Cults of tibia -->
 	<monster name="Cult Believer" file="Cults of Tibia/cult believer.xml" />
     <monster name="Cult Enforcer" file="Cults of Tibia/cult enforcer.xml" />
@@ -330,7 +330,7 @@
   	<monster name="The Duke Of The Depths Immortal" file="Warzones/6/The Duke Of The Depths Immortal.xml"/>
   	<monster name="Aggressive Lava" file="Warzones/6/Aggressive Lava.xml"/>
   	<monster name="Fiery Heart" file="Warzones/6/Fiery Heart.xml"/>
-  	<monster name="Fiery Blood" file="Warzones/6/Fiery Blood.xml"/>	
+  	<monster name="Fiery Blood" file="Warzones/6/Fiery Blood.xml"/>
 
 	<!-- Nostalgia -->
 	<monster name="BearOld" file="Nostalgia/old_bear.xml" />
@@ -342,18 +342,18 @@
 	<monster name="WaspOld" file="Nostalgia/old_wasp.xml" />
 	<monster name="WolfOld" file="Nostalgia/old_wolf.xml" />
 
-    <!-- Dawnport -->		
+    <!-- Dawnport -->
 	<monster file="Dawnport/weakened shlorg.xml" name="Weakened Shlorg"/>
 	<monster file="Dawnport/mountain troll.xml" name="Mountain Troll"/>
 	<monster file="Dawnport/salamander trainer.xml" name="Salamander Trainer"/>
-	<monster file="Dawnport/troll marauder.xml" name="Troll Marauder"/>		
+	<monster file="Dawnport/troll marauder.xml" name="Troll Marauder"/>
 	<monster file="Dawnport/muglex clan assassin.xml" name="Muglex Clan Assassin"/>
     <monster file="Dawnport/muglex clan footman.xml" name="Muglex Clan Footman"/>
-    <monster file="Dawnport/muglex clan scavenger.xml" name="Muglex Clan Scavenger"/>		
-	<monster file="Dawnport/troll-trained salamander.xml" name="Troll-Trained Salamander"/>	    
+    <monster file="Dawnport/muglex clan scavenger.xml" name="Muglex Clan Scavenger"/>
+	<monster file="Dawnport/troll-trained salamander.xml" name="Troll-Trained Salamander"/>
     <monster file="Dawnport/brittle skeleton.xml" name="Brittle Skeleton"/>
-	<monster file="Dawnport/dawnfly.xml" name="Dawnfly"/>   
-   	<monster file="Dawnport/spidris elitesumom.xml" name="Spidris Elite Sumom"/> 		
+	<monster file="Dawnport/dawnfly.xml" name="Dawnfly"/>
+   	<monster file="Dawnport/spidris elitesumom.xml" name="Spidris Elite Sumom"/>
    	<monster file="Dawnport/woodling.xml" name="Woodling"/>
 	<monster file="Dawnport/dawn scorpion.xml" name="Dawn Scorpion"/>
 	<monster file="Dawnport/scar tribe shaman.xml" name="Scar Tribe Shaman"/>
@@ -361,8 +361,8 @@
 	<monster file="Dawnport/crazed dwarf.xml" name="Crazed Dwarf"/>
 	<monster file="Dawnport/meadow strider.xml" name="Meadow Strider"/>
 	<monster file="Dawnport/lesser fire devil.xml" name="Lesser Fire Devil"/>
-	<monster file="Dawnport/juvenile cyclops.xml" name="Juvenile Cyclops"/>		
-	
+	<monster file="Dawnport/juvenile cyclops.xml" name="Juvenile Cyclops"/>
+
 	<!-- VOCATION SUMMONS LV 200+ -->
 	<monster name="Emberwing" file="Summons/Emberwing.xml" />
 	<monster name="Thundergiant" file="Summons/Thundergiant.xml" />
@@ -374,14 +374,14 @@
 	<monster name="Faun" file="Feyrist/faun.xml" />
 	<monster name="Dark Faun" file="Feyrist/dark_faun.xml" />
 	<monster name="Enfeebled Silencer" file="Feyrist/enfeebled_silencer.xml" />
-	<monster name="Weakened Frazzlemaw" file="Feyrist/weakened_frazzlemaw.xml" />	   
-	<monster name="Pixie" file="Feyrist/pixie.xml" />	   
-	<monster name="Pooka" file="Feyrist/pooka.xml" />	   
-	<monster name="Twisted Pooka" file="Feyrist/twisted_pooka.xml" />	   
-	<monster name="Nymph" file="Feyrist/nymph.xml" />	   
-	<monster name="Boogy" file="Feyrist/boogy.xml" />	   
-	<monster name="Swan Maiden" file="Feyrist/swan_maiden.xml" />	   
-	
+	<monster name="Weakened Frazzlemaw" file="Feyrist/weakened_frazzlemaw.xml" />
+	<monster name="Pixie" file="Feyrist/pixie.xml" />
+	<monster name="Pooka" file="Feyrist/pooka.xml" />
+	<monster name="Twisted Pooka" file="Feyrist/twisted_pooka.xml" />
+	<monster name="Nymph" file="Feyrist/nymph.xml" />
+	<monster name="Boogy" file="Feyrist/boogy.xml" />
+	<monster name="Swan Maiden" file="Feyrist/swan_maiden.xml" />
+
 	<!-- Hallsofhope bosses -->
 	<monster file="Bosses/dragonking zyrtarch.xml" name="Dragonking Zyrtarch"/>
 	<monster file="Bosses/lady tenebris.xml" name="Lady Tenebris"/>
@@ -400,7 +400,7 @@
 	<monster file="Bosses/the shielded thorn knight.xml" name="The Shielded Thorn Knight"/>
 	<monster file="Bosses/the enraged thorn knight.xml" name="The Enraged Thorn Knight"/>
 	<monster file="Bosses/thorn steed.xml" name="Thorn Steed"/>
-   
+
     <!-- Halls of Hope -->
 	<monster file="Bio-Elementals/possessed tree.xml" name="Possessed Tree"/>
 
@@ -445,11 +445,11 @@
 
 	<monster name="An Observer Eye (Imune)" file="Hallsofhope/An Observer Eye (Imune).xml" />
 	<monster name="Broken Shaper" file="Hallsofhope/Broken Shaper.xml" />
-	<monster name="Frozen Man" file="Hallsofhope/Frozen Man.xml" />  
+	<monster name="Frozen Man" file="Hallsofhope/Frozen Man.xml" />
 	<monster name="Orclops Doomhauler" file="Hallsofhope/Orclops Doomhauler.xml" />
 	<monster name="Orclops Ravager" file="Hallsofhope/Orclops Ravager.xml" />
 	<monster name="Pinata Dragon" file="Hallsofhope/Pinata Dragon.xml" />
-	<monster name="Shaper Matriarch" file="Hallsofhope/Shaper Matriarch.xml" />  
+	<monster name="Shaper Matriarch" file="Hallsofhope/Shaper Matriarch.xml" />
 	<monster name="Stone Rhino" file="Hallsofhope/Stone Rhino.xml" />
 	<monster name="Twisted Shaper" file="Hallsofhope/Twisted Shaper.xml" />
 	<monster name="Twisted Shaper" file="Hallsofhope/Twisted Shaper.xml" />
@@ -655,7 +655,7 @@
 	<monster name="Walker" file="Bio-Elementals/walker.xml" />
 	<monster name="Weakened Glooth Horror" file="Bio-Elementals/weakened glooth horror.xml"/>
 	<monster name="Wilting Leaf Golem" file="Bio-Elementals/wilting leaf golem.xml" />
-	
+
 	<!-- Birds -->
 	<monster name="Berserker Chicken" file="Birds/berserker chicken.xml" />
 	<monster name="Chicken" file="Birds/chicken.xml" />
@@ -820,7 +820,7 @@
 	<monster name="The Bloodweb" file="Bosses/the_bloodweb.xml" />
 	<monster name="The Collector" file="Bosses/the_collector.xml" />
 	<monster name="The Count" file="Bosses/the_count.xml" />
-	<monster name="The Weakened Count" file="Bosses/the weakened count.xml" />		
+	<monster name="The Weakened Count" file="Bosses/the weakened count.xml" />
 	<monster name="The Dreadorian" file="Bosses/the_dreadorian.xml" />
 	<monster name="The Evil Eye" file="Bosses/the_evil_eye.xml" />
 	<monster name="The Frog Prince" file="Bosses/the_frog_prince.xml" />
@@ -1060,7 +1060,7 @@
 	<monster name="Squirrel" file="Glires/squirrel.xml" />
 	<monster name="Killer Rabbit" file="Glires/killer_rabbit.xml" />
 	<monster name="Thieving Squirrel" file="Glires/thieving squirrel.xml"/>
-	<monster name="Enraged Squirrel" file="Glires/enraged squirrel.xml"/>	
+	<monster name="Enraged Squirrel" file="Glires/enraged squirrel.xml"/>
 
 	<!-- Geo-Elementals -->
 	<monster name="Armadile" file="Geo-Elementals/armadile.xml" />
@@ -1194,7 +1194,7 @@
 	<monster name="Moohtant" file="Minotaurs/moohtant.xml" />
 	<monster name="Worm Priestess" file="Minotaurs/worm priestess.xml" />
 
-	
+
 	<!-- Misc -->
 	<!-- Misc Mammals -->
 	<monster name="Badger" file="Misc/Misc Mammals/badger.xml" />
@@ -1279,15 +1279,15 @@
 	<monster name="Feverish Citizen" file="Outlaws/feverish_citizen.xml" />
 	<monster name="Crypt Defiler" file="Outlaws/crypt_defiler.xml" />
 	<monster name="NomadFemale" file="Outlaws/nomadFemale.xml" />
-	
+
 	<!-- The Percht Queens Island -->
 	<monster name="Animated Snowman" file="The Percht Queens Island/animated snowman.xml"/>
 	<monster name="Baleful Bunny" file="The Percht Queens Island/baleful bunny.xml"/>
-	<monster name="Bonny Bunny" file="The Percht Queens Island/bonny bunny.xml"/>	
+	<monster name="Bonny Bunny" file="The Percht Queens Island/bonny bunny.xml"/>
 	<monster name="Percht" file="The Percht Queens Island/percht.xml"/>
 	<monster name="Schiach" file="The Percht Queens Island/schiach.xml"/>
 	<monster name="The Percht Queen" file="The Percht Queens Island/the percht queen.xml"/>
-	
+
 	<!-- Pharaohs -->
 	<monster name="Ashmunrah" file="Pharaohs/ashmunrah.xml" />
 	<monster name="Dipthrah" file="Pharaohs/dipthrah.xml" />
@@ -1451,7 +1451,7 @@
 	<monster name="Wild Fury Magic" file="Wild_Magics/wild_fury_magic.xml" />
 	<monster name="Wild Nature Magic" file="Wild_Magics/wild_nature_magic.xml" />
 	<monster name="Wild Water Magic" file="Wild_Magics/wild_water_magic.xml" />
-	
+
 	<!-- Winter Update -->
 	<monster name="Alptramun" file="Winter Update/alptramun.xml" />
 	<monster name="Arachnophobica" file="Winter Update/arachnophobica.xml" />
@@ -1488,7 +1488,7 @@
 	<monster name="The Nightmare Beast" file="Winter Update/the nightmare beast.xml" />
 	<monster name="Unpleasant Dream" file="Winter Update/unpleasant dream.xml" />
 	<monster name="Whirling Blades" file="Winter Update/whirling blades.xml" />
-	
+
 	<!-- Monstros adicionados recentemente -->
 	<monster name="Acolyte of Darkness" file="new/Acolyte_of_Darkness.xml" />
 	<monster name="An Observer Eye" file="new/An_Observer_Eye.xml" />

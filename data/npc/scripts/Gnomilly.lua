@@ -13,7 +13,7 @@ function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	local player = Player(cid)
 
 	if msgcontains(msg, 'job') then
@@ -34,9 +34,9 @@ function creatureSayCallback(cid, type, msg)
 			"The whole growing downwards could come to a halt, leaving us exposed to even more attacks, counter attacks, and giving the enemy time to prepare their defences. There's a lot to do for aspiring adventurers."
 		}, cid)
 	end
-	
+
 	if msgcontains(msg, 'mission') then
-		if player:getLevel() > levels[2] then	
+		if player:getLevel() > levels[2] then
 			npcHandler:say('Sorry, but no! Your expertise could be put to better use elsewhere. Here awaits you no challenge. You are desperately needed in the deeper levels of the Spike. Report there immediately. ', cid)
 		else
 			npcHandler:say('I can offer you several missions: to recharge our ghost {pacifiers}, to {release} the spiritual anger, to {track} an evil presence and to {kill} some demon skeletons.', cid)
@@ -117,7 +117,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_UPPER_PACIFIER_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_UPPER_PACIFIER_MAIN) == -1 then
 			npcHandler:say({'We need you to recharge our ghost pacifiers. They are placed at several strategic points in the caves around us and should be easy to find. Your mission would be to charge seven of them.', 'If you are interested, I can give you some more {information} about it. Are you willing to accept this mission?'}, cid)
 			talkState[cid] = 'pacifiers'
 		else
@@ -149,7 +149,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_UPPER_MOUND_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_UPPER_MOUND_MAIN) == -1 then
 			npcHandler:say('Your task would be to use a spirit shovel to release some spirit\'s anger from graves that can be found all around here. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', cid)
 			talkState[cid] = 'release'
 		else
@@ -181,7 +181,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_UPPER_TRACK_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_UPPER_TRACK_MAIN) == -1 then
 			npcHandler:say({'You\'d be given the highly important task to track down an enormously malevolent spiritual presence in the cave system. Use your tracking device to find out how close you are to the presence.','Use that information to find the residual energy and use the tracker there. If you are interested, I can give you some more information about it. Are you willing to accept this mission?'}, cid)
 			talkState[cid] = 'track'
 		else
@@ -214,7 +214,7 @@ function creatureSayCallback(cid, type, msg)
 			return npcHandler:say('Sorry, you are not on the required range of levels [' .. levels[1] ..'-' .. levels[2] ..'].', cid)
 		end
 
-		if player:getStorageValue(SPIKE_UPPER_KILL_MAIN) == -1 then		
+		if player:getStorageValue(SPIKE_UPPER_KILL_MAIN) == -1 then
 			npcHandler:say('We need someone to reduce the steadily growing number of demon skeletons in the caves. If you are interested, I can give you some more information about it. Are you willing to accept this mission?', cid)
 			talkState[cid] = 'kill'
 		else
@@ -231,7 +231,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Ok then.', cid)
 			talkState[cid] = nil
 		end
-	end	
+	end
 	return true
 end
 

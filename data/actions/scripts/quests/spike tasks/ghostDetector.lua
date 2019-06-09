@@ -7,7 +7,7 @@ ghost_detector_area = {
 	to = Position(32365, 32759, 10)
 }
 
-local function getSearchString(fromPos, toPos) 
+local function getSearchString(fromPos, toPos)
 	local distance = 0
 	local direction = 0
 	local level = 0
@@ -27,7 +27,7 @@ local function getSearchString(fromPos, toPos)
 
 	local tang = (dx ~= 0) and dy / dx or 10
 	if math.abs(tang) < 0.4142 then
-		direction = (dx > 0) and 3 or 2 
+		direction = (dx > 0) and 3 or 2
 	elseif math.abs(tang) < 2.4142 then
 		direction = (tang > 0) and ((dy > 0) and 5 or 6) or ((dx > 0) and 7 or 4)
 	else
@@ -35,7 +35,7 @@ local function getSearchString(fromPos, toPos)
 	end
 
 	local text = {
-		[0] = { 
+		[0] = {
 			[0] = "above you",
 			[1] = "below you",
 			[2] = "next to you"
@@ -65,7 +65,7 @@ end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local stat = player:getStorageValue(SPIKE_UPPER_TRACK_MAIN)
-	
+
 	if isInArray({-1, 3}, stat) then
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
@@ -77,14 +77,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		current = random
 	end
 
-	if player:getPosition():compare(current) then		
+	if player:getPosition():compare(current) then
 		if stat == 2 then
 			item:remove()
 			GHOST_DETECTOR_MAP[player:getGuid()] = nil
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "Report the task to Gnomilly.")
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found a malignant presence, the glowing detector signals that it does not need any further data.")
 		else
-			GHOST_DETECTOR_MAP[player:getGuid()] = getFreeSand()			
+			GHOST_DETECTOR_MAP[player:getGuid()] = getFreeSand()
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a malignant presence, the glowing detector signals another presence nearby.')
 		end
 		player:setStorageValue(SPIKE_UPPER_TRACK_MAIN, stat+1)

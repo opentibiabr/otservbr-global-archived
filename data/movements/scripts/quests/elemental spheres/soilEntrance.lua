@@ -1,10 +1,10 @@
 local portals1 = {
-	
+
 	--Soils
-	[24541] = {position = Position(33085, 32096, 13), vocation = 4, storage = 10130}, -- EK 
-	[24542] = {position = Position(33264, 32201, 13), vocation = 3, storage = 10131}, -- RP 
-	[24543] = {position = Position(33330, 32077, 13), vocation = 2, storage = 10132}, -- ED 
-	[24544] = {position = Position(33183, 32198, 13), vocation = 1, storage = 10133} -- SORC 
+	[24541] = {position = Position(33085, 32096, 13), vocation = 4, storage = 10130}, -- EK
+	[24542] = {position = Position(33264, 32201, 13), vocation = 3, storage = 10131}, -- RP
+	[24543] = {position = Position(33330, 32077, 13), vocation = 2, storage = 10132}, -- ED
+	[24544] = {position = Position(33183, 32198, 13), vocation = 1, storage = 10133} -- SORC
 }
 
 function onStepIn(creature, item, position, fromPosition)

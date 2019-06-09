@@ -16,27 +16,27 @@ function onKill(creature, target)
 	if (isInArray({'lost exile'}, monsterName)) then
 		if creature:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1 then
 			if target:getPosition():isInRange(fromPos, toPos) then
-				if stgValue < 20 then			
+				if stgValue < 20 then
 					if stgValue < 0 then
 						creature:setStorageValue(Storage.DangerousDepths.Dwarves.LostExiles, 1)
-					end	
+					end
 					creature:setStorageValue(Storage.DangerousDepths.Dwarves.LostExiles, stgValue + 1)
-				end	
+				end
 			end
 		end
 	elseif (isInArray({'deepworm', 'diremaw'}, monsterName)) then
 		if creature:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 1 then
-			if stgValue2 < 50 then	
+			if stgValue2 < 50 then
 				if stgValue2 < 0 then
 					creature:setStorageValue(Storage.DangerousDepths.Dwarves.Organisms, 1)
-				end 
-				creature:setStorageValue(Storage.DangerousDepths.Dwarves.Organisms, stgValue2 + 1)	
+				end
+				creature:setStorageValue(Storage.DangerousDepths.Dwarves.Organisms, stgValue2 + 1)
 			end
 		end
 	elseif (isInArray({'makeshift home'}, monsterName)) then
 		local woodenTrash = Game.createItem(7701, 1, target:getPosition())
 		woodenTrash:setActionId(57233)
 	end
-	
+
 	return true
 end

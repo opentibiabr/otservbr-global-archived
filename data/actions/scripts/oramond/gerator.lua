@@ -60,7 +60,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 3 then
 				setPlayerStorageValue(cid, 20062,4)
 			elseif getPlayerStorageValue(cid, 20062) == 4 then
-				setPlayerStorageValue(cid, 20062,5)					
+				setPlayerStorageValue(cid, 20062,5)
 			elseif getPlayerStorageValue(cid, 20062) == 5 then
 				setPlayerStorageValue(cid, 20062,6)
 			elseif getPlayerStorageValue(cid, 20062) == 6 then
@@ -68,29 +68,29 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 7 then
 				setPlayerStorageValue(cid, 20062,8)
 			elseif getPlayerStorageValue(cid, 20062) == 8 then
-				setPlayerStorageValue(cid, 20062,9)	
+				setPlayerStorageValue(cid, 20062,9)
 			elseif getPlayerStorageValue(cid, 20062) == 9 then
 				setPlayerStorageValue(cid, 20062,10)
 			elseif getPlayerStorageValue(cid, 20062) == 10 then
-				setPlayerStorageValue(cid, 20062,11)	
+				setPlayerStorageValue(cid, 20062,11)
 			elseif getPlayerStorageValue(cid, 20062) == 11 then
-				setPlayerStorageValue(cid, 20062,12)	
+				setPlayerStorageValue(cid, 20062,12)
 			elseif getPlayerStorageValue(cid, 20062) == 12 then
-				setPlayerStorageValue(cid, 20062,13)	
+				setPlayerStorageValue(cid, 20062,13)
 			elseif getPlayerStorageValue(cid, 20062) == 13 then
-				setPlayerStorageValue(cid, 20062,14)	
+				setPlayerStorageValue(cid, 20062,14)
 			elseif getPlayerStorageValue(cid, 20062) == 14 then
-				setPlayerStorageValue(cid, 20062,15)	
+				setPlayerStorageValue(cid, 20062,15)
 			elseif getPlayerStorageValue(cid, 20062) == 15 then
-				setPlayerStorageValue(cid, 20062,16)	
+				setPlayerStorageValue(cid, 20062,16)
 			elseif getPlayerStorageValue(cid, 20062) == 16 then
-				setPlayerStorageValue(cid, 20062,17)	
+				setPlayerStorageValue(cid, 20062,17)
 			elseif getPlayerStorageValue(cid, 20062) == 17 then
-				setPlayerStorageValue(cid, 20062,18)	
+				setPlayerStorageValue(cid, 20062,18)
 			elseif getPlayerStorageValue(cid, 20062) == 18 then
-				setPlayerStorageValue(cid, 20062,19)	
+				setPlayerStorageValue(cid, 20062,19)
 			elseif getPlayerStorageValue(cid, 20062) == 19 then
-				setPlayerStorageValue(cid, 20062,20)					
+				setPlayerStorageValue(cid, 20062,20)
 			end
 	end
 	if item.itemid == item1 then
@@ -112,7 +112,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 3 then
 				setPlayerStorageValue(cid, 20062,4)
 			elseif getPlayerStorageValue(cid, 20062) == 4 then
-				setPlayerStorageValue(cid, 20062,5)					
+				setPlayerStorageValue(cid, 20062,5)
 			elseif getPlayerStorageValue(cid, 20062) == 5 then
 				setPlayerStorageValue(cid, 20062,6)
 			elseif getPlayerStorageValue(cid, 20062) == 6 then
@@ -120,30 +120,30 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 7 then
 				setPlayerStorageValue(cid, 20062,8)
 			elseif getPlayerStorageValue(cid, 20062) == 8 then
-				setPlayerStorageValue(cid, 20062,9)	
+				setPlayerStorageValue(cid, 20062,9)
 			elseif getPlayerStorageValue(cid, 20062) == 9 then
 				setPlayerStorageValue(cid, 20062,10)
 			elseif getPlayerStorageValue(cid, 20062) == 10 then
-				setPlayerStorageValue(cid, 20062,11)	
+				setPlayerStorageValue(cid, 20062,11)
 			elseif getPlayerStorageValue(cid, 20062) == 11 then
-				setPlayerStorageValue(cid, 20062,12)	
+				setPlayerStorageValue(cid, 20062,12)
 			elseif getPlayerStorageValue(cid, 20062) == 12 then
-				setPlayerStorageValue(cid, 20062,13)	
+				setPlayerStorageValue(cid, 20062,13)
 			elseif getPlayerStorageValue(cid, 20062) == 13 then
-				setPlayerStorageValue(cid, 20062,14)	
+				setPlayerStorageValue(cid, 20062,14)
 			elseif getPlayerStorageValue(cid, 20062) == 14 then
-				setPlayerStorageValue(cid, 20062,15)	
+				setPlayerStorageValue(cid, 20062,15)
 			elseif getPlayerStorageValue(cid, 20062) == 15 then
-				setPlayerStorageValue(cid, 20062,16)	
+				setPlayerStorageValue(cid, 20062,16)
 			elseif getPlayerStorageValue(cid, 20062) == 16 then
-				setPlayerStorageValue(cid, 20062,17)	
+				setPlayerStorageValue(cid, 20062,17)
 			elseif getPlayerStorageValue(cid, 20062) == 17 then
-				setPlayerStorageValue(cid, 20062,18)	
+				setPlayerStorageValue(cid, 20062,18)
 			elseif getPlayerStorageValue(cid, 20062) == 18 then
-				setPlayerStorageValue(cid, 20062,19)	
+				setPlayerStorageValue(cid, 20062,19)
 			elseif getPlayerStorageValue(cid, 20062) == 19 then
-				setPlayerStorageValue(cid, 20062,20)					
-			end		
+				setPlayerStorageValue(cid, 20062,20)
+			end
 	end
 	if item.itemid == item2 then
 		if((rand >= 1) and (rand < 50)) then
@@ -164,7 +164,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 3 then
 				setPlayerStorageValue(cid, 20062,4)
 			elseif getPlayerStorageValue(cid, 20062) == 4 then
-				setPlayerStorageValue(cid, 20062,5)					
+				setPlayerStorageValue(cid, 20062,5)
 			elseif getPlayerStorageValue(cid, 20062) == 5 then
 				setPlayerStorageValue(cid, 20062,6)
 			elseif getPlayerStorageValue(cid, 20062) == 6 then
@@ -172,29 +172,29 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 7 then
 				setPlayerStorageValue(cid, 20062,8)
 			elseif getPlayerStorageValue(cid, 20062) == 8 then
-				setPlayerStorageValue(cid, 20062,9)	
+				setPlayerStorageValue(cid, 20062,9)
 			elseif getPlayerStorageValue(cid, 20062) == 9 then
 				setPlayerStorageValue(cid, 20062,10)
 			elseif getPlayerStorageValue(cid, 20062) == 10 then
-				setPlayerStorageValue(cid, 20062,11)	
+				setPlayerStorageValue(cid, 20062,11)
 			elseif getPlayerStorageValue(cid, 20062) == 11 then
-				setPlayerStorageValue(cid, 20062,12)	
+				setPlayerStorageValue(cid, 20062,12)
 			elseif getPlayerStorageValue(cid, 20062) == 12 then
-				setPlayerStorageValue(cid, 20062,13)	
+				setPlayerStorageValue(cid, 20062,13)
 			elseif getPlayerStorageValue(cid, 20062) == 13 then
-				setPlayerStorageValue(cid, 20062,14)	
+				setPlayerStorageValue(cid, 20062,14)
 			elseif getPlayerStorageValue(cid, 20062) == 14 then
-				setPlayerStorageValue(cid, 20062,15)	
+				setPlayerStorageValue(cid, 20062,15)
 			elseif getPlayerStorageValue(cid, 20062) == 15 then
-				setPlayerStorageValue(cid, 20062,16)	
+				setPlayerStorageValue(cid, 20062,16)
 			elseif getPlayerStorageValue(cid, 20062) == 16 then
-				setPlayerStorageValue(cid, 20062,17)	
+				setPlayerStorageValue(cid, 20062,17)
 			elseif getPlayerStorageValue(cid, 20062) == 17 then
-				setPlayerStorageValue(cid, 20062,18)	
+				setPlayerStorageValue(cid, 20062,18)
 			elseif getPlayerStorageValue(cid, 20062) == 18 then
-				setPlayerStorageValue(cid, 20062,19)	
+				setPlayerStorageValue(cid, 20062,19)
 			elseif getPlayerStorageValue(cid, 20062) == 19 then
-				setPlayerStorageValue(cid, 20062,20)					
+				setPlayerStorageValue(cid, 20062,20)
 			end
 	end
 	if item.itemid == item3 then
@@ -216,7 +216,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 3 then
 				setPlayerStorageValue(cid, 20062,4)
 			elseif getPlayerStorageValue(cid, 20062) == 4 then
-				setPlayerStorageValue(cid, 20062,5)					
+				setPlayerStorageValue(cid, 20062,5)
 			elseif getPlayerStorageValue(cid, 20062) == 5 then
 				setPlayerStorageValue(cid, 20062,6)
 			elseif getPlayerStorageValue(cid, 20062) == 6 then
@@ -224,30 +224,30 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 			elseif getPlayerStorageValue(cid, 20062) == 7 then
 				setPlayerStorageValue(cid, 20062,8)
 			elseif getPlayerStorageValue(cid, 20062) == 8 then
-				setPlayerStorageValue(cid, 20062,9)	
+				setPlayerStorageValue(cid, 20062,9)
 			elseif getPlayerStorageValue(cid, 20062) == 9 then
 				setPlayerStorageValue(cid, 20062,10)
 			elseif getPlayerStorageValue(cid, 20062) == 10 then
-				setPlayerStorageValue(cid, 20062,11)	
+				setPlayerStorageValue(cid, 20062,11)
 			elseif getPlayerStorageValue(cid, 20062) == 11 then
-				setPlayerStorageValue(cid, 20062,12)	
+				setPlayerStorageValue(cid, 20062,12)
 			elseif getPlayerStorageValue(cid, 20062) == 12 then
-				setPlayerStorageValue(cid, 20062,13)	
+				setPlayerStorageValue(cid, 20062,13)
 			elseif getPlayerStorageValue(cid, 20062) == 13 then
-				setPlayerStorageValue(cid, 20062,14)	
+				setPlayerStorageValue(cid, 20062,14)
 			elseif getPlayerStorageValue(cid, 20062) == 14 then
-				setPlayerStorageValue(cid, 20062,15)	
+				setPlayerStorageValue(cid, 20062,15)
 			elseif getPlayerStorageValue(cid, 20062) == 15 then
-				setPlayerStorageValue(cid, 20062,16)	
+				setPlayerStorageValue(cid, 20062,16)
 			elseif getPlayerStorageValue(cid, 20062) == 16 then
-				setPlayerStorageValue(cid, 20062,17)	
+				setPlayerStorageValue(cid, 20062,17)
 			elseif getPlayerStorageValue(cid, 20062) == 17 then
-				setPlayerStorageValue(cid, 20062,18)	
+				setPlayerStorageValue(cid, 20062,18)
 			elseif getPlayerStorageValue(cid, 20062) == 18 then
-				setPlayerStorageValue(cid, 20062,19)	
+				setPlayerStorageValue(cid, 20062,19)
 			elseif getPlayerStorageValue(cid, 20062) == 19 then
-				setPlayerStorageValue(cid, 20062,20)					
-			end		
+				setPlayerStorageValue(cid, 20062,20)
+			end
 	end
 	return true
 end

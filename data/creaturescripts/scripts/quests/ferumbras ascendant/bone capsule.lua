@@ -7,8 +7,8 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 		return true
 	end
 	local m = Game.createMonster('Bone Capsule', Position(33485, 32333, 14), true, true)
-	if not m then 
-		return true 
+	if not m then
+		return true
 	end
 	local ragiaz = Tile(Position(33487, 32333, 14)):getTopCreature()
 	ragiaz:teleportTo(position)

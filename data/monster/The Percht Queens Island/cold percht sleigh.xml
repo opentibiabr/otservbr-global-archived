@@ -18,9 +18,9 @@
 	</flags>
 <attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
- 
+
 		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
-			<attribute key="shootEffect" value="ice" /> 
+			<attribute key="shootEffect" value="ice" />
 		</attack>
 	</attacks>
 	<defenses armor="79" defense="40" />

@@ -4,4 +4,3 @@ function onRaid()
 		monster:setReward(true)
 	end
 end
-

@@ -98,7 +98,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("No then.",cid)
 		npcHandler.topic[cid] = 0
 	end
-	
+
 		if msgcontains(msg, 'hugo') then
 		if player:getStorageValue(Storage.DemonOak.Done) < 1 then
 			npcHandler:say("How do you know? Did you go into the infested area?", cid)
@@ -155,7 +155,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("No then.",cid)
 		npcHandler.topic[cid] = 0
 	end
-	
+
 	return true
 end
 

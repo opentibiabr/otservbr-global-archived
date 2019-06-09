@@ -28,7 +28,7 @@
 		<attack name="speed" interval="4000" chance="20" radius="7" target="1" speedchange="-100">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
-		
+
 	</attacks>
 	<defenses armor="30" defense="30">
 		<defense name="healing" interval="2000" chance="25" min="50" max="100">
@@ -52,24 +52,24 @@
 		<voice sentence="SNUFFLE" />
 	</voices>
 	<loot>
-		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->		
-		<item id="2152" countmax="5" chance="18200" />				<!-- fish -->		
-		<item id="8845" chance="2000" />				<!-- Beetroot -->		
-		<item id="2789" chance="2000" />				<!-- Brown Mushroom -->		
-		<item id="7620" chance="2210" />					<!-- Mana Potion -->			
-		<item id="7589" chance="1200" />					<!-- Strong Mana Potion, -->		
-		<item id="2805" chance="1900" />					<!-- Troll Green -->		
-		<item id="24707" chance="950" />					<!-- Life Ring -->		
-		<item id="24711" chance="780" />					<!-- werebadger skull -->		
-		<item id="24742" chance="200" />					<!-- badger boots -->		
+		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->
+		<item id="2152" countmax="5" chance="18200" />				<!-- fish -->
+		<item id="8845" chance="2000" />				<!-- Beetroot -->
+		<item id="2789" chance="2000" />				<!-- Brown Mushroom -->
+		<item id="7620" chance="2210" />					<!-- Mana Potion -->
+		<item id="7589" chance="1200" />					<!-- Strong Mana Potion, -->
+		<item id="2805" chance="1900" />					<!-- Troll Green -->
+		<item id="24707" chance="950" />					<!-- Life Ring -->
+		<item id="24711" chance="780" />					<!-- werebadger skull -->
+		<item id="24742" chance="200" />					<!-- badger boots -->
 		<item id="2171" chance="160" />					<!-- Platinum Amulet  -->
-		<item id="2214" chance="430" />					<!-- Ring of Healing -->		
-		<item id="8910" chance="220" />					<!-- Underworld Rod -->		
+		<item id="2214" chance="430" />					<!-- Ring of Healing -->
+		<item id="8910" chance="220" />					<!-- Underworld Rod -->
 		<item id="8922" chance="200" />					<!-- Wand of Voodoo -->
-	
+
 	<item id="24739" chance="150" />					<!-- moonlight crystals -->
 	<item id="24716" chance="200" />					<!-- werewolf amulet -->
 	<item id="24757" chance="100" />					<!-- Werebadger Trophy -->
-	
+
 	</loot>
 </monster>

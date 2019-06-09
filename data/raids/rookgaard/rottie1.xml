@@ -5,7 +5,7 @@
 
   <areaspawn delay="120000" fromx="32180" fromy="32148" fromz="11" tox="32180" toy="32148" toz="11">
     <monster name="Rottie The Rotworm" amount="1" />
-   
+
   </areaspawn>
 
 </raid>

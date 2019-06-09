@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Flying Book" nameDescription="Flying Book" race="undead" experience="200" speed="250" manacost="0">
 	<health now="500" max="500" />
 	<look type="1060" corpse="33333" />
@@ -19,8 +19,8 @@
 	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
 		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-180">
-			<attribute key="shootEffect" value="ice" /> 
-		</attack> 
+			<attribute key="shootEffect" value="ice" />
+		</attack>
 	</attacks>
 	<defenses armor="28" defense="33" />
 	<elements>
@@ -28,5 +28,5 @@
 	</elements>
 	<immunities>
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 </monster>

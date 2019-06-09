@@ -18,7 +18,7 @@ local targetIdList = {
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target:getId() >= 28535 and target:getId() <= 28590 then
 	local house = player:getTile():getHouse()
-	if house and house:canEditAccessList(SUBOWNER_LIST, player) and house:canEditAccessList(doorId, player) or target:getId() >= 28579 then 
+	if house and house:canEditAccessList(SUBOWNER_LIST, player) and house:canEditAccessList(doorId, player) or target:getId() >= 28579 then
 	elseif target:getId() >= 28535 and target:getId() < 28579 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Sorry, casks only can be useds inside house.')
 		return false
@@ -32,15 +32,15 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('Sorry, only Remaining %s charges.', charges))
 			return false
 		end
- 
+
  		local targetId = targetIdList[target:getId()]
  		if targetId then
  			if item:getId() == targetId.itemId then
 				item:transform(targetId.transform)
 				charges = charges - item:getCount()
 				target:transform(target:getId(), charges)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('Remaining %s charges.', charges)) 
-		
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('Remaining %s charges.', charges))
+
 				if charges == 0 then
 					target:remove()
 				end

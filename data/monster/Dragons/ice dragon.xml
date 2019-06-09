@@ -45,7 +45,7 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="26449" chance="3000"/><!-- dragon bloods --> 
+		<item id="26449" chance="3000"/><!-- dragon bloods -->
 		<item id="2148" countmax="200" chance="95070"/><!-- gold coin -->
 		<item id="7902" chance="2000"/><!-- glacier mask -->
 		<item id="27726" chance="3000"/><!-- dragon tongue -->

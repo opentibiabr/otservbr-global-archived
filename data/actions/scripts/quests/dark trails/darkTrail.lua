@@ -20,7 +20,7 @@ function onUse(cid, item, fromPosition, itemEx) -- {x = 33477, y = 32102, z = 9}
 		return true
 	end
         if item.itemid == 1945 then
-		
+
 	        if player:getStorageValue(1) and not isPlayerInArea({x = 33475, y = 32068, z = 8, stackpos = 255}, {x = 33499, y = 32092, z = 8, stackpos = 255}) then
 				pos1 = {x = 33417, y = 32102, z = getCreaturePosition(cid).z}
 				pos2 = {x = 33418, y = 32102, z = getCreaturePosition(cid).z}
@@ -42,7 +42,7 @@ function onUse(cid, item, fromPosition, itemEx) -- {x = 33477, y = 32102, z = 9}
 			--doSummonCreature("demon", {x=33488, y=32081, z=8})
 			--doSummonCreature("demon", {x=33488, y=32083, z=8})
 		--doRemoveItem(item.uid, 1)
-			
+
 		    end
 	       end
 	  end

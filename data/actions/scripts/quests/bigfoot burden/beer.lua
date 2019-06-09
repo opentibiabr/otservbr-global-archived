@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:setStorageValue(Storage.BigfootBurden.NeedsBeer, 0)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your mind feels refreshed!')
 	end
-	
+
 	player:say("Gulp!", TALKTYPE_MONSTER_SAY)
 	item:remove(1)
 	return true

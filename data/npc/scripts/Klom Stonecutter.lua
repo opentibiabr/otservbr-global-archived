@@ -37,13 +37,13 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	npcHandler.topic[cid] = playerTopic[cid]
 	local player = Player(cid)
 	npc = Npc(cid)
 
 	local tempo = 20*60*60
-	
+
 	-- missão subterraneans
 	if msgcontains(msg, "subterraneans") and npcHandler.topic[cid] == 1 then
 		if player:getStorageValue(Storage.DangerousDepths.Dwarves.Subterranean) == 2 and player:getStorageValue(Storage.DangerousDepths.Dwarves.timeTaskSubterranean) > 0 then
@@ -70,7 +70,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say({"I'l say I'm blown away but a Klom Stonecutter is not that easily impressed. Still, your got your hands dirt for us and I appreciate that."}, cid)
 			-- Entregando surprise jar + 1 ponto de missão!
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.timeTaskSubterranean, os.time() + tempo)
-			player:addItem(32014, 1) 
+			player:addItem(32014, 1)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + 1)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Subterranean, 2)
 			playerTopic[cid] = 1
@@ -116,7 +116,7 @@ local function creatureSayCallback(cid, type, msg)
 			-- Entregando surprise jar + 1 ponto de missão!
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.timeTaskHome, os.time() + tempo)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Home, 2)
-			player:addItem(32014, 1) 
+			player:addItem(32014, 1)
 			player:setStorageValue(Storage.DangerousDepths.Dwarves.Status, player:getStorageValue(Storage.DangerousDepths.Dwarves.Status) + 1)
 			playerTopic[cid] = 1
 		npcHandler.topic[cid] = 1
@@ -149,7 +149,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 55
 	elseif npcHandler.topic[cid] == 55 then
 		quantidade[cid] = tonumber(msg)
-		if quantidade[cid] then	
+		if quantidade[cid] then
 			if quantidade[cid] > 1 then
 				plural = plural .. "s"
 			end

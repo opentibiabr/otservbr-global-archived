@@ -21,7 +21,7 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-	
+
 	<attacks>
 		<attack name="melee" interval="2000" skill="70" attack="130"/>
 		<attack name="drunk" interval="2000" chance="8" radius="8" duration="25000">
@@ -81,7 +81,7 @@
 		<item id="2158" chance="9000"/><!-- blue gem -->
 		<item id="5911" chance="9000"/><!-- red piece of cloth -->
 		<item id="2515" chance="9000"/><!-- guardian shield -->
-		<item id="8873" chance="9000"/><!-- hibiscus dress -->		
+		<item id="8873" chance="9000"/><!-- hibiscus dress -->
 		<item id="2145" countmax="5" chance="15000"/><!-- small diamond -->
 		<item id="2150" countmax="5" chance="15000"/><!-- small amethyst -->
 		<item id="2149" countmax="5" chance="15000"/><!-- small emerald -->

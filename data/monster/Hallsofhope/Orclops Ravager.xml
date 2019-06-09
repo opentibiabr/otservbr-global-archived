@@ -65,9 +65,9 @@
 		<item id="8843" chance="8870" /><!-- Onion -->
 		<item id="9970" chance="9700" /><!-- Small Topazes -->
 		<item id="18417" countmax="3" chance="15290" /><!-- Brown Crystal Splinters -->
-		<item id="20108" chance="910" /><!-- Pair of Iron Fists --> 
-		<item id="3953" chance="910" /><!-- War Drum --> 
-		<item id="7439" chance="910" /><!-- Berserk Potion --> 
-		<item id="7419" chance="300" /><!-- Dreaded Cleaver -->  
+		<item id="20108" chance="910" /><!-- Pair of Iron Fists -->
+		<item id="3953" chance="910" /><!-- War Drum -->
+		<item id="7439" chance="910" /><!-- Berserk Potion -->
+		<item id="7419" chance="300" /><!-- Dreaded Cleaver -->
 	</loot>
 </monster>

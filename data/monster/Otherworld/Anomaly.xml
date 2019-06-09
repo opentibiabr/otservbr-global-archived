@@ -59,7 +59,7 @@
 		<!-- gold -->
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="30" chance="100000"/><!-- platinum coin -->
-	
+
 		<!-- all loot -->
 		<item id="18413" tier="6" countmax="3" chance="8000"/><!-- blue crystal shard -->
 		<item id="26201" tier="6" countmax="5" chance="8000"/><!-- energy drink -->
@@ -77,11 +77,11 @@
 		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
 		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
 		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
-		
+
 		<!-- Comum -->
 		<item id="2158" tier="5" chance="6000"/><!-- blue gem -->
 		<item id="2155" tier="5" chance="6000"/><!-- green gem -->
-		
+
 		<!-- Semi Raro -->
 		<item id="7901" tier="4" chance="4000"/><!-- lightning headband -->
 		<item id="26198" tier="4" chance="3500"/><!-- collar of blue plasma -->
@@ -92,11 +92,11 @@
 		<item id="8901" tier="4" chance="3000"/><!-- spellbook of warding -->
 		<item id="7898" tier="4" chance="2500"/><!-- lightning robe -->
 		<item id="7895" tier="4" chance="2500"/><!-- lightning legs -->
-		
+
 		<!-- Raro -->
 		<item id="26130" tier="3" unique="1" chance="1600"/><!-- tiara of power -->
 		<item id="26133" tier="3" unique="1" chance="1600"/><!-- void boots -->
-		
+
 		<!-- Muito Raro -->
 		<item id="6553" tier="2" unique="1" chance="1600"/><!-- ruthless axe -->
 		<item id="18450" tier="2" unique="1" chance="1400"/><!-- crystalline sword -->

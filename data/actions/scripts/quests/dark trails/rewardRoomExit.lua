@@ -5,9 +5,9 @@ if(getPlayerStorageValue(cid, 10050) < 18) then
 	setPlayerStorageValue(cid, 10050, 18)
 	doSendMagicEffect(p,10)
 	doCreatureSay(cid, "Congratulations, you have completed the quest, report your mission to the NPC to win the outfit.", TALKTYPE_ORANGE_1)
-	else 
+	else
 	doTeleportThing(cid,p)
-	doSendMagicEffect(p,10)	
+	doSendMagicEffect(p,10)
 	doCreatureSay(cid, "You've been teleported.", TALKTYPE_ORANGE_1)
 return true
 end

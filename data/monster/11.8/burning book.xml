@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Burning Book" nameDescription="a burning book" race="undead" experience="15300" speed="220">
 	<health now="18000" max="18000" />
 	<look type="1061" head="79" body="113" legs="78" feet="0" corpse="32454" />
@@ -17,7 +17,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-200" max="-700" />	
+		<attack name="melee" interval="2000" min="-200" max="-700" />
 		<attack name="fire" interval="1000" chance="15" range="7" min="-200" max="-680">
 			<attribute key="shootEffect" value="flammingarrow" />
 			<attribute key="areaEffect" value="fire" />
@@ -39,27 +39,24 @@
 		<immunity fire="1" />
 	</immunities>
 	<loot>
-			<!-- common -->	 
+			<!-- common -->
 			<item name="Platinum Coin" countmax="28" chance="89960" />
 			<item name="Book Page" countmax="7" chance="3000" />
 			<item name="Demonic Essence" countmax="5" chance="3000" />
 			<item name="Concentrated Demonic Blood" countmax="3" chance="3000" />
-			<!-- uncommon -->	 
+			<!-- uncommon -->
 			<item name="Small Amethyst" countmax="4" chance="2000" />
 			<item id="2419" chance="3000" /> <!-- scimitar -->
 			<item name="Silken Bookmark" countmax="2" chance="2000" />
 			<item name="Magma Coat" chance="2000" />
 			<item name="Guardian Shield" chance="1500" />
 			<item name="Soul Orb" countmax="4" chance="3000" />
-			<!-- semi-rare -->	 
+			<!-- semi-rare -->
 			<item name="Necrotic Rod" chance="3000" />
 			<item name="Magma Monocle" chance="1500" />
 			<item id="6300" chance="1200" /> <!-- death ring -->
 			<item name="Stealth Ring" chance="1800" />
-			<!-- rare -->	 
+			<!-- rare -->
 			<item name="Shadow Sceptre" chance="8990" />
 	</loot>
 </monster>
-
-
-		

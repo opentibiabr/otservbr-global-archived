@@ -18,7 +18,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		if player:getStorageValue(53051) < 1 then
 			toPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 			item:transform(5937)
-			player:setStorageValue(53051, 1)	
+			player:setStorageValue(53051, 1)
 			player:say("You successfully took a sample of the rare griffinclaw flower.", TALKTYPE_ORANGE_1)
 		else
 			toPosition:sendMagicEffect(CONST_ME_POFF)

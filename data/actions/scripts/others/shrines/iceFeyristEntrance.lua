@@ -14,7 +14,7 @@ function onUse(creature, item, position, fromPosition, pos, target, toPosition)
 	    player:removeItem(paymentItem, 1)
 		player:teleportTo(positionAfterEnchantment)
 		player:getPosition():sendMagicEffect(CONST_ME_SMALLPLANTS)
-		return true	
+		return true
 	end
 
 end

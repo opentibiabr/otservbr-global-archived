@@ -4,7 +4,7 @@ local config = {
 		items = {{2398, 1}, {2461, 1}, {2467, 1}, {2649, 1}},
 		--container rope, shovel, red apple
 		container = {{2120, 1}, {2554, 1}, {2674, 2}}
-	},	
+	},
 	[1] = {
 		--equipment spellbook, wand of vortex, magician's robe, mage hat, studded legs, leather boots, scarf
 		items = {{2175, 1}, {2190, 1}, {8819, 1}, {8820, 1}, {2468, 1}, {2643, 1}, {2661, 1}},

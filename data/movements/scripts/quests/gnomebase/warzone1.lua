@@ -1,7 +1,7 @@
 --- [[ Warzone 1 feito por Yuri Lagrotta ]] ---
 
-local kickposs = {x=33000, y=31899, z=9}  
- 
+local kickposs = {x=33000, y=31899, z=9}
+
 local function deDeathstrike()
 if(getGlobalStorageValue(91139) < 1) then
     TOP_LEFT_CORNER = {x=33090, y=31949, z=10, stackpos=253}
@@ -13,7 +13,7 @@ if(getGlobalStorageValue(91139) < 1) then
 				if getCreatureName(creature.uid) == "Deathstrike" then
 					doRemoveCreature(creature.uid)
 					setGlobalStorageValue(91139, 1)
-					addEvent(setGlobalStorageValue, 5 * 60 * 1000, 91139, 0) 
+					addEvent(setGlobalStorageValue, 5 * 60 * 1000, 91139, 0)
 					end
 				end
 			end
@@ -21,12 +21,12 @@ if(getGlobalStorageValue(91139) < 1) then
     end
     return FALSE
 end
-       
+
 function onStepIn(cid, item, position, topos, frompos)
     if not isPlayer(cid) then
         return false
     end
-           
+
 if item.actionid == 5157 then
 	doPlayerSendTextMessage(cid, 19, "You have half an hour to heroically defeat Deathstrike. Otherwise you'll be teleported out by the gnomish emergency device.")
 	deDeathstrike()

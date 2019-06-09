@@ -28,12 +28,12 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-			
+
 	if msgcontains(msg, 'mission') then
 		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
 		if qStorage == 3 then
-			npcHandler:say("So, did you find anything worth examining? Did you actually catch a ghost?",cid)	
-			npcHandler.topic[cid] = 3		
+			npcHandler:say("So, did you find anything worth examining? Did you actually catch a ghost?",cid)
+			npcHandler.topic[cid] = 3
 		elseif qStorage == 2 then
 			npcHandler:say({"So you have passed Spectulus' acceptance test. Well, I'm sure you will live up to that. ...",
 							"We are trying to get this business up and running and need any help we can get. Did he tell you about the spirit cage?"
@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif qStorage > 2 then
 			npcHandler:say("You already done this quest.",cid)
 			npcHandler.topic[cid] = 0
-		elseif qStorage < 2 then 
+		elseif qStorage < 2 then
 			npcHandler:say("Talk research with spectulus to take some mission.",cid)
 			npcHandler.topic[cid] = 0
 		end
@@ -85,7 +85,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
 			npcHandler:say("Good, of course you will also receive an additional monetary reward for your troubles. Are you fine with that?", cid)
-			npcHandler.topic[cid] = 6	
+			npcHandler.topic[cid] = 6
 		elseif npcHandler.topic[cid] == 6 then
 			local nightstalkers, souleaters, ghost = player:getStorageValue(Storage.spiritHuntersQuest.nightstalkerUse), player:getStorageValue(Storage.spiritHuntersQuest.souleaterUse), player:getStorageValue(Storage.spiritHuntersQuest.ghostUse)
 			if nightstalkers >= 4 and souleaters >= 4 and ghost >= 4 then
@@ -109,10 +109,10 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 4
 		elseif qStorage == 5 then
 			npcHandler:say(" Alright you found something! Are you really finished hunting out there?", cid)
-			npcHandler.topic[cid] = 5		
+			npcHandler.topic[cid] = 5
 		end
 	end
-	
+
 	return true
 end
 

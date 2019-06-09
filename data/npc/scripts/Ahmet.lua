@@ -23,17 +23,17 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('The slayer of my enemies is my friend! For a mere 1000 gold I will create the documents you need. Are you interested?', cid)
 			npcHandler.topic[cid] = 1
 		end
-	elseif msgcontains(msg, 'mission') or msgcontains(msg, 'quest') then	
+	elseif msgcontains(msg, 'mission') or msgcontains(msg, 'quest') then
 		if player:getStorageValue(Storage.QuestChests.StealFromThieves) < 1 then
 			npcHandler:say({
 				"What are you talking about?? I was robbed!!!! Someone catch those filthy thieves!!!!! GUARDS! ...",
 				"<nothing happens>....<SIGH> Like usual, they hide at the slightest sign of trouble! YOU! Want to earn some quick money?"
 			}, cid)
-			npcHandler.topic[cid] = 2		
+			npcHandler.topic[cid] = 2
 		elseif player:getStorageValue(Storage.QuestChests.StealFromThieves) == 1 or player:getStorageValue(Storage.QuestChests.StealFromThieves) == 2 then
-			npcHandler:say('Did you find my stuff?', cid)	
+			npcHandler:say('Did you find my stuff?', cid)
 			npcHandler.topic[cid] = 3
-		end		
+		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
 			if player:removeMoneyNpc(1000) then
@@ -51,7 +51,7 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.QuestChests.StealFromThieves, 1)
-		elseif npcHandler.topic[cid] == 3 then	
+		elseif npcHandler.topic[cid] == 3 then
 			if player:removeItem(7587, 1) then
 				npcHandler:say('GREAT! If you ever need a job as my personal security guard, let me know. Here is the reward I promised you.', cid)
 				player:setStorageValue(Storage.QuestChests.StealFromThieves, 3)
@@ -61,7 +61,7 @@ local function creatureSayCallback(cid, type, msg)
 			else
 				npcHandler:say('Come back when you find my stuff.', cid)
 				npcHandler.topic[cid] = 0
-			end	
+			end
 		end
 	end
 	return true

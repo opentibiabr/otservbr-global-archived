@@ -15,7 +15,7 @@ local items = {
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local rand = math.random(1, 100)
-	
+
 	if rand <= 15 then
 		player:addItem(items.glooth_spears, 2)
 	elseif rand >= 16 and rand <= 23 then
@@ -33,11 +33,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif rand >= 87 and rand <= 96 then
 		player:addItem(items.glooth_soup, 10)
 	elseif rand >= 97 and rand <= 99 then
-		player:addItem(items.control_unit, 1) 
+		player:addItem(items.control_unit, 1)
 	elseif rand == 100 then
 		player:addItem(items.glooth_steaks, 10)
 	end
-	
+
 	item:remove(1)
 
 	return true

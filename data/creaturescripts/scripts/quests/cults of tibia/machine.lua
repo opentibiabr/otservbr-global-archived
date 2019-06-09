@@ -50,7 +50,7 @@ function onDeath(creature, attacker)
 	elseif nameLower == "the armored voidborn" then
 		Game.createMonster("The Unarmored Voidborn", creaturePosition):registerEvent("bossesMission")
 	end
-	
+
 	return true
 end
 
@@ -94,7 +94,7 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 			Game.createMonster("Voidshard", boss:getPosition() )
 			Game.createMonster("Voidshard", boss:getPosition() )
 		end
-		
+
 	end
     return primaryDamage, primaryType, secondaryDamage, secondaryType
 end

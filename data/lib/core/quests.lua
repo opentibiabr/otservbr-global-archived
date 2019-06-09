@@ -3607,7 +3607,7 @@ function Player.sendQuestLine(self, questId)
 		if (self:getClient().os == CLIENTOS_NEW_WINDOWS) then
 			self:sendQuestTracker()
 		end
-		
+
 		msg:sendToPlayer(self)
 		msg:delete()
 	end

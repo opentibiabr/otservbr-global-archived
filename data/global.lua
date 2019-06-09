@@ -58,7 +58,7 @@ verticalOpenDoors = {
 	5133, 5142, 5145, 5283, 5285, 5289, 5293, 5516, 5737, 5749, 6194, 6199, 6203, 6207, 6251, 6256, 6260, 6264, 6798, 6802, 6902, 6904, 6906, 6908, 7044,
 	7046, 7048, 7050, 7055, 8543, 8548, 8552, 8556, 9167, 9172, 9269, 9274, 9274, 9269, 9278, 9282, 10270, 10275, 10279, 10283, 10479, 10481, 10485, 10483,
 	10786, 12101, 12199, 19851, 19853, 19991, 19993, 20284, 20286, 17238, 13021, 10790, 12103, 12205, 19855, 19995, 20288, 10792, 12105, 12203, 19857, 19997,
-	20290, 22825, 22827, 22829, 22831, 25159, 25163, 26546 
+	20290, 22825, 22827, 22829, 22831, 25159, 25163, 26546
 }
 
 horizontalOpenDoors = {
@@ -95,8 +95,8 @@ updateInterval = 2 --every 2 seconds
 healingImpact = {} -- global table to insert data
 -- Damage
 damageImpact = {} -- global table to insert data
- 
- 
+
+
   --
 local start = os.time()
 local linecount = 0
@@ -246,7 +246,7 @@ if not bosssPlayers then
 	}
 end
 
--- MARRY 
+-- MARRY
 PROPOSED_STATUS = 1
 MARRIED_STATUS = 2
 PROPACCEPT_STATUS = 3
@@ -356,7 +356,7 @@ for x = 33611, 33625 do
 		end
 	end
 end
-	
+
 for x = 33634, 33648 do
 	for y = 32658, 32727 do
 		local position = Position(x, y, 12)

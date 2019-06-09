@@ -12,7 +12,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if (target == nil) or not target:isItem() or (target:getId() ~= 21567) then	
+	if (target == nil) or not target:isItem() or (target:getId() ~= 21567) then
 		return false
 	end
 
@@ -27,7 +27,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		item:transform(transformTo[item:getId()])
 		if math.random(100) > 60 then
 			player:teleportTo(getFreePosition(area[1], area[2]))
-			player:getPosition():sendMagicEffect(11)		
+			player:getPosition():sendMagicEffect(11)
 		end
 	end
 	return toPosition:sendMagicEffect(12)

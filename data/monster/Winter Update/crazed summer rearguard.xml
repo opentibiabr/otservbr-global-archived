@@ -16,7 +16,7 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
-			
+
 		<flag canwalkonfire="1" />
 		<flag canwalkonenergy="1" />
 		<flag canwalkonpoison="1" />
@@ -24,7 +24,7 @@
 	<attacks>
 		<attack name="melee" interval="2000" min="-0" max="-530" />
 		<attack name="fire" interval="2000" chance="50" length="3" spread="0" min="-270" max="-710">
-		<attribute key="areaEffect" value="FIREAREA" /> 
+		<attribute key="areaEffect" value="FIREAREA" />
 		</attack>
 		<attack name="fire" interval="2000" chance="50" range="7" min="-250" max="-300">
 		<attribute key="shootEffect" value="fire" />
@@ -51,30 +51,30 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<voices interval="10000" chance="7">
-		<voice sentence="Is this real life?" /> 
-		<voice sentence="Weeeuuu weeeuuu!!!" /> 
+		<voice sentence="Is this real life?" />
+		<voice sentence="Weeeuuu weeeuuu!!!" />
 	</voices>
 	<loot>
 <!--common-->
-<item name="power bolt" chance="1000000" /> 
-<item name="small enchanted sapphire" count="2" chance="1000000" /> 
-<item name="platinum coin" count="11" chance="1000000" /> 
+<item name="power bolt" chance="1000000" />
+<item name="small enchanted sapphire" count="2" chance="1000000" />
+<item name="platinum coin" count="11" chance="1000000" />
 <!--uncommon-->
 <item id="5921" chance="15000" /><!-- heaven blossom -->
-<item name="dream essence egg" chance="11550" />    
+<item name="dream essence egg" chance="11550" />
 <item name="elvish talisman" chance="13550" />
 <item name="violet crystal shard" chance="14750" />
 <item name="small enchanted ruby" chance="17550" />
 <item name="red crystal fragment" chance="15650" />
 <!--semi-rare-->
-<item name="leaf star" count="8" chance="11100" /> 
-<item id="26185"  chance="1000" /> <!--ring of blue plasma--> 
-<item name="sun fruit" chance="25800" /> 
-<item id="26198"  chance="12590" />  <!--collar of blue plasma --> 
+<item name="leaf star" count="8" chance="11100" />
+<item id="26185"  chance="1000" /> <!--ring of blue plasma-->
+<item name="sun fruit" chance="25800" />
+<item id="26198"  chance="12590" />  <!--collar of blue plasma -->
 <item name="wood cape" chance="30000" />
-<!--rare-->  
-<item name="small diamond" chance="1800" /> 
-<item name="yellow gem"  chance="2640" />  
+<!--rare-->
+<item name="small diamond" chance="1800" />
+<item name="yellow gem"  chance="2640" />
 <item name="crystal crossbow" chance="2600" />
 </loot>
 </monster>

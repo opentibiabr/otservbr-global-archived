@@ -10,7 +10,7 @@ function onThink()				npcHandler:onThink()					end
 local playerTopic = {}
 local function greetCallback(cid)
 	local player = Player(cid)
-	
+
 	if player then
 		npcHandler:setMessage(MESSAGE_GREET, "Greeting, |PLAYERNAME|! I welcome you to this sacred {place}. If you are interested in {missions} just ask.")
 		playerTopic[cid] = 1
@@ -36,7 +36,7 @@ keywordHandler:addKeyword({'aproacches'}, StdModule.say, {npcHandler = npcHandle
 keywordHandler:addKeyword({'dawn'}, StdModule.say, {npcHandler = npcHandler, text = {'Even we know the individual that was somewhat of our funder, only as the wise man. ...',
 																					 'He was the first to bring bright and dedicated minds together, to bring at least a little order and guidance into troubled and chaotic times. ...',
 																					 'The order predates mankind and never bothered to give itself a name. Such assumptions of pretence and vanity have no place in our mindset.'}})
-																					 
+
 keywordHandler:addKeyword({'guidance'}, StdModule.say, {npcHandler = npcHandler, text = {'Most times we are silent watchers and keeper of knowledge that share what they have learned with each other. We are more concerned about knowledge and wisdom and power means little to us. ...',
 																						'To solve problems we usually try to convince the right people to do the right thing. We usually even lack the means for a more direct interference.'}})
 
@@ -49,18 +49,18 @@ keywordHandler:addKeyword({'feyrist'}, StdModule.say, {npcHandler = npcHandler, 
 
 keywordHandler:addKeyword({'fae'}, StdModule.say, {npcHandler = npcHandler, text = {'The fae vary greatly in size and appearance. There are different kinds of fae like fauns, pixies, pookas, swan maidens, nymphs and boogies. Those mystical creatures are wielding power in magic and elementals. ...',
 																				    'Most of them are rather reclusive and live peaceful lives in their secret realm. Sometimes they are called the \'children of dreams\' or \'the dream born\' because the fae are born from the mortals\' dreams.'}})
-																					
+
 keywordHandler:addKeyword({'fauns'}, StdModule.say, {npcHandler = npcHandler, text = {'Fauns are half-human, half-beast nature spirits inhabiting the woods and mountains of Feyrist. They are a slightly roguish but cheerful folk, lovers of wine and dancing. ...',
 																					 'Fauns show a youthful and graceful aspect but they are also brave and fearless when it comes to defend themselves. As Maelyrra told me, they emerge from mortals\' dreams about celebrations, music and dancing. ...',
 																					 'Lately, some fauns on Feyrist are tainted by the mysterious, sinister force that is threatening Feyrist as well as the rest of Tibia.'}})
-																					 
+
 keywordHandler:addKeyword({'pixies'}, StdModule.say, {npcHandler = npcHandler, text = {'Pixies are small nature spirits and mythical creatures inhabiting the forests and plains of Feyrist. They are generally benign, but at times, they may also display mischievous traits. ...',
 																					  'Like most of the fae, pixies love dancing and are often gathering in larger groups to dance on secluded glades. Pixies love flowers, butterflies, shimmering beetles, gems and other colourful things. ...',
 																					  'They also love the taste of honey, sweetened oat and ripe grapes. As Maelyrra told me, pixies emerge from mortals\' dreams about friends and family.'}})
 
 keywordHandler:addKeyword({'pookas'}, StdModule.say, {npcHandler = npcHandler, text = {'Pookas are nature spirits in animal form, looking like big hares with a faintly glittering fur. They are benign but mischievous, for sure with good reason regarded as the tricksters among the fae. ...',
 																					   'Pookas love to play pranks on others, snitching and hiding things or telling made-up stories. They are capricious and fickle creatures. Pookas emerge from mortals\' dreams about gems, treasures and gold. ...',
-																					   'Lately, some pookas on Feyrist are tainted by a mysterious, sinister force that is threatening Feyrist as well as the rest of Tibia.'}})																					  
+																					   'Lately, some pookas on Feyrist are tainted by a mysterious, sinister force that is threatening Feyrist as well as the rest of Tibia.'}})
 
 keywordHandler:addKeyword({'swan maidens'}, StdModule.say, {npcHandler = npcHandler, text = {'Swan maidens are fae who can shapeshift from human form to swan form. The magical item allowing this transformation is a swan feather cloak, a garment with swan feathers attached. ...',
 																					    'Here on Feyrist it is always hard to tell whether a swan swimming on a lake is an ordinary animal or a swan maiden in her bird shape. ...',
@@ -81,7 +81,7 @@ keywordHandler:addKeyword({'fae court'}, StdModule.say, {npcHandler = npcHandler
 keywordHandler:addKeyword({'cults'}, StdModule.say, {npcHandler = npcHandler, text = {'It doesn\'t seem that the cults share a common theme or object of reverence but there has to be some connection beyond being at the centre of culminations of disruptive power from beyond. ...',
 																					  'The connection is of second thought though. Connected or not, they further the death of our world. That alone makes it imperative to dig those cults out and destroy their cores. ...',
 																					  'We won\'t be able to rout our each and any movement but if we manage to neutralize the worst, we gain some time and deny the enemy much of its leverage on the future of our world.'}})
-																						  
+
 keywordHandler:addKeyword({'worst'}, StdModule.say, {npcHandler = npcHandler, text = {'We have located some of the worst culminations of otherworldly presence and our sources returned information about them with different results of success. ...',
 																					      'Some information I can provide you will be rather sparse and much is left to speculation but you should have at least some lead where to go and investigate.'}})
 
@@ -94,8 +94,8 @@ keywordHandler:addKeyword({'works'}, StdModule.say, {npcHandler = npcHandler, te
 																					  'and ultimately not only fell and became his, they also provided the thing with something of their own, be it knowledge, understanding or even direction, purpose. ...',
 																					  'In some way their tainted knowledge brought the unthinkable into a resemblance of existence. ...',
 																					  'That is why we cant dabble too much in figuring this out and rather concentrate on our fight to severe its ties to our world.'}})
-																					  
-keywordHandler:addKeyword({'ties'}, StdModule.say, {npcHandler = npcHandler, text = 'I have several missions available that deal with servering the ties of the corrupting influence on our world.'})																					  
+
+keywordHandler:addKeyword({'ties'}, StdModule.say, {npcHandler = npcHandler, text = 'I have several missions available that deal with servering the ties of the corrupting influence on our world.'})
 
 
 
@@ -107,7 +107,7 @@ local config = {
 			StorageId = 18005,
 			StorageValueToReceive = 9,
 			rewardExp = 50000,
-			
+
 		},
 
 		["prosperity"] = {
@@ -126,7 +126,7 @@ local config = {
 			StorageId = 18001,
 			StorageValueToReceive = 5,
 			rewardExp = 25000,
-			
+
 		},
 
 		["barkless"] = {
@@ -137,7 +137,7 @@ local config = {
 			StorageValueToReceive = 6,
 			rewardExp = 50000,
 		},
-		
+
 		["misguided"] = {
 			text =  {'There\'s a camp of outlaws to the east of Thais. Rumour has it that people are going missing but it\'s not linked to the bandits. ...',
 					 'Lights have been seen at night in the abandoned ruin in the vicinity of the camp, somewhere to the south-west. Brave enough to check it out?'},
@@ -146,7 +146,7 @@ local config = {
 			StorageValueToReceive = 4,
 			rewardExp = 50000,
 		},
-		
+
 		["orcs"] = {
 			text =  {'Several Edron orcs have taken to a dangerous idol it seems. It may not be too late to stop them if you act quickly. A powerful cult of orcs with a broad following could prove unsurmountable in the end. ...',
 			completeText = {'Then you got it. Thank you. Here is your reward.'},
@@ -155,7 +155,7 @@ local config = {
 			StorageValueToReceive = 2,
 			rewardExp = 25000,
 		},
-		
+
 		["humans"] = {
 			text =  {'It\'s a forbidden and abandoned place but... There is an ancient temple of Zathroth beneath Carlin. Some say it\'s not that abandoned anymore. ...',
 					'Voices, flickering lights in the dead of night, and even a strange gate like sphere wich leads to who knows where. I can\'t really request this from you but... Someone should take a look, or not?'},
@@ -170,16 +170,16 @@ local config = {
 local Stg = { }
 local value = { }
 local rewardExperience = { }
-																	  																			  
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	npcHandler.topic[cid] = playerTopic[cid]
 	local player = Player(cid)
-	
-	
+
+
 	if msgcontains(msg, "missions") and npcHandler.topic[cid] == 1 then
 	-- Checagem para o FINAL BOSS
 	if player:getStorageValue(Storage.CultsOfTibia.finalBoss.Mission) > 2 then
@@ -220,18 +220,18 @@ local function creatureSayCallback(cid, type, msg)
 			player:addItem(29422)
 			player:setStorageValue(Storage.CultsOfTibia.finalBoss.Mission, 3)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained 50000 experience points.")
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a mystery box.")	
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a " .. item .. ".")				
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a mystery box.")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a " .. item .. ".")
 		else
 		npcHandler:say({"In wich of the following topics are you interested in? Cult of {Life}, Cult of {Prosperity}, Cult of the {Minotaurs}, Cult of the {Barkless}, Cult of the {Misguided}, Cult of {Orcs} or Cult of the {Humans}?"}, cid)
 		npcHandler.topic[cid] = 2
 		playerTopic[cid] = 2
 	end
-	
+
 	-- GERAL
 	elseif npcHandler.topic[cid] == 2 then
 	local missionsTable = config.missions[msg:lower()]
-		if missionsTable then	
+		if missionsTable then
 			Stg[cid] = missionsTable.StorageId
 			value[cid] = missionsTable.StorageValueToReceive
 			rewardExperience[cid] = missionsTable.rewardExp
@@ -241,7 +241,7 @@ local function creatureSayCallback(cid, type, msg)
 				player:addExperience(rewardExperience[cid])
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained " .. rewardExperience[cid] .. " experience points.")
 				npcHandler.topic[cid] = 0
-				playerTopic[cid]= 0			
+				playerTopic[cid]= 0
 			elseif player:getStorageValue(Stg[cid]) > 0 and player:getStorageValue(Stg[cid]) > value[cid] then
 				npcHandler:say({"You already done this mission."}, cid)
 				npcHandler.topic[cid] = 2
@@ -252,8 +252,8 @@ local function creatureSayCallback(cid, type, msg)
 				playerTopic[cid]= 3
 			end
 		end
-			
-	-- Aceitou a missão		
+
+	-- Aceitou a missão
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 3 then
 		if player:getStorageValue(Stg[cid]) < 1 then
 			npcHandler:say({"Very nice! Come back if you have found what's going on in this cult."}, cid)
@@ -266,13 +266,13 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 2
 			playerTopic[cid]= 2
 		end
-		
+
 	-- Recusou a missão
 	elseif msgcontains(msg, "no") and npcHandler.topic[cid] == 3 then
 	npcHandler:say({"What a pitty! You can come back, when ever you want, if you have changed your opinion."}, cid)
 	npcHandler.topic[cid] = 0
-	
-	
+
+
 		end
 	return true
 end

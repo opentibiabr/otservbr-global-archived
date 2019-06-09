@@ -1,4 +1,4 @@
-local itemInfos = { 
+local itemInfos = {
 	[29425] = {29429, 29425}, -- first index is the id of the item and the second the storage number for exhaustion purposes
 	[29429] = {29425, 29425},
 	[29423] = {29427, 29423},

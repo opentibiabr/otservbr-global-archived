@@ -10,9 +10,9 @@
 			bolt,2261,15;
 			bow,2277,38;
 			crossbow,2301,28;
-			health,7618,45;			
+			health,7618,45;
 			icicle rune,2271,45;
-			Heavy,2311,45;			
+			Heavy,2311,45;
 			rune,2265,95;
 			drill bolt,7620,50;
 			earth arrow,2186,1000;
@@ -20,13 +20,13 @@
 			poison,2285,21;
 			fireball rune,8704,20;
 			flaming arrow,2182,500;
-			
+
 			flaming arrow,2188,5000;
 			flaming arrow,2191,1000;
 			flaming arrow,2190,500" />
-		
+
 		<parameter key="shop_sellable" value="
-		
+
 		    flaskpequeno,7636,5" />
 		<parameter key="message_farewell" value="May enlightenment be your path, |PLAYERNAME|." />
 		<parameter key="message_walkaway" value="May enlightenment be your path, |PLAYERNAME|." />

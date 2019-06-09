@@ -77,7 +77,7 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet, 2)
 				npcHandler:say('Receive the shield, |PLAYERNAME|.', cid)
 			else
-				npcHandler:say('The shield will only be granted to those adventurers who have finished the demon helmet quest, |PLAYERNAME|.', cid)	
+				npcHandler:say('The shield will only be granted to those adventurers who have finished the demon helmet quest, |PLAYERNAME|.', cid)
 				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'helmet') then

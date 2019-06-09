@@ -50,19 +50,19 @@
 		<immunity physical="1"/>
 	</immunities>
 	<voices interval="10000" chance="7">
-		<voice sentence="We came tooo thiiiiss wooorld to... get youuu!" /> 
+		<voice sentence="We came tooo thiiiiss wooorld to... get youuu!" />
 	</voices>
 	<loot>
 <!--common-->
-<item name="platinum coin" count="7" chance="100000" /> 
+<item name="platinum coin" count="7" chance="100000" />
 <item name="great spirit potion"  countmax="3" chance="100000" />
 <!--uncommon-->
-<item name="protection amulet" chance="15000" /> 
-<item name="life crystal" chance="12050" />  
+<item name="protection amulet" chance="15000" />
+<item name="life crystal" chance="12050" />
 <!--semi-rare-->
-<item name="silver amulet" chance="15000" /> 
-<item name="wand of voodoo" chance="11050" /> 
-<item name="wand of cosmic energy" chance="11800" /> 
+<item name="silver amulet" chance="15000" />
+<item name="wand of voodoo" chance="11050" />
+<item name="wand of cosmic energy" chance="11800" />
 <item name="dragon necklace" chance="16600" />
 <item name="stone skin amulet" chance="15860" />
 <item name="blue ectoplasm" chance="15600" />
@@ -70,14 +70,14 @@
 <item name="orb" chance="18980" />
 <item name="hailstorm rod" chance="17550" />
 <item name="hexagonal ruby" chance="16980" />
-<!--rare-->  
-<item name="elven amulet" chance="1800" /> 
-<item name="garlic necklace"  chance="2640" />  
+<!--rare-->
+<item name="elven amulet" chance="1800" />
+<item name="garlic necklace"  chance="2640" />
 <item name="platinum amulet" chance="2600" />
 <item name="mind stone" chance="1800" />
-<!--very rare-->  
-<item name="glacial rod"  chance="520" />   
-<item name="shockwave amulet"  chance="620" /> 
-<item name="strange symbol"  chance="720" /> 
+<!--very rare-->
+<item name="glacial rod"  chance="520" />
+<item name="shockwave amulet"  chance="620" />
+<item name="strange symbol"  chance="720" />
 </loot>
 </monster>

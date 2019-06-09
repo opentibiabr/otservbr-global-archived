@@ -11,12 +11,12 @@ local function creatureSayCallback(cid, type, msg)
 	npcHandler:say('Marriage System is disabled.', cid)
     return false
 end
- 
+
 local function confirmWedding(cid, message, keywords, parameters, node)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
- 
+
     local player = Player(cid)
     local playerStatus = getPlayerMarriageStatus(player:getGuid())
     local candidate = getPlayerSpouse(player:getGuid())
@@ -45,15 +45,15 @@ end
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-   
+
     local player = Player(cid)
     local playerStatus = getPlayerMarriageStatus(player:getGuid())
     local playerSpouse = getPlayerSpouse(player:getGuid())
     if playerStatus == PROPOSED_STATUS then
-		
+
         npcHandler:say('Are you sure you want to remove your wedding proposal with {' .. getPlayerNameById(playerSpouse) .. '}?', cid)
         node:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, moveup = 3, text = 'Ok, let\'s keep it then.'})
-       
+
         local function removeEngage(cid, message, keywords, parameters, node)
             doPlayerAddItem(cid,ITEM_WEDDING_RING,1)
        doPlayerAddItem(cid,10503,1)
@@ -74,14 +74,14 @@ local function confirmDivorce(cid, message, keywords, parameters, node)
     if(not npcHandler:isFocused(cid)) then
         return false
     end
-   
+
     local player = Player(cid)
     local playerStatus = getPlayerMarriageStatus(player:getGuid())
     local playerSpouse = getPlayerSpouse(player:getGuid())
     if playerStatus == MARRIED_STATUS then
         npcHandler:say('Are you sure you want to divorce of {' .. getPlayerNameById(playerSpouse) .. '}?', cid)
         node:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, moveup = 3, text = 'Great! Marriages should be an eternal commitment.'})
-       
+
         local function divorce(cid, message, keywords, parameters, node)
             local player = Player(cid)
             local spouse = getPlayerSpouse(player:getGuid())

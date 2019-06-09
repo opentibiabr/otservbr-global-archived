@@ -25,6 +25,6 @@ function onSay(cid, words, param)
 
 	local ch = split[2]
 	sto=getPlayerStorageValue(getPlayerByName(split[1]), tonumber(ch))
-	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "The storage with id: "..tonumber(ch).." from player "..split[1].." is: "..sto..".")	
+	doPlayerSendTextMessage(cid, MESSAGE_EVENT_ADVANCE, "The storage with id: "..tonumber(ch).." from player "..split[1].." is: "..sto..".")
 	return false
 end

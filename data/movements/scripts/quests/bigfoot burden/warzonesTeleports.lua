@@ -14,7 +14,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if not destination then
 		return true
 	end
-	
+
 	if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are not permitted to enter.")
 		player:teleportTo(fromPosition)

@@ -23,16 +23,16 @@
 		<attribute key="areaEffect" value="HOLYAREA" />
 		</attack>
  		<attack name="energy" interval="2000" chance="50" length="4" spread="0" min="-280" max="-450">
-		<attribute key="areaEffect" value="ENERGYAREA" /> 
+		<attribute key="areaEffect" value="ENERGYAREA" />
 		</attack>
  		<attack name="physical" interval="2000" chance="50"  target="1" radius="6" min="-250" max="-400">
 		<attribute key="areaEffect" value="yellowspark" />
-		</attack> 
-   </attacks>   
+		</attack>
+   </attacks>
 		<defenses armor="78" defense="25">
 			<defense name="healing" interval="2000" chance="14" min="150" max="250">
 			<attribute key="areaEffect" value="blueshimmer"/>
-		</defense>		
+		</defense>
 	</defenses>
 	<elements>
 		<element firePercent="20" />
@@ -42,10 +42,10 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="Uuuuuuuuuaaaaaarg!!!" /> 
+		<voice sentence="Uuuuuuuuuaaaaaarg!!!" />
 	</voices>
 	<loot>
-        <item name="Platinum Coin" countmax="17" chance="5000" />	
+        <item name="Platinum Coin" countmax="17" chance="5000" />
 		<item name="Meat" countmax="3" chance="5000" />
 		<item name="Great Spirit Potion" countmax="3" chance="1000" />
 		<item name="Ultimate Health Potion" countmax="1" chance="1000" />

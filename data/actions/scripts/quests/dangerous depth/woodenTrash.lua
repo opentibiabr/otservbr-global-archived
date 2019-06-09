@@ -6,7 +6,7 @@ function onUse(creature, item)
 	local r = math.random(1, 100)
 	local stgValueP = creature:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners)
 
-	if creature:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1 and stgValueP < 3 then	
+	if creature:getStorageValue(Storage.DangerousDepths.Dwarves.Home) == 1 and stgValueP < 3 then
 		if r <= 25 then
 			creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You started an escort, get your prisoner to the dwarf outpost!")
 			local prisoner = Game.createMonster("Captured Dwarf", item:getPosition())

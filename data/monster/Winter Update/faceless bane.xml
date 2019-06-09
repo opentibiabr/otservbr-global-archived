@@ -34,9 +34,9 @@
 	</immunities>
 	<loot>
 <!--common-->
-<item name="Book Backpack" chance="100000" /> 
-<item name="Ectoplasmic Shield" chance="100000" /> 
-<item name="Spirit Guide" chance="100000" /> 
+<item name="Book Backpack" chance="100000" />
+<item name="Ectoplasmic Shield" chance="100000" />
+<item name="Spirit Guide" chance="100000" />
 <item name="Enchanted Pendulet" chance="100000" />
 </loot>
 </monster>

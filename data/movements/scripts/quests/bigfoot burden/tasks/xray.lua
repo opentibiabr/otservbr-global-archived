@@ -19,8 +19,8 @@ local function sendTextMessages(cid, index, position)
 		return false
 	end
 
-	local playerposuid = Tile(player:getPosition()):getGround() 
-	playerposuid = playerposuid:getUniqueId() 
+	local playerposuid = Tile(player:getPosition()):getGround()
+	playerposuid = playerposuid:getUniqueId()
 	if playerposuid ~= 3123 then
 		return false
 	end

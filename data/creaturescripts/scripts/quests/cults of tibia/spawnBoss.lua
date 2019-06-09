@@ -10,6 +10,6 @@ function onDeath(creature, target)
 	elseif monsterName == "the sinister hermit" then
 		local monster = Game.createMonster("The Souldespoiler", pos)
 	end
-	
+
 	return true
 end

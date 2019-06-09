@@ -27,16 +27,16 @@
 		<attack name="physical" interval="2000" chance="7" length="8" spread="3" min="-650" max="-900">
 			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="0" min="-850" max="-2260"> 
+		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="0" min="-850" max="-2260">
 			<attribute key="areaeffect" value="redshimmer"/>
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="20" radius="5" min="-640" max="-800"> 
+		<attack name="lifedrain" interval="2000" chance="20" radius="5" min="-640" max="-800">
 			<attribute key="areaeffect" value="smallclouds"/>
 		</attack>
-		<attack name="energy" interval="2000" chance="20" length="8" spread="0" min="-420" max="-954"> 
+		<attack name="energy" interval="2000" chance="20" length="8" spread="0" min="-420" max="-954">
 			<attribute key="areaeffect" value="purpleenergy"/>
 		</attack>
-		<attack name="earth" interval="2000" chance="20" radius="5" target="1" min="-640" max="-800"> 
+		<attack name="earth" interval="2000" chance="20" radius="5" target="1" min="-640" max="-800">
 			<attribute key="areaeffect" value="stones"/>
 		</attack>
 		<attack name="medusa paralyze" interval="2000" chance="20"/>

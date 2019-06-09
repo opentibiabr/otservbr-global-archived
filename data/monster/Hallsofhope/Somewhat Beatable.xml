@@ -49,7 +49,7 @@
 		<item id="2406" chance="8870" /><!-- short sword -->
 		<item id="2559" chance="9700" /><!-- small axe -->
 		<item id="1294" countmax="3" chance="15290" /><!-- small stone -->
-		<item id="12495" chance="910" /><!-- Goblin Ear Gingerbreadman --> 
-		<item id="6501" chance="910" /><!-- Goblin Ear Gingerbreadman --> 
+		<item id="12495" chance="910" /><!-- Goblin Ear Gingerbreadman -->
+		<item id="6501" chance="910" /><!-- Goblin Ear Gingerbreadman -->
 	</loot>
 </monster>

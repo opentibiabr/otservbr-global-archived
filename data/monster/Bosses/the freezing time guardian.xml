@@ -40,7 +40,7 @@
 		<attack name="bleedcondition" interval="2000" chance="20" length="9" spread="0" min="-2000" max="-2000">
 			<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
-		
+
 	</attacks>
 	<defenses armor="70" defense="70">
 		<defense name="time guardian lost time" interval="2000" chance="10"/>

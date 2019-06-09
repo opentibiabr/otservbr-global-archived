@@ -20,11 +20,11 @@ local function createVortex()
 	if mathCount == 0 then
 		positions = storedPositions
 	end
-	
+
 	local r1 = math.random(#positions)
-	
+
 	local tile = Tile(positions[r1])
-	
+
 	if tile then
 		local ground = tile:getGround()
 		if ground then
@@ -36,7 +36,7 @@ local function createVortex()
 			table.remove(positions, r1)
 		end
 	end
-	
+
 	if mathCount == 11 then
 		mathCount = 0
 	end

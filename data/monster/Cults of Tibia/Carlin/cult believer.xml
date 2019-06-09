@@ -28,7 +28,7 @@
 		<element holyPercent="-20" />
 	</elements>
 	<immunities>
-		
+
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="13">
@@ -36,12 +36,12 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="69" chance="100000" />	<!-- GOLD COIN -->
-		<item id="2145" countmax="1" chance="2640" />		<!-- SMALL DIAMOND  -->			
+		<item id="2145" countmax="1" chance="2640" />		<!-- SMALL DIAMOND  -->
 		<item id="7591" countmax="1" chance="5210" />		<!-- GREAT HEALTH POTION -->
-		<item id="2149" countmax="1" chance="2007" />		<!-- SMALL EMERALD  -->	
+		<item id="2149" countmax="1" chance="2007" />		<!-- SMALL EMERALD  -->
 		<item id="2666" countmax="1" chance="12430" />		<!-- MEAT -->
 		<item id="2661" chance="1210" />					<!-- SCARF -->
-		<item id="2114" chance="70" />						<!-- PIGGY BANK -->		
-		<item id="10556" chance="4290" />					<!-- CULTISH ROBBE -->		
+		<item id="2114" chance="70" />						<!-- PIGGY BANK -->
+		<item id="10556" chance="4290" />					<!-- CULTISH ROBBE -->
 	</loot>
 </monster>

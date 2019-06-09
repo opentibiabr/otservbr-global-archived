@@ -6,7 +6,7 @@ local function checkTentacle()
 			Game.createMonster('tentacle of the deep terror', Position(math.random(33736, 33746), math.random(31948, 31957), 14), true, true)
 			return true
 		elseif spectator:isMonster() then
-			if Game.getStorageValue(GlobalStorage.HeroRathleton.DeepRunning) == 2 then 
+			if Game.getStorageValue(GlobalStorage.HeroRathleton.DeepRunning) == 2 then
 				return true
 			end
 			Game.createMonster('Deep Terror', Position(33741, 31953, 14), true, true)

@@ -1,6 +1,6 @@
 --- [[ Warzone 2 feito por Yuri Lagrotta ]] ---
 
-local kickposs = {x=33000, y=31899, z=9} 
+local kickposs = {x=33000, y=31899, z=9}
 
 local function deGnomevil()
 if(getGlobalStorageValue(91149) < 1) then
@@ -13,20 +13,20 @@ if(getGlobalStorageValue(91149) < 1) then
 				if getCreatureName(creature.uid) == "Gnomevil" then
 					doRemoveCreature(creature.uid)
 					setGlobalStorageValue(91149, 1)
-					addEvent(setGlobalStorageValue, 5 * 60 * 1000, 91149, 0) 
+					addEvent(setGlobalStorageValue, 5 * 60 * 1000, 91149, 0)
 					end
 				end
 			end
 		end
     end
     return FALSE
-end    
-       
+end
+
 function onStepIn(cid, item, position, topos, frompos)
     if not isPlayer(cid) then
         return false
     end
-           
+
 if item.actionid == 5159 then
 	doTeleportThing(cid, {x = 33105, y = 31955, z = 11})
 	doPlayerSendTextMessage(cid, 19, "You have half an hour to heroically defeat Gnomevil. Otherwise you'll be teleported out by the gnomish emergency device.")

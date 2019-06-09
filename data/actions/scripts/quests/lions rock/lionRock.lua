@@ -1,6 +1,6 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     local itemEx = target
- 
+
     -- Flower
     if item.actionid == 41354 then  -- Getting Flower
         if player:getStorageValue(lionrock.storages.getFlower) < 1 then
@@ -8,31 +8,31 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have picked a beatiful's lion's mane.")
             player:setStorageValue(lionrock.storages.getFlower, 1)
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
-			else 			
+			else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You've picked this flower before.")
         end
         return true
     end
-   
+
     if item:getId() == lionrock.items.flower and itemEx.actionid == 41340 then -- Using Flower with Basin
         if player:getStorageValue(lionrock.storages.usedFlower) < 1 then
             player:removeItem(lionrock.items.flower, 1)
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You burnt a lion's mane flower. The light in the small pyramid nearby begins to shine.")
             player:setStorageValue(lionrock.storages.usedFlower, 1)
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
-			else 			
+			else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have burned the flower before.")
         end
         return true
     end
-   
+
     -- Using Skeleton
     if item.actionid == 41356 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You missed the skeleton, you can get the scroll from the \"Amphora\".")
         player:setStorageValue(lionrock.storages.skeleton, 1)
         player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
     end
-   
+
     -- Holy Water
     if item.actionid == 41355 then
         if player:getStorageValue(lionrock.storages.getHolyWater) < 1 then -- Getting Holy Water
@@ -40,11 +40,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You took some holy water from the sacred well.")
             player:setStorageValue(lionrock.storages.getHolyWater, 1)
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
-			else 			
+			else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You've picked this holy water before.")
         end
     end
-   
+
     if item:getId() == lionrock.items.holywater and itemEx.actionid == 41343 then -- Using HolyWater with Tears
         if player:getStorageValue(lionrock.storages.usedHolyWater) < 1 then
             player:removeItem(lionrock.items.holywater, 1)
@@ -54,7 +54,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         end
         return true
     end
-   
+
     -- Tongue
     if item:getId() == lionrock.items.tongue and itemEx.actionid == 41341 then -- Using HolyWater with Tears
         if player:getStorageValue(lionrock.storages.usedTongue) < 1 then
@@ -65,7 +65,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         end
         return true
     end
-   
+
     -- Large Amphora
     if item.actionid == 41345 then
         if player:getStorageValue(lionrock.storages.getScroll) < 1 and player:getStorageValue(lionrock.storages.skeleton) > 1 then
@@ -75,9 +75,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
             player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
         end
     end
-   
+
    if item.actionid == 41357 then
-       
+
         if player:getStorageValue(lionrock.storages.playerCanDoTasks) - os.time() > 0 then
            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Come back after the server save.")
             return false
@@ -93,36 +93,36 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         local reward = lionrock.rewards[math.random(#lionrock.rewards)]
         player:addItem(reward.id, 1)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Here is your reward.")
-	   
+
         -- Reseting tasks
         lionrock.taskactive.ruby = false
         lionrock.taskactive.sapphire = false
         lionrock.taskactive.amethyst = false
         lionrock.taskactive.topaz = false
-       
+
         -- removign fires.
-	   
+
 	   -- ruby
 	local redflamePosition = Position(33069, 32298, 9)
 	local redItem = Tile(redflamePosition):getItemById(1488)
 	if redItem then
 		redItem:remove()
 	end
-	
+
 	-- amethyst
 	local yellowflamePosition = Position(33077, 32302, 9)
 	local yellowItem = Tile(yellowflamePosition):getItemById(1500)
 	if yellowItem then
 		yellowItem:remove()
 	end
-	
+
 	-- topaz
 	local purpleflamePosition = Position(33077, 32298, 9)
 	local purpleItem = Tile(purpleflamePosition):getItemById(7473)
 	if purpleItem then
 		purpleItem:remove()
 	end
-	
+
 	-- sapphire
 	local tpflamePosition = Position(33069, 32302, 9)
 	local tpItem = Tile(tpflamePosition):getItemById(8058)

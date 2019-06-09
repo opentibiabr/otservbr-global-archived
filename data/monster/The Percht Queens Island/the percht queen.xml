@@ -19,9 +19,9 @@
 	</flags>
 <attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
- 
+
 		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
-			<attribute key="shootEffect" value="ice" /> 
+			<attribute key="shootEffect" value="ice" />
 		</attack>
 	</attacks>
 	<defenses armor="79" defense="40" />
@@ -41,7 +41,7 @@
 	<loot>
 		<!-- common -->
 		<item name="Piggy Bank" chance="80000" />
-		<item name="Royal Star" count="100" chance="80000" /> 
+		<item name="Royal Star" count="100" chance="80000" />
 		<item name="Platinum Coin" count="5" chance="80000" />
 		<item name="Energy Bar" chance="75000" />
 		<item name="Supreme Health Potion" countmax="20" chance="65000" />
@@ -93,6 +93,6 @@
 		<item name="Abyss Hammer" chance="1480" />
 		<item name="Golden Bell" chance="2548" />
 		<item name="Golden Cotton Reel" chance="1254" />
-		<item name="Lucky Pig" chance="2540" />	
+		<item name="Lucky Pig" chance="2540" />
 	</loot>
 </monster>

@@ -52,15 +52,15 @@
 		<voice sentence="Wealth, Power, it is all at your fingertips. All you have to do is a bit blackmailing and bullying." />
 		<voice sentence="Come on. being a bit evil won't hurt you." />
 	</voices>
-	
+
 	<loot>
-	
+
 	<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
-		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin --> 
+		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->
 		<item id="10293" chance="1000" />				<!-- bread kk -->
 		<item id="10304" chance="1000" />				<!-- meat shield -->
 		<item id="10317" chance="1000" />				<!-- glutton's mace -->
 		<item id="10294" chance="1000" />				<!-- trousers of the ancients -->
 	</loot>
-	
+
 </monster>

@@ -36,7 +36,7 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	npcHandler.topic[cid] = playerTopic[cid]
 	local player = Player(cid)
 	npc = Npc(cid)
@@ -186,7 +186,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say({"Thank you very much! With those structures mapped out we will be able to complete the puzzle in no time!"}, cid)
 			if player:getStorageValue(Storage.DangerousDepths.Gnomes.ChartingCount) == 6 then
 				player:addItem(32014, 2)
-				player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + 2)	
+				player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + 2)
 			else
 				player:addItem(32014, 1)
 				player:setStorageValue(Storage.DangerousDepths.Gnomes.Status, player:getStorageValue(Storage.DangerousDepths.Gnomes.Status) + 1)
@@ -216,7 +216,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 1
 	end
 
-	
+
 	local plural = ""
 	if msgcontains(msg, "suspicious devices") or msgcontains(msg, "suspicious device") then
 		npcHandler:say({"If you bring me any suspicious devices on creatures you slay down here, I'll make it worth your while by telling the others of your generosity. How many do you want to offer? "}, cid)
@@ -224,7 +224,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 55
 	elseif npcHandler.topic[cid] == 55 then
 		quantidade[cid] = tonumber(msg)
-		if quantidade[cid] then	
+		if quantidade[cid] then
 			if quantidade[cid] > 1 then
 				plural = plural .. "s"
 			end

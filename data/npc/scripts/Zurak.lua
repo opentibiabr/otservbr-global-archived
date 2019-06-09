@@ -1,4 +1,4 @@
- 
+
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
@@ -15,7 +15,7 @@ local function creatureSayCallback(cid, type, msg)
 		--if Player(cid):getStorageValue(Storage.TheNewFrontier.Questline) >= 24 then
 			npcHandler:say("You want trip to Izzle of Zztrife?", cid)
 			npcHandler.topic[cid] = 1
-			--else 
+			--else
 			--npcHandler:say("You need The New Frontier Quest to travel.", cid)
 		--end
 	elseif msgcontains(msg, "yes") then

@@ -36,7 +36,7 @@
 		</attack>
 		<attack name="drunk" interval="2000" chance="8" radius="8" target="0" duration="15000">
 			<attribute key="areaEffect" value="greenspark"/>
-		</attack>			
+		</attack>
 	</attacks>
 	<defenses armor="15" defense="25">
 		<defense name="healing" interval="2000" chance="15" min="500" max="700">

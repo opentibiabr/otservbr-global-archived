@@ -31,7 +31,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		for q = 1,#bosses do
 			Game.createMonster(bosses[q].bossName, bosses[q].BossPosition, true, true)
-		end		
+		end
 		for y = 31660, 31664 do
 			local playerTile = Tile(Position(33010, y, 14)):getTopCreature()
 			if playerTile and playerTile:isPlayer() then

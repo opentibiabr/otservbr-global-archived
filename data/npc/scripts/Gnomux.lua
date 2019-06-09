@@ -35,7 +35,7 @@ function creatureSayCallback(cid, type, msg)
 	end
 
 	local player, canBuy, shopWindow = Player(cid), false, {}
-	
+
 	for itemid, data in pairs(spike_items) do
 		if not isInArray({-1, data[2]}, player:getStorageValue(data[3])) then
 			canBuy = true

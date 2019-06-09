@@ -38,7 +38,7 @@
 		<voice sentence="Aiiiiiiieeeeeeeh..." />
 	</voices>
 	<loot>
-		<item id="7588" countmax="1" chance="15000" />		<!-- STRONG HEALTH POTION  -->	
-		<item id="2156" countmax="1" chance="6000" />		<!-- RED GEM  -->	
+		<item id="7588" countmax="1" chance="15000" />		<!-- STRONG HEALTH POTION  -->
+		<item id="2156" countmax="1" chance="6000" />		<!-- RED GEM  -->
 	</loot>
 </monster>

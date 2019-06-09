@@ -5,5 +5,5 @@
 	<parameters>
 		<parameter key="message_greet" value="Greeting, adventurers. The voice that you are hearing is that of a friend, I assure you. I have to ask for your assistance in a matter of utmost {importance}." />
 	</parameters>
-	
+
 </npc>
