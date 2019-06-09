@@ -31431,7 +31431,9 @@
 	</item>
 	<item fromid="23379" toid="23382" article="a" name="cracked sewer pipe" />
 	<item fromid="23383" toid="23404" article="a" name="cracked tube" />
-	<item id="23405" article="a" name="sewer cover" />
+	<item id="23405" article="a" name="sewer cover">
+	<attribute key="floorchange" value="down"/>
+	</item>
 	<item fromid="23406" toid="23414" article="a" name="generator" />
 	<item fromid="23406" toid="23414" article="a" name="generator" />
 	<item fromid="23415" toid="23416" article="a" name="valve" />
@@ -31948,9 +31950,7 @@
 		<attribute key="description" value="A strangely shaped hollow rests in the center of this broken workbench." />
 	</item>
 	<item id="23668" article="a" name="pungs in the wall" />
-	<item id="23669" name="sewer grate">
-		<attribute key="floorchange" value="down" />
-	</item>
+	<item id="23669" name="sewer grate"/>
 	<item id="23672" article="an" name="Item desconhecido" />
 	<item fromid="23673" toid="23678" name="shallow water">
 		<attribute key="type" value="trashholder" />
