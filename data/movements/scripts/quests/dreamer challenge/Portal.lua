@@ -12,8 +12,8 @@ function onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(sacrificee2)
 		doSendMagicEffect(sacrificee2,CONST_ME_POFF)
 	else
-		player:teleportTo(sacrificee) 
-		
+		player:teleportTo(sacrificee)
+
 	if not player then
 		return true
 	end
@@ -21,7 +21,7 @@ function onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(ssacrificee4)
 		doSendMagicEffect(sacrificee2,CONST_ME_POFF)
 	else
-		player:teleportTo(ssacrificee3)		
+		player:teleportTo(ssacrificee3)
 	end
 	player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	return true

@@ -26,7 +26,7 @@
 		</attack>
 		<attack name="fire" interval="2000" chance="15" range="3" length="6" spread="3" min="-90" max="-160">
 		<attribute key="areaEffect" value="fire" />
-		</attack>	
+		</attack>
 		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-230" max="-450" />
 	</attacks>
 	<elements>
@@ -41,26 +41,26 @@
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="naps naps naps!" />
 	</voices>
 	<loot>
 	<!--Sempre-->
-		<item name="Small Enchanted Sapphire"  chance="11910" /> 
-		<item name="Small Enchanted Ruby"  chance="9040" />  
-		<item name="Violet Gem"  chance="7750" />  
-		<item name="Lump of Dirt"  chance="10190" />  
-		<item name="Tunnel Tyrant Head"  chance="24100" />  
-		<item name="Tunnel Tyrant Shell"  chance="12480" />  
+		<item name="Small Enchanted Sapphire"  chance="11910" />
+		<item name="Small Enchanted Ruby"  chance="9040" />
+		<item name="Violet Gem"  chance="7750" />
+		<item name="Lump of Dirt"  chance="10190" />
+		<item name="Tunnel Tyrant Head"  chance="24100" />
+		<item name="Tunnel Tyrant Shell"  chance="12480" />
 		<!--semi raro-->
-			<item name="Green Gem"  chance="2300" />  
-			<item name="Blue Gem"  chance="3010" />  
-			<item name="Crystal Mace"  chance="1580" />  
-			<item name="Energy Vein"  chance="3010" />  
+			<item name="Green Gem"  chance="2300" />
+			<item name="Blue Gem"  chance="3010" />
+			<item name="Crystal Mace"  chance="1580" />
+			<item name="Energy Vein"  chance="3010" />
 			<!--raro-->
-					<item name="Crystalline Armor"  chance="860" />  
-					<item name="Suspicious Device"  chance="1290" />  
+					<item name="Crystalline Armor"  chance="860" />
+					<item name="Suspicious Device"  chance="1290" />
 
 	</loot>
 </monster>

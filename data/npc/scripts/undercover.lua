@@ -22,7 +22,7 @@ function greetCallback(cid)
 	if not UNDERCOVER_CONTACTED[player:getGuid()] then
 		UNDERCOVER_CONTACTED[player:getGuid()] = {}
 	end
-	
+
 	if isInArray(UNDERCOVER_CONTACTED[player:getGuid()], Creature(getNpcCid()):getId()) then
 		return false
 	end

@@ -2,7 +2,7 @@
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
- 
+
 function onCreatureAppear(cid) npcHandler:onCreatureAppear(cid) end
 function onCreatureDisappear(cid) npcHandler:onCreatureDisappear(cid) end
 function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) end
@@ -12,7 +12,7 @@ function creatureSayCallback(cid, type, msg)
 	if(not npcHandler:isFocused(cid)) then
 		return false
 	end
-	
+
 
 	if(msgcontains(msg, "mission") or msgcontains(msg, "task")) then
 		if(getPlayerStorageValue(cid, 41600) < 1) and getPlayerStorageValue(cid, 43600) <= os.time() then
@@ -21,11 +21,11 @@ function creatureSayCallback(cid, type, msg)
 		elseif(getPlayerStorageValue(cid, 41600) == 1) then
 			npcHandler:say("Good to see you back. Now, did you bring us the lucky charms?", cid)
 			npcHandler.topic[cid] = 3
-			
-			
+
+
 			elseif getPlayerStorageValue(cid, 43600) > os.time() then
 			npcHandler:say("You need wait some hours to take other mission again or you are still on a mission.", cid)
-			
+
 	------------------------ FINISH MISSION 01 ------------------------
 		elseif(getPlayerStorageValue(cid, 41600) == 2) then
 			selfSay("Of course, of course, there is indeed something you can help us with. Remember that we also have some tasks for you. So, are you ready for another quest to help the men of the forest?", cid)
@@ -54,16 +54,16 @@ function creatureSayCallback(cid, type, msg)
 				setPlayerStorageValue(cid, 43600, os.time() + 20 * 60 * 60) -- set time to start mission again
 				setPlayerStorageValue(cid, 42620, 2) -- quest log
 			------------------- ITEM RANDOM --------------------
-			items = { 
+			items = {
 				[0] = {id = 2152, count = 3, chance = 100},
-				[1] = {id = 2169, count = 1, chance = 80}, 
-				[2] = {id = 13247, count = 1, chance = 25}, 
-			} 
-			for i = 0, #items do 
-			if (items[i].chance > math.random(1, 100)) then 
-			doPlayerAddItem(cid, items[i].id, items[i].count) 
+				[1] = {id = 2169, count = 1, chance = 80},
+				[2] = {id = 13247, count = 1, chance = 25},
+			}
+			for i = 0, #items do
+			if (items[i].chance > math.random(1, 100)) then
+			doPlayerAddItem(cid, items[i].id, items[i].count)
 			----------------------------------------------------
-			npcHandler.topic[cid] = 0	
+			npcHandler.topic[cid] = 0
 			end
 		end
 	end
@@ -84,34 +84,34 @@ function creatureSayCallback(cid, type, msg)
 		elseif(npcHandler.topic[cid] == 3) and getPlayerItemCount(cid, 13160) >= 7 then
 			npcHandler:say("Good hunt. That will be enough to help us uhm... get through the winter yes. Now if you want to help us getting even more lucky charms, you can always ask.", cid)
 			doPlayerRemoveItem(cid, 13160, 7)
-			setPlayerStorageValue(cid, 41600, 2) 
+			setPlayerStorageValue(cid, 41600, 2)
 			setPlayerStorageValue(cid, 42600, 2) -- quest log
 			npcHandler.topic[cid] = 0
-			
+
 			elseif(npcHandler.topic[cid] == 3) and getPlayerItemCount(cid, 13160) <= 6 then
 			npcHandler:say("You do not have sufficient rabbit's foot.", cid)
-			
+
 		------------------------ FINISH MISSION 01 ------------------------
-		elseif(npcHandler.topic[cid] == 4) then 
+		elseif(npcHandler.topic[cid] == 4) then
 			npcHandler:say("Good, good. Do you remember the old saying? If it ain't broken, it was not made by us. Now, off you go!", cid)
-			setPlayerStorageValue(cid, 41600, 3) 
+			setPlayerStorageValue(cid, 41600, 3)
 			setPlayerStorageValue(cid, 42610, 1) -- quest log
 			npcHandler.topic[cid] = 0
-		elseif(npcHandler.topic[cid] == 5) then 
+		elseif(npcHandler.topic[cid] == 5) then
 			selfSay("Mmmmh, I have to say - good workmanship. No doubt. Yes, the person who made that tool you used to fix all this was a pure professional. Something I can't say about your work, though. ...", cid)
 			npcHandler:say("The walls look as if they will come off in a matter of hours. Oh well, you can always come back and repair this mess, ask me for a task if you want to. Yeah, yeah and here's your reward for today.", cid)
-			setPlayerStorageValue(cid, 41600, 4) 
+			setPlayerStorageValue(cid, 41600, 4)
 			setPlayerStorageValue(cid, 42610, 2) -- quest log
 			doPlayerAddItem(cid, 2152, 5)
 			npcHandler.topic[cid] = 0
 		------------------------ FINISH MISSION 02 ------------------------
-		elseif(npcHandler.topic[cid] == 6) then 
+		elseif(npcHandler.topic[cid] == 6) then
 			selfSay("Right, now before the merchants enter the woods, you will install several traps - nothing too dangerous, just nets and ropes. ...", cid)
 			selfSay("When they enter said area which is located close to our hidden camp, they will be trapped and you can... lighten their heavy burden of valuable goods. ...", cid)
 			selfSay("There is but a tiny little catch - we cannot help you laying these traps. You know, some of the guys became sick recently, we talk about several broken legs here, one almost lost his arm ...", cid)
 			npcHandler:say("So... it's entirely up to you, will you do this or not?", cid)
 			npcHandler.topic[cid] = 7
-		elseif(npcHandler.topic[cid] == 7) then 
+		elseif(npcHandler.topic[cid] == 7) then
 			selfSay("Alright very good. Now the only thing you need to do is taking these traps and moving out to the area I have marked on your map where you need to place them. ...", cid)
 			selfSay("Once you did that go to the large high seat near the camp and watch for the travelling merchants. ...", cid)
 			selfSay("Once all of them are trapped in the nets, you can go down and gather anything of value you can find. But only take what we... you really need - around 100 gold should be enough for any man to take. ...", cid)
@@ -120,7 +120,7 @@ function creatureSayCallback(cid, type, msg)
 			selfSay("You're done if you get at least... let's say 5 of these fools. Return to me and you will be rewarded. ...", cid)
 			npcHandler:say("Off you go and - good hunt, heh.", cid)
 			doPlayerAddItem(cid, 13173, 5)
-			setPlayerStorageValue(cid, 41600, 5) 
+			setPlayerStorageValue(cid, 41600, 5)
 			setPlayerStorageValue(cid, 42620, 1) -- quest log
 			npcHandler.topic[cid] = 0
 		------------------------ FINISH MISSION 03 ------------------------

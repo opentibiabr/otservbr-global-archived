@@ -42,7 +42,7 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-	    <item name="Platinum Coin" countmax="7" chance="2000" />	
+	    <item name="Platinum Coin" countmax="7" chance="2000" />
 		<item name="Green Glass Plate" countmax="17" chance="1000" />
 		<item name="Blue Crystal Splinter" chance="1000" />
 		<item name="Brown Crystal Splinter" chance="1000" />

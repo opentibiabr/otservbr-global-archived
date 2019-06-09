@@ -29,4 +29,3 @@ function onStepIn(creature, item, position, fromPosition)
 	teleport.destination:sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end
-

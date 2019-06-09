@@ -25,7 +25,7 @@ string.diff = function(diff)
         {'minute', diff / 60 % 60},
         {'second', diff % 60}
     }
- 
+
     local out = {}
     for k, t in ipairs(format) do
         local v = math.floor(t[2])
@@ -40,4 +40,3 @@ string.diff = function(diff)
     end
     return ret
 end
- 

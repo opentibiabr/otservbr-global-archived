@@ -16,7 +16,7 @@ local function creatureSayCallback(cid, type, msg)
 	if not player then
 		return false
 	end
-		
+
 	if msgcontains(msg, "adventures") or msgcontains(msg, "join") then
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 1 then
 			npcHandler:say({
@@ -27,10 +27,10 @@ local function creatureSayCallback(cid, type, msg)
 				"There you will meet Gnomerik, the recruitment officer of the Gnomes. If you are lost, Gnomette in the teleport chamber might be able to help you with directions. ...",
 				"Good luck to you and don't embarrass your race down there! Keep in mind that you are a representative of the big people."
 			}, cid)
-			
+
 			player:setStorageValue(Storage.BigfootBurden.QuestLine, 1)
 			player:addItem(18457, 4)
-			
+
 			--npcHandler:say("Right now I am sort of {recruiting} people.", cid)
 			npcHandler.topic[cid] = 1
 			else npcHandler:say("You already talked with me.", cid)
@@ -76,10 +76,10 @@ local function creatureSayCallback(cid, type, msg)
 			player:addItem(18457, 4)
 			npcHandler.topic[cid] = 0
 		end
-		
+
 	end
-	
-			
+
+
 	return true
 end
 

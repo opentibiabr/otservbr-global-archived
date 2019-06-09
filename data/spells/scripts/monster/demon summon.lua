@@ -7,7 +7,7 @@ local maxsummons = 1
 function onCastSpell(creature, var)
 	local summoncount = creature:getSummons()
 	if #summoncount < 1 then
-		mid = Game.createMonster("Fire Elemental", { x=creature:getPosition().x+math.random(-1, 1), y=creature:getPosition().y+math.random(-1, 1), z=creature:getPosition().z }) 
+		mid = Game.createMonster("Fire Elemental", { x=creature:getPosition().x+math.random(-1, 1), y=creature:getPosition().y+math.random(-1, 1), z=creature:getPosition().z })
 			if not mid then
 				return
 			end

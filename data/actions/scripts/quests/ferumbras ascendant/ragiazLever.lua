@@ -50,7 +50,4 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		item:transform(9825)
 	end
 	return true
-end	
-		
-		
-		
+end

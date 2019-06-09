@@ -12,7 +12,7 @@ local function bossTransformBack(creatureid, itemid)
 	local bossTransformBack = Game.createMonster("The Sinister Hermit SUJO", position, true, true)
 	if bossTransformBack then
 		bossTransformBack:registerEvent("spawnBoss")
-		creature:remove()	
+		creature:remove()
 		local subtrair = bossTransformBack:getHealth() - vidaAtual
 		bossTransformBack:addHealth(-subtrair)
 	end

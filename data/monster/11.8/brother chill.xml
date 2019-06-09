@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Brother Chill" nameDescription="a brother Chill" race="undead" experience="0" speed="350" manacost="0">
 	<health now="10000" max="10000" />
 	<look type="261" corpse="7282" />
 	<targetchange interval="5000" chance="8" />
 	<flags> <!-- Todas as Flags -->
-		
+
 		<flag preyable="0" />
 		<flag rewardboss="0" />
 		<flag summonable="0" />

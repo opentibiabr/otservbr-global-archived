@@ -8,7 +8,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 	local warzoneIV = Position(33534, 32184, 15)
 
 	if item:getPosition() == Position(33829, 32128, 14) then -- Warzone norte(entrada)! Warzone VI
-		if creature:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneVI) == 1 and creature:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneVI) <= os.time() then	
+		if creature:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneVI) == 1 and creature:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneVI) <= os.time() then
 			creature:setStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneVI, 0)
 			creature:setStorageValue(Storage.DangerousDepths.Scouts.Status, creature:getStorageValue(Storage.DangerousDepths.Scouts.Status) - 10)
 			creature:setStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneVI, os.time() + 8*60*60)
@@ -24,7 +24,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 	end
 
 	if item:getPosition() == Position(33777, 32192, 14) then -- Warzone norte(entrada)! Warzone VI
-		if creature:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneV) == 1 and creature:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneV) <= os.time() then	
+		if creature:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneV) == 1 and creature:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneV) <= os.time() then
 			creature:setStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneV, 0)
 			creature:setStorageValue(Storage.DangerousDepths.Dwarves.Status, creature:getStorageValue(Storage.DangerousDepths.Dwarves.Status) - 10)
 			creature:setStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneV, os.time() + 8*60*60)
@@ -40,7 +40,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 	end
 
 	if item:getPosition() == Position(33827, 32172, 14) then -- Warzone norte(entrada)! Warzone VI
-		if creature:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneIV) == 1 and creature:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneIV) <= os.time() then	
+		if creature:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneIV) == 1 and creature:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneIV) <= os.time() then
 			creature:setStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneIV, 0)
 			creature:setStorageValue(Storage.DangerousDepths.Gnomes.Status, creature:getStorageValue(Storage.DangerousDepths.Gnomes.Status) - 10)
 			creature:setStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneIV, os.time() + 8*60*60)
@@ -54,7 +54,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 			creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Entering the warzone.")
 		end
 	end
-	
+
 
 
 	creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

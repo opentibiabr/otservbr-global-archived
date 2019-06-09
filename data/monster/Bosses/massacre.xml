@@ -55,7 +55,7 @@
 	</voices>
 	<loot>
 		<item id="2231" chance="5880"/><!-- big bone -->
-		<item id="6500" chance="100000"/><!-- demonic essence --> 
+		<item id="6500" chance="100000"/><!-- demonic essence -->
 		<item id="7591" chance="5880"/><!-- great health potion -->
 		<item id="7590" chance="5880"/><!-- great mana potion -->
 		<item id="2148" countmax="157" chance="94120"/><!-- gold coin -->

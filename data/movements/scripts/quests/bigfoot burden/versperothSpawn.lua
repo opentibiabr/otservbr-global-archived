@@ -17,7 +17,7 @@ local function executeVersperothBattle(mid)
 		local monster = Monster(mid)
 		if not monster then
 			return false
-		else 
+		else
 
 		end
 
@@ -77,7 +77,7 @@ function onStepIn(creature, item, position, fromPosition)
 	Game.setStorageValue(GlobalStorage.Versperoth.Battle, 1)
 	Game.setStorageValue(GlobalStorage.Versperoth.Health, 100000)
 	executeVersperothBattle()
-	
+
 	item:remove()
 	return true
 end

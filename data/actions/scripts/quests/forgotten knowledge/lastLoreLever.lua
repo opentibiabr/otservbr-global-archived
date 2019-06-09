@@ -27,7 +27,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting with The Last Lore Keeper.")
 					return true
 				end
-			end	
+			end
 		end
 		for x = 32018, 32020 do
 			for y = 32844, 32848 do
@@ -61,7 +61,3 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
-		
-		
-		
-		

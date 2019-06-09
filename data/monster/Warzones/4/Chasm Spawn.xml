@@ -26,7 +26,7 @@
 		</attack>
 		<attack name="death" interval="2000" chance="15" range="3" length="3" spread="3" min="-70" max="-160">
 		<attribute key="areaEffect" value="mortarea" />
-		</attack>	
+		</attack>
 		<attack name="explosion" interval="2000" chance="15" min="-50" max="-170"/>
 		<attack name="manadrain" interval="2000" chance="10" range="7" min="-40" max="-60" />
 		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-70" max="-140" />
@@ -46,28 +46,28 @@
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="tzzzz tzzzz tzzzz!" />
 		<voice sentence="sloap sloap sloap!" />
 	</voices>
 	<loot>
 	<!--Sempre-->
-		<item name="gold coin" countmax="78" chance="10000" /> 
-		<item name="Wood Mushroom" countmax="5" chance="27200" />  
-		<item name="Chasm Spawn Head"  chance="33390" />  
-		<item name="Chasm Spawn Abdomen"  chance="24710" />  
-		<item name="Chasm Spawn Tail"  chance="64890" />  
+		<item name="gold coin" countmax="78" chance="10000" />
+		<item name="Wood Mushroom" countmax="5" chance="27200" />
+		<item name="Chasm Spawn Head"  chance="33390" />
+		<item name="Chasm Spawn Abdomen"  chance="24710" />
+		<item name="Chasm Spawn Tail"  chance="64890" />
 		<!--quase sempre-->
-		<item name="Small Enchanted Emerald" countmax="3" chance="11040" /> 
-		<item name="Small Enchanted Amethyst" countmax="3" chance="8170" /> 
-		<item name="Brown Mushroom" countmax="5" chance="19680" /> 
-		<item name="Orange Mushroom" chance="15140" /> 
-		<item name="Blue Crystal Shard" chance="7850" /> 
-		<item name="Green Crystal Shard" chance="7850" /> 
-		<item name="Violet Crystal Shard" chance="4690" /> 
+		<item name="Small Enchanted Emerald" countmax="3" chance="11040" />
+		<item name="Small Enchanted Amethyst" countmax="3" chance="8170" />
+		<item name="Brown Mushroom" countmax="5" chance="19680" />
+		<item name="Orange Mushroom" chance="15140" />
+		<item name="Blue Crystal Shard" chance="7850" />
+		<item name="Green Crystal Shard" chance="7850" />
+		<item name="Violet Crystal Shard" chance="4690" />
         <!--raro-->
-		<item name="Mushroom Backpack" chance="610" /> 
-		<item name="Suspicious Device" chance="520" /> 
+		<item name="Mushroom Backpack" chance="610" />
+		<item name="Suspicious Device" chance="520" />
 	</loot>
 </monster>

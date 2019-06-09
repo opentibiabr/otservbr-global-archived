@@ -2,4 +2,4 @@
 <npc name="Denominator" script="Denominator.lua" walkinterval="0" floorchange="0">
 	<health now="100" max="100"/>
 	<look typeex="1442"/>
-</npc> 
+</npc>

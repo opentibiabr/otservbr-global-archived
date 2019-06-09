@@ -4,13 +4,13 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		[26340] = {mountId = 98, message = "You receive the permission to ride a neon sparkid"},
 		[26341] = {mountId = 99, message = "You receive the permission to ride a vortexion"},
 	}
-	
+
 	local mount = config[item.itemid]
-	
+
 	if not mount then
 		return true
 	end
-	
+
 	if not player:hasMount(mount.mountId) then
 		player:addMount(mount.mountId)
 		player:say(mount.message, TALKTYPE_MONSTER_SAY)

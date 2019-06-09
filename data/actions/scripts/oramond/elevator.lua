@@ -36,6 +36,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     else
         elevatorPusherItem:moveTo(fromTile)
     end
-    
+
     return true
 end

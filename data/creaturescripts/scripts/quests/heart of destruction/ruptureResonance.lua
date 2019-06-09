@@ -1,9 +1,9 @@
 function onThink(creature)
 
 	if not creature:isCreature() then return false end
-	
+
 	local hp = (creature:getHealth() / creature:getMaxHealth()) * 100
-	
+
 	if hp <= 80 and ruptureResonanceStage == 0 and resonanceActive == false then
 		Game.createMonster("Spark of Destruction", {x = 32331, y = 31254, z = 14}, false, true)
 		Game.createMonster("Spark of Destruction", {x = 32338, y = 31254, z = 14}, false, true)
@@ -45,6 +45,6 @@ function onThink(creature)
 		ruptureResonanceStage = -1
 		resonanceActive = true
 	end
-		
+
     return true
 end

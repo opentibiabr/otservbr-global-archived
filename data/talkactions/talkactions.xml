@@ -27,7 +27,7 @@
 	<talkaction words="/attr" separator=" " script="attributes.lua" />
 	<talkaction words="/emptyhouses" script="emptyhouses.lua" />
 	<talkaction words="/pos" separator=" " script="position.lua" />
-	
+
 
 	<!-- Gamemasters -->
 	<talkaction words="/ban" separator=" " script="ban.lua" />

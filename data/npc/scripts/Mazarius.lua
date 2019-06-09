@@ -99,7 +99,7 @@ local function creatureSayCallback(cid, type, msg)
 	else
 		npcHandler:say("What?!", cid)
 	end
-			
+
 end
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, dear visitor. Please tell me what {brings} you here, to my humble adobe.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")

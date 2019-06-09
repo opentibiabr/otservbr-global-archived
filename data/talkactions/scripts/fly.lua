@@ -28,7 +28,7 @@ for i = 1, #config do
 				end
 		end
 	end
-				
+
     local places, options =
         {"Training Room", "NPCs Beach", "Adventurer Island", "Event Room", "Trade Island"}, -- places
         {"Go", "Exit"} -- options
@@ -46,12 +46,12 @@ for i = 1, #config do
     modalWindow:addButton(2, options[2])
     modalWindow:setDefaultEscapeButton(2)
 
-	
+
 	if not isInTemple then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Try to move more to the center of a temple to use the command for a teleport.')
 		return false
 	end
-	
+
     -- Send window
     modalWindow:sendToPlayer(player)
     return false

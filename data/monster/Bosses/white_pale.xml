@@ -19,7 +19,7 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 	</flags>
-	  	
+
 	<attacks>
 		<attack name="melee" interval="2000" skill="45" attack="40"/>
 		<attack name="earth" interval="2000" chance="14" radius="5" target="0" min="-100" max="-110">
@@ -41,7 +41,7 @@
 	<item id="21400" chance="200" /><!-- silver token -->
 		<item id="2148" countmax="100" chance="80000" /><!-- gold coin -->
 		<item id="2148" countmax="100" chance="70000" /><!-- gold coin -->
-		
+
 		<item id="21693" chance="500" /><!-- ring -->
 		<item id="21692" chance="500" /><!--  Albino Plate -->
 		<item id="2168" chance="1000" /><!-- Life Ring -->
@@ -50,7 +50,7 @@
 		<item id="10609" chance="70000" /><!-- Lump of Dirt -->
 		<item id="2439" chance="70000" /><!-- Daramian Mace -->
 		<item id="11192" chance="70000" /><!-- fang -->
-		
-		
+
+
 	</loot>
 </monster>

@@ -13,6 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		target:remove(1)
 		player:addItem(config.reward, 1)
 	end
-	
+
 	return true
 end

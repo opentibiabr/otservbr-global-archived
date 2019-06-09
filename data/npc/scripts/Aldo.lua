@@ -33,10 +33,10 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 1 then
 		npcHandler.topic[cid] = 0
 		npcHandler:say("Ok then.", cid)
-		
-	
+
+
 	end
-	
+
 	return true
 end
 

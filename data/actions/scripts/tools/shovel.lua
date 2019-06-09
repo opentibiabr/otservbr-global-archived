@@ -20,8 +20,8 @@ if isInArray(pools, itemEx.itemid) then
             local quantGain = math.random(1,config.itemGain[posGain].quantGain)
             doPlayerAddItem(cid, config.itemGain[posGain].itemId, quantGain)
             doSendMagicEffect(toPosition, 8)
-            doCreatureSay(cid,  "You dug up ".. quantGain .." ".. getItemName(config.itemGain[posGain].itemId) ..".", TALKTYPE_ORANGE_1)  
-            setPlayerStorageValue(cid, 32901, os.time()+exhausth)  
+            doCreatureSay(cid,  "You dug up ".. quantGain .." ".. getItemName(config.itemGain[posGain].itemId) ..".", TALKTYPE_ORANGE_1)
+            setPlayerStorageValue(cid, 32901, os.time()+exhausth)
         end
     else
             doPlayerSendCancel(cid, "You are exhausted, use again in 1 hour.")
@@ -67,7 +67,7 @@ local target = itemEx
             hole:decay()
         else
             return false
-        end   
+        end
     elseif itemEx.itemid == 231 or itemEx.itemid == 9059 or itemEx.itemid == 22672 then
         local rand = math.random(1, 100)
         if(itemEx.actionid  == 100 and rand <= 20) then

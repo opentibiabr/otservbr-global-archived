@@ -7,8 +7,8 @@
 		<parameter key="shop_buyable" value="
 			brown,2789,6" />
 		<parameter key="shop_sellable" value="
-		
-		   
+
+
 		   Alloy Legs,23539,11000;
 		   axe,2386,7;
 		   axe,24261,10000;
@@ -25,15 +25,15 @@
 		   Fire Sword,2392,1000;
 		   Gearwheel Chain,23541,5000;
 		   Glooth Amulet,23554,2000;
-		   Glooth Axe,23551,1500;		   
-		    Glooth Blade,23550,1500;		   
-		    Glooth cap,23535,7000;		   
-		    Glooth Club,23549,1500;		   
-		    Glooth Whip,23543,2500;		   
-		    Halberd,2381,400;		   
-		    Heat Core,23538,10000;		   
-		    Metal Bat,23542,9000;		   
-		    Metal Spats,23540,2000;			
+		   Glooth Axe,23551,1500;
+		    Glooth Blade,23550,1500;
+		    Glooth cap,23535,7000;
+		    Glooth Club,23549,1500;
+		    Glooth Whip,23543,2500;
+		    Halberd,2381,400;
+		    Heat Core,23538,10000;
+		    Metal Bat,23542,9000;
+		    Metal Spats,23540,2000;
 		   Mino Lance,23545,7000;
 		   Mino Shield,23546,3000;
 		   Moohtah Plate,23537,6000;
@@ -41,8 +41,8 @@
 		  Plate Armor,2463,400;
 		   Rubber Cap,23536,11000;
 		   War Hammer,2391,470;
-		   Steel Helmet,2457,293; 
-		   
+		   Steel Helmet,2457,293;
+
 			shovel,2554,8;
 			watch,2036,6;
 			wooden hammer,2556,15;" />

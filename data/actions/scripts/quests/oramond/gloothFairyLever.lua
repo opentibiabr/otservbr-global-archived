@@ -56,7 +56,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		setGlobalStorageValue(18081, os.time()+15*60)
 		player:say("Everyone in this place will be teleported into Glooth Fairy\'s hideout in one minute. No way back!!!", TALKTYPE_MONSTER_SAY)
 		addEvent(PrepareEnter,60*1000)
-		
+
 	end
 
 	item:transform(item.itemid == 9827 and 9828 or 9827)

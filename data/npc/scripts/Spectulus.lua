@@ -29,29 +29,29 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
- 
+
 	local player = Player(cid)
-	
+
 	if msgcontains(msg, 'research') then
 		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
 		local tombsStorage = player:getStorageValue(Storage.spiritHuntersQuest.tombsUse)
-		if qStorage == -1 then 
+		if qStorage == -1 then
 			if npcHandler.topic[cid] == 17 then
 				npcHandler:say({"Alright. Let\'s go. At first we need to find out more about ghosts in general. ...", "I still need more information and values to properly calibrate the magical orientation of orange and turquoise sparkle attractors which we will need to actually contain ghost-emissions. ...", "So are you in?"}, cid)
-				npcHandler.topic[cid] = 18				
+				npcHandler.topic[cid] = 18
 			else
 				npcHandler:say({"I fine-tuned another set of devices. You are the lucky candidate to first lay eyes on some revolutionary new concepts. ...", "Are you ready to help science once again?"}, cid)
 				npcHandler.topic[cid] = 12
 			end
 		elseif qStorage == 1 and tombsStorage >= 2 then
-			npcHandler:say('You are back, how did the measurements go? Did you recognise anything of interest?', cid)	
+			npcHandler:say('You are back, how did the measurements go? Did you recognise anything of interest?', cid)
 			npcHandler.topic[cid] = 19
-		elseif qStorage == 2 then			  
+		elseif qStorage == 2 then
 			npcHandler:say({"Alright, now that we have enough results, the analysing can start. While I do this, I will need you to test the magically enhanced cage Sinclair developed to contain spirits effectively. ...",
 							"Take the spirit cage from him and use it on the essence of a common ghost. Its essence will then be sucked into the cage and we can study him right here in the safety of the academy walls."
 						}, cid)
 			npcHandler.topic[cid] = 0
-		end				
+		end
 	elseif msgcontains(msg, 'mission') then
 		local cStorage = player:getStorageValue(Storage.SeaOfLightQuest.Questline)
 		if cStorage == -1 then
@@ -112,7 +112,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 7
 		end
 	elseif msgcontains(msg, 'yes') then
-		
+
 		if npcHandler.topic[cid] == 1 then
 			player:addExperience(100, true)
 			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 1)
@@ -192,7 +192,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 2)
 			npcHandler.topic[cid] = 0
 		end
-	
+
 	elseif msgcontains(msg, 'collective apparitions') then
 		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
 		if qStorage == -1 then
@@ -218,7 +218,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Hmpf. *mumbles*', cid)
 		end
 		npcHandler.topic[cid] = 0
-	
+
 	end
 	return true
 end

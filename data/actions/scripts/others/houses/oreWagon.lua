@@ -1,7 +1,7 @@
 local config = {
 	[12140]  = {destination = Position(32527, 31842, 9)},
 	[12141]  = {destination = Position(32559, 31852, 7)},
-	[12142]  = {destination = Position(32498, 31828, 9)}, 
+	[12142]  = {destination = Position(32498, 31828, 9)},
 	[12143]  = {destination = Position(32517, 31806, 9)},
 	[12144]  = {destination = Position(32517, 31830, 9)},
 	[12145]  = {destination = Position(32490, 31810, 9)},
@@ -21,4 +21,3 @@ function onUse(player, item, position, fromPosition)
 	teleport.destination:sendMagicEffect(10)
 	return true
 end
-

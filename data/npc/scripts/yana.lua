@@ -15,14 +15,14 @@ local function greetCallback(cid)
 end
 
 
-		
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	local player = Player(cid)
-		
+
 		-- CHAT
 	if msgcontains(msg, "information") and npcHandler.topic[cid] == 0 then
 		npcHandler:say({"{Tokens} are small objects made of metal or other materials. You can use them to buy superior equipment from token traders like me.", "There are several ways to obtain the tokens I'm interested in - killing certain bosses, for example. In exchange for a certain amount of tokens, I can offer you some first-class items."}, cid)
@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "gold") and npcHandler.topic[cid] == 0 then
 		npcHandler:say({"Here are my deals. For 50 of your gold tokens, I sell the following weapons of destruction: I can offer you a one-handed weapon: {sword}, {axe} or {club}. ...", "You may also take a two-handed weapon: {slayer}, {chopper} or {hammer}. I also can offer you a {bow}, {crossbow}, {wand} or {rod}. Furthermore I trade {creature products}. What do you choose?"}, cid)
 		npcHandler.topic[cid] = 3
-		
+
 		-- ARMAS
 	elseif msgcontains(msg, "wand") and npcHandler.topic[cid] == 3 then
 	if player:getFreeCapacity() < 35 then
@@ -53,7 +53,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30692, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your wand of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your wand of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -67,7 +67,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30693, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your rod of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your rod of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -81,7 +81,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30684, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your blade of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your blade of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -95,7 +95,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30686, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your axe of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your axe of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -109,7 +109,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30688, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your mace of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your mace of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -123,7 +123,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30685, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your slayer of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your slayer of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -137,7 +137,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30687, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your chopper of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your chopper of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -151,7 +151,7 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30689, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your hammer of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your hammer of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -165,12 +165,12 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30690, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your bow of destruction."}, cid)	
+	npcHandler:say({"Very good. Here's your bow of destruction."}, cid)
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 		end
-	
+
 	elseif msgcontains(msg, "crossbow") and npcHandler.topic[cid] == 3 then
 	if player:getFreeCapacity() < 65 then
 		npcHandler:say("You don\'t have enough cap.", cid)
@@ -180,8 +180,8 @@ local function creatureSayCallback(cid, type, msg)
 	if player:getItemCount(25377) >= 50 then
 	player:addItem(30691, 1)
 	player:removeItem(25377, 50)
-	npcHandler:say({"Very good. Here's your crossbow of destruction."}, cid)	
-	
+	npcHandler:say({"Very good. Here's your crossbow of destruction."}, cid)
+
 		else
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me fifty of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
@@ -213,7 +213,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me six of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 			end
-			
+
 		elseif npcHandler.topic[cid] == 5 and msgcontains(msg, "intricate") then
 		npcHandler:say({'The intricate bundle for the strike imbuement consists of 20 protective charms and 25 sabreteeth. Would you like to buy it for 4 gold tokens? ...',
 		'Make sure that you have one free slot and that you can carry 56 oz in addition to that.'}, cid)
@@ -234,7 +234,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me four of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 			end
-		
+
 		elseif npcHandler.topic[cid] == 5 and msgcontains(msg, "basic") then
 		npcHandler:say({'The basic bundle for the strike imbuement consists of 20 protective charms. Would you like to buy it for 2 gold tokens? ...',
 		'Make sure that you have one free slot and that you can carry 24 oz in addition to that.'}, cid)
@@ -278,7 +278,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me two of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 			end
-			
+
 		elseif npcHandler.topic[cid] == 6 and msgcontains(msg, "intricate") then
 		npcHandler:say({'The intricate bundle for the vampirism imbuement consists of 25 vampire teeth and 15 bloody pincers. Would you like to buy it for 4 gold tokens? ...',
 		'Make sure that you have one free slot and that you can carry 30.5 oz in addition to that.'}, cid)
@@ -299,7 +299,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me four of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 			end
-		
+
 		elseif npcHandler.topic[cid] == 6 and msgcontains(msg, "powerful") then
 		npcHandler:say({'The powerful bundle for the vampirism imbuement consists of 25 vampire teeth, 15 bloody pincers and 5 pieces of dead brain. Would you like to it for 6 gold tokens? ...',
 		'Make sure that you have one free slot and that you can carry 37.1 oz in addition to that.'}, cid)
@@ -345,7 +345,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me two of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 			end
-			
+
 		elseif npcHandler.topic[cid] == 7 and msgcontains(msg, "intricate") then
 		npcHandler:say({'The intricate bundle for the void imbuement consists of 25 rope belts and 25 silencer claws. Would you like to buy it for 4 gold tokens? ...',
 		'Make sure that you have one free slot and that you can carry 129.25 oz in addition to that.'}, cid)
@@ -366,7 +366,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("I'm sorry but it seems you don't have enough tokens yet. Bring me four of them and we'll make a trade.", cid)
 			npcHandler.topic[cid] = 0
 			end
-		
+
 		elseif npcHandler.topic[cid] == 7 and msgcontains(msg, "powerful") then
 		npcHandler:say({'The powerful bundle for the void imbuement consists of 25 rope belts, 25 silencer claws and 5 grimeleech wings. Would you like to buy it for 6 gold tokens? ...',
 		'Make sure that you have one free slot and that you can carry 171.75 oz in addition to that.'}, cid)

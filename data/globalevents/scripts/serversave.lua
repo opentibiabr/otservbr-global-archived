@@ -17,8 +17,8 @@ end
 local function secondServerSaveWarning()
 	--Game.broadcastMessage("Server is saving game in one minute. Please logout.", MESSAGE_EVENT_ADVANCE)
 	addEvent(serverSave, 60000)
-end 
- 
+end
+
 local function firstServerSaveWarning()
 	--Game.broadcastMessage("Server is saving game in 3 minutes. Please logout.", MESSAGE_EVENT_ADVANCE)
 	addEvent(secondServerSaveWarning, 120000)

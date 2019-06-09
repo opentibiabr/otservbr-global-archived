@@ -26,7 +26,7 @@
 		</attack>
 		<attack name="fire" interval="2000" chance="15" range="3" length="6" spread="3" min="-90" max="-160">
 		<attribute key="areaEffect" value="fire" />
-		</attack>	
+		</attack>
 		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-230" max="-450" />
 	</attacks> -->
 	<elements>
@@ -41,32 +41,32 @@
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="*grrruuuuuuuuaaaaaaaar*" />
 		<voice sentence="*roooooo*" />
 	</voices>
 	<loot>
 	<!--Sempre-->
-		<item name="Cave Devourer Eyes"  chance="24580" /> 
+		<item name="Cave Devourer Eyes"  chance="24580" />
 		<item name="Cave Devourer Maw"  chance="27540" />
-		
+
 			<!--quase sempre-->
-			<item name="Small Enchanted Sapphire"  chance="8050" />  
-			<item name="Small Enchanted Ruby"  chance="6780" />  
-			<item name="Crystalline Arrow" count="40" chance="23520" />  
-			<item name="Blue Crystal Shard"  chance="10590" />  
-			<item name="Violet Crystal Shard"  chance="7630" />  
-			<item name="Green Crystal Shard"  chance="8900" />  
-			<item name="Cyan Crystal Fragment"  chance="5720" />  
-			<item name="Slime Heart" count="4"  chance="13770" />  
-			<item name="Cave Devourer Legs"  chance="17160" /> 
-			
+			<item name="Small Enchanted Sapphire"  chance="8050" />
+			<item name="Small Enchanted Ruby"  chance="6780" />
+			<item name="Crystalline Arrow" count="40" chance="23520" />
+			<item name="Blue Crystal Shard"  chance="10590" />
+			<item name="Violet Crystal Shard"  chance="7630" />
+			<item name="Green Crystal Shard"  chance="8900" />
+			<item name="Cyan Crystal Fragment"  chance="5720" />
+			<item name="Slime Heart" count="4"  chance="13770" />
+			<item name="Cave Devourer Legs"  chance="17160" />
+
 				<!--semi raro-->
-				<item name="Stealth Ring"  chance="2540" />  
-				
-						<!--raro-->  
-						<item name="Suspicious Device"  chance="420" />  
+				<item name="Stealth Ring"  chance="2540" />
+
+						<!--raro-->
+						<item name="Suspicious Device"  chance="420" />
 
 	</loot>
 </monster>

@@ -16,7 +16,7 @@ local config = {
 
 function onUse(player, item)
 
-if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) == 4 then	
+if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) == 4 then
 		for i, position in pairs(config) do
 			position:sendMagicEffect(CONST_ME_YELLOWENERGY)
 		end
@@ -28,4 +28,3 @@ end
 
 	return true
 end
-

@@ -64,12 +64,12 @@
 		<item id="2168" chance="20000" /><!-- Life Ring -->
 		<item id="2177" chance="12000" /><!--  Life Crystal -->
 		<item id="5925" countmax="3" chance="5000" /><!-- Hardened Bone -->
-		<item id="7590" countmax="4" chance="9000" /><!-- Great Mana Potion -->		
-		<item id="7591" countmax="4" chance="9000" /><!-- Great Health Potion -->		
+		<item id="7590" countmax="4" chance="9000" /><!-- Great Mana Potion -->
+		<item id="7591" countmax="4" chance="9000" /><!-- Great Health Potion -->
 		<item id="6300" chance="14000" /><!-- Death Ring -->
 		<item id="2489" chance="29000" /><!-- Dark Armor -->
 		<item id="2148" countmax="100" chance="29000" /><!-- gold coin -->
-		<item id="2148" countmax="100" chance="29000" /><!-- gold coin -->		
+		<item id="2148" countmax="100" chance="29000" /><!-- gold coin -->
 		<item id="2152" countmax="8" chance="20000" /><!-- platinum coin -->
 		<item id="6500" countmax="4" chance="6000" /><!-- demonic essence -->
 		<item id="6546" chance="100000" /><!-- dracola's eye -->

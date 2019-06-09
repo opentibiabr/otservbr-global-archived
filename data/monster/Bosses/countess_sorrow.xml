@@ -58,7 +58,7 @@
 		<immunity drunk="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<summons maxSummons="3"> 
+	<summons maxSummons="3">
 		<summon name="Phantasm" interval="2000" chance="7" max="3"/>
 		<summon name="Phantasm summon" interval="2000" chance="7" max="3"/>
 	</summons>

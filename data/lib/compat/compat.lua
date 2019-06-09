@@ -710,12 +710,12 @@ function doConvinceCreature(cid, target)
  	if creature == nil then
  		return false
  	end
- 
+
  	local targetCreature = Creature(target)
  	if targetCreature == nil then
  		return false
  	end
- 
+
 	creature:addSummon(targetCreature)
  	return true
  end

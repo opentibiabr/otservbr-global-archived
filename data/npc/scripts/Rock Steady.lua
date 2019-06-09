@@ -13,7 +13,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	
+
 	if msgcontains(msg, "addon") or msgcontains(msg, "help") then
 		if player:getStorageValue(72326) < 1 then
 			selfSay("If you want anything, you should talk to Old Rock Boy over there. I do {collect} stuff, though. So just ask if you're interested in helping me.", cid)

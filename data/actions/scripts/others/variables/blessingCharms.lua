@@ -18,7 +18,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:say('You already possess this blessing.', TALKTYPE_MONSTER_SAY)
 		return true
 	end
-	
+
 	player:addBlessing(useItem.blessId,1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, useItem.text .. ' protects you.')
 	player:getPosition():sendMagicEffect(CONST_ME_LOSEENERGY)

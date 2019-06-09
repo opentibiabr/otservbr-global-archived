@@ -9,7 +9,7 @@ function onThink(creature)
     creature:remove()
     local summon = Game.createMonster("Spawn Of The Welter", pos, false, true)
     if not summon then
-        return 
+        return
     end
     return true
 end, 10000, creature:getId())

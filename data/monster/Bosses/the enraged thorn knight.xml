@@ -71,8 +71,8 @@
 		<item id="5999" countmax="2" chance="5909" /><!--  White Piece of Cloths -->
 		<item id="5887" countmax="2" chance="5909" /><!--  Piece of Royal Steel -->
 		<item id="7590" countmax="3" chance="22120" /><!-- great mana potion -->
-		<item id="8473" countmax="3" chance="19500" /><!-- ultimate health potion -->		
-		<item id="8472" countmax="3" chance="18250" /><!-- great spirit potion -->	
+		<item id="8473" countmax="3" chance="19500" /><!-- ultimate health potion -->
+		<item id="8472" countmax="3" chance="18250" /><!-- great spirit potion -->
 		<item id="2158" chance="5000" /><!-- Blue Gem -->
 		<item id="2156" chance="2200" /><!-- red gem -->
 		<item id="2155" chance="5000" /><!-- Green Gem -->

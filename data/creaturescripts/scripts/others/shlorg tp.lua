@@ -8,7 +8,7 @@ local position = {
 function onThink(creature)
 	local chance = math.random(1, 100)
 	if chance < 7 then
-		if(not creature:isMonster()) then 
+		if(not creature:isMonster()) then
 			return true
 		end
 		local spawn = position[math.random(4)]

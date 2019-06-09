@@ -48,7 +48,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				local gatee = Tile(gate.position):getItemById(gate.itemid)
 				if gatee then
 					gatee:transform(gate.transform)
-				end	
+				end
 				addEvent(revertItem, 30 * 1000, gate.position, gate.itemid, gate.transform)
 			end
 			local wall = Tile(Position(33477, 32698, 14)):getItemById(6116)
@@ -62,7 +62,3 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
-		
-		
-		
-		

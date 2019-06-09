@@ -407,9 +407,9 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.KillingInTheNameOf.MissionDemodras, 1) -- Won't give this task again.
 			end
 
-			if (player:getStorageValue(Storage.KillingInTheNameOf.MissionDemodras) == 1 and 
+			if (player:getStorageValue(Storage.KillingInTheNameOf.MissionDemodras) == 1 and
 				player:getStorageValue(Storage.KillingInTheNameOf.DemodrasTeleport) == 0 and
-				player:getStorageValue(Storage.KillingInTheNameOf.MissionTiquandasRevenge) == 1 and 
+				player:getStorageValue(Storage.KillingInTheNameOf.MissionTiquandasRevenge) == 1 and
 				player:getStorageValue(Storage.KillingInTheNameOf.TiquandasRevengeTeleport) == 0) then
 				npcHandler:say('You have already finished all special tasks.', cid)
 			end

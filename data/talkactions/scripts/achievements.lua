@@ -1,5 +1,5 @@
 function onSay(player, words, param)
-	
+
 	if not player:getGroup():getAccess() then
 		return true
 	end
@@ -7,7 +7,7 @@ function onSay(player, words, param)
 	if player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return false
 	end
-		
+
 	if words == "/addach" then
 		local p = param:split(",")
 
@@ -30,8 +30,8 @@ function onSay(player, words, param)
 		target:addAchievement(ach, true)
 
 		return true
-	end		
-	if words == "/removeach" then	
+	end
+	if words == "/removeach" then
 		local p = param:split(",")
 
 		if not p[2] then
@@ -47,7 +47,7 @@ function onSay(player, words, param)
 
 		if action == "all" then
 			return target:removeAllAchievements()
-		
+
 			end --remove all achievements
 
 		local ach = (isNumber(action) and tonumber(action) or action)

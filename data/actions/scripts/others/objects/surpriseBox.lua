@@ -11,9 +11,9 @@ local prize = {
 	[10] = {chance = 50, id = ITEM_PLATINUM_COIN, amount = 15 },
 	[11] = {chance = 90, id = ITEM_GOLD_COIN, amount = 80},
 }
- 
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
- 
+
     for i = 1,#prize do local number = math.random() * 100
     if prize[i].chance>100-number then
         player:getPosition():sendMagicEffect(CONST_ME_POFF)

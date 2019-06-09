@@ -15,7 +15,7 @@ local t, spectator = Game.getSpectators(creature:getPosition(), false, false, 50
                check = check + 1
             end
         end
-    end	
+    end
 	if (check < 10) then
 		local summon = Game.createMonster("Dreadbeast", creature:getPosition(), true, false)
 		if summon then

@@ -35,7 +35,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:addOutfit(155)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
 			player:setStorageValue(Storage.OutfitQuest.PirateBaseOutfit, 1)
-			npcHandler.topic[cid] = 0	
+			npcHandler.topic[cid] = 0
 		end
 	end
 	return true

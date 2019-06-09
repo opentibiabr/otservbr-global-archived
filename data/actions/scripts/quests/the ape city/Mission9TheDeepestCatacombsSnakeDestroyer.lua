@@ -15,4 +15,3 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_FIREAREA)
 	return true
 end
-

@@ -37,8 +37,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		return true
 	end
-	
-	
+
+
 	-- COMEÇO
 	if targetId == 13549 then
 		--local owner = target:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER)
@@ -62,7 +62,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		return true
 	end
-	
+
 	-- FIM
 
 	if targetId ~= 7236 then

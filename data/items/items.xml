@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<items>	
+<items>
 	<item id="100" name="void" />
 	<item id="101" name="earth" />
 	<item id="103" name="dirt" />
@@ -8120,7 +8120,7 @@
 	<item id="4860" name="wooden trash" />
 	<item id="4861" article="the" name="statue of the snake god">
 		<attribute key="description" value="It is emitting an eerie light." />
-	</item>	
+	</item>
 	<item id="4862" article="a" name="smashed stone head">
 		<attribute key="description" value="It seems to repair itself rapidly." />
 	</item>
@@ -18694,7 +18694,7 @@
 		<attribute key="decayTo" value="0" />
 	</item>
 	<item id="10320" article="the" name="dead Dirtbeard">
-		<attribute key="duration" value="500" />	    
+		<attribute key="duration" value="500" />
 		<attribute key="decayTo" value="0" />
 	</item>
 	<item id="10321" article="the" name="dead Evil Mastermind">
@@ -21122,7 +21122,7 @@
 	<item id="12546" article="the" name="dead Heoni">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="500" />
-	</item>		
+	</item>
 	<item id="12559" article="a" name="silver rune emblem">
 		<attribute key="description" value="It's an adorned ultimate healing rune." />
 		<attribute key="weight" value="120" />
@@ -35927,7 +35927,7 @@
 	<item id="26868" article="a" name="sign of Uman and Zathroth">
 		<attribute key="description" value="The scroll and the thunderbolt represent the unity of Uman the Wise and Zathroth the Destroyer, two of the Tibian gods." />
 	</item>
-	<item id="26893" article="an" name="an astral glyph" />	
+	<item id="26893" article="an" name="an astral glyph" />
 	<item id="26894" article="an" name="a shielded astral glyph" />
 	<item id="26895" article="an" name="animated Sword" />
 	<item id="26896" article="a" name="The Astral Source" />
@@ -37031,11 +37031,11 @@
 	<item id="29046"  article="a" name="guidebook" >
 		<attribute key="description" value="Someone's guidebook. It looks rather used and seems to have been read many times." />
 		<attribute key="weight" value="150" />
-	</item>	
+	</item>
 	<item id="29047"  article="a" name="broken compass" >
 		<attribute key="description" value="This compass has seen better times if it ever worked at all." />
 		<attribute key="weight" value="120" />
-	</item>		
+	</item>
 	<item id="29048"  article="a" name="fairy" />
 	<item id="29049"  article="a" name="free fairy" />
 	<item id="29050"  article="an" name="Unknown" />
@@ -38583,7 +38583,7 @@
 	<item fromid="29390" toid="29391" article="a" name="decorated carpet">
 		<attribute key="type" value="carpet" />
 		<attribute key="wrapableTo" value="26054" />
-	</item>	
+	</item>
 	<item id="29392" article="an" name="ornate chair">
 		<attribute key="rotateTo" value="29393" />
 		<attribute key="wrapableTo" value="26054" />
@@ -38631,7 +38631,7 @@
 	<item id="29403" article="an" name="ornate chest">
 		<attribute key="rotateTo" value="29402" />
 		<attribute key="wrapableTo" value="26054" />
-	</item>	
+	</item>
 	<item id="29405" article="a" name="terrarium snake">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -38667,7 +38667,7 @@
 	<item id="29416" article="a" name="Demon Pet">
 		<attribute key="rotateTo" value="29415" />
 		<attribute key="wrapableTo" value="26054" />
-	</item>	
+	</item>
 	<item id="29417"  article="a" name="swan feather" plural="swan feathers">
 		<attribute key="weight" value="10"/>
 	</item>
@@ -38732,7 +38732,7 @@
 	<item id="30505" article="a" name="metal file">
 		<attribute key="weight" value="510" />
 		<attribute key="description" value="This file is useful for treating metals." />
-	</item> 
+	</item>
 	<item id="30536" article="a" name="rare earth">
 		<attribute key="weight" value="250" />
 	</item>
@@ -39041,7 +39041,7 @@
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="armor" value="2" />
-		<attribute key="absorbPercentPhysical" value="5" />		
+		<attribute key="absorbPercentPhysical" value="5" />
 	</item>
 	<item fromid="30801" toid="30825" name="sem sprite">
 		<attribute key="decayTo" value="0" />
@@ -39236,7 +39236,7 @@
 		<attribute key="defense" value="35" />
 		<attribute key="skillSword" value="3" />
 		<attribute key="extradef" value="3" />
-		<attribute key="absorbPercentEnergy" value="6" />		
+		<attribute key="absorbPercentEnergy" value="6" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="30888" article="a" name="suspicious device">
@@ -40359,7 +40359,7 @@
 	</item>
 	<item fromid="33123" toid="33137" article="a" name="book shelves"/>
 	<item id="33138" article="a" name="message in a bottle"/> <!-- falcon quest -->
-	<item id="33139" article="a" name="fennec"/> 
+	<item id="33139" article="a" name="fennec"/>
 	<item fromid="33140" toid="33147" article="a" name="wall"/>
 	<item fromid="33148" toid="33151" article="a" name="half-buried face"/>
 	<item id="33152" article="a" name="unknown item"/>
@@ -41319,7 +41319,7 @@
 		<attribute key="attack" value="13" />
 		<attribute key="elementIce" value="39" />
 		<attribute key="defense" value="40" />
-		<attribute key="skillClub" value="2" />		
+		<attribute key="skillClub" value="2" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="34058" article="a" name="shoulder plate">
@@ -41338,7 +41338,7 @@
 		<attribute key="elementFire" value="42" />
 		<attribute key="defense" value="20" />
 		<attribute key="extradef" value="4" />
-		<attribute key="skillSword" value="1" />		
+		<attribute key="skillSword" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="34060" article="a" name="winterblade">
@@ -41348,7 +41348,7 @@
 		<attribute key="elementIce" value="41" />
 		<attribute key="defense" value="22" />
 		<attribute key="extradef" value="4" />
-		<attribute key="skillSword" value="1" />		
+		<attribute key="skillSword" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="34061" article="a" name="dream shroud">
@@ -42100,10 +42100,10 @@
 	<item id="35046" article="a" name="versicolour fireworks powder">
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="35047" article="a" name="red fireworks powder"> 
+	<item id="35047" article="a" name="red fireworks powder">
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="35048" article="a" name="yellow fireworks powder"> 
+	<item id="35048" article="a" name="yellow fireworks powder">
 		<attribute key="weight" value="100" />
 	</item>
 	<item id="35049" article="a" name="green fireworks powder">

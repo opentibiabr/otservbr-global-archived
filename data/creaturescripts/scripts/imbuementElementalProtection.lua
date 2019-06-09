@@ -9,10 +9,10 @@ local typesEffects = {
 
 function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
     if attacker and attacker ~= creature then
-      
+
     local player = creature:getPlayer()
     local armor, shield = player:getSlotItem(CONST_SLOT_ARMOR), player:getSlotItem(CONST_SLOT_RIGHT)
-    
+
         if player then
             if armor then
                 local weaponType = armor:getType()
@@ -55,7 +55,7 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
                 end
             end
             return primaryDamage, primaryType, secondaryDamage, secondaryType
-        end 
+        end
     end
     return primaryDamage, primaryType, secondaryDamage, secondaryType
 end

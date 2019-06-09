@@ -8,7 +8,7 @@ local t, spectator = Game.getSpectators(creature:getPosition(), false, false, 5,
                check = check + 1
             end
         end
-    end	
+    end
 	local hp = (creature:getHealth()/creature:getMaxHealth())* 100
 	if ((check < 2) and hp <= 95) or ((check < 4) and hp <= 75) or ((check < 6) and hp <= 55) or ((check < 10) and hp <= 35) then
 		for j = 1, 5 do

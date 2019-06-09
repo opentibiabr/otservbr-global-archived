@@ -111,7 +111,7 @@ function Monster.onReceivDamageSL(self, damage, tp, killer)
 	local storage = self:getStorageValue("shared_storage")
 	if storage < 1 then
 		return false
-	end	
+	end
 	updateMonstersSharedLife(storage, damage, self:getId(), tp, killer)
 	return true
 end

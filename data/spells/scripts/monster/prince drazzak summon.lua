@@ -8,7 +8,7 @@ local t, spectator = Game.getSpectators(Position(33528, 32335, 12), false, false
                check = check + 1
             end
         end
-    end	
+    end
 	if (check < 1) then
 		creature:say("CRUSH THEM ALL!", TALKTYPE_ORANGE_2)
 		Game.createMonster("Demon", Position(33528, 32330, 12))

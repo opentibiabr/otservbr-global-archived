@@ -47,8 +47,8 @@
 		<immunity holy="1" />
 		<immunity energy="1" />
 		<immunity earth="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Krrrk!" />
-	</voices> 
+	</voices>
 </monster>

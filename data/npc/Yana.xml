@@ -5,4 +5,4 @@
 	<parameters>
 		<parameter key="message_greet" value="Blessings, |PLAYERNAME|! How may I help you? Do you wish to trade some {tokens}, prove your {worth} to receive powerful imbuements, or do you need some {information}?"/>
 	</parameters>
-</npc> 
+</npc>

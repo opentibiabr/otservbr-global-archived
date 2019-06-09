@@ -12,8 +12,8 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-	
-	
+
+
 	if(msgcontains(msg, "friend")) then
 		if(getPlayerStorageValue(cid, 10050) == 12) then
 			selfSay("So you have proven yourself a true friend of our city. It's hard to believe but I think your words only give substance to suspicions my heart had harboured since quite a while. ...", cid)
@@ -28,10 +28,10 @@ function creatureSayCallback(cid, type, msg)
 			selfSay("I'll mark his home on your map. He should be able to get the information you need to locate Harsin.", cid)
             setPlayerStorageValue(cid, 10050, 16)
 		   setPlayerStorageValue(cid, 30055, 0)
-		end		
-		else 
+		end
+		else
 		selfSay("Already clicked the body on the house Roswitha ?", cid)
-		
+
 	end
 
 	return true

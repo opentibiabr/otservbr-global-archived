@@ -76,11 +76,11 @@
 		<item name="gold coin" countmax="100" chance="60000" />
 		<item name="platinum coin" countmin="3" countmax="6" chance="60000" />
 		<item name="small emerald" countmax="5" chance="9690" />
-		<item name="small amethyst" countmax="5" chance="7250" />		
-		<item name="small ruby" countmax="5" chance="7430" />		
-		<item name="small topaz" countmax="5" chance="7470" />		
+		<item name="small amethyst" countmax="5" chance="7250" />
+		<item name="small ruby" countmax="5" chance="7430" />
+		<item name="small topaz" countmax="5" chance="7470" />
 		<item name="red gem" chance="2220" />
-		<item name="demonic essence" chance="14630" />		
+		<item name="demonic essence" chance="14630" />
 		<item name="talon" chance="3430" />
 		<item name="might ring" chance="1890" />
 		<item name="stealth ring" chance="2170" />
@@ -106,6 +106,6 @@
 		<item name="great mana potion" countmax="3" chance="22220" />
 		<item name="ultimate health potion" countmax="3" chance="19540" />
 		<item name="great spirit potion" countmax="3" chance="18510" />
-		<item name="demon trophy" chance="850" />	
+		<item name="demon trophy" chance="850" />
 	</loot>
 </monster>

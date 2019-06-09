@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Squid Warden" nameDescription="Squid Warden" race="undead" experience="18000" speed="250" manacost="0">
 	<health now="16500" max="16500" />
-	<look type="1059" head="9" body="21" legs="41" feet="85" corpse="32486"/>  
+	<look type="1059" head="9" body="21" legs="41" feet="85" corpse="32486"/>
 <targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -22,7 +22,7 @@
 <attacks>
 		<attack name="melee" interval="2000" min="-100" max="-300" />
 		<attack name="ice" interval="2000" chance="15" range="7" min="-100" max="-200">
-			<attribute key="shootEffect" value="ice" /> 
+			<attribute key="shootEffect" value="ice" />
 		</attack>
 			<attack name="ice" interval="2000" chance="10" range="7" min="-200" max="-680">
 			<attribute key="shootEffect" value="smallice" />
@@ -46,7 +46,7 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<!-- common -->	
+		<!-- common -->
 		<item name="Platinum Coin" countmax="57" chance="11000" />
 		<item name="Glowing Rune" countmax="4" chance="800" />
 		<item name="Small Sapphire" countmax="4" chance="900" />

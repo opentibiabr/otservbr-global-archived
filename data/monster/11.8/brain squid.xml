@@ -18,17 +18,17 @@
 	</flags>
 <attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
- 
+
 		<attack name="energy" interval="2000" chance="15" range="7" min="-200" max="-470">
-			<attribute key="shootEffect" value="energy" /> 
+			<attribute key="shootEffect" value="energy" />
 		</attack>
- 
- 	
+
+
 		<attack name="energy" interval="2000" chance="13" radius="3"   min="-200" max="-505">
 			<attribute key="areaEffect" value="energyarea" />
 		</attack>
-		 
-		
+
+
 	</attacks>
 	<defenses armor="82" defense="40" />
 	<elements>
@@ -42,7 +42,7 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
- 
+
 	<loot>
 <!-- common  -->
 
@@ -57,7 +57,7 @@
 		<item name="Energy Drink" countmax="4" chance="1200" />
 		<item name="Odd Organ" countmax="4" chance="1200" />
 		<item name="Frozen Lightning" countmax="4" chance="1200" />
-		<item id="33315" countmax="3" chance="1200" /> <!-- inkwell--> 
+		<item id="33315" countmax="3" chance="1200" /> <!-- inkwell-->
 		<item name="Small Ruby" countmax="4" chance="1200" />
 		<item name="Violet Gem" countmax="4" chance="1200" />
 		<item name="Blue Crystal Splinter" countmax="4" chance="1200" />
@@ -78,5 +78,4 @@
 		<item id="26185" chance="560" /> <!-- ring of blue plasma-->
 		<item id="26187" chance="560" /> <!-- rinf of green plasma-->
 	</loot>
-</monster> 
-
+</monster>

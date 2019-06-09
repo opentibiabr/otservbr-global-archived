@@ -101,7 +101,7 @@ local function creatureSayCallback(cid, type, msg)
 				end
 				npcHandler:say("Cling clang!", cid)
 				npcHandler.topic[cid] = 0
-				else 
+				else
 				npcHandler:say("You dont have soul orbs!", cid)
 				npcHandler.topic[cid] = 0
 			end

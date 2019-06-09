@@ -2,7 +2,7 @@
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 local talkState = {}
- 
+
 function onCreatureAppear(cid)    npcHandler:onCreatureAppear(cid)   end
 function onCreatureDisappear(cid)   npcHandler:onCreatureDisappear(cid)   end
 function onCreatureSay(cid, type, msg)   npcHandler:onCreatureSay(cid, type, msg)  end
@@ -26,29 +26,29 @@ local items = {
           ['fire'] = 25174,
           ['earth'] = 25177,
           ['energy'] = 25180,
-     },   
+     },
      ['axe'] = {
           ['ice'] = 25184,
           ['fire'] = 25175,
           ['earth'] = 25178,
           ['energy'] = 25181,
-     }, 
+     },
      ['club'] = {
           ['ice'] = 25185,
           ['fire'] = 25176,
           ['earth'] = 25179,
           ['energy'] = 25182,
-     }, 
+     },
      ['distance'] = {
           ['ice'] = 25189,
           ['fire'] = 25186,
           ['earth'] = 25187,
           ['energy'] = 25188,
-     },  
+     },
 }
 
 local skillChoice = {}
- 
+
 local function greetCallback(cid)
     skillChoice[cid] = nil
     return true

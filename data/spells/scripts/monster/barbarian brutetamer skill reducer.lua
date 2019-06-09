@@ -18,4 +18,3 @@ end
 function onCastSpell(creature, var)
 	return combat[math.random(90, 99)]:execute(creature, var)
 end
-

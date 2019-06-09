@@ -24,7 +24,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('You brought me a cookie?', cid)
 			npcHandler.topic[cid] = 1
 		end
-	elseif msgcontains(msg, 'mission') or msgcontains(msg, 'quest') then	
+	elseif msgcontains(msg, 'mission') or msgcontains(msg, 'quest') then
 		npcHandler:say({
 			"A quest? Well, if you\'re so keen on doing me a favour... Why don\'t you try to find a {blood herb}?",
 			"To be honest, I\'m drowning in blood herbs by now."
@@ -40,7 +40,7 @@ local function creatureSayCallback(cid, type, msg)
 				"To be honest, I'm drowning in blood herbs by now. But if it helps you, well yes.. I guess I could use another blood herb..."
 			}, cid)
 			npcHandler.topic[cid] = 0
-		end	
+		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
 			if not player:removeItem(8111, 1) then
@@ -72,7 +72,7 @@ local function creatureSayCallback(cid, type, msg)
 					player:addItem(13774, 1) -- torn teddy
 					npcHandler:say('Thank you -SOOO- much! No, I really mean it! Really! Ah, you know what, you can have this old thing...', cid)
 					npcHandler.topic[cid] = 0
-				end	
+				end
 			else
 				npcHandler:say('No, you don\'t have any...', cid)
 				npcHandler.topic[cid] = 0

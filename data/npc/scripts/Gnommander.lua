@@ -21,7 +21,7 @@ function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	local player = Player(cid)
 
 	if msgcontains(msg, 'commander') then
@@ -51,7 +51,7 @@ function creatureSayCallback(cid, type, msg)
 				talkState[cid] = nil
 				return npcHandler:say('You do not have enough level yet.', cid)
 			end
-			
+
 			if player:hasOutfit(player:getSex() == 0 and 575 or 574) then
 				talkState[cid] = nil
 				return npcHandler:say('You already have that outfit.', cid)
@@ -64,7 +64,7 @@ function creatureSayCallback(cid, type, msg)
 				talkState[cid] = nil
 				return npcHandler:say('You do not have enough level yet.', cid)
 			end
-			
+
 			if not player:hasOutfit(player:getSex() == 0 and 575 or 574) then
 				talkState[cid] = nil
 				return npcHandler:say('You do not have the Cave Explorer outfit.', cid)
@@ -82,7 +82,7 @@ function creatureSayCallback(cid, type, msg)
 				talkState[cid] = nil
 				return npcHandler:say('You do not have enough level yet.', cid)
 			end
-			
+
 			if not player:hasOutfit(player:getSex() == 0 and 575 or 574) then
 				talkState[cid] = nil
 				return npcHandler:say('You do not have the Cave Explorer outfit.', cid)
@@ -96,7 +96,7 @@ function creatureSayCallback(cid, type, msg)
 			talkState[cid] = 'second'
 			return npcHandler:say('Do you want to buy the second addon for 3000 Gold?', cid)
 		end
-	end	
+	end
 
 	if talkState[cid] == 'basic' then
 		if msgcontains(msg, 'yes') then
@@ -130,7 +130,7 @@ function creatureSayCallback(cid, type, msg)
 		player:removeFamePoints(100)
 		player:addOutfitAddon(player:getSex() == 0 and 575 or 574, 2)
 		talkState[cid] = nil
-		return npcHandler:say('Here it is.', cid)		
+		return npcHandler:say('Here it is.', cid)
 	end
 	return true
 end

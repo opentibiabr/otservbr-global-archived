@@ -20,7 +20,7 @@ local skills = {
 	[32387] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW},
 	[32388] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_ENERGY},
 	[32389] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE},
-	
+
 }
 
 ------- CONFIG -----//
@@ -46,7 +46,7 @@ local function start_train(pid,start_pos,itemid,fpos)
 							local required = 0
 							local toadd = 0
 							local currently = 0
-							local voc = player:getVocation()				
+							local voc = player:getVocation()
 								if skills[itemid].id == SKILL_MAGLEVEL then
 									if(isInArray({1,2,5,6}, voc:getId())) then
 											if player:getBaseMagicLevel() < 30 then
@@ -81,7 +81,7 @@ local function start_train(pid,start_pos,itemid,fpos)
 												player:addManaSpent(0.000033*required)
 											end
 									else
-									
+
 									end
 								else
 									if(isInArray({3,4,7,8}, voc:getId())) then
@@ -124,7 +124,7 @@ local function start_train(pid,start_pos,itemid,fpos)
 								pos_n:sendDistanceEffect(fpos, skills[itemid].range)
 							end
 
-						    if charges_n == 1 then 
+						    if charges_n == 1 then
 								exercise:remove(1)
 								return true
 						    end
@@ -147,9 +147,9 @@ local function start_train(pid,start_pos,itemid,fpos)
 	end
 		return true
 end
-			
-	
-	
+
+
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 
@@ -168,38 +168,38 @@ end
 
 	local start_pos = player:getPosition()
 	stopEvent(training) -- to prevent from multiple uses
-	
+
 	player:setStorageValue(Storage.Exercisedummy.exaust, 0)
-	
+
 	if target:isItem() then
 	stopEvent(training)
-	
-	
+
+
 		if isInArray(dummies,target:getId()) then
 			if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
 				stopEvent(training)
-				
+
 	player:setStorageValue(Storage.Exercisedummy.exaust, 0)
 				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You need to be closer to dummy to use this item.")
 				return false
 			end
-			
-			
+
+
 --			if (skills[item.itemid].voc ~= player:getVocation():getId()) or ((skills[item.itemid].voc + 4) ~= player:getVocation():getId()) then
-			if(isInArray({1,2,5,6}, player:getVocation():getId())) and skills[item.itemid].id ~= SKILL_MAGLEVEL then			
+			if(isInArray({1,2,5,6}, player:getVocation():getId())) and skills[item.itemid].id ~= SKILL_MAGLEVEL then
 				stopEvent(training)
 				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Your vocation can't use this exercise item.")
 				return false
-			elseif(isInArray({3,7}, player:getVocation():getId())) and skills[item.itemid].id ~= SKILL_DISTANCE then			
+			elseif(isInArray({3,7}, player:getVocation():getId())) and skills[item.itemid].id ~= SKILL_DISTANCE then
 				stopEvent(training)
 				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Your vocation can't use this exercise item.")
 				return false
-			elseif(isInArray({4,8}, player:getVocation():getId())) and ((skills[item.itemid].id ~= SKILL_SWORD) and (skills[item.itemid].id ~= SKILL_CLUB) and (skills[item.itemid].id ~= SKILL_AXE)) then			
+			elseif(isInArray({4,8}, player:getVocation():getId())) and ((skills[item.itemid].id ~= SKILL_SWORD) and (skills[item.itemid].id ~= SKILL_CLUB) and (skills[item.itemid].id ~= SKILL_AXE)) then
 				stopEvent(training)
 				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Your vocation can't use this exercise item.")
 				return false
 			end
-			 
+
 	player:setStorageValue(Storage.Exercisedummy.exaust, 1)
 		player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You started training.")
 		start_train(player:getId(),start_pos,item.itemid,target:getPosition())

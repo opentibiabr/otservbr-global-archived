@@ -12,13 +12,13 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-	
-	
+
+
 	if(msgcontains(msg, "mission")) then
 		if(getPlayerStorageValue(cid, 10050) <= 2 and getPlayerStorageValue(cid, 871241) == 1) then
 			npcHandler:say("So I guess you are the one that the magistrate is sending to look after us, eh? ", cid)
 			npcHandler.topic[cid] = 1
-			else 
+			else
 			npcHandler:say("You need some quests then come and talk with me again.", cid)
 		end
 	elseif(msgcontains(msg, "yes")) then
@@ -31,7 +31,7 @@ function creatureSayCallback(cid, type, msg)
 		if(npcHandler.topic[cid] == 2) then
 			npcHandler:say("Yeah. No one has seen it and lived to tell the tale. People are missing and sometimes there are {traces} of blood or someone heard a scream, but that's all. We have no idea if the killer is a man or a beast, but there is something out there", cid)
 			npcHandler.topic[cid] = 3
-		end	
+		end
 	elseif(msgcontains(msg, "traces")) then
 		if(npcHandler.topic[cid] == 3) then
 			npcHandler:say("Some of the more daring of us tried to follow the tracks that were left, but they always lost the trail close to the abandoned sewers, in the east of the sewer system.", cid)
@@ -43,14 +43,14 @@ function creatureSayCallback(cid, type, msg)
 			selfSay("That part was never truly well liked. There were rumours that the workers found some ancient structures there and that it was ripe with accidents during the construction. ...", cid)
 			selfSay("The city sealed those parts off, and I have no idea how anything could get in or out without the permission of the magistrate. ... ", cid)
 			selfSay("But since you are investigating on their behalf, you might work out some agreement with them, if you're mad enough to enter the sewers at all. ... ", cid)
-			selfSay("However, you will have to talk to one of the Glooth Brothers who are responsible for the sewer system's maintenance. You'll find them somewhere down there.", cid)			
+			selfSay("However, you will have to talk to one of the Glooth Brothers who are responsible for the sewer system's maintenance. You'll find them somewhere down there.", cid)
 			setPlayerStorageValue(cid, 20052, 1) -- quest log mission 2 completada
 			setPlayerStorageValue(cid, 20053, 0) -- quest log mission 2
 			setPlayerStorageValue(cid, 10050, 3) -- quest log mission 3
 			npcHandler.topic[cid] = 0
-		end		
-		
-	
+		end
+
+
 	end
 
 	return true

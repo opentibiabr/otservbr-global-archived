@@ -30,7 +30,7 @@ function onStepIn(creature, item, position, fromPosition)
 		player:addCondition(condition)
 		player:getPosition():sendMagicEffect(11)
 	end
-	
+
 	if tasksLoaded["CHARGE"] then
 		player:getPosition():sendMagicEffect(12)
 		player:setStorageValue(SPIKE_MIDDLE_CHARGE_MAIN, 2)

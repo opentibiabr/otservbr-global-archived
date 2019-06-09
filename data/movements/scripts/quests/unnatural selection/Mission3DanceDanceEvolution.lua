@@ -62,5 +62,3 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 	return true
 end
-
-

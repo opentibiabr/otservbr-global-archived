@@ -12,12 +12,12 @@ end
 local function doCheckArea()
 	local upConer = {x = 32126, y = 31296, z = 14}       -- upLeftCorner
 	local downConer = {x = 32162, y = 31322, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k = upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -37,12 +37,12 @@ end
 local function clearArea()
 	local upConer = {x = 32126, y = 31296, z = 14}       -- upLeftCorner
 	local downConer = {x = 32162, y = 31322, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -65,7 +65,7 @@ local function clearArea()
 end
 
 function createSparks()
-	
+
 	local positions = {
 		{x = 32132, y = 31306, z = 14},
 		{x = 32133, y = 31309, z = 14},
@@ -93,14 +93,14 @@ function createSparks()
 		{x = 32157, y = 31308, z = 14},
 		{x = 32157, y = 31302, z = 14},
 	}
-	
+
 	if unstableSparksCount < 11 then
 		shuffleTable(positions, 2, ri, rj)
-	
+
 		for i = 1, 15 do
 			Game.createMonster("Unstable Spark", positions[i], false, true)
 		end
-	
+
 		areaSparks3 = addEvent(renewSparks, 7000)
 	end
 end
@@ -108,12 +108,12 @@ end
 function renewSparks()
 	local upConer = {x = 32126, y = 31296, z = 14}       -- upLeftCorner
 	local downConer = {x = 32162, y = 31322, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -131,9 +131,9 @@ function renewSparks()
 	end
 	areaSparks4 = addEvent(createSparks, 1000)
 end
-	
+
 -- FUNCTIONS END
-    
+
 function onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
@@ -144,16 +144,16 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 			Position(32227, 31346, 11),
 			Position(32227, 31347, 11)
 		},
-	
+
 		newPos = {x = 32151, y = 31301, z = 14},
 	}
-	
+
 	local pushPos = {x = 32227, y = 31343, z = 11}
-	
+
 	if item.actionid == 14328 then
 		if item.itemid == 9825 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
-			
+
 				local storePlayers, playerTile = {}
 				for i = 1, #config.playerPositions do
 					playerTile = Tile(config.playerPositions[i]):getTopCreature()
@@ -161,22 +161,22 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 						storePlayers[#storePlayers + 1] = playerTile
 					end
 				end
-				
+
 				if doCheckArea() == false then
 					clearArea()
-					
+
 					local players
-					
+
 					for i = 1, #storePlayers do
 						players = storePlayers[i]
 						config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
 						players:teleportTo(config.newPos)
 					end
 					Position(config.newPos):sendMagicEffect(11)
-					
+
 					areaSparks1 = addEvent(clearArea, 15 * 60000)
 					areaSparks2 = addEvent(createSparks, 10000)
-					
+
 					unstableSparksCount = 0
 					--Game.createMonster("Crackler", {x = 32200, y = 31322, z = 14}, false, true)
 					player:say("The room slowly beginns to crackle. An erruption seems imanent!", TALKTYPE_MONSTER_YELL, isInGhostMode, pid, {x = 32143, y = 31308, z = 14})

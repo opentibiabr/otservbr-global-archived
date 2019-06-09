@@ -55,7 +55,7 @@
 		<!-- gold -->
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="10" chance="100000"/><!-- platinum coin -->
-	
+
 		<!-- all loot -->
 		<item id="8473" tier="6" countmax="5" chance="8000"/><!-- ultimate health potion -->
 		<item id="7590" tier="6" countmax="10" chance="8000"/><!-- great mana potion -->
@@ -70,15 +70,15 @@
 		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
 		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
 		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
-		
+
 		<!-- Comum -->
 		<item id="2155" tier="5" chance="6000"/><!-- green gem -->
-		
+
 		<!-- Semi Raro -->
 		<item id="7427" tier="4" chance="6000"/><!-- chaos mace -->
 		<item id="26187" tier="4" chance="4000"/><!-- ring of green plasma -->
 		<item id="26189" tier="4" chance="4000"/><!-- ring of red plasma -->
-		
+
 		<!-- Raro -->
 		<item id="26130" tier="3" unique="1" chance="2000"/><!-- tiara of power -->
 		<item id="26133" tier="3" unique="1" chance="2000"/><!-- void boots -->

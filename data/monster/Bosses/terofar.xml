@@ -20,8 +20,8 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="180" attack="100"/>
-		
-        	
+
+
 		<attack name="death" interval="2000" chance="30" length="8" spread="0" min="-700" max="-1500">
 			<attribute key="areaEffect" value="smallclouds"/>
 		</attack>

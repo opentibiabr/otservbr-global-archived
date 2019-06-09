@@ -6,19 +6,19 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
                         break
                 end
         end
- 
+
         if not modalWindow then
                 return true
         end
- 
+
         local playerId = player:getId()
         if not modalWindow.players[playerId] then
                 return true
         end
         modalWindow.players[playerId] = nil
- 
+
         local choice = modalWindow.choices[choiceId]
- 
+
         for _, button in ipairs(modalWindow.buttons) do
                 if button.id == buttonId then
                         local callback = button.callback or modalWindow.defaultCallback
@@ -28,6 +28,6 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
                         end
                 end
         end
- 
+
         return true
 end

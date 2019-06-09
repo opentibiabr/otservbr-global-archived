@@ -4,7 +4,7 @@
         <look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="25151" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-		
+
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1"/>
@@ -72,7 +72,7 @@
 		<item id="2155" chance="1000"/><!-- green gem -->
 		<item id="2158" chance="1000"/><!-- blue gem -->
 		<item id="2169" chance="6000"/><!-- time ring -->
-		<item id="2214" chance="6000"/><!-- ring of healing -->	
+		<item id="2214" chance="6000"/><!-- ring of healing -->
 		<item id="25523" chance="770"/><!-- rift crossbow -->
 		<item id="8878" chance="770"/><!-- crystalline armor -->
 		<item id="25382" chance="670"/><!-- rift shield -->

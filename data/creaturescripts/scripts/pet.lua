@@ -26,7 +26,7 @@ function onLogin(cid)
 			pet = "emberwing"
 		elseif vocationid == 8 then
 			pet = "skullfrost"
-		end		
+		end
 	end
 
 	if pet then

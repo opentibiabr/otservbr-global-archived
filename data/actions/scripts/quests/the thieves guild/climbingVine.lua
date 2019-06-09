@@ -12,7 +12,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You can not enter a protection zone after attacking another player.")
         player:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return true
-	end	
+	end
 		player:teleportTo(targetPosition)
 
 	return true

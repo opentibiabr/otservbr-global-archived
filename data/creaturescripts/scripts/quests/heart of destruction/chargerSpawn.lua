@@ -19,7 +19,7 @@ function onDeath(creature)
 	}
 
 	local pos = positions[math.random(1, #positions)]
-	
+
 	addEvent(chargerSpawn, 6000, pos)
 	spawningCharge = true
 	return true

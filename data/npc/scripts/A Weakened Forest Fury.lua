@@ -39,45 +39,45 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.ForgottenKnowledge.BirdCage, 1)
 			player:addItem(26480, 1)
 		end
-	elseif msgcontains(msg, "seeds") then 
+	elseif msgcontains(msg, "seeds") then
 			if npcHandler.topic[cid] == 1 then
 			npcHandler:say({
 			"Seeds to give life to strong trees, blooming and proud. The {intruders} robbed us from them."
 			}, cid)
 		end
-	elseif msgcontains(msg, "intruders") then 
+	elseif msgcontains(msg, "intruders") then
 			if npcHandler.topic[cid] == 1 then
 			npcHandler:say({
 			"The intruders appeared in the blink of an eye. Out of thin air, as if they came from nowhere. They overrun the glade within ours and drove away what was remaining from us within the day."
 			}, cid)
 		end
-	elseif msgcontains(msg, "water") then 
+	elseif msgcontains(msg, "water") then
 			if npcHandler.topic[cid] == 1 then
 			npcHandler:say({
 			"The purest water flows through this well. For centuries we concealed it, for other beings to not lay their eyes on it."
 			}, cid)
 		end
-	elseif msgcontains(msg, "birds") then 
+	elseif msgcontains(msg, "birds") then
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say({
 				"Take care, guardian."
 			}, cid)
 		end
-	elseif msgcontains(msg, "phials") then 
+	elseif msgcontains(msg, "phials") then
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say({
 				"Phials for the purest water from our sacred well. They are finely crafted and very fragile. We keep a small supply up here around the well. Probably the only thing the intruders did not care for."
 			}, cid)
 		end
 	end
-	if msgcontains(msg, "cages") and player:getStorageValue(Storage.ForgottenKnowledge.BirdCage) == 1 then 
+	if msgcontains(msg, "cages") and player:getStorageValue(Storage.ForgottenKnowledge.BirdCage) == 1 then
 		npcHandler:say({
 			"Crafted generations ago to rob a creature of its freedom for that it may earn it again truthfully. You will need them if you plan on returning the birds to their rightful home in the glade. ... ",
 			"Are you in need of another one? "
 		}, cid)
-		npcHandler.topic[cid] = 2			
+		npcHandler.topic[cid] = 2
 	end
-	if msgcontains(msg, "yes") then 
+	if msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 2 then
 			npcHandler:say({
 				"I already handed a cage to you. If you are in need of another one, you will have to return to me later."

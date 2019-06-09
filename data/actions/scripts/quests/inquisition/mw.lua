@@ -13,9 +13,9 @@ end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:teleportTo(Position(32319, 32248, 9))
-   
+
     then
     end
 
     return true
-end 
+end

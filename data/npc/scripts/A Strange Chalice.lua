@@ -23,7 +23,7 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		npcHandler.topic[cid] = 1
 	end
-	
+
 	if msgcontains(msg, "daughter") and npcHandler.topic[cid] == 1 then
 		npcHandler:say({
 			"Well, besides being a renowned sorcerer and scholar at the magic academy in Edron, I am also the proud father of a beautiful daughter, Ivalisse. My little endeavour here must have troubled the poor thing all the time since I left. ...",
@@ -31,7 +31,7 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		npcHandler.topic[cid] = 2
 	end
-	
+
 	if msgcontains(msg, "story") and npcHandler.topic[cid] == 2 then
 		npcHandler:say({
 			"No water then? Ah drat - er, don't worry, no problem. So, from the day I received news of the discovery of Zao, I wanted to study its inhabitants, wildlife, plants and geography. ...",
@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		npcHandler.topic[cid] = 3
 	end
-	
+
 	if msgcontains(msg, "disguised") and npcHandler.topic[cid] == 3 then
 		npcHandler:say({
 			"Oh yes, so since I wanted to study the Draken up close, I came up with an idea. Based on my research, and some slight bruises and a scar, the perfect hiding place is often right in the middle of subjects. ...",
@@ -54,17 +54,17 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		npcHandler.topic[cid] = 4
 	end
-	
+
 	if msgcontains(msg, "thirsty") and npcHandler.topic[cid] == 4 then
 		npcHandler:say({
 			"Ah did I say that? Nevermind, I'm not really thirsty. It's part of this illusion. Somehow, I've been in hiding for so long, I started to... become... a vessel. ...",
 			"I don't know, I have that constant urge to drink but in this form I would not need to, there is no mouth, no stomach, no flesh and no actual need to eat, drink or sleep. ...",
 			"I basically communicate by making the metal of this goblet vibrate and using its form as a body of sound. Like a real voice, don't you think?? Yes, alright I know it's creepy. ...",
 			"I am still in the middle of my research and do not want to go home, so please tell my daughter to not worry about my - this will be a breakthrough! I already {learned} a lot!"
-		}, cid)			
+		}, cid)
 		npcHandler.topic[cid] = 5
 	end
-	
+
 	if msgcontains(msg, "learned") and npcHandler.topic[cid] == 5 then
 		npcHandler:say({
 			"Yes, well for instance I tried for some time to figure out how to enter the fiery portal in this complex. Most of the draken never come up here. They rather hide somewhere down there, planning and plotting. ...",

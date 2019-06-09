@@ -20,7 +20,7 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-  	
+
 	<attacks>
 		<attack name="melee" interval="2000" skill="140" attack="40"/>
 		<attack name="hirintror freeze" interval="2000" chance="15"/>
@@ -55,7 +55,7 @@
 	<loot>
 		<item id="21697" chance="200" /><!-- runic shieldd -->
 		<item id="2148" countmax="100" chance="70000" /><!-- gold coin -->
-		
+
 		<item id="21400" chance="200" /><!-- silver token -->
 		<item id="21696" chance="200" /><!-- icicle bow -->
 		<item id="2479" chance="1200" /><!-- runic shieldd -->
@@ -70,7 +70,7 @@
 		<item id="7588" countmax="5" chance="2000" /><!-- Strong Health Potions -->
 		<item id="2145" countmax="5" chance="2000" /><!-- Small Diamonds -->
 		<item id="2152" chance="20000" /><!-- Platinum Coin -->
-		
-	
+
+
 	</loot>
 </monster>

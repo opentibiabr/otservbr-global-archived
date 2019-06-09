@@ -47,25 +47,25 @@
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Sluuuurp! Sluuuuurp!" />
 		<voice sentence="Shluush!" />
 	</voices>
 	<loot>
 	<!--Sempre-->
-		<item name="Platinum Coin" count="36" chance="10000" /> 
-		<item name="Great Mana Potion" count="18" chance="10000" /> 
-		<item name="Great Spirit Potion" count="10" chance="10000" /> 
-		<item name="Green Crystal Shard" count="4" chance="10000" /> 
-		<item name="Huge Chunk of Crude Iron" count="2" chance="10000" /> 
-		<item name="Magic Sulphur" count="2" chance="10000" /> 
-		<item name="Mastermind Potion" count="2" chance="10000" /> 
-		<item name="Small Amethyst" count="10" chance="10000" /> 
-		<item name="Small Diamond" count="10" chance="10000" /> 
-		<item name="Small Emerald" count="12" chance="10000" /> 
-		<item name="Small Ruby" count="10" chance="10000" /> 
-		<item name="Small Topaz" count="10" chance="10000" /> 
+		<item name="Platinum Coin" count="36" chance="10000" />
+		<item name="Great Mana Potion" count="18" chance="10000" />
+		<item name="Great Spirit Potion" count="10" chance="10000" />
+		<item name="Green Crystal Shard" count="4" chance="10000" />
+		<item name="Huge Chunk of Crude Iron" count="2" chance="10000" />
+		<item name="Magic Sulphur" count="2" chance="10000" />
+		<item name="Mastermind Potion" count="2" chance="10000" />
+		<item name="Small Amethyst" count="10" chance="10000" />
+		<item name="Small Diamond" count="10" chance="10000" />
+		<item name="Small Emerald" count="12" chance="10000" />
+		<item name="Small Ruby" count="10" chance="10000" />
+		<item name="Small Topaz" count="10" chance="10000" />
 		<item name="Ultimate Health Potion" count="5" chance="10000" />
 		<item name="Amber Staff" chance="10000" />
 		<item name="Blue Gem" chance="10000" />
@@ -83,17 +83,17 @@
 		<item name="Harpoon of a Giant Snail" chance="10000" />
 		<item name="Huge Spiky Snail Shell" chance="10000" />
 		<item name="Luminous Orb" chance="10000" />
-		<item name="Red Gem" chance="10000" />	
+		<item name="Red Gem" chance="10000" />
 		<!--Raro-->
-		<item name="Silver Token" chance="1000" />	
-		<item name="Stone Skin Amulet" chance="1000" />	
-		<item name="Twiceslicer" chance="1000" />	
-		<item name="Wand of Inferno" chance="1000" />	
-		<item name="Yellow Gem" chance="1000" />	
-		<item name="Candle Stump" chance="1000" />	
-		<item name="Gnome Shield" chance="1000" />	
-		<item name="Gnome Sword" chance="1000" />	
-		<item name="Mallet Handle" chance="1000" />	
+		<item name="Silver Token" chance="1000" />
+		<item name="Stone Skin Amulet" chance="1000" />
+		<item name="Twiceslicer" chance="1000" />
+		<item name="Wand of Inferno" chance="1000" />
+		<item name="Yellow Gem" chance="1000" />
+		<item name="Candle Stump" chance="1000" />
+		<item name="Gnome Shield" chance="1000" />
+		<item name="Gnome Sword" chance="1000" />
+		<item name="Mallet Handle" chance="1000" />
 		<item name="Tinged Pot" chance="1000" />
 		<!--Muito Raro-->
 		<item name="Gnome Helmet" chance="100" />

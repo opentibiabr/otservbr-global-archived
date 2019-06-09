@@ -1,18 +1,18 @@
 
 function onStepIn(creature, item, position, fromPosition)
-	
+
 
 	local primeiraChecagem = Position(33135, 31859, 10)
 	local segundaChecagem = Position(33128, 31885, 11)
 	local terceiraChecagem = Position(33175, 31923, 12)
 
-	
+
 	local player = creature:getPlayer()
-	
+
 	if not player then
 		return true
 	end
-	
+
 if position == primeiraChecagem or position == Position(primeiraChecagem.x + 1, primeiraChecagem.y, primeiraChecagem.z) then
 	if player:getStorageValue(Storage.CultsOfTibia.Orcs.lookType) < 1 then
 		if creature:getOutfit().lookType == 5 then
@@ -48,7 +48,6 @@ if position == terceiraChecagem or position == Position(terceiraChecagem.x + 1, 
 		end
 	end
 end
-	
+
 	return true
 end
-

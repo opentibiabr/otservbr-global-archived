@@ -13,7 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	-- www.vikingtibia.com.br
-	
+
 	if(msgcontains(msg, "abandoned sewers")) then
 		if(getPlayerStorageValue(cid, 20062) < 21) then
 			selfSay("You want to enter the abandoned sewers? That's rather dangerous and not a good idea, man. That part of the sewers was not sealed off for nothing, you know? ...", cid)
@@ -29,7 +29,7 @@ function creatureSayCallback(cid, type, msg)
 		elseif(getPlayerStorageValue(cid, 10050) == 5) then
 		    npcHandler:say("I'm glad to see you back alive and healthy. Did you find anything interesting that you want to {report}?", cid)
 			npcHandler.topic[cid] = 7
-	end	
+	end
 	elseif(msgcontains(msg, "mission")) then
 		if(npcHandler.topic[cid] == 0) then
 			npcHandler:say("The sewers need repair. You in?", cid)
@@ -52,7 +52,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			setPlayerStorageValue(cid, 20062, 21)
 
-		end		
+		end
 	elseif(msgcontains(msg, "report")) then
 	if(getPlayerStorageValue(cid, 10050) < 6) then
 		--if(npcHandler.topic[cid] == 7) then
@@ -61,10 +61,10 @@ function creatureSayCallback(cid, type, msg)
 			setPlayerStorageValue(cid, 10050, 6)
 			setPlayerStorageValue(cid, 20055, 1)
 			setPlayerStorageValue(cid, 20056, 0)
-			npcHandler.topic[cid] = 0 
-			
+			npcHandler.topic[cid] = 0
+
 			else npcHandler:say("You already reported this mission, go to the next.", cid)
-		end		
+		end
 	end
 
 	return true

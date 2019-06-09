@@ -15,11 +15,11 @@ end
 function onUse(cid, item, fromPosition, itemEx) -- {x = 33477, y = 32102, z = 9}   {x = 33500, y = 32124, z = 9}
 	local player = Player(cid)
 	if not player then
-	
+
 		return true
 	end
         if item.itemid == 1945 then
-		
+
 	        if player:getStorageValue(1) and not isPlayerInArea({x = 33477, y = 32102, z = 9, stackpos = 255}, {x = 33500, y = 32124, z = 9, stackpos = 255}) then
 				pos1 = {x = 33583, y = 31844, z = getCreaturePosition(cid).z}
 				pos2 = {x = 33584, y = 31844, z = getCreaturePosition(cid).z}
@@ -40,14 +40,14 @@ function onUse(cid, item, fromPosition, itemEx) -- {x = 33477, y = 32102, z = 9}
 					doSummonCreature("greater death minion", {x=33481, y=32112, z=9})
 					doSummonCreature("greater death minion", {x=33482, y=32112, z=9})
 					doSummonCreature("greater death minion", {x=33481, y=32113, z=9})
-						
+
 					doRemoveItem(item.uid, 1)
 			end
 		    end
 	       end
 	  end
      end
-	else doPlayerSendTextMessage(cid,19,"There are players inside the room or is missing players here.") 
+	else doPlayerSendTextMessage(cid,19,"There are players inside the room or is missing players here.")
 end
 
 end

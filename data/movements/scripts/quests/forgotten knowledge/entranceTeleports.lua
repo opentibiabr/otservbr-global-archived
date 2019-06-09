@@ -30,7 +30,7 @@ function onStepIn(creature, item, position, fromPosition)
 			if player:getStorageValue(Storage.ForgottenKnowledge.LadyTenebrisKilled) >= 1 and player:getStorageValue(Storage.ForgottenKnowledge.LloydKilled) >= 1 and
 				player:getStorageValue(Storage.ForgottenKnowledge.ThornKnightKilled) >= 1 and player:getStorageValue(Storage.ForgottenKnowledge.DragonkingKilled) >= 1 and
 				player:getStorageValue(Storage.ForgottenKnowledge.HorrorKilled) >= 1 and player:getStorageValue(Storage.ForgottenKnowledge.TimeGuardianKilled) >= 1 then
-			
+
 				player:setStorageValue(Storage.ForgottenKnowledge.AccessLast, 1)
 			end
 		end
@@ -57,4 +57,3 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 	return true
 end
-

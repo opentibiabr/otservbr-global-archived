@@ -28,7 +28,7 @@
 		<attack name="poisoncondition" interval="2000" chance="21" radius="4" target="0" min="-200" max="-310">
 			<attribute key="areaEffect" value="greenbubble" />
 		</attack>
-	</attacks> 
+	</attacks>
 	<elements>
 		<element icePercent="-20" />
 		<element earthPercent="20" />
@@ -36,7 +36,7 @@
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="uuaarrrrrrr" />
 		<voice sentence="clic clic clic" />
@@ -45,29 +45,29 @@
 	<!--Sempre-->
 		<item name="Ham" count="4"  chance="40080" />
 		<item name="Diremaw Brainpan"  chance="24120" />
-		
-			<!--quase sempre-->
-			<item name="Poisonous Slime" count="5"  chance="11930" />  
-			<item name="Blue Crystal Shard"  chance="9660" />  
-			<item name="Violet Crystal Shard"  chance="8180" />  
-			<item name="Green Crystal Shard"  chance="8030" />  
-			<item name="Onyx Chip" count="4"  chance="8560" />  
-			<item name="Diremaw Legs" count="2"  chance="9650" />  
-	
-			
-				<!--semi raro-->
-				<item name="Small Enchanted Emerald" count="2"  chance="2940" />  
-				<item name="Small Emerald" count="2"   chance="5080" />  
-				<item name="Gold Ingot"  chance="2970" />  
 
-				
-						<!--raro-->  
+			<!--quase sempre-->
+			<item name="Poisonous Slime" count="5"  chance="11930" />
+			<item name="Blue Crystal Shard"  chance="9660" />
+			<item name="Violet Crystal Shard"  chance="8180" />
+			<item name="Green Crystal Shard"  chance="8030" />
+			<item name="Onyx Chip" count="4"  chance="8560" />
+			<item name="Diremaw Legs" count="2"  chance="9650" />
+
+
+				<!--semi raro-->
+				<item name="Small Enchanted Emerald" count="2"  chance="2940" />
+				<item name="Small Emerald" count="2"   chance="5080" />
+				<item name="Gold Ingot"  chance="2970" />
+
+
+						<!--raro-->
 						<item id="7632"  chance="3100" />  <!--Giant Shimmering Pearl-->
-						<item name="Suspicious Device"  chance="600" />  
-						
+						<item name="Suspicious Device"  chance="600" />
+
 						<!--MuitoRaro-->
-						<item name="Mycological Bow"  chance="1200" />  
-						<item name="Mushroom Backpack"  chance="1500" />  
+						<item name="Mycological Bow"  chance="1200" />
+						<item name="Mushroom Backpack"  chance="1500" />
 
 	</loot>
 </monster>

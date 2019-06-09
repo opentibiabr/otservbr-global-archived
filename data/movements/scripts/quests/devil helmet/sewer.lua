@@ -21,7 +21,7 @@ function onStepOut(creature, item, position, fromPosition)
 	if player == nil then
 		return true
 	end
-	
+
 	local tile = Tile(sewerPosition)
 	if (tile) then
 		local tileItem = tile:getItemById(430)
