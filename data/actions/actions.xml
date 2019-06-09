@@ -415,7 +415,7 @@
 	<action itemid="23668" script="oramond/sewerGrateTeleport.lua"/>
 	<action itemid="23669" script="oramond/sewerGrate.lua"/>
 	<action itemid="23422" script="oramond/elevator.lua" />
-	<action itemid="23429" script="oramond/elevator.lua" 
+	<action itemid="23429" script="oramond/elevator.lua" />
 	
 	<!-- Oramond Quest -->
 	<action itemid="23468" script="quests/oramond/juiceroots.lua"/>
