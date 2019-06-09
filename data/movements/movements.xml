@@ -63,9 +63,7 @@
 	<movevent event="StepIn" fromuid="9500" touid="9501" script="others/teleports/citizen.lua" />
 
 	<!-- Dark Trails Quest -->
-	<movevent event="StepIn" actionid="9745" script="quests/oramond/darkTrail.lua" />
-	<movevent event="StepIn" actionid="13500" script="quests/oramond/darkTrail2.lua" />
-	<movevent event="StepIn" actionid="53161" script="quests/oramond/dark.lua"/>
+	<movevent event="StepIn" actionid="9745" script="quests/dark trails/necrometerTileAcess.lua" />
 
 	<!-- Dangerous Depths -->
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous depth/lostExiles.lua"/>
@@ -214,8 +212,8 @@
     <movevent event="StepIn" fromid="26125" toid="26126" script="quests/heart of destruction/hungerVortex.lua"/>
 	
 	<!-- Item Teleport Destinations -->
-	<movevent event="AddItem" tileitem="1" itemid="1387" script="others/itemteleports.lua" />
-	<movevent event="AddItem" tileitem="1" itemid="8058" script="others/itemteleports.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="1387" script="others/itemTeleports.lua" />
+	<movevent event="AddItem" tileitem="1" itemid="8058" script="others/itemTeleports.lua" />
 	
 	<!-- Island 999 -->
 	<movevent event="StepIn" actionid="15998" script="island 999/tp999.lua" />
@@ -255,7 +253,7 @@
 	<movevent event="StepIn" fromaid="41346" toaid="41349" script="others/quests/lionRock.lua" />
 	
 	<!-- Magician Quarter (Warlock & Infernalist Area) -->
-	<movevent event="StepIn" actionid="7813" script="others/magicianquarter.lua" />
+	<movevent event="StepIn" actionid="7813" script="others/magicianQuarter.lua" />
 	
 	<!-- Meriana Turtles -->
 	<movevent event="StepIn" fromuid="3206" touid="3213" script="others/turtles.lua" />
@@ -346,7 +344,8 @@
 	<movevent event="StepIn" actionid="64014" script="quests/the secret library/deep desert/deepDesertExit.lua" />
 	<movevent event="StepIn" fromaid="64007" toaid="64009" script="quests/the secret library/falconsEntrance.lua" />
 	<movevent event="StepIn" fromaid="64010" toaid="64012" script="quests/the secret library/falconsExit.lua" />
- 	<movevent event="StepIn" actionid="57602" script="falcon castle/portal.lua" />
+	
+	<movevent event="StepIn" actionid="57602" script="falcon castle/portal.lua" />
  	<movevent event="StepIn" actionid="57699" script="falcon castle/portal.lua" />
  	<movevent event="StepIn" actionid="3255" script="falcon castle/portal.lua" />
 	
@@ -1016,7 +1015,7 @@
 	<movevent event="Equip" itemid="18408" level="120" slot="ring" function="onEquipItem" />
 	<movevent event="Equip" itemid="18528" level="120" slot="ring" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="18528" slot="ring" function="onDeEquipItem" />
-	<movevent event="Equip" itemid="10310" level="100" slot="ring" script="others/noxiousclaw.lua" />
+	<movevent event="Equip" itemid="10310" level="100" slot="ring" script="others/noxiousClaw.lua" />
 	<movevent event="Equip" itemid="10309" level="100" slot="ring" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="10309" level="100" slot="ring" function="onDeEquipItem" />
 	<movevent event="Equip" itemid="10311" level="100" slot="ring" function="onEquipItem" />
