@@ -47,10 +47,11 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item name="crystal necklace" chance="1730" />
-		<item id="2169" chance="1587" /><!-- time ring -->
-		<item name="plate armor" chance="10000" />
-		<item name="plate armor" chance="5263" />
-		<item name="crystal sword" chance="2564" />
+		<item name="Platinum Coin" chance="100000" />
+		<item name="Cyan Crystal Fragment" chance="55000" />
+		<item name="Poison Gland" chance="54500" />
+		<item name="Great Mana Potion" chance="80000" />
+		<item name="Plate Armor" chance="64000" />
+		<item name="Green Gem" chance="35000" />
 	</loot>
 </monster>
