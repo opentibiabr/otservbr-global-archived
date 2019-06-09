@@ -47,8 +47,4 @@
 		<immunity fire="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="ZCHHHHHHH" yell="1"/>
-		<voice sentence="YOU WILL BURN!" yell="1"/>
-	</voices>
 </monster>

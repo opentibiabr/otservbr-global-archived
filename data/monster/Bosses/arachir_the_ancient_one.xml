@@ -50,6 +50,7 @@
 		<voice sentence="I was the shadow that haunted the cradle of humanity!" />
 		<voice sentence="I exist since eons and you want to defy me?" />
 		<voice sentence="Can you feel the passage of time, mortal?" />
+		<voice sentence="Your worthles existence will nourish something greater!" />
 	</voices>
 	<summons maxSummons="2">
 		<summon name="Lich" interval="9000" chance="100" />

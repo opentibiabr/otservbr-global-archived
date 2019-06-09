@@ -47,6 +47,9 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
+	<voices interval="10000" chance="7">
+		<voice sentence="Tip tap tip tap!" /> 
+	</voices>
 	<loot>
 <!--common-->
 <item name="platinum coin" count="14" chance="100000" /> 

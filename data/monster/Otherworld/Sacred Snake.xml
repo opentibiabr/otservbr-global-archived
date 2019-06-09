@@ -26,10 +26,6 @@
 		<element firePercent="-10" />
 		<element icePercent="-10" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="Zzzzzzt" />
-	</voices>
-	
 	<loot>
 	</loot>
 </monster>

@@ -55,9 +55,7 @@
 		<summon name="Sandstone Scorpion" interval="1000" chance="12" />
 	</summons>
 	<voices interval="2000" chance="7">
-		<voice sentence="Feel my eternal wrath!" />
 		<voice sentence="I might be dead but I'm not gone!" />
-		<voice sentence="Receive a lesson of the past!" />
 	</voices>
 	<loot>
 		<item id="13498" chance="100000" />				<!-- scorpion sceptre -->

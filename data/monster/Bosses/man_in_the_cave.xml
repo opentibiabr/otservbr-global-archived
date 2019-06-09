@@ -35,7 +35,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="THE MONKS ARE MINE" yell="1" />
+		<voice sentence="THE MONKS ARE MINE!" yell="1" />
 		<voice sentence="I will rope you up! All of you!" />
 		<voice sentence="You have been roped up!" />
 		<voice sentence="A MIC to rule them all!" />

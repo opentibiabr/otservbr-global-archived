@@ -45,7 +45,8 @@
 		<voice sentence="Huhuhuhuuu!" />
 		<voice sentence="Let the fun begin!" />
 		<voice sentence="Yihahaha!" />
-		<voice sentence="I'll bite you! Nyehehehehe!" />
+		<voice sentence="I'll bite you! Nyehehehe!" />
+		<voice sentence="Nyarnyarnyarnyar." />
 	</voices>
 	<loot>
 		<item name="brown flask" chance="8750" />

@@ -29,10 +29,6 @@
 		<element earthPercent="-12" />
 		<element deathPercent="-10" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="<grunt>" />
-		<voice sentence="Raar!!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="165" chance="50320" /><!-- gold coin -->
 		<item id="2152" countmax="2" chance="50320" /><!-- platinun coin -->

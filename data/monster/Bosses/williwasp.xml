@@ -27,9 +27,6 @@
 	<immunities>
 		<immunity earth="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Bssssss" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="20" chance="100000" /><!-- gold coin -->
 		<item id="5902" countmax="3" chance="100000" /><!-- honeycomb -->

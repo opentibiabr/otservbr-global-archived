@@ -58,8 +58,8 @@
 		<summon name="war wolf" interval="2000" chance="40" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="BLOOD!" yell="1" />
-		<voice sentence="HRAAAAAAAAAARRRRRR!" yell="1" />
+		<voice sentence="GRRR" yell="1" />
+		<voice sentence="GRROARR" yell="1" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="230" chance="98000" /> <!-- gold coin -->

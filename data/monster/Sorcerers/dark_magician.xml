@@ -49,9 +49,9 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Feel the power of my runes!" />
-		<voice sentence="Killing you is getting expensive!" />
+		<voice sentence="Killing you gets expensive!" />
 		<voice sentence="My secrets are mine alone!" />
-		<voice sentence="Stand Still!" />
+		<voice sentence="Stand still!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="55" chance="75100" />

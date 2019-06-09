@@ -44,7 +44,7 @@
 	<voices interval="3000" chance="50">
 		<voice sentence="Must! Chop! Food! Raahh!" />
 		<voice sentence="You tasty!" />
-				
+		<voice sentence="UGGA UGGA!!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="130" chance="92000" />	<!-- gold coin -->

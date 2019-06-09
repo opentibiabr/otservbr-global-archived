@@ -42,7 +42,7 @@
 		<element firePercent="-15" />
 	</elements>
 	<voices interval="2000" chance="7">
-		<voice sentence="<grunt>" />
+		<voice sentence="&lt;grunt&gt;" />
 		<voice sentence="Raar!!" />
 	</voices>
 	<loot>

@@ -42,7 +42,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Eeeeeeyyyyh!" />
-		<voice sentence="Iiiiieeeeeh!" />
+		<voice sentence="Iiiiieeeeeeh!" />
 	</voices>
 	<loot>
 		<item name="small ruby" countmax="5" chance="11900" />

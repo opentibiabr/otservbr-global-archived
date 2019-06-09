@@ -4,7 +4,7 @@
 	<look type="261" corpse="7282" />
 	<targetchange interval="5000" chance="8" />
 	<flags> <!-- Todas as Flags -->
-		<flag boss="1" />
+		
 		<flag preyable="0" />
 		<flag rewardboss="0" />
 		<flag summonable="0" />
@@ -62,10 +62,6 @@
 		<immunity outfit="0" />
 		<immunity invisible="0" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Yooodelaaahooohooo!" />
-		<voice sentence="Yooodelaaaheeeheee!" />
-	</voices>
 	<loot>
 		<item name="snowball" countmax="22" chance="10000" />
 		<item name="gold coin" countmax="60" chance="100000" />

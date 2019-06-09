@@ -45,11 +45,11 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="POWER TO THE ASKARAK!" />
-		<voice sentence="GREEN WILL RULE!" />
-		<voice sentence="GREEN IS MEAN!" />
-		<voice sentence="ONLY WE ARE TRUE DEMONS!" />
-		<voice sentence="RED IS MAD" />
+			<voice sentence="DEATH TO THE SHABURAK!" />
+			<voice sentence="GREEN WILL RULE!" />
+			<voice sentence="ONLY WE ARE TRUE DEMONS!" />
+			<voice sentence="RED IS MAD!" />
+			<voice sentence="WE RULE!" />
 	</voices>
 	<loot>
 		<item name="piggy bank" chance="1052" />

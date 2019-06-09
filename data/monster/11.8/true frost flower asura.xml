@@ -52,12 +52,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" /> 
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Encounter the flames of destiny!" />
-		<voice sentence="Fire and destruction!" yell="1" />
-		<voice sentence="I will end your torment. Do not run, little mortal." />
-		<voice sentence="Join me, brothers, for a BLOODY FRENZY!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="242" chance="97000" />	<!-- gold coin -->		
 		<item id="2152" countmax="6" chance="18200" />				<!-- fish -->		

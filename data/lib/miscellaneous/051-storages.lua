@@ -12,9 +12,6 @@ Storage = {
 		Exercisedummy = {
 		exaust = 98231521
 	},
-		Exaust = {
-		Time = 98231585
-	},
 	
 	DangerousDepths = {
 	Questline = 800,
@@ -435,7 +432,11 @@ Storage = {
 		Warzone2Reward = 959,
 		Warzone3Reward = 960,
 		bossKills = 961,
-		openGoldenFruits = 962
+		openGoldenFruits = 962,
+		
+		BossWarzone1 = 963,
+		BossWarzone2 = 964,
+		BossWarzone3 = 965
 	},
 	TheirMastersVoice = {
 		SlimeGobblerTimeout = 984,
@@ -540,6 +541,11 @@ Storage = {
 
 		MissionToTakeRoots = 20060,
 		HarvestedRootCount = 20061,
+		DoorBeggarKing = 20062,
+		DoorAbandonedSewer = 20063
+	},
+	DarkTrails = {
+		DoorQuandon = 20080
 	},
 	RathletonQuest = {
 		QuestLine = 10080,
@@ -1308,11 +1314,19 @@ Storage = {
 	DreamersChallenge = {
 		Reward = 9050
 	},
+	
+	HallsOfHope = {
+		Reward1 = 50801,
+		Reward2 = 50802,
+		Reward3 = 50803,
+		Reward4 = 50804,
+		Reward5 = 50805
+	},
 
 	EruaranGreeting = 3250,
-	Factions = 50716,
 	MaryzaCookbook = 50721,
 	combatProtectionStorage = 50722,
+	Factions = 50723,
 	blockMovementStorage = 100000,
 	PetSummon = 60045
 

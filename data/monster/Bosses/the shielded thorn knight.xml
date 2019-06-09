@@ -56,9 +56,4 @@
 		<element physicalPercent="80" />
 		<element icePercent="80" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="Togheter we are unstoppable!" />
-		<voice sentence="You will fall before our might!" />
-	</voices>
-	
 </monster>

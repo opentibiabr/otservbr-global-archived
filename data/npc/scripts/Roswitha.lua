@@ -20,6 +20,7 @@ function creatureSayCallback(cid, type, msg)
             setPlayerStorageValue(cid, 10050, 14)
 		   setPlayerStorageValue(cid, 30052, 1)
 		   setPlayerStorageValue(cid, 30053, 0)
+		   player:setStorageValue(Storage.DarkTrails.DoorQuandon, 1)
 		end
 	end
 

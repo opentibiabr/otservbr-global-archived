@@ -49,8 +49,6 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="Rawrrr!" />
-		<voice sentence="*grlb*" />
 		<voice sentence="Roarr!" />
 	</voices>
 	<loot>

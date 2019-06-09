@@ -51,7 +51,9 @@
 		<element energyPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Head off!" />
+		<voice sentence="*sniff sniff* Mhmmm ... mortal flesh." />
+		<voice sentence="Hoppel-di-hopp!" />
+		<voice sentence="I'll gnaw away your toes!" />
 	</voices>
 	<loot>
 		<item name="carrot on a stick" chance="20" />

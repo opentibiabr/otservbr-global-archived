@@ -56,11 +56,6 @@
 		<immunity invisible="1"/>
 		<immunity poison="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="I'm so pretty!"/>
-		<voice sentence="No one stands besides me!"/>
-		<voice sentence="Don't you die!"/>
-	</voices>
 	<loot>
 		<item id="23515" countmax="5" chance="20000"/><!-- bowl of glooth soup -->
 		<item id="23554" chance="1000"/><!-- glooth amulet -->

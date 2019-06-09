@@ -39,7 +39,7 @@
 		<voice sentence="I smell gold!" />
 		<voice sentence="You'll make a fine fake-mummy to be sold!" />
 		<voice sentence="Untold riches are awaiting me!" />
-		<voice sentence="I don't like competition" />
+		<voice sentence="I don't like competition!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="39" chance="50900" />

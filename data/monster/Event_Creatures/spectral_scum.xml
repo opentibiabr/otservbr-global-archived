@@ -28,9 +28,12 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="10">
-		<voice sentence="BBooze! More booze!, Harrr Harrr!" />
-		<voice sentence="Burp, Fart." />
-		<voice sentence="Nothing better than plundering and getting palstered!" />
-		<voice sentence="Yarrr!, A pirate's unlife for me!" />
+		<voice sentence="Booze! More booze!" />
+		<voice sentence="Harrr! Harrr!" />
+		<voice sentence="&lt;Burp&gt;" />
+		<voice sentence="&lt;Fart&gt;" />
+		<voice sentence="Nothing better than plundering and getting plastered!" />
+		<voice sentence="Yarrr!" />
+		<voice sentence="A pirate's unlife for me!" />
 	</voices>
 </monster>

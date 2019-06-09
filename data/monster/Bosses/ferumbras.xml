@@ -65,7 +65,7 @@
 		<summon name="Demon" interval="3000" chance="12" />
 	</summons>
 	<voices interval="5000" chance="20">
-		<voice sentence="NOONE WILL STOP ME THIS TIME!" yell="1" />
+		<voice sentence="NO ONE WILL STOP ME THIS TIME!" yell="1" />
 		<voice sentence="THE POWER IS MINE!" yell="1" />
 		<voice sentence="I returned from death and you dream about defeating me?" />
 		<voice sentence="Witness the first seconds of my eternal world domination!" />

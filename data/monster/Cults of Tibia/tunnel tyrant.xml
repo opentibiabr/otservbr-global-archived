@@ -40,14 +40,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="I'm the one who puts the cute into execute!" />
-		<voice sentence="I'm here to punish!" />
-		<voice sentence="Justice is swift and unavoidable!" />
-		<voice sentence="I'll bring justice!" />
-		<voice sentence="There is excellence in execution!" />
-		<voice sentence="Your sentence is death!" />
-	</voices>
 	<loot>
 		<item id="2671" countmax="1" chance="60780" />		<!-- ham -->
 		<item id="2666" countmax="1" chance="4920" />		<!-- meat -->

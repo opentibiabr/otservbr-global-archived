@@ -52,7 +52,6 @@
 		<immunity invisibility="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="Hizzzzzz!" />
 		<voice sentence="For ze emperor!" />
 		<voice sentence="You will die zhouzandz deazhz!" />
 	</voices>

@@ -33,12 +33,6 @@
 		<element deathPercent="-10" />
 		<element physicalPercent="-10" />
 	</elements>
-	<voices interval="5000" chance="10">
-		<voice sentence="This crypt is taken!" />
-		<voice sentence="Leave or you are hunted!" />
-		<voice sentence="The treasure will be mine!" />
-		<voice sentence="The X marks the spot!" />
-	</voices>
 	<loot>
 		<item name="gold coin" countmax="38" chance="54260" />
 		<item name="axe" chance="2500" />

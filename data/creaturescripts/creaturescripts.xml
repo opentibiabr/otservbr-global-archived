@@ -2,8 +2,8 @@
 <creaturescripts>
 	
 	<!-- The Masters Voice Quest-->
-	<event type="death" name="Servant_Death" script="mastervoice/servant_death.lua"/>
-	<event type="death" name="Mage_Death" script="mastervoice/mage_death.lua"/>
+	<event type="death" name="Servant_Death" script="mastervoice/servantDeath.lua"/>
+	<event type="death" name="Mage_Death" script="mastervoice/mageDeath.lua"/>
 	
 	<!-- AUTO LOOT -->
 	<event type="modalwindow" name="autoloot" script="autoloot.lua"/>
@@ -16,10 +16,7 @@
     <event type="think" name="petthink" script="pet.lua" />
 	<event type="death" name="petdeath" script="pet.lua" />
 	
-    <!-- Anti-Entrosa -->
-    <event type="login" name="WarPrivateLogin" script="warPrivate_creaturescript.lua"/>
-    <event type="logout" name="WarPrivateLogout" script="warPrivate_creaturescript.lua"/>
-    <event type="death" name="WarPrivateDeath" script="warPrivate_creaturescript.lua"/>
+    <!-- Modal Window -->
 	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />  
 
     <!-- Oramond Quest -->

@@ -32,7 +32,7 @@
 	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="Kaplar!" />
-		<voice sentence="Hurr!" />
+		<voice sentence="Hurr" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="25" chance="67500" />

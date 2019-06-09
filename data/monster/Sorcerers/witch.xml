@@ -40,7 +40,7 @@
 		<immunity energy="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Horax pokti!" />
+		<voice sentence="Horax Pokti!" />
 		<voice sentence="Herba budinia ex!" />
 		<voice sentence="Hihihihi!" />
 	</voices>

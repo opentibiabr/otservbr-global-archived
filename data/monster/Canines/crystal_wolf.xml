@@ -42,7 +42,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Raaarrr!" />
-		<voice sentence="Aaaauuuuuooooooo!" />
+		<voice sentence="Aaaauuuuuooooooo!!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="52" chance="56000" />

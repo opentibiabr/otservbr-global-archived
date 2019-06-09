@@ -20,6 +20,9 @@
 		<attack name="melee" interval="2000" min="0" max="0" />
 	</attacks>
 	<defenses armor="1" defense="2" />
+	<voices interval="5000" chance="10">
+		<voice sentence="KRAK ORRRRRRK!" />
+	</voices>
 	<loot>
 		<item name="meat" countmax="2" chance="20000" />
 		<item id="2684" countmax="2" chance="9000" /><!-- carrot -->

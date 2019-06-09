@@ -43,9 +43,6 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="Chrr." />
-	</voices>
 	<loot>
 		<item id="2148" countmax="87" chance="99700" /><!-- gold coin -->
 		<item id="7290" chance="40000" /><!-- shard -->

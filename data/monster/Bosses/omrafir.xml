@@ -70,6 +70,8 @@
 		<voice sentence="I'M TOO HOT FOR YOU TO HANDLE!" yell="1"/>
 		<voice sentence="FREEDOM FOR PRINCESS" yell="1"/>
 		<voice sentence="THE POWER OF HIS INTERNAL FIRE RENEWS OMRAFIR!" yell="1"/>
+		<voice sentence="OMRAFIR INHALES DEEPLY!" yell="1"/>
+		<voice sentence="OMRAFIR BREATHES INFERNAL FIRE" yell="1"/>
 		<voice sentence="I WILL RULE WHEN THE NEW ORDER IS ESTABLISHED!" yell="1"/>
 	</voices>
 	<loot>

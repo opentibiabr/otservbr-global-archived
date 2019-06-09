@@ -43,8 +43,8 @@
 		<immunity drown="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Blubb" />
-		<voice sentence="Splipsh Splash" />
+		<voice sentence="BLUUUUB" />
+		<voice sentence="SPLISH SPLASH" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="70" chance="22500" />

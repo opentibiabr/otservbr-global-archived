@@ -65,8 +65,9 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Oh my, you forgot to put your pants on!" />
 		<voice sentence="Weeheeheeheehee!" />
-		<voice sentence="Its nothing but a dream!" />
-		<voice sentence="Give in!" />
+		<voice sentence="Its nothing but a dream." />
+		<voice sentence="Dream a little dream with me!" />
+		<voice sentence="Give in." />
 	</voices>
 	<loot>
 		<item name="small ruby" countmax="3" chance="12160" />

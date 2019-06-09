@@ -59,6 +59,7 @@
 		<voice sentence="Ah, sweet air... don't you miss it?" />
 		<voice sentence="Murr tat muuza!" />
 		<voice sentence="kchh" />
+		<voice sentence="hsssss" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="100000" />

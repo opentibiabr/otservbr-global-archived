@@ -37,11 +37,6 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Shrom shrom shrom!" />
-		<voice sentence="Krik Krik" />
-		<voice sentence="Psh psh psh!!" />
-	</voices>
 	<loot>
 	</loot>
 </monster>

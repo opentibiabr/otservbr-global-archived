@@ -9,7 +9,7 @@ for i = 15, 55 do
 	condition:setParameter(CONDITION_PARAM_SKILL_MELEEPERCENT, i)
 	condition:setParameter(CONDITION_PARAM_SKILL_FISTPERCENT, i)
 
-	local area = createCombatArea(AREA_CROSS1X1)
+	local area = createCombatArea(AREA_CIRCLE1X1)
 	combat[i]:setArea(area)
 	combat[i]:addCondition(condition)
 end

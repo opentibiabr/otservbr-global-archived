@@ -42,6 +42,6 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="9">
-		<voice sentence="Surrender and I'll end it quick!" />
+		<voice sentence="Surrender and I'll end it quick." />
 	</voices>
 </monster>

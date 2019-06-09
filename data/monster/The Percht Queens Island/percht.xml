@@ -57,9 +57,8 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Shrom shrom shrom!" />
-		<voice sentence="Krik Krik" />
-		<voice sentence="Psh psh psh!!" />
+		<voice sentence="Krikik krikik!" />
+		<voice sentence="Shzzzp shzzzp shzzp!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="60" chance="100000" />

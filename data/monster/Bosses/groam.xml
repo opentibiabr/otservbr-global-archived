@@ -30,10 +30,9 @@
 		<immunity fire="1" />
 	</immunities>
 	<voices interval="3000" chance="200">
-		<voice sentence="Njaaarh!!" />
-		<voice sentence="Begjone, intrjuder!!" />
-		<voice sentence="Djon't djare stjare injo the eyes of the djeep!" />
-		<voice sentence="Ljeave this sjacred pljace while you cjan" />
+		<voice sentence="I sjaw the eyes of the djeep!" />
+		<voice sentence="I mjake sjure yjou wjill njot sjufer the sjame fjate Ij djid!" />
+		<voice sentence="Yjou, intrjuder!!" />
 	</voices>
 	<elements>
 		<element earthPercent="-20" />

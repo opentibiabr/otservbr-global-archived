@@ -64,7 +64,8 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Simsalabim" />
 		<voice sentence="Feel the power of my magic, tiny mortal!" />
-		<voice sentence="Wishes can come true." />
+		<voice sentence="Wishes can come true" />
+		<voice sentence="Be careful what you wish." />
 		<voice sentence="Djinns will soon again be the greatest!" />
 	</voices>
 	<loot>

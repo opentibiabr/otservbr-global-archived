@@ -49,10 +49,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="here is nothing here for you and you die alone." />
-		<voice sentence="You will obey and you will kneel and you will BOW TO US." /> 
-	</voices>
 	<loot> 
  <!-- common -->
  <item name="Small Emerald" countmax="3" chance="100000" />

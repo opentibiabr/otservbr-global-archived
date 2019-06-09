@@ -36,9 +36,9 @@
 	</immunities>
 	<voices interval="2000" chance="13">
 		<voice sentence="I'll cut you a bloody grin!" />
-		<voice sentence="You as good as dead!" />
 		<voice sentence="You shouldn't have come here!" />
-		<voice sentence="Your stuff will be mine soon!; For hurting me, my sire will kill you!" />
+		<voice sentence="Your stuff will be mine soon!" />
+		<voice sentence="For hurting me, my sire will kill you!" />
 	</voices>
 	<loot>
 		<item id="2543" countmax="10" chance="90450" />	<!-- bolt -->

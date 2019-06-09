@@ -48,6 +48,9 @@
 		<immunity lifedrain="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Chrrrrrk! Chrrrk!" />
+	</voices>
 	<loot>
 		<item id="2148" countmax="100" chance="100000" /><!-- gold coin -->
 		<item id="2148" countmax="11" chance="100000" /><!-- gold coin -->

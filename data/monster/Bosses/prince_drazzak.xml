@@ -48,7 +48,14 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="EVEN WITH ALL THAT TIME IN THE PRISON THAT WEAKEND ME, YOU ARE NO MATCH TO ME!" yell="1"/>
+		<voice sentence="EVEN WITH ALL THAT TIME IN THE PRISON THAT WEAKENED ME, YOU ARE NO MATCH TO ME!" yell="1"/>
+		<voice sentence="DIE!" yell="1"/>
+		<voice sentence="SORCERERS MUST DIE!" yell="1"/>
+		<voice sentence="DRUIDS MUST DIE!" yell="1"/>
+		<voice sentence="PALADINS MUST DIE!" yell="1"/>
+		<voice sentence="KNIGHTS MUST DIE!" yell="1"/>
+		<voice sentence="GET OVER HERE!" yell="1"/>
+		<voice sentence="CRUSH THEM ALL!" yell="1"/>
 		<voice sentence="VARIPHOR WILL RULE!" yell="1"/>
 		<voice sentence="THEY WILL ALL PAY!" yell="1"/>
 		<voice sentence="NOT EVEN AEONS OF IMPRISONMENT WILL STOP ME!" yell="1"/>

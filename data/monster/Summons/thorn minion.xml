@@ -49,8 +49,4 @@
 		<element earthPercent="-12" />
 		<element deathPercent="-10" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="<grunt>" />
-		<voice sentence="Raar!!" />
-	</voices>
 </monster>

@@ -59,12 +59,6 @@ local dolls = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local sounds = dolls[item.itemid]
 	if not sounds then
 		return false
@@ -93,7 +87,6 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	end
 
 	sound = sound:gsub('|PLAYERNAME|', player:getName())
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	player:say(sound, TALKTYPE_MONSTER_SAY, false, 0, fromPosition)
 	return true
 end

@@ -42,11 +42,6 @@
     		<immunity paralyze="1" />
     		<immunity drunk="1" />
   	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="Leave this place... save yourself..."/>
-		<voice sentence="The dark ones.. must be stopped... unholy, twisted, EVIL!"/>
-		<voice sentence="No... don't go further stranger... danger lies in every step..."/>
-	</voices>
 	<loot>
 		<item id="5909" chance="3360"/><!-- white piece of cloth -->
 	</loot>

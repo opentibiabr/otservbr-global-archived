@@ -49,10 +49,6 @@
 		<immunity invisible="1" />
 		<immunity fire="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="GROOOWL!" />
-		<voice sentence="GRRRRR!" />
-	</voices>
 	<loot>
 		<item id="2152" countmax="18" chance="100000" /><!-- platinum coin -->
 		<item id="2144" countmax="5" chance="96880" /><!-- black pearl -->

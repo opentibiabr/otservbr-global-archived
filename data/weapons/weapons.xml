@@ -52,7 +52,7 @@
 	 <wand id="30693" level="200" mana="20" min="80" max="110" type="ice"> <!-- Rod of destruction -->
 		<vocation name="Druid" />
 	</wand>	
-	<wand id="29004" level="80" mana="18" min="63" max="77" type="energy"> <!-- Dream Blossom Staff -->
+	<wand id="29005" level="80" mana="18" min="63" max="77" type="energy"> <!-- Dream Blossom Staff -->
 		<vocation name="Sorcerer" />
 		<vocation name="Druid" />
 	</wand>

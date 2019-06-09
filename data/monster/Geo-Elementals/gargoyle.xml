@@ -36,7 +36,7 @@
 		<immunity earth="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Harrrr Harrrr!" />
+		<voice sentence="Harrrr harrrr!" />
 		<voice sentence="Stone sweet stone." />
 		<voice sentence="Feel my claws, softskin." />
 		<voice sentence="Chhhhhrrrrk!" />

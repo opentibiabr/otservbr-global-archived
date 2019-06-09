@@ -38,9 +38,9 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="MINE!" yell="1" />
-		<voice sentence="No prisoners!" yell="1" />
+		<voice sentence="NO PRISONERS!" yell="1" />
 		<voice sentence="NO MERCY!" yell="1" />
-		<voice sentence="By Bolg's Blood!" />
+		<voice sentence="By Bolg's blood!" />
 		<voice sentence="You're no match for me!" />
 	</voices>
 	<loot>

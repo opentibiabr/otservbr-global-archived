@@ -32,6 +32,10 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Grrrrrrrrrrrr" />
+		<voice sentence="Groooowl" />
+	</voices>
 	<loot>
 		<item name="gold coin" countmax="80" chance="31820" />
 		<item name="maxilla" chance="13640" />

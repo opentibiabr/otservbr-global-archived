@@ -34,7 +34,7 @@
 		<immunity earth="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Grak brrretz!" />
+		<voice sentence="Brak brrretz!" />
 		<voice sentence="Grow truk grrrrr." />
 		<voice sentence="Prek tars, dekklep zurk." />
 	</voices>

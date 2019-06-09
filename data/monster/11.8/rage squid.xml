@@ -44,10 +44,6 @@
 		<immunity invisible="1" />
 		<immunity fire="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Your game is over!!" />
-		<voice sentence="Zarooshh zarooshh!" />
-	</voices>
 	<loot>
 		<item id="33317" chance="10000" /> <!-- glowing rune -->
 		<item name="great spirit potion" countmax="3" chance="10000" />

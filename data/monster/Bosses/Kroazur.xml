@@ -50,11 +50,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="50000" chance="30">
-		<voice sentence="May the embrace of darkness kill you!" yell="1" />
-		<voice sentence="I'm the one and only mistress of shadows!" yell="1" />
-		<voice sentence="LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!" yell="1" />
-	</voices>
 	<loot>
 		<item id="2152" countmax="7" chance="10000" /> <!-- Platinum Coin -->
 		<item id="2148" countmax="300" chance="10000" /> <!-- gold coin -->

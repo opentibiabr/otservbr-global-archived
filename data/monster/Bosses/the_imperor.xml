@@ -58,10 +58,7 @@
     <immunity invisible="1" />
   </immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="MUHAHAHA!"/>
-		<voice sentence="I am so bad today."/>
-		<voice sentence="Poke! Poke! *chuckle*"/>
-		<voice sentence="He he he!"/>
+		<voice sentence="Poke! Poke! &lt;chuckle&gt;"/>
 		<voice sentence="Let me tickle you with my trident!"/>
 	</voices>
 	<loot>

@@ -59,7 +59,7 @@
 	</summons>
 			<voices interval="5000" chance="10">
 		<voice sentence="Yelp!" />
-		<voice sentence="Grrrrrrr" />
+		<voice sentence="Grrrrrr" />
 	</voices>
 	<loot> 
 		<!--Comum-->  

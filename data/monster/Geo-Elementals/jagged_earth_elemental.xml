@@ -40,7 +40,7 @@
 		<immunity earth="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Stomp STOMP" />
+		<voice sentence="*STOMP STOMP*" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="90" chance="27000" />

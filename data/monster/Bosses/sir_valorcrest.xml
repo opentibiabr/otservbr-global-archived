@@ -44,6 +44,7 @@
 	</immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="I challenge you!" />
+		<voice sentence="A battle makes the blood so hot and sweet." />
 	</voices>
 	<summons maxSummons="4">
 		<summon name="Vampire" interval="2000" chance="30" />

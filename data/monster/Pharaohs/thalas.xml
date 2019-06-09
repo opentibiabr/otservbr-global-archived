@@ -54,7 +54,7 @@
 		<summon name="Slime" interval="2000" chance="100" max="8" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="You will become a feast for my maggots." />
+		<voice sentence="You will become a feast for my maggots!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="80" chance="50000" />

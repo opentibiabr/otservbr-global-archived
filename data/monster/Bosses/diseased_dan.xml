@@ -55,8 +55,9 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="Tchhh!" />
-		<voice sentence="Slurp!" />
+		<voice sentence="Where... Where am I?" />
+		<voice sentence="Is that you, Tom?" />
+		<voice sentence="Phew, what an awful smell ... oh, that's me." />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="65" chance="28000" />

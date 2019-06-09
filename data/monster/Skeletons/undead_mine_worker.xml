@@ -32,6 +32,11 @@
 	<immunities>
 		<immunity death="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Ahrrr... uhmmm... hmm..." />
+		<voice sentence="Grrr..." />
+		<voice sentence="Urrrgh... gnarrr..." />
+	</voices>
 	<loot>
 		<item name="gold coin" countmax="10" chance="73000" />
 		<item id="2230" chance="42000" /><!-- bone -->

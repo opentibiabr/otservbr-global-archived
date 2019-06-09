@@ -52,6 +52,8 @@
 	</immunities>
 	<voices interval="2000" chance="10">
 		<voice sentence="I'm Zulazza, and you won't forget me that fazzt." />
+		<voice sentence="Zzaion is our last zztand! I will not leave wizzout a fight!" />
+		<voice sentence="Behind zze Great Gate liezz your doom!" />
 		<voice sentence="Oh, HE will take revenge on zzizz azzault when you zztep in front of HIZZ fazze!" />
 	</voices>
 	<loot>

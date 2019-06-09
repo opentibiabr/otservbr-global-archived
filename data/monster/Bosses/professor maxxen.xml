@@ -51,11 +51,6 @@
 		<summon name="glooth smasher" interval="2000" chance="10"/>
 		<summon name="glooth slasher" interval="2000" chance="10"/>
 	</summons>
-  <voices interval="2000" chance="5">
-		<voice sentence="Let's see if you can handle THIS!"/>
-		<voice sentence="The world will bow before my brilliancy!"/>
-		<voice sentence="You will perish!"/>
-	</voices>
 	<loot>
 		<item id="9810" chance="10000"/><!-- rusty armor -->
 		<item id="2148" countmax="100" chance="1000000"/><!-- gold coin -->

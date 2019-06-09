@@ -54,8 +54,6 @@
     		<immunity invisible="1" />
   	</immunities>
   	<voices interval="2000" chance="5">
-    		<voice sentence="WARAAAHAAARRRR!" />
-			<voice sentence="LOOK INTO THE LIGHT..." />
     		<voice sentence="LEAVE THESE GROUNDS..." />
 			<voice sentence="THE DARK TIDE WILL SWALLOW YOU..." />
   	</voices>

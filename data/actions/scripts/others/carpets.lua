@@ -57,12 +57,6 @@ local foldedCarpet = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local carpet = foldedCarpet[item.itemid]
 	if not carpet then
 		return false
@@ -75,8 +69,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	else
 		item:transform(carpet)
 	end
-	
-		player:setStorageValue(Storage.Exaust.Time, os.time())
-	
 	return true
 end

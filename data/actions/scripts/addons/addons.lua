@@ -11,11 +11,6 @@ local config = {
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -49,6 +44,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 		player:getPosition():sendMagicEffect(useItem.effect)
 		item:remove()
 	end
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

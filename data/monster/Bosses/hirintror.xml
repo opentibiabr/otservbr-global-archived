@@ -50,7 +50,6 @@
 	<voices interval="2000" chance="5">
 		<voice sentence="Srk."/>
 		<voice sentence="Krss!"/>
-		<voice sentence="snirr!"/>
 		<voice sentence="Chrrk! Krk!"/>
 	</voices>
 	<loot>

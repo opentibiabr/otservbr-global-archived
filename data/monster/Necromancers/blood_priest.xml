@@ -53,7 +53,8 @@
 		<immunity drown="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Blood for the dark god!" />
+		<voice sentence="The Blood God is thirsty!" />
+		<voice sentence="Give your blood to the Dark God!" />
 	</voices>
 	<loot>
 		<item name="small ruby" countmax="2" chance="3510" />

@@ -32,10 +32,6 @@
 	<immunities>
 		<immunity outfit="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Grrrrrrr" />
-		<voice sentence="Yoooohhuuuu!" yell="1" />
-	</voices>
 	<loot>
 		<item name="ham" countmax="2" chance="35000" />
 		<item name="worm" chance="40" />

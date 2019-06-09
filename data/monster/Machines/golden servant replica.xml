@@ -45,10 +45,6 @@
 		<immunity paralyze="1"/>
 		<immunity holy="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="Error. LOAD 'PROGRAM',8,1" yell="1"/>
-		<voice sentence="Remain. Obedient." yell="1"/>
-	</voices>
 	<loot>
 		<item id="2796" chance="1450"/><!-- green mushroom -->
 		<item id="9690" chance="940"/><!-- gear wheel -->

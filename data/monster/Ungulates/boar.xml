@@ -24,8 +24,8 @@
 	</attacks>
 	<defenses armor="35" defense="35" />
 	<voices interval="5000" chance="10">
-		<voice sentence="Grunt Grunt" />
 		<voice sentence="Grunt" />
+		<voice sentence="Grunt! Grunt!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="20" chance="25000" />

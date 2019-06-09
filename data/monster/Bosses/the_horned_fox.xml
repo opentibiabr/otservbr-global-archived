@@ -46,7 +46,7 @@
 		<voice sentence="You will never get me!" />
 		<voice sentence="I'll be back!" />
 		<voice sentence="Catch me, if you can!" />
-		<voice sentence="Help me, boys!" />
+		<voice sentence="Help me, Boys!" />
 	</voices>
 	<loot>
 		<item id="5804" chance="100000" />				<!-- nose ring -->

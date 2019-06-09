@@ -66,7 +66,7 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="Your soul will be mine!" />
-		<voice sentence="MUHAHAHAHA!" />
+		<voice sentence="MUHAHAHA" />
 		<voice sentence="CHAMEK ATH UTHUL ARAK!" />
 		<voice sentence="I SMELL FEEEEAAAAAR!" />
 		<voice sentence="Your resistance is futile!" />

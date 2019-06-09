@@ -53,9 +53,6 @@
 	<voices interval="2000" chance="5">
 		<voice sentence="Feel the power of the Mooh'Tah!" />
 		<voice sentence="Ommm!" />
-		<voice sentence="I am at peace and you are dead!" />
-		<voice sentence="There is no rage, there is only control!" />
-		<voice sentence="You will not disrupt my inner balance!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="120" chance="100000" />	<!-- gold coin -->

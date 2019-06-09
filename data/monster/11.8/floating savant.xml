@@ -1,4 +1,4 @@
--<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Floating Savant" nameDescription="Floating Savant" race="undead" experience="8000" speed="250" manacost="0">
 	<health now="8000" max="8000" />
 	<look type="1063" head="113" body="94" legs="78" feet="78" addons="0"  corpse="33341"  />  
@@ -47,8 +47,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Tssooosh tsooooosh tssoooosh!" />
-		<voice sentence="We didn't stop the fire!" />
+		<voice sentence="tssooosh tsoooosh tssoooosh!" />
 	</voices>
 	<loot>
 		 <item name="small enchanted ruby" countmax="5" chance="10000" />

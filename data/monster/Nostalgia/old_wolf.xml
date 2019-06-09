@@ -31,8 +31,8 @@
 		<element deathPercent="-5" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Yoooohhuuu!" />
-		<voice sentence="Grrrrrr" />
+		<voice sentence="Yoooohhuuuu!" />
+		<voice sentence="Grrrrrrr" />
 	</voices>
 	<loot>
 		<item name="meat" countmax="4" chance="55000" />

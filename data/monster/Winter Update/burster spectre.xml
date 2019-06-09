@@ -49,6 +49,9 @@
 		<immunity paralyze="1" />
 		<immunity physical="1"/>
 	</immunities>
+	<voices interval="10000" chance="7">
+		<voice sentence="We came tooo thiiiiss wooorld to... get youuu!" /> 
+	</voices>
 	<loot>
 <!--common-->
 <item name="platinum coin" count="7" chance="100000" /> 

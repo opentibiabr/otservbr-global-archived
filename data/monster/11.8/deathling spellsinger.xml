@@ -47,7 +47,7 @@
 		<immunity fire="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="BOQOL°" />
+		<voice sentence="BOQOL" />
 		<voice sentence="QOL" />
 		<voice sentence="VBOXCL" />
 	</voices>

@@ -47,6 +47,7 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="Huumans stinkk!" />
+		<voice sentence="Grak brrretz gulu." />
 	</voices>
 	<loot>
 		<item id="1958" chance="520" /><!-- book -->

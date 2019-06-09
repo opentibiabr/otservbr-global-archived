@@ -23,7 +23,4 @@
 		<immunity invisible="1" />
 		<immunity drown="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Blub!" />
-	</voices>
 </monster>

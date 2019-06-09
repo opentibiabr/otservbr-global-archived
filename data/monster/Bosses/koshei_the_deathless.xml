@@ -54,11 +54,13 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="Your pain will be beyond imagination!" />
-		<voice sentence="You can't defeat me! I will ressurect and take your soul!" />
+		<voice sentence="You can't defeat me! I will resurrect and take your soul!" />
 		<voice sentence="Death is my ally!" />
-		<voice sentence="Welcome to my domain, visitor!" />
+		<voice sentence="Welcome to my domain visitor!" />
 		<voice sentence="You will be my toy on the other side!" />
+		<voice sentence="You will endure agony beyond thy death!" />
 		<voice sentence="What a disgusting smell of life!" />
+		<voice sentence="Ahhh, your life energy tastes so delicious!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="100000" />

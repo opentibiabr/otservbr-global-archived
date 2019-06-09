@@ -44,9 +44,8 @@
 	<immunity lifedrain="1" />
   </immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="*click*" />
-		<voice sentence="*clonk*" />
 		<voice sentence="*stomp*" />
+		<voice sentence="clonk" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="200" chance="100000" /><!-- gold coin -->
