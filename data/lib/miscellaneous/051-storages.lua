@@ -1345,12 +1345,6 @@ GlobalStorage = {
 		CurrentServantWave = 984,
 		ServantsKilled = 985
 	},
-	FirstDragon = {
-		TazhadurTimer = 10198,
-		KalyassaTimer = 10199,
-		GelidrazahTimer = 10202,
-		FirstDragonTimer = 10208
-	},
 	Feroxa = {
 		Chance = 566039,
 		Active = 566040
