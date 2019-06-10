@@ -30,7 +30,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="T'was not me hand in your pocket!" />
 		<voice sentence="Look! Cool stuff in house. Let's get it!" />
-		<voice sentence="Uhh! Nobody home!" />
+		<voice sentence="Uhh! Nobody home! &lt;chuckle&gt;" />
 		<voice sentence="Me just borrowed it!" />
 		<voice sentence="Me no steal! Me found it!" />
 		<voice sentence="Me had it for five minutes. It's family heirloom now!" />

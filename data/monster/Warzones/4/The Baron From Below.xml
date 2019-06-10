@@ -50,53 +50,53 @@
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Krrrk!" />
-	</voices> 
-	<loot> 
+	</voices>
+	<loot>
 		<!--Sempre-->
-		<item name="Platinum Coin" countmax="58" chance="10000" /> 
-		<item name="crystal coin" countmax="2" chance="10000" />  
-		<item name="gold ingot" countmax="2" chance="10000" />  
-		<item name="great mana potion" countmax="10" chance="10000" />  
-		<item name="great spirit potion" countmax="18" chance="10000" />  
-		<item name="mastermind potion" countmax="2" chance="10000" />  
-		<item name="small diamond" countmax="12" chance="10000" />  
-		<item name="small emerald" countmax="12" chance="10000" />  
-		<item name="small ruby" countmax="12" chance="10000" />  
-		<item name="small topaz" countmax="12" chance="10000" />  
-		<item name="ultimate health potion" countmax="8" chance="10000" />  
-		<item name="violet crystal shard" countmax="3" chance="10000" />  
-		<item name="badger boots" chance="10000" />  
-		<item name="blue gem" chance="10000" />  
-		<item name="Calopteryx Cape" chance="10000" />  
+		<item name="Platinum Coin" countmax="58" chance="10000" />
+		<item name="crystal coin" countmax="2" chance="10000" />
+		<item name="gold ingot" countmax="2" chance="10000" />
+		<item name="great mana potion" countmax="10" chance="10000" />
+		<item name="great spirit potion" countmax="18" chance="10000" />
+		<item name="mastermind potion" countmax="2" chance="10000" />
+		<item name="small diamond" countmax="12" chance="10000" />
+		<item name="small emerald" countmax="12" chance="10000" />
+		<item name="small ruby" countmax="12" chance="10000" />
+		<item name="small topaz" countmax="12" chance="10000" />
+		<item name="ultimate health potion" countmax="8" chance="10000" />
+		<item name="violet crystal shard" countmax="3" chance="10000" />
+		<item name="badger boots" chance="10000" />
+		<item name="blue gem" chance="10000" />
+		<item name="Calopteryx Cape" chance="10000" />
 		<item id="30857" chance="10000" />   <!--chitinous mouth"-->
-		<item name="Crystal Mace" chance="10000" />  
-		<item name="Fire Sword" chance="10000" />  
-		<item name="Green Gem" chance="10000" />  
-		<item name="Huge Chunk of Crude Iron" countmax="2" chance="10000" />  
-		<item name="Huge Shell" chance="10000" />  
-		<item name="Longing Eyes" chance="10000" />  
-		<item name="Luminous Orb" chance="10000" />  
-		<item name="Magic Sulphur" countmax="2" chance="10000" />  
-		<item name="Magma Coat" chance="10000" />  
-		<item name="Red Gem" chance="10000" />  
+		<item name="Crystal Mace" chance="10000" />
+		<item name="Fire Sword" chance="10000" />
+		<item name="Green Gem" chance="10000" />
+		<item name="Huge Chunk of Crude Iron" countmax="2" chance="10000" />
+		<item name="Huge Shell" chance="10000" />
+		<item name="Longing Eyes" chance="10000" />
+		<item name="Luminous Orb" chance="10000" />
+		<item name="Magic Sulphur" countmax="2" chance="10000" />
+		<item name="Magma Coat" chance="10000" />
+		<item name="Red Gem" chance="10000" />
 		<item id="9820" chance="10000" />  <!--Rusty helmet-->
 		<item id="9814" chance="10000" />   <!--Rusty Shield-->
-		<item name="Slimy Leg" chance="10000" />  
-		<item name="Stone Skin Amulet" chance="10000" />  
-		<item name="Violet Gem" chance="10000" />  
+		<item name="Slimy Leg" chance="10000" />
+		<item name="Stone Skin Amulet" chance="10000" />
+		<item name="Violet Gem" chance="10000" />
 		<item name="Wand of Inferno" chance="10000" />
 		<item name="Yellow Gem" chance="10000" />
-		<!--Raro-->	
+		<!--Raro-->
 		<item name="Gold Token" chance="1000" />
 		<item name="Silver Token" chance="1000" />
 		<item name="Mallet Head" chance="1000" />
 		<item name="Gnome Shield" chance="1000" />
 		<item name="Gnome Sword" chance="1000" />
-		<!--Muito Raro-->	
+		<!--Muito Raro-->
 		<item name="plan for a makeshift armour" chance="500" />
-		<item name="Gnome Armor" chance="500" />	
+		<item name="Gnome Armor" chance="500" />
 	</loot>
 </monster>

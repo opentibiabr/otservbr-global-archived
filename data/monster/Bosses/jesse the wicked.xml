@@ -21,6 +21,9 @@
 		<attack name="melee" interval="2000" min="0" max="-100" />
 	</attacks>
 	<defenses armor="25" defense="25" />
+	<voices interval="2000" chance="7">
+		<voice sentence="That banker never saw it coming!" />
+	</voices>
 	<loot>
 		<item id="2152" countmax="85" chance="100000" />	<!-- platinum coin -->
 		<item id="14903" chance="100000" />				<!-- bag with stolen gold -->

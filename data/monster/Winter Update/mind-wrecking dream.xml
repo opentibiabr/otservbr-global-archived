@@ -56,11 +56,4 @@
 		<immunity invisible="1" />
 		<immunity paralyze="1" />
 	</immunities>
-		<voices interval="5000" chance="10">
-		<voice sentence="Death!" />
-		<voice sentence="Come a little closer!" />
-		<voice sentence="The end is near!" />
-	</voices>
-	<loot>
-</loot>
 </monster>

@@ -50,7 +50,7 @@
 		<voice sentence="Your fragile bones are like toothpicks to me." />
 		<voice sentence="You little weasel will not live to see another day." />
 		<voice sentence="I'm just a messenger of what's yet to come." />
-		<voice sentence="HRAAAAAAAAAAAAAAAARRRR" yell="1" />
+		<voice sentence="HRAAAAAAAAAAAAAAAARRRR!" yell="1" />
 		<voice sentence="I'm taking you down with me!" />
 	</voices>
 	<loot>

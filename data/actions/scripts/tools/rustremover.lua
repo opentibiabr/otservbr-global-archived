@@ -11,7 +11,7 @@ local config = {
 		{{97001, 99000}, PLATE_ARMOR},
 		{{99001, 100000}, KNIGHT_ARMOR}
 	},
-	
+
 	[9820] = { -- semi-rare rusty helmet
 		{{1, 40000}},
 		{{40001, 57500}, BRASS_HELMET},
@@ -21,8 +21,8 @@ local config = {
 		{{94001, 98500}, CRUSADER_HELMET},
 		{{98501, 100000}, ROYAL_HELMET}
 	},
-	
-	
+
+
 	[9809] = { -- semi-rare rusty armor
 		{{1, 40000}},
 		{{40001, 57500}, CHAIN_ARMOR},

@@ -5,8 +5,8 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 		return true
 	end
 	local m = Game.createMonster('Ferumbras Essence', position, true, true)
-	if not m then 
-		return true 
+	if not m then
+		return true
 	end
 	return true
 end

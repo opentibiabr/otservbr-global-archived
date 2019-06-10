@@ -1,5 +1,5 @@
 function onModalWindow(player, modalWindowId, buttonId, choiceId)
-	player:unregisterEvent('autoloot')	
+	player:unregisterEvent('autoloot')
 	local limiteAutoloot = 100
 	local autolootlist, sum = {}, 1
 	if buttonId == 102 and modalWindowId == 1000 then
@@ -21,15 +21,15 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
 			return false
 		end
 		for _, loot in pairs(lootBlockList) do
-			table.insert(autolootlist, lootBlockList[sum].itemId) 
+			table.insert(autolootlist, lootBlockList[sum].itemId)
 			sum = sum + 1
 		end
 		local itemType = ItemType(tonumber(autolootlist[choiceId]))
-		if buttonId == 102 then	
+		if buttonId == 102 then
 			player:sendTextMessage(MESSAGE_INFO_DESCR,'Removed '.. string.gsub(" "..ItemType(itemType:getId()):getName(), "%W%l", string.upper):sub(2, 21)..' from autoloot list!')
 			db.query('DELETE FROM `player_autoloot_persist` WHERE `player_guid` = ' .. getPlayerGUID(player) .. ' AND `item_id` = ' .. itemType:getId() .. '')
 			player:removeAutoLootItem(itemType:getId())
-			elseif buttonId == 103 then	
+			elseif buttonId == 103 then
 			if player:getAutoLootList() then
 			local playerlist = player:getAutoLootList()
 			end
@@ -78,7 +78,7 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
 			local bp2 = {}
 			for i = 0, getContainerSize(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid) do
 				local thing = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)
-				container[i] = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)				
+				container[i] = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)
 				if isContainer(container[i].uid) then
 					itemtester = Item(container[i].uid)
 					bp[sequencer] = itemtester
@@ -99,14 +99,14 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
 					end
 				end
 			end
-			call(player, 'add')	
+			call(player, 'add')
 		end
 		if modalWindowId == 1006 then
 			local container, bp, sequencer = {}, {}, 1
 			local bp2 = {}
 			for i = 0, getContainerSize(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid) do
 				local thing = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)
-				container[i] = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)				
+				container[i] = getContainerItem(getPlayerSlotItem(player, CONST_SLOT_BACKPACK).uid, i)
 				if isContainer(container[i].uid) then
 					itemtester = Item(container[i].uid)
 					bp[sequencer] = itemtester
@@ -126,13 +126,13 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
 				end
 			end
 			call(player, 'remove')
-			
+
 		end
 	end
 end
 
 function call(player, param, param2, tobpid)
-	player:registerEvent('autoloot')	
+	player:registerEvent('autoloot')
 	local title = "Autoloot Helper!"
 	if param == 'add' then
 		local lootBlockList = lootBlockListm[getPlayerGUID(player)]
@@ -194,7 +194,7 @@ function call(player, param, param2, tobpid)
 		callwindow(window, player, 2)
 		elseif param == 'backpack' then
 		local lootBlockList = lootBlockListm[getPlayerGUID(player)]
-		
+
 		local modalcode
 		if param2 and param2 == 1001 then
 			modalcode = 1005
@@ -232,7 +232,7 @@ end
 function callwindow(window, player, param)
 	if param == 3 then
 		window:setDefaultEnterButton(100, "Confirm")
-		window:addButton(100, "Confirm")		
+		window:addButton(100, "Confirm")
 		else
 		window:addButton(100, "Confirm")
 		window:addButton(102, "Remove")
@@ -243,5 +243,5 @@ function callwindow(window, player, param)
 			window:addButton(105, "Backpack")
 		end
 	end
-	window:sendToPlayer(player)		
+	window:sendToPlayer(player)
 end

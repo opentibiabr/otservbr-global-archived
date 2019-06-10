@@ -42,7 +42,7 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_MORTAREA)
 
 	local area = createCombatArea(arr)
 	combat:setArea(area)
-	
+
 local maxsummons = 25
 
 function onCastSpell(creature, var)

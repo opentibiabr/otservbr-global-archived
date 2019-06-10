@@ -3,7 +3,7 @@
 	<health now="10000" max="10000" />
 <look typeex="11936" />
 <targetchange interval="4000" chance="10" />
-	<flags> 
+	<flags>
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -15,7 +15,7 @@
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="70" />
-		<flag runonhealth="0" /> 
+		<flag runonhealth="0" />
 		<flag canwalkonenergy="0" />
 		<flag canwalkonfire="0" />
 		<flag canwalkonpoison="0" />
@@ -48,9 +48,3 @@
 		<immunity invisible="1" />
 	</immunities>
 </monster>
-
-
-
-
-
-

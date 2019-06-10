@@ -64,6 +64,7 @@
 		<voice sentence="The eternal flame demands its due!" />
 		<voice sentence="This is why I'm hot." />
 		<voice sentence="May my flames engulf you!" />
+		<voice sentence="Burnnnnnnnnn!" />
 	</voices>
 	<loot>
 		<item name="holy falcon" chance="500" />

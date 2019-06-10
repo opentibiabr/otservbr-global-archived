@@ -65,7 +65,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Ahhhhrrrr!" />
 		<voice sentence="Waaaaah!" />
-		<voice sentence="Carnage!" />
+		<voice sentence="Caaarnaaage!" />
 		<voice sentence="Dieee!" />
 	</voices>
 	<loot>

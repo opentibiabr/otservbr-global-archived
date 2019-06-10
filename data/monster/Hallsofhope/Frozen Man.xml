@@ -34,4 +34,8 @@
 		<immunity drown="1" />
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Seeet the eeegg on fiiireee!" />
+		<voice sentence="Slooow the Hooorrorrrr!" />
+	</voices>
 </monster>

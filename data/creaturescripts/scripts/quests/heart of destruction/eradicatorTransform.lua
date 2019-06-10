@@ -5,10 +5,10 @@ function onThink(creature)
 			local pos = creature:getPosition()
 			local health = creature:getHealth()
 			-- transferencia dos pontos
-			local from = creature:getId()	
-			
-			creature:remove()	
-			
+			local from = creature:getId()
+
+			creature:remove()
+
 			local monster = Game.createMonster("Eradicator2", pos, false, true)
 			monster:addHealth(-monster:getHealth() + health, false)
 				Game.createMonster("Spark of Destruction", {x = 32304, y = 31282, z = 14}, false, true)
@@ -22,10 +22,10 @@ function onThink(creature)
 			local pos = creature:getPosition()
 			local health = creature:getHealth()
 			-- transferencia dos pontos
-			local from = creature:getId()	
-			
-			creature:remove()	
-			
+			local from = creature:getId()
+
+			creature:remove()
+
 			local monster = Game.createMonster("Eradicator", pos, false, true)
 			monster:addHealth(-monster:getHealth() + health, false)
 				eradicatorWeak = 0

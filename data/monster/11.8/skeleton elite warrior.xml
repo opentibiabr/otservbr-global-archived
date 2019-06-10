@@ -28,9 +28,9 @@
 			<attribute key="shootEffect" value="suddendeath" />
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		 
-		
-		
+
+
+
 	</attacks>
 	<defenses armor="75" defense="15" />
 	<elements>
@@ -44,24 +44,15 @@
 		<item name="Platinum Coin" countmax="15" chance="43500" />
 		<item id="2230" chance="50000" /><!-- bone -->
 		<item name="white mushroom" countmax="3" chance="24000" />
-		<item name="Soul Orb" countmax="5" chance="43500" />	
+		<item name="Soul Orb" countmax="5" chance="43500" />
 <!--Incomum-->
 		<item name="Knight Axe" chance="250" />
 		<item name="pelvis bone" countmax="10" chance="10630" />
 		<item name="Unholy Bone" countmax="5" chance="10630" />
-  
+
 <!--Semi-raro-->
-		<item name="Skull Helmet" chance="150" />	 
+		<item name="Skull Helmet" chance="150" />
 <!--Muito-raro -->
-		<item name="Ruthless Axe" chance="150" /> 
+		<item name="Ruthless Axe" chance="150" />
 	</loot>
 </monster>
- 
-
-
-
-
-
-
-
-

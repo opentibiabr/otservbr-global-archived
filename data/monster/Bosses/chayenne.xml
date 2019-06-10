@@ -59,7 +59,7 @@
 	<loot>
 		<item id="6571" countmax="2" chance="100000" /> <!-- surprise bag -->
 		<item id="7632" chance="100000" /> <!-- giant shimmering pearl -->
-		<item id="16014" chance="100000" /> <!-- Anniversary Cake -->	
-		<item id="16015" chance="100000" unique="1" /> <!-- Chayenne's Magical Key -->		
+		<item id="16014" chance="100000" /> <!-- Anniversary Cake -->
+		<item id="16015" chance="100000" unique="1" /> <!-- Chayenne's Magical Key -->
 	</loot>
 </monster>

@@ -14,7 +14,7 @@ function onThink(creature)
     creature:remove()
     local summon = Game.createMonster("Greater Death Minion", pos, false, true)
     if not summon then
-        return 
+        return
     end
     return true
 end, 7000, creature:getId())

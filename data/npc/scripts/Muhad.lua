@@ -33,7 +33,7 @@ local function creatureSayCallback(cid, type, msg)
 				'In the wink of an eye he left us and was never seen again. I think he feared revenge for leaving us - which partially is not without reason. Why are you asking me about him? Did he send you to me?'
 			}, cid)
 			npcHandler.topic[cid] = 1
-			
+
 	end
 			elseif npcHandler.topic[cid] == 1 then
 			if msgcontains(msg, "yes") then

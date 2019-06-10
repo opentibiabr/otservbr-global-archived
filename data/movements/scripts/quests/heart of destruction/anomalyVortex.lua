@@ -9,6 +9,6 @@ function onStepIn(creature, item, position, fromPosition)
 			creature:addHealth(-100, true, COMBAT_ENERGYDAMAGE)
 		end
 	end
-	
+
 	return true
 end

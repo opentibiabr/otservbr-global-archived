@@ -15,7 +15,7 @@ if player:getStorageValue(Storage.Exaust.tempo) >= os.time() then
 		[3] = {x = 32209, y = 32300, z = 6}, -- Adventurer Island
 		[4] = {x = 1062, y = 1030, z = 7}, -- Event Room
 		[5] = {x = 31880, y = 33083, z = 7} -- Trade Insland
-		
+
     }
 
     player:teleportTo(positions[choiceId])

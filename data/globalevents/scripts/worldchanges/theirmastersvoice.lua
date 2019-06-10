@@ -15,7 +15,7 @@ local function fillFungus(fromPosition, toPosition)
 					if slimeChance <= 30 then
 						item:transform(math.random(13585, 13589))
 						position:sendMagicEffect(CONST_ME_YELLOW_RINGS)
-					end	
+					end
 				end
 			end
 		end

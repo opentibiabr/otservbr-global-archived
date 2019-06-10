@@ -34,13 +34,13 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	local itpedra1 = Tile(posPedra):getItemById(pedraid)
 	local newpos = {x = 33300 + pedra1, y = itpedra1:getPosition().y, z = itpedra1:getPosition().z}
 	itpedra1:moveTo(newpos)
-	Position(newpos):sendMagicEffect(CONST_ME_POFF)	
+	Position(newpos):sendMagicEffect(CONST_ME_POFF)
 
 	-- pedra 2
 	local itpedra2 = Tile(posPedra2):getItemById(pedraid)
 	local newpos = {x = 33300 + pedra2, y = itpedra2:getPosition().y, z = itpedra2:getPosition().z}
 	itpedra2:moveTo(newpos)
-	Position(newpos):sendMagicEffect(CONST_ME_POFF)	
+	Position(newpos):sendMagicEffect(CONST_ME_POFF)
 
 	-- pedra 3
 	local itpedra3 = Tile(posPedra3):getItemById(pedraid)

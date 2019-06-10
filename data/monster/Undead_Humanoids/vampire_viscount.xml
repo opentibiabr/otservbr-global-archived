@@ -48,6 +48,7 @@
 		<voice sentence="Prepare to BLEED!" />
 		<voice sentence="Don't struggle. We don't want to waste a drop of blood now, do we?" />
 		<voice sentence="Ah, refreshments have arrived!" />
+		<voice sentence="Bloody good thing you came!" />
 	</voices>
 	<loot>
 		<item name="black pearl" chance="2500" />

@@ -11,12 +11,12 @@ local function changeSpeeds(cid, var)
 	end
 	creature:changeSpeed(creature:getBaseSpeed())
 end
-	
+
 function onCastSpell(creature, var)
     local nextPosition = creature:getPosition()
 	local speed = creature:getSpeed()
 	local tile = Tile(nextPosition.x, nextPosition.y - 1, nextPosition.z)
-	local topCreature = tile:getTopCreature() 
+	local topCreature = tile:getTopCreature()
 	if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
 		creature:addCondition(condition)
 		creature:teleportTo(Position(nextPosition.x, nextPosition.y - 1, nextPosition.z), true)

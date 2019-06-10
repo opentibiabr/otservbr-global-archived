@@ -51,7 +51,9 @@
 	</summons>
 	<voices interval="2000" chance="7">
 		<voice sentence="Feel my wrath!" />
-		<voice sentence="Noone will stop my ascension!" />
+		<voice sentence="No one will stop my ascension!" />
+		<voice sentence="You desecrated this temple!" />
+		<voice sentence="Muahahaha!" />
 		<voice sentence="My powers are divine!" />
 	</voices>
 	<loot>

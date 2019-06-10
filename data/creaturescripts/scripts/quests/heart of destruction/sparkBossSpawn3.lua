@@ -15,7 +15,7 @@ function onDeath(creature)
 	}
 
 	local pos = positions[math.random(1, #positions)]
-	
+
 	addEvent(sparkSpawn, 7000, pos)
 	spawningSpark = true
 	return true

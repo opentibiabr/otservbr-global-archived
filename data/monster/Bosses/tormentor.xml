@@ -52,7 +52,6 @@
 		<voice sentence="Pffffrrrrrrrrrrrr." />
 		<voice sentence="Close your eyes... I have something for you." />
 		<voice sentence="I will make you scream." />
-		<voice sentence="I will haunt you forever!" />
 	</voices>
 	<loot>
 		<item id="6558" chance="100000" />				<!-- concentrated demonic blood -->

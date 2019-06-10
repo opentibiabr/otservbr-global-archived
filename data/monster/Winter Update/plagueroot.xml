@@ -32,42 +32,42 @@
 	</immunities>
 	<loot>
 <!--always-->
-<item name="platinum coin" count="5" chance="100000" /> 
+<item name="platinum coin" count="5" chance="100000" />
 <item name="Piggy Bank" chance="100000" />
 <item name="Mysterious Remains" chance="100000" />
 <item name="Energy Bar" chance="100000" />
-<item name="Silver Token" countmin="2" countmax="3" chance="100000" /> 
+<item name="Silver Token" countmin="2" countmax="3" chance="100000" />
 <!--uncommon-->
 <item name="Gold Token" count="2" chance="22000" />
-<item name="Supreme Health Potion" chance="23550" />    
+<item name="Supreme Health Potion" chance="23550" />
 <item name="Ultimate Mana Potion" chance="25550" />
 <item name="Huge Chunk of Crude Iron" chance="27550" />
 <!--semi-rare-->
-<item name="Royal Star" count="100" chance="15770" /> 
-<item name="Green Gem" countmin="1" countmax="2" chance="12800" /> 
+<item name="Royal Star" count="100" chance="15770" />
+<item name="Green Gem" countmin="1" countmax="2" chance="12800" />
 <item name="Yellow Gem" countmin="1" countmax="2" chance="12000" />
-<item name="Red Gem" countmin="1" countmax="2" chance="12700" /> 
-<item name="Bullseye Potion" count="10" chance="25000" /> 
+<item name="Red Gem" countmin="1" countmax="2" chance="12700" />
+<item name="Bullseye Potion" count="10" chance="25000" />
 <item name="Pomegranate" chance="8000" />
-<item name="Crystal Coin" countmin="1" countmax="2" chance="7700" /> 
-<item name="Skull Staff" chance="7650" /> 
-<!--rare-->  
-<item name="Chaos Mace" chance="2200" /> 
-<item name="Gold Ingot" chance="2800" /> 
+<item name="Crystal Coin" countmin="1" countmax="2" chance="7700" />
+<item name="Skull Staff" chance="7650" />
+<!--rare-->
+<item name="Chaos Mace" chance="2200" />
+<item name="Gold Ingot" chance="2800" />
 <item id="26199" chance="2500" /> <!-- collar of green plasma-->
 <item id="7632" chance="2600" /> <!-- Giant Shimmering Pearl -->
-<item name="Blue Gem" chance="2500" /> 
-<item name="Violet Gem" countmin="1" countmax="2" chance="2300" /> 
-<!--very rare-->  
-<item name="Living Armor" chance="1100" /> 
-<item name="Magic Sulphur" chance="1000" /> 
-<item name="Mastermind Potion" count="10" chance="800" /> 
+<item name="Blue Gem" chance="2500" />
+<item name="Violet Gem" countmin="1" countmax="2" chance="2300" />
+<!--very rare-->
+<item name="Living Armor" chance="1100" />
+<item name="Magic Sulphur" chance="1000" />
+<item name="Mastermind Potion" count="10" chance="800" />
 <item id="26185" chance="800" /> <!-- ring of blue plasma-->
-<item name="Ring of the Sky" chance="800" /> 
-<item name="Living Vine Bow" chance="750" /> 
-<item name="Abyss Hammer" chance="700" /> 
+<item name="Ring of the Sky" chance="800" />
+<item name="Living Vine Bow" chance="750" />
+<item name="Abyss Hammer" chance="700" />
 <item id="26187" chance="600" /> <!-- ring of green plasma-->
-<item name="Plagueroot Offshoot" chance="500" /> 
-<item name="Turquoise Tendril Lantern" chance="400" /> 
+<item name="Plagueroot Offshoot" chance="500" />
+<item name="Turquoise Tendril Lantern" chance="400" />
 </loot>
 </monster>

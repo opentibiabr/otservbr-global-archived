@@ -4,7 +4,7 @@ local portais = {
 }
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
-	
+
 	if not player then
 		return true
 	end
@@ -14,7 +14,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if player:getStorageValue(Storage.CultsOfTibia.Humans.Mission) < 1 then
 		player:setStorageValue(Storage.CultsOfTibia.Humans.Mission, 1)
 	end
-	
+
 	for id, info in pairs(portais) do
 		local portal = Tile(position):getItemById(id)
 		if portal then

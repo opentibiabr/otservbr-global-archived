@@ -1,5 +1,5 @@
 function onUse(cid, item, fromPosition, itemEx, toPosition)
-	if item.itemid == 1945 then	
+	if item.itemid == 1945 then
 		if getGlobalStorageValue(71543) <= os.time() then
 			if getPlayerItemCount(cid, 16015) >= 1 then
 			doTransformItem(getTileItemById({x = 33080, y = 32582, z = 3},1945).uid,1946)
@@ -12,7 +12,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 		else
 			doPlayerSendTextMessage(cid, 19, "You need to wait few minutes to use again.")
 		end
-	elseif item.itemid == 1946 then	
+	elseif item.itemid == 1946 then
 		doTransformItem(getTileItemById({x = 33080, y = 32582, z = 3},1946).uid,1945)
 	end
 end

@@ -50,9 +50,6 @@
 		<voice sentence="No more Mr. Nicegnome!" />
 		<voice sentence="Taste the power of the dark side!" />
 		<voice sentence="I've seen the light! And it was all engulfing fire!" />
-		<voice sentence="Tatatata!!!" />
-		<voice sentence="Muhahaha!" />
-		<voice sentence="I'm feeling grrrreat!" />
 	</voices>
 	<loot>
 		<item id="18451" chance="7030" /><!-- crystalline axe -->

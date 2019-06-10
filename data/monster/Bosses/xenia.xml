@@ -31,11 +31,6 @@
 		<element deathPercent="-7" />
 		<element physicalPercent="-6" />
 	</elements>
-	<voices interval="2000" chance="7">
-		<voice sentence="Stand still!" />
-		<voice sentence="One more head for me!" />
-		<voice sentence="Head off!" />
-	</voices>
 	<loot>
 		<item id="3976" countmax="10" chance="50000" /><!-- worm -->
 		<item id="2148" countmax="45" chance="100000" /><!-- gold coin -->

@@ -39,9 +39,6 @@
     <immunity paralyze="1" />
 	<immunity lifedrain="1" />
   </immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="*zzzt, zzzt*" />
-	</voices>
 	<loot>
 		<item id="23569" chance="3548" /><!-- metal toe -->
 		<item id="23541" chance="1490" /><!-- gearwheel chain -->

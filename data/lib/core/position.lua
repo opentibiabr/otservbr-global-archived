@@ -25,23 +25,23 @@ end
 function Position:compare(position)
     return self.x == position.x and self.y == position.y and self.z == position.z
 end
- 
+
 function Position:isInRange(fromPosition, toPosition)
     return (self.x >= fromPosition.x and self.y >= fromPosition.y and self.z >= fromPosition.z
         and self.x <= toPosition.x and self.y <= toPosition.y and self.z <= toPosition.z)
 end
- 
+
 function Position:isWalkable()
     local tile = Tile(self)
     if not tile then
           return false
     end
- 
+
     local ground = tile:getGround()
     if not ground or ground:hasProperty(CONST_PROP_BLOCKSOLID) then
         return false
     end
- 
+
     local items = tile:getItems()
     for i = 1, tile:getItemCount() do
         local item = items[i]
@@ -52,7 +52,7 @@ function Position:isWalkable()
     end
     return true
 end
- 
+
 function getFreePosition(from, to)
     local result, tries = Position(from.x, from.y, from.z), 0
     repeat
@@ -61,11 +61,11 @@ function getFreePosition(from, to)
         tries = tries + 1
         if tries >= 20 then
             return result
-        end                                            
+        end
     until result:isWalkable()
     return result
 end
- 
+
 function getFreeSand()
     local from, to = ghost_detector_area.from, ghost_detector_area.to
     local result, tries = Position(from.x, from.y, from.z), 0
@@ -75,7 +75,7 @@ function getFreeSand()
         tries = tries + 1
         if tries >= 50 then
             return result
-        end                                            
+        end
     until result:isWalkable() and Tile(result):getGround():getName() == "grey sand"
     return result
 end

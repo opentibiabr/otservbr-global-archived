@@ -50,9 +50,9 @@
 		<element physicalPercent="-5" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Glamour, glitter, glistening things! Do you have any of those?" />
-		<voice sentence="Sweet Dreams!" />
-		<voice sentence="You might be a threat! I'm sorry but I can allow you to linger here." />
+		<voice sentence="Glamour, glitter, glistering things! Do you have any of those?" />
+		<voice sentence="Sweet dreams!" />
+		<voice sentence="You might be a threat! I'm sorry but I can't allow you to linger here." />
 		<voice sentence="Let's try a step or two!" />
 	</voices>
 	<loot>

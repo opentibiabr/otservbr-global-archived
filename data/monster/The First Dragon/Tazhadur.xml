@@ -14,7 +14,7 @@
 		<flag pushable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
-		<flag targetdistance="1" />	 
+		<flag targetdistance="1" />
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-500" />
@@ -43,11 +43,6 @@
 		<immunity invisible="1" />
 		<immunity fire="1" />
 	</immunities>
-
-	<voices interval="5000" chance="10">
-		<voice sentence="ZCHHHHH" yell="1" />
-		<voice sentence="YOU WILL BURN!" yell="1" />
-	</voices>
 	<loot>
 		<item id="2387" chance="10000" /> <!-- double axe -->
 		<item id="27605" countmax="2" chance="100000"/> <!-- dragon blood -->
@@ -67,20 +62,3 @@
 		<item id="2187" chance="2500" /> <!-- wand of inferno -->
 	</loot>
 </monster>
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-

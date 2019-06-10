@@ -3,7 +3,7 @@ local function delayedCastSpell(cid, var)
 	if not creature then
 		return
 	end
-		
+
 	if creature:getName(creature:getMaster()) == "The Welter" then
 	local summon = creature:getSummons()
 		for i = 1, #summon do

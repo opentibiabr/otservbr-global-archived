@@ -41,9 +41,9 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Forgive Meeeee!" />
+		<voice sentence="Forgive Meee!" />
 		<voice sentence="Mouuuurn meeee!" />
-		<voice sentence="Help meeee!" />
+		<voice sentence="Help meee!" />
 	</voices>
 	<loot>
 		<item name="ruby necklace" chance="1500" />

@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="700"/>
-		
+
 	</flags>
 	<script>
 		<event name="deathDragon"/>

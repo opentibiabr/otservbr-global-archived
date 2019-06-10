@@ -12,7 +12,7 @@
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
-		<flag staticattack="90"/> 
+		<flag staticattack="90"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 		<flag canwalkonenergy="1" />
@@ -44,10 +44,6 @@
 		</attack>
 	</attacks>
 	<defenses armor="52" defense="64"/>
-	<voices interval="2000" chance="7">
-		<voice sentence="<grunt>" />
-		<voice sentence="Raar!!" />
-	</voices>
 	<immunities>
 		<immunity fire="1" />
 		<immunity drown="1" />

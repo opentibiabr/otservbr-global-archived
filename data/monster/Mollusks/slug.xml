@@ -30,6 +30,10 @@
 		<element energyPercent="20" />
 		<element deathPercent="7" />
 	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Sluuuurp" />
+		<voice sentence="Sluuurz" />
+	</voices>
 	<loot>
 		<item name="gold coin" countmax="40" chance="62000" />
 		<item name="worm" countmax="3" chance="5000" />

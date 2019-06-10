@@ -49,7 +49,7 @@
 		<immunity drown="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="I smell warm blood!" />
+		<voice sentence="You know what, I changed my mind. BRING IT!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="60" chance="90230" />	<!-- gold coin -->

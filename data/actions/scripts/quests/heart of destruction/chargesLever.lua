@@ -17,12 +17,12 @@ local function doCheckArea()
 	--Room 1
 	local upConer = {x = 32133, y = 31341, z = 14}       -- upLeftCorner
 	local downConer = {x = 32174, y = 31375, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k = upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -36,16 +36,16 @@ local function doCheckArea()
 			end
 		end
 	end
-	
+
 	--Room 2
     local upConer2 = {x = 32140, y = 31340, z = 15}       -- upLeftCorner
 	local downConer2 = {x = 32174, y = 31375, z = 15}     -- downRightCorner
-	
+
 	for f=upConer2.x, downConer2.x do
 		for g=upConer2.y, downConer2.y do
         	for h= upConer2.z, downConer2.z do
 		        local room = {x=f, y=g, z=h}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -59,11 +59,11 @@ local function doCheckArea()
 			end
 		end
 	end
-	
+
 	if spawningCharge == true then
 		return true
 	end
-	
+
 	return false
 end
 
@@ -71,12 +71,12 @@ local function clearArea()
 	--Room 1
 	local upConer = {x = 32133, y = 31341, z = 14}       -- upLeftCorner
 	local downConer = {x = 32174, y = 31375, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -92,16 +92,16 @@ local function clearArea()
 			end
 		end
 	end
-	
+
 	--Room 2
     local upConer2 = {x = 32140, y = 31340, z = 15}       -- upLeftCorner
 	local downConer2 = {x = 32174, y = 31375, z = 15}     -- downRightCorner
-	
+
 	for f=upConer2.x, downConer2.x do
 		for g=upConer2.y, downConer2.y do
         	for h=upConer2.z, downConer2.z do
 		        local room = {x=f, y=g, z=h}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -125,16 +125,16 @@ end
 
 function teleportToCrackler()
 	shuffleTable(team, 2, ri, rj) -- Embaralha a tabela para dar um random teleport
-	
+
 	--Room 1
 	local upConer = {x = 32142, y = 31341, z = 14}       -- upLeftCorner
 	local downConer = {x = 32176, y = 31375, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -156,12 +156,12 @@ function teleportToCharger()
 	--Room 1
 	local upConer = {x = 32142, y = 31341, z = 15}       -- upLeftCorner
 	local downConer = {x = 32176, y = 31375, z = 15}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -178,7 +178,7 @@ function teleportToCharger()
 	areaHeart2 = addEvent(teleportToCrackler, 25000)
 end
 -- FUNCTIONS END
-    
+
 function onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
@@ -189,16 +189,16 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 			Position(32094, 31327, 12),
 			Position(32095, 31327, 12)
 		},
-	
+
 		newPos = {x = 32135, y = 31363, z = 14},
 	}
-	
+
 	local pushPos = {x = 32091, y = 31327, z = 12}
-	
+
 	if item.actionid == 14320 then
 		if item.itemid == 9825 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
-			
+
 				local storePlayers, playerTile = {}
 				for i = 1, #config.playerPositions do
 					playerTile = Tile(config.playerPositions[i]):getTopCreature()
@@ -206,12 +206,12 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 						storePlayers[#storePlayers + 1] = playerTile
 					end
 				end
-				
+
 				if doCheckArea() == false then
 					clearArea()
-					
+
 					local players
-					
+
 					for i = 1, #storePlayers do
 						players = storePlayers[i]
 						table.insert(team, players) -- Insert players on table to get a random teleport
@@ -219,14 +219,14 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 						players:teleportTo(config.newPos)
 						Position(config.newPos):sendMagicEffect(11)
 					end
-					
+
 					areaHeart1 = addEvent(clearArea, 15 * 60000)
 					areaHeart2 = addEvent(teleportToCrackler, 25000)
-				
+
 					Game.setStorageValue(14321, 0) -- Overcharge Count
-					
+
 					spawningCharge = false
-					
+
 					Game.createMonster("Charger", {x = 32151, y = 31356, z = 14}, false, true)
 					Game.createMonster("Charger", {x = 32154, y = 31353, z = 14}, false, true)
 					Game.createMonster("Charger", {x = 32153, y = 31361, z = 14}, false, true)
@@ -237,7 +237,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 					Game.createMonster("Charger", {x = 32163, y = 31356, z = 14}, false, true)
 					Game.createMonster("Charger", {x = 32162, y = 31352, z = 14}, false, true)
 					Game.createMonster("Charger", {x = 32158, y = 31350, z = 14}, false, true)
-					
+
 					Game.createMonster("Overcharge", {x = 32152, y = 31355, z = 15}, false, true)
 					Game.createMonster("Overcharge", {x = 32154, y = 31360, z = 15}, false, true)
 					Game.createMonster("Overcharge", {x = 32160, y = 31360, z = 15}, false, true)

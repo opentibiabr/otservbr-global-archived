@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+<?xml version="1.0" encoding="UTF-8"?>
 <monster name="Force Field" nameDescription="a force field" race="undead" experience="0" speed="0" manacost="0">
 	<health now="10000" max="10000" />
 	<look typeex="11098" />
@@ -60,10 +60,6 @@
 		<immunity outfit="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Yooodelaaahooohooo!" />
-		<voice sentence="Yooodelaaaheeeheee!" />
-	</voices>
 	<loot>
 		<item name="snowball" countmax="22" chance="10000" />
 		<item name="gold coin" countmax="60" chance="100000" />

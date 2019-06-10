@@ -42,7 +42,7 @@ end
 function Player.setExhaustion(self, value, time)
     return self:setStorageValue(value, time + os.time())
 end
- 
+
 function Player.getExhaustion(self, value)
     local storage = self:getStorageValue(value)
     if storage <= 0 then
@@ -50,25 +50,25 @@ function Player.getExhaustion(self, value)
     end
     return storage - os.time()
 end
- 
+
 function Player.addFamePoint(self)
     local points = self:getStorageValue(SPIKE_FAME_POINTS)
     local current = math.max(0, points)
     self:setStorageValue(SPIKE_FAME_POINTS, current + 1)
     self:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have received a fame point.")
 end
- 
+
 function Player.getFamePoints(self)
     local points = self:getStorageValue(SPIKE_FAME_POINTS)
     return math.max(0, points)
 end
- 
+
 function Player.removeFamePoints(self, amount)
     local points = self:getStorageValue(SPIKE_FAME_POINTS)
     local current = math.max(0, points)
     self:setStorageValue(SPIKE_FAME_POINTS, current - amount)
 end
- 
+
 function Player.depositMoney(self, amount)
 	if not self:removeMoney(amount) then
 		return false
@@ -215,7 +215,7 @@ function Player.sendExtendedOpcode(self, opcode, buffer)
  	networkMessage:addByte(0x32)
  	networkMessage:addByte(opcode)
  	networkMessage:addString(buffer)
-	networkMessage:sendToPlayer(self, false) 
+	networkMessage:sendToPlayer(self, false)
  	networkMessage:delete()
 	return true
 end
@@ -282,7 +282,7 @@ function Player.sendDamageImpact(self, damage)
 	msg:addByte(1) -- 0 = healing / 1 = damage (boolean)
 	msg:addU32(damage) -- unsigned int
 	msg:sendToPlayer(self)
-end 
+end
 
  -- Loot Analyser
     function Player.sendLootStats(self, item)
@@ -292,7 +292,7 @@ end
     	msg:addString(getItemName(item:getId()))
     	msg:sendToPlayer(self)
     end
-    
+
     -- Supply Analyser
     function Player.sendWaste(self, item)
         local msg = NetworkMessage()

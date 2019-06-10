@@ -39,9 +39,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Knorrrr!" />
-	</voices>
 	<loot>
 		<item id="22396" countmax="2" chance="30000" /> <!-- cluster of solace -->
 		<item id="22532" chance="30000" /> <!-- frazzle tongue -->

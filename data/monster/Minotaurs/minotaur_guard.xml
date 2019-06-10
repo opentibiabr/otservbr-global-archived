@@ -30,8 +30,8 @@
 		<element deathPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Kirll Karrrl!" />
-		<voice sentence="Kaplar!" />
+		<voice sentence="Kirrl Karrrl!" />
+		<voice sentence="Kaplar" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="20" chance="59640" />

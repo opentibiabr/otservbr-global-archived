@@ -53,25 +53,25 @@
 	</voices>
 	<loot>
 <!--common-->
-<item name="platinum coin" countmin="1" countmax="5" chance="100000" /> 
+<item name="platinum coin" countmin="1" countmax="5" chance="100000" />
 <!--uncommon-->
 <item name="Small Diamond" chance="15000" />
-<item name="Brown Crystal Splinter" chance="11550" />    
+<item name="Brown Crystal Splinter" chance="11550" />
 <item name="Small Sapphire" chance="13550" />
 <item name="Red Gem" chance="14750" />
 <item name="Red Crystal Fragment" chance="17550" />
 <item name="Small Enchanted Ruby" chance="12350" />
 <item name="Yellow Gem" chance="14600" />
 <!--semi-rare-->
-<item name="Golden Idol of Tukh" chance="25100" /> 
-<item name="Wand of Draconia" chance="25000" /> 
-<item name="Wand of Inferno" chance="12800" /> 
+<item name="Golden Idol of Tukh" chance="25100" />
+<item name="Wand of Draconia" chance="25000" />
+<item name="Wand of Inferno" chance="12800" />
 <item name="Red Ectoplasm" chance="12000" />
 <item name="Magma Coat" chance="30000" />
 <item name="Prismatic Quartz" chance="13050" />
-<item name="Small Enchanted Emerald" chance="12800" /> 
+<item name="Small Enchanted Emerald" chance="12800" />
 <item name="Onyx Chip" chance="12000" />
-<!--rare-->  
-<item name="Hexagonal Ruby" chance="1800" /> 
+<!--rare-->
+<item name="Hexagonal Ruby" chance="1800" />
 </loot>
 </monster>

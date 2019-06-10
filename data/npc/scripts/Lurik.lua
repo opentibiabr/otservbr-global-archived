@@ -28,7 +28,7 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.ExplorerSociety.QuestLine, 59)
 			else
 				npcHandler:say("You're not done yet...", cid)
-			end	
+			end
 		elseif player:getStorageValue(Storage.ExplorerSociety.TheIslandofDragons) == 59 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 59 then
 			npcHandler:say({
 				"Ah, yes, the mission. Let me tell you about something called ice music. ...",

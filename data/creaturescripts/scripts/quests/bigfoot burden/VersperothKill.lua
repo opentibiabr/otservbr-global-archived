@@ -9,7 +9,7 @@ local function transformTeleport(open)
 
 	teleportPosition:sendMagicEffect(CONST_ME_POFF)
 	if open then
-		teleportItem:transform(18463) -- can pass and summon versperoth 
+		teleportItem:transform(18463) -- can pass and summon versperoth
 	else
 		teleportItem:transform(18462) -- cannot summon versperoth
 	end
@@ -35,7 +35,7 @@ function onKill(creature, target)
 		end
 	local tp = Game.createItem(1387, 1, teleportPosition)
 	if tp then
-		tp:setActionId(45701)
+		tp:setActionId(45702)
 	end
 
 	addEvent(transformTeleport, 1 * 60 * 1000, false)

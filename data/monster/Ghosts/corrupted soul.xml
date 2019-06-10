@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		
+
 	</flags>
 	<script>
 		<event name="CorruptedSoul"/>
@@ -55,11 +55,4 @@
 		<immunity drown="1"/>
 		<immunity death="1"/>
 	</immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="Life is such a fickle thing!"/>
-		<voice sentence="I will devour your soul."/>
-		<voice sentence="Souuuls!"/>
-		<voice sentence="I will feed on you."/>
-		<voice sentence="Aaaahh"/>
-	</voices>
 </monster>

@@ -21,7 +21,7 @@ local function creatureSayCallback(cid, type, msg)
 				"It belonged to my father and before that to my grandfather. That helmet is at least 600 years old! I need it back. Are you willing to help me?"
 			}, cid)
 			npcHandler.topic[cid] = 1
-			
+
 		elseif player:getStorageValue(Storage.toOutfoxAFoxQuest) == 1 then
 			if player:removeItem(7497, 1) then
 				player:setStorageValue(Storage.toOutfoxAFoxQuest, 2)
@@ -38,20 +38,20 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.toOutfoxAFoxQuest, 1)
 			npcHandler:say("I knew you have the guts for that task! We presume the hideout of The Horned Fox somewhere in the south-west near the coast. Good luck!", cid)
 			npcHandler.topic[cid] = 0
-			
+
 			elseif npcHandler.topic[cid] == 2 then
 			npcHandler:say("Hussah! Let's bring war to those hoof-legged, dirt-necked, bull-headed minotaurs!! Come back to me when you are done with your mission.", cid)
 			player:setStorageValue(JOIN_STOR, 1)
 			player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinos, 1)
 			player:setStorageValue(Storage.KillingInTheNameOf.BudrikMinosCount, 0)
 			npcHandler.topic[cid] = 0
-				
-		
+
+
 			else npcHandler:say("Zzz...", cid)
-			
+
 		end
-		elseif msgcontains(msg, "task") then		
-		-- AQUI 
+		elseif msgcontains(msg, "task") then
+		-- AQUI
 		if player:getStorageValue(Storage.KillingInTheNameOf.BudrikMinos) <= 0 then
 			npcHandler:say({
 				"I am so angry I could spit grit! That damn Horned Fox and his attacks! Let's show those bull-heads that they have messed with the wrong people....",
@@ -79,17 +79,17 @@ local function creatureSayCallback(cid, type, msg)
 			else npcHandler:say("You need to do the {To Outfox a Fox Quest} before.", cid)
 		end
 		-- AQUI
-		
-		-- YES AQUI 		
-		
+
+		-- YES AQUI
+
 	elseif msgcontains(msg, "no") then
 		if npcHandler.topic[cid] > 1 then
 			npcHandler:say("Then no.", cid)
 			npcHandler.topic[cid] = 0
 		end
 	end
-		-- YES AQUI 
-		
+		-- YES AQUI
+
 	return true
 end
 

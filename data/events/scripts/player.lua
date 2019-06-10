@@ -96,9 +96,9 @@ function Player:onLook(thing, position, distance)
 			description = description .. "a honeyflower patch."
 		elseif thing.actionid == 5641 then
 			description = description .. "a banana palm."
-		elseif thing.itemid >= ITEM_HEALTH_CASK_START and thing.itemid <= ITEM_HEALTH_CASK_END 
-		or thing.itemid >= ITEM_MANA_CASK_START and thing.itemid <= ITEM_MANA_CASK_END 
-		or thing.itemid >= ITEM_SPIRIT_CASK_START and thing.itemid <= ITEM_SPIRIT_CASK_END 
+		elseif thing.itemid >= ITEM_HEALTH_CASK_START and thing.itemid <= ITEM_HEALTH_CASK_END
+		or thing.itemid >= ITEM_MANA_CASK_START and thing.itemid <= ITEM_MANA_CASK_END
+		or thing.itemid >= ITEM_SPIRIT_CASK_START and thing.itemid <= ITEM_SPIRIT_CASK_END
 		or thing.itemid >= ITEM_KEG_START and thing.itemid <= ITEM_KEG_END then
 			description = description .. thing:getDescription(distance)
 			local charges = thing:getCharges()
@@ -305,7 +305,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return false
 	end
-	
+
 	-- Loot Analyser apenas 11.x+
 	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
     	local t = Tile(fromCylinder:getPosition())
@@ -319,7 +319,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
     end
 
 	checkWallArito(item, toPosition)
-	
+
 	-- Cults of Tibia begin
 	local frompos = Position(33023, 31904, 14) -- Checagem
 	local topos = Position(33052, 31932, 15) -- Checagem
@@ -346,7 +346,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	end
 	-- Cults of Tibia end
 
-	--- LIONS ROCK START 
+	--- LIONS ROCK START
 	if self:getStorageValue(lionrock.storages.playerCanDoTasks) - os.time() < 0 then
 		local p, i = lionrock.positions, lionrock.items
 		local checkPr = false
@@ -557,14 +557,14 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
         self:sendCancelMessage("Your cannot move this item too heavy.")
         return false
     end
-	
-	
+
+
 	if tile and tile:getItemById(370) then -- Trapdoor
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
 	end
-	
+
 	if not antiPush(self, item, count, fromPosition, toPosition, fromCylinder, toCylinder) then
 		return false
 	end
@@ -818,7 +818,7 @@ function Player:onUseWeapon(normalDamage, elementType, elementDamage)
 						useStaminaImbuing(self:getId(), nextEquip:getUniqueId())
 					end
 
-					if (typeEnchant ~= "hitpointsleech" and typeEnchant ~= "manapointsleech" and typeEnchant ~= "criticaldamage" 
+					if (typeEnchant ~= "hitpointsleech" and typeEnchant ~= "manapointsleech" and typeEnchant ~= "criticaldamage"
 						and typeEnchant ~= "skillShield" and typeEnchant ~= "magiclevelpoints" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
 						local weaponType = nextEquip:getType():getWeaponType()
 						if weaponType ~= WEAPON_NONE and weaponType ~= WEAPON_SHIELD and weaponType ~= WEAPON_AMMO then
@@ -851,7 +851,7 @@ function Player:onUseWeapon(normalDamage, elementType, elementDamage)
 			end
 		end
 	end
-	
+
 	return normalDamage, elementType, elementDamage
 end
 
@@ -1080,7 +1080,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	if staminaMinutes > 2400 and self:isPremium() and Boost > 0 then
 		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*2) -- 200 = 1.0x, 200 = 2.0x, ... premium account
 	elseif staminaMinutes > 2400 and self:isPremium() and Boost <= 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account		
+		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account
 	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and self:isPremium() and Boost > 0 then
 		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		premium account
 	elseif staminaMinutes > 840 and Boost > 0 then

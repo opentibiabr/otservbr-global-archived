@@ -40,6 +40,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Peeex!" />
+		<voice sentence="Bzzzzzzzrrrrzzzzzzrrrrr!" />
 	</voices>
 	<loot>
 		<item name="emerald bangle" chance="2040" />

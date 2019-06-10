@@ -12,7 +12,7 @@ end
 
 local condition = Condition(CONDITION_OUTFIT)
 condition:setTicks(-1)
- 
+
 
 local conditions = {
 	CONDITION_POISON,

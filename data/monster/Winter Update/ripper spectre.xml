@@ -45,7 +45,7 @@
 		<immunity earth="1" />
 	</immunities>
 	<loot>
-        <item name="Platinum Coin" countmax="2" chance="5000" />	
+        <item name="Platinum Coin" countmax="2" chance="5000" />
 		<item name="Great Spirit Potion" countmax="1" chance="1000" />
 		<item name="Silver Brooch" chance="800" />
 		<item name="Terra Rod" chance="800" />

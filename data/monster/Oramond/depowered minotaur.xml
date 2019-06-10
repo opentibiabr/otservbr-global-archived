@@ -25,10 +25,7 @@
 		<element holyPercent="10" />
 	</elements>
 	<voices interval="2000" chance="7">
-		<voice sentence="I want my power back" />
-		<voice sentence="Nooooo!" />
-		<voice sentence="Revenge will be sweet!" />
-		<voice sentence="They've stolen my power!" />
+		<voice sentence="I want my power back!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="82" chance="100000" /> <!-- gold coin -->

@@ -104,7 +104,7 @@ function sendInspectionList(uid)
 		msg:addByte(0x00)
 		object = Item(uid)
 	end
- 	
+
  	local totalItems = getTotalItems(object)
 	msg:addByte(#totalItems)
 	for i,v in pairs(totalItems) do
@@ -119,12 +119,12 @@ function sendInspectionList(uid)
 	    if (v.Item:getType():isStackable()) then
 	    	msg:addByte(v.Item:getCount())
 	    end
-	 
+
 		msg:addByte(v.Item:getType():getImbuingSlots() or 0x00)
 		for j = 1, v.Item:getType():getImbuingSlots() do
 		    msg:addU16(0)
 		end
-	  	
+
 	  	local itemType = v.Item:getType()
 	  	local detailsInfo, detailsCount = getItemDescription(itemType)
 		msg:addByte(detailsCount)
@@ -133,10 +133,10 @@ function sendInspectionList(uid)
 			msg:addString(v.Description)
 		end
 	end
-	 
+
 	if (object:isPlayer()) then
 	    msg:addString(object:getName())
-	 	
+
 	 	local outfit = object:getOutfit()
 	    msg:addU16(outfit.lookType or 21)
 		msg:addByte(outfit.lookHead or 0x00) -- outfit
@@ -144,17 +144,17 @@ function sendInspectionList(uid)
 		msg:addByte(outfit.lookLegs or 0x00) -- outfit
 		msg:addByte(outfit.lookFeet or 0x00) -- outfit
 		msg:addByte(outfit.lookAddons or 0x00) -- outfit
-	 	
+
 	 	local playerInfo = {
 	 		{Title = "Level", Value = object:getLevel()},
 	 		{Title = "Vocation", Value = object:getVocation():getName()},
 	 		{Title = "Loyalty Rank", Value = "Sentinel of Tibia"},
 	 		{Title = "Outfit", Value = object:getOutfit().lookType}
 	 	}
-	 	
+
 	    msg:addByte(#playerInfo)
 	    for z, p in pairs(playerInfo) do
-	    	msg:addString(p.Title) 
+	    	msg:addString(p.Title)
 	    	msg:addString(p.Value)
 	    end
 	end

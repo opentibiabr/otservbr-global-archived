@@ -65,6 +65,7 @@
 	<voices interval="2000" chance="7">
 		<voice sentence="Killing is such a splendid diversion from my studies." />
 		<voice sentence="Time to test my newest spells!" />
+		<voice sentence="Ah, practice time once again!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="80" chance="32000" />	<!-- gold coin -->

@@ -27,7 +27,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		elseif creature:getStorageValue(Storage.TheNewFrontier.Mission03) == 3 then
 			targetPosition.z = 12
 		elseif creature:getStorageValue(Storage.TheNewFrontier.Mission03) < 2 then
-			targetPosition.z = 14			
+			targetPosition.z = 14
 		end
 	end
 

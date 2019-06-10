@@ -25,7 +25,7 @@
 			<attribute key="shootEffect" value="suddendeath" />
 			<attribute key="areaEffect" value="mortarea" />
 			<attribute key="areaEffect" value="smallclouds" />
-		</attack>	
+		</attack>
 		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="3" min="-250" max="-350">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
@@ -45,10 +45,6 @@
 		<immunity death="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="FEEEED MY ETERNAL HUNGER!" yell="1" />
-		<voice sentence="I SENSE LIFE" yell="1" />
-	</voices>
 	<loot>
 		<item id="2173" chance="1000"/> <!-- amulet of loss -->
 		<item id="27610" chance="100000"/> <!-- bones of Zorvorax -->
@@ -69,20 +65,3 @@
 		<item id="11233" countmax="2" chance="100000"/> <!-- unholy bone -->
 	</loot>
 </monster>
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-

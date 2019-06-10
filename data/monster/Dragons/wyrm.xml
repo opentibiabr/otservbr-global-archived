@@ -54,8 +54,8 @@
 		<immunity lifedrain="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="GRRR!" />
-		<voice sentence="GROOOOAAAAAAAAR!" />
+		<voice sentence="GRROARR" />
+		<voice sentence="GRRR" />
 	</voices>
 	<loot>
 		<item name="small diamond" countmax="3" chance="750" />

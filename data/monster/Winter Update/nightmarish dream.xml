@@ -46,14 +46,4 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Dance for me your dance of death!" />
-		<voice sentence="Let the music play!" />
-		<voice sentence="I will mourn your death!" />
-		<voice sentence="Are you ready to rock?" />
-		<voice sentence="Feel my gentle kiss of death." />
-		<voice sentence="That's what I call easy listening!" />
-		<voice sentence="IIIIEEEeeeeeehhhHHHH!" yell="1" />
-	</voices>
-
 </monster>

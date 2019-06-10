@@ -48,6 +48,7 @@
 	</summons>
 	<voices interval="5000" chance="10">
 		<voice sentence="To me, creatures of the wild!" />
+		<voice sentence="Feel the power of the beast!" />
 		<voice sentence="My instincts tell me about your cowardice." />
 	</voices>
 	<loot>

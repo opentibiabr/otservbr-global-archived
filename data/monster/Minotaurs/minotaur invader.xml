@@ -27,6 +27,10 @@
 	<immunities>
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="For the victory!" />
+		<voice sentence="We will crush the enemy!" />
+	</voices>
 	<loot>
 		<item id="2148" countmax="160" chance="59640" />	<!-- gold coin -->
 		<item id="12428" countmax="2" chance="8330" />	<!-- minotaur horn -->

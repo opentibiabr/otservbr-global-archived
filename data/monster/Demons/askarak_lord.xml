@@ -48,8 +48,11 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="WE RULE!" />
-		<voice sentence="RED IS MAD" />
+			<voice sentence="DEATH TO THE SHABURAK!" />
+			<voice sentence="GREEN WILL RULE!" />
+			<voice sentence="ONLY WE ARE TRUE DEMONS!" />
+			<voice sentence="RED IS MAD!" />
+			<voice sentence="WE RULE!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="50000" />

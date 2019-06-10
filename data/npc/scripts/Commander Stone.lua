@@ -35,7 +35,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.CrystalKeeperTimout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionCrystalKeeper) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount) >= 5 then -- can report missions 
+				if player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount) >= 5 then -- can report missions
 					player:removeItem(18219, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
 					player:addItem(18422, 1)
@@ -48,7 +48,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando
@@ -65,7 +65,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "spark") then
 		if player:getStorageValue(Storage.BigfootBurden.QuestLine) >= 25 then
 			if player:getStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark) < 1 and player:getStorageValue(Storage.BigfootBurden.RaidersOfTheLostSparkTimeout) < os.time() then
-				npcHandler:say({"Take this extractor and drive it into a body of a slain crystal crusher. This will charge your own body with energy sparks. Charge it with seven sparks and return to me. ...", 
+				npcHandler:say({"Take this extractor and drive it into a body of a slain crystal crusher. This will charge your own body with energy sparks. Charge it with seven sparks and return to me. ...",
 					"Don't worry. The gnomes assured me you'd be save. That is if nothing strange or unusual occurs! "}, cid)
 				player:setStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark, 1)
 				player:setStorageValue(Storage.BigfootBurden.ExtractedCount, 0)
@@ -73,7 +73,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.RaidersOfTheLostSparkTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.ExtractedCount) >= 7 then -- can report missions 
+				if player:getStorageValue(Storage.BigfootBurden.ExtractedCount) >= 7 then -- can report missions
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
 					player:removeItem(18213, 1)
 					player:addItem(18422, 1)
@@ -86,7 +86,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You did not draw enough energy from Crystal Crushers or you have not asked for this task.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando
@@ -109,7 +109,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.ExterminatorsTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionExterminators) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.ExterminatedCount) >= 10 then -- can report missions 
+				if player:getStorageValue(Storage.BigfootBurden.ExterminatedCount) >= 10 then -- can report missions
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
 					player:addItem(18422, 1)
 					player:addItem(18215, 1)
@@ -121,7 +121,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando
@@ -150,7 +150,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getStorageValue(Storage.BigfootBurden.MushroomDiggerTimeout) > os.time() then  -- trying to take mission while in cooldown
 				npcHandler:say("Sorry, you will have to wait before you can undertake this mission again.", cid)
 			elseif player:getStorageValue(Storage.BigfootBurden.MissionMushroomDigger) > 0 then  -- reporting mission
-				if player:getStorageValue(Storage.BigfootBurden.MushroomCount) >= 3 then -- can report missions 
+				if player:getStorageValue(Storage.BigfootBurden.MushroomCount) >= 3 then -- can report missions
 					player:removeItem(18339, 1)
 					player:setStorageValue(Storage.BigfootBurden.Rank, player:getStorageValue(Storage.BigfootBurden.Rank) + 5)
 					player:addItem(18422, 1)
@@ -163,7 +163,7 @@ local function creatureSayCallback(cid, type, msg)
 					npcHandler:say("You did well. That will help us a lot. Take your {token} and this gnomish supply package as a reward. ", cid)
 					npcHandler.topic[cid] = 0
 				else   -- haven't finished
-					if npcHandler.topic[cid] >= 1 then 
+					if npcHandler.topic[cid] >= 1 then
 						npcHandler:say("You are not done yet.", cid) -- is reporting
 					else
 						npcHandler:say("You already have accepted this mission. Don't forget to {report} to me when you are done.", cid) -- se nao tiver reportando

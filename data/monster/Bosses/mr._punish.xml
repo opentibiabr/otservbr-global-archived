@@ -28,6 +28,11 @@
 		<immunity poison="1" />
 		<immunity invisible="1" />
 	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="I kept my axe sharp, especially for you!" />
+		<voice sentence="Time for a little torturing practice!" />
+		<voice sentence="Scream for me!" />
+	</voices>
 	<loot>
 		<item id="6537" chance="100000" /><!-- mr punish's handcuffs -->
 	</loot>

@@ -1,11 +1,11 @@
 function clearDevourer()
 	local upConer = {x = 32260, y = 31336, z = 14}       -- upLeftCorner
 	local downConer = {x = 32283, y = 31360, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k = upConer.z, downConer.z do
-				local tile = Tile(i, j, k) 
+				local tile = Tile(i, j, k)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -27,11 +27,11 @@ end
 local function setStorageDevourer()
 	local upConer = {x = 32260, y = 31336, z = 14}       -- upLeftCorner
 	local downConer = {x = 32283, y = 31360, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
-				local tile = Tile(i, j, k) 
+				local tile = Tile(i, j, k)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -52,12 +52,12 @@ end
 local function setStorage(fromPos, toPos, storage)
 	local upConer = fromPos       -- upLeftCorner
 	local downConer = toPos     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -114,9 +114,9 @@ function onDeath(creature)
 			storage = 14332
 		},
 	}
-	
+
 	local bossName = bosses[creature:getName()]
-	
+
 	if bossName then
 		local vortex = Tile(bossName.tile):getItemById(26139)
 		if vortex then
@@ -133,6 +133,6 @@ function onDeath(creature)
 		setStorageDevourer()
 		clearDevourer()
 	end
-		
+
     return true
 end

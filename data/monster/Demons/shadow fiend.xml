@@ -15,8 +15,8 @@
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
-		<flag runonhealth="0"/> 
-		
+		<flag runonhealth="0"/>
+
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="30" poison="80"/>
@@ -45,6 +45,6 @@
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>
-		<immunity invisible="1"/> 
-	</immunities> 
+		<immunity invisible="1"/>
+	</immunities>
 </monster>

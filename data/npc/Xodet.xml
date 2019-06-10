@@ -5,16 +5,16 @@
 	<parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-		
+
 			ultimate mp,26029,350;
 			Supreme Health Potion,26031,500;
-			ultimate spirit potion,26030,350;		
+			ultimate spirit potion,26030,350;
 			animate dead rune,2316,375;
 			disintegrate rune,2310,26;
 			holy missile rune,2295,16;
 			icicle rune,2271,30;
 			paralyze rune,2278,500;
-			wild growth rune,2269,160;			
+			wild growth rune,2269,160;
 		    avalanche rune,2308,46;
 			avalanche rune,2293,55;
 			avalanche rune,2274,25;

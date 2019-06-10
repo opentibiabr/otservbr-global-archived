@@ -29,10 +29,9 @@
 	</defenses>
 	<elements>
 		<element earthPercent="10" />
-	</elements>	
+	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="Chrrch!" />
-		<voice sentence="Chhh!" />
 	</voices>
 	<loot>
 		<item id="2120" chance="5070" /><!-- Rope -->

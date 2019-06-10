@@ -29,8 +29,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
     elseif not promotion then
         player:setVocation(vocation:getDemotion())
-    end			
-		
+    end
+
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 		local vocation = player:getVocation()
@@ -40,19 +40,19 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Promotion Done.", cid)
 			npcHandler.topic[cid] = 0
 		else
-			npcHandler:say("Zzz...", cid)			
+			npcHandler:say("Zzz...", cid)
 		end
-			
-		-- YES AQUI 		
-		
+
+		-- YES AQUI
+
 	elseif msgcontains(msg, "no") then
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say("Then no.", cid)
 			npcHandler.topic[cid] = 0
 		end
 	end
-		-- YES AQUI 
-		
+		-- YES AQUI
+
 	return true
 end
 

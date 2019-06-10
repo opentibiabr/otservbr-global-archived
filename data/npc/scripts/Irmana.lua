@@ -2,7 +2,7 @@
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
- 
+
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
@@ -12,16 +12,16 @@ function creatureSayCallback(cid, type, msg)
 	if(not npcHandler:isFocused(cid)) then
 		return false
 	end
-	
+
 	local player = Player(cid)
-	
+
 	if(msgcontains(msg, "addon")) then
 		if(getPlayerStorageValue(cid, 1007) < 1) then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
 			npcHandler.topic[cid] = 1
 		elseif getPlayerStorageValue(cid, 1008) < 1 then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
-			npcHandler.topic[cid] = 1	
+			npcHandler.topic[cid] = 1
 		else
 			npcHandler:say("You have already bought the two addons.", cid)
 		end

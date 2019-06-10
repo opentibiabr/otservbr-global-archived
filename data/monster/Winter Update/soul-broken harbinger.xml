@@ -38,12 +38,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Let's have a fight!" />
-		<voice sentence="Welcome to my battleground." />
-		<voice sentence="Have you seen princess Lumelia?" />
-		<voice sentence="I will sing a tune at your grave." />
-	</voices>
 	<loot>
 	    <item name="Platinum Coin" countmin="1" countmax="12" chance="100000" />
 		<item id="34696" countmin="1" countmax="3" chance="15750" /> <!-- Ice Flower -->

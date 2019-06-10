@@ -51,7 +51,7 @@ local levers = {
 	[3] = {position = Position(33430, 32418, 14)},
 	[4] = {position = Position(33410, 32441, 14)}
 }
-local function revert() 
+local function revert()
 	for i = 1, #chains.West do
 		local chainWest = chains.West[i]
 		Game.createItem(chainWest.itemid, 1, chainWest.position)

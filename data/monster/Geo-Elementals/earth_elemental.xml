@@ -57,6 +57,9 @@
 		<immunity earth="1" />
 		<immunity energy="1" />
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Stomp." />
+	</voices>
 	<loot>
 		<item name="small stone" countmax="10" chance="10000" />
 		<item name="gold coin" countmax="100" chance="43000" />

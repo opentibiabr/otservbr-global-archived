@@ -29,7 +29,7 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		npcHandler.topic[cid] = 1
 	end
-	
+
 	if msgcontains(msg, "imbuing") or msgcontains(msg, "imbuements") then
 		npcHandler:say({
 			"The astral Shapers had many ways to shape and refine weapons and equipment. They built shrines dedicated to this world's energies, focussing it and utilising it like a tool to enhance objects. ...",
@@ -41,7 +41,7 @@ local function creatureSayCallback(cid, type, msg)
 			"But beware, as far as we know, some of them have been claimed by other ancient beings and there is now way for us to prepare you what lies beyond any of those gates."
 		}, cid)
 	end
-	
+
 	if msgcontains(msg, "father") and npcHandler.topic[cid] == 1 then
 		npcHandler:say({
 			"Papa- my father has recently started an adventure on his own. His name is Silus, he is a member of the Edron academy. ...",
@@ -62,7 +62,7 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		player:setStorageValue(Storage.ForgottenKnowledge.Ivalisse, 1)
 	end
-	
+
 	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 2 then
 		npcHandler:say({
 			"Thank you! He told me the other researchers in his team discovered a bridge leading to a cave with a dragon sculpture somewhere in a muggy, grassy area. ...",
@@ -78,7 +78,7 @@ local function creatureSayCallback(cid, type, msg)
 			"Oh nevermind, I am sorry I asked you for this.",
 		}, cid)
 	end
-	
+
 	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 3 then
 		npcHandler:say({
 			"You would? That's great! Thank you! If you can find my father, tell him I understand and that I really miss him!",

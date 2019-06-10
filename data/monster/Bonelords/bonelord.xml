@@ -58,8 +58,9 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Eye for eye!" />
 		<voice sentence="Here's looking at you!" />
-		<voice sentence="Let me take a look at you!" />
+		<voice sentence="Let me take a look at you." />
 		<voice sentence="You've got the look!" />
+		<voice sentence="I've got to look!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="48" chance="99400" />

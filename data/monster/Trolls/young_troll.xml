@@ -20,6 +20,10 @@
 		<attack name="melee" interval="2000" min="0" max="-10" />
 	</attacks>
 	<defenses armor="1" defense="2" />
+	<voices interval="10000" chance="10">
+		<voice sentence="Hmmm, dogs" />
+		<voice sentence="Gruntz!" />
+	</voices>
 	<loot>
 		<item id="2120" chance="10000" /><!-- rope -->
 		<item name="gold coin" countmax="12" chance="58000" />

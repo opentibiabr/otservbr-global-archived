@@ -2,12 +2,12 @@
 local function doCheckArea()
 	local upConer = {x = 32223, y = 31273, z = 14}       -- upLeftCorner
 	local downConer = {x = 32246, y = 31297, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k = upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -27,12 +27,12 @@ end
 local function clearArea()
 	local upConer = {x = 32223, y = 31273, z = 14}       -- upLeftCorner
 	local downConer = {x = 32246, y = 31297, z = 14}     -- downRightCorner
-	
+
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
         	for k= upConer.z, downConer.z do
 		        local room = {x=i, y=j, z=k}
-				local tile = Tile(room) 
+				local tile = Tile(room)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
@@ -62,16 +62,16 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 			Position(32207, 31287, 14),
 			Position(32207, 31288, 14)
 		},
-	
+
 		newPos = {x = 32234, y = 31292, z = 14},
 	}
-	
+
 	local pushPos = {x = 32207, y = 31284, z = 14}
-	
+
 	if item.actionid == 14331 then
 		if item.itemid == 9825 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
-				
+
 				local storePlayers, playerTile = {}
 				for i = 1, #config.playerPositions do
 					playerTile = Tile(config.playerPositions[i]):getTopCreature()
@@ -79,12 +79,12 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 						storePlayers[#storePlayers + 1] = playerTile
 					end
 				end
-				
+
 				if doCheckArea() == false then
 					clearArea()
-					
+
 					local players
-					
+
 					for i = 1, #storePlayers do
 						players = storePlayers[i]
 						config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
@@ -92,18 +92,18 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 						players:setStorageValue(14331, os.time() + 20*60*60)
 					end
 					Position(config.newPos):sendMagicEffect(11)
-					
+
 					areaOutburst1 = addEvent(clearArea, 15 * 60000)
-					
+
 					Game.createMonster("Spark of Destruction", {x = 32229, y = 31282, z = 14}, false, true)
 					Game.createMonster("Spark of Destruction", {x = 32230, y = 31287, z = 14}, false, true)
 					Game.createMonster("Spark of Destruction", {x = 32237, y = 31287, z = 14}, false, true)
 					Game.createMonster("Spark of Destruction", {x = 32238, y = 31282, z = 14}, false, true)
 					Game.createMonster("Outburst", {x = 32234, y = 31284, z = 14}, false, true)
-					
+
 					outburstStage = 0
 					outburstHealth = 290000
-					
+
 					local vortex = Tile({x = 32225, y = 31285, z = 14}):getItemById(26138)
 					if vortex then
 						vortex:transform(26139)

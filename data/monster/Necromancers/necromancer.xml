@@ -52,7 +52,7 @@
 		<summon name="Mummy" interval="2000" chance="5" />
 	</summons>
 	<voices interval="5000" chance="10">
-		<voice sentence="Your corpse will be mine!" />
+		<voice sentence="Your corpse will be mine." />
 		<voice sentence="Taste the sweetness of death!" />
 	</voices>
 	<loot>

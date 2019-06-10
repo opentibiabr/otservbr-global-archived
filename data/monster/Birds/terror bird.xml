@@ -33,7 +33,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="CRAAAHHH!" />
 		<voice sentence="Gruuuh Gruuuh." />
-		<voice sentence="Carrah Carrah!" />
+		<voice sentence="Carrah! Carrah!" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="30" chance="82430" />

@@ -41,8 +41,8 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="153" chance="100000" />	<!-- GOLD COIN -->
-		<item id="28657" countmax="1" chance="5610" />		<!-- RUBBISH AMULET  -->			
+		<item id="28657" countmax="1" chance="5610" />		<!-- RUBBISH AMULET  -->
 		<item id="9971" countmax="1" chance="4930" />		<!-- GOLD INGOT -->
-		<item id="2158" countmax="1" chance="4630" />		<!-- BLUE GEM  -->	
+		<item id="2158" countmax="1" chance="4630" />		<!-- BLUE GEM  -->
 	</loot>
 </monster>

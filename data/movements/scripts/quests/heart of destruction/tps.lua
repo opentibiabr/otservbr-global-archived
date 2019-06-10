@@ -17,6 +17,6 @@ local targetPosition = config[item.actionid]
 		return true
 	end
 	player:teleportTo(targetPosition)
-	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)	
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end

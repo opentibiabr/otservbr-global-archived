@@ -32,7 +32,7 @@ function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	local player = Player(cid)
 	local status = player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN)
 
@@ -49,7 +49,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("But you don't have it...", cid)
 			return npcHandler:releaseFocus(cid)
 		end
-	
+
 		npcHandler:say(response[player:getStorageValue(SPIKE_LOWER_PARCEL_MAIN)], cid)
 		player:setStorageValue(SPIKE_LOWER_PARCEL_MAIN, status + 1)
 		table.insert(DELIVERED_PARCELS[player:getGuid()], Creature(getNpcCid()):getId())

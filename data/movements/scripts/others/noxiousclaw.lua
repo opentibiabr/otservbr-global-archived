@@ -8,4 +8,3 @@ function onEquip(player, item, slot)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'It tightens around your wrist as you take it on.')
 	return true
 end
-

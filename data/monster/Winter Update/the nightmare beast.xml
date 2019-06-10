@@ -31,11 +31,11 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item name="Ultimate Spirit Potion" countmax="20" chance="60780" />		
-		<item name="Supreme Health Potion" countmax="6" chance="4920" />	
-		<item name="Silver Token" countmax="3" chance="4920" />	
-		<item name="Gold Token" countmax="3" chance="4920" />		
-        <item name="Platinum Coin" countmax="5" chance="60780" />	
+		<item name="Ultimate Spirit Potion" countmax="20" chance="60780" />
+		<item name="Supreme Health Potion" countmax="6" chance="4920" />
+		<item name="Silver Token" countmax="3" chance="4920" />
+		<item name="Gold Token" countmax="3" chance="4920" />
+        <item name="Platinum Coin" countmax="5" chance="60780" />
 		<item name="Crystal Coin" countmax="2" chance="10000" />
 		<item name="Berserk Potion" countmax="10" chance="10000" />
 		<item name="Bullseye Potion" countmax="10" chance="10000" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Glooth Bandit" nameDescription="a glooth bandit" race="blood" experience="2400" speed="270" manacost="450">
 	<health now="2600" max="2600"/>
-	<look type="129" head="115" body="80" legs="114" feet="114" corpse="24251"/> 
+	<look type="129" head="115" body="80" legs="114" feet="114" corpse="24251"/>
 	<targetchange interval="5000" chance="5"/>
 	<flags>
 		<flag preyable="0" />
@@ -38,10 +38,10 @@
 		<immunity poison="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="100" chance="49000"/>	
+		<item id="2148" countmax="100" chance="49000"/>
 		<item id="2152" countmax="3" chance="29900"/>
 		<item id="9970" countmax="2" chance="2900"/>
-		<item id="23574" chance="300"/> <!-- Gloot bag -->		
+		<item id="23574" chance="300"/> <!-- Gloot bag -->
 		<item id="23514" chance="2900"/> <!-- Glooth Sandwich-->
 		<item id="23517" chance="1900"/> <!-- Gloot stek -->
 		<item id="7591" countmax="3" chance="2900"/> <!-- Great Health Potion -->
@@ -54,15 +54,15 @@
 		<item id="23554" chance="300"/> <!-- Glooth Amulet -->
 		<item id="23550" chance="200"/> <!-- Glooth Blade -->
 		<item id="23535" chance="200"/> <!-- Glooth Cape -->
-		<item id="23549" chance="200"/> <!-- Glooth Club  -->		
+		<item id="23549" chance="200"/> <!-- Glooth Club  -->
 		<item id="2155" chance="100"/> <!-- Green Gem  -->
 		<item id="2436" chance="500"/> <!-- Skull Staff  -->
-		<item id="7903" chance="400"/> <!-- Terra Hood  -->		
+		<item id="7903" chance="400"/> <!-- Terra Hood  -->
 		<item id="7885" chance="300"/> <!-- Terra Legs  -->
 		<item id="7884" chance="200"/> <!-- Terra Mantle  -->
 		<item id="7412" chance="150"/> <!--  Butcher's Axe  -->
 		<item id="7419" chance="150"/> <!-- Dreaded Cleaver  -->
 		<item id="2454" chance="90"/> <!-- War Axe  -->
-		
+
 	</loot>
 </monster>

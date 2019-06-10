@@ -1,15 +1,15 @@
  local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
- 
+
 local count = {}
 local transfer = {}
- 
+
 function onCreatureAppear(cid)          npcHandler:onCreatureAppear(cid)            end
 function onCreatureDisappear(cid)       npcHandler:onCreatureDisappear(cid)         end
 function onCreatureSay(cid, type, msg)      npcHandler:onCreatureSay(cid, type, msg)        end
 function onThink()      npcHandler:onThink()        end
- 
+
 local voices = { {text = 'Don\'t forget to deposit your money here in the Tibian Bank before you head out for adventure.'} }
 if VoiceModule then
     npcHandler:addModule(VoiceModule:new(voices))
@@ -19,10 +19,10 @@ local receiptFormat = 'Date: %s\nType: %s\nGold Amount: %d\nReceipt Owner: %s\nR
 local function getReceipt(info)
     local receipt = Game.createItem(info.success and 24301 or 24302)
     receipt:setAttribute(ITEM_ATTRIBUTE_TEXT, receiptFormat:format(os.date('%d. %b %Y - %H:%M:%S'), info.type, info.amount, info.owner, info.recipient, info.message))
- 
+
     return receipt
 end
- 
+
 local function getGuildIdByName(name, func)
     db.asyncStoreQuery('SELECT `id` FROM `guilds` WHERE `name` = ' .. db.escapeString(name),
         function(resultId)
@@ -35,7 +35,7 @@ local function getGuildIdByName(name, func)
         end
     )
 end
- 
+
 local function getGuildBalance(id)
     local guild = Guild(id)
     if guild then
@@ -47,11 +47,11 @@ local function getGuildBalance(id)
             balance = result.getNumber(resultId, 'balance')
             result.free(resultId)
         end
- 
+
         return balance
     end
 end
- 
+
 local function setGuildBalance(id, balance)
     local guild = Guild(id)
     if guild then
@@ -60,7 +60,7 @@ local function setGuildBalance(id, balance)
         db.query('UPDATE `guilds` SET `balance` = ' .. balance .. ' WHERE `id` = ' .. id)
     end
 end
- 
+
 local function transferFactory(playerName, amount, fromGuildId, info)
     return function(toGuildId)
         if not toGuildId then
@@ -83,7 +83,7 @@ local function transferFactory(playerName, amount, fromGuildId, info)
                 setGuildBalance(fromGuildId, fromBalance - amount)
                 setGuildBalance(toGuildId, getGuildBalance(toGuildId) + amount)
             end
- 
+
             local player = Player(playerName)
             if player then
                 local inbox = player:getInbox()
@@ -94,12 +94,12 @@ local function transferFactory(playerName, amount, fromGuildId, info)
     end
 end
 --------------------------------guild bank-----------------------------------------------
- 
+
 local function greetCallback(cid)
     count[cid], transfer[cid] = nil, nil
     return true
 end
- 
+
 local function creatureSayCallback(cid, type, msg)
     if not npcHandler:isFocused(cid) then
         return false
@@ -120,7 +120,7 @@ local function creatureSayCallback(cid, type, msg)
         if not player:getGuild() then
             npcHandler:say('You are not a member of a guild.', cid)
             return false
-        end            
+        end
         npcHandler:say('Your guild account balance is ' .. player:getGuild():getBankBalance() .. ' gold.', cid)
         return true
 --------------------------------guild bank-----------------------------------------------
@@ -189,7 +189,7 @@ local function creatureSayCallback(cid, type, msg)
             return true
         end
     elseif npcHandler.topic[cid] == 23 then
-        if msgcontains(msg, 'yes') then        
+        if msgcontains(msg, 'yes') then
             npcHandler:say('Alright, we have placed an order to deposit the amount of ' .. count[cid] .. ' gold to your guild account. Please check your inbox for confirmation.', cid)
             local guild = player:getGuild()
             local info = {
@@ -209,7 +209,7 @@ local function creatureSayCallback(cid, type, msg)
                 player:setBankBalance(playerBalance - tonumber(count[cid]))
                 player:setStorageValue(494934, 2)
             end
- 
+
             local inbox = player:getInbox()
             local receipt = getReceipt(info)
             inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
@@ -302,7 +302,7 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler.topic[cid] = 0
             return false
         end
- 
+
         if string.match(msg,'%d+') then
             count[cid] = getMoneyCount(msg)
             if isValidMoney(count[cid]) then
@@ -350,7 +350,7 @@ local function creatureSayCallback(cid, type, msg)
                 player:setBankBalance(playerBalance + tonumber(count[cid]))
                 Player.setExhaustion(player, 494934, 2)
             end
- 
+
             local inbox = player:getInbox()
             local receipt = getReceipt(info)
             inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
@@ -429,7 +429,7 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler.topic[cid] = 0
             return false
         end
- 
+
         if string.match(msg, '%d+') then
             count[cid] = getMoneyCount(msg)
             if isValidMoney(count[cid]) then
@@ -494,7 +494,7 @@ local function creatureSayCallback(cid, type, msg)
                 inbox:addItemEx(receipt, INDEX_WHEREEVER, FLAG_NOLIMIT)
             else
                 getGuildIdByName(transfer[cid], transferFactory(player:getName(), tonumber(count[cid]), guild:getId(), info))
-                Player.setExhaustion(player, 494934, 2)                  
+                Player.setExhaustion(player, 494934, 2)
             end
             npcHandler.topic[cid] = 0
         elseif msgcontains(msg, 'no') then
@@ -508,7 +508,7 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler.topic[cid] = 0
             return false
         end
-        
+
         npcHandler:say('Please tell me the amount of gold you would like to transfer.', cid)
         npcHandler.topic[cid] = 11
     elseif npcHandler.topic[cid] == 11 then
@@ -636,10 +636,10 @@ local function creatureSayCallback(cid, type, msg)
                 npcHandler:say('Sorry, you do not have enough platinum coins.', cid)
             end
         else
-            npcHandler:say('Well, can I help you with something else?', cid) 
+            npcHandler:say('Well, can I help you with something else?', cid)
         end
         npcHandler.topic[cid] = 0
-        
+
     elseif msgcontains(msg, 'change crystal') then
         npcHandler:say('How many crystal coins would you like to change into platinum?', cid)
         npcHandler.topic[cid] = 21
@@ -667,7 +667,7 @@ local function creatureSayCallback(cid, type, msg)
     end
     return true
 end
- 
+
 keywordHandler:addKeyword({'money'}, StdModule.say, {npcHandler = npcHandler, text = 'We can {change} money for you. You can also access your {bank account}.'})
 keywordHandler:addKeyword({'change'}, StdModule.say, {npcHandler = npcHandler, text = 'There are three different coin types in Tibia: 100 gold coins equal 1 platinum coin, 100 platinum coins equal 1 crystal coin. So if you\'d like to change 100 gold into 1 platinum, simply say \'{change gold}\' and then \'1 platinum\'.'})
 keywordHandler:addKeyword({'bank'}, StdModule.say, {npcHandler = npcHandler, text = 'We can {change} money for you. You can also access your {bank account}.'})

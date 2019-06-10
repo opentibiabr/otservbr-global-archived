@@ -8,8 +8,8 @@ local function checkHorror()
 	local spectators = Game.getSpectators(Position(33555, 31956, 15), false, false, 13, 13, 13, 13)
 	for i = 1, #spectators do
 		local spectator = spectators[i]
-		if spectator:isMonster() then 
-			if spectator:getName():lower() == 'empowered glooth horror' and spectator:getHealth() >= 1 then 
+		if spectator:isMonster() then
+			if spectator:getName():lower() == 'empowered glooth horror' and spectator:getHealth() >= 1 then
 				return true
 			elseif spectator:getName():lower() == 'strong glooth horror' and spectator:getHealth() >= 1 then
 				return true

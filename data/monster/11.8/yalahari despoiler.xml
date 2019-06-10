@@ -60,22 +60,6 @@
 		<immunity outfit="0" />
 		<immunity invisible="0" />
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Yooodelaaahooohooo!" />
-		<voice sentence="Yooodelaaaheeeheee!" />
-	</voices>
-	<loot>
-		<item name="snowball" countmax="22" chance="10000" />
-		<item name="gold coin" countmax="60" chance="100000" />
-		<item name="gold coin" countmax="40" chance="100000" />
-		<item name="bunnyslippers" chance="1333" />
-		<item name="meat" countmax="4" chance="33333" />
-		<item name="ham" countmax="5" chance="10000" />
-	</loot>
-	<voices interval="5000" chance="10">
-		<voice sentence="Yooodelaaahooohooo!" />
-		<voice sentence="Yooodelaaaheeeheee!" />
-	</voices>
 	<loot>
 		<item name="snowball" countmax="22" chance="10000" />
 		<item name="gold coin" countmax="60" chance="100000" />

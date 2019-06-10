@@ -6,12 +6,12 @@ local wood1 = Position(32647, 32216, 7)
 			wooda:remove()
 			local woods = Game.createItem(13170, 1, { x=32647, y=32216, z=7})
 			woods:setActionId(42501)
-			end			 
+			end
     return true
-end 
+end
 
 
-function remove02() 
+function remove02()
 
 local wood11 = Position(32660, 32213, 7)
 			local woodaa = Tile(wood11):getItemById(6475)
@@ -19,9 +19,9 @@ local wood11 = Position(32660, 32213, 7)
 			woodaa:remove()
 			local woodss = Game.createItem(13170, 1, { x=32660, y=32213, z=7}) -- 32660, 32213, 7
 			woodss:setActionId(42502)
-			end			 
+			end
     return true
-end 
+end
 
 function remove03()
 
@@ -31,9 +31,9 @@ local wood111 = Position(32644, 32183, 6)
 			woodaaa:remove()
 			local woodsss = Game.createItem(13172, 1, { x=32644, y=32183, z=6}) -- 32660, 32213, 7
 			woodsss:setActionId(42503)
-			end			 
+			end
     return true
-end 
+end
 
 function remove04()
 
@@ -41,9 +41,9 @@ local wood1111 = Position(32660, 32201, 7)
 			local woodaaaa = Tile(wood1111):getItemById(6474)
 			if woodaaaa then
 			woodaaaa:remove()
-			local woodssss = Game.createItem(13171, 1, { x=32660, y=32201, z=7}) -- 
+			local woodssss = Game.createItem(13171, 1, { x=32660, y=32201, z=7}) --
 			woodssss:setActionId(42504)
-			end			 
+			end
     return true
 end
 
@@ -53,9 +53,9 @@ local wood11111 = Position(32652, 32200, 5)
 			local woodaaaaa = Tile(wood11111):getItemById(6474)
 			if woodaaaaa then
 			woodaaaaa:remove()
-			local woodsssss = Game.createItem(13172, 1, { x=32652, y=32200, z=5}) -- 
+			local woodsssss = Game.createItem(13172, 1, { x=32652, y=32200, z=5}) --
 			woodsssss:setActionId(42505)
-			end			 
+			end
     return true
 end
 
@@ -93,11 +93,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				rails:setActionId(50111)
 			end
 		end
-		
-		-- ROTTIMN START 
-	elseif targetActionId == 42501 then 
+
+		-- ROTTIMN START
+	elseif targetActionId == 42501 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
-			
+
 			local wood1 = Position(32647, 32216, 7)
 			local wooda = Tile(wood1):getItemById(13170)
 			if wooda then
@@ -105,82 +105,82 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			Game.createItem(6475, 1, { x=32647, y=32216, z=7})
 			addEvent(remove01, 2*60*1000)
 			end
-	
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)			
+
+			player:setStorageValue(41500, player:getStorageValue(41500) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
-			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.") 
+			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
-			
-			-- parte 2 
-			elseif targetActionId == 42502 then 
+
+			-- parte 2
+			elseif targetActionId == 42502 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
-			
+
 			local wood11 = Position(32660, 32213, 7)
 			local woodaa = Tile(wood11):getItemById(13170)
 			if woodaa then
 			woodaa:remove()
-			Game.createItem(6475, 1, { x=32660, y=32213, z=7}) 
+			Game.createItem(6475, 1, { x=32660, y=32213, z=7})
 			addEvent(remove02, 2*60*1000)
-			end	
-			
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)			
+			end
+
+			player:setStorageValue(41500, player:getStorageValue(41500) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
-			  	
+
 			-- parte 3
-			elseif targetActionId == 42503 then 
+			elseif targetActionId == 42503 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
 			local wood111 = Position(32644, 32183, 6)
 			local woodaaa = Tile(wood111):getItemById(13172)
 			if woodaaa then
 			woodaaa:remove()
-			Game.createItem(6474, 1, { x=32644, y=32183, z=6}) 
+			Game.createItem(6474, 1, { x=32644, y=32183, z=6})
 			addEvent(remove03, 2*60*1000)
-			end	
-			
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)			
+			end
+
+			player:setStorageValue(41500, player:getStorageValue(41500) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
 
 			-- parte 4
-			elseif targetActionId == 42504 then 
+			elseif targetActionId == 42504 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
 			local wood1111 = Position(32660, 32201, 7)
 			local woodaaaa = Tile(wood1111):getItemById(13171)
 			if woodaaaa then
 			woodaaaa:remove()
-			Game.createItem(6474, 1, { x=32660, y=32201, z=7}) 
+			Game.createItem(6474, 1, { x=32660, y=32201, z=7})
 			addEvent(remove04, 2*60*1000)
-			end	
-			
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)			
+			end
+
+			player:setStorageValue(41500, player:getStorageValue(41500) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
-			
+
 			-- parte 5
-			elseif targetActionId == 42505 then 
+			elseif targetActionId == 42505 then
 			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
 			local wood11111 = Position(32652, 32200, 5)
 			local woodaaaaa = Tile(wood11111):getItemById(13172)
 			if woodaaaaa then
 			woodaaaaa:remove()
-			Game.createItem(6474, 1, { x=32652, y=32200, z=5}) 
+			Game.createItem(6474, 1, { x=32652, y=32200, z=5})
 			addEvent(remove05, 2*60*1000)
-			end	
-			
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)			
+			end
+
+			player:setStorageValue(41500, player:getStorageValue(41500) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
-		  	
-			
-		-- ROTTIM END 
+
+
+		-- ROTTIM END
 	else
 		return false
 	end
-	
+
 	return true
 end

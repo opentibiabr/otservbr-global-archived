@@ -50,4 +50,7 @@
 		<immunity energy="1"/>
 		<immunity earth="1"/>
 	</immunities>
+	<voices interval="3000" chance="200">
+		<voice sentence="Chrrrrrk! Chrrrk!" />
+	</voices>
 </monster>

@@ -96,7 +96,7 @@ function onThink(creature)
 				monster:beginSharedLife(tm)
 				monster:registerEvent("sharedLife")
 			end
-		end	
+		end
 	end
 	return true
 end
@@ -156,7 +156,7 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	if creature:getName() == "Sand Vortex" then
 		if primaryType == COMBAT_HEALING or secondaryType == COMBAT_HEALING then
 			return primaryDamage, primaryType, secondaryDamage, secondaryType
-		end	
+		end
 		if attacker and attacker:isPlayer() then
 			if primaryDamage > 0 then
 				attacker:addHealth(-primaryDamage)

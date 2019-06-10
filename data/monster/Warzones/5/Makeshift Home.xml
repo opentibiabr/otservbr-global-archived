@@ -20,8 +20,8 @@
 		<attack name="melee" interval="2000" min="-120" max="-200" />
 		<attack name="physical" interval="2000" chance="60" range="3" target="1" min="-70" max="-230">
 		<attribute key="shootEffect" value="arrow" />
-		</attack>	
-	</attacks> 
+		</attack>
+	</attacks>
 	<elements>
 		<element deathPercent="-20" />
 		<element icePercent="20" />
@@ -29,5 +29,5 @@
 	<immunities>
 		<immunity earth="1" />
 		<immunity invisible="1" />
-	</immunities> 
+	</immunities>
 </monster>

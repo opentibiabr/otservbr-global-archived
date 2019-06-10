@@ -46,7 +46,7 @@
 	<voices interval="2000" chance="7">
 		<voice sentence="Behold the all permeating powers I draw from this gate!!" />
 		<voice sentence="ENERGY!!" />
-		<voice sentence="I FEEL, I FEEEEL... OMNIPOTENCE!!" />
+		<voice sentence="I FEEL, I FEEEEEL... OMNIPOTENCE!!" />
 		<voice sentence="MWAAAHAHAAA!! NO ONE!! NO ONE CAN DEFEAT MEEE!!!" />
 	</voices>
 	<summons maxSummons="1">

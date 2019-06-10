@@ -64,5 +64,9 @@
 		<voice sentence="He who has returned from beyond has taught me secrets you can't even grasp!" />
 		<voice sentence="You can't hope to penetrate my shields!" />
 		<voice sentence="Do you really think you could beat me?" />
+		<voice sentence="We will open the rift for a new time to come!" />
+		<voice sentence="The end of times has come!" />
+		<voice sentence="The great machinator will make his entrance soon!" />
+		<voice sentence="You might scratch my shields but they will never break!" />
 	</voices>
 </monster>

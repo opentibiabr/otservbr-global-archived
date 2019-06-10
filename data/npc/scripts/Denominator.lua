@@ -30,7 +30,7 @@ local quiz1 = {
 }
 
 local quiz2 = {
-	[1] = {p = "Is the number prime?", r = 
+	[1] = {p = "Is the number prime?", r =
 		function(player)
 			local stg = player:getStorageValue(Storage.CultsOfTibia.MotA.Respostas)
 			if stg < 1 then
@@ -48,7 +48,7 @@ local quiz2 = {
 			return (incr == 2 and 1 or 0)
 		end
 	},
-	[2] = {p = "Does the number belong to a prime twing?", r = 
+	[2] = {p = "Does the number belong to a prime twing?", r =
 		function(player)
 			local stg = player:getStorageValue(Storage.CultsOfTibia.MotA.Respostas)
 			if stg < 2 then
@@ -81,7 +81,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	math.randomseed(os.time())
 	npcHandler.topic[cid] = playerTopic[cid]
-	local player = Player(cid)	
+	local player = Player(cid)
 	-- Começou a quest
 	if msgcontains(msg, "questions") and npcHandler.topic[cid] == 1 then
 		npcHandler:say("Ready to {start}?", cid)
@@ -164,7 +164,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:resetNpc(cid)
 			npcHandler:releaseFocus(cid)
 			return false
-		end	
+		end
 	elseif npcHandler.topic[cid] == 9 and msgcontains(msg, "last") then
 		npcHandler:say("Tell me the correct number?", cid)
 		npcHandler.topic[cid] = 10

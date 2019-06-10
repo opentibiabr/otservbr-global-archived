@@ -62,6 +62,6 @@
                 <item id="24331" chance="1000" /><!-- assassin doll -->
 
 <item id="21400" chance="1000" /><!-- silver raid token -->
-<item id="21399" chance="1000" /><!-- gold raid token -->			
+<item id="21399" chance="1000" /><!-- gold raid token -->
 	</loot>
 </monster>

@@ -31,7 +31,7 @@
 		<element deathPercent="-15" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Brrrr" />
+		<voice sentence="Brrr" />
 		<voice sentence="Broar!" />
 	</voices>
 	<loot>

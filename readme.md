@@ -3,6 +3,11 @@
 * Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira and Otavio Milani.
 * This project is supported: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
+## Important Note, First Read This:
+* Due to Github limiting files larger than 100mb, our map will be compressed into .rar within the world folder
+Unzip it
+* The compilation should be done with the SDK and not with vcpkg, if you compile with vcpkg, it will give you trouble loading the libs
+
 #### Getting Started
 
 * [Compiling](https://github.com/otland/forgottenserver/wiki/Compiling), alternatively download [AppVeyor builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global)

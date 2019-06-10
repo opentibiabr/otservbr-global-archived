@@ -19,7 +19,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if isInArray(FERTILIZED_MUSHROOMS[player:getGuid()], mushPos) then
 		return player:sendCancelMessage("You have already fertilised this mushroom.")
 	end
-	
+
 	table.insert(FERTILIZED_MUSHROOMS[player:getGuid()], mushPos)
 	local sum = player:getStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN) + 1
 	player:setStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN, sum)

@@ -15,8 +15,8 @@
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="4"/>
 		<flag staticattack="90"/>
-		<flag runonhealth="0"/> 
-		
+		<flag runonhealth="0"/>
+
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="30" poison="80"/>
@@ -49,16 +49,16 @@
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>
-		<immunity fire="1"/> 
-		<immunity death="1"/> 
-	</immunities> 
+		<immunity fire="1"/>
+		<immunity death="1"/>
+	</immunities>
 	<loot>
 		<item id="2804" chance="4830"/><!-- shadow herb -->
 		<item id="2200" chance="850"/><!-- protection amulet -->
 		<item id="2171" chance="120"/><!-- platinum amulet -->
 		<item id="2195" chance="120"/><!-- boots of haste -->
 		<item id="7589" chance="1600"/><!-- strong mana potion -->
-		<item id="2148" countmax="110" chance="89840"/><!-- gold coin --> 
+		<item id="2148" countmax="110" chance="89840"/><!-- gold coin -->
 		<item id="7407" chance="320"/><!-- haunted blade -->
 		<item id="7427" chance="120"/><!-- chaos mace -->
 		<item id="9942" chance="130"/><!-- crystal of balance -->

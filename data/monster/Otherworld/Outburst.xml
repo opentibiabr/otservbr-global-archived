@@ -46,7 +46,7 @@
 		<!-- gold -->
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="10" chance="100000"/><!-- platinum coin -->
-		
+
 		<!-- all loot -->
 		<item id="18413" tier="6" countmax="3" chance="8000"/><!-- blue crystal shard -->
 		<item id="26191" tier="6" countmax="5" chance="8000"/><!-- energy bar -->
@@ -61,19 +61,19 @@
 		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
 		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
 		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
-		
+
 		<!-- Comum -->
 		<item id="2155" tier="5" chance="8000"/><!-- green gem -->
-		
+
 		<!-- Semi Raro -->
 		<item id="7427" tier="4" chance="6000"/><!-- chaos mace -->
 		<item id="26187" tier="4" chance="5000"/><!-- ring of green plasma -->
 		<item id="26189" tier="4" chance="5000"/><!-- ring of red plasma -->
-		
+
 		<!-- Raro -->
 		<item id="26130" tier="3" unique="1" chance="2000"/><!-- tiara of power -->
 		<item id="26133" tier="3" unique="1" chance="2000"/><!-- void boots -->
-		
+
 		<!-- Muito Raro -->
 		<item id="18450" tier="2" unique="1" chance="2000"/><!-- crystalline sword -->
 	</loot>

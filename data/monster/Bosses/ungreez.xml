@@ -51,8 +51,8 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="7">
-		<voice sentence="I'll teach you that even heros can die" yell="1" />
-		<voice sentence="You wil die Begging like the others did" yell="1" />
+		<voice sentence="I teach you that even heroes can die!" yell="1" />
+		<voice sentence="You will die begging like the others did!" yell="1" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="90" chance="21000" /><!-- gold coin -->

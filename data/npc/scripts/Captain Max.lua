@@ -11,7 +11,7 @@ local voices = { {text = 'Whoah. That was a large shadow passing by.'} }
 npcHandler:addModule(VoiceModule:new(voices))
 
 
-	
+
 local function addTravelKeyword(keyword, text, cost, destination)
 	if keyword == 'calassa' then
 		keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m sorry but we don\'t serve this route.'}, function(player) return player:getStorageValue(Storage.ExplorerSociety.CalassaQuest) < 1 end)
@@ -24,7 +24,7 @@ local function addTravelKeyword(keyword, text, cost, destination)
 	local travelKeyword = keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = text, cost = cost, discount = 'postman'})
 		travelKeyword:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, text = 'Hold on!', cost = cost, discount = 'postman', destination = destination})
 		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'You shouldn\'t miss the experience.', reset = true})
-	
+
 end
 
 addTravelKeyword('calassa', 'Should I bring you to Calassa for 200 gold?', 200, Position(31911, 32710, 6))

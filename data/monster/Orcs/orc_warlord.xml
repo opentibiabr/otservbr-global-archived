@@ -43,7 +43,7 @@
 		<voice sentence="Ranat Ulderek!" />
 		<voice sentence="Orc buta bana!" />
 		<voice sentence="Ikem rambo zambo!" />
-		<voice sentence="Futchi maruk buta!" />
+		<voice sentence="Fetchi Maruk Buta" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="45" chance="18000" />

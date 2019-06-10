@@ -48,10 +48,6 @@
 	<immunity earth="1" />
     <immunity paralyze="1" />
   </immunities>
-	<voices interval="2000" chance="5">
-		<voice sentence="*slosh*"/>
-		<voice sentence="*clank*"/>
-	</voices>
 	<loot>
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="23514" chance="9970"/><!-- glooth sandwich -->

@@ -1,13 +1,6 @@
 local exitPosition = Position(32605, 31902, 4)
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
-
 	local ground = Tile(exitPosition):getGround()
 	if ground and isInArray({369, 413}, ground.itemid) then
 		ground:transform(ground.itemid == 369 and 413 or 369)
@@ -24,6 +17,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	end
 
 	item:transform(item.itemid == 1945 and 1946 or 1945)
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

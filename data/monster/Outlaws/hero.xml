@@ -43,7 +43,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Let's have a fight!" />
-		<voice sentence="Welcome to my battleground." />
+		<voice sentence="Welcome to my battleground!" />
 		<voice sentence="Have you seen princess Lumelia?" />
 		<voice sentence="I will sing a tune at your grave." />
 	</voices>

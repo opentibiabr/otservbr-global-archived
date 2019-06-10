@@ -36,8 +36,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	
-	-- To Appease the Mighty Quest	
+
+	-- To Appease the Mighty Quest
 	if msgcontains(msg, "mission") and player:getStorageValue(Storage.TibiaTales.ToAppeaseTheMightyQuest) == 2 then
 			npcHandler:say({
 				'You have the smell of the Marid on you. Tell me who sent you?'}, cid)
@@ -48,7 +48,7 @@ local function creatureSayCallback(cid, type, msg)
 				'...or do you want to join us and fight those stinking Marid who claim themselves to be noble and righteous?!? Just let me know.'}, cid)
 			player:setStorageValue(Storage.TibiaTales.ToAppeaseTheMightyQuest, player:getStorageValue(Storage.TibiaTales.ToAppeaseTheMightyQuest) + 1)
 	end
-	
+
 	if msgcontains(msg, 'passage') then
 		if player:getStorageValue(Storage.DjinnWar.Faction.Efreet) ~= 1 then
 			npcHandler:say({

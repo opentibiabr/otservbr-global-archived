@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?> 
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deathling Spellsinger" nameDescription="a deathling spellsinger" race="blood" experience="6400" speed="190">
 	<health now="7200" max="7200" />
 	<look type="1088" corpse="32549" />
@@ -47,7 +47,7 @@
 		<immunity fire="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="BOQOL°" />
+		<voice sentence="BOQOL" />
 		<voice sentence="QOL" />
 		<voice sentence="VBOXCL" />
 	</voices>

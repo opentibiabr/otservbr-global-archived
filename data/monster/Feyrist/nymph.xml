@@ -48,9 +48,9 @@
 		<element physicalPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Looking at a nymph, can blind you. Be careful, mortal being!" />
+		<voice sentence="Looking at a nymph can blind you. Be careful, mortal being!" />
 		<voice sentence="Come here, sweetheart! I won't hurt you! *giggle*" />
-		<voice sentence="Are you one of these evil nightmare creatures? Leave this realm alone!" />
+		<voice sentence="Are you one of those evil nightmare creatures? Leave this realm alone!" />
 		<voice sentence="I'm just protecting nature's beauty!" />
 	</voices>
 	<loot>

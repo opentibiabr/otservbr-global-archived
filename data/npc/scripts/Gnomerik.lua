@@ -24,7 +24,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if player:getStorageValue(Storage.BigfootBurden.NeedsBeer) == 1 then
-		if msgcontains(msg, "recruit") or msgcontains(msg, "test") or msgcontains(msg, "result") then 
+		if msgcontains(msg, "recruit") or msgcontains(msg, "test") or msgcontains(msg, "result") then
 			npcHandler:say({"I suggest you relax a bit with a fresh mushroom beer and we can talk after that. ...", "Gnominus... He is the one you need right now, find him."}, cid)
 		end
 		return

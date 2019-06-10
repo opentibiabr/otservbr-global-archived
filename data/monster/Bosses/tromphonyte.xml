@@ -43,9 +43,6 @@
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="HRRRRRNG" yell="1" />
-	</voices>
 	<loot>
 		<item id="13301" chance="100000" />					<!-- hollow stampor hoof -->
 		<item id="2476" chance="100000" />					<!-- knight armor -->

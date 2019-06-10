@@ -45,6 +45,8 @@
 	<voices interval="2000" chance="7">
 		<voice sentence="I envy you to be slain by someone as beautiful as me." />
 		<voice sentence="I will drain your ugly corpses of the last drop of blood." />
+		<voice sentence="Not in my face you barbarian!" />
+		<voice sentence="My brides will feast on your souls!" />
 	</voices>
 	<summons maxSummons="4">
 		<summon name="Banshee" interval="4500" chance="50" />

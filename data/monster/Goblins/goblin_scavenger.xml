@@ -45,7 +45,8 @@
 		<element deathPercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Shiny, Shiny!" />
+		<voice sentence="Shiny, shiny!" />
+		<voice sentence="Gimme gimme!" />
 		<voice sentence="You mean!" />
 		<voice sentence="All mine!" />
 		<voice sentence="Uhh!" />

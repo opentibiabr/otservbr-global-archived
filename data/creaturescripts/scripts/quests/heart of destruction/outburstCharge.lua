@@ -1,10 +1,10 @@
 function onThink(creature)
 
 	if not creature:isCreature() then return false end
-	
+
 	local hp = (creature:getHealth() / creature:getMaxHealth()) * 100
 	local from = creature:getId()
-	
+
 	if hp <= 80 and outburstStage == 0 then
 		outburstHealth = creature:getHealth()
 		creature:remove()
@@ -46,6 +46,6 @@ function onThink(creature)
 		outburstStage = 4
 		chargingOutKilled = false
 	end
-		
+
     return true
 end

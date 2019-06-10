@@ -37,9 +37,6 @@
 		<immunity earth="1" />
 		<immunity invisible="1" />
 	</immunities>
-	<voices interval="2000" chance="7">
-		<voice sentence="Zztand and fight!" />
-	</voices>
 	<loot>
 		<item id="2148" countmax="292" chance="100000" />	<!-- gold coin -->
 		<item id="5876" chance="100000" />					<!-- lizard leather -->

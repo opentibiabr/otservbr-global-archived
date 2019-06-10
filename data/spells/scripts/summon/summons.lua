@@ -9,7 +9,7 @@ local combat = createCombatObject()
 setCombatParam(combat, COMBAT_PARAM_TYPE, COMBAT_NONE)
 setCombatParam(combat, COMBAT_PARAM_EFFECT, CONST_ME_BLOCKHIT)
 
-local area = createCombatArea(AREA_CROSS1X1)
+local area = createCombatArea(AREA_CIRCLE1X1)
 setCombatArea(combat, area)
 
 function onCastSpell(cid, var)
@@ -33,7 +33,7 @@ function onCastSpell(cid, var)
     elseif vocationId == 8 then
         summonName = "skullfrost"
     end
-    
+
     if not summonName then return false end
 
     local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)

@@ -8,7 +8,7 @@ local effects = {
 	{position = Position(1057, 1029, 7), text = 'SAIR', effect = CONST_ME_GROUNDSHAKER},
 	{position = Position(1057, 1030, 7), text = 'SAIR', effect = CONST_ME_GROUNDSHAKER},
 }
- 
+
 function onThink(interval)
     for i = 1, #effects do
         local settings = effects[i]
@@ -26,4 +26,3 @@ function onThink(interval)
     end
    return true
 end
- 

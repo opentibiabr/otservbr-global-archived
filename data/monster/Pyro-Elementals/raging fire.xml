@@ -46,7 +46,4 @@
 		<element energyPercent="20"/>
 		<element earthPercent="50"/>
 	</elements>
-	<voices interval="2000" chance="5">
-		<voice sentence="FCHHHRRR"/>
-	</voices>
 </monster>

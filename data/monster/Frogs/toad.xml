@@ -37,7 +37,7 @@
 		<element firePercent="-10" />
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Ribbit, ribbit!" />
+		<voice sentence="Ribbit! Ribbit!" />
 		<voice sentence="Ribbit!" />
 	</voices>
 	<loot>

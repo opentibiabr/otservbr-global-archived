@@ -43,7 +43,7 @@
 	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="You're so little!" />
-		<voice sentence="Human flesh - delicious!" />
+		<voice sentence="Human flesh -  delicious!" />
 		<voice sentence="Crush the intruders!" />
 	</voices>
 	<loot>

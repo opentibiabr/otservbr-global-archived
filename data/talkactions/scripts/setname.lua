@@ -3,7 +3,7 @@ function onSay(player, words, param)
   player:sendTextMessage(22, "You don't have live cast.")
   return false
  end
- 
+
  local split = param:split(",")
 
   if player:setSpectatorName(split[1], split[2]) then

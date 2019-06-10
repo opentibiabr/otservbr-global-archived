@@ -39,7 +39,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			item:transform(9826)
 			return true
 		end
-		
+
 	end
 	if item.itemid == 9825 then
 		if Game.getStorageValue(GlobalStorage.FirstDragon.FirstDragonTimer) >= 1 then
@@ -90,7 +90,3 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
-		
-		
-		
-		

@@ -9,8 +9,8 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	if chance < 3 then
 		for i = 1, 2 do
 			local m = Game.createMonster('Disgusting Ooze', position, false, true)
-			if not m then 
-				return true 
+			if not m then
+				return true
 			end
 			m:setMaster(master)
 		end

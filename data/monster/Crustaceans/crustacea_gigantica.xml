@@ -34,6 +34,7 @@
 		<voice sentence="Chrchrchr" yell="1" />
 		<voice sentence="Klonklonk" yell="1" />
 		<voice sentence="Chrrrrr" yell="1" />
+		<voice sentence="Crunch crunch" yell="1" />
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="100000" />

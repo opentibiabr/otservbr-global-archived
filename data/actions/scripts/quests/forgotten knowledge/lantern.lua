@@ -16,7 +16,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
 		local msg = 'As you start polishing the lantern it begins to glow in an otherworldly light.'
 		if player:getPosition():getDistance(Position(32891, 31619, 10)) < 2 then
-			if not player:getItemById(26401, true) then 
+			if not player:getItemById(26401, true) then
 				msg = 'In the light of the ghostsilver lantern you discover an otherwise invisible door. But you lack the key to open it.'
 			else
 				msg = 'In the light of the ghostsilver lantern you discover an otherwise invisible door. As you have the fitting key you can pass.'

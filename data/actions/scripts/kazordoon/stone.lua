@@ -6,12 +6,6 @@ local config = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
-	player:sendTextMessage(MESSAGE_STATUS_SMALL, 'You are exhausted.')
-	return true
-    end
-
 	if item.itemid == 1945 then
 		local stoneItem
 		for i = 1, #config do
@@ -27,6 +21,5 @@ if player:getStorageValue(Storage.Exaust.Time) >= os.time() then
 	end
 
 	item:transform(item.itemid == 1945 and 1946 or 1945)
-	player:setStorageValue(Storage.Exaust.Time, os.time())
 	return true
 end

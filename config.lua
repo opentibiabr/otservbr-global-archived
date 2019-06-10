@@ -79,8 +79,11 @@ housePriceEachSQM = 1000
 houseRentPeriod = "never"
 
 -- Item Usage
-timeBetweenActions = 200
-timeBetweenExActions = 500
+-- Do not touch here
+-- Avoid use of WIPE program to crash the distro
+-- Standard value Actions = 1 seconds (1000) and ExActions 1.2 seconds (1200)
+timeBetweenActions = 1000
+timeBetweenExActions = 1200
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end

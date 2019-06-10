@@ -34,7 +34,7 @@
 	</elements>
 	<voices interval="5000" chance="10">
 		<voice sentence="You are no match for me!" />
-		<voice sentence="Feel my prowess" />
+		<voice sentence="Feel my prowess." />
 		<voice sentence="Fight!" />
 		<voice sentence="Take this!" />
 	</voices>
