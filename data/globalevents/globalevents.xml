@@ -60,6 +60,4 @@
 	<globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" />
 	<globalevent name="checkInbox" interval="30000" script="others/checkInbox.lua"/>
 	<globalevent interval="100000" name="GuildWar" script="guildwar.lua"/>
-	<globalevent interval="180000000" name="AutoSave" script="autosave.lua"/>
-	<globalevent name="autoBroadcast" interval="900000" script="autobroadcast.lua"/>
 </globalevents>
