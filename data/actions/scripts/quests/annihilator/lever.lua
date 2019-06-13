@@ -56,7 +56,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 
 		for i = 1, #config.demonPositions do
-			Game.createMonster("Demon", config.demonPositions[i])
+			Game.createMonster("Angry Demon", config.demonPositions[i])
 		end
 
 		local players
