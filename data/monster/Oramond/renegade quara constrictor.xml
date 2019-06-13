@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Renegade Quara Constrictor" nameDescription="a renegade quara constrictor" race="blood" experience="1200" speed="230" manacost="670">
+<monster name="Renegade Quara Constrictor" nameDescription="a renegade quara constrictor" race="blood" experience="1250" speed="190" manacost="670">
 	<health now="1500" max="1500"/>
-	<look type="46" corpse="6065" />
+	<look type="46" corpse="6065"/>
 	<targetchange interval="2000" chance="0"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
@@ -19,8 +19,8 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="60" attack="40"/>
-		<attack name="quara constrictor freeze" interval="2000" chance="10" />
-		<attack name="quara constrictor electrify" range="1" interval="2000" chance="10" />
+		<attack name="quara constrictor freeze" interval="2000" chance="10"/>
+		<attack name="quara constrictor electrify" range="1" interval="2000" chance="10"/>
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="healing" interval="3000" chance="35" min="150" max="300">
@@ -28,13 +28,13 @@
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="-25" />
-		<element earthPercent="-1" />
+		<element energyPercent="-25"/>
+		<element earthPercent="-1"/>
 	</elements>
 	<immunities>
-		<immunity drown="1" />
-		<immunity fire="1" />
-		<immunity ice="1" />
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
 	</immunities>
 	<loot>
 		<item id="2148" countmax="99" chance="100000"/> <!-- gold coin -->

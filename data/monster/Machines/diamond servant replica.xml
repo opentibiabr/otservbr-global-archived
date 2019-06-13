@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Diamond Servant Replica" nameDescription="a diamond servant replica" race="energy" experience="700" speed="172" manacost="0">
-	<health now="1000" max="1000"/>
+<monster name="Diamond Servant Replica" nameDescription="a diamond servant replica" race="energy" experience="700" speed="86" manacost="0">
+	<health now="2000" max="2000"/>
 	<look type="397" corpse="13485"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="100"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 
 	</flags>
 	<attacks>

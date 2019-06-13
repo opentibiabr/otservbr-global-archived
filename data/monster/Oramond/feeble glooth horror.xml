@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Feeble Glooth Horror" nameDescription="a feeble glooth horror" race="blood" experience="250" speed="170" manacost="330">
-	<health now="500" max="500"/>
+<monster name="Feeble Glooth Horror" nameDescription="a feeble glooth horror" race="blood" experience="245" speed="170" manacost="330">
+	<health now="5000" max="5000"/>
 	<look type="677" corpse="24276"/>
 	<targetchange interval="2000" chance="0"/>
 	<strategy attack="100" defense="0"/>

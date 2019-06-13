@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ripper Spectre" nameDescription="Ripper Spectre" race="blood" experience="3500" speed="190" manacost="0">
-	<health now="3800" max="3800" />
-	<look type="1119" head="101" body="39" legs="61" feet="39" corpse="34664" />
-	<targetchange interval="4000" chance="10" />
+<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="190" manacost="0">
+	<health now="3800" max="3800"/>
+	<look type="1119" head="101" body="39" legs="61" feet="39" corpse="34664"/>
+	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<flag summonable="0" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag illusionable="0" />
-		<flag convinceable="0" />
-		<flag pushable="0" />
-		<flag canpushitems="1" />
-		<flag canpushcreatures="1" />
-		<flag targetdistance="1" />
-		<flag staticattack="70" />
-		<flag runonhealth="0" />
-		<flag canwalkonfire="0" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-370" />
-		<attack name="poison" interval="2000" chance="50" radius="4"   min="-200" max="-390">
-			<attribute key="areaEffect" value="greenbubble" />
+		<attack name="melee" interval="2000" min="0" max="-370"/>
+		<attack name="poison" interval="2000" chance="50" radius="4" min="-200" max="-390">
+			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
-		<attack name="poison" interval="2000" chance="50" target="1" radius="4"   min="-320" max="-460">
-			<attribute key="areaEffect" value="EXPLOSIONAREA" />
+		<attack name="poison" interval="2000" chance="50" target="1" radius="4" min="-320" max="-460">
+			<attribute key="areaEffect" value="EXPLOSIONAREA"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="50"  length="3" spread="0" min="-200" max="-340">
-			<attribute key="areaEffect" value="GROUNDSHAKER" />
+		<attack name="physical" interval="2000" chance="50" length="3" spread="0" min="-200" max="-340">
+			<attribute key="areaEffect" value="GROUNDSHAKER"/>
 		</attack>
 	</attacks>
 	<defenses armor="69" defense="69">
 		<defense name="healing" interval="2000" chance="10" min="150" max="200">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="20" />
-		<element icePercent="20" />
-		<element firePercent="-10" />
+		<element energyPercent="20"/>
+		<element icePercent="20"/>
+		<element firePercent="-10"/>
 	</elements>
 	<immunities>
-		<immunity invisible="1" />
-		<immunity paralyze="1" />
-		<immunity earth="1" />
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity earth="1"/>
 	</immunities>
 	<loot>
-        <item name="Platinum Coin" countmax="2" chance="5000" />
-		<item name="Great Spirit Potion" countmax="1" chance="1000" />
-		<item name="Silver Brooch" chance="800" />
-		<item name="Terra Rod" chance="800" />
-		<item name="Two Handed Sword" chance="800" />
-		<item name="Emerald Bangle" chance="500" />
-		<item name="Serpent Sword" chance="500" />
-		<item name="Springsprout Rod" chance="500" />
-		<item name="Twin Hooks" chance="500" />
-     	<item name="Coral Brooch" chance="500" />
-		<item name="Green Ectoplasm" chance="500" />
-		<item name="Assassin Dagger" chance="500" />
-		<item name="Spike Sword" chance="500" />
-		<item name="Wyvern Fang" chance="500" />
+        <item name="Platinum Coin" countmax="2" chance="5000"/>
+		<item name="Great Spirit Potion" countmax="1" chance="1000"/>
+		<item name="Silver Brooch" chance="800"/>
+		<item name="Terra Rod" chance="800"/>
+		<item name="Two Handed Sword" chance="800"/>
+		<item name="Emerald Bangle" chance="500"/>
+		<item name="Serpent Sword" chance="500"/>
+		<item name="Springsprout Rod" chance="500"/>
+		<item name="Twin Hooks" chance="500"/>
+     	<item name="Coral Brooch" chance="500"/>
+		<item name="Green Ectoplasm" chance="500"/>
+		<item name="Assassin Dagger" chance="500"/>
+		<item name="Spike Sword" chance="500"/>
+		<item name="Wyvern Fang" chance="500"/>
 	</loot>
 </monster>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Raging Fire" nameDescription="a raging fire" race="fire" experience="1300" speed="240" manacost="0">
-	<health now="1500" max="1500"/>
+<monster name="Raging Fire" nameDescription="a raging fire" race="fire" experience="1500" speed="100" manacost="0">
+	<health now="1800" max="1800"/>
 	<look type="242" corpse="24184"/>
 	<targetchange interval="2000" chance="10"/>
 	<strategy attack="80" defense="0"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 		<flag preyable="0"/>
 	</flags>
 	<attacks>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Iron Servant Replica" nameDescription="an iron servant replica" race="energy" experience="210" speed="190" manacost="0">
-	<health now="350" max="350"/>
+<monster name="Iron Servant Replica" nameDescription="an iron servant replica" race="energy" experience="210" speed="95" manacost="0">
+	<health now="1000" max="1000"/>
 	<look type="395" corpse="13483"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 
 	</flags>
 	<attacks>

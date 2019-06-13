@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Scar Tribe Shaman" nameDescription="an scar tribe shaman" race="blood" experience="85" speed="140" manacost="0">
+<monster name="Scar Tribe Shaman" nameDescription="an scar tribe shaman" race="blood" experience="85" speed="78" manacost="0">
 	<health now="115" max="115"/>
 	<look type="6" corpse="5978"/>
 	<targetchange interval="2000" chance="50"/>
@@ -9,7 +9,7 @@
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
-				<flag isblockable="0" />
+				<flag isblockable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="0"/>

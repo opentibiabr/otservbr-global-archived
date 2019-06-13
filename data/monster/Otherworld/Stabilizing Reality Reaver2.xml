@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Stabilizing Reality Reaver" nameDescription="a stabilizing reality reaver" race="energy" experience="0" speed="280" manacost="0">
+<monster name="Stabilizing Reality Reaver" nameDescription="a stabilizing reality reaver" race="energy" experience="1950" speed="155" manacost="0">
 	<health now="2500" max="2500"/>
 	<look type="879" corpse="26068"/>
 	<targetchange interval="2000" chance="25"/>

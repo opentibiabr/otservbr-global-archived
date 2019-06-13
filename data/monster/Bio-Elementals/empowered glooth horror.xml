@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Empowered Glooth Horror" nameDescription="empowered glooth horror" race="venom" experience="2150" speed="200" manacost="0">
+<monster name="Empowered Glooth Horror" nameDescription="an empowered glooth horror" race="venom" experience="2150" speed="200" manacost="0">
 	<health now="25000" max="25000"/>
 	<look type="677" corpse="24276"/>
 	<targetchange interval="60000" chance="0"/>

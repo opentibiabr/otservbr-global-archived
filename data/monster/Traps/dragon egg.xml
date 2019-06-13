@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dragon Egg" nameDescription="a dragon egg" race="undead" experience="0" speed="0" manacost="0">
-	<health now="1" max="5000"/>
+	<health now="5000" max="5000"/>
 	<look typeex="27745" corpse="0"/>
 	<targetchange interval="2000" chance="0"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -17,9 +17,9 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 
 	</flags>
 	<script>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Countess Sorrow" nameDescription="Countess Sorrow" race="undead" experience="13000" speed="400" manacost="0">
+<monster name="Countess Sorrow" nameDescription="Countess Sorrow" race="undead" experience="13000" speed="200" manacost="0">
 	<health now="6500" max="6500"/>
 	<look type="241" head="20" corpse="6344"/>
 	<targetchange interval="60000" chance="0"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -25,11 +25,11 @@
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
     		<attack name="manadrain" interval="2000" chance="12" radius="3" target="0" min="-45" max="-90">
-      			<attribute key="areaEffect" value="yellowbubble" />
+      			<attribute key="areaEffect" value="yellowbubble"/>
     		</attack>
     		<attack name="phantasm drown" interval="2000" chance="20"/>
     		<attack name="drunk" interval="2000" chance="15" duration="10000" range="7" radius="6" target="0">
-      		<attribute key="areaEffect" value="redshimmer" />
+      		<attribute key="areaEffect" value="redshimmer"/>
     		</attack>
 	</attacks>
 	<defenses armor="25" defense="20">
@@ -37,7 +37,7 @@
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
     		<defense name="invisible" interval="2000" chance="15" duration="5000">
-      			<attribute key="areaEffect" value="poff" />
+      			<attribute key="areaEffect" value="poff"/>
     		</defense>
 		<defense name="speed" interval="2000" chance="11" speedchange="736" duration="6000">
 			<attribute key="areaEffect" value="redshimmer"/>
