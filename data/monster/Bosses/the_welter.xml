@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Welter" nameDescription="The Welter" race="blood" experience="20000" speed="256" manacost="0" script="boss.lua">
+<monster name="The Welter" nameDescription="The Welter" race="blood" experience="11000" speed="256" manacost="0" script="boss.lua">
 	<health now="25000" max="25000"/>
 	<look type="563" corpse="21291"/>
 	<targetchange interval="2000" chance="5"/>
 	<strategy attack="70" defense="10"/>
 	<flags>
-		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag preyable="0"/>
+        <flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -69,7 +69,7 @@
 	</voices>
 	<loot>
 
-	<item id="21400" chance="200" /><!-- silver token -->
+	<item id="21400" chance="200"/><!-- silver token -->
 		<item id="21690" chance="200"/> <!-- Triple Bolt Crossbow -->
 		<item id="2475" chance="2000"/> <!-- Warrior Helmet-->
 		<item id="21691" chance="500"/> <!-- Shrunken Head Necklace -->

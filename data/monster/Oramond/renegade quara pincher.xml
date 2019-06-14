@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Renegade Quara Pincher" nameDescription="a renegade quara pincher" race="blood" experience="2400" speed="210" manacost="330">
+<monster name="Renegade Quara Pincher" nameDescription="a renegade quara pincher" race="blood" experience="2200" speed="198" manacost="330">
 	<health now="2800" max="2800"/>
-	<look type="77" corpse="6063" />
+	<look type="77" corpse="6063"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -19,20 +19,20 @@
 	<attacks>
 		<attack name="melee" interval="2000" skill="90" attack="60"/>
 		<attack name="speed" interval="2000" chance="20" range="1" speedchange="-300" duration="3000">
-			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
 	</attacks>
-	<defenses armor="50" defense="50" />
+	<defenses armor="50" defense="50"/>
 	<elements>
-		<element earthPercent="-1" />
-		<element energyPercent="-25" />
-		<element physicalPercent="10" />
+		<element earthPercent="-1"/>
+		<element energyPercent="-25"/>
+		<element physicalPercent="10"/>
 	</elements>
 	<immunities>
-		<immunity invisible="1" />
-		<immunity drown="1" />
-		<immunity fire="1" />
-		<immunity ice="1" />
+		<immunity invisible="1"/>
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
 	</immunities>
 	<loot>
 		<item id="2148" countmax="93" chance="100000"/> <!-- gold coin -->

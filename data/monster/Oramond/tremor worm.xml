@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="tremor worm" nameDescription="a tremor worm" race="blood" experience="80000" speed="170" manacost="330">
-	<health now="100000" max="100000"/>
-	<look type="295" corpse="0" />
+	<health now="125000" max="125000"/>
+	<look type="295" corpse="0"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>

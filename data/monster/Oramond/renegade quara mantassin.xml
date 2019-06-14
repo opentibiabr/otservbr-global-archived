@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Renegade Quara Mantassin" nameDescription="a renegade quara mantassin" race="blood" experience="900" speed="260" manacost="330">
+<monster name="Renegade Quara Mantassin" nameDescription="a renegade quara mantassin" race="blood" experience="1000" speed="295" manacost="330">
 	<health now="1200" max="1200"/>
-	<look type="72" corpse="6064" />
+	<look type="72" corpse="6064"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -21,17 +21,17 @@
 	</attacks>
 	<defenses armor="15" defense="15">
 		<defense name="invisible" interval="2000" chance="20" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="-25" />
-		<element earthPercent="-1" />
+		<element energyPercent="-25"/>
+		<element earthPercent="-1"/>
 	</elements>
 	<immunities>
-		<immunity drown="1" />
-		<immunity fire="1" />
-		<immunity ice="1" />
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
 	</immunities>
 	<loot>
 		<item id="2148" countmax="121" chance="100000"/><!-- gold coin -->

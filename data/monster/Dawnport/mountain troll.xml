@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mountain Troll" nameDescription="a mountain troll" race="blood" experience="12" speed="126" manacost="290">
+<monster name="Mountain Troll" nameDescription="a mountain troll" race="blood" experience="12" speed="55" manacost="290">
 	<health now="30" max="30"/>
 	<look type="15" corpse="5960"/>
 	<targetchange interval="2000" chance="0"/>
@@ -11,7 +11,7 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-				<flag isblockable="0" />
+				<flag isblockable="0"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
