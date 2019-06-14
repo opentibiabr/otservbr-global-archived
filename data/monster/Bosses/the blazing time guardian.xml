@@ -66,39 +66,15 @@
 		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
 		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="25" chance="100000"/><!-- platinum coin -->
-		<item id="2150" countmax="10" chance="100000"/><!-- small amethyst -->
-		<item id="2145" countmax="10" chance="100000"/><!-- small diamond -->
-		<item id="2149" countmax="10" chance="100000"/><!-- small emerald -->
-		<item id="2147" countmax="10" chance="100000"/><!-- small ruby -->
 		<item id="9970" countmax="10" chance="100000"/><!-- small topaz -->
 		<item id="7590" countmax="5" chance="100000"/><!-- great mana potion -->
 		<item id="8472" countmax="10" chance="100000"/><!-- great spirit potion -->
-		<item id="8473" countmax="10" chance="100000"/><!-- ultimate health potion -->
-		<item id="18413" countmax="3" chance="100000"/><!-- blue crystal shard -->
 		<item id="18415" countmax="3" chance="100000"/><!-- green crystal shard -->
 		<item id="18414" countmax="3" chance="100000"/><!-- blue crystal shard -->
-		<item id="7439" chance="100000"/><!-- berserk potion -->
-		<item id="2158" chance="100000"/><!-- blue gem -->
-		<item id="2155" chance="100000"/><!-- green gem -->
-		<item id="13293" chance="2000"/><!-- leather whip -->
 		<item id="12410" chance="2000"/><!-- luminous orb -->
-		<item id="5904" chance="2000"/><!-- magic sulphur -->
-		<item id="7894" chance="1000"/><!-- magma legs -->
 		<item id="7440" chance="2000"/><!-- mastermind potion -->
 		<item id="2214" chance="2000"/><!-- ring of healing -->
-		<item id="2153" chance="2000"/><!-- violet gem -->
-		<item id="2154" chance="2000"/><!-- yellow gem -->
-		<item id="11240" chance="1000"/><!-- guardian boots -->
-		<item id="7422" chance="1000"/><!-- jade hammer -->
 		<item id="2436" chance="1000"/><!-- skull staff -->
-		<item id="2197" chance="1000"/><!-- stone skin amulet -->
-		<item id="11240" chance="1000"/><!-- guardian boots -->
-		<item id="8904" chance="1000"/><!-- Spellscroll of Prophecies -->
-		<item id="5809" chance="100" unique="1"/><!-- Soul Stone -->
-		<item id="2539" chance="100"/><!-- Phoenix Shield -->
-		<item id="7417" chance="100"/><!-- Runed Sword -->
-		<item id="27624" chance="500" unique="1"/><!-- Part of a Rune(terceira) -->
 		<item id="25377" chance="100000"/><!-- Gold Token -->
-		<item id="25172" chance="100000"/><!-- Silver Token -->
 	</loot>
 </monster>

@@ -28,6 +28,5 @@
 	<defenses armor="11" defense="5"/>
 	<loot>
 		<item id="2148" countmax="4" chance="100000"/><!-- gold coin -->
-		<item id="10568" chance="2170"/> <!-- scorpion tail -->
 	</loot>
 </monster>

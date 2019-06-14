@@ -62,7 +62,6 @@
 		<item id="2148" countmax="100" chance="69825"/><!-- gold coin -->
 		<item id="2148" countmax="10" chance="69825"/><!-- gold coin -->
 		<item id="2149" chance="5750"/><!-- small emerald -->
-		<item id="21400" countmax="2" chance="5750"/><!-- Silver Raid Token -->
 		<item id="5881" chance="100000"/><!-- lizard scale -->
 		<item id="2155" chance="16300"/><!-- green gem -->
 		<item id="2169" chance="11025"/><!-- time ring -->

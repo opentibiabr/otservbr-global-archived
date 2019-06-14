@@ -60,7 +60,6 @@
 		<item name="wand of decay" chance="110"/>
 		<item name="wand of dragonbreath" chance="1980"/>
 		<item name="blank rune" countmax="3" chance="8125"/>
-		<item id="6079" chance="12100"/><!-- dead frog -->
 		<item name="health potion" chance="2900"/>
 		<item name="mana potion" chance="2980"/>
 		<item name="reins" chance="10"/>

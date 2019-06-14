@@ -44,7 +44,6 @@
 		<item name="gold coin" countmax="13" chance="75000"/>
 		<item name="bronze amulet" chance="110"/>
 		<item id="2229" countmax="2" chance="1000"/><!-- skull -->
-		<item name="throwing star" countmax="2" chance="8000"/>
 		<item name="poison dagger" chance="1500"/>
 		<item name="leather armor" chance="10000"/>
 		<item name="poison arrow" countmax="3" chance="5000"/>

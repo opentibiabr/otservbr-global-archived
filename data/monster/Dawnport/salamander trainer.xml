@@ -29,14 +29,8 @@
 	<loot>
 		<item id="10606" chance="1050"/><!-- bunch of troll hair -->
 		<item id="2148" countmax="12" chance="65300"/><!-- gold coin -->
-		<item id="2380" chance="17960"/><!-- hand axe -->
-		<item id="2643" chance="9800"/><!-- leather boots -->
-		<item id="2461" chance="11780"/><!-- leather helmet -->
 		<item id="2666" chance="15200"/><!-- meat -->
 		<item id="2120" chance="7960"/><!-- rope -->
 		<item id="2389" countmax="3" chance="12970"/><!-- spear -->
-		<item id="2512" chance="4710"/><!-- wooden shield -->
-		<item id="2448" chance="5030"/><!-- studded club -->
-		<item id="2170" chance="80"/><!-- silver amulet -->
 	</loot>
 </monster>

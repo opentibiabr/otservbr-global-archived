@@ -73,7 +73,6 @@
 		<item id="2683" countmax="5" chance="200000"/> <!--pumpkin -->
 		<item id="8860" chance="30000"/> <!-- spiderwab -->
 		<item id="6526" chance="30000"/>
-		<item id="16101" chance="20000"/> <!-- premium points -->
 		<item id="9006" chance="30000"/> <!-- toy spider -->
 		<item id="6492" chance="30000"/> <!-- bat -->
 		<item id="9005" countmax="5" chance="300000"/> <!-- yumme worms -->

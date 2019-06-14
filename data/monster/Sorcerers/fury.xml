@@ -69,7 +69,6 @@
 		<voice sentence="Dieee!"/>
 	</voices>
 	<loot>
-		<item id="2120" countmax="3" chance="8000"/><!-- small amethyst -->
 		<item id="2124" chance="410"/><!-- crystal ring-->
 		<item name="gold coin" countmax="100" chance="30000"/>
 		<item name="gold coin" countmax="100" chance="30000"/>
@@ -78,7 +77,6 @@
 		<item name="terra rod" chance="20000"/>
 		<item name="golden legs" chance="130"/>
 		<item name="steel boots" chance="790"/>
-		<item name="meat" chance="25000"/>
 		<item name="orichalcum pearl" countmax="4" chance="1500"/>
 		<item name="red piece of cloth" chance="4000"/>
 		<item name="soul orb" chance="21500"/>
@@ -90,6 +88,5 @@
 		<item name="noble axe" chance="2000"/>
 		<item name="great health potion" chance="10500"/>
 		<item name="jalapeno pepper" countmax="4" chance="29280"/>
-		<item id="9813" chance="1920"/><!-- rusty legs -->
 	</loot>
 </monster>

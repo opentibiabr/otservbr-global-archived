@@ -48,7 +48,6 @@
 	<loot>
 		<item id="2148" countmax="150" chance="100000"/>	<!-- gold coin -->
 		<item id="2165" chance="33000"/>					<!-- stealth ring -->
-		<item id="10601" chance="13700"/>					<!-- tattered piece of robe -->
 		<item id="2488" chance="5070"/>						<!-- crown legs -->
 		<item id="8871" chance="3070"/>						<!-- focus cape -->
 		<item id="2655" chance="1110"/>						<!-- red robe -->

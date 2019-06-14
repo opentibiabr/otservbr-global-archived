@@ -90,7 +90,6 @@
 		<item id="7427" tier="4" chance="3000"/><!-- chaos mace -->
 		<item id="7451" tier="4" chance="3000"/><!-- shadow sceptre -->
 		<item id="8901" tier="4" chance="3000"/><!-- spellbook of warding -->
-		<item id="7898" tier="4" chance="2500"/><!-- lightning robe -->
 		<item id="7895" tier="4" chance="2500"/><!-- lightning legs -->
 
 		<!-- Raro -->
@@ -99,6 +98,5 @@
 
 		<!-- Muito Raro -->
 		<item id="6553" tier="2" unique="1" chance="1600"/><!-- ruthless axe -->
-		<item id="18450" tier="2" unique="1" chance="1400"/><!-- crystalline sword -->
 	</loot>
 </monster>

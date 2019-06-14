@@ -46,6 +46,5 @@
 		<item id="2145" countmax="3" chance="33333"/><!-- small diamond -->
 		<item id="7732" chance="4000"/><!-- seeds -->
 		<item id="5015" chance="100000"/><!-- mandrake -->
-		<item id="3976" countmax="10" chance="50000"/><!-- worm -->
 	</loot>
 </monster>

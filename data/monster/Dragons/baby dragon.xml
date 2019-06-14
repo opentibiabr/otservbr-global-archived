@@ -50,9 +50,5 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2672" chance="60990"/><!-- dragon ham -->
-		<item id="12413" chance="4310"/><!-- dragon tail -->
-		<item id="2148" countmax="55" chance="67540"/><!-- gold coin -->
-		<item id="7618" chance="400"/><!-- health potion -->
 	</loot>
 </monster>

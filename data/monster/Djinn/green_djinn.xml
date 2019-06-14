@@ -59,7 +59,6 @@
 	</voices>
 	<loot>
 		<item id="1965" chance="2280"/><!-- green book -->
-		<item name="oil lamp" chance="830"/>
 		<item name="gold coin" countmax="70" chance="41000"/>
 		<item name="gold coin" countmax="45" chance="51000"/>
 		<item name="small emerald" countmax="4" chance="2960"/>

@@ -80,7 +80,6 @@
 		<item name="green piece of cloth" chance="3000"/>
 		<item name="royal spear" countmax="3" chance="15570"/>
 		<item name="strong mana potion" chance="3500"/>
-		<item name="seeds" countmax="2" chance="2000"/>
 		<item name="magma monocle" chance="360"/>
 		<item name="jewelled belt" chance="8540"/>
 		<item name="noble turban" chance="1130"/>

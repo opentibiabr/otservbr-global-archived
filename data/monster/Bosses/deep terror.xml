@@ -49,14 +49,6 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="50" chance="100000"/><!-- gold coin -->
-		<item id="23574" countmax="3" chance="10000"/><!-- glooth bag -->
 		<item id="24268" chance="10000" unique="1"/><!-- glooth glider tubes and wires -->
-		<item id="7591" countmax="1" chance="2000"/><!-- great health potion -->
-		<item id="2152" countmax="2" chance="10000"/><!-- platinum coin -->
-		<item id="9810" chance="10000"/><!-- rusty armor -->
-		<item id="9813" chance="10000"/><!-- rusty legs -->
-		<item id="11306" chance="500"/><!-- sai -->
-		<item id="18414" countmax="4" chance="1500"/><!-- violet crystal shard -->
 	</loot>
 </monster>

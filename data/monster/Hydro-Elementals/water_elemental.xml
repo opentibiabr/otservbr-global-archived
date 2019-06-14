@@ -70,6 +70,5 @@
 		<item name="strong mana potion" chance="10000"/>
 		<item id="7632" chance="800"/><!-- giant shimmering pearl -->
 		<item id="7633" chance="800"/><!-- giant shimmering pearl -->
-		<item name="leviathan's amulet" chance="260"/>
 	</loot>
 </monster>

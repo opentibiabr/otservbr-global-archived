@@ -65,7 +65,6 @@
 	<loot>
 		<item name="gold coin" countmax="100" chance="50000"/>
 		<item name="platinum coin" countmax="2" chance="58670"/>
-		<item name="dwarven ring (hard drinking)" chance="2870"/>
 		<item name="fire axe" chance="330"/>
 		<item name="skull staff" chance="280"/>
 		<item name="guardian shield" chance="830"/>
@@ -74,7 +73,6 @@
 		<item name="spiked squelcher" chance="50"/>
 		<item name="strong health potion" countmax="3" chance="11050"/>
 		<item name="great mana potion" countmax="2" chance="10770"/>
-		<item name="fiery knight axe" chance="770"/>
 		<item name="terra legs" chance="50"/>
 		<item name="terra boots" chance="880"/>
 		<item name="small topaz" chance="9780"/>
@@ -83,11 +81,8 @@
 		<item name="buckle" chance="8180"/>
 		<item name="buckle" chance="770"/>
 		<item name="bonecarving knife" chance="8510"/>
-		<item name="leather harness" chance="11330"/>
 		<item name="wimp tooth chain" chance="8950"/>
-		<item name="lost husher's staff" chance="9280"/>
 		<item name="skull shatterer" chance="12320"/>
-		<item name="mad froth" chance="15580"/>
 		<item name="red hair dye" chance="8510"/>
 		<item name="basalt figurine" chance="8560"/>
 	</loot>

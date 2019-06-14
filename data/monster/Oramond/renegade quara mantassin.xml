@@ -34,7 +34,6 @@
 		<immunity ice="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="121" chance="100000"/><!-- gold coin -->
 		<item id="2146" countmax="3" chance="10000"/><!-- small sapphire -->
 		<item id="12445" chance="9090"/><!-- mantassin tail -->
 		<item id="2178" chance="4166"/><!-- mind stone -->
@@ -42,7 +41,6 @@
 		<item id="2165" chance="4166"/><!-- stealth ring -->
 		<item id="2396" chance="2777"/><!-- ice rapier -->
 		<item id="5895" chance="2083"/><!-- fish fin -->
-		<item id="2381" chance="1369"/><!-- halberd -->
 		<item id="2377" chance="1369"/><!-- two handed sword -->
 		<item id="2167" chance="689"/><!-- energy ring -->
 		<item id="18413" chance="689"/><!-- blue crystal shard -->

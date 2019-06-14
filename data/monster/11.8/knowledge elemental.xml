@@ -68,7 +68,6 @@
 		<item name="Mana Potion" countmax="10" chance="10000"/>
 		<item name="Ultimate Mana Potion" countmax="8" chance="10000"/>
 		<item name="Ultimate Health Potion" countmax="8" chance="10000"/>
-		<item name="wand of decay" chance="150"/>
 		<item name="Wand of Cosmic Energy" chance="300"/>
 	</loot>
 </monster>

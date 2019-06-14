@@ -66,11 +66,9 @@
 		<item name="sudden death rune" countmaxe="9" chance="7300"/>
 		<item name="skull staff" chance="130"/>
 		<item name="mysterious voodoo skull" chance="100"/>
-		<item name="hardened bone" chance="50"/>
 		<item id="6300" chance="800"/><!-- death ring -->
 		<item name="strong health potion" countmax="2" chance="2260"/>
 		<item name="strong mana potion" countmax="2" chance="3600"/>
-		<item name="lump of dirt" chance="100"/>
 		<item name="unholy bone" chance="9570"/>
 		<item name="pile of grave earth" chance="6650"/>
 		<item name="safety pin" chance="6000"/>

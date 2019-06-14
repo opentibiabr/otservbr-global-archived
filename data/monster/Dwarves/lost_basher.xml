@@ -55,7 +55,6 @@
 		<item name="piggy bank" chance="4450"/>
 		<item name="gold coin" countmax="100" chance="60000"/>
 		<item name="platinum coin" countmax="2" chance="70000"/>
-		<item name="dwarven ring (hard drinking)" chance="2560"/>
 		<item name="fire axe" chance="310"/>
 		<item name="war axe" chance="120"/>
 		<item name="knight legs" chance="310"/>
@@ -65,7 +64,6 @@
 		<item name="chaos mace" chance="160"/>
 		<item name="spiked squelcher" chance="420"/>
 		<item name="great mana potion" chance="11240"/>
-		<item name="fiery knight axe" chance="1200"/>
 		<item name="terra boots" chance="780"/>
 		<item name="ultimate health potion" chance="10250"/>
 		<item name="small topaz" chance="10200"/>
@@ -77,8 +75,6 @@
 		<item name="pair of iron fists" chance="1410"/>
 		<item name="buckle" chance="10930"/>
 		<item name="bonecarving knife" chance="7320"/>
-		<item name="leather harness" chance="12500"/>
-		<item name="mad froth" chance="11870"/>
 		<item name="basalt fetish" chance="8800"/>
 		<item name="basalt figurine" chance="9470"/>
 	</loot>

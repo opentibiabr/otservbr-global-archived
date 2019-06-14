@@ -21,7 +21,7 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-
+	
 	<attacks>
 		<attack name="melee" interval="2000" skill="70" attack="130"/>
 		<attack name="drunk" interval="2000" chance="8" radius="8" duration="25000">
@@ -66,10 +66,7 @@
 		<item id="21695" chance="3000"/><!-- sun mirror OK -->
 		<item id="2672" countmax="3" chance="55000"/><!-- OK dragon ham -->
 		<item id="2268" subtype="5" chance="15000"/><!-- OK sudden death rune -->
-		<item id="7430" chance="7000"/><!-- OK dragonbone staff -->
 		<item id="2148" countmax="50" chance="100000"/><!-- OK gold coin -->
-		<item id="10221" subtype="5" chance="7000"/><!-- shockwave amulet -->
-		<item id="7889" chance="120000"/><!-- lightning pendant -->
 		<item id="2152" countmax="8" chance="60000"/><!-- platinum coin -->
 		<item id="7368" countmax="5" chance="30000"/><!-- assassin star -->
 		<item id="7588" countmax="5" chance="25000"/><!-- strong health potion -->
@@ -78,8 +75,6 @@
 		<item id="2156" chance="9000"/><!-- red gem -->
 		<item id="2154" chance="9000"/><!-- yellow gem -->
 		<item id="2153" chance="9000"/><!-- violet gem -->
-		<item id="2158" chance="9000"/><!-- blue gem -->
-		<item id="5911" chance="9000"/><!-- red piece of cloth -->
 		<item id="2515" chance="9000"/><!-- guardian shield -->
 		<item id="8873" chance="9000"/><!-- hibiscus dress -->
 		<item id="2145" countmax="5" chance="15000"/><!-- small diamond -->

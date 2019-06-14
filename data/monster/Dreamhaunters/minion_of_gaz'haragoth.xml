@@ -39,23 +39,5 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="white pearl" countmax="1" chance="866"/>
-		<item name="black pearl" countmax="1" chance="866"/>
-		<item name="gold coin" countmax="100" chance="30000"/>
-		<item name="platinum coin" countmax="10" chance="33333"/>
-		<item name="giant sword" chance="422"/>
-		<item name="knight legs" chance="444"/>
-		<item name="crown armor" chance="632"/>
-		<item name="iron ore" countmax="2" chance="2195"/>
-		<item name="magic sulphur" chance="632"/>
-		<item name="great mana potion" countmax="4" chance="3100"/>
-		<item name="ultimate health potion" countmax="2" chance="2195"/>
-		<item name="crystal of power" chance="1066"/>
-		<item name="shiny stone" chance="1032"/>
-		<item name="wand of defiance" chance="1766"/>
-		<item name="glacial rod" chance="1066"/>
-		<item name="prismatic bolt" countmax="8" chance="366"/>
-		<item name="crystalline sword" chance="603"/>
-		<item name="crystal crossbow" chance="603"/>
 	</loot>
 </monster>

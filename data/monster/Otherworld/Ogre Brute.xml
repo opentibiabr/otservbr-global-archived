@@ -65,7 +65,6 @@
 		<item id="24847" chance="1200"/>					<!--  Skull Fetish -->
 		<item id="7588" countmax="3" chance="6200"/>					<!-- strong health potion -->
 		<item id="7428" chance="500"/>					<!-- Bonebreaker -->
-		<item id="24828" chance="600"/>					<!-- Ogre Choppa  -->
 		<item id="24827" chance="800"/>					<!-- Ogre Klubba -->
 
 		<item id="2562" chance="500"/>					<!-- Pot -->

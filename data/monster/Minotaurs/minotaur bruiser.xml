@@ -36,6 +36,5 @@
 		<item id="12428" countmax="2" chance="2000"/>	<!-- minotaur horn -->
 		<item id="5878" chance="980"/>					<!-- minotaur leather -->
 		<item id="2554" chance="310"/>					<!-- shovel -->
-		<item id="2172" chance="120"/>					<!-- bronze amulet -->
 	</loot>
 </monster>

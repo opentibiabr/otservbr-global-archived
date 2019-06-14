@@ -77,6 +77,5 @@
 		<item id="2134" chance="900"/>					<!-- Silver Brooch -->
 		<item id="5944" chance="400"/>					<!-- Soul Orb -->
 		<item id="8902" chance="400"/>					<!-- Spellbook of Mind Control -->
-	    <item id="2187" chance="400"/>					<!-- Wand of Inferno -->
 	</loot>
 </monster>

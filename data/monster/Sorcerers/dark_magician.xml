@@ -55,13 +55,11 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="55" chance="75100"/>
-		<item name="wand of decay" chance="280"/>
 		<item name="blank rune" chance="10000"/>
 		<item name="strong health potion" chance="3000"/>
 		<item name="strong mana potion" chance="2860"/>
 		<item name="health potion" chance="12000"/>
 		<item name="mana potion" chance="11900"/>
-		<item name="small enchanted emerald" chance="510"/>
 		<item name="reins" chance="20"/>
 	</loot>
 </monster>

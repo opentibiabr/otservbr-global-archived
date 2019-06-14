@@ -58,14 +58,12 @@
 
 		<!-- all loot -->
 		<item id="8473" tier="6" countmax="5" chance="8000"/><!-- ultimate health potion -->
-		<item id="7590" tier="6" countmax="10" chance="8000"/><!-- great mana potion -->
 		<item id="18413" tier="6" countmax="3" chance="8000"/><!-- blue crystal shard -->
 		<item id="18415" tier="6" countmax="3" chance="8000"/><!-- green crystal shard -->
 		<item id="2150" tier="6" countmax="10" chance="8000"/><!-- small amethyst -->
 		<item id="2146" tier="6" countmax="5" chance="8000"/><!-- small sapphire -->
 		<item id="18414" tier="6" countmax="3" chance="8000"/><!-- violet crystal shard -->
 		<item id="26191" tier="6" countmax="5" chance="8000"/><!-- energy bar -->
-		<item id="26176" tier="6" chance="8000"/><!-- plasmatic lightning -->
 		<item id="26162" tier="6" chance="8000"/><!-- plasma pearl -->
 		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
 		<item id="25377" tier="6" chance="100000"/><!-- gold token -->

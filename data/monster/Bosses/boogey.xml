@@ -63,8 +63,6 @@
 		<summon name="Demon Skeleton" interval="4000" chance="40" />
 	</summons>
 	<loot>
-	<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
-		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->
 		<item id="10296" chance="1000" />	<!-- heavy metal t-shirt -->
 		<item id="10302" chance="1000" />	<!-- club of the fury -->
 		<item id="10301" chance="1000" />	<!-- scythe of the reaper -->

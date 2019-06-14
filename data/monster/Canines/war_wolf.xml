@@ -38,7 +38,6 @@
 	</voices>
 	<loot>
 		<item name="ham" countmax="2" chance="35000"/>
-		<item name="worm" chance="40"/>
 		<item name="wolf paw" chance="710"/>
 		<item name="warwolf fur" chance="5230"/>
 	</loot>

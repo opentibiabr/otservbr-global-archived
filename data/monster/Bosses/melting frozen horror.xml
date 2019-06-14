@@ -56,30 +56,20 @@
 		<item id="2148" countmax="11" chance="100000" /><!-- gold coin -->
 		<item id="10578" chance="14111" /><!-- frosty heart -->
 		<item id="7441" chance="5100" /><!-- ice cube -->
-		<item id="2146" chance="560" /><!-- small sapphire -->
-		<item id="7588" chance="2444" /><!-- strong health potion -->
-		<item id="7589" chance="3044" /><!-- strong mana potion -->
 		<item id="2396" chance="320" /><!-- ice rapier -->
-		<item id="7290" chance="210" /><!-- shard -->
 		<item id="7449" chance="580" /><!-- crystal sword -->
 		<item id="2145" chance="730" /><!-- small diamond -->
-		<item id="18413" countmax="5" chance="9660" /><!-- blue crystal shard -->
 		<item id="18414" countmax="5" chance="9660" /><!-- green crystal shard-->
 		<item id="2158" chance="5000" /><!-- Blue Gem -->
 		<item id="8473" countmax="3" chance="19500" /><!-- ultimate health potion -->
 		<item id="18415" countmax="5" chance="9660" /><!-- violet crystal shard -->
 		<item id="7459"  chance="9660" /><!--  Pair of Earmuffs -->
 		<item id="26174"  chance="9660" /><!--  Spark Sphere -->
-		<item id="27633" chance="9660" /><!--  Glowing Carrot -->
-		<item id="27634" chance="9660" /><!--  Coal Eyes -->
-		<item id="2183" chance="9660" /><!--   Hailstorm Rod -->
-		<item id="5892" chance="9660" /><!--   Huge Chunk of Crude Iron -->
 		<item id="2445" chance="9660" /><!--   Crystal Mace -->
 		<item id="18450" chance="9660" /><!--   Crystalline Sword -->
 		<item id="18465" chance="200" /><!--   Shiny Blade -->
 		<item id="15644" chance="200" /><!--    Ornate Crossbow -->
 		<item id="8887" chance="500" /><!--    Frozen Plate -->
-		<item id="2444" chance="9660" /><!--    Hammer of Wrath -->
 		<item id="27626" chance="500" unique="1" /><!--    Part of a Rune(quinta) -->
 		<item id="21697" chance="200" /><!--    Runic Ice Shield -->
 		<item id="25377" chance="100000"/><!-- Gold Token -->

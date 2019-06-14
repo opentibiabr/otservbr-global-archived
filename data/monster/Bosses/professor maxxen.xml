@@ -52,11 +52,6 @@
 		<summon name="glooth slasher" interval="2000" chance="10"/>
 	</summons>
 	<loot>
-		<item id="9810" chance="10000"/><!-- rusty armor -->
-		<item id="2148" countmax="100" chance="1000000"/><!-- gold coin -->
-		<item id="23574" countmax="3" chance="38006"/><!-- glooth bag -->
 		<item id="24270" chance="1000" unique="1"/><!-- Glooth Glider Casing -->
-		<item id="9971" chance="2100"/><!-- gold ingot -->
-		<item id="2152" countmax="5" chance="100000"/><!-- platinum coin -->
 	</loot>
 </monster>

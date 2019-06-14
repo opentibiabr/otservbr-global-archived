@@ -65,6 +65,5 @@
 
 	<item id="24758" chance="200"/>					<!-- Wereboar Trophy -->
 	<item id="24429" chance="100"/>					<!-- Werewolf Amulet -->
-	<item id="24739" chance="150"/>					<!-- moonlight crystals -->
 	</loot>
 </monster>

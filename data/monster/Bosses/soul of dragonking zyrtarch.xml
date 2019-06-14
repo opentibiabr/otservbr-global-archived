@@ -74,12 +74,10 @@
 		<item id="5882" chance="5000" /><!-- Red Dragon Scale -->
 		<item id="5889" chance="500" /><!-- Piece of Draconian Steel -->
 		<item id="9980" chance="500" /><!--crystal of power -->
-		<item id="27726" chance="5000" /><!-- dragon tongue -->
 		<item id="12644" chance="300" /><!-- Shield of Corruption-->
 		<item id="9970" countmax="5" chance="3000" /><!--small topaz -->
 		<item id="2149" countmax="5" chance="3000" /><!--small emerald -->
 		<item id="9971" chance="500" /><!--gold ingot -->
-		<item id="2146" countmax="5" chance="3000" /><!--small sapphire	-->
 		<item id="11308" chance="100" /><!-- Drachaku-->
 		<item id="2150" countmax="5" chance="3000" /><!--small amethyst -->
 		<item id="8849" chance="500" /><!-- Modified Crossbow -->
@@ -88,13 +86,11 @@
 		<item id="2506" chance="15" unique="1"/><!-- Dragon Scale Helmet-->
 		<item id="2156" chance="1000" /><!--red Gem -->
 		<item id="18414" countmax="5" chance="3000" /><!--green crystal shard-->
-		<item id="9808" chance="1000" /><!-- Rusty Armor-->
 		<item id="18415" countmax="5" chance="3000" /><!--violet crystal shard -->
 		<item id="5887" chance="500" /><!-- Piece of Royal Steel -->
 		<item id="7590" countmax="3" chance="3000" /><!--great mana potion -->
 		<item id="2155" chance="1000" /><!--Green Gem -->
 		<item id="5948" chance="5000" /><!-- Red Dragon Leather-->
-		<item id="7368" countmax="10" chance="1000" /><!--assassin star -->
 		<item id="5904" chance="500" /><!-- Magic Sulphur -->
 		<item id="27623" chance="500" unique="1" /><!-- Part of a Rune(segunda) -->
 		<item id="18413" countmax="5" chance="3000" /><!--blue crystal shard -->
@@ -102,7 +98,6 @@
 		<item id="8473" countmax="3" chance="3000" /><!--ultimate health potion -->
 		<item id="8902" chance="500" /><!-- Spellbook of Mind Control-->
 		<item id="12648" chance="300" unique="1"/><!-- Snake God's Sceptre-->
-		<item id="27749" chance="500" /><!-- Golden Talon -->
 		<item id="2152" countmax="6" chance="90000" /><!--platinum coin -->
 		<item id="2147" countmax="5" chance="3000" /><!--small ruby -->
 	</loot>

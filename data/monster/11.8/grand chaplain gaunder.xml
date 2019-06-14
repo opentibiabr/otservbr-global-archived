@@ -83,33 +83,21 @@
 	<loot>
  <!-- comun -->
 <item name="Small Emerald" countmax="3" chance="100000"/>
-<item name="Small Amethyst" countmax="3" chance="100000"/>
-<item name="Platinum Coin" countmax="3" chance="100000"/>
 <item name="Assassin Star" countmax="5" chance="100000"/>
 <item name="Great Spirit Potion" countmax="3" chance="100000"/>
 <item name="gold coin" countmax="60" chance="100000"/>
 <item name="gold coin" countmax="40" chance="100000"/>
 
   <!-- Incomum -->
-<item name="Small Ruby" countmax="3" chance="700"/>
-<item name="red Gem" countmax="3" chance="700"/>
 <item name="Onyx Arrow" countmax="3" chance="700"/>
-<item name="Small Topaz" countmax="3" chance="700"/>
 
  <!-- semi raro -->
 <item id="7633" chance="3300"/>
-<item name="Violet Gem" countmax="1" chance="250"/>
-<item name="Green Gem" countmax="1" chance="250"/>
 
  <!-- raro -->
 <item name="Damaged Armor Plates" countmax="3" chance="350"/>
-<item name="Falcon Crest" countmax="3" chance="350"/>
-<item name="Patch of Fine Cloth" countmax="1" chance="350"/>
-
-
 
  <!-- muito raro -->
-
 <item name="Falcon Longsword" countmax="1" chance="60"/>
 <item name="Falcon Shield" countmax="1" chance="60"/>
 

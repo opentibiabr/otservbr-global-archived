@@ -56,12 +56,9 @@
 		<voice sentence="This is a nightmare and you won't wake up!"/>
 	</voices>
 	<loot>
-		<item name="small diamond" chance="200"/>
 		<item name="gold coin" countmax="112" chance="30000"/>
-		<item name="rainbow quartz" chance="1086"/>
 		<item name="wood cape" chance="492"/>
 		<item name="wooden spellbook" chance="92"/>
-		<item name="dream blossom staff" chance="92"/>
 		<item name="mandrake" chance="50"/>
 		<item name="leaf legs" chance="492"/>
 		<item name="small stone" countmax="4" chance="492"/>
@@ -69,16 +66,12 @@
 		<item name="shimmering beetles" chance="492"/>
 		<item name="cave turnip" countmax="4" chance="55000"/>
 		<item name="leaf legs" chance="719"/>
-		<item name="rainbow quartz" countmax="3" chance="719"/>
 		<item name="dark mushroom" chance="719"/>
 		<item name="panpipes" chance="719"/>
 		<item name="prismatic quartz" chance="719"/>
 		<item name="leaf star" countmax="8" chance="10000"/>
-		<item name="grapes" chance="30100"/>
 		<item name="strong health potion" countmax="2" chance="6800"/>
 		<item name="goat grass" chance="5155"/>
 		<item name="great health potion" chance="591"/>
-		<item name="dandelion seeds" chance="5800"/>
-		<item id="28996" chance="3400"/> <!-- fresh fruit -->
 	</loot>
 </monster>

@@ -48,8 +48,6 @@
 		<voice sentence="Screeech!"/>
 	</voices>
 	<loot>
-		<item id="2463" chance="100000"/><!-- ice cube -->
-		<item id="7364" countmax="9" chance="100000"/><!-- platinum coin -->
 		<item id="7589" chance="100000"/><!-- strong mana potion -->
 		<item id="5879" chance="50000"/><!-- spider silk-->
 		<item id="7902" chance="33333"/><!-- glacier mask -->
@@ -61,6 +59,5 @@
 		<item id="2477" chance="5555"/><!-- knight legs -->
 		<item id="7290" chance="3703"/><!-- shard -->
 		<item id="2169" chance="3703"/><!-- time ring -->
-		<item id="6578" chance="1886"/><!-- party hat -->
 	</loot>
 </monster>

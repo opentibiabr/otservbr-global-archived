@@ -62,7 +62,6 @@
 		<item name="terra rod" chance="920"/>
 		<item name="snakebite rod" chance="230"/>
 		<item name="cape" chance="8640"/>
-		<item id="3077" chance="30000"/><!-- dead snake -->
 		<item name="charmer's tiara" chance="230"/>
 		<item name="lizard leather" chance="1320"/>
 		<item name="lizard scale" chance="860"/>

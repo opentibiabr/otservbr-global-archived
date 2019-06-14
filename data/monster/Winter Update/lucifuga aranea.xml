@@ -47,24 +47,11 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2124" chance="1560"/><!-- crystal ring -->
-		<item name="crystal necklace" chance="1730"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="92" chance="50000"/>
-		<item id="2169" chance="1587"/><!-- time ring -->
-		<item name="platinum amulet" chance="120"/>
-		<item name="steel helmet" chance="4545"/>
-		<item name="plate armor" chance="10000"/>
-		<item name="plate armor" chance="5263"/>
-		<item name="knight armor" chance="540"/>
-		<item name="knight legs" chance="690"/>
-		<item name="jewelled backpack" chance="70"/>
-		<item name="spider silk" chance="1950"/>
-		<item name="shard" chance="750"/>
-		<item name="sniper arrow" countmax="6" chance="6250"/>
-		<item name="sapphire hammer" chance="130"/>
-		<item name="crystal sword" chance="2564"/>
-		<item name="strong mana potion" chance="14810"/>
-		<item name="glacier mask" chance="650"/>
+		<item name="Platinum Coin" chance="100000"/>
+		<item name="Cyan Crystal Fragment" chance="55000"/>
+		<item name="Poison Gland" chance="54500"/>
+		<item name="Great Mana Potion" chance="80000"/>
+		<item name="Plate Armor" chance="64000"/>
+		<item name="Green Gem" chance="35000"/>
 	</loot>
 </monster>

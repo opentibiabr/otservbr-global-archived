@@ -40,14 +40,12 @@
 		<item id="2110" chance="520"/><!-- doll -->
 		<item name="gold coin" countmax="30" chance="49070"/>
 		<item name="axe" chance="30710"/>
-		<item name="war hammer" chance="100"/>
 		<item name="mace" chance="9800"/>
 		<item name="chain helmet" chance="5250"/>
 		<item name="iron helmet" chance="580"/>
 		<item name="brass armor" chance="2540"/>
 		<item name="steel shield" chance="910"/>
 		<item name="brass shield" chance="17000"/>
-		<item name="leather legs" chance="27500"/>
 		<item id="2695" countmax="2" chance="9730"/><!-- eggs -->
 	</loot>
 </monster>

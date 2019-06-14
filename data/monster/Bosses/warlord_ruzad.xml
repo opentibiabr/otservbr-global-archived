@@ -35,27 +35,18 @@
 		<summon name="Orc Berserker" interval="2000" chance="30"/>
 	</summons>
 	<loot>
-		<item id="12409" chance="30000"/>				<!-- broken helmet -->
 		<item id="12435" chance="25000"/>				<!-- orc leather -->
 		<item id="2148" countmax="45" chance="18500"/>	<!-- gold coin -->
 		<item id="2399" countmax="18" chance="14500"/>	<!-- throwing star -->
 		<item id="2667" countmax="2" chance="11300"/>	<!-- fish -->
-		<item id="11113" chance="10000"/>				<!-- orc tooth -->
 		<item id="2428" chance="5700"/>					<!-- orcish axe -->
 		<item id="3965" chance="5700"/>					<!-- hunting spear -->
 		<item id="2463" chance="5610"/>					<!-- plate armor -->
-		<item id="12436" chance="5110"/>				<!-- skull belt -->
 		<item id="2647" chance="4680"/>					<!-- plate legs -->
 		<item id="2419" chance="4050"/>					<!-- scimitar -->
 		<item id="2200" chance="2690"/>					<!-- protection amulet -->
 		<item id="2377" chance="2200"/>					<!-- two handed sword -->
 		<item id="2490" chance="1900"/>					<!-- dark helmet -->
-		<item id="2465" chance="1170"/>					<!-- brass armor -->
-		<item id="7618" chance="920"/>					<!-- health potion -->
-		<item id="2497" chance="840"/>					<!-- crusader helmet -->
-		<item id="2434" chance="790"/>					<!-- dragon hammer -->
 		<item id="7891" chance="750"/>					<!-- magma boots -->
-		<item id="7395" chance="580"/>					<!-- orc trophy -->
-		<item id="2165" chance="580"/>					<!-- stealth ring -->
 	</loot>
 </monster>

@@ -54,8 +54,6 @@
 <item name="Platinum Coin" countmax="3" chance="100000"/>
 <item name="Assassin Star" countmax="5" chance="100000"/>
 <item name="Great Spirit Potion" countmax="3" chance="100000"/>
-<item name="gold coin" countmax="60" chance="100000"/>
-<item name="gold coin" countmax="40" chance="100000"/>
   <!-- Incomum -->
 <item name="Small Ruby" countmax="3" chance="700"/>
 <item name="red Gem" countmax="3" chance="700"/>

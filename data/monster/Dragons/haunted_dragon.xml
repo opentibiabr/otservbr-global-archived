@@ -65,18 +65,12 @@
 		<immunity drown="1"/>
 	</immunities>
 	<loot>
-		<item name="golden mug" chance="6002"/>
 		<item name="black pearl" countmax="2" chance="22780"/>
 		<item name="small sapphire" countmax="2" chance="28370"/>
 		<item name="gold coin" countmax="100" chance="35500"/>
 		<item name="gold coin" countmax="98" chance="55500"/>
 		<item name="platinum coin" countmax="5" chance="52000"/>
 		<item name="life crystal" chance="2500"/>
-		<item name="war axe" chance="1290"/>
-		<item name="golden armor" chance="860"/>
-		<item name="knight armor" chance="5500"/>
-		<item name="royal helmet" chance="1720"/>
-		<item name="power bolt" countmax="15" chance="15190"/>
 		<item name="hardened bone" chance="14180"/>
 		<item id="6300" chance="1150"/><!-- death ring -->
 		<item name="demonic essence" chance="12460"/>
@@ -85,7 +79,6 @@
 		<item name="dragonbone staff" chance="4000"/>
 		<item name="great mana potion" chance="21490"/>
 		<item name="great health potion" chance="21200"/>
-		<item name="divine plate" chance="430"/>
 		<item name="skullcracker armor" chance="290"/>
 		<item name="gold ingot" chance="570"/>
 		<item name="unholy bone" chance="33380"/>
