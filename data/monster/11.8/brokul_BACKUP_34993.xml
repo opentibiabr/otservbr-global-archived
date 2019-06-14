@@ -72,7 +72,7 @@
 		<item name="Red Gem" chance="2000" />
 =======
 	 	<item name="Broccoli" countmax="10"  chance="2439" />
->>>>>>> wip: removing wrong drop item
+>>>>>>> 433411aee5d96203d5d1d1aec2a896d7927121a5
 		<item name="Deepling Ceremonial Dagger" chance="200" />
 		<item name="Deepling Fork" chance="200" />
 		<item name="The True Book of Death" chance="70000" />
