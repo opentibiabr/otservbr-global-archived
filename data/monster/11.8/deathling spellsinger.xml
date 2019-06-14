@@ -52,18 +52,11 @@
 		<voice sentence="VBOXCL"/>
 	</voices>
 	<loot>
-		<item name="small sapphire" chance="2854"/>
-		<item name="gold coin" countmax="60" chance="70000"/>
 		<item name="platinum coin" chance="80000"/>
 		<item name="life ring" chance="2439"/>
-		<item id="2667" chance="3448"/><!-- fish -->
 		<item name="fish fin" chance="498"/>
 		<item name="eye of a deepling" chance="2500"/>
-		<item name="deepling staff" chance="2000"/>
 		<item name="necklace of the deep" chance="813"/>
-		<item name="spellsinger's seal" chance="14285"/>
-		<item name="key to the Drowned Library" chance="10000"/>
 		<item name="deepling filet" chance="14285"/>
-		<item name="ornate crossbow" chance="220"/>
 	</loot>
 </monster>

@@ -33,6 +33,5 @@
 	</voices>
 	<loot>
 		<item name="meat" countmax="2" chance="36000"/>
-		<item name="sugar oat" chance="1000"/>
 	</loot>
 </monster>

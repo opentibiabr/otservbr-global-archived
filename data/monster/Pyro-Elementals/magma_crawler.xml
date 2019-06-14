@@ -78,7 +78,6 @@
 		<item name="wand of everblazing" chance="690"/>
 		<item name="blue crystal shard" countmax="2" chance="3930"/>
 		<item name="brown crystal splinter" countmax="2" chance="8500"/>
-		<item name="blue crystal splinter" countmax="2" chance="8500"/>
 		<item name="green crystal fragment" chance="7000"/>
 		<item name="magma clump" chance="11600"/>
 		<item name="blazing bone" countmax="1" chance="11500"/>

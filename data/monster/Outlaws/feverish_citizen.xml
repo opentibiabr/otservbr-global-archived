@@ -56,7 +56,5 @@
 		<item name="obvious piece of cloth" chance="2006"/>
 		<item name="ludicrous piece of cloth" chance="2060"/>
 		<item name="luminous piece of cloth" chance="2290"/>
-		<item name="plague mask" chance="100"/>
-		<item name="plague bell" chance="100"/>
 	</loot>
 </monster>

@@ -59,7 +59,6 @@
 	<loot>
 		<item id="2148" countmax="165" chance="50320"/><!-- gold coin -->
 		<item id="2152" countmax="30" chance="50320"/><!-- platinun coin -->
-		<item id="5022" countmax="2" chance="50320"/><!-- Orichalcum Pearl -->
 		<item id="18413" countmax="5" chance="9660"/><!-- blue crystal shard -->
 		<item id="18414" countmax="5" chance="9660"/><!-- green crystal shard-->
 		<item id="18415" countmax="5" chance="9660"/><!-- violet crystal shard -->
@@ -67,8 +66,6 @@
 		<item id="2147" countmax="5" chance="7360"/><!-- small ruby -->
 		<item id="9970" countmax="5" chance="7350"/><!-- small topaz -->
 		<item id="2150" countmax="5" chance="7150"/><!-- small amethyst -->
-		<item id="5888" countmax="2" chance="5888"/><!--  Piece of Hell Steel -->
-		<item id="5999" countmax="2" chance="5909"/><!--  White Piece of Cloths -->
 		<item id="5887" countmax="2" chance="5909"/><!--  Piece of Royal Steel -->
 		<item id="7590" countmax="3" chance="22120"/><!-- great mana potion -->
 		<item id="8473" countmax="3" chance="19500"/><!-- ultimate health potion -->
@@ -76,7 +73,6 @@
 		<item id="2158" chance="5000"/><!-- Blue Gem -->
 		<item id="2156" chance="2200"/><!-- red gem -->
 		<item id="2155" chance="5000"/><!-- Green Gem -->
-		<item id="2153" chance="5000"/><!-- violet Gem -->
 		<item id="2154" chance="5000"/><!-- yellow Gem -->
 		<item id="6500" chance="14460"/><!-- demonic essence -->
 		<item id="7439" chance="14460"/><!-- Berserk Potion -->

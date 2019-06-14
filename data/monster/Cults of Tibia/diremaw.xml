@@ -53,12 +53,5 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="199" chance="99500"/>	<!-- gold coin -->
-		<item id="2152" countmax="3" chance="33890"/>	<!-- platinum coin -->
-		<item id="7588" countmax="2" chance="10350"/>	<!-- strong health potion -->
-		<item id="7589" countmax="2" chance="10620"/>	<!-- strong mana potion -->
-		<item id="5944" countmax="1" chance="7430"/>					<!-- soul orb -->
-		<item id="2147" countmax="3" chance="2640"/>	<!-- small ruby -->
-		<item id="2150" countmax="3" chance="2580"/>	<!-- small amethyst -->
 	</loot>
 </monster>

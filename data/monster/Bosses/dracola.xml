@@ -61,7 +61,6 @@
 	    <item id="5944" chance="100000"/><!-- Soul Orb -->
 		<item id="5741" chance="9000"/><!-- Skull Helmet -->
 		<item id="7420" chance="3000"/><!-- Reaper's Axe -->
-		<item id="2168" chance="20000"/><!-- Life Ring -->
 		<item id="2177" chance="12000"/><!--  Life Crystal -->
 		<item id="5925" countmax="3" chance="5000"/><!-- Hardened Bone -->
 		<item id="7590" countmax="4" chance="9000"/><!-- Great Mana Potion -->

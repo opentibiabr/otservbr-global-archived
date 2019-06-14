@@ -45,7 +45,6 @@
 	<loot>
 		<item name="piggy bank" chance="150"/>
 		<item name="gold coin" countmax="88" chance="50000"/>
-		<item id="2376" chance="3000"/><!-- sword -->
 		<item name="sabre" chance="10000"/>
 		<item name="throwing star" countmax="12" chance="8400"/>
 		<item name="dark armor" chance="1650"/>

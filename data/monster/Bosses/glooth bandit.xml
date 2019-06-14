@@ -60,8 +60,6 @@
 		<item id="7903" chance="400"/> <!-- Terra Hood  -->
 		<item id="7885" chance="300"/> <!-- Terra Legs  -->
 		<item id="7884" chance="200"/> <!-- Terra Mantle  -->
-		<item id="7412" chance="150"/> <!--  Butcher's Axe  -->
-		<item id="7419" chance="150"/> <!-- Dreaded Cleaver  -->
 		<item id="2454" chance="90"/> <!-- War Axe  -->
 
 	</loot>

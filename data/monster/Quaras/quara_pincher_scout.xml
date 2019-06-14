@@ -50,6 +50,5 @@
 		<item name="plate armor" chance="4170"/>
 		<item name="fish fin" chance="1000"/>
 		<item name="quara pincers" chance="9940"/>
-		<item name="giant shrimp" chance="10"/>
 	</loot>
 </monster>

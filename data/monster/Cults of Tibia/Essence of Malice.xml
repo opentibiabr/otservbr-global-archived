@@ -48,38 +48,22 @@
 		<immunity death="1"/>
 	</immunities>
 	<loot>
-		<item name="wand of everblazing" chance="8920"/>
-		<item name="bloody edge" chance="9700"/>
 		<item name="silver token" chance="2732"/>
 		<item name="gold token" chance="1530"/>
-		<item name="fire axe" chance="14000"/>
 		<item name="gold coin" countmax="200" chance="100000"/>
 		<item name="platinum coin" countmax="57" chance="29840"/>
 		<item name="lightning legs" chance="8723"/>
 		<item name="yellow gem" chance="29460"/>
-		<item name="blue gem" chance="21892"/>
 		<item name="demon shield" chance="2270"/>
 		<item name="shockwave amulet" chance="15100"/>
 		<item name="witch hat" chance="9510"/>
 		<item name="mysterious remains" chance="100000"/>
-		<item name="small diamond" countmax="10" chance="12760"/>
 		<item name="small amethyst" countmax="10" chance="14700"/>
-		<item name="small topaz" countmax="10" chance="11520"/>
-		<item name="small sapphire" countmax="10" chance="13790"/>
-		<item name="small emerald" countmax="10" chance="14700"/>
-		<item name="small amethyst" countmax="10" chance="12259"/>
 		<item name="odd organ" chance="100000"/>
 		<item name="energy bar" countmax="3" chance="16872"/>
 		<item id="26186" chance="8762"/>
-		<item id="26187" chance="8762"/>
 		<item name="ultimate health potion" countmax="10" chance="27652"/>
-		<item name="great mana potion" countmax="10" chance="33721"/>
-		<item name="great spirit potion" countmax="10" chance="25690"/>
 		<item name="blade of corruption" chance="3775"/>
-		<item name="magma monocle" chance="15890"/>
-		<item name="noble axe" chance="7890"/>
-		<item name="shield of corruption" chance="150"/>
 		<item name="plasma pearls" chance="100000"/>
-		<item name="wand of inferno" countmax="3" chance="16892"/>
 	</loot>
 </monster>

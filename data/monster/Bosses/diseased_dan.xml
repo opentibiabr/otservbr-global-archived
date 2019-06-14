@@ -62,13 +62,5 @@
 	<loot>
 		<item name="gold coin" countmax="65" chance="28000" />
 		<item name="gold coin" countmax="64" chance="28000" />
-		<item name="plate legs" chance="2000" />
-		<item name="great health potion" chance="5500" />
-		<item name="great spirit potion" chance="3500" />
-		<item name="ultimate health potion" chance="3500" />
-		<item name="belted cape" chance="1000" />
-		<item name="hibiscus dress" chance="300" />
-		<item name="paladin armor" chance="200" />
-		<item name="springsprout rod" chance="800" />
 	</loot>
 </monster>

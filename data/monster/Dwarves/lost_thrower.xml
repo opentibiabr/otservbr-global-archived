@@ -64,9 +64,7 @@
 		<item name="great mana potion" chance="13470"/>
 		<item name="great health potion" chance="14730"/>
 		<item id="13757" chance="12180"/><!-- coal -->
-		<item name="lost basher's spike" chance="11410"/>
 		<item name="buckle" chance="850"/>
-		<item name="holy ash" chance="15670"/>
 		<item name="broken throwing axe" chance="1390"/>
 		<item name="helmet of the lost" chance="13560"/>
 		<item name="lost bracers" chance="14860"/>

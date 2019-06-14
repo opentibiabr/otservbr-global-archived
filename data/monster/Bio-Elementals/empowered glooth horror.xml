@@ -53,9 +53,6 @@
 		<immunity poison="1"/>
 	</immunities>
 	<loot>
-		<item id="23574" countmax="3" chance="100000"/><!-- glooth bag -->
 		<item id="24274" chance="10000"/><!-- glooth glider hinge -->
-		<item id="9810" chance="10000"/><!-- rusty armor -->
-		<item id="9813" chance="10000"/><!-- rusty legs -->
 	</loot>
 </monster>

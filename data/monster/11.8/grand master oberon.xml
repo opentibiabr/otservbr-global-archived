@@ -62,8 +62,6 @@
 	</script>
 	<loot>
  <!-- comun -->
-<item name="Spatial Warp Almanac" countmax="3" chance="100000" />
-<item name="Platinum Coin" countmax="3" chance="100000" />
 <item name="gold coin" countmax="60" chance="100000" />
 <item name="gold coin" countmax="40" chance="100000" />
  <!-- semi raro -->
@@ -77,12 +75,8 @@
 <item name="Falcon Mace" chance="60" />
 <item name="Falcon Rod" chance="60" />
 <item name="Falcon Shield" chance="60" />
-<item name="Falcon Wand" chance="60" />
  <!-- muito raro -->
 <item name="Falcon Greaves" chance="60" />
-<item name="Falcon Plate" chance="60" />
-<item name="Falcon Bow" chance="60" />
-<item name="Falcon Wand" chance="60" />
 <item name="Falcon Plate" chance="60" />
 </loot>
 </monster>

@@ -79,7 +79,6 @@
 		<item name="power bolt" chance="6200"/>
 		<item name="green mushroom" chance="18200"/>
 		<item name="charmer's tiara" chance="180"/>
-		<item id="4842" chance="600"/><!-- Old Parchment -->
 		<item name="mercenary sword" chance="2070"/>
 		<item name="noble axe" chance="750"/>
 		<item name="great mana potion" chance="2000"/>

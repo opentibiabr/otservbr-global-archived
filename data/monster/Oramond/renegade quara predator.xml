@@ -38,7 +38,6 @@
 		<immunity ice="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="86" chance="100000"/> <!-- gold coin -->
 		<item id="2152" countmax="4" chance="100000"/> <!-- platinum coin -->
 		<item id="7378" countmax="7" chance="50000"/> <!-- royal spear -->
 		<item id="7368" countmax="10" chance="50000"/> <!-- assassin star -->

@@ -71,7 +71,6 @@
 		<item id="2671" countmax="2" chance="6000"/><!-- ham -->
 		<item id="5880" chance="700"/><!-- iron ore -->
 		<item id="5895" chance="900"/><!-- fish fin -->
-		<item id="5951" chance="10800"/><!-- fish tail -->
 		<item id="7418" chance="700"/><!-- nightmare blade -->
 		<item id="7590" countmax="3" chance="15000"/><!-- great mana potion -->
 		<item id="7591" countmax="2" chance="15000"/><!-- great health potion -->
@@ -79,7 +78,6 @@
 		<item id="22396" chance="450"/><!-- cluster of solace -->
 		<item id="22532" chance="18760"/><!-- frazzle tongue -->
 		<item id="22533" chance="16000"/><!-- frazzle skin -->
-		<item id="2240" chance="9420"/><!-- remains of a fish -->
 		<item name="fairy wings" chance="30100"/>
 	</loot>
 </monster>

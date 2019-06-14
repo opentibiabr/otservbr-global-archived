@@ -62,7 +62,6 @@
 		<item name="platinum coin" countmax="8" chance="100000"/>
 		<item name="red gem" chance="3510"/>
 		<item name="blue gem" chance="480"/>
-		<item name="twigs" chance="620"/>
 		<item name="epee" chance="480"/>
 		<item name="magic sulphur" chance="830"/>
 		<item name="sapphire hammer" chance="480"/>
@@ -80,7 +79,6 @@
 		<item name="green crystal shard" chance="5720"/>
 		<item name="brown crystal splinter" countmax="2" chance="12610"/>
 		<item name="red crystal fragment" chance="10540"/>
-		<item name="green crystal fragment" chance="10540"/>
 		<item name="crystalline spikes" chance="18400"/>
 	</loot>
 </monster>

@@ -37,17 +37,13 @@
 		<immunity fire="1"/>
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="UBOX°"/>
+		<voice sentence="UBOXï¿½"/>
 		<voice sentence="O(J-LJ-T ="/> 
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="50" chance="60000"/>
 		<item name="small emerald" chance="121"/>
 		<item name="life ring" chance="2127"/>
-		<item name="hunting spear" countmax="3" chance="14285"/>
 		<item name="fish fin" chance="310"/>
-		<item id="9809" chance="925"/><!-- rusty armor -->
-		<item name="flask of rust remover" chance="111"/>
 		<item name="heavy trident" chance="505"/>
 		<item name="eye of a deepling" chance="310"/>
 	</loot>

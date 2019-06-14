@@ -48,7 +48,6 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="130" chance="92000"/>	<!-- gold coin -->
-		<item id="2666" chance="6200"/>					<!-- meat -->
 		<item id="24849" countmax="2" chance="3200"/>					<!-- Onyx Chip -->
 		<item id="24850" countmax="3" chance="3200"/>					<!-- Opal -->
 		<item id="2687" countmax="7" chance="2200"/>					<!-- Cookies -->

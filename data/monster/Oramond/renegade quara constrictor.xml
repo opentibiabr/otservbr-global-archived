@@ -37,7 +37,6 @@
 		<immunity ice="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="99" chance="100000"/> <!-- gold coin -->
 		<item id="2152" countmax="3" chance="100000"/> <!-- platinum coin -->
 		<item id="12443" chance="16666"/> <!-- quara tentacle -->
 		<item id="15649" countmax="10" chance="16666"/> <!-- vortex bolt -->

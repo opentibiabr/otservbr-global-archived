@@ -54,7 +54,6 @@
 		<item name="dwarven ring" chance="530"/>
 		<item name="blank rune" chance="33000"/>
 		<item name="clerical mace" chance="1120"/>
-		<item name="leather boots" chance="47500"/>
 		<item name="pear" chance="25000"/>
 		<item name="white mushroom" countmax="2" chance="60000"/>
 		<item name="iron ore" chance="120"/>

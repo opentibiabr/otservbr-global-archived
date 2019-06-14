@@ -25,15 +25,5 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmin="9" countmax="196" chance="100000"/>	<!-- gold coin -->
-		<item id="2671" countmax="1" chance="60780"/>		<!-- ham -->
-		<item id="2666" countmax="1" chance="4920"/>		<!-- meat -->
-		<item id="2152" countmax="3" chance="62080"/>		<!-- platinum coin -->
-		<item id="7591" countmax="1" chance="7670"/>		<!-- great health potion -->
-		<item id="7590" countmax="1" chance="7380"/>		<!-- great mana potion -->
-		<item id="2147" countmax="2" chance="5500"/>		<!-- small ruby -->
-		<item id="9970" countmax="2" chance="900"/>		<!-- small topaz -->
-		<item id="2150" countmax="2" chance="970"/>		<!-- small amethyst -->
-		<item id="2149" countmax="2" chance="4050"/>		<!-- small emerald -->
 	</loot>
 </monster>

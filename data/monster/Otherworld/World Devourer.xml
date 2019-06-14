@@ -62,9 +62,6 @@
 		<item id="7590" tier="6" countmax="5" chance="10000"/><!-- great mana potion -->
 		<item id="8472" tier="6" countmax="5" chance="10000"/><!-- great spirit potion -->
 		<item id="18415" tier="6" countmax="3" chance="10000"/><!-- green crystal shard -->
-		<item id="2150" tier="6" countmax="20" chance="10000"/><!-- small amethyst -->
-		<item id="2149" tier="6" countmax="20" chance="10000"/><!-- small emerald -->
-		<item id="2147" tier="6" countmax="20" chance="10000"/><!-- small ruby -->
 		<item id="8473" tier="6" countmax="5" chance="10000"/><!-- ultimate health potion -->
 		<item id="18414" tier="6" countmax="3" chance="10000"/><!-- violet crystal shard -->
 		<item id="26163" tier="6" chance="10000"/><!-- crystallized anger -->

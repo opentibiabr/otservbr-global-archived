@@ -62,10 +62,8 @@
 		<item name="gold coin" countmax="50" chance="30000"/>
 		<item id="2162" chance="2000"/><!-- magic lightwand -->
 		<item name="life crystal" chance="2000"/>
-		<item name="soulfire rune" chance="6000"/>
 		<item name="cookie" countmax="5" chance="1200"/>
 		<item name="white mushroom" countmax="3" chance="8000"/>
-		<item id="6324" chance="820"/><!-- cream cake -->
 		<item name="mastermind potion" chance="130"/>
 		<item name="health potion" chance="19000"/>
 		<item name="mana potion" chance="19000"/>

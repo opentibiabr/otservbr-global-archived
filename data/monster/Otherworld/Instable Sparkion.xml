@@ -68,8 +68,6 @@
 		<item id="26160" chance="4000"/><!-- sparkion legs -->
 		<item id="26161" chance="3500"/><!-- sparkion stings -->
 		<item id="18418" chance="2600"/><!-- blue crystal splinter -->
-		<item id="18416" chance="2600"/><!-- green crystal splinter -->
 		<item id="18413" chance="2100"/><!-- blue crystal shard -->
-		<item id="7869" chance="200"/><!-- energy spiked sword -->
 	</loot>
 </monster>

@@ -45,7 +45,6 @@
 	<loot>
 		<item name="wolf tooth chain" chance="1480"/>
 		<item name="gold coin" countmax="30" chance="88000"/>
-		<item name="mysterious fetish" countmax="10" chance="15800"/>
 		<item name="club ring" chance="260"/>
 		<item name="morning star" chance="2150"/>
 		<item name="steel helmet" chance="850"/>

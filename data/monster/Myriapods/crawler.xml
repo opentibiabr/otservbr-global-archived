@@ -42,7 +42,6 @@
 		<item name="gold coin" countmax="100" chance="50000"/>
 		<item name="gold coin" countmax="90" chance="50000"/>
 		<item name="yellow gem" chance="530"/>
-		<item name="life ring" chance="50000"/>
 		<item name="war hammer" chance="2070"/>
 		<item name="great mana potion" chance="9300"/>
 		<item name="great health potion" chance="6200"/>
