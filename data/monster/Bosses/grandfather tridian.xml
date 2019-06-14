@@ -66,6 +66,5 @@
 		<item id="6089" chance="3000" />					<!-- music sheet 3rd verse -->
 		<item id="6090" chance="3000" />					<!-- music sheet 4th verse -->
 		<item id="3955" chance="1000" />					<!-- voodoo doll -->
-		<item id="1962" chance="910" />					<!-- orange book -->
 	</loot>
 </monster>
