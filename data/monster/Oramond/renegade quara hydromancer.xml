@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Renegade Quara Hydromancer" nameDescription="a renegade quara hydromancer" race="blood" experience="1700" speed="250" manacost="330">
+<monster name="Renegade Quara Hydromancer" nameDescription="a renegade quara hydromancer" race="blood" experience="1800" speed="245" manacost="330">
 	<health now="2000" max="2000"/>
-	<look type="47" corpse="6066" />
+	<look type="47" corpse="6066"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -17,25 +17,25 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="110" attack="90" poison="5" />
+		<attack name="melee" interval="2000" skill="110" attack="90" poison="5"/>
 		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-350" duration="15000">
-			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
 	</attacks>
 	<defenses armor="15" defense="15">
 		<defense name="healing" interval="2000" chance="15" min="100" max="120">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element energyPercent="-25" />
-		<element earthPercent="-1" />
+		<element energyPercent="-25"/>
+		<element earthPercent="-1"/>
 	</elements>
 	<immunities>
-		<immunity invisible="1" />
-		<immunity drown="1" />
-		<immunity fire="1" />
-		<immunity ice="1" />
+		<immunity invisible="1"/>
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
 	</immunities>
 	<loot>
 		<item id="2148" countmax="77" chance="100000"/> <!-- gold coin -->

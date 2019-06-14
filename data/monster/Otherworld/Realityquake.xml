@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Realityquake" nameDescription="Realityquake" race="energy" experience="80000" speed="400" manacost="0" script="boss.lua">
-	<health now="110000" max="150000"/>
+	<health now="110000" max="110000"/>
 	<look typeex="1387" corpse="26223"/>
 	<targetchange interval="3000" chance="20"/>
 	<flags>
@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-    	<event name="HeartBossDeath" />
+    	<event name="HeartBossDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-400" max="-1000"/>

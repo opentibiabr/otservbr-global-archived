@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Disruption" nameDescription="a disruption" race="energy" experience="400" speed="340" manacost="0">
+<monster name="Disruption" nameDescription="a disruption" race="energy" experience="398" speed="340" manacost="0">
 	<health now="12000" max="12000"/>
 	<look typeex="25417" corpse="0"/>
 	<targetchange interval="4000" chance="15"/>
@@ -18,8 +18,8 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="DisruptionTransform" />
-		<event name="HeartMinionDeath" />
+		<event name="DisruptionTransform"/>
+		<event name="HeartMinionDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-262"/>

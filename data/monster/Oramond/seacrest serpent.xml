@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Seacrest Serpent" nameDescription="a seacrest serpent" race="venom" experience="2600" speed="350" manacost="0">
+<monster name="Seacrest Serpent" nameDescription="a seacrest serpent" race="venom" experience="2600" speed="250" manacost="0">
 	<health now="3000" max="3000"/>
 	<look type="675" corpse="24262"/>
-  	<targetchange interval="2000" chance="9" />
+  	<targetchange interval="2000" chance="9"/>
   	<flags>
-    		<flag summonable="0" />
-    		<flag attackable="1" />
-    		<flag hostile="1" />
-    		<flag illusionable="0" />
-    		<flag convinceable="0" />
-    		<flag pushable="0" />
-    		<flag canpushitems="1" />
-    		<flag staticattack="90" />
-    		<flag canpushcreatures="1" />
-    		<flag targetdistance="0" />
-    		<flag runonhealth="0" />
+    		<flag summonable="0"/>
+    		<flag attackable="1"/>
+    		<flag hostile="1"/>
+    		<flag illusionable="0"/>
+    		<flag convinceable="0"/>
+    		<flag pushable="0"/>
+    		<flag canpushitems="1"/>
+    		<flag staticattack="90"/>
+    		<flag canpushcreatures="1"/>
+    		<flag targetdistance="0"/>
+    		<flag runonhealth="0"/>
   	</flags>
   	<attacks>
-    	<attack name="melee" interval="2000" skill="120" attack="82" />
+    	<attack name="melee" interval="2000" skill="120" attack="82"/>
 		<attack name="death" interval="2000" chance="7" range="7" target="1" min="-200" max="-260">
-      		<attribute key="shootEffect" value="earth" />
-			<attribute key="areaEffect" value="rednote" />
+      		<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="rednote"/>
     	</attack>
 		<attack name="lifedrain" interval="2000" chance="11" target="0" radius="3" min="-200" max="-285">
-      		<attribute key="areaEffect" value="redshimmer" />
+      		<attribute key="areaEffect" value="redshimmer"/>
     	</attack>
 		<attack name="ice" interval="2000" chance="30" length="8" spread="3" min="0" max="-284">
-			<attribute key="areaEffect" value="watersplash" />
+			<attribute key="areaEffect" value="watersplash"/>
 		</attack>
 		<attack name="physical" interval="2000" chance="10" length="4" spread="0" min="-200" max="-300">
-      		<attribute key="areaEffect" value="blueshimmer" />
+      		<attribute key="areaEffect" value="blueshimmer"/>
     	</attack>
   	</attacks>
   	<defenses armor="22" defense="31">
     	<defense name="healing" interval="2000" chance="15" min="145" max="200">
-      		<attribute key="areaEffect" value="bluenote" />
+      		<attribute key="areaEffect" value="bluenote"/>
     	</defense>
     	<defense name="melee" interval="2000" chance="10">
-      		<attribute key="areaEffect" value="smallplants" />
+      		<attribute key="areaEffect" value="smallplants"/>
     	</defense>
   	</defenses>
 	<elements>
@@ -48,14 +48,14 @@
 		<element deathPercent="5"/>
 	</elements>
   	<immunities>
-    		<immunity ice="1" />
-    		<immunity drown="1" />
-    		<immunity paralyze="1" />
-    		<immunity invisible="1" />
+    		<immunity ice="1"/>
+    		<immunity drown="1"/>
+    		<immunity paralyze="1"/>
+    		<immunity invisible="1"/>
   	</immunities>
   	<voices interval="2000" chance="5">
-    		<voice sentence="LEAVE THESE GROUNDS..." />
-			<voice sentence="THE DARK TIDE WILL SWALLOW YOU..." />
+    		<voice sentence="LEAVE THESE GROUNDS..."/>
+			<voice sentence="THE DARK TIDE WILL SWALLOW YOU..."/>
   	</voices>
 	<loot>
 		<item id="2672" countmax="1" chance="13040"/><!-- dragon ham -->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The First Dragon" nameDescription="the first dragon" race="blood" experience="9000" speed="350" manacost="0">
-	<health now="150000" max="150000" />
-	<look type="947" head="94" body="80" legs="120" feet="60" addons="3" corpse="27733" />
-	<targetchange interval="5000" chance="0" />
+	<health now="50000" max="50000"/>
+	<look type="947" head="94" body="80" legs="120" feet="60" addons="3" corpse="27733"/>
+	<targetchange interval="5000" chance="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -16,9 +16,9 @@
 		<flag staticattack="90"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonpoison="1" />
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
 	</flags>
 	<script>
 		<event name="FirstDragon"/>
@@ -47,9 +47,9 @@
 		</defense>
 	</defenses>
 	<immunities>
-		<immunity drown="1" />
-		<immunity lifedrain="1" />
-		<immunity paralyze="1" />
-		<immunity invisible="1" />
+		<immunity drown="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
 	</immunities>
 </monster>

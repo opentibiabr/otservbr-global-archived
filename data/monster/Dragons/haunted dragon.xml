@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Haunted Dragon" nameDescription="a haunted dragon" race="undead" experience="5200" speed="330" manacost="0">
+<monster name="Haunted Dragon" nameDescription="a haunted dragon" race="undead" experience="6500" speed="140" manacost="0">
 	<health now="6500" max="6500"/>
 	<look type="231" corpse="6306"/>
 	<targetchange interval="2000" chance="5"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="300"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="120" attack="60"/>
@@ -42,7 +42,7 @@
 	</attacks>
 	<defenses armor="45" defense="63">
     <defense name="healing" interval="2000" chance="15" min="200" max="250">
-      <attribute key="areaEffect" value="redshimmer" />
+      <attribute key="areaEffect" value="redshimmer"/>
     </defense>
 	</defenses>
 	<elements>

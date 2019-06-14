@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dragon Essence" nameDescription="a dragon essence" race="undead" experience="0" speed="250" manacost="0">
-	<health now="35000" max="35000"/>
+	<health now="30000" max="30000"/>
 	<look type="248" corpse="0"/>
 	<targetchange interval="2000" chance="5"/>
 	<strategy attack="70" defense="10"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="250"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 	</flags>
 	<script>
 		<event name="DragonEssence"/>

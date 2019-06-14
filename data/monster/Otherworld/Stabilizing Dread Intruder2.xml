@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Stabilizing Dread Intruder" nameDescription="a stabilizing dread intruder" race="energy" experience="0" speed="290" manacost="0">
+<monster name="Stabilizing Dread Intruder" nameDescription="a stabilizing dread intruder" race="energy" experience="1900" speed="145" manacost="0">
 	<health now="2800" max="2800"/>
 	<look type="882" corpse="26134"/>
 	<targetchange interval="2000" chance="25"/>

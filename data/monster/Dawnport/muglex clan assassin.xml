@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Muglex Clan Assassin" nameDescription="a muglex clan assassin" race="blood" experience="48" speed="140" manacost="0">
+<monster name="Muglex Clan Assassin" nameDescription="a muglex clan assassin" race="blood" experience="48" speed="70" manacost="0">
 	<health now="75" max="75"/>
 	<look type="296" corpse="6002"/>
 	<targetchange interval="10000" chance="0"/>
@@ -10,7 +10,7 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-				<flag isblockable="0" />
+				<flag isblockable="0"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
@@ -47,6 +47,6 @@
 		<item id="2406" chance="9780"/><!-- short sword -->
 		<item id="2559" chance="9540"/><!-- small axe -->
 		<item id="1294" countmax="3" chance="11980"/><!-- small stone -->
-		<item id="2484" chance="1710" /><!-- studded armor -->
+		<item id="2484" chance="1710"/><!-- studded armor -->
 	</loot>
 </monster>

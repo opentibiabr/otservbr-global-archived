@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Meadow Strider" nameDescription="a meadow strider" race="blood" experience="50" speed="150" manacost="0">
+<monster name="Meadow Strider" nameDescription="a meadow strider" race="blood" experience="50" speed="68" manacost="0">
 	<health now="100" max="100"/>
 	<look type="530" corpse="23821"/>
 	<targetchange interval="5000" chance="8"/>
@@ -10,7 +10,7 @@
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
-				<flag isblockable="0" />
+				<flag isblockable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>

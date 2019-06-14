@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mazzinorr" nameDescription="Mazzinor" race="undead" experience="0" speed="50" manacost="0">
+<monster name="Mazzinor" nameDescription="Mazzinor" race="undead" experience="0" speed="50" manacost="0">
 	<health now="10000" max="10000" />
 	<look type="1062" addons="1" />
 <targetchange interval="5000" chance="8" />

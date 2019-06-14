@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Twisted Pooka" nameDescription="a twisted pooka" race="blood" experience="550" speed="190" manacost="450">
-	<health now="600" max="600" />
-	<look type="978" corpse="29114" />
-	<targetchange interval="4000" chance="10" />
+<monster name="Twisted Pooka" nameDescription="a twisted pooka" race="blood" experience="600" speed="115" manacost="450">
+	<health now="700" max="700"/>
+	<look type="978" corpse="29114"/>
+	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<flag respawntype="night" />
-		<flag summonable="0" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag illusionable="1" />
-		<flag convinceable="0" />
-		<flag pushable="0" />
-		<flag canpushitems="1" />
-		<flag canpushcreatures="0" />
-		<flag targetdistance="1" />
-		<flag staticattack="90" />
-		<flag runonhealth="20" />
-		<flag canwalkonenergy="0" />
-		<flag canwalkonfire="0" />
-		<flag canwalkonpoison="0" />
+		<flag respawntype="night"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="20"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
 	</flags>
 	<immunities>
-		<immunity invisible="1" />
+		<immunity invisible="1"/>
 	</immunities>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-120" />
+		<attack name="melee" interval="2000" min="0" max="-120"/>
 		<attack name="earth" interval="2000" chance="15" range="4" target="1" min="0" max="-50">
-			<attribute key="shootEffect" value="smallstone" />
-			<attribute key="areaEffect" value="stones" />
+			<attribute key="shootEffect" value="smallstone"/>
+			<attribute key="areaEffect" value="stones"/>
 		</attack>
-		<attack name="earthcondition" interval="2000" chance="15" range="3" target="1"  min="-50" max="-100">
-			<attribute key="areaEffect" value="poison" />
+		<attack name="earthcondition" interval="2000" chance="15" range="3" target="1" min="-50" max="-100">
+			<attribute key="areaEffect" value="poison"/>
 		</attack>
 		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="5000">
-			<attribute key="areaEffect" value="stun" />
+			<attribute key="areaEffect" value="stun"/>
 		</attack>
 	</attacks>
 	<defenses armor="38" defense="38">
 		<defense name="healing" interval="2000" chance="25" min="40" max="60">
-			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="areaEffect" value="greenshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element physicalPercent="20" />
-		<element icePercent="20" />
-		<element firePercent="20" />
-		<element holyPercent="-20" />
-		<element deathPercent="30" />
-		<element earthPercent="40" />
-		<element energyPercent="-10" />
+		<element physicalPercent="20"/>
+		<element icePercent="20"/>
+		<element firePercent="20"/>
+		<element holyPercent="-20"/>
+		<element deathPercent="30"/>
+		<element earthPercent="40"/>
+		<element energyPercent="-10"/>
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="*sniff sniff* Mhmmm ... mortal flesh." />
-		<voice sentence="Hoppel-di-hopp!" />
-		<voice sentence="I'll gnaw away your toes!" />
+		<voice sentence="*sniff sniff* Mhmmm ... mortal flesh."/>
+		<voice sentence="Hoppel-di-hopp!"/>
+		<voice sentence="I'll gnaw away your toes!"/>
 	</voices>
 	<loot>
-		<item name="carrot on a stick" chance="20" />
-		<item name="dream blossom staff" chance="20" />
-		<item name="small stone" countmax="5" chance="200" />
-		<item name="gold coin" countmax="100" chance="30000" />
-		<item name="stealth ring" chance="492" />
-		<item id="2684" countmax="3" chance="55000" />
-		<item name="strong health potion" chance="719" />
-		<item name="orange mushroom" chance="10000" />
-		<item name="fairy wings" chance="30100" />
-		<item name="orange mushroom" chance="5155" />
-		<item name="Shimmering Beetles" chance="591" />
-		<item name="Rainbow Quartz" chance="5800" />
-		<item name="Small Enchanted Ruby" countmax="2" chance="3400" />
+		<item name="carrot on a stick" chance="20"/>
+		<item name="dream blossom staff" chance="20"/>
+		<item name="small stone" countmax="5" chance="200"/>
+		<item name="gold coin" countmax="100" chance="30000"/>
+		<item name="stealth ring" chance="492"/>
+		<item id="2684" countmax="3" chance="55000"/>
+		<item name="strong health potion" chance="719"/>
+		<item name="orange mushroom" chance="10000"/>
+		<item name="fairy wings" chance="30100"/>
+		<item name="orange mushroom" chance="5155"/>
+		<item name="Shimmering Beetles" chance="591"/>
+		<item name="Rainbow Quartz" chance="5800"/>
+		<item name="Small Enchanted Ruby" countmax="2" chance="3400"/>
 	</loot>
 </monster>

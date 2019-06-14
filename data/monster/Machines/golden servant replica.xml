@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Golden Servant Replica" nameDescription="a golden servant replica" race="energy" experience="450" speed="210" manacost="0">
-	<health now="550" max="550"/>
+<monster name="Golden Servant Replica" nameDescription="a golden servant replica" race="energy" experience="450" speed="105" manacost="0">
+	<health now="2000" max="2000"/>
 	<look type="396" corpse="13484"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="80"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 
 	</flags>
 	<attacks>

@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Boogy" nameDescription="a boogy" race="blood" experience="950" speed="190" manacost="0">
-	<health now="1300" max="1300" />
-	<look type="981" corpse="29106" />
-	<targetchange interval="4000" chance="10" />
+<monster name="Boogy" nameDescription="a boogy" race="blood" experience="950" speed="105" manacost="0">
+	<health now="1300" max="1300"/>
+	<look type="981" corpse="29106"/>
+	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<flag summonable="0" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag illusionable="1" />
-		<flag convinceable="0" />
-		<flag pushable="0" />
-		<flag canpushitems="1" />
-		<flag canpushcreatures="0" />
-		<flag targetdistance="1" />
-		<flag staticattack="90" />
-		<flag runonhealth="20" />
-		<flag canwalkonenergy="0" />
-		<flag canwalkonfire="0" />
-		<flag canwalkonpoison="0" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="20"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-450" />
+		<attack name="melee" interval="2000" min="0" max="-450"/>
 		<attack name="physicalcondition" interval="3000" chance="11" radius="6" target="1" min="-100" max="-300">
-			<attribute key="areaEffect" value="redspark" />
-			<attribute key="shootEffect" value="whirlwindclub" />
+			<attribute key="areaEffect" value="redspark"/>
+			<attribute key="shootEffect" value="whirlwindclub"/>
 		</attack>
 		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-60" max="-115">
-			<attribute key="areaEffect" value="explosionarea" />
-			<attribute key="shootEffect" value="largerock" />
+			<attribute key="areaEffect" value="explosionarea"/>
+			<attribute key="shootEffect" value="largerock"/>
 		</attack>
 	</attacks>
 	<immunities>
-		<immunity invisible="1" />
-		<immunity paralyze="1" />
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
 	</immunities>
-	<defenses armor="35" defense="35" >
+	<defenses armor="35" defense="35">
 		<defense name="speed" interval="2000" chance="15" speedchange="450" duration="5000">
-			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="areaEffect" value="redshimmer"/>
 		</defense>
 		<defense name="healing" interval="2000" chance="10" min="0" max="110">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element icePercent="10" />
-		<element firePercent="10" />
-		<element earthPercent="70" />
-		<element deathPercent="20" />
-		<element physicalPercent="10" />
-		<element holyPercent="40" />
+		<element icePercent="10"/>
+		<element firePercent="10"/>
+		<element earthPercent="70"/>
+		<element deathPercent="20"/>
+		<element physicalPercent="10"/>
+		<element holyPercent="40"/>
 	</elements>
 	<voices interval="5000" chance="10">
-		<voice sentence="Go to sleep!" />
+		<voice sentence="Go to sleep!"/>
 	</voices>
 	<loot>
 		<item id="27058" countmax="5" chance="3000"/> <!-- ancient coin -->

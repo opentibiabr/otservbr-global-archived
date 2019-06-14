@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Lisa" nameDescription="Lisa" race="venom" experience="18000" speed="200" manacost="0">
-	<health now="65000" max="65000"/>
+	<health now="55000" max="55000"/>
 	<look type="604" corpse="23359"/>
 	<targetchange interval="2000" chance="3"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

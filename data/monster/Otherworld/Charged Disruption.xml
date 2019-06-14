@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Charged Disruption" nameDescription="a charged disruption" race="energy" experience="400" speed="360" manacost="0">
-	<health now="18000" max="128000"/>
+	<health now="128000" max="128000"/>
 	<look typeex="1387" corpse="0"/>
 	<targetchange interval="4000" chance="15"/>
 	<flags>
@@ -18,8 +18,8 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="cDisruptionTransform" />
-		<event name="HeartMinionDeath" />
+		<event name="cDisruptionTransform"/>
+		<event name="HeartMinionDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-636"/>

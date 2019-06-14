@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mounted Thorn Knight" nameDescription="mounted thorn knight" race="blood" experience="0" speed="430" manacost="290">
-	<health now="100000" max="100000" />
-	<look type="512" addons="3" head="81" body="121" legs="121" feet="121" mount="626" />
-	<targetchange interval="5000" chance="0" />
+<monster name="Mounted Thorn Knight" nameDescription="mounted thorn knight" race="blood" experience="15000" speed="430" manacost="290">
+	<health now="100000" max="100000"/>
+	<look type="512" addons="3" head="81" body="121" legs="121" feet="121" mount="626"/>
+	<targetchange interval="5000" chance="0"/>
 	<flags>
-		<flag summonable="0" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag illusionable="0" />
-		<flag convinceable="0" />
-		<flag pushable="0" />
-		<flag canpushitems="1" />
-		<flag canpushcreatures="1" />
-		<flag targetdistance="1" />
-		<flag staticattack="90" />
-		<flag runonhealth="0" />
-		<flag preyable="0" />
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag preyable="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<script>
 		<event name="ThornKnightDeath"/>
 		<event name="HealthForgotten"/>
 	</script>
 	<attacks>
-		<attack name="melee" interval="2000" min="-600" max="-1000" />
+		<attack name="melee" interval="2000" min="-600" max="-1000"/>
 		<attack name="lifedrain" interval="2000" chance="12" length="4" spread="3" min="-400" max="-700">
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
@@ -49,12 +49,12 @@
 		</defense>
 	</defenses>
 		<elements>
-		<element energyPercent="80" />
-		<element holyPercent="80" />
-		<element earthPercent="100" />
-		<element deathPercent="80" />
-		<element firePercent="80" />
-		<element physicalPercent="80" />
-		<element icePercent="80" />
+		<element energyPercent="80"/>
+		<element holyPercent="80"/>
+		<element earthPercent="100"/>
+		<element deathPercent="80"/>
+		<element firePercent="80"/>
+		<element physicalPercent="80"/>
+		<element icePercent="80"/>
 	</elements>
 </monster>

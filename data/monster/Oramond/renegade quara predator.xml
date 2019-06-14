@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Renegade Quara Predator" nameDescription="a renegade quara predator" race="blood" experience="2500" speed="280" manacost="330">
+<monster name="Renegade Quara Predator" nameDescription="a renegade quara predator" race="blood" experience="2700" speed="225" manacost="330">
 	<health now="3250" max="3250"/>
-	<look type="20" corpse="6067" />
+	<look type="20" corpse="6067"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -21,21 +21,21 @@
 	</attacks>
 	<defenses armor="45" defense="45">
 		<defense name="speed" interval="2000" chance="15" speedchange="30" duration="5000">
-			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="areaEffect" value="greenshimmer"/>
 		</defense>
 		<defense name="healing" interval="2000" chance="10" min="50" max="100">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element earthPercent="-1" />
-		<element energyPercent="-25" />
+		<element earthPercent="-1"/>
+		<element energyPercent="-25"/>
 	</elements>
 	<immunities>
-		<immunity invisible="1" />
-		<immunity drown="1" />
-		<immunity fire="1" />
-		<immunity ice="1" />
+		<immunity invisible="1"/>
+		<immunity drown="1"/>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
 	</immunities>
 	<loot>
 		<item id="2148" countmax="86" chance="100000"/> <!-- gold coin -->

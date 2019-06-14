@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Distorted Astral Source" nameDescription="the distorted astral source" race="energy" experience="3000" speed="0" manacost="390">
-	<health now="50000" max="10000000"/>
+	<health now="10000000" max="10000000"/>
 	<look typeex="26897" corpse="0"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
@@ -14,10 +14,10 @@
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
-		<flag preyable="0" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+		<flag preyable="0"/>
 	</flags>
 	<script>
 		<event name="DistortedSource"/>
@@ -51,8 +51,8 @@
 		<element firePercent="0"/>
 	</elements>
 	<immunities>
-		<immunity energy="1" />
-		<immunity invisible="1" />
-		<immunity paralyze="1" />
+		<immunity energy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
 	</immunities>
 </monster>

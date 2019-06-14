@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Mutated Pumpkin" nameDescription="a mutated pumpkin" race="undead" experience="35000" speed="700" manacost="0" script="boss.lua">
+<monster name="The Mutated Pumpkin" nameDescription="a mutated pumpkin" race="undead" experience="30000" speed="700" manacost="0" script="boss.lua">
 	<health now="500000" max="500000"/>
 	<look type="292" corpse="8960"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag preyable="0"/>
+        <flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
