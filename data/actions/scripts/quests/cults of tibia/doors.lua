@@ -101,7 +101,7 @@ local posAcessoSand = Position(33295, 32271, 12)
 
 	-- Entrada para a caverna de areia
 	if item:getPosition() == posAcessoSand then
-		if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) > 2 then
+		if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) >= 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
