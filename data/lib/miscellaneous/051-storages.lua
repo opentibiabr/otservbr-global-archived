@@ -1307,6 +1307,11 @@ Storage = {
 			Tyrias = 50714,
 			Yberius = 50715,
 			Rahkem = 50716
+		},
+
+		GreatDragonHunt = {
+			WarriorSkeleton = 50806,
+			DragonCounter = 50807,
 		}
 
 	},
