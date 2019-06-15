@@ -419,7 +419,7 @@
 
 	<!-- Oramond Quest -->
 	<action itemid="23468" script="quests/oramond/juiceroots.lua"/>
-	<action fromid="23475" toid="23478" script="quests/oramond/juiceRoots.lua" />
+	<action fromid="23475" toid="23478" script="quests/oramond/juiceroots.lua" />
 	<action itemid="23469" script="quests/oramond/juiceroots.lua"/>
 	<action itemid="23470" script="quests/oramond/juiceroots.lua"/>
 	<action itemid="23471" script="quests/oramond/juiceroots.lua"/>
@@ -595,12 +595,12 @@
     <action itemid="22607" script="roshamuul/prison/golden.lua"/>
 
 	<!-- Rookgaard -->
-	<action actionid="50239" script="rookgaard/sewerLever.lua" />
+	<action actionid="50239" script="rookgaard/SewerLever.lua" />
 	<action actionid="5637" script="rookgaard/katanaQuestLever.lua" />
 	<action actionid="1002" script="rookgaard/katanaQuestDoor.lua" />
 	<action actionid="5638" script="rookgaard/bearroomQuestLever.lua" />
 	<action actionid="5639" script="rookgaard/doubletQuest.lua" />
-	<action actionid="5640" script="rookgaard/honeyFlowerQuest.lua" />
+	<action actionid="5640" script="rookgaard/honeyflowerQuest.lua" />
 	<action actionid="5641" script="rookgaard/bananaQuest.lua" />
 
 	<!-- Rottin Wood and the Married Men Quest -->
@@ -737,8 +737,8 @@
 
 	<!-- The Outlaw Camp Quest -->
 	<action uniqueid="3400" script="quests/the outlaw camp/oven.lua" />
-	<action uniqueid="3401" script="quests/the outlaw camp/powerSwitch.lua" />
-	<action uniqueid="3402" script="quests/the outlaw camp/powerBurn.lua" />
+	<action uniqueid="3401" script="quests/the outlaw camp/powerswitch.lua" />
+	<action uniqueid="3402" script="quests/the outlaw camp/powerburn.lua" />
 
 	<!-- The Secret Library Quest -->
 	<action actionid="64019" script="quests/the secret library/asuraMirror.lua" />
@@ -813,7 +813,7 @@
 	<!-- WorldChange (Deeplings) -->
 	<action fromuid="25610" touid="25612" script="worldchanges/deeplings/bossesReward.lua" />
 	<!-- WorldChange (The Mummy's Curse) -->
-	<action fromaid="50006" toaid="50010" script="worldchanges/the mummy's curse/horestisjars.lua" />
+	<action fromaid="50006" toaid="50010" script="worldchanges/the mummy's curse/horestisJars.lua" />
 
 	<!-- Others (Quests) -->
 	<action fromaid="4249" toaid="4250" script="quests/others/draconiaQuestWalls.lua" />
@@ -851,14 +851,14 @@
 	<action itemid="13158" script="tools/present.lua" />
 	<action itemid="13173" script="quests/rottin wood/trap.lua"/>
 	<action itemid="8717" script="tools/lockPick.lua" />
-	<action itemid="8613" script="tools/brickLayerKit.lua" />
+	<action itemid="8613" script="tools/bricklayerKit.lua" />
 	<action itemid="2557" script="tools/hammer.lua" />
 	<action itemid="2558" script="tools/saw.lua" />
 	<action itemid="5865" script="tools/juiceSqueezer.lua" />
 	<action itemid="2416" script="tools/crowbar.lua" />
 	<action itemid="2420" script="tools/machete.lua" />
 	<action itemid="2565" script="tools/spoon.lua" />
-	<action itemid="2566" script="tools/kitchenKnife.lua" />
+	<action itemid="2566" script="tools/kitchenknife.lua" />
 	<action itemid="2549" script="tools/rake.lua" />
 	<action itemid="2550" script="tools/scythe.lua" />
 	<action itemid="2580" script="tools/fishing.lua" allowfaruse="1" />
@@ -872,11 +872,11 @@
 	<action itemid="2553" script="tools/pick.lua" />
 	<action itemid="5908" script="tools/skinning.lua" />
 	<action itemid="5942" script="tools/skinning.lua" />
-	<action itemid="9930" script="tools/rustRemover.lua" />
+	<action itemid="9930" script="tools/rustremover.lua" />
 	<action itemid="10511" script="tools/toolgear.lua" />
 	<action itemid="10513" script="tools/toolgear.lua" />
 	<action itemid="10515" script="tools/toolgear.lua" />
-	<action itemid="10309" script="tools/noxiousClaw.lua" />
+	<action itemid="10309" script="tools/noxiousclaw.lua" />
 
 	<action itemid="2405" script="tools/sickle.lua" />
 
