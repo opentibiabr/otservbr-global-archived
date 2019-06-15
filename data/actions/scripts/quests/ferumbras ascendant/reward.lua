@@ -12,7 +12,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 12664 then
 		return false
 	end
-	if player:getStorageValue(24850) >= 1 then
+	if player:getStorageValue(Storage.FerumbrasAscension.Reward) >= 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The treasure chest is empty.')
 		return true
 	end
@@ -32,6 +32,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		return true
 	end
-	player:setStorageValue(24850, 1)
+	player:setStorageValue(Storage.FerumbrasAscension.Reward, 1)
 	return true
 end
