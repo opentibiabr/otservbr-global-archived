@@ -37,11 +37,7 @@
 		<item id="2389" chance="25000" />				<!-- spear -->
 		<item id="2666" countmax="3" chance="9650" />	<!-- meat -->
 		<item id="2643" chance="9000" />					<!-- leather boots -->
-		<item id="2512" chance="6000" />					<!-- wooden shield -->
-		<item id="2544" countmax="5" chance="5450" />	<!-- arrow -->
 		<item id="2448" chance="5450" />					<!-- studded club -->
-		<item id="10606" chance="3000" />				<!-- bunch of troll hair -->
-		<item id="12471" chance="750" />					<!-- trollroot -->
 		<item id="2170" chance="100000" />				<!-- silver amulet -->
 	</loot>
 </monster>

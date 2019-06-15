@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Mutated Pumpkin" nameDescription="a mutated pumpkin" race="undead" experience="35000" speed="700" manacost="0" script="boss.lua">
+<monster name="The Mutated Pumpkin" nameDescription="a mutated pumpkin" race="undead" experience="30000" speed="700" manacost="0" script="boss.lua">
 	<health now="500000" max="500000"/>
 	<look type="292" corpse="8960"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag preyable="0"/>
+        <flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -73,7 +73,6 @@
 		<item id="2683" countmax="5" chance="200000"/> <!--pumpkin -->
 		<item id="8860" chance="30000"/> <!-- spiderwab -->
 		<item id="6526" chance="30000"/>
-		<item id="16101" chance="20000"/> <!-- premium points -->
 		<item id="9006" chance="30000"/> <!-- toy spider -->
 		<item id="6492" chance="30000"/> <!-- bat -->
 		<item id="9005" countmax="5" chance="300000"/> <!-- yumme worms -->

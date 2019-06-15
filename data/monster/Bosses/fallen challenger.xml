@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<monster name="Fallen Challenger" nameDescription="fallen challenger" race="undead" experience="0" speed="300" manacost="0">
-	<health now="15500" max="15500"/>
+<monster name="Fallen Challenger" nameDescription="a fallen challenger" race="undead" experience="0" speed="300" manacost="0">
+	<health now="9000" max="9000"/>
 	<look type="231" corpse="1397"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

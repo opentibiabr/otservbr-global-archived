@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Outburst" nameDescription="Outburst" race="energy" experience="110000" speed="500" manacost="0" script="boss.lua">
+<monster name="Outburst" nameDescription="Outburst" race="energy" experience="120000" speed="500" manacost="0" script="boss.lua">
 	<health now="290000" max="290000"/>
 	<look type="876" head="79" body="0" legs="94" feet="0" addons="3" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>
@@ -18,8 +18,8 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="HeartBossDeath" />
-    	<event name="OutburstCharge" />
+		<event name="HeartBossDeath"/>
+    	<event name="OutburstCharge"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-300" max="-1800"/>
@@ -49,16 +49,12 @@
 
 		<!-- all loot -->
 		<item id="18413" tier="6" countmax="3" chance="8000"/><!-- blue crystal shard -->
-		<item id="26191" tier="6" countmax="5" chance="8000"/><!-- energy bar -->
 		<item id="7590" tier="6" countmax="10" chance="8000"/><!-- great mana potion -->
 		<item id="18415" tier="6" countmax="3" chance="8000"/><!-- green crystal shard -->
 		<item id="2150" tier="6" countmax="10" chance="8000"/><!-- small amethyst -->
 		<item id="2146" tier="6" countmax="5" chance="8000"/><!-- small sapphire -->
 		<item id="8473" tier="6" countmax="5" chance="8000"/><!-- ultimate health potion -->
 		<item id="18414" tier="6" countmax="3" chance="8000"/><!-- violet crystal shard -->
-		<item id="26162" tier="6" chance="8000"/><!-- plasma pearl -->
-		<item id="26176" tier="6" chance="8000"/><!-- plasmatic lightning -->
-		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
 		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
 		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
 
@@ -67,7 +63,6 @@
 
 		<!-- Semi Raro -->
 		<item id="7427" tier="4" chance="6000"/><!-- chaos mace -->
-		<item id="26187" tier="4" chance="5000"/><!-- ring of green plasma -->
 		<item id="26189" tier="4" chance="5000"/><!-- ring of red plasma -->
 
 		<!-- Raro -->

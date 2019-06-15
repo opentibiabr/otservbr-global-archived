@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Haunted Dragon" nameDescription="a haunted dragon" race="undead" experience="5200" speed="330" manacost="0">
+<monster name="Haunted Dragon" nameDescription="a haunted dragon" race="undead" experience="6500" speed="140" manacost="0">
 	<health now="6500" max="6500"/>
 	<look type="231" corpse="6306"/>
 	<targetchange interval="2000" chance="5"/>
@@ -16,7 +16,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="300"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="120" attack="60"/>
@@ -42,7 +42,7 @@
 	</attacks>
 	<defenses armor="45" defense="63">
     <defense name="healing" interval="2000" chance="15" min="200" max="250">
-      <attribute key="areaEffect" value="redshimmer" />
+      <attribute key="areaEffect" value="redshimmer"/>
     </defense>
 	</defenses>
 	<elements>
@@ -66,12 +66,8 @@
 		<item id="2201" chance="32260"/><!-- dragon necklace -->
 		<item id="2177" chance="1140"/><!-- life crystal -->
 		<item id="27241" countmax="2" chance="4290"/><!-- ancient coin -->
-		<item id="2466" chance="850"/><!-- golden armor -->
 		<item id="11355" chance="850"/><!-- spellweaver's robe -->
-		<item id="2476" chance="4930"/><!-- knight armor -->
-		<item id="8885" chance="500"/><!-- divine plate -->
 		<item id="8889" chance="530"/><!-- skullcracker armor -->
-		<item id="2121" chance="11070"/><!-- dark shield -->
 		<item id="6300" chance="1950"/><!-- death ring -->
 	</loot>
 </monster>

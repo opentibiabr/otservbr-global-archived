@@ -67,8 +67,6 @@
 		<item name="stealth ring" chance="5000" />
 		<item name="boots of haste" chance="1500" />
 		<item name="crystal arrow" chance="100000" />
-		<item name="ravager's axe" countmax="2" chance="10000" />
-		<item name="hammer of wrath" chance="300" />
 		<item name="arrow" countmax="21" chance="10000" />
 		<item name="poison arrow" countmax="20" chance="10000" />
 		<item name="burst arrow" countmax="15" chance="10000" />

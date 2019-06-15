@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Ravager" nameDescription="The Ravager" race="undead" experience="18000" speed="320" manacost="0">
-	<health now="60000" max="60000"/>
+<monster name="The Ravager" nameDescription="The Ravager" race="undead" experience="14980" speed="320" manacost="0">
+	<health now="53500" max="53500"/>
 	<look type="87" corpse="6031"/>
 	<targetchange interval="2000" chance="5"/>
 	<strategy attack="70" defense="30"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

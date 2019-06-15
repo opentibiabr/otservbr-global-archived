@@ -175,8 +175,8 @@
 	<action fromid="12545" toid="12546" script="quests/fathers burden/corpse.lua" />
 
 	<!-- First Dragon Quest -->
-	<action fromuid="10200" touid="10219" script="quests/first dragon/chests.lua"/>
-	<action fromuid="10220" touid="10222" script="quests/first dragon/rewards.lua"/>
+	<action fromuid="10201" touid="10220" script="quests/first dragon/chests.lua"/>
+	<action fromuid="10221" touid="10223" script="quests/first dragon/rewards.lua"/>
 	<action fromid="27607" toid="27610" script="quests/first dragon/repItems.lua"/>
 	<action fromaid="24886" toaid="24887" script="quests/first dragon/lairEntrance.lua"/>
 	<action actionid="24888" script="quests/first dragon/lever.lua"/>
@@ -212,19 +212,19 @@
 	<action fromid="25429" toid="25430" script="quests/ferumbras ascendant/bootsOfHomecoming.lua"/>
 	<action itemid="25354" script="quests/ferumbras ascendant/purifiedSoul.lua" />
 	<action itemid="24838" script="quests/ferumbras ascendant/teleportationRod.lua" />
-	<action actionid="24847" script="quests/ferumbras ascendant/ferumbrasLever.lua" />
-	<action actionid="24848" script="quests/ferumbras ascendant/plagirathLever.lua" />
-	<action actionid="24849" script="quests/ferumbras ascendant/ragiazLever.lua" />
-	<action actionid="24850" script="quests/ferumbras ascendant/razzagornLever.lua" />
-	<action actionid="24851" script="quests/ferumbras ascendant/mazoranLever.lua" />
-	<action actionid="24852" script="quests/ferumbras ascendant/zamuloshLever.lua" />
-	<action actionid="24853" script="quests/ferumbras ascendant/tarbazLever.lua" />
-	<action actionid="24854" script="quests/ferumbras ascendant/shulgraxLever.lua" />
-	<action actionid="24855" script="quests/ferumbras ascendant/theshattererLever.lua" />
-	<action actionid="24856" script="quests/ferumbras ascendant/ratLever.lua" />
-	<action actionid="24857" script="quests/ferumbras ascendant/theshattererLevers.lua" />
+	<action uniqueid="9525" script="quests/ferumbras ascendant/ferumbrasLever.lua" />
+	<action uniqueid="9526" script="quests/ferumbras ascendant/plagirathLever.lua" />
+	<action uniqueid="9527" script="quests/ferumbras ascendant/ragiazLever.lua" />
+	<action uniqueid="9528" script="quests/ferumbras ascendant/razzagornLever.lua" />
+	<action uniqueid="9529" script="quests/ferumbras ascendant/mazoranLever.lua" />
+	<action uniqueid="9530" script="quests/ferumbras ascendant/zamuloshLever.lua" />
+	<action uniqueid="9531" script="quests/ferumbras ascendant/tarbazLever.lua" />
+	<action uniqueid="9532" script="quests/ferumbras ascendant/shulgraxLever.lua" />
+	<action uniqueid="9533" script="quests/ferumbras ascendant/theshattererLever.lua" />
+	<action uniqueid="9534" script="quests/ferumbras ascendant/ratLever.lua" />
+	<action fromuid="9535" touid="9538" script="quests/ferumbras ascendant/theshattererLevers.lua" />
+	<action uniqueid="9540" script="quests/ferumbras ascendant/reward.lua" />
 	<action itemid="25521" script="quests/ferumbras ascendant/mysteriousScroll.lua" />
-	<action uniqueid="24850" script="quests/ferumbras ascendant/reward.lua" />
 
 	<!-- Forgotten Knowledge -->
 	<action itemid="26402" script="quests/forgotten knowledge/lantern.lua"/>
@@ -1103,3 +1103,8 @@
 	<action itemid="15572" script="valuables/randomitems.lua" />
 	<action itemid="18215" script="valuables/randomitems.lua" />
 </actions>
+
+<!--
+ununseds aids: 24847 to 24857
+
+-->

@@ -29,7 +29,6 @@
 	<loot>
 		<item id="2152" countmax="5" chance="100000"/> <!-- platinum coin -->
 		<item id="7590" countmax="1" chance="14285"/> <!-- great mana potion -->
-		<item id="10571" countmax="1" chance="14285"/> <!-- war crystal -->
 		<item id="7591" countmax="1" chance="14285"/> <!-- great health potion -->
 	</loot>
 </monster>

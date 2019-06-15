@@ -2,19 +2,19 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 -- Minotaur Cult
 local posBossMinotaurs = Position(31957, 32468, 9)
-local posAcessoMinotaurs = Position(31950, 32501, 8)
+local posAcessMinotaurs = Position(31950, 32501, 8)
 
 -- MoTA
-local posAcessoInvestigation = Position(33273, 32172, 8)
-local posAcessoCimaDenomitator = Position(33220, 32147, 9)
-local posAcessoBaixoDenominator = Position(33220, 32149, 9)
+local posAcessInvestigation = Position(33273, 32172, 8)
+local posAcessUpDenomitator = Position(33220, 32147, 9)
+local posAcessDownDenominator = Position(33220, 32149, 9)
 
 -- Barkless
-local posAcessoTrial = Position(32688, 31543, 9)
-local posAcessoBoss = Position(32672, 31543, 9)
+local posAcessTrial = Position(32688, 31543, 9)
+local posAcessBoss = Position(32672, 31543, 9)
 
 -- Life (Sandking)
-local posAcessoSand = Position(33295, 32271, 12)
+local posAcessSand = Position(33295, 32271, 12)
 
 
 	-- Feyrist
@@ -28,7 +28,7 @@ local posAcessoSand = Position(33295, 32271, 12)
 	end
 
 	-- Minotaur entrance
-	if item:getPosition() == posAcessoMinotaurs then
+	if item:getPosition() == posAcessMinotaurs then
 		if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Acesso) == 1 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
@@ -50,7 +50,7 @@ local posAcessoSand = Position(33295, 32271, 12)
 	end
 
 	-- Under investigation area MotA
-	if item:getPosition() == posAcessoInvestigation then
+	if item:getPosition() == posAcessInvestigation then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) > 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
@@ -59,8 +59,8 @@ local posAcessoSand = Position(33295, 32271, 12)
 		end
 	end
 
-	-- Porta de cima para o Denominator
-	if item:getPosition() == posAcessoCimaDenomitator then
+	-- Up door for the Denominator
+	if item:getPosition() == posAcessUpDenomitator then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 12 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
@@ -69,8 +69,8 @@ local posAcessoSand = Position(33295, 32271, 12)
 		end
 	end
 
-	-- Porta de baixo para o Denominator
-	if item:getPosition() == posAcessoBaixoDenominator then
+	-- Down door for the Denominator
+	if item:getPosition() == posAcessDownDenominator then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 14 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
@@ -79,8 +79,8 @@ local posAcessoSand = Position(33295, 32271, 12)
 		end
 	end
 
-	-- Entrada para o Trial da Barkless
-	if item:getPosition() == posAcessoTrial then
+	-- Entrance for the Trial of Barkless
+	if item:getPosition() == posAcessTrial then
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) > 0 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
@@ -89,8 +89,8 @@ local posAcessoSand = Position(33295, 32271, 12)
 		end
 	end
 
-	-- Entrada para o Barkless Boss
-	if item:getPosition() == posAcessoBoss then
+	-- Entrance for the Barkless Boss
+	if item:getPosition() == posAcessBoss then
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 5 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
@@ -99,9 +99,9 @@ local posAcessoSand = Position(33295, 32271, 12)
 		end
 	end
 
-	-- Entrada para a caverna de areia
-	if item:getPosition() == posAcessoSand then
-		if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) > 2 then
+	-- Entrance for the cave of sand
+	if item:getPosition() == posAcessSand then
+		if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) >= 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else

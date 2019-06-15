@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Brittle Skeleton" nameDescription="a brittle skeleton" race="undead" experience="35" speed="154" manacost="0">
+<monster name="Brittle Skeleton" nameDescription="a brittle skeleton" race="undead" experience="35" speed="73" manacost="0">
 	<health now="50" max="50"/>
 	<look type="33" corpse="5972"/>
 	<targetchange interval="2000" chance="0"/>
@@ -12,7 +12,7 @@
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>
-				<flag isblockable="0" />
+				<flag isblockable="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>

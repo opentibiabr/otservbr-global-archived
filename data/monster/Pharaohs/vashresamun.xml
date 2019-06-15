@@ -64,6 +64,5 @@
 		<item name="blue note" chance="100000" />
 		<item name="crystal mace" chance="500" />
 		<item name="blue robe" chance="2500" />
-		<item id="7691" chance="7000" /><!-- great mana potion -->
 	</loot>
 </monster>

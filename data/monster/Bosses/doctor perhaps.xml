@@ -54,8 +54,7 @@
 		<voice sentence="You can't beat what you can't comprehend!" />
 	</voices>
 	<loot>
-
-	<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
+		<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
 		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->
 		<item id="10316" chance="1000" />				<!-- mighty helm of green sparks -->
 		<item id="10289" chance="1000" />				<!-- meat shield -->

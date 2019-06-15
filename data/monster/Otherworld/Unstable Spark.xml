@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Unstable Spark" nameDescription="an unstable spark" race="energy" experience="0" speed="330" manacost="0">
-	<health now="10000" max="10000"/>
+<monster name="Unstable Spark" nameDescription="an unstable spark" race="energy" experience="1500" speed="139" manacost="0">
+	<health now="10500" max="10500"/>
 	<look type="290" corpse="0"/>
 	<targetchange interval="4000" chance="15"/>
 	<flags>
@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-    	<event name="SparksDeath" />
+    	<event name="SparksDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-500"/>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Terofar" nameDescription="Terofar" race="blood" experience="24000" speed="440" manacost="0">
-	<health now="25000" max="25000"/>
+	<health now="40000" max="40000"/>
 	<look type="12" head="19" body="0" legs="77" feet="79" addons="0" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>
 	<strategy attack="100" defense="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

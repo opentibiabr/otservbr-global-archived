@@ -34,7 +34,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	player:setStorageValue(Storage.FirstDragon.Feathers, 0)
 	if item.uid == 10220 then
-		player:setExhaustion(Storage.FirstDragon.MaskTimer, 432000) -- é pra ser 5 dias, se não der esse valor tente 432000000, mas é quase certo que é o valor que deixei
+		player:setExhaustion(Storage.FirstDragon.MaskTimer, 432000)
 	end
 	if item.uid ~= 10221 then
 		player:addItem(chest.name, chest.count, true)

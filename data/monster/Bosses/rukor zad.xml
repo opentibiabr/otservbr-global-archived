@@ -51,17 +51,9 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="50" chance="93210" />	<!-- gold coin -->
-		<item id="2050" countmax="2" chance="35000" />	<!-- torch -->
-		<item id="2403" chance="19750" />				<!-- knife -->
 		<item id="2399" countmax="14" chance="9210" />	<!-- throwing star -->
 		<item id="7366" countmax="7" chance="6200" />	<!-- viper star -->
-		<item id="2404" chance="5000" />					<!-- combat knife -->
 		<item id="2457" chance="4190" />					<!-- steel helmet -->
-		<item id="2510" chance="2910" />					<!-- plate shield -->
-		<item id="2513" chance="2560" />					<!-- battle shield -->
 		<item id="2509" chance="1940" />					<!-- steel shield -->
-		<item id="3968" chance="1480" />					<!-- leopard armor -->
-		<item id="3969" chance="1240" />					<!-- horseman helmet -->
-		<item id="2145" chance="1220" />					<!-- small diamond -->
 	</loot>
 </monster>

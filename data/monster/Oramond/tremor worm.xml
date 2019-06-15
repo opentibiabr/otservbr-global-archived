@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="tremor worm" nameDescription="a tremor worm" race="blood" experience="80000" speed="170" manacost="330">
-	<health now="100000" max="100000"/>
-	<look type="295" corpse="0" />
+	<health now="125000" max="125000"/>
+	<look type="295" corpse="0"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -33,8 +33,5 @@
 		<item id="2152" countmax="5" chance="33000"/> <!-- platinum coin -->
 		<item id="7591" countmax="1" chance="10000"/> <!-- great health potion -->
 		<item id="7590" countmax="1" chance="10000"/> <!-- great mana potion -->
-		<item id="9690" chance="1500"/> <!-- gear wheel -->
-		<item id="23522" chance="1000"/> <!-- gearwheel chain -->
-		<item id="10571" countmax="1" chance="900"/> <!-- war crystal -->
 	</loot>
 </monster>

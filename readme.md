@@ -30,7 +30,7 @@ You can see all contributors [here](https://github.com/opentibiabr/OTServBR-Glob
 
 #### Websites:
 Marco Oliveira [GesiorAAC](https://github.com/marcomoa/gesior-aac/archive/master.zip)<br>
-Slawkens (slawkens) [MyAAC](https://github.com/slawkens/myaac/archive/master.zip) + [MyAAC login.php for Tibia 11](https://github.com/slawkens/myaac-tibia11-login/releases/download/v1.3/myaac-tibia11-login-v1.3.zip)<br>
+Slawkens (slawkens) [MyAAC](https://github.com/slawkens/myaac/archive/master.zip) + [MyAAC login.php for Tibia 11](https://forums.otserv.com.br/index.php?/forums/topic/168673-otservbr-globalmyaac-loginphp-para-tibia-11/)<br>
 Znote (Znote) [ZnoteAAC](https://github.com/Znote/ZnoteAAC/archive/master.zip)<br>
 
 #### Contact:

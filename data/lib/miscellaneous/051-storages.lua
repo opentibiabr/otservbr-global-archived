@@ -256,7 +256,8 @@ Storage = {
 		Vampire = 10124,
 		Flower = 10125,
 		Ring2 = 10126,
-		Bone = 10127
+		Bone = 10127,
+		Reward = 10116
 	},
 	ForgottenKnowledge = {
 		AccessDeath = 10132,

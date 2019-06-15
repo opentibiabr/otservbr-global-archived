@@ -53,8 +53,6 @@
 	</summons>
 
 	<loot>
-	<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
-		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->
 		<item id="10298" chance="1000" />	<!-- heavy metal t-shirt -->
 		<item id="10303" chance="1000" />	<!-- club of the fury -->
 		<item id="10297" chance="1000" />	<!-- scythe of the reaper -->

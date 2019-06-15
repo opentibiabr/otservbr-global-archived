@@ -46,13 +46,13 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-<!-- common -->
+		<!-- common -->
 		<item name="Small Sapphire" countmax="5" chance="8700" />
 		<item name="Platinum Coin" countmax="50" chance="87000" />
 		<item id="33317" countmax="10" chance="500" />
 		<item name="Energy Ring" chance="8700" />
 	    <item id="7441" chance="4000" /><!-- ice cube -->
-<!-- semi-rare -->
+		<!-- semi-rare -->
 		<item name="Shard" countmax="3"   chance="250" />
 		<item name="Glacier Mask"   chance="250" />
 		<item name="Hailstorm Rod"    chance="250" />
@@ -61,7 +61,6 @@
 		<item name="Golden Mug" chance="500" />
 		<item name="Glowing Rune" countmax="10" chance="500" />
 		<item name="Energy Ring" chance="8700" />
-		<item id="7141" chance="8700" /> <!-- mead horn -->
 		<item name="Quill" chance="250" />
 		<item name="Small Diamond" countmax="5" chance="500" />
 	</loot>
