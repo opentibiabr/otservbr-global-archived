@@ -1,7 +1,7 @@
 ## OTServ Brasil - Global Server [![Build status](https://ci.appveyor.com/api/projects/status/599x38f3a0luessl?svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download builds for Windows")
 
-* Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus, Marco Oliveira and Otavio Milani.
-* This project is supported: [Forum OTServ Brasil](https://forums.otserv.com.br/)
+* Project Developers: Eduardo Dantas, Gabriel Pedro, Mateus and Otavio Milani.
+* This project is supported by: [Forum OTServ Brasil](https://forums.otserv.com.br/)
 
 ## Important Note, First Read This:
 * Due to Github limiting files larger than 100mb, our map will be compressed into .rar within the world folder
@@ -29,9 +29,7 @@ You can see all contributors [here](https://github.com/opentibiabr/OTServBR-Glob
 [Tibia Clients, RME, Item Editor, Map Tracker and others](https://github.com/opentibiabr/tools/)<br>
 
 #### Websites:
-Marco Oliveira [GesiorAAC](https://github.com/marcomoa/gesior-aac/archive/master.zip)<br>
 Slawkens (slawkens) [MyAAC](https://github.com/slawkens/myaac/archive/master.zip) + [MyAAC login.php for Tibia 11](https://forums.otserv.com.br/index.php?/forums/topic/168673-otservbr-globalmyaac-loginphp-para-tibia-11/)<br>
-Znote (Znote) [ZnoteAAC](https://github.com/Znote/ZnoteAAC/archive/master.zip)<br>
 
 #### Contact:
 [Whatsapp Invite](https://chat.whatsapp.com/FWca9zJxOnXHlcxyjfwXaQ)<br>
