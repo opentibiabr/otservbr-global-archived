@@ -3,6 +3,16 @@
 -- Sort it in Values -
 
 Storage = {
+
+	Dawnport = {
+		Knight = 10101,
+		Sorcerer = 10102,
+		Druid = 10103,
+		Paladin = 10104,
+		Oressa = 10105,
+		Items = 10106
+	},
+	
 	DeeplingBosses = {
 		Jaul = 35600,
 		Tanjis = 35601,

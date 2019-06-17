@@ -2,4 +2,48 @@
 <npc name="Inigo" script="Inigo.lua" walkinterval="2000" floorchange="0">
 	<health now="100" max="100" />
 	<look type="472" head="59" body="114" legs="0" feet="94" addons="1" />
-</npc>
+<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_sellable" value="
+			Acorn,11213,10;
+			Antlers,11214,50;
+			Badger Fur,11216,15;
+			Bat Wing,5894,50;
+			Bear Paw,5896,100;
+			Broken Crossbow,12407,30;
+			Broken Helmet,12409,20;
+			Broken Shamanic Staff,12408,35;
+			Bunch of Troll Hair,10606,30;
+			Carrion Worm Fang,11192,35;
+			Cyclops Toe,10574,55;
+			Damselfly Eye,19743,25;
+			Damselfly Wing,19738,25;			
+			Goblin Ear,12495,20;
+			Honeycomb,5902,40;
+			Lump of Dirt,10609,10;
+			Marsh Stalker Beak ,19741,65;
+			Marsh Stalker Feather,19742,50;
+			Minotaur Horn,12428,75;
+			Minotaur Leather,5878,80;
+			Orc Leather,12435,30;
+			Orc Tooth,11113,150;			
+			Pelvis Bone,12437,30;
+			Piece of Archer Armor,12439,20;
+			Piece of Swampling Wood,20103,30;
+			Poison Spider Shell,12441,10;
+			Purple Robe,12429,110;
+			Scorpion Tail,10568,25;
+			Small Pitchfork,12469,70;
+			Shamanic Hood,12434,45;			
+			Skull Belt,12436,80;
+			Spider Fangs,8859,10;
+			Swampling Moss,20102,20;
+			Wolf Paw,5897,70" />
+		<parameter key="message_farewell" value="May enlightenment be your path, |PLAYERNAME|." />
+		<parameter key="message_walkaway" value="May enlightenment be your path, |PLAYERNAME|." />
+		<parameter key="message_sendtrade" value="Of course, just browse through my offers." />
+		<parameter key="message_greet" value="Be mourned pilgrim in flesh. I'm selling general goods." />
+		</parameters>
+	
+	
+	</npc>

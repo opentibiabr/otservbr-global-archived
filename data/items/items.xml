@@ -19716,6 +19716,12 @@
 	<item id="11231" article="a" name="nettle blossom">
 		<attribute key="weight" value="88" />
 	</item>
+	<item id="23771" article="a" name="spellbook of the Novice">
+		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
+		<attribute key="weight" value="1400" />
+		<attribute key="defense" value="8" />
+		<attribute key="weaponType" value="shield" />
+	</item>
 	<item id="11232" article="a" name="sulphurous stone" plural="sulphurous stones">
 		<attribute key="weight" value="142" />
 	</item>

@@ -49,7 +49,14 @@ keywordHandler:addKeyword({'rat'}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({'spider'}, StdModule.say, {npcHandler = npcHandler, text = 'If you face spiders, beware of the {poisonous} ones. If you are poisoned, you will constantly lose health. Come to me and I\'ll heal you from poison.'})
 keywordHandler:addKeyword({'kill'}, StdModule.say, {npcHandler = npcHandler, text = 'If you get killed, you will revive in this temple. However, you will lose experience and also equipment, which can be quite painful. Take good care of yourself!'})
 keywordHandler:addKeyword({'poison'}, StdModule.say, {npcHandler = npcHandler, text = 'Poison is very dangerous! Don\'t ever drink green liquids, they are poisonous and will make you lose health!'})
-keywordHandler:addKeyword({'vocation'}, StdModule.say, {npcHandler = npcHandler, text = 'There are four vocations in Tibia: {knight}, {sorcerer}, {paladin} or {druid}. Each vocation has its unique special abilities.'})
+local oressaKeyword = keywordHandler:addKeyword({'vocation'}, StdModule.say, {npcHandler = npcHandler, text = 'There are four vocations in Tibia: Knight, Sorcerer, Paladin or Druid. Each one has its unique special abilities. ... Think carefully, as you can\'t change your vocation later on! You will have to {choose} your {vocation} in order to leave Dawnport for the main continent through one of these doors behind me. ... Talk to me again when you are ready to choose your vocation, and I will set you on your way.'})
+	oressaKeyword:addChildKeyword({'choose'}, StdModule.say, {npcHandler = npcHandler, text = 'You have choose your vocation, now leave Dawnport for the main continent through one of these doors behind me.', reset = true},
+		function(player) return player:getStorageValue(Storage.Dawnport.Oressa) < 1 and player:getLevel() >= 8 end,
+		function(player)
+			player:setStorageValue(Storage.Dawnport.Oressa, 1)
+		end
+	)
+	oressaKeyword:addChildKeyword({'choose'}, StdModule.say, {npcHandler = npcHandler, text = 'Sorry, your level is lower than 8 or you already choose your vocation.', reset = true})
 keywordHandler:addKeyword({'knight'}, StdModule.say, {npcHandler = npcHandler, text = 'Knights are close combat fighters. They usually wield melee weapons such as swords, axes or clubs.'})
 keywordHandler:addKeyword({'druid'}, StdModule.say, {npcHandler = npcHandler, text = 'Druids are nature magicians. Their speciality is casting ice and earth magic, as well as providing healing for others.'})
 keywordHandler:addKeyword({'paladin'}, StdModule.say, {npcHandler = npcHandler, text = 'Paladins are well-trained distance fighters and can cast holy magic. You will usually see them wearing bows or crossbows.'})

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+
+	<!-- Dawnport -->
+	<action actionid="1001" script="dawnport.lua" />
+	<action uniqueid="50463" script="dawnport.lua"/>
+	<action uniqueid="50464" script="dawnport.lua"/>
+	<action uniqueid="50465" script="dawnport.lua"/>
+	<action uniqueid="50466" script="dawnport.lua"/>
+	
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
 
