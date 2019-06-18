@@ -371,7 +371,7 @@ achievements =
 	[336] = {name = "Death in the Depths", grade = 1, points = 2, description = "The Baron from Below, Duke of the Depths and the Count of the Core are no more!"},
 
 	--10.8
-	[337] = {name = "Hoard of the Dragon", grade = 1, points = 1, secret = true, description = "Your adventurous way through countless dragon lairs earned you a pretty treasure - and surely the enmity of many a dragon."},
+	[337] = {name = "Hoard of the Dragon", grade = 1, points = 1, secret = true, description = "Your adventurous way through countless dragon lairs earned you a pretty treasure - and surely the enmity of many a dragon."}
 }
 
 ACHIEVEMENT_FIRST = 1
