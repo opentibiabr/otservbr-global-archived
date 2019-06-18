@@ -9,6 +9,9 @@
 	<!-- Adventurer's Guild -->
 	<action itemid="18559" script="adventurers guild/adventurersStone.lua" />
 	<action fromid="19598" toid="19599" script="adventurers guild/magicDoor.lua" />
+	<action actionid="50806" script="quests/adventurers guild/warrior skeleton.lua" />
+	<action actionid="50808" script="quests/adventurers guild/treasure.lua" />
+
 
 	<!-- Annihilator Quest -->
 	<action actionid="2214" script="quests/annihilator/door.lua" />

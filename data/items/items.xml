@@ -38894,6 +38894,52 @@
 		<attribute key="weight" value="1000" />
 		<attribute key="description" value="It's black." />
 	</item>
+	<item id="30749" article="a" name="dead fox">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30750" article="a" name="dead fox">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="30749" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30751" article="a" name="dead fox">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="30750" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30752" article="a" name="dead fox">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="30751" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30753" article="a" name="dead werefox">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30754" article="a" name="dead werefox">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="30753" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30755" article="a" name="dead werefox">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="30754" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="30756" article="a" name="dead werefox">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="30755" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
 	<item id="30757" name="blue spectacles">
 		<attribute key="weight" value="250" />
 		<attribute key="description" value="These spectacles have strange blue lenses which appear completely opaque, yet provide perfectly clear vision." />
@@ -39370,6 +39416,35 @@
 	<item fromid="32036" toid="32037" article="a" name="pile of alchemistic books">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
+	<item id="32038" article="a" name="unknown item"/>
+	<item id="32039" article="a" name="Ferumbras bust">
+		<attribute key="rotateTo" value="32041" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32040" article="a" name="Ferumbras bust">
+		<attribute key="rotateTo" value="32042" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32041" article="a" name="Ferumbras bust">
+		<attribute key="rotateTo" value="32039" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32042" article="a" name="Ferumbras bust">
+		<attribute key="rotateTo" value="32040" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32043" article="a" name="Queen Eloise bust">
+		<attribute key="rotateTo" value="32044" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32044" article="a" name="Queen Eloise bust">
+		<attribute key="rotateTo" value="32043" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32045" article="a" name="unknown item"/>
+	<item id="32046" article="a" name="unknown item"/>
+	<item id="32047" article="a" name="unknown item"/>
+	<item id="32048" article="a" name="unknown item"/>
 	<item id="32049" article="a" name="King Tibianus bust">
 		<attribute key="rotateTo" value="32050" />
 		<attribute key="wrapableTo" value="26054" />
@@ -39378,7 +39453,100 @@
 		<attribute key="rotateTo" value="32049" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item id="32069" article="a" name="Citizen Doll" >
+	<item fromid="32051" toid="32052" article="a" name="werefox trophy"/>
+	<item id="32053" article="a" name="dead cave spider">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32054" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32054" article="a" name="dead cave spider">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32055" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32055" article="a" name="dead cave spider">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="32056" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32056" article="a" name="dead cave spider">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32057" article="a" name="dead black vixen">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32058" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32058" article="a" name="dead black vixen">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32059" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32059" article="a" name="dead black vixen">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="32060" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32060" article="a" name="dead black vixen">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32061" article="a" name="dead bloodback">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32062" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32062" article="a" name="dead bloodback">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32063" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32063" article="a" name="dead bloodback">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="32064" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32064" article="a" name="dead bloodback">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32065" article="a" name="dead shadowpelt">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32066" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32066" article="a" name="dead shadowpelt">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="32067" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32067" article="a" name="dead shadowpelt">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="32068" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32068" article="a" name="dead shadowpelt">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="32069" article="a" name="citizen Doll" >
 		<attribute key="weight" value="2200" />
 		<attribute key="description" value="This doll carries the story of all Tibians in their legendary citizen outfit. Awarded by TibiaTV.com.br." />
 	</item>
