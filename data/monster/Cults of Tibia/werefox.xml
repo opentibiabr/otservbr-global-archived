@@ -74,6 +74,6 @@
 		<item name="Ring of Healing" chance="200"/>
 		<item name="Werewolf Amulet" chance="50"/>
 		<!--Very Rare-->
-		<item name="Werefox Trophy" chance="30"/>
+		<item id="30941" chance="30"/>
 	</loot>
 </monster>
