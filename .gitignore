@@ -13,3 +13,6 @@ map
 data/world/otservbr.otbm
 data/world/otservbr-house.xml
 data/world/otservbr-spawn.xml
+data/world/globalbr-house.xml
+data/world/globalbr-spawn.xml
+data/world/globalbr.otbm
