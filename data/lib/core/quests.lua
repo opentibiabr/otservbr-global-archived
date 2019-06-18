@@ -3359,6 +3359,16 @@ if not Quests then
 				},
 			},
 		},
+		[43] = {
+			name = "Adventurers Guild", startstorageid = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, startstoragevalue = 1,
+			missions = {
+				[1] = {
+					name = "The Great Dragon Hunt", storageid = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton, startvalue = 0, endvalue = 2, description = function(player)
+						return ("You are exploring the Kha'zeel Dragon Lairs. Others obviously found a terrible end here. But the dragon hoards might justify the risks. You killed %d/50 dragons and dragon lords."):format(math.max(player:getStorageValue(Storage.AdventurersGuild.GreatDragonHunt.DragonCounter), 0))
+					end,
+				},
+			},
+		},
 	}
 end
 
