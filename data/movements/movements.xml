@@ -56,6 +56,10 @@
 	<movevent event="DeEquip" itemid="28658" slot="necklace" script="quests/cults of tibia/begintask.lua" />
 	<movevent event="StepIn" itemid="28869" script="quests/cults of tibia/geyser.lua" />
 
+	<!-- Customs -->
+	<movevent event="StepIn" actionid="14876" script="custom/trainerTP.lua"/>
+	<movevent event="StepIn" actionid="14877" script="custom/trainerTPRemove.lua"/>
+
 	<!-- Citizen Teleport -->
 	<movevent event="StepIn" fromuid="9056" touid="9068" script="others/teleports/citizen.lua" />
 	<movevent event="StepIn" uniqueid="9510" script="others/teleports/citizen.lua" />
@@ -204,12 +208,12 @@
 
 	<!-- Heart of Destruction Quest -->
 	<movevent event="StepIn" fromaid="48060" toaid="48069" script="quests/heart of destruction/tps.lua"/>
-    <movevent event="StepIn" fromaid="14321" toaid="14325" script="quests/heart of destruction/hearttps.lua"/>
-    <movevent event="StepIn" fromaid="14340" toaid="14354" script="quests/heart of destruction/hearttps.lua"/>
-    <movevent event="StepIn" itemid="25550" script="quests/heart of destruction/anomalyVortex.lua"/>
-    <movevent event="StepIn" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
-    <movevent event="StepOut" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
-    <movevent event="StepIn" fromid="26125" toid="26126" script="quests/heart of destruction/hungerVortex.lua"/>
+	<movevent event="StepIn" fromaid="14321" toaid="14325" script="quests/heart of destruction/hearttps.lua"/>
+	<movevent event="StepIn" fromaid="14340" toaid="14354" script="quests/heart of destruction/hearttps.lua"/>
+	<movevent event="StepIn" itemid="25550" script="quests/heart of destruction/anomalyVortex.lua"/>
+	<movevent event="StepIn" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
+	<movevent event="StepOut" itemid="26127" script="quests/heart of destruction/cracklerVortex.lua"/>
+	<movevent event="StepIn" fromid="26125" toid="26126" script="quests/heart of destruction/hungerVortex.lua"/>
 
 	<!-- Item Teleport Destinations -->
 	<movevent event="AddItem" tileitem="1" itemid="1387" script="others/itemTeleports.lua" />
@@ -440,11 +444,11 @@
 
 	<!--- World Changes -->
 	-- Nightmare Isles
-	<movevent event="StepIn" fromaid="64103" toaid="64128" script="world changes/nightmare isles/teleportLadders.lua" />
-	<movevent event="StepIn" fromuid="64001" touid="64003" script="world changes/nightmare isles/teleports.lua" /> <!-- entrance -->
-	<movevent event="StepIn" pos="33498;32613;8" script="world changes/nightmare isles/teleports.lua" /> <!-- exit -->
+	<movevent event="StepIn" fromaid="64103" toaid="64128" script="worldchanges/nightmare isles/teleportLadders.lua" />
+	<movevent event="StepIn" fromuid="64001" touid="64003" script="worldchanges/nightmare isles/teleports.lua" /> <!-- entrance -->
+	<movevent event="StepIn" pos="33498;32613;8" script="worldchanges/nightmare isles/teleports.lua" /> <!-- exit -->
 	-- Fury Gates
-	<movevent event="StepIn" fromaid="9710" toaid="9720" script="world changes/fury gates/teleports.lua" />
+	<movevent event="StepIn" fromaid="9710" toaid="9720" script="worldchanges/fury gates/teleports.lua" />
 
 	<!-- Decaying tiles -->
 	<movevent event="StepIn" itemid="293" script="others/decay.lua" />

@@ -38,8 +38,6 @@ local function isBusyable(position)
 	return true
 end
 
-
-
 local function calculatingRoom(uid, position, coluna, linha)
 	local player = Player(uid)
 	if coluna >= config.rX then
@@ -52,7 +50,6 @@ local function calculatingRoom(uid, position, coluna, linha)
 		if isBusyable(room_pos) then
 			player:teleportTo(room_pos)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-
 		else
 			calculatingRoom(uid, position, coluna + 1, linha)
 		end
@@ -73,7 +70,5 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	calculatingRoom(creature.uid, config.first_room_pos, 0, 0)
-
 	return true
-
 end

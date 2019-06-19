@@ -12,7 +12,6 @@
 	<action actionid="50806" script="quests/adventurers guild/warrior skeleton.lua" />
 	<action actionid="50808" script="quests/adventurers guild/treasure.lua" />
 
-
 	<!-- Annihilator Quest -->
 	<action actionid="2214" script="quests/annihilator/door.lua" />
 	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
