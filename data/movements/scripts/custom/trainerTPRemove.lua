@@ -12,7 +12,7 @@ local function removeTrainers(position)
 		end
 	end
 end
-	
+
 function onStepIn(creature, item, position, fromPosition)
 	if not creature:isPlayer() then
 		return false
