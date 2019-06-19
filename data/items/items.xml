@@ -36155,6 +36155,7 @@
 	<item id="27619" article="a" name="Gilded Birthday Cup">
 		<attribute key="weight" value="3800" />
 	</item>
+	<item id="27620" article="a" name="unknown tile" />
 	<item fromid="27622" toid="27627" article="a" name="part of a rune">
 		<attribute key="weight" value="850" />
 	</item>
@@ -36213,6 +36214,7 @@
 	<item id="27646" name="coal eyes">
 		<attribute key="weight" value="650" />
 	</item>
+	<item fromid="27649" toid="27660" article="a" name="unknown border" />
 	<item fromid="27661" toid="27678" article="a" name="dragon lair wall" />
 	<item id="27683" article="a" name="ramp" />
 	<item id="27684" article="a" name="ramp">
