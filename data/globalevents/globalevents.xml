@@ -11,7 +11,7 @@
 	<globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" />
 
 	<!-- Custom -->
-	<globalevent name="Additional" type="startup" script="custom/worldchanges/additionals/trainers_eventRoom.lua"/>
+	<globalevent name="Additional" type="startup" script="custom/worldchanges/additionals/additionalsMapLoading.lua"/>
 
 	<!--Gray Island Bosses -->
 	<globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>
