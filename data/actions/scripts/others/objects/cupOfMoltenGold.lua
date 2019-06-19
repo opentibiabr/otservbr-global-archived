@@ -4,13 +4,13 @@ local items = {
 	[2] = {id = 13539, count = 1, chance = 25},
 }
 
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+function onUse(player, item, fromPosition, itemEx, toPosition)
 
 	if itemEx.itemid == 2700 or itemEx.itemid == 21428 then
 		doRemoveItem(item.uid, 1)
 		for i = 0, #items do
 			if (items[i].chance > math.random(1, 100)) then
-				doPlayerAddItem(cid, items[i].id, items[i].count)
+				doPlayerAddItem(player, items[i].id, items[i].count)
 				doSendMagicEffect(toPosition, CONST_ME_EXPLOSIONAREA)
 			end
 		end
