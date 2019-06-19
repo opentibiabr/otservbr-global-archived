@@ -7,6 +7,7 @@ function onKill(player, creature)
 	end
 	local bosses = {
 		["ravennous hunger"] = {stg = Storage.CultsOfTibia.Barkless.Mission, value = 6},
+		["the souldespoiler"] = {stg = Storage.CultsOfTibia.Misguided.Mission, value = 4},
 		["essence of malice"] = {stg = Storage.CultsOfTibia.Humans.Mission, value = 2},
 		["the unarmored voidborn"] = {stg = Storage.CultsOfTibia.Orcs.Mission, value = 2},
 		["the false god"] = {stg = Storage.CultsOfTibia.Minotaurs.Mission, value = 4},

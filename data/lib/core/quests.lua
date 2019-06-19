@@ -3235,8 +3235,8 @@ if not Quests then
 						[2] = "Below a ruin in the vicinity of the outlaw camp east of Thais a strange figure in ragged clothes hinted at something weird going on in a cave. He seemed too confused to decide whether to stop you.",
 						[3] = function(player)return("While rubbish, the amulet you equipe emits a strange aura of splendour. You feel an urge to fulfill the amulets hunger for especific deaths... \nExorcisms: %d/5 "):format(math.max(player:getStorageValue(Storage.CultsOfTibia.Misguided.Exorcisms), 0))
 						end,
-						[4] = "You defeated the cult leader of Misguided by uncovering the true master to pull his strings and feeing this world from its malicious existance. Return to Gerimor to tell him about the victory.",
-						[5] = "FALOU COM GERIMOR",
+						[4] = "You defeated the cult leader of Misguided by uncovering the true master to pull his strings and freeing this world from its malicious existance. Return to Gerimor to tell him about the victory.",
+						[5] = "You have spoken to Gerimor about your victory.",
 					},
 
 				},
