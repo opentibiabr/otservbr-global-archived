@@ -3261,8 +3261,8 @@ if not Quests then
 						[5] = "You have analysed the water with the help of the analysis tool from Angelo.",
 						[6] = "You informed Angelo about the analyzed water. He gave you a counteragent, wich you have to apply to the oasis.",
 						[7] = "You applied the counteragent to the oasis, just like Angelo had asked you to. But the effect was different from what you had expected. A sandstorm approached and caused create damage to the oasis.",
-						[8] = "matou o boss",
-						[9] = "reportou para angelo",
+						[8] = "You Killed the boss",
+						[9] = "You reported your victory to Angelo",
 						[10] = "You have told Gerimor about your stay in the sandy cave. He was not really surprised and felt vindicated that the rumors about a cult in the cave might be true.",
 					},
 
