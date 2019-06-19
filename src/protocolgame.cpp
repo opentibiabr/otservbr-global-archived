@@ -361,7 +361,18 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 		enableCompact();
 	}
 
-	msg.skipBytes(7); // U32 client version, U8 client type, U16 dat revision
+	clientVersion = msg.get<uint32_t>();
+
+	msg.skipBytes(3); // U32 client version, U8 client type, U16 dat revision
+
+	if (clientVersion >= 1149 && clientVersion < 1200) {
+		// on 1149.6xxx, this was removed later.
+		// extra byte for "optimise connection stability"
+		if (msg.getLength() - msg.getBufferPosition() > 128) {
+			shouldAddExivaRestrictions = true;
+			msg.skipBytes(1);
+		}
+	}
 
 	if (!Protocol::RSA_decrypt(msg)) {
 		disconnect();
@@ -397,6 +408,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	std::string password = sessionKey.substr(pos + 1);
+	std::cout << "AccountName: " << accountName << ", " << password << std::endl;
 
 	std::string characterName = msg.getString();
 
@@ -1226,6 +1238,10 @@ void ProtocolGame::sendCreatureType(const Creature* creature, uint8_t creatureTy
 
 void ProtocolGame::sendCreatureHelpers(uint32_t creatureId, uint16_t helpers)
 {
+	if (version >= 1185) {
+		return;
+	}
+
 	NetworkMessage msg;
 	msg.addByte(0x94);
 	msg.add<uint32_t>(creatureId);
@@ -1272,7 +1288,7 @@ void ProtocolGame::sendReLoginWindow(uint8_t unfairFightReduction)
 	msg.addByte(0x00);
 	msg.addByte(unfairFightReduction);
 	if (version >= 1120) {
-		msg.addByte(0x00); //Use death redemption
+		msg.addByte(0x00); // use death redemption (boolean)
 	}
 	writeToOutputBuffer(msg);
 }
@@ -1943,7 +1959,7 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 	}
 
 	if (version > 1099) {
-	msg.add<uint16_t>(0x00); // imbuement detail
+		msg.add<uint16_t>(0x00); // imbuement detail
 	}
 
 	MarketStatistics* statistics = IOMarket::getInstance().getPurchaseStatistics(itemId);
@@ -2007,7 +2023,7 @@ void ProtocolGame::sendQuestLine(const Quest* quest)
 	for (const Mission& mission : quest->getMissions()) {
 		if (mission.isStarted(player)) {
 			if (player->getProtocolVersion() >= 1120){
-				msg.add<uint16_t>(quest->getID());
+				msg.add<uint16_t>(0x00); // missionID (TODO, this is used for quest tracker)
 			}
 			msg.addString(mission.getName(player));
 			msg.addString(mission.getDescription(player));
@@ -2051,11 +2067,11 @@ void ProtocolGame::sendTradeItemRequest(const std::string& traderName, const Ite
 
 		msg.addByte(itemList.size());
 		for (const Item* listItem : itemList) {
-			msg.addItem(listItem);
+			AddItem(msg, listItem);
 		}
 	} else {
 		msg.addByte(0x01);
-		msg.addItem(item);
+		AddItem(msg, item);
 	}
 	writeToOutputBuffer(msg);
 }
@@ -2226,7 +2242,7 @@ void ProtocolGame::sendAddTileItem(const Position& pos, uint32_t stackpos, const
 	msg.addByte(0x6A);
 	msg.addPosition(pos);
 	msg.addByte(stackpos);
-	msg.addItem(item);
+	AddItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -2240,7 +2256,7 @@ void ProtocolGame::sendUpdateTileItem(const Position& pos, uint32_t stackpos, co
 	msg.addByte(0x6B);
 	msg.addPosition(pos);
 	msg.addByte(stackpos);
-	msg.addItem(item);
+	AddItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -2335,7 +2351,7 @@ void ProtocolGame::sendAddContainerItem(uint8_t cid, uint16_t slot, const Item* 
 	msg.addByte(0x70);
 	msg.addByte(cid);
 	msg.add<uint16_t>(slot);
-	msg.addItem(item);
+	AddItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -2345,7 +2361,7 @@ void ProtocolGame::sendUpdateContainerItem(uint8_t cid, uint16_t slot, const Ite
 	msg.addByte(0x71);
 	msg.addByte(cid);
 	msg.add<uint16_t>(slot);
-	msg.addItem(item);
+	AddItem(msg, item);
 	writeToOutputBuffer(msg);
 }
 
@@ -2356,7 +2372,7 @@ void ProtocolGame::sendRemoveContainerItem(uint8_t cid, uint16_t slot, const Ite
 	msg.addByte(cid);
 	msg.add<uint16_t>(slot);
 	if (lastItem) {
-		msg.addItem(lastItem);
+		AddItem(msg, lastItem);
 	} else {
 		msg.add<uint16_t>(0x00);
 	}
@@ -2368,7 +2384,7 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, Item* item, uint16_t ma
 	NetworkMessage msg;
 	msg.addByte(0x96);
 	msg.add<uint32_t>(windowTextId);
-	msg.addItem(item);
+	AddItem(msg, item);
 
 	if (canWrite) {
 		msg.add<uint16_t>(maxlen);
@@ -2401,7 +2417,7 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, uint32_t itemId, const 
 	NetworkMessage msg;
 	msg.addByte(0x96);
 	msg.add<uint32_t>(windowTextId);
-	msg.addItem(itemId, 1);
+	AddItem(msg, itemId, 1);
 	msg.add<uint16_t>(text.size());
 	msg.addString(text);
 	msg.add<uint16_t>(0x00);
@@ -2453,16 +2469,25 @@ void ProtocolGame::sendOutfitWindow()
 		}
 
 		protocolOutfits.emplace_back(outfit.name, outfit.lookType, addons);
-		if (protocolOutfits.size() == 150) { // Game client doesn't allow more than 100 outfits
+		if (protocolOutfits.size() == 150 && version < 1185) { // Game client doesn't allow more than 100 outfits
 			break;
 		}
 	}
 
-	msg.addByte(protocolOutfits.size());
+	if (version >= 1185) {
+		msg.add<uint16_t>(protocolOutfits.size());
+	} else {
+		msg.addByte(protocolOutfits.size());
+	}
+
 	for (const ProtocolOutfit& outfit : protocolOutfits) {
 		msg.add<uint16_t>(outfit.lookType);
 		msg.addString(outfit.name);
 		msg.addByte(outfit.addons);
+
+		if (version >= 1185) {
+			msg.addByte(0x00);
+		}
 	}
 
 	std::vector<const Mount*> mounts;
@@ -2472,10 +2497,24 @@ void ProtocolGame::sendOutfitWindow()
 		}
 	}
 
-	msg.addByte(mounts.size());
+	if (version >= 1185) {
+		msg.add<uint16_t>(mounts.size());
+	} else {
+		msg.addByte(mounts.size());
+	}
+
 	for (const Mount* mount : mounts) {
 		msg.add<uint16_t>(mount->clientId);
 		msg.addString(mount->name);
+
+		if (version >= 1185) {
+			msg.addByte(0x00);
+		}
+	}
+
+	if (version >= 1185) {
+		msg.addByte(0x00);
+		msg.addByte(0x00);
 	}
 
 	writeToOutputBuffer(msg);

@@ -147,7 +147,7 @@ void ProtocolSpectator::sendEmptyTileOnPlayerPos(const Tile* tile, const Positio
 	msg.addPosition(playerPos);
 
 	msg.add<uint16_t>(0x00);
-	msg.addItem(tile->getGround());
+	AddItem(msg, tile->getGround());
 
 	msg.addByte(0x00);
 	msg.addByte(0xFF);

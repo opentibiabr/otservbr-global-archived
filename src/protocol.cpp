@@ -25,7 +25,7 @@
 
 extern RSA g_RSA;
 
-void Protocol::onSendMessage(const OutputMessage_ptr& msg) const
+void Protocol::onSendMessage(const OutputMessage_ptr& msg)
 {
 	if (!rawMessages) {
 		msg->writeMessageLength();
@@ -33,9 +33,9 @@ void Protocol::onSendMessage(const OutputMessage_ptr& msg) const
 		if (encryptionEnabled) {
 			XTEA_encrypt(*msg);
 			if (!compactCrypt) {
-				msg->addCryptoHeader((checksumEnabled ? 1 : 0));
+				msg->addCryptoHeader((checksumEnabled ? 1 : 0), sequenceNumber);
 			} else {
-				msg->addCryptoHeader(2);
+				msg->addCryptoHeader(2, sequenceNumber);
 			}
 		}
 	}

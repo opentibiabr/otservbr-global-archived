@@ -135,12 +135,20 @@ function changeStateToSelection(player, indexColumn)
 	end
 
 	msg:addU16(player:getNextFreeroll(indexColumn))
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00) -- preyWildCards
+  end
+  
 	msg:addByte(0xEC)
 	player:sendResource("prey", player:getBonusReroll())
 	player:sendResource("bank", player:getBankBalance())
 	player:sendResource("inventory", player:getMoney())
 	msg:addByte(ServerPackets.PreyRerollPrice)
 	msg:addU32(player:getRerollPrice())
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00)
+    msg:addByte(0x00)
+  end
 	msg:sendToPlayer(player)
 end
 
@@ -180,7 +188,10 @@ function changeStateToSelectionChangeMonster(player, indexColumn)
 	end
 
 	msg:addU16(player:getNextFreeroll(indexColumn)) -- Next Free Reroll
-
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00) -- preyWildCards
+  end
+  
 	msg:addByte(0xEC)
 	player:sendResource("prey", player:getBonusReroll())
 	player:sendResource("bank", player:getBankBalance())
@@ -196,6 +207,10 @@ function changeStateToLocked(player, indexColumn)
 	msg:addByte(StateTypes.STATE_LOCKED)
 	msg:addByte(UnlockTypes.UNLOCK_PREMIUM_OR_STORE)
 	msg:addU16(0)
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00) -- preyWildCards
+  end
+  
 	msg:addByte(0xEC)
 	player:sendResource("prey", player:getBonusReroll())
 	player:sendResource("bank", player:getBankBalance())
@@ -235,6 +250,9 @@ function changeStateToActive(player, indexColumn)
 	msg:addByte(Bonus.Grade) -- 1~10 Grade
 	msg:addU16(timeLeft) -- Time Left Bonus
 	msg:addU16(player:getNextFreeroll(indexColumn))
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00) -- preyWildCards
+  end
 
 	msg:addByte(0xEC)
 	player:sendResource("prey", player:getBonusReroll())
@@ -242,6 +260,10 @@ function changeStateToActive(player, indexColumn)
 	player:sendResource("inventory", player:getMoney())
 	msg:addByte(ServerPackets.PreyRerollPrice)
 	msg:addU32(player:getRerollPrice())
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00)
+    msg:addByte(0x00)
+  end
 	msg:sendToPlayer(player)
 end
 
@@ -456,6 +478,9 @@ function SelectPrey(player, PreyColumn, mType)
 	msg:addByte(newBonus.Grade) -- 1~10 Grade
 	msg:addU16(newBonus.Left) -- Time Left Bonus
 	msg:addU16(player:getNextFreeroll(PreyColumn)) -- Next Free Reroll
+  if player:getClient().version >= 1190 then
+    msg:addByte(0x00) -- preyWildCards
+  end
 	msg:sendToPlayer(player)
 end
 
