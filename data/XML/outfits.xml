@@ -82,6 +82,7 @@
 	<outfit type="0" looktype="1203" name="Void Master" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1205" name="Veteran Paladin" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1207" name="Lion of War" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1211" name="Golden Outfit" premium="yes" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -166,5 +167,6 @@
 	<outfit type="1" looktype="1202" name="Void Master" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1204" name="Veteran Paladin" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1206" name="Lion of War" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1210" name="Golden Outfit" premium="yes" unlocked="no" enabled="yes" />
 
 </outfits>
