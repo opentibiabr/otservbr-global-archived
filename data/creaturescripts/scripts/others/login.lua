@@ -167,7 +167,7 @@ function onLogin(player)
         player:popupFYI(msg)
     end
 
- 	-- OPEN CHANNERLS
+ 	-- OPEN CHANNELS
 	if table.contains({"Rookgaard", "Dawnport"}, player:getTown():getName())then
 		--player:openChannel(7) -- help channel
 		player:openChannel(3) -- world chat
