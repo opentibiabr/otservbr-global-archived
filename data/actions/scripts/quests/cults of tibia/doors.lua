@@ -24,8 +24,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.finalBoss.Mission) > 0 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -34,8 +34,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Acesso) == 1 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -46,8 +46,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) >= 3 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -56,8 +56,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) > 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -66,8 +66,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 12 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -76,8 +76,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 14 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -86,8 +86,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) > 0 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -96,8 +96,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 5 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 
@@ -106,8 +106,8 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) >= 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
 	
@@ -116,11 +116,10 @@ local posAcessSoul = Position(32508, 32370, 9)
 		if player:getStorageValue(Storage.CultsOfTibia.Misguided.Mission) >= 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
-			else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		else
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 		end
 	end
-
 
 	return true
 end
