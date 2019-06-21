@@ -12,7 +12,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     end
  
     local charges = item:getCharges()
-        if coin.changeTo and target.type == 100 then
+    if coin.changeTo and target.type == 100 then
         target:remove()
         player:addItem(coin.changeTo, 1)
         item:transform(item:getId(), charges -1)
