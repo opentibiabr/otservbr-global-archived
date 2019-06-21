@@ -20,11 +20,13 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         target:transform(target.itemid, target.type - 1)
         player:addItem(coin.changeBack, 100)
         item:transform(item:getId(), charges -1)
-        else
+    else
         return false
     end
+
     if charges == 0 then
-    item:remove()
+        item:remove()
     end
+
     return true
 end
