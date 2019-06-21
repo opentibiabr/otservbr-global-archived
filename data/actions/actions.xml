@@ -12,6 +12,7 @@
 	<action actionid="50806" script="quests/adventurers guild/warrior skeleton.lua" />
 	<action actionid="50808" script="quests/adventurers guild/treasure.lua" />
 
+
 	<!-- Annihilator Quest -->
 	<action actionid="2214" script="quests/annihilator/door.lua" />
 	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
@@ -523,6 +524,7 @@
 	<action itemid="6576" script="others/objects/fireworksRocket.lua" />
 	<action itemid="26347" script="others/objects/fishTank.lua"/>
 	<action itemid="23574" script="others/objects/gloothBag.lua"/>
+	<action itemid="26378" script="others/objects/goldConverter.lua"/>
 	<action itemid="5957" script="others/objects/lotteryTicket.lua" />
 	<action itemid="18395" script="others/objects/muckRemover.lua" />
 	<action itemid="6578" script="others/objects/partyHat.lua" />
