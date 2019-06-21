@@ -368,7 +368,10 @@ achievements =
 	[333] = {name = "Buried the Baron", grade = 1, points = 1, description = "You defeated the Baron from Below and destroyed his lava pump!"},
 	[334] = {name = "His Days are Counted", grade = 1, points = 1, description = "You defeated the Count of the Core and destroyed his lava pump!"},
 	[335] = {name = "Duked It Out", grade = 1, points = 1, description = "You defeated the Duke of the Depths and destroyed his lava pump!"},
-	[336] = {name = "Death in the Depths", grade = 1, points = 2, description = "The Baron from Below, Duke of the Depths and the Count of the Core are no more!"}
+	[336] = {name = "Death in the Depths", grade = 1, points = 2, description = "The Baron from Below, Duke of the Depths and the Count of the Core are no more!"},
+
+	--10.8
+	[337] = {name = "Hoard of the Dragon", grade = 1, points = 1, secret = true, description = "Your adventurous way through countless dragon lairs earned you a pretty treasure - and surely the enmity of many a dragon."}
 }
 
 ACHIEVEMENT_FIRST = 1

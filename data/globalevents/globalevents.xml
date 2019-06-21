@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-
 	<!-- Autoloot -->
 	<globalevent name="autoloot" type="startup" script="autoloot.lua"/>
 
 	<!-- boss falcon -->
 	<globalevent name="Canon Dominus" interval="900000" script="bosses/Grand Canon Dominus.lua" />
 	<globalevent name="Chaplaingaunder" interval="900000" script="bosses/Grand Chaplain Gaunder.lua" />
-    <globalevent name="Preceptor Lazare" interval="900000" script="bosses/Preceptor Lazare.lua" />
+	<globalevent name="Preceptor Lazare" interval="900000" script="bosses/Preceptor Lazare.lua" />
 	<globalevent name="Grand Commander" interval="900000" script="bosses/Grand Commander Soeren.lua" />
-    <globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" />
+	<globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" />
+
+	<!-- Custom -->
+	<globalevent name="Additional" type="startup" script="custom/worldchanges/additionals/additionalsMapLoading.lua"/>
 
 	<!--Gray Island Bosses -->
-    <globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>
+	<globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>
 
-    <!--Mawhawk -->
-    <globalevent name="Mawhawk" interval="14399999" script="bosses/Mawhawk.lua"/>
+	<!--Mawhawk -->
+	<globalevent name="Mawhawk" interval="14399999" script="bosses/Mawhawk.lua"/>
 
-    <!-- Pits of Inferno -->
-    <globalevent name="bosspoi" interval="46800000" script="bosses/bosspoi.lua"/>
+	<!-- Pits of Inferno -->
+	<globalevent name="bosspoi" interval="46800000" script="bosses/bosspoi.lua"/>
 
-    <!-- Mad Mage -->
-    <globalevent name="Mad" interval="14400000" script="bosses/Mad.lua"/>
+	<!-- Mad Mage -->
+	<globalevent name="Mad" interval="14400000" script="bosses/Mad.lua"/>
 
-    <globalevent name="npcs" type="startup" script="others/npcspawn.lua"/>
+	<globalevent name="npcs" type="startup" script="others/npcspawn.lua"/>
 
 	<!-- Grimvale -->
 	<globalevent name="Grimvale" interval="60000" script="others/grimvale.lua" />
 	<globalevent name="Respawn" type="startup" script="others/grimvaleRespawn.lua" />
 
 	<!-- Ferumbras Ascendant -->
-    <globalevent name="Effect" interval="3000" script="quests/ferumbras ascedant/effect.lua"/>
-    <globalevent name="Effcts" interval="4000" script="quests/ferumbras ascedant//effects.lua"/>
+	<globalevent name="Effect" interval="3000" script="quests/ferumbras ascedant/effect.lua"/>
+	<globalevent name="Effcts" interval="4000" script="quests/ferumbras ascedant//effects.lua"/>
 
 	<!-- Blooming Griffinclaw -->
 	<globalevent name="GriffinclawFlower" type="startup" script="others/griffinclawFlower.lua" />
@@ -56,7 +58,7 @@
 	<globalevent name="ServerSave" time="05:55:00" script="serversave.lua" />
 	<globalevent type="startup" name="rashid" script="rashid.lua"/>
 	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
-    <globalevent name="text" interval="4550" script="textotp.lua"/>
+
 	<globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" />
 	<globalevent name="checkInbox" interval="30000" script="others/checkInbox.lua"/>
 	<globalevent interval="100000" name="GuildWar" script="guildwar.lua"/>

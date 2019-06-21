@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Shadowpelt" nameDescription="a shadowpelt" race="blood" experience="4000" speed="230" manacost="0" script="boss.lua">
 	<health now="5000" max="5000" />
-	<look type="1040" corpse="32066" />
+	<look type="1040" corpse="32065" />
 	<targetchange interval="2000" chance="11" />
 	<flags>
 		<flag preyable="0" />
@@ -12,41 +12,24 @@
 		<flag illusionable="0" />
 		<flag convinceable="0" />
 		<flag pushable="0" />
-				<flag isblockable="0" />
+		<flag isblockable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
 		<flag targetdistance="0" />
 		<flag staticattack="90" />
 		<flag runonhealth="300" />
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="50" />
-
 		<attack name="physical" interval="100" chance="22" radius="3" min="-200" max="-310">
-		<attribute key="areaEffect" value="explosionarea" />
+			<attribute key="areaEffect" value="explosionarea" />
 		</attack>
-
-
 	    <attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebear" duration="2000">
         </attack>
-
-
-
 		<attack name="lifedrain" interval="100" chance="15" radius="3" target="0" min="-100" max="-200">
-		<attribute key="areaEffect" value="whitenote" />
+			<attribute key="areaEffect" value="whitenote" />
 		</attack>
-
-
-
-
 	</attacks>
-
-
-
-
-
-
 	<defenses armor="30" defense="30">
 		<defense name="healing" interval="2000" chance="7" min="120" max="310">
 			<attribute key="areaEffect" value="blueshimmer" />
@@ -55,12 +38,9 @@
 			<attribute key="areaEffect" value="poff" />
 		</defense>
 	</defenses>
-
 	<summons maxSummons="2">
 		<summon name="Werebear" interval="2000" chance="20" />
 	</summons>
-
-
 	<elements>
 		<element firePercent="10" />
 		<element holyPercent="10" />
@@ -74,11 +54,8 @@
 		<voice sentence="The strength of bears will subdue the weak!" />
 		<voice sentence="It was a mistake to enter my cave!" />
 	</voices>
-
-
 	<loot>
-		<!-- Loot comum -->
-
+		<!-- common -->
 		<item name="Gold Coin" countmax="200" chance="13600000" />
 		<item name="Gold Coin" countmax="100" chance="13600000" />
 		<item name="Platinum Coin" countmax="5" chance="13600000" />
@@ -95,20 +72,16 @@
 		<item name="Ultimate Health Potion" countmax="5" chance="13600000" />
 		<item name="Werebear Fur" countmax="2" chance="13600000" />
 		<item name="Werebear Skull" countmax="2" chance="13600000" />
-
-<!-- Semi-raro-->
+		<!-- semi-rare -->
 		<item name="Dreaded Cleaver"  chance="550" />
 	    <item name="Fur Armor" chance="550" />
 		<item name="Relic Sword" chance="550" />
-
-
-<!-- raro-->
+		<!-- rare -->
 		<item name="Silver Token" chance="150" />
 		<item name="Werebear Trophy" chance="150" />
-
-<!-- Muito raro-->
+		<!-- very rare-->
 		<item name="Wolf Backpack" chance="100" />
-<!-- Durante eventos-->
+		<!-- only events-->
 		<item name="Moonlight Crystal" chance="50" />
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Cave Spider" nameDescription="a cave spider" race="venom" experience="2000" speed="120">
 	<health now="1800" max="1800" />
-	<look type="38" corpse="5977" />
+	<look type="38" corpse="32053" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag preyable="0" />

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
 
+	<!-- Adventurers Guild -->
+	<event type="kill" name="theGreatDragonHuntKill" script="quests/adventurers guild/the great dragon hunt.lua"/>
+
 	<!-- The Masters Voice Quest-->
 	<event type="death" name="Servant_Death" script="mastervoice/servantDeath.lua"/>
 	<event type="death" name="Mage_Death" script="mastervoice/mageDeath.lua"/>

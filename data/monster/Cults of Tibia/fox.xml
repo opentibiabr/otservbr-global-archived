@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Fox" nameDescription="a fox" race="blood" experience="15" speed="85" manacost="0">
 	<health now="22" max="22"/>
-	<look type="1029" corpse="30751"/>
+	<look type="1029" corpse="30752"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -9,7 +9,7 @@
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
-				<flag isblockable="0"/>
+		<flag isblockable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
@@ -32,7 +32,7 @@
 		<voice sentence="Grrrrrrr"/>
 	</voices>
 	<loot>
-		<item name="Fox Paw" countmax="1" chance="60780"/>		<!-- ham -->
-		<item id="2666" countmax="1" chance="4920"/>		<!-- meat -->
+		<item id="2666" countmax="1" chance="49320"/> <!-- meat -->
+		<item name="Fox Paw" countmax="1" chance="1350"/>	
 	</loot>
 </monster>
