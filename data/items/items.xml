@@ -17297,15 +17297,43 @@
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="venom" />
 	</item>
-	<item fromid="9808" toid="9810" article="a" name="rusty armor">
+	<item id="9808" article="a" name="heavily rusted armor">
 		<attribute key="description" value="If you can remove the rust layer and dirt from the armor you will be able to see what it is." />
 		<attribute key="weight" value="12000" />
 	</item>
-	<item fromid="9811" toid="9813" article="a" name="rusty legs">
+	<item id="9809" article="a" name="rusted armor">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the armor you will be able to see what it is." />
+		<attribute key="weight" value="12000" />
+	</item>
+	<item id="9810" article="a" name="slightly rusted armor">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the armor you will be able to see what it is." />
+		<attribute key="weight" value="12000" />
+	</item>
+	<item id="9811" article="a" name="heavily rusted legs">
 		<attribute key="description" value="If you can remove the rust layer and dirt from the legs you will be able to see what it is." />
 		<attribute key="weight" value="7000" />
 	</item>
-	<item fromid="9814" toid="9816" article="a" name="rusty shield">
+	<item id="9812" article="a" name="rusted legs">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the legs you will be able to see what it is." />
+		<attribute key="weight" value="7000" />
+	</item>
+	<item id="9813" article="a" name="slightly rusted legs">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the legs you will be able to see what it is." />
+		<attribute key="weight" value="7000" />
+	</item>
+	<item id="9814" article="a" name="heavily rusted shield">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the shields you will be able to see what it is." />
+		<attribute key="weight" value="2800" />
+		<attribute key="defense" value="1" />
+		<attribute key="weaponType" value="shield" />
+	</item>
+	<item id="9815" article="a" name="rusted shield">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the shields you will be able to see what it is." />
+		<attribute key="weight" value="2800" />
+		<attribute key="defense" value="1" />
+		<attribute key="weaponType" value="shield" />
+	</item>
+	<item id="9816" article="a" name="slightly rusted shield">
 		<attribute key="description" value="If you can remove the rust layer and dirt from the shields you will be able to see what it is." />
 		<attribute key="weight" value="2800" />
 		<attribute key="defense" value="1" />
@@ -17317,7 +17345,19 @@
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
 	</item>
-	<item fromid="9820" toid="9822" article="a" name="rusty helmet">
+	<item id="9820" article="a" name="heavily rusted helmet">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the helmets you will be able to see what it is." />
+		<attribute key="weight" value="2800" />
+		<attribute key="armor" value="1" />
+		<attribute key="slotType" value="head" />
+	</item>
+	<item id="9821" article="a" name="rusted helmet">
+		<attribute key="description" value="If you can remove the rust layer and dirt from the helmets you will be able to see what it is." />
+		<attribute key="weight" value="2800" />
+		<attribute key="armor" value="1" />
+		<attribute key="slotType" value="head" />
+	</item>
+	<item id="9822" article="a" name="slightly rusted helmet">
 		<attribute key="description" value="If you can remove the rust layer and dirt from the helmets you will be able to see what it is." />
 		<attribute key="weight" value="2800" />
 		<attribute key="armor" value="1" />
@@ -36155,6 +36195,7 @@
 	<item id="27619" article="a" name="Gilded Birthday Cup">
 		<attribute key="weight" value="3800" />
 	</item>
+	<item id="27620" article="a" name="dark stone" />
 	<item fromid="27622" toid="27627" article="a" name="part of a rune">
 		<attribute key="weight" value="850" />
 	</item>
@@ -36213,6 +36254,7 @@
 	<item id="27646" name="coal eyes">
 		<attribute key="weight" value="650" />
 	</item>
+	<item fromid="27649" toid="27660" article="a" name="dark stone" />
 	<item fromid="27661" toid="27678" article="a" name="dragon lair wall" />
 	<item id="27683" article="a" name="ramp" />
 	<item id="27684" article="a" name="ramp">
@@ -40668,7 +40710,7 @@
 	</item>
 	<item id="33311" article="a" name="ritual stone tablet">
 		<attribute key="weight" value="850" />
-		<attribute key="description" value="Â¨With courage and foresight every challenge can be mastered!Â¨." />
+		<attribute key="description" value="¨With courage and foresight every challenge can be mastered!¨." />
 	</item>
 	<item id="33313" article="a" name="silken bookmark">
 		<attribute key="weight" value="100" />
@@ -41564,10 +41606,6 @@
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 	</item>
-	<item id="34067" article="a" name="pendulet">
-		<attribute key="weight" value="650" />
-		<attribute key="slotType" value="necklace" />
-	</item>
 	<item id="34068" article="an" name="ectoplasmic shield">
 		<attribute key="weight" value="5800" />
 		<attribute key="weaponType" value="shield" />
@@ -41939,6 +41977,9 @@
 	<item id="34725" article="a" name="Plagueroot offshoot">
 		<attribute key="weight" value="70" />
 	</item>
+	<item id="34726" article="a" name="Malofur's lunchbox">
+		<attribute key="weight" value="70" />
+	</item>
 	<item id="34734" article="a" name="dead spiky carnivor">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
@@ -41984,9 +42025,6 @@
 		<attribute key="decayTo" value="34742" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
-	</item>
-	<item id="34745" article="a" name="Malofur's lunchbox">
-		<attribute key="weight" value="70" />
 	</item>
 	<item fromid="34756" toid="34757" article="a" name="golden sun2"/>
 	<item fromid="34758" toid="34759" article="a" name="snowflakes2"/>
@@ -42235,6 +42273,12 @@
 		<attribute key="weight" value="700" />
 		<attribute key="description" value="It was frozen deep in the caverns of Folda. A certain warmth and pulse emit from inside. Awarded by TibiaBosses.com." />
 	</item>
+	<item id="34822" article="a" name="crunor's heart">
+		<attribute key="weight" value="700" />
+		<attribute key="description" value="It was frozen deep in the caverns of Folda. A certain warmth and pulse emit from inside. Awarded by TibiaBosses.com." />
+		<attribute key="decayTo" value="34821" />
+		<attribute key="duration" value="300" />
+	</item>
 	<item id="34980" article="a" name="enchanted sleep shawl">
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
@@ -42242,10 +42286,14 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEarth" value="24" />
 		<attribute key="absorbPercentPhysical" value="7" />
-		<attribute key="decayTo" value="34066" />
+		<attribute key="decayTo" value="34981" />
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
+	</item>
+	<item id="34981" article="a" name="sleep shawl">
+		<attribute key="weight" value="650" />
+		<attribute key="slotType" value="necklace" />
 	</item>
 	<item id="34982" article="a" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
@@ -42254,10 +42302,97 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEnergy" value="18" />
 		<attribute key="absorbPercentPhysical" value="5" />
-		<attribute key="decayTo" value="34067" />
+		<attribute key="decayTo" value="34983" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
+	</item>
+	<item id="34983" article="a" name="pendulet">
+		<attribute key="weight" value="650" />
+		<attribute key="slotType" value="necklace" />
+	</item>
+	<item id="35021" article="a" name="festive filled shoes">
+		<attribute key="rotateTo" value="35022" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35022" article="a" name="festive filled shoes">
+		<attribute key="rotateTo" value="35021" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35023" article="a" name="festive table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35024" article="a" name="festive table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35025" article="a" name="festive table">
+		<attribute key="wrapableTo" value="35027" />
+	</item>
+	<item id="35026" article="a" name="festive table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35027" article="a" name="festive fireplace">
+		<attribute key="rotateTo" value="35029" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35028" article="a" name="festive fireplace">
+		<attribute key="rotateTo" value="35030" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35029" article="a" name="festive fireplace">
+		<attribute key="rotateTo" value="35027" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35030" article="a" name="festive fireplace">
+		<attribute key="rotateTo" value="35028" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35031" article="a" name="festive three">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35032" article="a" name="festive three">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35033" article="a" name="festive rocking chair">
+		<attribute key="rotateTo" value="35034" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35034" article="a" name="festive rocking chair">
+		<attribute key="rotateTo" value="35035" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35035" article="a" name="festive rocking chair">
+		<attribute key="rotateTo" value="35036" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35036" article="a" name="festive rocking chair">
+		<attribute key="rotateTo" value="35033" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35037" article="a" name="festive sleigh">
+		<attribute key="rotateTo" value="35038" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35038" article="a" name="festive sleigh">
+		<attribute key="rotateTo" value="35037" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35039" article="a" name="festive pile of presents">
+		<attribute key="rotateTo" value="35040" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35040" article="a" name="festive pile of presents">
+		<attribute key="rotateTo" value="35039" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35041" article="a" name="festive sack of presents">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35042" article="a" name="festive pyramid">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="35043" article="a" name="festive pyramid">
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="35044" article="a" name="broken bell">
 		<attribute key="weight" value="220" />
@@ -42335,6 +42470,7 @@
 		<attribute key="weight" value="400" />
 	</item>
 	<item id="35068" article="a" name="ice"/>
+	<item id="35069" article="a" name="frozen human"/>
 	<item id="35071" article="a" name="large snowball"/>
 	<item id="35072" article="a" name="ice stone"/>
 	<item id="35073" article="a" name="ice stone"/>
@@ -42590,59 +42726,273 @@
 	<item id="35168" article="a" name="the percht queen"> <!-- looktype boss The Percht Queen -->
 		<attribute key="weight" value="700" />
 	</item>
-	<item id="34172" article="a" name="roasted wyvern wing">
-		<attribute key="weight" value="1200" />
-		<attribute key="description" value="This traditional casserole made of leftovers is beefy and actually smells quite good." />
+	<item id="35172" article="a" name="roasted wyvern wings">
+		<attribute key="weight" value="7400" />
+		<attribute key="description" value="Wyverns are tough and renitent, unless roasted gently." />
 	</item>
-	<item id="34173" article="a" name="carrot pie">
+	<item id="35173" article="a" name="carrot pie">
 		<attribute key="weight" value="620" />
 		<attribute key="description" value="This pie is fruity and spicy at the same time, which makes it absolutely delicious. Try to control yourself." />
 	</item>
-	<item id="34174" article="a" name="tropical marinated tiger">
+	<item id="35174" article="a" name="tropical marinated tiger">
 		<attribute key="weight" value="900" />
 		<attribute key="description" value="This delicious tiger meat is marinated in a tasty exotic sauce." />
 	</item>
-	<item id="34175" article="a" name="delicatessen salad">
+	<item id="35175" article="a" name="delicatessen salad">
 		<attribute key="weight" value="600" />
 		<attribute key="description" value="A true gourmet salad with some very tasty but also not very healthy ingredients." />
 	</item>
-	<item id="34176" article="a" name="chilli con carniphila">
+	<item id="35176" article="a" name="chilli con carniphila">
 		<attribute key="weight" value="820" />
 		<attribute key="description" value="Spicy chilly combined with delicious minced carniphila meat, salad is already included." />
 	</item>
-	<item id="34177" article="a" name="svargrond salmon filet">
+	<item id="35177" article="a" name="svargrond salmon filet">
 		<attribute key="weight" value="780" />
 		<attribute key="description" value="Fresh from the coast of Svargrond, this salmon lives up to traditional northern cuisine." />
 	</item>
-	<item id="34178" article="a" name="carrion casserole">
+	<item id="35178" article="a" name="carrion casserole">
 		<attribute key="weight" value="1200" />
 		<attribute key="description" value="This traditional casserole made of leftovers is beefy and actually smells quite good." />
 	</item>
-	<item id="34179" article="a" name="consecrated beef">
+	<item id="35179" article="a" name="consecrated beef">
 		<attribute key="weight" value="1100" />
 		<attribute key="description" value="Tasty beef with an aromatic sauce and parsley potatoes." />
 	</item>
-	<item id="34180" article="a" name="overcooked noodles">
+	<item id="35180" article="a" name="overcooked noodles">
 		<attribute key="weight" value="100" />
 		<attribute key="description" value="Not exactly 'al dente' yet some just seem to love it." />
 	</item>
-	<item id="40001" name="water" />
-	<item id="40002" name="blood" />
-	<item id="40003" name="beer" />
-	<item id="40004" name="slime" />
-	<item id="40005" name="lemonade" />
-	<item id="40006" name="milk" />
-	<item id="40007" name="manafluid" />
-	<item id="40010" name="lifefluid" />
-	<item id="40011" name="oil" />
-	<item id="40013" name="urine" />
-	<item id="40014" name="coconut milk" />
-	<item id="40015" name="wine" />
-	<item id="40019" name="mud" />
-	<item id="40021" name="fruit juice" />
-	<item id="40026" name="lava" />
-	<item id="40027" name="rum" />
-	<item id="40028" name="swamp" />
-	<item id="40035" name="tea" />
-	<item id="40043" name="mead" />
+	<item id="35197" article="an" name="Badbara">
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="35198" article="an" name="Tearesa">
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="35199" article="an" name="Cryana">
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="35200" article="an" name="Badbara">
+		<attribute key="decayTo" value="35197" />
+		<attribute key="duration" value="3600" />
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="35201" article="an" name="Tearesa">
+		<attribute key="decayTo" value="35198" />
+		<attribute key="duration" value="3600" />
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="35202" article="an" name="Cryana">
+		<attribute key="decayTo" value="35199" />
+		<attribute key="duration" value="3600" />
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="35203" article="an" name="black raven">
+		<attribute key="wrapableTo" value="35206" />
+	</item>
+	<item id="35204" article="an" name="grey raven">
+		<attribute key="wrapableTo" value="35207" />
+	</item>
+	<item id="35205" article="an" name="white raven">
+		<attribute key="wrapableTo" value="35208" />
+	</item>
+	<item id="35206" article="an" name="black raven kit"/>
+	<item id="35207" article="an" name="grey raven kit"/>
+	<item id="35208" article="an" name="white raven kit"/>
+	<item id="36018" article="an" name="dwarven stone chair">
+		<attribute key="rotateTo" value="36523" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36019" article="an" name="dwarven stone chair">
+		<attribute key="rotateTo" value="36524" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36020" article="an" name="dwarven stone chair">
+		<attribute key="rotateTo" value="36525" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36021" article="an" name="dwarven stone chair">
+		<attribute key="rotateTo" value="36522" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item fromid="36022" toid="36023" article="a" name="dwarven stone chest"/>
+	<item fromid="36024" toid="36025" article="a" name="dwarven stone chest"/>
+	<item id="36026" article="a" name="dwarven stone table"/>
+	<item id="36027" article="a" name="dwarven stone cabinet"/>
+	<item id="36028" article="a" name="dwarven stone cabinet"/>
+	<item id="36029" article="a" name="wooden bookcase"/>
+	<item id="36030" article="a" name="wooden bookcase"/>
+	<item fromid="36031" toid="36032" article="a" name="crystal lamp"/>
+	<item id="36042" article="a" name="square side table"/>
+	<item id="36043" article="a" name="round side table"/>
+	<item id="36044" article="a" name="golden minotaur skull"/>
+	<item id="36045" article="a" name="minotaur skull"/>
+	<item id="36046" article="a" name="golden demon skull"/>
+	<item id="36047" article="a" name="demon skull"/>
+	<item fromid="36048" toid="36051" article="a" name="idol lamp"/>
+	<item id="36052" article="a" name="violet square cushion"/>
+	<item id="36053" article="a" name="green square cushion"/>
+	<item id="36054" article="a" name="blue square cushion"/>
+	<item id="36055" article="a" name="violet round cushion"/>
+	<item id="36056" article="a" name="green round cushion"/>
+	<item id="36057" article="a" name="blue round cushion"/>
+	<item id="36058" article="a" name="golden minotaur skull"/>
+	<item id="36059" article="a" name="minotaur skull"/>
+	<item id="36060" article="a" name="golden demon skull"/>
+	<item id="36061" article="a" name="demon skull"/>
+	<item id="36186" article="a" name="black raven">
+		<attribute key="decayTo" value="35203" />
+		<attribute key="duration" value="600" />
+	</item>
+	<item id="36187" article="a" name="grey raven">
+		<attribute key="decayTo" value="35204" />
+		<attribute key="duration" value="600" />
+	</item>
+	<item id="36188" article="a" name="white raven">
+		<attribute key="decayTo" value="35205" />
+		<attribute key="duration" value="600" />
+	</item>
+	<item id="36297" article="a" name="jousting eagle baby">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36298" article="a" name="jousting eagle baby">
+		<attribute key="decayTo" value="36297" />
+		<attribute key="duration" value="200" />
+	</item>
+	<item id="36299" article="a" name="cerberus champion puppy">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36300" article="a" name="cerberus champion puppy">
+		<attribute key="decayTo" value="36299" />
+		<attribute key="duration" value="200" />
+	</item>
+	<item id="36301" article="a" name="tournament carpet"/>
+	<item id="36302" article="a" name="sublime tournament carpet"/>
+	<item id="36303" article="a" name="tournament carpet"/>
+	<item id="36304" article="a" name="sublime tournament carpet"/>
+	<item id="36305" toid="36306" article="a" name="tournament accolade"/>
+	<item id="36307" toid="36308" article="a" name="sublime tournament accolade"/>
+	<item id="36336" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36337" />
+	</item>
+	<item id="36337" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36336" />
+	</item>
+	<item id="36338" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36339" />
+	</item>
+	<item id="36339" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36338" />
+	</item>
+	<item id="36340" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36341" />
+	</item>
+	<item id="36341" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36340" />
+	</item>
+	<item id="36342" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36343" />
+	</item>
+	<item id="36343" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36342" />
+	</item>
+	<item id="36344" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36345" />
+	</item>
+	<item id="36345" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36344" />
+	</item>
+	<item id="36346" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36347" />
+	</item>
+	<item id="36347" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36346" />
+	</item>
+	<item id="36348" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36349" />
+	</item>
+	<item id="36349" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36348" />
+	</item>
+	<item id="36350" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36351" />
+	</item>
+	<item id="36351" article="the" name="golden outfit display">
+		<attribute key="rotateTo" value="36350" />
+	</item>
+	<item fromid="36353" toid="36358" article="a" name="memorial"/>
+	<item id="36514" article="a" name="hrodmiran table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36515" article="a" name="baby hedgehog">
+		<attribute key="decayTo" value="36516" />
+		<attribute key="duration" value="200" />
+	</item>
+	<item id="36516" article="a" name="baby hedgehog">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36517" article="a" name="baby hedgehog">
+		<attribute key="decayTo" value="36515" />
+		<attribute key="duration" value="200" />
+	</item>
+	<item id="36518" article="an" name="exalted sarcophagus">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36519" article="an" name="exalted sarcophagus"/>
+	<item id="36522" article="an" name="hrodmiran chest">
+		<attribute key="rotateTo" value="36523" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36523" article="an" name="hrodmiran chest">
+		<attribute key="rotateTo" value="36524" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36524" article="an" name="hrodmiran chest">
+		<attribute key="rotateTo" value="36525" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36525" article="an" name="hrodmiran chest">
+		<attribute key="rotateTo" value="36522" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36526" article="an" name="hrodmiran chair">
+		<attribute key="rotateTo" value="36523" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36527" article="an" name="hrodmiran chair">
+		<attribute key="rotateTo" value="36524" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36528" article="an" name="hrodmiran chair">
+		<attribute key="rotateTo" value="36525" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36529" article="an" name="hrodmiran chair">
+		<attribute key="rotateTo" value="36522" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36530" article="a" name="curly hortensis lamp">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36531" article="a" name="curly hortensis lamp"/>
+	<item id="36532" article="a" name="little big flower lamp">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36533" article="a" name="little big flower lamp"/>
+	<item id="36538" article="a" name="baby unicorn">
+		<attribute key="wrapableTo" value="26054" />
+		<attribute key="description" value="The purest eyes are blinking back at you." />
+	</item>
+	<item id="36539" article="a" name="baby unicorn">
+		<attribute key="decayTo" value="36538" />
+		<attribute key="duration" value="200" />
+		<attribute key="description" value="The purest eyes are blinking back at you." />
+	</item>
+	<item id="36540" article="a" name="hrodmiran cupboard">
+		<attribute key="rotateTo" value="36541" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36541" article="a" name="hrodmiran cupboard">
+		<attribute key="rotateTo" value="36540" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 </items>
