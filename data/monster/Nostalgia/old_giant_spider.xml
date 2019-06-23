@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Giant Spider" nameDescription="a giant spider" race="venom" experience="900" speed="120" manacost="0">
 	<health now="1300" max="1300"/>
-	<look type="911" corpse="5977"/>
+	<look type="910" corpse="5977"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
