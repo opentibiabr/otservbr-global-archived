@@ -14,7 +14,6 @@ matrix:
 
 only_commits:
   files:
-    - data/
     - src/
     - vc14/
     - cmake/
@@ -24,15 +23,11 @@ environment:
   BOOST_ROOT: C:\Libraries\boost_1_66_0
 
 install:
-  - ps: if (-not (Test-Path luacheck.exe)) { Start-FileDownload https://github.com/mpeterv/luacheck/releases/download/0.23.0/luacheck.exe; }
   - ps: if (-not (Test-Path tfs-sdk-3.2)) { Start-FileDownload https://static.otland.net/dl/tfs-sdk-3.2.zip; 7z x tfs-sdk-3.2.zip }
   - set TFSSDKDir=%CD%\tfs-sdk-3.2
 
 build:
   parallel: true
-  
-before_build:
-  - luacheck.exe --no-global --no-max-line-length --no-unused-args -qq data
 
 cache:
   - tfs-sdk-3.2 -> appveyor.yml
