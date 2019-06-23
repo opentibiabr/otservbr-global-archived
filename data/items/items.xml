@@ -37046,7 +37046,7 @@
 		<attribute key="attack" value="48" />
 		<attribute key="hitChance" value="90" />
 		<attribute key="weaponType" value="distance" />
-		<attribute key="shootType" value="greenstar" />
+		<attribute key="shootType" value="leafstar" />
 		<attribute key="maxHitChance" value="86" />
 		<attribute key="elementEarth" value="2" />
 		<attribute key="range" value="4" />
@@ -37091,7 +37091,7 @@
 		<attribute key="elementFire" value="2" />
 		<attribute key="maxHitChance" value="100" />
 		<attribute key="weaponType" value="distance" />
-		<attribute key="shootType" value="redstar" />
+		<attribute key="shootType" value="royalstar" />
 		<attribute key="range" value="5" />
 	</item>
 	<item id="29058" article="a" name="spectral bolt">
@@ -37103,7 +37103,7 @@
 		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="ammoType" value="bolt" />
-		<attribute key="shootType" value="prismaticbolt" />
+		<attribute key="shootType" value="spectralbolt" />
 		<attribute key="maxHitChance" value="100" />
 		<attribute key="stopduration" value="0" />
 		<attribute key="showduration" value="1" />
@@ -37117,7 +37117,7 @@
 		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="ammoType" value="arrow" />
-		<attribute key="shootType" value="crystallinearrow" />
+		<attribute key="shootType" value="diamondarrow" />
 		<attribute key="maxHitChance" value="100" />
 		<attribute key="stopduration" value="0" />
 		<attribute key="showduration" value="1" />
