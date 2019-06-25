@@ -4,7 +4,7 @@ shallow_clone: true
 
 platform:
   - x64
-  - x86
+  - Win32
 
 configuration:
   - Release
