@@ -51,7 +51,7 @@ local posAcessSand = Position(33295, 32271, 12)
 
 	-- Under investigation area MotA
 	if item:getPosition() == posAcessInvestigation then
-		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) > 2 then
+		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) >= 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 			else
