@@ -225,6 +225,5 @@ function onLogin(player)
 		local minutes = worldTime % 60
 		player:sendTibiaTime(hours, minutes)
 	end
-player:registerEvent("fly")
     return true
 end
