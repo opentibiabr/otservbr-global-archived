@@ -39608,14 +39608,6 @@
 	<item id="32075" article="a" name="piece of ebony">
 		<attribute key="weight" value="850" />
 	</item>
-	<item id="32076" article="a" name="bone fiddle without strings">
-		<attribute key="weight" value="3700" />
-	</item>
-	<item id="32077" article="a" name="bone fiddle">
-		<attribute key="weight" value="3800" />
-		<attribute key="absorbPercentLifeDrain" value="5" />
-		<attribute key="showattributes" value="1" />
-	</item>
 	<item id="32078" article="a" name="silver chimes">
 		<attribute key="weight" value="280" />
 	</item>
