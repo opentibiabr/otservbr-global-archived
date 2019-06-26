@@ -318,8 +318,6 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
     	end
     end
 
-	checkWallArito(item, toPosition)
-
 	-- Cults of Tibia begin
 	local frompos = Position(33023, 31904, 14) -- Checagem
 	local topos = Position(33052, 31932, 15) -- Checagem

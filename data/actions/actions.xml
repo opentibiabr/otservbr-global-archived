@@ -707,9 +707,9 @@
 
 	<!-- Svargrond Arena Quest-->
 	<action actionid="13100" script="quests/svargrond arena/arenaDoor.lua" />
-	<action actionid="26100" script="quests/svargrond arena/arenaDoor.lua" />
-	<action actionid="27100" script="quests/svargrond arena/arenaDoor.lua" />
-	<action actionid="28100" script="quests/svargrond arena/arenaDoor.lua" />
+	<action actionid="26101" script="quests/svargrond arena/arenaDoor.lua" />
+	<action actionid="27101" script="quests/svargrond arena/arenaDoor.lua" />
+	<action actionid="28101" script="quests/svargrond arena/arenaDoor.lua" />
 
 	<!-- The Queen of the Banshees Quest -->
 	<action fromuid="49998" touid="50002" script="quests/the queen of the banshees/theFirstSeal.lua" />

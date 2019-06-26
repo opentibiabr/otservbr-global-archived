@@ -1086,7 +1086,7 @@ Storage = {
 		TrophyScrapper = 1105,
 		TrophyWarlord = 1107,
 
-		-- Reward Doors
+		-- Actions Reward Doors
 		Greenhorn = 26100,
 		Scrapper = 27100,
 		Warlord = 28100
