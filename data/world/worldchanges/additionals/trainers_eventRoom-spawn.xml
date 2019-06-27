@@ -421,23 +421,8 @@
 	<spawn centerx="1095" centery="1227" centerz="7" radius="3">
 		<monster name="Knight Training" x="-3" y="0" z="7" spawntime="60" />
 	</spawn>
-	<spawn centerx="32349" centery="32219" centerz="7" radius="1">
-		<npc name="Benjamin" x="0" y="0" z="7" spawntime="90" direction="2" />
-	</spawn>
-	<spawn centerx="32381" centery="32220" centerz="7" radius="1">
-		<npc name="Oswald" x="0" y="0" z="7" spawntime="90" direction="2" />
-	</spawn>
 	<spawn centerx="32353" centery="32225" centerz="7" radius="1">
 		<npc name="Cassino" x="1" y="1" z="7" spawntime="60" />
-	</spawn>
-	<spawn centerx="32342" centery="32229" centerz="7" radius="1">
-		<npc name="Naji" x="0" y="0" z="7" spawntime="90" direction="2" />
-	</spawn>
-	<spawn centerx="32342" centery="32235" centerz="7" radius="1">
-		<npc name="Elane" x="0" y="0" z="7" spawntime="90" direction="2" />
-	</spawn>
-	<spawn centerx="32369" centery="32240" centerz="7" radius="3">
-		<npc name="Quentin" x="-1" y="0" z="7" spawntime="60" />
 	</spawn>
 	<spawn centerx="31853" centery="33057" centerz="7" radius="3">
 		<npc name="Alesar" x="3" y="-1" z="7" spawntime="60" />

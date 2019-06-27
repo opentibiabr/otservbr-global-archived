@@ -665,6 +665,9 @@ ShootTypeNames shootTypeNames = {
 	{"whirlwindsword",		CONST_ANI_WHIRLWINDSWORD},
 	{"whirlwindaxe",		CONST_ANI_WHIRLWINDAXE},
 	{"whirlwindclub",		CONST_ANI_WHIRLWINDCLUB},
+	{"diamondarrow",		CONST_ANI_DIAMONDARROW},
+	{"spectralbolt",		CONST_ANI_SPECTRALBOLT},
+	{"royalstar",			CONST_ANI_ROYALSTAR},
 };
 
 CombatTypeNames combatTypeNames = {
@@ -707,6 +710,9 @@ AmmoTypeNames ammoTypeNames = {
 	{"shiverarrow",			AMMO_ARROW},
 	{"throwingstar",		AMMO_THROWINGSTAR},
 	{"throwingknife",		AMMO_THROWINGKNIFE},
+	{"diamondarrow",		AMMO_ARROW},
+	{"spectralbolt",		AMMO_BOLT},
+
 };
 
 WeaponActionNames weaponActionNames = {

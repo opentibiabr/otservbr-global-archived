@@ -52,7 +52,7 @@
 	<globalevent name="SpawnRaid" interval="60000" script="spawn/raids.lua"/>
 
 	<!-- Others -->
-	<globalevent name="respawndano" interval="9000" script="respawndano.lua" />
+	<globalevent name="Spawn Damage" interval="9000" script="spawnDamage.lua" />
 	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
 	<globalevent type="record" name="PlayerRecord" script="record.lua" />
 	<globalevent name="ServerSave" time="05:55:00" script="serversave.lua" />

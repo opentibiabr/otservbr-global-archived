@@ -786,7 +786,7 @@
 	<movevent event="DeEquip" itemid="21708" slot="feet" function="onDeEquipItem" />
 
 	<!-- Amulets -->
-	<movevent event="Equip" itemid="34066" slot="necklace" level="180" function="onEquipItem" /> <!-- Sleep Shawl -->
+	<movevent event="Equip" itemid="34981" slot="necklace" level="180" function="onEquipItem" /> <!-- Sleep Shawl -->
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" showInDescription="0" />
 	<movevent event="DeEquip" itemid="34066" slot="necklace" function="onDeEquipItem" />
@@ -796,7 +796,7 @@
 		<vocation name="Royal Paladin" showInDescription="0" />
 	<movevent event="DeEquip" itemid="34980" slot="necklace" function="onDeEquipItem" />
 
-	<movevent event="Equip" itemid="34067" slot="necklace" level="180" function="onEquipItem" /> <!-- Pendulet -->
+	<movevent event="Equip" itemid="34083" slot="necklace" level="180" function="onEquipItem" /> <!-- Pendulet -->
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" showInDescription="0" />
 	<movevent event="DeEquip" itemid="34067" slot="necklace" function="onDeEquipItem" />
