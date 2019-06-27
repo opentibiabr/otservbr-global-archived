@@ -1,6 +1,11 @@
 function onSay(player, words, param)
-	if not getPlayerFlagValue(player, PlayerFlag_CanBroadcast) then
+	if(not player:getGroup():getAccess()) or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
+	end
+	
+	if(param == "") then
+		player:sendCancelMessage("Command param required.")
+		return false
 	end
 
 	print("> " .. player:getName() .. " broadcasted: \"" .. param .. "\".")
