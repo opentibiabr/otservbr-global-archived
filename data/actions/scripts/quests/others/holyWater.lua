@@ -38,7 +38,22 @@ local storages = {
 	[4023] = Storage.TibiaTales.RestInHallowedGround.Graves.Grave16
 }
 
+local config = { 
+	antler_talisman = 24664,
+	sacred_antler_talisman = 24665
+	}
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+
+	if target.itemid == config.antler_talisman then
+		item:transform(config.sacred_antler_talisman)
+		item:remove(1)
+		target:remove(1)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You besprinkle the antler talisman with holy water. It glittlers faintly")
+		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
+		return true
+	end
+
 	-- Eclipse
 	if target.actionid == 2000 then
 		item:remove(1)
@@ -89,7 +104,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 		nexusMessage(player, player:getName() .. ' destroyed the shadow nexus! In 20 seconds it will return to its original state.')
 		item:remove(1)
-	elseif target.actionid > 4007 and target.actionid < 4024 then
+	elseif target.actionid == 4007 and target.actionid == 4024 then
 		local graveStorage = storages[target.actionid]
 		if player:getStorageValue(graveStorage) == 1
 				or player:getStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline) ~= 3 then

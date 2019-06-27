@@ -12,7 +12,6 @@
 	<action actionid="50806" script="quests/adventurers guild/warrior skeleton.lua" />
 	<action actionid="50808" script="quests/adventurers guild/treasure.lua" />
 
-
 	<!-- Annihilator Quest -->
 	<action actionid="2214" script="quests/annihilator/door.lua" />
 	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
@@ -746,6 +745,10 @@
 
 	<!-- The Secret Library Quest -->
 	<action actionid="64019" script="quests/the secret library/asuraMirror.lua" />
+	
+	<!-- The Tainted Soul Quest -->
+	<action itemid="2800" script="quests/the tainted soul/star herb.lua" />
+	<!--<action itemid="7494" script="quests/others/holyWater.lua" /> -->
 
 	<!-- The Hidden City of Beregar -->
 	<action actionid="50128" script="quests/the hidden city of beregar/deeperMineWagon.lua" />
