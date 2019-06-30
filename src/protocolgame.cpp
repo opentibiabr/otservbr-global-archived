@@ -408,8 +408,6 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	std::string password = sessionKey.substr(pos + 1);
-	std::cout << "AccountName: " << accountName << ", " << password << std::endl;
-
 	std::string characterName = msg.getString();
 
 	uint32_t timeStamp = msg.get<uint32_t>();
