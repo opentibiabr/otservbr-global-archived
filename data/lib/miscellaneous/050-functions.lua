@@ -151,6 +151,9 @@ function checkWallArito(item, toPosition)
 		return false
 	end
 	local wallTile = Tile(Position(33206, 32536, 6))
+	if not wallTile then
+		return false
+	end
 	if (wallTile:getItemCountById(8210) > 0) then
 		return false
 	end
