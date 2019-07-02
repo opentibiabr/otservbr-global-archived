@@ -725,12 +725,7 @@ void Monster::onThink(uint32_t interval)
 		}
 	}
 
-	uint32_t minutes = g_game.getLightHour();
-	bool isday = false;
-	if (minutes >= ((6 * 60) + 30) && minutes <= ((17 * 60) + 30))
-		isday = true;
-
-	if ((mType->info.respawnType == RESPAWN_IN_DAY && !isday) || (mType->info.respawnType == RESPAWN_IN_NIGHT && isday) || (mType->info.respawnType == RESPAWN_IN_DAY_CAVER && !isday && position.z == 7) || (mType->info.respawnType == RESPAWN_IN_NIGHT_CAVER && isday && position.z == 7)) {
+	if (!mType->canSpawn(position)) {
 		g_game.removeCreature(this);
 	}
 

@@ -2787,6 +2787,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "isPreyable", LuaScriptInterface::luaMonsterTypeIsPreyable);
 
 	registerMethod("MonsterType", "getRespawnType", LuaScriptInterface::luaMonsterTypeGetRespawnType);
+	registerMethod("MonsterType", "canSpawn", LuaScriptInterface::luaMonsterTypeCanSpawn);
 
 	registerMethod("MonsterType", "canPushItems", LuaScriptInterface::luaMonsterTypeCanPushItems);
 	registerMethod("MonsterType", "canPushCreatures", LuaScriptInterface::luaMonsterTypeCanPushCreatures);
@@ -8400,6 +8401,20 @@ int LuaScriptInterface::luaMonsterTypeGetRespawnType(lua_State* L)
 	if (monsterType) {
 		lua_pushnumber(L, monsterType->info.respawnType);
 	
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeCanSpawn(lua_State* L)
+{
+	// monsterType:canSpawn(pos)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	const Position& position = getPosition(L, 2);
+	if (monsterType) {
+		pushBoolean(L, monsterType->canSpawn(position));
 	}
 	else {
 		lua_pushnil(L);
