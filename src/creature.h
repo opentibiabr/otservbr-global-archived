@@ -208,11 +208,15 @@ class Creature : virtual public Thing
 			return getSpeed();
 		}
 		int32_t getSpeed() const {
-			return baseSpeed + varSpeed;
+			if (baseSpeed == 0) {
+				return 0;
+			}
+
+			return (2 * (varSpeed + baseSpeed)) + 80;
 		}
 		void setSpeed(int32_t varSpeedDelta) {
 			int32_t oldSpeed = getSpeed();
-			varSpeed = varSpeedDelta;
+			varSpeed += varSpeedDelta;
 
 			if (getSpeed() <= 0) {
 				stopEventWalk();
