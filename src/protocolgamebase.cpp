@@ -58,6 +58,56 @@ void ProtocolGameBase::onConnect()
 	send(std::move(output));
 }
 
+void ProtocolGameBase::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
+{
+	const ItemType& it = Item::items[id];
+
+	msg.add<uint16_t>(it.clientId);
+
+	if (version < 1200) {
+		msg.addByte(0xFF); // MARK_UNMARKED
+	}
+
+	if (it.stackable) {
+		msg.addByte(count);
+	} else if (it.isSplash() || it.isFluidContainer()) {
+		msg.addByte(fluidMap[count & 7]);
+	}
+
+	if (it.isAnimation) {
+		msg.addByte(0xFE); // random phase (0xFF for async)
+	}
+
+	if (version >= 1150 && it.isContainer()) {
+		msg.addByte(0x00);
+	}
+}
+
+void ProtocolGameBase::AddItem(NetworkMessage& msg, const Item* item)
+{
+	const ItemType& it = Item::items[item->getID()];
+
+	msg.add<uint16_t>(it.clientId);
+
+	if (version < 1200) {
+		msg.addByte(0xFF); // MARK_UNMARKED
+	}
+
+	if (it.stackable) {
+		msg.addByte(std::min<uint16_t>(0xFF, item->getItemCount()));
+	} else if (it.isSplash() || it.isFluidContainer()) {
+		msg.addByte(fluidMap[item->getFluidType() & 7]);
+	}
+
+	if (it.isAnimation) {
+		msg.addByte(0xFE); // random phase (0xFF for async)
+	}
+
+	if (version >= 1150 && it.isContainer()) {
+		msg.addByte(0x00);
+	}
+}
+
 void ProtocolGameBase::AddOutfit(NetworkMessage& msg, const Outfit_t& outfit)
 {
 	msg.add<uint16_t>(outfit.lookType);
@@ -190,13 +240,15 @@ void ProtocolGameBase::AddCreature(NetworkMessage& msg, const Creature* creature
 	msg.addByte(creature->getSpeechBubble());
 	msg.addByte(0xFF); // MARK_UNMARKED
 	if (version >= 1110) {
-		msg.addByte(0x00); // ??
+		msg.addByte(0x00); // inspection type
 	}
 
-	if (otherPlayer) {
-		msg.add<uint16_t>(otherPlayer->getHelpers());
-	} else {
-		msg.add<uint16_t>(0x00);
+	if (version < 1185) {
+		if (otherPlayer) {
+			msg.add<uint16_t>(otherPlayer->getHelpers());
+		} else {
+			msg.add<uint16_t>(0x00);
+		}
 	}
 
 	msg.addByte(player->canWalkthroughEx(creature) ? 0x00 : 0x01);
@@ -210,7 +262,9 @@ void ProtocolGameBase::AddPlayerStats(NetworkMessage& msg)
 	msg.add<uint16_t>(std::min<int32_t>(player->getMaxHealth(), std::numeric_limits<uint16_t>::max()));
 
 	msg.add<uint32_t>(player->getFreeCapacity());
-	msg.add<uint32_t>(player->getCapacity());
+	if (version < 1150) {
+		msg.add<uint32_t>(player->getCapacity());
+	}
 
 	msg.add<uint64_t>(player->getExperience());
 
@@ -218,7 +272,9 @@ void ProtocolGameBase::AddPlayerStats(NetworkMessage& msg)
 	msg.addByte(player->getLevelPercent());
 
 	msg.add<uint16_t>(player->getBaseXpGain()); // base xp gain rate
-	msg.add<uint16_t>(player->getVoucherXpBoost()); // xp voucher
+	if (version < 1150) {
+		msg.add<uint16_t>(player->getVoucherXpBoost()); // xp voucher
+	}
 	msg.add<uint16_t>(player->getGrindingXpBoost()); // low level bonus
 	msg.add<uint16_t>(player->getStoreXpBoost()); // xp boost
 	msg.add<uint16_t>(player->getStaminaXpBoost()); // stamina multiplier (100 = 1.0x)
@@ -226,9 +282,11 @@ void ProtocolGameBase::AddPlayerStats(NetworkMessage& msg)
 	msg.add<uint16_t>(std::min<int32_t>(player->getMana(), std::numeric_limits<uint16_t>::max()));
 	msg.add<uint16_t>(std::min<int32_t>(player->getMaxMana(), std::numeric_limits<uint16_t>::max()));
 
-	msg.addByte(std::min<uint32_t>(player->getMagicLevel(), std::numeric_limits<uint8_t>::max()));
-	msg.addByte(std::min<uint32_t>(player->getBaseMagicLevel(), std::numeric_limits<uint8_t>::max()));
-	msg.addByte(player->getMagicLevelPercent());
+	if (version < 1200) {
+		msg.addByte(std::min<uint32_t>(player->getMagicLevel(), std::numeric_limits<uint8_t>::max()));
+		msg.addByte(std::min<uint32_t>(player->getBaseMagicLevel(), std::numeric_limits<uint8_t>::max()));
+		msg.addByte(player->getMagicLevelPercent());
+	}
 
 	msg.addByte(player->getSoul());
 
@@ -249,15 +307,32 @@ void ProtocolGameBase::AddPlayerSkills(NetworkMessage& msg)
 {
 	msg.addByte(0xA1);
 
+	if (version >= 1200) {
+		msg.add<uint16_t>(player->getMagicLevel());
+		msg.add<uint16_t>(player->getBaseMagicLevel());
+		msg.add<uint16_t>(player->getBaseMagicLevel());
+		msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
+	}
+
 	for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; ++i) {
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
-		msg.addByte(player->getSkillPercent(i));
+		if (version >= 1200) {
+			msg.add<uint16_t>(player->getBaseSkill(i));
+			msg.add<uint16_t>(player->getSkillPercent(i) * 100);
+		} else {
+			msg.addByte(player->getSkillPercent(i));
+		}
 	}
 
 	for (uint8_t i = SKILL_CRITICAL_HIT_CHANCE; i <= SKILL_LAST; ++i) {
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
+	}
+
+	if (version >= 1150) { // used for imbuement (Feather)
+		msg.add<uint32_t>(player->getCapacity()); // total capacity
+		msg.add<uint32_t>(player->getCapacity()); // base total capacity
 	}
 }
 
@@ -320,6 +395,9 @@ void ProtocolGameBase::sendPreyData()
 		msg.addByte(0x00);
 		msg.addByte(0x00);
 		msg.add<uint16_t>(0);
+		if (version >= 1190) {
+			msg.addByte(0x00); // wildCards
+		}
 	}
 
 	msg.addByte(0xEC);
@@ -329,8 +407,13 @@ void ProtocolGameBase::sendPreyData()
 	msg.addByte(0xEE);
 	msg.addByte(0x01);
 	msg.add<uint64_t>(0);
+	// prey prices
 	msg.addByte(0xE9);
 	msg.add<uint32_t>(0);
+	if (version >= 1190) {
+		msg.addByte(0x00); // unknown price
+		msg.addByte(0x00); // selectCreatureDirectly price (5 in tibia)
+	}
 	writeToOutputBuffer(msg);
 }
 
@@ -448,12 +531,14 @@ void ProtocolGameBase::sendUpdateTile(const Tile* tile, const Position& pos)
 
 void ProtocolGameBase::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 {
-	msg.add<uint16_t>(0x00); //environmental effects
+	if (version < 1200) {
+		msg.add<uint16_t>(0x00); //environmental effects
+	}
 
 	int32_t count;
 	Item* ground = tile->getGround();
 	if (ground) {
-		msg.addItem(ground);
+		AddItem(msg, ground);
 		count = 1;
 	} else {
 		count = 0;
@@ -462,7 +547,7 @@ void ProtocolGameBase::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 	const TileItemVector* items = tile->getItemList();
 	if (items) {
 		for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
-			msg.addItem(*it);
+			AddItem(msg, *it);
 
 			count++;
 			if (count == 9 && tile->getPosition() == player->getPosition()) {
@@ -503,7 +588,7 @@ void ProtocolGameBase::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 
 	if (items) {
 		for (auto it = items->getBeginDownItem(), end = items->getEndDownItem(); it != end; ++it) {
-			msg.addItem(*it);
+			AddItem(msg, *it);
 
 			if (++count == 10) {
 				return;
@@ -569,10 +654,10 @@ void ProtocolGameBase::sendContainer(uint8_t cid, const Container* container, bo
 	msg.addByte(cid);
 
 	if (container->getID() == ITEM_BROWSEFIELD) {
-		msg.addItem(1987, 1);
+		AddItem(msg, 1987, 1);
 		msg.addString("Browse Field");
 	} else {
-		msg.addItem(container);
+		AddItem(msg, container);
 		msg.addString(container->getName());
 	}
 
@@ -603,7 +688,7 @@ void ProtocolGameBase::sendContainer(uint8_t cid, const Container* container, bo
 		uint32_t i = 0;
 		const ItemDeque& itemList = container->getItemList();
 		for (ItemDeque::const_iterator it = itemList.begin() + firstIndex, end = itemList.end(); i < maxItemsToSend && it != end; ++it, ++i) {
-			msg.addItem(*it);
+			AddItem(msg, *it);
 		}
 	}
 	writeToOutputBuffer(msg);
@@ -675,16 +760,16 @@ void ProtocolGameBase::sendAddCreature(const Creature* creature, const Position&
 			return;
 		}
 
-			NetworkMessage msg;
-			msg.addByte(0x6A);
-			msg.addPosition(pos);
-			msg.addByte(stackpos);
+		NetworkMessage msg;
+		msg.addByte(0x6A);
+		msg.addPosition(pos);
+		msg.addByte(stackpos);
 
-			bool known;
-			uint32_t removedKnown;
-			checkCreatureAsKnown(creature->getID(), known, removedKnown);
-			AddCreature(msg, creature, known, removedKnown);
-			writeToOutputBuffer(msg);
+		bool known;
+		uint32_t removedKnown;
+		checkCreatureAsKnown(creature->getID(), known, removedKnown);
+		AddCreature(msg, creature, known, removedKnown);
+		writeToOutputBuffer(msg);
 
 		if (isLogin) {
 			sendMagicEffect(pos, CONST_ME_TELEPORT);
@@ -715,6 +800,14 @@ void ProtocolGameBase::sendAddCreature(const Creature* creature, const Position&
 
 	msg.addString(g_config.getString(ConfigManager::STORE_IMAGES_URL));
 	msg.add<uint16_t>(static_cast<uint16_t>(g_config.getNumber(ConfigManager::STORE_COIN_PACKET)));
+
+	if (version >= 1150 || shouldAddExivaRestrictions) {
+		msg.addByte(0x00); // exiva button enabled
+	}
+
+	if (version >= 1215) {
+		msg.addByte(0x01); // tournament button enabled
+	}
 
 	writeToOutputBuffer(msg);
 
@@ -848,7 +941,7 @@ void ProtocolGameBase::sendInventoryItem(slots_t slot, const Item* item)
 	if (item) {
 		msg.addByte(0x78);
 		msg.addByte(slot);
-		msg.addItem(item);
+		AddItem(msg, item);
 	} else {
 		msg.addByte(0x79);
 		msg.addByte(slot);
@@ -923,7 +1016,8 @@ void ProtocolGameBase::sendVIP(uint32_t guid, const std::string& name, const std
 	msg.addByte(notify ? 0x01 : 0x00);
 	msg.addByte(status);
 	if (version >= 1110) {
-		msg.addByte(0x00); // ??
+		/* vipGroups: This is used for showing VipGroups by ids */
+		msg.addByte(0x00);
 	}
 
 	writeToOutputBuffer(msg);

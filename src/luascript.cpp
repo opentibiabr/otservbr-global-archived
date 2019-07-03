@@ -5867,7 +5867,7 @@ int LuaScriptInterface::luaNetworkMessageAddDouble(lua_State* L)
 
 int LuaScriptInterface::luaNetworkMessageAddItem(lua_State* L)
 {
-	// networkMessage:addItem(item)
+	// networkMessage:addItem(item, player)
 	Item* item = getUserdata<Item>(L, 2);
 	if (!item) {
 		reportErrorFunc(getErrorDesc(LUA_ERROR_ITEM_NOT_FOUND));
@@ -5875,9 +5875,16 @@ int LuaScriptInterface::luaNetworkMessageAddItem(lua_State* L)
 		return 1;
 	}
 
+	Player* player = getUserdata<Player>(L, 3);
+	if (!player) {
+		reportErrorFunc(getErrorDesc(LUA_ERROR_PLAYER_NOT_FOUND));
+		lua_pushnil(L);
+		return 1;
+	}
+
 	NetworkMessage* message = getUserdata<NetworkMessage>(L, 1);
-	if (message) {
-		message->addItem(item);
+	if (message && player->client) {
+		player->client->AddItem(*message, item);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);

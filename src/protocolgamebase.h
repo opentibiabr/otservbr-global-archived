@@ -43,6 +43,8 @@ class ProtocolGameBase : public Protocol {
 		enum {protocol_identifier = 0}; // Not required as we send first
 		enum {use_checksum = true};
 
+		void AddItem(NetworkMessage& msg, const Item* item);
+		void AddItem(NetworkMessage& msg, uint16_t id, uint8_t count);
 	protected:
 		explicit ProtocolGameBase(Connection_ptr connection):
 			Protocol(connection) {}
@@ -110,6 +112,7 @@ class ProtocolGameBase : public Protocol {
 		Player* player = nullptr;
 		uint32_t eventConnect = 0;
 		uint16_t version = CLIENT_VERSION_MIN;
+		uint32_t clientVersion = 0;
 
 		uint32_t challengeTimestamp = 0;
 		uint8_t challengeRandom = 0;
@@ -118,6 +121,7 @@ class ProtocolGameBase : public Protocol {
 		bool acceptPackets = false;
 
 		bool loggedIn = false;
+		bool shouldAddExivaRestrictions = false;
 
 		std::unordered_set<uint32_t> knownCreatureSet;
 };
