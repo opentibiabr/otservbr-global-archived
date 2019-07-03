@@ -4436,10 +4436,10 @@
 		<attribute key="decayTo" value="10021" />
 		<attribute key="transformDeEquipTo" value="6132" />
 		<attribute key="duration" value="14400" />
-		<attribute key="healthGain" value="10" />
-		<attribute key="healthTicks" value="2000" />
-		<attribute key="manaGain" value="25" />
-		<attribute key="manaTicks" value="1000" />
+		<attribute key="healthGain" value="3" />
+		<attribute key="healthTicks" value="6000" />
+		<attribute key="manaGain" value="12" />
+		<attribute key="manaTicks" value="6000" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
