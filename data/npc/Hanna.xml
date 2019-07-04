@@ -17,6 +17,7 @@
         gemmed figurine, 27060, 3500;
         giant emerald, 34698, 90000;
         giant ruby, 34697, 70000;
+        green crystal shard,18415,1500;
         gold ingot, 9971, 5000;
         gold nugget, 2157, 850;
         onyx chip, 24849, 500;
@@ -36,6 +37,7 @@
         small topaz, 9970, 200;
         tiger eye, 27629, 350;
         unicorn figurine, 34692, 50000;
+        violet crystal shard,18414,1500;
         white pearl, 2143, 160" />
 		<parameter key="shop_buyable" value="
 			black pearl,2144,560;
