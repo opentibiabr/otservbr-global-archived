@@ -9,7 +9,7 @@ function onThink()				npcHandler:onThink()					end
 
 -- Embrace of Tibia
 local blessKeyword = keywordHandler:addKeyword({'embrace'}, StdModule.say, {npcHandler = npcHandler, text = 'Would you like to receive that protection for a sacrifice of |BLESSCOST| gold, child?'})
-	blessKeyword:addChildKeyword({'yes'}, StdModule.bless, {npcHandler = npcHandler, text = 'So receive the embrace of Tibia, pilgrim.', cost = '|BLESSCOST|', bless = 5})
+	blessKeyword:addChildKeyword({'yes'}, StdModule.bless, {npcHandler = npcHandler, text = 'So receive the embrace of Tibia, pilgrim.', cost = '|BLESSCOST|', bless = 6})
 	blessKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'Fine. You are free to decline my offer.', reset = true})
 
 -- Healing

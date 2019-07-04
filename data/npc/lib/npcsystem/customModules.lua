@@ -213,6 +213,9 @@ function VoiceModule:callbackOnThink()
 end
 
 function Player.removeMoneyNpc(self, amount)
+	if type(amount) == 'string' then
+		amount = tonumber(amount)
+	end
 	local moneyCount = self:getMoney()
 	local bankCount = self:getBankBalance()
 	if amount > moneyCount + bankCount then
