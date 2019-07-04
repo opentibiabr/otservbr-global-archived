@@ -1393,7 +1393,7 @@ int64_t Creature::getStepDuration() const
 
 	int32_t stepSpeed = getStepSpeed();
 	if (stepSpeed > -Creature::speedB) {
-		calculatedStepSpeed = floor((Creature::speedA * log((stepSpeed / 2) + Creature::speedB) + Creature::speedC) + 0.5);
+		calculatedStepSpeed = floor((Creature::speedA * log(stepSpeed + Creature::speedB) + Creature::speedC) + 0.5);
 		if (calculatedStepSpeed <= 0) {
 			calculatedStepSpeed = 1;
 		}
@@ -1411,7 +1411,7 @@ int64_t Creature::getStepDuration() const
 		groundSpeed = 150;
 	}
 
-	double duration = std::floor(1000 * groundSpeed / calculatedStepSpeed);
+	double duration = std::floor(1000 * groundSpeed / calculatedStepSpeed) * 2;
 	int64_t stepDuration = std::ceil(duration / 50) * 50;
 
 	const Monster* monster = getMonster();
