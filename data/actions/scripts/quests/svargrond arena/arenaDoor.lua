@@ -1,3 +1,9 @@
+local storages = {
+	[26101] = Storage.SvargrondArena.Greenhorn,
+	[27102] = Storage.SvargrondArena.Scrapper,
+	[28103] = Storage.SvargrondArena.Warlord
+}
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	-- Cannot use opened door
 	if item.itemid == 5133 then
