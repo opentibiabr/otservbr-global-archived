@@ -31,8 +31,8 @@ static constexpr auto GIT_REPO = "https://github.com/opentibiabr/OTServBR-Global
 static constexpr auto GIT_CONTRIBUTORS = "https://github.com/opentibiabr/OTServBR-Global/graphs/contributors";
 
 static constexpr auto CLIENT_VERSION_MIN = 1100;
-static constexpr auto CLIENT_VERSION_MAX = 1149;
-static constexpr auto CLIENT_VERSION_STR = "11.49";
+static constexpr auto CLIENT_VERSION_MAX = 1200;
+static constexpr auto CLIENT_VERSION_STR = "12.00";
 
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;
