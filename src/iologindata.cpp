@@ -226,6 +226,63 @@ bool IOLoginData::loadPlayerById(Player* player, uint32_t id)
 	return loadPlayer(player, db.storeQuery(query.str()));
 }
 
+// New Prey
+bool IOLoginData::loadPlayerPreyData(Player* player) 
+{
+	Database& db = Database::getInstance();
+	DBResult_ptr result;
+	std::ostringstream query;
+	query << "SELECT `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade` FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
+	if ((result = db.storeQuery(query.str()))) {
+		do {
+			uint16_t slotNum = result->getNumber<uint16_t>("num");
+			player->preySlotState[slotNum] = result->getNumber<uint16_t>("state");
+			player->preySlotUnlocked[slotNum] = result->getNumber<uint16_t>("unlocked");
+			player->preySlotCurrentMonster[slotNum] = result->getString("current");
+			player->preySlotMonsterList[slotNum] = result->getString("monster_list");
+			player->preySlotFreeRerollIn[slotNum] = result->getNumber<uint16_t>("free_reroll_in");
+			player->preySlotTimeLeft[slotNum] = result->getNumber<uint16_t>("time_left");
+			player->preySlotNextUse[slotNum] = result->getNumber<uint16_t>("next_use");
+			player->preySlotBonusType[slotNum] = result->getNumber<uint16_t>("bonus_type");
+			player->preySlotBonusValue[slotNum] = result->getNumber<uint16_t>("bonus_value");
+			player->preySlotBonusGrade[slotNum] = result->getNumber<uint16_t>("bonus_grade");
+
+			std::ostringstream debug;
+			debug << "Slot: " << slotNum << " | ";
+			debug << "State: " << player->preySlotState[slotNum] << " | ";
+			debug << "Unlocked: " << player->preySlotUnlocked[slotNum] << " | ";
+			debug << "Current: " << player->preySlotCurrentMonster[slotNum] << " | ";
+			debug << "MonsterList: " << player->preySlotMonsterList[slotNum] << " | ";
+			debug << "Free reroll in: " << player->preySlotFreeRerollIn[slotNum] << " | ";
+			debug << "Time-left: " << player->preySlotTimeLeft[slotNum] << " | ";
+			debug << "Next-use: " << player->preySlotNextUse[slotNum] << " | ";
+			debug << "Bonus type: " << player->preySlotBonusType[slotNum] << " | ";
+			debug << "Bonus value: " << player->preySlotBonusValue[slotNum] << " | ";
+			debug << "Bonus grade: " << player->preySlotBonusGrade[slotNum];
+
+			// Debuging
+			std::cout << debug.str() << std::endl;
+		} while (result->next());
+	}
+	else {
+		query.str(std::string());
+		DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
+		for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
+			query << player->getGUID() << ',' << num << ',' << PREY_STATE_SELECTION << ',' << PREY_SLOT_UNLOCKED << ',' << db.escapeString("") << ',' << db.escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
+			if (!preyDataQuery.addRow(query)) {
+				return false;
+			}
+		}
+		if (!preyDataQuery.execute()) {
+			return false;
+		}
+		// Reload player data
+		return loadPlayerPreyData(player);
+	}
+
+	return true;
+}
+
 bool IOLoginData::loadPlayerPreyById(Player* player, uint32_t id)
 {
 	Database& db = Database::getInstance();
@@ -1073,6 +1130,28 @@ bool IOLoginData::savePlayer(Player* player)
 	}
 
 	if (!saveItems(player, itemList, inboxQuery, propWriteStream)) {
+		return false;
+	}
+	
+	// New Prey
+	query.str(std::string());
+	query << "DELETE FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
+	if (!db.executeQuery(query.str())) {
+		std::cout << "Could not delete prey_slots" << std::endl;
+		return false;
+	}
+
+	query.str(std::string());
+	DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
+	for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
+		query << player->getGUID() << ',' << num << ',' << player->preySlotState[num] << ',' << player->preySlotUnlocked[num] << ',' << db.escapeString(player->preySlotCurrentMonster[num]) << ',' << db.escapeString(player->preySlotMonsterList[num]) << ',' << player->preySlotFreeRerollIn[num] << ',' << player->preySlotTimeLeft[num] << ',' << player->preySlotNextUse[num] << ',' << player->preySlotBonusType[num] << ',' << player->preySlotBonusValue[num] << ',' << player->preySlotBonusGrade[num];
+		if (!preyDataQuery.addRow(query)) {
+			return false;
+		}
+	}
+
+	if (!preyDataQuery.execute()) {
+		std::cout << "[PREY]: error while saving player: " << player->getName() << std::endl;
 		return false;
 	}
 
