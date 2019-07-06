@@ -13793,7 +13793,7 @@ void LuaScriptInterface::parseLoot(lua_State* L, const std::vector<LootBlock>& l
 
 	int index = 0;
 	for (const auto& lootBlock : lootList) {
-		lua_createtable(L, 0, 7);
+		lua_createtable(L, 0, 8);
 
 		setField(L, "itemId", lootBlock.id);
 		setField(L, "chance", lootBlock.chance);
@@ -13801,6 +13801,8 @@ void LuaScriptInterface::parseLoot(lua_State* L, const std::vector<LootBlock>& l
 		setField(L, "maxCount", lootBlock.countmax);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
+		pushBoolean(L, lootBlock.unique);
+		lua_setfield(L, -2, "unique");
 
 		parseLoot(L, lootBlock.childLoot);
 		lua_setfield(L, -2, "childLoot");
