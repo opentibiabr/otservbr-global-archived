@@ -198,6 +198,32 @@ class Player final : public Creature, public Cylinder
 		uint16_t getStaminaMinutes() const {
 			return staminaMinutes;
 		}
+		
+		// New Prey
+		std::string getPreyMonsterList(uint16_t slot) const {
+			return preySlotMonsterList[slot];
+		}
+
+		std::string getPreyCurrentMonster(uint16_t slot) const {
+			return preySlotCurrentMonster[slot];
+		}
+
+		uint16_t getPreyStamina(uint16_t slot) const {
+			return preySlotStamina[slot];
+		}
+
+		uint16_t getPreyState(uint16_t slot) const {
+			return preySlotState[slot];
+		}
+
+		uint16_t getPreyBonusType(uint16_t slot) const {
+			return preySlotBonusType[slot];
+		}
+
+		uint16_t getPreyBonusValue(uint16_t slot) const {
+			return preySlotBonusValue[slot];
+		}
+		//
 
 		uint16_t getPreyStamina(uint16_t index) const {
 			return preyStaminaMinutes[index];
@@ -1504,6 +1530,14 @@ class Player final : public Creature, public Cylinder
 		uint16_t storeXpBoost = 0;
 		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
+		
+		// New Prey
+		std::vector<std::string> preySlotCurrentMonster = { "", "", "" };
+		std::vector<std::string> preySlotMonsterList = { "", "", "" };
+		std::vector<uint16_t> preySlotStamina = {7200, 7200, 7200};
+		std::vector<uint16_t> preySlotState = {0, 0, 0};
+		std::vector<uint16_t> preySlotBonusType = {0, 0, 0};
+		std::vector<uint16_t> preySlotBonusValue = {0, 0, 0};
 
 		uint8_t soul = 0;
 		uint8_t levelPercent = 0;
