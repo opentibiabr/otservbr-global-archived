@@ -200,20 +200,32 @@ class Player final : public Creature, public Cylinder
 		}
 		
 		// New Prey
-		std::string getPreyMonsterList(uint16_t slot) const {
-			return preySlotMonsterList[slot];
+		uint16_t getPreyState(uint16_t slot) const {
+			return preySlotState[slot];
+		}
+
+		uint16_t getPreyUnlocked(uint16_t slot) const {
+			return preySlotUnlocked[slot];
 		}
 
 		std::string getPreyCurrentMonster(uint16_t slot) const {
 			return preySlotCurrentMonster[slot];
 		}
 
-		uint16_t getPreyStamina(uint16_t slot) const {
-			return preySlotStamina[slot];
+		std::string getPreyMonsterList(uint16_t slot) const {
+			return preySlotMonsterList[slot];
 		}
 
-		uint16_t getPreyState(uint16_t slot) const {
-			return preySlotState[slot];
+		uint16_t getPreyFreeRerollIn(uint16_t slot) const {
+			return preySlotFreeRerollIn[slot];
+		}
+
+		uint16_t getPreyTimeLeft(uint16_t slot) const {
+			return preySlotTimeLeft[slot];
+		}
+
+		uint16_t getPreyNextUse(uint16_t slot) const {
+			return preySlotNextUse[slot];
 		}
 
 		uint16_t getPreyBonusType(uint16_t slot) const {
@@ -222,6 +234,10 @@ class Player final : public Creature, public Cylinder
 
 		uint16_t getPreyBonusValue(uint16_t slot) const {
 			return preySlotBonusValue[slot];
+		}
+
+		uint16_t getPreyBonusGrade(uint16_t slot) const {
+			return preySlotBonusGrade[slot];
 		}
 		//
 
@@ -1532,12 +1548,16 @@ class Player final : public Creature, public Cylinder
 		int16_t lastDepotId = -1;
 		
 		// New Prey
+		std::vector<uint16_t> preySlotState = {0, 0, 0};
+		std::vector<uint16_t> preySlotUnlocked = {0, 0, 0};
 		std::vector<std::string> preySlotCurrentMonster = { "", "", "" };
 		std::vector<std::string> preySlotMonsterList = { "", "", "" };
-		std::vector<uint16_t> preySlotStamina = {7200, 7200, 7200};
-		std::vector<uint16_t> preySlotState = {0, 0, 0};
+		std::vector<uint16_t> preySlotFreeRerollIn = { 0, 0, 0 };
+		std::vector<uint16_t> preySlotTimeLeft = {7200, 7200, 7200};
+		std::vector<uint16_t> preySlotNextUse = { 0, 0, 0 };
 		std::vector<uint16_t> preySlotBonusType = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusValue = {0, 0, 0};
+		std::vector<uint16_t> preySlotBonusGrade = { 0, 0, 0 };
 
 		uint8_t soul = 0;
 		uint8_t levelPercent = 0;
