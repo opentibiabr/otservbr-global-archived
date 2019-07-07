@@ -64,7 +64,8 @@ local events = {
 	'DragonsKill',
     'deeplingBosses',
     'imbueDamage',
-    'theGreatDragonHuntKill'
+    'theGreatDragonHuntKill',
+    'bonusPreyLootKill'
 }
 
 local function onMovementRemoveProtection(cid, oldPosition, time)
