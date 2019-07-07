@@ -525,7 +525,8 @@ CREATE TABLE `players` (
   `former` varchar(255) NOT NULL DEFAULT '-',
   `signature` varchar(255) NOT NULL DEFAULT '',
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
-  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0'
+  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0',
+  `bonus_rerolls` bigint(21) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
