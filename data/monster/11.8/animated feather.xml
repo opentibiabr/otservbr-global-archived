@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Animated Feather" nameDescription="an animated feather" race="undead" experience="11600" speed="210">
+<monster name="Animated Feather" nameDescription="an animated feather" race="undead" experience="11600" speed="535">
 	<health now="13000" max="13000" />
 	<look type="1058" corpse="33325" />
 	<targetchange interval="5000" chance="8" />
@@ -20,11 +20,11 @@
 		<flag canwalkonpoison="1" />
 	</flags>
 <attacks>
-		<attack name="melee" interval="2000" min="-100" max="-200" />
+		<attack name="melee" interval="2000" min="-100" max="-250" />
 		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
 			<attribute key="shootEffect" value="ice" />
 		</attack>
-			<attack name="ice" interval="1000" chance="10" range="7" min="-200" max="-780">
+			<attack name="ice" interval="1000" chance="15" range="7" min="-200" max="-780">
 			<attribute key="shootEffect" value="smallice" />
 			<attribute key="areaEffect" value="iceattack" />
 		</attack>
@@ -39,6 +39,10 @@
 	<defenses armor="79" defense="40" />
 	<elements>
 		<element firePercent="-18" />
+		<element icePercent="100"/>
+	</elements>
+	<elements>
+		<element firePercent="-18" />
 	</elements>
 	<immunities>
 		<immunity paralyze="1" />
@@ -46,22 +50,25 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<!-- common -->
-		<item name="Small Sapphire" countmax="5" chance="8700" />
-		<item name="Platinum Coin" countmax="50" chance="87000" />
-		<item id="33317" countmax="10" chance="500" />
-		<item name="Energy Ring" chance="8700" />
-	    <item id="7441" chance="4000" /><!-- ice cube -->
-		<!-- semi-rare -->
+		<item name="Small Sapphire" countmax="5" chance="10500" />
+		<item name="Platinum Coin" countmax="50" chance="75000" />
+		<item name="glowing rune" countmax="10" chance="14700" />
+		<item name="Glacier Mask"   chance="1250" />
+		<item name="Energy Ring" chance="13700" />
+		<item name="diamond sceptre" chance="9730" />
+	    <item id="7441" chance="5280" />
+		<item name="Ultimate Mana Potion"  countmax="3"  chance="6900" />
+		<item name="Quill" chance="2250" />
+		<item name="glacier amulet" chance="3610" />
+		<item name="Golden Mug" chance="4560" />
+		<item name="Small Diamond" countmax="5" chance="1500" />
+		<item name="Hailstorm Rod" chance="2701" />
+		<item name="Crystal Mace" chance="3160" />
+		<item name="Sapphire Hammer" chance="1050" />
+		<item name="Glacial Rod" chance="773" />
+		<item name="Crystalline Armor" chance="500" />
+		<item name="Leviathan's Amulet" chance="550" />
 		<item name="Shard" countmax="3"   chance="250" />
-		<item name="Glacier Mask"   chance="250" />
-		<item name="Hailstorm Rod"    chance="250" />
-		<item name="Life Crystal" countmax="1"  chance="8700" />
-		<item name="Great Mana Potion"  countmax="6"  chance="900" />
-		<item name="Golden Mug" chance="500" />
-		<item name="Glowing Rune" countmax="10" chance="500" />
-		<item name="Energy Ring" chance="8700" />
-		<item name="Quill" chance="250" />
-		<item name="Small Diamond" countmax="5" chance="500" />
+		<item name="Great Mana Potion" countmax="3" chance="8700" />
 	</loot>
 </monster>

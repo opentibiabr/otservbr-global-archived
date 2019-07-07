@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Brain Squid" nameDescription="a brain squid" race="undead" experience="21000" speed="215" manacost="0">
+<monster name="Brain Squid" nameDescription="a brain squid" race="undead" experience="21000" speed="548" manacost="0">
 	<health now="18000" max="18000"/>
 	<look type="1059" head="97" body="18" legs="61" feet="85" corpse="33329"/>
 <targetchange interval="5000" chance="8"/>
@@ -30,14 +30,14 @@
 
 
 	</attacks>
-	<defenses armor="82" defense="40"/>
+	<defenses armor="79" defense="40"/>
 	<elements>
-		<element icePercent="50"/>
-		<element earthPercent="30"/>
-		<element holyPercent="70"/>
-		<element firePercent="50"/>
-		<element energyPercent="90"/>
-		<element deathPercent="50"/>
+		<element icePercent="0"/>
+		<element earthPercent="0"/>
+		<element holyPercent="100"/>
+		<element firePercent="0"/>
+		<element energyPercent="100"/>
+		<element deathPercent="-15"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
@@ -46,36 +46,37 @@
 	<loot>
 <!-- common  -->
 
-		<item name="Violet Crystal Shard" countmax="4" chance="900"/>
-		<item name="Platinum Coin" countmax="12" chance="100001"/>
-		<item name="Glowing Rune" countmax="4" chance="900"/>
-		<item name="Instable Proto Matter" countmax="4" chance="1200"/>
+		<item name="Violet Crystal Shard" countmax="5" chance="19100"/>
+		<item name="Platinum Coin" countmax="12" chance="85000"/>
+		<item name="Glowing Rune" countmax="5" chance="11900"/>
+		<item name="Instable Proto Matter" countmax="1" chance="9900"/>
 
 <!-- uncommon -->
-		<item name="Energy Ball" countmax="4" chance="1200"/>
-		<item name="Energy Bar" countmax="4" chance="1200"/>
-		<item name="Energy Drink" countmax="4" chance="1200"/>
-		<item name="Odd Organ" countmax="4" chance="1200"/>
-		<item name="Frozen Lightning" countmax="4" chance="1200"/>
-		<item id="33315" countmax="3" chance="1200"/> <!-- inkwell-->
-		<item name="Small Ruby" countmax="4" chance="1200"/>
-		<item name="Violet Gem" countmax="4" chance="1200"/>
-		<item name="Blue Crystal Splinter" countmax="4" chance="1200"/>
-		<item name="Cyan Crystal Fragment" countmax="4" chance="1200"/>
-		<item name="Ultimate Mana Potion" countmax="4" chance="1200"/>
+		<item name="Energy Ball" countmax="1" chance="7900"/>
+		<item name="Energy Bar" countmax="1" chance="18400"/>
+		<item name="Energy Drink" countmax="1" chance="9100"/>
+		<item name="Odd Organ" countmax="1" chance="7300"/>
+		<item name="Frozen Lightning" countmax="1" chance="6900"/>
+		<item id="33315" countmax="3" chance="5300"/> <!-- inkwell-->
+		<item name="Small Ruby" countmax="3" chance="9840"/>
+		<item name="Violet Gem" countmax="3" chance="6120"/>
+		<item name="Blue Crystal Splinter" countmax="1" chance="4490"/>
+		<item name="Cyan Crystal Fragment" countmax="1" chance="5140"/>
+		<item name="Ultimate Mana Potion" countmax="1" chance="8700"/>
 
 <!-- semi-rare -->
-		<item name="Piece of Dead Brain" countmax="4" chance="1200"/>
-		<item name="Wand of Defiance" chance="800"/>
-		<item name="Lightning Headband" chance="950"/>
-		<item name="Lightning Pendant" chance="850"/>
-		<item name="Might Ring" chance="1300"/>
-		<item name="Slime Heart" countmax="4" chance="1200"/>
-		<item id="26200" chance="560"/> <!-- collar of red plasma-->
-		<item id="26198" chance="560"/> <!-- collar of blue plasma-->
-		<item id="26199" chance="560"/> <!-- collar of green plasma-->
-		<item id="26189" chance="560"/> <!-- ring of red plasma-->
-		<item id="26185" chance="560"/> <!-- ring of blue plasma-->
-		<item id="26187" chance="560"/> <!-- rinf of green plasma-->
+		<item name="Piece of Dead Brain" countmax="1" chance="4100"/>
+		<item name="Wand of Defiance" chance="4000"/>
+		<item name="Lightning Headband" chance="3950"/>
+		<item name="Lightning Pendant" chance="4350"/>
+		<item name="Might Ring" chance="3301"/>
+		<item name="Slime Heart" countmax="1" chance="5100"/>
+		<item id="26200" chance="3100"/> <!-- collar of red plasma-->
+		<item id="26198" chance="3100"/> <!-- collar of blue plasma-->
+		<item id="26199" chance="910"/> <!-- collar of green plasma-->
+		<item id="26189" chance="2700"/> <!-- ring of red plasma-->
+		<item id="26185" chance="2700"/> <!-- ring of blue plasma-->
+		<item id="26187" chance="810"/> <!-- rinf of green plasma-->
+		<item name="spellweaver's robe" chance="610"/> <!-- spellweaver's robe-->
 	</loot>
 </monster>

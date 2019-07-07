@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Gorzindel" nameDescription="Gorzindel" race="undead" experience="0" speed="50" manacost="0">
+<monster name="Gorzindel" nameDescription="Gorzindel" race="undead" experience="0" speed="461" manacost="0">
 	<health now="10000" max="10000" />
 	<look type="1062" addons="1" />
 <targetchange interval="5000" chance="8" />
@@ -17,16 +17,19 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-200" />
-		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
-			<attribute key="shootEffect" value="snowball" />
-			<attribute key="areaEffect" value="poff" />
+		<attack name="melee" interval="2000" min="0" max="-780" />
+		<attack name="physical" interval="2000" chance="14" range="7" min="-50" max="-1180">
+			<attribute key="shootEffect" value="eartharrow"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
+		</attack>
+			<attack name="earth" interval="2000" chance="50" length="8" spread="0" min="-50" max="500">
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="earth" interval="1000" chance="12" length="3" spread="3" min="-120" max="-590">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>
-	<defenses armor="28" defense="33" />
+	<defenses armor="58" defense="33" />
 	<elements>
 		<element icePercent="-1" />
 	</elements>
@@ -34,5 +37,18 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
+	<item name="Knowledgeable Book" countmax="1" chance="100000" />
+	<item name="Ominous Book" countmax="1" chance="50000" />
+	<item name="Sinister Book" countmax="1" chance="50000" />
+	<item name="Crystal Coin" countmax="3" chance="6300" />
+	<item name="Platinum Coin" countmax="32" chance="9857" />
+	<item name="Violet Gem" countmax="1" chance="12350" />
+	<item name="Steel Boots" countmax="1" chance="4934" />
+	<item name="Chaos Mace" countmax="1" chance="5880" />
+	<item name="Dreaded Cleaver" countmax="1" chance="6122" />
+	<item name="Wand of Cosmic Energy" countmax="1" chance="5880" />
+	<item name="Dreaded Cleaver" countmax="1" chance="6122" />
+	<item name="Bullseye Potion" countmax="2" chance="4300" />
+	<item name="Ultimate Spirit Potion" countmax="4" chance="11330" />
 	</loot>
 </monster>

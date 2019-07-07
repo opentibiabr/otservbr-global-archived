@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Cursed Book" nameDescription="a cursed book" race="undead" experience="15700" speed="220" manacost="0">
+<monster name="Cursed Book" nameDescription="a cursed book" race="undead" experience="15700" speed="561" manacost="0">
 	<health now="20000" max="20000"/>
 	<look type="1061" head="79" body="83" legs="113" feet="0" addons="1" corpse="33337"/>
 	<targetchange interval="5000" chance="8"/>
@@ -18,7 +18,7 @@
 		<flag canwalkonenergy="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="melee" interval="2000" min="-10" max="-550"/>
 		<attack name="physical" interval="1000" chance="15" range="7" min="-400" max="-680">
 			<attribute key="shootEffect" value="eartharrow"/>
 		</attack>
@@ -31,13 +31,8 @@
 	</attacks>
 		<defenses armor="82" defense="40"/>
 	<elements>
-		<element physicalPercent="50"/>
-		<element icePercent="50"/>
-		<element earthPercent="80"/>
-		<element holyPercent="50"/>
-		<element firePercent="50"/>
-		<element energyPercent="30"/>
-		<element deathPercent="50"/>
+		<element earthPercent="100"/>
+		<element energyPercent="-10"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
@@ -45,24 +40,24 @@
 	<loot>
 <!-- common -->
 		<item id="33316" countmax="3" chance="10000"/> <!-- Book Page -->
-		<item name="Platinum Coin" countmax="10" chance="10000"/>
+		<item name="Platinum Coin" countmax="10" chance="80000"/>
 		<item id="33313" countmax="3" chance="10000"/><!-- Silken Bookmark -->
 		<item name="Small Diamond" countmax="7" chance="10000"/>
 		<item name="Small Stone" countmax="7" chance="10000"/>
 		<item name="Small Topaz" countmax="7" chance="10000"/>
 <!-- uncommon -->
 		<item name="Protection Amulet" chance="10000"/>
-		<item name="Terra Boots" chance="350"/>
-		<item name="Terra Hood" chance="600"/>
-		<item name="Diamond Sceptre" chance="600"/>
+		<item name="Terra Boots" chance="8315"/>
+		<item name="Terra Hood" chance="7135"/>
+		<item name="Diamond Sceptre" chance="6548"/>
 <!-- semi-rare -->
-		<item name="Terra Mantle" chance="250"/>
-		<item name="Terra Legs" chance="250"/>
-		<item name="Terra Amulet" chance="500"/>
-		<item name="Stone Skin Amulet" chance="350"/>
-		<item name="Springsprout Rod" chance="350"/>
-		<item name="Sacred Tree Amulet" chance="350"/>
+		<item name="Terra Mantle" chance="1250"/>
+		<item name="Terra Legs" chance="2369"/>
+		<item name="Terra Amulet" chance="3020"/>
+		<item name="Stone Skin Amulet" chance="1524"/>
+		<item name="Springsprout Rod" chance="2211"/>
+		<item name="Sacred Tree Amulet" chance="950"/>
 <!-- very rare -->
-		<item name="Swamplair Armor" chance="250"/>
+		<item name="Swamplair Armor" chance="850"/>
 	</loot>
 </monster>

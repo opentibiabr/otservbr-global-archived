@@ -24,11 +24,11 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-200" />
-		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
+		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-380">
 			<attribute key="shootEffect" value="snowball" />
 			<attribute key="areaEffect" value="poff" />
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
+		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-375">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>
@@ -61,11 +61,6 @@
 		<immunity invisible="0" />
 	</immunities>
 	<loot>
-		<item name="snowball" countmax="22" chance="10000" />
-		<item name="gold coin" countmax="60" chance="100000" />
-		<item name="gold coin" countmax="40" chance="100000" />
-		<item name="bunnyslippers" chance="1333" />
-		<item name="meat" countmax="4" chance="33333" />
-		<item name="ham" countmax="5" chance="10000" />
+
 	</loot>
 </monster>

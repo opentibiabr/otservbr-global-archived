@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Energetic Book" nameDescription="an energetic book" race="undead" experience="14300" speed="220" manacost="0">
+<monster name="Energetic Book" nameDescription="an energetic book" race="undead" experience="14300" speed="561" manacost="0">
 	<health now="18500" max="18500"/>
 	<look type="1061" head="15" body="91" legs="85" feet="0" addons="1" corpse="32478"/>
 	<targetchange interval="5000" chance="8"/>
@@ -30,12 +30,9 @@
 	</attacks>
 	<defenses armor="82" defense="40"/>
 	<elements>
-		<element icePercent="50"/>
-		<element earthPercent="30"/>
-		<element holyPercent="70"/>
-		<element firePercent="50"/>
-		<element energyPercent="90"/>
-		<element deathPercent="50"/>
+		<element earthPercent="-10"/>
+		<element holyPercent="100"/>
+		<element energyPercent="100"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
@@ -43,23 +40,23 @@
 	<loot>
 <!-- common -->
 		<item name="Platinum Coin" countmax="28" chance="100000"/>
-		<item id="33316" countmax="8" chance="900"/>
-		<item id="33317" countmax="7" chance="900"/>
+		<item id="33316" countmax="8" chance="26870"/>
+		<item id="33317" countmax="7" chance="22350"/>
 
 <!-- uncommon -->
 		<item name="Ultimate Health Potion" countmax="7" chance="10000"/>
 		<item name="Ultimate Mana Potion" countmax="7" chance="10000"/>
-		<item name="Energy Ball" countmax="7" chance="900"/>
-		<item id="33313" countmax="7" chance="800"/>
+		<item name="Energy Ball" countmax="7" chance="9987"/>
+		<item id="33313" countmax="7" chance="10600"/>
 <!-- semi-rare -->
-		<item name="Lightning Pendant" chance="500"/>
-		<item name="Lightning Boots" chance="500"/>
-		<item name="Lightning Headband" chance="500"/>
-		<item name="Might Ring" chance="500"/>
-		<item name="Spellweaver's Robe" chance="350"/>
-		<item name="Wand of Defiance" chance="350"/>
+		<item name="Lightning Pendant" chance="5540"/>
+		<item name="Lightning Boots" chance="6847"/>
+		<item name="Lightning Headband" chance="7854"/>
+		<item name="Might Ring" chance="2654"/>
+		<item name="Spellweaver's Robe" chance="1897"/>
+		<item name="Wand of Defiance" chance="2354"/>
 <!-- rare -->
-		<item name="Haunted Blade" chance="550"/>
-		<item name="Lightning Legs" chance="350"/>
+		<item name="Haunted Blade" chance="1234"/>
+		<item name="Lightning Legs" chance="1020"/>
 	</loot>
 </monster>

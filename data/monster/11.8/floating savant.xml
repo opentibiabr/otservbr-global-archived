@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Floating Savant" nameDescription="a floating savant" race="undead" experience="8000" speed="165" manacost="0">
+<monster name="Floating Savant" nameDescription="a floating savant" race="undead" experience="8000" speed="421" manacost="0">
 	<health now="8000" max="8000"/>
 	<look type="1063" head="113" body="94" legs="78" feet="78" addons="0" corpse="33341"/>
 	<targetchange interval="5000" chance="8"/>
@@ -36,11 +36,8 @@
 	</summons>
 	<defenses armor="82" defense="40"/>
 	<elements>
-		<element icePercent="50"/>
-		<element earthPercent="30"/>
-		<element holyPercent="50"/>
-		<element firePercent="80"/>
-		<element energyPercent="50"/>
+		<element icePercent="-10"/>
+		<element firePercent="100"/>
 		<element deathPercent="50"/>
 	</elements>
 	<immunities>
@@ -50,13 +47,15 @@
 		<voice sentence="tssooosh tsoooosh tssoooosh!"/>
 	</voices>
 	<loot>
-		 <item name="small enchanted ruby" countmax="5" chance="10000"/>
-		<item name="Red Crystal Fragment" countmax="2" chance="10000"/>
-		<item name="Red Gem" countmax="3" chance="10000"/>
-		<item name="Red Piece of Cloth" countmax="3" chance="10000"/>
-		<item name="Concentrated Demonic Blood" countmax="5" chance="12000"/>
-		<item name="Demonic Essence" countmax="5" chance="10000"/>
- 		<item name="Pick" countmax="5" chance="10000"/>
- 		<item name="Sample of Monster Blood" countmax="5" chance="10000"/>
+		 <item name="small enchanted ruby" countmax="14" chance="21300"/>
+		<item name="Red Crystal Fragment" countmax="8" chance="19980"/>
+		<item name="Red Gem" countmax="3" chance="71550"/>
+		<item name="Red Piece of Cloth" countmax="3" chance="30880"/>
+		<item name="Concentrated Demonic Blood" countmax="1" chance="15580"/>
+		<item name="Demonic Essence" countmax="1" chance="24100"/>
+ 		<item name="Pick" countmax="1" chance="4650"/>
+		<item name="Black Skull" countmax="1" chance="160"/>
+		<item name="Book of Necromantic Rituals" countmax="1" chance="19820"/>
+ 		<item name="Sample of Monster Blood" countmax="1" chance="80"/>
 	</loot>
 </monster>

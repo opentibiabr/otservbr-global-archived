@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Brokul" nameDescription="a brokul" race="blood" experience="23000" speed="210">
+<monster name="Brokul" nameDescription="a brokul" race="blood" experience="23000" speed="710">
 	<health now="50000" max="50000" />
 	<look type="1076" corpse="33376" />
 	<targetchange interval="1000" chance="10" />
 	<flags>
-				<flag preyable="0" />
+		<flag preyable="0" />
         <flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -49,28 +49,16 @@
  		<summons maxSummons="5">
 		<summon name="neutral deepling warrior" interval="1" chance="70" />
 		</summons>
-		<elements>
-		<element earthPercent="-20" />
-		<element energyPercent="-20" />
-		<element deathPercent="50" />
-		</elements>
 		<immunities>
 		<immunity invisible="1" />
 		<immunity ice="1" />
 		<immunity drown="1" />
 		<immunity fire="1" />
+		<immunity earth="1" />
 		</immunities>
 		<loot>
-		<item name="small sapphire" countmax="10"  chance="2854" />
-		<item name="gold coin" countmax="60" chance="70000" />
-		<item name="platinum coin" countmax="10" chance="80000" />
-		<item id="Gold Ingot" countmax="10"  chance="3448" />
-	 	<item name="Broccoli" countmax="10"  chance="2439" />
-    	<item name="Small Diamond" countmax="10"  chance="498" />
-		<item name="Blue Gem" chance="2500" />
-		<item name="Red Gem" chance="2000" />
-		<item name="Deepling Ceremonial Dagger" chance="200" />
-		<item name="Deepling Fork" chance="200" />
-		<item name="The True Book of Death" chance="70000" />
+		<item name="Deepling Ceremonial Dagger" chance="10000" />
+		<item name="Deepling Fork" chance="10000" />
+		<item name="The True Book of Death" chance="100000" />
 	</loot>
 </monster>

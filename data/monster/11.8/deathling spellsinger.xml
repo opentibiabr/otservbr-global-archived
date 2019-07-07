@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Deathling Spellsinger" nameDescription="a deathling spellsinger" race="blood" experience="6400" speed="155">
+<monster name="Deathling Spellsinger" nameDescription="a deathling spellsinger" race="blood" experience="6400" speed="396">
 	<health now="7200" max="7200"/>
 	<look type="1088" corpse="32549"/>
 	<targetchange interval="4000" chance="10"/>
@@ -19,26 +19,26 @@
 		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="100" max="352"/>
-		<attack name="ice" interval="1500" chance="10" length="10" spread="3" min="180" max="650">
-			<attribute key="areaEffect" value="icetornado"/>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="drown" interval="1500" chance="15" range="7" target="1" min="-200" max="-400">
+			<attribute key="shootEffect" value="spear"/>
+			<attribute key="areaEffect" value="bluebubble"/>
+			</attack>
+		<attack name="physical" interval="1000" chance="15" range="7" min="-150" max="-310">
+			<attribute key="shootEffect" value="spear" />
+			<attribute key="areaEffect" value="poff" />
 		</attack>
-		<attack name="drown" interval="1500" chance="20" target="1" radius="4" min="190" max="430">
-			<attribute key="areaEffect" value="bubbles"/>
-		</attack>
-		<attack name="lifedrain" interval="1500" chance="15" range="7" min="150" max="340">
-			<attribute key="areaEffect" value="smallplants"/>
-		</attack>
-		<attack name="manadrain" interval="1500" chance="10" range="7" min="100" max="340">
-			<attribute key="areaEffect" value="smallplants"/>
+		<attack name="Divine Caldera" interval="1500" chance="10" range="7" min="-400" max="-700">
+			<attribute key="shootEffect" value="holydamage" />
+			<attribute key="areaEffect" value="holydamage"/>
 		</attack>
 		<attack name="deepling spellsinger skill reducer" range="5" interval="2000" chance="5"/>
 	</attacks>
 	<defenses armor="25" defense="25"/>
 	<elements>
-		<element earthPercent="-20"/>
-		<element energyPercent="-20"/>
-		<element deathPercent="50"/>
+		<element earthPercent="-10"/>
+		<element energyPercent="-10"/>
+		<element deathPercent="10"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
@@ -52,11 +52,23 @@
 		<voice sentence="VBOXCL"/>
 	</voices>
 	<loot>
-		<item name="platinum coin" chance="80000"/>
-		<item name="life ring" chance="2439"/>
-		<item name="fish fin" chance="498"/>
-		<item name="eye of a deepling" chance="2500"/>
-		<item name="necklace of the deep" chance="813"/>
-		<item name="deepling filet" chance="14285"/>
+		<item name="Platinum Coin" countmax="14" chance="100000" />
+		<item name="Crystalline Arrow" countmax="25" chance="28960" />
+		<item name="Vortex Bolt" countmax="25" chance="6480" />
+		<item name="Small Emerald" countmax="14" chance="15390" />
+		<item name="Deepling Warts" countmax="1" chance="9970" />
+		<item name="Deeptags" countmax="1" chance="14380" />
+		<item name="Deepling Filet" countmax="1" chance="14780" />
+		<item name="Small Enchanted Sapphire" countmax="1" chance="2220" />
+		<item name="Deepling Ridge" countmax="1" chance="11630" />
+		<item name="Great Mana Potion" countmax="1" chance="10510" />
+		<item name="Great Health Potion" countmax="1" chance="10150" />
+		<item name="Heavy Trident" countmax="1" chance="4060" />
+		<item name="Eye of a Deepling" countmax="1" chance="6020" />
+		<item name="Warrior's Axe" countmax="1" chance="4030" />
+		<item name="Warrior's Shield" countmax="1" chance="4240" />
+		<item name="Life Ring" countmax="1" chance="2870" />
+		<item name="Fish Fin" countmax="1" chance="3620" />
+		<item name="Necklace of the Deep" countmax="1" chance="333" />
 	</loot>
 </monster>

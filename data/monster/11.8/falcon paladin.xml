@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Falcon Paladin" nameDescription="a falcon paladin" race="blood" experience="7500" speed="110" manacost="0">
+<monster name="Falcon Paladin" nameDescription="a falcon paladin" race="blood" experience="7500" speed="330" manacost="0">
 	<health now="8500" max="8500"/>
 	<look type="1071" head="57" body="94" legs="38" feet="86" addons="2" corpse="32558"/>
 	<targetchange interval="4000" chance="10"/>
@@ -37,7 +37,8 @@
 		</defense>
 	</defenses>
 	<elements>
-	    <element physicalPercent="50"/>
+		<element holyPercent="-5" />
+	    <element physicalPercent="10"/>
 		<element deathPercent="55"/>
 	</elements>
 	<immunities>
@@ -49,25 +50,27 @@
 	</voices>
 	<loot>
  <!-- comun -->
-<item name="Small Emerald" countmax="3" chance="100000"/>
-<item name="Small Amethyst" countmax="3" chance="100000"/>
-<item name="Platinum Coin" countmax="3" chance="100000"/>
-<item name="Assassin Star" countmax="5" chance="100000"/>
-<item name="Great Spirit Potion" countmax="3" chance="100000"/>
+<item name="Small Diamond" countmax="2" chance="41790"/>
+<item name="Small Emerald" countmax="2" chance="40620"/>
+<item name="Small Amethyst" countmax="2" chance="40080"/>
+<item name="Platinum Coin" countmax="5" chance="90000"/>
+<item name="Assassin Star" countmax="10" chance="25740"/>
+<item name="Great Mana Potion" countmax="3" chance="10000"/>
+<item name="Great Health Potion" countmax="3" chance="10000"/>
   <!-- Incomum -->
-<item name="Small Ruby" countmax="3" chance="700"/>
-<item name="red Gem" countmax="3" chance="700"/>
-<item name="Onyx Arrow" countmax="3" chance="700"/>
-<item name="Small Topaz" countmax="3" chance="700"/>
+<item name="Small Ruby" countmax="3" chance="20730"/>
+<item name="red Gem" countmax="1" chance="7580"/>
+<item name="Onyx Arrow" countmax="15" chance="14630"/>
+<item name="Small Topaz" countmax="3" chance="20100"/>
  <!-- semi raro -->
-<item id="7633" chance="3300"/>
-<item name="Violet Gem" countmax="1" chance="600"/>
-<item name="Green Gem" countmax="1" chance="600"/>
+<item id="7633" chance="2260"/>
+<item name="Violet Gem" countmax="1" chance="4180"/>
+<item name="Green Gem" countmax="1" chance="4860"/>
  <!-- raro -->
-<item name="Damaged Armor Plates" countmax="3" chance="500"/>
-<item name="Falcon Crest" countmax="3" chance="500"/>
+<item name="Damaged Armor Plates" countmax="1" chance="1120"/>
+<item name="Falcon Crest" countmax="1" chance="730"/>
  <!-- muito raro -->
-<item name="Golden Armor" chance="100"/>
-<item name="Mastermind Shield" chance="80"/>
+<item name="Golden Armor" chance="310"/>
+<item name="Mastermind Shield" chance="310"/>
 	</loot>
 </monster>

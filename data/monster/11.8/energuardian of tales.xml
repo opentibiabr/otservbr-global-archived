@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Energuardian of Tales" nameDescription="an energuardian of tales" race="undead" experience="13500" speed="210" manacost="0">
+<monster name="Energuardian of Tales" nameDescription="an energuardian of tales" race="undead" experience="13500" speed="536" manacost="0">
 	<health now="14000" max="14000"/>
 	<look type="1063" body="85" feet="93" head="66" legs="82" addons="3" corpse="32571"/>
 	<targetchange interval="5000" chance="8"/>
@@ -21,29 +21,36 @@
 	 	<attack name="energy" interval="1000" chance="13" radius="3" min="-100" max="-555">
 			<attribute key="areaEffect" value="energyarea"/>
 		</attack>
+		<attack name="energy beam" interval="1000" chance="15" radius="3" min="-100" max="-789">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="rage of the skies" interval="1000" chance="10" radius="3" min="-100" max="-950">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
 	</attacks>
 	<defenses armor="82" defense="40"/>
 	<elements>
-		<element icePercent="50"/>
-		<element earthPercent="30"/>
-		<element holyPercent="50"/>
-		<element firePercent="80"/>
-		<element energyPercent="50"/>
-		<element deathPercent="50"/>
+		<element earthPercent="-12"/>
+		<element energyPercent="100"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="33316" countmax="5" chance="10000"/>
-		<item id="33317" countmax="5" chance="10000"/>
+		<item id="33316" countmax="8" chance="29870"/>
+		<item id="33317" countmax="5" chance="26980"/>
 		<item name="Small Amethyst" countmax="5" chance="10000"/>
-
-		<item name="Flash Arrow" countmax="5" chance="10000"/>
-		<item name="Lightning Legs" chance="250"/>
-		<item name="Spellbook of Warding" chance="350"/>
+		<item name="Lightning Pendant" countmax="1" chance="16510"/>
+		<item name="Flash Arrow" countmax="25" chance="16510"/>
+		<item name="Lightning Legs" chance="6630"/>
+		<item name="Might Ring" chance="4340"/>
+		<item name="Platinum Amulet" chance="2301"/>
+		<item name="Spellweaver's Robe" chance="2220"/>
+		<item name="Wand of Defiance" chance="1998"/>
+		<item name="Shockwave Amulet" chance="600"/>
+		<item name="Spellbook of Warding" chance="2260"/>
 		<item name="Ultimate Health Potion" countmax="5" chance="10000"/>
 		<item name="Ultimate Mana Potion" countmax="5" chance="10000"/>
-		<item name="Wand of Starstorm" chance="300"/>
+		<item name="Wand of Starstorm" chance="3270"/>
 	</loot>
 </monster>
