@@ -10481,7 +10481,7 @@ int LuaScriptInterface::luaPlayerSetPreyNextUse(lua_State* L)
 	Player* player = getUserdata<Player>(L, 1);
 	uint16_t slot = getNumber<uint16_t>(L, 2);
 	if (player) {
-		uint16_t time = getNumber<uint16_t>(L, 3);
+		uint16_t time = getNumber<uint32_t>(L, 3);
 		player->preySlotNextUse[slot] = time;
 	}
 	else {
