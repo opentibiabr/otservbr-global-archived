@@ -10540,7 +10540,7 @@ int LuaScriptInterface::luaPlayerSetPreyBonusRerolls(lua_State* L)
 	// player:setPreyBonusRerolls(slot, grade)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		uint16_t value = getNumber<uint16_t>(L, 3);
+		uint16_t value = getNumber<uint16_t>(L, 2);
 		player->preyBonusRerolls = value;
 	}
 	else {
