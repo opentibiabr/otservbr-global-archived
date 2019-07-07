@@ -212,32 +212,5 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			end
 		end
 	end
-
-	if (attacker:isPlayer()) then
-		if (self:isMonster() and not self:getMaster()) then
-			for i = 1, 3 do
-				if (attacker:isActive(i-1)) then
-					local bonusInfo = attacker:getBonusInfo(i-1)
-					if (bonusInfo.Type == 0 and bonusInfo.Name == self:getName()) then
-						damagePrimary = damagePrimary + math.floor(damagePrimary * (bonusInfo.Value/100))
-						break
-					end
-				end
-			end
-		end
-	elseif (attacker:isMonster()) then
-		if (self:isPlayer()) then
-			for i = 1, 3 do
-				if (self:isActive(i-1)) then
-					local bonusInfo = self:getBonusInfo(i-1)
-					if (bonusInfo.Type == 1 and bonusInfo.Name == attacker:getName()) then
-						damagePrimary = damagePrimary - math.floor(damagePrimary * (bonusInfo.Value/100))
-						return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
-					end
-				end
-			end
-		end
-	end
-
 	return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
 end
