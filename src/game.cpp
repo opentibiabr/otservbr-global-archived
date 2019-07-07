@@ -4200,6 +4200,40 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (healthChange == 0) {
 			return true;
 		}
+		
+		// New Prey
+		// Boost damage
+		if (target->getMonster() && attackerPlayer) {
+			uint16_t extra = 0;
+			for (size_t slot = 0; slot < PREY_SLOTNUM_THIRD + 1; slot++) {
+				if (attackerPlayer->preySlotBonusType[slot] == PREY_BONUS_DAMAGE_BOOST && attackerPlayer->preySlotCurrentMonster[slot] == target->getName()) {
+					extra += attackerPlayer->preySlotBonusValue[slot];
+					std::cout << "Boost damage " << " Increased: " << attackerPlayer->preySlotBonusValue[slot] << "%" << std::endl;
+				}
+			}
+
+			std::cout << "Prev damage: " << healthChange << std::endl;
+			healthChange += std::ceil(extra * healthChange / 100.);
+			std::cout << "Next damage: " << healthChange << std::endl;
+		}
+		// Damage reduction
+		else if (targetPlayer && attacker && attacker->getMonster()) {
+			uint16_t extra = 0;
+			for (size_t slot = 0; slot < PREY_SLOTNUM_THIRD + 1; slot++) {
+				if (targetPlayer->preySlotBonusType[slot] == PREY_BONUS_DAMAGE_REDUCTION && targetPlayer->preySlotCurrentMonster[slot] == attacker->getName()) {
+					extra += targetPlayer->preySlotBonusValue[slot];
+					std::cout << "Damage reduction " << " Reduced: " << targetPlayer->preySlotBonusValue[slot] << "%" << std::endl;
+					break;
+				}
+			}
+
+			if (extra >= 100) {
+				return true;
+			}
+			std::cout << "Prev damage: " << healthChange << std::endl;
+			healthChange -= std::ceil(extra * healthChange / 100.);
+			std::cout << "Next damage: " << healthChange << std::endl;
+		}
 
 		SpectatorHashSet spectators;
 		map.getSpectators(spectators, targetPos, true, true);
