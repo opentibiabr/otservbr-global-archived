@@ -1072,6 +1072,27 @@ CREATE TABLE `z_shop_payment` (
 -- Indexes for dumped tables
 --
 
+CREATE TABLE `prey_slots` (
+  `player_id` int(11) NOT NULL,
+  `num` smallint(2) NOT NULL,
+  `state` smallint(2) NOT NULL DEFAULT '1',
+  `unlocked` tinyint(1) NOT NULL DEFAULT '0',
+  `current` varchar(40) NOT NULL DEFAULT '',
+  `monster_list` varchar(360) NOT NULL,
+  `free_reroll_in` int(11) NOT NULL DEFAULT '0',
+  `time_left` smallint(5) NOT NULL DEFAULT '0',
+  `next_use` int(11) NOT NULL DEFAULT '0',
+  `bonus_type` smallint(3) NOT NULL,
+  `bonus_value` smallint(3) NOT NULL DEFAULT '0',
+  `bonus_grade` smallint(3) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `prey_slots`
+  ADD KEY `player_id` (`player_id`);
+ 
+ALTER TABLE `prey_slots`
+  ADD CONSTRAINT `prey_slots_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
+  
 --
 -- Indexes for table `accounts`
 --
