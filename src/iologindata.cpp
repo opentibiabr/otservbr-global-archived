@@ -246,22 +246,6 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 			player->preySlotBonusType[slotNum] = result->getNumber<uint16_t>("bonus_type");
 			player->preySlotBonusValue[slotNum] = result->getNumber<uint16_t>("bonus_value");
 			player->preySlotBonusGrade[slotNum] = result->getNumber<uint16_t>("bonus_grade");
-
-			std::ostringstream debug;
-			debug << "Slot: " << slotNum << " | ";
-			debug << "State: " << player->preySlotState[slotNum] << " | ";
-			debug << "Unlocked: " << player->preySlotUnlocked[slotNum] << " | ";
-			debug << "Current: " << player->preySlotCurrentMonster[slotNum] << " | ";
-			debug << "MonsterList: " << player->preySlotMonsterList[slotNum] << " | ";
-			debug << "Free reroll in: " << player->preySlotFreeRerollIn[slotNum] << " | ";
-			debug << "Time-left: " << player->preySlotTimeLeft[slotNum] << " | ";
-			debug << "Next-use: " << player->preySlotNextUse[slotNum] << " | ";
-			debug << "Bonus type: " << player->preySlotBonusType[slotNum] << " | ";
-			debug << "Bonus value: " << player->preySlotBonusValue[slotNum] << " | ";
-			debug << "Bonus grade: " << player->preySlotBonusGrade[slotNum];
-
-			// Debuging
-			std::cout << debug.str() << std::endl;
 		} while (result->next());
 	}
 	else {
