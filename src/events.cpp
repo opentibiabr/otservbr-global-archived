@@ -143,11 +143,8 @@ bool Events::load()
 		} else if (className == "Monster") {
 			if (methodName == "onSpawn") {
 				info.monsterOnSpawn = event;
-			/*
-			else if (methodName == "onDropLoot") {
+			} else if (methodName == "onDropLoot") {
 				info.monsterOnDropLoot = event;
-			}
-			*/
 			} else {
 				std::cout << "[Warning - Events::load] Unknown monster method: " << methodName << std::endl;
 			}
@@ -958,7 +955,6 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	scriptInterface.resetScriptEnv();
 }
 
-/*
 void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 {
 	// Monster:onDropLoot(corpse)
@@ -985,7 +981,6 @@ void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 
 	return scriptInterface.callVoidFunction(2);
 }
-*/
 
 void Events::eventPlayerOnUseWeapon(Player* player, int32_t& normalDamage, CombatType_t& elementType, int32_t& elementDamage)
 {

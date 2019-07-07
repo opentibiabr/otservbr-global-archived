@@ -1,21 +1,61 @@
---[[function Monster:onDropLoot(corpse)
+function Monster:onDropLoot(corpse)
 	if configManager.getNumber(configKeys.RATE_LOOT) == 0 then
 		return
 	end
 
-	local player = Player(corpse:getCorpseOwner())
 	local mType = self:getType()
+	if mType:isRewardBoss() then
+		corpse:registerReward()
+		return
+	end
+
+	local player = Player(corpse:getCorpseOwner())
+	local autolooted = ""
+	local canRerollLoot = false
+	
 	if not player or player:getStamina() > 840 then
+		if player then
+			for i = 0, 3 do
+				if player:getPreyType(i) == 3 and name == player:getPreyName(i) then
+					local rand = math.random(0, 100)
+					if (rand <= player:getPreyValue(i)) then
+						canRerollLoot = true
+					end
+
+					break
+				end
+			end
+		end
+
 		local monsterLoot = mType:getLoot()
 		for i = 1, #monsterLoot do
-			local item = corpse:createLootItem(monsterLoot[i])
-			if not item then
-				print('[Warning] DropLoot:', 'Could not add loot item to corpse.')
+			local item = corpse:createLootItem(monsterLoot[i], canRerollLoot)
+			if item < 0 then
+				print('[Warning] DropLoot:', 'Could not add loot item to corpse. itemId: '..monsterLoot[i].itemId)
+			else
+				-- autoloot
+				if item > 0 then
+					local tmpItem = Item(item)
+					if player and player:getAutoLootItem(tmpItem:getId()) and configManager.getNumber(configKeys.AUTOLOOT_MODE) == 1 then
+						if tmpItem:moveTo(player) then
+							autolooted = string.format("%s, %s", autolooted, tmpItem:getNameDescription())
+						end
+					end
+				end
 			end
 		end
 
 		if player then
-			local text = ("Loot of %s: %s"):format(mType:getNameDescription(), corpse:getContentDescription())
+			local text = ("Loot of %s%s: %s"):format(mType:getNameDescription(), (canRerollLoot and " [PREY]" or ""), corpse:getContentDescription())
+			-- autoloot
+			local lootMsg = ""
+			if autolooted ~= "" and corpse:getContentDescription() == "nothing" then
+				lootMsg = ".".. autolooted:gsub(",", "", 1) .. " that was autolooted"
+			elseif autolooted ~= "" then
+				lootMsg = corpse:getContentDescription() .. " and " .. autolooted:gsub(",", "", 1) .. " was auto looted"
+			end
+			text = string.format("%s%s", text, lootMsg)
+
 			local party = player:getParty()
 			if party then
 				party:broadcastPartyLoot(text)
@@ -32,7 +72,11 @@
 			player:sendTextMessage(MESSAGE_LOOT, text)
 		end
 	end
-end]]
+
+	if configManager.getNumber(configKeys.AUTOLOOT_MODE) == 2 then
+		corpse:setActionId(500)
+	end
+end
 
 function Monster:onSpawn(position)
 	local isday = false;

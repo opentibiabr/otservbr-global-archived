@@ -97,6 +97,21 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.pushable then
 			mtype:isPushable(mask.flags.pushable)
 		end
+		if mask.flags.rewardboss then
+			mtype:isRewardBoss(mask.flags.rewardboss)
+		end
+		if mask.flags.preyable then
+			mtype:isPreyable(mask.flags.preyable)
+		end
+		if mask.flags.pet then
+			mtype:isPet(mask.flags.pet)
+		end
+		if mask.flags.passive then
+			mtype:isPassive(mask.flags.passive)
+		end
+		if mask.flags.respawntype then
+			mtype:respawnType(mask.flags.respawntype)
+		end
 		if mask.flags.canPushItems then
 			mtype:canPushItems(mask.flags.canPushItems)
 		end
