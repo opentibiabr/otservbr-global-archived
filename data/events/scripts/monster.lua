@@ -46,11 +46,11 @@ function Monster:onDropLoot(corpse)
 		end
 
 		if player then
-			local text = ("Loot of %s%s: %s"):format(mType:getNameDescription(), (canRerollLoot and " [PREY]" or ""), corpse:getContentDescription())
+			local text = ("Loot of %s%s: "):format(mType:getNameDescription(), (canRerollLoot and " [PREY]" or ""))
 			-- autoloot
-			local lootMsg = ""
+			local lootMsg = corpse:getContentDescription()
 			if autolooted ~= "" and corpse:getContentDescription() == "nothing" then
-				lootMsg = ".".. autolooted:gsub(",", "", 1) .. " that was autolooted"
+				lootMsg = autolooted:gsub(",", "", 1) .. " that was autolooted"
 			elseif autolooted ~= "" then
 				lootMsg = corpse:getContentDescription() .. " and " .. autolooted:gsub(",", "", 1) .. " was auto looted"
 			end
