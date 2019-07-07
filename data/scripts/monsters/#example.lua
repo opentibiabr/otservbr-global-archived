@@ -23,13 +23,16 @@ monster.changeTarget = {
 monster.flags = {
 	summonable = false,
 	attackable = true,
+	rewardboss = false,
 	hostile = true,
 	convinceable = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
+	preyable = false,
 	targetDistance = 1,
-	staticAttackChance = 70
+	staticAttackChance = 70,
+	respawnType = RESPAWN_IN_ALL
 }
 
 monster.summons = {
