@@ -242,7 +242,7 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 			player->preySlotMonsterList[slotNum] = result->getString("monster_list");
 			player->preySlotFreeRerollIn[slotNum] = result->getNumber<uint16_t>("free_reroll_in");
 			player->preySlotTimeLeft[slotNum] = result->getNumber<uint16_t>("time_left");
-			player->preySlotNextUse[slotNum] = result->getNumber<uint16_t>("next_use");
+			player->preySlotNextUse[slotNum] = result->getNumber<uint32_t("next_use");
 			player->preySlotBonusType[slotNum] = result->getNumber<uint16_t>("bonus_type");
 			player->preySlotBonusValue[slotNum] = result->getNumber<uint16_t>("bonus_value");
 			player->preySlotBonusGrade[slotNum] = result->getNumber<uint16_t>("bonus_grade");
