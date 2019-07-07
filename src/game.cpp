@@ -4201,7 +4201,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			return true;
 		}
 		
-		// New Prey
+			// New Prey
 		// Boost damage
 		if (target->getMonster() && attackerPlayer) {
 			uint16_t extra = 0;
@@ -4212,9 +4212,9 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				}
 			}
 
-			std::cout << "Prev damage: " << healthChange << std::endl;
-			healthChange += std::ceil(extra * healthChange / 100.);
-			std::cout << "Next damage: " << healthChange << std::endl;
+			std::cout << "Prev damage: " << damage.primary.value << std::endl;
+			damage.primary.value += std::ceil(extra * damage.primary.value / 100.);
+			std::cout << "Next damage: " << damage.primary.value << std::endl;
 		}
 		// Damage reduction
 		else if (targetPlayer && attacker && attacker->getMonster()) {
@@ -4230,9 +4230,9 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			if (extra >= 100) {
 				return true;
 			}
-			std::cout << "Prev damage: " << healthChange << std::endl;
-			healthChange -= std::ceil(extra * healthChange / 100.);
-			std::cout << "Next damage: " << healthChange << std::endl;
+			std::cout << "Prev damage: " << damage.primary.value << std::endl;
+			damage.primary.value -= std::ceil(extra * damage.primary.value / 100.);
+			std::cout << "Next damage: " << damage.primary.value << std::endl;
 		}
 
 		SpectatorHashSet spectators;
