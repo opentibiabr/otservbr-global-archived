@@ -4,9 +4,9 @@ Prey = {
 	LastUpdate = "07/07/19",
 }
 
-CONST_SLOT_FIRST = 0
-CONST_SLOT_SECOND = 1
-CONST_SLOT_THIRD = 2
+CONST_PREY_SLOT_FIRST = 0
+CONST_PREY_SLOT_SECOND = 1
+CONST_PREY_SLOT_THIRD = 2
 
 CONST_MONSTER_TIER_BRONZE = 0
 CONST_MONSTER_TIER_SILVER = 1
@@ -143,7 +143,7 @@ function Player.setRandomBonusValue(self, slot, bonus, typeChange)
 		self:setPreyBonusValue(slot, math.random(min, max))
 	end
 
-	self:setPreyBonusGrade(slot, math.floor((self:getPreyBonusValue(slot) - min) / (max - min) * 10))   
+	self:setPreyBonusGrade(slot, math.floor((self:getPreyBonusValue(slot) - min) / (max - min) * 10))
 	if (self:getPreyBonusGrade(slot) == 10 and self:getPreyBonusValue(slot) < max) then
 		self:setPreyBonusGrade(slot, self:getPreyBonusGrade(slot) - 1)
 	end
@@ -162,7 +162,7 @@ end
 function Player.createMonsterList(self)
 	-- Do not allow repeated monsters
 	local repeatedList = {}
-	for slot = CONST_SLOT_FIRST, CONST_SLOT_THIRD do
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 		if (self:getPreyCurrentMonster(slot) ~= '') then
 			repeatedList[#repeatedList + 1] = self:getPreyCurrentMonster()
 		end
@@ -185,6 +185,12 @@ function Player.createMonsterList(self)
 	return table.concat(monsters, ";")
 end
 
+function Player.resetPreySlot(self, slot, from)
+	self:setPreyMonsterList(slot, self:createMonsterList())
+	self:setPreyState(slot, from)
+	return self:sendPreyData(slot)
+end
+
 function Player.getMinutesUntilFreeReroll(self, slot)
 	local currentTime = os.time()
 	if (self:getPreyNextUse(slot) <= currentTime) then
@@ -199,9 +205,9 @@ end
 
 function onRecvbyte(player, msg, byte)
 	if (byte == Prey.C_Packets.RequestData) then
-		player:sendPreyData(CONST_SLOT_FIRST)
-		player:sendPreyData(CONST_SLOT_SECOND)
-		player:sendPreyData(CONST_SLOT_THIRD)
+		player:sendPreyData(CONST_PREY_SLOT_FIRST)
+		player:sendPreyData(CONST_PREY_SLOT_SECOND)
+		player:sendPreyData(CONST_PREY_SLOT_THIRD)
 	elseif (byte == Prey.C_Packets.PreyAction) then
 		player:preyAction(msg)
 	end
@@ -209,8 +215,8 @@ end
 
 function Player.preyAction(self, msg)
 
-	local slot = msg:getByte() 
-	local action = msg:getByte() 
+	local slot = msg:getByte()
+	local action = msg:getByte()
 
 	if not slot then
 		return self:sendErrorDialog("Sorry, there was an issue, please relog-in.")
@@ -220,12 +226,12 @@ function Player.preyAction(self, msg)
 	if (self:getPreyUnlocked(slot) ~= 1) then
 		return self:sendErrorDialog("Sorry, you don't have this slot unlocked yet.")
 	end
-	
+
 	-- Listreroll
 	if (action == Prey.Actions.NEW_LIST) then
 
 		-- Verifying state
-		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER ) then
+		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER) then
 			return self:sendErrorDialog("This is slot is not even active.")
 		end
 
@@ -235,7 +241,7 @@ function Player.preyAction(self, msg)
 		elseif (not self:removeMoneyNpc(self:getRerollPrice())) then
 			return self:sendErrorDialog("You do not have enough money to perform this action.")
 		end
-		
+
 		self:setPreyCurrentMonster(slot, "")
 		self:setPreyMonsterList(slot, self:createMonsterList())
 		self:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
@@ -263,7 +269,7 @@ function Player.preyAction(self, msg)
 	-- Select monster from list
 	elseif (action == Prey.Actions.SELECT) then
 
-		local selectedMonster = msg:getByte() 
+		local selectedMonster = msg:getByte()
 		local monsterList = self:getPreyMonsterList(slot):split(";")
 
 		-- Verify if the monster exists.
@@ -302,7 +308,7 @@ function Player.selectPreyMonster(self, slot, monster)
 		-- Generating random bonus stats
 		self:setRandomBonusValue(slot, false, false)
 	end
-	
+
 	-- Setting current monster
 	self:setPreyCurrentMonster(slot, monster:getName())
 	-- Setting preySlot state
@@ -311,8 +317,6 @@ function Player.selectPreyMonster(self, slot, monster)
 	self:setPreyMonsterList(slot, "")
 	-- Time left
 	self:setPreyTimeLeft(slot, 7200) -- 2 hours
-	-- Next use
-	--self:setPreyNextUse(slot, 0)
 end
 
 function Player.sendPreyData(self, slot)
@@ -320,19 +324,19 @@ function Player.sendPreyData(self, slot)
 		print("[PREY]: " .. slot .. " was not found")
 	end
 
-	local slotState = self:getPreyState(slot)	
+	local slotState = self:getPreyState(slot)
 
 	local msg = NetworkMessage()
 	msg:addByte(Prey.S_Packets.PreyData) -- packet header
 	msg:addByte(slot) -- slot number
 	msg:addByte(slotState) -- slot state
-	
+
 	-- This slot will preserve the same bonus and % but the monster might be changed
 	if slotState == Prey.StateTypes.SELECTION_CHANGE_MONSTER then
 		print("Slot: " .. slot .. " | State: SELECTION_CHANGE_MONSTER ")
 
 		-- This values have to be stored on each slot
-		msg:addByte(self:getPreyBonusType(slot)) 
+		msg:addByte(self:getPreyBonusType(slot))
 		msg:addU16(self:getPreyBonusValue(slot))
 		msg:addByte(self:getPreyBonusGrade(slot))
 
@@ -343,15 +347,15 @@ function Player.sendPreyData(self, slot)
 			local monster = MonsterType(monsterList[i])
 			if monster then
 				msg:addString(monster:getName())
-				msg:addU16(monster:getOutfit().lookType or 21) 
-				msg:addByte(monster:getOutfit().lookHead or 0x00) 
+				msg:addU16(monster:getOutfit().lookType or 21)
+				msg:addByte(monster:getOutfit().lookHead or 0x00)
 				msg:addByte(monster:getOutfit().lookBody or 0x00)
 				msg:addByte(monster:getOutfit().lookLegs or 0x00)
 				msg:addByte(monster:getOutfit().lookFeet or 0x00)
 				msg:addByte(monster:getOutfit().lookAddons or 0x00)
 			else
-				print("[PREY]: SELECTION | Error while loading monster on slot: " .. slot)
-				return true
+				-- Reset slot as it got bugged
+				return self:resetPreySlot(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 			end
 		end
 
@@ -374,18 +378,18 @@ function Player.sendPreyData(self, slot)
 			local monster = MonsterType(monsterList[i])
 			if monster then
 				msg:addString(monster:getName())
-				msg:addU16(monster:getOutfit().lookType or 21) 
-				msg:addByte(monster:getOutfit().lookHead or 0x00) 
+				msg:addU16(monster:getOutfit().lookType or 21)
+				msg:addByte(monster:getOutfit().lookHead or 0x00)
 				msg:addByte(monster:getOutfit().lookBody or 0x00)
 				msg:addByte(monster:getOutfit().lookLegs or 0x00)
 				msg:addByte(monster:getOutfit().lookFeet or 0x00)
 				msg:addByte(monster:getOutfit().lookAddons or 0x00)
 			else
-				print("[PREY]: SELECTION | Error while loading monster on slot: " .. slot)
-				return true
+				-- Reset slot as it got bugged
+				return self:resetPreySlot(slot, Prey.StateTypes.SELECTION)
 			end
 		end
-	
+
 	-- This slot is active and will show current monster and bonus
 	elseif slotState == Prey.StateTypes.ACTIVE then
 		print("Slot: " .. slot .. " | State: ACTIVE ")
@@ -393,30 +397,29 @@ function Player.sendPreyData(self, slot)
 		local monster = MonsterType(self:getPreyCurrentMonster(slot))
 		if monster then
 			msg:addString(monster:getName())
-			msg:addU16(monster:getOutfit().lookType or 21) 
-			msg:addByte(monster:getOutfit().lookHead or 0x00) 
+			msg:addU16(monster:getOutfit().lookType or 21)
+			msg:addByte(monster:getOutfit().lookHead or 0x00)
 			msg:addByte(monster:getOutfit().lookBody or 0x00)
 			msg:addByte(monster:getOutfit().lookLegs or 0x00)
 			msg:addByte(monster:getOutfit().lookFeet or 0x00)
 			msg:addByte(monster:getOutfit().lookAddons or 0x00)
-			msg:addByte(self:getPreyBonusType(slot)) 
+			msg:addByte(self:getPreyBonusType(slot))
 			msg:addU16(self:getPreyBonusValue(slot))
 			msg:addByte(self:getPreyBonusGrade(slot))
-			msg:addU16(self:getPreyTimeLeft()) 
+			msg:addU16(self:getPreyTimeLeft(slot))
 		else
-			print("[PREY]: ACTIVE | Error while loading monster on slot: " .. slot)
-			return true
+			-- Reset slot as it got expired or bugged.
+			return self:resetPreySlot(slot, Prey.StateTypes.SELECTION)
 		end
 
 	-- This slot is inactive and will not take any extra bytes
 	elseif slotState == Prey.StateTypes.INACTIVE then
 
-		
+
 	elseif slotState == Prey.StateTypes.LOCKED then
 		print("Slot: " .. slot .. " | State: LOCKED ")
 		msg.addByte(Prey.UnlockTypes.PREMIUM_OR_STORE) -- Store unlock method
 	end
-	
 
 	-- Resources and times are always sent
 	msg:addU16(self:getMinutesUntilFreeReroll(slot)) -- next prey reroll here
@@ -429,5 +432,4 @@ function Player.sendPreyData(self, slot)
 	msg:addU32(self:getRerollPrice())
 	-- Sending message to client
 	msg:sendToPlayer(self)
-
 end
