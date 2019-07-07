@@ -159,17 +159,42 @@ function Player.getMonsterTier(self)
 	end
 end
 
--- TODO: do not repeat monsters between lists
 function Player.createMonsterList(self)
+	-- Do not allow repeated monsters
+	local repeatedList = {}
+	for slot = CONST_SLOT_FIRST, CONST_SLOT_THIRD do
+		if (self:getPreyCurrentMonster(slot) ~= '') then
+			repeatedList[#repeatedList + 1] = self:getPreyCurrentMonster()
+		end
+		if (self:getPreyMonsterList(slot) ~= '') then
+			local currentList = self:getPreyMonsterList(slot):split(";")
+			for i = 1, #currentList do
+				repeatedList[#repeatedList + 1] = currentList[i]
+			end
+		end
+	end
+	-- Generating monsterList
 	local monsters = {}
-	while #monsters ~= 7 do
+	while (#monsters ~= 9) do
 		local randomMonster = Prey.MonsterList[self:getMonsterTier()][math.random(#Prey.MonsterList[self:getMonsterTier()])]
 		-- Verify that monster actually exists
-		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster) then
+		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster) and not table.contains(repeatedList, randomMonster) then
 			monsters[#monsters + 1] = randomMonster
 		end
 	end
 	return table.concat(monsters, ";")
+end
+
+function Player.getMinutesUntilFreeReroll(self, slot)
+	local currentTime = os.time()
+	if (self:getPreyNextUse(slot) <= currentTime) then
+		return 0
+	end
+	return math.floor((self:getPreyNextUse(slot) - currentTime) / 60)
+end
+
+function Player.getRerollPrice(self)
+	return (self:getLevel() / 2) * 100
 end
 
 function onRecvbyte(player, msg, byte)
@@ -204,6 +229,14 @@ function Player.preyAction(self, msg)
 			return self:sendErrorDialog("This is slot is not even active.")
 		end
 
+		-- If free reroll is available
+		if (self:getMinutesUntilFreeReroll(slot) == 0) then
+			self:setPreyNextUse(slot, os.time() + 20 * 60 * 60)
+		elseif (not self:removeMoneyNpc(self:getRerollPrice())) then
+			return self:sendErrorDialog("You do not have enough money to perform this action.")
+		end
+		
+		self:setPreyCurrentMonster(slot, "")
 		self:setPreyMonsterList(slot, self:createMonsterList())
 		self:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 
@@ -215,7 +248,14 @@ function Player.preyAction(self, msg)
 			return self:sendErrorDialog("This is slot is not even active.")
 		end
 
-		-- TODO: check for bonus rerolls
+		if (self:getPreyBonusRerolls() < 1) then
+			return self:sendErrorDialog("You don't have any bonus rerolls.")
+		end
+
+		-- Removing bonus rerolls
+		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 1)
+
+		-- Calculating new bonus
 		local oldType = self:getPreyBonusType(slot)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		self:setRandomBonusValue(slot, true, (oldType ~= self:getPreyBonusType(slot) and true or false))
@@ -272,7 +312,7 @@ function Player.selectPreyMonster(self, slot, monster)
 	-- Time left
 	self:setPreyTimeLeft(slot, 7200) -- 2 hours
 	-- Next use
-	self:setPreyNextUse(slot, 0)
+	--self:setPreyNextUse(slot, 0)
 end
 
 function Player.sendPreyData(self, slot)
@@ -292,9 +332,9 @@ function Player.sendPreyData(self, slot)
 		print("Slot: " .. slot .. " | State: SELECTION_CHANGE_MONSTER ")
 
 		-- This values have to be stored on each slot
-		msg:addByte(0) -- Type
-		msg:addU16(20) -- Value
-		msg:addByte(1) -- 1~10 Grade
+		msg:addByte(self:getPreyBonusType(slot)) 
+		msg:addU16(self:getPreyBonusValue(slot))
+		msg:addByte(self:getPreyBonusGrade(slot))
 
 		-- MonsterList already exists in the slot
 		local monsterList = self:getPreyMonsterList(slot):split(";")
@@ -379,12 +419,14 @@ function Player.sendPreyData(self, slot)
 	
 
 	-- Resources and times are always sent
-	msg:addU16(os.time() + 200) -- next prey reroll here
+	msg:addU16(self:getMinutesUntilFreeReroll(slot)) -- next prey reroll here
 	msg:addByte(0xEC)
-	self:sendResource("prey", 3)
-	self:sendResource("bank", 123)
-	self:sendResource("inventory", 2424)
-
+	self:sendResource("prey", self:getPreyBonusRerolls())
+	self:sendResource("bank", self:getBankBalance())
+	self:sendResource("inventory", self:getMoney())
+	-- List reroll price
+	msg:addByte(Prey.S_Packets.PreyRerollPrice)
+	msg:addU32(self:getRerollPrice())
 	-- Sending message to client
 	msg:sendToPlayer(self)
 
