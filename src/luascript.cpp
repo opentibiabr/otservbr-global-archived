@@ -2500,6 +2500,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getPreyBonusType", LuaScriptInterface::luaPlayerGetPreyBonusType);
 	registerMethod("Player", "getPreyBonusValue", LuaScriptInterface::luaPlayerGetPreyBonusValue);
 	registerMethod("Player", "getPreyBonusGrade", LuaScriptInterface::luaPlayerGetPreyBonusGrade);
+	registerMethod("Player", "getPreyBonusRerolls", LuaScriptInterface::luaPlayerGetPreyBonusRerolls);
 	// SET
 	registerMethod("Player", "setPreyState", LuaScriptInterface::luaPlayerSetPreyState);
 	registerMethod("Player", "setPreyUnlocked", LuaScriptInterface::luaPlayerSetPreyUnlocked);
@@ -2511,6 +2512,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "setPreyBonusType", LuaScriptInterface::luaPlayerSetPreyBonusType);
 	registerMethod("Player", "setPreyBonusValue", LuaScriptInterface::luaPlayerSetPreyBonusValue);
 	registerMethod("Player", "setPreyBonusGrade", LuaScriptInterface::luaPlayerSetPreyBonusGrade);
+	registerMethod("Player", "setPreyBonusRerolls", LuaScriptInterface::luaPlayerSetPreyBonusRerolls);
 
 	registerMethod("Player", "getHouse", LuaScriptInterface::luaPlayerGetHouse);
 	registerMethod("Player", "sendHouseWindow", LuaScriptInterface::luaPlayerSendHouseWindow);
@@ -10369,6 +10371,19 @@ int LuaScriptInterface::luaPlayerGetPreyBonusGrade(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerGetPreyBonusRerolls(lua_State* L)
+{
+	// player:getPreyBonusRerolls(slot)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		lua_pushnumber(L, player->getPreyBonusRerolls());
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 // SET
 int LuaScriptInterface::luaPlayerSetPreyState(lua_State* L)
 {
@@ -10513,6 +10528,20 @@ int LuaScriptInterface::luaPlayerSetPreyBonusGrade(lua_State* L)
 	if (player) {
 		uint16_t grade = getNumber<uint16_t>(L, 3);
 		player->preySlotBonusGrade[slot] = grade;
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetPreyBonusRerolls(lua_State* L)
+{
+	// player:setPreyBonusRerolls(slot, grade)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		uint16_t value = getNumber<uint16_t>(L, 3);
+		player->preyBonusRerolls = value;
 	}
 	else {
 		lua_pushnil(L);
