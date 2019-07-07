@@ -7,6 +7,40 @@ function Creature:onAreaCombat(tile, isAggressive)
 	return true
 end
 
+-- Prey slots consumption
+local function preyTimeLeft(player, slot)
+	local timeLeft = player:getPreyTimeLeft(slot) / 60
+	if (timeLeft > 0) then
+		local playerId = player:getId()
+		local currentTime = os.time()
+		local timePassed = currentTime - nextPreyTime[playerId][slot]
+		if timePassed > 0 then
+			if timePassed > 60 then
+				if timeLeft > 2 then
+					timeLeft = timeLeft - 2
+				else
+					timeLeft = 0
+				end
+				nextPreyTime[playerId][slot] = currentTime + 120
+			else
+				timeLeft = timeLeft - 1
+				nextPreyTime[playerId][slot] = currentTime + 60
+			end
+		end
+		-- Expiring prey as there's no timeLeft
+		if (timeLeft <= 1) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+			player:setPreyCurrentMonster(slot, "")
+		end
+		-- Setting new timeLeft
+		player:setPreyTimeLeft(slot, timeLeft * 60)
+	else
+		-- Expiring prey as there's no timeLeft
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+		player:setPreyCurrentMonster(slot, "")
+	end
+end
+
 local function removeCombatProtection(cid)
 	local player = Player(cid)
 	if not player then
@@ -219,6 +253,7 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 				if (attacker:getPreyCurrentMonster(slot) == self:getName() and attacker:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_BOOST) then
 					damagePrimary = damagePrimary + math.floor(damagePrimary * (attacker:getPreyBonusValue(slot) / 100))
+					preyTimeLeft(attacker, slot) -- slot consumption
 					break
 				end
 			end
@@ -228,10 +263,9 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 		if (self:isPlayer()) then
 			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 				if (self:getPreyCurrentMonster(slot) == attacker:getName() and self:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_REDUCTION) then
-					print("First damage: " .. damagePrimary)
 					damagePrimary = damagePrimary - math.floor(damagePrimary * (self:getPreyBonusValue(slot) / 100))
-					print("Final damage: " .. damagePrimary)
-					return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
+					preyTimeLeft(self, slot) -- slot consumption
+					break
 				end
 			end
 		end
