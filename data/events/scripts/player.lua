@@ -1027,6 +1027,14 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Apply experience stage multiplier
 	exp = exp * Game.getExperienceStage(self:getLevel())
 	
+	-- Prey bonus experience
+	local CONST_BONUS_XP_BONUS = 2
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+		if (self:getPreyCurrentMonster(slot) == source:getName() and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
+			exp = exp + math.floor(exp * (self:getPreyBonusValue(slot) / 100))
+		end
+	end
+	
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
 		self:setStoreXpBoost(0) -- reset xp boost to 0
 	end
