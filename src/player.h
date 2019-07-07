@@ -224,7 +224,7 @@ class Player final : public Creature, public Cylinder
 			return preySlotTimeLeft[slot];
 		}
 
-		uint16_t getPreyNextUse(uint16_t slot) const {
+		uint32_t getPreyNextUse(uint16_t slot) const {
 			return preySlotNextUse[slot];
 		}
 
@@ -1558,7 +1558,7 @@ class Player final : public Creature, public Cylinder
 		std::vector<std::string> preySlotMonsterList = { "", "", "" };
 		std::vector<uint16_t> preySlotFreeRerollIn = { 0, 0, 0 };
 		std::vector<uint16_t> preySlotTimeLeft = {7200, 7200, 7200};
-		std::vector<uint16_t> preySlotNextUse = { 0, 0, 0 };
+		std::vector<uint32_t> preySlotNextUse = { 0, 0, 0 };
 		std::vector<uint16_t> preySlotBonusType = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusValue = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusGrade = { 0, 0, 0 };
