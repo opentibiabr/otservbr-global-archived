@@ -239,6 +239,9 @@ class Player final : public Creature, public Cylinder
 		uint16_t getPreyBonusGrade(uint16_t slot) const {
 			return preySlotBonusGrade[slot];
 		}
+		uint16_t getPreyBonusRerolls() const {
+			return preyBonusRerolls;
+		}
 		//
 
 		uint16_t getPreyStamina(uint16_t index) const {
@@ -1548,6 +1551,7 @@ class Player final : public Creature, public Cylinder
 		int16_t lastDepotId = -1;
 		
 		// New Prey
+		uint16_t preyBonusRerolls = 0;
 		std::vector<uint16_t> preySlotState = {0, 0, 0};
 		std::vector<uint16_t> preySlotUnlocked = {0, 0, 0};
 		std::vector<std::string> preySlotCurrentMonster = { "", "", "" };
