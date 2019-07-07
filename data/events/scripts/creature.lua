@@ -212,5 +212,30 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			end
 		end
 	end
+
+	-- New prey => Bonus damage
+	if (attacker:isPlayer()) then
+		if (self:isMonster() and not self:getMaster()) then
+			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+				if (attacker:getPreyCurrentMonster(slot) == self:getName() and attacker:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_BOOST) then
+					damagePrimary = damagePrimary + math.floor(damagePrimary * (attacker:getPreyBonusValue(slot) / 100))
+					break
+				end
+			end
+		end
+	-- New prey => Damage reduction
+	elseif (attacker:isMonster()) then
+		if (self:isPlayer()) then
+			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+				if (self:getPreyCurrentMonster(slot) == attacker:getName() and self:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_REDUCTION) then
+					print("First damage: " .. damagePrimary)
+					damagePrimary = damagePrimary - math.floor(damagePrimary * (self:getPreyBonusValue(slot) / 100))
+					print("Final damage: " .. damagePrimary)
+					return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
+				end
+			end
+		end
+	end
+
 	return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
 end
