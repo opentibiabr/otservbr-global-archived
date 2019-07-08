@@ -247,7 +247,7 @@ enum MessageClasses : uint8_t {
 	MESSAGE_HEALED_OTHERS = 28,
 	MESSAGE_EXPERIENCE_OTHERS = 29,
 	MESSAGE_EVENT_DEFAULT = 30, /*White message at the bottom of the game window and in the console*/
-	MESSAGE_LOOT = 31,
+	MESSAGE_LOOT = MESSAGE_INFO_DESCR,
 
 	MESSAGE_GUILD = 33, /*White message in channel (+ channelId)*/
 	MESSAGE_PARTY_MANAGEMENT = 34, /*White message in channel (+ channelId)*/
