@@ -321,7 +321,7 @@ end
 
 function Player.sendPreyData(self, slot)
 	if not slot then
-		print("[PREY]: " .. slot .. " was not found")
+		return true
 	end
 
 	local slotState = self:getPreyState(slot)
@@ -333,7 +333,6 @@ function Player.sendPreyData(self, slot)
 
 	-- This slot will preserve the same bonus and % but the monster might be changed
 	if slotState == Prey.StateTypes.SELECTION_CHANGE_MONSTER then
-		print("Slot: " .. slot .. " | State: SELECTION_CHANGE_MONSTER ")
 
 		-- This values have to be stored on each slot
 		msg:addByte(self:getPreyBonusType(slot))
@@ -362,7 +361,6 @@ function Player.sendPreyData(self, slot)
 
 	-- This slot will have a new monsterList and a random bonus
 	elseif slotState == Prey.StateTypes.SELECTION then
-		print("Slot: " .. slot .. " | State: SELECTION ")
 
 		-- If list is empty, then we will create a new one and assign it to the monsterList or timeleft = 0
 		local preyMonsterList = self:getPreyMonsterList(slot)
@@ -392,7 +390,7 @@ function Player.sendPreyData(self, slot)
 
 	-- This slot is active and will show current monster and bonus
 	elseif slotState == Prey.StateTypes.ACTIVE then
-		print("Slot: " .. slot .. " | State: ACTIVE ")
+
 		-- Getting current monster
 		local monster = MonsterType(self:getPreyCurrentMonster(slot))
 		if monster then
@@ -417,7 +415,6 @@ function Player.sendPreyData(self, slot)
 
 
 	elseif slotState == Prey.StateTypes.LOCKED then
-		print("Slot: " .. slot .. " | State: LOCKED ")
 		msg.addByte(Prey.UnlockTypes.PREMIUM_OR_STORE) -- Store unlock method
 	end
 
