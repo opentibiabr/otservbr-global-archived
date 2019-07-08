@@ -1090,10 +1090,7 @@ CREATE TABLE `prey_slots` (
 
 ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
- 
-ALTER TABLE `prey_slots`
-  ADD CONSTRAINT `prey_slots_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
-  
+
 --
 -- Indexes for table `accounts`
 --
@@ -1223,7 +1220,7 @@ ALTER TABLE `market_offers`
   ADD KEY `sale` (`sale`,`itemtype`),
   ADD KEY `created` (`created`),
   ADD KEY `player_id` (`player_id`);
-  
+
 --
 -- Indexes for table `newsticker`
 --
@@ -1662,6 +1659,12 @@ ALTER TABLE `player_storage`
 --
 ALTER TABLE `store_history`
   ADD CONSTRAINT `store_history_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `prey_slots`
+--
+ALTER TABLE `prey_slots`
+  ADD CONSTRAINT `prey_slots_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `tile_store`
