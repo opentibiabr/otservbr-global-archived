@@ -23,11 +23,11 @@
 #include "configmanager.h"
 #include "game.h"
 #include "spells.h"
-//#include "events.h"
+#include "events.h"
 
 extern Game g_game;
 extern Monsters g_monsters;
-//extern Events* g_events;
+extern Events* g_events;
 extern ConfigManager g_config;
 
 int32_t Monster::despawnRange;
@@ -1926,7 +1926,7 @@ void Monster::updateLookDirection()
 void Monster::dropLoot(Container* corpse, Creature*)
 {
 	if (corpse && lootDrop) {
-		mType->createLoot(corpse);
+		g_events->eventMonsterOnDropLoot(this, corpse);
 	}
 }
 

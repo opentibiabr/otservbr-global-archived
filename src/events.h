@@ -71,7 +71,7 @@ class Events
 
 		// Monster
 		int32_t monsterOnSpawn = -1;
-		/*&int32_t monsterOnDropLoot = -1;*/
+		int32_t monsterOnDropLoot = -1;
 	};
 
 	public:
@@ -120,7 +120,7 @@ class Events
 
 		// Monster
 		void eventMonsterOnSpawn(Monster* monster, const Position& position);
-		/*void eventMonsterOnDropLoot(Monster* monster, Container* corpse); */
+		void eventMonsterOnDropLoot(Monster* monster, Container* corpse);
 
 	private:
 		LuaScriptInterface scriptInterface;
