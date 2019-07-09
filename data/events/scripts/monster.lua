@@ -11,25 +11,11 @@ function Monster:onDropLoot(corpse)
 
 	local player = Player(corpse:getCorpseOwner())
 	local autolooted = ""
-	local canRerollLoot = false
 	
 	if not player or player:getStamina() > 840 then
-		if player then
-			for i = 0, 3 do
-				if player:getPreyType(i) == 3 and name == player:getPreyName(i) then
-					local rand = math.random(0, 100)
-					if (rand <= player:getPreyValue(i)) then
-						canRerollLoot = true
-					end
-
-					break
-				end
-			end
-		end
-
 		local monsterLoot = mType:getLoot()
 		for i = 1, #monsterLoot do
-			local item = corpse:createLootItem(monsterLoot[i], canRerollLoot)
+			local item = corpse:createLootItem(monsterLoot[i])
 			if item < 0 then
 				print('[Warning] DropLoot:', 'Could not add loot item to corpse. itemId: '..monsterLoot[i].itemId)
 			else
@@ -46,7 +32,7 @@ function Monster:onDropLoot(corpse)
 		end
 
 		if player then
-			local text = ("Loot of %s%s: "):format(mType:getNameDescription(), (canRerollLoot and " [PREY]" or ""))
+			local text = ("Loot of %s: "):format(mType:getNameDescription())
 			-- autoloot
 			local lootMsg = corpse:getContentDescription()
 			if autolooted ~= "" and corpse:getContentDescription() == "nothing" then

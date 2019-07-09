@@ -2,27 +2,27 @@ function Container.isContainer(self)
 	return true
 end
 
-function Container.createLootItem(self, item, canRerollLoot)
+--[[
+	return values for autoloot
+	0 = Did not drop the item. No error
+	-1 = For some reason, the item can not be created.
+	> 0 = UID
+]]
+function Container.createLootItem(self, item)
 	if self:getEmptySlots() == 0 then
 	       return 0
 	end
 
 	local itemCount = 0
-	local tryTimes = 1
-	if canRerollLoot then
-		tryTimes = 2
-	end
-
 	local randvalue = getLootRandom()
-	for i = 1, tryTimes do
-		if randvalue < item.chance then
-			if ItemType(item.itemId):isStackable() then
-				itemCount = randvalue % item.maxCount + 1
-			else
-				itemCount = 1
-			end
+	if randvalue < item.chance then
+		if ItemType(item.itemId):isStackable() then
+			itemCount = randvalue % item.maxCount + 1
+		else
+			itemCount = 1
 		end
 	end
+
 	local tmpItem = false
 	if itemCount > 0 then
 		tmpItem = self:addItem(item.itemId, math.min(itemCount, 100))
@@ -32,7 +32,7 @@ function Container.createLootItem(self, item, canRerollLoot)
 
 		if tmpItem:isContainer() then
 			for i = 1, #item.childLoot do
-				if not tmpItem:createLootItem(item.childLoot[i], canRerollLoot) then
+				if not tmpItem:createLootItem(item.childLoot[i]) then
 					tmpItem:remove()
 					return -1
 				end
