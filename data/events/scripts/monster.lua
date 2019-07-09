@@ -58,6 +58,9 @@ function Monster:onDropLoot(corpse)
 
 			local party = player:getParty()
 			if party then
+				if autolooted ~= "" then
+					text = string.format("%s by %s", text, player:getName())
+				end
 				party:broadcastPartyLoot(text)
 			else
 				player:sendTextMessage(MESSAGE_LOOT, text)
