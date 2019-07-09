@@ -36733,7 +36733,6 @@
 		<attribute key="weight" value="12500" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item fromid="28591" toid="28592" name="wall"/>
 	<item id="28595" article="a" name="dead mummy" />
 	<item id="28596" article="a" name="book with old legends">
 		<attribute key="weight" value="1300" />
