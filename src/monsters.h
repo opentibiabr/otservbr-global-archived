@@ -193,7 +193,8 @@ class MonsterType
 		std::string nameDescription;
 
 		MonsterInfo info;
-		
+
+		bool canSpawn(const Position& pos);
 		void createLoot(Container* corpse);
 		bool createLootContainer(Container* parent, const LootBlock& lootblock);
 		std::vector<Item*> createLootItem(const LootBlock& lootBlock, bool canRerollLoot = false);
