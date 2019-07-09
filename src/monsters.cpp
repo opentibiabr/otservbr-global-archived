@@ -311,6 +311,19 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 	return true;
 }
 
+bool MonsterType::canSpawn(const Position& pos)
+{
+	bool canspawn = true;
+	uint32_t isday = g_game.gameIsDay();
+	if ((info.respawnType == RESPAWN_IN_DAY && !isday) ||
+		(info.respawnType == RESPAWN_IN_NIGHT && isday) ||
+		(info.respawnType == RESPAWN_IN_DAY_CAVE && !isday && pos.z == 7) ||
+		(info.respawnType == RESPAWN_IN_NIGHT_CAVE && isday && pos.z == 7)) {
+		canspawn = false;
+	}
+	return canspawn;
+}
+
 bool Monsters::reload()
 {
 	loaded = false;

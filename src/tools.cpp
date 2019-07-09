@@ -734,9 +734,9 @@ SkullNames skullNames = {
 SpawnTypeNames spawnTypeNames = {
 	{"all",					RESPAWN_IN_ALL },
 	{"day",					RESPAWN_IN_DAY },
-	{"dayandcave",			RESPAWN_IN_DAY_CAVER },
+	{"dayandcave",			RESPAWN_IN_DAY_CAVE },
 	{"night",				RESPAWN_IN_NIGHT },
-	{"nightandcave",		RESPAWN_IN_NIGHT_CAVER },
+	{"nightandcave",		RESPAWN_IN_NIGHT_CAVE },
 };
 
 MagicEffectClasses getMagicEffect(const std::string& strValue)
