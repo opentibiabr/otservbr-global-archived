@@ -602,7 +602,7 @@ CREATE TABLE `player_depotitems` (
   `player_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL COMMENT 'any given range eg 0-100 will be reserved for depot lockers and all > 100 will be then normal items inside depots',
   `pid` int(11) NOT NULL DEFAULT '0',
-  `itemtype` int(10) NOT NULL,
+  `itemtype` int(11) NOT NULL,
   `count` int(11) NOT NULL DEFAULT '0',
   `attributes` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -630,7 +630,7 @@ CREATE TABLE `player_inboxitems` (
   `player_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `itemtype` int(10) NOT NULL,
+  `itemtype` int(11) NOT NULL,
   `count` int(11) NOT NULL DEFAULT '0',
   `attributes` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -729,7 +729,7 @@ CREATE TABLE `player_rewards` (
   `player_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `itemtype` int(10) NOT NULL,
+  `itemtype` int(11) NOT NULL,
   `count` int(11) NOT NULL DEFAULT '0',
   `attributes` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
