@@ -195,10 +195,7 @@ class MonsterType
 		MonsterInfo info;
 
 		bool canSpawn(const Position& pos);
-		void createLoot(Container* corpse);
-		bool createLootContainer(Container* parent, const LootBlock& lootblock);
-		std::vector<Item*> createLootItem(const LootBlock& lootBlock, bool canRerollLoot = false);
-	
+
 		//void loadLoot(MonsterType* monsterType, LootBlock lootblock); (from tfs)
 };
 
@@ -262,8 +259,7 @@ class Monsters
 		MonsterType* getMonsterType(const std::string& name);
 		void addMonsterType(const std::string& name, MonsterType* mType);
 		bool deserializeSpell(MonsterSpell* spell, spellBlock_t& sb, const std::string& description = "");
-		static uint32_t getLootRandom();
-		
+
 		std::vector<std::string> getPreyMonsters();
 		
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
