@@ -1605,6 +1605,13 @@ void ProtocolGame::updateCoinBalance()
 	msg.addByte(0x00);
 
 	writeToOutputBuffer(msg);
+
+	g_dispatcher.addTask(
+		createTask(std::bind([](ProtocolGame_ptr client) {
+		client->sendCoinBalance();
+	}, getThis()))
+	);
+
 }
 
 void ProtocolGame::sendMarketLeave()
