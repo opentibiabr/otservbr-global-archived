@@ -164,7 +164,7 @@ function Player.createMonsterList(self)
 	local repeatedList = {}
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 		if (self:getPreyCurrentMonster(slot) ~= '') then
-			repeatedList[#repeatedList + 1] = self:getPreyCurrentMonster()
+			repeatedList[#repeatedList + 1] = self:getPreyCurrentMonster(slot)
 		end
 		if (self:getPreyMonsterList(slot) ~= '') then
 			local currentList = self:getPreyMonsterList(slot):split(";")
