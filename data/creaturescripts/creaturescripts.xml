@@ -108,6 +108,7 @@
 	<event type="death" name="deathDragon" script="quests/ferumbras ascendant/death dragon.lua"/>
 
     <!-- Reward Chest 19/01 -->
+	<event type="login" name="LoginBossPlayer" script="rewardChest/boss.lua" />
  	<event type="death" name="BossDeath" script="rewardChest/boss.lua" />
  	<event type="healthchange" name="BossParticipation" script="rewardChest/boss.lua" />
  	<event type="think" name="BossThink" script="rewardChest/boss.lua" />

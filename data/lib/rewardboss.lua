@@ -118,11 +118,15 @@ end
 function MonsterType.getBossReward(self, lootFactor, topScore)
 	local result = {}
 	if getConfigInfo("rateLoot") > 0 then
-		for _, lootBlock in pairs(self:getLoot()) do
-			if lootBlock.unique and not topScore then
-				--continue
-			else
-				self:createLootItem(lootBlock, lootFactor, result)
+		local loot = self:getLoot() or {}
+		for i = #loot, 0, -1 do
+			local lootBlock = loot[i]
+			if lootBlock then
+				if lootBlock.unique and not topScore then
+					--continue
+				else
+					self:createLootItem(lootBlock, lootFactor, result)
+				end
 			end
 		end
 	end
