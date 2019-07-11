@@ -12,6 +12,11 @@ local posAcessDownDenominator = Position(33220, 32149, 9)
 -- Barkless
 local posAcessTrial = Position(32688, 31543, 9)
 local posAcessBoss = Position(32672, 31543, 9)
+local posAcessTar = Position(32747, 31462, 8)
+local posAcessSulphur = Position(32678, 31506, 8)
+local posAcessEnergy = Position(32742, 31408, 8)
+local posAcessIce = Position(32686, 31430, 8)
+
 
 -- Life (Sandking)
 local posAcessSand = Position(33295, 32271, 12)
@@ -53,7 +58,7 @@ local posAcessSoul = Position(32508, 32370, 9)
 
 	-- Under investigation area MotA
 	if item:getPosition() == posAcessInvestigation then
-		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) > 2 then
+		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) >= 2 then
 			player:teleportTo(toPosition, true)
 			item:transform(item.itemid + 1)
 		else
@@ -91,6 +96,42 @@ local posAcessSoul = Position(32508, 32370, 9)
 		end
 	end
 
+	-- Entrance for the Tar Trial
+	if item:getPosition() == posAcessTar then
+		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 1 then
+			player:teleportTo(toPosition, true)
+			item:transform(item.itemid + 1)
+			else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
+	end
+	-- Entrance for the Shulpur Trial
+	if item:getPosition() == posAcessSulphur then
+		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 1 then
+			player:teleportTo(toPosition, true)
+			item:transform(item.itemid + 1)
+			else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
+	end
+	-- Entrance to absord energy
+	if item:getPosition() == posAcessEnergy then
+		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 3 then
+			player:teleportTo(toPosition, true)
+			item:transform(item.itemid + 1)
+			else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
+	end
+	-- Entrance to ice
+	if item:getPosition() == posAcessIce then
+		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 3 then
+			player:teleportTo(toPosition, true)
+			item:transform(item.itemid + 1)
+			else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
+		end
+	end
 	-- Entrance for the Barkless Boss
 	if item:getPosition() == posAcessBoss then
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 5 then

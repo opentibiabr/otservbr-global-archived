@@ -248,13 +248,7 @@ void Spawn::checkSpawn()
 		}
 
 		spawnBlock_t& sb = it.second;
-
-		uint32_t minutes = g_game.getLightHour();
-		bool isday = false;
-		if (minutes >= ((6 * 60) + 30) && minutes <= ((17 * 60) + 30))
-			isday = true;
-
-		if ((sb.mType->info.respawnType == RESPAWN_IN_DAY && !isday) || (sb.mType->info.respawnType == RESPAWN_IN_NIGHT && isday) || (sb.mType->info.respawnType == RESPAWN_IN_DAY_CAVER && !isday && sb.pos.z == 7) || (sb.mType->info.respawnType == RESPAWN_IN_NIGHT_CAVER && isday && sb.pos.z == 7)) {
+		if (!sb.mType->canSpawn(sb.pos)) {
 			sb.lastSpawn = OTSYS_TIME();
 			continue;
 		}

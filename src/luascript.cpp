@@ -2813,6 +2813,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "isPreyable", LuaScriptInterface::luaMonsterTypeIsPreyable);
 
 	registerMethod("MonsterType", "getRespawnType", LuaScriptInterface::luaMonsterTypeGetRespawnType);
+	registerMethod("MonsterType", "canSpawn", LuaScriptInterface::luaMonsterTypeCanSpawn);
 
 	registerMethod("MonsterType", "canPushItems", LuaScriptInterface::luaMonsterTypeCanPushItems);
 	registerMethod("MonsterType", "canPushCreatures", LuaScriptInterface::luaMonsterTypeCanPushCreatures);
@@ -8426,6 +8427,20 @@ int LuaScriptInterface::luaMonsterTypeGetRespawnType(lua_State* L)
 	if (monsterType) {
 		lua_pushnumber(L, monsterType->info.respawnType);
 	
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeCanSpawn(lua_State* L)
+{
+	// monsterType:canSpawn(pos)
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	const Position& position = getPosition(L, 2);
+	if (monsterType) {
+		pushBoolean(L, monsterType->canSpawn(position));
 	}
 	else {
 		lua_pushnil(L);
@@ -14141,7 +14156,7 @@ void LuaScriptInterface::parseLoot(lua_State* L, const std::vector<LootBlock>& l
 
 	int index = 0;
 	for (const auto& lootBlock : lootList) {
-		lua_createtable(L, 0, 7);
+		lua_createtable(L, 0, 8);
 
 		setField(L, "itemId", lootBlock.id);
 		setField(L, "chance", lootBlock.chance);
@@ -14149,6 +14164,8 @@ void LuaScriptInterface::parseLoot(lua_State* L, const std::vector<LootBlock>& l
 		setField(L, "maxCount", lootBlock.countmax);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
+		pushBoolean(L, lootBlock.unique);
+		lua_setfield(L, -2, "unique");
 
 		parseLoot(L, lootBlock.childLoot);
 		lua_setfield(L, -2, "childLoot");
