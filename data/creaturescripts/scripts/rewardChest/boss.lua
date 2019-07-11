@@ -12,23 +12,25 @@ end
 local function insertItems(buffer, info, parent, items)
 	local start = info.running
 	for _, item in ipairs(items) do
-		if _ ~= 1 or parent > 100 then
-			table.insert(buffer, ",")
-		end
-		info.running = info.running + 1
-		table.insert(buffer, "(")
-		pushSeparated(buffer, ",", info.playerGuid, parent, info.running, item:getId(), item:getSubType(), db.escapeString(serializeAttributes(item)))
-		table.insert(buffer, ")")
+		if item ~= nil then
+			if _ ~= 1 or parent > 100 then
+				table.insert(buffer, ",")
+			end
+			info.running = info.running + 1
+			table.insert(buffer, "(")
+			pushSeparated(buffer, ",", info.playerGuid, parent, info.running, item:getId(), item:getSubType(), db.escapeString(serializeAttributes(item)))
+			table.insert(buffer, ")")
 
-		if item:isContainer() then
-			local size = item:getSize()
-			if size > 0 then
-				local subItems = {}
-				for i = 1, size do
-					table.insert(subItems, item:getItem(i - 1))
+			if item:isContainer() then
+				local size = item:getSize()
+				if size > 0 then
+					local subItems = {}
+					for i = 1, size do
+						table.insert(subItems, item:getItem(i - 1))
+					end
+
+					insertItems(buffer, info, info.running, subItems)
 				end
-
-				insertItems(buffer, info, info.running, subItems)
 			end
 		end
 	end
@@ -93,6 +95,19 @@ local function getPlayerStats(bossId, playerGuid, autocreate)
 end
 
 function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
+	-- player
+	if creature:isPlayer() then
+		for bossId, tb in pairs(globalBosses) do
+			for playerId, tb2 in pairs(tb) do
+				if playerId == Player(creature:getId()):getGuid() then
+					globalBosses[bossId][playerId] = nil
+				end
+			end
+		end
+		return
+	end
+
+	-- boss
 	local monsterType = creature:getType()
 	if monsterType:isRewardBoss() then -- Make sure it is a boss
 		local bossId = creature:getId()
@@ -157,7 +172,7 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 				end
 			end
 
-			if con.player then
+			if con.player and con.score ~= 0 then
 				local lootMessage = {"The following items are available in your reward chest: "}
 
 				if --[[stamina > 840]]true then
@@ -167,7 +182,7 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 				end
 				table.insert(lootMessage, ".")
 				con.player:sendTextMessage(MESSAGE_INFO_DESCR, table.concat(lootMessage))
-			else
+			elseif con.score ~= 0 then
 				insertRewardItems(con.guid, timestamp, playerLoot)
 			end
 		end
@@ -223,4 +238,9 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 		stats.damageIn = stats.damageIn + primaryDamage
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
+end
+
+function onLogin(player)
+	player:registerEvent("BossDeath")
+	return true
 end
