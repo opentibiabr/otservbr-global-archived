@@ -100,7 +100,11 @@ if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 7 then
 	end
 end
 
-
+-- after killing the boss the sandking
+if player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 8 then
+		npcHandler:setMessage(MESSAGE_GREET, "Just get out of my way! You killed this beautiful creature. I have nothing more to say. Damn druid of Crunor!")
+		player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 9)	
+end
 
 
 ----------------------------------------- MOTA -------------------------------

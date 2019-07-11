@@ -999,6 +999,32 @@ class LuaScriptInterface
 		static int luaPlayerPopupFYI(lua_State* L);
 
 		static int luaPlayerIsPzLocked(lua_State* L);
+	
+		// New Prey
+		static int luaPlayerGetPreyState(lua_State * L);
+		static int luaPlayerGetPreyUnlocked(lua_State * L);
+		static int luaPlayerGetPreyCurrentMonster(lua_State * L);
+		static int luaPlayerGetPreyMonsterList(lua_State * L);
+		static int luaPlayerGetPreyFreeRerollIn(lua_State * L);
+		static int luaPlayerGetPreyTimeLeft(lua_State * L);
+		static int luaPlayerGetPreyNextUse(lua_State * L);
+		static int luaPlayerGetPreyBonusType(lua_State * L);
+		static int luaPlayerGetPreyBonusValue(lua_State * L);
+		static int luaPlayerGetPreyBonusGrade(lua_State * L);
+		static int luaPlayerGetPreyBonusRerolls(lua_State * L);
+		// SET
+		static int luaPlayerSetPreyState(lua_State * L);
+		static int luaPlayerSetPreyUnlocked(lua_State * L);
+		static int luaPlayerSetPreyCurrentMonster(lua_State * L);
+		static int luaPlayerSetPreyMonsterList(lua_State * L);
+		static int luaPlayerSetPreyFreeRerollIn(lua_State * L);
+		static int luaPlayerSetPreyTimeLeft(lua_State * L);
+		static int luaPlayerSetPreyNextUse(lua_State * L);
+		static int luaPlayerSetPreyBonusType(lua_State * L);
+		static int luaPlayerSetPreyBonusValue(lua_State * L);
+		static int luaPlayerSetPreyBonusGrade(lua_State * L);
+		static int luaPlayerSetPreyBonusRerolls(lua_State * L);
+		//
 
 		static int luaPlayerGetClient(lua_State* L);
 

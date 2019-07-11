@@ -25,15 +25,4 @@
 	</defenses>
 	<elements>
 	</elements>
-	<immunities>
-		<immunity earth="1" />
-		<immunity physical="1" />
-		<immunity death="1" />
-		<immunity energy="1" />
-		<immunity fire="1" />
-		<immunity holy="1" />
-		<immunity ice="1" />
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
-	</immunities>
 </monster>

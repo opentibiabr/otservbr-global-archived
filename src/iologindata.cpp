@@ -222,8 +222,49 @@ bool IOLoginData::loadPlayerById(Player* player, uint32_t id)
 {
 	Database& db = Database::getInstance();
 	std::ostringstream query;
-	query << "SELECT `id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `mana`, `manamax`, `manaspent`, `soul`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `posx`, `posy`, `posz`, `cap`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `lastlogin`, `lastlogout`, `lastip`, `conditions`, `skulltime`, `skull`, `town_id`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`,  `skill_mana_leech_amount_tries`, `xpboost_value`, `xpboost_stamina` FROM `players` WHERE `id` = " << id;
+	query << "SELECT `id`, `name`, `account_id`, `group_id`, `sex`, `vocation`, `experience`, `level`, `maglevel`, `health`, `healthmax`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `mana`, `manamax`, `manaspent`, `soul`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `posx`, `posy`, `posz`, `cap`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `lastlogin`, `lastlogout`, `lastip`, `conditions`, `skulltime`, `skull`, `town_id`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`,  `skill_mana_leech_amount_tries`, `xpboost_value`, `xpboost_stamina`, `bonus_rerolls` FROM `players` WHERE `id` = " << id;
 	return loadPlayer(player, db.storeQuery(query.str()));
+}
+
+// New Prey
+bool IOLoginData::loadPlayerPreyData(Player* player) 
+{
+	Database& db = Database::getInstance();
+	DBResult_ptr result;
+	std::ostringstream query;
+	query << "SELECT `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade` FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
+	if ((result = db.storeQuery(query.str()))) {
+		do {
+			uint16_t slotNum = result->getNumber<uint16_t>("num");
+			player->preySlotState[slotNum] = result->getNumber<uint16_t>("state");
+			player->preySlotUnlocked[slotNum] = result->getNumber<uint16_t>("unlocked");
+			player->preySlotCurrentMonster[slotNum] = result->getString("current");
+			player->preySlotMonsterList[slotNum] = result->getString("monster_list");
+			player->preySlotFreeRerollIn[slotNum] = result->getNumber<uint16_t>("free_reroll_in");
+			player->preySlotTimeLeft[slotNum] = result->getNumber<uint16_t>("time_left");
+			player->preySlotNextUse[slotNum] = result->getNumber<uint32_t>("next_use");
+			player->preySlotBonusType[slotNum] = result->getNumber<uint16_t>("bonus_type");
+			player->preySlotBonusValue[slotNum] = result->getNumber<uint16_t>("bonus_value");
+			player->preySlotBonusGrade[slotNum] = result->getNumber<uint16_t>("bonus_grade");
+		} while (result->next());
+	}
+	else {
+		query.str(std::string());
+		DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
+		for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
+			query << player->getGUID() << ',' << num << ',' << PREY_STATE_SELECTION << ',' << PREY_SLOT_UNLOCKED << ',' << db.escapeString("") << ',' << db.escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
+			if (!preyDataQuery.addRow(query)) {
+				return false;
+			}
+		}
+		if (!preyDataQuery.execute()) {
+			return false;
+		}
+		// Reload player data
+		return loadPlayerPreyData(player);
+	}
+
+	return true;
 }
 
 bool IOLoginData::loadPlayerPreyById(Player* player, uint32_t id)
@@ -321,6 +362,8 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 
 	player->coinBalance = IOAccount::getCoinBalance(player->getAccount());
+	
+	player->preyBonusRerolls = result->getNumber<uint16_t>("bonus_rerolls"); 
 
 	Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
 	if (!group) {
@@ -898,6 +941,7 @@ bool IOLoginData::savePlayer(Player* player)
 	query << "`skill_mana_leech_amount_tries` = " << player->skills[SKILL_MANA_LEECH_AMOUNT].tries << ',';
 	query << "`xpboost_value` = " << player->getStoreXpBoost() << ',';
 	query << "`xpboost_stamina` = " << player->getExpBoostStamina() << ',';
+	query << "`bonus_rerolls` = " << player->getPreyBonusRerolls() << ',';
 
 	if (!player->isOffline()) {
 		query << "`onlinetime` = `onlinetime` + " << (time(nullptr) - player->lastLoginSaved) << ',';
@@ -1073,6 +1117,28 @@ bool IOLoginData::savePlayer(Player* player)
 	}
 
 	if (!saveItems(player, itemList, inboxQuery, propWriteStream)) {
+		return false;
+	}
+	
+	// New Prey
+	query.str(std::string());
+	query << "DELETE FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
+	if (!db.executeQuery(query.str())) {
+		std::cout << "Could not delete prey_slots" << std::endl;
+		return false;
+	}
+
+	query.str(std::string());
+	DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
+	for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
+		query << player->getGUID() << ',' << num << ',' << player->preySlotState[num] << ',' << player->preySlotUnlocked[num] << ',' << db.escapeString(player->preySlotCurrentMonster[num]) << ',' << db.escapeString(player->preySlotMonsterList[num]) << ',' << player->preySlotFreeRerollIn[num] << ',' << player->preySlotTimeLeft[num] << ',' << player->preySlotNextUse[num] << ',' << player->preySlotBonusType[num] << ',' << player->preySlotBonusValue[num] << ',' << player->preySlotBonusGrade[num];
+		if (!preyDataQuery.addRow(query)) {
+			return false;
+		}
+	}
+
+	if (!preyDataQuery.execute()) {
+		std::cout << "[PREY]: error while saving player: " << player->getName() << std::endl;
 		return false;
 	}
 

@@ -96,6 +96,9 @@ healingImpact = {} -- global table to insert data
 -- Damage
 damageImpact = {} -- global table to insert data
 
+-- New prey => preyTimeLeft
+nextPreyTime = {}
+
 
   --
 local start = os.time()

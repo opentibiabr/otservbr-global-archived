@@ -138,8 +138,11 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			return;
 		}
 
-		// Prey System
-		IOLoginData::loadPlayerPreyById(player, player->getGUID());
+		// New Prey
+		if (!IOLoginData::loadPlayerPreyData(player)) {
+			std::cout << "Prey data could not be loaded" << std::endl;
+			return;
+		};
 
 		player->setOperatingSystem(operatingSystem);
 

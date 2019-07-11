@@ -186,7 +186,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say({"You have already fulfilled your job to my full satisfaction. The cults are investigated and the final boss is eliminated. I have nothing more for you to do. Fare you well!"}, cid)
 		npcHandler.topic[cid] = 0
 		playerTopic[cid] = 0
-		elseif player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) == 5 and player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 10 and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 15
+		elseif player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) == 6 and player:getStorageValue(Storage.CultsOfTibia.Life.Mission) == 10 and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 15
 		and player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) == 7 and player:getStorageValue(Storage.CultsOfTibia.Misguided.Mission) == 5 and player:getStorageValue(Storage.CultsOfTibia.Orcs.Mission) == 3
 		and player:getStorageValue(Storage.CultsOfTibia.Humans.Mission) == 3 and player:getStorageValue(Storage.CultsOfTibia.finalBoss.Mission) < 2 then
 			npcHandler:say({"It seems to me that you have done all the missions I gave you. All the cults have been revealed and now you can kill their leader, the final boss, to save the world from a possible catastrophe."}, cid)
