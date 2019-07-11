@@ -239,4 +239,6 @@
 	<event type="death" name="DropLoot" script="others/droploot.lua" />
 	<event type="advance" name="AdvanceSave" script="others/advance_save.lua" />
 	<event type="healthchange" name="imbueDamage" script="imbuementElementalProtection.lua"/>
+	<event type="kill" name="bonusPreyLootKill" script="preyloot.lua"/>
+	<event type="death" name="bonusPreyLootDeath" script="preyloot.lua" />
 </creaturescripts>

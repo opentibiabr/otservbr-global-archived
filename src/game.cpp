@@ -4200,7 +4200,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (healthChange == 0) {
 			return true;
 		}
-
+		
 		SpectatorHashSet spectators;
 		map.getSpectators(spectators, targetPos, true, true);
 

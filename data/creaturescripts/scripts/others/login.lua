@@ -65,6 +65,7 @@ local events = {
     'deeplingBosses',
     'imbueDamage',
     'theGreatDragonHuntKill',
+    'bonusPreyLootKill',
     'bossesMissionCults'
 }
 
@@ -130,22 +131,12 @@ function onLogin(player)
     -- EXP Stamina
     nextUseXpStamina[playerId] = 1
 
-    -- Prey Stamina
-    nextUseStaminaPrey[playerId+1] = {Time = 1}
-    nextUseStaminaPrey[playerId+2] = {Time = 1}
-    nextUseStaminaPrey[playerId+3] = {Time = 1}
-
-    -- Prey Data
-    if (player:getVocation():getId() ~= 0) then
-        local columnUnlocked = getUnlockedColumn(player)
-        if (not columnUnlocked) then
-            columnUnlocked = 0
-        end
-
-        for i = 0, columnUnlocked do
-            sendPreyData(player, i)
-        end
-    end
+    -- New Prey
+    nextPreyTime[playerId] = {
+    	[CONST_PREY_SLOT_FIRST] = 1,
+	[CONST_PREY_SLOT_SECOND] = 1,
+	[CONST_PREY_SLOT_THIRD] = 1
+    }
 
     if (player:getAccountType() == ACCOUNT_TYPE_TUTOR) then
         local msg = [[:: Tutor Rules

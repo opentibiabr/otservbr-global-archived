@@ -763,34 +763,37 @@ local function useStaminaXp(player)
 	player:setExpBoostStamina(staminaMinutes * 60)
 end
 
--- useStaminaPrey
-local function useStaminaPrey(player, name)
-	for i = 1, 3 do
-		if (player:isActiveByName(i-1, name)) then
-			local staminaMinutes = player:getPreyStamina(i-1)/60
-			if (staminaMinutes > 0) then
-				local playerId = player:getId()+i
-				local currentTime = os.time()
-				local timePassed = currentTime - nextUseStaminaPrey[playerId].Time
-				if timePassed > 0 then
-					if timePassed > 60 then
-						if staminaMinutes > 2 then
-							staminaMinutes = staminaMinutes - 2
-						else
-							staminaMinutes = 0
-						end
-
-						nextUseStaminaPrey[playerId].Time = currentTime + 120
-					else
-						staminaMinutes = staminaMinutes - 1
-						nextUseStaminaPrey[playerId].Time = currentTime + 60
-					end
+-- Prey slots consumption
+local function preyTimeLeft(player, slot)
+	local timeLeft = player:getPreyTimeLeft(slot) / 60
+	if (timeLeft > 0) then
+		local playerId = player:getId()
+		local currentTime = os.time()
+		local timePassed = currentTime - nextPreyTime[playerId][slot]
+		if timePassed > 0 then
+			if timePassed > 60 then
+				if timeLeft > 2 then
+					timeLeft = timeLeft - 2
+				else
+					timeLeft = 0
 				end
-
-				player:setPreyStamina(i-1, staminaMinutes*60)
-				player:sendPreyTimeLeft(i-1, staminaMinutes*60)
+				nextPreyTime[playerId][slot] = currentTime + 120
+			else
+				timeLeft = timeLeft - 1
+				nextPreyTime[playerId][slot] = currentTime + 60
 			end
 		end
+		-- Expiring prey as there's no timeLeft
+		if (timeLeft <= 1) then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+			player:setPreyCurrentMonster(slot, "")
+		end
+		-- Setting new timeLeft
+		player:setPreyTimeLeft(slot, timeLeft * 60)
+	else
+		-- Expiring prey as there's no timeLeft
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+		player:setPreyCurrentMonster(slot, "")
 	end
 end
 
@@ -1018,16 +1021,16 @@ function Player:onGainExperience(source, exp, rawExp)
 
 	-- Apply experience stage multiplier
 	exp = exp * Game.getExperienceStage(self:getLevel())
-	for i = 1, 3 do
-		if (self:isActive(i-1)) then
-			local bonusInfo = self:getBonusInfo(i-1)
-			if (bonusInfo.Type == 2 and source:getName() == bonusInfo.Name) then
-				exp = exp + math.floor(exp * (bonusInfo.Value/100))
-				break
-			end
+
+	-- Prey bonus experience
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+		if (self:getPreyCurrentMonster(slot) == source:getName() and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
+			exp = exp + math.floor(exp * (self:getPreyBonusValue(slot) / 100))
+			preyTimeLeft(self, slot) -- slot consumption
+			break
 		end
 	end
-
+	
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
 		self:setStoreXpBoost(0) -- reset xp boost to 0
 	end
@@ -1065,9 +1068,6 @@ function Player:onGainExperience(source, exp, rawExp)
 			end
 		end
 	end
-
-	-- Prey Stamina Modifier
-	useStaminaPrey(self, source:getName())
 
 	-- Exp Boost Modifier
 	useStaminaXp(self)

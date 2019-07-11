@@ -525,7 +525,8 @@ CREATE TABLE `players` (
   `former` varchar(255) NOT NULL DEFAULT '-',
   `signature` varchar(255) NOT NULL DEFAULT '',
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
-  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0'
+  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0',
+  `bonus_rerolls` bigint(21) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1072,6 +1073,24 @@ CREATE TABLE `z_shop_payment` (
 -- Indexes for dumped tables
 --
 
+CREATE TABLE `prey_slots` (
+  `player_id` int(11) NOT NULL,
+  `num` smallint(2) NOT NULL,
+  `state` smallint(2) NOT NULL DEFAULT '1',
+  `unlocked` tinyint(1) NOT NULL DEFAULT '0',
+  `current` varchar(40) NOT NULL DEFAULT '',
+  `monster_list` varchar(360) NOT NULL,
+  `free_reroll_in` int(11) NOT NULL DEFAULT '0',
+  `time_left` smallint(5) NOT NULL DEFAULT '0',
+  `next_use` int(11) NOT NULL DEFAULT '0',
+  `bonus_type` smallint(3) NOT NULL,
+  `bonus_value` smallint(3) NOT NULL DEFAULT '0',
+  `bonus_grade` smallint(3) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `prey_slots`
+  ADD KEY `player_id` (`player_id`);
+
 --
 -- Indexes for table `accounts`
 --
@@ -1201,7 +1220,7 @@ ALTER TABLE `market_offers`
   ADD KEY `sale` (`sale`,`itemtype`),
   ADD KEY `created` (`created`),
   ADD KEY `player_id` (`player_id`);
-  
+
 --
 -- Indexes for table `newsticker`
 --
@@ -1640,6 +1659,12 @@ ALTER TABLE `player_storage`
 --
 ALTER TABLE `store_history`
   ADD CONSTRAINT `store_history_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `prey_slots`
+--
+ALTER TABLE `prey_slots`
+  ADD CONSTRAINT `prey_slots_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `tile_store`
