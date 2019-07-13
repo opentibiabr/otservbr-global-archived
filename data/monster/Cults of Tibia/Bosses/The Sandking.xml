@@ -78,12 +78,5 @@
 		<item id="18451" chance="7030" /><!-- crystalline axe -->
 		<item id="2453" chance="200" /> <!-- arcane staff -->
 		<item name="heart of the mountain" chance="400" />
-
-
-		
-
-
-		
-		
 	</loot>
 </monster>
