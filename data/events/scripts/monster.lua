@@ -82,6 +82,7 @@ function Monster:onSpawn(position)
 				monster:remove()
 			end
 		end
+
 		if self:getName():lower() == 'iron servant replica' then
 			local chance = math.random(100)
 			if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.MechanismDiamond) >= 1 and Game.getStorageValue(GlobalStorage.ForgottenKnowledge.MechanismGolden) >= 1 then
