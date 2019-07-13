@@ -42,5 +42,5 @@
 
 	<!-- Monster Methods -->
 	<event class="Monster" method="onDropLoot" enabled="1" /> 
-	<event class="Monster" method="onSpawn" enabled="0" />
+	<event class="Monster" method="onSpawn" enabled="1" />
 </events>
