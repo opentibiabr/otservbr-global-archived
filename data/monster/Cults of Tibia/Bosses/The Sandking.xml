@@ -41,6 +41,22 @@
 		<voice sentence="CREEEAK!" />
 	</voices>
 	<loot>
-		<!-- A FAZER -->
+	  	<item name="small amethyst" countmax="10" chance="21000" />
+	  	<item name="small emerald" countmax="10" chance="19000" />
+		<item name="red gem" chance="12000" />
+		<item name="platinum coin" countmax="30" chance="68299" />
+		<item name="gold coin" countmax="200" chance="100000" />
+		<item name="small diamond" countmax="10" chance="21000" />
+		<item name="green gem" chance="12000" />
+		<item name="luminous orb" chance="35000" />
+		<item name="great mana potion" countmax="10" chance="31230" />
+		<item name="ultimate health potion" countmax="10" chance="28230" />
+		<item name="cobra crown" chance="400" />
+		<item name="silver token" chance="2500" />
+		<item name="gold token" chance="1532" />
+		<item name="small topaz" countmax="10" chance="11520" />
+		<item name="blue gem" chance="21892" />
+		<item name="yellow gem" chance="29460" />
+		
 	</loot>
 </monster>
