@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Grand Commander Soeren" nameDescription="a grand commander soeren" race="blood" experience="10" speed="210" manacost="0" script="boss.lua">
+<monster name="Grand Commander Soeren" nameDescription="a grand commander soeren" race="blood" experience="100000" speed="606" manacost="0" script="boss.lua">
 	<health now="17" max="17"/>
 	<look type="1071" head="38" body="94" legs="38" feet="86" addons="2" corpse="32426"/>
 	<targetchange interval="5000" chance="8"/>
@@ -45,28 +45,28 @@
 	</immunities>
 	<loot>
  <!-- comun -->
-<item name="Small Emerald" countmax="3" chance="100000"/>
-<item name="Small Amethyst" countmax="3" chance="100000"/>
-<item name="Platinum Coin" countmax="3" chance="100000"/>
-<item name="Assassin Star" countmax="5" chance="100000"/>
-<item name="Great Spirit Potion" countmax="3" chance="100000"/>
-<item name="gold coin" countmax="60" chance="100000"/>
-<item name="gold coin" countmax="40" chance="100000"/>
+<item name="Platinum Coin" countmax="5" chance="61950"/>
+<item name="Small Amethyst" countmax="2" chance="13770"/>
+<item name="Violet Gem" countmax="3" chance="780"/>
+<item name="Assassin Star" countmax="9" chance="16100"/>
+<item name="Great Health Potion" countmax="3" chance="24290"/>
+<item name="Small Diamond" countmax="2" chance="13900"/>
+<item name="Small Emerald" countmax="2" chance="14160"/>
  <!-- Incomum -->
-<item name="Small Ruby" countmax="3" chance="700"/>
-<item name="red Gem" countmax="3" chance="700"/>
-<item name="Onyx Arrow" countmax="3" chance="700"/>
-<item name="Small Topaz" countmax="3" chance="700"/>
+<item name="Small Ruby" countmax="2" chance="14160"/>
+<item name="red Gem" countmax="3" chance="1820"/>
+<item name="Onyx Arrow" countmax="15" chance="10260"/>
+<item name="Small Topaz" countmax="2" chance="14940"/>
  <!-- semi raro -->
-<item id="7633" chance="3300"/>
-<item name="Violet Gem" countmax="1" chance="300"/>
+<item id="7633" chance="1820"/>
+<item name="Great Mana Potion" countmax="3" chance="23250"/>
 <item name="Green Gem" countmax="1" chance="300"/>
  <!-- raro -->
 <item name="Damaged Armor Plates" countmax="3" chance="400"/>
-<item name="Falcon Crest" countmax="3" chance="400"/>
-<item name="Patch of Fine Cloth" countmax="1" chance="400"/>
+<item name="Falcon Crest" countmax="1" chance="1300"/>
+<item name="Patch of Fine Cloth" countmax="1" chance="780"/>
  <!-- muito raro -->
-<item name="Falcon Coif" countmax="1" chance="60"/>
-<item name="Falcon Bow" countmax="1" chance="60"/>
+<item name="Falcon Coif" countmax="1" chance="100"/>
+<item name="Falcon Bow" countmax="1" chance="100"/>
 	</loot>
 </monster>

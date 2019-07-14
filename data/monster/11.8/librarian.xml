@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Librarian" nameDescription="a librarian" race="undead" experience="0" speed="250" manacost="0">
+<monster name="Librarian" nameDescription="a librarian" race="undead" experience="1230" speed="390" manacost="0">
 	<health now="10000" max="10000" />
 	<look type="1067" corpse="33357" />
 <targetchange interval="5000" chance="8" />
@@ -22,7 +22,7 @@
 			<attribute key="shootEffect" value="snowball" />
 			<attribute key="areaEffect" value="poff" />
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
+		<attack name="mass healing" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>

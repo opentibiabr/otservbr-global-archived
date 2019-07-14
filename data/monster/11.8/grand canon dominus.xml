@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Grand Canon Dominus" nameDescription="a grand canon dominus" race="blood" experience="11000" speed="210" manacost="0"  script="boss.lua">
+<monster name="Grand Canon Dominus" nameDescription="a grand canon dominus" race="blood" experience="11000" speed="536" manacost="0"  script="boss.lua">
 	<health now="15000" max="15000" />
 	<look type="1071" head="57" body="75" legs="77" feet="86" corpse="32437" />
 	<targetchange interval="4000" chance="10" />
@@ -23,18 +23,18 @@
 
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-150" max="-700" />
+		<attack name="melee" interval="2000" min="-150" max="-600" />
 
-		<attack name="physical" interval="2000" chance="20" range="7" min="-100" max="-720">
+		<attack name="physical" interval="2000" chance="20" range="7" min="-600" max="-820">
 			<attribute key="shootEffect" value="etherealspear" />
 		</attack>
-
-
-				<attack name="holy" interval="2000" chance="14" length="8" spread="0" min="-100" max="-1000">
+		<attack name="death" interval="2000" chance="7" length="8" spread="0" min="-800" max="-1050">
+			<attribute key="areaEffect" value="death"/>
+		</attack>
+		<attack name="holy" interval="2000" chance="14" length="8" spread="0" min="-400" max="-700">
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-
-		<attack name="lifedrain" interval="1000" chance="15" range="5" radius="3"   min="-200" max="-700">
+		<attack name="lifedrain" interval="1000" chance="15" range="5" radius="3"   min="-450" max="-750">
 			<attribute key="areaEffect" value="holyarea" />
 		</attack>
 
@@ -42,31 +42,19 @@
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
 
-
-
 	</attacks>
-	<defenses armor="82" defense="50">
+		<defenses armor="82" defense="50">
 		<defense name="healing" interval="2000" chance="20" min="200" max="550">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
-
-
-			<defense name="speed" interval="1000" chance="10" speedchange="220" duration="5000">
+		<defense name="speed" interval="1000" chance="10" speedchange="750" duration="5000">
 			<attribute key="areaEffect" value="poff" />
 		</defense>
-
-
-
-
-
-
 	</defenses>
 	<elements>
-	    <element physicalPercent="50" />
-
-		<element deathPercent="55" />
-
-
+	    <element physicalPercent="60" />
+		<element deathPercent="50" />
+		<element energyPercent="50" />
 	</elements>
 	<immunities>
 		<immunity paralyze="1" />
@@ -74,38 +62,39 @@
 	</immunities>
 	<loot>
  <!-- comun -->
-<item name="Small Emerald" countmax="3" chance="100000" />
-<item name="Small Amethyst" countmax="3" chance="100000" />
-<item name="Platinum Coin" countmax="3" chance="100000" />
-<item name="Assassin Star" countmax="5" chance="100000" />
-<item name="Great Spirit Potion" countmax="3" chance="100000" />
-<item name="gold coin" countmax="60" chance="100000" />
-<item name="gold coin" countmax="40" chance="100000" />
+<item name="Platinum Coin" countmax="5" chance="70640" />
+<item name="Great Mana Potion" countmax="3" chance="26310" />
+<item name="Great Health Potion" countmax="3" chance="25690" />
+<item name="Small Topaz" countmax="2" chance="24770" />
+<item name="Small Diamond" countmax="2" chance="21100" />
+<item name="Small Enchanted Amethyst" countmax="2" chance="19270" />
+<item name="Assassin Star" countmax="10" chance="17430" />
 
   <!-- Incomum -->
-<item name="Small Ruby" countmax="3" chance="700" />
-<item name="red Gem" countmax="3" chance="700" />
-<item name="Onyx Arrow" countmax="3" chance="700" />
-<item name="Small Topaz" countmax="3" chance="700" />
+<item name="Small Amethyst" countmax="2" chance="11930" />
+<item name="Small Emerald" countmax="2" chance="11930" />
+<item name="Onyx Arrow" countmax="35" chance="17430" />
+<item name="Small Ruby" countmax="2" chance="11010" />
 
  <!-- semi raro -->
-<item id="7633" chance="3300" />
-<item name="Violet Gem" countmax="1" chance="250" />
-<item name="Green Gem" countmax="1" chance="250" />
+<item id="7633" chance="2750" />
+<item name="Violet Gem" countmax="1" chance="1830" />
+<item name="Green Gem" countmax="1" chance="1830" />
 
  <!-- raro -->
-<item name="Damaged Armor Plates" countmax="3" chance="320" />
-<item name="Falcon Crest" countmax="3" chance="310" />
-<item name="Patch of Fine Cloth" countmax="1" chance="320" />
+<item name="Damaged Armor Plates" countmax="3" chance="1830" />
+<item name="Falcon Crest" countmax="1" chance="2750" />
+<item name="Patch of Fine Cloth" countmax="1" chance="920" />
 
 
 
  <!-- muito raro -->
-<item name="Golden Armor" countmax="1" chance="120" />
-<item name="Mastermind Shield" countmax="1" chance="120" />
-<item name="Falcon Bow" countmax="1" chance="60" />
-<item name="Falcon Wand" countmax="1" chance="60" />
-<item name="Falcon Plate" countmax="1" chance="60" />
+<item name="Giant Shimmering Pearl" countmax="1" chance="920" />
+<item name="Golden Armor" countmax="1" chance="920" />
+<item name="Mastermind Shield" countmax="1" chance="920" />
+<item name="Falcon Bow" countmax="1" chance="220" />
+<item name="Falcon Wand" countmax="1" chance="320" />
+<item name="Falcon Plate" countmax="1" chance="120" />
 
 	</loot>
 </monster>

@@ -38,39 +38,35 @@
 		</defense>
 	</defenses>
 	<elements>
-		<element physicalPercent="30"/>
-		<element icePercent="10"/>
-		<element firePercent="-10"/>
-		<element holyPercent="-10"/>
-		<element energyPercent="-10"/>
+		<element energyPercent="-8"/>
 	</elements>
 	<immunities>
-		<immunity death="1"/>
 		<immunity earth="1"/>
 	</immunities>
 
 	<loot>
 
-<item name="Platinum Coin" countmax="4" chance="120000"/>
-		<item name="Envenomed Arrow" countmax="14" chance="1200"/>
-		<item id="33315" countmax="4" chance="1200"/>
-		<item name="Poisonous Slime" countmax="4" chance="1200"/>
-		<item name="Small Diamond" countmax="4" chance="1200"/>
- 		<item name="Small Topaz" countmax="4" chance="1200"/>
+		<item name="Platinum Coin" countmax="21" chance="100000"/>
+		<item name="Envenomed Arrow" countmax="10" chance="33650"/>
+		<item id="33315" countmax="4" chance="24500"/>
+		<item name="Poisonous Slime" countmax="9" chance="21300"/>
+		<item name="Small Diamond" countmax="2" chance="19680"/>
+ 		<item name="Small Topaz" countmax="2" chance="17980"/>
 
-		<item id="7633" countmax="4" chance="900"/>
-		<item name="Blue Gem" countmax="4" chance="950"/>
-		<item name="Terra Boots" countmax="4" chance="850"/>
-		<item name="Terra Hood" countmax="4" chance="980"/>
+		<item id="7633" countmax="1" chance="6900"/>
+		<item name="Blue Gem" countmax="1" chance="7250"/>
+		<item name="Terra Boots" countmax="1" chance="6540"/>
+		<item name="Terra Hood" countmax="1" chance="6320"/>
 
-		<item name="Protection Amulet" countmax="4" chance="1200"/>
-		<item name="Sacred Tree Amulet" countmax="4" chance="1200"/>
-		<item name="Springsprout Rod" countmax="4" chance="790"/>
-		<item name="Stone Skin Amulet" countmax="4" chance="1200"/>
-		<item name="Terra Legs" countmax="4" chance="650"/>
-		<item name="Terra Mantle" countmax="4" chance="550"/>
+		<item name="Protection Amulet" countmax="1" chance="4320"/>
+		<item name="Sacred Tree Amulet" countmax="1" chance="3330"/>
+		<item name="Springsprout Rod" countmax="1" chance="2258"/>
+		<item name="Stone Skin Amulet" countmax="1" chance="3210"/>
+		<item name="Terra Legs" countmax="1" chance="2230"/>
+		<item name="Terra Mantle" countmax="1" chance="2130"/>
 
-		<item name="Clay Lump" countmax="4" chance="1200"/>
-		<item name="Terra Amulet" countmax="4" chance="1200"/>
+		<item name="Clay Lump" countmax="1" chance="1200"/>
+		<item name="Terra Amulet" countmax="1" chance="1000"/>
+		<item name="Swamplair Armor" countmax="1" chance="120"/>
 	</loot>
 </monster>

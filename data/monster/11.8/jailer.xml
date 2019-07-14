@@ -18,14 +18,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-200" />
-		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
-			<attribute key="shootEffect" value="snowball" />
-			<attribute key="areaEffect" value="poff" />
-		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
-			<attribute key="areaEffect" value="poff" />
-		</attack>
+		<attack name="melee" interval="2000" min="0" max="-120" />
 	</attacks>
 	<defenses armor="28" defense="33" />
 	<elements>
@@ -43,7 +36,6 @@
 	<voices interval="5000" chance="10">
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="60" chance="100000" />
-		<item name="gold coin" countmax="40" chance="100000" />
+		<item name="Bone" countmax="1" chance="100000" />
 	</loot>
 </monster>

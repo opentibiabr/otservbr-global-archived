@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lokathmor" nameDescription="Lokathmor" race="undead" experience="0" speed="50" manacost="0">
+<monster name="Lokathmor" nameDescription="Lokathmor" race="undead" experience="0" speed="450" manacost="0">
 	<health now="10000" max="10000" />
 	<look type="1062" addons="1" />
 <targetchange interval="5000" chance="8" />
@@ -17,12 +17,12 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-200" />
-		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
+		<attack name="melee" interval="2000" min="0" max="-750" />
+		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-550">
 			<attribute key="shootEffect" value="snowball" />
 			<attribute key="areaEffect" value="poff" />
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
+		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-850">
 			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>
@@ -34,5 +34,16 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
+	<item name="Sturdy Book" countmax="1" chance="100000"/>
+	<item name="Giant Emerald" countmax="1" chance="55240"/>
+	<item name="Green Gem" countmax="1" chance="33250"/>
+	<item name="Magic Sulphur" countmax="1" chance="26150"/>
+	<item name="Ominous Book" countmax="1" chance="28954"/>
+	<item name="Dreaded Cleaver" countmax="1" chance="19110"/>
+	<item name="Stone Skin Amulet" countmax="1" chance="15220"/>
+	<item name="Crystal Coin" countmax="4" chance="6320"/>
+	<item name="Onyx Chip" countmax="4" chance="6320"/>
+	<item name="Small Amethyst" countmax="12" chance="7854"/>
+	<item name="Boots of Haste" countmax="1" chance="2580"/>
 	</loot>
 </monster>
