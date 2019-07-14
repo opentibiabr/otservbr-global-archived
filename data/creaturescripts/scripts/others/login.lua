@@ -96,7 +96,7 @@ function onLogin(player)
              player:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
         end
         player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 0)
-        player:setPreyState(slot, Prey.StateTypes.LOCKED)
+        player:setPreyState(CONST_PREY_SLOT_THIRD, Prey.StateTypes.LOCKED)
 
 		if player:getSex() == 1 then
 			player:setOutfit({lookType = 128, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})
