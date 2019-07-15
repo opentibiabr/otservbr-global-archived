@@ -90,14 +90,6 @@ function onLogin(player)
 		loginStr = loginStr .. ' Please choose your outfit.'
 		player:setBankBalance(0)
 
-        -- Prey system 2 slots unlocked by default
-        for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_SECOND do
-             player:setPreyUnlocked(slot, 1)
-             player:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
-        end
-        player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 0)
-        player:setPreyState(CONST_PREY_SLOT_THIRD, Prey.StateTypes.LOCKED)
-
 		if player:getSex() == 1 then
 			player:setOutfit({lookType = 128, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})
 		else
