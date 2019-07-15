@@ -22,8 +22,8 @@
 #include "configmanager.h"
 #include "connection.h"
 #include "outputmessage.h"
-#include "protocolgame.h"
 #include "protocol.h"
+#include "protocolgame.h"
 #include "scheduler.h"
 #include "server.h"
 

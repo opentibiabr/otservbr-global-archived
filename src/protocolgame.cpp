@@ -380,7 +380,6 @@ void ProtocolGame::onConnect()
 	send(std::move(output));
 }
 
-
 void ProtocolGame::disconnectClient(const std::string& message) const
 {
 	auto output = OutputMessagePool::getOutputMessage();
