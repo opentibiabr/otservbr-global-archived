@@ -1253,9 +1253,9 @@ class Player final : public Creature, public Cylinder
 				client->sendFightModes();
 			}
 		}
-		void sendNetworkMessage(const NetworkMessage& message, bool broadcast = true) {
+		void sendNetworkMessage(const NetworkMessage& message) {
 			if (client) {
-				client->writeToOutputBuffer(message, broadcast);
+				client->writeToOutputBuffer(message);
 			}
 		}
 
@@ -1310,27 +1310,6 @@ class Player final : public Creature, public Cylinder
 		void addAutoLootItem(uint16_t itemId);
 		void removeAutoLootItem(uint16_t itemId);
 		bool getAutoLootItem(uint16_t itemId);
-
-		bool startLiveCast(const std::string& password) {
-			return client && client->startLiveCast(password);
-		}
-		bool stopLiveCast() {
-			return client && client->stopLiveCast();
-		}
-		bool isLiveCaster() const {
-			return client && client->isLiveCaster();
-		}
-		bool getSpectators(std::vector<ProtocolSpectator_ptr>& spectators) const {
-			if (!isLiveCaster()) {
-				return false;
-			}
-			spectators = client->spectators;
-			return true;
-		}
-
-		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
-			return openContainers;
-		}
 
 		uint16_t getBaseXpGain() const {
 			return baseXpGain;
@@ -1628,7 +1607,6 @@ class Player final : public Creature, public Cylinder
 		friend class Actions;
 		friend class IOLoginData;
 		friend class ProtocolGame;
-		friend class ProtocolGameBase;
 };
 
 #endif

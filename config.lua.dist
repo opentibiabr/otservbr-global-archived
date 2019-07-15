@@ -60,10 +60,6 @@ gamestoreByModules = true
 -- Quest Sytem
 loadQuestLua = true
 
--- Casting System 
-enableLiveCasting = true
-liveCastPort = 7173
-
 -- Expert Pvp Config
 expertPvp = false
 
