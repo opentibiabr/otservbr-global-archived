@@ -133,9 +133,9 @@ function onLogin(player)
 
     -- New Prey
     nextPreyTime[playerId] = {
-    	[CONST_PREY_SLOT_FIRST] = 1,
-	[CONST_PREY_SLOT_SECOND] = 1,
-	[CONST_PREY_SLOT_THIRD] = 1
+        [CONST_PREY_SLOT_FIRST] = 1,
+        [CONST_PREY_SLOT_SECOND] = 1,
+        [CONST_PREY_SLOT_THIRD] = 1
     }
 
     if (player:getAccountType() == ACCOUNT_TYPE_TUTOR) then
