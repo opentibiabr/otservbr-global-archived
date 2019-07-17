@@ -479,7 +479,7 @@ CREATE TABLE `players` (
   `create_ip` int(11) NOT NULL DEFAULT '0',
   `create_date` int(11) NOT NULL DEFAULT '0',
   `hide_char` int(11) NOT NULL DEFAULT '0',
-  `skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0', --33
+  `skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `skill_critical_hit_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_critical_hit_damage` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `skill_critical_hit_damage_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
