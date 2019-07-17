@@ -348,6 +348,9 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
+# Docker build
+docker/*.zip
+
 ## CUSTOM
 
 libmysql.dll
