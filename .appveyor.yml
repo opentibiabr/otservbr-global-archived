@@ -17,7 +17,8 @@ only_commits:
   files:
     - src/
     - vc14/
-    - appveyor.yml
+    - .appveyor.yml
+    - cmake/
 
 install:
   - cmd : vcpkg install boost-iostreams:x64-windows
