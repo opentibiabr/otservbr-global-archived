@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Deepling Guard" nameDescription="a deepling guard" race="blood" experience="2100" speed="135" manacost="390">
+<monster name="Deepling Guard" nameDescription="a deepling guard" race="blood" experience="2100" speed="135">
 	<health now="1900" max="1900"/>
 	<look type="442" corpse="15187"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="1"/>
@@ -17,6 +17,7 @@
 		<flag runonhealth="20"/>
 		<flag canwalkonenergy="0"/>
 		<flag canwalkonpoison="0"/>
+		<flag canwalkonfire="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400"/>
