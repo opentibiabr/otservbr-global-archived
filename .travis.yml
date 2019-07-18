@@ -27,9 +27,6 @@ addons:
       - libpugixml-dev
       - libgmp3-dev
 
-
-
-
   coverity_scan:
     project:
       name: "otland/forgottenserver"

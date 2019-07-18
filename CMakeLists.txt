@@ -21,7 +21,6 @@ include(FindCXX11)
 include(FindLTO)
 
 # Find packages.
-find_package(GMP REQUIRED)
 find_package(Crypto++ REQUIRED)
 find_package(PugiXML REQUIRED)
 find_package(MySQL)
