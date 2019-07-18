@@ -32,7 +32,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
     elseif msgcontains(msg, "flask") or msgcontains(msg, "special flask") then
-        if player:getStorageValue(Storage.TheInquisition.Questline) == 12 then -- give player the ability to purchase the flask.
+        if player:getStorageValue(Storage.TheInquisition.Questline) >= 12 then -- give player the ability to purchase the flask.
         npcHandler:say("Do you want to buy the special flask of holy water for " .. flaskCost .. " gold?" , cid)
         npcHandler.topic[cid] = 8
         else 
