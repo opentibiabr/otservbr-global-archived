@@ -68,6 +68,10 @@ function Monster:onDropLoot(corpse)
 end
 
 function Monster:onSpawn(position)
+	if self:getType():isRewardBoss() then
+		self:setReward(true)
+	end
+
 	if not self:getType():canSpawn(position) then
 		self:remove()
 	else

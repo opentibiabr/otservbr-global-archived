@@ -28,7 +28,6 @@
 #include "configmanager.h"
 #include "scriptmanager.h"
 #include "rsa.h"
-#include "protocolspectator.h"
 #include "protocolold.h"
 #include "protocollogin.h"
 #include "protocolstatus.h"
@@ -257,10 +256,6 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 
 	// Game client protocols
 	services->add<ProtocolGame>(g_config.getNumber(ConfigManager::GAME_PORT));
-	if (g_config.getBoolean(ConfigManager::ENABLE_LIVE_CASTING)) {
-		ProtocolGame::clearLiveCastInfo();
-		services->add<ProtocolSpectator>(g_config.getNumber(ConfigManager::LIVE_CAST_PORT));
-	}
 	services->add<ProtocolLogin>(g_config.getNumber(ConfigManager::LOGIN_PORT));
 
 	// OT protocols
