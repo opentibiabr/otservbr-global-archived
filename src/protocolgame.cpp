@@ -3612,14 +3612,12 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 		msg.addByte(count);
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[count & 7]);
+	} else if (version >= 1150 && it.isContainer()) {
+		msg.addByte(0x00);
 	}
 
 	if (it.isAnimation) {
 		msg.addByte(0xFE); // random phase (0xFF for async)
-	}
-
-	if (version >= 1150 && it.isContainer()) {
-		msg.addByte(0x00);
 	}
 }
 
@@ -3637,14 +3635,12 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 		msg.addByte(std::min<uint16_t>(0xFF, item->getItemCount()));
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[item->getFluidType() & 7]);
+	} else if (version >= 1150 && it.isContainer()) {
+		msg.addByte(0x00);
 	}
 
 	if (it.isAnimation) {
 		msg.addByte(0xFE); // random phase (0xFF for async)
-	}
-
-	if (version >= 1150 && it.isContainer()) {
-		msg.addByte(0x00);
 	}
 }
 
