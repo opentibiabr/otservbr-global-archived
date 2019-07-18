@@ -1,5 +1,5 @@
 sudo: required
-dist: trusty
+dist: bionic
 language: cpp
 compiler:
   - clang
@@ -26,6 +26,10 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
+
+
+
+
   coverity_scan:
     project:
       name: "otland/forgottenserver"
