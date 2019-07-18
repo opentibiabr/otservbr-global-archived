@@ -184,11 +184,11 @@ Item* Item::clone() const
 	Item* item = Item::CreateItem(id, count);
 	if (attributes) {
 		item->attributes.reset(new ItemAttributes(*attributes));
-	}
-
-	if (hasAttribute(ITEM_ATTRIBUTE_DECAYSTATE) && getDecaying()>DECAYING_FALSE){
-		item->setDuration(getDuration());
-		item->startDecaying();
+		if (item->getDuration() > 0) {
+			item->incrementReferenceCounter();
+			item->setDecaying(DECAYING_TRUE);
+			g_game.toDecayItems.push_front(item);
+		}
 	}
 
 	return item;
