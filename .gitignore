@@ -348,8 +348,8 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-# Docker generate folder
-docker/otserver
+# Docker folders with generated artifacts
+docker/**/otserver
 
 ## CUSTOM
 
