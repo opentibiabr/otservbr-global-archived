@@ -57,8 +57,9 @@ sed -i '/mysqlHost = "127.0.0.1"/c\mysqlHost = "test-server-db"' run-test-env/ot
 sed -i '/mysqlUser = "darenum"/c\mysqlUser = "dbuser"' run-test-env/otserver/config.lua
 sed -i '/mysqlPass = "darenum"/c\mysqlPass = "dbpassword"' run-test-env/otserver/config.lua
 sed -i '/mysqlDatabase = "database"/c\mysqlDatabase = "testdb"' run-test-env/otserver/config.lua
-# Test with client 10.98
-sed -i '/clientVersionMin = 1100/c\clientVersionMin = 1098' run-test-env/otserver/config.lua
+
+# Change MinClientVersion with client 10.98
+#sed -i '/clientVersionMin = 1100/c\clientVersionMin = 1098' run-test-env/otserver/config.lua
 
 # Run Server
 docker build -f run-env/Dockerfile.run  -t otserver .
