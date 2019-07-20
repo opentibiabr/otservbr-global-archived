@@ -34120,7 +34120,7 @@
 		<attribute key="weight" value="750" />
 	</item>
 	<item id="25350" article="a" name="poison salt crystal">
-		<attribute key="weight" value="050" />
+		<attribute key="weight" value="50" />
 		<attribute key="description" value="Filtered from the putrefied purple lakes, this salt is deadly, if diluted in water." />
 	</item>
 	<item id="25351" article="a" name="crystallized salt">
