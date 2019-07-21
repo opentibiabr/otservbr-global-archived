@@ -7,6 +7,8 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()				npcHandler:onThink()					end
 
+local flaskCost = 1000
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
@@ -29,6 +31,14 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You cannot get this blessing unless you have completed The Inquisition Quest.", cid)
 			npcHandler.topic[cid] = 0
 		end
+    elseif msgcontains(msg, "flask") or msgcontains(msg, "special flask") then
+        if player:getStorageValue(Storage.TheInquisition.Questline) >= 12 then -- give player the ability to purchase the flask.
+        npcHandler:say("Do you want to buy the special flask of holy water for " .. flaskCost .. " gold?" , cid)
+        npcHandler.topic[cid] = 8
+        else 
+			npcHandler:say("You do not need this flask right now.", cid)
+			npcHandler.topic[cid] = 0
+        end		
 	elseif msgcontains(msg, "mission") or msgcontains(msg, "report") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) < 1 then
 			npcHandler:say("Do you want to join the inquisition?", cid)
@@ -183,6 +193,14 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Come back when you have destroyed the shadow nexus.", cid)
 			end
 			npcHandler.topic[cid] = 0
+        elseif npcHandler.topic[cid] == 8 then
+            if player:removeMoneyNpc(flaskCost) then
+            npcHandler:say("Here is your new flask!, |PLAYERNAME|.", cid)
+            player:addItem(7494, 1)     
+            else
+			npcHandler:say("Come back when you have enough money.", cid)
+		end              
+           npcHandler.topic[cid] = 0			
 		elseif npcHandler.topic[cid] == 7 then
 			if player:getBlessings() == 5 then
 				npcHandler:say("You already have been blessed!", cid)
