@@ -2,4 +2,5 @@
 <raid>
 	<!--Single Spawns-->
 	<script delay="1000" script="white_pale.lua" />
+	<singlespawn delay="1000" name="White Pale" x="33264" y="31875" z="11"/>
 </raid>

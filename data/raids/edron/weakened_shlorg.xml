@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <raid>
-    <script delay="2000" script="weakened_shlorg.lua" />
-
-  </raid>
+	<singlespawn delay="2000" name="Weakened Shlorg" x="33164" y="31716" z="9"/>
+</raid>

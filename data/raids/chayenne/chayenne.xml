@@ -5,5 +5,5 @@
   <announce delay="50000" type="Event" message="Get prepare mortals, the visit of Chayenne is near." />
   <announce delay="60000" type="Event" message="Chayenne has returned to his citadel once more. Be careful there." />
   <!--Single Spawns-->
-  <script delay="60000" script="Chayenne.lua" />
+  <singlespawn delay="60000" name="Chayenne" x="32799" y="31604" z="7"/>
 </raid>
