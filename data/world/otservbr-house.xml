@@ -1039,4 +1039,8 @@
 	<house name="Rathleton Plaza 3" houseid="2588" entryx="33615" entryy="31913" entryz="6" rent="5735" townid="33" size="113" />
 	<house name="Thrarhor V e (Shop)" houseid="2590" entryx="33121" entryy="32861" entryz="7" rent="3000" townid="9" size="14" />
 	<house name="Isle of Solitude House" houseid="2592" entryx="32330" entryy="31938" entryz="7" rent="3000" townid="31" size="344" />
+	<house name="Tunnel Gardens 9" houseid="2593" entryx="32605" entryy="31924" entryz="11" rent="0" townid="3" size="10" />
+	<house name="Tunnel Gardens 10" houseid="2594" entryx="32606" entryy="31924" entryz="11" rent="0" townid="3" size="10" />
+	<house name="Tunnel Gardens 11" houseid="2595" entryx="32607" entryy="31924" entryz="12" rent="0" townid="3" size="11" />
+	<house name="Tunnel Gardens 12" houseid="2596" entryx="32603" entryy="31924" entryz="12" rent="0" townid="3" size="11" />
 </houses>
