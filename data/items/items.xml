@@ -26141,16 +26141,16 @@
 	<item id="19642" article="a" name="venorean chair">
 		<attribute key="rotateTo" value="19639" />
 	</item>
-	<item id="19643" article="a" name="venorean chair">
+	<item id="19643" article="a" name="venorean stool">
 		<attribute key="rotateTo" value="19644" />
 	</item>
-	<item id="19644" article="a" name="venorean chair">
+	<item id="19644" article="a" name="venorean stool">
 		<attribute key="rotateTo" value="19645" />
 	</item>
-	<item id="19645" article="a" name="venorean chair">
+	<item id="19645" article="a" name="venorean stool">
 		<attribute key="rotateTo" value="19646" />
 	</item>
-	<item id="19646" article="a" name="venorean chair">
+	<item id="19646" article="a" name="venorean stool">
 		<attribute key="rotateTo" value="19643" />
 	</item>
 	<item id="19647" article="a" name="kidney table" />
@@ -29942,9 +29942,9 @@
 		<attribute key="description" value="It contains the clothes of a dwarf." />
 		<attribute key="weight" value="800" />
 	</item>
-	<item id="21570" article="a" name="world board" />
+	<item id="21570" article="the" name="world board" />
 	<item fromid="21571" toid="21578" article="a" name="smoke" />
-	<item id="21579" article="a" name="world board" />
+	<item id="21579" article="the" name="world board" />
 	<item id="21581" article="a" name="glowing ice cube" />
 	<item id="21583" name="thawing ice pick">
 		<attribute key="weight" value="6200" />
@@ -36980,25 +36980,39 @@
 	<item id="29016" article="a" name="stuffed mummy" />
 	<item id="29017" article="a" name="stuffed clomp" />
 	<item id="29018" article="a" name="brown vortex" />
-	<item id="29019" article="a" name="paper" />
-	<item id="29020" article="a" name="temporary gold converter" />
+	<item id="29019" article="a" name="temple teleport scroll">
+		<attribute key="description" value="This item cannot be traded." />
+		<attribute key="weight" value="120" />
+	</item>
+	<item id="29020" article="a" name="temporary gold converter">
+		<attribute key="description" value="This item cannot be traded." />
+		<attribute key="weight" value="300" />
+		<attribute key="charges" value="100" />
+		<attribute key="showcharges" value="1" />
+	</item>
 	<item id="29020" article="a" name="gold converter">
 		<attribute key="description" value="You bought this item in the Store or gained it as a daily reward. This item cannot be traded." />
 		<attribute key="weight" value="300" />
+		<attribute key="charges" value="500" />
+		<attribute key="showcharges" value="1" />
 	</item>
-	<item id="29021" article="a" name="shiny daily reward shrine">
+	<item id="29021" article="a" name="shiny reward shrine">
+		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day." />
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="rotateTo" value="29022" />
 	</item>
-	<item id="29022" article="a" name="shiny daily reward shrine">
+	<item id="29022" article="a" name="shiny reward shrine">
+		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day." />
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="rotateTo" value="29021" />
 	</item>
-	<item id="29023" article="a" name="shiny daily reward shrine">
+	<item id="29023" article="a" name="shiny reward shrine">
+		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day." />
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="rotateTo" value="29024" />
 	</item>
-	<item id="29024" article="a" name="shiny daily reward shrine">
+	<item id="29024" article="a" name="shiny reward shrine">
+		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day." />
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="rotateTo" value="29023" />
 	</item>
