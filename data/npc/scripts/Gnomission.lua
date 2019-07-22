@@ -55,11 +55,11 @@ local function creatureSayCallback(cid, type, msg)
 			if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
 				npcHandler:say("It seems you did not even set one big foot into the warzone, I am sorry.")
 			else
-				if player:getStorageValue(Storage.BigfootBurden.Warzone2Access) < 1 then
-					if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) >= 2 then
+				if player:getStorageValue(Storage.BigfootBurden.Warzone3Access) < 1 then 
+					if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) >= 3 then
 						if player:removeItem(18496, 1) then
-							player:setStorageValue(Storage.BigfootBurden.Warzone2Access, 1)
-							npcHandler:say("As a war hero you are allowed to use the warzone teleporter two for free!", cid)
+							player:setStorageValue(Storage.BigfootBurden.Warzone3Access, 1)
+							npcHandler:say("As a war hero you are allowed to use the warzone teleporter three for free!", cid)
 							npcHandler.topic[cid] = 0
 						else
 							npcHandler:say("I can't let you enter the warzone teleporter two for free, unless you handle me an Abyssador's lash. But can still always use a red teleport crystal.", cid)
@@ -77,11 +77,11 @@ local function creatureSayCallback(cid, type, msg)
 			if player:getStorageValue(Storage.BigfootBurden.QuestLine) < 30 then
 				npcHandler:say("It seems you did not even set one big foot into the warzone, I am sorry.")
 			else
-				if player:getStorageValue(Storage.BigfootBurden.Warzone3Access) < 1 then
-					if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) >= 3 then
+				if player:getStorageValue(Storage.BigfootBurden.Warzone2Access) < 1 then
+					if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) >= 2 then
 						if player:removeItem(18495, 1) then
-							player:setStorageValue(Storage.BigfootBurden.Warzone3Access, 1)
-							npcHandler:say("As a war hero you are allowed to use the warzone teleporter three for free!", cid)
+							player:setStorageValue(Storage.BigfootBurden.Warzone2Access, 1)
+							npcHandler:say("As a war hero you are allowed to use the warzone teleporter second for free!", cid)
 							npcHandler.topic[cid] = 0
 						else
 							npcHandler:say("I can't let you enter the warzone teleporter three for free, unless you handle me a Gnomevil's hat. But can still always use a red teleport crystal.", cid)
