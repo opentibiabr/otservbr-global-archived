@@ -54,8 +54,4 @@
 	<talkaction words="!report" separator=" " script="player/admin_report.lua"/>
 	<talkaction words="!autoloot" separator=" " script="player/autoloot.lua"/>
 	<talkaction words="!add" separator=" " script="player/add_autoloot.lua" />
-	<!-- Cast System -->
-	<talkaction words="!cast" separator=" " script="player/cast_start.lua" />
-	<talkaction words="!stopcast" script="player/cast_stop.lua" />
-	<talkaction words="!spectators" script="player/cast_spectators.lua" />
 </talkactions>
