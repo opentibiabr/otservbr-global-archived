@@ -178,6 +178,8 @@ CREATE TABLE IF NOT EXISTS `players` (
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
   `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0',
   `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
+  INDEX `account_id` (`account_id`),
+  INDEX `vocation` (`vocation`),
   CONSTRAINT `players_pk` PRIMARY KEY (`id`),
   CONSTRAINT `players_unique` UNIQUE (`name`),
   CONSTRAINT `players_account_fk`
@@ -213,6 +215,8 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
   `banned_at` bigint(20) NOT NULL,
   `expires_at` bigint(20) NOT NULL,
   `banned_by` int(11) NOT NULL,
+  INDEX `banned_by` (`banned_by`),
+  CONSTRAINT `account_bans_pk` PRIMARY KEY (`account_id`),
   CONSTRAINT `account_bans_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
@@ -220,8 +224,7 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
   CONSTRAINT `account_bans_player_fk`
     FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `account_bans_pk` PRIMARY KEY (`account_id`)
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -231,12 +234,14 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
 --
 
 CREATE TABLE IF NOT EXISTS `account_ban_history` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
   `expired_at` bigint(20) NOT NULL,
   `banned_by` int(11) NOT NULL,
+  INDEX `account_id` (`account_id`),
+  INDEX `banned_by` (`banned_by`),
   CONSTRAINT `account_bans_history_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
@@ -260,13 +265,15 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
   `description` varchar(128) NOT NULL DEFAULT '',
   `icon` tinyint(2) UNSIGNED NOT NULL DEFAULT '0',
   `notify` tinyint(1) NOT NULL DEFAULT '0',
+  INDEX `account_id` (`account_id`),
+  INDEX `player_id` (`player_id`),
+  CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`),
   CONSTRAINT `account_viplist_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE,
   CONSTRAINT `account_viplist_player_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
-    ON DELETE CASCADE,
-  CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -276,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
 --
 
 CREATE TABLE IF NOT EXISTS `announcements` (
-  `id` int(10) NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `text` varchar(255) NOT NULL,
   `date` varchar(20) NOT NULL,
@@ -311,10 +318,11 @@ CREATE TABLE IF NOT EXISTS `daily_reward_history` (
   `player_id` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
+  INDEX `player_id` (`player_id`),
+  CONSTRAINT `daily_reward_history_pk` PRIMARY KEY (`id`),
   CONSTRAINT `daily_reward_history_player_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
-    ON DELETE CASCADE,
-  CONSTRAINT `daily_reward_history_pk` PRIMARY KEY (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -350,7 +358,8 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `last_execute_points` int(11) NOT NULL DEFAULT '0',
   `logo_gfx_name` varchar(255) NOT NULL DEFAULT '',
   CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
-  CONSTRAINT `guilds_unique` UNIQUE (`name`, `ownerid`),
+  CONSTRAINT `guilds_name_unique` UNIQUE (`name`),
+  CONSTRAINT `guilds_owner_unique` UNIQUE (`ownerid`),
   CONSTRAINT `guilds_ownerid_fk`
     FOREIGN KEY (`ownerid`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
@@ -371,6 +380,8 @@ CREATE TABLE IF NOT EXISTS `guild_wars` (
   `status` tinyint(2) NOT NULL DEFAULT '0',
   `started` bigint(15) NOT NULL DEFAULT '0',
   `ended` bigint(15) NOT NULL DEFAULT '0',
+  INDEX `guild1` (`guild1`),
+  INDEX `guild2` (`guild2`),
   CONSTRAINT `guild_wars_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -388,6 +399,7 @@ CREATE TABLE IF NOT EXISTS `guildwar_kills` (
   `targetguild` int(11) NOT NULL DEFAULT '0',
   `warid` int(11) NOT NULL DEFAULT '0',
   `time` bigint(15) NOT NULL,
+  INDEX `warid` (`warid`),
   CONSTRAINT `guildwar_kills_pk` PRIMARY KEY (`id`),
   CONSTRAINT `guildwar_kills_unique` UNIQUE (`warid`),
   CONSTRAINT `guildwar_kills_warid_fk`
@@ -405,6 +417,7 @@ CREATE TABLE IF NOT EXISTS `guild_invites` (
   `player_id` int(11) NOT NULL DEFAULT '0',
   `guild_id` int(11) NOT NULL DEFAULT '0',
   `date` int(11) NOT NULL,
+  INDEX `guild_id` (`guild_id`),
   CONSTRAINT `guild_invites_pk` PRIMARY KEY (`player_id`, `guild_id`),
   CONSTRAINT `guild_invites_player_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
@@ -425,6 +438,7 @@ CREATE TABLE IF NOT EXISTS `guild_ranks` (
   `guild_id` int(11) NOT NULL COMMENT 'guild',
   `name` varchar(255) NOT NULL COMMENT 'rank name',
   `level` int(11) NOT NULL COMMENT 'rank level - leader, vice, member, maybe something else',
+  INDEX `guild_id` (`guild_id`),
   CONSTRAINT `guild_ranks_pk` PRIMARY KEY (`id`),
   CONSTRAINT `guild_ranks_fk`
     FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`)
@@ -454,6 +468,8 @@ CREATE TABLE IF NOT EXISTS `guild_membership` (
   `guild_id` int(11) NOT NULL,
   `rank_id` int(11) NOT NULL,
   `nick` varchar(15) NOT NULL DEFAULT '',
+  INDEX `guild_id` (`guild_id`),
+  INDEX `rank_id` (`rank_id`),
   CONSTRAINT `guild_membership_pk` PRIMARY KEY (`player_id`),
   CONSTRAINT `guild_membership_player_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
@@ -490,6 +506,8 @@ CREATE TABLE IF NOT EXISTS `houses` (
   `size` int(11) NOT NULL DEFAULT '0',
   `guildid` int(11),
   `beds` int(11) NOT NULL DEFAULT '0',
+  INDEX `owner` (`owner`),
+  INDEX `town_id` (`town_id`),
   CONSTRAINT `houses_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -508,6 +526,7 @@ CREATE TABLE IF NOT EXISTS `house_lists` (
   `house_id` int(11) NOT NULL,
   `listid` int(11) NOT NULL,
   `list` text NOT NULL,
+  INDEX `house_id` (`house_id`),
   CONSTRAINT `houses_list_house_fk`
     FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
     ON DELETE CASCADE
@@ -520,11 +539,12 @@ CREATE TABLE IF NOT EXISTS `house_lists` (
 --
 
 CREATE TABLE IF NOT EXISTS `ip_bans` (
-  `ip` int(10) UNSIGNED NOT NULL,
+  `ip` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
   `expires_at` bigint(20) NOT NULL,
   `banned_by` int(11) NOT NULL,
+  INDEX `banned_by` (`banned_by`),
   CONSTRAINT `ip_bans_pk` PRIMARY KEY (`ip`),
   CONSTRAINT `ip_bans_players_fk`
     FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
@@ -539,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `ip_bans` (
 --
 
 CREATE TABLE IF NOT EXISTS `market_history` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
   `sale` tinyint(1) NOT NULL DEFAULT '0',
   `itemtype` int(10) UNSIGNED NOT NULL,
@@ -548,6 +568,7 @@ CREATE TABLE IF NOT EXISTS `market_history` (
   `expires_at` bigint(20) UNSIGNED NOT NULL,
   `inserted` bigint(20) UNSIGNED NOT NULL,
   `state` tinyint(1) UNSIGNED NOT NULL,
+  INDEX `player_id` (`player_id`,`sale`),
   CONSTRAINT `market_history_pk` PRIMARY KEY (`id`),
   CONSTRAINT `market_history_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
@@ -561,7 +582,7 @@ CREATE TABLE IF NOT EXISTS `market_history` (
 --
 
 CREATE TABLE IF NOT EXISTS `market_offers` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
   `sale` tinyint(1) NOT NULL DEFAULT '0',
   `itemtype` int(10) UNSIGNED NOT NULL,
@@ -569,6 +590,9 @@ CREATE TABLE IF NOT EXISTS `market_offers` (
   `created` bigint(20) UNSIGNED NOT NULL,
   `anonymous` tinyint(1) NOT NULL DEFAULT '0',
   `price` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  INDEX `sale` (`sale`,`itemtype`),
+  INDEX `created` (`created`),
+  INDEX `player_id` (`player_id`),
   CONSTRAINT `market_offers_pk` PRIMARY KEY (`id`),
   CONSTRAINT `market_offers_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
@@ -641,6 +665,9 @@ CREATE TABLE IF NOT EXISTS `player_deaths` (
   `mostdamage_is_player` tinyint(1) NOT NULL DEFAULT '0',
   `unjustified` tinyint(1) NOT NULL DEFAULT '0',
   `mostdamage_unjustified` tinyint(1) NOT NULL DEFAULT '0',
+  INDEX `player_id` (`player_id`),
+  INDEX `killed_by` (`killed_by`),
+  INDEX `mostdamage_by` (`mostdamage_by`),
   CONSTRAINT `player_deaths_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
@@ -676,6 +703,7 @@ CREATE TABLE IF NOT EXISTS `player_former_names` (
   `player_id` int(11) NOT NULL,
   `former_name` varchar(35) NOT NULL,
   `date` int(11) NOT NULL,
+  INDEX `player_id` (`player_id`),
   CONSTRAINT `player_former_names_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -711,6 +739,8 @@ CREATE TABLE IF NOT EXISTS `player_items` (
   `itemtype` int(11) NOT NULL DEFAULT '0',
   `count` int(11) NOT NULL DEFAULT '0',
   `attributes` blob NOT NULL,
+  INDEX `player_id` (`player_id`),
+  INDEX `sid` (`sid`),
   CONSTRAINT `player_items_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
@@ -751,6 +781,7 @@ CREATE TABLE IF NOT EXISTS `player_namelocks` (
   `reason` varchar(255) NOT NULL,
   `namelocked_at` bigint(20) NOT NULL,
   `namelocked_by` int(11) NOT NULL,
+  INDEX `namelocked_by` (`namelocked_by`),
   CONSTRAINT `player_namelocks_unique` UNIQUE (`player_id`),
   CONSTRAINT `player_namelocks_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
@@ -822,6 +853,7 @@ CREATE TABLE IF NOT EXISTS `player_rewards` (
 CREATE TABLE IF NOT EXISTS `player_spells` (
   `player_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  INDEX `player_id` (`player_id`),
   CONSTRAINT `player_spells_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
@@ -886,6 +918,7 @@ CREATE TABLE IF NOT EXISTS `store_history` (
   `timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL,
   `coins` int(11) NOT NULL DEFAULT '0',
+  INDEX `account_id` (`account_id`),
   CONSTRAINT `store_history_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
@@ -900,6 +933,7 @@ CREATE TABLE IF NOT EXISTS `store_history` (
 CREATE TABLE IF NOT EXISTS `tile_store` (
   `house_id` int(11) NOT NULL,
   `data` longblob NOT NULL,
+  INDEX `house_id` (`house_id`),
   CONSTRAINT `tile_store_account_fk`
     FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
     ON DELETE CASCADE
@@ -924,6 +958,7 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
   `bonus_type` smallint(3) NOT NULL,
   `bonus_value` smallint(3) NOT NULL DEFAULT '0',
   `bonus_grade` smallint(3) NOT NULL DEFAULT '0',
+  INDEX `player_id` (`player_id`),
   CONSTRAINT `prey_slots_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
