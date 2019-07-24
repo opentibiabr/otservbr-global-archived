@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Wild Knowledge" nameDescription="a wild knowledge" race="energy" experience="0" speed="350">
+<monster name="Biting Cold" nameDescription="Biting Cold" race="blood" experience="0" speed="350">
 	<health now="10000" max="10000"/>
-	<look type="293" corpse="8966"/>
-	<targetchange interval="5000" chance="8"/>
+	<look type="53" corpse="5998"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

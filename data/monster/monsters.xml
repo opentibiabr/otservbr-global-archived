@@ -28,7 +28,6 @@
 	<monster name="Stolen Tome of Portals" file="Possessed Objects/Stolen Tome of Portals.xml"/>
 	<monster name="The Book of Secrets" file="Possessed Objects/The Book of Secrets.xml"/>
 	<!-- New Monsters -->
-	<monster name="Biting Cold" file="11.8/biting cold.xml"/>
 	<monster name="Bone Jaw" file="11.8/bone jaw.xml"/>
 	<monster name="Brother Chill" file="11.8/brother chill.xml"/>
 	<monster name="Brother Freeze" file="11.8/brother freeze.xml"/>
@@ -1386,6 +1385,7 @@
 	<monster name="a carved stone tile" file="Traps/a carved stone tile.xml" />
 
 	<!-- Trolls -->
+	<monster name="Biting Cold" file="Trolls/Biting Cold.xml"/>
 	<monster name="Frost Troll" file="Trolls/frost_troll.xml" />
 	<monster name="Furious Troll" file="Trolls/furious_troll.xml" />
 	<monster name="Island Troll" file="Trolls/island_troll.xml" />

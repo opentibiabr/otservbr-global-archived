@@ -25,7 +25,7 @@
 		<attack name="physical" interval="2000" chance="20" range="7" min="-200" max="-720">
 			<attribute key="shootEffect" value="royalspear"/>
 		</attack>
-		<attack name="holy" interval="1000" chance="14" length="8" spread="0" min="-500" max="1000">
+		<attack name="holy" interval="1000" chance="14" length="8" spread="0" min="-500" max="-1000">
 			<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
 	</attacks>
