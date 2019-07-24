@@ -850,12 +850,13 @@ CREATE TABLE IF NOT EXISTS `player_storage` (
 --
 
 CREATE TABLE IF NOT EXISTS `sellchar` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(40) NOT NULL,
   `vocation` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `status` varchar(40) NOT NULL,
-  `oldid` varchar(40) NOT NULL
+  `oldid` varchar(40) NOT NULL,
+  CONSTRAINT `sellchar_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1177,12 +1178,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `sellchar`
---
-ALTER TABLE `sellchar`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `server_config`
 --
 ALTER TABLE `server_config`
@@ -1253,11 +1248,6 @@ ALTER TABLE `z_shop_payment`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `sellchar`
---
-ALTER TABLE `sellchar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `z_forum`
 --
