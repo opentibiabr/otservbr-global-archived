@@ -582,10 +582,11 @@ CREATE TABLE IF NOT EXISTS `market_offers` (
 --
 
 CREATE TABLE IF NOT EXISTS `newsticker` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
-  `icon` varchar(50) NOT NULL
+  `icon` varchar(50) NOT NULL,
+  CONSTRAINT `newsticker_pk` PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -595,9 +596,10 @@ CREATE TABLE IF NOT EXISTS `newsticker` (
 --
 
 CREATE TABLE IF NOT EXISTS `player_autoloot` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
-  `autoloot_list` blob
+  `autoloot_list` blob,
+  CONSTRAINT `player_autoloot_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1139,22 +1141,11 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `newsticker`
---
-ALTER TABLE `newsticker`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `players_online`
 --
 ALTER TABLE `players_online`
   ADD PRIMARY KEY (`player_id`);
 
---
--- Indexes for table `player_autoloot`
---
-ALTER TABLE `player_autoloot`
-  ADD PRIMARY KEY (`id`);
 --
 -- Indexes for table `player_deaths`
 --
@@ -1290,18 +1281,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `market_offers`
---
-ALTER TABLE `newsticker`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `player_autoloot`
---
-ALTER TABLE `player_autoloot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `player_former_names`
