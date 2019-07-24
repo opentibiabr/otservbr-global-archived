@@ -260,6 +260,13 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
   `description` varchar(128) NOT NULL DEFAULT '',
   `icon` tinyint(2) UNSIGNED NOT NULL DEFAULT '0',
   `notify` tinyint(1) NOT NULL DEFAULT '0'
+  CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`),
+  CONSTRAINT `account_viplist_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `account_viplist_player_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1101,14 +1108,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `account_viplist`
---
-ALTER TABLE `account_viplist`
-  ADD UNIQUE KEY `account_player_index` (`account_id`,`player_id`),
-  ADD KEY `account_id` (`account_id`),
-  ADD KEY `player_id` (`player_id`);
-
---
 -- Indexes for table `global_storage`
 --
 ALTER TABLE `global_storage`
@@ -1462,13 +1461,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `account_viplist`
---
-ALTER TABLE `account_viplist`
-  ADD CONSTRAINT `account_viplist_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `account_viplist_ibfk_2` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `guilds`
