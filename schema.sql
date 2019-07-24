@@ -326,7 +326,8 @@ CREATE TABLE IF NOT EXISTS `daily_reward_history` (
 
 CREATE TABLE IF NOT EXISTS `global_storage` (
   `key` varchar(32) NOT NULL,
-  `value` text NOT NULL
+  `value` text NOT NULL,
+  CONSTRAINT `global_storage_unique` UNIQUE (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1110,12 +1111,6 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 
 ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
-
---
--- Indexes for table `global_storage`
---
-ALTER TABLE `global_storage`
-  ADD UNIQUE KEY `key` (`key`);
 
 --
 -- Indexes for table `guilds`
