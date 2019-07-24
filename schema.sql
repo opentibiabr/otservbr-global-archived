@@ -302,17 +302,19 @@ CREATE TABLE IF NOT EXISTS `blessings_history` (
 -- --------------------------------------------------------
 
 --
--- Tabble Structure `daily_reward`
+-- Tabble Structure `daily_reward_history`
 --
 
 CREATE TABLE IF NOT EXISTS `daily_reward_history` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `daystreak` smallint(2) NOT NULL DEFAULT 0,
   `player_id` int(11) NOT NULL,
   `timestamp` int(11) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `player_id` (`player_id`)
+  CONSTRAINT `daily_reward_history_player_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `daily_reward_history_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1358,11 +1360,6 @@ ALTER TABLE `z_shop_payment`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `daily_reward_history`
---
-ALTER TABLE `daily_reward_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `guilds`
 --
