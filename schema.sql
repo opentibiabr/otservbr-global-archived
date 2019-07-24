@@ -476,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `guild_membership` (
 --
 
 CREATE TABLE IF NOT EXISTS `houses` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `owner` int(11) NOT NULL,
   `paid` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `warnings` int(11) NOT NULL DEFAULT '0',
@@ -489,8 +489,14 @@ CREATE TABLE IF NOT EXISTS `houses` (
   `highest_bidder` int(11) NOT NULL DEFAULT '0',
   `size` int(11) NOT NULL DEFAULT '0',
   `guildid` int(11),
-  `beds` int(11) NOT NULL DEFAULT '0'
+  `beds` int(11) NOT NULL DEFAULT '0',
+  CONSTRAINT `houses_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- AUTO_INCREMENT for table `houses`
+--
+ALTER TABLE `houses` AUTO_INCREMENT=2489;
 
 -- --------------------------------------------------------
 
@@ -1148,14 +1154,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `houses`
---
-ALTER TABLE `houses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `owner` (`owner`),
-  ADD KEY `town_id` (`town_id`);
-
---
 -- Indexes for table `house_lists`
 --
 ALTER TABLE `house_lists`
@@ -1345,11 +1343,6 @@ ALTER TABLE `z_shop_payment`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `houses`
---
-ALTER TABLE `houses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2489;
 --
 -- AUTO_INCREMENT for table `market_history`
 --
