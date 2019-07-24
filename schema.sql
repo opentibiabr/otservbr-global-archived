@@ -524,7 +524,12 @@ CREATE TABLE IF NOT EXISTS `ip_bans` (
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
   `expires_at` bigint(20) NOT NULL,
-  `banned_by` int(11) NOT NULL
+  `banned_by` int(11) NOT NULL,
+  CONSTRAINT `ip_bans_pk` PRIMARY KEY (`ip`),
+  CONSTRAINT `ip_bans_players_fk`
+    FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -573,37 +578,6 @@ CREATE TABLE IF NOT EXISTS `newsticker` (
   `date` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
   `icon` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `pagseguro`
---
-
-CREATE TABLE IF NOT EXISTS `pagseguro` (
-  `date` datetime NOT NULL,
-  `code` varchar(50) NOT NULL,
-  `reference` varchar(200) NOT NULL,
-  `type` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `lastEventDate` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `pagseguro_transactions`
---
-
-CREATE TABLE IF NOT EXISTS `pagseguro_transactions` (
-  `transaction_code` varchar(36) NOT NULL,
-  `name` varchar(200) DEFAULT NULL,
-  `payment_method` varchar(50) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `item_count` int(11) NOT NULL,
-  `data` datetime NOT NULL,
-  `payment_amount` float DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1157,13 +1131,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `ip_bans`
---
-ALTER TABLE `ip_bans`
-  ADD PRIMARY KEY (`ip`),
-  ADD KEY `banned_by` (`banned_by`);
-
---
 -- Indexes for table `market_history`
 --
 ALTER TABLE `market_history`
@@ -1184,14 +1151,6 @@ ALTER TABLE `market_offers`
 --
 ALTER TABLE `newsticker`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pagseguro_transactions`
---
-ALTER TABLE `pagseguro_transactions`
-  ADD UNIQUE KEY `transaction_code` (`transaction_code`,`status`),
-  ADD KEY `name` (`name`),
-  ADD KEY `status` (`status`);
 
 --
 -- Indexes for table `players_online`
@@ -1415,12 +1374,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `ip_bans`
---
-ALTER TABLE `ip_bans`
-  ADD CONSTRAINT `ip_bans_ibfk_1` FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `market_history`
