@@ -750,7 +750,16 @@ CREATE TABLE IF NOT EXISTS `player_namelocks` (
   `player_id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `namelocked_at` bigint(20) NOT NULL,
-  `namelocked_by` int(11) NOT NULL
+  `namelocked_by` int(11) NOT NULL,
+  CONSTRAINT `player_namelocks_unique` UNIQUE (`player_id`),
+  CONSTRAINT `player_namelocks_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `player_namelocks_players2_fk`
+    FOREIGN KEY (`namelocked_by`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1157,13 +1166,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `player_namelocks`
---
-ALTER TABLE `player_namelocks`
-  ADD PRIMARY KEY (`player_id`),
-  ADD KEY `namelocked_by` (`namelocked_by`);
-
---
 -- Indexes for table `player_rewards`
 --
 ALTER TABLE `player_rewards`
@@ -1306,13 +1308,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `player_namelocks`
---
-ALTER TABLE `player_namelocks`
-  ADD CONSTRAINT `player_namelocks_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `player_namelocks_ibfk_2` FOREIGN KEY (`namelocked_by`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `player_rewards`
