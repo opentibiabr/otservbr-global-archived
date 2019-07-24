@@ -621,7 +621,8 @@ CREATE TABLE IF NOT EXISTS `player_autoloot_persist` (
 --
 
 CREATE TABLE IF NOT EXISTS `players_online` (
-  `player_id` int(11) NOT NULL
+  `player_id` int(11) NOT NULL,
+  CONSTRAINT `players_online_pk` PRIMARY KEY (`player_id`)
 ) ENGINE=MEMORY DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -639,7 +640,10 @@ CREATE TABLE IF NOT EXISTS `player_deaths` (
   `mostdamage_by` varchar(100) NOT NULL,
   `mostdamage_is_player` tinyint(1) NOT NULL DEFAULT '0',
   `unjustified` tinyint(1) NOT NULL DEFAULT '0',
-  `mostdamage_unjustified` tinyint(1) NOT NULL DEFAULT '0'
+  `mostdamage_unjustified` tinyint(1) NOT NULL DEFAULT '0',
+  CONSTRAINT `player_deaths_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1141,20 +1145,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `players_online`
---
-ALTER TABLE `players_online`
-  ADD PRIMARY KEY (`player_id`);
-
---
--- Indexes for table `player_deaths`
---
-ALTER TABLE `player_deaths`
-  ADD KEY `player_id` (`player_id`),
-  ADD KEY `killed_by` (`killed_by`),
-  ADD KEY `mostdamage_by` (`mostdamage_by`);
-
---
 -- Indexes for table `player_depotitems`
 --
 ALTER TABLE `player_depotitems`
@@ -1335,12 +1325,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `player_deaths`
---
-ALTER TABLE `player_deaths`
-  ADD CONSTRAINT `player_deaths_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `player_depotitems`
