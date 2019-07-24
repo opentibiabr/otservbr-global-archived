@@ -1,26 +1,16 @@
--- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 05-Out-2017 às 05:40
--- Versão do servidor: 10.1.25-MariaDB
--- PHP Version: 7.0.21
+-- OTServBR - Global - Database schema
+--
 
+-- Do not auto increment value when insert cames with the value of 0.
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+-- Do not modify table immediately, only after COMMIT
 SET AUTOCOMMIT = 0;
+
+-- Start transaction to allow rollback
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `OTServBR - Global`
---
 
 -- --------------------------------------------------------
 
@@ -1644,8 +1634,5 @@ ALTER TABLE `prey_slots`
 --
 ALTER TABLE `tile_store`
   ADD CONSTRAINT `tile_store_ibfk_1` FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`) ON DELETE CASCADE;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+COMMIT;
