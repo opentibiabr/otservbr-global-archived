@@ -259,14 +259,14 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
   `player_id` int(11) NOT NULL COMMENT 'id of target player of viplist entry',
   `description` varchar(128) NOT NULL DEFAULT '',
   `icon` tinyint(2) UNSIGNED NOT NULL DEFAULT '0',
-  `notify` tinyint(1) NOT NULL DEFAULT '0'
-  CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`),
+  `notify` tinyint(1) NOT NULL DEFAULT '0',
   CONSTRAINT `account_viplist_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE,
   CONSTRAINT `account_viplist_player_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE,
+  CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -280,7 +280,8 @@ CREATE TABLE IF NOT EXISTS `announcements` (
   `title` varchar(50) NOT NULL,
   `text` varchar(255) NOT NULL,
   `date` varchar(20) NOT NULL,
-  `author` varchar(50) NOT NULL
+  `author` varchar(50) NOT NULL,
+  CONSTRAINT `announcements_pk` PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -294,7 +295,8 @@ CREATE TABLE IF NOT EXISTS `blessings_history` (
   `player_id` int(11) NOT NULL,
   `blessing` tinyint(4) NOT NULL,
   `loss` tinyint(1) NOT NULL,
-  `timestamp` int(11) NOT NULL
+  `timestamp` int(11) NOT NULL,
+  CONSTRAINT `blessings_history_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
