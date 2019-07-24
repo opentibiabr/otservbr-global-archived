@@ -821,7 +821,10 @@ CREATE TABLE IF NOT EXISTS `player_rewards` (
 
 CREATE TABLE IF NOT EXISTS `player_spells` (
   `player_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  CONSTRAINT `player_spells_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1170,12 +1173,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `player_spells`
---
-ALTER TABLE `player_spells`
-  ADD KEY `player_id` (`player_id`);
-
---
 -- Indexes for table `player_storage`
 --
 ALTER TABLE `player_storage`
@@ -1306,12 +1303,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `player_spells`
---
-ALTER TABLE `player_spells`
-  ADD CONSTRAINT `player_spells_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `player_storage`
