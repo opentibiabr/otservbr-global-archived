@@ -371,17 +371,40 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure `guild_wars`
+--
+
+CREATE TABLE IF NOT EXISTS `guild_wars` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `guild1` int(11) NOT NULL DEFAULT '0',
+  `guild2` int(11) NOT NULL DEFAULT '0',
+  `name1` varchar(255) NOT NULL,
+  `name2` varchar(255) NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '0',
+  `started` bigint(15) NOT NULL DEFAULT '0',
+  `ended` bigint(15) NOT NULL DEFAULT '0',
+  CONSTRAINT `guild_wars_pk` PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `guildwar_kills`
 --
 
 CREATE TABLE IF NOT EXISTS `guildwar_kills` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `killer` varchar(50) NOT NULL,
   `target` varchar(50) NOT NULL,
   `killerguild` int(11) NOT NULL DEFAULT '0',
   `targetguild` int(11) NOT NULL DEFAULT '0',
   `warid` int(11) NOT NULL DEFAULT '0',
-  `time` bigint(15) NOT NULL
+  `time` bigint(15) NOT NULL,
+  CONSTRAINT `guildwar_kills_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `guildwar_kills_unique` UNIQUE (`warid`),
+  CONSTRAINT `guildwar_kills_warid_fk`
+    FOREIGN KEY (`warid`) REFERENCES `guild_wars` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -420,23 +443,6 @@ CREATE TABLE IF NOT EXISTS `guild_ranks` (
   `guild_id` int(11) NOT NULL COMMENT 'guild',
   `name` varchar(255) NOT NULL COMMENT 'rank name',
   `level` int(11) NOT NULL COMMENT 'rank level - leader, vice, member, maybe something else'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `guild_wars`
---
-
-CREATE TABLE IF NOT EXISTS `guild_wars` (
-  `id` int(11) NOT NULL,
-  `guild1` int(11) NOT NULL DEFAULT '0',
-  `guild2` int(11) NOT NULL DEFAULT '0',
-  `name1` varchar(255) NOT NULL,
-  `name2` varchar(255) NOT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT '0',
-  `started` bigint(15) NOT NULL DEFAULT '0',
-  `ended` bigint(15) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1118,13 +1124,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `guildwar_kills`
---
-ALTER TABLE `guildwar_kills`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `warid` (`warid`);
-
---
 -- Indexes for table `guild_invites`
 --
 ALTER TABLE `guild_invites`
@@ -1145,14 +1144,6 @@ ALTER TABLE `guild_membership`
 ALTER TABLE `guild_ranks`
   ADD PRIMARY KEY (`id`),
   ADD KEY `guild_id` (`guild_id`);
-
---
--- Indexes for table `guild_wars`
---
-ALTER TABLE `guild_wars`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `guild1` (`guild1`),
-  ADD KEY `guild2` (`guild2`);
 
 --
 -- Indexes for table `houses`
@@ -1353,19 +1344,9 @@ ALTER TABLE `z_shop_payment`
 --
 
 --
--- AUTO_INCREMENT for table `guildwar_kills`
---
-ALTER TABLE `guildwar_kills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `guild_ranks`
 --
 ALTER TABLE `guild_ranks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `guild_wars`
---
-ALTER TABLE `guild_wars`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `houses`
@@ -1447,12 +1428,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `guildwar_kills`
---
-ALTER TABLE `guildwar_kills`
-  ADD CONSTRAINT `guildwar_kills_ibfk_1` FOREIGN KEY (`warid`) REFERENCES `guild_wars` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `guild_invites`
