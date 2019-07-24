@@ -507,7 +507,10 @@ ALTER TABLE `houses` AUTO_INCREMENT=2489;
 CREATE TABLE IF NOT EXISTS `house_lists` (
   `house_id` int(11) NOT NULL,
   `listid` int(11) NOT NULL,
-  `list` text NOT NULL
+  `list` text NOT NULL,
+  CONSTRAINT `houses_list_house_fk`
+    FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1154,12 +1157,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `house_lists`
---
-ALTER TABLE `house_lists`
-  ADD KEY `house_id` (`house_id`);
-
---
 -- Indexes for table `ip_bans`
 --
 ALTER TABLE `ip_bans`
@@ -1418,12 +1415,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `house_lists`
---
-ALTER TABLE `house_lists`
-  ADD CONSTRAINT `house_lists_ibfk_1` FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `ip_bans`
