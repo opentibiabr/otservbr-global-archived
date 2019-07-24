@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ferumbras Mortal Shell" nameDescription="ferumbras mortal shell" race="venom" experience="42000" speed="390" manacost="0" script="boss.lua">
+<monster name="Ferumbras Mortal Shell" nameDescription="ferumbras mortal shell" race="venom" experience="42000" speed="390">
 	<health now="500000" max="500000"/>
 	<look type="229" corpse="6078"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
-
 		<flag preyable="0" />
 		<flag rewardboss="1" />
 		<flag summonable="0"/>
@@ -19,7 +17,10 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="2500"/>
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="90" attack="200"/>
 		<attack name="poisoncondition" interval="2000" chance="20" radius="6" target="0" min="-250" max="-520">

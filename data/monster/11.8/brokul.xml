@@ -61,12 +61,12 @@
 		<immunity fire="1" />
 		</immunities>
 		<loot>
-		<item name="small sapphire" countmax="10"  chance="2854" />
+		<item name="small sapphire" countmax="10" chance="2854" />
 		<item name="gold coin" countmax="60" chance="70000" />
 		<item name="platinum coin" countmax="10" chance="80000" />
-		<item id="Gold Ingot" countmax="10"  chance="3448" />
-	 	<item name="Broccoli" countmax="10"  chance="2439" />
-    	<item name="Small Diamond" countmax="10"  chance="498" />
+		<item id="Gold Ingot" countmax="10" chance="3448" />
+	 	<item name="Broccoli" countmax="10" chance="2439" />
+    	<item name="Small Diamond" countmax="10" chance="498" />
 		<item name="Blue Gem" chance="2500" />
 		<item name="Red Gem" chance="2000" />
 		<item name="Deepling Ceremonial Dagger" chance="200" />

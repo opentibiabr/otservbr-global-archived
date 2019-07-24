@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="True Midnight Asura" nameDescription="a true midnight asura" race="blood" experience="9000" speed="170" manacost="0">
+<monster name="True Midnight Asura" nameDescription="a true midnight asura" race="blood" experience="9000" speed="170" >
 	<health now="9000" max="9000"/>
 	<look type="1068" head="72" body="95" legs="72" feet="0" addon="3" corpse="33360"/>
 	<targetchange interval="4000" chance="10"/>

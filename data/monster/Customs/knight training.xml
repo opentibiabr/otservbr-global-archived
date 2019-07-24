@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Knight Training" nameDescription="a knight training" race="blood" experience="0" speed="0" manacost="0">
+<monster name="Knight Training" nameDescription="a knight training" race="blood" experience="0" speed="0" >
 	<health now="200000" max="200000"/>
 	<look type="268" head="0" body="132" legs="76" feet="60" addons="3" corpse="22567"/>
 	<targetchange interval="60000" chance="0"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Rage" nameDescription="The Rage" race="energy" experience="0" speed="400" manacost="0">
+<monster name="The Rage" nameDescription="The Rage" race="energy" experience="0" speed="400" >
 	<health now="250000" max="250000"/>
 	<look type="876" head="85" body="114" legs="19" feet="0" corpse="0"/>
 	<targetchange interval="2000" chance="25"/>

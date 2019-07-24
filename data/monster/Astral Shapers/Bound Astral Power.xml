@@ -18,7 +18,6 @@
 		<flag canwalkonenergy="1" />
 		<flag canwalkonfire="1" />
 		<flag canwalkonpoison="1" />
-
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="100" attack="50" />
@@ -30,7 +29,7 @@
 			<attribute key="shootEffect" value="energy" />
 		</attack>
 	</attacks>
-	<defenses armor="50" defense="50" />
+	<defenses armor="50" defense="50"/>
 	<immunities>
 		<immunity paralyze="1"/>
 		<immunity energy="1"/>

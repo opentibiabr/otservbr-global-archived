@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Outburst" nameDescription="Outburst" race="energy" experience="120000" speed="500" manacost="0" script="boss.lua">
+<monster name="Outburst" nameDescription="Outburst" race="energy" experience="120000" speed="500">
 	<health now="290000" max="290000"/>
 	<look type="876" head="79" body="0" legs="94" feet="0" addons="3" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>
@@ -19,7 +19,7 @@
 	</flags>
 	<script>
 		<event name="HeartBossDeath"/>
-    	<event name="OutburstCharge"/>
+		<event name="OutburstCharge"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-300" max="-1800"/>
@@ -43,33 +43,22 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<!-- gold -->
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="10" chance="100000"/><!-- platinum coin -->
-
-		<!-- all loot -->
-		<item id="18413" tier="6" countmax="3" chance="8000"/><!-- blue crystal shard -->
-		<item id="7590" tier="6" countmax="10" chance="8000"/><!-- great mana potion -->
-		<item id="18415" tier="6" countmax="3" chance="8000"/><!-- green crystal shard -->
-		<item id="2150" tier="6" countmax="10" chance="8000"/><!-- small amethyst -->
-		<item id="2146" tier="6" countmax="5" chance="8000"/><!-- small sapphire -->
-		<item id="8473" tier="6" countmax="5" chance="8000"/><!-- ultimate health potion -->
-		<item id="18414" tier="6" countmax="3" chance="8000"/><!-- violet crystal shard -->
-		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
-		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
-
-		<!-- Comum -->
-		<item id="2155" tier="5" chance="8000"/><!-- green gem -->
-
-		<!-- Semi Raro -->
-		<item id="7427" tier="4" chance="6000"/><!-- chaos mace -->
-		<item id="26189" tier="4" chance="5000"/><!-- ring of red plasma -->
-
-		<!-- Raro -->
-		<item id="26130" tier="3" unique="1" chance="2000"/><!-- tiara of power -->
-		<item id="26133" tier="3" unique="1" chance="2000"/><!-- void boots -->
-
-		<!-- Muito Raro -->
-		<item id="18450" tier="2" unique="1" chance="2000"/><!-- crystalline sword -->
+		<item id="18413" countmax="3" chance="8000"/><!-- blue crystal shard -->
+		<item id="7590" countmax="10" chance="8000"/><!-- great mana potion -->
+		<item id="18415" countmax="3" chance="8000"/><!-- green crystal shard -->
+		<item id="2150" countmax="10" chance="8000"/><!-- small amethyst -->
+		<item id="2146" countmax="5" chance="8000"/><!-- small sapphire -->
+		<item id="8473" countmax="5" chance="8000"/><!-- ultimate health potion -->
+		<item id="18414" countmax="3" chance="8000"/><!-- violet crystal shard -->
+		<item id="25377" chance="100000"/><!-- gold token -->
+		<item id="26165" chance="100000"/><!-- mysterious remains -->
+		<item id="2155" chance="8000"/><!-- green gem -->
+		<item id="7427" chance="6000"/><!-- chaos mace -->
+		<item id="26189" chance="5000"/><!-- ring of red plasma -->
+		<item id="26130" unique="1" chance="2000"/><!-- tiara of power -->
+		<item id="26133" unique="1" chance="2000"/><!-- void boots -->
+		<item id="18450" unique="1" chance="2000"/><!-- crystalline sword -->
 	</loot>
 </monster>

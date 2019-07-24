@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Massacre" nameDescription="Massacre" race="blood" experience="20000" speed="430" manacost="0">
+<monster name="Massacre" nameDescription="Massacre" race="blood" experience="20000" speed="430" >
 	<health now="32000" max="32000"/>
 	<look type="244" corpse="6336"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>
@@ -20,7 +19,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="160" attack="200"/>
-		<attack name="physical" interval="2000" chance="12" range="7" min="-0" max="-1100">
+		<attack name="physical" interval="2000" chance="12" range="7" min="0" max="-1100">
 			<attribute key="shootEffect" value="largerock"/>
 			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>

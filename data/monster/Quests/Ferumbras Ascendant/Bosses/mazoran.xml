@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mazoran" nameDescription="mazoran" race="fire" experience="60000" speed="400" manacost="0" script="boss.lua">
+<monster name="Mazoran" nameDescription="mazoran" race="fire" experience="60000" speed="400">
 	<health now="370000" max="370000" />
-        <look type="842" head="77" body="79" legs="78" feet="94" addons="3" corpse="25151" />
+	<look type="842" head="77" body="79" legs="78" feet="94" addons="3" corpse="25151" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,7 +17,10 @@
 		<flag staticattack="90" />
 		<flag runonhealth="1" />
 		<flag rewardboss="1" />
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-1500" max="-2500"/>
 		<attack name="fire" interval="3000" chance="20" length="10" spread="0" min="-500" max="-1000">

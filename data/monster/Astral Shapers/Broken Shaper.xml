@@ -65,8 +65,8 @@
 		<item id="2162" chance="1000"/><!-- Magic Light Wand -->
 		<item id="24849" chance="4200"/><!-- Onyx Chip -->
 		<item id="2214" chance="2000"/><!-- ring of healing -->
-        <item id="2147" countmax="1" chance="3000"/><!-- small ruby -->
-		<item id="2146" countmax="1" chance="5000"/><!-- small sapphire -->
+        <item id="2147" chance="3000"/><!-- small ruby -->
+		<item id="2146" chance="5000"/><!-- small sapphire -->
 		<item id="2789" countmax="5" chance="6500"/><!-- Brown Mushroom -->
 	</loot>
 </monster>

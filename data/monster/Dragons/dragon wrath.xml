@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dragon Wrath" nameDescription="a dragon wrath" race="undead" experience="4600" speed="320" manacost="0">
+<monster name="Dragon Wrath" nameDescription="a dragon wrath" race="undead" experience="4600" speed="320" >
 <health now="7800" max="7800"/>
 <look type="351" corpse="11362"/>
   <targetchange interval="2000" chance="5" />
-  <strategy attack="70" defense="10" />
   <flags>
     <flag summonable="0" />
     <flag attackable="1" />

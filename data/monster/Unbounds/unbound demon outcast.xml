@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Unbound Demon Outcast" nameDescription="an unbound demon outcast" race="fire" experience="6200" speed="300" manacost="0">
+<monster name="Unbound Demon Outcast" nameDescription="an unbound demon outcast" race="fire" experience="6200" speed="300" >
 	<health now="5900" max="5900"/>
 	<look type="590" corpse="22549"/>
 	<targetchange interval="4000" chance="10"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -28,7 +27,7 @@
 		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" target="1" min="-250" max="-350">
 			<attribute key="areaEffect" value="yellowenergy"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="20" radius="3" target="1" min="-0" max="-0">
+		<attack name="physical" interval="2000" chance="20" radius="3" target="1" min="0" max="0">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>

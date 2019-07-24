@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lesser Death Minion" nameDescription="a lesser death minion" race="undead" experience="35" speed="154" manacost="300">
+<monster name="Lesser Death Minion" nameDescription="a lesser death minion" race="undead" experience="35" speed="154">
 	<health now="550" max="550"/>
 	<look type="33" corpse="5972"/>
 	<targetchange interval="2000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
-	    <flag summonable="1"/>
+	    <flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>

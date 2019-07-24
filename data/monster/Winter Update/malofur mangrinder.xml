@@ -38,19 +38,19 @@
 	</voices>
 	<loot>
 <!--common-->
-<item name="Ultimate Spirit Potion" count="6" chance="50000" />
+<item name="Ultimate Spirit Potion" countmax="6" chance="50000" />
 <item name="Crystal Coin" chance="50000" />
-<item name="Ultimate Mana Potion" count="14" chance="50000" />
-<item name="Supreme Health Potion" count="6" chance="50000" />
-<item name="Gold Token" count="2" chance="50000" />
-<item name="Silver Token" count="2" chance="100000" />
+<item name="Ultimate Mana Potion" countmax="14" chance="50000" />
+<item name="Supreme Health Potion" countmax="6" chance="50000" />
+<item name="Gold Token" countmax="2" chance="50000" />
+<item name="Silver Token" countmax="2" chance="100000" />
 <item id="7632" chance="100000" /> <!-- Giant Shimmering Pearl -->
 <item name="Green Gem" chance="100000" />
 <item name="Red Gem" chance="50000" />
 <item name="Blue Gem" chance="100000" />
 <item id="26185" chance="50000" /> <!-- ring of blue plasma-->
-<item name="Platinum Coin" count="5" chance="50000" />
-<item name="Bullseye Potion" count="10" chance="50000" />
+<item name="Platinum Coin" countmax="5" chance="50000" />
+<item name="Bullseye Potion" countmax="10" chance="50000" />
 <item name="Piggy Bank" chance="100000" />
 <item name="Mysterious Remains" chance="100000" />
 <item name="Energy Bar" chance="100000" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Animated Snowman" nameDescription="an animated snowman" race="energy" experience="400" speed="115" manacost="0">
+<monster name="Animated Snowman" nameDescription="an animated snowman" race="energy" experience="400" speed="115" >
 	<health now="450" max="450" />
 	<look type="1159" head="19" body="10" legs="19" feet="57"  corpse="35162" />
 	<targetchange interval="5000" chance="8" />
@@ -40,7 +40,7 @@
 		<item name="Shiver Arrow" chance="7310" />
 		<item name="Ice Rapier" chance="4750" />
 		<item name="Glacier Mask" chance="4570" />
-		<item name="Snowball" countmin="1" countmax="5" chance="4000" />
+		<item name="Snowball" countmax="5" chance="4000" />
 		<item name="Hailstorm Rod" chance="3470" />
 		<item name="Glacier Mask"   chance="250" />
 		<item name="Glacier Amulet" chance="3290" />

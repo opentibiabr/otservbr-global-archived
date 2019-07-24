@@ -20,8 +20,8 @@
 		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
-	<attack name="melee" interval="2000" min="-0" max="-500" />
-	<attack name="energy" interval="2000" chance="40" radius="4" min="-0" max="-500">
+	<attack name="melee" interval="2000" min="0" max="-500" />
+	<attack name="energy" interval="2000" chance="40" radius="4" min="0" max="-500">
 		<attribute key="areaEffect" value="energyarea" />
 	</attack>
 	</attacks>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Furious Scorpion" nameDescription="a furious scorpion" race="undead" experience="12000" speed="250" manacost="0">
+<monster name="Furious Scorpion" nameDescription="a furious scorpion" race="undead" experience="12000" speed="250" >
 	<health now="15000" max="15000" />
 	<look type="398" corpse="13501" />
 	<targetchange interval="5000" chance="8" />
-	<flags> <!-- Todas as Flags -->
+	<flags>
 		<flag rewardboss="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />

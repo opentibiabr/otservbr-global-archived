@@ -15,7 +15,7 @@
 		<flag targetdistance="0" />
 	</flags>
 	<attacks>
-	<attack name="melee" interval="2000" min="-0" max="-225" />
+	<attack name="melee" interval="2000" min="0" max="-225" />
 	<attack name="fire" interval="2000" chance="20" range="7" target="1" min="-100" max="-150">
 		<attribute key="shootEffect" value="fire" />
 	</attack>
@@ -42,13 +42,13 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="80" chance="100000" />	<!-- GOLD COIN -->
-		<item id="7589" countmax="1" chance="9660" />		<!-- STRONG MANA POTION  -->
-		<item id="2156" countmax="1" chance="5680" />		<!-- RED GEM  -->
-		<item id="2671" countmax="1" chance="58520" />		<!-- HAM  -->
-		<item id="7588" countmax="1" chance="5680" />		<!-- STRONG HEALTH POTION  -->
-		<item id="2666" countmax="1" chance="47160" />		<!-- MEAT -->
-		<item id="2154" countmax="1" chance="6250" />		<!-- YELLOW GEM  -->
-		<item id="28657" countmax="1" chance="6250" />		<!-- RUBBISH AMULET  -->
-		<item id="18418" countmax="1" chance="570" />		<!-- BLUE CRYSTAL SPLINTER  -->
+		<item id="7589" chance="9660" />		<!-- STRONG MANA POTION  -->
+		<item id="2156" chance="5680" />		<!-- RED GEM  -->
+		<item id="2671" chance="58520" />		<!-- HAM  -->
+		<item id="7588" chance="5680" />		<!-- STRONG HEALTH POTION  -->
+		<item id="2666" chance="47160" />		<!-- MEAT -->
+		<item id="2154" chance="6250" />		<!-- YELLOW GEM  -->
+		<item id="28657" chance="6250" />		<!-- RUBBISH AMULET  -->
+		<item id="18418" chance="570" />		<!-- BLUE CRYSTAL SPLINTER  -->
 	</loot>
 </monster>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lava Lurker Attendant" nameDescription="a lava lurker attendant" race="fire" experience="0" speed="350" manacost="0">
+<monster name="Lava Lurker Attendant" nameDescription="a lava lurker attendant" race="fire" experience="0" speed="350" >
 	<health now="3000" max="3000" />
 	<look type="1041" corpse="31997" />
 	<targetchange interval="5000" chance="8" />

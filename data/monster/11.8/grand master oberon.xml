@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Grand Master Oberon" nameDescription="a grand master oberon" race="human" experience="20000" speed="230" manacost="0">
+<monster name="Grand Master Oberon" nameDescription="a grand master oberon" race="human" experience="20000" speed="230" >
 	<health now="30000" max="30000" />
 	<look type="1072" head="57" body="75" legs="38" feet="86" addons="1" corpse="33368" />
 	<targetchange interval="4000" chance="10" />
@@ -65,11 +65,11 @@
 <item name="gold coin" countmax="60" chance="100000" />
 <item name="gold coin" countmax="40" chance="100000" />
  <!-- semi raro -->
-<item name="Grant of Arms" countmax="1" chance="600" />
+<item name="Grant of Arms" chance="600" />
  <!-- raro -->
 <item name="Falcon Battleaxe" chance="60" />
 <item name="Falcon Bow" chance="60" />
-<item name="Falcon Circlet"  chance="60" />
+<item name="Falcon Circlet" chance="60" />
 <item name="Falcon Coif" chance="60" />
 <item name="Falcon Longsword" chance="60" />
 <item name="Falcon Mace" chance="60" />

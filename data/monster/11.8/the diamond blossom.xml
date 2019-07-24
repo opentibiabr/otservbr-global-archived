@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Diamond Blossom" nameDescription="a the diamond blossom" race="undead" experience="10000" speed="350" manacost="0">
+<monster name="The Diamond Blossom" nameDescription="a the diamond blossom" race="undead" experience="10000" speed="350" >
 	<health now="25000" max="25000"/>
 	<look type="1068" body="0" feet="79" head="85" legs="86" addons="3" corpse="32499"/>
 	<targetchange interval="5000" chance="8"/>
-	<flags> <!-- Todas as Flags -->
+	<flags>
 		<flag rewardboss="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

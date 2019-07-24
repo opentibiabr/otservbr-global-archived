@@ -29,10 +29,10 @@
 		<voice sentence="You unorcish scum will die!" yell="1" />
 	</voices>
 	<loot>
-		<item name="strong health potion" countmax="1" chance="18390" />
+		<item name="strong health potion" chance="18390" />
 		<item name="gold coin" countmax="221" chance="100000" />
 		<item name="black pearl" countmax="2" chance="510" />
-		<item name="berserk potion" countmax="1" chance="2940" />
+		<item name="berserk potion" chance="2940" />
 		<item name="small ruby" countmax="5" chance="4020" />
 		<item name="battle axe" chance="6340" />
 		<item name="bug meat" chance="17160" />

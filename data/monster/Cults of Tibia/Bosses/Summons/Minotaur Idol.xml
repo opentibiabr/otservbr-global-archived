@@ -19,8 +19,8 @@
 		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
-	<attack name="melee" interval="2000" min="-0" max="-250" />
-	<attack name="physical" interval="2000" chance="20" target="1" range="4" radius="4" min="-0" max="-300">
+	<attack name="melee" interval="2000" min="0" max="-250" />
+	<attack name="physical" interval="2000" chance="20" target="1" range="4" radius="4" min="0" max="-300">
 		<attribute key="shootEffect" value="whirlwindclub" />
 		<attribute key="areaEffect" value="explosionarea" />
 	</attack>

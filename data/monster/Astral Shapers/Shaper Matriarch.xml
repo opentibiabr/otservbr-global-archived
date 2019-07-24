@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Shaper Matriarch" nameDescription="a Shaper Matriarch" race="blood" experience="1650" speed="130" manacost="290">
+<monster name="Shaper Matriarch" nameDescription="a shaper matriarch" race="blood" experience="1650" speed="130">
 	<health now="2000" max="2000"/>
 	<look type="933" corpse="27739"/>
 	<targetchange interval="5000" chance="0"/>
@@ -7,7 +7,7 @@
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
+		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>
@@ -36,14 +36,14 @@
 	<defense name="healing" interval="2000" chance="15" min="400" max="500">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-  </defenses>
+	</defenses>
 	<elements>
 		<element earthPercent="40"/>
 		<element icePercent="-20"/>
 	</elements>
-   <immunities>
-	<immunity invisible="1"/>
-  </immunities>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
 	<voices interval="2000" chance="7">
 		<voice sentence="Tar Marra Zik Tazz!"/>
 	</voices>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Kerberos" nameDescription="Kerberos" race="blood" experience="10000" speed="280" manacost="0">
+<monster name="Kerberos" nameDescription="Kerberos" race="blood" experience="10000" speed="280" >
 	<health now="11000" max="11000" />
 	<look type="240" corpse="6332" />
 	<targetchange interval="4000" chance="10" />
@@ -52,7 +52,7 @@
 	<loot>
 		<item id="2152" countmax="18" chance="100000" /><!-- platinum coin -->
 		<item id="2144" countmax="5" chance="96880" /><!-- black pearl -->
-		<item id="6558" countmax="1" chance="100000" /><!-- concentrated demonic blood -->
+		<item id="6558" chance="100000" /><!-- concentrated demonic blood -->
 		<item id="6500" chance="62500" /><!-- demonic essence -->
 		<item id="9971" countmax="5" chance="100000" /><!-- gold ingot -->
 		<item id="2430" chance="10810" /><!-- knight axe -->

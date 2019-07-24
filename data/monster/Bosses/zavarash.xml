@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Zavarash" nameDescription="Zavarash" race="blood" experience="21000" speed="440" manacost="0">
+<monster name="Zavarash" nameDescription="Zavarash" race="blood" experience="21000" speed="440" >
 	<health now="35000" max="35000" />
 	<look type="12" head="19" body="0" legs="77" feet="79" addons="0" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>
@@ -20,7 +19,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-600" />
-        <attack name="physical" interval="2000" chance="15" range="7" min="-0" max="-6000">
+        <attack name="physical" interval="2000" chance="15" range="7" min="0" max="-6000">
             <attribute key="shootEffect" value="throwingknife" />
         </attack>
 	</attacks>

@@ -354,7 +354,5 @@ libmysql.dll
 lua51.dll
 theforgottenserver.exe
 data/world/otservbr.otbm
-data/world/globalbr-*.xml
-data/world/globalbr.otbm
 config.lua
 tfs.exe

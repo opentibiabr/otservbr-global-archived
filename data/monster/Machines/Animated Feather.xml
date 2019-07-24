@@ -19,7 +19,7 @@
 		<flag canwalkonfire="0" />
 		<flag canwalkonpoison="1" />
 	</flags>
-<attacks>
+	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
 		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
 			<attribute key="shootEffect" value="ice" />
@@ -46,18 +46,16 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<!-- common -->
 		<item name="Small Sapphire" countmax="5" chance="8700" />
 		<item name="Platinum Coin" countmax="50" chance="87000" />
 		<item id="33317" countmax="10" chance="500" />
 		<item name="Energy Ring" chance="8700" />
-	    <item id="7441" chance="4000" /><!-- ice cube -->
-		<!-- semi-rare -->
-		<item name="Shard" countmax="3"   chance="250" />
-		<item name="Glacier Mask"   chance="250" />
-		<item name="Hailstorm Rod"    chance="250" />
-		<item name="Life Crystal" countmax="1"  chance="8700" />
-		<item name="Great Mana Potion"  countmax="6"  chance="900" />
+		<item id="7441" chance="4000" /><!-- ice cube -->
+		<item name="Shard" countmax="3" chance="250" />
+		<item name="Glacier Mask" chance="250" />
+		<item name="Hailstorm Rod" chance="250" />
+		<item name="Life Crystal" chance="8700" />
+		<item name="Great Mana Potion" countmax="6" chance="900" />
 		<item name="Golden Mug" chance="500" />
 		<item name="Glowing Rune" countmax="10" chance="500" />
 		<item name="Energy Ring" chance="8700" />

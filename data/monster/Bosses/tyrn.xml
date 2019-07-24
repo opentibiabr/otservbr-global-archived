@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Tyrn" nameDescription="Tyrn" race="blood" experience="6900" speed="300" manacost="0" script="boss.lua">
+<monster name="Tyrn" nameDescription="Tyrn" race="blood" experience="6900" speed="300">
 	<health now="12000" max="12000"/>
 	<look type="562" corpse="21287"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -47,10 +46,10 @@
 		</defense>
 		<defense name="tyrn heal" interval="1000" chance="100"/>
 	</defenses>
-  <elements>
-    <element firePercent="30" />
-    <element earthPercent="10" />
-  </elements>
+	<elements>
+		<element firePercent="30" />
+		<element earthPercent="10" />
+	</elements>
 	<immunities>
 		<immunity energy="1"/>
 		<immunity paralyze="1"/>

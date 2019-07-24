@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Obujos" nameDescription="Obujos" race="blood" experience="20000" speed="560" manacost="0" script="boss.lua">
+<monster name="Obujos" nameDescription="Obujos" race="blood" experience="20000" speed="560">
 	<health now="35000" max="35000"/>
 	<look type="445" corpse="15224"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -17,7 +17,6 @@
 		<flag targetdistance="0"/>
 		<flag runonhealth="60"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-1200" poison="360"/>
 		<attack name="death" interval="3000" chance="23" range="7" radius="7" target="1" min="-200" max="-800">

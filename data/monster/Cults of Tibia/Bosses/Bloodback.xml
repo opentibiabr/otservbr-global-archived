@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Bloodback" nameDescription="a Bloodback" race="blood" experience="4000" speed="250" manacost="0" script="boss.lua">
+<monster name="Bloodback" nameDescription="a Bloodback" race="blood" experience="4000" speed="250">
 	<health now="5200" max="5200" />
 	<look type="1039" corpse="32061" />
-		<targetchange interval="4000" chance="10" />
+	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag preyable="0" />
-			<flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -20,8 +20,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-290" />
-		<attack name="physical" interval="1000" chance="20" range="7" min="100" max="420">
-		</attack>
+		<attack name="physical" interval="1000" chance="20" range="7" min="-100" max="-420"/>
 		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-600" duration="20000">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
@@ -33,16 +32,16 @@
 		<defense name="healing" interval="4000" chance="15" min="150" max="345">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
-		</defenses>
-		<summons maxSummons="2">
-			<summon name="Wereboar" interval="2000" chance="20" />
+	</defenses>
+	<summons maxSummons="2">
+		<summon name="Wereboar" interval="2000" chance="20" />
 	</summons>
-		<voices interval="2000" chance="5">
-			<voice sentence="You will DIE!" />
-			<voice sentence="The ruthlessness of boars will stamp down the careless!" />
+	<voices interval="2000" chance="5">
+		<voice sentence="You will DIE!" />
+		<voice sentence="The ruthlessness of boars will stamp down the careless!" />
 	</voices>
 	<elements>
-	    <element physicalPercent="50" />
+		<element physicalPercent="50" />
 		<element energyPercent="70" />
 		<element earthPercent="50" />
 		<element firePercent="50" />
@@ -55,31 +54,24 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-	<!-- commmon -->
- 		<item name="Gold Coin" countmax="100" chance="13600000" />
+		<item name="Gold Coin" countmax="100" chance="13600000" />
 		<item name="Gold Coin" countmax="100" chance="13600000" />
 		<item name="Platinum Coin" countmax="10" chance="13600000" />
 		<item name="Great Health Potion" countmax="10" chance="13600000" />
 		<item name="Red Crystal Fragment" countmax="2" chance="13600000" />
 		<item name="Small Enchanted Rubie" countmax="3" chance="13600000" />
-		<item name="Furry Club"  chance="13600000" />
+		<item name="Furry Club" chance="13600000" />
 		<item name="Red Gem" chance="13600000" />
-		<item name="Spiked Squelcher"  chance="13600000" />
-		<item name="Stone Skin Amulet"  chance="13600000" />
+		<item name="Spiked Squelcher" chance="13600000" />
+		<item name="Stone Skin Amulet" chance="13600000" />
 		<item name="Wereboar Hooves" countmax="2" chance="13600000" />
 		<item name="Wereboar Loincloth" countmax="2" chance="13600000" />
 		<item name="Wereboar Tusk" countmax="2" chance="13600000" />
-		<!-- semi-rare -->
-		<item name="Dreaded Cleaver"  chance="400" />
+		<item name="Dreaded Cleaver" chance="400" />
 		<item name="Fur Armor" chance="400" />
-		<item name="Fur Boots"  chance="400" />
-		<!-- rare -->
-
-		<item name="Wereboar Trophy"  chance="250" />
-		<item name="Silver Token"  chance="250" />
-		<!-- very rare-->
+		<item name="Fur Boots" chance="400" />
+		<item name="Wereboar Trophy" chance="250" />
+		<item name="Silver Token" chance="250" />
 		<item name="Wolf Backpack" chance="100" />
-		<!-- event -->
- 		<item name="Moonlight Crystal"  chance="50" />
 	</loot>
 </monster>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Razzagorn" nameDescription="razzagorn" race="fire" experience="65000" speed="340" manacost="0" script="boss.lua">
+<monster name="Razzagorn" nameDescription="razzagorn" race="fire" experience="65000" speed="340">
 	<health now="290000" max="290000" />
-        <look type="842" head="78" body="94" legs="52" feet="126" addons="0" corpse="25151" />
+	<look type="842" head="78" body="94" legs="52" feet="126" addons="0" corpse="25151" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,7 +17,10 @@
 		<flag staticattack="90" />
 		<flag runonhealth="1" />
 		<flag rewardboss="1" />
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-1000" max="-2000"/>
 		<attack name="fire" interval="3000" chance="20" length="10" spread="0" min="-500" max="-1000">
@@ -109,6 +111,5 @@
 		<item id="2522" chance="100" unique="1"/><!-- great shield -->
 		<item id="8473" countmax="5" chance="23000"/><!-- ultimate health potion -->
 		<item id="9970" countmax="8" chance="10000"/><!-- small topaz -->
-
 	</loot>
 </monster>

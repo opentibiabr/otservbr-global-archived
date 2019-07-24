@@ -20,7 +20,7 @@
 		<event name="healLeiden" />
     </script>
 	<attacks>
-		<attack name="melee" interval="2000" min="-0" max="-400" />
+		<attack name="melee" interval="2000" min="0" max="-400" />
 	</attacks>
 	<defenses armor="35" defense="50">
 	</defenses>

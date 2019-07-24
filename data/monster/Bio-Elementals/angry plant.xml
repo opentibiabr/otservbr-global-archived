@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Angry Plant" nameDescription="an angry plant" race="venom" experience="0" speed="110" manacost="0">
+<monster name="Angry Plant" nameDescription="an angry plant" race="venom" experience="0" speed="110" >
 	<health now="10000" max="10000"/>
 	<look type="120" corpse="27646"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

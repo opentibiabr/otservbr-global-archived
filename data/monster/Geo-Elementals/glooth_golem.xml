@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Glooth Golem" nameDescription="a glooth golem" race="venom" experience="2200" speed="130" manacost="0">
+<monster name="Glooth Golem" nameDescription="a glooth golem" race="venom" experience="2200" speed="130" >
 	<health now="2700" max="2700"/>
 	<look type="600" corpse="23343"/>
   <targetchange interval="5000" chance="8"/>
-  <strategy attack="100" defense="0"/>
   <flags>
     <flag summonable="0"/>
     <flag attackable="1"/>
@@ -12,7 +11,7 @@
     <flag convinceable="0"/>
     <flag pushable="0"/>
     <flag canpushitems="1"/>
-			<flag isblockable="0"/>
+	<flag isblockable="0"/>
     <flag canpushcreatures="1"/>
     <flag targetdistance="1"/>
     <flag staticattack="90"/>
@@ -58,7 +57,7 @@
 		<item id="23536" chance="370"/><!-- rubber cap -->
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="24124" chance="1470"/><!-- bronze gear wheel -->
-		<item id="9690" countmax="1" chance="690"/><!-- gear wheel -->
+		<item id="9690" chance="690"/><!-- gear wheel -->
 		<item id="23514" chance="1970"/><!-- glooth sandwich -->
 		<item id="2152" countmax="4" chance="6010"/><!-- platinum coin -->
 		<item id="23474" chance="2840"/><!-- glooth injection tube -->

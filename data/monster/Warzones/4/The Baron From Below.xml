@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Baron From Below" nameDescription="The Baron From Below" race="blood" experience="40000" speed="240" script="boss.lua">
+<monster name="The Baron From Below" nameDescription="The Baron From Below" race="blood" experience="40000" speed="240">
 	<health now="50000" max="50000" />
 	<look type="1045" corpse="30868" />
 	<targetchange interval="4000" chance="10" />
@@ -55,7 +55,6 @@
 		<voice sentence="Krrrk!" />
 	</voices>
 	<loot>
-		<!--Sempre-->
 		<item name="Platinum Coin" countmax="58" chance="10000" />
 		<item name="crystal coin" countmax="2" chance="10000" />
 		<item name="gold ingot" countmax="2" chance="10000" />
@@ -89,13 +88,11 @@
 		<item name="Violet Gem" chance="10000" />
 		<item name="Wand of Inferno" chance="10000" />
 		<item name="Yellow Gem" chance="10000" />
-		<!--Raro-->
 		<item name="Gold Token" chance="1000" />
 		<item name="Silver Token" chance="1000" />
 		<item name="Mallet Head" chance="1000" />
 		<item name="Gnome Shield" chance="1000" />
 		<item name="Gnome Sword" chance="1000" />
-		<!--Muito Raro-->
 		<item name="plan for a makeshift armour" chance="500" />
 		<item name="Gnome Armor" chance="500" />
 	</loot>

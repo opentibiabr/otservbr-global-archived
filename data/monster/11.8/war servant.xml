@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="War Servant" nameDescription="a war servant" race="undead" experience="0" speed="350" manacost="0">
+<monster name="War Servant" nameDescription="a war servant" race="undead" experience="0" speed="350" >
 	<health now="10000" max="10000" />
 	<look type="326" corpse="10005" />
 	<targetchange interval="5000" chance="8" />
-	<flags> <!-- Todas as Flags -->
+	<flags>
 		<flag rewardboss="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
