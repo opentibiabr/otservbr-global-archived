@@ -73,6 +73,137 @@ ALTER TABLE `accounts` AUTO_INCREMENT=3;
 -- --------------------------------------------------------
 
 --
+-- Table structure `players`
+--
+
+CREATE TABLE IF NOT EXISTS `players` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `group_id` int(11) NOT NULL DEFAULT '1',
+  `account_id` int(11) NOT NULL DEFAULT '0',
+  `level` int(11) NOT NULL DEFAULT '1',
+  `vocation` int(11) NOT NULL DEFAULT '0',
+  `health` int(11) NOT NULL DEFAULT '150',
+  `healthmax` int(11) NOT NULL DEFAULT '150',
+  `experience` bigint(20) NOT NULL DEFAULT '0',
+  `lookbody` int(11) NOT NULL DEFAULT '0',
+  `lookfeet` int(11) NOT NULL DEFAULT '0',
+  `lookhead` int(11) NOT NULL DEFAULT '0',
+  `looklegs` int(11) NOT NULL DEFAULT '0',
+  `looktype` int(11) NOT NULL DEFAULT '136',
+  `lookaddons` int(11) NOT NULL DEFAULT '0',
+  `maglevel` int(11) NOT NULL DEFAULT '0',
+  `mana` int(11) NOT NULL DEFAULT '0',
+  `manamax` int(11) NOT NULL DEFAULT '0',
+  `manaspent` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `soul` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `town_id` int(11) NOT NULL DEFAULT '0',
+  `posx` int(11) NOT NULL DEFAULT '0',
+  `posy` int(11) NOT NULL DEFAULT '0',
+  `posz` int(11) NOT NULL DEFAULT '0',
+  `conditions` blob NOT NULL,
+  `cap` int(11) NOT NULL DEFAULT '0',
+  `sex` int(11) NOT NULL DEFAULT '0',
+  `lastlogin` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `lastip` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `save` tinyint(1) NOT NULL DEFAULT '1',
+  `skull` tinyint(1) NOT NULL DEFAULT '0',
+  `skulltime` int(11) NOT NULL DEFAULT '0',
+  `lastlogout` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `blessings` tinyint(2) NOT NULL DEFAULT '0',
+  `blessings1` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings2` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings3` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings4` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings5` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings6` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings7` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings8` tinyint(4) NOT NULL DEFAULT '0',
+  `onlinetime` int(11) NOT NULL DEFAULT '0',
+  `deletion` bigint(15) NOT NULL DEFAULT '0',
+  `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `offlinetraining_time` smallint(5) UNSIGNED NOT NULL DEFAULT '43200',
+  `offlinetraining_skill` int(11) NOT NULL DEFAULT '-1',
+  `stamina` smallint(5) UNSIGNED NOT NULL DEFAULT '2520',
+  `skill_fist` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_fist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_club` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_club_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_sword` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_sword_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_axe` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_axe_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_dist` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_dist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_shielding` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_shielding_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_fishing` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_fishing_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `description` varchar(255) NOT NULL DEFAULT '',
+  `comment` text NOT NULL,
+  `create_ip` int(11) NOT NULL DEFAULT '0',
+  `create_date` int(11) NOT NULL DEFAULT '0',
+  `hide_char` int(11) NOT NULL DEFAULT '0',
+  `skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_damage` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_damage_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_criticalhit_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_criticalhit_damage` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_lifeleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_lifeleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_manaleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_manaleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `prey_stamina_1` int(11) DEFAULT NULL,
+  `prey_stamina_2` int(11) DEFAULT NULL,
+  `prey_stamina_3` int(11) DEFAULT NULL,
+  `prey_column` smallint(6) NOT NULL DEFAULT '1',
+  `bonus_reroll` int(11) NOT NULL DEFAULT '0',
+  `xpboost_stamina` smallint(5) DEFAULT NULL,
+  `xpboost_value` tinyint(4) DEFAULT NULL,
+  `marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `hide_skills` int(11) DEFAULT NULL,
+  `hide_set` int(11) DEFAULT NULL,
+  `former` varchar(255) NOT NULL DEFAULT '-',
+  `signature` varchar(255) NOT NULL DEFAULT '',
+  `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
+  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0',
+  `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
+  CONSTRAINT `players_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `players_unique` UNIQUE (`name`),
+  CONSTRAINT `players_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extracting data from table `players`
+--
+
+INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `onlinetime`, `deletion`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`, `skill_mana_leech_amount_tries`, `skill_criticalhit_chance`, `skill_criticalhit_damage`, `skill_lifeleech_chance`, `skill_lifeleech_amount`, `skill_manaleech_chance`, `skill_manaleech_amount`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `prey_column`, `bonus_reroll`, `xpboost_stamina`, `xpboost_value`, `marriage_status`, `hide_skills`, `hide_set`, `former`, `signature`, `marriage_spouse`, `loyalty_ranking`) VALUES
+(1, 'Rook Sample', 1, 1, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 6, 0, 0, 0, '', 400, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 203, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
+(2, 'Sorcerer Sample', 1, 1, 8, 1, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
+(3, 'Druid Sample', 1, 1, 8, 2, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
+(4, 'Paladin Sample', 1, 1, 8, 3, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
+(5, 'Knight Sample', 1, 1, 8, 4, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
+(6, 'ADM', 6, 2, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 2, 0, 0, 0, '', 400, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0);
+
+--
+-- AUTO_INCREMENT for table `players`
+--
+ALTER TABLE `players` AUTO_INCREMENT=7;
+
+-- --------------------------------------------------------
+--
 -- Table structure `account_bans`
 --
 
@@ -81,7 +212,16 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
   `expires_at` bigint(20) NOT NULL,
-  `banned_by` int(11) NOT NULL
+  `banned_by` int(11) NOT NULL,
+  CONSTRAINT `account_bans_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_bans_player_fk`
+    FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_bans` PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -400,128 +540,6 @@ CREATE TABLE IF NOT EXISTS `pagseguro_transactions` (
   `data` datetime NOT NULL,
   `payment_amount` float DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `players`
---
-
-CREATE TABLE IF NOT EXISTS `players` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `group_id` int(11) NOT NULL DEFAULT '1',
-  `account_id` int(11) NOT NULL DEFAULT '0',
-  `level` int(11) NOT NULL DEFAULT '1',
-  `vocation` int(11) NOT NULL DEFAULT '0',
-  `health` int(11) NOT NULL DEFAULT '150',
-  `healthmax` int(11) NOT NULL DEFAULT '150',
-  `experience` bigint(20) NOT NULL DEFAULT '0',
-  `lookbody` int(11) NOT NULL DEFAULT '0',
-  `lookfeet` int(11) NOT NULL DEFAULT '0',
-  `lookhead` int(11) NOT NULL DEFAULT '0',
-  `looklegs` int(11) NOT NULL DEFAULT '0',
-  `looktype` int(11) NOT NULL DEFAULT '136',
-  `lookaddons` int(11) NOT NULL DEFAULT '0',
-  `maglevel` int(11) NOT NULL DEFAULT '0',
-  `mana` int(11) NOT NULL DEFAULT '0',
-  `manamax` int(11) NOT NULL DEFAULT '0',
-  `manaspent` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `soul` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `town_id` int(11) NOT NULL DEFAULT '0',
-  `posx` int(11) NOT NULL DEFAULT '0',
-  `posy` int(11) NOT NULL DEFAULT '0',
-  `posz` int(11) NOT NULL DEFAULT '0',
-  `conditions` blob NOT NULL,
-  `cap` int(11) NOT NULL DEFAULT '0',
-  `sex` int(11) NOT NULL DEFAULT '0',
-  `lastlogin` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `lastip` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `save` tinyint(1) NOT NULL DEFAULT '1',
-  `skull` tinyint(1) NOT NULL DEFAULT '0',
-  `skulltime` int(11) NOT NULL DEFAULT '0',
-  `lastlogout` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `blessings` tinyint(2) NOT NULL DEFAULT '0',
-  `blessings1` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings2` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings3` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings4` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings5` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings6` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings7` tinyint(4) NOT NULL DEFAULT '0',
-  `blessings8` tinyint(4) NOT NULL DEFAULT '0',
-  `onlinetime` int(11) NOT NULL DEFAULT '0',
-  `deletion` bigint(15) NOT NULL DEFAULT '0',
-  `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `offlinetraining_time` smallint(5) UNSIGNED NOT NULL DEFAULT '43200',
-  `offlinetraining_skill` int(11) NOT NULL DEFAULT '-1',
-  `stamina` smallint(5) UNSIGNED NOT NULL DEFAULT '2520',
-  `skill_fist` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_fist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_club` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_club_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_sword` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_sword_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_axe` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_axe_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_dist` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_dist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_shielding` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_shielding_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_fishing` int(10) UNSIGNED NOT NULL DEFAULT '10',
-  `skill_fishing_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `description` varchar(255) NOT NULL DEFAULT '',
-  `comment` text NOT NULL,
-  `create_ip` int(11) NOT NULL DEFAULT '0',
-  `create_date` int(11) NOT NULL DEFAULT '0',
-  `hide_char` int(11) NOT NULL DEFAULT '0',
-  `skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_critical_hit_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_critical_hit_damage` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_critical_hit_damage_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_life_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_life_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_life_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_life_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_mana_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_mana_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_mana_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_mana_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_criticalhit_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_criticalhit_damage` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_lifeleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_lifeleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_manaleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `skill_manaleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `prey_stamina_1` int(11) DEFAULT NULL,
-  `prey_stamina_2` int(11) DEFAULT NULL,
-  `prey_stamina_3` int(11) DEFAULT NULL,
-  `prey_column` smallint(6) NOT NULL DEFAULT '1',
-  `bonus_reroll` int(11) NOT NULL DEFAULT '0',
-  `xpboost_stamina` smallint(5) DEFAULT NULL,
-  `xpboost_value` tinyint(4) DEFAULT NULL,
-  `marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `hide_skills` int(11) DEFAULT NULL,
-  `hide_set` int(11) DEFAULT NULL,
-  `former` varchar(255) NOT NULL DEFAULT '-',
-  `signature` varchar(255) NOT NULL DEFAULT '',
-  `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
-  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0',
-  `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extracting data from table `players`
---
-
-INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `onlinetime`, `deletion`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`, `skill_mana_leech_amount_tries`, `skill_criticalhit_chance`, `skill_criticalhit_damage`, `skill_lifeleech_chance`, `skill_lifeleech_amount`, `skill_manaleech_chance`, `skill_manaleech_amount`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `prey_column`, `bonus_reroll`, `xpboost_stamina`, `xpboost_value`, `marriage_status`, `hide_skills`, `hide_set`, `former`, `signature`, `marriage_spouse`, `loyalty_ranking`) VALUES
-(1, 'Rook Sample', 1, 1, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 6, 0, 0, 0, '', 400, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 203, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(2, 'Sorcerer Sample', 1, 1, 8, 1, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(3, 'Druid Sample', 1, 1, 8, 2, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(4, 'Paladin Sample', 1, 1, 8, 3, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(5, 'Knight Sample', 1, 1, 8, 4, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(6, 'ADM', 6, 2, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 2, 0, 0, 0, '', 400, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0);
 
 -- --------------------------------------------------------
 
@@ -1074,13 +1092,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `account_bans`
---
-ALTER TABLE `account_bans`
-  ADD PRIMARY KEY (`account_id`),
-  ADD KEY `banned_by` (`banned_by`);
-
---
 -- Indexes for table `account_ban_history`
 --
 ALTER TABLE `account_ban_history`
@@ -1201,15 +1212,6 @@ ALTER TABLE `pagseguro_transactions`
   ADD UNIQUE KEY `transaction_code` (`transaction_code`,`status`),
   ADD KEY `name` (`name`),
   ADD KEY `status` (`status`);
-
---
--- Indexes for table `players`
---
-ALTER TABLE `players`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `account_id` (`account_id`),
-  ADD KEY `vocation` (`vocation`);
 
 --
 -- Indexes for table `players_online`
@@ -1408,11 +1410,6 @@ ALTER TABLE `market_offers`
 --
 ALTER TABLE `newsticker`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `players`
---
-ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `player_autoloot`
@@ -1473,13 +1470,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `account_bans`
---
-ALTER TABLE `account_bans`
-  ADD CONSTRAINT `account_bans_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `account_bans_ibfk_2` FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `account_ban_history`
@@ -1554,12 +1544,6 @@ ALTER TABLE `market_history`
 --
 ALTER TABLE `market_offers`
   ADD CONSTRAINT `market_offers_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `players`
---
-ALTER TABLE `players`
-  ADD CONSTRAINT `players_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `player_deaths`
