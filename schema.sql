@@ -539,7 +539,7 @@ CREATE TABLE IF NOT EXISTS `ip_bans` (
 --
 
 CREATE TABLE IF NOT EXISTS `market_history` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
   `sale` tinyint(1) NOT NULL DEFAULT '0',
   `itemtype` int(10) UNSIGNED NOT NULL,
@@ -547,7 +547,11 @@ CREATE TABLE IF NOT EXISTS `market_history` (
   `price` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `expires_at` bigint(20) UNSIGNED NOT NULL,
   `inserted` bigint(20) UNSIGNED NOT NULL,
-  `state` tinyint(1) UNSIGNED NOT NULL
+  `state` tinyint(1) UNSIGNED NOT NULL,
+  CONSTRAINT `market_history_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `market_history_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -557,14 +561,18 @@ CREATE TABLE IF NOT EXISTS `market_history` (
 --
 
 CREATE TABLE IF NOT EXISTS `market_offers` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
   `sale` tinyint(1) NOT NULL DEFAULT '0',
   `itemtype` int(10) UNSIGNED NOT NULL,
   `amount` smallint(5) UNSIGNED NOT NULL,
   `created` bigint(20) UNSIGNED NOT NULL,
   `anonymous` tinyint(1) NOT NULL DEFAULT '0',
-  `price` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `price` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  CONSTRAINT `market_offers_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `market_offers_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1131,22 +1139,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `market_history`
---
-ALTER TABLE `market_history`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `player_id` (`player_id`,`sale`);
-
---
--- Indexes for table `market_offers`
---
-ALTER TABLE `market_offers`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sale` (`sale`,`itemtype`),
-  ADD KEY `created` (`created`),
-  ADD KEY `player_id` (`player_id`);
-
---
 -- Indexes for table `newsticker`
 --
 ALTER TABLE `newsticker`
@@ -1300,16 +1292,6 @@ ALTER TABLE `z_shop_payment`
 --
 
 --
--- AUTO_INCREMENT for table `market_history`
---
-ALTER TABLE `market_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `market_offers`
---
-ALTER TABLE `market_offers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `market_offers`
 --
 ALTER TABLE `newsticker`
@@ -1374,18 +1356,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `market_history`
---
-ALTER TABLE `market_history`
-  ADD CONSTRAINT `market_history_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `market_offers`
---
-ALTER TABLE `market_offers`
-  ADD CONSTRAINT `market_offers_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `player_deaths`
