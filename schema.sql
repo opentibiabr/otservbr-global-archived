@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `accounts` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `password` char(40) NOT NULL,
   `secret` char(16) DEFAULT NULL,
@@ -52,7 +52,9 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `birth_date` varchar(50) NOT NULL DEFAULT '',
   `gender` varchar(20) NOT NULL DEFAULT '',
   `loyalty_points` bigint(20) NOT NULL DEFAULT '0',
-  `authToken` varchar(100) NOT NULL DEFAULT ''
+  `authToken` varchar(100) NOT NULL DEFAULT '',
+  CONSTRAINT `accounts_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `accounts_unique` UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -62,6 +64,11 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 INSERT INTO `accounts` (`id`, `name`, `password`, `secret`, `type`, `premdays`, `coins`, `lastday`, `email`, `creation`, `vote`, `key`, `email_new`, `email_new_time`, `rlname`, `location`, `page_access`, `email_code`, `next_email`, `premium_points`, `create_date`, `create_ip`, `last_post`, `flag`, `vip_time`, `guild_points`, `guild_points_stats`, `passed`, `block`, `refresh`, `birth_date`, `gender`, `loyalty_points`, `authToken`) VALUES
 (1, '1', '060d38973b4ba4051fa6ca22f9acd4be7d1557fe', NULL, 1, 0, 0, 0, '', 0, 0, '0', '', 0, '', '', 9999, '', 0, 0, 0, 0, 0, 'unknown', 0, 0, 0, 0, 0, 0, '', '', 0, ''),
 (2, 'GOD', '21298df8a3277357ee55b01df9530b535cf08ec1', NULL, 5, 0, 0, 0, 'gamemaster@tibia.com', 1507160060, 0, '', '', 0, '', '', 3, '', 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, '', '', 0, '');
+
+--
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts` AUTO_INCREMENT=3;
 
 -- --------------------------------------------------------
 
@@ -1067,15 +1074,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `accounts`
---
-ALTER TABLE `accounts`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD UNIQUE KEY `name_2` (`name`),
-  ADD UNIQUE KEY `name_3` (`name`);
-
---
 -- Indexes for table `account_bans`
 --
 ALTER TABLE `account_bans`
@@ -1360,11 +1358,6 @@ ALTER TABLE `z_shop_payment`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `accounts`
---
-ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `account_ban_history`
 --
