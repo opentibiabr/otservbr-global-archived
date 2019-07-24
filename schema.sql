@@ -896,7 +896,10 @@ CREATE TABLE IF NOT EXISTS `store_history` (
   `time` bigint(20) UNSIGNED NOT NULL,
   `timestamp` int(11) NOT NULL DEFAULT '0',
   `id` int(11) NOT NULL,
-  `coins` int(11) NOT NULL DEFAULT '0'
+  `coins` int(11) NOT NULL DEFAULT '0',
+  CONSTRAINT `store_history_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1179,18 +1182,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `store_history`
---
-ALTER TABLE `store_history`
-  ADD KEY `account_id` (`account_id`);
-
---
--- Indexes for table `tile_store`
---
-ALTER TABLE `tile_store`
-  ADD KEY `house_id` (`house_id`);
-
---
 -- Indexes for table `z_forum`
 --
 ALTER TABLE `z_forum`
@@ -1288,21 +1279,9 @@ ALTER TABLE `z_shop_payment`
 --
 
 --
--- Limitadores para a tabela `store_history`
---
-ALTER TABLE `store_history`
-  ADD CONSTRAINT `store_history_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE;
-
---
 -- Limitadores para a tabela `prey_slots`
 --
 ALTER TABLE `prey_slots`
   ADD CONSTRAINT `prey_slots_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `tile_store`
---
-ALTER TABLE `tile_store`
-  ADD CONSTRAINT `tile_store_ibfk_1` FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`) ON DELETE CASCADE;
 
 COMMIT;
