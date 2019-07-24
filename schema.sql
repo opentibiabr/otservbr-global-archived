@@ -356,18 +356,6 @@ CREATE TABLE IF NOT EXISTS `guilds` (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Triggers table `guilds`
---
-DELIMITER $$
-CREATE TRIGGER `oncreate_guilds` AFTER INSERT ON `guilds` FOR EACH ROW BEGIN
-    INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('The Leader', 3, NEW.`id`);
-    INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Vice-Leader', 2, NEW.`id`);
-    INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Member', 1, NEW.`id`);
-END
-$$
-DELIMITER ;
-
 -- --------------------------------------------------------
 
 --
@@ -429,6 +417,35 @@ CREATE TABLE IF NOT EXISTS `guild_invites` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `guild_ranks`
+--
+
+CREATE TABLE IF NOT EXISTS `guild_ranks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `guild_id` int(11) NOT NULL COMMENT 'guild',
+  `name` varchar(255) NOT NULL COMMENT 'rank name',
+  `level` int(11) NOT NULL COMMENT 'rank level - leader, vice, member, maybe something else',
+  CONSTRAINT `guild_ranks_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `guild_ranks_fk`
+    FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Trigger
+--
+DELIMITER $$
+CREATE TRIGGER `oncreate_guilds` AFTER INSERT ON `guilds` FOR EACH ROW BEGIN
+    INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('The Leader', 3, NEW.`id`);
+    INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Vice-Leader', 2, NEW.`id`);
+    INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Member', 1, NEW.`id`);
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `guild_membership`
 --
 
@@ -436,20 +453,20 @@ CREATE TABLE IF NOT EXISTS `guild_membership` (
   `player_id` int(11) NOT NULL,
   `guild_id` int(11) NOT NULL,
   `rank_id` int(11) NOT NULL,
-  `nick` varchar(15) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `guild_ranks`
---
-
-CREATE TABLE IF NOT EXISTS `guild_ranks` (
-  `id` int(11) NOT NULL,
-  `guild_id` int(11) NOT NULL COMMENT 'guild',
-  `name` varchar(255) NOT NULL COMMENT 'rank name',
-  `level` int(11) NOT NULL COMMENT 'rank level - leader, vice, member, maybe something else'
+  `nick` varchar(15) NOT NULL DEFAULT '',
+  CONSTRAINT `guild_membership_pk` PRIMARY KEY (`player_id`),
+  CONSTRAINT `guild_membership_player_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `guild_membership_guild_fk`
+    FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `guild_membership_rank_fk`
+    FOREIGN KEY (`rank_id`) REFERENCES `guild_ranks` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1131,21 +1148,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `guild_membership`
---
-ALTER TABLE `guild_membership`
-  ADD PRIMARY KEY (`player_id`),
-  ADD KEY `guild_id` (`guild_id`),
-  ADD KEY `rank_id` (`rank_id`);
-
---
--- Indexes for table `guild_ranks`
---
-ALTER TABLE `guild_ranks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `guild_id` (`guild_id`);
-
---
 -- Indexes for table `houses`
 --
 ALTER TABLE `houses`
@@ -1344,11 +1346,6 @@ ALTER TABLE `z_shop_payment`
 --
 
 --
--- AUTO_INCREMENT for table `guild_ranks`
---
-ALTER TABLE `guild_ranks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `houses`
 --
 ALTER TABLE `houses`
@@ -1428,20 +1425,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `guild_membership`
---
-ALTER TABLE `guild_membership`
-  ADD CONSTRAINT `guild_membership_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `guild_membership_ibfk_2` FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `guild_membership_ibfk_3` FOREIGN KEY (`rank_id`) REFERENCES `guild_ranks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limitadores para a tabela `guild_ranks`
---
-ALTER TABLE `guild_ranks`
-  ADD CONSTRAINT `guild_ranks_ibfk_1` FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `house_lists`
