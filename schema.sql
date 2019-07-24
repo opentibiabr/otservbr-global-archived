@@ -416,7 +416,14 @@ CREATE TABLE IF NOT EXISTS `guildwar_kills` (
 CREATE TABLE IF NOT EXISTS `guild_invites` (
   `player_id` int(11) NOT NULL DEFAULT '0',
   `guild_id` int(11) NOT NULL DEFAULT '0',
-  `date` int(11) NOT NULL
+  `date` int(11) NOT NULL,
+  CONSTRAINT `guild_invites_pk` PRIMARY KEY (`player_id`, `guild_id`),
+  CONSTRAINT `guild_invites_player_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `guild_invites_guild_fk`
+    FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1124,13 +1131,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `guild_invites`
---
-ALTER TABLE `guild_invites`
-  ADD PRIMARY KEY (`player_id`,`guild_id`),
-  ADD KEY `guild_id` (`guild_id`);
-
---
 -- Indexes for table `guild_membership`
 --
 ALTER TABLE `guild_membership`
@@ -1428,13 +1428,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `guild_invites`
---
-ALTER TABLE `guild_invites`
-  ADD CONSTRAINT `guild_invites_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `guild_invites_ibfk_2` FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `guild_membership`
