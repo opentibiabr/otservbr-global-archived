@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 -- Table structure `accounts`
 --
 
-CREATE TABLE `accounts` (
+CREATE TABLE IF NOT EXISTS `accounts` (
   `id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `password` char(40) NOT NULL,
@@ -69,7 +69,7 @@ INSERT INTO `accounts` (`id`, `name`, `password`, `secret`, `type`, `premdays`, 
 -- Table structure `account_bans`
 --
 
-CREATE TABLE `account_bans` (
+CREATE TABLE IF NOT EXISTS `account_bans` (
   `account_id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `account_bans` (
 -- Table structure `account_ban_history`
 --
 
-CREATE TABLE `account_ban_history` (
+CREATE TABLE IF NOT EXISTS `account_ban_history` (
   `id` int(10) UNSIGNED NOT NULL,
   `account_id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE `account_ban_history` (
 -- Table structure `account_viplist`
 --
 
-CREATE TABLE `account_viplist` (
+CREATE TABLE IF NOT EXISTS `account_viplist` (
   `account_id` int(11) NOT NULL COMMENT 'id of account whose viplist entry it is',
   `player_id` int(11) NOT NULL COMMENT 'id of target player of viplist entry',
   `description` varchar(128) NOT NULL DEFAULT '',
@@ -112,7 +112,7 @@ CREATE TABLE `account_viplist` (
 -- Table structure `announcements`
 --
 
-CREATE TABLE `announcements` (
+CREATE TABLE IF NOT EXISTS `announcements` (
   `id` int(10) NOT NULL,
   `title` varchar(50) NOT NULL,
   `text` varchar(255) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE `announcements` (
 -- Table structure `blessings_history`
 --
 
-CREATE TABLE `blessings_history` (
+CREATE TABLE IF NOT EXISTS `blessings_history` (
   `id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
   `blessing` tinyint(4) NOT NULL,
@@ -140,7 +140,7 @@ CREATE TABLE `blessings_history` (
 -- Tabble Structure `daily_reward`
 --
 
-CREATE TABLE `daily_reward_history` (
+CREATE TABLE IF NOT EXISTS `daily_reward_history` (
   `id` int(11) NOT NULL,
   `daystreak` smallint(2) NOT NULL DEFAULT 0,
   `player_id` int(11) NOT NULL,
@@ -157,7 +157,7 @@ CREATE TABLE `daily_reward_history` (
 -- Table structure `global_storage`
 --
 
-CREATE TABLE `global_storage` (
+CREATE TABLE IF NOT EXISTS `global_storage` (
   `key` varchar(32) NOT NULL,
   `value` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -168,7 +168,7 @@ CREATE TABLE `global_storage` (
 -- Table structure `guilds`
 --
 
-CREATE TABLE `guilds` (
+CREATE TABLE IF NOT EXISTS `guilds` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `ownerid` int(11) NOT NULL,
@@ -201,7 +201,7 @@ DELIMITER ;
 -- Table structure `guildwar_kills`
 --
 
-CREATE TABLE `guildwar_kills` (
+CREATE TABLE IF NOT EXISTS `guildwar_kills` (
   `id` int(11) NOT NULL,
   `killer` varchar(50) NOT NULL,
   `target` varchar(50) NOT NULL,
@@ -217,7 +217,7 @@ CREATE TABLE `guildwar_kills` (
 -- Table structure `guild_invites`
 --
 
-CREATE TABLE `guild_invites` (
+CREATE TABLE IF NOT EXISTS `guild_invites` (
   `player_id` int(11) NOT NULL DEFAULT '0',
   `guild_id` int(11) NOT NULL DEFAULT '0',
   `date` int(11) NOT NULL
@@ -229,7 +229,7 @@ CREATE TABLE `guild_invites` (
 -- Table structure `guild_membership`
 --
 
-CREATE TABLE `guild_membership` (
+CREATE TABLE IF NOT EXISTS `guild_membership` (
   `player_id` int(11) NOT NULL,
   `guild_id` int(11) NOT NULL,
   `rank_id` int(11) NOT NULL,
@@ -242,7 +242,7 @@ CREATE TABLE `guild_membership` (
 -- Table structure `guild_ranks`
 --
 
-CREATE TABLE `guild_ranks` (
+CREATE TABLE IF NOT EXISTS `guild_ranks` (
   `id` int(11) NOT NULL,
   `guild_id` int(11) NOT NULL COMMENT 'guild',
   `name` varchar(255) NOT NULL COMMENT 'rank name',
@@ -255,7 +255,7 @@ CREATE TABLE `guild_ranks` (
 -- Table structure `guild_wars`
 --
 
-CREATE TABLE `guild_wars` (
+CREATE TABLE IF NOT EXISTS `guild_wars` (
   `id` int(11) NOT NULL,
   `guild1` int(11) NOT NULL DEFAULT '0',
   `guild2` int(11) NOT NULL DEFAULT '0',
@@ -272,7 +272,7 @@ CREATE TABLE `guild_wars` (
 -- Table structure `houses`
 --
 
-CREATE TABLE `houses` (
+CREATE TABLE IF NOT EXISTS `houses` (
   `id` int(11) NOT NULL,
   `owner` int(11) NOT NULL,
   `paid` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -295,7 +295,7 @@ CREATE TABLE `houses` (
 -- Table structure `house_lists`
 --
 
-CREATE TABLE `house_lists` (
+CREATE TABLE IF NOT EXISTS `house_lists` (
   `house_id` int(11) NOT NULL,
   `listid` int(11) NOT NULL,
   `list` text NOT NULL
@@ -307,7 +307,7 @@ CREATE TABLE `house_lists` (
 -- Table structure `ip_bans`
 --
 
-CREATE TABLE `ip_bans` (
+CREATE TABLE IF NOT EXISTS `ip_bans` (
   `ip` int(10) UNSIGNED NOT NULL,
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
@@ -321,7 +321,7 @@ CREATE TABLE `ip_bans` (
 -- Table structure `market_history`
 --
 
-CREATE TABLE `market_history` (
+CREATE TABLE IF NOT EXISTS `market_history` (
   `id` int(10) UNSIGNED NOT NULL,
   `player_id` int(11) NOT NULL,
   `sale` tinyint(1) NOT NULL DEFAULT '0',
@@ -339,7 +339,7 @@ CREATE TABLE `market_history` (
 -- Table structure `market_offers`
 --
 
-CREATE TABLE `market_offers` (
+CREATE TABLE IF NOT EXISTS `market_offers` (
   `id` int(10) UNSIGNED NOT NULL,
   `player_id` int(11) NOT NULL,
   `sale` tinyint(1) NOT NULL DEFAULT '0',
@@ -356,7 +356,7 @@ CREATE TABLE `market_offers` (
 -- Table structure `newsticker`
 --
 
-CREATE TABLE `newsticker` (
+CREATE TABLE IF NOT EXISTS `newsticker` (
   `id` int(11) NOT NULL,
   `date` int(11) NOT NULL,
   `text` varchar(255) NOT NULL,
@@ -369,7 +369,7 @@ CREATE TABLE `newsticker` (
 -- Table structure `pagseguro`
 --
 
-CREATE TABLE `pagseguro` (
+CREATE TABLE IF NOT EXISTS `pagseguro` (
   `date` datetime NOT NULL,
   `code` varchar(50) NOT NULL,
   `reference` varchar(200) NOT NULL,
@@ -384,7 +384,7 @@ CREATE TABLE `pagseguro` (
 -- Table structure `pagseguro_transactions`
 --
 
-CREATE TABLE `pagseguro_transactions` (
+CREATE TABLE IF NOT EXISTS `pagseguro_transactions` (
   `transaction_code` varchar(36) NOT NULL,
   `name` varchar(200) DEFAULT NULL,
   `payment_method` varchar(50) NOT NULL,
@@ -400,7 +400,7 @@ CREATE TABLE `pagseguro_transactions` (
 -- Table structure `players`
 --
 
-CREATE TABLE `players` (
+CREATE TABLE IF NOT EXISTS `players` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `group_id` int(11) NOT NULL DEFAULT '1',
@@ -522,7 +522,7 @@ INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocatio
 -- Table structure `player_autoloot`
 --
 
-CREATE TABLE `player_autoloot` (
+CREATE TABLE IF NOT EXISTS `player_autoloot` (
   `id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
   `autoloot_list` blob
@@ -534,7 +534,7 @@ CREATE TABLE `player_autoloot` (
 -- Table structure `player_autoloot_persist`
 --
 
-CREATE TABLE `player_autoloot_persist` (
+CREATE TABLE IF NOT EXISTS `player_autoloot_persist` (
   `player_guid` mediumint(9) DEFAULT NULL,
   `cont_id` mediumint(9) DEFAULT NULL,
   `item_id` mediumint(9) DEFAULT NULL
@@ -546,7 +546,7 @@ CREATE TABLE `player_autoloot_persist` (
 -- Table structure `players_online`
 --
 
-CREATE TABLE `players_online` (
+CREATE TABLE IF NOT EXISTS `players_online` (
   `player_id` int(11) NOT NULL
 ) ENGINE=MEMORY DEFAULT CHARSET=latin1;
 
@@ -556,7 +556,7 @@ CREATE TABLE `players_online` (
 -- Table structure `player_deaths`
 --
 
-CREATE TABLE `player_deaths` (
+CREATE TABLE IF NOT EXISTS `player_deaths` (
   `player_id` int(11) NOT NULL,
   `time` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `level` int(11) NOT NULL DEFAULT '1',
@@ -574,7 +574,7 @@ CREATE TABLE `player_deaths` (
 -- Table structure `player_depotitems`
 --
 
-CREATE TABLE `player_depotitems` (
+CREATE TABLE IF NOT EXISTS `player_depotitems` (
   `player_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL COMMENT 'any given range eg 0-100 will be reserved for depot lockers and all > 100 will be then normal items inside depots',
   `pid` int(11) NOT NULL DEFAULT '0',
@@ -589,7 +589,7 @@ CREATE TABLE `player_depotitems` (
 -- Table structure `player_former_names`
 --
 
-CREATE TABLE `player_former_names` (
+CREATE TABLE IF NOT EXISTS `player_former_names` (
   `id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
   `former_name` varchar(35) NOT NULL,
@@ -602,7 +602,7 @@ CREATE TABLE `player_former_names` (
 -- Table structure `player_inboxitems`
 --
 
-CREATE TABLE `player_inboxitems` (
+CREATE TABLE IF NOT EXISTS `player_inboxitems` (
   `player_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
@@ -617,7 +617,7 @@ CREATE TABLE `player_inboxitems` (
 -- Table structure `player_items`
 --
 
-CREATE TABLE `player_items` (
+CREATE TABLE IF NOT EXISTS `player_items` (
   `player_id` int(11) NOT NULL DEFAULT '0',
   `pid` int(11) NOT NULL DEFAULT '0',
   `sid` int(11) NOT NULL DEFAULT '0',
@@ -632,7 +632,7 @@ CREATE TABLE `player_items` (
 -- Table structure `player_kills`
 --
 
-CREATE TABLE `player_kills` (
+CREATE TABLE IF NOT EXISTS `player_kills` (
   `player_id` int(11) NOT NULL,
   `time` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `target` int(11) NOT NULL,
@@ -645,7 +645,7 @@ CREATE TABLE `player_kills` (
 -- Table structure `player_misc`
 --
 
-CREATE TABLE `player_misc` (
+CREATE TABLE IF NOT EXISTS `player_misc` (
   `player_id` int(11) NOT NULL,
   `info` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -656,7 +656,7 @@ CREATE TABLE `player_misc` (
 -- Table structure `player_namelocks`
 --
 
-CREATE TABLE `player_namelocks` (
+CREATE TABLE IF NOT EXISTS `player_namelocks` (
   `player_id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `namelocked_at` bigint(20) NOT NULL,
@@ -669,7 +669,7 @@ CREATE TABLE `player_namelocks` (
 -- Table structure `player_prey`
 --
 
-CREATE TABLE `player_prey` (
+CREATE TABLE IF NOT EXISTS `player_prey` (
   `player_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `mindex` smallint(6) NOT NULL,
@@ -682,7 +682,7 @@ CREATE TABLE `player_prey` (
 -- Table structure `player_preytimes`
 --
 
-CREATE TABLE `player_preytimes` (
+CREATE TABLE IF NOT EXISTS `player_preytimes` (
   `player_id` int(11) NOT NULL,
   `bonus_type1` int(11) NOT NULL,
   `bonus_value1` int(11) NOT NULL,
@@ -701,7 +701,7 @@ CREATE TABLE `player_preytimes` (
 -- Table structure `player_rewards`
 --
 
-CREATE TABLE `player_rewards` (
+CREATE TABLE IF NOT EXISTS `player_rewards` (
   `player_id` int(11) NOT NULL,
   `sid` int(11) NOT NULL,
   `pid` int(11) NOT NULL DEFAULT '0',
@@ -716,7 +716,7 @@ CREATE TABLE `player_rewards` (
 -- Table structure `player_spells`
 --
 
-CREATE TABLE `player_spells` (
+CREATE TABLE IF NOT EXISTS `player_spells` (
   `player_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -727,7 +727,7 @@ CREATE TABLE `player_spells` (
 -- Table structure `player_storage`
 --
 
-CREATE TABLE `player_storage` (
+CREATE TABLE IF NOT EXISTS `player_storage` (
   `player_id` int(11) NOT NULL DEFAULT '0',
   `key` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `value` int(11) NOT NULL DEFAULT '0'
@@ -739,7 +739,7 @@ CREATE TABLE `player_storage` (
 -- Table structure `sellchar`
 --
 
-CREATE TABLE `sellchar` (
+CREATE TABLE IF NOT EXISTS `sellchar` (
   `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `vocation` int(11) NOT NULL,
@@ -754,7 +754,7 @@ CREATE TABLE `sellchar` (
 -- Table structure `server_config`
 --
 
-CREATE TABLE `server_config` (
+CREATE TABLE IF NOT EXISTS `server_config` (
   `config` varchar(50) NOT NULL,
   `value` varchar(256) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -776,7 +776,7 @@ INSERT INTO `server_config` (`config`, `value`) VALUES
 -- Table structure `store_history`
 --
 
-CREATE TABLE `store_history` (
+CREATE TABLE IF NOT EXISTS `store_history` (
   `account_id` int(11) NOT NULL,
   `mode` smallint(2) NOT NULL DEFAULT '0',
   `description` varchar(3500) NOT NULL,
@@ -793,7 +793,7 @@ CREATE TABLE `store_history` (
 -- Table structure `tile_store`
 --
 
-CREATE TABLE `tile_store` (
+CREATE TABLE IF NOT EXISTS `tile_store` (
   `house_id` int(11) NOT NULL,
   `data` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -804,7 +804,7 @@ CREATE TABLE `tile_store` (
 -- Table structure `z_forum`
 --
 
-CREATE TABLE `z_forum` (
+CREATE TABLE IF NOT EXISTS `z_forum` (
   `id` int(11) NOT NULL,
   `first_post` int(11) NOT NULL DEFAULT '0',
   `last_post` int(11) NOT NULL DEFAULT '0',
@@ -830,7 +830,7 @@ CREATE TABLE `z_forum` (
 -- Table structure `z_network_box`
 --
 
-CREATE TABLE `z_network_box` (
+CREATE TABLE IF NOT EXISTS `z_network_box` (
   `id` int(11) NOT NULL,
   `network_name` varchar(10) NOT NULL,
   `network_link` varchar(50) NOT NULL
@@ -842,7 +842,7 @@ CREATE TABLE `z_network_box` (
 -- Table structure `z_news_tickers`
 --
 
-CREATE TABLE `z_news_tickers` (
+CREATE TABLE IF NOT EXISTS `z_news_tickers` (
   `date` int(11) NOT NULL DEFAULT '1',
   `author` int(11) NOT NULL,
   `image_id` int(3) NOT NULL DEFAULT '0',
@@ -856,7 +856,7 @@ CREATE TABLE `z_news_tickers` (
 -- Table structure `z_ots_comunication`
 --
 
-CREATE TABLE `z_ots_comunication` (
+CREATE TABLE IF NOT EXISTS `z_ots_comunication` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
@@ -877,7 +877,7 @@ CREATE TABLE `z_ots_comunication` (
 -- Table structure `z_ots_guildcomunication`
 --
 
-CREATE TABLE `z_ots_guildcomunication` (
+CREATE TABLE IF NOT EXISTS `z_ots_guildcomunication` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
@@ -898,7 +898,7 @@ CREATE TABLE `z_ots_guildcomunication` (
 -- Table structure `z_polls`
 --
 
-CREATE TABLE `z_polls` (
+CREATE TABLE IF NOT EXISTS `z_polls` (
   `id` int(11) NOT NULL,
   `question` varchar(255) NOT NULL,
   `end` int(11) NOT NULL,
@@ -913,7 +913,7 @@ CREATE TABLE `z_polls` (
 -- Table structure `z_polls_answers`
 --
 
-CREATE TABLE `z_polls_answers` (
+CREATE TABLE IF NOT EXISTS `z_polls_answers` (
   `poll_id` int(11) NOT NULL,
   `answer_id` int(11) NOT NULL,
   `answer` varchar(255) NOT NULL,
@@ -926,7 +926,7 @@ CREATE TABLE `z_polls_answers` (
 -- Table structure `z_shop_category`
 --
 
-CREATE TABLE `z_shop_category` (
+CREATE TABLE IF NOT EXISTS `z_shop_category` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `desc` varchar(255) NOT NULL,
@@ -947,7 +947,7 @@ INSERT INTO `z_shop_category` (`id`, `name`, `desc`, `button`, `hide`) VALUES
 -- Table structure `z_shop_donates`
 --
 
-CREATE TABLE `z_shop_donates` (
+CREATE TABLE IF NOT EXISTS `z_shop_donates` (
   `id` int(11) NOT NULL,
   `date` int(11) NOT NULL,
   `reference` varchar(50) NOT NULL,
@@ -964,7 +964,7 @@ CREATE TABLE `z_shop_donates` (
 -- Table structure `z_shop_donate_confirm`
 --
 
-CREATE TABLE `z_shop_donate_confirm` (
+CREATE TABLE IF NOT EXISTS `z_shop_donate_confirm` (
   `id` int(11) NOT NULL,
   `date` int(11) NOT NULL,
   `account_name` varchar(50) NOT NULL,
@@ -978,7 +978,7 @@ CREATE TABLE `z_shop_donate_confirm` (
 -- Table structure `z_shop_history_item`
 --
 
-CREATE TABLE `z_shop_history_item` (
+CREATE TABLE IF NOT EXISTS `z_shop_history_item` (
   `id` int(11) NOT NULL,
   `to_name` varchar(255) NOT NULL DEFAULT '0',
   `to_account` int(11) NOT NULL DEFAULT '0',
@@ -997,7 +997,7 @@ CREATE TABLE `z_shop_history_item` (
 -- Table structure `z_shop_offer`
 --
 
-CREATE TABLE `z_shop_offer` (
+CREATE TABLE IF NOT EXISTS `z_shop_offer` (
   `id` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `coins` int(11) NOT NULL DEFAULT '0',
@@ -1030,7 +1030,7 @@ INSERT INTO `z_shop_offer` (`id`, `category`, `coins`, `price`, `itemid`, `mount
 -- Table structure `z_shop_payment`
 --
 
-CREATE TABLE `z_shop_payment` (
+CREATE TABLE IF NOT EXISTS `z_shop_payment` (
   `id` int(11) NOT NULL,
   `ref` varchar(10) NOT NULL,
   `account_name` varchar(50) NOT NULL,
@@ -1048,7 +1048,7 @@ CREATE TABLE `z_shop_payment` (
 -- Indexes for dumped tables
 --
 
-CREATE TABLE `prey_slots` (
+CREATE TABLE IF NOT EXISTS `prey_slots` (
   `player_id` int(11) NOT NULL,
   `num` smallint(2) NOT NULL,
   `state` smallint(2) NOT NULL DEFAULT '1',
