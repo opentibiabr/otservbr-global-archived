@@ -20,9 +20,6 @@
 		<flag canwalkonfire="0"/>
 		<flag canwalkonpoison="0"/>
 	</flags>
-	<immunities>
-		<immunity invisible="1"/>
-	</immunities>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-120"/>
 		<attack name="earth" interval="2000" chance="15" range="4" target="1" min="0" max="-50">
@@ -50,6 +47,9 @@
 		<element earthPercent="40"/>
 		<element energyPercent="-10"/>
 	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="*sniff sniff* Mhmmm ... mortal flesh."/>
 		<voice sentence="Hoppel-di-hopp!"/>

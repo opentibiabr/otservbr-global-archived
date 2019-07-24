@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Flying Book" nameDescription="a flying book" race="undead" experience="200" speed="120" >
+<monster name="Flying Book" nameDescription="a flying book" race="undead" experience="200" speed="120">
 	<health now="500" max="500"/>
 	<look type="1060" corpse="33333"/>
-<targetchange interval="5000" chance="8"/>
+	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -22,10 +22,7 @@
 			<attribute key="shootEffect" value="ice"/>
 		</attack>
 	</attacks>
-	<defenses armor="28" defense="33"/>
-	<elements>
-		<element icePercent="-1"/>
-	</elements>
+	<defenses armor="45" defense="45"/>
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>

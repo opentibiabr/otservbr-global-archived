@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Stolen Tome of Portals" nameDescription="stolen tome of portals" race="undead" experience="0" speed="0">
+	<health now="10000" max="10000"/>
+	<look typeex="26653"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<defenses armor="28" defense="33"/>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

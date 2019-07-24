@@ -9,30 +9,39 @@
 	<monster name="Broken Shaper" file="Astral Shapers/Broken Shaper.xml"/>
 	<monster name="Shaper Matriarch" file="Astral Shapers/Shaper Matriarch.xml"/>
 	<monster name="Sword of Vengeance" file="Astral Shapers/Sword of Vengeance.xml"/>
-	<monster name="Twisted Shaper" file="Astral Shapers/Twisted Shaper.xml" />
+	<monster name="Twisted Shaper" file="Astral Shapers/Twisted Shaper.xml"/>
+	<!-- Possessed Objects -->
+	<monster name="Biting Book" file="Possessed Objects/Biting Book.xml"/>
+	<monster name="Burning Book" file="Possessed Objects/Burning Book.xml"/>
+	<monster name="Cursed Book" file="Possessed Objects/Cursed Book.xml"/>
+	<monster name="Dark Knowledge" file="Possessed Objects/Dark Knowledge.xml"/>
+	<monster name="Energetic Book" file="Possessed Objects/Energetic Book.xml"/>
+	<monster name="Flying Book" file="Possessed Objects/Flying Book.xml"/>
+	<monster name="Icecold Book" file="Possessed Objects/Icecold Book.xml"/>
+	<monster name="Librarian" file="Possessed Objects/Librarian.xml"/>
+	<monster name="Minotaur Idol" file="Possessed Objects/Minotaur Idol.xml"/>
+	<monster name="Stolen Knowledge of Armor" file="Possessed Objects/Stolen Knowledge of Armor.xml"/>
+	<monster name="Stolen Knowledge of Healing" file="Possessed Objects/Stolen Knowledge of Healing.xml"/>
+	<monster name="Stolen Knowledge of Lifesteal" file="Possessed Objects/Stolen Knowledge of Lifesteal.xml"/>
+	<monster name="Stolen Knowledge of Spells" file="Possessed Objects/Stolen Knowledge of Spells.xml"/>
+	<monster name="Stolen Knowledge of Summoning" file="Possessed Objects/Stolen Knowledge of Summoning.xml"/>
+	<monster name="Stolen Tome of Portals" file="Possessed Objects/Stolen Tome of Portals.xml"/>
+	<monster name="The Book of Secrets" file="Possessed Objects/The Book of Secrets.xml"/>
 	<!-- New Monsters -->
-	<monster name="Arctic Faun" file="11.8/arctic faun.xml"/>
-	<monster name="Biting Book" file="11.8/biting book.xml"/>
 	<monster name="Biting Cold" file="11.8/biting cold.xml"/>
 	<monster name="Bone Jaw" file="11.8/bone jaw.xml"/>
-	<monster name="Brokul" file="11.8/brokul.xml"/>
 	<monster name="Brother Chill" file="11.8/brother chill.xml"/>
 	<monster name="Brother Freeze" file="11.8/brother freeze.xml"/>
-	<monster name="Burning Book" file="11.8/burning book.xml"/>
 	<monster name="Concentrated Death" file="11.8/concentrated death.xml"/>
-	<monster name="Cursed Book" file="11.8/cursed book.xml"/>
-	<monster name="Dark Knowledge" file="11.8/dark knowledge.xml"/>
 	<monster name="Dazzled Leaf Golem" file="11.8/dazzled leaf golem.xml"/>
 	<monster name="Deathling Scout" file="11.8/deathling scout.xml"/>
 	<monster name="Deathling Spellsinger" file="11.8/deathling spellsinger.xml"/>
 	<monster name="Demon Blood" file="11.8/demon blood.xml"/>
 	<monster name="Demon Slave" file="11.8/demon slave.xml"/>
-	<monster name="Energetic Book" file="11.8/energetic book.xml"/>
 	<monster name="Energuardian of Tales" file="11.8/energuardian of tales.xml"/>
 	<monster name="Falcon Knight" file="11.8/falcon knight.xml"/>
 	<monster name="Falcon Paladin" file="11.8/falcon paladin.xml"/>
 	<monster name="Floating Savant" file="11.8/floating savant.xml"/>
-	<monster name="Flying Book" file="11.8/flying book.xml"/>
 	<monster name="Frost Flower Asura" file="11.8/frost flower asura.xml"/>
 	<monster name="Force Field" file="11.8/force field.xml"/>
 	<monster name="Furious Scorpion" file="11.8/furious scorpion.xml"/>
@@ -45,14 +54,12 @@
 	<monster name="Grand Master Oberon" file="11.8/grand master oberon.xml"/>
 	<monster name="Guardian of Tales" file="11.8/guardian of tales.xml"/>
 	<monster name="Ink Blob" file="11.8/ink blob.xml"/>
-	<monster name="Icecold Book" file="11.8/icecold book.xml"/>
 	<monster name="Imp Intruder" file="11.8/imp intruder.xml"/>
 	<monster name="Invading Demon" file="11.8/invading demon.xml"/>
 	<monster name="Jailer" file="11.8/jailer.xml"/>
 	<monster name="Knowledge Elemental" file="11.8/knowledge elemental.xml"/>
 	<monster name="Knowledge Raider" file="11.8/knowledge raider.xml"/>
 	<monster name="Lava Lurker Attendant" file="11.8/lava lurker attendant.xml"/>
-	<monster name="Librarian" file="11.8/librarian.xml"/>
 	<monster name="Lokathmor" file="11.8/lokathmor.xml"/>
 	<monster name="Malicious Minion" file="11.8/malicious minion.xml"/>
 	<monster name="Mazzinor" file="11.8/mazzinor.xml"/>
@@ -66,15 +73,8 @@
 	<monster name="Rift Spawn" file="11.8/rift spawn.xml"/>
 	<monster name="Skeleton Elite Warrior" file="11.8/skeleton elite warrior.xml"/>
 	<monster name="Spawn of Havoc" file="11.8/spawn of havoc.xml"/>
-	<monster name="Stolen Knowledge of Armor" file="11.8/stolen knowledge of armor.xml"/>
-	<monster name="Stolen Knowledge of Healing" file="11.8/stolen knowledge of healing.xml"/>
-	<monster name="Stolen Knowledge of Lifesteal" file="11.8/stolen knowledge of lifesteal.xml"/>
-	<monster name="Stolen Knowledge of Spells" file="11.8/stolen knowledge of spells.xml"/>
-	<monster name="Stolen Knowledge of Summoning" file="11.8/stolen knowledge of summoning.xml"/>
 	<monster name="Thawing Dragon Lord" file="11.8/thawing dragon lord.xml"/>
 	<monster name="The Blazing Rose" file="11.8/the blazing rose.xml"/>
-	<monster name="The Book of Death" file="11.8/the book of death.xml"/>
-	<monster name="The Book of Secrets" file="11.8/the book of secrets.xml"/>
 	<monster name="The Devourer of Secrets" file="11.8/the devourer of secrets.xml"/>
 	<monster name="The Diamond Blossom" file="11.8/the diamond blossom.xml"/>
 	<monster name="The Lily of Night" file="11.8/the lily of night.xml"/>
@@ -174,7 +174,6 @@
 	<monster name="Shadowpelt" file="Cults of Tibia/Bosses/Shadowpelt.xml" />
 	<monster name="Sharpclaw" file="Cults of Tibia/Bosses/Sharpclaw.xml" />
 
-
 	<!-- Cults of tibia bosses -->
 	<monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml" />
 	<monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml" />
@@ -251,7 +250,6 @@
 	<monster name="The Source Of Corruption" file="Cults of Tibia/Bosses/The Source Of Corruption.xml" />
 	<monster name="The Corruptor Of Souls" file="Cults of Tibia/Bosses/The Corruptor Of Souls.xml" />
 
-
 	<!-- Cult Summons -->
 	<monster name="Liqour Spirit" file="Cults of Tibia/Bosses/Summons/Liqour Spirit.xml" />
 	<monster name="Dread Minion" file="Cults of Tibia/Bosses/Summons/Dread Minion.xml" />
@@ -259,7 +257,6 @@
 	<monster name="Freed Soul" file="Cults of Tibia/Bosses/Summons/Freed Soul.xml" />
 	<monster name="Security Golem" file="Cults of Tibia/Bosses/Summons/Security Golem.xml" />
 	<monster name="Voidshard" file="Cults of Tibia/Bosses/Summons/Voidshard.xml" />
-	<monster name="Minotaur Idol" file="Cults of Tibia/Bosses/Summons/Minotaur Idol.xml" />
 	<monster name="Sphere Of Wrath" file="Cults of Tibia/Bosses/Summons/Sphere Of Wrath.xml" />
 	<monster name="Sand Vortex" file="Cults of Tibia/Bosses/Summons/Sand Vortex.xml" />
 	<monster name="Sand Brood" file="Cults of Tibia/Bosses/Summons/Sand Brood.xml" />
@@ -276,7 +273,6 @@
 	<monster name="Pillar Of Draining" file="Cults of Tibia/Bosses/Pillars/Pillar Of Draining.xml" />
 	<monster name="Destroyed Pillar" file="Cults of Tibia/Bosses/Pillars/Destroyed Pillar.xml" />
 	<monster name="Containment Crystal" file="Cults of Tibia/Bosses/Pillars/Containment Crystal.xml" />
-
 
 	<!-- Cults of tibia -->
 	<monster name="Cult Believer" file="Cults of Tibia/cult believer.xml" />
@@ -386,6 +382,7 @@
 	<monster name="Grovebeast" file="Summons/Grovebeast.xml" />
 
 	<!--Fey-->
+	<monster name="Arctic Faun" file="Fey/Arctic Faun.xml"/>
 	<monster name="Dryad" file="Fey/Dryad.xml" />
 	<monster name="Kroazur" file="Fey/Kroazur.xml" />
 	<monster name="Faun" file="Fey/faun.xml" />
@@ -696,6 +693,7 @@
 	<monster name="Bones" file="Bosses/bones.xml" />
 	<monster name="Boogey" file="Bosses/boogey.xml" />
 	<monster name="Bretzecutioner" file="Bosses/bretzecutioner.xml" />
+	<monster name="Brokul" file="Bosses/Brokul.xml"/>
 	<monster name="Bruise Payne" file="Bosses/bruise payne.xml" />
 	<monster name="Brutus Bloodbeard" file="Bosses/brutus_bloodbeard.xml" />
 	<monster name="Chizzoron the Distorter" file="Bosses/chizzoron_the_distorter.xml" />
@@ -814,6 +812,7 @@
 	<monster name="The Blightfather" file="Bosses/the_blightfather.xml" />
 	<monster name="The Bloodtusk" file="Bosses/the_bloodtusk.xml" />
 	<monster name="The Bloodweb" file="Bosses/the_bloodweb.xml" />
+	<monster name="The Book of Death" file="11.8/The Book of Death.xml"/>
 	<monster name="The Collector" file="Bosses/the_collector.xml" />
 	<monster name="The Count" file="Bosses/the_count.xml" />
 	<monster name="The Weakened Count" file="Bosses/the weakened count.xml" />
