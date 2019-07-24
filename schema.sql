@@ -221,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
     FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `account_bans` PRIMARY KEY (`account_id`)
+  CONSTRAINT `account_bans_pk` PRIMARY KEY (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -231,12 +231,21 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
 --
 
 CREATE TABLE IF NOT EXISTS `account_ban_history` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `account_id` int(11) NOT NULL,
   `reason` varchar(255) NOT NULL,
   `banned_at` bigint(20) NOT NULL,
   `expired_at` bigint(20) NOT NULL,
-  `banned_by` int(11) NOT NULL
+  `banned_by` int(11) NOT NULL,
+  CONSTRAINT `account_bans_history_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_bans_history_player_fk`
+    FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_ban_history_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1092,18 +1101,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `account_ban_history`
---
-ALTER TABLE `account_ban_history`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `account_id` (`account_id`),
-  ADD KEY `banned_by` (`banned_by`),
-  ADD KEY `account_id_2` (`account_id`),
-  ADD KEY `account_id_3` (`account_id`),
-  ADD KEY `account_id_4` (`account_id`),
-  ADD KEY `account_id_5` (`account_id`);
-
---
 -- Indexes for table `account_viplist`
 --
 ALTER TABLE `account_viplist`
@@ -1361,11 +1358,6 @@ ALTER TABLE `z_shop_payment`
 --
 
 --
--- AUTO_INCREMENT for table `account_ban_history`
---
-ALTER TABLE `account_ban_history`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `daily_reward_history`
 --
 ALTER TABLE `daily_reward_history`
@@ -1470,16 +1462,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `account_ban_history`
---
-ALTER TABLE `account_ban_history`
-  ADD CONSTRAINT `account_ban_history_ibfk_2` FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `account_ban_history_ibfk_3` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `account_ban_history_ibfk_4` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `account_ban_history_ibfk_5` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `account_ban_history_ibfk_6` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `account_viplist`
