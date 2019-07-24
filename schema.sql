@@ -337,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `global_storage` (
 --
 
 CREATE TABLE IF NOT EXISTS `guilds` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `ownerid` int(11) NOT NULL,
   `creationdata` int(11) NOT NULL,
@@ -348,11 +348,16 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `create_ip` int(11) NOT NULL DEFAULT '0',
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `last_execute_points` int(11) NOT NULL DEFAULT '0',
-  `logo_gfx_name` varchar(255) NOT NULL DEFAULT ''
+  `logo_gfx_name` varchar(255) NOT NULL DEFAULT '',
+  CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `guilds_unique` UNIQUE (`name`, `ownerid`),
+  CONSTRAINT `guilds_ownerid_fk`
+    FOREIGN KEY (`ownerid`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Acionadores `guilds`
+-- Triggers table `guilds`
 --
 DELIMITER $$
 CREATE TRIGGER `oncreate_guilds` AFTER INSERT ON `guilds` FOR EACH ROW BEGIN
@@ -1113,14 +1118,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `guilds`
---
-ALTER TABLE `guilds`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`),
-  ADD UNIQUE KEY `ownerid` (`ownerid`);
-
---
 -- Indexes for table `guildwar_kills`
 --
 ALTER TABLE `guildwar_kills`
@@ -1356,11 +1353,6 @@ ALTER TABLE `z_shop_payment`
 --
 
 --
--- AUTO_INCREMENT for table `guilds`
---
-ALTER TABLE `guilds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `guildwar_kills`
 --
 ALTER TABLE `guildwar_kills`
@@ -1455,12 +1447,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `guilds`
---
-ALTER TABLE `guilds`
-  ADD CONSTRAINT `guilds_ibfk_1` FOREIGN KEY (`ownerid`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `guildwar_kills`
