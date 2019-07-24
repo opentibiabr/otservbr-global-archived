@@ -867,7 +867,8 @@ CREATE TABLE IF NOT EXISTS `sellchar` (
 
 CREATE TABLE IF NOT EXISTS `server_config` (
   `config` varchar(50) NOT NULL,
-  `value` varchar(256) NOT NULL DEFAULT ''
+  `value` varchar(256) NOT NULL DEFAULT '',
+  CONSTRAINT `server_config_pk` PRIMARY KEY (`config`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -875,7 +876,7 @@ CREATE TABLE IF NOT EXISTS `server_config` (
 --
 
 INSERT INTO `server_config` (`config`, `value`) VALUES
-('db_version', '24'),
+('db_version', '1'),
 ('double', 'desactived'),
 ('motd_hash', 'd40f8dcfa99c13f947571211f86d3e1edd1b329c'),
 ('motd_num', '2'),
@@ -1176,12 +1177,6 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 
 ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
-
---
--- Indexes for table `server_config`
---
-ALTER TABLE `server_config`
-  ADD PRIMARY KEY (`config`);
 
 --
 -- Indexes for table `store_history`
