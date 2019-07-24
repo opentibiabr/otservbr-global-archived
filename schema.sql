@@ -672,10 +672,11 @@ CREATE TABLE IF NOT EXISTS `player_depotitems` (
 --
 
 CREATE TABLE IF NOT EXISTS `player_former_names` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
   `former_name` varchar(35) NOT NULL,
-  `date` int(11) NOT NULL
+  `date` int(11) NOT NULL,
+  CONSTRAINT `player_former_names_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1149,13 +1150,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `player_former_names`
---
-ALTER TABLE `player_former_names`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `player_id` (`player_id`);
-
---
 -- Indexes for table `player_inboxitems`
 --
 ALTER TABLE `player_inboxitems`
@@ -1270,11 +1264,6 @@ ALTER TABLE `z_shop_payment`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `player_former_names`
---
-ALTER TABLE `player_former_names`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sellchar`
 --
