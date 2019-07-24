@@ -910,7 +910,10 @@ CREATE TABLE IF NOT EXISTS `store_history` (
 
 CREATE TABLE IF NOT EXISTS `tile_store` (
   `house_id` int(11) NOT NULL,
-  `data` longblob NOT NULL
+  `data` longblob NOT NULL,
+  CONSTRAINT `tile_store_account_fk`
+    FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
