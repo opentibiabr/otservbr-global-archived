@@ -806,7 +806,11 @@ CREATE TABLE IF NOT EXISTS `player_rewards` (
   `pid` int(11) NOT NULL DEFAULT '0',
   `itemtype` int(11) NOT NULL DEFAULT '0',
   `count` int(11) NOT NULL DEFAULT '0',
-  `attributes` blob NOT NULL
+  `attributes` blob NOT NULL,
+  CONSTRAINT `player_rewards_unique` UNIQUE (`player_id`, `sid`),
+  CONSTRAINT `player_rewards_players_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1166,12 +1170,6 @@ ALTER TABLE `prey_slots`
   ADD KEY `player_id` (`player_id`);
 
 --
--- Indexes for table `player_rewards`
---
-ALTER TABLE `player_rewards`
-  ADD UNIQUE KEY `player_id_2` (`player_id`,`sid`);
-
---
 -- Indexes for table `player_spells`
 --
 ALTER TABLE `player_spells`
@@ -1308,12 +1306,6 @@ ALTER TABLE `z_shop_payment`
 --
 -- Constraints for dumped tables
 --
-
---
--- Limitadores para a tabela `player_rewards`
---
-ALTER TABLE `player_rewards`
-  ADD CONSTRAINT `player_rewards_ibfk_1` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `player_spells`
