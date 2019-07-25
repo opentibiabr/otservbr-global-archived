@@ -55,15 +55,15 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `authToken` varchar(100) NOT NULL DEFAULT '',
   CONSTRAINT `accounts_pk` PRIMARY KEY (`id`),
   CONSTRAINT `accounts_unique` UNIQUE (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extracting data from table `accounts`
 --
-
-INSERT INTO `accounts` (`id`, `name`, `password`, `secret`, `type`, `premdays`, `coins`, `lastday`, `email`, `creation`, `vote`, `key`, `email_new`, `email_new_time`, `rlname`, `location`, `page_access`, `email_code`, `next_email`, `premium_points`, `create_date`, `create_ip`, `last_post`, `flag`, `vip_time`, `guild_points`, `guild_points_stats`, `passed`, `block`, `refresh`, `birth_date`, `gender`, `loyalty_points`, `authToken`) VALUES
-(1, '1', '060d38973b4ba4051fa6ca22f9acd4be7d1557fe', NULL, 1, 0, 0, 0, '', 0, 0, '0', '', 0, '', '', 9999, '', 0, 0, 0, 0, 0, 'unknown', 0, 0, 0, 0, 0, 0, '', '', 0, ''),
-(2, 'GOD', '21298df8a3277357ee55b01df9530b535cf08ec1', NULL, 5, 0, 0, 0, 'gamemaster@tibia.com', 1507160060, 0, '', '', 0, '', '', 3, '', 0, 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, '', '', 0, '');
+INSERT INTO `accounts`
+(`id`, `name`, `password`,                                 `type`) VALUES
+(1,    '1',    '060d38973b4ba4051fa6ca22f9acd4be7d1557fe',  1),
+(2,    'GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
 
 --
 -- AUTO_INCREMENT for table `accounts`
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `manamax` int(11) NOT NULL DEFAULT '0',
   `manaspent` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `soul` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `town_id` int(11) NOT NULL DEFAULT '0',
+  `town_id` int(11) NOT NULL DEFAULT '1',
   `posx` int(11) NOT NULL DEFAULT '0',
   `posy` int(11) NOT NULL DEFAULT '0',
   `posz` int(11) NOT NULL DEFAULT '0',
@@ -139,12 +139,6 @@ CREATE TABLE IF NOT EXISTS `players` (
   `skill_shielding_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_fishing` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `skill_fishing_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `description` varchar(255) NOT NULL DEFAULT '',
-  `comment` text NOT NULL,
-  `create_ip` int(11) NOT NULL DEFAULT '0',
-  `create_date` int(11) NOT NULL DEFAULT '0',
-  `hide_char` int(11) NOT NULL DEFAULT '0',
   `skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `skill_critical_hit_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `skill_critical_hit_damage` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -167,16 +161,10 @@ CREATE TABLE IF NOT EXISTS `players` (
   `prey_stamina_2` int(11) DEFAULT NULL,
   `prey_stamina_3` int(11) DEFAULT NULL,
   `prey_column` smallint(6) NOT NULL DEFAULT '1',
-  `bonus_reroll` int(11) NOT NULL DEFAULT '0',
   `xpboost_stamina` smallint(5) DEFAULT NULL,
   `xpboost_value` tinyint(4) DEFAULT NULL,
   `marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `hide_skills` int(11) DEFAULT NULL,
-  `hide_set` int(11) DEFAULT NULL,
-  `former` varchar(255) NOT NULL DEFAULT '-',
-  `signature` varchar(255) NOT NULL DEFAULT '',
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
-  `loyalty_ranking` tinyint(1) NOT NULL DEFAULT '0',
   `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
   INDEX `account_id` (`account_id`),
   INDEX `vocation` (`vocation`),
@@ -185,19 +173,20 @@ CREATE TABLE IF NOT EXISTS `players` (
   CONSTRAINT `players_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extracting data from table `players`
 --
 
-INSERT INTO `players` (`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `lookaddons`, `maglevel`, `mana`, `manamax`, `manaspent`, `soul`, `town_id`, `posx`, `posy`, `posz`, `conditions`, `cap`, `sex`, `lastlogin`, `lastip`, `save`, `skull`, `skulltime`, `lastlogout`, `blessings`, `blessings1`, `blessings2`, `blessings3`, `blessings4`, `blessings5`, `blessings6`, `blessings7`, `blessings8`, `onlinetime`, `deletion`, `balance`, `offlinetraining_time`, `offlinetraining_skill`, `stamina`, `skill_fist`, `skill_fist_tries`, `skill_club`, `skill_club_tries`, `skill_sword`, `skill_sword_tries`, `skill_axe`, `skill_axe_tries`, `skill_dist`, `skill_dist_tries`, `skill_shielding`, `skill_shielding_tries`, `skill_fishing`, `skill_fishing_tries`, `deleted`, `description`, `comment`, `create_ip`, `create_date`, `hide_char`, `skill_critical_hit_chance`, `skill_critical_hit_chance_tries`, `skill_critical_hit_damage`, `skill_critical_hit_damage_tries`, `skill_life_leech_chance`, `skill_life_leech_chance_tries`, `skill_life_leech_amount`, `skill_life_leech_amount_tries`, `skill_mana_leech_chance`, `skill_mana_leech_chance_tries`, `skill_mana_leech_amount`, `skill_mana_leech_amount_tries`, `skill_criticalhit_chance`, `skill_criticalhit_damage`, `skill_lifeleech_chance`, `skill_lifeleech_amount`, `skill_manaleech_chance`, `skill_manaleech_amount`, `prey_stamina_1`, `prey_stamina_2`, `prey_stamina_3`, `prey_column`, `bonus_reroll`, `xpboost_stamina`, `xpboost_value`, `marriage_status`, `hide_skills`, `hide_set`, `former`, `signature`, `marriage_spouse`, `loyalty_ranking`) VALUES
-(1, 'Rook Sample', 1, 1, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 6, 0, 0, 0, '', 400, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 203, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(2, 'Sorcerer Sample', 1, 1, 8, 1, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(3, 'Druid Sample', 1, 1, 8, 2, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(4, 'Paladin Sample', 1, 1, 8, 3, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(5, 'Knight Sample', 1, 1, 8, 4, 185, 185, 4200, 106, 95, 78, 116, 128, 0, 0, 40, 40, 0, 0, 2, 0, 0, 0, '', 470, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0),
-(6, 'ADM', 6, 2, 1, 0, 150, 150, 0, 106, 95, 78, 116, 128, 0, 0, 5, 5, 0, 0, 2, 0, 0, 0, '', 400, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43200, -1, 2520, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 1, 0, NULL, NULL, 0, NULL, NULL, '-', '', -1, 0);
+INSERT INTO `players`
+(`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
+(1,    'Rook Sample',     1,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         6,         '',           400,   0),
+(2,    'Sorcerer Sample', 1,          1,            8,       1,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
+(3,    'Druid Sample',    1,          1,            8,       2,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
+(4,    'Paladin Sample',  1,          1,            8,       3,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
+(5,    'Knight Sample',   1,          1,            8,       4,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
+(6,    'ADM',             6,          2,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );
 
 --
 -- AUTO_INCREMENT for table `players`
@@ -225,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
     FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -251,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `account_ban_history` (
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `account_ban_history_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -274,37 +263,7 @@ CREATE TABLE IF NOT EXISTS `account_viplist` (
   CONSTRAINT `account_viplist_player_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `announcements`
---
-
-CREATE TABLE IF NOT EXISTS `announcements` (
-  `id` int(11) NOT NULL,
-  `title` varchar(50) NOT NULL,
-  `text` varchar(255) NOT NULL,
-  `date` varchar(20) NOT NULL,
-  `author` varchar(50) NOT NULL,
-  CONSTRAINT `announcements_pk` PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `blessings_history`
---
-
-CREATE TABLE IF NOT EXISTS `blessings_history` (
-  `id` int(11) NOT NULL,
-  `player_id` int(11) NOT NULL,
-  `blessing` tinyint(4) NOT NULL,
-  `loss` tinyint(1) NOT NULL,
-  `timestamp` int(11) NOT NULL,
-  CONSTRAINT `blessings_history_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -336,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `global_storage` (
   `key` varchar(32) NOT NULL,
   `value` text NOT NULL,
   CONSTRAINT `global_storage_unique` UNIQUE (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -353,17 +312,14 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `residence` int(11) NOT NULL,
   `description` text NOT NULL,
   `guild_logo` mediumblob,
-  `create_ip` int(11) NOT NULL DEFAULT '0',
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-  `last_execute_points` int(11) NOT NULL DEFAULT '0',
-  `logo_gfx_name` varchar(255) NOT NULL DEFAULT '',
   CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
   CONSTRAINT `guilds_name_unique` UNIQUE (`name`),
   CONSTRAINT `guilds_owner_unique` UNIQUE (`ownerid`),
   CONSTRAINT `guilds_ownerid_fk`
     FOREIGN KEY (`ownerid`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -383,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `guild_wars` (
   INDEX `guild1` (`guild1`),
   INDEX `guild2` (`guild2`),
   CONSTRAINT `guild_wars_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -405,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `guildwar_kills` (
   CONSTRAINT `guildwar_kills_warid_fk`
     FOREIGN KEY (`warid`) REFERENCES `guild_wars` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -425,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `guild_invites` (
   CONSTRAINT `guild_invites_guild_fk`
     FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -443,7 +399,7 @@ CREATE TABLE IF NOT EXISTS `guild_ranks` (
   CONSTRAINT `guild_ranks_fk`
     FOREIGN KEY (`guild_id`) REFERENCES `guilds` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Trigger
@@ -483,7 +439,7 @@ CREATE TABLE IF NOT EXISTS `guild_membership` (
     FOREIGN KEY (`rank_id`) REFERENCES `guild_ranks` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -509,12 +465,7 @@ CREATE TABLE IF NOT EXISTS `houses` (
   INDEX `owner` (`owner`),
   INDEX `town_id` (`town_id`),
   CONSTRAINT `houses_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- AUTO_INCREMENT for table `houses`
---
-ALTER TABLE `houses` AUTO_INCREMENT=2489;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -530,7 +481,7 @@ CREATE TABLE IF NOT EXISTS `house_lists` (
   CONSTRAINT `houses_list_house_fk`
     FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -550,7 +501,7 @@ CREATE TABLE IF NOT EXISTS `ip_bans` (
     FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -573,7 +524,7 @@ CREATE TABLE IF NOT EXISTS `market_history` (
   CONSTRAINT `market_history_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -597,21 +548,7 @@ CREATE TABLE IF NOT EXISTS `market_offers` (
   CONSTRAINT `market_offers_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `newsticker`
---
-
-CREATE TABLE IF NOT EXISTS `newsticker` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` int(11) NOT NULL,
-  `text` varchar(255) NOT NULL,
-  `icon` varchar(50) NOT NULL,
-  CONSTRAINT `newsticker_pk` PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -624,7 +561,7 @@ CREATE TABLE IF NOT EXISTS `player_autoloot` (
   `player_id` int(11) NOT NULL,
   `autoloot_list` blob,
   CONSTRAINT `player_autoloot_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -636,7 +573,7 @@ CREATE TABLE IF NOT EXISTS `player_autoloot_persist` (
   `player_guid` mediumint(9) DEFAULT NULL,
   `cont_id` mediumint(9) DEFAULT NULL,
   `item_id` mediumint(9) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -647,7 +584,7 @@ CREATE TABLE IF NOT EXISTS `player_autoloot_persist` (
 CREATE TABLE IF NOT EXISTS `players_online` (
   `player_id` int(11) NOT NULL,
   CONSTRAINT `players_online_pk` PRIMARY KEY (`player_id`)
-) ENGINE=MEMORY DEFAULT CHARSET=latin1;
+) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -671,7 +608,7 @@ CREATE TABLE IF NOT EXISTS `player_deaths` (
   CONSTRAINT `player_deaths_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -690,22 +627,7 @@ CREATE TABLE IF NOT EXISTS `player_depotitems` (
   CONSTRAINT `player_depotitems_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `player_former_names`
---
-
-CREATE TABLE IF NOT EXISTS `player_former_names` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `player_id` int(11) NOT NULL,
-  `former_name` varchar(35) NOT NULL,
-  `date` int(11) NOT NULL,
-  INDEX `player_id` (`player_id`),
-  CONSTRAINT `player_former_names_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -724,7 +646,7 @@ CREATE TABLE IF NOT EXISTS `player_inboxitems` (
   CONSTRAINT `player_inboxitems_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -744,7 +666,7 @@ CREATE TABLE IF NOT EXISTS `player_items` (
   CONSTRAINT `player_items_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -757,7 +679,7 @@ CREATE TABLE IF NOT EXISTS `player_kills` (
   `time` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `target` int(11) NOT NULL,
   `unavenged` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -768,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `player_kills` (
 CREATE TABLE IF NOT EXISTS `player_misc` (
   `player_id` int(11) NOT NULL,
   `info` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -791,7 +713,7 @@ CREATE TABLE IF NOT EXISTS `player_namelocks` (
     FOREIGN KEY (`namelocked_by`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -804,7 +726,7 @@ CREATE TABLE IF NOT EXISTS `player_prey` (
   `name` varchar(50) NOT NULL,
   `mindex` smallint(6) NOT NULL,
   `mcolumn` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -823,7 +745,7 @@ CREATE TABLE IF NOT EXISTS `player_preytimes` (
   `bonus_type3` int(11) NOT NULL,
   `bonus_value3` int(11) NOT NULL,
   `bonus_name3` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -842,7 +764,7 @@ CREATE TABLE IF NOT EXISTS `player_rewards` (
   CONSTRAINT `player_rewards_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -857,7 +779,7 @@ CREATE TABLE IF NOT EXISTS `player_spells` (
   CONSTRAINT `player_spells_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -873,23 +795,7 @@ CREATE TABLE IF NOT EXISTS `player_storage` (
   CONSTRAINT `player_storage_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure `sellchar`
---
-
-CREATE TABLE IF NOT EXISTS `sellchar` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(40) NOT NULL,
-  `vocation` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `status` varchar(40) NOT NULL,
-  `oldid` varchar(40) NOT NULL,
-  CONSTRAINT `sellchar_pk` PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -901,7 +807,7 @@ CREATE TABLE IF NOT EXISTS `server_config` (
   `config` varchar(50) NOT NULL,
   `value` varchar(256) NOT NULL DEFAULT '',
   CONSTRAINT `server_config_pk` PRIMARY KEY (`config`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -922,7 +828,7 @@ CREATE TABLE IF NOT EXISTS `store_history` (
   CONSTRAINT `store_history_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -937,7 +843,7 @@ CREATE TABLE IF NOT EXISTS `tile_store` (
   CONSTRAINT `tile_store_account_fk`
     FOREIGN KEY (`house_id`) REFERENCES `houses` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -962,6 +868,6 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
   CONSTRAINT `prey_slots_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 COMMIT;
