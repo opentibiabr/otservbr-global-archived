@@ -39030,7 +39030,7 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="30777" article="a" name="dead deepworm">
+	<item id="30777" article="a" name="dead deepworm">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
@@ -39251,7 +39251,7 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-		<item id="30869" article="a" name="dead the count of the core">
+	<item id="30869" article="a" name="dead the count of the core">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
@@ -39636,7 +39636,7 @@
 		<attribute key="weight" value="850" />
 		<attribute key="description" value="&quot;With courage and foresight every challenge can be mastered!&quot;." />
 	</item>
-		<item id="32124" article="a" name="training sword">
+	<item id="32124" article="a" name="training sword">
 		<attribute key="charges" value="50" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
@@ -39965,14 +39965,14 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="32434" article="a" name="dead grand canon dominus">
+	<item id="32434" article="a" name="dead grand canon dominus">
 		<attribute key="weight" value="30000" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="32435" article="a" name="dead grand canon dominus">
+	<item id="32435" article="a" name="dead grand canon dominus">
 		<attribute key="weight" value="50000" />
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="32434" />
@@ -40812,7 +40812,7 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-		<item id="33334" article="a" name="slain of cursed book">
+	<item id="33334" article="a" name="slain of cursed book">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
@@ -41020,7 +41020,7 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-		<item id="33370" article="a" name="dead deathling scout.">
+	<item id="33370" article="a" name="dead deathling scout.">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
@@ -42593,7 +42593,7 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="35126" article="a" name="dead percht">
+	<item id="35126" article="a" name="dead percht">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
@@ -42618,27 +42618,27 @@
 	<item id="35132" article="an" name="empty barrel"/>
 	<item id="35133" article="a" name="barrel filled with hammers">
 	</item>
-		<item id="35134" article="a" name="dead baleful bunny">
+	<item id="35134" article="a" name="dead baleful bunny">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="35135" article="a" name="dead baleful bunny">
+	<item id="35135" article="a" name="dead baleful bunny">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="35134" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="35136" article="a" name="dead baleful bunny">
+	<item id="35136" article="a" name="dead baleful bunny">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="35135" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="35137" article="a" name="dead baleful bunny">
+	<item id="35137" article="a" name="dead baleful bunny">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="35136" />
 		<attribute key="duration" value="10" />
