@@ -16,5 +16,5 @@ function onUpdateDatabase()
         (4,    'Paladin Sample',  1,          1,            8,       3,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
         (5,    'Knight Sample',   1,          1,            8,       4,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
         (6,    'ADM',             6,          2,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );]])
-    return true
+    return false -- true = There are others migrations file | false = this is the last migration file
 end
