@@ -5,6 +5,20 @@
 -- --------------------------------------------------------
 
 --
+-- Table structure `server_config`
+--
+
+CREATE TABLE IF NOT EXISTS `server_config` (
+  `config` varchar(50) NOT NULL,
+  `value` varchar(256) NOT NULL DEFAULT '',
+  CONSTRAINT `server_config_pk` PRIMARY KEY (`config`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `server_config` (`config`, `value`) VALUES ('db_version', '0'), ('motd_hash', ''), ('motd_num', '0'), ('players_record', '0');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `accounts`
 --
 
@@ -369,7 +383,7 @@ CREATE TRIGGER `oncreate_guilds` AFTER INSERT ON `guilds` FOR EACH ROW BEGIN
     INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Member', 1, NEW.`id`);
 END
 $$
-DELIMITER ;
+DELIMITER;
 
 -- --------------------------------------------------------
 
@@ -428,11 +442,13 @@ CREATE TABLE IF NOT EXISTS `houses` (
 --
 -- trigger
 --
-
+DELIMITER $$
 CREATE TRIGGER `ondelete_players` BEFORE DELETE ON `players`
  FOR EACH ROW BEGIN
     UPDATE `houses` SET `owner` = 0 WHERE `owner` = OLD.`id`;
 END
+$$
+DELIMITER;
 
 -- --------------------------------------------------------
 
@@ -762,18 +778,6 @@ CREATE TABLE IF NOT EXISTS `player_storage` (
   CONSTRAINT `player_storage_players_fk`
     FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
     ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure `server_config`
---
-
-CREATE TABLE IF NOT EXISTS `server_config` (
-  `config` varchar(50) NOT NULL,
-  `value` varchar(256) NOT NULL DEFAULT '',
-  CONSTRAINT `server_config_pk` PRIMARY KEY (`config`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
