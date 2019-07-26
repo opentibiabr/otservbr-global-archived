@@ -44,3 +44,4 @@ for tp, info in pairs(Imbuements_Weapons) do
 		end
 	end
 end
+mov = ''
