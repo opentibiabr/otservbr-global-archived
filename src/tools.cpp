@@ -766,6 +766,15 @@ std::string getCombatName(CombatType_t combatType)
 	return "unknown";
 }
 
+CombatType_t getCombatType(const std::string& combatname)
+{
+	auto it = std::find_if(combatTypeNames.begin(), combatTypeNames.end(), [combatname](std::pair<CombatType_t, std::string> const& pair) {
+		return pair.second == combatname;
+	});
+
+	return it != combatTypeNames.end() ? it->first : COMBAT_NONE;
+}
+
 Ammo_t getAmmoType(const std::string& strValue)
 {
 	auto ammoType = ammoTypeNames.find(strValue);

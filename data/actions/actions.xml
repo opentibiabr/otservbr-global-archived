@@ -319,8 +319,8 @@
 	<action actionid="33216" script="quests/hunter outfit/allHymnPianoTeleport.lua" />
 
 	<!-- Imbuement System -->
-	<action fromid="27728" toid="27729" script="others/imbuement.lua" />
-	<action fromid="27850" toid="27851" script="others/imbuement.lua" />
+	<action fromid="27728" toid="27729" function="imbuement" />
+	<action fromid="27850" toid="27851" function="imbuement" />
 
 	<!-- Ice Islands Quest -->
 	<action fromid="7243" toid="7244" script="quests/ice islands/anthill.lua" />

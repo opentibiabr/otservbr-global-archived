@@ -85,7 +85,7 @@ class Weapon : public Event
 		virtual bool useWeapon(Player* player, Item* item, Creature* target) const;
 
 		virtual int32_t getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage = false) const = 0;
-		virtual int32_t getElementDamage(const Player* player, const Creature* target, const Item* item, int32_t imbuingDamage = 0, CombatType_t imbuingType = COMBAT_NONE) const = 0;
+		virtual int32_t getElementDamage(const Player* player, const Creature* target, const Item* item) const = 0;
 		virtual CombatType_t getElementType() const = 0;
 
 		uint16_t getID() const {
@@ -243,7 +243,7 @@ class WeaponMelee final : public Weapon
 		bool useWeapon(Player* player, Item* item, Creature* target) const final;
 
 		int32_t getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage = false) const final;
-		int32_t getElementDamage(const Player* player, const Creature* target, const Item* item, int32_t imbuingDamage, CombatType_t imbuingType) const final;
+		int32_t getElementDamage(const Player* player, const Creature* target, const Item* item) const final;
 		CombatType_t getElementType() const final { return elementType; }
 
 	protected:
@@ -266,7 +266,7 @@ class WeaponDistance final : public Weapon
 		bool useWeapon(Player* player, Item* item, Creature* target) const final;
 
 		int32_t getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage = false) const final;
-		int32_t getElementDamage(const Player* player, const Creature* target, const Item* item, int32_t imbuingDamage, CombatType_t imbuingType) const final;
+		int32_t getElementDamage(const Player* player, const Creature* target, const Item* item) const final;
 		CombatType_t getElementType() const final { return elementType; }
 
 	protected:
@@ -285,7 +285,7 @@ class WeaponWand final : public Weapon
 		void configureWeapon(const ItemType& it) final;
 
 		int32_t getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage = false) const final;
-		int32_t getElementDamage(const Player*, const Creature*, const Item*, int32_t, CombatType_t) const final { return 0; }
+		int32_t getElementDamage(const Player*, const Creature*, const Item*) const final { return 0; }
 		CombatType_t getElementType() const final { return COMBAT_NONE; }
 		
 		void setMinChange(int32_t change) {
