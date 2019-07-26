@@ -376,14 +376,14 @@ CREATE TABLE IF NOT EXISTS `guild_ranks` (
 --
 -- Trigger
 --
-DELIMITER $$
+DELIMITER //
 CREATE TRIGGER `oncreate_guilds` AFTER INSERT ON `guilds` FOR EACH ROW BEGIN
     INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('The Leader', 3, NEW.`id`);
     INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Vice-Leader', 2, NEW.`id`);
     INSERT INTO `guild_ranks` (`name`, `level`, `guild_id`) VALUES ('Member', 1, NEW.`id`);
 END
-$$
-DELIMITER;
+//
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -442,13 +442,13 @@ CREATE TABLE IF NOT EXISTS `houses` (
 --
 -- trigger
 --
-DELIMITER $$
+DELIMITER //
 CREATE TRIGGER `ondelete_players` BEFORE DELETE ON `players`
  FOR EACH ROW BEGIN
     UPDATE `houses` SET `owner` = 0 WHERE `owner` = OLD.`id`;
 END
-$$
-DELIMITER;
+//
+DELIMITER ;
 
 -- --------------------------------------------------------
 
