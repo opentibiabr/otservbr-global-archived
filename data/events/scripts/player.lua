@@ -966,14 +966,17 @@ end
 
 function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if item then
-		for i = 0, ItemType(item:getId()):getImbuingSlots() - 1 do
-			local imbuement = item:getImbuement(i)
-			if imbuement then
-				local porcetagem = imbuement:getElementDamage()
-				local tipo = imbuement:getCombatType()
-				if porcetagem and porcetagem > 0 then
-					secondaryDamage = primaryDamage*math.min(porcetagem/100, 1)
-					secondaryType = imbuement:getCombatType()
+		local slots = ItemType(item:getId()):getImbuingSlots()
+		if slots > 0 then
+			for i = 0, slots - 1 do
+				local imbuement = item:getImbuement(i)
+				if imbuement then
+					local porcetagem = imbuement:getElementDamage()
+					local tipo = imbuement:getCombatType()
+					if porcetagem and porcetagem > 0 then
+						secondaryDamage = primaryDamage*math.min(porcetagem/100, 1)
+						secondaryType = imbuement:getCombatType()
+					end
 				end
 			end
 		end
