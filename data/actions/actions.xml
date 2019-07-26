@@ -553,6 +553,7 @@
 	<action itemid="12424" script="others/variables/checkBless.lua" />
 	<action itemid="6561" script="others/variables/checkBless.lua" />
 	<action fromid="29423" toid="29430" script="others/variables/magicTree.lua"/>
+	<action fromid="36353" toid="36358" script="others/variables/goldenOutfitMemorial.lua" />
 	<action fromid="18488" toid="18492" script="others/variables/offlineTraining.lua" />
 	<action itemid="12397" script="others/variables/offlineTrainingBook.lua" />
 	<action itemid="5467" script="others/variables/createSugarOat.lua" />
