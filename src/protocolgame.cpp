@@ -3662,8 +3662,19 @@ void ProtocolGame::addImbuementInfo(NetworkMessage& msg, uint32_t imbuid)
 
 void ProtocolGame::sendImbuementWindow(Item* item)
 {
+	const ItemType& it = Item::items[item->getID()];
+	uint8_t slot = it.imbuingSlots;
+	bool itemHasImbue = false;
+	for (uint8_t i = 0; i < slot; i++) {
+		uint32_t info = item->getImbuement(i);
+		if (info >> 8) {
+			itemHasImbue = true;
+			break;
+		}
+	}
+
 	std::vector<Imbuement*> imbuements = g_imbuements->getImbuements(player, item);
-	if (imbuements.empty()) {
+	if (!itemHasImbue && imbuements.empty()) {
 		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue this item.");
 		return;
 	}
@@ -3673,9 +3684,6 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 	NetworkMessage msg;
 	msg.addByte(0xEB);
 	msg.addItemId(item->getID());
-
-	const ItemType& it = Item::items[item->getID()];
-	uint8_t slot = it.imbuingSlots;
 	msg.addByte(slot);
 
 	for (uint8_t i = 0; i < slot; i++) {

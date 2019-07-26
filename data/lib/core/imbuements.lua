@@ -116,11 +116,10 @@ function Player.canImbueItem(self, imbuement, item)
 		return false
 	end
 
---[[ -- desativado para testes
 	if not self:getGroup():getAccess() and stg > -1 and self:getStorageValue(stg) < 1 then
 		return false
 	end
-]]
+
 	return true
 end
 
