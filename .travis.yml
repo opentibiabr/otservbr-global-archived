@@ -6,9 +6,11 @@ compiler:
   - gcc
 env:
   global:
-    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-    #   via the "travis encrypt" command using the project repo's public key
-    - secure: "jg/5nV1Xe6ePlplxIyRmyTaSEDmKhOxF/Z3cMMU6xOnEyhMTnKgcvi88YB0JA/Y7y3SBFyHdvzSfADgTPYsE+TDp2BTlhPpaS/x987nXfB+0jWB3WyEdxtUuscis9m3vAfdO9OraOfrthQDKQgt1mEoJcdVfLabnZ2hs+wzuFGA="
+
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   vi/a the "travis encrypt" command using the project repo's public key
+    - secure: "mxRfVNbRXbG1c3U6LsQuyZVO8qKPiaXjGtaqzpmCT9NjDnXiODDpovNAhqMBihC/7I+8F7PgLO/4mDtbVkSoxSpuNcU/JUZJTdJzpHT2Q62jS+WUtuvAiJEDICVSFcfi6tFva7Glbgkeu8W+jzce5Dx2rSRzx2mptIVAV7HRhvsBLCQE1XA3zWXA4lHgDlsPxQf5/qg9mM1crI7JrhnedClEOYSXknIvPhbIcXiLBnqkIxNjzW0b5EM4LINWi7fgwpcguiq53W6OntzJ5lfOYSS/4SffcjM6+zV9jq7ss/CG05MxLoiNpKU15lt1GJu0KMiYMz1xoeu9KCaTO+JiY0LgtA58qD9mA1QYgQcX9Z4CTIuiuH8FQqILpMOpbs7tlbbUw8v26GIptWFRNV+VmPaKEBajgCdv/7rs4kTWt2kh2s/u4VmcEIRSoMydqBMROudgU36P0Nk2TzUM+DMzGnpCuK+RHuXl5wVaY99Y0r0ARgcgmSKKVSYeboWrpdoZXBD6iTmUgr45oviX7anljMuUo0nK5gRsVcHO0yDIjzmuqzhNiL8Tko4mvkkyThQrgleDgQVefAjiJwEXnlLaBP+buzl2tOp6WDQg3fG4iZ/u5qZxJIG6Z3ukD6sHmP+Gb+tVLuYmsEJAaiDps5hV6yPLefdylxNA6BeLQtc1YLw="
+
   matrix:
     - LUAJIT=OFF
     - LUAJIT=ON
@@ -26,17 +28,20 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
-
   coverity_scan:
     project:
-      name: "otland/forgottenserver"
+      name: "Costallat/OTServBR-Global"
       description: "A free and open-source MMORPG server emulator written in C++"
-    build_command_prepend: "mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} .."
-    build_command: "make -j2"
+    notification_email: costallat@hotmail.com
+    build_command_prepend: cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
+    build_command: make -j2
     branch_pattern: coverity_scan
+
 before_install:
-  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+- echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
 before_script:
   - mkdir build && cd build
   - cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
+
 script: if [ "${COVERITY_SCAN_BRANCH}" != 1 ]; then make -j2; fi
