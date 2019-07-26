@@ -2,16 +2,6 @@
 -- OTServBR - Global - Database schema
 --
 
--- Do not auto increment value when insert cames with the value of 0.
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-
--- Do not modify table immediately, only after COMMIT
-SET AUTOCOMMIT = 0;
-
--- Start transaction to allow rollback
-START TRANSACTION;
-SET time_zone = "+00:00";
-
 -- --------------------------------------------------------
 
 --
@@ -56,19 +46,6 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   CONSTRAINT `accounts_pk` PRIMARY KEY (`id`),
   CONSTRAINT `accounts_unique` UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extracting data from table `accounts`
---
-INSERT INTO `accounts`
-(`id`, `name`, `password`,                                 `type`) VALUES
-(1,    '1',    '060d38973b4ba4051fa6ca22f9acd4be7d1557fe',  1),
-(2,    'GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
-
---
--- AUTO_INCREMENT for table `accounts`
---
-ALTER TABLE `accounts` AUTO_INCREMENT=3;
 
 -- --------------------------------------------------------
 
@@ -174,24 +151,6 @@ CREATE TABLE IF NOT EXISTS `players` (
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extracting data from table `players`
---
-
-INSERT INTO `players`
-(`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
-(1,    'Rook Sample',     1,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         6,         '',           400,   0),
-(2,    'Sorcerer Sample', 1,          1,            8,       1,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
-(3,    'Druid Sample',    1,          1,            8,       2,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
-(4,    'Paladin Sample',  1,          1,            8,       3,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
-(5,    'Knight Sample',   1,          1,            8,       4,          185,      185,         4200,         106,        95,         78,         116,        128,        40,     40,        2,         '',           470,   1),
-(6,    'ADM',             6,          2,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );
-
---
--- AUTO_INCREMENT for table `players`
---
-ALTER TABLE `players` AUTO_INCREMENT=7;
 
 -- --------------------------------------------------------
 --
@@ -311,7 +270,6 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `motd` varchar(255) NOT NULL DEFAULT '',
   `residence` int(11) NOT NULL,
   `description` text NOT NULL,
-  `guild_logo` mediumblob,
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
   CONSTRAINT `guilds_name_unique` UNIQUE (`name`),
@@ -466,6 +424,15 @@ CREATE TABLE IF NOT EXISTS `houses` (
   INDEX `town_id` (`town_id`),
   CONSTRAINT `houses_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- trigger
+--
+
+CREATE TRIGGER `ondelete_players` BEFORE DELETE ON `players`
+ FOR EACH ROW BEGIN
+    UPDATE `houses` SET `owner` = 0 WHERE `owner` = OLD.`id`;
+END
 
 -- --------------------------------------------------------
 
@@ -870,4 +837,3 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-COMMIT;
