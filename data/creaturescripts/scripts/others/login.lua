@@ -204,9 +204,9 @@ function onLogin(player)
 		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- Premium + Stamina boost
 	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and storeBoost > 0 then
 		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- Premium + Store boost
-	elseif staminaMinutes > 840 and Boost > 0 then
+	elseif staminaMinutes > 840 and storeBoost > 0 then
 		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- FACC + Store boost
-	elseif staminaMinutes <= 840 and Boost > 0 then
+	elseif staminaMinutes <= 840 and storeBoost > 0 then
 		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1*percentMultiplier) -- ALL players low stamina + Store boost
 	elseif staminaMinutes <= 840 then
 		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*0.5*percentMultiplier) -- ALL players low stamina
