@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Feroxa" nameDescription="Feroxa" experience="0" speed="350" race="blood" manacost="0">
+<monster name="Feroxa" nameDescription="Feroxa" experience="0" speed="350" race="blood" >
 	<health now="100000" max="100000"/>
-	<strategy attack="100" defense="0"/>
-	<targetchange speed="2000" chance="2"/>
 	<look type="158" head="57" body="76" legs="77" feet="57" corpse="0"/>
+	<targetchange speed="2000" chance="2"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>

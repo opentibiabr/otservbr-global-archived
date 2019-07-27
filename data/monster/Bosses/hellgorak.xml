@@ -67,7 +67,7 @@
 		<item id="9810" chance="30560"/><!-- rusty armor -->
 		<item id="3962" chance="29950"/><!-- beastslayer axe -->
 		<item id="2152" countmax="30" chance="21790"/><!-- platinum coin -->
-		<item id="8472" countmax="1" chance="21180"/><!-- great spirit potion -->
+		<item id="8472" chance="21180"/><!-- great spirit potion -->
 		<item id="7591" chance="20570"/><!-- great health potion -->
 		<item id="2487" chance="19670"/><!-- crown armor -->
 		<item id="7590" chance="16190"/><!-- great mana potion -->

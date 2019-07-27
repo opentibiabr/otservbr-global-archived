@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Orshabaal" nameDescription="Orshabaal" race="fire" experience="10000" speed="380" manacost="0" script="boss.lua">
+<monster name="Orshabaal" nameDescription="Orshabaal" race="fire" experience="10000" speed="380">
 	<health now="22500" max="22500"/>
 	<look type="201" corpse="5995"/>
 	<targetchange interval="2000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -106,7 +106,8 @@
 		<item name="magic plate armor" chance="6666"/>
 		<item name="mastermind shield" chance="6666"/>
 		<item name="demon shield" chance="25000"/>
-		<item name="Orshabaal's brain" chance="6666"/>
+		<item name="Orshabaal's brain" unique="1" chance="6666"/>
+		<item name="thunder hammer" unique="1" chance="6666"/>
 		<item name="demon horn" chance="50000"/>
 		<item id="6300" chance="50000"/><!-- death ring -->
 		<item name="demonic essence" chance="100000"/>

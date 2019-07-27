@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Iron Servant Replica" nameDescription="an iron servant replica" race="energy" experience="210" speed="95" manacost="0">
+<monster name="Iron Servant Replica" nameDescription="an iron servant replica" race="energy" experience="210" speed="95" >
 	<health now="1000" max="1000"/>
 	<look type="395" corpse="13483"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -17,11 +16,10 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 		<flag isblockable="0"/>
-
 	</flags>
 	<attacks>
       		<attack name="melee" interval="2000" skill="20" attack="30"/>
-		<attack name="physical" interval="2000" chance="12" range="7" min="-0" max="-60">
+		<attack name="physical" interval="2000" chance="12" range="7" min="0" max="-60">
 			<attribute key="shootEffect" value="explosion"/>
 			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>

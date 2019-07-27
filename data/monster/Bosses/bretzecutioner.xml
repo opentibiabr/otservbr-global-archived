@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Bretzecutioner" nameDescription="Bretzecutioner" race="undead" experience="3700" speed="270" manacost="0">
+<monster name="Bretzecutioner" nameDescription="Bretzecutioner" race="undead" experience="3700" speed="270" >
 	<health now="5600" max="5600" />
 	<look type="236" corpse="6320" />
 	<targetchange interval="4000" chance="10" />
@@ -42,7 +42,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item id="2148" countmax="1" chance="100000" /><!-- gold coin -->
+		<item id="2148" chance="100000" /><!-- gold coin -->
 		<item id="2148" countmax="98" chance="100000" /><!-- gold coin -->
 		<item id="2666" chance="100000" /><!-- meat -->
 		<item id="6500" chance="64000" /><!-- demonic essence -->

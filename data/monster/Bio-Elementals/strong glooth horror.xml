@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Strong Glooth Horror" nameDescription="a strong glooth horror" race="venom" experience="1500" speed="200" manacost="0">
+<monster name="Strong Glooth Horror" nameDescription="a strong glooth horror" race="venom" experience="1500" speed="200" >
 	<health now="20000" max="20000"/>
 	<look type="677" corpse="0"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

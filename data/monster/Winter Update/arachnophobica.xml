@@ -52,7 +52,7 @@
 	</voices>
 	<loot>
 <!--common-->
-<item name="platinum coin" count="14" chance="100000"/>
+<item name="platinum coin" countmax="14" chance="100000"/>
 <item name="great spirit potion" countmax="3" chance="100000"/>
 
 <!--uncommon-->

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Eruption of Destruction" nameDescription="an eruption of destruction" race="undead" experience="320" speed="120" manacost="0">
+<monster name="Eruption of Destruction" nameDescription="an eruption of destruction" race="undead" experience="320" speed="120" >
 	<health now="4000" max="4000"/>
 	<look typeex="389" corpse="0"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>

@@ -31,6 +31,6 @@
 		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
-		<item name="gold coin" countmin="1" countmax="3" chance="5120"/>
+		<item name="gold coin" countmax="3" chance="5120"/>
 	</loot>
 </monster>

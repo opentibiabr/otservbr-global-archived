@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Enthralled Demon" nameDescription="an enthralled demon" race="fire" experience="6000" speed="256" manacost="0">
+<monster name="Enthralled Demon" nameDescription="an enthralled demon" race="fire" experience="6000" speed="256" >
 	<health now="8200" max="8200"/>
 	<look type="35" corpse="0"/>
 	<targetchange interval="2000" chance="10"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>

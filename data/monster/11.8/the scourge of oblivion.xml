@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Scourge of Oblivion" nameDescription="the scourge of oblivion" race="energy" experience="75000" speed="350" manacost="0">
+<monster name="The Scourge of Oblivion" nameDescription="the scourge of oblivion" race="energy" experience="75000" speed="350">
 	<health now="10000" max="10000"/>
-	<look type="875" head="79" body="0" legs="0" feet="0" addons="3" corpse="26217"/>
+	<look type="875" head="79" body="0" legs="0" feet="0" corpse="26217"/>
 	<targetchange interval="5000" chance="8"/>
-	<flags> <!-- Todas as Flags -->
-		<flag rewardboss="0"/>
+	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
-		<flag passive="0"/>
 		<flag hostile="1"/>
-		<flag isblockable="0"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
@@ -33,33 +27,7 @@
 		</attack>
 	</attacks>
 	<defenses armor="28" defense="33"/>
-	<elements> <!-- Todos Elementos -->
-		<element physicalPercent="0"/>
-		<element icePercent="0"/>
-		<element earthPercent="0"/>
-		<element energyPercent="0"/>
-		<element firePercent="0"/>
-		<element holyPercent="0"/>
-		<element deathPercent="0"/>
-		<element drownPercent="0"/>
-		<element lifedrainPercent="0"/>
-		<element manadrainPercent="0"/>
-	</elements>
 	<immunities>
-		<immunity physical="0"/>
-		<immunity energy="0"/>
-		<immunity fire="0"/>
-		<immunity earth="0"/>
-		<immunity ice="0"/>
-		<immunity holy="0"/>
-		<immunity death="0"/>
-		<immunity lifedrain="0"/>
-		<immunity manadrain="0"/>
-		<immunity paralyze="0"/>
-		<immunity drunk="0"/>
-		<immunity outfit="0"/>
-		<immunity invisible="0"/>
+		<immunity invisible="1"/>
 	</immunities>
-	<loot>
-	</loot>
 </monster>

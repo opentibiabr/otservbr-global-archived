@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Deepworm" nameDescription="a deepworm" race="blood" experience="230" speed="90" manacost="0">
+<monster name="Deepworm" nameDescription="a deepworm" race="blood" experience="230" speed="90" >
 	<health now="4500" max="4500" />
 	<look type="1033" corpse="30780" />
 	<targetchange interval="5000" chance="10" />
@@ -43,24 +43,24 @@
 		<voice sentence="*slurp slurp ... slurp*" />
 	</voices>
 	<loot>
-			<item name="Deepworm Jaws"  chance="24010" />
+			<item name="Deepworm Jaws" chance="24010" />
 			<!--quase sempre-->
-			<item name="Life Ring"  chance="7320" />
-			<item name="Meat" count="4" chance="19660" />
-			<item name="Ham" count="4" chance="19660" />
-			<item name="Wood Mushroom"  chance="22280" />
-			<item name="Dark Mushroom"  chance="14960" />
-			<item name="Green Mushroom"  chance="18520" />
-			<item name="Green Crystal Shard"  chance="5360" />
-			<item id="30828" count="2"  chance="13210" />   <!-- Deepworm Spike Roots -->
-			<item name="Deepworm Spikes"  chance="9880" />
+			<item name="Life Ring" chance="7320" />
+			<item name="Meat" countmax="4" chance="19660" />
+			<item name="Ham" countmax="4" chance="19660" />
+			<item name="Wood Mushroom" chance="22280" />
+			<item name="Dark Mushroom" chance="14960" />
+			<item name="Green Mushroom" chance="18520" />
+			<item name="Green Crystal Shard" chance="5360" />
+			<item id="30828" countmax="2" chance="13210" />   <!-- Deepworm Spike Roots -->
+			<item name="Deepworm Spikes" chance="9880" />
 			<!--semi raro-->
-			<item name="Small Enchanted Amethyst" count="2"  chance="3430" />
-			<item name="Terra Amulet"  chance="5060" />
-			<item name="Springsprout Rod"  chance="1120" />
-			<item name="Sacred Tree Amulet"  chance="2390" />
+			<item name="Small Enchanted Amethyst" countmax="2" chance="3430" />
+			<item name="Terra Amulet" chance="5060" />
+			<item name="Springsprout Rod" chance="1120" />
+			<item name="Sacred Tree Amulet" chance="2390" />
 			<!--raro-->
-			<item id="7632"  chance="860" />  <!--Giant Shimmering Pearl-->
-			<item name="Suspicious Device"  chance="530" />
+			<item id="7632" chance="860" />  <!--Giant Shimmering Pearl-->
+			<item name="Suspicious Device" chance="530" />
 	</loot>
 </monster>

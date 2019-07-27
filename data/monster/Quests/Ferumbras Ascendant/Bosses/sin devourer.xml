@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Sin Devourer" nameDescription="a sin devourer" experience="500" speed="360" race="undead">
 	<health now="2700" max="2700"/>
-	<strategy attack="100" defense="0"/>
-	<targetchange speed="10" chance="8"/>
 	<look type="320" corpse="0"/>
+	<targetchange speed="10" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

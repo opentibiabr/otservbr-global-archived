@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Zulazza The Corruptor" nameDescription="Zulazza The Corruptor" race="blood" experience="9800" speed="290" manacost="0" script="boss.lua">
+<monster name="Zulazza The Corruptor" nameDescription="Zulazza The Corruptor" race="blood" experience="9800" speed="290">
 	<health now="28000" max="28000" />
 	<look type="334" corpse="11107" />
 	<targetchange interval="2000" chance="10" />
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -18,7 +18,6 @@
 		<flag staticattack="80" />
 		<flag runonhealth="1500" />
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" skill="200" attack="200" />
 		<attack name="physical" interval="2000" chance="40" length="8" spread="0" min="-500" max="-800">

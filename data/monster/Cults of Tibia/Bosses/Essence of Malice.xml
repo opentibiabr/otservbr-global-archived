@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Essence Of Malice" nameDescription="Essence Of Malice" race="undead" experience="4600" speed="320" script="boss.lua">
+<monster name="Essence Of Malice" nameDescription="Essence Of Malice" race="undead" experience="4600" speed="320">
 	<health now="25000" max="25000" />
 	<look type="351" corpse="11362" />
 	<targetchange interval="4000" chance="5" />
@@ -46,6 +46,8 @@
 	</elements>
 	<immunities>
 		<immunity death="1" />
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
 	</immunities>
 	<loot>
 		<item name="silver token" chance="2732"/>

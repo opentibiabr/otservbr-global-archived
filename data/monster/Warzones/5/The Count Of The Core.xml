@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Count Of The Core" nameDescription="The Count Of The Core" race="blood" experience="40000" speed="270" script="boss.lua">
+<monster name="The Count Of The Core" nameDescription="The Count Of The Core" race="blood" experience="40000" speed="270">
 	<health now="50000" max="50000" />
 	<look type="1046" corpse="30872" />
 	<targetchange interval="5000" chance="10" />
@@ -53,23 +53,22 @@
 		<voice sentence="Shluush!" />
 	</voices>
 	<loot>
-	<!--Sempre-->
-		<item name="Platinum Coin" count="36" chance="10000" />
-		<item name="Great Mana Potion" count="18" chance="10000" />
-		<item name="Great Spirit Potion" count="10" chance="10000" />
-		<item name="Green Crystal Shard" count="4" chance="10000" />
-		<item name="Huge Chunk of Crude Iron" count="2" chance="10000" />
-		<item name="Magic Sulphur" count="2" chance="10000" />
-		<item name="Mastermind Potion" count="2" chance="10000" />
-		<item name="Small Amethyst" count="10" chance="10000" />
-		<item name="Small Diamond" count="10" chance="10000" />
-		<item name="Small Emerald" count="12" chance="10000" />
-		<item name="Small Ruby" count="10" chance="10000" />
-		<item name="Small Topaz" count="10" chance="10000" />
-		<item name="Ultimate Health Potion" count="5" chance="10000" />
+		<item name="Platinum Coin" countmax="36" chance="10000" />
+		<item name="Great Mana Potion" countmax="18" chance="10000" />
+		<item name="Great Spirit Potion" countmax="10" chance="10000" />
+		<item name="Green Crystal Shard" countmax="4" chance="10000" />
+		<item name="Huge Chunk of Crude Iron" countmax="2" chance="10000" />
+		<item name="Magic Sulphur" countmax="2" chance="10000" />
+		<item name="Mastermind Potion" countmax="2" chance="10000" />
+		<item name="Small Amethyst" countmax="10" chance="10000" />
+		<item name="Small Diamond" countmax="10" chance="10000" />
+		<item name="Small Emerald" countmax="12" chance="10000" />
+		<item name="Small Ruby" countmax="10" chance="10000" />
+		<item name="Small Topaz" countmax="10" chance="10000" />
+		<item name="Ultimate Health Potion" countmax="5" chance="10000" />
 		<item name="Amber Staff" chance="10000" />
 		<item name="Blue Gem" chance="10000" />
-		<item id="30861" chance="10000" />   <!--	Chitinous Mouth (Count of the Core)-->
+		<item id="30861" chance="10000" />   <!-- Chitinous Mouth (Count of the Core)-->
 		<item name="Crystal Coin" chance="10000" />
 		<item name="Crystalline Armor" chance="5000" />
 		<item name="Dragon Necklace" chance="10000" />
@@ -84,7 +83,6 @@
 		<item name="Huge Spiky Snail Shell" chance="10000" />
 		<item name="Luminous Orb" chance="10000" />
 		<item name="Red Gem" chance="10000" />
-		<!--Raro-->
 		<item name="Silver Token" chance="1000" />
 		<item name="Stone Skin Amulet" chance="1000" />
 		<item name="Twiceslicer" chance="1000" />
@@ -95,7 +93,6 @@
 		<item name="Gnome Sword" chance="1000" />
 		<item name="Mallet Handle" chance="1000" />
 		<item name="Tinged Pot" chance="1000" />
-		<!--Muito Raro-->
 		<item name="Gnome Helmet" chance="100" />
 	</loot>
 </monster>
