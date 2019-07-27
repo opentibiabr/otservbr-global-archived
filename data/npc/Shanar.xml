@@ -18,6 +18,10 @@
 			chain helmet,2458,52;
 			chain legs,2648,80;
 			club,2382,5;
+			exercise sword,32384,262500;
+			exercise axe,32385,262500;
+			exercise club,32386,262500;
+			exercise bow,32387,262500;
 			leather helmet,2461,12;
 			leather armor,2467,35;
 			steel shield,2509,240;
