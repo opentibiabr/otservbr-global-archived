@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Raging mage" nameDescription="a raging mage" race="blood" experience="3250" speed="200" manacost="0" script="boss.lua">
+<monster name="Raging mage" nameDescription="a raging mage" race="blood" experience="3250" speed="200">
 	<health now="3500" max="3500"/>
 	<look type="416" corpse="13834"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -18,7 +18,6 @@
 		<flag staticattack="80"/>
 		<flag runonhealth="300"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-50"/>
 		<attack name="thunderstorm" interval="2000" chance="35" range="7" target="1" min="-100" max="-200"/>

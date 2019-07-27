@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Death Dragon" nameDescription="a death dragon" race="undead" experience="7200" speed="330" manacost="0">
+<monster name="Death Dragon" nameDescription="a death dragon" race="undead" experience="7200" speed="330" >
 	<health now="8350" max="8350"/>
 	<look type="231" corpse="0"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -16,7 +15,6 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="700"/>
-
 	</flags>
 	<script>
 		<event name="deathDragon"/>
@@ -31,7 +29,7 @@
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="redspark"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="11" range="7" min="-0" max="-615">
+		<attack name="physical" interval="2000" chance="11" range="7" min="0" max="-615">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Feeble Glooth Horror" nameDescription="feeble glooth horror" race="venom" experience="245" speed="200" manacost="0">
+<monster name="Feeble Glooth Horror" nameDescription="feeble glooth horror" race="venom" experience="245" speed="200" >
 	<health now="5000" max="5000"/>
 	<look type="677" corpse="0"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

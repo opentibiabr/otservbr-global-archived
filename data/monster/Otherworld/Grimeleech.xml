@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Grimeleech" nameDescription="a grimeleech" race="undead" experience="8200" speed="170" manacost="0">
+<monster name="Grimeleech" nameDescription="a grimeleech" race="undead" experience="8200" speed="170" >
 	<health now="9500" max="9500"/>
 	<look type="855" corpse="25436"/>
   	<targetchange interval="3000" chance="20"/>
-  	<strategy attack="100" defense="0"/>
   	<flags>
-    		<flag summonable="0"/>
-    		<flag attackable="1"/>
-    		<flag hostile="1"/>
-    		<flag illusionable="1"/>
+    	<flag summonable="0"/>
+    	<flag attackable="1"/>
+    	<flag hostile="1"/>
+    	<flag illusionable="1"/>
    		<flag convinceable="0"/>
-    		<flag pushable="0"/>
-    		<flag canpushitems="1"/>
-    		<flag canpushcreatures="1"/>
-    		<flag targetdistance="1"/>
-    		<flag staticattack="90"/>
-    		<flag runonhealth="0"/>
+    	<flag pushable="0"/>
+    	<flag canpushitems="1"/>
+    	<flag canpushcreatures="1"/>
+    	<flag targetdistance="1"/>
+    	<flag staticattack="90"/>
+    	<flag runonhealth="0"/>
   	</flags>
   	<attacks>
     		<attack name="melee" interval="2000" skill="70" attack="80"/>
@@ -30,7 +29,7 @@
     		<attack name="death" interval="2000" chance="13" radius="4" target="0" min="-225" max="-375">
       			<attribute key="areaEffect" value="redspark"/>
     		</attack>
-    		<attack name="physical" interval="2000" chance="9" length="8" spread="3" min="-0" max="-300">
+    		<attack name="physical" interval="2000" chance="9" length="8" spread="3" min="0" max="-300">
       			<attribute key="areaEffect" value="explosionarea"/>
     		</attack>
   	</attacks>

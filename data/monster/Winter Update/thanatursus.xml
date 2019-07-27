@@ -48,7 +48,7 @@
         <item name="Platinum Coin" countmax="17" chance="5000"/>
 		<item name="Meat" countmax="3" chance="5000"/>
 		<item name="Great Spirit Potion" countmax="3" chance="1000"/>
-		<item name="Ultimate Health Potion" countmax="1" chance="1000"/>
+		<item name="Ultimate Health Potion" chance="1000"/>
 		<item name="Essence of a Bad Dream" chance="1000"/>
 		<item name="Knight Axe" chance="1000"/>
 		<item name="Mino Shield" chance="1000"/>

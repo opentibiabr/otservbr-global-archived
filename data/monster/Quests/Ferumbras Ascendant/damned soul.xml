@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Damned Soul" nameDescription="a damned soul" race="undead" experience="300" speed="380" manacost="0">
+<monster name="Damned Soul" nameDescription="a damned soul" race="undead" experience="300" speed="380" >
 	<health now="800" max="800"/>
 	<look type="232" corpse="25354"/>
   	<targetchange interval="2000" chance="4" />
-  	<strategy attack="100" defense="0" />
   	<flags>
     		<flag summonable="0" />
     		<flag attackable="1" />

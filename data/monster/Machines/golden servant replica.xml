@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Golden Servant Replica" nameDescription="a golden servant replica" race="energy" experience="450" speed="105" manacost="0">
+<monster name="Golden Servant Replica" nameDescription="a golden servant replica" race="energy" experience="450" speed="105" >
 	<health now="2000" max="2000"/>
 	<look type="396" corpse="13484"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -17,7 +16,6 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="80"/>
 		<flag isblockable="0"/>
-
 	</flags>
 	<attacks>
       		<attack name="melee" interval="2000" skill="40" attack="40"/>

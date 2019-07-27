@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Rage Squid" nameDescription="a rage squid" race="undead" experience="19000" speed="215">
+	<health now="17000" max="17000"/>
+	<look type="1059" head="94" body="78" legs="78" feet="0" corpse="32482"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="fire" interval="1000" chance="15" range="7" min="-200" max="-280">
+			<attribute key="shootEffect" value="flammingarrow"/>
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" range="7" min="-200" max="-380">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="5" spread="0" min="-175" max="-200">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="12" radius="3" min="-200" max="-475">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" radius="2" min="-200" max="-475">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="78"/>
+	<elements>
+		<element icePercent="-15"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity fire="1"/>
+	</immunities>
+	<loot>
+		<item id="33317" chance="10000"/> <!-- glowing rune -->
+		<item name="great spirit potion" countmax="3" chance="10000"/>
+		<item name="fire mushroom" countmax="6" chance="10000"/>
+		<item name="small amethyst" countmax="5" chance="90000"/>
+		<item name="slime heart" chance="3000"/>
+		<item name="piece of dead brain" chance="4900"/>
+		<item name="platinum coin" countmax="6" chance="100000"/>
+		<item name="ultimate health potion" countmax="3" chance="10000"/>
+		<item name="small topaz" countmax="5" chance="90000"/>
+		<item name="small emerald" countmax="5" chance="90000"/>
+		<item name="red gem" countmax="5" chance="9800"/>
+		<item name="orb" countmax="5" chance="66000"/>
+		<item name="purple tome" chance="6333"/>
+		<item name="great mana potion" countmax="3" chance="10000"/>
+		<item name="demonic essence" chance="4300"/>
+		<item id="33315" chance="10000"/> <!-- Inkwell (Black) -->
+		<item name="small ruby" countmax="5" chance="90000"/>
+		<item name="talon" chance="8990"/>
+		<item name="might ring" chance="4990"/>
+		<item name="devil helmet" chance="6990"/>
+		<item name="demonrage sword" chance="400"/>
+		<item id="7393" chance="390"/> <!-- Demon Trophy -->
+		<item name="giant sword" chance="250"/>
+		<item name="demon shield" chance="250"/>
+		<item name="magic plate armor" chance="150"/>
+		<item name="platinum amulet" chance="350"/>
+		<item name="wand of everblazing" chance="300"/>
+		<item name="fire axe" chance="500"/>
+	</loot>
+</monster>

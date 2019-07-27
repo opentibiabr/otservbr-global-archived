@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Makeshift Home" nameDescription="a makeshift home" race="blood" experience="1800" speed="0" manacost="0">
+<monster name="Makeshift Home" nameDescription="a makeshift home" race="blood" experience="1800" speed="0" >
 	<health now="6900" max="6900" />
 	<look typeex="30601"/>
 	<targetchange interval="5000" chance="10" />

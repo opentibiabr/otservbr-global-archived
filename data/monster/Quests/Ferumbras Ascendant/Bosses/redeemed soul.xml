@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Redeemed Soul" nameDescription="a redeemed soul" race="undead" experience="0" speed="162" manacost="0">
+<monster name="Redeemed Soul" nameDescription="a redeemed soul" race="undead" experience="0" speed="162" >
 	<health now="250" max="250"/>
 	<look type="714" corpse="24634"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

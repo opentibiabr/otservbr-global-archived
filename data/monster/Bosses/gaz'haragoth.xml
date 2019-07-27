@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Gaz'Haragoth" nameDescription="Gaz'Haragoth" race="undead" experience="1000000" speed="500" manacost="0" script="boss.lua">
+<monster name="Gaz'Haragoth" nameDescription="Gaz'Haragoth" race="undead" experience="1000000" speed="500">
 	<health now="350000" max="350000" />
 	<look type="591" head="0" body="94" legs="79" feet="79" corpse="22562" />
 	<targetchange interval="10000" chance="20" />
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -19,8 +19,8 @@
 		<flag runonhealth="0" />
 	</flags>
 	<script>
-    <event name="GazharagothHeal" />
-    </script>
+		<event name="GazharagothHeal" />
+	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-5000" />
 		<attack name="ice" interval="3000" chance="35" range="7" radius="7" target="1" min="-900" max="-1100">
@@ -48,7 +48,7 @@
 		</attack>
 		<attack name="gaz'haragoth iceball" interval="2000" chance="24" min="-1000" max="-1000"/>
 		<attack name="gaz'haragoth death" interval="4000" chance="6"/>
-        <attack name="gaz'haragoth paralyze" interval="2000" chance="12"/>
+		<attack name="gaz'haragoth paralyze" interval="2000" chance="12"/>
 	</attacks>
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="3000" chance="35" min="2500" max="3500">
@@ -78,12 +78,10 @@
 		<summon name="Nightmare of Gaz'haragoth" interval="4000" chance="33" />
 	</summons>
 	<voices interval="5000" chance="30">
-
 		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1"/>
 		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1"/>
 		<voice sentence="I've beaten tougher demons then you even know!" yell="1" />
 		<voice sentence="You puny humans will be my snacks!" yell="1" />
-
 	</voices>
 	<loot>
 		<item id="2160" countmax="6" chance="10000" /> <!-- Crystal Coins -->

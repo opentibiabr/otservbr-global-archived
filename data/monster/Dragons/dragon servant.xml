@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dragon Servant" nameDescription="a dragon servant" race="blood" experience="2100" speed="200" manacost="0">
+<monster name="Dragon Servant" nameDescription="a dragon servant" race="blood" experience="2100" speed="200" >
 	<health now="1900" max="1900"/>
 	<look type="39" corpse="5984"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -16,7 +15,6 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="300"/>
-
 		<flag isblockable="0"/>
 		<flag canwalkonenergy="1" />
 		<flag canwalkonfire="1" />

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Haunted Dragon" nameDescription="a haunted dragon" race="undead" experience="6500" speed="140" manacost="0">
+<monster name="Haunted Dragon" nameDescription="a haunted dragon" race="undead" experience="6500" speed="140" >
 	<health now="6500" max="6500"/>
 	<look type="231" corpse="6306"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -28,7 +27,7 @@
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="redspark"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="11" range="7" min="-0" max="-515">
+		<attack name="physical" interval="2000" chance="11" range="7" min="0" max="-515">
 			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>

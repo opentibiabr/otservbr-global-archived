@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Anomaly" nameDescription="Anomaly" race="energy" experience="120000" speed="400" manacost="0" script="boss.lua">
+<monster name="Anomaly" nameDescription="Anomaly" race="energy" experience="120000" speed="400">
 	<health now="290000" max="290000"/>
 	<look type="876" head="19" body="98" legs="19" feet="79" addons="1" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>
@@ -18,8 +18,8 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-    	<event name="AnomalyTransform" />
-    	<event name="HeartBossDeath" />
+		<event name="AnomalyTransform" />
+		<event name="HeartBossDeath" />
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-300" max="-1400"/>
@@ -39,7 +39,7 @@
 	</attacks>
 	<defenses armor="100" defense="100">
 		<defense name="healing" interval="2000" chance="30" min="150" max="400">
-				<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
@@ -56,47 +56,36 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<!-- gold -->
 		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="30" chance="100000"/><!-- platinum coin -->
-
-		<!-- all loot -->
-		<item id="18413" tier="6" countmax="3" chance="8000"/><!-- blue crystal shard -->
-		<item id="26201" tier="6" countmax="5" chance="8000"/><!-- energy drink -->
-		<item id="7590" tier="6" countmax="10" chance="8000"/><!-- great mana potion -->
-		<item id="8472" tier="6" countmax="5" chance="8000"/><!-- great spirit potion -->
-		<item id="18415" tier="6" countmax="3" chance="8000"/><!-- green crystal shard -->
-		<item id="2150" tier="6" countmax="10" chance="8000"/><!-- small amethyst -->
-		<item id="2145" tier="6" countmax="10" chance="8000"/><!-- small diamond -->
-		<item id="9970" tier="6" countmax="10" chance="8000"/><!-- small topaz -->
-		<item id="8473" tier="6" countmax="5" chance="8000"/><!-- ultimate health potion -->
-		<item id="18414" tier="6" countmax="3" chance="8000"/><!-- violet crystal shard -->
-		<item id="26167" tier="6" chance="8000"/><!-- curious matter -->
-		<item id="26175" tier="6" chance="8000"/><!-- frozen lightning -->
-		<item id="2154" tier="6" chance="8000"/><!-- yellow gem -->
-		<item id="25377" tier="6" chance="100000"/><!-- gold token -->
-		<item id="26165" tier="6" chance="100000"/><!-- mysterious remains -->
-		<item id="26166" tier="6" chance="100000"/><!-- odd organ -->
-
-		<!-- Comum -->
-		<item id="2158" tier="5" chance="6000"/><!-- blue gem -->
-		<item id="2155" tier="5" chance="6000"/><!-- green gem -->
-
-		<!-- Semi Raro -->
-		<item id="7901" tier="4" chance="4000"/><!-- lightning headband -->
-		<item id="26198" tier="4" chance="3500"/><!-- collar of blue plasma -->
-		<item id="26185" tier="4" chance="3500"/><!-- ring of blue plasma -->
-		<item id="26187" tier="4" chance="3500"/><!-- ring of green plasma -->
-		<item id="7427" tier="4" chance="3000"/><!-- chaos mace -->
-		<item id="7451" tier="4" chance="3000"/><!-- shadow sceptre -->
-		<item id="8901" tier="4" chance="3000"/><!-- spellbook of warding -->
-		<item id="7895" tier="4" chance="2500"/><!-- lightning legs -->
-
-		<!-- Raro -->
-		<item id="26130" tier="3" unique="1" chance="1600"/><!-- tiara of power -->
-		<item id="26133" tier="3" unique="1" chance="1600"/><!-- void boots -->
-
-		<!-- Muito Raro -->
-		<item id="6553" tier="2" unique="1" chance="1600"/><!-- ruthless axe -->
+		<item id="18413" countmax="3" chance="8000"/><!-- blue crystal shard -->
+		<item id="26201" countmax="5" chance="8000"/><!-- energy drink -->
+		<item id="7590" countmax="10" chance="8000"/><!-- great mana potion -->
+		<item id="8472" countmax="5" chance="8000"/><!-- great spirit potion -->
+		<item id="18415" countmax="3" chance="8000"/><!-- green crystal shard -->
+		<item id="2150" countmax="10" chance="8000"/><!-- small amethyst -->
+		<item id="2145" countmax="10" chance="8000"/><!-- small diamond -->
+		<item id="9970" countmax="10" chance="8000"/><!-- small topaz -->
+		<item id="8473" countmax="5" chance="8000"/><!-- ultimate health potion -->
+		<item id="18414" countmax="3" chance="8000"/><!-- violet crystal shard -->
+		<item id="26167" chance="8000"/><!-- curious matter -->
+		<item id="26175" chance="8000"/><!-- frozen lightning -->
+		<item id="2154" chance="8000"/><!-- yellow gem -->
+		<item id="25377" chance="100000"/><!-- gold token -->
+		<item id="26165" chance="100000"/><!-- mysterious remains -->
+		<item id="26166" chance="100000"/><!-- odd organ -->
+		<item id="2158" chance="6000"/><!-- blue gem -->
+		<item id="2155" chance="6000"/><!-- green gem -->
+		<item id="7901" chance="4000"/><!-- lightning headband -->
+		<item id="26198" chance="3500"/><!-- collar of blue plasma -->
+		<item id="26185" chance="3500"/><!-- ring of blue plasma -->
+		<item id="26187" chance="3500"/><!-- ring of green plasma -->
+		<item id="7427" chance="3000"/><!-- chaos mace -->
+		<item id="7451" chance="3000"/><!-- shadow sceptre -->
+		<item id="8901" chance="3000"/><!-- spellbook of warding -->
+		<item id="7895" chance="2500"/><!-- lightning legs -->
+		<item id="26130" unique="1" chance="1600"/><!-- tiara of power -->
+		<item id="26133" unique="1" chance="1600"/><!-- void boots -->
+		<item id="6553" unique="1" chance="1600"/><!-- ruthless axe -->
 	</loot>
 </monster>

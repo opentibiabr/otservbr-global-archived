@@ -15,12 +15,12 @@
 		<flag targetdistance="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-0" max="-150" />
+		<attack name="melee" interval="2000" min="0" max="-150" />
 		<attack name="earth" interval="2000" chance="20" range="7" target="1" radius="4" min="-250" max="-420">
 			<attribute key="shootEffect" value="spear" />
 			<attribute key="areaEffect" value="greenbubble" />
 		</attack>
-		<attack name="earth" interval="2000" chance="10" radius="6" target="0" min="-0" max="-150">
+		<attack name="earth" interval="2000" chance="10" radius="6" target="0" min="0" max="-150">
 			<attribute key="areaEffect" value="greenbubble" />
 		</attack>
 	</attacks>
@@ -43,8 +43,8 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="199" chance="48000" />	<!-- GOLD COIN -->
-		<item id="29044" countmax="1" chance="1540" />		<!-- BED OF NAILS  -->
-		<item id="29043" countmax="1" chance="4050" />		<!-- FIG LEAF -->
-		<item id="29045" countmax="1" chance="970" />		<!-- TORN SHIRT  -->
+		<item id="29044" chance="1540" />		<!-- BED OF NAILS  -->
+		<item id="29043" chance="4050" />		<!-- FIG LEAF -->
+		<item id="29045" chance="970" />		<!-- TORN SHIRT  -->
 	</loot>
 </monster>

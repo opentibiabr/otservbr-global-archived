@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rot Elemental" nameDescription="a rot elemental" race="venom" experience="750" speed="115" manacost="0">
+<monster name="Rot Elemental" nameDescription="a rot elemental" race="venom" experience="750" speed="115" >
 	<health now="850" max="850"/>
 	<look type="615" corpse="23481"/>
 	<targetchange interval="2000" chance="2"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -63,12 +62,12 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="80" chance="100000"/><!-- gold coin -->
-		<item id="2152" countmax="1" chance="10390"/><!-- platinum coin -->
-		<item id="7588" countmax="1" chance="10310"/><!-- strong health potion -->
-		<item id="7589" countmax="1" chance="9990"/><!-- strong mana potion -->
+		<item id="2152" chance="10390"/><!-- platinum coin -->
+		<item id="7588" chance="10310"/><!-- strong health potion -->
+		<item id="7589" chance="9990"/><!-- strong mana potion -->
 		<item id="23553" chance="4320"/><!-- glob of glooth -->
 		<item id="2168" chance="1630"/><!-- life ring -->
-		<item id="2146" countmax="1" chance="1110"/><!-- small sapphire -->
+		<item id="2146" chance="1110"/><!-- small sapphire -->
 		<item id="9970" countmax="2" chance="1140"/><!-- small topaz -->
 		<item id="2149" countmax="2" chance="940"/><!-- small emeralds -->
 		<item id="2155" chance="80"/><!-- green gem -->

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="The Cold Of Winter" nameDescription="a The Cold Of Winter" race="blood" experience="23" speed="190" manacost="300">
+<monster name="The Cold Of Winter" nameDescription="the cold of winter" race="blood" experience="23" speed="190">
 	<health now="40" max="40" />
 	<look type="53" corpse="5998" />
 	<targetchange interval="4000" chance="0" />
 	<flags>
-		<flag summonable="1" />
+		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
-		<flag illusionable="1" />
-		<flag convinceable="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
 		<flag pushable="1" />
 		<flag canpushitems="0" />
 		<flag canpushcreatures="0" />
@@ -30,6 +30,4 @@
 		<element energyPercent="-10" />
 		<element deathPercent="-15" />
 	</elements>
-	<loot>
-	</loot>
 </monster>

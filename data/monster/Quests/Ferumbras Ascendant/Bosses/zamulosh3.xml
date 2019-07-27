@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Zamulosh" nameDescription="zamulosh" race="undead" experience="55000" speed="320" manacost="0" script="zamuloshsummon.lua">
+<monster name="Zamulosh" nameDescription="zamulosh" race="undead" experience="55000" speed="320"  script="zamuloshsummon.lua">
 	<health now="1000" max="1000" />
         <look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="25151" />
 	<targetchange interval="5000" chance="8" />

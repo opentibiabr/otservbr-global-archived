@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Tentacle of the Deep Terror" nameDescription="a tentacle of the deep terror" race="venom" experience="5850" speed="350" manacost="0">
+<monster name="Tentacle of the Deep Terror" nameDescription="a tentacle of the deep terror" race="venom" experience="5850" speed="350" >
 	<health now="25500" max="25500"/>
 	<look type="681"/>
   	<targetchange interval="5000" chance="8"/>
-  	<strategy attack="100" defense="0"/>
   	<flags>
 		<flag preyable="0"/>
     		<flag summonable="0"/>

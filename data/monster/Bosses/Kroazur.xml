@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Kroazur" nameDescription="a Kroazur" race="undead" experience="2700" speed="500" manacost="0" script="boss.lua">
+<monster name="Kroazur" nameDescription="Kroazur" race="undead" experience="2700" speed="500">
 	<health now="3000" max="3000" />
 	<look type="842" head="19" body="114" legs="94" feet="85" addons="3" corpse="6325" />
 	<targetchange interval="2000" chance="20" />
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -18,16 +18,15 @@
 		<flag targetdistance="1" />
 		<flag runonhealth="0" />
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="200" chance="20" skill="153"  min="0" max="-650"/>
 		<attack name="death" interval="200" chance="20" skill="153"  min="-300" max="-500"/>
 		<attack name="death" interval="500" chance="10" length="8" spread="0" target="1" min="-200" max="-300">
-		<attribute key="areaEffect" value="mortarea" />
-    </attack>
-	<attack name="death" interval="500" chance="10" radius="8" min="-250" max="-300">
-      	<attribute key="areaEffect" value="mortarea" />
-    </attack>
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="500" chance="10" radius="8" min="-250" max="-300">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
 	</attacks>
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="3000" chance="35" min="400" max="500">

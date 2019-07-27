@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="5400" speed="190" manacost="0">
+<monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="5400" speed="190" >
 	<health now="5800" max="5800"/>
 	<look type="1136" body="123" legs="28" feet="20" addons="1" corpse="34760"/>
 	<targetchange interval="4000" chance="10"/>
@@ -43,14 +43,14 @@
 	</immunities>
 	<loot>
 <!--common-->
-<item name="platinum coin" count="13" chance="100000"/>
+<item name="platinum coin" countmax="13" chance="100000"/>
 <item name="red crystal fragment" chance="1000000"/>
 <item name="red gem" chance="1000000"/>
 <!--uncommon-->
-<item id="34696" count="2" chance="15000"/>  <!-- ice flower -->
+<item id="34696" countmax="2" chance="15000"/>  <!-- ice flower -->
 <item name="small enchanted ruby" chance="11550"/>
 <item name="miraculum" chance="13550"/>
-<item name="ultimate health potion" count="2" chance="14750"/>
+<item name="ultimate health potion" countmax="2" chance="14750"/>
 <item name="dream essence egg" chance="17550"/>
 <item name="tiger eye" chance="12350"/>
 <item name="northwind rod" chance="14600"/>

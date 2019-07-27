@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Arctic Faun" nameDescription="an arctic faun" race="blood" experience="300" speed="105">
+	<health now="300" max="300"/>
+	<look type="980" head="85" body="0" legs="0" feet="85" corpse="33423"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-200"/>
+		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
+			<attribute key="shootEffect" value="snowball"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30"/>
+	<elements>
+		<element firePercent="-15"/>
+		<element energyPercent="-10"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="20"/>
+		<element holyPercent="30"/>
+		<element earthPercent="70"/>
+		<element icePercent="80"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Dance with me!"/>
+		<voice sentence="In vino veritas! Hahaha!"/>
+		<voice sentence="Wine, women and song!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="105" chance="100000"/>
+		<item name="Dandelion Seeds" chance="14870"/>
+		<item name="Strong Health Potion" chance="11760"/>
+		<item name="Fresh Fruit" chance="10290"/>
+		<item name="Shimmering Beetles" chance="9330"/>
+		<item name="Leaf Star" countmax="3" chance="8720"/>
+		<item name="Goat Grass" chance="7280"/>
+		<item name="Cookie" countmax="5" chance="6150"/>
+		<item name="Grapes" chance="5400"/>
+		<item name="Rainbow Quartz" countmax="2" chance="5260"/>
+		<item name="Small Stone" countmax="2" chance="5260"/>
+		<item name="Panpipes" chance="4510"/>
+		<item name="Great Health Potion" chance="3590"/>
+		<item name="Wood Cape" chance="820"/>
+		<item name="Leaf Legs" chance="340"/>
+		<item name="Wooden Spellbook" chance="210"/>
+		<item name="Die" chance="140"/>
+	</loot>
+</monster>

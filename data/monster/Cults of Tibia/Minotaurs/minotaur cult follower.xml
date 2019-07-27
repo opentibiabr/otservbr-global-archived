@@ -47,25 +47,25 @@
 		<item name="cowbell" chance="22480" />
 		<item name="cultish robe" chance="14720" />
 		<item name="plate shield" chance="20020" />
-		<item name="great health potion" countmax="1" chance="11840" />
+		<item name="great health potion" chance="11840" />
 		<item name="small ruby" countmax="2" chance="3690" />
 		<item name="small topaz" countmax="2" chance="3170" />
-		<item name="yellow gem" countmax="1" chance="280" />
+		<item name="yellow gem" chance="280" />
 		<item name="platinum coin" countmax="3" chance="65250" />
-		<item name="plate shield" countmax="1" chance="20710" />
+		<item name="plate shield" chance="20710" />
 		<item name="small emerald" countmax="2" chance="3410" />
 		<item name="small amethyst" countmax="2" chance="2950" />
-		<item name="red piece of cloth" countmax="1" chance="810" />
-		<!-- <item name="minotaur trophy" countmax="1" chance="220" /> -->
-		<item name="ham" countmax="1" chance="59410" />
-		<item name="bronze amulet" countmax="1" chance="15140" />
-		<item name="mino shield" countmax="1" chance="12670" />
-		<item name="ring of healing" countmax="1" chance="3190" />
-		<item name="mino lance" countmax="1" chance="1810" />
-		<item name="warrior helmet" countmax="1" chance="570" />
-		<item name="red gem" countmax="1" chance="170" />
+		<item name="red piece of cloth" chance="810" />
+		<!-- <item name="minotaur trophy" chance="220" /> -->
+		<item name="ham" chance="59410" />
+		<item name="bronze amulet" chance="15140" />
+		<item name="mino shield" chance="12670" />
+		<item name="ring of healing" chance="3190" />
+		<item name="mino lance" chance="1810" />
+		<item name="warrior helmet" chance="570" />
+		<item name="red gem" chance="170" />
 		<item name="meat" chance="8020" />
-		<item name="minotaur leather" countmax="1" chance="11530" />
+		<item name="minotaur leather" chance="11530" />
 		<item name="minotaur horn" countmax="2" chance="14550" />
 	</loot>
 </monster>
