@@ -13,28 +13,32 @@
 		<parameter key="keyword_reply1" value="I am Romella and I will be serving you today." />
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-	axe,2386,20;
-	battle axe,2378,235;
-	battle hammer,2417,350;
-	bone sword,2450,75;
-	carlin sword,2395,473;
-	club,2382,5;
-	coat,2651,8;
-	crowbar,2416,260;
-	dagger,2379,5;
-	hand axe,2380,8;
-	longsword,2397,160;
-	mace,2398,90;
-	morning star,2394,430;
-	rapier,2384,15;
-	sabre,2385,35;
-	short sword,2406,26;
-	sickle,2405,7;
-	spike sword,2383,8000;
-	sword,2376,25;
-	throwing knife,2410,25;
-	two handed sword,2377,950;
-	war hammer,2391,10000;" />
+			axe,2386,20;
+			battle axe,2378,235;
+			battle hammer,2417,350;
+			bone sword,2450,75;
+			carlin sword,2395,473;
+			club,2382,5;
+			coat,2651,8;
+			crowbar,2416,260;
+			dagger,2379,5;
+			exercise sword,32384,262500;
+			exercise axe,32385,262500;
+			exercise club,32386,262500;
+			exercise bow,32387,262500;
+			hand axe,2380,8;
+			longsword,2397,160;
+			mace,2398,90;
+			morning star,2394,430;
+			rapier,2384,15;
+			sabre,2385,35;
+			short sword,2406,26;
+			sickle,2405,7;
+			spike sword,2383,8000;
+			sword,2376,25;
+			throwing knife,2410,25;
+			two handed sword,2377,950;
+			war hammer,2391,10000;" />
 		<parameter key="shop_sellable" value="
 	axe,2386,7;
 	battle axe,2378,80;

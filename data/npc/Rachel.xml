@@ -14,6 +14,8 @@
 			energy field rune,2277,38;
 			energy wall rune,2279,85;
 			explosion rune,2313,31;
+			exercise rod,32388,262500;
+			exercise wand,32389,262500;
 			fire bomb rune,2305,55;
 			fire field rune,2301,28;
 			fire wall rune,2303,61;
@@ -37,10 +39,8 @@
 			strong mana potion,7589,80;
 			sudden death rune,2268,50;
 			terra rod,2181,10000;
-
 			Hailstorm Rod,2183,15000;
 			Wand of Voodoo,8922,22000;
-
 			ultimate healing rune,2273,175;
 			ultimate health potion,8473,310;
 			wand of cosmic energy,2189,10000;

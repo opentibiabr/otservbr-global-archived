@@ -32,7 +32,7 @@ function onStartup(interval)
 		Game.createItem(5064, {x = 32265, y = 32164, z = 7})
 		gate3 = Game.createItem(6117, {x = 32264, y = 32164, z = 7})
 		doSetItemActionId(gate3, 9712)
-		print('>> Fury Gate will be active in  thais today.')
+		print('>> Fury Gate will be active in thais today.')
 	elseif (chance == 4) then -- carlin
 		setGlobalStorageValue(9713, 4)
 		Game.createItem(5066, {x = 32262, y = 31848, z = 7})
