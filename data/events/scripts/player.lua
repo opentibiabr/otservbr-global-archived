@@ -1055,7 +1055,8 @@ function Player:onGainExperience(source, exp, rawExp)
 			displayRate = displayRate * 0.5
 		end
 	end
-	self:setBaseXpGain(displayRate * 100)
+	local percentMultiplier = if configManager.getNumber(configKeys.XPGAINRATE_MODE) > 0 then 100 else 10 end
+	self:setBaseXpGain(displayRate * percentMultiplier)
 	return exp
 end
 

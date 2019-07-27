@@ -195,20 +195,21 @@ function onLogin(player)
 	end
 
 	-- Set Client XP Gain Rate
+	local percentMultiplier = if configManager.getNumber(configKeys.XPGAINRATE_MODE) > 0 then 100 else 10 end
 	local staminaMinutes = player:getStamina()
 	local storeBoost = player:getExpBoostStamina()
 	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*2*100) -- Premium + Stamina boost + Store boost
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*2*percentMultiplier) -- Premium + Stamina boost + Store boost
 	elseif staminaMinutes > 2400 and player:isPremium() and storeBoost <= 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*100) -- Premium + Stamina boost
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- Premium + Stamina boost
 	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and storeBoost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*100) -- Premium + Store boost
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- Premium + Store boost
 	elseif staminaMinutes > 840 and Boost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*100) -- FACC + Store boost
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- FACC + Store boost
 	elseif staminaMinutes <= 840 and Boost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1*100) -- ALL players low stamina + Store boost
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1*percentMultiplier) -- ALL players low stamina + Store boost
 	elseif staminaMinutes <= 840 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*0.5*100) -- ALL players low stamina
+		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*0.5*percentMultiplier) -- ALL players low stamina
 	end
 
 	if player:getClient().version > 1110 then
