@@ -1034,7 +1034,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Store Bonus
-	useStaminaXp(self) –- Use store boost stamina
+	useStaminaXp(self) -- Use store boost stamina
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
 		self:setStoreXpBoost(0) -- Reset Store boost to 0 if boost stamina has ran out
 	end
