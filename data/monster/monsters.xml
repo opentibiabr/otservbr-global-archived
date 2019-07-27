@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monsters>
 	<!-- Amazons -->
-	<monster name="Amazon" file="Amazons/Amazon.xml"/>
-	<monster name="Valkyrie" file="Amazons/Valkyrie.xml"/>
+	<monster name="Amazon" file="Amazons/amazon.xml"/>
+	<monster name="Valkyrie" file="Amazons/valkyrie.xml"/>
 	<!-- Astral Shapers -->
 	<monster name="Animated Sword" file="Astral Shapers/Animated Sword.xml"/>
 	<monster name="Bound Astral Power" file="Astral Shapers/Bound Astral Power.xml"/>
@@ -1216,7 +1216,7 @@
 	<monster name="Brain Squid" file="Mollusks/Brain Squid.xml"/>
 	<monster name="Calamary" file="Mollusks/Calamary.xml"/>
 	<monster name="Rage Squid" file="Mollusks/Rage Squid.xml"/>
-	<monster name="Slug" file="Mollusks/Slug.xml"/>
+	<monster name="Slug" file="Mollusks/slug.xml"/>
 	<monster name="Squid Warden" file="Mollusks/Squid Warden.xml"/>
 
 	<!-- Monks -->
@@ -1372,7 +1372,7 @@
 	<monster name="YalahariMonster" file="Sorcerers/yalahari.xml"/>
 
 	<!-- Traps -->
-	<monster name="Deathslicer" file="Traps/Deathslicer.xml"/>
+	<monster name="Deathslicer" file="Traps/deathslicer.xml"/>
 	<monster name="Flamethrower" file="Traps/flamethrower.xml"/>
 	<monster name="Hive Pore" file="Traps/hive_pore.xml"/>
 	<monster name="Lavahole" file="Traps/lavahole.xml"/>
