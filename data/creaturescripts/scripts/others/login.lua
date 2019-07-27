@@ -195,7 +195,12 @@ function onLogin(player)
 	end
 
 	-- Set Client XP Gain Rate
-	local percentMultiplier = if configManager.getNumber(configKeys.XPGAINRATE_MODE) > 0 then 100 else 10 end
+	local mode = configManager.getNumber(configKeys.XPGAINRATE_MODE)
+	if mode > 0 then
+		percentMultiplier = 100
+		else
+		percentMultiplier = 10
+	end
 	local staminaMinutes = player:getStamina()
 	local storeBoost = player:getExpBoostStamina()
 	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
