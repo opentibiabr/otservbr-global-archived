@@ -107,7 +107,7 @@ class Imbuement
 		int32_t stats[STAT_LAST + 1] = {};
 		int32_t skills[SKILL_LAST + 1] = {};
 		int32_t speed = 0;
-		int32_t cap = 0;
+		uint32_t capacity = 0;
 		int16_t absorbPercent[COMBAT_COUNT] = {};
 		int16_t elementDamage = 0;
 

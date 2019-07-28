@@ -1,7 +1,7 @@
-MESSAGEDIALOG_IMBUEMENT_ERROR = 1,
-MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED = 2,
-MESSAGEDIALOG_IMBUING_STATION_NOT_FOUND = 3,
-MESSAGEDIALOG_CLEARING_CHARM_SUCCESS = 10,
+MESSAGEDIALOG_IMBUEMENT_ERROR = 1
+MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED = 2
+MESSAGEDIALOG_IMBUING_STATION_NOT_FOUND = 3
+MESSAGEDIALOG_CLEARING_CHARM_SUCCESS = 10
 MESSAGEDIALOG_CLEARING_CHARM_ERROR = 11
 
 -- tables
@@ -89,7 +89,7 @@ function Player.canImbueItem(self, imbuement, item)
 			break
 		end
 	end
-	if #imb_type == 0 then
+	if imb_type == "" then
 		print(">> [Imbuement::canImbueItem] Error on search imbuement '".. imbuement:getName() .. "'")
 		return false
 	end

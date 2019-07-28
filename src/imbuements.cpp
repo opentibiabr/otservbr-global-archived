@@ -284,7 +284,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 							continue;
 						}
 
-						imb.cap = pugi::cast<uint32_t>(attr.value());
+						imb.capacity = pugi::cast<uint32_t>(attr.value());
 					}
 				}
 			}

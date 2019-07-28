@@ -4836,7 +4836,6 @@ bool Player::isMarketExhausted() const {
 
 void Player::onEquipImbueItem(Imbuement* imbuement)
 {
-	// requer update no decay
 	// check skills
 	bool requestUpdate = false;
 
@@ -4870,20 +4869,17 @@ void Player::onEquipImbueItem(Imbuement* imbuement)
 		g_game.changeSpeed(this, imbuement->speed);
 	}
 
-	// cap
-	if (imbuement->cap != 0) {
-		capacity += imbuement->cap;
+	// capacity
+	if (imbuement->capacity != 0) {
+		capacity += imbuement->capacity;
 		sendStats();
 	}
-
 
 	return;
 }
 
 void Player::onDeEquipImbueItem(Imbuement* imbuement)
 {
-	// requer update no decay
-
 	// check skills
 	bool requestUpdate = false;
 
@@ -4917,9 +4913,9 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 		g_game.changeSpeed(this, -imbuement->speed);
 	}
 
-	// cap
-	if (imbuement->cap != 0) {
-		capacity -= imbuement->cap;
+	// capacity
+	if (imbuement->capacity != 0) {
+		capacity -= imbuement->capacity;
 		sendStats();
 	}
 
