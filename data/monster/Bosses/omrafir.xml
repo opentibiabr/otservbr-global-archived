@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Omrafir" nameDescription="Omrafir" race="fire" experience="50000" speed="480" manacost="0" script="boss.lua">
+<monster name="Omrafir" nameDescription="Omrafir" race="fire" experience="50000" speed="480">
 	<health now="322000" max="322000"/>
 	<look type="12" head="78" body="3" legs="79" feet="79" addons="0" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -19,7 +18,6 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" skill="390" attack="500"/>
 		<attack name="omrafir wave" interval="2000" chance="17" min="-500" max="-1000"/>
@@ -33,7 +31,7 @@
 		<attack name="fire" interval="2000" chance="19" radius="4" target="0" min="-150" max="-300">
 			<attribute key="areaEffect" value="explosion"/>
 		</attack>
-		<attack name="fire" interval="2000" chance="15" radius="1" target="1" min="-0" max="-0">
+		<attack name="fire" interval="2000" chance="15" radius="1" target="1" min="0" max="0">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="fire"/>
 		</attack>
@@ -78,14 +76,14 @@
 		<item id="18413" countmax="5" chance="37500"/><!-- blue crystal shard -->
 		<item id="22396" countmax="4" chance="62500"/><!-- cluster of solace -->
 		<item id="18419" countmax="3" chance="43750"/><!-- cyan crystal fragment -->
-		<item id="5954" countmax="1" chance="100000"/><!-- demon horn -->
+		<item id="5954" chance="100000"/><!-- demon horn -->
 		<item id="6500" countmax="4" chance="812500"/><!-- demonic essence -->
 		<item id="22612" chance="6250"/><!-- demonic tapestry -->
 		<item id="22397" countmax="2" chance="81250"/><!-- dream matter -->
 		<item id="22610" chance="3250" unique="1"/><!-- dream warden mask -->
 		<item id="22613" chance="2500"/><!-- eye pod -->
-		<item id="7632" countmax="1" chance="43750"/><!-- giant shimmering pearl -->
-		<item id="7633" countmax="1" chance="43750"/><!-- giant shimmering pearl -->
+		<item id="7632" chance="43750"/><!-- giant shimmering pearl -->
+		<item id="7633" chance="43750"/><!-- giant shimmering pearl -->
 		<item id="2148" countmax="100" chance="18750"/><!-- gold coin -->
 		<item id="7590" countmax="8" chance="6250"/><!-- great mana potion -->
 		<item id="8472" countmax="8" chance="56250"/><!-- great spirit potion -->

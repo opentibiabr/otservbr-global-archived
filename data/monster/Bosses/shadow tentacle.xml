@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Shadow Tentacle" nameDescription="a shadow tentacle" race="venom" experience="0" speed="350" manacost="0">
+<monster name="Shadow Tentacle" nameDescription="a shadow tentacle" race="venom" experience="0" speed="350" >
 	<health now="22500" max="22500"/>
 	<look type="681" corpse="26924"/>
-  	<targetchange interval="5000" chance="8" />
-  	<strategy attack="100" defense="0" />
+  	<targetchange interval="5000" chance="8"/>
   	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

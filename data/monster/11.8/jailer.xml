@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Jailer" nameDescription="a jailer" race="undead" experience="45" speed="150" manacost="350">
-	<health now="65" max="65" />
-	<look type="298" corpse="5972" />
-	<targetchange interval="5000" chance="8" />
-		<flags>
-		<flag summonable="1" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag isblockable="1" />
-		<flag illusionable="1" />
-		<flag convinceable="0" />
-		<flag pushable="1" />
-		<flag canpushitems="0" />
-		<flag canpushcreatures="0" />
-		<flag targetdistance="0" />
-		<flag staticattack="90" />
-		<flag runonhealth="0" />
+<monster name="Jailer" nameDescription="Jailer" race="undead" experience="45" speed="150">
+	<health now="65" max="65"/>
+	<look type="298" corpse="5972"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag isblockable="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="0"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-200" />

@@ -38,7 +38,7 @@
 		<item name="plate armor" chance="5900" />
 		<item name="brass legs" chance="2950" />
 		<item name="plate legs" chance="4830" />
-		<item id="2667" countmax="1" chance="29760" />			<!-- FISH -->
+		<item id="2667" chance="29760" />			<!-- FISH -->
 		<item name="great health potion" chance="10190" />
 		<item name="orc tooth" chance="1340" />
 		<item name="warrior helmet" chance="10190" />

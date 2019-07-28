@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Deep Terror" nameDescription="deep terror" race="blood" experience="35000" speed="200" manacost="0" script="boss.lua">
+<monster name="Deep Terror" nameDescription="Deep Terror" race="blood" experience="35000" speed="200">
 	<health now="100000" max="100000"/>
 	<look type="676" corpse="24269"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -17,7 +16,11 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 		<flag rewardboss="1"/>
-	<flag canwalkonenergy="1"/><flag canwalkonfire="1"/><flag canwalkonpoison="1"/><flag preyable="0"/></flags>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+		<flag preyable="0"/>
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="130" attack="100"/>
 		<attack name="physical" interval="2000" chance="32" radius="8" target="0" min="-200" max="-400">

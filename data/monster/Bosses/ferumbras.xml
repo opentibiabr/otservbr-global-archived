@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ferumbras" nameDescription="Ferumbras" race="venom" experience="12000" speed="320" manacost="0" script="boss.lua">
+<monster name="Ferumbras" nameDescription="Ferumbras" race="venom" experience="12000" speed="320">
 	<health now="50000" max="50000"/>
 	<look type="229" corpse="6078"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -18,7 +18,6 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="2500"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-350"/>
 		<attack name="manadrain" interval="2000" chance="20" range="7" min="-500" max="-700">

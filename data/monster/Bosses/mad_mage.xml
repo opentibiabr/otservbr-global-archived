@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mad Mage" nameDescription="a mad mage" race="blood" experience="1800" speed="240" manacost="0" script="boss.lua">
+<monster name="Mad Mage" nameDescription="a mad mage" race="blood" experience="1800" speed="240">
 	<health now="2500" max="2500"/>
 	<look type="394" corpse="13603"/>
 	<targetchange interval="5000" chance="30"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -18,7 +18,6 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-30"/>
 		<attack name="fire" interval="1000" chance="12" range="7" target="1" min="0" max="-200">

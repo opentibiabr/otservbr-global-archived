@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Tanjis" nameDescription="Tanjis" race="blood" experience="15000" speed="560" manacost="0" script="boss.lua">
+<monster name="Tanjis" nameDescription="Tanjis" race="blood" experience="15000" speed="560">
 	<health now="30000" max="30000"/>
 	<look type="446" corpse="15228"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -17,7 +17,6 @@
 		<flag targetdistance="0"/>
 		<flag runonhealth="60"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-600"/>
 		<attack name="manadrain" interval="2500" chance="20" range="7" radius="4" target="1" min="-200" max="-600">

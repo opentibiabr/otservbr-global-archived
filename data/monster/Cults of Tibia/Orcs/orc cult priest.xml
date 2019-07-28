@@ -45,7 +45,7 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="176" chance="100000" />
-		<item name="strong health potion" countmax="1" chance="16340" />
+		<item name="strong health potion" chance="16340" />
 		<item name="small ruby" countmax="6" chance="12870" />
 		<item name="black pearl" chance="1980" />
 		<item name="cultish robe" chance="18870" />

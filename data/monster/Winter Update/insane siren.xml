@@ -21,7 +21,7 @@
 		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-0" max="-530"/>
+		<attack name="melee" interval="2000" min="0" max="-530"/>
 		<attack name="fire" interval="2000" chance="50" length="3" spread="0" min="-270" max="-710">
 		<attribute key="areaEffect" value="FIREAREA"/>
 		</attack>
@@ -53,20 +53,19 @@
 		<voice sentence="Dream or nightmare?"/>
 	</voices>
 	<loot>
-<item name="Platinum Coin" countmin="1" countmax="12" chance="100000"/>
-
-<item name="Ultimate Health Potion" chance="14970"/>
-<item name="Miraculum" chance="13090"/>
-<item name="Dream Essence Egg" chance="11980"/>
-<item name="Wand of Draconia" chance="7700"/>
-<item name="Holy Orchid" chance="5650"/>
-<item name="Magma Amulet" chance="5130"/>
-<item name="Wand of Inferno" chance="4360"/>
-<item name="Fire Axe" chance="3590"/>
-<item name="Magma Coat" chance="3340"/>
-<item name="Wand of Dragonbreath" chance="2650"/>
-<item name="Sun Fruit" chance="2570"/>
-<item name="Magma Legs" chance="1200"/>
-<item name="Magma Monocle" chance="260"/>
-</loot>
+		<item name="Platinum Coin" countmax="12" chance="100000"/>
+		<item name="Ultimate Health Potion" chance="14970"/>
+		<item name="Miraculum" chance="13090"/>
+		<item name="Dream Essence Egg" chance="11980"/>
+		<item name="Wand of Draconia" chance="7700"/>
+		<item name="Holy Orchid" chance="5650"/>
+		<item name="Magma Amulet" chance="5130"/>
+		<item name="Wand of Inferno" chance="4360"/>
+		<item name="Fire Axe" chance="3590"/>
+		<item name="Magma Coat" chance="3340"/>
+		<item name="Wand of Dragonbreath" chance="2650"/>
+		<item name="Sun Fruit" chance="2570"/>
+		<item name="Magma Legs" chance="1200"/>
+		<item name="Magma Monocle" chance="260"/>
+	</loot>
 </monster>

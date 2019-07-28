@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Horned Fox" nameDescription="the Horned Fox" race="blood" experience="300" speed="210" manacost="0">
+<monster name="The Horned Fox" nameDescription="the Horned Fox" race="blood" experience="300" speed="210" >
 	<health now="265" max="265" />
 	<look type="29" corpse="5983" />
 	<targetchange interval="5000" chance="8" />

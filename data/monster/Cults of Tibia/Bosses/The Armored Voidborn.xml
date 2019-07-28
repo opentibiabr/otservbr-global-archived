@@ -21,7 +21,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-550" />
-		<attack name="death" interval="2000" chance="20" length="7" spread="5" min="-0" max="-400">
+		<attack name="death" interval="2000" chance="20" length="7" spread="5" min="0" max="-400">
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
 		<attack name="energy" interval="2000" chance="30" radius="5" min="-250" max="-440">

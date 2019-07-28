@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Knowledge Elemental" nameDescription="a knowledge elemental" race="undead" experience="12600" speed="230" manacost="0">
+<monster name="Knowledge Elemental" nameDescription="a knowledge elemental" race="undead" experience="12600" speed="230">
 	<health now="10500" max="10500"/>
 	<look type="1065" corpse="33349"/>
 	<targetchange interval="5000" chance="8"/>
-	<flags> <!-- Todas as Flags -->
-		<flag rewardboss="0"/>
-		<flag summonable="0"/>
+	<flags>
 		<flag attackable="1"/>
-		<flag passive="0"/>
 		<flag hostile="1"/>
 		<flag isblockable="0"/>
 		<flag illusionable="0"/>
@@ -23,7 +20,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="100" max="-400"/>
+		<attack name="melee" interval="2000" min="-100" max="-400"/>
 		<attack name="holy" interval="2000" chance="10" radius="3" target="1" min="-200" max="-680">
 			<attribute key="areaEffect" value="holydamage"/>
 		</attack>
@@ -52,14 +49,12 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<!-- common -->
 		<item name="Platinum Coin" countmax="9" chance="100000"/>
 		<item name="Book Page" countmax="6" chance="10000"/>
 		<item name="Small Amethyst" countmax="8" chance="10000"/>
 		<item name="Glowing Rune" countmax="3" chance="10000"/>
 		<item name="Quill" countmax="3" chance="10000"/>
 		<item name="Silken Bookmark" countmax="3" chance="10000"/>
-		<!-- uncommon -->
 		<item name="Flash Arrow" countmax="6" chance="10000"/>
 		<item name="Throwing Star" countmax="10" chance="10000"/>
 		<item name="Crystal Sword" chance="10000"/>

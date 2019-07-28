@@ -74,7 +74,7 @@
 	<loot>
 		<item name="purple tome" chance="1180" />
 		<item name="gold coin" countmax="100" chance="60000" />
-		<item name="platinum coin" countmin="3" countmax="6" chance="60000" />
+		<item name="platinum coin" countmax="6" chance="60000" />
 		<item name="small emerald" countmax="5" chance="9690" />
 		<item name="small amethyst" countmax="5" chance="7250" />
 		<item name="small ruby" countmax="5" chance="7430" />

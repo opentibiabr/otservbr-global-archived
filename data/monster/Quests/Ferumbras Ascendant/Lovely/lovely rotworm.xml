@@ -3,7 +3,6 @@
 	<health now="65" max="65"/>
 	<look type="26" corpse="5967"/>
 	<targetchange interval="2000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -39,9 +38,9 @@
 	<loot>
 		<item id="2148" countmax="17" chance="71770"/><!-- gold coin -->
 		<item id="3976" countmax="3" chance="3010"/><!-- worm -->
-		<item id="2666" countmax="1" chance="19940"/><!-- meat -->
-		<item id="10609" countmax="1" chance="9990"/><!-- lump of dirt -->
-		<item id="2671" countmax="1" chance="20130"/><!-- ham -->
+		<item id="2666" chance="19940"/><!-- meat -->
+		<item id="10609" chance="9990"/><!-- lump of dirt -->
+		<item id="2671" chance="20130"/><!-- ham -->
 		<item id="2376" chance="3110"/><!-- sword -->
 		<item id="2398" chance="4540"/><!-- mace -->
 	</loot>

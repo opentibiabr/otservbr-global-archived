@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Bibby Bloodbath" nameDescription="Bibby Bloodbath" race="blood" experience="1500" speed="240" manacost="0" script="boss.lua">
+<monster name="Bibby Bloodbath" nameDescription="Bibby Bloodbath" race="blood" experience="1500" speed="240">
 	<health now="1200" max="1200" />
 	<look type="2" corpse="6008" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
-		<flag preyable="0" />
-	    <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -18,7 +17,6 @@
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-200" />
 		<attack name="physical" interval="2000" chance="20" length="5" spread="3" min="0" max="-200">

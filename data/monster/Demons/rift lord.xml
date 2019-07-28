@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rift Lord" nameDescription="a rift lord" race="fire" experience="0" speed="200" manacost="0">
+<monster name="Rift Lord" nameDescription="a rift lord" race="fire" experience="0" speed="200" >
 	<health now="5" max="5" />
 	<look type="12" head="9" body="19" legs="9" feet="85" corpse="0" />
 	<flags>

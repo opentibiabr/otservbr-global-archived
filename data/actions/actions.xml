@@ -88,13 +88,13 @@
 	<action actionid="57234" script="quests/dangerous depth/leverBarrel.lua" />
 	<action fromaid="57300" toaid="57302" script="quests/dangerous depth/crudeLavaPump.lua"/>
 	<action actionid="57303" script="quests/dangerous depth/crudeLavaPumpAchievements.lua"/>
-	-- Used Items
+	<!-- Used Items -->
 	<action itemid="30733" script="quests/dangerous depth/gnomishPesticide.lua" />
 	<action itemid="31930" script="quests/dangerous depth/gnomeTrignometre.lua" />
 	<action itemid="31931" script="quests/dangerous depth/gnomeChart.lua" />
 	<action itemid="31993" script="quests/dangerous depth/usingCrystals.lua" />
 	<action itemid="32014" script="quests/dangerous depth/surpriseJar.lua" />
-	-- Acess Crystals
+	<!-- Access Crystals -->
 	<action fromaid="57350" toaid="57355" script="quests/dangerous depth/WarzoneVI.lua" />
 	<action fromaid="57356" toaid="57361" script="quests/dangerous depth/WarzoneV.lua" />
 	<action fromaid="57362" toaid="57367" script="quests/dangerous depth/WarzoneIV.lua" />
@@ -283,23 +283,23 @@
 	<action itemid="24730" script="quests/grimvale/closedSilveredTrap.lua" />
 
 	<!-- Halls of Hope -->
-    <action fromuid="17391" touid="17395" script="quests/halls of hope/rewards.lua"/>
+	<action fromuid="17391" touid="17395" script="quests/halls of hope/rewards.lua"/>
 
 	<!-- Heart of Destruction Quest -->
-	<action itemid="26165" script="quests/heart of destruction//mysteriousRemains.lua" />
-    <action itemid="26342" script="quests/heart of destruction/devourerAcess.lua"/>
-    <action itemid="26194" script="quests/heart of destruction//sparkionEggs.lua"/>
-    <action fromid="26340" toid="26341" script="quests/heart of destruction//sparkionEggs.lua"/>
-    <action actionid="14320" script="quests/heart of destruction/chargesLever.lua"/>
-    <action actionid="14325" script="quests/heart of destruction/anomalyLever.lua"/>
-    <action actionid="14326" script="quests/heart of destruction/cracklersLever.lua"/>
-    <action actionid="14327" script="quests/heart of destruction/ruptureLever.lua"/>
-    <action actionid="14328" script="quests/heart of destruction/sparksLever.lua"/>
-    <action actionid="14329" script="quests/heart of destruction/quakeLever.lua"/>
-    <action actionid="14330" script="quests/heart of destruction/eradicatorLever.lua"/>
-    <action actionid="14331" script="quests/heart of destruction/outburstLever.lua"/>
-    <action actionid="14332" script="quests/heart of destruction/finalLever.lua"/>
-    <action uniqueid="9600" script="quests/heart of destruction/reward.lua"/>
+	<action itemid="26165" script="quests/heart of destruction/mysteriousRemains.lua" />
+	<action itemid="26342" script="quests/heart of destruction/devourerAcess.lua"/>
+	<action itemid="26194" script="quests/heart of destruction/sparkionEggs.lua"/>
+	<action fromid="26340" toid="26341" script="quests/heart of destruction/sparkionEggs.lua"/>
+	<action actionid="14320" script="quests/heart of destruction/chargesLever.lua"/>
+	<action actionid="14325" script="quests/heart of destruction/anomalyLever.lua"/>
+	<action actionid="14326" script="quests/heart of destruction/cracklersLever.lua"/>
+	<action actionid="14327" script="quests/heart of destruction/ruptureLever.lua"/>
+	<action actionid="14328" script="quests/heart of destruction/sparksLever.lua"/>
+	<action actionid="14329" script="quests/heart of destruction/quakeLever.lua"/>
+	<action actionid="14330" script="quests/heart of destruction/eradicatorLever.lua"/>
+	<action actionid="14331" script="quests/heart of destruction/outburstLever.lua"/>
+	<action actionid="14332" script="quests/heart of destruction/finalLever.lua"/>
+	<action uniqueid="9600" script="quests/heart of destruction/reward.lua"/>
 
 	<!-- Hero of Rathleton Quest -->
 	<action actionid="24860" script="quests/hero of rathleton/accessDoor.lua" />
@@ -367,7 +367,7 @@
 	<action itemid="23835" script="quests/lions rock/lionRock.lua" />
 	<action itemid="10551" script="quests/lions rock/lionRock.lua" />
 	<action fromaid="41354" toaid="41357" script="quests/lions rock/lionRock.lua" />
-    <action actionid="41345" script="quests/lions rock/lionRock.lua" />
+	<action actionid="41345" script="quests/lions rock/lionRock.lua" />
 
 	<!-- Lower Roshamuul Quest -->
 	<action itemid="22387" script="quests/lower roshamuul/mixture.lua" />
@@ -431,6 +431,7 @@
 	<action fromid="22614" toid="22615" script="others/transform.lua"/>
 	<action fromid="24809" toid="24810" script="others/transform.lua"/>
 	<action fromid="25420" toid="25421" script="others/transform.lua"/>
+	<action itemid="3900" script="others/watch.lua" />
 	<action itemid="2036" script="others/watch.lua" />
 	<action fromid="1728" toid="1731" script="others/watch.lua" />
 	<action itemid="2579" script="others/trap.lua" />
@@ -490,7 +491,7 @@
 	<action fromid="8541" toid="8558" script="others/doors/doors.lua" />
 	<action fromid="9165" toid="9184" script="others/doors/doors.lua" />
 	<action fromid="9267" toid="9284" script="others/doors/doors.lua" />
-	<action itemid="10032" 				script="others/doors/doors.lua" />
+	<action itemid="10032" script="others/doors/doors.lua" />
 	<action fromid="10268" toid="10285" script="others/doors/doors.lua" />
 	<action fromid="10468" toid="10486" script="others/doors/doors.lua" />
 	<action fromid="10775" toid="10777" script="others/doors/doors.lua" />
@@ -519,7 +520,10 @@
 	<action itemid="7739" script="others/objects/costumeBags.lua" />
 	<action itemid="9076" script="others/objects/costumeBags.lua" />
 	<action itemid="13941" script="others/objects/cupOfMoltenGold.lua" />
-    <action fromid="32384" toid="32389" script="others/objects/exerciseTraining.lua" allowfaruse="1"/>
+	<action fromid="32384" toid="32386" script="others/objects/exerciseTraining.lua"/>
+	<action fromid="32387" toid="32389" script="others/objects/exerciseTraining.lua" allowfaruse="1"/>
+	<action fromid="32124" toid="32126" script="others/objects/exerciseTraining.lua"/>
+	<action fromid="32127" toid="32129" script="others/objects/exerciseTraining.lua" allowfaruse="1"/>
 	<action itemid="6576" script="others/objects/fireworksRocket.lua" />
 	<action itemid="26347" script="others/objects/fishTank.lua"/>
 	<action itemid="23574" script="others/objects/gloothBag.lua"/>
@@ -567,8 +571,8 @@
 	<action itemid="2146" script="others/shrines/iceFeyristEntrance.lua" />
 	<action itemid="2147" script="others/shrines/fireFeyristEntrance.lua" />
 	<action itemid="2149" script="others/shrines/earthFeyristEntrance.lua" />
-    <action itemid="2150" script="others/shrines/energyFeyristEntrance.lua" />
-    <action fromaid="24999" toaid="25002" script="others/shrines/feyristExit.lua" />
+	<action itemid="2150" script="others/shrines/energyFeyristEntrance.lua" />
+	<action fromaid="24999" toaid="25002" script="others/shrines/feyristExit.lua" />
 	<action fromid="7759" toid="7762" script="others/enchanting.lua" />
 
 	<!-- Pits Of Inferno Quest -->
@@ -595,8 +599,8 @@
 	<action actionid="30492" script="rookgaard/chest.lua" />
 
 	<!-- Roshamuul -->
-    <action fromid="22604" toid="22606" script="roshamuul/prison/keys.lua"/>
-    <action itemid="22607" script="roshamuul/prison/golden.lua"/>
+	<action fromid="22604" toid="22606" script="roshamuul/prison/keys.lua"/>
+	<action itemid="22607" script="roshamuul/prison/golden.lua"/>
 
 	<!-- Rookgaard -->
 	<action actionid="50239" script="rookgaard/SewerLever.lua" />
@@ -682,19 +686,19 @@
 	<action itemid="27095" script="others/carpets.lua"/> <!-- fur carpet -->
 	<action itemid="27088" script="others/carpets.lua"/> <!-- diamond carpet -->
 	<action itemid="27096" script="others/carpets.lua"/> <!-- diamond carpet -->
-    <action itemid="27089" script="others/carpets.lua"/> <!-- patterned carpet -->
+	<action itemid="27089" script="others/carpets.lua"/> <!-- patterned carpet -->
 	<action itemid="27097" script="others/carpets.lua"/> <!-- patterned carpet -->
 	<action itemid="27090" script="others/carpets.lua"/> <!-- night sky carpet -->
 	<action itemid="27098" script="others/carpets.lua"/> <!-- night sky carpet -->
-    <action itemid="27091" script="others/carpets.lua"/> <!-- star carpet -->
+	<action itemid="27091" script="others/carpets.lua"/> <!-- star carpet -->
 	<action itemid="27099" script="others/carpets.lua"/> <!-- star carpet -->
 	<action itemid="29349" script="others/carpets.lua"/> <!-- verdant carpet -->
 	<action itemid="29350" script="others/carpets.lua"/> <!-- verdant carpet -->
-    <action itemid="29351" script="others/carpets.lua"/> <!-- shaggy carpet -->
+	<action itemid="29351" script="others/carpets.lua"/> <!-- shaggy carpet -->
 	<action itemid="29352" script="others/carpets.lua"/> <!-- shaggy carpet -->
 	<action itemid="29353" script="others/carpets.lua"/> <!-- mystic carpet -->
 	<action itemid="29354" script="others/carpets.lua"/> <!-- mystic carpet -->
-    <action itemid="29355" script="others/carpets.lua"/> <!-- stone tile -->
+	<action itemid="29355" script="others/carpets.lua"/> <!-- stone tile -->
 	<action itemid="29356" script="others/carpets.lua"/> <!-- stone tile -->
 	<action itemid="29357" script="others/carpets.lua"/> <!-- stone tile -->
 	<action itemid="29358" script="others/carpets.lua"/> <!-- stone tile -->

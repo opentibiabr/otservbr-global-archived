@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Countess Sorrow" nameDescription="Countess Sorrow" race="undead" experience="13000" speed="200" manacost="0">
+<monster name="Countess Sorrow" nameDescription="Countess Sorrow" race="undead" experience="13000" speed="200" >
 	<health now="6500" max="6500"/>
 	<look type="241" head="20" corpse="6344"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0"/>
 		<flag summonable="0"/>
@@ -71,8 +70,8 @@
 	<loot>
 		<item id="6536" chance="100000"/><!-- countess sorrow's frozen tear -->
 		<item id="6500" chance="20590"/><!-- demonic essence -->
-		<item id="2148" countmin="3" countmax="169" chance="82350"/><!-- gold coin -->
-		<item id="2152" countmin="2" countmax="4" chance="55880"/><!-- platinum coin -->
+		<item id="2148" countmax="169" chance="82350"/><!-- gold coin -->
+		<item id="2152" countmax="4" chance="55880"/><!-- platinum coin -->
 		<item id="5944" chance="85290"/><!-- soul orb -->
 		<item id="2656" chance="32350"/><!-- blue robe -->
 		<item id="2424" chance="4210"/><!-- silver mace -->

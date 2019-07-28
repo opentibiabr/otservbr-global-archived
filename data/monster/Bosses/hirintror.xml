@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Hirintror" nameDescription="Hirintror" race="undead" experience="800" speed="190" manacost="0" script="boss.lua">
+<monster name="Hirintror" nameDescription="Hirintror" race="undead" experience="800" speed="190">
 	<health now="1500" max="1500"/>
 	<look type="261" corpse="7282"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -20,7 +19,6 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" skill="140" attack="40"/>
 		<attack name="hirintror freeze" interval="2000" chance="15"/>
@@ -55,7 +53,6 @@
 	<loot>
 		<item id="21697" chance="200" /><!-- runic shieldd -->
 		<item id="2148" countmax="100" chance="70000" /><!-- gold coin -->
-
 		<item id="21400" chance="200" /><!-- silver token -->
 		<item id="21696" chance="200" /><!-- icicle bow -->
 		<item id="2479" chance="1200" /><!-- runic shieldd -->
@@ -70,7 +67,5 @@
 		<item id="7588" countmax="5" chance="2000" /><!-- Strong Health Potions -->
 		<item id="2145" countmax="5" chance="2000" /><!-- Small Diamonds -->
 		<item id="2152" chance="20000" /><!-- Platinum Coin -->
-
-
 	</loot>
 </monster>

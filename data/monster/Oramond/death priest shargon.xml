@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Death Priest Shargon" nameDescription="a death priest shargon" race="blood" experience="20000" speed="340" manacost="0">
+<monster name="Death Priest Shargon" nameDescription="a death priest shargon" race="blood" experience="20000" speed="340" >
 	<health now="65000" max="65000"/>
 	<look type="278" corpse="23494" addons="3"/>
 	<targetchange interval="5000" chance="8"/>
