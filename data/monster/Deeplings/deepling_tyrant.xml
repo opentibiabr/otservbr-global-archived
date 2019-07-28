@@ -57,5 +57,6 @@
 		<item name="foxtail" chance="80"/>
 		<item name="deepling backpack" chance="510"/>
 		<item name="deepling squelcher" chance="1540"/>
-	</loot>
+		<item name="ornate crossbow" chance="850"/>
+         </loot>
 </monster>
