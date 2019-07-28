@@ -12,7 +12,6 @@ function onKill(creature, target, item)
 
 	if(isInArray({'cult enforcer', 'cult believer', 'cult scholar'}, cName)) then
 		local posCorpo = target:getPosition()
-		math.randomseed(os.time())
 		local rand = math.random(1,2)
 		if rand == 1 then
 			Game.createItem(26140, 1, posCorpo):setActionId(5580)

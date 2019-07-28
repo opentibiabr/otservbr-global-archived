@@ -1,4 +1,3 @@
-math.randomseed(os.time())
 function cairNoChao(pid, id)
 	local chance = math.random(0, 100)
 	local player = Player(pid)
