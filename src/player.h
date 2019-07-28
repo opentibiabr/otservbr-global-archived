@@ -1366,8 +1366,6 @@ class Player final : public Creature, public Cylinder
 			return idleTime;
 		}
 
-		void doCriticalDamage(CombatDamage& damage) const;
-
 		void onEquipImbueItem(Imbuement* imbuement);
 		void onDeEquipImbueItem(Imbuement* imbuement);
 
