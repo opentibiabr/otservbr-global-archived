@@ -58,6 +58,8 @@ class Spells final : public BaseEvents
 		static Position getCasterPosition(Creature* creature, Direction dir);
 		std::string getScriptBaseName() const override;
 
+		std::list<uint16_t> getSpellsByVocation(uint16_t vocationId);
+
 		const std::map<std::string, InstantSpell>& getInstantSpells() const {
 			return instants;
 		};

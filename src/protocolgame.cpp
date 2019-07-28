@@ -35,8 +35,9 @@
 #include "waitlist.h"
 #include "ban.h"
 #include "scheduler.h"
-#include "imbuements.h"
 #include "modules.h"
+#include "spells.h"
+#include "imbuements.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -44,6 +45,7 @@ extern Actions actions;
 extern CreatureEvents* g_creatureEvents;
 extern Chat* g_chat;
 extern Modules* g_modules;
+extern Spells* g_spells;
 extern Imbuements* g_imbuements;
 
 void ProtocolGame::release()
@@ -1470,9 +1472,10 @@ void ProtocolGame::sendBasicData()
 		msg.addByte(1); // has reached Main (allow player to open Prey window)
 	}
 
-	msg.add<uint16_t>(0xFF); // number of known spells
-	for (uint8_t spellId = 0x00; spellId < 0xFF; spellId++) {
-		msg.addByte(spellId);
+	std::list<uint16_t> spellsList = g_spells->getSpellsByVocation(player->getVocationId());
+	msg.add<uint16_t>(spellsList.size());
+	for (uint8_t sid : spellsList) {
+		msg.addByte(sid);
 	}
 	writeToOutputBuffer(msg);
 }
