@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dharalion" nameDescription="Dharalion" race="blood" experience="570" speed="240" manacost="0">
+<monster name="Dharalion" nameDescription="Dharalion" race="blood" experience="570" speed="240" >
 	<health now="380" max="380"/>
 	<look type="203" corpse="6011"/>
 	<targetchange interval="5000" chance="8"/>
@@ -60,7 +60,7 @@
 		<item id="2148" countmax="20" chance="100000"/><!-- gold coin -->
 		<item id="2260" chance="4000"/><!-- blank rune -->
 		<item id="2682" chance="6666"/><!-- melon -->
-		<item id="2802" countmax="1" chance="10000"/><!-- sling herb -->
+		<item id="2802" chance="10000"/><!-- sling herb -->
 		<item id="2177" chance="2857"/><!-- life crystal -->
 		<item id="2689" countmax="3" chance="20000"/><!-- bread -->
 		<item id="2652" chance="5000"/><!-- green tunic -->

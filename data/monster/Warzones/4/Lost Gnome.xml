@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lost Gnome" nameDescription="a lost gnome" race="blood" experience="0" speed="200" manacost="0">
+<monster name="Lost Gnome" nameDescription="a lost gnome" race="blood" experience="0" speed="200" >
 	<health now="10000" max="10000" />
 	<look type="493" head="10" body="32" legs="15" feet="7" />
 	<targetchange interval="5000" chance="8" />

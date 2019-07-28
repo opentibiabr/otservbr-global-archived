@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Tarbaz" nameDescription="tarbaz" race="undead" experience="50000" speed="320" manacost="0" script="boss.lua">
+<monster name="Tarbaz" nameDescription="tarbaz" race="undead" experience="50000" speed="320">
 	<health now="290000" max="290000" />
-        <look type="842" head="0" body="21" legs="19" feet="3" addons="2" corpse="25151" />
+	<look type="842" head="0" body="21" legs="19" feet="3" addons="2" corpse="25151" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,7 +17,10 @@
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 		<flag rewardboss="1" />
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-1000" max="-2000"/>
 		<attack name="fire" interval="3000" chance="20" length="10" spread="0" min="-500" max="-1000">

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dragon Warden" nameDescription="a dragon warden" race="blood" experience="4600" speed="320" manacost="0">
+<monster name="Dragon Warden" nameDescription="a dragon warden" race="blood" experience="4600" speed="320" >
 <health now="2800" max="2800"/>
 <look type="947" head="5" body="5" legs="8" feet="8" corpse="27854"/>
   <targetchange interval="2000" chance="5" />
-  <strategy attack="70" defense="10" />
   <flags>
     <flag summonable="0" />
     <flag attackable="1" />

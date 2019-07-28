@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Corrupted Soul" nameDescription="a corrupted soul" race="undead" experience="1300" speed="210" manacost="0">
+<monster name="Corrupted Soul" nameDescription="a corrupted soul" race="undead" experience="1300" speed="210" >
 	<health now="1100" max="1100"/>
 	<look type="355" corpse="0"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

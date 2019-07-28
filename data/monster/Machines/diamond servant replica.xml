@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Diamond Servant Replica" nameDescription="a diamond servant replica" race="energy" experience="700" speed="86" manacost="0">
+<monster name="Diamond Servant Replica" nameDescription="a diamond servant replica" race="energy" experience="700" speed="86" >
 	<health now="2000" max="2000"/>
 	<look type="397" corpse="13485"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

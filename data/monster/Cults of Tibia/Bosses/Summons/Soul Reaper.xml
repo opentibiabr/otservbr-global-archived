@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Soul Reaper" nameDescription="a soul reaper" race="energy" experience="2200" speed="290" manacost="0">
+<monster name="Soul Reaper" nameDescription="a soul reaper" race="energy" experience="2200" speed="290" >
 	<health now="3500" max="3500"/>
 	<look type="878" corpse="26209"/>
 	<targetchange interval="2000" chance="20"/>

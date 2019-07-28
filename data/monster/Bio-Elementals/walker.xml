@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Walker" nameDescription="a walker" race="energy" experience="2200" speed="150" manacost="0">
+<monster name="Walker" nameDescription="a walker" race="energy" experience="2200" speed="150" >
 	<health now="3000" max="3000"/>
 	<look type="605" corpse="23343"/>
   <targetchange interval="2000" chance="5"/>
-  <strategy attack="100" defense="0"/>
   <flags>
     <flag summonable="0"/>
     <flag attackable="1"/>

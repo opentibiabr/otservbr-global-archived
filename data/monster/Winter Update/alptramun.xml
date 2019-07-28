@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Alptramun" nameDescription="a Alptramun" race="blood" experience="15" speed="250" manacost="0">
+<monster name="Alptramun" nameDescription="a Alptramun" race="blood" experience="15" speed="250" >
 	<health now="22" max="22" />
 	<look type="1143" corpse="34793" />
 	<targetchange interval="4000" chance="10" />
@@ -47,45 +47,45 @@
 	</immunities>
 	<loot>
 <!--every-->
-<item name="silver token" count="5" chance="100000000" />
+<item name="silver token" countmax="5" chance="100000000" />
 <item name="skull staff" countmax="5" chance="100000000" />
 <item name="energy bar" countmax="5" chance="100000000" />
-<item name="Purple Tendril Lantern"  chance="100000000" />
-<item name="crystal coin"  countmax="2" chance="100000000" />
+<item name="Purple Tendril Lantern" chance="100000000" />
+<item name="crystal coin" countmax="2" chance="100000000" />
 <item name="blue gem" chance="100000000" />
 <!--common-->
 <item name="platinum coin" countmax="5" chance="29580" />
-<item name="supreme health potion"  countmax="20" chance="21540" />
-<item name="ultimate spirit potion"  countmax="20" chance="22540" />
-<item name="royal star"  countmax="100" chance="26540" />
+<item name="supreme health potion" countmax="20" chance="21540" />
+<item name="ultimate spirit potion" countmax="20" chance="22540" />
+<item name="royal star" countmax="100" chance="26540" />
 <item id="7632" chance="28540" /> <!-- Giant Shimmering Pearl -->
 <!--semi-rare-->
-<item name="Gold Token" count="2" chance="15000" />
+<item name="Gold Token" countmax="2" chance="15000" />
 <item name="berserk potion" countmax="10" chance="8050" />
 <item name="bullseye potion" countmax="10" chance="6780" />
-<item id="26198"  chance="23520" />  <!--collar of blue plasma -->
-<item id="26200"  chance="10590" />  <!-- collar of red plasma -->
-<item name="Gold Ingot"  chance="7630" />
-<item name="Huge Chunk of Crude Iron"  chance="8900" />
-<item name="Mysterious Remains"  chance="90000" />
-<item name="Piggy Bank" count="4"  chance="13770" />
-<item name="green gem"  chance="2740" />
-<item name="red gem"  chance="2580" />
+<item id="26198" chance="23520" />  <!--collar of blue plasma -->
+<item id="26200" chance="10590" />  <!-- collar of red plasma -->
+<item name="Gold Ingot" chance="7630" />
+<item name="Huge Chunk of Crude Iron" chance="8900" />
+<item name="Mysterious Remains" chance="90000" />
+<item name="Piggy Bank" countmax="4" chance="13770" />
+<item name="green gem" chance="2740" />
+<item name="red gem" chance="2580" />
 <!--rare-->
-<item name="Crunor Idol"  chance="2640" />
-<item name="Giant Ruby"  chance="2840" />
-<item name="Magic Sulphur"  chance="2740" />
-<item name="yellow gem"  chance="2900" />
-<item name="mastermind potion" count="10" chance="2900" />
-<item name="violet gem"  chance="1500" />
+<item name="Crunor Idol" chance="2640" />
+<item name="Giant Ruby" chance="2840" />
+<item name="Magic Sulphur" chance="2740" />
+<item name="yellow gem" chance="2900" />
+<item name="mastermind potion" countmax="10" chance="2900" />
+<item name="violet gem" chance="1500" />
 <!--very rare-->
-<item name="Alptramun's Toothbrush"  chance="520" />
-<item name="Dream Shroud"  chance="620" />
-<item name="Pair of Dreamwalkers"  chance="720" />
-<item name="Soul Stone"  chance="820" />
-<item id="26185"  chance="10590" />  <!-- ring of blue plasma -->
-<item name="Pomegranate"  chance="880" />
-<item name="Dream Shroud"  chance="980" />
-<item id="26186"  chance="10590" />  <!-- ring of red plasma -->
+<item name="Alptramun's Toothbrush" chance="520" />
+<item name="Dream Shroud" chance="620" />
+<item name="Pair of Dreamwalkers" chance="720" />
+<item name="Soul Stone" chance="820" />
+<item id="26185" chance="10590" />  <!-- ring of blue plasma -->
+<item name="Pomegranate" chance="880" />
+<item name="Dream Shroud" chance="980" />
+<item id="26186" chance="10590" />  <!-- ring of red plasma -->
 	</loot>
 </monster>

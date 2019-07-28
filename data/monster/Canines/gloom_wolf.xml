@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Gloom Wolf" nameDescription="a gloom wolf" race="blood" experience="70" speed="125" manacost="255">
+<monster name="Gloom Wolf" nameDescription="a gloom wolf" race="blood" experience="70" speed="125">
 	<health now="200" max="200"/>
 	<look type="716" corpse="24639"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="1"/>
-		<flag convinceable="1"/>
+		<flag convinceable="0"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
@@ -20,7 +20,7 @@
 		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-120"/>
+		<attack name="melee" interval="2000" min="0" max="-92"/>
 	</attacks>
 	<defenses armor="5" defense="5"/>
 	<elements>

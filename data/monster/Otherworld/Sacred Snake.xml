@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Sacred Snake" nameDescription="a sacred snake" race="blood" experience="0" speed="60" manacost="205">
+<monster name="Sacred Snake" nameDescription="a sacred snake" race="blood" experience="0" speed="60">
 	<health now="10" max="10"/>
 	<look type="28" corpse="2817"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
+		<flag illusionable="0"/>
 		<flag convinceable="0"/>
-		<flag pushable="1"/>
+		<flag pushable="0"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
@@ -26,6 +26,4 @@
 		<element firePercent="-10"/>
 		<element icePercent="-10"/>
 	</elements>
-	<loot>
-	</loot>
 </monster>

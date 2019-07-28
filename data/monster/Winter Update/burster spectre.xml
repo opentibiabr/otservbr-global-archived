@@ -54,7 +54,7 @@
 	</voices>
 	<loot>
 <!--common-->
-<item name="platinum coin" count="7" chance="100000"/>
+<item name="platinum coin" countmax="7" chance="100000"/>
 <item name="great spirit potion" countmax="3" chance="100000"/>
 <!--uncommon-->
 <item name="protection amulet" chance="15000"/>

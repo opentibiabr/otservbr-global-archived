@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lost Exile" nameDescription="a lost exile" race="blood" experience="1800" speed="170" manacost="0">
+<monster name="Lost Exile" nameDescription="a lost exile" race="blood" experience="1800" speed="170" >
 	<health now="1600" max="1600" />
 	<look type="537" corpse="33430" />
 	<targetchange interval="5000" chance="10" />
@@ -57,40 +57,40 @@
 	</voices>
 	<loot>
 	<!--Sempre-->
-		<item name="gold coin" count="200" chance="100000" />
-		<item name="platinum coin" count="2" chance="60240" />
-		<item name="strong health potion" count="2" chance="10950" />
-		<item name="great mana potion" count="2" chance="8330" />
-		<item name="brown mushroom" count="2" chance="16900" />
-		<item id="13757"  chance="13100" /> <!--coal-->
-		<item name="holy ash"  chance="13100" />
-		<item name="small topaz"  chance="10240" />
-		<item name="lost husher's staff"  chance="6900" />
-		<item name="skull shatterer"  chance="7620" />
-		<item name="wimp tooth chain"  chance="11900" />
-		<item name="red hair dye"  chance="12620" />
-		<item name="basalt fetish"  chance="8100" />
-		<item name="bonecarving knife"  chance="8100" />
-		<item name="basalt figurine"  chance="8100" />
-		<item name="bone fetish"  chance="8881" />
+		<item name="gold coin" countmax="200" chance="100000" />
+		<item name="platinum coin" countmax="2" chance="60240" />
+		<item name="strong health potion" countmax="2" chance="10950" />
+		<item name="great mana potion" countmax="2" chance="8330" />
+		<item name="brown mushroom" countmax="2" chance="16900" />
+		<item id="13757" chance="13100" /> <!--coal-->
+		<item name="holy ash" chance="13100" />
+		<item name="small topaz" chance="10240" />
+		<item name="lost husher's staff" chance="6900" />
+		<item name="skull shatterer" chance="7620" />
+		<item name="wimp tooth chain" chance="11900" />
+		<item name="red hair dye" chance="12620" />
+		<item name="basalt fetish" chance="8100" />
+		<item name="bonecarving knife" chance="8100" />
+		<item name="basalt figurine" chance="8100" />
+		<item name="bone fetish" chance="8881" />
 
 			<!--semi raro-->
-			<item name="dwarven ring"  chance="1043" />
+			<item name="dwarven ring" chance="1043" />
 
 				<!--raro-->
-				<item name="guardian shield"  chance="1430" />
-				<item name="buckle"  chance="1900" />
-				<item name="clay lump"  chance="710" />
-				<item name="knight axe"  chance="950" />
-				<item name="terra boots"  chance="240" />
-				<item name="suspicious device"  chance="250" />
+				<item name="guardian shield" chance="1430" />
+				<item name="buckle" chance="1900" />
+				<item name="clay lump" chance="710" />
+				<item name="knight axe" chance="950" />
+				<item name="terra boots" chance="240" />
+				<item name="suspicious device" chance="250" />
 
 					<!--muito raro-->
-					<item name="tower shield"  chance="240" />
-					<item name="terra legs"  chance="240" />
-					<item name="fire axe"  chance="710" />
-					<item name="skull staff"  chance="480" />
-					<item name="spiked squelcher"  chance="240" />
+					<item name="tower shield" chance="240" />
+					<item name="terra legs" chance="240" />
+					<item name="fire axe" chance="710" />
+					<item name="skull staff" chance="480" />
+					<item name="spiked squelcher" chance="240" />
 
 
 

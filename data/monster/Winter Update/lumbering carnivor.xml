@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lumbering Carnivor" nameDescription="a Lumbering Carnivor" race="blood" experience="2200" speed="200" manacost="0">
+<monster name="Lumbering Carnivor" nameDescription="a Lumbering Carnivor" race="blood" experience="2200" speed="200" >
 	<health now="2600" max="2600"/>
 	<look type="1139" head="79" body="119" legs="57" feet="85" addons="1" corpse="34703"/>
 	<targetchange interval="4000" chance="10"/>
@@ -37,25 +37,21 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-<loot>
-<!--common-->
-<item name="platinum coin" countmin="0" countmax="3" chance="100000"/>
-<item name="Blue Glass Plate" countmin="0" countmax="3" chance="100000"/>
-<!--uncommon-->
-<item id="2376" chance="15000"/> <!--sword-->
-<item name="Axe" chance="11550"/>
-<item name="Ice Rapier" chance="13550"/>
-<!--semi-rare-->
-<item id="7632" chance="25100"/>  <!--Giant Shimmering Pearlz-->
-<item name="Violet Gem" chance="25000"/>
-<item name="Green Gem" chance="12800"/>
-<item name="Blue Gem" chance="12000"/>
-<item name="Two Handed Sword" chance="30000"/>
-<item name="Blue Robe" chance="13050"/>
-<item name="Glorious Axe" chance="12800"/>
-<item name="Green Crystal Shard" chance="12000"/>
-<item name="Fur Armor" chance="25000"/>
-<!--rare-->
-<item name="Focus Cape" chance="800"/>
-</loot>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="Blue Glass Plate" countmax="3" chance="100000"/>
+		<item id="2376" chance="15000"/> <!--sword-->
+		<item name="Axe" chance="11550"/>
+		<item name="Ice Rapier" chance="13550"/>
+		<item id="7632" chance="25100"/> <!--Giant Shimmering Pearlz-->
+		<item name="Violet Gem" chance="25000"/>
+		<item name="Green Gem" chance="12800"/>
+		<item name="Blue Gem" chance="12000"/>
+		<item name="Two Handed Sword" chance="30000"/>
+		<item name="Blue Robe" chance="13050"/>
+		<item name="Glorious Axe" chance="12800"/>
+		<item name="Green Crystal Shard" chance="12000"/>
+		<item name="Fur Armor" chance="25000"/>
+		<item name="Focus Cape" chance="800"/>
+	</loot>
 </monster>

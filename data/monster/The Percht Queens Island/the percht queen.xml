@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Percht Queen" nameDescription="an the percht queen" race="undead" experience="500" speed="0">
+<monster name="The Percht Queen" nameDescription="The Percht Queen" race="undead" experience="500" speed="0">
 	<health now="2300" max="2300" />
 	<look typeex="35168" corpse="35101" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag preyable="0" />
-		<flag summonable="1" />
+		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
-		<flag illusionable="1" />
-		<flag convinceable="1" />
-		<flag pushable="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 	</flags>
-<attacks>
+	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-200" />
-
 		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
 			<attribute key="shootEffect" value="ice" />
 		</attack>
@@ -39,28 +38,26 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<!-- common -->
 		<item name="Piggy Bank" chance="80000" />
-		<item name="Royal Star" count="100" chance="80000" />
-		<item name="Platinum Coin" count="5" chance="80000" />
+		<item name="Royal Star" countmax="100" chance="80000" />
+		<item name="Platinum Coin" countmax="5" chance="80000" />
 		<item name="Energy Bar" chance="75000" />
 		<item name="Supreme Health Potion" countmax="20" chance="65000" />
 		<item name="Huge Chunk of Crude Iron" chance="64000" />
 		<item name="Mysterious Remains" chance="63000" />
-		<item name="Ultimate Spirit Potion" countmin="6" countmax="20" chance="62000" />
-		<item name="Ultimate Mana Potion" countmin="6" countmax="20" chance="61000" />
-		<!-- uncommon -->
-		<item name="Bullseye Potion" count="10" chance="25500" />
+		<item name="Ultimate Spirit Potion" countmax="20" chance="62000" />
+		<item name="Ultimate Mana Potion" countmax="20" chance="61000" />
+		<item name="Bullseye Potion" countmax="10" chance="25500" />
 		<item name="Chaos Mace" chance="25000" />
 		<item name="Frozen Claw" chance="24500" />
-		<item name="Berserk Potion" count="10" chance="23000" />
+		<item name="Berserk Potion" countmax="10" chance="23000" />
 		<item name="Red Gem" chance="22500" />
 		<item name="Soul Stone" chance="224000" />
 		<item name="The Crown of the Percht Queen" chance="25000" />
 		<item name="Flames of the Percht Queen" chance="18000" />
 		<item name="Small Ladybug" chance="24980" />
 		<item name="Gold Ingot" chance="22480" />
-		<item name="Crystal Coin" count="2" chance="24890" />
+		<item name="Crystal Coin" countmax="2" chance="24890" />
 		<item id="7632" chance="21580" /> <!-- Giant Shimmering Pearl -->
 		<item name="Skull Staff" chance="19850" />
 		<item name="Magic Sulphur" chance="25480" />
@@ -68,8 +65,7 @@
 		<item name="Percht Skull" chance="25842" />
 		<item name="Icicle" chance="25840" />
 		<item name="The Crown of the Percht Queen" chance="21848" />
-		<!-- semi-rare -->
-		<item name="Silver Token" countmin="1" countmax="5" chance="5480" />
+		<item name="Silver Token" countmax="5" chance="5480" />
 		<item name="Percht Handkerchief" chance="5808" />
 		<item name="Ring of the Sky" chance="5100" />
 		<item id="26185" chance="8486" /> <!-- ring of blue plasma -->
@@ -86,7 +82,6 @@
 		<item name="Blue Gem" chance="5845" />
 		<item name="Frozen Chain" chance="5485" />
 		<item id="26198" chance="5158" /> <!-- collar of blue plasma -->
-		<!-- rare -->
 		<item name="Horseshoe" chance="1250" />
 		<item name="Golden Horseshoe" chance="2510" />
 		<item name="Abyss Hammer" chance="1480" />

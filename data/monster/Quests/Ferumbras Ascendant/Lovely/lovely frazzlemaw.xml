@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lovely Frazzlemaw" nameDescription="a lovely frazzlemaw" race="blood" experience="3400" speed="400" manacost="0">
+<monster name="Lovely Frazzlemaw" nameDescription="a lovely frazzlemaw" race="blood" experience="3400" speed="400" >
 	<health now="4100" max="4100"/>
 	<look type="594" corpse="22567"/>
 	<targetchange interval="4000" chance="10"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -22,7 +21,7 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="90" attack="80"/>
-		<attack name="physical" interval="2000" chance="12" radius="3" target="0" min="-0" max="-400">
+		<attack name="physical" interval="2000" chance="12" radius="3" target="0" min="0" max="-400">
 			<attribute key="areaEffect" value="redspark"/>
 		</attack>
 		<attack name="lifedrain" interval="2000" chance="13" length="5" spread="0" target="1" min="-100" max="-700">

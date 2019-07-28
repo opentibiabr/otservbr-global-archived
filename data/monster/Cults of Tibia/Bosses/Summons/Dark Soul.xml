@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dark Soul" nameDescription="a dark soul" race="undead" experience="0" speed="162" manacost="0">
+<monster name="Dark Soul" nameDescription="a dark soul" race="undead" experience="0" speed="162" >
 	<health now="5000" max="5000"/>
 	<look type="714" corpse="26397"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>

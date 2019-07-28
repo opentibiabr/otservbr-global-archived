@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Seacrest Serpent" nameDescription="a seacrest serpent" race="venom" experience="2600" speed="250" manacost="0">
+<monster name="Seacrest Serpent" nameDescription="a seacrest serpent" race="venom" experience="2600" speed="250" >
 	<health now="3000" max="3000"/>
 	<look type="675" corpse="24262"/>
   	<targetchange interval="2000" chance="9"/>
@@ -58,21 +58,21 @@
 			<voice sentence="THE DARK TIDE WILL SWALLOW YOU..."/>
   	</voices>
 	<loot>
-		<item id="2672" countmax="1" chance="13040"/><!-- dragon ham -->
-		<item id="24170" countmax="1" chance="12040"/><!-- seacrest hair -->
+		<item id="2672" chance="13040"/><!-- dragon ham -->
+		<item id="24170" chance="12040"/><!-- seacrest hair -->
 		<item id="7839" countmax="17" chance="7020"/><!-- shiver arrow -->
 		<item id="7902" chance="2680"/><!-- glacier mask -->
 		<item id="24261" chance="400"/><!-- crest of the deep seas -->
 		<item id="2152" countmax="5" chance="100000"/><!-- platinum coin -->
 		<item id="7588" countmax="2" chance="7020"/><!-- strong health potion -->
 		<item id="7589" countmax="2" chance="10370"/><!-- strong mana potion -->
-		<item id="24116" countmax="1" chance="10030"/><!-- seacrest pearl -->
+		<item id="24116" chance="10030"/><!-- seacrest pearl -->
 		<item id="2143" countmax="2" chance="3680"/><!-- white pearl -->
 		<item id="2144" countmax="3" chance="2340"/><!-- black pearl -->
-		<item id="7632" countmax="1" chance="1000"/><!-- giant shimmering pearl -->
-		<item id="5944" countmax="1" chance="3340"/><!-- soul orb -->
+		<item id="7632" chance="1000"/><!-- giant shimmering pearl -->
+		<item id="5944" chance="3340"/><!-- soul orb -->
 		<item id="2145" countmax="3" chance="5020"/><!-- small diamond -->
-		<item id="24169" countmax="1" chance="17390"/><!-- seacrest scale -->
+		<item id="24169" chance="17390"/><!-- seacrest scale -->
 		<item id="7888" chance="670"/><!-- glacier amulet -->
 		<item id="7896" chance="3680"/><!-- glacier kilt -->
 		<item id="7892" chance="3010"/><!-- glacier shoes -->

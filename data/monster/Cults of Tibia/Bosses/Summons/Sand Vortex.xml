@@ -20,8 +20,8 @@
 		<flag canwalkonpoison="0" />
 	</flags>
 	<attacks>
-	<attack name="melee" interval="2000" min="-0" max="-200" />
-	<attack name="physical" interval="2000" chance="10" radius="4" min="-0" max="-200">
+	<attack name="melee" interval="2000" min="0" max="-200" />
+	<attack name="physical" interval="2000" chance="10" radius="4" min="0" max="-200">
 		<attribute key="areaEffect" value="poff" />
 	</attack>
 	<attack name="speed" interval="2000" chance="20" radius="4" speedchange="-650" duration="5000">

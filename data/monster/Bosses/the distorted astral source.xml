@@ -24,15 +24,15 @@
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-330"/>
-		<attack name="energy" interval="2000" chance="15" range="7" radius="6" target="1" min="-0" max="-500">
+		<attack name="energy" interval="2000" chance="15" range="7" radius="6" target="1" min="0" max="-500">
 			<attribute key="shootEffect" value="energyball"/>
 			<attribute key="areaEffect" value="purpleenergy"/>
 		</attack>
-		<attack name="energy" interval="2000" chance="15" range="7" radius="6" target="1" min="-0" max="-500">
+		<attack name="energy" interval="2000" chance="15" range="7" radius="6" target="1" min="0" max="-500">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
-		<attack name="energy" interval="2000" chance="15" target="0" length="5" spread="3" min="-0" max="-400">
+		<attack name="energy" interval="2000" chance="15" target="0" length="5" spread="3" min="0" max="-400">
 			<attribute key="areaEffect" value="energy"/>
 		</attack>
 		<attack name="manadrain" interval="2000" chance="25" radius="5" min="-200" max="-400">

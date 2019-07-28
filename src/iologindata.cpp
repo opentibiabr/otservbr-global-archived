@@ -565,7 +565,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	if ((result = db.storeQuery(query.str()))) {
 		do {
 			time_t killTime = result->getNumber<time_t>("time");
-			if ((time(nullptr) - killTime) <= 45 * 24 * 60 * 60) {
+			if ((time(nullptr) - killTime) <= g_config.getNumber(ConfigManager::FRAG_TIME)) {
 				player->unjustifiedKills.emplace_back(result->getNumber<uint32_t>("target"), killTime, result->getNumber<bool>("unavenged"));
 			}
 		} while (result->next());
