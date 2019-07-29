@@ -1,7 +1,7 @@
 <imbuements>
 	<base id="1" name="Basic" protection="10000" price="5000" percent="90" removecust="15000" duration="72000" />
 	<base id="2" name="Intricate" protection="30000" price="25000" percent="70" removecust="15000" duration="72000" />
-	<base id="3" name="Powerful" protection="50000" price="50000" percent="50" removecust="15000" duration="72000" />
+	<base id="3" name="Powerful" protection="50000" price="100000" percent="50" removecust="15000" duration="72000" />
 
 	<!-- Category Names -->
 	<category id="0" name="Elemental Damage" />
@@ -136,21 +136,21 @@
 
 	<!-- Life leech Imbuement -->
 	<imbuement name="Vampirism" base="1" category="1" iconid="46">
-		<attribute key="description" value="Converts 15% of damage to HP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="lifeleech" bonus="15" chance="100" />
+		<attribute key="description" value="Converts 5% of damage to HP with a chance of 100%." />
+		<attribute key="effect" type="skill" value="lifeleech" bonus="5" chance="100" />
 
 		<attribute key="item" value="10602" count="25" />
 	</imbuement>
 	<imbuement name="Vampirism" base="2" category="1" iconid="46">
-		<attribute key="description" value="Converts 25% of damage to HP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="lifeleech" bonus="25" chance="100" />
+		<attribute key="description" value="Converts 10% of damage to HP with a chance of 100%." />
+		<attribute key="effect" type="skill" value="lifeleech" bonus="10" chance="100" />
 
 		<attribute key="item" value="10602" count="25" />
 		<attribute key="item" value="10550" count="15" />
 	</imbuement>
 	<imbuement name="Vampirism" base="3" category="1" iconid="46">
-		<attribute key="description" value="Converts 50% of damage to HP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="lifeleech" bonus="50" chance="100" />
+		<attribute key="description" value="Converts 25% of damage to HP with a chance of 100%." />
+		<attribute key="effect" type="skill" value="lifeleech" bonus="25" chance="100" />
 
 		<attribute key="item" value="10602" count="25" />
 		<attribute key="item" value="10550" count="15" />
@@ -159,21 +159,21 @@
 
 	<!-- Mana Leech Imbuement -->
 	<imbuement name="Void" base="1" category="2" iconid="49">
-		<attribute key="description" value="Converts 15% of damage to MP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="manaleech" bonus="15" chance="100" />
+		<attribute key="description" value="Converts 3% of damage to MP with a chance of 100%." />
+		<attribute key="effect" type="skill" value="manaleech" bonus="3" chance="100" />
 
 		<attribute key="item" value="12448" count="25" />
 	</imbuement>
 	<imbuement name="Void" base="2" category="2" iconid="49">
-		<attribute key="description" value="Converts 25% of damage to MP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="manaleech" bonus="25" chance="100" />
+		<attribute key="description" value="Converts 5% of damage to MP with a chance of 100%." />
+		<attribute key="effect" type="skill" value="manaleech" bonus="5" chance="100" />
 
 		<attribute key="item" value="12448" count="25" />
 		<attribute key="item" value="22534" count="25" />
 	</imbuement>
 	<imbuement name="Void" base="3" category="2" iconid="49">
-		<attribute key="description" value="Converts 50% of damage to MP with a chance of 100%." />
-		<attribute key="effect" type="skill" value="manaleech" bonus="50" chance="100" />
+		<attribute key="description" value="Converts 8% of damage to MP with a chance of 100%." />
+		<attribute key="effect" type="skill" value="manaleech" bonus="8" chance="100" />
 
 		<attribute key="item" value="12448" count="25" />
 		<attribute key="item" value="22534" count="25" />
@@ -351,8 +351,8 @@
 		<attribute key="item" value="11219" count="25" />
 	</imbuement>
 	<imbuement name="Swiftness" base="3" category="10" iconid="73">
-		<attribute key="description" value="Raises walking speed by 20." />
-		<attribute key="effect" type="speed" value="40" />
+		<attribute key="description" value="Raises walking speed by 30." />
+		<attribute key="effect" type="speed" value="30" />
 
 		<attribute key="item" value="19738" count="15" />
 		<attribute key="item" value="11219" count="25" />
