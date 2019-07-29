@@ -62,7 +62,6 @@ class Imbuements {
 
 };
 
-
 class Imbuement
 {
 	public:
@@ -124,6 +123,5 @@ class Imbuement
 
 		std::vector<std::pair<uint16_t, uint16_t>> items;
 };
-
 
 #endif

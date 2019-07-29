@@ -828,7 +828,6 @@ void ProtocolGame::parseCloseImbuingWindow(NetworkMessage&)
 	addGameTask(&Game::playerCloseImbuingWindow, player->getID());
 }
 
-
 void ProtocolGame::parseUseItem(NetworkMessage& msg)
 {
 	Position pos = msg.getPosition();
@@ -3646,7 +3645,6 @@ void ProtocolGame::addImbuementInfo(NetworkMessage& msg, uint32_t imbuid)
 	msg.add<uint32_t>(base->duration);
 
 	msg.addByte(imbuement->isPremium() ? 0x01 : 0x00);
-
 
 	const auto& items = imbuement->getItems();
 	msg.addByte(items.size());

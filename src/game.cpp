@@ -4891,7 +4891,6 @@ void Game::checkImbuements()
 	cleanup();
 }
 
-
 void Game::checkLight()
 {
 	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL, std::bind(&Game::checkLight, this)));

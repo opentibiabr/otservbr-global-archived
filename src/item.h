@@ -209,6 +209,7 @@ class ItemAttributes
 		uint32_t getDuration() const {
 			return getIntAttr(ITEM_ATTRIBUTE_DURATION);
 		}
+
 		void setDecaying(ItemDecayState_t decayState) {
 			setIntAttr(ITEM_ATTRIBUTE_DECAYSTATE, decayState);
 		}
@@ -758,6 +759,7 @@ class Item : virtual public Thing
 			}
 			return getIntAttr(ITEM_ATTRIBUTE_DURATION);
 		}
+
 		void setDecaying(ItemDecayState_t decayState) {
 			setIntAttr(ITEM_ATTRIBUTE_DECAYSTATE, decayState);
 		}

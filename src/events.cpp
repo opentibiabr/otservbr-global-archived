@@ -1035,7 +1035,7 @@ void Events::eventPlayerClearImbuement(Player* player, Item* item, uint8_t slot)
 
 void Events::eventPlayerOnCombat(Player* player, Item* item, CombatDamage& damage)
 {
-	// Player:onCombat(item, ...)
+	// Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if (info.playerOnCombat == -1) {
 		return;
 	}

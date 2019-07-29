@@ -123,7 +123,6 @@ function Player.canImbueItem(self, imbuement, item)
 	return true
 end
 
-
 -- Player functions
 function Player.sendImbuementResult(self, errorType, message)
 	local msg = NetworkMessage()

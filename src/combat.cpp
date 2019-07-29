@@ -485,8 +485,8 @@ CallBack* Combat::getCallback(CallBackParam_t key)
 void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data)
 {
 	assert(data);
-	CombatDamage damage = *data;
 
+	CombatDamage damage = *data;
 	if (caster && caster->getPlayer()) {
 		Item* tool = caster->getPlayer()->getWeapon();
 		g_events->eventPlayerOnCombat(caster->getPlayer(), tool, damage);
@@ -780,6 +780,7 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 		}
 		combatTileEffects(spectators, caster, tile, params);
 	}
+
 	postCombatEffects(caster, pos, params);
 }
 
@@ -789,7 +790,7 @@ void Combat::doCombat(Creature* caster, Creature* target) const
 	if (params.combatType != COMBAT_NONE) {
 		CombatDamage damage = getCombatDamage(caster, target);
 		if(caster && caster->getPlayer()){
-			// checando se é critico
+			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			if (chance != 0 && uniform_random(1, 100) <= chance) {
 				damage.critical = true;
@@ -815,7 +816,7 @@ void Combat::doCombat(Creature* caster, const Position& position) const
 		CombatDamage damage = getCombatDamage(caster, nullptr);
 
 		if(caster && caster->getPlayer()){
-			// checando se é critico
+			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			if (chance != 0 && uniform_random(1, 100) <= chance) {
 				damage.critical = true;

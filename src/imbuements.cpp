@@ -32,6 +32,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 	loaded = true;
 	for (auto baseNode : doc.child("imbuements").children()) {
 		pugi::xml_attribute attr;
+		// Base for imbue
 		if (strcasecmp(baseNode.name(), "base") == 0) {
 			pugi::xml_attribute id = baseNode.attribute("id");
 			if (!id) {
@@ -49,6 +50,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 			);
 
+		// Category/Group
 		} else if (strcasecmp(baseNode.name(), "category") == 0) {
 			pugi::xml_attribute id = baseNode.attribute("id");
 			if (!id) {
@@ -59,6 +61,8 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 				pugi::cast<uint16_t>(id.value()),
 				baseNode.attribute("name").as_string()
 			);
+
+		// Imbuements
 		} else if (strcasecmp(baseNode.name(), "imbuement") == 0) {
 			++runningid;
 			pugi::xml_attribute base = baseNode.attribute("base");
@@ -162,7 +166,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 					imb.description = description;
 				} else if  (strcasecmp(type.c_str(), "effect") == 0) {
-					// efeito do imbue
+					// Effects
 					if (!(attr = childNode.attribute("type"))) {
 						std::cout << "[Warning - Imbuements::loadFromXml] Missing effect type for imbuement name " << imb.name << std::endl;
 						continue;

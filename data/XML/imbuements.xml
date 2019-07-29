@@ -23,7 +23,7 @@
 	<category id="16" name="Skillboost (Magic Level)" />
 	<category id="17" name="Increase Capacity" />
 
-	<!-- Special Imbuement -->
+	<!-- Damage Imbuement -->
 	<imbuement name="Scorch" base="1" subgroup=" (Fire)" category="0" iconid="13">
 		<attribute key="description" value="Converts 10% of the physical damage to fire damage." />
 		<attribute key="effect" type="damage" combat="fire" value="10" />
@@ -134,7 +134,7 @@
 		<attribute key="item" value="11337" count="5" />
 	</imbuement>
 
-	<!-- Normal Imbuement -->
+	<!-- Life leech Imbuement -->
 	<imbuement name="Vampirism" base="1" category="1" iconid="46">
 		<attribute key="description" value="Converts 15% of damage to HP with a chance of 100%." />
 		<attribute key="effect" type="skill" value="lifeleech" bonus="15" chance="100" />
@@ -157,6 +157,7 @@
 		<attribute key="item" value="10580" count="5" />
 	</imbuement>
 
+	<!-- Mana Leech Imbuement -->
 	<imbuement name="Void" base="1" category="2" iconid="49">
 		<attribute key="description" value="Converts 15% of damage to MP with a chance of 100%." />
 		<attribute key="effect" type="skill" value="manaleech" bonus="15" chance="100" />
@@ -179,6 +180,7 @@
 		<attribute key="item" value="25386" count="5" />
 	</imbuement>
 
+	<!-- Critical Imbuement -->
 	<imbuement name="Strike" base="1" category="3" iconid="1">
 		<attribute key="description" value="Raises crit hit damage by 15% and crit hit chance by 10%." />
 		<attribute key="effect" type="skill" value="critical" bonus="15" chance="10" />
@@ -201,6 +203,7 @@
 		<attribute key="item" value="25384" count="5" />
 	</imbuement>
 
+	<!-- Protections Imbuements -->
 	<imbuement name="Lich Shroud" base="1" category="4" iconid="25">
 		<attribute key="description" value="Reduces death damage by 3%." />
 		<attribute key="effect" type="reduction" combat="death" value="3" />
@@ -333,6 +336,7 @@
 		<attribute key="item" value="11221" count="20" />
 	</imbuement>
 
+	<!-- Speed Imbuement -->
 	<imbuement name="Swiftness" base="1" category="10" iconid="73">
 		<attribute key="description" value="Raises walking speed by 10." />
 		<attribute key="effect" type="speed" value="20" />
@@ -355,6 +359,7 @@
 		<attribute key="item" value="15484" count="20" />
 	</imbuement>
 
+	<!-- Skills Imbuements -->
 	<imbuement name="Chop" base="1" category="11" iconid="52">
 		<attribute key="description" value="Raises axe fighting skill by 1." />
 		<attribute key="effect" type="skill" value="axe" bonus="1" />
@@ -487,6 +492,7 @@
 		<attribute key="item" value="11226" count="15" />
 	</imbuement>
 
+	<!-- Capacity Imbuement -->
 	<imbuement name="Featherweight" base="1" category="17" iconid="64">
 		<attribute key="description" value="Raises capacity by 3." />
 		<attribute key="effect" type="capacity" value="3" />
@@ -508,6 +514,5 @@
 		<attribute key="item" value="29006" count="10" />
 		<attribute key="item" value="22539" count="5" />
 	</imbuement>
-
 
 </imbuements>

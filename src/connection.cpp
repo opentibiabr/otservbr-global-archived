@@ -267,7 +267,6 @@ void Connection::parsePacket(const boost::system::error_code& error)
 		}
 
 		protocol->onRecvFirstMessage(msg);
-
 	} else {
 		protocol->onRecvMessage(msg); // Send the packet to the current protocol
 	}
