@@ -30091,9 +30091,9 @@
 	<item id="21745" article="a" name="strange foundation" />
 	<item id="21746" article="a" name="strange window" />
 	<item id="21747" article="a" name="ruined wall" />
-	<item id="21748" article="a" name="small pilar" />
+	<item id="21748" article="a" name="small pillar" />
 	<item id="21749" article="a" name="ruined wall" />
-	<item id="21750" article="a" name="small pilar" />
+	<item id="21750" article="a" name="small pillar" />
 	<item fromid="21751" toid="21763" article="a" name="strange wall" />
 	<item fromid="21764" toid="21770" article="a" name="ruined window" />
 	<item fromid="21771" toid="21772" article="a" name="window shutter" />
@@ -33989,7 +33989,7 @@
 	<item id="25222" article="a" name="stairs">
 		<attribute key="floorchange" value="west" />
 	</item>
-	<item fromid="25223" toid="25226" name="stone pilar" />
+	<item fromid="25223" toid="25226" name="stone pillar" />
 	<item fromid="25224" toid="25240" name="cracked stone wall" />
 	<item fromid="25241" toid="25274" name="energy wall" />
 	<item id="25281" article="a" name="large pile of bones" />
@@ -36794,7 +36794,7 @@
 	<item id="28693" article="a" name="mushroom house">
 		<attribute key="description" value="As you take a closer look you discover some tiny fairies inside." />
 	</item>
-	<item fromid="28694" toid="28699" article="a" name="pilar" />
+	<item fromid="28694" toid="28699" article="a" name="pillar" />
 	<item fromid="28700" toid="28708" article="a" name="green leaves" />
 	<item fromid="28709" toid="28710" article="a" name="sea plant" />
 	<item fromid="28711" toid="28716" article="an" name="unknown" />
@@ -40496,15 +40496,15 @@
 	<item fromid="32787" toid="32788" article="a" name="book column"/>
 	<item fromid="32789" toid="32790" article="a" name="column"/>
 	<item fromid="32791" toid="32810" article="an" name="unknown carpet"/>
-	<item fromid="32811" toid="32812" article="an" name="unknown grond"/>
+	<item fromid="32811" toid="32812" article="an" name="unknown ground"/>
 	<item fromid="32813" toid="32829" article="an" name="unknown carpet"/>
-	<item fromid="32830" toid="32831" article="an" name="unknown grond"/>
+	<item fromid="32830" toid="32831" article="an" name="unknown ground"/>
 	<item fromid="32832" toid="32851" article="an" name="unknown carpet"/>
-	<item fromid="32852" toid="32857" article="an" name="unknown grond"/>
+	<item fromid="32852" toid="32857" article="an" name="unknown ground"/>
 	<item fromid="32858" toid="32877" article="an" name="unknown carpet"/>
-	<item fromid="32878" toid="32883" article="an" name="unknown grond"/>
+	<item fromid="32878" toid="32883" article="an" name="unknown ground"/>
 	<item fromid="32884" toid="32903" article="an" name="unknown carpet"/>
-	<item fromid="32904" toid="32909" article="an" name="unknown grond"/>
+	<item fromid="32904" toid="32909" article="an" name="unknown ground"/>
 	<item fromid="32910" toid="32916" article="an" name="ostentatious bookstand"/>
 	<item fromid="32917" toid="32936" article="a" name="green seating area"/>
 	<item fromid="32937" toid="32938" article="a" name="fired chimney"/>

@@ -349,9 +349,10 @@
 	<movevent event="StepIn" fromaid="64007" toaid="64009" script="quests/the secret library/falconsEntrance.lua" />
 	<movevent event="StepIn" fromaid="64010" toaid="64012" script="quests/the secret library/falconsExit.lua" />
 
+	<movevent event="StepIn" actionid="57604" script="falcon castle/portal.lua" />
 	<movevent event="StepIn" actionid="57602" script="falcon castle/portal.lua" />
- 	<movevent event="StepIn" actionid="57699" script="falcon castle/portal.lua" />
- 	<movevent event="StepIn" actionid="3255" script="falcon castle/portal.lua" />
+	<movevent event="StepIn" actionid="57699" script="falcon castle/portal.lua" />
+	<movevent event="StepIn" actionid="3255" script="falcon castle/portal.lua" />
 
 	<!-- The Sharttered Isles Quest -->
 	<movevent event="StepIn" actionid="12585" script="quests/the sharttered isles/teleport.lua" />

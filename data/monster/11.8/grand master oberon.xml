@@ -17,40 +17,34 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="70"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<script>
 		<event name="OberonHeal"/>
 		<event name="bossfalconfinal"/>
     </script>
 	<attacks>
-		<attack name="melee" interval="1000" min="-150" max="-800"/>
-		<attack name="holy" interval="1200" chance="14" length="8" spread="0" min="-400" max="-1000">
+		<attack name="melee" interval="2000" min="0" max="-1200"/>
+		<attack name="holy" interval="1200" chance="14" length="8" spread="0" min="-500" max="-650">
 			<attribute key="areaEffect" value="holyarea"/>
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="15" range="8" radius="7"   min="-400" max="-900">
+		<attack name="earth" interval="1000" chance="15" target="0" radius="5" min="-500" max="-850">
 			<attribute key="areaEffect" value="blackspark"/>
 		</attack>
-		<attack name="death" interval="2000" chance="20" range="7" min="500" max="-700">
+		<attack name="death" interval="2000" chance="20" range="7" min="-400" max="-500">
 			<attribute key="shootEffect" value="suddendeath"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
 	</attacks>
 	<defenses armor="82" defense="60">
-		<defense name="healing" interval="1000" chance="20" min="400" max="650">
-			<attribute key="areaEffect" value="blueshimmer"/>
-		</defense>
-		<defense name="healing" interval="3000" chance="20" min="500" max="1000">
-			<attribute key="areaEffect" value="blueshimmer"/>
-		</defense>
 		<defense name="speed" interval="1000" chance="10" speedchange="260" duration="4000">
 			<attribute key="areaEffect" value="poff"/>
 		</defense>
 	</defenses>
 	<elements>
-	    <element physicalPercent="70"/>
+	    <element physicalPercent="10"/>
 		<element deathPercent="55"/>
 	</elements>
 	<immunities>
@@ -58,7 +52,7 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="gold coin" countmax="100" chance="100000"/>
+		<item id="32550" chance="100000"/><!-- the spatial warp almanac -->
 		<item name="Grant of Arms" chance="600"/>
 		<item name="Falcon Battleaxe" chance="60"/>
 		<item name="Falcon Bow" chance="60"/>

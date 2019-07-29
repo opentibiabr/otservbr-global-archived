@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Gorzindel" nameDescription="Gorzindel" race="undead" experience="0" speed="50" >
-	<health now="10000" max="10000" />
-	<look type="1062" addons="1" />
-<targetchange interval="5000" chance="8" />
+<monster name="Gorzindel" nameDescription="Gorzindel" race="blood" experience="0" speed="230">
+	<health now="10500" max="10500"/>
+	<look type="1062" head="94" body="100" legs="0" feet="0" addons="1" corpse="33964"/>
+	<targetchange interval="2000" chance="4"/>
 	<flags>
-		<flag summonable="0" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag illusionable="0" />
-		<flag convinceable="0" />
-		<flag pushable="0" />
-		<flag canpushitems="1" />
-		<flag canpushcreatures="1" />
-		<flag targetdistance="1" />
-		<flag staticattack="90" />
-		<flag runonhealth="0" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-200" />
-		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
-			<attribute key="shootEffect" value="snowball" />
-			<attribute key="areaEffect" value="poff" />
+		<attack name="melee" interval="2000" skill="90" attack="80"/>
+		<attack name="lifedrain" interval="2000" chance="8" range="7" radius="5" target="1" min="-135" max="-280">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="redspark"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
-			<attribute key="areaEffect" value="poff" />
+		<attack name="physical" interval="2000" chance="8" range="7" target="1" min="-90" max="-200">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>
 	</attacks>
-	<defenses armor="28" defense="33" />
+	<defenses armor="40" defense="40"/>
 	<elements>
-		<element icePercent="-1" />
+		<element physicalPercent="1"/>
+		<element deathPercent="15"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element earthPercent="20"/>
 	</elements>
 	<immunities>
-		<immunity invisible="1" />
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
 	</immunities>
-	<loot>
-	</loot>
 </monster>
