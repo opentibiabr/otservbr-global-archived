@@ -963,21 +963,23 @@ function Player:clearImbuement(item, slot)
 end
 
 function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
-	if item then
-		local slots = ItemType(item:getId()):getImbuingSlots()
-		if slots > 0 then
-			for i = 0, slots - 1 do
-				local imbuement = item:getImbuement(i)
-				if imbuement then
-					local porcetagem = imbuement:getElementDamage()
-					local tipo = imbuement:getCombatType()
-					if porcetagem and porcetagem > 0 then
-						secondaryDamage = primaryDamage*math.min(porcetagem/100, 1)
-						secondaryType = imbuement:getCombatType()
-					end
+	if not item then
+		return primaryDamage, primaryType, secondaryDamage, secondaryType
+	end
+
+	local slots = ItemType(item:getId()):getImbuingSlots()
+	if slots > 0 then
+		for i = 0, slots - 1 do
+			local imbuement = item:getImbuement(i)
+			if imbuement then
+				local percent = imbuement:getElementDamage()
+				if percent and percent > 0 then
+					secondaryDamage = primaryDamage*math.min(percent/100, 1)
+					secondaryType = imbuement:getCombatType()
 				end
 			end
 		end
 	end
+
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
