@@ -21,7 +21,6 @@ local function readFile(filename)
 end
 
 local mov = readFile("data/movements/movements.xml")
-local ret = {}
 for tp, info in pairs(Imbuements_Weapons) do
 	for _, id in pairs(info) do
 		if not mov:find(string.format('itemid="%d"', id)) then
@@ -29,17 +28,20 @@ for tp, info in pairs(Imbuements_Weapons) do
 			if not reg then
 				reg = tp
 			end
+			-- Equip function
 			local equip = MoveEvent()
-			local deequip = MoveEvent()
-			deequip.onEquip = defaultDeEquip
 			equip.onEquip = defaultEquip
 			equip:type("equip")
-			deequip:type("deequip")
-			deequip:id(id)
 			equip:id(id)
 			equip:slot(reg)
-			deequip:slot(reg)
 			equip:register()
+
+			-- DeEquip function
+			local deequip = MoveEvent()
+			deequip.onEquip = defaultDeEquip
+			deequip:type("deequip")
+			deequip:id(id)
+			deequip:slot(reg)
 			deequip:register()
 		end
 	end
