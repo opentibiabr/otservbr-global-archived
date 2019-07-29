@@ -2323,6 +2323,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="40" />
 		<attribute key="showattributes" value="1" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2196" article="a" name="broken amulet">
 		<attribute key="weight" value="420" />
@@ -4448,19 +4449,23 @@
 		<attribute key="weight" value="1000" />
 		<attribute key="armor" value="2" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2642" name="sandals">
 		<attribute key="weight" value="600" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2643" name="leather boots">
 		<attribute key="weight" value="900" />
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2644" name="bunnyslippers">
 		<attribute key="weight" value="600" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2645" name="steel boots">
 		<attribute key="weight" value="2900" />
@@ -13018,6 +13023,7 @@
 		<attribute key="armor" value="2" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="-12" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7458" article="a" name="fur cap">
 		<attribute key="description" value="It feels nice and warm on your ears." />
@@ -14694,6 +14700,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentEarth" value="5" />
 		<attribute key="absorbPercentFire" value="-5" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7887" article="a" name="terra amulet">
 		<attribute key="weight" value="500" />
@@ -14737,6 +14744,7 @@
 		<attribute key="absorbPercentFire" value="5" />
 		<attribute key="absorbPercentIce" value="-5" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7892" name="glacier shoes">
 		<attribute key="weight" value="750" />
@@ -14744,6 +14752,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentIce" value="5" />
 		<attribute key="absorbPercentEnergy" value="-5" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7893" name="lightning boots">
 		<attribute key="weight" value="750" />
@@ -14751,6 +14760,7 @@
 		<attribute key="absorbPercentEnergy" value="5" />
 		<attribute key="absorbPercentEarth" value="-5" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7894" name="magma legs">
 		<attribute key="weight" value="1900" />
@@ -19520,6 +19530,7 @@
 		<attribute key="absorbPercentEnergy" value="-3" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="1850" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11118" name="dragon scale boots">
 		<attribute key="armor" value="3" />
@@ -19527,6 +19538,7 @@
 		<attribute key="absorbPercentIce" value="-3" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="1850" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11119" article="a" name="heart backpack">
 		<attribute key="weight" value="1800" />
@@ -19787,6 +19799,7 @@
 		<attribute key="absorbPercentHoly" value="-2" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="2250" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11241" article="an" name="expedition backpack">
 		<attribute key="weight" value="1800" />
@@ -20053,6 +20066,7 @@
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="10" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11304" article="a" name="Zaoan legs">
 		<attribute key="weight" value="6600" />
@@ -21531,6 +21545,7 @@
 		<attribute key="speed" value="30" />
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="12647" article="a" name="snake god's wristguard">
 		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
@@ -31756,6 +31771,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentPhysical" value="1" />
 		<attribute key="weight" value="1800" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="23541" article="a" name="gearwheel chain">
 		<attribute key="armor" value="3" />
