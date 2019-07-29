@@ -9,7 +9,6 @@ combat:setArea(createCombatArea({
 }))
 
 function spellCallback(param)
-	math.randomseed(os.time())
 	local tile = Tile(Position(param.pos))
 	if tile then
 		if tile:getTopCreature() and tile:getTopCreature():isMonster() then

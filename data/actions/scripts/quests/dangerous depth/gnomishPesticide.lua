@@ -11,7 +11,6 @@ if target:isCreature() then
 return false
 end
 
-	math.randomseed(os.time())
 	local r = math.random(1, 100)
 
 	local corpseId = 30729

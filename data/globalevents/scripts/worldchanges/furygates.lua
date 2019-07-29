@@ -1,7 +1,5 @@
 function onStartup(interval)
 
-     math.randomseed(os.time())
-
      local chance = math.random(1, 6)
 
 	if (chance == 1) then -- venore

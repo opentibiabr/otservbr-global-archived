@@ -2,7 +2,6 @@ function onUse(creature, item)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
-	math.randomseed(os.time())
 	local r = math.random(1, 100)
 	local stgValueP = creature:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners)
 

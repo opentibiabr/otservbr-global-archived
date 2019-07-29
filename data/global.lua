@@ -387,6 +387,5 @@ return true
 end
 
 function getLootRandom()
-	math.randomseed(os.mtime())
 	return math.random(0, MAX_LOOTCHANCE) / configManager.getNumber(configKeys.RATE_LOOT)
 end

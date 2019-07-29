@@ -79,7 +79,6 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	math.randomseed(os.time())
 	npcHandler.topic[cid] = playerTopic[cid]
 	local player = Player(cid)
 	-- Começou a quest
