@@ -881,7 +881,6 @@ end
 
 function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 	for _, pid in pairs(imbuement:getItems()) do
-		local it = ItemType(pid.itemid)
 		if self:getItemCount(pid.itemid) < pid.count then
 			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
 			return false
@@ -901,9 +900,8 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 		return false
 	end
 
-	-- removendo itens
+	-- Removing items
 	for _, pid in pairs(imbuement:getItems()) do
-		local it = ItemType(pid.itemid)
 		if not self:removeItem(pid.itemid, pid.count) then
 			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
 			return false
@@ -922,7 +920,7 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 
 	-- Update item
 	local nitem = Item(item.uid)
-	self:sendImbuementPanel(nitem, true)
+	self:sendImbuementPanel(nitem)
 	return true
 end
 
