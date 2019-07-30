@@ -1,5 +1,9 @@
 # OTServ Brasil - Global Server
-[![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=master&passingText=master%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download stable builds for Windows") [![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download nightly builds for Windows") [![Discord Channel](https://img.shields.io/discord/373462501410471937.svg?label=discord)](https://discord.gg/3NxYnyV)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=master&passingText=master%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download stable builds for Windows") 
+[![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download nightly builds for Windows")
+[![Build Status](https://travis-ci.com/opentibiabr/OTServBR-Global.svg?branch=master)](https://travis-ci.com/opentibiabr/OTServBR-Global.svg?branch=master "Linux Build Status - Master Build")
+[![Build Status](https://travis-ci.com/opentibiabr/OTServBR-Global.svg?branch=develop)](https://travis-ci.com/opentibiabr/OTServBR-Global.svg?branch=develop "Linux Build Status - Develop Branch")
+[![Discord Channel](https://img.shields.io/discord/373462501410471937.svg?label=discord)](https://discord.gg/3NxYnyV)
 
 OTServ Brasil - Global Server is a free and open-source MMORPG server emulator written in C++. It is a fork of the [Forgotten Server](https://github.com/otland/forgottenserver) project. To connect to the server and to take a stable experience, you can use our [own client](https://forums.otserv.com.br/index.php?/forums/topic/167933-otservbr-global-cliente%C2%A0tibia-10-cliente-tibia-11-cliente-tibia-12/) and if you want to edit something, check our [customized tools](https://github.com/opentibiabr/tools).
 
