@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Grave Robber" nameDescription="a grave robber" race="blood" experience="65" speed="95" manacost="355">
+<monster name="Grave Robber" nameDescription="a grave robber" race="blood" experience="65" speed="95" manacost="435">
 	<health now="165" max="165"/>
 	<look type="146" head="114" body="95" legs="76" feet="38" addons="3" corpse="20411"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
+		<flag illusionable="0"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>

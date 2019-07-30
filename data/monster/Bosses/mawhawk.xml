@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mawhawk" nameDescription="Mawhawk" race="blood" experience="14000" speed="270" manacost="0" script="boss.lua">
+<monster name="Mawhawk" nameDescription="Mawhawk" race="blood" experience="14000" speed="270">
 	<health now="45000" max="45000"/>
 	<look type="595" corpse="22629"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

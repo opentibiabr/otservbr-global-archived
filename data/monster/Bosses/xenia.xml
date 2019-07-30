@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Xenia" nameDescription="Xenia" race="blood" experience="255" speed="176" manacost="450">
+<monster name="Xenia" nameDescription="Xenia" race="blood" experience="255" speed="176">
 	<health now="200" max="200"/>
 	<look type="137" head="95" body="115" legs="115" feet="95" corpse="20542"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
@@ -19,11 +19,15 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-50"/>
-		<attack name="physical" interval="1000" chance="15" range="7" min="-28" max="-42">
-			<attribute key="shootEffect" value="spear"/>
+		<attack name="drunk" interval="2000" chance="10" length="3" spread="2" duration="5000">
+			<attribute key="areaEffect" value="rednote"/>
 		</attack>
 	</attacks>
-	<defenses armor="12" defense="14"/>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
 	<elements>
 		<element icePercent="10"/>
 		<element firePercent="10"/>
@@ -32,6 +36,9 @@
 		<element physicalPercent="-6"/>
 	</elements>
 	<loot>
-		<item id="2148" countmax="45" chance="100000"/><!-- gold coin -->
+		<item id="2229" countmax="2" chance="100000"/><!-- skull -->
+		<item name="gold coin" countmax="34" chance="66666"/>
+		<item name="sabre" chance="33000"/>
+		<item name="studded shield" chance="33000"/>
 	</loot>
 </monster>

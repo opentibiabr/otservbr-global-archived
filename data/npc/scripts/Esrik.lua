@@ -9,6 +9,10 @@ function onThink()				npcHandler:onThink()					end
 
 local function getTable(player)
 	local itemsList = {
+		{name="exercise sword", id=32384, buy=262500},
+		{name="exercise axe", id=32385, buy=262500},
+		{name="exercise club", id=32386, buy=262500},
+		{name="exercise bow", id=32387, buy=262500},
 		{name="axe", id=2386, buy=20, sell=7},
 		{name="battle axe", id=2378, buy=235, sell=80},
 		{name="battle hammer", id=2417, buy=350, sell=120},

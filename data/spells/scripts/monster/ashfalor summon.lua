@@ -47,7 +47,6 @@ local maxsummons = 25
 
 function onCastSpell(creature, var)
 creature:say("RISE MY SERVANTS! RISE!!", TALKTYPE_ORANGE_2)
-math.randomseed(os.time())
 
 	local summoncount = creature:getSummons()
 	local creaturePos = creature:getPosition()

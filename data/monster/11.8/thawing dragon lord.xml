@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Thawing Dragon Lord" nameDescription="a thawing dragon lord" race="fire" experience="2100" speed="230" manacost="330"  script="boss.lua">
+<monster name="Thawing Dragon Lord" nameDescription="a thawing dragon lord" race="fire" experience="2100" speed="230">
 	<health now="25000" max="25000" />
 	<look type="1077" corpse="33381" />
 	<targetchange interval="4000" chance="0" />
 	<flags>
-	     <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />

@@ -57,7 +57,6 @@ end
 
 function onStartup()
 	if yasirEnabled then
-		math.randomseed(os.time())
 		if math.random(100) <= yasirChance then
 			local randTown = config[math.random(#config)]
 			print('>> Yasir: '.. randTown.mapName ..'. ')

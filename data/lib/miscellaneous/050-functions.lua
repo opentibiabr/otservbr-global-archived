@@ -184,7 +184,6 @@ function checkWallArito(item, toPosition)
 end
 
 function placeSpawnRandom(fromPositon, toPosition, monsterName, ammount, hasCall, storage, value, removestorage, sharedHP, event, message)
-	math.randomseed(os.time() + (fromPositon.x + fromPositon.y + fromPositon.z + toPosition.x + toPosition.y + toPosition.z)/6)
 	for _x = fromPositon.x, toPosition.x do
 		for _y = fromPositon.y, toPosition.y do
 			for _z = fromPositon.z, toPosition.z do

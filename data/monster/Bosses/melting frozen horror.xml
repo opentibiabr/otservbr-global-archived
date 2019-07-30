@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Melting Frozen Horror" nameDescription="a melting frozen horror" race="undead" experience="0" speed="240" manacost="0" script="boss.lua">
+<monster name="Melting Frozen Horror" nameDescription="a melting frozen horror" race="undead" experience="0" speed="240">
 	<health now="70000" max="70000"/>
 	<look type="261" corpse="7282"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -63,8 +62,8 @@
 		<item id="2158" chance="5000" /><!-- Blue Gem -->
 		<item id="8473" countmax="3" chance="19500" /><!-- ultimate health potion -->
 		<item id="18415" countmax="5" chance="9660" /><!-- violet crystal shard -->
-		<item id="7459"  chance="9660" /><!--  Pair of Earmuffs -->
-		<item id="26174"  chance="9660" /><!--  Spark Sphere -->
+		<item id="7459" chance="9660" /><!--  Pair of Earmuffs -->
+		<item id="26174" chance="9660" /><!--  Spark Sphere -->
 		<item id="2445" chance="9660" /><!--   Crystal Mace -->
 		<item id="18450" chance="9660" /><!--   Crystalline Sword -->
 		<item id="18465" chance="200" /><!--   Shiny Blade -->

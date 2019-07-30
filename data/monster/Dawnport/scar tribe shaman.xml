@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Scar Tribe Shaman" nameDescription="an scar tribe shaman" race="blood" experience="85" speed="78" manacost="0">
+<monster name="Scar Tribe Shaman" nameDescription="an scar tribe shaman" race="blood" experience="85" speed="78" >
 	<health now="115" max="115"/>
 	<look type="6" corpse="5978"/>
 	<targetchange interval="2000" chance="50"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

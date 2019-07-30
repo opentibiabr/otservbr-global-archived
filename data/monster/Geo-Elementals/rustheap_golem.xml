@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rustheap Golem" nameDescription="a rustheap golem" race="energy" experience="2300" speed="125" manacost="0">
+<monster name="Rustheap Golem" nameDescription="a rustheap golem" race="energy" experience="2300" speed="125" >
 	<health now="2800" max="2800"/>
 	<look type="603" corpse="23355"/>
   <targetchange interval="2000" chance="5"/>
-  <strategy attack="100" defense="0"/>
   <flags>
     <flag summonable="0"/>
     <flag attackable="1"/>
@@ -46,8 +45,8 @@
 		<voice sentence="*frzzp*"/>
 	</voices>
 	<loot>
-		<item id="8309" countmax="1" chance="1950"/><!-- nail -->
-		<item id="9930" countmax="1" chance="5860"/><!-- flask of rust remover -->
+		<item id="8309" chance="1950"/><!-- nail -->
+		<item id="9930" chance="5860"/><!-- flask of rust remover -->
 		<item id="23567" chance="14980"/><!-- necromantic rust -->
 		<item id="2148" countmax="290" chance="100000"/><!-- gold coin -->
 		<item id="5880" chance="330"/><!-- iron ore -->

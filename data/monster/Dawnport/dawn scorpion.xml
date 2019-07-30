@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dawn Scorpion" nameDescription="a dawn scorpion" race="venom" experience="45" speed="72" manacost="310">
+<monster name="Dawn Scorpion" nameDescription="a dawn scorpion" race="venom" experience="45" speed="72">
 	<health now="65" max="65"/>
 	<look type="43" corpse="5988"/>
 	<targetchange interval="2000" chance="10"/>
-	<strategy attack="60" defense="0"/>
 	<flags>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-				<flag isblockable="0"/>
+		<flag isblockable="0"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>

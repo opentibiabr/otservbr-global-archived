@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Greed" nameDescription="Greed" race="energy" experience="0" speed="380" manacost="0">
+<monster name="Greed" nameDescription="Greed" race="energy" experience="0" speed="380" >
 	<health now="1000" max="1000"/>
 	<look type="293" corpse="0"/>
 	<targetchange interval="2000" chance="25"/>

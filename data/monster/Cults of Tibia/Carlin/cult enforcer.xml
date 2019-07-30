@@ -34,8 +34,8 @@
 	</voices>
 	<loot>
 		<item id="2148" countmax="70" chance="100000" />	<!-- GOLD COIN -->
-		<item id="2145" countmax="1" chance="2530" />		<!-- SMALL DIAMOND  -->
-		<item id="7591" countmax="1" chance="7160" />		<!-- GREAT HEALTH POTION -->
+		<item id="2145" chance="2530" />		<!-- SMALL DIAMOND  -->
+		<item id="7591" chance="7160" />		<!-- GREAT HEALTH POTION -->
 		<item id="2381" chance="2740" />					<!-- HALBERD -->
 		<item id="2391" chance="630" />						<!-- WAR HAMMER -->
 		<item id="2515" chance="420" />						<!-- GUARDIAN SHIELD -->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Robby The Reckless" nameDescription="Robby The Reckless" race="blood" experience="110" speed="220" manacost="0">
+<monster name="Robby The Reckless" nameDescription="Robby The Reckless" race="blood" experience="110" speed="220" >
 	<health now="155" max="155" />
 	<look type="129" head="76" body="132" legs="118" feet="114" addons="1" corpse="20498" />
 	<targetchange interval="4000" chance="5" />

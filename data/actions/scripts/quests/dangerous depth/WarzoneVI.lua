@@ -27,7 +27,6 @@ end
 
 
 function onUse(player, item)
-	math.randomseed(os.time())
 	if not player then
 		return true
 	end

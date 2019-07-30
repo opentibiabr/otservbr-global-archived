@@ -348,13 +348,14 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
+# Docker folders with generated artifacts
+docker/**/otserver
+
 ## CUSTOM
 
 libmysql.dll
 lua51.dll
 theforgottenserver.exe
 data/world/otservbr.otbm
-data/world/globalbr-*.xml
-data/world/globalbr.otbm
 config.lua
 tfs.exe

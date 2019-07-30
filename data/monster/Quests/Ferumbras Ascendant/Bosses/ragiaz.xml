@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ragiaz" nameDescription="ragiaz" race="undead" experience="100000" speed="340" manacost="0" script="boss.lua">
+<monster name="Ragiaz" nameDescription="ragiaz" race="undead" experience="100000" speed="340">
 	<health now="380000" max="380000" />
-        <look type="862" head="76" body="57" legs="19" feet="0" addons="3" corpse="25151" />
+	<look type="862" head="76" body="57" legs="19" feet="0" addons="3" corpse="25151" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
-
 		<flag preyable="0" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,7 +17,10 @@
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 		<flag rewardboss="1" />
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-1400" max="-2300"/>
 		<attack name="death" interval="2000" chance="20" radius="4" target="0" min="-500" max="-900">

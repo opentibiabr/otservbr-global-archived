@@ -22,7 +22,7 @@
 		<attack name="manadrain" interval="3000" chance="10" target="1" min="0" max="-200">
 			<attribute key="areaEffect" value="bluebubble" />
 		</attack>
-		<attack name="lifedrain" interval="1000" chance="15" target="1" radius="2" lenght="1" range="5" min="-0" max="-250">
+		<attack name="lifedrain" interval="1000" chance="15" target="1" radius="2" lenght="1" range="5" min="0" max="-250">
 			<attribute key="areaEffect" value="redspark" />
 		</attack>
 	</attacks>

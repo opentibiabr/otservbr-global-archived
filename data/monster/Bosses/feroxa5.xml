@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Feroxa" nameDescription="Feroxa" experience="0" speed="350" race="blood" manacost="0" script="boss.lua">
+<monster name="Feroxa" nameDescription="Feroxa" experience="0" speed="350" race="blood">
 	<health now="150000" max="150000"/>
-	<strategy attack="100" defense="0"/>
-	<targetchange speed="2000" chance="2"/>
 	<look type="731" head="57" body="76" legs="77" feet="57" corpse="24745"/>
+	<targetchange speed="2000" chance="2"/>
 	<flags>
 		<flag preyable="0" />
 		<flag summonable="0"/>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Animated Feather" nameDescription="an animated feather" race="undead" experience="11600" speed="210">
+	<health now="13000" max="13000" />
+	<look type="1058" corpse="33325" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200" />
+		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
+			<attribute key="shootEffect" value="ice" />
+		</attack>
+			<attack name="ice" interval="1000" chance="10" range="7" min="-200" max="-780">
+			<attribute key="shootEffect" value="smallice" />
+			<attribute key="areaEffect" value="iceattack" />
+		</attack>
+		<attack name="ice" interval="1000" chance="10" length="3" spread="2" min="-200" max="-275">
+			<attribute key="areaEffect" value="iceattack" />
+		</attack>
+		<attack name="ice" interval="1000" chance="12" range="7" radius="3" min="-230" max="-680">
+			<attribute key="shootEffect" value="smallice" />
+			<attribute key="areaEffect" value="icetornado" />
+		</attack>
+	</attacks>
+	<defenses armor="79" defense="40" />
+	<elements>
+		<element firePercent="-18" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity ice="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+		<item name="Small Sapphire" countmax="5" chance="8700" />
+		<item name="Platinum Coin" countmax="50" chance="87000" />
+		<item id="33317" countmax="10" chance="500" />
+		<item name="Energy Ring" chance="8700" />
+		<item id="7441" chance="4000" /><!-- ice cube -->
+		<item name="Shard" countmax="3" chance="250" />
+		<item name="Glacier Mask" chance="250" />
+		<item name="Hailstorm Rod" chance="250" />
+		<item name="Life Crystal" chance="8700" />
+		<item name="Great Mana Potion" countmax="6" chance="900" />
+		<item name="Golden Mug" chance="500" />
+		<item name="Glowing Rune" countmax="10" chance="500" />
+		<item name="Energy Ring" chance="8700" />
+		<item name="Quill" chance="250" />
+		<item name="Small Diamond" countmax="5" chance="500" />
+	</loot>
+</monster>

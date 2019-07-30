@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Doctor Perhaps" nameDescription="doctor perhaps" race="blood" experience="325" speed="200" manacost="0">
+<monster name="Doctor Perhaps" nameDescription="doctor perhaps" race="blood" experience="325" speed="200" >
 	<health now="475" max="475" />
 	<look type="133" head="95" body="0" legs="94" feet="114" addons="1" corpse="20439" />
 	<targetchange interval="4000" chance="10" />

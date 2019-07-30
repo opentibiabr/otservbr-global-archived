@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Woodling" nameDescription="a woodling" race="blood" experience="40" speed="65" manacost="0">
+<monster name="Woodling" nameDescription="a woodling" race="blood" experience="40" speed="65" >
 	<health now="80" max="80"/>
 	<look type="535" corpse="23817"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="90" defense="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

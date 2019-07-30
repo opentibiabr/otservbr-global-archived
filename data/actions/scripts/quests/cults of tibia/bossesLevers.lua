@@ -18,7 +18,6 @@ local geyser = {
 	[12] = Position(33127, 31933, 15)
 }
 
-math.randomseed(os.time())
 local function spawnStolenSoul(t_time)
 	if t_time == 0 then
 		local a1 = Position(33034, 31916, 15)
@@ -112,7 +111,6 @@ local function transformMonster(itid, action, monster, frompos, topos, _temp)
 end
 
 local function ativarGeyser(player)
-math.randomseed(os.time())
 local frompos = Position(33119, 31913, 15) -- Checagem
 local topos = Position(33142, 31936, 15) -- Checagem
 if(isPlayerInArea(frompos, topos)) then

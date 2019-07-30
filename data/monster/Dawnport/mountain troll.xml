@@ -3,7 +3,6 @@
 	<health now="30" max="30"/>
 	<look type="15" corpse="5960"/>
 	<targetchange interval="2000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="1"/>
 		<flag attackable="1"/>
@@ -11,7 +10,7 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-				<flag isblockable="0"/>
+		<flag isblockable="0"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lesser Fire Devil" nameDescription="a lesser fire devil" race="blood" experience="110" speed="75" manacost="0">
+<monster name="Lesser Fire Devil" nameDescription="a lesser fire devil" race="blood" experience="110" speed="75" >
 	<health now="175" max="175"/>
 	<look type="40" corpse="5985"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -12,7 +11,7 @@
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
-				<flag isblockable="0"/>
+		<flag isblockable="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
 		<flag staticattack="90"/>
