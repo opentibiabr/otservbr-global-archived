@@ -6678,6 +6678,11 @@ bool Game::reload(ReloadTypes_t reloadType)
 	}
 }
 
+bool Game::itemidHasMoveevent(uint32_t itemid)
+{
+	return g_moveEvents->isRegistered(itemid);
+}
+
 bool Game::hasEffect(uint8_t effectId) {
 	for (uint8_t i = CONST_ME_NONE; i <= CONST_ME_LAST; i++) {
 		MagicEffectClasses effect = static_cast<MagicEffectClasses>(i);

@@ -104,6 +104,12 @@ Event_ptr MoveEvents::getEvent(const std::string& nodeName)
 	return Event_ptr(new MoveEvent(&scriptInterface));
 }
 
+bool MoveEvents::isRegistered(uint32_t itemid)
+{
+	auto it = itemIdMap.find(itemid);
+	return it != itemIdMap.end();
+}
+
 bool MoveEvents::registerEvent(Event_ptr event, const pugi::xml_node& node)
 {
 	MoveEvent_ptr moveEvent{static_cast<MoveEvent*>(event.release())}; //event is guaranteed to be a MoveEvent

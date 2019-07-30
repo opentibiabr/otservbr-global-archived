@@ -2048,6 +2048,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Game", "getItemIdByClientId", LuaScriptInterface::luaGameGetItemByClientId);
 
+	registerMethod("Game", "itemidHasMoveevent", LuaScriptInterface::luaGameItemidHasMoveevent);
 	registerMethod("Game", "hasDistanceEffect", LuaScriptInterface::luaGameHasDistanceEffect);
 	registerMethod("Game", "hasEffect", LuaScriptInterface::luaGameHasEffect);
 
@@ -4824,6 +4825,14 @@ int LuaScriptInterface::luaGameReload(lua_State* L)
 		pushBoolean(L, g_game.reload(reloadType));
 	}
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
+	return 1;
+}
+
+int LuaScriptInterface::luaGameItemidHasMoveevent(lua_State* L)
+{
+	// Game.itemidHasMoveevent(itemid)
+	uint32_t itemid = getNumber<uint32_t>(L, 1);
+	pushBoolean(L, g_game.itemidHasMoveevent(itemid));
 	return 1;
 }
 
