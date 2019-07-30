@@ -976,6 +976,7 @@ function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, seco
 				if percent and percent > 0 then
 					secondaryDamage = primaryDamage*math.min(percent/100, 1)
 					secondaryType = imbuement:getCombatType()
+					primaryDamage = primaryDamage - secondaryDamage
 				end
 			end
 		end

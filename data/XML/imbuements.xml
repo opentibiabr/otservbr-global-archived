@@ -352,7 +352,7 @@
 	</imbuement>
 	<imbuement name="Swiftness" base="3" category="10" iconid="73">
 		<attribute key="description" value="Raises walking speed by 30." />
-		<attribute key="effect" type="speed" value="30" />
+		<attribute key="effect" type="speed" value="60" />
 
 		<attribute key="item" value="19738" count="15" />
 		<attribute key="item" value="11219" count="25" />
