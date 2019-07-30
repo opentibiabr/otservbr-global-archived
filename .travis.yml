@@ -5,12 +5,6 @@ compiler:
   - clang
   - gcc
 env:
-  global:
-
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   vi/a the "travis encrypt" command using the project repo's public key
-    - secure: "trONVNVab42CW0ShYrNd5FinUyMXuh3OXuyrwcps7TlULa8IGF/LBKlOwVnE5lAp43gYHEX25fp+S5rTee+d+m6NoEVELPO4ZP5MibB7GF1ERg9zDZ8BfrY5lKH2SM3PnBt6p8HbDJg2j2BbeIJUxWew02pZgEt1LDGefzqWqit3HTFaMlI28fAvjo/1B9kkWTGvUU9Bui0Bj1N2nUwlhUWySr4VXC4mO81C0zY7GOiQWcmndK4YZ4yF+nVfpdg187CW5HhM+l2a2mmRd+Fhqfvb6LSRNG1IIkjlDMNx0tuukvEBxOCuf3C4WY2oPfrjejI2+3buDOkzDO16KsUSXTL6kpv2ijVnWBnP6cLlai98UGrU2VeD1U3Hk92nIeykt/UK0KiMitmi3EI29o0RtX2luAceiJupWq7or8hOuklMpbJ/j4SYNosgkVUcbQqMM7crgg7WS944kbNJLj/RVEOq1HFzesjDDkpbrBhmZCikxsYlZMGLS1egrdFhm3zD7k1Hl9kh5md6L/DeTSOD+hamF8i9jmAsA6BUxI4dh0xAi7uHkfLqmhOqSLt5Ahwfa9XQwz3O5ZNM1p2zwSmHxPX+3LncJ5tAJO8IaaK73t4ZMMyzWexfJ5Ggft6qVvn47ek+hlFH0o09RSVbSk6D0vPEzRkh+tB0YBvC2M4UAY8="
-
   matrix:
     - LUAJIT=OFF
     - LUAJIT=ON
@@ -28,19 +22,9 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
-  coverity_scan:
-    project:
-      name: "opentibiabr/OTServBR-Global"
-      description: "A free and open-source MMORPG server emulator written in C++"
-    build_command_prepend: cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
-    build_command: make -j2
-    branch_pattern: develop
-
-before_install:
-- echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 before_script:
   - mkdir build && cd build
   - cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
 
-script: if [ "${COVERITY_SCAN_BRANCH}" != 1 ]; then make -j2; fi
+script: make -j`nproc`
