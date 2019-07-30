@@ -5,7 +5,7 @@ OTServ Brasil - Global Server is a free and open-source MMORPG server emulator w
 
 ### Getting Started
 * **WARNING: YOU NEED TO UNZIP THE MAP BEFORE START THE SERVER.**
-* [Compiling on Windows](https://github.com/opentibiabr/OTServBR-Global/wiki/Compiling-(Windows)), alternatively download [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global).
+* [Compiling on Windows](https://github.com/opentibiabr/OTServBR-Global/wiki/Compiling-on-Windows), alternatively download [nightly builds for Windows](https://ci.appveyor.com/project/opentibiabr/otservbr-global).
 
 ### Issues
 We use the [issue tracker on GitHub](https://github.com/opentibiabr/OTServBR-Global/issues). Keep in mind that everyone who is watching the repository gets notified by e-mail when there is an activity, so be thoughtful and avoid writing comments that aren't meant for an issue (e.g. "+1"). If you'd like for an issue to be fixed faster, you should either fix it yourself and submit a pull request, or place a bounty on the issue.
