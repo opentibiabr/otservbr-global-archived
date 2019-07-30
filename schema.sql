@@ -841,3 +841,12 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+INSERT INTO `accounts`
+(`id`,  `name`, `password`,                                 `type`) VALUES
+(1,     'GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
+
+INSERT INTO `players`
+(`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
+(1,    'ADM',             6,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );
+
