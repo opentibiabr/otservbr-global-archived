@@ -44,10 +44,6 @@ maxContainer = 100
 -- 2 = onOpenCorpse -- restart required]]
 autolootmode = 2
 
--- 0 = ignore exp rate/stage and display bonus % only e.g. 100%
--- 1 = include exp rate/stage in % display e.g. 1000%
-xpgainratemode = 1
-
 -- Version Manual
 clientVersionMin = 1100
 clientVersionMax = 1200
