@@ -127,8 +127,8 @@
 	<mount id="125" clientid="1093" name="Jungle Tiger" speed="20" premium="yes" />
 	<mount id="126" clientid="1101" name="Fleeting Knowledge" speed="20" premium="yes" />
 	<mount id="127" clientid="1104" name="Tawny Owl" speed="20" premium="yes" />
-	<mount id="128" clientid="1105" name="Boreal Owl" speed="20" premium="yes" />
-	<mount id="129" clientid="1106" name="Snowy Owl" speed="20" premium="yes" />
+	<mount id="128" clientid="1105" name="Snowy Owl" speed="20" premium="yes" />
+	<mount id="129" clientid="1106" name="Boreal Owl" speed="20" premium="yes" />
 	<mount id="130" clientid="1150" name="Lacewing Moth" speed="20" premium="yes" />
 	<mount id="131" clientid="1151" name="Hibernal Moth" speed="20" premium="yes" />
 	<mount id="132" clientid="1163" name="Cold Percht Sleigh" speed="20" premium="yes" />
