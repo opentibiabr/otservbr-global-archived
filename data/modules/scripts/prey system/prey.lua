@@ -48,7 +48,6 @@ Prey.Actions = {
 	NEW_LIST = 0,
 	NEW_BONUS = 1,
 	SELECT = 2,
-	NEW_LIST_PREY_WILDCARD = 3
 }
 
 Prey.C_Packets = {
@@ -247,19 +246,6 @@ function Player.preyAction(self, msg)
 		self:setPreyMonsterList(slot, self:createMonsterList())
 		self:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 
-	-- Listreroll with wildcards
-	elseif (action == Prey.Actions.NEW_LIST_PREY_WILDCARD) then
-
-		if (self:getPreyBonusRerolls() < 1) then
-			return self:sendErrorDialog("You don't have any bonus rerolls.")
-		end
-
-		-- Removing bonus rerolls
-		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 1)
-
-		self:setPreyCurrentMonster(slot, "")
-		self:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
-
 	-- Bonus reroll
 	elseif (action == Prey.Actions.NEW_BONUS) then
 
@@ -327,6 +313,8 @@ function Player.selectPreyMonster(self, slot, monster)
 	self:setPreyCurrentMonster(slot, monster:getName())
 	-- Setting preySlot state
 	self:setPreyState(slot, Prey.StateTypes.ACTIVE)
+	-- Cleaning up monsterList
+	self:setPreyMonsterList(slot, "")
 	-- Time left
 	self:setPreyTimeLeft(slot, 7200) -- 2 hours
 end
@@ -342,7 +330,7 @@ function Player.sendPreyData(self, slot)
 	msg:addByte(Prey.S_Packets.PreyData) -- packet header
 	msg:addByte(slot) -- slot number
 	msg:addByte(slotState) -- slot state
-	
+
 	-- This slot will preserve the same bonus and % but the monster might be changed
 	if slotState == Prey.StateTypes.SELECTION_CHANGE_MONSTER then
 
@@ -445,8 +433,8 @@ function Player.sendPreyData(self, slot)
 	msg:addU32(self:getRerollPrice())
 	-- Client 11.9+ compat, feature unavailable.
 	if self:getClient().version >= 1190 then
-		msg:addByte(self:getPreyBonusRerolls())
-		msg:addByte(self:getPreyBonusRerolls())
+		msg:addByte(0x00)
+		msg:addByte(0x00)
 	end
 	-- Sending message to client
 	msg:sendToPlayer(self)
