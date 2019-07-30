@@ -3,9 +3,9 @@ function onUpdateDatabase()
 
     db.query([[
         INSERT INTO `accounts`
-        (`id`, `name`, `password`,                                 `type`) VALUES
-        (1,    '1',    '060d38973b4ba4051fa6ca22f9acd4be7d1557fe',  1),
-        (2,    'GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);]]);
+        (`name`, `password`,                                 `type`) VALUES
+        ('1',    '060d38973b4ba4051fa6ca22f9acd4be7d1557fe',  1),
+        ('GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);]]);
 
     db.query([[
         INSERT INTO `players`
