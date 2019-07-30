@@ -9,7 +9,7 @@ env:
 
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   vi/a the "travis encrypt" command using the project repo's public key
-    - secure: "mxRfVNbRXbG1c3U6LsQuyZVO8qKPiaXjGtaqzpmCT9NjDnXiODDpovNAhqMBihC/7I+8F7PgLO/4mDtbVkSoxSpuNcU/JUZJTdJzpHT2Q62jS+WUtuvAiJEDICVSFcfi6tFva7Glbgkeu8W+jzce5Dx2rSRzx2mptIVAV7HRhvsBLCQE1XA3zWXA4lHgDlsPxQf5/qg9mM1crI7JrhnedClEOYSXknIvPhbIcXiLBnqkIxNjzW0b5EM4LINWi7fgwpcguiq53W6OntzJ5lfOYSS/4SffcjM6+zV9jq7ss/CG05MxLoiNpKU15lt1GJu0KMiYMz1xoeu9KCaTO+JiY0LgtA58qD9mA1QYgQcX9Z4CTIuiuH8FQqILpMOpbs7tlbbUw8v26GIptWFRNV+VmPaKEBajgCdv/7rs4kTWt2kh2s/u4VmcEIRSoMydqBMROudgU36P0Nk2TzUM+DMzGnpCuK+RHuXl5wVaY99Y0r0ARgcgmSKKVSYeboWrpdoZXBD6iTmUgr45oviX7anljMuUo0nK5gRsVcHO0yDIjzmuqzhNiL8Tko4mvkkyThQrgleDgQVefAjiJwEXnlLaBP+buzl2tOp6WDQg3fG4iZ/u5qZxJIG6Z3ukD6sHmP+Gb+tVLuYmsEJAaiDps5hV6yPLefdylxNA6BeLQtc1YLw="
+    - secure: "trONVNVab42CW0ShYrNd5FinUyMXuh3OXuyrwcps7TlULa8IGF/LBKlOwVnE5lAp43gYHEX25fp+S5rTee+d+m6NoEVELPO4ZP5MibB7GF1ERg9zDZ8BfrY5lKH2SM3PnBt6p8HbDJg2j2BbeIJUxWew02pZgEt1LDGefzqWqit3HTFaMlI28fAvjo/1B9kkWTGvUU9Bui0Bj1N2nUwlhUWySr4VXC4mO81C0zY7GOiQWcmndK4YZ4yF+nVfpdg187CW5HhM+l2a2mmRd+Fhqfvb6LSRNG1IIkjlDMNx0tuukvEBxOCuf3C4WY2oPfrjejI2+3buDOkzDO16KsUSXTL6kpv2ijVnWBnP6cLlai98UGrU2VeD1U3Hk92nIeykt/UK0KiMitmi3EI29o0RtX2luAceiJupWq7or8hOuklMpbJ/j4SYNosgkVUcbQqMM7crgg7WS944kbNJLj/RVEOq1HFzesjDDkpbrBhmZCikxsYlZMGLS1egrdFhm3zD7k1Hl9kh5md6L/DeTSOD+hamF8i9jmAsA6BUxI4dh0xAi7uHkfLqmhOqSLt5Ahwfa9XQwz3O5ZNM1p2zwSmHxPX+3LncJ5tAJO8IaaK73t4ZMMyzWexfJ5Ggft6qVvn47ek+hlFH0o09RSVbSk6D0vPEzRkh+tB0YBvC2M4UAY8="
 
   matrix:
     - LUAJIT=OFF
@@ -30,9 +30,8 @@ addons:
       - libgmp3-dev
   coverity_scan:
     project:
-      name: "Costallat/OTServBR-Global"
+      name: "opentibiabr/OTServBR-Global"
       description: "A free and open-source MMORPG server emulator written in C++"
-    notification_email: costallat@hotmail.com
     build_command_prepend: cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
     build_command: make -j2
     branch_pattern: coverity_scan
