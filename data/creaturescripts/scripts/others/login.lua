@@ -195,26 +195,25 @@ function onLogin(player)
 	end
 
 	-- Set Client XP Gain Rate
-	local mode = configManager.getNumber(configKeys.XPGAINRATE_MODE)
-	if mode > 0 then
-		percentMultiplier = 100
+	if Game.getStorageValue(xpDisplayMode) > 0 then
+		displayRate = Game.getExperienceStage(player:getLevel())
 		else
-		percentMultiplier = 10
+		displayRate = 1
 	end
 	local staminaMinutes = player:getStamina()
 	local storeBoost = player:getExpBoostStamina()
 	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*2*percentMultiplier) -- Premium + Stamina boost + Store boost
+		player:setBaseXpGain(displayRate*2*100) -- Premium + Stamina boost + Store boost
 	elseif staminaMinutes > 2400 and player:isPremium() and storeBoost <= 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- Premium + Stamina boost
+		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Stamina boost
 	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and storeBoost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- Premium + Store boost
+		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Store boost
 	elseif staminaMinutes > 840 and storeBoost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5*percentMultiplier) -- FACC + Store boost
+		player:setBaseXpGain(displayRate*1.5*100) -- FACC + Store boost
 	elseif staminaMinutes <= 840 and storeBoost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1*percentMultiplier) -- ALL players low stamina + Store boost
+		player:setBaseXpGain(displayRate*1*100) -- ALL players low stamina + Store boost
 	elseif staminaMinutes <= 840 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*0.5*percentMultiplier) -- ALL players low stamina
+		player:setBaseXpGain(displayRate*0.5*100) -- ALL players low stamina
 	end
 
 	if player:getClient().version > 1110 then

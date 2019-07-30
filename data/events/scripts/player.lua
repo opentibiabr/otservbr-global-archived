@@ -1022,7 +1022,11 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Experience Stage Multiplier
 	exp = exp * Game.getExperienceStage(self:getLevel())
 	baseExp = rawExp
-	displayRate = Game.getExperienceStage(self:getLevel())
+	if Game.getStorageValue(xpDisplayMode) > 0 then
+		displayRate = game.getExperienceStage(self:getLevel())
+		else
+		displayRate = 1
+	end
 
 	-- Prey Bonus
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
@@ -1056,13 +1060,7 @@ function Player:onGainExperience(source, exp, rawExp)
 		end
 	end
 
-	local mode = configManager.getNumber(configKeys.XPGAINRATE_MODE)
-	if mode > 0 then
-		percentMultiplier = 100
-		else
-		percentMultiplier = 10
-	end
-	self:setBaseXpGain(displayRate * percentMultiplier)
+	self:setBaseXpGain(displayRate * 100)
 	return exp
 end
 

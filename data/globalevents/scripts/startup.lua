@@ -90,4 +90,9 @@ function onStartup()
 		until not result.next(resultId)
 		result.free(resultId)
 	end
+
+	-- Client XP Display Mode
+	-- 0 = ignore exp rate / stage
+	-- 1 = include exp rate / stage
+	Game.setStorageValue(xpDisplayMode, 0)
 end

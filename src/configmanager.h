@@ -115,7 +115,6 @@ class ConfigManager
 			PREMIUM_DEPOT_LIMIT,
 			DEPOT_BOXES,
 			AUTOLOOT_MODE, //Autoloot
-			XPGAINRATE_MODE, //XP Gain Rate display mode
 			DAY_KILLS_TO_RED,
 			WEEK_KILLS_TO_RED,
 			MONTH_KILLS_TO_RED,
