@@ -2,8 +2,6 @@ function onUpdateDatabase()
     return false -- true = There are others migrations file | false = this is the last migration file
 end
 
-]=========]
-
 --[=====[
 -- Insert this part to create initial players samples if your web site doesn't do that
     print("[DB] Updating database to version 1 (default accounts and sample players)")
