@@ -1022,7 +1022,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- Experience Stage Multiplier
 	exp = exp * Game.getExperienceStage(self:getLevel())
 	baseExp = rawExp
-	if Game.getStorageValue(xpDisplayMode) > 0 then
+	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
 		displayRate = game.getExperienceStage(self:getLevel())
 		else
 		displayRate = 1
