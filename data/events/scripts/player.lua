@@ -848,7 +848,7 @@ function Player:onStorageUpdate(key, value, oldValue, currentFrameTime)
 	self:updateStorage(key, value, oldValue, currentFrameTime)
 end
 
-function Player:canBeAppliedImbuemet(imbuement, item)
+function Player:canBeAppliedImbuement(imbuement, item)
 	local categories = {}
 	local slots = ItemType(item:getId()):getImbuingSlots()
 	if slots > 0 then
