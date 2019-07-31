@@ -35,6 +35,7 @@
 #include "database.h"
 #include "enums.h"
 #include "position.h"
+#include <boost/lexical_cast.hpp>
 
 class Thing;
 class Creature;
@@ -557,6 +558,7 @@ class LuaScriptInterface
 
 		static int luaGameGetItemByClientId(lua_State* L);
 
+		static int luaGameItemidHasMoveevent(lua_State* L);
 		static int luaGameHasEffect(lua_State* L);
 		static int luaGameHasDistanceEffect(lua_State* L);
 
@@ -710,6 +712,9 @@ class LuaScriptInterface
 		static int luaItemGetAttribute(lua_State* L);
 		static int luaItemSetAttribute(lua_State* L);
 		static int luaItemRemoveAttribute(lua_State* L);
+		static int luaItemGetCustomAttribute(lua_State* L);
+		static int luaItemSetCustomAttribute(lua_State* L);
+		static int luaItemRemoveCustomAttribute(lua_State* L);
 
 		static int luaItemMoveTo(lua_State* L);
 		static int luaItemTransform(lua_State* L);
@@ -991,6 +996,8 @@ class LuaScriptInterface
 		static int luaPlayerLearnSpell(lua_State* L);
 		static int luaPlayerForgetSpell(lua_State* L);
 		static int luaPlayerHasLearnedSpell(lua_State* L);
+
+		static int luaPlayerSendImbuementPanel(lua_State* L);
 
 		static int luaPlayerSendTutorial(lua_State* L);
 		static int luaPlayerAddMapMark(lua_State* L);
@@ -1550,6 +1557,17 @@ class LuaScriptInterface
 
 		// exclusively for wands & distance weapons
 		static int luaWeaponShootType(lua_State* L);
+
+		// Imbuement
+		static int luaCreateImbuement(lua_State* L);
+		static int luaImbuementGetName(lua_State* L);
+		static int luaImbuementGetId(lua_State* L);
+		static int luaImbuementGetItems(lua_State* L);
+		static int luaImbuementGetBase(lua_State* L);
+		static int luaImbuementGetCategory(lua_State* L);
+		static int luaImbuementIsPremium(lua_State* L);
+		static int luaImbuementGetElementDamage(lua_State* L);
+		static int luaImbuementGetCombatType(lua_State* L);
 
 		//
 		lua_State* luaState = nullptr;

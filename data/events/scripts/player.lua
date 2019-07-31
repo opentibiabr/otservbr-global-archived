@@ -112,27 +112,19 @@ function Player:onLook(thing, position, distance)
 		local itemType = thing:getType()
 		if (itemType and itemType:getImbuingSlots() > 0) then
 			local imbuingSlots = "Imbuements: ("
-			for i = 1, itemType:getImbuingSlots() do
-				local specialAttr = thing:getSpecialAttribute(i)
-				local time = 0
-				if (thing:getSpecialAttribute(i+3)) then
-					time = getTime(thing:getSpecialAttribute(i+3))
+			for slot = 0, itemType:getImbuingSlots() - 1 do
+				if slot > 0 then
+					imbuingSlots = string.format("%s, ", imbuingSlots)
 				end
-
-				if (specialAttr and specialAttr ~= 0) then
-					if (i ~= itemType:getImbuingSlots()) then
-						imbuingSlots = imbuingSlots.. "" ..specialAttr.." " ..time..", "
-					else
-						imbuingSlots = imbuingSlots.. "" ..specialAttr.." " ..time..")."
-					end
+				local duration = thing:getImbuementDuration(slot)
+				if duration > 0 then
+					local imbue = thing:getImbuement(slot)
+					imbuingSlots = string.format("%s%s %s %s", imbuingSlots, imbue:getBase().name, imbue:getName(), getTime(duration))
 				else
-					if (i ~= itemType:getImbuingSlots()) then
-						imbuingSlots = imbuingSlots.. "Empty Slot, "
-					else
-						imbuingSlots = imbuingSlots.. "Empty Slot)."
-					end
+					imbuingSlots = string.format("%sEmpty Slot", imbuingSlots)
 				end
 			end
+			imbuingSlots = string.format("%s).", imbuingSlots)
 			description = string.gsub(description, "It weighs", imbuingSlots.. "\nIt weighs")
 		end
 	else
@@ -666,49 +658,6 @@ local soulCondition = Condition(CONDITION_SOUL, CONDITIONID_DEFAULT)
 soulCondition:setTicks(4 * 60 * 1000)
 soulCondition:setParameter(CONDITION_PARAM_SOULGAIN, 1)
 
-function useStaminaImbuing(playerId, itemuid)
-	local player = Player(playerId)
-	if not player then
-		return false
-	end
-
-	local item = Item(itemuid)
-	if not item then
-		return false
-	end
-
-	for i = 1, item:getType():getImbuingSlots() do
-		if (item:isActiveImbuement(i+3)) then
-			local staminaMinutes = item:getSpecialAttribute(i+3)/60
-			if (staminaMinutes > 0) then
-				local currentTime = os.time()
-				local timePassed = currentTime - item:getSpecialAttribute(i+6)
-				if timePassed > 0 then
-					if timePassed > 60 then
-						if staminaMinutes > 2 then
-							staminaMinutes = staminaMinutes - 2
-						else
-							staminaMinutes = 0
-						end
-
-						item:setSpecialAttribute(i+6, currentTime + 120)
-					else
-						staminaMinutes = staminaMinutes - 1
-						item:setSpecialAttribute(i+6, currentTime + 60)
-					end
-				end
-
-				item:setSpecialAttribute(i+3, staminaMinutes*60)
-				if (staminaMinutes <= 0) then
-					player:removeCondition(CONDITION_HASTE, item:getId() + i)
-					player:removeCondition(CONDITION_ATTRIBUTES, item:getId() + i)
-					item:setSpecialAttribute(i, 0, i+3, 0, i+6, 0)
-				end
-			end
-		end
-	end
-end
-
 local function useStamina(player)
 	local staminaMinutes = player:getStamina()
 	if staminaMinutes == 0 then
@@ -797,216 +746,6 @@ local function preyTimeLeft(player, slot)
 	end
 end
 
-function Player:onUseWeapon(normalDamage, elementType, elementDamage)
-	-- Imbuement
-	local weapon = self:getSlotItem(CONST_SLOT_LEFT)
-	if not weapon or weapon:getType():getWeaponType() == WEAPON_SHIELD then
-		weapon = self:getSlotItem(CONST_SLOT_RIGHT)
-		if not weapon or weapon:getType():getWeaponType() == WEAPON_SHIELD then
-			weapon = nil
-		end
-	end
-
-	for slot = 1, 10 do
-		local nextEquip = self:getSlotItem(slot)
-		if nextEquip and nextEquip:getType():getImbuingSlots() > 0 then
-			for i = 1, nextEquip:getType():getImbuingSlots() do
-				local slotEnchant = nextEquip:getSpecialAttribute(i)
-				if (slotEnchant and type(slotEnchant) == 'string') then
-					local percentDamage, enchantPercent = 0, nextEquip:getImbuementPercent(slotEnchant)
-					local typeEnchant = nextEquip:getImbuementType(i) or ""
-					if (typeEnchant ~= "" and typeEnchant ~= "skillShield" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
-						useStaminaImbuing(self:getId(), nextEquip:getUniqueId())
-					end
-
-					if (typeEnchant ~= "hitpointsleech" and typeEnchant ~= "manapointsleech" and typeEnchant ~= "criticaldamage"
-						and typeEnchant ~= "skillShield" and typeEnchant ~= "magiclevelpoints" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
-						local weaponType = nextEquip:getType():getWeaponType()
-						if weaponType ~= WEAPON_NONE and weaponType ~= WEAPON_SHIELD and weaponType ~= WEAPON_AMMO then
-							percentDamage = normalDamage*(enchantPercent/100)
-							normalDamage = normalDamage - percentDamage
-							elementDamage = nextEquip:getType():getAttack()*(enchantPercent/100)
-						end
-					end
-
-					if (typeEnchant == "hitpointsleech") then
-						local healAmountHP = normalDamage*(enchantPercent/100)
-						self:addHealth(math.abs(healAmountHP))
-					elseif (typeEnchant == "manapointsleech") then
-						local healAmountMP = normalDamage*(enchantPercent/100)
-						self:addMana(math.abs(healAmountMP))
-					end
-
-					if (typeEnchant == "firedamage") then
-						elementType = COMBAT_FIREDAMAGE
-					elseif (typeEnchant == "earthdamage") then
-						elementType = COMBAT_EARTHDAMAGE
-					elseif (typeEnchant == "icedamage") then
-						elementType = COMBAT_ICEDAMAGE
-					elseif (typeEnchant == "energydamage") then
-						elementType = COMBAT_ENERGYDAMAGE
-					elseif (typeEnchant == "deathdamage") then
-						elementType = COMBAT_DEATHDAMAGE
-					end
-				end
-			end
-		end
-	end
-
-	return normalDamage, elementType, elementDamage
-end
-
-function Player:onCombatSpell(normalDamage, elementDamage, elementType, changeDamage)
-	-- Imbuement
-	local weapon = self:getSlotItem(CONST_SLOT_LEFT)
-	if not weapon or weapon:getType():getWeaponType() == WEAPON_SHIELD then
-		weapon = self:getSlotItem(CONST_SLOT_RIGHT)
-		if not weapon or weapon:getType():getWeaponType() == WEAPON_SHIELD then
-			weapon = nil
-		end
-	end
-
-	if normalDamage < 0 then
-		for slot = 1, 10 do
-			local nextEquip = self:getSlotItem(slot)
-			if nextEquip and nextEquip:getType():getImbuingSlots() > 0 then
-				for i = 1, nextEquip:getType():getImbuingSlots() do
-					local slotEnchant = nextEquip:getSpecialAttribute(i)
-					if (slotEnchant and type(slotEnchant) == 'string') then
-						local percentDamage, enchantPercent = 0, nextEquip:getImbuementPercent(slotEnchant)
-						local typeEnchant = nextEquip:getImbuementType(i) or ""
-						if (typeEnchant ~= "" and typeEnchant ~= "skillShield" and not typeEnchant:find("absorb") and typeEnchant ~= "speed") then
-							useStaminaImbuing(self:getId(), nextEquip:getUniqueId())
-						end
-
-						if (typeEnchant == "firedamage" or typeEnchant == "earthdamage" or typeEnchant == "icedamage" or typeEnchant == "energydamage" or typeEnchant == "deathdamage") then
-							local weaponType = nextEquip:getType():getWeaponType()
-							if weaponType ~= WEAPON_NONE and weaponType ~= WEAPON_SHIELD and weaponType ~= WEAPON_AMMO then
-								percentDamage = normalDamage*(enchantPercent/100)
-								normalDamage = normalDamage - percentDamage
-								elementDamage = nextEquip:getType():getAttack()*(enchantPercent/100)
-							end
-						end
-
-						if (typeEnchant == "firedamage") then
-							elementType = COMBAT_FIREDAMAGE
-						elseif (typeEnchant == "earthdamage") then
-							elementType = COMBAT_EARTHDAMAGE
-						elseif (typeEnchant == "icedamage") then
-							elementType = COMBAT_ICEDAMAGE
-						elseif (typeEnchant == "energydamage") then
-							elementType = COMBAT_ENERGYDAMAGE
-						elseif (typeEnchant == "deathdamage") then
-							elementType = COMBAT_DEATHDAMAGE
-						end
-					end
-				end
-			end
-		end
-	end
-
-	return normalDamage, elementDamage, elementType, changeDamage
-end
-
-function Player:onMove()
-	local haveImbuingBoots = self:getSlotItem(CONST_SLOT_FEET) and self:getSlotItem(CONST_SLOT_FEET):getType():getImbuingSlots() or 0
-	if haveImbuingBoots > 0 then
-		local bootsItem = self:getSlotItem(CONST_SLOT_FEET)
-		for slot = 1, haveImbuingBoots do
-			local slotEnchant = bootsItem:getSpecialAttribute(slot)
-			if (slotEnchant and type(slotEnchant) == 'string') then
-				local typeEnchant = bootsItem:getImbuementType(slot) or ""
-				if (typeEnchant == "speed") then
-					useStaminaImbuing(self:getId(), bootsItem:getUniqueId())
-				end
-			end
-		end
-	end
-	return true
-end
-
-function Player:onEquipImbuement(item)
-	local itemType = item:getType()
-	for i = 1, itemType:getImbuingSlots() do
-		local slotEnchant = item:getSpecialAttribute(i)
-		if (slotEnchant and type(slotEnchant) == 'string') then
-			conditionHaste = Condition(CONDITION_HASTE, item:getId() + i)
-			conditionSkill = Condition(CONDITION_ATTRIBUTES, item:getId() + i)
-			local skillValue = item:getImbuementPercent(slotEnchant)
-			local typeEnchant = item:getImbuementType(i) or ""
-			if (typeEnchant == "skillSword") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_SWORD, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "skillAxe") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_AXE, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "skillClub") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_CLUB, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "skillDist") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_DISTANCE, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "skillShield") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_SHIELD, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "magiclevelpoints") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_STAT_MAGICPOINTS, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "speed") then
-				conditionHaste:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionHaste:setParameter(CONDITION_PARAM_SPEED, self:getSpeed() * (skillValue/100))
-				self:addCondition(conditionHaste)
-			elseif (typeEnchant == "criticaldamage") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_CRITICAL_HIT_CHANCE, 10)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_CRITICAL_HIT_DAMAGE, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "hitpointsleech") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_LIFE_LEECH_CHANCE, 100)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_LIFE_LEECH_AMOUNT, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "manapointsleech") then
-				conditionSkill:setParameter(CONDITION_PARAM_TICKS, -1)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_MANA_LEECH_CHANCE, 100)
-				conditionSkill:setParameter(CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNT, skillValue)
-				self:addCondition(conditionSkill)
-			elseif (typeEnchant == "capacity") then
-				if (self:getStorageValue(STORAGE_CAPACITY_IMBUEMENT) < 1) then
-					local imbuementCapacity = self:getCapacity() * (skillValue/100)
-					self:setCapacity(self:getCapacity() + imbuementCapacity)
-					self:setStorageValue(STORAGE_CAPACITY_IMBUEMENT, imbuementCapacity)
-				end
-			end
-		end
-	end
-
-	return true
-end
-
-function Player:onDeEquipImbuement(item)
-	for i = 1, item:getType():getImbuingSlots() do
-		self:removeCondition(CONDITION_HASTE, item:getId() + i)
-		self:removeCondition(CONDITION_ATTRIBUTES, item:getId() + i)
-		local slotEnchant = item:getSpecialAttribute(i)
-		if (slotEnchant and type(slotEnchant) == 'string') then
-			local typeEnchant = item:getImbuementType(i) or ""
-			if (typeEnchant == "capacity") then
-				self:setCapacity(self:getCapacity() - self:getStorageValue(STORAGE_CAPACITY_IMBUEMENT))
-				self:setStorageValue(STORAGE_CAPACITY_IMBUEMENT, 0)
-			end
-		end
-	end
-
-	return true
-end
-
 function Player:onGainExperience(source, exp, rawExp)
 	if not source or source:isPlayer() then
 		return exp
@@ -1038,35 +777,6 @@ function Player:onGainExperience(source, exp, rawExp)
 	-- More compact, after checking before (reset) it only of xp if you have
 	if (self:getStoreXpBoost() > 0) then
 		exp = exp + (exp * (self:getStoreXpBoost()/100)) -- Exp Boost
-	end
-
-	local party = self:getParty()
-	if (party) then
-		if (party:isSharedExperienceActive() and
-			party:isSharedExperienceEnabled()) then
-			local tableVocs = {}
-			local count = 0
-			local totalCount = 0
-			local leaderId = party:getLeader():getVocation():getId()
-			if (leaderId) then
-				tableVocs[leaderId] = 1
-				count = count + 1
-				totalCount = totalCount + 1
-			end
-			for i, v in pairs(party:getMembers()) do
-				local vocId = v:getVocation():getId()
-				if (tableVocs[vocId] == nil) then
-					tableVocs[vocId] = 1
-					count = count + 1
-				end
-				totalCount = totalCount + 1
-			end
-
-			if (totalCount <= 10 and
-				count >= 4) then
-				exp = exp * 2
-			end
-		end
 	end
 
 	-- Exp Boost Modifier
@@ -1136,4 +846,139 @@ end
 
 function Player:onStorageUpdate(key, value, oldValue, currentFrameTime)
 	self:updateStorage(key, value, oldValue, currentFrameTime)
+end
+
+function Player:canBeAppliedImbuemet(imbuement, item)
+	local categories = {}
+	local slots = ItemType(item:getId()):getImbuingSlots()
+	if slots > 0 then
+		for slot = 0, slots - 1 do
+			local duration = item:getImbuementDuration(slot)
+			if duration > 0 then
+				local imbue = item:getImbuement(slot)
+				local catid = imbue:getCategory().id
+				table.insert(categories, catid)
+			end
+		end
+	end
+
+	if isInArray(categories, imbuement:getCategory().id) then
+		return false
+	end
+
+	if imbuement:isPremium() and self:getPremiumDays() < 1 then
+		return false
+	end
+
+	if not self:canImbueItem(imbuement, item) then
+		return false
+	end
+
+	return true
+end
+
+function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
+	for _, pid in pairs(imbuement:getItems()) do
+		if self:getItemCount(pid.itemid) < pid.count then
+			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
+			return false
+		end
+	end
+
+	if item:getImbuementDuration(slot) > 0 then
+		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ERROR, "An error ocurred, please reopen imbuement window.")
+		return false
+	end
+	local base = imbuement:getBase()
+	local price = base.price + (protectionCharm and base.protection or 0)
+
+	local chance = protectionCharm and 100 or base.percent
+	if math.random(100) > chance then
+		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "Item failed to apply imbuement.")
+		return false
+	end
+
+	-- Removing items
+	for _, pid in pairs(imbuement:getItems()) do
+		if not self:removeItem(pid.itemid, pid.count) then
+			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
+			return false
+		end
+	end
+
+	if not self:removeMoneyNpc(price) then
+		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have enough money " ..price.. " gps.")
+		return false
+	end
+
+	if not item:addImbuement(slot, imbuement:getId()) then
+		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "Item failed to apply imbuement.")
+		return false
+	end
+
+	-- Update item
+	local nitem = Item(item.uid)
+	self:sendImbuementPanel(nitem)
+	return true
+end
+
+function Player:clearImbuement(item, slot)
+	local slots = ItemType(item:getId()):getImbuingSlots()
+	if slots < slot then
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "Sorry, not possible.")
+		return false
+	end
+
+	if item:getTopParent() ~= self or item:getParent() == self then
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
+		return false
+	end
+
+	-- slot is not used
+	local info = item:getImbuementDuration(slot)
+	if info == 0 then
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
+		return false
+	end
+
+	local imbuement = item:getImbuement(slot)
+	if not self:removeMoneyNpc(imbuement:getBase().removecust) then
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "You don't have enough money " ..imbuement:getBase().removecust.. " gps.")
+		return false
+	end
+
+	if not item:cleanImbuement(slot) then
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
+		return false
+	end
+
+	-- Update item
+	local nitem = Item(item.uid)
+	self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_SUCCESS, "Congratulations! You have successfully applied the clearing charm to your item.");
+	self:sendImbuementPanel(nitem)
+
+	return true
+end
+
+function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	if not item then
+		return primaryDamage, primaryType, secondaryDamage, secondaryType
+	end
+
+	local slots = ItemType(item:getId()):getImbuingSlots()
+	if slots > 0 then
+		for i = 0, slots - 1 do
+			local imbuement = item:getImbuement(i)
+			if imbuement then
+				local percent = imbuement:getElementDamage()
+				if percent and percent > 0 then
+					secondaryDamage = primaryDamage*math.min(percent/100, 1)
+					secondaryType = imbuement:getCombatType()
+					primaryDamage = primaryDamage - secondaryDamage
+				end
+			end
+		end
+	end
+
+	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end

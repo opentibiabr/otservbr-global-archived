@@ -39,6 +39,7 @@
 #include "globalevent.h"
 #include "script.h"
 #include "weapons.h"
+#include "imbuements.h"
 
 extern Chat* g_chat;
 extern Game g_game;
@@ -53,6 +54,7 @@ extern MoveEvents* g_moveEvents;
 extern GlobalEvents* g_globalEvents;
 extern Scripts* g_scripts;
 extern Weapons* g_weapons;
+extern Imbuements* g_imbuements;
 
 ScriptEnvironment::DBResultMap ScriptEnvironment::tempResults;
 uint32_t ScriptEnvironment::lastResultId = 0;
@@ -1583,6 +1585,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_KEG_START)
 	registerEnum(ITEM_KEG_END)
 
+	registerEnum(IMBUEMENT_SLOT)
+
 	registerEnum(PlayerFlag_CannotUseCombat)
 	registerEnum(PlayerFlag_CannotAttackPlayer)
 	registerEnum(PlayerFlag_CannotAttackMonster)
@@ -1891,6 +1895,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(RELOAD_TYPE_SPELLS)
 	registerEnum(RELOAD_TYPE_TALKACTIONS)
 	registerEnum(RELOAD_TYPE_WEAPONS)
+	registerEnum(RELOAD_TYPE_IMBUEMENTS)
 
 	registerEnum(ZONE_PROTECTION)
 	registerEnum(ZONE_NOPVP)
@@ -2043,6 +2048,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Game", "getItemIdByClientId", LuaScriptInterface::luaGameGetItemByClientId);
 
+	registerMethod("Game", "itemidHasMoveevent", LuaScriptInterface::luaGameItemidHasMoveevent);
 	registerMethod("Game", "hasDistanceEffect", LuaScriptInterface::luaGameHasDistanceEffect);
 	registerMethod("Game", "hasEffect", LuaScriptInterface::luaGameHasEffect);
 
@@ -2202,6 +2208,9 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Item", "getAttribute", LuaScriptInterface::luaItemGetAttribute);
 	registerMethod("Item", "setAttribute", LuaScriptInterface::luaItemSetAttribute);
 	registerMethod("Item", "removeAttribute", LuaScriptInterface::luaItemRemoveAttribute);
+	registerMethod("Item", "getCustomAttribute", LuaScriptInterface::luaItemGetCustomAttribute);
+	registerMethod("Item", "setCustomAttribute", LuaScriptInterface::luaItemSetCustomAttribute);
+	registerMethod("Item", "removeCustomAttribute", LuaScriptInterface::luaItemRemoveCustomAttribute);
 
 	registerMethod("Item", "moveTo", LuaScriptInterface::luaItemMoveTo);
 	registerMethod("Item", "transform", LuaScriptInterface::luaItemTransform);
@@ -2483,6 +2492,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "learnSpell", LuaScriptInterface::luaPlayerLearnSpell);
 	registerMethod("Player", "forgetSpell", LuaScriptInterface::luaPlayerForgetSpell);
 	registerMethod("Player", "hasLearnedSpell", LuaScriptInterface::luaPlayerHasLearnedSpell);
+
+	registerMethod("Player", "sendImbuementPanel", LuaScriptInterface::luaPlayerSendImbuementPanel);
 
 	registerMethod("Player", "sendTutorial", LuaScriptInterface::luaPlayerSendTutorial);
 	registerMethod("Player", "addMapMark", LuaScriptInterface::luaPlayerAddMapMark);
@@ -3082,6 +3093,21 @@ void LuaScriptInterface::registerFunctions()
 
 	// exclusively for wands & distance weapons
 	registerMethod("Weapon", "shootType", LuaScriptInterface::luaWeaponShootType);
+
+	// Imbuements
+	registerClass("Imbuement", "", LuaScriptInterface::luaCreateImbuement);
+	registerMetaMethod("Imbuement", "__eq", LuaScriptInterface::luaUserdataCompare);
+
+	registerMethod("Imbuement", "getName", LuaScriptInterface::luaImbuementGetName);
+	registerMethod("Imbuement", "getId", LuaScriptInterface::luaImbuementGetId);
+	registerMethod("Imbuement", "getItems", LuaScriptInterface::luaImbuementGetItems);
+	registerMethod("Imbuement", "getBase", LuaScriptInterface::luaImbuementGetBase);
+	registerMethod("Imbuement", "getCategory", LuaScriptInterface::luaImbuementGetCategory);
+	registerMethod("Imbuement", "isPremium", LuaScriptInterface::luaImbuementIsPremium);
+	registerMethod("Imbuement", "getElementDamage", LuaScriptInterface::luaImbuementGetElementDamage);
+	registerMethod("Imbuement", "getCombatType", LuaScriptInterface::luaImbuementGetCombatType);
+
+
 }
 
 #undef registerEnum
@@ -4799,6 +4825,14 @@ int LuaScriptInterface::luaGameReload(lua_State* L)
 		pushBoolean(L, g_game.reload(reloadType));
 	}
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
+	return 1;
+}
+
+int LuaScriptInterface::luaGameItemidHasMoveevent(lua_State* L)
+{
+	// Game.itemidHasMoveevent(itemid)
+	uint32_t itemid = getNumber<uint32_t>(L, 1);
+	pushBoolean(L, g_game.itemidHasMoveevent(itemid));
 	return 1;
 }
 
@@ -6660,6 +6694,90 @@ int LuaScriptInterface::luaItemRemoveAttribute(lua_State* L)
 		reportErrorFunc("Attempt to erase protected key \"uid\"");
 	}
 	pushBoolean(L, ret);
+	return 1;
+}
+
+int LuaScriptInterface::luaItemGetCustomAttribute(lua_State* L) {
+	// item:getCustomAttribute(key)
+	Item* item = getUserdata<Item>(L, 1);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const ItemAttributes::CustomAttribute* attr;
+	if (isNumber(L, 2)) {
+		attr = item->getCustomAttribute(getNumber<int64_t>(L, 2));
+	} else if (isString(L, 2)) {
+		attr = item->getCustomAttribute(getString(L, 2));
+	} else {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if (attr) {
+		attr->pushToLua(L);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaItemSetCustomAttribute(lua_State* L) {
+	// item:setCustomAttribute(key, value)
+	Item* item = getUserdata<Item>(L, 1);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	std::string key;
+	if (isNumber(L, 2)) {
+		key = boost::lexical_cast<std::string>(getNumber<int64_t>(L, 2));
+	} else if (isString(L, 2)) {
+		key = getString(L, 2);
+	} else {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	ItemAttributes::CustomAttribute val;
+	if (isNumber(L, 3)) {
+		double tmp = getNumber<double>(L, 3);
+		if (std::floor(tmp) < tmp) {
+			val.set<double>(tmp);
+		} else {
+			val.set<int64_t>(tmp);
+		}
+	} else if (isString(L, 3)) {
+		val.set<std::string>(getString(L, 3));
+	} else if (isBoolean(L, 3)) {
+		val.set<bool>(getBoolean(L, 3));
+	} else {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	item->setCustomAttribute(key, val);
+	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaItemRemoveCustomAttribute(lua_State* L) {
+	// item:removeCustomAttribute(key)
+	Item* item = getUserdata<Item>(L, 1);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if (isNumber(L, 2)) {
+		pushBoolean(L, item->removeCustomAttribute(getNumber<int64_t>(L, 2)));
+	} else if (isString(L, 2)) {
+		pushBoolean(L, item->removeCustomAttribute(getString(L, 2)));
+	} else {
+		lua_pushnil(L);
+	}
 	return 1;
 }
 
@@ -10231,6 +10349,20 @@ int LuaScriptInterface::luaPlayerSendTutorial(lua_State* L)
 	if (player) {
 		uint8_t tutorialId = getNumber<uint8_t>(L, 2);
 		player->sendTutorial(tutorialId);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSendImbuementPanel(lua_State* L)
+{
+	// player:sendImbuementPanel(item, update = false)
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		Item* item = getUserdata<Item>(L, 2);
+		player->sendImbuementWindow(item);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
@@ -17289,6 +17421,154 @@ int LuaScriptInterface::luaWeaponExtraElement(lua_State* L)
 			it.abilities.get()->elementType = getNumber<CombatType_t>(L, 3);
 		}
 		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+// Imbuement
+int LuaScriptInterface::luaCreateImbuement(lua_State* L)
+{
+	// Imbuement(id)
+	uint32_t imbuementId = getNumber<uint32_t>(L, 2);
+	Imbuement* imbuement = g_imbuements->getImbuement(imbuementId);
+
+	if (imbuement) {
+		pushUserdata<Imbuement>(L, imbuement);
+		setMetatable(L, -1, "Imbuement");
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetName(lua_State* L)
+{
+	// imbuement:getName()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (imbuement) {
+		pushString(L, imbuement->getName());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetId(lua_State* L)
+{
+	// imbuement:getId()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (imbuement) {
+		lua_pushnumber(L, imbuement->getId());
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetItems(lua_State* L)
+{
+	// imbuement:getItems()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (!imbuement) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const auto& items = imbuement->getItems();
+
+	lua_createtable(L, items.size(), 0);
+	for (const auto& itm : items) {
+		lua_createtable(L, 0, 2);
+		setField(L, "itemid", itm.first);
+		setField(L, "count", itm.second);
+		lua_rawseti(L, -2, itm.first);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetBase(lua_State* L)
+{
+	// imbuement:getBase()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (!imbuement) {
+		lua_pushnil(L);
+		return 1;
+	}
+	uint32_t basid = imbuement->getBaseID();
+	BaseImbue* base = g_imbuements->getBaseByID(basid);
+
+	if (base) {
+		lua_createtable(L, 0, 7);
+		setField(L, "id", base->id);
+		setField(L, "name", base->name);
+		setField(L, "price", base->price);
+		setField(L, "protection", base->protection);
+		setField(L, "percent", base->percent);
+		setField(L, "removecust", base->removecust);
+		setField(L, "duration", base->duration);
+	} else {
+		lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetCategory(lua_State* L)
+{
+	// imbuement:getCategory()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (!imbuement) {
+		lua_pushnil(L);
+		return 1;
+	}
+	uint32_t catid = imbuement->getCategory();
+	Category* category = g_imbuements->getCategoryByID(catid);
+
+	if (category) {
+		lua_createtable(L, 0, 2);
+		setField(L, "id", category->id);
+		setField(L, "name", category->name);
+	} else {
+		lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementIsPremium(lua_State* L)
+{
+	// imbuement:isPremium()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (!imbuement) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	pushBoolean(L, imbuement->isPremium());
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetElementDamage(lua_State* L)
+{
+	// imbuement:getElementDamage()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (imbuement) {
+		lua_pushnumber(L, imbuement->elementDamage);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaImbuementGetCombatType(lua_State* L)
+{
+	// imbuement:getCombatType()
+	Imbuement* imbuement = getUserdata<Imbuement>(L, 1);
+	if (imbuement) {
+		lua_pushnumber(L, imbuement->combatType);
 	} else {
 		lua_pushnil(L);
 	}

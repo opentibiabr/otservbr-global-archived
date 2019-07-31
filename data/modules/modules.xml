@@ -19,10 +19,6 @@
 	<!-- Blessings -->
 	<module type="recvbyte" byte="207" script="blessings/blessings.lua" />
 
-	<!-- Imbuing System -->
-	<module type="recvbyte" byte="213" script="imbuement/imbuement.lua" />
-	<module type="recvbyte" byte="214" script="imbuement/imbuement.lua" />
-
 	<!-- Cults of Tibia -->
 	<module type="recvbyte" byte="15" script="cults of tibia/death.lua" />
 

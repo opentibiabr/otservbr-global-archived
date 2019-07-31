@@ -31,6 +31,7 @@
 #include "events.h"
 #include "modules.h"
 #include "script.h"
+#include "imbuements.h"
 
 Actions* g_actions = nullptr;
 CreatureEvents* g_creatureEvents = nullptr;
@@ -43,6 +44,7 @@ MoveEvents* g_moveEvents = nullptr;
 Weapons* g_weapons = nullptr;
 Scripts* g_scripts = nullptr;
 Modules* g_modules = nullptr;
+Imbuements* g_imbuements = nullptr;
 
 extern LuaEnvironment g_luaEnvironment;
 
@@ -58,6 +60,7 @@ ScriptingManager::~ScriptingManager()
 	delete g_creatureEvents;
 	delete g_globalEvents;
 	delete g_scripts;
+	delete g_imbuements;
 }
 
 bool ScriptingManager::loadScriptSystems()
@@ -128,6 +131,12 @@ bool ScriptingManager::loadScriptSystems()
 	g_modules = new Modules();
 	if (!g_modules->loadFromXml()) {
 		std::cout << "> ERROR: Unable to load modules!" << std::endl;
+		return false;
+	}
+
+	g_imbuements = new Imbuements();
+	if (!g_imbuements->loadFromXml()) {
+		std::cout << "> ERROR: Unable to load imbuements!" << std::endl;
 		return false;
 	}
 

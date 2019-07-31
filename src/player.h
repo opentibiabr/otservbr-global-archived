@@ -39,6 +39,7 @@
 #include "reward.h"
 #include "rewardchest.h"
 #include "gamestore.h"
+#include "imbuements.h"
 
 class House;
 class NetworkMessage;
@@ -49,6 +50,7 @@ class Party;
 class SchedulerTask;
 class Bed;
 class Guild;
+class Imbuement;
 
 enum skillsid_t {
 	SKILLVALUE_LEVEL = 0,
@@ -380,6 +382,11 @@ class Player final : public Creature, public Cylinder
 			bedItem = b;
 		}
 
+		bool inImbuing() {
+			return imbuing != nullptr;
+		}
+		void inImbuing(Item* item);
+		
 		void addBlessing(uint8_t index, uint8_t count) {
 			if (blessings[index - 1] == 255) {
 				return;
@@ -1212,6 +1219,11 @@ class Player final : public Creature, public Cylinder
 				client->sendOutfitWindow();
 			}
 		}
+		void sendImbuementWindow(Item* item) {
+			if (client) {
+				client->sendImbuementWindow(item);
+			}
+		}
 		void sendCloseContainer(uint8_t cid) {
 			if (client) {
 				client->sendCloseContainer(cid);
@@ -1354,7 +1366,8 @@ class Player final : public Creature, public Cylinder
 			return idleTime;
 		}
 
-		void doCriticalDamage(CombatDamage& damage) const;
+		void onEquipImbueItem(Imbuement* imbuement);
+		void onDeEquipImbueItem(Imbuement* imbuement);
 
 		//Custom: Anti bug do market
 		bool isMarketExhausted() const;
@@ -1469,6 +1482,7 @@ class Player final : public Creature, public Cylinder
 		GuildRank_ptr guildRank;
 		Group* group = nullptr;
 		Inbox* inbox;
+		Item* imbuing = nullptr; // for intarnal use
 		Item* tradeItem = nullptr;
  		Item* inventory[CONST_SLOT_LAST + 1] = {};
 		Item* writeItem = nullptr;

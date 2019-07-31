@@ -31,13 +31,13 @@
 	<event class="Player" method="onRequestQuestLog" enabled="1" />
 	<event class="Player" method="onRequestQuestLine" enabled="1" />
 	<event class="Player" method="onStorageUpdate" enabled="1" />
-	<event class="Player" method="onUseWeapon" enabled="1" />
-	<event class="Player" method="onCombatSpell" enabled="1" />
 	<!-- Imbuement System -->
+	<event class="Player" method="canBeAppliedImbuemet" enabled="1" />
+	<event class="Player" method="onApplyImbuement" enabled="1" />
+	<event class="Player" method="clearImbuement" enabled="1" />
+	<event class="Player" method="onCombat" enabled="1" />
+
 	<event class="Creature" method="onDrainHealth" enabled="1" />
-	<event class="Player" method="onMove" enabled="1" />
-	<event class="Player" method="onEquipImbuement" enabled="1" />
-	<event class="Player" method="onDeEquipImbuement" enabled="1" />
 	<event class="Player" method="onRemoveCount" enabled="1" /> <!-- tibia 11 function -->
 
 	<!-- Monster Methods -->

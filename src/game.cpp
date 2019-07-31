@@ -42,6 +42,7 @@
 #include "weapons.h"
 #include "script.h"
 #include "modules.h"
+#include "imbuements.h"
 
 extern ConfigManager g_config;
 extern Actions* g_actions;
@@ -58,6 +59,7 @@ extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 extern Scripts* g_scripts;
 extern Modules* g_modules;
+extern Imbuements* g_imbuements;
 
 Game::Game()
 {
@@ -92,6 +94,7 @@ void Game::start(ServiceManager* manager)
 	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL, std::bind(&Game::checkLight, this)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_CREATURE_THINK_INTERVAL, std::bind(&Game::checkCreatures, this, 0)));
 	g_scheduler.addEvent(createSchedulerTask(EVENT_DECAYINTERVAL, std::bind(&Game::checkDecay, this)));
+	g_scheduler.addEvent(createSchedulerTask(EVENT_IMBUEMENTINTERVAL, std::bind(&Game::checkImbuements, this)));
 }
 
 GameState_t Game::getGameState() const
@@ -875,10 +878,6 @@ ReturnValue Game::internalMoveCreature(Creature& creature, Tile& toTile, uint32_
 				internalCreatureTurn(&creature, dir);
 			}
 		}
-	}
-
-	if (creature.getPlayer()) {
-		g_events->eventPlayerOnMove(creature.getPlayer());
 	}
 
 	return RETURNVALUE_NOERROR;
@@ -3375,6 +3374,61 @@ void Game::playerRequestEditVip(uint32_t playerId, uint32_t guid, const std::str
 	player->editVIP(guid, description, icon, notify);
 }
 
+void Game::playerApplyImbuement(uint32_t playerId, uint32_t imbuementid, uint8_t slot, bool protectionCharm)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	if (!player->inImbuing()) {
+		return;	
+	}
+
+	Imbuement* imbuement = g_imbuements->getImbuement(imbuementid);
+	if(!imbuement) {
+		return;
+	}
+
+	Item* item = player->imbuing;
+	if(item == nullptr) {
+		return;
+	}
+
+	g_events->eventPlayerOnApplyImbuement(player, imbuement, item, slot, protectionCharm);
+}
+
+void Game::playerClearingImbuement(uint32_t playerid, uint8_t slot)
+{
+	Player* player = getPlayerByID(playerid);
+	if (!player) {
+		return;
+	}
+
+	if (!player->inImbuing()) {
+		return;	
+	}
+
+	Item* item = player->imbuing;
+	if(item == nullptr) {
+		return;
+	}
+
+	g_events->eventPlayerClearImbuement(player, item, slot);
+	return;
+}
+
+void Game::playerCloseImbuingWindow(uint32_t playerid)
+{
+	Player* player = getPlayerByID(playerid);
+	if (!player) {
+		return;
+	}
+
+	player->inImbuing(nullptr);
+	return;
+}
+
 void Game::playerTurn(uint32_t playerId, Direction dir)
 {
 	Player* player = getPlayerByID(playerId);
@@ -4178,28 +4232,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		damage.primary.value = std::abs(damage.primary.value);
 		damage.secondary.value = std::abs(damage.secondary.value);
 
-		if (attackerPlayer && damage.origin != ORIGIN_NONE) {
-			//life leech
-			if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE)) {
-				CombatParams tmpParams;
-				CombatDamage tmpDamage;
-				tmpDamage.origin = ORIGIN_SPELL;
-				tmpDamage.primary.type = COMBAT_HEALING;
-				tmpDamage.primary.value = (damage.primary.value * attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT)) / 100;
-				Combat::doCombatHealth(nullptr, attackerPlayer, tmpDamage, tmpParams);
-			}
-
-			//mana leech
-			if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_CHANCE)) {
-				CombatParams tmpParams;
-				CombatDamage tmpDamage;
-				tmpDamage.origin = ORIGIN_SPELL;
-				tmpDamage.primary.type = COMBAT_MANADRAIN;
-				tmpDamage.primary.value = (damage.primary.value * attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT)) / 100;
-				Combat::doCombatMana(nullptr, attackerPlayer, tmpDamage, tmpParams);
-			}
-		}
-
 		TextMessage message;
 		message.position = targetPos;
 
@@ -4211,7 +4243,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (healthChange == 0) {
 			return true;
 		}
-		
+
 		SpectatorHashSet spectators;
 		map.getSpectators(spectators, targetPos, true, true);
 
@@ -4344,6 +4376,31 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					targetMonster->setIgnoreFieldDamage(true);
 					targetMonster->updateMapCache();
 				}
+			}
+		}
+
+		// Using real damage
+		if (attackerPlayer && damage.origin != ORIGIN_NONE) {
+			//life leech
+			if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE)) {
+				CombatParams tmpParams;
+				CombatDamage tmpDamage;
+				tmpDamage.origin = ORIGIN_SPELL;
+				tmpDamage.primary.type = COMBAT_HEALING;
+				tmpDamage.primary.value = std::round((realDamage * (attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT) /100.)) / damage.affected);
+
+				Combat::doCombatHealth(nullptr, attackerPlayer, tmpDamage, tmpParams);
+			}
+
+			//mana leech
+			if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_CHANCE)) {
+				CombatParams tmpParams;
+				CombatDamage tmpDamage;
+				tmpDamage.origin = ORIGIN_SPELL;
+				tmpDamage.primary.type = COMBAT_MANADRAIN;
+				tmpDamage.primary.value = std::round((realDamage * (attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT) /100.)) / damage.affected);
+
+				Combat::doCombatMana(nullptr, attackerPlayer, tmpDamage, tmpParams);
 			}
 		}
 
@@ -4775,6 +4832,65 @@ void Game::checkDecay()
 	cleanup();
 }
 
+void Game::checkImbuements()
+{
+	g_scheduler.addEvent(createSchedulerTask(EVENT_IMBUEMENTINTERVAL, std::bind(&Game::checkImbuements, this)));
+
+	size_t bucket = (lastImbuedBucket + 1) % EVENT_IMBUEMENT_BUCKETS;
+
+	auto it = imbuedItems[bucket].begin(), end = imbuedItems[bucket].end();
+	while (it != end) {
+		Item* item = *it;
+
+		if (item->isRemoved() || !item->getParent()->getCreature()) {
+			ReleaseItem(item);
+			it = imbuedItems[bucket].erase(it);			
+			continue;
+		}
+
+		bool needUpdate = false;
+		uint8_t slots = Item::items[item->getID()].imbuingSlots;
+		for (uint8_t slot = 0; slot < slots; slot++) {
+			uint32_t info = item->getImbuement(slot);
+			int32_t duration = info >> 8;
+			int32_t newDuration = std::max(0, (duration - (EVENT_IMBUEMENTINTERVAL * EVENT_IMBUEMENT_BUCKETS) / 690));
+			if (duration > 0 && newDuration == 0) {
+				needUpdate = true;
+			}
+		}
+
+		Player* player = item->getParent()->getCreature()->getPlayer();
+		int32_t index = player ? player->getThingIndex(item) : -1;
+		needUpdate = needUpdate && index != -1;
+
+		if (needUpdate) {
+			player->postRemoveNotification(item, player, index);
+			ReleaseItem(item);
+			it = imbuedItems[bucket].erase(it);
+		}
+
+		for (uint8_t slot = 0; slot < slots; slot++) {
+			uint32_t info = item->getImbuement(slot);
+			int32_t duration = info >> 8;
+			int32_t decreaseTime = std::min<int32_t>((EVENT_IMBUEMENTINTERVAL * EVENT_IMBUEMENT_BUCKETS) / 690, duration);
+			duration -= decreaseTime;
+
+			int32_t id = info & 0xFF;
+			int64_t newinfo = (duration << 8) | id;
+			item->setImbuement(slot,newinfo);
+		}
+
+		if (needUpdate) {
+			player->postAddNotification(item, player, index);
+		} else {
+			it++;
+		}
+	}
+
+	lastImbuedBucket = bucket;
+	cleanup();
+}
+
 void Game::checkLight()
 {
 	g_scheduler.addEvent(createSchedulerTask(EVENT_LIGHTINTERVAL, std::bind(&Game::checkLight, this)));
@@ -4885,6 +5001,12 @@ void Game::cleanup()
 		}
 	}
 	toDecayItems.clear();
+
+	for (Item* item : toImbuedItems) {
+		imbuedItems[lastImbuedBucket].push_back(item);
+	}
+	toImbuedItems.clear();
+
 }
 
 void Game::ReleaseCreature(Creature* creature)
@@ -6483,6 +6605,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
 		case RELOAD_TYPE_MOVEMENTS: return g_moveEvents->reload();
+		case RELOAD_TYPE_IMBUEMENTS: return g_imbuements->reload();
 		case RELOAD_TYPE_NPCS: {
 			Npcs::reload();
 			return true;
@@ -6553,6 +6676,11 @@ bool Game::reload(ReloadTypes_t reloadType)
 			return true;
 		}
 	}
+}
+
+bool Game::itemidHasMoveevent(uint32_t itemid)
+{
+	return g_moveEvents->isRegistered(itemid);
 }
 
 bool Game::hasEffect(uint8_t effectId) {
