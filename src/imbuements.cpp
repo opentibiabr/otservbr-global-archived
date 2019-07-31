@@ -331,7 +331,7 @@ std::vector<Imbuement*> Imbuements::getImbuements(Player* player, Item* item)
 	std::vector<Imbuement*> filtered;
 	for (auto& info : imbues) {
 		Imbuement* imbuement = &info.second;
-		if (!g_events->eventPlayerCanBeAppliedImbuemet(player, imbuement, item)) {
+		if (!g_events->eventPlayerCanBeAppliedImbuement(player, imbuement, item)) {
 			continue;
 		}
 
