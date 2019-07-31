@@ -1001,7 +1001,7 @@
 	<action itemid="16014" script="others/consumables/food.lua" />
 	<action itemid="22644" script="others/consumables/food.lua" />
 	<action itemid="24843" script="others/consumables/food.lua" />
-	<action itemid="2328" script="others/consumables/food.lua" />
+	<action itemid="2695" script="others/consumables/food.lua" />
 	<action itemid="2362" script="others/consumables/food.lua" />
 	<action itemid="23514" script="others/consumables/food.lua" />
 	<action itemid="23517" script="others/consumables/food.lua" />
