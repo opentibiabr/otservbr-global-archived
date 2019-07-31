@@ -1,6 +1,6 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local target = targetMonster:getName():lower() == 'sin devourer'
-	if not target then
+	local devourer = target:getName():lower() == 'sin devourer' and target:isMonster()
+	if not devourer then
 		return false
 	end
 

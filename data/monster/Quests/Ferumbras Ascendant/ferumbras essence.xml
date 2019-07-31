@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ferumbras Essence" nameDescription="a ferumbras essence" race="undead" experience="0" speed="200" manacost="0">
+<monster name="Ferumbras Essence" nameDescription="a ferumbras essence" race="undead" experience="0" speed="200" >
 	<health now="115" max="115"/>
 	<look type="294" corpse="10508"/>
 	<targetchange interval="2000" chance="9"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

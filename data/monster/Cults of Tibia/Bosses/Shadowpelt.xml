@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Shadowpelt" nameDescription="a shadowpelt" race="blood" experience="4000" speed="230" manacost="0" script="boss.lua">
+<monster name="Shadowpelt" nameDescription="a shadowpelt" race="blood" experience="4000" speed="230">
 	<health now="5000" max="5000" />
 	<look type="1040" corpse="32065" />
 	<targetchange interval="2000" chance="11" />
@@ -24,8 +24,7 @@
 		<attack name="physical" interval="100" chance="22" radius="3" min="-200" max="-310">
 			<attribute key="areaEffect" value="explosionarea" />
 		</attack>
-	    <attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebear" duration="2000">
-        </attack>
+		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebear" duration="2000"/>
 		<attack name="lifedrain" interval="100" chance="15" radius="3" target="0" min="-100" max="-200">
 			<attribute key="areaEffect" value="whitenote" />
 		</attack>
@@ -55,7 +54,6 @@
 		<voice sentence="It was a mistake to enter my cave!" />
 	</voices>
 	<loot>
-		<!-- common -->
 		<item name="Gold Coin" countmax="200" chance="13600000" />
 		<item name="Gold Coin" countmax="100" chance="13600000" />
 		<item name="Platinum Coin" countmax="5" chance="13600000" />
@@ -68,20 +66,15 @@
 		<item name="Giant Shimmering Pearl" countmax="2" chance="13600000" />
 		<item name="Great Health Potion" countmax="5" chance="13600000" />
 		<item name="Honeycomb" countmax="2" chance="13600000" />
-		<item name="Spiked Squelcher"  chance="13600000" />
+		<item name="Spiked Squelcher" chance="13600000" />
 		<item name="Ultimate Health Potion" countmax="5" chance="13600000" />
 		<item name="Werebear Fur" countmax="2" chance="13600000" />
 		<item name="Werebear Skull" countmax="2" chance="13600000" />
-		<!-- semi-rare -->
-		<item name="Dreaded Cleaver"  chance="550" />
-	    <item name="Fur Armor" chance="550" />
+		<item name="Dreaded Cleaver" chance="550" />
+		<item name="Fur Armor" chance="550" />
 		<item name="Relic Sword" chance="550" />
-		<!-- rare -->
 		<item name="Silver Token" chance="150" />
 		<item name="Werebear Trophy" chance="150" />
-		<!-- very rare-->
 		<item name="Wolf Backpack" chance="100" />
-		<!-- only events-->
-		<item name="Moonlight Crystal" chance="50" />
 	</loot>
 </monster>

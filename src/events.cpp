@@ -100,8 +100,6 @@ bool Events::load()
 				info.playerOnTradeRequest = event;
 			} else if (methodName == "onTradeAccept") {
 				info.playerOnTradeAccept = event;
-			} else if (methodName == "onMove") {
-				info.playerOnMove = event;
 			} else if (methodName == "onMoveItem") {
 				info.playerOnMoveItem = event;
 			} else if (methodName == "onItemMoved") {
@@ -120,14 +118,6 @@ bool Events::load()
 				info.playerOnLoseExperience = event;
 			} else if (methodName == "onGainSkillTries") {
 				info.playerOnGainSkillTries = event;
-			} else if (methodName == "onUseWeapon") {
-				info.playerOnUseWeapon = event;
-			} else if (methodName == "onCombatSpell") {
-				info.playerOnCombatSpell = event;
-			} else if (methodName == "onEquipImbuement") {
-				info.playerOnEquipImbuement = event;
-			} else if (methodName == "onDeEquipImbuement") {
-				info.playerOnDeEquipImbuement = event;
 			} else if (methodName == "onRequestQuestLog") {
 				info.playerOnRequestQuestLog = event;
 			} else if (methodName == "onRequestQuestLine") {
@@ -136,6 +126,14 @@ bool Events::load()
 				info.playerOnStorageUpdate = event;
 			}else if (methodName == "onRemoveCount") {
 				info.playerOnRemoveCount = event;
+			}else if (methodName == "canBeAppliedImbuemet") {
+				info.playerCanBeAppliedImbuemet = event;
+			}else if (methodName == "onApplyImbuement") {
+				info.playerOnApplyImbuement= event;
+			}else if (methodName == "clearImbuement") {
+				info.playerClearImbuement = event;
+			}else if (methodName == "onCombat") {
+				info.playerOnCombat = event;
 
 			} else {
 				std::cout << "[Warning - Events::load] Unknown player method: " << methodName << std::endl;
@@ -582,30 +580,6 @@ bool Events::eventPlayerOnLookInShop(Player* player, const ItemType* itemType, u
 	return scriptInterface.callFunction(3);
 }
 
-bool Events::eventPlayerOnMove(Player* player)
-{
-	// Player:onMove()
-	if (info.playerOnMove == -1) {
-		return true;
-	}
-
-	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventPlayerOnMove] Call stack overflow" << std::endl;
-		return false;
-	}
-
-	ScriptEnvironment* env = scriptInterface.getScriptEnv();
-	env->setScriptId(info.playerOnMoveItem, &scriptInterface);
-
-	lua_State* L = scriptInterface.getLuaState();
-	scriptInterface.pushFunction(info.playerOnMove);
-
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-
-	return scriptInterface.callFunction(1);
-}
-
 bool Events::eventPlayerOnRemoveCount(Player* player, Item* item)
 {
 	// Player:onMove()
@@ -955,6 +929,158 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	scriptInterface.resetScriptEnv();
 }
 
+bool Events::eventPlayerCanBeAppliedImbuemet(Player* player, Imbuement* imbuement, Item* item)
+{
+	// Player:canBeAppliedImbuemet(imbuement, item)
+	if (info.playerCanBeAppliedImbuemet == -1) {
+		return false;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::canBeAppliedImbuemet] Call stack overflow" << std::endl;
+		return false;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerCanBeAppliedImbuemet, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerCanBeAppliedImbuemet);
+
+	if (player) {
+		LuaScriptInterface::pushUserdata<Player>(L, player);
+		LuaScriptInterface::setMetatable(L, -1, "Player");
+	} else {
+		lua_pushnil(L);
+	}
+
+	LuaScriptInterface::pushUserdata<Imbuement>(L, imbuement);
+	LuaScriptInterface::setMetatable(L, -1, "Imbuement");
+
+	LuaScriptInterface::pushUserdata<Item>(L, item);
+	LuaScriptInterface::setItemMetatable(L, -1, item);
+
+	return scriptInterface.callFunction(3);
+}
+
+void Events::eventPlayerOnApplyImbuement(Player* player, Imbuement* imbuement, Item* item, uint8_t slot, bool protectionCharm)
+{
+	// Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
+	if (info.playerOnApplyImbuement == -1) {
+		return;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventPlayerOnApplyImbuement] Call stack overflow" << std::endl;
+		return;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerOnApplyImbuement, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerOnApplyImbuement);
+
+	if (player) {
+		LuaScriptInterface::pushUserdata<Player>(L, player);
+		LuaScriptInterface::setMetatable(L, -1, "Player");
+	} else {
+		lua_pushnil(L);
+	}
+
+	LuaScriptInterface::pushUserdata<Imbuement>(L, imbuement);
+	LuaScriptInterface::setMetatable(L, -1, "Imbuement");
+
+	LuaScriptInterface::pushUserdata<Item>(L, item);
+	LuaScriptInterface::setItemMetatable(L, -1, item);
+
+	lua_pushnumber(L, slot);
+	LuaScriptInterface::pushBoolean(L, protectionCharm);
+
+	scriptInterface.callVoidFunction(5);
+}
+
+void Events::eventPlayerClearImbuement(Player* player, Item* item, uint8_t slot)
+{
+	// Player:clearImbuement(item, slot)
+	if (info.playerClearImbuement == -1) {
+		return;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventPlayerClearImbuement] Call stack overflow" << std::endl;
+		return;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerClearImbuement, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerClearImbuement);
+
+	if (player) {
+		LuaScriptInterface::pushUserdata<Player>(L, player);
+		LuaScriptInterface::setMetatable(L, -1, "Player");
+	} else {
+		lua_pushnil(L);
+	}
+
+	LuaScriptInterface::pushUserdata<Item>(L, item);
+	LuaScriptInterface::setItemMetatable(L, -1, item);
+
+	lua_pushnumber(L, slot);
+
+	scriptInterface.callVoidFunction(3);
+}
+
+void Events::eventPlayerOnCombat(Player* player, Item* item, CombatDamage& damage)
+{
+	// Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	if (info.playerOnCombat == -1) {
+		return;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventPlayerOnCombat] Call stack overflow" << std::endl;
+		return;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerOnCombat, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerOnCombat);
+
+	LuaScriptInterface::pushUserdata<Player>(L, player);
+	LuaScriptInterface::setMetatable(L, -1, "Player");
+
+	if(item){
+		LuaScriptInterface::pushUserdata<Item>(L, item);
+		LuaScriptInterface::setMetatable(L, -1, "Item");
+	}else{
+		lua_pushnil(L);
+	}
+
+	LuaScriptInterface::pushCombatDamage(L, damage);
+
+	if (scriptInterface.protectedCall(L, 7, 4) != 0) {
+		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
+	} else {
+		damage.primary.value = std::abs(LuaScriptInterface::getNumber<int32_t>(L, -4));
+		damage.primary.type = LuaScriptInterface::getNumber<CombatType_t>(L, -3);
+		damage.secondary.value = std::abs(LuaScriptInterface::getNumber<int32_t>(L, -2));
+		damage.secondary.type = LuaScriptInterface::getNumber<CombatType_t>(L, -1);
+
+		lua_pop(L, 4);
+		if (damage.primary.type != COMBAT_HEALING) {
+			damage.primary.value = -damage.primary.value;
+			damage.secondary.value = -damage.secondary.value;
+		}
+	}
+
+	scriptInterface.resetScriptEnv();
+}
+
 void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 {
 	// Monster:onDropLoot(corpse)
@@ -980,84 +1106,6 @@ void Events::eventMonsterOnDropLoot(Monster* monster, Container* corpse)
 	LuaScriptInterface::setMetatable(L, -1, "Container");
 
 	return scriptInterface.callVoidFunction(2);
-}
-
-void Events::eventPlayerOnUseWeapon(Player* player, int32_t& normalDamage, CombatType_t& elementType, int32_t& elementDamage)
-{
-	// Player:onGainSkillTries(skill, tries)
-	if (info.playerOnUseWeapon == -1) {
-		return;
-	}
-
-	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventPlayerOnUseWeapon] Call stack overflow" << std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface.getScriptEnv();
-	env->setScriptId(info.playerOnUseWeapon, &scriptInterface);
-
-	lua_State* L = scriptInterface.getLuaState();
-	scriptInterface.pushFunction(info.playerOnUseWeapon);
-
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-
-	lua_pushnumber(L, normalDamage);
-	lua_pushnumber(L, elementType);
-	lua_pushnumber(L, elementDamage);
-
-	if (scriptInterface.protectedCall(L, 4, 3) != 0) {
-		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
-	}
-	else {
-		normalDamage = LuaScriptInterface::getNumber<int32_t>(L, -3);
-		elementType = LuaScriptInterface::getNumber<CombatType_t>(L, -2);
-		elementDamage = LuaScriptInterface::getNumber<int32_t>(L, -1);
-		lua_pop(L, 3);
-	}
-
-	scriptInterface.resetScriptEnv();
-}
-
-void Events::eventPlayerOnCombatSpell(Player* player, int32_t& normalDamage, int32_t& elementDamage, CombatType_t& elementType, bool changeDamage)
-{
-	// Player:onGainSkillTries(skill, tries)
-	if (info.playerOnCombatSpell == -1) {
-		return;
-	}
-
-	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventPlayerOnCombatSpell] Call stack overflow" << std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface.getScriptEnv();
-	env->setScriptId(info.playerOnCombatSpell, &scriptInterface);
-
-	lua_State* L = scriptInterface.getLuaState();
-	scriptInterface.pushFunction(info.playerOnCombatSpell);
-
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-
-	lua_pushnumber(L, normalDamage);
-	lua_pushnumber(L, elementDamage);
-	lua_pushnumber(L, elementType);
-	lua_pushboolean(L, changeDamage);
-
-	if (scriptInterface.protectedCall(L, 5, 4) != 0) {
-		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
-	}
-	else {
-		changeDamage = LuaScriptInterface::getBoolean(L, -1);
-		normalDamage = LuaScriptInterface::getNumber<int32_t>(L, -4);
-		elementType = LuaScriptInterface::getNumber<CombatType_t>(L, -2);
-		elementDamage = LuaScriptInterface::getNumber<int32_t>(L, -3);
-		lua_pop(L, 4);
-	}
-
-	scriptInterface.resetScriptEnv();
 }
 
 // Monster
@@ -1091,60 +1139,6 @@ void Events::eventMonsterOnSpawn(Monster* monster, const Position& position)
 	}
 
 	scriptInterface.resetScriptEnv();
-}
-
-void Events::eventPlayerOnEquipImbuement(Player* player, Item* item)
-{
-	// Player:onEquipImbuement(item)
-	if (info.playerOnEquipImbuement == -1) {
-		return;
-	}
-
-	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventPlayerOnEquipImbuement] Call stack overflow" << std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface.getScriptEnv();
-	env->setScriptId(info.playerOnEquipImbuement, &scriptInterface);
-
-	lua_State* L = scriptInterface.getLuaState();
-	scriptInterface.pushFunction(info.playerOnEquipImbuement);
-
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-
-	LuaScriptInterface::pushUserdata<Item>(L, item);
-	LuaScriptInterface::setItemMetatable(L, -1, item);
-
-	scriptInterface.callVoidFunction(2);
-}
-
-void Events::eventPlayerOnDeEquipImbuement(Player* player, Item* item)
-{
-	// Player:onEquipImbuement(item)
-	if (info.playerOnDeEquipImbuement == -1) {
-		return;
-	}
-
-	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventPlayerOnDeEquipImbuement] Call stack overflow" << std::endl;
-		return;
-	}
-
-	ScriptEnvironment* env = scriptInterface.getScriptEnv();
-	env->setScriptId(info.playerOnDeEquipImbuement, &scriptInterface);
-
-	lua_State* L = scriptInterface.getLuaState();
-	scriptInterface.pushFunction(info.playerOnDeEquipImbuement);
-
-	LuaScriptInterface::pushUserdata<Player>(L, player);
-	LuaScriptInterface::setMetatable(L, -1, "Player");
-
-	LuaScriptInterface::pushUserdata<Item>(L, item);
-	LuaScriptInterface::setItemMetatable(L, -1, item);
-
-	scriptInterface.callVoidFunction(2);
 }
 
 void Events::eventPlayerOnRequestQuestLog(Player* player) {

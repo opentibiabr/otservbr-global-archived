@@ -136,6 +136,11 @@ class ProtocolGame final : public Protocol
 
 		void parseToggleMount(NetworkMessage& msg);
 
+		// Imbuements
+		void parseApplyImbuemente(NetworkMessage& msg);
+		void parseClearingImbuement(NetworkMessage& msg);
+		void parseCloseImbuingWindow(NetworkMessage& msg);
+
 		void parseModalWindowAnswer(NetworkMessage& msg);
 
 		void parseBrowseField(NetworkMessage& msg);
@@ -173,6 +178,9 @@ class ProtocolGame final : public Protocol
 		void parseStoreBuyOffer(NetworkMessage &message);
 		void parseCoinTransfer(NetworkMessage &msg);
 
+		// imbue info
+		void addImbuementInfo(NetworkMessage &msg, uint32_t imbuid);
+
 		//Send functions
 		void sendChannelMessage(const std::string& author, const std::string& text, SpeakClasses type, uint16_t channel);
 		void sendChannelEvent(uint16_t channelId, const std::string& playerName, ChannelEvent_t channelEvent);
@@ -185,6 +193,8 @@ class ProtocolGame final : public Protocol
 		void sendPrivateMessage(const Player* speaker, SpeakClasses type, const std::string& text);
 		void sendIcons(uint16_t icons);
 		void sendFYIBox(const std::string& message);
+
+		void sendImbuementWindow(Item* item);
 
 		void sendDistanceShoot(const Position& from, const Position& to, uint8_t type);
 		void sendMagicEffect(const Position& pos, uint8_t type);

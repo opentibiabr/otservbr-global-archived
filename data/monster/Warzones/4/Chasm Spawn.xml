@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Chasm Spawn" nameDescription="a chasm spawn" race="blood" experience="3500" speed="115" manacost="0">
+<monster name="Chasm Spawn" nameDescription="a chasm spawn" race="blood" experience="3500" speed="115" >
 	<health now="4000" max="4000" />
 	<look type="1037" corpse="30798" />
 	<targetchange interval="5000" chance="8" />
@@ -55,9 +55,9 @@
 	<!--Sempre-->
 		<item name="gold coin" countmax="78" chance="10000" />
 		<item name="Wood Mushroom" countmax="5" chance="27200" />
-		<item name="Chasm Spawn Head"  chance="33390" />
-		<item name="Chasm Spawn Abdomen"  chance="24710" />
-		<item name="Chasm Spawn Tail"  chance="64890" />
+		<item name="Chasm Spawn Head" chance="33390" />
+		<item name="Chasm Spawn Abdomen" chance="24710" />
+		<item name="Chasm Spawn Tail" chance="64890" />
 		<!--quase sempre-->
 		<item name="Small Enchanted Emerald" countmax="3" chance="11040" />
 		<item name="Small Enchanted Amethyst" countmax="3" chance="8170" />

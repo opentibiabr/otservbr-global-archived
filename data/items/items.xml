@@ -2323,6 +2323,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="40" />
 		<attribute key="showattributes" value="1" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2196" article="a" name="broken amulet">
 		<attribute key="weight" value="420" />
@@ -4448,19 +4449,23 @@
 		<attribute key="weight" value="1000" />
 		<attribute key="armor" value="2" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2642" name="sandals">
 		<attribute key="weight" value="600" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2643" name="leather boots">
 		<attribute key="weight" value="900" />
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2644" name="bunnyslippers">
 		<attribute key="weight" value="600" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2645" name="steel boots">
 		<attribute key="weight" value="2900" />
@@ -13018,6 +13023,7 @@
 		<attribute key="armor" value="2" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="-12" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7458" article="a" name="fur cap">
 		<attribute key="description" value="It feels nice and warm on your ears." />
@@ -14694,6 +14700,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentEarth" value="5" />
 		<attribute key="absorbPercentFire" value="-5" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7887" article="a" name="terra amulet">
 		<attribute key="weight" value="500" />
@@ -14737,6 +14744,7 @@
 		<attribute key="absorbPercentFire" value="5" />
 		<attribute key="absorbPercentIce" value="-5" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7892" name="glacier shoes">
 		<attribute key="weight" value="750" />
@@ -14744,6 +14752,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentIce" value="5" />
 		<attribute key="absorbPercentEnergy" value="-5" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7893" name="lightning boots">
 		<attribute key="weight" value="750" />
@@ -14751,6 +14760,7 @@
 		<attribute key="absorbPercentEnergy" value="5" />
 		<attribute key="absorbPercentEarth" value="-5" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7894" name="magma legs">
 		<attribute key="weight" value="1900" />
@@ -19520,6 +19530,7 @@
 		<attribute key="absorbPercentEnergy" value="-3" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="1850" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11118" name="dragon scale boots">
 		<attribute key="armor" value="3" />
@@ -19527,6 +19538,7 @@
 		<attribute key="absorbPercentIce" value="-3" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="1850" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11119" article="a" name="heart backpack">
 		<attribute key="weight" value="1800" />
@@ -19787,6 +19799,7 @@
 		<attribute key="absorbPercentHoly" value="-2" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="2250" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11241" article="an" name="expedition backpack">
 		<attribute key="weight" value="1800" />
@@ -20053,6 +20066,7 @@
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="10" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11304" article="a" name="Zaoan legs">
 		<attribute key="weight" value="6600" />
@@ -21531,6 +21545,7 @@
 		<attribute key="speed" value="30" />
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="12647" article="a" name="snake god's wristguard">
 		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
@@ -30091,9 +30106,9 @@
 	<item id="21745" article="a" name="strange foundation" />
 	<item id="21746" article="a" name="strange window" />
 	<item id="21747" article="a" name="ruined wall" />
-	<item id="21748" article="a" name="small pilar" />
+	<item id="21748" article="a" name="small pillar" />
 	<item id="21749" article="a" name="ruined wall" />
-	<item id="21750" article="a" name="small pilar" />
+	<item id="21750" article="a" name="small pillar" />
 	<item fromid="21751" toid="21763" article="a" name="strange wall" />
 	<item fromid="21764" toid="21770" article="a" name="ruined window" />
 	<item fromid="21771" toid="21772" article="a" name="window shutter" />
@@ -31756,6 +31771,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentPhysical" value="1" />
 		<attribute key="weight" value="1800" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="23541" article="a" name="gearwheel chain">
 		<attribute key="armor" value="3" />
@@ -33989,7 +34005,7 @@
 	<item id="25222" article="a" name="stairs">
 		<attribute key="floorchange" value="west" />
 	</item>
-	<item fromid="25223" toid="25226" name="stone pilar" />
+	<item fromid="25223" toid="25226" name="stone pillar" />
 	<item fromid="25224" toid="25240" name="cracked stone wall" />
 	<item fromid="25241" toid="25274" name="energy wall" />
 	<item id="25281" article="a" name="large pile of bones" />
@@ -36794,7 +36810,7 @@
 	<item id="28693" article="a" name="mushroom house">
 		<attribute key="description" value="As you take a closer look you discover some tiny fairies inside." />
 	</item>
-	<item fromid="28694" toid="28699" article="a" name="pilar" />
+	<item fromid="28694" toid="28699" article="a" name="pillar" />
 	<item fromid="28700" toid="28708" article="a" name="green leaves" />
 	<item fromid="28709" toid="28710" article="a" name="sea plant" />
 	<item fromid="28711" toid="28716" article="an" name="unknown" />
@@ -39773,7 +39789,7 @@
 		<attribute key="weight" value="2200" />
 		<attribute key="description" value="This doll carries the story of all Tibians in their legendary citizen outfit. Awarded by TibiaTV.com.br." />
 	</item>
-	<item id="32402" article="the" name="True Book of Deathd" >
+	<item id="32402" article="the" name="True Book of Death" >
 		<attribute key="weight" value="1300" />
 		<attribute key="description" value="The writing in this book seems clear at first but is almost illegible if you try to make sense of anything. It's as if the book itself does not want to be read." />
 	</item>
@@ -40496,15 +40512,15 @@
 	<item fromid="32787" toid="32788" article="a" name="book column"/>
 	<item fromid="32789" toid="32790" article="a" name="column"/>
 	<item fromid="32791" toid="32810" article="an" name="unknown carpet"/>
-	<item fromid="32811" toid="32812" article="an" name="unknown grond"/>
+	<item fromid="32811" toid="32812" article="an" name="unknown ground"/>
 	<item fromid="32813" toid="32829" article="an" name="unknown carpet"/>
-	<item fromid="32830" toid="32831" article="an" name="unknown grond"/>
+	<item fromid="32830" toid="32831" article="an" name="unknown ground"/>
 	<item fromid="32832" toid="32851" article="an" name="unknown carpet"/>
-	<item fromid="32852" toid="32857" article="an" name="unknown grond"/>
+	<item fromid="32852" toid="32857" article="an" name="unknown ground"/>
 	<item fromid="32858" toid="32877" article="an" name="unknown carpet"/>
-	<item fromid="32878" toid="32883" article="an" name="unknown grond"/>
+	<item fromid="32878" toid="32883" article="an" name="unknown ground"/>
 	<item fromid="32884" toid="32903" article="an" name="unknown carpet"/>
-	<item fromid="32904" toid="32909" article="an" name="unknown grond"/>
+	<item fromid="32904" toid="32909" article="an" name="unknown ground"/>
 	<item fromid="32910" toid="32916" article="an" name="ostentatious bookstand"/>
 	<item fromid="32917" toid="32936" article="a" name="green seating area"/>
 	<item fromid="32937" toid="32938" article="a" name="fired chimney"/>

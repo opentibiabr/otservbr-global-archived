@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Charged Anomaly" nameDescription="a charged anomaly" race="energy" experience="0" speed="100" manacost="0" script="boss.lua">
+<monster name="Charged Anomaly" nameDescription="a charged anomaly" race="energy" experience="0" speed="100">
 	<health now="18000" max="18000"/>
 	<look type="876" head="80" body="80" legs="19" feet="80" addons="1" corpse="0"/>
 	<targetchange interval="2000" chance="25"/>
@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-    	<event name="ChargedAnomalyDeath" />
+		<event name="ChargedAnomalyDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-900" max="-2100"/>
@@ -36,7 +36,7 @@
 	</attacks>
 	<defenses armor="100" defense="100">
 		<defense name="healing" interval="2000" radius="8" chance="25" min="0" max="0">
-				<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<immunities>

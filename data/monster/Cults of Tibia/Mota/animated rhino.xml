@@ -38,8 +38,8 @@
 	<loot>
 		<item id="5925" chance="50320" />
 		<item id="27056" chance="50320" />
-		<item id="27057"  chance="50320" />
-		<item id="24842"  chance="50320" />
+		<item id="27057" chance="50320" />
+		<item id="24842" chance="50320" />
 
 	</loot>
 </monster>

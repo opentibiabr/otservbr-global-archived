@@ -40,6 +40,6 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item name="lightsphere" countmax="1" chance="99990" />
+		<item name="lightsphere" chance="99990" />
 	</loot>
 </monster>

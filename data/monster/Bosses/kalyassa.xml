@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Kalyassa" nameDescription="kalyassa" race="blood" experience="9000" speed="350" manacost="0">
+<monster name="Kalyassa" nameDescription="kalyassa" race="blood" experience="9000" speed="350" >
 	<health now="10000" max="10000"/>
 	<look type="947" head="37" body="113" legs="38" feet="95" addons="3" corpse="5984"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -57,15 +56,15 @@
 		<item id="2672" countmax="9" chance="75230"/><!-- dragon ham -->
 		<item id="2152" countmax="9" chance="99080"/><!-- platinum coin -->
 		<item id="27605" countmax="2" chance="80000" /><!-- dragon blood-->
-		<item id="7591" countmax="1" chance="8260"/><!-- great health potion -->
-		<item id="7590" countmax="1" chance="9170"/><!-- great mana potion -->
+		<item id="7591" chance="8260"/><!-- great health potion -->
+		<item id="7590" chance="9170"/><!-- great mana potion -->
 		<item id="2498" chance="25000"/><!-- royal helmet -->
 		<item id="2492" chance="25000"/><!-- dragon scale mail -->
 		<item id="27606" chance="100000" /><!-- dragon tongue -->
-		<item id="2547" countmax="1" chance="17430"/><!-- power bolt -->
+		<item id="2547" chance="17430"/><!-- power bolt -->
 		<item id="7365" countmax="10" chance="26610"/><!-- green mushroom -->
 		<item id="2392" chance="25000"/><!-- fire sword -->
 		<item id="2167" chance="25000"/><!-- energy ring -->
-		<item id="5948" countmax="1" chance="25000"/><!-- red dragon leather -->
+		<item id="5948" chance="25000"/><!-- red dragon leather -->
 	</loot>
 </monster>

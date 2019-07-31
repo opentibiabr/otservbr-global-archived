@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Falcon Paladin" nameDescription="a falcon paladin" race="blood" experience="7500" speed="110">
+	<health now="8500" max="8500"/>
+	<look type="1071" head="57" body="94" legs="38" feet="86" addons="2" corpse="32558"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+		<attack name="physical" interval="2000" chance="50" range="5" target="1" min="-400" max="-550">
+			<attribute key="shootEffect" value="royalspear"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="5" target="1" min="-200" max="500">
+			<attribute key="shootEffect" value="bolt"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="7" radius="2" target="1" min="-350" max="-450">
+			<attribute key="shootEffect" value="powerbolt"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" length="5" spread="0" min="-250" max="-350">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="50"/>
+	<elements>
+		<element holyPercent="-5"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="55"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Uuunngh!"/>
+	</voices>
+	<loot>
+		<item name="Platinum Coin" countmax="5" chance="90000"/>
+		<item name="Small Diamond" countmax="2" chance="41000"/>
+		<item name="Great Spirit Potion" countmax="2" chance="41000"/>
+		<item name="Small Emerald" countmax="2" chance="40000"/>
+		<item name="Small Amethyst" countmax="3" chance="40000"/>
+		<item name="Assassin Star" countmax="10" chance="25700"/>
+		<item name="Small Ruby" countmax="2" chance="20700"/>
+		<item name="Small Topaz" countmax="2" chance="20100"/>
+		<item name="Onyx Arrow" countmax="15" chance="14000"/>
+		<item name="Red Gem" countmax="3" chance="7500"/>
+		<item name="Green Gem" chance="4880"/>
+		<item name="Violet Gem" chance="4180"/>
+		<item id="7633" chance="2260"/><!-- giant shimmering pearl -->
+		<item name="Damaged Armor Plates" chance="1120"/>
+		<item name="Falcon Crest" chance="730"/>
+		<item name="Golden Armor" chance="310"/>
+		<item name="Mastermind Shield" chance="310"/>
+	</loot>
+</monster>

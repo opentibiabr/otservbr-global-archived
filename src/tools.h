@@ -72,6 +72,7 @@ WeaponAction_t getWeaponAction(const std::string& strValue);
 Skulls_t getSkullType(const std::string& strValue);
 SpawnType_t getSpawnType(const std::string& strValue);
 std::string getCombatName(CombatType_t combatType);
+CombatType_t getCombatType(const std::string& combatname);
 
 std::string getSkillName(uint8_t skillid);
 

@@ -131,6 +131,7 @@ function onStartup()
 			end
 		end
 	end
+
 	-- Client XP Display Mode
 	-- 0 = ignore exp rate /stage
 	-- 1 = include exp rate / stage

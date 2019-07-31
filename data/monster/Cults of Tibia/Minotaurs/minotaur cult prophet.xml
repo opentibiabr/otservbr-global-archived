@@ -46,25 +46,25 @@
 	<loot>
 		<item name="gold coin" countmax="150" chance="100000" />
 		<item name="cowbell" chance="18570" />
-		<item name="moonlight rod" countmax="1" chance="8480" />
+		<item name="moonlight rod" chance="8480" />
 		<item name="cultish robe" chance="15450" />
-		<item name="great health potion" countmax="1" chance="7070" />
-		<item name="great mana potion" countmax="1" chance="16810" />
-		<item name="gold ingot" countmax="1" chance="1120" />
-		<item name="small ruby" countmax="1" chance="7160" />
-		<item name="small topaz" countmax="1" chance="7650" />
-		<item name="yellow gem" countmax="1" chance="490" />
+		<item name="great health potion" chance="7070" />
+		<item name="great mana potion" chance="16810" />
+		<item name="gold ingot" chance="1120" />
+		<item name="small ruby" chance="7160" />
+		<item name="small topaz" chance="7650" />
+		<item name="yellow gem" chance="490" />
 		<item name="platinum coin" countmax="3" chance="67040" />
-		<item name="small emerald" countmax="1" chance="11160" />
+		<item name="small emerald" chance="11160" />
 		<item name="small diamond" countmax="2" chance="2900" />
 		<item name="small amethyst" countmax="2" chance="6680" />
-		<item name="red piece of cloth" countmax="1" chance="630" />
-		<item name="ring of healing" countmax="1" chance="6730" />
-		<!-- <item name="minotaur trophy" countmax="1" chance="220" /> -->
-		<item name="red gem" countmax="1" chance="390" />
-		<item name="meat" countmax="1" chance="8040" />
-		<item name="ham" countmax="1" chance="60140" />
-		<item name="minotaur leather" countmax="1" chance="14230" />
+		<item name="red piece of cloth" chance="630" />
+		<item name="ring of healing" chance="6730" />
+		<!-- <item name="minotaur trophy" chance="220" /> -->
+		<item name="red gem" chance="390" />
+		<item name="meat" chance="8040" />
+		<item name="ham" chance="60140" />
+		<item name="minotaur leather" chance="14230" />
 		<item name="minotaur horn" countmax="2" chance="18270" />
 	</loot>
 </monster>

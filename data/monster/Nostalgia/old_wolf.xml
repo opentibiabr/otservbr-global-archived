@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Wolf" nameDescription="a wolf" race="blood" experience="18" speed="82" manacost="255">
+<monster name="Wolf" nameDescription="a wolf" race="blood" experience="18" speed="82">
 	<health now="25" max="25"/>
 	<look type="918" corpse="5968"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag preyable="0"/>
-		<flag summonable="1"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>

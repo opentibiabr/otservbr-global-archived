@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Lord of the Lice" nameDescription="the lord of the lice" race="blood" experience="600" speed="230" manacost="0">
+<monster name="The Lord of the Lice" nameDescription="the lord of the lice" race="blood" experience="600" speed="230" >
 	<health now="80000" max="80000"/>
 	<look type="305" corpse="9871"/>
 	<targetchange interval="5000" chance="8"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 
 		<flag preyable="0" />

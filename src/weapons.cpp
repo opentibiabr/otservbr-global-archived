@@ -395,12 +395,7 @@ void Weapon::internalUseWeapon(Player* player, Item* item, Creature* target, int
 		damage.primary.type = params.combatType;
 		damage.primary.value = (getWeaponDamage(player, target, item) * damageModifier) / 100;
 		damage.secondary.type = getElementType();
-		int32_t tmpDamage = 0;
-		if (damage.origin == ORIGIN_MELEE) {
-			g_events->eventPlayerOnUseWeapon(player, damage.primary.value, damage.secondary.type, tmpDamage);
-		}
-
-		damage.secondary.value = getElementDamage(player, target, item, tmpDamage, damage.secondary.type);
+		damage.secondary.value = getElementDamage(player, target, item);
 		Combat::doCombatHealth(player, target, damage, params);
 	}
 
@@ -598,14 +593,14 @@ bool WeaponMelee::getSkillType(const Player* player, const Item* item,
 	return false;
 }
 
-int32_t WeaponMelee::getElementDamage(const Player* player, const Creature*, const Item* item, int32_t imbuingDamage, CombatType_t imbuingType) const
+int32_t WeaponMelee::getElementDamage(const Player* player, const Creature*, const Item* item) const
 {
-	if (elementType == COMBAT_NONE && imbuingType == COMBAT_NONE) {
+	if (elementType == COMBAT_NONE) {
 		return 0;
 	}
 
 	int32_t attackSkill = player->getWeaponSkill(item);
-	int32_t attackValue = (imbuingDamage > 0) ? imbuingDamage : elementDamage;
+	int32_t attackValue = elementDamage;
 	float attackFactor = player->getAttackFactor();
 
 	int32_t maxValue = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor);
@@ -809,13 +804,13 @@ bool WeaponDistance::useWeapon(Player* player, Item* item, Creature* target) con
 	return true;
 }
 
-int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* target, const Item* item, int32_t imbuingDamage, CombatType_t imbuingType) const
+int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* target, const Item* item) const
 {
-	if (elementType == COMBAT_NONE && imbuingType == COMBAT_NONE) {
+	if (elementType == COMBAT_NONE) {
 		return 0;
 	}
 
-	int32_t attackValue = (imbuingDamage > 0) ? imbuingDamage : elementDamage;
+	int32_t attackValue = elementDamage;
 	if (item->getWeaponType() == WEAPON_AMMO) {
 		Item* weapon = player->getWeapon(true);
 		if (weapon) {

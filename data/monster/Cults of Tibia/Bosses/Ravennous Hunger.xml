@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ravennous Hunger" nameDescription="Ravennous Hunger" race="blood" experience="0" speed="280" manacost="0" script="boss.lua">
+<monster name="Ravennous Hunger" nameDescription="Ravennous Hunger" race="blood" experience="0" speed="280">
 	<health now="100000" max="100000"/>
 	<look type="556" corpse="6324"/>
-	<targetchange interval="4000" chance="20" />
+	<targetchange interval="4000" chance="20"/>
 	<flags>
 		<flag preyable="0" />
 		<flag rewardboss="1" />
@@ -18,13 +18,12 @@
 		<flag runonhealth="0" />
 	</flags>
 	<script>
-		<event name="healLeiden" /> <!-- Reverso -->
-    </script>
+		<event name="healLeiden" />
+	</script>
 	<attacks>
-		<attack name="melee" interval="2000" min="-0" max="-900" />
+		<attack name="melee" interval="2000" min="0" max="-900" />
 	</attacks>
-	<defenses armor="35" defense="50">
-	</defenses>
+	<defenses armor="35" defense="50"/>
 	<elements>
 		<element deathPercent="-80"/>
 	</elements>

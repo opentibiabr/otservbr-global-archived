@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Crazed Winter Rearguard" nameDescription="a Crazed Winter Rearguard" race="blood" experience="4700" speed="200" manacost="0">
+<monster name="Crazed Winter Rearguard" nameDescription="a Crazed Winter Rearguard" race="blood" experience="4700" speed="200" >
 	<health now="5200" max="5200"/>
 	<look type="1136" head="86" body="85" legs="0" feet="0" corpse="34764"/>
 	<targetchange interval="4000" chance="10"/>
@@ -39,20 +39,20 @@
 	</immunities>
 	<loot>
 <!--common-->
-<item name="platinum coin" count="5" chance="100000"/>
+<item name="platinum coin" countmax="5" chance="100000"/>
 <item name="red crystal fragment" chance="1000000"/>
 <item name="red gem" chance="1000000"/>
 <!--uncommon-->
 <item name="ice rapier" chance="15000"/>
 <item name="ultimate health potion" chance="11550"/>
 <item name="great spirit potion" chance="13550"/>
-<item id="34696" count="2" chance="14750"/>  <!-- ice flower -->
+<item id="34696" countmax="2" chance="14750"/>  <!-- ice flower -->
 <item name="life crystal" chance="17550"/>
 <item name="dream essence egg" chance="12350"/>
 <item name="elven astral observer" chance="14600"/>
 <item name="glacier mask" chance="13850"/>
 <item name="moonlight rod" chance="11250"/>
-<item name="small enchanted sapphire" count="7" chance="12850"/>
+<item name="small enchanted sapphire" countmax="7" chance="12850"/>
 <!--semi-rare-->
 <item name="northwind rod" chance="1000"/>
 <item name="glacier amulet" chance="500"/>

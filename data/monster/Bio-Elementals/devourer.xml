@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Devourer" nameDescription="a devourer" race="venom" experience="1800" speed="100" manacost="0">
+<monster name="Devourer" nameDescription="a devourer" race="venom" experience="1800" speed="100" >
 	<health now="1900" max="1900"/>
 	<look type="617" corpse="23484"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
-				<flag isblockable="0"/>
+		<flag isblockable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushcreatures="1"/>

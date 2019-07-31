@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Hell Hole" nameDescription="a hell hole" race="undead" experience="0" speed="0" manacost="0">
+<monster name="Hell Hole" nameDescription="a hell hole" race="undead" experience="0" speed="0" >
 	<health now="100" max="100" />
 	<look typeex="389" />
 	<targetchange interval="4000" chance="10" />

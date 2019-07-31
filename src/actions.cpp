@@ -481,6 +481,13 @@ bool Actions::useItemEx(Player* player, const Position& fromPos, const Position&
 		showUseHotkeyMessage(player, item, player->getItemTypeCount(item->getID(), -1));
 	}
 
+	if (action->function) {
+		if (action->function(player, item, fromPos, action->getTarget(player, creature, toPos, toStackPos), toPos, isHotkey)) {
+			return true;
+		}
+		return false;
+	}
+
 	if (!action->executeUse(player, item, fromPos, action->getTarget(player, creature, toPos, toStackPos), toPos, isHotkey)) {
 		if (!action->hasOwnErrorHandler()) {
 			player->sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT);
@@ -540,6 +547,34 @@ bool enterMarket(Player* player, Item*, const Position&, Thing*, const Position&
 	return true;
 }
 
+bool useImbueShine(Player* player, Item*, const Position&, Thing* target, const Position& toPos, bool)
+{
+	Item* item = target ? target->getItem() : nullptr;
+	if (!item) {
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "This item is not imbuable.");
+		return false;
+	}
+
+	const ItemType& it = Item::items[item->getID()];
+	if(it.imbuingSlots <= 0 ) {
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "This item is not imbuable.");
+		return false;		
+	}
+
+	if (item->getTopParent() != player) {
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to pick up the item to imbue it.");
+		return false;
+	}
+
+	if (!(toPos.y & 0x40)) {
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue an equipped item.");
+		return false;
+	}
+
+	player->sendImbuementWindow(target->getItem());
+	return true;
+}
+
 }
 
 bool Action::loadFunction(const pugi::xml_attribute& attr, bool isScripted)
@@ -547,6 +582,8 @@ bool Action::loadFunction(const pugi::xml_attribute& attr, bool isScripted)
 	const char* functionName = attr.as_string();
 	if (strcasecmp(functionName, "market") == 0) {
 		function = enterMarket;
+	} else if (strcasecmp(functionName, "imbuement") == 0) {
+		function = useImbueShine;
 	} else {
 		if (!isScripted) {
 			std::cout << "[Warning - Action::loadFunction] Function \"" << functionName << "\" does not exist." << std::endl;

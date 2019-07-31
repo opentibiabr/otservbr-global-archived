@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Jaul" nameDescription="Jaul" race="blood" experience="30000" speed="220" manacost="0" script="boss.lua">
+<monster name="Jaul" nameDescription="Jaul" race="blood" experience="30000" speed="220">
 	<health now="90000" max="90000"/>
 	<look type="444" corpse="15220"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -17,7 +17,6 @@
 		<flag targetdistance="0"/>
 		<flag runonhealth="60"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-2000" poison="870"/>
 		<attack name="fire" interval="2200" chance="19" range="7" radius="7" target="1" min="0" max="-1000">

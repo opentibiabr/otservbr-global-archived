@@ -1,0 +1,17 @@
+FROM alpine:edge AS build
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+  binutils \
+  boost-dev \
+  build-base \
+  clang \
+  cmake \
+  crypto++-dev \
+  gcc \
+  gmp-dev \
+  luajit-dev \
+  make \
+  mariadb-connector-c-dev \
+  pugixml-dev
+
+ENTRYPOINT cd /tmp/otserver && mkdir build && cd build && cmake .. && make -j`nproc`
+

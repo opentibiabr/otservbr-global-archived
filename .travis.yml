@@ -1,0 +1,30 @@
+sudo: required
+dist: xenial
+language: cpp
+compiler:
+  - clang
+  - gcc
+env:
+  matrix:
+    - LUAJIT=OFF
+    - LUAJIT=ON
+cache: apt
+addons:
+  apt:
+    packages:
+      - libboost-dev
+      - libboost-system-dev
+      - libboost-filesystem-dev
+      - libboost-iostreams-dev
+      - libcrypto++-dev
+      - liblua5.2-dev
+      - libluajit-5.1-dev
+      - libmysqlclient-dev
+      - libpugixml-dev
+      - libgmp3-dev
+
+before_script:
+  - mkdir build && cd build
+  - cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
+
+script: make -j`nproc`

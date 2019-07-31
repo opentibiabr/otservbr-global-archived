@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Weakened Shlorg" nameDescription="Weakened Shlorg" race="venom" experience="6500" speed="270" manacost="0" script="boss.lua">
+<monster name="Weakened Shlorg" nameDescription="Weakened Shlorg" race="venom" experience="6500" speed="270">
 	<health now="10000" max="10000"/>
 	<look type="565" corpse="21299"/>
 	<targetchange interval="60000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -20,13 +19,12 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" skill="150" attack="50" poison="180"/>
 		<attack name="lifedrain" interval="2000" chance="10" length="4" spread="0" min="-90" max="-180">
 			<attribute key="areaEffect" value="greenshimmer"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="14" radius="5" target="0" min="-0" max="-150">
+		<attack name="physical" interval="2000" chance="14" radius="5" target="0" min="0" max="-150">
 			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
 		<attack name="poisoncondition" interval="2000" chance="13" radius="5" target="0" min="-360" max="-440">
@@ -74,6 +72,6 @@
 		<item id="2409" chance="20000"/><!-- serpent sword -->
 		<item id="8912" chance="20000"/><!-- springsprout rod -->
 		<item id="8891" chance="10000"/><!-- paladin armor -->
-		<item id="10584" countmax="1" chance="100000"/><!-- boggy dreads -->
+		<item id="10584" chance="100000"/><!-- boggy dreads -->
 	</loot>
 </monster>

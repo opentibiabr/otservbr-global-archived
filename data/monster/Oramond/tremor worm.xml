@@ -31,7 +31,7 @@
 	</elements>
 	<loot>
 		<item id="2152" countmax="5" chance="33000"/> <!-- platinum coin -->
-		<item id="7591" countmax="1" chance="10000"/> <!-- great health potion -->
-		<item id="7590" countmax="1" chance="10000"/> <!-- great mana potion -->
+		<item id="7591" chance="10000"/> <!-- great health potion -->
+		<item id="7590" chance="10000"/> <!-- great mana potion -->
 	</loot>
 </monster>

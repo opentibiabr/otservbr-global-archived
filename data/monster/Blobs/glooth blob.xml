@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Glooth Blob" nameDescription="a glooth blob" race="venom" experience="700" speed="80" manacost="0">
+<monster name="Glooth Blob" nameDescription="a glooth blob" race="venom" experience="700" speed="80" >
 	<health now="750" max="750"/>
 	<look type="614" corpse="23479"/>
 	<targetchange interval="5000" chance="0"/>
-	<strategy attack="100" defense="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

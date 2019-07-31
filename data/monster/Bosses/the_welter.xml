@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Welter" nameDescription="The Welter" race="blood" experience="11000" speed="256" manacost="0" script="boss.lua">
+<monster name="The Welter" nameDescription="The Welter" race="blood" experience="11000" speed="256">
 	<health now="25000" max="25000"/>
 	<look type="563" corpse="21291"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag preyable="0"/>
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -19,7 +18,6 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="300"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" skill="90" attack="100"/>
 		<attack name="poisoncondition" interval="2000" chance="17" length="8" spread="3" min="-500" max="-660">
@@ -68,7 +66,6 @@
 		<voice sentence="FCHHHHH" yell="1"/>
 	</voices>
 	<loot>
-
 	<item id="21400" chance="200"/><!-- silver token -->
 		<item id="21690" chance="200"/> <!-- Triple Bolt Crossbow -->
 		<item id="2475" chance="2000"/> <!-- Warrior Helmet-->
@@ -88,6 +85,5 @@
 		<item id="7589" countmax="2" chance="20000"/> <!-- Strong Mana Potions-->
 		<item id="2152" countmax="10" chance="20000"/> <!--  Platinum Coin-->
 		<item id="2148" countmax="100" chance="20000"/> <!--  Gold Coins -->
-
 	</loot>
 </monster>

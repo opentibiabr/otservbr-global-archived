@@ -26,7 +26,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 			posPedra3 = newpos
 		end
 	end
-	math.randomseed(os.time())
 	local pedra1 = math.random(0,5)
 	local pedra2 = math.random(0,5)
 	local pedra3 = math.random(0,5)

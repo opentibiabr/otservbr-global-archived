@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Baby Dragon" nameDescription="a baby dragon" race="blood" experience="185" speed="176" manacost="0">
+<monster name="Baby Dragon" nameDescription="a baby dragon" race="blood" experience="185" speed="176" >
 	<health now="380" max="380"/>
 	<look type="271" corpse="7621"/>
 	<targetchange interval="2000" chance="5"/>
-	<strategy attack="70" defense="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -16,7 +15,6 @@
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="30"/>
-
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="45" attack="20"/>

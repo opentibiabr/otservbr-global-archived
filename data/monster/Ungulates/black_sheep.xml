@@ -25,6 +25,6 @@
 	</voices>
 	<loot>
 		<item name="meat" countmax="5" chance="70860"/>
-		<item name="black wool" countmax="1" chance="1000"/>
+		<item name="black wool" chance="1000"/>
 	</loot>
 </monster>

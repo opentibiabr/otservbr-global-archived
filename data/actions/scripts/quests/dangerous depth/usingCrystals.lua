@@ -214,7 +214,6 @@ local function sumonarFieryHearts()
 end
 
 local function startMachines()
-math.randomseed(os.time())
 local random = math.random(1, 5)
 local positionCenter = Position(33681, 32335, 15)
 local spectator = Game.getSpectators(positionCenter, false, false, 20, 20, 20, 20)
@@ -324,7 +323,6 @@ local function summonBeasts(i)
 end
 
 local function checarSala(qnt)
-	math.randomseed(os.time())
 	local temBoss = false
 	local hpBoss
 	local position = Position(33681, 32334, 15)

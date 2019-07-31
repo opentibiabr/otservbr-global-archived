@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Shatterer" nameDescription="the shatterer" race="fire" experience="58000" speed="320" manacost="0">
+<monster name="The Shatterer" nameDescription="the shatterer" race="fire" experience="58000" speed="320" >
 	<health now="220000" max="220000" />
         <look type="842" head="77" body="113" legs="21" feet="94" addons="0" corpse="6068" />
 	<targetchange interval="5000" chance="8" />

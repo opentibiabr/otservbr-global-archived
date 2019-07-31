@@ -33,7 +33,7 @@
 
 	<!-- Ferumbras Ascendant -->
 	<globalevent name="Effect" interval="3000" script="quests/ferumbras ascedant/effect.lua"/>
-	<globalevent name="Effcts" interval="4000" script="quests/ferumbras ascedant//effects.lua"/>
+	<globalevent name="Effcts" interval="4000" script="quests/ferumbras ascedant/effects.lua"/>
 
 	<!-- Blooming Griffinclaw -->
 	<globalevent name="GriffinclawFlower" type="startup" script="others/griffinclawFlower.lua" />

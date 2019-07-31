@@ -33,7 +33,7 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="166" chance="100000" />
-		<item name="strong health potion" countmax="1" chance="19830" />
+		<item name="strong health potion" chance="19830" />
 		<item name="small topaz" countmax="3" chance="6002" />
 		<item name="orcish axe" chance="9005" />
 		<item name="cultish robe" chance="4960" />
