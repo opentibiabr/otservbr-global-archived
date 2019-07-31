@@ -150,8 +150,11 @@ function Item.getImbuement(self, slot)
 	if not binfo then
 		return false
 	end
-
-	return Imbuement(bit.band(binfo, 0xFF))
+	local id = bit.band(binfo, 0xFF)
+	if id == 0 then
+		return false
+	end
+	return Imbuement(id)
 end
 
 function Item.addImbuement(self, slot, id)
