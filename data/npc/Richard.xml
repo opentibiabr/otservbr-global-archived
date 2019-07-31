@@ -12,7 +12,7 @@
 			bow,2684,1;
 			crossbow,2696,5;
 			health,2679,1;
-			rune,2328,1;
+			egg,2695,1;
 			drill bolt,2580,150;
 			earth arrow,2671,8;
 			energy bomb rune,2666,5000;
@@ -26,13 +26,11 @@
 			flaming arrow,2050,2" />
 
 		<parameter key="shop_sellable" value="
-
-		    flaskpequeno,2696,2;
-
-			flaskpequeno,2580,30;
-			flaskpequeno,2666,2;
-			flaskpequeno,2554,2;
-			flaskpequeno,2120,8	" />
+		    Cheese,2696,2;
+			Fishing Rod,2580,30;
+			Meat,2666,2;
+			Shovel,2554,2;
+			Rope,2120,8" />
 		<parameter key="message_farewell" value="May enlightenment be your path, |PLAYERNAME|." />
 		<parameter key="message_walkaway" value="May enlightenment be your path, |PLAYERNAME|." />
 		<parameter key="message_sendtrade" value="Of course, just browse through my offers." />
