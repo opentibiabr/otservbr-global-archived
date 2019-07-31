@@ -751,17 +751,23 @@ function Player:onGainExperience(source, exp, rawExp)
 		return exp
 	end
 
-	-- Soul regeneration
+	-- Soul Regeneration
 	local vocation = self:getVocation()
 	if self:getSoul() < vocation:getMaxSoul() and exp >= self:getLevel() then
 		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks() * 1000)
 		self:addCondition(soulCondition)
 	end
 
-	-- Apply experience stage multiplier
+	-- Experience Stage Multiplier
 	exp = exp * Game.getExperienceStage(self:getLevel())
+	baseExp = rawExp
+	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
+		displayRate = game.getExperienceStage(self:getLevel())
+		else
+		displayRate = 1
+	end
 
-	-- Prey bonus experience
+	-- Prey Bonus
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 		if (self:getPreyCurrentMonster(slot) == source:getName() and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
 			exp = exp + math.floor(exp * (self:getPreyBonusValue(slot) / 100))
@@ -769,48 +775,31 @@ function Player:onGainExperience(source, exp, rawExp)
 			break
 		end
 	end
-	
+
+	-- Store Bonus
+	useStaminaXp(self) -- Use store boost stamina
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
-		self:setStoreXpBoost(0) -- reset xp boost to 0
+		self:setStoreXpBoost(0) -- Reset Store boost to 0 if boost stamina has ran out
 	end
-
-	-- More compact, after checking before (reset) it only of xp if you have
 	if (self:getStoreXpBoost() > 0) then
-		exp = exp + (exp * (self:getStoreXpBoost()/100)) -- Exp Boost
+		exp = exp + (baseExp * (self:getStoreXpBoost()/100)) -- Exp Boost
+		displayRate = displayRate * ((self:getStoreXpBoost()+100)/100)
 	end
 
-	-- Exp Boost Modifier
-	useStaminaXp(self)
-
-		-- Exp stats
-	local staminaMinutes = self:getStamina()
-	local Boost = self:getExpBoostStamina()
-	if staminaMinutes > 2400 and self:isPremium() and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*2) -- 200 = 1.0x, 200 = 2.0x, ... premium account
-	elseif staminaMinutes > 2400 and self:isPremium() and Boost <= 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account
-	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and self:isPremium() and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		premium account
-	elseif staminaMinutes > 840 and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1.5) -- 150 = 1.5x		free account
-	elseif staminaMinutes <= 840 and Boost > 0 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*1) -- 50 = 0.5x	all players
-	elseif staminaMinutes <= 840 then
-		self:setBaseXpGain(Game.getExperienceStage(self:getLevel())*0.5) -- 50 = 0.5x	all players
-	end
-
-	-- Stamina modifier
+	-- Stamina Bonus
 	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
 		useStamina(self)
-
 		local staminaMinutes = self:getStamina()
 		if staminaMinutes > 2400 and self:isPremium() then
-			exp = exp * 1.5
+			exp = exp + baseExp * 0.5
+			displayRate = displayRate + Game.getExperienceStage(self:getLevel()) * 0.5
 		elseif staminaMinutes <= 840 then
 			exp = exp * 0.5
+			displayRate = displayRate * 0.5
 		end
 	end
 
+	self:setBaseXpGain(displayRate * 100)
 	return exp
 end
 

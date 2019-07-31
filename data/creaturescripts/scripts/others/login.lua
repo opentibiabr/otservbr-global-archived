@@ -194,21 +194,26 @@ function onLogin(player)
         onMovementRemoveProtection(playerId, player:getPosition(), 10)
 	end
 
-	-- Exp stats
+	-- Set Client XP Gain Rate
+	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
+		displayRate = Game.getExperienceStage(player:getLevel())
+		else
+		displayRate = 1
+	end
 	local staminaMinutes = player:getStamina()
-	local Boost = player:getExpBoostStamina()
-	if staminaMinutes > 2400 and player:isPremium() and Boost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*2) -- 200 = 1.0x, 200 = 2.0x, ... premium account
-	elseif staminaMinutes > 2400 and player:isPremium() and Boost <= 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5) -- 150 = 1.0x, 150 = 1.5x, ... premium account
-	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and Boost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5) -- 150 = 1.5x		premium account
-	elseif staminaMinutes > 840 and Boost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1.5) -- 150 = 1.5x		free account
-	elseif staminaMinutes <= 840 and Boost > 0 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*1) -- 50 = 0.5x	all players
+	local storeBoost = player:getExpBoostStamina()
+	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
+		player:setBaseXpGain(displayRate*2*100) -- Premium + Stamina boost + Store boost
+	elseif staminaMinutes > 2400 and player:isPremium() and storeBoost <= 0 then
+		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Stamina boost
+	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and storeBoost > 0 then
+		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Store boost
+	elseif staminaMinutes > 840 and storeBoost > 0 then
+		player:setBaseXpGain(displayRate*1.5*100) -- FACC + Store boost
+	elseif staminaMinutes <= 840 and storeBoost > 0 then
+		player:setBaseXpGain(displayRate*1*100) -- ALL players low stamina + Store boost
 	elseif staminaMinutes <= 840 then
-		player:setBaseXpGain(Game.getExperienceStage(player:getLevel())*0.5) -- 50 = 0.5x	all players
+		player:setBaseXpGain(displayRate*0.5*100) -- ALL players low stamina
 	end
 
 	if player:getClient().version > 1110 then
