@@ -654,6 +654,27 @@
 	<action fromid="26107" toid="26108" script="others/transform.lua"/>
 	<action fromid="26141" toid="26142" script="others/transform.lua"/>
 	<action itemid="26353" script="others/transform.lua"/><!-- dog house-->
+	<action itemid="27102" toid="27103" script="others/transform.lua" /> <!-- Skull Lamp -->
+	<action itemid="27100" toid="27101" script="others/transform.lua" /> <!-- Parrot -->
+	<action itemid="27887" toid="27888" script="others/transform.lua" /> <!-- Vengothic Lamp -->
+	<action itemid="29312" toid="29313" script="others/transform.lua" /> <!-- Bath Tub -->
+	<action itemid="29314" script="others/transform.lua" /> <!-- Spider Terrarium -->
+	<action itemid="29317" toid="29320" script="others/transform.lua" /> <!-- Hrodmiran weapons rack -->
+	<action itemid="29407" toid="29408" script="others/transform.lua" /> <!-- Snake Terrarium -->
+	<action itemid="29409" toid="29412" script="others/transform.lua" /> <!-- Demon Pet -->
+	<action itemid="32390" script="others/transform.lua" /> <!-- Baby Rotworm -->
+	<action itemid="32394" script="others/transform.lua" /> <!-- Fennec -->
+	<action fromid="35031" toid="35032" script="others/transform.lua" /> <!-- Festive Tree -->
+	<action fromid="35042" toid="35043" script="others/transform.lua" /> <!-- Festive Pyramid -->
+	<action fromid="36031" toid="36032" script="others/transform.lua" /> <!-- Crystal Lamp -->
+	<action fromid="36048" toid="36051" script="others/transform.lua" /> <!-- Idol Lamp -->
+	<action fromid="36516" toid="36517" script="others/transform.lua" /> <!-- Hedgehog -->
+	<action fromid="36518" toid="36519" script="others/transform.lua" /> <!-- Exalted Sarcophagus -->
+	<action fromid="36530" toid="36531" script="others/transform.lua" /> <!-- Curly Hortensis Lamp -->
+	<action fromid="36532" toid="36533" script="others/transform.lua" /> <!-- Little big flower lamp -->
+	<action fromid="36538" toid="36539" script="others/transform.lua" /> <!-- Baby Unicorn -->
+
+	<!-- Carpets -->
 	<action itemid="25392" script="others/carpets.lua"/> <!-- rift carpet-->
 	<action itemid="25393" script="others/carpets.lua"/> <!-- rift carpet-->
 	<action itemid="26192" script="others/carpets.lua"/> <!-- void carpet-->
@@ -701,7 +722,8 @@
 	<action itemid="29355" script="others/carpets.lua"/> <!-- stone tile -->
 	<action itemid="29356" script="others/carpets.lua"/> <!-- stone tile -->
 	<action itemid="29357" script="others/carpets.lua"/> <!-- stone tile -->
-	<action itemid="29358" script="others/carpets.lua"/> <!-- stone tile -->
+	<action itemid="29358" script="others/carpets.lua"/> <!-- wooden planks -->
+	<action itemid="29359" script="others/carpets.lua"/> <!-- wooden planks -->
 	<action itemid="29386" script="others/carpets.lua"/> <!-- wheat carpet -->
 	<action itemid="29387" script="others/carpets.lua"/> <!-- wheat carpet -->
 	<action itemid="29388" script="others/carpets.lua"/> <!-- crested carpet -->
