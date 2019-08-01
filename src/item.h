@@ -811,7 +811,7 @@ class Item : virtual public Thing
 		}
 		uint8_t getShootRange() const {
 			if (hasAttribute(ITEM_ATTRIBUTE_SHOOTRANGE)) {
-				return getIntAttr(ITEM_ATTRIBUTE_SHOOTRANGE);
+				return static_cast<uint8_t>(getIntAttr(ITEM_ATTRIBUTE_SHOOTRANGE));
 			}
 			return items[id].shootRange;
 		}

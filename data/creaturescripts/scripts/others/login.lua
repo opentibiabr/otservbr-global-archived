@@ -63,7 +63,6 @@ local events = {
 	'BossesHero',
 	'DragonsKill',
     'deeplingBosses',
-    'imbueDamage',
     'theGreatDragonHuntKill',
     'bonusPreyLootKill',
     'bossesMissionCults'
