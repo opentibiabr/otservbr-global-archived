@@ -54,6 +54,8 @@ local reloadTypes = {
 	["weapon"] = RELOAD_TYPE_WEAPONS,
 	["weapons"] = RELOAD_TYPE_WEAPONS,
 
+	["imbuements"] = RELOAD_TYPE_IMBUEMENTS,
+
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
 	["libs"] = RELOAD_TYPE_GLOBAL
 }

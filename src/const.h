@@ -625,6 +625,7 @@ enum ReloadTypes_t : uint8_t  {
 	RELOAD_TYPE_SPELLS,
 	RELOAD_TYPE_TALKACTIONS,
 	RELOAD_TYPE_WEAPONS,
+	RELOAD_TYPE_IMBUEMENTS,
 };
 
 enum NameEval_t : uint8_t {

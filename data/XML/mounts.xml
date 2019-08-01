@@ -143,6 +143,7 @@
 	<mount id="141" clientid="1183" name="River Crocovile" speed="20" premium="yes" />
 	<mount id="142" clientid="1184" name="Swamp Crocovile" speed="20" premium="yes" />
 	<mount id="143" clientid="1185" name="Nightmarish Crocovile" speed="20" premium="yes" />
- 	<mount id="144" clientid="1208" name="Jousting Eagle" speed="20" premium="yes" />
-	<mount id="145" clientid="1209" name="Cerberus Champion" speed="20" premium="yes" />
+	<mount id="144" clientid="1191" name="Gryphon" speed="20" premium="yes" />
+ 	<mount id="145" clientid="1208" name="Jousting Eagle" speed="20" premium="yes" />
+	<mount id="146" clientid="1209" name="Cerberus Champion" speed="20" premium="yes" />
 </mounts>

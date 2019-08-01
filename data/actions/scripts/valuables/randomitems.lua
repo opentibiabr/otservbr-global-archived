@@ -8,7 +8,7 @@ local config = {
 			{from = 4820, to = 5325, itemId = 2787},
 			{from = 5326, to = 5813, itemId = 5890},
 			{from = 5814, to = 6283, itemId = 3976, count = 4},
-			{from = 6284, to = 6751, itemId = 2328},
+			{from = 6284, to = 6751, itemId = 2695},
 			{from = 6752, to = 7175, itemId = 5899},
 			{from = 7176, to = 7576, itemId = 5894},
 			{from = 7577, to = 7949, itemId = 10606},

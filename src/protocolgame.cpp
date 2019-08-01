@@ -37,6 +37,7 @@
 #include "scheduler.h"
 #include "modules.h"
 #include "spells.h"
+#include "imbuements.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -45,6 +46,7 @@ extern CreatureEvents* g_creatureEvents;
 extern Chat* g_chat;
 extern Modules* g_modules;
 extern Spells* g_spells;
+extern Imbuements* g_imbuements;
 
 void ProtocolGame::release()
 {
@@ -487,6 +489,9 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
 		case 0xD3: parseSetOutfit(msg); break;
 		case 0xD4: parseToggleMount(msg); break;
+		case 0xD5: parseApplyImbuemente(msg); break;
+		case 0xD6: parseClearingImbuement(msg); break;
+		case 0xD7: parseCloseImbuingWindow(msg); break;
 		case 0xDC: parseAddVip(msg); break;
 		case 0xDD: parseRemoveVip(msg); break;
 		case 0xDE: parseEditVip(msg); break;
@@ -802,6 +807,25 @@ void ProtocolGame::parseToggleMount(NetworkMessage& msg)
 {
 	bool mount = msg.getByte() != 0;
 	addGameTask(&Game::playerToggleMount, player->getID(), mount);
+}
+
+void ProtocolGame::parseApplyImbuemente(NetworkMessage& msg)
+{
+	uint8_t slot = msg.getByte();
+	uint32_t imbuementId = msg.get<uint32_t>();
+	bool protectionCharm = msg.getByte() != 0x00;
+	addGameTask(&Game::playerApplyImbuement, player->getID(), imbuementId, slot, protectionCharm);
+}
+
+void ProtocolGame::parseClearingImbuement(NetworkMessage& msg)
+{
+	uint8_t slot = msg.getByte();
+	addGameTask(&Game::playerClearingImbuement, player->getID(), slot);
+}
+
+void ProtocolGame::parseCloseImbuingWindow(NetworkMessage&)
+{
+	addGameTask(&Game::playerCloseImbuingWindow, player->getID());
 }
 
 void ProtocolGame::parseUseItem(NetworkMessage& msg)
@@ -2324,7 +2348,12 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 	}
 
 	if (version > 1099) {
-		msg.add<uint16_t>(0x00); // imbuement detail
+		uint8_t slot = Item::items[itemId].imbuingSlots;
+		if(slot > 0) {
+			msg.addString(std::to_string(slot));
+		} else {
+			msg.add<uint16_t>(0x00);
+		}
 	}
 
 	MarketStatistics* statistics = IOMarket::getInstance().getPurchaseStatistics(itemId);
@@ -3599,6 +3628,103 @@ void ProtocolGame::AddOutfit(NetworkMessage& msg, const Outfit_t& outfit)
 	}
 
 	msg.add<uint16_t>(outfit.lookMount);
+}
+
+void ProtocolGame::addImbuementInfo(NetworkMessage& msg, uint32_t imbuid)
+{
+	Imbuement* imbuement = g_imbuements->getImbuement(imbuid);
+	BaseImbue* base = g_imbuements->getBaseByID(imbuement->getBaseID());
+	Category* category = g_imbuements->getCategoryByID(imbuement->getCategory());
+
+	msg.add<uint32_t>(imbuid);
+	msg.addString(base->name + " " + imbuement->getName());
+	msg.addString(imbuement->getDescription());
+	msg.addString(category->name + imbuement->getSubGroup());
+
+	msg.add<uint16_t>(imbuement->getIconID());
+	msg.add<uint32_t>(base->duration);
+
+	msg.addByte(imbuement->isPremium() ? 0x01 : 0x00);
+
+	const auto& items = imbuement->getItems();
+	msg.addByte(items.size());
+
+	for (const auto& itm : items) {
+		const ItemType& it = Item::items[itm.first];
+		msg.addItemId(itm.first);
+		msg.addString(it.name);
+		msg.add<uint16_t>(itm.second);
+	}
+
+	msg.add<uint32_t>(base->price);
+	msg.addByte(base->percent);
+	msg.add<uint32_t>(base->protection);
+}
+
+void ProtocolGame::sendImbuementWindow(Item* item)
+{
+	const ItemType& it = Item::items[item->getID()];
+	uint8_t slot = it.imbuingSlots;
+	bool itemHasImbue = false;
+	for (uint8_t i = 0; i < slot; i++) {
+		uint32_t info = item->getImbuement(i);
+		if (info >> 8) {
+			itemHasImbue = true;
+			break;
+		}
+	}
+
+	std::vector<Imbuement*> imbuements = g_imbuements->getImbuements(player, item);
+	if (!itemHasImbue && imbuements.empty()) {
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue this item.");
+		return;
+	}
+	// Seting imbuing item
+	player->inImbuing(item);
+
+	NetworkMessage msg;
+	msg.addByte(0xEB);
+	msg.addItemId(item->getID());
+	msg.addByte(slot);
+
+	for (uint8_t i = 0; i < slot; i++) {
+		uint32_t info = item->getImbuement(i);
+		if (info >> 8) {
+			msg.addByte(0x01);
+
+			addImbuementInfo(msg, (info & 0xFF));
+			msg.add<uint32_t>(info >> 8);
+			msg.add<uint32_t>(g_imbuements->getBaseByID(g_imbuements->getImbuement((info & 0xFF))->getBaseID())->removecust);
+		} else {
+			msg.addByte(0x00);
+		}
+	}
+
+	std::unordered_map<uint16_t, uint16_t> needItems;
+	msg.add<uint16_t>(imbuements.size());
+	for (Imbuement* ib : imbuements) {
+		addImbuementInfo(msg, ib->getId());
+
+		const auto& items = ib->getItems();
+		for (const auto& itm : items) {
+			if (!needItems.count(itm.first)) {
+				needItems[itm.first] = player->getItemTypeCount(itm.first);
+			}
+		}
+
+	}
+
+	msg.add<uint32_t>(needItems.size());
+	for (const auto& itm : needItems) {
+		msg.addItemId(itm.first);
+		msg.add<uint16_t>(itm.second);
+	}
+
+	if (player->getProtocolVersion() >= 1100) {
+		sendResourceBalance(player->getMoney(), player->getBankBalance());
+	}
+
+	writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)

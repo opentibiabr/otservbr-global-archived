@@ -91,6 +91,8 @@ enum itemAttrTypes : uint32_t {
 	ITEM_ATTRIBUTE_DOORID = 1 << 22,
 	ITEM_ATTRIBUTE_SPECIAL = 1 << 23,
 	ITEM_ATTRIBUTE_IMBUINGSLOTS = 1 << 24,
+
+	ITEM_ATTRIBUTE_CUSTOM = 1U << 31
 };
 
 enum VipStatus_t : uint8_t {
@@ -654,6 +656,7 @@ struct CombatDamage
 
 	CombatOrigin origin;
 	bool critical;
+	int affected;
 
 	CombatDamage()
 	{
@@ -661,6 +664,7 @@ struct CombatDamage
 		primary.type = secondary.type = COMBAT_NONE;
 		primary.value = secondary.value = 0;
 		critical = false;
+		affected = 1;
 	}
 };
 
