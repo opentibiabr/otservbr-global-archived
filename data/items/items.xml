@@ -36467,6 +36467,14 @@
 	<item fromid="27824" toid="27828" article="a" name="small lava pool" />
 	<item fromid="27831" toid="27832" article="a" name="small lava pillar" />
 	<item fromid="27834" toid="27841" article="a" name="dragon lair wall" />
+	<item id="27842" article="a" name="Imbuing Shrine">
+		<attribute key="rotateTo" value="27843" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="27843" article="a" name="Imbuing Shrine">
+		<attribute key="rotateTo" value="27842" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 	<item id="27850" article="a" name="Gilded Imbuing Shrine">
 		<attribute key="rotateTo" value="27851" />
 		<attribute key="wrapableTo" value="26054" />
@@ -39733,21 +39741,33 @@
 	</item>
 	<item id="32143" article="a" name="ferumbras exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32144" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32144" article="a" name="ferumbras exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32143" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32145" article="a" name="demon exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32146" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32146" article="a" name="demon exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32145" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32147" article="a" name="monk exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32148" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32148" article="a" name="monk exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32147" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32149" article="an" name="exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
