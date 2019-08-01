@@ -33,6 +33,10 @@
 	<!-- Falcons -->
 	<monster name="Falcon Knight" file="Falcons/Falcon Knight.xml"/>
 	<monster name="Falcon Paladin" file="Falcons/Falcon Paladin.xml"/>
+	<!-- Fafnar Cultists -->
+	<monster name="Black Sphinx Acolyte" file="Fafnar Cultists/Black Sphinx Acolyte.xml"/>
+	<monster name="Burning Gladiator" file="Fafnar Cultists/Burning Gladiator.xml"/>
+	<monster name="Priestess of the Wild Sun" file="Fafnar Cultists/Priestess of the Wild Sun.xml"/>
 	<!-- New Monsters -->
 	<monster name="Demon Blood" file="11.8/demon blood.xml"/>
 	<monster name="Demon Slave" file="11.8/demon slave.xml"/>
@@ -510,7 +514,6 @@
 	<monster name="Vile Grandmaster" file="Otherworld/Vile Grandmaster.xml"/>
 
 	<!-- Oramond -->
-	
 	<monster name="Canopic Jar" file="Oramond/canopic jar.xml"/>
 	<monster name="Control Tower" file="Oramond/control tower.xml"/>
 	<monster name="Death Priest Shargon" file="Oramond/death priest shargon.xml"/>
@@ -540,8 +543,16 @@
 	<!-- Annelids -->
 	<monster name="Carrion Worm" file="Annelids/carrion worm.xml"/>
 	<monster name="Drillworm" file="Annelids/drillworm.xml"/>
+	<monster name="Earworm" file="Annelids/Earworm.xml"/>
 	<monster name="Rotworm" file="Annelids/rotworm.xml"/>
 	<monster name="Rift Worm" file="Annelids/rift worm.xml"/>
+
+	<!-- Anuma -->
+	<monster name="Crypt Warden" file="Anuma/Crypt Warden.xml"/>
+	<monster name="Feral Sphinx" file="Anuma/Feral Sphinx.xml"/>
+	<monster name="Gryphon" file="Misc/Misc Mounts/Gryphon.xml"/>
+	<monster name="Manticore" file="Anuma/Manticore.xml"/>
+	<monster name="Sphinx" file="Anuma/Sphinx.xml"/>
 
 	<!-- Apes -->
 	<monster name="Kongra" file="Apes/kongra.xml"/>
@@ -837,6 +848,7 @@
 	<monster name="Tremorak" file="Bosses/tremorak.xml"/>
 	<monster name="Tromphonyte" file="Bosses/tromphonyte.xml"/>
 	<monster name="Ungreez" file="Bosses/ungreez.xml"/>
+	<monster name="Urmahlullu the Weakened" file="Bosses/Urmahlullu the Weakened.xml"/>
 	<monster name="Ushuriel" file="Bosses/ushuriel.xml"/>
 	<monster name="Verminor" file="Bosses/verminor.xml"/>
 	<monster name="Versperoth" file="Bosses/versperoth.xml"/>
@@ -1107,6 +1119,9 @@
 	<monster name="Cyclops Smith" file="Giants/cyclops_smith.xml"/>
 	<monster name="Frost Giant" file="Giants/frost_giant.xml"/>
 	<monster name="Frost Giantess" file="Giants/frost_giantess.xml"/>
+	<monster name="Ogre Rowdy" file="Giants/Ogre Rowdy.xml"/>
+	<monster name="Ogre Ruffian" file="Giants/Ogre Ruffian.xml"/>
+	<monster name="Ogre Sage" file="Giants/Ogre Sage.xml"/>
 
 	<!-- Goblins -->
 	<monster name="Goblin" file="Goblins/goblin.xml"/>
@@ -1258,6 +1273,11 @@
 	<monster name="Orchelmet" file="Orcs/orchelmet.xml"/>
 	<monster name="Orcshield" file="Orcs/orcshield.xml"/>
 	<monster name="Orc Sambackpack" file="Orcs/orc_sambackpack.xml"/>
+
+	<!-- Order of the Cobra -->
+	<monster name="Cobra Assassin" file="Order of the Cobra/Cobra Assassin.xml"/>
+	<monster name="Cobra Scout" file="Order of the Cobra/Cobra Scout.xml"/>
+	<monster name="Cobra Vizier" file="Order of the Cobra/Cobra Vizier.xml"/>
 
 	<!-- Outlaws -->
 	<monster name="Adventurer" file="Outlaws/adventurer.xml"/>
@@ -1442,13 +1462,18 @@
 	<monster name="Vampire Pig" file="Ungulates/vampire_pig.xml"/>
 	<monster name="White Deer" file="Ungulates/white_deer.xml"/>
 
-	<!-- Voodoo_Cultists -->
+	<!-- Varanidae -->
+	<monster name="Adult Goanna" file="Varanidae/Adult Goanna.xml"/>
+	<monster name="Young Goanna" file="Varanidae/Young Goanna.xml"/>
+	<monster name="Sun-Marked Goanna" file="Varanidae/Sun-Marked Goanna.xml"/>
+
+	<!-- Voodoo Cultists -->
 	<monster name="Acolyte of the Cult" file="Voodoo_Cultists/acolyte_of_the_cult.xml"/>
 	<monster name="Adept of the Cult" file="Voodoo_Cultists/adept_of_the_cult.xml"/>
 	<monster name="Enlightened of the Cult" file="Voodoo_Cultists/enlightened_of_the_cult.xml"/>
 	<monster name="Novice of the Cult" file="Voodoo_Cultists/novice_of_the_cult.xml"/>
 
-	<!-- Wild_Magics -->
+	<!-- Wild Magics -->
 	<monster name="Wild Fire Magic" file="Wild_Magics/wild_fire_magic.xml"/>
 	<monster name="Wild Fury Magic" file="Wild_Magics/wild_fury_magic.xml"/>
 	<monster name="Wild Nature Magic" file="Wild_Magics/wild_nature_magic.xml"/>

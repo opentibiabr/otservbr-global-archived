@@ -44,7 +44,7 @@
 		<voice sentence="QJELL NETA NA!!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmim="2" countmax="200" chance="100000"/>
+		<item name="gold coin" countmax="200" chance="100000"/>
 		<item name="platinum coin" countmax="4" chance="70000"/>
 		<item name="great mana potion" countmax="3" chance="32640"/>
 		<item name="great health potion" countmax="3" chance="33430"/>
@@ -56,7 +56,7 @@
 		<item name="deepling claw" chance="29960"/>
 		<item name="foxtail" chance="80"/>
 		<item name="heavy trident" chance="1550"/>
-                <item name="deepling backpack" chance="510"/>
+		<item name="deepling backpack" chance="510"/>
 		<item name="deepling squelcher" chance="1540"/>
 		<item name="ornate crossbow" chance="850"/>
         </loot>

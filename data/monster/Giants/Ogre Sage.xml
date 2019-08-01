@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Ogre Sage" nameDescription="an ogre sage" race="blood" experience="5500" speed="170">
+	<health now="5000" max="5000"/>
+	<look type="1214" corpse="5999"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="lifedrain" interval="2000" chance="24" range="7" target="1" min="-50" max="-130">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="16" range="4" min="-100" max="-165">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="death" interval="2000" chance="10" range="7" target="1" radius="3" min="-115" max="-200">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="13" range="7" target="1" radius="4" min="-200" max="-300">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45">
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="50"/>
+		<element icePercent="50"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="Young Goanna" interval="2000" chance="10" />
+	</summons>
+</monster>
