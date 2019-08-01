@@ -2898,7 +2898,7 @@
 		<attribute key="description" value="You see the engraving of a white raven on its surface." />
 		<attribute key="weight" value="420" />
 	</item>
-	<item id="2328" article="an" name="Egg">
+	<item id="2328" article="a" name="phoenix egg"><!-- from version 7.24 -->
 		<attribute key="weight" value="30" />
 	</item>
 	<item id="2329" article="a" name="bill">
@@ -4448,19 +4448,23 @@
 		<attribute key="weight" value="1000" />
 		<attribute key="armor" value="2" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2642" name="sandals">
 		<attribute key="weight" value="600" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2643" name="leather boots">
 		<attribute key="weight" value="900" />
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2644" name="bunnyslippers">
 		<attribute key="weight" value="600" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="2645" name="steel boots">
 		<attribute key="weight" value="2900" />
@@ -13018,6 +13022,7 @@
 		<attribute key="armor" value="2" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="-12" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7458" article="a" name="fur cap">
 		<attribute key="description" value="It feels nice and warm on your ears." />
@@ -14694,6 +14699,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentEarth" value="5" />
 		<attribute key="absorbPercentFire" value="-5" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7887" article="a" name="terra amulet">
 		<attribute key="weight" value="500" />
@@ -14737,6 +14743,7 @@
 		<attribute key="absorbPercentFire" value="5" />
 		<attribute key="absorbPercentIce" value="-5" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7892" name="glacier shoes">
 		<attribute key="weight" value="750" />
@@ -14744,6 +14751,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentIce" value="5" />
 		<attribute key="absorbPercentEnergy" value="-5" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7893" name="lightning boots">
 		<attribute key="weight" value="750" />
@@ -14751,6 +14759,7 @@
 		<attribute key="absorbPercentEnergy" value="5" />
 		<attribute key="absorbPercentEarth" value="-5" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="7894" name="magma legs">
 		<attribute key="weight" value="1900" />
@@ -19520,6 +19529,7 @@
 		<attribute key="absorbPercentEnergy" value="-3" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="1850" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11118" name="dragon scale boots">
 		<attribute key="armor" value="3" />
@@ -19527,6 +19537,7 @@
 		<attribute key="absorbPercentIce" value="-3" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="1850" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11119" article="a" name="heart backpack">
 		<attribute key="weight" value="1800" />
@@ -19787,6 +19798,7 @@
 		<attribute key="absorbPercentHoly" value="-2" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="weight" value="2250" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11241" article="an" name="expedition backpack">
 		<attribute key="weight" value="1800" />
@@ -20053,6 +20065,7 @@
 		<attribute key="armor" value="1" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="speed" value="10" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="11304" article="a" name="Zaoan legs">
 		<attribute key="weight" value="6600" />
@@ -20194,17 +20207,17 @@
 	<item id="11330" article="a" name="zaogun flag" plural="zaogun flags">
 		<attribute key="weight" value="98" />
 	</item>
-	<item id="11331" name="zaogun shoulderplates" plural="zaogun shoulderplates">
+	<item id="11331" name="zaogun shoulderplates">
 		<attribute key="weight" value="103" />
 		<attribute key="showcount" value="0" />
 	</item>
 	<item id="11332" article="a" name="high guard flag">
 		<attribute key="weight" value="112" />
 	</item>
-	<item id="11333" name="high guard shoulderplates" plural="high guard shoulderplates">
+	<item id="11333" name="high guard shoulderplates">
 		<attribute key="weight" value="103" />
 	</item>
-	<item id="11334" name="legionnaire flags" plural="legionnaire flags">
+	<item id="11334" name="legionnaire flags">
 		<attribute key="weight" value="110" />
 	</item>
 	<item id="11335" article="a" name="broken halberd">
@@ -21531,6 +21544,7 @@
 		<attribute key="speed" value="30" />
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="feet" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="12647" article="a" name="snake god's wristguard">
 		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
@@ -31756,6 +31770,7 @@
 		<attribute key="slotType" value="feet" />
 		<attribute key="absorbPercentPhysical" value="1" />
 		<attribute key="weight" value="1800" />
+		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="23541" article="a" name="gearwheel chain">
 		<attribute key="armor" value="3" />
@@ -36393,7 +36408,7 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="27745" article="an" name="Egg" />
+	<item id="27745" article="an" name="egg" />
 	<item id="27746" name="remains of an orclops">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="27748" />
@@ -36435,7 +36450,7 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="6000" />
 	</item>
-	<item id="27755" article="an" name="Egg" />
+	<item id="27755" article="an" name="egg" />
 	<item id="27756" name="porcelain mask">
 		<attribute key="armor" value="1" />
 		<attribute key="absorbPercentManaDrain" value="10" />
@@ -39297,7 +39312,7 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-		<item id="30869" article="a" name="dead the count of the core">
+	<item id="30869" article="a" name="dead the count of the core">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
@@ -40051,14 +40066,14 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="32434" article="a" name="dead grand canon dominus">
+	<item id="32434" article="a" name="dead grand canon dominus">
 		<attribute key="weight" value="30000" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-		<item id="32435" article="a" name="dead grand canon dominus">
+	<item id="32435" article="a" name="dead grand canon dominus">
 		<attribute key="weight" value="50000" />
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="32434" />
