@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Young Goanna" nameDescription="a young goanna" race="blood" experience="7600" speed="230">
+	<health now="5800" max="5800"/>
+	<look type="1196" corpse="11430"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="10"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-229" poison="14"/>
+		<attack name="earth" interval="2000" chance="10" range="3" radius="1" target="1" min="0" max="-486">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element earthPercent="1"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="3" chance="100000"/>
+		<item name="Envenomed Arrow" countmax="35" chance="65000"/>
+		<item name="Terra Rod" chance="17000"/>
+		<!--<item name="Blue Goanna Scale" chance="1100"/>
+		<item name="Goanna Meat" chance="9000"/>-->
+		<item name="Snakebite Rod" chance="7800"/>
+		<item name="Leaf Star" countmax="3" chance="3900"/>
+		<item name="Serpent Sword" chance="3950"/>
+		<item name="Sacred Tree Amulet" chance="2600"/>
+		<!--<item name="Scared Frog" chance="2600"/>-->
+		<item name="Springsprout Rod" chance="2600"/>
+		<!--<item name="Goanna Claw" chance="1320"/>
+		<item name="Small Tortoise" chance="1320"/>-->
+		<item name="Terra Amulet" chance="1320"/>
+	</loot>
+</monster>

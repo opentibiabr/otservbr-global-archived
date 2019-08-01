@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Priestess of the Wild Sun" nameDescription="a priestess of the wild sun" race="blood" experience="8000" speed="160">
+	<health now="8500" max="8500"/>
+	<look type="1199" head="0" body="0" legs="0" feet="0" addons="0" corpse="20423"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="70"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+		<attack name="fire" interval="2000" chance="10" length="5" spread="2" min="-300" max="-400">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" range="5" radius="3" target="1" min="-400" max="-450">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82"/>
+	<elements>
+		<element energyPercent="15"/>
+		<element firePercent="20"/>
+		<element icePercent="-1"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Fafnar will burn you!"/>
+		<voice sentence="Fear the Wild Sun!"/>
+		<voice sentence="There is only one true sun!"/>
+	</voices>
+</monster>
