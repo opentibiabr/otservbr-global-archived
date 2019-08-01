@@ -129,7 +129,7 @@ bool Protocol::XTEA_decrypt(NetworkMessage& msg) const
 		readPos += 4;
 	}
 
-	int innerLength = msg.get<uint16_t>();
+	NetworkMessage::MsgSize_t innerLength = msg.get<uint16_t>();
 	if (innerLength > msg.getLength() - 8) {
 		return false;
 	}

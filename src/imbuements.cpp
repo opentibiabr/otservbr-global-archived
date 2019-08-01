@@ -172,9 +172,9 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						continue;
 					}
 
-					std::string type = attr.as_string();
+					std::string effecttype = attr.as_string();
 
-					if (strcasecmp(type.c_str(), "skill") == 0) {
+					if (strcasecmp(effecttype.c_str(), "skill") == 0) {
 						if (!(attr = childNode.attribute("value"))) {
 							std::cout << "[Warning - Imbuements::loadFromXml] Missing effect value for imbuement name " << imb.name << std::endl;
 							continue;
@@ -234,7 +234,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 							imb.skills[skillId - 1] = chance;
 						}
-					} else if (strcasecmp(type.c_str(), "damage") == 0) {
+					} else if (strcasecmp(effecttype.c_str(), "damage") == 0) {
 						if (!(attr = childNode.attribute("combat"))) {
 							std::cout << "[Warning - Imbuements::loadFromXml] Missing combat for imbuement name " << imb.name << std::endl;
 							continue;
@@ -255,7 +255,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 
 						imb.combatType = combatType;
 						imb.elementDamage = std::min<int16_t>(100, percent);
-					} else if (strcasecmp(type.c_str(), "reduction") == 0) {
+					} else if (strcasecmp(effecttype.c_str(), "reduction") == 0) {
 						if (!(attr = childNode.attribute("combat"))) {
 							std::cout << "[Warning - Imbuements::loadFromXml] Missing combat for imbuement name " << imb.name << std::endl;
 							continue;
@@ -275,14 +275,14 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 						uint32_t percent = std::min<uint32_t>(100, pugi::cast<uint32_t>(attr.value()));
 
 						imb.absorbPercent[combatTypeToIndex(combatType)] = percent;
-					} else if (strcasecmp(type.c_str(), "speed") == 0) {
+					} else if (strcasecmp(effecttype.c_str(), "speed") == 0) {
 						if (!(attr = childNode.attribute("value"))) {
 							std::cout << "[Warning - Imbuements::loadFromXml] Missing speed value for imbuement name " << imb.name << std::endl;
 							continue;
 						}
 
 						imb.speed = pugi::cast<uint32_t>(attr.value());
-					} else if (strcasecmp(type.c_str(), "capacity") == 0) {
+					} else if (strcasecmp(effecttype.c_str(), "capacity") == 0) {
 						if (!(attr = childNode.attribute("value"))) {
 							std::cout << "[Warning - Imbuements::loadFromXml] Missing cap value for imbuement name " << imb.name << std::endl;
 							continue;

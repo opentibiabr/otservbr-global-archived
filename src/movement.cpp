@@ -718,8 +718,8 @@ uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, 
 
 	if (it.imbuingSlots > 0) {
 		std::vector<Imbuement*> imbuement;
-		for(uint8_t slot = 0; slot < it.imbuingSlots; slot++) {
-			uint32_t info = item->getImbuement(slot);
+		for(uint8_t slotid = 0; slotid < it.imbuingSlots; slotid++) {
+			uint32_t info = item->getImbuement(slotid);
 			if (info >> 8 == 0) {
 				continue;
 			}
@@ -830,8 +830,8 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 
 	if (it.imbuingSlots > 0) {
 		std::vector<Imbuement*> imbuement;
-		for(uint8_t slot = 0; slot < it.imbuingSlots; slot++) {
-			uint32_t info = item->getImbuement(slot);
+		for(uint8_t slotid = 0; slotid < it.imbuingSlots; slotid++) {
+			uint32_t info = item->getImbuement(slotid);
 			if (info >> 8 == 0) {
 				continue;
 			}
