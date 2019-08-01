@@ -547,7 +547,7 @@ bool enterMarket(Player* player, Item*, const Position&, Thing*, const Position&
 	return true;
 }
 
-bool useImbueShine(Player* player, Item*, const Position&, Thing* target, const Position& toPos, bool)
+bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, const Position& toPos, bool)
 {
 	Item* item = target ? target->getItem() : nullptr;
 	if (!item) {
@@ -583,7 +583,7 @@ bool Action::loadFunction(const pugi::xml_attribute& attr, bool isScripted)
 	if (strcasecmp(functionName, "market") == 0) {
 		function = enterMarket;
 	} else if (strcasecmp(functionName, "imbuement") == 0) {
-		function = useImbueShine;
+		function = useImbueShrine;
 	} else {
 		if (!isScripted) {
 			std::cout << "[Warning - Action::loadFunction] Function \"" << functionName << "\" does not exist." << std::endl;

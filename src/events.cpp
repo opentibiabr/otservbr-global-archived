@@ -126,8 +126,8 @@ bool Events::load()
 				info.playerOnStorageUpdate = event;
 			}else if (methodName == "onRemoveCount") {
 				info.playerOnRemoveCount = event;
-			}else if (methodName == "canBeAppliedImbuemet") {
-				info.playerCanBeAppliedImbuemet = event;
+			}else if (methodName == "canBeAppliedImbuement") {
+				info.playerCanBeAppliedImbuement = event;
 			}else if (methodName == "onApplyImbuement") {
 				info.playerOnApplyImbuement= event;
 			}else if (methodName == "clearImbuement") {
@@ -929,10 +929,10 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	scriptInterface.resetScriptEnv();
 }
 
-bool Events::eventPlayerCanBeAppliedImbuemet(Player* player, Imbuement* imbuement, Item* item)
+bool Events::eventPlayerCanBeAppliedImbuement(Player* player, Imbuement* imbuement, Item* item)
 {
-	// Player:canBeAppliedImbuemet(imbuement, item)
-	if (info.playerCanBeAppliedImbuemet == -1) {
+	// Player:canBeAppliedImbuement(imbuement, item)
+	if (info.playerCanBeAppliedImbuement == -1) {
 		return false;
 	}
 
@@ -942,10 +942,10 @@ bool Events::eventPlayerCanBeAppliedImbuemet(Player* player, Imbuement* imbuemen
 	}
 
 	ScriptEnvironment* env = scriptInterface.getScriptEnv();
-	env->setScriptId(info.playerCanBeAppliedImbuemet, &scriptInterface);
+	env->setScriptId(info.playerCanBeAppliedImbuement, &scriptInterface);
 
 	lua_State* L = scriptInterface.getLuaState();
-	scriptInterface.pushFunction(info.playerCanBeAppliedImbuemet);
+	scriptInterface.pushFunction(info.playerCanBeAppliedImbuement);
 
 	if (player) {
 		LuaScriptInterface::pushUserdata<Player>(L, player);

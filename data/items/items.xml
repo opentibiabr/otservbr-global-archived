@@ -2899,7 +2899,7 @@
 		<attribute key="description" value="You see the engraving of a white raven on its surface." />
 		<attribute key="weight" value="420" />
 	</item>
-	<item id="2328" article="an" name="Egg">
+	<item id="2328" article="a" name="phoenix egg"><!-- from version 7.24 -->
 		<attribute key="weight" value="30" />
 	</item>
 	<item id="2329" article="a" name="bill">
@@ -20208,17 +20208,17 @@
 	<item id="11330" article="a" name="zaogun flag" plural="zaogun flags">
 		<attribute key="weight" value="98" />
 	</item>
-	<item id="11331" name="zaogun shoulderplates" plural="zaogun shoulderplates">
+	<item id="11331" name="zaogun shoulderplates">
 		<attribute key="weight" value="103" />
 		<attribute key="showcount" value="0" />
 	</item>
 	<item id="11332" article="a" name="high guard flag">
 		<attribute key="weight" value="112" />
 	</item>
-	<item id="11333" name="high guard shoulderplates" plural="high guard shoulderplates">
+	<item id="11333" name="high guard shoulderplates">
 		<attribute key="weight" value="103" />
 	</item>
-	<item id="11334" name="legionnaire flags" plural="legionnaire flags">
+	<item id="11334" name="legionnaire flags">
 		<attribute key="weight" value="110" />
 	</item>
 	<item id="11335" article="a" name="broken halberd">
@@ -36402,7 +36402,7 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="27745" article="an" name="Egg" />
+	<item id="27745" article="an" name="egg" />
 	<item id="27746" name="remains of an orclops">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="27748" />
@@ -36444,7 +36444,7 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="6000" />
 	</item>
-	<item id="27755" article="an" name="Egg" />
+	<item id="27755" article="an" name="egg" />
 	<item id="27756" name="porcelain mask">
 		<attribute key="armor" value="1" />
 		<attribute key="absorbPercentManaDrain" value="10" />

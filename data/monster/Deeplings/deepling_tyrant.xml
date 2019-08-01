@@ -48,7 +48,7 @@
 		<item name="platinum coin" countmax="4" chance="70000"/>
 		<item name="great mana potion" countmax="3" chance="32640"/>
 		<item name="great health potion" countmax="3" chance="33430"/>
-		<item name="small saphire" countmax="3" chance="22000"/>
+		<item name="small sapphire" countmax="3" chance="22000"/>
 		<item name="eye of a deepling" chance="28850"/>
 		<item name="deepling guard belt buckle" chance="23100"/>
 		<item name="deepling breaktime snack" chance="34770"/>

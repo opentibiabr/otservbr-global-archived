@@ -1,5 +1,5 @@
 local foods = {
-	[2328] = {6, 'Gulp.'}, -- egg
+	[2695] = {6, 'Gulp.'}, -- egg
 	[2362] = {5, 'Crunch.'}, -- carrot
 	[2666] = {15, 'Munch.'}, -- meat
 	[23516] = {15, 'Burp.'}, -- Bottle of Glooth Wine
@@ -22,7 +22,7 @@ local foods = {
 	[2679] = {1, 'Yum.'}, -- cherry
 	[2680] = {2, 'Yum.'}, -- strawberry
 	[2681] = {9, 'Yum.'}, -- grapes
-	[7966] = {9, 'Hum.'}, -- BOLO
+	[7966] = {9, 'Hum.'}, -- cream cake
 	[2682] = {20, 'Yum.'}, -- melon
 	[2683] = {17, 'Munch.'}, -- pumpkin
 	[2684] = {5, 'Crunch.'}, -- carrot
