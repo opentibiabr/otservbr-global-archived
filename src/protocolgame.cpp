@@ -522,10 +522,11 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 			// std::cout << "Player: " << player->getName() << " sent an unknown packet header: 0x" << std::hex << static_cast<uint16_t>(recvbyte) << std::dec << "!" << std::endl;
 			break;
 	}
-
-	if (msg.isOverrun()) {
-		disconnect();
-	}
+	/* temporary solution to disconnections while opening store 
+		if (msg.isOverrun()) {
+			disconnect();
+		}
+	*/
 }
 
 void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
