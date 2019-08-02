@@ -35151,7 +35151,7 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="26091" article="a" name="Predator Lamp">
-		<attribute key="rotateTo" value="26092" />
+		<attribute key="rotateTo" value="26090" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="26092" article="a" name="Predator Lamp">
@@ -35159,7 +35159,7 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="26093" article="a" name="Predator Lamp">
-		<attribute key="rotateTo" value="26090" />
+		<attribute key="rotateTo" value="26092" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="26094" article="a" name="Protectress Lamp">
@@ -36129,8 +36129,15 @@
 	<item fromid="27100" toid="27101" article="a" name="parrot">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item fromid="27102" toid="27104" article="a" name="lit skull lamp">
+	<item id="27102" article="a" name="lit skull lamp">
 		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="27103" article="a" name="lit skull lamp">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="27104" article="a" name="lit skull lamp">
+		<attribute key="decayTo" value="27103" />
+		<attribute key="duration" value="1" />
 	</item>
 	<item id="27107" article="a" name="shell" plural="shells">
 		<attribute key="weight" value="100" />
@@ -36460,6 +36467,14 @@
 	<item fromid="27824" toid="27828" article="a" name="small lava pool" />
 	<item fromid="27831" toid="27832" article="a" name="small lava pillar" />
 	<item fromid="27834" toid="27841" article="a" name="dragon lair wall" />
+	<item id="27842" article="a" name="Imbuing Shrine">
+		<attribute key="rotateTo" value="27843" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="27843" article="a" name="Imbuing Shrine">
+		<attribute key="rotateTo" value="27842" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 	<item id="27850" article="a" name="Gilded Imbuing Shrine">
 		<attribute key="rotateTo" value="27851" />
 		<attribute key="wrapableTo" value="26054" />
@@ -36508,7 +36523,14 @@
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item fromid="27886" toid="27888" article="a" name="vengothic lamp">
+	<item id="27886" article="a" name="vengothic lamp">
+		<attribute key="decayTo" value="27887" />
+		<attribute key="duration" value="1" />
+	</item>
+	<item id="27887" article="a" name="vengothic lamp">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="27888" article="a" name="vengothic lamp">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="27909" article="a" name="vengothic lamp">
@@ -36649,13 +36671,13 @@
 		<attribute key="description" value="This cask can be used to refill supreme mana potions." />
 		<attribute key="weight" value="200000" />
 	</item>
-	<item id="28575" article="a" name="strong spirit potion cask">
+	<item id="28575" article="a" name="great spirit potion cask">
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="charges" value="1000" />
 		<attribute key="description" value="This cask can be used to refill great spirit potions." />
 		<attribute key="weight" value="200000" />
 	</item>
-	<item id="28576" article="a" name="great spirit potion cask">
+	<item id="28576" article="a" name="ultimate spirit potion cask">
 		<attribute key="wrapableTo" value="26054" />
 		<attribute key="charges" value="1000" />
 		<attribute key="description" value="This cask can be used to refill ultimate spirit potions." />
@@ -38447,9 +38469,39 @@
 	<item id="29310" article="a" name="blessed acorn" >
 		<attribute key="weight" value="50" />
 	</item>
-	<item fromid="29312" toid="29313" article="a" name="bath tub" />
-	<item fromid="29314" toid="29316" article="a" name="terrarium spider" />
-	<item fromid="29317" toid="29320" article="a" name="hrodmiran weapons rack" />
+	<item id="29312" article="a" name="bath tub">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29313" article="a" name="bath tub">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29314" article="a" name="terrarium spider">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29315" article="a" name="terrarium spider">
+		<attribute key="decayTo" value="29316" />
+		<attribute key="duration" value="2" />
+	</item>
+	<item id="29316" article="a" name="terrarium spider">
+		<attribute key="decayTo" value="29314" />
+		<attribute key="duration" value="2" />
+	</item>
+	<item id="29317" article="a" name="hrodmiran weapons rack">
+		<attribute key="rotateTo" value="29318" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29318" article="a" name="hrodmiran weapons rack">
+		<attribute key="rotateTo" value="29317" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29319" article="a" name="hrodmiran weapons rack">
+		<attribute key="rotateTo" value="29320" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="29320" article="a" name="hrodmiran weapons rack">
+		<attribute key="rotateTo" value="29319" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 	<item fromid="29321" toid="29322" article="a" name="goromaphone" />
 	<item id="29323" article="a" name="bath tub" />
 	<item id="29324" article="a" name="bed">
@@ -38688,10 +38740,12 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="29405" article="a" name="terrarium snake">
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="decayTo" value="29408" />
+		<attribute key="duration" value="2" />
 	</item>
 	<item id="29406" article="a" name="terrarium snake">
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="decayTo" value="29407" />
+		<attribute key="duration" value="2" />
 	</item>
 	<item id="29407" article="a" name="terrarium snake">
 		<attribute key="wrapableTo" value="26054" />
@@ -38708,20 +38762,20 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="29411" article="a" name="demon pet">
-		<attribute key="rotateTo" value="29412" />
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="decayTo" value="29415" />
+		<attribute key="duration" value="2" />
 	</item>
 	<item id="29412" article="a" name="demon pet">
-		<attribute key="rotateTo" value="29411" />
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="decayTo" value="29416" />
+		<attribute key="duration" value="2" />
 	</item>
 	<item id="29415" article="a" name="demon pet">
-		<attribute key="rotateTo" value="29416" />
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="decayTo" value="29409" />
+		<attribute key="duration" value="2" />
 	</item>
 	<item id="29416" article="a" name="demon pet">
-		<attribute key="rotateTo" value="29415" />
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="decayTo" value="29410" />
+		<attribute key="duration" value="2" />
 	</item>
 	<item id="29417" article="a" name="swan feather" plural="swan feathers">
 		<attribute key="weight" value="10"/>
@@ -39687,21 +39741,33 @@
 	</item>
 	<item id="32143" article="a" name="ferumbras exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32144" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32144" article="a" name="ferumbras exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32143" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32145" article="a" name="demon exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32146" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32146" article="a" name="demon exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32145" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32147" article="a" name="monk exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32148" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32148" article="a" name="monk exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
+		<attribute key="rotateTo" value="32147" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32149" article="an" name="exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy." />
@@ -39731,6 +39797,22 @@
 	</item>
 	<item id="32265" article="a" name="skeletal table">
 		<attribute key="rotateTo" value="32264" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32266" article="a" name="skeletal chest">
+		<attribute key="rotateTo" value="32267" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32267" article="a" name="skeletal chest">
+		<attribute key="rotateTo" value="32268" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32268" article="a" name="skeletal chest">
+		<attribute key="rotateTo" value="32269" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32269" article="a" name="skeletal chest">
+		<attribute key="rotateTo" value="32266" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32272" article="a" name="carnivorous plant">
@@ -39772,18 +39854,42 @@
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
 	</item>
-	<item fromid="32390" toid="32393" article="a" name="baby rotworm" />
+	<item id="32390" article="a" name="baby rotworm">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32391" article="a" name="baby rotworm">
+		<attribute key="decayTo" value="32392" />
+		<attribute key="duration" value="1" />
+	</item>
+	<item id="32392" article="a" name="baby rotworm">
+		<attribute key="decayTo" value="32393" />
+		<attribute key="duration" value="4" />
+	</item>
+	<item id="32393" article="a" name="baby rotworm">
+		<attribute key="decayTo" value="32390" />
+		<attribute key="duration" value="1" />
+	</item>
 	<item id="32394" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32395" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
+		<attribute key="decayTo" value="32394" />
+		<attribute key="duration" value="4" />
 	</item>
-	<item id="32396" article="a" name="bellflower"/>
-	<item id="32397" article="a" name="forget-me-not"/>
-	<item id="32398" article="a" name="red geranium"/>
+	<item id="32396" article="a" name="bellflower">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32397" article="a" name="forget-me-not">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="32398" article="a" name="red geranium">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 	<item id="32399" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="32401" article="a" name="Citizen Doll" >
 		<attribute key="weight" value="2200" />
@@ -42817,46 +42923,130 @@
 	<item id="35207" article="an" name="grey raven kit"/>
 	<item id="35208" article="an" name="white raven kit"/>
 	<item id="36018" article="an" name="dwarven stone chair">
-		<attribute key="rotateTo" value="36523" />
+		<attribute key="rotateTo" value="36019" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36019" article="an" name="dwarven stone chair">
-		<attribute key="rotateTo" value="36524" />
+		<attribute key="rotateTo" value="36020" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36020" article="an" name="dwarven stone chair">
-		<attribute key="rotateTo" value="36525" />
+		<attribute key="rotateTo" value="36021" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36021" article="an" name="dwarven stone chair">
-		<attribute key="rotateTo" value="36522" />
+		<attribute key="rotateTo" value="36018" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item fromid="36022" toid="36023" article="a" name="dwarven stone chest"/>
-	<item fromid="36024" toid="36025" article="a" name="dwarven stone chest"/>
-	<item id="36026" article="a" name="dwarven stone table"/>
-	<item id="36027" article="a" name="dwarven stone cabinet"/>
-	<item id="36028" article="a" name="dwarven stone cabinet"/>
-	<item id="36029" article="a" name="wooden bookcase"/>
-	<item id="36030" article="a" name="wooden bookcase"/>
-	<item fromid="36031" toid="36032" article="a" name="crystal lamp"/>
-	<item id="36042" article="a" name="square side table"/>
-	<item id="36043" article="a" name="round side table"/>
-	<item id="36044" article="a" name="golden minotaur skull"/>
-	<item id="36045" article="a" name="minotaur skull"/>
-	<item id="36046" article="a" name="golden demon skull"/>
-	<item id="36047" article="a" name="demon skull"/>
-	<item fromid="36048" toid="36051" article="a" name="idol lamp"/>
-	<item id="36052" article="a" name="violet square cushion"/>
-	<item id="36053" article="a" name="green square cushion"/>
-	<item id="36054" article="a" name="blue square cushion"/>
-	<item id="36055" article="a" name="violet round cushion"/>
-	<item id="36056" article="a" name="green round cushion"/>
-	<item id="36057" article="a" name="blue round cushion"/>
-	<item id="36058" article="a" name="golden minotaur skull"/>
-	<item id="36059" article="a" name="minotaur skull"/>
-	<item id="36060" article="a" name="golden demon skull"/>
-	<item id="36061" article="a" name="demon skull"/>
+	<item id="36022" article="a" name="dwarven stone chest">
+		<attribute key="rotateTo" value="36023" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36023" article="a" name="dwarven stone chest">
+		<attribute key="rotateTo" value="36024" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36024" article="a" name="dwarven stone chest">
+		<attribute key="rotateTo" value="36025" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36025" article="a" name="dwarven stone chest">
+		<attribute key="rotateTo" value="36022" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36026" article="a" name="dwarven stone table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36027" article="a" name="dwarven stone cabinet">
+		<attribute key="rotateTo" value="36028" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36028" article="a" name="dwarven stone cabinet">
+		<attribute key="rotateTo" value="36027" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36029" article="a" name="wooden bookcase">
+		<attribute key="rotateTo" value="36030" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36030" article="a" name="wooden bookcase">
+		<attribute key="rotateTo" value="36029" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36031" article="a" name="crystal lamp">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36032" article="a" name="crystal lamp"/>
+	<item id="36042" article="a" name="square side table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36043" article="a" name="round side table">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36044" article="a" name="golden minotaur skull">
+		<attribute key="rotateTo" value="36058" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36045" article="a" name="minotaur skull">
+		<attribute key="rotateTo" value="36059" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36046" article="a" name="golden demon skull">
+		<attribute key="rotateTo" value="36060" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36047" article="a" name="demon skull">
+		<attribute key="rotateTo" value="36061" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36048" article="a" name="idol lamp">
+		<attribute key="rotateTo" value="36049" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36049" article="a" name="idol lamp">
+		<attribute key="rotateTo" value="36048" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36050" article="a" name="idol lamp">
+		<attribute key="rotateTo" value="36051" />
+	</item>
+	<item id="36051" article="a" name="idol lamp">
+		<attribute key="rotateTo" value="36050" />
+	</item>
+	<item id="36052" article="a" name="violet square cushion">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36053" article="a" name="green square cushion">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36054" article="a" name="blue square cushion">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36055" article="a" name="violet round cushion">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36056" article="a" name="green round cushion">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36057" article="a" name="blue round cushion">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36058" article="a" name="golden minotaur skull">
+		<attribute key="rotateTo" value="36044" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36059" article="a" name="minotaur skull">
+		<attribute key="rotateTo" value="36045" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36060" article="a" name="golden demon skull">
+		<attribute key="rotateTo" value="36046" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36061" article="a" name="demon skull">
+		<attribute key="rotateTo" value="36047" />
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 	<item id="36186" article="a" name="black raven">
 		<attribute key="decayTo" value="35203" />
 		<attribute key="duration" value="600" />
@@ -42973,19 +43163,19 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36526" article="an" name="hrodmiran chair">
-		<attribute key="rotateTo" value="36523" />
+		<attribute key="rotateTo" value="36527" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36527" article="an" name="hrodmiran chair">
-		<attribute key="rotateTo" value="36524" />
+		<attribute key="rotateTo" value="36528" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36528" article="an" name="hrodmiran chair">
-		<attribute key="rotateTo" value="36525" />
+		<attribute key="rotateTo" value="36529" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36529" article="an" name="hrodmiran chair">
-		<attribute key="rotateTo" value="36522" />
+		<attribute key="rotateTo" value="36526" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36530" article="a" name="curly hortensis lamp">
