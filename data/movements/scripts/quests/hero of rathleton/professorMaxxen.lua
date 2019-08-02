@@ -71,6 +71,8 @@ function onStepIn(creature, item, position, fromPosition)
 	if Game.getStorageValue(GlobalStorage.HeroRathleton.ThirdMachines) == 8 then
 		if Game.getStorageValue(GlobalStorage.HeroRathleton.MaxxenRunning) < 1 then
 			addEvent(Game.setStorageValue, 3 * 60 * 1000, GlobalStorage.HeroRathleton.MaxxenRunning, 1)
+			addEvent(startWaves, 3 * 60 * 1000)
+			addEvent(Game.setStorageValue, 3 * 60 * 1000, GlobalStorage.HeroRathleton.GloothWave, 0)
 			addEvent(clearArea, 20 * 60 * 1000)
 		end
 		player:teleportTo(Position(33711, 32052, 15))
