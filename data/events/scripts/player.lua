@@ -4,7 +4,7 @@ GOLD_POUNCH = 26377
 ITEM_STORE_INBOX = 26052
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
 -- exercise_ids
-local exercise_ids = {32384,32385,32386,32387,32388,32389}
+local exercise_ids = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129}
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
