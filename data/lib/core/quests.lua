@@ -831,318 +831,322 @@ if not Quests then
 				},
 
 				[8] = {
-					name = "Paw and Fur: The Snapper", storageid = 35000, startvalue = 1, endvalue = 2, description = "Grizzly told you about the Snapper, a crocodile that already killed many citizens of Port Hope. Try find its hideout and kill it.",
+					name = "Paw and Fur: The Snapper", storageid = 34100, startvalue = 1, endvalue = 2, description = "Grizzly told you about the Snapper, a crocodile that already killed many citizens of Port Hope. Try find its hideout and kill it.",
 				},
 
 				[9] = {
-					name = "Paw and Fur: Hide", storageid = 35001, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Hide", storageid = 34101, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[10] = {
-					name = "Paw and Fur: Deathbine", storageid = 35002, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Deathbine", storageid = 34102, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[11] = {
-					name = "Paw and Fur: The Bloodtusk", storageid = 35003, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: The Bloodtusk", storageid = 34103, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[12] = {
-					name = "Paw and Fur: Shardhead", storageid = 35004, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Shardhead", storageid = 34104, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[13] = {
-					name = "Paw and Fur: Esmerelda", storageid = 35005, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Esmerelda", storageid = 34105, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[14] = {
-					name = "Paw and Fur: Fleshcrawler", storageid = 35006, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Fleshcrawler", storageid = 34106, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[15] = {
-					name = "Paw and Fur: Ribstride", storageid = 35007, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Ribstride", storageid = 34107, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[16] = {
-					name = "Paw and Fur: Bloodweb", storageid = 35008, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Bloodweb", storageid = 34108, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[17] = {
-					name = "Paw and Fur: Thul", storageid = 35009, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Thul", storageid = 34109, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[18] = {
-					name = "Paw and Fur: The Old Widow", storageid = 35010, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: The Old Widow", storageid = 34110, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[19] = {
-					name = "Paw and Fur: Hemming", storageid = 35011, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Hemming", storageid = 34111, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[20] = {
-					name = "Paw and Fur: Tormentor", storageid = 35012, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Tormentor", storageid = 34112, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[21] = {
-					name = "Paw and Fur: Flameborn", storageid = 35013, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Flameborn", storageid = 34113, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[22] = {
-					name = "Paw and Fur: Fazzrah", storageid = 35014, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Fazzrah", storageid = 34114, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[23] = {
-					name = "Paw and Fur: Tromphonyte", storageid = 35015, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Tromphonyte", storageid = 34115, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[24] = {
-					name = "Paw and Fur: Sulphur Scuttler", storageid = 35016, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Sulphur Scuttler", storageid = 34116, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[25] = {
-					name = "Paw and Fur: The Many", storageid = 35018, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Bruise Payne", storageid = 34117, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
-
+				
 				[26] = {
-					name = "Paw and Fur: The Noxious Spawn", storageid = 35019, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: The Many", storageid = 34118, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[27] = {
-					name = "Paw and Fur: Gorgo", storageid = 35020, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: The Noxious Spawn", storageid = 34119, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[28] = {
-					name = "Paw and Fur: Stonecracker", storageid = 35021, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Gorgo", storageid = 34120, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[29] = {
-					name = "Paw and Fur: Leviathan", storageid = 35022, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Stonecracker", storageid = 34121, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[30] = {
-					name = "Paw and Fur: Kerberos", storageid = 35023, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Leviathan", storageid = 34122, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[31] = {
-					name = "Paw and Fur: Ethershreck", storageid = 35024, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Kerberos", storageid = 34123, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[32] = {
-					name = "Paw and Fur: Paiz the Pauperizer", storageid = 35025, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Ethershreck", storageid = 34124, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[33] = {
-					name = "Paw and Fur: Bretzecutioner", storageid = 35026, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Paiz the Pauperizer", storageid = 34125, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[34] = {
-					name = "Paw and Fur: Zanakeph", storageid = 35027, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
+					name = "Paw and Fur: Bretzecutioner", storageid = 34126, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[35] = {
-					name = "Edron City - Elite Hunting: Trolls", storageid = 1501, startvalue = 0, endvalue = 100, description = function(player)return string.format("You already hunted %d/100 Trolls.", (math.max(player:getStorageValue(1501), 0))) end,
+					name = "Paw and Fur: Zanakeph", storageid = 34127, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
 
 				[36] = {
-					name = "Edron City - Elite Hunting: Goblins", storageid = 1502, startvalue = 0, endvalue = 150, description = function(player)return string.format("You already hunted %d/150 Goblins.", (math.max(player:getStorageValue(1502), 0))) end,
+					name = "Edron City - Elite Hunting: Trolls", storageid = 1501, startvalue = 0, endvalue = 100, description = function(player)return string.format("You already hunted %d/100 Trolls.", (math.max(player:getStorageValue(1501), 0))) end,
 				},
 
 				[37] = {
-					name = "Paw and Fur: Minotaurs", storageid = 65002, startvalue = 0, endvalue = 5000, description = function(player)return string.format("You already hunted %d/5000 Minotaurs.", (math.max(player:getStorageValue(65002), 0))) end,
+					name = "Edron City - Elite Hunting: Goblins", storageid = 1502, startvalue = 0, endvalue = 150, description = function(player)return string.format("You already hunted %d/150 Goblins.", (math.max(player:getStorageValue(1502), 0))) end,
 				},
 
 				[38] = {
-					name = "Paw and Fur: Necromancers and Priestess", storageid = 65001, startvalue = 0, endvalue = 4000, description = function(player)return string.format("You already hunted %d/4000 Necromancers and Priestess.", (math.max(player:getStorageValue(65001), 0))) end,
+					name = "Paw and Fur: Minotaurs", storageid = 65002, startvalue = 0, endvalue = 5000, description = function(player)return string.format("You already hunted %d/5000 Minotaurs.", (math.max(player:getStorageValue(65002), 0))) end,
 				},
 
 				[39] = {
-					name = "Paw and Fur: Crocodiles", storageid = 65003, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 crocodiles.", (math.max(player:getStorageValue(65003), 0))) end,
+					name = "Paw and Fur: Necromancers and Priestess", storageid = 65001, startvalue = 0, endvalue = 4000, description = function(player)return string.format("You already hunted %d/4000 Necromancers and Priestess.", (math.max(player:getStorageValue(65001), 0))) end,
 				},
 
 				[40] = {
-					name = "Paw and Fur: Badgers", storageid = 65004, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 badgers.", (math.max(player:getStorageValue(65004), 0))) end,
+					name = "Paw and Fur: Crocodiles", storageid = 65003, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 crocodiles.", (math.max(player:getStorageValue(65003), 0))) end,
 				},
 
 				[41] = {
-					name = "Paw and Fur: Tarantulas", storageid = 65005, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 tarantulas.", (math.max(player:getStorageValue(65005), 0))) end,
+					name = "Paw and Fur: Badgers", storageid = 65004, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 badgers.", (math.max(player:getStorageValue(65004), 0))) end,
 				},
 
 				[42] = {
-					name = "Paw and Fur: Carniphilas", storageid = 65006, startvalue = 0, endvalue = 150, description = function(player)return string.format("You already hunted %d/150 carniphilas.", (math.max(player:getStorageValue(65006), 0))) end,
+					name = "Paw and Fur: Tarantulas", storageid = 65005, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 tarantulas.", (math.max(player:getStorageValue(65005), 0))) end,
 				},
 
 				[43] = {
-					name = "Paw and Fur: Stone Golems", storageid = 65007, startvalue = 0, endvalue = 200, description = function(player)return string.format("You already hunted %d/200 stone golems.", (math.max(player:getStorageValue(65007), 0))) end,
+					name = "Paw and Fur: Carniphilas", storageid = 65006, startvalue = 0, endvalue = 150, description = function(player)return string.format("You already hunted %d/150 carniphilas.", (math.max(player:getStorageValue(65006), 0))) end,
 				},
 
 				[44] = {
-					name = "Paw and Fur: Mammoths", storageid = 65008, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 mammoths.", (math.max(player:getStorageValue(65008), 0))) end,
+					name = "Paw and Fur: Stone Golems", storageid = 65007, startvalue = 0, endvalue = 200, description = function(player)return string.format("You already hunted %d/200 stone golems.", (math.max(player:getStorageValue(65007), 0))) end,
 				},
 
 				[45] = {
-					name = "Paw and Fur: Gnarlhounds", storageid = 65009, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 gnarlhounds.", (math.max(player:getStorageValue(65009), 0))) end,
+					name = "Paw and Fur: Mammoths", storageid = 65008, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 mammoths.", (math.max(player:getStorageValue(65008), 0))) end,
 				},
 
 				[46] = {
-					name = "Paw and Fur: Terramites", storageid = 65010, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 terramites.", (math.max(player:getStorageValue(65010), 0))) end,
+					name = "Paw and Fur: Gnarlhounds", storageid = 65009, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 gnarlhounds.", (math.max(player:getStorageValue(65009), 0))) end,
 				},
 
 				[47] = {
-					name = "Paw and Fur: Apes", storageid = 65011, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 apes.", (math.max(player:getStorageValue(65011), 0))) end,
+					name = "Paw and Fur: Terramites", storageid = 65010, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 terramites.", (math.max(player:getStorageValue(65010), 0))) end,
 				},
 
 				[48] = {
-					name = "Paw and Fur: Thornback Tortoises", storageid = 65012, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 thornback tortoises.", (math.max(player:getStorageValue(65012), 0))) end,
+					name = "Paw and Fur: Apes", storageid = 65011, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 apes.", (math.max(player:getStorageValue(65011), 0))) end,
 				},
 
 				[49] = {
-					name = "Paw and Fur: Gargoyles", storageid = 65013, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 gargoyles.", (math.max(player:getStorageValue(65013), 0))) end,
+					name = "Paw and Fur: Thornback Tortoises", storageid = 65012, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 thornback tortoises.", (math.max(player:getStorageValue(65012), 0))) end,
 				},
 
 				[50] = {
-					name = "Paw and Fur: Ice Golems", storageid = 65014, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 ice golems.", (math.max(player:getStorageValue(65014), 0))) end,
+					name = "Paw and Fur: Gargoyles", storageid = 65013, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 gargoyles.", (math.max(player:getStorageValue(65013), 0))) end,
 				},
 
 				[51] = {
-					name = "Paw and Fur: Quara Scouts", storageid = 65015, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 quara scouts.", (math.max(player:getStorageValue(65015), 0))) end,
+					name = "Paw and Fur: Ice Golems", storageid = 65014, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 ice golems.", (math.max(player:getStorageValue(65014), 0))) end,
 				},
 
 				[52] = {
-					name = "Paw and Fur: Mutated Rats", storageid = 65016, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 mutated rats.", (math.max(player:getStorageValue(65016), 0))) end,
+					name = "Paw and Fur: Quara Scouts", storageid = 65015, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 quara scouts.", (math.max(player:getStorageValue(65015), 0))) end,
 				},
 
 				[53] = {
-					name = "Paw and Fur: Ancient Scarabs", storageid = 65017, startvalue = 0, endvalue = 250, description = function(player)return string.format("You already hunted %d/250 ancient scarabs.", (math.max(player:getStorageValue(65017), 0))) end,
+					name = "Paw and Fur: Mutated Rats", storageid = 65016, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 mutated rats.", (math.max(player:getStorageValue(65016), 0))) end,
 				},
 
 				[54] = {
-					name = "Paw and Fur: Wyverns", storageid = 65018, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 wyverns.", (math.max(player:getStorageValue(65018), 0))) end,
+					name = "Paw and Fur: Ancient Scarabs", storageid = 65017, startvalue = 0, endvalue = 250, description = function(player)return string.format("You already hunted %d/250 ancient scarabs.", (math.max(player:getStorageValue(65017), 0))) end,
 				},
 
 				[55] = {
-					name = "Paw and Fur: Lancer Beetles", storageid = 65019, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 lancer beetles.", (math.max(player:getStorageValue(65019), 0))) end,
+					name = "Paw and Fur: Wyverns", storageid = 65018, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 wyverns.", (math.max(player:getStorageValue(65018), 0))) end,
 				},
 
 				[56] = {
-					name = "Paw and Fur: Wailing Widows", storageid = 65020, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 wailing widows.", (math.max(player:getStorageValue(65020), 0))) end,
+					name = "Paw and Fur: Lancer Beetles", storageid = 65019, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 lancer beetles.", (math.max(player:getStorageValue(65019), 0))) end,
 				},
 
 				[57] = {
-					name = "Paw and Fur: Killer Caimans", storageid = 65021, startvalue = 0, endvalue = 250, description = function(player)return string.format("You already hunted %d/250 killer caimans.", (math.max(player:getStorageValue(65021), 0))) end,
+					name = "Paw and Fur: Wailing Widows", storageid = 65020, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 wailing widows.", (math.max(player:getStorageValue(65020), 0))) end,
 				},
 
 				[58] = {
-					name = "Paw and Fur: Bonebeasts", storageid = 65022, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 bonebeasts.", (math.max(player:getStorageValue(65022), 0))) end,
+					name = "Paw and Fur: Killer Caimans", storageid = 65021, startvalue = 0, endvalue = 250, description = function(player)return string.format("You already hunted %d/250 killer caimans.", (math.max(player:getStorageValue(65021), 0))) end,
 				},
 
 				[59] = {
-					name = "Paw and Fur: Crystal Spiders", storageid = 65023, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 crystal spiders.", (math.max(player:getStorageValue(65023), 0))) end,
+					name = "Paw and Fur: Bonebeasts", storageid = 65022, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 bonebeasts.", (math.max(player:getStorageValue(65022), 0))) end,
 				},
 
 				[60] = {
-					name = "Paw and Fur: Mutated Tigers", storageid = 65024, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 mutated tigers.", (math.max(player:getStorageValue(65024), 0))) end,
+					name = "Paw and Fur: Crystal Spiders", storageid = 65023, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 crystal spiders.", (math.max(player:getStorageValue(65023), 0))) end,
 				},
 
 				[61] = {
-					name = "Paw and Fur: Underwater Quara", storageid = 65025, startvalue = 0, endvalue = 600, description = function(player)return string.format("You already hunted %d/600 underwater quara.", (math.max(player:getStorageValue(65025), 0))) end,
+					name = "Paw and Fur: Mutated Tigers", storageid = 65024, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 mutated tigers.", (math.max(player:getStorageValue(65024), 0))) end,
 				},
 
 				[62] = {
-					name = "Paw and Fur: Giant Spiders", storageid = 65026, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 giant spiders.", (math.max(player:getStorageValue(65026), 0))) end,
+					name = "Paw and Fur: Underwater Quara", storageid = 65025, startvalue = 0, endvalue = 600, description = function(player)return string.format("You already hunted %d/600 underwater quara.", (math.max(player:getStorageValue(65025), 0))) end,
 				},
 
 				[63] = {
-					name = "Paw and Fur: Werewolves", storageid = 65027, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 werewolves.", (math.max(player:getStorageValue(65027), 0))) end,
+					name = "Paw and Fur: Giant Spiders", storageid = 65026, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 giant spiders.", (math.max(player:getStorageValue(65026), 0))) end,
 				},
 
 				[64] = {
-					name = "Paw and Fur: Nightmares", storageid = 65028, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 nightmares.", (math.max(player:getStorageValue(65028), 0))) end,
+					name = "Paw and Fur: Werewolves", storageid = 65027, startvalue = 0, endvalue = 300, description = function(player)return string.format("You already hunted %d/300 werewolves.", (math.max(player:getStorageValue(65027), 0))) end,
 				},
 
 				[65] = {
-					name = "Paw and Fur: Hellspawns", storageid = 65029, startvalue = 0, endvalue = 600, description = function(player)return string.format("You already hunted %d/600 hellspawns.", (math.max(player:getStorageValue(65029), 0))) end,
+					name = "Paw and Fur: Nightmares", storageid = 65028, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 nightmares.", (math.max(player:getStorageValue(65028), 0))) end,
 				},
 
 				[66] = {
-					name = "Paw and Fur: High Class Lizards", storageid = 65030, startvalue = 0, endvalue = 800, description = function(player)return string.format("You already hunted %d/800 high class lizards.", (math.max(player:getStorageValue(65030), 0))) end,
+					name = "Paw and Fur: Hellspawns", storageid = 65029, startvalue = 0, endvalue = 600, description = function(player)return string.format("You already hunted %d/600 hellspawns.", (math.max(player:getStorageValue(65029), 0))) end,
 				},
 
 				[67] = {
-					name = "Paw and Fur: Stampors", storageid = 65031, startvalue = 0, endvalue = 600, description = function(player)return string.format("You already hunted %d/600 stampors.", (math.max(player:getStorageValue(65031), 0))) end,
+					name = "Paw and Fur: High Class Lizards", storageid = 65030, startvalue = 0, endvalue = 800, description = function(player)return string.format("You already hunted %d/800 high class lizards.", (math.max(player:getStorageValue(65030), 0))) end,
 				},
 
 				[68] = {
-					name = "Paw and Fur: Brimstone Bugs", storageid = 65032, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 brimstone bugs.", (math.max(player:getStorageValue(65032), 0))) end,
+					name = "Paw and Fur: Stampors", storageid = 65031, startvalue = 0, endvalue = 600, description = function(player)return string.format("You already hunted %d/600 stampors.", (math.max(player:getStorageValue(65031), 0))) end,
 				},
 
 				[69] = {
-					name = "Paw and Fur: Mutated Bats", storageid = 65033, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 mutated bats.", (math.max(player:getStorageValue(65033), 0))) end,
+					name = "Paw and Fur: Brimstone Bugs", storageid = 65032, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 brimstone bugs.", (math.max(player:getStorageValue(65032), 0))) end,
 				},
 
 				[70] = {
-					name = "Paw and Fur: Hydras", storageid = 65034, startvalue = 0, endvalue = 650, description = function(player)return string.format("You already hunted %d/650 hydras.", (math.max(player:getStorageValue(65034), 0))) end,
+					name = "Paw and Fur: Mutated Bats", storageid = 65033, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 mutated bats.", (math.max(player:getStorageValue(65033), 0))) end,
 				},
 
 				[71] = {
-					name = "Paw and Fur: Serpent Spawns", storageid = 65035, startvalue = 0, endvalue = 800, description = function(player)return string.format("You already hunted %d/800 serpent spawns.", (math.max(player:getStorageValue(65035), 0))) end,
+					name = "Paw and Fur: Hydras", storageid = 65034, startvalue = 0, endvalue = 650, description = function(player)return string.format("You already hunted %d/650 hydras.", (math.max(player:getStorageValue(65034), 0))) end,
 				},
 
 				[72] = {
-					name = "Paw and Fur: Medusas", storageid = 65036, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 medusas.", (math.max(player:getStorageValue(65036), 0))) end,
+					name = "Paw and Fur: Serpent Spawns", storageid = 65035, startvalue = 0, endvalue = 800, description = function(player)return string.format("You already hunted %d/800 serpent spawns.", (math.max(player:getStorageValue(65035), 0))) end,
 				},
 
 				[73] = {
-					name = "Paw and Fur: Behemoths", storageid = 65037, startvalue = 0, endvalue = 700, description = function(player)return string.format("You already hunted %d/700 behemoths.", (math.max(player:getStorageValue(65037), 0))) end,
+					name = "Paw and Fur: Medusas", storageid = 65036, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 medusas.", (math.max(player:getStorageValue(65036), 0))) end,
 				},
 
 				[74] = {
-					name = "Paw and Fur: Sea Serpents and Young Sea Serpents", storageid = 65038, startvalue = 0, endvalue = 900, description = function(player)return string.format("You already hunted %d/900 sea serpents and young sea serpents.", (math.max(player:getStorageValue(65038), 0))) end,
+					name = "Paw and Fur: Behemoths", storageid = 65037, startvalue = 0, endvalue = 700, description = function(player)return string.format("You already hunted %d/700 behemoths.", (math.max(player:getStorageValue(65037), 0))) end,
 				},
 
 				[75] = {
-					name = "Paw and Fur: Hellhounds", storageid = 65039, startvalue = 0, endvalue = 250, description = function(player)return string.format("You already hunted %d/250 hellhounds.", (math.max(player:getStorageValue(65039), 0))) end,
+					name = "Paw and Fur: Sea Serpents and Young Sea Serpents", storageid = 65038, startvalue = 0, endvalue = 900, description = function(player)return string.format("You already hunted %d/900 sea serpents and young sea serpents.", (math.max(player:getStorageValue(65038), 0))) end,
 				},
 
 				[76] = {
-					name = "Paw and Fur: Ghastly Dragons", storageid = 65040, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 ghastly dragons.", (math.max(player:getStorageValue(65040), 0))) end,
+					name = "Paw and Fur: Hellhounds", storageid = 65039, startvalue = 0, endvalue = 250, description = function(player)return string.format("You already hunted %d/250 hellhounds.", (math.max(player:getStorageValue(65039), 0))) end,
 				},
 
 				[77] = {
-					name = "Paw and Fur: Drakens", storageid = 65041, startvalue = 0, endvalue = 900, description = function(player)return string.format("You already hunted %d/900 drakens.", (math.max(player:getStorageValue(65041), 0))) end,
+					name = "Paw and Fur: Ghastly Dragons", storageid = 65040, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 ghastly dragons.", (math.max(player:getStorageValue(65040), 0))) end,
 				},
 
 				[78] = {
-					name = "Paw and Fur: Destroyers", storageid = 65042, startvalue = 0, endvalue = 650, description = function(player)return string.format("You already hunted %d/650 destroyers.", (math.max(player:getStorageValue(65042), 0))) end,
+					name = "Paw and Fur: Drakens", storageid = 65041, startvalue = 0, endvalue = 900, description = function(player)return string.format("You already hunted %d/900 drakens.", (math.max(player:getStorageValue(65041), 0))) end,
 				},
 
 				[79] = {
-					name = "Paw and Fur: Undead Dragons", storageid = 65043, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 undead dragons.", (math.max(player:getStorageValue(65043), 0))) end,
+					name = "Paw and Fur: Destroyers", storageid = 65042, startvalue = 0, endvalue = 650, description = function(player)return string.format("You already hunted %d/650 destroyers.", (math.max(player:getStorageValue(65042), 0))) end,
 				},
 
 				[80] = {
-					name = "Paw and Fur: Demons", storageid = 65044, startvalue = 0, endvalue = 6666, description = function(player)return string.format("You already hunted %d/6666 demons.", (math.max(player:getStorageValue(65044), 0))) end,
+					name = "Paw and Fur: Undead Dragons", storageid = 65043, startvalue = 0, endvalue = 400, description = function(player)return string.format("You already hunted %d/400 undead dragons.", (math.max(player:getStorageValue(65043), 0))) end,
 				},
 
 				[81] = {
-					name = "Paw and Fur: Green Djinns or Efreets", storageid = 65045, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 green djinns or efreets.", (math.max(player:getStorageValue(65045), 0))) end,
+					name = "Paw and Fur: Demons", storageid = 65044, startvalue = 0, endvalue = 6666, description = function(player)return string.format("You already hunted %d/6666 demons.", (math.max(player:getStorageValue(65044), 0))) end,
 				},
 
 				[82] = {
-					name = "Paw and Fur: Blue Djinns or Marids", storageid = 65046, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 blue djinns or marids.", (math.max(player:getStorageValue(65046), 0))) end,
+					name = "Paw and Fur: Green Djinns or Efreets", storageid = 65045, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 green djinns or efreets.", (math.max(player:getStorageValue(65045), 0))) end,
 				},
 
 				[83] = {
-					name = "Paw and Fur: Pirates", storageid = 65047, startvalue = 0, endvalue = 3000, description = function(player)return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65047), 0))) end,
+					name = "Paw and Fur: Blue Djinns or Marids", storageid = 65046, startvalue = 0, endvalue = 500, description = function(player)return string.format("You already hunted %d/500 blue djinns or marids.", (math.max(player:getStorageValue(65046), 0))) end,
 				},
 
 				[84] = {
-					name = "Paw and Fur: Pirates Second", storageid = 65048, startvalue = 0, endvalue = 3000, description = function(player)return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65048), 0))) end,
+					name = "Paw and Fur: Pirates", storageid = 65047, startvalue = 0, endvalue = 3000, description = function(player)return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65047), 0))) end,
 				},
 
 				[85] = {
-					name = "Turmoil of War", storageid = 65049, startvalue = 0, endvalue = 5000, description = function(player)return string.format("Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.", (math.max(player:getStorageValue(65049), 0))) end,
+					name = "Paw and Fur: Pirates Second", storageid = 65048, startvalue = 0, endvalue = 3000, description = function(player)return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65048), 0))) end,
 				},
 
 				[86] = {
+					name = "Turmoil of War", storageid = 65049, startvalue = 0, endvalue = 5000, description = function(player)return string.format("Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.", (math.max(player:getStorageValue(65049), 0))) end,
+				},
+
+				[87] = {
 					name = "Paw and Fur: Necromancers and Priestess", storageid = 65050, startvalue = 0, endvalue = 4000, description = function(player)return string.format("You already hunted %d/4000 necromancers and priestess.", (math.max(player:getStorageValue(65050), 0))) end,
 				},
 
