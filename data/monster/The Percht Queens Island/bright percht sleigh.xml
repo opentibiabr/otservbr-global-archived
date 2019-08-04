@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Bright Percht Sleigh" nameDescription="a bright percht sleigh" race="undead" experience="500" speed="0">
 	<health now="2300" max="2300" />
-	<look type="1164" />
+	<look type="1164"/>
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
