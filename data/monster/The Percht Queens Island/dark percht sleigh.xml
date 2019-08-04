@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Percht Queen" nameDescription="The Percht Queen" race="undead" experience="500" speed="0">
+<monster name="Dark Percht Sleigh" nameDescription="a dark percht sleigh" race="undead" experience="500" speed="0">
 	<health now="2300" max="2300" />
-	<look typeex="35168" corpse="35101" />
+	<look type="1165"/>
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
-		<flag attackable="1" />
+		<flag attackable="0" />
 		<flag hostile="1" />
 		<flag illusionable="0" />
 		<flag convinceable="0" />
@@ -16,24 +16,20 @@
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 	</flags>
-	<attacks>
-		<attack name="melee" interval="2000" min="-100" max="-200" />
-		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
-			<attribute key="shootEffect" value="ice" />
-		</attack>
-	</attacks>
 	<defenses armor="79" defense="40" />
-	<elements>
-		<element earthPercent="80" />
-		<element holyPercent="80" />
-		<element firePercent="70" />
-		<element energyPercent="80" />
-		<element deathPercent="90" />
-		<element physicalPercent="90" />
-	</elements>
 	<immunities>
+		<immunity physical="1" />
+		<immunity energy="1" />
+		<immunity fire="1" />
+		<immunity earth="1" />
 		<immunity ice="1" />
-		<immunity invisible="1" />
+		<immunity holy="1" />
+		<immunity death="1" />
+		<immunity lifedrain="1" />
+		<immunity manadrain="1" />
 		<immunity paralyze="1" />
+		<immunity drunk="1" />
+		<immunity outfit="1" />
+		<immunity invisible="1" />
 	</immunities>
 </monster>

@@ -1304,9 +1304,14 @@
 	<monster name="Animated Snowman" file="The Percht Queens Island/animated snowman.xml"/>
 	<monster name="Baleful Bunny" file="The Percht Queens Island/baleful bunny.xml"/>
 	<monster name="Bonny Bunny" file="The Percht Queens Island/bonny bunny.xml"/>
+	<monster name="Bright Percht Sleigh" file="The Percht Queens Island/bright percht sleigh.xml"/>
+	<monster name="Cold Percht Sleigh" file="The Percht Queens Island/cold percht sleigh.xml"/>
+	<monster name="Dark Percht Sleigh" file="The Percht Queens Island/dark percht sleigh.xml"/>
 	<monster name="Percht" file="The Percht Queens Island/percht.xml"/>
+	<monster name="Percht Minion" file="The Percht Queens Island/percht minion.xml"/>
 	<monster name="Schiach" file="The Percht Queens Island/schiach.xml"/>
 	<monster name="The Percht Queen" file="The Percht Queens Island/the percht queen.xml"/>
+	<monster name="Warm Fire" file="The Percht Queens Island/warm fire.xml"/>
 
 	<!-- Pharaohs -->
 	<monster name="Ashmunrah" file="Pharaohs/ashmunrah.xml"/>

@@ -106,7 +106,14 @@ local foods = {
 	[20101] = {12, 'Smack.'}, -- rat cheese
 	[23517] = {25, 'Chomp.'}, -- glooth steak
 	[24843] = {25, 'Chomp.'}, -- Roasted Meat
-	[24841] = {8, 'Yum.'} -- pickle pear
+	[24841] = {8, 'Yum.'}, -- pickle pear
+	[27050] = {20, 'Urgh.'}, -- bug meat
+	[27051] = {10, 'Gulp.'}, -- cave turnip
+	[27064] = {60, 'Mmmm.'}, -- birthday cake
+	[27616] = {10, 'Slurp.'}, -- bottle of tibian wine
+	[28997] = {15, 'Mmmmm!'}, -- fresh fruit
+	[35057] = {40, 'Mmmmm!'}, -- meringue cake
+	[35060] = {15, 'Slurp.'} -- winterberry liquor
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)

@@ -34420,6 +34420,7 @@
 		<attribute key="weight" value="1600" />
 		<attribute key="armor" value="2" />
 		<attribute key="description" value="They are made of dark red buckskin and the golden clasps look like the letter F." />
+		<attribute key="slotType" value="feet" />
 	</item>
 	<item id="25430" article="a" name="boots of homecoming">
 		<attribute key="weight" value="1600" />
@@ -42562,6 +42563,8 @@
 	<item id="35056" article="a" name="festive backpack">
 		<attribute key="containerSize" value="22" />
 		<attribute key="weight" value="1500" />
+		<attribute key="imbuingSlots" value="1" />
+		<attribute key="slotType" value="backpack" />
 	</item>
 	<item id="35057" article="a" name="meringue cake">
 		<attribute key="weight" value="500" />

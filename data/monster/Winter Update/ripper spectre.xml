@@ -45,19 +45,20 @@
 		<immunity earth="1"/>
 	</immunities>
 	<loot>
-        <item name="Platinum Coin" countmax="2" chance="5000"/>
-		<item name="Great Spirit Potion" chance="1000"/>
-		<item name="Silver Brooch" chance="800"/>
-		<item name="Terra Rod" chance="800"/>
-		<item name="Two Handed Sword" chance="800"/>
-		<item name="Emerald Bangle" chance="500"/>
-		<item name="Serpent Sword" chance="500"/>
-		<item name="Springsprout Rod" chance="500"/>
-		<item name="Twin Hooks" chance="500"/>
-     	<item name="Coral Brooch" chance="500"/>
-		<item name="Green Ectoplasm" chance="500"/>
-		<item name="Assassin Dagger" chance="500"/>
-		<item name="Spike Sword" chance="500"/>
-		<item name="Wyvern Fang" chance="500"/>
+        <item name="Platinum Coin" countmax="4" chance="100000"/>
+		<item name="Great Spirit Potion" countmax="2" chance="30910"/>
+		<item name="Two Handed Sword" chance="16500"/>
+		<item name="Terra Rod" chance="8780"/>
+		<item name="Silver Brooch" chance="5190"/>
+		<item name="Emerald Bangle" chance="4740"/>
+		<item name="Twin Hooks" chance="4570"/>
+		<item name="Springsprout Rod" chance="3510"/>
+		<item name="Green Ectoplasm" chance="1890"/>
+     	<item name="Coral Brooch" chance="1330"/>
+		<item name="Serpent Sword" chance="1150"/>
+		<item name="Assassin Dagger" chance="970"/>
+		<item name="Hexagonal Ruby" chance="940"/>
+		<item name="Spike Sword" chance="530"/>
+		<item name="Wyvern Fang" chance="120"/>
 	</loot>
 </monster>

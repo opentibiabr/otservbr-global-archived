@@ -1015,18 +1015,8 @@
 	<action fromid="33497" toid="33498" script="others/decayTo.lua" /> <!-- Gloomy Poisonous Fungi -->
 
 	<!-- Food -->
-	<action itemid="6509" script="others/consumables/presents.lua" />
-	<action itemid="6508" script="others/consumables/presents.lua" />
-	<action itemid="6507" script="others/consumables/presents.lua" />
-	<action itemid="26191" script="others/consumables/food.lua" /> <!-- energy bar -->
-	<action itemid="26201" script="others/consumables/food.lua" /> <!-- energy drink -->
-	<action itemid="16014" script="others/consumables/food.lua" />
-	<action itemid="22644" script="others/consumables/food.lua" />
-	<action itemid="24843" script="others/consumables/food.lua" />
-	<action itemid="2695" script="others/consumables/food.lua" />
+	<action itemid="2328" script="others/consumables/food.lua" />
 	<action itemid="2362" script="others/consumables/food.lua" />
-	<action itemid="23514" script="others/consumables/food.lua" />
-	<action itemid="23517" script="others/consumables/food.lua" />
 	<action fromid="2666" toid="2691" script="others/consumables/food.lua" />
 	<action itemid="2696" script="others/consumables/food.lua" />
 	<action fromid="2787" toid="2796" script="others/consumables/food.lua" />
@@ -1034,8 +1024,8 @@
 	<action itemid="6125" script="others/consumables/food.lua" />
 	<action fromid="6278" toid="6279" script="others/consumables/food.lua" />
 	<action fromid="6393" toid="6394" script="others/consumables/food.lua" />
-	<action itemid="7966" script="others/consumables/food.lua" />
 	<action itemid="6501" script="others/consumables/food.lua" />
+	<action fromid="6507" toid="6509" script="others/consumables/food.lua" />
 	<action fromid="6541" toid="6545" script="others/consumables/food.lua" />
 	<action itemid="6569" script="others/consumables/food.lua" />
 	<action itemid="6574" script="others/consumables/food.lua" />
@@ -1043,12 +1033,14 @@
 	<action fromid="7372" toid="7377" script="others/consumables/food.lua" />
 	<action fromid="7909" toid="7910" script="others/consumables/food.lua" />
 	<action itemid="7963" script="others/consumables/food.lua" />
+	<action itemid="7966" script="others/consumables/food.lua" />
 	<action itemid="8112" script="others/consumables/food.lua" />
 	<action fromid="8838" toid="8845" script="others/consumables/food.lua" />
 	<action itemid="8847" script="others/consumables/food.lua" />
 	<action itemid="9005" script="others/consumables/food.lua" />
 	<action itemid="9114" script="others/consumables/food.lua" />
 	<action itemid="9996" script="others/consumables/food.lua" />
+	<action itemid="9999" script="others/consumables/blessedSteak.lua" />
 	<action itemid="10454" script="others/consumables/food.lua" />
 	<action itemid="11246" script="others/consumables/food.lua" />
 	<action itemid="11370" script="others/consumables/food.lua" />
@@ -1058,14 +1050,24 @@
 	<action itemid="13297" script="others/consumables/food.lua" />
 	<action itemid="15405" script="others/consumables/food.lua" />
 	<action fromid="15487" toid="15488" script="others/consumables/food.lua" />
+	<action itemid="16014" script="others/consumables/food.lua" />
 	<action itemid="18306" script="others/consumables/food.lua" />
 	<action itemid="18397" script="others/consumables/food.lua" />
 	<action itemid="19737" script="others/consumables/food.lua" />
 	<action fromid="20100" toid="20101" script="others/consumables/food.lua" />
-	<action itemid="23516" script="others/consumables/food.lua" />
-	<action itemid="23515" script="others/consumables/food.lua" />
+	<action itemid="22644" script="others/consumables/food.lua" />
+	<action fromid="23514" toid="23517" script="others/consumables/food.lua" />
 	<action itemid="24841" script="others/consumables/food.lua" />
-	<action itemid="9999" script="others/consumables/blessedSteak.lua" />
+	<action itemid="24843" script="others/consumables/food.lua" />
+	<action itemid="26191" script="others/consumables/food.lua" /> <!-- energy bar -->
+	<action itemid="26201" script="others/consumables/food.lua" /> <!-- energy drink -->
+	<action fromid="27050" toid="27051" script="others/consumables/food.lua" />
+	<action itemid="27064" script="others/consumables/food.lua" />
+	<action itemid="27616" script="others/consumables/food.lua" />
+	<action itemid="28997" script="others/consumables/food.lua" />
+	<action itemid="35057" script="others/consumables/food.lua" />
+	<action itemid="35060" script="others/consumables/food.lua" />
+
 	<!-- Food -> Jean Perry -->
 	<action itemid="9992" script="others/consumables/food2.lua" />
 	<action itemid="9993" script="others/consumables/food3.lua" />
