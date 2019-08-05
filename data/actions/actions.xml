@@ -1044,6 +1044,8 @@
 	<action itemid="11370" script="others/consumables/food.lua" />
 	<action itemid="11429" script="others/consumables/food.lua" />
 	<action fromid="12415" toid="12418" script="others/consumables/food.lua" />
+	<action itemid="12540" script="others/consumables/jeanpierrefood.lua" />
+	<action fromid="12542" toid="12544" script="others/consumables/jeanpierrefood.lua" />
 	<action fromid="12637" toid="12639" script="others/consumables/food.lua" />
 	<action itemid="13297" script="others/consumables/food.lua" />
 	<action itemid="15405" script="others/consumables/food.lua" />
