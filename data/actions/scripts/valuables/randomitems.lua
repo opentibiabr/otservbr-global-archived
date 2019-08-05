@@ -133,7 +133,7 @@ local config = {
 			{from = 2501, to = 5001, itemId = 2153},
 			{from = 5002, to = 6668, itemId = 25377},
 			{from = 6668, to = 8335, itemId = 25172},
-			{from = 8336, to = 10001, itemId = 30948}
+			{from = 8336, to = 10001, itemId = 30888}
 		},
 		effect = CONST_ME_CRAPS
 	}
