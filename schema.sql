@@ -839,7 +839,7 @@ CREATE TABLE `player_charms` (
   `id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
   `charm` VARCHAR(20),
-  `monster` VARCHAR(20),
+  `monster` VARCHAR(20)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
