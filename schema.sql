@@ -829,6 +829,20 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+-- --------------------------------------------------------
+
+--
+-- Table structure `player_charms`
+--
+
+CREATE TABLE `player_charms` (
+  `id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  `charm` VARCHAR(20),
+  `monster` VARCHAR(20),
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 INSERT INTO `accounts`
 (`id`,  `name`, `password`,                                 `type`) VALUES
 (1,     'GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
