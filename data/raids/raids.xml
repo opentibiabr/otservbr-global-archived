@@ -25,6 +25,7 @@
 	<raid name="Fernfang" file="venore/fernfang.xml" interval2="1440" margin="80" />
 	<raid name="The Old Widow" file="venore/the_old_widow.xml" interval2="1440" margin="60" />
 	<raid name="Undead Army" file="venore/undead.xml" interval2="500" margin="100" />
+	<raid name="Water Buffalo" file="venore/water_buffalo.xml" interval2="500" margin="100" />
 
 	<!-- Raids Rookgaard -->
 	<raid name="Rats" file="rookgaard/rats.xml" interval2="500" margin="70" />

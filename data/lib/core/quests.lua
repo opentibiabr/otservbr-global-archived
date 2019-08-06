@@ -2539,7 +2539,7 @@ if not Quests then
 				},
 
 				[2] = {
-					name = "Mission 2: Delivery", storageid = Storage.TravellingTrader.Mission02, endvalue = 5,
+					name = "Mission 2: Delivery", storageid = Storage.TravellingTrader.Mission02, startvalue = 1, endvalue = 5,
 					states = {
 						[1] = "Your mission is to get the package from Willard the weapon dealer at Edron.",
 						[2] = "Willard forgot to pick it up from Snake Eye at Outlaw Camp. So he wants you to go and pick it up from Snake Eye.",

@@ -238,12 +238,6 @@ local config = {
 		},
 		storage = Storage.QuestChests.SilverBrooch
 	},
-	[9196] = {
-		items = {
-			{itemId = 2088, actionId = 5010}
-		},
-		storage = Storage.QuestChests.BlackKnightTreeKey
-	},
 	[9226] = {
 		items = {
 			{itemId = 2503}
