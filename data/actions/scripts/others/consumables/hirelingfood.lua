@@ -1,6 +1,6 @@
 local config = {
-    storage = 19042, --use empty storage
-    exhaust = 600 --Exhaust is in seconds 600 equals 10min
+	storage = 19042, --use empty storage
+	exhaust = 600 --Exhaust is in seconds 600 equals 10min
 }
 
 local chilliConCarniphila = Condition(CONDITION_HASTE)
@@ -27,55 +27,56 @@ local carrotPie = Condition(CONDITION_ATTRIBUTES)
 carrotPie:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
 carrotPie:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 7)
 
-function onUse(cid, item, fromPos, itemEx, toPos)
-    if (getPlayerStorageValue(cid, config.storage) <= os.time()) then
-        if (item.itemid == 35172) then
-            doCreatureSay(cid, "Chomp.",TALKTYPE_ORANGE_1)
-            cid:addCondition(roastedWyvernWings)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35173) then
-            doCreatureSay(cid, "Yummm.",TALKTYPE_ORANGE_1)
-            cid:addCondition(carrotPie)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35174) then
-            doCreatureSay(cid, "Munch.",TALKTYPE_ORANGE_1)
-            cid:addCondition(tropicalMarinatedTiger)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35175) then
-            doCreatureSay(cid, "Munch.",TALKTYPE_ORANGE_1)
-            cid:addCondition(delicatessenSalad)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35176) then
-            doCreatureSay(cid, "Yummm.",TALKTYPE_ORANGE_1)
-            cid:addCondition(chilliConCarniphila)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35177) then
-            doCreatureSay(cid, "Mmmmm.",TALKTYPE_ORANGE_1)
-            cid:addCondition(svargrondSalmonFilet)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35178) then
-            doCreatureAddHealth(cid, (getCreatureMaxHealth(cid) * 0.3))
-            doCreatureSay(cid, "Munch.",TALKTYPE_ORANGE_1)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35179) then
-            doPlayerAddMana(cid, (getPlayerMaxMana(cid) * 0.3))
-            doCreatureSay(cid, "Chomp.",TALKTYPE_ORANGE_1)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        elseif (item.itemid == 35180) then
-            doCreatureSay(cid, "Blurg.",TALKTYPE_ORANGE_1)
-            doRemoveItem(item.uid, 1)
-            setPlayerStorageValue(cid, config.storage, os.time() + config.exhaust)
-        end
-    else
-         doPlayerSendCancel(cid, "You are full or you've already eaten a dish within 10 minutes.")
-    end
-    return true
+function onUse(player, item, frompos, item2, topos)
+	local cid = player:getId()
+	if (player:getStorageValue(config.storage) <= os.time()) then
+		if (item.itemid == 35172) then
+			player:say("Chomp.",TALKTYPE_MONSTER_SAY)
+			Creature(cid):addCondition(roastedWyvernWings)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35173) then
+			player:say("Yummm.",TALKTYPE_MONSTER_SAY)
+			Creature(cid):addCondition(carrotPie)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35174) then
+			player:say("Munch.",TALKTYPE_MONSTER_SAY)
+			Creature(cid):addCondition(tropicalMarinatedTiger)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35175) then
+			player:say("Munch.",TALKTYPE_MONSTER_SAY)
+			Creature(cid):addCondition(delicatessenSalad)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35176) then
+			player:say("Yummm.",TALKTYPE_MONSTER_SAY)
+			Creature(cid):addCondition(chilliConCarniphila)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35177) then
+			player:say("Mmmmm.",TALKTYPE_MONSTER_SAY)
+			Creature(cid):addCondition(svargrondSalmonFilet)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35178) then
+			Creature(cid):addHealth(getCreatureMaxHealth(cid)  * 0.3)
+			player:say("Munch.",TALKTYPE_MONSTER_SAY)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35179) then
+			Creature(cid):addMana(Creature(cid):getMaxMana() * 0.3)
+			player:say("Chomp.",TALKTYPE_MONSTER_SAY)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		elseif (item.itemid == 35180) then
+			player:say("Blurg.",TALKTYPE_MONSTER_SAY)
+			item:remove(1)
+			player:setStorageValue(config.storage, os.time() + config.exhaust)
+		end
+	else
+		player:sendCancelMessage("You are full or you've already eaten a dish within 10 minutes.")
+	end
+	return true
 end

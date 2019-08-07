@@ -17,6 +17,9 @@
 		<flag runonhealth="6"/>
 		<flag canwalkonfire="0"/>
 	</flags>
+	<script>
+		<event name="Wyda"/>
+	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-9"/>
 	</attacks>

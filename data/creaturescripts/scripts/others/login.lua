@@ -87,15 +87,8 @@ function onLogin(player)
 	local loginStr = 'Welcome to ' .. configManager.getString(configKeys.SERVER_NAME) .. '!'
 	if player:getLastLoginSaved() <= 0 then
 		loginStr = loginStr .. ' Please choose your outfit.'
+		player:sendOutfitWindow()
 		player:setBankBalance(0)
-
-		if player:getSex() == 1 then
-			player:setOutfit({lookType = 128, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})
-		else
-			player:setOutfit({lookType = 136, lookHead = 78, lookBody = 106, lookLegs = 58, lookFeet = 76})
-		end
-
-		player:sendTutorial(1)
 	else
 		if loginStr ~= "" then
 			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
@@ -160,16 +153,13 @@ function onLogin(player)
 
  	-- OPEN CHANNELS
 	if table.contains({"Rookgaard", "Dawnport"}, player:getTown():getName())then
-		--player:openChannel(7) -- help channel
 		player:openChannel(3) -- world chat
 		player:openChannel(6) -- advertsing rook main
 	else
-		--player:openChannel(7) -- help channel
 		player:openChannel(3) -- world chat
 		player:openChannel(5) -- advertsing main
 	end
 
-      --
     -- Rewards
     local rewards = #player:getRewardList()
     if(rewards > 0) then
@@ -186,7 +176,6 @@ function onLogin(player)
     for i = 1, #events do
         player:registerEvent(events[i])
     end
-
 
  	if player:getStorageValue(Storage.combatProtectionStorage) < 1 then
         player:setStorageValue(Storage.combatProtectionStorage, 1)
