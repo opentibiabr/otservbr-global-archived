@@ -1,11 +1,9 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if math.random(50) == 1 then
-		player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
-		player:say("Congratulations! You won a prize! Go to npc Addoner to take your addon", TALKTYPE_MONSTER_SAY)
+	if math.random(98) == 1 then
+		player:getPosition():sendMagicEffect(CONST_ME_SOUND_YELLOW)
 		item:transform(5958)
 	else
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		player:say("Sorry, but you drew a blank.", TALKTYPE_MONSTER_SAY)
+		item:getPosition():sendMagicEffect(CONST_ME_POFF)
 		item:remove(1)
 	end
 	return true

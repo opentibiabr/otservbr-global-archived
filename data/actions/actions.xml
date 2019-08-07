@@ -527,6 +527,7 @@
 	<action itemid="26347" script="others/objects/fishTank.lua"/>
 	<action itemid="23574" script="others/objects/gloothBag.lua"/>
 	<action itemid="26378" script="others/objects/goldConverter.lua"/>
+	<action itemid="29019" script="others/objects/templeScroll.lua"/>
 	<action itemid="5957" script="others/objects/lotteryTicket.lua" />
 	<action itemid="18395" script="others/objects/muckRemover.lua" />
 	<action itemid="6578" script="others/objects/partyHat.lua" />
@@ -1014,7 +1015,7 @@
 	<action fromid="33497" toid="33498" script="others/decayTo.lua" /> <!-- Gloomy Poisonous Fungi -->
 
 	<!-- Food -->
-	<action itemid="2328" script="others/consumables/food.lua" />
+	<action itemid="2695" script="others/consumables/food.lua" />
 	<action itemid="2362" script="others/consumables/food.lua" />
 	<action fromid="2666" toid="2691" script="others/consumables/food.lua" />
 	<action itemid="2696" script="others/consumables/food.lua" />
