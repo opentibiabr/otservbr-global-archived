@@ -6,19 +6,21 @@
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_sellable" value="
             acorn, 11213, 10;
+            alptramun's toothbrush, 34581, 270000;
 			ancient belt buckle, 27052, 260;
 			antlers, 11214, 50;
 			ape fur, 5883, 120;
 
 			badger fur, 7965, 15;
 			bamboo stick, 12401, 30;
-			banana sash, 12467,55;
+			banana sash, 12467, 55;
 			basalt fetish, 20136, 210;
 			basalt figurine, 20137, 160;
-			bat decoration, 6492,2000;
+			bat decoration, 6492, 2000;
 			bat wing, 5894, 50;
 			bear paw, 5896, 100;
-			bed of nails, 29043, 500;
+			beast's nightmare-cushion, 34584, 630000;
+			bed of nails, 29039, 500;
 			beetle carapace, 27049, 200;
 			behemoth claw, 5930, 2000;
 			black hood, 10562, 190;
@@ -28,6 +30,7 @@
 			blood tincture in a vial, 21245, 360;
 			bloody dwarven beard, 20107, 110;
 			bloody pincers, 10550, 100;
+			blue glass plate, 33983, 60;
 			blue piece of cloth, 5912, 200;
 			boggy dreads, 10584, 200;
 			bola, 20089, 35;
@@ -36,13 +39,16 @@
 			bone toothpick, 27048, 150;
 			bonecarving knife, 20110, 190;
 			bonelord eye, 5898, 80;
+			bones of zorvorax, 27610, 10000;
 			bony tail, 11194, 210;
 			book of necromantic rituals, 11237, 180;
 			book of prayers, 10563, 120;
+			book page, 33316, 640;
 			bowl of terror sweat, 22538, 500;
+			bright bell, 35151, 220;
 			brimstone fangs, 12658, 380;
 			brimstone shell, 12659, 210;
-			broken compass, 29046, 150;
+			broken bell, 35044, 150;
 			broken crossbow, 12407, 30;
 			broken draken mail, 12616, 340;
 			broken halberd, 11335, 100;
@@ -60,14 +66,23 @@
 			carniphila seeds, 11217, 50;
 			carrion worm fang, 11192, 35;
 			cat's paw, 5480, 2000;
+			cave devourer eyes, 30834, 550;
+			cave devourer legs, 30836, 350;
+			cave devourer maw, 30835, 600;
 			centipede leg, 11218, 28;
+			chasm spawn abdomen, 30838, 240;
+			chasm spawn head, 30837, 850;
+			chasm spawn tail, 30839, 120;
 			cheese cutter, 20097, 50;
 			cheesy figurine, 20098, 150;
 			chicken feather, 5890, 30;
 			cliff strider claw, 18428, 800;
+			chitinous mouth, 30857, 10000;
+			chitinous mouth, 30861, 10000;
 			cobra tongue, 10551, 15;
 			colourful feather, 12470, 110;
-			colourful snail shell, 29000, 250;
+			colourful feathers, 27757, 400;
+			colourful snail shell, 29001, 250;
 			compass, 11219, 45;
 			compound eye, 15486, 150;
 			condensed energy, 26157, 260;
@@ -85,11 +100,13 @@
 			cursed shoulder spikes, 11327, 320;
 			cyclops toe, 10574, 55;
 
-
+			damaged armor plates, 32519, 280;
+			damaged worm head, 30855, 8000;
 			damselfly eye, 19743, 25;
 			damselfly wing, 19738, 20;
-			dandelion seeds, 28999, 200;
+			dandelion seeds, 29000, 200;
 			dangerous proto matter, 26171, 300;
+			dark bell, 35152, 250;
 			dark rosary, 11220, 48;
 			dead weight, 22536, 450;
 			deepling breaktime snack, 15424, 90;
@@ -99,10 +116,15 @@
 			deepling scales, 15430, 80;
 			deepling warts, 15425, 180;
 			deeptags, 15426, 290;
+			deepworm jaws, 30829, 500;
+			deepworm spike roots, 30828, 650;
+			deepworm spikes, 30827, 800;
 			demon dust, 5527, 300;
 			demon horn, 5954, 1000;
 			demonic finger, 13530, 1000;
 			demonic skeletal hand, 10564, 80;
+			diremaw brainpan, 30832, 350;
+			diremaw legs, 30833, 270;
 			dirty turban, 12412, 120;
 			downy feather, 12640, 20;
 			dowser, 21427, 35;
@@ -111,10 +133,11 @@
 			dragon blood, 27605, 700;
 			dragon claw, 5919, 8000;
 			dragon priest's wandtip, 11361, 175;
-			dragon tongue, 27606 ,550;
+			dragon tongue, 27606, 550;
 			dragon's tail, 12413, 100;
 			draken sulphur, 12614, 550;
 			draken wristbands, 12615, 430;
+			dream essence egg, 34643, 205;
 			dung ball, 15622, 130;
 
 			earflap, 20099, 40;
@@ -131,14 +154,16 @@
 			eye of a weeper, 18426, 650;
 			eye of corruption, 12627, 390;
 
-			fairy wings, 28998, 200;
+			fairy wings, 28999, 200;
+			falcon crest, 32520, 650;
 			fern, 2801, 20;
 			fiery heart, 10553, 375;
-			fig leaf, 29042, 200;
+			fig leaf, 29043, 200;
 			fir cone, 21428, 25;
 			fish fin, 5895, 150;
 			flask of embalming fluid, 12422, 30;
 			flask of warrior's sweat, 5885, 10000;
+			fox paw, 30697, 100;
 			frazzle skin, 22533, 400;
 			frazzle tongue, 22532, 700;
 			frost giant pelt, 10575, 160;
@@ -153,26 +178,34 @@
 			ghostly tissue, 10607, 90;
 			ghoul snack, 12423, 60;
 			giant eye, 11197, 380;
+			giant pacifier, 23570, 170;
+			giant tentacle, 30854, 10000;
 			girlish hair decoration, 12399, 30;
 			gland, 8971, 500;
 			glistening bone, 26178, 250;
 			glob of acid slime, 9967, 25;
-			glob of mercury, 9966, 20;
+			glob of mercury, 9966, 20; 
 			glob of tar, 9968, 30;
-			gloom wolf fur, 24663,70;
+			gloom wolf fur, 24663, 70;
+			glowing rune, 32217, 350;
 			goblin ear, 12495, 20;
+			golden brush, 28995, 250;
 			golden lotus brooch, 24630, 270;
 			goosebump leather, 22539, 650;
-			green bandage, 29001, 180;
+			grant of arms, 32521, 950;
+			green bandage, 29002, 180;
 			green dragon leather, 5877, 100;
 			green dragon scale, 5920, 100;
-			green piece of cloth, 5910 ,200;
-			guidebook, 29045, 200;
+			green glass plate, 33984, 180;
+			green piece of cloth, 5910, 200;
+			guidebook, 29046, 200;
 
 			hair of a banshee, 12402, 350;
 			half-digested piece of meat, 11200, 55;
+			half-digested stones, 31228, 40;
 			half-eaten brain, 10576, 85;
 			hardened bone, 5925, 70;
+			harpoon of a giant snail, 30860, 15000;
 			hatched rorc egg, 21314, 30;
 			haunted piece of wood, 10600, 115;
 			heaven blossom, 2743, 50;
@@ -187,13 +220,19 @@
 			honeycomb, 5902, 40;
 			horn of kalyassa, 27609, 10000;
 			horoscope, 21243, 40;
+			huge shell, 30856, 15000;
+			huge spiky snail shell, 30862, 8000;
 			humongous chunk, 18433, 540;
 			hunter's quiver, 12425, 80;
 			hydra head, 11199, 600;
 
+			ice flower, 34696, 370;
 			incantation notes, 21246, 90;
+			inkwell, 33315, 720;
 			instable proto matter, 26172, 300;
 			iron ore, 5880, 500;
+			izcandar's snow globe, 34582, 180000;
+			izcandar's sundial, 34583, 225000;
 
 			jewelled belt, 12426, 180;
 
@@ -205,10 +244,11 @@
 			lancet, 21242, 90;
 			legionnaire flags, 11334, 500;
 			lion's mane, 10608, 60;
-			little bowl of myrrh, 29006, 500;
+			little bowl of myrrh, 29002, 500;
 			lizard essence, 12636, 300;
 			lizard leather, 5876, 150;
 			lizard scale, 5881, 120;
+			longing eyes, 30859, 8000;
 			lost basher's spike, 20106, 280;
 			lost bracers, 20133, 140;
 			lost husher's staff, 20128, 250;
@@ -218,10 +258,12 @@
 
 			mad froth, 20134, 80;
 			magic sulphur, 5904, 8000;
+			malofur's lunchbox, 34726, 240000;
 			mammoth tusk, 11238, 100;
 			mantassin tail, 12445, 280;
 			marsh stalker beak, 19741, 65;
 			marsh stalker feather, 19742, 50;
+			maxxenius head, 34580, 500000;
 			minotaur horn, 12428, 75;
 			minotaur leather, 5878, 80;
 			miraculum, 12430, 60;
@@ -245,8 +287,10 @@
 			orcish gear, 12433, 85;
 
 			pair of hellflayer horns, 25385, 1300;
+			patch of fine cloth, 32518, 1350;
 			peacock feather fan, 24631, 350;
 			pelvis bone, 12437, 30;
+			percht horns, 35045, 200;
 			perfect behemoth fang, 5893, 250;
 			petrified scream, 11337, 250;
 			piece of archer armor, 12439, 20;
@@ -259,6 +303,7 @@
 			pieces of magic chalk, 21247, 210;
 			pig foot, 10610, 10;
 			pile of grave earth, 12440, 25;
+			plagueroot offshoot, 34725, 280000;
 			plasma pearls, 26162, 250;
 			plasmatic lightning, 26176, 270;
 			poison spider shell, 12441, 10;
@@ -267,6 +312,7 @@
 			pool of chitinous glue, 22541, 480;
 			porcelain mask, 27756, 2000;
 			powder herb, 2803, 10;
+			pristine worm head, 30853, 15000;
 			protective charm, 12400, 60;
 			purple robe, 12429, 110;
 
@@ -274,7 +320,9 @@
 			quara eye, 12444, 350;
 			quara pincers, 12446, 410;
 			quara tentacle, 12443, 140;
+			quill, 33314, 1100;
 
+			rare earth, 30536, 80;
 			red dragon leather, 5948, 200;
 			red dragon scale, 5882, 200;
 			red hair dye, 20135, 40;
@@ -285,10 +333,11 @@
 			rope belt, 12448, 66;
 			rorc egg, 21313, 120;
 			rorc feather, 21310, 70;
-			rotten piece of cloth, 11208 ,30;
+			rotten piece of cloth, 11208, 30;
 
 			sabretooth, 11228, 400;
 			safety pin, 12449, 120;
+			sample of monster blood, 32648, 250;
 			sandcrawler shell, 11373, 20;
 			scale of gelidrazah, 27607, 10000;
 			scale of corruption, 12629, 680;
@@ -301,17 +350,19 @@
 			shaggy tail, 11324, 25;
 			shamanic hood, 12434, 45;
 			shamanic talisman, 24840, 200;
-			shimmering beetles, 28997, 150;
+			shimmering beetles, 28993, 150;
 			sight of surrender's eye, 22517, 3000;
 			silencer claws, 22534, 390;
 			silencer resonating chamber, 22535, 600;
+			silken bookmark, 33313, 550;
 			silky fur, 11209, 35;
-			single human eye, 29005, 1000;
+			single human eye, 29001, 1000;
 			skeleton decoration, 6526, 3000;
 			skull belt, 12436, 80;
 			skull fetish, 24847, 250;
 			skull shatterer, 20129, 170;
 			skunk tail, 11191, 50;
+			slimy leg, 30858, 4500;
 			small energy ball, 26180, 250;
 			small flask of eyedrops, 12468, 95;
 			small notebook, 12406, 480;
@@ -337,9 +388,10 @@
 			spooky blue eye, 10559, 95;
 			star herb, 2800, 15;
 			stone herb, 2799, 20;
+			stonerefiner's skull, 30841, 100;
 			stone wing, 11195, 120;
 			strand of medusa hair, 11226, 600;
-			strange proto matter, 27055, 300;
+			strange proto matter, 26169, 300;
 			strange symbol, 2174, 200;
 			striped fur, 11210, 50;
 			swamp grass, 10603, 20;
@@ -348,7 +400,7 @@
 
 			tail of corruption, 12628, 240;
 			tarantula egg, 11198, 80;
-			tarnished rhino figurine, 27055,320;
+			tarnished rhino figurine, 27055, 320;
 			tattered piece of robe, 10601, 120;
 			tentacle piece, 12622, 5000;
 			terramite eggs, 11370, 50;
@@ -362,10 +414,12 @@
 			thorn, 10560, 100;
 			tooth file, 21241, 60;
 			tooth of tazhadur, 27608, 10000;
-			torn shirt, 29044, 250;
+			torn shirt, 29040, 250;
 			trapped bad dream monster, 22537, 900;
 			troll green, 2805, 25;
 			trollroot, 12471, 50;
+			tunnel tyrant head, 30830, 500;
+			tunnel tyrant shell, 30831, 700;
 			turtle shell, 5899, 90;
 			tusk, 3956, 100;
 
@@ -377,6 +431,7 @@
 			vampire's cape chain, 21244, 150;
 			venison, 21312, 55;
 			vexclaw talon, 25384, 1100;
+			violet glass plate, 33985, 2150;
 			volatile proto matter, 26170, 300;
 
 			warmaster's wristguards, 11322, 200;
@@ -386,11 +441,13 @@
 			weaver's wandtip, 11314, 250;
 			werewolf fur, 11234, 380;
 			white piece of cloth, 5909, 100;
-			wild flowers, 28995, 120;
 			widow's mandibles, 11328, 110;
+			wild flowers, 28991, 120;
 			wimp tooth chain, 20127, 120;
 			winged tail, 11230, 800;
 			winter wolf fur, 11212, 20;
+			withered pauldrons, 30842, 850;
+			withered scalp, 30843, 900;
 			witch broom, 10569, 60;
 			wolf paw, 5897, 70;
 			wood, 5901, 5;
@@ -400,7 +457,7 @@
 
 			yellow piece of cloth, 5914, 150;
 			yielowax, 13881, 600;
-
+			
 			zaogun flag, 11330, 600;
 			zaogun shoulderplates, 11331, 150 " />
 	</parameters>
