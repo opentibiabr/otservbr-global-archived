@@ -93,7 +93,6 @@
 	<action itemid="31930" script="quests/dangerous depth/gnomeTrignometre.lua" />
 	<action itemid="31931" script="quests/dangerous depth/gnomeChart.lua" />
 	<action itemid="31993" script="quests/dangerous depth/usingCrystals.lua" />
-	<action itemid="32014" script="quests/dangerous depth/surpriseJar.lua" />
 	<!-- Access Crystals -->
 	<action fromaid="57350" toaid="57355" script="quests/dangerous depth/WarzoneVI.lua" />
 	<action fromaid="57356" toaid="57361" script="quests/dangerous depth/WarzoneV.lua" />
@@ -1039,13 +1038,14 @@
 	<action itemid="8847" script="others/consumables/food.lua" />
 	<action itemid="9005" script="others/consumables/food.lua" />
 	<action itemid="9114" script="others/consumables/food.lua" />
-	<action itemid="9996" script="others/consumables/food.lua" />
-	<action itemid="9999" script="others/consumables/blessedSteak.lua" />
+	<action fromid="9992" toid="10001" script="others/consumables/jeanpierrefood.lua" />
 	<action itemid="10454" script="others/consumables/food.lua" />
 	<action itemid="11246" script="others/consumables/food.lua" />
 	<action itemid="11370" script="others/consumables/food.lua" />
 	<action itemid="11429" script="others/consumables/food.lua" />
 	<action fromid="12415" toid="12418" script="others/consumables/food.lua" />
+	<action itemid="12540" script="others/consumables/jeanpierrefood.lua" />
+	<action fromid="12542" toid="12544" script="others/consumables/jeanpierrefood.lua" />
 	<action fromid="12637" toid="12639" script="others/consumables/food.lua" />
 	<action itemid="13297" script="others/consumables/food.lua" />
 	<action itemid="15405" script="others/consumables/food.lua" />
@@ -1067,10 +1067,7 @@
 	<action itemid="28997" script="others/consumables/food.lua" />
 	<action itemid="35057" script="others/consumables/food.lua" />
 	<action itemid="35060" script="others/consumables/food.lua" />
-
-	<!-- Food -> Jean Perry -->
-	<action itemid="9992" script="others/consumables/food2.lua" />
-	<action itemid="9993" script="others/consumables/food3.lua" />
+	<action fromid="35172" toid="35180" script="others/consumables/hirelingfood.lua" />
 
 	<!-- Construction Kits / Beds -->
 	<action fromid="3901" toid="3938" script="others/kits/constructionkits.lua" />
@@ -1138,6 +1135,9 @@
 	<action itemid="13670" script="valuables/randomitems.lua" />
 	<action itemid="15572" script="valuables/randomitems.lua" />
 	<action itemid="18215" script="valuables/randomitems.lua" />
+	<action itemid="25419" script="valuables/randomitems.lua" />
+	<action itemid="26165" script="valuables/randomitems.lua" />
+	<action itemid="32014" script="valuables/randomitems.lua" />
 </actions>
 
 <!--
