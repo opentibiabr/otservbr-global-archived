@@ -11,20 +11,17 @@
 	<!-- AUTO LOOT -->
 	<event type="modalwindow" name="autoloot" script="autoloot.lua"/>
 
-	<!--  FLY -->
-	<event type="modalwindow" name="fly" script="fly.lua"/>
-
-    <!-- New Summons (Pets) -->
-    <event type="login" name="petlogin" script="pet.lua" />
-    <event type="think" name="petthink" script="pet.lua" />
+	<!-- New Summons (Pets) -->
+	<event type="login" name="petlogin" script="pet.lua" />
+	<event type="think" name="petthink" script="pet.lua" />
 	<event type="death" name="petdeath" script="pet.lua" />
 
-    <!-- Modal Window -->
+	<!-- Modal Window -->
 	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />
 
-    <!-- Oramond Quest -->
-    <event type="death" name="tp" script="quests/oramond/revanger.lua"/>
-    <event type="death" name="dark" script="quests/oramond/death.lua"/>
+	<!-- Oramond Quest -->
+	<event type="death" name="tp" script="quests/oramond/revanger.lua"/>
+	<event type="death" name="dark" script="quests/oramond/death.lua"/>
 
 	<!-- Dangerous Depths -->
 	<event type="kill" name="dwarvesTasks" script="quests/Dangerous Depths/dwarvesTasks.lua"/>
@@ -66,7 +63,7 @@
 	<event type="death" name="DragonEssence" script="quests/first dragon/dragon essence.lua" />
 	<event type="death" name="FirstDragon" script="quests/first dragon/first dragon death.lua" />
 
-    <!-- Grimvale Quest -->
+	<!-- Grimvale Quest -->
 	<event type="death" name="feroxaDeath" script="bosses/feroxaTransform.lua"/>
 	<event type="think" name="feroxaTrasnform" script="bosses/feroxaTransform.lua"/>
 
@@ -93,8 +90,8 @@
 	<event type="kill" name="BossesHero" script="quests/hero of rathleton/bossesKill.lua"/>
 	<event type="death" name="GloothHorror" script="bosses/glooth horror.lua" />
 
-    <!-- Roshamuul-->
-    <event type="kill" name="lowerRoshamuul" script="lowerRoshamuul.lua"/>
+	<!-- Roshamuul-->
+	<event type="kill" name="lowerRoshamuul" script="lowerRoshamuul.lua"/>
 
 	<!-- ferumbras ascedant quest-->
 	<event type="death" name="boneCapsule" script="quests/ferumbras ascendant/bone capsule.lua" />
@@ -107,7 +104,7 @@
 	<event type="death" name="disgustingOoze" script="quests/ferumbras ascendant/disgusting ooze.lua"/>
 	<event type="death" name="deathDragon" script="quests/ferumbras ascendant/death dragon.lua"/>
 
-    <!-- Reward Chest 19/01 -->
+	<!-- Reward Chest 19/01 -->
 	<event type="login" name="LoginBossPlayer" script="rewardChest/boss.lua" />
  	<event type="death" name="BossDeath" script="rewardChest/boss.lua" />
  	<event type="healthchange" name="BossParticipation" script="rewardChest/boss.lua" />
@@ -146,10 +143,7 @@
 	<event type="kill" name="BigfootBurdenWiggler" script="quests/bigfoot burden/WigglerKill.lua" /> <!-- exterminations task -->
 	<event type="kill" name="bossesWarzone" script="quests/bigfoot burden/bossesWarzone.lua"/> <!-- this will set the status of warzone (killing 1, 2 and 3 wz bosses in order u can open the chest and get "some golden fruits") and the reward chest storages -->
 
-	<!-- Recompense by level -->
-	<event type="advance" name="Recompense" script="others/recompense.lua"/>
-
-    <!-- ragingmagetower -->
+	<!-- ragingmagetower -->
 	<event type="kill" name="Yielothax" script="ragingmagetower/yielothax.lua"/>
 	<event type="kill" name="Energized Raging Mage" script="ragingmagetower/energized.lua"/>
 	<event type="kill" name="Raging Mage" script="ragingmagetower/raging.lua"/>
