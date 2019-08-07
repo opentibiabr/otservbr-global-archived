@@ -1060,12 +1060,13 @@
 	<action fromid="23514" toid="23517" script="others/consumables/food.lua" />
 	<action itemid="24841" script="others/consumables/food.lua" />
 	<action itemid="24843" script="others/consumables/food.lua" />
-	<action itemid="26191" script="others/consumables/food.lua" /> <!-- energy bar -->
-	<action itemid="26201" script="others/consumables/food.lua" /> <!-- energy drink -->
+	<action itemid="26191" script="others/consumables/food.lua" />
+	<action itemid="26201" script="others/consumables/food.lua" />
 	<action fromid="27050" toid="27051" script="others/consumables/food.lua" />
 	<action itemid="27064" script="others/consumables/food.lua" />
 	<action itemid="27616" script="others/consumables/food.lua" />
 	<action itemid="28997" script="others/consumables/food.lua" />
+	<action fromid="31719" toid="31721" script="others/consumables/cupcakes.lua" />
 	<action itemid="35057" script="others/consumables/food.lua" />
 	<action itemid="35060" script="others/consumables/food.lua" />
 	<action fromid="35172" toid="35180" script="others/consumables/hirelingfood.lua" />
