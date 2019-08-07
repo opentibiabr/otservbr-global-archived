@@ -6,11 +6,14 @@ local config = {
 	-- crystal warlord
 	[18520] = {female = 513, male = 512, effect = CONST_ME_GIANTICE},
 	[18521] = {female = 513, male = 512, addon = 1, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'},
-	[18522] = {female = 513, male = 512, addon = 2, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'}
+	[18522] = {female = 513, male = 512, addon = 2, effect = CONST_ME_GIANTICE, achievement = 'Crystal Clear'},
+	-- makeshift warrior
+	[30890] = {female = 1043, male = 1042},
+	[30892] = {female = 1043, male = 1042, addon = 1, achievement = 'Cobbled and Patched'},
+	[30891] = {female = 1043, male = 1042, addon = 2, achievement = 'Cobbled and Patched'}
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true

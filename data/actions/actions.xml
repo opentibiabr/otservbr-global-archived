@@ -2,9 +2,9 @@
 <actions>
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
-
 	<action fromid="13540" toid="13545" script="addons/afflictedOutfit.lua" />
 	<action fromid="13925" toid="13926" script="addons/afflictedOutfit.lua" />
+	<action fromid="30890" toid="30892" script="addons/addons.lua" />
 
 	<!-- Adventurer's Guild -->
 	<action itemid="18559" script="adventurers guild/adventurersStone.lua" />
@@ -285,7 +285,6 @@
 	<action fromuid="17391" touid="17395" script="quests/halls of hope/rewards.lua"/>
 
 	<!-- Heart of Destruction Quest -->
-	<action itemid="26165" script="quests/heart of destruction/mysteriousRemains.lua" />
 	<action itemid="26342" script="quests/heart of destruction/devourerAcess.lua"/>
 	<action itemid="26194" script="quests/heart of destruction/sparkionEggs.lua"/>
 	<action fromid="26340" toid="26341" script="quests/heart of destruction/sparkionEggs.lua"/>
@@ -622,6 +621,9 @@
 	<!-- Sea of Light Quest -->
 	<action itemid="10614" script="quests/sea of light/rareCrystal.lua" />
 	<action itemid="10615" script="quests/sea of light/collectorCorpse.lua" />
+
+	<!-- Secret Library -->
+	<action actionid="34000" script="quests/secret library/brokulLever.lua" />
 
 	<!-- Secret Service Quest -->
 	<action itemid="7700" script="quests/secret service/amazonDisguiseKit.lua" />
@@ -1060,12 +1062,13 @@
 	<action fromid="23514" toid="23517" script="others/consumables/food.lua" />
 	<action itemid="24841" script="others/consumables/food.lua" />
 	<action itemid="24843" script="others/consumables/food.lua" />
-	<action itemid="26191" script="others/consumables/food.lua" /> <!-- energy bar -->
-	<action itemid="26201" script="others/consumables/food.lua" /> <!-- energy drink -->
+	<action itemid="26191" script="others/consumables/food.lua" />
+	<action itemid="26201" script="others/consumables/food.lua" />
 	<action fromid="27050" toid="27051" script="others/consumables/food.lua" />
 	<action itemid="27064" script="others/consumables/food.lua" />
 	<action itemid="27616" script="others/consumables/food.lua" />
 	<action itemid="28997" script="others/consumables/food.lua" />
+	<action fromid="31719" toid="31721" script="others/consumables/cupcakes.lua" />
 	<action itemid="35057" script="others/consumables/food.lua" />
 	<action itemid="35060" script="others/consumables/food.lua" />
 	<action fromid="35172" toid="35180" script="others/consumables/hirelingfood.lua" />
