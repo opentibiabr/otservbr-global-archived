@@ -9,6 +9,23 @@ BlessingsDialog = {
 	},
 }
 
+
+--[=====[
+--
+-- Table structure `blessings_history`
+--
+
+CREATE TABLE IF NOT EXISTS `blessings_history` (
+  `id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  `blessing` tinyint(4) NOT NULL,
+  `loss` tinyint(1) NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  CONSTRAINT `blessings_history_pk` PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--]=====]
+
 local Client = {
 	OpenWindow = 0xCF
 }
