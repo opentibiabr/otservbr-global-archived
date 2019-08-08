@@ -1229,7 +1229,7 @@
 	<!-- Mollusks -->
 	<monster name="Abyssal Calamary" file="Mollusks/Abyssal Calamary.xml"/>
 	<monster name="Brain Squid" file="Mollusks/Brain Squid.xml"/>
-	<monster name="Calamary" file="Mollusks/Calamary.xml"/>
+	<monster name="Calamary" file="Mollusks/calamary.xml"/>
 	<monster name="Rage Squid" file="Mollusks/Rage Squid.xml"/>
 	<monster name="Slug" file="Mollusks/slug.xml"/>
 	<monster name="Squid Warden" file="Mollusks/Squid Warden.xml"/>
