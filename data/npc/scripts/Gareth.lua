@@ -38,7 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	-- Começou a quest
 if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
-	if msgcontains(msg, "support") and npcHandler.topic[cid] == 1 then
+	if msgcontains(msg, "support") then
 			npcHandler:say({"If you like to, you can pay some gold to become a patron of the arts for this wonderful museum. The price is 10,000 gold. Your personal gain will be priceless. Do you want to pay?"}, cid)
 			npcHandler.topic[cid] = 2
 			playerTopic[cid] = 2

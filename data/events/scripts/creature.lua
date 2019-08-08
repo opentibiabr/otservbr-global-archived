@@ -171,6 +171,8 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 		return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
 	end
 
+
+
 	-- New prey => Bonus damage
 	if (attacker:isPlayer()) then
 		if (self:isMonster() and not self:getMaster()) then

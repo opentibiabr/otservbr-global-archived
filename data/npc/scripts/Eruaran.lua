@@ -17,7 +17,7 @@ local Config = {
 	Create = {
 		Clusters = 20,
 		DreamMatter = 1,
-		Chance = 70 --70%
+		Chance = 60 --70%
 	},
 	Improve = {
 		Clusters = 75,
@@ -26,8 +26,8 @@ local Config = {
 	},
 	Transform = {
 		Clusters = 150,
-		Chance = 45, --45%
-		BreakChance = 50 --50% of chance that when failing the transforming, the weapon is destroyed but you keep all the clusters. Else, the weapon is downgraded to crude piece and you lose half of clusters.
+		Chance = 35, --45%
+		BreakChance = 45 --50% of chance that when failing the transforming, the weapon is destroyed but you keep all the clusters. Else, the weapon is downgraded to crude piece and you lose half of clusters.
 	}
 }
 

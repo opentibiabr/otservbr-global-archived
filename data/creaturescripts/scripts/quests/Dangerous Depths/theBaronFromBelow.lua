@@ -6,6 +6,7 @@ local area = createCombatArea(AREA_CIRCLE3X3)
 combat:setArea(area)
 
 function spellCallbackTemp(param)
+	math.randomseed(os.time())
 	local tile = Tile(Position(param.pos))
 	if tile then
 		if tile:getTopCreature() and tile:getTopCreature():isMonster() then

@@ -4,7 +4,7 @@ GOLD_POUNCH = 26377
 ITEM_STORE_INBOX = 26052
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
 -- exercise_ids
-local exercise_ids = {32384,32385,32386,32387,32388,32389}
+local exercise_ids = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129}
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
@@ -116,6 +116,7 @@ function Player:onLook(thing, position, distance)
 				if slot > 0 then
 					imbuingSlots = string.format("%s, ", imbuingSlots)
 				end
+
 				local duration = thing:getImbuementDuration(slot)
 				if duration > 0 then
 					local imbue = thing:getImbuement(slot)
@@ -658,6 +659,8 @@ local soulCondition = Condition(CONDITION_SOUL, CONDITIONID_DEFAULT)
 soulCondition:setTicks(4 * 60 * 1000)
 soulCondition:setParameter(CONDITION_PARAM_SOULGAIN, 1)
 
+
+
 local function useStamina(player)
 	local staminaMinutes = player:getStamina()
 	if staminaMinutes == 0 then
@@ -746,6 +749,8 @@ local function preyTimeLeft(player, slot)
 	end
 end
 
+
+
 function Player:onGainExperience(source, exp, rawExp)
 	if not source or source:isPlayer() then
 		return exp
@@ -777,7 +782,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Store Bonus
-	useStaminaXp(self) -- Use store boost stamina
+	useStaminaXp(self) --Use store boost stamina
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
 		self:setStoreXpBoost(0) -- Reset Store boost to 0 if boost stamina has ran out
 	end
@@ -798,7 +803,6 @@ function Player:onGainExperience(source, exp, rawExp)
 			displayRate = displayRate * 0.5
 		end
 	end
-
 	self:setBaseXpGain(displayRate * 100)
 	return exp
 end
@@ -837,7 +841,8 @@ function Player:onStorageUpdate(key, value, oldValue, currentFrameTime)
 	self:updateStorage(key, value, oldValue, currentFrameTime)
 end
 
-function Player:canBeAppliedImbuement(imbuement, item)
+
+ function Player:canBeAppliedImbuemet(imbuement, item)
 	local categories = {}
 	local slots = ItemType(item:getId()):getImbuingSlots()
 	if slots > 0 then
@@ -851,22 +856,22 @@ function Player:canBeAppliedImbuement(imbuement, item)
 		end
 	end
 
-	if isInArray(categories, imbuement:getCategory().id) then
+ 	if isInArray(categories, imbuement:getCategory().id) then
 		return false
 	end
 
-	if imbuement:isPremium() and self:getPremiumDays() < 1 then
+ 	if imbuement:isPremium() and self:getPremiumDays() < 1 then
 		return false
 	end
 
-	if not self:canImbueItem(imbuement, item) then
+ 	if not self:canImbueItem(imbuement, item) then
 		return false
 	end
 
-	return true
+ 	return true
 end
 
-function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
+ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 	for _, pid in pairs(imbuement:getItems()) do
 		if self:getItemCount(pid.itemid) < pid.count then
 			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
@@ -874,20 +879,20 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 		end
 	end
 
-	if item:getImbuementDuration(slot) > 0 then
+ 	if item:getImbuementDuration(slot) > 0 then
 		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ERROR, "An error ocurred, please reopen imbuement window.")
 		return false
 	end
 	local base = imbuement:getBase()
 	local price = base.price + (protectionCharm and base.protection or 0)
 
-	local chance = protectionCharm and 100 or base.percent
+ 	local chance = protectionCharm and 100 or base.percent
 	if math.random(100) > chance then
 		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "Item failed to apply imbuement.")
 		return false
 	end
 
-	-- Removing items
+ 	-- Removing items
 	for _, pid in pairs(imbuement:getItems()) do
 		if not self:removeItem(pid.itemid, pid.count) then
 			self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have all necessary items.")
@@ -895,66 +900,66 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 		end
 	end
 
-	if not self:removeMoneyNpc(price) then
+ 	if not self:removeMoneyNpc(price) then
 		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "You don't have enough money " ..price.. " gps.")
 		return false
 	end
 
-	if not item:addImbuement(slot, imbuement:getId()) then
+ 	if not item:addImbuement(slot, imbuement:getId()) then
 		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "Item failed to apply imbuement.")
 		return false
 	end
 
-	-- Update item
+ 	-- Update item
 	local nitem = Item(item.uid)
 	self:sendImbuementPanel(nitem)
 	return true
 end
 
-function Player:clearImbuement(item, slot)
+ function Player:clearImbuement(item, slot)
 	local slots = ItemType(item:getId()):getImbuingSlots()
 	if slots < slot then
 		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "Sorry, not possible.")
 		return false
 	end
 
-	if item:getTopParent() ~= self or item:getParent() == self then
+ 	if item:getTopParent() ~= self or item:getParent() == self then
 		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
 		return false
 	end
 
-	-- slot is not used
+ 	-- slot is not used
 	local info = item:getImbuementDuration(slot)
 	if info == 0 then
 		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
 		return false
 	end
 
-	local imbuement = item:getImbuement(slot)
+ 	local imbuement = item:getImbuement(slot)
 	if not self:removeMoneyNpc(imbuement:getBase().removecust) then
 		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "You don't have enough money " ..imbuement:getBase().removecust.. " gps.")
 		return false
 	end
 
-	if not item:cleanImbuement(slot) then
+ 	if not item:cleanImbuement(slot) then
 		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
 		return false
 	end
 
-	-- Update item
+ 	-- Update item
 	local nitem = Item(item.uid)
 	self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_SUCCESS, "Congratulations! You have successfully applied the clearing charm to your item.");
 	self:sendImbuementPanel(nitem)
 
-	return true
+ 	return true
 end
 
-function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+ function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if not item then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
 
-	local slots = ItemType(item:getId()):getImbuingSlots()
+ 	local slots = ItemType(item:getId()):getImbuingSlots()
 	if slots > 0 then
 		for i = 0, slots - 1 do
 			local imbuement = item:getImbuement(i)
@@ -969,5 +974,5 @@ function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, seco
 		end
 	end
 
-	return primaryDamage, primaryType, secondaryDamage, secondaryType
+ 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end

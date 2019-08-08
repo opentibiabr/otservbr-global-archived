@@ -272,7 +272,7 @@ function parseBuyStoreOffer(playerId, msg)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(nil, offer.count)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE         then GameStore.processTempleTeleportPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PROMOTION      then GameStore.processPromotionPurchase(player, offer.id)
     else
@@ -1058,7 +1058,7 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
         local kegItem = inbox:addItem(offerId, 1)
         kegItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
       end
-    elseif (offerCount > 100) then
+    elseif (offerCount > 500) then
       local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
       local function changeParcel(parcel)
         local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
@@ -1209,8 +1209,14 @@ function GameStore.processPreySlotPurchase(player)
   player:addPreySlot()
 end
 
-function GameStore.processPreyBonusReroll(player, offerCount)
-  player:addBonusReroll(offerCount)
+function GameStore.processPreyBonusReroll(player)
+
+  local player = Player(playerId)
+  
+if player:setStorageValue(63453) >= 0 then
+  player:setStorageValue(63453, (player:setStorageValue(63453)+1))
+return true
+end
 end
 
 function GameStore.processTempleTeleportPurchase(player)

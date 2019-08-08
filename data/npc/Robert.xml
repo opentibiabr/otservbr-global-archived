@@ -32,10 +32,10 @@
 			dwarven shield,2525,500;
 			earth arrow,7850,5;
 			envenomed arrow,18437,12;
-			exercise sword,32384,262500;
-			exercise axe,32385,262500;
-			exercise club,32386,262500;
-			exercise bow,32387,262500;
+			exercise sword,32384,262500,500;
+			exercise axe,32385,262500,500;
+			exercise club,32386,262500,500;
+			exercise bow,32387,262500,500;
 			flaming arrow,7840,5;
 			flash arrow,7838,5;
 			hand axe,2380,8;

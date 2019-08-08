@@ -54,12 +54,12 @@ local function creatureSayCallback(cid, type, msg)
         npcHandler:say("Oh, so you want a reward, hm? Well... let's see. What did you do for us - helping Mortis with his {repairs} and defended him?", cid)
     elseif msgcontains(msg, "repairs") then
         if npcHandler.topic[cid] == 3 then
-            if player:getInquisitionGold() > 0 then
+            if player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold) > 0 then
                 npcHandler.topic[cid] = 4
                 npcHandler:say({
                     "Alright, so you mixed and delivered ".. math.max(0, player:getStorageValue(ROSHAMUUL_MORTAR_THROWN)) .." mortar and ...",
                     "You killed ".. math.max(0, player:getStorageValue(ROSHAMUUL_KILLED_FRAZZLEMAWS)) .." frazzlemaws and ...",
-                    "You also hunted ".. math.max(0, player:getStorageValue(ROSHAMUUL_KILLED_SILENCERS)) .." silencers. That would equal ".. player:getInquisitionGold() .." of inquisition gold - BUT we are currently short of this valuable metal so... do you want me to add this amount to my {books} for now or {trade} it for something else.",
+                    "You also hunted ".. math.max(0, player:getStorageValue(ROSHAMUUL_KILLED_SILENCERS)) .." silencers. That would equal ".. player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold) .." of inquisition gold - BUT we are currently short of this valuable metal so... do you want me to add this amount to my {books} for now or {trade} it for something else.",
                 }, cid)
             else
                 npcHandler.topic[cid] = nil
@@ -67,35 +67,35 @@ local function creatureSayCallback(cid, type, msg)
             end
         end
     elseif npcHandler.topic[cid] == 4 then
-        local v = math.max(0, player:getStorageValue(ROSHAMUUL_GOLD_RECORD))
+        local v = math.max(0, player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold))
         if msgcontains(msg, "book") or msgcontains(msg, "books") then
             npcHandler.topic[cid] = 5
             npcHandler:say({
-                "Of course, let's see. Hm, your recent endeavours would earn you ".. player:getInquisitionGold() .." of righteous inquisition gold. You have earned ".. v .." of gold in total. ...",
+                "Of course, let's see. Hm, your recent endeavours would earn you ".. player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold) .." of righteous inquisition gold. You have earned ".. v .." of gold in total. ...",
                 "Do you want me to add this amount to my books? This will reset your current records, too, however - so?",
             }, cid)
         end
     elseif npcHandler.topic[cid] == 5 then
         if msgcontains(msg, "yes") then
             npcHandler:say({
-                "Good. Registered as... ".. player:getName() .."... with... about ".. player:getInquisitionGold() .." of righteously earned inquisition gold added. There. Thanks for your help! ..",
+                "Good. Registered as... ".. player:getName() .."... with... about ".. player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold) .." of righteously earned inquisition gold added. There. Thanks for your help! ..",
                 "Good. Ask me any time in case you want to know your current {record}. If you have time, Remember you can also {trade} your earnings into some of these... probably far more valuable, ahem... cluster... things, yes.",
             }, cid)
-            player:setStorageValue(ROSHAMUUL_GOLD_RECORD, player:getInquisitionGold())
+            player:setStorageValue(ROSHAMUUL_GOLD_RECORD, player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold))
             player:setStorageValue(ROSHAMUUL_MORTAR_THROWN, 0)
             player:setStorageValue(ROSHAMUUL_KILLED_FRAZZLEMAWS, 0)
             player:setStorageValue(ROSHAMUUL_KILLED_SILENCERS, 0)
             npcHandler.topic[cid] = nil
         end
     elseif msgcontains(msg, "record") then
-        local v = player:getStorageValue(ROSHAMUUL_GOLD_RECORD)
+        local v = player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold)
         if v > 0 then
             npcHandler:say("You have ".. v .." inquisition gold registered in my book.", cid)
         else
             npcHandler:say("I do not see inquisition gold registered in my book from you.", cid)
         end
     elseif msgcontains(msg, "trade") then
-        local v = player:getStorageValue(ROSHAMUUL_GOLD_RECORD)
+        local v = player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold)
         if v >= 100 then
             npcHandler.topic[cid] = 6
             npcHandler:say("Ah yes, you currently have ".. v .." of righteously earned inquisition gold in my book. 100 inquisition gold equals one cluster. How many clusters do you want in exchange?", cid)
@@ -109,15 +109,15 @@ local function creatureSayCallback(cid, type, msg)
             return npcHandler:say("You should tell me a real number.", cid)
         end
 
-        local max = math.floor(player:getStorageValue(ROSHAMUUL_GOLD_RECORD)/100)
+        local max = math.floor(player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold))
         if v > max then
             return npcHandler:say("You do not have enough inquisition gold for that, so far you can ask for up to ".. max .." clusters.", cid)
         end
 
         player:addItem(22396, v)
         npcHandler.topic[cid] = nil
-        player:setStorageValue(ROSHAMUUL_GOLD_RECORD, player:getStorageValue(ROSHAMUUL_GOLD_RECORD) - (v*100))
-        npcHandler:say("There you are. Now I register ".. player:getStorageValue(ROSHAMUUL_GOLD_RECORD) .." inquisition gold of yours in my book.", cid)
+        player:setStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold, player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold) - (v*100))
+        npcHandler:say("There you are. Now I register ".. player:getStorageValue(Storage.LowerRoshamuul.SoundHorns.InquisitionGold) .." inquisition gold of yours in my book.", cid)
     end
 
     if msgcontains(msg, "bucket") or msgcontains(msg, "supplies") then

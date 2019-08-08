@@ -60,7 +60,7 @@ local DAILY_REWARD_STATUS_PREMIUM = 1
 
 DailyReward = {
   testMode = false,
-  serverTimeThreshold = (4 * 60),
+	serverTimeThreshold = (24 * 60 * 60),
 
   storages = {
     -- Player
@@ -92,11 +92,11 @@ DailyReward = {
       type = DAILY_REWARD_TYPE_RUNE_POTION,
       systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
       freeAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
+        items = {7618, 7620, 7589, 7590, 7588, 7591, 8472},
         itemsToPick = 5
       },
       premiumAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
+        items = {7618, 7620, 7589, 7590, 7588, 7591, 8472, 26029, 26030, 8473, 2274, 2288, 2315, 2261, 2313, 2304, 2311, 2265, 2287, 2292, 2268},
         itemsToPick = 10
       }
     },
@@ -104,11 +104,11 @@ DailyReward = {
       type = DAILY_REWARD_TYPE_RUNE_POTION,
       systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
       freeAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
+        items = {7618, 7620, 7589, 7590, 7588, 7591, 8472},
         itemsToPick = 5
       },
       premiumAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
+        items = {7618, 7620, 7589, 7590, 7588, 7591, 8472, 26029, 26030, 8473, 2274, 2288, 2315, 2261, 2313, 2304, 2311, 2265, 2287, 2292, 2268},
         itemsToPick = 10
       }
     },
@@ -126,76 +126,46 @@ DailyReward = {
       type = DAILY_REWARD_TYPE_RUNE_POTION,
       systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
       freeAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
+        items = {7618, 7620, 7589, 7590, 7588, 7591, 8472},
         itemsToPick = 5
       },
       premiumAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
-        itemsToPick = 10
+        items = {7618, 7620, 7589, 7590, 7588, 7591, 8472, 26029, 26030, 8473, 2274, 2288, 2315, 2261, 2313, 2304, 2311, 2265, 2287, 2292, 2268},
+        itemsToPick = 20
       }
     },
     [5] = {
-      type = DAILY_REWARD_TYPE_STORAGE,
-      systemType = DAILY_REWARD_SYSTEM_TYPE_TWO,
-      freeCount = 1,
-      premiumCount = 2,
+      type = DAILY_REWARD_TYPE_RUNE_POTION,
+      systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
       freeAccount = {
-        things = {
-          [1] = {
-              name = "task boost",
-              id = 1, -- this number can't be repeated
-              quantity = 1,
-              storages = {
-                          {storageId = 23454, value = 1},
-                          {storageId = 45141, value = 2},
-                          {storageId = 45141, value = 3}
-                        }
-          }
-        }
+        items = {26378},
+        itemsToPick = 100
       },
       premiumAccount = {
-        things = {
-          [1] = {
-              name = "task boostss",
-              id = 2, -- this number can't be repeated
-              quantity = 1,
-              storages = {
-                          {storageId = 23454, value = 1}
-                        }
-          },
-          [2] = {
-              name = "another task boost",
-              id = 3, -- this number can't be repeated
-              quantity = 2,
-              storages = {
-                          {storageId = 23454, value = 1},
-                          {storageId = 45141, value = 2},
-                          {storageId = 45141, value = 3}
-                        }
-          }
-        }
+        items = {26378},
+        itemsToPick = 200
       }
     },
     [6] = {
       type = DAILY_REWARD_TYPE_RUNE_POTION,
       systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
       freeAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
-        itemsToPick = 5
+        items = {32384, 32385, 32386, 32387, 32388},
+        itemsToPick = 50
       },
       premiumAccount = {
-        items = {7618, 7588, 7591, 8473, 7620, 2266, 2277, 2301, 2265},
-        itemsToPick = 10
+        items = {32384, 32385, 32386, 32387, 32388},
+        itemsToPick = 100
       }
     },
     [7] = {
       type = DAILY_REWARD_TYPE_XP_BOOST,
       systemType = DAILY_REWARD_SYSTEM_TYPE_TWO,
       freeAccount = {
-        xpminutes = 60
+        xpminutes = 10
       },
       premiumAccount = {
-        xpminutes = 120
+        xpminutes = 30
       }
     }
   }
@@ -277,8 +247,8 @@ DailyReward.pickedReward = function(playerId)
   end
 
   player:setStreakLevel(player:getStreakLevel() + 1)
-  player:setStorageValue(DailyReward.storages.avoidDouble, Game.getLastServerSave())
-  player:setNextRewardTime(Game.getLastServerSave() + DailyReward.serverTimeThreshold)
+  --player:setStorageValue(DailyReward.storages.avoidDouble, os.time() + serverTimeThreshold)
+  player:setNextRewardTime(os.time() + DailyReward.serverTimeThreshold)
   player:getPosition():sendMagicEffect(CONST_ME_FIREWORK_YELLOW)
   return true
 end
@@ -347,7 +317,7 @@ DailyReward.init = function(playerId)
   end
 
   local rewardTime = player:getNextRewardTime() + DailyReward.serverTimeThreshold + 60 -- 1 minutes timegrace
-  local nextServerSave = Game.getLastServerSave() + DailyReward.serverTimeThreshold
+  local nextServerSave = os.time() + DailyReward.serverTimeThreshold
 
   if rewardTime < nextServerSave then
     if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
@@ -500,7 +470,7 @@ function Player.selectDailyReward(self, msg)
 
       local window = ModalWindow {
           title = 'Warning',
-          message = 'You still have 20 minutes XP Boost from a previous daily reward left. If you claim your daily reward now, you will lose this remaining time.'
+          message = 'You still have 30 minutes XP Boost from a previous daily reward left. If you claim your daily reward now, you will lose this remaining time.'
       }
       window:addButton('Ok', function(button, choice)
         DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. " .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward.xpminutes .. " minutes.")
@@ -514,8 +484,16 @@ function Player.selectDailyReward(self, msg)
     DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. " .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward.xpminutes .. " minutes.")]]--
   end
 
-  if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) then
-    self:addBonusReroll(reward.rerollCount)
+  if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) and self:isPremium() then
+    --self:addBonusReroll(reward.rerollCount)
+    self:setStorageValue(63353, (self:getStorageValue(63353)+ 2))
+    DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. " .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward.rerollCount .. "x Prey bonus reroll(s)")
+    DailyReward.processReward(playerId, source)
+  end
+
+  if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) and not self:isPremium() then
+    --self:addBonusReroll(reward.rerollCount)
+    self:setStorageValue(63353, (self:getStorageValue(63353)+ 1))
     DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. " .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward.rerollCount .. "x Prey bonus reroll(s)")
     DailyReward.processReward(playerId, source)
   end
@@ -591,7 +569,7 @@ function Player.readDailyReward(self, msg, currentDay, state)
         local itemId = rewards.items[i]
         local itemType = ItemType(itemId)
         local itemName = itemType:getArticle() .. " " .. getItemName(itemId)
-        local itemWeight = itemType:getWeight()
+        local itemWeight = itemType:getWeight()/100
         msg:addItemId(itemId)
         msg:addString(itemName)
         msg:addU32(itemWeight)

@@ -26,8 +26,8 @@
 			destroy field rune,2261,15;
 			energy field rune,2277,38;
 			energy wall rune,2279,85;
-			exercise rod,32388,262500;
-			exercise wand,32389,262500;
+			exercise rod,32388,262500,500;
+			exercise wand,32389,262500,500;
 			explosion rune,2313,31;
 			fire bomb rune,2305,55;
 			fire field rune,2301,28;

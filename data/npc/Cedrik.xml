@@ -5,8 +5,8 @@
 <voices>
 <voice text="Support your local weapon dealer!" interval2="100" margin="1" yell="no" />
 </voices>
-	<parameters>
-		<parameter key="module_keywords" value="1" />
+<parameters>
+<parameter key="module_keywords" value="1" />
 		<parameter key="keywords" value="wares;" />
 		<parameter key="keyword_reply1" value="My offers are weapons, ammunition, armors, helmets, legs, and shields. If you'd like to see my offers, ask me for a {trade}." />
    		<parameter key="message_greet" value="Hello |PLAYERNAME|. Have a look at my {wares}." />
@@ -40,10 +40,10 @@
 			dwarven shield,2525,500;
 			earth arrow,7850,5;
 			envenomed arrow,18437,12;
-			exercise sword,32384,262500;
-			exercise axe,32385,262500;
-			exercise club,32386,262500;
-			exercise bow,32387,262500;
+			exercise sword,32384,262500,500;
+			exercise axe,32385,262500,500;
+			exercise club,32386,262500,500;
+			exercise bow,32387,262500,500;
 			flaming arrow,7840,5;
 			flash arrow,7838,5;
 			hand axe,2380,8;
