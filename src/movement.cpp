@@ -778,37 +778,31 @@ uint32_t MoveEvent::EquipItem(MoveEvent* moveEvent, Player* player, Item* item, 
 		player->addCondition(condition);
 	}
 
-	//skill modifiers
-	bool needUpdateSkills = false;
+	//skill/stats modifiers
+	bool needUpdate = false;
 
 	for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
 		if (it.abilities->skills[i]) {
-			needUpdateSkills = true;
+			needUpdate = true;
 			player->setVarSkill(static_cast<skills_t>(i), it.abilities->skills[i]);
 		}
 	}
 
-	if (needUpdateSkills) {
-		player->sendSkills();
-	}
-
-	//stat modifiers
-	bool needUpdateStats = false;
-
 	for (int32_t s = STAT_FIRST; s <= STAT_LAST; ++s) {
 		if (it.abilities->stats[s]) {
-			needUpdateStats = true;
+			needUpdate = true;
 			player->setVarStats(static_cast<stats_t>(s), it.abilities->stats[s]);
 		}
 
 		if (it.abilities->statsPercent[s]) {
-			needUpdateStats = true;
+			needUpdate = true;
 			player->setVarStats(static_cast<stats_t>(s), static_cast<int32_t>(player->getDefaultStats(static_cast<stats_t>(s)) * ((it.abilities->statsPercent[s] - 100) / 100.f)));
 		}
 	}
 
-	if (needUpdateStats) {
+	if (needUpdate) {
 		player->sendStats();
+		player->sendSkills();
 	}
 
 	return 1;
@@ -869,37 +863,31 @@ uint32_t MoveEvent::DeEquipItem(MoveEvent*, Player* player, Item* item, slots_t 
 		player->removeCondition(CONDITION_REGENERATION, static_cast<ConditionId_t>(slot));
 	}
 
-	//skill modifiers
-	bool needUpdateSkills = false;
+	//skill/stats modifiers
+	bool needUpdate = false;
 
 	for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
 		if (it.abilities->skills[i] != 0) {
-			needUpdateSkills = true;
+			needUpdate = true;
 			player->setVarSkill(static_cast<skills_t>(i), -it.abilities->skills[i]);
 		}
 	}
 
-	if (needUpdateSkills) {
-		player->sendSkills();
-	}
-
-	//stat modifiers
-	bool needUpdateStats = false;
-
 	for (int32_t s = STAT_FIRST; s <= STAT_LAST; ++s) {
 		if (it.abilities->stats[s]) {
-			needUpdateStats = true;
+			needUpdate = true;
 			player->setVarStats(static_cast<stats_t>(s), -it.abilities->stats[s]);
 		}
 
 		if (it.abilities->statsPercent[s]) {
-			needUpdateStats = true;
+			needUpdate = true;
 			player->setVarStats(static_cast<stats_t>(s), -static_cast<int32_t>(player->getDefaultStats(static_cast<stats_t>(s)) * ((it.abilities->statsPercent[s] - 100) / 100.f)));
 		}
 	}
 
-	if (needUpdateStats) {
+	if (needUpdate) {
 		player->sendStats();
+		player->sendSkills();
 	}
 
 	return 1;
