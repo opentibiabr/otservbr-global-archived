@@ -34,6 +34,5 @@
 	</immunities> -->
 	<loot>
 		<item id="2148" countmax="78" chance="10000" />  <!--GoldCoin-->
-
 	</loot>
 </monster>

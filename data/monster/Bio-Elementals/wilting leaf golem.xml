@@ -47,6 +47,5 @@
 		<item name="small emerald" chance="1050"/>
 		<item name="white mushroom" countmax="3" chance="5040"/>
 		<item name="swampling club" chance="4890"/>
-
 	</loot>
 </monster>

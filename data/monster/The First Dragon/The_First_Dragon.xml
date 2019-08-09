@@ -29,10 +29,8 @@
 		</attack>
 	</attacks>
 	<defenses armor="35" defense="35">
-
 	</defenses>
 	<elements>
-
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>

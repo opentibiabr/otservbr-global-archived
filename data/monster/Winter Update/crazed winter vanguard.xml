@@ -29,12 +29,10 @@
 		<attribute key="shootEffect" value="ICE"/>
 		</attack>
    </attacks>
-
 	<defenses armor="70" defense="20"/>
 			<defense name="healing" interval="2000" chance="14" min="150" max="250">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-
 	<elements>
 		<element firePercent="20"/>
 	</elements>

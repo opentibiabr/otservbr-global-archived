@@ -19,7 +19,6 @@
 	<attacks>
 	<attack name="vile grandmaster" interval="2000" chance="15"/>
 	<attack name="melee" interval="2000" min="10" max="-260"/>
-
 	<attack name="bleedcondition" interval="2000" chance="20" target="1" radius="4" min="-150" max="-225">
 			<attribute key="shootEffect" value="throwingknife"/>
 			<attribute key="areaEffect" value="redspark"/>
@@ -31,7 +30,6 @@
 		</defense>
 	</defenses>
 	<immunities>
-
 		<immunity invisible="1"/>
 	</immunities>
 	<elements>
@@ -70,9 +68,6 @@
 		<item id="2491" chance="310"/>	<!-- Crown Helmet -->
 		<item id="2519" chance="210"/>	<!-- Crown Shield -->
 		<item id="2488" chance="110"/>	<!-- Crown Legs -->
-
 		<item id="2171" chance="210"/>	<!-- Platinum Amulet  -->
-
-
 	</loot>
 </monster>

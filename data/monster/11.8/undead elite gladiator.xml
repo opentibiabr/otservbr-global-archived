@@ -20,16 +20,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="100" max="550"/>
-
 		<attack name="physical" interval="1500" chance="20" range="7" min="300" max="550">
 			<attribute key="shootEffect" value="whirlwindsword"/>
 		</attack>
-
-
 		<attack name="lifedrain" interval="1000" chance="15" range="5" radius="3" min="300" max="500">
 			<attribute key="areaEffect" value="blackspark"/>
 		</attack>
-
 	</attacks>
 	<defenses armor="85" defense="45">
 		<defense name="invisible" interval="2000" chance="15" duration="3000">
@@ -46,18 +42,15 @@
 	<immunities>
 		<immunity invisible="1"/>
 	</immunities>
-
 	<loot>
 <!-- Comum -->
 		<item name="Platinum Coin" countmax="40" chance="44000"/>
 		<item name="Belted Cape" chance="500"/>
-
  	<!-- Incomum-->
 		<item name="Ultimate Health Potion" countmax="2" chance="500"/>
 		<item name="Throwing Star" countmax="18" chance="500"/>
 		<item name="Knight Axe" chance="250"/>
 		<item id="2419" chance="500"/><!-- scimitar -->
-
  	<!-- Semi-raro-->
 		<item name="protection amulet" chance="250"/>
 		<item name="hunting spear" chance="250"/>
@@ -73,7 +66,5 @@
  	<!-- Muito raro-->
 		<item name="crusader helmet" chance="150"/>
 		<item name="Relic Sword" chance="150"/>
-
-
 	</loot>
 </monster>

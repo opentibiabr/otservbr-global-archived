@@ -54,7 +54,6 @@
 <!--common-->
 <item name="platinum coin" countmax="14" chance="100000"/>
 <item name="great spirit potion" countmax="3" chance="100000"/>
-
 <!--uncommon-->
 <item name="essence of a bad dream" chance="15000"/>
 <item name="energy ring" chance="12050"/>

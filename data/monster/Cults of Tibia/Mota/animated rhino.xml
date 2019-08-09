@@ -24,7 +24,6 @@
 			<attribute key="shootEffect" value="smallstone" />
 		</attack>
 	</attacks>
-
 	<elements>
 		<element energyPercent="20" />
 		<element holyPercent="1" />
@@ -40,6 +39,5 @@
 		<item id="27056" chance="50320" />
 		<item id="27057" chance="50320" />
 		<item id="24842" chance="50320" />
-
 	</loot>
 </monster>

@@ -50,7 +50,6 @@
 	<!--Sempre-->
 		<item name="Cave Devourer Eyes" chance="24580" />
 		<item name="Cave Devourer Maw" chance="27540" />
-
 			<!--quase sempre-->
 			<item name="Small Enchanted Sapphire" chance="8050" />
 			<item name="Small Enchanted Ruby" chance="6780" />
@@ -61,12 +60,9 @@
 			<item name="Cyan Crystal Fragment" chance="5720" />
 			<item name="Slime Heart" countmax="4" chance="13770" />
 			<item name="Cave Devourer Legs" chance="17160" />
-
 				<!--semi raro-->
 				<item name="Stealth Ring" chance="2540" />
-
 						<!--raro-->
 						<item name="Suspicious Device" chance="420" />
-
 	</loot>
 </monster>
