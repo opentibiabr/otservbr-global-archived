@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Prince Drazzak" nameDescription="Prince Drazzak" race="fire" experience="210000" speed="480">
+<monster name="Prince Drazzak" nameDescription="Prince Drazzak" race="fire" experience="210000" speed="480" script="rewardboss.lua">
 	<health now="330000" max="330000"/>
 	<look type="12" head="77" body="78" legs="94" feet="54" addons="0" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>

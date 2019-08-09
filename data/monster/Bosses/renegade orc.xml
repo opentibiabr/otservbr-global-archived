@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Renegade Orc" nameDescription="a renegade orc" race="blood" experience="270" speed="220" >
+<monster name="Renegade Orc" nameDescription="a renegade orc" race="blood" experience="270" speed="220">
 	<health now="450" max="450" />
 	<look type="59" corpse="6001" />
 	<targetchange interval="4000" chance="10" />

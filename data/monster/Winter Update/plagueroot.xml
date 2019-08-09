@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Plagueroot" nameDescription="a Plagueroot" race="venom" experience="55000" speed="170">
+<monster name="Plagueroot" nameDescription="a Plagueroot" race="venom" experience="55000" speed="170" script="rewardboss.lua">
 	<health now="20000" max="20000" />
 	<look type="1121" corpse="34660" />
 	<targetchange interval="4000" chance="10" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Izcandar the Banished" nameDescription="Izcandar the Banished" race="blood" experience="6900" speed="250" >
+<monster name="Izcandar the Banished" nameDescription="Izcandar the Banished" race="blood" experience="6900" speed="250" script="rewardboss.lua">
 	<health now="7600" max="7600" />
 	<look type="1137" head="1" body="114" legs="76" feet="0" addons="2" corpse="6068" />
 	<targetchange interval="4000" chance="10" />

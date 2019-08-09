@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Professor Maxxen" nameDescription="Professor Maxxen" race="energy" experience="15500" speed="340">
+<monster name="Professor Maxxen" nameDescription="Professor Maxxen" race="energy" experience="15500" speed="340" script="rewardboss.lua">
 	<health now="90000" max="90000"/>
 	<look type="679" corpse="24279"/>
 	<targetchange interval="2000" chance="5"/>

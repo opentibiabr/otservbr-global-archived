@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Chizzoron The Distorter" nameDescription="Chizzoron The Distorter" race="blood" experience="4000" speed="260">
+<monster name="Chizzoron The Distorter" nameDescription="Chizzoron The Distorter" race="blood" experience="4000" speed="260" script="rewardboss.lua">
 	<health now="16000" max="16000"/>
 	<look type="340" corpse="11316"/>
 	<targetchange interval="2000" chance="10"/>

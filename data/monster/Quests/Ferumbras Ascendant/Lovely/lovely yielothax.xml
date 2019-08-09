@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lovely Yielothax" nameDescription="a lovely yielothax" race="venom" experience="1250" speed="300" >
+<monster name="Lovely Yielothax" nameDescription="a lovely yielothax" race="venom" experience="1250" speed="300">
 	<health now="1500" max="1500"/>
 	<look type="408" corpse="13752"/>
 	<targetchange interval="5000" chance="8"/>

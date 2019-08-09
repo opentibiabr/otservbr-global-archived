@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Paiz The Pauperizer" nameDescription="Paiz The Pauperizer" race="blood" experience="6300" speed="280" >
+<monster name="Paiz The Pauperizer" nameDescription="Paiz The Pauperizer" race="blood" experience="6300" speed="280">
 	<health now="8500" max="8500" />
 	<look type="362" corpse="12609" />
 	<targetchange interval="5000" chance="10" />

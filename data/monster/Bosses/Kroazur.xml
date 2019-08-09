@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Kroazur" nameDescription="Kroazur" race="undead" experience="2700" speed="500">
+<monster name="Kroazur" nameDescription="Kroazur" race="undead" experience="2700" speed="500" script="rewardboss.lua">
 	<health now="3000" max="3000" />
 	<look type="842" head="19" body="114" legs="94" feet="85" addons="3" corpse="6325" />
 	<targetchange interval="2000" chance="20" />

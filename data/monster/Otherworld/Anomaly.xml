@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Anomaly" nameDescription="Anomaly" race="energy" experience="120000" speed="400">
+<monster name="Anomaly" nameDescription="Anomaly" race="energy" experience="120000" speed="400" script="rewardboss.lua">
 	<health now="290000" max="290000"/>
 	<look type="876" head="19" body="98" legs="19" feet="79" addons="1" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Deep Terror" nameDescription="Deep Terror" race="blood" experience="35000" speed="200">
+<monster name="Deep Terror" nameDescription="Deep Terror" race="blood" experience="35000" speed="200" script="rewardboss.lua">
 	<health now="100000" max="100000"/>
 	<look type="676" corpse="24269"/>
 	<targetchange interval="5000" chance="8"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lovely Souleater" nameDescription="a lovely souleater" race="undead" experience="1300" speed="210" >
+<monster name="Lovely Souleater" nameDescription="a lovely souleater" race="undead" experience="1300" speed="210">
 	<health now="1100" max="1100"/>
 	<look type="355" corpse="12631"/>
 	<targetchange interval="2000" chance="5"/>
