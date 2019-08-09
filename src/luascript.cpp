@@ -1573,6 +1573,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_WILDGROWTH_PERSISTENT)
 	registerEnum(ITEM_WILDGROWTH_SAFE)
 
+	registerEnum(ITEM_EXERCISE_START)
+	registerEnum(ITEM_EXERCISE_END)
+
 	registerEnum(ITEM_HEALTH_CASK_START)
 	registerEnum(ITEM_HEALTH_CASK_END)
 
