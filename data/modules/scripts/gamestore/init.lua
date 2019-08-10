@@ -1022,17 +1022,17 @@ function GameStore.processPremiumPurchase(player, offerId)
 end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName)
-  local function isKegItem(itemId)
-    return itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END
+  local function isKegExerciseItem(itemId)
+    return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END))
   end
 
-  if (isKegItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) or player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount)then
+  if (isKegExerciseItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) or player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount)then
     return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
   end
 
   local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
   if inbox and inbox:getEmptySlots() > 0 then
-    if (isKegItem(offerId)) then
+    if (isKegExerciseItem(offerId)) then
       if (offerCount >= 500) then
         local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
         local function changeParcel(parcel)
@@ -1047,16 +1047,16 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
               else
                 pack = pendingCount
               end
-              local kegItem = parcel:addItem(offerId, 1)
-              kegItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
+              local kegExerciseItem = parcel:addItem(offerId, 1)
+              kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
               pendingCount = pendingCount - pack
             end
           end
         end
         addEvent(function() changeParcel(parcel) end, 250)
       else
-        local kegItem = inbox:addItem(offerId, 1)
-        kegItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
+        local kegExerciseItem = inbox:addItem(offerId, 1)
+        kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
       end
     elseif (offerCount > 100) then
       local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
