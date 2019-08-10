@@ -113,8 +113,8 @@
 	<action uniqueid="2005" script="quests/demon helmet/lever.lua" />
 
 	<!-- Dreamer Challenge Quest -->
-	<action fromuid="3041" touid="3043" script="quests/dreamer_challenge/lever_Nightmare.lua" /> <!-- fixed and organized by worhtdavi -->
-	<action fromuid="3045" touid="3047" script="quests/dreamer_challenge/lever_Brotherhood.lua" /> <!-- fixed and organized by worhtdavi -->
+	<action fromuid="3041" touid="3043" script="quests/dreamer challenge/lever_Nightmare.lua" /> <!-- fixed and organized by worhtdavi -->
+	<action fromuid="3045" touid="3047" script="quests/dreamer challenge/lever_Brotherhood.lua" /> <!-- fixed and organized by worhtdavi -->
 
 	<action fromid="7844" toid="7846" script="quests/dreamer challenge/documents.lua" />
 	<action uniqueid="2004" script="quests/dreamer challenge/stoneTeleport.lua" />
