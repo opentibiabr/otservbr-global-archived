@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="The False God" nameDescription="The False God" race="blood" experience="75000" speed="230">
+<monster name="The False God" nameDescription="The False God" race="blood" experience="75000" speed="230" script="rewardboss.lua">
 	<health now="300000" max="300000" />
 	<look type="984" corpse="25151" />
 	<targetchange interval="5000" chance="30" />

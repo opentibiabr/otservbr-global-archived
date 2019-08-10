@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Razzagorn" nameDescription="razzagorn" race="fire" experience="65000" speed="340">
+<monster name="Razzagorn" nameDescription="razzagorn" race="fire" experience="65000" speed="340" script="rewardboss.lua">
 	<health now="290000" max="290000" />
 	<look type="842" head="78" body="94" legs="52" feet="126" addons="0" corpse="25151" />
 	<targetchange interval="5000" chance="8" />

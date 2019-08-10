@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Reflection Of Mawhawk" nameDescription="an reflection of mawhawk" race="blood" experience="9650" speed="270" >
+<monster name="Reflection Of Mawhawk" nameDescription="an reflection of mawhawk" race="blood" experience="9650" speed="270">
 	<health now="12600" max="12600" />
 	<look type="595" corpse="23375" />
 	<targetchange interval="2000" chance="4" />

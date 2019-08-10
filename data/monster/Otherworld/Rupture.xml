@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rupture" nameDescription="Rupture" race="energy" experience="112000" speed="450">
+<monster name="Rupture" nameDescription="Rupture" race="energy" experience="112000" speed="450" script="rewardboss.lua">
 	<health now="290000" max="290000"/>
 	<look type="875" head="77" body="98" legs="3" feet="85" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="World Devourer" nameDescription="World Devourer" race="energy" experience="77700" speed="450">
+<monster name="World Devourer" nameDescription="World Devourer" race="energy" experience="77700" speed="450" script="rewardboss.lua">
 	<health now="25000" max="25000"/>
 	<look type="875" head="82" body="79" legs="81" feet="113" addons="3" corpse="0"/>
 	<targetchange interval="2000" chance="25"/>

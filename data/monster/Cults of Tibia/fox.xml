@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Fox" nameDescription="a fox" race="blood" experience="15" speed="85" >
+<monster name="Fox" nameDescription="a fox" race="blood" experience="15" speed="85">
 	<health now="22" max="22"/>
 	<look type="1029" corpse="30752"/>
 	<targetchange interval="4000" chance="10"/>

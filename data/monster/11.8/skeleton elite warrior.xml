@@ -28,9 +28,6 @@
 			<attribute key="shootEffect" value="suddendeath"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-
-
-
 	</attacks>
 	<defenses armor="75" defense="15"/>
 	<elements>
@@ -49,7 +46,6 @@
 		<item name="Knight Axe" chance="250"/>
 		<item name="pelvis bone" countmax="10" chance="10630"/>
 		<item name="Unholy Bone" countmax="5" chance="10630"/>
-
 <!--Semi-raro-->
 		<item name="Skull Helmet" chance="150"/>
 <!--Muito-raro -->

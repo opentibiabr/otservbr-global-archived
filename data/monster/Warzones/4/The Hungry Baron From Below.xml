@@ -33,7 +33,7 @@
 		<attack name="death" interval="2000" chance="100" radius="3" min="0" max="-1000">
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="earth" interval="2000" chance="15" radius="5" min="0" max="-1000" >
+		<attack name="earth" interval="2000" chance="15" radius="5" min="0" max="-1000">
 			<attribute key="areaEffect" value="smallplants"/>
 		</attack>
 	</attacks>

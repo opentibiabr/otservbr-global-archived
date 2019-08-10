@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Hellflayer" nameDescription="a hellflayer" race="blood" experience="12500" speed="165" >
+<monster name="Hellflayer" nameDescription="a hellflayer" race="blood" experience="12500" speed="165">
 	<health now="14000" max="14000"/>
 	<look type="856" corpse="25440"/>
 	<targetchange interval="4000" chance="10"/>
@@ -30,13 +30,11 @@
 		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-200">
 			<attribute key="areaEffect" value="purpleenergy"/>
 		</attack>
-
 		<attack name="fire" interval="2000" chance="10" radius="1" target="1" min="-300" max="-550">
 			<attribute key="shootEffect" value="fire"/>
 			<attribute key="areaEffect" value="fireattack"/>
 		</attack>
 		<attack name="warlock skill reducer" range="5" interval="2000" chance="5"/>
-
 		<attack name="physical" interval="2000" chance="10" radius="1" target="1" min="300" max="-500">
 			<attribute key="shootEffect" value="explosion"/>
 			<attribute key="areaEffect" value="sleep"/>
@@ -57,11 +55,9 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-
 	<voices interval="3000" chance="50">
 		<voice sentence="You should consider bargaining for your life!"/>
 		<voice sentence="Your tainted soul belongs to us anyway!"/>
-
 	</voices>
 	<loot>
 		<item id="2148" countmax="130" chance="90000"/>	<!-- gold coin -->

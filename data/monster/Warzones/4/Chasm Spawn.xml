@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Chasm Spawn" nameDescription="a chasm spawn" race="blood" experience="3500" speed="115" >
+<monster name="Chasm Spawn" nameDescription="a chasm spawn" race="blood" experience="3500" speed="115">
 	<health now="4000" max="4000" />
 	<look type="1037" corpse="30798" />
 	<targetchange interval="5000" chance="8" />
@@ -30,7 +30,7 @@
 		<attack name="explosion" interval="2000" chance="15" min="-50" max="-170"/>
 		<attack name="manadrain" interval="2000" chance="10" range="7" min="-40" max="-60" />
 		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-70" max="-140" />
-		<attack name="earth" interval="2000" chance="10" length="3" spread="3"  min="-70" max="-140" >
+		<attack name="earth" interval="2000" chance="10" length="3" spread="3"  min="-70" max="-140">
 		<attribute key="areaEffect" value="PLANTATTACK" />
 		</attack>
 	</attacks>

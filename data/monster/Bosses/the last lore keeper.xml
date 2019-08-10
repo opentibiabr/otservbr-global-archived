@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Last Lore Keeper" nameDescription="the last lore keeper" race="undead" experience="45000" speed="450">
+<monster name="The Last Lore Keeper" nameDescription="the last lore keeper" race="undead" experience="45000" speed="450"  script="rewardboss.lua">
 	<health now="750000" max="750000"/>
 	<look type="939" corpse="0"/>
 	<targetchange interval="2000" chance="8"/>

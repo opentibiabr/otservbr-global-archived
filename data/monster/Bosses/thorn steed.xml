@@ -22,7 +22,6 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="100" attack="250" />
-
 	</attacks>
 	<defenses armor="10" defense="10" />
 	<elements>
@@ -31,5 +30,4 @@
 		<element earthPercent="100" />
 		<element deathPercent="-10" />
 	</elements>
-
 </monster>

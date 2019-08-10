@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Terofar" nameDescription="Terofar" race="blood" experience="24000" speed="440" >
+<monster name="Terofar" nameDescription="Terofar" race="blood" experience="24000" speed="440">
 	<health now="40000" max="40000"/>
 	<look type="12" head="19" body="0" legs="77" feet="79" addons="0" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>
@@ -19,8 +19,6 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="180" attack="100"/>
-
-
 		<attack name="death" interval="2000" chance="30" length="8" spread="0" min="-700" max="-1500">
 			<attribute key="areaEffect" value="smallclouds"/>
 		</attack>

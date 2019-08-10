@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Guilt" nameDescription="guilt from tarbaz" race="undead" experience="320" speed="0" >
+<monster name="Guilt" nameDescription="guilt from tarbaz" race="undead" experience="320" speed="0">
 	<health now="2000" max="2000"/>
 	<look type="583" corpse="0"/>
 	<targetchange interval="2000" chance="8"/>

@@ -48,7 +48,6 @@
 		<item id="2050" chance="60300" /><!-- torch -->
 		<item name="gold coin" countmax="30" chance="75600" />
 		<item name="life ring" chance="230" />
-
 		<item name="knife" chance="14890" />
 		<item name="brass helmet" chance="20140" />
 		<item name="viking helmet" chance="5020" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Werefox" nameDescription="a Werefox" race="blood" experience="1600" speed="140" >
+<monster name="Werefox" nameDescription="a Werefox" race="blood" experience="1600" speed="140">
 	<health now="1500" max="1500"/>
 	<look type="1030" corpse="30756"/>
 	<targetchange interval="4000" chance="10"/>

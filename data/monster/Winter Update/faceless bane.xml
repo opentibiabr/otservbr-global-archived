@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Faceless Bane" nameDescription="a Faceless Bane" race="blood" experience="14000" speed="250">
+<monster name="Faceless Bane" nameDescription="a Faceless Bane" race="blood" experience="14000" speed="250" script="rewardboss.lua">
 	<health now="17000" max="17000" />
 	<look type="1122" head="0" body="4" legs="95" feet="4" corpse="34651" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
-	   <flag preyable="0" />
+		<flag preyable="0" />
         <flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />

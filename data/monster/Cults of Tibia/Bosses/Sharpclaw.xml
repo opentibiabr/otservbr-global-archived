@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Sharpclaw" nameDescription="a sharpclaw" race="blood" experience="3000" speed="250">
+<monster name="Sharpclaw" nameDescription="a sharpclaw" race="blood" experience="3000" speed="250" script="rewardboss.lua">
 	<health now="3300" max="3300" />
 	<look type="1031" corpse="24723" />
 	<targetchange interval="4000" chance="10" />

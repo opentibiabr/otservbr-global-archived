@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Soul-Broken Harbinger" nameDescription="a Soul-Broken Harbinger" race="blood" experience="5800" speed="210" >
+<monster name="Soul-Broken Harbinger" nameDescription="a Soul-Broken Harbinger" race="blood" experience="5800" speed="210">
 	<health now="6300" max="6300" />
 	<look type="1137" head="124" body="31" legs="17" feet="81" addons="3" corpse="34775" />
 	<targetchange interval="4000" chance="10" />

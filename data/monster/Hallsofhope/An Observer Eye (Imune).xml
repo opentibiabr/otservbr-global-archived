@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="An Observer Eye" nameDescription="a An Observer Eye" race="blood" experience="0" speed="0" >
+<monster name="An Observer Eye" nameDescription="a An Observer Eye" race="blood" experience="0" speed="0">
 	<health now="30000" max="30000"/>
 	<look type="925" corpse="27596"/>
 	<targetchange interval="5000" chance="0"/>
@@ -34,6 +34,4 @@
 		<immunity holy="1"/>
 		<immunity earth="1"/>
 	</immunities>
-
-
 </monster>

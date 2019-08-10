@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Minion Of Versperoth" nameDescription="a minion of Versperoth" race="fire" experience="6200" speed="310" >
+<monster name="Minion Of Versperoth" nameDescription="a minion of Versperoth" race="fire" experience="6200" speed="310">
 	<health now="9000" max="9000" />
 	<look type="491" corpse="0" />
 	<targetchange interval="5000" chance="8" />

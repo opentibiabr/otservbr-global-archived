@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Pillar Of Healing" nameDescription="a pillar of healing" race="undead" experience="0" speed="0" >
+<monster name="Pillar Of Healing" nameDescription="a pillar of healing" race="undead" experience="0" speed="0">
 	<health now="20000" max="20000" />
 	<look typeex="12383" />
 	<targetchange interval="4000" chance="20" />

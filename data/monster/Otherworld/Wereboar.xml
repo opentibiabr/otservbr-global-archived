@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Wereboar" nameDescription="a wereboar" race="blood" experience="2000" speed="150" >
+<monster name="Wereboar" nameDescription="a wereboar" race="blood" experience="2000" speed="150">
 	<health now="2200" max="2200"/>
 	<look type="721" corpse="24722"/>
 	<targetchange interval="4000" chance="10"/>
@@ -18,12 +18,10 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="60" poison="140"/>
-
 				<attack name="melee" interval="2000" min="0" max="-385"/>
 		<attack name="speed" interval="4000" chance="20" radius="7" target="1" speedchange="-100">
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
-
 	</attacks>
 	<defenses armor="30" defense="30">
 		<defense name="healing" interval="2000" chance="25" min="50" max="100">
@@ -57,12 +55,9 @@
 		<item id="24710" chance="780"/>					<!-- Wereboar Tusks -->
 		<item id="7439" chance="700"/>					<!-- Berserk Potion -->
 		<item id="7432" chance="360"/>					<!-- Furry Club  -->
-
-
 		<item id="2197" subtype="5" chance="430"/>					<!-- Stone Skin Amulet -->
 		<item id="7419" chance="320"/>					<!-- Dreaded Cleaver -->
 		<item id="24741" chance="200"/>					<!-- Fur Armor -->
-
 	<item id="24758" chance="200"/>					<!-- Wereboar Trophy -->
 	<item id="24429" chance="100"/>					<!-- Werewolf Amulet -->
 	</loot>

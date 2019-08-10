@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rocko" nameDescription="Rocko" race="blood" experience="3400" speed="180" >
+<monster name="Rocko" nameDescription="Rocko" race="blood" experience="3400" speed="180">
 	<health now="10000" max="10000" />
 	<look type="67" corpse="6005" />
 	<targetchange interval="2000" chance="9" />

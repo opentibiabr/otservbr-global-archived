@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dragon Wrath" nameDescription="a dragon wrath" race="undead" experience="4600" speed="320" >
+<monster name="Dragon Wrath" nameDescription="a dragon wrath" race="undead" experience="4600" speed="320">
 <health now="7800" max="7800"/>
 <look type="351" corpse="11362"/>
   <targetchange interval="2000" chance="5" />
@@ -15,7 +15,6 @@
     <flag targetdistance="1" />
     <flag staticattack="90" />
     <flag runonhealth="366" />
-
 	<flag isblockable="0" />
   </flags>
   <attacks>
@@ -34,7 +33,7 @@
       <attribute key="areaEffect" value="mortarea" />
     </attack>
   </attacks>
-  <defenses armor="45" defense="35" >
+  <defenses armor="45" defense="35">
     <defense name="healing" interval="2000" chance="9" min="70" max="300">
       <attribute key="areaEffect" value="greenshimmer" />
     </defense>

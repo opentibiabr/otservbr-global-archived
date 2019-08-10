@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Abyssador" nameDescription="Abyssador" race="blood" experience="50000" speed="230" >
+<monster name="Abyssador" nameDescription="Abyssador" race="blood" experience="50000" speed="230">
 	<health now="340000" max="340000"/>
 	<look type="495" corpse="17412"/>
 	<targetchange interval="5000" chance="10"/>
 	<flags>
-
 		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>

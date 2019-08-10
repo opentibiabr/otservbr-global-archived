@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Alptramun" nameDescription="a Alptramun" race="blood" experience="15" speed="250" >
+<monster name="Alptramun" nameDescription="a Alptramun" race="blood" experience="15" speed="250" script="rewardboss.lua">
 	<health now="22" max="22" />
 	<look type="1143" corpse="34793" />
 	<targetchange interval="4000" chance="10" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="5400" speed="190" >
+<monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="5400" speed="190">
 	<health now="5800" max="5800"/>
 	<look type="1136" body="123" legs="28" feet="20" addons="1" corpse="34760"/>
 	<targetchange interval="4000" chance="10"/>
@@ -29,12 +29,10 @@
 		<attribute key="shootEffect" value="ICE"/>
 		</attack>
    </attacks>
-
 	<defenses armor="70" defense="20"/>
 			<defense name="healing" interval="2000" chance="14" min="150" max="250">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-
 	<elements>
 		<element firePercent="20"/>
 	</elements>
