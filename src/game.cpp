@@ -1233,6 +1233,29 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	if (item->isStackable() && maxQueryCount < count) {
 		return retMaxCount;
 	}
+// looting analyser from this point forward
+	if (fromCylinder && actor && toCylinder) {
+		if (!fromCylinder->getContainer() || !actor->getPlayer() || !toCylinder->getContainer()) {
+			return ret;
+		}
+
+	 	if (Player* player = actor->getPlayer()) {
+	 		if (player->getProtocolVersion() < 1140 || player->operatingSystem != CLIENTOS_NEW_WINDOWS) {
+				return ret;
+			}
+
+
+	 		const ItemType& it = Item::items[fromCylinder->getItem()->getID()];
+			if (it.id <= 0) {
+				return ret;
+			}
+
+					 	if (it.corpseType != RACE_NONE && toCylinder->getContainer()->getTopParent() == player && item->getIsLootTrackeable()) {
+				player->updateLootTracker(item);
+			}
+	 	}
+	}
+
 
 	if (moveItem && moveItem->getDuration() > 0) {
 		if (moveItem->getDecaying() != DECAYING_TRUE) {
@@ -4154,6 +4177,10 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		realHealthChange = target->getHealth() - realHealthChange;
 
 		if (realHealthChange > 0 && !target->isInGhostMode()) {
+						if (targetPlayer) {
+				targetPlayer->updateImpactTracker(realHealthChange, true);
+			}
+
 			std::stringstream ss;
 
 			ss << realHealthChange << (realHealthChange != 1 ? " hitpoints." : " hitpoint.");
@@ -4372,6 +4399,9 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		target->drainHealth(attacker, realDamage);
 		if (realDamage > 0) {
 			if (Monster* targetMonster = target->getMonster()) {
+				if (attacker->getPlayer()) {
+					attackerPlayer->updateImpactTracker(realDamage, false);
+				}
 				if (targetMonster->israndomStepping()) {
 					targetMonster->setIgnoreFieldDamage(true);
 					targetMonster->updateMapCache();
@@ -6589,6 +6619,7 @@ void Game::removeUniqueItem(uint16_t uniqueId)
 	if (it != uniqueItems.end()) {
 		uniqueItems.erase(it);
 	}
+
 }
 
 bool Game::reload(ReloadTypes_t reloadType)

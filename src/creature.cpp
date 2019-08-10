@@ -731,8 +731,16 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 			deathEvent->executeOnDeath(this, corpse, lastHitCreature, mostDamageCreature, lastHitUnjustified, mostDamageUnjustified);
 		}
 
-		if (corpse) {
-			dropLoot(corpse->getContainer(), lastHitCreature);
+		Container* corpseContainer = corpse->getContainer();
+		if (corpse && corpseContainer) {
+			dropLoot(corpseContainer, lastHitCreature);
+			if (Player* player = mostDamageCreature->getPlayer()) {
+				if (player->getParty()) {
+					player->getParty()->broadcastKillTrackerUpdate(corpseContainer, getName(), getCurrentOutfit());
+				} else {
+					player->updateKillTracker(corpseContainer, getName(), getCurrentOutfit());
+				}
+			}
 		}
 	}
 

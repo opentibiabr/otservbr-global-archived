@@ -601,6 +601,12 @@ class Item : virtual public Thing
 		void setIntAttr(itemAttrTypes type, int32_t value) {
 			getAttributes()->setIntAttr(type, value);
 		}
+				void setIsLootTrackeable(bool value) {
+			isLootTrackeable = value;
+		}
+		bool getIsLootTrackeable() {
+			return isLootTrackeable;
+
 		void increaseIntAttr(itemAttrTypes type, int32_t value) {
 			getAttributes()->increaseIntAttr(type, value);
 		}
@@ -1026,7 +1032,8 @@ class Item : virtual public Thing
 		uint8_t count = 1; // number of stacked items
 
 		bool loadedFromMap = false;
-
+		bool isLootTrackeable = false;
+		
 		//Don't add variables here, use the ItemAttribute class.
 };
 
