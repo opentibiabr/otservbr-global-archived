@@ -132,5 +132,20 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:feed(food[1] * 12)
 	player:say(food[2], TALKTYPE_MONSTER_SAY)
 	item:remove(1)
+	
+
+
+	local version = player:getClientVersion()
+	if version.os ~= CLIENTOS_NEW_WINDOWS or version.version < 1140 then
+		return true
+	end
+
+	if not player:ownsItem(item) then
+		return true
+	end
+
+ 	player:updateSupplyTracker(item)
+
+
 	return true
 end

@@ -122,5 +122,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	item:remove(1)
+	player:updateSupplyTracker(item)
 	return true
 end
