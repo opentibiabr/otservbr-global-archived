@@ -9,6 +9,7 @@ function Player.sendTibiaTime(self, hours, minutes)
 end
 
 local events = {
+	'KillTracker',
     'ParasiteWarzone',
     'ElementalSpheresOverlords',
     'BigfootBurdenVersperoth',
@@ -209,6 +210,8 @@ function onLogin(player)
 		local hours = math.floor(worldTime / 60)
 		local minutes = worldTime % 60
 		player:sendTibiaTime(hours, minutes)
+		player:sendInventory()
 	end
+	player:sendInventory()
     return true
 end
