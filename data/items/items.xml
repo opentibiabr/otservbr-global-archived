@@ -37028,8 +37028,7 @@
 	<item id="29038" article="a" name="rainbow quartz" plural="rainbow quartzes">
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="29039" name="death" />
-	<item id="29040" name="death" />
+	<item fromid="29039" toid="29040" name="tar sacrificial" />
 	<item id="29041" name="poison" />
 	<item id="29042" name="poison" />
 	<item id="29043" article="a" name="fig leaf">
@@ -40488,6 +40487,7 @@
 		<attribute key="weight" value="2504" />
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
+	<item fromid="32595" toid="32596" article="a" name="timber table"/>
 	<item id="32603" article="a" name="wall mirror"/>
 	<item id="32605" article="a" name="secret map" >
 		<attribute key="weight" value="830" />
@@ -40515,6 +40515,7 @@
 		<attribute key="weight" value="180" />
 		<attribute key="description" value="There is an empty bracket on its top." />
 	</item>
+	<item id="32640" article="a" name="tar"/>
 	<item id="32641" article="a" name="green energy ball">
 		<attribute key="weight" value="50" />
 	</item>
@@ -41334,6 +41335,7 @@
 		<attribute key="weight" value="1900" />
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
+	<item fromid="33471" toid="33474" article="a" name="timber table"/>
 	<item fromid="33491" toid="33492" name="fluorescent fungi">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
