@@ -73,7 +73,7 @@
 			white pearl, 2143, 160;
 			wild flowers, 28996, 120;
 			wood cape, 2664, 5000;
-			wooden spellbook, 29004, 12000;	" />
+			wooden spellbook, 29004, 12000;" />
 		<parameter key="shop_buyable" value="
 			animate dead rune, 2316, 375;
 			avalanche rune, 2274, 25;
