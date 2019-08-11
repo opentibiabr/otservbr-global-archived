@@ -4,7 +4,7 @@
 	<look type="138" head="0" body="0" legs="114" feet="97" addons="0" />
 	<parameters>
 		<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+		<parameter key="shop_sellable" value="
 			ancient coin, 27058, 350;
 			bar of gold, 15515, 10000;
 			black pearl, 2144, 280;
@@ -52,7 +52,7 @@
 			red rose, 2744, 10;
 			shimmering beatles, 28998, 150;
 			sling herb, 2802, 10;
-			small amethyst, 2150,2 00;
+			small amethyst, 2150, 200;
 			small diamond, 2145, 300;
 			small emerald, 2149, 250;
 			small enchanted amethyst, 7762, 200;
@@ -73,7 +73,7 @@
 			white pearl, 2143, 160;
 			wild flowers, 28996, 120;
 			wood cape, 2664, 5000;
-			wooden spellbook, 29004, 12000;	" />
+			wooden spellbook, 29004, 12000;" />
 		<parameter key="shop_buyable" value="
 			animate dead rune, 2316, 375;
 			avalanche rune, 2274, 25;
@@ -132,6 +132,6 @@
 			watering can, 7734, 50;
 			wedding ring, 2121, 990;
 			white pearl, 2143, 320;
-			wild growth rune, 2269, 160" />
+			wild growth rune, 2269, 160;" />
 	</parameters>
 </npc>
