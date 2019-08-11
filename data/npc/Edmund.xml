@@ -8,7 +8,7 @@
 </voices>
 	<parameters>
 	<parameter key="module_shop" value="1" />
-		<parameter key="shop_buyable" value="
+		<parameter key="shop_sellable" value="
 			ancient coin, 27058, 350;
 			black pearl, 2144, 280;
 			blue crystal shard, 18413, 1500;
@@ -35,7 +35,7 @@
 			prismatic quartz, 27630, 450;
 			rainbow quartz, 29038, 500;
 			red crystal fragment, 18420, 800;
-			small amethyst, 2150,2 00;
+			small amethyst, 2150, 200;
 			small diamond, 2145, 300;
 			small emerald, 2149, 250;
 			small enchanted amethyst, 7762, 200;
