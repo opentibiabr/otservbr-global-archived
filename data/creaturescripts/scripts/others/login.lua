@@ -190,7 +190,7 @@ function onLogin(player)
 	end
 	local staminaMinutes = player:getStamina()
 	local storeBoost = player:getExpBoostStamina()
-	player:setStoreXpBoost(Boost > 0 and 50 or 0)
+	player:setStoreXpBoost(storeBoost > 0 and 50 or 0)
 	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
 		player:setBaseXpGain(displayRate*2*100) -- Premium + Stamina boost + Store boost
 		player:setStaminaXpBoost(150)
