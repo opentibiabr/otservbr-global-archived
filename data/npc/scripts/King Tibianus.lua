@@ -42,7 +42,7 @@ function creatureSayCallback(cid, type, msg)
 			selfSay("What will it be?", cid)
 			npcHandler.topic[cid] = 4
 		elseif npcHandler.topic[cid] == 5 then
-			if(doPlayerRemoveMoney(cid, 500000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) < 1) then
+			if player:removeMoney(500000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) < 1) then
 				npcHandler:say("Take this armor as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 				npcHandler.topic[cid] = 0
 				player:addOutfit(1210)
@@ -50,7 +50,7 @@ function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.OutfitQuest.GoldenBaseOutfit, 1)
 			end
 		elseif npcHandler.topic[cid] == 6 then
-			if(doPlayerRemoveMoney(cid, 250000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) < 1) then
+			if player:removeMoney(250000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) < 1) then
 				npcHandler:say("Take this boots as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 				npcHandler.topic[cid] = 0
 				player:addOutfitAddon(1210, 1)
@@ -58,7 +58,7 @@ function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.OutfitQuest.GoldenFirstAddon, 1)
 			end
 		elseif npcHandler.topic[cid] == 7 then
-			if(doPlayerRemoveMoney(cid, 250000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1  and player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) < 1) then
+			if player:removeMoney(250000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1  and player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) < 1) then
 				npcHandler:say("Take this helmet as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 				npcHandler.topic[cid] = 0
 				player:addOutfitAddon(1210, 2)
@@ -269,8 +269,3 @@ keywordHandler:addAliasKeyword({'marvik'})
 npcHandler:setMessage(MESSAGE_GREET, 'I greet thee, my loyal subject |PLAYERNAME|.')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Good bye, |PLAYERNAME|!')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'How rude!')
-
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hail king')
-focusModule:addGreetMessage('salutations king')
-npcHandler:addModule(focusModule)
