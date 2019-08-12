@@ -1,5 +1,5 @@
 local foods = {
-	[2695] = {6, 'Gulp.'}, -- egg
+	[2328] = {6, 'Gulp.'}, -- egg
 	[2362] = {5, 'Crunch.'}, -- carrot
 	[2666] = {15, 'Munch.'}, -- meat
 	[23516] = {15, 'Burp.'}, -- Bottle of Glooth Wine
@@ -22,7 +22,7 @@ local foods = {
 	[2679] = {1, 'Yum.'}, -- cherry
 	[2680] = {2, 'Yum.'}, -- strawberry
 	[2681] = {9, 'Yum.'}, -- grapes
-	[7966] = {9, 'Hum.'}, -- cream cake
+	[7966] = {9, 'Hum.'}, -- BOLO
 	[2682] = {20, 'Yum.'}, -- melon
 	[2683] = {17, 'Munch.'}, -- pumpkin
 	[2684] = {5, 'Crunch.'}, -- carrot
@@ -105,14 +105,7 @@ local foods = {
 	[20101] = {12, 'Smack.'}, -- rat cheese
 	[23517] = {25, 'Chomp.'}, -- glooth steak
 	[24843] = {25, 'Chomp.'}, -- Roasted Meat
-	[24841] = {8, 'Yum.'}, -- pickle pear
-	[27050] = {20, 'Urgh.'}, -- bug meat
-	[27051] = {10, 'Gulp.'}, -- cave turnip
-	[27064] = {60, 'Mmmm.'}, -- birthday cake
-	[27616] = {10, 'Slurp.'}, -- bottle of tibian wine
-	[28997] = {15, 'Mmmmm!'}, -- fresh fruit
-	[35057] = {40, 'Mmmmm!'}, -- meringue cake
-	[35060] = {15, 'Slurp.'} -- winterberry liquor
+	[24841] = {8, 'Yum.'} -- pickle pear
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -132,5 +125,20 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:feed(food[1] * 12)
 	player:say(food[2], TALKTYPE_MONSTER_SAY)
 	item:remove(1)
+
+
+
+	local version = player:getClientVersion()
+	if version.os ~= CLIENTOS_NEW_WINDOWS or version.version < 1140 then
+		return true
+	end
+
+	if not player:ownsItem(item) then
+		return true
+	end
+
+ 	player:updateSupplyTracker(item)
+
+
 	return true
 end
