@@ -123,6 +123,7 @@ function onLogin(player)
     -- EXP Stamina
     nextUseXpStamina[playerId] = 1
 
+    player:registerEvent("bestiaryEnviroment")
     -- New Prey
     nextPreyTime[playerId] = {
         [CONST_PREY_SLOT_FIRST] = 1,
@@ -130,6 +131,11 @@ function onLogin(player)
         [CONST_PREY_SLOT_THIRD] = 1
     }
 
+    if player:getStorageValue(4431) == 1 then -- bestiary Check
+        player:registerEvent("bestiaryEnviromentDeaths")
+    end
+    bestiary:updateBestiary(player)
+    
     if (player:getAccountType() == ACCOUNT_TYPE_TUTOR) then
         local msg = [[:: Tutor Rules
             1 *> 3 Warnings you lose the job.

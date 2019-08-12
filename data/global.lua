@@ -387,5 +387,804 @@ return true
 end
 
 function getLootRandom()
+	math.randomseed(os.mtime())
 	return math.random(0, MAX_LOOTCHANCE) / configManager.getNumber(configKeys.RATE_LOOT)
 end
+
+table.append = table.insert
+table.empty = function (t)
+    return next(t) == nil
+end
+
+table.find = function (table, value)
+    for i, v in pairs(table) do
+        if(v == value) then
+            return i
+        end
+    end
+
+    return nil
+end
+
+table.count = function (table, item)
+    local count = 0
+    for i, n in pairs(table) do
+        if(item == n) then
+            count = count + 1
+        end
+    end
+
+    return count
+end
+table.countElements = table.count
+
+table.getCombinations = function (table, num)
+    local a, number, select, newlist = {}, #table, num, {}
+    for i = 1, select do
+        a[#a + 1] = i
+    end
+
+    local newthing = {}
+    while(true) do
+        local newrow = {}
+        for i = 1, select do
+            newrow[#newrow + 1] = table[a[i]]
+        end
+
+        newlist[#newlist + 1] = newrow
+        i = select
+        while(a[i] == (number - select + i)) do
+            i = i - 1
+        end
+
+        if(i < 1) then
+            break
+        end
+
+        a[i] = a[i] + 1
+        for j = i, select do
+            a[j] = a[i] + j - i
+        end
+    end
+
+    return newlist
+end
+
+function table.serialize(x, recur)
+    local t = type(x)
+    recur = recur or {}
+
+    if(t == nil) then
+        return "nil"
+    elseif(t == "string") then
+        return string.format("%q", x)
+    elseif(t == "number") then
+        return tostring(x)
+    elseif(t == "boolean") then
+        return t and "true" or "false"
+    elseif(getmetatable(x)) then
+        error("Can not serialize a table that has a metatable associated with it.")
+    elseif(t == "table") then
+        if(table.find(recur, x)) then
+            error("Can not serialize recursive tables.")
+        end
+        table.append(recur, x)
+
+        local s = "{"
+        for k, v in pairs(x) do
+            s = s .. "[" .. table.serialize(k, recur) .. "]"
+            s = s .. " = " .. table.serialize(v, recur) .. ","
+        end
+        s = s .. "}"
+        return s
+    else
+        error("Can not serialize value of type '" .. t .. "'.")
+    end
+end
+
+function table.unserialize(str)
+    return loadstring("return " .. str)()
+end
+
+
+function doCreatureSetNoMove(cid,allow)
+if allow then
+local speed = Player(cid):getSpeed()
+Player(cid):changeSpeed(-speed)
+      else
+    doChangeSpeed(cid, getSpeed(cid, getPlayerLevel(cid)) - getCreatureSpeed(cid))
+end
+end
+ 
+function getSpeed(cid,level)
+  value = (220 +(2 *(level -1)))
+  return value
+end
+ 
+ function timeString(timeDiff, roundVal, roundUpVal)
+  if roundVal and roundVal <= timeDiff then
+    timeDiff = timeDiff - (roundUpVal or 0)
+    timeDiff = timeDiff - timeDiff % -roundVal
+  end
+ 
+  if timeDiff <= 0 then
+    return "none"
+  end
+ 
+  local dateValues = {
+      {"week", timeDiff / 60 / 60 / 7},
+      {"day", timeDiff / 60 / 60 / 24},
+      {"hour", timeDiff / 60 / 60 % 24},
+      {"minute", timeDiff / 60 % 60},
+      {"second", timeDiff % 60}
+  }
+ 
+  local result = {}
+  for _, dateValue in ipairs(dateValues) do
+    local value = math.floor(dateValue[2])
+    if value > 0 then
+      table.insert(result, ("%d %s%s"):format(value, dateValue[1], value ~= 1 and "s" or ""))
+    end
+  end
+ 
+  local ret = table.concat(result, ", ", 1, math.max(1, #result - 1))
+  if #result > 1 then
+    ret = ("%s and %s"):format(ret, result[#result])
+  end
+  return ret
+end
+ 
+function mtimeString(timeDiff, ...)
+  return timeString(timeDiff / 1000, ...)
+end
+
+
+function showTimeLeft(number, usewords)
+   local number = tonumber(number)
+   if not number then
+     return "error"
+   end
+ 
+   if number < 0 then
+     return "expired"
+   end
+ 
+   local clocknum = os.date("!%X",number):split(":") -- h:m:s
+   local day = math.modf(number / 86400)
+   local hour = clocknum[1]
+   local minute = clocknum[2]
+   local second = clocknum[3]
+ 
+   if not usewords then
+     return table.concat({day, hour, minute, second}, ":")
+   end
+ 
+   local text = {}
+   if day > 0 then
+     table.insert(text, tonumber(day) .. " day" .. (day > 1 and "s" or ""))
+   end
+ 
+   if hour ~= "00" then
+     table.insert(text, tonumber(hour) .. " hour" .. (tonumber(hour) > 1 and "s" or ""))
+   end
+ 
+   if minute ~= "00" then
+     table.insert(text, tonumber(minute) .. " minute" .. (tonumber(minute) > 1 and "s" or ""))
+   end
+ 
+   if second ~= "00" then
+     table.insert(text, tonumber(second) .. " second" .. (tonumber(second) > 1 and "s" or ""))
+   end
+ 
+   countdown_text = ""
+   if #text > 0 then
+     countdown_text = text[1]
+     for i = 2, #text - 1 do
+       countdown_text = countdown_text .. ", " .. text[i]
+     end
+     if #text > 1 then
+       countdown_text = countdown_text .. " and " .. text[#text]
+     end
+     countdown_text = countdown_text .. " left."
+   else
+     countdown_text = "expired"
+   end
+return countdown_text
+end
+
+function saveServer()
+  if connectedOnSaveServer then
+    for _,information in ipairs (connectedOnSaveServer) do
+      local params = {}
+      if not information.executeFunction(params) then return false end
+    end
+  end
+
+ -- doServerSave()
+end
+
+function Player.getDepotItems(self, depotId)
+  return self:getDepotChest(depotId, true):getItemHoldingCount()
+end
+
+function Creature.getPlayer(self)
+  return self:isPlayer() and self or nil
+end
+
+function Player.getClosestFreePosition(self, position, extended)
+  if self:getAccountType() >= ACCOUNT_TYPE_GOD then
+    return position
+  end
+  return Creature.getClosestFreePosition(self, position, extended)
+end
+
+function Creature.getClosestFreePosition(self, position, extended)
+  local usePosition = Position(position)
+  local tiles = { usePosition:getTile() }
+  local length = extended and 2 or 1
+  
+  local tile
+  for y = -length, length do
+    for x = -length, length do
+      if x ~= 0 or y ~= 0 then
+        usePosition.x = position.x + x
+        usePosition.y = position.y + y
+        
+        tile = usePosition:getTile()
+        if tile then
+          tiles[#tiles + 1] = tile
+        end
+      end
+    end
+  end
+  
+  for i = 1, #tiles do
+    tile = tiles[i]
+    if tile:getCreatureCount() == 0 and not tile:hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID) then
+      return tile:getPosition()
+    end
+  end
+  return Position()
+end
+
+function Position.getNextPosition(self, direction, steps)
+  steps = steps or 1
+  if direction == WEST then
+    self.x = self.x - steps
+  elseif direction == EAST then
+    self.x = self.x + steps
+  elseif direction == NORTH then
+    self.y = self.y - steps
+  elseif direction == SOUTH then
+    self.y = self.y + steps
+  elseif direction == NORTHWEST then
+    self.x = self.x - steps
+    self.y = self.y - steps
+  elseif direction == NORTHEAST then
+    self.x = self.x + steps
+    self.y = self.y - steps
+  elseif direction == SOUTHWEST then
+    self.x = self.x - steps
+    self.y = self.y + steps
+  elseif direction == SOUTHEAST then
+    self.x = self.x + steps
+    self.y = self.y + steps
+  end
+end
+
+function Game.getReverseDirection(direction)
+  if direction == WEST then
+    return EAST
+  elseif direction == EAST then
+    return WEST
+  elseif direction == NORTH then
+    return SOUTH
+  elseif direction == SOUTH then
+    return NORTH
+  elseif direction == NORTHWEST then
+    return SOUTHEAST
+  elseif direction == NORTHEAST then
+    return SOUTHWEST
+  elseif direction == SOUTHWEST then
+    return NORTHEAST
+  elseif direction == SOUTHEAST then
+    return NORTHWEST
+  end
+  return NORTH
+end
+
+
+function Game.convertIpToString(ip)
+  local band = bit.band
+  local rshift = bit.rshift
+  return string.format("%d.%d.%d.%d",
+    band(ip, 0xFF),
+    band(rshift(ip, 8), 0xFF),
+    band(rshift(ip, 16), 0xFF),
+    rshift(ip, 24)
+  )
+end
+
+
+function createClass(parent)
+  local newClass = {}
+  function newClass:new(instance)
+    local instance = instance or {}
+    setmetatable(instance, {__index = newClass})
+    return instance
+  end
+
+  if(parent ~= nil) then
+    setmetatable(newClass, {__index = parent})
+  end
+
+  function newClass:getSelf()
+    return newClass
+  end
+
+  function newClass:getParent()
+    return baseClass
+  end
+
+  function newClass:isa(class)
+    local tmp = newClass
+    while(tmp ~= nil) do
+      if(tmp == class) then
+        return true
+      end
+
+      tmp = tmp:getParent()
+    end
+
+    return false
+  end
+  
+  function newClass:setAttributes(attributes)
+    for k, v in pairs(attributes) do
+      newClass[k] = v
+    end
+  end
+
+  return newClass
+end
+
+
+if(result == nil) then
+  print("> WARNING: Couldn't load database lib.")
+  return
+end
+
+Result = createClass(nil)
+Result:setAttributes({
+  id = -1,
+  query = ""
+})
+
+function Result:getID()
+  return self.id
+end
+
+function Result:setID(_id)
+  self.id = _id
+end
+
+function Result:getQuery()
+  return self.query
+end
+
+function Result:setQuery(_query)
+  self.query = _query
+end
+
+function Result:create(_query)
+  self:setQuery(_query)
+  local _id = db.storeQuery(self:getQuery())
+  if(_id) then
+    self:setID(_id)
+  end
+
+  return self:getID()
+end
+
+function Result:getRows(free)
+  local free = free or false
+  if(self:getID() == -1) then
+--    error("[Result:getRows] Result not set!")
+    return 0
+  end
+
+  local c = 0
+  repeat
+    c = c + 1
+  until not self:next()
+
+  local _query = self:getQuery()
+  self:free()
+  if(not free) then
+    self:create(_query)
+  end
+
+  return c
+end
+
+function Result:getDataInt(s)
+  if(self:getID() == -1) then
+    error("[Result:getDataInt] Result not set!")
+  end
+
+  return result.getDataInt(self:getID(), s)
+end
+
+function Result:getDataLong(s)
+  if(self:getID() == -1) then
+    error("[Result:getDataLong] Result not set!")
+  end
+
+  return result.getDataLong(self:getID(), s)
+end
+
+function Result:getDataString(s)
+  if(self:getID() == -1) then
+    error("[Result:getDataString] Result not set!")
+  end
+
+  return result.getDataString(self:getID(), s)
+end
+
+function Result:getDataStream(s)
+  if(self:getID() == -1) then
+    error("[Result:getDataStream] Result not set!")
+  end
+
+  return result.getDataStream(self:getID(), s)
+end
+
+function Result:next()
+  if(self:getID() == -1) then
+    error("[Result:next] Result not set!")
+  end
+
+  return result.next(self:getID())
+end
+
+function Result:free()
+  if(self:getID() == -1) then
+    error("[Result:free] Result not set!")
+  end
+
+  self:setQuery("")
+  local ret = result.free(self:getID())
+  self:setID(-1)
+  return ret
+end
+
+Result.numRows = Result.getRows
+function db.getResult(query)
+  if(type(query) ~= 'string') then
+    return nil
+  end
+
+  local ret = Result:new()
+  ret:create(query)
+  return ret
+end
+
+print("> Addons ==> Database - loaded successfully!")
+
+g_logger = {}
+
+function g_logger.createUniqueLog(name, information)
+  if g_config.doLogGeneralStuff then
+    local result = db.getResult("SELECT * FROM `general_log` WHERE `name` = '".. name .."';")
+
+    if (result:getID() ~= -1) then
+      db.query("DELETE FROM `general_log` WHERE `name` = '" .. name .. "';")
+    end
+
+    db.query("INSERT INTO `general_log` (`name`, `information`, `date`) VALUES ('" .. name .. "', '" .. information .. "', " .. os.time() .. ");")
+  end
+end
+
+function g_logger.getLogInfo(name)
+  local result = db.getResult("SELECT * FROM `general_log` WHERE `name` = '".. name .."';")
+
+  if (result:getID() ~= -1) then
+    return result:getDataString("information"), os.date(result:getDataInt("date"))
+  end
+
+  return false
+end
+
+module("matrix", package.seeall)
+
+_G.DEGREES_0 = 0
+_G.DEGREES_90 = 90
+_G.DEGREES_180 = 180
+_G.DEGREES_270 = 270
+
+_G.DIRECTION_VERTICAL = 0
+_G.DIRECTION_HORIZONTAL = 1
+
+local function rotate_90(matrix)
+        local ret = {}
+
+        for y in ipairs(matrix) do
+                local w = #matrix[y]
+
+                for x, v in ipairs(matrix[y]) do
+                        if not ret[w-x+1] then
+                                ret[w-x+1] = {}
+                        end
+
+                        ret[w-x+1][y] = v
+                end
+        end
+
+        return ret
+end
+
+local function rotate_180(matrix)
+        local ret = {}
+        local h = #matrix
+
+        for y in ipairs(matrix) do
+                local w = #matrix[y]
+
+                for x, v in ipairs(matrix[y]) do
+                        if not ret[h-y+1] then
+                                ret[h-y+1] = {}
+                        end
+
+                        ret[h-y+1][w-x+1] = v
+                end
+        end
+
+        return ret
+end
+
+local function rotate_270(matrix)
+        local ret = {}
+        local h = #matrix
+
+        for y in ipairs(matrix) do
+                for x, v in ipairs(matrix[y]) do
+                        if not ret[x] then
+                                ret[x] = {}
+                        end
+
+                        ret[x][h-y+1] = v
+                end
+        end
+
+        return ret
+end
+
+local function mirror_v(matrix)
+        local ret = {}
+        local h = #matrix
+
+        for y in ipairs(matrix) do
+                for x, v in ipairs(matrix[y]) do
+                        if not ret[h-y+1] then
+                                ret[h-y+1] = {}
+                        end
+
+                        ret[h-y+1][x] = v
+                end
+        end
+
+        return ret
+end
+
+local function mirror_h(matrix)
+        local ret = {}
+
+        for y in ipairs(matrix) do
+                local w = #matrix[y]
+
+                for x, v in ipairs(matrix[y]) do
+                        if not ret[y] then
+                                ret[y] = {}
+                        end
+
+                        ret[y][w-x+1] = v
+                end
+        end
+
+        return ret
+end
+
+function rotate(matrix, degrees)
+        degrees = degrees % 360
+
+        if degrees == DEGREES_0 then
+                return matrix
+        elseif degrees == DEGREES_90 then
+                return rotate_90(matrix)
+        elseif degrees == DEGREES_180 then
+                return rotate_180(matrix)
+        elseif degrees == DEGREES_270 then
+                return rotate_270(matrix)
+        end
+
+        error("Invalid degree value to function 'rotate'.", 2)
+        return false
+end
+
+function mirror(matrix, direction)
+        if direction == DIRECTION_VERTICAL then
+                return mirror_v(matrix)
+        elseif direction == DIRECTION_HORIZONTAL then
+                return mirror_h(matrix)
+        end
+
+        error("Invalid direction to function 'mirror'.", 2)
+        return false
+end
+
+print("> Addons ==> Matrix - loaded successfully!")
+
+
+-- Advanced Storage System
+
+function getStorage(self, key)
+  if not isPlayer(self) then
+    return false
+  end
+
+  if not key or not type(key) == "string" then
+    return false
+  end
+
+  local result = db.getResult("SELECT * FROM `advanced_storage` WHERE `guid` = '".. self:getGuid() .."' AND `key` = '".. key .."';")
+
+  if result:getID() == -1 then
+    return false
+  end
+
+  local value = result:getDataString("value")
+
+  if not value then
+    return false
+  end
+
+  return value
+end
+
+function registerStorage(self, key, value)
+  if not isPlayer(self) then
+    return false
+  end
+
+  if value and self:getStorage(key) then
+    db.query("UPDATE `advanced_storage` SET `value` = '" .. value .. "' WHERE `guid` = '" .. self:getGuid() .. "' AND `key` = '" .. key .. "';")
+  elseif not value and self:getStorage(key) then
+    db.query("DELETE FROM `advanced_storage` WHERE `guid` = '" .. self:getGuid() .. "' AND `key` = '" .. key .. "';")
+  elseif value and not self:getStorage(key) then
+    db.query("INSERT INTO `advanced_storage` (`guid`, `key`, `value`) VALUES (" .. self:getGuid() .. ", '" .. key .. "',  '" .. value .. "');")
+  elseif not value and not self:getStorage(key) then
+    return false
+  end
+
+  return true
+end
+
+Player.registerStorage = registerStorage
+Player.getStorage = getStorage
+
+
+Table = {}
+
+function Table.val_to_str(v)
+  if "string" == type(v) then
+    v = string.gsub( v, "\n", "\\n" )
+    if string.match( string.gsub(v,"[^'\"]",""), '^"+$' ) then
+      return "'" .. v .. "'"
+    end
+    return '"' .. string.gsub(v,'"', '\\"' ) .. '"'
+  else
+    return "table" == type( v ) and Table.tostring( v ) or
+      tostring( v )
+  end
+end
+
+function Table.key_to_str(k)
+  if "string" == type(k) and string.match(k, "^[_%a][_%a%d]*$") then
+    return k
+  else
+    return "[" .. Table.val_to_str( k ) .. "]"
+  end
+end
+
+function Table.tostring(tbl)
+  if not tbl then
+    return false
+  end
+
+  if type(tbl) ~= "table" then
+    return false
+  end
+
+  local result, done = {}, {}
+  for k, v in ipairs( tbl ) do
+    table.insert( result, Table.val_to_str( v ) )
+    done[ k ] = true
+  end
+  for k, v in pairs( tbl ) do
+    if not done[ k ] then
+      table.insert( result,
+        Table.key_to_str( k ) .. "=" .. Table.val_to_str( v ) )
+    end
+  end
+  return "{" .. table.concat( result, "," ) .. "}"
+end
+
+function Table.dump(tbl)
+  if not tbl then
+    return false
+  end
+
+  if type(tbl) ~= "table" then
+    return false
+  end
+
+  local result, done = {}, {}
+  for k, v in ipairs( tbl ) do
+    table.insert( result, Table.val_to_str( v ) )
+    done[ k ] = true
+  end
+  for k, v in pairs( tbl ) do
+    if not done[ k ] then
+      table.insert( result,
+        "\n"..Table.key_to_str( k ) .. "=" .. Table.val_to_str( v ) )
+    end
+  end
+  return "{" .. table.concat( result, "," ) .. "}"
+end
+
+function Table.getTableFromString(string)
+  if not string then
+    return false
+  end
+
+  if not type(string) == "string" then
+    return false
+  end
+
+  local table = loadstring("return "..string)()
+
+  if not type(table) == "table" then
+    return false
+  end
+
+  return table
+end
+
+function Table.copy(t)
+  local u = { }
+  for k, v in pairs(t) do u[k] = v end
+  return setmetatable(u, getmetatable(t))
+end
+
+function table.getn(t)
+  if type(t.n) == "number" then return t.n end
+  local max = 0
+  for i, _ in t do
+    if type(i) == "number" and i>max then max=i end
+  end
+  return max
+end
+
+function table.shuffle(t)
+    local rand = math.random 
+    assert( t, "shuffleTable() expected a table, got nil" )
+    local iterations = #t
+    local j
+    
+    for i = iterations, 2, -1 do
+        j = rand(i)
+        t[i], t[j] = t[j], t[i]
+    end
+end
+
+print("> Addons ==> Table aditional functions - loaded successfully!")

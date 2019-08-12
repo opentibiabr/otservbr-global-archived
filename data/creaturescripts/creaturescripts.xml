@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
 
+	<!-- Bestiary -->
+	<event type="kill" name="bestiaryEnviroment" script="bestiary/bestiaryKill.lua"/>
 	<!-- Adventurers Guild -->
 	<event type="kill" name="theGreatDragonHuntKill" script="quests/adventurers guild/the great dragon hunt.lua"/>
 
