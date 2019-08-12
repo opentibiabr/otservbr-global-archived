@@ -1075,6 +1075,8 @@ class LuaScriptInterface
 		static int luaPlayerGetAutoLootList(lua_State* L); */ // NOT READY
 		static int luaPlayerOwnsItem(lua_State* L);
 
+ 		static int luaPlayerOwnsItem(lua_State* L);
+
 		// Monster
 		static int luaMonsterCreate(lua_State* L);
 

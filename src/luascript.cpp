@@ -1574,6 +1574,9 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_WILDGROWTH_PERSISTENT)
 	registerEnum(ITEM_WILDGROWTH_SAFE)
 
+	registerEnum(ITEM_EXERCISE_START)
+	registerEnum(ITEM_EXERCISE_END)
+
 	registerEnum(ITEM_HEALTH_CASK_START)
 	registerEnum(ITEM_HEALTH_CASK_END)
 
@@ -2363,6 +2366,12 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "removeReward", LuaScriptInterface::luaPlayerRemoveReward);
 	registerMethod("Player", "getRewardList", LuaScriptInterface::luaPlayerGetRewardList);
  	registerMethod("Player", "sendInventory", LuaScriptInterface::luaPlayerSendInventory);
+<<<<<<< Updated upstream
+=======
+
+
+  	registerMethod("Player", "updateSupplyTracker", LuaScriptInterface::luaPlayerUpdateSupplyTracker);
+>>>>>>> Stashed changes
 
  	registerMethod("Player", "updateSupplyTracker", LuaScriptInterface::luaPlayerUpdateSupplyTracker);
 	registerMethod("Player", "getDepotChest", LuaScriptInterface::luaPlayerGetDepotChest);
@@ -2572,7 +2581,12 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getAutoLootItem", LuaScriptInterface::luaPlayerGetAutoLootItem);
 	registerMethod("Player", "getAutoLootList", LuaScriptInterface::luaPlayerGetAutoLootList);
 
+<<<<<<< Updated upstream
 	registerMethod("Player", "ownsItem", LuaScriptInterface::luaPlayerOwnsItem);
+=======
+ 	registerMethod("Player", "ownsItem", LuaScriptInterface::luaPlayerOwnsItem);
+
+>>>>>>> Stashed changes
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
 	registerMetaMethod("Monster", "__eq", LuaScriptInterface::luaUserdataCompare);
@@ -3771,6 +3785,27 @@ int LuaScriptInterface::luaDoAddContainerItem(lua_State* L)
 
 	pushBoolean(L, false);
 	return 1;
+}
+
+int LuaScriptInterface::luaPlayerUpdateSupplyTracker(lua_State* L)
+{
+	// player:updateSupplyTracker(item)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+ 	Item* item = getUserdata<Item>(L, 2);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+ 	player->updateSupplyTracker(item);
+	pushBoolean(L, true);
+
+ 	return 1;
 }
 
 int LuaScriptInterface::luaGetDepotId(lua_State* L)
@@ -8541,7 +8576,12 @@ int LuaScriptInterface::luaPlayerGetRewardList(lua_State* L)
 	return 1;
 }
 
+<<<<<<< Updated upstream
 int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
+=======
+
+ int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
+>>>>>>> Stashed changes
 {
 	// player:sendInventory()
 	Player* player = getUserdata<Player>(L, 1);
@@ -8550,12 +8590,22 @@ int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
 		return 1;
 	}
 
+<<<<<<< Updated upstream
 	player->sendInventoryClientIds();
 	pushBoolean(L, true);
 
 	return 1;
 }
 
+=======
+ 	player->sendInventoryClientIds();
+	pushBoolean(L, true);
+
+ 	return 1;
+}
+
+
+>>>>>>> Stashed changes
 int LuaScriptInterface::luaMonsterTypeIsRewardBoss(lua_State* L)
 {
 	// get: monsterType:isRewardBoss() set: monsterType:isRewardBoss(bool)

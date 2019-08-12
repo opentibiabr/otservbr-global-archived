@@ -731,9 +731,14 @@ bool Creature::dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreatur
 			deathEvent->executeOnDeath(this, corpse, lastHitCreature, mostDamageCreature, lastHitUnjustified, mostDamageUnjustified);
 		}
 
+<<<<<<< Updated upstream
 
 		Container* corpseContainer = corpse->getContainer();
 		if (corpse && corpseContainer) {
+=======
+		Container* corpseContainer = corpse->getContainer();
+	if (corpse && corpseContainer) {
+>>>>>>> Stashed changes
 			dropLoot(corpseContainer, lastHitCreature);
 			if (Player* player = mostDamageCreature->getPlayer()) {
 				if (player->getParty()) {

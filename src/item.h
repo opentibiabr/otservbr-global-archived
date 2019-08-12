@@ -1033,7 +1033,12 @@ class Item : virtual public Thing
 
 		bool loadedFromMap = false;
 
+<<<<<<< Updated upstream
 		bool isLootTrackeable = false;
+=======
+ 		bool isLootTrackeable = false;
+
+>>>>>>> Stashed changes
 		//Don't add variables here, use the ItemAttribute class.
 };
 

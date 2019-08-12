@@ -311,11 +311,20 @@ class ProtocolGame final : public Protocol
 		//messages
 		void sendModalWindow(const ModalWindow& modalWindow);
 
+<<<<<<< Updated upstream
 		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
 		void sendUpdateSupplyTracker(const Item* item);
 		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
 		void sendUpdateLootTracker(Item* item);
+=======
+
+ 		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
+>>>>>>> Stashed changes
 		//Help functions
+
+ 		void sendUpdateSupplyTracker(const Item* item);
+		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
+		void sendUpdateLootTracker(Item* item);
 
 		// translate a tile to clientreadable format
 		void GetTileDescription(const Tile* tile, NetworkMessage& msg);

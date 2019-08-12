@@ -1234,6 +1234,10 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 		return retMaxCount;
 	}
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	// looting analyser from this point forward
 	if (fromCylinder && actor && toCylinder) {
 		if (!fromCylinder->getContainer() || !actor->getPlayer() || !toCylinder->getContainer()) {
@@ -1242,6 +1246,7 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 
 	 	if (Player* player = actor->getPlayer()) {
 	 		if (player->getProtocolVersion() < 1140 || player->operatingSystem != CLIENTOS_NEW_WINDOWS) {
+<<<<<<< Updated upstream
 				return ret;
 			}
 
@@ -1252,12 +1257,27 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 			}
 
 					 	if (it.corpseType != RACE_NONE && toCylinder->getContainer()->getTopParent() == player && item->getIsLootTrackeable()) {
+=======
+	 			return ret;
+		}
+
+
+	const ItemType& it = Item::items[fromCylinder->getItem()->getID()];
+		if (it.id <= 0) {
+			return ret;
+		}
+
+ 		 	if (it.corpseType != RACE_NONE && toCylinder->getContainer()->getTopParent() == player && item->getIsLootTrackeable()) {
+>>>>>>> Stashed changes
 				player->updateLootTracker(item);
 			}
 	 	}
 	}
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	if (moveItem && moveItem->getDuration() > 0) {
 		if (moveItem->getDecaying() != DECAYING_TRUE) {
 			moveItem->incrementReferenceCounter();
@@ -4181,7 +4201,10 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			if (targetPlayer) {
 				targetPlayer->updateImpactTracker(realHealthChange, true);
 			}
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 			std::stringstream ss;
 
 			ss << realHealthChange << (realHealthChange != 1 ? " hitpoints." : " hitpoint.");
@@ -4407,6 +4430,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				if (targetMonster->israndomStepping()) {
 					targetMonster->setIgnoreFieldDamage(true);
 					targetMonster->updateMapCache();
+					attackerPlayer->updateImpactTracker(realDamage, false);
 				}
 			}
 		}
