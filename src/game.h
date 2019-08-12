@@ -520,6 +520,8 @@ class Game
 		bool itemidHasMoveevent(uint32_t itemid);
 		bool hasEffect(uint8_t effectId);
 		bool hasDistanceEffect(uint8_t effectId);
+		
+
 
 		Groups groups;
 		Map map;
