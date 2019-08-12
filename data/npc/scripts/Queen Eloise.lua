@@ -7,47 +7,89 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()				npcHandler:onThink()					end
 
+function creatureSayCallback(cid, type, msg)
+	if(not npcHandler:isFocused(cid)) then
+		return false
+	end
+
+	local player = Player(cid)
+
+	if(msgcontains(msg, "outfit") or msgcontains(msg, "addon")) then
+		if player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) <= 1 then
+			npcHandler:say("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
+			npcHandler.topic[cid] = 1
+		end
+	end
+	if(msgcontains(msg, "outfit") or msgcontains(msg, "addon")) then
+		if player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) < 1 then
+			npcHandler:say("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
+			npcHandler.topic[cid] = 3
+		elseif player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) < 1 then
+			npcHandler:say("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
+			npcHandler.topic[cid] = 3
+		end
+
+	elseif(msgcontains(msg, "yes")) then
+		if npcHandler.topic[cid] == 1 then
+			selfSay("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
+			selfSay("You will be entitled to wear the {armor} for 500.000.000 gold pieces, {boots} for an additional 250.000.000 and the {helmet} for another 250.000.000 gold pieces. ...", cid)
+			selfSay("What will it be?", cid)
+			npcHandler.topic[cid] = 2
+			end
+		if npcHandler.topic[cid] == 3 then
+			selfSay("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
+			selfSay("You will be entitled to wear the {armor} for 500.000.000 gold pieces, {boots} for an additional 250.000.000 and the {helmet} for another 250.000.000 gold pieces. ...", cid)
+			selfSay("What will it be?", cid)
+			npcHandler.topic[cid] = 4
+		elseif npcHandler.topic[cid] == 5 then
+			if(doPlayerRemoveMoney(cid, 500000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) < 1) then
+				npcHandler:say("Take this armor as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
+				npcHandler.topic[cid] = 0
+				player:addOutfit(1210)
+				player:addOutfit(1211)
+				player:setStorageValue(Storage.OutfitQuest.GoldenBaseOutfit, 1)
+			end
+		elseif npcHandler.topic[cid] == 6 then
+			if(doPlayerRemoveMoney(cid, 250000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) < 1) then
+				npcHandler:say("Take this boots as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
+				npcHandler.topic[cid] = 0
+				player:addOutfitAddon(1210, 1)
+				player:addOutfitAddon(1211, 1)
+				player:setStorageValue(Storage.OutfitQuest.GoldenFirstAddon, 1)
+			end
+		elseif npcHandler.topic[cid] == 7 then
+			if(doPlayerRemoveMoney(cid, 250000000) and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1  and player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) < 1) then
+				npcHandler:say("Take this helmet as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
+				npcHandler.topic[cid] = 0
+				player:addOutfitAddon(1210, 2)
+				player:addOutfitAddon(1211, 2)
+				player:setStorageValue(Storage.OutfitQuest.GoldenSecondAddon, 1)
+			end
+		end
+	elseif(msgcontains(msg, "armor")) and (npcHandler.topic[cid] == 2 and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) < 1) then
+		npcHandler:say("So you would like to donate 500.000.000 gold pieces which in return will entitle you to wear a unique armor?", cid)
+		npcHandler.topic[cid] = 5
+	elseif(msgcontains(msg, "boots")) and (npcHandler.topic[cid] == 4 and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) < 1) then
+		npcHandler:say("So you would like to donate 250.000.000 gold pieces which in return will entitle you to wear unique boots?", cid)
+		npcHandler.topic[cid] = 6
+	elseif(msgcontains(msg, "helmet")) and (npcHandler.topic[cid] == 4 and player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1 and player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) < 1) then
+		npcHandler:say("So you would like to donate 250.000.000 gold pieces which in return will entitle you to wear a unique helmet?", cid)
+		npcHandler.topic[cid] = 7
+	end
+	return true
+end
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:addModule(FocusModule:new())
+
 -- Promotion
 local node1 = keywordHandler:addKeyword({'promot'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'I can promote you for 20000 gold coins. Do you want me to promote you?'})
 	node1:addChildKeyword({'yes'}, StdModule.promotePlayer, {npcHandler = npcHandler, cost = 20000, level = 20, text = 'Congratulations! You are now promoted.'})
 	node1:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'Alright then, come back when you are ready.', reset = true})
--- Postman
-keywordHandler:addKeyword({'uniforms'}, StdModule.say, {npcHandler = npcHandler, text = 'I remember about those uniforms, they had a camouflage inlay so they could be worn the inside out too. I will send some color samples via mail to Mr. Postner.'},
-	function(player) return player:getStorageValue(Storage.postman.Mission06) == 5 end,
-	function(player) player:setStorageValue(Storage.postman.Mission06, 6) end
-)
 
-keywordHandler:addKeyword({'uniforms'}, StdModule.say, {npcHandler = npcHandler, text = 'The uniforms of our guards and soldiers are of unparraleled quality of course.'})
 
--- Basic
-keywordHandler:addKeyword({'subject'}, StdModule.say, {npcHandler = npcHandler, text = 'I am {Queen} Eloise. It is my duty to reign over this marvellous {city} and the {lands} of the north.'})
-keywordHandler:addAliasKeyword({'job'})
-keywordHandler:addKeyword({'justice'}, StdModule.say, {npcHandler = npcHandler, text = 'We women try to bring justice and wisdom to all, even to males.'})
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'I am Queen Eloise. For you it\'s \'My Queen\' or \'Your Majesty\', of course.'})
-keywordHandler:addKeyword({'news'}, StdModule.say, {npcHandler = npcHandler, text = 'I don\'t care about gossip like a simpleminded male would do.'})
-keywordHandler:addKeyword({'tibia'}, StdModule.say, {npcHandler = npcHandler, text = 'Soon the whole land will be ruled by women at last!'})
-keywordHandler:addAliasKeyword({'land'})
-keywordHandler:addKeyword({'how', 'are', 'you'}, StdModule.say, {npcHandler = npcHandler, text = 'Thank you, I\'m fine.'})
-keywordHandler:addKeyword({'castle'}, StdModule.say, {npcHandler = npcHandler, text = 'It\'s my humble domain.'})
-keywordHandler:addKeyword({'sell'}, StdModule.say, {npcHandler = npcHandler, text = 'Sell? Your question shows that you are a typical member of your gender!'})
-keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'We honor the gods of good in our fair city, especially Crunor, of course.'})
-keywordHandler:addKeyword({'citizen'}, StdModule.say, {npcHandler = npcHandler, text = 'All citizens of Carlin are my subjects. I see them more as my childs, though, epecially the male population.'})
-keywordHandler:addKeyword({'thais'}, StdModule.say, {npcHandler = npcHandler, text = 'This beast scared my cat away on my last diplomatic mission in this filthy town.'})
-keywordHandler:addKeyword({'ferumbras'}, StdModule.say, {npcHandler = npcHandler, text = 'He is the scourge of the whole continent!'})
-keywordHandler:addKeyword({'treasure'}, StdModule.say, {npcHandler = npcHandler, text = 'The royal treasure is hidden beyond the grasps of any thieves by magical means.'})
-keywordHandler:addKeyword({'monster'}, StdModule.say, {npcHandler = npcHandler, text = 'Go and hunt them! For queen and country!'})
-keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = 'Visit the church or the townguards for help.'})
-keywordHandler:addKeyword({'quest'}, StdModule.say, {npcHandler = npcHandler, text = 'I will call for heroes as soon as the need arises again.'})
-keywordHandler:addAliasKeyword({'mission'})
-keywordHandler:addKeyword({'gold'}, StdModule.say, {npcHandler = npcHandler, text = 'Our city is rich and prospering.'})
-keywordHandler:addAliasKeyword({'money'})
-keywordHandler:addAliasKeyword({'tax'})
-keywordHandler:addKeyword({'sewer'}, StdModule.say, {npcHandler = npcHandler, text = 'I don\'t want to talk about \'sewers\'.'})
-keywordHandler:addKeyword({'dungeon'}, StdModule.say, {npcHandler = npcHandler, text = 'Dungeons are places where males crawl around and look for trouble.'})
-keywordHandler:addKeyword({'equipment'}, StdModule.say, {npcHandler = npcHandler, text = 'Feel free to visit our town\'s magnificent shops.'})
-keywordHandler:addAliasKeyword({'food'})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = 'Don\'t worry about time in the presence of your Queen.'})
-keywordHandler:addKeyword({'hero'}, StdModule.say, {npcHandler = npcHandler, text = 'We need the assistance of heroes now and then. Even males prove useful now and then.'})
+npcHandler:addModule(FocusModule:new())
+
 keywordHandler:addAliasKeyword({'adventure'})
 keywordHandler:addKeyword({'collector'}, StdModule.say, {npcHandler = npcHandler, text = 'The taxes in Carlin are not high, more a symbol than a sacrifice.'})
 keywordHandler:addKeyword({'queen'}, StdModule.say, {npcHandler = npcHandler, text = 'I am the Queen, the only rightful ruler on the continent!'})
