@@ -20,6 +20,7 @@
 #include "otpch.h"
 
 #include <boost/range/adaptor/reversed.hpp>
+#include <mutex>
 
 #include "luascript.h"
 #include "chat.h"
@@ -62,6 +63,8 @@ uint32_t ScriptEnvironment::lastResultId = 0;
 std::multimap<ScriptEnvironment*, Item*> ScriptEnvironment::tempItems;
 
 LuaEnvironment g_luaEnvironment;
+
+std::mutex m;
 
 ScriptEnvironment::ScriptEnvironment()
 {
@@ -492,13 +495,16 @@ void LuaScriptInterface::reportError(const char* function, const std::string& er
 
 bool LuaScriptInterface::pushFunction(int32_t functionId)
 {
+	m.lock();
 	lua_rawgeti(luaState, LUA_REGISTRYINDEX, eventTableRef);
 	if (!isTable(luaState, -1)) {
+		m.unlock();
 		return false;
 	}
 
 	lua_rawgeti(luaState, -1, functionId);
 	lua_replace(luaState, -2);
+	m.unlock();
 	return isFunction(luaState, -1);
 }
 
@@ -4815,9 +4821,11 @@ int LuaScriptInterface::luaGameGetClientVersion(lua_State* L)
 int LuaScriptInterface::luaGameReload(lua_State* L)
 {
 	// Game.reload(reloadType)
+	m.lock();
 	ReloadTypes_t reloadType = getNumber<ReloadTypes_t>(L, 1);
 	if (!reloadType) {
 		lua_pushnil(L);
+		m.unlock();
 		return 1;
 	}
 
@@ -4828,6 +4836,7 @@ int LuaScriptInterface::luaGameReload(lua_State* L)
 		pushBoolean(L, g_game.reload(reloadType));
 	}
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
+	m.unlock();
 	return 1;
 }
 
