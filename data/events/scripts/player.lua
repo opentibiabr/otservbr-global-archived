@@ -777,7 +777,9 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Store Bonus
+	local Boost = self:getExpBoostStamina()
 	useStaminaXp(self) -- Use store boost stamina
+	self:setStoreXpBoost(Boost > 0 and 50 or 0)
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
 		self:setStoreXpBoost(0) -- Reset Store boost to 0 if boost stamina has ran out
 	end
@@ -793,9 +795,13 @@ function Player:onGainExperience(source, exp, rawExp)
 		if staminaMinutes > 2400 and self:isPremium() then
 			exp = exp + baseExp * 0.5
 			displayRate = displayRate + Game.getExperienceStage(self:getLevel()) * 0.5
+			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
 			exp = exp * 0.5
+			self:setStaminaXpBoost(50)
 			displayRate = displayRate * 0.5
+		else
+			self:setStaminaXpBoost(100)
 		end
 	end
 

@@ -190,18 +190,25 @@ function onLogin(player)
 	end
 	local staminaMinutes = player:getStamina()
 	local storeBoost = player:getExpBoostStamina()
+	player:setStoreXpBoost(storeBoost > 0 and 50 or 0)
 	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
 		player:setBaseXpGain(displayRate*2*100) -- Premium + Stamina boost + Store boost
+		player:setStaminaXpBoost(150)
 	elseif staminaMinutes > 2400 and player:isPremium() and storeBoost <= 0 then
 		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Stamina boost
+		player:setStaminaXpBoost(150)
 	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and storeBoost > 0 then
 		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Store boost
+		player:setStaminaXpBoost(100)
 	elseif staminaMinutes > 840 and storeBoost > 0 then
 		player:setBaseXpGain(displayRate*1.5*100) -- FACC + Store boost
+		player:setStaminaXpBoost(100)
 	elseif staminaMinutes <= 840 and storeBoost > 0 then
 		player:setBaseXpGain(displayRate*1*100) -- ALL players low stamina + Store boost
+		player:setStaminaXpBoost(50)
 	elseif staminaMinutes <= 840 then
 		player:setBaseXpGain(displayRate*0.5*100) -- ALL players low stamina
+		player:setStaminaXpBoost(50)
 	end
 
 	if player:getClient().version > 1110 then
