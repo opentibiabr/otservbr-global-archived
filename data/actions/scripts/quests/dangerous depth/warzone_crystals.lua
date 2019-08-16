@@ -42,8 +42,6 @@ local function createCrystal(crystalId, player)
 			player:sendCancelMessage(Game.getReturnMessage(ret))
 			return true
 		end
-		
-		player:addItem(itemId, 1)
 	end
 end
 
