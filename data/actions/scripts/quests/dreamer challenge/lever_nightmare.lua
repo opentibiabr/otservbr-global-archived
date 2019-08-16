@@ -18,14 +18,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.uid == config[1].uid then
 		local diamondItem = Tile(config[1].position):getItemById(2145)
 		if player:getStorageValue(Storage.OutfitQuest.BrotherhoodOutfit) >= config[1].storageOutfit then
-			if diamondItem and player:getStorageValue(641311) < 1 then
+			if diamondItem and player:getStorageValue(Storage.DreamersChallenge.LeverNightmare1) < 1 then
 				diamondItem:remove(1)
-				player:setStorageValue(641311, 1)
+				player:setStorageValue(Storage.DreamersChallenge.LeverNightmare1, 1)
 				config[1].position:sendMagicEffect(CONST_ME_TELEPORT)
 				Game.createItem(config[1].itemId, 1, config[1].position)
 				item:transform(1946)
 				addEvent(revertLever, 4 * 1000, toPosition)
-			elseif not diamondItem and player:getStorageValue(641311) < 1 then
+			elseif not diamondItem and player:getStorageValue(Storage.DreamersChallenge.LeverNightmare1) < 1 then
 				player:sendCancelMessage('You need to offer a small diamond.')
 			else
 				player:sendCancelMessage('You have already used this lever!')
@@ -36,14 +36,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif item.uid == config[2].uid then
 		if player:getStorageValue(Storage.OutfitQuest.BrotherhoodOutfit) >= config[2].storageOutfit then
 			local diamondItem = Tile(config[2].position):getItemById(2145)
-			if diamondItem and player:getStorageValue(641312) < 1 then
+			if diamondItem and player:getStorageValue(Storage.DreamersChallenge.LeverNightmare1) < 1 then
 				diamondItem:remove(1)
-				player:setStorageValue(641312, 1)
+				player:setStorageValue(Storage.DreamersChallenge.LeverNightmare1, 1)
 				config[2].position:sendMagicEffect(CONST_ME_TELEPORT)
 				Game.createItem(config[2].itemId, 1, config[2].position)
 				item:transform(1946)
 				addEvent(revertLever, 4 * 1000, toPosition)
-			elseif not diamondItem and player:getStorageValue(641312) < 1 then
+			elseif not diamondItem and player:getStorageValue(Storage.DreamersChallenge.LeverNightmare1) < 1 then
 				player:sendCancelMessage('You need to offer a small diamond.')
 			else
 				player:sendCancelMessage('You have already used this lever!')
@@ -54,14 +54,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif item.uid == config[3].uid then
 		if player:getStorageValue(Storage.OutfitQuest.BrotherhoodOutfit) >= config[3].storageOutfit then
 			local diamondItem = Tile(config[3].position):getItemById(2145)
-			if diamondItem and player:getStorageValue(641313) < 1 then
+			if diamondItem and player:getStorageValue(Storage.DreamersChallenge.LeverNightmare3) < 1 then
 				diamondItem:remove(1)
-				player:setStorageValue(641313, 1)
+				player:setStorageValue(Storage.DreamersChallenge.LeverNightmare3, 1)
 				config[3].position:sendMagicEffect(CONST_ME_TELEPORT)
 				Game.createItem(config[3].itemId, 1, config[3].position)
 				item:transform(1946)
 				addEvent(revertLever, 4 * 1000, toPosition)
-			elseif not diamondItem and player:getStorageValue(641313) < 1 then
+			elseif not diamondItem and player:getStorageValue(Storage.DreamersChallenge.LeverNightmare3) < 1 then
 				player:sendCancelMessage('You need to offer a small diamond.')
 			else
 				player:sendCancelMessage('You have already used this lever!')
