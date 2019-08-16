@@ -71,6 +71,6 @@
 		<item name="Red Gem" chance="2000" />
 		<item name="Deepling Ceremonial Dagger" chance="200" />
 		<item name="Deepling Fork" chance="200" />
-		<item name="The True Book of Death" chance="70000" />
+		<item name="True Book of Death" chance="70000" />
 	</loot>
 </monster>

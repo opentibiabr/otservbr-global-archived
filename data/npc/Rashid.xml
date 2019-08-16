@@ -198,6 +198,9 @@
 			tortoise shield, 6131, 150;
 			vile axe, 7388, 30000;
 			voodoo doll, 3955, 400;
-			war axe, 2454, 12000 " />
+			war axe, 2454, 12000;
+			war horn, 2079, 8000;
+			witch hat, 10570, 5000;
+			wyvern fang, 7408, 1500 " />
 	</parameters>
 </npc>
