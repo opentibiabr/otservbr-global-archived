@@ -94,9 +94,7 @@
 	<action itemid="31931" script="quests/dangerous depth/gnomeChart.lua" />
 	<action itemid="31993" script="quests/dangerous depth/usingCrystals.lua" />
 	<!-- Access Crystals -->
-	<action fromaid="57350" toaid="57355" script="quests/dangerous depth/WarzoneVI.lua" />
-	<action fromaid="57356" toaid="57361" script="quests/dangerous depth/WarzoneV.lua" />
-	<action fromaid="57362" toaid="57367" script="quests/dangerous depth/WarzoneIV.lua" />
+	<action fromaid="57350" toaid="57367" script="quests/dangerous depth/warzone_crystals.lua" />
 
 	<!-- Devil Helmet Quest -->
 	<action actionid="20594" script="quests/devil helmet/lever.lua" />
