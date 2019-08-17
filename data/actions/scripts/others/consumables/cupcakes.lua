@@ -6,7 +6,7 @@ local lemon = Condition(CONDITION_ATTRIBUTES)
 lemon:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
 lemon:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 10)
 
-function onUse(cid, item, fromPos, itemEx, toPos)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (player:getStorageValue(Storage.CupCakes) <= os.time()) then
 		if (item.itemid == 31719) then
 			Creature(cid):addMana(Creature(cid):getMaxMana() - Creature(cid):getMana())

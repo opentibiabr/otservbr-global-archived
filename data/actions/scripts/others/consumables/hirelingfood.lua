@@ -26,7 +26,7 @@ local carrotPie = Condition(CONDITION_ATTRIBUTES)
 carrotPie:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
 carrotPie:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 7)
 
-function onUse(player, item, frompos, item2, topos)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local cid = player:getId()
 	if (player:getStorageValue(Storage.HirelingFood) <= os.time()) then
 		if (item.itemid == 35172) then

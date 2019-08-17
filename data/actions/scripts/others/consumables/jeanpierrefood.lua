@@ -45,7 +45,7 @@ setConditionParam(condition_i, CONDITION_PARAM_TICKS, 600000)
 addCombatCondition(combat_i, condition_i)
 local iid = {[9992] = 0, [9993] = 1, [9994] = 2, [9995] = 3, [9996] = 4, [9997] = 5, [9998] = 6, [9999] = 7, [10000] = 8, [10001] = 9, [12540] = 10, [12542] = 11, [12543] = 12, [12544] = 13}
 
-function onUse(player, item, frompos, item2, topos)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local cid = player:getId()
 	if player:getStorageValue(Storage.JeanPierreFood + iid[item.itemid]) > os.time() then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are full or you've already eaten a dish within 10 minutes.")
