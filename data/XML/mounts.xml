@@ -146,4 +146,7 @@
 	<mount id="144" clientid="1191" name="Gryphon" speed="20" premium="yes" />
  	<mount id="145" clientid="1208" name="Jousting Eagle" speed="20" premium="yes" />
 	<mount id="146" clientid="1209" name="Cerberus Champion" speed="20" premium="yes" />
+	<mount id="147" clientid="1247" name="Battle Badger" speed="20" premium="yes" />
+	<mount id="148" clientid="1248" name="Ether Badger" speed="20" premium="yes" />
+	<mount id="149" clientid="1249" name="Zaoan Badger" speed="20" premium="yes" />
 </mounts>
