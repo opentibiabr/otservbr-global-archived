@@ -42141,6 +42141,52 @@
 	</item>
 	<item fromid="34756" toid="34757" article="a" name="golden sun"/>
 	<item fromid="34758" toid="34759" name="snowflakes"/>
+	<item id="34760" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34762" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34761" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34765" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34762" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34763" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34763" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34764" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34764" name="elf remains">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34765" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34766" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34766" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34767" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34767" name="elf remains">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
 	<item id="34769" article="an" name="ancient oil lamp"/>
 	<item id="34770" article="a" name="dream talisman">
 		<attribute key="weight" value="1200" />
