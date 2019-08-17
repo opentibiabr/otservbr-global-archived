@@ -793,7 +793,6 @@
 	<monster name="Mutated Zalamon" file="Bosses/mutated zalamon.xml"/>
 	<monster name="Necropharus" file="Bosses/necropharus.xml"/>
 	<monster name="Obujos" file="Bosses/obujos.xml"/>
-	<monster name="Omrafir" file="Bosses/omrafir.xml"/>
 	<monster name="Orshabaal" file="Bosses/orshabaal.xml"/>
 	<monster name="Paiz the Pauperizer" file="Bosses/paiz the pauperizer.xml"/>
 	<monster name="Prince Drazzak" file="Bosses/prince_drazzak.xml"/>
