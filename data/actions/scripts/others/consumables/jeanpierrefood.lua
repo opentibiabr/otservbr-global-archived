@@ -47,11 +47,11 @@ local iid = {[9992] = 0, [9993] = 1, [9994] = 2, [9995] = 3, [9996] = 4, [9997] 
 
 function onUse(player, item, frompos, item2, topos)
 	local cid = player:getId()
-	if player:getStorageValue(17110 + iid[item.itemid]) > os.time() then
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need to wait before using it again.")
+	if player:getStorageValue(Storage.JeanPierreFood + iid[item.itemid]) > os.time() then
+		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are full or you've already eaten a dish within 10 minutes.")
 		return true
 	end
-	player:setStorageValue(17110 + iid[item.itemid],os.time() + (15 * 60))
+	player:setStorageValue(Storage.JeanPierreFood + iid[item.itemid],os.time() + 600)
 
 	if item.itemid == 9992 then
 		item:remove(1)
@@ -165,7 +165,7 @@ function onUse(player, item, frompos, item2, topos)
 	return true
 	elseif item.itemid == 12544 then
 	local ring = getPlayerSlotItem(cid, CONST_SLOT_RING)
-	local r_t = {
+	local r_t = { -- missing Blister Ring
 		[2211] = 2208,
 		[2212] = 2209,
 		[6301] = 6300,
@@ -178,6 +178,9 @@ function onUse(player, item, frompos, item2, topos)
 		[2216] = 2214,
 		[13826] = 13825,
 		[2202] = 2165,
+		[26188] = 26187,
+		[26186] = 26185,
+		[26190] = 26189,
 		[2210] = 2207,
 		[2206] = 2169}
 		if(ring.itemid == 0) then
@@ -193,9 +196,9 @@ function onUse(player, item, frompos, item2, topos)
 		else
 			r_m_am = 1
 		end
-		
+
 		for i = 1, 10 do
-			doPlayerAddItem(cid, r_t[ring.itemid], r_m_am)
+			player:addItem(r_t[ring.itemid], r_m_am)
 		end
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your ring has been multiplied.")
 		player:say("Slurp!", TALKTYPE_MONSTER_SAY)

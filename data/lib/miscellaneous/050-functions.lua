@@ -1,18 +1,3 @@
-function getAccountNumberByPlayerName(name)
-	local player = Player(name)
-	if player ~= nil then
-		return player:getAccountId()
-	end
-
-	local resultId = db.storeQuery("SELECT `account_id` FROM `players` WHERE `name` = " .. db.escapeString(name))
-	if resultId ~= false then
-		local accountId = result.getNumber(resultId, "account_id")
-		result.free(resultId)
-		return accountId
-	end
-	return 0
-end
-
 function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPosition)
 	local spectators, spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
 	for i = 1, #spectators do

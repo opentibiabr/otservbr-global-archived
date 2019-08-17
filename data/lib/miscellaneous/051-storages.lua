@@ -1334,7 +1334,10 @@ Storage = {
 	combatProtectionStorage = 50722,
 	Factions = 50723,
 	blockMovementStorage = 100000,
-	PetSummon = 60045
+	PetSummon = 60045,
+	CupCakes = 5637,
+	HirelingFood = 5638,
+	JeanPierreFood = 5639
 
 }
 

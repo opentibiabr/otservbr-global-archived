@@ -21121,7 +21121,7 @@
 		<attribute key="weight" value="950" />
 	</item>
 	<item id="12544" article="a" name="sweet mangonaise elixir">
-		<attribute key="description" value="It's said to have incredible effects if you drink it while wearing a magical ring with time limit." />
+		<attribute key="description" value="It's said to have incredible effects if you drink it while wearing a volatile magical ring with time limit." />
 		<attribute key="weight" value="300" />
 	</item>
 	<item id="12545" article="the" name="dead Glitterscale">
@@ -35276,15 +35276,15 @@
 	<item id="26159" article="a" name="sparkion tail" plural="sparkion tails">
 		<attribute key="weight" value="750" />
 	</item>
-	<item id="26160" name="sparkion legs" plural="sparkion legs">
+	<item id="26160" name="sparkion legs">
 		<attribute key="weight" value="750" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26161" name="sparkion stings" plural="sparkion stings">
+	<item id="26161" name="sparkion stings">
 		<attribute key="weight" value="350" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26162" name="plasma pearls" plural="plasma pearls">
+	<item id="26162" name="plasma pearls">
 		<attribute key="weight" value="350" />
 		<attribute key="showcount" value="0" />
 	</item>
@@ -35295,47 +35295,47 @@
 	<item id="26164" article="an" name="energy vein" plural="energy veins">
 		<attribute key="weight" value="200" />
 	</item>
-	<item id="26165" article="a" name="mysterious remains">
+	<item id="26165" name="mysterious remains">
 		<attribute key="weight" value="1200" />
 	</item>
 	<item id="26166" article="an" name="odd organ" plural="odd organs">
 		<attribute key="weight" value="450" />
 	</item>
-	<item id="26167" name="curious matter" plural="curious matter">
+	<item id="26167" name="curious matter">
 		<attribute key="weight" value="450" />
 		<attribute key="showcount" value="0" />
 	</item>
 	<item id="26168" article="a" name="spying eye">
 		<attribute key="weight" value="400" />
 	</item>
-	<item id="26169" name="strange proto matter" plural="strange proto matter">
+	<item id="26169" name="strange proto matter">
 		<attribute key="weight" value="600" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26170" name="volatile proto matter" plural="volatile proto matter">
+	<item id="26170" name="volatile proto matter">
 		<attribute key="weight" value="600" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26171" name="dangerous proto matter" plural="dangerous proto matter">
+	<item id="26171" name="dangerous proto matter">
 		<attribute key="weight" value="1200" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26172" name="instable proto matter" plural="instable proto matter">
+	<item id="26172" name="instable proto matter">
 		<attribute key="weight" value="600" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26173" name="solid rage" plural="solid rage">
+	<item id="26173" name="solid rage">
 		<attribute key="weight" value="300" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26174" article="a" name="spark sphere" plural="spark sphere">
+	<item id="26174" article="a" name="spark sphere">
 		<attribute key="weight" value="500" />
 	</item>
-	<item id="26175" name="frozen lightning" plural="frozen lightning">
+	<item id="26175" name="frozen lightning">
 		<attribute key="weight" value="350" />
 		<attribute key="showcount" value="0" />
 	</item>
-	<item id="26176" name="plasmatic lightning" plural="plasmatic lightning">
+	<item id="26176" name="plasmatic lightning">
 		<attribute key="weight" value="700" />
 		<attribute key="showcount" value="0" />
 	</item>
@@ -42013,6 +42013,52 @@
 	<item id="34711" article="a" name="dead arachnophobica">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="34710" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34712" name="elf remains">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34713" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34712" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34714" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34713" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34715" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34714" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34716" name="elf remains">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34717" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34716" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34718" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34717" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="34719" name="elf remains">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="34718" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
