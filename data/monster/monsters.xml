@@ -98,6 +98,7 @@
 	<monster file="Bosses/kalyassa.xml" name="Kalyassa"/>
 	<monster file="Bosses/zorvorax.xml" name="Zorvorax"/>
 	<monster file="Bosses/gelidrazah the frozen.xml" name="Gelidrazah the Frozen"/>
+	<monster name="Omrafir" file="Bosses/omrafir.xml"/>
 
 	<monster file="Dragons/ice dragon.xml" name="Ice Dragon"/>
 	<monster file="Dragons/dragon warden.xml" name="Dragon Warden"/>
