@@ -20,6 +20,6 @@ function onLogout(player)
 		end
 	end
 	
-	player:setStorageValue(17101,0)
+	player:setStorageValue(Storage.DrowningSpeed,0)
 	return true
 end

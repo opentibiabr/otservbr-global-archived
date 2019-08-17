@@ -1337,7 +1337,8 @@ Storage = {
 	PetSummon = 60045,
 	CupCakes = 5637,
 	HirelingFood = 5638,
-	JeanPierreFood = 5639
+	JeanPierreFood = 5639,
+	DrowningSpeed = 5640
 
 }
 
