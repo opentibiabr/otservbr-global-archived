@@ -1,3 +1,5 @@
+local crystalDuration = 5 * 60 -- 5 minutes
+
 local crystals = {
 	-- Warzone IV
 	[57350] = Storage.DangerousDepths.Crystals.WarzoneVI.mediumCrystal1,
@@ -59,7 +61,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local itemId = item:getId()
 	local crystal = createCrystal(itemId, player)
 	if crystal then
-		player:setStorageValue(crystalTimer, os.time() + 5 * 60)
+		player:setStorageValue(crystalTimer, os.time() + crystalDuration)
 	end
 
 	return true
