@@ -51,7 +51,6 @@ local condition_light = Condition(CONDITION_LIGHT)
 local iid = {[9992] = 0, [9993] = 1, [9994] = 2, [9995] = 3, [9996] = 4, [9997] = 5, [9998] = 6, [9999] = 7, [10000] = 8, [10001] = 9, [12540] = 10, [12542] = 11, [12543] = 12, [12544] = 13}
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local cid = player:getId()
 	if player:getStorageValue(Storage.JeanPierreFood + iid[item.itemid]) > os.time() then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are full or you've already eaten a dish within 10 minutes.")
 		return true
@@ -137,7 +136,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 12542 then
-		if math.random(1,5) == 5 then
+		if math.random(5) == 5 then
 			item:remove(1)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You take the last gulp from the large bowl. No leftovers!")
 		else
@@ -150,17 +149,17 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif item.itemid == 12543 then
 		item:remove(1)
 		local c = {condition_shield,condition_ml,condition_melee,condition_dist,condition_speed}
-		local r = math.random(1,4)
-		if r == 1 then
+		local rChance = math.random(4)
+		if rChance == 1 then
 			player:addCondition(c[math.random(1, #c)])
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel stronger, but you have no idea what was increased.")
-		elseif r == 2 then
+		elseif rChance == 2 then
 			player:addCondition(condition_light)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel enlightened.")
-		elseif r == 3 then
+		elseif rChance == 3 then
 			player:addCondition(condition_i)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You became invisible.")
-		elseif r == 4 then
+		elseif rChance == 4 then
 			player:addHealth(player:getMaxHealth() - player:getHealth())
 			player:addMana(player:getMaxMana() - player:getMana())
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your vitality has been restored.")
@@ -170,7 +169,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	elseif item.itemid == 12544 then
 	local ring = player:getSlotItem(CONST_SLOT_RING)
-	local r_t = { -- missing Blister Ring
+	local ringList = { -- missing Blister Ring
 		[2211] = 2208,
 		[2212] = 2209,
 		[6301] = 6300,
@@ -194,16 +193,16 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 		end
 
-	if r_t[ring.itemid] ~= nil then
+	if ringList[ring.itemid] ~= nil then
 		item:remove(1)
-		if ring.itemid == r_t[ring.itemid] then
-			r_m_am = 20
+		if ring.itemid == ringList[ring.itemid] then
+			ringAmount = 20
 		else
-			r_m_am = 1
+			ringAmount = 1
 		end
 
 		for i = 1, 10 do
-			player:addItem(r_t[ring.itemid], r_m_am)
+			player:addItem(ringList[ring.itemid], ringAmount)
 		end
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your ring has been multiplied.")
 		player:say("Slurp!", TALKTYPE_MONSTER_SAY)
