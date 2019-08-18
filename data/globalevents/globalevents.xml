@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
+	<!-- Private Additions by Flyckks -->
+	<globalevent name="privateKeys" type="startup" script="server/privateKeys.lua"/>
 	<!-- Autoloot -->
 	<globalevent name="autoloot" type="startup" script="autoloot.lua"/>
 
