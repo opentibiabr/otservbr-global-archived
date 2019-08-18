@@ -4,45 +4,46 @@ local conditions = {
 	CONDITION_FREEZING, CONDITION_DAZZLED, CONDITION_CURSED,
 	CONDITION_BLEEDING
 }
-local condition_shield = createConditionObject(CONDITION_ATTRIBUTES)
-setConditionParam(condition_shield, CONDITION_PARAM_SUBID, 3)
-setConditionParam(condition_shield, CONDITION_PARAM_BUFF_SPELL, 1)
-setConditionParam(condition_shield, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_shield, CONDITION_PARAM_SKILL_SHIELD, 10)
-setConditionParam(condition_shield, CONDITION_PARAM_FORCEUPDATE, true)
-local condition_ml = createConditionObject(CONDITION_ATTRIBUTES)
-setConditionParam(condition_ml, CONDITION_PARAM_SUBID, 4)
-setConditionParam(condition_ml, CONDITION_PARAM_BUFF_SPELL, 1)
-setConditionParam(condition_ml, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_ml, CONDITION_PARAM_STAT_MAGICPOINTS, 5)
-setConditionParam(condition_ml, CONDITION_PARAM_FORCEUPDATE, true)
-local condition_melee = createConditionObject(CONDITION_ATTRIBUTES)
-setConditionParam(condition_melee, CONDITION_PARAM_SUBID, 5)
-setConditionParam(condition_melee, CONDITION_PARAM_BUFF_SPELL, 1)
-setConditionParam(condition_melee, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_melee, CONDITION_PARAM_SKILL_MELEE, 10)
-setConditionParam(condition_melee, CONDITION_PARAM_FORCEUPDATE, true)
-local condition_dist = createConditionObject(CONDITION_ATTRIBUTES)
-setConditionParam(condition_dist, CONDITION_PARAM_SUBID, 6)
-setConditionParam(condition_dist, CONDITION_PARAM_BUFF_SPELL, 1)
-setConditionParam(condition_dist, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_dist, CONDITION_PARAM_SKILL_DISTANCE, 10)
-setConditionParam(condition_dist, CONDITION_PARAM_FORCEUPDATE, true)
-local condition_f = createConditionObject(CONDITION_ATTRIBUTES)
-setConditionParam(condition_f, CONDITION_PARAM_SUBID, 6)
-setConditionParam(condition_f, CONDITION_PARAM_BUFF_SPELL, 1)
-setConditionParam(condition_f, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_f, CONDITION_PARAM_SKILL_FISHING, 50)
-setConditionParam(condition_f, CONDITION_PARAM_FORCEUPDATE, true)
-local condition_speed = createConditionObject(CONDITION_HASTE)
-setConditionParam(condition_speed, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-setConditionParam(condition_speed, CONDITION_PARAM_SPEED, 600)
-local combat_i = createCombatObject()
-setCombatParam(combat_i, COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
-setCombatParam(combat_i, COMBAT_PARAM_AGGRESSIVE, 0)
-local condition_i = createConditionObject(CONDITION_INVISIBLE)
-setConditionParam(condition_i, CONDITION_PARAM_TICKS, 600000)
-addCombatCondition(combat_i, condition_i)
+local condition_shield = Condition(CONDITION_ATTRIBUTES)
+	Condition.setParameter(condition_shield, CONDITION_PARAM_SUBID, 3)
+	Condition.setParameter(condition_shield, CONDITION_PARAM_BUFF_SPELL, 1)
+	Condition.setParameter(condition_shield, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	Condition.setParameter(condition_shield, CONDITION_PARAM_SKILL_SHIELD, 10)
+	Condition.setParameter(condition_shield, CONDITION_PARAM_FORCEUPDATE, true)
+local condition_ml = Condition(CONDITION_ATTRIBUTES)
+	Condition.setParameter(condition_ml, CONDITION_PARAM_SUBID, 4)
+	Condition.setParameter(condition_ml, CONDITION_PARAM_BUFF_SPELL, 1)
+	Condition.setParameter(condition_ml, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	Condition.setParameter(condition_ml, CONDITION_PARAM_STAT_MAGICPOINTS, 5)
+	Condition.setParameter(condition_ml, CONDITION_PARAM_FORCEUPDATE, true)
+local condition_melee = Condition(CONDITION_ATTRIBUTES)
+	Condition.setParameter(condition_melee, CONDITION_PARAM_SUBID, 5)
+	Condition.setParameter(condition_melee, CONDITION_PARAM_BUFF_SPELL, 1)
+	Condition.setParameter(condition_melee, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	Condition.setParameter(condition_melee, CONDITION_PARAM_SKILL_MELEE, 10)
+	Condition.setParameter(condition_melee, CONDITION_PARAM_FORCEUPDATE, true)
+local condition_dist = Condition(CONDITION_ATTRIBUTES)
+	Condition.setParameter(condition_dist, CONDITION_PARAM_SUBID, 6)
+	Condition.setParameter(condition_dist, CONDITION_PARAM_BUFF_SPELL, 1)
+	Condition.setParameter(condition_dist, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	Condition.setParameter(condition_dist, CONDITION_PARAM_SKILL_DISTANCE, 10)
+	Condition.setParameter(condition_dist, CONDITION_PARAM_FORCEUPDATE, true)
+local condition_f = Condition(CONDITION_ATTRIBUTES)
+	Condition.setParameter(condition_f, CONDITION_PARAM_SUBID, 6)
+	Condition.setParameter(condition_f, CONDITION_PARAM_BUFF_SPELL, 1)
+	Condition.setParameter(condition_f, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	Condition.setParameter(condition_f, CONDITION_PARAM_SKILL_FISHING, 50)
+	Condition.setParameter(condition_f, CONDITION_PARAM_FORCEUPDATE, true)
+local condition_speed = Condition(CONDITION_HASTE)
+	Condition.setParameter(condition_speed, CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	Condition.setParameter(condition_speed, CONDITION_PARAM_SPEED, 600)
+local combat_i = Combat()
+	Combat.setParameter(combat_i, COMBAT_PARAM_EFFECT, CONST_ME_MAGIC_RED)
+	Combat.setParameter(combat_i, COMBAT_PARAM_AGGRESSIVE, 0)
+local condition_i = Condition(CONDITION_INVISIBLE)
+	Condition.setParameter(condition_i, CONDITION_PARAM_TICKS, 600000)
+	Combat.addCondition(combat_i, condition_i)
+
 local iid = {[9992] = 0, [9993] = 1, [9994] = 2, [9995] = 3, [9996] = 4, [9997] = 5, [9998] = 6, [9999] = 7, [10000] = 8, [10001] = 9, [12540] = 10, [12542] = 11, [12543] = 12, [12544] = 13}
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -55,81 +56,81 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if item.itemid == 9992 then
 		item:remove(1)
-		Creature(cid):addHealth(getCreatureMaxHealth(cid) - getCreatureHealth(cid))
+		player:addHealth(player:getMaxHealth() - player:getHealth())
 		player:say("Gulp.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your health has been refilled.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 9993 then
 		item:remove(1)
 		for i = 1, #conditions do
-			doRemoveCondition(cid, conditions[i])
+			player:removeCondition(conditions[i])
 		end
 		player:say("Chomp.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel better body condition.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 9994 then
 		item:remove(1)
-		Creature(cid):addCondition(condition_shield)
+		player:addCondition(condition_shield)
 		player:say("Chomp.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel less vulnerable.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 9995 then
 		item:remove(1)
-		Creature(cid):addCondition(condition_ml)
+		player:addCondition(condition_ml)
 		player:say("Chomp.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel smarter.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 9996 then
 		item:remove(1)
 		player:say("Slurp.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You don't really know what this did to you, but suddenly you feel very happy.")
-		player:getPosition():sendMagicEffect(CONST_ME_HEARTS)
+		fromPosition:sendMagicEffect(CONST_ME_HEARTS)
 		return true
 	elseif item.itemid == 9997 then
 		item:remove(1)
-		Creature(cid):addCondition(condition_melee)
+		player:addCondition(condition_melee)
 		player:say("Yum.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel stronger.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 9998 then
 		item:remove(1)
-		Creature(cid):addCondition(condition_speed)
+		player:addCondition(condition_speed)
 		player:say("Munch.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your speed has been increased.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 9999 then
 		item:remove(1)
-		Creature(cid):addMana(Creature(cid):getMaxMana() - Creature(cid):getMana())
+		player:addMana(player:getMaxMana() - player:getMana())
 		player:say("Chomp.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your mana has been refilled.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 10000 then
 		item:remove(1)
-		Creature(cid):addCondition(condition_dist)
+		player:addCondition(condition_dist)
 		player:say("Mmmm.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel more focused.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 10001 then
 		item:remove(1)
-		Creature(cid):addCondition(condition_f)
+		player:addCondition(condition_f)
 		player:say("Smack.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You felt fishing inspiration.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 12540 then
 		item:remove(1)
-		player:setStorageValue(17100,os.time() + 86400)
+		player:setStorageValue(Storage.DrowningSpeed,os.time() + 86400)
 		player:say("Yum.", TALKTYPE_MONSTER_SAY)
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "Underwater walking speed increased.")
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 12542 then
 		if math.random(1,5) == 5 then
@@ -138,30 +139,30 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		else
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You take a gulp from the large bowl, but there's still some blackjack in it.")
 		end
-		Creature(cid):addHealth(getCreatureMaxHealth(cid) - getCreatureHealth(cid))
+		player:addHealth(player:getMaxHealth() - player:getHealth())
 		player:say("Gulp.", TALKTYPE_MONSTER_SAY)
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	elseif item.itemid == 12543 then
 		item:remove(1)
 		local c = {condition_shield,condition_ml,condition_melee,condition_dist,condition_speed}
 		local r = math.random(1,4)
 		if r == 1 then
-			Creature(cid):addCondition(c[math.random(1, #c)])
+			player:addCondition(c[math.random(1, #c)])
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel stronger, but you have no idea what was increased.")
 		elseif r == 2 then
 			doSetCreatureLight(cid, 15, 154, 60*60*1000)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel enlightened.")
 		elseif r == 3 then
-			Creature(cid):addCondition(condition_i)
+			player:addCondition(condition_i)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You became invisible.")
 		elseif r == 4 then
-			Creature(cid):addHealth(getCreatureMaxHealth(cid) - getCreatureHealth(cid))
-			Creature(cid):addMana(Creature(cid):getMaxMana() - Creature(cid):getMana())
+			player:addHealth(player:getMaxHealth() - player:getHealth())
+			player:addMana(player:getMaxMana() - player:getMana())
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your vitality has been restored.")
 		end
 		 player:say("Smack.", TALKTYPE_MONSTER_SAY)
-		 player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+		 fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 	return true
 	elseif item.itemid == 12544 then
 	local ring = getPlayerSlotItem(cid, CONST_SLOT_RING)
@@ -185,7 +186,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		[2206] = 2169}
 		if(ring.itemid == 0) then
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "No ring equipped.")
-			player:getPosition():sendMagicEffect(CONST_ME_POFF)
+			fromPosition:sendMagicEffect(CONST_ME_POFF)
 		return true
 		end
 
@@ -205,7 +206,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	else
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, "This ring cannot be multiplied.")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)	 
+		fromPosition:sendMagicEffect(CONST_ME_POFF)	 
 		return true
 		end
 	end

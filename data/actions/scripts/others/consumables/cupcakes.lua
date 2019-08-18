@@ -3,24 +3,27 @@ local config = {
 }
 
 local lemon = Condition(CONDITION_ATTRIBUTES)
-lemon:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
-lemon:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 10)
+	lemon:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
+	lemon:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 10)
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (player:getStorageValue(Storage.CupCakes) <= os.time()) then
 		if (item.itemid == 31719) then
-			Creature(cid):addMana(Creature(cid):getMaxMana() - Creature(cid):getMana())
+			player:addMana(player:getMaxMana() - player:getMana())
 			player:say("Mmmm.",TALKTYPE_MONSTER_SAY)
+			fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 			item:remove(1)
 			player:setStorageValue(Storage.CupCakes, os.time() + config.exhaust)
 		elseif (item.itemid == 31720) then
-			Creature(cid):addHealth(getCreatureMaxHealth(cid) - getCreatureHealth(cid))
+			player:addHealth(player:getMaxHealth() - player:getHealth())
 			player:say("Mmmm.",TALKTYPE_MONSTER_SAY)
+			fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 			item:remove(1)
 			player:setStorageValue(Storage.CupCakes, os.time() + config.exhaust)
 		elseif (item.itemid == 31721) then
 			player:say("Mmmm.",TALKTYPE_MONSTER_SAY)
-			cid:addCondition(lemon)
+			fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
+			player:addCondition(lemon)
 			item:remove(1)
 			player:setStorageValue(Storage.CupCakes, os.time() + config.exhaust)
 		end
