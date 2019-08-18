@@ -43,6 +43,10 @@ local combat_i = Combat()
 local condition_i = Condition(CONDITION_INVISIBLE)
 	Condition.setParameter(condition_i, CONDITION_PARAM_TICKS, 600000)
 	Combat.addCondition(combat_i, condition_i)
+local condition_light = Condition(CONDITION_LIGHT)
+	condition_light:setParameter(CONDITION_PARAM_LIGHT_LEVEL, 14)
+	condition_light:setParameter(CONDITION_PARAM_LIGHT_COLOR, 154)
+	condition_light:setParameter(CONDITION_PARAM_TICKS, 60*60*1000)
 
 local iid = {[9992] = 0, [9993] = 1, [9994] = 2, [9995] = 3, [9996] = 4, [9997] = 5, [9998] = 6, [9999] = 7, [10000] = 8, [10001] = 9, [12540] = 10, [12542] = 11, [12543] = 12, [12544] = 13}
 
@@ -151,7 +155,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			player:addCondition(c[math.random(1, #c)])
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel stronger, but you have no idea what was increased.")
 		elseif r == 2 then
-			doSetCreatureLight(cid, 15, 154, 60*60*1000)
+			player:addCondition(condition_light)
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel enlightened.")
 		elseif r == 3 then
 			player:addCondition(condition_i)
@@ -161,11 +165,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			player:addMana(player:getMaxMana() - player:getMana())
 			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your vitality has been restored.")
 		end
-		 player:say("Smack.", TALKTYPE_MONSTER_SAY)
-		 fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
-	return true
+			player:say("Smack.", TALKTYPE_MONSTER_SAY)
+			fromPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
+		return true
 	elseif item.itemid == 12544 then
-	local ring = getPlayerSlotItem(cid, CONST_SLOT_RING)
+	local ring = player:getSlotItem(CONST_SLOT_RING)
 	local r_t = { -- missing Blister Ring
 		[2211] = 2208,
 		[2212] = 2209,
