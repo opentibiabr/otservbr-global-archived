@@ -77,6 +77,7 @@ GameStore.RecivedPackets = {
   C_TransferCoins = 0xEF, -- 239
   C_OpenStore = 0xFA, -- 250
   C_RequestStoreOffers = 0xFB, -- 251
+  C_StoreSelectOffer = 0xE8, -- 232
   C_BuyStoreOffer = 0xFC, -- 252
   C_OpenTransactionHistory = 0xFD, -- 253
   C_RequestTransactionHistory = 0xFE, -- 254
@@ -138,6 +139,8 @@ function onRecvbyte(player, msg, byte)
     parseOpenStore(player:getId(), msg)
   elseif byte == GameStore.RecivedPackets.C_RequestStoreOffers then
     parseRequestStoreOffers(player:getId(), msg)
+  elseif byte == GameStore.RecivedPackets.C_StoreSelectOffer then
+    parseSendDescription(player:getId(), msg)
   elseif byte == GameStore.RecivedPackets.C_BuyStoreOffer then
     parseBuyStoreOffer(player:getId(), msg)
   elseif byte == GameStore.RecivedPackets.C_OpenTransactionHistory then
@@ -146,6 +149,20 @@ function onRecvbyte(player, msg, byte)
     parseRequestTransactionHistory(player:getId(), msg)
   end
   return true
+end
+
+function parseSendDescription(playerId, msg)
+  local player = Player(playerId)
+  if not player then
+    return false
+  end
+  if player:getClient().version < 1180 then
+    return false
+  end
+  local offerId = msg:getU32()
+  if offerId then
+    addPlayerEvent(sendShowDescription, 350, playerId, offerId)
+  end
 end
 
 function parseTransferCoins(playerId, msg)
@@ -370,6 +387,19 @@ function openStore(playerId)
 
     sendCoinBalanceUpdating(playerId, true)
   end
+end
+
+function sendShowDescription(playerId, offerId)
+  local player = Player(playerId)
+  if not player then
+    return false
+  end
+  local offer = GameStore.getOfferById(offerId)
+  local msg = NetworkMessage()
+  msg:addByte(0xea)
+  msg:addU32(offerId)
+  msg:addString(offer.description or "No description to be displayed")
+  msg:sendToPlayer(player)
 end
 
 function sendShowStoreOffers(playerId, category)
