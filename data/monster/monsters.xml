@@ -865,6 +865,7 @@
 	<monster name="Zomba" file="Bosses/zomba.xml"/>
 	<monster name="Zoralurk" file="Bosses/zoralurk.xml"/>
 	<monster name="Zugurosh" file="Bosses/zugurosh.xml"/>
+	<monster name="Zushuka" file="Bosses/zushuka.xml"/>
 	<monster name="Zulazza the Corruptor" file="Bosses/zulazza_the_corruptor.xml"/>
 	<monster name="Glooth Bomb" file="Bosses/glooth bomb.xml"/>
 	<monster name="Bibby Bloodbath" file="Bosses/bibby bloodbath.xml"/>
