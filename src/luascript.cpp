@@ -1766,7 +1766,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ORIGIN_SPELL)
 	registerEnum(ORIGIN_MELEE)
 	registerEnum(ORIGIN_RANGED)
-	registerEnum(ORIGIN_IMBUEMENT)
 
 	// Use with house:getAccessList, house:setAccessList
 	registerEnum(GUEST_LIST)

@@ -499,7 +499,7 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 		}
 	}
 
-	if (caster && caster->getPlayer() && damage.origin != ORIGIN_IMBUEMENT) {
+	if (caster && caster->getPlayer()) {
 		Item* tool = caster->getPlayer()->getWeapon();
 		g_events->eventPlayerOnCombat(caster->getPlayer(), target, tool, damage);
 	}
