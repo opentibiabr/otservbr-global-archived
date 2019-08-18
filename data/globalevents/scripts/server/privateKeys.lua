@@ -22,7 +22,6 @@ local function createPrivate(params)
   end
 
 end
-  print("> Loaded Advanced Actioner by Fernando Mieza el Tuero Fuerte")
 
 local function _questLoader()
   for questName,questInfo in pairs(privateKeysTable) do
@@ -54,6 +53,6 @@ local function _questLoader()
 end
 
 function onStartup()
-    addEvent(_questLoader, 1 * 1000)
+    addEvent(_questLoader, 1 * 1000) -- execute once after startup
     return true
 end
