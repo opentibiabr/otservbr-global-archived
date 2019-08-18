@@ -955,8 +955,19 @@ function Player:clearImbuement(item, slot)
 	return true
 end
 
-function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
-	if not item then
+local combat_effect = {
+	[COMBAT_ENERGYDAMAGE] = CONST_ME_ENERGYHIT,
+	[COMBAT_FIREDAMAGE] = CONST_ME_HITBYFIRE,
+	[COMBAT_PHYSICALDAMAGE] = CONST_ME_BLOCKHIT,
+	[COMBAT_ICEDAMAGE] = CONST_ME_ICEATTACK,
+	[COMBAT_DEATHDAMAGE] = CONST_ME_SMALLCLOUDS,
+	[COMBAT_EARTHDAMAGE] = CONST_ME_GREEN_RINGS,
+	[COMBAT_DROWNDAMAGE] = CONST_ME_LOSEENERGY,
+	[COMBAT_HOLYDAMAGE] = CONST_ME_HOLYDAMAGE,
+}
+
+function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
 
@@ -967,8 +978,8 @@ function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, seco
 			if imbuement then
 				local percent = imbuement:getElementDamage()
 				if percent and percent > 0 then
-					secondaryDamage = primaryDamage*math.min(percent/100, 1)
-					secondaryType = imbuement:getCombatType()
+					local effect = combat_effect[imbuement:getCombatType()] or 0
+					doTargetCombatHealth(self:getId(), target:getId(), imbuement:getCombatType(), primaryDamage*math.min(percent/100, 1), primaryDamage*math.min(percent/100, 1), effect, ORIGIN_IMBUEMENT)
 					primaryDamage = primaryDamage - secondaryDamage
 				end
 			end
