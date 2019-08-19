@@ -783,6 +783,7 @@ CREATE TABLE IF NOT EXISTS `store_history` (
   `timestamp` int(11) NOT NULL DEFAULT '0',
   `coins` int(11) NOT NULL DEFAULT '0',
   INDEX `account_id` (`account_id`),
+  CONSTRAINT `store_history_pk` PRIMARY KEY (`id`),
   CONSTRAINT `store_history_account_fk`
     FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
     ON DELETE CASCADE
