@@ -10,3 +10,6 @@ dofile('data/lib/miscellaneous/demonOakQuest.lua')
 dofile('data/lib/miscellaneous/killingInTheNameOfQuest.lua')
 dofile('data/lib/miscellaneous/svargrondArenaQuest.lua')
 dofile('data/lib/miscellaneous/achievements_lib.lua')
+
+dofile('data/lib/privateAids.lua')
+dofile('data/lib/privateKeys.lua')
