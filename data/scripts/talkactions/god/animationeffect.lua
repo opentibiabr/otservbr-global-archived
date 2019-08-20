@@ -1,4 +1,4 @@
-talk = Talkaction("/effect")
+local talk = Talkaction("/effect")
 
 function onSay(player, words, param)
 	if(not player:getGroup():getAccess()) or player:getAccountType() < ACCOUNT_TYPE_GOD then
