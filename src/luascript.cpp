@@ -15577,15 +15577,11 @@ int LuaScriptInterface::luaSpellCooldown(lua_State* L)
 
 int LuaScriptInterface::luaSpellGroupCooldown(lua_State* L)
 {
-	// spell:groupCooldown(primaryGroupCd[, secondaryGroupCd])
+	// spell:groupCooldown(cooldown)
 	Spell* spell = getUserdata<Spell>(L, 1);
 	if (spell) {
 		if (lua_gettop(L) == 1) {
-			lua_pushnumber(L, spell->getSecondaryCooldown());
-			return 2;
-		} else if (lua_gettop(L) == 2) {
-			spell->setGroupCooldown(getNumber<uint32_t>(L, 2));
-			pushBoolean(L, true);
+			lua_pushnumber(L, spell->getGroupCooldown());
 		} else {
 			spell->setGroupCooldown(getNumber<uint32_t>(L, 2));
 			pushBoolean(L, true);
