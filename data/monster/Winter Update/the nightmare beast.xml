@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Nightmare Beast" nameDescription="a The Nightmare Beast" race="blood" experience="255000" speed="250" >
+<monster name="The Nightmare Beast" nameDescription="a The Nightmare Beast" race="blood" experience="255000" speed="250" script="rewardboss.lua">
 	<health now="22" max="22"/>
 	<look type="1144" corpse="34797"/>
 	<targetchange interval="4000" chance="10"/>

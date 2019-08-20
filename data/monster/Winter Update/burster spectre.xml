@@ -22,16 +22,16 @@
 	</flags>
 <attacks>
 		<attack name="melee" interval="2000" min="-100" max="-400"/>
-		<attack name="lifedrain" interval="2000" chance="50" radius="4" min="-270" max="-390">
+		<attack name="lifedrain" interval="2000" chance="15" radius="4" min="-270" max="-390">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="ice" interval="2000" chance="50" target="1" radius="4" min="-280" max="-410">
+		<attack name="ice" interval="2000" chance="25" target="1" radius="4" min="-280" max="-410">
 			<attribute key="areaEffect" value="icearea"/>
 		</attack>
-		<attack name="ice" interval="2000" chance="50" target="1" min="-280" max="-370">
+		<attack name="ice" interval="2000" chance="5200" target="1" min="-280" max="-370">
 			<attribute key="areaEffect" value="iceattack"/>
 		</attack>
-				<attack name="ice" interval="2000" chance="50" length="5" spread="3" min="-200" max="-290">
+				<attack name="ice" interval="2000" chance="20" length="5" spread="3" min="-200" max="-290">
 			<attribute key="areaEffect" value="iceattack"/>
 		</attack>
 	</attacks>

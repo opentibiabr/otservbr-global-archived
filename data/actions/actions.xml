@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+	<!-- Bastion Forge -->
+	<action itemid="32421" script="falcons/falconShield.lua" />
+
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
 	<action fromid="13540" toid="13545" script="addons/afflictedOutfit.lua" />

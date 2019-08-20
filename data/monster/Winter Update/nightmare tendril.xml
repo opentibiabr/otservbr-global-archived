@@ -37,6 +37,5 @@
 		<element holyPercent="-10" />
 	</elements>
 	<voices interval="2000" chance="7">
-
 	</voices>
 </monster>

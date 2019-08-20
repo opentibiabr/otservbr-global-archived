@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="190" >
+<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="190">
 	<health now="3800" max="3800"/>
 	<look type="1119" head="101" body="39" legs="61" feet="39" corpse="34664"/>
 	<targetchange interval="4000" chance="10"/>
@@ -19,13 +19,13 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-370"/>
-		<attack name="poison" interval="2000" chance="50" radius="4" min="-200" max="-390">
+		<attack name="poison" interval="2000" chance="20" radius="4" min="-200" max="-390">
 			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
-		<attack name="poison" interval="2000" chance="50" target="1" radius="4" min="-320" max="-460">
+		<attack name="poison" interval="2000" chance="15" target="1" radius="4" min="-320" max="-460">
 			<attribute key="areaEffect" value="EXPLOSIONAREA"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="50" length="3" spread="0" min="-200" max="-340">
+		<attack name="physical" interval="2000" chance="20" length="3" spread="0" min="-200" max="-340">
 			<attribute key="areaEffect" value="GROUNDSHAKER"/>
 		</attack>
 	</attacks>
