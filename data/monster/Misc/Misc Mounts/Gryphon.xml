@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Gryphon" nameDescription="a gryphon" race="blood" experience="1000" speed="250">
 	<health now="3200" max="3200"/>
-	<look type="515" corpse="13528"/>
+	<look type="1220" corpse="36233"/>
 	<targetchange interval="2000" chance="20"/>
 	<flags>
 		<flag summonable="0"/>

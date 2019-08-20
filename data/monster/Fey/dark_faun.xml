@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Dark Faun" nameDescription="a dark faun" race="blood" experience="900" speed="108" manacost="450">
-	<look type="980" head="94" body="114" legs="57" feet="94" corpse="29101"/>
+<monster name="Dark Faun" nameDescription="a dark faun" race="blood" experience="900" speed="108">
 	<health now="1100" max="1100"/>
+	<look type="980" head="94" body="95" legs="0" feet="94" corpse="29101"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag respawntype="night"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
+		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
-		<flag runonhealth="20"/>
+		<flag runonhealth="0"/>
 		<flag canwalkonenergy="0"/>
 		<flag canwalkonfire="0"/>
 		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-515"/>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
 		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-60" max="-115">
 			<attribute key="shootEffect" value="poison"/>
 			<attribute key="areaEffect" value="poison"/>

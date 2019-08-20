@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Crypt Warden" nameDescription="a crypt warden" race="blood" experience="8400" speed="145">
 	<health now="8300" max="8300"/>
-	<look type="1190" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1190" head="98" body="57" legs="0" feet="0" corpse="36485"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -24,7 +24,9 @@
 	</attacks>
 	<defenses armor="84" defense="84"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element holyPercent="20"/>
+		<element earthPercent="20"/>
+		<element deathPercent="-20"/>
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>

@@ -23335,6 +23335,12 @@
 	<item fromid="14858" toid="14871" article="an" name="insectoid meatball" />
 	<item id="14874" article="a" name="hivecomb floor" />
 	<item fromid="14887" toid="14898" article="a" name="rockboy" />
+	<item id="14903" article="a" name="bag with stolen gold">
+		<attribute key="description" value="It contains so much cash that you wouldn't have any idea how to use it. Return it to a nearby bank." />
+		<attribute key="weight" value="5000" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="86400" />
+	</item>
 	<item fromid="14904" toid="14912" name="wet temple floor" />
 	<item fromid="14913" toid="14914" article="a" name="finely crafted ornament" />
 	<item fromid="14915" toid="14930" name="wet temple floor" />
@@ -28789,21 +28795,21 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="20591" article="a" name="dead unused purple elf">
+	<item id="20591" article="a" name="dead amarie">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="20592" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="20592" article="a" name="dead unused purple elf">
+	<item id="20592" article="a" name="dead amarie">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="2947" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="20593" article="a" name="dead unused purple elf">
+	<item id="20593" article="a" name="dead amarie">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="20591" />
 		<attribute key="duration" value="10" />
@@ -43023,51 +43029,67 @@
 	<item id="36307" toid="36308" article="a" name="sublime tournament accolade"/>
 	<item id="36336" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36337" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36337" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36336" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36338" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36339" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36339" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36338" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36340" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36341" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36341" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36340" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36342" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36343" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36343" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36342" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36344" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36345" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36345" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36344" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36346" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36347" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36347" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36346" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36348" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36349" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36349" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36348" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36350" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36351" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36351" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36350" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item fromid="36353" toid="36358" article="a" name="memorial"/>
 	<item id="36514" article="a" name="hrodmiran table">

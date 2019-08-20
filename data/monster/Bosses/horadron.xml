@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Horadron" nameDescription="Horadron" race="blood" experience="18000" speed="320">
+<monster name="Horadron" nameDescription="Horadron" race="fire" experience="18000" speed="320">
 	<health now="30000" max="30000"/>
-	<look type="12" head="78" body="80" legs="110" feet="77" addons="0" corpse="6068"/>
+	<look type="12" head="78" body="61" legs="115" feet="58" addons="0" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>
 	<flags>
 		<flag preyable="0" />

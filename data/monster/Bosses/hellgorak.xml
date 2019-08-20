@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Hellgorak" nameDescription="Hellgorak" race="blood" experience="10000" speed="165">
+<monster name="Hellgorak" nameDescription="Hellgorak" race="fire" experience="10000" speed="165">
 	<health now="25850" max="25850"/>
-	<look type="12" head="19" body="96" legs="21" feet="81" corpse="6068"/>
+	<look type="12" head="0" body="77" legs="1" feet="3" corpse="6068"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
@@ -51,7 +51,7 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<voices interval="5000" chance="0">
+	<voices interval="5000" chance="15">
 		<voice sentence="I'll sacrifice yours souls to seven!"/>
 		<voice sentence="I'm bad news for you mortals!"/>
 		<voice sentence="No man can defeat me!"/>

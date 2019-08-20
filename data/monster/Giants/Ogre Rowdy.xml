@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Ogre Rowdy" nameDescription="an ogre rowdy" race="blood" experience="4200" speed="170">
 	<health now="4800" max="4800"/>
-	<look type="1213" corpse="5999"/>
+	<look type="1213" corpse="36366"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

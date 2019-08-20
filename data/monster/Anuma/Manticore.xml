@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Manticore" nameDescription="a manticore" race="blood" experience="6300" speed="130">
 	<health now="6700" max="6700"/>
-	<look type="1189" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1189" head="116" body="97" legs="132" feet="20" corpse="36225"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

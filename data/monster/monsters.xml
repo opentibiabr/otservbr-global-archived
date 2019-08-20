@@ -67,7 +67,6 @@
 	<monster name="Neutral Deepling Warrior" file="11.8/neutral deepling warrior.xml"/>
 	<monster name="Preceptor Lazare" file="11.8/preceptor lazare.xml"/>
 	<monster name="Ravenous Beyondling" file="11.8/ravenous beyondling.xml"/>
-	<monster name="Raxias" file="11.8/raxias.xml"/>
 	<monster name="Rift Breacher" file="11.8/rift breacher.xml"/>
 	<monster name="Rift Minion" file="11.8/rift minion.xml"/>
 	<monster name="Rift Spawn" file="11.8/rift spawn.xml"/>
@@ -121,6 +120,7 @@
 	<monster name="Razzagorn" file="Quests/Ferumbras Ascendant/Bosses/razzagorn.xml"/>
 	<monster name="Shulgrax" file="Quests/Ferumbras Ascendant/Bosses/shulgrax.xml"/>
 	<monster name="Tarbaz" file="Quests/Ferumbras Ascendant/Bosses/tarbaz.xml"/>
+	<monster name="The Fettered Shatterer" file="Quests/Ferumbras Ascendant/Bosses/The Fettered Shatterer.xml"/>
 	<monster name="The Lord of The Lice" file="Quests/Ferumbras Ascendant/Bosses/the lord of the lice.xml"/>
 	<monster name="The Shatterer" file="Quests/Ferumbras Ascendant/Bosses/the shatterer.xml"/>
 	<monster name="Zamulosh" file="Quests/Ferumbras Ascendant/Bosses/zamulosh.xml"/>
@@ -175,17 +175,6 @@
 	<monster name="Shadowpelt" file="Cults of Tibia/Bosses/Shadowpelt.xml"/>
 	<monster name="Sharpclaw" file="Cults of Tibia/Bosses/Sharpclaw.xml"/>
 
-	<!-- Cults of tibia bosses -->
-	<monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml"/>
-	<monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml"/>
-	<monster name="Bloodback" file="Cults of Tibia/Bosses/Bloodback.xml"/>
-	<monster name="Darkfang" file="Cults of Tibia/Bosses/Darkfang.xml"/>
-	<monster name="Last Planegazer" file="Cults of Tibia/Bosses/Last Planegazer.xml"/>
-	<monster name="Reflection Of Mawhawk" file="Cults of Tibia/Bosses/Reflection Of Mawhawk.xml"/>
-	<monster name="Reflection Of Obujos" file="Cults of Tibia/Bosses/Reflection Of Obujos.xml"/>
-	<monster name="Shadowpelt" file="Cults of Tibia/Bosses/Shadowpelt.xml"/>
-	<monster name="Sharpclaw" file="Cults of Tibia/Bosses/Sharpclaw.xml"/>
-
 	<!-- Cults os Tibia -->
 	<monster name="Minotaur Cult Follower" file="Cults of Tibia/Minotaurs/minotaur cult follower.xml"/>
 	<monster name="Minotaur Cult Prophet" file="Cults of Tibia/Minotaurs/minotaur cult prophet.xml"/>
@@ -209,8 +198,6 @@
 	<monster name="Cult Believer" file="Cults of Tibia/Carlin/cult believer.xml"/>
 	<monster name="Cult Enforcer" file="Cults of Tibia/Carlin/cult enforcer.xml"/>
 	<monster name="Cult Scholar" file="Cults of Tibia/Carlin/cult scholar.xml"/>
-	<monster name="Barkless Fanatic" file="Cults of Tibia/Barkless/barkless fanatic.xml"/>
-	<monster name="Barkless Devotee" file="Cults of Tibia/Barkless/barkless devotee.xml"/>
 	<monster name="Orc Cult Minion" file="Cults of Tibia/Orcs/orc cult minion.xml"/>
 	<monster name="Orc Cultist" file="Cults of Tibia/Orcs/orc cultist.xml"/>
 	<monster name="Orc Cult Priest" file="Cults of Tibia/Orcs/orc cult priest.xml"/>
@@ -702,12 +689,14 @@
 	<monster name="Big Boss Trolliver" file="Bosses/big_boss_trolliver.xml"/>
 	<monster name="Bones" file="Bosses/bones.xml"/>
 	<monster name="Boogey" file="Bosses/boogey.xml"/>
+	<monster name="Bragrumol" file="Bosses/Bragrumol.xml"/>
 	<monster name="Bretzecutioner" file="Bosses/bretzecutioner.xml"/>
 	<monster name="Brokul" file="Bosses/Brokul.xml"/>
 	<monster name="Bruise Payne" file="Bosses/bruise payne.xml"/>
 	<monster name="Brutus Bloodbeard" file="Bosses/brutus_bloodbeard.xml"/>
 	<monster name="Chizzoron the Distorter" file="Bosses/chizzoron_the_distorter.xml"/>
 	<monster name="Coldheart" file="Bosses/coldheart.xml"/>
+	<monster name="Count Vlarkorth" file="Bosses/Count Vlarkorth.xml"/>
 	<monster name="Countess Sorrow" file="Bosses/countess_sorrow.xml"/>
 	<monster name="Deadeye Devious" file="Bosses/deadeye_devious.xml"/>
 	<monster name="Deathbine" file="Bosses/deathbine.xml"/>
@@ -723,6 +712,7 @@
 	<monster name="Dracola" file="Bosses/dracola.xml"/>
 	<monster name="Dreadwing" file="Bosses/dreadwing.xml"/>
 	<monster name="Ekatrix" file="Bosses/Ekatrix.xml"/>
+	<monster name="Elvira Hammerthrust" file="Bosses/Elvira Hammerthrust.xml"/>
 	<monster name="Energized Raging Mage" file="Bosses/energized_raging_mage.xml"/>
 	<monster name="Esmeralda" file="Bosses/esmeralda.xml"/>
 	<monster name="Ethershreck" file="Bosses/ethershreck.xml"/>
@@ -766,8 +756,13 @@
 	<monster name="Incineron" file="Bosses/incineron.xml"/>
 	<monster name="Infernatil" file="Bosses/infernatil.xml"/>
 	<monster name="Inky" file="Bosses/inky.xml"/>
+	<monster name="Izcandar Champion of Summer" file="Bosses/Izcandar Champion of Summer.xml"/>
+	<monster name="Izcandar Champion of Winter" file="Bosses/Izcandar Champion of Winter.xml"/>
+	<monster name="Izcandar the Banished" file="Bosses/izcandar the banished.xml"/>
 	<monster name="Jaul" file="Bosses/jaul.xml"/>
+	<monster name="Jesse the Wicked" file="Bosses/jesse the wicked.xml"/>
 	<monster name="Kerberos" file="Bosses/kerberos.xml"/>
+	<monster name="King Zelos" file="Bosses/King Zelos.xml"/>
 	<monster name="Koshei The Deathless" file="Bosses/koshei_the_deathless.xml"/>
 	<monster name="Kraknaknork's Demon" file="Bosses/kraknaknork's_demon.xml"/>
 	<monster name="Kraknaknork" file="Bosses/kraknaknork.xml"/>
@@ -788,6 +783,7 @@
 	<monster name="Monstor" file="Bosses/monstor.xml"/>
 	<monster name="Morgaroth" file="Bosses/morgaroth.xml"/>
 	<monster name="Morik the Gladiator" file="Bosses/morik_the_gladiator.xml"/>
+	<monster name="Mornenion" file="Bosses/Mornenion.xml"/>
 	<monster name="Mr. Punish" file="Bosses/mr._punish.xml"/>
 	<monster name="Munster" file="Bosses/munster.xml"/>
 	<monster name="Mutated Zalamon" file="Bosses/mutated zalamon.xml"/>
@@ -798,7 +794,10 @@
 	<monster name="Prince Drazzak" file="Bosses/prince_drazzak.xml"/>
 	<monster name="Pythius The Rotten" file="Bosses/pythius_the_rotten.xml"/>
 	<monster name="Raging Mage" file="Bosses/raging_mage.xml"/>
+	<monster name="Raxias" file="Bosses/raxias.xml"/>
+	<monster name="Renegade Orc" file="Bosses/renegade orc.xml"/>
 	<monster name="Ribstride" file="Bosses/ribstride.xml"/>
+	<monster name="Robby the Reckless" file="Bosses/robby the reckless.xml"/>
 	<monster name="Rocko" file="Bosses/rocko.xml"/>
 	<monster name="Ron the Ripper" file="Bosses/ron_the_ripper.xml"/>
 	<monster name="Rottie the Rotworm" file="Bosses/rottie_the_rotworm.xml"/>
@@ -993,12 +992,14 @@
 	<monster name="Terrorsleep" file="Dreamhaunters/terrorsleep.xml"/>
 
 	<!-- Dwarves -->
+	<monster name="Dwarf Henchman" file="Dwarves/Dwarf Henchman.xml"/>
 	<monster name="Dwarf Geomancer" file="Dwarves/dwarf_geomancer.xml"/>
 	<monster name="Dwarf Guard" file="Dwarves/dwarf_guard.xml"/>
 	<monster name="Dwarf Miner" file="Dwarves/dwarf_miner.xml"/>
 	<monster name="Dwarf Soldier" file="Dwarves/dwarf_soldier.xml"/>
 	<monster name="Dwarf" file="Dwarves/dwarf.xml"/>
 	<monster name="Enslaved Dwarf" file="Dwarves/enslaved_dwarf.xml"/>
+	<monster name="Grodrik (Creature)" file="Dwarves/Grodrik (Creature).xml"/>
 	<monster name="Lost Basher" file="Dwarves/lost_basher.xml"/>
 	<monster name="Lost Berserker" file="Dwarves/lost_berserker.xml"/>
 	<monster name="Lost Husher" file="Dwarves/lost_husher.xml"/>
@@ -1022,10 +1023,21 @@
 	<monster name="Undead Minion" file="Event_Creatures/undead_minion.xml"/>
 
 	<!-- Elves -->
+	<monster name="Amarie (Creature)" file="Elves/Amarie (Creature).xml"/>
+	<monster name="Barkless Devotee" file="Elves/Barkless Devotee.xml"/>
+	<monster name="Barkless Fanatic" file="Elves/Barkless Fanatic.xml"/>
+	<monster name="Crazed Summer Rearguard" file="Elves/crazed summer rearguard.xml"/>
+	<monster name="Crazed Summer Vanguard" file="Elves/crazed summer vanguard.xml"/>
+	<monster name="Crazed Winter Rearguard" file="Elves/crazed winter rearguard.xml"/>
+	<monster name="Crazed Winter Vanguard" file="Elves/crazed winter vanguard.xml"/>
+	<monster name="Elder Forest Fury" file="Elves/Elder Forest Fury.xml"/>
+	<monster name="Elf Overseer" file="Elves/Elf Overseer.xml"/>
 	<monster name="Elf" file="Elves/elf.xml"/>
 	<monster name="Elf Arcanist" file="Elves/elf_arcanist.xml"/>
 	<monster name="Elf Scout" file="Elves/elf_scout.xml"/>
 	<monster name="Firestarter" file="Elves/firestarter.xml"/>
+	<monster name="Insane Siren" file="Elves/insane siren.xml"/>
+	<monster name="Soul-Broken Harbinger" file="Elves/soul-broken harbinger.xml"/>
 
 	<!-- Electro-Elementals -->
 	<monster name="Charged Energy Elemental" file="Electro-Elementals/charged_energy_elemental.xml"/>
@@ -1442,7 +1454,9 @@
 	<monster name="Zombie" file="Undead_Humanoids/zombie.xml"/>
 	<monster name="Undead Prospector" file="Undead_Humanoids/undead_prospector.xml"/>
 	<monster name="Nightfiend" file="Undead_Humanoids/nightfiend.xml"/>
+	<monster name="Soulless Minion" file="Undead_Humanoids/Soulless Minion.xml"/>
 	<monster name="Tomb Servant" file="Undead_Humanoids/tomb_servant.xml"/>
+	<monster name="Ugly Monster" file="Undead_Humanoids/Ugly Monster.xml"/>
 
 	<!-- Ungulates -->
 	<monster name="Black Sheep" file="Ungulates/black_sheep.xml"/>
@@ -1490,17 +1504,11 @@
 	<monster name="Alptramun" file="Winter Update/alptramun.xml"/>
 	<monster name="Arachnophobica" file="Winter Update/arachnophobica.xml"/>
 	<monster name="Burster Spectre" file="Winter Update/burster spectre.xml"/>
-	<monster name="Crazed Summer Rearguard" file="Winter Update/crazed summer rearguard.xml"/>
-	<monster name="Crazed Summer Vanguard" file="Winter Update/crazed summer vanguard.xml"/>
-	<monster name="Crazed Winter Rearguard" file="Winter Update/crazed winter rearguard.xml"/>
-	<monster name="Crazed Winter Vanguard" file="Winter Update/crazed winter vanguard.xml"/>
 	<monster name="Faceless Bane" file="Winter Update/faceless bane.xml"/>
 	<monster name="Gazer Spectre" file="Winter Update/gazer spectre.xml"/>
 	<monster name="Generator" file="Winter Update/generator.xml"/>
 	<monster name="Hibernal Moth" file="Winter Update/hibernal moth.xml"/>
 	<monster name="Horrible Dream" file="Winter Update/horrible dream.xml"/>
-	<monster name="Insane Siren" file="Winter Update/insane siren.xml"/>
-	<monster name="Izcandar the Banished" file="Winter Update/izcandar the banished.xml"/>
 	<monster name="Lacewing Moth" file="Winter Update/lacewing moth.xml"/>
 	<monster name="Lucifuga Aranea" file="Winter Update/lucifuga aranea.xml"/>
 	<monster name="Lumbering Carnivor" file="Winter Update/lumbering carnivor.xml"/>
@@ -1514,7 +1522,6 @@
 	<monster name="Plant Abomination" file="Winter Update/plant abomination.xml"/>
 	<monster name="Plant Attendant" file="Winter Update/plant attendant.xml"/>
 	<monster name="Ripper Spectre" file="Winter Update/ripper spectre.xml"/>
-	<monster name="Soul-Broken Harbinger" file="Winter Update/soul-broken harbinger.xml"/>
 	<monster name="Spiky Carnivor" file="Winter Update/spiky carnivor.xml"/>
 	<monster name="Thanatursus" file="Winter Update/thanatursus.xml"/>
 	<monster name="The Cold Of Winter" file="Winter Update/the cold of winter.xml"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Cobra Assassin" nameDescription="a cobra assassin" race="blood" experience="7800" speed="150">
 	<health now="8200" max="8200"/>
-	<look type="1217" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1217" head="2" body="2" legs="77" feet="0" addons="1" corpse="36142"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

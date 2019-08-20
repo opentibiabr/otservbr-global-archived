@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Zamulosh" nameDescription="zamulosh" race="undead" experience="55000" speed="320" script="rewardboss.lua">
-	<health now="300000" max="300000" />
-	<look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="25151" />
-	<targetchange interval="5000" chance="8" />
+	<health now="300000" max="300000"/>
+	<look type="862" head="12" body="67" legs="52" feet="14" addons="0" corpse="25151"/>
+	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<flag preyable="0" />
-		<flag summonable="0" />
+		<flag preyable="0"/>
+		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
@@ -16,10 +16,10 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag rewardboss="1" />
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag rewardboss="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="3000" min="-1500" max="-2300"/>

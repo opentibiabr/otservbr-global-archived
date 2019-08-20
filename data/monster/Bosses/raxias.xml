@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Raxias" nameDescription="a raxias" race="blood" experience="900" speed="50">
+<monster name="Raxias" nameDescription="Raxias" race="blood" experience="900" speed="105">
 	<health now="1100" max="1100"/>
 	<look type="980" head="79" body="114" legs="82" feet="79" corpse="33427"/>
 	<targetchange interval="5000" chance="8"/>
@@ -17,18 +17,25 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-200"/>
-		<attack name="physical" interval="1000" chance="15" range="7" min="0" max="-180">
-			<attribute key="shootEffect" value="snowball"/>
-			<attribute key="areaEffect" value="poff"/>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+		<attack name="earth" interval="2000" chance="15" range="5" target="1" min="-50" max="-100">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
 		</attack>
-		<attack name="energy" interval="1000" chance="12" length="3" spread="3" min="0" max="-175">
-			<attribute key="areaEffect" value="poff"/>
+		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="25000">
+			<attribute key="areaEffect" value="bluenote"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="30" range="7" min="0" max="-150">
+			<attribute key="shootEffect" value="leafstar"/>
 		</attack>
 	</attacks>
-	<defenses armor="28" defense="33"/>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="15" min="50" max="150">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
 	<elements>
-		<element icePercent="-1"/>
+		<element firePercent="-5"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>

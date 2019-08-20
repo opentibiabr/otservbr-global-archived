@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Dwarf Henchman" nameDescription="a dwarf henchman" race="blood" experience="15" speed="105">
+	<health now="350" max="350"/>
+	<look type="160" head="115" body="77" legs="94" feet="114" corpse="6013"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-50"/>
+		<attack name="drown" interval="2000" chance="10" target="1" min="-20" max="-20">
+			<attribute key="areaEffect" value="bubbles"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="15" min="-3" max="-4">
+			<attribute key="shooteffect" value="poison" />
+		</attack>
+		<attack name="drowncondition" interval="2000" chance="15" min="-3" max="-4">
+			<attribute key="shooteffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="16" defense="16"/>
+	<elements>
+		<element earthPercent="20"/>
+		<element physicalPercent="10"/>
+		<element firePercent="-5"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="This place is for our eyes only!"/>
+		<voice sentence="We will live and let you die!"/>
+		<voice sentence="I will die another day!"/>
+		<voice sentence="We have license to kill!"/>
+	</voices>
+</monster>

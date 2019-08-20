@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Lamassu" nameDescription="a lamassu" race="blood" experience="12500" speed="145">
 	<health now="8700" max="8700"/>
-	<look type="1190" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1190" head="50" body="0" legs="0" feet="76" corpse="36229"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -24,7 +24,9 @@
 	</attacks>
 	<defenses armor="84" defense="84"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element deathPercent="-1"/>
+		<element holyPercent="1"/>
+		<element earthPercent="1"/>
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>

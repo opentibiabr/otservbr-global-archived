@@ -57,14 +57,20 @@
 		<voice sentence="My powers are divine!"/>
 	</voices>
 	<loot>
-		<item id="2148" countmax="20" chance="100000"/><!-- gold coin -->
-		<item id="2260" chance="4000"/><!-- blank rune -->
-		<item id="2682" chance="6666"/><!-- melon -->
-		<item id="2802" chance="10000"/><!-- sling herb -->
-		<item id="2177" chance="2857"/><!-- life crystal -->
-		<item id="2689" countmax="3" chance="20000"/><!-- bread -->
-		<item id="2652" chance="5000"/><!-- green tunic -->
-		<item id="2032" chance="4000"/><!-- bowl -->
-		<item id="2154" chance="1333"/><!-- yellow gem -->
+		<item name="gold coin" countmax="100" chance="100000"/>
+		<item name="Holy Orchid" chance="100000"/>
+		<item name="Elvish Talisman" chance="87000"/>
+		<item name="Elven Astral Observer" chance="83000"/>
+		<item name="Yellow Gem" chance="42000"/>
+		<item name="Blank Rune" chance="25000"/>
+		<item name="Melon" chance="22000"/>
+		<item name="Bread" chance="16000"/>
+		<item name="Elven Amulet" chance="15000"/>
+		<item name="Great Mana Potion" chance="13000"/>
+		<item name="Life Crystal" chance="13000"/>
+		<item name="Sling Herb" chance="9000"/>
+		<item id="3957" chance="7500"/>	<!-- Cornucopia -->
+		<item name="Green Tunic" chance="3000"/>
+		<item name="royal spear" countmax="2" chance="1500"/>
 	</loot>
 </monster>

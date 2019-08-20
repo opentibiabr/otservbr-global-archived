@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Swan Maiden" nameDescription="a swan maiden" race="blood" experience="700" speed="117" manacost="450">
-	<look type="138" head="0" body="0" legs="114" feet="97" corpse="29118"/>
+<monster name="Swan Maiden" nameDescription="a swan maiden" race="blood" experience="700" speed="117">
 	<health now="800" max="800"/>
+	<look type="138" head="0" body="0" legs="114" feet="78" corpse="29118"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag illusionable="1"/>
+		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="4"/>
 		<flag staticattack="90"/>
-		<flag runonhealth="20"/>
+		<flag runonhealth="40"/>
 		<flag canwalkonenergy="0"/>
 		<flag canwalkonfire="0"/>
 		<flag canwalkonpoison="0"/>
 	</flags>
-	<immunities>
-		<immunity invisible="1"/>
-	</immunities>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-215"/>
 		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-60" max="-115">
@@ -48,6 +45,9 @@
 		<element deathPercent="50"/>
 		<element physicalPercent="-10"/>
 	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
 	<voices interval="5000" chance="10">
 		<voice sentence="Are you stalking me? You will bitterly regret this!"/>
 		<voice sentence="Nightmarish monster! This dream is not meant for you!"/>

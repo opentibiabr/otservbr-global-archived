@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Terofar" nameDescription="Terofar" race="blood" experience="24000" speed="440">
+<monster name="Terofar" nameDescription="Terofar" race="fire" experience="24000" speed="440">
 	<health now="40000" max="40000"/>
-	<look type="12" head="19" body="0" legs="77" feet="79" addons="0" corpse="6068"/>
+	<look type="12" head="19" body="0" legs="77" feet="79" corpse="6068"/>
 	<targetchange interval="2000" chance="25"/>
 	<flags>
 		<flag preyable="0"/>
@@ -22,9 +22,9 @@
 		<attack name="death" interval="2000" chance="30" length="8" spread="0" min="-700" max="-1500">
 			<attribute key="areaEffect" value="smallclouds"/>
 		</attack>
-        	<attack name="physical" interval="2000" chance="18" radius="1" range="7" target="1" min="0" max="-750">
-            		<attribute key="shootEffect" value="whirlwindaxe"/>
-        	</attack>
+		<attack name="physical" interval="2000" chance="18" radius="1" range="7" target="1" min="0" max="-750">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+		</attack>
 	</attacks>
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="2000" chance="30" min="300" max="500" radius="8">

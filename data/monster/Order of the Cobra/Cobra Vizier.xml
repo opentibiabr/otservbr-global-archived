@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Cobra Vizier" nameDescription="a cobra vizier" race="blood" experience="8200" speed="150">
 	<health now="8500" max="8500"/>
-	<look type="1217" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1217" head="21" body="21" legs="121" feet="0" corpse="36474"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

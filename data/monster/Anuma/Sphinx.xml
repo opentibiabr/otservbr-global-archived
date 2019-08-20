@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Sphinx" nameDescription="a sphinx" race="blood" experience="7500" speed="145">
 	<health now="8500" max="8500"/>
-	<look type="1188" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1188" head="0" body="39" legs="19" feet="3" addons="1" corpse="36221"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

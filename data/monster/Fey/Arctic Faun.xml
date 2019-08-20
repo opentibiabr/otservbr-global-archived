@@ -62,6 +62,6 @@
 		<item name="Wood Cape" chance="820"/>
 		<item name="Leaf Legs" chance="340"/>
 		<item name="Wooden Spellbook" chance="210"/>
-		<item name="Die" chance="140"/>
+		<item id="5792" chance="140"/>
 	</loot>
 </monster>

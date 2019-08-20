@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Broken Shaper" nameDescription="a broken shaper" race="blood" experience="1600" speed="155" manacost="290">
+<monster name="Broken Shaper" nameDescription="a broken shaper" race="blood" experience="1600" speed="155">
 	<health now="2200" max="2200"/>
-	<look type="932" head="132" body="95" legs="0" feet="121" corpse="27736"/>
+	<look type="932" head="113" body="76" legs="0" feet="82" corpse="27736"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -20,22 +20,22 @@
 		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-	<attack name="melee" interval="2000" min="0" max="-200"/>
-	<attack name="physical" interval="2000" chance="35" range="7" target="1" min="0" max="-150">
-		<attribute key="shootEffect" value="smallstone"/>
-	</attack>
-	<attack name="physical" interval="2000" chance="35" length="5" spread="0" min="0" max="-100">
-		<attribute key="areaEffect" value="rednote"/>
-	</attack>
+		<attack name="melee" interval="2000" min="0" max="-200"/>
+		<attack name="physical" interval="2000" chance="35" range="7" target="1" min="0" max="-150">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="35" length="5" spread="0" min="0" max="-100">
+			<attribute key="areaEffect" value="rednote"/>
+		</attack>
 	</attacks>
-	<defenses armor="25" defense="25">
-     <defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
-       <attribute key="areaEffect" value="redshimmer"/>
-     </defense>
-  	<defense name="healing" interval="2000" chance="15" min="0" max="250">
+	<defenses armor="37" defense="37">
+		<defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="0" max="250">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-  </defenses>
+	</defenses>
 	<elements>
 		<element energyPercent="-20"/>
 		<element earthPercent="20"/>
@@ -65,7 +65,7 @@
 		<item id="2162" chance="1000"/><!-- Magic Light Wand -->
 		<item id="24849" chance="4200"/><!-- Onyx Chip -->
 		<item id="2214" chance="2000"/><!-- ring of healing -->
-        <item id="2147" chance="3000"/><!-- small ruby -->
+		<item id="2147" chance="3000"/><!-- small ruby -->
 		<item id="2146" chance="5000"/><!-- small sapphire -->
 		<item id="2789" countmax="5" chance="6500"/><!-- Brown Mushroom -->
 	</loot>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Izcandar Champion of Winter" nameDescription="Izcandar Champion of Winter" race="blood" experience="6900" speed="250" script="rewardboss.lua">
+	<health now="55000" max="55000"/>
+	<look type="1137" head="1" body="57" legs="19" feet="0" addons="3" corpse="6068"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500"/>
+	</attacks>
+	<defenses armor="76" defense="76"/>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+	<loot>
+		<item name="Energy Bar" chance="100000"/>
+		<item name="Gold Token" countmax="2" chance="100000"/>
+		<item name="Mysterious Remains" chance="100000"/>
+		<item name="Piggy Bank" chance="100000"/>
+		<item name="Platinum Coin" countmax="5" chance="100000"/>
+		<item name="Silver Token" countmax="2" chance="100000"/>
+		<item name="Supreme Health Potion" countmax="20" chance="100000"/>
+		<item name="Red Gem" chance="70000"/>
+		<item name="Crystal Coin" countmax="3" chance="40000"/>
+		<item name="Green Gem" chance="40000"/>
+		<item name="Huge Chunk of Crude Iron" chance="40000"/>
+		<item name="Royal Star" countmax="100" chance="40000"/>
+		<item name="Ultimate Mana Potion" countmax="14" chance="40000"/>
+		<item name="Ultimate Spirit Potion" countmax="6" chance="40000"/>
+		<item name="Mastermind Potion" countmax="10" chance="20000"/>
+		<item name="Bullseye Potion" countmax="10" chance="20000"/>
+		<item id="26200" chance="10000"/>	<!-- Collar of Red Plasma -->
+		<item id="7632" chance="10000"/>	<!-- Giant Shimmering Pearl -->
+		<item name="Pomegranate" chance="5000"/>
+		<item id="26187" chance="5000"/>	<!-- Ring of Green Plasma -->
+		<item id="26189" chance="5000"/>	<!-- Ring of Red Plasma -->
+		<item name="Skull Staff" chance="3000"/>
+		<item name="Chaos Mace" chance="1000" unique="1"/>
+		<item name="Winterblade" chance="1000" unique="1"/>
+		<item name="Izcandar's Snow Globe" chance="1000" unique="1"/>
+	</loot>
+</monster>
