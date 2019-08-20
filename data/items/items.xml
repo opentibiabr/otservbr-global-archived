@@ -13249,20 +13249,16 @@
 	<item id="7588" article="a" name="strong health potion">
 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="290" />
-		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by paladins and knights of level 50 or higher." />
 	</item>
 	<item id="7589" article="a" name="strong mana potion">
 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="290" />
-		<attribute key="type" value="supply" />
-		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers, druids and paladins of level 50 or higher." />
 	</item>
 	<item id="7590" article="a" name="great mana potion">
 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
-		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 80 or higher." />
 	</item>
 	<item id="7591" article="a" name="great health potion">
@@ -15358,7 +15354,6 @@
 	</item>
 	<item id="8473" article="an" name="ultimate health potion">
 		<attribute key="type" value="supply" />
-		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 130 or higher." />
 	</item>
@@ -15603,7 +15598,6 @@
 	<item id="8704" article="a" name="small health potion">
 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="265" />
-		<attribute key="type" value="supply" />
 	</item>
 	<item fromid="8705" toid="8706" name="balloons" />
 	<item id="8707" name="your student book">
