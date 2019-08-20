@@ -15858,6 +15858,7 @@ int LuaScriptInterface::luaSpellVocation(lua_State* L)
 				}
 				spell->addVocMap(vocationId, showInDescription);
 				pushBoolean(L, true);
+			}
 		}
 	} else {
 		lua_pushnil(L);
