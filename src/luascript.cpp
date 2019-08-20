@@ -15856,7 +15856,6 @@ int LuaScriptInterface::luaSpellVocation(lua_State* L)
 				if (lua_gettop(L) == 3) {
 					showInDescription = getBoolean(L, 3);
 				}
-			}
 				spell->addVocMap(vocationId, showInDescription);
 				pushBoolean(L, true);
 		}
