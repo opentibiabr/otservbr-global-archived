@@ -56,7 +56,7 @@
 		<voice sentence="I AM ZAMULOSH!"/>
 	</voices>
 	<loot>
-		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
 		<item id="2148" countmax="200" chance="98000"/><!-- gold coin -->
 		<item id="7632" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
 		<item id="7633" countmax="5" chance="14000"/><!-- giant shimmering pearl -->

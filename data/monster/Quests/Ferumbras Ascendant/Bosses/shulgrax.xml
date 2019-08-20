@@ -70,7 +70,7 @@
 		<voice sentence="YOU ARE ALL DAMNED!" yell="1"/>
 	</voices>
 	<loot>
-		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
                 <item id="6558" chance="10000"/><!-- concentrate demonic blood -->
                 <item id="6558" chance="10000"/><!-- concentrate demonic blood -->
                 <item id="6558" chance="10000"/><!-- concentrate demonic blood -->

@@ -63,7 +63,7 @@
 		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
-		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
 		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
 		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
 		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->

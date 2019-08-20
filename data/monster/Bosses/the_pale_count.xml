@@ -63,7 +63,7 @@
 		<item id="12405" chance="50000"/><!-- blood preservation -->
 		<item id="10602" chance="50000"/><!-- vampire teeth -->
 		<item id="21400" chance="5000"/><!-- silver raid token -->
-		<item id="2148" countmax="100" chance="1000000"/><!-- gold coin -->
+		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
 		<item id="2152" countmax="5" chance="100000"/><!-- platinum coin -->
 		<item id="7589" countmax="3" chance="50000"/><!-- strong mana potion -->
 		<item id="7588" countmax="3" chance="50000"/><!-- strong health potion -->

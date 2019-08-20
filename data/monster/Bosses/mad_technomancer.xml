@@ -52,6 +52,6 @@
 		<voice sentence="Gentlemen, you can't fight here! This is the War Room!"/>
 	</voices>
 	<loot>
-		<item id="7699" chance="1000000"/><!-- beard -->
+		<item id="7699" chance="100000"/><!-- beard -->
 	</loot>
 </monster>

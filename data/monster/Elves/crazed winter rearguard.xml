@@ -39,8 +39,8 @@
 	</immunities>
 	<loot>
 		<item name="platinum coin" countmax="5" chance="100000"/>
-		<item name="red crystal fragment" chance="1000000"/>
-		<item name="red gem" chance="1000000"/>
+		<item name="red crystal fragment" chance="100000"/>
+		<item name="red gem" chance="100000"/>
 		<item name="ice rapier" chance="15000"/>
 		<item name="ultimate health potion" chance="11550"/>
 		<item name="great spirit potion" chance="13550"/>

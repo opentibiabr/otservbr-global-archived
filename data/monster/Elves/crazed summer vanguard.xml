@@ -54,8 +54,8 @@
 		<voice sentence="La di da di doo!!"/>
 	</voices>
 	<loot>
-		<item name="platinum coin" countmax="13" chance="1000000"/>
-		<item name="elven astral observer" countmax="2" chance="1000000"/>
+		<item name="platinum coin" countmax="13" chance="100000"/>
+		<item name="elven astral observer" countmax="2" chance="100000"/>
 		<item name="dream essence egg" chance="15000"/>
 		<item name="belted cape" chance="11550"/>
 		<item name="two handed sword" chance="13550"/>

@@ -55,9 +55,9 @@
 		<voice sentence="Weeeuuu weeeuuu!!!"/>
 	</voices>
 	<loot>
-		<item name="power bolt" chance="1000000"/>
-		<item name="small enchanted sapphire" countmax="2" chance="1000000"/>
-		<item name="platinum coin" countmax="11" chance="1000000"/>
+		<item name="power bolt" chance="100000"/>
+		<item name="small enchanted sapphire" countmax="2" chance="100000"/>
+		<item name="platinum coin" countmax="11" chance="100000"/>
 		<item id="5921" chance="15000"/><!-- heaven blossom -->
 		<item name="dream essence egg" chance="11550"/>
 		<item name="elvish talisman" chance="13550"/>

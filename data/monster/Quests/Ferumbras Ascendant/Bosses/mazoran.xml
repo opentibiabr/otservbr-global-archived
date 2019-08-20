@@ -69,7 +69,7 @@
 		<voice sentence="UNLEASH THE FIRE!"/>
 	</voices>
 	<loot>
-		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
 		<item id="18419" countmax="5" chance="23000"/><!-- cyan crystal fragment -->
 		<item id="18420" countmax="5" chance="23000"/><!-- red crystal fragment -->
 		<item id="18421" countmax="5" chance="23000"/><!-- green crystal fragment -->

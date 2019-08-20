@@ -71,7 +71,7 @@
 		<voice sentence="I CAN SENSE YOUR BODIES ROOTING!" yell="1"/>
 	</voices>
 	<loot>
-		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
 		<item id="11306" chance="3000"/><!-- sai -->
 		<item id="18411" chance="1820"/><!-- muck rod -->
 		<item id="18419" countmax="6" chance="23000"/><!-- cyan crystal fragment -->

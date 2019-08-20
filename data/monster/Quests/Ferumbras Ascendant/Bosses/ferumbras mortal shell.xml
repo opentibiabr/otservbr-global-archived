@@ -121,7 +121,7 @@
 		<item id="2155" chance="4000"/><!--green gem -->
 		<item id="2514" chance="600"/><!--MMS -->
 		<item id="7435" chance="800"/><!--impaler -->
-		<item id="25172" countmax="3" chance="1000000"/><!-- silver token -->
+		<item id="25172" countmax="3" chance="100000"/><!-- silver token -->
 		<item id="2144" countmax="5" chance="10000"/><!-- black pearl -->
 		<item id="2145" countmax="10" chance="10000"/><!-- small diamond-->
 		<item id="25427" chance="800"/><!-- Scroll of Ascension -->

@@ -77,7 +77,7 @@
 		<summon name="Eruption of Destruction" interval="2000" chance="15" max="2"/>
 	</summons>
 	<loot>
-		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
 		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
 		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
 		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
