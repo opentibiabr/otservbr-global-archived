@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Yonan" script="Yonan.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="1200" head="76" body="49" legs="10" feet="0" addons="1" />
+  <voices>
+    <voice text="Good bye." interval2="120" margin="1" yell="no" />
+  </voices>
+</npc>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npc name="Faloriel" script="Faloriel.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="159" head="113" body="100" legs="29" feet="97" addons="0" />
+  <voices>
+    <voice text="Good bye." interval2="120" margin="1" yell="no" />
+  </voices>
+</npc>
