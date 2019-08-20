@@ -20,9 +20,9 @@ local config = {
 		end
 
 		if config.anvil and config.anvilPos then
-        player:addItem(config.shielForged, 1)  
         player:removeItem(config.GrantArms, 1)  
         player:removeItem(config.Cloth, 1)  
+        player:addItem(config.shielForged, 1)  
 		item:remove(1)    
 		return true
 	else
