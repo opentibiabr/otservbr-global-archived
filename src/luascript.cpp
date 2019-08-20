@@ -15850,26 +15850,15 @@ int LuaScriptInterface::luaSpellVocation(lua_State* L)
 			}
 			setMetatable(L, -1, "Spell");
 		} else {
+			int32_t vocationId = g_vocations.getVocationId(getString(L, 2));
+			if (vocationId != -1) {
 				bool showInDescription = false;
 				if (lua_gettop(L) == 3) {
 					showInDescription = getBoolean(L, 3);
-			for (int i = 0; i < parameters; ++i) {
-				if (getString(L, 2 + i).find(";") != std::string::npos) {
-					std::vector<std::string> vocList = explodeString(getString(L, 2 + i), ";");
-					int32_t vocationId = g_vocations.getVocationId(vocList[0]);
-					if (vocList.size() > 0) {
-						if (vocList[1] == "true") {
-							spell->addVocMap(vocationId, true);
-						} else {
-							spell->addVocMap(vocationId, false);
-						}
-					}
-				} else {
-					int32_t vocationId = g_vocations.getVocationId(getString(L, 2 + i));
-					spell->addVocMap(vocationId, false);
 				}
 			}
-			pushBoolean(L, true);
+				spell->addVocMap(vocationId, showInDescription);
+				pushBoolean(L, true);
 		}
 	} else {
 		lua_pushnil(L);
@@ -17798,15 +17787,4 @@ void LuaEnvironment::executeTimerEvent(uint32_t eventIndex)
 	for (auto parameter : timerEventDesc.parameters) {
 		luaL_unref(luaState, LUA_REGISTRYINDEX, parameter);
 	}
-}
-
-
-int LuaScriptInterface::luaPlayerOwnsItem(lua_State* L)
-{
-	// player:ownsItem()
-	Player* player = getUserdata<Player>(L, 1);
-	Item* item = getUserdata<Item>(L, 2);
-	Cylinder* parent = item->getTopParent();
-	pushBoolean(L, player == parent);
-	return 1;
 }
