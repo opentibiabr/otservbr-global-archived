@@ -23343,12 +23343,6 @@
 	<item fromid="14858" toid="14871" article="an" name="insectoid meatball" />
 	<item id="14874" article="a" name="hivecomb floor" />
 	<item fromid="14887" toid="14898" article="a" name="rockboy" />
-	<item id="14903" article="a" name="bag with stolen gold">
-		<attribute key="description" value="It contains so much cash that you wouldn't have any idea how to use it. Return it to a nearby bank." />
-		<attribute key="weight" value="5000" />
-		<attribute key="decayTo" value="0" />
-		<attribute key="duration" value="86400" />
-	</item>
 	<item fromid="14904" toid="14912" name="wet temple floor" />
 	<item fromid="14913" toid="14914" article="a" name="finely crafted ornament" />
 	<item fromid="14915" toid="14930" name="wet temple floor" />
@@ -28803,21 +28797,21 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="20591" article="a" name="dead amarie">
+	<item id="20591" article="a" name="dead unused purple elf">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="20592" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="20591" article="a" name="dead amarie">
+	<item id="20591" article="a" name="dead unused purple elf">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="2947" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="20591" article="a" name="dead amarie">
+	<item id="20591" article="a" name="dead unused purple elf">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="20591" />
 		<attribute key="duration" value="10" />

@@ -15585,14 +15585,12 @@ int LuaScriptInterface::luaSpellGroupCooldown(lua_State* L)
 	if (spell) {
 		if (lua_gettop(L) == 1) {
 			lua_pushnumber(L, spell->getGroupCooldown());
-			lua_pushnumber(L, spell->getSecondaryCooldown());
 			return 2;
 		} else if (lua_gettop(L) == 2) {
 			spell->setGroupCooldown(getNumber<uint32_t>(L, 2));
 			pushBoolean(L, true);
 		} else {
 			spell->setGroupCooldown(getNumber<uint32_t>(L, 2));
-			spell->setSecondaryCooldown(getNumber<uint32_t>(L, 3));
 			pushBoolean(L, true);
 		}
 	} else {
@@ -15859,7 +15857,9 @@ int LuaScriptInterface::luaSpellVocation(lua_State* L)
 			}
 			setMetatable(L, -1, "Spell");
 		} else {
-			int parameters = lua_gettop(L) - 1; // - 1 because self is a parameter aswell, which we want to skip ofc
+				bool showInDescription = false;
+				if (lua_gettop(L) == 3) {
+					showInDescription = getBoolean(L, 3);
 			for (int i = 0; i < parameters; ++i) {
 				if (getString(L, 2 + i).find(";") != std::string::npos) {
 					std::vector<std::string> vocList = explodeString(getString(L, 2 + i), ";");
