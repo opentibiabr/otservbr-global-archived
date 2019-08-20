@@ -1,4 +1,4 @@
-talk = TalkAction("/addskill")
+local talk = TalkAction("/addskill")
 
 -- function for the talkaction /addskill 
 local function getSkillId(skillName)
