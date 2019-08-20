@@ -153,7 +153,7 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			}
 		}
 
-		if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX && operatingSystem == CLIENTOS_WINDOWS) {
+		if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
 			player->registerCreatureEvent("ExtendedOpcode");
 		}
 

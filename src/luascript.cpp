@@ -65,8 +65,6 @@ std::multimap<ScriptEnvironment*, Item*> ScriptEnvironment::tempItems;
 LuaEnvironment g_luaEnvironment;
 
 
- std::mutex mutexReload;
-
 ScriptEnvironment::ScriptEnvironment()
 {
 	resetEnv();
