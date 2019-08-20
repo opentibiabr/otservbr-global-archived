@@ -17788,3 +17788,14 @@ void LuaEnvironment::executeTimerEvent(uint32_t eventIndex)
 		luaL_unref(luaState, LUA_REGISTRYINDEX, parameter);
 	}
 }
+
+
+int LuaScriptInterface::luaPlayerOwnsItem(lua_State* L)
+{
+	// player:ownsItem()
+	Player* player = getUserdata<Player>(L, 1);
+	Item* item = getUserdata<Item>(L, 2);
+	Cylinder* parent = item->getTopParent();
+	pushBoolean(L, player == parent);
+	return 1;
+}
