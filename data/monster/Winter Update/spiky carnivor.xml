@@ -18,14 +18,8 @@
 		<flag runonhealth="0" />
 	</flags>
 		<attacks>
-		<attack name="melee" interval="2000" min="0" max="-205" />
-		<attack name="lifedrain" interval="2000" chance="15"  length="4" spread="0" min="-150" max="-330">
-		<attribute key="areaEffect" value="SMOKE" />
-		</attack>
-		<attack name="lifedrain" interval="2000" chance="20"  length="4" spread="0" min="-150" max="-330">
-		<attribute key="areaEffect" value="POISON" />
-		</attack>
-		<attack name="physical" interval="2000" chance="20" radius="4" min="-150" max="-330">
+		<attack name="melee" interval="2000" min="-200" max="-400" />
+		<attack name="physical" interval="2000" chance="10" radius="4" min="-230" max="-380">
 		<attribute key="areaEffect" value="GROUNDSHAKER" />
 		</attack>
 		</attacks>
