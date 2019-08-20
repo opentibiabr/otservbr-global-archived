@@ -673,6 +673,7 @@
 	<!-- Bosses -->
 	<monster name="A Shielded Astral Glyph" file="Bosses/A Shielded Astral Glyph.xml"/>
 	<monster name="Abyssador" file="Bosses/abyssador.xml"/>
+	<monster name="Alptramun" file="Bosses/Alptramun.xml"/>
 	<monster name="An Astral Glyph" file="Bosses/An Astral Glyph.xml"/>
 	<monster name="Ascending Ferumbras" file="Bosses/ascending ferumbras.xml"/>
 	<monster name="Annihilon" file="Bosses/annihilon.xml"/>
@@ -1501,7 +1502,6 @@
 	<monster name="Wild Water Magic" file="Wild_Magics/wild_water_magic.xml"/>
 
 	<!-- Winter Update -->
-	<monster name="Alptramun" file="Winter Update/alptramun.xml"/>
 	<monster name="Arachnophobica" file="Winter Update/arachnophobica.xml"/>
 	<monster name="Burster Spectre" file="Winter Update/burster spectre.xml"/>
 	<monster name="Faceless Bane" file="Winter Update/faceless bane.xml"/>
