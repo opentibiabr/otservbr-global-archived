@@ -153,7 +153,7 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			}
 		}
 
-		if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
+		if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX && operatingSystem == CLIENTOS_WINDOWS) {
 			player->registerCreatureEvent("ExtendedOpcode");
 		}
 
@@ -512,8 +512,8 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xFA: if (!g_config.getBoolean(ConfigManager::STOREMODULES)) { parseStoreOpen(msg); } break;
 		case 0xFB: if (!g_config.getBoolean(ConfigManager::STOREMODULES)) { parseStoreRequestOffers(msg); } break;
 		case 0xFC: if (!g_config.getBoolean(ConfigManager::STOREMODULES)) { parseStoreBuyOffer(msg); } break;
-//		case 0xFD: parseStoreOpenTransactionHistory(msg); break;
-//		case 0xFE: parseStoreRequestTransactionHistory(msg); break;
+		case 0xFD: parseStoreOpenTransactionHistory(msg); break;
+		case 0xFE: parseStoreRequestTransactionHistory(msg); break;
 
 		//case 0x77 Equip Hotkey.
 		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
@@ -1427,6 +1427,8 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 {
 	NetworkMessage msg;
 	msg.addByte(0xDD);
+	if (version >= 1200)
+		msg.addByte(0x00); // unknow
 	msg.addPosition(pos);
 	msg.addByte(markType);
 	msg.addString(desc);
@@ -3801,6 +3803,92 @@ void ProtocolGame::RemoveTileThing(NetworkMessage& msg, const Position& pos, uin
 	msg.addByte(0x6C);
 	msg.addPosition(pos);
 	msg.addByte(stackpos);
+}
+
+void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit)
+{
+	bool isCorpseEmpty = corpse->empty();
+	NetworkMessage msg;
+	msg.addByte(0xD1);
+	msg.addString(name);
+	msg.add<uint16_t>(creatureOutfit.lookType ? creatureOutfit.lookType : 21);
+	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookHead : 0x00);
+	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookBody : 0x00);
+	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookLegs : 0x00);
+	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookFeet : 0x00);
+	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookAddons : 0x00);
+	msg.addByte(isCorpseEmpty ? 0 : corpse->size());
+	if (!isCorpseEmpty) {
+		for (ContainerIterator it = corpse->iterator(); it.hasNext(); it.advance()) {
+			AddItem(msg, *it);
+
+			/* OR:
+			Item* item = *it;
+			msg.add<uint16_t>(item->getClientID());
+			msg.addByte(0);
+ 			if (item->isStackable()) {
+				msg.addByte(item->getItemCount());
+			}
+ 			const ItemType& iType = Item::items[item->getID()];
+			if (iType.isAnimation) {
+				msg.addByte(0x00);
+			}*/
+		}
+	}
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
+{
+	if (!player) {
+		return;
+	}
+
+ 	if (getVersion() < 1140 || player->operatingSystem != CLIENTOS_NEW_WINDOWS) {
+		return;
+	}
+
+
+ 	if (!item) {
+		return;
+	}
+
+ 	NetworkMessage msg;
+	msg.addByte(0xCE);
+	msg.add<uint16_t>(item->getClientID());
+	writeToOutputBuffer(msg);
+}
+
+ void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
+{
+	if (!player) {
+		return;
+	}
+
+ 	if (getVersion() < 1140 || player->operatingSystem != CLIENTOS_NEW_WINDOWS) {
+		return;
+	}
+
+ 	NetworkMessage msg;
+	msg.addByte(0xCC);
+	msg.addByte(isHeal ? 0x0 : 0x01);
+	msg.add<uint32_t>(quantity);
+	writeToOutputBuffer(msg);
+}
+
+ void ProtocolGame::sendUpdateLootTracker(Item* item)
+{
+	if (!player) {
+		return;
+	}
+
+	NetworkMessage msg;
+
+	msg.addByte(0xCF);
+	msg.addItemId(item->getID());
+	msg.addString(item->getName());
+	item->setIsLootTrackeable(false);
+	writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::MoveUpCreature(NetworkMessage& msg, const Creature* creature, const Position& newPos, const Position& oldPos)

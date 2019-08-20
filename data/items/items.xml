@@ -13247,18 +13247,26 @@
 		<attribute key="description" value="It contains Ahmet's stolen property." />
 	</item>
 	<item id="7588" article="a" name="strong health potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="290" />
+		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by paladins and knights of level 50 or higher." />
 	</item>
 	<item id="7589" article="a" name="strong mana potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="290" />
+		<attribute key="type" value="supply" />
+		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers, druids and paladins of level 50 or higher." />
 	</item>
 	<item id="7590" article="a" name="great mana potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
+		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 80 or higher." />
 	</item>
 	<item id="7591" article="a" name="great health potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 80 or higher." />
 	</item>
@@ -13267,9 +13275,11 @@
 	<item id="7617" name="linen" />
 	<item id="7618" article="a" name="health potion">
 		<attribute key="weight" value="270" />
+		<attribute key="type" value="supply" />
 	</item>
 	<item id="7619" name="linen" />
 	<item id="7620" article="a" name="mana potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="270" />
 	</item>
 	<item id="7621" article="a" name="dead dragon hatchling">
@@ -15347,6 +15357,8 @@
 		<attribute key="description" value="This potion can only be consumed by paladins of level 80 or higher." />
 	</item>
 	<item id="8473" article="an" name="ultimate health potion">
+		<attribute key="type" value="supply" />
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 130 or higher." />
 	</item>
@@ -15589,7 +15601,9 @@
 		<attribute key="weight" value="1300" />
 	</item>
 	<item id="8704" article="a" name="small health potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="265" />
+		<attribute key="type" value="supply" />
 	</item>
 	<item fromid="8705" toid="8706" name="balloons" />
 	<item id="8707" name="your student book">
@@ -23335,6 +23349,12 @@
 	<item fromid="14858" toid="14871" article="an" name="insectoid meatball" />
 	<item id="14874" article="a" name="hivecomb floor" />
 	<item fromid="14887" toid="14898" article="a" name="rockboy" />
+	<item id="14903" article="a" name="bag with stolen gold">
+		<attribute key="description" value="It contains so much cash that you wouldn't have any idea how to use it. Return it to a nearby bank." />
+		<attribute key="weight" value="5000" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="86400" />
+	</item>
 	<item fromid="14904" toid="14912" name="wet temple floor" />
 	<item fromid="14913" toid="14914" article="a" name="finely crafted ornament" />
 	<item fromid="14915" toid="14930" name="wet temple floor" />
@@ -28789,21 +28809,21 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="20591" article="a" name="dead unused purple elf">
+	<item id="20591" article="a" name="dead amarie">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="20592" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="20592" article="a" name="dead unused purple elf">
+	<item id="20591" article="a" name="dead amarie">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="2947" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
-	<item id="20593" article="a" name="dead unused purple elf">
+	<item id="20591" article="a" name="dead amarie">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="20591" />
 		<attribute key="duration" value="10" />
@@ -34881,9 +34901,11 @@
 	<item id="26028" article="a" name="spike trap" />
 	<item id="26029" article="an" name="ultimate mana potion">
 		<attribute key="weight" value="310" />
+		<attribute key="type" value="supply" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 130 or higher." />
 	</item>
 	<item id="26031" article="a" name="supreme health potion">
+		<attribute key="type" value="supply" />
 		<attribute key="weight" value="350" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 200 or higher." />
 	</item>
@@ -34920,7 +34942,7 @@
 		<attribute key="duration" value="40" />
 	</item>
 	<item id="26052" article="your" name="store inbox">
-		<attribute key="containerSize" value="20" />
+		<attribute key="containerSize" value="40" />
 	</item>
 	<item id="26054" article="a" name="decoration kit" />
 	<item id="26055" article="a" name="royal mailbox">
@@ -37028,8 +37050,7 @@
 	<item id="29038" article="a" name="rainbow quartz" plural="rainbow quartzes">
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="29039" name="death" />
-	<item id="29040" name="death" />
+	<item fromid="29039" toid="29040" name="tar sacrificial" />
 	<item id="29041" name="poison" />
 	<item id="29042" name="poison" />
 	<item id="29043" article="a" name="fig leaf">
@@ -40488,6 +40509,7 @@
 		<attribute key="weight" value="2504" />
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
+	<item fromid="32595" toid="32596" article="a" name="timber table"/>
 	<item id="32603" article="a" name="wall mirror"/>
 	<item id="32605" article="a" name="secret map" >
 		<attribute key="weight" value="830" />
@@ -40515,6 +40537,7 @@
 		<attribute key="weight" value="180" />
 		<attribute key="description" value="There is an empty bracket on its top." />
 	</item>
+	<item id="32640" article="a" name="tar"/>
 	<item id="32641" article="a" name="green energy ball">
 		<attribute key="weight" value="50" />
 	</item>
@@ -41334,6 +41357,7 @@
 		<attribute key="weight" value="1900" />
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
+	<item fromid="33471" toid="33474" article="a" name="timber table"/>
 	<item fromid="33491" toid="33492" name="fluorescent fungi">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -43021,51 +43045,67 @@
 	<item id="36307" toid="36308" article="a" name="sublime tournament accolade"/>
 	<item id="36336" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36337" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36337" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36336" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36338" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36339" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36339" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36338" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36340" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36341" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36341" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36340" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36342" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36343" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36343" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36342" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36344" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36345" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36345" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36344" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36346" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36347" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36347" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36346" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36348" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36349" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36349" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36348" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36350" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36351" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36351" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36350" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item fromid="36353" toid="36358" article="a" name="memorial"/>
 	<item id="36514" article="a" name="hrodmiran table">

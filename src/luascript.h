@@ -863,6 +863,8 @@ class LuaScriptInterface
 		static int luaPlayerGetReward(lua_State* L);
 		static int luaPlayerRemoveReward(lua_State* L);
 		static int luaPlayerGetRewardList(lua_State* L);
+		static int luaPlayerSendInventory(lua_State* L);
+		static int luaPlayerUpdateSupplyTracker(lua_State* L);
 
 		static int luaPlayerGetDepotChest(lua_State* L);
 		static int luaPlayerGetInbox(lua_State* L);
@@ -1071,6 +1073,8 @@ class LuaScriptInterface
 		static int luaPlayerRemoveAutoLootItem(lua_State* L);
 		static int luaPlayerGetAutoLootItem(lua_State* L);
 		static int luaPlayerGetAutoLootList(lua_State* L); */ // NOT READY
+
+ 		static int luaPlayerOwnsItem(lua_State* L);
 
 		// Monster
 		static int luaMonsterCreate(lua_State* L);
