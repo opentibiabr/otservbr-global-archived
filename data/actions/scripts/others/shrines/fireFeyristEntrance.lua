@@ -19,5 +19,5 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		toPosition:sendMagicEffect(CONST_ME_MAGIC_RED)
 		return true
 	end
-	return false
+	return false --
 end
