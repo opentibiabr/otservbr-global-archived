@@ -61,7 +61,7 @@ local outfitBoots = (250*1000*1000)
 
 	elseif(msgcontains(msg, "boots")) then
 		if(player:getMoney() + player:getBankBalance() >= outfitHelmet and player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) < 1) then
-			npcHandler:say("Take this armor as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
+			npcHandler:say("Take this boots as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 			player:removeMoneyNpc(outfitHelmet)
 			player:addOutfitAddon(1210, 1)
 			player:addOutfitAddon(1211, 1)
@@ -78,7 +78,7 @@ local outfitBoots = (250*1000*1000)
 
 	elseif(msgcontains(msg, "helmet")) then
 		if(player:getMoney() + player:getBankBalance() >= outfitBoots and player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) < 1) then
-			npcHandler:say("Take this armor as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
+			npcHandler:say("Take this helmet as a token of great gratitude. Let us forever remember this day, my friend. ", cid)
 			player:removeMoneyNpc(outfitBoots)
 			player:addOutfitAddon(1210, 2)
 			player:addOutfitAddon(1211, 2)
