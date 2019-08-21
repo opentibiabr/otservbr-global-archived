@@ -109,19 +109,14 @@ class Events
 		void eventPlayerOnGainExperience(Player* player, Creature* source, uint64_t& exp, uint64_t rawExp);
 		void eventPlayerOnLoseExperience(Player* player, uint64_t& exp);
 		void eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_t& tries);
-		void eventPlayerOnUseWeapon(Player* player, int32_t& normalDamage, CombatType_t& elementType, int32_t& elementDamage);
-		void eventPlayerOnCombatSpell(Player* player, int32_t& normalDamage, int32_t& elementDamage, CombatType_t& elementType, bool changeDamage);
-		bool eventPlayerOnMove(Player* player);
 		bool eventPlayerOnRemoveCount(Player* player, Item * item);
-		void eventPlayerOnEquipImbuement(Player* player, Item* item);
-		void eventPlayerOnDeEquipImbuement(Player* player, Item* item);
 		void eventPlayerOnRequestQuestLog(Player* player);
 		void eventPlayerOnRequestQuestLine(Player* player, uint16_t questId);
 		void eventOnStorageUpdate(Player* player, const uint32_t key, const int32_t value, int32_t oldValue, uint64_t currentTime);
 		bool eventPlayerCanBeAppliedImbuement(Player* player, Imbuement* imbuement, Item* item);
 		void eventPlayerOnApplyImbuement(Player* player, Imbuement* imbuement, Item* item, uint8_t slot, bool protectionCharm);
 		void eventPlayerClearImbuement(Player* player, Item* item, uint8_t slot);
-		void eventPlayerOnCombat(Player* player, Item* item, CombatDamage& damage);
+		void eventPlayerOnCombat(Player* player, Creature* target, Item* item, CombatDamage& damage);
 
 		// Monster
 		void eventMonsterOnSpawn(Monster* monster, const Position& position);

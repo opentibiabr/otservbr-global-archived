@@ -955,8 +955,8 @@ function Player:clearImbuement(item, slot)
 	return true
 end
 
-function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
-	if not item then
+function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
 
@@ -967,9 +967,15 @@ function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, seco
 			if imbuement then
 				local percent = imbuement:getElementDamage()
 				if percent and percent > 0 then
-					secondaryDamage = primaryDamage*math.min(percent/100, 1)
-					secondaryType = imbuement:getCombatType()
-					primaryDamage = primaryDamage - secondaryDamage
+					if primaryDamage ~= 0 then
+						secondaryDamage = primaryDamage*math.min(percent/100, 1)
+						secondaryType = imbuement:getCombatType()
+						primaryDamage = primaryDamage - primaryDamage*math.min(percent/100, 1)
+					elseif secondaryDamage ~= 0 then
+						primaryDamage = secondaryDamage*math.min(percent/100, 1)
+						primaryType = imbuement:getCombatType()
+						secondaryDamage = secondaryDamage - secondaryDamage*math.min(percent/100, 1)
+					end
 				end
 			end
 		end
