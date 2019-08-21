@@ -15,7 +15,7 @@ function talk.onSay(player, words, param)
 		return true
 	end
 	
-	if(param == "") then
+	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false
 	end
