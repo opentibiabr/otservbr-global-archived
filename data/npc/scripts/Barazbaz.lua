@@ -26,7 +26,7 @@ function creatureSayCallback(cid, type, msg)
 		   setPlayerStorageValue(cid, 20057, 0)
 		end
 	elseif(msgcontains(msg, "abandoned sewers")) then
-		if(getPlayerStorageValue(cid, 10050) == 7) then
+		if(getPlayerStorageValue(cid, 10050) == 8) then
 			selfSay("Excellent! Concerning the ancient ruins that you have found, well, if you are not familiar with the city's history, feel free to browse a few books here. I will only refer to some basics here, so I don't waste your time. ...", cid)
 			selfSay("The first humans that lived here and that we have any records of lived in slavery of an ancient evil. ...", cid)
 			selfSay("The nature of this evil is up to debate, but there are hints that this evil predated the settlement of men and that it perhaps was part of a more ancient civilisation or caused the downfall of the latter. ...", cid)
