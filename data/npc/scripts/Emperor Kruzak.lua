@@ -35,9 +35,9 @@ local outfitBoots = (250*1000*1000)
 		end
 	elseif(msgcontains(msg, "yes")) then
 		if npcHandler.topic[cid] == 1 then
-			selfSay("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
-			selfSay("You will be entitled to wear the {armor} for 500.000.000 gold pieces, {boots} for an additional 250.000.000 and the {helmet} for another 250.000.000 gold pieces. ...", cid)
-			selfSay("What will it be?", cid)
+			npcHandler:say("In exchange for a truly generous donation, I will offer a special outfit. Do you want to make a donation?", cid)
+			npcHandler:say("You will be entitled to wear the {armor} for 500.000.000 gold pieces, {boots} for an additional 250.000.000 and the {helmet} for another 250.000.000 gold pieces. ...", cid)
+			npcHandler:say("What will it be?", cid)
 			npcHandler.topic[cid] = 2
 		end
 
@@ -52,10 +52,10 @@ local outfitBoots = (250*1000*1000)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.OutfitQuest.GoldenBaseOutfit, 1)
 		elseif(player:getStorageValue(Storage.OutfitQuest.GoldenBaseOutfit) == 1) then
-			selfSay("You already have this outfit!", cid)
+			npcHandler:say("You already have this outfit!", cid)
 			npcHandler.topic[cid] = 0
 		elseif(player:getMoney() + player:getBankBalance() < outfitArmor) then
-			selfSay("You dont have enough money", cid)
+			npcHandler:say("You dont have enough money", cid)
 			npcHandler.topic[cid] = 0
 		end
 
@@ -68,10 +68,10 @@ local outfitBoots = (250*1000*1000)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.OutfitQuest.GoldenFirstAddon, 1)
 		elseif(player:getStorageValue(Storage.OutfitQuest.GoldenFirstAddon) == 1) then
-			selfSay("You already have this outfit!", cid)
+			npcHandler:say("You already have this outfit!", cid)
 			npcHandler.topic[cid] = 0
 		elseif(player:getMoney() + player:getBankBalance() < outfitHelmet) then
-			selfSay("You dont have enough money", cid)
+			npcHandler:say("You dont have enough money", cid)
 			npcHandler.topic[cid] = 0
 		end
 
@@ -85,10 +85,10 @@ local outfitBoots = (250*1000*1000)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.OutfitQuest.GoldenSecondAddon, 1)
 		elseif(player:getStorageValue(Storage.OutfitQuest.GoldenSecondAddon) == 1) then
-			selfSay("You already have this outfit!", cid)
+			npcHandler:say("You already have this outfit!", cid)
 			npcHandler.topic[cid] = 0
 		elseif(player:getMoney() + player:getBankBalance() < outfitBoots) then
-			selfSay("You dont have enough money", cid)
+			npcHandler:say("You dont have enough money", cid)
 			npcHandler.topic[cid] = 0
 			end
 		end
