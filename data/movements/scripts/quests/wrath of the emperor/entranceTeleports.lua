@@ -5,13 +5,13 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if player:getStorageValue(Storage.WrathoftheEmperor.Questline) < 30 then
-	local destinationz = Position(33138, 31249, 6)
+		local destinationz = Position(33138, 31249, 6)
 		player:teleportTo(destinationz)
 		return true
 	end
 
 	if player:getStorageValue(Storage.WrathoftheEmperor.BossStatus) < 5 then
-	local destinationt = Position(33138, 31249, 6)
+		local destinationt = Position(33138, 31249, 6)
 		player:teleportTo(destinationt)
 		return true
 	end
