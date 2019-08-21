@@ -1427,6 +1427,9 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 {
 	NetworkMessage msg;
 	msg.addByte(0xDD);
+	if (version >= 1200)
+		msg.addByte(0x00); // unknow
+
 	msg.addPosition(pos);
 	msg.addByte(markType);
 	msg.addString(desc);
