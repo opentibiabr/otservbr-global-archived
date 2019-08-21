@@ -1,7 +1,10 @@
 local destination = {
 	[64007] = Position(33345, 31347, 7),
 	[64008] = Position(33357, 31308, 4),
-	[64009] = Position(33382, 31292, 7)
+	[64009] = Position(33382, 31292, 7),
+	[64010] = Position(33327, 31351, 7),
+	[64011] = Position(33201, 31765, 1),
+	[64012] = Position(33327, 31351, 7),
 }
 
 function onStepIn(creature, item, position, fromPosition)

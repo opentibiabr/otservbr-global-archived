@@ -1,5 +1,6 @@
 local destination = {
 	[64013] = Position(32958, 32324, 8),
+	[64014] = Position(33110, 32386, 7),
 }
 
 function onStepIn(creature, item, position, fromPosition)
