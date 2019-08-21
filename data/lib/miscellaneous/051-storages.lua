@@ -1318,6 +1318,12 @@ Storage = {
 	},
 
 	DreamersChallenge = {
+		LeverNightmare1 = 50815,
+		LeverNightmare2 = 50816,
+		LeverNightmare3 = 50817,
+		LeverBrotherhood1 = 50818,
+		LeverBrotherhood2 = 50819,
+		LeverBrotherhood3 = 50820,
 		Reward = 9050
 	},
 
