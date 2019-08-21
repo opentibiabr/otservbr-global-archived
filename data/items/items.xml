@@ -35408,7 +35408,7 @@
 		<attribute key="showattributes" value="1" />
 		<attribute key="transformDeEquipTo" value="26200" />
 	</item>
-	<item id="26185" name="ring of blue plasma">
+	<item id="26185" article="a" name="ring of blue plasma">
 		<attribute key="weight" value="90" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="transformEquipTo" value="26186" />
@@ -35426,7 +35426,7 @@
 		<attribute key="showattributes" value="1" />
 		<attribute key="transformDeEquipTo" value="26185" />
 	</item>
-	<item id="26187" name="ring of green plasma">
+	<item id="26187" article="a" name="ring of green plasma">
 		<attribute key="weight" value="90" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="transformEquipTo" value="26188" />
@@ -35447,7 +35447,7 @@
 		<attribute key="showattributes" value="1" />
 		<attribute key="transformDeEquipTo" value="26187" />
 	</item>
-	<item id="26189" name="ring of red plasma">
+	<item id="26189" article="a" name="ring of red plasma">
 		<attribute key="weight" value="90" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="transformEquipTo" value="26190" />
@@ -35487,21 +35487,21 @@
 	<item id="26197" article="a" name="blue sphere">
 		<attribute key="weight" value="1000" />
 	</item>
-	<item id="26198" name="collar of blue plasma">
+	<item id="26198" article="a" name="collar of blue plasma">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="transformEquipTo" value="26182" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
 	</item>
-	<item id="26199" name="collar of green plasma">
+	<item id="26199" article="a" name="collar of green plasma">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="transformEquipTo" value="26183" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
 	</item>
-	<item id="26200" name="collar of red plasma">
+	<item id="26200" article="a" name="collar of red plasma">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="transformEquipTo" value="26184" />
@@ -43189,8 +43189,74 @@
 		<attribute key="rotateTo" value="36540" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item id="36" article="a" name=""/>
-	<item id="36" article="a" name=""/>
+	<item id="35229" name="cobra boots">
+		<attribute key="weight" value="900" />
+		<attribute key="slotType" value="feet" />
+		<attribute key="speed" value="20" />
+		<attribute key="armor" value="3" />
+		<attribute key="absorbPercentPhysical" value="6" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="36448" article="a" name="pick">
+		<attribute key="description" value="It seems to be enchanted with a spell." />
+		<attribute key="weight" value="4500" />
+	</item>
+	<item id="36449" article="a" name="tagralt blade">
+		<attribute key="weight" value="8100" />
+		<attribute key="defense" value="34" />
+		<attribute key="attack" value="7" />
+		<attribute key="skillSword" value="2" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="elementEarth" value="46" />
+	</item>
+	<item id="36450" article="a" name="pick">
+		<attribute key="weight" value="4500" />
+	</item>
+	<item id="36452" name="winged boots">
+		<attribute key="weight" value="1200" />
+		<attribute key="slotType" value="feet" />
+		<attribute key="speed" value="30" />
+		<attribute key="armor" value="2" />
+		<attribute key="skillDist" value="1" />
+		<attribute key="absorbPercentEarth" value="7" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="36456" article="a" name="blister ring">
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+		<attribute key="transformEquipTo" value="36451" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
+		<attribute key="description" value="This ring is out of magic energy" />
+	</item>
+	<item id="36453" name="veldt flowers">
+		<attribute key="weight" value="80" />
+	</item>
+	<item id="36454" article="a" name="snake maw">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="36455" article="a" name="wild desert rose">
+		<attribute key="weight" value="70" />
+	</item>
+	<item id="36451" article="a" name="blister ring">
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="3600" />
+		<attribute key="absorbPercentFire" value="6" />
+		<attribute key="showduration" value="1" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="transformDeEquipTo" value="36456" />
+	</item>
+	<item id="36457" name="Urmahlullu's tail">
+		<attribute key="weight" value="76" />
+	</item>
+	<item id="36458" name="Urmahlullu's mane">
+		<attribute key="weight" value="76" />
+	</item>
 	<item id="36459" name="Urmahlullu's Paws">
 		<attribute key="weight" value="76" />
 	</item>
