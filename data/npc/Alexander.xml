@@ -10,8 +10,8 @@
 			crystal ball,2192,530;
 			desintegrate rune,2310,26;
 			energy bomb rune,2262,162;
-			exercise rod,32388,262500;
-			exercise wand,32389,262500;
+			exercise rod,32388,262500,500;
+			exercise wand,32389,262500,500;
 			fireball rune,2302,30;
 			hailstorm rod,2183,15000;
 			holy missile rune,2295,16;

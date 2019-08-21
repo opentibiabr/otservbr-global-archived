@@ -30,10 +30,10 @@
 			dagger,2379,5;
 			doublet,2485,16;
 			dwarven shield,2525,500;
-			exercise sword,32384,262500;
-			exercise axe,32385,262500;
-			exercise club,32386,262500;
-			exercise bow,32387,262500;
+			exercise sword,32384,262500,500;
+			exercise axe,32385,262500,500;
+			exercise club,32386,262500,500;
+			exercise bow,32387,262500,500;
 			hand axe,2380,8;
 			iron helmet,2459,390;
 			jacket,2650,12;
