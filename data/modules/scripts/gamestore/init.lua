@@ -76,6 +76,7 @@ GameStore.RecivedPackets = {
   C_StoreEvent = 0xE9, -- 233
   C_TransferCoins = 0xEF, -- 239
   C_OpenStore = 0xFA, -- 250
+  C_StoreSelectOffer = 0xE8, -- 232
   C_RequestStoreOffers = 0xFB, -- 251
   C_StoreSelectOffer = 0xE8, -- 232
   C_BuyStoreOffer = 0xFC, -- 252
@@ -201,6 +202,19 @@ function parseTransferCoins(playerId, msg)
   GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, "You transfered this amount to " .. reciver, -1 * amount) -- negative
 end
 
+function sendShowDescription(playerId, offerId)
+  local player = Player(playerId)
+  if not player then
+    return false
+  end
+  local offer = GameStore.getOfferById(offerId)
+  local msg = NetworkMessage()
+  msg:addByte(0xea)
+  msg:addU32(offerId)
+  msg:addString(offer.description or "No description to be displayed")
+  msg:sendToPlayer(player)
+end
+
 function parseOpenStore(playerId, msg)
   openStore(playerId)
 
@@ -280,7 +294,7 @@ function parseBuyStoreOffer(playerId, msg)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.id)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM        then GameStore.processPremiumPurchase(player, offer.id)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_STACKABLE      then GameStore.processStackablePurchase(player, offer.id, offer.count, offer.name)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_STACKABLE      then GameStore.processStackablePurchase(player, offer.id, offer.count, offer.name, offer.number)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HOUSE          then GameStore.processHouseRelatedPurchase(player, offer.id, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT         then GameStore.processOutfitPurchase(player, offer.sexId, offer.addon)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON   then GameStore.processOutfitPurchase(player, offer.sexId, offer.addon)
@@ -289,7 +303,7 @@ function parseBuyStoreOffer(playerId, msg)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(nil, offer.count)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.id, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE         then GameStore.processTempleTeleportPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PROMOTION      then GameStore.processPromotionPurchase(player, offer.id)
     else
@@ -431,7 +445,7 @@ function sendShowStoreOffers(playerId, category)
         end
     
         if offer.type == GameStore.OfferTypes.OFFER_TYPE_STACKABLE and offer.count then
-            name = offer.count .. "x "
+            name = offer.number .. "x "
         end
     
         name = name .. (offer.name or "Something Special")
@@ -533,8 +547,8 @@ function sendShowStoreOffers(playerId, category)
             disabledReason = "You can't get this promotion"
           end
         elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
-          local unlockedColumns = player:getPreySlots()
-          if (unlockedColumns == 2) then
+          local unlockedColumns = player:getStorageValue(63253)
+          if (unlockedColumns == 1) then
             disabled = 1
             disabledReason = "You already have 3 slots released."
           end
@@ -1064,7 +1078,7 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
   if inbox and inbox:getEmptySlots() > 0 then
     if (isKegExerciseItem(offerId)) then
       if (offerCount >= 500) then
-        local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
+        local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
         local function changeParcel(parcel)
           local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
           if parcel then
@@ -1088,8 +1102,8 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
         local kegExerciseItem = inbox:addItem(offerId, 1)
         kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
       end
-    elseif (offerCount > 100) then
-      local parcel = Item(inbox:addItem(2596, 1):getUniqueId())
+    elseif (offerNumber > 100) then
+      local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
       local function changeParcel(parcel)
         local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
         if parcel then
@@ -1231,16 +1245,21 @@ function GameStore.processExpBoostPuchase(player)
 end
 
 function GameStore.processPreySlotPurchase(player)
-  local unlockedColumns = player:getPreySlots()
-  if (unlockedColumns == 2) then
-    return error({code = 0, message = "You already have 3 slots released."})
+
+  if player:getStorageValue(63253) < 1 then
+  player:setStorageValue(63253, 1)
   end
 
-  player:addPreySlot()
+  player:setStorageValue(63253, 1)
 end
 
-function GameStore.processPreyBonusReroll(player, offerCount)
-  player:addBonusReroll(offerCount)
+function GameStore.processPreyBonusReroll(player, offerId, offerCount)
+
+  if (player:getStorageValue(63353) == -1 or player:getStorageValue(63353) > 10000) then
+    player:setStorageValue(63353, 0)
+  end
+
+  player:setStorageValue(63353, (player:getStorageValue(63353)+offerCount))
 end
 
 function GameStore.processTempleTeleportPurchase(player)
