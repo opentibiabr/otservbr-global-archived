@@ -1,5 +1,6 @@
 local config = {
         requiredLevel = 100,
+        daily = false,
         centerBossRoomPosition = Position(33487, 32079, 8),
         playerPositions = {
                 Position(33417, 32102, 10),
@@ -55,7 +56,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
                         Game.createMonster("Greater Canopic Jar", config.CanopicJarPositions[i])
 
                 end
-                        Game.createMonster("The Ravager", Position(33487, 32082, 8))
+        Game.createMonster("The Ravager", Position(33487, 32082, 8))
 
                 local players
                 for i = 1, #storePlayers do
