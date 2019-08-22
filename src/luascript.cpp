@@ -16775,7 +16775,7 @@ int LuaScriptInterface::luaGlobalEventTime(lua_State* L)
 			return 1;
 		}
 
-		globalevent->setInterval(hour << 16);
+		globalevent->setInterval(getNumber<uint32_t>(L, 2));
 
 		int32_t min = 0;
 		int32_t sec = 0;
