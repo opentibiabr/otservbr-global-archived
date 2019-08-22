@@ -858,7 +858,7 @@ class Item : virtual public Thing
 		}
 		int8_t getHitChance() const {
 			if (hasAttribute(ITEM_ATTRIBUTE_HITCHANCE)) {
-				return getIntAttr(ITEM_ATTRIBUTE_HITCHANCE);
+				return static_cast<uint8_t>(getIntAttr(ITEM_ATTRIBUTE_HITCHANCE));
 			}
 			return items[id].hitChance;
 		}
