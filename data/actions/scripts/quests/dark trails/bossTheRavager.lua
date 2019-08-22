@@ -49,7 +49,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
                                 return true
                         end
 
-                        spec:remove()
+                        if spec:isPlayer() then
+                                spec:teleportTo(Position(33420, 32105, 10))
+                        elseif spec:isMonster() then
+                                spec:remove()
+                        end
                 end
 
                 for i = 1, #config.CanopicJarPositions do
