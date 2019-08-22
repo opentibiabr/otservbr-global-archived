@@ -16775,7 +16775,7 @@ int LuaScriptInterface::luaGlobalEventTime(lua_State* L)
 			return 1;
 		}
 
-		globalevent->setInterval(getNumber<uint32_t>(L, 2));
+		globalevent->setInterval(hour << 16);
 
 		int32_t min = 0;
 		int32_t sec = 0;
@@ -16822,6 +16822,7 @@ int LuaScriptInterface::luaGlobalEventInterval(lua_State* L)
 	// globalevent:interval(interval)
 	GlobalEvent* globalevent = getUserdata<GlobalEvent>(L, 1);
 	if (globalevent) {
+		globalevent->setInterval(getNumber<uint32_t>(L, 2));
 		globalevent->setNextExecution(OTSYS_TIME() + getNumber<uint32_t>(L, 2));
 		pushBoolean(L, true);
 	} else {
