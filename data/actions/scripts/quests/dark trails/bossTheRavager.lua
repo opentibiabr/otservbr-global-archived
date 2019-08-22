@@ -72,6 +72,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
                 end
         end
 
-        item:transform(item.itemid == 1946 and 1945 or 1946)
+        if not config.daily then 
+            item:transform(item.itemid == 1946 and 1945 or 1946)
+        end
         return true
 end
