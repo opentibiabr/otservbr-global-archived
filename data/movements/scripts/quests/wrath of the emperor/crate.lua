@@ -13,7 +13,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local playerId = player.uid
+	local playerId = player:getId()
 	if item.actionid == 8015 then
 		player:say("You hear guards moving behind doors in the distance. If you have any sort of disguise with you, this is the moment to use it.", TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 8016 then

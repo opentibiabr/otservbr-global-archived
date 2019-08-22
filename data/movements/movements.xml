@@ -272,15 +272,14 @@
 	<movevent event="AddItem" tileitem="1" itemid="1485" script="others/teleports/tombCoalBasin.lua" />
 
 	<!-- Oramond -->
-	<movevent event="StepIn" actionid="42626" script="oramond/enterOramond.lua" />
-	<movevent event="StepIn" actionid="42627" script="oramond/enterOramond.lua" />
+	<movevent event="StepIn" fromaid="42626" toaid="42627" script="oramond/oramond_teleports.lua" />
 	<movevent event="StepIn" actionid="42628" script="oramond/votingOramond.lua" />
-	<movevent event="StepIn" actionid="42630" script="oramond/enterCity.lua" />
-	<movevent event="StepIn" actionid="42631" script="oramond/enterCity.lua" />
-	<movevent event="StepIn" actionid="36489" script="oramond/enterGlooth.lua" />
-	<movevent event="StepIn" actionid="50389" script="oramond/enterGlooth.lua" />
+	<movevent event="StepIn" fromaid="42630" toaid="42631" script="oramond/oramond_teleports.lua" />
+	<movevent event="StepIn" actionid="36489" script="oramond/oramond_teleports.lua" />
+	<movevent event="StepIn" actionid="50389" script="oramond/oramond_teleports.lua" />
 	<movevent event="StepIn" uniqueid="26798" script="oramond/seaCrest.lua" />
-	-- Portals
+
+	<!-- Portals -->
 	<movevent event="StepIn" fromaid="13400" toaid="13428" script="oramond/teleports/oramondMovements.lua"/>
 	<movevent event="StepIn" fromaid="13510" toaid="13529" script="oramond/teleports/oramondMovements.lua"/>
 	<movevent event="StepIn" fromuid="50500" touid="50501" script="oramond/teleports/oramondEntrance.lua" />
@@ -344,10 +343,8 @@
 	<movevent event="StepIn" fromaid="4226" toaid ="4243" script="others/teleports/spikeTeleports.lua" />
 
 	<!-- The Secret Library -->
-	<movevent event="StepIn" actionid="64013" script="quests/the secret library/deep desert/deepDesertEntrance.lua" />
-	<movevent event="StepIn" actionid="64014" script="quests/the secret library/deep desert/deepDesertExit.lua" />
-	<movevent event="StepIn" fromaid="64007" toaid="64009" script="quests/the secret library/falconsEntrance.lua" />
-	<movevent event="StepIn" fromaid="64010" toaid="64012" script="quests/the secret library/falconsExit.lua" />
+	<movevent event="StepIn" fromaid="64013" toaid="64014" script="quests/the secret library/deep desert/deep_desert_teleports.lua" />
+	<movevent event="StepIn" fromaid="64007" toaid="64012" script="quests/the secret library/falcons_teleport.lua" />
 
 	<movevent event="StepIn" actionid="57604" script="falcon castle/portal.lua" />
 	<movevent event="StepIn" actionid="57602" script="falcon castle/portal.lua" />

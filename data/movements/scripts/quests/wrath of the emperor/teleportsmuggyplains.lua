@@ -18,8 +18,10 @@ function onStepIn(creature, item, position, fromPosition)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:teleportTo(targetTile.toPosition[hasStorageValue and 1 or 2])
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+
 	if not hasStorageValue then
 		player:say('This portal is not activated, you need done some missions.', TALKTYPE_MONSTER_SAY)
 	end
+
 	return true
 end
