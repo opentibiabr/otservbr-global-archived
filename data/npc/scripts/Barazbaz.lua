@@ -13,20 +13,25 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local player = creature:getPlayer()
+	if not player then
+		return false
+	end
 
 	if(msgcontains(msg, "ritual")) then
-		if(getPlayerStorageValue(cid, 10050) == 6) then
+
+		if player:getStorageValue(10050) == 6 then
 			selfSay("Ancient structures in the sewers you say? Well, our city has had a certain bloody past, even before it has been city at all. But to investigate the archives for what you may have found is a time-consuming process. ...", cid)
 			selfSay("Usually, I'm too much bound to my duties to the city to sacrifice time for such an endeavour. ...", cid)
 			selfSay("But on the other hand, just now is the time of an important decision of the magistrate concerning the funding of the archives. It is a matter easily overlooked by our good citizens. ...", cid)
  			selfSay("If you'd be so kind to place just one of your votes for the funding of the archives, I would be inclined to take the time for your investigation in turn. ...", cid)
 			selfSay("Just go to Marvin in the magistrate and vote for a greater funding of the archives. Afterwards, I might be able to present you with some first results of my investigations on your behalf.", cid)
-           setPlayerStorageValue(cid, 10050, 7)
-		   setPlayerStorageValue(cid, 20056, 1)
-		   setPlayerStorageValue(cid, 20057, 0)
+         player:setStorageValue(10050, 7)
+         player:setStorageValue(20056, 1)
+         player:setStorageValue(20057, 0)
 		end
 	elseif(msgcontains(msg, "abandoned sewers")) then
-		if(getPlayerStorageValue(cid, 10050) == 8) then
+		if player:getStorageValue(10050) == 8 then
 			selfSay("Excellent! Concerning the ancient ruins that you have found, well, if you are not familiar with the city's history, feel free to browse a few books here. I will only refer to some basics here, so I don't waste your time. ...", cid)
 			selfSay("The first humans that lived here and that we have any records of lived in slavery of an ancient evil. ...", cid)
 			selfSay("The nature of this evil is up to debate, but there are hints that this evil predated the settlement of men and that it perhaps was part of a more ancient civilisation or caused the downfall of the latter. ...", cid)
@@ -42,9 +47,10 @@ function creatureSayCallback(cid, type, msg)
 		if(getPlayerStorageValue(cid, 10050) == 9) then
 				selfSay(" I know that handwriting you describe! It belongs to a traveller from far away. Magistrate Sholley introduced him to me and she was quite excited to learn more about our city's past. ...", cid)
 			selfSay("I should have thought of him right in the beginning when I heard the stuff you mentioned. But I haven't seen him for a while. You should ask Sholley about her friend to learn about his whereabouts.", cid)
-			setPlayerStorageValue(cid, 10050, 13)
-		   setPlayerStorageValue(cid, 30050, 1)
-		   setPlayerStorageValue(cid, 30051, 0)
+		
+		player:setStorageValue(10050, 13)
+		player:setStorageValue(30050, 1)
+		player:setStorageValue(30051, 0)
 		end
 else
 	selfSay("You need to kill the {The Ravager}, click on statue and then come here say {ritual}, {abandoned sewers}, {notebook} and after this find Roswitha and talk with she.", cid)
