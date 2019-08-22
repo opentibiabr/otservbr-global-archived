@@ -13,10 +13,10 @@
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="two handed sword,2377,950;
 			dagger,2379,5;
-			exercise sword,32384,262500;
-			exercise axe,32385,262500;
-			exercise club,32386,262500;
-			exercise bow,32387,262500;
+			exercise sword,32384,262500,500;
+			exercise axe,32385,262500,500;
+			exercise club,32386,262500,500;
+			exercise bow,32387,262500,500;
 			rapier,2384,15;
 			sabre,2385,35;
 			morning star,2394,430;
