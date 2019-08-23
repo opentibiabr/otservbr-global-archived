@@ -1,8 +1,8 @@
 local traps = {
-    [1510] = {transformTo = 1511, damage = {-50, -100}},
-    [1513] = {damage = {-50, -100}},
-    [2579] = {transformTo = 2578, damage = {-15, -30}, ignorePlayer = (Game.getWorldType() == WORLD_TYPE_NO_PVP) },
-    [4208] = {transformTo = 4209, damage = {-15, -30}, type = COMBAT_EARTHDAMAGE}
+    [2145] = {transformTo = 2146, damage = {-50, -100}},
+    [2148] = {damage = {-50, -100}},
+    [3482] = {transformTo = 3481, damage = {-15, -30}, ignorePlayer = (Game.getWorldType() == WORLD_TYPE_NO_PVP) },
+    [3944] = {transformTo = 3945, damage = {-15, -30}, type = COMBAT_EARTHDAMAGE}
 }
 
 function onStepIn(creature, item, position, fromPosition)
@@ -15,7 +15,7 @@ function onStepIn(creature, item, position, fromPosition)
         return true
     end
 
-    if Tile(position):getItemCountById(2579) > 1 then
+    if Tile(position):getItemCountById(3482) > 1 then
         return true
     end
 
