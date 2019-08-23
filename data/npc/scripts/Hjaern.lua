@@ -147,7 +147,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.TheIceIslands.Mission08, 1) -- Questlog The Ice Islands Quest, The Contact
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 3 then
-			if layer:removeItem(7290, 5) then
+			if player:removeItem(7290, 5) then
 				npcHandler:say("Excellent, you collected 5 of them. If you have collected 5 or more, talk to me about your {reward}. ", cid)
 				player:setStorageValue(Storage.TheIceIslands.Questline, 41)
 				npcHandler.topic[cid] = 0
