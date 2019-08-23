@@ -10,11 +10,11 @@ local function getFirstItems(player)
 		storage = 4687,
 
 		slots = {
-			[CONST_SLOT_HEAD] = Game.createItem(2461),
-			[CONST_SLOT_ARMOR] = Game.createItem(2651),
-			[CONST_SLOT_LEGS] = Game.createItem(2649),
-			[CONST_SLOT_FEET] = Game.createItem(2643)
-			--[CONST_SLOT_BACKPACK] = Game.createItem(1988)
+			[CONST_SLOT_HEAD] = Game.createItem(3355),
+			[CONST_SLOT_ARMOR] = Game.createItem(3562),
+			[CONST_SLOT_LEGS] = Game.createItem(3559),
+			[CONST_SLOT_FEET] = Game.createItem(3552)
+			--[CONST_SLOT_BACKPACK] = Game.createItem(2854)
 		}
 	}
 
@@ -34,39 +34,39 @@ local function changeVocation(player, fromVocation, toVocation)
     local vocationsItems = {
 		-- sorcerer
         [1] = {
-            [CONST_SLOT_LEFT] = {23719, 1, true}, -- the scorcher
-            [CONST_SLOT_RIGHT] = {2175, 1, true}, -- spellbook
-			[11] = {8704, 2, true, limitStorage = 10030, limit = 1}, -- potion
-			[12] = {7620, 10, true, limitStorage = 10031, limit = 1}, -- potion
-			[13] = {23723, 2, true, limitStorage = 10032, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, true, limitStorage = 10033, limit = 1} -- 2 light stone shower runes
+            [CONST_SLOT_LEFT] = {21348, 1, true}, -- the scorcher
+            [CONST_SLOT_RIGHT] = {21354, 1, true}, -- spellbook
+			[11] = {7876, 2, true, limitStorage = 10030, limit = 1}, -- potion
+			[12] = {268, 10, true, limitStorage = 10031, limit = 1}, -- potion
+			[13] = {21352, 2, true, limitStorage = 10032, limit = 1}, -- 2 lightest missile runes
+			[14] = {21351, 2, true, limitStorage = 10033, limit = 1} -- 2 light stone shower runes
         },
         -- druid
         [2] = {
             [CONST_SLOT_LEFT] = {23721, 1, true}, -- the chiller
-            [CONST_SLOT_RIGHT] = {2175, 1, true}, -- spellbook
-			[11] = {8704, 2, true, limitStorage = 10034, limit = 1}, -- potion
-			[12] = {7620, 10, true, limitStorage = 10035, limit = 1}, -- potion
-			[13] = {23723, 2, true, limitStorage = 10036, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, true, limitStorage = 10037, limit = 1} -- 2 light stone shower runes
+            [CONST_SLOT_RIGHT] = {3059, 1, true}, -- spellbook
+			[11] = {7876, 2, true, limitStorage = 10034, limit = 1}, -- potion
+			[12] = {268, 10, true, limitStorage = 10035, limit = 1}, -- potion
+			[13] = {21352, 2, true, limitStorage = 10036, limit = 1}, -- 2 lightest missile runes
+			[14] = {21351, 2, true, limitStorage = 10037, limit = 1} -- 2 light stone shower runes
         },
         -- paladin
         [3] = {
-            [CONST_SLOT_LEFT] = {2456, 1, true}, -- bow
-            [CONST_SLOT_AMMO] = {23839, 50, true}, -- 100 arrows
-            [11] = {8704, 7, true, limitStorage = 10038, limit = 1}, -- potion
-			[12] = {7620, 5, true, limitStorage = 10039, limit = 1}, -- potion
-			[13] = {23723, 1, true, limitStorage = 10040, limit = 1}, -- 1 lightest missile rune
-			[14] = {23722, 1, true, limitStorage = 10041, limit = 1} -- 1 light stone shower rune
+            [CONST_SLOT_LEFT] = {3350, 1, true}, -- bow
+            [CONST_SLOT_AMMO] = {21470, 50, true}, -- 100 arrows
+            [11] = {7876, 7, true, limitStorage = 10038, limit = 1}, -- potion
+			[12] = {268, 5, true, limitStorage = 10039, limit = 1}, -- potion
+			[13] = {21352, 1, true, limitStorage = 10040, limit = 1}, -- 1 lightest missile rune
+			[14] = {21351, 1, true, limitStorage = 10041, limit = 1} -- 1 light stone shower rune
         },
         -- knight
         [4] = {
-            [CONST_SLOT_LEFT] = {2379, 1, true}, -- dagger
-            [CONST_SLOT_RIGHT] = {2512, 1, true}, -- wooden shield
-			[11] = {8704, 10, true, limitStorage = 10042, limit = 1}, -- potion
-			[12] = {7620, 2, true, limitStorage = 10043, limit = 1}, -- potion
-			[13] = {23723, 1, true, limitStorage = 10044, limit = 1}, -- 1 lightest missile rune
-			[14] = {23722, 1, true, limitStorage = 10045, limit = 1} -- 1 light stone shower rune
+            [CONST_SLOT_LEFT] = {3267, 1, true}, -- dagger
+            [CONST_SLOT_RIGHT] = {3412, 1, true}, -- wooden shield
+			[11] = {7876, 10, true, limitStorage = 10042, limit = 1}, -- potion
+			[12] = {268, 2, true, limitStorage = 10043, limit = 1}, -- potion
+			[13] = {21352, 1, true, limitStorage = 10044, limit = 1}, -- 1 lightest missile rune
+			[14] = {21351, 1, true, limitStorage = 10045, limit = 1} -- 1 light stone shower rune
         }
     }
 
