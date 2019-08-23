@@ -23,7 +23,7 @@ local cid = player:getId()
    return true
 end
 
-local underWater = {5405, 5406, 5407, 5408, 5409, 5410, 5743, 5744, 5764, 9671, 9672, 9673, 10019}
+local underWater = {9291, 5405, 5406, 5407, 5408, 5409, 5743, 5744, 5764, 8755, 8756, 8757, 5404}
 
 function onStepOut(player, item, pos)
 local cid = player:getId()
