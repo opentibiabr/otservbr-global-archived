@@ -17,7 +17,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if targetWall.requireSoil then
-		if not (player:removeItem(8298, 1) or player:removeItem(8299, 1) or player:removeItem(8302, 1) or player:removeItem(8303, 1)) then
+		if not (player:removeItem(940, 1) or player:removeItem(941, 1) or player:removeItem(944, 1) or player:removeItem(945, 1)) then
 			player:teleportTo(targetWall.pushbackPosition)
 			player:say('You may not enter without a sacrifice of elemental soil.', TALKTYPE_MONSTER_SAY)
 			targetWall.pushbackPosition:sendMagicEffect(targetWall.effect)
