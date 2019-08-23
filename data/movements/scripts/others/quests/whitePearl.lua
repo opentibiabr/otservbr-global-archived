@@ -16,7 +16,7 @@ function onStepIn(cid, item, position)
 	end
 
 	if teleport.potPosition then
-		local potItem = Tile(potPosition):getItemById(2562)
+		local potItem = Tile(potPosition):getItemById(3465)
 		if potItem then
 			player:teleportTo(teleport.potPosition)
 			teleport.potPosition:sendMagicEffect(teleport.effect)
