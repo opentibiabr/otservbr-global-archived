@@ -85,6 +85,10 @@ end
 
 function onLogin(player)
 	local loginStr = 'Welcome to ' .. configManager.getString(configKeys.SERVER_NAME) .. '!'
+    local key = 56541
+    local resultId = db.storeQuery("SELECT `value` FROM `global_storage` WHERE `key` = " .. key)
+    local val = result.getString(resultId, "value") 
+
 	if player:getLastLoginSaved() <= 0 then
 		loginStr = loginStr .. ' Please choose your outfit.'
 		player:sendOutfitWindow()
@@ -92,7 +96,8 @@ function onLogin(player)
 	else
 		if loginStr ~= "" then
 			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
-		end
+		    player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Todays boosted creature: "..val.." \nBoosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")            
+        end
 
 		loginStr = string.format('Your last visit was on %s.', os.date('%a %b %d %X %Y', player:getLastLoginSaved()))
 	end
