@@ -444,6 +444,7 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 
 	if (breakChance != 0 && uniform_random(1, 100) <= breakChance) {
 		Weapon::decrementItemCount(item);
+		player->updateSupplyTracker(item);
 		return;
 	}
 
@@ -451,6 +452,7 @@ void Weapon::onUsedWeapon(Player* player, Item* item, Tile* destTile) const
 		case WEAPONACTION_REMOVECOUNT:
 			if(g_config.getBoolean(ConfigManager::REMOVE_WEAPON_AMMO)) {
 				Weapon::decrementItemCount(item);
+				player->updateSupplyTracker(item);
 			}
 			break;
 

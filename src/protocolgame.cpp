@@ -3806,6 +3806,72 @@ void ProtocolGame::RemoveTileThing(NetworkMessage& msg, const Position& pos, uin
 	msg.addByte(stackpos);
 }
 
+void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit)
+{
+ 	bool isCorpseEmpty = corpse->empty();
+
+ 	NetworkMessage msg;
+ 	msg.addByte(0xD1);
+ 	msg.addString(name);
+ 	msg.add<uint16_t>(creatureOutfit.lookType ? creatureOutfit.lookType : 21);
+ 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookHead : 0x00);
+ 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookBody : 0x00);
+ 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookLegs : 0x00);
+ 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookFeet : 0x00);
+ 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookAddons : 0x00);
+ 	msg.addByte(isCorpseEmpty ? 0 : corpse->size());
+
+	if (!isCorpseEmpty) {
+ 		for (ContainerIterator it = corpse->iterator(); it.hasNext(); it.advance()) {
+ 			AddItem(msg, *it);
+ 		}
+ 	}
+
+ 	writeToOutputBuffer(msg);
+ }
+
+void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
+ {
+ 	if (!player || !item || getVersion() < 1140) {
+ 		return;
+ 	}
+ 
+   	NetworkMessage msg;
+ 	msg.addByte(0xCE);
+ 	msg.add<uint16_t>(item->getClientID());
+
+ 	writeToOutputBuffer(msg);
+ }
+
+void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
+ {
+ 	if (!player || getVersion() < 1140) {
+ 		return;
+ 	}
+
+   	NetworkMessage msg;
+ 	msg.addByte(0xCC);
+ 	msg.addByte(isHeal ? 0x0 : 0x01);
+ 	msg.add<uint32_t>(quantity);
+
+ 	writeToOutputBuffer(msg);
+ }
+
+void ProtocolGame::sendUpdateLootTracker(Item* item)
+{
+ 	if (!player || getVersion() < 1140) {
+ 		return;
+ 	}
+
+  	NetworkMessage msg;
+  	msg.addByte(0xCF);
+ 	msg.addItemId(item->getID());
+ 	msg.addString(item->getName());
+ 	item->setIsLootTrackeable(false);
+
+ 	writeToOutputBuffer(msg);
+ }
+
 void ProtocolGame::MoveUpCreature(NetworkMessage& msg, const Creature* creature, const Position& newPos, const Position& oldPos)
 {
 	if (creature != player) {
