@@ -4,7 +4,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if player:getStorageValue(10050) <= 5 then
+	if player:getStorageValue(10050) == 4 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A strange ritual has taken place here. Report about it to the Gloot Brothers.')
 		player:setStorageValue(20054, 1)
 		player:setStorageValue(20055, 0)
