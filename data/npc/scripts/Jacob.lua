@@ -51,7 +51,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Good. Thanks, man. That's one vote you got for helping us with this.", cid)
 			npcHandler.topic[cid] = 0
 			setPlayerStorageValue(cid, 20062, 21)
-
+			player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
 		end
 	elseif(msgcontains(msg, "report")) then
 	if(getPlayerStorageValue(cid, 10050) < 6) then
