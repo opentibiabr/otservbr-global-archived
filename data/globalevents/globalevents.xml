@@ -59,7 +59,7 @@
 	<globalevent type="startup" name="rashid" script="rashid.lua"/>
 	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
 
-	<globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" />
+	<!-- <globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" /> -->
 	<globalevent name="checkInbox" interval="30000" script="others/checkInbox.lua"/>
 	<globalevent interval="100000" name="GuildWar" script="guildwar.lua"/>
 </globalevents>
