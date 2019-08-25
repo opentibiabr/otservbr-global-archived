@@ -1,4 +1,3 @@
-math.randomseed(os.time())
 dofile('data/lib/libs.lua')
 
 NOT_MOVEABLE_ACTION = 8000
