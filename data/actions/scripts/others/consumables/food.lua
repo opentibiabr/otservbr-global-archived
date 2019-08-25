@@ -133,7 +133,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:say(food[2], TALKTYPE_MONSTER_SAY)
 	item:remove(1)
 
-	local client = player:getClientVersion()
+	local client = player:getClient()
 	if client.version > 1140 then
 		player:updateSupplyTracker(item)
 	end
