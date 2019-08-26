@@ -21,8 +21,9 @@ Bestiary.Races = {
     {name = "Vermin", monsters = {26, 30, 36, 38, 43, 44, 45, 79, 82, 83, 124, 219, 251, 621, 631, 632, 633, 641, 674, 691, 709, 731, 732, 778, 786, 787, 788, 790, 791, 792, 796, 797, 801, 878, 899, 912, 1531, 1532, 1544, 1545, 1546, 1736, 1737}}
 }
 
+-- TODO: refactory this table
 Bestiary.Monsters = {
-    [1] = { name = 'Rat', class = "Glires", toKill = 25, FirstUnlock = 0, SecondUnlock = 0, CharmsPoints = 0, Stars = 0},
+    [1] = { name = 'Rat', class = "Glires", toKill = 500, FirstUnlock = 15, SecondUnlock = 100, CharmsPoints = 5, Stars = 0},
     [2] = { name = 'Deepling Brawler', class = "Glires", toKill = 1000, FirstUnlock = 10, SecondUnlock = 0, CharmsPoints = 0, Stars = 0},
     [3] = { name = 'Deepling Elite', class = "Glires", toKill = 1000, FirstUnlock = 50, SecondUnlock = 500, CharmsPoints = 25, Stars = 4},
     [4] = { name = 'Deepling Guard', class = "Glires", toKill = 1000, FirstUnlock = 50, SecondUnlock = 500, CharmsPoints = 25, Stars = 4},
@@ -295,7 +296,7 @@ Bestiary.Monsters = {
     [271] = { name = 'Troll', class = "Glires", toKill = 250, FirstUnlock = 10, SecondUnlock = 100, CharmsPoints = 5, Stars = 1},
     [272] = { name = 'Minotaur Mage', class = "Glires", toKill = 500, FirstUnlock = 25, SecondUnlock = 250, CharmsPoints = 15, Stars = 2},
     [273] = { name = 'Minotaur Archer', class = "Glires", toKill = 500, FirstUnlock = 25, SecondUnlock = 250, CharmsPoints = 15, Stars = 2},
-    ['Minotaur'] = {id =274, class = "Glires", toKill = 500, FirstUnlock = 25, SecondUnlock = 250, CharmsPoints = 15, Stars = 2},
+    [274] = { name = 'Minotaur', class = "Glires", toKill = 500, FirstUnlock = 25, SecondUnlock = 250, CharmsPoints = 15, Stars = 2},
     [275] = { name = 'Minotaur Guard', class = "Glires", toKill = 500, FirstUnlock = 25, SecondUnlock = 250, CharmsPoints = 15, Stars = 2},
     [276] = { name = 'Orc Spearman', class = "Glires", toKill = 500, FirstUnlock = 25, SecondUnlock = 250, CharmsPoints = 15, Stars = 2},
     [277] = { name = 'Frost Troll', class = "Glires", toKill = 250, FirstUnlock = 10, SecondUnlock = 100, CharmsPoints = 5, Stars = 1},

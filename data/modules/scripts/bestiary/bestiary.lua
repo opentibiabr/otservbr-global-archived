@@ -102,22 +102,36 @@ Bestiary.sendMonsterData = function(playerId, msg)
         return true
     end
 
+    -- TODO
+    local firstMaxKill = 10
+    local secondMaxKill = 30
+    local thirdMaxKill = 60
+    local killCounter = 16
+
     local msg = NetworkMessage()
     msg:addByte(Bestiary.S_Packets.SendBestiaryMonsterData)
     msg:addU16(monsterId)
     msg:addString(race)
 
-    msg:addByte(0x01) -- maybe type (level 1 completed, level 2 completed, level 3 completed)
+    local currentLevel = 1
+    if killCounter < firstMaxKill then
+        currentLevel = 1
+    elseif killCounter < secondMaxKill then
+        currentLevel = 2
+    elseif killCounter < thirdMaxKill then
+        currentLevel = 3
+    end
+
+    msg:addByte(currentLevel) 
     
-    -- TODO: Counter --
-    local killCounter = 0
+    -- TODO: counter
     msg:addU32(killCounter) -- kill count
     msg:addU16(15) -- max kill first phase
     msg:addU16(30)  -- max kill second phase
     msg:addU16(60)  -- max kill third phase
 
-    msg:addByte(1)  -- Difficult
-    msg:addByte(1) -- occourrence
+    msg:addByte(bestiaryMonster.Stars)  -- Difficult
+    msg:addByte(1) -- TODO: occourrence
     local lootSize = #monster:getLoot()
     msg:addByte(lootSize)
 
@@ -149,10 +163,27 @@ Bestiary.sendMonsterData = function(playerId, msg)
                     msg:addByte(difficult)
                     msg:addByte(0x0) -- 0 = normal loot   /  1 = special event loot
                     msg:addString(item:getName())
-                    msg:addByte(item:isStackable() and 0x0 or 0x1)
+                    msg:addByte(item:isStackable() and 0x1 or 0x0)
                 end 
             end
         end
+    end
+
+    if currentLevel == 2 then
+        msg:addU16(bestiaryMonster.CharmsPoints)
+        local attackMode = 0
+        if monster:isPassive() then
+            attackMode = 2
+        elseif monster:targetDistance() then
+            attackMode = 1
+        end
+print(monster:getName())
+        msg:addByte(attackMode) -- 0 = meele / 1 = distance / 2 = doenst attack
+        msg:addByte(0x2) -- flag for cast spells
+        msg:addU32(monster:maxHealth())
+        msg:addU32(monster:experience())
+        msg:addU16(monster:baseSpeed())
+        msg:addU16(monster:armor())
     end
 
     msg:sendToPlayer(player)
