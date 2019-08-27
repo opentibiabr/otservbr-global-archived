@@ -391,6 +391,13 @@ function getLootRandom()
 end
 
 
+-- Map Load
+
+function g_events.loadMap(name, path)
+  table.insert(gameMaps, {name = name, path = path})
+end
+
+
 function loadMaps()
   print("> Loading game maps")
   for i = 1,#gameMaps do
@@ -403,3 +410,4 @@ function loadMaps()
   end
 end
 
+g_events.loadMap("Main Map", "data/world/otservbr.otbm")
