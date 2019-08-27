@@ -145,17 +145,7 @@ Bestiary.sendMonsterData = function(playerId, msg)
             local item = ItemType(loot.itemId)
             if item then
                 local type = 0
-                local difficult = 0
-                local chance = loot.chance / 1000
-                if chance < 0.2 then
-                    difficult = 4
-                elseif chance < 1 then
-                    difficult = 3
-                elseif chance < 5 then
-                    difficult = 2
-                elseif chance < 25 then
-                    difficult = 1
-                end
+                local difficult = Bestiary.calculateDifficult(loot.chance)
 
                 if killCounter == 0 then
                     msg:addU16(0x00)
@@ -190,15 +180,7 @@ Bestiary.sendMonsterData = function(playerId, msg)
     end
 
     if currentLevel > 2 then
-        elements = monster:getElementList()
-        local monsterElements = Bestiary.getDefaultElements()
-
-        for element, value in pairs(elements) do
-            if monsterElements[element] then
-                local percent = 100 + tonumber(value)
-                monsterElements[element] = percent
-            end
-        end
+        local monsterElements = Bestiary.getMonsterElements(monster)
 
         -- elements size
         msg:addByte(#monsterElements)
@@ -224,6 +206,42 @@ Bestiary.sendMonsterData = function(playerId, msg)
     end
 
     msg:sendToPlayer(player)
+end
+
+Bestiary.getMonsterElements = function (monster) 
+    local elements = monster:getElementList()
+    local monsterElements = Bestiary.getDefaultElements()
+
+    for element, value in pairs(elements) do
+        if monsterElements[element] then
+            local percent = 100 + tonumber(value)
+            monsterElements[element] = percent
+        end
+    end
+
+    return monsterElements
+end
+
+Bestiary.calculateDifficult = function (chance)
+    chance = chance / 1000
+
+    if chance < 0.2 then
+       return 4
+    end 
+
+    if chance < 1 then
+       return 3
+    end 
+
+    if chance < 5 then
+       return 2
+    end 
+
+    if chance < 25 then
+        return 1
+    end
+
+    return 0
 end
 
 Bestiary.createEmptyLootSlot = function (msg, difficult, type)
