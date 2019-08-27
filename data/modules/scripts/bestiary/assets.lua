@@ -1,3 +1,16 @@
+Bestiary.getDefaultElements = function () 
+    return {
+        [COMBAT_PHYSICALDAMAGE] = 100,
+        [COMBAT_FIREDAMAGE] = 100,
+        [COMBAT_EARTHDAMAGE] = 100,
+        [COMBAT_ENERGYDAMAGE] = 100,
+        [COMBAT_ICEDAMAGE] = 100,
+        [COMBAT_HOLYDAMAGE] = 100,
+        [COMBAT_DEATHDAMAGE] = 100,
+        [COMBAT_HEALING] = 100,
+    }
+end
+
 Bestiary.Races = {
     {name = "Amphibic", monsters = {262, 267, 268, 269, 270, 271, 563, 738, 913} },
     {name = "Aquatic", monsters = {112, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 261, 697, 734, 735, 769, 770, 772, 779, 780, 781, 782, 783, 784, 795, 859, 860, 861, 862, 1667, 1677}},

@@ -106,7 +106,7 @@ Bestiary.sendMonsterData = function(playerId, msg)
     local firstMaxKill = 10
     local secondMaxKill = 30
     local thirdMaxKill = 60
-    local killCounter = 16
+    local killCounter = 35
 
     local msg = NetworkMessage()
     msg:addByte(Bestiary.S_Packets.SendBestiaryMonsterData)
@@ -120,8 +120,11 @@ Bestiary.sendMonsterData = function(playerId, msg)
         currentLevel = 2
     elseif killCounter < thirdMaxKill then
         currentLevel = 3
+    elseif killCounter > thirdMaxKill then
+        currentLevel = 4
     end
 
+    currentLevel = 4
     msg:addByte(currentLevel) 
     
     -- TODO: counter
@@ -169,7 +172,7 @@ Bestiary.sendMonsterData = function(playerId, msg)
         end
     end
 
-    if currentLevel == 2 then
+    if currentLevel > 1 then
         msg:addU16(bestiaryMonster.CharmsPoints)
         local attackMode = 0
         if monster:isPassive() then
@@ -177,13 +180,47 @@ Bestiary.sendMonsterData = function(playerId, msg)
         elseif monster:targetDistance() then
             attackMode = 1
         end
-print(monster:getName())
+
         msg:addByte(attackMode) -- 0 = meele / 1 = distance / 2 = doenst attack
         msg:addByte(0x2) -- flag for cast spells
         msg:addU32(monster:maxHealth())
         msg:addU32(monster:experience())
         msg:addU16(monster:baseSpeed())
         msg:addU16(monster:armor())
+    end
+
+    if currentLevel > 2 then
+        elements = monster:getElementList()
+        local monsterElements = Bestiary.getDefaultElements()
+
+        for element, value in pairs(elements) do
+            if monsterElements[element] then
+                local percent = 100 + tonumber(value)
+                monsterElements[element] = percent
+            end
+        end
+
+        -- elements size
+        msg:addByte(#monsterElements)
+        local i = 0
+        for _, value in pairs(monsterElements) do
+            -- elements id
+            msg:addByte(i)
+
+            -- element percent
+            msg:addU16(value)
+
+            i = i + 1
+        end
+        
+        msg:addU16(1) -- enable or disable description
+        msg:addString("otservbr global is the fucking awesome project")
+    end
+
+    if currentLevel > 3 then
+        -- charm things
+        msg:addByte(0)
+        msg:addByte(0)
     end
 
     msg:sendToPlayer(player)
