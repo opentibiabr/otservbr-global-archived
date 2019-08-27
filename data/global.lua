@@ -389,3 +389,16 @@ end
 function getLootRandom()
 	return math.random(0, MAX_LOOTCHANCE) / configManager.getNumber(configKeys.RATE_LOOT)
 end
+
+
+function loadMaps()
+  print("> Loading game maps")
+  for i = 1,#gameMaps do
+    local gameMap = gameMaps[i]
+    if gameMap and gameMap.name and gameMap.path then
+      print("> Loading "..gameMap.name)
+      Game.loadMap(gameMap.path)
+      gameMap = nil
+    end
+  end
+end
