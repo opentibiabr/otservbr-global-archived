@@ -7,18 +7,24 @@ local wall = {
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1946 then
-		return false
-	end
-
-	local thing
-	for i = 1, #wall do
-		thing = Tile(wall[i]):getItemById(1304)
-		if thing then
-			thing:remove()
+	if item.itemid == 1945 then
+		local stone
+		
+		for i = 1, #wall do
+			stone = Tile(wall[i]):getItemById(1304)
+			if stone then
+				stone:remove()
+			end
 		end
-	end
 
-	item:transform(1946)
+		item:transform(1946)
+	elseif item.itemid == 1946 then
+		for i = 1, #wall do
+			Game.createItem(1304, 1, wall[i])
+		end
+
+		item:transform(1945)
+	end	
+	
 	return true
 end
