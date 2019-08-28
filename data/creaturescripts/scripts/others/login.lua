@@ -9,7 +9,6 @@ function Player.sendTibiaTime(self, hours, minutes)
 end
 
 local events = {
-    'issavi_sheep',
     'KillTracker',
     'ParasiteWarzone',
     'ElementalSpheresOverlords',
