@@ -10,6 +10,7 @@ end
 
 local events = {
     'issavi_sheep',
+    'KillTracker',
     'ParasiteWarzone',
     'ElementalSpheresOverlords',
     'BigfootBurdenVersperoth',
