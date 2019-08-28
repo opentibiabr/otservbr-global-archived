@@ -1075,33 +1075,6 @@ bool IOLoginData::savePlayer(Player* player)
 		}
 	}
 
-	//Autoloot (save autoloot list)
-	query.str(std::string());
-	query << "DELETE FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
-	if (!db.executeQuery(query.str())) {
-		return false;
-	}
-
-	PropWriteStream propWriteStreamAutoLoot;
-
-	for (auto i : player->autoLootList) {
-		propWriteStreamAutoLoot.write<uint16_t>(i);
-	}
-
-	size_t lootlistSize;
-	const char* autolootlist = propWriteStreamAutoLoot.getStream(lootlistSize);
-
-	query.str(std::string());
-
-	DBInsert autolootQuery("INSERT INTO `player_autoloot` (`player_id`, `autoloot_list`) VALUES ");
-	query << player->getGUID() << ',' << db.escapeBlob(autolootlist, lootlistSize);
-	if (!autolootQuery.addRow(query)) {
-		return false;
-	}
-	if (!autolootQuery.execute()) {
-		return false;
-	}
-
 	//save inbox items
 	query.str(std::string());
 	query << "DELETE FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID();

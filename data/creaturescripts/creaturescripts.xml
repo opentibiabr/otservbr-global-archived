@@ -8,9 +8,6 @@
 	<event type="death" name="Servant_Death" script="mastervoice/servantDeath.lua"/>
 	<event type="death" name="Mage_Death" script="mastervoice/mageDeath.lua"/>
 
-	<!-- AUTO LOOT -->
-	<event type="modalwindow" name="autoloot" script="autoloot.lua"/>
-
 	<!-- New Summons (Pets) -->
 	<event type="login" name="petlogin" script="pet.lua" />
 	<event type="think" name="petthink" script="pet.lua" />

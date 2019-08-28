@@ -2574,12 +2574,6 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "getIdleTime", LuaScriptInterface::luaPlayerGetIdleTime);
 
-	//Autoloot
-	registerMethod("Player", "addAutoLootItem", LuaScriptInterface::luaPlayerAddAutoLootItem);
-	registerMethod("Player", "removeAutoLootItem", LuaScriptInterface::luaPlayerRemoveAutoLootItem);
-	registerMethod("Player", "getAutoLootItem", LuaScriptInterface::luaPlayerGetAutoLootItem);
-	registerMethod("Player", "getAutoLootList", LuaScriptInterface::luaPlayerGetAutoLootList);
-
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
 	registerMetaMethod("Monster", "__eq", LuaScriptInterface::luaUserdataCompare);
