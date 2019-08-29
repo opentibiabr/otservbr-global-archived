@@ -169,6 +169,35 @@ Storage = {
 			bossTimer = 18506
 		}
 	},
+	KillmareshQuest = {
+		Questline = 37950,
+		Fafnar = {
+			Invetigate = 37960,
+			Retrieve = 37961,
+			Obtain = 37962,
+			Extract = 37963,
+			Favor = 37963
+		},
+		MidnightRituals = {
+			Ingredients = 37964,
+			Pilgrimage = 37965
+		},
+		TheBoardsthatMeantheWorld = {
+			Demons = 37966,
+			Cultists = 37967
+		},
+		TheRevengeoftheOgres = {
+			Vocations = 37968,
+			Basins = 37969,
+			Mummies = 37970,
+			Path = 37971,
+			Board = 37972,
+			Sarcophagus = 37973
+		},
+		ASharkinNeed = {
+			Mission = 37974
+		}
+	},
 	ThreatenedDreams = {
 		-- WIP
 		-- Reserved storage from 34999 - 35100
