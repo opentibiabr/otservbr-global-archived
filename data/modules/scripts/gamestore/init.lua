@@ -1102,7 +1102,7 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
         local kegExerciseItem = inbox:addItem(offerId, 1)
         kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
       end
-    elseif (offerNumber > 100) then
+    elseif (offerCount > 100) then
       local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
       local function changeParcel(parcel)
         local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
