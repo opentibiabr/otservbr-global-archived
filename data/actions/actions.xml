@@ -73,7 +73,7 @@
 
 	<!-- Dark Trails Quest -->
 	<action uniqueid="9511" script="quests/dark trails/bossTheRavager.lua"/>
-	<action uniqueid="9512" script="quests/dark trails/bossDeathPriestShargon.lua"/>
+	<action actionid="9512" script="quests/dark trails/bossDeathPriestShargon.lua"/>
 	<action actionid="9746" script="quests/dark trails/corpse.lua"/>
 	<action actionid="9748" script="quests/dark trails/rewardRoomExit.lua"/>
 
