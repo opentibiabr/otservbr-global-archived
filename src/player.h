@@ -1577,8 +1577,8 @@ class Player final : public Creature, public Cylinder
 		
 		// New Prey
 		uint16_t preyBonusRerolls = 0;
-		std::vector<uint16_t> preySlotState = {0, 0, 0};
-		std::vector<uint16_t> preySlotUnlocked = {0, 0, 0};
+		std::vector<uint8_t> preySlotState = {0, 0, 0};
+		std::vector<uint8_t> preySlotUnlocked = {0, 0, 0};
 		std::vector<std::string> preySlotCurrentMonster = { "", "", "" };
 		std::vector<std::string> preySlotMonsterList = { "", "", "" };
 		std::vector<uint16_t> preySlotFreeRerollIn = { 0, 0, 0 };
