@@ -37,17 +37,17 @@
 		<voice sentence="Hmmm, dogs"/>
 	</voices>
 	<loot>
-		<item id="2120" chance="7950"/><!-- rope -->
+		<item id="3003" chance="7950"/><!-- rope -->
 		<item name="gold coin" countmax="12" chance="65300"/>
 		<item name="silver amulet" chance="80"/>
 		<item name="hand axe" chance="18000"/>
 		<item name="spear" chance="13000"/>
 		<item name="studded club" chance="5000"/>
 		<item name="leather helmet" chance="12000"/>
-		<item id="2512" chance="4730"/><!-- wooden shield -->
+		<item id="3412" chance="4730"/><!-- wooden shield -->
 		<item name="leather boots" chance="10000"/>
 		<item name="meat" chance="15000"/>
 		<item name="bunch of troll hair" chance="1000"/>
-		<item id="26654" chance="1000"/> <!-- heavy old tome -->
+		<item id="23986" chance="1000"/> <!-- heavy old tome -->
 	</loot>
 </monster>

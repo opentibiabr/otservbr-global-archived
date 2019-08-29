@@ -59,14 +59,14 @@
 		<item name="skull helmet" chance="170"/>
 		<item name="silver goblet" chance="4950"/>
 		<item name="soul orb" chance="15000"/>
-		<item id="6300" chance="2170"/><!-- death ring -->
+		<item id="6299" chance="2170"/><!-- death ring -->
 		<item name="demonic essence" chance="7500"/>
 		<item name="skeleton decoration" chance="1250"/>
 		<item name="haunted blade" chance="740"/>
 		<item name="titan axe" chance="1000"/>
 		<item name="great mana potion" countmax="2" chance="14200"/>
 		<item name="great health potion" countmax="2" chance="8800"/>
-		<item id="9810" chance="3500"/><!-- rusty armor (rare) -->
+		<item id="8896" chance="3500"/><!-- rusty armor (rare) -->
 		<item name="unholy bone" chance="33010"/>
 	</loot>
 </monster>

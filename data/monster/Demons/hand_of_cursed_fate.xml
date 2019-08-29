@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Hand of Cursed Fate" nameDescription="a hand of cursed fate" race="blood" experience="5000" speed="130">
 	<health now="7500" max="7500"/>
-	<look type="230" corpse="6312"/>
+	<look type="230" corpse="6311"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -70,7 +70,7 @@
 		<item name="crown armor" chance="1400"/>
 		<item name="mysterious voodoo skull" chance="247"/>
 		<item name="soul orb" chance="31111"/>
-		<item id="6300" chance="1750"/><!-- death ring -->
+		<item id="6299" chance="1750"/><!-- death ring -->
 		<item name="demonic essence" chance="12000"/>
 		<item name="concentrated demonic blood" countmax="4" chance="30000"/>
 		<item name="assassin star" countmax="5" chance="7692"/>

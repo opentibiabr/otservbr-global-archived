@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Plaguesmith" nameDescription="a plaguesmith" race="venom" experience="4500" speed="160">
 	<health now="8250" max="8250"/>
-	<look type="247" corpse="6516"/>
+	<look type="247" corpse="6515"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -83,6 +83,6 @@
 		<item name="demonic essence" chance="9033"/>
 		<item name="onyx arrow" countmax="4" chance="7692"/>
 		<item name="great health potion" chance="10000"/>
-		<item id="9810" chance="540"/><!-- rusty armor-->
+		<item id="8896" chance="540"/><!-- slightly rusted armor-->
 	</loot>
 </monster>

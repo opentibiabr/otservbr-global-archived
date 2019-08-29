@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Spectre" nameDescription="a spectre" race="undead" experience="2100" speed="140">
 	<health now="1350" max="1350"/>
-	<look type="235" head="20" corpse="6348"/>
+	<look type="235" head="20" corpse="6347"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -62,10 +62,10 @@
 		<voice sentence="Buuuuuh"/>
 	</voices>
 	<loot>
-		<item id="2071" chance="9620"/><!-- lyre -->
+		<item id="2949" chance="9620"/><!-- lyre -->
 		<item name="silver brooch" chance="850"/>
 		<item name="silver brooch" chance="110"/>
-		<item id="2136" chance="110"/><!--demonbone amulet -->
+		<item id="3019" chance="110"/><!--demonbone amulet -->
 		<item name="gold coin" countmax="100" chance="33000"/>
 		<item name="gold coin" countmax="100" chance="33000"/>
 		<item name="gold coin" countmax="97" chance="33000"/>
@@ -75,7 +75,7 @@
 		<item name="blank rune" countmax="2" chance="30310"/>
 		<item name="white piece of cloth" chance="3800"/>
 		<item name="soul orb" chance="6005"/>
-		<item id="6300" chance="280"/><!-- death ring -->
+		<item id="6299" chance="280"/><!-- death ring -->
 		<item name="demonic essence" chance="6270"/>
 		<item name="relic sword" chance="700"/>
 		<item name="great mana potion" chance="920"/>

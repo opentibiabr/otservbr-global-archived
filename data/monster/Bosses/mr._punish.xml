@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Mr. Punish" nameDescription="Mr. Punish" race="undead" experience="9000" speed="470">
 	<health now="22000" max="22000"/>
-	<look type="234" corpse="6331"/>
+	<look type="234" corpse="6330"/>
 	<targetchange interval="2000" chance="5"/>
 	<flags>
 		<flag preyable="0"/>

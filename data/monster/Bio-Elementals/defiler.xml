@@ -69,7 +69,7 @@
 		<item name="red gem" chance="1538"/>
 		<item name="blue gem" chance="300"/>
 		<item name="soul orb" chance="20000"/>
-		<item id="6300" chance="3030"/><!-- death ring-->
+		<item id="6299" chance="3030"/><!-- death ring-->
 		<item name="demonic essence" chance="20320"/>
 		<item name="glob of acid slime" chance="14210"/>
 		<item name="glob of tar" chance="12000"/>

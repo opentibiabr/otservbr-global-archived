@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Destroyer" nameDescription="a destroyer" race="undead" experience="2500" speed="150">
 	<health now="3700" max="3700"/>
-	<look type="236" corpse="6320"/>
+	<look type="236" corpse="6319"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -66,7 +66,7 @@
 		<item name="meat" countmax="6" chance="50000"/>
 		<item name="skull helmet" chance="108"/>
 		<item name="soul orb" chance="6666"/>
-		<item id="6300" chance="144"/><!-- death ring -->
+		<item id="6299" chance="144"/><!-- death ring -->
 		<item name="demonic essence" chance="20000"/>
 		<item name="dreaded cleaver" chance="833"/>
 		<item name="chaos mace" chance="869"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Diabolic Imp" nameDescription="a diabolic imp" race="fire" experience="2900" speed="105">
 	<health now="1950" max="1950"/>
-	<look type="237" corpse="6364"/>
+	<look type="237" corpse="6363"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -65,12 +65,12 @@
 		<item name="necrotic rod" chance="830"/>
 		<item name="blank rune" countmax="2" chance="16666"/>
 		<item name="double axe" chance="1994"/>
-		<item id="2419" chance="5660"/><!-- scimitar -->
+		<item id="3307" chance="5660"/><!-- scimitar -->
 		<item name="guardian shield" chance="8130"/>
 		<item name="pitchfork" chance="50000"/>
 		<item name="cleaver" chance="8830"/>
 		<item name="soul orb" chance="7230"/>
-		<item id="6300" chance="120"/><!-- death ring -->
+		<item id="6299" chance="120"/><!-- death ring -->
 		<item name="demonic essence" chance="8000"/>
 		<item name="concentrated demonic blood" countmax="2" chance="25000"/>
 		<item name="magma coat" chance="250"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Blightwalker" nameDescription="a blightwalker" race="undead" experience="5850" speed="175">
 	<health now="8900" max="8900"/>
-	<look type="246" corpse="6354"/>
+	<look type="246" corpse="6353"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -65,12 +65,12 @@
 		<item name="scythe" chance="3000"/>
 		<item name="bunch of wheat" chance="50000"/>
 		<item name="soul orb" chance="23720"/>
-		<item id="6300" chance="1410"/><!-- death ring -->
+		<item id="6299" chance="1410"/><!-- death ring -->
 		<item name="demonic essence" chance="28000"/>
 		<item name="assassin star" countmax="10" chance="5900"/>
 		<item name="great mana potion" countmax="3" chance="31360"/>
-		<item id="7632" chance="4450"/><!-- giant shimmering pearl -->
-		<item id="7633" chance="4450"/><!-- giant shimmering pearl -->
+		<item id="281" chance="4450"/><!-- giant shimmering pearl -->
+		<item id="282" chance="4450"/><!-- giant shimmering pearl -->
 		<item name="seeds" chance="4300"/>
 		<item name="terra mantle" chance="1050"/>
 		<item name="terra legs" chance="2500"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Undead Dragon" nameDescription="an undead dragon" race="undead" experience="7200" speed="165">
 	<health now="8350" max="8350"/>
-	<look type="231" corpse="6306"/>
+	<look type="231" corpse="6305"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -82,7 +82,7 @@
 		<item name="royal helmet" chance="1720"/>
 		<item name="power bolt" countmax="15" chance="15190"/>
 		<item name="hardened bone" chance="14180"/>
-		<item id="6300" chance="1150"/><!-- death ring -->
+		<item id="6299" chance="1150"/><!-- death ring -->
 		<item name="demonic essence" chance="12460"/>
 		<item name="assassin star" countmax="5" chance="26650"/>
 		<item name="dragon slayer" chance="860"/>

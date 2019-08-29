@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Nightmare" nameDescription="a nightmare" race="blood" experience="2150" speed="232">
 	<health now="2700" max="2700"/>
-	<look type="245" corpse="6340"/>
+	<look type="245" corpse="6339"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -70,7 +70,7 @@
 		<item name="ham" countmax="2" chance="29000"/>
 		<item name="mysterious voodoo skull" chance="123"/>
 		<item name="soul orb" chance="20000"/>
-		<item id="6300" chance="1298"/><!-- death ring -->
+		<item id="6299" chance="1298"/><!-- death ring -->
 		<item name="demonic essence" chance="10000"/>
 		<item name="skeleton decoration" chance="337"/>
 		<item name="concentrated demonic blood" countmax="2" chance="19666"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Juggernaut" nameDescription="a juggernaut" race="blood" experience="14000" speed="170">
 	<health now="20000" max="20000"/>
-	<look type="244" corpse="6336"/>
+	<look type="244" corpse="6335"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -49,7 +49,7 @@
 		<voice sentence="WAHHHH!"/>
 	</voices>
 	<loot>
-		<item id="2136" chance="550"/><!-- demonbone amulet -->
+		<item id="3019" chance="550"/><!-- demonbone amulet -->
 		<item name="small ruby" countmax="4" chance="20000"/>
 		<item name="gold coin" countmax="100" chance="100000"/>
 		<item name="gold coin" countmax="100" chance="100000"/>
