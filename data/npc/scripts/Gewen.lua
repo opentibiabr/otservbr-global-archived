@@ -57,6 +57,7 @@ addTravelKeyword('darashia', 'Darashia on Darama', 40, Position(33270, 32441, 6)
 addTravelKeyword('svargrond', 'Svargrond', 60, Position(32253, 31097, 4))
 addTravelKeyword('femor hills', 'the Femor Hills', 60, Position(32536, 31837, 4))
 addTravelKeyword('edron', 'Edron', 40, Position(33193, 31784, 3))
+addTravelKeyword('hills', 'the Femor Hills', 60, Position(32536, 31837, 4))
 
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller |PLAYERNAME|. Where do you want me to {fly} you? Or do you need a weekly ticket for the Kazordoon public lorry transport?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye!")
