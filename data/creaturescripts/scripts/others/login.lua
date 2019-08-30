@@ -99,7 +99,6 @@ function onLogin(player)
 	end
 
     player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
-	player:openChannel(10) -- LOOT CHANNEL
 
     local playerId = player:getId()
 
