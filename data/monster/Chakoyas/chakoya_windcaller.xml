@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Chakoya Windcaller" nameDescription="a chakoya windcaller" race="blood" experience="48" speed="71" manacost="305">
 	<health now="84" max="84"/>
-	<look type="260" corpse="7320"/>
+	<look type="260" corpse="7327"/>
 	<targetchange interval="60000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -56,7 +56,7 @@
 		<item name="gold coin" countmax="27" chance="71170"/>
 		<item name="brass helmet" chance="4390"/>
 		<item name="bone shield" chance="960"/>
-		<item id="2667" countmax="3" chance="30790"/><!-- fish -->
+		<item id="3578" countmax="3" chance="30790"/><!-- fish -->
 		<item name="northern pike" chance="40"/>
 		<item name="rainbow trout" chance="40"/>
 		<item name="green perch" chance="110"/>

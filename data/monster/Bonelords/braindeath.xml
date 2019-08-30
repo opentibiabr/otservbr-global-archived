@@ -79,7 +79,7 @@
 		<item name="bonelord eye" chance="2990" />
 		<item name="clerical mace" chance="1970" />
 		<item name="haunted blade" chance="1440" />
-		<item id="2175" chance="930" /><!-- spellbook -->
+		<item id="3059" chance="930" /><!-- spellbook -->
 		<item name="spiked squelcher" chance="180" />
 		<item name="bonelord shield" chance="100" />
 		<item name="bonelord helmet" chance="100" />
