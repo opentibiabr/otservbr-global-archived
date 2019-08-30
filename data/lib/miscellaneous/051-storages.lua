@@ -174,6 +174,7 @@ Storage = {
 		Fafnar = {
 			Invetigate = 37960,
 			Urmahlullu = 36960,
+			UrmahlulluCompleted = 35960,
 			UrmahlulluTimer = 36961,
 			Retrieve = 37961,
 			Obtain = 37962,
