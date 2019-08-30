@@ -19,14 +19,14 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-370"/>
-		<attack name="poison" interval="2000" chance="50" radius="4" min="-200" max="-390">
+		<attack name="poison" interval="2000" chance="20" radius="4" min="-200" max="-390">
 			<attribute key="areaEffect" value="greenbubble"/>
 		</attack>
-		<attack name="poison" interval="2000" chance="50" target="1" radius="4" min="-320" max="-460">
-			<attribute key="areaEffect" value="EXPLOSIONAREA"/>
+		<attack name="poison" interval="2000" chance="15" target="1" radius="4" min="-320" max="-460">
+			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="50" length="3" spread="0" min="-200" max="-340">
-			<attribute key="areaEffect" value="GROUNDSHAKER"/>
+		<attack name="physical" interval="2000" chance="20" length="3" spread="0" min="-200" max="-340">
+			<attribute key="areaEffect" value="groundshaker"/>
 		</attack>
 	</attacks>
 	<defenses armor="69" defense="69">
@@ -54,7 +54,7 @@
 		<item name="Twin Hooks" chance="4570"/>
 		<item name="Springsprout Rod" chance="3510"/>
 		<item name="Green Ectoplasm" chance="1890"/>
-     	<item name="Coral Brooch" chance="1330"/>
+     		<item name="Coral Brooch" chance="1330"/>
 		<item name="Serpent Sword" chance="1150"/>
 		<item name="Assassin Dagger" chance="970"/>
 		<item name="Hexagonal Ruby" chance="940"/>

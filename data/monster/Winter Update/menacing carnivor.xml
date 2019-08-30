@@ -21,15 +21,15 @@
 		<flag canwalkonpoison="1" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-205" />
-		<attack name="lifedrain" interval="2000" chance="50"  length="4" spread="0" min="-150" max="-330">
-			<attribute key="areaEffect" value="SMOKE" />
+		<attack name="melee" interval="2000" min="-300" max="-450" />
+		<attack name="lifedrain" interval="2000" chance="20"  length="4" spread="0" min="-100" max="-180">
+			<attribute key="areaEffect" value="smoke" />
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="50"  length="4" spread="0" min="-150" max="-330">
-			<attribute key="areaEffect" value="POISON" />
+		<attack name="lifedrain" interval="2000" chance="14"  length="4" spread="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="physical" interval="2000" chance="50" radius="4" min="-150" max="-330">
-			<attribute key="areaEffect" value="GROUNDSHAKER" />
+		<attack name="physical" interval="2000" chance="15" radius="4" min="-150" max="-330">
+			<attribute key="areaEffect" value="groundshaker" />
 		</attack>
 	</attacks>
 	<defenses armor="68" defense="0">

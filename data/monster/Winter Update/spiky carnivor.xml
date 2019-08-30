@@ -17,18 +17,12 @@
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 	</flags>
-		<attacks>
-		<attack name="melee" interval="2000" min="0" max="-205" />
-		<attack name="lifedrain" interval="2000" chance="50"  length="4" spread="0" min="-150" max="-330">
-		<attribute key="areaEffect" value="SMOKE" />
+	<attacks>
+		<attack name="melee" interval="2000" min="-200" max="-400" />
+		<attack name="physical" interval="2000" chance="10" radius="4" min="-230" max="-380">
+			<attribute key="areaEffect" value="groundshaker" />
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="50"  length="4" spread="0" min="-150" max="-330">
-		<attribute key="areaEffect" value="POISON" />
-		</attack>
-		<attack name="physical" interval="2000" chance="50" radius="4" min="-150" max="-330">
-		<attribute key="areaEffect" value="GROUNDSHAKER" />
-		</attack>
-		</attacks>
+	</attacks>
 	<defenses armor="71" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="150" max="200">
 			<attribute key="areaEffect" value="blueshimmer" />
@@ -58,7 +52,7 @@
 		<item name="Warrior Helmet" chance="700" />
 		<item name="Shockwave Amulet" chance="450" />
 		<item name="Terra Mantle" chance="450" />
-        <item name="Buckle" chance="250" />
-        <item name="Doublet" chance="250" />
+		<item name="Buckle" chance="250" />
+		<item name="Doublet" chance="250" />
 	</loot>
 </monster>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
+	
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
 	<action fromid="13540" toid="13545" script="addons/afflictedOutfit.lua" />
@@ -28,6 +29,9 @@
 	<action fromid="7140" toid="7141" script="quests/barbarian test/horn.lua" />
 	<action uniqueid="3110" script="quests/barbarian test/mead.lua" />
 
+	<!-- Bastion Forge -->
+	<action itemid="32421" script="falcons/falconShield.lua" />
+	
 	<!-- Behemoth Quest -->
 	<action uniqueid="2007" script="quests/behemoth/lever.lua" />
 

@@ -22,12 +22,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-350"/>
-			<attack name="Arachnophobicawavedice" interval="2000" chance="50" min="-250" max="-350"/>
-			<attack name="Arachnophobicawaveenergy" interval="2000" chance="50" min="-250" max="-350"/>
-			<attack name="physical" interval="2000" chance="50" target="1" radius="4" min="-250" max="-350">
+			<attack name="Arachnophobicawavedice" interval="2000" chance="20" min="-250" max="-350"/>
+			<attack name="Arachnophobicawaveenergy" interval="2000" chance="20" min="-250" max="-350"/>
+			<attack name="physical" interval="2000" chance="10" target="1" radius="4" min="-250" max="-350">
 		<attribute key="areaEffect" value="yellowspark"/>
 		</attack>
-			<attack name="death" interval="2000" chance="50" range="7" min="-200" max="-300">
+			<attack name="death" interval="2000" chance="10" range="7" min="-200" max="-300">
 			<attribute key="shootEffect" value="suddendeath"/>
 			<attribute key="areaEffect" value="mortarea"/>
 			<attribute key="areaEffect" value="smallclouds"/>

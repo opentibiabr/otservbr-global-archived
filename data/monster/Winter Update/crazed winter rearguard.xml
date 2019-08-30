@@ -19,11 +19,11 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400"/>
- 		<attack name="ice" interval="2000" chance="50" target="1" radius="3" min="-200" max="-300">
+ 		<attack name="ice" interval="2000" chance="10" target="1" radius="3" min="-200" max="-300">
 		<attribute key="areaEffect" value="icearea"/>
 		</attack>
-		<attack name="ice" interval="2000" chance="70" range="7" min="-250" max="-300">
-		<attribute key="shootEffect" value="ICE"/>
+		<attack name="ice" interval="2000" chance="10" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="ice"/>
 		</attack>
    </attacks>
 	<defenses armor="70" defense="20"/>

@@ -19,14 +19,14 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400"/>
- 		<attack name="ice" interval="2000" chance="50" target="1" radius="5" min="-200" max="-300">
-		<attribute key="areaEffect" value="ICEAREA"/>
+ 		<attack name="ice" interval="2000" chance="15" target="1" radius="5" min="-200" max="-300">
+		<attribute key="areaEffect" value="icearea"/>
 		</attack>
- 		<attack name="ice" interval="2000" chance="50" length="4" spread="0" min="-240" max="-300">
-		<attribute key="areaEffect" value="GIANTICE"/>
+ 		<attack name="ice" interval="2000" chance="10" length="4" spread="0" min="-240" max="-300">
+		<attribute key="areaEffect" value="giantice"/>
 		</attack>
-		<attack name="ice" interval="2000" chance="70" range="7" min="-250" max="-300">
-		<attribute key="shootEffect" value="ICE"/>
+		<attack name="ice" interval="2000" chance="20" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="ice"/>
 		</attack>
    </attacks>
 	<defenses armor="70" defense="20"/>
@@ -40,22 +40,22 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-<!--common-->
-<item name="platinum coin" countmax="13" chance="100000"/>
-<item name="red crystal fragment" chance="1000000"/>
-<item name="red gem" chance="1000000"/>
-<!--uncommon-->
-<item id="34696" countmax="2" chance="15000"/>  <!-- ice flower -->
-<item name="small enchanted ruby" chance="11550"/>
-<item name="miraculum" chance="13550"/>
-<item name="ultimate health potion" countmax="2" chance="14750"/>
-<item name="dream essence egg" chance="17550"/>
-<item name="tiger eye" chance="12350"/>
-<item name="northwind rod" chance="14600"/>
-<item name="glacier amulet" chance="13850"/>
-<item name="ice rapier" chance="11250"/>
-<!--semi-rare-->
-<item name="glacier robe" chance="1000"/>
-<item name="elven amulet" chance="500"/>
+		<!--common-->
+		<item name="platinum coin" countmax="13" chance="100000"/>
+		<item name="red crystal fragment" chance="1000000"/>
+		<item name="red gem" chance="1000000"/>
+		<!--uncommon-->
+		<item id="34696" countmax="2" chance="15000"/>  <!-- ice flower -->
+		<item name="small enchanted ruby" chance="11550"/>
+		<item name="miraculum" chance="13550"/>
+		<item name="ultimate health potion" countmax="2" chance="14750"/>
+		<item name="dream essence egg" chance="17550"/>
+		<item name="tiger eye" chance="12350"/>
+		<item name="northwind rod" chance="14600"/>
+		<item name="glacier amulet" chance="13850"/>
+		<item name="ice rapier" chance="11250"/>
+		<!--semi-rare-->
+		<item name="glacier robe" chance="1000"/>
+		<item name="elven amulet" chance="500"/>
 	</loot>
 </monster>

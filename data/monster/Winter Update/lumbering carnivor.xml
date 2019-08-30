@@ -18,17 +18,14 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-150"/>
-		<attack name="lifedrain" interval="2000" chance="50" length="4" spread="0" min="-150" max="-230">
-		<attribute key="areaEffect" value="SMOKE"/>
+		<attack name="melee" interval="2000" min="-200" max="-500" />
+		<attack name="physical" interval="2000" chance="10" radius="4" min="-100" max="-150">
+			<attribute key="areaEffect" value="groundshaker" />
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="50" target="1" radius="3" min="-120" max="-230">
-		<attribute key="areaEffect" value="EXPLOSIONAREA"/>
-		</attack>
-		</attacks>
-		<defenses armor="20" defense="20">
+	</attacks>
+		<defenses armor="71" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="150" max="200">
-		<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
