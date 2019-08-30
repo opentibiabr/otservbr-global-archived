@@ -27,7 +27,7 @@
 	<action uniqueid="3110" script="quests/barbarian test/mead.lua" />
 
 	<!-- Bastion Forge -->
-	<action itemid="32421" script="falcons/falconShield.lua" />
+	<action itemid="32421" script="falcons/falcon_shield.lua" />
 	
 	<!-- Behemoth Quest -->
 	<action uniqueid="2007" script="quests/behemoth/lever.lua" />
