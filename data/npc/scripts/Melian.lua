@@ -19,6 +19,7 @@ addTravelKeyword('svargrond', 'Svargrond', 60, Position(32253, 31097, 4))
 addTravelKeyword('femor hills', 'the Femor Hills', 60, Position(32536, 31837, 4))
 addTravelKeyword('edron', 'Edron', 60, Position(33193, 31784, 3))
 addTravelKeyword('kazordoon', 'Kazordoon', 70, Position(32588, 31941, 0))
+addTravelKeyword('hills', 'the Femor Hills', 60, Position(32536, 31837, 4))
 
 npcHandler:setMessage(MESSAGE_GREET, "Ah, the wind brings in another visitor. Feel welcome |PLAYERNAME|. Where do you want me to {fly} you?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Daraman's blessings!")

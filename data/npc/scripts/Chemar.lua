@@ -30,6 +30,7 @@ addTravelKeyword('edron', 40, Position(33193, 31784, 3))
 addTravelKeyword('svargrond', 60, Position(32253, 31097, 4))
 addTravelKeyword('femor hills', 60, Position(32536, 31837, 4))
 addTravelKeyword('kazordoon', 80, Position(32588, 31941, 0))
+addTravelKeyword('hills', 60, Position(32536, 31837, 4))
 
 npcHandler:setMessage(MESSAGE_GREET, 'Daraman\'s blessings, traveller |PLAYERNAME|.')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'It was a pleasure to help you, |PLAYERNAME|.')
