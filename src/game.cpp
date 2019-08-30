@@ -4399,7 +4399,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		target->drainHealth(attacker, realDamage);
 		if (realDamage > 0) {
 			if (Monster* targetMonster = target->getMonster()) {
-				if (attackerPlayer->getPlayer()) {
+				if (attackerPlayer->getPlayer()) { // player not null
 					attackerPlayer->updateImpactTracker(realDamage, false);
 				}
 
