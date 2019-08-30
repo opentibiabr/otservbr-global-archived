@@ -7,6 +7,7 @@
 *.rsuser
 *.suo
 *.user
+*.dll
 *.userosscache
 *.sln.docstates
 
