@@ -7,16 +7,14 @@ local config = {
 
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
-	if player == nil then
+	if not player then
 		return false
 	end
 
-	for actionId, destination in pairs(config) do
-		if item.actionid == actionId then
-			player:teleportTo(destination)
-			destination:sendMagicEffect(CONST_ME_POFF)
-			fromPosition:sendMagicEffect(CONST_ME_POFF)
-			return true
-		end
+	local teleport = config[item.actionid]
+	if teleport then
+		player:teleportTo(teleport)
+		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
+		teleport:sendMagicEffect(CONST_ME_TELEPORT)
 	end
 end

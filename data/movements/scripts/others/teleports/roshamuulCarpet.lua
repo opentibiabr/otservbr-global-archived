@@ -4,7 +4,12 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local destination = Town(2):getTemplePosition()
+	local town = Town(2)
+	if not town then
+		return true
+	end
+
+	local destination = town:getTemplePosition()
 	player:teleportTo(destination)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The flying carpet brought you back to Thais.')
 	position:sendMagicEffect(CONST_ME_POFF)

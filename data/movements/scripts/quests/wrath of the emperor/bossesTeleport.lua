@@ -35,7 +35,8 @@ function onStepIn(creature, item, position, fromPosition)
 		teleport.destination:sendMagicEffect(CONST_ME_TELEPORT)
 	else
 		player:teleportTo(teleport.destination)
-			--player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Go to another Teleport or take mission with Zizzle.')
+		--player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Go to another Teleport or take mission with Zizzle.')
 	end
+	
 	return true
 end

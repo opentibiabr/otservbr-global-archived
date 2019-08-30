@@ -121,6 +121,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
+	local client = player:getClient()
+	if client.version > 1140 then
+		player:updateSupplyTracker(item)
+	end
+
 	item:remove(1)
 	return true
 end

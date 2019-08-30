@@ -31,7 +31,6 @@
 		<element physicalPercent="-10"/>
 	</elements>
 	<immunities>
-
 		<immunity invisible="1"/>
 	</immunities>
 	<voices interval="2000" chance="13">
@@ -52,13 +51,11 @@
 		<item id="2120" chance="1000"/>					<!-- Rope -->
 		<item id="2661" chance="1000"/>					<!-- Scarf -->
 		<item id="1949" chance="830"/>					<!-- Scroll -->
-
 		<item id="2145" chance="830"/>					<!-- Small Diamond -->
 		<item id="2391" chance="130"/>					<!-- War Hammer -->
 		<item id="2381" chance="830"/>					<!-- Halberd -->
 		<item id="2515" chance="330"/>					<!-- Guardian Shield -->
 		<item id="2477" chance="230"/>					<!-- Knight Legs -->
 		<item id="2475" chance="200"/>					<!-- Warrior Helmet -->
-
 	</loot>
 </monster>

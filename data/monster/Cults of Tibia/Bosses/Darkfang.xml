@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Darkfang" nameDescription="a darkfang" race="blood" experience="4000" speed="250">
+<monster name="Darkfang" nameDescription="a darkfang" race="blood" experience="4000" speed="250" script="rewardboss.lua">
 	<health now="4800" max="4800" />
 	<look type="308" corpse="20380" />
 	<targetchange interval="4000" chance="10" />

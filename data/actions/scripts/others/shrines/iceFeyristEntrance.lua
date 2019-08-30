@@ -1,5 +1,5 @@
 local feyristStart = { x = 32194, y = 31418, z = 2} -- top left corner
-local paymentItem = 2150 -- small amethyst
+local paymentItem = 2146 -- small emerald
 local positionAfterEnchantment = Position(33430,32278, 7)
 
 function onUse(creature, item, position, fromPosition, pos, target, toPosition)

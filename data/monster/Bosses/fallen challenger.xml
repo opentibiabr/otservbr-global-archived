@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Fallen Challenger" nameDescription="a fallen challenger" race="undead" experience="0" speed="300" >
+<monster name="Fallen Challenger" nameDescription="a fallen challenger" race="undead" experience="0" speed="300">
 	<health now="9000" max="9000"/>
 	<look type="231" corpse="1397"/>
 	<targetchange interval="5000" chance="8"/>

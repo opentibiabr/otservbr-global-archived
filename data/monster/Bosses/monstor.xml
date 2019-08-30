@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Monstor" nameDescription="Monstor" race="blood" experience="575" speed="350" >
+<monster name="Monstor" nameDescription="Monstor" race="blood" experience="575" speed="350">
 	<health now="960" max="960" />
 	<look type="244" corpse="6336" />
 	<targetchange interval="5000" chance="8" />
@@ -51,7 +51,6 @@
 	<summons maxSummons="3">
 		<summon name="Acid Blob" interval="4000" chance="40" max="3" />
 	</summons>
-
 	<loot>
 		<item id="10298" chance="1000" />	<!-- heavy metal t-shirt -->
 		<item id="10303" chance="1000" />	<!-- club of the fury -->

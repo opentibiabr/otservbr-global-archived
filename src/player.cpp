@@ -500,6 +500,7 @@ void Player::addSkillAdvance(skills_t skill, uint64_t count)
 
 	if (sendUpdateSkills) {
 		sendSkills();
+		sendStats();
 	}
 }
 
@@ -1678,6 +1679,7 @@ void Player::addManaSpent(uint64_t amount)
 
 	if (sendUpdateStats) {
 		sendStats();
+		sendSkills();
 	}
 }
 
@@ -4638,6 +4640,7 @@ bool Player::addOfflineTrainingTries(skills_t skill, uint64_t tries)
 
 	if (sendUpdate) {
 		sendSkills();
+		sendStats();
 	}
 
 	std::ostringstream ss;

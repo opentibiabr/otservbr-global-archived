@@ -1,14 +1,18 @@
-function onStepIn(cid, item, position, fromPosition)
-local player = Player(cid)
-if getPlayerStorageValue(cid, 10050) == 4 then
-player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A strange ritual has taken place here. Report about it to the Gloot Brothers.')
-setPlayerStorageValue(cid, 20054, 1)
-setPlayerStorageValue(cid, 20055, 0)
-setPlayerStorageValue(cid, 10050, 5)
-elseif getPlayerStorageValue(cid, 10050) == 10 and getPlayerItemCount(cid, 23488) > 0 then
-doTeleportThing(cid, fromPosition, true)
-doTeleportThing(cid, {x = 33419, y = 32106, z = 10})
-player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The necrometer reveals a hidden passage!')
-end
-return true
+function onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return false
+	end
+
+	if player:getStorageValue(10050) == 4 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A strange ritual has taken place here. Report about it to the Gloot Brothers.')
+		player:setStorageValue(20054, 1)
+		player:setStorageValue(20055, 0)
+		player:setStorageValue(10050, 5)
+	elseif player:getStorageValue(10050) >= 10 and player:getItemCount(23495) > 0 then
+		player:teleportTo(Position(33419, 32106, 10))
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The necrometer reveals a hidden passage!')
+	end
+	
+	return true
 end

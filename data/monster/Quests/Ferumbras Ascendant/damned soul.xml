@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Damned Soul" nameDescription="a damned soul" race="undead" experience="300" speed="380" >
+<monster name="Damned Soul" nameDescription="a damned soul" race="undead" experience="300" speed="380">
 	<health now="800" max="800"/>
 	<look type="232" corpse="25354"/>
   	<targetchange interval="2000" chance="4" />
@@ -16,7 +16,6 @@
     		<flag staticattack="90" />
     		<flag runonhealth="800" />
 			<flag isblockable="0" />
-
   	</flags>
   	<attacks>
     		<attack name="melee" interval="2000" skill="76" attack="100" />

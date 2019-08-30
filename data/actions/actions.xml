@@ -77,7 +77,7 @@
 
 	<!-- Dark Trails Quest -->
 	<action uniqueid="9511" script="quests/dark trails/bossTheRavager.lua"/>
-	<action uniqueid="9512" script="quests/dark trails/bossDeathPriestShargon.lua"/>
+	<action actionid="9512" script="quests/dark trails/bossDeathPriestShargon.lua"/>
 	<action actionid="9746" script="quests/dark trails/corpse.lua"/>
 	<action actionid="9748" script="quests/dark trails/rewardRoomExit.lua"/>
 
@@ -98,9 +98,7 @@
 	<action itemid="31931" script="quests/dangerous depth/gnomeChart.lua" />
 	<action itemid="31993" script="quests/dangerous depth/usingCrystals.lua" />
 	<!-- Access Crystals -->
-	<action fromaid="57350" toaid="57355" script="quests/dangerous depth/WarzoneVI.lua" />
-	<action fromaid="57356" toaid="57361" script="quests/dangerous depth/WarzoneV.lua" />
-	<action fromaid="57362" toaid="57367" script="quests/dangerous depth/WarzoneIV.lua" />
+	<action fromaid="57350" toaid="57367" script="quests/dangerous depth/warzone_crystals.lua" />
 
 	<!-- Devil Helmet Quest -->
 	<action actionid="20594" script="quests/devil helmet/lever.lua" />
@@ -117,18 +115,13 @@
 	<action uniqueid="2005" script="quests/demon helmet/lever.lua" />
 
 	<!-- Dreamer Challenge Quest -->
-	<action uniqueid="3041" script="quests/dreamer challenge/documentsLever.lua" /> <!-- done -->
-	<action uniqueid="3042" script="quests/dreamer challenge/documentsLever1.lua" /> <!-- done -->
-	<action uniqueid="3043" script="quests/dreamer challenge/documentsLever2.lua" /> <!-- done -->
-
-	<action uniqueid="3045" script="quests/dreamer challenge/documentsLever3.lua" /> <!-- done -->
-	<action uniqueid="3046" script="quests/dreamer challenge/documentsLever4.lua" /> <!-- done -->
-	<action uniqueid="3047" script="quests/dreamer challenge/documentsLever5.lua" /> <!-- done -->
+	<action fromuid="3041" touid="3043" script="quests/dreamer challenge/lever_nightmare.lua" /> <!-- fixed and organized by worhtdavi -->
+	<action fromuid="3045" touid="3047" script="quests/dreamer challenge/lever_brotherhood.lua" /> <!-- fixed and organized by worhtdavi -->
 
 	<action fromid="7844" toid="7846" script="quests/dreamer challenge/documents.lua" />
-	<action uniqueid="2004" script="quests/dreamer challenge/stoneTeleport.lua" />
-	<action uniqueid="2272" script="quests/dreamer challenge/ticTac.lua" />
-	<action actionid="8033" script="quests/dreamer challenge/ticTacTeleport.lua" />
+	<action uniqueid="2004" script="quests/dreamer challenge/stone_teleport.lua" />
+	<action uniqueid="2272" script="quests/dreamer challenge/tic_tac.lua" />
+	<action actionid="8033" script="quests/dreamer challenge/tic_tac_teleport.lua" />
 	<action fromuid="2246" touid="2249" script="quests/dreamer challenge/walls.lua" />
 
 	<!-- Druid Outfit Quest -->

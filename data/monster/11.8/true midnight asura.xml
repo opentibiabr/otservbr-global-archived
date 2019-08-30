@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="True Midnight Asura" nameDescription="a true midnight asura" race="blood" experience="9000" speed="170" >
+<monster name="True Midnight Asura" nameDescription="a true midnight asura" race="blood" experience="9000" speed="170">
 	<health now="9000" max="9000"/>
 	<look type="1068" head="72" body="95" legs="72" feet="0" addon="3" corpse="33360"/>
 	<targetchange interval="4000" chance="10"/>
@@ -19,26 +19,18 @@
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-269"/>
 		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-70"/>
-
 		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="100" max="400">
 			<attribute key="areaEffect" value="purpleenergy"/>
 		</attack>
-
-
 		<attack name="death" interval="2000" chance="10" length="8" spread="0" min="100" max="400">
 	 			<attribute key="areaEffect" value="blacksmoke"/>
 		</attack>
-
 		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
-
 		 <attack name="drunk" interval="2000" chance="10" range="3" target="1" radius="4" duration="4000">
 			<attribute key="areaEffect" value="stun"/>
 		</attack>
-
-
-
 	</attacks>
 	<defenses armor="75" defense="55">
 		<defense name="healing" interval="2000" chance="15" min="50" max="100">
@@ -85,16 +77,12 @@
 	    <item id="24637" chance="480"/>					<!-- Oriental Shoes -->
 		<item id="24631" chance="500"/>					<!-- Peacock Feather Fan -->
 		<item id="8889" chance="400"/>					<!--  Skullcracker Armor -->
-
 		<item id="2134" chance="600"/>					<!-- Silver Brooch -->
 		<item id="2170" chance="600"/>					<!-- Silver amulet -->
 		<item id="5944" chance="600"/>					<!-- Soul Orb -->
 		<item id="8902" chance="400"/>					<!-- Spellbook of Mind Control -->
 	    <item id="3967" chance="400"/>					<!-- Tribal Mask -->
-
 		<item id="8910" chance="400"/>					<!-- Underworld Rod  -->
 		<item id="2154" chance="400"/>					<!--  Yellow Gem  -->
-
-
 	</loot>
 </monster>

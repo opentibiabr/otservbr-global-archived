@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Lord of the Lice" nameDescription="the lord of the lice" race="blood" experience="600" speed="230" >
+<monster name="The Lord of the Lice" nameDescription="the lord of the lice" race="blood" experience="600" speed="230">
 	<health now="80000" max="80000"/>
 	<look type="305" corpse="9871"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-
 		<flag preyable="0" />
 		<flag summonable="0"/>
 		<flag attackable="1"/>

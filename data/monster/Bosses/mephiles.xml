@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mephiles" nameDescription="Mephiles" race="blood" experience="415" speed="300" >
+<monster name="Mephiles" nameDescription="Mephiles" race="blood" experience="415" speed="300">
 	<health now="415" max="415" />
 	<look type="237" corpse="6364" />
 	<targetchange interval="5000" chance="8" />
@@ -52,9 +52,7 @@
 		<voice sentence="Wealth, Power, it is all at your fingertips. All you have to do is a bit blackmailing and bullying." />
 		<voice sentence="Come on. being a bit evil won't hurt you." />
 	</voices>
-
 	<loot>
-
 	<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
 		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->
 		<item id="10293" chance="1000" />				<!-- bread kk -->
@@ -62,5 +60,4 @@
 		<item id="10317" chance="1000" />				<!-- glutton's mace -->
 		<item id="10294" chance="1000" />				<!-- trousers of the ancients -->
 	</loot>
-
 </monster>

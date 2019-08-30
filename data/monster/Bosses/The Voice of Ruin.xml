@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Voice of Ruin" nameDescription="a the voice of ruin" race="blood" experience="3500" speed="460" >
+<monster name="The Voice of Ruin" nameDescription="a the voice of ruin" race="blood" experience="3500" speed="460">
 	<health now="5500" max="5500"/>
 	<look type="344" corpse="11288"/>
 	<targetchange interval="4000" chance="40"/>
@@ -53,6 +53,5 @@
 		<item id="9971" chance="3800" /><!--  gold ingot -->
 		<item id="11325" chance="3800" /><!--  11325 -->
 		<item id="11303" chance="3800" /><!--  Zaoan Shoes-->
-
 	</loot>
 </monster>

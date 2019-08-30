@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Minotaur Wallbreaker" nameDescription="a minotaur wallbreaker" race="blood" experience="16725" speed="220" >
+<monster name="Minotaur Wallbreaker" nameDescription="a minotaur wallbreaker" race="blood" experience="16725" speed="220">
 	<health now="120000" max="120000" />
 	<look type="607" corpse="5962" />
 	<targetchange interval="4000" chance="10" />

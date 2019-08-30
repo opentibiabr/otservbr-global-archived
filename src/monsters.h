@@ -180,6 +180,8 @@ class MonsterType
 		bool canWalkOnEnergy = true;
 		bool canWalkOnFire = true;
 		bool canWalkOnPoison = true;
+
+		MonstersEvent_t eventType = MONSTERS_EVENT_NONE;
 	};
 
 	public:
@@ -263,6 +265,7 @@ class Monsters
 		std::vector<std::string> getPreyMonsters();
 		
 		std::unique_ptr<LuaScriptInterface> scriptInterface;
+		bool loadCallback(LuaScriptInterface* scriptInterface, MonsterType* mType);
 
 	private:
 		ConditionDamage* getDamageCondition(ConditionType_t conditionType,

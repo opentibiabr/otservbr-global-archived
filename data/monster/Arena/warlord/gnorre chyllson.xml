@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Gnorre Chyllson" nameDescription="Gnorre Chyllson" race="blood" experience="4000" speed="370">
 	<health now="7150" max="7150" />

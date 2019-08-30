@@ -26,7 +26,6 @@
 		<attack name="outfit" interval="4000" chance="10" target="1" monster="orc shaman" duration="30000" />
 		<attack name="outfit" interval="4000" chance="20" target="1" monster="orc" duration="30000" />
 	</attacks>
-
 	<!-- <attack name="outfit" interval="2000" chance="100" target="1" monster="orc warlord" duration="30000" /> -->
 	<!-- <attack name="outfit" interval="2000" chance="100" target="1" monster="orc shaman" duration="30000" /> -->
 	<defenses armor="27" defense="27">

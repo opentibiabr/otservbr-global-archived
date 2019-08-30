@@ -16,5 +16,6 @@ function onStepIn(creature, item, position, fromPosition)
 		player:say(portal.message, TALKTYPE_MONSTER_SAY)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
+
 	return true
 end

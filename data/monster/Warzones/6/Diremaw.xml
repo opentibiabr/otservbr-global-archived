@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Diremaw" nameDescription="a diremaw" race="blood" experience="2500" speed="90" >
+<monster name="Diremaw" nameDescription="a diremaw" race="blood" experience="2500" speed="90">
 	<health now="4500" max="4500" />
 	<look type="1034" corpse="30729" />
 	<targetchange interval="5000" chance="10" />
@@ -45,7 +45,6 @@
 	<!--Sempre-->
 		<item name="Ham" countmax="4" chance="40080" />
 		<item name="Diremaw Brainpan" chance="24120" />
-
 			<!--quase sempre-->
 			<item name="Poisonous Slime" countmax="5" chance="11930" />
 			<item name="Blue Crystal Shard" chance="9660" />
@@ -53,21 +52,15 @@
 			<item name="Green Crystal Shard" chance="8030" />
 			<item name="Onyx Chip" countmax="4" chance="8560" />
 			<item name="Diremaw Legs" countmax="2" chance="9650" />
-
-
 				<!--semi raro-->
 				<item name="Small Enchanted Emerald" countmax="2" chance="2940" />
 				<item name="Small Emerald" countmax="2"   chance="5080" />
 				<item name="Gold Ingot" chance="2970" />
-
-
 						<!--raro-->
 						<item id="7632" chance="3100" />  <!--Giant Shimmering Pearl-->
 						<item name="Suspicious Device" chance="600" />
-
 						<!--MuitoRaro-->
 						<item name="Mycological Bow" chance="1200" />
 						<item name="Mushroom Backpack" chance="1500" />
-
 	</loot>
 </monster>

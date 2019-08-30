@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Feroxa" nameDescription="Feroxa" experience="0" speed="350" race="blood" >
+<monster name="Feroxa" nameDescription="Feroxa" experience="0" speed="350" race="blood">
 	<health now="130000" max="130000"/>
 	<targetchange speed="2000" chance="2"/>
 	<look type="158" head="57" body="76" legs="77" feet="57" corpse="0"/>

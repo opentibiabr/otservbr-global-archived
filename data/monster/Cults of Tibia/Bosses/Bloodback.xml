@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Bloodback" nameDescription="a Bloodback" race="blood" experience="4000" speed="250">
+<monster name="Bloodback" nameDescription="a Bloodback" race="blood" experience="4000" speed="250" script="rewardboss.lua">
 	<health now="5200" max="5200" />
 	<look type="1039" corpse="32061" />
 	<targetchange interval="4000" chance="10" />

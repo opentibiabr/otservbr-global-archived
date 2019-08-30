@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Disgusting Ooze" nameDescription="a disgusting ooze" race="venom" experience="3700" speed="260" >
+<monster name="Disgusting Ooze" nameDescription="a disgusting ooze" race="venom" experience="3700" speed="260">
 	<health now="3650" max="3650"/>
 	<look type="238" corpse="6532"/>
 	<targetchange interval="5000" chance="8" />

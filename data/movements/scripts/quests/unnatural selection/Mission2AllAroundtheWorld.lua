@@ -28,5 +28,6 @@ function onStepIn(creature, item, position, fromPosition)
 		player:setStorageValue(Storage.UnnaturalSelection.Mission02, player:getStorageValue(Storage.UnnaturalSelection.Mission02) + 1)
 		player:say(targetValue.text, TALKTYPE_MONSTER_SAY)
 	end
+
 	return true
 end

@@ -98,6 +98,7 @@
 	<monster file="Bosses/kalyassa.xml" name="Kalyassa"/>
 	<monster file="Bosses/zorvorax.xml" name="Zorvorax"/>
 	<monster file="Bosses/gelidrazah the frozen.xml" name="Gelidrazah the Frozen"/>
+	<monster name="Omrafir" file="Bosses/omrafir.xml"/>
 
 	<monster file="Dragons/ice dragon.xml" name="Ice Dragon"/>
 	<monster file="Dragons/dragon warden.xml" name="Dragon Warden"/>
@@ -864,6 +865,7 @@
 	<monster name="Zomba" file="Bosses/zomba.xml"/>
 	<monster name="Zoralurk" file="Bosses/zoralurk.xml"/>
 	<monster name="Zugurosh" file="Bosses/zugurosh.xml"/>
+	<monster name="Zushuka" file="Bosses/zushuka.xml"/>
 	<monster name="Zulazza the Corruptor" file="Bosses/zulazza_the_corruptor.xml"/>
 	<monster name="Glooth Bomb" file="Bosses/glooth bomb.xml"/>
 	<monster name="Bibby Bloodbath" file="Bosses/bibby bloodbath.xml"/>
@@ -1229,7 +1231,7 @@
 	<!-- Mollusks -->
 	<monster name="Abyssal Calamary" file="Mollusks/Abyssal Calamary.xml"/>
 	<monster name="Brain Squid" file="Mollusks/Brain Squid.xml"/>
-	<monster name="Calamary" file="Mollusks/Calamary.xml"/>
+	<monster name="Calamary" file="Mollusks/calamary.xml"/>
 	<monster name="Rage Squid" file="Mollusks/Rage Squid.xml"/>
 	<monster name="Slug" file="Mollusks/slug.xml"/>
 	<monster name="Squid Warden" file="Mollusks/Squid Warden.xml"/>

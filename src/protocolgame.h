@@ -311,6 +311,12 @@ class ProtocolGame final : public Protocol
 		//messages
 		void sendModalWindow(const ModalWindow& modalWindow);
 
+		//analyzers
+   		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
+   		void sendUpdateSupplyTracker(const Item* item);
+ 		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
+ 		void sendUpdateLootTracker(Item* item);
+
 		//Help functions
 
 		// translate a tile to clientreadable format

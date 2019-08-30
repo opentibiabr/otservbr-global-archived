@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Orshabaal" nameDescription="Orshabaal" race="fire" experience="10000" speed="380">
+<monster name="Orshabaal" nameDescription="Orshabaal" race="fire" experience="10000" speed="380" script="rewardboss.lua">
 	<health now="22500" max="22500"/>
 	<look type="201" corpse="5995"/>
 	<targetchange interval="2000" chance="10"/>

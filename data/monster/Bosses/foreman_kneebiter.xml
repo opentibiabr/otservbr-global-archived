@@ -25,9 +25,7 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<voices interval="5000" chance="30">
-
 		<voice sentence="By Durin's beard!" yell="1"/>
-
 	</voices>
 	<loot>
 		<item id="5880" countmax="2" chance="2500"/><!-- iron ore -->

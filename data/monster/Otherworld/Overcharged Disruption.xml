@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Overcharged Disruption" nameDescription="an overcharged disruption" race="energy" experience="400" speed="380" >
+<monster name="Overcharged Disruption" nameDescription="an overcharged disruption" race="energy" experience="400" speed="380">
 	<health now="128000" max="128000"/>
 	<look typeex="8058" corpse="0"/>
 	<targetchange interval="4000" chance="15"/>

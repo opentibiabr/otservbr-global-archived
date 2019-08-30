@@ -797,11 +797,11 @@ if not Quests then
 				},
 
 				[2] = {
-					name = "Paw and Fur: Ranger", storageid = 2500, startvalue = 11, endvalue = 20, description = function(player)return string.format("You are Ranger of the Paw and Fur hunting elite. You currently have %d Paw and Fur points.", (math.max(player:getStorageValue(2500), 0))) end,
+					name = "Paw and Fur: Ranger", storageid = 2500, startvalue = 11, endvalue = 40, description = function(player)return string.format("You are Ranger of the Paw and Fur hunting elite. You currently have %d Paw and Fur points.", (math.max(player:getStorageValue(2500), 0))) end,
 				},
 
 				[3] = {
-					name = "Paw and Fur: Big Game Hunter", storageid = 2500, startvalue = 40, endvalue = 69, description = function(player)return string.format("You are Big Game Hunter in the Paw and Fur hunting elite. You currently have %d Paw and Fur points.", (math.max(player:getStorageValue(2500), 0))) end,
+					name = "Paw and Fur: Big Game Hunter", storageid = 2500, startvalue = 41, endvalue = 69, description = function(player)return string.format("You are Big Game Hunter in the Paw and Fur hunting elite. You currently have %d Paw and Fur points.", (math.max(player:getStorageValue(2500), 0))) end,
 				},
 
 				[4] = {

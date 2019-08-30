@@ -21,7 +21,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 1
 		--end
 			elseif(msgcontains(msg, "yes")) then
-		if(npcHandler.topic[cid] == 1) and (getPlayerStorageValue(cid, 10050) < 10) then
+		if(npcHandler.topic[cid] == 1) and (getPlayerStorageValue(cid, 10050) == 9) then
 			npcHandler:say("Indeed I heard you did a good job out there. <sigh> I guess that means I can hand you one of our necrometers. Handle it with care", cid)
 			npcHandler.topic[cid] = 0
 		   setPlayerStorageValue(cid, 10050, 10)

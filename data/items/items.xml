@@ -13247,18 +13247,22 @@
 		<attribute key="description" value="It contains Ahmet's stolen property." />
 	</item>
 	<item id="7588" article="a" name="strong health potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="290" />
 		<attribute key="description" value="This potion can only be consumed by paladins and knights of level 50 or higher." />
 	</item>
 	<item id="7589" article="a" name="strong mana potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="290" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers, druids and paladins of level 50 or higher." />
 	</item>
 	<item id="7590" article="a" name="great mana potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 80 or higher." />
 	</item>
 	<item id="7591" article="a" name="great health potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 80 or higher." />
 	</item>
@@ -13266,10 +13270,12 @@
 	<item fromid="7605" toid="7616" article="a" name="tent" />
 	<item id="7617" name="linen" />
 	<item id="7618" article="a" name="health potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="270" />
 	</item>
 	<item id="7619" name="linen" />
 	<item id="7620" article="a" name="mana potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="270" />
 	</item>
 	<item id="7621" article="a" name="dead dragon hatchling">
@@ -15343,10 +15349,12 @@
 	<item id="8459" article="a" name="strange statue" />
 	<item fromid="8460" toid="8471" name="earth" />
 	<item id="8472" article="a" name="great spirit potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by paladins of level 80 or higher." />
 	</item>
 	<item id="8473" article="an" name="ultimate health potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 130 or higher." />
 	</item>
@@ -15589,6 +15597,7 @@
 		<attribute key="weight" value="1300" />
 	</item>
 	<item id="8704" article="a" name="small health potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="265" />
 	</item>
 	<item fromid="8705" toid="8706" name="balloons" />
@@ -34880,14 +34889,17 @@
 	<item id="26027" article="a" name="blade trap" />
 	<item id="26028" article="a" name="spike trap" />
 	<item id="26029" article="an" name="ultimate mana potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by sorcerers and druids of level 130 or higher." />
 	</item>
 	<item id="26031" article="a" name="supreme health potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="350" />
 		<attribute key="description" value="This potion can only be consumed by knights of level 200 or higher." />
 	</item>
 	<item id="26030" article="an" name="ultimate spirit potion">
+ 		<attribute key="type" value="supply" />
 		<attribute key="weight" value="310" />
 		<attribute key="description" value="This potion can only be consumed by paladins of level 130 or higher." />
 	</item>
@@ -37028,8 +37040,7 @@
 	<item id="29038" article="a" name="rainbow quartz" plural="rainbow quartzes">
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="29039" name="death" />
-	<item id="29040" name="death" />
+	<item fromid="29039" toid="29040" name="tar sacrificial" />
 	<item id="29041" name="poison" />
 	<item id="29042" name="poison" />
 	<item id="29043" article="a" name="fig leaf">
@@ -40488,6 +40499,7 @@
 		<attribute key="weight" value="2504" />
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
+	<item fromid="32595" toid="32596" article="a" name="timber table"/>
 	<item id="32603" article="a" name="wall mirror"/>
 	<item id="32605" article="a" name="secret map" >
 		<attribute key="weight" value="830" />
@@ -40515,6 +40527,7 @@
 		<attribute key="weight" value="180" />
 		<attribute key="description" value="There is an empty bracket on its top." />
 	</item>
+	<item id="32640" article="a" name="tar"/>
 	<item id="32641" article="a" name="green energy ball">
 		<attribute key="weight" value="50" />
 	</item>
@@ -41334,6 +41347,7 @@
 		<attribute key="weight" value="1900" />
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
+	<item fromid="33471" toid="33474" article="a" name="timber table"/>
 	<item fromid="33491" toid="33492" name="fluorescent fungi">
 		<attribute key="wrapableTo" value="26054" />
 	</item>

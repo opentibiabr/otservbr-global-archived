@@ -1033,9 +1033,9 @@ void Events::eventPlayerClearImbuement(Player* player, Item* item, uint8_t slot)
 	scriptInterface.callVoidFunction(3);
 }
 
-void Events::eventPlayerOnCombat(Player* player, Item* item, CombatDamage& damage)
+void Events::eventPlayerOnCombat(Player* player, Creature* target, Item* item, CombatDamage& damage)
 {
-	// Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	// Player:onCombat(target, item, primaryDamage, primaryType, secondaryDamage, secondaryType)
 	if (info.playerOnCombat == -1) {
 		return;
 	}
@@ -1054,6 +1054,13 @@ void Events::eventPlayerOnCombat(Player* player, Item* item, CombatDamage& damag
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 
+	if (target) {
+		LuaScriptInterface::pushUserdata<Creature>(L, target);
+		LuaScriptInterface::setMetatable(L, -1, "Creature");
+	} else {
+		lua_pushnil(L);
+	}
+
 	if(item){
 		LuaScriptInterface::pushUserdata<Item>(L, item);
 		LuaScriptInterface::setMetatable(L, -1, "Item");
@@ -1063,7 +1070,7 @@ void Events::eventPlayerOnCombat(Player* player, Item* item, CombatDamage& damag
 
 	LuaScriptInterface::pushCombatDamage(L, damage);
 
-	if (scriptInterface.protectedCall(L, 7, 4) != 0) {
+	if (scriptInterface.protectedCall(L, 8, 4) != 0) {
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
 	} else {
 		damage.primary.value = std::abs(LuaScriptInterface::getNumber<int32_t>(L, -4));

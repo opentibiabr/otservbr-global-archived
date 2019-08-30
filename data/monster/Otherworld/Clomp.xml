@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Clomp" nameDescription="a clomp" race="blood" experience="475" speed="215" >
+<monster name="Clomp" nameDescription="a clomp" race="blood" experience="475" speed="215">
 	<health now="900" max="900"/>
 	<look type="860" corpse="25398"/>
 	<targetchange interval="4000" chance="10"/>
@@ -18,8 +18,6 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="40" max="-289" fire="6"/>
-
-
 	</attacks>
 	<defenses armor="20" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="80" max="95">
@@ -30,11 +28,8 @@
 		<element firePercent="-10"/>
 	</elements>
 	<immunities>
-
 		<immunity invisible="1"/>
 	</immunities>
-
-
 	<voices interval="3000" chance="20">
 		<voice sentence="Snort!"/>
 		<voice sentence="Grunt!"/>
@@ -47,6 +42,5 @@
 		<item id="11224" chance="900"/>					<!-- Thick Fur -->
 		<item id="3973" chance="400"/>					<!-- Tusk Shield -->
 		<item id="7432" chance="200"/>					<!-- Furry Club  -->
-
 	</loot>
 </monster>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Count Of The Core" nameDescription="a the count of the core" race="blood" experience="40000" speed="200" >
+<monster name="The Count Of The Core" nameDescription="a the count of the core" race="blood" experience="40000" speed="200">
 	<health now="50000" max="50000" />
 	<look type="1065" corpse="27976" />
 	<targetchange interval="4000" chance="10" />

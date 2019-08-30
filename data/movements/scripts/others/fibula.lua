@@ -1,14 +1,24 @@
-function onStepIn(cid, item, pos, fromPosition)
-	if item.actionid == 50390 then
-		doSendMagicEffect(getCreaturePosition(cid), 45)
-		doTeleportThing(cid, {x = 32172, y = 32439, z = 8}, FALSE)
-		doSendMagicEffect(getCreaturePosition(cid), 45)
-		doCreatureSay(cid, "Slrrp!", TALKTYPE_ORANGE_1)
-	elseif item.actionid == 50389 then
-		doSendMagicEffect(getCreaturePosition(cid), 9)
-		doTeleportThing(cid, {x = 33651, y = 31942, z = 7}, FALSE)
-		doSendMagicEffect(getCreaturePosition(cid), 9)
-		doCreatureSay(cid, "Slrrp!", TALKTYPE_ORANGE_1)
+local config = {
+	[50389] = {effectTeleport = CONST_ME_GREEN_RINGS, newPosition = Position(33651, 31942, 7)},
+	[50390] = {effectTeleport = CONST_ME_STONES, newPosition = Position(32172, 32439, 8)},
+}
+
+function onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
 	end
-	return TRUE
+
+	local teleport = config[item.actionid]
+	if teleport then
+		local newPosition = teleport.newPosition
+		player:teleportTo(newPosition)
+
+		local effectTeleport = teleport.effectTeleport
+		fromPosition:sendMagicEffect(effectTeleport)
+		newPosition:sendMagicEffect(effectTeleport)
+		player:say("Slrrp!", TALKTYPE_MONSTER_SAY)
+	end
+
+	return true
 end

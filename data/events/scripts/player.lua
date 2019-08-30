@@ -4,7 +4,7 @@ GOLD_POUNCH = 26377
 ITEM_STORE_INBOX = 26052
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
 -- exercise_ids
-local exercise_ids = {32384,32385,32386,32387,32388,32389}
+local exercise_ids = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129}
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
@@ -777,7 +777,9 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Store Bonus
+	local Boost = self:getExpBoostStamina()
 	useStaminaXp(self) -- Use store boost stamina
+	self:setStoreXpBoost(Boost > 0 and 50 or 0)
 	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
 		self:setStoreXpBoost(0) -- Reset Store boost to 0 if boost stamina has ran out
 	end
@@ -793,9 +795,13 @@ function Player:onGainExperience(source, exp, rawExp)
 		if staminaMinutes > 2400 and self:isPremium() then
 			exp = exp + baseExp * 0.5
 			displayRate = displayRate + Game.getExperienceStage(self:getLevel()) * 0.5
+			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
 			exp = exp * 0.5
+			self:setStaminaXpBoost(50)
 			displayRate = displayRate * 0.5
+		else
+			self:setStaminaXpBoost(100)
 		end
 	end
 
@@ -949,8 +955,8 @@ function Player:clearImbuement(item, slot)
 	return true
 end
 
-function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, secondaryType)
-	if not item then
+function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDamage, secondaryType)
+	if not item or not target then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
 
@@ -961,9 +967,15 @@ function Player:onCombat(item, primaryDamage, primaryType, secondaryDamage, seco
 			if imbuement then
 				local percent = imbuement:getElementDamage()
 				if percent and percent > 0 then
-					secondaryDamage = primaryDamage*math.min(percent/100, 1)
-					secondaryType = imbuement:getCombatType()
-					primaryDamage = primaryDamage - secondaryDamage
+					if primaryDamage ~= 0 then
+						secondaryDamage = primaryDamage*math.min(percent/100, 1)
+						secondaryType = imbuement:getCombatType()
+						primaryDamage = primaryDamage - primaryDamage*math.min(percent/100, 1)
+					elseif secondaryDamage ~= 0 then
+						primaryDamage = secondaryDamage*math.min(percent/100, 1)
+						primaryType = imbuement:getCombatType()
+						secondaryDamage = secondaryDamage - secondaryDamage*math.min(percent/100, 1)
+					end
 				end
 			end
 		end

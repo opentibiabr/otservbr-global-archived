@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Frozen Man" nameDescription="a Frozen Man" race="undead" experience="0" speed="0" >
+<monster name="Frozen Man" nameDescription="a Frozen Man" race="undead" experience="0" speed="0">
 	<health now="100" max="100" />
 	<look typeex="7311" />
 	<targetchange interval="2000" chance="0" />

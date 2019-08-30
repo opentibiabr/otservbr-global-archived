@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Greater Death Minion" nameDescription="a greater death minion" race="undead" experience="0" speed="150" >
+<monster name="Greater Death Minion" nameDescription="a greater death minion" race="undead" experience="0" speed="150">
 	<health now="1500" max="1500" />
 	<look type="65" corpse="6004" />
 	<targetchange interval="4000" chance="10" />

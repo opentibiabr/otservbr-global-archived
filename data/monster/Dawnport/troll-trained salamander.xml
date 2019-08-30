@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Troll-Trained Salamander" nameDescription="a troll-trained salamander" race="blood" experience="23" speed="56" >
+<monster name="Troll-Trained Salamander" nameDescription="a troll-trained salamander" race="blood" experience="23" speed="56">
 	<health now="70" max="70"/>
 	<look type="529" corpse="19707"/>
 	<targetchange interval="4000" chance="10"/>

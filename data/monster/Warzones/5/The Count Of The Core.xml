@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Count Of The Core" nameDescription="The Count Of The Core" race="blood" experience="40000" speed="270">
+<monster name="The Count Of The Core" nameDescription="The Count Of The Core" race="blood" experience="40000" speed="270" script="rewardboss.lua">
 	<health now="50000" max="50000" />
 	<look type="1046" corpse="30872" />
 	<targetchange interval="5000" chance="10" />

@@ -5,7 +5,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if player:getStorageValue(Storage.WrathoftheEmperor.Questline) < 31 then
-	local destinations = Position(33359, 31397, 9)
+		local destinations = Position(33359, 31397, 9)
 		player:teleportTo(destinations)
 		return true
 	end

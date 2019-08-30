@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Black Vixen" nameDescription="a black vixen" race="blood" experience="3200" speed="200">
+<monster name="Black Vixen" nameDescription="a black vixen" race="blood" experience="3200" speed="200" script="rewardboss.lua">
 	<health now="3200" max="3200" />
 	<look type="1038" corpse="32057" />
 	<targetchange interval="4000" chance="10" />

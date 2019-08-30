@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Mutated Pumpkin" nameDescription="The Mutated Pumpkin" race="undead" experience="30000" speed="400">
+<monster name="The Mutated Pumpkin" nameDescription="The Mutated Pumpkin" race="undead" experience="30000" speed="400"  script="rewardboss.lua">
 	<health now="500000" max="500000"/>
 	<look type="292" corpse="8960"/>
 	<targetchange interval="5000" chance="8"/>

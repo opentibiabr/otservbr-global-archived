@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Death Dragon" nameDescription="a death dragon" race="undead" experience="7200" speed="330" >
+<monster name="Death Dragon" nameDescription="a death dragon" race="undead" experience="7200" speed="330">
 	<health now="8350" max="8350"/>
 	<look type="231" corpse="0"/>
 	<targetchange interval="2000" chance="5"/>
