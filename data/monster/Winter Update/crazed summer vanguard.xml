@@ -32,7 +32,7 @@
 		<attribute key="areaEffect" value="explosion" />
 		</attack>
 		<attack name="fire" interval="2000" chance="10"  target="1" radius="5" min="-200" max="-350">
-		<attribute key="areaEffect" value="EXPLOSIONAREA" />
+		<attribute key="areaEffect" value="explosionarea" />
 		</attack>
 		 </attacks>
  		<defenses armor="70" defense="20"/>
