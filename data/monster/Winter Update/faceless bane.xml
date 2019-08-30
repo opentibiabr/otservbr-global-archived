@@ -5,7 +5,7 @@
 	<targetchange interval="4000" chance="10" />
 	<flags>
 		<flag preyable="0" />
-        <flag rewardboss="1" />
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -33,10 +33,10 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-<!--common-->
-<item name="Book Backpack" chance="100000" />
-<item name="Ectoplasmic Shield" chance="100000" />
-<item name="Spirit Guide" chance="100000" />
-<item name="Enchanted Pendulet" chance="100000" />
-</loot>
+		<!--common-->
+		<item name="Book Backpack" chance="100000" />
+		<item name="Ectoplasmic Shield" chance="100000" />
+		<item name="Spirit Guide" chance="100000" />
+		<item name="Enchanted Pendulet" chance="100000" />
+	</loot>
 </monster>
