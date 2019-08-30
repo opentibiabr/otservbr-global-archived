@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-	<!-- Autoloot -->
-	<globalevent name="autoloot" type="startup" script="autoloot.lua"/>
-
 	<!-- boss falcon -->
 	<globalevent name="Canon Dominus" interval="900000" script="bosses/Grand Canon Dominus.lua" />
 	<globalevent name="Chaplaingaunder" interval="900000" script="bosses/Grand Chaplain Gaunder.lua" />

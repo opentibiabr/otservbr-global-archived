@@ -39,11 +39,6 @@ maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
--- 0 = Disable,
--- 1 = onKillMonster,
--- 2 = onOpenCorpse -- restart required]]
-autolootmode = 2
-
 -- Version Manual
 clientVersionMin = 1100
 clientVersionMax = 1200
