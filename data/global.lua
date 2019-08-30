@@ -1,5 +1,11 @@
 dofile('data/lib/libs.lua')
 
+-- ADDONS - START
+print(">> Loading addons")
+for fileName in io.popen("cd data/addons/ && find . -type f"):lines() do
+  dofile("data/addons/"..fileName)
+end
+
 NOT_MOVEABLE_ACTION = 8000
 PARTY_PROTECTION = 1 -- Set to 0 to disable.
 ADVANCED_SECURE_MODE = 1 -- Set to 0 to disable.
