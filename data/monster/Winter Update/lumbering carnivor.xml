@@ -17,13 +17,13 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 	</flags>
-		<attacks>
+	<attacks>
 		<attack name="melee" interval="2000" min="-200" max="-500" />
 		<attack name="physical" interval="2000" chance="10" radius="4" min="-100" max="-150">
-		<attribute key="areaEffect" value="GROUNDSHAKER" />
+			<attribute key="areaEffect" value="GROUNDSHAKER" />
 		</attack>
-		</attacks>
-	<defenses armor="71" defense="20">
+	</attacks>
+		<defenses armor="71" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="150" max="200">
 			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
