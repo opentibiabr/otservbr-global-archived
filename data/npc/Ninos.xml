@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<npc name="Ninos" script="Ninos.lua" walkinterval="2000" floorchange="0">
+  <health now="100" max="100" />
+  <look type="1200" head="95" body="86" legs="0" feet="0" addons="0" />
+	<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+			label,2599,1;
+			parcel,2595,15;
+			letter,2597,8;" />
+	</parameters>
+</npc>
