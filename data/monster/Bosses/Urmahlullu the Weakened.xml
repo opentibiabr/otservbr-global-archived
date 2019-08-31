@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Urmahlullu the Weakened" nameDescription="Urmahlullu the Weakened" race="blood" experience="7500" speed="145">
+<monster name="Urmahlullu the Weakened" nameDescription="Urmahlullu the Weakened" race="blood" experience="7500" speed="190">
 	<health now="8500" max="8500"/>
 	<look type="1197" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
+		<flag rewardboss="1" />
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
@@ -24,10 +25,47 @@
 	</attacks>
 	<defenses armor="84" defense="84"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element energyPercent="40"/>
+		<element firePercent="100"/>
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<loot>
+		<item id="platinum coin" countmax="6" chance="96000" />
+		<item id="ultimate mana potion" countmax="20" chance="51000" /> 
+		<item id="red gem" countmax="2" chance="39000" /> 
+		<item id="berserker potion" countmax="10" chance="15000" /> 
+		<item id="flash arrow" countmax="100" chance="30000" /> 
+		<item id="crystal coin" countmax="3" chance="12000" /> 
+		<item id="silver token" countmax="3" chance="9000" /> 
+		<item id="mastermind potion" countmax="10" chance="12000" /> 
+		<item id="supreme health potion" countmax="20" chance="51000" /> 
+		<item id="ultimate spirit potion" countmax="20" chance="42000" /> 
+		<item id="royal star" countmax="100" chance="30000" /> 
+		<item id="bullseye potion" countmax="10" chance="18000" /> 
+		<item id="lightning pendant" chance="27000" />
+		<item id="giant ruby" chance="6000" />
+		<item id="urmahlullu's mane" chance="6000" />
+		<item id="urmahlullu's paw" chance="6000" />
+		<item id="urmahlullu's tail" chance="6000" />
+		<item id="tagralt blade" chance="500" />
+		<item id="winged boots" chance="500" />
+		<item id="energy bar" chance="93000" />
+		<item id="yellow gem" chance="46000" />
+		<item id="green gem" chance="21000" />
+		<item id="magma coat" chance="6000" />
+		<item id="giant shimmering pearl" chance="12000" />
+		<item id="giant saphire" chance="6000" />
+		<item id="violet gem" chance="6000" />
+		<item id="magma monocle" chance="3000" />
+		<item id="blister ring" chance="3000" />
+		<item id="blue gem" chance="12000" />
+		<item id="magma amulet" chance="12000" />
+		<item id="gold ingot" chance="9000" />
+		<item id="giant emerald" chance="6000" />
+		<item id="ring of secret thoughts" chance="30000" />
+		<item id="rainbow necklace" chance="6000" />
+	</loot>
 </monster>
