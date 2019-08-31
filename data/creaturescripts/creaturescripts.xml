@@ -35,6 +35,7 @@
 	<event type="kill" name="theBaronFromBelowKill" script="quests/Dangerous Depths/theBaronFromBelow.lua"/>
 
 	<event type="kill" name="issavi_sheep" script="issavi/sheep.lua"/>
+	<event type="kill" name="UrmahlulluKill" script="quests/kilmaresh/Urmahlullu.lua" />
 
  	<!-- Cults of Tibia Quest -->
 	<event type="kill" name="taskComColar" script="quests/cults of tibia/taskColar.lua" />
