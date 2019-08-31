@@ -849,7 +849,6 @@
 	<monster name="Tremorak" file="Bosses/tremorak.xml"/>
 	<monster name="Tromphonyte" file="Bosses/tromphonyte.xml"/>
 	<monster name="Ungreez" file="Bosses/ungreez.xml"/>
-	<monster name="Urmahlullu the Weakened" file="Bosses/Urmahlullu the Weakened.xml"/>
 	<monster name="Ushuriel" file="Bosses/ushuriel.xml"/>
 	<monster name="Verminor" file="Bosses/verminor.xml"/>
 	<monster name="Versperoth" file="Bosses/versperoth.xml"/>
@@ -872,7 +871,11 @@
 	<monster name="Doctor Perhaps" file="Bosses/doctor perhaps.xml"/>
 	<monster name="Mooh'Tah Master" file="Bosses/mooh'tah master.xml"/>
 	<monster name="The Welter" file="Bosses/the_welter.xml"/>
-
+	
+	<!-- Bosses 12.20 -->
+	<monster name="Urmahlullu the Weakened" file="Bosses/Urmahlullu the Weakened.xml"/>
+	<monster name="Bragrumol" file="Bosses/bragrumol.xml"/>
+	
 	<!-- Canines -->
 	<monster name="Crystal Wolf" file="Canines/crystal_wolf.xml"/>
 	<monster name="Dog" file="Canines/dog.xml"/>

@@ -15,6 +15,9 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-1055"/>
@@ -30,13 +33,16 @@
 		<element physicalPercent="50"/>
 	</elements>
 	<immunities>
+	    <immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2231" countmax="2" chance="500"/> <!-- big bone -->
-		<item name="Book Page" countmax="4" chance="500"/>
-		<item name="Glowing Rune" countmax="2" chance="500"/>
-		<item name="Platinum Coin" countmax="5" chance="10000"/>
-		<item name="Silken Bookmark" countmax="3" chance="500"/>
+		<item id="2231" countmax="2" chance="25000"/> <!-- big bone -->
+		<item name="Book Page" countmax="6" chance="50000"/>
+		<item name="Glowing Rune" countmax="9" chance="15000"/>
+		<item name="Platinum Coin" countmax="55" chance="100000"/>
+		<item name="Silken Bookmark" chance="15000"/>
+		<item name="Ruby Necklace" chance="9000"/>
+		<item name="Meat" chance="18000"/>
 	</loot>
 </monster>
