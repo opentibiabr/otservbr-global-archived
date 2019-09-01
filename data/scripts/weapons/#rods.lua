@@ -141,4 +141,3 @@ glacial:element("ice")
 glacial:vocation("druid", true, true)
 glacial:vocation("druid")
 glacial:register()
-
