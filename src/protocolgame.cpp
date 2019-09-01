@@ -287,12 +287,15 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	enableXTEAEncryption();
 	setXTEAKey(key);
 
-	if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
-		disconnectClient("Only official client is allowed!");
-		return;
-	}
+    if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
+        NetworkMessage opcodeMessage;
+        opcodeMessage.addByte(0x32);
+        opcodeMessage.addByte(0x00);
+        opcodeMessage.add<uint16_t>(0x00);
+        writeToOutputBuffer(opcodeMessage);
+    }
 
-	msg.skipBytes(1); // gamemaster flag
+    msg.skipBytes(1); // gamemaster flag
 
 	std::string sessionKey = msg.getString();
 	size_t pos = sessionKey.find('\n');
