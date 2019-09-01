@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <skillstages>
-	<skills enabled="1">
+	<skills enabled="0">
 		<skill minskill="1" maxskill="50" multiplier="3" />
 		<skill minskill="51" maxskill="100" multiplier="2" />
 		<skill minskill="101" multiplier="1" />
 	</skills>
-	<magiclevel enabled="1">
+	<magiclevel enabled="0">
 		<ml minmagic="1" maxmagic="8" multiplier="1" />
 		<ml minmagic="9" multiplier="1" />
 	</magiclevel>

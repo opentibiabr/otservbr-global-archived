@@ -42,7 +42,7 @@ maxContainer = 100
 -- Version Manual
 clientVersionMin = 1100
 clientVersionMax = 1200
-clientVersionStr = "Only support outdated 10.00 and versions 11.00 to 11.49"
+clientVersionStr = "Only support outdated 10.00 and version 12.00"
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -89,12 +89,11 @@ maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
 mysqlHost = "127.0.0.1"
-mysqlUser = "darenum"
-mysqlPass = "darenum"
-mysqlDatabase = "database"
+mysqlUser = "root"
+mysqlPass = ""
+mysqlDatabase = ""
 mysqlPort = 3306
 mysqlSock = ""
-passwordType = "sha1"
 
 -- Misc.
 allowChangeOutfit = true
@@ -106,7 +105,7 @@ maxMessageBuffer = 4
 emoteSpells = false
 classicEquipmentSlots = false
 allowWalkthrough = true
-coinPacketSize = 1
+coinPacketSize = 25
 coinImagesURL = "http://localhost/images/store/"
 classicAttackSpeed = false
 
@@ -143,5 +142,5 @@ startupDatabaseOptimization = true
 -- Status server information
 ownerName = "Open-TibiaBR"
 ownerEmail = ""
-url = ""
-location = "Brasil"
+url = "https://github.com/opentibiabr/OTServBR-Global"
+location = "South America"
