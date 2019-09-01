@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Lord of the Lice" nameDescription="the lord of the lice" race="blood" experience="600" speed="230">
 	<health now="80000" max="80000"/>
-	<look type="305" corpse="9871"/>
+	<look type="305" corpse="8957"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -16,9 +16,9 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="100" attack="100" poison="100"/>
@@ -55,14 +55,14 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="170" chance="100000" /><!-- gold coin -->
-		<item id="10585" chance="100000" /><!-- mutated rat tail -->
-		<item id="2152" countmax="10" chance="94830" /><!-- platinum coin -->
-		<item id="8473" countmax="10" chance="94830" /><!-- potion -->
-		<item id="7590" countmax="10" chance="94830" /><!-- potion -->
-		<item id="7591" countmax="10" chance="94830" /><!-- potion -->
-		<item id="2214" chance="100000" /><!-- ring of healing -->
-		<item id="2438" chance="25860" /><!-- epee -->
-		<item id="7884" chance="86200" /><!-- terra mantle -->
+		<item name="gold coin" countmax="170" chance="100000"/>
+		<item name="mutated rat tail" chance="100000"/>
+		<item name="platinum coin" countmax="10" chance="94830"/>
+		<item name="ultimate health potion" countmax="10" chance="94830"/>
+		<item name="great mana potion" countmax="10" chance="94830"/>
+		<item name="great health potion" countmax="10" chance="94830"/>
+		<item name="ring of healing" chance="100000"/>
+		<item name="epee" chance="25860"/>
+		<item name="terra mantle" chance="86200"/>
 	</loot>
 </monster>

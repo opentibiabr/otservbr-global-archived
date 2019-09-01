@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Mutated Rat" nameDescription="a mutated rat" race="blood" experience="450" speed="115">
 	<health now="550" max="550"/>
-	<look type="305" corpse="9871"/>
+	<look type="305" corpse="8957"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -63,7 +63,7 @@
 		<item name="gold coin" countmax="65" chance="38000"/>
 		<item name="gold coin" countmax="65" chance="40000"/>
 		<item name="stealth ring" chance="540"/>
-		<item id="2229" chance="20240"/> <!-- skull -->
+		<item id="3114" chance="20240"/> <!-- skull -->
 		<item name="mouldy cheese" chance="950"/>
 		<item name="halberd" chance="2990"/>
 		<item name="plate shield" chance="3750"/>

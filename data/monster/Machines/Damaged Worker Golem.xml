@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Damaged Worker Golem" nameDescription="a damaged worker golem" race="energy" experience="95" speed="75">
 	<health now="260" max="260"/>
-	<look type="304" corpse="9801"/>
+	<look type="304" corpse="8887"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -54,10 +54,10 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="88" chance="68810"/>
-		<item name="sword ring" chance="570"/>
-		<item name="iron ore" chance="400"/>
 		<item name="nail" chance="1460"/>
 		<item name="heavily rusted armor" chance="790"/>
+		<item name="sword ring" chance="570"/>
+		<item name="iron ore" chance="400"/>
 		<item name="gear crystal" chance="200"/>
 	</loot>
 </monster>

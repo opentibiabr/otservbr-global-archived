@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Zombie" nameDescription="a zombie" race="undead" experience="280" speed="90">
 	<health now="500" max="500"/>
-	<look type="311" corpse="9875"/>
+	<look type="311" corpse="8961"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -49,14 +49,14 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="65" chance="82000"/>
-		<item name="halberd" chance="3750"/>
+		<item name="half-eaten brain" chance="10000"/>
+		<item name="brass helmet" chance="9400"/>
 		<item name="mace" chance="7250"/>
 		<item name="battle hammer" chance="7000"/>
+		<item name="heavily rusted armor" chance="5680"/>
 		<item name="steel helmet" chance="4600"/>
-		<item name="brass helmet" chance="9400"/>
-		<item name="simple dress" chance="560"/>
+		<item name="halberd" chance="3750"/>
 		<item name="mana potion" chance="740"/>
-		<item id="9808" chance="5680"/><!-- rusty armor (common) -->
-		<item name="half-eaten brain" chance="10000"/>
+		<item name="simple dress" chance="560"/>
 	</loot>
 </monster>

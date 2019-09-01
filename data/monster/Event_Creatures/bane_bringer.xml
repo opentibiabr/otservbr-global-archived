@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Bane Bringer" nameDescription="a bane bringer" experience="400" speed="115" race="undead">
 	<health now="2500" max="2500"/>
-	<look type="310" corpse="9867"/>
+	<look type="310" corpse="8953"/>
 	<targetchange speed="0" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
@@ -37,7 +37,7 @@
 		<voice sentence="This time we will prevail!"/>
 	</voices>
 	<loot>
-		<item id="2250" countmax="96" chance="14285"/><!-- wooden trash -->
+		<item id="3135" countmax="96" chance="14285"/><!-- wooden trash -->
 		<item name="dry piece of wood" chance="100000"/>
 	</loot>
 </monster>

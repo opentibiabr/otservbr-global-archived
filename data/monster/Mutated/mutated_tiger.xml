@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Mutated Tiger" nameDescription="a mutated tiger" race="blood" experience="750" speed="100">
 	<health now="1100" max="1100"/>
-	<look type="318" corpse="9913"/>
+	<look type="318" corpse="8999"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

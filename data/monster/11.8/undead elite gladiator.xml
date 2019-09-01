@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Undead Elite Gladiator" nameDescription="an undead elite gladiator" race="undead" experience="7900" speed="150">
 	<health now="8000" max="8000"/>
-	<look type="306" corpse="9823"/>
+	<look type="306" corpse="8909"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -43,15 +43,12 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-<!-- Comum -->
-		<item name="Platinum Coin" countmax="40" chance="44000"/>
-		<item name="Belted Cape" chance="500"/>
- 	<!-- Incomum-->
-		<item name="Ultimate Health Potion" countmax="2" chance="500"/>
-		<item name="Throwing Star" countmax="18" chance="500"/>
-		<item name="Knight Axe" chance="250"/>
-		<item id="2419" chance="500"/><!-- scimitar -->
- 	<!-- Semi-raro-->
+		<item name="platinum coin" countmax="40" chance="44000"/>
+		<item name="belted cape" chance="500"/>
+		<item name="ultimate health potion" countmax="2" chance="500"/>
+		<item name="throwing star" countmax="18" chance="500"/>
+		<item name="knight axe" chance="250"/>
+		<item id="3307" chance="500"/><!-- scimitar -->
 		<item name="protection amulet" chance="250"/>
 		<item name="hunting spear" chance="250"/>
 		<item name="broken gladiator shield" chance="250"/>
@@ -60,11 +57,9 @@
 		<item name="plate armor" chance="250"/>
 		<item name="plate legs" chance="250"/>
 		<item name="two handed sword" chance="250"/>
-		<item name="Great Health Potion" countmax="2" chance="250"/>
-  	<!-- Raro-->
+		<item name="great health potion" countmax="2" chance="250"/>
 		<item name="stealth ring" chance="230"/>
- 	<!-- Muito raro-->
 		<item name="crusader helmet" chance="150"/>
-		<item name="Relic Sword" chance="150"/>
+		<item name="relic sword" chance="150"/>
 	</loot>
 </monster>
