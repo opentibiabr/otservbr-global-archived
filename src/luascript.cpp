@@ -40,7 +40,6 @@
 #include "script.h"
 #include "weapons.h"
 #include "imbuements.h"
-#include "globalevent.h"
 
 extern Chat* g_chat;
 extern Game g_game;
