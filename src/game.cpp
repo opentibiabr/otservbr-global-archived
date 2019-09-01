@@ -127,9 +127,6 @@ void Game::setGameState(GameState_t newState)
 
 			map.spawns.startup();
 
-			raids.loadFromXml();
-			raids.startup();
-
 			if(!g_config.getBoolean(ConfigManager::QUEST_LUA))
 				quests.loadFromXml();
 
@@ -4997,7 +4994,6 @@ void Game::shutdown()
 	g_databaseTasks.shutdown();
 	g_dispatcher.shutdown();
 	map.spawns.clear();
-	raids.clear();
 
 	cleanup();
 
@@ -6643,7 +6639,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 		}
 
 		case RELOAD_TYPE_QUESTS: return quests.reload();
-		case RELOAD_TYPE_RAIDS: return raids.reload() && raids.startup();
 
 		case RELOAD_TYPE_SPELLS: {
 			if (!g_spells->reload()) {
@@ -6685,8 +6680,7 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_creatureEvents->reload();
 			g_monsters.reload();
 			g_moveEvents->reload();
-			Npcs::reload();
-			raids.reload() && raids.startup();
+			Npcs::reload();			
 			g_talkActions->reload();
 			Item::items.reload();
 			g_weapons->reload();
