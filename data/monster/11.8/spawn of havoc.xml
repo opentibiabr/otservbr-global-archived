@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Spawn of Havoc" nameDescription="a spawn of havoc" race="fire" experience="0" speed="350">
 	<health now="10000" max="10000"/>
-	<look type="49" corpse="8964"/>
+	<look type="49" corpse="8136"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>

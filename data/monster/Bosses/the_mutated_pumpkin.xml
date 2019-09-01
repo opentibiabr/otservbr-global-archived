@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Mutated Pumpkin" nameDescription="The Mutated Pumpkin" race="undead" experience="30000" speed="400"  script="rewardboss.lua">
 	<health now="500000" max="500000"/>
-	<look type="292" corpse="8960"/>
+	<look type="292" corpse="8132"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
@@ -65,8 +65,8 @@
 	<loot>
 		<item name="pumpkin" chance="100000"/>
 		<item name="yummy gummy worm" countmax="20" chance="100000"/>
-		<item id="2688" countmax="50" chance="1000"/><!-- candy canes -->
-		<item id="6569" countmax="50" chance="1000"/><!-- candies -->
+		<item name="candy cane" countmax="50" chance="1000"/>
+		<item name="candie" countmax="50" chance="1000"/>
 		<item name="spiderwebs" chance="1000"/>
 		<item id="9006" chance="1000"/><!-- toy spider -->
 		<item id="6492" chance="1000"/><!-- bat decoration -->

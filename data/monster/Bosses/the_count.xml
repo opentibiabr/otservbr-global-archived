@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Count" nameDescription="the Count" race="undead" experience="450" speed="370">
 	<health now="1250" max="1250" />
-	<look type="287" corpse="8937" />
+	<look type="287" corpse="8109" />
 	<targetchange interval="5000" chance="10" />
 	<flags>
 		<flag preyable="0" />
@@ -44,8 +44,10 @@
 		<summon name="Banshee" interval="4000" chance="50" />
 	</summons>
 	<loot>
-		<item id="2148" countmax="98" chance="40000" /><!-- gold coin -->
-		<item id="8752" chance="100000" /><!-- the ring of the count -->
-		<item id="2391" chance="2300" /><!-- war hammer -->
+		<item name="gold coin" countmax="94" chance="66670" />
+		<item name="the ring of the count" chance="100000" />
+		<item name="vampire shield" chance="10170" />
+		<item id="2229" chance="10170"/> <!-- skull -->
+		<item name="war hammer" chance="2300" />
 	</loot>
 </monster>

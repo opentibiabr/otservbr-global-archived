@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Warm Fire" nameDescription="a warm fire" race="fire" experience="220" speed="95" manacost="690">
 	<health now="200" max="200"/>
-	<look type="49" corpse="8964"/>
+	<look type="49" corpse="8136"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

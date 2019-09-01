@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Overcharged Energy Element" nameDescription="an orvercharged energy element" race="undead" experience="1300" speed="300">
 	<health now="1200" max="1200"/>
-	<look type="290" corpse="8966"/>
+	<look type="290" corpse="8138"/>
 	<targetchange interval="20000" chance="15"/>
 	<flags>
 		<flag summonable="0"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Wyrm" nameDescription="a wyrm" race="blood" experience="1550" speed="140">
 	<health now="1825" max="1825"/>
-	<look type="291" corpse="8941"/>
+	<look type="291" corpse="8113"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

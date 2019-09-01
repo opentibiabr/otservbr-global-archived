@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Muddy Earth Elemental" nameDescription="a muddy earth elemental" race="undead" experience="450" speed="260">
 	<health now="650" max="650" />
-	<look type="301" corpse="8933" />
+	<look type="301" corpse="8105" />
 	<targetchange interval="20000" chance="50" />
 	<flags>
 		<flag summonable="0" />
@@ -43,7 +43,7 @@
 		<item name="small stone" countmax="3" chance="40000" />
 		<item name="gold coin" countmax="80" chance="24500" />
 		<item name="gold coin" countmax="47" chance="24500" />
-		<item id="2244" chance="22000" /><!-- some leaves -->
+		<item id="3129" chance="22000" /><!-- some leaves -->
 		<item name="natural soil" chance="3750" />
 	</loot>
 </monster>

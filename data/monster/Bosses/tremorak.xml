@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Tremorak" nameDescription="Tremorak" race="undead" experience="1300" speed="290">
 	<health now="10000" max="10000" />
-	<look type="285" corpse="8933" />
+	<look type="285" corpse="8105" />
 	<targetchange interval="2000" chance="5" />
 	<flags>
 		<flag preyable="0" />
