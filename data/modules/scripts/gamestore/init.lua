@@ -24,7 +24,7 @@ GameStore.OfferTypes = {
   OFFER_TYPE_TEMPLE = 13,
   OFFER_TYPE_BLESSINGS = 14,
   OFFER_TYPE_PREMIUM = 15,
-  OFFER_TYPE_POUNCH = 16,
+  OFFER_TYPE_POUCH = 16,
   OFFER_TYPE_ALLBLESSINGS = 17
 }
 
@@ -273,7 +273,7 @@ function parseBuyStoreOffer(playerId, msg)
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYSLOT and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE and
-          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
+          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
           not offer.id) then
     return queueSendStoreAlertToUser("This offer is unavailable [1]", 350, playerId, GameStore.StoreErrors.STORE_ERROR_INFORMATION)
   end
@@ -289,8 +289,8 @@ function parseBuyStoreOffer(playerId, msg)
   -- Handled errors are thrown to indicate that the purchase has failed;
   -- Handled errors have a code index and unhandled errors do not
   local pcallOk, pcallError = pcall(function()
-    if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM               then GameStore.processItemPurchase(player, offer.id, offer.count)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH         then GameStore.processItemPurchase(player, offer.id, offer.count)
+    if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM                 then GameStore.processItemPurchase(player, offer.id, offer.count)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH          then GameStore.processItemPurchase(player, offer.id, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.id)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM        then GameStore.processPremiumPurchase(player, offer.id)
@@ -481,7 +481,7 @@ function sendShowStoreOffers(playerId, category)
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYBONUS and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE and
-          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
+          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
           not offer.id then
         disabled = 1
       end
@@ -492,11 +492,11 @@ function sendShowStoreOffers(playerId, category)
       end
 
       if disabled ~= 1 then
-        if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH then
-          local pounch = player:getItemById(26377, true)
-          if pounch then
+        if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH then
+          local pouch = player:getItemById(26377, true)
+          if pouch then
             disabled = 1
-            disabledReason = "You already have Gold Pounch."
+            disabledReason = "You already have Gold Pouch."
           end
         elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS then
           if player:hasBlessing(offer.id) and offer.id < 9 then
