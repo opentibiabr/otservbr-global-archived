@@ -18,7 +18,7 @@
 	</flags>
 	<defenses armor="30" defense="30">
 		<defense name="healing" interval="2000" chance="15" min="500" max="650">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 </monster>

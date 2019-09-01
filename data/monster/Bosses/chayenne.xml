@@ -4,8 +4,8 @@
 	<look type="155" head="78" body="0" legs="105" feet="99" addons="0" corpse="6081"/>
 	<targetchange interval="2000" chance="10"/>
 	<flags>
-		<flag preyable="0" />
-		<flag rewardboss="1" />
+		<flag preyable="0"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -57,9 +57,9 @@
 		<voice sentence="They are doing WHAT with my quest?!"/>
 	</voices>
 	<loot>
-		<item id="6571" countmax="2" chance="100000" /> <!-- surprise bag -->
-		<item id="7632" chance="100000" /> <!-- giant shimmering pearl -->
-		<item id="16014" chance="100000" /> <!-- Anniversary Cake -->
-		<item id="16015" chance="100000" unique="1" /> <!-- Chayenne's Magical Key -->
+		<item id="6571" countmax="2" chance="100000"/> <!-- surprise bag -->
+		<item id="7632" chance="100000"/> <!-- giant shimmering pearl -->
+		<item id="16014" chance="100000"/> <!-- Anniversary Cake -->
+		<item id="16015" chance="100000" unique="1"/> <!-- Chayenne's Magical Key -->
 	</loot>
 </monster>

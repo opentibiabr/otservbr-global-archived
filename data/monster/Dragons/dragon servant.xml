@@ -16,9 +16,9 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="300"/>
 		<flag isblockable="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="82"/>

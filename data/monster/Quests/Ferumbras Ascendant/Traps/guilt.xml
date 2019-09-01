@@ -4,7 +4,7 @@
 	<look type="583" corpse="0"/>
 	<targetchange interval="2000" chance="8"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -17,7 +17,7 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 		<flag hidehealth="0"/>
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+	<flag canwalkonenergy="1"/><flag canwalkonfire="1"/><flag canwalkonpoison="1"/></flags>
 	<attacks>
 		<attack name="physical" interval="2000" chance="50" range="7" min="-300" max="-400">
 			<attribute key="shootEffect" value="energy"/>

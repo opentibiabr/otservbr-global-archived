@@ -18,7 +18,7 @@
 	</flags>
 	<attacks>
 		<attack name="poison" interval="2000" chance="10" radius="6" target="0" min="-206" max="-252">
-			<attribute key="areaeffect" value="greenbubble" />
+			<attribute key="areaeffect" value="greenbubble"/>
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="30">
@@ -34,9 +34,9 @@
 		<element earthPercent="1"/>
 	</elements>
 		<immunities>
-		<immunity invisible="1" />
-		<immunity paralyze="1" />
-		<immunity energy="1" />
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity energy="1"/>
 	</immunities>
 	<loot>
 	</loot>

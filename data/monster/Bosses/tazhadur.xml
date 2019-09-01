@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Tazhadur" nameDescription="tazhadur" race="blood" experience="9000" speed="350">
-	<health now="10000" max="10000" />
-	<look type="947" head="24" body="120" legs="38" feet="95" addons="3" corpse="27733" />
-	<targetchange interval="5000" chance="0" />
+	<health now="10000" max="10000"/>
+	<look type="947" head="24" body="120" legs="38" feet="95" addons="3" corpse="27733"/>
+	<targetchange interval="5000" chance="0"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -36,23 +36,23 @@
 		</defense>
 	</defenses>
 	<immunities>
-		<immunity drown="1" />
-		<immunity lifedrain="1" />
-		<immunity paralyze="1" />
-		<immunity invisible="1" />
+		<immunity drown="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="51" chance="97000" /><!--gold coin -->
-		<item id="5920" chance="50000" /><!-- green Dragon Scale -->
-		<item id="27606" chance="100000" /><!-- dragon tongue -->
-		<item id="2492" chance="25000" /><!-- dsm -->
-		<item id="2434" chance="25000" /><!-- dragon hammer-->
-		<item id="2516" chance="25000" /><!-- dragon shield-->
-		<item id="2201" chance="25000" /><!-- dragon necklace-->
-		<item id="2672" chance="25000" /><!-- dragon ham-->
-		<item id="5877" chance="25000" /><!-- green dragon leather-->
-		<item id="27605" countmax="2" chance="80000" /><!-- dragon blood-->
-		<item id="2387" chance="25000" /><!-- double axe -->
-		<item id="27608" chance="100000" /><!-- tazhadur tooth -->
+		<item id="2148" countmax="51" chance="97000"/><!--gold coin -->
+		<item id="5920" chance="50000"/><!-- green Dragon Scale -->
+		<item id="27606" chance="100000"/><!-- dragon tongue -->
+		<item id="2492" chance="25000"/><!-- dsm -->
+		<item id="2434" chance="25000"/><!-- dragon hammer-->
+		<item id="2516" chance="25000"/><!-- dragon shield-->
+		<item id="2201" chance="25000"/><!-- dragon necklace-->
+		<item id="2672" chance="25000"/><!-- dragon ham-->
+		<item id="5877" chance="25000"/><!-- green dragon leather-->
+		<item id="27605" countmax="2" chance="80000"/><!-- dragon blood-->
+		<item id="2387" chance="25000"/><!-- double axe -->
+		<item id="27608" chance="100000"/><!-- tazhadur tooth -->
 	</loot>
 </monster>

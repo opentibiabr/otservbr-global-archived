@@ -17,7 +17,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="SparkDevourerDeath" />
+		<event name="SparkDevourerDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-436"/>

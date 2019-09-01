@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Tarbaz" nameDescription="tarbaz" race="undead" experience="50000" speed="320" script="rewardboss.lua">
-	<health now="290000" max="290000" />
-	<look type="842" head="0" body="21" legs="19" feet="3" addons="2" corpse="25151" />
-	<targetchange interval="5000" chance="8" />
+	<health now="290000" max="290000"/>
+	<look type="842" head="0" body="21" legs="19" feet="3" addons="2" corpse="25151"/>
+	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<flag preyable="0" />
-		<flag summonable="0" />
-		<flag attackable="1" />
-		<flag hostile="1" />
-		<flag illusionable="0" />
-		<flag convinceable="0" />
-		<flag pushable="0" />
-		<flag canpushitems="1" />
-		<flag canpushcreatures="1" />
-		<flag targetdistance="1" />
-		<flag staticattack="90" />
-		<flag runonhealth="0" />
-		<flag rewardboss="1" />
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag rewardboss="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-1000" max="-2000"/>
@@ -41,10 +41,10 @@
 	</attacks>
 	<defenses armor="100" defense="120">
 		<defense name="healing" interval="2000" chance="10" min="900" max="3500">
-			<attribute key="areaEffect" value="greenshimmer" />
+			<attribute key="areaEffect" value="greenshimmer"/>
 		</defense>
 		<defense name="speed" interval="3000" chance="30" speedchange="460" duration="7000">
-			<attribute key="areaEffect" value="redshimmer" />
+			<attribute key="areaEffect" value="redshimmer"/>
 		</defense>
 		<attack name="tarbaz tp" interval="2000" chance="3"/>
 	</defenses>
@@ -58,8 +58,8 @@
 		<element deathPercent="10"/>
 	</elements>
 	<immunities>
-		<immunity paralyze="1" />
-		<immunity invisible="1" />
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
 	</immunities>
 	<voices interval="5000" chance="30">
 		<voice sentence="You are a failure."/>

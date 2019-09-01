@@ -4,7 +4,7 @@
 	<look typeex="27631" corpse="0"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -24,8 +24,8 @@
 	</attacks>
 	<defenses armor="10" defense="10"/>
   	<immunities>
-    		<immunity invisible="1" />
-    		<immunity paralyze="1" />
-    		<immunity drunk="1" />
+    		<immunity invisible="1"/>
+    		<immunity paralyze="1"/>
+    		<immunity drunk="1"/>
   	</immunities>
 </monster>

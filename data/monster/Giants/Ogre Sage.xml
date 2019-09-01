@@ -50,6 +50,6 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<summons maxSummons="1">
-		<summon name="Young Goanna" interval="2000" chance="10" />
+		<summon name="Young Goanna" interval="2000" chance="10"/>
 	</summons>
 </monster>

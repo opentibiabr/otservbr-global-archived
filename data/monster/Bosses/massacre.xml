@@ -4,7 +4,7 @@
 	<look type="244" corpse="6336"/>
 	<targetchange interval="2000" chance="5"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -33,11 +33,11 @@
 		</defense>
 	</defenses>
   	<elements>
-    		<element earthPercent="30" />
-    		<element icePercent="10" />
-    		<element deathPercent="-10" />
-    		<element energyPercent="-7" />
-    		<element holyPercent="-3" />
+    		<element earthPercent="30"/>
+    		<element icePercent="10"/>
+    		<element deathPercent="-10"/>
+    		<element energyPercent="-7"/>
+    		<element holyPercent="-3"/>
   	</elements>
 	<immunities>
 		<immunity fire="1"/>

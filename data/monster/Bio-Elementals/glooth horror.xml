@@ -17,8 +17,8 @@
 		<flag lightcolor="0"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="200"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
 		<flag preyable="0"/>
 	</flags>
 	<script>

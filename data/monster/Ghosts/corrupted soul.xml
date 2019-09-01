@@ -20,8 +20,8 @@
 		<event name="CorruptedSoul"/>
 	</script>
 	<attacks>
-		<attack name="melee" interval="2000" skill="60" attack="60" />
-		<attack name="souleater drown" interval="2000" chance="9" />
+		<attack name="melee" interval="2000" skill="60" attack="60"/>
+		<attack name="souleater drown" interval="2000" chance="9"/>
 		<attack name="ice" interval="2000" chance="8" radius="1" target="1" min="-50" max="-100">
 			<attribute key="shootEffect" value="ice"/>
 			<attribute key="areaEffect" value="iceattack"/>
@@ -36,7 +36,7 @@
 			<attribute key="areaEffect" value="poff"/>
 		</defense>
     		<defense name="healing" interval="2000" chance="16" min="130" max="205">
-      			<attribute key="areaEffect" value="redshimmer" />
+      			<attribute key="areaEffect" value="redshimmer"/>
     		</defense>
 	</defenses>
 	<elements>

@@ -18,9 +18,9 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="RuptureResonance" />
-		<event name="RuptureHeal" />
-		<event name="HeartBossDeath" />
+		<event name="RuptureResonance"/>
+		<event name="RuptureHeal"/>
+		<event name="HeartBossDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-250" max="-1000"/>

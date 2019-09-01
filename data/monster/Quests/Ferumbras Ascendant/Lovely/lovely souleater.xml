@@ -15,13 +15,13 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonpoison="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonenergy="1" />
+		<flag canwalkonpoison="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonenergy="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="60" attack="60" />
-		<attack name="souleater drown" interval="2000" chance="9" />
+		<attack name="melee" interval="2000" skill="60" attack="60"/>
+		<attack name="souleater drown" interval="2000" chance="9"/>
 		<attack name="ice" interval="2000" chance="8" radius="1" target="1" min="-50" max="-100">
 			<attribute key="shootEffect" value="ice"/>
 			<attribute key="areaEffect" value="iceattack"/>
@@ -36,7 +36,7 @@
 			<attribute key="areaEffect" value="poff"/>
 		</defense>
     		<defense name="healing" interval="2000" chance="16" min="130" max="205">
-      			<attribute key="areaEffect" value="redshimmer" />
+      			<attribute key="areaEffect" value="redshimmer"/>
     		</defense>
 	</defenses>
 	<elements>
@@ -65,16 +65,16 @@
 		<voice sentence="Aaaahh"/>
 	</voices>
 	<loot>
-		<item id="12637" chance="1990" /><!-- ectoplasmic sushi -->
-		<item id="12635" chance="20" /><!-- souleater trophy -->
-		<item id="2148" countmax="200" chance="88060" /><!-- gold coin -->
-		<item id="12636" chance="15060" /><!-- lizard essence -->
-		<item id="7590" chance="7960" /><!-- great mana potion -->
-		<item id="8473" chance="9400" /><!-- ultimate health potion -->
-		<item id="2152" countmax="6" chance="49610" /><!-- platinum coin -->
-		<item id="2189" chance="910" /><!-- wand of cosmic energy -->
-		<item id="2185" chance="980" /><!-- necrotic rod -->
-		<item id="6300" chance="330" /><!-- death ring -->
-		<item id="5884" chance="140" /><!-- spirit container -->
+		<item id="12637" chance="1990"/><!-- ectoplasmic sushi -->
+		<item id="12635" chance="20"/><!-- souleater trophy -->
+		<item id="2148" countmax="200" chance="88060"/><!-- gold coin -->
+		<item id="12636" chance="15060"/><!-- lizard essence -->
+		<item id="7590" chance="7960"/><!-- great mana potion -->
+		<item id="8473" chance="9400"/><!-- ultimate health potion -->
+		<item id="2152" countmax="6" chance="49610"/><!-- platinum coin -->
+		<item id="2189" chance="910"/><!-- wand of cosmic energy -->
+		<item id="2185" chance="980"/><!-- necrotic rod -->
+		<item id="6300" chance="330"/><!-- death ring -->
+		<item id="5884" chance="140"/><!-- spirit container -->
 	</loot>
 </monster>

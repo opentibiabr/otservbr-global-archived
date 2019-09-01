@@ -16,10 +16,10 @@
 		<flag lightcolor="0"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
-		<flag preyable="0" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+		<flag preyable="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="100" attack="60"/>
@@ -33,7 +33,7 @@
 	</attacks>
 	<defenses armor="60" defense="60">
 		<defense name="healing" interval="2000" chance="20" radius="7" min="0" max="0">
-			<attribute key="areaEffect" value="yellowspark" />
+			<attribute key="areaEffect" value="yellowspark"/>
 		</defense>
 	</defenses>
 	<immunities>
@@ -50,6 +50,6 @@
 		<immunity earth="1"/>
 	</immunities>
 	<voices interval="3000" chance="200">
-		<voice sentence="Chrrrrrk! Chrrrk!" />
+		<voice sentence="Chrrrrrk! Chrrrk!"/>
 	</voices>
 </monster>

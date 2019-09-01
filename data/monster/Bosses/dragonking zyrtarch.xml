@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dragonking Zyrtarch" nameDescription="dragonking zyrtarch" race="fire" experience="1600" speed="280" manacost="290">
-	<health now="150000" max="150000" />
-	<look type="938" corpse="27733" />
-	<targetchange interval="5000" chance="0" />
+	<health now="150000" max="150000"/>
+	<look type="938" corpse="27733"/>
+	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -15,10 +15,10 @@
 		<flag staticattack="90"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
-		<flag preyable="0" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+		<flag preyable="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="112" attack="85"/>
@@ -45,16 +45,16 @@
 	</attacks>
 	<defenses armor="52" defense="64"/>
 	<immunities>
-		<immunity fire="1" />
-		<immunity drown="1" />
-		<immunity lifedrain="1" />
-		<immunity paralyze="1" />
-		<immunity invisible="1" />
-		<immunity energy="1" />
-		<immunity ice="1" />
-		<immunity earth="1" />
-		<immunity death="1" />
-		<immunity holy="1" />
-		<immunity physical="1" />
+		<immunity fire="1"/>
+		<immunity drown="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity energy="1"/>
+		<immunity ice="1"/>
+		<immunity earth="1"/>
+		<immunity death="1"/>
+		<immunity holy="1"/>
+		<immunity physical="1"/>
 	</immunities>
 </monster>

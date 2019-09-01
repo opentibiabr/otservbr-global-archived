@@ -18,8 +18,8 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-    	<event name="DepolarizedTransform" />
-    	<event name="DepolarizedDeath" />
+    	<event name="DepolarizedTransform"/>
+    	<event name="DepolarizedDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-400"/>

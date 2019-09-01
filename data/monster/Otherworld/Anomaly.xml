@@ -18,8 +18,8 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="AnomalyTransform" />
-		<event name="HeartBossDeath" />
+		<event name="AnomalyTransform"/>
+		<event name="HeartBossDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-300" max="-1400"/>

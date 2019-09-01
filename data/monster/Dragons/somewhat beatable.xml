@@ -15,7 +15,7 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="300"/>
-		<flag isblockable="0" />
+		<flag isblockable="0"/>
 	</flags>
 	<script>
 		<event name="Somewhat"/>

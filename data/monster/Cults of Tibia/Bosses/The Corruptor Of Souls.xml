@@ -4,7 +4,7 @@
 	<look type="875" head="5" body="5" legs="5" feet="5" corpse="0" addons="3"/>
 	<targetchange interval="2000" chance="25"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -15,9 +15,9 @@
 		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-150" max="-500"/>

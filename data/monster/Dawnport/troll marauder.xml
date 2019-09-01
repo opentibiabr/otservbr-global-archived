@@ -6,7 +6,7 @@
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
-				<flag isblockable="0" />
+				<flag isblockable="0"/>
 		<flag hostile="1"/>
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>

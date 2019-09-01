@@ -2,41 +2,41 @@
 <monster name="Damned Soul" nameDescription="a damned soul" race="undead" experience="300" speed="380">
 	<health now="800" max="800"/>
 	<look type="232" corpse="25354"/>
-  	<targetchange interval="2000" chance="4" />
+  	<targetchange interval="2000" chance="4"/>
   	<flags>
-    		<flag summonable="0" />
-    		<flag attackable="1" />
-    		<flag hostile="1" />
-    		<flag illusionable="0" />
-    		<flag convinceable="0" />
-    		<flag pushable="0" />
-    		<flag canpushitems="1" />
-    		<flag canpushcreatures="1" />
-    		<flag targetdistance="1" />
-    		<flag staticattack="90" />
-    		<flag runonhealth="800" />
-			<flag isblockable="0" />
+    		<flag summonable="0"/>
+    		<flag attackable="1"/>
+    		<flag hostile="1"/>
+    		<flag illusionable="0"/>
+    		<flag convinceable="0"/>
+    		<flag pushable="0"/>
+    		<flag canpushitems="1"/>
+    		<flag canpushcreatures="1"/>
+    		<flag targetdistance="1"/>
+    		<flag staticattack="90"/>
+    		<flag runonhealth="800"/>
+			<flag isblockable="0"/>
   	</flags>
   	<attacks>
-    		<attack name="melee" interval="2000" skill="76" attack="100" />
+    		<attack name="melee" interval="2000" skill="76" attack="100"/>
     		<attack name="death" interval="2000" chance="13" length="3" spread="0" target="0" min="-90" max="-240">
-      			<attribute key="areaEffect" value="redshimmer" />
+      			<attribute key="areaEffect" value="redshimmer"/>
     		</attack>
     		<attack name="lost soul paralyze" interval="2000" chance="18"/>
   	</attacks>
   	<defenses armor="25" defense="35"/>
   	<elements>
-    		<element energyPercent="10" />
-    		<element icePercent="50" />
-    		<element holyPercent="-20" />
+    		<element energyPercent="10"/>
+    		<element icePercent="50"/>
+    		<element holyPercent="-20"/>
   	</elements>
   	<immunities>
-    		<immunity fire="1" />
-    		<immunity earth="1" />
-    		<immunity death="1" />
-    		<immunity lifedrain="1" />
-    		<immunity paralyze="1" />
-    		<immunity invisible="1" />
+    		<immunity fire="1"/>
+    		<immunity earth="1"/>
+    		<immunity death="1"/>
+    		<immunity lifedrain="1"/>
+    		<immunity paralyze="1"/>
+    		<immunity invisible="1"/>
   	</immunities>
 	<voices interval="2000" chance="5">
 		<voice sentence="Forgive Meeeee!"/>
