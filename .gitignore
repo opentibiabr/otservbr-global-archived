@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.dll
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -359,3 +360,4 @@ theforgottenserver.exe
 data/world/otservbr.otbm
 config.lua
 tfs.exe
+data/items/items-SID.otb
