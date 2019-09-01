@@ -5,7 +5,7 @@
   OFFER_TYPE_ALLBLESSINGS (it was not a non-item) then:
   1) If the offer's name didn't exist in items.xml then the offer has been removed.
     These items were removed from the shop because the name didn't exist in items.xml
-    [ "Alchemistic Scales", "Alchemist Table", "Pile of Alchemist Books", "Alchemist Cup Board", "Torch of Change", "Ferumbras Bust", "Queen Eloise Bust", "Arrival At Thais Painting", "Tibia Street Painting", "Ferumbras Portrait", "SupremeHealth Potion", "Health Keg", "Strong Health Keg", "Great Health Keg", "Ultimate Health Keg", "Supreme Health Keg", "Mana Keg", "Strong Mana Keg", "Great Mana Keg", "Ultimate Mana Keg", "Ultimate Spirit Keg", "Disintegrate Rune", "Paralyse Rune", "Alchemistic Scales", "Alchemist Table", "Pile of Alchemist Books", "Alchemist Cup Board", "Torch of Change", "Ferumbras Bust", "Queen Eloise Bust", "Arrival At Thais Painting", "Tibia Street Painting", "Ferumbras Portrait", "Demon Pit", "Venoream Table Clock", "StoneTiles", "Bath Tube", "Daily Reward Shrine", "Health Cask", "Strong Health Cask", "Great Health Cask", "Ultimate Health Cask", "Supreme Health Cask", "Mana Cask", "Strong Mana Cask", "Great Mana Cask", "Ultimate Mana Cask", "Great Spirit Cask", "Ultimate Spirit Cask", "Skull Lamp", "Fish Tank", "Lit Protectress Lamp", "Lit Predator Lamp", "LordlyTapestry", "All-Seeing Tapestry", "Gold Pounch" ]
+    [ "Alchemistic Scales", "Alchemist Table", "Pile of Alchemist Books", "Alchemist Cup Board", "Torch of Change", "Ferumbras Bust", "Queen Eloise Bust", "Arrival At Thais Painting", "Tibia Street Painting", "Ferumbras Portrait", "SupremeHealth Potion", "Health Keg", "Strong Health Keg", "Great Health Keg", "Ultimate Health Keg", "Supreme Health Keg", "Mana Keg", "Strong Mana Keg", "Great Mana Keg", "Ultimate Mana Keg", "Ultimate Spirit Keg", "Disintegrate Rune", "Paralyse Rune", "Alchemistic Scales", "Alchemist Table", "Pile of Alchemist Books", "Alchemist Cup Board", "Torch of Change", "Ferumbras Bust", "Queen Eloise Bust", "Arrival At Thais Painting", "Tibia Street Painting", "Ferumbras Portrait", "Demon Pit", "Venoream Table Clock", "StoneTiles", "Bath Tube", "Daily Reward Shrine", "Health Cask", "Strong Health Cask", "Great Health Cask", "Ultimate Health Cask", "Supreme Health Cask", "Mana Cask", "Strong Mana Cask", "Great Mana Cask", "Ultimate Mana Cask", "Great Spirit Cask", "Ultimate Spirit Cask", "Skull Lamp", "Fish Tank", "Lit Protectress Lamp", "Lit Predator Lamp", "LordlyTapestry", "All-Seeing Tapestry", "Gold Pouch" ]
   2) If the offer's name did exist in items.xml then the thingId of the offer has been updated
      so that it matches the item id in items.xml.
 ]]
@@ -3264,15 +3264,13 @@ GameStore.Categories = {
         }
   ]]
  --[[         {
-                icons = { "Gold_Pounch.png" },
-                name = "Gold Pounch",
-                id = 29020,
-                count = 500,
-                number = 1,
-                type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+                name = "Gold Pouch",
+                id = 26377,
+                count = 1,
+                type = GameStore.OfferTypes.OFFER_TYPE_POUCH,
                 price = 900,
-                icons = { "Product_UsefulThings_MagicConverter.png" },
-                description = "Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can only be purchased once\n- use it to open it\n- always placed on the first position of your Store inbox" 
+                icons = { "Product_MagicCoinPurse.png" },
+                description = "With Gold Pouch you can carry the amount of gold without having to keep many knapsacks in the backpack, this product allows you to be charged as much gold as your ability allows."
         }
   ]]
  --[[         {

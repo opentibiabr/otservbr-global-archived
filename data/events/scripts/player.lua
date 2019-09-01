@@ -1,6 +1,6 @@
 -- Internal Use
 STONE_SKIN_AMULET = 2197
-GOLD_POUNCH = 26377
+GOLD_POUCH = 26377
 ITEM_STORE_INBOX = 26052
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
 -- exercise_ids
@@ -444,8 +444,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 			self:sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM)
 			return false
 		end
-		-- Gold Pounch
-		if (containerTo:getId() == GOLD_POUNCH) then
+		-- Gold Pouch
+		if (containerTo:getId() == GOLD_POUCH) then
 			if (not (item:getId() == ITEM_CRYSTAL_COIN or item:getId() == ITEM_PLATINUM_COIN or item:getId() == ITEM_GOLD_COIN)) then
 				self:sendCancelMessage("You can move only money to this container.")
 				return false
@@ -453,8 +453,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 	end
 
-	-- No move gold pounch
-	if item:getId() == GOLD_POUNCH then
+	-- No move gold pouch
+	if item:getId() == GOLD_POUCH then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return false
 	end
