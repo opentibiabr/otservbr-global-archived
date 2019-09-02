@@ -22,7 +22,6 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
-      - boost-program
 
 before_script:
   - mkdir build && cd build
