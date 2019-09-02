@@ -202,11 +202,11 @@ class Player final : public Creature, public Cylinder
 		}
 		
 		// New Prey
-		uint16_t getPreyState(uint16_t slot) const {
+		uint8_t getPreyState(uint16_t slot) const {
 			return preySlotState[slot];
 		}
 
-		uint16_t getPreyUnlocked(uint16_t slot) const {
+		uint8_t getPreyUnlocked(uint16_t slot) const {
 			return preySlotUnlocked[slot];
 		}
 
