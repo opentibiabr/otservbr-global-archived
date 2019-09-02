@@ -22,8 +22,8 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
-      - boost-program
-
+      - boost_program_options
+      
 before_script:
   - mkdir build && cd build
   - cmake -DCMAKE_BUILD_TYPE=Release -DUSE_LUAJIT=${LUAJIT} ..
