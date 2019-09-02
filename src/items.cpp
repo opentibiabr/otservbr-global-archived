@@ -311,7 +311,11 @@ bool Items::loadFromXml()
 
 		pugi::xml_attribute fromIdAttribute = itemNode.attribute("fromid");
 		if (!fromIdAttribute) {
-			std::cout << "[Warning - Items::loadFromXml] No item id found" << std::endl;
+			if (idAttribute) {
+				std::cout << "[Warning - Items::loadFromXml] No item id (" << idAttribute.value() << ") found" << std::endl;
+			} else {
+				std::cout << "[Warning - Items::loadFromXml] No item id found" << std::endl;
+			}
 			continue;
 		}
 
