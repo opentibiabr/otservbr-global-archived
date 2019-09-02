@@ -16,13 +16,13 @@ addons:
       - libboost-system-dev
       - libboost-filesystem-dev
       - libboost-iostreams-dev
-      - libboost-program-options-dev
       - libcrypto++-dev
       - liblua5.2-dev
       - libluajit-5.1-dev
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
+      - boost_program_options
       
 before_script:
   - mkdir build && cd build
