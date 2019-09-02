@@ -93,7 +93,7 @@ GameStore.ExpBoostValues = {
 }
 
 GameStore.DefaultValues = {
-  DEFAULT_VALUE_ENTRIES_PER_PAGE = 16
+  DEFAULT_VALUE_ENTRIES_PER_PAGE = 26
 }
 
 GameStore.DefaultDescriptions = {
@@ -340,7 +340,7 @@ end
 
 function parseRequestTransactionHistory(playerId, msg)
   local page = msg:getU32()
-  sendStoreTransactionHistory(playerId, page, GameStore.DefaultValues.DEFAULT_VALUE_ENTRIES_PER_PAGE)
+  sendStoreTransactionHistory(playerId, page + 1, GameStore.DefaultValues.DEFAULT_VALUE_ENTRIES_PER_PAGE)
 end
 
 local function getCategoriesRook()
@@ -660,29 +660,30 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
     return false
   end
 
-  local entries = GameStore.retrieveHistoryEntries(player:getAccountId()) -- this makes everything easy!
+  local totalEntries = GameStore.retrieveHistoryTotalPages(player:getAccountId())
+  local totalPages = math.ceil(totalEntries / entriesPerPage)
+  local entries = GameStore.retrieveHistoryEntries(player:getAccountId(), page, entriesPerPage) -- this makes everything easy!
   if #entries == 0 then
     return addPlayerEvent(sendStoreError, 250, playerId, GameStore.StoreErrors.STORE_ERROR_HISTORY, "You don't have any entries yet.")
   end
-
-  local toSkip = (page - 1) * entriesPerPage
-  for i = 1, toSkip do
-    table.remove(entries, 1) -- we remove first!
-  end
-
+  
   local msg = NetworkMessage()
   msg:addByte(GameStore.SendingPackets.S_OpenTransactionHistory)
-  msg:addU32(page)
-  msg:addU32(#entries > entriesPerPage and 0x01 or 0x00)
+  
+  msg:addU32(totalPages > 0 and page - 1 or 0x0) -- current page
+  msg:addU32(totalPages > 0 and totalPages or 0x0) -- total page
+  msg:addByte(#entries)
 
-  msg:addByte(#entries >= entriesPerPage and entriesPerPage or #entries)
   for k, entry in ipairs(entries) do
-    if k >= entriesPerPage then break end
     msg:addU32(entry.time)
     msg:addByte(entry.mode)
     msg:addU32(entry.amount)
+    if player:getClient().version >= 1200 then
+     msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
+    end
     msg:addString(entry.description)
   end
+
   msg:sendToPlayer(player)
 end
 
@@ -827,9 +828,22 @@ GameStore.insertHistory = function(accountId, mode, description, amount)
   return db.query(string.format("INSERT INTO `store_history`(`account_id`, `mode`, `description`, `coin_amount`, `time`) VALUES (%s, %s, %s, %s, %s)", accountId, mode, db.escapeString(description), amount, os.time()))
 end
 
-GameStore.retrieveHistoryEntries = function(accountId)
+GameStore.retrieveHistoryTotalPages = function (accountId) 
+  local resultId = db.storeQuery("SELECT count(id) as total FROM store_history WHERE account_id = " .. accountId)
+  if resultId == false then
+    return 0
+  end
+  
+  local totalPages = result.getDataInt(resultId, "total")
+  result.free(resultId)
+  return totalPages
+end
+
+GameStore.retrieveHistoryEntries = function(accountId, currentPage, entriesPerPage)
   local entries = {}
-  local resultId = db.storeQuery("SELECT * FROM `store_history` WHERE `account_id` = " .. accountId .. " ORDER BY `time` DESC LIMIT 15;")
+  local offset = currentPage > 1 and entriesPerPage * (currentPage - 1) or 0
+  
+  local resultId = db.storeQuery("SELECT * FROM `store_history` WHERE `account_id` = " .. accountId .. " ORDER BY `time` DESC LIMIT " .. offset .. ", " .. entriesPerPage .. ";")
   if resultId ~= false then
     repeat
       local entry = {
