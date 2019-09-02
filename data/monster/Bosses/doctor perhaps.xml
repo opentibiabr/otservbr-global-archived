@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Doctor Perhaps" nameDescription="doctor perhaps" race="blood" experience="325" speed="200">
 	<health now="475" max="475"/>
-	<look type="133" head="95" body="0" legs="94" feet="114" addons="1" corpse="20439"/>
+	<look type="133" head="95" body="0" legs="94" feet="114" addons="1" corpse="9402"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
@@ -54,11 +54,9 @@
 		<voice sentence="You can't beat what you can't comprehend!"/>
 	</voices>
 	<loot>
-		<item id="2148" countmax="95" chance="2000"/>				<!-- gold coin -->
-		<item id="2152" countmax="9" chance="30000"/>				<!-- plat coin -->
-		<item id="10316" chance="1000"/>				<!-- mighty helm of green sparks -->
-		<item id="10289" chance="1000"/>				<!-- meat shield -->
-		<item id="10290" chance="1000"/>				<!-- glutton's mace -->
-		<item id="10300" chance="1000"/>				<!-- trousers of the ancients -->
+		<item name="mighty helm of green sparks" chance="60000"/>
+		<item name="meat shield" chance="40000"/>
+		<item name="glutton's mace" chance="40000"/>
+		<item name="trousers of the ancients" chance="20000"/>
 	</loot>
 </monster>

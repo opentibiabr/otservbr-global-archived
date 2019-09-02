@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Acid Blob" nameDescription="an acid blob" race="venom" experience="250" speed="60">
 	<health now="250" max="250"/>
-	<look type="314" corpse="9962"/>
+	<look type="314" corpse="9049"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>

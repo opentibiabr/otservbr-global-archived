@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Nightmare Scion" nameDescription="a nightmare scion" race="blood" experience="1350" speed="220">
 	<health now="1400" max="1400"/>
-	<look type="321" corpse="9919"/>
+	<look type="321" corpse="9005"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -57,7 +57,7 @@
 		<item name="platinum coin" countmax="3" chance="961"/>
 		<item name="crown helmet" chance="666"/>
 		<item name="meat" countmax="4" chance="50000"/>
-		<item id="6300" chance="250"/><!-- death ring -->
+		<item id="6299" chance="250"/><!-- death ring -->
 		<item name="bar of chocolate" chance="280"/>
 		<item name="diamond sceptre" chance="340"/>
 		<item name="shadow sceptre" chance="270"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Monstor" nameDescription="Monstor" race="blood" experience="575" speed="350">
 	<health now="960" max="960"/>
-	<look type="244" corpse="6336"/>
+	<look type="244" corpse="9405"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
@@ -52,9 +52,9 @@
 		<summon name="Acid Blob" interval="4000" chance="40" max="3"/>
 	</summons>
 	<loot>
-		<item id="10298" chance="1000"/>	<!-- heavy metal t-shirt -->
-		<item id="10303" chance="1000"/>	<!-- club of the fury -->
-		<item id="10297" chance="1000"/>	<!-- scythe of the reaper -->
-		<item id="10313" chance="1000"/>	<!-- musician's bow -->
+		<item name="helmet of ultimate terror" chance="80000"/>
+		<item name="incredible mumpiz slayer" chance="20000"/>
+		<item name="farmer's avenger" chance="1000"/>
+		<item name="shield of care" chance="1000"/>
 	</loot>
 </monster>

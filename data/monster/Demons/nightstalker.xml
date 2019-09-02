@@ -2,7 +2,7 @@
 <monster name="Nightstalker" nameDescription="a nightstalker" experience="500" speed="130" race="undead">
 	<health now="700" max="700"/>
 	<targetchange speed="0" chance="8"/>
-	<look type="320" corpse="9915"/>
+	<look type="320" corpse="9001"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -62,7 +62,7 @@
 		<voice sentence="Only the sweetest and cruelest dreams for you, my love."/>
 	</voices>
 	<loot>
-		<item id="2124" chance="1030"/><!-- crystal ring -->
+		<item id="3007" chance="1030"/><!-- crystal ring -->
 		<item name="gold coin" countmax="100" chance="50000"/>
 		<item name="gold coin" countmax="10" chance="50000"/>
 		<item name="platinum amulet" chance="121"/>

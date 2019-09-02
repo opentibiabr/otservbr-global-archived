@@ -53,6 +53,6 @@
 		<item name="spiked iron ball" chance="9960"/>
 		<item name="clay lump" chance="720"/>
 		<item name="piece of marble rock" chance="430"/>
-		<item id="13757" chance="400"/><!-- coal -->
+		<item id="12600" chance="400"/><!-- coal -->
 	</loot>
 </monster>

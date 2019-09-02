@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Mephiles" nameDescription="Mephiles" race="blood" experience="415" speed="300">
 	<health now="415" max="415"/>
-	<look type="237" corpse="6364"/>
+	<look type="237" corpse="9406"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
@@ -53,11 +53,9 @@
 		<voice sentence="Come on. being a bit evil won't hurt you."/>
 	</voices>
 	<loot>
-	<item id="2148" countmax="95" chance="2000"/>				<!-- gold coin -->
-		<item id="2152" countmax="9" chance="30000"/>				<!-- plat coin -->
-		<item id="10293" chance="1000"/>				<!-- bread kk -->
-		<item id="10304" chance="1000"/>				<!-- meat shield -->
-		<item id="10317" chance="1000"/>				<!-- glutton's mace -->
-		<item id="10294" chance="1000"/>				<!-- trousers of the ancients -->
+		<item name="stale bread of ancientness" chance="40000"/>
+		<item name="shield of the white knight" chance="40000"/>
+		<item name="poet's fencing quill" chance="20000"/>
+		<item name="the rain coat" chance="10000"/>
 	</loot>
 </monster>

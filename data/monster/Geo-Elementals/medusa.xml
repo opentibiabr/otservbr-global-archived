@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Medusa" nameDescription="a medusa" race="blood" experience="4050" speed="125">
 	<health now="4500" max="4500"/>
-	<look type="330" corpse="10524"/>
+	<look type="330" corpse="9607"/>
 	<targetchange interval="4000" chance="20"/>
 	<flags>
 		<flag summonable="0"/>
@@ -56,20 +56,19 @@
 		<voice sentence="Are you tired or why are you moving thhat ssslow &lt;chuckle&gt;"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="90" chance="50000"/>
-		<item name="small emerald" countmax="4" chance="3770"/>
-		<item name="platinum coin" countmax="6" chance="74810"/>
-		<item name="knight armor" chance="1840"/>
-		<item name="medusa shield" chance="3040"/>
-		<item name="titan axe" chance="1160"/>
-		<item name="great mana potion" countmax="2" chance="10000"/>
-		<item name="terra mantle" chance="870"/>
-		<item name="terra legs" chance="420"/>
+		<item name="gold coin" countmax="190" chance="100000"/>
+		<item name="platinum coin" countmax="6" chance="75030"/>
+		<item name="great mana potion" countmax="2" chance="10020"/>
+		<item name="strand of medusa hair" chance="9800"/>
+		<item name="ultimate health potion" countmax="2" chance="9520"/>
 		<item name="terra amulet" chance="4060"/>
-		<item name="ultimate health potion" countmax="2" chance="9290"/>
-		<item id="9810" chance="500"/><!-- rusty armor -->
-		<item name="sacred tree amulet" chance="850"/>
-		<item name="strand of medusa hair" chance="9900"/>
+		<item name="small emerald" countmax="4" chance="3900"/>
+		<item name="medusa shield" chance="3070"/>
+		<item name="knight armor" chance="1999"/>
+		<item name="titan axe" chance="1240"/>
+		<item name="terra mantle" chance="850"/>
+		<item name="sacred tree amulet" chance="830"/>
+		<item name="terra legs" chance="380"/>
+		<item name="slightly rusted armor" chance="300"/>
 	</loot>
 </monster>

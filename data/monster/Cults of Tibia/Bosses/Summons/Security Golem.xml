@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Security Golem" nameDescription="a secutiry golem" race="energy" experience="2750" speed="200">
 	<health now="6500" max="6500"/>
-	<look type="326" corpse="10005"/>
+	<look type="326" corpse="9092"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
