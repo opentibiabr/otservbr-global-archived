@@ -678,7 +678,7 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
     msg:addU32(entry.time)
     msg:addByte(entry.mode)
     msg:addU32(entry.amount)
-    if player:getClient().version > 1200 then
+    if player:getClient().version >= 1200 then
      msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
     end
     msg:addString(entry.description)
