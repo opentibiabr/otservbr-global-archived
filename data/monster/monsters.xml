@@ -1301,6 +1301,9 @@
 	<monster name="Feverish Citizen" file="Outlaws/feverish_citizen.xml"/>
 	<monster name="Crypt Defiler" file="Outlaws/crypt_defiler.xml"/>
 	<monster name="NomadFemale" file="Outlaws/nomadFemale.xml"/>
+	
+	<!-- Rise of Devovorga -->
+	<monster name="Spawn of Devovorga" file="Rise of Devovorga/spawn of devovorga.xml"/>
 
 	<!-- The Percht Queens Island -->
 	<monster name="Animated Snowman" file="The Percht Queens Island/animated snowman.xml"/>
