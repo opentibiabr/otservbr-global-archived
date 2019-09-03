@@ -1278,6 +1278,15 @@ function doCreateItemEx(itemid, count)
 end
 
 function doMoveCreature(cid, direction) local c = Creature(cid) return c ~= nil and c:move(direction) end
+
+Game.startRaid = function(name)
+	if name == "Server Save" then
+		return RETURNVALUE_NOSUCHRAIDEXISTS
+	end
+
+	return Game.startEvent(name)
+end
+
 function createFunctions(class)
 	local exclude = {[2] = {"is"}, [3] = {"get", "set", "add", "can"}, [4] = {"need"}}
 	local temp = {}
@@ -1299,14 +1308,11 @@ function createFunctions(class)
 	end
 end
 
--- CASAMENTO MARRY
-
-function getPlayerNameById(id)
 local resultName = db.storeQuery("SELECT `name` FROM `players` WHERE `id` = " .. db.escapeString(id))
-if resultName ~= false then
-local name = result.getDataString(resultName, "name")
-result.free(resultName)
-return name
-end
-return 0
+	if resultName ~= false then
+		local name = result.getDataString(resultName, "name")
+		result.free(resultName)
+		return name
+	end
+	return 0
 end

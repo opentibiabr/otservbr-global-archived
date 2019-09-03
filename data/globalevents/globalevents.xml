@@ -59,4 +59,10 @@
 	<!-- <globalevent type="startup" name="doCheckHouses" script="others/doCheckHouses.lua" /> -->
 	<globalevent name="checkInbox" interval="30000" script="others/checkInbox.lua"/>
 	<globalevent interval="100000" name="GuildWar" script="guildwar.lua"/>
+
+	<!-- Raids-->
+	<!--
+	<globalevent name="Test Raid" interval="1800" script="raids/testraid.lua" />
+	executed once every 30 minutes (30 * 60 = 1800 seconds)
+	-->
 </globalevents>
