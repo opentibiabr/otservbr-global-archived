@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lizard High Guard" nameDescription="a lizard high guard" race="blood" experience="1450" speed="119">
 	<health now="1800" max="1800"/>
-	<look type="337" corpse="11272"/>
+	<look type="337" corpse="10355"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Heoni" nameDescription="Heoni" race="blood" experience="515" speed="300">
 	<health now="900" max="900"/>
-	<look type="239" corpse="12546"/>
+	<look type="239" corpse="11590"/>
 	<targetchange interval="2000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>

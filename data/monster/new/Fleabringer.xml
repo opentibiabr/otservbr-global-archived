@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Fleabringer" nameDescription="a fleabringer" race="blood" experience="100" speed="280" manacost="465">
 	<health now="265" max="265"/>
-	<look type="341" corpse="11250"/>
+	<look type="341" corpse="10333"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>

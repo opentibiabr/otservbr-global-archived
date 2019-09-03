@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Eternal Guardian" nameDescription="an eternal guardian" race="undead" experience="1800" speed="102">
 	<health now="2500" max="2500"/>
-	<look type="345" corpse="11300"/>
+	<look type="345" corpse="10383"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

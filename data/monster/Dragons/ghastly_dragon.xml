@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Ghastly Dragon" nameDescription="a ghastly dragon" race="undead" experience="4600" speed="160">
 	<health now="7800" max="7800"/>
-	<look type="351" corpse="11362"/>
+	<look type="351" corpse="10445"/>
 	<targetchange interval="4000" chance="5"/>
 	<flags>
 		<flag summonable="0"/>
@@ -57,31 +57,32 @@
 		<voice sentence="I WILL FEAST ON YOUR SOUL!" yell="1"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="33725"/>
-		<item name="gold coin" countmax="100" chance="33725"/>
-		<item name="gold coin" countmax="66" chance="33725"/>
-		<item name="platinum coin" countmax="2" chance="29840"/>
-		<item name="soul orb" chance="12170"/>
-		<item name="demonic essence" chance="8920"/>
-		<item name="great mana potion" countmax="2" chance="30560"/>
-		<item name="terra legs" chance="3130"/>
-		<item name="terra boots" chance="9510"/>
-		<item name="great spirit potion" countmax="2" chance="29460"/>
-		<item name="ultimate health potion" chance="24700"/>
-		<item id="9810" chance="180"/><!-- rusty armor -->
-		<item name="shiny stone" chance="860"/>
-		<item name="guardian boots" chance="200"/>
-		<item name="Zaoan armor" chance="870"/>
-		<item name="Zaoan helmet" chance="150"/>
-		<item name="Zaoan shoes" chance="870"/>
-		<item name="Zaoan legs" chance="1400"/>
-		<item name="drakinata" chance="1470"/>
-		<item name="Zaoan sword" chance="100"/>
-		<item name="twin hooks" chance="15100"/>
-		<item name="Zaoan halberd" chance="15020"/>
-		<item name="spellweaver's robe" chance="690"/>
-		<item name="ghastly dragon head" chance="6650"/>
-		<item name="undead heart" chance="19830"/>
-		<item name="jade hat" chance="810"/>
+		<item name="gold coin" countmax="266" chance="99560"/>
+		<item name="plate legs" chance="48870"/>
+		<item name="small emerald" chance="40450"/>
+		<item name="dark armor" chance="34630"/>
+		<item name="great mana potion" countmax="2" chance="30270"/>
+		<item name="platinum coin" countmax="2" chance="29940"/>
+		<item name="great spirit potion" countmax="2" chance="29620"/>
+		<item name="ultimate health potion" chance="24870"/>
+		<item name="undead heart" chance="19550"/>
+		<item name="zaoan halberd" chance="15230"/>
+		<item name="twin hooks" chance="15190"/>
+		<item name="soul orb" chance="12420"/>
+		<item name="terra boots" chance="10040"/>
+		<item name="slightly rusted armor" chance="9940"/>
+		<item name="demonic essence" chance="9130"/>
+		<item name="ghastly dragon head" chance="6830"/>
+		<item name="terra legs" chance="3300"/>
+		<item name="drakinata" chance="1520"/>
+		<item name="zaoan legs" chance="1170"/>
+		<item name="zaoan shoes" chance="850"/>
+		<item name="zaoan armor" chance="850"/>
+		<item name="shiny stone" chance="840"/>
+		<item name="jade hat" chance="820"/>
+		<item name="spellweaver's robe" chance="710"/>
+		<item name="guardian boots" chance="230"/>
+		<item name="zaoan helmet" chance="160"/>
+		<item name="zaoan sword" chance="90"/>
 	</loot>
 </monster>

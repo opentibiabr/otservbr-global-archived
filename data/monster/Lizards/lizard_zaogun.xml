@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lizard Zaogun" nameDescription="a lizard zaogun" race="blood" experience="1700" speed="138">
 	<health now="2955" max="2955"/>
-	<look type="343" corpse="11284"/>
+	<look type="343" corpse="10367"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

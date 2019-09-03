@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Glitterscale" nameDescription="Glitterscale" race="blood" experience="700" speed="180">
 	<health now="1000" max="1000"/>
-	<look type="34" corpse="12545"/>
+	<look type="34" corpse="11589"/>
 	<targetchange interval="2000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>

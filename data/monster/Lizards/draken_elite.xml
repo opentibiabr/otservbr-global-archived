@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Draken Elite" nameDescription="a draken elite" race="blood" experience="4200" speed="166">
 	<health now="5550" max="5550"/>
-	<look type="362" corpse="12609"/>
+	<look type="362" corpse="11653"/>
 	<targetchange interval="5000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

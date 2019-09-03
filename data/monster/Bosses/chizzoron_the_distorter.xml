@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Chizzoron The Distorter" nameDescription="Chizzoron The Distorter" race="blood" experience="4000" speed="260" script="rewardboss.lua">
 	<health now="16000" max="16000"/>
-	<look type="340" corpse="11316"/>
+	<look type="340" corpse="10399"/>
 	<targetchange interval="2000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
@@ -57,14 +57,18 @@
 		<voice sentence="You are not worzzy to touch zzizz zzacred ground!"/>
 	</voices>
 	<loot>
-		<item id="9971" countmax="2" chance="71550"/><!-- gold ingot -->
-		<item id="2148" countmax="100" chance="69825"/><!-- gold coin -->
-		<item id="2148" countmax="10" chance="69825"/><!-- gold coin -->
-		<item id="2149" chance="5750"/><!-- small emerald -->
-		<item id="5881" chance="100000"/><!-- lizard scale -->
-		<item id="2155" chance="16300"/><!-- green gem -->
-		<item id="2169" chance="11025"/><!-- time ring -->
-		<item id="7591" chance="5750"/><!-- great health potion -->
-		<item id="2492" chance="5750"/><!-- dragon scale mail -->
+		<item name="gold ingot" countmax="2" chance="100000"/>
+		<item name="lizard scale" chance="100000"/>
+		<item name="gold coin" countmax="109" chance="93750"/>
+		<item name="small emerald" chance="28130"/>
+		<item name="great health potion" chance="21880"/>
+		<item name="dragon scale mail" chance="15630"/>
+		<item name="green gem" chance="12500"/>
+		<item name="crystal boots" chance="6250"/>
+		<!-- unconfirmed chances -->
+		<item name="time ring" chance="6125"/>
+		<item name="blue gem" chance="5505"/>
+		<item name="swamplair armor" chance="5120"/>
+		<item name="greenwood coat" chance="5050"/>
 	</loot>
 </monster>

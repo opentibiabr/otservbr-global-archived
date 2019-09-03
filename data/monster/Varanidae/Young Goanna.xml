@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Young Goanna" nameDescription="a young goanna" race="blood" experience="7600" speed="230">
 	<health now="5800" max="5800"/>
-	<look type="1196" corpse="11430"/>
+	<look type="1196" corpse="10221"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -33,19 +33,24 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="Platinum Coin" countmax="3" chance="100000"/>
-		<item name="Envenomed Arrow" countmax="35" chance="65000"/>
-		<item name="Terra Rod" chance="17000"/>
-		<!--<item name="Blue Goanna Scale" chance="1100"/>
-		<item name="Goanna Meat" chance="9000"/>-->
-		<item name="Snakebite Rod" chance="7800"/>
-		<item name="Leaf Star" countmax="3" chance="3900"/>
-		<item name="Serpent Sword" chance="3950"/>
-		<item name="Sacred Tree Amulet" chance="2600"/>
-		<!--<item name="Scared Frog" chance="2600"/>-->
-		<item name="Springsprout Rod" chance="2600"/>
-		<!--<item name="Goanna Claw" chance="1320"/>
-		<item name="Small Tortoise" chance="1320"/>-->
-		<item name="Terra Amulet" chance="1320"/>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="envenomed arrow" countmax="35" chance="68920"/>
+		<item name="terra rod" chance="11530"/>
+		<item name="goanna meat" chance="9270"/>
+		<item name="snakebite rod" chance="9270"/>
+		<item name="blue goanna scale" chance="8020"/>
+		<item name="goanna claw" chance="4760"/>
+		<item name="serpent sword" chance="3760"/>
+		<item name="leaf star" countmax="3" chance="3760"/>
+		<item name="silver amulet" chance="3510"/>
+		<item name="springsprout rod" chance="3010"/>
+		<item name="scared frog" chance="2260"/>
+		<item name="terra amulet" chance="1000"/>
+		<item name="lizard heart" chance="750"/>
+		<item name="sacred tree amulet" chance="750"/>
+		<item name="small tortoise" chance="500"/>
+		<item name="terra hood" chance="250"/>
+		<item name="fur armor" chance="250"/>
+		<item name="wooden spellbook" chance="200"/>
 	</loot>
 </monster>

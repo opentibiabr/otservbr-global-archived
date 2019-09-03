@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lancer Beetle" nameDescription="a lancer beetle" race="venom" experience="275" speed="133">
 	<health now="400" max="400"/>
-	<look type="348" corpse="11375"/>
+	<look type="348" corpse="10458"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

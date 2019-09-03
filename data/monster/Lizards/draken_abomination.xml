@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Draken Abomination" nameDescription="a draken abomination" race="venom" experience="3800" speed="135">
 	<health now="6250" max="6250"/>
-	<look type="357" corpse="12623"/>
+	<look type="357" corpse="11667"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

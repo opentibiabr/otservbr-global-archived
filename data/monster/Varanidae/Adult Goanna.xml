@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Adult Goanna" nameDescription="an adult goanna" race="blood" experience="8300" speed="230">
 	<health now="7800" max="7800"/>
-	<look type="1195" corpse="11430"/>
+	<look type="1195" corpse="10221"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -36,20 +36,21 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="Platinum Coin" countmax="3" chance="100000"/>
-		<item name="Envenomed Arrow" countmax="8" chance="54000"/>
-		<item name="Earth Arrow" countmax="29" chance="17000"/>
-		<item name="Terra Rod" chance="14000"/>
-		<!--<item name="Goanna Meat" chance="12000"/>
-		<item name="Goanna Claw" chance="8500"/>
-		<item name="Red Goanna Scale" chance="8500"/>-->
-		<item name="Fur Armor" chance="6700"/>
-		<item name="Serpent Sword" chance="3390"/>
-		<item name="Terra Amulet" chance="3390"/>
-		<item name="Terra Hood" chance="3390"/>
-		<item name="Wood Cape" chance="3390"/>
-		<!--<item name="Scared Frog" chance="3390"/>-->
-		<item name="Sacred Tree Amulet" chance="1770"/>
-		<!--<item name="Small Tortoise" chance="1770"/>-->
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="envenomed arrow" countmax="8" chance="55150"/>
+		<item name="earth arrow" countmax="29" chance="16280"/>
+		<item name="goanna meat" chance="12960"/>
+		<item name="terra rod" chance="11300"/>
+		<item name="red goanna scale" chance="9970"/>
+		<item name="terra hood" chance="7310"/>
+		<item name="goanna claw" chance="4320"/>
+		<item name="serpent sword" chance="3650"/>
+		<item name="fur armor" chance="2990"/>
+		<item name="sacred tree amulet" chance="2660"/>
+		<item name="terra amulet" chance="3390"/>
+		<item name="scared frog" chance="2330"/>
+		<item name="wood cape" chance="1660"/>
+		<item name="lizard heart" chance="1660"/>
+		<item name="small tortoise" chance="1660"/>
 	</loot>
 </monster>

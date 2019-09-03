@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Voice of Ruin" nameDescription="a the voice of ruin" race="blood" experience="3500" speed="460">
 	<health now="5500" max="5500"/>
-	<look type="344" corpse="11288"/>
+	<look type="344" corpse="10371"/>
 	<targetchange interval="4000" chance="40"/>
 	<flags>
 		<flag preyable="0"/>
@@ -44,14 +44,14 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="100" chance="33000"/><!-- gold coin -->
-		<item id="2148" countmax="100" chance="32000"/><!-- gold coin -->
-		<item id="2148" countmax="36" chance="32000"/><!-- gold coin -->
-		<item id="11326" chance="5800"/><!-- corrupted flag.-->
-		<item id="2152" countmax="5" chance="2920"/><!-- platinum coin -->
-		<item id="11327" chance="3800"/><!--  Cursed Shoulder Spikes -->
-		<item id="9971" chance="3800"/><!--  gold ingot -->
-		<item id="11325" chance="3800"/><!--  11325 -->
-		<item id="11303" chance="3800"/><!--  Zaoan Shoes-->
+		<item id="gold coin" countmax="95" chance="100000"/>
+		<item id="platinum coin" countmax="5" chance="50000"/>
+		<item id="corrupted flag" chance="50000"/>
+		<!-- unconfirmed chances -->
+		<item id="cursed shoulder spikes" chance="3800"/>
+		<item id="gold ingot" chance="3800"/>
+		<item id="spiked iron ball" chance="3800"/>
+		<item id="zaoan shoes" chance="3800"/>
+		<item id="zaoan helmet" chance="3800"/>
 	</loot>
 </monster>
