@@ -16,7 +16,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if(msgcontains(msg, "mission")) then
 		if(getPlayerStorageValue(cid, 10050) < 1) then
-			npcHandler:say("Well, there is little where we need help beyond the normal tasks you can do for the city. However, there is one thing out of the ordinary where some assistance would be appreciated.", cid)
+			npcHandler:say("Well, there is little where we need help beyond the normal tasks you can do for the city. However, there is one thing out of the ordinary where some (assistance} would be appreciated.", cid)
 			npcHandler.topic[cid] = 1
 
 		else npcHandler:say("You already asked for a mission, go to th next.", cid)
@@ -24,7 +24,7 @@ function creatureSayCallback(cid, type, msg)
 		end
 	elseif(msgcontains(msg, "assistance")) then
 		if(npcHandler.topic[cid] == 1) then
-			npcHandler:say(" It's nothing really important, so no one has yet found the time to look it up. It concerns the towns beggars that have started to behave strange lately.", cid)
+			npcHandler:say(" It's nothing really important, so no one has yet found the time to look it up. It concerns the towns beggars that have started to behave {strange} lately.", cid)
 			npcHandler.topic[cid] = 2
 		end
 

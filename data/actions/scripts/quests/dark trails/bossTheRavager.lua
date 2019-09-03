@@ -9,10 +9,10 @@ local config = {
                 Position(33420, 32102, 10)
         },
         newPositions = {
-                Position(33487, 32088, 8),
-                Position(33487, 32088, 8),
-                Position(33487, 32088, 8),
-                Position(33487, 32088, 8)
+                Position(33485, 32087, 8),
+                Position(33485, 32087, 8),
+                Position(33485, 32087, 8),
+                Position(33485, 32087, 8)
         },
         CanopicJarPositions = {
                 Position(33486, 32081, 8),

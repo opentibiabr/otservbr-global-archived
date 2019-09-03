@@ -26,7 +26,7 @@ function creatureSayCallback(cid, type, msg)
             setPlayerStorageValue(cid, 10050, 4)
 			setPlayerStorageValue(cid, 20053, 1)
             setPlayerStorageValue(cid, 20054, 0)
-            player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
+            setPlayerStorageValue(cid, 20063, 1)
 		elseif(getPlayerStorageValue(cid, 10050) == 5) then
 		    npcHandler:say("I'm glad to see you back alive and healthy. Did you find anything interesting that you want to {report}?", cid)
 			npcHandler.topic[cid] = 7
