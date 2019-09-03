@@ -4855,8 +4855,8 @@ int LuaScriptInterface::luaGameStartEvent(lua_State* L)
 
 	auto&& eventMap = g_globalEvents->getEventMap(GLOBALEVENT_TIMER);
 	try {
-		GlobalEvent* event = eventMap.at(eventName);
-		lua_pushboolean(L, event->executeEvent());
+		GlobalEvent& event = eventMap.at(eventName);
+		lua_pushboolean(L, event.executeEvent());
 	} catch (const std::out_of_range&) {
 		lua_pushnil(L);
 	}
