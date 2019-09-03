@@ -15,6 +15,7 @@ local skills = {
 
 local dummies = {32142, 32143, 32144, 32145, 32146, 32147, 32148, 32149}
 local skillRate = 1*configManager.getNumber(configKeys.RATE_SKILL)
+local magicRate = 1*configManager.getNumber(configKeys.RATE_MAGIC)
 local isTraining = 37
 -- skillRate = 1.1*30 = 30 + 3 (10%) = 33x
 
@@ -35,7 +36,7 @@ local function start_train(pid,start_pos,itemid,fpos)
 
 							if skills[itemid].id == SKILL_MAGLEVEL then
 								magicTry = voc:getRequiredManaSpent(player:getBaseMagicLevel() + 1)-player:getManaSpent()
-								player:addManaSpent(math.ceil(250))
+								player:addManaSpent(math.ceil(250)*magicRate)
 							else
 								player:addSkillTries(skills[itemid].id, 1*skillRate)
 							end
