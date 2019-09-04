@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Sphinx" nameDescription="a sphinx" race="blood" experience="7500" speed="145">
 	<health now="8500" max="8500"/>
-	<look type="1188" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1188" head="50" body="39" legs="0" feet="3" addons="1" corpse="36221"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -20,14 +20,41 @@
 		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="melee" interval="2000" min="0" max="-400"/>
+		<attack name="fire" interval="2000" chance="15" length="6" spread="0" min="-300" max="-520">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="holy" interval="2000" chance="20" range="5" radius="3" target="1" min="-350" max="-460">
+			<attribute key="shootEffect" value="smallholy"/>
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="18" radius="3" min="-350" max="-480">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		
 	</attacks>
-	<defenses armor="84" defense="84"/>
+	<defenses armor="82" defense="82"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element firePercent="90"/>
+		<element deathPercent="-20"/>
+		<element holyPercent="85"/>
+		<element icePercent="-15"/>
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<loot>
+	    <item name="Platinum Coin" countmax="3" chance="100000"/>
+		<!--<item name="Sphinx Feather" chance="9300"/>-->
+		<item name="Magma Amulet" chance="7000"/>
+		<!--<item name="Sphinx Tiara" chance="5500"/>-->
+		<item name="Magma Boots" chance="3600"/>
+		<item name="Lightning Pendant" chance="3500"/>
+		<item name="Lightning Headband" chance="3100"/>
+		<item name="Wand of Starstorm" chance="2900"/>
+		<item name="Wand of Defiance" chance="1800"/>
+	    <item name="Magma Monocle" chance="1400"/>
+		<item name="Magma Legs" chance="1300"/>
+	</loot>
 </monster>

@@ -554,6 +554,7 @@
 	<monster name="Gryphon" file="Misc/Misc Mounts/Gryphon.xml"/>
 	<monster name="Manticore" file="Anuma/Manticore.xml"/>
 	<monster name="Sphinx" file="Anuma/Sphinx.xml"/>
+	<monster name="Lamassu" file="Anuma/Lamassu.xml"/>
 
 	<!-- Apes -->
 	<monster name="Kongra" file="Apes/kongra.xml"/>
@@ -875,6 +876,7 @@
 	<!-- Bosses 12.20 -->
 	<monster name="Urmahlullu the Weakened" file="Bosses/Urmahlullu the Weakened.xml"/>
 	<monster name="Bragrumol" file="Bosses/bragrumol.xml"/>
+	<monster name="Mozradek" file="Bosses/mozradek.xml"/>
 	
 	<!-- Canines -->
 	<monster name="Crystal Wolf" file="Canines/crystal_wolf.xml"/>
