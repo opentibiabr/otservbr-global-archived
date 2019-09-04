@@ -66,9 +66,6 @@
 	<movevent event="StepIn" uniqueid="9240" script="others/teleports/citizen.lua" />
 	<movevent event="StepIn" fromuid="9500" touid="9501" script="others/teleports/citizen.lua" />
 
-	<!-- Dark Trails Quest -->
-	<movevent event="StepIn" actionid="9745" script="quests/dark trails/necrometerTileAcess.lua" />
-
 	<!-- Dangerous Depths -->
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous depth/lostExiles.lua"/>
 	<movevent event="StepIn" actionid="57240" script="quests/dangerous depth/gnomesAvalanche.lua"/>
