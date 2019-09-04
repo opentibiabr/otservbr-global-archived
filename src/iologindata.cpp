@@ -236,8 +236,8 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 	if ((result = db.storeQuery(query.str()))) {
 		do {
 			uint16_t slotNum = result->getNumber<uint16_t>("num");
-			player->preySlotState[slotNum] = result->getNumber<uint16_t>("state");
-			player->preySlotUnlocked[slotNum] = result->getNumber<uint16_t>("unlocked");
+			player->preySlotState[slotNum] = result->getNumber<uint8_t>("state");
+			player->preySlotUnlocked[slotNum] = result->getNumber<uint8_t>("unlocked");
 			player->preySlotCurrentMonster[slotNum] = result->getString("current");
 			player->preySlotMonsterList[slotNum] = result->getString("monster_list");
 			player->preySlotFreeRerollIn[slotNum] = result->getNumber<uint16_t>("free_reroll_in");
