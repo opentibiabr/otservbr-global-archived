@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -13,6 +12,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	
+	local player = Player(cid)
 	if(msgcontains(msg, "want")) then
 		if(player:getStorageValue(Storage.DarkTrails.Mission01) == 1) then
 			npcHandler:say("The guys from the magistrate sent you here, didn't they?", cid)

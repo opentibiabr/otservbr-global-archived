@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -10,5 +9,13 @@ function onThink()						npcHandler:onThink() 						end
 function onThink() 						npcHandler:onThink() 						end
 
 npcHandler:addModule(FocusModule:new())
+
+function creatureSayCallback(cid, type, msg)
+	if(not(npcHandler:isFocused(cid))) then
+		return false
+	end
+	
+	local player = Player(cid)
+end
 
 -- missing script for complete the mission 15 of dark trails

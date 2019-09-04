@@ -1,7 +1,7 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
+
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,8 +14,8 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	
+	local player = Player(cid)
 	-- missing script for complete the mission 16 of dark trails
-
 	if(msgcontains(msg, "mission")) then
 		if player:getStorageValue(Storage.DarkTrails.Mission16) == 1 then
 			npcHandler:say("Ahhhhhhhh! Find and investigate the hideout, the mission 17", cid)

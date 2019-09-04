@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
@@ -13,6 +12,7 @@ function creatureSayCallback(type, msg)
 		return false
 	end
 	
+	local player = Player(cid)
 	if(msgcontains(msg, "mission")) then
 		if(player:getStorageValue(Storage.DarkTrails.Mission01) < 1) then
 			npcHandler:say("Well, there is little where we need help beyond the normal tasks you can do for the city. However, there is one thing out of the ordinary where some assistance would be appreciated.", cid)

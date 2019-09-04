@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,7 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
-
+	local player = Player(cid)
 	if(msgcontains(msg, "necrometer")) then
 		--[[if player:getStorageValue(Storage.Oramond.TaskProbing == 1) then
 		--for this mission is needed script of the npc Doubleday]]

@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -13,7 +12,8 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-
+	
+	local player = Player(cid)
 	-- mission 3 start
 	if(msgcontains(msg, "abandoned sewers")) then
 		if player:getStorageValue(Storage.Oramond.MissionAbandonedSewer) < 21 then
@@ -46,7 +46,7 @@ function creatureSayCallback(cid, type, msg)
 		if(npcHandler.topic[cid] == 2) then
 			npcHandler:say("Good. Broken pipe and generator pieces, there's smoke evading. That's how you recognise them. See how you can fix them using your hands. Need about, oh, twenty of them at least repaired. Report to me or Jacob", cid)
 			npcHandler.topic[cid] = 0
-			player:setStorageValue(Storage.Oramond.AbandonedSewer, 1)
+			player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
 			player:setStorageValue(Storage.Oramond.MissionAbandonedSewer, 0)
 		end
 	-- Task: The Ancient Sewers
@@ -66,6 +66,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			else npcHandler:say("You already reported this mission, go to the next.", cid)
 		end
+	end
 	end
 	return true
 end

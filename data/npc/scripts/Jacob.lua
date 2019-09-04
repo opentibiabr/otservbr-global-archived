@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,6 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local player = Player(cid)
 	-- mission 3 start
 	if(msgcontains(msg, "abandoned sewers")) then
 		if player:getStorageValue(Storage.Oramond.MissionAbandonedSewer) < 21 then
@@ -66,6 +66,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			else npcHandler:say("You already reported this mission, go to the next.", cid)
 		end
+	end
 	end
 	return true
 end

@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,6 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local player = Player(cid)
 	-- missing the full script and task of the npc on oramond quest for complete
 	if(msgcontains(msg, "mission")) then
 		if player:getStorageValue(Storage.DarkTrails.Mission15) == 1 then

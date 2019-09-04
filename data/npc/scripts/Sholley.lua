@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,6 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local player = Player(cid)
 	if(msgcontains(msg, "friend")) then
 		if player:getStorageValue(Storage.DarkTrails.Mission12) == 1 then
 			npcHandler:say("So you have proven yourself a true friend of our city. It's hard to believe but I think your words only give substance to suspicions my heart had harboured since quite a while. ...", cid)

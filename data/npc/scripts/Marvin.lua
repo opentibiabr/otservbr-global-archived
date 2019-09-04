@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,7 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
-
+	local player = Player(cid)
 	if(msgcontains(msg, "funding")) then
 		if(player:setStorageValue(Storage.DarkTrails.Mission07) == 1) then
 			selfSay("So far you earned x votes. Each single vote can be spent on a different topic or you're also able to cast all your votes on one voting. ...", cid)

@@ -1,7 +1,6 @@
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-local player = Player(cid)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
@@ -14,6 +13,7 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
+	local player = Player(cid)
 	if(msgcontains(msg, "Harsin")) then
 		if(player:getStorageValue(Storage.DarkTrails.Mission13) == 1) then
 			npcHandler:say("I'm sorry, but Harsin no longer lives here. He ordered a local named Quandon to transport all his stuff somewhere. I don't know where he moved, but Quandon should be able to help you with this information.", cid)
