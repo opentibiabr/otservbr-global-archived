@@ -539,14 +539,38 @@ Storage = {
 	Oramond = {
 		QuestLine = 10060,
 		VotingPoints = 10061,
+		DoorAbandonedSewer = 10062,
 
 		MissionToTakeRoots = 20060,
 		HarvestedRootCount = 20061,
-		DoorBeggarKing = 20062,
-		DoorAbandonedSewer = 20063
+		MissionAbandonedSewer = 20062,
+		DoorBeggarKing = 20063,
+		TaskProbing = 20064
+		
+		
 	},
 	DarkTrails = {
-		DoorQuandon = 20080
+		Mission01 = 20081,
+		Mission02 = 20082,
+		Mission03 = 20083,
+		Mission04 = 20084,
+		Mission05 = 20085,
+		Mission06 = 20086,
+		Mission07 = 20087,
+		Mission08 = 20088,
+		Mission09 = 20089,
+		Mission10 = 20090,
+		Mission11 = 20091,
+		Mission12 = 20092,
+		Mission13 = 20093,
+		Mission14 = 20094,
+		Mission15 = 20095,
+		Mission16 = 20096,
+		Mission17 = 20097,
+		Mission18 = 20098,
+		Outfit = 20099, -- final storage
+		DoorQuandon = 20100,
+		DoorTerrence = 20101
 	},
 	RathletonQuest = {
 		QuestLine = 10080,
