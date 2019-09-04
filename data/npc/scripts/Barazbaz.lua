@@ -34,13 +34,14 @@ function creatureSayCallback(cid, type, msg)
         player:setStorageValue(20058, 1)
         player:setStorageValue(20059, 0)
  
-    elseif(msgcontains(msg, "notebook")) and player:getStorageValue(10050) == 10 then
-        npcHandler:say(" I know that handwriting you describe! It belongs to a traveller from far away. Magistrate Sholley introduced him to me and she was quite excited to learn more about our city's past. ...", cid)
-        npcHandler:say("I should have thought of him right in the beginning when I heard the stuff you mentioned. But I haven't seen him for a while. You should ask Sholley about her friend to learn about his whereabouts.", cid)
-        player:setStorageValue(10050, 12)
-        player:setStorageValue(30050, 1)
-        player:setStorageValue(30051, 0)
-    else
+	elseif(msgcontains(msg, "notebook")) and (player:getStorageValue(10050) == 10 and getPlayerItemCount(cid, 12406) == 1) then
+		npcHandler:say(" I know that handwriting you describe! It belongs to a traveller from far away. Magistrate Sholley introduced him to me and she was quite excited to learn more about our city's past. ...", cid)
+		npcHandler:say("I should have thought of him right in the beginning when I heard the stuff you mentioned. But I haven't seen him for a while. You should ask Sholley about her friend to learn about his whereabouts.", cid)
+		player:setStorageValue(10050, 12)
+		player:setStorageValue(30050, 1)
+		player:setStorageValue(30051, 0)
+		doPlayerRemoveItem(cid,12406, 1)
+	else
         npcHandler:say("You need to kill the {The Ravager}, click on statue and then come here say {ritual}, {abandoned sewers}, {notebook} and after this find Roswitha and talk with she.", cid)
     end
  
