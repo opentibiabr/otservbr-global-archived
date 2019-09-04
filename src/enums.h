@@ -166,14 +166,14 @@ enum PreySlotNum_t : uint8_t
 	PREY_SLOTNUM_THIRD = 2,
 };
 
-enum PreySlotStatus_t : uint8_t
+enum PreySlotStatus_t : uint16_t
 {
 	PREY_SLOT_LOCKED = 0,
 	PREY_SLOT_UNLOCKED = 1,
 };
 
 
-enum PreyState_t : uint8_t
+enum PreyState_t : uint16_t
 {
 	PREY_STATE_LOCKED = 0,
 	PREY_STATE_INACTIVE = 1,
