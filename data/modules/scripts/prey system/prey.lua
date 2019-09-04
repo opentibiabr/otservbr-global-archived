@@ -265,7 +265,6 @@ function Player.preyAction(self, msg)
 		local oldType = self:getPreyBonusType(slot)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		self:setRandomBonusValue(slot, true, (oldType ~= self:getPreyBonusType(slot) and true or false))
-		self:setPreyTimeLeft(slot, 7200) -- 2 hours
 
 	-- Select monster from list
 	elseif (action == Prey.Actions.SELECT) then
