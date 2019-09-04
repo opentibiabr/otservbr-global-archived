@@ -307,7 +307,10 @@ function Player.selectPreyMonster(self, slot, monster)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		-- Generating random bonus stats
 		self:setRandomBonusValue(slot, false, false)
-	end
+    elseif (self:getPreyBonusGrade(slot) == 0) then
+	    self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
+     	self:setRandomBonusValue(slot, true, true)
+    end
 
 	-- Setting current monster
 	self:setPreyCurrentMonster(slot, monster:getName())
