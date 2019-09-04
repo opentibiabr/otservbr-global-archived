@@ -16,10 +16,6 @@
 	<!-- Modal Window -->
 	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />
 
-	<!-- Oramond Quest -->
-	<event type="death" name="tp" script="quests/oramond/revanger.lua"/>
-	<event type="death" name="dark" script="quests/oramond/death.lua"/>
-
 	<!-- Dangerous Depths -->
 	<event type="kill" name="dwarvesTasks" script="quests/Dangerous Depths/dwarvesTasks.lua"/>
 	<event type="login" name="loginDwarvesTasks" script="quests/Dangerous Depths/login.lua"/>

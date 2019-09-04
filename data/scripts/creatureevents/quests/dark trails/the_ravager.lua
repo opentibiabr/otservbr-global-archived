@@ -1,3 +1,5 @@
+-- this script need to be refactored
+
 local tps =
 {
 -- [monster name] = {pos = {posição onde aparecerá o TP}, toPos = {posição para onde levara o TP}, time = tempo para o teleporte sumir},
@@ -11,7 +13,9 @@ function removeTp(tp)
     end
 end
 
-function onDeath(cid)
+local the_ravager = CreatureEvent("The Ravager onDeath")
+
+function the_ravager.onDeath(cid)
     local tp = tps[getCreatureName(cid)]
     if tp then
         doCreateTeleport(1387, {x=33459, y=32083, z=8}, {x=33496, y=32070, z=8})
@@ -21,3 +25,5 @@ function onDeath(cid)
 
 	return true
 end
+
+the_ravager:register()

@@ -1,6 +1,5 @@
 local t1ps = 
 {
--- [monster name] = {pos = {posição onde aparecerá o TP}, toPos = {posição para onde levara o TP}, time = tempo para o teleporte sumir},
     ["Death Priest Shargon"] = {pos = {x= 33487, y= 32101, z= 9}, toPos = {x=33489, y=32088, z=9}, time = 60},
 }
  
@@ -10,8 +9,10 @@ function removeT1ps(t1p)
         doRemoveItem(t1.uid, 1)
     end
 end
+
+local death_priest = CreatureEvent("Death Priest Shargon onDeath")
  
-function onDeath(cid)
+function death_priest.onDeath(cid)
     local t1p = t1ps[getCreatureName(cid)]
     if t1p then
         dark = doCreateTeleport(1387, {x=33489, y=32088, z=9}, {x= 33487, y= 32101, z= 9})
@@ -22,3 +23,5 @@ function onDeath(cid)
     
 	return true
 end
+
+death_priest:register()
