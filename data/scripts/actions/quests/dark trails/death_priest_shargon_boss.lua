@@ -89,5 +89,5 @@ function death_priest.onUse(player, item, fromPosition, target, toPosition, isHo
         return true
 end
 
-corpse:uid(9512)
-corpse:register()
+death_priest:uid(9512)
+death_priest:register()

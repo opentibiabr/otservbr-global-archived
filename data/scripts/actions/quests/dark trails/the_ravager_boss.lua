@@ -84,5 +84,5 @@ function the_ravager.onUse(player, item, fromPosition, target, toPosition, isHot
         return true
 end
 
-corpse:uid(9511)
-corpse:register()
+the_ravager:uid(9511)
+the_ravager:register()
