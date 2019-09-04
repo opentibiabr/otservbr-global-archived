@@ -12,7 +12,7 @@ local invalidTypes = {
 
 function talk.onSay(player, words, param)
 	if not player:getGroup():getAccess() then
-		return true
+		return false
 	end
 	
 	if param == "" then

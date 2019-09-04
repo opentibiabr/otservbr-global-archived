@@ -1,8 +1,8 @@
 local talk = TalkAction("/mc")
 
 function talk.onSay(player, words, param)
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
+	if not player:getGroup():getAccess() then 
+		return false
 	end
 
 	player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Multiclient Check List:")

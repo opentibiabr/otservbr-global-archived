@@ -4,8 +4,8 @@ function talk.onSay(player, words, param)
 
 	local banDays = 7
 
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
+	if not player:getGroup():getAccess() then 
+		return false
 	end
 
 	if param == "" then

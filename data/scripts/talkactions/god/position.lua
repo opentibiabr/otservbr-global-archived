@@ -2,8 +2,8 @@ local talk = TalkAction("/pos")
 
 function talk.onSay(player, words, param)
 
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
+	if not player:getGroup():getAccess() then 
+		return false
 	end
 	
 	if player:getGroup():getAccess() and param ~= "" then

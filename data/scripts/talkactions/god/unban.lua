@@ -1,8 +1,8 @@
 local talk = TalkAction("/unban")
 
 function talk.onSay(player, words, param)
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
+	if not player:getGroup():getAccess() then 
+		return false
 	end
 
 	if param == "" then

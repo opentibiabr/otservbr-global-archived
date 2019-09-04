@@ -6,8 +6,8 @@ local invalidIds = {
 	1, 2, 3, 4, 5, 6, 7, 10, 11, 13, 14, 15, 19, 21, 26, 27, 28, 35, 43
 }
 
-	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return true
+	if not player:getGroup():getAccess() then 
+		return false
 	end
 
 	local split = param:split(",")
