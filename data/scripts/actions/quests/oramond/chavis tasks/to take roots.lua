@@ -5,7 +5,9 @@ local function revertRoot(position, itemId, transformId)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local to_take_roots = Action()
+
+function to_take_roots.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local harvestedCount = player:getStorageValue(20061)
 	local rand = math.random(1, 100)
 	if item.itemid == 23475 then
@@ -15,11 +17,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			item:transform(item.itemid + 2)
 			addEvent(revertRoot, 120000, toPosition, 23477, 23475)
 			toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
-			if player:getStorageValue(10060) <= 0 then
-				player:setStorageValue(10060, 1)
+			if player:getStorageValue(Storage.Oramond.QuestLine) <= 0 then
+				player:setStorageValue(Storage.Oramond.QuestLine, 1)
 			end
-			if player:getStorageValue(20060) <= 0 then
-				player:setStorageValue(20060, 1)
+			if player:getStorageValue(Storage.Oramond.MissionToTakeRoots) <= 0 then
+				player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 1)
 			end
 			player:setStorageValue(20061, harvestedCount > 0 and harvestedCount + 1 or 1)
 		else
@@ -35,11 +37,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			item:transform(item.itemid + 2)
 			addEvent(revertRoot, 120000, toPosition, 23478, 23476)
 			toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
-			if player:getStorageValue(10060) <= 0 then
-				player:setStorageValue(10060, 1)
+			if player:getStorageValue(Storage.Oramond.QuestLine) <= 0 then
+				player:setStorageValue(Storage.Oramond.QuestLine, 1)
 			end
-			if player:getStorageValue(20060) <= 0 then
-				player:setStorageValue(20060, 1)
+			if player:getStorageValue(Storage.Oramond.MissionToTakeRoots) <= 0 then
+				player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 1)
 			end
 			player:setStorageValue(20061, harvestedCount > 0 and harvestedCount + 1 or 1)
 		else
@@ -53,3 +55,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+to_take_roots:id(23468,23469,23470,23471,23475,23476,23477,23478)
+to_take_roots:register()

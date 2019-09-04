@@ -22,7 +22,9 @@ local config = {
         }
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local the_ravager = Action()
+
+function the_ravager.onUse(player, item, fromPosition, target, toPosition, isHotkey)
         if item.itemid == 1946 then
                 local storePlayers, playerTile = {}
 
@@ -81,3 +83,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         end
         return true
 end
+
+corpse:uid(9511)
+corpse:register()

@@ -72,12 +72,6 @@
 	<action itemid="28665" script="quests/cults of tibia/counteragent.lua" />
 	<action itemid="28658" script="quests/cults of tibia/Misguided.lua" />
 
-	<!-- Dark Trails Quest -->
-	<action uniqueid="9511" script="quests/dark trails/bossTheRavager.lua"/>
-	<action actionid="9512" script="quests/dark trails/bossDeathPriestShargon.lua"/>
-	<action actionid="9746" script="quests/dark trails/corpse.lua"/>
-	<action actionid="9748" script="quests/dark trails/rewardRoomExit.lua"/>
-
 	<!-- Dangerous Depths Quest (Warzone 4, 5 and 6) -->
 	<!-- (Movements)
 	57230 -> Portals for enter in the warzones;
@@ -402,21 +396,13 @@
 	<!-- Oramond -->
 	<action itemid="22944" script="oramond/teleportWest.lua"/>
 	<action itemid="22949" script="oramond/teleportNorth.lua"/>
-	<action itemid="23400" script="oramond/gerator.lua"/>
-	<action itemid="23401" script="oramond/gerator.lua"/>
-	<action itemid="23402" script="oramond/gerator.lua"/>
-	<action itemid="23403" script="oramond/gerator.lua"/>
+	
 	<action itemid="23668" script="oramond/sewerGrateTeleport.lua"/>
 	<action itemid="23669" script="oramond/sewerGrate.lua"/>
 	<action itemid="23422" script="oramond/elevator.lua" />
 	<action itemid="23429" script="oramond/elevator.lua" />
 
 	<!-- Oramond Quest -->
-	<action itemid="23468" script="quests/oramond/juiceroots.lua"/>
-	<action fromid="23475" toid="23478" script="quests/oramond/juiceroots.lua" />
-	<action itemid="23469" script="quests/oramond/juiceroots.lua"/>
-	<action itemid="23470" script="quests/oramond/juiceroots.lua"/>
-	<action itemid="23471" script="quests/oramond/juiceroots.lua"/>
 	<action uniqueid="9513" script="quests/oramond/gloothFairyLever.lua"/>
 
 	<!-- Others -->

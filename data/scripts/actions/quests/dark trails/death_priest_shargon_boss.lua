@@ -29,7 +29,9 @@ local config = {
         }
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local death_priest = Action()
+
+function death_priest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
         if item.itemid == 1946 then
                 local storePlayers, playerTile = {}
 
@@ -86,3 +88,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         item:transform(item.itemid == 1946 and 1945 or 1946)
         return true
 end
+
+corpse:uid(9512)
+corpse:register()
