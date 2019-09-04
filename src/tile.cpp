@@ -940,7 +940,7 @@ void Tile::addThing(int32_t, Thing* thing)
 
 			items = makeItemList();
 			items->insert(items->getBeginDownItem(), item);
-			items->addDownItemCount(1);
+			items->increaseDownItemCount();
 			onAddTileItem(item);
 		}
 	}
@@ -1122,7 +1122,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 
 			item->setParent(nullptr);
 			items->erase(it);
-			items->addDownItemCount(-1);
+			items->decreaseDownItemCount();
 			onRemoveTileItem(spectators, oldStackPosVector, item);
 		}
 	}
@@ -1488,7 +1488,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 			}
 		} else {
 			items->insert(items->getBeginDownItem(), item);
-			items->addDownItemCount(1);
+			items->increaseDownItemCount();
 		}
 
 		setTileFlags(item);
