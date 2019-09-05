@@ -95,7 +95,7 @@
 		<flags>
 			<flag cannotusecombat="1" />
 			<flag cannotattackplayer="1" />
-			<flag cannotattackmonster="1" />
+			<flag cannotattackmonster="0" />
 			<flag cannotbeattacked="1" />
 			<flag canconvinceall="1" />
 			<flag cansummonall="1" />
