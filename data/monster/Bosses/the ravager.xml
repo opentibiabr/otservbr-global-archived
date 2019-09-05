@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Ravager" nameDescription="The Ravager" race="undead" experience="14980" speed="320">
+<monster name="The Ravager" nameDescription="the ravager" race="undead" experience="14980" speed="340">
 	<health now="53500" max="53500"/>
 	<look type="87" corpse="6031"/>
-	<targetchange interval="2000" chance="5"/>
+	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag preyable="0"/>
 		<flag summonable="0"/>
@@ -18,30 +18,28 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="150" attack="100"/>
-		<attack name="death" interval="2000" chance="30" range="7" min="-350" max="-900">
-			<attribute key="shootEffect" value="suddendeath"/>
+		<attack name="melee" interval="2000" skill="82" attack="70" poison="320"/>
+		<attack name="death" interval="2000" chance="12" range="7" min="-200" max="-750">
+			<attribute key="shootEffect" value="death"/>
 			<attribute key="areaEffect" value="mortarea"/>
 		</attack>
-		<attack name="poison" interval="2000" chance="20" length="7" spread="0" min="-700" max="-1150">
-			<attribute key="areaEffect" value="poff"/>
+		<attack name="death" interval="2000" chance="9" length="8" spread="3" min="-700" max="-880">
+			<attribute key="areaEffect" value="smallclouds"/>
 		</attack>
-		<attack name="manadrain" interval="2000" chance="12" radius="5" target="0" min="-300" max="-600">
-			<attribute key="areaEffect" value="bluebubble"/>
-		</attack>
-		<attack name="death" interval="2000" chance="22" length="8" spread="3" min="-400" max="-1100">
-			<attribute key="areaEffect" value="mortarea"/>
+		<attack name="lifedrain" interval="2000" chance="18" length="7" spread="0" min="-400" max="-500">
+			<attribute key="areaEffect" value="smoke"/>
 		</attack>
 	</attacks>
-	<defenses armor="65" defense="75">
-		<defense name="healing" interval="2000" chance="15" min="500" max="1000">
+	<defenses armor="25" defense="30">
+		<defense name="healing" interval="2000" chance="20" min="200" max="400">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
-		<defense name="the ravager heal" interval="2000" chance="100"/>
 	</defenses>
 	<elements>
+		<element earthPercent="1"/>
 		<element energyPercent="10"/>
-		<element earthPercent="10"/>
+		<element icePercent="50"/>
+		<element physicalPercent="10"/>
 	</elements>
 	<immunities>
 		<immunity death="1"/>
@@ -49,18 +47,17 @@
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
-	<summons maxSummons="8">
-		<summon name="Canopic Jar" interval="2000" chance="35" max="8"/>
+	<summons maxSummons="16">
+		<summon name="Elder Mummy" interval="2000" chance="9" max="4"/>
+		<summon name="Canopic Jar" interval="2000" chance="9" max="4"/>
+		<summon name="Greater Canopic Jar" interval="2000" chance="9" max="8"/>
 	</summons>
 	<loot>
-		<item id="2144" countmax="5" chance="100000"/><!-- black pearl -->
-		<item id="7591" countmax="5" chance="50000"/><!-- great health potion -->
-		<item id="7590" countmax="5" chance="50000"/><!-- great mana potion -->
-		<item id="2152" countmax="15" chance="100000"/><!-- platinum coin -->
-		<item id="2142" chance="10000"/><!-- ancient amulet -->
-		<item id="2440" chance="5000"/><!-- daramian waraxe -->
-		<item id="2159" countmax="5" chance="100000"/><!-- scarab coin -->
-		<item id="2540" chance="10000"/><!-- scarab shield -->
-		<item id="2134" chance="10000"/><!-- silver brooch -->
+		<item id="2148" countmax="243" chance="95000"/><!-- gold coin -->
+		<item id="7590" countmax="5" chance="10000"/><!-- great mana potion -->
+		<item id="7591" countmax="5" chance="5000"/><!-- great health potion -->
+		<item id="2152" countmax="5" chance="37500"/><!-- platinum coin -->
+		<item id="2159" countmax="5" chance="15000"/><!-- scarab coin -->
+		<item id="2440" chance="5000"/><!-- twin axe -->
 	</loot>
 </monster>
