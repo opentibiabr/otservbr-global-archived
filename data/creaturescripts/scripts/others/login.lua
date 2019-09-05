@@ -66,6 +66,8 @@ local events = {
     'deeplingBosses',
     'theGreatDragonHuntKill',
     'bonusPreyLootKill',
+	'ravager_kill',
+	'shargon_kill',
     'bossesMissionCults'
 }
 

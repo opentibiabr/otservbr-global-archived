@@ -1,29 +1,28 @@
--- this script need to be refactored
-
-local tps =
-{
--- [monster name] = {pos = {posição onde aparecerá o TP}, toPos = {posição para onde levara o TP}, time = tempo para o teleporte sumir},
-    ["The Ravager"] = {pos = {x= 33496, y= 32070, z= 8}, toPos = {x= 33459, y= 32083, z= 8}, time = 60},
-}
-
-function removeTp(tp)
-    local t = getTileItemById({x= 33496, y= 32070, z= 8}, 1387)
-    if t then
-        doRemoveItem(t.uid, 1)
+local function removeTeleport(position)
+    local teleportItem = Tile(Position(33496,32070,8)):getItemById(1387)
+    if teleportItem then
+        teleportItem:remove()
+        position:sendMagicEffect(CONST_ME_POFF)
     end
 end
 
-local the_ravager = CreatureEvent("The Ravager onDeath")
-
-function the_ravager.onDeath(cid)
-    local tp = tps[getCreatureName(cid)]
-    if tp then
-        doCreateTeleport(1387, {x=33459, y=32083, z=8}, {x=33496, y=32070, z=8})
-        doCreatureSay(cid, "The teleport will disappear in "..tp.time.." second.", TALKTYPE_ORANGE_1)
-        addEvent(removeTp, 60*1000)
+local kill_ravager = CreatureEvent("ravager_kill")
+function kill_ravager.onKill(creature, target)
+    if target:isPlayer() or target:getMaster() or target:getName():lower() ~= "the ravager" then
+        return true
     end
 
-	return true
+    local position = target:getPosition()
+    position:sendMagicEffect(CONST_ME_TELEPORT)
+    local item = Game.createItem(1387, 1, Position(33496,32070,8))
+    if item:isTeleport() then
+        item:setDestination(Position(33459,32083,8))
+    end
+	if creature:getStorageValue(Storage.DarkTrails.Mission11) < 1 then	
+		creature:setStorageValue(Storage.DarkTrails.Mission11, 1)
+	end
+    addEvent(removeTeleport, 5 * 60 * 1000, position)
+    return true
 end
 
-the_ravager:register()
+kill_ravager:register()
