@@ -517,7 +517,6 @@
 	<!-- Oramond -->
 	<monster name="Canopic Jar" file="Oramond/canopic jar.xml"/>
 	<monster name="Control Tower" file="Oramond/control tower.xml"/>
-	<monster name="Death Priest Shargon" file="Oramond/death priest shargon.xml"/>
 	<monster name="Depowered Minotaur" file="Oramond/depowered minotaur.xml"/>
 	<monster name="Glooth Bandit" file="Oramond/glooth bandit.xml"/>
 	<monster name="Glooth Battery" file="Oramond/glooth battery.xml"/>
@@ -538,7 +537,6 @@
 	<monster name="Roaring Lion" file="Oramond/roaring lion.xml"/>
 	<monster name="Seacrest Serpent" file="Oramond/seacrest serpent.xml"/>
 	<monster name="Superior Death Minion" file="Oramond/superior death minion.xml"/>
-	<monster name="The Ravager" file="Oramond/the ravager.xml"/>
 	<monster name="Tremor Worm" file="Oramond/tremor worm.xml"/>
 
 	<!-- Annelids -->
@@ -710,6 +708,7 @@
 	<monster name="Coldheart" file="Bosses/coldheart.xml"/>
 	<monster name="Countess Sorrow" file="Bosses/countess_sorrow.xml"/>
 	<monster name="Deadeye Devious" file="Bosses/deadeye_devious.xml"/>
+	<monster name="Death Priest Shargon" file="Oramond/death priest shargon.xml"/>
 	<monster name="Deathbine" file="Bosses/deathbine.xml"/>
 	<monster name="Deathstrike" file="Bosses/deathstrike.xml"/>
 	<monster name="Demodras" file="Bosses/demodras.xml"/>
@@ -832,6 +831,7 @@
 	<monster name="The Handmaiden" file="Bosses/the_handmaiden.xml"/>
 	<monster name="The Horned Fox" file="Bosses/the_horned_fox.xml"/>
 	<monster name="The Keeper" file="Bosses/the keeper.xml"/>
+	<monster name="The Ravager" file="Oramond/the ravager.xml"/>
 	<monster name="The Imperor" file="Bosses/the_imperor.xml"/>
 	<monster name="The Many" file="Bosses/the_many.xml"/>
 	<monster name="The Noxious Spawn" file="Bosses/the_noxious_spawn.xml"/>
