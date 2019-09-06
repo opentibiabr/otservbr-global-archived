@@ -1492,6 +1492,7 @@ GlobalStorage = {
 	NaginataStone = 50058,
 	ExpBoost = 51052,
 	SwordOfFury = 5635,
-	XpDisplayMode = 5634
+	XpDisplayMode = 5634,
+	isTraining = 37
 
 }
