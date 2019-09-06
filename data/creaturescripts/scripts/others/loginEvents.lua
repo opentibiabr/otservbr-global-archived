@@ -1,53 +1,60 @@
 function onLogin(player)
-    player:registerEvent("ParasiteWarzone")
-    player:registerEvent("ElementalSpheresOverlords")
-    player:registerEvent("BigfootBurdenVersperoth")
-    player:registerEvent("BigfootBurdenWiggler")
-    player:registerEvent("SvargrondArenaKill")
-    player:registerEvent("NewFrontierShardOfCorruption")
-    player:registerEvent("NewFrontierTirecz")
-    player:registerEvent("ServiceOfYalaharDiseasedTrio")
-    player:registerEvent("ServiceOfYalaharAzerus")
-    player:registerEvent("ServiceOfYalaharQuaraLeaders")
-    player:registerEvent("InquisitionBosses")
-    player:registerEvent("InquisitionUngreez")
-    player:registerEvent("KillingInTheNameOfKills")
-	player:registerEvent("KillingInTheNameOfKillss")
-	player:registerEvent("KillingInTheNameOfKillsss")
-    player:registerEvent("SecretServiceBlackKnight")
-    player:registerEvent("ThievesGuildNomad")
-    player:registerEvent("WotELizardMagistratus")
-    player:registerEvent("WotELizardNoble")
-    player:registerEvent("WotEKeeper")
-    player:registerEvent("WotEBosses")
-    player:registerEvent("WotEZalamon")
-    player:registerEvent("PlayerDeath")
-    player:registerEvent("AdvanceSave")
-    player:registerEvent("bossesWarzone")
-    player:registerEvent("AdvanceRookgaard")
-    player:registerEvent("PythiusTheRotten")
-    player:registerEvent("DropLoot")
-    player:registerEvent("Yielothax")
-    player:registerEvent("BossParticipation")
-    player:registerEvent("Energized Raging Mage")
-    player:registerEvent("Raging Mage")
-	player:registerEvent("lowerRoshamuul")
-	player:registerEvent("petlogin")
-	player:registerEvent("petthink")
-	player:registerEvent("UpperSpikeKill")
-	player:registerEvent("MiddleSpikeKill")
-	player:registerEvent("LowerSpikeKill")
-	player:registerEvent("BossesForgotten")
-	player:registerEvent("ReplicaServants")
-	player:registerEvent("EnergyPrismDeath")
-	player:registerEvent("AstralPower")
-	player:registerEvent("BossesKill")
-	player:registerEvent("TheShattererKill")
-	player:registerEvent("BossesHero")
-	player:registerEvent("DragonsKill")
-    player:registerEvent("deeplingBosses")
-    player:registerEvent("theGreatDragonHuntKill")
-    player:registerEvent("bonusPreyLootKill")
-    player:registerEvent("bossesMissionCults")
-	return true
+
+	local events = {
+	"ParasiteWarzone",
+	"ElementalSpheresOverlords",
+	"BigfootBurdenVersperoth",
+	"BigfootBurdenWiggler",
+	"SvargrondArenaKill",
+	"NewFrontierShardOfCorruption",
+	"NewFrontierTirecz",
+	"ServiceOfYalaharDiseasedTrio",
+	"ServiceOfYalaharAzerus",
+	"ServiceOfYalaharQuaraLeaders",
+	"InquisitionBosses",
+	"InquisitionUngreez",
+	"KillingInTheNameOfKills",
+	"KillingInTheNameOfKillss",
+	"KillingInTheNameOfKillsss",
+	"SecretServiceBlackKnight",
+	"ThievesGuildNomad",
+	"WotELizardMagistratus",
+	"WotELizardNoble",
+	"WotEKeeper",
+	"WotEBosses",
+	"WotEZalamon",
+	"PlayerDeath",
+	"AdvanceSave",
+	"bossesWarzone",
+	"AdvanceRookgaard",
+	"PythiusTheRotten",
+	"DropLoot",
+	"Yielothax",
+	"BossParticipation",
+	"Energized Raging Mage",
+	"Raging Mage",
+	"lowerRoshamuul",
+	"petlogin",
+	"petthink",
+	"UpperSpikeKill",
+	"MiddleSpikeKill",
+	"LowerSpikeKill",
+	"BossesForgotten",
+	"ReplicaServants",
+	"EnergyPrismDeath",
+	"AstralPower",
+	"BossesKill",
+	"TheShattererKill",
+	"BossesHero",
+	"DragonsKill",
+	"deeplingBosses",
+	"theGreatDragonHuntKill",
+	"bonusPreyLootKill",
+	"bossesMissionCults"
+}
+	
+	for i = 1, #events do
+		player:registerEvent(events[i])
+	end
+return true
 end
