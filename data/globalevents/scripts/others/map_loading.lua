@@ -1,5 +1,5 @@
 local additionals = {
-    { description = "trainers", file = "data/world/worldchanges/additionals/trainers_eventRoom.otbm", enabled = false}
+    { description = "map description", file = "data/world/worldchanges/example.otbm", enabled = false}
 }
 
 function onStartup()
