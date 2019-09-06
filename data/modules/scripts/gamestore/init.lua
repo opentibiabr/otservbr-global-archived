@@ -1084,7 +1084,7 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
     return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END))
   end
 
-  if (isKegExerciseItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) or player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount)then
+  if (isKegExerciseItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) then
     return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
   end
 
