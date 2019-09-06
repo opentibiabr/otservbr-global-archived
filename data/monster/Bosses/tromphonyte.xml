@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Tromphonyte" nameDescription="Tromphonyte" race="blood" experience="1300" speed="240">
 	<health now="3000" max="3000"/>
-	<look type="381" corpse="13312"/>
+	<look type="381" corpse="12328"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
@@ -44,14 +44,14 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="13301" chance="100000"/>					<!-- hollow stampor hoof -->
-		<item id="2476" chance="100000"/>					<!-- knight armor -->
-		<item id="2152" countmax="13" chance="100000"/>		<!-- platinum coin -->
-		<item id="9970" countmax="5" chance="100000"/>		<!-- small topaz -->
-		<item id="13299" chance="100000"/>					<!-- stampor horn -->
-		<item id="13300" countmax="2" chance="100000"/>		<!-- stampor talon -->
-		<item id="7588" countmax="2" chance="100000"/>		<!-- strong health potion -->
-		<item id="7589" countmax="2" chance="100000"/>		<!-- strong mana potion -->
-		<item id="7452" chance="50000"/>					<!-- spiked squelcher -->
+		<item name="platinum coin" countmax="12" chance="100000"/>
+		<item name="small topaz" countmax="5" chance="100000"/>
+		<item name="strong health potion" countmax="2" chance="100000"/>
+		<item name="strong mana potion" countmax="2" chance="100000"/>
+		<item name="hollow stampor hoof" chance="100000"/>
+		<item name="stampor horn" chance="100000"/>
+		<item name="stampor talon" countmax="2" chance="100000"/>
+		<item name="knight armor" chance="100000"/>
+		<item name="spiked squelcher" chance="45830"/>
 	</loot>
 </monster>

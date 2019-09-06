@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Undead Cavebear" nameDescription="an undead cavebear" race="undead" experience="600" speed="109">
 	<health now="450" max="450"/>
-	<look type="384" corpse="13323"/>
+	<look type="384" corpse="12336"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
@@ -37,9 +37,9 @@
 		<voice sentence="Groooowl"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="80" chance="31820"/>
-		<item name="maxilla" chance="13640"/>
-		<item name="cavebear skull" chance="2600"/>
-		<item name="health potion" chance="1300"/>
+		<item name="gold coin" countmax="80" chance="31650"/>
+		<item name="maxilla" chance="13290"/>
+		<item name="cavebear skull" chance="2530"/>
+		<item name="health potion" chance="1270"/>
 	</loot>
 </monster>

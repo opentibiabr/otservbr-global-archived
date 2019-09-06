@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Stampor" nameDescription="a stampor" race="blood" experience="780" speed="220">
 	<health now="1200" max="1200"/>
-	<look type="381" corpse="13312"/>
+	<look type="381" corpse="12328"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -49,16 +49,16 @@
 		<voice sentence="KRRRRRNG" yell="1"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="242" chance="30000"/>
-		<item name="platinum coin" countmax="2" chance="9920"/>
-		<item name="war hammer" chance="1010"/>
-		<item name="knight armor" chance="870"/>
-		<item name="spiked squelcher" chance="160"/>
-		<item name="strong health potion" countmax="2" chance="5000"/>
-		<item name="strong mana potion" countmax="2" chance="5000"/>
-		<item name="small topaz" countmax="2" chance="7940"/>
-		<item name="stampor horn" chance="4920"/>
-		<item name="stampor talons" countmax="2" chance="9950"/>
-		<item name="hollow stampor hoof" chance="3020"/>
+		<item name="gold coin" countmax="242" chance="94900"/>
+		<item name="platinum coin" countmax="2" chance="90940"/>
+		<item name="stampor talons" countmax="2" chance="9870"/>
+		<item name="small topaz" countmax="2" chance="7920"/>
+		<item name="strong mana potion" countmax="2" chance="5050"/>
+		<item name="stampor horn" chance="4090"/>
+		<item name="strong health potion" countmax="2" chance="4870"/>
+		<item name="hollow stampor hoof" chance="3040"/>
+		<item name="war hammer" chance="1000"/>
+		<item name="knight armor" chance="860"/>
+		<item name="spiked squelcher" chance="180"/>
 	</loot>
 </monster>

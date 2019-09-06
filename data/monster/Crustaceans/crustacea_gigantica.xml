@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Crustacea Gigantica" nameDescription="a crustacea gigantica" race="blood" experience="1800" speed="240">
 	<health now="1600" max="1600"/>
-	<look type="383" corpse="13331"/>
+	<look type="383" corpse="12344"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
@@ -37,9 +37,11 @@
 		<voice sentence="Crunch crunch" yell="1"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="100000"/>
-		<item name="gold coin" countmax="43" chance="100000"/>
-		<item name="strong mana potion" chance="14285"/>
-		<item name="giant crab pincer" chance="5000"/>
+		<item name="gold coin" countmax="175" chance="96150"/>
+		<item name="strong mana potion" chance="8970"/>
+		<item name="giant crab pincer" chance="5130"/>
+		<item name="strong health potion" chance="3850"/>
+		<item name="ring of healing" chance="1540"/>
+		<item name="great mana potion" chance="1150"/>
 	</loot>
 </monster>
