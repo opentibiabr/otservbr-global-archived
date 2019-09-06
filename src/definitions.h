@@ -20,7 +20,7 @@
 #ifndef FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 #define FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 
-static constexpr auto STATUS_SERVER_NAME = "Open-Tibia BR Server";
+static constexpr auto STATUS_SERVER_NAME = "OTServBR - Global";
 static constexpr auto STATUS_SERVER_VERSION = "Based on TFS 1.3";
 static constexpr auto STATUS_SERVER_CREDITS = "OTServBR Team and Contributors, OTXServer (Mattyx Gomez) and The Forgotten Server Developers";
 static constexpr auto STATUS_SERVER_DEVELOPERS = "Eduardo Dantas, Gpedro and Mateus.";
