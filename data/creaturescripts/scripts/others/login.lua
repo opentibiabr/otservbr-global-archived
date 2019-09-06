@@ -217,5 +217,9 @@ function onLogin(player)
 		local minutes = worldTime % 60
 		player:sendTibiaTime(hours, minutes)
 	end
+	
+	if player:getStorageValue(isTraining) == 1 then -- redefinir storage de exercise weapon
+		player:setStorageValue(isTraining,0)
+	end
     return true
 end

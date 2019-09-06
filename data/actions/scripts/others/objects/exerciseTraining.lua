@@ -15,7 +15,6 @@ local skills = {
 
 local dummies = {32142, 32143, 32144, 32145, 32146, 32147, 32148, 32149}
 local skillRate = 1*configManager.getNumber(configKeys.RATE_SKILL)
-local isTraining = 37
 -- skillRate = 1.1*30 = 30 + 3 (10%) = 33x
 
 local function start_train(pid,start_pos,itemid,fpos)
@@ -65,8 +64,10 @@ local function start_train(pid,start_pos,itemid,fpos)
 		end
 	else
 		stopEvent(training)
-		player:sendCancelMessage("Your training has stopped.")
-		player:setStorageValue(isTraining,0)
+		if player then -- verificar se o player ainda existe (logado), caso esteja, enviar mensagem de erro e parar treino. isso evita erros no console
+			player:sendCancelMessage("Your training has stopped.")
+			player:setStorageValue(isTraining,0)
+		end
 	end
 	return true
 end
