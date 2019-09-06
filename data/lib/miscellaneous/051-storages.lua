@@ -1340,7 +1340,8 @@ Storage = {
 	combatProtectionStorage = 50722,
 	Factions = 50723,
 	blockMovementStorage = 100000,
-	PetSummon = 60045
+	PetSummon = 60045,
+	isTraining = 37
 
 }
 
@@ -1492,7 +1493,6 @@ GlobalStorage = {
 	NaginataStone = 50058,
 	ExpBoost = 51052,
 	SwordOfFury = 5635,
-	XpDisplayMode = 5634,
-	isTraining = 37
+	XpDisplayMode = 5634
 
 }
