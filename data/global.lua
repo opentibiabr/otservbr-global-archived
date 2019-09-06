@@ -1,7 +1,5 @@
 dofile('data/lib/libs.lua')
 
-isTraining = 37
-
 NOT_MOVEABLE_ACTION = 8000
 PARTY_PROTECTION = 1 -- Set to 0 to disable.
 ADVANCED_SECURE_MODE = 1 -- Set to 0 to disable.

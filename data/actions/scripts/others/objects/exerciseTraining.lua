@@ -47,12 +47,12 @@ local function start_train(pid,start_pos,itemid,fpos)
 								return true
 							end
 							local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos)
-							player:setStorageValue(isTraining,1)
+							player:setStorageValue(Storage.isTraining,1)
 						else
 							exercise:remove(1)
 							player:sendCancelMessage("Your training weapon vanished.")
 							stopEvent(training)
-							player:setStorageValue(isTraining,0)
+							player:setStorageValue(Storage.isTraining,0)
 						end
 					end
 				end
@@ -60,13 +60,13 @@ local function start_train(pid,start_pos,itemid,fpos)
 		else
 			player:sendCancelMessage("Your training has stopped.")
 			stopEvent(training)
-			player:setStorageValue(isTraining,0)
+			player:setStorageValue(Storage.isTraining,0)
 		end
 	else
 		stopEvent(training)
 		if player then -- verificar se o player ainda existe (logado), caso esteja, enviar mensagem de erro e parar treino. isso evita erros no console
 			player:sendCancelMessage("Your training has stopped.")
-			player:setStorageValue(isTraining,0)
+			player:setStorageValue(Storage.isTraining,0)
 		end
 	end
 	return true
@@ -81,7 +81,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				stopEvent(training)
 				return false
 			end
-			if player:getStorageValue(isTraining) == 1 then
+			if player:getStorageValue(Storage.isTraining) == 1 then
 				player:sendCancelMessage("You are already training.")
 				return false
 			end
