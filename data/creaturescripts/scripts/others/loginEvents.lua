@@ -1,0 +1,60 @@
+function onLogin(player)
+
+	local events = {
+	"ParasiteWarzone",
+	"ElementalSpheresOverlords",
+	"BigfootBurdenVersperoth",
+	"BigfootBurdenWiggler",
+	"SvargrondArenaKill",
+	"NewFrontierShardOfCorruption",
+	"NewFrontierTirecz",
+	"ServiceOfYalaharDiseasedTrio",
+	"ServiceOfYalaharAzerus",
+	"ServiceOfYalaharQuaraLeaders",
+	"InquisitionBosses",
+	"InquisitionUngreez",
+	"KillingInTheNameOfKills",
+	"KillingInTheNameOfKillss",
+	"KillingInTheNameOfKillsss",
+	"SecretServiceBlackKnight",
+	"ThievesGuildNomad",
+	"WotELizardMagistratus",
+	"WotELizardNoble",
+	"WotEKeeper",
+	"WotEBosses",
+	"WotEZalamon",
+	"PlayerDeath",
+	"AdvanceSave",
+	"bossesWarzone",
+	"AdvanceRookgaard",
+	"PythiusTheRotten",
+	"DropLoot",
+	"Yielothax",
+	"BossParticipation",
+	"Energized Raging Mage",
+	"Raging Mage",
+	"lowerRoshamuul",
+	"petlogin",
+	"petthink",
+	"UpperSpikeKill",
+	"MiddleSpikeKill",
+	"LowerSpikeKill",
+	"BossesForgotten",
+	"ReplicaServants",
+	"EnergyPrismDeath",
+	"AstralPower",
+	"BossesKill",
+	"TheShattererKill",
+	"BossesHero",
+	"DragonsKill",
+	"deeplingBosses",
+	"theGreatDragonHuntKill",
+	"bonusPreyLootKill",
+	"bossesMissionCults"
+}
+	
+	for i = 1, #events do
+		player:registerEvent(events[i])
+	end
+return true
+end

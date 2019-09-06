@@ -8,67 +8,6 @@ function Player.sendTibiaTime(self, hours, minutes)
 	return true
 end
 
-local events = {
-    'KillTracker',
-    'ParasiteWarzone',
-    'ElementalSpheresOverlords',
-    'BigfootBurdenVersperoth',
-    'BigfootBurdenWiggler',
-    'SvargrondArenaKill',
-    'NewFrontierShardOfCorruption',
-    'NewFrontierTirecz',
-    'ServiceOfYalaharDiseasedTrio',
-    'ServiceOfYalaharAzerus',
-    'ServiceOfYalaharQuaraLeaders',
-    'InquisitionBosses',
-    'InquisitionUngreez',
-    'KillingInTheNameOfKills',
-	'KillingInTheNameOfKillss',
-	'KillingInTheNameOfKillsss',
-    'MastersVoiceServants',
-    'SecretServiceBlackKnight',
-    'ThievesGuildNomad',
-    'WotELizardMagistratus',
-    'WotELizardNoble',
-    'WotEKeeper',
-    'WotEBosses',
-    'WotEZalamon',
-    'WarzoneThree',
-    'PlayerDeath',
-    'AdvanceSave',
-    'bossesWarzone',
-    'AdvanceRookgaard',
-    'PythiusTheRotten',
-    'DropLoot',
-    'Yielothax',
-    'BossParticipation',
-    'Energized Raging Mage',
-    'Raging Mage',
-    'DeathCounter',
-    'KillCounter',
-    'bless1',
-	'lowerRoshamuul',
-	'SpikeTaskQuestCrystal',
-	'SpikeTaskQuestDrillworm',
-	'petlogin',
-	'petthink',
-	'UpperSpikeKill',
-	'MiddleSpikeKill',
-	'LowerSpikeKill',
-	'BossesForgotten',
-	'ReplicaServants',
-	'EnergyPrismDeath',
-	'AstralPower',
-	'BossesKill',
-	'TheShattererKill',
-	'BossesHero',
-	'DragonsKill',
-    'deeplingBosses',
-    'theGreatDragonHuntKill',
-    'bonusPreyLootKill',
-    'bossesMissionCults'
-}
-
 local function onMovementRemoveProtection(cid, oldPosition, time)
     local player = Player(cid)
     if not player then
@@ -170,11 +109,6 @@ function onLogin(player)
     local stats = player:inBossFight()
     if stats then
         stats.playerId = player:getId()
-    end
-
-    -- Events
-    for i = 1, #events do
-        player:registerEvent(events[i])
     end
 
  	if player:getStorageValue(Storage.combatProtectionStorage) < 1 then
