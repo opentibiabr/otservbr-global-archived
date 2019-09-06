@@ -185,13 +185,6 @@ function Player:onLook(thing, position, distance)
 			end
 		end
 	end
-
-	if thing:isCreature() then
-		if thing:isPlayer() then
-			local KD = (math.max(0, thing:getStorageValue(STORAGEVALUE_KILLS)) + math.max(0, thing:getStorageValue(STORAGEVALUE_ASSISTS))) / math.max(1, thing:getStorageValue(STORAGEVALUE_DEATHS))
-			description = string.format("%s\nKD: [%0.2f]", description, KD)
-		end
-	end
 	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
 end
 
@@ -219,11 +212,6 @@ function Player:onLookInBattleList(creature, distance)
 		if creature:isPlayer() then
 			description = string.format("%s\nIP: %s", description, Game.convertIpToString(creature:getIp()))
 		end
-	end
-
-	if creature:isPlayer() then
-		local KD = (math.max(0, creature:getStorageValue(STORAGEVALUE_KILLS)) + math.max(0, creature:getStorageValue(STORAGEVALUE_ASSISTS))) / math.max(1, creature:getStorageValue(STORAGEVALUE_DEATHS))
-		description = string.format("%s\nKD: [%0.2f]", description, KD)
 	end
 	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
 end
