@@ -123,9 +123,9 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 	std::cout << std::endl;
 
 	std::cout << "Special Credits for: " << STATUS_SERVER_CREDITS << "." << std::endl;
-	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << "." << std::endl;
-	std::cout << "Visit our forum for updates, support, and resources: " << LINK_FORUM <<"." << std::endl;
-	std::cout << "List of contributors: " << GIT_CONTRIBUTORS <<"." << std::endl;
+	std::cout << "Visit our forum for updates, support, and resources: https://forums.otserv.com.br/" << std::endl;
+	std::cout << "Link of repository: https://github.com/opentibiabr/OTServBR-Global/" << std::endl;
+	std::cout << "List of contributors: https://github.com/opentibiabr/OTServBR-Global/graphs/contributors" << std::endl;
 	std::cout << std::endl;
 
 	// TODO: dirty for now; Use stdarg;
