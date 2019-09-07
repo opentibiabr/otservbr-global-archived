@@ -107,7 +107,7 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 #ifdef _WIN32
 	SetConsoleTitle(STATUS_SERVER_NAME);
 #endif
-	std::cout << "The " << STATUS_SERVER_NAME << " Global - Version: (" << STATUS_SERVER_VERSION << "." << MINOR_VERSION << ")" << std::endl;
+	std::cout << "The " << STATUS_SERVER_NAME << " - Version: (" << STATUS_SERVER_VERSION << ")" << std::endl;
 	std::cout << "Compiled with: " << BOOST_COMPILER << std::endl;
 	std::cout << "Compiled on " << __DATE__ << ' ' << __TIME__ << " for platform ";
 
@@ -123,11 +123,9 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 	std::cout << std::endl;
 
 	std::cout << "Special Credits for: " << STATUS_SERVER_CREDITS << "." << std::endl;
-	std::cout << "A server developed by " << STATUS_SERVER_CONTRIBUTORS << "." << std::endl;
-	std::cout << "Visit our forum for updates, support, and resources: " << GIT_REPO <<"." << std::endl;
-	std::cout << "For report issues or debugs please acess: " << GIT_ISSUE <<"." << std::endl;
-	std::cout << "List of contributors: " << GIT_CONTRIBUTORS <<"." << std::endl;
-	std::cout << GIT_ISSUE_INFO << std::endl;
+	std::cout << "Visit our forum for updates, support, and resources: https://forums.otserv.com.br/" << std::endl;
+	std::cout << "Link of repository: https://github.com/opentibiabr/OTServBR-Global/" << std::endl;
+	std::cout << "List of contributors: https://github.com/opentibiabr/OTServBR-Global/graphs/contributors" << std::endl;
 	std::cout << std::endl;
 
 	// TODO: dirty for now; Use stdarg;

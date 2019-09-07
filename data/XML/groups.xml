@@ -93,9 +93,9 @@
 	</group>
 		<group id="6" name="ADM" access="1" maxdepotitems="0" maxvipentries="200" >
 		<flags>
-			<flag cannotusecombat="1" />
+			<flag cannotusecombat="0" />
 			<flag cannotattackplayer="1" />
-			<flag cannotattackmonster="1" />
+			<flag cannotattackmonster="0" />
 			<flag cannotbeattacked="1" />
 			<flag canconvinceall="1" />
 			<flag cansummonall="1" />
@@ -121,11 +121,11 @@
 			<flag notgainskill="1" />
 			<flag setmaxspeed="1" />
 			<flag specialvip="1" />
-			<flag notgenerateloot="1" />
+			<flag notgenerateloot="0" />
 			<flag cantalkredchannelanonymous="1" />
 			<flag ignoreprotectionzone="1" />
-			<flag ignorespellcheck="1" />
-			<flag ignoreweaponcheck="1" />
+			<flag ignorespellcheck="0" />
+			<flag ignoreweaponcheck="0" />
 			<flag cannotbemuted="1" />
 			<flag isalwayspremium="1" />
 		</flags>
