@@ -647,7 +647,7 @@
 	<movevent event="StepOut" itemid="10019" script="others/drowning.lua"/>
 
 	<!-- Assassin Outfit Quest -->
-	<movevent event="StepIn" itemid="3139" script="quests/assassin outfit/vescuhouse.lua"/>
+	<movevent event="StepIn" itemid="3139" script="quests/assassin outfit/erayohouse.lua"/>
 
 	<!-- Boots -->
 	<movevent event="Equip" itemid="34062" level="180" slot="feet" function="onEquipItem"> <!-- Pair of Dreamwalkers -->
