@@ -23116,31 +23116,11 @@
 		<attribute key="description" value="This hat was handcrafted by Uman the Wise and cursed by Zathroth the Destroyer."/>
 		<attribute key="weight" value="805"/>
 	</item>
-	<item id="12811" name="imortus">
-		<attribute key="weight" value="4690"/>
-		<attribute key="description" value="Souvenir from Thais Museum."/>
-	</item>
-	<item article="an" name="imortus" id="12811">
+	<item fromid="12811" toid="12812" article="an" name="imortus" >
 		<attribute key="description" value="It knows all secrets of all numbers. It was awarded by fansite Exhiti.com."/>
 		<attribute key="weight" value="4609"/>
 	</item>
-	<item article="an" name="imortus" id="12812">
-		<attribute key="description" value="It knows all secrets of all numbers. It was awarded by fansite Exhiti.com."/>
-		<attribute key="weight" value="4609"/>
-	</item>
-	<item name="old radio" id="12813">
-		<attribute key="description" value="Granted by RadioTibia.com.br to hear the sounds of Tibia."/>
-		<attribute key="weight" value="4015"/>
-	</item>
-	<item id="12813" article="an" name="old radio">
-		<attribute key="weight" value="1900"/>
-		<attribute key="description" value="It does not wish to be disturbed. Awarded by TibiaLibrary.org."/>
-	</item>
-	<item id="12813" article="an" name="old radio">
-		<attribute key="weight" value="4015"/>
-		<attribute key="description" value="Souvenir from Thais Museum."/>
-	</item>
-	<item name="old radio" id="12814">
+	<item fromid="12813" toid="12814" name="old radio" >
 		<attribute key="description" value="Granted by RadioTibia.com.br to hear the sounds of Tibia."/>
 		<attribute key="weight" value="4015"/>
 	</item>
@@ -25426,9 +25406,6 @@
 		<attribute key="description" value="Use it to get a little surprise."/>
 		<attribute key="weight" value="2000"/>
 	</item>
-	<item id="14760" article="a" name="mathmaster shield">
-		<attribute key="description" value="Souvenir from Thais Museum."/>
-	</item>
 	<item article="a" name="mathmaster shield" id="14760">
 		<attribute key="description" value="It's an Emblem of Wisdom. Awarded by TibiaStat.com."/>
 		<attribute key="weight" value="314"/>
@@ -25437,10 +25414,6 @@
 		<attribute key="description" value="It's an Emblem of Wisdom. Awarded by TibiaStat.com."/>
 		<attribute key="weight" value="314"/>
 	</item>
-	<item id="14762" article="a" name="medusa skull">
-		<attribute key="weight" value="1000"/>
-		<attribute key="description" value="Souvenir from Thais Museum."/>
-	</item>
 	<item article="a" name="medusa skull" id="14762">
 		<attribute key="description" value="You see a medusa skull. Her hair's snakes are still alive. Awarded only on TibiaPic.com."/>
 		<attribute key="weight" value="1000"/>
@@ -25448,10 +25421,6 @@
 	<item article="a" name="medusa skull" id="14763">
 		<attribute key="description" value="You see a medusa skull. Her hair's snakes are still alive. Awarded only on TibiaPic.com."/>
 		<attribute key="weight" value="1000"/>
-	</item>
-	<item id="14764" article="a" name="doll of Durin The Almighty">
-		<attribute key="weight" value="4000"/>
-		<attribute key="description" value="Souvenir from Thais Museum."/>
 	</item>
 	<item article="a" name="doll of Durin The Almighty" id="14764">
 		<attribute key="description" value="The mightiest. The only. God of all dwarfs. Awarded by Tibia Bariloche."/>
@@ -27267,13 +27236,6 @@
 		<attribute key="decayto" value="0"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
-	</item>
-	<item id="16147" article="a" name="dead dragonling">
-		<attribute key="containersize" value="25"/>
-		<attribute key="decayto" value="18438"/>
-		<attribute key="duration" value="10"/>
-		<attribute key="corpsetype" value="blood"/>
-		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="16147" article="a" name="dead dragonling">
 		<attribute key="containersize" value="25"/>
@@ -31583,14 +31545,6 @@
 		<attribute key="description" value="It does not wish to be disturbed. Awarded by TibiaLibrary.org."/>
 		<attribute key="weight" value="1500"/>
 	</item>
-	<item id="18343" article="a" name="bookworm doll">
-		<attribute key="weight" value="1900"/>
-		<attribute key="description" value="It does not wish to be disturbed. Awarded by TibiaLibrary.org."/>
-	</item>
-	<item id="18343" article="a" name="bookworm doll">
-		<attribute key="weight" value="1900"/>
-		<attribute key="description" value="Souvenir from Thais Museum."/>
-	</item>
 	<item article="a" name="bookworm doll" id="18344">
 		<attribute key="description" value="It does not wish to be disturbed. Awarded by TibiaLibrary.org."/>
 		<attribute key="weight" value="1500"/>
@@ -32672,19 +32626,15 @@
 		<attribute key="weight" value="1900"/>
 		<attribute key="description" value="A large human bone yellow with age and shimmering as if polished clean."/>
 	</item>
-	<item article="a" name="unknown item" id="19092"/>
 	<item article="a" name="blazing altar basin" id="19092">
 		<attribute key="description" value="Liquid fire is blazing inside."/>
 	</item>
-	<item article="a" name="unknown item" id="19093"/>
 	<item article="a" name="blazing altar basin" id="19093">
 		<attribute key="description" value="Liquid fire is blazing inside."/>
 	</item>
-	<item article="a" name="unknown item" id="19094"/>
 	<item article="a" name="blazing altar basin" id="19094">
 		<attribute key="description" value="Liquid fire is blazing inside."/>
 	</item>
-	<item article="a" name="unknown item" id="19095"/>
 	<item article="a" name="blazing altar basin" id="19095">
 		<attribute key="description" value="Liquid fire is blazing inside."/>
 	</item>
@@ -32825,9 +32775,6 @@
 		<attribute key="description" value="This piece of the incantation scroll is incomplete."/>
 	</item>
 	<item id="19147" name="black marble floor"/>
-	<item id="19148" article="a" name="dirty cape">
-		<attribute key="weight" value="500"/>
-	</item>
 	<item id="19148" article="a" name="torn magic cape">
 		<attribute key="weight" value="2950"/>
 		<attribute key="description" value="Despite its dirty appearance, it will do a good job disguising you as a necromancer."/>
@@ -33678,13 +33625,9 @@
 	<item article="a" name="giant face" id="19892"/>
 	<item article="a" name="giant face" id="19893"/>
 	<item article="a" name="giant face" id="19894"/>
-	<item name="unknown item" id="19895"/>
 	<item article="a" name="giant face" id="19895"/>
-	<item name="unknown item" id="19896"/>
 	<item article="a" name="giant face" id="19896"/>
-	<item name="unknown item" id="19897"/>
 	<item article="a" name="giant face" id="19897"/>
-	<item name="unknown item" id="19898"/>
 	<item article="a" name="giant face" id="19898"/>
 	<item article="a" name="stone pavement" id="19899"/>
 	<item article="a" name="stone pavement" id="19900"/>
@@ -34155,8 +34098,7 @@
 		<attribute key="description" value="They melt away as you look at them."/>
 	</item>
 	<item id="20130" article="a" name="lamp"/>
-	<item id="20131" name="crystal rubbish"/>
-	<item id="20131" name="remais of grude dream">
+	<item id="20131" name="remais of crude dream">
 		<attribute key="description" value="They melt away as you look at them."/>
 	</item>
 	<item id="20132" article="a" name="sneeze bossom">
@@ -34328,7 +34270,6 @@
 		<attribute key="weight" value="50"/>
 		<attribute key="description" value="This dung smells extremely awful and deteriorates quickly."/>
 	</item>
-	<item id="20168" article="a" name="message in a bottle"/>
 	<item id="20168" article="a" name="message in a bottle"/>
 	<item id="20169" article="a" name="gravel and chalk in a bucket">
 		<attribute key="weight" value="2800"/>
@@ -36498,10 +36439,6 @@
 	<item id="21377" article="a" name="dawnfire derb plant">
 		<attribute key="description" value="It glows slightly in the dark, like the dawning sun."/>
 	</item>
-	<item id="21378" article="a" name="damaged logbook">
-		<attribute key="description" value="It must be the one which the explorer society requested."/>
-		<attribute key="weight" value="1100"/>
-	</item>
 	<item id="21378" article="a" name="torn log book">
 		<attribute key="weight" value="500"/>
 		<attribute key="description" value="It's rather tattered."/>
@@ -36757,9 +36694,6 @@
 	<item id="21466" name="ewer with holy water">
 		<attribute key="weight" value="1750"/>
 		<attribute key="description" value="The water in the ewer shimmers faintly. In the desert's heat it will evaporate soon, however."/>
-	</item>
-	<item id="21467" article="a" name="translation scroll">
-		<attribute key="description" value="With this scroll you might be able to translate the old temple inscriptions."/>
 	</item>
 	<item id="21467" article="a" name="translation scroll">
 		<attribute key="description" value="With this scroll you might be able to translate the old temple inscriptions."/>
@@ -37842,11 +37776,6 @@
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="22013" article="a" name="dead shadowpelt">
-		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
-		<attribute key="corpsetype" value="blood"/>
-	</item>
 	<item id="22013" article="a" name="dead werebear">
 		<attribute key="containersize" value="30"/>
 		<attribute key="decayto" value="0"/>
@@ -38388,9 +38317,6 @@
 	<item name="Cateroide's doll" id="22151">
 		<attribute key="weight" value="1500"/>
 		<attribute key="description" value="A rare doll that only worthy warriors can touch! Awarded by Cateroide.com.br."/>
-	</item>
-	<item id="22151" article="a" name="Cateroide's doll">
-		<attribute key="description" value="Souvenir from Thais Museum."/>
 	</item>
 	<item name="Cateroide's doll" id="22152">
 		<attribute key="weight" value="1500"/>
@@ -40811,9 +40737,7 @@
 		<attribute key="weight" value="600"/>
 	</item>
 	<item id="23740" name="brass-shod chest"/>
-	<item name="unknown item" id="23740"/>
 	<item id="23741" name="brass-shod chest"/>
-	<item name="unknown item" id="23741"/>
 	<item id="23810" article="a" name="phial of fresh water">
 		<attribute key="description" value="The phial contains fresh, clean water. It also looks like it sparkles. The flask is so thin and finely crated that the water seems to pour out little by little."/>
 		<attribute key="weight" value="300"/>
@@ -42859,11 +42783,6 @@
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
-	<item id="25813" article="a" name="dead arctic faun">
-		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
-		<attribute key="corpsetype" value="blood"/>
-	</item>
 	<item id="25813" article="a" name="dead faun">
 		<attribute key="weight" value="60000"/>
 		<attribute key="containersize" value="10"/>
@@ -42879,12 +42798,6 @@
 		<attribute key="duration" value="600"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
-	</item>
-	<item id="25814" article="a" name="dead raxias">
-		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="33428"/>
-		<attribute key="duration" value="300"/>
-		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="25815" article="a" name="dead faun">
 		<attribute key="weight" value="60000"/>
@@ -46673,9 +46586,6 @@
 	<item id="28515" article="a" name="scribbled notes">
 		<attribute key="weight" value="100"/>
 	</item>
-	<item id="28515" article="a" name="scribbled notes">
-		<attribute key="weight" value="100"/>
-	</item>
 	<item id="28517" article="an" name="unknown skeleton"/>
 	<item id="28518" article="an" name="old letter">
 		<attribute key="weight" value="50"/>
@@ -46985,7 +46895,7 @@
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="28605" article="a" name="slain of knowledge elemental">
+	<item id="28606" article="a" name="slain of knowledge elemental">
 		<attribute key="containersize" value="20"/>
 		<attribute key="decayto" value="33348"/>
 		<attribute key="duration" value="300"/>
@@ -47369,9 +47279,6 @@
 	</item>
 	<item id="28694" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
-	</item>
-	<item id="28694" article="a" name="fennec">
-		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
 		<attribute key="wrapableto" value="26054"/>
 	</item>
 	<item id="28695" article="a" name="fennec">
@@ -47388,13 +47295,8 @@
 	<item id="28699" article="a" name="red geranium">
 		<attribute key="wrapableto" value="26054"/>
 	</item>
-	<item id="28701" article="a" name="fennec"/>
 	<item id="28701" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
-	</item>
-	<item id="28701" article="a" name="fennec">
-		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
-		<attribute key="wrapableto" value="26054"/>
 	</item>
 	<item id="28702" article="the" name="True Book of Death">
 		<attribute key="weight" value="1300"/>
@@ -47845,7 +47747,6 @@
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
-	<item article="an" name="unknown corpse" id="28797"/>
 	<item id="28797" article="a" name="dead the blazing rose">
 		<attribute key="weight" value="60000"/>
 		<attribute key="containersize" value="24"/>
@@ -48034,10 +47935,6 @@
 		<attribute key="description" value="An extremely old book on teleportation containing a variety of spells on bending space. It seems tainted by something."/>
 	</item>
 	<item name="unknown item" id="28854"/>
-	<item id="28855" article="a" name="can of grease">
-		<attribute key="weight" value="1900"/>
-		<attribute key="description" value="Ideal to grease large mechanisms. The can is leaky."/>
-	</item>
 	<item id="28855" article="a" name="can of grease">
 		<attribute key="description" value="Ideal to grease large mechanisms. The can is leaky."/>
 		<attribute key="weight" value="1900"/>
