@@ -159,11 +159,7 @@
 	<monster name="Eruption of Destruction" file="Quests/Ferumbras Ascendant/Traps/eruption of destruction.xml"/>
 	<monster name="Guilt" file="Quests/Ferumbras Ascendant/Traps/guilt.xml"/>
 	<monster name="Void" file="Quests/Ferumbras Ascendant/Traps/void.xml"/>
-
-	<!-- Customs -->
-	<monster name="Training Monk" file="Customs/training monk.xml"/>
-	<monster name="Knight Training" file="Customs/knight training.xml"/>
-
+	
 	<!-- Cults of tibia bosses -->
 	<monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml"/>
 	<monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml"/>

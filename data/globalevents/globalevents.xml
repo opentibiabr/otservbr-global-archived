@@ -7,8 +7,8 @@
 	<globalevent name="Grand Commander" interval="900000" script="bosses/Grand Commander Soeren.lua" />
 	<globalevent name="Thawing Dragon Lord" interval="900000" script="bosses/Thawing Dragon Lord.lua" />
 
-	<!-- Custom -->
-	<globalevent name="Additional" type="startup" script="custom/worldchanges/additionals/additionalsMapLoading.lua"/>
+	<!-- Loading Maps -->
+	<globalevent name="example" type="startup" script="others/map_loading.lua"/>
 
 	<!--Gray Island Bosses -->
 	<globalevent name="grayIslandBosses" type="startup" script="gray island/grayIslandBosses.lua"/>

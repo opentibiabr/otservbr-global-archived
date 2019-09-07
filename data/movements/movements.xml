@@ -56,10 +56,6 @@
 	<movevent event="DeEquip" itemid="28658" slot="necklace" script="quests/cults of tibia/begintask.lua" />
 	<movevent event="StepIn" itemid="28869" script="quests/cults of tibia/geyser.lua" />
 
-	<!-- Customs -->
-	<movevent event="StepIn" actionid="14876" script="custom/trainerTP.lua"/>
-	<movevent event="StepIn" actionid="14877" script="custom/trainerTPRemove.lua"/>
-
 	<!-- Citizen Teleport -->
 	<movevent event="StepIn" fromuid="9056" touid="9068" script="others/teleports/citizen.lua" />
 	<movevent event="StepIn" uniqueid="9510" script="others/teleports/citizen.lua" />
