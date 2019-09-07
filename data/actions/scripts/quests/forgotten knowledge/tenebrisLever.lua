@@ -14,7 +14,7 @@ local function clearTenebris()
 		if spectator:isPlayer() then
 			spectator:teleportTo(Position(32902, 31629, 14))
 			spectator:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			spectator:say('Time out NOOB! You are teleported out by your incapacity to kill Lady Tenebris.', TALKTYPE_MONSTER_SAY)
+			spectator:say('Time out! You were teleported out by strange forces.', TALKTYPE_MONSTER_SAY)
 		elseif spectator:isMonster() then
 			spectator:remove()
 		end
