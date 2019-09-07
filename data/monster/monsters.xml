@@ -381,7 +381,6 @@
 	<!--Fey-->
 	<monster name="Arctic Faun" file="Fey/Arctic Faun.xml"/>
 	<monster name="Dryad" file="Fey/Dryad.xml"/>
-	<monster name="Kroazur" file="Fey/Kroazur.xml"/>
 	<monster name="Faun" file="Fey/faun.xml"/>
 	<monster name="Dark Faun" file="Fey/dark_faun.xml"/>
 	<monster name="Enfeebled Silencer" file="Fey/enfeebled_silencer.xml"/>
@@ -767,6 +766,7 @@
 	<monster name="Koshei The Deathless" file="Bosses/koshei_the_deathless.xml"/>
 	<monster name="Kraknaknork's Demon" file="Bosses/kraknaknork's_demon.xml"/>
 	<monster name="Kraknaknork" file="Bosses/kraknaknork.xml"/>
+	<monster name="Kroazur" file="Bosses/Kroazur.xml"/>
 	<monster name="Latrivan" file="Bosses/latrivan.xml"/>
 	<monster name="Lethal Lissy" file="Bosses/lethal_lissy.xml"/>
 	<monster name="Leviathan" file="Bosses/leviathan.xml"/>
