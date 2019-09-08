@@ -19,7 +19,11 @@
 
 #include "otpch.h"
 
-#include <lua.hpp>
+#ifdef _WIN32
+	#include <luajit/lua.hpp>
+#else 	
+	#include <lua.hpp>
+#endif
 
 #include "configmanager.h"
 #include "game.h"
