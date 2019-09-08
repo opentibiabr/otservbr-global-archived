@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Sandstone Scorpion" nameDescription="a sandstone scorpion" race="undead" experience="680" speed="110">
 	<health now="900" max="900"/>
-	<look type="398" corpse="13501"/>
+	<look type="398" corpse="12512"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -44,10 +44,10 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="128" chance="92590"/>
-		<item name="small emerald" countmax="2" chance="1100"/>
 		<item name="platinum coin" countmax="2" chance="10750"/>
-		<item name="daramian mace" chance="5100"/>
-		<item name="steel helmet" chance="4620"/>
+		<item name="small emerald" countmax="2" chance="10120"/>
+		<item name="daramian mace" chance="5090"/>
+		<item name="steel helmet" chance="4610"/>
 		<item name="black shield" chance="1820"/>
 		<item name="fist on a stick" chance="220"/>
 	</loot>

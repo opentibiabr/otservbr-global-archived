@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Insectoid Worker" nameDescription="an insectoid worker" race="venom" experience="650" speed="120">
 	<health now="950" max="950"/>
-	<look type="403" corpse="13514"/>
+	<look type="403" corpse="12525"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -33,11 +33,11 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="gold coin" countmax="90" chance="100000"/>
-		<item name="small emerald" chance="2880"/>
-		<item name="epee" chance="560"/>
-		<item name="health potion" chance="5090"/>
-		<item name="compound eye" chance="15380"/>
-		<item id="15622" chance="14990"/><!-- dung ball -->
+		<item name="gold coin" countmin ="2" countmax="90" chance="100000"/>
+		<item name="compound eye" chance="15050"/>
+		<item id="15622" chance="14540"/><!-- dung ball -->
+		<item name="health potion" chance="4850"/>
+		<item name="small emerald" chance="2830"/>
+		<item name="epee" chance="550"/>
 	</loot>
 </monster>

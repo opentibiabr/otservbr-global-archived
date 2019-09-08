@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Iron Servant" nameDescription="an iron servant" race="energy" experience="210" speed="95">
 	<health now="350" max="350"/>
-	<look type="395" corpse="13486"/>
+	<look type="395" corpse="12494"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -43,10 +43,11 @@
 		<voice sentence="Remain. Obedient."/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="55" chance="82000"/>
-		<item name="halberd" chance="1000"/>
+		<item name="gold coin" countmax="55" chance="82180"/>
 		<item name="gear wheel" chance="4840"/>
-		<item id="9808" chance="200"/><!-- rusty armor -->
+		<item name="health potion" chance="1990"/>
+		<item name="halberd" chance="1010"/>
+		<item name="heavily rusted armor" chance="510"/>
 		<item name="slime mould" chance="310"/>
 	</loot>
 </monster>

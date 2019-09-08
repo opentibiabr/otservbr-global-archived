@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Slug" nameDescription="a slug" race="venom" experience="70" speed="52">
 	<health now="255" max="255"/>
-	<look type="407" corpse="13515"/>
+	<look type="407" corpse="12526"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -35,7 +35,7 @@
 		<voice sentence="Sluuurz"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="40" chance="62000"/>
-		<item name="worm" countmax="3" chance="5000"/>
+		<item name="gold coin" countmax="40" chance="62880"/>
+		<item name="worm" countmax="3" chance="4690"/>
 	</loot>
 </monster>
