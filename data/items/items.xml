@@ -22250,17 +22250,12 @@
 	<item fromid="12456" toid="12457" article="a" name="strange carving" />
 	<item fromid="12458" toid="12460" article="a" name="carving of a battle" />
 	<item fromid="12461" toid="12464" article="a" name="sarcophagus" />
-	<item article="a" name="hyaena statue" id="12465"/>
-	<item article="a" name="hyaena statue" id="12466"/>
-	<item article="a" name="golden scorpion" id="12467"/>
-	<item article="a" name="golden scorpion" id="12468"/>
+	<item fromid="12465" toid="12466" article="a" name="hyaena statue" />
+	<item fromid="12467" toid="12468" article="a" name="golden scorpion" />
 	<item id="12469" name="ornamented scorpion table"/>
-	<item article="a" name="small golden scorpion" id="12470"/>
-	<item article="a" name="small golden scorpion" id="12471"/>
-	<item article="an" name="ornamented scorpion table" id="12472"/>
-	<item article="an" name="ornamented scorpion table" id="12473"/>
-	<item article="a" name="scorpion altar" id="12474"/>
-	<item article="a" name="scorpion altar" id="12475"/>
+	<item fromid="12470" toid="12471" article="a" name="small golden scorpion" />
+	<item fromid="12472" toid="12473" article="an" name="ornamented scorpion table" />
+	<item fromid="12474" toid="12475" article="a" name="scorpion altar" />
 	<item id="12476" article="a" name="scorpion pillar"/>
 	<item id="12477" article="a" name="small golden taboret"/>
 	<item id="12478" article="a" name="delicate vase">
@@ -22273,91 +22268,87 @@
 	<item id="12483" article="a" name="pharaoh banner">
 		<attribute key="weight" value="1000"/>
 	</item>
-	<item article="a" name="rocky archway" id="12485"/>
-	<item article="a" name="rocky archway" id="12486"/>
-	<item article="a" name="rocky pillar" id="12487"/>
-	<item article="a" name="rocky pillar" id="12488"/>
-	<item article="a" name="strange stalagmite" id="12489"/>
-	<item article="a" name="strange stalagmite" id="12490"/>
-	<item name="scorpion altar" id="12491"/>
-	<item name="scorpion altar" id="12492"/>
+	<item fromid="12485" toid="12486" article="a" name="rocky archway" />
+	<item fromid="12487" toid="12488" article="a" name="rocky pillar" />
+	<item fromid="12489" toid="12490" article="a" name="strange stalagmite" />
+	<item fromid="12491" toid="12492" name="scorpion altar" />
 	<item id="12493" name="ornamented scorpion table"/>
 	<item id="12494" article="a" name="dead iron servant">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13486"/>
+		<attribute key="decayto" value="12497"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12495" article="a" name="dead golden servant">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13489"/>
+		<attribute key="decayto" value="12500"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12496" article="a" name="dead diamond servant">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13492"/>
+		<attribute key="decayto" value="12503"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12497" name="remains of an iron servant">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13487"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12498"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12498" name="remains of an iron servant">
-		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13488"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12499"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12499" name="remains of an iron servant">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12500" name="remains of a golden servant">
-		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13490"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12501"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12501" name="remains of a golden servant">
-		<attribute key="decayto" value="13491"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="decayto" value="12502"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12502" name="remains of a golden servant">
 		<attribute key="containersize" value="22"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12503" name="remains of a diamond servant">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13493"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12504"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12504" name="remains of a diamond servant">
-		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13494"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12505"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12505" name="remains of a diamond servant">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12506" name="remains of a canopic jar"/>
+	<item id="12506" name="remains of a canopic jar"/> <!-- The Mummy's Curse Quest -->
 	<item id="12509" article="a" name="scorpion sceptre">
 		<attribute key="description" value="A hermit near Carlin might be able to tell you more about it."/>
 		<attribute key="weight" value="200"/>
@@ -22372,25 +22363,25 @@
 	<item id="12511" name="ornate canopic jar"/>
 	<item id="12512" article="a" name="dead sandstone scorpion">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13502"/>
+		<attribute key="decayto" value="12513"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="undead"/>
 	</item>
 	<item id="12513" article="a" name="dead sandstone scorpion">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13503"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12514"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="undead"/>
 	</item>
 	<item id="12514" article="a" name="dead sandstone scorpion">
-		<attribute key="containersize" value="22"/>
+		<attribute key="containersize" value="11"/>
 		<attribute key="decayto" value="13504"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="undead"/>
 	</item>
 	<item id="12515" article="a" name="dead sandstone scorpion">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="undead"/>
 	</item>
 	<item id="12516" name="sand"/>
@@ -22403,126 +22394,125 @@
 	</item>
 	<item id="12520" article="a" name="dead donkey">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13510"/>
+		<attribute key="decayto" value="12521"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12521" article="a" name="dead donkey">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13511"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12522"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12522" article="a" name="dead donkey">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13512"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="12523"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12523" article="a" name="dead donkey">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12524" article="a" name="dead white deer">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13516"/>
+		<attribute key="decayto" value="12527"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12525" article="a" name="dead insectoid">
 		<attribute key="containersize" value="44"/>
-		<attribute key="decayto" value="13525"/>
+		<attribute key="decayto" value="12536"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="12526" article="a" name="dead slug">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13522"/>
+		<attribute key="decayto" value="12533"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="12527" article="a" name="dead white deer">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13517"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12528"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12528" article="a" name="dead white deer">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13518"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="12529"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12529" article="a" name="dead white deer">
-		<attribute key="containersize" value="10"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12530" article="a" name="dead dromedary">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13520"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12531"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12531" article="a" name="dead dromedary">
-		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13521"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12532"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12532" article="a" name="dead dromedary">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12533" article="a" name="dead slug">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13523"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12534"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="12534" article="a" name="dead slug">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13524"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="12535"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="12535" article="a" name="dead slug">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="12536" article="a" name="dead insectoid">
 		<attribute key="containersize" value="44"/>
-		<attribute key="decayto" value="13526"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12537"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="12537" article="a" name="dead insectoid">
-		<attribute key="containersize" value="44"/>
-		<attribute key="decayto" value="13527"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="22"/>
+		<attribute key="decayto" value="12538"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="12538" article="a" name="dead insectoid">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="12539" article="a" name="dead dromedary">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13519"/>
+		<attribute key="decayto" value="12530"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
