@@ -8,7 +8,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	
-	if not position == enterPosition then
+	if not (position == enterPosition) then
 		return true
 	end
 	
