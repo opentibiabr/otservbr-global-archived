@@ -2,12 +2,10 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: unconfirmed
 assignees: ''
 
 ---
-
-## CAUTION: OUR SERVER IS UPDATED DAILY. MAKE SURE YOU ARE REPORTING SOMETHING ON THE LATEST VERSION OF THE SERVER.
 
 **Describe the bug**
 A clear and concise description of what the bug is.

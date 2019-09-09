@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<spawns>
+	<spawn centerx="1014" centery="1024" centerz="5" radius="2">
+		<npc name="Tamoril" x="-1" y="0" z="5" spawntime="90" direction="2" />
+	</spawn>
+	<spawn centerx="31909" centery="33099" centerz="5" radius="3">
+		<npc name="Tamoril" x="-1" y="1" z="5" spawntime="60" />
+	</spawn>
+	<spawn centerx="988" centery="1023" centerz="6" radius="1">
+		<npc name="Haroun" x="0" y="0" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="996" centery="1023" centerz="6" radius="1">
+		<npc name="Alesar" x="0" y="0" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="1002" centery="1025" centerz="6" radius="1">
+		<npc name="Esrik" x="-1" y="1" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="984" centery="1030" centerz="6" radius="1">
+		<npc name="Yasir" x="1" y="0" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="1004" centery="1031" centerz="6" radius="1">
+		<npc name="Yaman" x="0" y="1" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="1005" centery="1033" centerz="6" radius="1" />
+	<spawn centerx="990" centery="1036" centerz="6" radius="1">
+		<npc name="Nah'bob" x="1" y="0" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="998" centery="1037" centerz="6" radius="1">
+		<npc name="Rashid" x="0" y="-1" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="31888" centery="33057" centerz="6" radius="3">
+		<npc name="Hanna" x="-3" y="3" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="31867" centery="33071" centerz="6" radius="3">
+		<npc name="Yasir" x="0" y="-3" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="31895" centery="33078" centerz="6" radius="3">
+		<npc name="Lailene" x="1" y="-1" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="31860" centery="33085" centerz="6" radius="3">
+		<npc name="Alexander" x="2" y="-1" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="31888" centery="33099" centerz="6" radius="3">
+		<npc name="Esrik" x="2" y="0" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="31860" centery="33106" centerz="6" radius="3">
+		<npc name="Rock In A Hard Place" x="0" y="-1" z="6" spawntime="60" />
+	</spawn>
+	<spawn centerx="1059" centery="1018" centerz="7" radius="3">
+		<npc name="Zuma Magehide" x="-1" y="1" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1018" centerz="7" radius="3">
+		<npc name="Runtel Blackspark" x="0" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1003" centery="1019" centerz="7" radius="1">
+		<npc name="Hanna" x="0" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="990" centery="1027" centerz="7" radius="1">
+		<npc name="Archery" x="0" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="994" centery="1034" centerz="7" radius="1">
+		<npc name="Rock In A Hard Place" x="-1" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1001" centery="1036" centerz="7" radius="1">
+		<npc name="Lailene" x="0" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1038" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1093" centery="1109" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1038" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1093" centery="1121" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1052" centery="1122" centerz="7" radius="3">
+		<monster name="Knight Training" x="1" y="1" z="7" spawntime="60" />
+		<monster name="Knight Training" x="3" y="1" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1038" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1093" centery="1133" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1038" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1043" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="0" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1093" centery="1144" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1038" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1093" centery="1155" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1038" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1093" centery="1168" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1094" centery="1178" centerz="7" radius="3">
+		<monster name="Knight Training" x="-2" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1041" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="0" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="2" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1179" centerz="7" radius="3" />
+	<spawn centerx="1054" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1078" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1179" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1190" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1190" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1190" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1190" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1091" centery="1190" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1039" centery="1192" centerz="7" radius="3">
+		<monster name="Knight Training" x="2" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1046" centery="1192" centerz="7" radius="3">
+		<monster name="Knight Training" x="-3" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1074" centery="1192" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1081" centery="1192" centerz="7" radius="3">
+		<monster name="Knight Training" x="-2" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1088" centery="1192" centerz="7" radius="3" />
+	<spawn centerx="1018" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1044" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="-3" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1074" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1080" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1087" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1092" centery="1201" centerz="7" radius="3">
+		<monster name="Knight Training" x="0" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1039" centery="1202" centerz="7" radius="3" />
+	<spawn centerx="1018" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="3" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="3" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1039" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="2" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1046" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-3" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="3" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="3" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1074" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1081" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-2" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1088" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="2" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1095" centery="1213" centerz="7" radius="3">
+		<monster name="Knight Training" x="-3" y="3" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1018" centery="1225" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1030" centery="1225" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1054" centery="1225" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1066" centery="1225" centerz="7" radius="3">
+		<monster name="Knight Training" x="-1" y="2" z="7" spawntime="60" />
+		<monster name="Knight Training" x="1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1039" centery="1227" centerz="7" radius="3">
+		<monster name="Knight Training" x="2" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1046" centery="1227" centerz="7" radius="3">
+		<monster name="Knight Training" x="-3" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1074" centery="1227" centerz="7" radius="3">
+		<monster name="Knight Training" x="3" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1081" centery="1227" centerz="7" radius="3">
+		<monster name="Knight Training" x="-2" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1088" centery="1227" centerz="7" radius="3">
+		<monster name="Knight Training" x="2" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="1095" centery="1227" centerz="7" radius="3">
+		<monster name="Knight Training" x="-3" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="32353" centery="32225" centerz="7" radius="1">
+		<npc name="Cassino" x="1" y="1" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31853" centery="33057" centerz="7" radius="3">
+		<npc name="Alesar" x="3" y="-1" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31888" centery="33057" centerz="7" radius="3">
+		<npc name="Yaman" x="-1" y="1" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31895" centery="33078" centerz="7" radius="3">
+		<npc name="Addoner" x="1" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31860" centery="33085" centerz="7" radius="3">
+		<npc name="Nah'bob" x="0" y="0" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31881" centery="33085" centerz="7" radius="3">
+		<npc name="Guide Kroak" x="1" y="-1" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31888" centery="33099" centerz="7" radius="3">
+		<npc name="Rashid" x="-1" y="2" z="7" spawntime="60" />
+	</spawn>
+	<spawn centerx="31860" centery="33106" centerz="7" radius="3">
+		<npc name="Haroun" x="-1" y="-1" z="7" spawntime="60" />
+	</spawn>
+</spawns>

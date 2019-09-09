@@ -15,6 +15,7 @@ local skills = {
 
 local dummies = {32142, 32143, 32144, 32145, 32146, 32147, 32148, 32149}
 local skillRate = 1*configManager.getNumber(configKeys.RATE_SKILL)
+local isTraining = 37
 -- skillRate = 1.1*30 = 30 + 3 (10%) = 33x
 
 local function start_train(pid,start_pos,itemid,fpos)
@@ -42,46 +43,48 @@ local function start_train(pid,start_pos,itemid,fpos)
 							if skills[itemid].range then
 								pos_n:sendDistanceEffect(fpos, skills[itemid].range)
 							end
+							if charges_n == 1 then
+								exercise:remove(1)
+								return true
+							end
 							local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos)
-							player:setStorageValue(Storage.isTraining,1)
+							player:setStorageValue(isTraining,1)
 						else
 							exercise:remove(1)
-							player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
+							player:sendCancelMessage("Your training weapon vanished.")
 							stopEvent(training)
-							player:setStorageValue(Storage.isTraining,0)
+							player:setStorageValue(isTraining,0)
 						end
 					end
 				end
 			end
 		else
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Youy training has stopped.")
+			player:sendCancelMessage("Your training has stopped.")
 			stopEvent(training)
-			player:setStorageValue(Storage.isTraining,0)
+			player:setStorageValue(isTraining,0)
 		end
 	else
 		stopEvent(training)
-		if player then -- verificar se o player ainda existe (logado), caso esteja, enviar mensagem de erro e parar treino. isso evita erros no console
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Youy training has stopped.")
-			player:setStorageValue(Storage.isTraining,0)
-		end
+		player:sendCancelMessage("Your training has stopped.")
+		player:setStorageValue(isTraining,0)
 	end
 	return true
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local start_pos = player:getPosition()
-	if player:getStorageValue(Storage.isTraining) == 1 then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You are already training.")
-		return false
-	end
 	if target:isItem() then
 		if isInArray(dummies,target:getId()) then
 			if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
+				player:sendCancelMessage("Get closer to the dummy.")
 				stopEvent(training)
-				return true
+				return false
 			end
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
+			if player:getStorageValue(isTraining) == 1 then
+				player:sendCancelMessage("You are already training.")
+				return false
+			end
+			player:sendCancelMessage("You started training.")
 			start_train(player:getId(),start_pos,item.itemid,target:getPosition())
 		end
 	end
