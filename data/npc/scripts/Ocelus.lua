@@ -39,7 +39,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.TheShatteredIsles.ADjinnInLove, 1)
 		elseif npcHandler.topic[cid] == 4 then
-			if player:removeItem(5952, 1) then
+			if player:removeItem(8189, 1) then
 				npcHandler:say("Excellent. Here, with this little spell I enable you to recite the poem like a true elven poet. Now go and ask her for a date again.", cid)
 				player:setStorageValue(Storage.TheShatteredIsles.ADjinnInLove, 4)
 				player:setStorageValue(Storage.TheShatteredIsles.APoemForTheMermaid, 3)

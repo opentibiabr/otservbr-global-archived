@@ -15,7 +15,7 @@ function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if(msgcontains(msg, "peg leg")) then
-		if(getPlayerLevel(cid) > 8) then
+		if(getPlayerLevel(cid) > 8) and player:getStorageValue(Storage.TheShatteredIsles.AccessToMeriana) == 1 then
 			npcHandler:say("Ohhhh. So... <lowers his voice> you know who sent you so I sail you to you know where. <wink> <wink> It will cost 50 gold to cover my expenses. Is it that what you wish?", cid)
 			npcHandler.topic[cid] = 1
 		else
