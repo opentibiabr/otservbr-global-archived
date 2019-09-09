@@ -638,6 +638,11 @@ Storage = {
 			AddonHatCloak = 12064
 		},
 
+		-- Golden Outfit
+		goldenOutfit = 11160,
+		goldenFirstAddon = 11161,
+		goldenSecondAddon = 11162,
+
 		-- Nobleman Outfit
 		NoblemanFirstAddon = 12069,
 		NoblemanSecondAddon = 12070,

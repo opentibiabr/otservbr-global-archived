@@ -12,9 +12,9 @@ local goldenOutfit = Storage.goldenOutfit
 local goldenFirstAddon = Storage.goldenFirstAddon
 local goldenSecondAddon = Storage.goldenSecondAddon 
 		
-local valoroutfit = 500000000
-local valorprimeiroaddon = 250000000
-local valorsedundoaddon = 250000000
+local baseOutfit = 500000000
+local firstOutfit = 250000000
+local secondOutfit = 250000000
 
 newaddon    = 'Here you are, enjoy your brand new addon!' 
 newoutfit    = 'Take this armor as a token of great gratitude. Let us forever remember this day, my friend!' 
@@ -37,7 +37,7 @@ function goldenoutfit(cid, message, keywords, parameters, node)
     if isPremium(cid) then  
 		local player = Player(cid)
 		if not player:hasOutfit(1211) and not player:hasOutfit(1210) then 
-			if  player:removeMoneyNpc(valoroutfit) then  
+			if  player:removeMoneyNpc(baseOutfit) then  
 				selfSay(newoutfit, cid)  
 				doSendMagicEffect(getCreaturePosition(cid), 13) 
 				doPlayerAddOutfit(cid, 1211)  --- female
@@ -67,7 +67,7 @@ function primeiroaddon(cid, message, keywords, parameters, node)
     if isPremium(cid) then
 		local player = Player(cid)
 		if not player:hasOutfit(1211, 1) and not player:hasOutfit(1210, 1) then 
-			if  player:removeMoneyNpc(valorprimeiroaddon) then  
+			if  player:removeMoneyNpc(firstOutfit) then  
 				selfSay(newaddonprimeiro, cid)  
 				doSendMagicEffect(getCreaturePosition(cid), 13) 
 				doPlayerAddOutfit(cid, 1211,1)  --- female
@@ -95,7 +95,7 @@ function segundoaddon(cid, message, keywords, parameters, node)
     if isPremium(cid) then  
 		local player = Player(cid)
 		if not player:hasOutfit(1211, 2) and not player:hasOutfit(1210, 2) then 
-			if  player:removeMoneyNpc(valorsedundoaddon) then  
+			if  player:removeMoneyNpc(secondOutfit) then  
 				selfSay(newaddonsegundo, cid)  
 				doSendMagicEffect(getCreaturePosition(cid), 13) 
 				doPlayerAddOutfit(cid, 1211, 2)  --- female
