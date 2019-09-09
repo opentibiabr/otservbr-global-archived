@@ -1520,7 +1520,7 @@ class Player final : public Creature, public Cylinder
 		RewardChest* rewardChest = nullptr;
 
 		uint32_t inventoryWeight = 0;
-		uint32_t capacity = 40000;
+		uint32_t capacity = 500000;
 		uint32_t damageImmunities = 0;
 		uint32_t conditionImmunities = 0;
 		uint32_t conditionSuppressions = 0;
