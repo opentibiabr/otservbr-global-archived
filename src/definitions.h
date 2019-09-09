@@ -20,15 +20,9 @@
 #ifndef FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 #define FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 
-static constexpr auto STATUS_SERVER_NAME = "Open-Tibia BR Server";
+static constexpr auto STATUS_SERVER_NAME = "OTServBR - Global";
 static constexpr auto STATUS_SERVER_VERSION = "Based on TFS 1.3";
-static constexpr auto MINOR_VERSION = "10";
 static constexpr auto STATUS_SERVER_CREDITS = "OTServBR Team and Contributors, OTXServer (Mattyx Gomez) and The Forgotten Server Developers";
-static constexpr auto STATUS_SERVER_CONTRIBUTORS = "Eduardo Dantas, Gpedro and Mateus.";
-static constexpr auto GIT_ISSUE_INFO = "Did you find a mistake or a debug? Report to our repository at the link below. Create an issue by going to the link and then 'new issue', put 'Title' and 'Description' and 'Submit Issue', just wait for a response from someone from OTServBR.";
-static constexpr auto GIT_ISSUE = "https://github.com/opentibiabr/OTServBR-Global/issues";
-static constexpr auto GIT_REPO = "https://github.com/opentibiabr/OTServBR-Global";
-static constexpr auto GIT_CONTRIBUTORS = "https://github.com/opentibiabr/OTServBR-Global/graphs/contributors";
 
 static constexpr auto CLIENT_VERSION_MIN = 1100;
 static constexpr auto CLIENT_VERSION_MAX = 1200;

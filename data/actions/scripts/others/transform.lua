@@ -17,6 +17,7 @@ local decayItems = {
 	[29312] = 29313,[29313] = 29312,									--Bath Tub
 	[29314] = 29315,													--Spider Terrarium
 	[29317] = 29319,[29319] = 29317,									--Hrodmiran weapons rack
+	[29320] = 29318,[29318] = 29320,									--Hrodmiran weapons rack side
 	[29407] = 29405,				 [29408] = 29406,					--Snake Terrarium
 	[29409] = 29411,				 [29410] = 29412,					--Demon Pet
 	[32390] = 32391, [32391] = 32390,									--Baby Rotworm
@@ -25,6 +26,7 @@ local decayItems = {
 	[35042] = 35043, [35043] = 35042,									--Festive Pyramid
 	[36031] = 36032, [36032] = 36031,									--Crystal Lamp
 	[36048] = 36050, [36050] = 36048,									--Idol Lamp
+	[36049] = 36051, [36051] = 36049,									--Idol Lamp side
 	[36516] = 36517, [36517] = 36516, 									--Hedgehog
 	[36518] = 36519, [36519] = 36518, 									--Exalted Sarcophagus
 	[36530] = 36531, [36531] = 36530,									--Curly Hortensis Lamp

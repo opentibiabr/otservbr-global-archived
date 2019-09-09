@@ -43157,4 +43157,23 @@
 		<attribute key="rotateTo" value="36540" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
+	<item id="40001" name="water" />
+	<item id="40002" name="blood" />
+	<item id="40003" name="beer" />
+	<item id="40004" name="slime" />
+	<item id="40005" name="lemonade" />
+	<item id="40006" name="milk" />
+	<item id="40007" name="manafluid" />
+	<item id="40010" name="lifefluid" />
+	<item id="40011" name="oil" />
+	<item id="40013" name="urine" />
+	<item id="40014" name="coconut milk" />
+	<item id="40015" name="wine" />
+	<item id="40019" name="mud" />
+	<item id="40021" name="fruit juice" />
+	<item id="40026" name="lava" />
+	<item id="40027" name="rum" />
+	<item id="40028" name="swamp" />
+	<item id="40035" name="tea" />
+	<item id="40043" name="mead" />
 </items>

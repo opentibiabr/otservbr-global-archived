@@ -140,7 +140,7 @@ defaultPriority = "high"
 startupDatabaseOptimization = true
 
 -- Status server information
-ownerName = "Open-TibiaBR"
+ownerName = "OTServBR-Global"
 ownerEmail = ""
 url = "https://github.com/opentibiabr/OTServBR-Global"
 location = "South America"

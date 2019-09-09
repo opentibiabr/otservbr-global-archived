@@ -1340,7 +1340,8 @@ Storage = {
 	combatProtectionStorage = 50722,
 	Factions = 50723,
 	blockMovementStorage = 100000,
-	PetSummon = 60045
+	PetSummon = 60045,
+	isTraining = 37
 
 }
 
