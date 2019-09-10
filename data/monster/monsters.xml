@@ -136,15 +136,6 @@
 	<monster name="Ferumbras Essence" file="Quests/Ferumbras Ascendant/ferumbras essence.xml"/>
 	<monster name="Redeemed Soul" file="Quests/Ferumbras Ascendant/Bosses/redeemed soul.xml"/>
 
-	<monster name="Lovely Deer" file="Quests/Ferumbras Ascendant/Lovely/lovely deer.xml"/>
-	<monster name="Lovely Frazzlemaw" file="Quests/Ferumbras Ascendant/Lovely/lovely frazzlemaw.xml"/>
-	<monster name="Lovely Polar Bear" file="Quests/Ferumbras Ascendant/Lovely/lovely polar bear.xml"/>
-	<monster name="Lovely Rotworm" file="Quests/Ferumbras Ascendant/Lovely/lovely rotworm.xml"/>
-	<monster name="Lovely Scorpion" file="Quests/Ferumbras Ascendant/Lovely/lovely scorpion.xml"/>
-	<monster name="Lovely Snake" file="Quests/Ferumbras Ascendant/Lovely/lovely snake.xml"/>
-	<monster name="Lovely Souleater" file="Quests/Ferumbras Ascendant/Lovely/lovely souleater.xml"/>
-	<monster name="lovely yielothax" file="Quests/Ferumbras Ascendant/Lovely/lovely yielothax.xml"/>
-
 	<monster name="Rage of Mazoran" file="Quests/Ferumbras Ascendant/rage of mazoran.xml"/>
 
 	<monster name="Damned Soul" file="Quests/Ferumbras Ascendant/damned soul.xml"/>
