@@ -21958,14 +21958,14 @@
 		<attribute key="description" value="This berry is not edible in its raw form. Maybe Emilie of the Winterberry Society in Thais can help."/>
 		<attribute key="weight" value="200"/>
 	</item>
-	<item fromid="12253" toid="12258" name="pressed winterberries" />
+	<item fromid="12253" toid="12258" name="pressed winterberries"/>
 	<item id="12259" name="unknown item"/>
 	<item id="12260" article="a" name="hunting horn">
 		<attribute key="description" value="A hermit near Carlin might be able to tell you more about it."/>
 		<attribute key="weight" value="200"/>
 	</item>
 	<item id="12261" name="unknown item"/>
-	<item fromid="12262" toid="12274" name="sand" />
+	<item fromid="12262" toid="12274" name="sand"/>
 	<item id="12275" article="a" name="sugar">
 		<attribute key="weight" value="500"/>
 	</item>
@@ -22011,8 +22011,8 @@
 		<attribute key="decayto" value="12285"/>
 		<attribute key="duration" value="2"/>
 	</item>
-	<item fromid="12294" toid="12300" name="unknown item" />
-	<item fromid="12301" toid="12302" article="a" name="huge cauldron" />
+	<item fromid="12294" toid="12300" name="unknown item"/>
+	<item fromid="12301" toid="12302" article="a" name="huge cauldron"/>
 	<item id="12303" name="unknown item"/>
 	<item id="12304" article="a" name="maxilla maximus">
 		<attribute key="description" value="A hermit near Carlin might be able to tell you more about it."/>
@@ -22219,16 +22219,16 @@
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
-	<item fromid="12345" toid="12355" article="a" name="slime fungus" />
-	<item fromid="12356" toid="12367" name="rocky floor" />
+	<item fromid="12345" toid="12355" article="a" name="slime fungus"/>
+	<item fromid="12356" toid="12367" name="rocky floor"/>
 	<item id="12368" name="magic wolf trap"/>
 	<item id="12369" article="a" name="captured wolf">
 		<attribute key="description" value="The trap has imobilized and shrunken the wolf."/>
 		<attribute key="weight" value="5000"/>
 	</item>
-	<item fromid="12379" toid="12386" name="rocky floor" />
-	<item fromid="12387" toid="12402" name="rocky wall" />
-	<item fromid="12406" toid="12411" article="a" name="rocky wall" />
+	<item fromid="12379" toid="12386" name="rocky floor"/>
+	<item fromid="12387" toid="12402" name="rocky wall"/>
+	<item fromid="12406" toid="12411" article="a" name="rocky wall"/>
 	<item id="12413" name="belongings of a deceased">
 		<attribute key="weight" value="3000"/>
 	</item>
@@ -22236,26 +22236,26 @@
 	<item id="12421" name="greasy stone"/>
 	<item id="12424" article="a" name="strange bonepile"/>
 	<item id="12425" article="a" name="floating stone"/>
-	<item fromid="12429" toid="12430" article="a" name="rocky wall" />
-	<item fromid="12431" toid="12434" article="a" name="lamp" />
-	<item fromid="12435" toid="12436" article="a" name="hieroglyph banner" />
-	<item fromid="12437" toid="12438" article="a" name="pharaoh banner" />
-	<item fromid="12439" toid="12440" article="a" name="golden ornament" />
-	<item fromid="12441" toid="12442" article="a" name="scorpion ornament" />
-	<item fromid="12443" toid="12444" name="hieroglyphs" />
-	<item fromid="12445" toid="12446" article="a" name="niche" />
-	<item fromid="12447" toid="12450" article="the" name="carving of a scorpion" />
-	<item fromid="12451" toid="12452" article="a" name="strange carving" />
-	<item fromid="12453" toid="12455" article="a" name="carving of a battle" />
-	<item fromid="12456" toid="12457" article="a" name="strange carving" />
-	<item fromid="12458" toid="12460" article="a" name="carving of a battle" />
-	<item fromid="12461" toid="12464" article="a" name="sarcophagus" />
-	<item fromid="12465" toid="12466" article="a" name="hyaena statue" />
-	<item fromid="12467" toid="12468" article="a" name="golden scorpion" />
+	<item fromid="12429" toid="12430" article="a" name="rocky wall"/>
+	<item fromid="12431" toid="12434" article="a" name="lamp"/>
+	<item fromid="12435" toid="12436" article="a" name="hieroglyph banner"/>
+	<item fromid="12437" toid="12438" article="a" name="pharaoh banner"/>
+	<item fromid="12439" toid="12440" article="a" name="golden ornament"/>
+	<item fromid="12441" toid="12442" article="a" name="scorpion ornament"/>
+	<item fromid="12443" toid="12444" name="hieroglyphs"/>
+	<item fromid="12445" toid="12446" article="a" name="niche"/>
+	<item fromid="12447" toid="12450" article="the" name="carving of a scorpion"/>
+	<item fromid="12451" toid="12452" article="a" name="strange carving"/>
+	<item fromid="12453" toid="12455" article="a" name="carving of a battle"/>
+	<item fromid="12456" toid="12457" article="a" name="strange carving"/>
+	<item fromid="12458" toid="12460" article="a" name="carving of a battle"/>
+	<item fromid="12461" toid="12464" article="a" name="sarcophagus"/>
+	<item fromid="12465" toid="12466" article="a" name="hyaena statue"/>
+	<item fromid="12467" toid="12468" article="a" name="golden scorpion"/>
 	<item id="12469" name="ornamented scorpion table"/>
-	<item fromid="12470" toid="12471" article="a" name="small golden scorpion" />
-	<item fromid="12472" toid="12473" article="an" name="ornamented scorpion table" />
-	<item fromid="12474" toid="12475" article="a" name="scorpion altar" />
+	<item fromid="12470" toid="12471" article="a" name="small golden scorpion"/>
+	<item fromid="12472" toid="12473" article="an" name="ornamented scorpion table"/>
+	<item fromid="12474" toid="12475" article="a" name="scorpion altar"/>
 	<item id="12476" article="a" name="scorpion pillar"/>
 	<item id="12477" article="a" name="small golden taboret"/>
 	<item id="12478" article="a" name="delicate vase">
@@ -22268,10 +22268,10 @@
 	<item id="12483" article="a" name="pharaoh banner">
 		<attribute key="weight" value="1000"/>
 	</item>
-	<item fromid="12485" toid="12486" article="a" name="rocky archway" />
-	<item fromid="12487" toid="12488" article="a" name="rocky pillar" />
-	<item fromid="12489" toid="12490" article="a" name="strange stalagmite" />
-	<item fromid="12491" toid="12492" name="scorpion altar" />
+	<item fromid="12485" toid="12486" article="a" name="rocky archway"/>
+	<item fromid="12487" toid="12488" article="a" name="rocky pillar"/>
+	<item fromid="12489" toid="12490" article="a" name="strange stalagmite"/>
+	<item fromid="12491" toid="12492" name="scorpion altar"/>
 	<item id="12493" name="ornamented scorpion table"/>
 	<item id="12494" article="a" name="dead iron servant">
 		<attribute key="containersize" value="22"/>
@@ -22585,12 +22585,7 @@
 		<attribute key="description" value="This fish, and rare ingredient, can only be found in the dirtiest, murkiest and muddiest of waters."/>
 		<attribute key="weight" value="999"/>
 	</item>
-	<item name="dirty water" id="12558"/>
-	<item name="dirty water" id="12559"/>
-	<item name="dirty water" id="12560"/>
-	<item name="dirty water" id="12561"/>
-	<item name="dirty water" id="12562"/>
-	<item name="dirty water" id="12563"/>
+	<item fromid="12558" toid="12563" name="dirty water"/>
 	<item id="12570" article="a" name="fan doll of Queen Eloise">
 		<attribute key="weight" value="1560"/>
 	</item>
@@ -22601,6 +22596,8 @@
 		<attribute key="weight" value="1800"/>
 		<attribute key="description" value="A goblet forged by the dragon Khax that represents all the knowledge and wisdom of TibiaVenezuela."/>
 	</item>
+	<item id="12573" name="unknown item"/>
+	<item id="12574" name="RESERVED SPRITE"/>
 	<item id="12575" name="Whinona">
 		<attribute key="weight" value="600"/>
 	</item>
@@ -22625,29 +22622,30 @@
 	<item id="12582" name="Evilina">
 		<attribute key="weight" value="600"/>
 	</item>
+	<item fromid="12583" toid="12594" name="dirty water"/>
 	<item id="12595" article="a" name="dead yielothax">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13753"/>
+		<attribute key="decayto" value="12596"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="12596" article="a" name="dead yielothax">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13754"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12597"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="12597" article="a" name="dead yielothax">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13755"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="12598"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="12598" article="a" name="dead yielothax">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="12599" article="a" name="mage's cap">
@@ -22673,59 +22671,26 @@
 		<attribute key="shoottype" value="death"/>
 		<attribute key="range" value="3"/>
 	</item>
-	<item name="rubbish" id="12604"/>
-	<item name="rubbish" id="12605"/>
-	<item name="rubbish" id="12606"/>
-	<item name="rubbish" id="12607"/>
-	<item name="rubbish" id="12608"/>
-	<item name="rubbish" id="12609"/>
-	<item name="rubbish" id="12610"/>
-	<item name="rubbish" id="12611"/>
-	<item name="rubbish" id="12612"/>
-	<item name="rubbish" id="12613"/>
-	<item name="rubbish" id="12614"/>
-	<item name="rubbish" id="12615"/>
-	<item name="rubbish" id="12616"/>
+	<item fromid="12604" toid="12616" name="rubbish"/>
 	<item id="12617" article="a" name="torn teddy">
 		<attribute key="weight" value="100"/>
 	</item>
 	<item id="12618" article="an" name="open branch fence"/>
-	<item article="a" name="branch fence" id="12619"/>
-	<item article="a" name="branch fence" id="12620"/>
-	<item article="a" name="branch fence" id="12621"/>
-	<item article="a" name="branch fence" id="12622"/>
-	<item article="a" name="branch fence" id="12623"/>
-	<item article="a" name="small shed" id="12624"/>
-	<item article="a" name="small shed" id="12625"/>
-	<item article="a" name="small shed" id="12626"/>
-	<item article="a" name="small shed" id="12627"/>
-	<item article="a" name="small shed" id="12628"/>
-	<item article="a" name="small shed" id="12629"/>
-	<item article="a" name="small shed" id="12630"/>
-	<item article="a" name="small shed" id="12631"/>
-	<item id="12633" name="leaves"/>
-	<item article="a" name="bench" id="12636"/>
-	<item article="a" name="bench" id="12637"/>
-	<item article="a" name="bench" id="12638"/>
-	<item article="a" name="bench" id="12639"/>
-	<item name="shelf" id="12640">
+	<item fromid="12619" toid="12623" article="a" name="branch fence"/>
+	<item fromid="12624" toid="12631" article="a" name="small shed"/>
+	<item fromid="12632" toid="12634" name="leaves"/>
+	<item fromid="12636" toid="12639" article="a" name="bench"/>
+	<item fromid="12640" toid="12641" name="shelf">
 		<attribute key="containersize" value="6"/>
 	</item>
-	<item name="shelf" id="12641">
-		<attribute key="containersize" value="6"/>
-	</item>
-	<item article="a" name="trunk" id="12642">
-		<attribute key="containersize" value="10"/>
-	</item>
-	<item article="a" name="trunk" id="12643">
+	<item fromid="12642" toid="12643" article="a" name="trunk">
 		<attribute key="containersize" value="10"/>
 	</item>
 	<item id="12644" article="a" name="back basket"/>
 	<item id="12645" article="a" name="leaf basket">
 		<attribute key="containersize" value="3"/>
 	</item>
-	<item article="a" name="pallet" id="12646"/>
-	<item article="a" name="pallet" id="12647"/>
+	<item fromid="12646" toid="12649" article="a" name="pallet"/>
 	<item id="12650" name="branches"/>
 	<item id="12651" name="branches"/>
 	<item id="12652" article="a" name="troll mushroom"/>
@@ -22733,65 +22698,73 @@
 	<item id="12654" article="a" name="branch"/>
 	<item id="12655" article="a" name="corms"/>
 	<item id="12656" name="root vegetable dish"/>
+	<item id="12657" article="a" name="RESERVED SPRITE"/>
 	<item id="12658" article="a" name="dead shaburak demon">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13960"/>
+		<attribute key="decayto" value="12660"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12659" article="a" name="dead askarak demon">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13963"/>
+		<attribute key="decayto" value="12663"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12660" article="a" name="dead shaburak prince">
+	<item id="12660" article="a" name="dead shaburak demon">
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13817"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12661"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12661" article="a" name="dead shaburak prince">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13818"/>
-		<attribute key="duration" value="600"/>
+	<item id="12661" article="a" name="dead shaburak demon">
+		<attribute key="containersize" value="4"/>
+		<attribute key="decayto" value="12662"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12662" article="a" name="dead shaburak prince">
+	<item id="12662" article="a" name="dead shaburak demon">
+		<attribute key="decayto" value="0"/>
+		<attribute key="duration" value="60"/>
+		<attribute key="corpsetype" value="blood"/>
+	</item>
+	<item id="12663" article="a" name="dead askarak demon">
+		<attribute key="containersize" value="8"/>
+		<attribute key="decayto" value="12664"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="corpsetype" value="blood"/>
+	</item>
+	<item id="12664" article="a" name="dead askarak demon">
+		<attribute key="containersize" value="4"/>
+		<attribute key="decayto" value="12664"/>
+		<attribute key="duration" value="300"/>
+		<attribute key="corpsetype" value="blood"/>
+	</item>
+	<item id="12665" article="a" name="dead askarak demon">
+		<attribute key="decayto" value="0"/>
+		<attribute key="duration" value="60"/>
+		<attribute key="corpsetype" value="blood"/>
+	</item>
+	<item fromid="12666" toid="12668" name="water pump"/>
+	<item id="12669" article="a" name="star ring">
+		<attribute key="description" value="If you wear it on your ring slot, it will boost your health regeneration when you're not hungry."/>
+		<attribute key="transformequipto" value="12670"/>
+		<attribute key="stopduration" value="1"/>
+		<attribute key="slottype" value="ring"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="showattributes" value="1"/>
+		<attribute key="weight" value="80"/>
+	</item><!-- wihout vocation -->
+	<item id="12670" article="a" name="star ring">
+		<attribute key="description" value="If you wear it on your ring slot, it will boost your health regeneration when you're not hungry."/>
+		<attribute key="transformdeequipto" value="12669"/>
 		<attribute key="decayto" value="0"/>
 		<attribute key="duration" value="600"/>
-		<attribute key="corpsetype" value="blood"/>
-	</item>
-	<item id="12663" article="a" name="dead askarak prince">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13820"/>
-		<attribute key="duration" value="900"/>
-		<attribute key="corpsetype" value="blood"/>
-	</item>
-	<item id="12664" article="a" name="dead askarak prince">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13821"/>
-		<attribute key="duration" value="600"/>
-		<attribute key="corpsetype" value="blood"/>
-	</item>
-	<item id="12665" article="a" name="dead askarak prince">
-		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
-		<attribute key="corpsetype" value="blood"/>
-	</item>
-	<item name="water pump" id="12666"/>
-	<item name="water pump" id="12667"/>
-	<item name="water pump" id="12668"/>
-	<item article="a" name="star ring" id="12669">
-		<attribute key="description" value="If you wear it on your ring slot, it will boost your health regeneration when you're not hungry. Professions: players without vocation"/>
-		<attribute key="weight" value="80"/>
 		<attribute key="slottype" value="ring"/>
-	</item>
-	<item article="a" name="star ring" id="12670">
-		<attribute key="description" value="If you wear it on your ring slot, it will boost your health regeneration when you're not hungry. Professions: players without vocation"/>
+		<attribute key="showduration" value="1"/>
+		<attribute key="showattributes" value="1"/>
 		<attribute key="weight" value="80"/>
-		<attribute key="slottype" value="ring"/>
-	</item>
+	</item><!-- wihout vocation -->
 	<item id="12671" name="sack of herbs">
 		<attribute key="weight" value="1000"/>
 	</item>
@@ -22812,33 +22785,32 @@
 	<item id="12675" name="book of orc language">
 		<attribute key="weight" value="1200"/>
 	</item>
-	<item name="bird's nest" id="12676"/>
-	<item name="bird's nest" id="12677"/>
+	<item fromid="12676" toid="12677" name="bird's nest"/>
 	<item id="12678" article="a" name="dead raging mage">
 		<attribute key="weight" value="26000"/>
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13835"/>
+		<attribute key="decayto" value="12679"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12679" article="a" name="dead raging mage">
 		<attribute key="weight" value="20000"/>
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13836"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12680"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12680" article="a" name="dead raging mage">
 		<attribute key="weight" value="8000"/>
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13837"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="4"/>
+		<attribute key="decayto" value="12681"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12681" article="a" name="dead raging mage">
 		<attribute key="weight" value="4000"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12683" article="a" name="heavy trident">
@@ -23106,11 +23078,11 @@
 		<attribute key="description" value="This hat was handcrafted by Uman the Wise and cursed by Zathroth the Destroyer."/>
 		<attribute key="weight" value="805"/>
 	</item>
-	<item fromid="12811" toid="12812" article="an" name="imortus" >
+	<item fromid="12811" toid="12812" article="an" name="imortus">
 		<attribute key="description" value="It knows all secrets of all numbers. It was awarded by fansite Exhiti.com."/>
 		<attribute key="weight" value="4609"/>
 	</item>
-	<item fromid="12813" toid="12814" name="old radio" >
+	<item fromid="12813" toid="12814" name="old radio">
 		<attribute key="description" value="Granted by RadioTibia.com.br to hear the sounds of Tibia."/>
 		<attribute key="weight" value="4015"/>
 	</item>
