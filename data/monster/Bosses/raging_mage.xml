@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Raging mage" nameDescription="a raging mage" race="blood" experience="3250" speed="200" script="rewardboss.lua">
 	<health now="3500" max="3500"/>
-	<look type="416" corpse="13834"/>
+	<look type="416" corpse="12678"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag preyable="0"/>
@@ -46,27 +46,27 @@
 		<summon name="Golden Servant" interval="2000" chance="50"/>
 	</summons>
 	<loot>
-		<item id="2148" countmax="169" chance="97000"/>	<!-- gold coin -->
-		<item id="2152" countmax="9" chance="77400"/>	<!-- platinum coin -->
-		<item id="5911" chance="31100"/>				<!-- red piece of cloth -->
-		<item id="7591" countmax="5" chance="26830"/>	<!-- great health potion -->
-		<item id="7590" countmax="5" chance="23170"/>	<!-- great mana potion -->
-		<item id="2178" chance="9760"/>					<!-- mind stone -->
-		<item id="7443" countmax="2" chance="6710"/>	<!-- bullseye potion -->
-		<item id="8871" chance="4880"/>					<!-- focus cape -->
-		<item id="2165" chance="4880"/>					<!-- stealth ring -->
-		<item id="12410" chance="4270"/>				<!-- luminous orb -->
-		<item id="2792" countmax="4" chance="3600"/>	<!-- dark mushroom -->
-		<item id="7368" countmax="7" chance="1830"/>	<!-- assassin star -->
-		<item id="2124" chance="1830"/>					<!-- crystal ring -->
-		<item id="2123" chance="1830"/>					<!-- ring of the sky -->
-		<item id="2146" countmax="5" chance="1830"/>	<!-- small sapphire -->
-		<item id="13940" chance="1220"/>				<!-- elemental spikes -->
-		<item id="2114" chance="1220"/>					<!-- piggy bank -->
-		<item id="9958" chance="1220"/>					<!-- royal tapestry -->
-		<item id="2195" chance="610"/>					<!-- boots of haste -->
-		<item id="9980" chance="610"/>					<!-- crystal of power -->
-		<item id="5741" chance="610"/>					<!-- skull helmet -->
-		<item id="8902" chance="610"/>					<!-- spellbook of mind control -->
+		<item id="gold coin" countmax="169" chance="97630"/>
+		<item id="platinum coin" countmax="9" chance="78110"/>
+		<item id="red piece of cloth" chance="30770"/>
+		<item id="great health potion" countmax="5" chance="27220"/>
+		<item id="great mana potion" countmax="5" chance="23080"/>
+		<item id="mind stone" chance="10650"/>
+		<item id="bullseye potion" countmax="2" chance="6510"/>
+		<item id="stealth ring" chance="4730"/>
+		<item id="focus cape" chance="4730"/>
+		<item id="luminous orb" chance="4140"/>
+		<item id="dark mushroom" countmax="4" chance="3550"/>
+		<item id="small sapphire" countmax="5" chance="2370"/>
+		<item id="assassin star" countmax="10" chance="2370"/>
+		<item id="crystal ring" chance="2370"/>
+		<item id="ring of the sky" chance="1780"/>
+		<item id="piggy bank" chance="1180"/>
+		<item id="royal tapestry" chance="1180"/>
+		<item id="elemental spikes" chance="1180"/>
+		<item id="crystal of power" chance="590"/>
+		<item id="spellbook of mind control" chance="590"/>
+		<item id="skull helmet" chance="590"/>
+		<item id="boots of haste" chance="590"/>
 	</loot>
 </monster>

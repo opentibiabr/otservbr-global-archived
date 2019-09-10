@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Askarak Demon" nameDescription="an askarak demon" race="venom" experience="900" speed="115">
 	<health now="1500" max="1500"/>
-	<look type="420" corpse="13815"/>
+	<look type="420" corpse="12659"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

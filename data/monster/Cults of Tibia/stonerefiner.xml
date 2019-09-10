@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Stonerefiner" nameDescription="a Stonerefiner" race="blood" experience="500" speed="110">
 	<health now="800" max="800"/>
-	<look type="1032" corpse="30771"/>
+	<look type="1032" corpse="27537"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -37,7 +37,7 @@
 	</elements>
 	<immunities>
 		<immunity earth="1"/>
-		<immunity invisible="1"/>
+		<immunity invisible="0"/>
 		<immunity paralyze="1"/>
 	</immunities>
 			<voices interval="5000" chance="10">
@@ -45,11 +45,10 @@
 		<voice sentence="nomnomnom"/>
 	</voices>
 	<loot>
-		<!--Comum-->
 		<item name="gold coin" countmax="200" chance="4050"/>
 		<item name="platinum coin" countmax="3" chance="4050"/>
 		<item name="glob of acid slime" chance="4050"/>
-		<item id="13757" countmax="5" chance="450"/>
+		<item id="12600" countmax="5" chance="450"/> <!-- coal -->
  		<item name="poisonous slime" countmax="3" chance="350"/>
  		<item name="rat cheese" countmax="2" chance="4050"/>
  		<item name="stonerefiner's skull" countmax="200" chance="300"/>
