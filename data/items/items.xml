@@ -22850,7 +22850,7 @@
 		<attribute key="weight" value="50"/>
 	</item>
 	<item article="a" name="magic gold converter" id="12699">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="500"/>
 		<attribute key="showcharges" value="1"/>
 	</item>
@@ -25194,11 +25194,11 @@
 	</item>
 	<item id="14256" article="a" name="carnivorous plant">
 		<attribute key="rotateto" value="32273"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="14257" article="a" name="carnivorous plant">
 		<attribute key="rotateto" value="32272"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="14258" article="a" name="depth galea">
 		<attribute key="description" value="Enables underwater exploration."/>
@@ -39204,13 +39204,13 @@
 	<item id="22736" article="a" name="rift carpet">
 		<attribute key="type" value="carpet"/>
 		<attribute key="description" value="This carpet is extremely soft to the touch - and forever will be."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="22737" article="a" name="folded rift carpet">
 		<attribute key="type" value="carpet"/>
 		<attribute key="weight" value="1000"/>
 		<attribute key="description" value="This carpet is extremely soft to the touch - and forever will be."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="22738" article="a" name="stone wall">
 		<attribute key="description" value="A slight draft seems to be coming from this wall."/>
@@ -39807,58 +39807,58 @@
 	<item id="23399" article="a" name="royal mailbox">
 		<attribute key="rotateto" value="26056"/>
 		<attribute key="type" value="mailbox"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23400" article="a" name="royal mailbox">
 		<attribute key="rotateto" value="26055"/>
 		<attribute key="type" value="mailbox"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23401" article="an" name="ornate mailbox">
 		<attribute key="rotateto" value="26058"/>
 		<attribute key="type" value="mailbox"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23402" article="an" name="ornate mailbox">
 		<attribute key="rotateto" value="26057"/>
 		<attribute key="type" value="mailbox"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23403" article="a" name="magnificent chair">
 		<attribute key="rotateto" value="26060"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23404" article="a" name="magnificent chair">
 		<attribute key="rotateto" value="26061"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23405" article="a" name="magnificent chair">
 		<attribute key="rotateto" value="26062"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23406" article="a" name="magnificent chair">
 		<attribute key="rotateto" value="26059"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23407" article="a" name="ferocious chair">
 		<attribute key="rotateto" value="26064"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23408" article="a" name="ferocious chair">
 		<attribute key="rotateto" value="26065"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23409" article="a" name="ferocious chair">
 		<attribute key="rotateto" value="26066"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23410" article="a" name="ferocious chair">
 		<attribute key="rotateto" value="26063"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23411" article="a" name="ferocious table">
 		<attribute key="rotateto" value="26070"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23412" article="a" name="dead reality reaver">
 		<attribute key="containersize" value="30"/>
@@ -39872,7 +39872,7 @@
 	</item>
 	<item id="23414" article="a" name="ferocious table">
 		<attribute key="rotateto" value="26067"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23415" article="a" name="dead reality reaver">
 		<attribute key="containersize" value="30"/>
@@ -39887,156 +39887,156 @@
 	</item>
 	<item id="23417" article="a" name="magnificent table">
 		<attribute key="rotateto" value="26074"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23418" article="a" name="magnificent table">
 		<attribute key="rotateto" value="26073"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23419" article="a" name="magnificent cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="26076"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23420" article="a" name="magnificent cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="26075"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23421" article="a" name="ferocious cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="26078"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23422" article="a" name="ferocious cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="26077"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23423" article="a" name="ferocious trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26080"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23424" article="a" name="ferocious trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26081"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23425" article="a" name="ferocious trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26082"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23426" article="a" name="ferocious trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26079"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23427" article="a" name="magnificent trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26084"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23428" article="a" name="magnificent trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26085"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23429" article="a" name="magnificent trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26086"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23430" article="a" name="magnificent trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26083"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23431" article="a" name="Yalaharian carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23432" article="a" name="white fur carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23433" article="a" name="bamboo Mat">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23434" article="a" name="predator lamp">
 		<attribute key="rotateto" value="26091"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23435" article="a" name="predator lamp">
 		<attribute key="rotateto" value="26090"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23436" article="a" name="predator lamp">
 		<attribute key="rotateto" value="26093"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23437" article="a" name="predator lamp">
 		<attribute key="rotateto" value="26092"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23438" article="a" name="protectress lamp">
 		<attribute key="rotateto" value="26095"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23439" article="a" name="protectress lamp">
 		<attribute key="rotateto" value="26094"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23440" article="a" name="protectress lamp">
 		<attribute key="rotateto" value="26097"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23441" article="a" name="protectress lamp">
 		<attribute key="rotateto" value="26096"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23442" article="a" name="baby dragon">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23443" article="a" name="baby dragon">
 		<attribute key="decayto" value="26098"/>
 		<attribute key="duration" value="8"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23444" article="a" name="hamster in a wheel">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23445" article="a" name="hamster in a wheel">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23448" article="a" name="lordly tapestry">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23449" article="a" name="menacing tapestry">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23450" article="an" name="all-seeing">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23451" article="a" name="cat in a basket">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23452" article="a" name="cat in a basket">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23453" article="a" name="Yalaharian carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23454" article="a" name="white fur carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23455" article="a" name="bamboo mat">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23456" article="a" name="used red chair kit">
 		<attribute key="description" value="Use it in Jack's house to place a red cushioned chair."/>
@@ -40521,131 +40521,131 @@
 	</item>
 	<item id="23691" article="a" name="fish in a tank">
 		<attribute key="description" value="A small fish is minding his own business in this tank."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23693" article="a" name="rustic chair">
 		<attribute key="rotateto" value="26350"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23694" article="a" name="rustic chair">
 		<attribute key="rotateto" value="26351"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23695" article="a" name="rustic chair">
 		<attribute key="rotateto" value="26352"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23696" article="a" name="rustic chair">
 		<attribute key="rotateto" value="26349"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23697" article="a" name="dog house">
 		<attribute key="description" value="This dog is waiting quite eagerly for attention."/>
 		<attribute key="decayto" value="26359"/>
 		<attribute key="duration" value="4"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23698" article="a" name="rustic table">
 		<attribute key="rotateto" value="26355"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23699" article="a" name="rustic table">
 		<attribute key="rotateto" value="26354"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23700" article="a" name="rustic cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="26357"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23701" article="a" name="rustic cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="26356"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23702" article="a" name="rustic trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26360"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23703" article="a" name="dog house">
 		<attribute key="description" value="This dog is waiting quite eagerly for attention."/>
 		<attribute key="decayto" value="26364"/>
 		<attribute key="duration" value="2"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23704" article="a" name="rustic trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26361"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23705" article="a" name="rustic trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26362"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23706" article="a" name="rustic trunk">
 		<attribute key="containersize" value="10"/>
 		<attribute key="rotateto" value="26358"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23707" article="a" name="crimson carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23708" article="a" name="dog house">
 		<attribute key="description" value="This dog is waiting quite eagerly for attention."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23709" article="a" name="dog house">
 		<attribute key="description" value="This dog is waiting quite eagerly for attention."/>
 		<attribute key="decayto" value="26353"/>
 		<attribute key="duration" value="2"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23710" article="an" name="azure carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23711" article="an" name="emerald carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23712" article="a" name="light parquet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23713" article="a" name="dark parquet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23714" article="a" name="marble parquet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23715" article="a" name="crimson carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23716" article="an" name="azure carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23717" article="an" name="emerald carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23718" article="a" name="light parquet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23719" article="a" name="dark parquet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23720" article="a" name="marble parquet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23721" article="a" name="gold pouch">
 		<attribute key="containersize" value="8"/>
@@ -40653,18 +40653,18 @@
 	</item>
 	<item id="23722" article="a" name="gold converter">
 		<attribute key="weight" value="1800"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="500"/>
 		<attribute key="showcharges" value="1"/>
 	</item>
 	<item id="23723" article="a" name="golden dragon tapestry">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23724" article="a" name="sword tapestry">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="23725" article="a" name="brocade tapestry">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="vortex" id="23726"/>
 	<item article="a" name="vortex" id="23727"/>
@@ -41164,79 +41164,79 @@
 	</item>
 	<item id="24416" article="a" name="flowery carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24417" article="a" name="colourful carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24418" article="a" name="striped carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24419" article="a" name="fur carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24420" article="a" name="diamond carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24421" article="a" name="patterned carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24422" article="a" name="night sky carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24423" article="a" name="star carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24424" article="a" name="flowery carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24425" article="a" name="colourful carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24426" article="a" name="striped carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24427" article="a" name="fur carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24428" article="a" name="diamond carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24429" article="a" name="patterned carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24430" article="a" name="night sky carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24431" article="a" name="star carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="parrot" id="24432">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="parrot" id="24433">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24434" article="a" name="lit skull lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24435" article="a" name="lit skull lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="24436" article="a" name="lit skull lamp">
 		<attribute key="decayto" value="27103"/>
@@ -41722,19 +41722,19 @@
 	<item article="a" name="dragon lair wall" id="25173"/>
 	<item id="25174" article="an" name="imbuing shrine">
 		<attribute key="rotateto" value="27843"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25175" article="an" name="imbuing shrine">
 		<attribute key="rotateto" value="27842"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25182" article="a" name="gilded imbuing shrine">
 		<attribute key="rotateto" value="27851"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25183" article="a" name="gilded imbuing shrine">
 		<attribute key="rotateto" value="27850"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25185" article="a" name="slain ancient dragon">
 		<attribute key="weight" value="60000"/>
@@ -41767,85 +41767,85 @@
 		<attribute key="duration" value="1"/>
 	</item>
 	<item id="25211" article="a" name="vengothic lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25212" article="a" name="vengothic lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="chamaleon" id="25213">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="chamaleon" id="25214">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="chamaleon" id="25215">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25216" article="a" name="blooming cactus">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25217" article="a" name="bitter-smack leaf">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25218" article="a" name="pink roses">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25219" article="a" name="red roses">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25220" article="a" name="yellow roses">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25221" article="a" name="vengothic chair">
 		<attribute key="rotateto" value="27898"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25222" article="a" name="vengothic chair">
 		<attribute key="rotateto" value="27899"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25223" article="a" name="vengothic chair">
 		<attribute key="rotateto" value="27900"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25224" article="a" name="vengothic chair">
 		<attribute key="rotateto" value="27897"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25225" article="a" name="vengothic table">
 		<attribute key="rotateto" value="27902"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25226" article="a" name="vengothic table">
 		<attribute key="rotateto" value="27901"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25227" article="a" name="vengothic cabinet">
 		<attribute key="rotateto" value="27904"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25228" article="a" name="vengothic cabinet">
 		<attribute key="rotateto" value="27903"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25229" article="a" name="vengothic chest">
 		<attribute key="rotateto" value="27906"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25230" article="a" name="vengothic chest">
 		<attribute key="rotateto" value="27907"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25231" article="a" name="vengothic chest">
 		<attribute key="rotateto" value="27908"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25232" article="a" name="vengothic chest">
 		<attribute key="rotateto" value="27905"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25233" article="a" name="vengothic lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25234" article="a" name="dead mummy"/>
 	<item id="25235" article="a" name="book with old legends">
@@ -42498,22 +42498,22 @@
 	</item>
 	<item id="25720" article="a" name="shiny reward shrine">
 		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="rotateto" value="29022"/>
 	</item>
 	<item id="25721" article="a" name="shiny reward shrine">
 		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="rotateto" value="29021"/>
 	</item>
 	<item id="25722" article="a" name="shiny reward shrine">
 		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="rotateto" value="29024"/>
 	</item>
 	<item id="25723" article="a" name="shiny reward shrine">
 		<attribute key="description" value="It depicts the two suns of Tibia, symbolising the course of a day."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="rotateto" value="29023"/>
 	</item>
 	<item id="25724" article="a" name="stuffed moohtant"/>
@@ -43011,73 +43011,73 @@
 	<item article="an" name="unknow item" id="25877"/>
 	<item article="an" name="unknow item" id="25878"/>
 	<item id="25879" article="a" name="health potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill health potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25880" article="a" name="strong health potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill great health potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25881" article="a" name="great health potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill strong health potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25882" article="an" name="ultimate health potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill ultimate health potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25883" article="a" name="supreme health potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill supreme health potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25889" article="a" name="mana potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill mana potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25890" article="a" name="strong mana potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill great potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25891" article="a" name="great mana potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill strong mana potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25892" article="an" name="ultimate mana potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill ultimate mana potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25893" article="a" name="supreme mana potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill supreme mana potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25899" article="a" name="great spirit potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill great spirit potions."/>
 		<attribute key="weight" value="200000"/>
 	</item>
 	<item id="25900" article="a" name="ultimate spirit potion cask">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="1000"/>
 		<attribute key="description" value="This cask can be used to refill ultimate spirit potions."/>
 		<attribute key="weight" value="200000"/>
@@ -43086,73 +43086,73 @@
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill health potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25904" article="a" name="strong health potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill great health potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25905" article="a" name="great health potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill strong health potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25906" article="an" name="ultimate health potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill ultimate health potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25907" article="a" name="supreme health potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill supreme health potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25908" article="a" name="mana potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill mana potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25909" article="a" name="strong mana potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill great mana potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25910" article="a" name="great mana potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill strong mana potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25911" article="an" name="ultimate mana potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill ultimate mana potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25912" article="a" name="supreme mana potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill supreme mana potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25913" article="a" name="great spirit potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill great spirit potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25914" article="an" name="ultimate spirit potion keg">
 		<attribute key="charges" value="500"/>
 		<attribute key="description" value="This keg can be used to refill ultimate spirit potions."/>
 		<attribute key="weight" value="12500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="25915" article="a" name="fiery spike sword replica">
 		<attribute key="weight" value="5000"/>
@@ -44109,13 +44109,13 @@
 		<attribute key="weight" value="50"/>
 	</item>
 	<item id="26076" article="a" name="bath tub">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26077" article="a" name="bath tub">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26078" article="a" name="terrarium spider">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26079" article="a" name="terrarium spider">
 		<attribute key="decayto" value="29316"/>
@@ -44127,19 +44127,19 @@
 	</item>
 	<item id="26081" article="a" name="hrodmiran weapons rack">
 		<attribute key="rotateto" value="29318"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26082" article="a" name="hrodmiran weapons rack">
 		<attribute key="rotateto" value="29317"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26083" article="a" name="hrodmiran weapons rack">
 		<attribute key="rotateto" value="29320"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26084" article="a" name="hrodmiran weapons rack">
 		<attribute key="rotateto" value="29319"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="Goromaphone" id="26085"/>
 	<item article="a" name="Goromaphone" id="26086"/>
@@ -44213,94 +44213,94 @@
 	<item id="26100" article="a" name="bath tub"/>
 	<item id="26101" article="a" name="verdant chair">
 		<attribute key="rotateto" value="29338"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26102" article="a" name="verdant chair">
 		<attribute key="rotateto" value="29339"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26103" article="a" name="verdant chair">
 		<attribute key="rotateto" value="29340"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26104" article="a" name="verdant chair">
 		<attribute key="rotateto" value="29337"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26105" article="a" name="verdant cabinet">
 		<attribute key="rotateto" value="29342"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26106" article="a" name="verdant cabinet">
 		<attribute key="rotateto" value="29341"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26107" article="a" name="verdant trunk">
 		<attribute key="rotateto" value="29344"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26108" article="a" name="verdant trunk">
 		<attribute key="rotateto" value="29345"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26109" article="a" name="verdant trunk">
 		<attribute key="rotateto" value="29346"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26110" article="a" name="verdant trunk">
 		<attribute key="rotateto" value="29343"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26111" article="a" name="verdant table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26112" article="a" name="venorean table clock">
 		<attribute key="rotateto" value="29349"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26113" article="a" name="venorean table clock">
 		<attribute key="rotateto" value="29348"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26114" article="a" name="verdant carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26115" article="a" name="verdant carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26116" article="a" name="shaggy carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26117" article="a" name="shaggy carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26118" article="a" name="mystic carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26119" article="a" name="mystic carpet">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26120" article="a" name="stone tiles">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26121" article="a" name="stone tiles">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26122" article="a" name="wooden planks">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26123" article="a" name="wooden planks">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26132" article="a" name="dead boss">
 		<attribute key="decayto" value="29369"/>
@@ -44319,75 +44319,75 @@
 	</item>
 	<item article="a" name="wheat carpet" id="26150">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="wheat carpet" id="26151">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="crested carpet" id="26152">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="crested carpet" id="26153">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="decorated carpet" id="26154">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="decorated carpet" id="26155">
 		<attribute key="type" value="carpet"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26156" article="an" name="ornate chair">
 		<attribute key="rotateto" value="29393"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26157" article="an" name="ornate chair">
 		<attribute key="rotateto" value="29394"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26158" article="an" name="ornate chair">
 		<attribute key="rotateto" value="29395"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26159" article="an" name="ornate chair">
 		<attribute key="rotateto" value="29392"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26160" article="an" name="ornate table">
 		<attribute key="rotateto" value="29397"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26161" article="an" name="ornate table">
 		<attribute key="rotateto" value="29396"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26162" article="an" name="ornate Cabinet">
 		<attribute key="rotateto" value="29399"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26163" article="an" name="ornate Cabinet">
 		<attribute key="rotateto" value="29398"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26164" article="an" name="ornate chest">
 		<attribute key="rotateto" value="29401"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26165" article="an" name="ornate chest">
 		<attribute key="rotateto" value="29403"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26166" article="an" name="ornate chest">
 		<attribute key="rotateto" value="29400"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26167" article="an" name="ornate chest">
 		<attribute key="rotateto" value="29402"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26169" article="a" name="terrarium snake">
 		<attribute key="decayto" value="29408"/>
@@ -44398,18 +44398,18 @@
 		<attribute key="duration" value="2"/>
 	</item>
 	<item id="26171" article="a" name="terrarium snake">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26172" article="a" name="terrarium snake">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26173" article="a" name="demon pet">
 		<attribute key="rotateto" value="29410"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26174" article="a" name="demon pet">
 		<attribute key="rotateto" value="29409"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="26175" article="a" name="demon pet">
 		<attribute key="decayto" value="29415"/>
@@ -45652,142 +45652,142 @@
 	<item id="27660" article="a" name="unknown item"/>
 	<item id="27661" article="an" name="alchemistic chair">
 		<attribute key="rotateto" value="32018"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27662" article="an" name="alchemistic chair">
 		<attribute key="rotateto" value="32017"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27663" article="an" name="alchemistic cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="32020"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27664" article="an" name="alchemistic cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="32019"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27665" article="an" name="alchemistic table">
 		<attribute key="rotateto" value="32022"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27666" article="an" name="alchemistic table">
 		<attribute key="rotateto" value="32021"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27667" article="a" name="light of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27668" article="a" name="torch of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27669" article="a" name="light of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27670" article="a" name="light of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27671" article="a" name="torch of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27672" name="reserved sprite"/>
 	<item id="27673" article="a" name="torch of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27674" article="a" name="torch of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27675" article="a" name="torch of change">
-		<attribute key="wrapableTo" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item fromid="27676" toid="27678" name="reserved sprite"/>
 	<item id="27679" article="an" name="alchemistic bookstand">
 		<attribute key="rotateto" value="32029"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27680" article="an" name="alchemistic bookstand">
 		<attribute key="rotateto" value="32028"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27681" article="an" name="alchemistic bookstand">
 		<attribute key="rotateto" value="32031"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27682" article="an" name="alchemistic bookstand">
 		<attribute key="rotateto" value="32030"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27683" name="alchemistic scales">
 		<attribute key="rotateto" value="32033"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27684" name="alchemistic scales">
 		<attribute key="rotateto" value="32034"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27685" name="alchemistic scales">
 		<attribute key="rotateto" value="32035"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27686" name="alchemistic scales">
 		<attribute key="rotateto" value="32032"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27687" article="a" name="pile of alchemistic books">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27688" article="a" name="pile of alchemistic books">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27689" name="alchemistic cupboard">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27690" name="reserved sprite"/>
 	<item id="27691" article="a" name="ferumbras bust">
 		<attribute key="rotateto" value="32041"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27692" article="a" name="ferumbras bust">
 		<attribute key="rotateto" value="32042"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27693" article="a" name="ferumbras bust">
 		<attribute key="rotateto" value="32039"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27694" article="a" name="ferumbras bust">
 		<attribute key="rotateto" value="32040"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27695" article="a" name="Queen Eloise bust">
 		<attribute key="rotateto" value="32044"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27696" article="a" name="Queen Eloise bust">
 		<attribute key="rotateto" value="32043"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27697" article="a" name="dungeon scene painting">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27698" article="an" name="arrival at Thais painting">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27699" article="a" name="Tibia streets painting">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27700" article="a" name="Ferumbras Portrait">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27701" article="an" name="unknown item"/>
 	<item id="27702" article="a" name="King Tibianus bust">
 		<attribute key="rotateto" value="32050"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="27703" article="a" name="King Tibianus bust">
 		<attribute key="rotateto" value="32049"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="werefox trophy" id="27704"/>
 	<item article="a" name="werefox trophy" id="27705"/>
@@ -46560,7 +46560,7 @@
 		<attribute key="type" value="door"/>
 	</item>
 	<item article="a" name="magic gold converter" id="28525">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="500"/>
 		<attribute key="showcharges" value="1"/>
 	</item>
@@ -46645,32 +46645,32 @@
 	<item id="28559" article="a" name="ferumbras exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
 		<attribute key="rotateto" value="32144"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28560" article="a" name="ferumbras exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
 		<attribute key="rotateto" value="32143"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28561" article="a" name="demon exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
 		<attribute key="rotateto" value="32146"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28562" article="a" name="demon exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
 		<attribute key="rotateto" value="32145"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28563" article="a" name="monk exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
 		<attribute key="rotateto" value="32148"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28564" article="a" name="monk exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
 		<attribute key="rotateto" value="32147"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28565" article="an" name="exercise dummy">
 		<attribute key="description" value="You can train your skills by using training weapons with this exercise dummy."/>
@@ -47163,69 +47163,69 @@
 	</item>
 	<item name="unknown item" id="28671"/>
 	<item article="an" name="anglerfish lamp" id="28674">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="an" name="anglerfish lamp" id="28675">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28676" article="a" name="skeletal chair">
 		<attribute key="rotateto" value="32262"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28677" article="a" name="skeletal chair">
 		<attribute key="rotateto" value="32260"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28678" article="a" name="skeletal chair">
 		<attribute key="rotateto" value="32263"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28679" article="a" name="skeletal chair">
 		<attribute key="rotateto" value="32261"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28680" article="a" name="skeletal table">
 		<attribute key="rotateto" value="32265"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28681" article="a" name="skeletal table">
 		<attribute key="rotateto" value="32264"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28682" article="a" name="skeletal chest">
 		<attribute key="rotateto" value="32267"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28683" article="a" name="skeletal chest">
 		<attribute key="rotateto" value="32268"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28684" article="a" name="skeletal chest">
 		<attribute key="rotateto" value="32269"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28685" article="a" name="skeletal chest">
 		<attribute key="rotateto" value="32266"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28686" article="a" name="skeletal cabinet">
 		<attribute key="rotateto" value="33415"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28687" article="a" name="skeletal cabinet">
 		<attribute key="rotateto" value="33414"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28688" article="a" name="carnivorous plant">
 		<attribute key="rotateto" value="33417"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28689" article="a" name="carnivorous plant">
 		<attribute key="rotateto" value="33416"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28690" article="a" name="baby rotworm">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28691" article="a" name="baby rotworm">
 		<attribute key="decayto" value="32392"/>
@@ -47241,7 +47241,7 @@
 	</item>
 	<item id="28694" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28695" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
@@ -47249,13 +47249,13 @@
 		<attribute key="duration" value="4"/>
 	</item>
 	<item id="28697" article="a" name="bellflower">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28698" article="a" name="forget-me-not">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28699" article="a" name="red geranium">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28701" article="a" name="fennec">
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
@@ -48006,115 +48006,115 @@
 		<attribute key="weight" value="9100"/>
 	</item>
 	<item name="fluorescent fungi" id="28920">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="fluorescent fungi" id="28921">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="luminescent fungi" id="28922">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="luminescent fungi" id="28923">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="glowing sulphur fungi" id="28924">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="glowing sulphur fungi" id="28925">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="gloomy poisonous fungi" id="28926">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="gloomy poisonous fungi" id="28927">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28928" article="a" name="stuffed bear display">
 		<attribute key="rotateto" value="33500"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28929" article="a" name="stuffed bear display">
 		<attribute key="rotateto" value="33499"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28930" article="a" name="stuffed teddy display">
 		<attribute key="rotateto" value="33502"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28931" article="a" name="stuffed teddy display">
 		<attribute key="rotateto" value="33501"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28932" article="a" name="comfy chair">
 		<attribute key="rotateto" value="33504"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28933" article="a" name="comfy chair">
 		<attribute key="rotateto" value="33505"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28934" article="a" name="comfy chair">
 		<attribute key="rotateto" value="33506"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28935" article="a" name="comfy chair">
 		<attribute key="rotateto" value="33503"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28936" article="a" name="comfy table">
 		<attribute key="rotateto" value="33508"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28937" article="a" name="comfy table">
 		<attribute key="rotateto" value="33507"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28938" article="a" name="comfy chest">
 		<attribute key="containersize" value="18"/>
 		<attribute key="rotateto" value="33510"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28939" article="a" name="comfy chest">
 		<attribute key="containersize" value="18"/>
 		<attribute key="rotateto" value="33511"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28940" article="a" name="comfy chest">
 		<attribute key="containersize" value="18"/>
 		<attribute key="rotateto" value="33512"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28941" article="a" name="comfy chest">
 		<attribute key="containersize" value="18"/>
 		<attribute key="rotateto" value="33509"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28942" article="a" name="comfy cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="33514"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28943" article="a" name="comfy cabinet">
 		<attribute key="containersize" value="8"/>
 		<attribute key="rotateto" value="33513"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28944" name="incomprehensible riches">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28945" article="a" name="chest of abundance">
 		<attribute key="rotateto" value="33517"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28946" article="a" name="chest of abundance">
 		<attribute key="rotateto" value="33516"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28947" article="a" name="painting of Tibiasula">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28948" article="a" name="painting of Tibiasula">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="28951" article="a" name="focus of corrupted nature"/>
 	<item name="unknown item" id="28952"/>
@@ -49344,86 +49344,86 @@
 	</item>
 	<item id="30227" article="a" name="festive filled shoes">
 		<attribute key="rotateto" value="35022"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30228" article="a" name="festive filled shoes">
 		<attribute key="rotateto" value="35021"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30229" article="a" name="festive table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30230" article="a" name="festive table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30231" article="a" name="festive table">
 		<attribute key="wrapableto" value="35027"/>
 	</item>
 	<item id="30232" article="a" name="festive table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30233" article="a" name="festive fireplace">
 		<attribute key="rotateto" value="35029"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30234" article="a" name="festive fireplace">
 		<attribute key="rotateto" value="35030"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30235" article="a" name="festive fireplace">
 		<attribute key="rotateto" value="35027"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30236" article="a" name="festive fireplace">
 		<attribute key="rotateto" value="35028"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30237" article="a" name="festive tree">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30238" article="a" name="festive tree">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30239" article="a" name="festive rocking chair">
 		<attribute key="rotateto" value="35034"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30240" article="a" name="festive rocking chair">
 		<attribute key="rotateto" value="35035"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30241" article="a" name="festive rocking chair">
 		<attribute key="rotateto" value="35036"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30242" article="a" name="festive rocking chair">
 		<attribute key="rotateto" value="35033"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30243" article="a" name="festive sleigh">
 		<attribute key="rotateto" value="35038"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30244" article="a" name="festive sleigh">
 		<attribute key="rotateto" value="35037"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30245" article="a" name="festive pile of presents">
 		<attribute key="rotateto" value="35040"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30246" article="a" name="festive pile of presents">
 		<attribute key="rotateto" value="35039"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30247" article="a" name="festive sack of presents">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30248" article="a" name="festive pyramid">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="30249" article="a" name="festive pyramid">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item article="a" name="warm bonfire" id="30250"/>
 	<item article="a" name="warm bonfire" id="30251"/>
@@ -50623,94 +50623,94 @@
 	</item>
 	<item id="31183" article="a" name="dwarven stone chair">
 		<attribute key="rotateto" value="36019"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31184" article="a" name="dwarven stone chair">
 		<attribute key="rotateto" value="36020"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31185" article="a" name="dwarven stone chair">
 		<attribute key="rotateto" value="36021"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31186" article="a" name="dwarven stone chair">
 		<attribute key="rotateto" value="36018"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31187" article="a" name="dwarven stone chest">
 		<attribute key="rotateto" value="36023"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31188" article="a" name="dwarven stone chest">
 		<attribute key="rotateto" value="36024"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31189" article="a" name="dwarven stone chest">
 		<attribute key="rotateto" value="36025"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31190" article="a" name="dwarven stone chest">
 		<attribute key="rotateto" value="36022"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31191" article="a" name="dwarven stone table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31192" article="a" name="dwarven stone cabinet">
 		<attribute key="rotateto" value="36028"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31193" article="a" name="dwarven stone cabinet">
 		<attribute key="rotateto" value="36027"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31194" article="a" name="wooden bookcase">
 		<attribute key="rotateto" value="36030"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31195" article="a" name="wooden bookcase">
 		<attribute key="rotateto" value="36029"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31196" article="a" name="crystal lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31197" article="a" name="crystal lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31203" article="a" name="good remains of a knight"/>
 	<item id="31204" article="a" name="good remains of a paladin"/>
 	<item id="31205" article="a" name="good remains of a druid"/>
 	<item id="31206" article="a" name="good remains of a sorcerer"/>
 	<item id="31207" article="a" name="square side table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31208" article="a" name="round side table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31209" article="a" name="golden minotaur skull">
 		<attribute key="rotateto" value="36058"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31210" article="a" name="minotaur skull">
 		<attribute key="rotateto" value="36059"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31211" article="a" name="golden demon skull">
 		<attribute key="rotateto" value="36060"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31212" article="a" name="demon skull">
 		<attribute key="rotateto" value="36061"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31213" article="a" name="idol lamp">
 		<attribute key="rotateto" value="36049"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31214" article="a" name="idol lamp">
 		<attribute key="rotateto" value="36048"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31215" article="a" name="idol lamp">
 		<attribute key="rotateto" value="36051"/>
@@ -50719,38 +50719,38 @@
 		<attribute key="rotateto" value="36050"/>
 	</item>
 	<item id="31217" article="a" name="violet square cushion">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31218" article="a" name="green square cushion">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31219" article="a" name="blue square cushion">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31220" article="a" name="violet round cushion">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31221" article="a" name="green round cushion">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31222" article="a" name="blue round cushion">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31223" article="a" name="golden minotaur skull">
 		<attribute key="rotateto" value="36044"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31224" article="a" name="minotaur skull">
 		<attribute key="rotateto" value="36045"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31225" article="a" name="golden demon skull">
 		<attribute key="rotateto" value="36046"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31226" article="a" name="demon skull">
 		<attribute key="rotateto" value="36047"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item name="reed" id="31227"/>
 	<item name="reed" id="31228"/>
@@ -51115,7 +51115,7 @@
 		<attribute key="description" value="It's black and it's missing."/>
 	</item>
 	<item id="31382" article="a" name="incomprehensible riches">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31383" article="a" name="dead sphinx">
 		<attribute key="decayto" value="0"/>
@@ -51418,14 +51418,14 @@
 	<item article="a" name="shallow water" id="31460"/>
 	<item article="a" name="shallow water" id="31461"/>
 	<item id="31462" article="a" name="jousting eagle baby">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31463" article="a" name="jousting eagle baby">
 		<attribute key="decayto" value="36297"/>
 		<attribute key="duration" value="200"/>
 	</item>
 	<item id="31464" article="a" name="cerberus champion puppy">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31465" article="a" name="cerberus champion puppy">
 		<attribute key="decayto" value="36299"/>
@@ -52209,21 +52209,21 @@
 		<attribute key="weight" value="170"/>
 	</item>
 	<item id="31679" article="a" name="hrodmiran table">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31680" article="a" name="baby hedgehog">
 		<attribute key="decayto" value="36516"/>
 		<attribute key="duration" value="200"/>
 	</item>
 	<item id="31681" article="a" name="baby hedgehog">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31682" article="a" name="baby hedgehog">
 		<attribute key="decayto" value="36515"/>
 		<attribute key="duration" value="200"/>
 	</item>
 	<item id="31683" article="an" name="exalted sarcophagus">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31684" article="an" name="exalted sarcophagus"/>
 	<item id="31685" name="reed balls">
@@ -52234,46 +52234,46 @@
 	</item>
 	<item id="31687" article="a" name="hrodmiran chest">
 		<attribute key="rotateto" value="36523"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31688" article="a" name="hrodmiran chest">
 		<attribute key="rotateto" value="36524"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31689" article="a" name="hrodmiran chest">
 		<attribute key="rotateto" value="36525"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31690" article="a" name="hrodmiran chest">
 		<attribute key="rotateto" value="36522"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31691" article="a" name="hrodmiran chair">
 		<attribute key="rotateto" value="36527"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31692" article="a" name="hrodmiran chair">
 		<attribute key="rotateto" value="36528"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31693" article="a" name="hrodmiran chair">
 		<attribute key="rotateto" value="36529"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31694" article="a" name="hrodmiran chair">
 		<attribute key="rotateto" value="36526"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31695" article="a" name="curly hortensis lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31696" article="a" name="curly hortensis lamp"/>
 	<item id="31697" article="a" name="little big flower lamp">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31698" article="a" name="little big flower lamp"/>
 	<item id="31703" article="a" name="baby unicorn">
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="description" value="The purest eyes are blinking back at you."/>
 	</item>
 	<item id="31704" article="a" name="baby unicorn">
@@ -52283,11 +52283,11 @@
 	</item>
 	<item id="31705" article="a" name="hrodmiran cupboard">
 		<attribute key="rotateto" value="36541"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31706" article="a" name="hrodmiran cupboard">
 		<attribute key="rotateto" value="36540"/>
-		<attribute key="wrapableto" value="26054"/>
+		<attribute key="wrapableTo" value="23398"/>
 	</item>
 	<item id="31707" name="unknown book"/>
 	<item id="31708" name="the anuma"/>
