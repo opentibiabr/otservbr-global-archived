@@ -22820,27 +22820,27 @@
 		<attribute key="weapontype" value="sword"/>
 		<attribute key="slottype" value="two-handed"/>
 	</item>
-	<item id="12684" article="a" name="dead deepling scout">
+	<item id="12684" article="a" name="dead deepling">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="13840"/>
+		<attribute key="decayto" value="12685"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12685" article="a" name="dead deepling scout">
+	<item id="12685" article="a" name="dead deepling">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="13841"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12686"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12686" article="a" name="dead deepling scout">
-		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="13842"/>
-		<attribute key="duration" value="600"/>
+	<item id="12686" article="a" name="dead deepling">
+		<attribute key="containersize" value="18"/>
+		<attribute key="decayto" value="12687"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12687" article="a" name="dead deepling scout">
+	<item id="12687" article="a" name="dead deepling">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12692" article="a" name="scribbled notes">
@@ -22849,49 +22849,54 @@
 	<item id="12694" article="an" name="old letter">
 		<attribute key="weight" value="50"/>
 	</item>
-	<item article="a" name="magic gold converter" id="12699">
+	<item id="12699" article="a" name="magic gold converter">
 		<attribute key="wrapableTo" value="23398"/>
 		<attribute key="charges" value="500"/>
 		<attribute key="showcharges" value="1"/>
 	</item>
-	<item name="toad pedestal" id="12713"/>
-	<item name="toad pedestal" id="12714"/>
-	<item name="toad pedestal" id="12715"/>
-	<item name="toad pedestal" id="12716"/>
+	<item fromid="12713" toid="12716" name="toad pedestal"/>
 	<item id="12717" article="a" name="dead thornfire wolf">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13860"/>
+		<attribute key="decayto" value="12718"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12718" article="a" name="dead thornfire wolf">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13861"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12719"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="12719" article="a" name="dead thornfire wolf">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="13862"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="12720"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12720" article="a" name="dead thornfire wolf">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
+	<item id="12721" name="bog water">
+		<attribute key="description" value="The water of the bog seems slippery and tries to escape even your clothes."/>
+	</item> <!-- Thornfire World Change -->
 	<item id="12722" name="bucket of bog water">
 		<attribute key="description" value="It seems the water wants back to the bog it came from. Soon it will all be trickled away."/>
 		<attribute key="weight" value="3000"/>
 	</item>
+	<item id="12723" name="RESERVED SPRITE"/>
 	<item id="12724" name="heavy stone">
 		<attribute key="description" value="It can be used to arm catapults."/>
 		<attribute key="weight" value="13000"/>
 	</item>
+	<item id="12725" name="heavy stone"/> <!-- unconfirmed name -->
+	<item id="12726" name="RESERVED SPRITE"/>
 	<item id="12727" name="greasy stone"/>
+	<item id="12728" name="hole"/> <!-- unconfirmed name -->
+	<item id="12729" name="RESERVED SPRITE"/>
 	<item id="12730" name="eye of a deepling">
 		<attribute key="description" value="Did it just twitch...? No, must have been an optical illusion."/>
 		<attribute key="weight" value="240"/>
@@ -22927,6 +22932,9 @@
 		<attribute key="duration" value="604800"/>
 		<attribute key="showduration" value="0"/>
 	</item>
+	<item id="12734" article="a" name="shimmer ball">
+		<attribute key="weight" value="200"/>
+	</item>
 	<item id="12735" article="a" name="shimmer glower">
 		<attribute key="weight" value="1000"/>
 	</item>
@@ -22938,6 +22946,8 @@
 		<attribute key="description" value="It seems all its former magical power has left this broken carcass of a ring."/>
 		<attribute key="slottype" value="ring"/>
 	</item>
+	<item id="12738" name="RESERVED SPRITE"/>
+	<item id="12739" name="unknown item"/>
 	<item id="12740" article="a" name="war wolf skin">
 		<attribute key="description" value="This is a quest item and cannot be used for anything else."/>
 		<attribute key="weight" value="40"/>
@@ -22957,43 +22967,8 @@
 		<attribute key="weight" value="475"/>
 		<attribute key="showcount" value="0"/>
 	</item>
-	<item name="large spider web" id="12747"/>
-	<item name="large spider web" id="12748"/>
-	<item name="large spider web" id="12749"/>
-	<item name="large spider web" id="12750"/>
-	<item name="large spider web" id="12751"/>
-	<item name="large spider web" id="12752"/>
-	<item name="large spider web" id="12753"/>
-	<item name="large spider web" id="12754"/>
-	<item name="large spider web" id="12755"/>
-	<item name="large spider web" id="12756"/>
-	<item name="large spider web" id="12757"/>
-	<item name="large spider web" id="12758"/>
-	<item name="large spider web" id="12759"/>
-	<item name="large spider web" id="12760"/>
-	<item name="large spider web" id="12761"/>
-	<item name="large spider web" id="12762"/>
-	<item name="large spider web" id="12765"/>
-	<item name="large spider web" id="12766"/>
-	<item name="large spider web" id="12767"/>
-	<item name="large spider web" id="12768"/>
-	<item name="large spider web" id="12769"/>
-	<item name="large spider web" id="12770"/>
-	<item name="large spider web" id="12771"/>
-	<item name="large spider web" id="12772"/>
-	<item name="large spider web" id="12773"/>
-	<item name="large spider web" id="12774"/>
-	<item name="large spider web" id="12775"/>
-	<item name="large spider web" id="12776"/>
-	<item name="large spider web" id="12777"/>
-	<item name="large spider web" id="12778"/>
-	<item name="large spider web" id="12779"/>
-	<item name="large spider web" id="12780"/>
-	<item name="large spider web" id="12781"/>
-	<item article="a" name="warning sign" id="12782">
-		<attribute key="allowdistread" value="true"/>
-	</item>
-	<item article="a" name="warning sign" id="12783">
+	<item fromid="12747" toid="12781" name="large spider web"/>
+	<item fromid="12782" toid="12783" article="a" name="warning sign">
 		<attribute key="allowdistread" value="true"/>
 	</item>
 	<item id="12784" article="a" name="flask of wasp poison">
@@ -23029,15 +23004,15 @@
 	<item id="12792" article="a" name="elite orc guard"> <!--The Rookie Guard Quest-->
 		<attribute key="description" value="No - you can't fool this one with an orc outfit. He needs to be distracted."/> 
 	</item>
-	<item id="12793" name="reserved sprite"/>
+	<item id="12793" name="RESERVED SPRITE"/>
 	<item id="12794" name="spider web"/> <!-- unconfirmed name -->
-	<item id="12795" name="reserved sprite"/>
+	<item id="12795" name="RESERVED SPRITE"/>
 	<item id="12796" article="a" name="energy portal"> <!-- unconfirmed name -->
 		<attribute key="type" value="teleport"/>
 		<attribute key="effect" value="teleport"/>
 	</item>
-	<item id="12797" name="reserved sprite"/>
-	<item id="12798" name="reserved sprite"/>
+	<item id="12797" name="RESERVED SPRITE"/>
+	<item id="12798" name="RESERVED SPRITE"/>
 	<item id="12799" name="ladder"> <!-- unconfirmed name -->
 		<attribute key="floorchange" value="down"/>
 	</item>
@@ -23070,11 +23045,7 @@
 	<item id="12807" article="a" name="shimmer ball">
 		<attribute key="weight" value="200"/>
 	</item>
-	<item article="the" name="Epic Wisdom" id="12809">
-		<attribute key="description" value="This hat was handcrafted by Uman the Wise and cursed by Zathroth the Destroyer."/>
-		<attribute key="weight" value="805"/>
-	</item>
-	<item article="the" name="Epic Wisdom" id="12810">
+	<item fromid="12809" toid="12810" article="The" name="Epic Wisdom">
 		<attribute key="description" value="This hat was handcrafted by Uman the Wise and cursed by Zathroth the Destroyer."/>
 		<attribute key="weight" value="805"/>
 	</item>
@@ -23086,21 +23057,16 @@
 		<attribute key="description" value="Granted by RadioTibia.com.br to hear the sounds of Tibia."/>
 		<attribute key="weight" value="4015"/>
 	</item>
-	<item id="12816" article="a" name="slain mutated pumpkin">
-		<attribute key="weight" value="30000"/>
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="8962"/>
-		<attribute key="duration" value="900"/>
-		<attribute key="corpsetype" value="undead"/>
-	</item>
-	<item id="12818" article="a" name="water pump"/>
+	
+	<item id="12816" article="a" name="unknown item"/> <!-- Halloween Event -->
+	<item id="12816" article="a" name="unknown item"/> <!-- Halloween Event -->
 	<item id="12819" name="prepared bucket">
 		<attribute key="description" value="This bucket was prepared to hold magical water trying to escape just that important bit longer."/>
 		<attribute key="weight" value="2000"/>
 	</item>
-	<item id="12821" article="a" name="dead askarak prince">
+	<item id="12821" article="a" name="dead askarak lord">
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13819"/>
+		<attribute key="decayto" value="12831"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
@@ -23110,13 +23076,13 @@
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12823" article="a" name="dead shaburak prince">
+	<item id="12823" article="a" name="dead shaburak lord">
 		<attribute key="containersize" value="8"/>
 		<attribute key="decayto" value="13816"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12824" article="a" name="dead shaburak lord">
+	<item id="12824" article="a" name="dead shaburak prince">
 		<attribute key="containersize" value="8"/>
 		<attribute key="decayto" value="13969"/>
 		<attribute key="duration" value="10"/>
@@ -23124,81 +23090,81 @@
 	</item>
 	<item id="12825" article="a" name="dead shaburak demon">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13961"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12827"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12826" article="a" name="dead shaburak demon">
-		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13962"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12827"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12827" article="a" name="dead shaburak demon">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12828" article="a" name="dead askarak demon">
 		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13964"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12829"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12829" article="a" name="dead askarak demon">
-		<attribute key="containersize" value="22"/>
-		<attribute key="decayto" value="13965"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12830"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12830" article="a" name="dead askarak demon">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12831" article="a" name="dead askarak lord">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13967"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="containersize" value="22"/>
+		<attribute key="decayto" value="12832"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12832" article="a" name="dead askarak lord">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13968"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12833"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12833" article="a" name="dead askarak lord">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12834" article="a" name="dead shaburak lord">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13970"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="containersize" value="22"/>
+		<attribute key="decayto" value="12835"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12835" article="a" name="dead shaburak lord">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13971"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="11"/>
+		<attribute key="decayto" value="12836"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12836" article="a" name="dead shaburak lord">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12837" article="a" name="dead clay guardian">
 		<attribute key="containersize" value="20"/>
-		<attribute key="decayto" value="13974"/>
+		<attribute key="decayto" value="12839"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12838" name="unholy ashes">
+	<item id="12838" name="unholy ashes"> <!-- unregistered corpse (no have found monster) -->
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13975"/>
+		<attribute key="decayto" value="12840"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
@@ -23208,7 +23174,7 @@
 		<attribute key="duration" value="600"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12840" name="unholy ashes">
+	<item id="12840" name="unholy ashes"> <!-- unregistered corpse (no have found monster) -->
 		<attribute key="containersize" value="8"/>
 		<attribute key="decayto" value="0"/>
 		<attribute key="duration" value="600"/>
@@ -23216,90 +23182,33 @@
 	</item>
 	<item id="12841" article="a" name="dead sacred spider">
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13977"/>
-		<attribute key="duration" value="900"/>
+		<attribute key="decayto" value="12842"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12842" article="a" name="dead sacred spider">
-		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13978"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="containersize" value="4"/>
+		<attribute key="decayto" value="12843"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12843" article="a" name="dead sacred spider">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="600"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="12844" article="a" name="dead sacred spider">
 		<attribute key="containersize" value="8"/>
-		<attribute key="decayto" value="13976"/>
+		<attribute key="decayto" value="12841"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item id="12848" article="a" name="ritual figurine">
-		<attribute key="weight" value="150"/>
-	</item>
-	<item id="12849" article="an" name="exultant ritual figurine">
-		<attribute key="weight" value="150"/>
-	</item>
-	<item id="12850" article="a" name="ritual sword">
-		<attribute key="weight" value="900"/>
-		<attribute key="description" value="It is far too fragile to use it in a real battle."/>
-	</item>
-	<item article="a" name="hive structure" id="12851"/>
-	<item article="a" name="hive structure" id="12852"/>
-	<item article="a" name="hive structure" id="12853"/>
-	<item article="a" name="hive structure" id="12854"/>
-	<item article="a" name="hive structure" id="12855"/>
-	<item article="a" name="hive structure" id="12856"/>
-	<item article="a" name="hive structure" id="12857"/>
-	<item article="a" name="hive structure" id="12858"/>
-	<item article="a" name="hive structure" id="12859"/>
-	<item article="a" name="hive structure" id="12860"/>
-	<item article="a" name="hive structure" id="12861"/>
-	<item article="a" name="hive structure" id="12862"/>
-	<item article="a" name="hive structure" id="12863"/>
-	<item article="a" name="hive structure" id="12864"/>
-	<item article="a" name="hive structure" id="12865"/>
-	<item article="a" name="hive structure" id="12866"/>
-	<item article="a" name="hive structure" id="12867"/>
-	<item article="a" name="hive structure" id="12868"/>
-	<item article="a" name="hive structure" id="12869"/>
-	<item article="a" name="hive structure" id="12870"/>
-	<item article="a" name="hive structure" id="12871"/>
-	<item article="a" name="hive structure" id="12872"/>
-	<item article="a" name="hive structure" id="12873"/>
-	<item article="a" name="hive structure" id="12874"/>
-	<item article="a" name="hive structure" id="12875"/>
-	<item article="a" name="hive structure" id="12876"/>
-	<item article="a" name="hive structure" id="12877"/>
-	<item id="12878" article="a" name="ritual stone tablet">
-		<attribute key="weight" value="850"/>
-		<attribute key="description" value="With courage and foresight every challenge can be mastered!"/>
-	</item>
-	<item article="a" name="hive structure" id="12880"/>
-	<item article="a" name="hive structure" id="12881"/>
-	<item article="a" name="hive structure" id="12882"/>
-	<item article="a" name="hive structure" id="12883"/>
-	<item article="a" name="hive structure" id="12884"/>
-	<item article="a" name="hive structure" id="12885"/>
-	<item article="a" name="hive structure" id="12886"/>
-	<item article="a" name="hive structure" id="12887"/>
-	<item article="a" name="hive structure" id="12888"/>
-	<item article="a" name="hive structure" id="12889"/>
-	<item article="a" name="hive structure" id="12890"/>
-	<item article="a" name="hive structure" id="12891"/>
-	<item article="a" name="hive structure" id="12892"/>
-	<item article="a" name="hive structure" id="12893"/>
-	<item article="a" name="hive structure" id="12894"/>
-	<item article="a" name="hive structure" id="12895"/>
-	<item article="a" name="hive structure" id="12896"/>
-	<item article="a" name="hive structure" id="12897"/>
-	<item article="a" name="hive structure" id="12898"/>
-	<item article="a" name="hive structure" id="12899"/>
-	<item article="a" name="hive structure" id="12900"/>
-	<item article="a" name="hive structure" id="12901"/>
+	<item id="12845" article="a" name="stone tile"/>
+	<item id="12846" name="wooden floor"/>
+	<item fromid="12847" toid="12850" name="RESERVED SPRITE"/>
+	<item fromid="12851" toid="12877" article="a" name="hive structure"/>
+	<item fromid="12878" toid="12879" name="RESERVED SPRITE"/>
+	<item fromid="12880" toid="12901" article="a" name="hive structure"/>
 	<item id="12902" name="your inbox">
 		<attribute key="containersize" value="30"/>
 	</item>
@@ -23312,591 +23221,75 @@
 		<attribute key="description" value="It is shining with positive energy and was awarded by FunTibia.com."/>
 		<attribute key="weight" value="1100"/>
 	</item>
-	<item article="a" name="hive structure" id="12906"/>
-	<item article="a" name="hive structure" id="12907"/>
-	<item article="a" name="hive structure" id="12908"/>
-	<item article="a" name="hive structure" id="12909"/>
-	<item article="a" name="hive structure" id="12910"/>
-	<item article="a" name="hive structure" id="12911"/>
-	<item article="a" name="hive structure" id="12912"/>
-	<item article="a" name="hive structure" id="12913"/>
-	<item article="a" name="hive structure" id="12914"/>
-	<item article="a" name="hive structure" id="12915"/>
-	<item article="a" name="hive structure" id="12916"/>
-	<item article="a" name="hive structure" id="12917"/>
-	<item article="a" name="hive structure" id="12918"/>
-	<item article="a" name="hive structure" id="12919"/>
-	<item article="a" name="hive structure" id="12920"/>
-	<item article="a" name="hive structure" id="12921"/>
-	<item article="a" name="hive structure" id="12922"/>
-	<item article="a" name="hive structure" id="12923"/>
-	<item article="a" name="hive structure" id="12924"/>
-	<item article="a" name="hive structure" id="12925"/>
-	<item article="a" name="hive pillar" id="12926"/>
-	<item article="a" name="hive pillar" id="12927"/>
-	<item article="a" name="hive pillar" id="12928"/>
-	<item article="a" name="hive pillar" id="12929"/>
-	<item article="a" name="hive pillar" id="12930"/>
-	<item article="a" name="hive structure" id="12931"/>
-	<item article="a" name="hive structure" id="12932"/>
-	<item article="a" name="hive structure" id="12933"/>
-	<item article="a" name="hive structure" id="12934"/>
-	<item name="mud" id="12935">
+	<item fromid="12906" toid="12925" article="a" name="hive structure"/>
+	<item fromid="12926" toid="12930" article="a" name="hive pillar"/>
+	<item fromid="12931" toid="12934" article="a" name="hive structure"/>
+	<item fromid="12935" toid="12936" name="mud">
 		<attribute key="description" value="There is a hole in the ceiling."/>
 	</item>
-	<item name="mud" id="12936">
-		<attribute key="description" value="There is a hole in the ceiling."/>
-	</item>
-	<item article="an" name="insectoid cell" id="12937"/>
-	<item article="an" name="insectoid cell" id="12938"/>
-	<item article="a" name="hive structure" id="12939"/>
-	<item article="a" name="hive structure" id="12940"/>
-	<item article="a" name="hive structure" id="12941"/>
-	<item article="a" name="hive structure" id="12942"/>
-	<item article="a" name="hive structure" id="12943"/>
-	<item article="a" name="hive structure" id="12944"/>
-	<item article="a" name="hive structure" id="12945"/>
-	<item article="a" name="hive structure" id="12946"/>
-	<item article="a" name="hive structure" id="12947"/>
-	<item article="a" name="hive structure" id="12948"/>
-	<item article="a" name="hive structure" id="12949"/>
-	<item article="a" name="hive structure" id="12950"/>
-	<item article="a" name="hive structure" id="12951"/>
-	<item article="a" name="hive structure" id="12952"/>
-	<item article="a" name="hive structure" id="12953"/>
-	<item article="a" name="hive structure" id="12954"/>
-	<item article="a" name="hive structure" id="12955"/>
-	<item article="a" name="hive structure" id="12956"/>
-	<item article="a" name="hive structure" id="12957"/>
-	<item article="a" name="hive structure" id="12958"/>
-	<item article="a" name="hive structure" id="12959"/>
-	<item article="a" name="hive structure" id="12960"/>
+	<item fromid="12937" toid="12938"  article="an" name="insectoid cell"/>
+	<item fromid="12939" toid="12960" article="a" name="hive structure"/>
 	<item id="12961" article="an" name="insectoid hive">
 		<attribute key="floorchange" value="down"/>
 	</item>
-	<item article="a" name="hive structure" id="12962"/>
-	<item article="a" name="hive structure" id="12963"/>
-	<item article="a" name="hive structure" id="12964"/>
-	<item article="a" name="hive structure" id="12965"/>
-	<item article="a" name="hive structure" id="12966"/>
-	<item article="a" name="hive structure" id="12967"/>
-	<item article="a" name="hive structure" id="12968"/>
-	<item article="a" name="hive structure" id="12969"/>
-	<item article="a" name="hive structure" id="12970"/>
-	<item article="a" name="hive structure" id="12971"/>
-	<item article="a" name="hive structure" id="12972"/>
-	<item article="a" name="hive structure" id="12973"/>
-	<item article="a" name="hive structure" id="12974"/>
-	<item article="a" name="hive structure" id="12975"/>
-	<item article="a" name="hive structure" id="12976"/>
-	<item article="a" name="hive structure" id="12977"/>
-	<item article="a" name="hive structure" id="12978"/>
-	<item article="a" name="hive structure" id="12981"/>
-	<item article="a" name="hive structure" id="12982"/>
-	<item article="a" name="hive structure" id="12983"/>
-	<item article="a" name="hive structure" id="12984"/>
-	<item article="a" name="hive structure" id="12985"/>
-	<item article="a" name="hive structure" id="12986"/>
-	<item article="a" name="hive structure" id="12987"/>
-	<item article="a" name="hive structure" id="12988"/>
-	<item article="a" name="hive structure" id="12989"/>
-	<item article="a" name="hive structure" id="12990"/>
-	<item article="a" name="hive structure" id="12991"/>
-	<item article="a" name="hive structure" id="12992"/>
-	<item article="a" name="hive structure" id="12993"/>
-	<item article="a" name="hive structure" id="12994"/>
-	<item article="a" name="hive structure" id="12995"/>
-	<item article="a" name="hive structure" id="12996"/>
-	<item article="a" name="hive structure" id="12997"/>
-	<item article="a" name="hive structure" id="12998"/>
-	<item article="a" name="hive structure" id="12999"/>
-	<item article="a" name="hive structure" id="13000"/>
-	<item article="a" name="hive structure" id="13001"/>
-	<item article="a" name="hive structure" id="13002"/>
-	<item article="a" name="hive structure" id="13003"/>
-	<item article="a" name="hive structure" id="13004"/>
-	<item article="a" name="hive structure" id="13005"/>
-	<item article="a" name="hive structure" id="13006"/>
-	<item article="a" name="hive structure" id="13007"/>
-	<item article="a" name="hive structure" id="13008"/>
-	<item article="a" name="hive structure" id="13009"/>
-	<item article="a" name="hive structure" id="13010"/>
-	<item article="a" name="hive structure" id="13011"/>
-	<item article="a" name="hive structure" id="13012"/>
-	<item article="a" name="hive structure" id="13013"/>
-	<item article="a" name="hive structure" id="13014"/>
-	<item article="a" name="hive structure" id="13015"/>
-	<item article="a" name="hive structure" id="13016"/>
-	<item article="a" name="hive structure" id="13017"/>
-	<item article="a" name="hive structure" id="13018"/>
-	<item article="a" name="hive structure" id="13019"/>
-	<item article="a" name="hive structure" id="13020"/>
-	<item article="a" name="hive structure" id="13021"/>
-	<item article="a" name="hive structure" id="13022"/>
-	<item article="a" name="hive structure" id="13023"/>
-	<item article="a" name="hive structure" id="13024"/>
-	<item article="a" name="hive structure" id="13025"/>
-	<item article="a" name="hive structure" id="13026"/>
-	<item article="a" name="hive structure" id="13027"/>
-	<item article="a" name="hive structure" id="13028"/>
-	<item article="a" name="hive structure" id="13029"/>
-	<item article="a" name="hive structure" id="13030"/>
-	<item article="a" name="hive structure" id="13031"/>
-	<item article="a" name="hive structure" id="13032"/>
-	<item article="a" name="hive structure" id="13033"/>
-	<item article="a" name="hive structure" id="13034"/>
-	<item article="a" name="hive structure" id="13035"/>
-	<item article="a" name="hive structure" id="13036"/>
-	<item article="a" name="hive structure" id="13037"/>
-	<item article="a" name="hive structure" id="13038"/>
-	<item article="an" name="insectoid hive" id="13039"/>
-	<item article="an" name="insectoid hive" id="13040"/>
-	<item article="an" name="insectoid hive" id="13041"/>
-	<item article="an" name="insectoid hive" id="13042"/>
-	<item article="an" name="insectoid hive" id="13043"/>
-	<item article="an" name="insectoid hive" id="13044"/>
-	<item article="an" name="insectoid hive" id="13045"/>
-	<item article="an" name="insectoid hive" id="13046"/>
-	<item article="an" name="insectoid hive" id="13047"/>
-	<item article="an" name="insectoid hive" id="13048"/>
-	<item article="an" name="insectoid hive" id="13049"/>
-	<item article="an" name="insectoid hive" id="13050"/>
-	<item article="an" name="insectoid hive" id="13051"/>
-	<item article="an" name="insectoid hive" id="13052"/>
-	<item article="an" name="insectoid hive" id="13053"/>
-	<item article="an" name="insectoid hive" id="13054"/>
-	<item article="a" name="hive structure" id="13055"/>
-	<item article="a" name="hive structure" id="13056"/>
-	<item article="a" name="hive structure" id="13057"/>
-	<item article="a" name="hive structure" id="13058"/>
-	<item article="a" name="hive structure" id="13059"/>
-	<item article="a" name="hive structure" id="13060"/>
-	<item article="a" name="hive structure" id="13061"/>
-	<item article="a" name="hive structure" id="13062"/>
-	<item article="a" name="hive structure" id="13063"/>
-	<item article="a" name="hive structure" id="13064"/>
-	<item article="a" name="hive structure" id="13065"/>
-	<item article="a" name="hive structure" id="13066"/>
-	<item article="a" name="hive structure" id="13067"/>
-	<item article="a" name="hive structure" id="13068"/>
-	<item article="a" name="hive structure" id="13069"/>
-	<item article="a" name="hive structure" id="13070"/>
-	<item article="a" name="hive structure" id="13071"/>
-	<item article="a" name="hive structure" id="13072"/>
-	<item article="a" name="hive structure" id="13073"/>
-	<item article="a" name="hive structure" id="13074"/>
-	<item article="a" name="hive structure" id="13075"/>
-	<item article="a" name="hive structure" id="13076"/>
-	<item article="a" name="hive structure" id="13077"/>
-	<item article="a" name="hive structure" id="13078"/>
-	<item article="a" name="hive structure" id="13079"/>
-	<item article="a" name="hive structure" id="13080"/>
-	<item article="a" name="hive structure" id="13081"/>
-	<item article="a" name="hive structure" id="13082"/>
+	<item fromid="12962" toid="13038" article="a" name="hive structure"/>
+	<item fromid="13039" toid="13054" article="an" name="insectoid hive"/>
+	<item fromid="13055" toid="13082" article="a" name="hive structure"/>
 	<item id="13083" article="a" name="moist wall"/>
-	<item article="a" name="moist wall" id="13085"/>
-	<item article="a" name="moist wall" id="13086"/>
-	<item article="a" name="moist wall" id="13087"/>
-	<item article="a" name="moist wall" id="13089"/>
-	<item article="a" name="moist wall" id="13090"/>
-	<item article="a" name="moist wall" id="13091"/>
-	<item article="a" name="moist wall" id="13092"/>
-	<item article="a" name="moist wall" id="13093"/>
-	<item article="a" name="moist wall" id="13094"/>
-	<item article="a" name="moist wall" id="13094"/>
-	<item article="a" name="moist wall" id="13095"/>
-	<item article="a" name="moist wall" id="13096"/>
-	<item article="a" name="moist wall" id="13096"/>
-	<item article="a" name="moist wall" id="13097"/>
-	<item article="a" name="moist wall" id="13098"/>
-	<item article="a" name="moist wall" id="13099"/>
-	<item article="a" name="moist wall" id="13100"/>
-	<item article="a" name="moist wall" id="13101"/>
-	<item article="a" name="moist wall" id="13102"/>
-	<item article="a" name="moist wall" id="13103"/>
-	<item article="a" name="moist wall" id="13104"/>
-	<item article="a" name="moist wall" id="13105"/>
-	<item article="a" name="moist wall" id="13106"/>
-	<item article="a" name="moist wall" id="13107"/>
-	<item article="a" name="moist wall" id="13108"/>
-	<item article="a" name="moist wall" id="13109"/>
-	<item article="a" name="moist wall" id="13110"/>
-	<item article="a" name="moist wall" id="13111"/>
-	<item article="a" name="moist wall" id="13112"/>
-	<item article="a" name="moist wall" id="13113"/>
-	<item article="a" name="moist wall" id="13114"/>
-	<item article="a" name="moist wall" id="13115"/>
-	<item article="a" name="moist wall" id="13117"/>
-	<item article="a" name="moist wall" id="13118"/>
-	<item article="a" name="moist wall" id="13119"/>
-	<item article="a" name="moist wall" id="13120"/>
-	<item article="a" name="moist wall" id="13121"/>
-	<item article="a" name="stone pillar" id="13122"/>
-	<item article="a" name="stone pillar" id="13123"/>
-	<item article="a" name="stone pillar" id="13124"/>
-	<item article="an" name="archway" id="13125"/>
-	<item article="an" name="archway" id="13126"/>
-	<item article="an" name="archway" id="13127"/>
-	<item article="an" name="archway" id="13128"/>
-	<item article="an" name="archway" id="13129"/>
-	<item article="an" name="archway" id="13130"/>
-	<item article="an" name="archway" id="13131"/>
-	<item article="an" name="archway" id="13132"/>
-	<item article="an" name="archway" id="13133"/>
-	<item article="an" name="archway" id="13134"/>
-	<item article="a" name="stone pillar" id="13149"/>
-	<item article="a" name="stone pillar" id="13150"/>
-	<item article="a" name="stone pillar" id="13151"/>
-	<item article="a" name="stone pillar" id="13152"/>
-	<item article="a" name="stone pillar" id="13153"/>
-	<item article="a" name="stone pillar" id="13154"/>
+	<item fromid="13085" toid="13121" article="a" name="moist wall"/>
+	<item fromid="13122" toid="13124" article="a" name="stone pillar"/>
+	<item fromid="13125" toid="13134" article="an" name="archway"/>
+	<item fromid="13149" toid="13154" article="a" name="stone pillar"/>
 	<item id="13155" article="a" name="large fossil volute"/>
 	<item id="13156" article="a" name="small fossil volute"/>
-	<item name="moist stones" id="13157"/>
-	<item name="moist stones" id="13158"/>
-	<item name="moist stones" id="13159"/>
-	<item name="moist stones" id="13160"/>
-	<item name="small moist stones" id="13161"/>
-	<item name="small moist stones" id="13162"/>
-	<item name="small moist stones" id="13163"/>
-	<item name="small moist stones" id="13164"/>
-	<item name="small moist stones" id="13165"/>
-	<item name="small moist stones" id="13166"/>
-	<item name="small moist stones" id="13167"/>
-	<item name="hive structure" id="13170"/>
-	<item name="hive structure" id="13171"/>
-	<item name="hive structure" id="13172"/>
-	<item name="hive structure" id="13173"/>
-	<item name="hive structure" id="13174"/>
-	<item name="hive structure" id="13175"/>
-	<item name="hive structure" id="13176"/>
-	<item name="hive structure" id="13177"/>
-	<item name="hive structure" id="13178"/>
-	<item name="hive structure" id="13179"/>
-	<item name="hive structure" id="13180"/>
-	<item name="hive structure" id="13181"/>
-	<item name="hive structure" id="13182"/>
-	<item name="hive structure" id="13183"/>
-	<item name="hive structure" id="13203"/>
-	<item name="hive structure" id="13204"/>
-	<item name="hive structure" id="13205"/>
-	<item name="hive structure" id="13206"/>
-	<item name="hive structure" id="13207"/>
-	<item name="hive structure" id="13208"/>
-	<item name="hive structure" id="13209"/>
-	<item name="hive structure" id="13210"/>
-	<item name="hive structure" id="13211"/>
-	<item name="hive structure" id="13212"/>
-	<item name="hive structure" id="13213"/>
-	<item name="hive structure" id="13214"/>
-	<item name="hive structure" id="13215"/>
-	<item name="hive structure" id="13216"/>
-	<item name="hive structure" id="13217"/>
-	<item name="hive structure" id="13218"/>
-	<item name="hive structure" id="13219"/>
-	<item name="hive structure" id="13220"/>
-	<item name="hive structure" id="13221"/>
-	<item name="hive structure" id="13222"/>
-	<item name="hive structure" id="13223"/>
-	<item name="hive structure" id="13224"/>
-	<item name="hive structure" id="13225"/>
-	<item name="hive structure" id="13226"/>
-	<item article="a" name="hive structure" id="13227"/>
-	<item article="a" name="hive structure" id="13228"/>
-	<item article="a" name="hive structure" id="13229"/>
-	<item article="a" name="hive structure" id="13230"/>
-	<item article="a" name="hive structure" id="13231"/>
-	<item article="a" name="hive structure" id="13232"/>
-	<item article="a" name="hive structure" id="13233"/>
-	<item article="a" name="hive structure" id="13234"/>
-	<item article="a" name="hive structure" id="13235"/>
-	<item article="a" name="hive structure" id="13236"/>
-	<item article="a" name="hive floor" id="13237"/>
-	<item article="a" name="hive floor" id="13238"/>
-	<item article="a" name="hive floor" id="13239"/>
-	<item article="a" name="hive floor" id="13240"/>
-	<item article="a" name="hive floor" id="13241"/>
-	<item article="a" name="hive floor" id="13242"/>
-	<item article="a" name="hive floor" id="13243"/>
-	<item article="a" name="hive floor" id="13244"/>
-	<item article="a" name="hive floor" id="13245"/>
-	<item article="a" name="hive floor" id="13246"/>
-	<item article="a" name="hive floor" id="13247"/>
-	<item article="a" name="hive floor" id="13248"/>
-	<item article="a" name="hive floor" id="13249"/>
-	<item article="a" name="hive floor" id="13250"/>
-	<item article="a" name="hive floor" id="13251"/>
-	<item article="a" name="hive floor" id="13252"/>
-	<item article="a" name="hive floor" id="13253"/>
-	<item article="a" name="hive floor" id="13254"/>
-	<item article="an" name="unknown" id="13255"/>
-	<item article="an" name="unknown" id="13256"/>
-	<item article="an" name="unknown" id="13257"/>
-	<item article="an" name="unknown" id="13258"/>
-	<item article="an" name="unknown" id="13259"/>
-	<item article="an" name="unknown" id="13260"/>
-	<item article="an" name="unknown" id="13261"/>
-	<item article="an" name="unknown" id="13262"/>
-	<item article="an" name="unknown" id="13263"/>
-	<item article="an" name="unknown" id="13264"/>
-	<item article="an" name="unknown" id="13265"/>
-	<item article="an" name="unknown" id="13266"/>
-	<item article="an" name="unknown" id="13267"/>
-	<item article="an" name="unknown" id="13269"/>
-	<item article="an" name="unknown" id="13270"/>
-	<item article="an" name="unknown" id="13271"/>
-	<item article="a" name="hive gate" id="13273"/>
-	<item article="a" name="hive gate" id="13274"/>
-	<item article="a" name="hive gate" id="13275"/>
-	<item article="a" name="hive gate" id="13276"/>
-	<item article="a" name="hive gate" id="13277"/>
-	<item article="a" name="hive gate" id="13278"/>
-	<item article="a" name="hive gate" id="13279"/>
-	<item article="a" name="hive gate" id="13280"/>
-	<item article="a" name="hive gate" id="13281"/>
-	<item article="a" name="hive gate" id="13282"/>
-	<item article="a" name="hive gate" id="13283"/>
-	<item article="a" name="hive gate" id="13284"/>
-	<item article="a" name="hive gate" id="13285"/>
-	<item article="a" name="hive gate" id="13286"/>
-	<item article="a" name="hive gate" id="13287"/>
-	<item article="a" name="hive gate" id="13288"/>
-	<item article="a" name="hive gate" id="13289"/>
-	<item article="a" name="hive gate" id="13290"/>
-	<item article="a" name="hive gate" id="13291"/>
-	<item article="a" name="hive gate" id="13292"/>
-	<item article="a" name="hive gate" id="13293"/>
-	<item article="a" name="hive gate" id="13294"/>
-	<item article="an" name="insectoid antenna" id="13295"/>
-	<item article="an" name="insectoid antenna" id="13296"/>
-	<item article="an" name="insectoid egg" id="13297"/>
-	<item article="an" name="insectoid egg" id="13298"/>
-	<item article="an" name="insectoid egg" id="13299"/>
-	<item article="an" name="insectoid egg" id="13300"/>
+	<item fromid="13157" toid="13160" name="moist stones"/>
+	<item fromid="13161" toid="13167" name="small moist stones"/>
+	<item fromid="13170" toid="13214" name="hive structure"/>
+	<item fromid="13215" toid="13218" name="hive claw"/>
+	<item fromid="13219" toid="13226" name="hive structure"/> <!-- unconfirmed name -->
+	<item fromid="13227" toid="13254" article="a" name="hive floor"/>
+	<item fromid="13255" toid="13267" article="a" name="hive floor"/>
+	<item id="13268" name="RESERVED SPRITE"/>
+	<item fromid="13269" toid="13271" article="an" name="hive floor"/>
+	<item id="13272" name="RESERVED SPRITE"/>
+	<item fromid="13273" toid="13294" article="a" name="hive gate"/>
+	<item fromid="13295" toid="13296" article="an" name="insectoid antenna"/>
+	<item fromid="13297" toid="13300" article="an" name="insectoid egg"/>
 	<item id="13301" article="a" name="broken insectoid eggs"/>
 	<item id="13302" article="an" name="insectoid egg"/>
-	<item article="a" name="broken insectoid eggs" id="13303"/>
-	<item article="a" name="broken insectoid eggs" id="13304"/>
-	<item article="a" name="broken insectoid eggs" id="13305"/>
-	<item article="a" name="broken insectoid eggs" id="13306"/>
-	<item article="a" name="broken insectoid eggs" id="13307"/>
-	<item article="a" name="broken insectoid eggs" id="13308"/>
-	<item article="a" name="broken insectoid eggs" id="13309"/>
-	<item article="a" name="broken insectoid eggs" id="13310"/>
-	<item article="a" name="broken insectoid eggs" id="13311"/>
-	<item article="an" name="insectoid hivecomb" id="13312"/>
-	<item article="an" name="insectoid hivecomb" id="13313"/>
-	<item article="an" name="insectoid hivecomb" id="13314"/>
-	<item article="an" name="insectoid hivecomb" id="13315"/>
-	<item article="an" name="insectoid hivecomb" id="13316"/>
-	<item article="an" name="insectoid hivecomb" id="13317"/>
-	<item article="an" name="insectoid hivecomb" id="13318"/>
-	<item article="an" name="insectoid hivecomb" id="13319"/>
-	<item article="an" name="insectoid hivecomb" id="13320"/>
-	<item article="an" name="insectoid hivecomb" id="13321"/>
-	<item article="an" name="insectoid hivecomb" id="13322"/>
-	<item article="an" name="insectoid hivecomb" id="13323"/>
-	<item article="a" name="hivecomb floor" id="13324"/>
-	<item article="a" name="hivecomb floor" id="13325"/>
-	<item article="a" name="hivecomb floor" id="13326"/>
-	<item article="a" name="hivecomb floor" id="13327"/>
-	<item article="a" name="hivecomb floor" id="13328"/>
-	<item article="a" name="hivecomb floor" id="13329"/>
-	<item article="a" name="hivecomb floor" id="13330"/>
-	<item article="a" name="hivecomb floor" id="13331"/>
-	<item article="a" name="hivecomb floor" id="13332"/>
-	<item article="a" name="hivecomb floor" id="13333"/>
-	<item article="a" name="hivecomb floor" id="13334"/>
-	<item article="an" name="unknown" id="13335"/>
-	<item article="an" name="unknown" id="13336"/>
-	<item article="an" name="unknown" id="13337"/>
-	<item article="an" name="unknown" id="13338"/>
-	<item article="an" name="unknown" id="13339"/>
-	<item article="an" name="unknown" id="13340"/>
+	<item fromid="13303" toid="13311" article="a" name="broken insectoid eggs"/>
+	<item fromid="13312" toid="13323" article="an" name="insectoid hivecomb"/>
+	<item fromid="13324" toid="13334" article="a" name="hivecomb floor"/>
+	<item fromid="13335" toid="13340" article="an" name="fossil shell"/>
 	<item id="13341" article="a" name="ramp">
 		<attribute key="floorchange" value="north"/>
 	</item>
 	<item id="13342" article="a" name="ramp">
 		<attribute key="floorchange" value="west"/>
 	</item>
-	<item article="a" name="giant insectoid eggs" id="13343"/>
-	<item article="a" name="giant insectoid eggs" id="13344"/>
-	<item article="a" name="giant insectoid eggs" id="13345"/>
-	<item article="a" name="giant insectoid eggs" id="13346"/>
-	<item article="a" name="giant insectoid eggs" id="13347"/>
-	<item article="a" name="giant insectoid eggs" id="13348"/>
-	<item article="a" name="giant insectoid eggs" id="13349"/>
-	<item article="a" name="giant insectoid eggs" id="13350"/>
-	<item article="a" name="giant insectoid eggs" id="13351"/>
-	<item article="an" name="insectoid pore" id="13352"/>
-	<item article="an" name="insectoid pore" id="13353"/>
-	<item article="an" name="insectoid pore" id="13354"/>
-	<item article="an" name="insectoid pore" id="13355"/>
-	<item article="an" name="insectoid pore" id="13356"/>
-	<item article="an" name="insectoid pore" id="13357"/>
-	<item article="an" name="insectoid pore" id="13358"/>
-	<item article="an" name="insectoid pore" id="13359"/>
-	<item article="an" name="insectoid pore" id="13360"/>
-	<item article="an" name="insectoid pore" id="13361"/>
-	<item article="an" name="insectoid pore" id="13362"/>
-	<item article="an" name="insectoid pore" id="13363"/>
-	<item article="an" name="insectoid pore" id="13364"/>
-	<item article="an" name="insectoid pore" id="13365"/>
-	<item article="an" name="insectoid pore" id="13366"/>
-	<item article="an" name="insectoid pore" id="13367"/>
-	<item name="unknown" id="13368"/>
-	<item name="unknown" id="13369"/>
-	<item name="unknown" id="13370"/>
-	<item name="unknown" id="13371"/>
-	<item name="unknown" id="13372"/>
-	<item name="unknown" id="13373"/>
-	<item name="unknown" id="13374"/>
-	<item name="unknown" id="13375"/>
-	<item name="small insectoid hairs" id="13376"/>
-	<item name="small insectoid hairs" id="13377"/>
-	<item article="an" name="insectoid meatball" id="13382"/>
-	<item article="an" name="insectoid meatball" id="13383"/>
-	<item article="an" name="insectoid meatball" id="13384"/>
-	<item article="an" name="insectoid meatball" id="13385"/>
-	<item article="an" name="insectoid meatball" id="13386"/>
-	<item article="an" name="insectoid meatball" id="13387"/>
-	<item article="an" name="insectoid meatball" id="13388"/>
-	<item article="an" name="insectoid meatball" id="13390"/>
-	<item article="an" name="insectoid meatball" id="13391"/>
-	<item article="an" name="insectoid meatball" id="13392"/>
-	<item article="an" name="insectoid meatball" id="13393"/>
-	<item article="an" name="insectoid meatball" id="13394"/>
-	<item article="an" name="insectoid meatball" id="13395"/>
-	<item article="an" name="insectoid meatball" id="13396"/>
+	<item fromid="13343" toid="13351" article="a" name="giant insectoid eggs"/>
+	<item fromid="13352" toid="13367" article="an" name="insectoid pore"/>
+	<item fromid="13368" toid="13375" name="unknown"/>
+	<item fromid="13376" toid="13377" name="small insectoid hairs"/>
+	<item fromid="13382" toid="13396" article="an" name="insectoid meatball"/>
+	<item id="13397" name="RESERVED SPRITE"/>
+	<item fromid="13398" toid="13399" name="unknown item"/>
 	<item id="13400" article="a" name="hivecomb floor"/>
-	<item article="a" name="rockboy" id="13413"/>
-	<item article="a" name="rockboy" id="13414"/>
-	<item article="a" name="rockboy" id="13415"/>
-	<item article="a" name="rockboy" id="13416"/>
-	<item article="a" name="rockboy" id="13417"/>
-	<item article="a" name="rockboy" id="13418"/>
-	<item article="a" name="rockboy" id="13419"/>
-	<item article="a" name="rockboy" id="13420"/>
-	<item article="a" name="rockboy" id="13421"/>
-	<item article="a" name="rockboy" id="13422"/>
-	<item article="a" name="rockboy" id="13423"/>
-	<item article="a" name="rockboy" id="13424"/>
+	<item fromid="13413" toid="13424" article="a" name="rockboy"/>
+	<item fromid="13414" toid="13424" article="a" name="rockboy"/>
 	<item id="13429" article="a" name="bag with stolen gold">
 		<attribute key="description" value="It contains so much cash that you wouldn't have any idea how to use it. Return it to a nearby bank."/>
 		<attribute key="weight" value="500"/>
 	</item>
-	<item name="wet temple floor" id="13430"/>
-	<item name="wet temple floor" id="13431"/>
-	<item name="wet temple floor" id="13432"/>
-	<item name="wet temple floor" id="13433"/>
-	<item name="wet temple floor" id="13434"/>
-	<item name="wet temple floor" id="13435"/>
-	<item name="wet temple floor" id="13436"/>
-	<item name="wet temple floor" id="13437"/>
-	<item name="wet temple floor" id="13438"/>
-	<item article="a" name="finely crafted ornament" id="13439"/>
-	<item article="a" name="finely crafted ornament" id="13440"/>
-	<item name="wet temple floor" id="13441"/>
-	<item name="wet temple floor" id="13442"/>
-	<item name="wet temple floor" id="13443"/>
-	<item name="wet temple floor" id="13444"/>
-	<item name="wet temple floor" id="13445"/>
-	<item name="wet temple floor" id="13446"/>
-	<item name="wet temple floor" id="13447"/>
-	<item name="wet temple floor" id="13448"/>
-	<item name="wet temple floor" id="13449"/>
-	<item name="wet temple floor" id="13450"/>
-	<item name="wet temple floor" id="13451"/>
-	<item name="wet temple floor" id="13452"/>
-	<item name="wet temple floor" id="13453"/>
-	<item name="wet temple floor" id="13454"/>
-	<item name="wet temple floor" id="13455"/>
-	<item name="wet temple floor" id="13456"/>
-	<item name="cracked temple floor" id="13457"/>
-	<item name="cracked temple floor" id="13458"/>
-	<item name="cracked temple floor" id="13459"/>
-	<item name="cracked temple floor" id="13460"/>
-	<item name="cracked temple floor" id="13461"/>
-	<item name="cracked temple floor" id="13462"/>
-	<item name="cracked temple floor" id="13463"/>
-	<item name="cracked temple floor" id="13464"/>
-	<item name="cracked temple floor" id="13465"/>
-	<item name="cracked temple floor" id="13466"/>
-	<item name="cracked temple floor" id="13467"/>
-	<item name="cracked temple floor" id="13468"/>
-	<item name="cracked temple floor" id="13469"/>
-	<item name="cracked temple floor" id="13470"/>
-	<item name="cracked temple floor" id="13471"/>
-	<item name="cracked temple floor" id="13472"/>
-	<item name="cracked temple floor" id="13473"/>
-	<item name="cracked temple floor" id="13474"/>
-	<item name="cracked temple floor" id="13475"/>
-	<item name="cracked temple floor" id="13476"/>
-	<item name="cracked temple floor" id="13477"/>
-	<item name="cracked temple floor" id="13478"/>
-	<item name="cracked temple floor" id="13479"/>
-	<item name="cracked temple floor" id="13480"/>
-	<item name="cracked temple floor" id="13481"/>
-	<item name="cracked temple floor" id="13482"/>
-	<item name="cracked temple floor" id="13483"/>
-	<item name="cracked temple floor" id="13484"/>
-	<item name="cracked temple floor" id="13485"/>
-	<item name="cracked temple floor" id="13486"/>
-	<item name="cracked temple floor" id="13487"/>
-	<item name="cracked temple floor" id="13488"/>
-	<item name="cracked temple floor" id="13489"/>
-	<item name="cracked temple floor" id="13490"/>
-	<item name="cracked temple floor" id="13491"/>
-	<item name="cracked temple floor" id="13492"/>
-	<item name="cracked temple floor" id="13493"/>
-	<item name="unknown" id="13494"/>
-	<item name="unknown" id="13495"/>
-	<item name="unknown" id="13496"/>
-	<item name="unknown" id="13497"/>
-	<item name="unknown" id="13498"/>
-	<item article="a" name="hoard of gold" id="13499"/>
-	<item article="a" name="hoard of gold" id="13500"/>
-	<item article="a" name="hoard of gold" id="13501"/>
-	<item article="a" name="hoard of gold" id="13502"/>
-	<item article="a" name="hoard of gold" id="13503"/>
-	<item article="a" name="hoard of gold" id="13504"/>
-	<item article="a" name="hoard of gold" id="13505"/>
-	<item article="a" name="hoard of gold" id="13506"/>
-	<item article="a" name="hoard of gold" id="13507"/>
-	<item article="a" name="hoard of gold" id="13508"/>
-	<item article="a" name="hoard of gold" id="13509"/>
-	<item article="a" name="hoard of gold" id="13510"/>
-	<item article="a" name="hoard of gold" id="13511"/>
-	<item article="a" name="hoard of gold" id="13512"/>
-	<item name="deepling spawn" id="13513"/>
-	<item name="deepling spawn" id="13514"/>
-	<item name="deepling spawn" id="13515"/>
-	<item name="deepling spawn" id="13516"/>
-	<item name="deepling spawn" id="13517"/>
-	<item name="deepling spawn" id="13518"/>
-	<item name="deepling spawn" id="13519"/>
-	<item name="deepling spawn" id="13520"/>
-	<item name="deepling spawn" id="13521"/>
-	<item name="deepling spawn" id="13522"/>
-	<item name="deepling spawn" id="13523"/>
-	<item name="deepling spawn" id="13524"/>
-	<item name="deepling spawn" id="13525"/>
-	<item name="deepling spawn" id="13526"/>
-	<item name="deepling spawn" id="13527"/>
-	<item name="deepling spawn" id="13528"/>
-	<item name="deepling spawn" id="13529"/>
-	<item name="deepling spawn" id="13530"/>
-	<item name="deepling spawn" id="13531"/>
-	<item name="sea floor" id="13533"/>
-	<item name="sea floor" id="13534"/>
-	<item name="sea floor" id="13535"/>
-	<item name="sea floor" id="13536"/>
-	<item name="sea floor" id="13537"/>
-	<item name="sea floor" id="13538"/>
-	<item article="a" name="hoard of gold" id="13551"/>
-	<item article="a" name="hoard of gold" id="13552"/>
-	<item article="a" name="hoard of gold" id="13553"/>
-	<item article="a" name="hoard of gold" id="13554"/>
+	<item fromid="13430" toid="13438" name="wet temple floor"/>
+	<item fromid="13439" toid="13440" article="a" name="finely crafted ornament"/>
+	<item fromid="13441" toid="13456" name="wet temple floor"/>
+	<item fromid="13457" toid="13493" name="cracked temple floor"/>
+	<item fromid="13494" toid="13498" name="unknown item"/>
+	<item fromid="13499" toid="13512" article="a" name="hoard of gold"/>
+	<item fromid="13513" toid="13531" name="deepling spawn"/>
+	<item fromid="13533" toid="13538" name="sea floor"/>
+	<item fromid="13551" toid="13554" article="a" name="hoard of gold"/>
 	<item id="13558" article="a" name="ramp"/>
 	<item id="13559" article="a" name="ramp">
 		<attribute key="floorchange" value="north"/>
@@ -23905,114 +23298,50 @@
 	<item id="13561" article="a" name="ramp">
 		<attribute key="floorchange" value="north"/>
 	</item>
-	<item article="a" name="ramp" id="13562"/>
-	<item article="a" name="ramp" id="13563"/>
+	<item fromid="13562" toid="13563" article="a" name="ramp"/>
 	<item id="13564" article="a" name="ramp">
 		<attribute key="floorchange" value="north"/>
 	</item>
-	<item article="a" name="ramp" id="13565"/>
-	<item article="a" name="ramp" id="13566"/>
+	<item fromid="13565" toid="13566" article="a" name="ramp"/>
 	<item id="13567" article="a" name="ramp">
 		<attribute key="floorchange" value="west"/>
 	</item>
-	<item article="a" name="ramp" id="13568"/>
-	<item article="a" name="ramp" id="13569"/>
+	<item fromid="13568" toid="13569" article="a" name="ramp"/>
 	<item id="13570" article="a" name="ramp">
 		<attribute key="floorchange" value="west"/>
 	</item>
-	<item article="a" name="ramp" id="13571"/>
-	<item article="a" name="ramp" id="13572"/>
+	<item fromid="13571" toid="13572" article="a" name="ramp"/>
 	<item id="13573" article="a" name="ramp">
 		<attribute key="floorchange" value="west"/>
 	</item>
-	<item article="a" name="ramp" id="13574"/>
-	<item article="a" name="ramp" id="13575"/>
+	<item fromid="13574" toid="13575" article="a" name="ramp"/>
 	<item id="13576" article="a" name="ramp">
 		<attribute key="floorchange" value="east"/>
 	</item>
-	<item article="a" name="ramp" id="13577"/>
-	<item article="a" name="ramp" id="13578"/>
+	<item fromid="13577" toid="13578" article="a" name="ramp"/>
 	<item id="13579" article="a" name="ramp">
 		<attribute key="floorchange" value="east"/>
 	</item>
-	<item article="a" name="ramp" id="13580"/>
-	<item article="a" name="ramp" id="13581"/>
+	<item fromid="13580" toid="13581" article="a" name="ramp"/>
 	<item id="13582" article="a" name="ramp">
 		<attribute key="floorchange" value="east"/>
 	</item>
-	<item article="a" name="ramp" id="13583"/>
-	<item article="a" name="ramp" id="13584"/>
+	<item fromid="13583" toid="13584" article="a" name="ramp"/>
 	<item id="13585" article="a" name="ramp">
 		<attribute key="floorchange" value="south"/>
 	</item>
-	<item article="a" name="ramp" id="13586"/>
-	<item article="a" name="ramp" id="13587"/>
+	<item fromid="13586" toid="13587" article="a" name="ramp"/>
 	<item id="13588" article="a" name="ramp">
 		<attribute key="floorchange" value="south"/>
 	</item>
-	<item article="a" name="ramp" id="13589"/>
-	<item article="a" name="ramp" id="13590"/>
+	<item fromid="13589" toid="13590" article="a" name="ramp"/>
 	<item id="13591" article="a" name="ramp">
 		<attribute key="floorchange" value="south"/>
 	</item>
-	<item article="a" name="ramp" id="13592"/>
-	<item article="a" name="ramp" id="13593"/>
-	<item article="a" name="grotto" id="13594"/>
-	<item article="a" name="grotto" id="13596"/>
-	<item article="a" name="grotto" id="13597"/>
-	<item article="a" name="grotto" id="13598"/>
-	<item article="a" name="grotto" id="13599"/>
-	<item article="a" name="grotto" id="13600"/>
-	<item article="a" name="grotto" id="13601"/>
-	<item article="a" name="grotto" id="13602"/>
-	<item article="a" name="grotto" id="13603"/>
-	<item article="a" name="grotto" id="13604"/>
-	<item article="a" name="grotto" id="13605"/>
-	<item article="a" name="grotto" id="13606"/>
-	<item article="a" name="grotto" id="13607"/>
-	<item article="a" name="grotto" id="13608"/>
-	<item article="a" name="grotto" id="13609"/>
-	<item article="a" name="grotto" id="13610"/>
-	<item article="a" name="grotto" id="13611"/>
-	<item article="a" name="grotto" id="13612"/>
-	<item article="a" name="grotto" id="13613"/>
-	<item article="a" name="grotto" id="13614"/>
-	<item article="a" name="grotto" id="13615"/>
-	<item article="a" name="grotto" id="13616"/>
-	<item article="a" name="grotto" id="13617"/>
-	<item article="a" name="grotto" id="13618"/>
-	<item article="a" name="grotto" id="13619"/>
-	<item article="a" name="grotto" id="13620"/>
-	<item article="a" name="grotto" id="13621"/>
-	<item article="a" name="grotto" id="13622"/>
-	<item article="a" name="grotto" id="13623"/>
-	<item article="a" name="grotto" id="13624"/>
-	<item article="a" name="grotto" id="13625"/>
-	<item article="a" name="grotto" id="13626"/>
-	<item article="a" name="grotto" id="13627"/>
-	<item article="a" name="grotto" id="13628"/>
-	<item article="a" name="grotto" id="13629"/>
-	<item article="a" name="grotto" id="13630"/>
-	<item article="a" name="grotto" id="13631"/>
-	<item article="a" name="grotto" id="13632"/>
-	<item article="a" name="grotto" id="13633"/>
-	<item article="a" name="grotto" id="13634"/>
-	<item article="a" name="grotto" id="13635"/>
-	<item article="a" name="grotto" id="13636"/>
-	<item article="a" name="grotto" id="13637"/>
-	<item article="a" name="grotto" id="13638"/>
-	<item article="a" name="grotto" id="13639"/>
-	<item article="a" name="grotto" id="13640"/>
-	<item article="a" name="grotto" id="13641"/>
-	<item article="a" name="grotto" id="13642"/>
-	<item article="a" name="grotto" id="13643"/>
-	<item article="a" name="grotto" id="13644"/>
-	<item article="a" name="grotto" id="13645"/>
+	<item fromid="13592" toid="13593" article="a" name="ramp"/>
+	<item fromid="13594" toid="13645" article="a" name="grotto"/>
 	<item id="13647" name="moist stones"/>
-	<item article="a" name="lamp" id="13651"/>
-	<item article="a" name="lamp" id="13652"/>
-	<item article="a" name="lamp" id="13653"/>
-	<item article="a" name="lamp" id="13654"/>
+	<item fromid="13651" toid="13654" article="a" name="lamp"/>
 	<item id="13655" article="a" name="strange lamp"/>
 	<item id="13656" article="a" name="strange lamp">
 		<attribute key="description" value="This lamp is glowing very dimly."/>
@@ -24021,61 +23350,44 @@
 	<item id="13658" article="a" name="strange lamp">
 		<attribute key="description" value="This lamp is glowing very dimly."/>
 	</item>
-	<item article="a" name="lamp" id="13659"/>
-	<item article="a" name="lamp" id="13660"/>
-	<item article="a" name="lamp" id="13661"/>
-	<item article="a" name="lamp" id="13662"/>
-	<item article="a" name="lamp" id="13663"/>
-	<item article="a" name="lamp" id="13664"/>
-	<item article="a" name="lamp" id="13665"/>
-	<item article="a" name="lamp" id="13666"/>
-	<item name="deepling spawn" id="13667"/>
-	<item name="deepling spawn" id="13668"/>
-	<item name="deepling spawn" id="13669"/>
+	<item fromid="13659" toid="13666" article="a" name="lamp"/>
+	<item fromid="13667" toid="13669" name="deepling spawn"/>
 	<item id="13670" article="an" name="alga"/>
-	<item article="a" name="sponge" id="13672"/>
-	<item article="a" name="sponge" id="13673"/>
+	<item fromid="13672" toid="13673" article="a" name="sponge"/>
 	<item id="13674" article="a" name="tree coral"/>
 	<item id="13675" article="a" name="white coral"/>
 	<item id="13676" article="a" name="palm lettuce coral"/>
 	<item id="13677" name="seaweed"/>
 	<item id="13678" article="a" name="small coral"/>
-	<item article="a" name="laminaria" id="13680"/>
-	<item article="a" name="laminaria" id="13681"/>
-	<item article="an" name="ornate wall" id="13682"/>
-	<item article="an" name="ornate wall" id="13683"/>
-	<item article="an" name="ornate wall" id="13684"/>
-	<item article="an" name="ornate wall" id="13685"/>
-	<item article="an" name="ornate wall" id="13686"/>
-	<item article="an" name="ornate wall" id="13687"/>
+	<item fromid="13680" toid="13681" article="a" name="laminaria"/>
+	<item fromid="13682" toid="13687" article="an" name="ornate wall"/>
 	<item id="13688" article="a" name="large coral"/>
-	<item name="bubbles" id="13689"/>
-	<item name="bubbles" id="13690"/>
-	<item name="bubbles" id="13691"/>
-	<item name="bubbles" id="13692"/>
+	<item fromid="13689" toid="13692" name="bubbles"/>
+	<item fromid="13693" toid="13699" name="RESERVED SPRITE"/>
+	<item fromid="13700" toid="13711" name="unknown item"/>
 	<item id="13712" article="a" name="dead deepling warrior">
 		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15176"/>
+		<attribute key="decayto" value="13713"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
 	</item>
 	<item id="13713" article="a" name="dead deepling warrior">
 		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15177"/>
+		<attribute key="decayto" value="13714"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13714" article="a" name="dead deepling warrior">
-		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15178"/>
+		<attribute key="containersize" value="24"/>
+		<attribute key="decayto" value="13715"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13715" article="a" name="dead deepling warrior">
 		<attribute key="weight" value="2000"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13716" article="a" name="ramp">
@@ -24094,54 +23406,40 @@
 		<attribute key="floorchange" value="north"/>
 	</item>
 	<item id="13723" article="a" name="ramp"/>
+	<item fromid="13724" toid="13749" name="RESERVED SPRITE"/>
 	<item id="13750" article="a" name="dead deepling guard">
 		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15188"/>
+		<attribute key="decayto" value="13751"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13751" article="a" name="dead deepling guard">
 		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15189"/>
+		<attribute key="decayto" value="13752"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13752" article="a" name="dead deepling guard">
-		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15190"/>
+		<attribute key="containersize" value="24"/>
+		<attribute key="decayto" value="13753"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13753" article="a" name="dead deepling guard">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item name="leaves" id="13754"/>
-	<item name="leaves" id="13755"/>
-	<item name="leaves" id="13756"/>
-	<item name="leaves" id="13757"/>
-	<item name="leaves" id="13758"/>
-	<item name="leaves" id="13759"/>
-	<item name="leaves" id="13760"/>
-	<item name="leaves" id="13761"/>
-	<item name="leaves" id="13762"/>
-	<item name="leaves" id="13763"/>
-	<item name="leaves" id="13764"/>
-	<item name="leaves" id="13765"/>
-	<item name="leaves" id="13766"/>
-	<item name="leaves" id="13767"/>
-	<item name="leaves" id="13768"/>
-	<item name="leaves" id="13769"/>
+	<item fromid="13754" toid="13769" name="leaves" />
 	<item id="13771" article="a" name="dead deepling spellsinger">
 		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15209"/>
+		<attribute key="decayto" value="13772"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13772" article="a" name="dead deepling spellsinger">
-		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15210"/>
+		<attribute key="containersize" value="24"/>
+		<attribute key="decayto" value="13773"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
@@ -24153,160 +23451,140 @@
 	<item id="13774" article="a" name="dead deepling spellsinger">
 		<attribute key="weight" value="2000"/>
 		<attribute key="containersize" value="48"/>
-		<attribute key="decayto" value="15208"/>
+		<attribute key="decayto" value="13771"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13775" article="a" name="deep black gap"/>
 	<item id="13776" article="a" name="moist pillar"/>
-	<item article="a" name="ramp" id="13777"/>
-	<item article="a" name="ramp" id="13778"/>
-	<item article="a" name="ramp" id="13783"/>
-	<item article="a" name="ramp" id="13784"/>
-	<item article="a" name="ramp" id="13785"/>
-	<item article="a" name="ramp" id="13786"/>
+	<item fromid="13777" toid="13778" article="a" name="ramp"/>
+	<item fromid="13779" toid="13782" name="RESERVED SPRITE"/>
+	<item fromid="13783" toid="13786" article="a" name="ramp"/>
 	<item id="13787" article="a" name="dead Jaul">
 		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15221"/>
+		<attribute key="decayto" value="13794"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13794" article="a" name="dead Jaul">
 		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15222"/>
+		<attribute key="decayto" value="13795"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13795" article="a" name="dead Jaul">
-		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15223"/>
+		<attribute key="containersize" value="12"/>
+		<attribute key="decayto" value="13796"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13796" article="a" name="dead Jaul">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13797" article="a" name="dead Obujos">
 		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15225"/>
+		<attribute key="decayto" value="13798"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13798" article="a" name="dead Obujos">
 		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15226"/>
+		<attribute key="decayto" value="13799"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13799" article="a" name="dead Obujos">
-		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15227"/>
+		<attribute key="containersize" value="12"/>
+		<attribute key="decayto" value="13800"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13800" article="a" name="dead Obujos">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13801" article="a" name="dead Tanjis">
 		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15229"/>
+		<attribute key="decayto" value="13802"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13802" article="a" name="dead Tanjis">
 		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15230"/>
+		<attribute key="decayto" value="13803"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13803" article="a" name="dead Tanjis">
-		<attribute key="containersize" value="24"/>
-		<attribute key="decayto" value="15231"/>
+		<attribute key="containersize" value="12"/>
+		<attribute key="decayto" value="13804"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13804" article="a" name="dead Tanjis">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
-	<item name="brown sea floor" id="13805"/>
-	<item name="brown sea floor" id="13806"/>
-	<item name="brown sea floor" id="13807"/>
-	<item name="brown sea floor" id="13808"/>
-	<item name="brown sea floor" id="13809"/>
-	<item name="brown sea floor" id="13810"/>
-	<item article="an" name="enormous statue" id="13823"/>
-	<item article="an" name="enormous statue" id="13824"/>
-	<item article="an" name="enormous statue" id="13825"/>
-	<item article="an" name="enormous statue" id="13826"/>
-	<item article="an" name="enormous statue" id="13827"/>
-	<item article="an" name="enormous statue" id="13828"/>
-	<item article="an" name="enormous statue" id="13829"/>
-	<item article="an" name="enormous statue" id="13830"/>
-	<item article="an" name="enormous statue" id="13831"/>
-	<item article="an" name="enormous statue" id="13832"/>
-	<item article="an" name="enormous statue" id="13833"/>
-	<item article="an" name="enormous statue" id="13834"/>
-	<item article="an" name="enormous statue" id="13835"/>
-	<item article="an" name="enormous statue" id="13836"/>
-	<item article="an" name="enormous statue" id="13837"/>
-	<item article="an" name="enormous statue" id="13838"/>
-	<item article="an" name="enormous statue" id="13839"/>
-	<item article="an" name="enormous statue" id="13840"/>
+	<item fromid="13805" toid="13810" name="brown sea floor" />
+	<item fromid="13823" toid="13840" article="an" name="enormous statue" />
 	<item id="13844" name="ice flower seeds">
 		<attribute key="description" value="They seem to have strange effects on other plants and can also be grown into an own plant."/>
 		<attribute key="weight" value="50"/>
 	</item>
 	<item id="13845" article="a" name="dead lady bug">
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15273"/>
+		<attribute key="decayto" value="13846"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13846" article="a" name="dead lady bug">
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15274"/>
+		<attribute key="decayto" value="13847"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13847" article="a" name="dead lady bug">
-		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15275"/>
+		<attribute key="containersize" value="9"/>
+		<attribute key="decayto" value="13848"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13848" article="a" name="dead lady bug">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13849" article="a" name="dead manta ray">
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15277"/>
-		<attribute key="duration" value="10"/>
+		<attribute key="decayto" value="13850"/>
+		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13850" article="a" name="dead manta">
-		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15278"/>
+		<attribute key="containersize" value="9"/>
+		<attribute key="decayto" value="13851"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13851" article="a" name="dead manta ray">
-		<attribute key="containersize" value="18"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
+		<attribute key="corpsetype" value="blood"/>
+	</item>
+	<item id="13852" article="a" name="dead manta ray">
+		<attribute key="containersize" value="18"/>
+		<attribute key="decayto" value="13849"/>
+		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13853" article="a" name="dead calamary">
 		<attribute key="weight" value="6300"/>
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15281"/>
+		<attribute key="decayto" value="13854"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
@@ -24314,27 +23592,27 @@
 	<item id="13854" article="a" name="dead calamary">
 		<attribute key="weight" value="4400"/>
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15282"/>
+		<attribute key="decayto" value="13855"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13855" article="a" name="dead calamary">
 		<attribute key="weight" value="3000"/>
-		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15283"/>
+		<attribute key="containersize" value="9"/>
+		<attribute key="decayto" value="13856"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13856" article="a" name="dead calamary">
 		<attribute key="weight" value="2000"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13857" article="a" name="dead jellyfish">
 		<attribute key="weight" value="6300"/>
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15285"/>
+		<attribute key="decayto" value="13858"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
@@ -24342,20 +23620,21 @@
 	<item id="13858" article="a" name="dead jellyfish">
 		<attribute key="weight" value="4400"/>
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15286"/>
+		<attribute key="decayto" value="13859"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13859" article="a" name="dead jellyfish">
 		<attribute key="weight" value="3000"/>
-		<attribute key="decayto" value="0"/>
+		<attribute key="containersize" value="9"/>
+		<attribute key="decayto" value="13864"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13860" article="a" name="dead shark">
 		<attribute key="weight" value="6300"/>
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15288"/>
+		<attribute key="decayto" value="13861"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="blood"/>
 		<attribute key="fluidsource" value="blood"/>
@@ -24363,96 +23642,80 @@
 	<item id="13861" article="a" name="dead shark">
 		<attribute key="weight" value="4400"/>
 		<attribute key="containersize" value="18"/>
-		<attribute key="decayto" value="15289"/>
+		<attribute key="decayto" value="13862"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13862" article="a" name="dead shark">
-		<attribute key="containersize" value="18"/>
+		<attribute key="containersize" value="9"/>
 		<attribute key="weight" value="3000"/>
-		<attribute key="decayto" value="15290"/>
+		<attribute key="decayto" value="13863"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13863" article="a" name="dead shark">
 		<attribute key="weight" value="2000"/>
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
+		<attribute key="corpsetype" value="blood"/>
+	</item>
+	<item id="13864" article="a" name="dead jellyfish">
+		<attribute key="weight" value="3000"/>
+		<attribute key="decayto" value="0"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="blood"/>
 	</item>
 	<item id="13865" article="a" name="dead crawler">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15293"/>
+		<attribute key="decayto" value="13866"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
 	<item id="13866" article="a" name="dead crawler">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15294"/>
+		<attribute key="decayto" value="13867"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13867" article="a" name="dead crawler">
-		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15295"/>
+		<attribute key="containersize" value="18"/>
+		<attribute key="decayto" value="13868"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13868" article="a" name="dead crawler">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13870" article="a" name="dead spidris">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15297"/>
+		<attribute key="decayto" value="13871"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13871" article="a" name="dead spidris">
-		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15298"/>
+		<attribute key="containersize" value="18"/>
+		<attribute key="decayto" value="13872"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13872" article="a" name="dead spidris">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13873" article="a" name="dead spidris">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15296"/>
+		<attribute key="decayto" value="13870"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
 	</item>
-	<item article="a" name="table" id="13874"/>
-	<item article="a" name="table" id="13875"/>
-	<item article="a" name="table" id="13876"/>
-	<item article="a" name="table" id="13877"/>
-	<item article="a" name="table" id="13878"/>
-	<item article="a" name="table" id="13879"/>
-	<item article="a" name="table" id="13880"/>
-	<item article="a" name="table" id="13881"/>
-	<item article="a" name="table" id="13882"/>
-	<item article="a" name="table" id="13883"/>
-	<item article="a" name="table" id="13884"/>
-	<item article="a" name="table" id="13885"/>
-	<item article="a" name="table" id="13886"/>
-	<item article="a" name="table" id="13887"/>
-	<item article="a" name="table" id="13888"/>
-	<item article="a" name="table" id="13889"/>
-	<item article="a" name="table" id="13890"/>
-	<item article="a" name="table" id="13891"/>
-	<item article="a" name="table" id="13892"/>
-	<item article="a" name="table" id="13893"/>
-	<item article="a" name="table" id="13894"/>
-	<item name="lampions" id="13897"/>
-	<item name="lampions" id="13898"/>
-	<item name="lampions" id="13899"/>
-	<item name="lampions" id="13900"/>
+	<item fromid="13874" toid="13894" article="a" name="table" />
+	<item fromid="13895" toid="13896" name="unknown item" />
+	<item fromid="13897" toid="13900" name="lampions" />
 	<item id="13901" name="flitter"/>
 	<item id="13902" article="a" name="party snake"/>
 	<item id="13903" name="royal emblems"/>
@@ -24460,11 +23723,8 @@
 	<item id="13905" article="a" name="party snake"/>
 	<item id="13906" name="royal emblems"/>
 	<item id="13907" name="lampions"/>
-	<item name="drinks" id="13908"/>
-	<item name="drinks" id="13909"/>
-	<item name="lampions" id="13910"/>
-	<item name="lampions" id="13911"/>
-	<item name="lampions" id="13912"/>
+	<item fromid="13908" toid="13909" name="drinks" />
+	<item fromid="13910" toid="13912" name="lampions" />
 	<item id="13913" name="flitter"/>
 	<item id="13914" article="a" name="party snake"/>
 	<item id="13915" name="emblems"/>
@@ -24473,84 +23733,59 @@
 	<item id="13918" article="a" name="party snake"/>
 	<item id="13919" name="emblems"/>
 	<item id="13920" article="an" name="emblem"/>
-	<item article="an" name="archway" id="13921"/>
-	<item article="an" name="archway" id="13922"/>
-	<item article="an" name="archway" id="13923"/>
-	<item article="an" name="archway" id="13924"/>
-	<item article="an" name="archway" id="13934"/>
-	<item article="an" name="archway" id="13935"/>
+	<item fromid="13921" toid="13924" article="an" name="archway" />
+	<item fromid="13925" toid="13933" name="RESERVED SPRITE" />
+	<item fromid="13934" toid="13935" article="an" name="archway" />
+	<item id="13936" name="unknown item"/>
 	<item id="13937" article="a" name="dead kollos">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15355"/>
+		<attribute key="decayto" value="13938"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13938" article="a" name="dead kollos">
 		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15356"/>
+		<attribute key="decayto" value="13939"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13939" article="a" name="dead kollos">
-		<attribute key="containersize" value="36"/>
-		<attribute key="decayto" value="15357"/>
+		<attribute key="containersize" value="18"/>
+		<attribute key="decayto" value="13940"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13940" article="a" name="dead kollos">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
-	<item article="a" name="golden anchor" id="13941"/>
-	<item article="a" name="golden anchor" id="13942"/>
-	<item article="a" name="unknown tile" id="13943"/>
-	<item article="a" name="unknown tile" id="13944"/>
-	<item article="a" name="unknown tile" id="13945"/>
-	<item article="a" name="unknown tile" id="13946"/>
-	<item article="a" name="unknown tile" id="13947"/>
-	<item article="a" name="unknown tile" id="13948"/>
-	<item article="a" name="unknown tile" id="13949"/>
-	<item article="a" name="unknown tile" id="13950"/>
-	<item article="a" name="unknown tile" id="13951"/>
-	<item article="a" name="unknown tile" id="13952"/>
-	<item article="a" name="unknown tile" id="13953"/>
-	<item article="a" name="unknown tile" id="13955"/>
-	<item article="a" name="unknown tile" id="13956"/>
-	<item article="a" name="unknown tile" id="13957"/>
-	<item article="a" name="unknown tile" id="13958"/>
-	<item article="a" name="unknown tile" id="13959"/>
-	<item article="a" name="unknown tile" id="13960"/>
-	<item article="a" name="unknown tile" id="13961"/>
-	<item article="a" name="unknown tile" id="13962"/>
-	<item article="a" name="unknown tile" id="13963"/>
-	<item article="a" name="unknown tile" id="13964"/>
-	<item article="a" name="unknown tile" id="13965"/>
-	<item article="a" name="unknown tile" id="13966"/>
-	<item article="a" name="unknown tile" id="13967"/>
+	<item fromid="13941" toid="13942" article="a" name="golden anchor" />
+	<item fromid="13943" toid="13967" article="a" name="hivecomb floor" />
+	<item id="13968" name="RESERVED SPRITE"/>
 	<item id="13969" article="an" name="insectoid cocoon">
 		<attribute key="weight" value="500"/>
 	</item>
 	<item id="13970" article="a" name="dead swarmer">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="15386"/>
+		<attribute key="decayto" value="13971"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13971" article="a" name="dead swarmer">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="15387"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="13972"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13972" article="a" name="dead swarmer">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13973" article="a" name="dead swarmer">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="15385"/>
+		<attribute key="decayto" value="13970"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 		<attribute key="fluidsource" value="slime"/>
@@ -24558,54 +23793,56 @@
 	<item id="13974" article="a" name="strange powder">
 		<attribute key="weight" value="90"/>
 	</item>
+	<item id="13975" name="RESERVED SPRITE"/>
 	<item id="13976" article="a" name="blob bomb">
 		<attribute key="weight" value="110"/>
 	</item>
+	<item id="13977" name="RESERVED SPRITE"/>
 	<item id="13978" article="a" name="hive floor"/>
 	<item id="13979" article="a" name="dead spitter">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="15393"/>
+		<attribute key="decayto" value="13980"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13980" article="a" name="dead spitter">
 		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="15394"/>
+		<attribute key="decayto" value="13981"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13981" article="a" name="dead spitter">
-		<attribute key="containersize" value="10"/>
-		<attribute key="decayto" value="15395"/>
+		<attribute key="containersize" value="5"/>
+		<attribute key="decayto" value="13982"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13982" article="a" name="dead spitter">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13983" article="a" name="dead waspoid">
-		<attribute key="containersize" value="15"/>
-		<attribute key="decayto" value="15397"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="13984"/>
 		<attribute key="duration" value="10"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13984" article="a" name="dead waspoid">
-		<attribute key="containersize" value="15"/>
-		<attribute key="decayto" value="15398"/>
+		<attribute key="containersize" value="20"/>
+		<attribute key="decayto" value="13985"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13985" article="a" name="dead waspoid">
-		<attribute key="containersize" value="15"/>
-		<attribute key="decayto" value="15399"/>
+		<attribute key="containersize" value="10"/>
+		<attribute key="decayto" value="13986"/>
 		<attribute key="duration" value="300"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13986" article="a" name="dead waspoid">
 		<attribute key="decayto" value="0"/>
-		<attribute key="duration" value="300"/>
+		<attribute key="duration" value="60"/>
 		<attribute key="corpsetype" value="venom"/>
 	</item>
 	<item id="13987" article="a" name="deepling staff">
@@ -24615,8 +23852,7 @@
 		<attribute key="weapontype" value="club"/>
 		<attribute key="slottype" value="two-handed"/>
 	</item>
-	<item name="shallow water" id="13988"/>
-	<item name="shallow water" id="13989"/>
+	<item fromid="13988" toid="13989" name="shallow water" />
 	<item id="13990" article="a" name="necklace of the deep">
 		<attribute key="weight" value="500"/>
 		<attribute key="charges" value="50"/>
@@ -24707,27 +23943,27 @@
 	</item>
 	<item id="14002" article="a" name="trophy of Obujos">
 		<attribute key="weight" value="500"/>
-		<attribute key="rotateto" value="15416"/>
+		<attribute key="rotateto" value="14003"/>
 	</item>
 	<item id="14003" article="a" name="trophy of Obujos">
 		<attribute key="weight" value="500"/>
-		<attribute key="rotateto" value="15415"/>
+		<attribute key="rotateto" value="14003"/>
 	</item>
 	<item id="14004" article="a" name="trophy of Tanjis">
 		<attribute key="weight" value="500"/>
-		<attribute key="rotateto" value="15418"/>
+		<attribute key="rotateto" value="14005"/>
 	</item>
 	<item id="14005" article="a" name="trophy of Tanjis">
 		<attribute key="weight" value="500"/>
-		<attribute key="rotateto" value="15417"/>
+		<attribute key="rotateto" value="14004"/>
 	</item>
 	<item id="14006" article="a" name="trophy of Jaul">
 		<attribute key="weight" value="500"/>
-		<attribute key="rotateto" value="15420"/>
+		<attribute key="rotateto" value="14007"/>
 	</item>
 	<item id="14007" article="a" name="trophy of Jaul">
 		<attribute key="weight" value="500"/>
-		<attribute key="rotateto" value="15419"/>
+		<attribute key="rotateto" value="14006"/>
 	</item>
 	<item id="14008" article="a" name="spellsinger's seal">
 		<attribute key="weight" value="190"/>
