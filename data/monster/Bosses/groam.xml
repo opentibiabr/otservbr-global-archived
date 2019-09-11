@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Groam" nameDescription="Groam" race="blood" experience="180" speed="560">
 	<health now="400" max="400"/>
-	<look type="413" corpse="13839"/>
+	<look type="413" corpse="12684"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
@@ -41,9 +41,14 @@
 		<element deathPercent="-20"/>
 	</elements>
 	<loot>
-		<item id="2148" countmax="50" chance="100000"/><!-- gold coin -->
-		<item id="2168" chance="50000"/><!-- life ring -->
-		<item id="3965" countmax="4" chance="25000"/><!-- hunting spear -->
-		<item id="9808" chance="14285"/><!-- rusty armor -->
+		<item name="gold coin" countmax="50" chance="75920"/>
+		<item name="hunting spear" countmax="3" chance="15010"/>
+		<item name="life ring" chance="2030"/>
+		<item name="rusted armor" chance="960"/>
+		<item name="heavy trident" chance="480"/>
+		<item name="eye of a deepling" chance="300"/>
+		<item name="fish fin" chance="300"/>
+		<item name="small emerald" chance="120"/>
+		<item name="flask of rust remover" chance="110"/>
 	</loot>
 </monster>

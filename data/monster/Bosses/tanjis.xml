@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Tanjis" nameDescription="Tanjis" race="blood" experience="15000" speed="560" script="rewardboss.lua">
 	<health now="30000" max="30000"/>
-	<look type="446" corpse="15228"/>
+	<look type="446" corpse="13801"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
@@ -68,8 +68,8 @@
 		<element deathPercent="-20"/>
 	</elements>
 	<loot>
-		<item id="15409" chance="5000"/><!-- depth ocrea -->
-		<item id="15414" chance="20000" unique="1"/><!-- ornate mace -->
-		<item id="15413" chance="2000"/><!-- ornate shield -->
+		<item name="depth ocrea" chance="52210"/>
+		<item name="ornate mace" chance="26110" unique="1"/>
+		<item name="ornate shield" chance="21680"/>
 	</loot>
 </monster>

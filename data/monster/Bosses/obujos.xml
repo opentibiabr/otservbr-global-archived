@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Obujos" nameDescription="Obujos" race="blood" experience="20000" speed="560" script="rewardboss.lua">
 	<health now="35000" max="35000"/>
-	<look type="445" corpse="15224"/>
+	<look type="445" corpse="13797"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
@@ -61,8 +61,8 @@
 		<element deathPercent="-20"/>
 	</elements>
 	<loot>
-		<item id="15411" chance="100000"/><!-- depth scutum -->
-		<item id="15404" chance="1285"/><!-- deepling axe -->
-		<item id="15412" chance="1285" unique="1"/><!-- ornate legs -->
+		<item name="deepling axe" chance="42860"/>
+		<item name="depth scutum" chance="39390"/>
+		<item name="ornate legs" chance="17750" unique="1"/>
 	</loot>
 </monster>

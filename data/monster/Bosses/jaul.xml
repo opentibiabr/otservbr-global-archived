@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Jaul" nameDescription="Jaul" race="blood" experience="30000" speed="220" script="rewardboss.lua">
 	<health now="90000" max="90000"/>
-	<look type="444" corpse="15220"/>
+	<look type="444" corpse="13787"/>
 	<targetchange interval="2000" chance="50"/>
 	<flags>
 		<flag preyable="0"/>
@@ -66,13 +66,13 @@
 		<element deathPercent="-1"/>
 	</elements>
 	<loot>
-		<item id="15413" chance="3100"/><!-- ornate shield -->
-		<item id="15408" chance="5333"/><!-- depth galea -->
-		<item id="15404" chance="5000"/><!-- deepling axe -->
-		<item id="15406" chance="25000" unique="1"/><!-- ornate chestplate -->
-		<item id="15407" chance="4000"/><!-- depth lorica -->
-		<item id="15410" chance="2285"/><!-- depth calcei -->
-		<item id="15414" chance="4285"/><!-- ornate mace -->
-		<item id="15412" chance="3142"/><!-- ornate legs -->
+		<item name="ornate shield" chance="42610"/>
+		<item name="depth lorica" chance="27840"/>
+		<item name="depth galea" chance="27270"/>
+		<item name="depth calcei" chance="22730" />
+		<item name="deepling axe" chance="22160"/>
+		<item name="ornate mace" chance="21020"/>
+		<item name="ornate legs" chance="21020"/>
+		<item name="ornate chestplate" chance="14770" unique="1"/>
 	</loot>
 </monster>
