@@ -1,7 +1,7 @@
 function onStepIn(cid, item, pos, lastPosition)
 local player = Player(cid)
 	if item.actionid == 55022 then
-		if getPlayerItemCount(cid, 16015) >= 1 and player:getLevel() >= 40 then
+		if getPlayerItemCount(cid, 14682) >= 1 and player:getLevel() >= 40 then
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
 		doTeleportThing(cid, {x = 32829, y = 31451, z = 8}, FALSE)
 		doSendMagicEffect(getCreaturePosition(cid), CONST_ME_TELEPORT)
