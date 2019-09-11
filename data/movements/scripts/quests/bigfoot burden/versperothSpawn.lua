@@ -23,14 +23,14 @@ local function executeVersperothBattle(mid)
 
 		Game.setStorageValue(GlobalStorage.Versperoth.Health, monster:getHealth())
 		monster:remove()
-		local blood = Tile(versperothPosition):getItemById(2019)
+		local blood = Tile(versperothPosition):getItemById(2889)
 		if blood then
 			blood:remove()
 		end
 
-		local hole = Tile(versperothPosition):getItemById(18462)
+		local hole = Tile(versperothPosition):getItemById(16172)
 		if not hole then
-			Game.createItem(18462, 1, versperothPosition)
+			Game.createItem(16172, 1, versperothPosition)
 		end
 		versperothPosition:sendMagicEffect(CONST_ME_POFF)
 
@@ -49,7 +49,7 @@ local function executeVersperothBattle(mid)
 
 	local monster = Game.createMonster('Versperoth', versperothPosition, false, true)
 	if monster then
-		local holee = Tile(versperothPosition):getItemById(18462)
+		local holee = Tile(versperothPosition):getItemById(16172)
 		if holee then
 			holee:remove()
 		end
