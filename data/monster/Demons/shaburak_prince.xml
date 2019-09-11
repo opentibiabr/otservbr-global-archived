@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Shaburak Prince" nameDescription="a shaburak Prince" race="fire" experience="1700" speed="125">
 	<health now="2600" max="2600"/>
-	<look type="418" corpse="13969"/>
+	<look type="418" corpse="12824"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -53,20 +53,19 @@
 		<voice sentence="ONLY WE ARE TRUE DEMONS!"/>
 	</voices>
 	<loot>
-		<item name="small ruby" countmax="5" chance="12500"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="78" chance="50000"/>
-		<item name="platinum coin" countmax="4" chance="33333"/>
-		<item name="stealth ring" chance="5000"/>
-		<item name="wand of inferno" chance="892"/>
-		<item name="steel boots" chance="89"/>
-		<item name="brown mushroom" chance="4545"/>
-		<item name="magic sulphur" chance="534"/>
-		<item name="butcher's axe" chance="357"/>
-		<item name="bullseye potion" chance="714"/>
-		<item name="strong health potion" chance="14285"/>
-		<item name="strong mana potion" chance="14285"/>
-		<item name="magma coat" chance="714"/>
-		<item name="demonic finger" chance="178"/>
+		<item name="gold coin" countmax="173" chance="95680"/>
+		<item name="platinum coin" countmax="4" chance="33910"/>
+		<item name="strong mana potion" chance="16200"/>
+		<item name="strong health potion" chance="14620"/>
+		<item name="small ruby" countmax="5" chance="12630"/>
+		<item name="brown mushroom" chance="4940"/>
+		<item name="stealth ring" chance="4670"/>
+		<item name="wand of inferno" chance="820"/>
+		<item name="magma coat" chance="750"/>
+		<item name="bullseye potion" chance="620"/>
+		<item name="magic sulphur" chance="410"/>
+		<item name="butcher's axe" chance="270"/>
+		<item name="demonic finger" chance="140"/>
+		<item name="steel boots" chance="70"/>
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Guard" nameDescription="a deepling guard" race="blood" experience="2100" speed="135">
 	<health now="1900" max="1900"/>
-	<look type="442" corpse="15187"/>
+	<look type="442" corpse="13750"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -50,21 +50,20 @@
 		<voice sentence="QJELL NETA NA!!"/>
 	</voices>
 	<loot>
-		<item name="small sapphire" countmax="3" chance="2890"/>
-		<item name="gold coin" countmax="90" chance="100000"/>
-		<item name="gold coin" countmax="90" chance="100000"/>
-		<item name="platinum coin" countmax="2" chance="70000"/>
-		<item name="great mana potion" countmax="3" chance="14285"/>
-		<item name="great health potion" countmax="3" chance="14285"/>
-		<item name="heavy trident" chance="1694"/>
-		<item name="eye of a deepling" chance="10000"/>
-		<item name="deepling guard belt buckle" chance="12500"/>
-		<item name="deepling breaktime snack" chance="16666"/>
-		<item name="guardian axe" chance="925"/>
-		<item name="deepling claw" chance="9090"/>
-		<item name="foxtail" chance="10"/>
-		<item name="ornate crossbow" chance="362"/>
-		<item name="deepling backpack" chance="333"/>
-		<item name="deepling squelcher" chance="751"/>
+		<item name="gold coin" countmin="2" countmax="180" chance="100000"/>
+		<item name="platinum coin" countmax="2" chance="70090"/>
+		<item name="great health potion" countmax="3" chance="15070"/>
+		<item name="deepling breaktime snack" chance="15000"/>
+		<item name="great mana potion" countmax="3" chance="14980"/>
+		<item name="deepling guard belt buckle" chance="11960"/>
+		<item name="eye of a deepling" chance="9830"/>
+		<item name="deepling claw" chance="8940"/>
+		<item name="small sapphire" countmax="3" chance="2830"/>
+		<item name="heavy trident" chance="1500"/>
+		<item name="guardian axe" chance="870"/>
+		<item name="deepling squelcher" chance="710"/>
+		<item name="ornate crossbow" chance="410"/>
+		<item name="deepling backpack" chance="310"/>
+		<item name="foxtail" chance="20"/>
 	</loot>
 </monster>

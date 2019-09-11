@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Hive Overseer" nameDescription="a hive overseer" race="venom" experience="5500" speed="115">
 	<health now="7500" max="7500"/>
-	<look type="458" corpse="15354"/>
+	<look type="458" corpse="13937"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -50,21 +50,20 @@
 		<voice sentence="Kropp!"/>
 	</voices>
 	<loot>
-		<item name="small ruby" countmax="2" chance="16000"/>
-		<item name="gold coin" countmax="100" chance="40000"/>
-		<item name="gold coin" countmax="98" chance="58000"/>
-		<item name="platinum coin" countmax="6" chance="84000"/>
-		<item name="steel boots" chance="550"/>
-		<item name="great mana potion" chance="18000"/>
-		<item id="7632" chance="6000"/><!-- giant shimmering pearl -->
-		<item name="ultimate health potion" chance="12000"/>
-		<item name="gold ingot" chance="29000"/>
-		<item name="kollos shell" chance="28000"/>
-		<item name="compound eye" chance="16000"/>
-		<item name="calopteryx cape" chance="830"/>
-		<item name="carapace shield" chance="920"/>
-		<item name="hive scythe" chance="1650"/>
-		<item name="gooey mass" countmax="2" chance="13000"/>
-		<item name="hive bow" chance="830"/>
+		<item name="gold coin" countmax="198" chance="98620"/>
+		<item name="platinum coin" countmax="6" chance="84320"/>
+		<item name="gold ingot" chance="29580"/>
+		<item name="kollos shell" chance="28850"/>
+		<item name="great mana potion" chance="18050"/>
+		<item name="compound eye" chance="17000"/>
+		<item name="small ruby" countmax="2" chance="15280"/>
+		<item name="gooey mass" countmax="2" chance="13370"/>
+		<item name="ultimate health potion" chance="11860"/>
+		<item id="281" chance="6460"/><!-- giant shimmering pearl -->
+		<item name="hive scythe" chance="1320"/>
+		<item name="calopteryx cape" chance="1250"/>
+		<item name="carapace shield" chance="860"/>
+		<item name="hive bow" chance="860"/>
+		<item name="steel boots" chance="590"/>
 	</loot>
 </monster>

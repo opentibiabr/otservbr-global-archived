@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Clay Guardian" nameDescription="a clay guardian" race="undead" experience="400" speed="115">
 	<health now="625" max="625"/>
-	<look type="333" corpse="13972"/>
+	<look type="333" corpse="12837"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -44,13 +44,13 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="small stone" countmax="10" chance="10000"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="63" chance="50000"/>
-		<item name="blank rune" chance="25000"/>
-		<item name="earth arrow" countmax="8" chance="5555"/>
-		<item name="small topaz" chance="320"/>
-		<item name="lump of earth" chance="25000"/>
-		<item name="clay lump" chance="1100"/>
+		
+		<item name="gold coin" countmax="163" chance="97700"/>
+		<item name="blank rune" chance="25800"/>
+		<item name="lump of earth" chance="25180"/>
+		<item name="small stone" countmax="10" chance="10620"/>
+		<item name="earth arrow" countmax="8" chance="5440"/>
+		<item name="clay lump" chance="980"/>
+		<item name="small topaz" chance="450"/>
 	</loot>
 </monster>

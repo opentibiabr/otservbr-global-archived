@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Spellsinger" nameDescription="a deepling spellsinger" race="blood" experience="1000" speed="95">
 	<health now="850" max="850"/>
-	<look type="443" corpse="15208"/>
+	<look type="443" corpse="13774"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -51,18 +51,18 @@
 		<voice sentence="Mmmmmoooaaaaaahaaa!!"/>
 	</voices>
 	<loot>
-		<item name="small sapphire" chance="2854"/>
-		<item name="gold coin" countmax="60" chance="70000"/>
-		<item name="platinum coin" chance="80000"/>
-		<item name="life ring" chance="2439"/>
-		<item id="2667" chance="3448"/><!-- fish -->
-		<item name="fish fin" chance="498"/>
-		<item name="eye of a deepling" chance="2500"/>
-		<item name="deepling staff" chance="2000"/>
-		<item name="necklace of the deep" chance="813"/>
-		<item name="spellsinger's seal" chance="14285"/>
-		<item name="key to the Drowned Library" chance="10000"/>
-		<item name="deepling filet" chance="14285"/>
-		<item name="ornate crossbow" chance="220"/>
+		<item name="platinum coin" chance="80150"/>
+		<item name="gold coin" countmax="60" chance="75060"/>
+		<item name="spellsinger's seal" chance="15170"/>
+		<item name="deepling filet" chance="14950"/>
+		<item name="key to the Drowned Library" chance="10750"/>
+		<item id="3530" chance="3530"/><!-- fish -->
+		<item name="small sapphire" chance="2930"/>
+		<item name="eye of a deepling" chance="2540"/>
+		<item name="life ring" chance="2470"/>
+		<item name="deepling staff" chance="2010"/>
+		<item name="necklace of the deep" chance="790"/>
+		<item name="fish fin" chance="510"/>
+		<item name="ornate crossbow" chance="210"/>
 	</loot>
 </monster>

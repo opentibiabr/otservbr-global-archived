@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Spidris" nameDescription="a spidris" race="venom" experience="2600" speed="195">
 	<health now="3700" max="3700"/>
-	<look type="457" corpse="15296"/>
+	<look type="457" corpse="13873"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -45,20 +45,19 @@
 		<voice sentence="Iiiiieeeeeeh!"/>
 	</voices>
 	<loot>
-		<item name="small ruby" countmax="5" chance="11900"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="platinum coin" countmax="4" chance="45000"/>
-		<item name="violet gem" chance="770"/>
-		<item id="6300" chance="2700"/><!-- death ring -->
-		<item name="titan axe" chance="920"/>
-		<item name="great mana potion" countmax="2" chance="11500"/>
-		<item id="7632" chance="1700"/><!-- giant shimmering pearl -->
-		<item name="ultimate health potion" countmax="2" chance="6250"/>
-		<item name="spidris mandible" chance="14960"/>
+		<item name="gold coin" countmax="200" chance="100000"/>
+		<item name="platinum coin" countmax="4" chance="44950"/>
+		<item name="spidris mandible" chance="14760"/>
 		<item name="compound eye" chance="12500"/>
-		<item name="calopteryx cape" chance="370"/>
-		<item name="carapace shield" chance="720"/>
-		<item name="hive scythe" chance="690"/>
+		<item name="small ruby" countmax="5" chance="12130"/>
+		<item name="great mana potion" countmax="2" chance="11470"/>
+		<item name="ultimate health potion" countmax="2" chance="6160"/>
+		<item id="6299" chance="2700"/><!-- death ring -->
+		<item id="281" chance="1600"/><!-- giant shimmering pearl -->
+		<item name="titan axe" chance="880"/>
+		<item name="violet gem" chance="770"/>
+		<item name="hive scythe" chance="730"/>
+		<item name="carapace shield" chance="670"/>
+		<item name="calopteryx cape" chance="380"/>
 	</loot>
 </monster>

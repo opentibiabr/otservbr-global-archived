@@ -52,19 +52,17 @@
 			<voice sentence="WE RULE!"/>
 	</voices>
 	<loot>
-		<item name="piggy bank" chance="1052"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="35" chance="40000"/>
-		<item name="small emerald" countmax="4" chance="6250"/>
-		<item name="energy ring" chance="961"/>
-		<item name="brown mushroom" countmax="5" chance="3846"/>
-		<item name="magic sulphur" chance="102"/>
-		<item name="assassin star" countmax="5" chance="4761"/>
-		<item name="mastermind potion" chance="431"/>
-		<item name="strong health potion" chance="5263"/>
-		<item name="strong mana potion" chance="5263"/>
-		<item name="terra legs" chance="123"/>
-		<item name="springsprout rod" chance="512"/>
+		<item name="gold coin" countmax="235" chance="94630"/>
+		<item name="small emerald" countmax="4" chance="6080"/>
+		<item name="strong health potion" chance="5230"/>
+		<item name="strong mana potion" chance="5150"/>
+		<item name="assassin star" countmax="5" chance="4880"/>
+		<item name="brown mushroom" countmax="5" chance="3870"/>
+		<item name="piggy bank" chance="1030"/>
+		<item name="energy ring" chance="990"/>
+		<item name="springsprout rod" chance="490"/>
+		<item name="mastermind potion" chance="460"/>
+		<item name="terra legs" chance="130"/>
+		<item name="magic sulphur" chance="100"/>
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Spitter" nameDescription="a spitter" race="venom" experience="1100" speed="135">
 	<health now="1500" max="1500"/>
-	<look type="461" corpse="15392"/>
+	<look type="461" corpse="13979"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -46,22 +46,21 @@
 		<voice sentence="Spotz!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="90" chance="50000"/>
-		<item name="small amethyst" countmax="2" chance="8000"/>
-		<item name="platinum coin" chance="75250"/>
-		<item name="green gem" chance="210"/>
-		<item id="2169" chance="2400"/><!-- time ring -->
-		<item name="platinum amulet" chance="260"/>
+		<item name="gold coin" countmax="190" chance="100000"/>
+		<item name="platinum coin" chance="75280"/>
+		<item name="spitter nose" chance="18070"/>
+		<item name="compound eye" chance="15070"/>
+		<item name="small amethyst" countmax="2" chance="8140"/>
+		<item name="great mana potion" chance="7930"/>
+		<item name="brown mushroom" countmax="3" chance="7370"/>
+		<item name="great health potion" chance="4940"/>
+		<item id="3053" chance="2370"/><!-- time ring -->
+		<item name="crystal sword" chance="1970"/>
+		<item name="mastermind potion" chance="320"/>
+		<item name="calopteryx cape" chance="260"/>
+		<item name="platinum amulet" chance="240"/>
 		<item name="crusader helmet" chance="230"/>
-		<item name="brown mushroom" countmax="3" chance="7500"/>
-		<item name="mastermind potion" chance="310"/>
-		<item name="crystal sword" chance="2000"/>
-		<item name="great mana potion" chance="8000"/>
-		<item name="great health potion" chance="5000"/>
-		<item name="spitter nose" chance="18000"/>
-		<item name="compound eye" chance="15000"/>
-		<item name="calopteryx cape" chance="240"/>
+		<item name="green gem" chance="220"/>
 		<item name="grasshopper legs" chance="130"/>
 	</loot>
 </monster>

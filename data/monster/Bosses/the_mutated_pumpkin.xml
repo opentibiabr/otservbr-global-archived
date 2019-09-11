@@ -63,17 +63,13 @@
 		<voice sentence="Fear the spirit of Halloween!"/>
 	</voices>
 	<loot>
+		<item name="yummy gummy worm" countmax="10" chance="100000"/>
 		<item name="pumpkin" chance="100000"/>
-		<item name="yummy gummy worm" countmax="20" chance="100000"/>
+		<item name="spiderwebs" chance="1000"/>
+		<item id="8178" chance="1000"/><!-- toy spider -->
+		<item id="6525" chance="1000"/><!-- skeleton decoration -->
+		<item id="6491" chance="1000"/><!-- bat decoration -->
 		<item name="candy cane" countmax="50" chance="1000"/>
 		<item name="candie" countmax="50" chance="1000"/>
-		<item name="spiderwebs" chance="1000"/>
-		<item id="9006" chance="1000"/><!-- toy spider -->
-		<item id="6492" chance="1000"/><!-- bat decoration -->
-		<item id="6526" chance="1000"/><!-- skeleton decoration -->
-		<item name="bar of chocolate" chance="1000"/>
-		<item id="6570" chance="1000"/><!-- surprise bag -->
-		<item id="6571" chance="1000"/><!-- surprise bag -->
-		<item id="2096" chance="1000"/><!-- pumpkinhead -->
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Ladybug" nameDescription="a ladybug" race="venom" experience="70" speed="52">
 	<health now="255" max="255"/>
-	<look type="448" corpse="15272"/>
+	<look type="448" corpse="13845"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -38,6 +38,6 @@
 		<voice sentence="Nee Pah!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="40" chance="65000"/>
+		<item name="gold coin" countmax="40" chance="64960"/>
 	</loot>
 </monster>

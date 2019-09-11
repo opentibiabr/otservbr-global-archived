@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Askarak Lord" nameDescription="an askarak lord" race="venom" experience="1200" speed="120">
 	<health now="2100" max="2100"/>
-	<look type="410" corpse="13956"/>
+	<look type="410" corpse="12821"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -55,19 +55,18 @@
 			<voice sentence="WE RULE!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="90" chance="50000"/>
-		<item name="small emerald" countmax="5" chance="5882"/>
-		<item name="platinum coin" countmax="2" chance="35333"/>
-		<item name="energy ring" chance="606"/>
-		<item name="brown mushroom" countmax="5" chance="5263"/>
-		<item name="magic sulphur" chance="620"/>
-		<item name="assassin star" countmax="5" chance="70"/>
-		<item name="dreaded cleaver" chance="30"/>
-		<item name="mastermind potion" chance="750"/>
-		<item name="strong health potion" chance="6250"/>
-		<item name="strong mana potion" chance="7692"/>
-		<item name="terra mantle" chance="70"/>
-		<item name="springsprout rod" chance="1010"/>
+		<item name="gold coin" countmax="190" chance="95870"/>
+		<item name="platinum coin" countmax="2" chance="35570"/>
+		<item name="strong mana potion" chance="7750"/>
+		<item name="small emerald" countmax="5" chance="6660"/>
+		<item name="strong health potion" chance="5970"/>
+		<item name="brown mushroom" countmax="5" chance="4530"/>
+		<item name="springsprout rod" chance="980"/>
+		<item name="mastermind potion" chance="800"/>
+		<item name="energy ring" chance="570"/>
+		<item name="magic sulphur" chance="520"/>
+		<item name="assassin star" countmax="5" chance="60"/>
+		<item name="terra mantle" chance="60"/>
+		<item name="dreaded cleaver" chance="60"/>
 	</loot>
 </monster>

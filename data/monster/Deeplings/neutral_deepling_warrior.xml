@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Deepling Warrior" nameDescription="a deepling warrior" race="blood" experience="1500" speed="145">
+<monster name="Neutral Deepling Warrior" nameDescription="a neutral deepling warrior" race="blood" experience="1500" speed="145">
 	<health now="1600" max="1600"/>
 	<look type="441" corpse="13712"/>
 	<targetchange interval="4000" chance="10"/>
@@ -39,24 +39,4 @@
 		<immunity ice="1"/>
 		<immunity drown="1"/>
 	</immunities>
-	<voices interval="5000" chance="10">
-		<voice sentence="Jou wjil ajll djie!"/>
-	</voices>
-	<loot>
-		<item name="gold coin" countmin="2" countmax="100" chance="100000"/>
-		<item name="deepling filet" chance="15260"/>
-		<item name="deeptags" chance="14960"/>
-		<item name="deepling ridge" chance="11050"/>
-		<item name="great mana potion" chance="10190"/>
-		<item name="great health potion" chance="10050"/>
-		<item name="deepling warts" chance="10010"/>
-		<item name="vortex bolt" countmax="5" chance="3430"/>
-		<item name="small emerald" chance="3090"/>
-		<item name="life ring" chance="3010"/>
-		<item name="heavy trident" chance="980"/>
-		<item name="fish fin" chance="880"/>
-		<item name="eye of a deepling" chance="610"/>
-		<item name="warrior's shield" chance="610"/>
-		<item name="warrior's axe" chance="510"/>
-	</loot>
 </monster>

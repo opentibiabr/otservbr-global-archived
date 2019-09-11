@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Swarmer" nameDescription="a swarmer" race="venom" experience="350" speed="128">
 	<health now="460" max="460"/>
-	<look type="460" corpse="15388"/>
+	<look type="460" corpse="13973"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -43,9 +43,9 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="75" chance="100000"/>
-		<item name="small emerald" chance="920"/>
-		<item name="epee" chance="450"/>
-		<item name="swarmer antenna" chance="15300"/>
-		<item name="compound eye" chance="12500"/>
+		<item name="swarmer antenna" chance="15330"/>
+		<item name="compound eye" chance="11990"/>
+		<item name="small emerald" chance="980"/>
+		<item name="epee" chance="430"/>
 	</loot>
 </monster>

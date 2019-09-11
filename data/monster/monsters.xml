@@ -64,7 +64,6 @@
 	<monster name="Malicious Minion" file="11.8/malicious minion.xml"/>
 	<monster name="Mazzinor" file="11.8/mazzinor.xml"/>
 	<monster name="Mean Minion" file="11.8/mean minion.xml"/>
-	<monster name="Neutral Deepling Warrior" file="11.8/neutral deepling warrior.xml"/>
 	<monster name="Preceptor Lazare" file="11.8/preceptor lazare.xml"/>
 	<monster name="Ravenous Beyondling" file="11.8/ravenous beyondling.xml"/>
 	<monster name="Raxias" file="11.8/raxias.xml"/>
@@ -917,6 +916,7 @@
 	<monster name="Deepling Tyrant" file="Deeplings/deepling_tyrant.xml"/>
 	<monster name="Deepling Warrior" file="Deeplings/deepling_warrior.xml"/>
 	<monster name="Deepling worker" file="Deeplings/deepling_worker.xml"/>
+	<monster name="Neutral Deepling Warrior" file="Deeplings/neutral deepling warrior.xml"/>
 
 	<!-- Demons -->
 	<monster name="Askarak Demon" file="Demons/askarak_demon.xml"/>
@@ -945,6 +945,7 @@
 	<monster name="Shaburak Lord" file="Demons/shaburak_lord.xml"/>
 	<monster name="Shaburak Prince" file="Demons/shaburak_prince.xml"/>
 	<monster name="Yielothax" file="Demons/yielothax.xml"/>
+	<monster name="Weakened Demon" file="Demons/weakened demon.xml"/>
 
 	<!-- Djinn -->
 	<monster name="Blue Djinn" file="Djinn/blue_djinn.xml"/>
