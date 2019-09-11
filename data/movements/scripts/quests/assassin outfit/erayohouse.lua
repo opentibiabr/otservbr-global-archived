@@ -12,7 +12,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 	
-	if not player:getItemById(2202, deepSearch) and not player:getCondition(CONDITION_INVISIBLE) then    
+	if not player:getItemById(3086, deepSearch) and not player:getCondition(CONDITION_INVISIBLE) then    
 		player:teleportTo(exitPosition)
 	end
     
