@@ -46,27 +46,27 @@
 		<summon name="Golden Servant" interval="2000" chance="50"/>
 	</summons>
 	<loot>
-		<item id="gold coin" countmax="169" chance="97630"/>
-		<item id="platinum coin" countmax="9" chance="78110"/>
-		<item id="red piece of cloth" chance="30770"/>
-		<item id="great health potion" countmax="5" chance="27220"/>
-		<item id="great mana potion" countmax="5" chance="23080"/>
-		<item id="mind stone" chance="10650"/>
-		<item id="bullseye potion" countmax="2" chance="6510"/>
-		<item id="stealth ring" chance="4730"/>
-		<item id="focus cape" chance="4730"/>
-		<item id="luminous orb" chance="4140"/>
-		<item id="dark mushroom" countmax="4" chance="3550"/>
-		<item id="small sapphire" countmax="5" chance="2370"/>
-		<item id="assassin star" countmax="10" chance="2370"/>
-		<item id="crystal ring" chance="2370"/>
-		<item id="ring of the sky" chance="1780"/>
-		<item id="piggy bank" chance="1180"/>
-		<item id="royal tapestry" chance="1180"/>
-		<item id="elemental spikes" chance="1180"/>
-		<item id="crystal of power" chance="590"/>
-		<item id="spellbook of mind control" chance="590"/>
-		<item id="skull helmet" chance="590"/>
-		<item id="boots of haste" chance="590"/>
+		<item name="gold coin" countmax="169" chance="97630"/>
+		<item name="platinum coin" countmax="9" chance="78110"/>
+		<item name="red piece of cloth" chance="30770"/>
+		<item name="great health potion" countmax="5" chance="27220"/>
+		<item name="great mana potion" countmax="5" chance="23080"/>
+		<item name="mind stone" chance="10650"/>
+		<item name="bullseye potion" countmax="2" chance="6510"/>
+		<item name="stealth ring" chance="4730"/>
+		<item name="focus cape" chance="4730"/>
+		<item name="luminous orb" chance="4140"/>
+		<item name="dark mushroom" countmax="4" chance="3550"/>
+		<item name="small sapphire" countmax="5" chance="2370"/>
+		<item name="assassin star" countmax="10" chance="2370"/>
+		<item name="crystal ring" chance="2370"/>
+		<item name="ring of the sky" chance="1780"/>
+		<item name="piggy bank" chance="1180"/>
+		<item name="royal tapestry" chance="1180"/>
+		<item name="elemental spikes" chance="1180"/>
+		<item name="crystal of power" chance="590"/>
+		<item name="spellbook of mind control" chance="590"/>
+		<item name="skull helmet" chance="590"/>
+		<item name="boots of haste" chance="590"/>
 	</loot>
 </monster>
