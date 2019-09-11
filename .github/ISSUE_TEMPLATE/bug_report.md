@@ -14,10 +14,12 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
+
 Note: include any configuration/script required to reproduce.
 
 **Expected behavior**
@@ -27,8 +29,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. Windows]
- - Version: [e.g. 10]
+
+- OS: [e.g. Windows | Ubuntu | Debian]
+- Version: [e.g. 7/10 | 14.04/16.04 | 9/10.1]
 
 **Additional context**
 Add any other context about the problem here.
