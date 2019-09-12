@@ -635,7 +635,8 @@ Storage = {
 			AddonWand = 12061,
 			AddonBelt = 12062,
 			MissionHatCloak = 12063,
-			AddonHatCloak = 12064
+			AddonHatCloak = 12064,
+			AddonWandTimer = 12072
 		},
 
 		-- Nobleman Outfit
