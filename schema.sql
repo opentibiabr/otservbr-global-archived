@@ -1,11 +1,11 @@
 --
--- OTServBR - Global - Database schema
+-- OTServBR - Global - Database schema -- Test Content
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure `server_config`
+-- Table structure `server_config` 
 --
 
 CREATE TABLE IF NOT EXISTS `server_config` (
