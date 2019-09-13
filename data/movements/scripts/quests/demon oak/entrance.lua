@@ -4,14 +4,14 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	-- CHECAR SE J¡ TIVER FEITO
+	-- CHECAR SE J√Å TIVER FEITO
 	if player:getStorageValue(Storage.DemonOak.Done) >= 1 then
 		player:teleportTo(DEMON_OAK_KICK_POSITION)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end
 	
-	-- CHECAR LEVEL MÕNIMO
+	-- CHECAR LEVEL M√çNIMO
 	if player:getLevel() < 120 then
 		player:say("LEAVE LITTLE FISH, YOU ARE NOT WORTH IT!", TALKTYPE_MONSTER_YELL, false, player, DEMON_OAK_POSITION)
 		player:teleportTo(DEMON_OAK_KICK_POSITION)
@@ -19,9 +19,9 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	-- CHECAR SE TA TUDO CERTO Vou usar mensagens pra descobrir qual È o conflito
+	-- CHECAR SE TA TUDO CERTO Vou usar mensagens pra descobrir qual √© o conflito
 	if (#Game.getSpectators(DEMON_OAK_POSITION, false, true, 9, 9, 6, 6) == 0) then
-			if (player:getItemCount(10305) == 0) then
+			if (player:getItemCount(9388) == 0) then
 				if player:getStorageValue(Storage.DemonOak.Progress) < 1 then
 			player:say("You need finish the demons task!", TALKTYPE_MONSTER_YELL, false, player, DEMON_OAK_KICK_POSITION)
 			player:teleportTo(DEMON_OAK_KICK_POSITION)
@@ -30,11 +30,11 @@ function onStepIn(creature, item, position, fromPosition)
 			    end
 		end
 		
-		if (player:getItemCount(8293) == 0) then
+		if (player:getItemCount(919) == 0) then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Go talk with Odralk and get the Hallowed Axe to kill The Demon Oak.')
 		end
 
-		player:removeItem(10305, 1)
+		player:removeItem(9388, 1)
 		player:teleportTo(DEMON_OAK_ENTER_POSITION)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:setStorageValue(Storage.DemonOak.Progress, 1)
