@@ -18,10 +18,10 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	for i = 1, #wallPositions do
-		local wallItem = Tile(wallPositions[i]):getItemById(1050)
+		local wallItem = Tile(wallPositions[i]):getItemById(1295)
 		if wallItem then
 			wallItem:remove()
-			addEvent(Game.createItem, 5 * 60 * 1000, 1050, 1, wallPositions[i])
+			addEvent(Game.createItem, 5 * 60 * 1000, 1295, 1, wallPositions[i])
 		end
 	end
 	return true
