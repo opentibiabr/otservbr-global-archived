@@ -236,8 +236,8 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 	if ((result = db.storeQuery(query.str()))) {
 		do {
 			uint16_t slotNum = result->getNumber<uint16_t>("num");
-			player->preySlotState[slotNum] = result->getNumber<uint8_t>("state");
-			player->preySlotUnlocked[slotNum] = result->getNumber<uint8_t>("unlocked");
+			player->preySlotState[slotNum] = result->getNumber<uint16_t>("state");
+			player->preySlotUnlocked[slotNum] = result->getNumber<uint16_t>("unlocked");
 			player->preySlotCurrentMonster[slotNum] = result->getString("current");
 			player->preySlotMonsterList[slotNum] = result->getString("monster_list");
 			player->preySlotFreeRerollIn[slotNum] = result->getNumber<uint16_t>("free_reroll_in");
@@ -252,7 +252,7 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 		query.str(std::string());
 		DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
 		for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
-			query << player->getGUID() << ',' << num << ',' << PREY_STATE_SELECTION << ',' << PREY_SLOT_UNLOCKED << ',' << db.escapeString("") << ',' << db.escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
+			query << player->getGUID() << ',' << num << ',' << 3 << ',' << 1 << ',' << db.escapeString("") << ',' << db.escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
 			if (!preyDataQuery.addRow(query)) {
 				return false;
 			}

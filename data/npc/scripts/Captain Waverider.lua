@@ -15,7 +15,7 @@ function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if(msgcontains(msg, "peg leg")) then
-		if(getPlayerLevel(cid) > 8) then
+		if player:getStorageValue(Storage.TheShatteredIsles.AccessToMeriana) == 1 then
 			npcHandler:say("Ohhhh. So... <lowers his voice> you know who sent you so I sail you to you know where. <wink> <wink> It will cost 50 gold to cover my expenses. Is it that what you wish?", cid)
 			npcHandler.topic[cid] = 1
 		else
@@ -23,18 +23,16 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif(msgcontains(msg, "passage")) then
-		if isPlayer(cid) then
 			npcHandler:say("<sigh> I knew someone else would claim all the treasure someday. But at least it will be you and not some greedy and selfish person. For a small fee of 200 gold pieces I will sail you to your rendezvous with fate. Do we have a deal?", cid)
 			npcHandler.topic[cid] = 2
-		elseif(getPlayerStorageValue(cid, 28901) == 4) then
+		elseif(msgcontains(msg, "no")) then
 			npcHandler:say("I have to admit this leaves me a bit puzzled.", cid)
 			npcHandler.topic[cid] = 0
-		end
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 1) then
-				if player:removeMoneyNpc(50) then
+			if player:removeMoneyNpc(50) then
 				npcHandler:say("And there we go!", cid)
-				doTeleportThing(cid, {x = 32346, y = 32625, z = 7})
+				player:teleportTo(Position(32346, 32625, 7))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				npcHandler.topic[cid] = 0
 		else
@@ -42,9 +40,9 @@ function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		elseif(npcHandler.topic[cid] == 2) then
-				if player:removeMoneyNpc(200) then
+			if player:removeMoneyNpc(200) then
 				npcHandler:say("And there we go!", cid)
-				doTeleportThing(cid, {x = 32131, y = 32913, z = 7})
+				player:teleportTo(Position(32131, 32913, 7))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				npcHandler.topic[cid] = 0
 			else

@@ -44,7 +44,7 @@ local equipitems = {
 	["blockade"] = {"shield", "helmet", "spellbooks","shield"},
 	["demon presence"] = {"armor", "spellbooks","shield"},
 	["precision"] = {"bow", "crossbow", "helmet"},
-	["strike"] = {"axe", "club", "sword", "bow", "crossbow", "especial"},
+	["strike"] = {"axe", "club", "sword", "bow", "crossbow", "especial", "wand", "rod"},
 	["epiphany"] = {"wand", "rod", "helmetmage", "especial"},
 	["featherweight"] = {"backpack"},
 }
