@@ -123,7 +123,17 @@ GameStore.Categories = {
             price = 25,
             id = 32387,
             type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-            }
+            },
+            {
+              count = 500,
+              number = 1,
+              description = "Use it to train your magic level on an exercise dummy!\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it on an exercise dummy to train your magic level\n- usable 500 times a piece",
+              icons = { "Magic_Gold_Converter.png" }, -- não tenho certeza do nome do arquivo
+              name = "Magic Gold Converter",
+              price = 15,
+              id = 32109,
+              type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+              }
           },
     rookgaard = true,
     state = GameStore.States.STATE_NONE,
