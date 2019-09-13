@@ -1,6 +1,6 @@
 local config = {
-	[4251] = {position = Position(32796, 31594, 5), itemId = 1025},
-	[4252] = {position = Position(32796, 31576, 5), itemId = 1025}
+	[4251] = {position = Position(32796, 31594, 5), itemId = 1270},
+	[4252] = {position = Position(32796, 31576, 5), itemId = 1270}
 }
 
 function onStepIn(creature, item, position, fromPosition)

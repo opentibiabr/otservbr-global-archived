@@ -6,7 +6,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 
-	local sacrificeItem, destination = Tile(Position(32816, 31601, 9)):getItemById(2319)
+	local sacrificeItem, destination = Tile(Position(32816, 31601, 9)):getItemById(3206)
 	if not sacrificeItem then
 		destination = Position(32818, 31599, 9)
 		player:teleportTo(destination)
