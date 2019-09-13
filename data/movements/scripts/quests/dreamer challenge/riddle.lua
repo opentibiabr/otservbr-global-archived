@@ -1,5 +1,5 @@
 function onStepIn(creature, item, position, fromPosition)
-	item:transform(425)
+	item:transform(430)
 
 	if item.actionid == 2245 then
 		local new_position = Position(0, position.y, position.z)
@@ -38,6 +38,6 @@ function onStepIn(creature, item, position, fromPosition)
 end
 
 function onStepOut(creature, item, position, fromPosition)
-	item:transform(426)
+	item:transform(431)
 	return true
 end

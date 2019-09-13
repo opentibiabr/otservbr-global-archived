@@ -23,7 +23,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	if (player:getStorageValue(Storage.OutfitQuest.NightmareOutfit) >= targetTeleport.storageValue
 			or player:getStorageValue(Storage.OutfitQuest.BrotherhoodOutfit) >= targetTeleport.storageValue)
-			and player:removeItem(5022, 1) then
+			and player:removeItem(5021, 1) then
 		player:teleportTo(targetTeleport.toPosition)
 	else
 		player:teleportTo(fromPosition)

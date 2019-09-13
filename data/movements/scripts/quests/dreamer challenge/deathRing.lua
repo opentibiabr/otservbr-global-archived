@@ -5,13 +5,13 @@ local trees = {
 }
 
 function onAddItem(moveitem, tileitem, position)
-	if moveitem.itemid ~= 6300 then
+	if moveitem.itemid ~= 6299 then
 		return true
 	end
 
 	moveitem:remove()
 	for i = 1, #trees do
-		local treeItem = Tile(trees[i]):getItemById(2722)
+		local treeItem = Tile(trees[i]):getItemById(3636)
 		if treeItem then
 			treeItem:remove()
 			trees[i]:sendMagicEffect(CONST_ME_MAGIC_BLUE)
