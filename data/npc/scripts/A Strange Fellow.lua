@@ -16,18 +16,18 @@ local function creatureSayCallback(cid, type, msg)
 		return true
 	end
 	if msgcontains(msg, "bill") then
-		if npcHandler.topic[cid] == 6 then
+		if	npcHandler.topic[cid] == 6 then
 			npcHandler:say("A bill? Oh boy so you are delivering another bill to poor me?", cid)
 			npcHandler.topic[cid] = 7
 		end
 	elseif msgcontains(msg, "yes") then
-		if npcHandler.topic[cid] == 7 then
+		if	player:removeItem(2329, 1)	and	npcHandler.topic[cid] == 7 then
 			npcHandler:say("Ok, ok, I'll take it. I guess I have no other choice anyways. And now leave me alone in my misery please.", cid)
-			npcHandler.topic[cid] = 0
 			player:setStorageValue(Storage.postman.Mission03, 2)
+			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "hat") then
-		if npcHandler.topic[cid] < 1 then
+		if	npcHandler.topic[cid] < 1 then
 			npcHandler:say("Uh? What do you want?!", cid)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 2 then
