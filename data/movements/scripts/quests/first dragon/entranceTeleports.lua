@@ -16,7 +16,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return
 	end
 
-	if player:getStorageValue(Storage.FirstDragon.Start) < 1 and player:getStorageValue(teleport.storage) < teleport.value then
+	if player:getStorageValue(Storage.FirstDragon.Start) < 1 or player:getStorageValue(teleport.storage) < teleport.value then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
