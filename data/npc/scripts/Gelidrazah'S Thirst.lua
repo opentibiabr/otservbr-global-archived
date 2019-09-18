@@ -19,13 +19,13 @@ local function creatureSayCallback(cid, type, msg)
         if npcHandler.topic[cid] == 0 then
             npcHandler:say({
 				"There are three questions. First: What is the name of the princess who fell in love with a Thaian nobleman during the regency of pharaoh Uthemath? Second: Who is the author of the book ,The Language of the Wolves'? ...",
-				"Third: Which ancient Tibian race reportedly travelled the sky in cloud ships? Can you answer these questions?"
+				"Third: Which ancient Tibian race reportedly travelled the sky in cloud ships? Can you answer these {questions}?"
 			}, cid)
 			npcHandler.topic[cid] = 1
 		else
             npcHandler:say('I don\'t know what you are talking about.', cid)
         end
-    elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then
+    elseif msgcontains(msg, "questions") and npcHandler.topic[cid] == 1 then
 		npcHandler:say("So I ask you: What is the name of the princess who fell in love with a Thaian nobleman during the regency of pharaoh Uthemath?", cid)
 		npcHandler.topic[cid] = 2
     elseif msgcontains(msg, "Tahmehe") and npcHandler.topic[cid] == 2 then
