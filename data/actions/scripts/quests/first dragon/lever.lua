@@ -58,7 +58,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			Game.createMonster('Unbeatable Dragon', Position(math.random(33610, 33622), math.random(31016, 31030), 14), true, true)
 		end
 		for b = 1, #DragonsPositions do
-			Game.createMonster('Fallen Challanger', DragonsPositions[b].position, true, true)
+			Game.createMonster('Fallen Challenger', DragonsPositions[b].position, true, true)
 		end
 		local roomIndex, storePlayers = 1, {}
 		for i = 1, #PlayerPositions do
