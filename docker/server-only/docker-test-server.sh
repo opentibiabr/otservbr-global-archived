@@ -18,6 +18,7 @@ cp build-env/otserver/build/tfs run-test-env/otserver/
 cp -r ../../data run-test-env/otserver/
 cp ../../config.lua.dist run-test-env/otserver/
 cp ../../schema.sql run-test-env/otserver/
+cp ../../key.pem run-test-env/otserver/
 
 # Remove Build Folder
 rm build-env/otserver/ -rf
@@ -40,7 +41,7 @@ fi
 maxcounter=45
 counter=1
 while ! mysql --protocol TCP -u"dbuser" -p"dbpassword" -e "show databases;" > /dev/null 2>&1; do
-    sleep 5
+    sleep 30
     counter=`expr $counter + 1`
     if [ $counter -gt $maxcounter ]; then
         >&2 echo "We have been waiting for MySQL too long already; failing."
@@ -53,13 +54,13 @@ unrar x -o+ run-test-env/otserver/data/world/world.rar run-test-env/otserver/dat
 cp run-test-env/otserver/config.lua.dist run-test-env/otserver/config.lua
 local_ip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n1 | awk '{print $1;}')
 sed -i "/ip = \"127.0.0.1\"/c\ip = \"$local_ip\"" run-test-env/otserver/config.lua
-sed -i '/mysqlHost = "127.0.0.1"/c\mysqlHost = "test-server-db"' run-test-env/otserver/config.lua
-sed -i '/mysqlUser = "darenum"/c\mysqlUser = "dbuser"' run-test-env/otserver/config.lua
-sed -i '/mysqlPass = "darenum"/c\mysqlPass = "dbpassword"' run-test-env/otserver/config.lua
-sed -i '/mysqlDatabase = "database"/c\mysqlDatabase = "testdb"' run-test-env/otserver/config.lua
+sed -i '/mysqlHost = .*$/c\mysqlHost = "test-server-db"' run-test-env/otserver/config.lua
+sed -i '/mysqlUser = .*$/c\mysqlUser = "dbuser"' run-test-env/otserver/config.lua
+sed -i '/mysqlPass = .*$/c\mysqlPass = "dbpassword"' run-test-env/otserver/config.lua
+sed -i '/mysqlDatabase = .*$/c\mysqlDatabase = "testdb"' run-test-env/otserver/config.lua
 
 # Change MinClientVersion with client 10.98
-#sed -i '/clientVersionMin = 1100/c\clientVersionMin = 1098' run-test-env/otserver/config.lua
+sed -i '/clientVersionMin = .*$/c\clientVersionMin = 1098' run-test-env/otserver/config.lua
 
 # Run Server
 docker build -f run-env/Dockerfile.run  -t otserver .
