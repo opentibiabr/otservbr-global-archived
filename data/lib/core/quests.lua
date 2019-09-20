@@ -2235,7 +2235,7 @@ if not Quests then
 			name = "The Postman Missions", startstorageid = Storage.postman.Mission01, startstoragevalue = 1,
 			missions = {
 				[1] = {
-					name = "Mission 1 - Check Postal Routes", storageid = Storage.postman.Mission01, startvalue = 1, endvalue = 6,
+					name = "Mission 01 - Check Postal Routes", storageid = Storage.postman.Mission01, startvalue = 1, endvalue = 6,
 					states = {
 						[1] = "Kevin wants you to travel with Captain Bluebear to Carlin.",
 						[2] = "Kevin wants you to travel with Uzon in Femor Hills to Edron.",
@@ -2248,7 +2248,7 @@ if not Quests then
 				},
 
 				[2] = {
-					name = "Mission 2 - Fix Mailbox", storageid = Storage.postman.Mission02, startvalue = 1, endvalue = 3,
+					name = "Mission 02 - Fix Mailbox", storageid = Storage.postman.Mission02, startvalue = 1, endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to fix one of their Mailboxes located on Folda with a crowbar.",
 						[2] = "You have fixed the mailbox, report back to Kevin!",
@@ -2258,7 +2258,7 @@ if not Quests then
 				},
 
 				[3] = {
-					name = "Mission 3 - Bill Delivery", storageid = Storage.postman.Mission03, startvalue = 1, endvalue = 3,
+					name = "Mission 03 - Bill Delivery", storageid = Storage.postman.Mission03, startvalue = 1, endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to deliver a bill to the stage magician David Brassacres. He's hiding from his creditors somewhere in Venore.",
 						[2] = "You have delivered the bill to the stage magician David Brassacres, report back to Kevin!",
@@ -2268,7 +2268,7 @@ if not Quests then
 				},
 
 				[4] = {
-					name = "Mission 4 - Aggressive Dogs", storageid = Storage.postman.Mission04, startvalue = 1, endvalue = 2,
+					name = "Mission 04 - Aggressive Dogs", storageid = Storage.postman.Mission04, startvalue = 1, endvalue = 2,
 					states = {
 						[1] = "Kevin has asked you to deliver 20 Bones to him.",
 						[2] = "You have delivered 20 Bones to Kevin.",
@@ -2277,7 +2277,7 @@ if not Quests then
 				},
 
 				[5] = {
-					name = "Mission 5 - Present Delivery", storageid = Storage.postman.Mission05, startvalue = 1, endvalue = 4,
+					name = "Mission 05 - Present Delivery", storageid = Storage.postman.Mission05, startvalue = 1, endvalue = 4,
 					states = {
 						[1] = "Kevin has asked you to retrieve the present behind the door on the lower right side of his room and deliver it to Dermot in Fibula.",
 						[2] = "Deliver the present to Dermot in Fibula.",
@@ -2288,13 +2288,13 @@ if not Quests then
 				},
 
 				[6] = {
-					name = "Mission 6 - New Uniforms", storageid = Storage.postman.Mission06, startvalue = 1, endvalue = 13,
+					name = "Mission 06 - New Uniforms", storageid = Storage.postman.Mission06, startvalue = 1, endvalue = 13,
 					states = {
 						[1] = "Kevin has asked you to travel to Venore and negotiate with Hugo for new uniforms.",
 						[2] = "Hugo said that his dog ate the last dress pattern they used and he has no clue where Kevin Postner got it from, go ask Kevin.",
 						[3] = "Kevin wants you to ask the great Technomancer Talphion in Kazordoon for the technical details.",
 						[4] = "Talphion will send a copy to Kevin, report back to Kevin.",
-						[5] = "Kevin wants you tk ask Queen Eloise of Carlin for the perfect colours.",
+						[5] = "Kevin wants you to ask Queen Eloise of Carlin for the perfect colours.",
 						[6] = "Queen Eloise said she will send some color samples via mail to Kevin, report back to Kevin.",
 						[7] = "Kevin has asked you to go to Noodles and find out what he dislikes the most: mouldy cheese, a piece of fur or a banana skin.",
 						[8] = "Noodles seems to like banana skin, check if he likes dirty fur.",
@@ -2308,7 +2308,7 @@ if not Quests then
 				},
 
 				[7] = {
-					name = "Mission 7 - Measurements", storageid = Storage.postman.Mission07, startvalue = 1, endvalue = 8,
+					name = "Mission 07 - Measurements", storageid = Storage.postman.Mission07, startvalue = 1, endvalue = 8,
 					states = {
 						[1] = "Kevin wants you to bring him the measurements of Benjamin, Lokur, Dove, Liane, Chrystal and Olrik.",
 						[2] = "You have received the measurements from 1 of 6 post officers.",
@@ -2323,7 +2323,7 @@ if not Quests then
 				},
 
 				[8] = {
-					name = "Mission 8 - Missing Courier", storageid = Storage.postman.Mission08, startvalue = 1, endvalue = 3,
+					name = "Mission 08 - Missing Courier", storageid = Storage.postman.Mission08, startvalue = 1, endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to find the missing courier Waldo or at least his posthorn.",
 						[2] = "You have found Waldos posthorn.",
@@ -2333,7 +2333,7 @@ if not Quests then
 				},
 
 				[9] = {
-					name = "Mission 9 - Dear Santa", storageid = Storage.postman.Mission09, startvalue = 1, endvalue = 4,
+					name = "Mission 09 - Dear Santa", storageid = Storage.postman.Mission09, startvalue = 1, endvalue = 4,
 					states = {
 						[1] = "Kevin wants you to deliver som letters to Santa Claus on Vega.",
 						[2] = "You have retrieved the letters, deliver them to Santa Claus on Vega.",
