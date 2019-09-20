@@ -303,7 +303,7 @@ function parseBuyStoreOffer(playerId, msg)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.id, offer.count)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE         then GameStore.processTempleTeleportPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PROMOTION      then GameStore.processPromotionPurchase(player, offer.id)
     else
@@ -1267,13 +1267,8 @@ function GameStore.processPreySlotPurchase(player)
   player:setStorageValue(63253, 1)
 end
 
-function GameStore.processPreyBonusReroll(player, offerId, offerCount)
-
-  if (player:getStorageValue(63353) == -1 or player:getStorageValue(63353) > 10000) then
-    player:setStorageValue(63353, 0)
-  end
-
-  player:setStorageValue(63353, (player:getStorageValue(63353)+offerCount))
+function GameStore.processPreyBonusReroll(player, offerCount)
+	player:setPreyBonusRerolls(player:getPreyBonusRerolls() + offerCount)
 end
 
 function GameStore.processTempleTeleportPurchase(player)
