@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `lastip` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `save` tinyint(1) NOT NULL DEFAULT '1',
   `skull` tinyint(1) NOT NULL DEFAULT '0',
-  `skulltime` bigint(20) NOT NULL DEFAULT 0
+  `skulltime` bigint(20) NOT NULL DEFAULT '0',
   `lastlogout` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `blessings` tinyint(2) NOT NULL DEFAULT '0',
   `blessings1` tinyint(4) NOT NULL DEFAULT '0',
