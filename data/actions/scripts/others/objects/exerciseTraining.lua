@@ -14,8 +14,8 @@ local skills = {
 }
 
 local dummies = {32142, 32143, 32144, 32145, 32146, 32147, 32148, 32149}
-local skillRate = 1*configManager.getNumber(configKeys.RATE_SKILL)
--- skillRate = 1.1*30 = 30 + 3 (10%) = 33x
+local skillRate = configManager.getNumber(configKeys.RATE_SKILL)
+local magicRate = configManager.getNumber(configKeys.RATE_MAGIC)
 
 local function start_train(pid,start_pos,itemid,fpos)
 	local player = Player(pid)
@@ -33,8 +33,10 @@ local function start_train(pid,start_pos,itemid,fpos)
 							local voc = player:getVocation()
 
 							if skills[itemid].id == SKILL_MAGLEVEL then
-								magicTry = voc:getRequiredManaSpent(player:getBaseMagicLevel() + 1)-player:getManaSpent()
-								player:addManaSpent(math.ceil(250))
+								player:addManaSpent(math.ceil(math.random(425, 575)*magicRate)) 
+								--[[ 	A cada vez que se usa 1 carga, é como usar uma UMP, que dá em média 500 de mana.
+										O valor é multiplicado pela rate do server para garantir que o valor correto seja adicionado.
+								]]--
 							else
 								player:addSkillTries(skills[itemid].id, 1*skillRate)
 							end
@@ -54,14 +56,14 @@ local function start_train(pid,start_pos,itemid,fpos)
 				end
 			end
 		else
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Youy training has stopped.")
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
 			stopEvent(training)
 			player:setStorageValue(Storage.isTraining,0)
 		end
 	else
 		stopEvent(training)
 		if player then -- verificar se o player ainda existe (logado), caso esteja, enviar mensagem de erro e parar treino. isso evita erros no console
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Youy training has stopped.")
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
 			player:setStorageValue(Storage.isTraining,0)
 		end
 	end
