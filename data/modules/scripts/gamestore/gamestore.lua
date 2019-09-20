@@ -123,7 +123,17 @@ GameStore.Categories = {
             price = 25,
             id = 32387,
             type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-            }
+            },
+            {
+              count = 500,
+              number = 1,
+              description = "Changes automatically either a stack of 100 gold pieces into 1 platinum coin, or a stack of 100 platinum coins into 1 crystal coin!\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to activate or deactivate the automatic conversion\n- converts all stacks of 100 gold or platinum in the inventory whenever it is activated\n- deactivated upon purchase\n- usable for 500 conversions a piece",
+              icons = { "Magic_Gold_Converter.png" }, -- não tenho certeza do nome do arquivo
+              name = "Magic Gold Converter",
+              price = 15,
+              id = 32109,
+              type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+              }
           },
     rookgaard = true,
     state = GameStore.States.STATE_NONE,

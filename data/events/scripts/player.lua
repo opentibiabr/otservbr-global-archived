@@ -3,8 +3,9 @@ STONE_SKIN_AMULET = 2197
 GOLD_POUCH = 26377
 ITEM_STORE_INBOX = 26052
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
--- exercise_ids
-local exercise_ids = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129}
+-- Items sold on the store that should not be moved off the store container
+local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
+
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
@@ -274,8 +275,8 @@ local function antiPush(self, item, count, fromPosition, toPosition, fromCylinde
 end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-  -- Exercise Weapons
-    if isInArray(exercise_ids,item.itemid) then
+  -- Store Items
+    if isInArray(storeItemID,item.itemid) then
         self:sendCancelMessage('You cannot move this item outside this container.')
         return false
     end
@@ -632,7 +633,7 @@ function Player:onTurn(direction)
 end
 
 function Player:onTradeRequest(target, item)
-if isInArray(exercise_ids,item.itemid) then
+if isInArray(storeItemID,item.itemid) then
         return false
     end
  	return true

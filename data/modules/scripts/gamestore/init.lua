@@ -1081,7 +1081,7 @@ end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName)
   local function isKegExerciseItem(itemId)
-    return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END))
+    return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END) or itemId == 32109)
   end
 
   if (isKegExerciseItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) then

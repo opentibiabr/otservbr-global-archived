@@ -35757,11 +35757,13 @@
 		<attribute key="containerSize" value="8" />
 		<attribute key="description" value="A infinity bag where you can hold coins." />
 	</item>
-	<item id="26378" article="a" name="gold converter">
+	<item id="26378" article="a" name="temporary gold converter">
 		<attribute key="weight" value="1800" />
-		<attribute key="wrapableTo" value="26054" />
-		<attribute key="charges" value="500" />
+		<attribute key="duration" value="604800" />
+		<attribute key="charges" value="100" />
 		<attribute key="showcharges" value="1" />
+		<attribute key="showduration" value="1" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="26379" article="a" name="golden dragon tapestry">
 		<attribute key="wrapableTo" value="26054" />
@@ -36972,12 +36974,12 @@
 		<attribute key="description" value="This item cannot be traded." />
 		<attribute key="weight" value="120" />
 	</item>
-	<item id="29020" article="a" name="temporary gold converter">
+	<!--<item id="29020" article="a" name="temporary gold converter">
 		<attribute key="description" value="This item cannot be traded." />
 		<attribute key="weight" value="300" />
 		<attribute key="charges" value="100" />
 		<attribute key="showcharges" value="1" />
-	</item>
+	</item>-->
 	<item id="29020" article="a" name="gold converter">
 		<attribute key="description" value="You bought this item in the Store or gained it as a daily reward. This item cannot be traded." />
 		<attribute key="weight" value="300" />
@@ -40775,7 +40777,10 @@
 	<item id="33296" article="an" name="open door">
 		<attribute key="type" value="door" />
 	</item>
-	<item id="33299" article="a" name="magic gold converter"/>
+	<item id="33299" article="a" name="magic gold converter">
+		<attribute key="charges" value="500" />
+		<attribute key="showcharges" value="1" />
+	</item>
 	<item id="33308" article="a" name="ritual figurine">
 		<attribute key="weight" value="150" />
 	</item>
