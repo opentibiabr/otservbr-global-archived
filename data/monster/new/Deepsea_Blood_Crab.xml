@@ -35,7 +35,7 @@
 		<immunity invisible="1" />
 	</immunities>
 	<loot>
-		<item name="fish" chance="9830" />
+		<item id="2667" chance="9830"/>
 		<item name="gold coin" countmax="20" chance="88100" />
 		<item name="bloody pincers" chance="7220" />
 		<item name="chain armor" chance="4330" />
