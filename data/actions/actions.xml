@@ -522,6 +522,7 @@
 	<action itemid="26347" script="others/objects/fishTank.lua"/>
 	<action itemid="23574" script="others/objects/gloothBag.lua"/>
 	<action itemid="26378" script="others/objects/goldConverter.lua"/>
+	<action itemid="29020" script="others/objects/goldConverter.lua"/>
 	<action itemid="32109" script="others/objects/magicGoldConverter.lua"/>
 	<action itemid="33299" script="others/objects/magicGoldConverter.lua"/>
 	<action itemid="29019" script="others/objects/templeScroll.lua"/>
