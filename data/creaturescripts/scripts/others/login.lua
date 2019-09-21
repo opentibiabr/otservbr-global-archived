@@ -67,7 +67,12 @@ function onLogin(player)
         [CONST_PREY_SLOT_FIRST] = 1,
         [CONST_PREY_SLOT_SECOND] = 1,
         [CONST_PREY_SLOT_THIRD] = 1
-    }
+	}
+	
+	-- Prey mini-window
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+		player:sendPreyData(slot)
+	end
 
     if (player:getAccountType() == ACCOUNT_TYPE_TUTOR) then
         local msg = [[:: Tutor Rules

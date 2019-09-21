@@ -14,6 +14,7 @@ local function preyTimeLeft(player, slot)
 		local playerId = player:getId()
 		local currentTime = os.time()
 		local timePassed = currentTime - nextPreyTime[playerId][slot]
+		local monster = player:getPreyCurrentMonster(slot)
 		if timePassed > 0 then
 			if timePassed > 60 then
 				if timeLeft > 2 then
