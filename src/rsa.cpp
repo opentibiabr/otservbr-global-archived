@@ -39,8 +39,8 @@ void RSA::decrypt(char* msg) const
 	}
 	catch (const CryptoPP::Exception &e)
 	{
-		std::cout << "[RSA::decrypt - Exception]" << e;
-		return false;
+		std::cout << "[RSA::decrypt - Exception]" << e.GetWhat() << std::endl;
+		return;
 	}
 }
 
