@@ -26,9 +26,6 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.postman.Mission01) < 1 then
 			npcHandler:say("You are not a member of our guild yet! We have high standards for our members. To rise in our guild is a difficult but rewarding task. Are you interested in joining?", cid)
 			npcHandler.topic[cid] = 1
-		elseif player:getStorageValue(Storage.postman.Mission06) < 10 then
-			npcHandler:say("First you need to complete your current mission.", cid)
-			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.postman.Mission01) == 5 then
 			npcHandler:say("So you have finally made it! I did not think that you would have it in you ... However: are you ready for another assignment?", cid)
 			npcHandler.topic[cid] = 8
@@ -45,6 +42,12 @@ local function creatureSayCallback(cid, type, msg)
 		elseif player:getStorageValue(Storage.postman.Mission05) == 3 then
 			npcHandler:say("Splendid, I knew we could trust you. I would like to ask for your help in another matter. Are you interested?", cid)
 			npcHandler.topic[cid] = 16
+		elseif player:getStorageValue(Storage.postman.Mission07) ==  7 then
+			npcHandler:say("Once more you have impressed me! Are you willing to do another job?", cid)
+			npcHandler.topic[cid] = 21
+		elseif player:getStorageValue(Storage.postman.Mission06) >= 1	and	player:getStorageValue(Storage.postman.Mission06) < 10 then
+			npcHandler:say("First you need to complete your current mission.", cid)
+			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.postman.Mission06) == 12 then
 			npcHandler:say("Excellent! Another job well done! Would you accept another mission?", cid)
 			player:setStorageValue(Storage.postman.Mission06, 13)
@@ -53,9 +56,6 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Fine, fine. I think that should do it. Tell Hugo that we order those uniforms. The completed dress pattern will soon arrive in Venore. Report to me when you have talked to him.", cid)
 			player:setStorageValue(Storage.postman.Mission06, 11)
 			npcHandler.topic[cid] = 0
-		elseif player:getStorageValue(Storage.postman.Mission07) ==  7 then
-			npcHandler:say("Once more you have impressed me! Are you willing to do another job?", cid)
-			npcHandler.topic[cid] = 21
 		elseif player:getStorageValue(Storage.postman.Mission08) == 2 then
 			npcHandler:say("So Waldo is dead? This is grave news indeed. Did you recover his posthorn?", cid)
 			npcHandler.topic[cid] = 23
