@@ -1,4 +1,6 @@
 /**
+ * @file monsters.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -1385,17 +1387,20 @@ MonsterType* Monsters::getMonsterType(const std::string& name)
 
 void Monsters::addMonsterType(const std::string& name, MonsterType* mType)
 {
+	// Suppress [-Werror=unused-but-set-parameter]
+	// https://stackoverflow.com/questions/1486904/how-do-i-best-silence-a-warning-about-unused-variables
+	(void) mType;
 	mType = &monsters[asLowerCaseString(name)];
 }
 
-bool Monsters::loadCallback(LuaScriptInterface* scriptInterface, MonsterType* mType)
+bool Monsters::loadCallback(LuaScriptInterface* luaScriptInterface, MonsterType* mType)
 {
-	if (!scriptInterface) {
+	if (!luaScriptInterface) {
 		std::cout << "Failure: [Monsters::loadCallback] scriptInterface == nullptr." << std::endl;
 		return false;
 	}
 
-	int32_t id = scriptInterface->getEvent();
+	int32_t id = luaScriptInterface->getEvent();
 
 	if (mType->info.eventType == MONSTERS_EVENT_THINK) {
 		mType->info.thinkEvent = id;
@@ -1409,6 +1414,6 @@ bool Monsters::loadCallback(LuaScriptInterface* scriptInterface, MonsterType* mT
 		mType->info.creatureSayEvent = id;
 	}
 
-	scriptInterface->getScriptEnv()->setScriptId(id, scriptInterface);
+	luaScriptInterface->getScriptEnv()->setScriptId(id, luaScriptInterface);
 	return true;
 }

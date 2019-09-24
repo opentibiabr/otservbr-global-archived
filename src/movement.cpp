@@ -1,4 +1,6 @@
 /**
+ * @file movement.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -951,21 +953,21 @@ bool MoveEvent::executeStep(Creature* creature, Item* item, const Position& pos)
 	return scriptInterface->callFunction(4);
 }
 
-uint32_t MoveEvent::fireEquip(Player* player, Item* item, slots_t slot, bool isCheck)
+uint32_t MoveEvent::fireEquip(Player* player, Item* item, slots_t toSlot, bool isCheck)
 {
 	if (scripted) {
-		if (!equipFunction || equipFunction(this, player, item, slot, isCheck) == 1) {
-			if (executeEquip(player, item, slot, isCheck)) {
+		if (!equipFunction || equipFunction(this, player, item, toSlot, isCheck) == 1) {
+			if (executeEquip(player, item, toSlot, isCheck)) {
 				return 1;
 			}
 		}
 		return 0;
 	} else {
-		return equipFunction(this, player, item, slot, isCheck);
+		return equipFunction(this, player, item, toSlot, isCheck);
 	}
 }
 
-bool MoveEvent::executeEquip(Player* player, Item* item, slots_t slot, bool isCheck)
+bool MoveEvent::executeEquip(Player* player, Item* item, slots_t onSlot, bool isCheck)
 {
 	//onEquip(player, item, slot, isCheck)
 	//onDeEquip(player, item, slot, isCheck)
@@ -983,22 +985,22 @@ bool MoveEvent::executeEquip(Player* player, Item* item, slots_t slot, bool isCh
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 	LuaScriptInterface::pushThing(L, item);
-	lua_pushnumber(L, slot);
+	lua_pushnumber(L, onSlot);
 	LuaScriptInterface::pushBoolean(L, isCheck);
 
 	return scriptInterface->callFunction(4);
 }
 
-uint32_t MoveEvent::fireAddRemItem(Item* item, Item* tileItem, const Position& pos)
+uint32_t MoveEvent::fireAddRemItem(Item* item, Item* fromTile, const Position& pos)
 {
 	if (scripted) {
-		return executeAddRemItem(item, tileItem, pos);
+		return executeAddRemItem(item, fromTile, pos);
 	} else {
-		return moveFunction(item, tileItem, pos);
+		return moveFunction(item, fromTile, pos);
 	}
 }
 
-bool MoveEvent::executeAddRemItem(Item* item, Item* tileItem, const Position& pos)
+bool MoveEvent::executeAddRemItem(Item* item, Item* fromTile, const Position& pos)
 {
 	//onaddItem(moveitem, tileitem, pos)
 	//onRemoveItem(moveitem, tileitem, pos)
@@ -1014,7 +1016,7 @@ bool MoveEvent::executeAddRemItem(Item* item, Item* tileItem, const Position& po
 
 	scriptInterface->pushFunction(scriptId);
 	LuaScriptInterface::pushThing(L, item);
-	LuaScriptInterface::pushThing(L, tileItem);
+	LuaScriptInterface::pushThing(L, fromTile);
 	LuaScriptInterface::pushPosition(L, pos);
 
 	return scriptInterface->callFunction(3);

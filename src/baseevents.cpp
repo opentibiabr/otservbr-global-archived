@@ -1,4 +1,6 @@
 /**
+ * @file baseevents.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -102,7 +104,7 @@ bool Event::checkScript(const std::string& basePath, const std::string& scriptsN
 	LuaScriptInterface* testInterface = g_luaEnvironment.getTestInterface();
 	testInterface->reInitState();
 
-	if (testInterface->loadFile(std::string(basePath + "lib/" + scriptsName + ".lua")) == -1) {
+	if (testInterface->loadFile(basePath + "lib/" + scriptsName + ".lua") == -1) {
 		std::cout << "[Warning - Event::checkScript] Can not load " << scriptsName << " lib/" << scriptsName << ".lua" << std::endl;
 	}
 

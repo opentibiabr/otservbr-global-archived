@@ -1,4 +1,6 @@
 /**
+ * @file protocol.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -150,8 +152,8 @@ bool Protocol::RSA_decrypt(NetworkMessage& msg)
 
 uint32_t Protocol::getIP() const
 {
-	if (auto connection = getConnection()) {
-		return connection->getIP();
+	if (auto conn = getConnection()) {
+		return conn->getIP();
 	}
 
 	return 0;

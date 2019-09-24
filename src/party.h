@@ -1,4 +1,6 @@
 /**
+ * @file party.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_PARTY_H_41D4D7CF417C4CC99FAE94D552255044
-#define FS_PARTY_H_41D4D7CF417C4CC99FAE94D552255044
+#ifndef OT_SRC_PARTY_H_
+#define OT_SRC_PARTY_H_
 
 #include "player.h"
 #include "monsters.h"

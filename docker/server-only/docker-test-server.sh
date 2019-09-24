@@ -38,10 +38,10 @@ else
     exit
 fi
 
-maxcounter=45
+maxcounter=450
 counter=1
 while ! mysql --protocol TCP -u"dbuser" -p"dbpassword" -e "show databases;" > /dev/null 2>&1; do
-    sleep 30
+    sleep 5
     counter=`expr $counter + 1`
     if [ $counter -gt $maxcounter ]; then
         >&2 echo "We have been waiting for MySQL too long already; failing."

@@ -1,4 +1,6 @@
 /**
+ * @file mounts.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,13 +19,13 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MOUNTS_H_73716D11906A4C5C9F4A7B68D34C9BA6
-#define FS_MOUNTS_H_73716D11906A4C5C9F4A7B68D34C9BA6
+#ifndef OT_SRC_MOUNTS_H_
+#define OT_SRC_MOUNTS_H_
 
 struct Mount
 {
-	Mount(uint8_t id, uint16_t clientId, std::string name, int32_t speed, bool premium) :
-		name(std::move(name)), speed(speed), clientId(clientId), id(id), premium(premium) {}
+	Mount(uint8_t initId, uint16_t initClientId, std::string initName, int32_t initSpeed, bool initPremium) :
+		name(std::move(initName)), speed(initSpeed), clientId(initClientId), id(initId), premium(initPremium) {}
 
 	std::string name;
 	int32_t speed;

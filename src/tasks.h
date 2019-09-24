@@ -1,4 +1,6 @@
 /**
+ * @file tasks.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_TASKS_H_A66AC384766041E59DCA059DAB6E1976
-#define FS_TASKS_H_A66AC384766041E59DCA059DAB6E1976
+#ifndef OT_SRC_TASKS_H_
+#define OT_SRC_TASKS_H_
 
 #include <condition_variable>
 #include "thread_holder_base.h"

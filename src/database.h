@@ -1,4 +1,6 @@
 /**
+ * @file database.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_DATABASE_H_A484B0CDFDE542838F506DCE3D40C693
-#define FS_DATABASE_H_A484B0CDFDE542838F506DCE3D40C693
+#ifndef OT_SRC_DATABASE_H_
+#define OT_SRC_DATABASE_H_
 
 #include <boost/lexical_cast.hpp>
 

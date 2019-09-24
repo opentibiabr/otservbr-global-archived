@@ -1,4 +1,6 @@
 /**
+ * @file outputmessage.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_OUTPUTMESSAGE_H_C06AAED85C7A43939F22D229297C0CC1
-#define FS_OUTPUTMESSAGE_H_C06AAED85C7A43939F22D229297C0CC1
+#ifndef OT_SRC_OUTPUTMESSAGE_H_
+#define OT_SRC_OUTPUTMESSAGE_H_
 
 #include "networkmessage.h"
 #include "connection.h"
@@ -69,10 +71,10 @@ class OutputMessage : public NetworkMessage
 
 	protected:
 		template <typename T>
-		void add_header(T add) {
+		void add_header(T addHeader) {
 			assert(outputBufferStart >= sizeof(T));
 			outputBufferStart -= sizeof(T);
-			memcpy(buffer + outputBufferStart, &add, sizeof(T));
+			memcpy(buffer + outputBufferStart, &addHeader, sizeof(T));
 			//added header size to the message size
 			info.length += sizeof(T);
 		}

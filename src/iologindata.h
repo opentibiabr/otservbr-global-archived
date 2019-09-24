@@ -1,4 +1,6 @@
 /**
+ * @file iologindata.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_IOLOGINDATA_H_28B0440BEC594654AC0F4E1A5E42B2EF
-#define FS_IOLOGINDATA_H_28B0440BEC594654AC0F4E1A5E42B2EF
+#ifndef OT_SRC_IOLOGINDATA_H_
+#define OT_SRC_IOLOGINDATA_H_
 
 #include "account.h"
 #include "player.h"

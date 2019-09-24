@@ -1,4 +1,6 @@
 /**
+ * @file tile.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -479,14 +481,14 @@ void Tile::onUpdateTile(const SpectatorHashSet& spectators)
 	}
 }
 
-ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags, Creature*) const
+ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileFlags, Creature*) const
 {
 	if (const Creature* creature = thing.getCreature()) {
-		if (hasBitSet(FLAG_NOLIMIT, flags)) {
+		if (hasBitSet(FLAG_NOLIMIT, tileFlags)) {
 			return RETURNVALUE_NOERROR;
 		}
 
-		if (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_FLOORCHANGE | TILESTATE_TELEPORT)) {
+		if (hasBitSet(FLAG_PATHFINDING, tileFlags) && hasFlag(TILESTATE_FLOORCHANGE | TILESTATE_TELEPORT)) {
 			return RETURNVALUE_NOTPOSSIBLE;
 		}
 
@@ -526,12 +528,12 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 				return RETURNVALUE_NOTPOSSIBLE;
 			}
 
-			if (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_IMMOVABLENOFIELDBLOCKPATH)) {
+			if (hasBitSet(FLAG_PATHFINDING, tileFlags) && hasFlag(TILESTATE_IMMOVABLENOFIELDBLOCKPATH)) {
 				return RETURNVALUE_NOTPOSSIBLE;
 			}
 
-			if (hasFlag(TILESTATE_BLOCKSOLID) || (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_NOFIELDBLOCKPATH))) {
-				if (!(monster->canPushItems() || hasBitSet(FLAG_IGNOREBLOCKITEM, flags))) {
+			if (hasFlag(TILESTATE_BLOCKSOLID) || (hasBitSet(FLAG_PATHFINDING, tileFlags) && hasFlag(TILESTATE_NOFIELDBLOCKPATH))) {
+				if (!(monster->canPushItems() || hasBitSet(FLAG_IGNOREBLOCKITEM, tileFlags))) {
 					return RETURNVALUE_NOTPOSSIBLE;
 				}
 			}
@@ -545,7 +547,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 				if (!monster->isImmune(combatType)) {
 					//1) Monster is able to walk over field type
 					//2) Being attacked while random stepping will make it ignore field damages
-					if (hasBitSet(FLAG_IGNOREFIELDDAMAGE, flags)) {
+					if (hasBitSet(FLAG_IGNOREFIELDDAMAGE, tileFlags)) {
 						if (!(monster->canWalkOnFieldType(combatType) || monster->getIgnoreFieldDamage())) {
 							return RETURNVALUE_NOTPOSSIBLE;
 						}
@@ -560,7 +562,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 
 		const CreatureVector* creatures = getCreatures();
 		if (const Player* player = creature->getPlayer()) {
-			if (creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags) && !player->isAccessPlayer()) {
+			if (creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, tileFlags) && !player->isAccessPlayer()) {
 				for (const Creature* tileCreature : *creatures) {
 					if (!player->canWalkthrough(tileCreature)) {
 						return RETURNVALUE_NOTPOSSIBLE;
@@ -591,7 +593,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 					return RETURNVALUE_PLAYERISPZLOCKED;
 				}
 			}
-		} else if (creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags)) {
+		} else if (creatures && !creatures->empty() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, tileFlags)) {
 			for (const Creature* tileCreature : *creatures) {
 				if (!tileCreature->isInGhostMode()) {
 					return RETURNVALUE_NOTENOUGHROOM;
@@ -599,7 +601,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 			}
 		}
 
-		if (!hasBitSet(FLAG_IGNOREBLOCKITEM, flags)) {
+		if (!hasBitSet(FLAG_IGNOREBLOCKITEM, tileFlags)) {
 			//If the FLAG_IGNOREBLOCKITEM bit isn't set we dont have to iterate every single item
 			if (hasFlag(TILESTATE_BLOCKSOLID)) {
 				return RETURNVALUE_NOTENOUGHROOM;
@@ -634,7 +636,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 			}
 		}
 
-		if (hasBitSet(FLAG_NOLIMIT, flags)) {
+		if (hasBitSet(FLAG_NOLIMIT, tileFlags)) {
 			return RETURNVALUE_NOERROR;
 		}
 
@@ -644,7 +646,7 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t flags
 		}
 
 		const CreatureVector* creatures = getCreatures();
-		if (creatures && !creatures->empty() && item->isBlocking() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, flags)) {
+		if (creatures && !creatures->empty() && item->isBlocking() && !hasBitSet(FLAG_IGNOREBLOCKCREATURE, tileFlags)) {
 			for (const Creature* tileCreature : *creatures) {
 				if (!tileCreature->isInGhostMode()) {
 					return RETURNVALUE_NOTENOUGHROOM;
@@ -707,7 +709,7 @@ ReturnValue Tile::queryMaxCount(int32_t, const Thing&, uint32_t count, uint32_t&
 	return RETURNVALUE_NOERROR;
 }
 
-ReturnValue Tile::queryRemove(const Thing& thing, uint32_t count, uint32_t flags) const
+ReturnValue Tile::queryRemove(const Thing& thing, uint32_t count, uint32_t tileFlags) const
 {
 	int32_t index = getThingIndex(&thing);
 	if (index == -1) {
@@ -723,14 +725,14 @@ ReturnValue Tile::queryRemove(const Thing& thing, uint32_t count, uint32_t flags
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
-	if (!item->isMoveable() && !hasBitSet(FLAG_IGNORENOTMOVEABLE, flags)) {
+	if (!item->isMoveable() && !hasBitSet(FLAG_IGNORENOTMOVEABLE, tileFlags)) {
 		return RETURNVALUE_NOTMOVEABLE;
 	}
 
 	return RETURNVALUE_NOERROR;
 }
 
-Tile* Tile::queryDestination(int32_t&, const Thing&, Item** destItem, uint32_t& flags)
+Tile* Tile::queryDestination(int32_t&, const Thing&, Item** destItem, uint32_t& tileFlags)
 {
 	Tile* destTile = nullptr;
 	*destItem = nullptr;
@@ -815,7 +817,7 @@ Tile* Tile::queryDestination(int32_t&, const Thing&, Item** destItem, uint32_t& 
 	if (destTile == nullptr) {
 		destTile = this;
 	} else {
-		flags |= FLAG_NOLIMIT; //Will ignore that there is blocking items/creatures
+		tileFlags |= FLAG_NOLIMIT; //Will ignore that there is blocking items/creatures
 	}
 
 	if (destTile) {
@@ -1634,8 +1636,8 @@ Item* Tile::getUseItem(int32_t index) const
 	return nullptr;
 }
 
-HouseTile::HouseTile(int32_t x, int32_t y, int32_t z, House* house) :
-	DynamicTile(x, y, z), house(house) {}
+HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHouse) :
+	DynamicTile(initX, initY, initZ), house(initHouse) {}
 
 void HouseTile::addThing(int32_t index, Thing* thing)
 {
@@ -1683,7 +1685,7 @@ void HouseTile::updateHouse(Item* item)
 	}
 }
 
-ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t flags, Creature* actor/* = nullptr*/) const
+ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t tileFlags, Creature* actor/* = nullptr*/) const
 {
 	if (const Creature* creature = thing.getCreature()) {
 		if (const Player* player = creature->getPlayer()) {
@@ -1708,10 +1710,10 @@ ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 			return RETURNVALUE_CANNOTTHROW;
 		}
 	}
-	return Tile::queryAdd(index, thing, count, flags, actor);
+	return Tile::queryAdd(index, thing, count, tileFlags, actor);
 }
 
-Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** destItem, uint32_t& flags)
+Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** destItem, uint32_t& tileFlags)
 {
 	if (const Creature* creature = thing.getCreature()) {
 		if (const Player* player = creature->getPlayer()) {
@@ -1737,5 +1739,5 @@ Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** des
 		}
 	}
 
-	return Tile::queryDestination(index, thing, destItem, flags);
+	return Tile::queryDestination(index, thing, destItem, tileFlags);
 }

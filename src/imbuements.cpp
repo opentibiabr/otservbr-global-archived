@@ -1,8 +1,10 @@
 /**
-* Credits: Yamaken
-* Credits: Cjaker
-* Rewritten and adapted: LucasCPrazeres
-*/
+ * @file imbuements.cpp
+ * 
+ * Credits: Yamaken
+ * Credits: Cjaker
+ * Rewritten and adapted: LucasCPrazeres
+ */
 
 #include "otpch.h"
 #include "events.h"

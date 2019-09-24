@@ -1,4 +1,6 @@
 /**
+ * @file scheduler.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_SCHEDULER_H_2905B3D5EAB34B4BA8830167262D2DC1
-#define FS_SCHEDULER_H_2905B3D5EAB34B4BA8830167262D2DC1
+#ifndef OT_SRC_SCHEDULER_H_
+#define OT_SRC_SCHEDULER_H_
 
 #include "tasks.h"
 #include <unordered_set>

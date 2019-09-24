@@ -1,4 +1,6 @@
 /**
+ * @file monster.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MONSTER_H_9F5EEFE64314418CA7DA41D1B9409DD0
-#define FS_MONSTER_H_9F5EEFE64314418CA7DA41D1B9409DD0
+#ifndef OT_SRC_MONSTER_H_
+#define OT_SRC_MONSTER_H_
 
 #include "tile.h"
 #include "monsters.h"
@@ -129,8 +131,8 @@ class Monster final : public Creature
 		uint32_t getRespawnType() const {
 			return mType->info.respawnType;
 		}
-		void setSpawn(Spawn* spawn) {
-			this->spawn = spawn;
+		void setSpawn(Spawn* newSpawn) {
+			this->spawn = newSpawn;
 		}
 
 		bool canWalkOnFieldType(CombatType_t combatType) const;
