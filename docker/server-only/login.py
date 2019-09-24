@@ -198,7 +198,7 @@ def action():
                     'colorlight': '#64162b',
                     'colordark': '#7a1b34',
                     'name': 'First Event',
-                    'description': 'OTServBR-Global sdfasdfasdf',
+                    'description': 'OTServBR-Global Event 1',
                     'isseasonal': False
                 },
                 {
@@ -207,7 +207,7 @@ def action():
                     'colorlight': '#8B6D05',
                     'colordark': '#735D10',
                     'name': 'Second Event',
-                    'description': 'OTServBR-Global asdf asdf asd fas df asdf',
+                    'description': 'OTServBR-Global Event 2',
                     'isseasonal': False
                 }
             ]
