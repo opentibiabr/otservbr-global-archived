@@ -437,9 +437,9 @@ function Player.sendPreyData(self, slot)
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
 	-- Client 11.9+ compat, feature unavailable.
-	if self:getClient().version >= 1190 then
-		msg:addByte(0x00)
-		msg:addByte(0x00)
+	if self:getClient().version >= 1190 then 
+		msg:addByte(0x01)
+		msg:addByte(0x05)
 	end
 	-- Sending message to client
 	msg:sendToPlayer(self)
