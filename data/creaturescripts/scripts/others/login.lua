@@ -62,6 +62,13 @@ function onLogin(player)
     -- EXP Stamina
     nextUseXpStamina[playerId] = 1
 
+	-- Prey Small Window
+	if player:getClient().version > 1110 then
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end	 
+
     -- New Prey
     nextPreyTime[playerId] = {
         [CONST_PREY_SLOT_FIRST] = 1,

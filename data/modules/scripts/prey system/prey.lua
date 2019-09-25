@@ -10,7 +10,6 @@ CONST_PREY_SLOT_THIRD = 2
 
 CONST_MONSTER_TIER_BRONZE = 0
 CONST_MONSTER_TIER_SILVER = 1
-CONST_MONSTER_TIER_GOLD = 2
 CONST_MONSTER_TIER_GOLD = 3
 CONST_MONSTER_TIER_PLATINUM = 4
 
@@ -265,6 +264,7 @@ function Player.preyAction(self, msg)
 		local oldType = self:getPreyBonusType(slot)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		self:setRandomBonusValue(slot, true, (oldType ~= self:getPreyBonusType(slot) and true or false))
+		self:setPreyTimeLeft(slot, 7200) -- 2 hours
 
 	-- Select monster from list
 	elseif (action == Prey.Actions.SELECT) then
@@ -307,7 +307,12 @@ function Player.selectPreyMonster(self, slot, monster)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		-- Generating random bonus stats
 		self:setRandomBonusValue(slot, false, false)
-	end
+	elseif (self:getPreyBonusGrade(slot) == 0) then
+		-- Generating random prey type
+		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
+		-- Generating random bonus stats
+		self:setRandomBonusValue(slot, true, true)
+	end	
 
 	-- Setting current monster
 	self:setPreyCurrentMonster(slot, monster:getName())

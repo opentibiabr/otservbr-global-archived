@@ -30,6 +30,7 @@ local function preyTimeLeft(player, slot)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 		player:setPreyCurrentMonster(slot, "")
 	end
+	return player:sendPreyData(slot)
 end
 
 local BONUS_RATE = 3
