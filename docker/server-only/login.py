@@ -87,9 +87,9 @@ def do_login(data):
                 {
                     'id': 0,
                     'name': 'Open-TibiaBR',
-                    'externaladdressprotected': '10.127.68.133',
+                    'externaladdressprotected': '127.0.0.1',
                     'externalportprotected': 7172,
-                    'externaladdressunprotected': '10.127.68.133',
+                    'externaladdressunprotected': '127.0.0.1',
                     'externalportunprotected': 7172,
                     'previewstate': 0,
                     'location': 'BRA',
@@ -102,9 +102,9 @@ def do_login(data):
                 {
                     'id': 1,
                     'name': 'Open-TibiaBR2',
-                    'externaladdressprotected': '10.127.68.134',
+                    'externaladdressprotected': '127.0.0.1',
                     'externalportprotected': 7172,
-                    'externaladdressunprotected': '10.127.68.134',
+                    'externaladdressunprotected': '127.0.0.1',
                     'externalportunprotected': 7172,
                     'previewstate': 0,
                     'location': 'BRA',
