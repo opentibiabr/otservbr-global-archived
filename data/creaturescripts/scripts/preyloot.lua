@@ -65,10 +65,6 @@ function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDa
         for i, k in pairs(creature:getType():getLoot()) do
             if math.random() < k.chance/tc then
                 local item = corpse:addItem(k.itemId,math.random(k.maxCount) or k.subType)
-                if item then
-                    if k.actionId then item:setActionId(k.actionId) end
-                    if k.text then item:setAttribute(ITEM_ATTRIBUTE_TEXT, k.text) end
-                end
             end
         end
     end
