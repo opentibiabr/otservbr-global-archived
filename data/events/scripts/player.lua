@@ -787,6 +787,11 @@ function Player:onGainExperience(source, exp, rawExp)
 		else
 			self:setStaminaXpBoost(100)
 		end
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			if self:getPreyState(slot) == 2 then
+			 preyTimeLeft(self, slot) -- slot consumption
+			end
+		end
 	end
 
 	self:setBaseXpGain(displayRate * 100)
