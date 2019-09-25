@@ -5,16 +5,18 @@
 	<parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-			crowbar,2416,260;
-			fishing rod,2580,150;
-			pick,2553,50;
-			rope,2120,50;
-			scythe,2550,50;
-			shovel,2554,50;
-			yellow bag,1992,4;
-			yellow backpack,1999,10;
-			worm,3976,1;" />
+			crowbar, 2416, 260;
+			fishing rod, 2580, 150;
+			hand auger, 36169, 25;
+			net, 36324, 50;
+			pick, 2553, 50;
+			rope, 2120, 50;
+			scythe, 2550, 50;
+			shovel, 2554, 50;
+			yellow bag, 1992, 4;
+			yellow backpack, 1999, 10;
+			worm, 3976, 1;" />
 		<parameter key="shop_sellable" value="
-			rope,2120,8;" />
+			rope, 2120, 8;" />
 	</parameters>
 </npc>
