@@ -1529,8 +1529,15 @@ bool Game::removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*
 			}
 		}
 	}
+	Player* p = dynamic_cast<Player*>(cylinder);
+	if (p)
+	{
+		moneyCount += p->bankBalance;
+	}
 
-	if (moneyCount < money) {
+	// Not enough money
+	if (moneyCount < money)
+	{
 		return false;
 	}
 
@@ -1551,7 +1558,13 @@ bool Game::removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*
 			break;
 		}
 	}
-	return true;
+	moneyMap.clear();
+	if (money > 0 && p && (int32_t)p->bankBalance >= money)
+	{
+		p->bankBalance -= money;
+		return true;
+	}
+	return;
 }
 
 void Game::addMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*/)
@@ -5612,11 +5625,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		fee = 1000;
 	}
 
-	if (type == MARKETACTION_SELL) {
-		if (fee > player->bankBalance) {
-			return;
-		}
-
+	if (type == MARKETACTION_SELL) {		
 		DepotLocker* depotLocker = player->getDepotLocker(player->getLastDepotId());
 		if (!depotLocker) {
 			return;
@@ -5653,15 +5662,17 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 			}
 		}
 
-		player->bankBalance -= fee;
+		g_game.removeMoney(player, fee);
 	} else {
 		uint64_t totalPrice = static_cast<uint64_t>(price) * amount;
 		totalPrice += fee;
 		if (totalPrice > player->bankBalance) {
 			return;
+		} else if (totalPrice > player->getMoney()) {
+			return;
 		}
 
-		player->bankBalance -= totalPrice;
+		g_game.removeMoney(player, fee);
 	}
 
 	IOMarket::createOffer(player->getGUID(), static_cast<MarketAction_t>(type), it.id, amount, price, anonymous);
