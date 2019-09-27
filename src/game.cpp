@@ -1561,7 +1561,7 @@ bool Game::removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*
 		}
 	}
 	moneyMap.clear();
-	if (money > 0 && p && (int32_t)p->bankBalance >= money)
+	if (money > 0 && p && p->bankBalance >= money)
 	{
 		p->bankBalance -= money;
 		return true;
