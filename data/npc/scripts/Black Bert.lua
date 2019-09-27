@@ -50,6 +50,7 @@ local function getTable(player)
 		{name = "Golem Blueprint", id = 10165, buy = 13500},		-- Golem Blueprint
 		{name = "Golem Head", id = 10173, buy = 25000},		-- Golem Head
 		{name = "Headache Pill", id = 10454, buy = 350},		-- Headache Pill
+		{name = "Ivory Lyre", id = 36282, buy = 5000},		-- Ivory Lyre
 		{name = "Letterbag", id = 2330, buy = 8000},		-- Letterbag
 		{name = "Lump of Clay", id = 12285, buy = 1000},		-- Lump of Clay
 		{name = "Machine Crate", id = 10307, buy = 8500},		-- Machine Crate
@@ -65,6 +66,7 @@ local function getTable(player)
 		{name = "Plans for a Strange Device", id = 10613, buy = 1000},		-- Plans for a Strange Device
 		{name = "Rare Crystal", id = 11104, buy = 1000},		-- Rare Crystal
 		{name = "Sacred Earth", id = 12297, buy = 1000},		-- Sacred Earth
+		{name = "Sceptre of Sun and Sea", id = 36249, buy = 50000},		-- Sceptre of Sun and Sea
 		{name = "Shadow Orb", id = 10155, buy = 12500},		-- Shadow Orb
 		{name = "Sheet of Tracing Paper", id = 4854, buy = 500},			-- Sheet of Tracing Paper
 		{name = "Suspicious Signet Ring", id = 7697, buy = 15000},		-- Suspicious Signet Ring
