@@ -704,25 +704,19 @@ end
 -- Prey slots consumption
 local function preyTimeLeft(player, slot)
 	local timeLeft = player:getPreyTimeLeft(slot) / 60
+	local monster = player:getPreyCurrentMonster(slot)
 	if (timeLeft > 0) then
 		local playerId = player:getId()
 		local currentTime = os.time()
 		local timePassed = currentTime - nextPreyTime[playerId][slot]
-		if timePassed > 0 then
-			if timePassed > 60 then
-				if timeLeft > 2 then
-					timeLeft = timeLeft - 2
-				else
-					timeLeft = 0
-				end
-				nextPreyTime[playerId][slot] = currentTime + 120
-			else
-				timeLeft = timeLeft - 1
-				nextPreyTime[playerId][slot] = currentTime + 60
-			end
+		if timePassed >= 59 then
+			timeLeft = timeLeft - 1
+			nextPreyTime[playerId][slot] = currentTime + 60
+		else
+			timeLeft = timeLeft - 0
 		end
 		-- Expiring prey as there's no timeLeft
-		if (timeLeft <= 1) then
+		if (timeLeft < 1) then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 			player:setPreyCurrentMonster(slot, "")
 		end
@@ -733,6 +727,7 @@ local function preyTimeLeft(player, slot)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 		player:setPreyCurrentMonster(slot, "")
 	end
+	return player:sendPreyData(slot)
 end
 
 function Player:onGainExperience(source, exp, rawExp)
@@ -791,6 +786,11 @@ function Player:onGainExperience(source, exp, rawExp)
 			displayRate = displayRate * 0.5
 		else
 			self:setStaminaXpBoost(100)
+		end
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			if self:getPreyState(slot) == 2 then
+			 preyTimeLeft(self, slot) -- slot consumption
+			end
 		end
 	end
 
