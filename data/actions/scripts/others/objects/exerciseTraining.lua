@@ -13,11 +13,12 @@ local skills = {
 	[32129] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE} -- SORCERER
 }
 
-local dummies = {32142, 32143, 32144, 32145, 32146, 32147, 32148, 32149}
+local houseDummies = {32143, 32144, 32145, 32146, 32147, 32148}
+local freeDummies = {32142, 32149}
 local skillRate = configManager.getNumber(configKeys.RATE_SKILL)
 local magicRate = configManager.getNumber(configKeys.RATE_MAGIC)
 
-local function start_train(pid,start_pos,itemid,fpos)
+local function start_train(pid,start_pos,itemid,fpos, bonusDummy)
 	local player = Player(pid)
 	if player ~= nil then
 		local pos_n = player:getPosition()
@@ -33,12 +34,17 @@ local function start_train(pid,start_pos,itemid,fpos)
 							local voc = player:getVocation()
 
 							if skills[itemid].id == SKILL_MAGLEVEL then
-								player:addManaSpent(math.ceil(math.random(425, 575)*magicRate)) 
-								--[[ 	A cada vez que se usa 1 carga, é como usar uma UMP, que dá em média 500 de mana.
-										O valor é multiplicado pela rate do server para garantir que o valor correto seja adicionado.
-								]]--
+								if not bonusDummy then
+									player:addManaSpent(math.ceil(500*magicRate))
+								else
+									player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
+								end
 							else
-								player:addSkillTries(skills[itemid].id, 1*skillRate)
+								if not bonusDummy then
+									player:addSkillTries(skills[itemid].id, 1*skillRate)
+								else
+									player:addSkillTries(skills[itemid].id, (1*skillRate)*1.1) -- 10%
+								end
 							end
 								fpos:sendMagicEffect(CONST_ME_HITAREA)
 							if skills[itemid].range then
@@ -77,14 +83,22 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 	if target:isItem() then
-		if isInArray(dummies,target:getId()) then
+		if isInArray(houseDummies,target:getId()) then
 			if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
 				stopEvent(training)
 				return true
 			end
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-			start_train(player:getId(),start_pos,item.itemid,target:getPosition())
+			start_train(player:getId(),start_pos,item.itemid,target:getPosition(), true)
+		elseif isInArray(freeDummies, target:getId()) then
+			if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
+				stopEvent(training)
+				return true
+			end
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
+			start_train(player:getId(),start_pos,item.itemid,target:getPosition(), false)
 		end
 	end
 	return true
