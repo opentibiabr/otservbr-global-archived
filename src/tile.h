@@ -1,4 +1,6 @@
 /**
+ * @file tile.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_TILE_H_96C7EE7CF8CD48E59D5D554A181F0C56
-#define FS_TILE_H_96C7EE7CF8CD48E59D5D554A181F0C56
+#ifndef OT_SRC_TILE_H_
+#define OT_SRC_TILE_H_
 
 #include <unordered_set>
 

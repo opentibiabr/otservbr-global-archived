@@ -1,11 +1,13 @@
 /**
-* Credits: Yamaken
-* Credits: Cjaker
-* Rewrite: LucasCPrazeres
-*/
+ * @file imbuements.h
+ * 
+ * Credits: Yamaken
+ * Credits: Cjaker
+ * Rewritten and adapted: LucasCPrazeres
+ */
 
-#ifndef FS_IMBUEMENT_H
-#define FS_IMBUEMENT_H
+#ifndef OT_SRC_IMBUEMENTS_H_
+#define OT_SRC_IMBUEMENTS_H_
 
 #include "player.h"
 #include "enums.h"
@@ -17,8 +19,8 @@ class Item;
 class Imbuement;
 
 struct BaseImbue {
-	BaseImbue(uint16_t id, std::string name, uint32_t protection, uint32_t price, uint32_t removecust, int32_t duration, uint16_t percent) :
-		id(id), name(std::move(name)), protection(protection), price(price), removecust(removecust), duration(duration), percent(percent) {}
+	BaseImbue(uint16_t initId, std::string initName, uint32_t initProtection, uint32_t initPrice, uint32_t initRemovecust, int32_t initDuration, uint16_t initPercent) :
+		id(initId), name(std::move(initName)), protection(initProtection), price(initPrice), removecust(initRemovecust), duration(initDuration), percent(initPercent) {}
 
 	uint16_t id;
 	std::string name;
@@ -30,8 +32,8 @@ struct BaseImbue {
 };
 
 struct Category {
-	Category(uint16_t id, std::string name) :
-		id(id), name(std::move(name)) {}
+	Category(uint16_t initId, std::string initName) :
+		id(initId), name(std::move(initName)) {}
 
 	uint16_t id;
 	std::string name;
@@ -65,8 +67,8 @@ class Imbuements {
 class Imbuement
 {
 	public:
-		Imbuement(uint16_t id, uint16_t baseid) : 
-				id(id), baseid(baseid) {}
+		Imbuement(uint16_t initId, uint16_t initBaseId) : 
+				id(initId), baseid(initBaseId) {}
 
 		uint16_t getId() const {
 			return id;

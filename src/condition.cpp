@@ -1,4 +1,6 @@
 /**
+ * @file condition.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -1258,12 +1260,12 @@ void ConditionDamage::generateDamageList(int32_t amount, int32_t start, std::lis
 	}
 }
 
-void ConditionSpeed::setFormulaVars(float mina, float minb, float maxa, float maxb)
+void ConditionSpeed::setFormulaVars(float NewMina, float NewMinb, float NewMaxa, float NewMaxb)
 {
-	this->mina = mina;
-	this->minb = minb;
-	this->maxa = maxa;
-	this->maxb = maxb;
+	this->mina = NewMina;
+	this->minb = NewMinb;
+	this->maxa = NewMaxa;
+	this->maxb = NewMaxb;
 }
 
 void ConditionSpeed::getFormulaValues(int32_t var, int32_t& min, int32_t& max) const
@@ -1419,9 +1421,9 @@ void ConditionInvisible::endCondition(Creature* creature)
 	}
 }
 
-void ConditionOutfit::setOutfit(const Outfit_t& outfit)
+void ConditionOutfit::setOutfit(const Outfit_t& newOutfit)
 {
-	this->outfit = outfit;
+	this->outfit = newOutfit;
 }
 
 bool ConditionOutfit::unserializeProp(ConditionAttr_t attr, PropStream& propStream)
@@ -1491,11 +1493,11 @@ bool ConditionLight::executeCondition(Creature* creature, int32_t interval)
 
 	if (internalLightTicks >= lightChangeInterval) {
 		internalLightTicks = 0;
-		LightInfo lightInfo = creature->getCreatureLight();
+		LightInfo creatureLightInfo = creature->getCreatureLight();
 
-		if (lightInfo.level > 0) {
-			--lightInfo.level;
-			creature->setCreatureLight(lightInfo);
+		if (creatureLightInfo.level > 0) {
+			--creatureLightInfo.level;
+			creature->setCreatureLight(creatureLightInfo);
 			g_game.changeLight(creature);
 		}
 	}

@@ -43006,6 +43006,37 @@
 		<attribute key="rotateTo" value="36047" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
+	<item id="36100" article="a" name="dragon goblet" >
+		<attribute key="description" value="Souvenir from Thais Museum." />
+		<attribute key="weight" value="1800" />
+	</item>
+	<item id="36101" article="a" name="pigeon trophy" >
+		<attribute key="description" value="Souvenir from Thais Museum." />
+		<attribute key="weight" value="400" />
+	</item>
+	<item id="36102" article="a" name="loremaster doll" >
+		<attribute key="description" value="Souvenir from Thais Museum." />
+		<attribute key="weight" value="7700" />
+	</item>
+	<item id="36103" article="a" name="jade amulet" >
+		<attribute key="description" value="Souvenir from Thais Museum." />
+		<attribute key="weight" value="400" />
+	</item>
+	<item id="36158" article="a" name="sea horse figurine" >
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="36159" article="a" name="golden mask" >
+		<attribute key="weight" value="650" />
+	</item>
+	<item id="36166" article="an" name="empty honey glass" plural="empty honey glasses">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="36169" article="a" name="hand auger">
+		<attribute key="weight" value="1000" />
+	</item>
+	<item id="36175" article="a" name="lizard heart" plural="lizard hearts">
+		<attribute key="weight" value="350" />
+	</item>
 	<item id="36186" article="a" name="black raven">
 		<attribute key="decayTo" value="35203" />
 		<attribute key="duration" value="600" />
@@ -43017,6 +43048,33 @@
 	<item id="36188" article="a" name="white raven">
 		<attribute key="decayTo" value="35205" />
 		<attribute key="duration" value="600" />
+	</item>
+	<item id="36249" article="an" name="sceptre of sun and sea">
+		<attribute key="weight" value="490" />
+	</item>
+	<item id="36272" article="a" name="sphinx feather" plural="sphinx feathers">
+		<attribute key="weight" value="900" />
+	</item>
+	<item id="36273" article="a" name="sphinx tiara" plural="sphinx tiaras">
+		<attribute key="weight" value="350" />
+	</item>
+	<item id="36274" article="a" name="manticore tail" plural="manticore tails">
+		<attribute key="weight" value="750" />
+	</item>
+	<item id="36275" article="a" name="manticore ear" plural="manticore ears">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="36276" article="a" name="lamassu hoof" plural="lamassu hoofs">
+		<attribute key="weight" value="110" />
+	</item>
+	<item id="36277" article="a" name="lamassu horn" plural="lamassu horns">
+		<attribute key="weight" value="250" />
+	</item>
+	<item id="36278" article="a" name="fafnar symbol" plural="fafnar symbols">
+		<attribute key="weight" value="170" />
+	</item>
+	<item id="36282" article="an" name="ivory lyre">
+		<attribute key="weight" value="490" />
 	</item>
 	<item id="36297" article="a" name="jousting eagle baby">
 		<attribute key="wrapableTo" value="26054" />
@@ -43038,6 +43096,9 @@
 	<item id="36304" article="a" name="sublime tournament carpet"/>
 	<item id="36305" toid="36306" article="a" name="tournament accolade"/>
 	<item id="36307" toid="36308" article="a" name="sublime tournament accolade"/>
+	<item id="36324" article="a" name="net">
+		<attribute key="weight" value="20" />
+	</item>
 	<item id="36336" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36337" />
 	</item>
@@ -43087,6 +43148,54 @@
 		<attribute key="rotateTo" value="36350" />
 	</item>
 	<item fromid="36353" toid="36358" article="a" name="memorial"/>
+	<item id="36393" article="a" name="red goanna scale" plural="red goanna scales">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="36394" article="a" name="blue goanna scale" plural="blue goanna scales">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="36395" article="a" name="goanna meat">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="36396" article="a" name="goanna claw" plural="goanna claws">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="36423" article="a" name="ancient liche bone" plural="ancient liche bones">
+		<attribute key="weight" value="80" />
+	</item>
+	<item id="36424" article="a" name="rotten heart" plural="rotten hearts">
+		<attribute key="weight" value="110" />
+	</item>
+	<item id="36425" article="a" name="young lich worm" plural="young lich worms">
+		<attribute key="weight" value="30" />
+	</item>
+	<item id="36426" article="a" name="medal of valiance" plural="medals of valiance">
+		<attribute key="weight" value="55" />
+	</item>
+	<item id="36427" article="a" name="signet ring" plural="signet rings">
+		<attribute key="weight" value="70" />
+	</item>
+	<item id="36428" article="a" name="noble cape" plural="noble capes">
+		<attribute key="weight" value="130" />
+	</item>
+	<item id="36429" article="a" name="token of love" plural="tokens of love">
+		<attribute key="weight" value="130" />
+	</item>
+	<item id="36430" article="a" name="noble amulet" plural="noble amulets">
+		<attribute key="weight" value="65" />
+	</item>
+	<item id="36457" name="Urmahlullu's tail" plural="Urmahlullu's tails">
+		<attribute key="weight" value="76" />
+	</item>
+	<item id="36458" name="Urmahlullu's mane" plural="Urmahlullu's manes">
+		<attribute key="weight" value="76" />
+	</item>
+	<item id="36459" name="Urmahlullu's paw" plural="Urmahlullu's paws">
+		<attribute key="weight" value="76" />
+	</item>
+	<item id="36513" article="a" name="cobra crest" plural="cobra crests">
+		<attribute key="weight" value="170" />
+	</item>
 	<item id="36514" article="a" name="hrodmiran table">
 		<attribute key="wrapableTo" value="26054" />
 	</item>

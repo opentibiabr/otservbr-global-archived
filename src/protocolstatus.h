@@ -1,4 +1,6 @@
 /**
+ * @file protocolstatus.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_STATUS_H_8B28B354D65B4C0483E37AD1CA316EB4
-#define FS_STATUS_H_8B28B354D65B4C0483E37AD1CA316EB4
+#ifndef OT_SRC_STATUS_H_
+#define OT_SRC_STATUS_H_
 
 #include "networkmessage.h"
 #include "protocol.h"
@@ -34,7 +36,7 @@ class ProtocolStatus final : public Protocol
 			return "status protocol";
 		}
 
-		explicit ProtocolStatus(Connection_ptr connection) : Protocol(connection) {}
+		explicit ProtocolStatus(Connection_ptr conn) : Protocol(conn) {}
 
 		void onRecvFirstMessage(NetworkMessage& msg) final;
 

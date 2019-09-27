@@ -1,4 +1,6 @@
 /**
+ * @file item.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_ITEM_H_009A319FB13D477D9EEFFBBD9BB83562
-#define FS_ITEM_H_009A319FB13D477D9EEFFBBD9BB83562
+#ifndef OT_SRC_ITEM_H_
+#define OT_SRC_ITEM_H_
 
 #include "cylinder.h"
 #include "thing.h"
@@ -145,7 +147,7 @@ class ItemAttributes
 			removeAttribute(ITEM_ATTRIBUTE_DATE);
 		}
 		time_t getDate() const {
-			return static_cast<time_t>(getIntAttr(ITEM_ATTRIBUTE_DATE));
+			return getIntAttr(ITEM_ATTRIBUTE_DATE);
 		}
 
 		void setWriter(const std::string& writer) {
@@ -238,7 +240,7 @@ class ItemAttributes
 			struct PushLuaVisitor : public boost::static_visitor<> {
 				lua_State* L;
 
-				PushLuaVisitor(lua_State* L) : boost::static_visitor<>(), L(L) {}
+				PushLuaVisitor(lua_State* LS) : boost::static_visitor<>(), L(LS) {}
 
 				void operator()(const boost::blank&) const {
 					lua_pushnil(L);
@@ -268,7 +270,7 @@ class ItemAttributes
 			struct SerializeVisitor : public boost::static_visitor<> {
 				PropWriteStream& propWriteStream;
 
-				SerializeVisitor(PropWriteStream& propWriteStream) : boost::static_visitor<>(), propWriteStream(propWriteStream) {}
+				SerializeVisitor(PropWriteStream& initPropWriteStream) : boost::static_visitor<>(), propWriteStream(initPropWriteStream) {}
 
 				void operator()(const boost::blank&) const {
 				}
@@ -363,7 +365,7 @@ class ItemAttributes
 			} value;
 			itemAttrTypes type;
 
-			explicit Attribute(itemAttrTypes type) : type(type) {
+			explicit Attribute(itemAttrTypes initType) : type(initType) {
 				memset(&value, 0, sizeof(value));
 			}
 			Attribute(const Attribute& i) {

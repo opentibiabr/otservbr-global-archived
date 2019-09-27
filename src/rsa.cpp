@@ -1,4 +1,6 @@
 /**
+ * @file rsa.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -31,11 +33,16 @@ static CryptoPP::AutoSeededRandomPool prng;
 
 void RSA::decrypt(char* msg) const
 {
-	try {
-		CryptoPP::Integer m{reinterpret_cast<uint8_t*>(msg), 128};
+	try
+	{
+		CryptoPP::Integer m{reinterpret_cast<uint8_t *>(msg), 128};
 		auto c = pk.CalculateInverse(prng, m);
-		c.Encode(reinterpret_cast<uint8_t*>(msg), 128);
-		} catch (const CryptoPP::Exception& e) {
+		c.Encode(reinterpret_cast<uint8_t *>(msg), 128);
+	}
+	catch (const CryptoPP::Exception &e)
+	{
+		std::cout << "[RSA::decrypt - Exception]" << e.GetWhat() << std::endl;
+		return;
 	}
 }
 

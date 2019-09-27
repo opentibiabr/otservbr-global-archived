@@ -1,4 +1,6 @@
 /**
+ * @file spells.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -301,11 +303,11 @@ Position Spells::getCasterPosition(Creature* creature, Direction dir)
 	return getNextPosition(dir, creature->getPosition());
 }
 
-CombatSpell::CombatSpell(Combat* combat, bool needTarget, bool needDirection) :
+CombatSpell::CombatSpell(Combat* initCombat, bool initNeedTarget, bool initNeedDirection) :
 	Event(&g_spells->getScriptInterface()),
-	combat(combat),
-	needDirection(needDirection),
-	needTarget(needTarget)
+	combat(initCombat),
+	needDirection(initNeedDirection),
+	needTarget(initNeedTarget)
 {}
 
 CombatSpell::~CombatSpell()

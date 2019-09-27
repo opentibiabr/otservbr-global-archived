@@ -1,4 +1,6 @@
 /**
+ * @file luascript.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -93,7 +95,7 @@ void ScriptEnvironment::resetEnv()
 	}
 }
 
-bool ScriptEnvironment::setCallbackId(int32_t callbackId, LuaScriptInterface* scriptInterface)
+bool ScriptEnvironment::setCallbackId(int32_t newCallbackId, LuaScriptInterface* scriptInterface)
 {
 	if (this->callbackId != 0) {
 		//nested callbacks are not allowed
@@ -103,17 +105,17 @@ bool ScriptEnvironment::setCallbackId(int32_t callbackId, LuaScriptInterface* sc
 		return false;
 	}
 
-	this->callbackId = callbackId;
+	this->callbackId = newCallbackId;
 	interface = scriptInterface;
 	return true;
 }
 
-void ScriptEnvironment::getEventInfo(int32_t& scriptId, LuaScriptInterface*& scriptInterface, int32_t& callbackId, bool& timerEvent) const
+void ScriptEnvironment::getEventInfo(int32_t& retScriptId, LuaScriptInterface*& retScriptInterface, int32_t& retCallbackId, bool& retTimerEvent) const
 {
-	scriptId = this->scriptId;
-	scriptInterface = interface;
-	callbackId = this->callbackId;
-	timerEvent = this->timerEvent;
+	retScriptId = this->scriptId;
+	retScriptInterface = interface;
+	retCallbackId = this->callbackId;
+	retTimerEvent = this->timerEvent;
 }
 
 uint32_t ScriptEnvironment::addThing(Thing* thing)
@@ -269,7 +271,7 @@ std::string LuaScriptInterface::getErrorDesc(ErrorCode_t code)
 ScriptEnvironment LuaScriptInterface::scriptEnv[16];
 int32_t LuaScriptInterface::scriptEnvIndex = -1;
 
-LuaScriptInterface::LuaScriptInterface(std::string interfaceName) : interfaceName(std::move(interfaceName))
+LuaScriptInterface::LuaScriptInterface(std::string initInterfaceName) : interfaceName(std::move(initInterfaceName))
 {
 	if (!g_luaEnvironment.getLuaState()) {
 		g_luaEnvironment.initState();

@@ -15,21 +15,24 @@
 		<parameter key="message_sendtrade" value="Of course, just browse through my wares. Remember that if you buy vials of oil, there's a deposit of 5 gold on the empty one." />
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-			beach backpack,5949,20;
-			beach bag,5950,5;
-			fishing rod,2580,150;
-			machete,2420,40;
-			pick,2553,50;
-			present,1990,10;
-			rope,2120,50;
-			scroll,1949,5;
-			scythe,2550,50;
-			shovel,2554,50;
-			torch,2050,2;
-			valentines card,6538,30;
-			watch,6091,20;
-			worm,3976,1;
-			vial of oil,2006,20,11;" />
-		<parameter key="shop_sellable" value="vial,2006,5;" />
+			beach backpack, 5949, 20;
+			beach bag, 5950, 5;
+			fishing rod, 2580, 150;
+			hand auger, 36169, 25;
+			machete, 2420, 40;
+			net, 36324, 50;
+			pick, 2553, 50;
+			present, 1990, 10;
+			rope, 2120, 50;
+			scroll, 1949, 5;
+			scythe, 2550, 50;
+			shovel, 2554, 50;
+			torch, 2050, 2;
+			valentines card, 6538, 30;
+			watch, 6091, 20;
+			worm, 3976, 1;
+			vial of oil, 2006, 20, 11;" />
+		<parameter key="shop_sellable" value="
+			vial, 2006, 5;" />
 	</parameters>
 </npc>

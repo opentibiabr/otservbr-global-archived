@@ -1,4 +1,6 @@
 /**
+ * @file globalevent.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_GLOBALEVENT_H_B3FB9B848EA3474B9AFC326873947E3C
-#define FS_GLOBALEVENT_H_B3FB9B848EA3474B9AFC326873947E3C
+#ifndef OT_SRC_GLOBALEVENT_H_
+#define OT_SRC_GLOBALEVENT_H_
 #include "baseevents.h"
 
 #include "const.h"

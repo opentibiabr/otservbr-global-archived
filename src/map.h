@@ -1,4 +1,6 @@
 /**
+ * @file map.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MAP_H_E3953D57C058461F856F5221D359DAFA
-#define FS_MAP_H_E3953D57C058461F856F5221D359DAFA
+#ifndef OT_SRC_MAP_H_
+#define OT_SRC_MAP_H_
 
 #include "position.h"
 #include "item.h"

@@ -1,4 +1,6 @@
 /**
+ * @file iomap.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_IOMAP_H_8085D4B1037A44288494A52FDBB775E4
-#define FS_IOMAP_H_8085D4B1037A44288494A52FDBB775E4
+#ifndef OT_SRC_IOMAP_H_
+#define OT_SRC_IOMAP_H_
 
 #include "item.h"
 #include "map.h"

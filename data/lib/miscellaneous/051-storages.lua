@@ -908,7 +908,14 @@ Storage = {
 		TravelCarlin = 251,
 		TravelEdron = 252,
 		TravelVenore = 253,
-		TravelCormaya = 254
+		TravelCormaya = 254,
+
+		MeasurementsBenjamin = 255,
+		MeasurementsKroox = 256,
+		MeasurementsDove = 257,
+		MeasurementsLiane = 258,
+		MeasurementsChrystal = 259,
+		MeasurementsOlrik = 260
 	},
 	thievesGuild = {
 		Quest = 12501,

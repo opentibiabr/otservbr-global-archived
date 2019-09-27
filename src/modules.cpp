@@ -1,4 +1,6 @@
- /*
+/**
+ * @file modules.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -186,7 +188,7 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 	
-	LuaScriptInterface::pushUserdata<NetworkMessage>(L, const_cast<NetworkMessage*>(&msg));
+	LuaScriptInterface::pushUserdata<NetworkMessage>(L, &msg);
 	LuaScriptInterface::setWeakMetatable(L, -1, "NetworkMessage");
 
 	lua_pushnumber(L, recvbyte);

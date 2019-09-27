@@ -1,4 +1,6 @@
 /**
+ * @file enums.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
-#define FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
+#ifndef OT_SRC_ENUMS_H_
+#define OT_SRC_ENUMS_H_
 
 enum RuleViolationType_t : uint8_t {
 	REPORT_TYPE_NAME = 0,
@@ -556,7 +558,7 @@ struct LightInfo {
 	uint8_t level = 0;
 	uint8_t color = 0;
 	constexpr LightInfo() = default;
-	constexpr LightInfo(uint8_t level, uint8_t color) : level(level), color(color) {}
+	constexpr LightInfo(uint8_t newLevel, uint8_t newColor) : level(newLevel), color(newColor) {}
 };
 
 struct ShopInfo {
@@ -573,8 +575,8 @@ struct ShopInfo {
 		sellPrice = 0;
 	}
 
-	ShopInfo(uint16_t itemId, int32_t subType = 0, uint32_t buyPrice = 0, uint32_t sellPrice = 0, std::string realName = "")
-		: itemId(itemId), subType(subType), buyPrice(buyPrice), sellPrice(sellPrice), realName(std::move(realName)) {}
+	ShopInfo(uint16_t newItemId, int32_t newSubType = 0, uint32_t newBuyPrice = 0, uint32_t newSellPrice = 0, std::string newRealName = "")
+		: itemId(newItemId), subType(newSubType), buyPrice(newBuyPrice), sellPrice(newSellPrice), realName(std::move(newRealName)) {}
 };
 
 struct MarketOffer {
@@ -634,8 +636,8 @@ struct ModalWindow
 	uint8_t defaultEnterButton, defaultEscapeButton;
 	bool priority;
 
-	ModalWindow(uint32_t id, std::string title, std::string message)
-		: title(std::move(title)), message(std::move(message)), id(id), defaultEnterButton(0xFF), defaultEscapeButton(0xFF), priority(false) {}
+	ModalWindow(uint32_t newId, std::string newTitle, std::string newMessage)
+		: title(std::move(newTitle)), message(std::move(newMessage)), id(newId), defaultEnterButton(0xFF), defaultEscapeButton(0xFF), priority(false) {}
 };
 
 enum CombatOrigin

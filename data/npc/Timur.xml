@@ -5,17 +5,19 @@
 	<parameters>
 		<parameter key="module_shop" value="1" />
 		<parameter key="shop_buyable" value="
-			viking helmet,2473,265;
-			fishing rod,2580,170;
-			rope,2120,65;
-			worm,3976,1;
-			arrow,2544,3;
-			bolt,2543,4;" />
+			arrow, 2544, 3;
+			bolt, 2543, 4;
+			fishing rod, 2580, 170;
+			hand auger, 36169, 25;
+			net, 36324, 50;
+			rope, 2120, 65;
+			viking helmet, 2473, 265;
+			worm, 3976, 1;" />
 		<parameter key="shop_sellable" value="
-			viking helmet,2473,66;
-			mace,2398,30;
-			hatchet,2388,25;
-			crossbow,2455,160;
-			bow,2456,130;" />
+			bow, 2456, 130;
+			crossbow, 2455, 160;
+			hatchet, 2388, 25;
+			mace, 2398, 30;
+			viking helmet, 2473, 66;" />
 	</parameters>
 </npc>

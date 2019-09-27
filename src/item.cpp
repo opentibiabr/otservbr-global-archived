@@ -1,4 +1,6 @@
 /**
+ * @file item.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -170,22 +172,22 @@ Item* Item::CreateItem(PropStream& propStream)
 	return Item::CreateItem(id, 0);
 }
 
-Item::Item(const uint16_t type, uint16_t count /*= 0*/) :
-	id(type)
+Item::Item(const uint16_t itemId, uint16_t itemCount /*= 0*/) :
+	id(itemId)
 {
 	const ItemType& it = items[id];
 
 	if (it.isFluidContainer() || it.isSplash()) {
-		setFluidType(count);
+		setFluidType(itemCount);
 	} else if (it.stackable) {
-		if (count != 0) {
-			setItemCount(count);
+		if (itemCount != 0) {
+			setItemCount(itemCount);
 		} else if (it.charges != 0) {
 			setItemCount(it.charges);
 		}
 	} else if (it.charges != 0) {
-		if (count != 0) {
-			setCharges(count);
+		if (itemCount != 0) {
+			setCharges(itemCount);
 		} else {
 			setCharges(it.charges);
 		}
@@ -402,12 +404,12 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 	switch (attr) {
 		case ATTR_COUNT:
 		case ATTR_RUNE_CHARGES: {
-			uint8_t count;
-			if (!propStream.read<uint8_t>(count)) {
+			uint8_t charges;
+			if (!propStream.read<uint8_t>(charges)) {
 				return ATTR_READ_ERROR;
 			}
 
-			setSubType(count);
+			setSubType(charges);
 			break;
 		}
 
@@ -841,7 +843,7 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 	if (hasAttribute(ITEM_ATTRIBUTE_CUSTOM)) {
 		const ItemAttributes::CustomAttributeMap* customAttrMap = attributes->getCustomAttributeMap();
 		propWriteStream.write<uint8_t>(ATTR_CUSTOM_ATTRIBUTES);
-		propWriteStream.write<uint64_t>(static_cast<uint64_t>(customAttrMap->size()));
+		propWriteStream.write<uint64_t>(customAttrMap->size());
 		for (const auto &entry : *customAttrMap) {
 			// Serializing key type and value
 			propWriteStream.writeString(entry.first);

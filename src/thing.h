@@ -1,4 +1,6 @@
 /**
+ * @file thing.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_THING_H_6F16A8E566AF4ACEAE02CF32A7246144
-#define FS_THING_H_6F16A8E566AF4ACEAE02CF32A7246144
+#ifndef OT_SRC_THING_H_
+#define OT_SRC_THING_H_
 
 #include "position.h"
 

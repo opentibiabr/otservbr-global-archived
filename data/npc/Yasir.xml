@@ -8,6 +8,7 @@
             acorn, 11213, 10;
             alptramun's toothbrush, 34581, 270000;
 			ancient belt buckle, 27052, 260;
+			ancient liche bone, 36423, 28000;
 			antlers, 11214, 50;
 			ape fur, 5883, 120;
 
@@ -31,6 +32,7 @@
 			bloody dwarven beard, 20107, 110;
 			bloody pincers, 10550, 100;
 			blue glass plate, 33983, 60;
+			blue goanna scale, 36394, 230;
 			blue piece of cloth, 5912, 200;
 			boggy dreads, 10584, 200;
 			bola, 20089, 35;
@@ -79,6 +81,7 @@
 			cliff strider claw, 18428, 800;
 			chitinous mouth, 30857, 10000;
 			chitinous mouth, 30861, 10000;
+			cobra crest, 36513, 650;
 			cobra tongue, 10551, 15;
 			colourful feather, 12470, 110;
 			colourful feathers, 27757, 400;
@@ -146,6 +149,7 @@
 			elven hoof, 21311, 115;
 			elven scouting glass, 12420, 50;
 			elvish talisman, 10552, 45;
+			empty honey glass, 36166, 270;
 			enchanted chicken wing, 5891, 20000;
 			energy ball, 26179, 300;
 			energy vein, 26164, 270;
@@ -154,6 +158,7 @@
 			eye of a weeper, 18426, 650;
 			eye of corruption, 12627, 390;
 
+			fafnar symbol, 36278, 950;
 			fairy wings, 28999, 200;
 			falcon crest, 32520, 650;
 			fern, 2801, 20;
@@ -187,10 +192,13 @@
 			glob of mercury, 9966, 20; 
 			glob of tar, 9968, 30;
 			gloom wolf fur, 24663, 70;
-			glowing rune, 32217, 350;
+			glowing rune, 33317, 350;
+			goanna claw, 36396, 260;
+			goanna meat, 36395, 190;
 			goblin ear, 12495, 20;
 			golden brush, 28995, 250;
 			golden lotus brooch, 24630, 270;
+			golden mask, 36159, 38000;
 			goosebump leather, 22539, 650;
 			grant of arms, 32521, 950;
 			green bandage, 29002, 180;
@@ -202,7 +210,7 @@
 
 			hair of a banshee, 12402, 350;
 			half-digested piece of meat, 11200, 55;
-			half-digested stones, 31228, 40;
+			half-digested stones, 30604, 40;
 			half-eaten brain, 10576, 85;
 			hardened bone, 5925, 70;
 			harpoon of a giant snail, 30860, 15000;
@@ -240,12 +248,15 @@
 			kollos shell, 15480, 420;
 			kongra's shoulderpad, 12427, 100;
 
+			lamassu hoof, 36276, 330;
+			lamassu horn, 36277, 240;
 			lancer beetle shell, 11372, 80;
 			lancet, 21242, 90;
 			legionnaire flags, 11334, 500;
 			lion's mane, 10608, 60;
 			little bowl of myrrh, 29002, 500;
 			lizard essence, 12636, 300;
+			lizard heart, 36175, 530;
 			lizard leather, 5876, 150;
 			lizard scale, 5881, 120;
 			longing eyes, 30859, 8000;
@@ -261,9 +272,12 @@
 			malofur's lunchbox, 34726, 240000;
 			mammoth tusk, 11238, 100;
 			mantassin tail, 12445, 280;
+			manticore ear, 36275, 310;
+			manticore tail, 36274, 220;
 			marsh stalker beak, 19741, 65;
 			marsh stalker feather, 19742, 50;
 			maxxenius head, 34580, 500000;
+			medal of valiance, 36426, 410000;
 			minotaur horn, 12428, 75;
 			minotaur leather, 5878, 80;
 			miraculum, 12430, 60;
@@ -276,6 +290,8 @@
 			necromantic robe, 12431, 250;
 			nettle blossom, 11231, 75;
 			nettle spit, 12432, 25;
+			noble amulet, 36430, 430000;
+			noble cape, 36428, 425000;
 			noble turban, 12442, 430;
 			nose ring, 5804, 2000;
 
@@ -325,6 +341,7 @@
 			rare earth, 30536, 80;
 			red dragon leather, 5948, 200;
 			red dragon scale, 5882, 200;
+			red goanna scale, 36393, 190;
 			red hair dye, 20135, 40;
 			red piece of cloth, 5911, 300;
 			rhino hide, 27056, 175;
@@ -333,6 +350,7 @@
 			rope belt, 12448, 66;
 			rorc egg, 21313, 120;
 			rorc feather, 21310, 70;
+			rotten heart, 36424, 74000;
 			rotten piece of cloth, 11208, 30;
 
 			sabretooth, 11228, 400;
@@ -345,6 +363,7 @@
 			scorpion tail, 10568, 25;
 			scroll of heroic deeds, 12466, 230;
 			scythe leg, 11229, 450;
+			sea horse figurine, 36158, 42000;
 			sea serpent scale, 10583, 520;
 			seeds, 7732, 150;
 			shaggy tail, 11324, 25;
@@ -352,6 +371,7 @@
 			shamanic talisman, 24840, 200;
 			shimmering beetles, 28993, 150;
 			sight of surrender's eye, 22517, 3000;
+			signet ring, 36427, 480000;
 			silencer claws, 22534, 390;
 			silencer resonating chamber, 22535, 600;
 			silken bookmark, 33313, 550;
@@ -379,6 +399,8 @@
 			sparkion stings, 26161, 280;
 			sparkion tail, 26159, 300;
 			spellsinger's seal, 15421, 280;
+			sphinx feather, 36272, 470;
+			sphinx tiara, 36273, 360;
 			spider fangs, 8859, 10;
 			spider silk, 5879, 100;
 			spidris mandible, 15485, 450;
@@ -412,6 +434,7 @@
 			the plasmother's remains, 6535, 50000;
 			thick fur, 11224, 150;
 			thorn, 10560, 100;
+			token of love, 36429, 440000;
 			tooth file, 21241, 60;
 			tooth of tazhadur, 27608, 10000;
 			torn shirt, 29040, 250;
@@ -423,6 +446,9 @@
 			turtle shell, 5899, 90;
 			tusk, 3956, 100;
 
+			urmahlullus mane, 36458, 490000;
+			urmahlullus paws, 36459, 245000;
+			urmahlullus tail, 36457, 210000;
 			undead heart, 11367, 200;
 			unholy bone, 11233, 480;
 
@@ -457,6 +483,7 @@
 
 			yellow piece of cloth, 5914, 150;
 			yielowax, 13881, 600;
+			young lich worm, 36425, 25000;
 			
 			zaogun flag, 11330, 600;
 			zaogun shoulderplates, 11331, 150 " />

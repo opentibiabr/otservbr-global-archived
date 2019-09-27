@@ -1,4 +1,6 @@
 /**
+ * @file raids.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_RAIDS_H_3583C7C054584881856D55765DEDAFA9
-#define FS_RAIDS_H_3583C7C054584881856D55765DEDAFA9
+#ifndef OT_SRC_RAIDS_H_
+#define OT_SRC_RAIDS_H_
 
 #include "const.h"
 #include "position.h"
@@ -30,8 +32,8 @@ enum RaidState_t {
 };
 
 struct MonsterSpawn {
-	MonsterSpawn(std::string name, uint32_t minAmount, uint32_t maxAmount) :
-		name(std::move(name)), minAmount(minAmount), maxAmount(maxAmount) {}
+	MonsterSpawn(std::string initName, uint32_t initMinAmount, uint32_t initMaxAmount) :
+		name(std::move(initName)), minAmount(initMinAmount), maxAmount(initMaxAmount) {}
 
 	std::string name;
 	uint32_t minAmount;
@@ -105,8 +107,8 @@ class Raids
 class Raid
 {
 	public:
-		Raid(std::string name, uint32_t interval, uint32_t marginTime, bool repeat) :
-			name(std::move(name)), interval(interval), margin(marginTime), repeat(repeat) {}
+		Raid(std::string initName, uint32_t initInterval, uint32_t initMarginTime, bool initRepeat) :
+			name(std::move(initName)), interval(initInterval), margin(initMarginTime), repeat(initRepeat) {}
 		~Raid();
 
 		// non-copyable

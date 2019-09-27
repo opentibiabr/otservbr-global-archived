@@ -1,4 +1,6 @@
 /**
+ * @file iomarket.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_IOMARKET_H_B981E52C218C42D3B9EF726EBF0E92C9
-#define FS_IOMARKET_H_B981E52C218C42D3B9EF726EBF0E92C9
+#ifndef OT_SRC_IOMARKET_H_
+#define OT_SRC_IOMARKET_H_
 
 #include "enums.h"
 #include "database.h"

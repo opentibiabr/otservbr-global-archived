@@ -7,5 +7,5 @@
 	<announce delay="80000" type="Event" message="Leave now mortals, beware Gaz'Haragoth." />
 
 	<!--Single Spawns-->
-	<singlespawn delay="80000" name="Gaz 'Haragoth" x="33538" y="32381" z="12"/>
+	<singlespawn delay="80000" name="Gaz'Haragoth" x="33538" y="32381" z="12"/>
 </raid>
