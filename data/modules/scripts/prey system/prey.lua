@@ -141,10 +141,15 @@ function Player.setRandomBonusValue(self, slot, bonus, typeChange)
 	else
 		self:setPreyBonusValue(slot, math.random(min, max))
 	end
-
+	if (self:getPreyBonusValue(slot) == 0) then
+		self:setPreyBonusValue(slot, math.random(min, max))
+	end	
 	self:setPreyBonusGrade(slot, math.floor((self:getPreyBonusValue(slot) - min) / (max - min) * 10))
 	if (self:getPreyBonusGrade(slot) == 10 and self:getPreyBonusValue(slot) < max) then
 		self:setPreyBonusGrade(slot, self:getPreyBonusGrade(slot) - 1)
+	end	
+	if (self:getPreyBonusGrade(slot) == 0 and self:getPreyBonusValue(slot) >= min) then
+		self:setPreyBonusGrade(slot, 1)
 	end
 end
 
