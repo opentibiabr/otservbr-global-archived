@@ -820,10 +820,16 @@ CREATE TABLE `player_charms` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+--
+-- Create Account GOD/god
+--
 INSERT INTO `accounts`
 (`id`,  `name`, `password`,                                 `type`) VALUES
 (1,     'GOD',  '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
 
+--
+-- Create ADM Payer on GOD account
+--
 INSERT INTO `players`
 (`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
 (1,    'ADM',             6,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );

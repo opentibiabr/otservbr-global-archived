@@ -1,4 +1,6 @@
 /**
+ * @file connection.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_CONNECTION_H_FC8E1B4392D24D27A2F129D8B93A6348
-#define FS_CONNECTION_H_FC8E1B4392D24D27A2F129D8B93A6348
+#ifndef OT_SRC_CONNECTION_H_
+#define OT_SRC_CONNECTION_H_
 
 #include <unordered_set>
 
@@ -76,12 +78,12 @@ class Connection : public std::enable_shared_from_this<Connection>
 
 		enum { FORCE_CLOSE = true };
 
-		Connection(boost::asio::io_service& io_service,
-			ConstServicePort_ptr service_port) :
-			readTimer(io_service),
-			writeTimer(io_service),
-			service_port(std::move(service_port)),
-			socket(io_service) {
+		Connection(boost::asio::io_service& init_io_service,
+			ConstServicePort_ptr init_service_port) :
+			readTimer(init_io_service),
+			writeTimer(init_io_service),
+			service_port(std::move(init_service_port)),
+			socket(init_io_service) {
 			connectionState = CONNECTION_STATE_PENDING;
 			packetsSent = 0;
 			timeConnected = time(nullptr);

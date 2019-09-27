@@ -1,4 +1,6 @@
 /**
+ * @file npc.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -53,9 +55,9 @@ Npc* Npc::createNpc(const std::string& name)
 	return npc.release();
 }
 
-Npc::Npc(const std::string& name) :
+Npc::Npc(const std::string& initName) :
 	Creature(),
-	filename("data/npc/" + name + ".xml"),
+	filename("data/npc/" + initName + ".xml"),
 	npcEventHandler(nullptr),
 	masterRadius(-1),
 	loaded(false)
@@ -434,16 +436,16 @@ bool Npc::canWalkTo(const Position& fromPos, Direction dir) const
 		return false;
 	}
 
-	Tile* tile = g_game.map.getTile(toPos);
-	if (!tile || tile->queryAdd(0, *this, 1, 0) != RETURNVALUE_NOERROR) {
+	Tile* toTile = g_game.map.getTile(toPos);
+	if (!toTile || toTile->queryAdd(0, *this, 1, 0) != RETURNVALUE_NOERROR) {
 		return false;
 	}
 
-	if (!floorChange && (tile->hasFlag(TILESTATE_FLOORCHANGE) || tile->getTeleportItem())) {
+	if (!floorChange && (toTile->hasFlag(TILESTATE_FLOORCHANGE) || toTile->getTeleportItem())) {
 		return false;
 	}
 
-	if (!ignoreHeight && tile->hasHeight(1)) {
+	if (!ignoreHeight && toTile->hasHeight(1)) {
 		return false;
 	}
 
@@ -1081,8 +1083,8 @@ int NpcScriptInterface::luaNpcCloseShopWindow(lua_State* L)
 	return 1;
 }
 
-NpcEventsHandler::NpcEventsHandler(const std::string& file, Npc* npc) :
-	npc(npc), scriptInterface(npc->getScriptInterface())
+NpcEventsHandler::NpcEventsHandler(const std::string& file, Npc* npcEvent) :
+	npc(npcEvent), scriptInterface(npc->getScriptInterface())
 {
 	loaded = scriptInterface->loadFile("data/npc/scripts/" + file, npc) == 0;
 	if (!loaded) {

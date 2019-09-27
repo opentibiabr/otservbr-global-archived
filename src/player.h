@@ -1,4 +1,6 @@
 /**
+ * @file player.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_PLAYER_H_4083D3D3A05B4EDE891B31BB720CD06F
-#define FS_PLAYER_H_4083D3D3A05B4EDE891B31BB720CD06F
+#ifndef OT_SRC_PLAYER_H_
+#define OT_SRC_PLAYER_H_
 
 #include "creature.h"
 #include "container.h"
@@ -80,8 +82,8 @@ enum tradestate_t : uint8_t {
 };
 
 struct VIPEntry {
-	VIPEntry(uint32_t guid, std::string name, std::string description, uint32_t icon, bool notify) :
-		guid(guid), name(std::move(name)), description(std::move(description)), icon(icon), notify(notify) {}
+	VIPEntry(uint32_t initGuid, std::string initName, std::string initDescription, uint32_t initIcon, bool initNotify) :
+		guid(initGuid), name(std::move(initName)), description(std::move(initDescription)), icon(initIcon), notify(initNotify) {}
 
 	uint32_t guid;
 	std::string name;
@@ -96,7 +98,7 @@ struct OpenContainer {
 };
 
 struct OutfitEntry {
-	constexpr OutfitEntry(uint16_t lookType, uint8_t addons) : lookType(lookType), addons(addons) {}
+	constexpr OutfitEntry(uint16_t initLookType, uint8_t initAddons) : lookType(initLookType), addons(initAddons) {}
 
 	uint16_t lookType;
 	uint8_t addons;
@@ -149,8 +151,8 @@ class Player final : public Creature, public Cylinder
 		const std::string& getName() const final {
 			return name;
 		}
-		void setName(std::string name) {
-			this->name = std::move(name);
+		void setName(std::string newName) {
+			this->name = std::move(newName);
 		}
 		const std::string& getNameDescription() const final {
 			return name;
@@ -178,8 +180,8 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
-		void setGUID(uint32_t guid) {
-			this->guid = guid;
+		void setGUID(uint32_t newGuid) {
+			this->guid = newGuid;
 		}
 		uint32_t getGUID() const {
 			return guid;
@@ -349,8 +351,8 @@ class Player final : public Creature, public Cylinder
 			return secureMode;
 		}
 
-		void setParty(Party* party) {
-			this->party = party;
+		void setParty(Party* newParty) {
+			this->party = newParty;
 		}
 		Party* getParty() const {
 			return party;
@@ -528,8 +530,8 @@ class Player final : public Creature, public Cylinder
 		Town* getTown() const {
 			return town;
 		}
-		void setTown(Town* town) {
-			this->town = town;
+		void setTown(Town* newTown) {
+			this->town = newTown;
 		}
 
 		void clearModalWindows();
@@ -790,17 +792,17 @@ class Player final : public Creature, public Cylinder
 
 		//tile
 		//send methods
-		void sendAddTileItem(const Tile* tile, const Position& pos, const Item* item) {
+		void sendAddTileItem(const Tile* itemTile, const Position& pos, const Item* item) {
 			if (client) {
-				int32_t stackpos = tile->getStackposOfItem(this, item);
+				int32_t stackpos = itemTile->getStackposOfItem(this, item);
 				if (stackpos != -1) {
 					client->sendAddTileItem(pos, stackpos, item);
 				}
 			}
 		}
-		void sendUpdateTileItem(const Tile* tile, const Position& pos, const Item* item) {
+		void sendUpdateTileItem(const Tile* updateTile, const Position& pos, const Item* item) {
 			if (client) {
-				int32_t stackpos = tile->getStackposOfItem(this, item);
+				int32_t stackpos = updateTile->getStackposOfItem(this, item);
 				if (stackpos != -1) {
 					client->sendUpdateTileItem(pos, stackpos, item);
 				}
@@ -811,9 +813,9 @@ class Player final : public Creature, public Cylinder
 				client->sendRemoveTileThing(pos, stackpos);
 			}
 		}
-		void sendUpdateTile(const Tile* tile, const Position& pos) {
+		void sendUpdateTile(const Tile* updateTile, const Position& pos) {
 			if (client) {
-				client->sendUpdateTile(tile, pos);
+				client->sendUpdateTile(updateTile, pos);
 			}
 		}
 
@@ -977,10 +979,10 @@ class Player final : public Creature, public Cylinder
 			}
 		}
 
-		void sendStorePurchaseSuccessful(const std::string& message, const uint32_t coinBalance) {
+		void sendStorePurchaseSuccessful(const std::string& message, const uint32_t newCoinBalance) {
 			if(client)
 			{
-				client->sendStorePurchaseSuccessful(message, coinBalance);
+				client->sendStorePurchaseSuccessful(message, newCoinBalance);
 			}
 		}
 
@@ -1370,10 +1372,10 @@ class Player final : public Creature, public Cylinder
 			lastMarketInteraction = OTSYS_TIME();
 		}
 
-   		bool updateKillTracker(Container* corpse, const std::string& name, const Outfit_t creatureOutfit) const
+   		bool updateKillTracker(Container* corpse, const std::string& playerName, const Outfit_t creatureOutfit) const
  		{
   			if (client && getProtocolVersion() > 1140) {
-				client->sendKillTrackerUpdate(corpse, name, creatureOutfit);
+				client->sendKillTrackerUpdate(corpse, playerName, creatureOutfit);
 				return true;
  			}
 

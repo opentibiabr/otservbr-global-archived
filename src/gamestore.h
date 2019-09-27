@@ -1,7 +1,9 @@
 /**
- * The OTXServer Project - based on TFS
+ * @file gamestore.h
+ * 
+ * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
-
+ *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OTX_GAMESTORE_H_A21098A1C2903794B635DDB0A3E7A914
-#define OTX_GAMESTORE_H_A21098A1C2903794B635DDB0A3E7A914
+#ifndef OT_SRC_GAMESTORE_H_
+#define OT_SRC_GAMESTORE_H_
 
 #include "otpch.h"
 #include "position.h"
@@ -135,7 +137,7 @@ class GameStore {
 			return storeCategoryOffers;
 		};
 
-		const int8_t getCategoryIndexByName(std::string categoryName) const;
+		int8_t getCategoryIndexByName(std::string categoryName);
 		bool haveCategoryByState(StoreState_t state);
 		const BaseOffer* getOfferByOfferId(uint32_t offerId);
 

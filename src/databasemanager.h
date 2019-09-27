@@ -1,4 +1,6 @@
 /**
+ * @file databasemanager.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_DATABASEMANAGER_H_2B75821C555E4D1D83E32B20D683217C
-#define FS_DATABASEMANAGER_H_2B75821C555E4D1D83E32B20D683217C
+#ifndef OT_SRC_DATABASEMANAGER_H_
+#define OT_SRC_DATABASEMANAGER_H_
 #include "database.h"
 
 class DatabaseManager

@@ -1,4 +1,6 @@
 /**
+ * @file npc.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_NPC_H_B090D0CB549D4435AFA03647195D156F
-#define FS_NPC_H_B090D0CB549D4435AFA03647195D156F
+#ifndef OT_SRC_NPC_H_
+#define OT_SRC_NPC_H_
 
 #include "creature.h"
 #include "luascript.h"

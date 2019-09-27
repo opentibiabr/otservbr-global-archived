@@ -1,4 +1,6 @@
 /**
+ * @file iomapserialize.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_IOMAPSERIALIZE_H_7E903658F34E44F9BE03A713B55A3D6D
-#define FS_IOMAPSERIALIZE_H_7E903658F34E44F9BE03A713B55A3D6D
+#ifndef OT_SRC_IOMAPSERIALIZE_H_
+#define OT_SRC_IOMAPSERIALIZE_H_
 
 #include "database.h"
 #include "map.h"

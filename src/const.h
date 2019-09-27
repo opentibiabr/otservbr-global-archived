@@ -1,4 +1,6 @@
 /**
+ * @file const.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_CONST_H_0A49B5996F074465BF44B90F4F780E8B
-#define FS_CONST_H_0A49B5996F074465BF44B90F4F780E8B
+#ifndef OT_SRC_CONST_H_
+#define OT_SRC_CONST_H_
 
 static constexpr int32_t NETWORKMESSAGE_MAXSIZE = 24590;
 

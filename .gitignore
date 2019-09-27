@@ -30,6 +30,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+build/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -168,6 +169,9 @@ DocProject/Help/*.hhk
 DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
+
+# Doxygen files
+doc/*
 
 # Click-Once directory
 publish/
@@ -351,6 +355,10 @@ MigrationBackup/
 
 # Docker folders with generated artifacts
 docker/**/otserver
+
+# VSCode
+settings.json
+c_cpp_properties.json
 
 ## CUSTOM
 

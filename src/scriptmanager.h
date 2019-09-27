@@ -1,4 +1,6 @@
 /**
+ * @file scriptmanager.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_SCRIPTMANAGER_H_F9428B7803A44FB88EB1A915CFD37F8B
-#define FS_SCRIPTMANAGER_H_F9428B7803A44FB88EB1A915CFD37F8B
+#ifndef OT_SRC_SCRIPTMANAGER_H_
+#define OT_SRC_SCRIPTMANAGER_H_
 
 class ScriptingManager
 {

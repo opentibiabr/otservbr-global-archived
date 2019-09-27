@@ -1,4 +1,6 @@
 /**
+ * @file tools.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_TOOLS_H_5F9A9742DA194628830AA1C64909AE43
-#define FS_TOOLS_H_5F9A9742DA194628830AA1C64909AE43
+#ifndef OT_SRC_TOOLS_H_
+#define OT_SRC_TOOLS_H_
 
 #include <random>
 #include <regex>

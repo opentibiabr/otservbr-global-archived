@@ -1,4 +1,6 @@
 /**
+ * @file bed.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -26,7 +28,7 @@
 
 extern Game g_game;
 
-BedItem::BedItem(uint16_t id) : Item(id)
+BedItem::BedItem(uint16_t initId) : Item(initId)
 {
 	internalRemoveSleeper();
 }

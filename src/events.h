@@ -1,4 +1,6 @@
 /**
+ * @file events.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_EVENTS_H_BD444CC0EE167E5777E4C90C766B36DC
-#define FS_EVENTS_H_BD444CC0EE167E5777E4C90C766B36DC
+#ifndef OT_SRC_EVENTS_H_
+#define OT_SRC_EVENTS_H_
 
 #include "imbuements.h"
 #include "luascript.h"
