@@ -139,7 +139,6 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 				if (attacker:getPreyCurrentMonster(slot) == self:getName() and attacker:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_BOOST) then
 					damagePrimary = damagePrimary + math.floor(damagePrimary * (attacker:getPreyBonusValue(slot) / 100))
-					preyTimeLeft(attacker, slot) -- slot consumption
 					break
 				end
 			end
@@ -150,7 +149,6 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 				if (self:getPreyCurrentMonster(slot) == attacker:getName() and self:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_REDUCTION) then
 					damagePrimary = damagePrimary - math.floor(damagePrimary * (self:getPreyBonusValue(slot) / 100))
-					preyTimeLeft(self, slot) -- slot consumption
 					break
 				end
 			end
