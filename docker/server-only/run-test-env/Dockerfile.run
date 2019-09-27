@@ -1,0 +1,15 @@
+FROM alpine:edge AS run
+RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+  boost-dev \
+  boost-iostreams \
+  boost-system \
+  crypto++ \
+  gmp \
+  luajit \
+  mariadb-connector-c \
+  pugixml \
+  gdb
+
+RUN ln -s /usr/lib/libcryptopp.so /usr/lib/libcryptopp.so.5.6
+
+ENTRYPOINT cd /tmp/otserver && ls && gdb ./tfs

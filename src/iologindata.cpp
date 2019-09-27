@@ -126,10 +126,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, co
 	query << "SELECT `id`, `password` FROM `accounts` WHERE `name` = " << db.escapeString(accountName);
 	DBResult_ptr result = db.storeQuery(query.str());
 	if (!result) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Account not found!" << std::endl;		
 		return 0;
 	}
 
 	if (transformToSHA1(password) != result->getString("password")) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Wrong Password! " << transformToSHA1(password) << "!=" << result->getString("password") << std::endl;		
 		return 0;
 	}
 
@@ -139,10 +141,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, co
 	query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
 	result = db.storeQuery(query.str());
 	if (!result) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Not able to find player(" << characterName << ")" << std::endl;		
 		return 0;
 	}
 
 	if (result->getNumber<uint32_t>("account_id") != accountId || result->getNumber<uint64_t>("deletion") != 0) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Account mismatch or account has been marked as deleted!" << std::endl;		
 		return 0;
 	}
 	characterName = result->getString("name");
