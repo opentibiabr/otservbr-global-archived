@@ -555,7 +555,13 @@ function Player:onItemMoved(item, count, fromPosition, toPosition, fromCylinder,
 end
 
 function Player:onMoveCreature(creature, fromPosition, toPosition)
-	return true
+    if not creature:isPlayer() then
+        return true
+    elseif creature:getStorageValue(Storage.isTraining) == 1 and not self:getGroup():getId() >= 4 then
+        self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You may not move players using exercise dummies.")
+        return false
+    end
+    return true
 end
 
 local function hasPendingReport(name, targetName, reportType)
