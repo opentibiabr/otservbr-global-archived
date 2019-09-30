@@ -5601,7 +5601,8 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 	}
 
 	const uint32_t maxOfferCount = g_config.getNumber(ConfigManager::MAX_MARKET_OFFERS_AT_A_TIME_PER_PLAYER);
-	if (maxOfferCount != 0 && IOMarket::getPlayerOfferCount(player->getGUID()) >= maxOfferCount) {
+	if (maxOfferCount != 0 && 
+		IOMarket::getPlayerOfferCount(player->getGUID()) >= maxOfferCount) {
 		return;
 	}
 
@@ -5612,7 +5613,12 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		fee = 1000;
 	}
 
-	if (type == MARKETACTION_SELL) {		
+	if (type == MARKETACTION_SELL) {	
+
+		if (fee > (player->getBankBalance() + player->getMoney())) {
+			return;
+		}	
+		
 		DepotLocker* depotLocker = player->getDepotLocker(player->getLastDepotId());
 		if (!depotLocker) {
 			return;
@@ -5649,18 +5655,37 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 			}
 		}
 
-		g_game.removeMoney(player, fee);
+		if(fee <= player->getBankBalance())
+		{
+			player->setBankBalance(player->getBankBalance() - fee);
+		}
+		else
+		{
+			uint64_t remainsFee = 0;
+			remainsFee = fee - player->getBankBalance();
+			player->setBankBalance(0);
+			g_game.removeMoney(player, remainsFee);
+		}
 		
 	} else {
-		uint64_t totalPrice = static_cast<uint64_t>(price) * amount;
+
+		uint64_t totalPrice = price * amount;
 		totalPrice += fee;
-		if (totalPrice > player->getBankBalance()) {
-			return;
-		} else if (totalPrice > player->getMoney()) {
+		if (totalPrice > (player->getMoney() + player->getBankBalance())) {
 			return;
 		}
 
-		g_game.removeMoney(player, fee);
+		// Have enough money on the bank
+		if(totalPrice <= player->getBankBalance())
+		{
+			player->setBankBalance(player->getBankBalance() - totalPrice);
+		}
+		else
+		{
+			uint64_t remainsPrice = 0;
+			remainsPrice = totalPrice - player->getBankBalance();
+			g_game.removeMoney(player, remainsPrice);
+		}
 	}
 
 	IOMarket::createOffer(player->getGUID(), static_cast<MarketAction_t>(type), it.id, amount, price, anonymous);
@@ -5784,7 +5809,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		return;
 	}
 
-	uint64_t totalPrice = static_cast<uint64_t>(offer.price) * amount;
+	uint64_t totalPrice = offer.price * amount;
 
 	if (offer.type == MARKETACTION_BUY) {
 		DepotLocker* depotLocker = player->getDepotLocker(player->getLastDepotId());
@@ -5806,10 +5831,10 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 				return;
 			}
 
-			IOAccount::removeCoins(player->getAccount(), static_cast<int32_t>(amount));
-			IOAccount::registerTransaction(player->getAccount(), -static_cast<int32_t>(amount), "Sold on Market");
+			IOAccount::removeCoins(player->getAccount(), amount);
+			IOAccount::registerTransaction(player->getAccount(), -amount, "Sold on Market");
 
-		} else {
+		} else { 
 			std::forward_list<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty()) {
 				return;
@@ -5867,14 +5892,28 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 
 		if (buyerPlayer->isOffline()) {
-			IOLoginData::savePlayer(buyerPlayer);
+			IOLoginData::increaseBankBalance(buyerPlayer->getGUID(), buyerPlayer->getBankBalance());
 			delete buyerPlayer;
 		}
-	} else {
-		if (totalPrice > player->getBankBalance()) {
+	} else {//MARKETACTION_SELL
+		
+		if (totalPrice > (player->getBankBalance() + player->getMoney())) {
 			return;
+		}	
+		
+		// Have enough money on the bank
+		if(totalPrice <= player->getBankBalance())
+		{
+			player->setBankBalance(player->getBankBalance() - totalPrice);
 		}
-		player->setBankBalance( player->getBankBalance() - totalPrice);
+		else
+		{
+			uint64_t remainsPrice = 0;
+			remainsPrice = totalPrice - player->getBankBalance();
+			player->setBankBalance(0);
+			g_game.removeMoney(player, remainsPrice);
+		}
+
 		if (it.id == ITEM_TIBIA_COIN) {
 			IOAccount::addCoins(player->getAccount(), amount);
 			IOAccount::registerTransaction(player->getAccount(), amount, "Purchased on Market");
@@ -5911,7 +5950,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		if (sellerPlayer) {
 			sellerPlayer->setBankBalance(sellerPlayer->getBankBalance() + totalPrice);
 			if (it.id == ITEM_TIBIA_COIN) {
-				IOAccount::registerTransaction(sellerPlayer->getAccount(), -static_cast<int32_t>(amount), "Sold on Market");
+				IOAccount::registerTransaction(sellerPlayer->getAccount(), -amount, "Sold on Market");
 			}
 		} else {
 			IOLoginData::increaseBankBalance(offer.playerId, totalPrice);
@@ -5919,7 +5958,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 				sellerPlayer = new Player(nullptr);
 
 				if (IOLoginData::loadPlayerById(sellerPlayer, offer.playerId)) {
-					IOAccount::registerTransaction(sellerPlayer->getAccount(), -static_cast<int32_t>(amount), "Sold on Market");
+					IOAccount::registerTransaction(sellerPlayer->getAccount(), -amount, "Sold on Market");
 		}
 
 				delete sellerPlayer;
@@ -5927,7 +5966,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 		if (it.id != ITEM_TIBIA_COIN) {
 		player->onReceiveMail();
-	}
+		}
 	}
 
 	const int32_t marketOfferDuration = g_config.getNumber(ConfigManager::MARKET_OFFER_DURATION);
