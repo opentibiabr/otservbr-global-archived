@@ -18,6 +18,12 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif()
 
+if (CMAKE_BUILD_TYPE MATCHES Debug)
+  # Define DEBUG 'flag'
+  add_definitions( -D_DEBUG )
+  message("######### DEBUG flag enabled!")
+endif()
+
 # compile flags
 # https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
 set(WARNING_FLAGS "-Wall -Werror")
@@ -108,7 +114,7 @@ if(BUILD_DOC)
 
 endif (BUILD_DOC)
 
-include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${Crypto++_INCLUDE_DIR} ${spdlog_INCLUDE_DIR})
+include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${Crypto++_INCLUDE_DIR} ${Spdlog_INCLUDE_DIR})
 
 target_link_libraries(tfs ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${PUGIXML_LIBRARIES} ${Crypto++_LIBRARIES} ${Spdlog_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 

@@ -19,6 +19,12 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#ifdef _DEBUG
+#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
+#else
+#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_ERROR
+#endif
+
 #include <spdlog/spdlog.h>
 
 #include "otpch.h"
@@ -74,8 +80,9 @@ void badAllocationHandler()
 
 int main(int argc, char* argv[])
 {
-#ifdef DEBUG
+#ifdef _DEBUG
 	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
+	SPDLOG_DEBUG("[OTSERV] SPDLOG LOG DEBUG ENABLED");
 #endif
 
 	// Setup bad allocation handler
