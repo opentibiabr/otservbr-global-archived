@@ -76,7 +76,7 @@ class NpcScriptInterface final : public LuaScriptInterface
 class NpcEventsHandler
 {
 	public:
-		NpcEventsHandler(const std::string& file, Npc* npc);
+		NpcEventsHandler(const std::string& file, Npc* npcEvent);
 
 		void onCreatureAppear(Creature* creature);
 		void onCreatureDisappear(Creature* creature);

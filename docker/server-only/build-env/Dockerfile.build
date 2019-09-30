@@ -14,5 +14,5 @@ RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/test
   pugixml-dev \
   spdlog-dev
 
-ENTRYPOINT cd /tmp/otserver && mkdir build && cd build && cmake --entrypoint -DCMAKE_BUILD_TYPE=Debug .. && make -j`nproc`
+ENTRYPOINT cd /tmp/otserver && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc`
 

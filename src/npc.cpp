@@ -1084,7 +1084,7 @@ int NpcScriptInterface::luaNpcCloseShopWindow(lua_State* L)
 }
 
 NpcEventsHandler::NpcEventsHandler(const std::string& file, Npc* npcEvent) :
-	npc(npcEvent), scriptInterface(npc->getScriptInterface())
+	npc(npcEvent), scriptInterface(npcEvent->getScriptInterface())
 {
 	loaded = scriptInterface->loadFile("data/npc/scripts/" + file, npc) == 0;
 	if (!loaded) {
