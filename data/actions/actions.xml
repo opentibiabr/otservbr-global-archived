@@ -669,6 +669,7 @@
 	<action fromid="35042" toid="35043" script="others/transform.lua" /> <!-- Festive Pyramid -->
 	<action fromid="36031" toid="36032" script="others/transform.lua" /> <!-- Crystal Lamp -->
 	<action fromid="36048" toid="36051" script="others/transform.lua" /> <!-- Idol Lamp -->
+	<action itemid="36509" script="others/transform.lua"/><!-- omniscient owl -->
 	<action fromid="36516" toid="36517" script="others/transform.lua" /> <!-- Hedgehog -->
 	<action fromid="36518" toid="36519" script="others/transform.lua" /> <!-- Exalted Sarcophagus -->
 	<action fromid="36530" toid="36531" script="others/transform.lua" /> <!-- Curly Hortensis Lamp -->

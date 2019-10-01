@@ -464,30 +464,6 @@
 	<item id="1388" article="a" name="ramp">
 		<attribute key="floorchange" value="east" />
 	</item>
-	<item id="33776" article="a" name="ramp">
-		<attribute key="floorchange" value="north" />
-	</item>
-	<item id="33778" article="a" name="ramp">
-		<attribute key="floorchange" value="west" />
-	</item>
-	<item id="33780" article="a" name="ramp">
-		<attribute key="floorchange" value="east" />
-	</item>
-	<item id="33782" article="a" name="ramp">
-		<attribute key="floorchange" value="south" />
-	</item>
-	<item id="33748" article="a" name="ramp">
-		<attribute key="floorchange" value="north" />
-	</item>
-	<item id="33750" article="a" name="ramp">
-		<attribute key="floorchange" value="west" />
-	</item>
-	<item id="33752" article="a" name="ramp">
-		<attribute key="floorchange" value="east" />
-	</item>
-	<item id="33754" article="a" name="ramp">
-		<attribute key="floorchange" value="south" />
-	</item>
 	<item id="1389" article="a" name="ramp" />
 	<item id="1390" article="a" name="ramp">
 		<attribute key="floorchange" value="west" />
@@ -41483,6 +41459,30 @@
 	<item fromid="33783" toid="33784" article="an" name="ornamented wall"/>
 	<item fromid="33755" toid="33763" article="a" name="frozen wall"/>
 	<item id="33764" article="a" name="frozen pillar"/>
+	<item id="33776" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="33778" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="33780" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="33782" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
+	<item id="33748" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="33750" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="33752" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="33754" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
 	<item fromid="33785" toid="33786" article="a" name="frozen wall"/>
 	<item fromid="33911" toid="33912" article="a" name="frozen column"/>
 	<item id="33925" article="a" name="golden axe">
@@ -42881,6 +42881,199 @@
 	<item id="35206" article="a" name="black raven kit"/>
 	<item id="35207" article="a" name="grey raven kit"/>
 	<item id="35208" article="a" name="white raven kit"/>
+	<item id="35242" article="a" name="sequoia trunk"/>
+	<item fromid="35251" toid="35252" article="a" name="sequoia tree"/>
+	<item id="35253" article="a" name="honey palm"/>
+	<item id="35254" article="a" name="blooming sequoia tree"/>
+	<item id="35255" article="a" name="small cactus tree"/>
+	<item id="35256" article="an" name="asp succulent"/>
+	<item id="35257" article="a" name="snake maw"/>
+	<item id="35258" article="a" name="succulent"/>
+	<item id="35259" article="a" name="dawn bush"/>
+	<item id="35260" name="purple inkweed"/>
+	<item id="35261" name="veldt flowers"/>
+	<item id="35262" name="wild desert roses"/>
+	<item fromid="35263" toid="35268" article="a" name="veined rock" />
+	<item fromid="35269" toid="35278" article="a" name="veined stone" />
+	<item fromid="35279" toid="35280" article="a" name="veined rock" />
+	<item fromid="35281" toid="35282" article="a" name="veined stone" />
+	<item fromid="35283" toid="35284" article="a" name="ruddy obelisk"/>
+	<item fromid="35285" toid="35286" article="a" name="pile of ruddy ashlars" />
+	<item fromid="35287" toid="35288" article="an" name="ancient sepulchre" />
+	<item fromid="35289" toid="35294" article="a" name="sphinx statue" />
+	<item fromid="35295" toid="35296" article="a" name="gryphon statue" />
+	<item fromid="35297" toid="35300" article="a" name="lamassu statue" />
+	<item fromid="35301" toid="35304" article="a" name="manticore statue" />
+	<item fromid="35449" toid="35450" article="a" name="statue stand" />
+	<item fromid="35451" toid="35452" article="a" name="statue of Suon" />
+	<item fromid="35453" toid="35454" article="a" name="statue of Bastesh" />
+	<item id="35455" article="a" name="potted palm tree"/>
+	<item fromid="35456" toid="35457" article="a" name="potted plant" />
+	<item fromid="35458" toid="35459" name="reed" />
+	<item id="35460" article="a" name="granite pillar"/>
+	<item fromid="35461" toid="35464" article="an" name="obelisk" />
+	<item fromid="35465" toid="35466" article="a" name="pilaster" />
+	<item fromid="35467" toid="35470" article="an" name="ancient wall" />
+	<item fromid="35471" toid="35480" article="a" name="door casing" />
+	<item id="35481" article="a" name="granite pillar"/>
+	<item fromid="35482" toid="35485" article="a" name="golden dome" />
+	<item fromid="35486" toid="35489" article="a" name="blue dome" />
+	<item fromid="35490" toid="35495" article="a" name="mosaic" />
+	<item fromid="35497" toid="35498" article="an" name="inscription" />
+	<item fromid="35499" toid="35502" article="a" name="sun ornament" />
+	<item id="35503" article="a" name="wave mosaic"/>
+	<item id="35504" article="a" name="sun mosaic"/>
+	<item fromid="35505" toid="35508" article="a" name="mosaic" />
+	<item fromid="35509" toid="35518" article="a" name="lamassu" />
+	<item fromid="35536" toid="35552" name="reed" />
+	<item fromid="35553" toid="35570" name="ancient paving" />
+	<item fromid="35581" toid="35584" article="an" name="archway" />
+	<item fromid="35589" toid="35590" article="a" name="window" />
+	<item id="35591" article="a" name="ramp" />
+	<item id="35592" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="35593" article="a" name="ramp" />
+	<item id="35594" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="35595" article="a" name="ramp" />
+	<item id="35596" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="35597" article="a" name="ramp" />
+	<item id="35598" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
+	<item fromid="35613" toid="35623" article="an" name="ancient wall" />
+	<item id="35624" article="a" name="symbol of Suon"/>
+	<item fromid="35625" toid="35634" article="an" name="ancient wall" />
+	<item id="35635" article="a" name="symbol of Suon"/>
+	<item fromid="35636" toid="35641" article="an" name="ancient wall" />
+	<item fromid="35642" toid="35645" article="an" name="archway" />
+	<item fromid="35646" toid="35651" article="a" name="railing" />
+	<item fromid="35652" toid="35653" article="a" name="window" />
+	<item id="35654" article="a" name="ramp" />
+	<item id="35655" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="35656" article="a" name="ramp" />
+	<item id="35657" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="35658" article="a" name="ramp" />
+	<item id="35659" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="35660" article="a" name="ramp" />
+	<item id="35661" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
+	<item fromid="35662" toid="35667" article="a" name="broken wall"/>
+	<item id="35674" article="an" name="obelisk"/>
+	<item fromid="35675" toid="35676" article="a" name="slant"/>
+	<item fromid="35677" toid="35678" article="an" name="obelisk"/>
+	<item fromid="35679" toid="35681" article="an" name="ancient wall"/>
+	<item fromid="35682" toid="35683" article="a" name="wall"/>
+	<item fromid="35692" toid="35701" article="a" name="railing"/>
+	<item fromid="35702" toid="35707" article="an" name="archway" />
+	<item fromid="35708" toid="35713" article="a" name="window" />
+	<item fromid="35714" toid="35737" article="a" name="border" />
+	<item id="35738" article="a" name="ramp" />
+	<item id="35739" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="35740" article="a" name="ramp" />
+	<item id="35741" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="35742" article="a" name="ramp" />
+	<item id="35743" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="35744" article="a" name="ramp" />
+	<item id="35745" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
+	<item id="35746" article="a" name="ramp" />
+	<item id="35747" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="35748" article="a" name="ramp" />
+	<item id="35749" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="35750" article="a" name="ramp" />
+	<item id="35751" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="35752" article="a" name="ramp" />
+	<item id="35753" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>
+	<item fromid="35754" toid="35761" article="a" name="sphinx statue" />
+	<item id="35762" article="an" name="amphora">
+		<attribute key="weight" value="9700" />
+		<attribute key="pickupable" value="1" />
+	</item>
+	<item fromid="35763" toid="35766" article="a" name="mosaic" />
+	<item fromid="35767" toid="35794" article="a" name="carpet" />
+	<item id="35795" article="a" name="wall lamp"/>
+	<item id="35796" article="a" name="lit wall lamp"/>
+	<item fromid="35797" toid="35798" article="a" name="hanging lamp" />
+	<item fromid="35799" toid="35800" article="a" name="fire bowl" />
+	<item id="35801" article="a" name="hanging sabre"/>
+	<item id="35802" article="a" name="hanging shield"/>
+	<item fromid="35803" toid="35806" article="a" name="hanging sun disk" />
+	<item id="35808" article="a" name="bundle of reeds"/>
+	<item id="35809" name="reed"/>
+	<item id="35810" article="a" name="bunch of reed">
+		<attribute key="weight" value="550" />
+	</item>
+	<item id="35811" name="reed"/>
+	<item id="35824" article="an" name="intricate cobra shrine">
+		<attribute key="description" value="This shrine, seems to be a display for a single small amulet. A severe warning is engraved on it." />
+	</item>
+	<item fromid="35825" toid="35826" article="a" name="burial case">
+		<attribute key="description" value="This massive burial case is the last resting place of the honourable knight Galthen." />
+	</item>
+	<item fromid="35873" toid="35885" name="wooden scaffolding" />
+	<item id="35886" name="wooden planks" />
+	<item id="35887" name="wooden scaffolding" />
+	<item id="35888" name="linen" />
+	<item id="35889" article="a" name="large canvas"/>
+	<item fromid="35890" toid="35892" name="linen" />
+	<item id="35893" article="a" name="large canvas"/>
+	<item fromid="35894" toid="35896" name="linen" />
+	<item fromid="35897" toid="35898" article="a" name="crane" />
+	<item fromid="35899" toid="35907" name="wooden planks" />
+	<item fromid="35908" toid="35909" article="a" name="small pottery bowl" />
+	<item fromid="35910" toid="35911" article="a" name="small vase" />
+	<item fromid="35912" toid="35915" article="a" name="small jar" />
+	<item fromid="35916" toid="35931" article="a" name="wall" />
+	<item fromid="35935" toid="35938" article="an" name="ancient sarcophagus" />
+	<item fromid="35939" toid="35948" article="an" name="ancient stone coffin" />
+	<item fromid="35949" toid="35950" article="an" name="ancient tombstone" />
+	<item fromid="35951" toid="35952" article="an" name="ancient tombstone">
+		<attribute key="description" value="Here lies Ultan, son of Atanna
+Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with age)" />
+	</item>
+	<item fromid="35954" toid="35959" article="a" name="small amphora" />
+	<item id="35960" article="a" name="broken amphora"/>
+	<item id="35961" article="a" name="small amphora"/>
+	<item fromid="35964" toid="35965" article="a" name="wooden ladder" />
+	<item fromid="35975" toid="35978" article="a" name="broken wall"/>
+	<item fromid="35979" toid="35980" article="a" name="railing"/>
+	<item fromid="35981" toid="35984" article="a" name="broken wall"/>
+	<item id="35986" article="a" name="hanging sabre"/>
+	<item id="35987" article="a" name="hanging shield"/>
+	<item fromid="35988" toid="35991" article="a" name="hanging sun disk" />
+	<item id="35992" article="a" name="wall lamp"/>
+	<item id="35993" article="a" name="lit wall lamp"/>
+	<item fromid="35996" toid="35997" article="a" name="statue of Fafnar" />
+	<item id="36000" article="a" name="wounded shark" />
+	<item fromid="36001" toid="36002" name="wooden archway" />
+	<item fromid="36006" toid="36017" name="shallow water" />
 	<item id="36018" article="a" name="dwarven stone chair">
 		<attribute key="rotateTo" value="36019" />
 		<attribute key="wrapableTo" value="26054" />
@@ -42936,6 +43129,22 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36032" article="a" name="crystal lamp"/>
+	<item fromid="36033" toid="36036" name="stones" />
+	<item id="36037" article="a" name="sealed scroll">
+		<attribute key="weight" value="110" />
+	</item>
+	<item id="36038" name="good remains of a druid">
+		<attribute key="weight" value="10" />
+	</item>
+	<item id="36039" name="good remains of a paladin">
+		<attribute key="weight" value="10" />
+	</item>
+	<item id="36040" name="good remains of a knight">
+		<attribute key="weight" value="10" />
+	</item>
+	<item id="36041" name="good remains of a sorcerer">
+		<attribute key="weight" value="10" />
+	</item>
 	<item id="36042" article="a" name="square side table">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -43006,21 +43215,115 @@
 		<attribute key="rotateTo" value="36047" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item id="36100" article="a" name="dragon goblet" >
+	<item fromid="36062" toid="36073" name="lush grass" />
+	<item fromid="36075" toid="36077" name="gold coins" />
+	<item fromid="36078" toid="36089" article="a" name="mosaic" />
+	<item id="36090" article="a" name="dead cart packed with gold">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36091" article="a" name="dead cart packed with gold">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="36090" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36092" article="a" name="dead cart packed with gold">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="36091" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36093" article="a" name="dead cart packed with gold">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="36092" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36094" name="ornate canopic jar" />
+	<item id="36095" name="remains of a canopic jar" />
+	<item id="36096" article="a" name="water pipe">
+		<attribute key="weight" value="6500" />
+	</item>
+	<item id="36097" article="a" name="ladder" />
+	<item id="36099" article="a" name="wheel oil">
+		<attribute key="description" value="Ideal to oil large wheels. The can is leaky." />
+		<attribute key="weight" value="1900" />
+	</item>
+	<item id="36100" article="a" name="dragon goblet">
 		<attribute key="description" value="Souvenir from Thais Museum." />
 		<attribute key="weight" value="1800" />
 	</item>
-	<item id="36101" article="a" name="pigeon trophy" >
+	<item id="36101" article="a" name="pigeon trophy">
 		<attribute key="description" value="Souvenir from Thais Museum." />
 		<attribute key="weight" value="400" />
 	</item>
-	<item id="36102" article="a" name="loremaster doll" >
+	<item id="36102" article="a" name="loremaster doll">
 		<attribute key="description" value="Souvenir from Thais Museum." />
 		<attribute key="weight" value="7700" />
 	</item>
-	<item id="36103" article="a" name="jade amulet" >
+	<item id="36103" article="a" name="jade amulet">
 		<attribute key="description" value="Souvenir from Thais Museum." />
 		<attribute key="weight" value="400" />
+	</item>
+	<item id="36104" article="a" name="ankh mosaic" />
+	<item id="36118" article="a" name="fire bowl" />
+	<item fromid="36119" toid="36122" article="a" name="large caldron" />
+	<item fromid="36123" toid="36130" article="a" name="roof" />
+	<item id="36131" article="a" name="flask with snake poison">
+		<attribute key="description" value="The cobra poison in this flask is very potent. Even inhaling it would be dangerous. It leaks a bit and will evaporate shortly." />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="36132" article="an" name="empty ritual flask" >
+		<attribute key="description" value="This small ritual flask is used to gather potent snake poison." />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="36137" article="a" name="dead cobra">
+		<attribute key="containerSize" value="8" />
+		<attribute key="decayTo" value="36138" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36138" article="a" name="dead cobra">
+		<attribute key="containerSize" value="8" />
+		<attribute key="decayTo" value="36139" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36139" article="a" name="dead cobra">
+		<attribute key="containerSize" value="8" />
+		<attribute key="decayTo" value="36140" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36140" article="a" name="dead cobra">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36142" article="a" name="dead Gaffir">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36143" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36143" article="a" name="dead Gaffir">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36144" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36144" article="a" name="dead Gaffir">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36145" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36145" article="a" name="dead Gaffir">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36158" article="a" name="sea horse figurine" >
 		<attribute key="weight" value="650" />
@@ -43028,14 +43331,56 @@
 	<item id="36159" article="a" name="golden mask" >
 		<attribute key="weight" value="650" />
 	</item>
+	<item id="36160" name="veldt flowers">
+		<attribute key="weight" value="80" />
+	</item>
+	<item id="36161" name="grass"/>
+	<item id="36162" name="scissors">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="36163" article="a" name="bark peeler">
+		<attribute key="weight" value="1000" />
+	</item>
+	<item id="36164" name="honey palm bark">
+		<attribute key="weight" value="300" />
+	</item>
+	<item id="36165" article="a" name="wild desert rose" plural="wild desert roses">
+		<attribute key="weight" value="70" />
+	</item>
 	<item id="36166" article="an" name="empty honey glass" plural="empty honey glasses">
 		<attribute key="weight" value="90" />
+	</item>
+	<item id="36167" article="a" name="jar of honey" lural="jars of honey">
+		<attribute key="weight" value="250" />
+		<attribute key="description" value="Some honey palm blossoms are still floating in it, intensifying the sweet flavour." />
+	</item>
+	<item id="36168" article="a" name="tagralt nugged" lural="tagralt nuggeds">
+		<attribute key="weight" value="750" />
 	</item>
 	<item id="36169" article="a" name="hand auger">
 		<attribute key="weight" value="1000" />
 	</item>
+	<item id="36170" article="a" name="vial of cactus milk" plural="vials of cactus milk">
+		<attribute key="weight" value="240" />
+	</item>
+	<item id="36171" article="a" name="snake maw" plural="snake maws">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="36172" name="grass"/>
+	<item id="36173" name="dry grass"/>
+	<item id="36174" name="spiderweb clouds shreds">
+		<attribute key="weight" value="10" />
+	</item>
 	<item id="36175" article="a" name="lizard heart" plural="lizard hearts">
 		<attribute key="weight" value="350" />
+	</item>
+	<item fromid="36176" toid="36183" article="a" name="wall" />
+	<item id="36184" article="a" name="mirror neuron">
+		<attribute key="description" value="Mirror, mirror on the wall." />
+	</item>
+	<item id="36185" article="a" name="flask of hallucinogen">
+		<attribute key="weight" value="165" />
+		<attribute key="description" value="It smells sickly sweet." />
 	</item>
 	<item id="36186" article="a" name="black raven">
 		<attribute key="decayTo" value="35203" />
@@ -43049,8 +43394,284 @@
 		<attribute key="decayTo" value="35205" />
 		<attribute key="duration" value="600" />
 	</item>
-	<item id="36249" article="an" name="sceptre of sun and sea">
-		<attribute key="weight" value="490" />
+	<item id="36189" article="a" name="blue memory shard" plural="blue memory shards">
+		<attribute key="weight" value="13" />
+	</item>
+	<item id="36190" article="a" name="violet memory shard" plural="violet memory shards">
+		<attribute key="weight" value="13" />
+	</item>
+	<item id="36191" article="a" name="green memory shard" plural="green memory shards">
+		<attribute key="weight" value="13" />
+	</item>
+	<item id="36192" article="a" name="memory englitener" />
+	<item fromid="36196" toid="36197" article="a" name="hippo">
+		<attribute key="description" value="Its tusks are quite impressive." />
+	</item>
+	<item id="36198" article="a" name="gryphon egg shell">
+		<attribute key="description" value="It is gilded on the inside and filled with dark sand. Several incense sticks were put into the sand, smouldering out slowly." />
+	</item>
+	<item id="36199" article="a" name="small pile of scrolls">
+		<attribute key="description" value="They were sealed with the crest of Rathleton. The seals are already broken." />
+	</item>
+	<item id="36200" article="a" name="half burnt scroll">
+		<attribute key="description" value="It is heavily sooted." />
+	</item>
+	<item id="36201" article="a" name="hawser">
+		<attribute key="description" value="It is pinned on the ground." />
+	</item>
+	<item id="36202" article="a" name="flask with lamp oil">
+		<attribute key="weight" value="160" />
+		<attribute key="description" value="This lamp oil is highly flammable and evaporates quickly." />
+	</item>
+	<item id="36206" article="a" name="ivory mask">
+		<attribute key="weight" value="1800" />
+	</item>
+	<item id="36207" article="a" name="mirror mask">
+		<attribute key="weight" value="1600" />
+	</item>
+	<item id="36209" article="an" name="ancient sarcophagus"/>
+	<item fromid="36210" toid="36211" article="a" name="honey palm" />
+	<item fromid="36212" toid="36213" article="a" name="flowering cactus" />
+	<item id="36214" article="a" name="wooden cage key">
+		<attribute key="type" value="key" />
+		<attribute key="weight" value="77" />
+	</item>
+	<item id="36216" article="the" name="missing piece of the cube">
+		<attribute key="weight" value="100" />
+		<attribute key="description" value="It's black and it's missing." />
+	</item>
+	<item id="36218" article="a" name="dead sphinx">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36219" article="a" name="dead sphinx">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36218" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36220" article="a" name="dead sphinx">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36219" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36221" article="a" name="dead sphinx">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36220" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36222" article="a" name="dead manticore">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36223" article="a" name="dead manticore">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36222" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36224" article="a" name="dead manticore">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36223" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36225" article="a" name="dead manticore">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36224" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36226" article="a" name="dead lamassu">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36227" article="a" name="dead lamassu">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36226" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36228" article="a" name="dead lamassu">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36227" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36229" article="a" name="dead lamassu">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36228" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36230" article="a" name="dead gryphon">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36231" article="a" name="dead gryphon">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36230" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36232" article="a" name="dead gryphon">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36231" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36233" article="a" name="dead gryphon">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36232" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36237" article="a" name="dead young goanna">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36238" article="a" name="dead young goanna">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36237" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36239" article="a" name="dead young goanna">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36238" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36240" article="a" name="dead young goanna">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36239" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36241" article="a" name="dead adult goanna">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36242" article="a" name="dead adult goanna">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36241" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36243" article="a" name="dead adult goanna">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36242" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36244" article="a" name="dead adult goanna">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36243" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36245" article="a" name="dead Urmahlullu">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36246" article="a" name="dead Urmahlullu">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36245" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36247" article="a" name="dead Urmahlullu">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36246" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36248" article="a" name="dead Urmahlullu">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36247" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36249" article="a" name="sceptre of sun and sea">
+		<attribute key="weight" value="900" />
+	</item>
+	<item id="36251" article="a" name="dead priestess">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36252" article="a" name="dead priestess">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36251" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36253" article="a" name="dead priestess">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36252" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36254" article="a" name="dead priestess">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36253" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36255" article="a" name="dead black sphinx acolyte">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36256" article="a" name="dead black sphinx acolyte">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36255" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36257" article="a" name="dead black sphinx acolyte">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36256" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36258" article="a" name="dead black sphinx acolyte">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36257" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36263" name="goanna hide with sun symbol">
+		<attribute key="weight" value="60" />
+	</item>
+	<item id="36266" article="an" name="symbol of sun and sea">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="36267" article="a" name="basin filled with blood" />
+	<item id="36268" article="a" name="secret instruction" plural="secret instructions">
+		<attribute key="weight" value="20" />
+		<attribute key="You can find the gryphon mask high in the mountains. It will open the gryphon-guarded door." />
+	</item>
+	<item id="36269" article="a" name="secret instruction" plural="secret instructions">
+		<attribute key="weight" value="20" />
+		<attribute key="The ivory mask is under the ankh mosaic in the library. Put the missing emerald in the tile to open the hidden compartment. This mask will open the ivory-adorned doors." />
+	</item>
+	<item id="36270" article="a" name="secret instruction" plural="secret instructions">
+		<attribute key="weight" value="20" />
+		<attribute key="The mirror mask is hidden in a tomb near the northern oasis. It will open the mirror-behung door." />
+	</item>
+	<item id="36271" article="a" name="secret instruction" plural="secret instructions">
+		<attribute key="weight" value="20" />
+		<attribute key="The silver mask is hidden in the ruins of Nuur. It will open the silver-veined doors." />
 	</item>
 	<item id="36272" article="a" name="sphinx feather" plural="sphinx feathers">
 		<attribute key="weight" value="900" />
@@ -43073,9 +43694,40 @@
 	<item id="36278" article="a" name="fafnar symbol" plural="fafnar symbols">
 		<attribute key="weight" value="170" />
 	</item>
+	<item id="36280" article="a" name="small tortoise">
+		<attribute key="weight" value="4300" />
+	</item>
+	<item id="36281" article="a" name="small petrified tortoise">
+		<attribute key="weight" value="4300" />
+		<attribute key="description" value="It is a present you received from the medusa Alyxo." />
+	</item>
 	<item id="36282" article="an" name="ivory lyre">
 		<attribute key="weight" value="490" />
 	</item>
+	<item id="36285" article="a" name="dead Scarlett Etzel">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36286" article="a" name="dead Scarlett Etzel">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36285" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36287" article="a" name="dead Scarlett Etzel">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36286" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36288" article="a" name="dead Scarlett Etzel">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36287" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item fromid="36289" toid="36296" name="shallow water"/>
 	<item id="36297" article="a" name="jousting eagle baby">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -43094,8 +43746,24 @@
 	<item id="36302" article="a" name="sublime tournament carpet"/>
 	<item id="36303" article="a" name="tournament carpet"/>
 	<item id="36304" article="a" name="sublime tournament carpet"/>
-	<item id="36305" toid="36306" article="a" name="tournament accolade"/>
-	<item id="36307" toid="36308" article="a" name="sublime tournament accolade"/>
+	<item fromid="36305" toid="36306" article="a" name="tournament accolade"/>
+	<item fromid="36307" toid="36308" article="a" name="sublime tournament accolade"/>
+	<item fromid="36313" toid="36316" article="the" name="throne of Scarlett Etzel" />
+	<item id="36317" name="Galthen's chestplate" />
+	<item id="36318" article="the" name="throne of Scarlett Etzel" />
+	<item id="36320" article="a" name="scorpion">
+		<attribute key="weight" value="700" />
+	</item>
+	<item id="36321" article="a" name="calamary">
+		<attribute key="weight" value="700" />
+	</item>
+	<item id="36322" article="a" name="bat">
+		<attribute key="weight" value="700" />
+	</item>
+	<item id="36323" article="a" name="scared frog">
+		<attribute key="weight" value="700" />
+		<attribute key="description" value="It hopped out of the mouth of recently killed goanna. It is barely alive and looks very scared." />
+	</item>
 	<item id="36324" article="a" name="net">
 		<attribute key="weight" value="20" />
 	</item>
@@ -43148,6 +43816,98 @@
 		<attribute key="rotateTo" value="36350" />
 	</item>
 	<item fromid="36353" toid="36358" article="a" name="memorial"/>
+	<item id="36359" article="a" name="dead ogre ruffian">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36360" article="a" name="dead ogre ruffian">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36359" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36361" article="a" name="dead ogre ruffian">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36360" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36362" article="a" name="dead ogre ruffian">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36361" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36363" article="a" name="dead ogre rowdy">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36364" article="a" name="dead ogre rowdy">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36363" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36365" article="a" name="dead ogre rowdy">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36364" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36366" article="a" name="dead ogre rowdy">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36365" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36367" article="a" name="dead ogre sage">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36368" article="a" name="dead ogre sage">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36367" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36369" article="a" name="dead ogre sage">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36368" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36370" article="a" name="dead ogre sage">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="36369" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36379" article="a" name="dead cobra assassin">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36380" article="a" name="dead cobra assassin">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36379" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36381" article="a" name="dead cobra assassin">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36380" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36382" article="a" name="dead cobra assassin">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36381" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
 	<item id="36393" article="a" name="red goanna scale" plural="red goanna scales">
 		<attribute key="weight" value="90" />
 	</item>
@@ -43160,6 +43920,25 @@
 	<item id="36396" article="a" name="goanna claw" plural="goanna claws">
 		<attribute key="weight" value="90" />
 	</item>
+	<item id="36397" article="a" name="large pile of scrolls"/>
+	<item fromid="36398" toid="36401" article="a" name="pile of scrolls" />
+	<item id="36402" article="a" name="small pile of scrolls"/>
+	<item id="36407" article="a" name="blue and golden cordon">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="36408" article="a" name="sun medal">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="36409" article="a" name="sunray emblem">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="36410" article="a" name="golden bijou">
+		<attribute key="weight" value="850" />
+	</item>
+	<item id="36411" article="the" name="Regalia of Suon">
+		<attribute key="weight" value="3400" />
+	</item>
+	<item id="36422" article="a" name="dead gryphon"/>
 	<item id="36423" article="a" name="ancient liche bone" plural="ancient liche bones">
 		<attribute key="weight" value="80" />
 	</item>
@@ -43184,6 +43963,45 @@
 	<item id="36430" article="a" name="noble amulet" plural="noble amulets">
 		<attribute key="weight" value="65" />
 	</item>
+	<item id="36443" article="a" name="dead King Zelos">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36444" article="a" name="dead King Zelos">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36443" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36445" article="a" name="dead King Zelos">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36444" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36446" article="a" name="dead King Zelos">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36445" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36447" article="a" name="vial of potent holy water">
+		<attribute key="weight" value="200" />
+	</item>
+	<item id="36448" article="a" name="pick">
+		<attribute key="weight" value="4500" />
+		<attribute key="description" value="It seems to be enchanted with a spell." />
+	</item>
+	<item id="36453" name="veldt flowers">
+		<attribute key="weight" value="80" />
+	</item>
+	<item id="36454" article="a" name="snake maw" plural="snake maws">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="36455" article="a" name="wild desert rose" plural="wild desert roses">
+		<attribute key="weight" value="70" />
+	</item>
 	<item id="36457" name="Urmahlullu's tail" plural="Urmahlullu's tails">
 		<attribute key="weight" value="76" />
 	</item>
@@ -43192,6 +44010,198 @@
 	</item>
 	<item id="36459" name="Urmahlullu's paw" plural="Urmahlullu's paws">
 		<attribute key="weight" value="76" />
+	</item>
+	<item id="36460" article="a" name="winged backpack">
+		<attribute key="weight" value="1500" />
+		<attribute key="containerSize" value="24" />
+		<attribute key="slotType" value="backpack" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item fromid="36461" toid="36465" article="a" name="gryphon nest" />
+	<item id="36467" article="the" name="missing piece of the cube">
+		<attribute key="weight" value="100" />
+		<attribute key="description" value="It's black and it's missing." />
+	</item>
+	<item id="36468" article="the" name="supreme cube" />
+	<item id="36469" article="a" name="box with balm">
+		<attribute key="weight" value="240" />
+	</item>
+	<item id="36470" article="a" name="dead cobra scout">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36471" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36471" article="a" name="dead cobra scout">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36472" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36472" article="a" name="dead cobra scout">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36473" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36473" article="a" name="dead cobra scout">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36474" article="a" name="dead cobra vizier">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36475" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36475" article="a" name="dead cobra vizier">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36476" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36476" article="a" name="dead cobra vizier">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36477" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36477" article="a" name="dead cobra vizier">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36478" article="a" name="dead burning gladiator">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36479" article="a" name="dead burning gladiator">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36478" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36480" article="a" name="dead burning gladiator">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36479" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36481" article="a" name="dead burning gladiator">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36480" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36482" article="a" name="dead crypt warden">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36483" article="a" name="dead crypt warden">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36482" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36484" article="a" name="dead crypt warden">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36483" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36485" article="a" name="dead crypt warden">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36484" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36486" article="a" name="dead guard captain quaid">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36487" article="a" name="dead guard captain quaid">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36486" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36488" article="a" name="dead guard captain quaid">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36487" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36489" article="a" name="dead guard captain quaid">
+		<attribute key="containerSize" value="28" />
+		<attribute key="decayTo" value="36488" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36490" article="a" name="dead feral sphinx">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36491" article="a" name="dead feral sphinx">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36490" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36492" article="a" name="dead feral sphinx">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36491" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36493" article="a" name="dead feral sphinx">
+		<attribute key="containerSize" value="32" />
+		<attribute key="decayTo" value="36492" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36494" article="a" name="dead earworm">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36495" article="a" name="dead earworm">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="36494" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36496" article="a" name="dead earworm">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="36495" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36497" article="a" name="dead earworm">
+		<attribute key="containerSize" value="10" />
+		<attribute key="decayTo" value="36496" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item fromid="36503" toid="36504" article="a" name="scorpion grave" />
+	<item id="36508" article="a" name="hawser" />
+	<item id="36509" article="an" name="Omniscient Owl">
+		<attribute key="weight" value="910" />
+		<attribute key="description" value="This inconspicuous owl will answer every question. Awarded by TibiaQA.com." />
+	</item>
+	<item id="36510" article="an" name="Omniscient Owl">
+		<attribute key="weight" value="910" />
+		<attribute key="decayTo" value="36509" />
+		<attribute key="duration" value="200" />
+		<attribute key="description" value="This inconspicuous owl will answer every question. Awarded by TibiaQA.com." />
+	</item>
+	<item id="36511" article="a" name="note about two souls">
+		<attribute key="weight" value="50" />
+		<attribute key="description" value="Returning the amulet of the Cobra to its resting place has reversed everything that happened to Scarlett and Galthen after it was taken. For them only, however. You are truly selfless." />
 	</item>
 	<item id="36513" article="a" name="cobra crest" plural="cobra crests">
 		<attribute key="weight" value="170" />
@@ -43214,6 +44224,12 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36519" article="an" name="exalted sarcophagus"/>
+	<item id="36520" name="reed balls">
+		<attribute key="weight" value="30" />
+	</item>
+	<item id="36521" name="ground reed">
+		<attribute key="weight" value="100" />
+	</item>
 	<item id="36522" article="an" name="hrodmiran chest">
 		<attribute key="rotateTo" value="36523" />
 		<attribute key="wrapableTo" value="26054" />
@@ -43270,6 +44286,83 @@
 	<item id="36541" article="a" name="hrodmiran cupboard">
 		<attribute key="rotateTo" value="36540" />
 		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36542" name="books" />
+	<item id="36543" article="an" name="old tome" />
+	<item id="36544" article="a" name="book" />
+	<item id="36545" article="a" name="sinister book" />
+	<item id="36546" article="an" name="unholy book" />
+	<item fromid="36547" toid="36548" article="a" name="wanted note" />
+	<item id="36549" name="Narsai's list">
+		<attribute key="weight" value="30" />
+		<attribute key="description" value="needed ingredients: ten bottles of cactus milk, two pieces of crocodile leather and five jars of palm honey." />
+	</item>
+	<item id="36550" name="Shimun's list">
+		<attribute key="weight" value="30" />
+		<attribute key="description" value="needed ingredients: one lizard heart, twelve snake maws and five vials of ink." />
+	</item>
+	<item id="36551" name="Tefrit's list">
+		<attribute key="weight" value="30" />
+		<attribute key="description" value="needed ingredients: five crab pincers, twenty pieces of honey palm bark, twenty-five shreds of spiderweb clouds and fifteen wild desert roses." />
+	</item>
+	<item id="36552" name="Yonan's list">
+		<attribute key="weight" value="30" />
+		<attribute key="description" value="needed ingredients: three scorpion tails, twelve veldt flowers and ten nuggets of tagralt ore." />
+	</item>
+	<item id="36560" name="greasy wool">
+		<attribute key="weight" value="118" />
+	</item>
+	<item id="36561" article="a" name="box with waterproof balm">
+		<attribute key="weight" value="240" />
+	</item>
+	<item id="36572" article="a" name="shadow cowl">
+		<attribute key="weight" value="370" />
+	</item>
+	<item id="36573" article="a" name="final judgement">
+		<attribute key="weight" value="370" />
+	</item>
+	<item fromid="36740" toid="36741" article="a" name="waterfall" />
+	<item id="36742" name="stairs" />
+	<item id="36743" article="the" name="Time Distort Almanac">
+		<attribute key="description" value="An extremely old book on the concept of time which once contained a variety of spells on the concept of time. Most of its pages have been ripped out." />
+	</item>
+	<item fromid="36744" toid="36745" article="an" name="ancient wall" />
+	<item id="36746" article="a" name="golden sea horse figurine">
+		<attribute key="weight" value="1050" />
+		<attribute key="description" value="It is a mark of distinction, awarded by the priesthood of Bastesh to those who help sea creatures in need." />
+	</item>
+	<item id="36748" article="a" name="baking tray">
+		<attribute key="weight" value="1200" />
+		<attribute key="description" value="There is reed flour dough on it." />
+	</item>
+	<item id="36749" article="a" name="lump of reed flour dough" plural="lumps of reed flour dough">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="36750" article="a" name="depot box XVIII">
+		<attribute key="containerSize" value="32" />
+	</item>
+	<item id="36755" article="a" name="dead custodian">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36756" article="a" name="dead custodian">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="36755" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36757" article="a" name="dead custodian">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="36756" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36758" article="a" name="dead custodian">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="36757" />
+		<attribute key="duration" value="300" />
+		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="40001" name="water" />
 	<item id="40002" name="blood" />

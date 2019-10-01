@@ -46,7 +46,7 @@
 		<item name="gold coin" countmax="20" chance="77810"/>
 		<item name="mace" chance="5300"/>
 		<item name="bone shield" chance="720"/>
-		<item name="pick" chance="1100"/>
+		<item id="2553" chance="1100"/><!-- pick -->
 		<item id="2667" countmax="2" chance="25060"/><!-- fish -->
 		<item name="northern pike" chance="70"/>
 		<item name="rainbow trout" chance="140"/>

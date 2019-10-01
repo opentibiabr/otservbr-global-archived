@@ -47,7 +47,7 @@
 		<voice sentence="Crush the intruders!"/>
 	</voices>
 	<loot>
-		<item name="amphora" chance="100"/>
+		<item id="2023" chance="100"/><!-- amphora -->
 		<item name="crystal necklace" chance="2530"/>
 		<item name="gold coin" countmax="100" chance="595300"/>
 		<item name="gold coin" countmax="99" chance="40000"/>
@@ -62,7 +62,7 @@
 		<item name="war axe" chance="50"/>
 		<item name="plate armor" chance="3930"/>
 		<item name="dark armor" chance="4370"/>
-		<item name="pick" chance="650"/>
+		<item id="2553" chance="650"/><!-- pick -->
 		<item name="steel boots" chance="380"/>
 		<item name="meat" countmax="6" chance="30000"/>
 		<item name="perfect behemoth fang" chance="1090"/>
