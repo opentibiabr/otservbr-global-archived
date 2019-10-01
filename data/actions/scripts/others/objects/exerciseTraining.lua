@@ -1,18 +1,19 @@
 -- https://github.com/opentibiabr/OTServBR-Global
-local skills = {
-	[32384] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-	[32385] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-	[32386] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-	[32387] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-	[32388] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-	[32389] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE}, -- SORCERER
-	[32124] = {id=SKILL_SWORD,voc=4}, -- KNIGHT
-	[32125] = {id=SKILL_AXE,voc=4}, -- KNIGHT
-	[32126] = {id=SKILL_CLUB,voc=4}, -- KNIGHT
-	[32127] = {id=SKILL_DISTANCE,voc=3,range=CONST_ANI_SIMPLEARROW}, -- PALADIN
-	[32128] = {id=SKILL_MAGLEVEL,voc=2,range=CONST_ANI_SMALLICE}, -- DRUID
-	[32129] = {id=SKILL_MAGLEVEL,voc=1,range=CONST_ANI_FIRE} -- SORCERER
+local weapons = {
+	[32384] = {skill = SKILL_SWORD},
+	[32385] = {skill = SKILL_AXE},
+	[32386] = {skill = SKILL_CLUB},
+	[32387] = {skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW},
+	[32388] = {skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE},
+	[32389] = {skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE},
+	[32124] = {skill = SKILL_SWORD},
+	[32125] = {skill = SKILL_AXE},
+	[32126] = {skill = SKILL_CLUB},
+	[32127] = {skill = SKILL_DISTANCE, effect = CONST_ANI_SIMPLEARROW},
+	[32128] = {skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE},
+	[32129] = {skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE}
 }
+
 local dummies = {
 	houseDummies = {32143, 32144, 32145, 32146, 32147, 32148},
 	freeDummies = {32142, 32149}
@@ -26,95 +27,93 @@ local exhaustion = {
 	storage = 38
 }
 
-local function start_train(pid,start_pos,itemid,fpos, bonusDummy)
-	local player = Player(pid)
-	if player ~= nil then
-		local pos_n = player:getPosition()
-		if start_pos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
-			if player:getItemCount(itemid) >= 1 then
-				local exercise = player:getItemById(itemid,true)
-				if exercise:isItem() then
-					if exercise:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
-						local charges_n = exercise:getAttribute(ITEM_ATTRIBUTE_CHARGES)
-						if charges_n >= 1 then
-							exercise:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
+local function startTraining(playerId,startPosition,itemId,dummyPosition, bonusDummy)
+	
+	local player = Player(playerId)
+	if player == nil then -- se o player não existir precisamos parar o treino
+		stopEvent(training)
+		return false
+	end
 
-							local voc = player:getVocation()
+	local playerPosition = player:getPosition()
+	if not startPosition:getDistance(playerPosition) == 0 and not getTilePzInfo(playerPosition) then -- se o player se mover ou não estiver em pz, paramos o treino
+		stopEvent(training)
+		player:setStorageValue(Storage.isTraining,0)
+		player:addStorageValue(exhaustion.storage, os.time() + exhaustion.time)
+	end
 
-							if skills[itemid].id == SKILL_MAGLEVEL then
-								if not bonusDummy then
-									player:addManaSpent(math.ceil(500*rates.magic))
-								else
-									player:addManaSpent(math.ceil(500*rates.magic)*1.1) -- 10%
-								end
-							else
-								if not bonusDummy then
-									player:addSkillTries(skills[itemid].id, 1*rates.skill)
-								else
-									player:addSkillTries(skills[itemid].id, (1*rates.skill)*1.1) -- 10%
-								end
-							end
-								fpos:sendMagicEffect(CONST_ME_HITAREA)
-							if skills[itemid].range then
-								pos_n:sendDistanceEffect(fpos, skills[itemid].range)
-							end
-							local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos)
-							player:setStorageValue(Storage.isTraining,1)
-						else
-							exercise:remove(1)
-							player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
-							stopEvent(training)
-							player:setStorageValue(Storage.isTraining,0)
-						end
-					end
-				end
-			end
+	local exerciseWeapon = player:getItemById(itemId,true)
+	if player:getItemCount(itemId) < 1 then -- se o player não tiver mais uma exercise weapon, paramos o treino
+		stopEvent(training)
+		player:setStorageValue(Storage.isTraining,0)
+	end
+	
+	if not exerciseWeapon:isItem() or not exerciseWeapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then -- realmente precisamos disso se já verificamos se o player tem o itemId?
+		return false
+	end
+	local exerciseCharges = exerciseWeapon:getAttribute(ITEM_ATTRIBUTE_CHARGES)
+	if exerciseCharges < 1 then
+		-- ao terminar as cargas, paramos o treino e removemos a exercise weapon
+		exerciseWeapon:remove(1)
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
+		stopEvent(training)
+		player:setStorageValue(Storage.isTraining,0)
+	end
+
+	local playerVocation = player:getVocation() -- melhor passar apenas uma vez ao iniciar o treino para evitar checar todas as vezes?
+	if weapons[itemId].skill == SKILL_MAGLEVEL then
+		if not bonusDummy then
+			player:addManaSpent(math.ceil(500*rates.magic))
 		else
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
-			stopEvent(training)
-			player:setStorageValue(Storage.isTraining,0)
-			player:addStorageValue(exhaustion.storage, os.time() + exhaustion.time)
+			player:addManaSpent(math.ceil(500*rates.magic)*1.1) -- 10%
 		end
 	else
-		stopEvent(training)
-		if player then -- verificar se o player ainda existe (logado), caso esteja, enviar mensagem de erro e parar treino. isso evita erros no console
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training has stopped.")
-			player:setStorageValue(Storage.isTraining,0)
-			player:addStorageValue(exhaustion.storage, os.time() + exhaustion.time)
+		if not bonusDummy then
+			player:addSkillTries(weapons[itemId].skill, 1*rates.skill)
+		else
+			player:addSkillTries(weapons[itemId].skill, (1*rates.skill)*1.1) -- 10%
 		end
 	end
+	playerPosition:sendMagicEffect(CONST_ME_HITAREA)
+
+	if weapons[itemId].effect then
+		playerPosition:sendDistanceEffect(dummyPosition, weapons[itemId].effect)
+	end
+	local training = addEvent(starTraining, playerVocation:getAttackSpeed(), playerId,startPosition,itemId,dummyPosition)
+	player:setStorageValue(Storage.isTraining,1)
 	return true
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(exhaustion.storage) >= os.time() then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "What the fuck should I send?.") -- não sei qual é a mensagem
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "You must wait a cooldown of 30 seconds before using this exercise dummy again.") -- não sei qual é a mensagem
 		return false
 	end
 
-	local start_pos = player:getPosition()
+	local startPosition = player:getPosition()
 	if player:getStorageValue(Storage.isTraining) == 1 then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, "You are already training.")
 		return false
 	end
 	if target:isItem() then
 		if isInArray(dummies.houseDummies,target:getId()) then
-			if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+			if not weapons[item.itemid].effect and (startPosition:getDistance(target:getPosition()) > 1) then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
 				stopEvent(training)
 				return true
 			end
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-			start_train(player:getId(),start_pos,item.itemid,target:getPosition(), true)
+			startTraining(player:getId(),startPosition,item.itemid,target:getPosition(), true)
 		elseif isInArray(dummies.freeDummies, target:getId()) then
-			if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+			if not weapons[item.itemid].effect and (startPosition:getDistance(target:getPosition()) > 1) then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
 				stopEvent(training)
 				return true
 			end
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-			start_train(player:getId(),start_pos,item.itemid,target:getPosition(), false)
+			startTraining(player:getId(),startPosition,item.itemid,target:getPosition(), false)
 		end
 	end
 	return true
 end
+-- https://github.com/opentibiabr/OTServBR-Global
