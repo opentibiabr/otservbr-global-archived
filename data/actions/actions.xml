@@ -163,8 +163,9 @@
 	<!-- Farmine -->
 	<action fromaid="9118" toaid="9123" script="farmine/elevatorLever.lua" />
 	<action fromaid="12141" toaid="12142" script="farmine/templeOfEquilibriumVines.lua" />
-	<action actionid="57601" script="farmine/boat.lua" />
+	<action fromaid="57601" toaid="57603" script="farmine/boat.lua" />
 	<action actionid="64007" script="farmine/boat.lua" />
+	<action actionid="57605" script="farmine/Oberonlever.lua" />
 
 	<!-- Father's Burden Quest -->
 	<action fromid="12545" toid="12546" script="quests/fathers burden/corpse.lua" />
