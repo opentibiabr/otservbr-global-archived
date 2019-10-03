@@ -32874,7 +32874,9 @@
 		<attribute key="decayTo" value="3324" />
 		<attribute key="duration" value="300" />
 	</item>
-	<item id="24629" article="a" name="some cracks" />
+	<item id="24629" article="a" name="some cracks">
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item id="24630" article="a" name="golden lotus brooch" plural="golden lotus broochs">
 		<attribute key="weight" value="100" />
 	</item>

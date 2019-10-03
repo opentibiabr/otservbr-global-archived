@@ -3,6 +3,12 @@
 -- Sort it in Values -
 
 Storage = {
+	TheSecretLibrary = {
+		TheOrderOfTheFalcon = {
+			OberonTimer = 25580,
+		},
+	},	
+
 	DeeplingBosses = {
 		Jaul = 35600,
 		Tanjis = 35601,
