@@ -13,7 +13,6 @@ local weapons = {
 	[32128] = {skill = SKILL_MAGLEVEL, effect = CONST_ANI_SMALLICE},
 	[32129] = {skill = SKILL_MAGLEVEL, effect = CONST_ANI_FIRE}
 }
-
 local dummies = {
 	houseDummies = {32143, 32144, 32145, 32146, 32147, 32148},
 	freeDummies = {32142, 32149}
@@ -26,8 +25,7 @@ local exhaustion = {
 	time = 30, --seconds
 	storage = 38
 }
-
-local function startTraining(playerId,startPosition,itemId,dummyPosition, bonusDummy)
+local function startTraining(playerId, startPosition, itemId, dummyPosition, bonusDummy)
 	
 	local player = Player(playerId)
 	if player == nil then -- se o player não existir precisamos parar o treino
@@ -38,14 +36,14 @@ local function startTraining(playerId,startPosition,itemId,dummyPosition, bonusD
 	local playerPosition = player:getPosition()
 	if not startPosition:getDistance(playerPosition) == 0 and not getTilePzInfo(playerPosition) then -- se o player se mover ou não estiver em pz, paramos o treino
 		stopEvent(training)
-		player:setStorageValue(Storage.isTraining,0)
+		player:setStorageValue(Storage.isTraining, 0)
 		player:addStorageValue(exhaustion.storage, os.time() + exhaustion.time)
 	end
 
 	local exerciseWeapon = player:getItemById(itemId,true)
 	if player:getItemCount(itemId) < 1 then -- se o player não tiver mais uma exercise weapon, paramos o treino
 		stopEvent(training)
-		player:setStorageValue(Storage.isTraining,0)
+		player:setStorageValue(Storage.isTraining, 0)
 	end
 	
 	if not exerciseWeapon:isItem() or not exerciseWeapon:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then -- realmente precisamos disso se já verificamos se o player tem o itemId?
@@ -57,7 +55,7 @@ local function startTraining(playerId,startPosition,itemId,dummyPosition, bonusD
 		exerciseWeapon:remove(1)
 		player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
 		stopEvent(training)
-		player:setStorageValue(Storage.isTraining,0)
+		player:setStorageValue(Storage.isTraining, 0)
 	end
 
 	local playerVocation = player:getVocation() -- melhor passar apenas uma vez ao iniciar o treino para evitar checar todas as vezes?
@@ -79,8 +77,8 @@ local function startTraining(playerId,startPosition,itemId,dummyPosition, bonusD
 	if weapons[itemId].effect then
 		playerPosition:sendDistanceEffect(dummyPosition, weapons[itemId].effect)
 	end
-	local training = addEvent(starTraining, playerVocation:getAttackSpeed(), playerId,startPosition,itemId,dummyPosition)
-	player:setStorageValue(Storage.isTraining,1)
+	exerciseWeapon:setAttribute(ITEM_ATTRIBUTE_CHARGES, exerciseCharges-1))
+	local training = addEvent(starTraining, playerVocation:getAttackSpeed(), playerId, startPosition, itemId, dummyPosition)
 	return true
 end
 
@@ -103,7 +101,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				return true
 			end
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-			startTraining(player:getId(),startPosition,item.itemid,target:getPosition(), true)
+			startTraining(player:getId(), startPosition, item.itemid, target:getPosition(), true)
+			player:setStorageValue(Storage.isTraining, 1)
 		elseif isInArray(dummies.freeDummies, target:getId()) then
 			if not weapons[item.itemid].effect and (startPosition:getDistance(target:getPosition()) > 1) then
 				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
@@ -111,7 +110,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				return true
 			end
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-			startTraining(player:getId(),startPosition,item.itemid,target:getPosition(), false)
+			startTraining(player:getId(), startPosition, item.itemid, target:getPosition(), false)
+			player:setStorageValue(Storage.isTraining, 1)
 		end
 	end
 	return true
