@@ -19,8 +19,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <spdlog/spdlog.h>
-
 #include "otpch.h"
 
 #include "server.h"
@@ -74,8 +72,9 @@ void badAllocationHandler()
 
 int main(int argc, char* argv[])
 {
-#ifdef DEBUG
+#ifdef DEBUG_LOG
 	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
+	SPDLOG_DEBUG("[OTSERV] SPDLOG LOG DEBUG ENABLED");
 #endif
 
 	// Setup bad allocation handler

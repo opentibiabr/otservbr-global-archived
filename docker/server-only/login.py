@@ -170,6 +170,37 @@ def do_login(data):
         print("MySQL connection is closed")
 
   
+def news(data):
+    # TODO: add news system
+    # case "news":
+    # $categorycounts = [
+    # 'CLIENT FEATURES' => 1,
+    # 'GAME CONTENTS' => 1,
+    # 'MAJOR UPDATES' => 1,
+    # 'SUPPORT' => 1,
+    # 'USEFUL INFO' => 1
+    # ];
+    # $gamenews = [
+    # [
+    # 'campaignid' => '0',
+    # 'category' => 'CLIENT FEATURES',
+    # 'headline' => '<p>Battle List</p>',
+    # 'id' => '1',
+    # 'index' => '3',
+    # 'message' => '<center><table style="height: 88px;" width="406"><tbody><tr><td style="width: 396px; vertical-align: top;"><center><p><img src="http://127.0.0.1/images/news/veadao.png" width="350" height="250"/> </p> <p>Veadão da mais alta qualidade criado com os melhores viados do mercado</p></center></td></tr></tbody></table></center>',
+    # 'publishdate' => time(),
+    # 'type' => 'REGULAR',
+    # ]];
+    
+    # $schedule['categorycounts'] = $categorycounts;
+    # $schedule['gamenews'] = $gamenews;
+    # echo json_encode($schedule);
+
+    answer = []
+
+    return jsonify(answer)
+
+
 @app.route('/login.php',  methods=['GET', 'POST'])
 def action():
 
@@ -221,5 +252,9 @@ def action():
 
     if(data['type'] == 'login'):
         return do_login(data)
+
+
+    if(data['type'] == 'news'):
+        return news(data)
 
 app.run(debug=True, host='0.0.0.0', port=80)

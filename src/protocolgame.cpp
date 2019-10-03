@@ -22,7 +22,6 @@
 #include "otpch.h"
 
 #include <boost/range/adaptor/reversed.hpp>
-#include <spdlog/spdlog.h>
 
 #include "protocolgame.h"
 

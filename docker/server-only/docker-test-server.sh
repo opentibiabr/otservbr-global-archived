@@ -16,6 +16,7 @@ rm run-test-env/otserver -rf
 mkdir -p run-test-env/otserver
 cp build-env/otserver/build/tfs run-test-env/otserver/
 cp -r ../../data run-test-env/otserver/
+cp -r ../../src run-test-env/otserver/
 cp ../../config.lua.dist run-test-env/otserver/
 cp ../../schema.sql run-test-env/otserver/
 cp ../../key.pem run-test-env/otserver/

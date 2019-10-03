@@ -1531,17 +1531,6 @@ bool Game::removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*
 			}
 		}
 	}
-	Player* p = dynamic_cast<Player*>(cylinder);
-	if (p)
-	{
-		moneyCount += p->bankBalance;
-	}
-
-	// Not enough money
-	if (moneyCount < money)
-	{
-		return false;
-	}
 
 	for (const auto& moneyEntry : moneyMap) {
 		Item* item = moneyEntry.second;
@@ -1561,11 +1550,7 @@ bool Game::removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags /*= 0*
 		}
 	}
 	moneyMap.clear();
-	if (money > 0 && p && p->bankBalance >= money)
-	{
-		p->bankBalance -= money;
-		return true;
-	}
+
 	return true;
 }
 
@@ -5665,10 +5650,11 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		}
 
 		g_game.removeMoney(player, fee);
+		
 	} else {
 		uint64_t totalPrice = static_cast<uint64_t>(price) * amount;
 		totalPrice += fee;
-		if (totalPrice > player->bankBalance) {
+		if (totalPrice > player->getBankBalance()) {
 			return;
 		} else if (totalPrice > player->getMoney()) {
 			return;
@@ -5712,7 +5698,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	}
 
 	if (offer.type == MARKETACTION_BUY) {
-		player->bankBalance += static_cast<uint64_t>(offer.price) * offer.amount;
+		player->setBankBalance( player->getBankBalance() + static_cast<uint64_t>(offer.price) * offer.amount);
 		player->sendMarketEnter(player->getLastDepotId());
 	} else {
 		const ItemType& it = Item::items[offer.itemId];
@@ -5846,8 +5832,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 				}
 			}
 		}
-
-		player->bankBalance += totalPrice;
+		player->setBankBalance(player->getBankBalance() + totalPrice);
 
 		if (it.id == ITEM_TIBIA_COIN) {
 			IOAccount::addCoins(buyerPlayer->getAccount(), amount);
@@ -5886,11 +5871,10 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			delete buyerPlayer;
 		}
 	} else {
-		if (totalPrice > player->bankBalance) {
+		if (totalPrice > player->getBankBalance()) {
 			return;
 		}
-
-		player->bankBalance -= totalPrice;
+		player->setBankBalance( player->getBankBalance() - totalPrice);
 		if (it.id == ITEM_TIBIA_COIN) {
 			IOAccount::addCoins(player->getAccount(), amount);
 			IOAccount::registerTransaction(player->getAccount(), amount, "Purchased on Market");
@@ -5925,7 +5909,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 		Player* sellerPlayer = getPlayerByGUID(offer.playerId);
 		if (sellerPlayer) {
-			sellerPlayer->bankBalance += totalPrice;
+			sellerPlayer->setBankBalance(sellerPlayer->getBankBalance() + totalPrice);
 			if (it.id == ITEM_TIBIA_COIN) {
 				IOAccount::registerTransaction(sellerPlayer->getAccount(), -static_cast<int32_t>(amount), "Sold on Market");
 			}

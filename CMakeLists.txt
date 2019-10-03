@@ -8,27 +8,52 @@ project(tfs)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-# GCC is fairly aggressive about it: enabling strict aliasing will cause it to think that pointers that are "obviously" equivalent to a human (as in, foo *a; bar *b = (bar *) a;) cannot alias, which allows for some very aggressive transformations, but can obviously break non-carefully written code.
-if (CMAKE_COMPILER_IS_GNUCXX)
-    add_compile_options(-fno-strict-aliasing)
-endif()
-
 # default build type
+# E.g: How check build type "if (CMAKE_BUILD_TYPE MATCHES Debug)"
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif()
 
+# cmake -DDEBUG_LOG=ON ..
+option(DEBUG_LOG "Enable Debug Log" OFF)
+if(DEBUG_LOG)
+  add_definitions( -DDEBUG_LOG )
+  message("---------- DEBUG log enabled!")
+endif()
+
+set(WARNING_FLAGS       "-Wall -Werror")
+set(CMAKE_CXX_FLAGS     "${WARNING_FLAGS} ${CMAKE_CXX_FLAGS}")
+
 # compile flags
-# https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
-set(WARNING_FLAGS "-Wall -Werror")
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  # using Clang
+  # cmake -DCMAKE_BUILD_TYPE=Release ..
+  set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
+  
+  # cmake -DCMAKE_BUILD_TYPE=Debug ..
+  set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra")
 
-set(CMAKE_CXX_FLAGS                     "${WARNING_FLAGS} ${CMAKE_CXX_FLAGS}")
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+  # using GCC
+  # GCC is fairly aggressive about it: enabling strict aliasing will cause it to think that pointers that are "obviously" equivalent to a human (as in, foo *a; bar *b = (bar *) a;) cannot alias, which allows for some very aggressive transformations, but can obviously break non-carefully written code.
+  add_compile_options(-fno-strict-aliasing)
 
-# cmake ..
-set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
+  # https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
 
-# cmake -DCMAKE_BUILD_TYPE=Debug ..
-set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+  # cmake -DCMAKE_BUILD_TYPE=Release ..
+  set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
+  
+  # cmake -DCMAKE_BUILD_TYPE=Debug ..
+  set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+  
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+  # using Visual Studio C++
+  # cmake -DCMAKE_BUILD_TYPE=Release ..
+  set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
+  
+  # cmake -DCMAKE_BUILD_TYPE=Debug ..
+  set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra")
+endif()
 
 # Find packages.
 find_package(Cotire REQUIRED)
@@ -108,7 +133,7 @@ if(BUILD_DOC)
 
 endif (BUILD_DOC)
 
-include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${Crypto++_INCLUDE_DIR} ${spdlog_INCLUDE_DIR})
+include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${Crypto++_INCLUDE_DIR} ${Spdlog_INCLUDE_DIR})
 
 target_link_libraries(tfs ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${PUGIXML_LIBRARIES} ${Crypto++_LIBRARIES} ${Spdlog_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
