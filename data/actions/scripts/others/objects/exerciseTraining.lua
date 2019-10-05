@@ -53,7 +53,6 @@ local function startTraining(playerId, startPosition, itemId, dummyPosition, bon
 	if exerciseCharges < 1 then
 		-- ao terminar as cargas, paramos o treino e removemos a exercise weapon
 		exerciseWeapon:remove(1)
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "Your training weapon vanished.")
 		stopEvent(training)
 		player:setStorageValue(Storage.isTraining, 0)
 	end
@@ -84,32 +83,27 @@ end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(exhaustion.storage) >= os.time() then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You must wait a cooldown of 30 seconds before using this exercise dummy again.") -- não sei qual é a mensagem
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "This exercise dummy can only be used after a 30 second cooldown.")
 		return false
 	end
 
 	local startPosition = player:getPosition()
 	if player:getStorageValue(Storage.isTraining) == 1 then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "You are already training.")
 		return false
 	end
 	if target:isItem() then
 		if isInArray(dummies.houseDummies,target:getId()) then
 			if not weapons[item.itemid].effect and (startPosition:getDistance(target:getPosition()) > 1) then
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
 				stopEvent(training)
 				return true
 			end
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
 			startTraining(player:getId(), startPosition, item.itemid, target:getPosition(), true)
 			player:setStorageValue(Storage.isTraining, 1)
 		elseif isInArray(dummies.freeDummies, target:getId()) then
 			if not weapons[item.itemid].effect and (startPosition:getDistance(target:getPosition()) > 1) then
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
 				stopEvent(training)
 				return true
 			end
-			player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
 			startTraining(player:getId(), startPosition, item.itemid, target:getPosition(), false)
 			player:setStorageValue(Storage.isTraining, 1)
 		end
