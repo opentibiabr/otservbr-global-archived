@@ -3,18 +3,13 @@ lionrock = {
         nflower = 23759,
         flower = 23760,
         holywater = 23835,
-
         tongue = 10551,
-
         scroll = 25521,
-
         ruby = 2147,
         sapphire = 2146,
         amethyst = 2150,
         topaz = 9970,
-
         rewardfountain = 6390,
-
         redflame = 1488,
         yellowflame = 1500,
         blueflame = 8058,
@@ -32,21 +27,15 @@ lionrock = {
         skeleton = 50880,
         getFlower = 50881,
         usedFlower = 50882,
-
         getHolyWater = 50883,
         usedHolyWater = 50884,
-
         usedTongue = 50885,
-
         getScroll = 50886,
-
         firstMysticEnter = 50887,
-
         translation1 = 50888,
         translation2 = 50889,
         translation3 = 50890,
         translation4 = 50891,
-
         playerCanDoTasks = 50892
 
     },
@@ -67,12 +56,12 @@ lionrock = {
     },
 
     rewards = {
-        { id = 23810}, -- Lion's heart
-        { id = 9971}, -- Gold ingot
-        { id = 2154}, -- Yellow gem
-        { id = 2156}, -- Red gem
-        { id = 2127}, -- Emerlad bangle
-        { id = 7633} -- Giant shimmering pearl
+        {id = 23810}, -- Lion's heart
+        {id = 9971}, -- Gold ingot
+        {id = 2154}, -- Yellow gem
+        {id = 2156}, -- Red gem
+        {id = 2127}, -- Emerlad bangle
+        {id = 7633} -- Giant shimmering pearl
     },
 
     checkPlayerCanEnterMysticFlame = function(player)
