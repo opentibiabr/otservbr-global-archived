@@ -12506,7 +12506,6 @@
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="7386" article="a" name="mercenary sword">
-		<attribute key="description" value="This axe is only granted to a scrapper of the Svargrond arena." />
 		<attribute key="weight" value="6800" />
 		<attribute key="defense" value="27" />
 		<attribute key="attack" value="43" />
