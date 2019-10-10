@@ -17,7 +17,7 @@ function onDeath(player, corpse, killer, mostDamage, unjustified, mostDamage_unj
 			end
 		end
 
-		if not isPlayer or not player:hasBlessing(5) then
+		if not isPlayer or not player:hasBlessing(6) then
 			player:removeItem(ITEM_AMULETOFLOSS, 1, -1, false)
 		end
 	else
