@@ -12,6 +12,6 @@ end
 
 function onStartup()
     addEvent(_spawnNPCs, 1 * 1000)
-    print('Advanced NPC spawn system.')
+    print('Advanced NPC spawn system | All NPCs will be loaded trough lib, instead of spawn.xml. Keep in mind, all your NPCs should be working, neighter the system will have a breakpoint..')
     return true
 end
