@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `ownerid` int(11) NOT NULL,
   `creationdata` int(11) NOT NULL,
   `motd` varchar(255) NOT NULL DEFAULT '',
-  `residence` int(11) NOT NULL,
+  `residence` int(11) NOT NULL DEFAULT '0',
   `description` text NOT NULL,
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
