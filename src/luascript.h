@@ -22,7 +22,11 @@
 #ifndef OT_SRC_LUASCRIPT_H_
 #define OT_SRC_LUASCRIPT_H_
 
-#include <lua.hpp>
+#if __has_include("luajit/lua.hpp")
+	#include <luajit/lua.hpp>
+#else
+	#include <lua.hpp>
+#endif
 
 #if LUA_VERSION_NUM >= 502
 #ifndef LUA_COMPAT_ALL
