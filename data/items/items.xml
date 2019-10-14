@@ -41426,6 +41426,9 @@
 	<item id="33520" article="a" name="scribbled notes">
 		<attribute key="weight" value="100" />
 	</item>
+	<item id="33553" article="a" name="ramp">
+		<attribute key="floorchange" value="down"/>
+	</item>
 	<item id="33590" article="a" name="focus of corrupted nature"/>
 	<item fromid="33639" toid="33660" name="ice floor"/>
 	<item fromid="33661" toid="33682" article="a" name="frozen floor"/>
@@ -41689,6 +41692,10 @@
 	</item>
 	<item id="34066" article="a" name="sleep shawl">
 		<attribute key="weight" value="430" />
+		<attribute key="slotType" value="necklace" />
+	</item>
+	<item id="34067" article="a" name="pendulet">
+		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 	</item>
 	<item id="34068" article="an" name="ectoplasmic shield">
@@ -41962,7 +41969,7 @@
 	<item id="34698" article="a" name="giant emerald">
 		<attribute key="weight" value="150" />
 	</item>
-	<item id="34699" article="a" name="giant amethyst">
+	<item id="34699" article="a" name="giant sapphire">
 		<attribute key="weight" value="150" />
 	</item>
 	<item id="34700" article="a" name="dead lumbering carnivor">
@@ -42365,36 +42372,44 @@
 		<attribute key="duration" value="300" />
 	</item>
 	<item id="34980" article="an" name="enchanted sleep shawl">
+		<attribute key="weight" value="650" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="transformEquipTo" value="34980" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
+	</item>
+	<item id="34981" article="a" name="enchanted sleep shawl">
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="armor" value="3" />
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEarth" value="24" />
 		<attribute key="absorbPercentPhysical" value="7" />
-		<attribute key="decayTo" value="34981" />
+		<attribute key="transformDeEquipTo" value="34981" />
+		<attribute key="decayTo" value="34066" />
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34981" article="a" name="sleep shawl">
+	<item id="34982" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
+		<attribute key="transformEquipTo" value="34982" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
 	</item>
-	<item id="34982" article="an" name="enchanted pendulet">
+	<item id="34983" article="a" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="armor" value="2" />
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEnergy" value="18" />
 		<attribute key="absorbPercentPhysical" value="5" />
-		<attribute key="decayTo" value="34983" />
+		<attribute key="transformDeEquipTo" value="34983" />
+		<attribute key="decayTo" value="34067" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
-	</item>
-	<item id="34983" article="a" name="pendulet">
-		<attribute key="weight" value="650" />
-		<attribute key="slotType" value="necklace" />
 	</item>
 	<item id="35021" article="a" name="festive filled shoes">
 		<attribute key="rotateTo" value="35022" />
@@ -42882,6 +42897,111 @@
 	<item id="35206" article="a" name="black raven kit"/>
 	<item id="35207" article="a" name="grey raven kit"/>
 	<item id="35208" article="a" name="white raven kit"/>
+	<item id="35228" article="a" name="cobra crossbow">
+	    <attribute key="weight" value="4000"/>
+		<attribute key="slotType" value="two-handed"/>
+		<attribute key="weaponType" value="distance"/>
+		<attribute key="ammoType" value="bolt"/>
+		<attribute key="range" value="6"/>
+		<attribute key="hitChance" value="6"/>
+		<attribute key="attack" value="7"/>
+		<attribute key="imbuingSlots" value="2"/>
+		<attribute key="skillDist" value="2"/>
+	</item>	
+    <item id="35229" name="cobra boots">
+		<attribute key="weight" value="900" />
+		<attribute key="slotType" value="feet" />
+		<attribute key="armor" value="3" />
+		<attribute key="speed" value="20" />
+		<attribute key="absorbPercentPhysical" value="6" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="35230" article="a" name="cobra club">
+		<attribute key="weight" value="2500" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="attack" value="8" />
+		<attribute key="elementFire" value="44" />
+		<attribute key="defense" value="29" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillClub" value="2" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35231" article="a" name="cobra axe">
+		<attribute key="weight" value="4000" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="attack" value="8" />
+		<attribute key="elementIce" value="44" />
+		<attribute key="defense" value="29" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillAxe" value="2" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35232" article="a" name="cobra hood">
+		<attribute key="weight" value="2700" />
+		<attribute key="slotType" value="head" />
+		<attribute key="armor" value="9" />
+        <attribute key="skillSword" value="1" />
+        <attribute key="skillClub" value="1" />	
+        <attribute key="skillAxe" value="1" />		
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35233" article="a" name="cobra sword">
+		<attribute key="weight" value="6300" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="attack" value="52" />
+		<attribute key="defense" value="31" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillSword" value="3" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35234" article="a" name="cobra wand">
+		<attribute key="weight" value="1900" />
+		<attribute key="weaponType" value="wand" />
+		<attribute key="shootType" value="energy" />
+		<attribute key="range" value="4" />
+		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="35" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35235" article="a" name="cobra rod">
+		<attribute key="weight" value="2500" />
+		<attribute key="weaponType" value="wand" />
+		<attribute key="shootType" value="smallearth" />
+		<attribute key="range" value="5" />
+		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="skilllifechance" value="100" />
+		<attribute key="skilllifeamount" value="18" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35236" article="an" name="amulet of theurgy">
+	    <attribute key="description" value="It can only be wielded properly by sorcerers and druids of level 220 or higher" />
+		<attribute key="weight" value="500" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="transformEquipTo" value="35237" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
+	</item>
+	<item id="35237" article="an" name="enchanted theurgic amulet">
+	    <attribute key="description" value="It can only be wielded properly by sorcerers and druids of level 220 or higher" />
+		<attribute key="weight" value="500" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="transformDeEquipTo" value="35238" />
+        <attribute key="duration" value="7200" />
+		<attribute key="showduration" value="1" />
+		<attribute key="armor" value="2" />
+		<attribute key="magiclevelpoints" value="3" />
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentEarth" value="14" />
+        <attribute key="decayTo" value="35236" />
+		<attribute key="showattributes" value="1" />		
+	</item>
+	<item id="35238" article="an" name="amulet of theurgy">
+	    <attribute key="description" value="It can only be wielded properly by sorcerers and druids of level 220 or higher" />
+		<attribute key="weight" value="500" />
+		<attribute key="slotType" value="necklace" />
+	</item>
 	<item id="35242" article="a" name="sequoia trunk"/>
 	<item fromid="35251" toid="35252" article="a" name="sequoia tree"/>
 	<item id="35253" article="a" name="honey palm"/>
@@ -42971,6 +43091,28 @@
 		<attribute key="floorchange" value="south" />
 	</item>
 	<item fromid="35662" toid="35667" article="a" name="broken wall"/>
+	<item id="35668" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="35669" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="35670" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="35671" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="35672" article="an" name="open door">
+        <attribute key="type" value="door" />
+	</item>
+	<item id="35673" article="an" name="open door">
+        <attribute key="type" value="door" />
+	</item>
 	<item id="35674" article="an" name="obelisk"/>
 	<item fromid="35675" toid="35676" article="a" name="slant"/>
 	<item fromid="35677" toid="35678" article="an" name="obelisk"/>
@@ -43239,7 +43381,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36093" article="a" name="dead cart packed with gold">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="36092" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36094" name="ornate canopic jar" />
@@ -43248,6 +43390,10 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="weight" value="6500" />
 	</item>
 	<item id="36097" article="a" name="ladder" />
+	<item id="36098" article="a" name="ring of secret thoughts">
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+	</item>
 	<item id="36099" article="a" name="wheel oil">
 		<attribute key="description" value="Ideal to oil large wheels. The can is leaky." />
 		<attribute key="weight" value="1900" />
@@ -43265,8 +43411,9 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="weight" value="7700" />
 	</item>
 	<item id="36103" article="a" name="jade amulet">
-		<attribute key="description" value="Souvenir from Thais Museum." />
+	    <attribute key="description" value="Souvenir from Thais Museum" />
 		<attribute key="weight" value="400" />
+		<attribute key="slotType" value="necklace" />
 	</item>
 	<item id="36104" article="a" name="ankh mosaic" />
 	<item id="36118" article="a" name="fire bowl" />
@@ -43283,7 +43430,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36137" article="a" name="dead cobra">
 		<attribute key="containerSize" value="8" />
 		<attribute key="decayTo" value="36138" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36138" article="a" name="dead cobra">
@@ -43303,25 +43450,30 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36142" article="a" name="dead Gaffir">
+	<item id="36141" article="a" name="ring of secret thoughts">
+	    <attribute key="description" value="It is charged with the memories of the Ambassador of Rathleton" />
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+	</item>
+	<item id="36142" article="a" name="dead gaffir">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36143" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36143" article="a" name="dead Gaffir">
+	<item id="36143" article="a" name="dead gaffir">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36144" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36144" article="a" name="dead Gaffir">
+	<item id="36144" article="a" name="dead gaffir">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36145" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36145" article="a" name="dead Gaffir">
+	<item id="36145" article="a" name="dead gaffir">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
@@ -43424,6 +43576,14 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="weight" value="160" />
 		<attribute key="description" value="This lamp oil is highly flammable and evaporates quickly." />
 	</item>
+	<item id="36204" article="a" name="gryphon mask">
+		<attribute key="weight" value="2000" />
+		<attribute key="slotType" value="head" />
+	</item>
+	<item id="36205" article="a" name="silver mask">
+		<attribute key="weight" value="3200" />
+		<attribute key="slotType" value="head" />
+	</item>
 	<item id="36206" article="a" name="ivory mask">
 		<attribute key="weight" value="1800" />
 	</item>
@@ -43461,7 +43621,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36221" article="a" name="dead sphinx">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36220" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36222" article="a" name="dead manticore">
@@ -43484,7 +43644,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36225" article="a" name="dead manticore">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36224" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36226" article="a" name="dead lamassu">
@@ -43507,7 +43667,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36229" article="a" name="dead lamassu">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36228" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36230" article="a" name="dead gryphon">
@@ -43530,76 +43690,76 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36233" article="a" name="dead gryphon">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36232" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36237" article="a" name="dead young goanna">
+	<item id="36237" article="a" name="dead adult goanna">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36238" article="a" name="dead young goanna">
+	<item id="36238" article="a" name="dead adult goanna">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36237" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36239" article="a" name="dead young goanna">
+	<item id="36239" article="a" name="dead adult goanna">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36238" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36240" article="a" name="dead young goanna">
+	<item id="36240" article="a" name="dead adult goanna">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36239" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36241" article="a" name="dead adult goanna">
+	<item id="36241" article="a" name="dead young goanna">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36242" article="a" name="dead adult goanna">
+	<item id="36242" article="a" name="dead young goanna">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36241" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36243" article="a" name="dead adult goanna">
+	<item id="36243" article="a" name="dead young goanna">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36242" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36244" article="a" name="dead adult goanna">
+	<item id="36244" article="a" name="dead young goanna">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36243" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36245" article="a" name="dead Urmahlullu">
+	<item id="36245" article="a" name="dead urmahlullu">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36246" article="a" name="dead Urmahlullu">
+	<item id="36246" article="a" name="dead urmahlullu">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36245" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36247" article="a" name="dead Urmahlullu">
+	<item id="36247" article="a" name="dead urmahlullu">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36246" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36248" article="a" name="dead Urmahlullu">
+	<item id="36248" article="a" name="dead urmahlullu">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36247" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36249" article="a" name="sceptre of sun and sea">
@@ -43625,7 +43785,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36254" article="a" name="dead priestess">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36253" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36255" article="a" name="dead black sphinx acolyte">
@@ -43648,37 +43808,39 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36258" article="a" name="dead black sphinx acolyte">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36257" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36263" name="goanna hide with sun symbol">
 		<attribute key="weight" value="60" />
 	</item>
-	<item id="36266" article="an" name="symbol of sun and sea">
+	<item id="36266" article="a" name="symbol of sun and sea">
 		<attribute key="weight" value="100" />
+		<attribute key="slotType" value="ring" />
 	</item>
 	<item id="36267" article="a" name="basin filled with blood" />
 	<item id="36268" article="a" name="secret instruction" plural="secret instructions">
 		<attribute key="weight" value="20" />
-		<attribute key="You can find the gryphon mask high in the mountains. It will open the gryphon-guarded door." />
+		<attribute key="description" value="You can find the gryphon mask high in the mountains. It will open the gryphon-guarded door." />
 	</item>
 	<item id="36269" article="a" name="secret instruction" plural="secret instructions">
 		<attribute key="weight" value="20" />
-		<attribute key="The ivory mask is under the ankh mosaic in the library. Put the missing emerald in the tile to open the hidden compartment. This mask will open the ivory-adorned doors." />
+		<attribute key="description" value="The ivory mask is under the ankh mosaic in the library. Put the missing emerald in the tile to open the hidden compartment. This mask will open the ivory-adorned doors." />
 	</item>
 	<item id="36270" article="a" name="secret instruction" plural="secret instructions">
 		<attribute key="weight" value="20" />
-		<attribute key="The mirror mask is hidden in a tomb near the northern oasis. It will open the mirror-behung door." />
+		<attribute key="description" value="The mirror mask is hidden in a tomb near the northern oasis. It will open the mirror-behung door." />
 	</item>
 	<item id="36271" article="a" name="secret instruction" plural="secret instructions">
 		<attribute key="weight" value="20" />
-		<attribute key="The silver mask is hidden in the ruins of Nuur. It will open the silver-veined doors." />
+		<attribute key="description" value="The silver mask is hidden in the ruins of Nuur. It will open the silver-veined doors." />
 	</item>
 	<item id="36272" article="a" name="sphinx feather" plural="sphinx feathers">
 		<attribute key="weight" value="900" />
 	</item>
-	<item id="36273" article="a" name="sphinx tiara" plural="sphinx tiaras">
+	<item id="36273" article="a" name="sphinx tiara">
 		<attribute key="weight" value="350" />
+		<attribute key="slotType" value="head" />
 	</item>
 	<item id="36274" article="a" name="manticore tail" plural="manticore tails">
 		<attribute key="weight" value="750" />
@@ -43705,27 +43867,27 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36282" article="an" name="ivory lyre">
 		<attribute key="weight" value="490" />
 	</item>
-	<item id="36285" article="a" name="dead Scarlett Etzel">
+	<item id="36285" article="a" name="dead scarlett etzel">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36286" article="a" name="dead Scarlett Etzel">
+	<item id="36286" article="a" name="dead scarlett etzel">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36285" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36287" article="a" name="dead Scarlett Etzel">
+	<item id="36287" article="a" name="dead scarlett etzel">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36286" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36288" article="a" name="dead Scarlett Etzel">
+	<item id="36288" article="a" name="dead scarlett etzel">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36287" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item fromid="36289" toid="36296" name="shallow water"/>
@@ -43768,6 +43930,21 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36324" article="a" name="net">
 		<attribute key="weight" value="20" />
 	</item>
+	<item id="36329" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="36330" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item id="36331" article="an" name="open door">
+        <attribute key="type" value="door" />
+	</item>
+	<item id="36332" article="an" name="open door">
+        <attribute key="type" value="door" />
+	</item>
+	<item fromid="36333" toid="36334" article="an" name="ancient wall"/>
 	<item id="36336" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36337" />
 	</item>
@@ -43837,7 +44014,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36362" article="a" name="dead ogre ruffian">
 		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36361" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36363" article="a" name="dead ogre rowdy">
@@ -43860,7 +44037,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36366" article="a" name="dead ogre rowdy">
 		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36365" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36367" article="a" name="dead ogre sage">
@@ -43883,7 +44060,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36370" article="a" name="dead ogre sage">
 		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36369" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36379" article="a" name="dead cobra assassin">
@@ -43906,8 +44083,26 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36382" article="a" name="dead cobra assassin">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36381" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="36391" article="a" name="rainbow amulet">
+	    <attribute key="description" value="DO NOT USE" />
+		<attribute key="weight" value="570" />
+		<attribute key="armor" value="3" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="absorbPercentFire" value="6" />		
+		<attribute key="absorbPercentIce" value="-10" />
+	</item>
+	<item id="36392" article="a" name="blister ring">
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+		<attribute key="transformEquipTo" value="36451" />
+		<attribute key="absorbPercentFire" value="6" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="showduration" value="1" />
+		<attribute key="stopduration" value="1" />		
 	</item>
 	<item id="36393" article="a" name="red goanna scale" plural="red goanna scales">
 		<attribute key="weight" value="90" />
@@ -43939,6 +44134,85 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36411" article="the" name="Regalia of Suon">
 		<attribute key="weight" value="3400" />
 	</item>
+	<item id="36412" article="a" name="terra helmet">
+		<attribute key="weight" value="3100" />
+		<attribute key="slotType" value="head" />
+		<attribute key="armor" value="9" />
+        <attribute key="skillSword" value="2" />
+        <attribute key="skillClub" value="2" />	
+        <attribute key="skillAxe" value="2" />		
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="absorbPercentEarth" value="5" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="36412" article="a" name="terra helmet">
+		<attribute key="weight" value="3100" />
+		<attribute key="slotType" value="head" />
+		<attribute key="armor" value="9" />
+        <attribute key="skillSword" value="2" />
+        <attribute key="skillClub" value="2" />	
+        <attribute key="skillAxe" value="2" />		
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="absorbPercentEarth" value="5" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="36413" article="a" name="bear skin">
+		<attribute key="weight" value="4400" />
+		<attribute key="armor" value="16" />
+		<attribute key="slotType" value="body" />
+		<attribute key="magiclevelpoints" value="4" />
+		<attribute key="absorbPercentEarth" value="11" />
+		<attribute key="absorbPercentFire" value="-2" />
+		<attribute key="imbuingSlots" value="1" />		
+	</item>
+	<item id="36414" article="an" name="embrace of nature">
+		<attribute key="weight" value="2400" />
+		<attribute key="armor" value="16" />
+		<attribute key="slotType" value="body" />
+		<attribute key="skillDist" value="4" />
+		<attribute key="absorbPercentIce" value="11" />
+		<attribute key="absorbPercentEnergy" value="-3" />
+		<attribute key="imbuingSlots" value="1" />		
+	</item>
+	<item id="36415" article="a" name="mortal mace">
+		<attribute key="weight" value="4100" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="attack" value="8" />
+		<attribute key="elementDeath" value="44" />
+		<attribute key="defense" value="27" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillClub" value="2" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="36416" article="a" name="bow of cataclysm">
+	    <attribute key="weight" value="4700"/>
+		<attribute key="slotType" value="two-handed"/>
+		<attribute key="weaponType" value="distance"/>
+		<attribute key="ammoType" value="arrow"/>
+		<attribute key="range" value="6"/>
+		<attribute key="hitChance" value="4"/>
+		<attribute key="attack" value="6"/>
+		<attribute key="skillDist" value="2"/>
+		<attribute key="absorbPercentDeath" value="4" />
+		<attribute key="imbuingSlots" value="3"/>
+	</item>
+	<item id="36417" article="a" name="galea mortis">
+		<attribute key="weight" value="2300" />
+		<attribute key="slotType" value="head" />
+		<attribute key="armor" value="7" />
+ 		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="absorbPercentDeath" value="6" />
+		<attribute key="absorbPercentHoly" value="-3" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="36418" article="a" name="toga mortis">
+		<attribute key="weight" value="5200" />
+		<attribute key="slotType" value="body" />
+		<attribute key="armor" value="16" />
+ 		<attribute key="magiclevelpoints" value="4" />
+		<attribute key="absorbPercentDeath" value="6" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
 	<item id="36422" article="a" name="dead gryphon"/>
 	<item id="36423" article="a" name="ancient liche bone" plural="ancient liche bones">
 		<attribute key="weight" value="80" />
@@ -43964,27 +44238,27 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36430" article="a" name="noble amulet" plural="noble amulets">
 		<attribute key="weight" value="65" />
 	</item>
-	<item id="36443" article="a" name="dead King Zelos">
+	<item id="36443" article="a" name="dead king zelos">
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36444" article="a" name="dead King Zelos">
+	<item id="36444" article="a" name="dead king zelos">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36443" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36445" article="a" name="dead King Zelos">
+	<item id="36445" article="a" name="dead king zelos">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36444" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="36446" article="a" name="dead King Zelos">
+	<item id="36446" article="a" name="dead king zelos">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36445" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36447" article="a" name="vial of potent holy water">
@@ -43994,6 +44268,36 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="weight" value="4500" />
 		<attribute key="description" value="It seems to be enchanted with a spell." />
 	</item>
+	<item id="36449" article="a" name="tagralt blade">
+		<attribute key="weight" value="8100" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="attack" value="7" />
+		<attribute key="elementEarth" value="46" />
+		<attribute key="defense" value="34" />
+		<attribute key="skillSword" value="2" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="36451" article="a" name="blister ring">
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+		<attribute key="transformDeEquipTo" value="36392" />
+        <attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
+		<attribute key="absorbPercentFire" value="6" />
+        <attribute key="decayTo" value="36456" />
+		<attribute key="showattributes" value="1" />		
+	</item>
+	<item id="36452" name="winged boots">
+		<attribute key="weight" value="1200" />
+		<attribute key="slotType" value="feet" />
+		<attribute key="armor" value="2" />
+		<attribute key="speed" value="30" />
+		<attribute key="skillDist" value="1"/>
+		<attribute key="showattributes" value="1" />
+		<attribute key="absorbPercentEarth" value="7" />	
+		<attribute key="imbuingSlots" value="1" />
+	</item>
 	<item id="36453" name="veldt flowers">
 		<attribute key="weight" value="80" />
 	</item>
@@ -44002,6 +44306,11 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	</item>
 	<item id="36455" article="a" name="wild desert rose" plural="wild desert roses">
 		<attribute key="weight" value="70" />
+	</item>
+	<item id="36456" article="a" name="blister ring">
+	    <attribute key="description" value="This ring is out of magic energy" />
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
 	</item>
 	<item id="36457" name="Urmahlullu's tail" plural="Urmahlullu's tails">
 		<attribute key="weight" value="76" />
@@ -44019,6 +44328,13 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item fromid="36461" toid="36465" article="a" name="gryphon nest" />
+	<item id="36466" name="the cobra amulet">
+	    <attribute key="description" value="The bearer of this amulet will command the gaze, the resilience and deadliness of the cobra. Yet what firmly has its place in the heart of its wearer, the cobra will conceal." />
+		<attribute key="weight" value="530" />
+		<attribute key="armor" value="4" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="absorbPercentDeath" value="9" />
+	</item>
 	<item id="36467" article="the" name="missing piece of the cube">
 		<attribute key="weight" value="100" />
 		<attribute key="description" value="It's black and it's missing." />
@@ -44030,7 +44346,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36470" article="a" name="dead cobra scout">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36471" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36471" article="a" name="dead cobra scout">
@@ -44053,7 +44369,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36474" article="a" name="dead cobra vizier">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36475" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36475" article="a" name="dead cobra vizier">
@@ -44093,7 +44409,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36481" article="a" name="dead burning gladiator">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36480" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36482" article="a" name="dead crypt warden">
@@ -44116,7 +44432,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36485" article="a" name="dead crypt warden">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36484" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36486" article="a" name="dead guard captain quaid">
@@ -44139,7 +44455,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36489" article="a" name="dead guard captain quaid">
 		<attribute key="containerSize" value="28" />
 		<attribute key="decayTo" value="36488" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36490" article="a" name="dead feral sphinx">
@@ -44162,7 +44478,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36493" article="a" name="dead feral sphinx">
 		<attribute key="containerSize" value="32" />
 		<attribute key="decayTo" value="36492" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36494" article="a" name="dead earworm">
@@ -44185,7 +44501,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36497" article="a" name="dead earworm">
 		<attribute key="containerSize" value="10" />
 		<attribute key="decayTo" value="36496" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item fromid="36503" toid="36504" article="a" name="scorpion grave" />
@@ -44362,7 +44678,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36758" article="a" name="dead custodian">
 		<attribute key="containerSize" value="20" />
 		<attribute key="decayTo" value="36757" />
-		<attribute key="duration" value="300" />
+		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="40001" name="water" />

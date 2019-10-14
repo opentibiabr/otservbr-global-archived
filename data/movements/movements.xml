@@ -3106,4 +3106,181 @@
 
 	<movevent event="Equip" itemid="8931" level="120" slot="hand" function="onEquipItem"/> <!-- The Epiphany -->
 	<movevent event="DeEquip" itemid="8931" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35228" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Crossbow -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35228" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35229" slot="feet" level="220" function="onEquipItem"> <!-- Cobra Boots -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35229" slot="feet" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35230" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Club -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35230" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35231" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Axe -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35231" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35232" slot="head" level="270" function="onEquipItem"> <!-- Cobra Hood -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35232" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35233" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Sword -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35233" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35234" slot="hand" level="200" function="onEquipItem"> <!-- Cobra Wand -->
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35234" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35235" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Rod -->
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35235" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35236" slot="necklace" level="220" function="onEquipItem" > <!-- Amulet of Theurgy (discharged) -->
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" showInDescription="0" />
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35236" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35237" slot="necklace" level="220" function="onEquipItem" > <!-- Amulet of Theurgy (on) -->
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" showInDescription="0" />
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35237" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="35238" slot="necklace" level="220" function="onEquipItem" > <!-- Amulet of Theurgy (off) -->
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" showInDescription="0" />
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="35238" slot="necklace" function="onDeEquipItem" />
+
+	<movevent event="Equip" itemid="36391" slot="necklace" level="220" function="onEquipItem" /> <!-- Rainbow Amulet -->
+	<movevent event="DeEquip" itemid="36391" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36392" slot="ring" level="220" function="onEquipItem" /> <!-- Blister Ring (charged) -->
+	<movevent event="DeEquip" itemid="36392" slot="ring" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36451" slot="ring" level="220" function="onEquipItem" /> <!-- Blister Ring (on) -->
+	<movevent event="DeEquip" itemid="36451" slot="ring" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36456" slot="ring" level="220" function="onEquipItem" /> <!-- Blister Ring (off) -->
+	<movevent event="DeEquip" itemid="36456" slot="ring" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36412" slot="head" level="230" function="onEquipItem"> <!-- Terra Helmet -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36412" slot="head" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36413" slot="armor" level="230" function="onEquipItem"> <!-- Bear Skin -->
+		<vocation name="Druid" />
+		<vocation name="Elder Druid" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36413" slot="armor" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36414" slot="armor" level="230" function="onEquipItem"> <!-- Embrace of Nature -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36414" slot="armor" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36415" slot="hand" level="220" function="onEquipItem"> <!-- Mortal Mace -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36415" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36416" slot="hand" level="270" function="onEquipItem"> <!-- Bow of Cataclysm -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36416" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36417" slot="head" level="220" function="onEquipItem"> <!-- Galea Mortis -->
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36417" slot="head" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36418" slot="armor" level="220" function="onEquipItem"> <!-- Toga Mortis -->
+		<vocation name="Sorcerer" />
+		<vocation name="Master Sorcerer" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36418" slot="armor" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36449" slot="hand" level="250" function="onEquipItem"> <!-- Tagralt Blade -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36449" slot="hand" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36452" slot="feet" level="220" function="onEquipItem"> <!-- Winged Boots -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="36452" slot="feet" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="36466" slot="necklace" level="250" function="onEquipItem" /> <!-- The Cobra Amulet -->
+	<movevent event="DeEquip" itemid="36466" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="34067" slot="necklace" level="180" function="onEquipItem" > <!-- Pendulet (discharged) -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="34067" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="34982" slot="necklace" level="180" function="onEquipItem" > <!-- Pendulet (on) -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="34982" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="34983" slot="necklace" level="180" function="onEquipItem" > <!-- Pendulet (off) -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="34983" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="34066" slot="necklace" level="180" function="onEquipItem" > <!-- sleep shawl (discharged) -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="34066" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="34980" slot="necklace" level="180" function="onEquipItem" > <!-- sleep shawl (on) -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="34980" slot="necklace" function="onDeEquipItem" />
+	
+	<movevent event="Equip" itemid="34981" slot="necklace" level="180" function="onEquipItem" > <!-- sleep shawl (off) -->
+		<vocation name="Paladin" />
+		<vocation name="Royal Paladin" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="34981" slot="necklace" function="onDeEquipItem" />
 </movements>
