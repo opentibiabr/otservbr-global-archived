@@ -19,6 +19,8 @@ customDoorsRange = {
 	{ openDoor = 34674, closedDoor = 34672 },
 	{ openDoor = 34677, closedDoor = 34675 },
 	{ openDoor = 34678, closedDoor = 34676 },
+	{ openDoor = 12695, closedDoor = 12692 },
+	{ openDoor = 12703, closedDoor = 12701 },
 }
 
 ropeSpots = {384, 418, 8278, 8592, 13189, 14435, 14436, 15635, 19518, 26019, 24621, 24622, 24623, 24624}
