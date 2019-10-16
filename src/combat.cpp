@@ -743,12 +743,14 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 	}
 	//
 	CombatDamage tmpDamage;
-	if(data) {
-		tmpDamage.origin = data->origin;
-		tmpDamage.primary.type = data->primary.type;
-		tmpDamage.primary.value = data->primary.value;
-		tmpDamage.critical = data->critical;
-	}
+    if(data) {
+        tmpDamage.origin = data->origin;
+        tmpDamage.primary.type = data->primary.type;
+        tmpDamage.primary.value = data->primary.value;        
+        tmpDamage.secondary.type = data->secondary.type;
+        tmpDamage.secondary.value = data->secondary.value;
+        tmpDamage.critical = data->critical;
+    }
 	tmpDamage.affected = affected;
 	for (Tile* tile : tileList) {
 		if (canDoCombat(caster, tile, params.aggressive) != RETURNVALUE_NOERROR) {
