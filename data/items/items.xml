@@ -42374,7 +42374,7 @@
 	<item id="34980" article="an" name="enchanted sleep shawl">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
-		<attribute key="transformEquipTo" value="34980" />
+		<attribute key="transformEquipTo" value="34981" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
 	</item>
@@ -42385,7 +42385,7 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEarth" value="24" />
 		<attribute key="absorbPercentPhysical" value="7" />
-		<attribute key="transformDeEquipTo" value="34981" />
+		<attribute key="transformDeEquipTo" value="34980" />
 		<attribute key="decayTo" value="34066" />
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
@@ -42394,9 +42394,9 @@
 	<item id="34982" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
-		<attribute key="transformEquipTo" value="34982" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
+		<attribute key="transformEquipTo" value="34983" />
 	</item>
 	<item id="34983" article="a" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
@@ -42405,11 +42405,11 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEnergy" value="18" />
 		<attribute key="absorbPercentPhysical" value="5" />
-		<attribute key="transformDeEquipTo" value="34983" />
 		<attribute key="decayTo" value="34067" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
+		<attribute key="transformDeEquipTo" value="34982" />
 	</item>
 	<item id="35021" article="a" name="festive filled shoes">
 		<attribute key="rotateTo" value="35022" />
