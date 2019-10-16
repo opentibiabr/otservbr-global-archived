@@ -224,7 +224,7 @@ function Player.removeMoneyNpc(self, amount)
 	-- The player have all the money with him
 	if amount <= moneyCount then
 		-- Removes player inventory money
-		self:removeMoney(moneyCount)
+		self:removeMoney(amount)
 
 		self:sendTextMessage(MESSAGE_INFO_DESCR, ("Paid %d from inventory."):format(amount))
 		return true
