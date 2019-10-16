@@ -161,6 +161,8 @@ bool Npc::loadFromXml()
 
 	if ((attr = npcNode.attribute("walkradius"))) {
 		masterRadius = pugi::cast<int32_t>(attr.value());
+	} else {
+		masterRadius = 2;
 	}
 
 	if ((attr = npcNode.attribute("ignoreheight"))) {
