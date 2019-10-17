@@ -6990,9 +6990,15 @@ int LuaScriptInterface::luaItemTransform(lua_State* L)
 
 int LuaScriptInterface::luaItemDecay(lua_State* L)
 {
-	// item:decay()
+	// item:decay(decayId)
 	Item* item = getUserdata<Item>(L, 1);
 	if (item) {
+		if (isNumber(L, 2)) {
+			ItemType& it = Item::items.getItemType(item->getID());
+			it.decayTo = getNumber<int32_t>(L, 2);
+			item->setDecayTo(getNumber<int32_t>(L, 2));
+		}
+
 		g_game.startDecay(item);
 		pushBoolean(L, true);
 	} else {
