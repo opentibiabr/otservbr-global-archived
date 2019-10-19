@@ -671,9 +671,7 @@ Storage = {
 		AssassinSecondAddon = 50082,
 		
 		-- Golden Outfit
-		GoldenBaseOutfit = 52000,
-		GoldenFirstAddon = 52001,
-		GoldenSecondAddon = 52002,
+		GoldenOutfit = 52000,
 
 		NightmareOutfit = 50083,
 		NightmareDoor = 3040,

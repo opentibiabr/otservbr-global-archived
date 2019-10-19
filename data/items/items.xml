@@ -43947,51 +43947,67 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item fromid="36333" toid="36334" article="an" name="ancient wall"/>
 	<item id="36336" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36337" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36337" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36336" />
+		<attribute key="rotateTo" value="36338" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36338" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36339" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36339" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36338" />
+		<attribute key="rotateTo" value="36336" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36340" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36341" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36341" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36340" />
+		<attribute key="rotateTo" value="36342" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36342" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36343" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36343" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36342" />
+		<attribute key="rotateTo" value="36340" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36344" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36345" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36345" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36344" />
+		<attribute key="rotateTo" value="36346" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36346" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36347" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36347" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36346" />
+		<attribute key="rotateTo" value="36344" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36348" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36349" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36349" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36348" />
+		<attribute key="rotateTo" value="36350" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36350" article="the" name="golden outfit display">
 		<attribute key="rotateTo" value="36351" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36351" article="the" name="golden outfit display">
-		<attribute key="rotateTo" value="36350" />
+		<attribute key="rotateTo" value="36348" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item fromid="36353" toid="36358" article="a" name="memorial"/>
 	<item id="36359" article="a" name="dead ogre ruffian">
