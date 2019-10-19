@@ -544,6 +544,7 @@
 	<action fromid="26364" toid="26365" script="others/houses/pet.lua" />
 	<action fromid="26098" toid="26099" script="others/houses/pet.lua" />
 	<action fromid="26094" toid="26097" script="others/houses/statue.lua" />
+	<action fromid="36336" toid="36351" script="others/houses/golden_outfit_display.lua" />
 	<!-- Others (Variables) -->
 	<action itemid="6558" script="others/variables/concentratedDemonicBlood.lua" />
 	<action fromid="11258" toid="11262" script="others/variables/blessingCharms.lua" />
