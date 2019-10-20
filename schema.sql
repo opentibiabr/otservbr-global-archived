@@ -48,6 +48,16 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   CONSTRAINT `accounts_unique` UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE IF NOT EXISTS `api_tokens` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` int(11) NOT NULL,
+  `key` varchar(255) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT NOW(),
+  `updated_at` TIMESTAMP NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 -- --------------------------------------------------------
 
 --

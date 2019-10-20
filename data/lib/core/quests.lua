@@ -901,7 +901,7 @@ if not Quests then
 				[25] = {
 					name = "Paw and Fur: Bruise Payne", storageid = 34117, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
-				
+
 				[26] = {
 					name = "Paw and Fur: The Many", storageid = 34118, startvalue = 1, endvalue = 2, description = "Try find its hideout and kill it.",
 				},
@@ -3374,6 +3374,19 @@ if not Quests then
 				},
 			},
 		},
+		[44] = {
+			name = "Finding Your Way", startstorageid = Storage.Waypoints.QuestLine, startstoragevalue = 1,
+			missions = {
+				[1] = {
+					name = "Discover the Waypoints of Tibia", storageid = Storage.Waypoints.Completion, startvalue = 1, endvalue = 17, description = function(player)
+						return ("You have started your quest to discover the towns of tibia! You have discovered %d/17 waypoints."):format(math.max(player:getStorageValue(Storage.Waypoints.Completion), 0))
+					end
+				},
+				[2] = {
+					name = "Access the Secret Waypoint", storageid = Storage.Waypoints.Secret, startvalue = 1, endvalue = 2, description = "You've discovered all the waypoints! Use a waypoint to access the secret teleport location."
+				}
+			}
+		}
 	}
 end
 
