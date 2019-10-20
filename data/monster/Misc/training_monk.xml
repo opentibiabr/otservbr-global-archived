@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Training Monk" nameDescription="a training monk" race="blood" experience="0" speed="0" manacost="0">
+    <health now="99000" max="99000"/>
+    <look type="9" corpse="20455" />
+    <targetchange interval="20000" chance="10"/>
+    <strategy attack="20" defense="5"/>
+    <flags>
+        <flag summonable="0"/>
+        <flag attackable="1"/>
+        <flag hostile="1"/>
+        <flag illusionable="0"/>
+        <flag convinceable="0"/>
+        <flag pushable="0"/>
+        <flag canpushitems="1"/>
+        <flag staticattack="30"/>
+        <flag lightlevel="0"/>
+        <flag lightcolor="0"/>
+        <flag targetdistance="1"/>
+        <flag runonhealth="0"/>
+    </flags>
+    <attacks>
+        <attack name="melee" interval="800" min="0" max="-1"/>
+    </attacks>
+    <defenses armor="5" defense="10">
+        <defense name="healing" interval="10000" chance="100" min="24000" max="24000"/>
+    </defenses>
+    <immunities>
+        <immunity physical="0"/>
+        <immunity energy="0"/>
+        <immunity fire="0"/>
+        <immunity poison="0"/>
+        <immunity lifedrain="0"/>
+        <immunity paralyze="0"/>
+        <immunity outfit="0"/>
+        <immunity drunk="0"/>
+        <immunity invisible="1"/>
+    </immunities>
+</monster>

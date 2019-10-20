@@ -502,7 +502,10 @@ achievements =
 	[442] = {name = "Gryphon Rider", grade = 1, points = 3, description = "Unmasking spies, killing demons, discovering omens, solving puzzles and fighting ogres, manticores and feral sphinxes. - Nobody said it was easy to become a gryphon rider."},
 	[443] = {name = "Hippofoddermus", grade = 1, points = 1, secret = true, description = "You did the hippo population of Kilmaresh a great favour. A well-fed hippo is a happy hippo."},
 	[444] = {name = "Sun and Sea", grade = 2, points = 5, description = "You made sure that the balance of sun and sea is preserved in Kilmaresh. The Golden City of Issavi won't forget your favour."},
-	[445] = {name = "The Empire's Glory", grade = 1, points = 1, description = "Mythical creatures, forgotten catacombs and the Golden City - you really know every corner of Kilmaresh now."}
+	[445] = {name = "The Empire's Glory", grade = 1, points = 1, description = "Mythical creatures, forgotten catacombs and the Golden City - you really know every corner of Kilmaresh now."},
+
+	--Custom
+	[446] = {name = "Waypoint Explorer", grade = 1, points = 1, description = "You've explored all the towns of Tibia and discovered each town's waypoint."}
 }
 
 ACHIEVEMENT_FIRST = 1

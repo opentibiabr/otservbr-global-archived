@@ -15,6 +15,7 @@
 
 	<!-- Modal Window -->
 	<event type="modalwindow" name="ModalWindowHelper" script="modalwindowhelper.lua" />
+	<event type="modalwindow" name="WaypointsModal" script="waypoints_modal.lua"/>
 
 	<!-- Oramond Quest -->
 	<event type="death" name="tp" script="quests/oramond/revanger.lua"/>

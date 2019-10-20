@@ -159,7 +159,7 @@
 	<monster name="Eruption of Destruction" file="Quests/Ferumbras Ascendant/Traps/eruption of destruction.xml"/>
 	<monster name="Guilt" file="Quests/Ferumbras Ascendant/Traps/guilt.xml"/>
 	<monster name="Void" file="Quests/Ferumbras Ascendant/Traps/void.xml"/>
-	
+
 	<!-- Cults of tibia bosses -->
 	<monster name="Ancient Spawn of Morgathla" file="Cults of Tibia/Bosses/Ancient Spawn of Morgathla.xml"/>
 	<monster name="Black Vixen" file="Cults of Tibia/Bosses/Black Vixen.xml"/>
@@ -1225,6 +1225,8 @@
 	<monster name="Killer Caiman" file="Misc/Misc Reptiles/killer_caiman.xml"/>
 	<monster name="Thornback Tortoise" file="Misc/Misc Reptiles/thornback_tortoise.xml"/>
 	<monster name="Tortoise" file="Misc/Misc Reptiles/tortoise.xml"/>
+
+	<monster name="Training Monk" file="Misc/training_monk.xml"/>
 
 	<!-- Mollusks -->
 	<monster name="Abyssal Calamary" file="Mollusks/Abyssal Calamary.xml"/>

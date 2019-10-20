@@ -7,7 +7,7 @@ Storage = {
 		TheOrderOfTheFalcon = {
 			OberonTimer = 25580,
 		},
-	},	
+	},
 
 	DeeplingBosses = {
 		Jaul = 35600,
@@ -669,7 +669,7 @@ Storage = {
 		AssassinBaseOutfit = 50080,
 		AssassinFirstAddon = 50081,
 		AssassinSecondAddon = 50082,
-		
+
 		-- Golden Outfit
 		GoldenOutfit = 52000,
 
@@ -1358,7 +1358,16 @@ Storage = {
 	Factions = 50723,
 	blockMovementStorage = 100000,
 	PetSummon = 60045,
-	isTraining = 37
+	isTraining = 37,
+
+	-- storage keys 41000 to 41100
+	Waypoints = {
+		Teleporters = 41010,
+
+		QuestLine = 41000,
+		Completion = 41001,
+		Secret = 41002
+	}
 
 }
 
