@@ -109,6 +109,14 @@ coinPacketSize = 25
 coinImagesURL = "http://localhost/images/store/"
 classicAttackSpeed = false
 
+-- Dual wielding
+-- NOTE: the rates are percentages of the single-wielding values, for
+-- example, if dualWieldingSpeedFactor is 200 then dual wielding attack will
+-- be twice as fast. It makes no sense to set dualWieldingSpeedRate under 100.
+allowDualWielding = false
+dualWieldingSpeedRate = 200
+dualWieldingDamageRate = 70
+
 -- Rates
 -- NOTE: rateExp is not used if you have enabled stages in data/XML/stages.xml
 rateExp = 1

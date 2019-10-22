@@ -42,11 +42,9 @@ class Vocation
 		uint16_t getId() const {
 			return id;
 		}
-
 		uint8_t getClientId() const {
 			return clientId;
 		}
-
 		uint32_t getHPGain() const {
 			return gainHP;
 		}
@@ -56,7 +54,6 @@ class Vocation
 		uint32_t getCapGain() const {
 			return gainCap;
 		}
-
 		uint32_t getManaGainTicks() const {
 			return gainManaTicks;
 		}
@@ -69,23 +66,23 @@ class Vocation
 		uint32_t getHealthGainAmount() const {
 			return gainHealthAmount;
 		}
-
 		uint8_t getSoulMax() const {
 			return soulMax;
 		}
 		uint16_t getSoulGainTicks() const {
 			return gainSoulTicks;
 		}
-
 		uint32_t getAttackSpeed() const {
 			return attackSpeed;
 		}
 		uint32_t getBaseSpeed() const {
 			return baseSpeed;
 		}
-
 		uint32_t getFromVocation() const {
 			return fromVocation;
+		}
+		bool canDualWield() const {
+			return dualWield;
 		}
 
 		float meleeDamageMultiplier = 1.0f;
@@ -104,6 +101,8 @@ class Vocation
 
 		float skillMultipliers[SKILL_LAST + 1] = {1.5f, 2.0f, 2.0f, 2.0f, 2.0f, 1.5f, 1.1f};
 		float manaMultiplier = 4.0f;
+
+		bool dualWield = true;
 
 		uint32_t gainHealthTicks = 6;
 		uint32_t gainHealthAmount = 1;

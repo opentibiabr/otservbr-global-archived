@@ -340,6 +340,10 @@ void Party::broadcastPartyMessage(MessageClasses msgClass, const std::string& ms
 
 void Party::updateSharedExperience()
 {
+	if (g_config.getBoolean(ConfigManager::PARTY_EXP_SHARE_ALWAYS)) {
+		sharedExpActive = true;
+	}
+
 	if (sharedExpActive) {
 		bool result = canEnableSharedExperience();
 		if (result != sharedExpEnabled) {
@@ -367,7 +371,7 @@ bool Party::setSharedExperience(Player* player, bool newSharedExpActive)
 		if (this->sharedExpEnabled) {
 			leader->sendTextMessage(MESSAGE_INFO_DESCR, "Shared Experience is now active.");
 		} else {
-			leader->sendTextMessage(MESSAGE_INFO_DESCR, "Shared Experience has been activated, but some members of your party are inactive.");
+			leader->sendTextMessage(MESSAGE_INFO_DESCR, "Shared Experience has been activated.");
 		}
 	} else {
 		leader->sendTextMessage(MESSAGE_INFO_DESCR, "Shared Experience has been deactivated.");
@@ -391,6 +395,10 @@ bool Party::canUseSharedExperience(const Player* player) const
 {
 	if (memberList.empty()) {
 		return false;
+	}
+
+	if (g_config.getBoolean(ConfigManager::PARTY_EXP_SHARE_ALWAYS)) {
+		return true;
 	}
 
 	uint32_t highestLevel = leader->getLevel();

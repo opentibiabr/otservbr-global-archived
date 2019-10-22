@@ -1978,6 +1978,10 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STOREMODULES)
 	registerEnumIn("configKeys", ConfigManager::QUEST_LUA)
 
+	registerEnumIn("configKeys", ConfigManager::ALLOW_DUAL_WIELDING)
+	registerEnumIn("configKeys", ConfigManager::DUAL_WIELDING_DAMAGE_RATE)
+	registerEnumIn("configKeys", ConfigManager::DUAL_WIELDING_SPEED_RATE)
+
 	registerEnumIn("configKeys", ConfigManager::MAP_NAME)
 	registerEnumIn("configKeys", ConfigManager::HOUSE_RENT_PERIOD)
 	registerEnumIn("configKeys", ConfigManager::SERVER_NAME)
