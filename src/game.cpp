@@ -5553,7 +5553,7 @@ void Game::playerBrowseMarketOwnHistory(uint32_t playerId)
 
 void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spriteId, uint16_t amount, uint32_t price, bool anonymous) //Custom: Anti bug do market
 {
-	if (amount == 0 || amount > 100) {
+	if (amount == 0 || amount > 3000 ) {
 		return;
 	}
 
