@@ -12,6 +12,10 @@ local function serverSave()
 	if cleanMapAtServerSave then
 		cleanMap()
 	end
+
+	-- Updating daily reward next server save.
+	updateGlobalStorage(DailyReward.storages.lastServerSave, os.time())
+	
 end
 
 local function secondServerSaveWarning()
