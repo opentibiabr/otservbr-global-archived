@@ -4388,15 +4388,8 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		realDamage = damage.primary.value + damage.secondary.value;
 		if (realDamage == 0) {
 			return true;
-		} else if (realDamage >= targetHealth) {
-			for (CreatureEvent* creatureEvent : target->getCreatureEvents(CREATURE_EVENT_PREPAREDEATH)) {
-				if (!creatureEvent->executeOnPrepareDeath(target, attacker)) {
-					return false;
-				}
-			}
-		}
+		} 
 
-		target->drainHealth(attacker, realDamage);
 		if (realDamage > 0) {
 			if (Monster* targetMonster = target->getMonster()) {
 				if (attackerPlayer && attackerPlayer->getPlayer()) {
@@ -4438,8 +4431,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		if (spectators.empty()) {
 			map.getSpectators(spectators, targetPos, true, true);
 		}
-
-		addCreatureHealth(spectators, target);
 
 		message.primary.value = damage.primary.value;
 		message.secondary.value = damage.secondary.value;
@@ -4516,6 +4507,22 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 				}
 				tmpPlayer->sendTextMessage(message);
 			}
+		}
+
+		if (realDamage >= targetHealth) {
+			for (CreatureEvent* creatureEvent : target->getCreatureEvents(CREATURE_EVENT_PREPAREDEATH)) {
+				if (!creatureEvent->executeOnPrepareDeath(target, attacker)) {
+					return false;
+				}
+			}
+		}
+
+		target->drainHealth(attacker, realDamage);
+		addCreatureHealth(spectators, target);
+
+		if (realDamage >= targetHealth) {
+			target->onDeath();
+
 		}
 	}
 
