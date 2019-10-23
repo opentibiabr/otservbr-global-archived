@@ -1977,6 +1977,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::REMOVE_POTION_CHARGES)
 	registerEnumIn("configKeys", ConfigManager::STOREMODULES)
 	registerEnumIn("configKeys", ConfigManager::QUEST_LUA)
+	registerEnumIn("configKeys", ConfigManager::NOTIFY_SERVER_SAVE)
 
 	registerEnumIn("configKeys", ConfigManager::MAP_NAME)
 	registerEnumIn("configKeys", ConfigManager::HOUSE_RENT_PERIOD)

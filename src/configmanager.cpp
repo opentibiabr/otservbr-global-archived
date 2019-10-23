@@ -213,6 +213,8 @@ bool ConfigManager::load()
 	floating[RATE_MONSTER_ATTACK] = getGlobalFloat(L, "rateMonsterAttack", 1.0);
 	floating[RATE_MONSTER_DEFENSE] = getGlobalFloat(L, "rateMonsterDefense", 1.0);
 
+	boolean[NOTIFY_SERVER_SAVE] = getGlobalBoolean(L, "notifyServerSave", true);
+
 	loaded = true;
 	lua_close(L);
 	return true;

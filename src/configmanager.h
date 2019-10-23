@@ -50,6 +50,7 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
+			NOTIFY_SERVER_SAVE,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
