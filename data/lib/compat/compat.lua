@@ -1299,6 +1299,10 @@ function createFunctions(class)
 	end
 end
 
+function doPlayerTakeItem(cid, itemid, count)
+	return Player(cid):removeItem(itemid, count)
+end
+
 -- CASAMENTO MARRY
 
 function getPlayerNameById(id)
