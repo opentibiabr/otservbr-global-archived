@@ -151,10 +151,12 @@ function onLogin(player)
 		player:setStaminaXpBoost(50)
 	end
 
-	local worldTime = getWorldTime()
-	local hours = math.floor(worldTime / 60)
-	local minutes = worldTime % 60
-	player:sendTibiaTime(hours, minutes)
+	if player:getClient().version > 1110 then
+		local worldTime = getWorldTime()
+		local hours = math.floor(worldTime / 60)
+		local minutes = worldTime % 60
+		player:sendTibiaTime(hours, minutes)
+	end
 	
 	if player:getStorageValue(Storage.isTraining) == 1 then -- redefinir storage de exercise weapon
 		player:setStorageValue(Storage.isTraining,0)
