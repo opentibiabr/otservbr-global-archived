@@ -19,17 +19,23 @@ local function serverSave()
 end
 
 local function secondServerSaveWarning()
-	Game.broadcastMessage("Server is saving game in one minute. Please logout.", MESSAGE_STATUS_WARNING)
+	if configManager.getNumber(configKeys.NOTIFY_SAVEVERSER) then
+		Game.broadcastMessage("Server is saving game in one minute. Please logout.", MESSAGE_EVENT_ADVANCE)
+	end
 	addEvent(serverSave, 60000)
 end
 
 local function firstServerSaveWarning()
-	Game.broadcastMessage("Server is saving game in 3 minutes. Please logout.", MESSAGE_STATUS_WARNING)
+	if configManager.getNumber(configKeys.NOTIFY_SAVEVERSER) then
+		Game.broadcastMessage("Server is saving game in 3 minutes. Please logout.", MESSAGE_EVENT_ADVANCE)
+	end
 	addEvent(secondServerSaveWarning, 120000)
 end
 
 function onTime(interval)
-	Game.broadcastMessage("Server is saving game in 5 minutes. Please logout.", MESSAGE_STATUS_WARNING)
+	if configManager.getNumber(configKeys.NOTIFY_SAVEVERSER) then
+		Game.broadcastMessage("Server is saving game in 5 minutes. Please logout.", MESSAGE_EVENT_ADVANCE)
+	end
 	addEvent(firstServerSaveWarning, 120000)
 	return not shutdownAtServerSave
 end
