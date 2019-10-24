@@ -1,5 +1,5 @@
 
-local function serverSave()
+local function ServerSave()
 	if configManager.getBoolean(configKeys.CLEAN_MAP_AT_SERVER_SAVE) then
 		cleanMap()
 	end
@@ -15,24 +15,28 @@ local function serverSave()
 	
 end
 
-local function secondServerSaveWarning()
-	if configManager.getBoolean(configKeys.NOTIFY_SERVER_SAVE) then
-		Game.broadcastMessage("Server is saving game in one minute. Please logout.", MESSAGE_EVENT_ADVANCE)
-	end
-	addEvent(serverSave, 60000)
-end
+local function ServerSaveWarning(remaningTime)
+	remaningTime = remaningTime - 60000
 
-local function firstServerSaveWarning()
 	if configManager.getBoolean(configKeys.NOTIFY_SERVER_SAVE) then
-		Game.broadcastMessage("Server is saving game in 3 minutes. Please logout.", MESSAGE_EVENT_ADVANCE)
+		Game.broadcastMessage("Server is saving game in " .. (remaningTime/60000) .."  minute(s). Please logout.", MESSAGE_EVENT_ADVANCE)
 	end
-	addEvent(secondServerSaveWarning, 180000)
+
+	if remaningTime > 60000 then
+		addEvent(ServerSaveWarning, 60000, remaningTime)
+	else
+		addEvent(ServerSave, 60000)
+	end
 end
 
 function onTime(interval)
 	if configManager.getBoolean(configKeys.NOTIFY_SERVER_SAVE) then
 		Game.broadcastMessage("Server is saving game in 5 minutes. Please logout.", MESSAGE_EVENT_ADVANCE)
 	end
-	addEvent(firstServerSaveWarning, 300000)
-	return not shutdownAtServerSave
+	addEvent(ServerSaveWarning, 60000)	-- Next event in 1 minute(60000)
+
+	return not configManager.getBoolean(configKeys.SHUTDOWN_AT_SERVER_SAVE)
 end
+
+
+
