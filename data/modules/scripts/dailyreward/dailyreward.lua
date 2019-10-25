@@ -515,7 +515,7 @@ function Player.selectDailyReward(self, msg)
   end
 
   if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) then
-    self:addBonusReroll(reward.rerollCount)
+    self:setPreyBonusRerolls(reward.rerollCount)
     DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. " .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward.rerollCount .. "x Prey bonus reroll(s)")
     DailyReward.processReward(playerId, source)
   end

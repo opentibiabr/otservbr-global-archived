@@ -1,4 +1,3 @@
-
 local function ServerSave()
 	if configManager.getBoolean(configKeys.CLEAN_MAP_AT_SERVER_SAVE) then
 		cleanMap()
@@ -37,6 +36,3 @@ function onTime(interval)
 
 	return not configManager.getBoolean(configKeys.SHUTDOWN_AT_SERVER_SAVE)
 end
-
-
-
