@@ -530,6 +530,14 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 	end
 
+
+	-- No move parcel very heavy
+	if ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
+        self:sendCancelMessage("Your cannot move this item too heavy.")
+        return false
+    end
+
+
 	if tile and tile:getItemById(370) then -- Trapdoor
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
