@@ -368,6 +368,8 @@ theforgottenserver.exe
 data/world/otservbr.otbm
 config.lua
 tfs.exe
+tfs
+build/*
 
 # SFTP for Sublime
 sftp-config.json
