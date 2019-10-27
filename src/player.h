@@ -142,7 +142,9 @@ class Player final : public Creature, public Cylinder
 
 		void setID() final {
 			if (id == 0) {
-				id = playerAutoID++;
+				if (guid != 0) {
+					id = 0x10000000 + guid;
+				}
 			}
 		}
 
