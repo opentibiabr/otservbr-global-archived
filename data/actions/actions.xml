@@ -1125,6 +1125,7 @@
 
 	<!-- Market -->
 	<action itemid="14405" function="market" />
+	<action itemid="24774" script="others/tibiacoin.lua"/> 
 
 	<!-- Dolls -->
 	<action itemid="5080" script="others/dolls.lua" />
