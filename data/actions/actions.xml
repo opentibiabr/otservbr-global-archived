@@ -383,22 +383,25 @@
 	<action itemid="13298" script="others/mounts/mounts.lua" />
 	<action itemid="13305" script="others/mounts/mounts.lua" />
 	<action itemid="13307" script="others/mounts/mounts.lua" />
-	<action itemid="13498" script="others/mounts/mounts.lua" />
 	<action itemid="13508" script="others/mounts/mounts.lua" />
-	<action itemid="21452" script="others/mounts/mounts.lua" />
+	<action itemid="13498" script="others/mounts/mounts.lua" />
 	<action itemid="13537" script="others/mounts/mountDonkey.lua" />
 	<action fromid="13535" toid="13536" script="others/mounts/mounts.lua" />
 	<action fromid="13538" toid="13539" script="others/mounts/mounts.lua" />
 	<action fromid="13938" toid="13939" script="others/mounts/mounts.lua" />
 	<action fromid="15545" toid="15546" script="others/mounts/mounts.lua" />
 	<action fromid="18447" toid="18449" script="others/mounts/mounts.lua" />
-	<action itemid="18511" script="others/mounts/musicBox.lua" />
 	<action itemid="18516" script="others/mounts/mounts.lua" />
 	<action itemid="20138" script="others/mounts/mounts.lua" />
+	<action itemid="21452" script="others/mounts/mounts.lua" />
 	<action itemid="22608" script="others/mounts/mounts.lua" />
-	<action itemid="23810" script="others/mounts/mounts.lua" />
 	<action itemid="23557" script="others/mounts/mounts.lua" />
+	<action itemid="23810" script="others/mounts/mounts.lua" />
 	<action itemid="30840" script="others/mounts/mounts.lua" />
+	<action itemid="27628" script="others/mounts/mounts.lua" /> <!--stone rhino-->
+	<action itemid="32491" script="others/mounts/mounts.lua" /> <!--flying book-->
+	<action itemid="36411" script="others/mounts/mounts.lua" />	<!--gryphon-->
+	<action itemid="18511" script="others/mounts/musicBox.lua" />
 
 	<!-- Oramond -->
 	<action itemid="22944" script="oramond/teleportWest.lua"/>
