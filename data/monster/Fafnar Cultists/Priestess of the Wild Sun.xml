@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Priestess of the Wild Sun" nameDescription="a priestess of the wild sun" race="blood" experience="8000" speed="160">
 	<health now="8500" max="8500"/>
-	<look type="1199" head="0" body="0" legs="0" feet="0" addons="0" corpse="20423"/>
+	<look type="1199" head="78" body="78" legs="94" feet="78" corpse="36254"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

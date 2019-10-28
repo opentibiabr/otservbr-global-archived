@@ -5228,14 +5228,14 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="2881" article="a" name="dead dragon">
-		<attribute key="containerSize" value="56" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="2882" />
 		<attribute key="duration" value="900" />
 		<attribute key="corpseType" value="blood" />
 		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="2882" article="a" name="dead dragon">
-		<attribute key="containerSize" value="56" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="2883" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
@@ -9650,7 +9650,7 @@
 		<attribute key="corpseType" value="undead" />
 	</item>
 	<item id="5973" article="a" name="dead dragon">
-		<attribute key="containerSize" value="52" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="3104" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
@@ -9726,7 +9726,7 @@
 		<attribute key="fluidSource" value="blood" />
 	</item>
 	<item id="5984" article="a" name="dead dragon">
-		<attribute key="containerSize" value="56" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="2881" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
@@ -37806,7 +37806,7 @@
 		<attribute key="attack" value="5" />
 		<attribute key="weaponType" value="club" />
 	</item>
-	<item id="29211" article="a" name="lit moon mirror" >
+	<item id="29211" article="a" name="moon mirror" >
 		<attribute key="weight" value="200" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="absorbPercentDeath" value="5" />
@@ -42769,6 +42769,12 @@
 	</item>
 	<item id="35150" article="a" name="rainbow necklace">
 		<attribute key="weight" value="490" />
+		<attribute key="armor" value="2" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="absorbPercentFire" value="6" />
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentIce" value="-5" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="35151" article="a" name="bright bell">
 		<attribute key="weight" value="220" />
@@ -44148,7 +44154,7 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="36410" article="a" name="golden bijou">
 		<attribute key="weight" value="850" />
 	</item>
-	<item id="36411" article="the" name="Regalia of Suon">
+	<item id="36411" name="The Regalia of Suon">
 		<attribute key="weight" value="3400" />
 	</item>
 	<item id="36412" article="a" name="terra helmet">
@@ -44435,19 +44441,19 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36483" article="a" name="dead crypt warden">
-		<attribute key="containerSize" value="32" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="36482" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36484" article="a" name="dead crypt warden">
-		<attribute key="containerSize" value="32" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="36483" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36485" article="a" name="dead crypt warden">
-		<attribute key="containerSize" value="32" />
+		<attribute key="containerSize" value="12" />
 		<attribute key="decayTo" value="36484" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
@@ -44458,19 +44464,19 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36487" article="a" name="dead guard captain quaid">
-		<attribute key="containerSize" value="28" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36486" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36488" article="a" name="dead guard captain quaid">
-		<attribute key="containerSize" value="28" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36487" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36489" article="a" name="dead guard captain quaid">
-		<attribute key="containerSize" value="28" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36488" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
@@ -44481,19 +44487,19 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36491" article="a" name="dead feral sphinx">
-		<attribute key="containerSize" value="32" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36490" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36492" article="a" name="dead feral sphinx">
-		<attribute key="containerSize" value="32" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36491" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="36493" article="a" name="dead feral sphinx">
-		<attribute key="containerSize" value="32" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="decayTo" value="36492" />
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
@@ -44717,4 +44723,10 @@ Her... li.. .. S... ura... erim (The engraving is old and almost unreadable with
 	<item id="40028" name="swamp" />
 	<item id="40035" name="tea" />
 	<item id="40043" name="mead" />
+
+	<item id="34784" article="a" name="mysterious scroll">
+		<attribute key="description" value="Strange symbols hard to decrypt. You wonder if one of the symbols looks like a foreign and mysterious creature." />
+		<attribute key="weight" value="850" />
+	</item>
+
 </items>

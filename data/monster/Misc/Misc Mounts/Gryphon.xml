@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Gryphon" nameDescription="a gryphon" race="blood" experience="1000" speed="250">
 	<health now="3200" max="3200"/>
-	<look type="515" corpse="13528"/>
-	<targetchange interval="2000" chance="20"/>
+	<look type="1191" corpse="36233"/>
+	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<flag summonable="0"/>
+		<flag summonable="1"/>
 		<flag attackable="1"/>
-		<flag hostile="0"/>
-		<flag illusionable="0"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
 		<flag canpushitems="0"/>
 		<flag canpushcreatures="0"/>
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag runonhealth="15"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="melee" interval="2000" min="0" max="-35"/>
 	</attacks>
-	<immunities>
-		<immunity energy="1"/>
-		<immunity physical="1"/>
-		<immunity death="1"/>
-		<immunity holy="1"/>
-		<immunity invisible="1"/>
-		<immunity ice="1"/>
-		<immunity earth="1"/>
-		<immunity fire="1"/>
-	</immunities>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element energyPercent="20"/>
+		<element holyPercent="10"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Grak brrretz!"/>
+		<voice sentence="Grow truk grrrrr."/>
+		<voice sentence="Prek tars, dekklep zurk."/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="14" chance="84810"/>
+		<item name="sabre" chance="5850"/>
+		<item name="axe" chance="4960"/>
+		<item name="studded helmet" chance="2950"/>
+		<item name="studded armor" chance="7860"/>
+		<item name="studded shield" chance="7300"/>
+		<item name="meat" chance="10160"/>
+		<item name="orc tooth" chance="210"/>
+		<item name="orc leather" chance="590"/>
+		<item id="26654" chance="1000"/> <!-- heavy old tome -->
+	</loot>
 </monster>

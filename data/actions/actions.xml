@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-	
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
 	<action fromid="13540" toid="13545" script="addons/afflictedOutfit.lua" />
@@ -220,7 +219,6 @@
 	<action uniqueid="9534" script="quests/ferumbras ascendant/ratLever.lua" />
 	<action fromuid="9535" touid="9538" script="quests/ferumbras ascendant/theshattererLevers.lua" />
 	<action uniqueid="9540" script="quests/ferumbras ascendant/reward.lua" />
-	<action itemid="25521" script="quests/ferumbras ascendant/mysteriousScroll.lua" />
 
 	<!-- Forgotten Knowledge -->
 	<action itemid="26402" script="quests/forgotten knowledge/lantern.lua"/>
@@ -400,6 +398,14 @@
 	<action itemid="23557" script="others/mounts/mounts.lua" />
 	<action itemid="30840" script="others/mounts/mounts.lua" />
 
+	<action itemid="34808" script="others/mounts/mounts.lua" />
+	<action itemid="32491" script="others/mounts/mounts.lua" />
+	<action itemid="36411" script="others/mounts/mounts.lua" />
+	<action itemid="27628" script="others/mounts/mounts.lua" />
+	<action itemid="34809" script="others/mounts/mounts.lua" />
+	<action itemid="22726" script="others/variables/ursagrodon.lua" />
+	<action itemid="34784" script="quests/ferumbras ascendant/mysteriousScroll.lua" />
+
 	<!-- Oramond -->
 	<action itemid="22944" script="oramond/teleportWest.lua"/>
 	<action itemid="22949" script="oramond/teleportNorth.lua"/>
@@ -564,9 +570,9 @@
 	<action itemid="1369" script="others/variables/teleportDrawwell.lua" />
 	<action fromaid="50030" toaid="50056" script="others/variables/thaisExhibition.lua" />
 	<action itemid="22598" script="others/variables/unrealizedDream.lua"/>
-	<action itemid="22726" script="others/variables/ursagrodon.lua" />
 	<action fromid="29021" toid="29024" script="others/variables/dailyRewardShrine.lua"/>
 	<action fromid="29089" toid="29090" script="others/variables/dailyRewardShrine.lua"/>
+
 	<!-- Others (Weapons Enchanting Gems) -->
 	<action itemid="2146" script="others/shrines/iceFeyristEntrance.lua" />
 	<action itemid="2147" script="others/shrines/fireFeyristEntrance.lua" />

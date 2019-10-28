@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Burning Gladiator" nameDescription="a burning gladiator" race="blood" experience="10500" speed="145">
 	<health now="10000" max="10000"/>
-	<look type="541" head="0" body="0" legs="0" feet="0" addons="0" corpse="20423"/>
+	<look type="541" head="95" body="113" legs="38" feet="57" addons="1" corpse="36481"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>

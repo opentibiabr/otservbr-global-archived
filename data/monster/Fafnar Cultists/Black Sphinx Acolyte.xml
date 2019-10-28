@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Black Sphinx Acolyte" nameDescription="a black sphinx acolyte" race="blood" experience="9000" speed="155">
 	<health now="8100" max="8100"/>
-	<look type="1200" head="0" body="0" legs="0" feet="0" addons="0" corpse="20423"/>
+	<look type="1200" head="114" body="95" legs="94" feet="114" corpse="36258"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
