@@ -60,7 +60,7 @@ local DAILY_REWARD_STATUS_PREMIUM = 1
 
 DailyReward = {
   testMode = false,
-  serverTimeThreshold = (4 * 60),
+  serverTimeThreshold = (24 * 60 * 60), -- Counting down 24hours from last server save
 
   storages = {
     -- Player
