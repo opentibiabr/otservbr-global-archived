@@ -1,4 +1,6 @@
 /**
+ * @file luascript.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,10 +19,14 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
-#define FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
+#ifndef OT_SRC_LUASCRIPT_H_
+#define OT_SRC_LUASCRIPT_H_
 
-#include <lua.hpp>
+#if __has_include("luajit/lua.hpp")
+	#include <luajit/lua.hpp>
+#else
+	#include <lua.hpp>
+#endif
 
 #if LUA_VERSION_NUM >= 502
 #ifndef LUA_COMPAT_ALL
@@ -110,9 +116,9 @@ class ScriptEnvironment
 
 		void resetEnv();
 
-		void setScriptId(int32_t scriptId, LuaScriptInterface* scriptInterface) {
-			this->scriptId = scriptId;
-			interface = scriptInterface;
+		void setScriptId(int32_t newScriptId, LuaScriptInterface* newScriptInterface) {
+			this->scriptId = newScriptId;
+			this->interface = newScriptInterface;
 		}
 		bool setCallbackId(int32_t callbackId, LuaScriptInterface* scriptInterface);
 
@@ -1502,6 +1508,7 @@ class LuaScriptInterface
 		static int luaMoveEventItemId(lua_State* L);
 		static int luaMoveEventActionId(lua_State* L);
 		static int luaMoveEventUniqueId(lua_State* L);
+		static int luaMoveEventPosition(lua_State* L);
 
 		// GlobalEvents
 		static int luaCreateGlobalEvent(lua_State* L);

@@ -1,4 +1,6 @@
 /**
+ * @file position.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_POSITION_H_5B684192F7034FB8857C8280D2CC6C75
-#define FS_POSITION_H_5B684192F7034FB8857C8280D2CC6C75
+#ifndef OT_SRC_POSITION_H_
+#define OT_SRC_POSITION_H_
 
 enum Direction : uint8_t {
 	DIRECTION_NORTH = 0,
@@ -39,7 +41,7 @@ enum Direction : uint8_t {
 struct Position
 {
 	constexpr Position() = default;
-	constexpr Position(uint16_t x, uint16_t y, uint8_t z) : x(x), y(y), z(z) {}
+	constexpr Position(uint16_t initX, uint16_t initY, uint8_t initZ) : x(initX), y(initY), z(initZ) {}
 
 	template<int_fast32_t deltax, int_fast32_t deltay>
 	static bool areInRange(const Position& p1, const Position& p2) {

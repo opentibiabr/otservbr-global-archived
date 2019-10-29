@@ -28,7 +28,6 @@ function onLogin(player)
 	if player:getLastLoginSaved() <= 0 then
 		loginStr = loginStr .. ' Please choose your outfit.'
 		player:sendOutfitWindow()
-		player:setBankBalance(0)
 	else
 		if loginStr ~= "" then
 			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
@@ -61,6 +60,13 @@ function onLogin(player)
 
     -- EXP Stamina
     nextUseXpStamina[playerId] = 1
+
+	-- Prey Small Window
+	if player:getClient().version > 1110 then
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end	 
 
     -- New Prey
     nextPreyTime[playerId] = {

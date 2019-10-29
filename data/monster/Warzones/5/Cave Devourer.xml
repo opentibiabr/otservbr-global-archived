@@ -16,7 +16,7 @@
 		<flag staticattack="90" />
 		<flag runonhealth="0" />
 	</flags>
-<!--	<attacks>
+	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400" />
 		<attack name="Stalagmite" interval="2000" chance="15" range="7" length="6" spread="3" min="-190" max="-300">
 		<attribute key="shootEffect" value="poison" />
@@ -28,7 +28,7 @@
 		<attribute key="areaEffect" value="fire" />
 		</attack>
 		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-230" max="-450" />
-	</attacks> -->
+	</attacks> 
 	<elements>
 		<element firePercent="0" />
 		<element physicalPercent="0" />

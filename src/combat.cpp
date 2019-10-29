@@ -1,4 +1,6 @@
 /**
+ * @file combat.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -372,13 +374,13 @@ ReturnValue Combat::canDoCombat(Creature* attacker, Creature* target)
 	return g_events->eventCreatureOnTargetCombat(attacker, target);
 }
 
-void Combat::setPlayerCombatValues(formulaType_t formulaType, double mina, double minb, double maxa, double maxb)
+void Combat::setPlayerCombatValues(formulaType_t newFormulaType, double newMina, double newMinb, double newMaxa, double newMaxb)
 {
-	this->formulaType = formulaType;
-	this->mina = mina;
-	this->minb = minb;
-	this->maxa = maxa;
-	this->maxb = maxb;
+	this->formulaType = newFormulaType;
+	this->mina = newMina;
+	this->minb = newMinb;
+	this->maxa = newMaxa;
+	this->maxb = newMaxb;
 }
 
 bool Combat::setParam(CombatParam_t param, uint32_t value)
@@ -741,12 +743,14 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 	}
 	//
 	CombatDamage tmpDamage;
-	if(data) {
-		tmpDamage.origin = data->origin;
-		tmpDamage.primary.type = data->primary.type;
-		tmpDamage.primary.value = data->primary.value;
-		tmpDamage.critical = data->critical;
-	}
+    if(data) {
+        tmpDamage.origin = data->origin;
+        tmpDamage.primary.type = data->primary.type;
+        tmpDamage.primary.value = data->primary.value;        
+        tmpDamage.secondary.type = data->secondary.type;
+        tmpDamage.secondary.value = data->secondary.value;
+        tmpDamage.critical = data->critical;
+    }
 	tmpDamage.affected = affected;
 	for (Tile* tile : tileList) {
 		if (canDoCombat(caster, tile, params.aggressive) != RETURNVALUE_NOERROR) {

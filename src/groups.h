@@ -1,4 +1,6 @@
 /**
+ * @file groups.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_GROUPS_H_EE39438337D148E1983FB79D936DD8F3
-#define FS_GROUPS_H_EE39438337D148E1983FB79D936DD8F3
+#ifndef OT_SRC_GROUPS_H_
+#define OT_SRC_GROUPS_H_
 
 struct Group {
 	std::string name;

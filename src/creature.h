@@ -1,4 +1,6 @@
 /**
+ * @file creature.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_CREATURE_H_5363C04015254E298F84E6D59A139508
-#define FS_CREATURE_H_5363C04015254E298F84E6D59A139508
+#ifndef OT_SRC_CREATURE_H_
+#define OT_SRC_CREATURE_H_
 
 #include "map.h"
 #include "position.h"
@@ -76,7 +78,7 @@ static constexpr int32_t EVENT_CHECK_CREATURE_INTERVAL = (EVENT_CREATURE_THINK_I
 class FrozenPathingConditionCall
 {
 	public:
-		explicit FrozenPathingConditionCall(Position targetPos) : targetPos(std::move(targetPos)) {}
+		explicit FrozenPathingConditionCall(Position newTargetPos) : targetPos(std::move(newTargetPos)) {}
 
 		bool operator()(const Position& startPos, const Position& testPos,
 						const FindPathParams& fpp, int32_t& bestMatchDist) const;
@@ -417,11 +419,11 @@ class Creature : virtual public Thing
 		size_t getSummonCount() const {
 			return summons.size();
 		}
-		void setDropLoot(bool lootDrop) {
-			this->lootDrop = lootDrop;
+		void setDropLoot(bool newLootDrop) {
+			this->lootDrop = newLootDrop;
 		}
-		void setSkillLoss(bool skillLoss) {
-			this->skillLoss = skillLoss;
+		void setSkillLoss(bool newSkillLoss) {
+			this->skillLoss = newSkillLoss;
 		}
 		void setUseDefense(bool useDefense) {
 			canUseDefense = useDefense;

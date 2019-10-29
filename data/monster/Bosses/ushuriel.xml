@@ -91,7 +91,7 @@
 		<item name="huge chunk of crude iron" chance="14285"/>
 		<item name="hardened bone" countmax="20" chance="25000"/>
 		<item name="demon horn" countmax="2" chance="8333"/>
-		<item name="unholy book" chance="2063"/>
+		<item id="6103" chance="2063"/><!-- unholy book -->
 		<item name="demonic essence" chance="100000"/>
 		<item id="7385" chance="10000"/><!-- crimson sword -->
 		<item name="thaian sword" chance="25000"/>

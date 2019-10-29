@@ -1,4 +1,6 @@
 /**
+ * @file configmanager.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -19,7 +21,11 @@
 
 #include "otpch.h"
 
+#if __has_include("luajit/lua.hpp")
+#include <luajit/lua.hpp>
+#else
 #include <lua.hpp>
+#endif
 
 #include "configmanager.h"
 #include "game.h"
@@ -206,6 +212,11 @@ bool ConfigManager::load()
 	floating[RATE_MONSTER_HEALTH] = getGlobalFloat(L, "rateMonsterHealth", 1.0);
 	floating[RATE_MONSTER_ATTACK] = getGlobalFloat(L, "rateMonsterAttack", 1.0);
 	floating[RATE_MONSTER_DEFENSE] = getGlobalFloat(L, "rateMonsterDefense", 1.0);
+
+	boolean[NOTIFY_SERVER_SAVE] = getGlobalBoolean(L, "notifyServerSave", true);
+	boolean[CLEAN_MAP_AT_SERVER_SAVE] = getGlobalBoolean(L, "cleanMapAtServerSave", false);
+	boolean[CLOSE_AT_SERVER_SAVE] = getGlobalBoolean(L, "closeAtServerSave", false);
+	boolean[SHUTDOWN_AT_SERVER_SAVE] = getGlobalBoolean(L, "shutdownAtServerSave", true);
 
 	loaded = true;
 	lua_close(L);

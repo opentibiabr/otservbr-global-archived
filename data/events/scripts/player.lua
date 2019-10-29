@@ -2,9 +2,12 @@
 STONE_SKIN_AMULET = 2197
 GOLD_POUCH = 26377
 ITEM_STORE_INBOX = 26052
+
+DISABLE_CONTAINER_WEIGHT = 0 -- 0 = YES, ENABLE | 1 = NO, DISABLE
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
--- exercise_ids
-local exercise_ids = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129}
+
+-- Items sold on the store that should not be moved off the store container
+local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
@@ -274,8 +277,8 @@ local function antiPush(self, item, count, fromPosition, toPosition, fromCylinde
 end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
-  -- Exercise Weapons
-    if isInArray(exercise_ids,item.itemid) then
+  -- Store Items
+    if isInArray(storeItemID,item.itemid) then
         self:sendCancelMessage('You cannot move this item outside this container.')
         return false
     end
@@ -531,7 +534,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 
 	-- No move parcel very heavy
-	if ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
+	if DISABLE_CONTAINER_WEIGHT == 0 and ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
         self:sendCancelMessage("Your cannot move this item too heavy.")
         return false
     end
@@ -632,7 +635,7 @@ function Player:onTurn(direction)
 end
 
 function Player:onTradeRequest(target, item)
-if isInArray(exercise_ids,item.itemid) then
+if isInArray(storeItemID,item.itemid) then
         return false
     end
  	return true
@@ -703,25 +706,19 @@ end
 -- Prey slots consumption
 local function preyTimeLeft(player, slot)
 	local timeLeft = player:getPreyTimeLeft(slot) / 60
+	local monster = player:getPreyCurrentMonster(slot)
 	if (timeLeft > 0) then
 		local playerId = player:getId()
 		local currentTime = os.time()
 		local timePassed = currentTime - nextPreyTime[playerId][slot]
-		if timePassed > 0 then
-			if timePassed > 60 then
-				if timeLeft > 2 then
-					timeLeft = timeLeft - 2
-				else
-					timeLeft = 0
-				end
-				nextPreyTime[playerId][slot] = currentTime + 120
-			else
-				timeLeft = timeLeft - 1
-				nextPreyTime[playerId][slot] = currentTime + 60
-			end
+		if timePassed >= 59 then
+			timeLeft = timeLeft - 1
+			nextPreyTime[playerId][slot] = currentTime + 60
+		else
+			timeLeft = timeLeft - 0
 		end
 		-- Expiring prey as there's no timeLeft
-		if (timeLeft <= 1) then
+		if (timeLeft < 1) then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 			player:setPreyCurrentMonster(slot, "")
 		end
@@ -732,6 +729,7 @@ local function preyTimeLeft(player, slot)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 		player:setPreyCurrentMonster(slot, "")
 	end
+	return player:sendPreyData(slot)
 end
 
 function Player:onGainExperience(source, exp, rawExp)
@@ -790,6 +788,11 @@ function Player:onGainExperience(source, exp, rawExp)
 			displayRate = displayRate * 0.5
 		else
 			self:setStaminaXpBoost(100)
+		end
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			if self:getPreyState(slot) == 2 then
+			 preyTimeLeft(self, slot) -- slot consumption
+			end
 		end
 	end
 

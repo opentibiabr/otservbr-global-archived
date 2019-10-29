@@ -1,4 +1,6 @@
 /**
+ * @file movement.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MOVEMENT_H_5E0D2626D4634ACA83AC6509518E5F49
-#define FS_MOVEMENT_H_5E0D2626D4634ACA83AC6509518E5F49
+#ifndef OT_SRC_MOVEMENT_H_
+#define OT_SRC_MOVEMENT_H_
 
 #include "baseevents.h"
 #include "item.h"
@@ -180,10 +182,10 @@ class MoveEvent final : public Event
 		void addUniqueId(uint32_t id) {
 			uniqueIdRange.emplace_back(id);
 		}
-		std::vector<std::string> getPosList() {
+		std::vector<Position> getPosList() {
 			return posList;
 		}
-		void addPosList(std::string pos) {
+		void addPosList(Position pos) {
 			posList.emplace_back(pos);
 		}
 		std::string getSlotName() {
@@ -252,7 +254,7 @@ class MoveEvent final : public Event
 		std::vector<uint32_t> itemIdRange;
 		std::vector<uint32_t> actionIdRange;
 		std::vector<uint32_t> uniqueIdRange;
-		std::vector<std::string> posList;
+		std::vector<Position> posList;
 };
 
 #endif

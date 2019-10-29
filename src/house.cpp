@@ -1,4 +1,6 @@
 /**
+ * @file house.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -401,18 +403,18 @@ bool House::executeTransfer(HouseTransferItem* item, Player* newOwner)
 	return true;
 }
 
-void AccessList::parseList(const std::string& list)
+void AccessList::parseList(const std::string& listToParse)
 {
 	playerList.clear();
 	guildRankList.clear();
 	expressionList.clear();
 	regExList.clear();
-	this->list = list;
-	if (list.empty()) {
+	this->list = listToParse;
+	if (listToParse.empty()) {
 		return;
 	}
 
-	std::istringstream listStream(list);
+	std::istringstream listStream(listToParse);
 	std::string line;
 
 	while (getline(listStream, line)) {
@@ -550,9 +552,9 @@ bool AccessList::isInList(const Player* player)
 	return rank && guildRankList.find(rank->id) != guildRankList.end();
 }
 
-void AccessList::getList(std::string& list) const
+void AccessList::getList(std::string& retList) const
 {
-	list = this->list;
+	retList = this->list;
 }
 
 Door::Door(uint16_t type) :	Item(type) {}
@@ -571,13 +573,13 @@ Attr_ReadValue Door::readAttr(AttrTypes_t attr, PropStream& propStream)
 	return Item::readAttr(attr, propStream);
 }
 
-void Door::setHouse(House* house)
+void Door::setHouse(House* newHouse)
 {
 	if (this->house != nullptr) {
 		return;
 	}
 
-	this->house = house;
+	this->house = newHouse;
 
 	if (!accessList) {
 		accessList.reset(new AccessList());

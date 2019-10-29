@@ -38,7 +38,7 @@
 		<item name="hatchet" chance="25000"/>
 		<item name="studded armor" chance="8000"/>
 		<item name="copper shield" chance="10000"/>
-		<item name="pick" chance="10000"/>
+		<item id="2553" chance="10000"/><!-- pick -->
 		<item name="letter" chance="8000"/>
 		<item name="leather legs" chance="10000"/>
 		<item name="white mushroom" chance="50000"/>

@@ -1,4 +1,6 @@
 /**
+ * @file otserv.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -70,6 +72,10 @@ void badAllocationHandler()
 
 int main(int argc, char* argv[])
 {
+#ifdef DEBUG_LOG
+	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
+	SPDLOG_DEBUG("[OTSERV] SPDLOG LOG DEBUG ENABLED");
+#endif
 	// Setup bad allocation handler
 	std::set_new_handler(badAllocationHandler);
 
@@ -83,6 +89,7 @@ int main(int argc, char* argv[])
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
+
 		std::cout << ">> " << g_config.getString(ConfigManager::SERVER_NAME) << " Server Online!" << std::endl << std::endl;
 		serviceManager.run();
 	} else {

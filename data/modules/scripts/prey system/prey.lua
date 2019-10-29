@@ -11,8 +11,7 @@ CONST_PREY_SLOT_THIRD = 2
 CONST_MONSTER_TIER_BRONZE = 0
 CONST_MONSTER_TIER_SILVER = 1
 CONST_MONSTER_TIER_GOLD = 2
-CONST_MONSTER_TIER_GOLD = 3
-CONST_MONSTER_TIER_PLATINUM = 4
+CONST_MONSTER_TIER_PLATINUM = 3
 
 CONST_BONUS_DAMAGE_BOOST = 0
 CONST_BONUS_DAMAGE_REDUCTION = 1
@@ -142,10 +141,15 @@ function Player.setRandomBonusValue(self, slot, bonus, typeChange)
 	else
 		self:setPreyBonusValue(slot, math.random(min, max))
 	end
-
+	if (self:getPreyBonusValue(slot) == 0) then
+		self:setPreyBonusValue(slot, math.random(min, max))
+	end	
 	self:setPreyBonusGrade(slot, math.floor((self:getPreyBonusValue(slot) - min) / (max - min) * 10))
 	if (self:getPreyBonusGrade(slot) == 10 and self:getPreyBonusValue(slot) < max) then
 		self:setPreyBonusGrade(slot, self:getPreyBonusGrade(slot) - 1)
+	end	
+	if (self:getPreyBonusGrade(slot) == 0 and self:getPreyBonusValue(slot) >= min) then
+		self:setPreyBonusGrade(slot, 1)
 	end
 end
 
@@ -265,6 +269,7 @@ function Player.preyAction(self, msg)
 		local oldType = self:getPreyBonusType(slot)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		self:setRandomBonusValue(slot, true, (oldType ~= self:getPreyBonusType(slot) and true or false))
+		self:setPreyTimeLeft(slot, 7200) -- 2 hours
 
 	-- Select monster from list
 	elseif (action == Prey.Actions.SELECT) then
@@ -307,7 +312,12 @@ function Player.selectPreyMonster(self, slot, monster)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		-- Generating random bonus stats
 		self:setRandomBonusValue(slot, false, false)
-	end
+	elseif (self:getPreyBonusGrade(slot) == 0) then
+		-- Generating random prey type
+		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
+		-- Generating random bonus stats
+		self:setRandomBonusValue(slot, true, true)
+	end	
 
 	-- Setting current monster
 	self:setPreyCurrentMonster(slot, monster:getName())
@@ -432,9 +442,9 @@ function Player.sendPreyData(self, slot)
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
 	-- Client 11.9+ compat, feature unavailable.
-	if self:getClient().version >= 1190 then
-		msg:addByte(0x00)
-		msg:addByte(0x00)
+	if self:getClient().version >= 1190 then 
+		msg:addByte(0x01)
+		msg:addByte(0x05)
 	end
 	-- Sending message to client
 	msg:sendToPlayer(self)

@@ -32,6 +32,7 @@ local decayItems = {
 	[36530] = 36531, [36531] = 36530,									--Curly Hortensis Lamp
 	[36532] = 36533, [36533] = 36532,									--Little big flower lamp
 	[36539] = 36538, [36538] = 36539,									--Baby Unicorn
+	[36509] = 36510,													--Omniscient Owl
 
 }
 

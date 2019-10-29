@@ -18,6 +18,7 @@ function doNpcSellItem(cid, itemId, amount, subType, ignoreCap, inBackpacks, bac
 	local subType = subType or 0
 	local item = 0
 	local player = Player(cid)
+
 	if ItemType(itemId):isStackable() then
 		local stuff
 		if inBackpacks then
@@ -32,10 +33,10 @@ function doNpcSellItem(cid, itemId, amount, subType, ignoreCap, inBackpacks, bac
 
 	local a = 0
 	if inBackpacks then
-		local container, itemType, b = Game.createItem(backpack, 1), ItemType(backpack), 1
+		local container, b = Game.createItem(backpack, 1), 1
 		for i = 1, amount do
 			local item = container:addItem(itemId, subType)
-			if isInArray({(itemType:getCapacity() * b), amount}, i) then
+			if table.contains({(ItemType(backpack):getCapacity() * b), amount}, i) then
 				if player:addItemEx(container, ignoreCap) ~= RETURNVALUE_NOERROR then
 					b = b - 1
 					break
@@ -69,50 +70,23 @@ local func = function(cid, text, type, e, pcid)
 	end
 
 	local player = Player(pcid)
-	if player then
-		npc:say(text, type, false, player, npc:getPosition())
+	if player:isPlayer() then
+		local creature = Creature(cid)
+		creature:say(text, type, false, pcid, creature:getPosition())
 		e.done = true
 	end
 end
 
 function doCreatureSayWithDelay(cid, text, type, delay, e, pcid)
-	if Player(pcid) then
+	if Player(pcid):isPlayer() then
 		e.done = false
 		e.event = addEvent(func, delay < 1 and 1000 or delay, cid, text, type, e, pcid)
 	end
 end
 
-function doPlayerTakeItem(cid, itemid, count)
-	local player = Player(cid)
-	if player:getItemCount(itemid) < count then
-		return false
-	end
-
-	while count > 0 do
-		local tempcount = 0
-		if ItemType(itemid):isStackable() then
-			tempcount = math.min (100, count)
-		else
-			tempcount = 1
-		end
-
-		local ret = player:removeItem(itemid, tempcount)
-		if ret then
-			count = count - tempcount
-		else
-			return false
-		end
-	end
-
-	if count ~= 0 then
-		return false
-	end
-	return true
-end
-
 function doPlayerSellItem(cid, itemid, count, cost)
 	local player = Player(cid)
-	if doPlayerTakeItem(cid, itemid, count) then
+	if player:removeItem(itemid, count) then
 		if not player:addMoney(cost) then
 			error('Could not add money to ' .. player:getName() .. '(' .. cost .. 'gp)')
 		end

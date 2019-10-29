@@ -54,6 +54,7 @@
 		<item id="7588" countmax="2" chance="9700"/><!-- strong health potion -->
 		<item id="7589" countmax="2" chance="9700"/><!-- strong mana potion -->
 		<item id="23542" chance="1490"/><!-- metal bat -->
+    		<item id="8910" chance="1490"/><!-- underworld rod -->
 		<item id="2167" chance="2240"/><!-- energy ring -->
 		<item id="2168" chance="750"/><!-- life ring -->
 		<item id="11227" chance="2240"/><!-- shiny stone -->

@@ -163,8 +163,9 @@
 	<!-- Farmine -->
 	<action fromaid="9118" toaid="9123" script="farmine/elevatorLever.lua" />
 	<action fromaid="12141" toaid="12142" script="farmine/templeOfEquilibriumVines.lua" />
-	<action actionid="57601" script="farmine/boat.lua" />
+	<action fromaid="57601" toaid="57603" script="farmine/boat.lua" />
 	<action actionid="64007" script="farmine/boat.lua" />
+	<action actionid="57605" script="farmine/Oberonlever.lua" />
 
 	<!-- Father's Burden Quest -->
 	<action fromid="12545" toid="12546" script="quests/fathers burden/corpse.lua" />
@@ -382,22 +383,25 @@
 	<action itemid="13298" script="others/mounts/mounts.lua" />
 	<action itemid="13305" script="others/mounts/mounts.lua" />
 	<action itemid="13307" script="others/mounts/mounts.lua" />
-	<action itemid="13498" script="others/mounts/mounts.lua" />
 	<action itemid="13508" script="others/mounts/mounts.lua" />
-	<action itemid="21452" script="others/mounts/mounts.lua" />
+	<action itemid="13498" script="others/mounts/mounts.lua" />
 	<action itemid="13537" script="others/mounts/mountDonkey.lua" />
 	<action fromid="13535" toid="13536" script="others/mounts/mounts.lua" />
 	<action fromid="13538" toid="13539" script="others/mounts/mounts.lua" />
 	<action fromid="13938" toid="13939" script="others/mounts/mounts.lua" />
 	<action fromid="15545" toid="15546" script="others/mounts/mounts.lua" />
 	<action fromid="18447" toid="18449" script="others/mounts/mounts.lua" />
-	<action itemid="18511" script="others/mounts/musicBox.lua" />
 	<action itemid="18516" script="others/mounts/mounts.lua" />
 	<action itemid="20138" script="others/mounts/mounts.lua" />
+	<action itemid="21452" script="others/mounts/mounts.lua" />
 	<action itemid="22608" script="others/mounts/mounts.lua" />
-	<action itemid="23810" script="others/mounts/mounts.lua" />
 	<action itemid="23557" script="others/mounts/mounts.lua" />
+	<action itemid="23810" script="others/mounts/mounts.lua" />
 	<action itemid="30840" script="others/mounts/mounts.lua" />
+	<action itemid="27628" script="others/mounts/mounts.lua" /> <!--stone rhino-->
+	<action itemid="32491" script="others/mounts/mounts.lua" /> <!--flying book-->
+	<action itemid="36411" script="others/mounts/mounts.lua" />	<!--gryphon-->
+	<action itemid="18511" script="others/mounts/musicBox.lua" />
 
 	<!-- Oramond -->
 	<action itemid="22944" script="oramond/teleportWest.lua"/>
@@ -446,6 +450,8 @@
 	<action itemid="22845" script="others/teleport.lua" />
 	<action itemid="22846" script="others/teleport.lua" />
 	<action itemid="33397" script="others/teleport.lua" />
+	<action itemid="35005" script="others/teleport.lua" />
+	<action itemid="36097" script="others/teleport.lua" />
 	<action fromid="2376" toid="2404" script="others/destroy.lua" />
 	<action itemid="2406" script="others/destroy.lua" />
 	<action fromid="2408" toid="2415" script="others/destroy.lua" />
@@ -520,6 +526,9 @@
 	<action itemid="26347" script="others/objects/fishTank.lua"/>
 	<action itemid="23574" script="others/objects/gloothBag.lua"/>
 	<action itemid="26378" script="others/objects/goldConverter.lua"/>
+	<action itemid="29020" script="others/objects/goldConverter.lua"/>
+	<action itemid="32109" script="others/objects/magicGoldConverter.lua"/>
+	<action itemid="33299" script="others/objects/magicGoldConverter.lua"/>
 	<action itemid="29019" script="others/objects/templeScroll.lua"/>
 	<action itemid="5957" script="others/objects/lotteryTicket.lua" />
 	<action itemid="18395" script="others/objects/muckRemover.lua" />
@@ -538,6 +547,7 @@
 	<action fromid="26364" toid="26365" script="others/houses/pet.lua" />
 	<action fromid="26098" toid="26099" script="others/houses/pet.lua" />
 	<action fromid="26094" toid="26097" script="others/houses/statue.lua" />
+	<action fromid="36336" toid="36351" script="others/houses/golden_outfit_display.lua" />
 	<!-- Others (Variables) -->
 	<action itemid="6558" script="others/variables/concentratedDemonicBlood.lua" />
 	<action fromid="11258" toid="11262" script="others/variables/blessingCharms.lua" />
@@ -664,6 +674,7 @@
 	<action fromid="35042" toid="35043" script="others/transform.lua" /> <!-- Festive Pyramid -->
 	<action fromid="36031" toid="36032" script="others/transform.lua" /> <!-- Crystal Lamp -->
 	<action fromid="36048" toid="36051" script="others/transform.lua" /> <!-- Idol Lamp -->
+	<action itemid="36509" script="others/transform.lua"/><!-- omniscient owl -->
 	<action fromid="36516" toid="36517" script="others/transform.lua" /> <!-- Hedgehog -->
 	<action fromid="36518" toid="36519" script="others/transform.lua" /> <!-- Exalted Sarcophagus -->
 	<action fromid="36530" toid="36531" script="others/transform.lua" /> <!-- Curly Hortensis Lamp -->

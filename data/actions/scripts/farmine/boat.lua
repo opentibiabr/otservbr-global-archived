@@ -1,6 +1,8 @@
 local config = {
     [64007] = Position(33346, 31349, 7),
     [57601] = Position(33326, 31351, 7),
+	[57602] = Position(33382, 31292, 7), 
+	[57603] = Position(33374, 31310, 7),
 }
 
 function onUse(player, item, fromPosition, itemEx, toPosition)

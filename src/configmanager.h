@@ -1,4 +1,6 @@
 /**
+ * @file configmanager.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_CONFIGMANAGER_H_6BDD23BD0B8344F4B7C40E8BE6AF6F39
-#define FS_CONFIGMANAGER_H_6BDD23BD0B8344F4B7C40E8BE6AF6F39
+#ifndef OT_SRC_CONFIGMANAGER_H_
+#define OT_SRC_CONFIGMANAGER_H_
 
 class ConfigManager
 {
@@ -48,6 +50,10 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
+			NOTIFY_SERVER_SAVE,
+			CLEAN_MAP_AT_SERVER_SAVE,
+			CLOSE_AT_SERVER_SAVE,
+			SHUTDOWN_AT_SERVER_SAVE,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};

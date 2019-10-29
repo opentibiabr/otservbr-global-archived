@@ -1,4 +1,6 @@
 /**
+ * @file protocolgame.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_PROTOCOLGAME_H_FACA2A2D1A9348B78E8FD7E8003EBB87
-#define FS_PROTOCOLGAME_H_FACA2A2D1A9348B78E8FD7E8003EBB87
+#ifndef OT_SRC_PROTOCOLGAME_H_
+#define OT_SRC_PROTOCOLGAME_H_
 
 #include "protocol.h"
 #include "chat.h"
@@ -51,7 +53,7 @@ struct TextMessage
 	} primary, secondary;
 
 	TextMessage() = default;
-	TextMessage(MessageClasses type, std::string text) : type(type), text(std::move(text)) {}
+	TextMessage(MessageClasses initType, std::string initText) : type(initType), text(std::move(initText)) {}
 };
 
 class ProtocolGame final : public Protocol
@@ -65,7 +67,7 @@ class ProtocolGame final : public Protocol
 			return "gameworld protocol";
 		}
 
-		explicit ProtocolGame(Connection_ptr connection) : Protocol(connection) {}
+		explicit ProtocolGame(Connection_ptr initConnection) : Protocol(initConnection) {}
 
 		void login(const std::string& name, uint32_t accnumber, OperatingSystem_t operatingSystem);
 		void logout(bool displayEffect, bool forced);

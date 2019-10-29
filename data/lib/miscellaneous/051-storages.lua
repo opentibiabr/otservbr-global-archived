@@ -3,6 +3,12 @@
 -- Sort it in Values -
 
 Storage = {
+	TheSecretLibrary = {
+		TheOrderOfTheFalcon = {
+			OberonTimer = 25580,
+		},
+	},	
+
 	DeeplingBosses = {
 		Jaul = 35600,
 		Tanjis = 35601,
@@ -200,14 +206,15 @@ Storage = {
 		TazhadurTimer = 10198,
 		KalyassaTimer = 10199,
 		SecretsCounter = 10200,
-		GelidrazahAccess = 10201,
-		GelidrazahTimer = 10202,
-		Horn = 10203,
-		Scale = 10204,
-		Bones = 10205,
-		Tooth = 10206,
-		AccessCave = 10207,
-		FirstDragonTimer = 10208
+		GelidrazahAccess = 10221,
+		GelidrazahTimer = 10222,
+		ZorvoraxTimer = 10223,
+		Horn = 10224,
+		Scale = 10225,
+		Bones = 10226,
+		Tooth = 10227,
+		AccessCave = 10228,
+		FirstDragonTimer = 10229
 	},
 	Grimvale = {
 		SilverVein = 10094
@@ -663,6 +670,9 @@ Storage = {
 		AssassinBaseOutfit = 50080,
 		AssassinFirstAddon = 50081,
 		AssassinSecondAddon = 50082,
+		
+		-- Golden Outfit
+		GoldenOutfit = 52000,
 
 		NightmareOutfit = 50083,
 		NightmareDoor = 3040,
@@ -903,7 +913,14 @@ Storage = {
 		TravelCarlin = 251,
 		TravelEdron = 252,
 		TravelVenore = 253,
-		TravelCormaya = 254
+		TravelCormaya = 254,
+
+		MeasurementsBenjamin = 255,
+		MeasurementsKroox = 256,
+		MeasurementsDove = 257,
+		MeasurementsLiane = 258,
+		MeasurementsChrystal = 259,
+		MeasurementsOlrik = 260
 	},
 	thievesGuild = {
 		Quest = 12501,

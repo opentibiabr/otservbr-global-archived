@@ -1,4 +1,6 @@
 /**
+ * @file mailbox.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MAILBOX_H_D231C6BE8D384CAAA3AE410C1323F9DB
-#define FS_MAILBOX_H_D231C6BE8D384CAAA3AE410C1323F9DB
+#ifndef OT_SRC_MAILBOX_H_
+#define OT_SRC_MAILBOX_H_
 
 #include "item.h"
 #include "cylinder.h"

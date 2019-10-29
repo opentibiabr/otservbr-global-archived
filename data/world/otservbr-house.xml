@@ -428,13 +428,13 @@
 	<house name="Fimbul Shelf 2" houseid="803" entryx="32209" entryy="31175" entryz="7" rent="1045" townid="12" size="21" />
 	<house name="Fimbul Shelf 1" houseid="804" entryx="32204" entryy="31169" entryz="7" rent="975" townid="12" size="20" />
 	<house name="Frost Manor" houseid="805" entryx="32287" entryy="31106" entryz="5" rent="26370" townid="12" size="375" />
-	<house name="Marble Guildhall" houseid="831" entryx="32622" entryy="31954" entryz="9" rent="16810" townid="3" size="282" />
-	<house name="Iron Guildhall" houseid="832" entryx="32607" entryy="31893" entryz="9" rent="15560" townid="3" size="240" />
-	<house name="The Market 1 (Shop)" houseid="833" entryx="32631" entryy="31922" entryz="8" rent="650" townid="3" size="7" />
+	<house name="Marble Guildhall" houseid="831" entryx="32622" entryy="31954" entryz="9" rent="16810" townid="3" size="285" />
+	<house name="Iron Guildhall" houseid="832" entryx="32607" entryy="31893" entryz="9" rent="15560" townid="3" size="241" />
+	<house name="The Market 1 (Shop)" houseid="833" entryx="32631" entryy="31922" entryz="8" rent="650" townid="3" size="8" />
 	<house name="The Market 3 (Shop)" houseid="834" entryx="32635" entryy="31926" entryz="8" rent="1450" townid="3" size="22" />
 	<house name="The Market 2 (Shop)" houseid="835" entryx="32634" entryy="31930" entryz="8" rent="1100" townid="3" size="16" />
 	<house name="The Market 4 (Shop)" houseid="836" entryx="32635" entryy="31933" entryz="8" rent="1800" townid="3" size="28" />
-	<house name="Granite Guildhall" houseid="837" entryx="32599" entryy="31949" entryz="5" rent="17845" townid="3" size="294" />
+	<house name="Granite Guildhall" houseid="837" entryx="32599" entryy="31949" entryz="5" rent="17845" townid="3" size="295" />
 	<house name="Upper Barracks 01" houseid="838" entryx="32605" entryy="31923" entryz="5" rent="210" townid="3" size="4" />
 	<house name="Upper Barracks 13" houseid="850" entryx="32615" entryy="31923" entryz="5" rent="580" townid="3" size="11" />
 	<house name="Nobility Quarter 4" houseid="851" entryx="32607" entryy="31921" entryz="4" rent="765" townid="3" size="14" />
@@ -498,7 +498,7 @@
 	<house name="Beach Home Apartments, Flat 13" houseid="1915" entryx="32314" entryy="32234" entryz="6" rent="880" townid="2" size="13" />
 	<house name="Beach Home Apartments, Flat 14" houseid="1916" entryx="32312" entryy="32234" entryz="6" rent="385" townid="2" size="4" />
 	<house name="Beach Home Apartments, Flat 15" houseid="1917" entryx="32309" entryy="32234" entryz="6" rent="385" townid="2" size="4" />
-	<house name="Thais Clanhall" houseid="1918" entryx="32326" entryy="32272" entryz="7" rent="8420" townid="2" size="156" />
+	<house name="Thais Clanhall" houseid="1918" entryx="32326" entryy="32272" entryz="7" rent="8420" townid="2" size="153" />
 	<house name="Harbour Street 4" houseid="1919" entryx="32332" entryy="32257" entryz="7" rent="935" townid="2" size="14" />
 	<house name="Thais Hostel" houseid="1920" entryx="32333" entryy="32255" entryz="6" rent="6980" townid="2" size="64" />
 	<house name="Lower Swamp Lane 1" houseid="1921" entryx="32356" entryy="32262" entryz="7" rent="4740" townid="2" size="58" />
@@ -1012,7 +1012,7 @@
 	<house name="Lower Barracks 23" houseid="2561" entryx="32637" entryy="31911" entryz="9" rent="300" townid="3" size="7" />
 	<house name="Lower Barracks 24" houseid="2562" entryx="32637" entryy="31906" entryz="9" rent="300" townid="3" size="7" />
 	<house name="The Farms 4" houseid="2563" entryx="32648" entryy="31899" entryz="2" rent="1530" townid="3" size="21" />
-	<house name="Tunnel Gardens 1" houseid="2564" entryx="32606" entryy="31908" entryz="11" rent="2000" townid="3" size="20" />
+	<house name="Tunnel Gardens 1" houseid="2564" entryx="32606" entryy="31908" entryz="11" rent="2000" townid="3" size="21" />
 	<house name="Tunnel Gardens 2" houseid="2565" entryx="32606" entryy="31909" entryz="11" rent="2000" townid="3" size="20" />
 	<house name="The Yeah Beach Project" houseid="2566" entryx="32294" entryy="32555" entryz="6" rent="6525" townid="7" size="65" />
 	<house name="Hare's Den" houseid="2567" entryx="32687" entryy="32193" entryz="10" rent="7500" townid="1" size="99" />

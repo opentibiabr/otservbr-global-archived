@@ -1,4 +1,6 @@
 /**
+ * @file spells.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_SPELLS_H_D78A7CCB7080406E8CAA6B1D31D3DA71
-#define FS_SPELLS_H_D78A7CCB7080406E8CAA6B1D31D3DA71
+#ifndef OT_SRC_SPELLS_H_
+#define OT_SRC_SPELLS_H_
 
 #include "luascript.h"
 #include "player.h"
@@ -209,13 +211,13 @@ class Spell : public BaseSpell
 			vocSpellMap[n] = b;
 		}
 
-		const SpellGroup_t getGroup() const {
+		SpellGroup_t getGroup() {
 			return group;
 		}
 		void setGroup(SpellGroup_t g) {
 			group = g;
 		}
-		const SpellGroup_t getSecondaryGroup() const {
+		SpellGroup_t getSecondaryGroup() {
 			return secondaryGroup;
 		}
 		void setSecondaryGroup(SpellGroup_t g) {

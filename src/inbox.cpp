@@ -1,4 +1,6 @@
 /**
+ * @file inbox.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -67,17 +69,17 @@ ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 
 void Inbox::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
 {
-	Cylinder* parent = getParent();
-	if (parent != nullptr) {
-		parent->postAddNotification(thing, oldParent, index, LINK_PARENT);
+	Cylinder* localParent = getParent();
+	if (localParent != nullptr) {
+		localParent->postAddNotification(thing, oldParent, index, LINK_PARENT);
 	}
 }
 
 void Inbox::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t)
 {
-	Cylinder* parent = getParent();
-	if (parent != nullptr) {
-		parent->postRemoveNotification(thing, newParent, index, LINK_PARENT);
+	Cylinder* localParent = getParent();
+	if (localParent != nullptr) {
+		localParent->postRemoveNotification(thing, newParent, index, LINK_PARENT);
 	}
 }
 

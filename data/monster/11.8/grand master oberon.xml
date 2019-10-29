@@ -21,10 +21,6 @@
 		<flag canwalkonfire="1"/>
 		<flag canwalkonpoison="1"/>
 	</flags>
-	<script>
-		<event name="OberonHeal"/>
-		<event name="bossfalconfinal"/>
-    </script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-1200"/>
 		<attack name="holy" interval="6000" chance="80" length="8" spread="0" min="-1000" max="-2250">
