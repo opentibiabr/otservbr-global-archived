@@ -400,6 +400,8 @@
 	<action itemid="30840" script="others/mounts/mounts.lua" />
 	<action itemid="27628" script="others/mounts/mounts.lua" /> <!--stone rhino-->
 	<action itemid="32491" script="others/mounts/mounts.lua" /> <!--flying book-->
+	<action itemid="34808" script="others/mounts/mounts.lua" /> <!--lacewing moth-->
+	<action itemid="34809" script="others/mounts/mounts.lua" /> <!--hibernal moth-->
 	<action itemid="36411" script="others/mounts/mounts.lua" />	<!--gryphon-->
 	<action itemid="18511" script="others/mounts/musicBox.lua" />
 
