@@ -2,10 +2,12 @@
 STONE_SKIN_AMULET = 2197
 GOLD_POUCH = 26377
 ITEM_STORE_INBOX = 26052
+
+DISABLE_CONTAINER_WEIGHT = 0 -- 0 = YES, ENABLE | 1 = NO, DISABLE
 CONTAINER_WEIGHT = 100000 -- 10k = 10000 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
+
 -- Items sold on the store that should not be moved off the store container
 local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
-
 
 -- No move items with actionID 8000
 NOT_MOVEABLE_ACTION = 8000
@@ -532,7 +534,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 
 	-- No move parcel very heavy
-	if ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
+	if DISABLE_CONTAINER_WEIGHT == 0 and ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
         self:sendCancelMessage("Your cannot move this item too heavy.")
         return false
     end

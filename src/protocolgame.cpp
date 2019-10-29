@@ -1986,18 +1986,21 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
-	NetworkMessage msg;
-	msg.addByte(0xF2);
-	msg.addByte(0x00);
+    NetworkMessage msg;
+    msg.addByte(0xF2);
+    msg.addByte(0x00);
 
-	writeToOutputBuffer(msg);
+    writeToOutputBuffer(msg);
 
-	g_dispatcher.addTask(
-		createTask(std::bind([](ProtocolGame_ptr client) {
-		client->sendCoinBalance();
-	}, getThis()))
-	);
-
+    g_dispatcher.addTask(
+        createTask(std::bind([](ProtocolGame* client) {
+			if (client) {
+				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
+                client->player->coinBalance = coinBalance;
+                client->sendCoinBalance();
+            }
+        }, this))
+    );
 }
 
 void ProtocolGame::sendMarketLeave()

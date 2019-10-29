@@ -41,14 +41,14 @@ if NpcSystem == nil then
 
 	-- Constant strings defining the keywords to replace in the default messages.
 	--	For more information, look at the top of npchandler.lua...
-	TAG_PLAYERNAME = '|PLAYERNAME|'
-	TAG_ITEMCOUNT = '|ITEMCOUNT|'
-	TAG_TOTALCOST = '|TOTALCOST|'
-	TAG_ITEMNAME = '|ITEMNAME|'
-	TAG_TIME = '|TIME|'
-	TAG_BLESSCOST = '|BLESSCOST|'
-	TAG_PVPBLESSCOST = '|PVPBLESSCOST|'
-	TAG_TRAVELCOST = '|TRAVELCOST|'
+	TAG_PLAYERNAME 		= '|PLAYERNAME|'
+	TAG_ITEMCOUNT 		= '|ITEMCOUNT|'
+	TAG_TOTALCOST 		= '|TOTALCOST|'
+	TAG_ITEMNAME 		= '|ITEMNAME|'
+	TAG_TIME 			= '|TIME|'
+	TAG_BLESSCOST 		= '|BLESSCOST|'
+	TAG_PVPBLESSCOST 	= '|PVPBLESSCOST|'
+	TAG_TRAVELCOST 		= '|TRAVELCOST|'
 
 	NpcSystem = {}
 

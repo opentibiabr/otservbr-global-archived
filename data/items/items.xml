@@ -40727,6 +40727,7 @@
 	<item id="33276" article="a" name="bone fiddle">
 		<attribute key="weight" value="3800" />
 		<attribute key="absorbPercentLifeDrain" value="5" />
+		<attribute key="slotType" value="ammo" />
 		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="33277" article="a" name="silver chimes">

@@ -149,4 +149,10 @@
 	<mount id="147" clientid="1247" name="Battle Badger" speed="20" premium="yes" />
 	<mount id="148" clientid="1248" name="Ether Badger" speed="20" premium="yes" />
 	<mount id="149" clientid="1249" name="Zaoan Badger" speed="20" premium="yes" />
+	<mount id="150" clientid="1257" name="Blue Rolling Barrel" speed="20" premium="yes" />
+	<mount id="151" clientid="1258" name="Red Rolling Barrel" speed="20" premium="yes" />
+	<mount id="152" clientid="1259" name="Green Rolling Barrel" speed="20" premium="yes" />
+	<mount id="153" clientid="1264" name="Floating Sage" speed="20" premium="yes" />
+	<mount id="154" clientid="1265" name="Floating Scholar" speed="20" premium="yes" />
+	<mount id="155" clientid="1266" name="Floating Augur" speed="20" premium="yes" />
 </mounts>

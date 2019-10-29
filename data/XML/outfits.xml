@@ -86,6 +86,7 @@
 	<outfit type="0" looktype="1211" name="Golden" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1244" name="Hand of the Inquisition" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1246" name="Breezy Garb" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1252" name="Orcsoberfest" premium="yes" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -173,4 +174,5 @@
 	<outfit type="1" looktype="1210" name="Golden" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1243" name="Hand of the Inquisition" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1245" name="Breezy Garb" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1251" name="Orcsoberfest" premium="yes" unlocked="no" enabled="yes" />
 </outfits>
