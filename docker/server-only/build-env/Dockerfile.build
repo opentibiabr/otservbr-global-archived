@@ -12,7 +12,11 @@ RUN apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/test
   make \
   mariadb-connector-c-dev \
   pugixml-dev \
-  spdlog-dev
+  git
+
+RUN git clone https://github.com/gabime/spdlog.git /tmp/spdlog \
+ && mkdir /tmp/spdlog/build && cd /tmp/spdlog/build \
+ && cmake .. && make && make install
 
 ENTRYPOINT cd /tmp/otserver && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc`
 
