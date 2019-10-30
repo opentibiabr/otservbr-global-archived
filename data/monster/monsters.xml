@@ -342,14 +342,14 @@
 	<monster name="Fiery Blood" file="Warzones/6/Fiery Blood.xml"/>
 
 	<!-- Nostalgia -->
-	<monster name="BearOld" file="Nostalgia/old_bear.xml"/>
-	<monster name="BonelordOld" file="Nostalgia/old_bonelord.xml"/>
-	<monster name="BugOld" file="Nostalgia/old_bug.xml"/>
+	<monster name="Old Bear" file="Nostalgia/old_bear.xml"/>
+	<monster name="Old Bonelord" file="Nostalgia/old_bonelord.xml"/>
+	<monster name="Old Bug" file="Nostalgia/old_bug.xml"/>
 	<monster name="Giant SpiderOld" file="Nostalgia/old_giant_spider.xml"/>
-	<monster name="PigOld" file="Nostalgia/old_pig.xml"/>
-	<monster name="SpiderOld" file="Nostalgia/old_spider.xml"/>
-	<monster name="WaspOld" file="Nostalgia/old_wasp.xml"/>
-	<monster name="WolfOld" file="Nostalgia/old_wolf.xml"/>
+	<monster name="Old Pig" file="Nostalgia/old_pig.xml"/>
+	<monster name="Old Spider" file="Nostalgia/old_spider.xml"/>
+	<monster name="Old Wasp" file="Nostalgia/old_wasp.xml"/>
+	<monster name="Old Wolf" file="Nostalgia/old_wolf.xml"/>
 
 	<!-- Dawnport -->
 	<monster file="Dawnport/weakened shlorg.xml" name="Weakened Shlorg"/>
@@ -1298,7 +1298,7 @@
 	<monster name="Wild Warrior" file="Outlaws/wild_warrior.xml"/>
 	<monster name="Feverish Citizen" file="Outlaws/feverish_citizen.xml"/>
 	<monster name="Crypt Defiler" file="Outlaws/crypt_defiler.xml"/>
-	<monster name="NomadFemale" file="Outlaws/nomadFemale.xml"/>
+	<monster name="Nomad Female" file="Outlaws/nomadFemale.xml"/>
 
 	<!-- The Percht Queens Island -->
 	<monster name="Animated Snowman" file="The Percht Queens Island/animated snowman.xml"/>
@@ -1394,7 +1394,7 @@
 	<monster name="Mad Scientist" file="Sorcerers/mad_scientist.xml"/>
 	<monster name="Warlock" file="Sorcerers/warlock.xml"/>
 	<monster name="Witch" file="Sorcerers/witch.xml"/>
-	<monster name="YalahariMonster" file="Sorcerers/yalahari.xml"/>
+	<monster name="Yalahari" file="Sorcerers/yalahari.xml"/>
 
 	<!-- Traps -->
 	<monster name="Deathslicer" file="Traps/deathslicer.xml"/>
@@ -1454,9 +1454,9 @@
 	<monster name="Evil Sheep Lord" file="Ungulates/evil_sheep_lord.xml"/>
 	<monster name="Evil Sheep" file="Ungulates/evil_sheep.xml"/>
 	<monster name="Horse" file="Ungulates/horse.xml"/>
-	<monster name="Horse1" file="Ungulates/horse(brown).xml"/>
-	<monster name="Horse2" file="Ungulates/horse(fire).xml"/>
-	<monster name="Horse3" file="Ungulates/horse(grey).xml"/>
+	<monster name="Brown Horse" file="Ungulates/horse(brown).xml"/>
+	<monster name="Fire Horse" file="Ungulates/horse(fire).xml"/>
+	<monster name="Grey Horse" file="Ungulates/horse(grey).xml"/>
 	<monster name="Wild Horse" file="Ungulates/horse(wild).xml"/>
 	<monster name="Mammoth" file="Ungulates/mammoth.xml"/>
 	<monster name="Mushroom Sniffer" file="Ungulates/mushroom_sniffer.xml"/>
