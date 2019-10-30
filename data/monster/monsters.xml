@@ -345,7 +345,7 @@
 	<monster name="Old Bear" file="Nostalgia/old_bear.xml"/>
 	<monster name="Old Bonelord" file="Nostalgia/old_bonelord.xml"/>
 	<monster name="Old Bug" file="Nostalgia/old_bug.xml"/>
-	<monster name="Giant SpiderOld" file="Nostalgia/old_giant_spider.xml"/>
+	<monster name="Old Giant Spider" file="Nostalgia/old_giant_spider.xml"/>
 	<monster name="Old Pig" file="Nostalgia/old_pig.xml"/>
 	<monster name="Old Spider" file="Nostalgia/old_spider.xml"/>
 	<monster name="Old Wasp" file="Nostalgia/old_wasp.xml"/>
