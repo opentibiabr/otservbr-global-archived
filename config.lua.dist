@@ -108,6 +108,7 @@ allowWalkthrough = true
 coinPacketSize = 25
 coinImagesURL = "http://localhost/images/store/"
 classicAttackSpeed = false
+showScriptsLogInConsole = false
 
 -- Server Save
 notifyServerSave = true
