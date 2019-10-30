@@ -297,43 +297,44 @@ FILELOADER_ERRORS Items::loadFromOtb(const std::string& file)
 
 bool Items::loadFromXml()
 {
-	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file("data/items/items.xml");
-	if (!result) {
-		printXMLError("Error - Items::loadFromXml", "data/items/items.xml", result);
-		return false;
-	}
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_file("data/items/items.xml");
+    if (!result) {
+        printXMLError("Error - Items::loadFromXml", "data/items/items.xml", result);
+        return false;
+    }
+    register int line = 0 // some temporary solution because im too dumb
+    for (auto itemNode : doc.child("items").children()) {
+        ++line;
+        pugi::xml_attribute idAttribute = itemNode.attribute("id");
+        if (idAttribute) {
+            parseItemNode(itemNode, pugi::cast<uint16_t>(idAttribute.value()));
+            continue;
+        }
 
-	for (auto itemNode : doc.child("items").children()) {
-		pugi::xml_attribute idAttribute = itemNode.attribute("id");
-		if (idAttribute) {
-			parseItemNode(itemNode, pugi::cast<uint16_t>(idAttribute.value()));
-			continue;
-		}
+        pugi::xml_attribute fromIdAttribute = itemNode.attribute("fromid");
+        if (!fromIdAttribute) {
+            if (idAttribute) {
+                std::cout << "[Warning - Items::loadFromXml] No item id (" << idAttribute.value() << ") found" << std::endl;
+            } else {
+                std::cout << "[Warning - Items::loadFromXml] No item id found " << "(" << line << ")" << std::endl;
+            }
+            continue;
+        }
 
-		pugi::xml_attribute fromIdAttribute = itemNode.attribute("fromid");
-		if (!fromIdAttribute) {
-			if (idAttribute) {
-				std::cout << "[Warning - Items::loadFromXml] No item id (" << idAttribute.value() << ") found" << std::endl;
-			} else {
-				std::cout << "[Warning - Items::loadFromXml] No item id found" << std::endl;
-			}
-			continue;
-		}
+        pugi::xml_attribute toIdAttribute = itemNode.attribute("toid");
+        if (!toIdAttribute) {
+            std::cout << "[Warning - Items::loadFromXml] fromid (" << fromIdAttribute.value() << ") without toid" << std::endl;
+            continue;
+        }
 
-		pugi::xml_attribute toIdAttribute = itemNode.attribute("toid");
-		if (!toIdAttribute) {
-			std::cout << "[Warning - Items::loadFromXml] fromid (" << fromIdAttribute.value() << ") without toid" << std::endl;
-			continue;
-		}
-
-		uint16_t id = pugi::cast<uint16_t>(fromIdAttribute.value());
-		uint16_t toId = pugi::cast<uint16_t>(toIdAttribute.value());
-		while (id <= toId) {
-			parseItemNode(itemNode, id++);
-		}
-	}
-	return true;
+        uint16_t id = pugi::cast<uint16_t>(fromIdAttribute.value());
+        uint16_t toId = pugi::cast<uint16_t>(toIdAttribute.value());
+        while (id <= toId) {
+            parseItemNode(itemNode, id++);
+        }
+    }
+    return true;
 }
 
 void Items::buildInventoryList()
