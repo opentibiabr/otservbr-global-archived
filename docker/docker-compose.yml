@@ -1,0 +1,62 @@
+version: "3.3"
+
+services:
+  otserver:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - "7171:7171"
+      - "7172:7172"
+    expose:
+      - "7171"
+      - "7172"
+    networks:
+      - ot-net
+    volumes:
+      - ../:/otserver
+    depends_on:
+      - otdb
+    restart: on-failure
+
+  otdb:
+    container_name: otdb
+    image: mariadb:10
+    environment:
+      - MYSQL_DATABASE=otserver
+      - MYSQL_USER=otserver
+      - MYSQL_PASSWORD=otserver
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - ./data/db:/var/lib/mysql
+      - ../schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - ot-net
+    restart: on-failure
+  
+  otweb:
+    image: webdevops/php-nginx:alpine-php7
+    environment:
+      - WEB_DOCUMENT_ROOT=/tmp/web/
+      - WEB_DOCUMENT_INDEX=index.php
+    ports:
+      - "80:80"
+    expose:
+      - "80"
+    volumes:
+      - ./data/web:/tmp/web
+      - ../:/tmp/otserver/
+    networks:
+      - ot-net
+    depends_on:
+      - otdb
+      - otserver
+    restart: on-failure
+
+
+networks:
+  ot-net:
