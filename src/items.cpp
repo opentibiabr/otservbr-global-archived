@@ -303,7 +303,7 @@ bool Items::loadFromXml()
         printXMLError("Error - Items::loadFromXml", "data/items/items.xml", result);
         return false;
     }
-    register int line = 0 // some temporary solution because im too dumb
+    register int line = 0; // some temporary solution because im too dumb
     for (auto itemNode : doc.child("items").children()) {
         ++line;
         pugi::xml_attribute idAttribute = itemNode.attribute("id");
