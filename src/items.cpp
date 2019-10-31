@@ -307,8 +307,10 @@ bool Items::loadFromXml()
     for (auto itemNode : doc.child("items").children()) {
         ++line;
         pugi::xml_attribute idAttribute = itemNode.attribute("id");
+
         if (idAttribute) {
             parseItemNode(itemNode, pugi::cast<uint16_t>(idAttribute.value()));
+            std::cout << "Loaded itemId: " << idAttribute.value() << endl;
             continue;
         }
 
@@ -317,7 +319,8 @@ bool Items::loadFromXml()
             if (idAttribute) {
                 std::cout << "[Warning - Items::loadFromXml] No item id (" << idAttribute.value() << ") found" << std::endl;
             } else {
-                std::cout << "[Warning - Items::loadFromXml] No item id found " << "(" << line << ")" << std::endl;
+                std::cout << "[Warning - Items::loadFromXml] No item id found " << "(" << line << ") with id: " << idAttribute.value() << "?" << std::endl;
+                return false;
             }
             continue;
         }
