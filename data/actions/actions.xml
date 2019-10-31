@@ -220,7 +220,7 @@
 	<action uniqueid="9534" script="quests/ferumbras ascendant/ratLever.lua" />
 	<action fromuid="9535" touid="9538" script="quests/ferumbras ascendant/theshattererLevers.lua" />
 	<action uniqueid="9540" script="quests/ferumbras ascendant/reward.lua" />
-	<action itemid="25521" script="quests/ferumbras ascendant/mysteriousScroll.lua" />
+	<action itemid="34784" script="quests/ferumbras ascendant/mysteriousScroll.lua" />
 
 	<!-- Forgotten Knowledge -->
 	<action itemid="26402" script="quests/forgotten knowledge/lantern.lua"/>

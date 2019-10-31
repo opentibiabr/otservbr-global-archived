@@ -42173,6 +42173,10 @@
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="34783" name="unknown item" />
+	<item id="34784" article="a" name="mysterious scroll">
+		<attribute key="description" value="Strange symbols hard to decrypt. You wonder if one of the symbols looks like a foreign and mysterious creature." />
+		<attribute key="weight" value="850" />
+	</item>
 	<item id="34785" article="a" name="recipe for magical paint">
 		<attribute key="weight" value="100" />
 		<attribute key="description" value="It says: Mix sun fruit juice with sapphire dust and dream essence to create magical paint. This paint may transform imagination into reality." />
