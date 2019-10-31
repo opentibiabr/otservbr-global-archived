@@ -6,30 +6,20 @@
 
 	<flags>
 		<flag summonable="0"/>
-		<flag rewardboss="0"/>
-		<flag preyable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
-		<flag pet="0"/>
-		<flag passive="0"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
 		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
+		<flag canpushcreatures="1"/>
 		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag hidehealth="0"/>
-		<flag isblockable="0"/>
 		<flag canwalkonenergy="1"/>
 		<flag canwalkonfire="1"/>
 		<flag canwalkonpoison="1"/>
-		<flag respawntype="0"/>
 	</flags>
-
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-500"/>
 		<attack name="energy" interval="2000" chance="15" radius="4" target="1" min="-90" max="-150">
@@ -45,60 +35,25 @@
 			<attribute key="areaEffect" value="blacksmoke"/>
 		</attack>
 	</attacks>
-
 	<defenses armor="84" defense="84"/>
-
 	<elements>
-		<element physicalPercent="1"/>
-		<element earthPercent="20"/>
-		<element poisonPercent="20"/>
-		<element firePercent="1"/>
 		<element deathPercent="-35"/>
-		<element energyPercent="1"/>
+		<element earthPercent="20"/>
 		<element holyPercent="25"/>
-		<element icePercent="1"/>
-		<element drownPercent="1"/>
-		<element lifedrainPercent="1"/>
-		<element manadrainPercent="1"/>
 	</elements>
-
 	<immunities>
-		<immunity physical="0"/>
-		<immunity energy="0"/>
-		<immunity fire="0"/>
-		<immunity poison="0"/>
-		<immunity earth="0"/>
-		<immunity drown="0"/>
-		<immunity ice="0"/>
-		<immunity holy="0"/>
-		<immunity death="0"/>
 		<immunity paralyze="1"/>
-		<immunity outfit="0"/>
-		<immunity drunk="0"/>
 		<immunity invisible="1"/>
-		<immunity invisibility="1"/>
-		<immunity bleed="0"/>
 	</immunities>
-
-	<voices interval="5000" chance="10">
-		<voice sentence="GRROARR"/>
-		<voice sentence="GRRR"/>
-	</voices>
-
 	<loot>
-		<!-- common -->
-		<item id="2152" countmax="5" chance="20000"/>	<!--- platinum coin -->
-		<!-- unusual -->
-		<item id="18419" countmax="5" chance="15000"/>	<!-- cyan crystal fragment -->
-		<item id="36276" chance="14500"/>	<!-- lamassu hoof -->
-		<item id="36277" chance="14000"/>	<!-- lamassu horn -->
-		<item id="2146" countmax="7" chance="13500"/>	<!-- small sapphire -->
-		<!-- semi-rare -->
-		<item id="18421" countmax="8" chance="10000"/>	<!-- green crystal fragment -->
-		<item id="2155" chance="9500"/>	<!-- green gem -->
-		<item id="9971" countmax="3" chance="9000"/>	<!-- gold ingot -->
-		<!-- rare -->
-		<item id="2198" chance="5000"/>	<!-- elven amulet -->
+		<item name="platinum coin" countmin="1" countmax="3" chance="100000"/>
+		<item name="cyan crystal fragment" chance="13670"/>
+		<item name="lamassu horn" chance="10770"/>
+		<item name="small amethyst" countmax="7" chance="8680"/>
+		<item name="lamassu hoof" chance="6750"/>
+		<item name="gold ingot" chance="4660"/>
+		<item name="green crystal fragment" chance="1770"/>
+		<item name="green gem" chance="1290"/>
+		<item name="elven amulet" chance="800"/>
 	</loot>
-
 </monster>
