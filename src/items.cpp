@@ -310,7 +310,7 @@ bool Items::loadFromXml()
 
         if (idAttribute) {
             parseItemNode(itemNode, pugi::cast<uint16_t>(idAttribute.value()));
-            std::cout << "Loaded itemId: " << idAttribute.value() << endl;
+            std::cout << "Loaded itemId: " << idAttribute.value() << std::endl;
             continue;
         }
 
