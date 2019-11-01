@@ -24,7 +24,7 @@ addTravelKeyword('helheim', 'T\'at is a small island to the east.', Position(324
 addTravelKeyword('tyrsung', '*HICKS* Big, big island east of here. Venorian hunters settled there ..... I could bring you north of their camp.', Position(32333, 31227, 7), function(player) return player:getStorageValue(Storage.BarbarianTest.Questline) < 8 end)
 
 -- Kick
-keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32020, 31297, 7), Position(32021, 31297, 7), Position(32022, 31297, 7)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, text = 'Get out o\' here!*HICKS*', destination = {Position(32020, 31297, 7), Position(32021, 31297, 7), Position(32022, 31297, 7)}})
 
 keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = "Where are we at the moment? Is this Svargrond? Ahh yes!*HICKS* Where do you want to go?"})
 keywordHandler:addKeyword({'trip'}, StdModule.say, {npcHandler = npcHandler, text = "Where are we at the moment? Is this Svargrond? Ahh yes!*HICKS* Where do you want to go?"})
