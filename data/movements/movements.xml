@@ -3263,4 +3263,8 @@
 		<vocation name="Royal Paladin" showInDescription="0" />
 	</movevent>
 	<movevent event="DeEquip" itemid="34981" slot="necklace" function="onDeEquipItem" />
+
+	<movevent event="Equip" itemid="35150" slot="necklace" level="220" function="onEquipItem" > <!-- Rainbow Necklace -->
+	</movevent>
+	<movevent event="DeEquip" itemid="35150" slot="necklace" function="onDeEquipItem" />
 </movements>
