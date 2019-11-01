@@ -37806,7 +37806,7 @@
 		<attribute key="attack" value="5" />
 		<attribute key="weaponType" value="club" />
 	</item>
-	<item id="29211" article="a" name="lit moon mirror" >
+	<item id="29211" article="a" name="moon mirror" >
 		<attribute key="weight" value="200" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="absorbPercentDeath" value="5" />
@@ -42769,6 +42769,12 @@
 	</item>
 	<item id="35150" article="a" name="rainbow necklace">
 		<attribute key="weight" value="490" />
+		<attribute key="armor" value="2" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="absorbPercentFire" value="6" />
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentIce" value="-5" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="35151" article="a" name="bright bell">
 		<attribute key="weight" value="220" />
