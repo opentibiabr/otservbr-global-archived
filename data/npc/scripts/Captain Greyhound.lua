@@ -26,7 +26,7 @@ addTravelKeyword('svargrond', 110, Position(32341, 31108, 6))
 addTravelKeyword('yalahar', 185, Position(32816, 31272, 6), function(player) return player:getStorageValue(Storage.SearoutesAroundYalahar.Carlin) ~= 1 and player:getStorageValue(Storage.SearoutesAroundYalahar.TownsCounter) < 5 end)
 
 -- Kick
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32384, 31815, 6), Position(32387, 31815, 6), Position(32390, 31815, 6)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32384, 31815, 6), Position(32387, 31815, 6), Position(32390, 31815, 6)}})
 
 -- Basic
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "My name is Captain Greyhound from the Royal Tibia Line."})

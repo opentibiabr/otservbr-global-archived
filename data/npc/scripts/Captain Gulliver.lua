@@ -21,7 +21,7 @@ addTravelKeyword('thais', 150, Position(32311, 32210, 6))
 addTravelKeyword('krailos', 180, Position(33493, 31712, 6))
 
 -- Kick
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(33487, 31986, 7), Position(33486, 31984, 7)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(33487, 31986, 7), Position(33486, 31984, 7)}})
 
 -- Basic
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Ah, you may not have heard of me. I am Captain Gulliver, the first Oramondian for a hundred years to have sailed through the mist to your strange lands.'})
