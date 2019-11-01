@@ -1,4 +1,4 @@
- local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
@@ -24,7 +24,7 @@ addTravelKeyword('tyrsung', '*HICKS* Big, big island east of here. Venorian hunt
 addTravelKeyword('camp', 'Both of you look like you could defend yourself! If you want to go there, ask me for a passage.', Position(32021, 31294, 7), function(player) return player:getStorageValue(Storage.BarbarianTest.Questline) < 8 end)
 
 -- Kick
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, text = 'Get out o\' here!*HICKS*', destination = {Position(32255, 31193, 7), Position(32256, 31193, 7), Position(32257, 31193, 7)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, text = 'Get out o\' here!*HICKS*', destination = {Position(32255, 31193, 7), Position(32256, 31193, 7), Position(32257, 31193, 7)}})
 
 keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = "Where are we at the moment? Is this Svargrond? Ahh yes!*HICKS* Where do you want to go?"})
 keywordHandler:addKeyword({'trip'}, StdModule.say, {npcHandler = npcHandler, text = "Where are we at the moment? Is this Svargrond? Ahh yes!*HICKS* Where do you want to go?"})
