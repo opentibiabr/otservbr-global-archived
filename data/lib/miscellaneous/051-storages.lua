@@ -3,7 +3,6 @@
 -- Sort it in Values -
 
 Storage = {
-	CharosTrav = 1617616,
 	TheSecretLibrary = {
 		TheOrderOfTheFalcon = {
 			OberonTimer = 25580,
@@ -1312,6 +1311,7 @@ Storage = {
 	AdventurersGuild = {
 		Stone = 50702,
 		MagicDoor = 50703,
+		CharosTrav = 50717,
 
 		FreeStone = {
 			Alia = 50704,
