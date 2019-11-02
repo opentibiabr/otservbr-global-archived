@@ -3,6 +3,7 @@
 -- Sort it in Values -
 
 Storage = {
+	CharosTrav = 1617616,
 	TheSecretLibrary = {
 		TheOrderOfTheFalcon = {
 			OberonTimer = 25580,
