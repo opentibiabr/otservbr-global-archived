@@ -24,7 +24,7 @@ function onThink() npcHandler:onThink() end
 
 local function greetCallback(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.CharosTrav) > 6 then
+	if player:getStorageValue(Storage.AdventurersGuild.CharosTrav) > 6 then
 		npcHandler:say("Sorry, you have traveled a lot.", cid)
 		npcHandler:resetNpc(cid)
 		return false
@@ -42,13 +42,13 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if npcHandler.topic[cid] == 0 then
 		if msgcontains(msg, "yes") then
-			npcHandler:say("Fine. You have ".. -player:getStorageValue(Storage.CharosTrav)+7 .." attunements left. What is the new city of your choice? Thais, Carlin, Ab'Dendriel, Kazordoon, Venore, Ankrahmun, Edron, Darashia, Liberty Bay or Port Hope?", cid)
+			npcHandler:say("Fine. You have ".. -player:getStorageValue(Storage.AdventurersGuild.CharosTrav)+7 .." attunements left. What is the new city of your choice? Thais, Carlin, Ab'Dendriel, Kazordoon, Venore, Ankrahmun, Edron, Darashia, Liberty Bay or Port Hope?", cid)
 			npcHandler.topic[cid] = 1
 		end
 	elseif npcHandler.topic[cid] == 1 then
 		local cityTable = config.towns[msg:lower()]
 		if cityTable then
-			player:setStorageValue(Storage.CharosTrav, player:getStorageValue(Storage.CharosTrav)+1)
+			player:setStorageValue(Storage.AdventurersGuild.CharosTrav, player:getStorageValue(Storage.AdventurersGuild.CharosTrav)+1)
 			player:setStorageValue(Storage.AdventurersGuild.Stone, cityTable)
 			npcHandler:say("Goodbye traveler!", cid)
 		else
