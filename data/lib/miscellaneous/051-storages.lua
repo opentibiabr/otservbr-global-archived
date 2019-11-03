@@ -1311,6 +1311,7 @@ Storage = {
 	AdventurersGuild = {
 		Stone = 50702,
 		MagicDoor = 50703,
+		CharosTrav = 50724,
 
 		FreeStone = {
 			Alia = 50704,
