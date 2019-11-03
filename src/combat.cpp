@@ -530,7 +530,8 @@ void Combat::CombatManaFunc(Creature* caster, Creature* target, const CombatPara
 {
 	assert(data);
 	CombatDamage damage = *data;
-	if ((damage.primary.value < 0 || damage.secondary.value < 0) && caster) {
+	if ((damage.primary.value < 0 || damage.secondary.value < 0)) {
+		if (caster && caster->getPlayer() && target->getPlayer()) {
 		// Critical damage
 		uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 		if (chance != 0 && uniform_random(1, 100) <= chance) {
