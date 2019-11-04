@@ -214,6 +214,7 @@ bool ConfigManager::load()
 	floating[RATE_MONSTER_DEFENSE] = getGlobalFloat(L, "rateMonsterDefense", 1.0);
 
 	boolean[NOTIFY_AT_SERVER_SAVE] = getGlobalBoolean(L, "notifyAtServerSave", true);
+	integer[NOTIFY_SERVER_SAVE_TIME] = getGlobalNumber(L, "notifyServerSaveTime", 5);
 	boolean[CLEAN_MAP_AT_SERVER_SAVE] = getGlobalBoolean(L, "cleanMapAtServerSave", false);
 	boolean[CLOSE_AT_SERVER_SAVE] = getGlobalBoolean(L, "closeAtServerSave", false);
 	boolean[SHUTDOWN_AT_SERVER_SAVE] = getGlobalBoolean(L, "shutdownAtServerSave", true);

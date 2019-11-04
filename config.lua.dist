@@ -112,6 +112,7 @@ showScriptsLogInConsole = false
 
 -- Server Save
 notifyAtServerSave = true
+notifyServerSaveTime = 5
 cleanMapAtServerSave = false
 closeAtServerSave = false
 shutdownAtServerSave = true
