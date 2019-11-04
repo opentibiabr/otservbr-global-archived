@@ -146,7 +146,7 @@ class TileItemVector : private ItemVector
 		}
 
 	private:
-		uint16_t downItemCount = 0;
+		uint32_t downItemCount = 0;
 };
 
 class Tile : public Cylinder
