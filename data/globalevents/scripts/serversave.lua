@@ -34,7 +34,7 @@ end
 -- Function that is called by the global events when it reaches the time configured
 -- interval is the time between the event start and the the effective save, it will send an notify message every minute
 function onTime(interval)
-	local remaningTime = tonumber(time)
+	local remaningTime = tonumber(interval)
 	if configManager.getBoolean(configKeys.NOTIFY_AT_SERVER_SAVE) then
 		Game.broadcastMessage("Server is saving game in " .. (remaningTime/60000) .."  minute(s). Please logout.", MESSAGE_STATUS_WARNING)
 	end
