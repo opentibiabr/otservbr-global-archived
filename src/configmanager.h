@@ -50,7 +50,11 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
-			
+			NOTIFY_AT_SERVER_SAVE,
+			CLEAN_MAP_AT_SERVER_SAVE,
+			CLOSE_AT_SERVER_SAVE,
+			SHUTDOWN_AT_SERVER_SAVE,
+
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
 
