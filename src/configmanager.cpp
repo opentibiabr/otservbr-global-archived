@@ -213,10 +213,11 @@ bool ConfigManager::load()
 	floating[RATE_MONSTER_ATTACK] = getGlobalFloat(L, "rateMonsterAttack", 1.0);
 	floating[RATE_MONSTER_DEFENSE] = getGlobalFloat(L, "rateMonsterDefense", 1.0);
 
-	boolean[NOTIFY_SERVER_SAVE] = getGlobalBoolean(L, "notifyServerSave", true);
-	boolean[CLEAN_MAP_AT_SERVER_SAVE] = getGlobalBoolean(L, "cleanMapAtServerSave", false);
-	boolean[CLOSE_AT_SERVER_SAVE] = getGlobalBoolean(L, "closeAtServerSave", false);
-	boolean[SHUTDOWN_AT_SERVER_SAVE] = getGlobalBoolean(L, "shutdownAtServerSave", true);
+	boolean[SERVER_SAVE_NOTIFY_MESSAGE] = getGlobalBoolean(L, "serverSaveNotifyMessage", true);
+	integer[SERVER_SAVE_NOTIFY_DURATION] = getGlobalNumber(L, "serverSaveNotifyDuration", 5);
+	boolean[SERVER_SAVE_CLEAN_MAP] = getGlobalBoolean(L, "serverSaveCleanMap", false);
+	boolean[SERVER_SAVE_CLOSE] = getGlobalBoolean(L, "serverSaveClose", false);
+	boolean[SERVER_SAVE_SHUTDOWN] = getGlobalBoolean(L, "serverSaveShutdown", true);
 
 	loaded = true;
 	lua_close(L);
