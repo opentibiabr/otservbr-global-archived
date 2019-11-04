@@ -4,7 +4,6 @@ shallow_clone: true
 
 platform:
   - x64
-  - Win32
 
 configuration:
   - Debug
@@ -34,18 +33,6 @@ install:
   - cmd : vcpkg install pugixml:x64-windows
   - cmd : vcpkg install mpir:x64-windows
   - cmd : vcpkg install spdlog:x64-windows
-  - cmd : vcpkg install boost-iostreams
-  - cmd : vcpkg install boost-asio
-  - cmd : vcpkg install boost-system
-  - cmd : vcpkg install boost-filesystem
-  - cmd : vcpkg install boost-variant
-  - cmd : vcpkg install boost-lockfree
-  - cmd : vcpkg install cryptopp
-  - cmd : vcpkg install luajit
-  - cmd : vcpkg install libmariadb
-  - cmd : vcpkg install pugixml
-  - cmd : vcpkg install mpir
-  - cmd : vcpkg install spdlog
 
 build:
   parallel: true
