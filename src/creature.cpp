@@ -188,7 +188,7 @@ void Creature::onIdleStatus()
 	}
 }
 
-void Creature::onWalk()
+void Creature::onCreatureWalk()
 {
 	if (getWalkDelay() <= 0) {
 		Direction dir;

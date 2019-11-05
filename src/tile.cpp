@@ -1652,7 +1652,7 @@ void HouseTile::addThing(int32_t index, Thing* thing)
 	}
 }
 
-void HouseTile::internalAddThing(uint32_t index, Thing* thing)
+void HouseTile::internalHouseAddThing(uint32_t index, Thing* thing)
 {
 	Tile::internalAddThing(index, thing);
 
