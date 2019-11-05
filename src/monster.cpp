@@ -1026,9 +1026,9 @@ void Monster::onThinkYell(uint32_t interval)
 	}
 }
 
-void Monster::onWalk()
+void Monster::onCreatureWalk()
 {
-	Creature::onWalk();
+	Creature::onCreatureWalk();
 }
 
 bool Monster::pushItem(Item* item)
