@@ -1,13 +1,13 @@
 local shutdownAtServerSave = true
-local cleanMapAtServerSave = false
 local closeAtServerSave = false
+local cleanMapAtServerSave = false
 
 local function serverSave()
 	if shutdownAtServerSave then
 		Game.setGameState(GAME_STATE_SHUTDOWN)
 	end
 	if closeAtServerSave then
-		Game.setGameState(GAME_STATE_SHUTDOWN)
+		Game.setGameState(GAME_STATE_CLOSED)
 	end
 	if cleanMapAtServerSave then
 		cleanMap()
