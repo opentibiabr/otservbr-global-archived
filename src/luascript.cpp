@@ -1978,12 +1978,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STOREMODULES)
 	registerEnumIn("configKeys", ConfigManager::QUEST_LUA)
 
-	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
-	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)
-	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLEAN_MAP)
-	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_CLOSE)
-	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_SHUTDOWN)
-
 	registerEnumIn("configKeys", ConfigManager::MAP_NAME)
 	registerEnumIn("configKeys", ConfigManager::HOUSE_RENT_PERIOD)
 	registerEnumIn("configKeys", ConfigManager::SERVER_NAME)
