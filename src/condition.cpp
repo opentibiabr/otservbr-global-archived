@@ -433,6 +433,7 @@ void ConditionAttributes::updatePercentStats(Player* player)
 		}
 	}
 }
+
 void ConditionAttributes::updateStats(Player* player)
 {
 	bool needUpdate = false;
