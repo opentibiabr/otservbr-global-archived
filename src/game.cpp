@@ -1242,10 +1242,10 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 			return ret;
 		}
 
-	 	if (Player* player = actor->getPlayer()) {
-	 		if (player->getProtocolVersion() < 1140 || player->operatingSystem != CLIENTOS_NEW_WINDOWS) {
+		if (Player* player = actor->getPlayer()) {
+			if (player->getProtocolVersion() < 1140 || player->operatingSystem != CLIENTOS_NEW_WINDOWS) {
 				player->updateLootTracker(item);
-	 			return ret;
+				return ret;
 			}
 
 			const ItemType& it = Item::items[fromCylinder->getItem()->getID()];
@@ -4181,6 +4181,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			if (targetPlayer) {
 				targetPlayer->updateImpactTracker(realHealthChange, true);
 			}
+
 			std::stringstream ss;
 
 			ss << realHealthChange << (realHealthChange != 1 ? " hitpoints." : " hitpoint.");
@@ -5037,7 +5038,6 @@ void Game::cleanup()
 		imbuedItems[lastImbuedBucket].push_back(item);
 	}
 	toImbuedItems.clear();
-
 }
 
 void Game::ReleaseCreature(Creature* creature)
@@ -5553,7 +5553,7 @@ void Game::playerBrowseMarketOwnHistory(uint32_t playerId)
 
 void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spriteId, uint16_t amount, uint32_t price, bool anonymous) //Custom: Anti bug do market
 {
-	if (amount == 0 || amount > 3000 ) {
+	if (amount == 0 || amount > 3000) {
 		return;
 	}
 
@@ -5613,12 +5613,11 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		fee = 1000;
 	}
 
-	if (type == MARKETACTION_SELL) {	
-
+	if (type == MARKETACTION_SELL) {
 		if (fee > (player->getBankBalance() + player->getMoney())) {
 			return;
-		}	
-		
+		}
+
 		DepotLocker* depotLocker = player->getDepotLocker(player->getLastDepotId());
 		if (!depotLocker) {
 			return;
@@ -5655,20 +5654,15 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 			}
 		}
 
-		if(fee <= player->getBankBalance())
-		{
+		if (fee <= player->getBankBalance()) {
 			player->setBankBalance(player->getBankBalance() - fee);
-		}
-		else
-		{
+		} else {
 			uint64_t remainsFee = 0;
 			remainsFee = fee - player->getBankBalance();
 			player->setBankBalance(0);
 			g_game.removeMoney(player, remainsFee);
 		}
-		
 	} else {
-
 		uint64_t totalPrice = price * amount;
 		totalPrice += fee;
 		if (totalPrice > (player->getMoney() + player->getBankBalance())) {
@@ -5676,12 +5670,9 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		}
 
 		// Have enough money on the bank
-		if(totalPrice <= player->getBankBalance())
-		{
+		if(totalPrice <= player->getBankBalance()) {
 			player->setBankBalance(player->getBankBalance() - totalPrice);
-		}
-		else
-		{
+		} else {
 			uint64_t remainsPrice = 0;
 			remainsPrice = totalPrice - player->getBankBalance();
 			g_game.removeMoney(player, remainsPrice);
@@ -5723,7 +5714,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 	}
 
 	if (offer.type == MARKETACTION_BUY) {
-		player->setBankBalance( player->getBankBalance() + static_cast<uint64_t>(offer.price) * offer.amount);
+		player->setBankBalance(player->getBankBalance() + static_cast<uint64_t>(offer.price) * offer.amount);
 		player->sendMarketEnter(player->getLastDepotId());
 	} else {
 		const ItemType& it = Item::items[offer.itemId];
@@ -5834,7 +5825,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			IOAccount::removeCoins(player->getAccount(), amount);
 			IOAccount::registerTransaction(player->getAccount(), -amount, "Sold on Market");
 
-		} else { 
+		} else {
 			std::forward_list<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty()) {
 				return;
@@ -5895,19 +5886,16 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			IOLoginData::increaseBankBalance(buyerPlayer->getGUID(), buyerPlayer->getBankBalance());
 			delete buyerPlayer;
 		}
-	} else {//MARKETACTION_SELL
-		
+	} else {
+		//MARKETACTION_SELL
 		if (totalPrice > (player->getBankBalance() + player->getMoney())) {
 			return;
-		}	
-		
-		// Have enough money on the bank
-		if(totalPrice <= player->getBankBalance())
-		{
-			player->setBankBalance(player->getBankBalance() - totalPrice);
 		}
-		else
-		{
+
+		// Have enough money on the bank
+		if(totalPrice <= player->getBankBalance()) {
+			player->setBankBalance(player->getBankBalance() - totalPrice);
+		} else {
 			uint64_t remainsPrice = 0;
 			remainsPrice = totalPrice - player->getBankBalance();
 			player->setBankBalance(0);
@@ -5956,16 +5944,14 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			IOLoginData::increaseBankBalance(offer.playerId, totalPrice);
 			if (it.id == ITEM_TIBIA_COIN) {
 				sellerPlayer = new Player(nullptr);
-
 				if (IOLoginData::loadPlayerById(sellerPlayer, offer.playerId)) {
 					IOAccount::registerTransaction(sellerPlayer->getAccount(), -amount, "Sold on Market");
-		}
-
+				}
 				delete sellerPlayer;
 			}
 		}
 		if (it.id != ITEM_TIBIA_COIN) {
-		player->onReceiveMail();
+			player->onReceiveMail();
 		}
 	}
 

@@ -1992,7 +1992,6 @@ BlockType_t Player::blockHit(Creature* attacker, CombatType_t combatType, int32_
 					}
 				}
 			}
-
 		}
 
 		if (damage <= 0) {

@@ -771,17 +771,18 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 			}
 		}
 	}
-	//
+
 	CombatDamage tmpDamage;
-    if(data) {
-        tmpDamage.origin = data->origin;
-        tmpDamage.primary.type = data->primary.type;
-        tmpDamage.primary.value = data->primary.value;        
-        tmpDamage.secondary.type = data->secondary.type;
-        tmpDamage.secondary.value = data->secondary.value;
-        tmpDamage.critical = data->critical;
-    }
+	if(data) {
+		tmpDamage.origin = data->origin;
+		tmpDamage.primary.type = data->primary.type;
+		tmpDamage.primary.value = data->primary.value;        
+		tmpDamage.secondary.type = data->secondary.type;
+		tmpDamage.secondary.value = data->secondary.value;
+		tmpDamage.critical = data->critical;
+	}
 	tmpDamage.affected = affected;
+
 	for (Tile* tile : tileList) {
 		if (canDoCombat(caster, tile, params.aggressive) != RETURNVALUE_NOERROR) {
 			continue;
@@ -823,7 +824,7 @@ void Combat::doCombat(Creature* caster, Creature* target) const
 	//target combat callback function
 	if (params.combatType != COMBAT_NONE) {
 		CombatDamage damage = getCombatDamage(caster, target);
-		if(caster && caster->getPlayer()){
+		if (caster && caster->getPlayer()) {
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			if (chance != 0 && uniform_random(1, 100) <= chance) {
@@ -849,7 +850,7 @@ void Combat::doCombat(Creature* caster, const Position& position) const
 	if (params.combatType != COMBAT_NONE) {
 		CombatDamage damage = getCombatDamage(caster, nullptr);
 
-		if(caster && caster->getPlayer()){
+		if (caster && caster->getPlayer()) {
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			if (chance != 0 && uniform_random(1, 100) <= chance) {

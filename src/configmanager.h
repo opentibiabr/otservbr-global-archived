@@ -50,7 +50,7 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
-			
+
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
 

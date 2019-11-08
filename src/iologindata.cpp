@@ -253,8 +253,7 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 			player->preySlotBonusValue[slotNum] = result->getNumber<uint16_t>("bonus_value");
 			player->preySlotBonusGrade[slotNum] = result->getNumber<uint16_t>("bonus_grade");
 		} while (result->next());
-	}
-	else {
+	} else {
 		query.str(std::string());
 		DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
 		for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
@@ -263,9 +262,11 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 				return false;
 			}
 		}
+
 		if (!preyDataQuery.execute()) {
 			return false;
 		}
+
 		// Reload player data
 		return loadPlayerPreyData(player);
 	}
@@ -368,7 +369,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 
 	player->coinBalance = IOAccount::getCoinBalance(player->getAccount());
-	
+
 	player->preyBonusRerolls = result->getNumber<uint16_t>("bonus_rerolls"); 
 
 	Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
@@ -1081,7 +1082,7 @@ bool IOLoginData::savePlayer(Player* player)
 	if (!saveItems(player, itemList, inboxQuery, propWriteStream)) {
 		return false;
 	}
-	
+
 	// New Prey
 	query.str(std::string());
 	query << "DELETE FROM `prey_slots` WHERE `player_id` = " << player->getGUID();

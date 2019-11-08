@@ -957,8 +957,6 @@ void LuaScriptInterface::pushOutfit(lua_State* L, const Outfit_t& outfit)
 	setField(L, "lookMount", outfit.lookMount);
 }
 
-
-
 void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lootList)
 {
 	lua_createtable(L, lootList.size(), 0);
@@ -1940,7 +1938,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(MONSTERS_EVENT_DISAPPEAR)
 	registerEnum(MONSTERS_EVENT_MOVE)
 	registerEnum(MONSTERS_EVENT_SAY)
-	
+
 	registerEnum(SPELL_INSTANT)
 	registerEnum(SPELL_RUNE)
 
@@ -2544,7 +2542,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "isPzLocked", LuaScriptInterface::luaPlayerIsPzLocked);
 
 	registerMethod("Player", "getClient", LuaScriptInterface::luaPlayerGetClient);
-	
+
 	// New prey
 	// GET
 	registerMethod("Player", "getPreyState", LuaScriptInterface::luaPlayerGetPreyState);
@@ -3144,8 +3142,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Imbuement", "isPremium", LuaScriptInterface::luaImbuementIsPremium);
 	registerMethod("Imbuement", "getElementDamage", LuaScriptInterface::luaImbuementGetElementDamage);
 	registerMethod("Imbuement", "getCombatType", LuaScriptInterface::luaImbuementGetCombatType);
-
-
 }
 
 #undef registerEnum
@@ -3816,10 +3812,10 @@ int LuaScriptInterface::luaPlayerSendInventory(lua_State* L)
 		return 1;
 	}
 
- 	player->sendInventoryClientIds();
+	player->sendInventoryClientIds();
 	pushBoolean(L, true);
 
- 	return 1;
+	return 1;
 }
 
 int LuaScriptInterface::luaPlayerUpdateSupplyTracker(lua_State* L)
@@ -3831,16 +3827,16 @@ int LuaScriptInterface::luaPlayerUpdateSupplyTracker(lua_State* L)
 		return 1;
 	}
 
- 	Item* item = getUserdata<Item>(L, 2);
+	Item* item = getUserdata<Item>(L, 2);
 	if (!item) {
 		lua_pushnil(L);
 		return 1;
 	}
 
- 	player->updateSupplyTracker(item);
+	player->updateSupplyTracker(item);
 	pushBoolean(L, true);
 
- 	return 1;
+	return 1;
 }
 
 int LuaScriptInterface::luaGetDepotId(lua_State* L)
@@ -14291,7 +14287,7 @@ int LuaScriptInterface::luaMonsterTypeEventOnCallback(lua_State* L)
 		if (g_monsters.loadCallback(scriptsInterface, mType)) {
 			pushBoolean(L, true);
 			return 1;
- 		}
+		}
 		pushBoolean(L, false);
 	} else {
 		lua_pushnil(L);
@@ -17578,7 +17574,6 @@ int LuaScriptInterface::luaImbuementGetCombatType(lua_State* L)
 	}
 	return 1;
 }
-
 
 //
 LuaEnvironment::LuaEnvironment() : LuaScriptInterface("Main Interface") {}
