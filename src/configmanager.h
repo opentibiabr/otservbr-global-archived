@@ -138,6 +138,7 @@ class ConfigManager
 		bool reload();
 
 		const std::string& getString(string_config_t what) const;
+		int16_t getShortNumber(integer_config_t what) const;
 		int32_t getNumber(integer_config_t what) const;
 		bool getBoolean(boolean_config_t what) const;
 		float getFloat(floating_config_t what) const;
