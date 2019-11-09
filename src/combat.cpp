@@ -499,7 +499,7 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 	}
 
 	if ((damage.primary.value < 0 || damage.secondary.value < 0)) {
-		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK) {
+		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
 			if (chance != 0 && uniform_random(1, 100) <= chance) {
