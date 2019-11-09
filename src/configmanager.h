@@ -50,7 +50,11 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
-			
+			SERVER_SAVE_NOTIFY_MESSAGE,
+			SERVER_SAVE_CLEAN_MAP,
+			SERVER_SAVE_CLOSE,
+			SERVER_SAVE_SHUTDOWN,
+
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
 
@@ -122,6 +126,7 @@ class ConfigManager
 			RED_SKULL_DURATION,
 			BLACK_SKULL_DURATION,
 			ORANGE_SKULL_DURATION,
+			SERVER_SAVE_NOTIFY_DURATION,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};

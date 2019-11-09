@@ -65,7 +65,7 @@ sed -i '/clientVersionMin = .*$/c\clientVersionMin = 1098' run-test-env/otserver
 
 # Run Server
 docker build -f run-test-env/Dockerfile.run  -t ottserver .
-docker run -it -u $(id -u ${USER}):$(id -g ${USER}) --network test-network -p 7171:7171 -p 7172:7172 -v `pwd`/run-test-env/otserver:/tmp/otserver --rm ottserver
+docker run -it -u $(id -u ${USER}):$(id -g ${USER}) --network test-network --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -p 7171:7171 -p 7172:7172 -v `pwd`/run-test-env/otserver:/tmp/otserver --rm ottserver
 
 # Clean Env
 docker stop test-server-db
