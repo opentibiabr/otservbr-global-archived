@@ -39,6 +39,7 @@ class HouseTile final : public DynamicTile
 				uint32_t& flags) override;
 
 		void addThing(int32_t index, Thing* thing) override;
+		void internalAddThing(uint32_t index, Thing* thing) override;
 
 		House* getHouse() {
 			return house;
