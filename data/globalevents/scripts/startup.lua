@@ -32,7 +32,6 @@ GlobalStorage.FerumbrasAscendantQuest.Elements.Done
 }
 
 function onStartup()
-	math.randomseed(os.time())
 	print(string.format('>> Loaded %d npcs and spawned %d monsters.\n>> Loaded %d towns with %d houses in total.', Game.getNpcCount(), Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
