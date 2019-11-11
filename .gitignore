@@ -370,6 +370,7 @@ config.lua
 tfs.exe
 tfs
 build/*
+client_assertions.txt
 
 # SFTP for Sublime
 sftp-config.json
