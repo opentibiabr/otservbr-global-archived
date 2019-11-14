@@ -630,12 +630,6 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileF
 			return RETURNVALUE_NOTPOSSIBLE;
 		}
 
-		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 1000000) {
-				return RETURNVALUE_NOTPOSSIBLE;
-			}
-		}
-
 		if (hasBitSet(FLAG_NOLIMIT, tileFlags)) {
 			return RETURNVALUE_NOERROR;
 		}
@@ -851,12 +845,6 @@ void Tile::addThing(int32_t, Thing* thing)
 		TileItemVector* items = getItemList();
 		if (items && items->size() >= 0xFFFF) {
 			return /*RETURNVALUE_NOTPOSSIBLE*/;
-		}
-
-		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 1000000) {
-				return /*RETURNVALUE_NOTPOSSIBLE*/;
-			}
 		}
 
 		item->setParent(this);
@@ -1492,12 +1480,6 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 		TileItemVector* items = makeItemList();
 		if (items->size() >= 0xFFFF) {
 			return /*RETURNVALUE_NOTPOSSIBLE*/;
-		}
-
-		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 1000000) {
-				return /*RETURNVALUE_NOTPOSSIBLE*/;
-			}
 		}
 
 		if (itemType.alwaysOnTop) {

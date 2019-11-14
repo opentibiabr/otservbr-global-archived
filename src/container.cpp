@@ -170,8 +170,9 @@ bool Container::unserializeItemNode(OTB::Loader& loader, const OTB::Node& node, 
 void Container::updateItemWeight(int32_t diff)
 {
 	totalWeight += diff;
-	if (Container* parentContainer = getParentContainer()) {
-		parentContainer->updateItemWeight(diff);
+	Container* parentContainer = this;	// credits: SaiyansKing
+	while ((parentContainer = parentContainer->getParentContainer()) != nullptr) {
+		parentContainer->totalWeight += diff;
 	}
 }
 
