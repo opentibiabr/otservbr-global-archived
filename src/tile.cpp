@@ -1438,6 +1438,31 @@ void Tile::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32
 void Tile::internalAddThing(Thing* thing)
 {
 	internalAddThing(0, thing);
+	if (!thing->getParent()) {
+		return;
+	}
+
+	if (HouseTile* houseTile = dynamic_cast<HouseTile*>(thing->getTile())) {
+		if (Item* item = thing->getItem()) {
+			if (item->getParent() != this) {
+				return;
+			}
+
+			Door* door = item->getDoor();
+			House* house = houseTile->getHouse();
+			if (door) {
+				if (door->getDoorId() != 0) {
+					house->addDoor(door);
+				}
+			}
+			else {
+				BedItem* bed = item->getBed();
+				if (bed) {
+					house->addBed(bed);
+				}
+			}
+		}
+	}
 }
 
 void Tile::internalAddThing(uint32_t, Thing* thing)
@@ -1642,19 +1667,6 @@ HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHou
 void HouseTile::addThing(int32_t index, Thing* thing)
 {
 	Tile::addThing(index, thing);
-
-	if (!thing->getParent()) {
-		return;
-	}
-
-	if (Item* item = thing->getItem()) {
-		updateHouse(item);
-	}
-}
-
-void HouseTile::internalHouseAddThing(uint32_t index, Thing* thing)
-{
-	Tile::internalAddThing(index, thing);
 
 	if (!thing->getParent()) {
 		return;
