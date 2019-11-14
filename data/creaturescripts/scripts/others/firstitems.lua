@@ -50,7 +50,7 @@ function onLogin(player)
 		player:addItem(targetVocation.items[i][1], targetVocation.items[i][2])
 	end
 
-	local backpack = player:getVocation():getId() == 0 and player:addItem(ITEM_BAG) or player:addItem(2674)
+	local backpack = player:getVocation():getId() == 0 and player:addItem(1987) or player:addItem(2674)
 	if not backpack then
 		return true
 	end
