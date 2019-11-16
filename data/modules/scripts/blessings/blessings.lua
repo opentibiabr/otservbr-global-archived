@@ -1,14 +1,14 @@
 BlessingsDialog = {
 	Developer = "Charles (Cjaker)",
-	Version = "1.0",
-	LastUpdate = "14/07/2017 - 8:47 (PM)",
+	Revision = "Rick (FakeShinoda)",
+	Version = "1.5",
+	LastUpdate = "16/11/2019",
 	Missing = {
 		"Insert & Select query in blessings_history",
 		"Gamestore buy blessing",
-		"Correct percents in blessings dialog"
+		"Correct percents for loot drop"
 	},
 }
-
 
 --[=====[
 --
@@ -60,12 +60,48 @@ function sendBlessingsDialog(player)
 		c = c + 1
 		bless = bless * 2
 	end
+	
+	-- Total protection count
+	local count = 0
+	local protection = 0
+	for i = 2, 8 do
+		if player:hasBlessing(i) then
+			count = count + 1 * 8
+			protection = count
+			if player:getStorageValue(STORAGEVALUE_PROMOTION) == 1 then
+				protection = count + 30	
+			end
+		end
+	end
 
-	msg:addByte(2) -- BYTE PREMIUM (only work with premium days)
-	msg:addByte(100) -- XP Loss Lower
-	msg:addByte(100) -- XP/Skill loss min pvp death
-	msg:addByte(100) -- XP/Skill loss max pvp death
-	msg:addByte(100) -- XP/Skill pve death
+	-- PvP Death count
+	local pvpcount = 0
+	local pvpprotection = 80
+	for i = 2, 6 do
+		if player:hasBlessing(i) then
+			pvpcount = pvpprotection + 2
+			pvpprotection = pvpcount
+		end
+	end
+	
+	-- Check if player are promoted
+	if player:getStorageValue(STORAGEVALUE_PROMOTION) == 1 then
+		pvpprotection = pvpprotection + 6	
+	end
+	
+	-- Account Status
+	if player:getStorageValue(STORAGEVALUE_PROMOTION) == 1 then
+		msg:addByte(1) -- Are promoted
+	elseif not player:isPremium() then
+		msg:addByte(3) -- Free Account
+	else 
+		msg:addByte(0) -- Promoted
+	end	
+
+	msg:addByte(30) -- XP Loss Lower
+	msg:addByte(protection) -- XP/Skill loss min pvp death
+	msg:addByte(pvpprotection) -- XP/Skill loss max pvp death
+	msg:addByte(protection) -- XP/Skill pve death
 	msg:addByte(100) -- Equip container lose pvp death
 	msg:addByte(100) -- Equip container pve death
 
