@@ -1083,9 +1083,15 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
   local function isKegExerciseItem(itemId)
     return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END) or itemId == 32109)
   end
-
-  if (isKegExerciseItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) then
-    return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
+  
+  if isKegExerciseItem(offerId) then
+    if player:getFreeCapacity() < ItemType(offerId):getWeight(1) then
+      return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
+    end
+  else
+    if player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) then
+      return error({code = 0, message = "Please make sure you have free capacity to hold this item."})  
+    end
   end
 
   local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
