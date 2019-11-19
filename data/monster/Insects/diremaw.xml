@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Diremaw" nameDescription="a diremaw" race="blood" experience="2500" speed="150">
+	<health now="3600" max="3600"/>
+	<look type="1034" corpse="27494"/>
+	<targetchange interval="5000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-0" max="-400"/>
+		<attack name="earth" interval="2000" chance="25" range="7" min="-150" max="-200">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="25" range="7" radius="4" target="1" min="-150" max="-250">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="21" radius="4" target="0" min="-200" max="-300">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="71" defense="71"/>
+	<elements>
+		<element icePercent="-20"/>
+		<element earthPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="uuaarrrrrrr"/>
+		<voice sentence="clic clic clic"/>
+	</voices>
+	<loot>
+		<item name="ham" chance="41280"/>
+		<item name="diremaw brainpan" chance="24000"/>
+		<item name="poisonous slime" chance="11240"/>
+		<item name="diremaw legs" chance="9720"/>
+		<item name="blue crystal shard" chance="9610"/>
+		<item name="onyx chip" chance="8980"/>
+		<item name="green crystal shard" chance="8420"/>
+		<item name="violet crystal shard" chance="8380"/>
+		<item name="small emerald" chance="5300"/>
+		<item id="281" chance="3190"/><!--giant shimmering pearl-->
+		<item name="small enchanted emerald" countmax="2" chance="2780"/>
+		<item name="gold ingot" chance="2490"/>
+		<item name="suspicious device" chance="1630"/>
+		<item name="mycological bow" chance="70"/>
+		<item name="mushroom backpack" chance="70"/>
+	</loot>
+</monster>

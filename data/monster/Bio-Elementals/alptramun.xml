@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Alptramun" nameDescription="Alptramun" race="blood" experience="15" speed="250" script="reward_boss.lua">
+	<health now="22" max="22"/>
+	<look type="1143" corpse="30155"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1000"/>
+		<attack name="death" interval="2000" chance="15" range="7" length="6" spread="3" min="-190" max="-300">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="3" length="6" spread="3" min="-70" max="-160">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="3" length="6" spread="3" min="-90" max="-160">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-230" max="-450"/>
+	</attacks>
+	</attacks>
+	<defenses armor="80" defense="80"/>
+	<elements>
+		<element energyPercent="-15"/>
+		<element deathPercent="200"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="silver token" countmin="3" countmax="4" chance="100000"/>
+		<item name="platinum coin" countmin="5" countmax="5" chance="94740"/>
+		<item name="energy bar" countmax="5" chance="94740"/>
+		<item name="mysterious remains" chance="94740"/>
+		<item name="piggy bank" chance="94740"/>
+		<item name="gold token" countmin="2" countmax="2" chance="84210"/>
+		<item name="ultimate mana potion" countmin="6" countmax="14" chance="73680"/>
+		<item name="supreme health potion" countmin="6" countmax="20" chance="57890"/>
+		<item name="red gem" chance="47370"/>
+		<item name="royal star" countmin="100" countmax="100" chance="42110"/>
+		<item name="yellow gem" chance="36840"/>
+		<item name="huge chunk of crude iron" chance="36840"/>
+		<item name="ultimate spirit potion" countmin="6" countmax="20" chance="36840"/>
+		<item name="bullseye potion" countmin="10" countmax="10" chance="31580"/>
+		<item name="gold ingot" chance="26320"/>
+		<item name="mastermind potion" countmin="10" countmax="10" chance="21050"/>
+		<item name="green gem" chance="21050"/>
+		<item name="violet gem" chance="21050"/>
+		<item name="pomegranate" chance="10530"/>
+		<item name="magic sulphur" chance="10530"/>
+		<item id="281" chance="10530"/><!-- giant shimmering pearl (green) -->
+		<item id="23529" chance="10530"/>	<!-- ring of blue plasma -->
+		<item name="blue gem" chance="10530"/>
+		<item name="soul stone" chance="5260"/>
+		<item id="23533" chance="5260"/>	<!-- ring of red plasma -->
+		<item name="skull staff" chance="5260"/>
+		<item name="crystal coin" countmin="2" countmax="2" chance="5260"/>
+		<item name="alptramun's toothbrush" chance="5260"/>
+		<item name="dream shroud" chance="5260"/>
+		<!-- unconfirmed chances -->
+		<item name="purple tendril lantern" chance="3000"/>
+		<item name="pair of dreamwalkers" chance="1000"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

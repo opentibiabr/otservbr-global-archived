@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Tyrn" nameDescription="Tyrn" race="blood" experience="6900" speed="300" script="reward_boss.lua">
+	<health now="12000" max="12000"/>
+	<look type="562" corpse="18970"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	
+	<attacks>
+		<attack name="melee" interval="2000" skill="70" attack="130"/>
+		<attack name="drunk" interval="2000" chance="8" radius="8" duration="25000">
+			<attribute key="areaEffect" value="yellownote"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="33" range="7" target="1" min="-100" max="-190">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="12" range="7" target="1" radius="4" min="-200" max="-300">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="tyrn electrify" interval="2000" chance="11"/>
+		<attack name="tyrn skill reducer" interval="2000" chance="14"/>
+	</attacks>
+	<defenses armor="58" defense="68">
+		<defense name="healing" interval="2000" chance="33" min="200" max="300">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="2000" chance="11" radius="8" duration="6000">
+			<attribute key="areaEffect" value="energy"/>
+		</defense>
+		<defense name="tyrn heal" interval="1000" chance="100"/>
+	</defenses>
+	<elements>
+		<element firePercent="30"/>
+		<element earthPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="GRRR"/>
+		<voice sentence="GRROARR"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="150" chance="100000"/>
+		<item name="platinum coin" countmax="21" chance="100000"/>
+		<item name="wyrm scale" chance="100000"/>
+		<item name="sudden death rune" subtype="5" chance="66670"/>
+		<item name="strong mana potion" countmax="5" chance="25000"/>
+		<item name="dragon ham" countmax="3" chance="55000"/>
+		<item name="small ruby" countmax="5" chance="33330"/>
+		<item name="small topaz" countmax="5" chance="33330"/>
+		<item name="silver raid token" chance="33330"/>
+		<item name="strong health potion" countmax="5" chance="33330"/>
+		<item name="assassin star" countmax="5" chance="33330"/>
+		<item name="yellow gem" chance="33330"/>
+		
+		<!-- unconfirmed chances -->
+		<item name="small sapphire" countmax="5" chance="33330"/>
+		<item name="guardian shield" chance="25000"/>
+		<item name="violet gem" chance="9000"/>
+		<item name="red gem" chance="9000"/>
+		<item name="sun mirror" chance="3000"/>
+		<item name="lightning legs" countmax="5" chance="2000"/>
+	</loot>
+</monster>

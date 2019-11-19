@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Energetic Book" nameDescription="an energetic book" race="undead" experience="14300" speed="220">
+	<health now="18500" max="18500"/>
+	<look type="1061" head="15" body="91" legs="85" feet="0" corpse="28778"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="energy" interval="2000" chance="14" range="7" min="-200" max="-680">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="40" radius="3" min="-200" max="-505">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="physical" interval="1500" chance="30" length="8" spread="0" min="-200" max="-700">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82"/>
+	<elements>
+		<element earthPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity holy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<!-- unconfirmed chances -->
+		<item name="platinum coin" countmax="28" chance="89000"/>
+		<item name="book page" countmax="8" chance="79000"/>
+		<item name="glowing rune" countmax="7" chance="69000"/>
+		<item name="ultimate health potion" countmax="7" chance="15000"/>
+		<item name="ultimate mana potion" countmax="7" chance="14000"/>
+		<item name="energy ball" countmax="7" chance="13000"/>
+		<item name="silken bookmark" countmax="7" chance="12000"/>
+		<item name="lightning pendant" chance="3000"/>
+		<item name="lightning boots" chance="2500"/>
+		<item name="lightning legs" chance="2000"/>
+		<item name="lightning headband" chance="1500"/>
+		<item name="might ring" chance="1300"/>
+		<item name="spellweaver's robe" chance="1100"/>
+		<item name="wand of defiance" chance="1000"/>
+		<item name="haunted blade" chance="550"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

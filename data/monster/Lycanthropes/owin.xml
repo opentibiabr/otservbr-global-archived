@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Owin" nameDescription="Owin" race="blood" experience="5000 " speed="150">
+	<health now="9600" max="9600"/>
+	<look type="721" corpse="22124"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="speed" interval="4000" chance="20" radius="7" target="1" speedchange="-100">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="25" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="2000" chance="20" duration="2000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="20"/>
+		<element earthPercent="20"/>
+		<element energyPercent="20"/>
+		<element holyPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="wereboar tusks" chance="100000"/>	
+		<item name="gold coin" countmax="88" chance="100000"/>
+		<item name="moonlight crystals" chance="100000"/>
+		<item name="platinum coin" countmax="5" chance="100000"/>
+		<item name="brown mushroom" chance="100000"/>
+		<item name="wereboar hooves" chance="100000"/>
+		<item name="strong health potion" countmax="3" chance="50000"/>
+		<item name="ultimate health potion" countmax="2" chance="50000"/>
+		<item name="furry club" chance="25000"/>
+		<item id="22102" chance="25000"/><!-- wereboar trophy -->
+		<item name="fur armor" chance="25000"/>	
+		<item name="stone skin amulet" subtype="5" chance="25000"/>
+		<item name="werewolf amulet" chance="25000"/>
+	</loot>
+</monster>

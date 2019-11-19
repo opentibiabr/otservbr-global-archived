@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dawnfly" nameDescription="a dawnfly" race="venom" experience="35" speed="100">
+	<health now="90" max="90"/>
+	<look type="528" corpse="21454"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="16" poison="8"/>
+		<attack name="poison" interval="2000" chance="9" range="7" min="-4" max="-8">
+			<attribute key="shootEffect" value="poisonarrow"/>
+		</attack>
+	</attacks>
+	<defenses armor="1" defense="2">
+		<defense name="speed" interval="2000" chance="11" speedchange="238" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<loot>
+		<item name="gold coin" countmax="12" chance="100000"/>
+		<item name="simple arrow" countmax="16" chance="21390"/>
+		<item name="poison arrow" countmax="8" chance="14540"/>
+		<item name="doublet" chance="4160"/>
+		<item name="mana potion" chance="3800"/>
+		<item name="health potion" chance="3650"/>
+	</loot>
+</monster>

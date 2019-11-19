@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Furyosa" nameDescription="Furyosa" race="blood" experience="11500" speed="270" script="reward_boss.lua">
+	<health now="25000" max="25000"/>
+	<look type="149" head="94" body="77" legs="96" feet="0" addons="3" corpse="18118"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-625"/>
+		<attack name="death" interval="2000" chance="20" target="0" radius="6" min="-260" max="-310">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-210">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="8" spread="3" min="-200" max="-300">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="5" length="8" spread="0" min="-300" max="-800">
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="physical" interval="3000" chance="18" radius="5" target="1" min="0" max="-150">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="fury skill reducer" interval="2000" chance="5"/>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="invisible" interval="2000" chance="10" duration="8000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="7000" chance="20" min="500" max="700">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="40"/>
+		<element holyPercent="40"/>
+		<element deathPercent="10"/>
+		<element energyPercent="10"/>
+		<element physicalPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity fire="1"/>
+	</immunities>
+	<summons maxSummons="4">
+		<summon name="Fury" interval="2000" chance="10"/>
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="MUHAHA!"/>
+		<voice sentence="Back in black!"/>
+		<voice sentence="Die!"/>
+		<voice sentence="Dieeee!"/>
+		<voice sentence="Caaarnaaage!"/>
+		<voice sentence="Ahhhhrrrr!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="200" chance="100000"/>
+		<item name="jalapeno pepper" countmax="5" chance="100000"/>
+		<item id="3007" chance="100000"/><!-- crystal ring -->
+		<item name="great mana potion" chance="100000"/>
+		<item name="soul orb" chance="75954"/>
+		<item name="platinum coin" countmax="25" chance="75880"/>
+		<item name="silver raid token" chance="48560"/>
+		<item name="small sapphire" countmax="5" chance="45500"/>
+		<item name="assassin star" countmax="10" chance="43560"/>
+		<item name="gold ingot" chance="21500"/>
+		<item name="great spirit potion" countmax="5" chance="20640"/>
+		<item name="red piece of cloth" chance="19584"/>
+		<item name="ultimate health potion" chance="18480"/>
+		<item name="white piece of cloth" chance="17580"/>
+		<item name="concentrated demonic blood" chance="16580"/>
+		<item id="6300" chance="15808"/><!-- death ring -->
+		<item name="demonic essence" chance="14565"/>
+		<item name="magma coat" chance="14348"/>
+		<item name="magma legs" chance="14156"/>
+		<item name="small diamond" countmax="5" chance="12450"/>
+		<item name="small ruby" countmax="5" chance="12450"/>
+		<item name="small topaz" countmax="5" chance="12450"/>
+		<item name="yellow piece of cloth" chance="11545"/>
+		<item name="phoenix shield" chance="5465"/>
+		<item name="furious frock" chance="4560"/>
+	</loot>
+</monster>

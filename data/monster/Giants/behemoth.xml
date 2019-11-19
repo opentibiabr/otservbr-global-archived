@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-450"/>
@@ -47,7 +47,7 @@
 		<voice sentence="Crush the intruders!"/>
 	</voices>
 	<loot>
-		<item id="2023" chance="100"/><!-- amphora -->
+		<item id="2893" chance="100"/>
 		<item name="crystal necklace" chance="2530"/>
 		<item name="gold coin" countmax="100" chance="595300"/>
 		<item name="gold coin" countmax="99" chance="40000"/>
@@ -62,7 +62,7 @@
 		<item name="war axe" chance="50"/>
 		<item name="plate armor" chance="3930"/>
 		<item name="dark armor" chance="4370"/>
-		<item id="2553" chance="650"/><!-- pick -->
+		<item name="pick" chance="650"/>
 		<item name="steel boots" chance="380"/>
 		<item name="meat" countmax="6" chance="30000"/>
 		<item name="perfect behemoth fang" chance="1090"/>

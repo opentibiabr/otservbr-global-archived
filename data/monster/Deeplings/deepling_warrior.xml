@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Warrior" nameDescription="a deepling warrior" race="blood" experience="1500" speed="145">
 	<health now="1600" max="1600"/>
-	<look type="441" corpse="15175"/>
+	<look type="441" corpse="13712"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,28 +10,30 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="30"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="30"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+		<flag canWalkOnFire="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-300"/>
-		<attack name="physical" interval="2000" chance="20" range="7" target="1" min="0" max="-290">
+		<attack name="melee" interval="2000" min="0" max="-280"/>
+		<attack name="physical" interval="2000" chance="20" range="7" target="1" min="0" max="-270">
 			<attribute key="shootEffect" value="whirlwindaxe"/>
 		</attack>
 	</attacks>
-	<defenses armor="25" defense="25">
-		<defense name="healing" interval="2000" chance="15" min="50" max="150">
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="15" min="115" max="195">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element earthPercent="-20"/>
+		<element earthPercent="-10"/>
 		<element energyPercent="-10"/>
+		<element deathPercent="10"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
@@ -43,21 +45,20 @@
 		<voice sentence="Jou wjil ajll djie!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="60000"/>
-		<item name="gold coin" countmax="80" chance="60000"/>
-		<item name="small emerald" chance="2854"/>
-		<item name="life ring" chance="2941"/>
-		<item name="fish fin" chance="961"/>
-		<item name="great mana potion" chance="9090"/>
-		<item name="great health potion" chance="11111"/>
-		<item name="heavy trident" chance="1030"/>
-		<item name="eye of a deepling" chance="574"/>
-		<item name="deepling warts" chance="10000"/>
-		<item name="deeptags" chance="14285"/>
-		<item name="warrior's axe" chance="534"/>
-		<item name="deepling ridge" chance="11111"/>
-		<item name="warrior's shield" chance="684"/>
-		<item name="deepling filet" chance="14285"/>
-		<item name="vortex bolt" countmax="5" chance="3571"/>
+		<item name="gold coin" countmin="2" countmax="100" chance="100000"/>
+		<item name="deepling filet" chance="15260"/>
+		<item name="deeptags" chance="14960"/>
+		<item name="deepling ridge" chance="11050"/>
+		<item name="great mana potion" chance="10190"/>
+		<item name="great health potion" chance="10050"/>
+		<item name="deepling warts" chance="10010"/>
+		<item name="vortex bolt" countmax="5" chance="3430"/>
+		<item name="small emerald" chance="3090"/>
+		<item name="life ring" chance="3010"/>
+		<item name="heavy trident" chance="980"/>
+		<item name="fish fin" chance="880"/>
+		<item name="eye of a deepling" chance="610"/>
+		<item name="warrior's shield" chance="610"/>
+		<item name="warrior's axe" chance="510"/>
 	</loot>
 </monster>

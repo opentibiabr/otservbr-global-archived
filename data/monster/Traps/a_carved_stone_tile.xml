@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="a carved stone tile" nameDescription="a carved stone tile" race="undead" experience="0" speed="0">
+	<health now="100" max="100"/>
+	<look typeex="3169"/>
+	<targetchange interval="5000" chance="16"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="0"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag hideHealth="1"/>
+	</flags>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="5">
+		<summon name="Dreadbeast" interval="2000" chance="25"/>
+	</summons>
+</monster>

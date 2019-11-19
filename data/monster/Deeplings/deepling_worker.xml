@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Worker" nameDescription="a deepling worker" race="blood" experience="130" speed="65">
 	<health now="190" max="190"/>
-	<look type="470" corpse="15497"/>
+	<look type="470" corpse="14097"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,20 +10,21 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="20"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="20"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+		<flag canWalkOnFire="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-80"/>
+		<attack name="melee" interval="2000" min="0" max="-100"/>
 	</attacks>
-	<defenses armor="10" defense="10"/>
+	<defenses armor="7" defense="7"/>
 	<elements>
-		<element energyPercent="-20"/>
-		<element earthPercent="-20"/>
+		<element energyPercent="-10"/>
+		<element earthPercent="-10"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
@@ -36,12 +37,12 @@
 		<voice sentence="Qjell afar gou jey!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="25" chance="70000"/>
-		<item name="small emerald" countmax="3" chance="110"/>
-		<item id="2667" countmax="3" chance="12020"/><!-- fish -->
-		<item name="fish fin" chance="350"/>
-		<item name="heavy trident" chance="510"/>
-		<item name="eye of a deepling" chance="283"/>
-		<item name="deepling scales" chance="6950"/>
+		<item name="gold coin" countmax="25" chance="75420"/>
+		<item id="3578" countmax="3" chance="11960"/><!-- fish -->
+		<item name="deepling scales" chance="6870"/>
+		<item name="heavy trident" chance="490"/>
+		<item name="fish fin" chance="340"/>
+		<item name="eye of a deepling" chance="280"/>
+		<item name="small emerald" countmax="3" chance="130"/>
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Firestarter" nameDescription="a firestarter" race="blood" experience="80" speed="100">
 	<health now="180" max="180"/>
-	<look type="159" head="94" body="77" legs="78" feet="79" corpse="20599"/>
+	<look type="159" head="94" body="77" legs="78" feet="79" corpse="18318"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-15"/>
@@ -45,15 +45,15 @@
 		<voice sentence="DOWN with the followers of the bog!!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="35" chance="79000"/>
-		<item name="longsword" chance="6000"/>
-		<item name="bow" chance="4000"/>
-		<item name="grapes" chance="20000"/>
-		<item id="5921" chance="930"/><!-- heaven blossom -->
-		<item name="elvish bow" chance="100"/>
-		<item name="flaming arrow" countmax="12" chance="30000"/>
-		<item name="elvish talisman" chance="5000"/>
-		<item id="13757" chance="15280"/><!-- coal -->
-		<item name="flintstone" chance="340"/>
+		<item name="gold coin" countmax="35" chance="78570"/>
+		<item name="flaming arrow" countmax="12" chance="29550"/>
+		<item name="grapes" chance="19880"/>
+		<item id="12600" chance="15280"/><!-- coal -->
+		<item name="longsword" chance="6070"/>
+		<item name="elvish talisman" chance="5030"/>
+		<item name="bow" chance="3880"/>
+		<item id="5921" chance="910"/><!-- heaven blossom -->
+		<item name="flintstone" chance="350"/>
+		<item name="elvish bow" chance="110"/>
 	</loot>
 </monster>

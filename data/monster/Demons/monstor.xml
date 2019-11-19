@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Monstor" nameDescription="Monstor" race="blood" experience="575" speed="350">
+	<health now="960" max="960"/>
+	<look type="244" corpse="9405"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1200" min="0" max="-167"/>
+		<attack name="lifedrain" interval="2000" chance="30" length="6" spread="0" min="-66" max="-85">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="2000" chance="30" min="90" max="200">
+			<attribute key="areaEffect" value="fire"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="20"/>
+		<element firePercent="50"/>
+		<element icePercent="10"/>
+		<element earthPercent="30"/>
+		<element energyPercent="-7"/>
+		<element holyPercent="-3"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="NO ARMY ME STOPPING! GRARR!"/>
+		<voice sentence="ME DESTROY CITY! GROAR!"/>
+		<voice sentence="WHARR! MUST ... KIDNAP WOMEN!"/>
+	</voices>
+	<summons maxSummons="3">
+		<summon name="Acid Blob" interval="4000" chance="40" max="3"/>
+	</summons>
+	<loot>
+		<item name="helmet of ultimate terror" chance="80000"/>
+		<item name="incredible mumpiz slayer" chance="20000"/>
+		<item name="farmer's avenger" chance="1000"/>
+		<item name="shield of care" chance="1000"/>
+	</loot>
+</monster>

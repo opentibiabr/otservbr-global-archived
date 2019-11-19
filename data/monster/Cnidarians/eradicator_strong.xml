@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Eradicator" nameDescription="Eradicator" race="energy" experience="112000" speed="450" script="reward_boss.lua">
+	<health now="290000" max="290000"/>
+	<look type="875" head="77" body="98" legs="3" feet="85" corpse="23564"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<script>
+		<event name="HeartBossDeath"/>
+		<event name="EradicatorTransform"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-1300"/>
+		<attack name="physical" interval="2000" chance="20" length="8" spread="0" min="-300" max="-600">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="8" spread="0" min="-400" max="-800">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="8" min="-250" max="-400">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="big energy wave" interval="2000" chance="20" min="-300" max="-7000"/>
+		<attack name="death" interval="2000" chance="25" radius="4" target="1" min="-100" max="-400">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+	<elements>
+		<element holyPercent="10"/>
+		<element firePercent="10"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element earthPercent="10"/>
+		<element physicalPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="100" chance="100000"/>
+		<item name="plasmatic lightning" chance="100000"/>
+		<item name="mysterious remains" chance="100000"/>
+		<item name="spark sphere" chance="100000"/>
+		<item name="gold token" countmax="4" chance="100000"/>
+		<item name="green crystal shard" countmax="3" chance="70000"/>
+		<item name="violet crystal shard" countmax="3" chance="40000"/>
+		<item name="void boots" chance="30000"/>
+		<item id="23544" chance="20000"/><!-- collar of red plasma -->
+		<item name="yellow gem" chance="20000"/>
+		<item name="crystal mace" chance="10000"/>
+		<item name="small amethyst" countmax="10" chance="10000"/>
+		<item name="tiara of power" chance="5000"/>
+	</loot>
+</monster>

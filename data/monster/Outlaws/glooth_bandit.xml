@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Bandit" nameDescription="a glooth bandit" race="blood" experience="2000" speed="150" manacost="450">
+	<health now="2600" max="2600"/>
+	<look type="129" head="115" body="80" legs="114" feet="114" corpse="21882"/>
+	<targetchange interval="5000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="80" attack="68"/>
+		<attack name="physical" interval="2000" chance="50" range="8" min="-60" max="-200">
+			<attribute key="shootEffect" value="arrow"/>
+		</attack>
+	</attacks>
+	<defenses armor="32" defense="32">
+		<defense name="healing" interval="3000" chance="35" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="20"/>
+		<element deathPercent="20"/>
+		<element physicalPercent="15"/>
+		<element icePercent="10"/>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity earth="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmax="3" chance="60050"/>
+		<item name="great health potion" chance="8080"/>
+		<item name="tainted glooth capsule" chance="8000"/>
+		<item name="great mana potion" countmax="2" chance="7430"/>
+		<item name="glooth bag" chance="5080"/>
+		<item name="great spirit potion" chance="3470"/>
+		<item name="ultimate health potion" chance="3450"/>
+		<item name="glooth capsule" chance="3020"/>
+		<item name="glooth steak" chance="2600"/>		
+		<item name="small topaz" countmax="2" chance="2530"/>
+		<item name="glooth sandwich" chance="2460"/>
+		<item name="small emerald" countmax="2" chance="2040"/>
+		<item name="glooth axe" chance="1030"/>
+		<item name="glooth spear" chance="1010"/>
+		<item name="glooth amulet" chance="1000"/>
+		<item name="glooth blade" chance="1000"/>
+		<item name="glooth club" chance="1000"/>
+		<item name="beastslayer axe" chance="800"/>
+		<item name="rubber cap" chance="730"/>
+		<item name="terra mantle" chance="600"/>
+		<item name="terra hood" chance="600"/>
+		<item name="glooth cape" chance="580"/>
+		<item name="terra boots" chance="490"/>
+		<item name="terra legs" chance="480"/>
+		<item name="skull staff" chance="420"/>
+		<item name="green gem" chance="160"/>
+		<item name="war axe" chance="100"/>
+	</loot>
+</monster>

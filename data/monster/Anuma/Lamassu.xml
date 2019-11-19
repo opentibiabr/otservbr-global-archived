@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lamassu" nameDescription="a lamassu" race="blood" experience="12500" speed="145">
+<monster name="Lamassu" nameDescription="a lamassu" race="blood" experience="9000" speed="160">
 	<health now="8700" max="8700"/>
-	<look type="1190" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1190" head="50" body="2" legs="0" feet="95" corpse="31394"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -9,25 +9,49 @@
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1"/>
-		<flag canwalkonfire="1"/>
-		<flag canwalkonpoison="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="melee" interval="2000" min="0" max="-550"/>
+		<attack name="holy" interval="2000" chance="20" radius="3" min="-350" max="-490">
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="20" range="5" radius="3" target="1" min="-330" max="-410">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="smallplants"/>	
+		</attack>
 	</attacks>
-	<defenses armor="84" defense="84"/>
+	<defenses armor="82" defense="82"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element deathPercent="-30"/>
+		<element earthPercent="20"/>
+		<element holyPercent="20"/>
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="1" chance="100000"/>
+		<item name="lamassu horn" chance="13840"/>
+		<item name="red crystal fragment" chance="10140"/>
+		<item name="terra amulet" chance="9360"/>
+		<item name="red gem" chance="8380"/>
+		<item name="lamassu hoof" chance="7600"/>
+		<item name="violet crystal shard" chance="6630"/>
+		<item name="blue crystal shard" chance="6040"/>
+		<item name="terra hood" chance="5850"/>
+		<item name="sacred tree amulet" chance="2140"/>
+		<item name="elven amulet" chance="1560"/>
+		<item name="violet gem" chance="1560"/>
+	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Moohtant" nameDescription="a moohtant" race="blood" experience="2600" speed="130">
 	<health now="3200" max="3200"/>
-	<look type="607" corpse="23367"/>
+	<look type="607" corpse="20996"/>
 	<targetchange interval="2000" chance="3"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag isblockable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="110" attack="50"/>
@@ -49,23 +49,24 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item id="2148" countmax="195" chance="100000"/>	<!-- gold coin -->
-		<item id="2152" countmax="2" chance="58160"/>		<!-- platinum coin -->
-		<item id="23571" countmax="2" chance="2740"/>		<!-- moohtant horn -->
-		<item id="23570" chance="1770"/>		<!-- giant pacifier -->
-		<item id="7591" countmax="3" chance="7380"/>		<!-- great health potion -->
-		<item id="7590" countmax="3" chance="7230"/>		<!-- great mana potion -->
-		<item id="2666" chance="6520"/>		<!-- meat -->
-		<item id="2147" countmax="2" chance="4680"/>		<!-- small ruby -->
-		<item id="5878" chance="4110"/>		<!-- minotaur leather -->
-		<item id="2145" countmax="2" chance="4400"/>		<!-- small diamond -->
-		<item id="2214" chance="2410"/>						<!-- ring of healing -->
-		<item id="5911" chance="900"/>		<!-- red piece of cloth -->
-		<item id="23544" chance="860"/>					<!-- moohtant cudgel -->
-		<item id="2154" chance="710"/>						<!-- yellow gem -->
-		<item id="7452" chance="430"/>						<!-- spiked squelcher -->
-		<item id="7427" chance="280"/>						<!-- chaos mace -->
-		<item id="9971" chance="280"/>			<!-- gold ingot -->
-		<item id="7401" chance="280"/>						<!-- minotaur trophy -->
+		<item name="gold coin" countmax="195" chance="100000"/>
+		<item name="platinum coin" countmax="2" chance="55890"/>
+		<item name="moohtant horn" countmax="2" chance="15530"/>
+		<item name="giant pacifier" chance="11300"/>
+		<item name="great health potion" countmax="3" chance="8970"/>
+		<item name="great mana potion" countmax="3" chance="8950"/>
+		<item name="meat" chance="7510"/>
+		<item name="small ruby" countmax="2" chance="5200"/>
+		<item name="minotaur leather" chance="4900"/>
+		<item name="small diamond" countmax="2" chance="4800"/>
+		<item name="ring of healing" chance="2610"/>			
+		<item name="red piece of cloth" chance="2570"/>
+		<item name="moohtant cudgel" chance="1010"/>		
+		<item name="red gem" chance="830"/>			
+		<item name="spiked squelcher" chance="750"/>			
+		<item name="yellow gem" chance="650"/>			
+		<item name="gold ingot" chance="510"/>			
+		<item name="chaos mace" chance="450"/>
+		<item id="7401" chance="340"/><!-- minotaur trophy -->
 	</loot>
 </monster>

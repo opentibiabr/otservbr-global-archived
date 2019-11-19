@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag staticattack="90"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
-		<flag isblockable="0" />
+		<flag canPushItems="0"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag isBlockable="0"/>
 		<flag preyable="0"/>
 	</flags>
 	<attacks>

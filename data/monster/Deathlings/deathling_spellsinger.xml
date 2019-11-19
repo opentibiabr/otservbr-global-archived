@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Deathling Spellsinger" nameDescription="a deathling spellsinger" race="blood" experience="6400" speed="155">
+	<health now="7200" max="7200"/>
+	<look type="1088" corpse="28852"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="60"/>
+		<flag runOnHealth="20"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="physical" interval="4000" chance="15" range="5" min="-200" max="-400">
+			<attribute key="shootEffect" value="huntingspear"/>
+		</attack>
+		<attack name="physical" interval="4000" chance="15" range="5" min="-150" max="-300">
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+		<attack name="holy" interval="2000" chance="14" length="8" spread="0" min="-400" max="-700">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="72" defense="72"/>
+	<elements>
+		<element earthPercent="-10"/>
+		<element energyPercent="-10"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="0"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence='BOQOL"°'/>
+		<voice sentence='QOL" VBOXCL°'/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="14" chance="100000"/>
+		<item name="crystalline arrow" countmin="1" countmax="25" chance="29220"/>
+		<item name="small emerald" countmin="1" countmax="14" chance="15170"/>
+		<item name="deepling filet" chance="15050"/>
+		<item name="deeptags" chance="14460"/>
+		<item name="deepling ridge" chance="11130"/>
+		<item name="great mana potion" chance="10010"/>
+		<item name="deepling warts" chance="9780"/>
+		<item name="great health potion" chance="9650"/>
+		<item name="vortex bolt" countmin="1" countmax="25" chance="6340"/>
+		<item name="eye of a deepling" chance="5950"/>
+		<item name="heavy trident" chance="4260"/>
+		<item name="warrior's shield" chance="4190"/>
+		<item name="warrior's axe" chance="3710"/>
+		<item name="fish fin" chance="3610"/>
+		<item name="life ring" chance="2920"/>
+		<item name="small enchanted sapphire" countmin="1" countmax="4" chance="2330"/>
+		<item name="necklace of the deep" chance="310"/>
+	</loot>
+</monster>

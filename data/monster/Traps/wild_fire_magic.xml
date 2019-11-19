@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Wild Fire Magic" nameDescription="a wild fire magic" race="undead" experience="0" speed="210">
+	<health now="1" max="1"/>
+	<look typeex="19128"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="0"/>
+		<flag hostile="0"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="1"/>
+	</flags>
+</monster>

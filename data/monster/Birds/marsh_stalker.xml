@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Marsh Stalker" nameDescription="a marsh stalker" race="blood" experience="50" speed="75">
+	<health now="100" max="100"/>
+	<look type="530" corpse="17428"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="10"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-10"/>
+		<attack name="physical" interval="2000" radius="1" target="1" range="7" chance="20" min="0" max="-8">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="3" defense="3"/>
+	<elements>
+		<element icePercent="5"/>
+		<element earthPercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Rrrawk! Rrrrawk!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="23" chance="64090"/>
+		<item id="3578" countmax="2" chance="20320"/><!-- Fish -->
+		<item name="meat" countmax="2" chance="19940"/>
+		<item name="worm" countmax="2" chance="14730"/>
+		<item id="19742" chance="8660"/><!-- marsh stalker feather -->
+		<item name="longsword" chance="7560"/>
+		<item id="19741" chance="6080"/><!-- marsh stalker beak -->
+		<item id="2120" chance="4830"/><!-- rope -->
+		<item name="seeds" chance="100"/>
+	</loot>
+</monster>

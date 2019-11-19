@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Sun-Marked Goanna" nameDescription="a sun-marked goanna" race="blood" experience="7600" speed="230">
+	<health now="7800" max="7800"/>
+	<look type="1195" corpse="10221"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="10"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-326" poison="19"/>
+		<attack name="earth" interval="2000" chance="10" range="3" radius="1" target="1" min="0" max="-560">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15" length="8" spread="3" min="-240" max="-240">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element earthPercent="1"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="goanna hide with sun symbol" chance="100000"/>
+		<item name="platinum coin" countmax="1" chance="100000"/>
+		<item name="envenomed arrow" countmax="29" chance="33330"/>
+		<item name="poison dagger" chance="50000"/>
+		<item name="scared frog" chance="50000"/>
+	</loot>
+</monster>

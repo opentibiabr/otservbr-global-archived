@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Clomp" nameDescription="a clomp" race="blood" experience="475" speed="215">
+	<health now="900" max="900"/>
+	<look type="860" corpse="22742"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="50"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-0" max="-250"/>
+	</attacks>
+	<defenses armor="42" defense="42"/>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="3000" chance="20">
+		<voice sentence="Snort!"/>
+		<voice sentence="Grunt!"/>
+		<voice sentence="Snarl!"/>
+	</voices>
+	<loot>
+		<item name="raw meat" countmax="3" chance="17490"/>
+		<item name="hardened bone" chance="6870"/>
+		<item name="thick fur" chance="6480"/>
+		<item name="tusk shield" chance="500"/>
+		<item name="furry club" chance="390"/>
+	</loot>
+</monster>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Midnight Asura" nameDescription="a midnight asura" race="blood" experience="4100" speed="120">
+	<health now="3100" max="3100"/>
+	<look type="150" head="0" body="114" legs="90" feet="90" addons="1" corpse="21988"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnPoison="1"/>
+		<flag canWalkOnFire="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-387"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-110"/>
+		<attack name="firefield" interval="2000" chance="10" range="7" radius="1" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-200">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="energy strike" interval="2000" chance="10" range="1" min="-0" max="-95">
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="120" max="170">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-10"/>
+		<element earthPercent="-10"/>
+		<element firePercent="10"/>
+		<element icePercent="10"/>
+		<element holyPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Death and Darkness!"/>
+		<voice sentence="Embrace the night!"/>
+		<voice sentence="May night fall upon you!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="6" chance="100000"/>
+		<item name="soul orb" chance="20040"/>
+		<item name="concentrated demonic blood" chance="19980"/>
+		<item name="golden lotus brooch" chance="18120"/>
+		<item name="peacock feather fan" chance="15980"/>
+		<item name="demonic essence" chance="15010"/>
+		<item name="great health potion" countmin="1" countmax="2" chance="12020"/>
+		<item name="assassin star" countmin="1" countmax="5" chance="9780"/>
+		<item name="white pearl" chance="8500"/>
+		<item name="small diamond" countmin="1" countmax="3" chance="8010"/>
+		<item name="small sapphire" countmin="1" countmax="3" chance="7820"/>
+		<item name="silver brooch" chance="5080"/>
+		<item name="black pearl" chance="4710"/>
+		<item name="small topaz" chance="4520"/>
+		<item name="small emerald" chance="4450"/>
+		<item name="small ruby" chance="4310"/>
+		<item name="necrotic rod" chance="3680"/>
+		<item name="tribal mask" chance="2860"/>
+		<item name="silver amulet" chance="1730"/>
+		<item name="yellow gem" chance="1160"/>
+		<item name="underworld rod" chance="1120"/>
+		<item name="blue robe" chance="820"/>
+		<item name="assassin dagger" chance="600"/>
+		<item name="oriental shoes" chance="570"/>
+		<item id="3007" chance="490"/>
+		<item name="blue gem" chance="330"/>
+		<item name="skullcracker armor" chance="260"/>
+		<item name="gold ingot" chance="230"/>
+		<item name="spellbook of mind control" chance="160"/>
+	</loot>
+</monster>

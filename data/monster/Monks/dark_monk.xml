@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Dark Monk" nameDescription="a dark monk" race="blood" experience="145" speed="115" manacost="480">
 	<health now="190" max="190"/>
-	<look type="225" corpse="20371"/>
+	<look type="225" corpse="18281"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-100"/>
@@ -47,19 +47,19 @@
 		<voice sentence="Your end has come!"/>
 	</voices>
 	<loot>
-		<item id="1949" chance="1790"/><!-- scroll -->
-		<item name="brown flask" chance="380"/>
-		<item id="2044" chance="550"/><!-- lamp -->
-		<item name="gold coin" countmax="18" chance="14600"/>
-		<item name="power ring" chance="120"/>
-		<item name="life crystal" chance="990"/>
-		<item name="ankh" chance="900"/>
-		<item name="sandals" chance="890"/>
-		<item name="bread" chance="20550"/>
-		<item name="mana potion" chance="790"/>
-		<item name="book of prayers" chance="1900"/>
-		<item name="dark rosary" chance="10500"/>
-		<item name="rope belt" chance="6666"/>
-		<item name="safety pin" chance="990"/>
+		<item name="bread" chance="20440"/>
+		<item name="gold coin" countmax="18" chance="14410"/>
+		<item name="dark rosary" chance="10250"/>
+		<item name="rope belt" chance="6020"/>
+		<item name="book of prayers" chance="1920"/>
+		<item id="2815" chance="1840"/><!-- scroll -->
+		<item name="life crystal" chance="980"/>
+		<item name="safety pin" chance="970"/>
+		<item name="ankh" chance="910"/>
+		<item name="mana potion" chance="850"/>
+		<item name="sandals" chance="850"/>
+		<item id="2914" chance="550"/><!-- lamp -->
+		<item name="brown flask" chance="390"/>
+		<item name="power ring" chance="110"/>
 	</loot>
 </monster>

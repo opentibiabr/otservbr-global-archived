@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Shaper Matriarch" nameDescription="a shaper matriarch" race="blood" experience="1650" speed="130">
+	<health now="2000" max="2000"/>
+	<look type="933" corpse="25071"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="30"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-0" max="-120"/>
+		<attack name="physical" interval="2000" chance="35" range="7" min="-0" max="-120">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="35" radius="3" min="-35" max="-160">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="35" length="6" spread="3" min="0" max="-332">
+			<attribute key="areaEffect" value="mortarea"/>
+	</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+	<defense name="healing" interval="2000" chance="15" min="0" max="86">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-10"/>
+		<element physicalPercent="-1"/>
+		<element holyPercent="1"/>
+		<element icePercent="1"/>
+		<element deathPercent="10"/>
+		<element earthPercent="40"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Tar Marra Zik Tazz!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="137" chance="100000"/>
+		<item name="platinum coin" countmax="2" chance="80700"/>
+		<item name="rhino horn carving" chance="20310"/>
+		<item name="cave turnip" countmax="2" chance="18230"/>
+		<item name="tarnished rhino figurine" chance="15360"/>
+		<item name="cracked alabaster vase" chance="15120"/>
+		<item name="strong mana potion" chance="14900"/>
+		<item id="3114" chance="9790"/><!-- skull -->
+		<item name="dark mushroom" chance="6750"/>
+		<item name="ancient coin" chance="5960"/>
+		<item name="gemmed figurine" chance="4450"/>
+		<item name="rusted helmet" chance="4420"/>
+		<item name="small ruby" chance="3830"/>
+		<item name="prismatic quartz" chance="2910"/>
+		<item name="black pearl" chance="2340"/>
+		<item name="waterskin" chance="2060"/>
+		<item name="wand of decay" chance="1750"/>
+		<item name="stone skin amulet" subtype="5" chance="1560"/>
+		<item name="ring of healing" chance="1290"/>
+		<item name="wand of voodoo" chance="740"/>
+	</loot>
+</monster>

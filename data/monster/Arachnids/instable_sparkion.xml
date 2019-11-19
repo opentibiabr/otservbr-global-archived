@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Instable Sparkion" nameDescription="an instable sparkion" race="energy" experience="1350" speed="140">
+	<health now="1900" max="1900"/>
+	<look type="877" corpse="23388"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+		<attack name="physical" interval="2000" chance="20" length="6" spread="0" min="-250" max="-350">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="25" target="1" range="5" min="-150" max="-200">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energycondition" interval="2000" chance="20" radius="4" target="1" range="6" min="-250" max="-350">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="37" defense="37">
+		<defense name="speed" interval="2000" chance="10" speedchange="360" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="5" min="50" max="80">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="-15"/>
+		<element physicalPercent="5"/>
+		<element holyPercent="5"/>
+		<element deathPercent="5"/>
+		<element firePercent="20"/>
+		<element icePercent="60"/>
+		<element energyPercent="80"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="4000" chance="15">
+		<voice sentence="Zzing!"/>
+		<voice sentence="Frizzle!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="100" chance="91880"/>
+		<item name="platinum coin" chance="80200"/>
+		<item name="sparkion legs" chance="10660"/>
+		<item name="small sapphire" countmin="1" countmax="2" chance="7610"/>
+		<item name="sparkion stings" chance="7110"/>
+		<item name="sparkion tail" chance="6600"/>
+		<item name="great mana potion" chance="6600"/>
+		<item name="sparkion claw" chance="6090"/>
+		<item name="blue crystal splinter" chance="5580"/>
+		<item name="great health potion" chance="4570"/>
+		<item name="blue crystal shard" chance="4060"/>
+		<item name="energy drink" chance="4060"/>
+		<item name="cyan crystal fragment" chance="3550"/>
+		<item name="great spirit potion" chance="3050"/>
+		<item name="energy bar" chance="2540"/>
+		<item name="wand of cosmic energy" chance="510"/>
+	</loot>
+</monster>

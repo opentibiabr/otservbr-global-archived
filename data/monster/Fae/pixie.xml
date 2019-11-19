@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Pixie" nameDescription="a pixie" race="blood" experience="700" speed="120" manacost="450">
+	<look type="982" corpse="25811"/>
+	<health now="770" max="770"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="30"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-85" max="-135">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="11" length="4" spread="2" target="0" speedchange="-440" duration="7000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="30" range="4" min="0" max="-100">
+			<attribute key="shootEffect" value="leafstar"/>
+		</attack>
+		<attack name="pixie skill reducer" interval="2000" chance="20"/>
+	</attacks>
+	<defenses armor="52" defense="52">
+		<defense name="healing" interval="2000" chance="25" min="40" max="75">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-10"/>
+		<element physicalPercent="-5"/>
+		<element icePercent="-5"/>
+		<element deathPercent="30"/>
+		<element earthPercent="60"/>
+		<element holyPercent="60"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Glamour, glitter, glistering things! Do you have any of those?"/>
+		<voice sentence="Sweet dreams!"/>
+		<voice sentence="You might be a threat! I'm sorry but I can't allow you to linger here."/>
+		<voice sentence="Let's try a step or two!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="90" chance="30000"/>
+		<item name="wild flowers" chance="17720"/>
+		<item name="dandelion seeds" chance="14830"/>
+		<item name="fresh fruit" countmax="2" chance="10090"/>
+		<item name="colourful snail shell" chance="9870"/>
+		<item name="leaf star" countmin="1" countmax="5" chance="9330"/>
+		<item name="star herb" chance="5290"/>
+		<item id="3046" chance="4840"/><!-- magic light wand-->
+		<item name="great mana potion" chance="3430"/>
+		<item name="red rose" chance="3290"/>
+		<item name="rainbow quartz" countmin="1" countmax="3" chance="2920"/>
+		<item name="small enchanted amethyst" countmin="1" countmax="2" chance="2400"/>
+		<item name="green mushroom" chance="1760"/>
+		<item name="strong mana potion" chance="1000"/>
+		<item name="dream blossom staff" chance="500"/>
+		<item name="butterfly ring" chance="480"/>
+		<item name="wooden spellbook" chance="290"/>
+		<item name="small topaz" countmax="2" chance="290"/>
+	</loot>
+</monster>

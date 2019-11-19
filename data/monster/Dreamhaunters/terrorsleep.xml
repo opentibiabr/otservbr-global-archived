@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Terrorsleep" nameDescription="a terrorsleep" race="blood" experience="6900" speed="180">
 	<health now="7200" max="7200"/>
-	<look type="593" corpse="22497"/>
+	<look type="593" corpse="20163"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-450"/>
@@ -64,24 +64,28 @@
 		<voice sentence="I am the darkness around you..."/>
 	</voices>
 	<loot>
-		<item name="small ruby" countmax="3" chance="9600"/>
-		<item name="gold coin" countmax="100" chance="100000"/>
-		<item name="small emerald" chance="14000"/>
-		<item name="small amethyst" countmax="3" chance="17000"/>
-		<item name="platinum coin" countmax="8" chance="100000"/>
-		<item name="giant sword" chance="560"/>
-		<item name="warrior helmet" chance="2820"/>
-		<item name="knight armor" chance="4000"/>
-		<item name="white piece of cloth" chance="4520"/>
-		<item name="red piece of cloth" chance="1130"/>
-		<item name="great mana potion" countmax="2" chance="36000"/>
-		<item name="ultimate health potion" chance="26000"/>
-		<item name="small topaz" countmax="2" chance="17000"/>
-		<item name="blue crystal shard" chance="6000"/>
-		<item name="blue crystal splinter" chance="13000"/>
-		<item name="cyan crystal fragment" chance="17000"/>
-		<item id="22363" chance="1130"/><!-- broken dream -->
-		<item name="trapped bad dream monster" chance="13000"/>
-		<item name="bowl of terror sweat" chance="18000"/>
+		<item name="gold coin" countmin="4" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="8" chance="100000"/>
+		<item name="great mana potion" countmin="1" countmax="2" chance="34830"/>
+		<item name="ultimate health potion" chance="22000"/>
+		<item name="bowl of terror sweat" chance="16640"/>
+		<item name="cyan crystal fragment" chance="16510"/>
+		<item name="small topaz" countmin="1" countmax="3" chance="14780"/>
+		<item name="small amethyst" countmin="1" countmax="3" chance="14650"/>
+		<item name="small ruby" countmin="1" countmax="3" chance="13200"/>
+		<item name="small emerald" countmin="1" chance="13060"/>
+		<item name="blue crystal splinter" chance="12560"/>
+		<item name="trapped bad dream monster" chance="11840"/>
+		<item name="blue crystal shard" chance="8710"/>
+		<item name="white piece of cloth" chance="3900"/>
+		<item name="blue piece of cloth" chance="3400"/>
+		<item name="fish fin" chance="2310"/>
+		<item id="20029" chance="2220"/><!-- broken dream -->
+		<item name="knight armor" chance="2130"/>
+		<item name="giant sword" chance="1680"/>
+		<item name="warrior helmet" chance="1630"/>
+		<item name="blue robe" chance="1270"/>
+		<item name="red piece of cloth" chance="1090"/>
+		<item name="cluster of solace" chance="860"/>
 	</loot>
 </monster>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Muglex Clan Assassin" nameDescription="a muglex clan assassin" race="blood" experience="48" speed="70" manacost="360">
+	<health now="75" max="75"/>
+	<look type="296" corpse="6002"/>
+	<targetchange interval="10000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5"/>
+		<attack name="drunk" interval="2000" chance="11" duration="5000">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="6" defense="6">
+		<defense name="invisible" interval="2000" chance="11" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<loot>
+		<item name="gold coin" countmax="18" chance="100000"/>
+		<item name="dagger" chance="18860"/>
+		<item name="small stone" countmax="3" chance="12370"/>
+		<item id="3578" countmax="2" chance="11360"/><!-- fish -->
+		<item name="small axe" chance="9330"/>
+		<item name="short sword" chance="9130"/>
+		<item id="3115" chance="8920"/><!-- bone -->
+		<item name="leather helmet" chance="8320"/>
+		<item name="leather armor" chance="6290"/>
+		<item name="mouldy cheese" chance="5680"/>
+		<item name="bone club" chance="4460"/>
+		<item name="studded armor" chance="1620"/>
+	</loot>
+</monster>

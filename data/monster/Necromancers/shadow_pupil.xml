@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Shadow Pupil" nameDescription="a shadow pupil" race="blood" experience="410" speed="85">
 	<health now="450" max="450"/>
-	<look type="551" corpse="21254"/>
+	<look type="551" corpse="18943"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-70" poison="90"/>
@@ -55,15 +55,15 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="64" chance="100000"/>
-		<item name="boots of haste" chance="60"/>
+		<item name="horoscope" chance="14530"/>
+		<item name="incantation notes" chance="8960"/>
+		<item name="book of necromantic rituals" chance="7600"/>
+		<item name="brown mushroom" chance="4810"/>
+		<item name="pieces of magic chalk" chance="4350"/>
+		<item name="mystic turban" chance="550"/>
+		<item name="strong mana potion" chance="430"/>
 		<item name="clerical mace" chance="290"/>
-		<item name="mystic turban" chance="580"/>
-		<item name="brown mushroom" chance="5170"/>
-		<item name="strong mana potion" chance="470"/>
-		<item name="spellbook of enlightenment" chance="290"/>
-		<item name="book of necromantic rituals" chance="6920"/>
-		<item name="horoscope" chance="15000"/>
-		<item name="incantation notes" chance="9130"/>
-		<item name="pieces of magic chalk" chance="4300"/>
+		<item name="spellbook of enlightenment" chance="200"/>
+		<item name="boots of haste" chance="30"/>
 	</loot>
 </monster>

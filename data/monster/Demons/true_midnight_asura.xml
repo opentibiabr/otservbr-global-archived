@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="True Midnight Asura" nameDescription="a true midnight asura" race="blood" experience="9000" speed="170">
+	<health now="9000" max="9000"/>
+	<look type="1068" head="72" body="95" legs="72" feet="0" addon="3" corpse="28618"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-70"/>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="100" max="400">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="death" interval="2000" chance="10" length="8" spread="0" min="100" max="400">
+				<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		 <attack name="drunk" interval="2000" chance="10" range="3" target="1" radius="4" duration="4000">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="75" defense="75">
+		<defense name="healing" interval="2000" chance="15" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+			<defense name="invisible" interval="2000" chance="20" duration="10000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-10"/>
+		<element earthPercent="-10"/>
+		<element firePercent="10"/>
+		<element icePercent="10"/>
+		<element holyPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="8" chance="100000"/>	
+		<item name="peacock feather fan" chance="22810"/>
+		<item name="concentrated demonic blood" chance="22310"/>
+		<item name="soul orb" chance="21550"/>
+		<item name="golden lotus brooch" chance="19800"/>
+		<item name="great health potion" countmax="2" chance="19300"/>
+		<item name="small enchanted amethyst" countmax="3" chance="17290"/>
+		<item name="demonic essence" chance="17040"/>
+		<item name="small sapphire" countmax="3" chance="14290"/>
+		<item name="small diamond" countmax="3" chance="14040"/>
+		<item name="silver brooch" chance="11780"/>
+		<item name="small topaz" countmax="2" chance="9770"/>
+		<item name="white pearl" countmax="2" chance="9270"/>
+		<item name="small ruby" countmax="2" chance="9020"/>
+		<item name="black pearl" countmax="2" chance="8520"/>
+		<item name="crystal coin" countmax="3" chance="8270"/>
+		<item name="small emerald" countmax="2" chance="7270"/>
+		<item name="assassin star" countmax="5" chance="6770"/>
+		<item name="royal star" countmax="3" chance="4010"/>
+		<item name="silver amulet" chance="2510"/>
+		<item name="necrotic rod" chance="2510"/>
+		<item name="tribal mask" chance="2510"/>
+		<item name="assassin dagger" chance="2510"/>
+		<item name="violet gem" chance="2260"/>
+		<item name="gold ingot" chance="2010"/>
+		<item name="oriental shoes" chance="2010"/>
+		<item id="3007" chance="1750"/><!-- crystal ring -->
+		<item name="underworld rod" chance="1500"/>
+		<item name="blue gem" chance="1000"/>
+		<item name="spellbook of mind control" chance="750"/>
+		<item name="blue robe" chance="750"/>
+		<item name="yellow gem" chance="750"/>
+		<item name="skullcracker armor" chance="250"/>
+	</loot>
+</monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Fire Elemental" nameDescription="a fire elemental" race="fire" experience="220" speed="95" manacost="690">
 	<health now="280" max="280"/>
-	<look type="49" corpse="8964"/>
+	<look type="49" corpse="8136"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="1"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-100"/>

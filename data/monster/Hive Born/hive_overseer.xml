@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Hive Overseer" nameDescription="a hive overseer" race="venom" experience="5500" speed="115">
+	<health now="7500" max="7500"/>
+	<look type="458" corpse="13937"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="earth" interval="2000" chance="20" target="0" radius="4" min="-60" max="-80">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="20" target="0" radius="4" min="-600" max="-1000">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45">
+		<defense name="healing" interval="2000" chance="50" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="500" max="700">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="70"/>
+		<element energyPercent="20"/>
+		<element physicalPercent="60"/>
+		<element holyPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Spidris Elite" interval="2000" chance="40" max="2"/>
+	</summons>
+	<voices interval="5000" chance="10">
+		<voice sentence="Zopp!"/>
+		<voice sentence="Kropp!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="198" chance="98620"/>
+		<item name="platinum coin" countmax="6" chance="84320"/>
+		<item name="gold ingot" chance="29580"/>
+		<item name="kollos shell" chance="28850"/>
+		<item name="great mana potion" chance="18050"/>
+		<item name="compound eye" chance="17000"/>
+		<item name="small ruby" countmax="2" chance="15280"/>
+		<item name="gooey mass" countmax="2" chance="13370"/>
+		<item name="ultimate health potion" chance="11860"/>
+		<item id="281" chance="6460"/><!-- giant shimmering pearl -->
+		<item name="hive scythe" chance="1320"/>
+		<item name="calopteryx cape" chance="1250"/>
+		<item name="carapace shield" chance="860"/>
+		<item name="hive bow" chance="860"/>
+		<item name="steel boots" chance="590"/>
+	</loot>
+</monster>

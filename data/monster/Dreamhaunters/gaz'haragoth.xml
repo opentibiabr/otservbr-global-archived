@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gaz'Haragoth" nameDescription="Gaz'Haragoth" race="undead" experience="1000000" speed="500" script="reward_boss.lua">
+	<health now="350000" max="350000"/>
+	<look type="591" head="0" body="94" legs="79" feet="79" corpse="20228"/>
+	<targetchange interval="10000" chance="20"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="98"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<script>
+		<event name="GazharagothHeal"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5000"/>
+		<attack name="ice" interval="3000" chance="35" range="7" radius="7" target="1" min="-900" max="-1100">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="13" length="8" spread="3" min="-100" max="-1000">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="death" interval="2000" chance="19" range="7" target="1" radius="6" min="-100" max="-800">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="melee" interval="1800" chance="40" range="7" radius="5" target="0" min="0" max="-1000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="fire" interval="3000" chance="30" length="8" spread="0" min="-4000" max="-6000">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="14" length="8" spread="0" min="-1600" max="-3400">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="physical" interval="2500" chance="20" range="7" radius="5" target="0" min="-200" max="-480">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="gaz'haragoth iceball" interval="2000" chance="24" min="-1000" max="-1000"/>
+		<attack name="gaz'haragoth death" interval="4000" chance="6"/>
+		<attack name="gaz'haragoth paralyze" interval="2000" chance="12"/>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="3000" chance="35" min="2500" max="3500">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="4000" chance="80" speedchange="700" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="50"/>
+		<element earthPercent="50"/>
+		<element energyPercent="50"/>
+		<element deathPercent="50"/>
+		<element physicalPercent="50"/>
+		<element holyPercent="50"/>
+		<element icePercent="50"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="3">
+		<summon name="Minion of Gaz'haragoth" interval="4000" chance="33"/>
+	</summons>
+	<summons maxSummons="3">
+		<summon name="Nightmare of Gaz'haragoth" interval="4000" chance="33"/>
+	</summons>
+	<voices interval="5000" chance="30">
+		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1"/>
+		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1"/>
+		<voice sentence="I've beaten tougher demons then you even know!" yell="1"/>
+		<voice sentence="You puny humans will be my snacks!" yell="1"/>
+	</voices>
+	<loot>
+		<!-- for lack of information on the forums, chances are random -->
+		<item name="blue crystal splinter" countmax="15" chance="100000"/>
+		<item name="demon horn" chance="100000"/>
+		<item name="nightmare hook" chance="100000"/>
+		<item name="red piece of cloth" chance="100000"/>
+		<item name="crude umbral slayer" chance="100000"/>
+		<item name="crystal coin" countmax="6" chance="80000"/>
+		<item name="blue crystal shard" chance="80000"/>
+		<item name="blue gem" chance="80000"/> 
+		<item name="brown crystal splinter" countmax="15" chance="80000"/> 
+		<item name="cluster of solace" countmax="14" chance="80000"/> 
+		<item name="demonic essence" chance="80000"/> 
+		<item name="demonic tapestry" chance="80000"/> 
+		<item name="dream matter" countmin="1" countmax="3" chance="80000"/> 
+		<item name="ultimate health potion" countmax="100" chance="80000"/> 
+		<item name="great mana potion" countmax="100" chance="80000"/> 
+		<item name="great spirit potion" countmax="100" chance="80000"/> 
+		<item name="great health potion" countmax="100" chance="80000"/> 
+		<item name="green crystal splinter" countmax="15" chance="80000"/> 
+		<item name="assassin star" countmax="100" chance="80000"/> 
+		<item name="infernal bolt" countmax="100" chance="80000"/> 
+		<item name="life ring" chance="80000"/> 
+		<item name="eye pod" chance="80000"/> 
+		<item name="dream warden mask" chance="80000"/> 
+		<item name="dream warden claw" chance="80000"/> 
+		<item name="nightmare bacon" chance="80000"/> 
+		<item name="nightmare horn" chance="80000"/> 
+		<item name="psychedelic tapestry" chance="80000"/> 
+		<item name="solitude charm" chance="80000"/> 
+		<item name="spiritual charm" chance="80000"/> 
+		<item name="twin sun charm" chance="80000"/> 
+		<item name="unity charm" chance="80000"/> 
+		<item name="phoenix charm" chance="80000"/> 
+		<item name="skull helmet" chance="80000"/> 
+		<item name="golden legs" chance="30000"/> 
+		<item name="unrealized dream" countmin="1" countmax="3" chance="30000"/> 
+		<item id="282" chance="80000"/><!-- giant shimmering pearl -->
+		<item name="crude umbral axe" chance="5000"/> 
+		<item name="crude umbral chopper" chance="5000"/> 
+		<item name="crude umbral blade" chance="5000"/> 
+		<item name="crude umbral bow" chance="5000"/> 
+		<item name="crude umbral crossbow" chance="5000"/> 
+		<item name="crude umbral mace" chance="5000"/> 
+		<item name="crude umbral hammer" chance="5000"/> 
+		<item name="crude umbral spellbook" chance="5000"/> 
+		<item name="crude umbral axe" chance="5000"/> 
+		<item name="umbral axe" chance="2000"/> 
+		<item name="umbral chopper" chance="2000"/> 
+		<item name="umbral blade" chance="2000"/> 
+		<item name="umbral slayer" chance="2000"/> 
+		<item name="umbral bow" chance="2000"/> 
+		<item name="umbral crossbow" chance="2000"/> 
+		<item name="umbral mace" chance="2000"/> 
+		<item name="umbral hammer" chance="2000"/> 
+		<item name="umbral spellbook" chance="2000"/> 
+		<item name="umbral master axe" chance="1000"/> 
+		<item name="umbral master chopper" chance="1000"/> 
+		<item name="umbral masterblade" chance="1000"/> 
+		<item name="umbral master slayer" chance="1000"/> 
+		<item name="umbral master bow" chance="1000"/> 
+		<item name="umbral master crossbow" chance="1000"/> 
+		<item name="umbral master mace" chance="1000"/> 
+		<item name="umbral master hammer" chance="1000"/> 
+		<item name="umbral master spellbook" chance="1000"/> 
+	</loot>
+</monster>

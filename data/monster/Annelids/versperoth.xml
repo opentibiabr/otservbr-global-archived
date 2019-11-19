@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Versperoth" nameDescription="Versperoth" race="venom" experience="30000" speed="0">
+	<health now="100000" max="100000"/>
+	<look type="295" corpse="0"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1200" min="-500" max="-700"/>
+		<attack name="fire" interval="1000" chance="40" range="5" length="8" spread="3" min="-700" max="-1615">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="melee" interval="1000" chance="25" range="7" radius="3" target="0" min="-750" max="-950">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55"/>
+	<elements>
+		<element firePercent="90"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="0"/>
+		<immunity invisible="0"/>
+	</immunities>
+	<voices interval="2500" chance="10">
+		<voice sentence="GrrroaR!"/>
+		<voice sentence="GROWL!"/>
+		<voice sentence="Waaaah!"/>
+	</voices>
+</monster>

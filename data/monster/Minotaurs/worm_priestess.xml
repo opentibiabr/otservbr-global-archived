@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Worm Priestess" nameDescription="a worm priestess" race="blood" experience="1500" speed="99">
+	<health now="1100" max="1100"/>
+	<look type="613" corpse="21099"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="200"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="50"/>
+		<attack name="lifedrain" interval="2000" chance="24" range="7" target="1" min="-50" max="-130">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="16" range="4" min="-100" max="-165">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="worm priestess paralyze" interval="2000" chance="12"/>
+		<attack name="death" interval="2000" chance="10" range="7" target="1" radius="3" min="-115" max="-200">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="13" range="7" target="1" radius="4" min="-200" max="-300">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="8" min="100" max="150">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="haste" interval="2000" chance="9" speedchange="198" duration="1000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="25"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="-10"/>
+		<element icePercent="5"/>
+	</elements>
+	<voices interval="2000" chance="5">
+		<voice sentence="An enemy of the worm shall become his food!"/>
+		<voice sentence="The great worm will swallow you!"/>
+		<voice sentence="From the earthy depths he comes and brings freedom!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="150" chance="100000"/>	
+		<item name="platinum coin" countmax="3" chance="39900"/>
+		<item name="purple robe" chance="15990"/>
+		<item name="strong mana potion" chance="12270"/>
+		<item name="snakebite rod" chance="11910"/>
+		<item name="taurus mace" chance="5090"/>
+		<item id="2920" chance="4970"/><!-- torch -->
+		<item name="minotaur leather" chance="4940"/>
+		<item name="minotaur horn" countmax="2" chance="2900"/>
+		<item name="small amethyst" countmax="2" chance="2600"/>
+		<item name="small topaz" countmax="2" chance="2490"/>
+		<item name="small emerald" countmax="2" chance="2460"/>
+		<item name="small diamond" countmax="2" chance="2410"/>
+		<item name="small sapphire" countmax="2" chance="2410"/>
+		<item name="small ruby" countmax="2" chance="2410"/>
+		<item name="blue piece of cloth" chance="1570"/>
+		<item name="underworld rod" chance="1530"/>
+		<item name="red piece of cloth" chance="1490"/>
+		<item name="green piece of cloth" chance="1460"/>
+		<item name="yellow gem" chance="520"/>
+		<item name="red gem" chance="480"/>
+		<item id="7401" chance="140"/><!-- minotaur trophy -->
+	</loot>
+</monster>

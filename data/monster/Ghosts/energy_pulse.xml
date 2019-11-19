@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="energy pulse" nameDescription="energy pulse" race="undead" experience="0" speed="0">
+	<health now="5000" max="5000"/>
+	<look type="294" corpse="10508"/>
+	<targetchange interval="60000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="0"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="0"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag preyable="0"/>
+	</flags>
+	<attacks>
+		<attack name="energy pulse explosion" interval="1000" chance="100" min="-5000" max="-6000"/>
+	</attacks>
+</monster>

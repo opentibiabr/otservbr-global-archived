@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Dark Magician" nameDescription="a dark magician" race="blood" experience="185" speed="90">
 	<health now="325" max="325"/>
-	<look type="133" head="116" body="95" legs="50" feet="132" addons="2" corpse="20367"/>
+	<look type="133" head="116" body="95" legs="50" feet="132" addons="2" corpse="18086"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-40"/>
@@ -54,12 +54,14 @@
 		<voice sentence="Stand still!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="55" chance="75100"/>
-		<item name="blank rune" chance="10000"/>
-		<item name="strong health potion" chance="3000"/>
-		<item name="strong mana potion" chance="2860"/>
+		<item name="gold coin" countmax="55" chance="74990"/>
 		<item name="health potion" chance="12000"/>
-		<item name="mana potion" chance="11900"/>
+		<item name="mana potion" chance="11910"/>
+		<item name="blank rune" chance="9940"/>
+		<item name="strong health potion" chance="2960"/>
+		<item name="strong mana potion" chance="2880"/>
+		<item name="small enchanted amethyst" chance="510"/>
+		<item name="necrotic rod" chance="280"/>
 		<item name="reins" chance="20"/>
 	</loot>
 </monster>

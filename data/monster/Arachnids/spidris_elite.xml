@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Spidris Elite" nameDescription="a spidris elite" race="venom" experience="4000" speed="197">
+	<health now="5000" max="5000"/>
+	<look type="457" corpse="13873"/>
+	<targetchange interval="4000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-349"/>
+	</attacks>
+	<defenses armor="30" defense="30"/>
+	<elements>
+		<element holyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="200" chance="93240"/>
+		<item name="platinum coin" countmax="4" chance="42260"/>
+		<item name="spidris mandible" chance="28040"/>
+		<item name="small ruby" countmax="5" chance="22780"/>
+		<item name="great mana potion" countmax="2" chance="21030"/>
+		<item name="compound eye" chance="13560"/>
+		<item name="ultimate health potion" chance="9640"/>
+		<item id="6299" chance="4260"/><!-- death ring -->
+		<item id="281" chance="3050"/><!-- giant shimmering pearl -->
+		<item name="hive scythe" chance="1420"/>
+		<item name="violet gem" chance="1380"/>
+		<item name="calopteryx cape" chance="1340"/>
+		<item name="titan axe" chance="1210"/>
+		<item name="carapace shield" chance="960"/>
+	</loot>
+</monster>

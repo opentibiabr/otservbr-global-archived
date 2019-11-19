@@ -2,7 +2,7 @@
 <monster name="Nightstalker" nameDescription="a nightstalker" experience="500" speed="130" race="undead">
 	<health now="700" max="700"/>
 	<targetchange speed="0" chance="8"/>
-	<look type="320" corpse="9915"/>
+	<look type="320" corpse="9001"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-90" poison="80"/>
@@ -62,7 +62,7 @@
 		<voice sentence="Only the sweetest and cruelest dreams for you, my love."/>
 	</voices>
 	<loot>
-		<item id="2124" chance="1030"/><!-- crystal ring -->
+		<item id="3007" chance="1030"/><!-- crystal ring -->
 		<item name="gold coin" countmax="100" chance="50000"/>
 		<item name="gold coin" countmax="10" chance="50000"/>
 		<item name="platinum amulet" chance="121"/>

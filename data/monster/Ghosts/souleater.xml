@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Souleater" nameDescription="a souleater" race="undead" experience="1300" speed="105">
 	<health now="1100" max="1100"/>
-	<look type="355" corpse="12631"/>
+	<look type="355" corpse="11675"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-210"/>
@@ -60,17 +60,16 @@
 		<voice sentence="Aaaahh"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="33400"/>
-		<item name="gold coin" countmax="100" chance="33400"/>
-		<item name="platinum coin" countmax="6" chance="49610"/>
+		<item name="gold coin" countmax="200" chance="88050"/>
+		<item name="platinum coin" countmax="6" chance="49650"/>
+		<item name="lizard essence" chance="15010"/>
+		<item name="ultimate health potion" chance="9230"/>
+		<item name="great mana potion" chance="7960"/>
+		<item name="ectoplasmic sushi" chance="2010"/>
 		<item name="necrotic rod" chance="980"/>
-		<item name="wand of cosmic energy" chance="910"/>
+		<item name="wand of cosmic energy" chance="920"/>
+		<item id="6299" chance="310"/><!-- death ring -->
 		<item name="spirit container" chance="140"/>
-		<item id="6300" chance="300"/><!-- death ring -->
-		<item name="great mana potion" chance="8000"/>
-		<item name="ultimate health potion" chance="9400"/>
 		<item name="souleater trophy" chance="20"/>
-		<item name="lizard essence" chance="15250"/>
-		<item name="ectoplasmic sushi" chance="2000"/>
 	</loot>
 </monster>

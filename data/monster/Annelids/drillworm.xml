@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Drillworm" nameDescription="a drillworm" race="venom" experience="1100" speed="110">
 	<health now="1500" max="1500"/>
-	<look type="527" corpse="19705"/>
+	<look type="527" corpse="17425"/>
 	<targetchange interval="4000" chance="20"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-300" poison="100"/>
@@ -47,21 +47,21 @@
 		<voice sentence="Krrrk!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="50" chance="50000"/>
-		<item id="2553" chance="5280"/><!-- pick -->
-		<item name="worm" countmax="5" chance="4580"/>
-		<item name="iron ore" chance="1750"/>
-		<item name="spiked squelcher" chance="540"/>
-		<item name="terra amulet" chance="2360"/>
-		<item name="lump of earth" chance="15000"/>
-		<item name="clay lump" chance="700"/>
-		<item id="13757" chance="12130"/><!-- Coal -->
-		<item name="green crystal splinter" chance="9780"/>
-		<item name="brown crystal splinter" chance="9260"/>
-		<item name="blue crystal splinter" chance="9610"/>
-		<item name="pulverized ore" chance="5400"/>
-		<item name="vein of ore" chance="7280"/>
-		<item name="drill bolt" countmax="2" chance="4870"/>
+		<item name="gold coin" countmax="150" chance="100000"/>
+		<item name="lump of earth" chance="14930"/>
+		<item id="12600" chance="12150"/><!-- Coal -->
+		<item name="brown crystal splinter" chance="10130"/>
+		<item name="green crystal splinter" chance="10050"/>
+		<item name="blue crystal splinter" chance="9970"/>
+		<item name="vein of ore" chance="7350"/>
+		<item name="pulverized ore" chance="5210"/>
+		<item name="pick" chance="5110"/>
+		<item name="drill bolt" countmax="2" chance="4970"/>
+		<item name="worm" countmax="5" chance="4960"/>
+		<item name="terra amulet" chance="2580"/>
+		<item name="dwarven ring" chance="2390"/>
+		<item name="iron ore" chance="1550"/>
+		<item name="clay lump" chance="740"/>
+		<item name="spiked squelcher" chance="520"/>
 	</loot>
 </monster>

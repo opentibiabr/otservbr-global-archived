@@ -10,15 +10,15 @@
 		<flag illusionable="0"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag staticattack="70"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="15"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag staticAttack="70"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<defenses armor="5" defense="5"/>
 	<loot>

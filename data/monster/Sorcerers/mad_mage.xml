@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mad Mage" nameDescription="a mad mage" race="blood" experience="1800" speed="240" script="reward_boss.lua">
+	<health now="2500" max="2500"/>
+	<look type="394" corpse="12079"/>
+	<targetchange interval="5000" chance="30"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-30"/>
+		<attack name="fire" interval="1000" chance="12" range="7" target="1" min="0" max="-200">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="manadrain" interval="1400" chance="24" range="6" min="0" max="-120">
+			<attribute key="shootEffect" value="ice"/>
+		</attack>
+		<attack name="firefield" interval="1600" chance="20" range="7" radius="3" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" radius="4" target="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="bigclouds"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="25" min="35" max="80">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="Golden Servant" interval="1000" chance="10"/>
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="Did it not come to your mind that I placed them here for a reason?"/>
+		<voice sentence="Now I have to create new servants! Do you want to spread this pest beyond these safe walls?"/>
+		<voice sentence="What have you done!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="340" chance="99330"/>
+		<item name="platinum coin" countmax="5" chance="51340"/>
+		<item name="strong mana potion" countmax="5" chance="23830"/>
+		<item name="strong health potion" countmax="5" chance="20470"/>
+		<item name="stealth ring" chance="6040"/>
+		<item name="assassin star" countmax="4" chance="5370"/>
+		<item name="mind stone" chance="5030"/>
+		<item name="dark mushroom" countmax="3" chance="4700"/>
+		<item name="red piece of cloth" chance="4700"/>
+		<item name="small amethyst" countmax="3" chance="2680"/>
+		<item name="mage's cap" chance="1680" unique="1"/>	
+		<item name="luminous orb" chance="1340"/>		
+		<item name="bullseye potion" chance="1340"/>
+		<item name="piggy bank" chance="1010"/>
+		<item name="crystal of focus" chance="670"/>
+		<item name="boots of haste" chance="670"/>
+		<item name="spellbook of warding" chance="340"/>
+		<item name="ring of the sky" chance="340"/>
+		<item name="lightning robe" chance="340"/>
+		<!-- unconfirmed chance -->
+		<item name="skull helmet" chance="340"/>
+	</loot>
+</monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Mad Scientist" nameDescription="a mad scientist" race="blood" experience="205" speed="90">
 	<health now="325" max="325"/>
-	<look type="133" head="97" body="0" legs="38" feet="97" addons="1" corpse="20439"/>
+	<look type="133" head="97" body="0" legs="38" feet="97" addons="1" corpse="18161"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-35"/>
@@ -58,15 +58,16 @@
 		<voice sentence="I will study your corpse!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="65" chance="30000"/>
-		<item name="gold coin" countmax="50" chance="30000"/>
-		<item id="2162" chance="2000"/><!-- magic lightwand -->
-		<item name="life crystal" chance="2000"/>
-		<item name="cookie" countmax="5" chance="1200"/>
-		<item name="white mushroom" countmax="3" chance="8000"/>
-		<item name="mastermind potion" chance="130"/>
-		<item name="health potion" chance="19000"/>
-		<item name="mana potion" chance="19000"/>
-		<item name="small enchanted amethyst" chance="470"/>
+		<item name="gold coin" countmax="115" chance="59910"/>
+		<item name="health potion" chance="19920"/>
+		<item name="mana potion" chance="19670"/>
+		<item name="white mushroom" countmax="3" chance="8010"/>
+		<item name="powder herb" chance="6100"/>
+		<item name="life crystal" chance="2040"/>
+		<item id="3046" chance="2040"/><!-- magic lightwand -->
+		<item name="cookie" countmax="5" chance="1210"/>
+		<item name="cream cake" chance="810"/>
+		<item name="small enchanted amethyst" chance="510"/>
+		<item name="mastermind potion" chance="120"/>
 	</loot>
 </monster>

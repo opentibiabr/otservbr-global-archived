@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Pirate Cutthroat" nameDescription="a pirate cutthroat" race="blood" experience="175" speed="107" manacost="495">
 	<health now="325" max="325"/>
-	<look type="96" corpse="20479"/>
+	<look type="96" corpse="18201"/>
 	<targetchange interval="4000" chance="15"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-170" poison="10"/>
@@ -43,18 +43,18 @@
 		<voice sentence="Plundeeeeer!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="50" chance="78000"/>
-		<item name="scale armor" chance="3000"/>
-		<item name="steel shield" chance="2800"/>
-		<item id="5091" chance="1000"/><!-- treasure map -->
-		<item name="rum flask" chance="90"/>
-		<item name="light shovel" chance="2000"/>
-		<item id="5792" chance="110"/><!-- dice -->
-		<item name="pirate knee breeches" chance="980"/>
+		<item name="gold coin" countmax="50" chance="77440"/>
+		<item name="compass" chance="10100"/>
+		<item name="scale armor" chance="3050"/>
+		<item name="steel shield" chance="2870"/>
+		<item name="light shovel" chance="1920"/>
+		<item id="5091" chance="1080"/><!-- treasure map -->
+		<item name="pirate knee breeches" chance="1030"/>
 		<item name="pirate bag" chance="1000"/>
-		<item name="hook" chance="550"/>
-		<item name="eye patch" chance="450"/>
+		<item name="hook" chance="520"/>
 		<item name="peg leg" chance="500"/>
-		<item name="compass" chance="10120"/>
+		<item name="eye patch" chance="470"/>
+		<item id="5792" chance="90"/><!-- die -->
+		<item name="rum flask" chance="80"/>
 	</loot>
 </monster>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grand Chaplain Gaunder" nameDescription="Grand Chaplain Gaunder" race="blood" experience="14" speed="210" script="reward_boss.lua">
+	<health now="15000" max="15000"/>
+	<look type="1071" head="57" body="75" legs="38" feet="86" addons="1" corpse="28733"/>
+	<targetchange interval="3000" chance="10"/>
+	<flags>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-150" max="-700"/>
+		<attack name="lifedrain" interval="1500" chance="15" range="4" radius="4" min="-200" max="-890">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" range="7" min="-200" max="-720">
+			<attribute key="shootEffect" value="etherealspear"/>
+		</attack>
+		<attack name="holy" interval="1500" chance="14" length="8" spread="0" min="-300" max="-1000">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" range="5" radius="3" min="-200" max="-700">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82">
+		<defense name="healing" interval="2000" chance="20" min="200" max="550">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="1000" chance="10" speedchange="220" duration="5000">
+			<attribute key="areaEffect" value="poff"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="80"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="ham" chance="60400"/>
+		<item name="soul orb" chance="36630"/>
+		<item name="great health potion" chance="35640"/>
+		<item name="great mana potion" chance="30690"/>
+		<item name="assassin star" chance="17820"/>
+		<item name="onyx arrow" chance="10890"/>
+		<item name="small emerald" chance="7920"/>
+		<item name="small enchanted amethyst" chance="5940"/>
+		<item name="small diamond" chance="5940"/>
+		<item id="282" chance="3300"/><!-- giant shimmering pearl (brown) -->
+		<item name="spiked squelcher" chance="2970"/>
+		<item name="damaged armor plates" chance="990"/>
+		<item name="falcon longsword" chance="60"/>
+		<item name="falcon plate" chance="60"/>
+		<item name="falcon mace" chance="60"/>
+		<item name="falcon shield" chance="60"/>
+	</loot>
+</monster>

@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="25"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="25"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<defenses armor="5" defense="5"/>
 	<immunities>

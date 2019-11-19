@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Young Sea Serpent" nameDescription="a young sea serpent" race="blood" experience="1000" speed="240" manacost="390">
 	<health now="1050" max="1050"/>
-	<look type="317" head="0" body="0" legs="0" feet="0" corpse="9879"/>
+	<look type="317" head="0" body="0" legs="0" feet="0" corpse="8965"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="85"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="400"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="85"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="400"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-200"/>
@@ -51,18 +51,18 @@
 		<voice sentence="HISSSS"/>
 	</voices>
 	<loot>
-		<item name="small sapphire" countmax="2" chance="1900"/>
 		<item name="gold coin" countmax="100" chance="50000"/>
 		<item name="gold coin" countmax="74" chance="48000"/>
+		<item name="morning star" chance="40000"/>
+		<item name="battle axe" chance="8000"/>
+		<item name="heavily rusted armor" chance="7940"/>
+		<item name="rusted armor" chance="7940"/>
+		<item name="sea serpent scale" chance="5000"/>
+		<item name="strong health potion" chance="5000"/>
+		<item name="battle hammer" chance="5000"/>
+		<item name="strong mana potion" chance="4000"/>
+		<item name="small sapphire" countmax="2" chance="1900"/>
 		<item name="stealth ring" chance="1000"/>
 		<item name="life crystal" chance="300"/>
-		<item name="battle axe" chance="8000"/>
-		<item name="morning star" chance="40000"/>
-		<item name="battle hammer" chance="5000"/>
-		<item name="strong health potion" chance="5000"/>
-		<item name="strong mana potion" chance="4000"/>
-		<item id="9808" chance="7940"/><!-- rusty armor -->
-		<item id="9809" chance="7940"/><!-- rusty armor -->
-		<item name="sea serpent scale" chance="5000"/>
 	</loot>
 </monster>

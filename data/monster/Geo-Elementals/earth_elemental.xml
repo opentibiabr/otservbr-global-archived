@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Earth Elemental" nameDescription="an earth elemental" race="undead" experience="450" speed="115">
 	<health now="650" max="650"/>
-	<look type="301" corpse="8933"/>
+	<look type="301" corpse="8105"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="80"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="80"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="80"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="80"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-110"/>
@@ -67,10 +67,10 @@
 		<item name="blank rune" chance="10000"/>
 		<item name="strong mana potion" chance="1910"/>
 		<item name="earth arrow" countmax="30" chance="20160"/>
-		<item id="9808" chance="350"/><!-- rusty armor -->
+		<item id="8894" chance="350"/><!-- heavily rusted armor -->
 		<item name="small topaz" chance="620"/>
 		<item name="lump of earth" chance="20460"/>
 		<item name="clay lump" chance="570"/>
-		<item id="13757" chance="470"/><!-- coal -->
+		<item id="12600" chance="470"/><!-- coal -->
 	</loot>
 </monster>

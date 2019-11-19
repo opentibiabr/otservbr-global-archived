@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Gladiator" nameDescription="a gladiator" race="blood" experience="90" speed="98" manacost="470">
 	<health now="185" max="185"/>
-	<look type="131" head="78" body="3" legs="79" feet="114" corpse="20407"/>
+	<look type="131" head="78" body="3" legs="79" feet="114" corpse="18126"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="10"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="10"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-90"/>
@@ -39,15 +39,15 @@
 		<voice sentence="Take this!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="30" chance="49500"/>
-		<item id="2376" chance="12620"/><!-- sword -->
-		<item name="mace" chance="11160"/>
-		<item name="chain helmet" chance="5200"/>
-		<item name="iron helmet" chance="590"/>
-		<item name="brass armor" chance="2750"/>
-		<item name="steel shield" chance="840"/>
-		<item name="plate shield" chance="9950"/>
-		<item name="meat" chance="19000"/>
+		<item name="gold coin" countmax="30" chance="49750"/>
+		<item name="meat" chance="18940"/>
+		<item id="2376" chance="12650"/><!-- sword -->
+		<item name="mace" chance="10440"/>
+		<item name="plate shield" chance="9910"/>
+		<item name="chain helmet" chance="5020"/>
+		<item name="brass armor" chance="2960"/>
+		<item name="steel shield" chance="910"/>
+		<item name="iron helmet" chance="560"/>
 		<item name="belted cape" chance="340"/>
 	</loot>
 </monster>

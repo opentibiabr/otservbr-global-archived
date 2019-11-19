@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lost Basher" nameDescription="a lost basher" race="blood" experience="1800" speed="130">
 	<health now="2600" max="2600"/>
-	<look type="538" corpse="19963"/>
+	<look type="538" corpse="17683"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-351"/>
@@ -52,30 +52,34 @@
 		<voice sentence="Yhouuuu!"/>
 	</voices>
 	<loot>
-		<item name="piggy bank" chance="4450"/>
-		<item name="gold coin" countmax="100" chance="60000"/>
-		<item name="platinum coin" countmax="2" chance="70000"/>
-		<item name="fire axe" chance="310"/>
-		<item name="war axe" chance="120"/>
-		<item name="knight legs" chance="310"/>
-		<item name="black shield" chance="3710"/>
-		<item name="brown mushroom" countmax="2" chance="15170"/>
-		<item name="iron ore" chance="5280"/>
-		<item name="chaos mace" chance="160"/>
-		<item name="spiked squelcher" chance="420"/>
-		<item name="great mana potion" chance="11240"/>
-		<item name="terra boots" chance="780"/>
-		<item name="ultimate health potion" chance="10250"/>
-		<item name="small topaz" chance="10200"/>
-		<item id="13757" chance="21130"/><!-- Coal -->
-		<item name="blue crystal shard" chance="840"/>
-		<item name="lost basher's spike" chance="17260"/>
-		<item name="lost basher's spike" chance="14380"/>
-		<item name="bloody dwarven beard" chance="1730"/>
-		<item name="pair of iron fists" chance="1410"/>
-		<item name="buckle" chance="10930"/>
-		<item name="bonecarving knife" chance="7320"/>
-		<item name="basalt fetish" chance="8800"/>
-		<item name="basalt figurine" chance="9470"/>
+		<item name="gold coin" countmin="1" countmax="100" chance="99990"/>
+		<item name="platinum coin" chance="69660"/>
+		<item id="12600" chance="20290"/><!-- Coal -->
+		<item name="bloody dwarven beard" chance="17350"/>
+		<item name="lost basher's spike" chance="15170"/>
+		<item name="brown mushroom" countmax="2" chance="14950"/>
+		<item name="great mana potion" chance="12050"/>
+		<item name="wimp tooth chain" chance="11890"/>
+		<item name="red hair dye" chance="11870"/>
+		<item name="basalt figurine" chance="10420"/>
+		<item name="small topaz" chance="10170"/>
+		<item name="bonecarving knife" chance="9980"/>
+		<item name="ultimate health potion" chance="9590"/>
+		<item name="basalt fetish" chance="8140"/>
+		<item name="bone fetish" chance="7510"/>
+		<item name="iron ore" chance="5000"/>
+		<item name="piggy bank" chance="3940"/>
+		<item name="black shield" chance="3510"/>
+		<item name="dwarven ring" chance="2340"/>
+		<item name="pair of iron fists" chance="1470"/>
+		<item name="blue crystal shard" chance="1420"/>
+		<item name="buckle" chance="1210"/>
+		<item name="knight axe" chance="930"/>
+		<item name="terra boots" chance="830"/>
+		<item name="knight legs" chance="530"/>
+		<item name="spiked squelcher" chance="360"/>
+		<item name="fire axe" chance="290"/>
+		<item name="chaos mace" chance="230"/>
+		<item name="war axe" chance="50"/>
 	</loot>
 </monster>

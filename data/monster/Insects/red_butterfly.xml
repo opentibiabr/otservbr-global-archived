@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="6"/>
-		<flag runonhealth="2"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="6"/>
+		<flag runOnHealth="2"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 </monster>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Buster" nameDescription="Buster" race="energy" experience="5000" speed="200">
+	<health now="10000" max="10000"/>
+	<look type="878" corpse="23553"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+		<attack name="energy" interval="2000" chance="20" range="6" radius="4" target="1" min="-168" max="-400">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="energy strike" interval="2000" chance="30" range="1" min="-50" max="-180">
+		</attack>
+		<attack name="energycondition" interval="1000" chance="15" radius="3" target="0">
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50">
+		<defense name="healing" interval="2000" chance="5" min="80" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+	</loot>
+</monster>

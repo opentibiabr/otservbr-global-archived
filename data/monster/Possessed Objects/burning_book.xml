@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Burning Book" nameDescription="a burning book" race="fire" experience="15300" speed="220">
+	<health now="18000" max="18000"/>
+	<look type="1061" head="79" body="113" legs="78" feet="0" corpse="28754"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-200" max="-700"/>
+		<attack name="fire" interval="1000" chance="15" range="7" min="-200" max="-680">
+			<attribute key="shootEffect" value="flammingarrow"/>
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="physical" interval="1500" chance="12" radius="3" min="-200" max="-900">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="5" spread="0" min="-100" max="-850">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82"/>
+	<elements>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity fire="1"/>
+	</immunities>
+	<loot>
+		<!-- unconfirmed chances -->
+		<item name="platinum coin" countmin="1" countmax="28" chance="89960"/>
+		<item name="book page" countmin="1" countmax="7" chance="69960"/>
+		<item name="demonic essence" countmin="1" countmax="5" chance="59960"/>
+		<item name="concentrated demonic blood" countmin="1" countmax="3" chance="49960"/>
+		<item name="silken bookmark" countmin="1" countmax="2" chance="45960"/>
+		<item name="small amethyst" countmin="1" countmax="4" chance="15000"/>
+		<item id="3307" chance="3000"/><!-- scimitar -->
+		<item name="magma coat" chance="13000"/>
+		<item name="guardian shield" chance="12000"/>
+		<item name="soul orb" chance="11000"/>
+		<item name="necrotic rod" chance="3000"/>
+		<item name="magma monocle" chance="1500"/>
+		<item id="6299" chance="1200"/><!-- death ring -->
+		<item name="stealth ring" chance="500"/>
+		<item name="shadow sceptre" chance="400"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

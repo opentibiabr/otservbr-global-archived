@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zulazza The Corruptor" nameDescription="Zulazza The Corruptor" race="blood" experience="9800" speed="290" script="reward_boss.lua">
+	<health now="28000" max="28000"/>
+	<look type="334" corpse="10190"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="1500"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="200" attack="200"/>
+		<attack name="physical" interval="2000" chance="40" length="8" spread="0" min="-500" max="-800">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="30" radius="3" target="0" min="-300" max="-800">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="25" range="7" target="1" min="-50" max="-130">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="20" range="7" speedchange="-500" duration="20000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="96" defense="119">
+		<defense name="healing" interval="2000" chance="20" min="2000" max="3000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="20"/>
+		<element holyPercent="20"/>
+		<element deathPercent="30"/>
+		<element earthPercent="70"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity energy="1"/>
+	</immunities>
+	<voices interval="2000" chance="10">
+		<voice sentence="I'm Zulazza, and you won't forget me that fazzt."/>
+		<voice sentence="Zzaion is our last zztand! I will not leave wizzout a fight!"/>
+		<voice sentence="Behind zze Great Gate liezz your doom!"/>
+		<voice sentence="Oh, HE will take revenge on zzizz azzault when you zztep in front of HIZZ fazze!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmax="29" chance="73960"/>
+		<item name="slightly rusted armor" chance="62720"/>
+		<item name="gold ingot" countmax="4" chance="60950"/>
+		<item id="281" countmax="2" chance="42010"/><!-- giant shimmering pearl -->
+		<item name="red gem" chance="23080"/>
+		<item name="yellow gem" chance="22490"/>
+		<item name="viper star" countmax="67" chance="21890"/>
+		<item name="violet gem" chance="20710"/>
+		<item name="emerald bangle" chance="18340"/>
+		<item name="blue gem" chance="17160"/>
+		<item name="soul orb" countmax="5" chance="16570"/>
+		<item name="green gem" chance="16570"/>
+		<item name="great health potion" chance="15980"/>
+		<item name="mastermind potion" chance="15980"/>
+		<item name="ultimate health potion" chance="15380"/>
+		<item name="great mana potion" chance="13020"/>
+		<item name="great spirit potion" chance="13020"/>
+		<item name="guardian shield" chance="11240"/>
+		<item name="paladin armor" chance="10060"/>
+		<item name="tower shield" chance="8280"/>
+		<item name="mastermind shield" chance="8280"/>
+		<item name="dragon scale boots" chance="1780"/>
+		<item name="earthborn titan armor" chance="1180"/>
+		<item name="zaoan halbert" chance="550"/>
+	</loot>
+</monster>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Rustheap Golem" nameDescription="a rustheap golem" race="energy" experience="2300" speed="125">
+	<health now="2800" max="2800"/>
+	<look type="603" corpse="20984"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+	<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="118" attack="50"/>
+		<attack name="rustheap golem electrify" interval="2000" chance="11" range="7"/>
+		<attack name="frazzlemaw paralyze" interval="2000" chance="10"/>
+		<attack name="rustheap golem wave" interval="2000" chance="9" min="-100" max="-210"/>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="speed" interval="2000" chance="11" speedchange="428" duration="6000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="70"/>
+		<element energyPercent="-5"/>
+		<element physicalPercent="-5"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="*clatter*"/>
+		<voice sentence="*krrk*"/>
+		<voice sentence="*frzzp*"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="288" chance="100000"/>
+		<item name="platinum coin" countmax="3" chance="59990"/>
+		<item name="necromantic rust" chance="17040"/>
+		<item name="strong mana potion" chance="7500"/>
+		<item name="strong health potion" chance="7470"/>
+		<item name="flask of rust remover" chance="5050"/>
+		<item name="gearwheel chain" chance="3540"/>
+		<item name="slightly rusted armor" chance="3460"/>
+		<item name="slightly rusted legs" chance="3460"/>
+		<item name="bronze gear wheel" chance="3020"/>
+		<item name="nail" chance="2950"/>
+		<item name="war hammer" chance="2520"/>
+		<item name="black pearl" chance="1990"/>
+		<item name="white pearl" chance="1970"/>
+		<item name="iron ore" chance="1460"/>
+		<item name="metal bat" chance="910"/>
+		<item name="spiked squelcher" chance="510"/>
+	</loot>
+</monster>

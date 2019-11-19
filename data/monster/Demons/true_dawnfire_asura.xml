@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="True Dawnfire Asura" nameDescription="a true dawnfire asura" race="blood" experience="9200" speed="180">
+	<health now="8500" max="8500"/>
+	<look type="1068" head="79" body="94" legs="120" feet="79" addon="1" corpse="28663"/>
+<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-100"/>
+		<attack name="lifedrain" interval="2000" chance="10" length="4" spread="2" min="-50" max="-200">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="fire" interval="1000" chance="15" length="1" min="120" max="450">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="death" interval="1000" chance="10" radius="3" target="1" min="150" max="350">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="10" radius="4" min="100" max="300">
+				<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="77" defense="77">
+		<defense name="healing" interval="2000" chance="15" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-10"/>
+		<element holyPercent="-10"/>
+		<element energyPercent="-10"/>
+		<element icePercent="-5"/>
+		<element deathPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="12" chance="100000"/>
+		<item name="concentrated demonic blood" countmax="3" chance="34710"/>
+		<item name="golden lotus brooch" chance="27000"/>
+		<item name="peacock feather fan" chance="21760"/>
+		<item name="demonic essence" chance="20390"/>
+		<item name="great mana potion" countmax="2" chance="18730"/>
+		<item name="soul orb" chance="18180"/>
+		<item name="small emerald" countmax="5" chance="13770"/>
+		<item name="small ruby" countmax="3" chance="10470"/>
+		<item name="small topaz" countmax="2" chance="9920"/>
+		<item name="small diamond" countmax="2" chance="7710"/>
+		<item name="small amethyst" countmax="2" chance="6610"/>
+		<item name="small enchanted ruby" countmax="3" chance="6060"/>
+		<item name="crystal coin" chance="4960"/>
+		<item name="red gem" chance="4410"/>
+		<item name="ruby necklace" chance="3580"/>
+		<item name="blue gem" chance="3030"/>
+		<item name="mystic turban" chance="3030"/>
+		<item name="focus cape" chance="3030"/>
+		<item name="royal star" chance="2750"/>
+		<item name="red piece of cloth" chance="2750"/>
+		<item name="oriental shoes" chance="2200"/>
+		<item name="magma coat" chance="2200"/>
+		<item name="mysterious fetish" chance="1650"/>
+		<item id="6299" chance="1380"/><!-- death ring -->
+		<item name="spellbook of mind control" chance="1100"/>
+		<item name="wand of inferno" chance="550"/>
+	</loot>
+</monster>

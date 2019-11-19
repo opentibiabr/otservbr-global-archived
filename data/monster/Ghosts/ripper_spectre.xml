@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="190">
+	<health now="3800" max="3800"/>
+	<look type="1119" head="101" body="39" legs="61" feet="39" corpse="30026"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+		<attack name="poison" interval="2000" chance="50" radius="4" min="-200" max="-400">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="50" target="1" radius="4" min="-350" max="-450">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="50" length="3" spread="0" min="-250" max="-350">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="69" defense="69">
+		<defense name="healing" interval="2000" chance="10" min="140" max="180">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-20"/>
+		<element energyPercent="-10"/>
+		<element earthPercent="20"/>
+		<element physicalPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+ 		<item name="platinum coin" countmin="1" countmax="4" chance="100000"/>
+		<item name="great spirit potion" countmin="1" countmax="2" chance="30970"/>
+		<item name="two handed sword" chance="16320"/>
+		<item name="terra rod" chance="8760"/>
+		<item name="silver brooch" chance="4980"/>
+		<item name="emerald bangle" chance="4830"/>
+		<item name="twin hooks" chance="4610"/>
+		<item name="springsprout rod" chance="3520"/>
+		<item id="30083" chance="1830"/><!-- green ectoplasm -->
+		<item name="serpent sword" chance="1310"/>
+		<item name="coral brooch" chance="1310"/>
+		<item name="assassin dagger" chance="1020"/>
+		<item name="hexagonal ruby" chance="990"/>
+		<item name="spike sword" chance="570"/>
+		<item name="wyvern fang" chance="150"/>
+	</loot>
+</monster>

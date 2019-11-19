@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Nightfiend" nameDescription="a nightfiend" race="blood" experience="2100" speed="112">
+	<health now="2700" max="2700"/>
+	<look type="568" corpse="18952"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-45"/>
+		<attack name="physical" interval="1000" chance="10" range="7" min="-5" max="-40">
+			<attribute key="shootEffect" value="throwingknife"/>
+		</attack>
+	</attacks>
+	<defenses armor="11" defense="11"/>
+	<elements>
+		<element physicalPercent="5"/>
+		<element energyPercent="5"/>
+		<element icePercent="5"/>
+		<element firePercent="-5"/>
+		<element holyPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="148" chance="98120"/>
+		<item name="platinum coin" chance="30050"/>
+		<item name="vampire teeth" chance="11270"/>
+		<item name="small ruby" countmax="3" chance="7980"/>
+		<item name="strong mana potion" chance="7980"/>
+		<item name="tooth file" chance="7980"/>
+		<item name="blood preservation" chance="5160"/>		
+		<item name="strong health potion" chance="4230"/>
+		<item name="ring of healing" chance="3760"/>
+		<item name="emerald bangle" chance="1410"/>
+		<item name="red gem" chance="940"/>
+		<!-- unconfirmed chances -->
+		<item name="vampire shield" chance="480"/>
+	</loot>
+</monster>

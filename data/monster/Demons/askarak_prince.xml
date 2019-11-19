@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Askarak Prince" nameDescription="an askarak prince" race="venom" experience="1700" speed="125">
 	<health now="2600" max="2600"/>
-	<look type="419" corpse="13957"/>
+	<look type="419" corpse="12822"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-353"/>
@@ -48,19 +48,18 @@
 			<voice sentence="WE RULE!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="86" chance="50000"/>
-		<item name="small emerald" countmax="5" chance="12500"/>
-		<item name="platinum coin" countmax="4" chance="35333"/>
-		<item name="stealth ring" chance="4545"/>
-		<item name="giant sword" chance="320"/>
-		<item name="brown mushroom" countmax="5" chance="6666"/>
-		<item name="magic sulphur" chance="740"/>
-		<item name="mastermind potion" chance="1315"/>
-		<item name="strong health potion" chance="14285"/>
-		<item name="strong mana potion" chance="14285"/>
-		<item name="terra mantle" chance="840"/>
-		<item name="springsprout rod" chance="950"/>
-		<item name="demonic finger" chance="420"/>
+		<item name="gold coin" countmax="186" chance="95200"/>
+		<item name="platinum coin" countmax="4" chance="34820"/>
+		<item name="strong mana potion" chance="15090"/>
+		<item name="strong health potion" chance="14580"/>
+		<item name="small emerald" countmax="5" chance="12090"/>
+		<item name="brown mushroom" countmax="4" chance="6350"/>
+		<item name="stealth ring" chance="4970"/>
+		<item name="mastermind potion" chance="1460"/>
+		<item name="springsprout rod" chance="1030"/>
+		<item name="magic sulphur" chance="860"/>
+		<item name="terra mantle" chance="860"/>
+		<item name="demonic finger" chance="430"/>
+		<item name="giant sword" chance="260"/>
 	</loot>
 </monster>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Bride of Night" nameDescription="a bride of night" race="blood" experience="450" speed="125" manacost="0">
+	<health now="390" max="390" />
+	<look type="58" corpse="18305" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canPushItems="1" />
+		<flag canPushCreatures="1" />
+		<flag targetDistance="4" />
+		<flag staticAttack="90" />
+		<flag runOnHealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-75" />
+		<attack name="death" interval="2000" chance="20" range="7" min="0" max="-120">
+			<attribute key="shootEffect" value="suddendeath" />
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="manadrain" interval="2000" chance="15" range="7" min="-2" max="-170" />
+		<attack name="poisoncondition" interval="2000" chance="15" range="7" min="-10" max="-10">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="2000" chance="15" min="50" max="80">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-10" />
+		<element earthPercent="-10" />
+		<element holyPercent="10" />
+		<element energyPercent="15" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="The darkness is coming!" />
+		<voice sentence="The light will be extinguished!" />
+		<voice sentence="Embrace the night!" />
+	</voices>
+	<loot>
+		<item id="midnight shard" chance="4070"/>
+	</loot>
+</monster>

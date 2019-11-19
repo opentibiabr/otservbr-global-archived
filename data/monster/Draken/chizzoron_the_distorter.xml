@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Chizzoron The Distorter" nameDescription="Chizzoron The Distorter" race="blood" experience="4000" speed="260" script="reward_boss.lua">
+	<health now="16000" max="16000"/>
+	<look type="340" corpse="10399"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="60" attack="130"/>
+		<attack name="poison" interval="2000" chance="20" range="7" radius="1" target="1" max="-430">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" lenght="8" spread="3" max="-874">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="3" min="-300" max="-646">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" target="1" min="-148" max="-250">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="85"/>
+	<elements>
+		<element holyPercent="10"/>
+		<element energyPercent="20"/>
+		<element deathPercent="30"/>
+		<element icePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Lizard Dragon Priest" interval="2000" chance="10" max="2"/>
+	</summons>
+	<voices interval="2000" chance="10">
+		<voice sentence="Humanzzz! Leave Zzaion at onzzzze!"/>
+		<voice sentence="I pray to my mazzterzz, the mighty dragonzzz!"/>
+		<voice sentence="You are not worzzy to touch zzizz zzacred ground!"/>
+	</voices>
+	<loot>
+		<item name="gold ingot" countmax="2" chance="100000"/>
+		<item name="lizard scale" chance="100000"/>
+		<item name="gold coin" countmax="109" chance="93750"/>
+		<item name="small emerald" chance="28130"/>
+		<item name="great health potion" chance="21880"/>
+		<item name="dragon scale mail" chance="15630"/>
+		<item name="green gem" chance="12500"/>
+		<item name="crystal boots" chance="6250"/>
+		<!-- unconfirmed chances -->
+		<item name="time ring" chance="6125"/>
+		<item name="blue gem" chance="5505"/>
+		<item name="swamplair armor" chance="5120"/>
+		<item name="greenwood coat" chance="5050"/>
+	</loot>
+</monster>

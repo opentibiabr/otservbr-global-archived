@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Earworm" nameDescription="an earworm" race="blood" experience="2000" speed="158">
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Earworm" nameDescription="an earworm" race="blood" experience="2000" speed="155">
 	<health now="4000" max="4000"/>
-	<look type="26" corpse="5967"/>
+	<look type="26" corpse="31662"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -9,18 +9,44 @@
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-340"/>
+		<attack name="melee" interval="2000" min="0" max="-240" poison="25"/>
+		<attack name="earth" interval="2000" chance="15" range="5" target="1" min="-320" max="-450">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="greennote"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="12" radius="3" min="-280" max="-350">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
 	</attacks>
-	<defenses armor="60" defense="60"/>
+	<defenses armor="46" defense="46"/>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="2" chance="100000"/>
+		<item name="envenomed arrow" countmax="47" chance="59610"/>
+		<item name="lump of dirt" chance="10340"/>
+		<item name="terra amulet" chance="4930"/>
+		<item name="green memory shard" chance="3940"/>
+		<item name="blue memory shard" chance="3940"/>
+		<item name="terra hood" chance="3450"/>
+		<item name="violet memory shard" chance="2960"/>
+		<item name="sacred tree amulet" chance="2460"/>
+		<item name="earth arrow" countmax="21" chance="2460"/>
+		<item name="worm" countmax="3" chance="1480"/>
+	</loot>
 </monster>
+

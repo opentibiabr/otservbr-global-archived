@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Skeleton Elite Warrior" nameDescription="a skeleton elite warrior" race="undead" experience="7500" speed="155">
+	<health now="7800" max="7800"/>
+	<look type="298" corpse="5972"/>
+	<targetchange interval="4000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-0" max="-700"/>
+		<attack name="lifedrain" interval="2000" chance="15" range="1" min="-400" max="-450">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="physical" interval="1500" chance="20" range="7" min="-400" max="-500">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="75" defense="75"/>
+	<elements>
+		<element holyPercent="-25"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="15" chance="100000"/>
+		<item id="3115" chance="50310"/><!-- bone -->
+		<item name="soul orb" countmax="5" chance="25300"/>
+		<item name="white mushroom" countmax="1" chance="25020"/>
+		<item name="pelvis bone" countmax="3" chance="15730"/>
+		<item name="unholy bone" countmax="1" chance="10230"/>
+		<item name="knight axe" chance="6230"/>
+		<item name="mammoth whopper" chance="5090"/>
+		<item name="bone toothpick" chance="4990"/>
+		<item name="skull helmet" chance="3190"/>
+		<item name="mace" chance="2030"/>
+		<item id="3264" chance="3000"/><!-- sword -->
+		<item name="brown mushroom" chance="1970"/>
+		<item name="ruthless axe" chance="300"/>
+	</loot>
+</monster>

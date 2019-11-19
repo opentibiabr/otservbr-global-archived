@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Golden Servant" nameDescription="a golden servant" race="energy" experience="450" speed="105">
+	<health now="550" max="550"/>
+	<look type="396" corpse="12495"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="50"/>
+		<flag canWalkOnFire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-100"/>
+		<attack name="energy" interval="2000" chance="15" radius="4" target="1" min="-60" max="-100">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" radius="4" target="1" min="-80" max="-110">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" target="0" length="5" spread="2" min="-90" max="-150">
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20"/>
+	<elements>
+		<element earthPercent="80"/>
+		<element firePercent="10"/>
+		<element icePercent="5"/>
+		<element deathPercent="5"/>
+	</elements>
+	<immunities>
+		<immunity holy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Error. LOAD 'PROGRAM',8,1"/>
+		<voice sentence="Remain. Obedient."/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="140" chance="85060"/>
+		<item name="mana potion" chance="4950"/>
+		<item name="health potion" chance="4900"/>
+		<item name="halberd" chance="3040"/>
+		<item name="green mushroom" chance="1490"/>
+		<item name="gear wheel" chance="940"/>
+		<item name="spellbook of enlightenment" chance="520"/>
+		<item name="stealth ring" chance="490"/>
+		<item name="slime mould" chance="360"/>
+		<item name="golden can of oil" chance="30"/>
+		<item name="golden armor" chance="20"/>
+		<item name="gold ring" chance="10"/>
+	</loot>
+</monster>

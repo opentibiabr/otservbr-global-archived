@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="85"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="1"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="85"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-255"/>

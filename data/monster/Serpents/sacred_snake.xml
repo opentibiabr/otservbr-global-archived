@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sacred Snake" nameDescription="a sacred snake" race="blood" experience="0" speed="60">
+	<health now="10" max="10"/>
+	<look type="28" corpse="21471"/>
+	<targetchange interval="4000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-8" poison="1"/>
+	</attacks>
+	<defenses armor="0" defense="0"/>
+	<elements>
+		<element earthPercent="40"/>
+		<element energyPercent="20"/>
+		<element firePercent="-10"/>
+		<element icePercent="-10"/>
+	</elements>
+</monster>

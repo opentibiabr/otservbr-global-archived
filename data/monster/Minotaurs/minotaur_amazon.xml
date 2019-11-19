@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Minotaur Amazon" nameDescription="a minotaur amazon" race="blood" experience="2200" speed="125">
+	<health now="2600" max="2600"/>
+	<look type="608" corpse="21000"/>
+	<targetchange interval="2000" chance="11"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="240"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="50"/>
+		<attack name="manadrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-305">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="16" radius="4" target="0" min="-50" max="-150">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="22" range="7" min="0" max="-150">
+			<attribute key="shootEffect" value="huntingspear"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="bleedcondition" interval="2000" chance="40" target="1" radius="4" min="-300" max="-400">
+			<attribute key="shootEffect" value="throwingknife"/>
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="minotaur amazon paralyze" interval="2000" chance="15"/>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element energyPercent="-10"/>
+		<element firePercent="-5"/>
+		<element icePercent="5"/>
+		<element deathPercent="10"/>
+		<element holyPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="I'll protect the herd!"/>
+		<voice sentence="Never surrender!"/>
+		<voice sentence="You won't hurt us!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="5" countmax="199" chance="100000"/>
+		<item name="platinum coin" countmax="3" chance="64980"/>
+		<item name="ham" chance="59470"/>
+		<item name="cowbell" chance="19660"/>
+		<item name="minotaur leather" chance="16570"/>
+		<item name="great mana potion" chance="7050"/>
+		<item name="great health potion" chance="6590"/>
+		<item name="meat" chance="6570"/>
+		<item name="minotaur horn" countmax="2" chance="5300"/>
+		<item name="small ruby" countmin="1" countmax="2" chance="5170"/>
+		<item name="small topaz" countmin="1" countmax="2" chance="5020"/>
+		<item name="small amethyst" countmin="1" countmax="2" chance="4880"/>
+		<item name="small emerald" countmin="1" countmax="2" chance="4460"/>
+		<item name="mino shield" chance="3750"/>			
+		<item name="assassin star" countmin="1" countmax="5" chance="2980"/>
+		<item name="ring of healing" chance="2400"/>				
+		<item name="mino lance" chance="1740"/>			
+		<item name="stone skin amulet" subtype="5" chance="860"/>	
+		<item name="bullseye potion" chance="850"/>	
+		<item name="warrior helmet" chance="750"/>				
+		<item name="red piece of cloth" chance="620"/>
+		<item name="yellow gem" chance="580"/>				
+		<item name="gold ingot" chance="580"/>	
+		<item name="red gem" chance="460"/>				
+		<item id="7401" chance="230"/><!-- minotaur trophy -->
+	</loot>
+</monster>

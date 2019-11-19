@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Rot Elemental" nameDescription="a rot elemental" race="venom" experience="750" speed="115">
+	<health now="850" max="850"/>
+	<look type="615" corpse="21110"/>
+	<targetchange interval="2000" chance="2"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushCreatures="1"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="58" attack="50" poison="280"/>
+		<attack name="earth" interval="2000" chance="13" range="7" target="1" radius="3" min="-150" max="-250">
+			<attribute key="shootEffect" value="gloothspear"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15" length="6" spread="0" min="-150" max="-230">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="10" range="7" target="1" min="-200" max="-300">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="rot elemental paralyze" interval="2000" chance="11"/>
+	</attacks>
+	<defenses armor="10" defense="15">
+		<defense name="healing" interval="2000" chance="7" min="40" max="60">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="9" speedchange="470" duration="7000">
+			<attribute key="areaEffect" value="smoke"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10"/>
+		<element energyPercent="-5"/>
+		<element icePercent="30"/>
+		<element holyPercent="20"/>
+		<element deathPercent="20"/>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity earth="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="*glibb*"/>
+		<voice sentence="*splib*"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="80" chance="100000"/>
+		<item name="glob of glooth" chance="14040"/>
+		<item name="platinum coin" chance="10130"/>
+		<item name="strong mana potion" chance="10050"/>
+		<item name="strong health potion" chance="10000"/>
+		<item name="small sapphire" chance="5050"/>
+		<item name="small emerald" countmax="2" chance="5020"/>
+		<item name="small topaz" countmax="2" chance="4940"/>
+		<item name="glooth spear" chance="4890"/>
+		<item name="life ring" chance="1480"/>
+		<item name="glooth amulet" chance="100"/>
+		<item name="glooth axe" chance="100"/>
+		<item name="green gem" chance="100"/>
+	</loot>
+</monster>

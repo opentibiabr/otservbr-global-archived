@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Reality Reaver" nameDescription="a reality reaver" race="energy" experience="3100" speed="170">
+	<health now="3900" max="3900"/>
+	<look type="879" corpse="23412"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="energy" interval="2000" target="1" radius="5" chance="20" range="5" min="-0" max="-400">
+			<attribute key="areaEffect" value="purpleenergy"/>
+			<attribute key="shootEffect" value="energyball"/>
+		</attack>
+		<attack name="reality reaver wave" interval="2000" chance="20" min="-200" max="-500"/>
+		<attack name="energycondition" interval="2000" radius="5" chance="20" min="-400" max="-800">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="51" defense="51">
+		<defense name="invisible" interval="2000" chance="15" duration="8000">
+			<attribute key="areaEffect" value="poff"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="-10"/>
+		<element deathPercent="5"/>
+		<element firePercent="10"/>
+		<element icePercent="20"/>
+		<element energyPercent="85"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="4000" chance="15">
+		<voice sentence="Ssshhh!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmax="6" chance="100000"/>
+		<item name="energy drink" chance="18240"/>
+		<item name="energy bar" chance="17840"/>
+		<item name="energy vein" chance="15330"/>
+		<item name="plasmatic lightning" chance="14530"/>
+		<item name="great spirit potion" countmax="2" chance="11310"/>
+		<item name="great mana potion" countmax="2" chance="10710"/>
+		<item name="great health potion" countmax="2" chance="9920"/>
+		<item name="plasma pearls" chance="9870"/>
+		<item name="dangerous proto matter" chance="9830"/>
+		<item name="sparkion legs" chance="11420"/>
+		<item name="blue crystal splinter" chance="7990"/>
+		<item name="red crystal fragment" chance="5920"/>
+		<item name="violet crystal shard" chance="4260"/>
+		<item name="blue crystal shard" chance="3840"/>
+		<item name="red gem" chance="2560"/>
+		<item name="lightning headband" chance="510"/>
+		<item id="23543" chance="190"/><!-- collar of green plasma -->
+		<item name="violet gem" chance="400"/>
+		<item id="23531" chance="140"/><!-- ring of green plasma -->
+		<item id="23529" chance="290"/><!-- ring of blue plasma -->
+		<item id="23544" chance="100"/><!-- collar of red plasma -->
+	</loot>
+</monster>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Metal Gargoyle" nameDescription="a metal gargoyle" race="energy" experience="1400" speed="95">
+	<health now="2100" max="2100"/>
+	<look type="601" corpse="20976"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="84" attack="50"/>
+		<attack name="death" interval="2000" chance="10" length="8" spread="0" min="-125" max="-230">
+			<attribute key="areaEffect" value="yellowenergy"/>
+ 	</attack>
+		<attack name="lifedrain" interval="2000" chance="9" target="1" range="7" radius="3" min="-85" max="-150">
+			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="shootEffect" value="suddendeath"/>
+ 	</attack>
+		<attack name="metal gargoyle curse" interval="2000" chance="13"/>
+	</attacks>
+	<defenses armor="21" defense="42"/>
+	<elements>
+		<element firePercent="10"/>
+		<element energyPercent="-10"/>
+	<element icePercent="-5"/>
+		<element physicalPercent="40"/>
+		<element deathPercent="80"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="*stomp*"/>
+		<voice sentence="clonk"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="233" chance="100000"/>
+		<item name="metal jaw" chance="17770"/>
+		<item name="strong health potion" countmax="2" chance="8990"/>
+		<item name="strong mana potion" countmax="2" chance="8980"/>
+		<item name="metal spats" chance="3000"/>
+		<item name="bronze gear wheel" chance="2550"/>
+		<item name="shiny stone" chance="1400"/>
+		<item name="alloy legs" chance="1030"/>
+		<item name="metal bat" chance="940"/>
+		<item name="underworld rod" chance="860"/>
+		<item name="life ring" chance="530"/>
+		<item name="iron ore" chance="520"/>
+		<item name="energy ring" chance="490"/>
+		<item name="slightly rusted armor" chance="20"/>
+	</loot>
+</monster>

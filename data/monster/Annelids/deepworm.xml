@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deepworm" nameDescription="a deepworm" race="blood" experience="2300" speed="102">
+	<health now="3500" max="3500"/>
+	<look type="1033" corpse="27545"/>
+	<targetchange interval="5000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="earth" interval="2000" chance="15" range="7" length="6" spread="2" min="-200" max="-300">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15"  length="3" spread="3" min="-250" max="-350">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="73" defense="73"/>
+	<elements>
+		<element firePercent="-20"/>
+		<element earthPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="0"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="*bluuuuuure*"/>
+		<voice sentence="*slurp slurp ... slurp*"/>
+	</voices>
+	<loot>
+		<item name="deepworm jaws" chance="23850"/>
+		<item name="wood mushroom" chance="22130"/>
+		<item name="meat" chance="18910"/>
+		<item name="green mushroom" chance="18190"/>
+		<item name="ham" chance="17860"/>
+		<item name="dark mushroom" chance="14530"/>
+		<item name="deepworm spike roots" chance="13810"/>
+		<item name="deepworm spikes" chance="10090"/>
+		<item name="life ring" chance="8600"/>
+		<item name="green crystal shard" chance="5770"/>
+		<item name="terra amulet" chance="4600"/>
+		<item name="small enchanted amethyst" chance="2940"/>
+		<item name="sacred tree amulet" chance="2720"/>
+		<item name="suspicious device" chance="1500"/>
+		<item name="springsprout rod" chance="1050"/>
+		<item id="282" chance="610"/><!--giant shimmering pearl-->
+	</loot>
+</monster>

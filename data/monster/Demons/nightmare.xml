@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Nightmare" nameDescription="a nightmare" race="blood" experience="2150" speed="232">
 	<health now="2700" max="2700"/>
-	<look type="245" corpse="6340"/>
+	<look type="245" corpse="6339"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="300"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="300"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-150"/>
@@ -70,7 +70,7 @@
 		<item name="ham" countmax="2" chance="29000"/>
 		<item name="mysterious voodoo skull" chance="123"/>
 		<item name="soul orb" chance="20000"/>
-		<item id="6300" chance="1298"/><!-- death ring -->
+		<item id="6299" chance="1298"/><!-- death ring -->
 		<item name="demonic essence" chance="10000"/>
 		<item name="skeleton decoration" chance="337"/>
 		<item name="concentrated demonic blood" countmax="2" chance="19666"/>

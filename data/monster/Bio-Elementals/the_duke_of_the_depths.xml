@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Duke Of The Depths" nameDescription="The Duke Of The Depths" race="blood" experience="40000" speed="270" script="reward_boss.lua">
+	<health now="50000" max="50000"/>
+	<look type="1047" corpse="27641"/>
+	<targetchange interval="5000" chance="50"/>
+	<flags>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-800"/>
+		<attack name="fire" interval="2000" chance="15" range="3" length="6" spread="8" min="0" max="-1000">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" range="3" length="9" spread="4" min="0" max="-1000">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="2" min="-135" max="-1000">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="8" min="0" max="-1000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="rusty shield" chance="100000"/>
+		<item name="platinum coin" countmax="36" chance="10000"/>
+		<item name="blue crystal shard" countmax="4" chance="10000"/>
+		<item name="giant tentacle" chance="10000"/>
+		<item name="huge chunk of crude iron" chance="10000"/>
+		<item name="yellow gem" chance="10000"/>
+		<item name="blue gem" chance="10000"/>
+		<item name="red gem" chance="10000"/>
+		<item name="small diamond" countmax="2" chance="10000"/>
+		<item name="small emerald" countmax="12" chance="10000"/>
+		<item name="small amethyst" countmax="12" chance="10000"/>
+		<item name="small ruby" countmax="12" chance="10000"/>
+		<item name="small topaz" countmax="12" chance="10000"/>
+		<item name="wand of inferno" chance="10000"/>
+		<item name="stone skin amulet" subtype="5" chance="10000"/>
+		<item name="mastermind potion" countmax="2" chance="10000"/>
+		<item name="luminous orb" chance="10000"/>
+		<item name="rusty helmet" chance="10000"/>
+		<item name="crystal coin" chance="10000"/>
+		<item name="terra mantle" chance="10000"/>
+		<item name="magic sulphur" chance="10000"/>
+		<item name="fire axe" chance="10000"/>
+		<item name="fire sword" chance="10000"/>
+		<item name="great health potion" countmax="8" chance="10000"/>
+		<item name="ultimate health potion" countmax="8" chance="10000"/>
+		<item name="great mana potion" countmax="18" chance="10000"/>
+		<item name="great spirit potion" countmax="10" chance="10000"/>
+		<item name="crude wood planks" chance="10000"/>
+		<item name="gold token" countmax="10" chance="10000"/>
+		<item name="mallet pommel" chance="1000"/>
+		<item name="candle stump" chance="1000"/>
+		<item name="damaged worm head" chance="1000"/>
+		<item name="pristine worm head" chance="1000"/>
+		<item name="gnome sword" chance="200"/>
+		<item name="gnome shield" chance="200"/>
+		<item name="gnome legs" chance="200"/>
+	</loot>
+</monster>

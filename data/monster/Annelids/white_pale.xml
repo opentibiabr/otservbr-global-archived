@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="White Pale" nameDescription="White Pale" race="blood" experience="390" speed="170" script="reward_boss.lua">
+	<health now="500" max="500"/>
+	<look type="564" corpse="18978"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="45" attack="40"/>
+		<attack name="earth" interval="2000" chance="14" radius="5" target="0" min="-100" max="-110">
+			<attribute key="areaEffect" value="smallplants"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="12" radius="3" target="0" min="-200" max="-300">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="white pale paralyze" interval="2000" chance="11"/>
+	</attacks>
+	<defenses armor="8" defense="11">
+		<defense name="white pale summon" interval="2000" chance="12"/>
+	</defenses>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmin="20" countmax="70" chance="100000"/>
+		<item name="carrion worm fang" chance="100000"/>
+		<item name="lump of dirt" chance="100000"/>
+
+		<!-- unconfirmed chances -->
+		<item name="meat" countmax="2" chance="70000"/>
+		<item name="silver raid token" chance="2000"/>
+		<item name="albino plate" chance="2000"/>
+		<item name="19359" chance="2000"/><!-- horn -->
+		<item name="spiked squelcher" chance="500"/>
+		<item id="3052" chance="500"/><!-- Life Ring -->
+		<item name="small diamond" chance="500"/>
+		<item name="daramian mace" chance="500"/>
+	</loot>
+</monster>

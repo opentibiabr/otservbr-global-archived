@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Instable Breach Brood" nameDescription="an instable breach brood" race="energy" experience="1100" speed="135">
+	<health now="2200" max="2200"/>
+	<look type="878" corpse="23392"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-240"/>
+		<attack name="energy" interval="2000" chance="25" target="1" range="6" min="-160" max="-250">
+			<attribute key="shootEffect" value="flasharrow"/>
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="5" min="-80" max="-150">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="breach brood reducer" interval="2000" chance="20"/> <!-- magic level reducer -->
+	</attacks>
+	<defenses armor="43" defense="43"/>
+	<elements>
+		<element earthPercent="-15"/>
+		<element deathPercent="10"/>
+		<element icePercent="30"/>
+		<element firePercent="40"/>
+		<element energyPercent="75"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="4000" chance="15">
+		<voice sentence="Hisss!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmax="2" chance="67060"/>
+		<item name="crystal bone" chance="10280"/>
+		<item name="plasma pearls" chance="9870"/>
+		<item name="great health potion" chance="4850"/>
+		<item name="great spirit potion" chance="4850"/>
+		<item name="great mana potion" chance="4770"/>
+		<item name="energy drink" chance="4430"/>
+		<item name="energy bar" chance="4010"/>
+		<item name="cyan crystal fragment" chance="3430"/>
+		<item name="green crystal shard" chance="3090"/>
+		<item name="blue crystal splinter" chance="3010"/>
+		<item name="blue crystal shard" chance="2010"/>
+	</loot>
+</monster>

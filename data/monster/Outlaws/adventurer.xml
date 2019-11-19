@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Adventurer" nameDescription="an adventurer" race="blood" experience="0" speed="53">
 	<health now="65" max="65"/>
-	<look type="129" head="92" body="15" legs="92" feet="82" corpse="20315"/>
+	<look type="129" head="92" body="15" legs="92" feet="82" corpse="18037"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="65"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="65"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 </monster>

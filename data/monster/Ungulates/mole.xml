@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mole" nameDescription="a mole" race="blood" experience="100" speed="80">
+	<health now="200" max="200"/>
+	<look type="1068" corpse="27646"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-10"/>
+		<attack name="energy" interval="2000" chance="15" range="7" min="0" max="-20">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" min="0" max="-20">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="energyfield" interval="2000" chance="10" range="7" target="1">
+			<attribute key="shootEffect" value="energyball"/>
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20"/>
+	<elements>
+		<element holyPercent="-10"/>
+		<element firePercent="-10"/>
+		<element physicalPercent="5"/>
+		<element energyPercent="10"/>
+		<element deathPercent="40"/>
+		<element earthPercent="40"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="75" chance="78180"/>
+	</loot>
+</monster>

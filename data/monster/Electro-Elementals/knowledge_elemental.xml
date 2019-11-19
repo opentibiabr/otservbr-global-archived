@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Knowledge Elemental" nameDescription="a knowledge elemental" race="undead" experience="12600" speed="230">
+	<health now="10500" max="10500"/>
+	<look type="1065" corpse="28606"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag isBlockable="0"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-400"/>
+		<attack name="holy" interval="2000" chance="10" radius="3" target="1" min="-200" max="-680">
+			<attribute key="areaEffect" value="holydamage"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="14" range="7" min="-200" max="-680">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="76" defense="76">
+		<defense name="physical" interval="2000" chance="40" radius="3" min="100" max="300">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</defense>
+			 <defense name="physical" interval="200" chance="55" radius="3" min="100" max="300">
+			<attribute key="areaEffect" value="energy"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-20"/>
+		<element holyPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="9" chance="65000"/>
+		<item name="quill" chance="60000"/>
+		<item name="silken bookmark" chance="55000"/>
+		<item name="book page" countmin="1" countmax="6" chance="50000"/>
+		<item name="glowing rune" countmin="1" countmax="3" chance="10000"/>
+		<item name="small amethyst" countmin="1" countmax="8" chance="45000"/>
+		<item name="energy ring" chance="15000"/>
+		<item name="flash arrow" countmin="1" countmax="6" chance="13000"/>
+		<item name="guardian shield" chance="11000"/>
+		<item name="mana potion" chance="10000"/>
+		<item name="throwing star" countmin="1" countmax="10" chance="9500"/>
+		<item name="wand of cosmic energy" chance="9300"/>
+		<item name="crystal sword" chance="9100"/>
+		<item name="ultimate mana potion" chance="9000"/>
+		<item name="ultimate health potion" chance="8700"/>
+		<item name="wand of defiance" chance="3000"/>
+		<item name="obsidian lance" chance="2700"/>
+		<item name="silver amulet" chance="2500"/>
+		<item name="might ring" chance="2300"/>
+		<item id="3007" chance="2100"/><!-- crystal ring -->
+		<item name="lightning pendant" chance="1500"/>
+		<item name="spellweaver's robe" chance="500"/>
+
+	</loot>
+</monster>

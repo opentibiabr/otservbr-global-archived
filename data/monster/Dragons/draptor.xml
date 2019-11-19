@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Draptor" nameDescription="a draptor" race="blood" experience="2400" speed="340">
 	<health now="3000" max="3000"/>
-	<look type="382" corpse="13316"/>
+	<look type="382" corpse="12329"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="350"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="350"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-150"/>
@@ -52,11 +52,9 @@
 		<voice sentence="GRRR"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="90" chance="33750"/>
-		<item name="gold coin" countmax="60" chance="33750"/>
-		<item name="strong health potion" chance="3150"/>
-		<item name="strong mana potion" chance="4150"/>
-		<item name="dragon robe" chance="950"/>
-		<item name="draptor scales" chance="6650"/>
+		<item name="gold coin" countmax="212" chance="98740"/>
+		<item name="strong health potion" chance="21340"/>
+		<item name="strong mana potion" chance="14640"/>
+		<item name="draptor scales" chance="7950"/>
 	</loot>
 </monster>

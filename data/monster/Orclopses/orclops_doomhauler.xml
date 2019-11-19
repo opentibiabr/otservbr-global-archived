@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Orclops Doomhauler" nameDescription="an orclops doomhauler" race="blood" experience="1200" speed="120" manacost="290">
+	<health now="1700" max="1700"/>
+	<look type="934" corpse="25078"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="20"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="physical" interval="2000" chance="35" range="7" target="1" min="-117" max="-220">
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+		<attack name="cursecondition" interval="2000" chance="50" radius="4" target="1" min="-100" max="-200">
+			<attribute key="shootEffect" value="whirlwindclub"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+	</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+ <elements>
+	<element energyPercent="-10"/>
+	<element icePercent="-10"/>
+	<element deathPercent="10"/>
+	<element physicalPercent="15"/>
+	<element firePercent="15"/>
+	<element earthPercent="30"/>
+	</elements>
+	<voices interval="2000" chance="7">
+		<voice sentence="Me mash!"/>
+		<voice sentence="GRRRRR!"/>
+		<voice sentence="Muhahaha!"/>
+		<voice sentence="Me strong, you weak!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="184" chance="100000"/>
+		<item name="bug meat" chance="20290"/>
+		<item name="bone toothpick" chance="19860"/>
+		<item name="strong health potion" chance="16730"/>
+		<item name="beetle carapace" chance="14750"/>
+		<item name="red mushroom" countmax="3" chance="8140"/>
+		<item name="orcish axe" chance="7870"/>
+		<item name="mysterious fetish" chance="6020"/>
+		<item name="small ruby" countmax="3" chance="3220"/>
+		<item name="black pearl" countmax="2" chance="3210"/>
+		<item name="onion" countmax="2" chance="3080"/>
+		<item name="small topaz" countmax="2" chance="2900"/>
+		<item name="brown crystal splinter" countmax="2" chance="2310"/>
+		<item name="spiked squelcher" chance="1470"/>
+		<item name="pair of iron fists" chance="1390"/>
+		<item name="berserk potion" chance="1090"/>
+		<item name="beetle necklace" chance="1000"/>
+		<item name="war drum" chance="880"/>
+	</loot>
+</monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Stalker" nameDescription="a stalker" race="blood" experience="90" speed="130">
 	<health now="120" max="120"/>
-	<look type="128" head="78" body="116" legs="95" feet="114" corpse="20511"/>
+	<look type="128" head="78" body="116" legs="95" feet="114" corpse="18233"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-70"/>
@@ -40,13 +40,14 @@
 		<immunity lifedrain="1"/>
 	</immunities>
 	<loot>
-		<item name="gold coin" countmax="8" chance="13000"/>
-		<item name="blank rune" chance="8670"/>
-		<item name="throwing knife" countmax="2" chance="11170"/>
-		<item name="katana" chance="530"/>
-		<item name="obsidian lance" chance="1210"/>
-		<item name="brass legs" chance="3500"/>
-		<item name="brass legs" chance="5510"/>
+		<item name="gold coin" countmax="8" chance="13110"/>
+		<item name="throwing knife" countmax="2" chance="11110"/>
+		<item name="blank rune" chance="8750"/>
+		<item name="brass shield" chance="5600"/>
+		<item name="brass legs" chance="3490"/>
 		<item name="miraculum" chance="1550"/>
+		<item name="obsidian lance" chance="1200"/>
+		<item name="katana" chance="530"/>
+		<item name="brass legs" chance="3500"/>
 	</loot>
 </monster>

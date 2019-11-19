@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Brain Squid" nameDescription="a brain squid" race="undead" experience="21000" speed="215">
+	<health now="18000" max="18000"/>
+	<look type="1059" head="97" body="18" legs="61" feet="85" corpse="28582"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="energy" interval="2000" chance="15" range="7" min="-200" max="-470">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="13" radius="3" min="-200" max="-505">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="78"/>
+	<elements>
+		<element deathPercent="-15"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity holy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="violet crystal shard" countmin="1" countmax="4" chance="65000"/>
+		<item name="platinum coin" countmin="1" countmax="12" chance="65000"/>
+		<item name="glowing rune" countmin="1" countmax="4" chance="65000"/>
+		<item name="instable proto matter" countmax="4" chance="65000"/>
+		<item name="energy ball" countmax="4" chance="13000"/>
+		<item name="energy bar" countmax="4" chance="12500"/>
+		<item name="energy drink" countmax="4" chance="12000"/>
+		<item name="odd organ" countmax="4" chance="11000"/>
+		<item name="frozen lightning" countmax="4" chance="10500"/>
+		<item id="28568" countmax="3" chance="10000"/><!-- inkwell (black) -->
+		<item name="small ruby" countmin="1" countmax="4" chance="9500"/>
+		<item name="violet gem" countmin="1" countmax="4" chance="9300"/>
+		<item name="blue crystal splinter" chance="9000"/>
+		<item name="cyan crystal fragment" chance="8700"/>
+		<item name="ultimate mana potion" chance="8500"/>
+		<item name="piece of dead brain" chance="3000"/>
+		<item name="wand of defiance" chance="2700"/>
+		<item name="lightning headband" chance="2500"/>
+		<item name="lightning pendant" chance="2000"/>
+		<item name="might ring" chance="1500"/>
+		<item name="slime heart" chance="1300"/>
+		<item id="26200" chance="1200"/><!-- collar of red plasma-->
+		<item id="26198" chance="1100"/><!-- collar of blue plasma-->
+		<item id="26189" chance="1100"/><!-- ring of red plasma-->
+		<item id="26185" chance="1100"/><!-- ring of blue plasma-->
+		<item id="26187" chance="1100"/><!-- rinf of green plasma-->
+		<item id="26199" chance="500"/><!-- collar of green plasma-->
+		<item name="spellweaver's robe" chance="500"/>
+	</loot>
+</monster>

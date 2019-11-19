@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Count Of The Core" nameDescription="The Count Of The Core" race="blood" experience="40000" speed="270" script="reward_boss.lua">
+	<health now="50000" max="50000"/>
+	<look type="1046" corpse="30872"/>
+	<targetchange interval="5000" chance="10"/>
+	<flags>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1500"/>
+		<attack name="death" interval="2000" chance="20" range="3" length="9" spread="3" min="0" max="-1500">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" range="3" length="9" spread="4" min="0" max="-1500">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" radius="8" min="0" max="-1500">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="death" interval="2000" chance="15" radius="8" min="0" max="-1500">
+			<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+	<elements>
+		<element firePercent="-175"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Sluuuurp! Sluuuuurp!"/>
+		<voice sentence="Shluush!"/>
+	</voices>
+	<loot>
+		<item name="fire sword" chance="100000"/>
+		<item name="crystal coin" chance="10000"/>
+		<item name="gold token" countmax="10" chance="10000"/>
+		<item name="yellow gem" chance="10000"/>
+		<item name="great spirit potion" countmin="1" countmax="18" chance="10000"/>
+		<item name="small topaz" countmin="1" countmax="12" chance="10000"/>
+		<item name="mastermind potion" countmin="1" countmax="2" chance="10000"/>
+		<item name="green crystal shard" countmin="1" countmax="4" chance="10000"/>
+		<item name="magic sulphur" chance="10000"/>
+		<item name="stone skin amulet" subtype="5" chance="10000"/>
+		<item name="amber staff" chance="10000"/>
+		<item name="wand of inferno" chance="10000"/>
+		<item name="platinum coin" countmin="1" countmax="53" chance="10000"/>
+		<item name="silver token" chance="10000"/>
+		<item name="harpoon of a giant snail" chance="10000"/>
+		<item name="huge spiky snail shell" chance="10000"/>
+		<item id="27626" chance="10000"/><!-- chitinous mouth -->
+		<item name="slightly rusted helmet" chance="10000"/>
+		<item name="slightly rusted shield" chance="10000"/>
+		<item name="candle stump" chance="1000"/>
+		<item name="tinged pot" chance="1000"/>
+		<item name="mallet handle" chance="1000"/>
+		<item name="gnome sword" chance="200"/>
+		<item name="gnome shield" chance="200"/>
+		<item name="gnome helmet" chance="200"/>
+	</loot>
+</monster>

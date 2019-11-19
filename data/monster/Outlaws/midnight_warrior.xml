@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Midnight Warrior" nameDescription="a Midnight Warrior" race="blood" experience="750" speed="120" manacost="0">
+	<health now="1000" max="1000" />
+	<look type="131" head="95" body="95" legs="95" feet="95" addons="3" corpse="18169" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canPushItems="1" />
+		<flag canPushCreatures="1" />
+		<flag targetDistance="1" />
+		<flag staticAttack="90" />
+		<flag runOnHealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-180" />
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-200">
+			<attribute key="shootEffect" value="spear" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30" />
+	<elements>
+		<element firePercent="-10" />
+		<element energyPercent="20" />
+		<element icePercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity earth="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="I am champion of darkness and you are nothing."/>
+	</voices>
+	<loot>
+		<item name="midnight shard" chance="6440" />
+	</loot>
+</monster>

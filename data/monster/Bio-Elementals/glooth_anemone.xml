@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Anemone" nameDescription="a glooth anemone" race="venom" experience="1800" speed="90">
+	<health now="2400" max="2400"/>
+	<look type="604" corpse="20988"/>
+	<targetchange interval="2000" chance="3"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushCreatures="1"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="60" attack="50"/>
+		<attack name="earth" interval="2000" chance="9" range="7" target="1" radius="4" min="-100" max="-200">
+			<attribute key="shootEffect" value="gloothspear"/>
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="7" range="7" target="1" radius="1" min="-50" max="-100">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="10" radius="5" target="0" min="0" max="0">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="25">
+		<defense name="healing" interval="2000" chance="9" min="50" max="100">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="glooth anemone summon" interval="2000" chance="14"/>
+	</defenses>
+	<elements>
+		<element energyPercent="10"/>
+		<element deathPercent="5"/>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+		<immunity poison="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="*shglib*"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="2" countmax="175" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="3" chance="60160"/>
+		<item name="slimy leaf tentacle" chance="17940"/>
+		<item name="bowl of glooth soup" chance="10130"/>
+		<item name="small topaz" countmax="3" chance="8210"/>
+		<item name="small emerald" countmax="3" chance="8140"/>
+		<item name="small ruby" countmax="3" chance="8080"/>
+		<item name="strong mana potion" countmax="2" chance="7950"/>
+		<item name="strong health potion" countmax="2" chance="7460"/>
+		<item name="glooth whip" chance="4070"/>
+		<item name="green mushroom" chance="2930"/>
+		<item name="ultimate health potion" chance="1900"/>
+		<item name="glooth axe" chance="1030"/>
+		<item name="glooth amulet" chance="1020"/>
+		<item name="glooth club" chance="1010"/>
+		<item name="glooth spear" chance="1010"/>
+		<item name="glooth blade" chance="950"/>
+		<item name="glooth cape" chance="850"/>
+	</loot>
+</monster>

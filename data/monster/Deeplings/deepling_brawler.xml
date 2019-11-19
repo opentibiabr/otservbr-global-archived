@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Brawler" nameDescription="a deepling brawler" race="blood" experience="260" speed="85">
 	<health now="380" max="380"/>
-	<look type="470" corpse="13840"/>
+	<look type="470" corpse="12684"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="40"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="40"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+		<flag canWalkOnFire="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-100"/>

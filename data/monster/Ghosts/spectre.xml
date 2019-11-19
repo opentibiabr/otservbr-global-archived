@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Spectre" nameDescription="a spectre" race="undead" experience="2100" speed="140">
 	<health now="1350" max="1350"/>
-	<look type="235" head="20" corpse="6348"/>
+	<look type="235" head="20" corpse="6347"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-308" poison="300"/>
@@ -31,7 +31,7 @@
 	</attacks>
 	<defenses armor="35" defense="35">
 		<!-- <defense name="healing" interval="2000" chance="25" min="100" max="250"> -->
-			<!-- <attribute key="areaEffect" value="blueshimmer" /> -->
+			<!-- <attribute key="areaEffect" value="blueshimmer"/> -->
 		<!-- </defense> -->
 		<defense name="healing" interval="2000" chance="20" min="100" max="700">
 			<attribute key="areaEffect" value="blueshimmer"/>
@@ -62,10 +62,10 @@
 		<voice sentence="Buuuuuh"/>
 	</voices>
 	<loot>
-		<item id="2071" chance="9620"/><!-- lyre -->
+		<item id="2949" chance="9620"/><!-- lyre -->
 		<item name="silver brooch" chance="850"/>
 		<item name="silver brooch" chance="110"/>
-		<item id="2136" chance="110"/><!--demonbone amulet -->
+		<item id="3019" chance="110"/><!--demonbone amulet -->
 		<item name="gold coin" countmax="100" chance="33000"/>
 		<item name="gold coin" countmax="100" chance="33000"/>
 		<item name="gold coin" countmax="97" chance="33000"/>
@@ -75,7 +75,7 @@
 		<item name="blank rune" countmax="2" chance="30310"/>
 		<item name="white piece of cloth" chance="3800"/>
 		<item name="soul orb" chance="6005"/>
-		<item id="6300" chance="280"/><!-- death ring -->
+		<item id="6299" chance="280"/><!-- death ring -->
 		<item name="demonic essence" chance="6270"/>
 		<item name="relic sword" chance="700"/>
 		<item name="great mana potion" chance="920"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Massive Energy Elemental" nameDescription="a massive energy elemental" race="energy" experience="950" speed="215">
 	<health now="1100" max="1100"/>
-	<look type="290" corpse="8966"/>
+	<look type="290" corpse="8138"/>
 	<targetchange interval="4000" chance="15"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="85"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="1"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="85"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="1"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-175"/>
@@ -60,7 +60,7 @@
 		<item name="lightning legs" chance="150"/>
 		<item name="spellbook of warding" chance="360"/>
 		<item name="wand of starstorm" chance="730"/>
-		<item id="9809" chance="730"/><!-- rusty armor -->
+		<item id="8895" chance="730"/><!-- rusted armor -->
 		<item name="shockwave amulet" chance="500"/>
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Poacher" nameDescription="a poacher" race="blood" experience="70" speed="99" manacost="530">
 	<health now="90" max="90"/>
-	<look type="129" head="115" body="119" legs="119" feet="115" addons="1" corpse="20487"/>
+	<look type="129" head="115" body="119" legs="119" feet="115" addons="1" corpse="18209"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="5"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="5"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-35"/>
@@ -32,13 +32,13 @@
 		<voice sentence="Look what has stepped into my trap!"/>
 	</voices>
 	<loot>
-		<item id="2050" chance="4180"/><!-- torch -->
+		<item name="arrow" countmax="17" chance="48330"/>
+		<item name="leather helmet" chance="30570"/>
+		<item name="leather legs" chance="26830"/>
 		<item name="bow" chance="14930"/>
-		<item name="leather helmet" chance="30600"/>
-		<item name="arrow" countmax="17" chance="49500"/>
-		<item name="poison arrow" countmax="3" chance="2930"/>
-		<item name="closed trap" chance="710"/>
-		<item name="leather legs" chance="26740"/>
-		<item name="roll" countmax="2" chance="11110"/>
+		<item name="roll" countmax="2" chance="11540"/>
+		<item id="2920" chance="4890"/><!-- torch -->
+		<item name="poison arrow" countmax="3" chance="2550"/>
+		<item name="closed trap" chance="840"/>
 	</loot>
 </monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Dark Apprentice" nameDescription="a dark apprentice" race="blood" experience="100" speed="86">
 	<health now="225" max="225"/>
-	<look type="133" head="78" body="57" legs="95" feet="115" addons="1" corpse="20363"/>
+	<look type="133" head="78" body="57" legs="95" feet="115" addons="1" corpse="18082"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-60"/>
@@ -56,12 +56,13 @@
 		<voice sentence="I must dispose of my masters enemies!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="45" chance="7500"/>
+		<item name="gold coin" countmax="45" chance="75050"/>
+		<item id="5934" chance="11890"/><!-- dead frog -->
+		<item name="blank rune" countmax="3" chance="8030"/>
+		<item name="mana potion" chance="2990"/>
+		<item name="health potion" chance="2870"/>
+		<item name="wand of dragonbreath" chance="2000"/>		
 		<item name="wand of decay" chance="110"/>
-		<item name="wand of dragonbreath" chance="1980"/>
-		<item name="blank rune" countmax="3" chance="8125"/>
-		<item name="health potion" chance="2900"/>
-		<item name="mana potion" chance="2980"/>
 		<item name="reins" chance="10"/>
 	</loot>
 </monster>

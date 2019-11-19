@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Angry Plant" nameDescription="an angry plant" race="venom" experience="0" speed="110">
+	<health now="10000" max="10000"/>
+	<look type="120" corpse="27646"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="50" poison="95"/>
+	</attacks>
+	<defenses armor="26" defense="20"/>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

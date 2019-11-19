@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Putrid Mummy" nameDescription="a putrid mummy" race="undead" experience="900" speed="85">
+	<health now="1500" max="1500"/>
+	<look type="976" corpse="25842"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="paralyzecondition" interval="2000" chance="15" range="7" target="1" duration="10000"/>
+		<attack name="earth" interval="2000" chance="20" range="1" target="1" min="-100" max="-150" poison="4">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+	<defense name="healing" interval="2000" chance="10" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+	</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-25"/>
+		<element firePercent="-20"/>
+		<element icePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="7000" chance="10">
+		<voice sentence="Come to mummy!"/>
+		<voice sentence="We will make you one of us!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="62" chance="63000"/>
+		<item name="little bowl of myrrh" chance="14390"/>
+		<item name="green bandage" chance="11760"/>
+		<item name="single human eye" chance="10280"/>
+		<item id="3117" chance="9430"/><!-- broken flask -->
+		<item name="scarab coin" countmax="3" chance="8860"/>
+		<item id="12483" chance="2690"/><!-- pharaoh banner -->
+		<item name="green gem" chance="2270"/>
+		<item name="black pearl" chance="990"/>
+		<item name="poison dagger" chance="780"/>
+		<item name="mini mummy" chance="200"/>
+	</loot>
+</monster>

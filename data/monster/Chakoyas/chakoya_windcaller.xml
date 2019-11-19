@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Chakoya Windcaller" nameDescription="a chakoya windcaller" race="blood" experience="48" speed="71" manacost="305">
 	<health now="84" max="84"/>
-	<look type="260" corpse="7320"/>
+	<look type="260" corpse="7327"/>
 	<targetchange interval="60000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,15 +10,15 @@
 		<flag illusionable="0"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="90"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="4"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="4"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-22"/>
@@ -56,7 +56,7 @@
 		<item name="gold coin" countmax="27" chance="71170"/>
 		<item name="brass helmet" chance="4390"/>
 		<item name="bone shield" chance="960"/>
-		<item id="2667" countmax="3" chance="30790"/><!-- fish -->
+		<item id="3578" countmax="3" chance="30790"/><!-- fish -->
 		<item name="northern pike" chance="40"/>
 		<item name="rainbow trout" chance="40"/>
 		<item name="green perch" chance="110"/>

@@ -1,37 +1,51 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Ghost Wolf" nameDescription="a ghost wolf" race="blood" experience="65" speed="135" manacost="420">
+<monster name="Ghost Wolf" nameDescription="a ghost wolf" race="blood" experience="65" speed="135">
 	<health now="160" max="160"/>
-	<look type="730" corpse="6009"/>
+	<look type="730" corpse="22081"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="1"/>
-		<flag convinceable="1"/>
+		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="20"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-50"/>
+		<attack name="melee" interval="2000" min="0" max="-80"/>
 	</attacks>
-	<defenses armor="15" defense="15"/>
+		<attack name="lifedrain" interval="1000" chance="15" range="1" min="-30" max="-60">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="death" interval="2000" chance="50" range="7" min="-30" max="-60">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+	<defenses armor="12" defense="12"/>
+	<defense name="invisible" interval="2000" chance="40" duration="6000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
 	<elements>
-		<element earthPercent="20"/>
-		<element holyPercent="10"/>
-		<element icePercent="-10"/>
-		<element deathPercent="-5"/>
+		<element holyPercent="-5"/>
+		<element firePercent="-5"/>
+		<element earthPercent="10"/>
+		<element deathPercent="20"/>
+		<element physicalPercent="35"/>
 	</elements>
 	<immunities>
-		<immunity outfit="1"/>
+		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
+		<item name="gold coin" countmax="19" chance="71140"/>
 	</loot>
 </monster>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Fleshslicer" nameDescription="Fleshslicer" race="blood" experience="5500" speed="560">
+	<health now="5700" max="5700"/>
+	<look type="457" corpse="13873"/>
+	<targetchange interval="2000" chance="50"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-99"/>
+	</attacks>
+	<defenses armor="12" defense="20"/>
+	<elements>
+	</elements>
+	<immunities>
+	</immunities>
+	<voices interval="3000" chance="200">
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="172" chance="100000"/>
+		<item name="platinum coin" countmax="5" chance="100000"/>
+		<item name="compound eye" chance="100000"/>
+		<item name="spidris mandible" chance="100000"/>
+		<item id="14753" chance="2700"/><!-- dung ball (quest) -->
+		<item name="great mana potion" countmax="2" chance="76920"/>
+		<item name="white pearl" countmax="5" chance="38460"/>
+		<item name="red gem" chance="30770"/>
+		<item name="ripper lance" chance="30770"/>
+		<item name="small ruby" chance="23080"/>
+		<item name="ultimate health potion" chance="23080"/>
+		<item id="281" chance="7690"/><!-- giant shimmering pearl -->
+		<item name="titan axe" chance="7690"/>
+		<item id="6299" chance="7690"/><!-- death ring -->
+		<item name="hive bow" chance="730"/>
+	</loot>
+</monster>

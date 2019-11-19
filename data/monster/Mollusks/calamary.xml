@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Calamary" nameDescription="a calamary" race="undead" experience="0" speed="100">
 	<health now="75" max="75"/>
-	<look type="451" corpse="15280"/>
+	<look type="451" corpse="13853"/>
 	<targetchange interval="4000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="75"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="75"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<elements>
 		<element energyPercent="-5"/>
@@ -31,6 +31,6 @@
 		<voice sentence="Bobble!"/>
 	</voices>
 	<loot>
-		<item name="shrimp" countmax="2" chance="12270"/>
+		<item name="shrimp" countmax="2" chance="11430"/>
 	</loot>
 </monster>

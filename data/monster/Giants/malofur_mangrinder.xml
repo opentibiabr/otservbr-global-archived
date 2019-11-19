@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Malofur Mangrinder" nameDescription="Malofur Mangrinder" race="blood" experience="55000" speed="250" script="reward_boss.lua">
+	<health now="200000" max="200000"/>
+	<look type="1120" head="19" body="22" legs="76" feet="22" corpse="30017"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5"/>
+	</attacks>
+	<defenses armor="20" defense="20"/>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="RAAAARGH! I'M MASHING YE TO DUST!"/>
+		<voice sentence="BOOM!"/>
+		<voice sentence="BOOOM!"/>
+		<voice sentence="BOOOOM!!!"/>
+		<voice sentence="BOOOOOM!!!"/>
+	</voices>
+	<loot>
+		<item name="ultimate spirit potion" countmax="6" chance="50000"/>
+		<item name="crystal coin" chance="50000"/>
+		<item name="ultimate mana potion" countmax="14" chance="50000"/>
+		<item name="supreme health potion" countmax="6" chance="50000"/>
+		<item name="gold token" countmax="2" chance="50000"/>
+		<item name="silver token" countmax="2" chance="100000"/>
+		<item id="281" chance="100000"/><!-- giant shimmering pearl -->
+		<item name="green gem" chance="100000"/>
+		<item name="red gem" chance="50000"/>
+		<item name="blue gem" chance="100000"/>
+		<item id="23529" chance="50000"/><!-- ring of blue plasma-->
+		<item name="platinum coin" countmax="5" chance="50000"/>
+		<item name="bullseye potion" countmax="10" chance="50000"/>
+		<item name="piggy bank" chance="100000"/>
+		<item name="mysterious remains" chance="100000"/>
+		<item name="energy bar" chance="100000"/>
+		<item id="23543" chance="50000"/><!-- collar of green plasma-->
+		<item name="ring of the sky" chance="100000"/>
+		<item name="crunor idol" chance="100000"/>
+		<item name="resizer" chance="100000"/>
+		<item name="shoulder plate" chance="100000"/>
+		<item name="malofur's lunchbox" chance="100000"/>
+		<item name="pomegranate" chance="50000"/>
+	</loot>
+</monster>

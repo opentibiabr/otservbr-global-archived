@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Priestess" nameDescription="a priestess" race="blood" experience="420" speed="85">
 	<health now="390" max="390"/>
-	<look type="58" corpse="20491"/>
+	<look type="58" corpse="18213"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-75"/>
@@ -55,24 +55,23 @@
 		<voice sentence="Throw the soul on the altar!"/>
 	</voices>
 	<loot>
-		<item id="1962" chance="890"/><!-- orange book -->
-		<item id="2070" chance="1410"/><!-- flute -->
-		<item name="piggy bank" chance="90"/>
+		<item name="sling herb" chance="13460"/>
+		<item name="goat grass" chance="12100"/>
+		<item name="dark rosary" chance="9850"/>
+		<item name="red apple" countmax="2" chance="7470"/>
+		<item name="powder herb" chance="6100"/>
+		<item name="black hood" chance="5040"/>
+		<item name="wood mushroom" chance="3370"/>
+		<item name="cultish robe" chance="1790"/>
+		<item name="clerical mace" chance="1470"/>
+		<item id="2948" chance="1420"/><!-- wooden flute -->
+		<item id="3076" chance="1120"/><!-- crystal ball -->
+		<item name="hailstorm rod" chance="1040"/>
+		<item name="mana potion" chance="920"/>
+		<item id="2828" chance="920"/><!-- orange book -->
+		<item name="talon" chance="740"/>
 		<item name="crystal necklace" chance="640"/>
-		<item name="talon" chance="750"/>
-		<item name="hailstorm rod" chance="1100"/>
-		<item id="2192" chance="1250"/><!-- crystal ball -->
-		<item id="2374" chance="1400"/><!-- Wooden Flute -->
-		<item name="clerical mace" chance="1500"/>
-		<item name="black shield" chance="210"/>
-		<item name="red apple" countmax="2" chance="7500"/>
-		<item name="goat grass" chance="11720"/>
-		<item name="wood mushroom" chance="3240"/>
-		<item name="sling herb" chance="13200"/>
-		<item name="powder herb" chance="5900"/>
-		<item name="mana potion" chance="850"/>
-		<item name="cultish robe" chance="1800"/>
-		<item name="black hood" chance="5230"/>
-		<item name="dark rosary" chance="9840"/>
+		<item name="black shield" chance="190"/>
+		<item name="piggy bank" chance="70"/>
 	</loot>
 </monster>

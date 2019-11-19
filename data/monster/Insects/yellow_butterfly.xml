@@ -10,10 +10,10 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="6"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="2"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="6"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="2"/>
 	</flags>
 </monster>

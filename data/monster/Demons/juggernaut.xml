@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Juggernaut" nameDescription="a juggernaut" race="blood" experience="14000" speed="170">
 	<health now="20000" max="20000"/>
-	<look type="244" corpse="6336"/>
+	<look type="244" corpse="6335"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="60"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="60"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-1470"/>
@@ -49,7 +49,7 @@
 		<voice sentence="WAHHHH!"/>
 	</voices>
 	<loot>
-		<item id="2136" chance="550"/><!-- demonbone amulet -->
+		<item id="3019" chance="550"/><!-- demonbone amulet -->
 		<item name="small ruby" countmax="4" chance="20000"/>
 		<item name="gold coin" countmax="100" chance="100000"/>
 		<item name="gold coin" countmax="100" chance="100000"/>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Piñata Dragon" nameDescription="a Pinata Dragon" race="undead" experience="50" speed="0">
+	<health now="10000" max="10000"/>
+	<look typeex="27730" corpse="25063"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+	</flags>
+	<defenses armor="1" defense="1">
+		<defense name="healing" interval="2000" chance="30" min="130" max="170">
+			<attribute key="areaEffect" value="mortarea"/>
+		</defense>
+	</defenses>
+		<elements>
+		<element physicalPercent="-30"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="You can't have my treasures!"/>
+		<voice sentence="Hit me one more time!"/>
+		<voice sentence="Na Nana Naaa Naaa!"/>
+		<voice sentence="You'll never get my stuff!"/>
+		<voice sentence="Do you really want to hurt me?"/>
+		<voice sentence="Bring it on!"/>
+	</voices>
+	<loot>
+		<item name="candy" chance="100000"/>
+		<item name="cookie" countmax="5" chance="49120"/>
+		<item name="winterberry liquor" chance="14370"/>
+		<item name="meringue cake" chance="11540"/>
+		<item name="party cake" chance="7300"/>
+		<item name="bar of chocolate" chance="6600"/>
+		<item name="pinata" chance="5770"/>
+		<item id="24949" chance="5060"/><!-- costume bag (retro)-->
+		<item name="festive backpack" chance="3770"/>
+		<item name="chocolatey dragon scale legs" chance="2590"/>
+		<item name="ferumbras' candy hat" chance="2360"/>
+		<item name="doll" chance="1770"/>
+		<item name="ferumbras puppet" chance="240"/>
+		<item name="stuffed dragon" chance="120"/>
+		<item name="6570" chance="120"/>
+		<item name="6571" chance="120"/>
+		<item name="toy mouse" chance="120"/>
+		<item name="piggy bank" chance="120"/>
+		<item name="fireworks rocket" chance="120"/>
+</monster>

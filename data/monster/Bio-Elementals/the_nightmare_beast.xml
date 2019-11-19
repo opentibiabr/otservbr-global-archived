@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Nightmare Beast" nameDescription="The Nightmare Beast" race="blood" experience="255000" speed="250" script="reward_boss.lua">
+	<health now="22" max="22"/>
+	<look type="1144" corpse="30159"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+	</attacks>
+	<defenses armor="80" defense="80"/>
+	<elements>
+		<element holyPercent="15"/>
+		<element physicalPercent="20"/>
+		<element firePercent="35"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>	
+		<item name="energy bar" chance="100000"/>
+		<item name="mysterious remains" chance="100000"/>
+ 		<item name="platinum coin" countmin="5" countmax="5" chance="100000"/>
+		<item name="piggy bank" chance="100000"/>
+		<item name="silver token" countmin="1" countmax="4" chance="96690"/>
+		<item name="gold token" countmin="3" countmax="3" chance="75210"/>
+		<item name="ultimate mana potion" countmin="6" countmax="14" chance="64460"/>
+		<item name="supreme health potion" countmin="6" countmax="6" chance="52070"/>
+		<item name="ultimate spirit potion" countmin="6" countmax="20" chance="49590"/>
+		<item name="huge chunk of crude iron" chance="41320"/>
+		<item name="red gem" chance="32230"/>
+		<item name="yellow gem" chance="28100"/>
+		<item name="royal star" countmin="100" countmax="100" chance="24790"/>
+		<item name="berserk potion" countmin="10" countmax="10" chance="24790"/>
+		<item name="mastermind potion" countmin="10" countmax="10" chance="19010"/>
+		<item name="blue gem" chance="17360"/>
+		<item name="skull staff " chance="14880"/>
+		<item name="green gem" chance="14050"/>
+		<item name="bullseye potion" countmin="10" countmax="10" chance="14050"/>
+		<item name="ice shield" chance="12400"/>
+		<item name="gold ingot" chance="12400"/>
+		<item id="281" chance="10740"/><!-- giant shimmering pearl (green) -->
+		<item id="23542" chance="9090"/><!-- collar of blue plasma -->
+		<item name="ring of green plasma" chance="8260"/>
+		<item name="beast's nightmare-cushion" chance="7440"/>
+		<item name="ring of the sky" chance="7440"/>
+		<item name="violet gem" chance="6610"/>
+		<item id="23543" chance="6610"/><!-- collar of green plasma -->
+		<item name="purple tendril lantern" chance="5790"/>
+		<item name="ring of red plasma" chance="5790"/>
+		<item name="soul stone" chance="4960"/>
+		<item name="dragon figurine" chance="4960"/>
+		<item name="giant sapphire" chance="4130"/>
+		<item name="turquoise tendril lantern" chance="3310"/>
+		<item name="dark whispers" chance="3310"/>
+		<item name="abyss hammer" chance="2480"/>
+ 		<item name="ring of blue plasma" chance="2480"/>
+		<item name="giant emerald" chance="2480"/>
+		<item name="enchanted sleep shawl" chance="1650"/>
+		<item name="unicorn figurine" chance="500"/>
+	</loot>
+</monster>

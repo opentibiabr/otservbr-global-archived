@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Thorn Steed" nameDescription="a Thorn Steed" race="undead" experience="0" speed="350" manacost="290">
+	<health now="20000" max="20000"/>
+	<look type="626"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+		<flag preyable="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="100" attack="250"/>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element energyPercent="20"/>
+		<element holyPercent="1"/>
+		<element earthPercent="100"/>
+		<element deathPercent="-10"/>
+	</elements>
+</monster>

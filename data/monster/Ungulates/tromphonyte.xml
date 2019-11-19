@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Tromphonyte" nameDescription="Tromphonyte" race="blood" experience="1300" speed="240">
+	<health now="3000" max="3000"/>
+	<look type="381" corpse="12328"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-215"/>
+		<attack name="physical" interval="2000" chance="15" radius="3" target="0" min="-170" max="-300">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="15" target="1" min="-90" max="-130">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+		<attack name="stampor skill reducer" range="5" interval="2000" chance="10"/>
+	</attacks>
+	<defenses>
+		<defense name="healing" interval="2000" chance="15" min="90" max="120">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="50"/>
+		<element deathPercent="10"/>
+		<element firePercent="20"/>
+		<element energyPercent="20"/>
+		<element icePercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="12" chance="100000"/>
+		<item name="small topaz" countmax="5" chance="100000"/>
+		<item name="strong health potion" countmax="2" chance="100000"/>
+		<item name="strong mana potion" countmax="2" chance="100000"/>
+		<item name="hollow stampor hoof" chance="100000"/>
+		<item name="stampor horn" chance="100000"/>
+		<item name="stampor talon" countmax="2" chance="100000"/>
+		<item name="knight armor" chance="100000"/>
+		<item name="spiked squelcher" chance="45830"/>
+	</loot>
+</monster>

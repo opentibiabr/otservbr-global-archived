@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Wild Warrior" nameDescription="a wild warrior" race="blood" experience="60" speed="95" manacost="420">
 	<health now="135" max="135"/>
-	<look type="131" head="57" body="57" legs="57" feet="57" corpse="20531"/>
+	<look type="131" head="57" body="57" legs="57" feet="57" corpse="18253"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag summonable="1"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="10"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="10"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-70"/>
@@ -37,15 +37,15 @@
 		<voice sentence="Gimme your money!"/>
 	</voices>
 	<loot>
-		<item id="2110" chance="520"/><!-- doll -->
-		<item name="gold coin" countmax="30" chance="49070"/>
-		<item name="axe" chance="30710"/>
-		<item name="mace" chance="9800"/>
-		<item name="chain helmet" chance="5250"/>
-		<item name="iron helmet" chance="580"/>
-		<item name="brass armor" chance="2540"/>
-		<item name="steel shield" chance="910"/>
-		<item name="brass shield" chance="17000"/>
-		<item id="2695" countmax="2" chance="9730"/><!-- eggs -->
+		<item name="gold coin" countmax="30" chance="64920"/>
+		<item name="axe" chance="20980"/>
+		<item name="brass shield" chance="17250"/>
+		<item name="mace" chance="13170"/>
+		<item id="3606" countmax="2" chance="12840"/><!-- egg -->
+		<item name="chain helmet" chance="5200"/>
+		<item name="brass armor" chance="2830"/>
+		<item name="steel shield" chance="1350"/>
+		<item name="iron helmet" chance="1040"/>
+		<item id="2991" chance="480"/><!-- doll -->
 	</loot>
 </monster>

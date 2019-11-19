@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cult Believer" nameDescription="a cult believer" race="blood" experience="850" speed="130" manacost="390">
+	<health now="975" max="975"/>
+	<look type="132" head="98" body="77" legs="39" feet="57" addons="1" corpse="22014"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-200"/>
+	</attacks>
+	<defenses armor="30" defense="0">
+		<defense name="healing" interval="4000" chance="25" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="10"/>
+		<element firePercent="10"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element earthPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="13">
+		<voice sentence="Death to the unbelievers!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="69" chance="100000"/>
+		<item name="meat" chance="12530"/>
+		<item name="great health potion" countmax="1" chance="5420"/>
+		<item name="cultish robe" chance="4550"/>
+		<item name="small amethyst" countmax="1" chance="2410"/>
+		<item name="small emerald" countmax="1" chance="2340"/>
+		<item name="small diamond" countmax="1" chance="2320"/>
+		<item name="scarf" chance="1220"/>
+		<item name="piggy bank" chance="90"/>
+		<item name="might ring" chance="90"/>
+	</loot>
+</monster>

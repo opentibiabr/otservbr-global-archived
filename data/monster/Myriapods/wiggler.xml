@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Wiggler" namedescription="a wiggler" race="venom" experience="900" speed="180">
 	<health now="1200" max="1200"/>
-	<look type="510" corpse="18483"/>
+	<look type="510" corpse="16193"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="359"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="359"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-200" poison="500"/>
@@ -50,18 +50,18 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="100000"/>
-		<item name="platinum coin" chance="14790"/>
-		<item name="terra rod" chance="850"/>
-		<item name="serpent sword" chance="1360"/>
-		<item name="black shield" chance="1320"/>
-		<item name="white mushroom" countmax="5" chance="7142"/>
-		<item name="blue piece of cloth" chance="2080"/>
+		<item name="crystalline arrow" countmax="5" chance="15440"/>
+		<item name="drill bolt" countmax="5" chance="15180"/>
+		<item name="platinum coin" chance="14820"/>
+		<item name="white mushroom" countmax="5" chance="7180"/>
+		<item name="strong mana potion" chance="5280"/>
+		<item name="strong health potion" chance="4900"/>
+		<item name="green crystal splinter" chance="3760"/>
 		<item name="yellow piece of cloth" chance="2160"/>
-		<item name="strong health potion" chance="4930"/>
-		<item name="strong mana potion" chance="5250"/>
-		<item name="crystalline arrow" countmax="5" chance="15540"/>
-		<item name="green crystal splinter" chance="3600"/>
-		<item name="green crystal fragment" chance="2070"/>
-		<item name="drill bolt" countmax="5" chance="15260"/>
+		<item name="blue piece of cloth" chance="2050"/>
+		<item name="green crystal fragment" chance="2000"/>
+		<item name="serpent sword" chance="1410"/>
+		<item name="black shield" chance="1300"/>
+		<item name="terra rod" chance="790"/>
 	</loot>
 </monster>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Insectoid Worker" nameDescription="an insectoid worker" race="venom" experience="650" speed="120">
+	<health now="950" max="950"/>
+	<look type="403" corpse="12525"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-163" poison="160"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element physicalPercent="5"/>
+		<element firePercent="-10"/>
+		<element energyPercent="-5"/>
+		<element icePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmin ="2" countmax="90" chance="100000"/>
+		<item name="compound eye" chance="15050"/>
+		<item id="15622" chance="14540"/><!-- dung ball -->
+		<item name="health potion" chance="4850"/>
+		<item name="small emerald" chance="2830"/>
+		<item name="epee" chance="550"/>
+	</loot>
+</monster>

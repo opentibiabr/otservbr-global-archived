@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grand Master Oberon" nameDescription="Grand Master Oberon" race="blood" experience="20000" speed="230" script="reward_boss.lua">
+	<health now="30000" max="30000"/>
+	<look type="1072" head="57" body="75" legs="38" feet="86" addons="1" corpse="28626"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<script>
+		<event name="OberonHeal"/>
+		<event name="bossfalconfinal"/>
+ 	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1200"/>
+		<attack name="holy" interval="1200" chance="14" length="8" spread="0" min="-500" max="-650">
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<attack name="earth" interval="1000" chance="15" target="0" radius="5" min="-500" max="-850">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" range="7" min="-400" max="-500">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82">
+		<defense name="speed" interval="1000" chance="10" speedchange="260" duration="4000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-5"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="55"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="Falcon Knight" interval="2000" chance="10" max="2"/>
+		<summon name="Falcon Paladin" interval="2000" chance="10" max="2"/>
+	</summons>
+	<loot>
+		<item id="32550" chance="100000"/><!-- the spatial warp almanac -->
+		<item name="grant of arms" chance="600"/>
+		<item name="falcon battleaxe" chance="60"/>
+		<item name="falcon bow" chance="60"/>
+		<item name="falcon circlet" chance="60"/>
+		<item name="falcon coif" chance="60"/>
+		<item name="falcon longsword" chance="60"/>
+		<item name="falcon mace" chance="60"/>
+		<item name="falcon rod" chance="60"/>
+		<item name="falcon shield" chance="60"/>
+		<item name="falcon greaves" chance="60"/>
+		<item name="falcon plate" chance="60"/>
+	</loot>
+</monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Crystalcrusher" nameDescription="a crystalcrusher" race="venom" experience="500" speed="195">
 	<health now="570" max="570"/>
-	<look type="511" corpse="18487"/>
+	<look type="511" corpse="16197"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-167"/>
@@ -48,11 +48,11 @@
 		<voice sentence="Crackle!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="90" chance="85000"/>
-		<item name="crystalline arrow" countmax="3" chance="5000"/>
-		<item name="green crystal splinter" chance="4920"/>
-		<item name="brown crystal splinter" chance="5250"/>
-		<item name="blue crystal splinter" chance="5000"/>
-		<item name="crystalline spikes" chance="3690"/>
+		<item name="gold coin" countmax="90" chance="84670"/>
+		<item name="brown crystal splinter" chance="5080"/>
+		<item name="green crystal splinter" chance="4990"/>
+		<item name="crystalline arrow" countmax="3" chance="4960"/>
+		<item name="blue crystal splinter" chance="4910"/>
+		<item name="crystalline spikes" chance="3670"/>
 	</loot>
 </monster>

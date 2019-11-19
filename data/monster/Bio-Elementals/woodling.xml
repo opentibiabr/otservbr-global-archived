@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Woodling" nameDescription="a woodling" race="blood" experience="40" speed="65">
+	<health now="80" max="80"/>
+	<look type="535" corpse="21446"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="14"/>
+		<attack name="woodling paralyze" interval="2000" chance="10"/>
+		<attack name="poison" interval="2000" chance="15" range="3" min="-4" max="-9">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="insects"/>
+		</attack>
+	</attacks>
+	<defenses armor="2" defense="2"/>
+	<loot>
+		<item name="gold coin" countmax="12" chance="100000"/>
+		<item name="white mushroom" countmax="4" chance="18200"/>
+		<item name="simple arrow" countmax="10" chance="9480"/>
+		<item id="3003" chance="5720"/><!-- rope -->
+		<item name="studded armor" chance="4920"/>
+		<item name="hatchet" chance="3070"/>
+		<item name="studded shield" chance="2670"/>
+	</loot>
+</monster>

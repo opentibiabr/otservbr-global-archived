@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Phantasm" nameDescription="a phantasm" race="undead" experience="4400" speed="170">
 	<health now="3950" max="3950"/>
-	<look type="241" head="20" corpse="6344"/>
+	<look type="241" head="20" corpse="6343"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="350"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="350"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-475"/>
@@ -81,7 +81,7 @@
 		<item name="blank rune" countmax="2" chance="22500"/>
 		<item name="crown armor" chance="660"/>
 		<item name="shadow herb" countmax="2" chance="26930"/>
-		<item id="6300" chance="330"/><!-- death ring -->
+		<item id="6299" chance="330"/><!-- death ring -->
 		<item name="demonic essence" chance="16320"/>
 		<item name="abyss hammer" chance="110"/>
 		<item name="shadow sceptre" chance="550"/>

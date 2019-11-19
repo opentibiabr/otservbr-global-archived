@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Ice Witch" nameDescription="an ice witch" race="blood" experience="580" speed="114">
 	<health now="650" max="650"/>
-	<look type="149" head="0" body="47" legs="105" feet="105" addons="0" corpse="20423"/>
+	<look type="149" head="0" body="47" legs="105" feet="105" addons="0" corpse="18145"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,15 +10,15 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="70"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="4"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="70"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="4"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-60"/>
@@ -61,16 +61,16 @@
 		<voice sentence="Freeze!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="90" chance="29630"/>
-		<item name="clerical mace" chance="920"/>
+		<item name="gold coin" countmax="90" chance="30020"/>
+		<item id="7441" chance="10020"/><!-- ice cube -->
+		<item name="green mushroom" chance="1300"/>
+		<item name="clerical mace" chance="1020"/>
+		<item name="strong mana potion" chance="830"/>
+		<item name="shard" chance="610"/>
 		<item name="mystic turban" chance="430"/>
-		<item name="green mushroom" chance="1310"/>
-		<item name="shard" chance="530"/>
-		<item name="diamond sceptre" chance="330"/>
-		<item id="7441" chance="10000"/><!-- ice cube -->
-		<item name="crystal sword" chance="400"/>
-		<item name="pair of earmuffs" chance="90"/>
-		<item name="strong mana potion" chance="820"/>
-		<item name="glacier shoes" chance="280"/>
+		<item name="crystal sword" chance="350"/>
+		<item name="diamond sceptre" chance="300"/>
+		<item name="glacier shoes" chance="300"/>
+		<item name="pair of earmuffs" chance="80"/>
 	</loot>
 </monster>

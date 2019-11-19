@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Crypt Defiler" nameDescription="a crypt defiler" race="blood" experience="70" speed="95">
 	<health now="180" max="180"/>
-	<look type="146" head="115" body="115" legs="61" feet="96" addons="3" corpse="20359"/>
+	<look type="146" head="115" body="115" legs="61" feet="96" addons="3" corpse="18078"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="15"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-90"/>
@@ -42,15 +42,15 @@
 		<voice sentence="I don't like competition!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="39" chance="50900"/>
-		<item name="axe" chance="2730"/>
-		<item name="mace" chance="1800"/>
-		<item name="iron helmet" chance="450"/>
-		<item name="brass armor" chance="2240"/>
-		<item name="steel shield" chance="450"/>
-		<item name="nomad parchment" chance="220"/>
-		<item name="potato" countmax="3" chance="4840"/>
-		<item name="dirty turban" chance="1570"/>
-		<item name="rope belt" chance="4040"/>
+		<item name="gold coin" countmax="39" chance="53280"/>
+		<item name="potato" countmax="3" chance="4900"/>
+		<item name="rope belt" chance="4510"/>
+		<item name="axe" chance="2550"/>
+		<item name="brass armor" chance="2450"/>
+		<item name="mace" chance="1670"/>
+		<item name="dirty turban" chance="1470"/>
+		<item name="steel shield" chance="880"/>
+		<item name="iron helmet" chance="390"/>
+		<item name="nomad parchment" chance="100"/>
 	</loot>
 </monster>

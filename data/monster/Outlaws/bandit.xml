@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Bandit" nameDescription="a bandit" race="blood" experience="65" speed="90" manacost="450">
 	<health now="245" max="245"/>
-	<look type="129" head="58" body="59" legs="45" feet="114" corpse="20331"/>
+	<look type="129" head="58" body="59" legs="45" feet="114" corpse="18050"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="1"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="25"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="25"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-45"/>
@@ -32,14 +32,14 @@
 		<voice sentence="Hand me your purse!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="30" chance="49000"/>
-		<item name="axe" chance="29900"/>
-		<item name="mace" chance="10100"/>
-		<item name="chain helmet" chance="5000"/>
-		<item name="iron helmet" chance="520"/>
-		<item name="brass armor" chance="2500"/>
-		<item name="brass shield" chance="16800"/>
-		<item name="leather legs" chance="15500"/>
-		<item name="tomato" countmax="2" chance="7630"/>
+		<item name="gold coin" countmax="30" chance="48850"/>
+		<item name="axe" chance="29960"/>
+		<item name="brass shield" chance="16780"/>
+		<item name="leather legs" chance="15050"/>
+		<item name="mace" chance="10280"/>
+		<item name="tomato" countmax="2" chance="7690"/>
+		<item name="chain helmet" chance="4980"/>
+		<item name="brass armor" chance="2390"/>
+		<item name="iron helmet" chance="540"/>
 	</loot>
 </monster>

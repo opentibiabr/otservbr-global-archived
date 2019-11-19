@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Stone Devourer" nameDescription="a stone devourer" race="undead" experience="2900" speed="150">
 	<health now="4200" max="4200"/>
-	<look type="486" corpse="18375"/>
+	<look type="486" corpse="15864"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="80"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="1"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="80"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-990"/>
@@ -49,26 +49,26 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="100" chance="100000"/>
-		<item name="platinum coin" countmax="7" chance="92000"/>
-		<item name="stone skin amulet" chance="2270"/>
-		<item name="dwarven ring" chance="2840"/>
-		<item name="giant sword" chance="570"/>
-		<item name="crystal mace" chance="850"/>
-		<item name="war axe" chance="920"/>
-		<item name="sapphire hammer" chance="1490"/>
-		<item name="spiked squelcher" chance="1490"/>
-		<item name="glorious axe" chance="3340"/>
-		<item name="strong health potion" countmax="2" chance="13840"/>
-		<item name="strong mana potion" countmax="2" chance="14900"/>
-		<item name="great mana potion" countmax="2" chance="15610"/>
-		<item name="mana potion" countmax="2" chance="15050"/>
-		<item name="ultimate health potion" chance="14410"/>
-		<item id="8748" chance="11360"/><!-- coal -->
-		<item name="ancient stone" chance="12850"/>
-		<item name="crystalline arrow" countmax="10" chance="9940"/>
-		<item name="green crystal splinter" chance="6960"/>
-		<item name="cyan crystal fragment" chance="6810"/>
-		<item name="stone nose" chance="18679"/>
-		<item name="crystalline spikes" chance="16320"/>
+		<item name="platinum coin" countmax="7" chance="91150"/>
+		<item name="stone nose" chance="18790"/>
+		<item name="crystalline spikes" chance="16550"/>
+		<item name="great mana potion" countmax="2" chance="15840"/>
+		<item name="mana potion" countmax="2" chance="14880"/>
+		<item name="ultimate health potion" chance="14690"/>
+		<item name="strong mana potion" countmax="2" chance="14300"/>
+		<item name="strong health potion" countmax="2" chance="13790"/>
+		<item name="ancient stone" chance="12510"/>
+		<item id="7920" chance="11230"/><!-- coal -->
+		<item name="crystalline arrow" countmax="10" chance="9880"/>
+		<item name="green crystal splinter" chance="7120"/>
+		<item name="cyan crystal fragment" chance="6220"/>
+		<item name="glorious axe" chance="3010"/>
+		<item name="dwarven ring" chance="2630"/>
+		<item name="stone skin amulet" chance="2250"/>
+		<item name="sapphire hammer" chance="1600"/>
+		<item name="spiked squelcher" chance="1410"/>
+		<item name="crystal mace" chance="830"/>
+		<item name="war axe" chance="830"/>
+		<item name="giant sword" chance="510"/>
 	</loot>
 </monster>

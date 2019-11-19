@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Eternal Guardian" nameDescription="an eternal guardian" race="undead" experience="1800" speed="102">
 	<health now="2500" max="2500"/>
-	<look type="345" corpse="11300"/>
+	<look type="345" corpse="10383"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-300"/>
@@ -53,6 +53,6 @@
 		<item name="spiked iron ball" chance="9960"/>
 		<item name="clay lump" chance="720"/>
 		<item name="piece of marble rock" chance="430"/>
-		<item id="13757" chance="400"/><!-- coal -->
+		<item id="12600" chance="400"/><!-- coal -->
 	</loot>
 </monster>

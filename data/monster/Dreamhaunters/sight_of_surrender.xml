@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Sight of Surrender" nameDescription="a sight of surrender" race="undead" experience="17000" speed="170">
 	<health now="28000" max="28000"/>
-	<look type="583" corpse="22478"/>
+	<look type="583" corpse="20144"/>
 	<targetchange interval="4000" chance="20"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-1100"/>
@@ -53,30 +53,30 @@
 		<voice sentence="NOW YOU WILL SURRENDER!"/>
 	</voices>
 	<loot>
-		<item name="platinum coin" countmax="15" chance="100000"/>
-		<item name="might ring" chance="8000"/>
-		<item name="stone skin amulet" chance="18000"/>
-		<item name="hammer of wrath" chance="1380"/>
-		<item name="crystal mace" chance="5500"/>
-		<item name="magic plate armor" chance="1380"/>
-		<item name="crown legs" chance="920"/>
-		<item name="crusader helmet" chance="920"/>
-		<item name="tower shield" chance="1380"/>
-		<item name="steel boots" chance="920"/>
-		<item name="onyx flail" chance="920"/>
-		<item name="jade hammer" chance="920"/>
-		<item name="great mana potion" countmax="5" chance="78000"/>
-		<item name="great spirit potion" countmax="5" chance="72000"/>
-		<item name="ultimate health potion" countmax="5" chance="30000"/>
-		<item name="blue crystal shard" countmax="3" chance="23000"/>
-		<item name="violet crystal shard" countmax="3" chance="32000"/>
-		<item name="green crystal shard" countmax="3" chance="21600"/>
-		<item name="green crystal splinter" countmax="5" chance="30000"/>
-		<item name="brown crystal splinter" countmax="5" chance="30410"/>
-		<item name="blue crystal splinter" countmax="5" chance="40000"/>
-		<item name="cluster of solace" chance="1800"/>
-		<item name="sight of surrender's eye" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="20" chance="100000"/>
 		<item name="broken visor" chance="100000"/>
-		<item id="22542" chance="460"/><!-- string of mending -->
+		<item name="sight of surrender's eye" chance="100000"/>
+		<item name="ultimate health potion" countmin="1" countmax="5" chance="77170"/>
+		<item name="great mana potion" countmin="1" countmax="5" chance="76390"/>
+		<item name="great spirit potion" countmin="1" countmax="5" chance="75970"/>
+		<item name="blue crystal splinter" countmin="1" countmax="5" chance="36390"/>
+		<item name="green crystal splinter" countmin="1" countmax="5" chance="31850"/>
+		<item name="brown crystal splinter" countmin="1" countmax="5" chance="31760"/>
+		<item name="violet crystal shard" countmin="1" countmax="3" chance="25580"/>
+		<item name="blue crystal shard" countmin="1" countmax="3" chance="25410"/>
+		<item name="green crystal shard" countmin="1" countmax="3" chance="24120"/>
+		<item name="stone skin amulet" chance="15710"/>
+		<item name="might ring" chance="5670"/>
+		<item name="crystal mace" chance="4980"/>
+		<item name="cluster of solace" chance="3610"/>
+		<item name="magic plate armor" chance="2230"/>
+		<item name="steel boots" chance="1970"/>
+		<item name="jade hammer" chance="1120"/>
+		<item name="onyx flail" chance="1120"/>
+		<item name="tower shield" chance="860"/>
+		<item name="hammer of wrath" chance="860"/>
+		<item id="20208" chance="690"/><!-- string of mending -->
+		<item name="crusader helmet" chance="600"/>
+		<item name="crown legs" chance="430"/>
 	</loot>
 </monster>

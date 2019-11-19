@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Dragonling" nameDescription="a dragonling" race="blood" experience="2200" speed="230">
 	<health now="2600" max="2600"/>
-	<look type="505" corpse="18438"/>
+	<look type="505" corpse="16147"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="900"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="900"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-210"/>
@@ -54,11 +54,9 @@
 		<voice sentence="FI?"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="37500"/>
-		<item name="gold coin" countmax="100" chance="37500"/>
-		<item name="gold coin" countmax="27" chance="37500"/>
-		<item name="strong health potion" countmax="2" chance="24480"/>
-		<item name="strong mana potion" countmax="2" chance="16900"/>
-		<item name="blazing bone" chance="12410"/>
+		<item name="gold coin" countmax="227" chance="96690"/>
+		<item name="strong health potion" countmax="2" chance="19050"/>
+		<item name="strong mana potion" countmax="2" chance="15740"/>
+		<item name="blazing bone" chance="10580"/>
 	</loot>
 </monster>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Thawing Dragon Lord" nameDescription="a thawing dragon lord" race="fire" experience="2100" speed="230" script="reward_boss.lua">
+	<health now="25000" max="25000"/>
+	<look type="1077" corpse="28640"/>
+	<targetchange interval="4000" chance="0"/>
+	<flags>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="fire wave" chance="30" interval="2000" length="1" spread="0" target="1" min="-800" max="-1200"/>
+		<attack name="ice crystal bomb" chance="30" interval="2000" target="1" min="-600" max="-700"/>
+		<attack name="firefield" interval="1000" chance="10" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+	</attacks>
+	<defenses armor="80" defense="80"/>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold ingot" countmax="4" chance="47370"/>
+		<item id="7741" chance="5260"/><!-- ice cube -->
+		<item id="7377" chance="5260"/><!-- ice cream cone (blue-barian) -->
+		<item name="bar of gold" chance="50"/>
+	</loot>
+</monster>

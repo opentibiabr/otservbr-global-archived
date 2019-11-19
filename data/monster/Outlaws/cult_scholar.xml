@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cult Scholar" nameDescription="a cult scholar" race="blood" experience="1100" speed="130" manacost="390">
+	<health now="1650" max="1650"/>
+	<look type="145" head="0" body="77" legs="21" feet="21" addons="1" corpse="22014"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-200"/>
+		<attack name="death" interval="2000" chance="50" range="7" min="-200" max="-300">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="10" range="7" radius="3" target="1" min="-150" max="-200">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="0">
+		<defense name="healing" interval="4000" chance="25" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="20"/>
+		<element holyPercent="30"/>
+		<element deathPercent="30"/>
+		<element firePercent="30"/>
+		<element energyPercent="30"/>
+		<element icePercent="30"/>
+		<element earthPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="13">
+		<voice sentence="The Secrets are ours alone!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="70" chance="100000"/>
+		<item name="meat" chance="7770"/>
+		<item name="great health potion" countmax="1" chance="7770"/>
+		<item name="cultish robe" chance="5410"/>
+		<item name="small emerald" countmax="1" chance="4730"/>
+		<item name="small diamond" countmax="1" chance="2030"/>
+		<item name="small amethyst" countmax="1" chance="1690"/>
+		<item name="might ring" chance="680"/>
+		<item name="scarf" chance="340"/>
+	</loot>
+</monster>

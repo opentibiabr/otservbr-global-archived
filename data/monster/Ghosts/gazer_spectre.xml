@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gazer Spectre" nameDescription="a gazer spectre" race="blood" experience="4200" speed="195">
+	<health now="4500" max="4500"/>
+	<look type="1122" head="94" body="20" legs="77" feet="20" corpse="30167"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-380"/>
+		<attack name="fire" interval="2000" chance="50" range="7" min="-200" max="-350">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="111" target="1" radius="3"   min="-200" max="-350">
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="1"  length="4" spread="0" min="-250" max="-430">
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="68" defense="68">
+		<defense name="healing" interval="2000" chance="10" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="-30"/>
+		<element firePercent="70"/>
+		<element physicalPercent="85"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="0"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Deathhh... is... a.... doooor!!"/>
+		<voice sentence="Tiiimeee... is... a... windowww!"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="5" chance="100000"/>
+		<item name="small diamond" chance="17890"/>
+		<item name="brown crystal splinter" chance="14090"/>
+		<item name="small sapphire" chance="13960"/>
+		<item name="red gem" chance="12830"/>
+		<item name="red crystal fragment" chance="9880"/>
+		<item name="small enchanted ruby" chance="7330"/>
+		<item name="yellow gem" chance="5690"/>
+		<item name="golden idol of tukh that is brand-new" chance="4680"/>
+		<item name="wand of draconia" chance="4150"/>
+		<item name="wand of inferno" chance="2810"/>
+		<item name="magma coat" chance="2090"/>
+		<item id="30084" chance="1880"/><!-- red ectoplasm -->
+		<item name="prismatic quartz" chance="1790"/>
+		<item name="small enchanted emerald" chance="1750"/>
+		<item name="onyx chip" chance="1550"/>
+		<item name="hexagonal ruby" chance="1060"/>
+	</loot>
+</monster>

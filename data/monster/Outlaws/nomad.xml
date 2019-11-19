@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Nomad" nameDescription="a nomad" race="blood" experience="60" speed="95" manacost="420">
 	<health now="160" max="160"/>
-	<look type="146" head="114" body="20" legs="22" feet="2" addons="2" corpse="20466"/>
+	<look type="146" head="114" body="20" legs="22" feet="2" addons="2" corpse="18185"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="1"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="15"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-80"/>
@@ -40,15 +40,15 @@
 		<voice sentence="We are swift as the wind of the desert!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="40" chance="56250"/>
-		<item name="axe" chance="2730"/>
-		<item name="mace" chance="2120"/>
-		<item name="iron helmet" chance="650"/>
-		<item name="brass armor" chance="2350"/>
+		<item name="gold coin" countmax="40" chance="56270"/>
+		<item name="rope belt" chance="6580"/>
+		<item name="potato" countmax="3" chance="4900"/>
+		<item name="axe" chance="2750"/>
+		<item name="brass armor" chance="2330"/>
+		<item name="dirty turban" chance="2090"/>
+		<item name="mace" chance="2040"/>
 		<item name="steel shield" chance="920"/>
-		<item name="nomad parchment" chance="200"/>
-		<item name="potato" countmax="3" chance="4840"/>
-		<item name="dirty turban" chance="2160"/>
-		<item name="rope belt" chance="6420"/>
+		<item name="iron helmet" chance="620"/>
+		<item name="nomad parchment" chance="210"/>
 	</loot>
 </monster>

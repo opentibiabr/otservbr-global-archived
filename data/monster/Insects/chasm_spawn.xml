@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Chasm Spawn" nameDescription="a chasm spawn" race="blood" experience="2700" speed="115">
+	<health now="4500" max="4500"/>
+	<look type="1037" corpse="27563"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-5" max="-16">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="7" target="1" min="-30" max="-60">
+			<attribute key="shootEffect" value="death"/>
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="3" length="3" spread="3" min="-70" max="-120">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="explosion" interval="2000" chance="15" min="-50" max="-170"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-40" max="-60"/>
+		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-70" max="-140"/>
+		<attack name="earth" interval="2000" chance="10" length="3" spread="3"  min="-70" max="-140">
+			<attribute key="areaEffect" value="PLANTATTACK"/>
+		</attack>
+	</attacks>
+	<defenses armor="74" defense="74"/>
+	<elements>
+		<element firePercent="-30"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="tzzzz tzzzz tzzzz!"/>
+		<voice sentence="sloap sloap sloap!"/>
+	</voices>
+	<loot>
+		<item name="chasm spawn tail" chance="65080"/>
+		<item name="chasm spawn head" chance="33040"/>
+		<item name="wood mushroom" chance="29020"/>
+		<item name="chasm spawn abdomen" chance="25500"/>
+		<item name="brown mushroom" chance="19470"/>
+		<item name="orange mushroom" chance="16330"/>
+		<item name="small enchanted emerald" chance="11810"/>
+		<item name="blue crystal shard" chance="7410"/>
+		<item name="small enchanted amethyst" chance="7040"/>
+		<item name="green crystal shard" chance="7040"/>
+		<item name="violet crystal shard" chance="5150"/>
+		<item name="suspicious device" chance="1630"/>
+		<item name="mushroom backpack" chance="250"/>
+	</loot>
+</monster>

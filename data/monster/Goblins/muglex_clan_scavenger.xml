@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Muglex Clan Scavenger" nameDescription="a muglex clan scavenger" race="blood" experience="37" speed="66" manacost="320">
+	<health now="60" max="60"/>
+	<look type="297" corpse="6002"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-10"/>
+		<attack name="physical" interval="2000" chance="13" range="7" min="0" max="-10">
+			<attribute key="shootEffect" value="spear"/>
+		</attack>
+	</attacks>
+	<defenses armor="7" defense="7"/>
+	<loot>
+		<item name="gold coin" countmax="12" chance="100000"/>
+		<item name="small stone" countmax="2" chance="22810"/>
+		<item id="3578" countmax="3" chance="50000"/><!-- fish -->
+		<item name="small axe" chance="14040"/>
+		<item name="short sword" chance="13160"/>
+		<item name="bone club" chance="11620"/>
+		<item id="3115" chance="50000"/><!-- bone -->
+		<item name="leather armor" chance="7890"/>
+		<item name="leather helmet" chance="7890"/>
+		<item name="mouldy cheese" chance="7680"/>
+	</loot>
+</monster>

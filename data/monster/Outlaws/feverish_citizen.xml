@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Feverish Citizen" nameDescription="a feverish citizen" race="blood" experience="30" speed="73">
 	<health now="125" max="125"/>
-	<look type="425" corpse="20395"/>
+	<look type="425" corpse="18114"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-18"/>
@@ -47,14 +47,14 @@
 		<voice sentence="This is Venore!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="35" chance="30300"/>
-		<item id="2230" chance="4920"/><!-- bone -->
-		<item name="worm" countmax="3" chance="25730"/>
-		<item name="ominous piece of cloth" chance="1660"/>
-		<item name="dubious piece of cloth" chance="1720"/>
-		<item name="voluminous piece of cloth" chance="2290"/>
-		<item name="obvious piece of cloth" chance="2006"/>
-		<item name="ludicrous piece of cloth" chance="2060"/>
-		<item name="luminous piece of cloth" chance="2290"/>
+		<item name="gold coin" countmax="35" chance="30110"/>
+		<item name="worm" countmax="3" chance="25160"/>
+		<item id="3115" chance="5310"/><!-- bone -->
+		<item name="luminous piece of cloth" chance="2220"/>
+		<item name="voluminous piece of cloth" chance="1980"/>
+		<item name="ludicrous piece of cloth" chance="1960"/>
+		<item name="obvious piece of cloth" chance="1920"/>
+		<item name="ominous piece of cloth" chance="1860"/>
+		<item name="dubious piece of cloth" chance="1700"/>
 	</loot>
 </monster>

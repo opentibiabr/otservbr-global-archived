@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Boogy" nameDescription="a boogy" race="blood" experience="950" speed="105">
+	<health now="1300" max="1300"/>
+	<look type="981" corpse="25819"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="20"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-465"/>
+		<attack name="bleedcondition" interval="2000" chance="20" target="1" min="0" max="-115" start="5">
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-60" max="-115">
+			<attribute key="areaEffect" value="explosionarea"/>
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="speed" interval="2000" chance="15" speedchange="450" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="10" min="40" max="120">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10"/>
+		<element icePercent="10"/>
+		<element deathPercent="20"/>
+		<element holyPercent="40"/>
+		<element earthPercent="70"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Go to sleep!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="183" chance="100000"/>
+		<item name="shimmering beetles" chance="17270"/>
+		<item name="fairy wings" chance="15420"/>
+		<item name="strong health potion" chance="14530"/>
+		<item name="leaf star" countmax="7" chance="8470"/>
+		<item name="wood mushroom" chance="4680"/>
+		<item name="sling herb" chance="3430"/>
+		<item name="red crystal fragment" countmax="2" chance="3150"/>
+		<item name="prismatic quartz" countmax="2" chance="3110"/>
+		<item name="ancient coin" countmax="3" chance="2870"/>
+		<item name="terra amulet" chance="2870"/>
+		<item name="small enchanted emerald" countmax="3" chance="2540"/>
+		<item name="berserk potion" chance="1330"/>
+		<item name="golden sickle" chance="970"/>
+		<item name="wooden spellbook" chance="560"/>
+		<item name="wood cape" chance="560"/>
+		<item name="mandrake" chance="120"/>
+	</loot>
+</monster>

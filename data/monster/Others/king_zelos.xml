@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="King Zelos" nameDescription="King Zelos" race="blood" experience="0" speed="250" script="reward_boss.lua">
+	<health now="15000" max="30000"/>
+	<look type="1224" corpse="31611"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400"/>
+		<attack name="death" interval="2000" chance="40" target="1" range="8" radius="8" min="0" max="-500">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+	</attack>
+	</attacks>
+	<defenses armor="50" defense="50">
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+	</immunities>
+	<loot>
+		<!-- unconfirmed chances -->
+		<item name="magic sulphur" chance="100000"/>
+		<item name="yellow gem" chance="30000"/>
+		<item name="blue gem" chance="25000"/>
+		<item name="ring of blue plasma" chance="23000"/>
+		<item id="23542" chance="20000"/><!-- collar of blue plasma -->
+		<item name="lightning robe" chance="19000"/>
+		<item name="terra mantle" chance="13500"/>
+		<item name="boots of haste" chance="12000"/>
+		<item name="supreme health potion" countmin="6" countmax="6" chance="8090"/>
+		<item name="silver token" countmin="2" countmax="2" chance="8090"/>
+		<item name="ultimate mana potion" countmin="14" countmax="14" chance="8090"/>
+		<item name="ultimate spirit potion" countmin="6" countmax="6" chance="8090"/>
+		<item name="crystal coin" countmin="5" countmax="5" chance="8090"/>
+		<item name="gold token" countmin="3" countmax="3" chance="8090"/>
+		<item name="mortal mace" chance="6000"/>
+		<item name="galea mortis" chance="3000"/>
+		<item name="bow of cataclysm" chance="2000"/>
+		<item name="final judgement" chance="1500"/>
+		<item name="golden hyena pendant" chance="1000"/>
+		<item name="shadow cowl" chance="800"/>
+		<item name="toga mortis" chance="500"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

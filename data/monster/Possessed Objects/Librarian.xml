@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Librarian" nameDescription="a librarian" race="undead" experience="0" speed="250">
 	<health now="10000" max="10000"/>
-	<look type="1067" corpse="33357"/>
+	<look type="1067" corpse="28614"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,15 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="5"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="5"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-200"/>
@@ -26,8 +30,9 @@
 			<attribute key="areaEffect" value="poff"/>
 		</attack>
 	</attacks>
-	<defenses armor="33" defense="33"/>
+	<defenses armor="50" defense="50"/>
 	<immunities>
 		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
 	</immunities>
 </monster>

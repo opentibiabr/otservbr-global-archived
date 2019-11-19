@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Hellhound" nameDescription="a hellhound" race="blood" experience="6800" speed="180">
 	<health now="7500" max="7500"/>
-	<look type="240" corpse="6332"/>
+	<look type="240" corpse="6331"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-520" poison="800"/>
@@ -65,44 +65,44 @@
 		<voice sentence="GROOOOWL!"/>
 	</voices>
 	<loot>
-		<item id="7426" chance="2000"/> <!-- amber staff -->
-		<item id="7368" countmax="10" chance="25000"/> <!-- assassin star -->
-		<item id="2231" chance="900"/> <!-- big bone -->
-		<item id="2144" countmax="4" chance="9200"/> <!-- black pearl -->
-		<item id="18425" chance="12500"/> <!-- blazing bone -->
-		<item id="6558" chance="20000"/> <!-- concentrated demonic blood -->
-		<item id="6558" chance="20000"/> <!-- concentrated demonic blood -->
-		<item id="6500" chance="20000"/> <!-- demonic essence -->
-		<item id="4873" chance="400"/> <!-- explorer brooch -->
-		<item id="10553" chance="10000"/> <!-- fiery heart -->
-		<item id="2392" chance="7000"/> <!-- fire sword -->
-		<item id="2393" chance="1000"/> <!-- giant sword -->
-		<item id="9971" chance="1500"/> <!-- gold ingot -->
-		<item id="7590" countmax="3" chance="30000"/> <!-- great mana potion -->
-		<item id="8472" chance="20000"/> <!-- great spirit potion -->
-		<item id="2155" chance="1000"/> <!-- green gem -->
-		<item id="5910" chance="5000"/> <!-- green piece of cloth -->
-		<item id="2671" countmax="6" chance="30000"/> <!-- ham -->
-		<item id="5925" chance="10000"/> <!-- hardened bone -->
-		<item id="10554" chance="20000"/> <!-- hellhound slobber -->
-		<item id="2430" chance="7500"/> <!-- knight axe -->
-		<item id="7890" chance="3000"/> <!-- magma amulet -->
-		<item id="7891" chance="1500"/> <!-- magma boots -->
-		<item id="7899" chance="800"/> <!-- magma coat -->
-		<item id="7894" chance="1000"/> <!-- magma legs -->
-		<item id="7900" chance="900"/> <!-- magma monocle -->
-		<item id="7421" chance="1000"/> <!-- onyx flail -->
-		<item id="2152" countmax="7" chance="100000"/> <!-- platinum coin -->
-		<item id="2156" chance="4500"/> <!-- red gem -->
-		<item id="5911" chance="3000"/> <!-- red piece of cloth -->
-		<item id="6553" chance="1000"/> <!-- ruthless axe -->
-		<item id="2149" countmax="3" chance="10000"/> <!-- small emerald -->
-		<item id="2147" countmax="3" chance="10000"/>	<!-- small ruby -->
-		<item id="9970" countmax="3" chance="10000"/>	<!-- small topaz -->
-		<item id="5944" chance="20000"/> <!-- soul orb -->
-		<item id="8473" chance="16000"/> <!-- ultimate health potion -->
-		<item id="2187" chance="7000"/> <!-- wand of inferno -->
-		<item id="2154" chance="4500"/> <!-- yellow gem -->
-		<item id="5914" chance="6000"/> <!-- yellow piece of cloth -->
+		<item name="amber staff" chance="2000"/>
+		<item name="assassin star" countmax="10" chance="25000"/>
+		<item id="3116" chance="900"/><!-- big bone -->
+		<item name="black pearl" countmax="4" chance="9200"/>
+		<item name="blazing bone" chance="12500"/>
+		<item name="concentrated demonic blood" chance="20000"/>
+		<item name="concentrated demonic blood" chance="20000"/>
+		<item name="demonic essence" chance="20000"/>
+		<item name="explorer brooch" chance="400"/>
+		<item name="fiery heart" chance="10000"/>
+		<item name="fire sword" chance="7000"/>
+		<item name="giant sword" chance="1000"/>
+		<item name="gold ingot" chance="1500"/>
+		<item name="great mana potion" countmax="3" chance="30000"/>
+		<item name="great spirit potion" chance="20000"/>
+		<item name="green gem" chance="1000"/>
+		<item name="green piece of cloth" chance="5000"/>
+		<item name="ham" countmax="6" chance="30000"/>
+		<item name="hardened bone" chance="10000"/>
+		<item name="hellhound slobber" chance="20000"/>
+		<item name="knight axe" chance="7500"/>
+		<item name="magma amulet" chance="3000"/>
+		<item name="magma boots" chance="1500"/>
+		<item name="magma coat" chance="800"/>
+		<item name="magma legs" chance="1000"/>
+		<item name="magma monocle" chance="900"/>
+		<item name="onyx flail" chance="1000"/>
+		<item name="platinum coin" countmax="7" chance="100000"/>
+		<item name="red gem" chance="4500"/>
+		<item name="red piece of cloth" chance="3000"/>
+		<item name="ruthless axe" chance="1000"/>
+		<item name="small emerald" countmax="3" chance="10000"/>
+		<item name="small ruby" countmax="3" chance="10000"/>
+		<item name="small topaz" countmax="3" chance="10000"/>
+		<item name="soul orb" chance="20000"/>
+		<item name="ultimate health potion" chance="16000"/>
+		<item name="wand of inferno" chance="7000"/>
+		<item name="yellow gem" chance="4500"/>
+		<item name="yellow piece of cloth" chance="6000"/>
 	</loot>
 </monster>

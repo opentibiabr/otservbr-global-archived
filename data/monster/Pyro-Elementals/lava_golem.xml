@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lava Golem" nameDescription="a lava golem" race="fire" experience="6200" speed="210">
 	<health now="9000" max="9000"/>
-	<look type="491" corpse="17333"/>
+	<look type="491" corpse="15987"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400"/>
@@ -53,34 +53,34 @@
 		<voice sentence="Grrrrunt"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="199" chance="100000"/>
-		<item name="platinum coin" countmax="11" chance="100000"/>
-		<item name="yellow gem" chance="6480"/>
-		<item name="red gem" chance="1180"/>
-		<item name="wand of inferno" chance="2950"/>
-		<item name="fire sword" chance="1710"/>
-		<item name="fire axe" chance="1560"/>
-		<item name="crown shield" chance="1180"/>
-		<item name="iron ore" chance="11570"/>
-		<item name="white piece of cloth" chance="4810"/>
-		<item name="red piece of cloth" chance="3530"/>
-		<item name="yellow piece of cloth" chance="7230"/>
-		<item name="strong health potion" countmax="2" chance="18830"/>
-		<item name="strong mana potion" countmax="2" chance="18150"/>
-		<item name="great mana potion" countmax="2" chance="16030"/>
-		<item name="mana potion" countmax="2" chance="20720"/>
-		<item name="magma amulet" chance="2900"/>
-		<item name="magma boots" chance="2650"/>
-		<item name="magma coat" chance="430"/>
-		<item name="ultimate health potion" chance="15390"/>
-		<item name="spellbook of mind control" chance="450"/>
-		<item name="fiery heart" chance="13510"/>
-		<item name="wand of everblazing" chance="1390"/>
-		<item name="violet crystal shard" chance="6200"/>
-		<item name="green crystal splinter" countmax="2" chance="13990"/>
-		<item name="red crystal fragment" chance="10990"/>
-		<item name="magma clump" countmax="2" chance="15370"/>
-		<item name="blazing bone" chance="15200"/>
-		<item name="prismatic bolt" countmax="5" chance="12580"/>
+		<item name="gold coin" countmin="3" countmax="199" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="11" chance="99980"/>
+		<item name="mana potion" countmax="2" chance="20370"/>
+		<item name="strong health potion" countmax="2" chance="18580"/>
+		<item name="strong mana potion" countmax="2" chance="17710"/>
+		<item name="great mana potion" countmax="2" chance="16310"/>
+		<item name="ultimate health potion" chance="15290"/>
+		<item name="magma clump" countmax="2" chance="15250"/>
+		<item name="blazing bone" chance="14750"/>
+		<item name="green crystal splinter" countmax="2" chance="13730"/>
+		<item name="fiery heart" chance="13550"/>
+		<item name="prismatic bolt" countmax="5" chance="12090"/>
+		<item name="iron ore" chance="11560"/>
+		<item name="red crystal fragment" chance="10570"/>
+		<item name="yellow piece of cloth" chance="7240"/>
+		<item name="yellow gem" chance="6510"/>
+		<item name="violet crystal shard" chance="6110"/>
+		<item name="white piece of cloth" chance="4730"/>
+		<item name="red piece of cloth" chance="3570"/>
+		<item name="wand of inferno" chance="3250"/>
+		<item name="magma amulet" chance="3080"/>
+		<item name="magma boots" chance="2580"/>
+		<item name="fire sword" chance="1780"/>
+		<item name="fire axe" chance="1400"/>
+		<item name="wand of everblazing" chance="1280"/>
+		<item name="crown shield" chance="1200"/>
+		<item name="red gem" chance="1140"/>
+		<item name="spellbook of mind control" chance="590"/>
+		<item name="magma coat" chance="390"/>
 	</loot>
 </monster>

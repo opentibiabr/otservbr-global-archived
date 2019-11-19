@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Necromancer" nameDescription="a necromancer" race="blood" experience="580" speed="94">
 	<health now="580" max="580"/>
-	<look type="9" corpse="20455"/>
+	<look type="9" corpse="18177"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-80" poison="160"/>
@@ -57,16 +57,16 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="90" chance="30050"/>
-		<item name="boots of haste" chance="210"/>
-		<item name="clerical mace" chance="390"/>
-		<item name="skull staff" chance="100"/>
-		<item name="poison arrow" countmax="5" chance="15000"/>
+		<item name="poison arrow" countmax="5" chance="14960"/>
+		<item name="book of necromantic rituals" chance="10070"/>
+		<item name="green mushroom" chance="1450"/>
+		<item name="necromantic robe" chance="1050"/>
 		<item name="mystic turban" chance="500"/>
-		<item name="green mushroom" chance="1470"/>
+		<item name="clerical mace" chance="380"/>
+		<item name="strong mana potion" chance="330"/>
+		<item name="boots of haste" chance="200"/>
+		<item name="spellbook of warding" chance="110"/>
+		<item name="skull staff" chance="100"/>
 		<item name="noble axe" chance="10"/>
-		<item name="strong mana potion" chance="300"/>
-		<item name="spellbook of warding" chance="130"/>
-		<item name="book of necromantic rituals" chance="10130"/>
-		<item name="necromantic robe" chance="1001"/>
 	</loot>
 </monster>

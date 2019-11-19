@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Faceless Bane" nameDescription="Faceless Bane" race="blood" experience="14000" speed="250" script="reward_boss.lua">
+	<health now="17000" max="17000"/>
+	<look type="1122" head="0" body="4" legs="95" feet="4" corpse="30013"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500"/>
+	</attacks>
+	<elements>
+		<element deathPercent="75"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<summons maxSummons="3">
+		<summon name="Burster Spectre" interval="2000" chance="10"/>
+		<summon name="Gazer Spectre" interval="2000" chance="10"/>
+		<summon name="Ripper Spectre" interval="2000" chance="10"/>
+	</summons>
+	<loot>
+		<!-- unconfirmed chances -->
+		<item name="platinum coin" countmax="10" chance="89000"/>
+		<item name="small sapphire" countmax="3" chance="79000"/>
+		<item name="combat knife" chance="69000"/>
+		<item name="spear" countmax="3" chance="18000"/>
+		<item name="knife" chance="17000"/>
+		<item name="dagger" chance="16000"/>
+		<item name="crowbar" chance="15500"/>
+		<item name="snakebite rod" chance="15000"/>
+		<item name="moonlight rod" chance="14500"/>
+		<item name="ice rapier" chance="14000"/>
+		<item name="necrotic rod" chance="13500"/>
+		<item name="terra rod" chance="13000"/>
+		<item name="hailstorm rod" chance="12000"/>
+		<item name="life crystal" chance="11500"/>
+		<item name="cyan crystal fragment" chance="11000"/>
+		<item name="violet crystal shard" chance="10500"/>
+		<item name="violet gem" chance="10000"/>
+		<item name="book backpack" chance="1000"/>
+		<item name="ectoplasmic shield" chance="800"/>
+		<item name="spirit guide" chance="600"/>
+		<item name="enchanted pendulet" chance="500"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

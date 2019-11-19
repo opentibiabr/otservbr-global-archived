@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Orewalker" nameDescription="an orewalker" race="undead" experience="4800" speed="190">
 	<health now="7200" max="7200"/>
-	<look type="490" corpse="17256"/>
+	<look type="490" corpse="15910"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-300"/>
@@ -54,34 +54,33 @@
 		<voice sentence="CLONK!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="98" chance="50000"/>
+		<item name="gold coin" countmin="7" countmax="198" chance="100000"/>
 		<item name="platinum coin" countmax="10" chance="100000"/>
-		<item name="yellow gem" chance="1030"/>
-		<item name="dwarven ring" chance="4660"/>
-		<item name="knight legs" chance="1910"/>
-		<item name="crown armor" chance="370"/>
-		<item name="crown helmet" chance="890"/>
-		<item name="iron ore" chance="15000"/>
-		<item name="magic sulphur" chance="3000"/>
-		<item name="titan axe" chance="2600"/>
-		<item name="glorious axe" chance="1870"/>
-		<item name="strong health potion" countmax="2" chance="15600"/>
-		<item name="strong mana potion" countmax="2" chance="14000"/>
-		<item name="great mana potion" countmax="2" chance="14000"/>
-		<item name="mana potion" countmax="4" chance="14000"/>
-		<item name="ultimate health potion" countmax="2" chance="9500"/>
-		<item name="crystalline armor" chance="560"/>
-		<item name="small topaz" countmax="3" chance="16500"/>
-		<item name="shiny stone" chance="13700"/>
-		<item name="sulphurous stone" chance="20700"/>
-		<item name="wand of defiance" chance="1300"/>
-		<item name="green crystal shard" chance="8000"/>
-		<item name="blue crystal splinter" countmax="2" chance="16000"/>
-		<item name="cyan crystal fragment" chance="13000"/>
-		<item name="pulverized ore" chance="20500"/>
-		<item name="vein of ore" chance="15000"/>
-		<item name="prismatic bolt" countmax="5" chance="15500"/>
-		<item name="crystal crossbow" chance="300"/>
+		<item name="sulphurous stone" chance="20400"/>
+		<item name="pulverized ore" chance="19470"/>
+		<item name="iron ore" chance="16000"/>
+		<item name="strong health potion" countmax="2" chance="15410"/>
+		<item name="small topaz" countmax="3" chance="15170"/>
+		<item name="prismatic bolt" countmax="5" chance="14870"/>
+		<item name="mana potion" countmax="4" chance="14730"/>
+		<item name="vein of ore" chance="14530"/>
+		<item name="great mana potion" countmax="2" chance="13990"/>
+		<item name="strong mana potion" countmax="2" chance="13850"/>
+		<item name="blue crystal splinter" countmax="2" chance="13800"/>
+		<item name="shiny stone" chance="13260"/>
+		<item name="cyan crystal fragment" chance="13110"/>
+		<item name="ultimate health potion" countmax="2" chance="9440"/>
+		<item name="green crystal shard" chance="8020"/>
+		<item name="dwarven ring" chance="4350"/>
+		<item name="titan axe" chance="2840"/>
+		<item name="glorious axe" chance="2740"/>
+		<item name="magic sulphur" chance="2690"/>
+		<item name="wand of defiance" chance="1470"/>
+		<item name="knight legs" chance="1420"/>
+		<item name="yellow gem" chance="1080"/>
+		<item name="crown helmet" chance="880"/>
+		<item name="crown armor" chance="390"/>
+		<item name="crystalline armor" chance="340"/>
+		<item name="crystal crossbow" chance="240"/>
 	</loot>
 </monster>

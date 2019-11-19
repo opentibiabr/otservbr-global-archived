@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Enraged Crystal Golem" nameDescription="an enraged crystal golem" race="energy" experience="550" speed="120">
 	<health now="700" max="700"/>
-	<look type="508" corpse="18466"/>
+	<look type="508" corpse="16176"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-150"/>
@@ -33,13 +33,14 @@
 		<voice sentence="Crrrrk! Chhhhr!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="100" chance="100000"/>
-		<item name="crystal sword" chance="4710"/>
-		<item name="glorious axe" chance="360"/>
-		<item name="strong health potion" chance="7140"/>
-		<item name="strong mana potion" chance="8270"/>
-		<item name="blue crystal splinter" chance="4120"/>
-		<item name="cyan crystal fragment" chance="1050"/>
-		<item name="crystalline spikes" chance="7980"/>
+		<item name="gold coin" countmin="1" countmax="100" chance="100000"/>
+		<item name="crystalline spikes" chance="8320"/>
+		<item name="strong mana potion" chance="8240"/>
+		<item name="strong health potion" chance="7930"/>
+		<item name="crystalline arrow" chance="5210"/>
+		<item name="crystal sword" chance="4840"/>
+		<item name="blue crystal splinter" chance="4130"/>
+		<item name="cyan crystal fragment" chance="960"/>
+		<item name="glorious axe" chance="370"/>
 	</loot>
 </monster>

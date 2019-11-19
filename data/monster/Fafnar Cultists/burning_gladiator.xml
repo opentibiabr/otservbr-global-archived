@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Burning Gladiator" nameDescription="a burning gladiator" race="blood" experience="10500" speed="145">
+	<health now="10000" max="10000"/>
+	<look type="541" head="95" body="113" legs="21" feet="21" addons="1" corpse="31646"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-550"/>
+		<attack name="firering" interval="2000" chance="10" min="-300" max="-500"/>
+		<attack name="firex" interval="2000" chance="15" min="-300" max="-500"/>
+		<attack name="fire" interval="2000" chance="17" radius="2" min="-300" max="-500">
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" length="3" spread="0" min="-300" max="-500">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="89" defense="89"/>
+	<elements>
+		<element icePercent="-20"/>
+		<element physicalPercent="20"/>
+		<element energyPercent="20"/>
+		<element firePercent="30"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Burn, infidel!"/>
+		<voice sentence="Only the Wild Sun shall shine down on this world!"/>
+		<voice sentence="Praised be Fafnar, the Smiter!"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="3" chance="100000"/>
+		<item name="fafnar symbol" chance="7690"/>
+		<!-- unconfirmed chances -->
+		<item id="31433" chance="5600"/><!-- secret instruction (gryphon) -->
+		<item id="31435" chance="5600"/><!-- secret instruction (mirror) -->
+		<item id="31436" chance="5600"/><!-- secret instruction (silver) -->
+		<!-- unconfirmed chances -->
+		<item name="dragon necklace" chance="3960"/>
+		<item name="strange talisman" chance="3870"/>
+		<item name="magma boots" chance="3500"/>
+		<item name="lightning headband" chance="3220"/>
+		<item name="magma amulet" chance="2990"/>
+		<item name="lightning pendant" chance="2990"/>
+		<item name="lightning legs" chance="2720"/>
+		<item name="empty honey glass" chance="1980"/>
+		<item name="elven amulet" chance="1930"/>
+		<item name="spellweaver's robe" chance="1340"/>
+		<item name="lightning boots" chance="1240"/>
+		<item name="golden mask" chance="690"/>
+		<item name="sea horse figurine" chance="320"/>
+	</loot>	
+</monster>

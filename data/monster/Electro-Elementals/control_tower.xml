@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Control Tower" nameDescription="a control tower" race="energy" experience="3000" speed="0" manacost="330">
+	<health now="7500" max="7500"/>
+	<look typeex="23265" corpse="21940"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag hideHealth="1"/>
+	</flags>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element holyPercent="55"/>
+		<element firePercent="55"/>
+		<element energyPercent="55"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="5" chance="100000"/>
+		<item name="flask of rust remover" chance="5000"/>
+		<item name="alloy legs" chance="2500"/>
+		<item name="gearwheel chain" chance="2500"/>
+		<item name="steel boots" chance="2500"/>
+	</loot>
+</monster>

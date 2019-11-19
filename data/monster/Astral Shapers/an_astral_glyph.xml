@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="An Astral Glyph" nameDescription="An Astral Glyph" race="energy" experience="0" speed="470">
+	<health now="50000" max="50000"/>
+	<look typeex="24225" corpse="0"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<script>
+		<event name="AstralGlyphDeath"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-200" max="-800"/>
+		<attack name="energy" interval="2000" chance="25" radius="3" target="0" min="-200" max="-400">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="25" radius="5" min="-200" max="-400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+		<elements>
+		<element energyPercent="20"/>
+		<element deathPercent="25"/>
+		<element firePercent="35"/>
+		<element physicalPercent="40"/>
+		<element icePercent="40"/>
+		<element earthPercent="40"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

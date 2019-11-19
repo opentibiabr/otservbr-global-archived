@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Baron From Below" nameDescription="The Baron From Below" race="blood" experience="40000" speed="240" script="reward_boss.lua">
+	<health now="50000" max="50000"/>
+	<look type="1045" corpse="27633"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag rewardBoss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-2000"/>
+		<attack name="Wrath of Nature" interval="2000" chance="15" min="0" max="-1400"/>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Krrrk!"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmax="49" chance="100000"/>
+		<item name="great mana potion" countmax="10" chance="10000"/>
+		<item name="ultimate health potion" countmax="10" chance="10000"/>
+		<item name="great spirit potion" countmax="8" chance="10000"/>
+		<item name="mastermind potion" countmax="2" chance="10000"/>
+		<item name="small diamond" countmax="12" chance="10000"/>
+		<item name="small emerald" countmax="12" chance="10000"/>
+		<item name="violet crystal shard" countmax="4" chance="10000"/>
+		<item name="green gem" chance="10000"/>
+		<item name="blue gem" chance="10000"/>
+		<item name="stone skin amulet" subtype="5" chance="10000"/>
+		<item name="huge chunk of crude iron" chance="10000"/>
+		<item name="wand of inferno" chance="10000"/>
+		<item name="crystal coin" chance="10000"/>
+		<item name="magic sulphur" chance="10000"/>
+		<item name="badger boots" chance="10000"/>
+		<item name="fire sword" chance="10000"/>
+		<item name="crystal mace" chance="10000"/>
+		<item name="slightly rusted shield" chance="10000"/>
+		<item id="27622" chance="10000"/><!-- chitinous mouth -->
+		<item name="plan for a makeshift armour" chance="1000"/>
+		<item name="mallet head" chance="1000"/>
+		<item name="huge shelll" chance="1000"/>
+		<item name="onging eyes" chance="1000"/>
+		<item name="slimy leg" chance="1000"/>
+		<item name="gnome sword" chance="200"/>
+		<item name="gnome shield" chance="200"/>
+		<item name="gnome armor" chance="200"/>
+	</loot>
+</monster>

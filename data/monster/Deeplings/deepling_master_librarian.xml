@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Deepling Master Librarian" nameDescription="a deepling master librarian" race="blood" experience="1900" speed="115">
 	<health now="1700" max="1700"/>
-	<look type="443" corpse="15211"/>
+	<look type="443" corpse="13774"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="60"/>
-		<flag runonhealth="250"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="60"/>
+		<flag runOnHealth="250"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+		<flag canWalkOnFire="1"/>
 		</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-210"/>
@@ -34,29 +35,34 @@
 		</attack>
 		<attack name="deepling spellsinger skill reducer" range="5" interval="2000" chance="10"/>
 	</attacks>
-	<defenses armor="20" defense="20">
+	<defenses armor="45" defense="45">
 		<defense name="healing" interval="2000" chance="15" min="40" max="80">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
+	<elements>
+		<element earthPercent="-10"/>
+		<element energyPercent="-10"/>
+		<element deathPercent="50"/>
+	</elements>
 	<immunities>
 		<immunity invisible="1"/>
 		<immunity ice="1"/>
 		<immunity fire="1"/>
 	</immunities>
 	<loot>
-		<item name="small sapphire" countmax="3" chance="8440"/>
-		<item name="gold coin" countmax="100" chance="100000"/>
-		<item name="platinum coin" countmax="3" chance="90000"/>
-		<item name="life ring" chance="3200"/>
-		<item id="2667" countmax="2" chance="9090"/><!-- fish -->
-		<item name="fish fin" chance="1950"/>
-		<item name="eye of a deepling" chance="9380"/>
-		<item name="deepling staff" chance="3130"/>
-		<item name="necklace of the deep" chance="1330"/>
-		<item name="spellsinger's seal" chance="25000"/>
-		<item name="key to the Drowned Library" chance="20000"/>
-		<item name="deepling filet" chance="20000"/>
-		<item name="ornate crossbow" chance="39"/>
+		<item name="gold coin" countmin="1" countmax="100" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="3" chance="89960"/>
+		<item name="spellsinger's seal" chance="25630"/>
+		<item name="deepling filet" chance="20510"/>
+		<item name="key to the Drowned Library" chance="19590"/>
+		<item name="eye of a deepling" chance="9760"/>
+		<item id="2667" countmin="1" countmax="2" chance="9550"/><!-- fish -->
+		<item name="small sapphire" countmin="1" countmax="3" chance="7940"/>
+		<item name="deepling staff" chance="3020"/>
+		<item name="life ring" chance="2950"/>
+		<item name="fish fin" chance="1830"/>
+		<item name="necklace of the deep" chance="1260"/>
+		<item name="ornate crossbow" chance="350"/>
 	</loot>
 </monster>

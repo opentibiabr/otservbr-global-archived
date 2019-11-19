@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Rorc" nameDescription="a rorc" race="blood" experience="105" speed="88">
 	<health now="260" max="260"/>
-	<look type="550" corpse="21223"/>
+	<look type="550" corpse="18909"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,10 +10,10 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-100"/>
@@ -36,13 +36,13 @@
 		<voice sentence="Krrrooow truaaak kiiiii!"/>
 	</voices>
 	<loot>
-		<item name="wolf tooth chain" chance="7410"/>
-		<item name="gold coin" countmax="25" chance="73640"/>
-		<item name="obsidian lance" chance="930"/>
-		<item name="orcish axe" chance="2040"/>
-		<item name="plate shield" chance="6700"/>
-		<item name="rorc feather" chance="12520"/>
-		<item name="rorc egg" chance="790"/>
-		<item name="hatched rorc egg" chance="12670"/>
+		<item name="gold coin" countmax="34" chance="73530"/>
+		<item name="rorc feather" chance="12030"/>
+		<item name="hatched rorc egg" chance="10950"/>
+		<item name="wolf tooth chain" chance="7970"/>
+		<item name="plate shield" chance="6490"/>
+		<item name="orcish axe" chance="2050"/>
+		<item name="rorc egg" chance="1050"/>
+		<item name="obsidian lance" chance="990"/>
 	</loot>
 </monster>

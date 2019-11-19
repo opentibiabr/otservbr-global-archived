@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Lost Berserker" nameDescription="a lost berserker" race="blood" experience="4400" speed="150">
 	<health now="5900" max="5900"/>
-	<look type="496" corpse="17416"/>
+	<look type="496" corpse="16071"/>
 	<targetchange interval="4000" chance="15"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-501"/>
@@ -57,32 +57,31 @@
 		<voice sentence="Death! Death! Death!"/>
 	</voices>
 	<loot>
-		<item name="piggy bank" chance="3920"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="platinum coin" countmax="9" chance="100000"/>
-		<item name="dwarven ring" chance="2280"/>
-		<item name="knight axe" chance="2070"/>
-		<item name="fire axe" chance="380"/>
-		<item name="royal helmet" chance="150"/>
-		<item name="guardian shield" chance="1400"/>
-		<item name="tower shield" chance="1002"/>
-		<item name="black shield" chance="640"/>
-		<item name="brown mushroom" countmax="2" chance="15190"/>
-		<item name="iron ore" chance="8490"/>
-		<item name="magic sulphur" chance="720"/>
-		<item name="chaos mace" chance="550"/>
-		<item name="spiked squelcher" chance="810"/>
-		<item name="great mana potion" chance="13650"/>
-		<item name="great health potion" chance="13650"/>
-		<item name="terra boots" chance="640"/>
-		<item name="small topaz" countmax="2" chance="7970"/>
-		<item name="clay lump" chance="930"/>
-		<item id="13757" chance="2050"/><!-- coal -->
-		<item name="violet crystal shard" chance="3500"/>
-		<item name="brown crystal splinter" countmax="2" chance="7540"/>
-		<item name="blue crystal splinter" chance="4610"/>
-		<item name="green crystal fragment" chance="6870"/>
-		<item name="drill bolt" countmax="10" chance="8210"/>
+		<item name="gold coin" countmin="2" countmax="200" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="9" chance="99960"/>
+		<item name="brown mushroom" countmax="2" chance="15350"/>
+		<item name="great mana potion" chance="14050"/>
+		<item name="great health potion" chance="13610"/>
+		<item name="iron ore" chance="8590"/>
+		<item name="drill bolt" countmax="10" chance="8030"/>
+		<item name="small topaz" countmax="2" chance="7930"/>
+		<item name="brown crystal splinter" countmax="2" chance="7450"/>
+		<item name="green crystal fragment" chance="6690"/>
+		<item name="blue crystal splinter" chance="4670"/>
+		<item name="piggy bank" chance="3850"/>
+		<item name="violet crystal shard" chance="3620"/>
+		<item name="dwarven ring" chance="2300"/>
+		<item name="knight axe" chance="2130"/>
+		<item id="12600" chance="1930"/><!-- coal -->
+		<item name="guardian shield" chance="1270"/>
+		<item name="clay lump" chance="980"/>
+		<item name="tower shield" chance="910"/>
+		<item name="spiked squelcher" chance="820"/>
+		<item name="magic sulphur" chance="690"/>
+		<item name="terra boots" chance="660"/>
+		<item name="black shield" chance="610"/>
+		<item name="chaos mace" chance="450"/>
+		<item name="fire axe" chance="410"/>
+		<item name="royal helmet" chance="170"/>
 	</loot>
 </monster>

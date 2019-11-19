@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deadeye Devious" nameDescription="Deadeye Devious" race="blood" experience="750" speed="300">
+	<health now="1450" max="1450"/>
+	<look type="151" head="115" body="76" legs="35" feet="117" addons="2" corpse="18097"/>
+	<targetchange interval="60000" chance="0"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="3"/>
+		<flag staticAttack="50"/>
+		<flag runOnHealth="150"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-150"/>
+		<attack name="physical" interval="4000" chance="60" min="0" max="-350">
+			<attribute key="shootEffect" value="throwingknife"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="50">
+		<defense name="healing" interval="4000" chance="25" min="50" max="150">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Let's kill 'em"/>
+		<voice sentence="Arrrgh!"/>
+		<voice sentence="You'll never take me alive!"/>
+		<voice sentence="You won't get me alive!"/>
+		<voice sentence="§%§&amp;§! #*$§$!!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="140" chance="100000"/>
+		<item name="deadeye devious' eye patch" chance="100000"/>
+		<item name="plate armor" chance="81250"/>
+		<item id="3114" countmax="2" chance="81250"/><!-- skull -->
+		<item name="meat" countmax="3" chance="43750"/>
+		<item name="dagger" chance="25000"/>
+		<item name="knight armor" chance="25000"/>
+		<item name="small diamond" chance="18750"/>
+		<item name="great health potion" chance="6250"/>
+		<item name="double axe" chance="6250"/>
+		<item name="pirate backpack" chance="6250"/>
+		<item name="very old piece of paper" chance="6250"/>
+	</loot>
+</monster>

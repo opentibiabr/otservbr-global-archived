@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Massive Water Elemental" nameDescription="a massive water elemental" race="undead" experience="1100" speed="215">
 	<health now="1250" max="1250"/>
-	<look type="11" corpse="10499"/>
+	<look type="11" corpse="9582"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag staticattack="90"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-220" poison="300"/>
@@ -50,16 +50,16 @@
 		<immunity lifedrain="1"/>
 	</immunities>
 	<loot>
-		<item name="small diamond" countmax="2" chance="1900"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="small emerald" countmax="2" chance="1000"/>
-		<item name="platinum coin" countmax="2" chance="20000"/>
-		<item name="energy ring" chance="910"/>
-		<item name="life ring" chance="1000"/>
-		<item id="2667" countmax="2" chance="40000"/><!-- fish -->
-		<item name="rainbow trout" chance="1340"/>
-		<item name="green perch" chance="1590"/>
-		<item name="great mana potion" chance="10400"/>
-		<item name="great health potion" chance="10000"/>
+		<item name="gold coin" countmax="100" chance="99560"/>
+		<item id="2667" countmax="2" chance="40190"/><!-- fish -->
+		<item name="platinum coin" countmax="2" chance="29310"/>
+		<item name="great health potion" chance="10960"/>
+		<item name="great mana potion" chance="10370"/>
+		<item name="small diamond" countmax="2" chance="5640"/>
+		<item name="small emerald" countmax="2" chance="4330"/>
+		<item name="rainbow trout" chance="1070"/>
+		<item name="energy ring" chance="990"/>
+		<item name="green perch" chance="910"/>
+		<item name="life ring" chance="830"/>
 	</loot>
 </monster>

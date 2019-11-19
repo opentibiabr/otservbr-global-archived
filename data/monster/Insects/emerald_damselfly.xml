@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Emerald Damselfly" nameDescription="an emerald damselfly" race="venom" experience="35" speed="100">
 	<health now="90" max="90"/>
-	<look type="528" corpse="19706"/>
+	<look type="528" corpse="17426"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-4" poison="10"/>
@@ -34,12 +34,12 @@
 		<voice sentence="Bzzzzz!"/>
 	</voices>
 	<loot>
-		<item id="2120" chance="4300"/><!-- rope -->
-		<item name="gold coin" countmax="18" chance="90000"/>
-		<item name="arrow" countmax="5" chance="7570"/>
+		<item name="gold coin" countmax="18" chance="90900"/>
+		<item name="damselfly wing" chance="11820"/>
+		<item name="damselfly eye" chance="9990"/>
+		<item name="arrow" countmax="5" chance="7550"/>
+		<item id="3003" chance="5030"/><!-- rope -->
 		<item name="health potion" chance="3580"/>
 		<item name="mana potion" chance="3550"/>
-		<item name="damselfly wing" chance="11830"/>
-		<item name="damselfly eye" chance="9970"/>
 	</loot>
 </monster>

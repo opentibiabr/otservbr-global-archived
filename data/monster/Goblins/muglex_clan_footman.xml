@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Muglex Clan Footman" nameDescription="a muglex clan footman" race="blood" experience="25" speed="60" manacost="290">
+	<health now="50" max="50"/>
+	<look type="61" corpse="6002"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-10"/>
+		<attack name="physical" interval="2000" chance="8" range="7" min="0" max="-7">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+	</attacks>
+	<defenses armor="6" defense="6"/>
+	<elements>
+		<element deathPercent="-10"/>
+	</elements>
+	<loot>
+		<item name="gold coin" countmax="6" chance="100000"/>
+		<item name="dagger" chance="17310"/>
+		<item id="3578" chance="16140"/><!-- fish -->
+		<item name="small stone" chance="15800"/>
+		<item name="short sword" chance="10220"/>
+		<item name="bone club" chance="9410"/>
+		<item name="small axe" chance="8250"/>
+		<item name="leather armor" chance="6040"/>
+		<item name="leather helmet" chance="2900"/>
+		<item id="3115" chance="1510"/><!-- bone -->
+		<item name="mouldy cheese" chance="700"/>
+	</loot>
+</monster>

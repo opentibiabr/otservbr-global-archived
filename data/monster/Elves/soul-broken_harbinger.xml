@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Soul-Broken Harbinger" nameDescription="a soul-broken harbinger" race="blood" experience="5800" speed="210">
+	<health now="6300" max="6300"/>
+	<look type="1137" head="124" body="31" legs="17" feet="81" addons="3" corpse="30134"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-240"/>
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-120">
+			<attribute key="shootEffect" value="arrow"/>
+		</attack>
+	</attacks>
+	<defenses armor="76" defense="76">
+		<defense name="healing" interval="2000" chance="20" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-30"/>
+		<element energyPercent="-5"/>
+		<element deathPercent="20"/>
+		<element icePercent="55"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="12" chance="100000"/>
+		<item id="30058" countmin="1" countmax="3" chance="15650"/><!-- ice flower -->
+		<item name="dream essence egg" chance="13080"/>
+		<item name="elvish talisman" chance="9650"/>
+		<item name="ice rapier" chance="4720"/>
+		<item name="glacier kilt" chance="6540"/>
+		<item name="glacier shoes" chance="3390"/>
+		<item id="23529" chance="2700"/><!-- ring of blue plasma -->
+		<item name="knight legs" chance="2440"/>
+		<item name="tower shield" chance="1760"/>
+		<item name="wood cape" chance="1500"/>
+		<item name="spellbook of mind control" chance="1330"/>
+		<item name="crown shield" chance="1070"/>
+		<item id="23543" chance="1030"/><!-- collar of green plasma -->
+	</loot>
+</monster>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Undead Elite Gladiator" nameDescription="an undead elite gladiator" race="undead" experience="7900" speed="150">
+	<health now="8000" max="8000"/>
+	<look type="306" corpse="8909"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="100" max="550"/>
+		<attack name="physical" interval="1500" chance="20" range="7" min="300" max="550">
+			<attribute key="shootEffect" value="whirlwindsword"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" range="5" radius="3" min="300" max="500">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="85" defense="45">
+		<defense name="invisible" interval="2000" chance="15" duration="3000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="-10"/>
+		<element holyPercent="10"/>
+		<element firePercent="80"/>
+		<element energyPercent="20"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="40" chance="44000"/>
+		<item name="belted cape" chance="500"/>
+		<item name="ultimate health potion" countmax="2" chance="500"/>
+		<item name="throwing star" countmax="18" chance="500"/>
+		<item name="knight axe" chance="250"/>
+		<item id="3307" chance="500"/><!-- scimitar -->
+		<item name="protection amulet" chance="250"/>
+		<item name="hunting spear" chance="250"/>
+		<item name="broken gladiator shield" chance="250"/>
+		<item name="dark helmet" chance="250"/>
+		<item name="flask of warrior's sweat" chance="250"/>
+		<item name="plate armor" chance="250"/>
+		<item name="plate legs" chance="250"/>
+		<item name="two handed sword" chance="250"/>
+		<item name="great health potion" countmax="2" chance="250"/>
+		<item name="stealth ring" chance="230"/>
+		<item name="crusader helmet" chance="150"/>
+		<item name="relic sword" chance="150"/>
+	</loot>
+</monster>

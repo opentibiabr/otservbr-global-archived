@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ravenous Lava Lurker" nameDescription="a ravenous lava lurker" race="fire" experience="4000" speed="58">
+	<health now="5000" max="5000"/>
+	<look type="1041"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-200"/>
+		<attack name="ravennousLavaLurkerWave" interval="2000" chance="15" min="0" max="-100"/>
+		<attack name="ravennousLavaLurkerWave2" direction="1" interval="2000" chance="100" min="-70" max="-110"/>
+	</attacks>
+	<defenses armor="45" defense="45"/>
+	<elements>
+		<element firePercent="200"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="0"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

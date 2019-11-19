@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Tzumrah The Dazzler" nameDescription="a tzumrah the dazzler" race="blood" experience="1700" speed="200">
+	<health now="2000" max="2000"/>
+	<look type="193" corpse="22111"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="50"/>
+		<flag targetDistance="4"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-400" poison="4"/>
+		<attack name="lifedrain" interval="2000" chance="25" range="1" radius="1" target="1" min="-200" max="-350">
+			<attribute key="shootEffect" value="holy"/>
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="10" range="7" target="1" duration="5000">
+			<attribute key="shootEffect" value="holy"/>
+			<attribute key="areaEffect" value="holydamage"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="10" range="7" target="1" speedchange="-360" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="25" min="200" max="400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="2000" chance="15" duration="4000">
+			<attribute key="areaEffect" value="yellowbubble"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="10"/>
+		<element icePercent="10"/>
+		<element holyPercent="10"/>
+		<element physicalPercent="-10"/>
+		<element energyPercent="-8"/>
+		<element firePercent="-5"/>
+		<element deathPercent="-8"/>
+	</elements>
+	<summons maxSummons="2">
+		<summon name="Crypt Shambler" interval="2000" chance="10"/>
+		<summon name="Fire Elemental" interval="2000" chance="10"/>
+	</summons>
+	<voices interval="5000" chance="10">
+		<voice sentence="Your beating heart will burst into flames!"/>
+		<voice sentence="Your reeking carcass will feed the sharks!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="68" chance="100000"/>
+		<item name="protection amulet" chance="100000"/>
+	</loot>
+</monster>

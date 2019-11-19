@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Corym Vanguard" nameDescription="a corym vanguard" race="blood" experience="490" speed="100">
 	<health now="700" max="700"/>
-	<look type="534" head="101" legs="101" corpse="19734"/>
+	<look type="534" head="101" legs="101" corpse="17447"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="50"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="50"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-140"/>
@@ -44,19 +44,19 @@
 		<voice sentence="Gimme! Gimme!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="120" chance="100000"/>
-		<item id="2696" chance="20000"/><!-- cheese -->
-		<item name="bola" chance="10000"/>
-		<item name="spike shield" chance="4761"/>
-		<item name="ratana" chance="5000"/>
-		<item name="life preserver" chance="5000"/>
-		<item name="cheese cutter" chance="16666"/>
-		<item name="cheesy figurine" chance="3846"/>
-		<item name="earflap" chance="11111"/>
-		<item name="soft cheese" chance="14285"/>
-		<item name="rat cheese" chance="14285"/>
-		<item name="rat god doll" chance="14"/>
-		<item name="leather harness" chance="1612"/>
-		<item name="spiky club" chance="3225"/>
+		<item name="gold coin" countmin="1" countmax="90" chance="100000"/>
+		<item name="soft cheese" chance="14960"/>
+		<item name="rat cheese" chance="14780"/>
+		<item id="3607" chance="14710"/><!-- cheese -->
+		<item name="cheese cutter" chance="11770"/>
+		<item name="bola" chance="9580"/>
+		<item name="earflap" chance="8970"/>
+		<item name="ratana" chance="2210"/>
+		<item name="spiky club" chance="2210"/>
+		<item name="cheesy figurine" chance="2190"/>
+		<item name="spike shield" chance="2170"/>
+		<item name="life preserver" chance="1830"/>
+		<item name="leather harness" chance="1450"/>
+		<item name="rat god doll" chance="200"/>
 	</loot>
 </monster>

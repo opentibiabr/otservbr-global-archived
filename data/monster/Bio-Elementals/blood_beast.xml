@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Blood Beast" nameDescription="a blood beast" race="venom" experience="1000" speed="110">
+	<health now="1600" max="1600"/>
+	<look type="602" corpse="20980"/>
+	<targetchange interval="2000" chance="4"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushCreatures="1"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="90"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="82" attack="50" poison="260"/>
+		<attack name="poison" interval="2000" chance="10" range="5" min="-65" max="-105" target="1">
+			<attribute key="shootEffect" value="greenstar"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="17" radius="4" target="0" min="-300" max="-400">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="23" defense="36">
+		<defense name="speed" interval="2000" chance="8" speedchange="314" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="7" min="80" max="120">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="10"/>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Roarr!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="150" chance="100000"/>
+		<item name="slime heart" chance="19000"/>
+		<item name="poisoned fang" chance="16540"/>
+		<item name="viper star" countmax="5" chance="8150"/>
+		<item name="strong health potion" chance="7420"/>
+		<item name="poisonous slime" chance="5080"/>
+		<item name="glooth steak" chance="3510"/>
+		<item name="glooth axe" chance="970"/>
+		<item name="glooth amulet" chance="850"/>
+		<item name="glooth spear" chance="820"/>
+		<item name="glooth club" chance="800"/>
+		<item name="glooth blade" chance="770"/>
+	</loot>
+</monster>

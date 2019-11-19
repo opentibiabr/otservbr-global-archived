@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Battery" nameDescription="a glooth battery" race="blood" experience="3000" speed="0">
+	<health now="8000" max="8000"/>
+	<look typeex="23081" corpse="21940"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="poison" interval="2000" chance="10" radius="6" target="0" min="-206" max="-582">
+			<attribute key="areaeffect" value="greenbubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="4000" chance="15" min="133" max="454">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="1"/>
+		<element holyPercent="25"/>
+		<element firePercent="25"/>
+		<element energyPercent="25"/>
+		<element icePercent="25"/>
+	</elements>
+	<loot>
+		<item name="platinum coin" countmax="5" chance="84210"/>
+		<item name="great mana potion" chance="21050"/>
+		<item name="gearwheel chain" chance="15790"/>
+		<item name="great health potion" chance="5260"/>
+		<item id="9064" chance="1500"/><!-- crystal pedestal -->
+		<item name="metal spats" chance="1000"/>
+	</loot>
+</monster>

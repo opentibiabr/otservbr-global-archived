@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ugly Monster" nameDescription="a ugly monster" race="blood" experience="650" speed="140">
+	<health now="13000" max="13000"/>
+	<look type="1218" corpse="31551"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-120"/>
+		<attack name="outfit" interval="2000" chance="10" range="5" monster="Ugly Monster" duration="10000">
+			<attribute key="shootEffect" value="earth"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="10" range="5" duration="5000" poison="80">
+			<attribute key="shootEffect" value="earth"/>
+		</attack>
+	</attacks>
+	<defenses armor="48" defense="48">
+		<defense name="invisible" interval="2000" chance="8" duration="6000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	</loot>
+		<item name="cobra crossbow" chance="10500"/>
+		<item name="cobra boots" chance="7750"/>
+		<item name="cobra hood" chance="7500"/>
+		<item name="cobra axe" chance="6500"/>
+	<loot>
+</monster>

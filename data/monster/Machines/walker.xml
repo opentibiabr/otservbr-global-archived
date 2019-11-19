@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Walker" nameDescription="a walker" race="energy" experience="2200" speed="150">
+	<health now="3000" max="3000"/>
+	<look type="605" corpse="20995"/>
+  <targetchange interval="2000" chance="5"/>
+  <flags>
+    <flag summonable="0"/>
+    <flag attackable="1"/>
+    <flag hostile="1"/>
+    <flag illusionable="0"/>
+    <flag convinceable="0"/>
+    <flag pushable="0"/>
+    <flag canPushItems="1"/>
+		<flag isBlockable="0"/>
+    <flag canPushCreatures="1"/>
+    <flag targetDistance="1"/>
+    <flag staticAttack="90"/>
+    <flag runOnHealth="0"/>
+  </flags>
+  <attacks>
+    <attack name="melee" interval="2000" skill="70" attack="50"/>
+    <attack name="walker skill reducer" interval="2000" chance="21"/>
+    <attack name="fire" interval="2000" chance="17" length="8" spread="0" min="-125" max="-245">
+      <attribute key="areaEffect" value="explosion"/>
+    </attack>
+  </attacks>
+  <defenses armor="40" defense="45"/>
+  <elements>
+    <element firePercent="35"/>
+    <element physicalPercent="10"/>
+    <element deathPercent="10"/>
+	<element icePercent="5"/>
+	<element earthPercent="50"/>
+	<element holyPercent="40"/>
+  </elements>
+  <immunities>
+    <immunity invisible="1"/>
+    <immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+  </immunities>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="199" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="3" chance="52910"/>
+		<item name="metal toe" chance="20900"/>
+		<item name="small topaz" chance="10210"/>
+		<item name="great health potion" chance="8470"/>
+		<item name="great spirit potion" chance="7670"/>
+		<item name="small amethyst" chance="4390"/>
+		<item name="small emerald" chance="4290"/>
+		<item name="metal spats" chance="3760"/>
+		<item name="gearwheel chain" chance="2280"/>
+		<item name="crystal mace" chance="740"/>
+		<item name="steel boots" chance="530"/>
+	</loot>
+</monster>

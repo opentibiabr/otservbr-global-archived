@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ethershreck" nameDescription="Ethershreck" race="undead" experience="5600" speed="320">
+	<health now="9500" max="9500"/>
+	<look type="351" corpse="10445"/>
+	<targetchange interval="4000" chance="5"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="366"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="80" attack="100"/>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" target="1" min="-80" max="-230">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="ghastly dragon curse" interval="2000" chance="10" range="7"/>
+		<attack name="poisoncondition" interval="2000" chance="10" range="7" min="-920" max="-1260">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="smallclouds"/>
+ 	</attack>
+		<attack name="lifedrain" interval="2000" chance="20" range="7" target="1" min="-90" max="-350">
+			<attribute key="areaEffect" value="redshimmer"/>
+ 	</attack>
+		<attack name="death" interval="2000" chance="13" radius="4" target="0" min="-70" max="-180">
+			<attribute key="areaEffect" value="mortarea"/>
+ 	</attack>
+	</attacks>
+	<defenses armor="45" defense="35">
+		<defense name="healing" interval="2000" chance="9" min="70" max="300">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="10"/>
+		<element icePercent="50"/>
+		<element physicalPercent="-10"/>
+		<element holyPercent="-15"/>
+		<element energyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity death="1"/>
+		<immunity earth="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="EMBRACE MY GIFTS!" yell="1"/>
+	</voices>
+	<loot>
+		<item id="gold coin" countmax="230" chance="100000"/>
+		<item id="platinum coin" countmax="15" chance="100000"/>
+		<item id="small topaz" countmax="10" chance="100000"/>
+		<item id="demonic essence" chance="100000"/>
+		<item id="281" chance="100000"/><!-- giant shimmering pearl -->
+		<item id="undead heart" chance="100000"/>
+		<item id="ghastly dragon head" chance="100000"/>
+		<item id="zaoan halberd" chance="76920"/>
+		<item id="ultimate health potion" chance="56730"/>
+		<item id="jade hat" chance="46470"/>
+		<item id="shiny stone" chance="44870"/>
+		<item id="great mana potion" countmax="3" chance="33970"/>
+		<item id="great health potion" countmax="3" chance="30130"/>
+		<item id="zaoan shoes" chance="28850"/>
+		<item id="great spirit potion" countmax="3" chance="28530"/>
+		<item id="zaoan armor" chance="16030"/>
+		<item id="spellweaver's robe" chance="15060"/>
+		<item id="zaoan legs" chance="14420"/>
+		<item id="drakinata" chance="11540"/>
+		<item id="zaoan helmet" chance="9620"/>
+		<item id="sai" chance="8010"/>
+		<item id="guardian boots" chance="3530"/>
+		<item id="zaoan sword" chance="2240"/>
+		<item id="golden can of oil" chance="1280"/>
+	</loot>
+</monster>

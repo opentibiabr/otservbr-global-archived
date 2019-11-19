@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Thanatursus" nameDescription="a thanatursus" race="blood" experience="6300" speed="200">
+	<health now="7200" max="7200"/>
+	<look type="1134" head="19" corpse="30069"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="holy" interval="2000" chance="50" target="1" radius="3" min="-250" max="-400">
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="50" length="4" spread="0" min="-280" max="-450">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="50" target="1" radius="6" min="-250" max="-400">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+	</attacks>
+		<defenses armor="78" defense="78">
+		<defense name="healing" interval="2000" chance="14" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-20"/>
+		<element holyPercent="20"/>
+		<element physicalPercent="30"/>
+		<element energyPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Uuuuuuuuuaaaaaarg!!!"/>
+		<voice sentence="Nobody will ever escape from this place, muwahaha!!!"/>
+	</voices>
+	<loot>
+ 		<item name="platinum coin" countmin="1" countmax="12" chance="100000"/>
+		<item name="meat" countmin="1" countmax="3" chance="49280"/>
+		<item name="ham" chance="14460"/>
+		<item name="essence of a bad dream" countmin="1" countmax="5" chance="12620"/>
+		<item name="halberd" chance="12520"/>
+		<item name="terra boots" chance="8400"/>
+		<item name="ultimate health potion" chance="8300"/>
+		<item name="terra hood" chance="6810"/>
+		<item name="great spirit potion" countmin="1" countmax="3" chance="6760"/>
+		<item name="knight axe" chance="6410"/>
+		<item name="mino shield" chance="5220"/>
+		<item name="dark shield" chance="4320"/>
+		<item name="wand of cosmic energy" chance="4170"/>
+		<item name="beastslayer axe" chance="3580"/>
+		<item name="black shield" chance="3030"/>
+		<item name="warrior's shield" chance="2930"/>
+		<item name="sickle" chance="2880"/>
+		<item name="obsidian lance" chance="2530"/>
+		<item name="titan axe" chance="1990"/>
+		<item name="warrior's axe" chance="1840"/>
+		<item name="bloody pincers" chance="1790"/>
+		<item name="wand of defiance" chance="1440"/>
+	</loot>
+</monster>

@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="15"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="15"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-15"/>
@@ -60,6 +60,6 @@
 		<item name="broken shamanic staff" chance="10300"/>
 		<item name="shamanic hood" chance="6860"/>
 		<item name="orc leather" chance="4300"/>
-		<item id="26654" chance="1000"/> <!-- heavy old tome -->
+		<item id="26654" chance="1000"/><!-- heavy old tome -->
 	</loot>
 </monster>

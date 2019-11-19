@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="True Frost Flower Asura" nameDescription="a true frost flower asura" race="blood" experience="8700" speed="150">
+	<health now="4000" max="4000"/>
+	<look type="1068" head="105" body="0" legs="105" feet="8" corpse="28667"/>
+<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-70"/>
+		<attack name="lifedrain" interval="1000" chance="10" length="8" spread="0" min="100" max="400">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="100" max="300">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="72" defense="72">
+		<defense name="healing" interval="2000" chance="15" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-10"/>
+		<element energyPercent="-10"/>
+		<element earthPercent="-10"/>
+		<element deathPercent="20"/>
+		<element holyPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity ice="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="7" chance="100000"/>
+		<item name="golden lotus brooch" chance="25240"/>
+		<item name="great health potion" countmax="2" chance="24270"/>
+		<item name="concentrated demonic blood" chance="22330"/>
+		<item name="peacock feather fan" chance="20390"/>
+		<item name="small emerald" countmax="5" chance="18450"/>
+		<item name="soul orb" chance="17480"/>
+		<item name="demonic essence" countmax="3" chance="16500"/>
+		<item name="small sapphire" countmax="3" chance="13590"/>
+		<item name="small enchanted sapphire" countmax="3" chance="12620"/>
+		<item name="crystal coin" chance="12620"/>
+		<item name="small diamond" countmax="3" chance="12620"/>
+		<item name="small ruby" countmax="2" chance="10680"/>
+		<item name="assassin star" countmax="4" chance="9710"/>
+		<item name="silver brooch" chance="8740"/>
+		<item name="small topaz" countmax="2" chance="6800"/>
+		<item name="white pearl" countmax="2" chance="5830"/>
+		<item name="yellow gem" chance="3880"/>
+		<item name="blue gem" chance="3880"/>
+		<item name="black pearl" chance="3880"/>
+		<item name="silver amulet" chance="2910"/>
+		<item id="3007" chance="2910"/><!-- crystal ring -->
+		<item name="royal star" countmax="3" chance="2910"/>
+		<item name="gold ingot" chance="1940"/>
+		<item name="tribal mask" chance="1940"/>
+		<item name="blue robe" chance="970"/>
+		<item name="spellbook of mind control" chance="970"/>
+		<item name="northwind rod" chance="970"/>
+		<item name="assassin dagger" chance="970"/>
+		<item name="oriental shoes" countmax="2" chance="970"/>
+		<item name="hailstorm rod" chance="500"/>
+		<item name="skullcracker armor" chance="200"/>
+	</loot>
+</monster>

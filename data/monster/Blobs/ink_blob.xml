@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ink Blob" nameDescription="an ink blob" race="undead" experience="17000" speed="190">
+	<health now="9500" max="9500"/>
+	<look type="1064" corpse="28602"/>
+<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="85"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="45" attack="40" poison="280"/>
+		<attack name="poisoncondition" interval="2000" chance="13" radius="4" target="0" min="-200" max="-580">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="11" radius="3" target="1" min="-85" max="-280">
+			<attribute key="areaEffect" value="greenbubble"/>
+			<attribute key="shootEffect" value="envenomedarrow"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="10" range="7" target="1" min="-60" max="-205">
+			<attribute key="areaEffect" value="poison"/>
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="70">
+		<defense name="healing" interval="2000" chance="5" min="20" max="30">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-8"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="small diamond" countmax="4" chance="65000"/>
+		<item name="platinum coin" countmax="21" chance="60000"/>
+		<item name="small topaz" countmax="4" chance="50000"/>
+		<item name="poisonous slime" countmax="9" chance="45000"/>
+		<item name="envenomed arrow" countmax="10" chance="40000"/>
+		<item id="28568" countmax="4" chance="35000"/><!-- inkwell (black) -->
+		<item id="282" countmax="4" chance="15000"/><!-- giant shimmering pearl (brown) -->
+		<item name="terra boots" chance="13500"/>
+		<item name="terra hood" chance="13000"/>
+		<item name="blue gem" chance="12500"/>
+		<item name="terra mantle" chance="3000"/>
+		<item name="terra legs" chance="2500"/>
+		<item name="stone skin amulet" subtype="5" chance="2000"/>
+		<item name="protection amulet" chance="1800"/>
+		<item name="springsprout rod" chance="1500"/>
+		<item name="sacred tree amulet" chance="1200"/>
+		<item name="terra amulet" chance="900"/>
+		<item name="clay lump" chance="300"/>
+	</loot>
+</monster>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Wereboar" nameDescription="a wereboar" race="blood" experience="2000" speed="150">
+	<health now="2200" max="2200"/>
+	<look type="721" corpse="22066"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="275"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-385"/>
+		<attack name="speed" interval="4000" chance="20" radius="7" target="1" speedchange="-100">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" countmax="5" range="7" target="1" min="-21" max="-150">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15" length="8" spread="3" min="-10" max="-100">
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+	</attacks><!-- missing or need revision spells -->
+	<defenses armor="32" defense="0">
+		<defense name="healing" interval="2000" chance="25" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="2000" chance="20" duration="2000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-5"/>
+		<element firePercent="-5"/>
+		<element icePercent="5"/>
+		<element energyPercent="15"/>
+		<element deathPercent="50"/>
+		<element earthPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="GRUNT"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="3" chance="100000"/>
+		<item name="gold coin" countmin="1" countmax="75" chance="79700"/>
+ 		<item name="wereboar hooves" chance="15390"/>
+		<item name="wereboar tusks" chance="15300"/>
+		<item name="brown mushroom" countmin="1" countmax="2" chance="6480"/>
+ 		<item name="strong health potion" chance="5480"/>
+		<item name="ultimate health potion" chance="1870"/>
+		<item name="moonlight crystals" chance="1540"/>
+		<item name="wereboar loincloth" chance="1540"/>
+		<item name="stone skin amulet" subtype="5" chance="1450"/>
+		<item name="small enchanted ruby" chance="1300"/>
+		<item name="berserk potion" chance="930"/>
+		<item name="werewolf amulet" chance="630"/>
+		<item name="furry club" chance="630"/>
+		<item name="fur armor" chance="510"/>
+		<item id="22102" chance="180"/><!-- wereboar trophy -->
+		<item name="dreaded cleaver" chance="60"/>
+	</loot>
+</monster>

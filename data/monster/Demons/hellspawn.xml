@@ -2,7 +2,7 @@
 <monster name="Hellspawn" nameDescription="a hellspawn" experience="2550" speed="172" race="fire">
 	<health now="3500" max="3500"/>
 	<targetchange interval="4000" chance="15"/>
-	<look type="322" corpse="9923"/>
+	<look type="322" corpse="9009"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-352"/>
@@ -68,9 +68,9 @@
 		<item name="spiked squelcher" chance="970"/>
 		<item name="great health potion" chance="40333"/>
 		<item name="ultimate health potion" chance="9090"/>
-		<item id="9809" chance="3125"/><!-- rusty armor -->
-		<item id="9810" chance="3125"/><!-- rusty armor -->
-		<item id="9948" chance="140"/><!-- dracoyle statue -->
+		<item name="rusted armor" chance="3125"/>
+		<item name="slightly rusted armor" chance="3125"/>
+		<item id="9034" chance="140"/><!-- dracoyle statue -->
 		<item name="black skull" chance="151"/>
 		<item name="small topaz" countmax="3" chance="5882"/>
 		<item name="hellspawn tail" chance="20000"/>

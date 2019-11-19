@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Weeper" nameDescription="a weeper" race="fire" experience="4800" speed="170">
 	<health now="6800" max="6800"/>
-	<look type="489" corpse="17252"/>
+	<look type="489" corpse="15906"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,12 +10,12 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="570"/>
-		<flag canwalkonenergy="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="70"/>
+		<flag runOnHealth="570"/>
+		<flag canWalkOnEnergy="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-450"/>
@@ -51,25 +51,24 @@
 		<voice sentence="Moooaaan"/>
 	</voices>
 	<loot>
-		<item name="small ruby" countmax="3" chance="15690"/>
-		<item name="gold coin" countmax="100" chance="50000"/>
-		<item name="gold coin" countmax="99" chance="50000"/>
-		<item id="2152" countmax="7" chance="100000"/> <!-- platinum coin -->
-		<item name="fire sword" chance="3280"/>
-		<item name="fire axe" chance="2150"/>
-		<item name="great mana potion" countmax="2" chance="14800"/>
-		<item name="magma legs" chance="790"/>
-		<item name="magma coat" chance="790"/>
-		<item name="ultimate health potion" countmax="2" chance="15440"/>
-		<item name="fiery heart" chance="13570"/>
-		<item id="13757" chance="1320"/><!-- coal -->
-		<item name="wand of everblazing" chance="1480"/>
-		<item name="violet crystal shard" chance="5430"/>
-		<item name="brown crystal splinter" countmax="2" chance="12100"/>
-		<item name="red crystal fragment" chance="8880"/>
-		<item name="magma clump" chance="13240"/>
-		<item name="blazing bone" chance="14890"/>
-		<item name="eye of a weeper" chance="15870"/>
-		<item name="prismatic bolt" countmax="5" chance="10900"/>
+		<item name="gold coin" countmax="199" chance="100000"/>
+		<item name="platinum coin" countmax="7" chance="100000"/>
+		<item name="eye of a weeper" chance="15430"/>
+		<item name="small ruby" countmax="3" chance="15170"/>
+		<item name="ultimate health potion" countmax="2" chance="15170"/>
+		<item name="blazing bone" chance="15080"/>
+		<item name="great mana potion" countmax="2" chance="14720"/>
+		<item name="fiery heart" chance="13220"/>
+		<item name="magma clump" chance="12800"/>
+		<item name="brown crystal splinter" countmax="2" chance="11940"/>
+		<item name="prismatic bolt" countmax="5" chance="11130"/>
+		<item name="red crystal fragment" chance="8890"/>
+		<item name="violet crystal shard" chance="5570"/>
+		<item name="fire sword" chance="3310"/>
+		<item name="fire axe" chance="2300"/>
+		<item name="wand of everblazing" chance="1460"/>
+		<item id="12600" chance="1250"/><!-- coal -->
+		<item name="magma legs" chance="800"/>
+		<item name="magma coat" chance="750"/>
 	</loot>
 </monster>

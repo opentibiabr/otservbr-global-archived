@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Gloom Wolf" nameDescription="a gloom wolf" race="blood" experience="70" speed="125">
 	<health now="200" max="200"/>
-	<look type="716" corpse="24639"/>
+	<look type="716" corpse="21983"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,30 +10,41 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="8"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="8"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-92"/>
+		<attack name="drunk" interval="2000" chance="11" duration="5000">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
 	</attacks>
-	<defenses armor="5" defense="5"/>
+	<defenses armor="10" defense="10">
+	<defense name="speed" interval="2000" chance="10" speedchange="145" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>	
 	<elements>
-		<element earthPercent="35"/>
-		<element holyPercent="5"/>
+		<element holyPercent="-5"/>
+		<element firePercent="-5"/>
 		<element icePercent="-5"/>
-		<element deathPercent="35"/>
+		<element deathPercent="10"/>
+		<element earthPercent="20"/>
 	</elements>
 	<loot>
-	    <item name="ham" chance="20120"/>
-		<item name="wolf tooth chain" chance="2000"/>
-	    <item name="gold coin" countmax="48" chance="65000"/>
-		<item name="meat" countmax="2" chance="55000"/>
-		<item name="wolf paw" chance="980"/>
+		<item name="gold coin" countmax="15" chance="67310"/>
+		<item name="ham" chance="40650"/>
+		<item name="meat" chance="38280"/>
+		<item name="gloom wolf fur" chance="9890"/>
+		<item name="wolf tooth chain" chance="8390"/>
+		<item name="wolf paw" chance="3440"/>
 	</loot>
 </monster>

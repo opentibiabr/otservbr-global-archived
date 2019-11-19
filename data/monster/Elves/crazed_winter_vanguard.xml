@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crazed Winter Vanguard" nameDescription="a crazed winter vanguard" race="blood" experience="5400" speed="190">
+	<health now="5800" max="5800"/>
+	<look type="1136" body="123" legs="28" feet="20" addons="1" corpse="30122"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400"/>
+		<attack name="ice" interval="2000" chance="50" target="1" radius="5" min="-200" max="-300">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="50" length="4" spread="0" min="-240" max="-300">
+			<attribute key="areaEffect" value="giantice"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="70" range="7" min="-250" max="-300">
+			<attribute key="shootEffect" value="ice"/>
+		</attack>
+	</attacks>
+	<defenses armor="77" defense="77"/>
+		<defense name="healing" interval="2000" chance="14" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	<elements>
+		<element firePercent="-30"/>
+		<element energyPercent="-20"/>
+		<element earthPercent="-15"/>
+		<element deathPercent="15"/>
+		<element icePercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="13" chance="100000"/>
+		<item id="30058" chance="15700"/><!-- ice flower -->
+		<item name="small enchanted ruby" chance="15310"/>
+		<item name="miraculum" chance="12450"/>
+		<item name="ultimate health potion" chance="10450"/>
+		<item name="dream essence egg" chance="9010"/>
+		<item name="tiger eye" chance="8260"/>
+		<item name="ice rapier" chance="7400"/>
+		<item name="northwind rod" chance="6300"/>
+		<item name="glacier amulet" chance="5910"/>
+		<item name="glacier robe" chance="2780"/>
+		<item name="elven amulet" chance="1100"/>
+		<item name="blue gem" chance="350"/>
+	</loot>
+</monster>

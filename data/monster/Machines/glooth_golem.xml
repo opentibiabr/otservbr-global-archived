@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Golem" nameDescription="a glooth golem" race="venom" experience="2200" speed="130">
+	<health now="2700" max="2700"/>
+	<look type="600" corpse="20972"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+	<flag isBlockable="0"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="60" attack="50"/>
+		<attack name="melee" interval="2000" chance="2" skill="86" attack="100"/><!-- BLOOD RAGE -->
+		<attack name="energy" interval="2000" chance="25" range="7" min="-125" max="-245">
+			<attribute key="shootEffect" value="energy"/>
+ 	</attack>
+		<attack name="war golem skill reducer" interval="2000" chance="16"/>
+		<attack name="war golem electrify" interval="2000" chance="9" range="7"/>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="speed" interval="2000" chance="13" speedchange="404" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="20" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="15"/>
+		<element firePercent="10"/>
+		<element energyPercent="5"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="*slosh*"/>
+		<voice sentence="*clank*"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="2" countmax="200" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="4" chance="60190"/>
+		<item name="glooth injection tube" chance="15110"/>
+		<item name="great mana potion" chance="11960"/>
+		<item name="glooth sandwich" chance="10030"/>
+		<item name="small emerald" countmin="1" countmax="4" chance="8070"/>
+		<item name="small topaz" countmin="1" countmax="4" chance="8010"/>
+		<item name="ultimate health potion" chance="5000"/>
+		<item name="bronze gear wheel" chance="2990"/>
+		<item name="iron ore" chance="1990"/>
+		<item name="glooth spear" chance="1560"/>
+		<item name="glooth amulet" chance="1530"/>
+		<item name="glooth axe" chance="1520"/>
+		<item name="heat core" chance="1520"/>
+		<item name="gear wheel" chance="1500"/>
+		<item name="glooth blade" chance="1480"/>
+		<item name="gearwheel chain" chance="990"/>
+		<item name="rubber cap" chance="980"/>
+		<item name="glooth club" chance="940"/>
+		<item name="yellow gem" chance="840"/>
+		<item name="green gem" chance="100"/>
+	</loot>
+</monster>

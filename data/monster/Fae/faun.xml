@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Faun" nameDescription="a faun" race="blood" experience="800" speed="105" manacost="450">
+	<health now="900" max="900"/>
+	<look type="980" head="81" body="115" legs="114" feet="81" corpse="25815"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag respawnType="day"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="60"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="earth" interval="2000" chance="15" range="7" target="1" min="-60" max="-80">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="5000">
+			<attribute key="areaEffect" value="purplenote"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="30" range="7" min="0" max="-100">
+			<attribute key="shootEffect" value="leafstar"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45">
+		<defense name="healing" interval="2000" chance="15" min="75" max="90">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="haste" interval="2000" chance="9" speedchange="200" duration="3000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-15"/>
+		<element energyPercent="-10"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="20"/>
+		<element holyPercent="30"/>
+		<element earthPercent="70"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Are you posing a threat to this realm? I suppose so."/>
+		<voice sentence="In vino veritas! Hahaha!"/>
+		<voice sentence="Wine, women and song!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="136" chance="100000"/>
+		<item name="dandelion seeds" chance="15740"/>
+		<item name="strong health potion" countmax="2" chance="11760"/>
+		<item name="shimmering beetles" chance="9590"/>
+		<item name="fresh fruit" countmax="3" chance="8690"/>
+		<item name="leaf star" countmax="7" chance="8150"/>
+		<item name="goat grass" chance="7"/>
+		<item name="cookie" countmax="5" chance="5720"/>
+		<item name="rainbow quartz" countmax="3" chance="5640"/>
+		<item name="grapes" countmax="2" chance="5640"/>
+		<item name="panpipes" chance="5530"/>
+		<item name="small stone" countmax="5" chance="5450"/>
+		<item name="great health potion" countmax="2" chance="3690"/>
+		<item name="small enchanted sapphire" countmax="2" chance="2540"/>
+		<item name="wood cape" chance="2350"/>
+		<item name="leaf legs" chance="670"/>
+		<item name="wooden spellbook" chance="450"/>
+		<item id="5792" chance="110"/><!-- die -->
+		<item name="mandrake" chance="30"/>
+	</loot>
+</monster>

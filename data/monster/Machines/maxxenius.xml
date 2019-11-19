@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Maxxenius" nameDescription="Maxxenius" race="blood" experience="55000" speed="250" script="reward_boss.lua">
+	<health now="20000" max="20000"/>
+	<look type="1142" corpse="30151"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1000"/>
+		<attack name="energy beam" chance="10" min="-500" max="-1200">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="energy wave" chance="10" min="-500" max="-1200">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+	</attacks>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity energy="1"/>
+	</immunities>
+	<loot>
+		<item name="silver token" countmin="2" countmax="3" chance="100000"/>
+		<item name="platinum coin" countmin="5" countmax="5" chance="100000"/>
+		<item name="mysterious remains" chance="100000"/>
+		<item name="energy bar" chance="100000"/>
+		<item name="piggy bank" chance="100000"/>
+		<item name="gold token" countmin="2" countmax="2" chance="69440"/>
+		<item name="ultimate mana potion" countmin="6" countmax="14" chance="63890"/>
+		<item name="ultimate spirit potion" countmin="6" countmax="60" chance="52780"/>
+		<item name="royal star" countmin="100" countmax="100" chance="50000"/>
+		<item name="supreme health potion" countmin="14" countmax="20" chance="41670"/>
+		<item name="yellow gem" chance="33330"/>
+		<item name="green gem" chance="27780"/>
+		<item name="pomegranate" chance="25000"/>
+		<item id="281" chance="22220"/><!-- giant shimmering pearl (green) -->
+		<item id="282" chance="22220"/><!-- giant shimmering pearl (brown) -->
+		<item name="gold ingot" chance="19440"/>
+		<item name="bullseye potion" countmin="10" countmax="10" chance="19440"/>
+		<item id="26199" chance="16670"/><!-- collar of green plasma-->
+		<item name="huge chunk of crude iron" chance="16670"/>
+		<item name="mastermind potion" countmin="10" countmax="10" chance="17240"/>
+		<item id="26184" chance="13890"/><!-- collar of red plasma-->
+		<item name="skull staff" chance="11110"/>
+		<item name="crystal coin" countmin="1" countmax="3" chance="11110"/>
+		<item name="chaos mace" chance="11110"/>
+		<item name="blue gem" chance="8330"/>
+		<item name="violet gem" chance="5560"/>
+		<item id="26185" chance="5560"/><!-- ring of blue plasma-->
+		<item name="ornate locket" chance="2780"/>
+		<item name="giant ruby" chance="2780"/>
+		<item name="energized limb" chance="2780"/>
+		<!-- unconfirmed chances -->
+		<item name="brain in a jar" chance="1000"/>
+		<item name="maxxenius head" chance="800"/>
+		<item name="purple tendril lantern" chance="800"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Blood Hand" nameDescription="a blood hand" race="blood" experience="750" speed="96">
 	<health now="700" max="700"/>
-	<look type="552" corpse="21257"/>
+	<look type="552" corpse="18944"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-158" poison="80"/>
@@ -57,21 +57,21 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="130" chance="100000"/>
-		<item name="necrotic rod" chance="3000"/>
-		<item name="boots of haste" chance="210"/>
-		<item name="skull staff" chance="130"/>
-		<item name="mystic turban" chance="790"/>
-		<item name="white piece of cloth" chance="840"/>
-		<item name="red piece of cloth" chance="500"/>
-		<item name="noble axe" chance="10"/>
-		<item name="strong mana potion" chance="5590"/>
-		<item name="spellbook of enlightenment" chance="790"/>
-		<item name="book of necromantic rituals" chance="9340"/>
-		<item name="red gem" chance="710"/>
-		<item name="lancet" chance="10680"/>
-		<item name="horoscope" chance="7950"/>
-		<item name="blood tincture in a vial" chance="15460"/>
-		<item name="incantation notes" chance="8820"/>
-		<item name="pieces of magic chalk" chance="6120"/>
+		<item name="blood tincture in a vial" chance="15550"/>
+		<item name="lancet" chance="10200"/>
+		<item name="book of necromantic rituals" chance="9790"/>
+		<item name="incantation notes" chance="9480"/>
+		<item name="horoscope" chance="8090"/>
+		<item name="pieces of magic chalk" chance="6370"/>
+		<item name="strong mana potion" chance="5910"/>
+		<item name="necrotic rod" chance="3110"/>
+		<item name="mystic turban" chance="1160"/>
+		<item name="spellbook of enlightenment" chance="1000"/>
+		<item name="white piece of cloth" chance="850"/>
+		<item name="red piece of cloth" chance="660"/>
+		<item name="red gem" chance="540"/>
+		<item name="boots of haste" chance="120"/>
+		<item name="skull staff" chance="60"/>
+		<item name="noble axe" chance="20"/>
 	</loot>
 </monster>

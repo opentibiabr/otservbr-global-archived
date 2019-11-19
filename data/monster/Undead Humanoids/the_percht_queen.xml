@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Percht Queen" nameDescription="The Percht Queen" race="undead" experience="500" speed="0">
+	<health now="2300" max="2300"/>
+	<look typeex="30341" corpse="30272"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="ice" interval="1000" chance="15" range="7" min="-100" max="-200">
+			<attribute key="shootEffect" value="ice"/>
+		</attack>
+	</attacks>
+	<defenses armor="79" defense="40"/>
+	<elements>
+		<element firePercent="70"/>
+		<element holyPercent="80"/>
+		<element energyPercent="80"/>
+		<element earthPercent="80"/>
+		<element physicalPercent="90"/>
+		<element deathPercent="90"/>
+		<element icePercent="200"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmin="5" countmax="5" chance="100000"/>
+		<item name="energy bar" chance="100000"/>
+		<item name="piggy bank" chance="100000"/>
+		<item name="mysterious remains" chance="100000"/>
+		<item name="ultimate mana potion" countmin="6" countmax="20" chance="65220"/>
+		<item name="supreme health potion" countmin="6" countmax="20" chance="65220"/>
+		<item name="ultimate spirit potion" countmin="6" countmax="20" chance="56520"/>
+		<item name="skull staff" chance="34780"/>
+		<item name="red gem" chance="34780"/>
+		<item name="mastermind potion" countmin="10" countmax="10" chance="30430"/>
+		<item name="crystal coin" countmin="2" countmax="2" chance="30430"/>
+		<item name="percht skull" chance="26090"/>
+		<item name="huge chunk of crude iron" chance="21740"/>
+		<item name="royal star" countmin="100" countmax="100" chance="21740"/>
+		<item name="berserk potion" countmin="10" countmax="10" chance="21740"/>
+		<item name="yellow gem" chance="21740"/>
+		<item name="gold ingot" chance="17390"/>
+		<item name="icicle" chance="17390"/>
+		<item id="23542" chance="17390"/><!-- collar of blue plasma -->
+		<item id="23543" chance="13040"/><!-- collar of green plasma -->
+		<item name="ring of blue plasma" chance="13040"/>
+		<item name="flames of the percht queen" chance="13040"/>
+		<item name="chaos mace" chance="8700"/>
+		<item name="frozen claw" chance="8700"/>
+		<item name="soul stone" chance="8700"/>
+		<item name="green gem" chance="8700"/>
+		<item name="ice hatchet" chance="8700"/>
+		<item name="bullseye potion" countmin="10" countmax="10" chance="4350"/>
+		<item name="small ladybug" chance="4350"/>
+		<item name="magic sulphur" chance="4350"/>
+		<item name="ring of the sky" chance="4350"/>
+		<item name="fly agaric" chance="4350"/>
+		<item name="ring of green plasma" chance="3485"/>
+		<!-- unconfirmed chances -->
+		<item name="golden horseshoe" chance="3385"/>
+		<item name="golden cotton reel" chance="3285"/>
+		<item name="percht broom" chance="3185"/>
+		<item name="percht handkerchief" chance="3000"/>
+		<item name="percht queen's frozen heart" chance="2985"/>
+		<item id="281" chance="2885"/><!-- giant shimmering pearl (green) -->
+		<item name="gold token" countmin="1" countmax="5" chance="2785"/>
+		<item name="silver token" countmin="1" countmax="5" chance="2685"/>
+		<item name="30276" chance="2585"/><!-- the crown of the percht queen (ice) -->
+		<item name="lucky pig" chance="2485"/>
+		<item name="30275" chance="2385"/><!-- the crown of the percht queen (fire) -->
+		<item name="frozen chain" chance="2085"/>
+		<item name="abyss hammer" chance="1480"/>
+		<item id="282" chance="1285"/><!-- giant shimmering pearl (brown) -->
+		<item name="horseshoe" chance="1250"/>
+		<item name="golden bell" chance="1148"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

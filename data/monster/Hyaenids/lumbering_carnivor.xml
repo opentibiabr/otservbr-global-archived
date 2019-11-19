@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lumbering Carnivor" nameDescription="a lumbering carnivor" race="blood" experience="2200" speed="200">
+	<health now="2600" max="2600"/>
+	<look type="1139" head="79" body="119" legs="57" feet="85" addons="1" corpse="30065"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-280"/>
+		<attack name="lifedrain" interval="2000" chance="50" length="4" spread="0" min="-150" max="-230">
+			<attribute key="areaEffect" value="smoke"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="50" target="1" radius="3" min="-120" max="-230">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+		<defenses armor="65" defense="65"/>
+	<elements>
+		<element firePercent="-40"/>
+		<element physicalPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="blue glass plate" countmax="3" chance="33370"/>
+		<item name="axe" chance="22280"/>
+		<item name="ice rapier" chance="11380"/>
+		<item id="3264" chance="8190"/><!--sword-->
+		<item id="282" chance="2944"/><!--giant shimmering pearlz-->
+		<item name="green gem" chance="2830"/>
+		<item name="glorious axe" chance="2500"/>
+		<item name="green crystal shard" chance="2250"/>
+		<item name="two handed sword" chance="1930"/>
+		<item name="violet gem" chance="1810"/>
+		<item name="blue gem" chance="1320"/>
+		<item name="fur armor" chance="1260"/>
+		<item name="blue robe" chance="1030"/>
+		<item name="focus cape" chance="230"/>
+	</loot>
+</monster>

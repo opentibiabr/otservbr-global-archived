@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Silencer" nameDescription="a silencer" race="blood" experience="5100" speed="235">
 	<health now="5400" max="5400"/>
-	<look type="585" corpse="22489"/>
+	<look type="585" corpse="20155"/>
 	<targetchange interval="4000" chance="5"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-315" poison="600"/>
@@ -56,19 +56,19 @@
 	<loot>
 		<item name="gold coin" countmax="100" chance="100000"/>
 		<item name="platinum coin" countmax="8" chance="100000"/>
-		<item name="stealth ring" chance="1200"/>
-		<item name="boots of haste" chance="360"/>
-		<item name="dark shield" chance="2000"/>
-		<item name="assassin star" countmax="10" chance="7600"/>
-		<item name="diamond sceptre" chance="960"/>
-		<item name="haunted blade" chance="2000"/>
-		<item name="titan axe" chance="2200"/>
-		<item name="shadow sceptre" chance="640"/>
-		<item name="glorious axe" chance="2400"/>
-		<item name="terra legs" chance="960"/>
-		<item name="terra boots" chance="480"/>
-		<item name="cluster of solace" chance="560"/>
-		<item name="silencer claws" chance="17000"/>
-		<item name="silencer resonating chamber" chance="8410"/>
+		<item name="silencer claws" chance="16260"/>
+		<item name="silencer resonating chamber" chance="9020"/>
+		<item name="assassin star" countmax="10" chance="7420"/>
+		<item name="glorious axe" chance="2600"/>
+		<item name="titan axe" chance="1860"/>
+		<item name="haunted blade" chance="1860"/>
+		<item name="dark shield" chance="1600"/>
+		<item name="stealth ring" chance="1470"/>
+		<item name="diamond sceptre" chance="1030"/>
+		<item name="terra boots" chance="960"/>
+		<item name="terra legs" chance="890"/>
+		<item name="shadow sceptre" chance="790"/>
+		<item name="cluster of solace" chance="500"/>
+		<item name="boots of haste" chance="480"/>
 	</loot>
 </monster>

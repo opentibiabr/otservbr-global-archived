@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Energy Elemental" nameDescription="an energy elemental" race="energy" experience="550" speed="115">
 	<health now="500" max="500"/>
-	<look type="293" corpse="8966"/>
+	<look type="293" corpse="8138"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,13 +10,13 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag staticattack="85"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="0"/>
+		<flag staticAttack="85"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-175"/>
@@ -50,7 +50,7 @@
 		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
-		<item id="2124" chance="2000"/><!-- crystal ring -->
+		<item id="3007" chance="2000"/><!-- crystal ring -->
 		<item name="gold coin" countmax="100" chance="50000"/>
 		<item name="gold coin" countmax="70" chance="50000"/>
 		<item name="small amethyst" countmax="2" chance="5000"/>
@@ -63,6 +63,6 @@
 		<item name="crystal sword" chance="5882"/>
 		<item name="strong mana potion" chance="7692"/>
 		<item name="mana potion" chance="11711"/>
-		<item id="7838" countmax="10" chance="10000"/><!-- flash arrow -->
+		<item name="flash arrow" countmax="10" chance="10000"/>
 	</loot>
 </monster>

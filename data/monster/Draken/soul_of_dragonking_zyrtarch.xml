@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Soul of Dragonking Zyrtarch" nameDescription="soul of dragonking zyrtarch" race="fire" experience="70780" speed="500" script="reward_boss.lua">
+	<health now="60000" max="60000"/>
+	<look type="938" corpse="25065"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="90"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-600" max="-900"/>
+		<attack name="fire" interval="2000" chance="20" range="7" target="1" radius="4" min="-400" max="-600">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" radius="8" min="-110" max="-495">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" length="9" spread="4" min="-710" max="-895">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="52" defense="52">
+		<defense name="healing" interval="2000" chance="15" min="450" max="550">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity fire="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="0"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="What have you done?!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="200" chance="100000"/>
+		<item name="magic sulphur" chance="100000"/>
+		<item name="red dragon scale" chance="100000"/>
+		<item name="red dragon leather" chance="100000"/>
+		<item name="platinum coin" countmax="25" chance="100000"/>
+		<item name="violet crystal shard " countmax="3" chance="80000"/>
+		<item name="red gem" chance="80000"/>
+		<item name="piece of draconian steel" chance="60000"/>
+		<item name="blue crystal shard" countmax="3" chance="60000"/>
+		<item name="great mana potion" countmax="10" chance="60000"/>
+		<item name="great spirit potion" countmax="10" chance="60000"/>
+		<item name="ultimate heath potion" countmax="10" chance="40000"/>
+		<item name="broken key ring" chance="40000"/>
+		<item name="green crystal shard" countmax="3" chance="40000"/>
+		<item name="small amethyst" countmax="10" chance="40000"/>
+		<item name="small topaz" countmax="10" chance="40000"/>
+		<item name="gold token" chance="40000"/>
+		<item name="small ruby" countmax="10" chance="20000"/>
+		<item name="crystal of power" chance="20000"/>
+		<item name="yellow gem" chance="20000"/>
+		<item name="modified crossbow" chance="20000"/>
+		<item name="spellbook of mind control" chance="20000"/>
+		<!-- unconfirmed chances -->
+		<item name="draken boots" chance="11545"/>
+		<item name="drakinata" chance="11545"/>
+		<item id="282" chance="11545"/><!-- giant shimmering pearl -->
+		<item name="gold ingot" chance="11545"/>
+		<item name="talon" chance="11545"/>
+		<item name="green gem" chance="11545"/>
+		<item id="24955" chance="11545"/><!-- part of a rune (two) -->
+		<item name="small diamond" countmax="10" chance="11545"/>
+		<item name="small emerald" countmax="10" chance="11545"/>
+		<item name="piece of royal steel" chance="11545"/>
+		<item name="dragon crown" chance="11545"/>
+		<item name="dragon tongue" chance="11545"/>
+		<item name="drachaku shield" chance="11545"/>
+		<item name="silver token" chance="11545"/>
+		<item name="blue gem" chance="11545"/>
+		<item name="dragonbone staff" chance="11545"/>
+		<item name="snake god's sceptre" chance="11545"/>
+		<item name="shield of corruption" chance="1050"/>
+		<item name="dragon scale helmet" chance="890"/>
+		<item name="great shield" chance="640"/>
+		<!-- unconfirmed chances -->
+	</loot>
+</monster>

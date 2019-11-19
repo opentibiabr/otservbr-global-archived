@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Amazon" nameDescription="an amazon" race="blood" experience="60" speed="86" manacost="390">
 	<health now="110" max="110"/>
-	<look type="137" head="113" body="120" legs="95" feet="115" corpse="20323"/>
+	<look type="137" head="113" body="120" legs="95" feet="115" corpse="18042"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="1"/>
@@ -10,14 +10,15 @@
 		<flag illusionable="1"/>
 		<flag convinceable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-45"/>
@@ -36,15 +37,15 @@
 		<voice sentence="Your head will be mine!"/>
 	</voices>
 	<loot>
-		<item name="dagger" chance="80000"/>
-		<item id="2229" countmax="2" chance="80000"/><!-- skull -->
-		<item name="gold coin" countmax="20" chance="40000"/>
-		<item name="brown bread" chance="30000"/>
-		<item name="sabre" chance="23000"/>
-		<item name="girlish hair decoration" chance="10000"/>
-		<item name="protective charm" chance="5200"/>
-		<item id="2050" chance="1000"/><!-- torch -->
+		<item name="dagger" chance="80120"/>
+		<item id="3114" countmax="2" chance="79960"/><!-- skull -->
+		<item name="gold coin" countmax="20" chance="40150"/>
+		<item name="brown bread" chance="29510"/>
+		<item name="sabre" chance="23160"/>
+		<item name="girlish hair decoration" chance="9940"/>
+		<item name="protective charm" chance="5250"/>
+		<item id="2920" chance="1020"/><!-- torch -->
 		<item name="crystal necklace" chance="260"/>
-		<item name="small ruby" chance="130"/>
+		<item name="small ruby" chance="120"/>
 	</loot>
 </monster>

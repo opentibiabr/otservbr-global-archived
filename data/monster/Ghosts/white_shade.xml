@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="White Shade" nameDescription="a white shade" race="undead" experience="120" speed="80">
 	<health now="260" max="260"/>
-	<look type="560" corpse="21376"/>
+	<look type="560" corpse="19050"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="30"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="30"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-8"/>
@@ -49,6 +49,6 @@
 		<voice sentence="No... don't go further stranger... danger lies in every step..."/>
 	</voices>
 	<loot>
-		<item name="white piece of cloth" chance="3370"/>
+		<item name="white piece of cloth" chance="3270"/>
 	</loot>
 </monster>

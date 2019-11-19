@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ogre Savage" nameDescription="an ogre savage" race="blood" experience="950" speed="110">
+	<health now="1400" max="1400"/>
+	<look type="858" corpse="22147"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300" fire="6"/>
+		<attack name="fire" interval="2000" chance="15" range="7" min="0" max="-102">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="whirlwind throw" interval="4000" chance="60" min="0" max="-100"/>
+	</attacks>
+	<defenses armor="32" defense="32">
+	</defenses>
+	<elements>
+		<element energyPercent="-15"/>
+		<element deathPercent="10"/>
+		<element physicalPercent="20"/>
+		<element firePercent="20"/>
+		<element icePercent="20"/>
+		<element holyPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="3000" chance="50">
+		<voice sentence="Must! Chop! Food! Raahh!"/>
+		<voice sentence="You tasty!"/>
+		<voice sentence="UGGA UGGA!!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="134" chance="98930"/>
+		<item name="ogre ear stud" chance="19580"/>
+		<item name="ogre nose ring" chance="17350"/>
+		<item name="strong health potion" chance="14970"/>
+		<item name="skull fetish" chance="8880"/>
+		<item name="cookie" countmax="5" chance="8830"/>
+		<item name="mysterious fetish" chance="6140"/>
+		<item name="jalapeno pepper" countmax="2" chance="4210"/>
+		<item name="onyx chip" countmax="2" chance="3040"/>
+		<item name="small ruby" countmax="3" chance="2890"/>
+		<item name="small topaz" countmax="2" chance="2490"/>
+		<item name="opal" chance="2230"/>
+		<item name="war hammer" chance="1470"/>
+		<item name="ogre choppa" chance="1170"/>
+		<item name="shamanic mask" chance="360"/>
+		<item name="dreaded cleaver" chance="50"/>
+	</loot>
+</monster>

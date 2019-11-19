@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Shock Head" nameDescription="a shock head" race="blood" experience="2300" speed="136">
 	<health now="4200" max="4200"/>
-	<look type="579" corpse="22392"/>
+	<look type="579" corpse="20058"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,11 +10,11 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="80"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="80"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-798"/>
@@ -53,8 +53,8 @@
 		<voice sentence="Thun... Thun... THUNDER!"/>
 	</voices>
 	<loot>
-		<item name="small sapphire" chance="5000"/>
-		<item id="2148" countmax="200" chance="92000"/> <!-- gold coin -->
-		<item name="royal helmet" chance="270"/>
+		<item name="gold coin" countmax="194" chance="91980"/>
+		<item name="small sapphire" chance="5030"/>
+		<item name="royal helmet" chance="170"/>
 	</loot>
 </monster>

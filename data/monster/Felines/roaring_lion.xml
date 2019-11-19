@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Roaring Lion" nameDescription="a roaring lion" race="blood" experience="800" speed="105">
+	<health now="1000" max="1000"/>
+	<look type="570" corpse="21863"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-137"/>
+	</attacks>
+	<defenses armor="28" defense="28"/>
+	<elements>
+		<element holyPercent="50"/>
+		<element earthPercent="20"/>
+		<element firePercent="20"/>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Groarrrr! Rwarrrr!"/>
+		<voice sentence="Growl!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="115" chance="100000"/>
+		<item name="meat" chance="25570"/>
+		<item name="ham" chance="25050"/>
+		<item name="lion's mane" chance="20490"/>
+		<item name="platinum coin" chance="10090"/>
+		<item name="small ruby" chance="7180"/>
+		<item name="small sapphire" chance="6920"/>
+		<item name="small topaz" chance="6890"/>
+		<item name="small amethyst" chance="6640"/>
+		<item name="ankh" chance="2710"/>
+		<item name="might ring" chance="1204"/>
+		<item name="crown helmet" chance="490"/>
+	</loot>
+</monster>

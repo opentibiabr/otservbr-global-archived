@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Manta Ray" nameDescription="a manta ray" race="blood" experience="125" speed="84">
 	<health now="680" max="680"/>
-	<look type="449" corpse="15276"/>
+	<look type="449" corpse="13852"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,10 +10,10 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="0"/>
-		<flag runonhealth="0"/>
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-99" poison="120"/>
@@ -41,6 +41,6 @@
 		<voice sentence="Flap flap flap!"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="38" chance="50000"/>
+		<item name="gold coin" countmax="39" chance="64410"/>
 	</loot>
 </monster>

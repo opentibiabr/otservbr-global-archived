@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Renegade Knight" nameDescription="a renegade knight" race="blood" experience="1200" speed="135">
+	<health now="1450" max="1450"/>
+	<look type="268" head="97" body="132" legs="76" feet="98" addons="2" corpse="22015"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="yellow spark(exori)" interval="2000" chance="30" min="0" max="-125"/>
+		<attack name="melee" interval="2000" min="0" max="-245"/>
+	</attacks>
+	<defenses armor="38" defense="0">
+		<defense name="healing" interval="4000" chance="25" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-10"/>
+		<element physicalPercent="15"/>
+		<element firePercent="20"/>
+		<element earthPercent="20"/>
+		<element energyPercent="35"/>
+		<element holyPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="13">
+		<voice sentence="I'll teach you a lesson!"/>
+		<voice sentence="Take this!"/>
+		<voice sentence="Let's see how good you are!"/>
+		<voice sentence="Feel my steel!"/>
+		<voice sentence="A challenge at last!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="100" chance="99980"/>
+		<item name="platinum coin" countmin="1" countmax="2" chance="25770"/>
+		<item name="meat" chance="9280"/>
+		<item name="great health potion" chance="7220"/>
+		<item name="scroll of heroic deeds" chance="5880"/>
+		<item name="two handed sword" chance="5220"/>
+		<item name="small ruby" chance="3860"/>
+		<item name="red piece of cloth" chance="1920"/>
+		<item name="small notebook" chance="1510"/>
+		<item name="war hammer" chance="980"/>
+		<item name="crown legs" chance="690"/>
+		<item name="crown helmet" chance="600"/>
+		<item name="crown armor" chance="570"/>
+		<item name="fire sword" chance="480"/>
+		<item name="crown shield" chance="180"/>
+		<item name="piggy bank" chance="110"/>
+	</loot>
+</monster>

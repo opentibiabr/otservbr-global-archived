@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zarabustor" nameDescription="Zarabustor" race="blood" experience="8000" speed="220">
+	<health now="5100" max="5100"/>
+	<look type="130" head="0" body="77" legs="92" feet="115" addons="1" corpse="18273"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="900"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-130"/>
+		<attack name="fire" interval="2000" chance="20" range="7" radius="3" target="1" min="0" max="-250">
+			<attribute key="shootEffect" value="burstarrow"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="firefield" interval="2000" chance="10" range="7" radius="2" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="25" range="7" min="0" max="-250">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" length="8" spread="0" min="-130" max="-350">
+			<attribute key="areaEffect" value="bigclouds"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-250"/>
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-330" duration="20000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="warlock skill reducer" range="5" interval="2000" chance="5"/>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="20" min="100" max="225">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="2000" chance="20" duration="10000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="95"/>
+		<element holyPercent="-5"/>
+		<element physicalPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity energy="1"/>
+		<immunity ice="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="3">
+		<summon name="Warlock" interval="2000" chance="10" max="2"/>
+		<summon name="Green Djinn" interval="2000" chance="10" max="3"/>
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="Killing is such a splendid diversion from my studies."/>
+		<voice sentence="Time to test my newest spells!"/>
+		<voice sentence="Ah, practice time once again!"/>
+	</voices>
+	<loot>
+		<item id="gold coin" countmax="150" chance="80000"/>
+		<item id="poison dagger" chance="60000"/>
+		<!-- unconfirmed chances -->
+		<item id="small sapphire" countmax="2" chance="30000"/>
+		<item id="assassin star" countmax="3" chance="25000"/>
+		<item id="blue robe" chance="21250"/>
+		<item id="might ring" chance="19506"/>
+		<item id="skull staff" chance="17646"/>
+		<item id="golden armor" chance="16480"/>
+		<item id="lightning legs" chance="14564"/>
+		<item id="lightning robe" chance="13465"/>
+		<item id="spellbook of mind control" chance="10546"/>
+		<item id="ring of the sky" chance="5468"/>
+	</loot>
+</monster>

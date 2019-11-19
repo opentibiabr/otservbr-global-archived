@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Pooka" nameDescription="a pooka" race="blood" experience="500" speed="115" manacost="450">
+	<health now="500" max="500"/>
+	<look type="977" corpse="25823"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag respawnType="day"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="30"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-120"/>
+		<attack name="earth" interval="2000" chance="15" range="4" target="1" min="0" max="-100">
+			<attribute key="shootEffect" value="smallstone"/>
+			<attribute key="areaEffect" value="stones"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="11" length="4" spread="2" target="0" duration="5000">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+		<attack name="outfit" interval="2000" chance="10" range="7" monster="skunk" duration="5000">
+			<attribute key="areaeffect" value="blueshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="38" defense="38">
+		<defense name="healing" interval="2000" chance="25" min="40" max="60">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-10"/>
+		<element deathPercent="10"/>
+		<element firePercent="20"/>
+		<element icePercent="20"/>
+		<element holyPercent="20"/>
+		<element earthPercent="70"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hoppel-di-hopp!"/>
+		<voice sentence="Jinx!"/>
+		<voice sentence="This was the initial trick, but the second follows quick!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="131" chance="100000"/>
+		<item id="3595" countmax="3" chance="19390"/><!-- carrot -->
+		<item name="strong health potion" chance="12620"/>
+		<item name="shimmering beetles" chance="9880"/>
+		<item name="small stone" countmax="5" chance="5440"/>
+		<item name="rainbow quartz" countmax="2" chance="4820"/>
+		<item name="cookie" countmax="5" chance="3860"/>
+		<item name="small enchanted ruby" countmax="2" chance="3690"/>
+		<item name="opal" chance="3150"/>
+		<item name="orange mushroom" chance="2860"/>
+		<item name="fern" chance="2700"/>
+		<item name="stealth ring" chance="910"/>
+		<item name="dream blossom staff" chance="210"/>
+		<item name="carrot on a stick" chance="120"/>
+	</loot>
+</monster>

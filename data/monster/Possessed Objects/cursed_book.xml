@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cursed Book" nameDescription="a cursed book" race="undead" experience="15700" speed="220">
+	<health now="20000" max="20000"/>
+	<look type="1061" head="79" body="83" legs="113" feet="0" corpse="28590"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="2"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="physical" interval="1000" chance="15" range="7" min="-400" max="-680">
+			<attribute key="shootEffect" value="eartharrow"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="10" length="5" spread="0" min="-400" max="-575">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="physical" interval="1000" chance="12" range="7" radius="3" min="-230" max="-880">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+		<defenses armor="82" defense="82"/>
+	<elements>
+		<element energyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="book page" countmax="3" chance="65000"/>
+		<item name="platinum coin" countmax="10" chance="63000"/>
+		<item name="silken bookmark" countmax="3" chance="60000"/>
+		<item name="small diamond" countmax="7" chance="55000"/>
+		<item name="small stone" countmax="7" chance="50000"/>
+		<item name="small topaz" countmax="7" chance="45000"/>
+		<item name="protection amulet" chance="13000"/>
+		<item name="terra boots" chance="12000"/>
+		<item name="terra hood" chance="11000"/>
+		<item name="diamond sceptre" chance="10000"/>
+		<item name="terra mantle" chance="3000"/>
+		<item name="terra legs" chance="2500"/>
+		<item name="terra amulet" chance="2000"/>
+		<item name="stone skin amulet" subtype="5" chance="1700"/>
+		<item name="springsprout rod" chance="1500"/>
+		<item name="sacred tree amulet" chance="1300"/>
+		<item name="swamplair armor" chance="50"/>
+	</loot>
+</monster>

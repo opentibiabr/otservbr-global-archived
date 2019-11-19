@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Lucifuga Aranea" nameDescription="a lucifuga aranea" race="undead" experience="10000" speed="220">
+	<health now="12000" max="12000"/>
+	<look type="263" corpse="30141"/>
+	<targetchange interval="4000" chance="15"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag staticAttack="80"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250" poison="160"/>
+		<attack name="speed" interval="2000" chance="15" range="7" radius="6" target="0" speedchange="-800" duration="15000">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="15" range="7" target="1" min="-50" max="-100">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="20" range="7" target="1" speedchange="-600" duration="10000">
+			<attribute key="shootEffect" value="snowball"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="speed" interval="2000" chance="15" speedchange="250" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="poison gland" chance="100000"/>
+	</loot>
+</monster>

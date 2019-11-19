@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Slug" nameDescription="a slug" race="venom" experience="70" speed="52">
 	<health now="255" max="255"/>
-	<look type="407" corpse="13515"/>
+	<look type="407" corpse="12526"/>
 	<targetchange interval="5000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="1"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-44"/>
@@ -35,7 +35,7 @@
 		<voice sentence="Sluuurz"/>
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="40" chance="62000"/>
-		<item name="worm" countmax="3" chance="5000"/>
+		<item name="gold coin" countmax="40" chance="62880"/>
+		<item name="worm" countmax="3" chance="4690"/>
 	</loot>
 </monster>

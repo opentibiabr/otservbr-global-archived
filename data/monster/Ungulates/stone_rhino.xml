@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Stone Rhino" nameDescription="a Stone Rhino" race="blood" experience="1800" speed="145">
+	<health now="3000" max="3000"/>
+	<look type="936" corpse="25082"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="50"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400"/>
+		<attack name="drunk" interval="2000" chance="10" length="3" spread="2" duration="5000">
+			<attribute key="areaEffect" value="rednote"/>
+		</attack>
+	</attacks>
+	<defenses armor="72" defense="72">
+	<defense name="healing" interval="2000" chance="15" min="0" max="195">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10"/>
+		<element firePercent="10"/>
+		<element icePercent="10"/>
+		<element earthPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="SNIFF!"/>
+	</voices>
+	<loot>
+		<item name="raw meat" chance="18910"/>
+		<item id="24388" chance="10700"/><!-- rhino hide -->
+		<item name="hardened bone" chance="9990"/>
+		<item name="rhino horn" chance="5350"/>
+		<item name="tusk shield" chance="1780"/>
+	</loot>
+</monster>

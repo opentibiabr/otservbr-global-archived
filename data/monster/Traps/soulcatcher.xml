@@ -4,21 +4,21 @@
 	<look typeex="12009" corpse="0"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<flag preyable="0" />
+		<flag preyable="0"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="0"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag canPushItems="0"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="lifedrain" interval="2000" chance="25" radius="3" min="-300" max="-400">

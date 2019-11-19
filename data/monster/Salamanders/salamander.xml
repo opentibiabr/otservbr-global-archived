@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Salamander" nameDescription="a salamander" race="blood" experience="25" speed="60">
 	<health now="70" max="70"/>
-	<look type="529" corpse="19707"/>
+	<look type="529" corpse="17427"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="10"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
-		<flag canwalkonpoison="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="10"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-60" poison="10"/>
@@ -34,14 +34,14 @@
 		<voice sentence="Chrrch!"/>
 	</voices>
 	<loot>
-		<item id="2120" chance="5070"/><!-- Rope -->
-		<item name="gold coin" countmax="15" chance="72000"/>
-		<item name="mace" chance="3780"/>
-		<item id="2419" chance="490"/><!-- Scimitar -->
-		<item name="bow" chance="740"/>
-		<item name="brass helmet" chance="2180"/>
-		<item name="arrow" countmax="3" chance="7890"/>
-		<item name="health potion" chance="1480"/>
+		<item name="gold coin" countmax="15" chance="71940"/>
 		<item id="19737" countmax="5" chance="34920"/><!-- Insectoid Eggs -->
+		<item name="arrow" countmax="3" chance="7980"/>
+		<item id="3003" chance="5070"/><!-- Rope -->
+		<item name="mace" chance="3980"/>
+		<item name="brass helmet" chance="1980"/>
+		<item name="health potion" chance="1480"/>
+		<item name="bow" chance="740"/>
+		<item id="2419" chance="490"/><!-- Scimitar -->
 	</loot>
 </monster>

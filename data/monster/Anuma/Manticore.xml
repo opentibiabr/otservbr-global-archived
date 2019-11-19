@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Manticore" nameDescription="a manticore" race="blood" experience="6300" speed="130">
+<monster name="Manticore" nameDescription="a manticore" race="blood" experience="5100" speed="150">
 	<health now="6700" max="6700"/>
-	<look type="1189" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1189" head="116" body="97" legs="113" feet="20" corpse="31390"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -9,40 +9,51 @@
 		<flag hostile="1"/>
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
+		<flag isBlockable="1"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1"/>
-		<flag canwalkonfire="1"/>
-		<flag canwalkonpoison="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-500"/>
-		<attack name="fire" interval="2000" chance="25" length="8" spread="0" min="-400" max="-630">
+		<attack name="fire" interval="2000" chance="13" length="8" spread="0" min="-350" max="-450">
 			<attribute key="areaEffect" value="fire"/>
 		</attack>
-    		<attack name="poison" interval="2000" chance="20" radius="3" target="1" min="-300" max="-590">
-     			<attribute key="areaEffect" value="greenbubble"/>
-     			<attribute key="shootEffect" value="envenomedarrow"/>
-     		</attack>
-    		<attack name="fire" interval="2000" chance="10" radius="3" target="1" min="-450" max="-690">
-     			<attribute key="areaEffect" value="firearea"/>
-     			<attribute key="shootEffect" value="burstarrow"/>
-     		</attack>
+		<attack name="poison" interval="4000" chance="15" radius="3" target="1" min="-300" max="-400">
+			<attribute key="areaEffect" value="greenbubble"/>
+			<attribute key="shootEffect" value="envenomedarrow"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="22" target="1" range="4" min="-300" max="-500">
+			<attribute key="shootEffect" value="burstarrow"/>
+		</attack>
 	</attacks>
-	<defenses armor="84" defense="84">
-		<defense name="healing" interval="2000" chance="20" min="200" max="425">
-			<attribute key="areaEffect" value="blueshimmer"/>
-		</defense>
-	</defenses>
+	<defenses armor="78" defense="78"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element icePercent="-20"/>
+		<element firePercent="20"/>
 	</elements>
 	<immunities>
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<loot>
+		<item name="platinum coin" countmin="1" countmax="3" chance="100000"/>
+		<item name="manticore tail" chance="8550"/>
+		<item name="manticore ear" chance="6690"/>
+		<item name="flaming arrow" countmin="1" countmax="8" chance="4090"/>
+		<item name="magma coat" chance="2970"/>
+		<item name="magma monocle" chance="1860"/>
+		<item name="royal star" countmin="2" countmax="2" chance="1120"/>
+		<item name="wand of everblazing" chance="1120"/>
+		<item name="magma legs" chance="740"/>
+		<item name="wand of dragonbreath" chance="740"/>
+		<item name="magma boots" chance="370"/>
+		<item name="wand of draconia" chance="370"/>
+	</loot>
 </monster>

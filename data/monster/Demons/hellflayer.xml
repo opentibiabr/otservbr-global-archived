@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Hellflayer" nameDescription="a hellflayer" race="blood" experience="12500" speed="165">
+	<health now="14000" max="14000"/>
+	<look type="856" corpse="22787"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="200" max="-869" fire="6"/>
+		<attack name="fire" interval="2000" chance="15" range="7" min="-170" max="-300">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="yellow spark(exori)" interval="2000" chance="20"/>
+		<attack name="choking fear drown" interval="2000" chance="20"/>
+		<attack name="death" interval="2000" chance="20" radius="4" target="1" min="-250" max="-500">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-200">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" radius="1" target="1" min="-300" max="-550">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+		<attack name="warlock skill reducer" range="5" interval="2000" chance="5"/>
+		<attack name="physical" interval="2000" chance="10" radius="1" target="1" min="300" max="-500">
+			<attribute key="shootEffect" value="explosion"/>
+			<attribute key="areaEffect" value="sleep"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="10" min="150" max="500">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-5"/>
+		<element energyPercent="-5"/>
+		<element icePercent="5"/>
+		<element earthPercent="20"/>
+		<element deathPercent="25"/>
+		<element firePercent="70"/>
+	</elements>
+	<immunities>
+		<immunity drown="1"/>
+		<immunity invisible="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="3000" chance="50">
+		<voice sentence="You should consider bargaining for your life!"/>
+		<voice sentence="Your tainted soul belongs to us anyway!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmin="1" countmax="200" chance="100000"/>
+		<item name="platinum coin" countmin="1" countmax="12" chance="100000"/>
+		<item name="concentrated demonic blood" countmax="3" chance="29190"/>
+		<item name="pair of hellflayer horns" chance="22400"/>
+		<item name="great mana potion" countmin="1" countmax="5" chance="19310"/>
+		<item name="great spirit potion" countmin="1" countmax="5" chance="19140"/>
+		<item name="ultimate health potion" countmin="1" countmax="5" chance="17230"/>
+		<item name="fire mushroom" countmax="5" chance="15360"/>
+		<item name="small amethyst" countmin="1" countmax="5" chance="12350"/>
+		<item name="small emerald" countmin="1" countmax="5" chance="11810"/>
+		<item name="small diamond" countmin="1" countmax="5" chance="10420"/>
+		<item name="gold ingot" countmin="1" countmax="2" chance="9600"/>
+		<item name="small ruby" countmin="1" countmax="5" chance="9430"/>
+		<item name="small topaz" countmin="1" countmax="5" chance="8920"/>
+		<item id="282" chance="4740"/><!-- giant shimmering pearl -->
+		<item name="red gem" chance="2530"/>
+		<item name="rift lance" chance="1790"/>
+		<item name="violet gem" chance="1760"/>
+		<item name="magma boots" chance="1620"/>
+		<item name="magma legs" chance="1220"/>
+		<item name="rift shield" chance="910"/>
+		<item name="green gem" chance="880"/>
+		<item name="titan axe" chance="820"/>
+		<item name="mastermind shield" chance="770"/>
+		<item name="rift crossbow" chance="680"/>
+		<item name="rift bow" chance="450"/>
+		<item name="golden armor" chance="450"/>
+		<item id="3019" chance="230"/><!-- demonbone amulet -->
+		<item name="skull helmet" chance="200"/>
+		<item name="heavy mace" chance="60"/>
+		<item name="magic plate armor" chance="60"/>
+		<item name="spellbook of mind control" chance="30"/>
+	</loot>
+</monster>

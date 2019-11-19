@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Dryad" nameDescription="a dryad" race="blood" experience="190" speed="115">
+	<health now="310" max="310"/>
+	<look type="137" addons="3" head="80" body="59" legs="7" feet="101" corpse="18106"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="4"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="10"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-150"/>
+		<attack name="physical" interval="2000" chance="15" range="7" min="0" max="-40">
+			<attribute key="shootEffect" value="throwingknife"/>
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element physicalPercent="-5"/>
+		<element deathPercent="-5"/>
+	</elements>
+	<voices interval="5000" chance="10">
+		<voice sentence="Feel the wrath of mother Tibia!"/>
+		<voice sentence="Defiler of nature!"/>
+	</voices>
+	<loot>
+		<item name="white mushroom" chance="55610"/>
+		<item name="gold coin" countmax="30" chance="39780"/>
+		<item name="seeds" countmax="3" chance="10490"/>
+		<item name="leaf legs" chance="1230"/>
+		<item name="flower wreath" chance="1120"/>
+		<item name="coconut shoes" chance="1060"/>
+		<item name="flower dress" chance="1000"/>
+		<item name="orange mushroom" chance="770"/>
+		<item name="carrot on a stick" chance="230"/>
+		<item name="small amethyst" chance="120"/>
+	</loot>
+</monster>

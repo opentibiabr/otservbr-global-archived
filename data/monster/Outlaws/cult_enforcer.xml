@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cult Enforcer" nameDescription="a cult enforcer" race="blood" experience="1000" speed="130" manacost="390">
+	<health now="1150" max="1150"/>
+	<look type="134" head="114" body="19" legs="76" feet="76" addons="1" corpse="22014"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-250"/>
+		<attack name="drown" interval="2000" chance="15" range="7" target="1" min="-50" max="-100">
+			<attribute key="shootEffect" value="spear"/>
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="4000" chance="25" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="13">
+		<voice sentence="No one will stop us!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="70" chance="100000"/>
+		<item name="meat" chance="11390"/>
+		<item name="great health potion" countmax="1" chance="6320"/>
+		<item name="cultish robe" chance="5150"/>
+		<item name="halberd" chance="3740"/>
+		<item name="small diamond" countmax="1" chance="2910"/>
+		<item name="small emerald" countmax="1" chance="2660"/>
+		<item name="small amethyst" countmax="1" chance="2410"/>
+		<item name="war hammer" chance="670"/>
+		<item name="guardian shield" chance="580"/>
+		<item name="scarf" chance="330"/>
+		<item name="might ring" chance="330"/>
+		<item name="knight legs" chance="330"/>
+	</loot>
+</monster>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Spidris" nameDescription="a spidris" race="venom" experience="2600" speed="195">
+	<health now="3700" max="3700"/>
+	<look type="457" corpse="13873"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-298"/>
+		<attack name="earth" interval="2000" chance="20" target="1" range="7" radius="3" min="-150" max="-310">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="speed" interval="2000" chance="15" speedchange="450" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="5"/>
+		<element firePercent="5"/>
+		<element holyPercent="-10"/>
+		<element energyPercent="-5"/>
+		<element icePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Eeeeeeyyyyh!"/>
+		<voice sentence="Iiiiieeeeeeh!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="200" chance="100000"/>
+		<item name="platinum coin" countmax="4" chance="44950"/>
+		<item name="spidris mandible" chance="14760"/>
+		<item name="compound eye" chance="12500"/>
+		<item name="small ruby" countmax="5" chance="12130"/>
+		<item name="great mana potion" countmax="2" chance="11470"/>
+		<item name="ultimate health potion" countmax="2" chance="6160"/>
+		<item id="6299" chance="2700"/><!-- death ring -->
+		<item id="281" chance="1600"/><!-- giant shimmering pearl -->
+		<item name="titan axe" chance="880"/>
+		<item name="violet gem" chance="770"/>
+		<item name="hive scythe" chance="730"/>
+		<item name="carapace shield" chance="670"/>
+		<item name="calopteryx cape" chance="380"/>
+	</loot>
+</monster>

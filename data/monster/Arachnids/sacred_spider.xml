@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Sacred Spider" nameDescription="a sacred spider" race="venom" experience="330" speed="122" manacost="485">
+	<health now="550" max="550"/>
+	<look type="219" corpse="12844"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="0"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-160" poison="80"/>
+		<attack name="earth" interval="2000" chance="20" range="7" min="-50" max="-80">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="27" defense="0"/>
+	<elements>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="119" chance="89750"/>
+		<item name="spider fangs" chance="25490"/>
+		<item name="scarab coin" countmax="4" chance="6740"/>
+		<item name="plate armor" chance="5000"/>
+		<item name="gold ingot" chance="60"/>
+	</loot>
+</monster>

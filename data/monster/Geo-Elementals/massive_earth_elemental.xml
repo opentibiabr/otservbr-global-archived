@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Massive Earth Elemental" nameDescription="a massive earth elemental" race="undead" experience="950" speed="185">
 	<health now="1330" max="1330"/>
-	<look type="285" corpse="8933"/>
+	<look type="285" corpse="8105"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -10,14 +10,14 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="80"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="0"/>
-		<flag canwalkonfire="0"/>
+		<flag canPushItems="1"/>
+		<flag staticAttack="80"/>
+		<flag lightLevel="0"/>
+		<flag lightColor="0"/>
+		<flag targetDistance="1"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="0"/>
+		<flag canWalkOnFire="0"/>
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-110"/>
@@ -68,10 +68,10 @@
 		<item name="dwarven ring" chance="2790"/>
 		<item name="diamond sceptre" chance="150"/>
 		<item name="terra amulet" chance="500"/>
-		<item id="9809" chance="3300"/><!-- rusty armor -->
+		<item id="8895" chance="3300"/><!-- rusted armor -->
 		<item name="small topaz" countmax="2" chance="5280"/>
 		<item name="lump of earth" chance="40680"/>
 		<item name="clay lump" chance="480"/>
-		<item id="13757" chance="430"/><!-- coal -->
+		<item id="12600" chance="430"/><!-- coal -->
 	</loot>
 </monster>

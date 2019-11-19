@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gnomevil" nameDescription="Gnomevil" race="blood" experience="45000" speed="470">
+	<health now="250000" max="250000"/>
+	<look type="504" corpse="16149"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag preyable="0"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="0"/>
+		<flag staticAttack="50"/>
+		<flag runOnHealth="10000"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1300" skill="80" attack="140"/>
+		<attack name="speed" interval="2000" chance="20" range="7" speedchange="-400" duration="2500">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="100" range="7" min="-820" max="-950">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="9" length="8" spread="0" min="-230" max="-500">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+		<attack name="energy" interval="1000" chance="12" range="3" target="1" min="-350" max="-800">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="35">
+		<defense name="healing" interval="1000" chance="25" min="1000" max="4000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="10"/>
+		<element deathPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity drown="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="No more Mr. Nicegnome!"/>
+		<voice sentence="Taste the power of the dark side!"/>
+		<voice sentence="I've seen the light! And it was all engulfing fire!"/>
+	</voices>
+	<loot>
+		<item name="gnomevil´s hat" chance="100000"/>
+		<item name="crystalline sword" chance="12470"/>
+		<item name="mycological bow" chance="11270"/>
+		<item name="crystal crossbow" chance="9860"/>
+		<item name="shiny blade" chance="9660"/>
+		<item name="mycological mace" chance="9050"/>
+		<item name="crystalline axe" chance="8650"/>
+		<item name="decorative ribbon" chance="2010"/>
+	</loot>
+</monster>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Tunnel Tyrant" nameDescription="a tunnel tyrant" race="blood" experience="4000" speed="120">
+	<health now="5200" max="5200"/>
+	<look type="1035" corpse="27555"/>
+	<targetchange interval="10000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag isBlockable="0"/>
+		<flag canPushItems="1"/>
+		<flag canPushCreatures="1"/>
+		<flag targetDistance="1"/>
+		<flag staticAttack="90"/>
+		<flag runOnHealth="0"/>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="Stalagmite" interval="2000" chance="15" range="7" length="6" spread="3" min="-190" max="-210">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="death" interval="2000" chance="15" range="3" length="6" spread="3" min="-220" max="-260">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="3" length="6" spread="3" min="-90" max="-110">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="Stone Shower" interval="2000" chance="10" range="7" min="-230" max="-270"/>
+	</attacks>
+	<defenses armor="76" defense="76"/>
+	<elements>
+		<element icePercent="-30"/>
+		<element energyPercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="0"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="naps naps naps!"/>
+	</voices>
+	<loot>
+		<item name="tunnel tyrant shell" chance="23440"/>
+		<item name="tunnel tyrant head" chance="13060"/>
+		<item name="small enchanted sapphire" chance="10710"/>
+		<item name="lump of dirt" chance="10240"/>
+		<item name="violet gem" chance="6940"/>
+		<item name="small enchanted ruby" chance="6670"/>
+		<item name="blue gem" chance="3030"/>
+		<item name="crystal mace" chance="2630"/>
+		<item name="energy vein" chance="2490"/>
+		<item name="suspicious device" chance="1550"/>
+		<item name="green gem" chance="1480"/>
+		<item name="crystalline armor" chance="670"/>
+	</loot>
+</monster>
