@@ -74,18 +74,18 @@ Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/)
 			newItem = new Mailbox(type);
 		} else if (it.isBed()) {
 			newItem = new BedItem(type);
-		} else if (it.id >= 2210 && it.id <= 2212) {
+		} else if (it.id >= ITEM_RING_RANGE_1 && it.id <= ITEM_RING_RANGE_2) {
 			newItem = new Item(type - 3, count);
-		} else if (it.id == 2215 || it.id == 2216) {
+		} else if (it.id == ITEM_RING_RANGE_3 || it.id == ITEM_RING_RANGE_4) {
 			newItem = new Item(type - 2, count);
-		} else if (it.id >= 2202 && it.id <= 2206) {
+		} else if (it.id >= ITEM_RING_RANGE_5 && it.id <= ITEM_RING_RANGE_6) {
 			newItem = new Item(type - 37, count);
-		} else if (it.id == 2640) {
-			newItem = new Item(6132, count);
-		} else if (it.id == 6301) {
-			newItem = new Item(6300, count);
-		} else if (it.id == 18528) {
-			newItem = new Item(18408, count);
+		} else if (it.id == ITEM_SOFT_BOOTS_1) {
+			newItem = new Item(ITEM_SOFT_BOOTS_2, count);
+		} else if (it.id == ITEM_RING_RANGE_8) {
+			newItem = new Item(ITEM_RING_RANGE_7, count);
+		} else if (it.id == ITEM_PRISMATIC_RING_2) {
+			newItem = new Item(ITEM_PRISMATIC_RING_1, count);
 		} else {
 			newItem = new Item(type, count);
 		}
@@ -1518,7 +1518,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				} else {
 					s << "unknown";
 				}
-			} else if (it.allowDistRead && (it.id < 7369 || it.id > 7371)) {
+			} else if (it.allowDistRead && (it.id < ITEM_TROPHY_RANGE_1 || it.id > ITEM_TROPHY_RANGE_2)) {
 				s << '.' << std::endl;
 
 				if (lookDistance <= 4) {
@@ -1596,7 +1596,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	}
 
-	if (!it.allowDistRead || (it.id >= 7369 && it.id <= 7371)) {
+	if (!it.allowDistRead || (it.id >= ITEM_TROPHY_RANGE_1 && it.id <= ITEM_TROPHY_RANGE_2)) {
 		s << '.';
 	} else {
 		if (!text && item) {
@@ -1660,7 +1660,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		s << std::endl << it.description;
 	}
 
-	if (it.allowDistRead && it.id >= 7369 && it.id <= 7371) {
+	if (it.allowDistRead && it.id >= ITEM_TROPHY_RANGE_1 && it.id <= ITEM_TROPHY_RANGE_2) {
 		if (!text && item) {
 			text = &item->getText();
 		}
