@@ -42,10 +42,10 @@ function onTargetTile(creature, pos)
     if #creatureTable ~= nil and #creatureTable > 0 then
         for r = 1, #creatureTable do
             if creatureTable[r] ~= creature then
-                local min = 2200
-                local max = 2500
+                local min = 2100
+                local max = 2700
                 local player = Player(creatureTable[r])
-				
+
                 if isPlayer(creatureTable[r]) == true and isInArray(voc, player:getVocation():getId()) then
                     doTargetCombatHealth(creature, creatureTable[r], COMBAT_DEATHDAMAGE, -min, -max, CONST_ME_NONE)
                 elseif isMonster(creatureTable[r]) == true then
@@ -61,9 +61,9 @@ end
 combat:setCallback(CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
 local function delayedCastSpell(cid, var)
-    local creature = Creature(cid) 
-	if not creature then 
-		return 
+    local creature = Creature(cid)
+	if not creature then
+		return
 	end
 	if creature:getHealth() >= 1 then
 		return combat:execute(creature, positionToVariant(creature:getPosition()))
@@ -72,13 +72,13 @@ local function delayedCastSpell(cid, var)
 end
 
 function onCastSpell(creature, var)
-    local specs, spec = Game.getSpectators(Position(32912, 31599, 14), false, false, 12, 12, 12, 12)
+    local specs, spec = Game.getSpectators(Position(32933, 31643, 10), false, false, 12, 12, 12, 12)
 	for i = 1, #specs do
 		spec = specs[i]
 		if spec:isPlayer() then
-			spec:teleportTo(Position(32912, 31599, 14))
+			spec:teleportTo(Position(32933, 31645, 10))
 		elseif spec:getName():lower() == 'lady tenebris' then
-			spec:teleportTo(Position(32912, 31599, 14))
+			spec:teleportTo(Position(32933, 31643, 10))
 		end
 	end
 	creature:say("LADY TENEBRIS BEGINS TO CHANNEL A POWERFULL SPELL! TAKE COVER!", TALKTYPE_MONSTER_YELL)

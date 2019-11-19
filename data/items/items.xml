@@ -46037,7 +46037,7 @@ Repository: https://github.com/opentibiabr/otservbr-global/
 	<item fromid="31727" toid="31731" name="RESERVED SPRITE"/>
 	<item id="31732" name="unknown item"/>
 	<item fromid="31733" toid="31734" name="unknown item"/>
-	<item id="31735" name="unknown item"/>
+	<item id="31735" article="a" name="metal grate"/>
 	<item id="31736" name="unknown item"/>
 	<item id="31737" article="a" name="shadow cowl">
 		<attribute key="weight" value="370"/>
