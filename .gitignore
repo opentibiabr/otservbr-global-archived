@@ -361,16 +361,15 @@ settings.json
 c_cpp_properties.json
 
 ## CUSTOM
-
-libmysql.dll
-lua51.dll
-theforgottenserver.exe
-data/world/otservbr.otbm
+# Files
 config.lua
-tfs.exe
-tfs
-build/*
-client_assertions.txt
+# Extensions
+*.ini
+*.otb
+*.txt
+*.exe
+*.otbm
+*.rar
 
 # SFTP for Sublime
 sftp-config.json
