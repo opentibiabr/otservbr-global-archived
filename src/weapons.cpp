@@ -34,6 +34,11 @@ extern ConfigManager g_config;
 extern Weapons* g_weapons;
 extern Events* g_events;
 
+Weapons::Weapons()
+{
+	scriptInterface.initState();
+}
+
 Weapons::~Weapons()
 {
 	clear(false);
@@ -187,7 +192,7 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 		premium = attr.as_bool();
 	}
 
-	if ((attr = node.attribute("breakchance")) && g_config.getBoolean(ConfigManager::REMOVE_WEAPON_CHARGES)) {
+	if ((attr = node.attribute("breakchance"))) {
 		breakChance = std::min<uint8_t>(100, pugi::cast<uint16_t>(attr.value()));
 	}
 
@@ -226,41 +231,41 @@ bool Weapon::configureEvent(const pugi::xml_node& node)
 		}
 	}
 
-	std::string vocationName;
+	std::string vocationString;
 	for (const std::string& str : vocStringList) {
-		if (!vocationName.empty()) {
+		if (!vocationString.empty()) {
 			if (str != vocStringList.back()) {
-				vocationName.push_back(',');
-				vocationName.push_back(' ');
+				vocationString.push_back(',');
+				vocationString.push_back(' ');
 			} else {
-				vocationName += " and ";
+				vocationString += " and ";
 			}
 		}
 
-		vocationName += str;
-		vocationName.push_back('s');
+		vocationString += str;
+		vocationString.push_back('s');
 	}
 
-	uint32_t wieldInformation = 0;
+	uint32_t wieldInfo = 0;
 	if (getReqLevel() > 0) {
-		wieldInformation |= WIELDINFO_LEVEL;
+		wieldInfo |= WIELDINFO_LEVEL;
 	}
 
 	if (getReqMagLv() > 0) {
-		wieldInformation |= WIELDINFO_MAGLV;
+		wieldInfo |= WIELDINFO_MAGLV;
 	}
 
 	if (!vocationString.empty()) {
-		wieldInformation |= WIELDINFO_VOCREQ;
+		wieldInfo |= WIELDINFO_VOCREQ;
 	}
 
 	if (isPremium()) {
-		wieldInformation |= WIELDINFO_PREMIUM;
+		wieldInfo |= WIELDINFO_PREMIUM;
 	}
 
-	if (wieldInformation != 0) {
+	if (wieldInfo != 0) {
 		ItemType& it = Item::items.getItemType(id);
-		it.wieldInfo = wieldInformation;
+		it.wieldInfo = wieldInfo;
 		it.vocationString = vocationString;
 		it.minReqLevel = getReqLevel();
 		it.minReqMagicLevel = getReqMagLv();
