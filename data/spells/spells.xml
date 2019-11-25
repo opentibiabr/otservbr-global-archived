@@ -14,11 +14,11 @@
 		<vocation name="Elder Druid"/>
 	</instant>
 	<!-- under construction -->
-	<instant group="support" spellid="176" name="Conjure Diamond Arrow" words="exevo gran con hur" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Diamond_Arrow.lua">
+	<instant group="support" spellid="192" name="Conjure Diamond Arrow" words="exevo gran con hur" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Diamond_Arrow.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
-	<instant group="support" spellid="192" name="Conjure Spectral Bolt" words="exevo gran con vis" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Spectral_Bolt.lua">
+	<instant group="support" spellid="193" name="Conjure Spectral Bolt" words="exevo gran con vis" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Spectral_Bolt.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
@@ -26,7 +26,7 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
-	<instant group="support" spellid="193" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="180000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
+	<instant group="support" spellid="92" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="180000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 	</instant>
