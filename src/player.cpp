@@ -4106,8 +4106,8 @@ double Player::getLostPercent() const
 	lossPercent = ((level+50)*50*(level*level-5*level+8)/experience); // with no reduction
 	
 	if (level < 25) lossPercent = 10; // with lower level
-	if (isPromoted()) lossPercent = lossPercent*30/100; // reduce 30% if promoted
-	if (blessingCount > 0) lossPercent = lossPercent*blessingCount*8/100; // reduce 8% per each bless
+	if (isPromoted()) lossPercent = lossPercent*30/100.; // reduce 30% if promoted
+	if (blessingCount > 0) lossPercent = lossPercent*blessingCount*8/100.; // reduce 8% per each bless
 
 	return lossPercent;
 }
