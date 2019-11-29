@@ -4085,15 +4085,15 @@ bool Player::isPromoted() const
 double Player::getLostPercent() const
 {
 	int32_t blessingCount = 0;
-	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
-	for (int i = 1; i <= maxBlessing; i++) {
+	uint8_t maxBlessing = 8;
+	for (int i = 2; i <= maxBlessing; i++) { // start at 2 so we do not count Twist of Fate
 		if (hasBlessing(i)) {
 			blessingCount++;
 		}
 	}
 
 	int32_t deathLosePercent = g_config.getNumber(ConfigManager::DEATH_LOSE_PERCENT);
-	if (deathLosePercent != -1) {
+	if (deathLosePercent != -1) { // for custom deathLosePercent i'm not touching this crap
 		if (isPromoted()) {
 			deathLosePercent -= 3;
 		}
@@ -4101,22 +4101,15 @@ double Player::getLostPercent() const
 		deathLosePercent -= blessingCount;
 		return std::max<int32_t>(0, deathLosePercent) / 100.;
 	}
-
+	
 	double lossPercent;
-	if (level >= 25) {
-		double tmpLevel = level + (levelPercent / 100.);
-		lossPercent = ((tmpLevel + 50) * 50 * ((tmpLevel * tmpLevel) - (5 * tmpLevel) + 8)) / experience;
-	} else {
-		lossPercent = 5;
-	}
+	lossPercent = ((level+50)*50*(level*level-5*level+8)/experience); // with no reduction
+	
+	if (level < 25) lossPercent = 10; // with lower level
+	if (isPromoted()) lossPercent = lossPercent*30/100; // reduce 30% if promoted
+	if (blessingCount > 0) lossPercent = lossPercent*blessingCount*8/100; // reduce 8% per each bless
 
-	double percentReduction = 0;
-	if (isPromoted()) {
-		percentReduction += 30;
-	}
-
-	percentReduction += blessingCount * 8;
-	return lossPercent * (1 - (percentReduction / 100.)) / 100.;
+	return lossPercent;
 }
 
 void Player::learnInstantSpell(const std::string& spellName)
