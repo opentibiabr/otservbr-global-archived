@@ -2139,7 +2139,7 @@ void Player::death(Creature* lastHitCreature)
 					removeBlessing(i, 1);
 				}
 			}
-			setDropLoot(false)
+			setDropLoot(false);
 		} else {
 			if (lastHitPlayer && hasBlessing(1)) {
 				removeBlessing(1, 1);
