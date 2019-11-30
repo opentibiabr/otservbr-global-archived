@@ -1,18 +1,91 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 
+# *****************************************************************************
+# Features
+# *****************************************************************************
+
+# Enable interprocedural optimization for a target.
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+
+# specify the C++ standard
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# If CMake version is less than 3.15, the if block will be true, and the policy
+# will be set to the current CMake version. If CMake is 3.15 or higher, the if
+# block will be false, but the new syntax in cmake_minimum_required will be
+# respected and this will continue to work properly!
+# WARNING: MSVC's CMake server mode originally had a bug in reading this format,
+# so if you need to support non-command line Windows builds for older MSVC
+# versions, you will want to do this instead:
+if(${CMAKE_VERSION} VERSION_LESS 3.15)
+  cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
+else()
+  cmake_policy(VERSION 3.15)
+endif()
+
+# Avoid changes by cmake/make on the source tree
 # https://gitlab.kitware.com/cmake/cmake/issues/18403
 set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 
-project(tfs)
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+endif()
 
+set(CMAKE_VERBOSE_MAKEFILE ON)
+
+# *****************************************************************************
+# Project OTBR
+# *****************************************************************************
+project(otbr)
+
+
+# *****************************************************************************
+# Packages / Libs
+# *****************************************************************************
+
+# Add cmake folder to help find cmake packages
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+# Find packages.
+find_package(CryptoPP REQUIRED)
+find_package(PugiXML REQUIRED)
+find_package(MySQL REQUIRED)
+find_package(Threads REQUIRED)
+find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams REQUIRED)
 
-# default build type
+# Selects LuaJIT if user defines or auto-detected
+if(DEFINED USE_LUAJIT AND NOT USE_LUAJIT)
+  set(FORCE_LUAJIT ${USE_LUAJIT})
+else()
+  find_package(LuaJIT)
+  set(FORCE_LUAJIT ${LuaJIT_FOUND})
+endif()
+option(USE_LUAJIT "Use LuaJIT" ${FORCE_LUAJIT})
+if(FORCE_LUAJIT)
+  if(APPLE)
+    set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
+  endif()
+else()
+  find_package(Lua REQUIRED)
+endif()
+
+
+# *****************************************************************************
+# Build Type Release or Debug
+# *****************************************************************************
+
+# Set default build type, to change use -DCMAKE_BUILD_TYPE=<Release|Debug>
 # E.g: How check build type "if (CMAKE_BUILD_TYPE MATCHES Debug)"
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif()
+
+
+# *****************************************************************************
+# Options that can be E.g. 'enable cmake -DOPTION ..'
+# *****************************************************************************
 
 # cmake -DDEBUG_LOG=ON ..
 option(DEBUG_LOG "Enable Debug Log" OFF)
@@ -21,17 +94,22 @@ if(DEBUG_LOG)
   message("---------- DEBUG log enabled!")
 endif()
 
-set(WARNING_FLAGS       "-Wall -Werror")
-set(CMAKE_CXX_FLAGS     "${WARNING_FLAGS} ${CMAKE_CXX_FLAGS}")
+
+# *****************************************************************************
+# Compile flags and checks
+# *****************************************************************************
+
+set(CMAKE_CXX_FLAGS     "${CMAKE_CXX_FLAGS} -std=c++11 -lstdc++ -lpthread -ldl")
+set(WARNING_FLAGS       "${CMAKE_CXX_FLAGS} -Wall -Werror")
 
 # compile flags
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   # using Clang
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
-  
+  set(CMAKE_CXX_FLAGS_RELEASE   "-pipe -fvisibility=hidden -march=native -O2 -Wno-everything")
+
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
-  set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra")
+  set(CMAKE_CXX_FLAGS_DEBUG     "-pipe -O0 -g -Wno-everything")
 
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # using GCC
@@ -41,62 +119,49 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     message(FATAL_ERROR "Insufficient gcc version. It has to be equal or greater than version 5.X")
   endif()
 
-  # GCC is fairly aggressive about it: enabling strict aliasing will cause it to think that pointers that are "obviously" equivalent to a human (as in, foo *a; bar *b = (bar *) a;) cannot alias, which allows for some very aggressive transformations, but can obviously break non-carefully written code.
+  # GCC is fairly aggressive about it: enabling strict aliasing will cause it to
+  # think that pointers that are "obviously" equivalent to a human (as in,
+  # foo *a; bar *b = (bar *) a;) cannot alias, which allows for some very
+  # aggressive transformations, but can obviously break non-carefully written
+  # code.
   add_compile_options(-fno-strict-aliasing)
 
   # https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
 
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
-  
+  set(CMAKE_CXX_FLAGS_RELEASE   "-Wall -Werror -pipe -fvisibility=hidden -march=native -O2")
+
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
   # Ubuntu 16.04
   if(CMAKE_CXX_COMPILER_VERSION STREQUAL "5.4.0")
-    set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wlogical-op -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+    set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Werror -pipe -O0 -g -Wextra -Wconversion -Wlogical-op -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
   else()
     # Ubuntu 18.04
-    set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+    set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Werror -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
   endif()
 
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   # using Visual Studio C++
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
-  
+  set(CMAKE_CXX_FLAGS_RELEASE   " -fvisibility=hidden -march=native -O2")
+
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
-  set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra")
+  set(CMAKE_CXX_FLAGS_DEBUG     " -O0 -g -Wextra")
 endif()
 
-# Find packages.
-find_package(Cotire REQUIRED)
-find_package(LTO REQUIRED)
-find_package(CXX11 REQUIRED)
-find_package(Crypto++ REQUIRED)
-find_package(PugiXML REQUIRED)
-find_package(MySQL REQUIRED)
-find_package(Threads REQUIRED)
-find_package(Spdlog REQUIRED)
-find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams REQUIRED)
 
-# Selects LuaJIT if user defines or auto-detected
-if(DEFINED USE_LUAJIT AND NOT USE_LUAJIT)
-set(FORCE_LUAJIT ${USE_LUAJIT})
-else()
-find_package(LuaJIT)
-set(FORCE_LUAJIT ${LuaJIT_FOUND})
-endif()
-option(USE_LUAJIT "Use LuaJIT" ${FORCE_LUAJIT})
-
-if(FORCE_LUAJIT)
-if(APPLE)
-set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
-endif()
-else()
-find_package(Lua REQUIRED)
-endif()
+# *****************************************************************************
+# Executable
+# *****************************************************************************
 
 add_subdirectory(src)
-add_executable(tfs ${tfs_SRC})
+add_executable(otbr ${otbr_SRC})
+# set_target_properties(otbr PROPERTIES LINK_FLAGS "-std=c++11 -lstdc++ -lpthread -ldl")
+
+
+# *****************************************************************************
+# Doxygen
+# *****************************************************************************
 
 # cmake -DBUILD_DOC=ON ..
 option(BUILD_DOC "Build documentation" OFF)
@@ -113,6 +178,7 @@ if(BUILD_DOC)
       # request to configure the file
       configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
 
+      #make doc_doxygen
       add_custom_target( doc_doxygen ALL
           COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
           WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
@@ -123,11 +189,11 @@ if(BUILD_DOC)
     message("Doxygen need to be installed to generate the doxygen documentation")
   endif (DOXYGEN_FOUND)
 
-    find_program(LDOC_EXECUTABLE ldoc FALSE)
-    if(NOT LDOC_EXECUTABLE)
-        find_program(LDOC_EXECUTABLE ldoc.lua FALSE)
-    endif()
-    if (LDOC_EXECUTABLE)
+  find_program(LDOC_EXECUTABLE ldoc FALSE)
+  if(NOT LDOC_EXECUTABLE)
+      find_program(LDOC_EXECUTABLE ldoc.lua FALSE)
+  endif()
+  if (LDOC_EXECUTABLE)
     # set input and output files
     set(LDOC_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/config.ld.in)
     set(LDOC_OUT ${CMAKE_CURRENT_BINARY_DIR}/config.ld)
@@ -135,6 +201,8 @@ if(BUILD_DOC)
     # request to configure the file
     configure_file(${LDOC_IN} ${LDOC_OUT} @ONLY)
     # execute_process(COMMAND sh -c "${LDOC_EXECUTABLE} .")
+
+    #make doc_ldoc
     add_custom_target( doc_ldoc ALL
         COMMAND ${LDOC_EXECUTABLE} .
         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
@@ -145,11 +213,8 @@ if(BUILD_DOC)
 
 endif (BUILD_DOC)
 
-include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${Crypto++_INCLUDE_DIR} ${Spdlog_INCLUDE_DIR})
-
-target_link_libraries(tfs ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${PUGIXML_LIBRARIES} ${Crypto++_LIBRARIES} ${Spdlog_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
-
-set_target_properties(tfs PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "src/otpch.h")
-set_target_properties(tfs PROPERTIES COTIRE_ADD_UNITY_BUILD FALSE)
-
-cotire(tfs)
+# *****************************************************************************
+# Includes & Libraries
+# *****************************************************************************
+include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${CRYPTOPP_INCLUDE_DIR})
+target_link_libraries(otbr dl ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})

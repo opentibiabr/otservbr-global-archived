@@ -71,7 +71,6 @@ class CreatureEvent final : public Event
 
 		void clearEvent();
 		void copyEvent(CreatureEvent* creatureEvent);
-		void removeInvalidEvents();
 
 		//scripting
 		bool executeOnLogin(Player* player) const;
@@ -113,6 +112,7 @@ class CreatureEvents final : public BaseEvents
 		CreatureEvent* getEventByName(const std::string& name, bool forceLoaded = true);
 
 		bool registerLuaEvent(CreatureEvent* event);
+		void removeInvalidEvents();
 		void clear(bool fromLua) override final;
 
 	private:

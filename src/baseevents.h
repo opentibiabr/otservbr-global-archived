@@ -53,9 +53,9 @@ class Event
 		 * 
 		 * @param basePath Base path folder
 		 * @param scriptsName Folder|Lib script name (without .lua) 
-		 * 							<scriptsName>/lib/<scriptsName>.lua
-		 * @param scriptFile Path to script file  
-		 * 								<scriptsName>/scripts/<scriptFile>
+		 * <scriptsName>/lib/<scriptsName>.lua
+		 * @param scriptFile Path to script file 
+		 * <scriptsName>/scripts/<scriptFile>
 		 * @return true Success, script can be loaded.
 		 * @return false Fail, script not found or couldn't be loaded.
 		 */
