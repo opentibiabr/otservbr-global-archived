@@ -48,9 +48,9 @@ template <typename T, size_t CAPACITY>
 class LockfreePoolingAllocator : public std::allocator<T>
 {
 	public:
-		LockfreePoolingAllocator() = default;
+		constexpr LockfreePoolingAllocator() {}
 
-		template <typename U, class = typename std::enable_if<!std::is_same<U, T>::value>::type>
+		template <typename U>
 		explicit constexpr LockfreePoolingAllocator(const U&) {}
 		using value_type = T;
 
