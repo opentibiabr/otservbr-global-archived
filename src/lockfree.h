@@ -26,13 +26,6 @@
 
 #include <boost/lockfree/stack.hpp>
 
-/*
- * we use this to avoid instantiating multiple free lists for objects of the
- * same size and it can be replaced by a variable template in C++14
- *
- * template <std::size_t TSize, size_t CAPACITY>
- * boost::lockfree::stack<void*, boost::lockfree::capacity<CAPACITY> lockfreeFreeList;
- */
 template <std::size_t TSize, size_t CAPACITY>
 struct LockfreeFreeList
 {
@@ -48,9 +41,9 @@ template <typename T, size_t CAPACITY>
 class LockfreePoolingAllocator : public std::allocator<T>
 {
 	public:
-		constexpr LockfreePoolingAllocator() {}
+		LockfreePoolingAllocator() = default;
 
-		template <typename U>
+		template <typename U, class = typename std::enable_if<!std::is_same<U, T>::value>::type>
 		explicit constexpr LockfreePoolingAllocator(const U&) {}
 		using value_type = T;
 
