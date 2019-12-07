@@ -4093,7 +4093,7 @@ double Player::getLostPercent() const
 	}
 
 	int32_t deathLosePercent = g_config.getNumber(ConfigManager::DEATH_LOSE_PERCENT);
-	if (deathLosePercent != -1) { // for custom deathLosePercent i'm not touching this crap
+	if (deathLosePercent != -1) {
 		if (isPromoted()) {
 			deathLosePercent -= 3;
 		}
@@ -4103,17 +4103,17 @@ double Player::getLostPercent() const
 	}
 	
 	double lossPercent;
-	lossPercent = ((level+50)*50*(level*level-5*level+8)/experience); // get % with no reduction
-	
-	if (level < 25) lossPercent = 10; // reduction for lower level
-	if (isPromoted() && blessingCount > 0) {
-		lossPercent = lossPercent*(30+blessingCount*8)/100.;
-	} else if (!isPromoted() && blessingCount > 0) {
-		lossPercent = lossPercent*(blessingCount*8)/100.;
-	} else if (!isPromoted() && blessingCount == 0) {
-		lossPercent = lossPercent*30/100.;
-	}	
-	return lossPercent; 
+	double tmpLevel = level + (levelPercent / 100.);
+	double percentReduction = 0;
+	lossPercent = ((tmpLevel + 50) * 50 * ((tmpLevel * tmpLevel) - (5 * tmpLevel) + 8)) / experience;
+	if (level < 25) lossPercent = 10;
+	if (isPromoted()) {
+		percentReduction += 30;
+	} 	
+	percentReduction += blessingCount*8;
+	lossPercent = lossPercent * ((1 - percentReduction / 100.)) /100.;
+
+	return lossPercent * 2; 
 }
 
 void Player::learnInstantSpell(const std::string& spellName)
