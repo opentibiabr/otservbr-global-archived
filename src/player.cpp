@@ -4103,13 +4103,17 @@ double Player::getLostPercent() const
 	}
 	
 	double lossPercent;
-	lossPercent = ((level+50)*50*(level*level-5*level+8)/experience); // with no reduction
+	lossPercent = ((level+50)*50*(level*level-5*level+8)/experience); // get % with no reduction
 	
-	if (level < 25) lossPercent = 10; // with lower level
-	if (isPromoted()) lossPercent = lossPercent*30/100.; // reduce 30% if promoted
-	if (blessingCount > 0) lossPercent = lossPercent*blessingCount*8/100.; // reduce 8% per each bless
-
-	return lossPercent;
+	if (level < 25) lossPercent = 10; // reduction for lower level
+	if (isPromoted() && blessingCount > 0) {
+		lossPercent = lossPercent*(30+blessingCount*8)/100.;
+	} else if (!isPromoted() && blessingCount > 0) {
+		lossPercent = lossPercent*(blessingCount*8)/100.;
+	} else if (!isPromoted() && blessingCount == 0) {
+		lossPercent = lossPercent*30/100.;
+	}	
+	return lossPercent; 
 }
 
 void Player::learnInstantSpell(const std::string& spellName)
