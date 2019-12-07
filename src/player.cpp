@@ -2130,18 +2130,23 @@ void Player::death(Creature* lastHitCreature)
 			}
 		}
 
-		if (hasBlessing(8)) {
+		uint8_t maxBlessing = 8;
+		if (hasBlessing(6)) {
 			if (lastHitPlayer && hasBlessing(1)) {
 				removeBlessing(1, 1);
 			} else {
-				for (int i = 2; i <= 8; i++) {
+				for (int i = 2; i <= maxBlessing; i++) {
 					removeBlessing(i, 1);
 				}
 			}
+			setDropLoot(false);
 		} else {
-			uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
-			for (int i = 1; i <= maxBlessing; i++) {
-				removeBlessing(i, 1);
+			if (lastHitPlayer && hasBlessing(1)) {
+				removeBlessing(1, 1);
+			} else {
+				for (int i = 2; i <= maxBlessing; i++) {
+					removeBlessing(i, 1);
+				}
 			}
 		}
 
