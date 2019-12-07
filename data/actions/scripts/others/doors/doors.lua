@@ -40,7 +40,18 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 
 			if query ~= RETURNVALUE_NOERROR then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, query)
+				toPosition.y = toPosition.y - 2
+				query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
+			end
+
+			if query ~= RETURNVALUE_NOERROR then
+				toPosition.x = toPosition.x - 1
+				toPosition.y = toPosition.y + 1
+				query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
+			end
+
+			if query ~= RETURNVALUE_NOERROR then
+				player:sendTextMessage(MESSAGE_STATUS_SMALL, "You cannot close the door at this moment.")
 				return true
 			end
 
