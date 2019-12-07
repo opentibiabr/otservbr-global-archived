@@ -212,7 +212,7 @@ if Modules == nil then
 			cost = 0
 		end
 
-		local exhausts
+		local exhausts = 159321
 
 		if parameters.premium and not player:isPremium() then
 			npcHandler:say("I'm sorry, but you need a premium account in order to travel onboard our ships.", cid)
