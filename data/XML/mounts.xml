@@ -155,4 +155,6 @@
 	<mount id="153" clientid="1264" name="Floating Sage" speed="20" premium="yes" />
 	<mount id="154" clientid="1265" name="Floating Scholar" speed="20" premium="yes" />
 	<mount id="155" clientid="1266" name="Floating Augur" speed="20" premium="yes" />
+	<mount id="156" clientid="1269" name="Haze" speed="20" premium="yes" />
+	<mount id="157" clientid="1281" name="Antelope" speed="20" premium="yes" />
 </mounts>
