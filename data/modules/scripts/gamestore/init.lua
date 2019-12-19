@@ -1,7 +1,7 @@
 -- Please don't edit those information!
 GameStore = {
   ModuleName = "GameStore",
-  Developers = { "Cjaker", "metabob" },
+  Developers = { "Slavi Dodo", "Cjaker", "metabob" },
   Version = "0.4",
   LastUpdated = "15-04-2019 17:40PM"
 }
@@ -1076,7 +1076,7 @@ function GameStore.processAllBlessingsPurchase(player)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
-  player:addPremiumDays(offerId)
+  player:addPremiumDays(offerId-3000)
 end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName)
