@@ -1785,7 +1785,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
 		},
 		{
-			icons = { "Outfit_Arena_Champion_Male_Addon_3.png", "Outfit_Arena_Champion_Female_Addon_3.png" },
+			icons = { "Outfit_Champion_Male_Addon_3.png", "Outfit_Champion_Female_Addon_3.png" },
 			name = "Full Champion Outfit",
 			price = 570,
 			sexId = {female = 632, male = 633},
@@ -3817,15 +3817,6 @@ GameStore.Categories = {
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nHigh above the clouds far away from dry land, the training of giant eagles takes place. Only the cream of the crop is able to survive in such harsh environment long enough to call themselves Jousting Eagles while the weaklings find themselves at the bottom of the sea. The tough ones become noble and graceful mounts that are well known for their agility and endurance.",
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
 		}, 	
-		{
-			icons = { "Outfit_Arena_Champion_Male_Addon_3.png", "Outfit_Arena_Champion_Female_Addon_3.png" },
-			name = "Full Arena Champion Outfit",
-			price = 870,
-			sexId = {female = 885, male = 884},
-			addon = 3,
-			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nFight your bloody battles in the arena and become a darling of the crowd. Once you have made it to the top and everyone is cheering your name, the fashionable outfit of an Arena Champion will show the world what you are made of.",
-			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		},
 		{
 			icons = { "Outfit_Lion_of_War_Male_Addon_3.png", "Outfit_Lion_of_War_Female_Addon_3.png" },
 			name = "Full Lion of War Outfit",
