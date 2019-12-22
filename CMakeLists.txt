@@ -35,6 +35,12 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # using GCC
+
+  #Check GCC version
+  if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "5.1")
+    message(FATAL_ERROR "Insufficient gcc version. It has to be equal or greater than version 5.X")
+  endif()
+
   # GCC is fairly aggressive about it: enabling strict aliasing will cause it to think that pointers that are "obviously" equivalent to a human (as in, foo *a; bar *b = (bar *) a;) cannot alias, which allows for some very aggressive transformations, but can obviously break non-carefully written code.
   add_compile_options(-fno-strict-aliasing)
 
