@@ -60,8 +60,6 @@ void Dispatcher::threadMain()
 				++dispatcherCycle;
 				// execute it
 				(*task)();
-
-				g_game.map.clearSpectatorCache();
 			}
 			delete task;
 		} else {
