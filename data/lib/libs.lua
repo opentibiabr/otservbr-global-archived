@@ -1,6 +1,9 @@
 -- Miscellaneous library
 dofile('data/lib/miscellaneous/miscellaneous.lua')
 
+-- Quests library
+dofile('data/lib/quests/quests.lua')
+
 -- Core API functions implemented in Lua
 dofile('data/lib/core/core.lua')
 

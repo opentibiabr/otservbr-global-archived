@@ -1,11 +1,10 @@
 -- load storages first
 dofile('data/lib/miscellaneous/051-storages.lua')
-dofile('data/lib/miscellaneous/npcsSpawnList.lua')
+dofile('data/lib/miscellaneous/055-actions_uniques.lua')
 dofile('data/lib/miscellaneous/050-functions.lua')
-dofile('data/lib/miscellaneous/055-teleport_item_destinations.lua')
-dofile('data/lib/miscellaneous/specialLib.lua')
-dofile('data/lib/miscellaneous/demonOakQuest.lua')
-dofile('data/lib/miscellaneous/killingInTheNameOfQuest.lua')
-dofile('data/lib/miscellaneous/svargrondArenaQuest.lua')
 dofile('data/lib/miscellaneous/achievements_lib.lua')
+dofile('data/lib/miscellaneous/demon_oak_quest.lua')
+dofile('data/lib/miscellaneous/killing_in_the_name_of_quest.lua')
+dofile('data/lib/miscellaneous/npcs_spawn_list.lua')
+dofile('data/lib/miscellaneous/special_lib.lua')
 

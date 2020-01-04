@@ -373,3 +373,4 @@ config.lua
 
 # SFTP for Sublime
 sftp-config.json
+*.xml

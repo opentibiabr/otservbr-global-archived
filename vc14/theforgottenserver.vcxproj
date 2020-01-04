@@ -76,8 +76,8 @@
     <LibraryPath>C:\local\boost_1_66_0\lib64-msvc-14.1;C:\local\boost_1_66_0\boost;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\local\tfs-sdk-3.2;C:\local\boost_1_66_0;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\local\tfs-sdk-3.2;C:\local\boost_1_66_0\boost;C:\local\boost_1_66_0\lib64-msvc-14.1;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\local\boost_1_66_0\tools;C:\local\boost_1_66_0\boost;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\local\boost_1_66_0\boost;C:\local\boost_1_66_0\lib64-msvc-14.1;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

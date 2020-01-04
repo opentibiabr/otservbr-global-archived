@@ -16,10 +16,10 @@
 		<flag targetDistance="1"/>
 		<flag staticAttack="90"/>
 		<flag runOnHealth="0"/>
-	<flag canWalkOnEnergy="1"/><flag canWalkOnFire="1"/><flag canWalkOnPoison="1"/></flags>
-		<script>
-		<event name="boneCapsule"/>
-	</script>
+		<flag canWalkOnEnergy="1"/>
+		<flag canWalkOnFire="1"/>
+		<flag canWalkOnPoison="1"/>
+	</flags>
 	<defenses armor="22" defense="20">
 	</defenses>
 	<immunities>
