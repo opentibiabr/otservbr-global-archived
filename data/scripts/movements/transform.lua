@@ -1,7 +1,7 @@
+local movement = MoveEvent()
 local increasing = {[416] = 417, [426] = 425, [446] = 447, [3216] = 3217, [3202] = 3215, [11062] = 11063}
-local decreasing = {[417] = 416, [425] = 426, [447] = 446, [3217] = 3216, [3215] = 3202, [11063] = 11062}
 
-function onStepIn(creature, item, position, fromPosition)
+function movement.onStepIn(creature, item, position, fromPosition)
 	if not increasing[item.itemid] then
 		return true
 	end
@@ -41,7 +41,10 @@ function onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-function onStepOut(creature, item, position, fromPosition)
+local movement = MoveEvent()
+local decreasing = {[417] = 416, [425] = 426, [447] = 446, [3217] = 3216, [3215] = 3202, [11063] = 11062}
+
+function movement.onStepOut(creature, item, position, fromPosition)
 	if not decreasing[item.itemid] then
 		return true
 	end
