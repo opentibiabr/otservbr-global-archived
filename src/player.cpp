@@ -3141,7 +3141,7 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		}
 
 		if (shopOwner && requireListUpdate) {
-			updateSaleShopList(item);
+			updateSaleShopList();
 		}
 	} else if (const Creature* creature = thing->getCreature()) {
 		if (creature == this) {
@@ -3219,17 +3219,16 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 		}
 
 		if (shopOwner && requireListUpdate) {
-			updateSaleShopList(item);
+			updateSaleShopList();
 		}
 	}
 }
 
-bool Player::updateSaleShopList(const Item* item)
+void Player::updateSaleShopList()
 {
 	if (client) {
 		client->sendSaleItemList(shopItemList);
 	}
-	return true;
 }
 
 bool Player::hasShopItemForSale(uint32_t itemId, uint8_t subType) const
