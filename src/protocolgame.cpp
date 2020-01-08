@@ -304,9 +304,9 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	if (version != 1200) { // this is going to disable login for any client that is not 12.00
+	if (version != CLIENT_PROTOCOL) { // this is going to disable login for any client that is not 12.00
 		std::ostringstream ss;
-		ss << "Only clients with protocol 12.00 allowed!";
+		ss << "Only clients with protocol " << CLIENT_PROTOCOL_STR << " allowed!";
 		disconnectClient(ss.str());
 		return;
 	}
@@ -3713,7 +3713,6 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
  			AddItem(msg, *it);
  		}
  	}
-
  	writeToOutputBuffer(msg);
  }
 

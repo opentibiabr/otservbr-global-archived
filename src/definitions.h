@@ -26,9 +26,8 @@ static constexpr auto STATUS_SERVER_NAME = "OTServBR - Global";
 static constexpr auto STATUS_SERVER_VERSION = "Based on TFS 1.3";
 static constexpr auto STATUS_SERVER_CREDITS = "OTServBR Team and Contributors, OTXServer (Mattyx Gomez) and The Forgotten Server Developers";
 
-static constexpr auto CLIENT_VERSION_MIN = 1100;
-static constexpr auto CLIENT_VERSION_MAX = 1200;
-static constexpr auto CLIENT_VERSION_STR = "12.00";
+static constexpr auto CLIENT_PROTOCOL = 1200;
+static constexpr auto CLIENT_PROTOCOL_STR = "12.00";
 
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;

@@ -371,7 +371,7 @@ class ProtocolGame final : public Protocol
 
 		uint32_t eventConnect = 0;
 		uint32_t challengeTimestamp = 0;
-		uint16_t version = CLIENT_VERSION_MIN;
+		uint16_t version = CLIENT_PROTOCOL;
 		uint32_t clientVersion = 0;
 
 		uint8_t challengeRandom = 0;

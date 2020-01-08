@@ -39,11 +39,6 @@ maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
--- Version Manual
-clientVersionMin = 1200
-clientVersionMax = 1200
-clientVersionStr = "Your client version is not supported."
-
 -- Depot Limit
 freeDepotLimit = 2000
 premiumDepotLimit = 10000
