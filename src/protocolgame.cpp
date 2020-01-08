@@ -3719,7 +3719,7 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
 
 void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  {
- 	if (!player || !item || getVersion() < 1200) {
+ 	if (!player || !item) {
  		return;
  	}
  
@@ -3732,7 +3732,7 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
 
 void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
  {
- 	if (!player || getVersion() < 1200) {
+ 	if (!player) {
  		return;
  	}
 
