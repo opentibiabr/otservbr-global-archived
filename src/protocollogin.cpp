@@ -120,9 +120,7 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	// OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
 
 	uint16_t version = msg.get<uint16_t>();
-	if (version >= 1111) {
-		enableCompact();
-	}
+	enableCompact();
 
 	msg.skipBytes(17);
 	/*
@@ -132,9 +130,9 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	 * 1 byte: 0
 	 */
 
-	if (version <= 760) {
+	if (version != CLIENT_PROTOCOL) {
 		std::ostringstream ss;
-		ss << "Only clients with protocol " << g_config.getString(ConfigManager::VERSION_STR) << " allowed!";
+		ss << "Only clients with protocol " << CLIENT_PROTOCOL_STR << " allowed!";
 		disconnectClient(ss.str(), version);
 		return;
 	}
@@ -153,9 +151,9 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	enableXTEAEncryption();
 	setXTEAKey(msgKey);
 
-	if (version < g_config.getNumber(ConfigManager::VERSION_MIN) || version > g_config.getNumber(ConfigManager::VERSION_MAX)) {
+	if (version != CLIENT_PROTOCOL) {
 		std::ostringstream ss;
-		ss << "Only clients with protocol " << g_config.getString(ConfigManager::VERSION_STR) << " allowed!";
+		ss << "Only clients with protocol " << CLIENT_PROTOCOL_STR << " allowed!";
 		disconnectClient(ss.str(), version);
 		return;
 	}

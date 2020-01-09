@@ -30,7 +30,6 @@
 #include "configmanager.h"
 #include "scriptmanager.h"
 #include "rsa.h"
-#include "protocolold.h"
 #include "protocollogin.h"
 #include "protocolstatus.h"
 #include "databasemanager.h"
@@ -269,9 +268,6 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 
 	// OT protocols
 	services->add<ProtocolStatus>(static_cast<uint16_t>(g_config.getNumber(ConfigManager::STATUS_PORT)));
-
-	// Legacy login protocol
-	services->add<ProtocolOld>(static_cast<uint16_t>(g_config.getNumber(ConfigManager::LOGIN_PORT)));
 
 	RentPeriod_t rentPeriod;
 	std::string strRentPeriod = asLowerCaseString(g_config.getString(ConfigManager::HOUSE_RENT_PERIOD));

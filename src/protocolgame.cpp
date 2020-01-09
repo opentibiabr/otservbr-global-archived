@@ -3745,7 +3745,7 @@ void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
 
 void ProtocolGame::sendUpdateLootTracker(Item* item)
 {
- 	if (!player || getVersion() < 1200) {
+ 	if (!player) {
  		return;
  	}
 
