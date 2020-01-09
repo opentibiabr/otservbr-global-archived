@@ -3139,10 +3139,6 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		if (const Container* container = item->getContainer()) {
 			onSendContainer(container);
 		}
-
-		if (shopOwner && requireListUpdate) {
-			updateSaleShopList();
-		}
 	} else if (const Creature* creature = thing->getCreature()) {
 		if (creature == this) {
 			//check containers
@@ -3217,17 +3213,6 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 				autoCloseContainers(container);
 			}
 		}
-
-		if (shopOwner && requireListUpdate) {
-			updateSaleShopList();
-		}
-	}
-}
-
-void Player::updateSaleShopList()
-{
-	if (client) {
-		client->sendSaleItemList(shopItemList);
 	}
 }
 
