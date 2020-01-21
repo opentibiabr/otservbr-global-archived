@@ -65,7 +65,7 @@
 <item name="wand of cosmic energy" chance="11800"/>
 <item name="dragon necklace" chance="16600"/>
 <item name="stone skin amulet" chance="15860"/>
-<item name="blue ectoplasm" chance="15600"/>
+<item id="34720" chance="15600"/>
 <item name="glacier amulet" chance="16890"/>
 <item name="orb" chance="18980"/>
 <item name="hailstorm rod" chance="17550"/>

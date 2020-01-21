@@ -53,8 +53,8 @@
 		<item name="Emerald Bangle" chance="4740"/>
 		<item name="Twin Hooks" chance="4570"/>
 		<item name="Springsprout Rod" chance="3510"/>
-		<item name="Green Ectoplasm" chance="1890"/>
-     		<item name="Coral Brooch" chance="1330"/>
+		<item id="34721" chance="1890"/>
+     	<item name="Coral Brooch" chance="1330"/>
 		<item name="Serpent Sword" chance="1150"/>
 		<item name="Assassin Dagger" chance="970"/>
 		<item name="Hexagonal Ruby" chance="940"/>
