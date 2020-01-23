@@ -480,6 +480,7 @@
 	<!-- Dawnport and Rookgaard -->
 	<movevent event="StepIn" actionid="50998" script="rookgaard/levelbridge.lua" />
 	<movevent event="StepIn" actionid="50999" script="rookgaard/rookVillage.lua" />
+	<movevent event="StepIn" actionid="50241" script="rookgaard/premiumbridge.lua" />
 	<movevent event="StepIn" fromaid="20001" toaid="20004" script="dawnport/vocationtrial.lua" />
 
 	<!-- (Level & quest) doors -->
