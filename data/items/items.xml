@@ -35147,9 +35147,7 @@
 		<attribute key="range" value="3" />
 		<attribute key="imbuingSlots" value="3" />
 	</item> 
-	<item fromid="25996" toid="25998" article="a" name="rod of carving" />
-	-- this items is deprecated
-	-->
+	<item fromid="25996" toid="25998" article="a" name="rod of carving" />	
 	<item fromid="25999" toid="26000" article="a" name="crater" />
 	<item fromid="26005" toid="26007" article="a" name="crater" />
 	<item id="26019" name="rift floor">
