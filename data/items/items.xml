@@ -463,31 +463,7 @@
 	</item>
 	<item id="1388" article="a" name="ramp">
 		<attribute key="floorchange" value="east" />
-	</item>
-	<item id="33776" article="a" name="ramp">
-		<attribute key="floorchange" value="north" />
-	</item>
-	<item id="33778" article="a" name="ramp">
-		<attribute key="floorchange" value="west" />
-	</item>
-	<item id="33780" article="a" name="ramp">
-		<attribute key="floorchange" value="east" />
-	</item>
-	<item id="33782" article="a" name="ramp">
-		<attribute key="floorchange" value="south" />
-	</item>
-	<item id="33748" article="a" name="ramp">
-		<attribute key="floorchange" value="north" />
-	</item>
-	<item id="33750" article="a" name="ramp">
-		<attribute key="floorchange" value="west" />
-	</item>
-	<item id="33752" article="a" name="ramp">
-		<attribute key="floorchange" value="east" />
-	</item>
-	<item id="33754" article="a" name="ramp">
-		<attribute key="floorchange" value="south" />
-	</item>
+	</item>	
 	<item id="1389" article="a" name="ramp" />
 	<item id="1390" article="a" name="ramp">
 		<attribute key="floorchange" value="west" />
@@ -34872,8 +34848,7 @@
 		<attribute key="description" value="This floor is very gluey." />
 	</item>
 	<item fromid="25845" toid="25869" name="rift wall" />
-	<item fromid="25870" toid="25878" name="glowing" />
-	<!-- this items is deprecated
+	<item fromid="25870" toid="25878" name="glowing" />	
 	<item id="25879" article="a" name="blade of mayhem">
 		<attribute key="description" value="It can only be wielded properly by players of level 100 or higher." />
 		<attribute key="defense" value="33" />
@@ -42095,9 +42070,33 @@
 	<item fromid="33705" toid="33726" article="an" name="ornamented floor"/>
 	<item fromid="33727" toid="33735" article="an" name="ornamented wall"/>
 	<item id="33736" article="an" name="ornamented pillar"/>
-	<item fromid="33783" toid="33784" article="an" name="ornamented wall"/>
+	<item id="33748" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="33750" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="33752" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="33754" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>	
 	<item fromid="33755" toid="33763" article="a" name="frozen wall"/>
 	<item id="33764" article="a" name="frozen pillar"/>
+	<item id="33776" article="a" name="ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="33778" article="a" name="ramp">
+		<attribute key="floorchange" value="west" />
+	</item>
+	<item id="33780" article="a" name="ramp">
+		<attribute key="floorchange" value="east" />
+	</item>
+	<item id="33782" article="a" name="ramp">
+		<attribute key="floorchange" value="south" />
+	</item>	
+	<item fromid="33783" toid="33784" article="an" name="ornamented wall"/>
 	<item fromid="33785" toid="33786" article="a" name="frozen wall"/>
 	<item fromid="33911" toid="33912" article="a" name="frozen column"/>	
 	<item id="33915" article="a" name="dream catcher">
