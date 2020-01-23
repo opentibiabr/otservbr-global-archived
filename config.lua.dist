@@ -29,10 +29,10 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-motd = "Bem vindo ao Open-TibiaBR!"
+motd = "Bem vindo ao OTServBR-Global!"
 onePlayerOnlinePerAccount = true
 allowClones = false
-serverName = "Open-TibiaBR"
+serverName = "OTServBR-Global"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
@@ -79,7 +79,7 @@ timeBetweenExActions = 700
 -- NOTE: set mapName WITHOUT .otbm at the end
 -- NOTE: unzip the map world.rar
 mapName = "otservbr"
-mapAuthor = "Open-TibiaBR"
+mapAuthor = "OTServBR"
 
 -- Market
 marketOfferDuration = 30 * 24 * 60 * 60
@@ -91,7 +91,7 @@ maxMarketOffersAtATimePerPlayer = 100
 mysqlHost = "127.0.0.1"
 mysqlUser = "root"
 mysqlPass = ""
-mysqlDatabase = ""
+mysqlDatabase = "otservbr-global"
 mysqlPort = 3306
 mysqlSock = ""
 
@@ -106,7 +106,7 @@ emoteSpells = false
 classicEquipmentSlots = false
 allowWalkthrough = true
 coinPacketSize = 25
-coinImagesURL = "http://localhost/images/store/"
+coinImagesURL = "http://127.0.0.1/images/store/"
 classicAttackSpeed = false
 showScriptsLogInConsole = false
 
@@ -151,5 +151,5 @@ startupDatabaseOptimization = true
 -- Status server information
 ownerName = "OTServBR-Global"
 ownerEmail = ""
-url = "https://github.com/opentibiabr/OTServBR-Global"
+url = "https://github.com/opentibiabr/otservbr-global"
 location = "South America"
