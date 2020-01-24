@@ -75,29 +75,6 @@ function Creature:onTargetCombat(target)
 		end
 	end
 
-	if target:isPlayer() then
-		if self:isMonster() then
-			local protectionStorage = target:getStorageValue(Storage.combatProtectionStorage)
-
-			if target:getIp() == 0 then -- If player is disconnected, monster shall ignore to attack the player
-			    if target:isPzLocked() then end
-				if protectionStorage <= 0 then
-					addEvent(removeCombatProtection, 30 * 1000, target.uid)
-					target:setStorageValue(Storage.combatProtectionStorage, 1)
-				elseif protectionStorage == 1 then
-					self:searchTarget()
-					return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER
-				end
-
-				return true
-			end
-
-			if protectionStorage >= os.time() then
-				return RETURNVALUE_YOUMAYNOTATTACKTHISPLAYER
-			end
-		end
-	end
-
 	if ((target:isMonster() and self:isPlayer() and target:getType():isPet() and target:getMaster() == self) or (self:isMonster() and target:isPlayer() and self:getType():isPet() and self:getMaster() == target)) then
 		return RETURNVALUE_YOUMAYNOTATTACKTHISCREATURE
 	end
