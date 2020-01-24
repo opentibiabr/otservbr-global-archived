@@ -24,6 +24,7 @@ sleighinfo = {
 local o = {'bright percht sleigh', 'cold percht sleigh', 'dark percht sleigh'}
 function creatureSayCallback(cid, type, msg)
 local talkUser = cid
+local player = Player(cid)
 
 	if(not npcHandler:isFocused(cid)) then
 		return false
@@ -69,8 +70,7 @@ local talkUser = cid
 					end
 				end
 			end
-			if(getPlayerMoney(cid) >= sleighinfo[rtnt[talkUser]].cost) and (items_number == table.maxn(sleighinfo[rtnt[talkUser]].items)) then
-				doPlayerRemoveMoney(cid, sleighinfo[rtnt[talkUser]].cost)
+			if(player:removeMoneyNpc(sleighinfo[rtnt[talkUser]].cost) and (items_number == table.maxn(sleighinfo[rtnt[talkUser]].items)) then
 				if table.maxn(sleighinfo[rtnt[talkUser]].items) > 0 then
 					for i = 1, table.maxn(sleighinfo[rtnt[talkUser]].items) do
 						local item = sleighinfo[rtnt[talkUser]].items[i]
