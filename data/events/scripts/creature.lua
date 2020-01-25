@@ -74,13 +74,13 @@ function Creature:onTargetCombat(target)
 			__picif[target.uid] = {}
 		end
 	end
-
+	
 	if target:isPlayer() then
 		if self:isMonster() then
 			local protectionStorage = target:getStorageValue(Storage.combatProtectionStorage)
 
 			if target:getIp() == 0 then -- If player is disconnected, monster shall ignore to attack the player
-			    if target:isPzLocked() then end
+			    if target:isPzLocked() then return true end
 				if protectionStorage <= 0 then
 					addEvent(removeCombatProtection, 30 * 1000, target.uid)
 					target:setStorageValue(Storage.combatProtectionStorage, 1)
