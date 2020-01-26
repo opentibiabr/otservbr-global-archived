@@ -1689,11 +1689,14 @@ ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 		}
 		else if (const Monster* monster = creature->getMonster()) {
 			if (monster->isSummon()) {
-				if (monster->isPet() && house->isInvited(monster->getMaster()->getPlayer())) {
-					return RETURNVALUE_NOERROR;
-				}
-				else {
+				if (monster->isPet() && !house->isInvited(monster->getMaster()->getPlayer())) {
 					return RETURNVALUE_NOTPOSSIBLE;
+				}
+				if (monster->isPet() && house->isInvited(monster->getMaster()->getPlayer()) && (hasFlag(TILESTATE_BLOCKSOLID) || (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_NOFIELDBLOCKPATH)))) {
+					return RETURNVALUE_NOTPOSSIBLE;
+				} 
+				else {
+					return RETURNVALUE_NOERROR;
 				}
 			}
 		}
