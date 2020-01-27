@@ -3146,7 +3146,7 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		}
 
 		if (shopOwner && requireListUpdate) {
-			updateSaleShopList(item);
+			//updateSaleShopList(item); // this causes the client to crash
 		}
 	} else if (const Creature* creature = thing->getCreature()) {
 		if (creature == this) {
@@ -3224,11 +3224,12 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 		}
 
 		if (shopOwner && requireListUpdate) {
-			updateSaleShopList(item);
+			//updateSaleShopList(item); // this causes the client to crash
 		}
 	}
 }
 
+// i will keep this function so it can be reviewed
 bool Player::updateSaleShopList(const Item* item)
 {
 	uint16_t itemId = item->getID();
