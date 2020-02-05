@@ -7,6 +7,9 @@ ADVANCED_SECURE_MODE = 1 -- Set to 0 to disable.
 
 STORAGEVALUE_PROMOTION = 30018
 
+-- this is the new door registration system, ignore the tables below and register only in those, it is not necessary to register in actions.xml, just put the corresponding id behind the closed and open door and the script will automatically register them.
+-- start
+-- this is the custom doors (no having special requisites for open)
 customDoorsRange = {
 	{ openDoor = 26545, closedDoor = 26541 },
 	{ openDoor = 26545, closedDoor = 26542 },
@@ -16,13 +19,20 @@ customDoorsRange = {
 	{ openDoor = 33121, closedDoor = 33118 },
 	{ openDoor = 33122, closedDoor = 33119 },
 	{ openDoor = 33122, closedDoor = 33120 },
-	{ openDoor = 34673, closedDoor = 34671 },
-	{ openDoor = 34674, closedDoor = 34672 },
-	{ openDoor = 34677, closedDoor = 34675 },
-	{ openDoor = 34678, closedDoor = 34676 },
 	{ openDoor = 12695, closedDoor = 12692 },
 	{ openDoor = 12703, closedDoor = 12701 },
 }
+-- quest doors (door for quests, put an storage on the actionid and the door is open only if player have this storage)
+questDoorsRange = {
+	{ openDoor = 34677, closedDoor = 34675 },
+	{ openDoor = 34678, closedDoor = 34676 },
+}
+-- level door
+levelDoorsRange = {
+	{ openDoor = 34673, closedDoor = 34671 },
+	{ openDoor = 34674, closedDoor = 34672 },
+}
+-- end
 
 ropeSpots = {384, 418, 8278, 8592, 13189, 14435, 14436, 15635, 19518, 26019, 24621, 24622, 24623, 24624}
 
