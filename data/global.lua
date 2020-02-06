@@ -11,26 +11,26 @@ STORAGEVALUE_PROMOTION = 30018
 -- start
 -- this is the custom doors (no having special requisites for open)
 customDoorsRange = {
-	{ openDoor = 26545, closedDoor = 26541 },
-	{ openDoor = 26545, closedDoor = 26542 },
-	{ openDoor = 26546, closedDoor = 26543 },
-	{ openDoor = 26546, closedDoor = 26544 },
-	{ openDoor = 33121, closedDoor = 33117 },
-	{ openDoor = 33121, closedDoor = 33118 },
-	{ openDoor = 33122, closedDoor = 33119 },
-	{ openDoor = 33122, closedDoor = 33120 },
-	{ openDoor = 12695, closedDoor = 12692 },
-	{ openDoor = 12703, closedDoor = 12701 },
+	{ closedDoor = 12692, openDoor = 12695 },
+	{ closedDoor = 12701, openDoor = 12703 },
+	{ closedDoor = 26541, openDoor = 26545 },
+	{ closedDoor = 26542, openDoor = 26545 },
+	{ closedDoor = 26543, openDoor = 26546 },
+	{ closedDoor = 26544, openDoor = 26546 },
+	{ closedDoor = 33117, openDoor = 33121 },
+	{ closedDoor = 33118, openDoor = 33121 },
+	{ closedDoor = 33119, openDoor = 33122 },
+	{ closedDoor = 33120, openDoor = 33122 },
 }
 -- quest doors (door for quests, put an storage on the actionid and the door is open only if player have this storage)
 questDoorsRange = {
-	{ openDoor = 34677, closedDoor = 34675 },
-	{ openDoor = 34678, closedDoor = 34676 },
+	{closedDoor = 34675, openDoor = 34677},
+	{closedDoor = 34676, openDoor = 34678},
 }
 -- level door
 levelDoorsRange = {
-	{ openDoor = 34673, closedDoor = 34671 },
-	{ openDoor = 34674, closedDoor = 34672 },
+	{closedDoor = 34671, openDoor = 34673},
+	{closedDoor = 34672, openDoor = 34674},
 }
 -- end
 
@@ -257,6 +257,20 @@ if not bosssPlayers then
 			return c
 		end
 	}
+end
+
+-- function for the reload talkaction
+local logFormat = "[%s] %s %s"
+
+function logCommand(player, words, param)
+	local file = io.open("data/logs/" .. player:getName() .. " commands.log", "a")
+	if not file then
+		return
+	end
+
+	io.output(file)
+	io.write(logFormat:format(os.date("%d/%m/%Y %H:%M"), words, param):trim() .. "\n")
+	io.close(file)
 end
 
 -- MARRY
