@@ -1,6 +1,5 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
   local kit = item.actionid
-  print(item.actionid)
   if not kit then
     return false
   end
