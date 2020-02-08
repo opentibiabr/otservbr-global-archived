@@ -292,10 +292,10 @@ void Spawn::cleanup()
 {
 	auto it = spawnedMap.begin();
 	while (it != spawnedMap.end()) {
-		uint32_t spawnId = it->first;
+	        uint32_t spawnId = it->first;
 		Monster* monster = it->second;
-		if (monster->isRemoved()) {
-			spawnMap[spawnId].lastSpawn = OTSYS_TIME();
+	        if (monster->isRemoved()) {
+		        spawnMap[spawnId].lastSpawn = OTSYS_TIME();
 			monster->decrementReferenceCounter();
 			it = spawnedMap.erase(it);
 		} else {
