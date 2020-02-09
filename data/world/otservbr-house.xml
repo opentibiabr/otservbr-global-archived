@@ -52,7 +52,7 @@
 	<house name="Salvation Street 3" houseid="60" entryx="32972" entryy="32096" entryz="6" rent="3790" townid="1" size="76" />
 	<house name="Silver Street 3" houseid="61" entryx="32998" entryy="32084" entryz="6" rent="1980" townid="1" size="40" />
 	<house name="Golden Axe Guildhall" houseid="62" entryx="32987" entryy="32109" entryz="6" rent="10485" townid="1" size="166" />
-	<house name="Silver Street 1" houseid="63" entryx="32998" entryy="32109" entryz="6" rent="2565" townid="1" size="53" />
+	<house name="Silver Street 1" houseid="63" entryx="32998" entryy="32109" entryz="6" rent="2565" townid="1" size="54" />
 	<house name="Silver Street 2" houseid="64" entryx="32998" entryy="32088" entryz="6" rent="1980" townid="1" size="40" />
 	<house name="Silver Street 4" houseid="66" entryx="32997" entryy="32077" entryz="6" rent="3295" townid="1" size="63" />
 	<house name="Mystic Lane 2" houseid="67" entryx="32979" entryy="32072" entryz="6" rent="2980" townid="1" size="58" />
@@ -428,13 +428,13 @@
 	<house name="Fimbul Shelf 2" houseid="803" entryx="32209" entryy="31175" entryz="7" rent="1045" townid="12" size="21" />
 	<house name="Fimbul Shelf 1" houseid="804" entryx="32204" entryy="31169" entryz="7" rent="975" townid="12" size="20" />
 	<house name="Frost Manor" houseid="805" entryx="32287" entryy="31106" entryz="5" rent="26370" townid="12" size="375" />
-	<house name="Marble Guildhall" houseid="831" entryx="32622" entryy="31954" entryz="9" rent="16810" townid="3" size="285" />
-	<house name="Iron Guildhall" houseid="832" entryx="32607" entryy="31893" entryz="9" rent="15560" townid="3" size="241" />
-	<house name="The Market 1 (Shop)" houseid="833" entryx="32631" entryy="31922" entryz="8" rent="650" townid="3" size="8" />
+	<house name="Marble Guildhall" houseid="831" entryx="32622" entryy="31954" entryz="9" rent="16810" townid="3" size="282" />
+	<house name="Iron Guildhall" houseid="832" entryx="32607" entryy="31893" entryz="9" rent="15560" townid="3" size="240" />
+	<house name="The Market 1 (Shop)" houseid="833" entryx="32631" entryy="31922" entryz="8" rent="650" townid="3" size="7" />
 	<house name="The Market 3 (Shop)" houseid="834" entryx="32635" entryy="31926" entryz="8" rent="1450" townid="3" size="22" />
 	<house name="The Market 2 (Shop)" houseid="835" entryx="32634" entryy="31930" entryz="8" rent="1100" townid="3" size="16" />
 	<house name="The Market 4 (Shop)" houseid="836" entryx="32635" entryy="31933" entryz="8" rent="1800" townid="3" size="28" />
-	<house name="Granite Guildhall" houseid="837" entryx="32599" entryy="31949" entryz="5" rent="17845" townid="3" size="295" />
+	<house name="Granite Guildhall" houseid="837" entryx="32599" entryy="31949" entryz="5" rent="17845" townid="3" size="294" />
 	<house name="Upper Barracks 01" houseid="838" entryx="32605" entryy="31923" entryz="5" rent="210" townid="3" size="4" />
 	<house name="Upper Barracks 13" houseid="850" entryx="32615" entryy="31923" entryz="5" rent="580" townid="3" size="11" />
 	<house name="Nobility Quarter 4" houseid="851" entryx="32607" entryy="31921" entryz="4" rent="765" townid="3" size="14" />
@@ -1012,7 +1012,7 @@
 	<house name="Lower Barracks 23" houseid="2561" entryx="32637" entryy="31911" entryz="9" rent="300" townid="3" size="7" />
 	<house name="Lower Barracks 24" houseid="2562" entryx="32637" entryy="31906" entryz="9" rent="300" townid="3" size="7" />
 	<house name="The Farms 4" houseid="2563" entryx="32648" entryy="31899" entryz="2" rent="1530" townid="3" size="21" />
-	<house name="Tunnel Gardens 1" houseid="2564" entryx="32606" entryy="31908" entryz="11" rent="2000" townid="3" size="21" />
+	<house name="Tunnel Gardens 1" houseid="2564" entryx="32606" entryy="31908" entryz="11" rent="2000" townid="3" size="20" />
 	<house name="Tunnel Gardens 2" houseid="2565" entryx="32606" entryy="31909" entryz="11" rent="2000" townid="3" size="20" />
 	<house name="The Yeah Beach Project" houseid="2566" entryx="32294" entryy="32555" entryz="6" rent="6525" townid="7" size="65" />
 	<house name="Hare's Den" houseid="2567" entryx="32687" entryy="32193" entryz="10" rent="7500" townid="1" size="99" />
@@ -1043,4 +1043,35 @@
 	<house name="Tunnel Gardens 10" houseid="2594" entryx="32606" entryy="31924" entryz="11" rent="0" townid="3" size="10" />
 	<house name="Tunnel Gardens 11" houseid="2595" entryx="32607" entryy="31924" entryz="12" rent="0" townid="3" size="11" />
 	<house name="Tunnel Gardens 12" houseid="2596" entryx="32603" entryy="31924" entryz="12" rent="0" townid="3" size="11" />
+	<house name="Caretaker's Residence" houseid="2597" entryx="32407" entryy="31772" entryz="7" rent="6000" townid="4" size="224" />
+	<house name="Prima Arbor" houseid="2598" entryx="32687" entryy="31686" entryz="7" rent="4000" townid="4" size="182" />
+	<house name="Avenue Tower" houseid="2599" entryx="32389" entryy="31787" entryz="7" rent="3000" townid="4" size="69" />
+	<house name="Pirate Shipwreck 1" houseid="2600" entryx="33278" entryy="32422" entryz="7" rent="8000" townid="4" size="148" />
+	<house name="Pirate Shipwreck 2" houseid="2601" entryx="33281" entryy="32431" entryz="7" rent="8000" townid="4" size="178" />
+	<house name="Castle, Residence" houseid="2602" entryx="33168" entryy="31792" entryz="6" rent="6000" townid="4" size="100" />
+	<house name="Stronghold" houseid="2603" entryx="33255" entryy="31867" entryz="6" rent="8000" townid="4" size="186" />
+	<house name="Harbour Promenade 1" houseid="2604" entryx="32772" entryy="31258" entryz="7" rent="8000" townid="4" size="124" />
+	<house name="Aureate Court 5" houseid="2605" entryx="32774" entryy="31200" entryz="7" rent="6000" townid="4" size="133" />
+	<house name="Luminous Arc 5" houseid="2606" entryx="32858" entryy="31199" entryz="7" rent="8000" townid="4" size="125" />
+	<house name="Mad Scientist's Lab" houseid="2607" entryx="32754" entryy="31245" entryz="7" rent="6000" townid="4" size="60" />
+	<house name="Smugglers Den" houseid="2608" entryx="32419" entryy="32262" entryz="9" rent="4000" townid="4" size="170" />
+	<house name="Haggler's Hangout 7" houseid="2609" entryx="32614" entryy="32728" entryz="7" rent="4000" townid="4" size="136" />
+	<house name="Big Game Hunters Lodge" houseid="2610" entryx="32627" entryy="32731" entryz="7" rent="6000" townid="4" size="162" />
+	<house name="Ivory Mansion" houseid="2611" entryx="32345" entryy="32843" entryz="7" rent="8000" townid="4" size="271" />
+	<house name="Lakeside Mansion" houseid="2612" entryx="32322" entryy="31147" entryz="6" rent="3000" townid="4" size="127" />
+	<house name="Mystic Lane 3 (Tower)" houseid="2613" entryx="33008" entryy="32072" entryz="6" rent="8000" townid="1" size="120" />
+	<house name="Lucky Lane 2 (Tower)" houseid="2614" entryx="32935" entryy="32152" entryz="6" rent="6000" townid="1" size="113" />
+	<house name="Lucky Lane 3 (Tower)" houseid="2615" entryx="32936" entryy="32152" entryz="6" rent="6000" townid="1" size="113" />
+	<house name="Iron Alley Watch, Upper" houseid="2616" entryx="32869" entryy="32125" entryz="6" rent="6000" townid="1" size="111" />
+	<house name="Iron Alley Watch, Lower" houseid="2617" entryx="32869" entryy="32126" entryz="6" rent="6000" townid="1" size="114" />
+	<house name="Dwarven Magnates Estate" houseid="2618" entryx="32643" entryy="31927" entryz="2" rent="3000" townid="1" size="130" />
+	<house name="Forge Masters Quarters" houseid="2619" entryx="32649" entryy="31889" entryz="8" rent="3000" townid="1" size="78" />
+	<house name="Harbour Place 3" houseid="2620" entryx="32331" entryy="32208" entryz="7" rent="8000" townid="1" size="87" />
+	<house name="Marketplace 2" houseid="2621" entryx="33951" entryy="31501" entryz="7" rent="4000" townid="4" size="74" />
+	<house name="Palace Vicinity" houseid="2622" entryx="33866" entryy="31516" entryz="7" rent="2000" townid="4" size="105" />
+	<house name="  Quay 1" houseid="2623" entryx="33896" entryy="31544" entryz="7" rent="2000" townid="4" size="109" />
+	<house name="  Quay 2" houseid="2624" entryx="33885" entryy="31552" entryz="7" rent="2000" townid="4" size="76" />
+	<house name="Wave Tower" houseid="2625" entryx="33879" entryy="31525" entryz="7" rent="4000" townid="4" size="166" />
+	<house name="Marketplace 1" houseid="2626" entryx="33937" entryy="31505" entryz="7" rent="4000" townid="4" size="61" />
+	<house name="Quay 3" houseid="2627" entryx="33909" entryy="31535" entryz="7" rent="2000" townid="4" size="352" />
 </houses>

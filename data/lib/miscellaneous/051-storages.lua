@@ -3,6 +3,59 @@
 -- Sort it in Values -
 
 Storage = {
+	KilmareshQuest = {
+		Questline = 22000,
+		Primeira = {
+			Titulo = 22002,
+		},
+		Segunda = {
+			Investigando = 22003,
+		},
+		Terceira = {
+			Recuperando = 22004,
+		},
+		Quarta = {
+			Moe = 22005,
+		},
+		Quinta = {
+			Memorias = 22006,
+		},
+		Sexta = {
+			Favor = 22007,
+		},
+		Set = {
+			Ritual = 22008,
+		},
+		Oito = {
+			Yonan = 22009,
+			Narsai = 22010,
+			Shimun = 22011,
+			Tefrit = 22012,
+		},
+		Nove = {
+			Coruja = 22013,
+		},
+		Dez = {
+			Sangra = 22014,
+		},
+		Onze = {
+			Basin = 22015,
+		},
+		Doze = {
+			Boss = 22016,
+			Bragrumol = 22017,
+			Mozradek = 22018,
+			Xogixath = 22019,
+		},
+		Treze = {
+			Fafnar = 22020,
+			Lyre = 22021,
+			Presente = 22022,
+		},
+		Quator = {
+			Restos = 22023,
+		},
+	},
 	TheSecretLibrary = {
 		TheOrderOfTheFalcon = {
 			OberonTimer = 25580,

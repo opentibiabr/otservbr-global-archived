@@ -27,6 +27,7 @@ addTravelKeyword('edron', 'Do you seek a ride to Edron for |TRAVELCOST|?', 60, P
 addTravelKeyword('darashia', 'Do you seek a ride to Darashia on Darama for |TRAVELCOST|?', 60, Position(33270, 32441, 6))
 addTravelKeyword('svargrond', 'Do you seek a ride to Svargrond for |TRAVELCOST|?', 60, Position(32253, 31097, 4))
 addTravelKeyword('kazordoon', 'Do you seek a ride to Kazordoon for |TRAVELCOST|?', 60, Position(32588, 31942, 0))
+addTravelKeyword('issavi', 'Do you seek a ride to Issavi for |TRAVELCOST|?', 100, Position(33957, 31515, 0))
 
 -- Basic
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "I am known as Uzon Ibn Kalith."})
