@@ -3076,8 +3076,8 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 			continue;
 		}
 
-		auto search = itemMap.find(item->getClientID());
-		if (search != itemMap.end()) {
+		auto rootSearch = itemMap.find(item->getClientID());
+		if (rootSearch != itemMap.end()) {
 			itemMap[item->getClientID()] = itemMap[item->getClientID()] + Item::countByType(item, -1);
 		}
 		else
@@ -3096,8 +3096,8 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 
 		if (Container* container = item->getContainer()) {
 			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
-				auto search = itemMap.find((*it)->getClientID());
-				if (search != itemMap.end()) {
+				auto containerSearch = itemMap.find((*it)->getClientID());
+				if (containerSearch != itemMap.end()) {
 					itemMap[(*it)->getClientID()] = itemMap[(*it)->getClientID()] + Item::countByType(*it, -1);
 				}
 				else
