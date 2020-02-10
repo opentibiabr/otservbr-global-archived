@@ -130,7 +130,7 @@ if msgcontains(msg, "report") and player:getStorageValue(Storage.KilmareshQuest.
 end
 if msgcontains(msg, "report") and player:getStorageValue(Storage.KilmareshQuest.Thirteen.Presente) == 2 then
 	if player:getStorageValue(Storage.KilmareshQuest.Thirteen.Presente) == 2 then
-		npcHandler:say({"Voce conseguiu achar a Small Tortoise?"}, cid)-- needs review, this is not the speech of the global
+		npcHandler:say({"Did you manage to find Small Tortoise?"}, cid)-- needs review, this is not the speech of the global
 		npcHandler.topic[cid] = 11
 		playerTopic[cid] = 11
 	end
