@@ -76,8 +76,6 @@ elseif msgcontains(msg, "yes") and playerTopic[cid] == 3 and player:getStorageVa
 		npcHandler:say({"Sorry."}, cid)-- It needs to be revised, it's not the same as the global
 	end
 end
-
-
 return true
 end
 
