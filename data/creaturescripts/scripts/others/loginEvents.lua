@@ -50,7 +50,11 @@ function onLogin(player)
 	"deeplingBosses",
 	"theGreatDragonHuntKill",
 	"bonusPreyLootKill",
-	"bossesMissionCults"
+	"bossesMissionCults",
+	"bragrumol_kill",
+	"mozradek_kill",
+	"xogixath_kill",
+	"CultoFafnar"
 }
 	
 	for i = 1, #events do

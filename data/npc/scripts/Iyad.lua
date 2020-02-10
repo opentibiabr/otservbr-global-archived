@@ -31,6 +31,7 @@ addTravelKeyword('kazordoon', 'Kazordoon', 60, Position(32588, 31941, 0))
 addTravelKeyword('femor hills', 'the Femor Hills', 40, Position(32536, 31837, 4))
 addTravelKeyword('edron', 'Edron', 60, Position(33193, 31784, 3))
 addTravelKeyword('hills', 'the Femor Hills', 40, Position(32536, 31837, 4))
+addTravelKeyword('issavi', 'Issavi', 100, Position(33957, 31515, 0))
 
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, traveller |PLAYERNAME|. Where do you want me to {fly} you?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye!")

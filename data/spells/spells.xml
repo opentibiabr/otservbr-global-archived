@@ -784,6 +784,15 @@
 	<instant name="House Kick" words="alana sio" aggressive="0" playernameparam="1" params="1" script="house/kick.lua" />
 
 	<!-- Monster Spells -->
+	<instant name="urmahlulluring" words="###474" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
+	<instant name="warden x" words="###476" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden x.lua"/>
+	<instant name="warden ring" words="###477" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden ring.lua"/>
+	<instant name="wave t" words="###478" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/wave t.lua"/>
+	<instant name="firering" words="###479" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firering.lua"/>
+	<instant name="firex" words="###480" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firex.lua"/>
+	<instant name="targetfirering" words="###481" aggressive="1" blockwalls="1" needtarget="1" exhaustion="2000" needlearn="1" script="monster/priestess firering.lua"/>
+	<instant name="explosion wave" words="###482" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/explosion wave.lua"/>
+	<instant name="urmahlulluring" words="###483" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
 	<instant name="ghastly dragon curse" words="###1"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/ghastly dragon curse.lua"/>
 	<instant name="djinn electrify"  words="###2"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/djinn electrify.lua"/>
 	<instant name="energy elemental electrify" words="###3"  aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/energy elemental electrify.lua"/>

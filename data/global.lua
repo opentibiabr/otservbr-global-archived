@@ -21,6 +21,12 @@ customDoorsRange = {
 	{ closedDoor = 33118, openDoor = 33121 },
 	{ closedDoor = 33119, openDoor = 33122 },
 	{ closedDoor = 33120, openDoor = 33122 },
+	{ closedDoor = 36329, openDoor = 36331 },
+	{ closedDoor = 36330, openDoor = 36332 },
+	{ closedDoor = 35684, openDoor = 35688 },
+	{ closedDoor = 35686, openDoor = 35690 },
+	{ closedDoor = 35685, openDoor = 35689 },
+	{ closedDoor = 35687, openDoor = 35691 },
 }
 -- quest doors (door for quests, put an storage on the actionid and the door is open only if player have this storage)
 questDoorsRange = {

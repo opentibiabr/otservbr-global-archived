@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Ogre Sage" nameDescription="an ogre sage" race="blood" experience="5500" speed="170">
-	<health now="5000" max="5000"/>
-	<look type="1214" corpse="5999"/>
+<monster name="Ogre Sage" nameDescription="an ogre sage" race="blood" experience="5500" speed="230">
+	<health now="4800" max="4800"/>
+	<look type="1214" corpse="36370"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -35,14 +35,15 @@
 			<attribute key="areaEffect" value="greenspark"/>
 		</attack>
 	</attacks>
-	<defenses armor="45" defense="45">
+	<defenses armor="93" defense="93">
 		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</defense>
 	</defenses>
 	<elements>
-		<element firePercent="50"/>
-		<element icePercent="50"/>
+		<element earthPercent="75"/>
+		<element energyPercent="-30"/>
+		<element holyPercent="-10"/>
 	</elements>
 	<immunities>
 		<immunity death="1"/>
@@ -52,4 +53,15 @@
 	<summons maxSummons="1">
 		<summon name="Young Goanna" interval="2000" chance="10" />
 	</summons>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="ogre ear stud" chance="7950"/>
+		<item name="ogre nose ring" chance="15830"/>
+		<item name="shamanic talisman" chance="10230"/>
+		<item name="broken shamanic staff" chance="12500"/>
+		<item name="skull fetish" chance="9090"/>
+		<item name="terra boots" chance="4550"/>
+		<item name="bone fetish" chance="2270"/>
+		<item name="sacred tree amulet" chance="1140"/>
+	</loot>
 </monster>

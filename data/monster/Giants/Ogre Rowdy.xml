@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Ogre Rowdy" nameDescription="an ogre rowdy" race="blood" experience="4200" speed="170">
-	<health now="4800" max="4800"/>
-	<look type="1213" corpse="5999"/>
+<monster name="Ogre Rowdy" nameDescription="an ogre rowdy" race="blood" experience="4200" speed="210">
+	<health now="4500" max="4500"/>
+	<look type="1213" corpse="36366"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -19,20 +19,37 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-450"/>
-		<attack name="physical" interval="2000" chance="15" range="7" min="0" max="-200">
-			<attribute key="shootEffect" value="largerock"/>
+		<attack name="fire" interval="2000" chance="13" range="5" radius="4" target="1" min="-250" max="-400">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="3" min="-200" max="-450">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="18" range="3" target="1" min="-280" max="-420">
+			<attribute key="shootEffect" value="flammingarrow"/>
 		</attack>
 	</attacks>
-	<defenses armor="45" defense="45">
-		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
-			<attribute key="areaEffect" value="redshimmer"/>
-		</defense>
-	</defenses>
+	<defenses armor="98" defense="98"/>
 	<elements>
-		<element deathPercent="-1"/>
+		<element firePercent="70"/>
+		<element icePercent="-30"/>
 	</elements>
 	<immunities>
+		<immunity earth="1"/>
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="flaming arrow" countmax="19" chance="22040"/>
+		<item name="ogre ear stud" chance="12900"/>
+		<item name="ogre nose ring" chance="20970"/>
+		<item name="skull fetish" chance="12900"/>
+		<item name="wand of inferno" chance="8600"/>
+		<item name="jalapeno pepper" countmax="3" chance="3760"/>
+		<item name="wand of draconia" chance="2150"/>
+		<item name="wand of everblazing" chance="1080"/>
+		<item name="ogre choppa" chance="540"/>
+	</loot>
 </monster>

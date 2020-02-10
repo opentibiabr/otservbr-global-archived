@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Bragrumol" nameDescription="Bragrumol" race="fire" experience="18000" speed="220" script="rewardboss.lua">
+	<health now="38000" max="38000"/>
+	<look type="856" corpse="13973"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="0"/>
+		<flag staticattack="90"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-600"/>
+		<attack name="death" interval="2000" chance="18" range="5" min="-300" max="-600">
+			<attribute key="shootEffect" value="suddendeath"/>
+		</attack>
+		<attack name="death" interval="2000" chance="22" range="5" radius="4" min="-300" max="-600">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" range="5" radius="4" target="1" min="-300" max="-600">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="12" range="5" target="1" length="5" spread="0" min="-300" max="-600">
+			<attribute key="areaEffect" value="whiteenergyspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="84" defense="84"/>
+	<elements>
+		<element icePercent="-10"/>
+		<element deathPercent="50"/>
+		<element firePercent="30"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+	    <item name="Platinum Coin" countmax="8" chance="100000"/>
+	    <item name="Flaming Arrow" countmax="15" chance="60000"/>
+	    <item name="Red Gem" countmax="15" chance="45000"/>
+	    <item name="Sea Horse Figurine" chance="6700"/>
+	    <item id="36392" chance="520"/><!-- Enchanted blister Ring -->
+		<item id="36204" chance="16500"/>
+		<item name="Winged Boots" chance="110"/>
+		<item id="35238" chance="250"/><!-- Enchanted Theurgic Amulet -->
+		<item name="Magma Coat" chance="48000"/>
+		<item name="Stone Skin Amulet" chance="54000"/>
+	</loot>
+</monster>
