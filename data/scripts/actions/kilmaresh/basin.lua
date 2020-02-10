@@ -1,10 +1,10 @@
 local basin = Action()
 
 function basin.onUse(player, item, frompos, item2, topos)
-    if player:getStorageValue(Storage.KilmareshQuest.Dez.Sangra) == 1 then
+    if player:getStorageValue(Storage.KilmareshQuest.Tem.Bleeds) == 1 then
 		player:addItem(36266, 1)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You find a golden symbol at the bottom of the blood-filled basin.")
-        player:setStorageValue(Storage.KilmareshQuest.Onze.Basin, 1)
+        player:setStorageValue(Storage.KilmareshQuest.Eleven.Basin, 1)
     else
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Sorry")
     end

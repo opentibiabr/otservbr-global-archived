@@ -224,6 +224,10 @@
 	<monster name="Orc Cult Inquisitor" file="Cults of Tibia/Orcs/orc cult inquisitor.xml"/>
 	<monster name="Putrid Mummy" file="Cults of Tibia/Sandy/putrid mummy.xml"/>
 	<!-- BOSSES -->	
+	<monster name="Bragrumol" file="Bosses/bragrumol.xml"/>
+	<monster name="Wisdom of Urmahlullu" file="Bosses/wisdom of urmahlullu.xml"/>
+	<monster name="Urmahlullu the Immaculate" file="Bosses/urmahlullu the immaculate.xml"/>
+	<monster name="Mozradek" file="Bosses/mozradek.xml"/>
 	<monster name="Leiden" file="Cults of Tibia/Bosses/Leiden.xml"/>
 	<monster name="Ravennous Hunger" file="Cults of Tibia/Bosses/Ravennous Hunger.xml"/>
 	<monster name="Wine Cask" file="Cults of Tibia/Bosses/Wine Cask.xml"/>

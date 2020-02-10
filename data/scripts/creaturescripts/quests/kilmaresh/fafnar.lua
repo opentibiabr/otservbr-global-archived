@@ -1,6 +1,6 @@
 local monsterList = {
-    ['burning gladiator'] = Storage.KilmareshQuest.Treze.Fafnar,
-    ['priestess of the wild sun'] = Storage.KilmareshQuest.Treze.Fafnar
+    ['burning gladiator'] = Storage.KilmareshQuest.Thirteen.Fafnar,
+    ['priestess of the wild sun'] = Storage.KilmareshQuest.Thirteen.Fafnar
 }
 
 local event = CreatureEvent("CultoFafnar")

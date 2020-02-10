@@ -5,8 +5,8 @@ function kill_mozradek.onKill(cid, target, damage, flags, corpse)
         if(string.lower(getCreatureName(target)) == "mozradek") then
             for attackerUid, damage in pairs(target:getDamageMap()) do
                 local player = Player(attackerUid)
-                if player and player:getStorageValue(Storage.KilmareshQuest.Doze.Mozradek) == 1 then
-                    player:setStorageValue(Storage.KilmareshQuest.Doze.Mozradek, 2)
+                if player and player:getStorageValue(Storage.KilmareshQuest.Twelve.Mozradek) == 1 then
+                    player:setStorageValue(Storage.KilmareshQuest.Twelve.Mozradek, 2)
                 end
             end
         end
