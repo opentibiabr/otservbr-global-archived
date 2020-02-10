@@ -31,7 +31,6 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
 	if msgcontains(msg, 'research') then
 		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
 		local tombsStorage = player:getStorageValue(Storage.spiritHuntersQuest.tombsUse)
@@ -261,7 +260,6 @@ local function creatureSayCallback(cid, type, msg)
 		playerTopic[cid] = 4
 	end
 	end
-	
 	return true
 end
 
