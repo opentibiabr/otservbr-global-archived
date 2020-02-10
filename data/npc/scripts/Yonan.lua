@@ -42,7 +42,7 @@ npcHandler.topic[cid] = playerTopic[cid]
 local player = Player(cid)
 if msgcontains(msg, "mission") and player:getStorageValue(Storage.KilmareshQuest.Eighth.Yonan) == 1 then
 	if player:getStorageValue(Storage.KilmareshQuest.Eighth.Yonan) == 1 then
-		npcHandler:say({"Voce poderia me ajudar a fazer um ritual?"}, cid)
+		npcHandler:say({"Could you help me do a ritual?"}, cid)-- It needs to be revised, it's not the same as the global
 		npcHandler.topic[cid] = 1
 		playerTopic[cid] = 1
 	end
@@ -50,7 +50,7 @@ elseif msgcontains(msg, "yes") and playerTopic[cid] == 1 and player:getStorageVa
 	if player:getStorageValue(Storage.KilmareshQuest.Eighth.Yonan) == 1 then	
 		player:addItem(36552, 1) -- Yonans List
 		player:addItem(36448, 1) -- Pick Enchanted
-		npcHandler:say({"Aqui esta a lista com os ingredientes que faltam para completar o ritual."}, cid)
+		npcHandler:say({"Here is the list with the missing ingredients to complete the ritual."}, cid)-- It needs to be revised, it's not the same as the global
 		player:setStorageValue(Storage.KilmareshQuest.Eighth.Yonan, 2)
 		npcHandler.topic[cid] = 2
 		playerTopic[cid] = 2
@@ -60,7 +60,7 @@ elseif msgcontains(msg, "yes") and playerTopic[cid] == 1 and player:getStorageVa
 end
 if msgcontains(msg, "mission") and player:getStorageValue(Storage.KilmareshQuest.Eighth.Yonan) == 2 then
 	if player:getStorageValue(Storage.KilmareshQuest.Eighth.Yonan) == 2 then
-		npcHandler:say({"Voce trouxe todos os materiais que lhe informei?"}, cid)
+		npcHandler:say({"Did you bring all the materials I informed you about? "}, cid)-- It needs to be revised, it's not the same as the global
 		npcHandler.topic[cid] = 3
 		playerTopic[cid] = 3
 	end	
@@ -69,12 +69,12 @@ elseif msgcontains(msg, "yes") and playerTopic[cid] == 3 and player:getStorageVa
 		player:removeItem(10568, 3)
 		player:removeItem(36160, 12)
 		player:removeItem(36168, 10)
-		npcHandler:say({"Obrigado essa etapa do ritual esta completa."}, cid)
+		npcHandler:say({"Thank you this stage of the ritual is complete."}, cid)-- It needs to be revised, it's not the same as the global
 		player:setStorageValue(Storage.KilmareshQuest.Eighth.Yonan, 3)
 		npcHandler.topic[cid] = 4
 		playerTopic[cid] = 4
 	else
-		npcHandler:say({"Sorry."}, cid)
+		npcHandler:say({"Sorry."}, cid)-- It needs to be revised, it's not the same as the global
 	end
 end
 return true
