@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Feral Sphinx" nameDescription="a feral sphinx" race="blood" experience="8800" speed="160">
+	<health now="9800" max="9800"/>
+	<look type="1188" head="76" body="75" legs="38" feet="50" addons="2" corpse="36493"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="Fire Wave" chance="15" interval="2000" length="1" spread="0" target="1" min="-350" max="-500"/>
+		<attack name="energy" interval="2000" chance="12" radius="4" target="0" min="-300" max="-500">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" range="1" min="-350" max="-550">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="holy" interval="2000" chance="8" length="6" spread="0" min="-400" max="-580">
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="90" defense="90">
+		<defense name="healing" interval="2000" chance="20" min="200" max="425">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="80"/>
+		<element deathPercent="-15"/>
+		<element holyPercent="80"/>
+		<element icePercent="-15"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="wand of draconia" chance="4770"/>
+		<item name="sphinx feather" chance="3450"/>
+		<item name="fire axe" chance="2650"/>
+		<item id="36273" chance="3450"/><!-- Sphinx Tiara -->
+		<item name="magma legs" chance="1860"/>
+		<item name="magma monocle" chance="1590"/>
+		<item name="magma boots" chance="2120"/>
+		<item name="magma amulet" chance="7160"/>
+		<item name="wand of inferno" chance="7690"/>
+		<item name="dragon necklace" chance="800"/>
+	</loot>
+</monster>

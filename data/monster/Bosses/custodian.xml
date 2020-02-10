@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Custodian" nameDescription="a custodian" race="blood" experience="27500" speed="210" script="rewardboss.lua">
+	<health now="47000" max="47000"/>
+	<look type="1217" head="1" body="1" legs="19" feet="19" addons="1" corpse="36758"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-550"/>
+		<attack name="explosion wave" interval="2000" chance="14" min="-450" max="-600"/>
+		<attack name="physical" interval="2000" chance="10" radius="5" min="-400" max="-610">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="12" radius="4" min="-500" max="-730">
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+	</attacks>
+	<defenses armor="86" defense="86"/>
+	<immunities>
+		<immunity earth="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmin="8" countmax="13" chance="25000"/>
+		<item name="Small Sapphire" chance="33500"/>
+		<item name="Small Topaz" chance="33500"/>
+		<item name="Small Diamond" chance="33500"/>
+	</loot>
+</monster>

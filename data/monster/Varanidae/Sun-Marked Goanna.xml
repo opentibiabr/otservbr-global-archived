@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Sun-Marked Goanna" nameDescription="a sun-marked goanna" race="blood" experience="7600" speed="230">
+<monster name="Sun-Marked Goanna" nameDescription="a sun-marked goanna" race="blood" experience="7600" speed="190">
 	<health now="7800" max="7800"/>
-	<look type="1195" corpse="11430"/>
+	<look type="1195" corpse="36240"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -20,26 +20,33 @@
 		<flag canwalkonpoison="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-326" poison="19"/>
-		<attack name="earth" interval="2000" chance="10" range="3" radius="1" target="1" min="0" max="-560">
-			<attribute key="shootEffect" value="poison"/>
+		<attack name="melee" interval="2000" min="0" max="-350" poison="19"/>
+		<attack name="wave t" interval="2000" chance="10" min="-250" max="-380"/>
+		<attack name="earth" interval="2000" chance="12" range="3" radius="1" target="1" min="-450" max="-550">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="explosion"/>
 		</attack>
-		<attack name="earth" interval="2000" chance="15" length="8" spread="3" min="-240" max="-240">
-			<attribute key="areaEffect" value="poison"/>
+		<attack name="earth" interval="2000" chance="15" radius="5" min="-210" max="-300">
+			<attribute key="areaEffect" value="groundshaker"/>
 		</attack>
 	</attacks>
-	<defenses armor="35" defense="35"/>
+	<defenses armor="84" defense="84">
+	    <defense name="speed" interval="2000" chance="5" speedchange="500" duration="5000">
+		    <attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>	
 	<elements>
-		<element earthPercent="1"/>
+		<element earthPercent="75"/>
 	</elements>
 	<immunities>
 		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
-		<!--<item name="Goanna Hide with Sun Symbol" chance="100000"/>-->
+		<item name="Goanna Hide with Sun Symbol" chance="100000"/>
 		<item name="Platinum Coin" countmax="3" chance="100000"/>
 		<item name="Envenomed Arrow" countmax="29" chance="50000"/>
 		<item name="Poison Dagger" chance="50000"/>
-		<!--<item name="Scared Frog" chance="50000"/>-->
+		<item name="Scared Frog" chance="50000"/>
 	</loot>
 </monster>

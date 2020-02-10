@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ugly Monster" nameDescription="a ugly monster" race="blood" experience="650" speed="140">
+	<health now="13000" max="13000"/>
+	<look type="1218" corpse="36386"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-120"/>
+		<attack name="outfit" interval="2000" chance="10" range="5" monster="Ugly Monster" duration="10000">
+			<attribute key="shootEffect" value="earth"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="10" range="5" duration="5000" poison="80">
+			<attribute key="shootEffect" value="earth"/>
+		</attack>
+	</attacks>
+	<defenses armor="48" defense="48">
+		<defense name="invisible" interval="2000" chance="8" duration="6000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="80"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

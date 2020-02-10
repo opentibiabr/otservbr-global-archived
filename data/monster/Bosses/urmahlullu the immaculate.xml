@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Urmahlullu the Immaculate" nameDescription="urmahlullu the immaculate" speed="190">
+	<health now="120000" max="120000"/>
+	<look type="1197" head="57" body="75" legs="38" feet="86" addons="0"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="10"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-150" max="-1300"/>
+        <attack name="fire" interval="3000" chance="20" needtarget="0" radius="4" min="-500" max="-800">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>	
+		<attack name="fire" interval="2000" chance="15" needtarget="0" radius="3" min="-550" max="-800">
+		    <attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" needtarget="0" radius="3" min="-550" max="-800">
+		    <attribute key="shootEffect" value="energyball" />
+		    <attribute key="areaEffect" value="energy" />
+		</attack>
+		<attack name="urmahlulluring" interval="2000" chance="18" min="-450" max="-600"/>	
+	</attacks>
+	<defenses armor="84" defense="84"/>
+	<elements>
+		<element energyPercent="40"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>
