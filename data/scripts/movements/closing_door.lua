@@ -41,8 +41,6 @@ function door.onStepOut(creature, item, position, fromPosition)
 		end
 	end
 
-	local playerPos = Tile(creature:getPosition())
-	local getItem = playerPos:getItemCount()
 	for index, value in ipairs(levelDoorsRange) do
 		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
