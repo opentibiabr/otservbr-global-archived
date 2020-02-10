@@ -223,14 +223,18 @@
 	<monster name="Orc Cult Fanatic" file="Cults of Tibia/Orcs/orc cult fanatic.xml"/>
 	<monster name="Orc Cult Inquisitor" file="Cults of Tibia/Orcs/orc cult inquisitor.xml"/>
 	<monster name="Putrid Mummy" file="Cults of Tibia/Sandy/putrid mummy.xml"/>
-	<!-- BOSSES -->	
-	<monster name="Bragrumol" file="Bosses/bragrumol.xml"/>
+	
+	<!-- BOSSES -->
 	<monster name="Wisdom of Urmahlullu" file="Bosses/wisdom of urmahlullu.xml"/>
 	<monster name="Urmahlullu the Immaculate" file="Bosses/urmahlullu the immaculate.xml"/>
+	<monster name="Urmahlullu the Weakened" file="Bosses/urmahlullu the weakened.xml"/>
+	<monster name="Wildness of Urmahlullu" file="Bosses/wildness of urmahlullu.xml"/>
+	<monster name="Bragrumol" file="Bosses/bragrumol.xml"/>
 	<monster name="Mozradek" file="Bosses/mozradek.xml"/>
 	<monster name="Leiden" file="Cults of Tibia/Bosses/Leiden.xml"/>
 	<monster name="Ravennous Hunger" file="Cults of Tibia/Bosses/Ravennous Hunger.xml"/>
 	<monster name="Wine Cask" file="Cults of Tibia/Bosses/Wine Cask.xml"/>
+	<monster name="Xogixath" file="Bosses/xogixath.xml"/>
 
 	<monster name="Eshtaba The Conjurer" file="Cults of Tibia/Bosses/Eshtaba The Conjurer.xml"/>
 	<monster name="Malkhar Deathbringer" file="Cults of Tibia/Bosses/Malkhar Deathbringer.xml"/>
