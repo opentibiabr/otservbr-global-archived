@@ -59,7 +59,7 @@ elseif msgcontains(msg, "yes") and playerTopic[cid] == 1 and player:getStorageVa
 end
 if msgcontains(msg, "mission") and player:getStorageValue(Storage.KilmareshQuest.Eighth.Shimun) == 2 then
 	if player:getStorageValue(Storage.KilmareshQuest.Eighth.Shimun) == 2 then
-		npcHandler:say({"Did you bring all the materials I informed you about? ""}, cid)-- It needs to be revised, it's not the same as the global
+		npcHandler:say({"Did you bring all the materials I informed you about? "}, cid)-- It needs to be revised, it's not the same as the global
 		npcHandler.topic[cid] = 3
 		playerTopic[cid] = 3
 	end
@@ -76,6 +76,8 @@ elseif msgcontains(msg, "yes") and playerTopic[cid] == 3 and player:getStorageVa
 		npcHandler:say({"Sorry."}, cid)-- It needs to be revised, it's not the same as the global
 	end
 end
+end
+
 return true
 end
 
