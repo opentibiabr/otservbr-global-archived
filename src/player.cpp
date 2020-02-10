@@ -3162,7 +3162,7 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		}
 
 		if (shopOwner && requireListUpdate) {
-			//updateSaleShopList(item); // this causes the client to crash
+			updateSaleShopList(item);
 		}
 	} else if (const Creature* creature = thing->getCreature()) {
 		if (creature == this) {
@@ -3240,7 +3240,7 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 		}
 
 		if (shopOwner && requireListUpdate) {
-			//updateSaleShopList(item); // this causes the client to crash
+			updateSaleShopList(item);
 		}
 	}
 }
