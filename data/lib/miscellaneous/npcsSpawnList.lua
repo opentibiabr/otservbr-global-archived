@@ -959,4 +959,5 @@ mapNpcs = {
 	[958] = {name = "Shimun", pos = {x=33758,y=31494,z=7}},
 	[959] = {name = "Tefrit", pos = {x=33839,y=31693,z=5}},
 	[960] = {name = "Saideh", pos = {x=33844,y=31638,z=7}},
+	[961] = {name = "Tarun", pos = {x=32976,y=32715,z=7}},
 }
