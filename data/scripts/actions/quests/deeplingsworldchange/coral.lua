@@ -1,9 +1,6 @@
 local crystaldeepling = Action()
-
 function crystaldeepling.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
 	local posMonster = player:getPosition()
-	
 		if player:getStorageValue(Storage.DeeplingsWorldChange.Crystal) == 9 then
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Suddenly a guard jumps at you frorm behind!")
 			Game.createMonster("Deepling Worker", posMonster)
@@ -18,13 +15,7 @@ function crystaldeepling.onUse(player, item, fromPosition, target, toPosition, i
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Sorry.")
 		end
-
     return true
 end
-
 crystaldeepling:aid(28572)
 crystaldeepling:register()
-
-
-
-
