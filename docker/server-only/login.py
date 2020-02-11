@@ -50,12 +50,12 @@ def do_login(data):
         };
         print(session)
 
-
-        sql_select_Query = "SELECT name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, lastlogin from players where id = '" + str(account_id) + "'"
+        sql_select_Query = "SELECT name, level, sex, vocation, looktype, lookhead, lookbody, looklegs, lookfeet, lookaddons, lastlogin from players where account_id = '" + str(account_id) + "'"
 
         cursor = connection.cursor()
         cursor.execute(sql_select_Query)
         records = cursor.fetchall()
+        print(records)
 
         players = []
         vocations = ['None', 'Sorcerer', 'Druid', 'Paladin', 'Knight']
@@ -76,8 +76,7 @@ def do_login(data):
                     'tutorial': False, # True will make the client crash as it will try to auto connect
                     'ishidden': False,
                     'istournamentparticipant': False,
-                    'remainingdailytournamentplaytime': 0
-                    
+                    'remainingdailytournamentplaytime': 0            
             }
             players.append(player)
         print(players)
@@ -86,7 +85,7 @@ def do_login(data):
             'worlds': [
                 {
                     'id': 0,
-                    'name': 'Open-TibiaBR',
+                    'name': 'OTServBR-Global',
                     'externaladdressprotected': '127.0.0.1',
                     'externalportprotected': 7172,
                     'externaladdressunprotected': '127.0.0.1',
@@ -101,7 +100,7 @@ def do_login(data):
                 },
                 {
                     'id': 1,
-                    'name': 'Open-TibiaBR2',
+                    'name': 'OTServBR-Global',
                     'externaladdressprotected': '127.0.0.1',
                     'externalportprotected': 7172,
                     'externaladdressunprotected': '127.0.0.1',
