@@ -227,7 +227,7 @@
 	<!-- BOSSES -->
 	<monster name="Wisdom of Urmahlullu" file="Bosses/wisdom of urmahlullu.xml"/>
 	<monster name="Urmahlullu the Immaculate" file="Bosses/urmahlullu the immaculate.xml"/>
-	<monster name="Urmahlullu the Weakened" file="Bosses/urmahlullu the weakened.xml"/>
+	<monster name="Urmahlullu the Weakened" file="Bosses/Urmahlullu the Weakened.xml"/>
 	<monster name="Wildness of Urmahlullu" file="Bosses/wildness of urmahlullu.xml"/>
 	<monster name="Bragrumol" file="Bosses/bragrumol.xml"/>
 	<monster name="Mozradek" file="Bosses/mozradek.xml"/>
@@ -562,17 +562,13 @@
 	<monster name="Rift Worm" file="Annelids/rift worm.xml"/>
 
 	<!-- Anumas -->
-	<monster name="Crypt Warden" file="Anumas/crypt warden.xml"/>
-	<monster name="Feral Sphinx" file="Anumas/feral sphinx.xml"/>
-	<monster name="Gryphon" file="Anumas/gryphon.xml"/>
-	<monster name="Lamassu" file="Anumas/lamassu.xml"/>
-	<monster name="Manticore" file="Anumas/manticore.xml"/>
-	<monster name="Sphinx" file="Anumas/sphinx.xml"/>
 	<monster name="Crypt Warden" file="Anumas/Crypt Warden.xml"/>
 	<monster name="Feral Sphinx" file="Anumas/Feral Sphinx.xml"/>
-	<monster name="Gryphon" file="Misc/Misc Mounts/Gryphon.xml"/>
+	<monster name="Gryphon" file="Anumas/gryphon.xml"/>
+	<monster name="Lamassu" file="Anumas/Lamassu.xml"/>
 	<monster name="Manticore" file="Anumas/Manticore.xml"/>
-	<monster name="Sphinx" file="Anumas/Sphinx.xml"/>
+	<monster name="Sphinx" file="Anumas/Sphinx.xml"/>	
+	<monster name="Gryphon" file="Misc/Misc Mounts/Gryphon.xml"/>	
 
 	<!-- Apes -->
 	<monster name="Kongra" file="Apes/kongra.xml"/>
