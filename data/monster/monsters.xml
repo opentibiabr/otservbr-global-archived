@@ -43,9 +43,9 @@
 	<monster name="Falcon Paladin" file="Falcons/Falcon Paladin.xml"/>
 	
 	<!-- Fafnar Cultists -->
-	<monster name="Black Sphinx Acolyte" file="Fafnar Cultists/black sphinx acolyte.xml"/>
-	<monster name="Burning Gladiator" file="Fafnar Cultists/burning gladiator.xml"/>
-	<monster name="Priestess of the Wild Sun" file="Fafnar Cultists/priestess of the wild sun.xml"/>
+	<monster name="Black Sphinx Acolyte" file="Fafnar Cultists/Black Sphinx Acolyte.xml"/>
+	<monster name="Burning Gladiator" file="Fafnar Cultists/Burning Gladiator.xml"/>
+	<monster name="Priestess of the Wild Sun" file="Fafnar Cultists/Priestess of the Wild Sun.xml"/>
 	
 	<!-- New Monsters -->
 	<monster name="Demon Blood" file="11.8/demon blood.xml"/>
