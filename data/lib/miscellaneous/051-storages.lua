@@ -3,6 +3,17 @@
 -- Sort it in Values -
 
 Storage = {
+		DeeplingsWorldChange = {
+			Questline = 25000,
+			FirstStage = 25001,
+			SecondStage = 25002,
+			ThirdStage = 25003,
+			Crystal = 25004,
+		},
+		LiquidBlackQuest = {
+			Questline = 24000,
+			Visitor = 24001,
+		},
 		KilmareshQuest = {
 		Questline = 22000,
 		First = {
