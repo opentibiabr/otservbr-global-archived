@@ -1,7 +1,5 @@
 local statuegod = Action()
-
 function statuegod.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	
 	if player:getStorageValue(Storage.DeeplingsWorldChange.Crystal) == 6 then
 		if table.contains({15254}, target.itemid) then
 			player:removeItem(15431, 1)
@@ -9,13 +7,7 @@ function statuegod.onUse(player, item, fromPosition, target, toPosition, isHotke
 			player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 6)
 		end
 	end
-	
     return true
 end
-
 statuegod:id(15431)
 statuegod:register()
-
-
-
-
