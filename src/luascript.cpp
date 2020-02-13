@@ -7507,7 +7507,11 @@ int LuaScriptInterface::luaCreatureCanSeeCreature(lua_State* L)
 	const Creature* creature = getUserdata<const Creature>(L, 1);
 	if (creature) {
 		const Creature* otherCreature = getCreature(L, 2);
-		pushBoolean(L, creature->canSeeCreature(otherCreature));
+		if (otherCreature) {
+			pushBoolean(L, creature->canSeeCreature(otherCreature));
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -11366,7 +11370,11 @@ int LuaScriptInterface::luaMonsterIsTarget(lua_State* L)
 	Monster* monster = getUserdata<Monster>(L, 1);
 	if (monster) {
 		const Creature* creature = getCreature(L, 2);
-		pushBoolean(L, monster->isTarget(creature));
+		if (creature) {
+			pushBoolean(L, monster->isTarget(creature));
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -11379,7 +11387,11 @@ int LuaScriptInterface::luaMonsterIsOpponent(lua_State* L)
 	Monster* monster = getUserdata<Monster>(L, 1);
 	if (monster) {
 		const Creature* creature = getCreature(L, 2);
-		pushBoolean(L, monster->isOpponent(creature));
+		if (creature) {
+			pushBoolean(L, monster->isOpponent(creature));
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -11392,7 +11404,11 @@ int LuaScriptInterface::luaMonsterIsFriend(lua_State* L)
 	Monster* monster = getUserdata<Monster>(L, 1);
 	if (monster) {
 		const Creature* creature = getCreature(L, 2);
-		pushBoolean(L, monster->isFriend(creature));
+		if (creature) {
+			pushBoolean(L, monster->isFriend(creature));
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -11405,8 +11421,12 @@ int LuaScriptInterface::luaMonsterAddFriend(lua_State* L)
 	Monster* monster = getUserdata<Monster>(L, 1);
 	if (monster) {
 		Creature* creature = getCreature(L, 2);
-		monster->addFriend(creature);
-		pushBoolean(L, true);
+		if (creature) {
+			monster->addFriend(creature);
+			pushBoolean(L, true);
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -11419,8 +11439,12 @@ int LuaScriptInterface::luaMonsterRemoveFriend(lua_State* L)
 	Monster* monster = getUserdata<Monster>(L, 1);
 	if (monster) {
 		Creature* creature = getCreature(L, 2);
-		monster->removeFriend(creature);
-		pushBoolean(L, true);
+		if (creature) {
+			monster->removeFriend(creature);
+			pushBoolean(L, true);
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
@@ -11470,9 +11494,13 @@ int LuaScriptInterface::luaMonsterAddTarget(lua_State* L)
 	}
 
 	Creature* creature = getCreature(L, 2);
-	bool pushFront = getBoolean(L, 3, false);
-	monster->addTarget(creature, pushFront);
-	pushBoolean(L, true);
+	if (creature) {
+		bool pushFront = getBoolean(L, 3, false);
+		monster->addTarget(creature, pushFront);
+		pushBoolean(L, true);
+	} else {
+		pushBoolean(L, false);
+	}
 	return 1;
 }
 
@@ -11485,8 +11513,13 @@ int LuaScriptInterface::luaMonsterRemoveTarget(lua_State* L)
 		return 1;
 	}
 
-	monster->removeTarget(getCreature(L, 2));
-	pushBoolean(L, true);
+	Creature* creature = getCreature(L, 2);
+	if (creature) {
+		monster->removeTarget(creature);
+		pushBoolean(L, true);
+	} else {
+		pushBoolean(L, false);
+	}
 	return 1;
 }
 
@@ -11529,7 +11562,11 @@ int LuaScriptInterface::luaMonsterSelectTarget(lua_State* L)
 	Monster* monster = getUserdata<Monster>(L, 1);
 	if (monster) {
 		Creature* creature = getCreature(L, 2);
-		pushBoolean(L, monster->selectTarget(creature));
+		if (creature) {
+			pushBoolean(L, monster->selectTarget(creature));
+		} else {
+			pushBoolean(L, false);
+		}
 	} else {
 		lua_pushnil(L);
 	}
