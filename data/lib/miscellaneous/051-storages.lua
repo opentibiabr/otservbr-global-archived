@@ -72,6 +72,18 @@ Storage = {
 		TheOrderOfTheFalcon = {
 			OberonTimer = 25580,
 		},
+	LiquidDeath = 25581,
+	Mota = 25582,
+	MotaDoor = 25583,
+	BasinDoor = 25584,
+	SkullDoor = 25585,
+	TheLament = 25586,
+	GreenTel = 25587,
+	BlueTel = 25588,
+	BlackTel = 25589,
+	PinkTel = 25590,
+	Peacock = 25591,
+	HighDry = 25592,
 	},	
 
 	DeeplingBosses = {

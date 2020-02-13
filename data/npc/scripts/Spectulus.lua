@@ -258,6 +258,22 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	end
 	
+	if msgcontains(msg, 'rumours') then
+		npcHandler:say({
+		'There are rumours of aggressive fishmen in northern Tiquanda. We have to find out if this is even remotely connected to the Njey. ...',
+		'What\'s puzzling me is that they were sighted above ground and then retreated into a temple ruin. If we find that ruin, we could find out if there\'s a relation. ...',
+		'Are you willing to help me?'}, cid)
+		npcHandler.topic[cid] = 25
+	
+	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 25 then
+	if npcHandler.topic[cid] == 25 then
+		npcHandler:say({
+		'Excellent, excellent. The rumours pointed to the north of Tiquanda, a sunken temple probably half drowned in water. Return to me if you find anything interesting!'}, cid)
+		player:setStorageValue(Storage.TheSecretLibrary.LiquidDeath, 1)
+		npcHandler.topic[cid] = 26
+	end
+	end
+	
 	return true
 end
 
