@@ -590,10 +590,13 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 
 	if (creature == followCreature || (creature == this && followCreature)) {
 		if (hasFollowPath) {
-			// workaround for freezing monsters
-			// this is going to need a review later
-			isUpdatingPath = false;
-			g_dispatcher.addTask(createTask(std::bind(&Game::updateCreatureWalk, &g_game, getID())));
+			if ((creature == followCreature) && listWalkDir.empty()) {
+				//This should make monsters more responsive without needing to decrease creature think interval
+				isUpdatingPath = false;
+				goToFollowCreature();
+			} else {
+				isUpdatingPath = true;
+			}
 		}
 
 		if (newPos.z != oldPos.z || !canSee(followCreature->getPosition())) {
@@ -966,7 +969,12 @@ bool Creature::setFollowCreature(Creature* creature)
 		hasFollowPath = false;
 		forceUpdateFollowPath = false;
 		followCreature = creature;
-		isUpdatingPath = true;
+		if (getMonster()) {
+			isUpdatingPath = false;
+			goToFollowCreature();
+		} else {
+			isUpdatingPath = true;
+		}
 	} else {
 		isUpdatingPath = false;
 		followCreature = nullptr;
