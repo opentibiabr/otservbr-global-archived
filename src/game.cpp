@@ -2408,7 +2408,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	Item* item = thing->getItem();
-	if (!item || item->getClientID() != spriteId || (!item->isWrapable() && item->getID() != ITEM_DECORATION_KIT) || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+	if (!item || item->getClientID() != spriteId || (!item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -2449,7 +2449,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	uint16_t itemId = item->getID();
 	uint16_t newId = Item::items[itemId].wrapableTo;
 	std::string itemName = item->getName();
-	if (newId != 0 && itemId != ITEM_DECORATION_KIT) {
+	if (newId != 0 && itemId != TRANSFORM_BOX_ID) {
 		uint16_t charges = item->getSubType();
 		Item* newItem = transformItem(item, newId);
 		if (newItem) {
