@@ -61,7 +61,7 @@ Bestiary.sendCreatures = function (playerId, msg)
     msg:sendToPlayer(player)
 end
 
-Bestiary.sendRaces = function(playerId, msg)
+Bestiary.sendRaces = function(playerId)
     local player = Player(playerId)
     if not player then
         return true
