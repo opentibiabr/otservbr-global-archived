@@ -3479,7 +3479,6 @@ int LuaScriptInterface::luaDoAreaCombatHealth(lua_State* L)
 		CombatParams params;
 		params.combatType = combatType;
 		params.impactEffect = getNumber<uint8_t>(L, 7);
-		params.blockedByArmor = getBoolean(L, 9, false);
 
 		CombatDamage damage;
 		damage.origin = getNumber<CombatOrigin>(L, 8, ORIGIN_SPELL);
@@ -3517,7 +3516,6 @@ int LuaScriptInterface::luaDoTargetCombatHealth(lua_State* L)
 	CombatParams params;
 	params.combatType = combatType;
 	params.impactEffect = getNumber<uint8_t>(L, 6);
-	params.blockedByArmor = getBoolean(L, 8, false);
 	
 	CombatDamage damage;
 	damage.origin = getNumber<CombatOrigin>(L, 7, ORIGIN_SPELL);
