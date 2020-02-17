@@ -114,8 +114,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'yes') then
-			if player:getMoney() + player:getBankBalance() >= tonumber(count[cid]) then
-				player:depositMoney(count[cid])
+			if player:depositMoney(count[cid]) then
 				npcHandler:say('Alright, we have added the amount of ' .. count[cid] .. ' gold to your {balance}. You can {withdraw} your money anytime you want to.', cid)
 				Player.setExhaustion(player, 494934, 2)
 			else
