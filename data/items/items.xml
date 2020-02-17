@@ -24492,7 +24492,7 @@
 		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item fromid="16008" toid="16013" article="a" name="tapestry of honour">
-		<attribute key="description" value="This tapestry has been awarded to the <guild> for being more than <age> years old on January 7th 2012 at Tibia's 15th birthday." />
+		<attribute key="description" value="This tapestry has been awarded to the guild for being more than age years old on January 7th 2012 at Tibia's 15th birthday." />
 		<attribute key="weight" value="800" />
 	</item>
 	<item id="16014" article="an" name="anniversary cake">
@@ -41061,6 +41061,7 @@
 	<item fromid="32769" toid="32772" article="a" name="scholar bust"/>
 	<item fromid="32773" toid="32776" article="a" name="scholar bust"/>
 	<item id="32781" article="a" name="column"/>
+	<item id="32782" article="a" name="edged book column"/>
 	<item fromid="32784" toid="32785" article="a" name="twisted tome column"/>
 	<item id="32786" article="a" name="column"/>
 	<item fromid="32787" toid="32788" article="a" name="book column"/>
@@ -43090,6 +43091,7 @@
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
+	<item id="35014" article="a" name="brass-shod chest"/>
 	<item fromid="35016" toid="35017" article="an" name="open door">
 		<attribute key="type" value="door" />
 	</item>	
@@ -43599,13 +43601,23 @@
 		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="35230" name="cobra club">
-		<attribute key="weight" value="2500" />
-		<attribute key="skillClub" value="2" />
-	</item>
+        <attribute key="weight" value="2500" />
+        <attribute key="defense" value="29" />
+        <attribute key="attack" value="8" />
+        <attribute key="elementFire" value="44" />
+        <attribute key="extradef" value="2" />
+        <attribute key="skillClub" value="2" />
+        <attribute key="imbuingSlots" value="2" />
+    </item>
 	<item id="35231" name="cobra axe">
-		<attribute key="weight" value="4000" />
-		<attribute key="skillAxe" value="2" />
-	</item>
+        <attribute key="weight" value="4000" />
+        <attribute key="defense" value="29" />
+        <attribute key="attack" value="8" />
+        <attribute key="elementIce" value="44" />
+        <attribute key="extradef" value="2" />
+        <attribute key="skillAxe" value="2" />
+        <attribute key="imbuingSlots" value="2" />
+    </item>
 	<item id="35232" article="a" name="cobra hood">
         <attribute key="weight" value="2700" />
 		<attribute key="slotType" value="head" />
@@ -43617,7 +43629,15 @@
 		<attribute key="imbuingSlots" value="2" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	
+	<item id="35233" name="cobra sword">
+        <attribute key="weight" value="6300" />
+        <attribute key="defense" value="31" />
+        <attribute key="attack" value="52" />
+        <attribute key="weaponType" value="sword" />
+        <attribute key="extradef" value="2" />
+        <attribute key="skillSword" value="3" />
+        <attribute key="imbuingSlots" value="2" />
+    </item>
 	<item id="35235" name="cobra rod">
 		<attribute key="weight" value="2500" />
 		<attribute key="weaponType" value="wand" />
@@ -45718,19 +45738,19 @@
 		<attribute key="rotateTo" value="36770" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>	
-	<item id="36772" article="a" name="barrel & archor lamp">
+	<item id="36772" article="a" name="barrel and archor lamp">
 		<attribute key="rotateTo" value="36773" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item id="36773" article="a" name="barrel & archor lamp">
+	<item id="36773" article="a" name="barrel and archor lamp">
 		<attribute key="rotateTo" value="36772" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item id="36774" article="a" name="lit barrel & archor lamp">
+	<item id="36774" article="a" name="lit barrel and archor lamp">
 		<attribute key="rotateTo" value="36775" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
-	<item id="36775" article="a" name="lit barrel & archor lamp">
+	<item id="36775" article="a" name="lit barrel and archor lamp">
 		<attribute key="rotateTo" value="36774" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -46932,8 +46952,7 @@
 	</item> 	
 	<item id="37629" article="a" name="unknow"/>
 	
-	<!-- end -->
-	
+		
 	<item id="40001" name="water" />
 	<item id="40002" name="blood" />
 	<item id="40003" name="beer" />
