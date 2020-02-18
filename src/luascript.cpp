@@ -1075,9 +1075,6 @@ void LuaScriptInterface::registerFunctions()
 	//sendGuildChannelMessage(guildId, type, message)
 	lua_register(luaState, "sendGuildChannelMessage", LuaScriptInterface::luaSendGuildChannelMessage);
 
-	//getPreyMonsters() table
-	lua_register(luaState, "getPreyMonsters", LuaScriptInterface::luaGetPreyMonsters);
-
 #ifndef LUAJIT_VERSION
 	//bit operations for Lua, based on bitlib project release 24
 	//bit.bnot, bit.band, bit.bor, bit.bxor, bit.lshift, bit.rshift
@@ -2863,7 +2860,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "isPet", LuaScriptInterface::luaMonsterTypeIsPet);
 	registerMethod("MonsterType", "isPassive", LuaScriptInterface::luaMonsterTypeIsHostile);
 	registerMethod("MonsterType", "isRewardBoss", LuaScriptInterface::luaMonsterTypeIsRewardBoss);
-	registerMethod("MonsterType", "isPreyable", LuaScriptInterface::luaMonsterTypeIsPreyable);
 
 	registerMethod("MonsterType", "respawnType", LuaScriptInterface::luaMonsterTypeRespawnType);
 	registerMethod("MonsterType", "canSpawn", LuaScriptInterface::luaMonsterTypeCanSpawn);
@@ -4486,20 +4482,6 @@ int LuaScriptInterface::luaGameGetPlayers(lua_State* L)
 		setMetatable(L, -1, "Player");
 		lua_rawseti(L, -2, ++index);
 	}
-	return 1;
-}
-
-int LuaScriptInterface::luaGetPreyMonsters(lua_State* L)
-{
-	std::vector<std::string> monsters = g_monsters.getPreyMonsters();
-	lua_createtable(L, monsters.size(), 0);
-
-	int index = 0;
-	for (const auto& name : monsters) {
-		pushString(L, name);
-		lua_rawseti(L, -2, ++index);
-	}
-
 	return 1;
 }
 
@@ -8627,23 +8609,6 @@ int LuaScriptInterface::luaMonsterTypeIsRewardBoss(lua_State* L)
 			pushBoolean(L, monsterType->info.isRewardBoss);
 		} else {
 			monsterType->info.isRewardBoss = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaMonsterTypeIsPreyable(lua_State* L)
-{
-	// get: monsterType:isPreyable() set: monsterType:isPreyable(bool)
-	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
-	if (monsterType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, monsterType->info.isPreyable);
-		} else {
-			monsterType->info.isPreyable = getBoolean(L, 2);
 			pushBoolean(L, true);
 		}
 	} else {

@@ -1,7 +1,7 @@
 Prey = {
-	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo",
-	Version = "4.0",
-	LastUpdate = "07/07/19",
+	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick",
+	Version = "4.5",
+	LastUpdate = "18/02/20",
 }
 
 CONST_PREY_SLOT_FIRST = 0
@@ -17,6 +17,8 @@ CONST_BONUS_DAMAGE_BOOST = 0
 CONST_BONUS_DAMAGE_REDUCTION = 1
 CONST_BONUS_XP_BONUS = 2
 CONST_BONUS_IMPROVED_LOOT = 3
+
+STORE_SLOT_STORAGE = 63253
 
 Prey.Config = {
 	ListRerollPrice = 2000
@@ -227,7 +229,7 @@ function Player.preyAction(self, msg)
 	end
 
 	-- Verify whether the slot is unlocked
-	if (self:getPreyUnlocked(slot) ~= 1) then
+	if (self:getPreyUnlocked(slot) ~= 2) then
 		return self:sendErrorDialog("Sorry, you don't have this slot unlocked yet.")
 	end
 
@@ -235,7 +237,7 @@ function Player.preyAction(self, msg)
 	if (action == Prey.Actions.NEW_LIST) then
 
 		-- Verifying state
-		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER) then
+		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER) and self:getPreyState(slot) ~= Prey.StateTypes.INACTIVE then
 			return self:sendErrorDialog("This is slot is not even active.")
 		end
 
@@ -330,26 +332,46 @@ function Player.selectPreyMonster(self, slot, monster)
 end
 
 function Player.sendPreyData(self, slot)
-	if not slot then
-		return true
+	-- Unlock First Slot
+	if self:getPreyState(CONST_PREY_SLOT_FIRST) == 0 then
+		self:setPreyUnlocked(CONST_PREY_SLOT_FIRST, 2)
+		self:setPreyState(CONST_PREY_SLOT_FIRST, 1)
 	end
-
+	
+	-- Unlock/lock second slot (premium status)
+	if self:isPremium() then
+		if self:getPreyState(CONST_PREY_SLOT_SECOND) == 0 then
+			self:setPreyUnlocked(CONST_PREY_SLOT_SECOND, 2)
+			self:setPreyState(CONST_PREY_SLOT_SECOND, 1)
+		end
+	else
+		self:setPreyUnlocked(CONST_PREY_SLOT_SECOND, 0)
+		self:setPreyState(CONST_PREY_SLOT_SECOND, 0)
+	end
+	
+	-- Unlock store slot
+	if self:getPreyState(CONST_PREY_SLOT_THIRD) == 0 then
+		if self:getStorageValue(STORE_SLOT_STORAGE) == 1	then
+			self:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
+			self:setPreyState(CONST_PREY_SLOT_THIRD, 1)	
+		else
+			self:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 1)
+			self:setPreyState(CONST_PREY_SLOT_THIRD, 0)
+		end
+	end
+	
 	local slotState = self:getPreyState(slot)
-
+	
 	local msg = NetworkMessage()
 	msg:addByte(Prey.S_Packets.PreyData) -- packet header
-	msg:addByte(slot) -- slot number
-	msg:addByte(slotState) -- slot state
 
-	-- This slot will preserve the same bonus and % but the monster might be changed
 	if slotState == Prey.StateTypes.SELECTION_CHANGE_MONSTER then
-
-		-- This values have to be stored on each slot
+		msg:addByte(slot) -- slot number
+		msg:addByte(slotState)
 		msg:addByte(self:getPreyBonusType(slot))
 		msg:addU16(self:getPreyBonusValue(slot))
 		msg:addByte(self:getPreyBonusGrade(slot))
 
-		-- MonsterList already exists in the slot
 		local monsterList = self:getPreyMonsterList(slot):split(";")
 		msg:addByte(#monsterList)
 		for i = 1, #monsterList do
@@ -363,20 +385,17 @@ function Player.sendPreyData(self, slot)
 				msg:addByte(monster:getOutfit().lookFeet or 0x00)
 				msg:addByte(monster:getOutfit().lookAddons or 0x00)
 			else
-				-- Reset slot as it got bugged
 				return self:resetPreySlot(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 			end
 		end
-
-
-	-- This slot will have a new monsterList and a random bonus
+		
 	elseif slotState == Prey.StateTypes.SELECTION then
+		msg:addByte(slot)
+		msg:addByte(3)
 
-		-- If list is empty, then we will create a new one and assign it to the monsterList or timeleft = 0
 		local preyMonsterList = self:getPreyMonsterList(slot)
 		if preyMonsterList == '' then
 			self:setPreyMonsterList(slot, self:createMonsterList())
-			-- Resending this preySlot as there was a change.
 			return self:sendPreyData(slot)
 		end
 
@@ -393,15 +412,13 @@ function Player.sendPreyData(self, slot)
 				msg:addByte(monster:getOutfit().lookFeet or 0x00)
 				msg:addByte(monster:getOutfit().lookAddons or 0x00)
 			else
-				-- Reset slot as it got bugged
 				return self:resetPreySlot(slot, Prey.StateTypes.SELECTION)
 			end
 		end
 
-	-- This slot is active and will show current monster and bonus
 	elseif slotState == Prey.StateTypes.ACTIVE then
-
-		-- Getting current monster
+		msg:addByte(slot)
+		msg:addByte(slotState)
 		local monster = MonsterType(self:getPreyCurrentMonster(slot))
 		if monster then
 			msg:addString(monster:getName())
@@ -416,36 +433,42 @@ function Player.sendPreyData(self, slot)
 			msg:addByte(self:getPreyBonusGrade(slot))
 			msg:addU16(self:getPreyTimeLeft(slot))
 		else
-			-- Reset slot as it got expired or bugged.
 			return self:resetPreySlot(slot, Prey.StateTypes.SELECTION)
 		end
 
-	-- This slot is inactive and will not take any extra bytes
 	elseif slotState == Prey.StateTypes.INACTIVE then
-
+		msg:addByte(slot) -- slot number
+		msg:addByte(slotState) -- slot state
 
 	elseif slotState == Prey.StateTypes.LOCKED then
-		msg.addByte(Prey.UnlockTypes.PREMIUM_OR_STORE) -- Store unlock method
-	end
+		msg:addByte(slot)
+		msg:addByte(slotState)
+		msg:addByte(self:getPreyUnlocked(slot))
+	end	
+	
+	-- Next free reroll
+	msg:addU16(self:getMinutesUntilFreeReroll(slot))
 
-	-- Resources and times are always sent
-	msg:addU16(self:getMinutesUntilFreeReroll(slot)) -- next prey reroll here
 	-- Client 11.9+ compat, feature unavailable.
 	if self:getClient().version >= 1190 then
-		msg:addByte(0x00) -- preyWildCards
+		msg:addByte(0x00)
 	end
+
+	-- Send resources
 	msg:addByte(0xEC)
 	self:sendResource("prey", self:getPreyBonusRerolls())
 	self:sendResource("bank", self:getBankBalance())
 	self:sendResource("inventory", self:getMoney())
+
 	-- List reroll price
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
-	-- Client 11.9+ compat, feature unavailable.
+
+	-- Wildcard and Direct Selection price.
 	if self:getClient().version >= 1190 then 
 		msg:addByte(0x01)
 		msg:addByte(0x05)
 	end
-	-- Sending message to client
+
 	msg:sendToPlayer(self)
 end

@@ -17,7 +17,7 @@
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
 		<flag isblockable="0" />
-		<flag preyable="0"/>
+		<!-- <flag preyable="0"/> -->
 	</flags>
 	<attacks>
 		<attack name="energy" interval="2000" chance="18" radius="2" target="0" min="-200" max="-600">

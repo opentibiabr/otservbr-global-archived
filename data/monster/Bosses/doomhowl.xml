@@ -3,7 +3,7 @@
 	<health now="8500" max="8500" />
 	<look type="308" corpse="20607" />
 	<flags>
-		<flag preyable="0" />
+		<!-- <flag preyable="0"/> -->
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
