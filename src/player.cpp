@@ -3076,7 +3076,14 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 			continue;
 		}
 
-		itemMap.emplace(item->getClientID(), Item::countByType(item, -1));
+		auto rootSearch = itemMap.find(item->getClientID());
+		if (rootSearch != itemMap.end()) {
+			itemMap[item->getClientID()] = itemMap[item->getClientID()] + Item::countByType(item, -1);
+		}
+		else
+		{
+			itemMap.emplace(item->getClientID(), Item::countByType(item, -1));
+		}
 
 		const ItemType& itemType = Item::items[item->getID()];
 		if (itemType.transformEquipTo) {
@@ -3089,8 +3096,17 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 
 		if (Container* container = item->getContainer()) {
 			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
+				auto containerSearch = itemMap.find((*it)->getClientID());
+				if (containerSearch != itemMap.end()) {
+					itemMap[(*it)->getClientID()] = itemMap[(*it)->getClientID()] + Item::countByType(*it, -1);
+				}
+				else
+				{
+					itemMap.emplace((*it)->getClientID(), Item::countByType(*it, -1));
+				}
 				itemMap.emplace((*it)->getClientID(), Item::countByType(*it, -1));
 				const ItemType& itItemType = Item::items[(*it)->getID()];
+
 				if (itItemType.transformEquipTo) {
 					itemMap.emplace(Item::items[itItemType.transformEquipTo].clientId, 1);
 				}
@@ -3146,7 +3162,7 @@ void Player::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 		}
 
 		if (shopOwner && requireListUpdate) {
-			//updateSaleShopList(item); // this causes the client to crash
+			updateSaleShopList(item);
 		}
 	} else if (const Creature* creature = thing->getCreature()) {
 		if (creature == this) {
@@ -3224,7 +3240,7 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 		}
 
 		if (shopOwner && requireListUpdate) {
-			//updateSaleShopList(item); // this causes the client to crash
+			updateSaleShopList(item);
 		}
 	}
 }
