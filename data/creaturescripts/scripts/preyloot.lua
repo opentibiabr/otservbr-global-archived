@@ -1,32 +1,3 @@
--- Prey slots consumption
-local function preyTimeLeft(player, slot)
-	local timeLeft = player:getPreyTimeLeft(slot) / 60
-	local monster = player:getPreyCurrentMonster(slot)
-	if (timeLeft > 0) then
-		local playerId = player:getId()
-		local currentTime = os.time()
-		local timePassed = currentTime - nextPreyTime[playerId][slot]
-		if timePassed >= 59 then
-			timeLeft = timeLeft - 1
-			nextPreyTime[playerId][slot] = currentTime + 60
-		else
-			timeLeft = timeLeft - 0
-		end
-		-- Expiring prey as there's no timeLeft
-		if (timeLeft < 1) then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
-			player:setPreyCurrentMonster(slot, "")
-		end
-		-- Setting new timeLeft
-		player:setPreyTimeLeft(slot, timeLeft * 60)
-	else
-		-- Expiring prey as there's no timeLeft
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
-		player:setPreyCurrentMonster(slot, "")
-	end
-	return player:sendPreyData(slot)
-end
-
 local BONUS_RATE = 3
 
 function onKill(player, target, lastHit)

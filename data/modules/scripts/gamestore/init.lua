@@ -547,7 +547,7 @@ function sendShowStoreOffers(playerId, category)
             disabledReason = "You can't get this promotion"
           end
         elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
-          local unlockedColumns = player:getStorageValue(63253)
+          local unlockedColumns = player:getStorageValue(STORE_SLOT_STORAGE)
           if (unlockedColumns == 1) then
             disabled = 1
             disabledReason = "You already have 3 slots released."
@@ -1077,6 +1077,11 @@ end
 
 function GameStore.processPremiumPurchase(player, offerId)
   player:addPremiumDays(offerId-3000)
+  
+  -- Update Prey Data
+  for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+    player:sendPreyData(slot)
+  end
 end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName)
@@ -1265,12 +1270,16 @@ function GameStore.processExpBoostPuchase(player)
 end
 
 function GameStore.processPreySlotPurchase(player)
-
-  if player:getStorageValue(63253) < 1 then
-  player:setStorageValue(63253, 1)
-  end
-
-  player:setStorageValue(63253, 1)
+	if player:getStorageValue(STORE_SLOT_STORAGE) < 1 then
+		player:setStorageValue(STORE_SLOT_STORAGE, 1)
+		player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
+		player:setPreyState(CONST_PREY_SLOT_THIRD, 1)
+		
+		-- Update Prey Data
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end
 end
 
 function GameStore.processPreyBonusReroll(player, offerCount)

@@ -853,8 +853,6 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.isSummonable = attr.as_bool();
 			} else if (strcasecmp(attrName, "rewardboss") == 0) {
 				mType->info.isRewardBoss = attr.as_bool();
-			} else if (strcasecmp(attrName, "preyable") == 0) {
-				mType->info.isPreyable = attr.as_bool();
 			} else if (strcasecmp(attrName, "attackable") == 0) {
 				mType->info.isAttackable = attr.as_bool();
 			} else if (strcasecmp(attrName, "hostile") == 0) {
@@ -1354,19 +1352,6 @@ void Monsters::loadLootContainer(const pugi::xml_node& node, LootBlock& lBlock)
 			lBlock.childLoot.emplace_back(std::move(lootBlock));
 		}
 	}
-}
-
-// Prey Monsters
-std::vector<std::string> Monsters::getPreyMonsters()
-{
-	std::vector<std::string> monsterList;
-	for (const auto& m : monsters) {
-		if (m.second.info.experience > 0 && m.second.info.isPreyable && !m.second.info.isRewardBoss && m.second.info.staticAttackChance > 0) {
-			monsterList.push_back(m.first);
-		}
-	}
-
-	return monsterList;
 }
 
 MonsterType* Monsters::getMonsterType(const std::string& name)
