@@ -351,7 +351,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Strong_Mana_Keg.png" },
@@ -361,7 +361,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Great_Mana_Keg.png" },
@@ -371,7 +371,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Ultimate_Mana_Keg.png" },
@@ -381,7 +381,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Health_Keg.png" },
@@ -391,7 +391,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Strong_Health_Keg.png" },
@@ -401,7 +401,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Great_Health_Keg.png" },
@@ -411,7 +411,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Ultimate_Health_Keg.png" },
@@ -421,7 +421,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Supreme_Health_Keg.png" },
@@ -431,7 +431,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Great_Spirit_Keg.png" },
@@ -441,7 +441,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points and mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Ultimate_Spirit_Keg.png" },
@@ -451,7 +451,7 @@ GameStore.Categories = {
 			count = 500,
 			number = 1,
 			description = "Fill up potions to restore your hit points and mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}
 		},
 			rookgaard = true,
