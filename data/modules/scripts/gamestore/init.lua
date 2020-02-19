@@ -299,7 +299,7 @@ function parseBuyStoreOffer(playerId, msg)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT         then GameStore.processOutfitPurchase(player, offer.sexId, offer.addon)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON   then GameStore.processOutfitPurchase(player, offer.sexId, offer.addon)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_MOUNT          then GameStore.processMountPurchase(player, offer.id)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE     then local newName = msg:getString(); GameStore.processNameChangePurchase(player, offer.id, productType, newName)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE     then local newName = msg:getString(); GameStore.processNameChangePurchase(player, offer, productType, newName)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
@@ -323,6 +323,9 @@ function parseBuyStoreOffer(playerId, msg)
     return queueSendStoreAlertToUser(alertMessage, 500, playerId)
   end
 
+  if offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE then
+    return
+  end
 
   player:removeCoinsBalance(offerPrice)
   GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name, (offerPrice) * -1)
@@ -1212,8 +1215,9 @@ function GameStore.processMountPurchase(player, offerId)
   player:addMount(offerId)
 end
 
-function GameStore.processNameChangePurchase(player, offerId, productType, newName)
+function GameStore.processNameChangePurchase(player, offer, productType, newName)
   local playerId = player:getId()
+  local offerId = offer.id
 
   if productType == GameStore.ClientOfferTypes.CLIENT_STORE_OFFER_NAMECHANGE then
     local tile = Tile(player:getPosition())
@@ -1235,6 +1239,8 @@ function GameStore.processNameChangePurchase(player, offerId, productType, newNa
 
     newName = newName:lower():gsub("(%l)(%w*)", function(a, b) return string.upper(a) .. b end)
     db.query("UPDATE `players` SET `name` = " .. db.escapeString(newName) .. " WHERE `id` = " .. player:getGuid())
+    player:removeCoinsBalance(offer.price)
+    GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name, (offer.price) * -1)
     message = "You have successfully changed you name, relogin!"
     addEvent(function()
       local player = Player(playerId)
