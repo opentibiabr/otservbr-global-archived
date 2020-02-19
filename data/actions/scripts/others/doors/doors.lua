@@ -38,12 +38,19 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				toPosition.y = toPosition.y + 1
 				query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
 			end
-
 			if query ~= RETURNVALUE_NOERROR then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, query)
+				toPosition.y = toPosition.y - 2
+				query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
+			end
+			if query ~= RETURNVALUE_NOERROR then
+				toPosition.x = toPosition.x - 1
+				toPosition.y = toPosition.y + 1
+				query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
+			end
+			if query ~= RETURNVALUE_NOERROR then
+				player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 				return true
 			end
-
 			doorCreature:teleportTo(toPosition, true)
 		end
 

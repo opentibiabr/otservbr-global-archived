@@ -1,19 +1,18 @@
--- level door
-local levelDoors = Action()
+local customDoors = Action()
 local doorIds = {}
 
-for index, value in ipairs(levelDoorsRange) do
-    if not table.contains(doorIds, value.openDoor) then
-        table.insert(doorIds, value.openDoor)
+for _, v in ipairs(customDoorsRange) do
+    if not table.contains(doorIds, v.openDoor) then
+        table.insert(doorIds, v.openDoor)
     end
 
-    if not table.contains(doorIds, value.closedDoor) then
-        table.insert(doorIds, value.closedDoor)
+    if not table.contains(doorIds, v.closedDoor) then
+        table.insert(doorIds, v.closedDoor)
     end
 end
 
-function levelDoors.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local doorCreature = Tile(toPosition):getTopCreature()
+function customDoors.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local doorCreature = Tile(toPosition):getTopCreature()
 	if doorCreature then
 		toPosition.x = toPosition.x + 1
 		local query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
@@ -39,28 +38,19 @@ function levelDoors.onUse(player, item, fromPosition, target, toPosition, isHotk
 	end
 	
 	local itemId = item:getId()
-    for index, value in ipairs(levelDoorsRange) do
+    for index, value in ipairs(customDoorsRange) do
 		 if value.closedDoor == itemId then
-			if item.actionid > 0 and player:getLevel() >= item.actionid - 1000 then
-				item:transform(value.openDoor)
-				player:teleportTo(toPosition, true)
-				return true
-				else
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "Only the worthy may pass.")
-				return true
-			end
-		end
-	end
-	for index, value in ipairs(levelDoorsRange) do
-		if value.closedDoor == itemId then
 			item:transform(value.openDoor)
 		end
+		if value.openDoor == itemId then
+			item:transform(value.closedDoor)
+		end
 	end
-return true
+	return true
 end
 
 for index, value in ipairs(doorIds) do
-    levelDoors:id(value)
+    customDoors:id(value)
 end
 
-levelDoors:register()
+customDoors:register()
