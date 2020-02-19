@@ -55,9 +55,7 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 			creature:addHealth(primaryDamage, true)
 			if creature:getHealth() == creature:getMaxHealth() then
 				creature:say('The egg sends out a fiery eruption!\n Weakening the frozen horror significantly!', TALKTYPE_MONSTER_SAY)
-				local pos = creature:getPosition()
-				creature:remove()
-				Game.createMonster('dragon egg', pos, true, true)
+				doTargetCombatHealth(0, creature, COMBAT_ICEDAMAGE, -creature:getMaxHealth()/2, -creature:getMaxHealth()/2, CONST_ME_MAGIC_GREEN)
 				changeHorror()
 			end
 			return true
