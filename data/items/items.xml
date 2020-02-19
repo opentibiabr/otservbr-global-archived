@@ -43600,26 +43600,28 @@
 		<attribute key="absorbPercentPhysical" value="6" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="35230" name="cobra club">
-        <attribute key="weight" value="2500" />
-        <attribute key="defense" value="29" />
-        <attribute key="attack" value="8" />
-        <attribute key="elementFire" value="44" />
-        <attribute key="extradef" value="2" />
-        <attribute key="skillClub" value="2" />
-        <attribute key="imbuingSlots" value="2" />
-    </item>
-	<item id="35231" name="cobra axe">
-        <attribute key="weight" value="4000" />
-        <attribute key="defense" value="29" />
-        <attribute key="attack" value="8" />
-        <attribute key="elementIce" value="44" />
-        <attribute key="extradef" value="2" />
-        <attribute key="skillAxe" value="2" />
-        <attribute key="imbuingSlots" value="2" />
-    </item>
+	<item id="35230" article="a" name="cobra club">
+		<attribute key="weight" value="2500" />
+		<attribute key="defense" value="29" />
+		<attribute key="attack" value="8" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="elementFire" value="44" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillClub" value="2" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35231" article="a" name="cobra axe">
+		<attribute key="weight" value="4000" />
+		<attribute key="defense" value="29" />
+		<attribute key="attack" value="8" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="elementIce" value="44" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillAxe" value="2" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
 	<item id="35232" article="a" name="cobra hood">
-        <attribute key="weight" value="2700" />
+		<attribute key="weight" value="2700" />
 		<attribute key="slotType" value="head" />
 		<attribute key="armor" value="9" />
 		<attribute key="absorbPercentPhysical" value="5" />
@@ -43629,21 +43631,34 @@
 		<attribute key="imbuingSlots" value="2" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="35233" name="cobra sword">
-        <attribute key="weight" value="6300" />
-        <attribute key="defense" value="31" />
-        <attribute key="attack" value="52" />
-        <attribute key="weaponType" value="sword" />
-        <attribute key="extradef" value="2" />
-        <attribute key="skillSword" value="3" />
-        <attribute key="imbuingSlots" value="2" />
-    </item>
-	<item id="35235" name="cobra rod">
+	<item id="35233" article="a" name="cobra sword">
+		<attribute key="weight" value="6300" />
+		<attribute key="defense" value="31" />
+		<attribute key="attack" value="52" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="extradef" value="2" />
+		<attribute key="skillSword" value="3" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35234" article="a" name="cobra wand">
+		<attribute key="weight" value="1900" />
+		<attribute key="weaponType" value="wand" />
+		<attribute key="shootType" value="energy" />
+		<attribute key="range" value="4" />
+		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="35" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="35235" article="a" name="cobra rod">
 		<attribute key="weight" value="2500" />
 		<attribute key="weaponType" value="wand" />
+		<attribute key="shootType" value="smallearth" />
+		<attribute key="range" value="5" />
 		<attribute key="magiclevelpoints" value="2" />
 		<attribute key="skilllifechance" value="100" />
 		<attribute key="skilllifeamount" value="18" />
+		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="35236" name="amulet of theurgy">
 		<attribute key="weight" value="500" />
