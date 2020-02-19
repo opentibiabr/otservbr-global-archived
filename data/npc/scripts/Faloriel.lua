@@ -44,7 +44,7 @@ if msgcontains(msg, "ring") then
 	npcHandler.topic[cid] = 1
 	playerTopic[cid] = 1
 elseif msgcontains(msg, "yes") and playerTopic[cid] == 1 then
-	if playerTopic[cid] == 1 and player:getBankBalance(1000) <= 1000 then
+	if playerTopic[cid] == 1 and player:getBankBalance() >= 1000 then
 		player:removeMoneyNpc(1000)
 		player:addItem(36185, 1)			
 		npcHandler:say({"Great. Here, take it."}, cid)
