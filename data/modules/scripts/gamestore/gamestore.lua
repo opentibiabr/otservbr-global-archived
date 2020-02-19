@@ -162,7 +162,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Strong_Mana_Cask.png" },
@@ -172,7 +172,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Great_Mana_Cask.png" },
@@ -182,7 +182,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Ultimate_Mana_Cask.png" },
@@ -192,7 +192,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Health_Cask.png" },
@@ -202,7 +202,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Strong_Health_Cask.png" },
@@ -212,7 +212,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Great_Health_Cask.png" },
@@ -222,7 +222,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Ultimate_Health_Cask.png" },
@@ -232,7 +232,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Supreme_Health_Cask.png" },
@@ -242,7 +242,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Great_Spirit_Cask.png" },
@@ -252,7 +252,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points and mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}, 
 		{
 			icons = { "Ultimate_Spirit_Cask.png" },
@@ -262,7 +262,7 @@ GameStore.Categories = {
 			count = 1000,
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points and mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
-			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		}
 		},
 			rookgaard = true,
