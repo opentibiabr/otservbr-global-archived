@@ -5784,7 +5784,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter, uint16_t amount) //Custom: Anti bug do market
 {
-	if (amount == 0 || amount > 500) {
+	if (amount == 0 || amount > 64000) {
 		return;
 	}
 
