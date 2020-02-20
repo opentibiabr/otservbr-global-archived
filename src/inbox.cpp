@@ -26,7 +26,7 @@
 
 Inbox::Inbox(uint16_t type) : Container(type, 30, false, true)
 {
-	maxInboxItems = 500;
+	maxInboxItems = 64000;
 }
 
 ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
