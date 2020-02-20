@@ -834,3 +834,12 @@ INSERT INTO `players`
 (`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
 (1,    'ADM',             6,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );
 
+-- --------------------------------------------------------
+
+CREATE DEFINER=`root`@`localhost` EVENT `subpremdays`
+    ON SCHEDULE EVERY 24 HOUR
+    ON COMPLETION NOT PRESERVE ENABLE
+    DO
+        UPDATE accounts SET premdays= premdays -1 WHERE premdays > 0;
+        
+SET GLOBAL event_scheduler = ON;
