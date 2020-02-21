@@ -2,12 +2,12 @@
 local door = MoveEvent()
 
 local doorIds = {}
-for index, value in ipairs(questDoorsRange) do
+for index, value in ipairs(questDoor) do
     if not table.contains(doorIds, value.openDoor) then
         table.insert(doorIds, value.openDoor)
     end
 end
-for index, value in ipairs(levelDoorsRange) do
+for index, value in ipairs(levelDoor) do
     if not table.contains(doorIds, value.openDoor) then
         table.insert(doorIds, value.openDoor)
     end
@@ -41,12 +41,12 @@ function door.onStepOut(creature, item, position, fromPosition)
 		end
 	end
 
-	for index, value in ipairs(levelDoorsRange) do
+	for index, value in ipairs(levelDoor) do
 		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
 		end
 	end
-	for index, value in ipairs(questDoorsRange) do
+	for index, value in ipairs(questDoor) do
 		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
 		end

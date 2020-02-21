@@ -470,48 +470,6 @@
 	<action fromid="10264" toid="10267" script="others/windows.lua" />
 	<action fromid="10488" toid="10491" script="others/windows.lua" />
 	<!-- Others (Doors) -->
-	<action fromid="1209" toid="1214" script="others/doors/doors.lua" />
-	<action fromid="1219" toid="1262" script="others/doors/doors.lua" />
-	<action fromid="1539" toid="1542" script="others/doors/doors.lua" />
-	<action fromid="2086" toid="2092" script="others/doors/doors.lua" />
-	<action fromid="3535" toid="3552" script="others/doors/doors.lua" />
-	<action fromid="4913" toid="4918" script="others/doors/doors.lua" />
-	<action fromid="5082" toid="5085" script="others/doors/doors.lua" />
-	<action fromid="5098" toid="5145" script="others/doors/doors.lua" />
-	<action fromid="5278" toid="5295" script="others/doors/doors.lua" />
-	<action fromid="5515" toid="5518" script="others/doors/doors.lua" />
-	<action fromid="5732" toid="5737" script="others/doors/doors.lua" />
-	<action fromid="5745" toid="5749" script="others/doors/doors.lua" />
-	<action fromid="6192" toid="6209" script="others/doors/doors.lua" />
-	<action fromid="6249" toid="6266" script="others/doors/doors.lua" />
-	<action fromid="6795" toid="6802" script="others/doors/doors.lua" />
-	<action fromid="6891" toid="6908" script="others/doors/doors.lua" />
-	<action fromid="7033" toid="7050" script="others/doors/doors.lua" />
-	<action fromid="7054" toid="7057" script="others/doors/doors.lua" />
-	<action fromid="8541" toid="8558" script="others/doors/doors.lua" />
-	<action fromid="9165" toid="9184" script="others/doors/doors.lua" />
-	<action fromid="9267" toid="9284" script="others/doors/doors.lua" />
-	<action itemid="10032" script="others/doors/doors.lua" />
-	<action fromid="10268" toid="10285" script="others/doors/doors.lua" />
-	<action fromid="10468" toid="10486" script="others/doors/doors.lua" />
-	<action fromid="10775" toid="10777" script="others/doors/doors.lua" />
-	<action fromid="10780" toid="10786" script="others/doors/doors.lua" />
-	<action fromid="10789" toid="10792" script="others/doors/doors.lua" />
-	<action fromid="12092" toid="12105" script="others/doors/doors.lua" />
-	<action fromid="12188" toid="12190" script="others/doors/doors.lua" />
-	<action fromid="12193" toid="12199" script="others/doors/doors.lua" />
-	<action fromid="12202" toid="12205" script="others/doors/doors.lua" />
-	<action fromid="19840" toid="19857" script="others/doors/doors.lua" />
-	<action fromid="19980" toid="19997" script="others/doors/doors.lua" />
-	<action fromid="20273" toid="20290" script="others/doors/doors.lua" />
-	<action fromid="17235" toid="17238" script="others/doors/doors.lua" />
-	<action fromid="18208" toid="18209" script="others/doors/doors.lua" />
-	<action fromid="13020" toid="13023" script="others/doors/doors.lua" />
-	<action fromid="22814" toid="22831" script="others/doors/doors.lua" />
-	<action fromid="25158" toid="25165" script="others/doors/doors.lua" />
-	<action fromid="27209" toid="27212" script="others/doors/doors.lua" />
-	<action fromid="33295" toid="32965" script="others/doors/doors.lua" />
-	<action fromid="34679" toid="34686" script="others/doors/doors.lua" />
 	<action fromid="14755" toid="14760" script="others/doors/doorsHive1.lua" />
 	<action fromid="14767" toid="14771" script="others/doors/doorsHive2.lua" />
 	<!-- Others (Objects) -->
