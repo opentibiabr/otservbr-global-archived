@@ -19,10 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if player:getStorageValue(Storage.FerumbrasAscension.MazoranTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Mazoran.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -38,7 +34,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 				playerTile:teleportTo(config.newPosition)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				playerTile:setExhaustion(Storage.FerumbrasAscension.MazoranTimer, 60 * 60 * 2 * 24)
 			end
 		end
 		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.MazoranTimer, 1)

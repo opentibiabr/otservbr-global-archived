@@ -30,10 +30,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if player:getStorageValue(Storage.FerumbrasAscension.FerumbrasTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Ferumbras.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -57,12 +53,10 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 					playerTile:teleportTo(config.newPosition)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-					playerTile:setExhaustion(Storage.FerumbrasAscension.FerumbrasTimer, 60 * 60 * 20 * 24)
 				end
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.FerumbrasTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33379, 31460, 14), Position(33405, 31485, 14), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendantQuest.FerumbrasTimer)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33379, 31460, 14), Position(33405, 31485, 14), Position(33319, 32318, 13))
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)
