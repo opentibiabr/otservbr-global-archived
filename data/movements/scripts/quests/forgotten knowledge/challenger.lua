@@ -32,7 +32,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	else
 		player:teleportTo(teleport.backPos)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challange this enemy again!")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challenge this enemy again!")
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end

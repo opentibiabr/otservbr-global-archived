@@ -21,7 +21,7 @@ function onStepIn(creature, item, position, fromPosition)
 			pos.y = pos.y + 2
 			player:teleportTo(pos)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			player:say('You have to wait to challange this enemy again!', TALKTYPE_MONSTER_SAY)
+			player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 			return true
 		end
 			else

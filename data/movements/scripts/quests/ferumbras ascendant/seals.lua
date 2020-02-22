@@ -26,7 +26,7 @@ function onStepIn(creature, item, position, fromPosition)
 			else
 				player:teleportTo(Position(33675, 32690, 13))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				player:say('You have to wait to challange this enemy again!', TALKTYPE_MONSTER_SAY)
+				player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 				return true
 			end
 		else
@@ -46,7 +46,7 @@ function onStepIn(creature, item, position, fromPosition)
 			else
 				player:teleportTo(Position(33477, 32701, 14))
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				player:say('You have to wait to challange this enemy again!', TALKTYPE_MONSTER_SAY)
+				player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 				return true
 			end
 		else
@@ -64,7 +64,7 @@ function onStepIn(creature, item, position, fromPosition)
 	elseif player:getStorageValue(storage.timer) >= os.time() then
 		player:teleportTo(storage.backPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say('You have to wait to challange this enemy again!', TALKTYPE_MONSTER_SAY)
+		player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 24846 and player:getStorageValue(storage.timer) >= os.time() then
 		player:say('You cannot enter, you must wait fourteen days after preventing the ascension of Ferumbras.', TALKTYPE_MONSTER_SAY)
 	end
