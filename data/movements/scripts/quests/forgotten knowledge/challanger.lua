@@ -17,7 +17,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if not teleport then
 		return
 	end
-	if player:getExhaustion(teleport.storage) <= 0 then
+	if player:getStorageValue(teleport.storage) <= os.time() then
 		if item.uid == 24882 then
 			if player:getStorageValue(Storage.ForgottenKnowledge.BabyDragon) < 1 then
 				player:teleportTo(teleport.backPos)
