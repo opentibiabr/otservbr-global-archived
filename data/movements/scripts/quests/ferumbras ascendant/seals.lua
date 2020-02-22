@@ -20,7 +20,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 	if item.actionid == 24844 then
 		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Done) >= 4 then
-			if player:getExhaustion(storage.timer) <= 0 then
+			if player:getStorageValue(storage.timer) < os.time() then
 				player:teleportTo(storage.toPosition)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			else
@@ -40,7 +40,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 	if item.actionid == 24845 then
 		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.FlowerPuzzleTimer) >= 1 then
-			if player:getExhaustion(storage.timer) <= 0 then
+			if player:getStorageValue(storage.timer) < os.time() then
 				player:teleportTo(storage.toPosition)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			else
@@ -58,17 +58,15 @@ function onStepIn(creature, item, position, fromPosition)
 			return true
 		end
 	end
-	if player:getExhaustion(storage.timer) <= 0 then
+	if player:getStorageValue(storage.timer) < os.time() then
 		player:teleportTo(storage.toPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	else
+	elseif player:getStorageValue(storage.timer) >= os.time() then
 		player:teleportTo(storage.backPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		if item.actionid < 24846 then
-			player:say('You have to wait to challange this enemy again!', TALKTYPE_MONSTER_SAY)
-		else
-			player:say('You cannot enter, you must wait fourteen days after preventing the ascension of Ferumbras.', TALKTYPE_MONSTER_SAY)
-		end
+		player:say('You have to wait to challange this enemy again!', TALKTYPE_MONSTER_SAY)
+	elseif item.actionid == 24846 and player:getStorageValue(storage.timer) >= os.time() then
+		player:say('You cannot enter, you must wait fourteen days after preventing the ascension of Ferumbras.', TALKTYPE_MONSTER_SAY)
 	end
 	return true
 end

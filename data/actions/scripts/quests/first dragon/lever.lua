@@ -42,10 +42,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	end
 	if item.itemid == 9825 then
-		if Game.getStorageValue(GlobalStorage.FirstDragon.FirstDragonTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge this enemy.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(Position(33597, 31022, 14), false, false, 35, 35, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -69,11 +65,16 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 			if storePlayers[3] ~= nil then
 				for p = 1, 3 do
-					local player = storePlayers[p]
-					if player then
-						player:teleportTo(Rooms[roomIndex].position)
-						player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-						player:setExhaustion(Storage.FirstDragon.FirstDragonTimer, 20 * 60 * 60)
+					local players = storePlayers[p]
+					if players then
+						if players:getStorageValue(Storage.FirstDragon.FirstDragonTimer) < os.time() then
+							players:teleportTo(Rooms[roomIndex].position)
+							players:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+							players:setStorageValue(Storage.FirstDragon.FirstDragonTimer, os.time() + 20 * 60 * 60)
+						else
+							player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge this enemy.")
+							return true
+						end
 					end
 					if p == 3 then
 						storePlayers = {}
@@ -82,8 +83,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				end
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FirstDragon.FirstDragonTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33567, 31007, 14), Position(33628, 31037, 14), Position(33597, 30993, 14), GlobalStorage.FirstDragon.FirstDragonTimer)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33567, 31007, 14), Position(33628, 31037, 14), Position(33597, 30993, 14))
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)

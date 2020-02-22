@@ -1,6 +1,6 @@
 local config = {
 	centerRoom = Position(32269, 31091, 14),
-	BossPosition = Position(32269, 31091, 14),
+	bossPosition = Position(32269, 31091, 14),
 	newPosition = Position(32271, 31097, 14)
 }
 
@@ -19,10 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.HorrorTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Frozen Horror.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -34,18 +30,22 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		for n = 1, #monsters do
 			Game.createMonster(monsters[n].monster, monsters[n].pos, true, true)
 		end
-		Game.createMonster("solid frozen horror", config.BossPosition, true, true)
+		Game.createMonster("solid frozen horror", config.bossPosition, true, true)
 		for y = 31088, 31092 do
 			local playerTile = Tile(Position(32302, y, 14)):getTopCreature()
 			if playerTile and playerTile:isPlayer() then
-				playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
-				playerTile:teleportTo(config.newPosition)
-				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				playerTile:setExhaustion(Storage.ForgottenKnowledge.HorrorTimer, 20 * 60 * 60)
+				if playerTile:getStorageValue(Storage.ForgottenKnowledge.HorrorTimer) < os.time() then
+					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
+					playerTile:teleportTo(config.newPosition)
+					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+					playerTile:setStorageValue(Storage.ForgottenKnowledge.HorrorTimer, os.time() + 20 * 3600)
+				else
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Frozen Horror.")
+					return true
+				end
 			end
 		end
-		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.HorrorTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(32264, 31070, 14), Position(32284, 31104, 14), Position(32319, 31091, 14), GlobalStorage.ForgottenKnowledge.HorrorTimer)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(32264, 31070, 14), Position(32284, 31104, 14), Position(32319, 31091, 14))
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)

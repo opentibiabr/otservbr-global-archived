@@ -1454,26 +1454,12 @@ GlobalStorage = {
 		CurrentServantWave = 984,
 		ServantsKilled = 985
 	},
-	FirstDragon = {
-		TazhadurTimer = 10198,
-		KalyassaTimer = 10199,
-		GelidrazahTimer = 10202,
-		FirstDragonTimer = 10208
-	},
 	Feroxa = {
 		Chance = 566039,
 		Active = 566040
 	},
 	FerumbrasAscendantQuest = {
 		ZamuloshSummon = 566015,
-		TarbazTimer = 566016,
-		RazzagornTimer = 566017,
-		RagiazTimer = 566018,
-		ZamuloshTimer = 566019,
-		ShulgraxTimer = 566020,
-		MazoranTimer = 566021,
-		PlagirathTimer = 566022,
-		FerumbrasTimer = 566023,
 		FerumbrasEssence = 566026,
 		Crystals = {
 			Crystal1 = 566027,
@@ -1486,10 +1472,6 @@ GlobalStorage = {
 			Crystal8 = 566034,
 			AllCrystals = 566035
 		},
-		TheShattererTimer = 566036,
-		TheShattererLever = 566037,
-		TheLordOfTheLiceTimer = 566038,
-		FlowerPuzzleTimer = 566063,
 		Habitats = {
 			Roshamuul = 566064,
 			Grass = 566065,
@@ -1527,7 +1509,6 @@ GlobalStorage = {
 		LavaChange = 566091
 	},
 	ForgottenKnowledge = {
-		TenebrisTimer = 566093,
 		ActiveTree = 566095,
 		MechanismGolden = 566096,
 		MechanismDiamond = 566097,
@@ -1535,12 +1516,6 @@ GlobalStorage = {
 		DiamondServant = 566099,
 		AstralPowerCounter = 566100,
 		AstralGlyph = 566101,
-		LloydTimer = 566102,
-		ThornKnightTimer = 566103,
-		DragonkingTimer = 566104,
-		HorrorTimer = 566105,
-		TimeGuardianTimer = 566106,
-		LastLoreTimer = 566107
 	},
 	InServiceOfYalahar = {
 		LastFight = 982,

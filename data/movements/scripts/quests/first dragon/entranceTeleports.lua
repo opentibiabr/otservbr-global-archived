@@ -24,7 +24,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getExhaustion(teleport.timer) > 0 then
+	if player:getStorageValue(teleport.timer) > os.time() then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -50,6 +50,6 @@ function onStepIn(creature, item, position, fromPosition)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:say('You have ten minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.', TALKTYPE_MONSTER_SAY)
 	addEvent(clearBossRoom, 60 * 10 * 1000, player.uid, monster.uid, teleport.bossPos, teleport.range, teleport.range, fromPosition)
-	player:setExhaustion(teleport.timer, 20 * 60 * 60)
+	player:setStorageValue(teleport.timer, os.time() + 2 * 3600)
 	return true
 end
