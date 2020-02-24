@@ -5562,7 +5562,7 @@ void Game::playerBrowseMarketOwnHistory(uint32_t playerId)
 
 void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spriteId, uint16_t amount, uint32_t price, bool anonymous) // Limit of 64k of items to create offer
 {
-	if (amount == 0 || amount> std::numeric_limits<uint16_t>::max(); ) {
+	if (amount == 0 || amount > std::numeric_limits<uint16_t>::max(); ) {
 		return;
 	}
 
@@ -5783,7 +5783,7 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16_t counter, uint16_t amount) // Limit of 64k of items to create offer
 {
-	if (amount == 0 || amount> std::numeric_limits<uint16_t>::max(); ) {
+	if (amount == 0 || amount > std::numeric_limits<uint16_t>::max(); ) {
 		return;
 	}
 
