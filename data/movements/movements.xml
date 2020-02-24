@@ -171,7 +171,7 @@
 	<movevent event="StepIn" actionid="26665" script="quests/forgotten knowledge/servants teleport.lua" />
 	<movevent event="StepIn" actionid="26667" script="quests/forgotten knowledge/ice teleport.lua" />
 	<movevent event="StepIn" actionid="26668" script="quests/forgotten knowledge/lava teleport.lua" />
-	<movevent event="StepIn" fromuid="24878" touid="24884" script="quests/forgotten knowledge/challanger.lua" />
+	<movevent event="StepIn" fromuid="24878" touid="24884" script="quests/forgotten knowledge/challenger.lua" />
 
 	<!-- First Dragon Quest -->
 	<movevent event="StepIn" fromaid="24890" toaid="24893" script="quests/first dragon/entranceTeleports.lua" />

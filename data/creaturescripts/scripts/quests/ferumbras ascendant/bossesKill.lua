@@ -47,17 +47,17 @@ function onKill(creature, target)
 	if not bossConfig then
 		return true
 	end
-	for pid, _ in pairs(targetMonster:getDamageMap()) do
+	for key, value in pairs(targetMonster:getDamageMap()) do
 		local attackerPlayer = Player(pid)
 		if attackerPlayer then
-			if targetMonster:getName():lower() == 'ferumbras mortal shell' then
+			if bossConfig.timer then
+				attackerPlayer:setStorageValue(bossConfig.timer, os.time() + 20 * 3600)
+			elseif targetMonster:getName():lower() == 'ferumbras mortal shell' then
 				if bossConfig.timer then
-					attackerPlayer:setExhaustion(bossConfig.timer, 60 * 60 * 14 * 24)
+					attackerPlayer:setStorageValue(bossConfig.timer, os.time() + 60 * 60 * 14 * 24)
 				end
 			elseif targetMonster:getName():lower() == 'the lord of the lice' then
 				attackerPlayer:setStorageValue(Storage.FerumbrasAscension.TheLordOfTheLiceAccess, 1)
-			else
-				attackerPlayer:setExhaustion(bossConfig.timer, 60 * 60 * 2 * 24)
 			end
 		end
 	end

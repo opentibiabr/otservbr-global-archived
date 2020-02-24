@@ -1,6 +1,6 @@
 local config = {
 	centerRoom = Position(32799, 32832, 14),
-	BossPosition = Position(32799, 32827, 14),
+	bossPosition = Position(32799, 32827, 14),
 	newPosition = Position(32800, 32831, 14)
 }
 
@@ -23,7 +23,6 @@ local function clearForgottenLloyd()
 			spectator:remove()
 		end
 	end
-	Game.setStorageValue(GlobalStorage.ForgottenKnowledge.LloydTimer, 0)
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -34,10 +33,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.LloydTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Lloyd.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -49,17 +44,21 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		for n = 1, #monsters do
 			Game.createMonster(monsters[n].cosmic, monsters[n].pos, true, true)
 		end
-		Game.createMonster("lloyd", config.BossPosition, true, true)
+		Game.createMonster("lloyd", config.bossPosition, true, true)
 		for y = 32868, 32872 do
 			local playerTile = Tile(Position(32759, y, 14)):getTopCreature()
 			if playerTile and playerTile:isPlayer() then
-				playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
-				playerTile:teleportTo(config.newPosition)
-				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				playerTile:setExhaustion(Storage.ForgottenKnowledge.LloydTimer, 20 * 60 * 60)
+				if playerTile:getStorageValue(Storage.ForgottenKnowledge.LloydTimer) < os.time() then
+					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
+					playerTile:teleportTo(config.newPosition)
+					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+					playerTile:setExhaustion(Storage.ForgottenKnowledge.LloydTimer, os.time() + 20 * 3600)
+				else
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Lloyd.")
+					return true
+				end
 			end
 		end
-		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.LloydTimer, 1)
 		addEvent(clearForgottenLloyd, 30 * 60 * 1000)
 		item:transform(9826)
 	elseif item.itemid == 9826 then

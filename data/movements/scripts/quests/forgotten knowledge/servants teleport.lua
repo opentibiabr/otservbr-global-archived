@@ -7,7 +7,7 @@ function onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(Position(32815, 32872, 13))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		position:sendMagicEffect(CONST_ME_TELEPORT)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challange this enemy again!")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challenge this enemy again!")
 		return true
 	end
 	if player:getStorageValue(Storage.ForgottenKnowledge.GoldenServantCounter) >= 5 and player:getStorageValue(Storage.ForgottenKnowledge.DiamondServantCounter) >= 5 then

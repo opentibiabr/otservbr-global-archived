@@ -94,6 +94,10 @@ function Game.getStorageValue(key)
 	return globalStorageTable[key] or -1
 end
 
+function Game.setStorageValue(key, value)
+	globalStorageTable[key] = value
+end
+
 function Game.getReverseDirection(direction)
 	if direction == DIRECTION_WEST then
 		return DIRECTION_EAST
@@ -113,8 +117,4 @@ function Game.getReverseDirection(direction)
 		return DIRECTION_NORTHWEST
 	end
 	return DIRECTION_NORTH
-end
-
-function Game.setStorageValue(key, value)
-	globalStorageTable[key] = value
 end

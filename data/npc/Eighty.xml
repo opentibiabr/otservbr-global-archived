@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Eighty" script="Eighty.lua" walkinterval="0" floorchange="0">
+<npc name="Eighty" script="Bank.lua" walkinterval="0" floorchange="0">
 	<health now="100" max="100" />
 	<look typeex="13573" />
 </npc>

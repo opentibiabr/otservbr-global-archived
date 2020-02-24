@@ -17,7 +17,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if not teleport then
 		return
 	end
-	if player:getExhaustion(teleport.storage) <= 0 then
+	if player:getStorageValue(teleport.storage) <= os.time() then
 		if item.uid == 24882 then
 			if player:getStorageValue(Storage.ForgottenKnowledge.BabyDragon) < 1 then
 				player:teleportTo(teleport.backPos)
@@ -32,7 +32,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	else
 		player:teleportTo(teleport.backPos)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challange this enemy again!")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challenge this enemy again!")
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end

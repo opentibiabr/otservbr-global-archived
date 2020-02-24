@@ -28,13 +28,13 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not chest then
 		return true
 	end
-	if player:getStorageValue(Storage.FirstDragon.Feathers) < 1 or player:getExhaustion(Storage.FirstDragon.MaskTimer) > 0 then
+	if player:getStorageValue(Storage.FirstDragon.Feathers) >= os.time() or player:getExhaustion(Storage.FirstDragon.MaskTimer) >= os.time() then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The chest is empty.')
 		return true
 	end
-	player:setStorageValue(Storage.FirstDragon.Feathers, 0)
+	player:setStorageValue(Storage.FirstDragon.Feathers, os.time() + 24 * 3600)
 	if item.uid == 10220 then
-		player:setExhaustion(Storage.FirstDragon.MaskTimer, 432000)
+		player:setStorageValue(Storage.FirstDragon.MaskTimer, os.time() + 60 * 60 * 5 * 24)
 	end
 	if item.uid ~= 10221 then
 		player:addItem(chest.name, chest.count, true)

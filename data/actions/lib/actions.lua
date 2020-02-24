@@ -86,29 +86,29 @@ local function revertCask(position)
 end
 
 local cutItems = {
-    [3794] = 3959, [3795] = 3959, [3796] = 3958, [3797] = 3958, [3798] = 3958, [3799] = 3958,
-    [1614] = 2251, [1615] = 2251, [1616] = 2251, [1619] = 2251, [1650] = 2253, [1651] = 2253,
-    [1652] = 2253, [1653] = 2253, [1658] = 2252, [1659] = 2252, [1660] = 2252, [1661] = 2252,
-    [1666] = 2252, [1667] = 2252, [1668] = 2252, [1669] = 2252, [1670] = 2252, [1671] = 2252,
-    [1672] = 2252, [1673] = 2252, [1674] = 2253, [1676] = 2252, [1677] = 2253, [1714] = 2251,
-    [1715] = 2251, [1716] = 2251, [1724] = 2252, [1725] = 2252, [1726] = 2252, [1727] = 2252,
-    [1728] = 2254, [1729] = 2254, [1730] = 2254, [1731] = 2254, [1732] = 2254, [1733] = 2254,
-    [1735] = 2254, [1775] = 2250, [2034] = 2252, [4996] = 2252, [2116] = 2254, [2116] = 2254,
-    [2117] = 2254, [2118] = 2254, [2119] = 2254, [6123] = 2254, [2080] = 2254, [2081] = 2254,
-    [2082] = 2254, [2083] = 2254, [2084] = 2254, [2085] = 2254, [2093] = 2250, [2094] = 2250,
-    [2095] = 2250, [2098] = 2250, [2099] = 2250, [2101] = 2250, [2106] = 2250, [2105] = 2250,
-    [2562] = 2257, [2581] = 2258, [2582] = 2258, [2582] = 2258, [2583] = 2258, [3805] = 6267,
-    [3806] = 6267, [3807] = 2252, [3808] = 2252, [3809] = 2252, [3810] = 2252, [3811] = 2255,
-    [3812] = 6267, [3813] = 2252, [3814] = 2252, [3815] = 2252, [3816] = 2252, [3817] = 2252,
-    [3818] = 2252, [3819] = 2252, [3820] = 2252, [3821] = 2255, [3832] = 2255, [3833] = 2255,
-    [3834] = 2255, [3835] = 2255, [6356] = 2257, [6357] = 2257, [6358] = 2257, [6359] = 2257,
-    [6360] = 2257, [6361] = 2257, [6363] = 2257, [6368] = 2250, [6369] = 2250, [6370] = 2250,
-    [6371] = 2250, [1738] = 2250, [1739] = 2251, [1740] = 2250, [1741] = 2255, [1747] = 2250,
-    [1748] = 2250, [1749] = 1750, [1750] = 2254, [1751] = 2254, [1752] = 2254, [1753] = 2254,
-    [1770] = 2251, [1774] = 2250, [6085] = 2254, [7481] = 2251, [7482] = 2251, [7483] = 2251,
-    [7484] = 2250, [7706] = 2251, [7707] = 2251, [1738] = 2250, [1739] = 2251, [6109] = 2254,
-    [6110] = 2254, [6111] = 2254, [6112] = 2254, [7538] = 7544, [7539] = 7545, [7585] = 7586,
-    [29087] = 0, [29088] = 0
+	[3794] = 3959, [3795] = 3959, [3796] = 3958, [3797] = 3958, [3798] = 3958, [3799] = 3958,
+	[1614] = 2251, [1615] = 2251, [1616] = 2251, [1619] = 2251, [1650] = 2253, [1651] = 2253,
+	[1652] = 2253, [1653] = 2253, [1658] = 2252, [1659] = 2252, [1660] = 2252, [1661] = 2252,
+	[1666] = 2252, [1667] = 2252, [1668] = 2252, [1669] = 2252, [1670] = 2252, [1671] = 2252,
+	[1672] = 2252, [1673] = 2252, [1674] = 2253, [1676] = 2252, [1677] = 2253, [1714] = 2251,
+	[1715] = 2251, [1716] = 2251, [1724] = 2252, [1725] = 2252, [1726] = 2252, [1727] = 2252,
+	[1728] = 2254, [1729] = 2254, [1730] = 2254, [1731] = 2254, [1732] = 2254, [1733] = 2254,
+	[1735] = 2254, [1775] = 2250, [2034] = 2252, [4996] = 2252, [2116] = 2254, [2116] = 2254,
+	[2117] = 2254, [2118] = 2254, [2119] = 2254, [6123] = 2254, [2080] = 2254, [2081] = 2254,
+	[2082] = 2254, [2083] = 2254, [2084] = 2254, [2085] = 2254, [2093] = 2250, [2094] = 2250,
+	[2095] = 2250, [2098] = 2250, [2099] = 2250, [2101] = 2250, [2106] = 2250, [2105] = 2250,
+	[2562] = 2257, [2581] = 2258, [2582] = 2258, [2582] = 2258, [2583] = 2258, [3805] = 6267,
+	[3806] = 6267, [3807] = 2252, [3808] = 2252, [3809] = 2252, [3810] = 2252, [3811] = 2255,
+	[3812] = 6267, [3813] = 2252, [3814] = 2252, [3815] = 2252, [3816] = 2252, [3817] = 2252,
+	[3818] = 2252, [3819] = 2252, [3820] = 2252, [3821] = 2255, [3832] = 2255, [3833] = 2255,
+	[3834] = 2255, [3835] = 2255, [6356] = 2257, [6357] = 2257, [6358] = 2257, [6359] = 2257,
+	[6360] = 2257, [6361] = 2257, [6363] = 2257, [6368] = 2250, [6369] = 2250, [6370] = 2250,
+	[6371] = 2250, [1738] = 2250, [1739] = 2251, [1740] = 2250, [1741] = 2255, [1747] = 2250,
+	[1748] = 2250, [1749] = 1750, [1750] = 2254, [1751] = 2254, [1752] = 2254, [1753] = 2254,
+	[1770] = 2251, [1774] = 2250, [6085] = 2254, [7481] = 2251, [7482] = 2251, [7483] = 2251,
+	[7484] = 2250, [7706] = 2251, [7707] = 2251, [1738] = 2250, [1739] = 2251, [6109] = 2254,
+	[6110] = 2254, [6111] = 2254, [6112] = 2254, [7538] = 7544, [7539] = 7545, [7585] = 7586,
+	[29087] = 0, [29088] = 0
 }
 
 local function containsId(table, id)
@@ -346,15 +346,15 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:transform(392)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
-
-		elseif targetId == 23759 then
+		
+	elseif targetId == 23759 then
 		target:remove()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 		player:addItem(23760, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You picked a beautiful lion's mane flower.")
 
 	-- shiny stone refining
-		elseif target.itemid == 11227 then
+	elseif target.itemid == 11227 then
 		local chance = math.random(1,100)
 
 		if chance == 1 then
@@ -369,42 +369,42 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
 		target:remove(1)
 
-		elseif targetId == 11227 then
+	elseif targetId == 11227 then
 		target:remove(1)
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 		player:addItem(2152, 10)
 
-		elseif targetId == 7200 then
+	elseif targetId == 7200 then
 		target:transform(7236)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-		elseif targetId == 468 then
+	elseif targetId == 468 then
 		target:transform(469)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-		elseif targetId == 6299 then
+	elseif targetId == 6299 then
 		target:transform(482)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-		elseif targetId == 23712 then
+	elseif targetId == 23712 then
 		target:transform(23713)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-		elseif targetId == 481 then
+	elseif targetId == 481 then
 		target:transform(482)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-		elseif targetId == 483 then
+	elseif targetId == 483 then
 		target:transform(484)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-		elseif targetId == 7932 then
+	elseif targetId == 7932 then
 		target:transform(7933)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
@@ -422,11 +422,11 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			else
 				player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			end
-	end
+		end
 
 	-- grimvale quest
-		elseif targetId == 24731 then
-		if player:getExhaustion(Storage.Grimvale.SilverVein) <= 0 then
+	elseif targetId == 24731 then
+		if player:getStorageValue(Storage.Grimvale.SilverVein) < os.time() then
 			local chance = math.random(1, 10)
 			if chance >= 5 then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Even after a thorough and frustrating search you could not find enough liquified silver in this vein to fill a flask.')
@@ -436,14 +436,13 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 				target:transform(4475)
 				addEvent(revertItem, 10 * 60 * 1000, toPosition, 4475, 24731)
 			end
-			player:setExhaustion(Storage.Grimvale.SilverVein, 30)
+			player:setStorageValue(Storage.Grimvale.SilverVein, os.time() + 2 * 60)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are still exhausted from earlier attempts. Getting liquid silver out of the mountain needs concentration and a steady hand.')
 		end
-		return true
 
 	--The Ice Islands Quest, Nibelor 1: Breaking the Ice
-		elseif targetId == 3621 and targetActionId == 12026 then
+	elseif targetId == 3621 and targetActionId == 12026 then
 		local missionProgress, pickAmount = player:getStorageValue(Storage.TheIceIslands.Mission02), player:getStorageValue(Storage.TheIceIslands.PickAmount)
 		if missionProgress < 1 or pickAmount >= 3 or player:getStorageValue(Storage.TheIceIslands.Questline) ~= 3 then
 			return false
@@ -467,7 +466,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		Game.createMonster(chakoyas[math.random(#chakoyas)], toPosition)
 		toPosition:sendMagicEffect(CONST_ME_TELEPORT)
 
-		elseif targetId == 1304 then
+	elseif targetId == 1304 then
 	--The Pits of Inferno Quest
 		if target.uid == 1022 then
 			for i = 1, #lava do
@@ -485,24 +484,23 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 				target:remove(1)
 				Game.setStorageValue(GlobalStorage.NaginataStone)
 			end
-
 			toPosition:sendMagicEffect(CONST_ME_POFF)
 			doTargetCombatHealth(0, player, COMBAT_PHYSICALDAMAGE, -31, -39, CONST_ME_NONE)
 		end
 
 	 --The Banshee Quest
-		elseif targetId == 9025 and targetActionId == 101 then
+	elseif targetId == 9025 and targetActionId == 101 then
 		target:transform(392)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 
 	 -- The Hidden City of Beregar Quest
-		elseif targetActionId == 50090 then
-		--if player:getStorageValue(Storage.hiddenCityOfBeregar.WayToBeregar) == 1 then
+	elseif targetActionId == 50090 then
+		if player:getStorageValue(Storage.hiddenCityOfBeregar.WayToBeregar) == 1 then
 			player:teleportTo(Position(32566, 31338, 10))
-		--end
+		end
 
-		elseif targetActionId == 50114 then
+	elseif targetActionId == 50114 then
 		if Tile(Position(32617, 31513, 9)):getItemById(1027) and Tile(Position(32617, 31514, 9)):getItemById(1205) then
 			local rubbleItem = Tile(Position(32619, 31514, 9)):getItemById(5709)
 			if rubbleItem then
@@ -513,11 +511,10 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 
 	-- Pythius The Rotten (Firewalker Boots)
-		elseif targetActionId == 50127 then
+	elseif targetActionId == 50127 then
 		if player:getStorageValue(Storage.QuestChests.FirewalkerBoots) == 1 then
 			return false
 		end
-
 		target:remove(1)
 
 		local stoneItem = Tile(toPosition):getItemById(1304)
@@ -548,36 +545,34 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			portal:setActionId(50126)
 		end
 
-
 		-- The Asure
-        elseif targetActionId == 50091 then
-            player:teleportTo(Position(32960, 32676, 4))
+	elseif targetActionId == 50091 then
+		player:teleportTo(Position(32960, 32676, 4))
 
 		-- Wrath of the emperor quest
-		elseif targetId == 12296 then
+	elseif targetId == 12296 then
 		player:addItem(12295, 1)
 		player:say("The cracked part of the table lets you cut out a large chunk of wood with your pick.", TALKTYPE_MONSTER_SAY)
 
-		elseif targetId == 22671 then
+	elseif targetId == 22671 then
 		target:transform(392)
 		target:decay()
-		else
-		return false
 	end
 --Lower Roshamuul
 if (target ~= nil) and target:isItem() and (target:getId() == 22469) then
-    if math.random(100) > 50 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone produces some fine gravel.")
-        target:transform(22467)
-        target:decay()
-    else
-        Game.createMonster("Frazzlemaw", toPosition)
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone yields nothing but slightly finer, yet still unusable rubber.")
-        target:transform(22468)
-        target:decay()
-    end
-    	return true
-    end
+	if math.random(100) > 50 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone produces some fine gravel.")
+		target:transform(22467)
+		target:decay()
+	else
+		Game.createMonster("Frazzlemaw", toPosition)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone yields nothing but slightly finer, yet still unusable rubber.")
+		target:transform(22468)
+		target:decay()
+	end
+		return true
+	end
+	return true
 end
 
 function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
@@ -750,8 +745,8 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 		-- Secret Library
-    if targetActionId == 64028 then
-        player:teleportTo(Position(32515, 32535, 12))
+	if targetActionId == 64028 then
+		player:teleportTo(Position(32515, 32535, 12))
 		return true
 	end
 
