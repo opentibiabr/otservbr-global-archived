@@ -24,11 +24,6 @@
 #include "inbox.h"
 #include "tools.h"
 
-Inbox::Inbox(uint16_t type) : Container(type, 30, false, true)
-{
-	maxInboxItems = 64000;
-}
-
 ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 		uint32_t flags, Creature*) const
 {
@@ -60,7 +55,7 @@ ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 		}
 	}
 
-	if (getItemHoldingCount() + addCount > maxInboxItems) { //MY
+	if (getItemHoldingCount() + addCount > std::numeric_limits<uint16_t>::max();) { //MY
 		return RETURNVALUE_DEPOTISFULL;
 	}
 
