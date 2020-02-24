@@ -55,7 +55,7 @@ ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 		}
 	}
 
-	if (getItemHoldingCount() + addCount > std::numeric_limits<uint16_t>::max();) { //MY
+	if (getItemHoldingCount() + addCount > std::numeric_limits<uint16_t>::max()) { //MY
 		return RETURNVALUE_DEPOTISFULL;
 	}
 
