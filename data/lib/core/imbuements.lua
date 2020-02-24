@@ -144,6 +144,12 @@ function Player.sendImbuementResult(self, errorType, message)
 	return
 end
 
+function Player.closeImbuementWindow(self)
+	local msg = NetworkMessage()
+	msg:addByte(0xEC)
+	msg:sendToPlayer(self)
+end
+
 -- Items functions
 function Item.getImbuementDuration(self, slot)
 	local info = 0
