@@ -568,11 +568,6 @@ bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, const
 		return false;
 	}
 
-	if (!(toPos.y & 0x40)) {
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue an equipped item.");
-		return false;
-	}
-
 	player->sendImbuementWindow(target->getItem());
 	return true;
 }
