@@ -549,7 +549,7 @@ bool enterMarket(Player* player, Item*, const Position&, Thing*, const Position&
 	return true;
 }
 
-bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, const Position& toPos, bool)
+bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, bool)
 {
 	Item* item = target ? target->getItem() : nullptr;
 	if (!item) {
