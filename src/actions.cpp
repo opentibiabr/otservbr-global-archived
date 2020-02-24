@@ -549,7 +549,7 @@ bool enterMarket(Player* player, Item*, const Position&, Thing*, const Position&
 	return true;
 }
 
-bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, bool)
+bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, const Position& toPos, bool)
 {
 	Item* item = target ? target->getItem() : nullptr;
 	if (!item) {
@@ -566,6 +566,11 @@ bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, bool)
 	if (item->getTopParent() != player) {
 		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to pick up the item to imbue it.");
 		return false;
+	}
+	
+	if (!(toPos.y & 0x40)) {
+		player->sendImbuementWindow(target->getItem());
+		return true;
 	}
 
 	player->sendImbuementWindow(target->getItem());
