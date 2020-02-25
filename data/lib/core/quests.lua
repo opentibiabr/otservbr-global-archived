@@ -3163,8 +3163,8 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "Power", storageid = Storage.FirstDragon.DragonCounter, startvalue = 0, endvalue = 200, description = function(player)
-                    return ("You already hunted %d/200 dragons."):format(player:getStorageValue(Storage.FirstDragon.DragonCounter))
-                end,
+						return ("You already hunted %d/200 dragons."):format(player:getStorageValue(Storage.FirstDragon.DragonCounter))
+					end,
 				},
 				
 				[2] = {
