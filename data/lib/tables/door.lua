@@ -2,6 +2,9 @@
 -- The rest of the variables are self-explanatory, create more variables within the table and add the door ids in their variables.
 -- Be careful, do not add quest door inside the level door table or vice versa, this will lock the doors.
 
+-- ID of the keys.
+keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092}
+
 -- Keys doors start.
 -- Doors locked. This is the doors with the description "It is locked".
 keyLockedDoor = {
