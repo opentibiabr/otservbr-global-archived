@@ -13,7 +13,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 	if item.actionid == 34323 then
 		if player:getStorageValue(Storage.FerumbrasAscension.HabitatsAcess) >= 1 then
-			if player:getExhaustion(storage.timer) <= 0 then
+			if player:getStorageValue(storage.timer) < os.time() then
 				player:teleportTo(storage.toPosition)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			else

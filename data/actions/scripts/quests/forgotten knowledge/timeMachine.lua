@@ -7,7 +7,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 
 	if player:getPosition() == Position(32870, 32723, 14) then
-		if player:getExhaustion(Storage.ForgottenKnowledge.TimeGuardianTimer) <= 0 then
+		if player:getStorageValue(Storage.ForgottenKnowledge.TimeGuardianTimer) < os.time() then
 			player:teleportTo(Position(32870, 32724, 15))
 			player:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The mechanism takes you back in time.')

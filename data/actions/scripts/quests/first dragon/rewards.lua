@@ -28,7 +28,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not chest then
 		return true
 	end
-	if player:getStorageValue(Storage.FirstDragon.Feathers) >= os.time() or player:getExhaustion(Storage.FirstDragon.MaskTimer) >= os.time() then
+	if player:getStorageValue(Storage.FirstDragon.Feathers) >= os.time() or player:getStorageValue(Storage.FirstDragon.MaskTimer) >= os.time() then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The chest is empty.')
 		return true
 	end

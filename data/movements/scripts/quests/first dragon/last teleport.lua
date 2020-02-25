@@ -3,7 +3,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return
 	end
-	if player:getExhaustion(Storage.FirstDragon.FirstDragonTimer) <= 0 then
+	if player:getStorageValue(Storage.FirstDragon.FirstDragonTimer) < os.time() then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(Position(33583, 30990, 14))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
