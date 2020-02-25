@@ -109,8 +109,8 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-for keysID = 2967, 2973 do
-door:id(keysID)
+for index, value in pairs(keysID) do
+	door:id(value)
 end
 
 door:register()
