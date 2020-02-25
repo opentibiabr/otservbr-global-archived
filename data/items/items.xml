@@ -43785,11 +43785,25 @@
 		<attribute key="floorchange" value="south" />
 	</item>	
 	<item fromid="35662" toid="35667" article="a" name="ruined ancient wall"/> 
-	<item fromid="35668" toid="35671" article="a" name="closed door">
+	<item id="35668" article="a" name="closed door"><!-- key door locked -->
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+		<attribute key="description" value="It is locked." />
+	</item>
+	<item id="35669" article="a" name="closed door"><!-- key door closed -->
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
-	<item fromid="35672" toid="35673" article="an" name="open door">
+	<item id="35670" article="a" name="closed door"><!-- key door locked -->
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+		<attribute key="description" value="It is locked." />
+	</item>
+	<item fromid="35671" article="a" name="closed door"><!-- key door closed -->
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item fromid="35672" toid="35673" article="an" name="open door"><!-- key door open -->
 		<attribute key="type" value="door" />
 	</item>
 	<item id="35674" article="a" name="ancient wall" />
@@ -44782,18 +44796,20 @@
 	<item id="36325" article="a" name="unknown item"/> <!-- 12.20 -->
 <!--<item id="36326" article="a" name="reserved sprite"/>-->
 	<item fromid="36327" toid="36328" article="a" name="vortex"/>
-	<item id="36329" article="a" name="closed door">
+	<item id="36329" article="a" name="gate of expertise">
 		<attribute key="type" value="door" />
+		<attribute key="leveldoor" value="1000" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
-	<item id="36330" article="a" name="closed door">
+	<item id="36330" article="a" name="gate of expertise">
 		<attribute key="type" value="door" />
+		<attribute key="leveldoor" value="1000" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
-	<item id="36331" article="an" name="open door">
+	<item id="36331" article="an" name="gate of expertise">
 		<attribute key="type" value="door" />
 	</item>
-	<item id="36332" article="an" name="open door">
+	<item id="36332" article="an" name="gate of expertise">
 		<attribute key="type" value="door" />
 	</item>
 	<item id="36333" article="an" name="ancient wall"/>	

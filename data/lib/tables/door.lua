@@ -33,6 +33,7 @@ keyLockedDoor = {
 	{ closedDoor = 6192, openDoor = 6194 },
 	{ closedDoor = 6195, openDoor = 6197 },
 	{ closedDoor = 6249, openDoor = 6251 },
+	{ closedDoor = 6252, openDoor = 6254 },
 	{ closedDoor = 6799, openDoor = 6796 },
 	{ closedDoor = 6801, openDoor = 6798 },
 	{ closedDoor = 6891, openDoor = 6893 },
@@ -66,6 +67,8 @@ keyLockedDoor = {
 	{ closedDoor = 26543, openDoor = 26546 },
 	{ closedDoor = 33117, openDoor = 32582 },
 	{ closedDoor = 33119, openDoor = 32583 },
+	{ closedDoor = 35668, openDoor = 35672 },
+	{ closedDoor = 35670, openDoor = 35673 },
 	}
 	
 -- This is the commons doors usually used in the keys, are opened just by using.
@@ -128,6 +131,8 @@ keyUnlockedDoor = {
 	{ closedDoor = 26544, openDoor = 26546 },
 	{ closedDoor = 33118, openDoor = 32582 },
 	{ closedDoor = 33120, openDoor = 32583 },
+	{ closedDoor = 35669, openDoor = 35672 },
+	{ closedDoor = 35661, openDoor = 35673 },
 	}
 	
 -- Add the common closed key door here and in the second variable the door locked with the key.
@@ -192,6 +197,8 @@ fromClosedToLockedDoor = {
 	{ keyDoorClosed = 26544, keyDoorLocked = 26543 },
 	{ keyDoorClosed = 33118, keyDoorLocked = 33117 },
 	{ keyDoorClosed = 33120, keyDoorLocked = 33119 },
+	{ keyDoorClosed = 35669, keyDoorLocked = 35668},
+	{ keyDoorClosed = 35671, keyDoorLocked = 35670},
 	}
 -- Keys doors end. 
 	
@@ -268,8 +275,6 @@ customDoor = {
 	{ closedDoor = 35685, openDoor = 35689 },
 	{ closedDoor = 35686, openDoor = 35690 },
 	{ closedDoor = 35687, openDoor = 35691 },
-	{ closedDoor = 36498, openDoor = 36499 },
-	{ closedDoor = 36500, openDoor = 36501 },
 	}
 
 -- These are the doors for missions, they need access from some mission (storage) to be able to enter. Put the storage value in the action id of the door and it will open only to the player who has the storage value.
@@ -323,6 +328,8 @@ questDoor = {
 	{ closedDoor = 34685, openDoor = 34686 },
 	{ closedDoor = 36403, openDoor = 36404 },
 	{ closedDoor = 36405, openDoor = 36406 },
+	{ closedDoor = 36498, openDoor = 36499 },
+	{ closedDoor = 36500, openDoor = 36501 },
 	}
 	
 -- Level doors.
