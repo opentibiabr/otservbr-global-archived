@@ -277,7 +277,7 @@ Storage = {
 		Reward03 = 35052,
 	},
 	FirstDragon = {
-		Start = 10195,
+		Questline = 10195,
 		DragonCounter = 10196,
 		ChestCounter = 10197,
 		TazhadurTimer = 10198,
