@@ -1,3 +1,7 @@
+local config = {
+	centerRoom = Position(33597, 31022, 14)
+}
+
 local DragonsPositions = {
 	{position = Position(33574, 31013, 14)},
 	{position = Position(33592, 31013, 14)},
@@ -37,12 +41,13 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		local check = Tile(Position(33583,30993,14)):getTopCreature()
 		if player:getPosition() ~= Position(33583, 30993, 14) or not check or not check:isPlayer() then
 			item:transform(9826)
+			print("vai sem nada")
 			return true
 		end
 
 	end
 	if item.itemid == 9825 then
-		local specs, spec = Game.getSpectators(Position(33597, 31022, 14), false, false, 35, 35, 15, 15)
+		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
@@ -50,43 +55,55 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				return true
 			end
 		end
+		
 		for d = 1, 5 do
 			Game.createMonster('Unbeatable Dragon', Position(math.random(33610, 33622), math.random(31016, 31030), 14), true, true)
 		end
+		
 		for b = 1, #DragonsPositions do
 			Game.createMonster('Fallen Challenger', DragonsPositions[b].position, true, true)
 		end
+		
 		local roomIndex, storePlayers = 1, {}
 		for i = 1, #PlayerPositions do
 			local position = PlayerPositions[i].position
 			local playerTile = Tile(PlayerPositions[i].position):getTopCreature()
 			if playerTile and playerTile:isPlayer() then
 				storePlayers[#storePlayers + 1] = playerTile
+				print("vai 1")
 			end
 			if storePlayers[3] ~= nil then
+				print("vai 2")
 				for p = 1, 3 do
+					print("vai 3")
 					local players = storePlayers[p]
 					if players then
+						print("vai 4")
 						if players:getStorageValue(Storage.FirstDragon.FirstDragonTimer) < os.time() then
 							players:teleportTo(Rooms[roomIndex].position)
 							players:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 							players:setStorageValue(Storage.FirstDragon.FirstDragonTimer, os.time() + 20 * 60 * 60)
+							print("vai 5")
 						else
 							player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge this enemy.")
+							print("wait")
 							return true
 						end
 					end
 					if p == 3 then
 						storePlayers = {}
 						roomIndex = roomIndex + 1
+						print("vai 6")
 					end
 				end
 			end
 		end
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33567, 31007, 14), Position(33628, 31037, 14), Position(33597, 30993, 14))
+		print("vai 7")
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33567, 31007, 14), Position(33628, 31037, 14), Position(33597, 30993, 14), Storage.FirstDragon.FirstDragonTimer)
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)
+		print("volta")
 	end
 	return true
 end

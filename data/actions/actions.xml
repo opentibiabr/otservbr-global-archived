@@ -173,8 +173,8 @@
 	<!-- First Dragon Quest -->
 	<action fromuid="10201" touid="10220" script="quests/first dragon/chests.lua"/>
 	<action fromuid="10221" touid="10223" script="quests/first dragon/rewards.lua"/>
-	<action fromid="27607" toid="27610" script="quests/first dragon/repItems.lua"/>
-	<action fromaid="24886" toaid="24887" script="quests/first dragon/lairEntrance.lua"/>
+	<action fromid="27607" toid="27610" script="quests/first dragon/sacrifice_items.lua"/>
+	<action fromaid="24886" toaid="24887" script="quests/first dragon/lair_entrance.lua"/>
 	<action actionid="24888" script="quests/first dragon/lever.lua"/>
 
 	<!-- Ferumbras Ascendant Quest -->

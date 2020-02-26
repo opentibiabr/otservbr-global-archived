@@ -8,8 +8,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 	if item.actionid == 24886 then
-		if player:getStorageValue(Storage.FirstDragon.AccessCave) < 3 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are not worthy to enter in The First Dragon\'s Lair yet.')
+		if player:getStorageValue(Storage.FirstDragon.AccessCave) <= 3 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are not worthy to enter in The First Dragon's Lair yet.")
 			return true
 		end
 	end

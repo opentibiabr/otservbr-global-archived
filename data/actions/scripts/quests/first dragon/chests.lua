@@ -29,10 +29,16 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The chest is empty.')
 		return true
 	end
+	if player:getStorageValue(Storage.FirstDragon.ChestCounter) >= 19 then
+		player:addAchievement('Treasure Hunter')
+		player:addItem(chest.name, chest.count, true)
+		player:setStorageValue(item.uid, 1)
+		player:setStorageValue(Storage.FirstDragon.ChestCounter, player:getStorageValue(Storage.FirstDragon.ChestCounter) + 1)
+		return true
+	end
 	player:addItem(chest.name, chest.count, true)
 	player:setStorageValue(item.uid, 1)
 	player:setStorageValue(Storage.FirstDragon.ChestCounter, player:getStorageValue(Storage.FirstDragon.ChestCounter) + 1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..chest.count.. ' ' ..chest.name..'.')
-	player:addAchievementProgress('Treasure Hunter', 20)
 	return true
 end
