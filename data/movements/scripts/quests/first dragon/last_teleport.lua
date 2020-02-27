@@ -8,7 +8,7 @@ function onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(Position(33583, 30990, 14))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else
-		player:teleportTo(Position(33597,30994,14))
+		player:teleportTo(fromPosition, true)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to challenge The First Dragon again!")
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
