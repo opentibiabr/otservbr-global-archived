@@ -3572,7 +3572,6 @@ void Game::playerShowQuestLine(uint32_t playerId, uint16_t questId)
 	}
 
 	g_events->eventPlayerOnRequestQuestLine(player, questId);
-	}
 }
 
 void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
