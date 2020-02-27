@@ -65,7 +65,7 @@ class Events
 		int32_t playerOnGainSkillTries = -1;
 		int32_t playerOnRequestQuestLog = -1;
 		int32_t playerOnRequestQuestLine = -1;
-		int32_t playerOnStorageUpdate = -1;		
+		int32_t playerOnStorageUpdate = -1;
 		int32_t playerOnRemoveCount = -1;
 		int32_t playerCanBeAppliedImbuement = -1;
 		int32_t playerOnApplyImbuement = -1;
