@@ -157,9 +157,6 @@ void Signals::sighupHandler()
 	g_weapons->loadDefaults();
 	std::cout << "Reloaded weapons." << std::endl;
 
-	g_game.quests.reload();
-	std::cout << "Reloaded quests." << std::endl;
-
 	g_game.mounts.reload();
 	std::cout << "Reloaded mounts." << std::endl;
 
