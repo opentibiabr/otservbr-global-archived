@@ -41,9 +41,6 @@ local reloadTypes = {
 	["npc"] = RELOAD_TYPE_NPCS,
 	["npcs"] = RELOAD_TYPE_NPCS,
 
-	["quest"] = RELOAD_TYPE_QUESTS,
-	["quests"] = RELOAD_TYPE_QUESTS,
-
 	["raid"] = RELOAD_TYPE_RAIDS,
 	["raids"] = RELOAD_TYPE_RAIDS,
 
