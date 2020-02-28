@@ -20,7 +20,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				item:transform(value.openDoor)
 				player:teleportTo(toPosition, true)
 				return true
-				else
+			else
 				player:sendTextMessage(MESSAGE_INFO_DESCR, "Only the worthy may pass.")
 				return true
 			end
