@@ -52,9 +52,6 @@ depotBoxes = 17
 -- GameStore
 gamestoreByModules = true
 
--- Quest Sytem
-loadQuestLua = true
-
 -- Expert Pvp Config
 expertPvp = false
 
