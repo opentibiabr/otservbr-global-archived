@@ -23,7 +23,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 
-	if msgcontains(msg, 'mission') then
+	if msgcontains(msg, 'spare') then
 		npcHandler:say('Hmm, if you can spare a coin... we can talk. What do you say?', cid)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'device') then

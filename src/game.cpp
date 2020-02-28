@@ -132,9 +132,6 @@ void Game::setGameState(GameState_t newState)
 			raids.loadFromXml();
 			raids.startup();
 
-			if(!g_config.getBoolean(ConfigManager::QUEST_LUA))
-				quests.loadFromXml();
-
 			mounts.loadFromXml();
 
 			if (!g_config.getBoolean(ConfigManager::STOREMODULES)) {
@@ -3564,10 +3561,7 @@ void Game::playerShowQuestLog(uint32_t playerId)
 		return;
 	}
 
-	if(!g_config.getBoolean(ConfigManager::QUEST_LUA))
-		player->sendQuestLog();
-	else
-		g_events->eventPlayerOnRequestQuestLog(player);
+	g_events->eventPlayerOnRequestQuestLog(player);
 }
 
 void Game::playerShowQuestLine(uint32_t playerId, uint16_t questId)
@@ -3577,17 +3571,7 @@ void Game::playerShowQuestLine(uint32_t playerId, uint16_t questId)
 		return;
 	}
 
-	if(!g_config.getBoolean(ConfigManager::QUEST_LUA))
-	{
-		Quest* quest = quests.getQuestByID(questId);
-		if (!quest) {
-			return;
-		}
-
-		player->sendQuestLine(quest);
-	} else {
-		g_events->eventPlayerOnRequestQuestLine(player, questId);
-	}
+	g_events->eventPlayerOnRequestQuestLine(player, questId);
 }
 
 void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
@@ -6688,7 +6672,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			return true;
 		}
 
-		case RELOAD_TYPE_QUESTS: return quests.reload();
 		case RELOAD_TYPE_RAIDS: return raids.reload() && raids.startup();
 
 		case RELOAD_TYPE_SPELLS: {
@@ -6738,7 +6721,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_weapons->reload();
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
-			quests.reload();
 			mounts.reload();
 			g_globalEvents->reload();
 			g_events->load();

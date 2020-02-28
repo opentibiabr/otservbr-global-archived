@@ -16,7 +16,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     local itemId = item:getId()
     for index, value in ipairs(questDoor) do
 		 if value.closedDoor == itemId then
-			if player:getStorageValue(item.actionid) <= -1 then
+			if item.actionid > 0 and player:getStorageValue(item.actionid) ~= -1 then
 				item:transform(value.openDoor)
 				player:teleportTo(toPosition, true)
 				return true

@@ -213,10 +213,6 @@ class ProtocolGame final : public Protocol
 		// Send preyInfo
 		void sendPreyData();
 
-		void sendQuestLog();
-		void sendQuestTracker();
-		void sendQuestLine(const Quest* quest);
-
 		void sendCancelWalk();
 		void sendChangeSpeed(const Creature* creature, uint32_t speed);
 		void sendCancelTarget();
