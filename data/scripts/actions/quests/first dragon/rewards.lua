@@ -20,7 +20,7 @@ local bpItems = {
 }
 
 function finalReward.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local setting = config[item.uid]
+	local setting = UniqueTable[item.uid]
 	if not setting then
 		return true
 	end
