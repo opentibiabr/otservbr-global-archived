@@ -294,7 +294,8 @@ Storage = {
 		Bones = 10229,
 		Tooth = 10230,
 		AccessCave = 10231,
-		FirstDragonTimer = 10232
+		SomewhatBeatable = 10232,
+		FirstDragonTimer = 10233
 	},
 	Grimvale = {
 		SilverVein = 10094

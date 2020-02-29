@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Angry Plant" nameDescription="an angry plant" race="venom" experience="0" speed="110">
 	<health now="10000" max="10000"/>
-	<look type="120" corpse="27646"/>
+	<look type="120" corpse="9679"/>
 	<targetchange interval="2000" chance="5"/>
 	<flags>
 		<flag summonable="0"/>
@@ -16,6 +16,9 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 	</flags>
+	<script>
+		<event name="Angry Plant Death"/>
+	</script>
 	<attacks>
 		<attack name="melee" interval="2000" skill="50" attack="50" poison="95"/>
 	</attacks>

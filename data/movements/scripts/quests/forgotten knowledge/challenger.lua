@@ -1,10 +1,10 @@
 local destination = {
-	[24878] = {newPos = Position(32903, 31630, 14), backPos = Position(32915, 31639, 14), storage = Storage.ForgottenKnowledge.LadyTenebrisTimer},
-	[24879] = {newPos = Position(32658, 32885, 14), backPos = Position(32678, 32888, 14), storage = Storage.ForgottenKnowledge.ThornKnightTimer},
-	[24880] = {newPos = Position(33391, 31184, 10), backPos = Position(33407, 31172, 10), storage = Storage.ForgottenKnowledge.DragonkingTimer},
-	[24882] = {newPos = Position(32302, 31095, 14), backPos = Position(32318, 31091, 14), storage = Storage.ForgottenKnowledge.HorrorTimer},
-	[24883] = {newPos = Position(33026, 31663, 14), backPos = Position(32849, 32691, 15), storage = Storage.ForgottenKnowledge.TimeGuardianTimer},
-	[24884] = {newPos = Position(32019, 32851, 14), backPos = Position(32035, 32859, 14), storage = Storage.ForgottenKnowledge.LastLoreTimer}
+	[24900] = {newPos = Position(32903, 31630, 14), backPos = Position(32915, 31639, 14), storage = Storage.ForgottenKnowledge.LadyTenebrisTimer},
+	[24901] = {newPos = Position(32658, 32885, 14), backPos = Position(32678, 32888, 14), storage = Storage.ForgottenKnowledge.ThornKnightTimer},
+	[24902] = {newPos = Position(33391, 31184, 10), backPos = Position(33407, 31172, 10), storage = Storage.ForgottenKnowledge.DragonkingTimer},
+	[24903] = {newPos = Position(32302, 31095, 14), backPos = Position(32318, 31091, 14), storage = Storage.ForgottenKnowledge.HorrorTimer},
+	[24904] = {newPos = Position(33026, 31663, 14), backPos = Position(32849, 32691, 15), storage = Storage.ForgottenKnowledge.TimeGuardianTimer},
+	[24905] = {newPos = Position(32019, 32851, 14), backPos = Position(32035, 32859, 14), storage = Storage.ForgottenKnowledge.LastLoreTimer}
 }
 
 function onStepIn(creature, item, position, fromPosition)
