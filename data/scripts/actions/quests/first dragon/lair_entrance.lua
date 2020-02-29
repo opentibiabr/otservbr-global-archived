@@ -1,7 +1,7 @@
 local lairEntrance = Action()
 
 function lairEntrance.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local setting = UniqueTable[item.actionid]
+	local setting = UniqueTable[item.uid]
 	if not setting then
 		return true
 	end
