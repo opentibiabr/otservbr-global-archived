@@ -1,4 +1,53 @@
--- level and quests closing door
+-- Level and quests closing door (onStepIn).
+-- This prevents a player who has not yet done the quest, from crossing the player who has already done so, skipping the entire quest and going straight to the final reward.
+local door = MoveEvent()
+
+local doorIds = {}
+for index, value in ipairs(questDoor) do
+    if not table.contains(doorIds, value.openDoor) then
+        table.insert(doorIds, value.openDoor)
+    end
+end
+for index, value in ipairs(levelDoor) do
+    if not table.contains(doorIds, value.openDoor) then
+        table.insert(doorIds, value.openDoor)
+    end
+end
+
+function door.onStepIn(player, item, position, fromPosition)
+	local itemId = item:getId()
+    for index, value in ipairs(questDoor) do
+		 if value.openDoor == itemId then
+			if player:getStorageValue(item.actionid) ~= -1 then
+				return true
+			else
+				player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+				player:teleportTo(fromPosition, true)
+			return false
+			end
+		end
+	end
+	for index, value in ipairs(levelDoor) do
+		 if value.openDoor == itemId then
+			if item.actionid > 0 and player:getLevel() >= item.actionid - 1000 then
+				return true
+			else
+				player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+				player:teleportTo(fromPosition, true)
+			return false
+			end
+		end
+	end
+	return true
+end
+
+for index, value in ipairs(doorIds) do
+    door:id(value)
+end
+door:register()
+
+-- Level and quests closing door (onStepOut).
+-- This closes the door after the player passes through it.
 local door = MoveEvent()
 
 local doorIds = {}
