@@ -1,6 +1,6 @@
-local angryPlant = CreatureEvent("Somewhat Beatable Death")
+local deathSomewhatBeatable = CreatureEvent("Somewhat Beatable Death")
 
-function onDeath(creature, target)
+function deathSomewhatBeatable.onDeath(creature, target)
 	local spectators = Game.getSpectators(Position(33617, 31023, 14), false, false, 14, 14, 14, 14)
 		for i = 1, #spectators do
 			local spec = spectators[i]
@@ -21,4 +21,4 @@ function onDeath(creature, target)
 	return true
 end
 
-angryPlant:register()
+deathSomewhatBeatable:register()

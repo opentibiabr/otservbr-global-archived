@@ -295,7 +295,10 @@ Storage = {
 		Tooth = 10230,
 		AccessCave = 10231,
 		SomewhatBeatable = 10232,
-		FirstDragonTimer = 10233
+		FirstDragonTimer = 10233,
+		RewardFeather = 10234,
+		RewardMask = 10235,
+		RewardBackpack = 10236
 	},
 	Grimvale = {
 		SilverVein = 10094

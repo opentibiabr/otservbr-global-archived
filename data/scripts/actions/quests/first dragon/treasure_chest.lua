@@ -6,19 +6,19 @@ function treasureChest.onUse(player, item, fromPosition, target, toPosition, isH
 		return true
 	end
 	if player:getStorageValue(item.uid) >= 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' ..setting.itemId.. ' is empty.')
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' .. getItemName(setting.itemId) .. ' is empty.')
 		return true
 	end
-	if player:getStorageValue(Storage.FirstDragon.settingCounter) >= 19 then
+	if player:getStorageValue(Storage.FirstDragon.ChestCounter) >= 19 then
 		player:addAchievement('Treasure Hunter')
 		player:addItem(setting.name, setting.count, true)
 		player:setStorageValue(item.uid, 1)
-		player:setStorageValue(Storage.FirstDragon.settingCounter, player:getStorageValue(Storage.FirstDragon.settingCounter) + 1)
+		player:setStorageValue(Storage.FirstDragon.ChestCounter, player:getStorageValue(Storage.FirstDragon.ChestCounter) + 1)
 		return true
 	end
 	player:addItem(setting.name, setting.count, true)
 	player:setStorageValue(item.uid, 1)
-	player:setStorageValue(Storage.FirstDragon.settingCounter, player:getStorageValue(Storage.FirstDragon.settingCounter) + 1)
+	player:setStorageValue(Storage.FirstDragon.ChestCounter, player:getStorageValue(Storage.FirstDragon.ChestCounter) + 1)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')
 	return true
 end

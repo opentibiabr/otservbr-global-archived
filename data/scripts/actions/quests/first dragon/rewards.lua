@@ -24,20 +24,15 @@ function finalReward.onUse(player, item, fromPosition, target, toPosition, isHot
 	if not setting then
 		return true
 	end
-	if player:getStorageValue(Storage.FirstDragon.Feathers) >= os.time() or player:getStorageValue(Storage.FirstDragon.MaskTimer) >= os.time() then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' ..setting.itemId.. ' is empty.')
-		return true
-	end
-	player:setStorageValue(Storage.FirstDragon.Feathers, os.time() + 24 * 3600)
-	if item.uid == 24871 then
-		player:setStorageValue(Storage.FirstDragon.MaskTimer, os.time() + 60 * 60 * 5 * 24)
-	end
-	if item.uid ~= 24872 then
-		player:addItem(setting.name, setting.count, true)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')
-		return true
-	end
-	if item.uid == 24872 then
+	if item.uid == 24871 and player:getStorageValue(Storage.FirstDragon.RewardFeather) < os.time() then 
+			player:addItem(setting.name, setting.count, true)
+			player:setStorageValue(Storage.FirstDragon.RewardFeather, os.time() + 24 * 3600)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')
+	elseif item.uid == 24873 and player:getStorageValue(Storage.FirstDragon.RewardMask) < os.time() then 
+			player:addItem(setting.name, setting.count, true)
+			player:setStorageValue(Storage.FirstDragon.RewardMask, os.time() + 60 * 60 * 5 * 24)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found ' ..setting.count.. ' ' ..setting.name..'.')
+	elseif item.uid == 24872 and player:getStorageValue(Storage.FirstDragon.RewardBackpack) < os.time() then
 		local bp = Game.createItem('Backpack', 1)
 		if bp then
 			for i = 1, #bpItems do
@@ -46,8 +41,11 @@ function finalReward.onUse(player, item, fromPosition, target, toPosition, isHot
 			bp:moveTo(player)
 		end
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a backpack.')
-		return true
+		player:setStorageValue(Storage.FirstDragon.RewardBackpack, os.time() + 60 * 60 * 365 * 24)
+	else
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' ..getItemName(setting.itemId).. ' is empty.')
 	end
+	return true
 end
 
 for value = 24871, 24873 do

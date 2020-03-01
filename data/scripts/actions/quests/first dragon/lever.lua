@@ -61,6 +61,15 @@ local config = {
 
 function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
+		for i = 1, #playerPositions do
+			local creature = Tile(playerPositions[i]):getTopCreature()
+			if not creature then
+				item:transform(9826)
+				return true
+			end
+		end
+	end
+	if item.itemid == 9825 then
 		local specs, spec = Game.getSpectators(Position(33597, 31022, 14), false, false, 35, 35, 15, 15)
 		for i = 1, #specs do
 				spec = specs[i]
@@ -105,7 +114,7 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				creature:setStorageValue(Storage.FirstDragon.SomewhatBeatable, 0)
 			end
 		end
-		addEvent(clearRoom, 5 * 60 * 1000, Position(33583, 31022, 14), 30, 30, fromPosition)
+		addEvent(clearRoom, 30 * 60 * 1000, Position(33583, 31022, 14), 50, 50, fromPosition)
 		Game.createMonster('Spirit of Fertility', Position(33625, 31021, 14), true, true)
 		item:transform(9826)
 	elseif item.itemid == 9826 then

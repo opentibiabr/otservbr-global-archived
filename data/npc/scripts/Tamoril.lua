@@ -55,9 +55,9 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 0
 		player:setStorageValue(Storage.FirstDragon.Questline, 1)
 		player:setStorageValue(Storage.FirstDragon.DragonCounter, 0)
-		player:setStorageValue(Storage.FirstDragon.ChestCounter, 1)
-		player:setStorageValue(Storage.FirstDragon.GelidrazahAccess, 1)
-		player:setStorageValue(Storage.FirstDragon.SecretsCounter, 1)
+		player:setStorageValue(Storage.FirstDragon.ChestCounter, 0)
+		player:setStorageValue(Storage.FirstDragon.GelidrazahAccess, 0)
+		player:setStorageValue(Storage.FirstDragon.SecretsCounter, 0)
 	end
 	return true
 end
