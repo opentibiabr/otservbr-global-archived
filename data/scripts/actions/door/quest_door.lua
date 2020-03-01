@@ -21,7 +21,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				player:teleportTo(toPosition, true)
 				return true
 			else
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "The door seems to be sealed against unwanted intruders.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 				return true
 			end
 		end

@@ -21,7 +21,7 @@ function door.onStepIn(player, item, position, fromPosition)
 			if player:getStorageValue(item.actionid) ~= -1 then
 				return true
 			else
-				player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 				player:teleportTo(fromPosition, true)
 			return false
 			end
@@ -32,7 +32,7 @@ function door.onStepIn(player, item, position, fromPosition)
 			if item.actionid > 0 and player:getLevel() >= item.actionid - 1000 then
 				return true
 			else
-				player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Only the worthy may pass.")
 				player:teleportTo(fromPosition, true)
 			return false
 			end
