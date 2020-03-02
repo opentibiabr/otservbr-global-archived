@@ -22,7 +22,13 @@ Others reserved player action storages
 [100 = it is locked door]
 [1000 = level door. Here 1 must be used followed by the level. Example: 1010 = level 10, 1100 = level 100] 
 ]]
-	{actionId = xxxxx, itemId = xxxx, itemPos = Position(xxxxx, xxxxx, xx)},
+	{actionId = 24890, itemId = 4552, itemPos = Position(33135, 32652, 7), storage = Storage.FirstDragon.DesertTile, msg = "You enter the beautiful oasis. By visiting this sacred site you're infused with the power of water bringing life to the desert."},
+	{actionId = 24890, itemId = 9043, itemPos = Position(33128, 32654, 7), storage = Storage.FirstDragon.DesertTile, msg = "You enter the beautiful oasis. By visiting this sacred site you're infused with the power of water bringing life to the desert."},
+	{actionId = 24891, itemId = 2740, itemPos = Position(32348, 31691, 7), storage = Storage.FirstDragon.StoneSculptureTile, msg = "You enter the circle of trees and flowers. By visiting this sacred site you're infused with the power of nature and plants."},
+	{actionId = 24891, itemId = 2742, itemPos = Position(32343, 31694, 7), storage = Storage.FirstDragon.StoneSculptureTile, msg = "You enter the circle of trees and flowers. By visiting this sacred site you're infused with the power of nature and plants."},
+	{actionId = 24892, itemId = 9048, itemPos = Position(32696, 31720, 7), storage = Storage.FirstDragon.SuntowerTile, msg = "You entered the suntower of Ab'dendriel. By visiting this sacred site you're infused with the power of the life-giving sun."},
+	{actionId = 24892, itemId = 9043, itemPos = Position(32697, 31720, 7), storage = Storage.FirstDragon.SuntowerTile, msg = "You entered the suntower of Ab'dendriel. By visiting this sacred site you're infused with the power of the life-giving sun."},
+	{actionId = 24892, itemId = 9043, itemPos = Position(32698, 31720, 7), storage = Storage.FirstDragon.SuntowerTile, msg = "You entered the suntower of Ab'dendriel. By visiting this sacred site you're infused with the power of the life-giving sun."},
 	
 }
 
@@ -70,9 +76,6 @@ As the name implies, it should be used in unique functions, where they should on
 	[24887] = {itemId = 9562, itemPos = Position(32076, 32457, 8), backPos = Position(33162, 31320, 5)}, -- Kalyassa exit.
 	[24888] = {itemId = 9564, itemPos = Position(32006, 32395, 8), backPos = Position(33002, 31595, 11)}, -- Zorvorax exit.
 	[24889] = {itemId = 9563, itemPos = Position(32077, 32404, 8), backPos = Position(32278, 31367, 4)}, -- Gelidrazah exit.
-	[24890] = {itemId = 9059, itemPos = Position(33140, 32654, 7), storage = Storage.FirstDragon.DesertTile, msg = "You enter the beautiful oasis. By visiting this sacred site you're infused with the power of water bringing life to the desert."},-- Oasis Desert
-	[24891] = {itemId = 2740, itemPos = Position(32348, 31691, 7), storage = Storage.FirstDragon.StoneSculptureTile, msg = "You enter the circle of trees and flowers. By visiting this sacred site you're infused with the power of nature and plants."},-- The Stone Sculpture
-	[24892] = {itemId = 9043, itemPos = Position(32697, 31720, 7), storage = Storage.FirstDragon.SuntowerTile, msg = "You entered the suntower of Ab'dendriel. By visiting this sacred site you're infused with the power of the life-giving sun."},-- Suntower
 	[24893] = {itemId = 2743, itemPos = Position(33608, 31022, 14)}, --
 	[24894] = {itemId = 1387, itemPos = Position(33597, 30996, 14), destination = Position(33583, 30990, 14)}, 
 	[24895] = {itemId = 27828, itemPos = Position(33047, 32712, 3), destination = Position(31994, 32391, 9)},

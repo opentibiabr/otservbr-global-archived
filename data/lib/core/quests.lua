@@ -3168,7 +3168,7 @@ if not Quests then
 				},
 				
 				[2] = {
-					name = "Treasure", storageid = Storage.FirstDragon.ChestCounter, startvalue = 0, endvalue = 15, description = "Treasure is the favorite of the dragon lords. Find and take Kalyassa's treasures spread accross the world.",
+					name = "Treasure", storageid = Storage.FirstDragon.ChestCounter, startvalue = 0, endvalue = 20, description = "Treasure is the favorite of the dragon lords. Find and take Kalyassa's treasures spread accross the world.",
 				},
 				[3] = {
 					name = "Knowledge", storageid = Storage.FirstDragon.GelidrazahAccess, startvalue = 0, endvalue = 1, description = "You learned that frost dragon's incitement is the thirst for knowledge, perhaps if you bring some to Gelidrazah's you'll meet him.",
