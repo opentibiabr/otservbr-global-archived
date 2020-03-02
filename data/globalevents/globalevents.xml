@@ -53,6 +53,7 @@
 	<globalevent type="startup" name="ServerStartup" script="startup.lua" />
 	<globalevent type="record" name="PlayerRecord" script="record.lua" />
 	<globalevent name="ServerSave" time="05:55:00" script="serversave.lua" />
+	<globalevent name="SavePlayer" interval="1800000" script="saveplayer.lua" />
 	<globalevent type="startup" name="rashid" script="rashid.lua"/>
 	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
 	
