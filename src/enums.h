@@ -352,7 +352,7 @@ enum stats_t {
 	STAT_CAPACITY,
 
 	STAT_FIRST = STAT_MAXHITPOINTS,
-	STAT_LAST = STAT_CAPACITY,
+	STAT_LAST = STAT_CAPACITY
 };
 
 enum formulaType_t {

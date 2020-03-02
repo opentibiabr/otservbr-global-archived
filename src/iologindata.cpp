@@ -580,9 +580,9 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
 	query.str(std::string());
 	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
-	
+
 	std::vector<std::pair<uint8_t, Container*>> openContainersList;
-	
+
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -590,7 +590,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 			const std::pair<Item*, int32_t>& pair = it->second;
 			Item* item = pair.first;
 			int32_t pid = pair.second;
-			
+
 			Container* itemContainer = item->getContainer();
 			if (itemContainer) {
 				uint8_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
@@ -598,7 +598,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 					openContainersList.emplace_back(std::make_pair(cid, itemContainer));
 				}
 			}
-			
+
 			if (pid >= 1 && pid <= 11) {
 				player->internalAddThing(pid, item);
 			} else {
@@ -614,17 +614,15 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 			}
 		}
 	}
-	
+
 	std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
-    	return left.first < right.first;
+		return left.first < right.first;
 	});
 
-    //if(player->getProtocolVersion() >= 1120) {
-    	for (auto& it : openContainersList){
-			player->addContainer(it.first - 1, it.second);
-			g_scheduler.addEvent(createSchedulerTask(((it.first)*50), std::bind(&Game::playerUpdateContainer, &g_game, player->getID(), it.first - 1)));
-    	}
-	//}
+	for (auto& it : openContainersList) {
+		player->addContainer(it.first - 1, it.second);
+		g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
+	}
 
 	// Store Inbox
 	if (!player->inventory[CONST_SLOT_STORE_INBOX]) {
@@ -776,24 +774,24 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 
 	Database& db = Database::getInstance();
 	const auto& openContainers = player->getOpenContainers();
-	
+
 	for (const auto& it : itemList) {
 		int32_t pid = it.first;
 		Item* item = it.second;
 		++runningId;
-		
+
 		if (Container* container = item->getContainer()) {
-			if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0){
+			if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
 				container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
 			}
-			
-			if (!openContainers.empty()){
-				for (const auto& it : openContainers) {
-					auto openContainer = it.second;
+
+			if (!openContainers.empty()) {
+				for (const auto& its : openContainers) {
+					auto openContainer = its.second;
 					auto opcontainer = openContainer.container;
 
-					if (opcontainer == container){
-						container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first)+1);
+					if (opcontainer == container) {
+						container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
 						break;
 					}
 				}
@@ -812,6 +810,7 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 		if (!query_insert.addRow(ss)) {
 			return false;
 		}
+
 	}
 
 	while (!queue.empty()) {
@@ -824,20 +823,20 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 			++runningId;
 
 			Container* subContainer = item->getContainer();
-			
+
 			if (subContainer) {
 				queue.emplace_back(subContainer, runningId);
-				if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0){
+				if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
 					subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
 				}
-			
-				if (!openContainers.empty()){
+
+				if (!openContainers.empty()) {
 					for (const auto& it : openContainers) {
 						auto openContainer = it.second;
 						auto opcontainer = openContainer.container;
 
-						if (opcontainer == subContainer){
-							subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first)+1);
+						if (opcontainer == subContainer) {
+							subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
 							break;
 						}
 					}

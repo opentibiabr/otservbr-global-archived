@@ -115,11 +115,11 @@ class Monster final : public Creature
 		bool isHostile() const {
 			return mType->info.isHostile;
 		}
-		bool isPassive() const {
-			return mType->info.isPassive;
-		}
 		bool isPet() const {
 			return mType->info.isPet;
+		}
+		bool isPassive() const {
+			return mType->info.isPassive;
 		}
 		bool canSee(const Position& pos) const final;
 		bool canSeeInvisibility() const final {
