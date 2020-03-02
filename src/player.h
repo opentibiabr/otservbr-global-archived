@@ -546,6 +546,10 @@ class Player final : public Creature, public Cylinder
 		void removeMessageBuffer();
 
 		bool removeItemOfType(uint16_t itemId, uint32_t amount, int32_t subType, bool ignoreEquipped = false) const;
+		
+		void setCapacity(uint32_t cap) {
+			capacity = cap;
+		}
 
 		uint32_t getCapacity() const {
 			if (hasFlag(PlayerFlag_CannotPickupItem)) {
@@ -553,7 +557,7 @@ class Player final : public Creature, public Cylinder
 			} else if (hasFlag(PlayerFlag_HasInfiniteCapacity)) {
 				return std::numeric_limits<uint32_t>::max();
 			}
-			return capacity;
+			return std::max<int32_t>(0, capacity + varStats[STAT_CAPACITY]);
 		}
 
 		uint32_t getFreeCapacity() const {
@@ -562,7 +566,7 @@ class Player final : public Creature, public Cylinder
 			} else if (hasFlag(PlayerFlag_HasInfiniteCapacity)) {
 				return std::numeric_limits<uint32_t>::max();
 			} else {
-				return std::max<int32_t>(0, capacity - inventoryWeight);
+				return std::max<int32_t>(0, getCapacity() - inventoryWeight);
 			}
 		}
 
@@ -1311,6 +1315,10 @@ class Player final : public Creature, public Cylinder
 		void learnInstantSpell(const std::string& spellName);
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
+		
+		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
+			return openContainers;
+		}
 
 		uint16_t getBaseXpGain() const {
 			return baseXpGain;
@@ -1396,7 +1404,8 @@ class Player final : public Creature, public Cylinder
  		}
 
 
-	protected:
+		uint16_t getFreeBackpackSlots() const;
+	protected:	
 		std::forward_list<Condition*> getMuteConditions() const;
 
 		void checkTradeState(const Item* item);
@@ -1522,6 +1531,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t magLevel = 0;
 		uint32_t actionTaskEvent = 0;
 		uint32_t nextStepEvent = 0;
+		uint32_t maxInboxItems = 8000;
 		uint32_t walkTaskEvent = 0;
 		uint32_t MessageBufferTicks = 0;
 		uint32_t lastIP = 0;

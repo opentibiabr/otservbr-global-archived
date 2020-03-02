@@ -245,6 +245,12 @@ void Monster::onCreatureMove(Creature* creature, const Tile* newTile, const Posi
 		if (canSeeNewPos && isSummon() && getMaster() == creature) {
 			isMasterInRange = true; //Follow master again
 		}
+		if ((!canSeeNewPos && isSummon() && isPet() && getMaster() == creature) || (creature->getPosition().z != this->getPosition().z && isSummon() && isPet() && getMaster() == creature)) { //creature->getPosition().z != getPosition().z
+			Player* player = creature->getPlayer();
+			if (player) {
+				g_game.internalTeleport(this, player->getPosition());
+			}
+		}
 
 		updateIdleStatus();
 
@@ -413,7 +419,13 @@ void Monster::onCreatureEnter(Creature* creature)
 {
 	// std::cout << "onCreatureEnter - " << creature->getName() << std::endl;
 
-	if (getMaster() == creature) {
+	if (getMaster() == creature && this->isPet()) {
+		Player* player = creature->getPlayer();
+		if (player) {
+			g_game.internalTeleport(this, player->getPosition());
+		}
+	}
+	else {
 		//Follow master again
 		isMasterInRange = true;
 	}
@@ -474,7 +486,7 @@ void Monster::onCreatureLeave(Creature* creature)
 
 	//update friendList
 	if (isFriend(creature)) {
-		removeFriend(creature);
+		//@removeFriend(creature);
 	}
 
 	//update targetList

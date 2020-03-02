@@ -539,6 +539,7 @@ int32_t Player::getDefaultStats(stats_t stat) const
 		case STAT_MAXHITPOINTS: return healthMax;
 		case STAT_MAXMANAPOINTS: return manaMax;
 		case STAT_MAGICPOINTS: return getBaseMagicLevel();
+		case STAT_CAPACITY: return capacity;
 		default: return 0;
 	}
 }
@@ -4841,10 +4842,30 @@ void Player::setGuild(Guild* newGuild)
 	}
 }
 
+
+
 //Custom: Anti bug of market
-bool Player::isMarketExhausted() const {
-	uint32_t exhaust_time = 3000; // half second 500
+bool Player::isMarketExhausted() const
+{
+	uint32_t exhaust_time = 1000; //half second 500
 	return (OTSYS_TIME() - lastMarketInteraction < exhaust_time);
+}
+
+uint16_t Player::getFreeBackpackSlots() const
+{
+	Thing* thing = getThing(CONST_SLOT_BACKPACK);
+	if (!thing) {
+		return 0;
+	}
+
+	Container* backpack = thing->getContainer();
+	if (!backpack) {
+		return 0;
+	}
+
+	uint16_t counter = std::max<uint16_t>(0, backpack->getFreeSlots());
+
+	return counter;
 }
 
 void Player::onEquipImbueItem(Imbuement* imbuement)

@@ -1276,6 +1276,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONDITION_PARAM_SUBID)
 	registerEnum(CONDITION_PARAM_FIELD)
 	registerEnum(CONDITION_PARAM_DISABLE_DEFENSE)
+	registerEnum(CONDITION_PARAM_STAT_CAPACITYPERCENT)
 
 	registerEnum(CONST_ME_NONE)
 	registerEnum(CONST_ME_DRAWBLOOD)
@@ -1454,7 +1455,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_PROP_NOFIELDBLOCKPATH)
 	registerEnum(CONST_PROP_SUPPORTHANGABLE)
 
-	registerEnum(CONST_SLOT_HEAD)
+	registerEnum(CONST_SLOT_FIRST)
+	registerEnum(CONST_SLOT_HEAD)	
 	registerEnum(CONST_SLOT_NECKLACE)
 	registerEnum(CONST_SLOT_BACKPACK)
 	registerEnum(CONST_SLOT_ARMOR)
@@ -1465,6 +1467,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_SLOT_RING)
 	registerEnum(CONST_SLOT_AMMO)
 	registerEnum(CONST_SLOT_STORE_INBOX)
+	registerEnum(CONST_SLOT_LAST)
 
 	registerEnum(CREATURE_EVENT_NONE)
 	registerEnum(CREATURE_EVENT_LOGIN)
@@ -1554,6 +1557,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_ATTRIBUTE_FLUIDTYPE)
 	registerEnum(ITEM_ATTRIBUTE_DOORID)
 	registerEnum(ITEM_ATTRIBUTE_SPECIAL)
+	registerEnum(ITEM_ATTRIBUTE_OPENCONTAINER)
 
 	registerEnum(ITEM_TYPE_DEPOT)
 	registerEnum(ITEM_TYPE_REWARDCHEST)
@@ -1973,7 +1977,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::REMOVE_WEAPON_CHARGES)
 	registerEnumIn("configKeys", ConfigManager::REMOVE_POTION_CHARGES)
 	registerEnumIn("configKeys", ConfigManager::STOREMODULES)
-	registerEnumIn("configKeys", ConfigManager::QUEST_LUA)
 
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_MESSAGE)
 	registerEnumIn("configKeys", ConfigManager::SERVER_SAVE_NOTIFY_DURATION)
@@ -2605,6 +2608,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "setExpBoostStamina", LuaScriptInterface::luaPlayerSetExpBoostStamina);
 
 	registerMethod("Player", "getIdleTime", LuaScriptInterface::luaPlayerGetIdleTime);
+	registerMethod("Player", "getFreeBackpackSlots", LuaScriptInterface::luaPlayerGetFreeBackpackSlots);
 
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
@@ -3605,7 +3609,7 @@ int LuaScriptInterface::luaDoAreaCombatCondition(lua_State* L)
 	if (area || areaId == 0) {
 		CombatParams params;
 		params.impactEffect = getNumber<uint8_t>(L, 5);
-		params.conditionList.emplace_front(condition->clone());
+		params.conditionList.emplace_front(condition);
 		Combat::doCombatCondition(creature, getPosition(L, 2), area, params);
 		pushBoolean(L, true);
 	} else {
@@ -4750,7 +4754,9 @@ int LuaScriptInterface::luaGameCreateMonster(lua_State* L)
 	const Position& position = getPosition(L, 2);
 	bool extended = getBoolean(L, 3, false);
 	bool force = getBoolean(L, 4, false);
-	if (g_game.placeCreature(monster, position, extended, force)) {
+	Creature* master = getCreature(L, 5);
+
+	if (g_game.placeCreature(monster, position, extended, force, master)) {
 		pushUserdata<Monster>(L, monster);
 		setMetatable(L, -1, "Monster");
 	} else {
@@ -8117,6 +8123,19 @@ int LuaScriptInterface::luaCreatureTeleportTo(lua_State* L)
 	}
 
 	const Position oldPosition = creature->getPosition();
+	Tile* toTile = g_game.map.getTile(position);
+	HouseTile* houseTile = dynamic_cast<HouseTile*>(toTile);
+	if (toTile && !houseTile) {
+		for (Creature* summon : creature->getSummons()) {
+			if (summon->getMonster()->isPet()) {
+				if (g_game.internalTeleport(summon, position, pushMovement) != RETURNVALUE_NOERROR) {
+					pushBoolean(L, false);
+					return 1;
+				}
+			}
+		}
+	}
+	
 	if (g_game.internalTeleport(creature, position, pushMovement) != RETURNVALUE_NOERROR) {
 		pushBoolean(L, false);
 		return 1;
@@ -9520,20 +9539,12 @@ int LuaScriptInterface::luaPlayerSetBankBalance(lua_State* L)
 {
 	// player:setBankBalance(bankBalance)
 	Player* player = getUserdata<Player>(L, 1);
-	if (!player) {
+	if (player) {
+		player->setBankBalance(getNumber<uint64_t>(L, 2));
+		pushBoolean(L, true);
+	} else {
 		lua_pushnil(L);
-		return 1;
 	}
-
-	int64_t balance = getNumber<int64_t>(L, 2);
-	if (balance < 0) {
-		reportErrorFunc("Invalid bank balance value.");
-		lua_pushnil(L);
-		return 1;
-	}
-
-	player->setBankBalance(balance);
-	pushBoolean(L, true);
 	return 1;
 }
 
@@ -11211,6 +11222,18 @@ int LuaScriptInterface::luaPlayerGetIdleTime(lua_State* L)
 	} else {
 		lua_pushnil(L);
 	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetFreeBackpackSlots(lua_State* L)
+{
+	// player:getFreeBackpackSlots()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+	}
+
+	lua_pushnumber(L, std::max<uint16_t>(0, player->getFreeBackpackSlots()));
 	return 1;
 }
 
