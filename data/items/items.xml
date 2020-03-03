@@ -45278,7 +45278,7 @@
 	</item>
 	<item id="36460" article="a" name="winged backpack">
 		<attribute key="weight" value="1500" />
-		<attribute key="containerSize" value="240" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="slotType" value="backpack" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
