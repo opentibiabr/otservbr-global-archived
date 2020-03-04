@@ -1776,7 +1776,7 @@ if not Quests then
 				},
 
 				[3] = {
-					name = "Efreet Mission 3: The Sleeping Lamp", storageid = Storage.DjinnWar.EfreetFaction.Mission02, startvalue = 1, endvalue = 3,
+					name = "Efreet Mission 3: The Sleeping Lamp", storageid = Storage.DjinnWar.EfreetFaction.Mission03, startvalue = 1, endvalue = 3,
 					states = {
 						[1] = "Malor asked you to find Fa'hradin's sleeping lamp in the orc fortress at Ulderek's Rock. Then, sneak into Ashta'daramai and exchange Gabel's sleeping lamp with Fa'hradin's lamp.",
 						[2] = "You successfully exchanged the lamps. Malor will be happy to hear about this.",
