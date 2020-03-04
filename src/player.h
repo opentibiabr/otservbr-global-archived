@@ -1312,6 +1312,10 @@ class Player final : public Creature, public Cylinder
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
 
+		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
+			return openContainers;
+		}
+
 		uint16_t getBaseXpGain() const {
 			return baseXpGain;
 		}
@@ -1395,6 +1399,7 @@ class Player final : public Creature, public Cylinder
  			}
  		}
 
+		uint16_t getFreeBackpackSlots() const;
 
 	protected:
 		std::forward_list<Condition*> getMuteConditions() const;

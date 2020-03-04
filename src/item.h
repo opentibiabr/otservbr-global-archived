@@ -106,8 +106,9 @@ enum AttrTypes_t {
 	ATTR_SHOOTRANGE = 33,
 	ATTR_SPECIAL = 34,
 	ATTR_IMBUINGSLOTS = 35,
+	ATTR_OPENCONTAINER = 36,
 
-	ATTR_CUSTOM_ATTRIBUTES = 36
+	ATTR_CUSTOM_ATTRIBUTES = 37
 };
 
 enum Attr_ReadValue {
@@ -240,7 +241,7 @@ class ItemAttributes
 			struct PushLuaVisitor : public boost::static_visitor<> {
 				lua_State* L;
 
-				PushLuaVisitor(lua_State* LS) : boost::static_visitor<>(), L(LS) {}
+				explicit PushLuaVisitor(lua_State* L) : boost::static_visitor<>(), L(L) {}
 
 				void operator()(const boost::blank&) const {
 					lua_pushnil(L);
@@ -270,7 +271,7 @@ class ItemAttributes
 			struct SerializeVisitor : public boost::static_visitor<> {
 				PropWriteStream& propWriteStream;
 
-				SerializeVisitor(PropWriteStream& initPropWriteStream) : boost::static_visitor<>(), propWriteStream(initPropWriteStream) {}
+				explicit SerializeVisitor(PropWriteStream& propWriteStream) : boost::static_visitor<>(), propWriteStream(propWriteStream) {}
 
 				void operator()(const boost::blank&) const {
 				}
@@ -504,7 +505,7 @@ class ItemAttributes
 
 	public:
 		static bool isIntAttrType(itemAttrTypes type) {
-			return (type & 0x7FFE13) != 0;
+			return (type & 0x27FFE13) != 0;
 		}
 		static bool isStrAttrType(itemAttrTypes type) {
 			return (type & 0x8001EC) != 0;

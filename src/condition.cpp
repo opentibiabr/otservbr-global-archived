@@ -430,6 +430,10 @@ void ConditionAttributes::updatePercentStats(Player* player)
 			case STAT_MAGICPOINTS:
 				stats[i] = static_cast<int32_t>(player->getBaseMagicLevel() * ((statsPercent[i] - 100) / 100.f));
 				break;
+
+			case STAT_CAPACITY:
+				stats[i] = static_cast<int32_t>(player->getCapacity() * (statsPercent[i] / 100.f));
+				break;
 		}
 	}
 }
@@ -666,6 +670,11 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 
 		case CONDITION_PARAM_DISABLE_DEFENSE: {
 			disableDefense = (value != 0);
+			return true;
+		}
+
+		case CONDITION_PARAM_STAT_CAPACITYPERCENT: {
+			statsPercent[STAT_CAPACITY] = std::max<int32_t>(0, value);
 			return true;
 		}
 
