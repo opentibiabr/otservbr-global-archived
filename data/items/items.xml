@@ -44808,10 +44808,10 @@
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
-	<item id="36331" article="an" name="closed door">
+	<item id="36331" article="an" name="open door">
 		<attribute key="type" value="door" />
 	</item>
-	<item id="36332" article="an" name="closed door">
+	<item id="36332" article="an" name="open door">
 		<attribute key="type" value="door" />
 	</item>
 	<item id="36333" article="an" name="ancient wall"/>	
