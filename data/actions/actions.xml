@@ -170,13 +170,6 @@
 	<!-- Father's Burden Quest -->
 	<action fromid="12545" toid="12546" script="quests/fathers burden/corpse.lua" />
 
-	<!-- First Dragon Quest -->
-	<action fromuid="10201" touid="10220" script="quests/first dragon/chests.lua"/>
-	<action fromuid="10221" touid="10223" script="quests/first dragon/rewards.lua"/>
-	<action fromid="27607" toid="27610" script="quests/first dragon/repItems.lua"/>
-	<action fromaid="24886" toaid="24887" script="quests/first dragon/lairEntrance.lua"/>
-	<action actionid="24888" script="quests/first dragon/lever.lua"/>
-
 	<!-- Ferumbras Ascendant Quest -->
 	<action actionid="53821" script="quests/ferumbras ascendant/leverFirst.lua" />
 	<action actionid="53822" script="quests/ferumbras ascendant/leverSecond.lua" />
@@ -300,7 +293,7 @@
 	<action actionid="24863" script="quests/hero of rathleton/machinesGloothHorror.lua" />
 	<action actionid="24867" script="quests/hero of rathleton/machinesProfessorMaxxen.lua" />
 	<action actionid="24865" script="quests/hero of rathleton/machinesLava.lua" />
-	<action uniqueid="24867" script="quests/hero of rathleton/reward.lua" />
+	<action uniqueid="24850" script="quests/hero of rathleton/reward.lua" />
 	<action itemid="24184" script="quests/hero of rathleton/ragingCorpse.lua" allowfaruse="1"/>
 
 	<!-- Hot Cuisine Quest -->

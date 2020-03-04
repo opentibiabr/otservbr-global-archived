@@ -53,7 +53,11 @@ function creatureSayCallback(cid, type, msg)
 			'And finally an amethyst teleporter in undead-infested caverns underneath Edron allows you to enter the lair of Zorvorax.'
 		}, cid)
 		npcHandler.topic[cid] = 0
-		player:setStorageValue(Storage.FirstDragon.Start, 1)
+		player:setStorageValue(Storage.FirstDragon.Questline, 1)
+		player:setStorageValue(Storage.FirstDragon.DragonCounter, 0)
+		player:setStorageValue(Storage.FirstDragon.ChestCounter, 0)
+		player:setStorageValue(Storage.FirstDragon.GelidrazahAccess, 0)
+		player:setStorageValue(Storage.FirstDragon.SecretsCounter, 0)
 	end
 	return true
 end

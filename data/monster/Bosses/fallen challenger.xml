@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-		<event name="FallenDeath"/>
+		<event name="Fallen Death"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" skill="120" attack="130"/>

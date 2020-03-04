@@ -3,7 +3,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return
 	end
-	if player:getExhaustion(Storage.ForgottenKnowledge.LloydTimer) > 0 then
+	if player:getStorageValue(Storage.ForgottenKnowledge.LloydTimer) >= os.time() then
 		player:teleportTo(Position(32815, 32872, 13))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		position:sendMagicEffect(CONST_ME_TELEPORT)

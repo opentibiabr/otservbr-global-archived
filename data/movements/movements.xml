@@ -171,14 +171,7 @@
 	<movevent event="StepIn" actionid="26665" script="quests/forgotten knowledge/servants teleport.lua" />
 	<movevent event="StepIn" actionid="26667" script="quests/forgotten knowledge/ice teleport.lua" />
 	<movevent event="StepIn" actionid="26668" script="quests/forgotten knowledge/lava teleport.lua" />
-	<movevent event="StepIn" fromuid="24878" touid="24884" script="quests/forgotten knowledge/challenger.lua" />
-
-	<!-- First Dragon Quest -->
-	<movevent event="StepIn" fromaid="24890" toaid="24893" script="quests/first dragon/entranceTeleports.lua" />
-	<movevent event="StepIn" fromuid="24885" touid="24888" script="quests/first dragon/exit teleports.lua" />
-	<movevent event="StepIn" fromaid="24894" toaid="24896" script="quests/first dragon/zorvorax secrets.lua" />
-	<movevent event="StepIn" actionid="24889" script="quests/first dragon/last teleport.lua" />
-	<movevent event="StepIn" itemid="27646" script="quests/first dragon/bowl.lua" />
+	<movevent event="StepIn" fromuid="24900" touid="24905" script="quests/forgotten knowledge/challenger.lua" />
 
 	<!-- Fibula -->
 	<movevent event="StepIn" actionid="50390" script="others/fibula.lua" />
