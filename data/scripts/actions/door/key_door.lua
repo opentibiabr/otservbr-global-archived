@@ -88,7 +88,6 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		doorCreature:teleportTo(toPosition, true)
 	end
 
-	local itemId = item:getId()
 	if target.actionid > 0 then
 		for index, value in ipairs(keyLockedDoor) do
 			for index, x in ipairs(fromClosedToLockedDoor) do
@@ -126,7 +125,18 @@ for index, value in ipairs(keyLockedDoor) do
 end
 
 function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
+	if item.actionid > 0 then
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
+	end
+	if item.actionid == 0 then
+		for index, value in ipairs(keyLockedDoor) do
+			if value.closedDoor == item.itemid then
+				item:transform(value.openDoor)
+			elseif value.openDoor == item.itemid then
+				item:transform(value.closedDoor)
+			end
+		end
+	end
 	return true
 end
 
