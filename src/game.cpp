@@ -2399,16 +2399,10 @@ void Game::playerRotateItem(uint32_t playerId, const Position& pos, uint8_t stac
 	}
 }
 
-void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId)
+void Game::playerWrapItem(uint32_t playerId, const Position& pos, uint8_t stackPos, const uint16_t spriteId)
 {
 	Player* player = getPlayerByID(playerId);
 	if (!player) {
-		return;
-	}
-
-	House* house = map.houses.getHouseByPlayerId(player->getGUID());
-	if (!house) {
-		player->sendCancelMessage("You don't own a house, you need own a house to use this.");
 		return;
 	}
 
@@ -2418,13 +2412,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	Item* item = thing->getItem();
-	Tile* tile = map.getTile(item->getPosition());
-	if (!tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
-		player->sendCancelMessage("You may construct this only inside a house.");
-		return;
-	}
-
-	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || !item->isWrapable()) {
+	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -2435,7 +2423,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk,
 				this, player->getID(), listDir)));
 
-			SchedulerTask* task = createSchedulerTask(400, std::bind(&Game::playerWrapableItem, this,
+			SchedulerTask* task = createSchedulerTask(400, std::bind(&Game::playerWrapItem, this,
 				playerId, pos, stackPos, spriteId));
 			player->setNextWalkActionTask(task);
 		} else {
@@ -2444,68 +2432,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		return;
 	}
 
-	const ItemType& iiType = Item::items[item->getID()];
-	uint16_t newWrapId = Item::items[item->getID()].wrapableTo;
-	std::string itemName = item->getName();
-
-	// It is not possible to unwrap containers with one or more items inside.
-	const Container* container = item->getContainer();
-	if(container && container->getItemHoldingCount() > 0){
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
-	}
-
-	// FOR ITEMS THAT DO NOT LOSE ACTIONID TO TRANSFORM
-	if (!iiType.wrapContainer) {
-		if (newWrapId != 0 && item->getID() != TRANSFORM_BOX_ID) {
-			uint16_t hiddenCharges = 0;
-			if (isCaskItem(item->getID())) {
-				hiddenCharges = item->getSubType();
-			}
-
-			transformItem(item, newWrapId)->setActionId(item->getID());
-			item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-			if (hiddenCharges > 0) { //saving the cask charges
-				item->setDate(hiddenCharges);
-			}
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			startDecay(item);
-		}
-
-		if ((item->getActionId() != 0) && !newWrapId && item->getID() == TRANSFORM_BOX_ID) {
-			uint16_t hiddenCharges = item->getDate();
-			uint16_t boxActionId = item->getActionId();
-			transformItem(item, item->getActionId()); // transforms the item
-			item->setSpecialDescription("Wrap it in your own house to create a <" + itemName + ">.");
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			if (hiddenCharges > 0 && isCaskItem(boxActionId)) {
-				item->setSubType(hiddenCharges);
-			}
-			startDecay(item);
-		}
-	} else {
-		// FOR ITEMS LOSING ACTIONID TO TRANSFORM
-		if (iiType.wrapContainer) {
-			Item* wrapContainer = transformItem(item, newWrapId);
-			if (newWrapId != 0 && item->getID() != TRANSFORM_BOX_ID) {
-				wrapContainer->setActionId(item->getID()); // Then you have to make a box adc if you have aid
-				wrapContainer->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-				addMagicEffect(wrapContainer->getPosition(), CONST_ME_POFF);
-				startDecay(item);
-			}
-
-			if ((item->getActionId() != 0) && !newWrapId && item->getID() == TRANSFORM_BOX_ID) {
-				uint16_t hiddenCharges = item->getDate();
-				uint16_t boxActionId = item->getActionId();
-				transformItem(item, item->getActionId())->setSpecialDescription("Wrap it in your own house to create a <" + itemName + ">.");
-				addMagicEffect(item->getPosition(), CONST_ME_POFF);
-				if (hiddenCharges > 0 && isCaskItem(boxActionId)) {
-					item->setSubType(hiddenCharges);
-				}
-				startDecay(item);
-			}
-		}
-	}
+	g_events->eventPlayerOnWrapItem(player, item);
 }
 
 void Game::playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::string& text)

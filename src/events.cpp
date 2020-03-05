@@ -136,6 +136,8 @@ bool Events::load()
 				info.playerClearImbuement = event;
 			}else if (methodName == "onCombat") {
 				info.playerOnCombat = event;
+			} else if (methodName == "onWrapItem") {
+				info.playerOnWrapItem = event;
 
 			} else {
 				std::cout << "[Warning - Events::load] Unknown player method: " << methodName << std::endl;
@@ -929,6 +931,33 @@ void Events::eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_
 	}
 
 	scriptInterface.resetScriptEnv();
+}
+
+void Events::eventPlayerOnWrapItem(Player* player, Item* item)
+{
+	// Player:onWrapItem(item)
+	if (info.playerOnWrapItem == -1) {
+		return;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventPlayerOnWrapItem] Call stack overflow" << std::endl;
+		return;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerOnWrapItem, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerOnWrapItem);
+
+	LuaScriptInterface::pushUserdata<Player>(L, player);
+	LuaScriptInterface::setMetatable(L, -1, "Player");
+
+	LuaScriptInterface::pushUserdata<Item>(L, item);
+	LuaScriptInterface::setItemMetatable(L, -1, item);
+
+	scriptInterface.callVoidFunction(2);
 }
 
 bool Events::eventPlayerCanBeAppliedImbuement(Player* player, Imbuement* imbuement, Item* item)

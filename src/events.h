@@ -63,6 +63,7 @@ class Events
 		int32_t playerOnGainExperience = -1;
 		int32_t playerOnLoseExperience = -1;
 		int32_t playerOnGainSkillTries = -1;
+		int32_t playerOnWrapItem = -1;
 		int32_t playerOnRequestQuestLog = -1;
 		int32_t playerOnRequestQuestLine = -1;
 		int32_t playerOnStorageUpdate = -1;
@@ -111,6 +112,7 @@ class Events
 		void eventPlayerOnGainExperience(Player* player, Creature* source, uint64_t& exp, uint64_t rawExp);
 		void eventPlayerOnLoseExperience(Player* player, uint64_t& exp);
 		void eventPlayerOnGainSkillTries(Player* player, skills_t skill, uint64_t& tries);
+		void eventPlayerOnWrapItem(Player* player, Item* item);
 		bool eventPlayerOnRemoveCount(Player* player, Item * item);
 		void eventPlayerOnRequestQuestLog(Player* player);
 		void eventPlayerOnRequestQuestLine(Player* player, uint16_t questId);

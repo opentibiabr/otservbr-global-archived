@@ -954,3 +954,26 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+function Player:onWrapItem(item)
+	local tile = Tile(item:getPosition())
+	if not tile or not tile:getHouse() then
+		self:sendCancelMessage("You can only wrap and unwrap this item inside a house.")
+		return
+	end
+
+	local wrapId = item:getCustomAttribute("wrapId")
+	local unWrapId = item:getCustomAttribute("unWrapId")
+	if wrapId == 0 or unWrapId == 0 then
+		return
+	end
+
+	local currentId = item:getId()
+	if currentId == wrapId then -- unwrapping
+		item:moveTo(tile)
+		item:transform(unWrapId)
+	elseif currentId == unWrapId then -- wrapping
+		item:moveTo(self)
+		item:transform(wrapId)
+	end
+end
