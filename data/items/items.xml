@@ -219,10 +219,14 @@
 	</item>
 	<item fromid="1196" toid="1204" article="a" name="lava wall" />
 	<item fromid="1205" toid="1208" article="an" name="archway" />
-	<item fromid="1209" toid="1210" article="a" name="closed door">
+	<item id="1209" article="a" name="closed door">
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 		<attribute key="description" value="It is locked." />
+	</item>
+	<item id="1210" article="a" name="closed door">
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
 	</item>
 	<item id="1211" article="an" name="open door">
 		<attribute key="type" value="door" />
@@ -43785,11 +43789,25 @@
 		<attribute key="floorchange" value="south" />
 	</item>	
 	<item fromid="35662" toid="35667" article="a" name="ruined ancient wall"/> 
-	<item fromid="35668" toid="35671" article="a" name="closed door">
+	<item id="35668" article="a" name="closed door"><!-- key door locked -->
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+		<attribute key="description" value="It is locked." />
+	</item>
+	<item id="35669" article="a" name="closed door"><!-- key door closed -->
 		<attribute key="type" value="door" />
 		<attribute key="blockprojectile" value="1" />
 	</item>
-	<item fromid="35672" toid="35673" article="an" name="open door">
+	<item id="35670" article="a" name="closed door"><!-- key door locked -->
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+		<attribute key="description" value="It is locked." />
+	</item>
+	<item id="35671" article="a" name="closed door"><!-- key door closed -->
+		<attribute key="type" value="door" />
+		<attribute key="blockprojectile" value="1" />
+	</item>
+	<item fromid="35672" toid="35673" article="an" name="open door"><!-- key door open -->
 		<attribute key="type" value="door" />
 	</item>
 	<item id="35674" article="a" name="ancient wall" />
@@ -45278,7 +45296,7 @@
 	</item>
 	<item id="36460" article="a" name="winged backpack">
 		<attribute key="weight" value="1500" />
-		<attribute key="containerSize" value="240" />
+		<attribute key="containerSize" value="24" />
 		<attribute key="slotType" value="backpack" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
