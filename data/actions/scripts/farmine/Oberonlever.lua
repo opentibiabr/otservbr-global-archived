@@ -31,12 +31,7 @@ local function clearOberonRoom(playerId, centerRoom, rangeX, rangeY, exitPositio
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 1945 then
-		if player:getPosition() ~= Position(33363, 31344, 9) and player:getPosition() ~= Position(33364, 31344, 9) and player:getPosition() ~= Position(33365, 31344, 9) then
-			item:transform(1946)
-			return true
-		end
-	end
+	
 
 	if item.itemid == 1945 then
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
@@ -61,7 +56,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 					playerTile:teleportTo(config.newPosition)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)	
-					playerTile:setStorage(Storage.TheSecretLibrary.TheOrderOfTheFalcon.OberonTimer, os.time() + 20 * 3600)
+					playerTile:setStorageValue(Storage.TheSecretLibrary.TheOrderOfTheFalcon.OberonTimer, os.time() + 20 * 3600)
 				else
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You can face Grand Master Oberon every 20 hours.")
 				return true
