@@ -31,7 +31,12 @@ local function clearOberonRoom(playerId, centerRoom, rangeX, rangeY, exitPositio
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	
+	if item.itemid == 1945 then
+		if player:getPosition() ~= Position(33363, 31344, 9) and player:getPosition() ~= Position(33364, 31344, 9) and player:getPosition() ~= Position(33365, 31344, 9) then
+			item:transform(1946)
+			return true
+		end
+	end
 
 	if item.itemid == 1945 then
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
