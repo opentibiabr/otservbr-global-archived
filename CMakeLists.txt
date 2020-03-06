@@ -50,8 +50,14 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   set(CMAKE_CXX_FLAGS_RELEASE             "${WARNING_FLAGS} -pipe -fvisibility=hidden -march=native -O2")
   
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
-  set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
-  
+  # Ubuntu 16.04
+  if(CMAKE_CXX_COMPILER_VERSION STREQUAL "5.4.0")
+    set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wlogical-op -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+  else()
+    # Ubuntu 18.04
+    set(CMAKE_CXX_FLAGS_DEBUG               "${WARNING_FLAGS} -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+  endif()
+
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   # using Visual Studio C++
   # cmake -DCMAKE_BUILD_TYPE=Release ..
