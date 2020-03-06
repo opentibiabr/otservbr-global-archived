@@ -3724,7 +3724,7 @@ GameStore.Categories = {
 			number = 1,
 			price = 900,
 			description = "Carries as many gold, platinum or crystal coins as your capacity allows, however, no other items.\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can only be purchased once\n- use it to open it\n- always placed on the first position of your Store inbox",
-			type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+			type = GameStore.OfferTypes.OFFER_TYPE_POUCH,
 		},
 		{
 			icons = { "Instant_Reward_Access.png" },
