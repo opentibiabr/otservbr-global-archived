@@ -268,6 +268,8 @@ customDoor = {
 	{ closedDoor = 35685, openDoor = 35689 },
 	{ closedDoor = 35686, openDoor = 35690 },
 	{ closedDoor = 35687, openDoor = 35691 },
+	{ closedDoor = 36329, openDoor = 36331 },
+	{ closedDoor = 36330, openDoor = 36332 },
 	{ closedDoor = 36498, openDoor = 36499 },
 	{ closedDoor = 36500, openDoor = 36501 },
 	}
@@ -382,6 +384,4 @@ levelDoor = {
 	{ closedDoor = 34672, openDoor = 34674 },
 	{ closedDoor = 34675, openDoor = 34677 },
 	{ closedDoor = 34676, openDoor = 34678 },
-	{ closedDoor = 36329, openDoor = 36331 },
-	{ closedDoor = 36330, openDoor = 36332 },
 	}
