@@ -125,18 +125,7 @@ for index, value in ipairs(keyLockedDoor) do
 end
 
 function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if item.actionid > 0 then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
-	end
-	if item.actionid == 0 then
-		for index, value in ipairs(keyLockedDoor) do
-			if value.closedDoor == item.itemid then
-				item:transform(value.openDoor)
-			elseif value.openDoor == item.itemid then
-				item:transform(value.closedDoor)
-			end
-		end
-	end
+	player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
 	return true
 end
 
