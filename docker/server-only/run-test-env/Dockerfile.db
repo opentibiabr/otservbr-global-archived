@@ -1,3 +1,0 @@
-FROM mariadb:latest
-COPY run-test-env/otserver/schema.sql /docker-entrypoint-initdb.d/
-COPY run-test-env/test_account.sql /docker-entrypoint-initdb.d/

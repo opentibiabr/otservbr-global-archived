@@ -17,10 +17,10 @@ app = Flask(__name__)
 def do_login(data):
 
     try:
-        connection = mariadb.connect(host='127.0.0.1',
-                                database='testdb',
-                                user='dbuser',
-                                password='dbpassword')
+        connection = mariadb.connect(host='otdb',
+                                database='otserver',
+                                user='otserver',
+                                password='otserver')
 
         sql_select_Query = "SELECT id, premdays, lastday FROM accounts WHERE name = '" + data['accountname'] + "'"
 
