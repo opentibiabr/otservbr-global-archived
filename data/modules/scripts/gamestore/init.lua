@@ -560,6 +560,10 @@ function sendShowStoreOffers(playerId, category)
             disabled = 1
             disabledReason = "You can't buy XP Boost for today."
           end
+		  if (player:getExpBoostStamina()>0) then
+            disabled = 1
+            disabledReason = "You can't buy XP Boost while you still have one active."
+          end
         end
       end
 
