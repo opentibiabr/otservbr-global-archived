@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 local function greetCallback(cid)
 	if Player(cid):getStorageValue(Storage.DjinnWar.MaridFaction.Mission02) == -1 then
@@ -61,6 +69,9 @@ end
 
 keywordHandler:addKeyword({'rat'}, StdModule.say, {npcHandler = npcHandler, text = 'Your power of observation is stunning. Yes, I\'m a rat.'})
 
+-- Greeting message
+keywordHandler:addGreetKeyword({"piedpiper"}, {npcHandler = npcHandler, text = "Meep? I mean - hello! Sorry, |PLAYERNAME|... Being a {rat} has kind of grown on me."})
+
 npcHandler:setMessage(MESSAGE_GREET, "Meep? I mean - hello! Sorry, |PLAYERNAME|... Being a {rat} has kind of grown on me.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Meep!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Meep!")
@@ -68,6 +79,4 @@ npcHandler:setMessage(MESSAGE_WALKAWAY, "Meep!")
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('piedpiper')
-npcHandler:addModule(focusModule)
+npcHandler:addModule(FocusModule:new())

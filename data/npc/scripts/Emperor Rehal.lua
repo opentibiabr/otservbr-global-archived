@@ -2,11 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid) 			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid) 		end
-function onCreatureSay(cid, type, msg)	npcHandler:onCreatureSay(cid, type, msg) 	end
-function onThink()						npcHandler:onThink() 						end
-function onThink() 						npcHandler:onThink() 						end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 keywordHandler:addKeyword({'hi'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true})
 keywordHandler:addKeyword({'hello'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true})
@@ -65,9 +72,12 @@ local node1 = keywordHandler:addKeyword({'promot'}, StdModule.say, {npcHandler =
 node1:addChildKeyword({'yes'}, StdModule.promotePlayer, {npcHandler = npcHandler, cost = 20000, level = 20, promotion = 1, text = 'Congratulations! You are now promoted.'})
 node1:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, onlyFocus = true, text = 'Alright then, come back when you are ready.', reset = true})
 
-npcHandler:setMessage(MESSAGE_GREET, "May fire and earth bless you, stranger. What leads you to Beregar, the dwarven city?")
+-- Greeting message
+keywordHandler:addGreetKeyword({"hail emperor"}, {npcHandler = npcHandler, text = "May fire and earth bless you, stranger. What leads you to Beregar, the dwarven city?"})
+keywordHandler:addGreetKeyword({"salutations emperor"}, {npcHandler = npcHandler, text = "May fire and earth bless you, stranger. What leads you to Beregar, the dwarven city?"})
+
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage({'hail emperor', 'salutations emperor'})
-npcHandler:addModule(focusModule)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+
+npcHandler:addModule(FocusModule:new())

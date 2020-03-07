@@ -1,11 +1,19 @@
- local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -39,10 +47,12 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+-- Greeting message
+keywordHandler:addGreetKeyword({"maryza"}, {npcHandler = npcHandler, text = "Welcome to the Jolly Axeman, |PLAYERNAME|. Have a good time and eat some food!"})
+
 npcHandler:setMessage(MESSAGE_GREET, 'Welcome to the Jolly Axeman, |PLAYERNAME|. Have a good time and eat some food!')
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye!")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hello maryza')
-focusModule:addGreetMessage('hello, maryza')
-npcHandler:addModule(focusModule)
+
+npcHandler:addModule(FocusModule:new())

@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -64,13 +72,13 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, 'Aaaah... what have we here. A human - interesting. And such an ugly specimen, too... All right, human |PLAYERNAME|. How can I help you?')
+-- Greeting
+keywordHandler:addGreetKeyword({"djanni'hah"}, {npcHandler = npcHandler, text = "Aaaah... what have we here. A human - interesting. And such an ugly specimen, too... All right, human |PLAYERNAME|. How can I help you?"})
+
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Farewell, human. I will always remember you. Unless I forget you, of course.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Farewell, human. I will always remember you. Unless I forget you, of course.')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hi')
-focusModule:addGreetMessage('hello')
-focusModule:addGreetMessage('djanni\'hah')
-npcHandler:addModule(focusModule)
+npcHandler:addModule(FocusModule:new())

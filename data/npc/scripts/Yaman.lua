@@ -91,7 +91,9 @@ local function onTradeRequest(cid)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, "Be greeted, human |PLAYERNAME|. How can a humble djinn be of service?")
+-- Greeting
+keywordHandler:addGreetKeyword({"djanni'hah"}, {npcHandler = npcHandler, text = "Be greeted, human |PLAYERNAME|. How can a humble djinn be of service?"})
+
 npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell, human.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Farewell, human.")
 npcHandler:setMessage(MESSAGE_SENDTRADE, 'At your service, just browse through my wares.')
@@ -99,8 +101,4 @@ npcHandler:setMessage(MESSAGE_SENDTRADE, 'At your service, just browse through m
 npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hi')
-focusModule:addGreetMessage('hello')
-focusModule:addGreetMessage('djanni\'hah')
-npcHandler:addModule(focusModule)
+npcHandler:addModule(FocusModule:new())

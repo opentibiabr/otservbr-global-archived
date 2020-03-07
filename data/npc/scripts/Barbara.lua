@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 keywordHandler:addKeyword({'hi'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true, text = "MIND YOUR MANNERS COMMONER! To address the queen greet with her title!"})
 keywordHandler:addKeyword({'hello'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true, text = "MIND YOUR MANNERS COMMONER! To address the queen greet with her title!"})
@@ -31,12 +39,14 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, 'HAIL TO THE QUEEN!')
+-- Greeting
+keywordHandler:addGreetKeyword({'hail queen'}, {npcHandler = npcHandler, text = 'HAIL TO THE QUEEN!'})
+keywordHandler:addGreetKeyword({'salutations queen'}, {npcHandler = npcHandler, text = 'HAIL TO THE QUEEN!'})
+
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'LONG LIVE THE QUEEN!')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'LONG LIVE THE QUEEN! You may leave now!')
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hail queen')
-focusModule:addGreetMessage('salutations queen')
-npcHandler:addModule(focusModule)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+
+npcHandler:addModule(FocusModule:new())
