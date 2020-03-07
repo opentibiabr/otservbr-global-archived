@@ -358,6 +358,8 @@ levelDoor = {
 	{ closedDoor = 8557, openDoor = 8558 },
 	{ closedDoor = 9179, openDoor = 9180 },
 	{ closedDoor = 9181, openDoor = 9182 },
+	{ closedDoor = 9281, openDoor = 9282 },
+	{ closedDoor = 9283, openDoor = 9284 },
 	{ closedDoor = 10282, openDoor = 10283 },
 	{ closedDoor = 10284, openDoor = 10285 },
 	{ closedDoor = 10473, openDoor = 10474 },
