@@ -33,6 +33,7 @@ keyLockedDoor = {
 	{ closedDoor = 6192, openDoor = 6194 },
 	{ closedDoor = 6195, openDoor = 6197 },
 	{ closedDoor = 6249, openDoor = 6251 },
+	{ closedDoor = 6252, openDoor = 6254 },
 	{ closedDoor = 6799, openDoor = 6796 },
 	{ closedDoor = 6801, openDoor = 6798 },
 	{ closedDoor = 6891, openDoor = 6893 },
