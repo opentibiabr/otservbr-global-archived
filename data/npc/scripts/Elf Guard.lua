@@ -29,8 +29,7 @@ keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Ash
 --Farewell message
 keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Asha Thrazi, |PLAYERNAME|."})
 
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
-
+npcHandler:setMessage(MESSAGE_GREET, "Ashari |PLAYERNAME|."))
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, |PLAYERNAME|!')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, |PLAYERNAME|!')
 
