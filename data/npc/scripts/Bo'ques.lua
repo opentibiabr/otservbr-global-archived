@@ -92,5 +92,6 @@ npcHandler:setMessage(MESSAGE_FAREWELL, 'Goodbye. I am sure you will come back f
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Goodbye. I am sure you will come back for more. They all do.')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
 npcHandler:addModule(FocusModule:new())
