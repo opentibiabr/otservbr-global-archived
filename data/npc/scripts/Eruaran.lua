@@ -398,7 +398,6 @@ keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Gre
 --Farewell message
 keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Goodbye, |PLAYERNAME|."})
 
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye!")

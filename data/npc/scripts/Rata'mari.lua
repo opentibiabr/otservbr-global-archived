@@ -19,7 +19,6 @@ local function greetCallback(cid)
 	if Player(cid):getStorageValue(Storage.DjinnWar.MaridFaction.Mission02) == -1 then
 		return false
 	end
-
 	return true
 end
 
@@ -29,7 +28,6 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
 	if msgcontains(msg, 'spy report') then
 		local reportProgress = player:getStorageValue(Storage.DjinnWar.MaridFaction.RataMari)
 		if reportProgress < 1 then
@@ -55,7 +53,6 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say('No cheese - no report.', cid)
 				return true
 			end
-
 			player:setStorageValue(Storage.DjinnWar.MaridFaction.RataMari, 2)
 			player:addItem(2345, 1)
 			npcHandler:say('Meep! Meep! Great! Here is the spyreport for you!', cid)

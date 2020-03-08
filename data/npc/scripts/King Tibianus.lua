@@ -208,7 +208,7 @@ keywordHandler:addAliasKeyword({'marvik'})
 
 -- Greeting message
 keywordHandler:addGreetKeyword({"hail king"}, {npcHandler = npcHandler, text = "I greet thee, my loyal subject |PLAYERNAME|."})
-keywordHandler:addGreetKeyword({"salutations king"}, {npcHandler = npcHandler, text = "Goodbye, |PLAYERNAME|."})
+keywordHandler:addGreetKeyword({"salutations king"}, {npcHandler = npcHandler, text = "I greet thee, my loyal subject |PLAYERNAME|."})
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'How rude!')
 
