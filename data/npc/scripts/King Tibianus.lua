@@ -1,12 +1,19 @@
--- https://github.com/opentibiabr/OTServBR-Global
 local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)	npcHandler:onCreatureSay(cid, type, msg)	end
-function onThink()						npcHandler:onThink()						end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then 
@@ -199,14 +206,13 @@ keywordHandler:addAliasKeyword({'muriel'})
 keywordHandler:addKeyword({'druid'}, StdModule.say, {npcHandler = npcHandler, text = 'We need the druidic healing powers to fight evil.'})
 keywordHandler:addAliasKeyword({'marvik'})
 
-npcHandler:setMessage(MESSAGE_GREET, 'I greet thee, my loyal subject |PLAYERNAME|.')
-npcHandler:setMessage(MESSAGE_FAREWELL, 'Good bye, |PLAYERNAME|!')
+-- Greeting message
+keywordHandler:addGreetKeyword({"hail king"}, {npcHandler = npcHandler, text = "I greet thee, my loyal subject |PLAYERNAME|."})
+keywordHandler:addGreetKeyword({"salutations king"}, {npcHandler = npcHandler, text = "I greet thee, my loyal subject |PLAYERNAME|."})
+
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'How rude!')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hail king')
-focusModule:addGreetMessage('salutations king')
-npcHandler:addModule(focusModule)
--- https://github.com/opentibiabr/OTServBR-Global
+npcHandler:addModule(FocusModule:new())
