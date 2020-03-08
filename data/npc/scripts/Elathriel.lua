@@ -86,8 +86,8 @@ keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Be 
 keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Asha Thrazi, |PLAYERNAME|."})
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
+npcHandler:setMessage(MESSAGE_GREET, 'Be greeted |PLAYERNAME|. What is your {business} near the {hellgate}?')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, |PLAYERNAME|!')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, |PLAYERNAME|!')
 
