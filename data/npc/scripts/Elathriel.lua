@@ -88,7 +88,7 @@ keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, te
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
 npcHandler:setMessage(MESSAGE_GREET, 'Be greeted |PLAYERNAME|. What is your {business} near the {hellgate}?')
-npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, |PLAYERNAME|!')
-npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, |PLAYERNAME|!')
+npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, stranger!')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, stranger!')
 
 npcHandler:addModule(FocusModule:new())
