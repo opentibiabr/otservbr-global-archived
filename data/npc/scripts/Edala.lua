@@ -102,6 +102,4 @@ keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, te
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, |PLAYERNAME|!')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, |PLAYERNAME|!')
 
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
-
 npcHandler:addModule(FocusModule:new())
