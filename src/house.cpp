@@ -279,7 +279,7 @@ int constructionKits[58][2] = {
 						}
 						if (item->isRotatable()) {
 							uint16_t newRotation = item->getID();
-							for (int x = 0; i < 5; x++) {
+							for (int x = 0; x < 5; x++) {
 								if (!Item::items[newRotation].rotatable) break;
 								newRotation = Item::items[newRotation].rotateTo;
 								if (newRotation == item->getID()) break;
