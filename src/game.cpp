@@ -2462,12 +2462,11 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		return;
 	}
 	
-	if (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID)) {
+	if ((item->getHoldingPlayer() && item->getID() == 26054) || (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID))) {
 		player->sendCancelMessage("You can only wrap/unwrap in the floor.");
 		return;
 	}
 	
-	const ItemType& iiType = Item::items[item->getID()];
 	std::string itemName = item->getName();
 	const ItemAttributes::CustomAttribute* attr = item->getCustomAttribute("unWrapId");
 	uint16_t unWrapId = 0;
@@ -2476,13 +2475,13 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		unWrapId = (uint16_t)tmp;
 	}
 
-	if (!iiType.wrapContainer) {
 		if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
 			uint16_t hiddenCharges = 0;
 			if (isCaskItem(item->getID())) {
 				hiddenCharges = item->getSubType();
 			}
 			uint16_t oldItemID = item->getID();
+			addMagicEffect(item->getPosition(), CONST_ME_POFF);
 			Item* newItem = transformItem(item, 26054);
 			ItemAttributes::CustomAttribute val;
 			val.set<int64_t>(oldItemID);
@@ -2492,44 +2491,19 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 			if (hiddenCharges > 0) { 
 				item->setDate(hiddenCharges);
 			}
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
 			startDecay(item);
 		}
-
-		if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
+		else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
 			uint16_t hiddenCharges = item->getDate();
-			transformItem(item, unWrapId);
+			item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
 			addMagicEffect(item->getPosition(), CONST_ME_POFF);
+			transformItem(item, unWrapId);
 			if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
 				item->setSubType(hiddenCharges);
 			}
 			item->removeCustomAttribute("unWrapId");
 			startDecay(item);
 		}
-	} else {
-		if (iiType.wrapContainer) {
-			Item* wrapContainer = transformItem(item, 26054);
-			if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
-				ItemAttributes::CustomAttribute val;
-				val.set<int64_t>(item->getID());
-				std::string key = "unWrapId";
-				wrapContainer->setCustomAttribute(key, val);
-				wrapContainer->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-				addMagicEffect(wrapContainer->getPosition(), CONST_ME_POFF);
-				startDecay(item);
-			}
-
-			if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
-				uint16_t hiddenCharges = item->getDate();
-				transformItem(item, unWrapId);
-				addMagicEffect(item->getPosition(), CONST_ME_POFF);
-				if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
-					item->setSubType(hiddenCharges);
-				}
-				startDecay(item);
-			}
-		}
-	}
 }
 
 void Game::playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::string& text)
