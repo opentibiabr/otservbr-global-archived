@@ -1056,7 +1056,14 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 			toIndex = static_cast<uint8_t>(toPos.y);
 		}
 	}
-
+	if (item->isWrapable()){
+		HouseTile* toHouseTile = dynamic_cast<HouseTile*>(map.getTile(mapToPos));
+		HouseTile* fromHouseTile = dynamic_cast<HouseTile*>(map.getTile(mapFromPos));
+		if (fromHouseTile && (!toHouseTile || toHouseTile->getHouse()->getId() != fromHouseTile->getHouse()->getId())) {
+			player->sendCancelMessage("You can't move this item outside a house.");
+				return;
+		}
+	}
 	ReturnValue ret = internalMoveItem(fromCylinder, toCylinder, toIndex, item, count, nullptr, 0, player);
 	if (ret != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(ret);
@@ -2419,9 +2426,14 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 
 	Item* item = thing->getItem();
 	Tile* tile = map.getTile(item->getPosition());
-	if (!tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
+	HouseTile* houseTile = dynamic_cast<HouseTile*>(tile);
+	if (!tile->hasFlag(TILESTATE_PROTECTIONZONE) || !houseTile) {
 		player->sendCancelMessage("You may construct this only inside a house.");
 		return;
+	}
+	if (houseTile->getHouse() != house) {
+		player->sendCancelMessage("Only owners can wrap/unwrap inside a house.");
+			return;
 	}
 
 	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || item->isWrapable()) {
@@ -2445,61 +2457,68 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	const ItemType& iiType = Item::items[item->getID()];
-	uint16_t newWrapId = Item::items[item->getID()].wrapableTo;
 	std::string itemName = item->getName();
+	const ItemAttributes::CustomAttribute* attr = item->getCustomAttribute("unWrapId");
+	uint16_t unWrapId = 0;
+	if (attr != nullptr) {
+		uint32_t tmp = static_cast<uint32_t>(boost::get<int64_t>(attr->value));
+		unWrapId = (uint16_t)tmp;
+	}
 
-	// It is not possible to unwrap containers with one or more items inside.
 	const Container* container = item->getContainer();
 	if(container && container->getItemHoldingCount() > 0){
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
 
-	// FOR ITEMS THAT DO NOT LOSE ACTIONID TO TRANSFORM
 	if (!iiType.wrapContainer) {
-		if (newWrapId != 0 && item->getID() != TRANSFORM_BOX_ID) {
+		if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
 			uint16_t hiddenCharges = 0;
 			if (isCaskItem(item->getID())) {
 				hiddenCharges = item->getSubType();
 			}
-
-			transformItem(item, newWrapId)->setActionId(item->getID());
+			uint16_t oldItemID = item->getID();
+			Item* newItem = transformItem(item, 26054);
+			ItemAttributes::CustomAttribute val;
+			val.set<int64_t>(oldItemID);
+			std::string key = "unWrapId";
+			newItem->setCustomAttribute(key, val);
 			item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-			if (hiddenCharges > 0) { //saving the cask charges
+			if (hiddenCharges > 0) { 
 				item->setDate(hiddenCharges);
 			}
 			addMagicEffect(item->getPosition(), CONST_ME_POFF);
 			startDecay(item);
 		}
 
-		if ((item->getActionId() != 0) && !newWrapId && item->getID() == TRANSFORM_BOX_ID) {
+		if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
 			uint16_t hiddenCharges = item->getDate();
-			uint16_t boxActionId = item->getActionId();
-			transformItem(item, item->getActionId()); // transforms the item
-			item->setSpecialDescription("Wrap it in your own house to create a <" + itemName + ">.");
+			transformItem(item, unWrapId);
 			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			if (hiddenCharges > 0 && isCaskItem(boxActionId)) {
+			if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
 				item->setSubType(hiddenCharges);
 			}
+			item->removeCustomAttribute("unWrapId");
 			startDecay(item);
 		}
 	} else {
-		// FOR ITEMS LOSING ACTIONID TO TRANSFORM
 		if (iiType.wrapContainer) {
-			Item* wrapContainer = transformItem(item, newWrapId);
-			if (newWrapId != 0 && item->getID() != TRANSFORM_BOX_ID) {
-				wrapContainer->setActionId(item->getID()); // Then you have to make a box adc if you have aid
+			Item* wrapContainer = transformItem(item, 26054);
+			if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
+				ItemAttributes::CustomAttribute val;
+				val.set<int64_t>(item->getID());
+				std::string key = "unWrapId";
+				wrapContainer->setCustomAttribute(key, val);
 				wrapContainer->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
 				addMagicEffect(wrapContainer->getPosition(), CONST_ME_POFF);
 				startDecay(item);
 			}
 
-			if ((item->getActionId() != 0) && !newWrapId && item->getID() == TRANSFORM_BOX_ID) {
+			if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
 				uint16_t hiddenCharges = item->getDate();
-				uint16_t boxActionId = item->getActionId();
-				transformItem(item, item->getActionId())->setSpecialDescription("Wrap it in your own house to create a <" + itemName + ">.");
+				transformItem(item, unWrapId);
 				addMagicEffect(item->getPosition(), CONST_ME_POFF);
-				if (hiddenCharges > 0 && isCaskItem(boxActionId)) {
+				if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
 					item->setSubType(hiddenCharges);
 				}
 				startDecay(item);
