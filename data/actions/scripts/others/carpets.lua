@@ -56,15 +56,13 @@ local foldedCarpet = {
 
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+function onUse(player, item, fp, target, toPosition, isHotkey)
     local carpet = foldedCarpet[item.itemid]
     if not carpet then
         return false
     end
-
-    if fromPosition.x == CONTAINER_POSITION then
-        player:sendTextMessage(MESSAGE_STATUS_SMALL, "Put the item on the floor first.")
-    elseif not fromPosition:getTile():getHouse() then
+	local fromPosition = item:getPosition()
+    if not fromPosition:getTile():getHouse() then
         player:sendTextMessage(MESSAGE_STATUS_SMALL, "You may use this only inside a house.")
     else
         local carpetsStacked = 0
