@@ -2436,7 +2436,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 			return;
 	}
 
-	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || !item->isWrapable()) {
+	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || (!item->isWrapable() && item->getID() != 26054)) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -2455,7 +2455,18 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		}
 		return;
 	}
-
+	
+	const Container* container = item->getContainer();	
+	if (container && container->getItemHoldingCount() > 0) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+	
+	if (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID)) {
+		player->sendCancelMessage("You can only wrap/unwrap in the floor.");
+		return;
+	}
+	
 	const ItemType& iiType = Item::items[item->getID()];
 	std::string itemName = item->getName();
 	const ItemAttributes::CustomAttribute* attr = item->getCustomAttribute("unWrapId");
@@ -2463,12 +2474,6 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	if (attr != nullptr) {
 		uint32_t tmp = static_cast<uint32_t>(boost::get<int64_t>(attr->value));
 		unWrapId = (uint16_t)tmp;
-	}
-
-	const Container* container = item->getContainer();
-	if(container && container->getItemHoldingCount() > 0){
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
 	}
 
 	if (!iiType.wrapContainer) {
