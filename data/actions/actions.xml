@@ -1052,7 +1052,6 @@
 	<action itemid="20257" script="others/kits/constructionkits.lua" />
 	<action fromid="7904" toid="7907" script="others/kits/bedModificationKits.lua" />
 	<action itemid="20252" script="others/kits/bedModificationKits.lua" />
-	<action itemid="26054" script="others/kits/storeConstructionKits.lua" />  <!-- otc store -->
 
 	<!-- Potions / Fluids -->
 	<action fromid="2005" toid="2009" script="others/consumables/fluids.lua" />
