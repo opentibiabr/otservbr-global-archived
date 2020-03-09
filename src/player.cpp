@@ -2035,8 +2035,9 @@ void Player::death(Creature* lastHitCreature)
 					}
 					}
 				}
+		bool pvpDeath = false;
 		if(playerDmg > 0 || othersDmg > 0){
-		bool pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
+		pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
 		}
 			if (pvpDeath && sumLevels > level) {
 				double reduce = level / static_cast<double>(sumLevels);
