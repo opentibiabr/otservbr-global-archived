@@ -2,4 +2,84 @@
 <npc name="Black Bert" script="Black Bert.lua" walkinterval="2000" floorchange="0">
 	<health now="100" max="100" />
 	<look type="151" head="0" body="38" legs="19" feet="76" addons="0" />
+<parameters>
+		<parameter key="module_shop" value="1" />
+		<parameter key="shop_buyable" value="
+		Almanac of Magic, 10942, 600;		
+		Animal Fetish,  10154, 10000;		
+		Baby Rotworm,  10943, 600;
+		Bale of White Cloth,  7500, 6000;		
+		Bill,  2329, 8000;
+		Blood Crystal,  9369, 50000;
+		Bloodkiss Flower,  10159, 10000;
+		Bundle of Rags,  10109, 5000;
+		Carrying Device,  10615, 1000;
+		Cigar,  7499, 2000;
+		Cookbook,  2347, 150;
+		Damaged Logbook,  14338, 40000;
+		Dark Essence,  14352, 17000;
+		Deep Crystal,  10158, 13000;
+		Elemental Crystal,  10169, 8000;
+		Empty Beer Bottle,  11397, 600;
+		Exploding Cookie,  8111, 100;
+		Exquisite Silk,  12501, 4000;
+		Exquisite Wood,  12503, 4000;
+		Faded Last Will,  12500, 600;
+		Family Brooch,  4845, 1000;
+		Family Signet Ring,  7708, 15000;
+		Fan Club Membership Card,  10308, 10000;
+		Filled Carrying Device,  10616, 1000;
+		Fishnapped Goldfish,  8766, 7000;
+		Flask of Crown Polisher,  10926, 700;
+		Flask of Extra Greasy Oil,  11106, 1000;
+		Flask of Poison,  10760, 1000;
+		Flexible Dragon Scale,  12506, 4000;
+		Formula for a Memory Potion,  14351, 5000;
+		Funeral Urn,  4858, 6000;
+		Ghost Charm,  9737, 20000;
+		Ghost's Tear,  9662, 50000;
+		Giant Ape's Hair,  4843, 24000;
+		Golem Blueprint,  10165, 13500;
+		Golem Head,  10173, 25000;
+		Headache Pill,  10454, 350;
+		Ivory Lyre,  36282, 5000;
+		Letterbag,  2330, 8000;
+		Lump of Clay,  12285, 1000;
+		Machine Crate,  10307, 8500;
+		Magic Crystal,  12508, 4000;
+		Mago Mechanic Core,  10167, 13000;
+		Map to the Unknown,  10928, 650;
+		Memory Crystal,  7281, 500;
+		Memory Stone,  4852, 3000;
+		Mystic Root,  12507, 4000;
+		Nautical Map,  10225, 5250;
+		Old Iron,  12505, 4000;
+		Old Power Core,  10170, 13000;
+		Plans for a Strange Device,  10613, 1000;
+		Rare Crystal,  11104, 1000;
+		Sacred Earth,  12297, 1000;
+		Sceptre of Sun and Sea,  36249, 50000;
+		Shadow Orb,  10155, 12500;
+		Sheet of Tracing Paper,  4854, 500;
+		Suspicious Signet Ring,  7697, 15000;
+		Snake Destroyer,  4846, 8000;
+		Soul Contract,  10945, 666;
+		Special Flask,  14323, 5000;
+		Spectral Cloth,  12502, 4000;
+		Spectral Dress,  4847, 15000;
+		Spyreport,  2345, 3000;
+		Stabilizer,  10166, 12500;
+		Strange Powder,  15389, 5000;
+		Strong Sinew,  12504, 4000;
+		Tear of Daraman,  2346, 16000;
+		Technomancer Beard,  7699, 5000;
+		The Alchemists' Formulas,  9733, 8000;
+		The Ring of the Count,  8752, 10000;
+		Toy Mouse,  7487, 16000;
+		Universal Tool,  10944, 550;
+		Unworked Sacred Wood,  12295, 1000;
+		Whisper Moss,  4838, 18000;
+		Worm Queen Tooth,  10157, 12500;
+		Wrinkled Parchment,  14336, 4000 " />
+	</parameters>
 </npc>
