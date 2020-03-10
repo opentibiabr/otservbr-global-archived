@@ -908,12 +908,10 @@ class Item : virtual public Thing
 			return items[id].isHangable;
 		}
 		bool isRotatable() const {
-			const ItemType& it = items[id];
-			return it.rotatable && it.rotateTo;
+			return items[id].rotatable && items[id].rotateTo;
 		}
 		bool isWrapable() const {
-			const ItemType& it = items[id];
-			return it.wrapable && it.wrapableTo;
+			return items[id].wrapable && items[id].wrapableTo;
 		}
 		bool hasWalkStack() const {
 			return items[id].walkStack;

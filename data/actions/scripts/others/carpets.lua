@@ -56,29 +56,28 @@ local foldedCarpet = {
 
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local carpet = foldedCarpet[item.itemid]
-    if not carpet then
-        return false
-    end
-
-    if fromPosition.x == CONTAINER_POSITION then
-        player:sendTextMessage(MESSAGE_STATUS_SMALL, "Put the item on the floor first.")
-    elseif not fromPosition:getTile():getHouse() then
-        player:sendTextMessage(MESSAGE_STATUS_SMALL, "You may use this only inside a house.")
-    else
-        local carpetsStacked = 0
-        for _, carpetId in pairs(foldedCarpet) do
-            carpetsStacked = carpetsStacked + fromPosition:getTile():getItemCountById(carpetId)
-        end
-
-        if carpetsStacked > 1 then
-            player:sendCancelMessage(Game.getReturnMessage(RETURNVALUE_NOTPOSSIBLE))
-            return true
-        end
-
-        item:transform(carpet)
+function onUse(player, item, fp, target, toPosition, isHotkey)
+	local carpet = foldedCarpet[item.itemid]
+	if not carpet then
+		return false
 	end
 
-    return true
+	local fromPosition = item:getPosition()
+	local tile = Tile(fromPosition)
+
+if not fromPosition:getTile():getHouse() then
+		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You may use this only inside a house.")
+	elseif tile:getItemCountById(item.itemid) == 1 then
+
+		for k,v in pairs(foldedCarpet) do
+			if tile:getItemCountById(k) > 0 and k ~= item.itemid then 
+				player:sendCancelMessage(Game.getReturnMessage(RETURNVALUE_NOTPOSSIBLE))
+            return true
+			end
+		end
+
+		item:transform(carpet)
+
+	end
+	return true
 end
