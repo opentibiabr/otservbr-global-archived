@@ -4,9 +4,9 @@ local config = {
 }
 
 local bosses = {
-	{BossPosition = Position(32977, 31662, 14), bossName = 'The Time Guardian'},
-	{BossPosition = Position(32975, 31664, 13), bossName = 'The Freezing Time Guardian'},
-	{BossPosition = Position(32980, 31664, 13), bossName = 'The Blazing Time Guardian'}
+	{bossPosition = Position(32977, 31662, 14), bossName = 'The Time Guardian'},
+	{bossPosition = Position(32975, 31664, 13), bossName = 'The Freezing Time Guardian'},
+	{bossPosition = Position(32980, 31664, 13), bossName = 'The Blazing Time Guardian'}
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -17,10 +17,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.TimeGuardianTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Time Guardian.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 15, 15, 15, 15)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -30,19 +26,23 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 		for q = 1,#bosses do
-			Game.createMonster(bosses[q].bossName, bosses[q].BossPosition, true, true)
+			Game.createMonster(bosses[q].bossName, bosses[q].bossPosition, true, true)
 		end
 		for y = 31660, 31664 do
 			local playerTile = Tile(Position(33010, y, 14)):getTopCreature()
 			if playerTile and playerTile:isPlayer() then
-				playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
-				playerTile:teleportTo(config.newPosition)
-				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				playerTile:setExhaustion(Storage.ForgottenKnowledge.TimeGuardianTimer, 20 * 60 * 60)
+				if playerTile:getStorageValue(Storage.ForgottenKnowledge.TimeGuardianTimer) < os.time() then
+					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
+					playerTile:teleportTo(config.newPosition)
+					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+					playerTile:setStorageValue(Storage.ForgottenKnowledge.TimeGuardianTimer, os.time() + 20 * 3600)
+				else
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Time Guardian.")
+					return true
+				end
 			end
 		end
-		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.TimeGuardianTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(32967, 31654, 13), Position(32989, 31677, 14), Position(32870, 32724, 14), GlobalStorage.ForgottenKnowledge.TimeGuardianTimer)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(32967, 31654, 13), Position(32989, 31677, 14), Position(32870, 32724, 14))
 		item:transform(9826)
 		elseif item.itemid == 9826 then
 		item:transform(9825)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Tesha" script="Tesha.lua" walkinterval="0" floorchange="0">
+<npc name="Tesha" script="Bank.lua" walkinterval="0" floorchange="0">
 	<health now="100" max="100" />
 	<look type="140" head="77" body="32" legs="81" feet="94" addons="0" />
 	<parameters>

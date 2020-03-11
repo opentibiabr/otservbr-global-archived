@@ -1,11 +1,19 @@
- local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()		npcHandler:onThink()		end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 local voices = { {text = 'This weather is killing me. If I only had enough money to retire.'} }
 npcHandler:addModule(VoiceModule:new(voices))
@@ -276,8 +284,6 @@ local player = Player(cid)
 return true
 end
 
-
-
 -- Kick
 keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32811, 31267, 6), Position(32811, 31270, 6), Position(32811, 31273, 6)}})
 
@@ -287,14 +293,15 @@ keywordHandler:addKeyword({'captain'}, StdModule.say, {npcHandler = npcHandler, 
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m Karith. I don\'t belong to a caste any longer, and only serve the Yalahari.'})
 keywordHandler:addKeyword({'yalahar'}, StdModule.say, {npcHandler = npcHandler, text = 'The city was a marvel to behold. It is certain that it have been the many foreigners that ruined it.'})
 
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+-- Greeting message
+keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Hello! Tell me what\'s on your mind. Time is money."})
+--Farewell message
+keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Goodbye, |PLAYERNAME|."})
+
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye.")
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage({'hi', 'hello', 'ashari'})
-focusModule:addFarewellMessage({'bye', 'farewell', 'asgha thrazi'})
-npcHandler:addModule(focusModule)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 
--- made by OBUCHpl
+npcHandler:addModule(FocusModule:new())

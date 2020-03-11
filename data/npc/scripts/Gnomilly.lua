@@ -109,7 +109,7 @@ function creatureSayCallback(cid, type, msg)
 	////GHOST PACIFIERS////
 	/////////////////////]]
 	if msgcontains(msg, 'pacifiers') then
-		if player:getExhaustion(SPIKE_UPPER_PACIFIER_DAILY) > 0 then
+		if player:getStorageValue(SPIKE_UPPER_PACIFIER_DAILY) >= os.time() then
 			return npcHandler:say('Sorry, you have to wait ' .. string.diff(player:getStorageValue(SPIKE_UPPER_PACIFIER_DAILY)-os.time()) .. ' before this task gets available again.', cid)
 		end
 
@@ -141,7 +141,7 @@ function creatureSayCallback(cid, type, msg)
 	////SPIRIT RELEASE/////
 	/////////////////////]]
 	if msgcontains(msg, 'release') then
-		if player:getExhaustion(SPIKE_UPPER_MOUND_DAILY) > 0 then
+		if player:getStorageValue(SPIKE_UPPER_MOUND_DAILY) >= os.time() then
 			return npcHandler:say('Sorry, you have to wait ' .. string.diff(player:getStorageValue(SPIKE_UPPER_MOUND_DAILY)-os.time()) .. ' before this task gets available again.', cid)
 		end
 
@@ -173,7 +173,7 @@ function creatureSayCallback(cid, type, msg)
 	////TRACK GHOSTS/////
 	///////////////////]]
 	if msgcontains(msg, 'track') then
-		if player:getExhaustion(SPIKE_UPPER_TRACK_DAILY) > 0 then
+		if player:getStorageValue(SPIKE_UPPER_TRACK_DAILY) >= os.time() then
 			return npcHandler:say('Sorry, you have to wait ' .. string.diff(player:getStorageValue(SPIKE_UPPER_TRACK_DAILY)-os.time()) .. ' before this task gets available again.', cid)
 		end
 
@@ -206,7 +206,7 @@ function creatureSayCallback(cid, type, msg)
 	////KILL/////
 	///////////]]
 	if msgcontains(msg, 'kill') then
-		if player:getExhaustion(SPIKE_UPPER_KILL_DAILY) > 0 then
+		if player:getStorageValue(SPIKE_UPPER_KILL_DAILY) >= os.time() then
 			return npcHandler:say('Sorry, you have to wait ' .. string.diff(player:getStorageValue(SPIKE_UPPER_KILL_DAILY)-os.time()) .. ' before this task gets available again.', cid)
 		end
 

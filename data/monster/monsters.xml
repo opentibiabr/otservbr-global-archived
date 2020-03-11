@@ -1548,7 +1548,6 @@
 	<monster name="Burrowing Beetle" file="new/Burrowing_Beetle.xml"/>
 	<monster name="Cave Spider" file="new/Cave_Spider.xml"/>
 	<monster name="Dawn Bat" file="new/Dawn_Bat.xml"/>
-	<monster name="Deepsea Blood Crab" file="new/Deepsea_Blood_Crab.xml"/>
 	<monster name="Dreadmaw" file="new/Dreadmaw.xml"/>
 	<monster name="Duskbringer" file="new/Duskbringer.xml"/>
 	<monster name="Eclipse Knight" file="new/Eclipse_Knight.xml"/>

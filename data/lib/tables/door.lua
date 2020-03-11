@@ -2,6 +2,9 @@
 -- The rest of the variables are self-explanatory, create more variables within the table and add the door ids in their variables.
 -- Be careful, do not add quest door inside the level door table or vice versa, this will lock the doors.
 
+-- ID of the keys.
+keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092}
+
 -- Keys doors start.
 -- Doors locked. This is the doors with the description "It is locked".
 keyLockedDoor = {
@@ -30,8 +33,11 @@ keyLockedDoor = {
 	{ closedDoor = 6192, openDoor = 6194 },
 	{ closedDoor = 6195, openDoor = 6197 },
 	{ closedDoor = 6249, openDoor = 6251 },
+	{ closedDoor = 6252, openDoor = 6254 },
 	{ closedDoor = 6799, openDoor = 6796 },
 	{ closedDoor = 6801, openDoor = 6798 },
+	{ closedDoor = 6891, openDoor = 6893 },
+	{ closedDoor = 6901, openDoor = 6902 },
 	{ closedDoor = 7033, openDoor = 7035 },
 	{ closedDoor = 7042, openDoor = 7044 },
 	{ closedDoor = 8541, openDoor = 8543 },
@@ -92,6 +98,8 @@ keyUnlockedDoor = {
 	{ closedDoor = 6250, openDoor = 6251 },
 	{ closedDoor = 6253, openDoor = 6254 },
 	{ closedDoor = 6795, openDoor = 6796 },
+	{ closedDoor = 6892, openDoor = 6893 },
+	{ closedDoor = 6900, openDoor = 6902 },
 	{ closedDoor = 7034, openDoor = 7035 },
 	{ closedDoor = 7043, openDoor = 7044 },
 	{ closedDoor = 8542, openDoor = 8543 },
@@ -153,6 +161,8 @@ fromClosedToLockedDoor = {
 	{ keyDoorClosed = 6253, keyDoorLocked = 6252 },
 	{ keyDoorClosed = 6795, keyDoorLocked = 6799 },
 	{ keyDoorClosed = 6797, keyDoorLocked = 6801 },
+	{ keyDoorClosed = 6892, keyDoorLocked = 6891 },
+	{ keyDoorClosed = 6900, keyDoorLocked = 6901 },
 	{ keyDoorClosed = 7034, keyDoorLocked = 7033 },
 	{ keyDoorClosed = 7043, keyDoorLocked = 7042 },
 	{ keyDoorClosed = 8542, keyDoorLocked = 8541 },
@@ -259,6 +269,8 @@ customDoor = {
 	{ closedDoor = 35685, openDoor = 35689 },
 	{ closedDoor = 35686, openDoor = 35690 },
 	{ closedDoor = 35687, openDoor = 35691 },
+	{ closedDoor = 36329, openDoor = 36331 },
+	{ closedDoor = 36330, openDoor = 36332 },
 	{ closedDoor = 36498, openDoor = 36499 },
 	{ closedDoor = 36500, openDoor = 36501 },
 	}
@@ -329,7 +341,7 @@ levelDoor = {
 	{ closedDoor = 1259, openDoor = 1260 },
 	{ closedDoor = 1261, openDoor = 1262 },
 	{ closedDoor = 3540, openDoor = 3541 },
-	{ closedDoor = 3549, openDoor = 3650 },
+	{ closedDoor = 3549, openDoor = 3550 },
 	{ closedDoor = 5103, openDoor = 5104 },
 	{ closedDoor = 5112, openDoor = 5113 },
 	{ closedDoor = 5121, openDoor = 5122 },
@@ -346,6 +358,8 @@ levelDoor = {
 	{ closedDoor = 8557, openDoor = 8558 },
 	{ closedDoor = 9179, openDoor = 9180 },
 	{ closedDoor = 9181, openDoor = 9182 },
+	{ closedDoor = 9281, openDoor = 9282 },
+	{ closedDoor = 9283, openDoor = 9284 },
 	{ closedDoor = 10282, openDoor = 10283 },
 	{ closedDoor = 10284, openDoor = 10285 },
 	{ closedDoor = 10473, openDoor = 10474 },
@@ -373,6 +387,4 @@ levelDoor = {
 	{ closedDoor = 34672, openDoor = 34674 },
 	{ closedDoor = 34675, openDoor = 34677 },
 	{ closedDoor = 34676, openDoor = 34678 },
-	{ closedDoor = 36329, openDoor = 36331 },
-	{ closedDoor = 36330, openDoor = 36332 },
 	}

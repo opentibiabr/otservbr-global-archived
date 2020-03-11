@@ -33,7 +33,6 @@
 #include "raids.h"
 #include "npc.h"
 #include "wildcardtree.h"
-#include "quests.h"
 #include "gamestore.h"
 
 class ServiceManager;
@@ -527,7 +526,6 @@ class Game
 		Map map;
 		Mounts mounts;
 		Raids raids;
-		Quests quests;
 		GameStore gameStore;
 
 		std::forward_list<Item*> toDecayItems;

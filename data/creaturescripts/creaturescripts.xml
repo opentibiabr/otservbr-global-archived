@@ -52,14 +52,6 @@
 	<event type="healthchange" name="yalahariHealth" script="quests/cults of tibia/reflectDamage.lua" />
 	<event type="think" name="checkPiso" script="quests/cults of tibia/checkPiso.lua" />
 
-	<!-- first dragon quest -->
-	<event type="kill" name="DragonsKill" script="quests/first dragon/dragonsKill.lua" />
-	<event type="death" name="FallenDeath" script="quests/first dragon/fallen death.lua" />
-	<event type="death" name="Spirit" script="quests/first dragon/spirit of fertility.lua" />
-	<event type="death" name="Somewhat" script="quests/first dragon/somewhat.lua" />
-	<event type="death" name="DragonEssence" script="quests/first dragon/dragon essence.lua" />
-	<event type="death" name="FirstDragon" script="quests/first dragon/first dragon death.lua" />
-
 	<!-- Grimvale Quest -->
 	<event type="death" name="feroxaDeath" script="bosses/feroxaTransform.lua"/>
 	<event type="think" name="feroxaTrasnform" script="bosses/feroxaTransform.lua"/>

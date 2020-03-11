@@ -16,12 +16,12 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     local itemId = item:getId()
     for index, value in ipairs(questDoor) do
 		 if value.closedDoor == itemId then
-			if player:getStorageValue(item.actionid) <= -1 then
+			if item.actionid > 0 and player:getStorageValue(item.actionid) ~= -1 then
 				item:transform(value.openDoor)
 				player:teleportTo(toPosition, true)
 				return true
 			else
-				player:sendTextMessage(MESSAGE_INFO_DESCR, "The door seems to be sealed against unwanted intruders.")
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 				return true
 			end
 		end

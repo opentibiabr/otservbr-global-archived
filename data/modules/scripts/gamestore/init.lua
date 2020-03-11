@@ -560,6 +560,10 @@ function sendShowStoreOffers(playerId, category)
             disabled = 1
             disabledReason = "You can't buy XP Boost for today."
           end
+		  if (player:getExpBoostStamina()>0) then
+            disabled = 1
+            disabledReason = "You can't buy XP Boost while you still have one active."
+          end
         end
       end
 
@@ -1172,7 +1176,7 @@ function GameStore.processHouseRelatedPurchase(player, offerId, offerCount)
       local decoItemName = ItemType(offerId):getName()
       if kit then
         kit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. decoItemName .. ">.")
-        kit:setActionId(offerId)
+        kit:setCustomAttribute("unWrapId", offerId)
 
         if isCaskItem(offerId) then
           kit:setAttribute(ITEM_ATTRIBUTE_DATE, offerCount)

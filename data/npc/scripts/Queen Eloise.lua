@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)	npcHandler:onCreatureSay(cid, type, msg)	end
-function onThink()						npcHandler:onThink()						end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then 
@@ -133,6 +141,10 @@ keywordHandler:addKeyword({'uniforms'}, StdModule.say, {npcHandler = npcHandler,
 	function(player) player:setStorageValue(Storage.postman.Mission06, 6) end
 )
 
+-- Greeting
+keywordHandler:addGreetKeyword({'hail queen'}, {npcHandler = npcHandler, text = 'I greet thee, my loyal {subject}.'})
+keywordHandler:addGreetKeyword({'salutations queen'}, {npcHandler = npcHandler, text = 'I greet thee, my loyal {subject}.'})
+
 keywordHandler:addKeyword({'uniforms'}, StdModule.say, {npcHandler = npcHandler, text = 'The uniforms of our guards and soldiers are of unparraleled quality of course.'})
 
 -- Basic
@@ -197,12 +209,9 @@ keywordHandler:addKeyword({'reward'}, StdModule.say, {npcHandler = npcHandler, t
 keywordHandler:addKeyword({'tbi'}, StdModule.say, {npcHandler = npcHandler, text = 'A dusgusting organisation, which could be only created by men.'})
 keywordHandler:addKeyword({'eremo'}, StdModule.say, {npcHandler = npcHandler, text = 'It is said that he lives on a small island near Edron. Maybe the people there know more about him.'})
 
-npcHandler:setMessage(MESSAGE_GREET, 'I greet thee, my loyal {subject}.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Farewell, |PLAYERNAME|!')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hail queen')
-focusModule:addGreetMessage('salutations queen')
-npcHandler:addModule(focusModule)
+npcHandler:addModule(FocusModule:new())

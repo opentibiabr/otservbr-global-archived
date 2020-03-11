@@ -88,7 +88,6 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		doorCreature:teleportTo(toPosition, true)
 	end
 
-	local itemId = item:getId()
 	if target.actionid > 0 then
 		for index, value in ipairs(keyLockedDoor) do
 			for index, x in ipairs(fromClosedToLockedDoor) do
@@ -109,8 +108,8 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-for keysID = 2967, 2973 do
-door:id(keysID)
+for index, value in pairs(keysID) do
+	door:id(value)
 end
 
 door:register()

@@ -1776,7 +1776,7 @@ if not Quests then
 				},
 
 				[3] = {
-					name = "Efreet Mission 3: The Sleeping Lamp", storageid = Storage.DjinnWar.EfreetFaction.Mission02, startvalue = 1, endvalue = 3,
+					name = "Efreet Mission 3: The Sleeping Lamp", storageid = Storage.DjinnWar.EfreetFaction.Mission03, startvalue = 1, endvalue = 3,
 					states = {
 						[1] = "Malor asked you to find Fa'hradin's sleeping lamp in the orc fortress at Ulderek's Rock. Then, sneak into Ashta'daramai and exchange Gabel's sleeping lamp with Fa'hradin's lamp.",
 						[2] = "You successfully exchanged the lamps. Malor will be happy to hear about this.",
@@ -3157,20 +3157,24 @@ if not Quests then
 				},
 			},
 		},
+		
 		[39] = {
-			name = "The First Dragon", startstorageid = Storage.FirstDragon.Start, startstoragevalue = 1,
+			name = "The First Dragon", startstorageid = Storage.FirstDragon.Questline, startstoragevalue = 1,
 			missions = {
 				[1] = {
-					name = "Power", storageid = Storage.FirstDragon.DragonCounter, startvalue = 0, endvalue = 200, description = function(player)return string.format("You already hunted %d/200 dragons.")(math.max(player:getStorageValue(Storage.FirstDragon.DragonCounter))) end,
+					name = "Power", storageid = Storage.FirstDragon.DragonCounter, startvalue = 0, endvalue = 200, description = function(player)
+						return ("You already hunted %d/200 dragons."):format(player:getStorageValue(Storage.FirstDragon.DragonCounter))
+					end,
 				},
+				
 				[2] = {
-					name = "Treasure", storageid = Storage.FirstDragon.ChestCounter, startvalue = 1, endvalue = 15, description = "Treasure is the favorite of the dragon lords. Find and take Kalyassa's treasures spread accross the world."
+					name = "Treasure", storageid = Storage.FirstDragon.ChestCounter, startvalue = 0, endvalue = 20, description = "Treasure is the favorite of the dragon lords. Find and take Kalyassa's treasures spread accross the world.",
 				},
 				[3] = {
-					name = "Knowledge", storageid = Storage.FirstDragon.GelidrazahAccess, startvalue = 1, endvalue = 1, description = "You learned that frost dragon's incitement is the thirst for knowledge, perhaps if you bring some to Gelidrazah's you'll meet him."
+					name = "Knowledge", storageid = Storage.FirstDragon.GelidrazahAccess, startvalue = 0, endvalue = 1, description = "You learned that frost dragon's incitement is the thirst for knowledge, perhaps if you bring some to Gelidrazah's you'll meet him.",
 				},
 				[4] = {
-					name = "Life", storageid = Storage.FirstDragon.SecretsCounter, startvalue = 1, endvalue = 3, description = "Undead dragons aspires for life. No better way to see life as it grows around the world, is there?"
+					name = "Life", storageid = Storage.FirstDragon.SecretsCounter, startvalue = 0, endvalue = 3, description = "Undead dragons aspires for life. No better way to see life as it grows around the world, is there?",
 				},
 			},
 		},

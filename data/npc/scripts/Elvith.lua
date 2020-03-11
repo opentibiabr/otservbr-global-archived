@@ -2,11 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
-
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I sell musical instruments of many kinds.'})
 keywordHandler:addKeyword({'instruments'}, StdModule.say, {npcHandler = npcHandler, text = 'I sell lyres, lutes, drums, and simple fanfares.'})
 keywordHandler:addKeyword({'music'}, StdModule.say, {npcHandler = npcHandler, text = 'Music is an attempt to condensate emotions in harmonies and save them for the times to come.'})
@@ -53,12 +60,15 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setMessage(MESSAGE_GREET, 'Ashari |PLAYERNAME|.')
-npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi.')
-npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi.')
+-- Greeting message
+keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Ashari, |PLAYERNAME|."})
+--Farewell message
+keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Asha Thrazi, |PLAYERNAME|."})
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage({'hi', 'hello', 'ashari'})
-focusModule:addFarewellMessage({'bye', 'farewell', 'asgha thrazi'})
-npcHandler:addModule(focusModule)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
+npcHandler:setMessage(MESSAGE_GREET, 'Ashari |PLAYERNAME|.')
+npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, |PLAYERNAME|!')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, |PLAYERNAME|!')
+
+npcHandler:addModule(FocusModule:new())

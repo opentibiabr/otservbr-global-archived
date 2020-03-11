@@ -20,10 +20,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if player:getStorageValue(Storage.FerumbrasAscension.TheLordOfTheLiceTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Lord of The Lice.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 30, 30, 30, 30)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -39,11 +35,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 				playerTile:teleportTo(config.newPosition)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				playerTile:setExhaustion(Storage.FerumbrasAscension.TheLordOfTheLiceTimer, 60 * 60 * 2 * 24)
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheLordOfTheLiceTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33187, 31429, 12), Position(33242, 31487, 12), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendantQuest.TheLordOfTheLiceTimer)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33187, 31429, 12), Position(33242, 31487, 12), Position(33319, 32318, 13))
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)

@@ -15,10 +15,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.LastLoreTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Last Lore Keeper.")
-			return true
-		end
 		for xx = 14, 15 do
 		local spectators = Game.getSpectators(Position(31986, 32846, xx), false, false, 21, 21, 21, 21)
 			for i = 1, #spectators do
@@ -33,28 +29,25 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			for y = 32844, 32848 do
 				local playerTile = Tile(Position(x, y, 14)):getTopCreature()
 				if playerTile and playerTile:isPlayer() then
-					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
-					playerTile:teleportTo(config[1].newPosition)
-					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-					playerTile:setExhaustion(Storage.ForgottenKnowledge.LastLoreTimer, 20 * 24 * 60 * 60)
+					if playerTile:getStorageValue(Storage.ForgottenKnowledge.LastLoreTimer) < os.time() then
+						playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
+						playerTile:teleportTo(config[1].newPosition)
+						playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+						playerTile:setStorageValue(Storage.ForgottenKnowledge.LastLoreTimer, os.time() + 60 * 60 * 14 * 24)
+					else
+						player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Last Lore Keeper.")
+						return true
+					end
 				end
 			end
 		end
-		--[[local creatures = Tile(config[1].newPosition):getCreatures()
-		for i = 1, #creatures do
-			local player = creatures[i]
-			if player:isPlayer() then
-				player:setExhaustion(Storage.ForgottenKnowledge.LastLoreTimer, 14 * 24 * 60 * 60 * 1000)
-			end
-		end]]
 		for b = 2, #config do
 			Game.createMonster(config[b].monster, config[b].pos, true, true)
 		end
 		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.AstralPowerCounter, 1)
 		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.AstralGlyph, 0)
 		player:say('The Astral Glyph begins to draw upon bound astral power to expel you from the room!', TALKTYPE_MONSTER_SAY)
-		Game.setStorageValue(GlobalStorage.ForgottenKnowledge.LastLoreTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(31968, 32821, 14), Position(32004, 32865, 15), Position(32035, 32859, 14), GlobalStorage.ForgottenKnowledge.LastLoreTimer)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(31968, 32821, 14), Position(32004, 32865, 15), Position(32035, 32859, 14))
 		item:transform(9826)
 		elseif item.itemid == 9826 then
 		item:transform(9825)

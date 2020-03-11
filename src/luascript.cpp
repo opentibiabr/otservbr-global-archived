@@ -965,7 +965,7 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 
 	int index = 0;
 	for (const auto& lootBlock : lootList) {
-		lua_createtable(L, 0, 7);
+		lua_createtable(L, 0, 8);
 
 		setField(L, "itemId", lootBlock.id);
 		setField(L, "chance", lootBlock.chance);
@@ -973,6 +973,8 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 		setField(L, "maxCount", lootBlock.countmax);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
+		pushBoolean(L, lootBlock.unique);
+		lua_setfield(L, -2, "unique");
 
 		pushLoot(L, lootBlock.childLoot);
 		lua_setfield(L, -2, "childLoot");
@@ -1454,6 +1456,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_PROP_NOFIELDBLOCKPATH)
 	registerEnum(CONST_PROP_SUPPORTHANGABLE)
 
+	registerEnum(CONST_SLOT_FIRST)
 	registerEnum(CONST_SLOT_HEAD)
 	registerEnum(CONST_SLOT_NECKLACE)
 	registerEnum(CONST_SLOT_BACKPACK)
@@ -1465,6 +1468,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(CONST_SLOT_RING)
 	registerEnum(CONST_SLOT_AMMO)
 	registerEnum(CONST_SLOT_STORE_INBOX)
+	registerEnum(CONST_SLOT_LAST)
 
 	registerEnum(CREATURE_EVENT_NONE)
 	registerEnum(CREATURE_EVENT_LOGIN)
@@ -1554,6 +1558,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_ATTRIBUTE_FLUIDTYPE)
 	registerEnum(ITEM_ATTRIBUTE_DOORID)
 	registerEnum(ITEM_ATTRIBUTE_SPECIAL)
+	registerEnum(ITEM_ATTRIBUTE_OPENCONTAINER)
 
 	registerEnum(ITEM_TYPE_DEPOT)
 	registerEnum(ITEM_TYPE_REWARDCHEST)
@@ -1917,7 +1922,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(RELOAD_TYPE_MOUNTS)
 	registerEnum(RELOAD_TYPE_MOVEMENTS)
 	registerEnum(RELOAD_TYPE_NPCS)
-	registerEnum(RELOAD_TYPE_QUESTS)
 	registerEnum(RELOAD_TYPE_RAIDS)
 	registerEnum(RELOAD_TYPE_SCRIPTS)
 	registerEnum(RELOAD_TYPE_SPELLS)
@@ -2606,6 +2610,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "setExpBoostStamina", LuaScriptInterface::luaPlayerSetExpBoostStamina);
 
 	registerMethod("Player", "getIdleTime", LuaScriptInterface::luaPlayerGetIdleTime);
+	registerMethod("Player", "getFreeBackpackSlots", LuaScriptInterface::luaPlayerGetFreeBackpackSlots);
 
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
@@ -3606,7 +3611,7 @@ int LuaScriptInterface::luaDoAreaCombatCondition(lua_State* L)
 	if (area || areaId == 0) {
 		CombatParams params;
 		params.impactEffect = getNumber<uint8_t>(L, 5);
-		params.conditionList.emplace_front(condition->clone());
+		params.conditionList.emplace_front(condition);
 		Combat::doCombatCondition(creature, getPosition(L, 2), area, params);
 		pushBoolean(L, true);
 	} else {
@@ -11212,6 +11217,18 @@ int LuaScriptInterface::luaPlayerGetIdleTime(lua_State* L)
 	} else {
 		lua_pushnil(L);
 	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetFreeBackpackSlots(lua_State* L)
+{
+	// player:getFreeBackpackSlots()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+	}
+
+	lua_pushnumber(L, std::max<uint16_t>(0, player->getFreeBackpackSlots()));
 	return 1;
 }
 

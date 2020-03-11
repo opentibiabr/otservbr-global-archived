@@ -19,10 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 	if item.itemid == 9825 then
-		if player:getStorageValue(Storage.FerumbrasAscension.TheShattererTimer) >= 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge The Shatterer.")
-			return true
-		end
 		local specs, spec = Game.getSpectators(config.centerRoom, false, false, 30, 30, 30, 30)
 		for i = 1, #specs do
 			spec = specs[i]
@@ -38,7 +34,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 				playerTile:teleportTo(config.newPosition)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-				playerTile:setExhaustion(Storage.FerumbrasAscension.TheShattererTimer, 60 * 60 * 2 * 24)
 			end
 		end
 		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererTimer, 1)
