@@ -13,6 +13,11 @@
 	<!-- EquipObject -->
 	<module type="recvbyte" byte="119" delay="1000" script="equipobject/equipobject.lua"/>
 
+	<!-- QuickLoot -->
+	<module type="recvbyte" byte="143" script="quickloot/quickloot.lua"/>
+	<module type="recvbyte" byte="144" script="quickloot/quickloot.lua"/>
+	<module type="recvbyte" byte="145" script="quickloot/quickloot.lua"/>
+
 	<!-- Prey System -->
 	<module type="recvbyte" byte="235" script="prey system/prey.lua" />
 	<module type="recvbyte" byte="237" script="prey system/prey.lua" />
@@ -27,6 +32,12 @@
 	<module type="recvbyte" byte="216" script="dailyreward/dailyreward.lua" />
 	<module type="recvbyte" byte="217" script="dailyreward/dailyreward.lua" />
 	<module type="recvbyte" byte="218" script="dailyreward/dailyreward.lua" />
+
+	<module type="recvbyte" byte="229" script="characters/characters.lua" />
+	<module type="recvbyte" byte="234" script="characters/characters.lua" />
+
+
+
 
 	<!-- Inspection System (11.10)
 	<module type="recvbyte" byte="205" script="inspection/inspection.lua"/>
