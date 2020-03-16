@@ -2006,6 +2006,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnumIn("configKeys", ConfigManager::STORE_IMAGES_URL)
 	registerEnumIn("configKeys", ConfigManager::VERSION_STR)
 
+	registerEnumIn("configKeys", ConfigManager::WORLD_ID)
 	registerEnumIn("configKeys", ConfigManager::SQL_PORT)
 	registerEnumIn("configKeys", ConfigManager::MAX_PLAYERS)
 	registerEnumIn("configKeys", ConfigManager::PZ_LOCKED)

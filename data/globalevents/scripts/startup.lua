@@ -37,7 +37,7 @@ function onStartup()
 	end
 
 	local time = os.time()
-	db.asyncQuery('TRUNCATE TABLE `players_online`')
+	db.asyncQuery('TRUNCATE TABLE `players_online` WHERE `world_id` = '..configManager.getNumber(configKeys.WORLD_ID)..'')
 
 	-- zerar storages e permitir compra de boost na store
 	db.query('UPDATE `player_storage` SET `value` = 0 WHERE `player_storage`.`key` = 51052')
@@ -72,7 +72,7 @@ function onStartup()
 	end
 
 	-- Check house auctions
-	local resultId = db.storeQuery('SELECT `id`, `highest_bidder`, `last_bid`, (SELECT `balance` FROM `players` WHERE `players`.`id` = `highest_bidder`) AS `balance` FROM `houses` WHERE `owner` = 0 AND `bid_end` != 0 AND `bid_end` < ' .. time)
+	local resultId = db.storeQuery('SELECT `id`, `world_id`, `highest_bidder`, `last_bid`, (SELECT `balance` FROM `players` WHERE `players`.`id` = `highest_bidder`) AS `balance` FROM `houses` WHERE `owner` = 0 AND `world_id` = '..configManager.getNumber(configKeys.WORLD_ID)..' AND `bid_end` != 0 AND `bid_end` < ' .. time)
 	if resultId ~= false then
 		repeat
 			local house = House(result.getNumber(resultId, 'id'))
@@ -84,7 +84,7 @@ function onStartup()
 					db.query('UPDATE `players` SET `balance` = ' .. (balance - lastBid) .. ' WHERE `id` = ' .. highestBidder)
 					house:setOwnerGuid(highestBidder)
 				end
-				db.asyncQuery('UPDATE `houses` SET `last_bid` = 0, `bid_end` = 0, `highest_bidder` = 0, `bid` = 0 WHERE `id` = ' .. house:getId())
+				db.asyncQuery('UPDATE `houses` SET `last_bid` = 0, `bid_end` = 0, `highest_bidder` = 0, `bid` = 0 WHERE `world_id` = '..configManager.getNumber(configKeys.WORLD_ID)..' and `id` = ' .. house:getId())
 			end
 		until not result.next(resultId)
 		result.free(resultId)
