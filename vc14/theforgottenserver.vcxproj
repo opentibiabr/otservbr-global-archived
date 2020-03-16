@@ -153,6 +153,7 @@
     <ClCompile Include="..\src\events.cpp" />
     <ClCompile Include="..\src\fileloader.cpp" />
     <ClCompile Include="..\src\game.cpp" />
+    <ClCompile Include="..\src\gameserverconfig.cpp" />
     <ClCompile Include="..\src\gamestore.cpp" />
     <ClCompile Include="..\src\globalevent.cpp" />
     <ClCompile Include="..\src\groups.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="..\src\events.h" />
     <ClInclude Include="..\src\fileloader.h" />
     <ClInclude Include="..\src\game.h" />
+    <ClInclude Include="..\src\gameserverconfig.h" />
     <ClInclude Include="..\src\gamestore.h" />
     <ClInclude Include="..\src\globalevent.h" />
     <ClInclude Include="..\src\groups.h" />
