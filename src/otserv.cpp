@@ -49,7 +49,7 @@ Game g_game;
 ConfigManager g_config;
 Monsters g_monsters;
 Vocations g_vocations;
-extern GameserverConfig g_gameserver;
+GameserverConfig g_gameserver;
 extern Scripts* g_scripts;
 RSA g_RSA;
 
