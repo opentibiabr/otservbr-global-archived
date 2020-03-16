@@ -27,6 +27,7 @@
 #include "gameserverconfig.h"
 
 extern ConfigManager g_config;
+extern GameserverConfig g_gameserver;
 
 bool DatabaseManager::optimizeTables()
 {
@@ -74,10 +75,17 @@ bool DatabaseManager::isDatabaseSetup()
 
 int32_t DatabaseManager::getDatabaseVersion()
 {
+	uint16_t worldId = g_gameserver.getWorldId();
+	
 	if (!tableExists("server_config")) {
 		Database& db = Database::getInstance();
-		db.executeQuery("CREATE TABLE `server_config` (`config` VARCHAR(50) NOT NULL, `value` VARCHAR(256) NOT NULL DEFAULT '', UNIQUE(`config`)) ENGINE = InnoDB");
-		db.executeQuery("INSERT INTO `server_config` VALUES ('db_version', 0)");
+		std::ostringstream createQuery;
+		createQuery << "CREATE TABLE `server_config` (`world_id` INT(11) NOT NULL DEFAULT 0, `config` VARCHAR(50) NOT NULL, `value` VARCHAR(256) NOT NULL DEFAULT '') ENGINE = InnoDB";
+		db.executeQuery(createQuery.str());
+
+		std::ostringstream insertQuery;
+		insertQuery << "INSERT INTO `server_config` VALUES ("<< worldId <<", 'db_version', 0)";
+		db.executeQuery(insertQuery.str());
 		return 0;
 	}
 
@@ -147,7 +155,9 @@ bool DatabaseManager::getDatabaseConfig(const std::string& config, int32_t& valu
 {
 	Database& db = Database::getInstance();
 	std::ostringstream query;
-	query << "SELECT `value` FROM `server_config` WHERE `config` = " << db.escapeString(config);
+	uint16_t worldId = g_gameserver.getWorldId();
+
+	query << "SELECT `value` FROM `server_config` WHERE `world_id` = "<< worldId <<" AND `config` = " << db.escapeString(config);
 
 	DBResult_ptr result = db.storeQuery(query.str());
 	if (!result) {
@@ -162,13 +172,14 @@ void DatabaseManager::registerDatabaseConfig(const std::string& config, int32_t 
 {
 	Database& db = Database::getInstance();
 	std::ostringstream query;
-
+	uint16_t worldId = g_gameserver.getWorldId();
+	
 	int32_t tmp;
 
 	if (!getDatabaseConfig(config, tmp)) {
-		query << "INSERT INTO `server_config` VALUES (" << db.escapeString(config) << ", '" << value << "')";
+		query << "INSERT INTO `server_config` VALUES (" << worldId << ", " << db.escapeString(config) << ", '" << value << "')";
 	} else {
-		query << "UPDATE `server_config` SET `value` = '" << value << "' WHERE `config` = " << db.escapeString(config);
+		query << "UPDATE `server_config` SET `value` = '" << value << "' WHERE `world_id` = " << worldId << " AND `config` = " << db.escapeString(config);
 	}
 
 	db.executeQuery(query.str());
