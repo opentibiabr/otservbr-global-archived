@@ -1,0 +1,6 @@
+[HOUSES] add world_id INT 2
+[HOUSES_LISTS] add world_id INT 2
+[PLAYERS] add world_id INT 2
+[PLAYERS_ONLINE] add world_id INT 2
+[SERVER_CONFIG] add world_id INT 2
+[TILE_STORE] add world_id INT 2
