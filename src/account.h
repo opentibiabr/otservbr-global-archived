@@ -28,19 +28,9 @@
  * @brief Account information, like characters, account name, premium
  * coin, etc
  */
-#ifdef MULTIWORLD_SYSTEM
-	struct Character {
-		std::string name;
-		uint16_t worldid;
-	};
-#endif
 
 struct Account {
-	#ifdef MULTIWORLD_SYSTEM
-		std::vector<Character> characters;
-	#else
-		std::vector<std::string> characters;
-	#endif
+	std::vector<std::string> characters;
 	std::string name;
 	std::string key;
 	time_t lastDay = 0;
