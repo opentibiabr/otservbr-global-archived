@@ -24,6 +24,7 @@
 #include "configmanager.h"
 #include "databasemanager.h"
 #include "luascript.h"
+#include "gameserverconfig.h"
 
 extern ConfigManager g_config;
 
