@@ -26,9 +26,11 @@
 #include "configmanager.h"
 #include "game.h"
 #include "scheduler.h"
+#include "gameserverconfig.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
+extern GameserverConfig g_gameserver;
 
 Account IOLoginData::loadAccount(uint32_t accno)
 {
@@ -107,17 +109,34 @@ bool IOLoginData::loginserverAuthentication(const std::string& name, const std::
 	account.premiumDays = result->getNumber<uint16_t>("premdays");
 	account.lastDay = result->getNumber<time_t>("lastday");
 
-	query.str(std::string());
-	query << "SELECT `name`, `deletion` FROM `players` WHERE `account_id` = " << account.id;
-	result = db.storeQuery(query.str());
-	if (result) {
-		do {
-			if (result->getNumber<uint64_t>("deletion") == 0) {
-				account.characters.push_back(result->getString("name"));
-			}
-		} while (result->next());
-		std::sort(account.characters.begin(), account.characters.end());
-	}
+
+	#ifdef MULTIWORLD_SYSTEM
+		query.str(std::string());
+		query << "SELECT `name`, `deletion`, `world_id` FROM `players` WHERE `account_id` = " << account.id;
+		result = db.storeQuery(query.str());
+		if (result) {
+			do {
+				if (result->getNumber<uint64_t>("deletion") == 0) {
+					Character character;
+					character.name = result->getString("name");
+					character.worldid = result->getNumber<uint16_t>("world_id");
+					account.characters.push_back(character);
+				}
+			} while (result->next());
+		}
+	#else
+		query.str(std::string());
+		query << "SELECT `name`, `deletion` FROM `players` WHERE `account_id` = " << account.id;
+		result = db.storeQuery(query.str());
+		if (result) {
+			do {
+				if (result->getNumber<uint64_t>("deletion") == 0) {
+					account.characters.push_back(result->getString("name"));
+				}
+			} while (result->next());
+			std::sort(account.characters.begin(), account.characters.end());
+		}
+	#endif
 	return true;
 }
 
@@ -1286,12 +1305,13 @@ void IOLoginData::increaseBankBalance(uint32_t guid, uint64_t bankBalance)
 	Database::getInstance().executeQuery(query.str());
 }
 
+
 bool IOLoginData::hasBiddedOnHouse(uint32_t guid)
 {
 	Database& db = Database::getInstance();
 
 	std::ostringstream query;
-	query << "SELECT `id` FROM `houses` WHERE `highest_bidder` = " << guid << " LIMIT 1";
+	query << "SELECT `id` FROM `houses` WHERE `world_id` = "<< g_gameserver.getWorldId() <<" AND `highest_bidder` = " << guid << " LIMIT 1";
 	return db.storeQuery(query.str()).get() != nullptr;
 }
 

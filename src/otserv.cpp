@@ -37,6 +37,8 @@
 #include "scheduler.h"
 #include "databasetasks.h"
 #include "script.h"
+#include "gameserverconfig.h"
+
 // TODO: #include "stdarg.h"
 
 DatabaseTasks g_databaseTasks;
@@ -47,6 +49,7 @@ Game g_game;
 ConfigManager g_config;
 Monsters g_monsters;
 Vocations g_vocations;
+GameserverConfig g_gameserver;
 extern Scripts* g_scripts;
 RSA g_RSA;
 
@@ -149,6 +152,19 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 		startupErrorMessage("Unable to load Config File!");
 		return;
 	}
+	
+	#ifdef MULTIWORLD_SYSTEM
+		std::cout << ">> Loading multiworld config..." << std::endl;
+		if (!g_gameserver.load()) {
+			startupErrorMessage("Unable to load gameservers!");
+			return;
+		}
+		
+		std::vector<GameServer> Gameservers = g_gameserver.getGameservers();
+		for (GameServer server : Gameservers) {
+			std::cout << ">>>> World "<< server.name<<" (ID "<< server.worldid<<") - Loaded successfully." << std::endl;
+		}
+	#endif
 
 #ifdef _WIN32
 	const std::string& defaultPriority = g_config.getString(ConfigManager::DEFAULT_PRIORITY);

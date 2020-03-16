@@ -20,6 +20,7 @@ We use the [issue tracker on GitHub](https://github.com/opentibiabr/OTServBR-Glo
 - [fear lucien](https://github.com/FearLucien)
 - [cjaker](https://github.com/Eternal-Scripts)
 - [slavidodo](https://github.com/slavidodo)
+- [aurelion for multiworld system](https://github.com/aurelion5670)
 - [mignari and our awesome tools](https://github.com/ottools)
 - [mattyx14/otxserver](https://github.com/mattyx14/otxserver) and contributors.
 - [otland/forgottenserver](https://github.com/otland/forgottenserver) and contributors.

@@ -31,9 +31,15 @@
 #include "iologindata.h"
 #include "ban.h"
 #include "game.h"
+#ifdef MULTIWORLD_SYSTEM
+	#include "gameserverconfig.h"
+#endif
 
 extern ConfigManager g_config;
 extern Game g_game;
+#ifdef MULTIWORLD_SYSTEM
+	extern GameserverConfig g_gameserver;
+#endif
 
 void ProtocolLogin::disconnectClient(const std::string& message, uint16_t version)
 {
@@ -74,26 +80,49 @@ void ProtocolLogin::getCharacterList(const std::string& accountName, const std::
 	output->addByte(0x28);
 	output->addString(accountName + "\n" + password);
 
-	//Add char list
-	output->addByte(0x64);
+	#ifdef MULTIWORLD_SYSTEM
+		std::vector<GameServer> Gameservers = g_gameserver.getGameservers();
+		
+		//Add char list
+		output->addByte(0x64);
+		output->addByte(Gameservers.size());
+		
+		for (GameServer server : Gameservers) {
+			output->addByte(server.worldid);
+			output->addString(server.name);
+			output->addString(server.ip);
+			output->add<uint16_t>(server.port);
+			output->addByte(0); // Preview State
+		}
+		
+		uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), account.characters.size());
+		output->addByte(size);
+		for (uint8_t i = 0; i < size; i++) {
+			output->addByte(account.characters[i].worldid);
+			output->addString(account.characters[i].name);
+		}
+	#else
+		//Add char list
+		output->addByte(0x64);
 
-	output->addByte(1); // number of worlds
+		output->addByte(1); // number of worlds
 
-	output->addByte(0); // world id
-	output->addString(g_config.getString(ConfigManager::SERVER_NAME));
-	output->addString(g_config.getString(ConfigManager::IP));
+		output->addByte(0); // world id
+		output->addString(g_config.getString(ConfigManager::SERVER_NAME));
+		output->addString(g_config.getString(ConfigManager::IP));
 
-	output->add<uint16_t>(g_config.getShortNumber(ConfigManager::GAME_PORT));
+		output->add<uint16_t>(g_config.getShortNumber(ConfigManager::GAME_PORT));
 
-	output->addByte(0);
-	//
-	uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), account.characters.size());
-	output->addByte(size);
-	for (uint8_t i = 0; i < size; i++) {
 		output->addByte(0);
-		output->addString(account.characters[i]);
-	}
-
+		//
+		uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), account.characters.size());
+		output->addByte(size);
+		for (uint8_t i = 0; i < size; i++) {
+			output->addByte(0);
+			output->addString(account.characters[i]);
+		}
+	#endif
+	
 	//Add premium days
 	output->addByte(0);
 	if (g_config.getBoolean(ConfigManager::FREE_PREMIUM)) {
