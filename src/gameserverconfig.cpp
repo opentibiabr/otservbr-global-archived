@@ -1,3 +1,5 @@
+// Original idea and template by Milice, continued and completed by Aurelion5670
+
 #include "otpch.h"
 #include "tools.h"
 #include "gameserverconfig.h"

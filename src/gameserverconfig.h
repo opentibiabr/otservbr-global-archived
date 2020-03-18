@@ -1,3 +1,5 @@
+// Original idea and template by Milice, continued and completed by Aurelion5670
+
 #ifndef FS_GAMESERVERCONFIG_H_894F156B2E12DD15618EFFB512180EA0
 #define FS_GAMESERVERCONFIG_H_894F156B2E12DD15618EFFB512180EA0
 	struct GameServer {

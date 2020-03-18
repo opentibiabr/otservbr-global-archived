@@ -128,6 +128,7 @@ function onLogin(player)
 		else
 		displayRate = 1
 	end
+	
 	local staminaMinutes = player:getStamina()
 	local storeBoost = player:getExpBoostStamina()
 	player:setStoreXpBoost(storeBoost > 0 and 50 or 0)
