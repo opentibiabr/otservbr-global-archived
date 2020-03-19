@@ -4889,6 +4889,9 @@ void Game::checkImbuements()
 			player->postRemoveNotification(item, player, index);
 			ReleaseItem(item);
 			it = imbuedItems[bucket].erase(it);
+			for (uint8_t slot = 0; slot < slots; slot++) {
+				item->setImbuement(slot, 0);
+			}
 		}
 
 		for (uint8_t slot = 0; slot < slots; slot++) {
@@ -4899,7 +4902,7 @@ void Game::checkImbuements()
 
 			int32_t id = info & 0xFF;
 			int64_t newinfo = (duration << 8) | id;
-			item->setImbuement(slot,newinfo);
+			item->setImbuement(slot, newinfo);
 		}
 
 		if (needUpdate) {
