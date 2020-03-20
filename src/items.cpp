@@ -572,6 +572,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 				it.quickLootCategory = LOOT_CONTAINER;
 			} else if (tmpStrValue == "creatureproduct") {
 				it.quickLootCategory = LOOT_CREATURE_PRODUCT;
+			} else if (tmpStrValue == "decoration") {
+				it.quickLootCategory = LOOT_DECORATION;
 			} else if (tmpStrValue == "food") {
 				it.quickLootCategory = LOOT_FOOD;
 			} else if (tmpStrValue == "helmet") {

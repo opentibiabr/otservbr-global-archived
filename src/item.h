@@ -813,7 +813,7 @@ class Item : virtual public Thing
 		// Returns the player that is holding this item in his inventory
 		Player* getHoldingPlayer() const;
 
-		quickLootCategory_t getLootCategory() const {
+		QuickLootCategory_t getLootCategory() const {
 			return items[id].quickLootCategory;
 		}
 		WeaponType_t getWeaponType() const {

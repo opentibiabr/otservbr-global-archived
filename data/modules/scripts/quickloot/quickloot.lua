@@ -44,25 +44,9 @@ local QuickLootCategory = {
 	StashRetrieve = 27,
 }
 
-local QuickLootContainer = {
-	Items = {
-		[ITEM_GOLD_COIN] = QuickLootCategory.Gold,
-		[ITEM_PLATINUM_COIN] = QuickLootCategory.Gold,
-		[ITEM_CRYSTAL_COIN] = QuickLootCategory.Gold,
-	},
-	Weapons = {
-		[WEAPON_AMMO] = QuickLootCategory.WeaponsAmmo,
-		[WEAPON_AXE] = QuickLootCategory.WeaponsAxe,
-		[WEAPON_CLUB] = QuickLootCategory.WeaponsClubs,
-		[WEAPON_DISTANCE] = QuickLootCategory.WeaponsDistance,
-		[WEAPON_SWORD] = QuickLootCategory.WeaponsSwords,
-		[WEAPON_SHIELD] = QuickLootCategory.Shields,
-		[WEAPON_WAND] = QuickLootCategory.WeaponsWands,
-	}
-}
-
 function onRecvbyte(player, msg, byte)
 	setupDatabase()
+	print(byte)
 	if byte == ClientPackets.ManageItemList then -- adiciona ou remove items da lista de loot
 		local lootMode = msg:getByte() -- 0 skipped / 1 accepted loot
 		local itemCount = msg:getU16() -- tamanho do array de items
@@ -77,92 +61,36 @@ function onRecvbyte(player, msg, byte)
 		-- player:setQuickLootItems(itemList)
 	elseif byte == ClientPackets.LootCorpse then
 		local position = msg:getPosition()
-		local corpseId = msg:getU16()
+		local itemId = msg:getU16()
 		local stackPos = msg:getByte()
 
-		local corpseTile = Tile(position)
-		if not corpseTile then
-			return
-		end
-
-		local corpse = corpseTile:getThing(stackPos)
-
-		-- double check
-		if corpse then
-			local lootContainer = Container(corpse.uid)
-			local containers = player:getQuickLootBackpacks()
-
-			for i = 0, lootContainer:getSize() do
-				local item = lootContainer:getItem(i)
+		local quickLootBackpacks = player:getQuickLootBackpacks()
+		if position.x == CONTAINER_POSITION then
+			local container = player:getContainerById(position.y - 64)
+			if container then
+				local item = container:getItem(position.z)
 				if item then
-					local found = false
-					local itemType = ItemType(item.itemid)
-
-					-- check if is rune
-					if not found and itemType:isRune() then
-						local container = containers[QuickLootCategory.Runes]
-						if container then
-							local backpack = getContainerByQuickLootCategory(player, QuickLootCategory.Runes, container.sid)
-							if backpack then
-								item:moveTo(backpack)
-								found = true
-							end
-						end
-					end
-
-					-- if is fluid container (potion)
-					if not found and itemType:isFluidContainer() then
-						local container = containers[QuickLootCategory.Potions]
-						if container then
-							local backpack = getContainerByQuickLootCategory(player, QuickLootCategory.Potions, container.sid)
-							if backpack then
-								item:moveTo(backpack)
-								found = true
-							end
-						end
-					end
-
-					-- check if is item
-					if not found then
-						for itemId, categoryId in pairs(QuickLootContainer.Items) do
-							if not found then
-								if item.itemid == itemId then
-									local container = containers[categoryId]
-									if container then
-										local backpack = getContainerByQuickLootCategory(player, categoryId, container.sid)
-										if backpack then
-											item:moveTo(backpack)
-											found = true
-										end
-									end
-								end
-							end
-						end
-					end
-
-					-- check if is weapon
-					if not found then
-						for weaponType, categoryId in pairs(QuickLootContainer.Weapons) do
-							if not found then
-								if itemType:getWeaponType() == weaponType then
-									local container = containers[categoryId]
-									if container then
-										local backpack = getContainerByQuickLootCategory(player, categoryId, container.sid)
-										if backpack then
-											item:moveTo(backpack)
-											found = true
-										end
-									end
-								end
-							end
-						end
-					end
-
+					lootItem(player, quickLootBackpacks, item)
+					return
 				end
 			end
 		end
-		-- what to do?
-		
+
+		local itemTile = Tile(position)
+		if not itemTile then
+			return
+		end
+
+		local thing = itemTile:getThing(stackPos)
+		if thing then
+			if thing:isContainer() then
+				-- print("looting as container")
+				lootContainer(player, quickLootBackpacks, thing)
+			elseif thing:isItem() then
+				-- print("looting as item")
+				lootItem(player, quickLootBackpacks, thing)
+			end
+		end
 	elseif byte == ClientPackets.SelectBackpack then
 		local action = msg:getByte() -- 0 add bp | 1 remove bp | 2 - ? | 3 - use main container as fallback
 		if action == 0 then
@@ -189,6 +117,48 @@ function onRecvbyte(player, msg, byte)
 		end
 		
 	end
+end
+
+function lootContainer(player, backpacks, containerItem)
+	--print("looting container " .. containerItem.itemid)
+	local container = Container(containerItem.uid)
+	for i = 0, container:getSize() do
+		local item = container:getItem(i)
+		if item then
+			if item:isContainer() then
+				lootContainer(player, backpacks, item)
+			elseif item:isItem() then
+				if lootItem(player, backpacks, item) then
+					lootContainer(player, backpacks, container)
+					break
+				end
+			end
+		end
+	end
+end
+
+function lootItem(player, backpacks, item)
+	--print("looting item " .. item.itemid)
+	local itemType = ItemType(item.itemid)
+	if not itemType or not itemType:getLootCategory() then
+		--print("item without lootCategory: " .. item.itemid)
+		return false
+	end
+
+	local definedBackpack = backpacks[itemType:getLootCategory()]
+	if not definedBackpack then
+		--print("container not defined for category " .. itemType:getLootCategory())
+		return false
+	end
+
+	local destination = getContainerByQuickLootCategory(player, itemType:getLootCategory(), definedBackpack.sid)
+	if not destination then
+		--print("cannot find container backpack with sid " .. definedBackpack.sid)
+		return false
+	end
+
+	item:moveTo(destination)
+	return true
 end
 
 function getContainerBySlot(player, containerSlot, containerIndex)
@@ -310,6 +280,7 @@ function Player.setQuickLootBackpack(self, categoryId, containerSlot, containerP
 		return
 	end
 
+	-- check if already exists
 	local query = db.storeQuery("SELECT COUNT(category_id) as c FROM `quickloot_containers` WHERE player_id = " .. playerId .. " AND `category_id` = " .. categoryId)
 	local count = result.getNumber(query, "c")
 	result.free(query)
@@ -319,12 +290,14 @@ function Player.setQuickLootBackpack(self, categoryId, containerSlot, containerP
 		return
 	end
 	
+	-- if exists another value, remove custom attribute
 	local oldServerId = container.itemid
 	local oldContainer = getContainerByQuickLootCategory(self, categoryId, oldServerId)
 	if oldContainer then
 		oldContainer:removeCustomAttribute(QUICKLOOT_CATEGORY_ATTRIBUTE .. categoryId)
 	end
 
+	-- and add custom attribute to new container
 	local serverId = container.itemid
 	if container:getCustomAttribute(QUICKLOOT_CATEGORY_ATTRIBUTE .. categoryId) ~= 1 then
 		container:setCustomAttribute(QUICKLOOT_CATEGORY_ATTRIBUTE .. categoryId, 1)
