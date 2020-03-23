@@ -270,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `creationdata` int(11) NOT NULL,
   `motd` varchar(255) NOT NULL DEFAULT '',
   `residence` int(11) NOT NULL DEFAULT '0',
-  `description` text NOT NULL DEFAULT '',
+  `description` VARCHAR(2000) NOT NULL DEFAULT '',
   `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
   CONSTRAINT `guilds_name_unique` UNIQUE (`name`),
