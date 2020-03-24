@@ -508,7 +508,6 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" showInDescription="0" />
 	</rune>
-	<rune group="attack" spellid="86" name="Magic Wall" id="2293" allowfaruse="1" charges="3" lvl="32" maglv="9" exhaustion="2000" groupcooldown="2000" blocktype="all" script="support/magic wall rune.lua" />
 	<rune group="attack" spellid="116" name="Light Stone Shower" id="23722" allowfaruse="1" charges="4" lvl="1" maglv="0" cooldown="2000" groupcooldown="2000" script="attack/light stone shower.lua" />
 	<rune group="attack" spellid="7" name="Lightest Missile" id="23723" allowfaruse="1" charges="10" lvl="1" cooldown="2000" groupcooldown="2000" maglv="0" needtarget="1" blocktype="solid" script="attack/lightest missile.lua" >
 		<vocation name="Sorcerer" />
@@ -535,10 +534,6 @@
 	<rune group="support" spellid="78" name="Desintegrate" id="2310" allowfaruse="0" charges="3" lvl="21" maglv="4" exhaustion="2000" groupcooldown="2000" range="1" script="support/desintegrate rune.lua" />
 	<rune group="support" spellid="30" name="Destroy Field" id="2261" allowfaruse="1" charges="3" lvl="17" maglv="3" exhaustion="2000" groupcooldown="2000" aggressive="0" range="5" script="support/destroy field rune.lua" />
 	<rune group="support" spellid="14" name="Chameleon Rune" id="2291" allowfaruse="1" charges="1" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" aggressive="0" selftarget="1" blocktype="solid" script="support/chameleon.lua" />
-	<rune group="support" spellid="94" name="Wild Growth" id="2269" allowfaruse="1" charges="2" lvl="27" maglv="8" exhaustion="2000" groupcooldown="2000" blocktype="all" script="support/wild growth rune.lua">
-		<vocation name="Druid" />
-		<vocation name="Elder Druid" showInDescription="0" />
-	</rune>
 	<rune group="support" spellid="54" name="Paralyze" id="2278" allowfaruse="1" charges="1" lvl="54" maglv="18" exhaustion="2000" groupcooldown="2000" mana="1400" needtarget="1" blocktype="solid" script="support/paralyze rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" showInDescription="0" />
