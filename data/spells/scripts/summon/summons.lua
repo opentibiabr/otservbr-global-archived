@@ -12,7 +12,7 @@ setCombatParam(combat, COMBAT_PARAM_EFFECT, CONST_ME_BLOCKHIT)
 local area = createCombatArea(AREA_CIRCLE1X1)
 setCombatArea(combat, area)
 
-function onCastSpell(cid, var)
+function onCastSpell(creature, variant)
 	local player = Player(cid)
 	if not player then return false end
 
@@ -38,7 +38,7 @@ function onCastSpell(cid, var)
 
     local mySummon = Game.createMonster(summonName, player:getPosition(), true, false, creature)
     if not mySummon then
-        return combat:execute(player, var)
+        return combat:execute(player, variant)
     end
 
     player:addSummon(mySummon)
@@ -50,5 +50,5 @@ function onCastSpell(cid, var)
     player:setStorageValue(Storage.PetSummon, os.time() + 15*60) -- 15 minutes from now
     player:say("My Power your Power", TALKTYPE_MONSTER_SAY)
     addEvent(removePet, 15*60*1000, mySummon:getId()) --I think this isn't necessary
-    return combat:execute(player, var)
+    return combat:execute(player, variant)
 end
