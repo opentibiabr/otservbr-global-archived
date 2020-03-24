@@ -36,7 +36,7 @@ function onCastSpell(cid, var)
 
     if not summonName then return false end
 
-    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)
+    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false, creature)
     if not mySummon then
         return combat:execute(player, var)
     end
