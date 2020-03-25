@@ -502,10 +502,8 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileF
 			}
 
 			if (monster->isSummon()) {
-				for (int i = ITEM_WALKABLE_SEA_START; i < ITEM_WALKABLE_SEA_END; i++) {
-					if (ground->getID() == i) {
-						return RETURNVALUE_NOTPOSSIBLE;
-					}
+				if (ground->getID() >= ITEM_WALKABLE_SEA_START && ground->getID() <= ITEM_WALKABLE_SEA_END) { 
+					return RETURNVALUE_NOTPOSSIBLE;
 				}
 			}
 
