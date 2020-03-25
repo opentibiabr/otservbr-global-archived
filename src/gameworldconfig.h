@@ -1,8 +1,8 @@
 // Original idea and template by Milice, continued and completed by Aurelion5670
 
-#ifndef FS_GAMESERVERCONFIG_H_894F156B2E12DD15618EFFB512180EA0
-#define FS_GAMESERVERCONFIG_H_894F156B2E12DD15618EFFB512180EA0
-	struct GameServer {
+#ifndef FS_GAMEWORLDCONFIG_H_8675309REMEMBER0MILICE0COVID2019
+#define FS_GAMEWORLDCONFIG_H_8675309REMEMBER0MILICE0COVID2019
+	struct GameWorld {
 		std::string name;
 		std::string ip;
 
@@ -10,10 +10,10 @@
 		uint16_t port;
 	};
 
-	class GameserverConfig
+	class GameWorldConfig
 	{
 		public:
-			GameserverConfig();
+			GameWorldConfig();
 
 			bool load();
 			bool reload();
@@ -23,13 +23,13 @@
 			uint16_t getWorldId();
 			void setWorldId(uint16_t id);
 
-			std::vector<GameServer> getGameservers() { return gameservers; }
+			std::vector<GameWorld> getGameworlds() { return gameworlds; }
 
 		private:
-			std::vector<GameServer> gameservers;
-			std::map<uint16_t, const char*> serverIp;
-			std::map<uint16_t, std::string> serverName;
-			std::map<uint16_t, uint16_t> serverPort;
+			std::vector<GameWorld> gameworlds;
+			std::map<uint16_t, const char*> worldIp;
+			std::map<uint16_t, std::string> worldName;
+			std::map<uint16_t, uint16_t> worldPort;
 			uint16_t worldId;
 			bool loaded;
 	};

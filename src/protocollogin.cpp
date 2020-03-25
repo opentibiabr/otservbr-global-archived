@@ -32,13 +32,13 @@
 #include "ban.h"
 #include "game.h"
 #ifdef MULTIWORLD_SYSTEM
-	#include "gameserverconfig.h"
+	#include "gameworldconfig.h"
 #endif
 
 extern ConfigManager g_config;
 extern Game g_game;
 #ifdef MULTIWORLD_SYSTEM
-	extern GameserverConfig g_gameserver;
+	extern GameWorldConfig g_gameworld;
 #endif
 
 void ProtocolLogin::disconnectClient(const std::string& message, uint16_t version)
@@ -81,17 +81,17 @@ void ProtocolLogin::getCharacterList(const std::string& accountName, const std::
 	output->addString(accountName + "\n" + password);
 
 	#ifdef MULTIWORLD_SYSTEM
-		std::vector<GameServer> Gameservers = g_gameserver.getGameservers();
+		std::vector<GameWorld> Gameworlds = g_gameworld.getGameworlds();
 		
 		//Add char list
 		output->addByte(0x64);
-		output->addByte(Gameservers.size());
-		
-		for (GameServer server : Gameservers) {
-			output->addByte(server.worldid);
-			output->addString(server.name);
-			output->addString(server.ip);
-			output->add<uint16_t>(server.port);
+		output->addByte(Gameworlds.size());
+
+		for (GameWorld world : Gameworlds) {
+			output->addByte(world.worldid);
+			output->addString(world.name);
+			output->addString(world.ip);
+			output->add<uint16_t>(world.port);
 			output->addByte(0); // Preview State
 		}
 		

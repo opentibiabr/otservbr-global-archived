@@ -37,7 +37,7 @@
 #include "scheduler.h"
 #include "databasetasks.h"
 #include "script.h"
-#include "gameserverconfig.h"
+#include "gameworldconfig.h"
 
 // TODO: #include "stdarg.h"
 
@@ -49,7 +49,7 @@ Game g_game;
 ConfigManager g_config;
 Monsters g_monsters;
 Vocations g_vocations;
-GameserverConfig g_gameserver;
+GameWorldConfig g_gameworld;
 extern Scripts* g_scripts;
 RSA g_RSA;
 
@@ -155,14 +155,14 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 	
 	#ifdef MULTIWORLD_SYSTEM
 		std::cout << ">> Loading multiworld config..." << std::endl;
-		if (!g_gameserver.load()) {
-			startupErrorMessage("Unable to load gameservers!");
+		if (!g_gameworld.load()) {
+			startupErrorMessage("Unable to load gameworlds!");
 			return;
 		}
 		
-		std::vector<GameServer> Gameservers = g_gameserver.getGameservers();
-		for (GameServer server : Gameservers) {
-			std::cout << ">>>> World "<< server.name <<" (ID "<< server.worldid <<") - Loaded successfully." << std::endl;
+		std::vector<GameWorld> Gameworlds = g_gameworld.getGameworlds();
+		for (GameWorld world : Gameworlds) {
+			std::cout << ">>>> World "<< world.name <<" (ID "<< world.worldid <<") - Loaded successfully." << std::endl;
 		}
 	#endif
 

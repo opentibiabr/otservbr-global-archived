@@ -24,15 +24,15 @@
 #include "iomapserialize.h"
 #include "game.h"
 #include "bed.h"
-#include "gameserverconfig.h"
+#include "gameworldconfig.h"
 
 extern Game g_game;
-extern GameserverConfig g_gameserver;
+extern GameWorldConfig g_gameworld;
 
 void IOMapSerialize::loadHouseItems(Map* map)
 {
 	int64_t start = OTSYS_TIME();
-	uint16_t worldId = g_gameserver.getWorldId();
+	uint16_t worldId = g_gameworld.getWorldId();
 	
 	std::ostringstream selectQuery;
 	selectQuery << "SELECT `data` FROM `tile_store` WHERE `world_id` = " << worldId << "";
@@ -76,7 +76,7 @@ bool IOMapSerialize::saveHouseItems()
 {
 	int64_t start = OTSYS_TIME();
 	Database& db = Database::getInstance();
-	uint16_t worldId = g_gameserver.getWorldId();
+	uint16_t worldId = g_gameworld.getWorldId();
 	
 	std::ostringstream query;
 	std::ostringstream deleteQuery;

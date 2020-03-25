@@ -28,18 +28,18 @@
 #include "iologindata.h"
 #include "game.h"
 #include "scheduler.h"
-#include "gameserverconfig.h"
+#include "gameworldconfig.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
-extern GameserverConfig g_gameserver;
+extern GameWorldConfig g_gameworld;
 
 MarketOfferList IOMarket::getActiveOffers(MarketAction_t action, uint16_t itemId)
 {
 	MarketOfferList offerList;
 
 	std::ostringstream query;
-	query << "SELECT `id`, `amount`, `price`, `created`, `anonymous`, (SELECT `name` FROM `players` WHERE `id` = `player_id`) AS `player_name` FROM `market_offers` WHERE `sale` = " << action << " AND `world_id` = " << g_gameserver.getWorldId() << " AND `itemtype` = " << itemId;
+	query << "SELECT `id`, `amount`, `price`, `created`, `anonymous`, (SELECT `name` FROM `players` WHERE `id` = `player_id`) AS `player_name` FROM `market_offers` WHERE `sale` = " << action << " AND `world_id` = " << g_gameworld.getWorldId() << " AND `itemtype` = " << itemId;
 
 	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
 	if (!result) {
