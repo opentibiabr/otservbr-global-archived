@@ -2,7 +2,7 @@ dist: bionic
 language: cpp
 
 
-matrix:
+jobs:
   include:
   - #dist: bionic
     compiler: gcc
@@ -21,7 +21,7 @@ compiler:
   - clang
   - gcc
 env:
-  matrix:
+  jobs:
     - BUILD_TYPE=Debug LUAJIT=OFF
     - BUILD_TYPE=Debug LUAJIT=ON
     - BUILD_TYPE=Release LUAJIT=OFF
