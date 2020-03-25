@@ -17,9 +17,9 @@
 
 			bool load();
 			bool reload();
-			const char* getServerIp(uint16_t id);
-			uint16_t getServerPort(uint16_t id);
-			std::string getServerName(uint16_t id);
+			const char* getWorldIp(uint16_t id);
+			uint16_t getWorldPort(uint16_t id);
+			std::string getWorldName(uint16_t id);
 			uint16_t getWorldId();
 			void setWorldId(uint16_t id);
 

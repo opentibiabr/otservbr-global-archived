@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<servers>
-	<server id="0" name="Testserver" ip="127.0.0.1" port="7172"/>
-	<server id="1" name="Second" ip="127.0.0.1" port="7173"/>
-</servers>
+<worlds>
+	<world id="0" name="Testserver" ip="127.0.0.1" port="7172"/>
+	<world id="1" name="Second" ip="127.0.0.1" port="7173"/>
+</worlds>

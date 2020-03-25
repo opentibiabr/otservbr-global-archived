@@ -21,7 +21,7 @@ bool GameserverConfig::load()
 	
 	gameservers.clear();
 
-	for (auto catNode : doc.child("servers").children()) {
+	for (auto catNode : doc.child("worlds").children()) {
 		GameServer gs;
 		
 		// Normal handling values
@@ -44,17 +44,17 @@ bool GameserverConfig::load()
 	return true;
 }
 
-const char* GameserverConfig::getServerIp(uint16_t id)
+const char* GameserverConfig::getWorldIp(uint16_t id)
 {
 	return serverIp[id];
 }
 
-uint16_t GameserverConfig::getServerPort(uint16_t id)
+uint16_t GameserverConfig::getWorldPort(uint16_t id)
 {
 	return serverPort[id];
 }
 
-std::string GameserverConfig::getServerName(uint16_t id)
+std::string GameserverConfig::getWorldName(uint16_t id)
 {
 	return serverName[id];
 }
