@@ -559,6 +559,9 @@ Storage = {
 		Mission11 = 9951,
 		Mission12 = 9952,
 		Mission13 = 9953,
+		Mission14a = 3080,
+		Mission14b = 3081,
+		Mission14c = 3082,
 		Mission14 = 9954,
 		Mission15 = 9955,
 		Mission16 = 9956,
@@ -569,7 +572,11 @@ Storage = {
 		Mission21 = 9961,
 		Mission22 = 9962,
 		Mission23 = 9963,
-		Mission24 = 9964,
+		Mission24a = 9964,
+		Mission24b = 9877,
+		Mission24c = 9878,
+		Mission24d = 9879,
+		Mission24e = 9880,
 		Mission25 = 9965,
 		Mission26 = 9966,
 		Mission27 = 9967,
@@ -1215,6 +1222,8 @@ Storage = {
 
 		KosheiAmulet1 = 3062,
 		KosheiAmulet2 = 3064,
+		
+		Panpipe = 4055,
 
 		SilverBrooch = 9185,
 		FamilyBrooch = 2286,

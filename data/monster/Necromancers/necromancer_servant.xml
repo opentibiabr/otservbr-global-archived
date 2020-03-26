@@ -29,4 +29,8 @@
 		<element physicalPercent="-8" />
 		<element deathPercent="-7" />
 	</elements>
+	<loot>
+		<item name="incantation fragment" chance="30050"/>
+		
+	</loot>
 </monster>

@@ -186,6 +186,7 @@
 	<movevent event="StepIn" fromaid="4534" toaid="4535" script="quests/gravedigger/dormitoritp.lua" />
 	<movevent event="StepIn" fromaid="4541" toaid="4542" script="quests/gravedigger/sacrificetp.lua" />
 	<movevent event="StepIn" actionid="4536" script="quests/gravedigger/necro.lua" />
+	<movevent event="StepIn" fromuid="4680" touid="4681" script="quests/gravedigger/checktittle.lua" />
 
 	<!-- Hero of Rathleton -->
 	<movevent event="StepIn" actionid="24862" script="quests/hero of rathleton/deepTerror.lua" />

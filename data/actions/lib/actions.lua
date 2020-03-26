@@ -247,6 +247,21 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		addEvent(revertItem, 30 * 1000, toPosition, 469, 8579)
 
 	-- Gravedigger Quest
+	elseif targetActionId == 3076 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14a) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14b) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a dragon tear. This one is warm to the touch and burns in a fiery light.')
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:addItem(21401, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission14b, 1)
+	elseif targetActionId == 3077 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14b) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14c) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a dragon tear. This one shines and shimmers as if still liquid.')
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:addItem(21401, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission14c, 1)
+	elseif targetActionId == 3075 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14c) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a dragon tear. It glows in an unearthli orange light.')
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:addItem(21401, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission14, 1)
 	elseif targetActionId == 4654 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission49) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission50) < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a piece of the scroll. You pocket it quickly.')
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)

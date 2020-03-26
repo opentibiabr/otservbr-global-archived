@@ -1,6 +1,6 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local rightbrain = Tile(Position(33025, 32332, 10))
-	local leftbrain = Tile(Position(33020, 32332, 10))
+	local rightbrain = Tile(Position(33026, 32332, 10))
+	local leftbrain = Tile(Position(33019, 32332, 10))
 	if player:getStorageValue(Storage.GravediggerOfDrefia.Mission08) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission09) < 1 then
 		if leftbrain:getItemById(10576) and rightbrain:getItemById(10576) then
 			player:setStorageValue(Storage.GravediggerOfDrefia.Mission09, 1)
