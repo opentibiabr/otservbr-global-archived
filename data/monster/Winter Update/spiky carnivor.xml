@@ -36,22 +36,27 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-	    <item name="Platinum Coin" countmax="7" chance="2000" />
-		<item name="Green Glass Plate" countmax="17" chance="1000" />
-		<item name="Blue Crystal Splinter" chance="1000" />
-		<item name="Brown Crystal Splinter" chance="1000" />
-		<item name="Dark Armor" chance="1000" />
-		<item name="Guardian Shield" chance="1000" />
-		<item name="Rainbow Quartz" chance="700" />
-		<item name="Blue Robe" chance="700" />
-		<item name="Glacier Amulet" chance="700" />
-		<item name="Lightning Pendant" chance="700" />
-		<item name="Prismatic Quartz" chance="700" />
-		<item name="Talon" chance="700" />
-		<item name="Terra Amulet" chance="700" />
-		<item name="Warrior Helmet" chance="700" />
-		<item name="Shockwave Amulet" chance="450" />
-		<item name="Terra Mantle" chance="450" />
+	<!--Common-->
+	    <item name="Platinum Coin" countmax="6" chance="100000" />
+	<!--Uncommon-->
+		<item name="Green Glass Plate" countmax="17" chance="12000" />
+		<item name="Blue Crystal Splinter" chance="11500" />
+		<item name="Brown Crystal Splinter" chance="11000" />
+		<item name="Dark Armor" chance="10000" />
+		<item name="Guardian Shield" chance="9000" />
+	<!--Semi-Rare-->
+		<item name="Rainbow Quartz" chance="8500" />
+		<item name="Blue Robe" chance="8000" />
+		<item name="Glacier Amulet" chance="7500" />
+		<item name="Lightning Pendant" chance="2200" />
+		<item name="Prismatic Quartz" chance="6500" />
+		<item name="Talon" chance="6000" />
+		<item name="Terra Amulet" chance="5500" />
+		<item name="Warrior Helmet" chance="4000" />
+	<!--Rare-->
+		<item name="Shockwave Amulet" chance="2550" />
+		<item name="Terra Mantle" chance="4050" />
+	<!--Very Rare-->
 		<item name="Buckle" chance="250" />
 		<item name="Doublet" chance="250" />
 	</loot>

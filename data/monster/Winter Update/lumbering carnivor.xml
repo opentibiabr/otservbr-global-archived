@@ -35,20 +35,25 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="platinum coin" countmax="3" chance="100000"/>
+	<!--Common-->
+		<item name="platinum coin" countmax="5" chance="100000"/>
 		<item name="Blue Glass Plate" countmax="3" chance="100000"/>
+	<!--Uncommon-->
 		<item id="2376" chance="15000"/> <!--sword-->
-		<item name="Axe" chance="11550"/>
-		<item name="Ice Rapier" chance="13550"/>
-		<item id="7632" chance="25100"/> <!--Giant Shimmering Pearlz-->
-		<item name="Violet Gem" chance="25000"/>
-		<item name="Green Gem" chance="12800"/>
-		<item name="Blue Gem" chance="12000"/>
-		<item name="Two Handed Sword" chance="30000"/>
-		<item name="Blue Robe" chance="13050"/>
-		<item name="Glorious Axe" chance="12800"/>
-		<item name="Green Crystal Shard" chance="12000"/>
-		<item name="Fur Armor" chance="25000"/>
-		<item name="Focus Cape" chance="800"/>
+		<item name="Axe" chance="14000"/>
+		<item name="Ice Rapier" chance="12000"/>
+	<!--Semi-Rare-->
+		<item name="Glorious Axe" chance="6100"/>
+		<item name="Blue Robe" chance="4600"/>
+		<item name="Two Handed Sword" chance="13000"/>
+		<item name="Fur Armor" chance="5400"/>
+		<item id="7632" chance="3200"/> <!--Giant Shimmering Pearlz-->
+		<item name="Green Crystal Shard" chance="3100"/>
+		<item name="Violet Gem" chance="4000"/>
+		<item name="Green Gem" chance="4800"/>
+		<item name="Blue Gem" chance="4000"/>
+	<!--Rare-->
+	<!--Very Rare-->
+		<item name="Focus Cape" chance="3000"/>
 	</loot>
 </monster>
