@@ -5,13 +5,15 @@ dofile('data/modules/scripts/bestiary/assets.lua')
 Bestiary.S_Packets = {
     SendBestiaryData = 0xd5,
     SendBestiaryOverview = 0xd6,
-    SendBestiaryMonsterData = 0xd7
+    SendBestiaryMonsterData = 0xd7,
+	SendBestiaryCharmsData = 0xd8
 }
 
 Bestiary.C_Packets = {
     RequestBestiaryData = 0xe1,
     RequestBestiaryOverview = 0xe2,
-    RequestBestiaryMonsterData = 0xe3
+    RequestBestiaryMonsterData = 0xe3,
+	RequestBestiaryCharmUnlock = 0xe4
 }
 
 Bestiary.findRaceByName = function(race)
@@ -72,9 +74,44 @@ Bestiary.sendRaces = function(playerId, msg)
     for k, race in ipairs(Bestiary.Races) do
         msg:addString(race.name)
         msg:addU16(#race.monsters)
-        msg:addU16(math.random(15)) -- current
+        msg:addU16(math.random(#race.monsters)) -- TODO current
     end
     msg:sendToPlayer(player)
+end
+
+Bestiary.sendCharms = function(playerId, msg)
+    local player = Player(playerId)
+    if not player then
+        return true
+    end
+    local msg = NetworkMessage()
+    msg:addByte(Bestiary.S_Packets.SendBestiaryCharmsData)
+	msg:addU32(50000) --Total charm points TODO
+    msg:addByte(#Bestiary.Charms)
+    for k, charm in ipairs(Bestiary.Charms) do
+		msg:addByte(k) -- id
+        msg:addString(charm.name) --name
+        msg:addString(charm.description) --description
+        msg:addByte(0) --unknown (unlocked?) 0 ok | 1-2 não faz nada | 3+ não testado
+		msg:addU16(charm.points) --charm points needed charm.points
+        msg:addByte(0) --selecionado o monsto, da pra resetar? 0 : custo em charms | 1 : custo em gp | 2+ não testado
+        msg:addByte(0) --unknown (unlocked?) 0 ok | 1 crasha | 2+ não testado
+    end
+	msg:addByte(16)
+	msg:addU16(0)
+    msg:sendToPlayer(player)
+end
+
+Bestiary.sendBuyCharmRune = function (playerId, msg)
+    local player = Player(playerId)
+    if not player then
+        return true
+    end
+
+    local runeID = msg:getByte()
+    
+    print("> [Bestiary]: Trying to buy rune: "..runeID)
+    return true
 end
 
 Bestiary.sendMonsterData = function(playerId, msg)
@@ -103,10 +140,10 @@ Bestiary.sendMonsterData = function(playerId, msg)
     end
 
     -- TODO
-    local firstMaxKill = 10
-    local secondMaxKill = 30
-    local thirdMaxKill = 60
-    local killCounter = 35
+    local firstMaxKill =  bestiaryMonster.FirstUnlock
+    local secondMaxKill =  bestiaryMonster.SecondUnlock
+    local thirdMaxKill = bestiaryMonster.toKill
+    local killCounter = 350
 
     local msg = NetworkMessage()
     msg:addByte(Bestiary.S_Packets.SendBestiaryMonsterData)
@@ -120,18 +157,17 @@ Bestiary.sendMonsterData = function(playerId, msg)
         currentLevel = 2
     elseif killCounter < thirdMaxKill then
         currentLevel = 3
-    elseif killCounter > thirdMaxKill then
+    else
         currentLevel = 4
     end
 
-    currentLevel = 4
     msg:addByte(currentLevel) 
     
     -- TODO: counter
     msg:addU32(killCounter) -- kill count
-    msg:addU16(15) -- max kill first phase
-    msg:addU16(30)  -- max kill second phase
-    msg:addU16(60)  -- max kill third phase
+    msg:addU16(firstMaxKill) -- max kill first phase
+    msg:addU16(secondMaxKill)  -- max kill second phase
+    msg:addU16(thirdMaxKill)  -- max kill third phase
 
     msg:addByte(bestiaryMonster.Stars)  -- Difficult
     msg:addByte(1) -- TODO: occourrence
@@ -261,9 +297,23 @@ end
 function onRecvbyte(player, msg, byte)
     if (byte == Bestiary.C_Packets.RequestBestiaryData) then
         Bestiary.sendRaces(player:getId())
+        Bestiary.sendCharms(player:getId())
     elseif (byte == Bestiary.C_Packets.RequestBestiaryOverview) then
         Bestiary.sendCreatures(player:getId(), msg)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryMonsterData) then
         Bestiary.sendMonsterData(player:getId(), msg)
+    elseif (byte == Bestiary.C_Packets.RequestBestiaryCharmUnlock) then
+        Bestiary.sendBuyCharmRune(player:getId(), msg)
+		--TestarBytes(player,msg)
     end
+end
+
+
+
+function TestarBytes(player, msg)
+	print("Bytes Test Start")
+	for i= 1, 16 do
+		print(i.." "..msg:getByte())
+	end
+	print("Bytes Test End")
 end
