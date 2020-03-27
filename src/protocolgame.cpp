@@ -1376,13 +1376,6 @@ void ProtocolGame::sendCreatureType(const Creature* creature, uint8_t creatureTy
 		msg.addByte(creatureType); // type or any byte idk
 	}
 
-	if (creatureType == CREATURETYPE_SUMMONPLAYER && player->getProtocolVersion() >= 1120) {
-		const Creature* master = creature->getMaster();
-		if (master) {
-			msg.add<uint32_t>(master->getID());
-		}
-	}
-
 	writeToOutputBuffer(msg);
 }
 
@@ -3405,16 +3398,6 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.add<uint32_t>(remove);
 		msg.add<uint32_t>(creature->getID());
 		msg.addByte(creatureType);
-
-		if (player->getProtocolVersion() >= 1120) {
-			if (creatureType == CREATURETYPE_SUMMONPLAYER) {
-				const Creature* master = creature->getMaster();
-				if (master) {
-					msg.add<uint32_t>(master->getID());
-				}
-			}
-		}
-
 		msg.addString(creature->getName());
 	}
 
@@ -3446,28 +3429,24 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.addByte(player->getGuildEmblem(otherPlayer));
 	}
 
-	if (player->getProtocolVersion() >= 1120) {
-		if (creatureType == CREATURETYPE_MONSTER) {
-			const Creature* master = creature->getMaster();
-			if (master) {
-				const Player* masterPlayer = master->getPlayer();
-				if (masterPlayer) {
-					creatureType = CREATURETYPE_SUMMONPLAYER;
+	if (creatureType == CREATURETYPE_MONSTER) {
+		const Creature* master = creature->getMaster();
+
+		if (master) {
+			const Player* masterPlayer = master->getPlayer();
+			if (masterPlayer) {
+				if (masterPlayer == player) {
+					creatureType = CREATURETYPE_SUMMON_OWN;
+
+				}
+				else {
+					creatureType = CREATURETYPE_SUMMON_OTHERS;
 				}
 			}
 		}
 	}
 
 	msg.addByte(creatureType); // Type (for summons)
-
-	if (player->getProtocolVersion() >= 1120) {
-		if (creatureType == CREATURETYPE_SUMMONPLAYER) {
-			const Creature* master = creature->getMaster();
-			if (master) {
-				msg.add<uint32_t>(master->getID());
-			}
-		}
-	}
 
 	msg.addByte(creature->getSpeechBubble());
 	msg.addByte(0xFF); // MARK_UNMARKED
