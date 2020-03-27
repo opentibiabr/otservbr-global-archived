@@ -12,8 +12,7 @@ setCombatParam(combat, COMBAT_PARAM_EFFECT, CONST_ME_BLOCKHIT)
 local area = createCombatArea(AREA_CIRCLE1X1)
 setCombatArea(combat, area)
 
-function onCastSpell(creature, variant)
-	local player = Player(cid)
+function onCastSpell(player, variant)
 	if not player then return false end
 
     if #player:getSummons() >= 1 then
