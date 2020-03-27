@@ -51,6 +51,24 @@ function onThink(cid, interval, item, position, lastPosition, fromPosition, toPo
 	return true
 end
 
+function onThink(interval, position, lastPosition, fromPosition, toPosition)
+
+  for _, player in ipairs(Game.getPlayers()) do
+    local player_position = player:getPosition()
+    if not player_position:getTile():hasFlag(TILESTATE_FLOORCHANGE) then
+      local summons = player:getSummons()
+      if #summons > 0 then
+        for i = 1, #summons do
+          if summons[i]:getPosition().z ~= player_position.z then
+            summons[i]:teleportTo(player_position)
+          end
+        end
+      end
+    end
+  end
+  return true
+end
+
 function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local player = creature:getMaster()
 	if not player then
