@@ -419,9 +419,13 @@
 	<item fromid="1278" toid="1279" article="a" name="sail" />
 	<item fromid="1280" toid="1283" article="a" name="rudder of the boat" />
 	<item id="1284" article="a" name="drawbridge" />
-	<item fromid="1285" toid="1292" article="a" name="stone" />
+	<item fromid="1285" toid="1289" article="a" name="stone" />
 	<item id="1293" article="a" name="stone">
 		<attribute key="weight" value="1500" />
+	</item>
+	<item fromid="1291" toid="1292" article="a" name="stone" />
+	<item id="1290" article="a" name="stone">
+		<attribute key="containerSize" value="6" />
 	</item>
 	<item id="1294" article="a" name="small stone">
 		<attribute key="weight" value="360" />
