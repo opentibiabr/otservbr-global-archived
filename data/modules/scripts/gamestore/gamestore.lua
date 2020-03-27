@@ -3714,7 +3714,7 @@ GameStore.Categories = {
 			number = 1,
 			price = 5,
 			description = "Changes either a stack of 100 gold pieces into 1 platinum coin, or a stack of 100 platinum coins into 1 crystal coin!\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it on a stack of 100 to change it to the superior currency\n- usable 500 times a piece",
-			type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
 		},
 		{
 			icons = { "Gold_Pouch.png" },
