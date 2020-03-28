@@ -8,9 +8,9 @@ function removeMonster()
 			creature = getThingfromPos({x=Px, y=Py, z=7, stackpos=253})
 			if isMonster(creature.uid) then
 				if getCreatureName(creature.uid) == "Travelling Merchant" then
-					--doRemoveCreature(creature.uid)
+					doRemoveCreature(creature.uid)
 					doSendMagicEffect({x=Px, y=Py, z=7}, 45)
-					--setPlayerStorageValue(cid, 41650, -1)
+					setPlayerStorageValue(cid, 41650, -1)
 				end
 			end
 		end
@@ -31,7 +31,7 @@ function removeTrap()
 			end
 		end
     end
-    return TRUE
+    return true
 end
 
 

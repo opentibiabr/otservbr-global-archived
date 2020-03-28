@@ -553,24 +553,24 @@ bool useImbueShrine(Player* player, Item*, const Position&, Thing* target, const
 {
 	Item* item = target ? target->getItem() : nullptr;
 	if (!item) {
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "This item is not imbuable.");
+		player->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
 		return false;
 	}
 
 	const ItemType& it = Item::items[item->getID()];
 	if(it.imbuingSlots <= 0 ) {
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "This item is not imbuable.");
+		player->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
 		return false;		
 	}
 
 	if (item->getTopParent() != player) {
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to pick up the item to imbue it.");
+		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You have to pick up the item to imbue it.");
 		return false;
 	}
 	
 	if (!(toPos.y & 0x40)) {
-		player->sendImbuementWindow(target->getItem());
-		return true;
+		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You cannot imbue an equipped item.");
+		return false;
 	}
 
 	player->sendImbuementWindow(target->getItem());

@@ -114,7 +114,6 @@
 	<!-- Dreamer Challenge Quest -->
 	<action fromuid="3041" touid="3043" script="quests/dreamer challenge/lever_nightmare.lua" /> <!-- fixed and organized by worhtdavi -->
 	<action fromuid="3045" touid="3047" script="quests/dreamer challenge/lever_brotherhood.lua" /> <!-- fixed and organized by worhtdavi -->
-
 	<action fromid="7844" toid="7846" script="quests/dreamer challenge/documents.lua" />
 	<action uniqueid="2004" script="quests/dreamer challenge/stone_teleport.lua" />
 	<action uniqueid="2272" script="quests/dreamer challenge/tic_tac.lua" />
@@ -569,6 +568,7 @@
 
 	<!-- Rottin Wood and the Married Men Quest -->
 	<action itemid="13176" script="quests/rottin wood/corpse.lua"/>
+	<action itemid="13173" script="quests/rottin wood/trap.lua"/>
 	<action actionid="42501" script="quests/rottin wood/brokenWall.lua" />
 	<action actionid="42502" script="quests/rottin wood/brokenWall.lua" />
 	<action actionid="42503" script="quests/rottin wood/brokenWall.lua" />
@@ -843,7 +843,6 @@
 
 	<!-- Tools -->
 	<action itemid="13158" script="tools/present.lua" />
-	<action itemid="13173" script="quests/rottin wood/trap.lua"/>
 	<action itemid="8717" script="tools/lockPick.lua" />
 	<action itemid="8613" script="tools/bricklayerKit.lua" />
 	<action itemid="2557" script="tools/hammer.lua" />

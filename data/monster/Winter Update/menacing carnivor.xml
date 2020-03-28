@@ -46,27 +46,33 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item name="platinum coin" countmax="8" chance="100000" />
+	<!--Common-->
+		<item name="platinum coin" countmax="6" chance="100000" />
 		<item name="Morning Star" chance="100000" />
+	<!--Uncommon-->
+		<item name="Terra Rod" chance="15550" />
 		<item name="Small Ruby" chance="15000" />
-		<item name="Terra Rod" chance="11550" />
-		<item name="Crystal Sword" chance="13550" />
-		<item name="Ultimate Mana Potion" chance="14750" />
-		<item name="Violet Glass Plate" chance="12650" />
-		<item name="Small Enchanted Ruby" chance="25100" />
-		<item name="Terra Legs" chance="25000" />
-		<item name="Wand of Dragonbreath" chance="12800" />
-		<item name="Serpent Sword" chance="12000" />
+		<item name="Crystal Sword" chance="25000" />
+		<item name="Ultimate Mana Potion" chance="50000" />
+	<!--Semi-Rare-->
+		<item name="Wand of Dragonbreath" chance="15000" />
 		<item name="Machete" chance="30000" />
-		<item name="Heavy Machete" chance="13050" />
-		<item name="Iron Helmet" chance="12800" />
-		<item name="Knight Legs" chance="10050" />
-		<item name="Wand of Starstorm" chance="22000" />
-		<item name="Wand of Voodoo" chance="24600" />
-		<item name="Green Crystal Fragment" chance="21400" />
-		<item name="Onyx Chip" chance="27000" />
-		<item name="Opal" chance="28000" />
-		<item name="Tiger Eye" chance="29000" />
-		<item name="Wand of Decay" chance="1800" />
+		<item name="Iron Helmet" chance="20000" />
+		<item name="Serpent Sword" chance="18000" />
+		<item name="Heavy Machete" chance="17000" />
+		<!---->
+		<item name="Terra Legs" chance="6000" />
+		<item name="Knight Legs" chance="4500" />
+		<item name="Wand of Starstorm" chance="8000" />
+		<item name="Wand of Voodoo" chance="7100" />
+		<item name="Violet Glass Plate" chance="6200" />
+		<item name="Small Enchanted Ruby" chance="1400" />
+		<item name="Green Crystal Fragment" chance="1600" />
+		<item name="Onyx Chip" chance="9800" />
+		<item name="Opal" chance="2000" />
+		<item name="Tiger Eye" chance="3000" />
+	<!--Rare-->
+		<item name="Wand of Decay" chance="8700" />
+	<!--Very Rare-->
 	</loot>
 </monster>

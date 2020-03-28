@@ -45,19 +45,24 @@
 		<immunity earth="1"/>
 	</immunities>
 	<loot>
-        <item name="Platinum Coin" countmax="4" chance="100000"/>
+	<!--Common-->
+		<item name="platinum coin" countmax="5" chance="100000" />
 		<item name="Great Spirit Potion" countmax="2" chance="30910"/>
+	<!--Uncommon-->	
 		<item name="Two Handed Sword" chance="16500"/>
-		<item name="Terra Rod" chance="8780"/>
-		<item name="Silver Brooch" chance="5190"/>
-		<item name="Emerald Bangle" chance="4740"/>
-		<item name="Twin Hooks" chance="4570"/>
-		<item name="Springsprout Rod" chance="3510"/>
+		<item name="Terra Rod" chance="4780"/>
+		<item name="Silver Brooch" chance="15190"/>
+		<item name="Emerald Bangle" chance="14740"/>
+	<!--Semi-Rare-->	
+		<item name="Twin Hooks" chance="1170"/>
+		<item name="Springsprout Rod" chance="1210"/>
 		<item id="34721" chance="1890"/>
      	<item name="Coral Brooch" chance="1330"/>
-		<item name="Serpent Sword" chance="1150"/>
+		<item name="Serpent Sword" chance="1950"/>
+	<!--Rare-->
+		<item name="Hexagonal Ruby" chance="800" />
 		<item name="Assassin Dagger" chance="970"/>
-		<item name="Hexagonal Ruby" chance="940"/>
+	<!--Very Rare-->
 		<item name="Spike Sword" chance="530"/>
 		<item name="Wyvern Fang" chance="120"/>
 	</loot>

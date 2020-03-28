@@ -1015,6 +1015,8 @@
 	<monster name="Dwarf Miner" file="Dwarves/dwarf_miner.xml"/>
 	<monster name="Dwarf Soldier" file="Dwarves/dwarf_soldier.xml"/>
 	<monster name="Dwarf" file="Dwarves/dwarf.xml"/>
+	<monster name="Dwarf Henchman" file="Dwarves/dwarf_henchman.xml"/>
+	<monster name="Dwarf Dispenser" file="Dwarves/dwarf_dispenser.xml"/>
 	<monster name="Enslaved Dwarf" file="Dwarves/enslaved_dwarf.xml"/>
 	<monster name="Lost Basher" file="Dwarves/lost_basher.xml"/>
 	<monster name="Lost Berserker" file="Dwarves/lost_berserker.xml"/>
@@ -1318,6 +1320,7 @@
 	<monster name="Feverish Citizen" file="Outlaws/feverish_citizen.xml"/>
 	<monster name="Crypt Defiler" file="Outlaws/crypt_defiler.xml"/>
 	<monster name="Nomad Female" file="Outlaws/nomadFemale.xml"/>
+	<monster name="Travelling Merchant" file="Outlaws/travelling_merchant.xml"/>
 
 	<!-- The Percht Queens Island -->
 	<monster name="Animated Snowman" file="The Percht Queens Island/animated snowman.xml"/>

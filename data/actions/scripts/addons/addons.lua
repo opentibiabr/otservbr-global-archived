@@ -31,7 +31,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 		player:addOutfitAddon(useItem.female, useItem.addon)
 		player:addOutfitAddon(useItem.male, useItem.addon)
-		player:getPosition():sendMagicEffect(useItem.effect)
+		player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 		if player:hasOutfit(looktype, 3) then
 			player:addAchievement(useItem.achievement)
 		end
@@ -44,7 +44,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 		player:addOutfit(useItem.female)
 		player:addOutfit(useItem.male)
-		player:getPosition():sendMagicEffect(useItem.effect)
+		player:getPosition():sendMagicEffect(CONST_ME_GIFT_WRAPS)
 		item:remove()
 	end
 	return true
