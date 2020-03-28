@@ -1,5 +1,5 @@
 DailyRewardSystem = {
-	Developer = "Ticardo (Rick)",
+	Developer = "Ticardo (Rick), gpedro",
 	Version = "1.0",
 	lastUpdate = "22/02/2020 - 00:00"
 }
@@ -14,7 +14,17 @@ local ServerPackets = {
 	SendBackpack = 0xC0
 }
 
+ -- check a better storage no
+local StorageQuickLoot = {
+	ItemsToLoot = 831831,
+	LootMode = 832832,
+	MainContainerFallback = 833833,
+}
+
 local QUICKLOOT_CATEGORY_ATTRIBUTE = "quickLootCategory"
+
+local QUICKLOOT_MODE_BLACKLIST = 0
+local QUCIKLOOT_MODE_WHITELIST = 1 
 
 local QuickLootCategory = {
 	UnassignedLoot = 31,
@@ -46,24 +56,31 @@ local QuickLootCategory = {
 
 function onRecvbyte(player, msg, byte)
 	setupDatabase()
-	print(byte)
-	if byte == ClientPackets.ManageItemList then -- adiciona ou remove items da lista de loot
-		local lootMode = msg:getByte() -- 0 skipped / 1 accepted loot
-		local itemCount = msg:getU16() -- tamanho do array de items
+	if byte == ClientPackets.ManageItemList then
+		local lootMode = msg:getByte()
+		local itemCount = msg:getU16()
 		local itemList = {}
 		
 		if itemCount >= 1 then
+			local item = nil
 			for i = 1, itemCount do
-				table.insert(itemList, msg:getU16()) -- lista de items
+				item = Game.getItemIdByClientId(msg:getU16())
+				if item then
+					table.insert(itemList, item:getId())
+				end
 			end
 		end
-		
-		-- player:setQuickLootItems(itemList)
+
+		player:setQuickLootMode(lootMode)
+		player:setQuickLootItems(itemList)
+		player:sendLootBackpacks()
 	elseif byte == ClientPackets.LootCorpse then
 		local position = msg:getPosition()
 		local itemId = msg:getU16()
 		local stackPos = msg:getByte()
 
+		local lootMode = player:getQuickLootMode()
+		local lootList = player:getQuickLootItems()
 		local quickLootBackpacks = player:getQuickLootBackpacks()
 		if position.x == CONTAINER_POSITION then
 			local container = player:getContainerById(position.y - 64)
@@ -84,21 +101,19 @@ function onRecvbyte(player, msg, byte)
 		local thing = itemTile:getThing(stackPos)
 		if thing then
 			if thing:isContainer() then
-				-- print("looting as container")
-				lootContainer(player, quickLootBackpacks, thing)
-			elseif thing:isItem() then
-				-- print("looting as item")
+				lootContainer(player, quickLootBackpacks, thing, lootMode, lootList)
+			elseif thing:isItem() and canLootItem(thing.itemid, lootMode, lootList) then
 				lootItem(player, quickLootBackpacks, thing)
 			end
 		end
 	elseif byte == ClientPackets.SelectBackpack then
-		local action = msg:getByte() -- 0 add bp | 1 remove bp | 2 - ? | 3 - use main container as fallback
+		local action = msg:getByte()
 		if action == 0 then
-			local category = msg:getByte() -- category
+			local category = msg:getByte()
 			local containerType = msg:getU16()
 			local containerSlot = msg:getU16()
 			local containerPosition = msg:getByte() 
-			local containerId = msg:getU16() -- clientid
+			local containerId = msg:getU16()
 
 			player:setQuickLootBackpack(category, containerSlot, containerPosition, containerId)
 			player:sendLootBackpacks()
@@ -107,30 +122,53 @@ function onRecvbyte(player, msg, byte)
 			player:setQuickLootBackpack(category, nil)
 			player:sendLootBackpacks()
 		elseif action == 2 then
-			-- ????????
+			local category = msg:getByte() -- category
+			local quickLootBackpacks = player:getQuickLootBackpacks()
+			
+			if quickLootBackpacks[category] then
+				-- TODO: add sendContainer
+			end
+
 		elseif action == 3 then
-			-- ???????? (idk how to parse this)
-			print ("1b: " .. msg:getByte())
-			print ("2b: " .. msg:getByte())
-			print ("3b: " .. msg:getByte())
-			print ("4b: " .. msg:getByte())
+			-- this action is only called when checkbox is marked
+			-- to this works propertly we need found a way to get a trigger
+			-- when client uncheck the box
+			-- if player:getQuickLootMainContainerFallback() then
+			-- 	player:setQuickLootMainContainerFallback(1)
+			-- else
+			-- 	player:setQuickLootMainContainerFallback(0)
+			-- end
 		end
 		
 	end
 end
 
-function lootContainer(player, backpacks, containerItem)
-	--print("looting container " .. containerItem.itemid)
+function canLootItem(itemId, lootMode, lootList)
+	-- TODO: fix this, not working at all
+	if lootMode == QUICKLOOT_MODE_BLACKLIST then
+		return not table.contains(lootList, itemId)
+	end
+
+	if lootMode == QUICKLOOT_MODE_WHITELIST then
+		return table.contains(lootList, itemId)
+	end
+
+	return false
+end
+
+function lootContainer(player, backpacks, containerItem, lootMode, lootList)
 	local container = Container(containerItem.uid)
 	for i = 0, container:getSize() do
 		local item = container:getItem(i)
 		if item then
 			if item:isContainer() then
-				lootContainer(player, backpacks, item)
+				lootContainer(player, backpacks, item, lootMode, lootList)
 			elseif item:isItem() then
-				if lootItem(player, backpacks, item) then
-					lootContainer(player, backpacks, container)
-					break
+				if canLootItem(item.itemid, lootMode, lootList) then
+					if lootItem(player, backpacks, item) then
+						lootContainer(player, backpacks, container)
+						break
+					end
 				end
 			end
 		end
@@ -138,24 +176,26 @@ function lootContainer(player, backpacks, containerItem)
 end
 
 function lootItem(player, backpacks, item)
-	--print("looting item " .. item.itemid)
 	local itemType = ItemType(item.itemid)
 	if not itemType or not itemType:getLootCategory() then
-		--print("item without lootCategory: " .. item.itemid)
 		return false
 	end
 
 	local definedBackpack = backpacks[itemType:getLootCategory()]
 	if not definedBackpack then
-		--print("container not defined for category " .. itemType:getLootCategory())
 		return false
 	end
 
 	local destination = getContainerByQuickLootCategory(player, itemType:getLootCategory(), definedBackpack.sid)
 	if not destination then
-		--print("cannot find container backpack with sid " .. definedBackpack.sid)
 		return false
 	end
+
+	-- TODO: check freeSlot
+	-- TODO: if cannot have slot to move, find next container inside selected backpack
+	-- TODO: else if it's fully full
+		-- TODO: if main container fallback is enabled, move to main cotainer 
+		-- TODO: else move to unassigned loot
 
 	item:moveTo(destination)
 	return true
@@ -174,20 +214,16 @@ function getContainerBySlot(player, containerSlot, containerIndex)
 end
 
 function getContainerByQuickLootCategory(player, categoryId, serverId)
-
-	-- check if is main backpack has quick loot category
 	local mainBp = player:getSlotItem(CONST_SLOT_BACKPACK)
 	if mainBp and checkItemCategory(mainBp, categoryId) then
 		return mainBp
 	end
-	
-	-- check if has any item with serverid on player containers
+
 	local itemsCount = player:getItemCount(serverId)
 	if not itemsCount then
 		return nil
 	end
 
-	-- search item inside main backpack
 	local insideBp = checkContainerCategory(mainBp, categoryId)
 	if insideBp then
 		return insideBp
@@ -199,7 +235,6 @@ end
 function checkContainerCategory(containerItem, categoryId)
 	local container = Container(containerItem.uid)
 	if container then
-		-- check self
 		if checkItemCategory(container, categoryId) then
 			return container
 		end
@@ -207,7 +242,6 @@ function checkContainerCategory(containerItem, categoryId)
 		for i = 0, container:getSize() - 1 do
 			local item = container:getItem(i)
 
-			-- check any container inside container
 			if item:isContainer() then
 				local nestedContainer = checkContainerCategory(item, categoryId)
 				if nestedContainer then
@@ -237,7 +271,6 @@ function Player.sendLootBackpacks(self)
 			local clientId = result.getNumber(rows, "cid")
 			local serverId = result.getNumber(rows, "sid")
 			
-			-- check if has container setted with this property
 			if getContainerByQuickLootCategory(self, categoryId, serverId) then
 				count = count + 1
 				containers[categoryId] = clientId
@@ -250,7 +283,7 @@ function Player.sendLootBackpacks(self)
 	local msg = NetworkMessage()
 	
 	msg:addByte(ServerPackets.SendBackpack)
-	msg:addByte(0) -- main container as fallback (0 - empty, 1 - checked)
+	msg:addByte(self:getQuickLootMainContainerFallback() or 1)
 	msg:addByte(count)
 	
 	for categoryId, clientId in pairs(containers) do
@@ -338,22 +371,41 @@ function Player.resetQuickLootItems(self)
 	self:setQuickLootItems({})
 end
 
+function Player.getQuickLootMode(self)
+	return self:getStorageValue(StorageQuickLoot.LootMode)
+end
+
+function Player.getQuickLootMainContainerFallback(self)
+	return self:getStorageValue(StorageQuickLoot.MainContainerFallback)
+end
+
+function Player.setQuickLootMode(self, check)
+	self:setStorageValue(StorageQuickLoot.LootMode, check or 0)
+end
+
+function Player.setQuickLootMainContainerFallback(self, check)
+	self:setStorageValue(StorageQuickLoot.MainContainerFallback, check or 0)
+end
+
 function Player.setQuickLootItems(self, items)
 	if type(items) ~= "table" then
 		items = {}
-		-- warning: items wrong usage
 	end
 	
-	self:setStorageValue(Storage.QuickLoot.ItemsToLoot, table.concat(items, ","))
+	self:setStorageValue(StorageQuickLoot.ItemsToLoot, table.concat(items, ","))
 end
 
 function Player.getQuickLootItems(self)
-	local value = self:getStorageValue(Storage.QuickLoot.ItemsToLoot)
+	local value = self:getStorageValue(StorageQuickLoot.ItemsToLoot)
 	
 	if not value then
 		return {}
 	end
 	
+	if not string.find(value, ",") then
+		return {value}
+	end
+
 	return split(value, ",")
 end
 
