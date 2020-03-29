@@ -581,6 +581,9 @@ enum item_t : uint16_t {
 	ITEM_KEG_START = 28579, //kegs ids are contiguous in item.otb
 	ITEM_KEG_END = 28590,
 
+	ITEM_WALKABLE_SEA_START = 4620,
+	ITEM_WALKABLE_SEA_END = 4625,
+
 	ITEM_DOCUMENT_RO = 1968, //read-only
 };
 
