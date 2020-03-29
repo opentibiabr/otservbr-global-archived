@@ -2682,7 +2682,7 @@ void Game::playerRequestTrade(uint32_t playerId, const Position& pos, uint8_t st
 		return;
 	}
 
-	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
+	if (player->hasCondition(CONDITION_EXHAUST, 8)) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't trade very fast.");
 		return;
 	}
@@ -3188,7 +3188,7 @@ void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos
 		return;
 	}
 
-	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
+	if (player->hasCondition(CONDITION_EXHAUST, 7)) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't look very fast.");
 		return;
 	}
@@ -3221,7 +3221,7 @@ void Game::playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos
 		lookDistance = -1;
 	}
 
-	if(Condition* conditionlook = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST, 1000, 0, false, 1)) {
+	if(Condition* conditionlook = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_EXHAUST, 1000, 0, false, 7)) {
 		player->addCondition(conditionlook);
 	}
 
@@ -3235,7 +3235,7 @@ void Game::playerLookInBattleList(uint32_t playerId, uint32_t creatureId)
 		return;
 	}
 
-	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
+	if (player->hasCondition(CONDITION_EXHAUST, 7)) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't look very fast.");
 		return;
 	}
@@ -3506,7 +3506,7 @@ void Game::playerChangeOutfit(uint32_t playerId, Outfit_t outfit)
 		return;
 	}
 
-	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
+	if (player->hasCondition(CONDITION_EXHAUST, 7)) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't change outfit very fast.");
 		return;
 	}
@@ -3745,7 +3745,7 @@ void Game::playerSpeakToNpc(Player* player, const std::string& text)
 {
 	SpectatorHashSet spectators;
 	map.getSpectators(spectators, player->getPosition());
-	if (player->hasCondition(CONDITION_EXHAUST, 1)) {
+	if (player->hasCondition(CONDITION_EXHAUST, 2)) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "You can't speak very fast.");
 		return;
 	}
