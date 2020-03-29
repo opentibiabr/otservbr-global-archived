@@ -2427,6 +2427,8 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "getFreeCapacity", LuaScriptInterface::luaPlayerGetFreeCapacity);
 
+	registerMethod("Player", "canOpenCorpse", LuaScriptInterface::luaPlayerCanOpenCorpse);
+
 	registerMethod("Player", "getKills", LuaScriptInterface::luaPlayerGetKills);
 	registerMethod("Player", "setKills", LuaScriptInterface::luaPlayerSetKills);
 
@@ -8518,6 +8520,24 @@ int LuaScriptInterface::luaPlayerGetFreeCapacity(lua_State* L)
 	if (player) {
 		lua_pushnumber(L, player->getFreeCapacity());
 	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerCanOpenCorpse(lua_State* L)
+{
+	// player:canOpenCorpse(corpseOwner)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+	if (player) {
+		uint32_t corpseOwner = getNumber<uint32_t>(L, 2);
+		pushBoolean(L, player->canOpenCorpse(corpseOwner));
+	}
+	else {
 		lua_pushnil(L);
 	}
 	return 1;

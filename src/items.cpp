@@ -606,7 +606,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 				it.quickLootCategory = LOOT_WEAPON_SWORD;
 			} else if (tmpStrValue == "weaponwand") {
 				it.quickLootCategory = LOOT_WEAPON_WAND;
-			} else if (tmpStrValue == "weaponstashretrieve") {
+			} else if (tmpStrValue == "stashretrieve") {
 				it.quickLootCategory = LOOT_STASH_RETRIEVE;
 			} else {
 				std::cout << "[Warning - Items::parseItemNode] Unknown quickLootCategory: " << valueAttribute.as_string() << std::endl;
