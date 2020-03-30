@@ -23,6 +23,31 @@ Bestiary.getDefaultElements = function ()
     }
 end
 
+Bestiary.CharmsTypes = {
+	CHARM_OFFENSIVE = 1,
+	CHARM_DEFENSIVE = 2,
+	CHARM_PASSIVE = 3
+}
+
+Bestiary.Charms = {
+	[0] = { name = 'Wound', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as physical damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600, },
+    [1] = { name = 'Enflame', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as fire damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 1000},
+    [2] = { name = 'Poison', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as earth damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600},
+    [3] = { name = 'Freeze', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as ice damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800},
+    [4] = { name = 'Zap', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as energy damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800},
+    [5] = { name = 'Curse', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as death damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 900},
+    [6] = { name = 'Cripple', description = "Cripples the creature with a certain chance and paralyses it for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 500},
+    [7] = { name = 'Parry', description = "Any damage taken is reflected to the aggressor with a certain chance.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 1000},
+    [8] = { name = 'Dodge', description = "Dodges an attack with a certain chance without taking any damage at all.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 600},
+    [9] = { name = 'Adrenaline Burst', description = "Bursts of adrenaline enhance your reflexes with a certain chance after you get hit and let you move faster for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500},
+    [10] = { name = 'Numb', description = "Numbs the creature with a certain chance after its attack and paralyses the creature for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500},
+    [11] = { name = 'Cleanse', description = "Cleanses you from within with a certain chance after you get hit and removes one random active negative status effect and temporarily makes you immune against it.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 700},
+    [12] = { name = 'Bless', description = "Blesses you and reduces skill and experience loss by 3% when killed by the chosen creature.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000},
+    [13] = { name = 'Scavenge', description = "Enhances your chances to successfully skin/dust a skinnable/dustable creature.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 1500},
+    [14] = { name = 'Gut', description = "Gutting the creature yields 10% more creature products.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000},
+    [15] = { name = 'Low Blow', description = "Adds 8% critical hit chance to attacks with critical hit weapons.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000}
+}
+
 Bestiary.Races = {
     {name = "Amphibic", monsters = {262, 267, 268, 269, 270, 271, 563, 738, 913} },
     {name = "Aquatic", monsters = {112, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 261, 697, 734, 735, 769, 770, 772, 779, 780, 781, 782, 783, 784, 795, 859, 860, 861, 862, 1667, 1677}},
