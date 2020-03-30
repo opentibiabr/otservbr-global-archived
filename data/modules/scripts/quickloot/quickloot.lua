@@ -1,7 +1,7 @@
-DailyRewardSystem = {
-	Developer = "Ticardo (Rick), gpedro, DudZ",
+QuickLootSystem = {
+    Developer = "Ticardo (Rick), lBaah, dudantas, gpedro, DudZ",
 	Version = "1.0",
-	lastUpdate = "29/02/2020 - 12:00"
+	lastUpdate = "29/03/2020 - 12:00"
 }
 
 local ClientPackets = {
@@ -14,9 +14,9 @@ local ServerPackets = {
 	SendBackpack = 0xC0
 }
 
- -- check a better storage no
+ -- TODO: check a better storage no
 local StorageQuickLoot = {
-	ItemsToLoot = 831831,
+	ItemsToLoot = "831831",
 	LootMode = 832832,
 	MainContainerFallback = 833833,
 }
@@ -123,13 +123,16 @@ function onRecvbyte(player, msg, byte)
 				player:sendCancelMessage("You are not the owner.")
 				return
 			end
+
 			if thing:isContainer() then
 				local itemsBefore = getContainerItems(thing)
 				if #itemsBefore == 0 then
 					player:sendTextMessage(MESSAGE_LOOT, "No loot.")
 					return
 				end
+
 				lootContainer(player, quickLootBackpacks, thing, lootMode, lootList)
+
 				local itemsAfter = getContainerItems(thing)
 				local lootedItems = {}
 				local notLootedItemsFromList = {}
@@ -240,7 +243,6 @@ function lootContainer(player, backpacks, containerItem, lootMode, lootList)
 				lootContainer(player, backpacks, item, lootMode, lootList)
 			elseif item:isItem() then
 				if canLootItem(item.itemid, lootMode, lootList) then
-					--lootItem(player, backpacks, item)
 					if lootItem(player, backpacks, item).looted then
 						lootContainer(player, backpacks, container, lootMode, lootList)
 						break
@@ -519,33 +521,21 @@ function Player.setQuickLootMainContainerFallback(self, check)
 	self:setStorageValue(StorageQuickLoot.MainContainerFallback, check or 0)
 end
 
-function Player.setQuickLootItems(self, items) -- TODO save quick loot list as a string in storage
+function Player.setQuickLootItems(self, items)
 	if type(items) ~= "table" then
 		items = {}
 	end
-	print("[setQuickLootItems] Items Start")
-	for i, e in pairs(items) do -- debug the items received in the argument
-		print(i.." -> ".. e)
-	end
-	print(table.concat(items, ","))
-	print("StorageQuickLoot.ItemsToLoot " .. StorageQuickLoot.ItemsToLoot)
-	print("[setQuickLootItems] Items End")
 
-	self:setStorageValue(StorageQuickLoot.ItemsToLoot, table.concat(items, ",") or "") 
-	print(self:getStorageValue(StorageQuickLoot.ItemsToLoot))  -- debug the items received in the argument
+	self:setSpecialStorage(StorageQuickLoot.ItemsToLoot, items) 
 end
 
 function Player.getQuickLootItems(self)
-	local value = self:getStorageValue(StorageQuickLoot.ItemsToLoot)
+	local value = self:getSpecialStorage(StorageQuickLoot.ItemsToLoot)
 	if not value then
 		return {}
 	end
 	
-	if not string.find(value, ",") then
-		return {value}
-	end
-
-	return split(value, ",")
+	return value
 end
 
 function setupDatabase()
