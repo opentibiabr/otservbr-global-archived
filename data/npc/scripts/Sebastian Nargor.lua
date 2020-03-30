@@ -1,11 +1,11 @@
- local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)					npcHandler:onCreatureAppear(cid)				end
+function onCreatureDisappear(cid)				npcHandler:onCreatureDisappear(cid)				end
+function onCreatureSay(cid, type, msg)			npcHandler:onCreatureSay(cid, type, msg)		end
+function onThink()								npcHandler:onThink()							end
 
 -- Travel
 local function addTravelKeyword(keyword, cost, destination)
@@ -14,7 +14,7 @@ local function addTravelKeyword(keyword, cost, destination)
 		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'We would like to serve you some time.', reset = true})
 end
 
-addTravelKeyword('liberty bay', 100, Position(32349, 32856, 7))
+addTravelKeyword('liberty bay', 100, Position(32316, 32702, 7))
 addTravelKeyword('meriana', 50, Position(32346, 32625, 7))
 
 -- Basic

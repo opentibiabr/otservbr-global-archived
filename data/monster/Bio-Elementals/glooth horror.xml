@@ -19,7 +19,7 @@
 		<flag runonhealth="200"/>
 		<flag canwalkonenergy="1" />
 		<flag canwalkonfire="1" />
-		<flag preyable="0"/>
+		<!-- <flag preyable="0"/> -->
 	</flags>
 	<script>
 		<event name="GloothHorror"/>

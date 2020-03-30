@@ -1,4 +1,6 @@
 /**
+ * @file item.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -170,22 +172,22 @@ Item* Item::CreateItem(PropStream& propStream)
 	return Item::CreateItem(id, 0);
 }
 
-Item::Item(const uint16_t type, uint16_t count /*= 0*/) :
-	id(type)
+Item::Item(const uint16_t itemId, uint16_t itemCount /*= 0*/) :
+	id(itemId)
 {
 	const ItemType& it = items[id];
 
 	if (it.isFluidContainer() || it.isSplash()) {
-		setFluidType(count);
+		setFluidType(itemCount);
 	} else if (it.stackable) {
-		if (count != 0) {
-			setItemCount(count);
+		if (itemCount != 0) {
+			setItemCount(itemCount);
 		} else if (it.charges != 0) {
 			setItemCount(it.charges);
 		}
 	} else if (it.charges != 0) {
-		if (count != 0) {
-			setCharges(count);
+		if (itemCount != 0) {
+			setCharges(itemCount);
 		} else {
 			setCharges(it.charges);
 		}
@@ -402,12 +404,12 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 	switch (attr) {
 		case ATTR_COUNT:
 		case ATTR_RUNE_CHARGES: {
-			uint8_t count;
-			if (!propStream.read<uint8_t>(count)) {
+			uint8_t charges;
+			if (!propStream.read<uint8_t>(charges)) {
 				return ATTR_READ_ERROR;
 			}
 
-			setSubType(count);
+			setSubType(charges);
 			break;
 		}
 
@@ -580,6 +582,16 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 			}
 
 			setIntAttr(ITEM_ATTRIBUTE_IMBUINGSLOTS, imbuingSlots);
+			break;
+		}
+
+		case ATTR_OPENCONTAINER: {
+			int32_t openContainer;
+			if (!propStream.read<int32_t>(openContainer)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, openContainer);
 			break;
 		}
 
@@ -818,6 +830,11 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 		propWriteStream.write<int32_t>(getIntAttr(ITEM_ATTRIBUTE_IMBUINGSLOTS));
 	}
 
+	if (hasAttribute(ITEM_ATTRIBUTE_OPENCONTAINER)) {
+		propWriteStream.write<uint8_t>(ATTR_OPENCONTAINER);
+		propWriteStream.write<int32_t>(getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER));
+	}
+
 	if (hasAttribute(ITEM_ATTRIBUTE_ARMOR)) {
 		propWriteStream.write<uint8_t>(ATTR_ARMOR);
 		propWriteStream.write<int32_t>(getIntAttr(ITEM_ATTRIBUTE_ARMOR));
@@ -841,7 +858,7 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 	if (hasAttribute(ITEM_ATTRIBUTE_CUSTOM)) {
 		const ItemAttributes::CustomAttributeMap* customAttrMap = attributes->getCustomAttributeMap();
 		propWriteStream.write<uint8_t>(ATTR_CUSTOM_ATTRIBUTES);
-		propWriteStream.write<uint64_t>(static_cast<uint64_t>(customAttrMap->size()));
+		propWriteStream.write<uint64_t>(customAttrMap->size());
 		for (const auto &entry : *customAttrMap) {
 			// Serializing key type and value
 			propWriteStream.writeString(entry.first);
@@ -1500,7 +1517,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 
 		if (!found) {
 			if (it.isKey()) {
-				s << " (Key:" << (item ? item->getActionId() : 0) << ')';
+				s << " (Key:" << std::setfill('0') << std::setw(4) << (item ? item->getActionId() : 0) << ')';
 			} else if (it.isFluidContainer()) {
 				if (subType > 0) {
 					const std::string& itemName = items[subType].name;
@@ -1939,8 +1956,6 @@ bool Item::hasMarketAttributes() const
 			if (duration != getDefaultDuration()) {
 				return false;
 			}
-		} else {
-			return false;
 		}
 	}
 
@@ -1948,7 +1963,7 @@ bool Item::hasMarketAttributes() const
 		for (uint8_t slot = 0; slot < items[id].imbuingSlots; slot++) {
 			Item* item = const_cast<Item*>(this);
 			uint32_t info = item->getImbuement(slot);
-			if (info >> 8 != 0) {
+			if (info) {
 				return false;
 			}
 		}

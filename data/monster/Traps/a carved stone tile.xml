@@ -4,7 +4,7 @@
 	<look typeex="3169" />
 	<targetchange interval="5000" chance="16" />
 	<flags>
-		<flag preyable="0" />
+		<!-- <flag preyable="0"/> -->
 		<flag summonable="0" />
 		<flag attackable="0" />
 		<flag hostile="1" />

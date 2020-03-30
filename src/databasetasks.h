@@ -1,4 +1,6 @@
 /**
+ * @file databasetasks.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_DATABASETASKS_H_9CBA08E9F5FEBA7275CCEE6560059576
-#define FS_DATABASETASKS_H_9CBA08E9F5FEBA7275CCEE6560059576
+#ifndef OT_SRC_DATABASETASKS_H_
+#define OT_SRC_DATABASETASKS_H_
 
 #include <condition_variable>
 #include "thread_holder_base.h"
@@ -26,8 +28,8 @@
 #include "enums.h"
 
 struct DatabaseTask {
-	DatabaseTask(std::string&& query, std::function<void(DBResult_ptr, bool)>&& callback, bool store) :
-		query(std::move(query)), callback(std::move(callback)), store(store) {}
+	DatabaseTask(std::string&& initQuery, std::function<void(DBResult_ptr, bool)>&& initCallback, bool initStore) :
+		query(std::move(initQuery)), callback(std::move(initCallback)), store(initStore) {}
 
 	std::string query;
 	std::function<void(DBResult_ptr, bool)> callback;

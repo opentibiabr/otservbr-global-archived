@@ -1,4 +1,6 @@
 /**
+ * @file iologindata.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -23,6 +25,7 @@
 #include "iologindata.h"
 #include "configmanager.h"
 #include "game.h"
+#include "scheduler.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -126,10 +129,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, co
 	query << "SELECT `id`, `password` FROM `accounts` WHERE `name` = " << db.escapeString(accountName);
 	DBResult_ptr result = db.storeQuery(query.str());
 	if (!result) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Account not found!" << std::endl;		
 		return 0;
 	}
 
 	if (transformToSHA1(password) != result->getString("password")) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Wrong Password! " << transformToSHA1(password) << "!=" << result->getString("password") << std::endl;		
 		return 0;
 	}
 
@@ -139,10 +144,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, co
 	query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
 	result = db.storeQuery(query.str());
 	if (!result) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Not able to find player(" << characterName << ")" << std::endl;		
 		return 0;
 	}
 
 	if (result->getNumber<uint32_t>("account_id") != accountId || result->getNumber<uint64_t>("deletion") != 0) {
+		std::cout << "[IOLoginData::gameworldAuthentication] Account mismatch or account has been marked as deleted!" << std::endl;		
 		return 0;
 	}
 	characterName = result->getString("name");
@@ -252,7 +259,7 @@ bool IOLoginData::loadPlayerPreyData(Player* player)
 		query.str(std::string());
 		DBInsert preyDataQuery("INSERT INTO `prey_slots` (`player_id`, `num`, `state`, `unlocked`, `current`, `monster_list`, `free_reroll_in`, `time_left`, `next_use`, `bonus_type`, `bonus_value`, `bonus_grade`) VALUES ");
 		for (size_t num = 0; num < PREY_SLOTNUM_THIRD + 1; num++) {
-			query << player->getGUID() << ',' << num << ',' << PREY_STATE_SELECTION << ',' << PREY_SLOT_UNLOCKED << ',' << db.escapeString("") << ',' << db.escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
+			query << player->getGUID() << ',' << num << ',' << 0 << ',' << 0 << ',' << db.escapeString("") << ',' << db.escapeString("") << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0 << ',' << 0;
 			if (!preyDataQuery.addRow(query)) {
 				return false;
 			}
@@ -372,7 +379,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 	player->setGroup(group);
 
-	player->bankBalance = result->getNumber<uint64_t>("balance");
+	player->setBankBalance(result->getNumber<uint64_t>("balance"));
 
 	player->setSex(static_cast<PlayerSex_t>(result->getNumber<uint16_t>("sex")));
 	player->level = std::max<uint32_t>(1, result->getNumber<uint32_t>("level"));
@@ -449,7 +456,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 		const time_t skullSeconds = result->getNumber<time_t>("skulltime") - time(nullptr);
 		if (skullSeconds > 0) {
 			//ensure that we round up the number of ticks
-			player->skullTicks = (skullSeconds + 2) * 1000;
+			player->skullTicks = (skullSeconds + 2);
 
 			uint16_t skull = result->getNumber<uint16_t>("skull");
 			if (skull == SKULL_RED) {
@@ -572,7 +579,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 2000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_items` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
+
+	std::vector<std::pair<uint8_t, Container*>> openContainersList;
+
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -580,6 +590,15 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 			const std::pair<Item*, int32_t>& pair = it->second;
 			Item* item = pair.first;
 			int32_t pid = pair.second;
+
+			Container* itemContainer = item->getContainer();
+			if (itemContainer) {
+				uint8_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
+				if (cid > 0) {
+					openContainersList.emplace_back(std::make_pair(cid, itemContainer));
+				}
+			}
+
 			if (pid >= 1 && pid <= 11) {
 				player->internalAddThing(pid, item);
 			} else {
@@ -596,6 +615,15 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 		}
 	}
 
+	std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
+		return left.first < right.first;
+	});
+
+	for (auto& it : openContainersList) {
+		player->addContainer(it.first - 1, it.second);
+		g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
+	}
+
 	// Store Inbox
 	if (!player->inventory[CONST_SLOT_STORE_INBOX]) {
 		player->internalAddThing(CONST_SLOT_STORE_INBOX, Item::CreateItem(ITEM_STORE_INBOX));
@@ -605,7 +633,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	itemMap.clear();
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 2000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_depotitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -637,7 +665,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	itemMap.clear();
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 1000";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_rewards` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
     if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -685,7 +713,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	itemMap.clear();
 
 	query.str(std::string());
-	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC LIMIT 500";
+	query << "SELECT `pid`, `sid`, `itemtype`, `count`, `attributes` FROM `player_inboxitems` WHERE `player_id` = " << player->getGUID() << " ORDER BY `sid` DESC";
 	if ((result = db.storeQuery(query.str()))) {
 		loadItems(itemMap, result);
 
@@ -708,23 +736,6 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 					container->internalAddThing(item);
 				}
 			}
-		}
-	}
-
-	//load autoloot list set
-	query.str(std::string());
-	query << "SELECT `autoloot_list` FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
-	if ((result = db.storeQuery(query.str()))) {
-		unsigned long lootlistSize;
-		const char* autolootlist = result->getStream("autoloot_list", lootlistSize);
-		PropStream propStreamList;
-		propStreamList.init(autolootlist, lootlistSize);
-
-		int16_t value;
-		int16_t item = propStreamList.read<int16_t>(value);
-		while (item) {
-			player->addAutoLootItem(value);
-			item = propStreamList.read<int16_t>(value);
 		}
 	}
 
@@ -762,10 +773,32 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 	int32_t runningId = 100;
 
 	Database& db = Database::getInstance();
+	const auto& openContainers = player->getOpenContainers();
+
 	for (const auto& it : itemList) {
 		int32_t pid = it.first;
 		Item* item = it.second;
 		++runningId;
+
+		if (Container* container = item->getContainer()) {
+			if (container->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+				container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+			}
+
+			if (!openContainers.empty()) {
+				for (const auto& its : openContainers) {
+					auto openContainer = its.second;
+					auto opcontainer = openContainer.container;
+
+					if (opcontainer == container) {
+						container->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)its.first) + 1);
+						break;
+					}
+				}
+			}
+
+			queue.emplace_back(container, runningId);
+		}
 
 		propWriteStream.clear();
 		item->serializeAttr(propWriteStream);
@@ -778,9 +811,6 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 			return false;
 		}
 
-		if (Container* container = item->getContainer()) {
-			queue.emplace_back(container, runningId);
-		}
 	}
 
 	while (!queue.empty()) {
@@ -793,8 +823,24 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 			++runningId;
 
 			Container* subContainer = item->getContainer();
+
 			if (subContainer) {
 				queue.emplace_back(subContainer, runningId);
+				if (subContainer->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER) > 0) {
+					subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, 0);
+				}
+
+				if (!openContainers.empty()) {
+					for (const auto& it : openContainers) {
+						auto openContainer = it.second;
+						auto opcontainer = openContainer.container;
+
+						if (opcontainer == subContainer) {
+							subContainer->setIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER, ((int)it.first) + 1);
+							break;
+						}
+					}
+				}
 			}
 
 			propWriteStream.clear();
@@ -887,10 +933,10 @@ bool IOLoginData::savePlayer(Player* player)
 	query << "`conditions` = " << db.escapeBlob(conditions, conditionsSize) << ',';
 
 	if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
-		int32_t skullTime = 0;
+		int64_t skullTime = 0;
 
 		if (player->skullTicks > 0) {
-			skullTime = time(nullptr) + player->skullTicks / 1000;
+			skullTime = time(nullptr) + player->skullTicks;
 		}
 
 		query << "`skulltime` = " << skullTime << ',';
@@ -901,7 +947,7 @@ bool IOLoginData::savePlayer(Player* player)
 		} else if (player->skull == SKULL_BLACK) {
 			skull = SKULL_BLACK;
 		}
-		query << "`skull` = " << static_cast<uint32_t>(skull) << ',';
+		query << "`skull` = " << static_cast<int64_t>(skull) << ',';
 	}
 
 	query << "`lastlogout` = " << player->getLastLogout() << ',';
@@ -1073,33 +1119,6 @@ bool IOLoginData::savePlayer(Player* player)
 		if (!saveItems(player, itemList, rewardQuery, propWriteStream)) {
 			return false;
 		}
-	}
-
-	//Autoloot (save autoloot list)
-	query.str(std::string());
-	query << "DELETE FROM `player_autoloot` WHERE `player_id` = " << player->getGUID();
-	if (!db.executeQuery(query.str())) {
-		return false;
-	}
-
-	PropWriteStream propWriteStreamAutoLoot;
-
-	for (auto i : player->autoLootList) {
-		propWriteStreamAutoLoot.write<uint16_t>(i);
-	}
-
-	size_t lootlistSize;
-	const char* autolootlist = propWriteStreamAutoLoot.getStream(lootlistSize);
-
-	query.str(std::string());
-
-	DBInsert autolootQuery("INSERT INTO `player_autoloot` (`player_id`, `autoloot_list`) VALUES ");
-	query << player->getGUID() << ',' << db.escapeBlob(autolootlist, lootlistSize);
-	if (!autolootQuery.addRow(query)) {
-		return false;
-	}
-	if (!autolootQuery.execute()) {
-		return false;
 	}
 
 	//save inbox items

@@ -58,7 +58,13 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter, 3)
 				npcHandler.topic[cid] = 2
 			else
-				npcHandler:say("You don't have it...", cid)
+				player:addMoney(150)
+				npcHandler:say({
+					"Ahh, now I understand... One of my suitors - a real chicken-heart - just brought back my ring. I was really surprised. Suddenly he shows brave attitude. But... It seems you lost it and he tries to take advantage. ...",
+					"Thanks a lot anyways and take this gold as a reward. By the way, I would need some help in another matter. It is only a small errand. Are you interested?"
+				}, cid)
+				player:setStorageValue(Storage.TheShatteredIsles.TheGovernorDaughter, 3)
+				npcHandler.topic[cid] = 2
 			end
 		elseif npcHandler.topic[cid] == 2 then
 			npcHandler:say("Thank you! It is not a difficult matter but a rather urgent one. I need to send some money to a person in town. Would you be willing to run this small errand for me?", cid)

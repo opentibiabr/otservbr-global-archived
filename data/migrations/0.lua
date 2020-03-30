@@ -5,12 +5,10 @@ end
 --[=====[
 -- Insert this part to create initial players samples if your web site doesn't do that
     print("[DB] Updating database to version 1 (default accounts and sample players)")
-
     db.query([[
         INSERT INTO `accounts`
         (`name`, `password`,                                 `type`) VALUES
         ('1',    '060d38973b4ba4051fa6ca22f9acd4be7d1557fe',  1);]])
-
     db.query([[
         INSERT INTO `players`
         (`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES

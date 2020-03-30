@@ -1,4 +1,6 @@
 /**
+ * @file combat.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_COMBAT_H_B02CE79230FC43708699EE91FCC8F7CC
-#define FS_COMBAT_H_B02CE79230FC43708699EE91FCC8F7CC
+#ifndef OT_SRC_COMBAT_H_
+#define OT_SRC_COMBAT_H_
 
 #include "thing.h"
 #include "condition.h"
@@ -35,7 +37,7 @@ struct Position;
 class ValueCallback final : public CallBack
 {
 	public:
-		explicit ValueCallback(formulaType_t type): type(type) {}
+		explicit ValueCallback(formulaType_t initType): type(initType) {}
 		void getMinMaxValues(Player* player, CombatDamage& damage, bool useCharges) const;
 
 	protected:
@@ -88,7 +90,7 @@ using CombatFunction = std::function<void(Creature*, Creature*, const CombatPara
 class MatrixArea
 {
 	public:
-		MatrixArea(uint32_t rows, uint32_t cols): centerX(0), centerY(0), rows(rows), cols(cols) {
+		MatrixArea(uint32_t initRows, uint32_t initCols): centerX(0), centerY(0), rows(initRows), cols(initCols) {
 			data_ = new bool*[rows];
 
 			for (uint32_t row = 0; row < rows; ++row) {
@@ -281,8 +283,8 @@ class Combat
 		CallBack* getCallback(CallBackParam_t key);
 
 		bool setParam(CombatParam_t param, uint32_t value);
-		void setArea(AreaCombat* area) {
-			this->area.reset(area);
+		void setArea(AreaCombat* newArea) {
+			this->area.reset(newArea);
 		}
 		bool hasArea() const {
 			return area != nullptr;

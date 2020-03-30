@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 keywordHandler:addKeyword({'hi'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true, text = "MIND YOUR MANNERS COMMONER! To address the king greet with his title!"})
 keywordHandler:addKeyword({'hello'}, StdModule.say, {npcHandler = npcHandler, onlyUnfocus = true, text = "MIND YOUR MANNERS COMMONER! To address the king greet with his title!"})
@@ -31,12 +39,14 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_GREET, 'HAIL TO THE KING!')
-npcHandler:setMessage(MESSAGE_FAREWELL, 'LONG LIVE THE KING! You may leave now!')
-npcHandler:setMessage(MESSAGE_WALKAWAY, 'LONG LIVE THE KING!')
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+-- Greeting
+keywordHandler:addGreetKeyword({'hail king'}, {npcHandler = npcHandler, text = 'HAIL TO THE KING!'})
+keywordHandler:addGreetKeyword({'salutations king'}, {npcHandler = npcHandler, text = 'HAIL TO THE KING!'})
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage('hail king')
-focusModule:addGreetMessage('salutations king')
-npcHandler:addModule(focusModule)
+npcHandler:setMessage(MESSAGE_WALKAWAY, 'LONG LIVE THE KING!')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'LONG LIVE THE KING! You may leave now!')
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+
+npcHandler:addModule(FocusModule:new())

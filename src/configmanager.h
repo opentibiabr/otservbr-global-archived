@@ -1,4 +1,6 @@
 /**
+ * @file configmanager.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_CONFIGMANAGER_H_6BDD23BD0B8344F4B7C40E8BE6AF6F39
-#define FS_CONFIGMANAGER_H_6BDD23BD0B8344F4B7C40E8BE6AF6F39
+#ifndef OT_SRC_CONFIGMANAGER_H_
+#define OT_SRC_CONFIGMANAGER_H_
 
 class ConfigManager
 {
@@ -48,6 +50,10 @@ class ConfigManager
 			REMOVE_POTION_CHARGES,
 			STOREMODULES,
 			QUEST_LUA,
+			SERVER_SAVE_NOTIFY_MESSAGE,
+			SERVER_SAVE_CLEAN_MAP,
+			SERVER_SAVE_CLOSE,
+			SERVER_SAVE_SHUTDOWN,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -114,13 +120,13 @@ class ConfigManager
 			FREE_DEPOT_LIMIT,
 			PREMIUM_DEPOT_LIMIT,
 			DEPOT_BOXES,
-			AUTOLOOT_MODE, //Autoloot
 			DAY_KILLS_TO_RED,
 			WEEK_KILLS_TO_RED,
 			MONTH_KILLS_TO_RED,
 			RED_SKULL_DURATION,
 			BLACK_SKULL_DURATION,
 			ORANGE_SKULL_DURATION,
+			SERVER_SAVE_NOTIFY_DURATION,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};
@@ -137,6 +143,7 @@ class ConfigManager
 		bool reload();
 
 		const std::string& getString(string_config_t what) const;
+		int16_t getShortNumber(integer_config_t what) const;
 		int32_t getNumber(integer_config_t what) const;
 		bool getBoolean(boolean_config_t what) const;
 		float getFloat(floating_config_t what) const;

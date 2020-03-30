@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<npc name="Muzir" script="Muzir.lua" walkinterval="0" floorchange="0">
+<npc name="Muzir" script="Bank.lua" walkinterval="0" floorchange="0">
   <health now="100" max="100" />
   <look type="146" head="95" body="4" legs="11" feet="76" addons="0" />
   <voices>

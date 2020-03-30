@@ -1,4 +1,6 @@
 /**
+ * @file baseevents.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_BASEEVENTS_H_9994E32C91CE4D95912A5FDD1F41884A
-#define FS_BASEEVENTS_H_9994E32C91CE4D95912A5FDD1F41884A
+#ifndef OT_SRC_BASEEVENTS_H_
+#define OT_SRC_BASEEVENTS_H_
 
 #include "luascript.h"
 

@@ -24,7 +24,7 @@
 	<event class="Player" method="onReportRuleViolation" enabled="1" />
 	<event class="Player" method="onTurn" enabled="1" />					<!-- move with ( ctrl + arrows ) like to TFS 0.3.x : 0.4 -->
 	<event class="Player" method="onTradeRequest" enabled="1" /> 			<!-- move with ( ctrl + arrows ) like to TFS 0.3.x : 0.4 -->
-	<event class="Player" method="onTradeAccept" enabled="0" />
+	<event class="Player" method="onTradeAccept" enabled="1" />
 	<event class="Player" method="onGainExperience" enabled="1" />
 	<event class="Player" method="onLoseExperience" enabled="0" />
 	<event class="Player" method="onGainSkillTries" enabled="1" />

@@ -1,4 +1,6 @@
 /**
+ * @file protocolgame.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -275,22 +277,18 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	if (!Protocol::RSA_decrypt(msg)) {
+		std::cout << "[ProtocolGame::onRecvFirstMessage] RSA Decrypt Failed" << std::endl;
 		disconnect();
 		return;
 	}
 
-	uint32_t key[4];
-	key[0] = msg.get<uint32_t>();
-	key[1] = msg.get<uint32_t>();
-	key[2] = msg.get<uint32_t>();
-	key[3] = msg.get<uint32_t>();
+	uint32_t msgKey[4];
+	msgKey[0] = msg.get<uint32_t>();
+	msgKey[1] = msg.get<uint32_t>();
+	msgKey[2] = msg.get<uint32_t>();
+	msgKey[3] = msg.get<uint32_t>();
 	enableXTEAEncryption();
-	setXTEAKey(key);
-
-	if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
-		disconnectClient("Only official client is allowed!");
-		return;
-	}
+	setXTEAKey(msgKey);
 
 	msg.skipBytes(1); // gamemaster flag
 
@@ -1988,18 +1986,21 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
-	NetworkMessage msg;
-	msg.addByte(0xF2);
-	msg.addByte(0x00);
+    NetworkMessage msg;
+    msg.addByte(0xF2);
+    msg.addByte(0x00);
 
-	writeToOutputBuffer(msg);
+    writeToOutputBuffer(msg);
 
-	g_dispatcher.addTask(
-		createTask(std::bind([](ProtocolGame_ptr client) {
-		client->sendCoinBalance();
-	}, getThis()))
-	);
-
+    g_dispatcher.addTask(
+        createTask(std::bind([](ProtocolGame* client) {
+			if (client) {
+				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
+                client->player->coinBalance = coinBalance;
+                client->sendCoinBalance();
+            }
+        }, this))
+    );
 }
 
 void ProtocolGame::sendMarketLeave()
@@ -2380,56 +2381,6 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 		msg.add<uint32_t>(statistics->lowestPrice);
 	} else {
 		msg.addByte(0x00);
-	}
-
-	writeToOutputBuffer(msg);
-}
-
-void ProtocolGame::sendQuestTracker()
-{
-	NetworkMessage msg;
-	msg.addByte(0xD0); // byte quest tracker
-	msg.addByte(1); // send quests of quest log ??
-	msg.add<uint16_t>(1); // unknown
-	writeToOutputBuffer(msg);
-}
-
-void ProtocolGame::sendQuestLog()
-{
-	NetworkMessage msg;
-	msg.addByte(0xF0);
-	msg.add<uint16_t>(g_game.quests.getQuestsCount(player));
-
-	for (const Quest& quest : g_game.quests.getQuests()) {
-		if (quest.isStarted(player)) {
-			msg.add<uint16_t>(quest.getID());
-			msg.addString(quest.getName());
-			msg.addByte(quest.isCompleted(player));
-		}
-	}
-
-	writeToOutputBuffer(msg);
-}
-
-void ProtocolGame::sendQuestLine(const Quest* quest)
-{
-	NetworkMessage msg;
-	msg.addByte(0xF1);
-	msg.add<uint16_t>(quest->getID());
-	msg.addByte(quest->getMissionsCount(player));
-
-	for (const Mission& mission : quest->getMissions()) {
-		if (mission.isStarted(player)) {
-			if (player->getProtocolVersion() >= 1120){
-				msg.add<uint16_t>(0x00); // missionID (TODO, this is used for quest tracker)
-			}
-			msg.addString(mission.getName(player));
-			msg.addString(mission.getDescription(player));
-		}
-	}
-
-	if (player->operatingSystem == CLIENTOS_NEW_WINDOWS) {
-		sendQuestTracker();
 	}
 
 	writeToOutputBuffer(msg);
@@ -3680,7 +3631,7 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 
 	std::vector<Imbuement*> imbuements = g_imbuements->getImbuements(player, item);
 	if (!itemHasImbue && imbuements.empty()) {
-		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot imbue this item.");
+		player->sendTextMessage(MESSAGE_EVENT_ADVANCE, "You did not collect enough knowledge from the ancient Shapers. Visit the Shaper temple in Thais for help.");
 		return;
 	}
 	// Seting imbuing item

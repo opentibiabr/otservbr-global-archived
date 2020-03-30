@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Cobra Assassin" nameDescription="a cobra assassin" race="blood" experience="7800" speed="150">
+<monster name="Cobra Assassin" nameDescription="a cobra assassin" race="blood" experience="6300" speed="140">
 	<health now="8200" max="8200"/>
-	<look type="1217" head="57" body="75" legs="38" feet="86" addons="0" corpse="33364"/>
+	<look type="1217" head="2" body="2" legs="77" feet="1" addons="1" corpse="36382"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
 		<flag summonable="0"/>
@@ -20,15 +20,39 @@
 		<flag canwalkonpoison="1"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="wave t" interval="2000" chance="10" min="-300" max="-380"/>
+		<attack name="physical" interval="2000" chance="15" radius="4" min="-280" max="-400">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="12" length="5" spread="0" min="-250" max="-400">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
 	</attacks>
-	<defenses armor="86" defense="86"/>
+	<defenses armor="81" defense="81"/>
 	<elements>
-		<element physicalPercent="1"/>
+		<element physicalPercent="80"/>
 	</elements>
 	<immunities>
 		<immunity earth="1"/>
 		<immunity paralyze="1"/>
 		<immunity invisible="1"/>
 	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Hey, maybe you want to strike a deal... no?"/>
+		<voice sentence="Stand and deliver! Your money... AND your life actually!"/>
+		<voice sentence="You will not leave this place breathing!"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="knife" chance="10500"/>
+		<item name="cobra crest" chance="7750"/>
+		<item id="2419" chance="7750"/>
+		<item name="protection amulet" chance="7500"/>
+		<item name="heavy machete" chance="6500"/>
+		<item name="bone sword" chance="5000"/>
+		<item name="machete" chance="2250"/>
+		<item name="carlin sword" chance="2250"/>
+		<item id="26189" chance="1690"/>
+	</loot>
 </monster>

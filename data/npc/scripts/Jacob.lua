@@ -26,6 +26,7 @@ function creatureSayCallback(cid, type, msg)
             setPlayerStorageValue(cid, 10050, 4)
 			setPlayerStorageValue(cid, 20053, 1)
             setPlayerStorageValue(cid, 20054, 0)
+            player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
 		elseif(getPlayerStorageValue(cid, 10050) == 5) then
 		    npcHandler:say("I'm glad to see you back alive and healthy. Did you find anything interesting that you want to {report}?", cid)
 			npcHandler.topic[cid] = 7
@@ -51,13 +52,12 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Good. Thanks, man. That's one vote you got for helping us with this.", cid)
 			npcHandler.topic[cid] = 0
 			setPlayerStorageValue(cid, 20062, 21)
-
 		end
 	elseif(msgcontains(msg, "report")) then
-	if(getPlayerStorageValue(cid, 10050) < 6) then
+	if(getPlayerStorageValue(cid, 10050) == 5) then
 		--if(npcHandler.topic[cid] == 7) then
-		    selfSay("He can make more sense of what you found there. His name is Barazbaz. He should be in the magistrate building.", cid)
 			selfSay("A sacrificial site? Damn, sounds like some freakish cult or something. Just great. And this ancient structure you talked about that's not part of the sewers? You'd better see the local historian about that, man. ...", cid)
+			selfSay("He can make more sense of what you found there. His name is Barazbaz. He should be in the magistrate building.", cid)
 			setPlayerStorageValue(cid, 10050, 6)
 			setPlayerStorageValue(cid, 20055, 1)
 			setPlayerStorageValue(cid, 20056, 0)

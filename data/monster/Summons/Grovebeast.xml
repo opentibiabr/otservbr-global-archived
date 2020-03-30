@@ -4,7 +4,7 @@
 	<look type="993" corpse="0"/>
 	<targetchange interval="4000" chance="20"/>
 	<flags>
-		<flag preyable="0"/>
+		<!-- <flag preyable="0"/> -->
 		<flag pet="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -12,7 +12,7 @@
 		<flag illusionable="0"/>
 		<flag convinceable="0"/>
 		<flag pushable="1"/>
-		<flag canpushitems="1"/>
+		<flag canpushitems="0"/>
 		<flag canpushcreatures="1"/>
 		<flag staticattack="98"/>
 		<flag targetdistance="0"/>

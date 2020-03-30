@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+npcHandler:onThink()	
+end
 
 keywordHandler:addKeyword({'elf'}, StdModule.say, {npcHandler = npcHandler, text = "The elves of this city are the casts of the Cenath, the Kuridai, and the Deraisim."})
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am a guardian of this town. I have no time to chat!"})
@@ -16,11 +24,13 @@ keywordHandler:addKeyword({'weapon'}, StdModule.say, {npcHandler = npcHandler, t
 keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, text = "Ask around in Ab'Dendriel. Many elves can teach you something about magic. The Cenath love magic most of all."})
 keywordHandler:addKeyword({'thais'}, StdModule.say, {npcHandler = npcHandler, text = "The city of the humans lies somewhere far to the south beyond the mountains of the dwarfs."})
 
-npcHandler:setMessage(MESSAGE_GREET, "Ashari |PLAYERNAME|.")
-npcHandler:setMessage(MESSAGE_FAREWELL, "Asha Thrazi.")
-npcHandler:setMessage(MESSAGE_WALKAWAY, "Asha Thrazi.")
+-- Greeting message
+keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Ashari, |PLAYERNAME|."})
+--Farewell message
+keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Asha Thrazi, |PLAYERNAME|."})
 
-local focusModule = FocusModule:new()
-focusModule:addGreetMessage({'hi', 'hello', 'ashari'})
-focusModule:addFarewellMessage({'bye', 'farewell', 'asgha thrazi'})
-npcHandler:addModule(focusModule)
+npcHandler:setMessage(MESSAGE_GREET, "Ashari |PLAYERNAME|.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, 'Asha Thrazi, |PLAYERNAME|!')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Asha Thrazi, |PLAYERNAME|!')
+
+npcHandler:addModule(FocusModule:new())

@@ -8,67 +8,6 @@ function Player.sendTibiaTime(self, hours, minutes)
 	return true
 end
 
-local events = {
-    'KillTracker',
-    'ParasiteWarzone',
-    'ElementalSpheresOverlords',
-    'BigfootBurdenVersperoth',
-    'BigfootBurdenWiggler',
-    'SvargrondArenaKill',
-    'NewFrontierShardOfCorruption',
-    'NewFrontierTirecz',
-    'ServiceOfYalaharDiseasedTrio',
-    'ServiceOfYalaharAzerus',
-    'ServiceOfYalaharQuaraLeaders',
-    'InquisitionBosses',
-    'InquisitionUngreez',
-    'KillingInTheNameOfKills',
-	'KillingInTheNameOfKillss',
-	'KillingInTheNameOfKillsss',
-    'MastersVoiceServants',
-    'SecretServiceBlackKnight',
-    'ThievesGuildNomad',
-    'WotELizardMagistratus',
-    'WotELizardNoble',
-    'WotEKeeper',
-    'WotEBosses',
-    'WotEZalamon',
-    'WarzoneThree',
-    'PlayerDeath',
-    'AdvanceSave',
-    'bossesWarzone',
-    'AdvanceRookgaard',
-    'PythiusTheRotten',
-    'DropLoot',
-    'Yielothax',
-    'BossParticipation',
-    'Energized Raging Mage',
-    'Raging Mage',
-    'DeathCounter',
-    'KillCounter',
-    'bless1',
-	'lowerRoshamuul',
-	'SpikeTaskQuestCrystal',
-	'SpikeTaskQuestDrillworm',
-	'petlogin',
-	'petthink',
-	'UpperSpikeKill',
-	'MiddleSpikeKill',
-	'LowerSpikeKill',
-	'BossesForgotten',
-	'ReplicaServants',
-	'EnergyPrismDeath',
-	'AstralPower',
-	'BossesKill',
-	'TheShattererKill',
-	'BossesHero',
-	'DragonsKill',
-    'deeplingBosses',
-    'theGreatDragonHuntKill',
-    'bonusPreyLootKill',
-    'bossesMissionCults'
-}
-
 local function onMovementRemoveProtection(cid, oldPosition, time)
     local player = Player(cid)
     if not player then
@@ -89,7 +28,6 @@ function onLogin(player)
 	if player:getLastLoginSaved() <= 0 then
 		loginStr = loginStr .. ' Please choose your outfit.'
 		player:sendOutfitWindow()
-		player:setBankBalance(0)
 	else
 		if loginStr ~= "" then
 			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
@@ -99,7 +37,6 @@ function onLogin(player)
 	end
 
     player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
-	player:openChannel(10) -- LOOT CHANNEL
 
     local playerId = player:getId()
 
@@ -123,6 +60,13 @@ function onLogin(player)
 
     -- EXP Stamina
     nextUseXpStamina[playerId] = 1
+
+	-- Prey Small Window
+	if player:getClient().version > 1110 then
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end	 
 
     -- New Prey
     nextPreyTime[playerId] = {
@@ -173,11 +117,6 @@ function onLogin(player)
         stats.playerId = player:getId()
     end
 
-    -- Events
-    for i = 1, #events do
-        player:registerEvent(events[i])
-    end
-
  	if player:getStorageValue(Storage.combatProtectionStorage) < 1 then
         player:setStorageValue(Storage.combatProtectionStorage, 1)
         onMovementRemoveProtection(playerId, player:getPosition(), 10)
@@ -217,6 +156,10 @@ function onLogin(player)
 		local hours = math.floor(worldTime / 60)
 		local minutes = worldTime % 60
 		player:sendTibiaTime(hours, minutes)
+	end
+	
+	if player:getStorageValue(Storage.isTraining) == 1 then -- redefinir storage de exercise weapon
+		player:setStorageValue(Storage.isTraining,0)
 	end
     return true
 end

@@ -1,4 +1,6 @@
 /**
+ * @file monsters.cpp
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -851,8 +853,6 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.isSummonable = attr.as_bool();
 			} else if (strcasecmp(attrName, "rewardboss") == 0) {
 				mType->info.isRewardBoss = attr.as_bool();
-			} else if (strcasecmp(attrName, "preyable") == 0) {
-				mType->info.isPreyable = attr.as_bool();
 			} else if (strcasecmp(attrName, "attackable") == 0) {
 				mType->info.isAttackable = attr.as_bool();
 			} else if (strcasecmp(attrName, "hostile") == 0) {
@@ -1354,19 +1354,6 @@ void Monsters::loadLootContainer(const pugi::xml_node& node, LootBlock& lBlock)
 	}
 }
 
-// Prey Monsters
-std::vector<std::string> Monsters::getPreyMonsters()
-{
-	std::vector<std::string> monsterList;
-	for (const auto& m : monsters) {
-		if (m.second.info.experience > 0 && m.second.info.isPreyable && !m.second.info.isRewardBoss && m.second.info.staticAttackChance > 0) {
-			monsterList.push_back(m.first);
-		}
-	}
-
-	return monsterList;
-}
-
 MonsterType* Monsters::getMonsterType(const std::string& name)
 {
 	std::string lowerCaseName = asLowerCaseString(name);
@@ -1385,17 +1372,20 @@ MonsterType* Monsters::getMonsterType(const std::string& name)
 
 void Monsters::addMonsterType(const std::string& name, MonsterType* mType)
 {
+	// Suppress [-Werror=unused-but-set-parameter]
+	// https://stackoverflow.com/questions/1486904/how-do-i-best-silence-a-warning-about-unused-variables
+	(void) mType;
 	mType = &monsters[asLowerCaseString(name)];
 }
 
-bool Monsters::loadCallback(LuaScriptInterface* scriptInterface, MonsterType* mType)
+bool Monsters::loadCallback(LuaScriptInterface* luaScriptInterface, MonsterType* mType)
 {
-	if (!scriptInterface) {
+	if (!luaScriptInterface) {
 		std::cout << "Failure: [Monsters::loadCallback] scriptInterface == nullptr." << std::endl;
 		return false;
 	}
 
-	int32_t id = scriptInterface->getEvent();
+	int32_t id = luaScriptInterface->getEvent();
 
 	if (mType->info.eventType == MONSTERS_EVENT_THINK) {
 		mType->info.thinkEvent = id;
@@ -1409,6 +1399,6 @@ bool Monsters::loadCallback(LuaScriptInterface* scriptInterface, MonsterType* mT
 		mType->info.creatureSayEvent = id;
 	}
 
-	scriptInterface->getScriptEnv()->setScriptId(id, scriptInterface);
+	luaScriptInterface->getScriptEnv()->setScriptId(id, luaScriptInterface);
 	return true;
 }

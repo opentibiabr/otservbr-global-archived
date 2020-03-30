@@ -29,10 +29,10 @@ addTravelKeyword('darashia', 180, Position(33289, 32480, 6))
 addTravelKeyword('thais', 160, Position(32310, 32210, 6))
 addTravelKeyword('liberty bay', 50, Position(32285, 32892, 6))
 addTravelKeyword('carlin', 120, Position(32387, 31820, 6))
+addTravelKeyword('shortcut', 100, Position(32029, 32466, 7), function(player) return player:getStorageValue(Storage.TheSecretLibrary.PinkTel) == 2 and player:getStorageValue(Storage.TheSecretLibrary.Mota) == 12 end)
 
 -- Kick
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = Position(32536, 32791, 6)})
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32536, 32791, 6), Position(32535, 32777, 6)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32535, 32792, 6), Position(32536, 32778, 6)}})
 
 -- Basic
 keywordHandler:addKeyword({'sail'}, StdModule.say, {npcHandler = npcHandler, text = 'Where do you want to go - {Thais}, {Darashia}, {Venore}, {Liberty Bay}, {Ankrahmun}, {Yalahar} or {Edron?}'})

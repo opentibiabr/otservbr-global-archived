@@ -23,6 +23,7 @@ addTravelKeyword('edron', 110, Position(33176, 31765, 6)) -- {x = 33176, y = 317
 addTravelKeyword('oramond', 70, Position(33479, 31985, 7)) -- {x = 33479, y = 31985, z = 7}
 addTravelKeyword('darashia', 120, Position(33289, 32481, 6)) -- {x = 33289, y = 32481, z = 6}
 addTravelKeyword('thais', 130, Position(32310, 32210, 6)) --
+addTravelKeyword('issavi', 130, Position(33902, 31464, 6))
 
 -- Darashia
 local travelNode = keywordHandler:addKeyword({'darashia'}, StdModule.say, {npcHandler = npcHandler, text = 'Do you seek a passage to Darashia for |TRAVELCOST|?', cost = 0, discount = 'postman'})
@@ -32,7 +33,7 @@ local travelNode = keywordHandler:addKeyword({'darashia'}, StdModule.say, {npcHa
 	travelNode:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, reset = true, text = 'We would like to serve you some time.'})
 
 -- Kick
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32952, 32031, 6), Position(32955, 32031, 6), Position(32957, 32032, 6)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(33498, 31711, 6)}})
 
 -- Basic
 keywordHandler:addKeyword({'sail'}, StdModule.say, {npcHandler = npcHandler, text = 'Where do you want to go? To {Edron}, {Darashia}, {Oramond} or {Venore}?'})

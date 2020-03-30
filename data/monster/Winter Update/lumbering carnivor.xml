@@ -18,17 +18,14 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-150"/>
-		<attack name="lifedrain" interval="2000" chance="50" length="4" spread="0" min="-150" max="-230">
-		<attribute key="areaEffect" value="SMOKE"/>
+		<attack name="melee" interval="2000" min="-200" max="-500" />
+		<attack name="physical" interval="2000" chance="10" radius="4" min="-100" max="-150">
+			<attribute key="areaEffect" value="groundshaker" />
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="50" target="1" radius="3" min="-120" max="-230">
-		<attribute key="areaEffect" value="EXPLOSIONAREA"/>
-		</attack>
-		</attacks>
-		<defenses armor="20" defense="20">
+	</attacks>
+		<defenses armor="71" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="150" max="200">
-		<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
@@ -38,20 +35,25 @@
 		<immunity invisible="1"/>
 	</immunities>
 	<loot>
-		<item name="platinum coin" countmax="3" chance="100000"/>
+	<!--Common-->
+		<item name="platinum coin" countmax="5" chance="100000"/>
 		<item name="Blue Glass Plate" countmax="3" chance="100000"/>
+	<!--Uncommon-->
 		<item id="2376" chance="15000"/> <!--sword-->
-		<item name="Axe" chance="11550"/>
-		<item name="Ice Rapier" chance="13550"/>
-		<item id="7632" chance="25100"/> <!--Giant Shimmering Pearlz-->
-		<item name="Violet Gem" chance="25000"/>
-		<item name="Green Gem" chance="12800"/>
-		<item name="Blue Gem" chance="12000"/>
-		<item name="Two Handed Sword" chance="30000"/>
-		<item name="Blue Robe" chance="13050"/>
-		<item name="Glorious Axe" chance="12800"/>
-		<item name="Green Crystal Shard" chance="12000"/>
-		<item name="Fur Armor" chance="25000"/>
-		<item name="Focus Cape" chance="800"/>
+		<item name="Axe" chance="14000"/>
+		<item name="Ice Rapier" chance="12000"/>
+	<!--Semi-Rare-->
+		<item name="Glorious Axe" chance="6100"/>
+		<item name="Blue Robe" chance="4600"/>
+		<item name="Two Handed Sword" chance="13000"/>
+		<item name="Fur Armor" chance="5400"/>
+		<item id="7632" chance="3200"/> <!--Giant Shimmering Pearlz-->
+		<item name="Green Crystal Shard" chance="3100"/>
+		<item name="Violet Gem" chance="4000"/>
+		<item name="Green Gem" chance="4800"/>
+		<item name="Blue Gem" chance="4000"/>
+	<!--Rare-->
+	<!--Very Rare-->
+		<item name="Focus Cape" chance="3000"/>
 	</loot>
 </monster>

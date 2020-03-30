@@ -1,129 +1,83 @@
-        local room = {     -- room with demons
-        fromX = 33478,
-        fromY = 32070,
-        fromZ = 8,
-        --------------
-        toX = 33496,
-        toY = 32089,
-        toZ = 8
+local config = {
+        requiredLevel = 100,
+        daily = false,
+        centerBossRoomPosition = Position(33487, 32079, 8),
+        playerPositions = {
+                Position(33417, 32102, 10),
+                Position(33418, 32102, 10),
+                Position(33419, 32102, 10),
+                Position(33420, 32102, 10)
+        },
+        newPositions = {
+                Position(33487, 32088, 8),
+                Position(33487, 32088, 8),
+                Position(33487, 32088, 8),
+                Position(33487, 32088, 8)
+        },
+        CanopicJarPositions = {
+                Position(33486, 32081, 8),
+                Position(33488, 32081, 8),
+                Position(33486, 32083, 8),
+                Position(33488, 32083, 8)
         }
+}
 
-        local monster_pos = {
-        [1] = {pos = {33486, 32081, 8}, monster = "Greater Canopic Jar"},
-        [2] = {pos = {33486, 32083, 8}, monster = "Greater Canopic Jar"},
-        [3] = {pos = {33488, 32081, 8}, monster = "Greater Canopic Jar"},
-        [4] = {pos = {33488, 32083, 8}, monster = "Greater Canopic Jar"},
-        [5] = {pos = {33487, 32082, 8}, monster = "The Ravager"}
-        }
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+        if item.itemid == 1946 then
+                local storePlayers, playerTile = {}
 
-        local players_pos = {
-        {x = 33417, y =32102, z = 10, stackpos = 253},
-        {x = 33418, y =32102, z = 10, stackpos = 253},
-        {x = 33419, y =32102, z = 10, stackpos = 253},
-		{x = 33420, y =32102, z = 10, stackpos = 253}
-        }
+                for i = 1, #config.playerPositions do
+                        playerTile = Tile(config.playerPositions[i]):getTopCreature()
+                        if not playerTile or not playerTile:isPlayer() then
+                                player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need 4 players.")
+                              return true
+                        end
 
-        local new_player_pos = {
-        {x = 33486, y =32088, z = 8},
-        {x = 33487, y =32088, z = 8},
-        {x = 33488, y =32088, z = 8},
-        {x = 33489, y =32088, z = 8}
-        }
+                        if playerTile:getLevel() < config.requiredLevel then
+                             player:sendTextMessage(MESSAGE_STATUS_SMALL, "All the players need to be level ".. config.requiredLevel .." or higher.")
+                                return true
+                        end
 
-        local playersOnly = "yes"
-        local questLevel = 100
-
-        ------------------------------------------------------
-        --- CONFIG END ---------------------------------------
-        ------------------------------------------------------
-
-function onUse(cid, item, fromPosition, itemEx, toPosition)
-        local all_ready, monsters, player, level = 0, 0, {}, 0
-        if item.itemid == 1945 then
-                for i = 1, #players_pos do
-                        table.insert(player, 0)
+                        storePlayers[#storePlayers + 1] = playerTile
                 end
-                for i = 1, #players_pos do
-                        player[i] = getThingfromPos(players_pos[i])
-                        if player[i].itemid > 0 then
-                                if string.lower(playersOnly) == "yes" then
-                                        if isPlayer(player[i].uid) == TRUE then
-                                                all_ready = all_ready+1
-                                        else
-                                                monsters = monsters+1
-                                        end
-                                else
-                                        all_ready = all_ready+1
-                                end
+
+                local specs, spec = Game.getSpectators(config.centerBossRoomPosition, false, false, 9, 9, 10, 10)
+                for i = 1, #specs do
+                        spec = specs[i]
+                        if spec:isPlayer() then
+                                player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
+                                return true
+                        end
+
+                        if spec:isPlayer() then
+                                spec:teleportTo(Position(33420, 32105, 10))
+                        elseif spec:isMonster() then
+                                spec:remove()
                         end
                 end
-                if all_ready == #players_pos then
-                        for i = 1, #players_pos do
-                                player[i] = getThingfromPos(players_pos[i])
-                                if isPlayer(player[i].uid) == TRUE then
-                                        if getPlayerLevel(player[i].uid) >= questLevel then
-                                                level = level+1
-                                        end
-                                else
-                                        level = level+1
-                                end
-                        end
-                        if level == #players_pos then
-                                if string.lower(playersOnly) == "yes" and monsters == 0 or string.lower(playersOnly) == "no" then
-                                        local door = getTileItemById({x=33225, y=31659, z=13}, 5109).uid
-					if door > 0 then
-						doTransformItem(door, 5108)
-					end
 
-										for _, area in pairs(monster_pos) do
-                                                        doSummonCreature(area.monster,{x=area.pos[1],y=area.pos[2],z=area.pos[3]})
-                                        end
-                                        for i = 1, #players_pos do
-                                                doSendMagicEffect(players_pos[i], CONST_ME_POFF)
-                                                doTeleportThing(player[i].uid, new_player_pos[i], FALSE)
-                                                doSendMagicEffect(new_player_pos[i], CONST_ME_ENERGYAREA)
-                                                doTransformItem(item.uid,1946)
-                                        end
-                                else
-                                        doPlayerSendTextMessage(cid,19,"Only players can do this quest.")
-                                end
-                        else
-                                doPlayerSendTextMessage(cid,19,"All Players have to be level "..questLevel.." to do this quest.")
-                        end
-                else
-                        doPlayerSendTextMessage(cid,19,"You need 4 players to do this quest.")
+                for i = 1, #config.CanopicJarPositions do
+                        Game.createMonster("Greater Canopic Jar", config.CanopicJarPositions[i])
+
                 end
-        elseif item.itemid == 1946 then
-                local player_room = 0
-                for x = room.fromX, room.toX do
-                        for y = room.fromY, room.toY do
-                                for z = room.fromZ, room.toZ do
-                                        local pos = {x=x, y=y, z=z,stackpos = 253}
-                                        local thing = getThingfromPos(pos)
-                                        if thing.itemid > 0 then
-                                                if isPlayer(thing.uid) == TRUE then
-                                                        player_room = player_room+1
-                                                end
-                                        end
-                                end
-                        end
+        Game.createMonster("The Ravager", Position(33487, 32082, 8))
+
+                local players
+                for i = 1, #storePlayers do
+                        players = storePlayers[i]
+                        config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
+                        players:teleportTo(config.newPositions[i])
+                        config.newPositions[i]:sendMagicEffect(CONST_ME_ENERGYAREA)
                 end
-                if player_room >= 1 then
-                        doPlayerSendTextMessage(cid,19,"There is already a team in the quest room.")
-                elseif player_room == 0 then
-                        for x = room.fromX, room.toX do
-                                for y = room.fromY, room.toY do
-                                        for z = room.fromZ, room.toZ do
-                                                local pos = {x=x, y=y, z=z,stackpos = 253}
-                                                local thing = getThingfromPos(pos)
-                                                if thing.itemid > 0 then
-                                                        doRemoveCreature(thing.uid)
-                                                end
-                                        end
-                                end
-                        end
-                        doTransformItem(item.uid,1945)
+        elseif item.itemid == 1945 then
+                if config.daily then
+                        player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_NOTPOSSIBLE))
+                        return true
                 end
         end
-        return TRUE
+
+        if not config.daily then 
+            item:transform(item.itemid == 1946 and 1945 or 1946)
+        end
+        return true
 end

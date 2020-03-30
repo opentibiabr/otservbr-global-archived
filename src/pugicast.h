@@ -1,4 +1,6 @@
 /**
+ * @file pugicast.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_PUGICAST_H_07810DF7954D411EB14A16C3ED2A7548
-#define FS_PUGICAST_H_07810DF7954D411EB14A16C3ED2A7548
+#ifndef OT_SRC_PUGICAST_H_
+#define OT_SRC_PUGICAST_H_
 
 #include <boost/lexical_cast.hpp>
 

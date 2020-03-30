@@ -71,6 +71,9 @@
 		<vocation name="Druid" />
 		<vocation name="Sorcerer" />
 	</wand>
+	<wand id="35235" level="220" mana="21" min="70" max="110" type="earth"> <!-- Cobra Rod -->
+		<vocation name="Druid" />
+	</wand>
 	<!-- Wands -->
 	<wand id="23719" level="1" mana="1" min="4" max="8" type="fire"> <!-- The Scorcher -->
 		<vocation name="Sorcerer" />
@@ -133,6 +136,10 @@
 		<vocation name="Sorcerer" />
 	</wand>
 	<wand id="32417" level="300" mana="21" min="86" max="102" type="energy"> <!-- Falcon Wand -->
+		<vocation name="Sorcerer" />
+	</wand>
+	
+	<wand id="35234" level="200" mana="22" min="94" max="100" type="energy"> <!-- Cobra Wand -->
 		<vocation name="Sorcerer" />
 	</wand>
 

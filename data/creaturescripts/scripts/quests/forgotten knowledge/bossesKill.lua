@@ -22,11 +22,11 @@ function onKill(creature, target)
 	if not bossConfig then
 		return true
 	end
-	for pid, _ in pairs(targetMonster:getDamageMap()) do
-		local attackerPlayer = Player(pid)
+	for key, value in pairs(targetMonster:getDamageMap()) do
+		local attackerPlayer = Player(key)
 		if attackerPlayer then
 			if bossConfig.killed then
-				attackerPlayer:setExhaustion(bossConfig.killed, 30 * 60 * 1000)
+				attackerPlayer:setStorageValue(bossConfig.killed, os.time() + 20 * 3600)
 			elseif targetMonster:getName():lower() == 'the enraged thorn knight' then
 				attackerPlayer:setStorageValue(Storage.ForgottenKnowledge.PlantCounter, 0)
 				attackerPlayer:setStorageValue(Storage.ForgottenKnowledge.BirdCounter, 0)

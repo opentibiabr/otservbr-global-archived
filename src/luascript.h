@@ -1,4 +1,6 @@
 /**
+ * @file luascript.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,10 +19,14 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
-#define FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
+#ifndef OT_SRC_LUASCRIPT_H_
+#define OT_SRC_LUASCRIPT_H_
 
-#include <lua.hpp>
+#if __has_include("luajit/lua.hpp")
+	#include <luajit/lua.hpp>
+#else
+	#include <lua.hpp>
+#endif
 
 #if LUA_VERSION_NUM >= 502
 #ifndef LUA_COMPAT_ALL
@@ -110,9 +116,9 @@ class ScriptEnvironment
 
 		void resetEnv();
 
-		void setScriptId(int32_t scriptId, LuaScriptInterface* scriptInterface) {
-			this->scriptId = scriptId;
-			interface = scriptInterface;
+		void setScriptId(int32_t newScriptId, LuaScriptInterface* newScriptInterface) {
+			this->scriptId = newScriptId;
+			this->interface = newScriptInterface;
 		}
 		bool setCallbackId(int32_t callbackId, LuaScriptInterface* scriptInterface);
 
@@ -257,12 +263,6 @@ class LuaScriptInterface
 
 		static std::string popString(lua_State* L);
 		static int32_t popCallback(lua_State* L);
-		
-		//Autoloot
-		static int luaPlayerAddAutoLootItem(lua_State* L);
-        static int luaPlayerRemoveAutoLootItem(lua_State* L);
-        static int luaPlayerGetAutoLootItem(lua_State* L);
-        static int luaPlayerGetAutoLootList(lua_State* L);
 
 		// Userdata
 		template<class T>
@@ -383,6 +383,7 @@ class LuaScriptInterface
 		static void pushInstantSpell(lua_State* L, const InstantSpell& spell);
 		static void pushPosition(lua_State* L, const Position& position, int32_t stackpos = 0);
 		static void pushOutfit(lua_State* L, const Outfit_t& outfit);
+		static void pushLoot(lua_State* L, const std::vector<LootBlock>& lootList);
 
 		//
 		static void setField(lua_State* L, const char* index, lua_Number value)
@@ -478,8 +479,6 @@ class LuaScriptInterface
 
 		static int luaSendChannelMessage(lua_State* L);
 		static int luaSendGuildChannelMessage(lua_State* L);
-		
-		static int luaGetPreyMonsters(lua_State* L);
 
 #ifndef LUAJIT_VERSION
 		static int luaBitNot(lua_State* L);
@@ -1069,11 +1068,7 @@ class LuaScriptInterface
 		static int luaPlayerSetExpBoostStamina(lua_State* L);
 
 		static int luaPlayerGetIdleTime(lua_State* L);
-		
-		/*static int luaPlayerAddAutoLootItem(lua_State* L);
-		static int luaPlayerRemoveAutoLootItem(lua_State* L);
-		static int luaPlayerGetAutoLootItem(lua_State* L);
-		static int luaPlayerGetAutoLootList(lua_State* L); */ // NOT READY
+		static int luaPlayerGetFreeBackpackSlots(lua_State* L);
 
 		// Monster
 		static int luaMonsterCreate(lua_State* L);
@@ -1316,7 +1311,6 @@ class LuaScriptInterface
 		static int luaMonsterTypeIsPet(lua_State* L);
 		static int luaMonsterTypeIsPassive(lua_State* L);
 		static int luaMonsterTypeIsRewardBoss(lua_State* L);
-		static int luaMonsterTypeIsPreyable(lua_State* L);
 		static int luaMonsterTypeRespawnType(lua_State* L);
         static int luaMonsterTypeCanSpawn(lua_State* L);
 
@@ -1349,7 +1343,6 @@ class LuaScriptInterface
 		static int luaMonsterTypeAddVoice(lua_State* L);
 		
 		static int luaMonsterTypeGetLoot(lua_State* L);
-		static int luaMonsterTypeAddLoot(lua_State* L);
 
 		static int luaMonsterTypeGetCreatureEvents(lua_State* L);
 		static int luaMonsterTypeRegisterEvent(lua_State* L);
@@ -1512,6 +1505,7 @@ class LuaScriptInterface
 		static int luaMoveEventItemId(lua_State* L);
 		static int luaMoveEventActionId(lua_State* L);
 		static int luaMoveEventUniqueId(lua_State* L);
+		static int luaMoveEventPosition(lua_State* L);
 
 		// GlobalEvents
 		static int luaCreateGlobalEvent(lua_State* L);

@@ -66,7 +66,7 @@
 		<item name="Golden Armor" chance="840"/>
 		<item name="Mastermind Shield" chance="620"/>
 		<item name="Heavy Mace" chance="460"/>
-		<item name="Closed Trap" chance="370"/>
+		<item id="2578" chance="370"/>
 		<item id="2136" chance="100"/><!-- demonbone amulet -->
 	</loot>
 </monster>

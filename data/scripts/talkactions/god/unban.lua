@@ -15,8 +15,8 @@ function talk.onSay(player, words, param)
 		return false
 	end
 
-	db.asyncQuery("DELETE FROM `account_bans` WHERE `account_id` = " .. result.getDataInt(resultId, "account_id"))
-	db.asyncQuery("DELETE FROM `ip_bans` WHERE `ip` = " .. result.getDataInt(resultId, "lastip"))
+	db.asyncQuery("DELETE FROM `account_bans` WHERE `account_id` = " .. result.getNumber(resultId, "account_id"))
+	db.asyncQuery("DELETE FROM `ip_bans` WHERE `ip` = " .. result.getNumber(resultId, "lastip"))
 	result.free(resultId)
 	player:sendTextMessage(MESSAGE_INFO_DESCR, param .. " has been unbanned.")
 	return false

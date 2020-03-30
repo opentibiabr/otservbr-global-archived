@@ -18,8 +18,11 @@ addTravelKeyword('west', 'the west end of Port Hope', 7, Position(32558, 32780, 
 addTravelKeyword('centre', 'the centre of Port Hope', 7, Position(32628, 32771, 7))
 addTravelKeyword('darama', nil, 30, Position(32987, 32729, 7))
 addTravelKeyword('center', 'the centre of Port Hope', 0, Position(32628, 32771, 7))
-addTravelKeyword('chor', nil, 30, Position(32968, 32799, 7))
-addTravelKeyword('banuta', nil, 30, Position(32826, 32631, 7))
+addTravelKeyword('chor', nil, 30, Position(32968, 32799, 7), true)
+addTravelKeyword('banuta', nil, 30, Position(32826, 32631, 7), true)
+addTravelKeyword('mountain', nil, 30, Position(32987, 32729, 7), true)
+addTravelKeyword('mountain pass', nil, 30, Position(32987, 32729, 7), true)
+
 
 -- Basic
 keywordHandler:addKeyword({'ferumbras'}, StdModule.say, {npcHandler = npcHandler, text = "I heard he is some scary magician or so."})

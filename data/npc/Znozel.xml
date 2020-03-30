@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Znozel" script="Znozel.lua" walkinterval="2000">
+<npc name="Znozel" script="Bank.lua" walkinterval="2000">
 	<health now="100" max="100" />
 	<look type="297" />
 </npc>

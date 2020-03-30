@@ -77,14 +77,14 @@ function onStepIn(creature, item, position, fromPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end
-	if Game.getStorageValue(GlobalStorage.HeroRathleton.FourthMachines) < 8 then
+	if Game.getStorageValue(GlobalStorage.HeroRathleton.FourthMachines) < 7 then
 		player:say('No energy enough to use this teleport!', TALKTYPE_MONSTER_SAY, false, nil, position)
 		player:teleportTo(Position(33371, 31955, 15))
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end
-	if Game.getStorageValue(GlobalStorage.HeroRathleton.FourthMachines) == 8 then
+	if Game.getStorageValue(GlobalStorage.HeroRathleton.FourthMachines) == 7 then
 		if Game.getStorageValue(GlobalStorage.HeroRathleton.LavaRunning) < 1 then
 			addEvent(Game.setStorageValue, 1 * 30 * 1000, GlobalStorage.HeroRathleton.LavaRunning, 1)
 			for i = 1, 5 do

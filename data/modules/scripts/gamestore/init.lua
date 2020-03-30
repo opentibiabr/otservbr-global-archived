@@ -1,7 +1,7 @@
 -- Please don't edit those information!
 GameStore = {
   ModuleName = "GameStore",
-  Developers = { "Cjaker", "metabob" },
+  Developers = { "Slavi Dodo", "Cjaker", "metabob" },
   Version = "0.4",
   LastUpdated = "15-04-2019 17:40PM"
 }
@@ -24,7 +24,7 @@ GameStore.OfferTypes = {
   OFFER_TYPE_TEMPLE = 13,
   OFFER_TYPE_BLESSINGS = 14,
   OFFER_TYPE_PREMIUM = 15,
-  OFFER_TYPE_POUNCH = 16,
+  OFFER_TYPE_POUCH = 16,
   OFFER_TYPE_ALLBLESSINGS = 17
 }
 
@@ -93,7 +93,7 @@ GameStore.ExpBoostValues = {
 }
 
 GameStore.DefaultValues = {
-  DEFAULT_VALUE_ENTRIES_PER_PAGE = 16
+  DEFAULT_VALUE_ENTRIES_PER_PAGE = 26
 }
 
 GameStore.DefaultDescriptions = {
@@ -273,7 +273,7 @@ function parseBuyStoreOffer(playerId, msg)
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYSLOT and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE and
-          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
+          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
           not offer.id) then
     return queueSendStoreAlertToUser("This offer is unavailable [1]", 350, playerId, GameStore.StoreErrors.STORE_ERROR_INFORMATION)
   end
@@ -289,8 +289,8 @@ function parseBuyStoreOffer(playerId, msg)
   -- Handled errors are thrown to indicate that the purchase has failed;
   -- Handled errors have a code index and unhandled errors do not
   local pcallOk, pcallError = pcall(function()
-    if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM               then GameStore.processItemPurchase(player, offer.id, offer.count)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH         then GameStore.processItemPurchase(player, offer.id, offer.count)
+    if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM                 then GameStore.processItemPurchase(player, offer.id, offer.count)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH          then GameStore.processItemPurchase(player, offer.id, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.id)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM        then GameStore.processPremiumPurchase(player, offer.id)
@@ -299,11 +299,11 @@ function parseBuyStoreOffer(playerId, msg)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT         then GameStore.processOutfitPurchase(player, offer.sexId, offer.addon)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_OUTFIT_ADDON   then GameStore.processOutfitPurchase(player, offer.sexId, offer.addon)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_MOUNT          then GameStore.processMountPurchase(player, offer.id)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE     then local newName = msg:getString(); GameStore.processNameChangePurchase(player, offer.id, productType, newName)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE     then local newName = msg:getString(); GameStore.processNameChangePurchase(player, offer, productType, newName)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE      then GameStore.processSexChangePurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST       then GameStore.processExpBoostPuchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
-      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.id, offer.count)
+      elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.count)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE         then GameStore.processTempleTeleportPurchase(player)
       elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PROMOTION      then GameStore.processPromotionPurchase(player, offer.id)
     else
@@ -323,6 +323,9 @@ function parseBuyStoreOffer(playerId, msg)
     return queueSendStoreAlertToUser(alertMessage, 500, playerId)
   end
 
+  if offer.type == GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE then
+    return
+  end
 
   player:removeCoinsBalance(offerPrice)
   GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name, (offerPrice) * -1)
@@ -340,7 +343,7 @@ end
 
 function parseRequestTransactionHistory(playerId, msg)
   local page = msg:getU32()
-  sendStoreTransactionHistory(playerId, page, GameStore.DefaultValues.DEFAULT_VALUE_ENTRIES_PER_PAGE)
+  sendStoreTransactionHistory(playerId, page + 1, GameStore.DefaultValues.DEFAULT_VALUE_ENTRIES_PER_PAGE)
 end
 
 local function getCategoriesRook()
@@ -481,7 +484,7 @@ function sendShowStoreOffers(playerId, category)
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_PREYBONUS and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_TEMPLE and
           offer.type ~= GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE and
-          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
+          offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
           not offer.id then
         disabled = 1
       end
@@ -492,11 +495,11 @@ function sendShowStoreOffers(playerId, category)
       end
 
       if disabled ~= 1 then
-        if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH then
-          local pounch = player:getItemById(26377, true)
-          if pounch then
+        if offer.type == GameStore.OfferTypes.OFFER_TYPE_POUCH then
+          local pouch = player:getItemById(26377, true)
+          if pouch then
             disabled = 1
-            disabledReason = "You already have Gold Pounch."
+            disabledReason = "You already have Gold Pouch."
           end
         elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS then
           if player:hasBlessing(offer.id) and offer.id < 9 then
@@ -547,7 +550,7 @@ function sendShowStoreOffers(playerId, category)
             disabledReason = "You can't get this promotion"
           end
         elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
-          local unlockedColumns = player:getStorageValue(63253)
+          local unlockedColumns = player:getStorageValue(STORE_SLOT_STORAGE)
           if (unlockedColumns == 1) then
             disabled = 1
             disabledReason = "You already have 3 slots released."
@@ -556,6 +559,10 @@ function sendShowStoreOffers(playerId, category)
           if (player:getStorageValue(51052) == 6 and (os.time() - player:getStorageValue(51053)) < 86400) then
             disabled = 1
             disabledReason = "You can't buy XP Boost for today."
+          end
+		  if (player:getExpBoostStamina()>0) then
+            disabled = 1
+            disabledReason = "You can't buy XP Boost while you still have one active."
           end
         end
       end
@@ -660,29 +667,30 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
     return false
   end
 
-  local entries = GameStore.retrieveHistoryEntries(player:getAccountId()) -- this makes everything easy!
+  local totalEntries = GameStore.retrieveHistoryTotalPages(player:getAccountId())
+  local totalPages = math.ceil(totalEntries / entriesPerPage)
+  local entries = GameStore.retrieveHistoryEntries(player:getAccountId(), page, entriesPerPage) -- this makes everything easy!
   if #entries == 0 then
     return addPlayerEvent(sendStoreError, 250, playerId, GameStore.StoreErrors.STORE_ERROR_HISTORY, "You don't have any entries yet.")
   end
-
-  local toSkip = (page - 1) * entriesPerPage
-  for i = 1, toSkip do
-    table.remove(entries, 1) -- we remove first!
-  end
-
+  
   local msg = NetworkMessage()
   msg:addByte(GameStore.SendingPackets.S_OpenTransactionHistory)
-  msg:addU32(page)
-  msg:addU32(#entries > entriesPerPage and 0x01 or 0x00)
+  
+  msg:addU32(totalPages > 0 and page - 1 or 0x0) -- current page
+  msg:addU32(totalPages > 0 and totalPages or 0x0) -- total page
+  msg:addByte(#entries)
 
-  msg:addByte(#entries >= entriesPerPage and entriesPerPage or #entries)
   for k, entry in ipairs(entries) do
-    if k >= entriesPerPage then break end
     msg:addU32(entry.time)
     msg:addByte(entry.mode)
     msg:addU32(entry.amount)
+    if player:getClient().version >= 1200 then
+     msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
+    end
     msg:addString(entry.description)
   end
+
   msg:sendToPlayer(player)
 end
 
@@ -827,9 +835,22 @@ GameStore.insertHistory = function(accountId, mode, description, amount)
   return db.query(string.format("INSERT INTO `store_history`(`account_id`, `mode`, `description`, `coin_amount`, `time`) VALUES (%s, %s, %s, %s, %s)", accountId, mode, db.escapeString(description), amount, os.time()))
 end
 
-GameStore.retrieveHistoryEntries = function(accountId)
+GameStore.retrieveHistoryTotalPages = function (accountId) 
+  local resultId = db.storeQuery("SELECT count(id) as total FROM store_history WHERE account_id = " .. accountId)
+  if resultId == false then
+    return 0
+  end
+  
+  local totalPages = result.getDataInt(resultId, "total")
+  result.free(resultId)
+  return totalPages
+end
+
+GameStore.retrieveHistoryEntries = function(accountId, currentPage, entriesPerPage)
   local entries = {}
-  local resultId = db.storeQuery("SELECT * FROM `store_history` WHERE `account_id` = " .. accountId .. " ORDER BY `time` DESC LIMIT 15;")
+  local offset = currentPage > 1 and entriesPerPage * (currentPage - 1) or 0
+  
+  local resultId = db.storeQuery("SELECT * FROM `store_history` WHERE `account_id` = " .. accountId .. " ORDER BY `time` DESC LIMIT " .. offset .. ", " .. entriesPerPage .. ";")
   if resultId ~= false then
     repeat
       local entry = {
@@ -1062,66 +1083,61 @@ function GameStore.processAllBlessingsPurchase(player)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
-  player:addPremiumDays(offerId)
+  player:addPremiumDays(offerId-3000)
+  
+  -- Update Prey Data
+  for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+    player:sendPreyData(slot)
+  end
 end
 
 function GameStore.processStackablePurchase(player, offerId, offerCount, offerName)
   local function isKegExerciseItem(itemId)
-    return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END))
+    return ((itemId >= ITEM_KEG_START and itemId <= ITEM_KEG_END) or (itemId >= ITEM_EXERCISE_START and itemId <= ITEM_EXERCISE_END) or itemId == 32109)
   end
-
-  if (isKegExerciseItem(offerId) and player:getFreeCapacity() < ItemType(offerId):getWeight(1)) or player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount)then
-    return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
+  
+  if isKegExerciseItem(offerId) then
+    if player:getFreeCapacity() < ItemType(offerId):getWeight(1) then
+      return error({code = 0, message = "Please make sure you have free capacity to hold this item."})
+    end
+  else
+    if player:getFreeCapacity() < ItemType(offerId):getWeight(offerCount) then
+      return error({code = 0, message = "Please make sure you have free capacity to hold this item."})  
+    end
   end
 
   local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
   if inbox and inbox:getEmptySlots() > 0 then
     if (isKegExerciseItem(offerId)) then
       if (offerCount >= 500) then
-        local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
-        local function changeParcel(parcel)
-          local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
-          if parcel then
-            parcel:setAttribute(ITEM_ATTRIBUTE_NAME, packagename)
-            local pendingCount = offerCount
-            while (pendingCount > 0) do
-              local pack
-              if (pendingCount > 500) then
-                pack = 500
-              else
-                pack = pendingCount
-              end
-              local kegExerciseItem = parcel:addItem(offerId, 1)
-              kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
-              pendingCount = pendingCount - pack
-            end
-          end
+		local pendingCount = offerCount
+		while (pendingCount > 0) do
+			local pack
+			if (pendingCount > 500) then
+				pack = 500
+			else
+				pack = pendingCount
+			end
+			local kegExerciseItem = inbox:addItem(offerId, 1)
+            kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
+			pendingCount = pendingCount - pack
         end
-        addEvent(function() changeParcel(parcel) end, 250)
       else
         local kegExerciseItem = inbox:addItem(offerId, 1)
         kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
       end
-    elseif (offerNumber > 100) then
-      local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
-      local function changeParcel(parcel)
-        local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
-        if parcel then
-          parcel:setAttribute(ITEM_ATTRIBUTE_NAME, packagename)
-          local pendingCount = offerCount
-          while (pendingCount > 0) do
-            local pack
-            if (pendingCount > 100) then
-              pack = 100
-            else
-              pack = pendingCount
-            end
-            parcel:addItem(offerId, pack)
-            pendingCount = pendingCount - pack
-          end
+    elseif (offerCount > 100) then
+		local pendingCount = offerCount
+		while (pendingCount > 0) do
+			local pack
+			if (pendingCount > 100) then
+				pack = 100
+			else
+				pack = pendingCount
+			end
+			inbox:addItem(offerId, pack)
+			pendingCount = pendingCount - pack
         end
-      end
-      addEvent(function() changeParcel(parcel) end, 250)
     else
       inbox:addItem(offerId, offerCount)
     end
@@ -1144,7 +1160,7 @@ function GameStore.processHouseRelatedPurchase(player, offerId, offerCount)
       local decoItemName = ItemType(offerId):getName()
       if kit then
         kit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. decoItemName .. ">.")
-        kit:setActionId(offerId)
+        kit:setCustomAttribute("unWrapId", offerId)
 
         if isCaskItem(offerId) then
           kit:setAttribute(ITEM_ATTRIBUTE_DATE, offerCount)
@@ -1187,8 +1203,9 @@ function GameStore.processMountPurchase(player, offerId)
   player:addMount(offerId)
 end
 
-function GameStore.processNameChangePurchase(player, offerId, productType, newName)
+function GameStore.processNameChangePurchase(player, offer, productType, newName)
   local playerId = player:getId()
+  local offerId = offer.id
 
   if productType == GameStore.ClientOfferTypes.CLIENT_STORE_OFFER_NAMECHANGE then
     local tile = Tile(player:getPosition())
@@ -1210,6 +1227,8 @@ function GameStore.processNameChangePurchase(player, offerId, productType, newNa
 
     newName = newName:lower():gsub("(%l)(%w*)", function(a, b) return string.upper(a) .. b end)
     db.query("UPDATE `players` SET `name` = " .. db.escapeString(newName) .. " WHERE `id` = " .. player:getGuid())
+    player:removeCoinsBalance(offer.price)
+    GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name, (offer.price) * -1)
     message = "You have successfully changed you name, relogin!"
     addEvent(function()
       local player = Player(playerId)
@@ -1245,21 +1264,20 @@ function GameStore.processExpBoostPuchase(player)
 end
 
 function GameStore.processPreySlotPurchase(player)
-
-  if player:getStorageValue(63253) < 1 then
-  player:setStorageValue(63253, 1)
-  end
-
-  player:setStorageValue(63253, 1)
+	if player:getStorageValue(STORE_SLOT_STORAGE) < 1 then
+		player:setStorageValue(STORE_SLOT_STORAGE, 1)
+		player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
+		player:setPreyState(CONST_PREY_SLOT_THIRD, 1)
+		
+		-- Update Prey Data
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end
 end
 
-function GameStore.processPreyBonusReroll(player, offerId, offerCount)
-
-  if (player:getStorageValue(63353) == -1 or player:getStorageValue(63353) > 10000) then
-    player:setStorageValue(63353, 0)
-  end
-
-  player:setStorageValue(63353, (player:getStorageValue(63353)+offerCount))
+function GameStore.processPreyBonusReroll(player, offerCount)
+	player:setPreyBonusRerolls(player:getPreyBonusRerolls() + offerCount)
 end
 
 function GameStore.processTempleTeleportPurchase(player)

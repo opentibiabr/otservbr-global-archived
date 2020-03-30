@@ -181,7 +181,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 				local newpos = Position(33138, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
-					nplayer:setStorageValue(Storage.CultsOfTibia.Barkless.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+					nplayer:setStorageValue(Storage.CultsOfTibia.Barkless.bossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33161, 31959, 15),true)
 					convertTable[#convertTable + 1] = nplayer:getId()
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -227,7 +227,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 				local newpos = Position(33162, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
-					nplayer:setStorageValue(Storage.CultsOfTibia.Minotaurs.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+					nplayer:setStorageValue(Storage.CultsOfTibia.Minotaurs.bossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33169, 31915, 15),true)
 					convertTable[#convertTable + 1] = nplayer:getId()
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -276,7 +276,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 				local newpos = Position(33095, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
-					nplayer:setStorageValue(Storage.CultsOfTibia.Humans.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+					nplayer:setStorageValue(Storage.CultsOfTibia.Humans.bossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33098, 31921, 15),true)
 					convertTable[#convertTable + 1] = nplayer:getId()
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -330,7 +330,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 			local newpos = Position(33127, i, 15)
 			local nplayer = Tile(newpos):getTopCreature()
 			if nplayer and nplayer:isPlayer() then
-				nplayer:setStorageValue(Storage.CultsOfTibia.Misguided.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+				nplayer:setStorageValue(Storage.CultsOfTibia.Misguided.bossTimer, os.time() + 20 * 60 * 60)
 				nplayer:teleportTo(Position(33130, 31919, 15),true)
 				convertTable[#convertTable + 1] = nplayer:getId()
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -376,7 +376,7 @@ end
 				local newpos = Position(33164, y, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
-					nplayer:setStorageValue(Storage.CultsOfTibia.Orcs.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+					nplayer:setStorageValue(Storage.CultsOfTibia.Orcs.bossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33137, 31867, 15),true)
 					convertTable[#convertTable + 1] = nplayer:getId()
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -473,7 +473,7 @@ end
 				local newpos = Position(33507,_y, 10)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
-					nplayer:setStorageValue(Storage.CultsOfTibia.Life.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+					nplayer:setStorageValue(Storage.CultsOfTibia.Life.bossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33099, 31864, 15),true)
 					convertTable[#convertTable + 1] = nplayer:getId()
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -515,7 +515,7 @@ end
 			for _, pid in pairs(convertTable) do
 				local nplayer = Player(pid)
 				if nplayer then
-					nplayer:setStorageValue(Storage.CultsOfTibia.finalBoss.bossTimer, os.time() + 20 * 60 * 60 * 1 * 1000)
+					nplayer:setStorageValue(Storage.CultsOfTibia.finalBoss.bossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33039, 31925, 15),true)
 					nplayer:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				end

@@ -7,40 +7,6 @@ function Creature:onAreaCombat(tile, isAggressive)
 	return true
 end
 
--- Prey slots consumption
-local function preyTimeLeft(player, slot)
-	local timeLeft = player:getPreyTimeLeft(slot) / 60
-	if (timeLeft > 0) then
-		local playerId = player:getId()
-		local currentTime = os.time()
-		local timePassed = currentTime - nextPreyTime[playerId][slot]
-		if timePassed > 0 then
-			if timePassed > 60 then
-				if timeLeft > 2 then
-					timeLeft = timeLeft - 2
-				else
-					timeLeft = 0
-				end
-				nextPreyTime[playerId][slot] = currentTime + 120
-			else
-				timeLeft = timeLeft - 1
-				nextPreyTime[playerId][slot] = currentTime + 60
-			end
-		end
-		-- Expiring prey as there's no timeLeft
-		if (timeLeft <= 1) then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
-			player:setPreyCurrentMonster(slot, "")
-		end
-		-- Setting new timeLeft
-		player:setPreyTimeLeft(slot, timeLeft * 60)
-	else
-		-- Expiring prey as there's no timeLeft
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
-		player:setPreyCurrentMonster(slot, "")
-	end
-end
-
 local function removeCombatProtection(cid)
 	local player = Player(cid)
 	if not player then
@@ -68,29 +34,6 @@ local function removeCombatProtection(cid)
 	end, time * 1000, cid)
 end
 
--- Increase Stamina when Attacking Trainer
-local staminaBonus = {
-	target = 'Training Monk',
-	period = 120000, -- time on miliseconds
-	bonus = 1, -- gain stamina
-	events = {}
-}
-
-local function addStamina(name)
-	local player = Player(name)
-	if not player then
-		staminaBonus.events[name] = nil
-	else
-		local target = player:getTarget()
-		if not target or target:getName() ~= staminaBonus.target then
-			staminaBonus.events[name] = nil
-		else
-			player:setStamina(player:getStamina() + staminaBonus.bonus)
-			staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
-		end
-	end
-end
-
 function Creature:onTargetCombat(target)
 	if not self then
 		return true
@@ -102,13 +45,13 @@ function Creature:onTargetCombat(target)
 			__picif[target.uid] = {}
 		end
 	end
-
+	
 	if target:isPlayer() then
 		if self:isMonster() then
 			local protectionStorage = target:getStorageValue(Storage.combatProtectionStorage)
 
 			if target:getIp() == 0 then -- If player is disconnected, monster shall ignore to attack the player
-			    if target:isPzLocked() then end
+			    if target:isPzLocked() then return true end
 				if protectionStorage <= 0 then
 					addEvent(removeCombatProtection, 30 * 1000, target.uid)
 					target:setStorageValue(Storage.combatProtectionStorage, 1)
@@ -149,16 +92,6 @@ function Creature:onTargetCombat(target)
 			end
 		end
 	end
-
-		if self:isPlayer() then
-		if target and target:getName() == staminaBonus.target then
-			local name = self:getName()
-			if not staminaBonus.events[name] then
-				staminaBonus.events[name] = addEvent(addStamina, staminaBonus.period, name)
-			end
-		end
-	end
-
 	return true
 end
 
@@ -177,7 +110,6 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 				if (attacker:getPreyCurrentMonster(slot) == self:getName() and attacker:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_BOOST) then
 					damagePrimary = damagePrimary + math.floor(damagePrimary * (attacker:getPreyBonusValue(slot) / 100))
-					preyTimeLeft(attacker, slot) -- slot consumption
 					break
 				end
 			end
@@ -188,7 +120,6 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 				if (self:getPreyCurrentMonster(slot) == attacker:getName() and self:getPreyBonusType(slot) == CONST_BONUS_DAMAGE_REDUCTION) then
 					damagePrimary = damagePrimary - math.floor(damagePrimary * (self:getPreyBonusValue(slot) / 100))
-					preyTimeLeft(self, slot) -- slot consumption
 					break
 				end
 			end

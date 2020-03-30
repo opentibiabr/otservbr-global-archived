@@ -18,7 +18,7 @@ addTravelKeyword('yalahar', 'back to Yalahar', 100, Position(32649, 31292, 6))
 addTravelKeyword('fenrock', 'to the Fenrock', 100, Position(32563, 31313, 7))
 
 -- Kick
---keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32634, 31437, 7), Position(32634, 31438, 7)}})
+keywordHandler:addKeyword({'kick'}, StdModule.kick, {npcHandler = npcHandler, destination = {Position(32634, 31437, 7), Position(32634, 31438, 7)}})
 
 -- Basic
 keywordHandler:addKeyword({'mistrock'}, StdModule.say, {npcHandler = npcHandler,

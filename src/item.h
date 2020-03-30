@@ -1,4 +1,6 @@
 /**
+ * @file item.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_ITEM_H_009A319FB13D477D9EEFFBBD9BB83562
-#define FS_ITEM_H_009A319FB13D477D9EEFFBBD9BB83562
+#ifndef OT_SRC_ITEM_H_
+#define OT_SRC_ITEM_H_
 
 #include "cylinder.h"
 #include "thing.h"
@@ -104,8 +106,9 @@ enum AttrTypes_t {
 	ATTR_SHOOTRANGE = 33,
 	ATTR_SPECIAL = 34,
 	ATTR_IMBUINGSLOTS = 35,
+	ATTR_OPENCONTAINER = 36,
 
-	ATTR_CUSTOM_ATTRIBUTES = 36
+	ATTR_CUSTOM_ATTRIBUTES = 37
 };
 
 enum Attr_ReadValue {
@@ -145,7 +148,7 @@ class ItemAttributes
 			removeAttribute(ITEM_ATTRIBUTE_DATE);
 		}
 		time_t getDate() const {
-			return static_cast<time_t>(getIntAttr(ITEM_ATTRIBUTE_DATE));
+			return getIntAttr(ITEM_ATTRIBUTE_DATE);
 		}
 
 		void setWriter(const std::string& writer) {
@@ -238,7 +241,7 @@ class ItemAttributes
 			struct PushLuaVisitor : public boost::static_visitor<> {
 				lua_State* L;
 
-				PushLuaVisitor(lua_State* L) : boost::static_visitor<>(), L(L) {}
+				explicit PushLuaVisitor(lua_State* L) : boost::static_visitor<>(), L(L) {}
 
 				void operator()(const boost::blank&) const {
 					lua_pushnil(L);
@@ -268,7 +271,7 @@ class ItemAttributes
 			struct SerializeVisitor : public boost::static_visitor<> {
 				PropWriteStream& propWriteStream;
 
-				SerializeVisitor(PropWriteStream& propWriteStream) : boost::static_visitor<>(), propWriteStream(propWriteStream) {}
+				explicit SerializeVisitor(PropWriteStream& propWriteStream) : boost::static_visitor<>(), propWriteStream(propWriteStream) {}
 
 				void operator()(const boost::blank&) const {
 				}
@@ -363,7 +366,7 @@ class ItemAttributes
 			} value;
 			itemAttrTypes type;
 
-			explicit Attribute(itemAttrTypes type) : type(type) {
+			explicit Attribute(itemAttrTypes initType) : type(initType) {
 				memset(&value, 0, sizeof(value));
 			}
 			Attribute(const Attribute& i) {
@@ -502,7 +505,7 @@ class ItemAttributes
 
 	public:
 		static bool isIntAttrType(itemAttrTypes type) {
-			return (type & 0x7FFE13) != 0;
+			return (type & 0x27FFE13) != 0;
 		}
 		static bool isStrAttrType(itemAttrTypes type) {
 			return (type & 0x8001EC) != 0;
@@ -905,12 +908,10 @@ class Item : virtual public Thing
 			return items[id].isHangable;
 		}
 		bool isRotatable() const {
-			const ItemType& it = items[id];
-			return it.rotatable && it.rotateTo;
+			return items[id].rotatable && items[id].rotateTo;
 		}
 		bool isWrapable() const {
-			const ItemType& it = items[id];
-			return it.wrapable && it.wrapableTo;
+			return items[id].wrapable && items[id].wrapableTo;
 		}
 		bool hasWalkStack() const {
 			return items[id].walkStack;

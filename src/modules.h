@@ -1,4 +1,6 @@
 /**
+ * @file modules.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_MODULE_H_73FCAF4608CB41399D53C919316646A9
-#define FS_MODULE_H_73FCAF4608CB41399D53C919316646A9
+#ifndef OT_SRC_MODULE_H_
+#define OT_SRC_MODULE_H_
 
 #include "luascript.h"
 #include "baseevents.h"

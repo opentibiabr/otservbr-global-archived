@@ -1,4 +1,6 @@
 /**
+ * @file enums.h
+ * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -17,8 +19,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
-#define FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
+#ifndef OT_SRC_ENUMS_H_
+#define OT_SRC_ENUMS_H_
 
 enum RuleViolationType_t : uint8_t {
 	REPORT_TYPE_NAME = 0,
@@ -91,7 +93,7 @@ enum itemAttrTypes : uint32_t {
 	ITEM_ATTRIBUTE_DOORID = 1 << 22,
 	ITEM_ATTRIBUTE_SPECIAL = 1 << 23,
 	ITEM_ATTRIBUTE_IMBUINGSLOTS = 1 << 24,
-
+	ITEM_ATTRIBUTE_OPENCONTAINER = 1 << 25,
 	ITEM_ATTRIBUTE_CUSTOM = 1U << 31
 };
 
@@ -173,7 +175,7 @@ enum PreySlotStatus_t : uint16_t
 };
 
 
-enum PreyState_t : uint8_t
+enum PreyState_t : uint16_t
 {
 	PREY_STATE_LOCKED = 0,
 	PREY_STATE_INACTIVE = 1,
@@ -310,6 +312,7 @@ enum ConditionParam_t {
 	CONDITION_PARAM_SKILL_MANA_LEECH_CHANCE = 51,
 	CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNT = 52,
 	CONDITION_PARAM_DISABLE_DEFENSE = 53,
+	CONDITION_PARAM_STAT_CAPACITYPERCENT = 54
 };
 
 enum BlockType_t : uint8_t {
@@ -346,9 +349,10 @@ enum stats_t {
 	STAT_MAXMANAPOINTS,
 	STAT_SOULPOINTS, // unused
 	STAT_MAGICPOINTS,
+	STAT_CAPACITY,
 
 	STAT_FIRST = STAT_MAXHITPOINTS,
-	STAT_LAST = STAT_MAGICPOINTS
+	STAT_LAST = STAT_CAPACITY
 };
 
 enum formulaType_t {
@@ -556,7 +560,7 @@ struct LightInfo {
 	uint8_t level = 0;
 	uint8_t color = 0;
 	constexpr LightInfo() = default;
-	constexpr LightInfo(uint8_t level, uint8_t color) : level(level), color(color) {}
+	constexpr LightInfo(uint8_t newLevel, uint8_t newColor) : level(newLevel), color(newColor) {}
 };
 
 struct ShopInfo {
@@ -573,8 +577,8 @@ struct ShopInfo {
 		sellPrice = 0;
 	}
 
-	ShopInfo(uint16_t itemId, int32_t subType = 0, uint32_t buyPrice = 0, uint32_t sellPrice = 0, std::string realName = "")
-		: itemId(itemId), subType(subType), buyPrice(buyPrice), sellPrice(sellPrice), realName(std::move(realName)) {}
+	ShopInfo(uint16_t newItemId, int32_t newSubType = 0, uint32_t newBuyPrice = 0, uint32_t newSellPrice = 0, std::string newRealName = "")
+		: itemId(newItemId), subType(newSubType), buyPrice(newBuyPrice), sellPrice(newSellPrice), realName(std::move(newRealName)) {}
 };
 
 struct MarketOffer {
@@ -634,8 +638,8 @@ struct ModalWindow
 	uint8_t defaultEnterButton, defaultEscapeButton;
 	bool priority;
 
-	ModalWindow(uint32_t id, std::string title, std::string message)
-		: title(std::move(title)), message(std::move(message)), id(id), defaultEnterButton(0xFF), defaultEscapeButton(0xFF), priority(false) {}
+	ModalWindow(uint32_t newId, std::string newTitle, std::string newMessage)
+		: title(std::move(newTitle)), message(std::move(newMessage)), id(newId), defaultEnterButton(0xFF), defaultEscapeButton(0xFF), priority(false) {}
 };
 
 enum CombatOrigin

@@ -14,11 +14,11 @@
 		<vocation name="Elder Druid"/>
 	</instant>
 	<!-- under construction -->
-	<instant group="support" spellid="176" name="Conjure Diamond Arrow" words="exevo gran con hur" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Diamond_Arrow.lua">
+	<instant group="support" spellid="192" name="Conjure Diamond Arrow" words="exevo gran con hur" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Diamond_Arrow.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
-	<instant group="support" spellid="192" name="Conjure Spectral Bolt" words="exevo gran con vis" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Spectral_Bolt.lua">
+	<instant group="support" spellid="193" name="Conjure Spectral Bolt" words="exevo gran con vis" lvl="150" mana="1000" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="600000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Spectral_Bolt.lua">
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
@@ -26,7 +26,7 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
-	<instant group="support" spellid="193" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="180000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
+	<instant group="support" spellid="92" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="180000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 	</instant>
@@ -508,9 +508,18 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" showInDescription="0" />
 	</rune>
-	<rune group="attack" spellid="86" name="Magic Wall" id="2293" allowfaruse="1" charges="3" lvl="32" maglv="9" exhaustion="2000" groupcooldown="2000" blocktype="all" script="support/magic wall rune.lua" />
 	<rune group="attack" spellid="116" name="Light Stone Shower" id="23722" allowfaruse="1" charges="4" lvl="1" maglv="0" cooldown="2000" groupcooldown="2000" script="attack/light stone shower.lua" />
-	<rune group="attack" spellid="7" name="Lightest Missile" id="23723" allowfaruse="1" charges="10" lvl="1" cooldown="2000" groupcooldown="2000" maglv="0" needtarget="1" blocktype="solid" script="attack/lightest magic missile.lua" />
+	<rune group="attack" spellid="7" name="Lightest Missile" id="23723" allowfaruse="1" charges="10" lvl="1" cooldown="2000" groupcooldown="2000" maglv="0" needtarget="1" blocktype="solid" script="attack/lightest missile.lua" >
+		<vocation name="Sorcerer" />
+		<vocation name="Druid" />
+		<vocation name="Paladin" />
+	</rune>
+	<rune group="attack" spellid="7" name="Lightest Magic Missile" id="19792" allowfaruse="1" charges="10" lvl="1" cooldown="2000" groupcooldown="2000" maglv="0" needtarget="1" blocktype="solid" script="attack/lightest magic missile.lua">
+		<vocation name="Sorcerer" />
+		<vocation name="Druid" />
+		<vocation name="Paladin" />
+		<vocation name="Knight" />
+	</rune>
 
 	<!-- Healing Runes -->
 	<rune group="healing" spellid="31" name="Antidote Rune" id="2266" allowfaruse="1" charges="1" lvl="15" maglv="0" exhaustion="2000" groupcooldown="2000" aggressive="0" needtarget="1" blocktype="solid" script="healing/antidote rune.lua" />
@@ -525,10 +534,6 @@
 	<rune group="support" spellid="78" name="Desintegrate" id="2310" allowfaruse="0" charges="3" lvl="21" maglv="4" exhaustion="2000" groupcooldown="2000" range="1" script="support/desintegrate rune.lua" />
 	<rune group="support" spellid="30" name="Destroy Field" id="2261" allowfaruse="1" charges="3" lvl="17" maglv="3" exhaustion="2000" groupcooldown="2000" aggressive="0" range="5" script="support/destroy field rune.lua" />
 	<rune group="support" spellid="14" name="Chameleon Rune" id="2291" allowfaruse="1" charges="1" level="27" magiclevel="4" cooldown="2000" groupcooldown="2000" aggressive="0" selftarget="1" blocktype="solid" script="support/chameleon.lua" />
-	<rune group="support" spellid="94" name="Wild Growth" id="2269" allowfaruse="1" charges="2" lvl="27" maglv="8" exhaustion="2000" groupcooldown="2000" blocktype="all" script="support/wild growth rune.lua">
-		<vocation name="Druid" />
-		<vocation name="Elder Druid" showInDescription="0" />
-	</rune>
 	<rune group="support" spellid="54" name="Paralyze" id="2278" allowfaruse="1" charges="1" lvl="54" maglv="18" exhaustion="2000" groupcooldown="2000" mana="1400" needtarget="1" blocktype="solid" script="support/paralyze rune.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" showInDescription="0" />
@@ -774,6 +779,15 @@
 	<instant name="House Kick" words="alana sio" aggressive="0" playernameparam="1" params="1" script="house/kick.lua" />
 
 	<!-- Monster Spells -->
+	<instant name="urmahlulluring" words="###474" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
+	<instant name="warden x" words="###476" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden x.lua"/>
+	<instant name="warden ring" words="###477" selftarget="1" exhaustion="2000" needlearn="1" script="monster/warden ring.lua"/>
+	<instant name="wave t" words="###478" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/wave t.lua"/>
+	<instant name="firering" words="###479" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firering.lua"/>
+	<instant name="firex" words="###480" selftarget="1" exhaustion="2000" needlearn="1" script="monster/burning gladiator firex.lua"/>
+	<instant name="targetfirering" words="###481" aggressive="1" blockwalls="1" needtarget="1" exhaustion="2000" needlearn="1" script="monster/priestess firering.lua"/>
+	<instant name="explosion wave" words="###482" direction="1" aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/explosion wave.lua"/>
+	<instant name="urmahlulluring" words="###483" selftarget="1" exhaustion="2000" needlearn="1" script="monster/urmahlullu ring.lua"/>
 	<instant name="ghastly dragon curse" words="###1"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/ghastly dragon curse.lua"/>
 	<instant name="djinn electrify"  words="###2"  aggressive="1" blockwalls="1" needtarget="1" needlearn="1" script="monster/djinn electrify.lua"/>
 	<instant name="energy elemental electrify" words="###3"  aggressive="1" blockwalls="1" needtarget="0" needlearn="1" script="monster/energy elemental electrify.lua"/>

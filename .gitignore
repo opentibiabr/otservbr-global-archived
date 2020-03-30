@@ -7,6 +7,7 @@
 *.rsuser
 *.suo
 *.user
+*.dll
 *.userosscache
 *.sln.docstates
 
@@ -29,6 +30,7 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+build/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -167,6 +169,9 @@ DocProject/Help/*.hhk
 DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
+
+# Doxygen files
+doc/*
 
 # Click-Once directory
 publish/
@@ -351,12 +356,20 @@ MigrationBackup/
 # Docker folders with generated artifacts
 docker/**/otserver
 
-## CUSTOM
+# VSCode
+settings.json
+c_cpp_properties.json
 
-libmysql.dll
-lua51.dll
-theforgottenserver.exe
-data/world/otservbr.otbm
+## CUSTOM
+# Files
 config.lua
-tfs.exe
-*.dll
+# Extensions
+*.ini
+*.otb
+*.txt
+*.exe
+*.otbm
+*.rar
+
+# SFTP for Sublime
+sftp-config.json

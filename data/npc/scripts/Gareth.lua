@@ -97,8 +97,52 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 		-- Se ainda não tiver visto a pintura falsa
 		elseif msgcontains(msg, "mission") and player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 8 then
 		npcHandler:say({"You didn't investigate the pictures yet. Do your job and then come back."}, cid)
-
 	end
+	
+	if msgcontains(msg, "extension") and player:getStorageValue(Storage.TheSecretLibrary.LiquidDeath) == 11 then
+		if player:getStorageValue(Storage.TheSecretLibrary.LiquidDeath) == 11 then
+			npcHandler:say({"It is planned to extend the MOTA. But this will take time, because our workers have faced a little problem."}, cid)
+			npcHandler.topic[cid] = 11
+			playerTopic[cid] = 11
+		end
+	elseif msgcontains(msg, "problem") and npcHandler.topic[cid] == 11 then
+		if npcHandler.topic[cid] == 11 then
+			npcHandler:say({"Well, the situation is this: We have explored a portal, I would say a very aggressive, capriciously and dangerous one. Through this gate monsters entered the construction site and attacked our workers. ...",
+							"With enormous effort they could have been dispersed. When my fellows tried to fill up the portal, it appeared again and again. So the only thing they could do was to stop working for the moment. Are you eventually interested in further investigations?"}, cid)
+			npcHandler.topic[cid] = 12
+			playerTopic[cid] = 12
+		end
+		
+	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 12 then
+		if npcHandler.topic[cid] == 12 then
+			npcHandler:say({"You are a true patron of the arts! I have opened the construction site for you. Start your work right now!"}, cid)
+			player:setStorageValue(Storage.TheSecretLibrary.Mota, 1)
+			player:setStorageValue(Storage.TheSecretLibrary.LiquidDeath, 12)
+			npcHandler.topic[cid] = 13
+			playerTopic[cid] = 13
+		end
+	end
+	
+	if msgcontains(msg, "bone") and player:getStorageValue(Storage.TheSecretLibrary.Mota) == 2 then
+			npcHandler:say({"Hmm, interesting. Several years ago I have read some books dealing with strange locking mechanisms. I think what you have found here is a bone lever of category 3. ...",
+							"Normally this is not used because it is not secure. The production failed and the lever can always be activated as follows: back, back, up, right, left. Just have a try, it should work."}, cid)
+			player:setStorageValue(Storage.TheSecretLibrary.Mota, 3)
+			npcHandler.topic[cid] = 14
+			playerTopic[cid] = 14
+	end
+	
+	if msgcontains(msg, "extension") and player:getStorageValue(Storage.TheSecretLibrary.Mota) == 11 then
+			npcHandler:say({"You have found an inscription I would like to translate for you. The tibianus cipher was used: ...",
+							"Those who are accorded the honour to visit this exclusive place will smash their blindness and face the truth. ...",
+							"Astonishingly, Dedoras from Cormaya has recently asked me for these kinds of inscriptions. For sure he is able to bring light into the darkness. You should visit him. "}, cid)
+			player:setStorageValue(Storage.TheSecretLibrary.Mota, 12)
+			player:setStorageValue(Storage.TheSecretLibrary.TheLament, 1)
+			npcHandler.topic[cid] = 15
+			playerTopic[cid] = 15
+	end
+	
+
+	
 	return true
 end
 

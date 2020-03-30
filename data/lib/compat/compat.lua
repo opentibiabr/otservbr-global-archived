@@ -564,7 +564,7 @@ getIpByName = getIPByPlayerName
 function setPlayerStorageValue(cid, key, value) local p = Player(cid) return p ~= nil and p:setStorageValue(key, value) or false end
 function doPlayerSetBalance(cid, balance) local p = Player(cid) return p ~= nil and p:setBankBalance(balance) or false end
 function doPlayerAddMoney(cid, money) local p = Player(cid) return p ~= nil and p:addMoney(money) or false end
-function doPlayerRemoveMoney(cid, money) local p = Player(cid) return p ~= nil and p:removeMoney(money) or false end
+function doPlayerRemoveMoney(cid, money) local p = Player(cid) return p ~= nil and p:removeMoneyNpc(money) or false end
 function doPlayerAddSoul(cid, soul) local p = Player(cid) return p ~= nil and p:addSoul(soul) or false end
 function doPlayerSetVocation(cid, vocation) local p = Player(cid) return p ~= nil and p:setVocation(Vocation(vocation)) or false end
 function doPlayerSetTown(cid, town) local p = Player(cid) return p ~= nil and p:setTown(Town(town)) or false end
@@ -1299,6 +1299,10 @@ function createFunctions(class)
 	end
 end
 
+function doPlayerTakeItem(cid, itemid, count)
+	return Player(cid):removeItem(itemid, count)
+end
+
 -- CASAMENTO MARRY
 
 function getPlayerNameById(id)
@@ -1309,4 +1313,32 @@ result.free(resultName)
 return name
 end
 return 0
+end
+
+-- Prey slots consumption
+function preyTimeLeft(player, slot)
+	local timeLeft = player:getPreyTimeLeft(slot) / 60
+	local monster = player:getPreyCurrentMonster(slot)
+	if (timeLeft > 0) then
+		local playerId = player:getId()
+		local currentTime = os.time()
+		local timePassed = currentTime - nextPreyTime[playerId][slot]
+		if timePassed >= 59 then
+			timeLeft = timeLeft - 1
+			nextPreyTime[playerId][slot] = currentTime + 60
+		else
+			timeLeft = timeLeft - 0
+		end
+		if (timeLeft < 1) then		
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+			player:setPreyCurrentMonster(slot, "")
+		end
+		-- Setting new timeLeft
+		player:setPreyTimeLeft(slot, timeLeft * 60)
+	else
+		-- Expiring prey as there's no timeLeft
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+		player:setPreyCurrentMonster(slot, "")
+	end
+	return player:sendPreyData(slot)
 end

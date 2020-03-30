@@ -56,7 +56,7 @@
 		<item name="Red Piece of Cloth" countmax="3" chance="10000"/>
 		<item name="Concentrated Demonic Blood" countmax="5" chance="12000"/>
 		<item name="Demonic Essence" countmax="5" chance="10000"/>
- 		<item name="Pick" countmax="5" chance="10000"/>
+		<item id="2553" chance="10000"/><!-- pick -->
  		<item name="Sample of Monster Blood" countmax="5" chance="10000"/>
 	</loot>
 </monster>

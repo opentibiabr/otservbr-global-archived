@@ -4,7 +4,7 @@
 	<look type="842" head="19" body="114" legs="94" feet="85" addons="3" corpse="6325" />
 	<targetchange interval="2000" chance="20" />
 	<flags>
-		<flag preyable="0" />
+		<!-- <flag preyable="0"/> -->
 		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />

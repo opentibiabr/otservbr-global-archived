@@ -18,15 +18,18 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-200" max="-700" />
-		<attack name="fire" interval="1000" chance="15" range="7" min="-200" max="-680">
+		<attack name="fire" interval="1000" chance="15" range="7" min="-500" max="-780">
 			<attribute key="shootEffect" value="flammingarrow" />
 			<attribute key="areaEffect" value="fire" />
 		</attack>
-		<attack name="physical" interval="1500" chance="12" radius="3" min="-200" max="-900">
+		<attack name="physical" interval="1500" chance="12" radius="3" min="-500" max="-900">
 			<attribute key="areaEffect" value="explosionarea" />
 		</attack>
-		<attack name="lifedrain" interval="2000" chance="10" length="5" spread="0" min="-100" max="-850">
+		<attack name="lifedrain" interval="2000" chance="10" length="5" spread="0" min="-400" max="-850">
 			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="fire" interval="2000" chance="12" radius="3" min="-400" max="-775">
+			<attribute key="areaEffect" value="fire"/>
 		</attack>
 	</attacks>
 	<defenses armor="82" defense="33" />

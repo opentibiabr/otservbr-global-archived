@@ -1,8 +1,10 @@
 /**
-* Credits: Yamaken
-* Credits: Cjaker
-* Rewritten and adapted: LucasCPrazeres
-*/
+ * @file imbuements.cpp
+ * 
+ * Credits: Yamaken
+ * Credits: Cjaker
+ * Rewritten and adapted: LucasCPrazeres
+ */
 
 #include "otpch.h"
 #include "events.h"
@@ -44,7 +46,7 @@ bool Imbuements::loadFromXml(bool /* reloading */) {
 				baseNode.attribute("name").as_string(),
 				pugi::cast<uint32_t>(baseNode.attribute("protection").value()),
 				pugi::cast<uint32_t>(baseNode.attribute("price").value()),
-				pugi::cast<uint32_t>(baseNode.attribute("removecust").value()),
+				pugi::cast<uint32_t>(baseNode.attribute("removecost").value()),
 				pugi::cast<int32_t>(baseNode.attribute("duration").value()),
 				pugi::cast<uint16_t>(baseNode.attribute("percent").value())
 
