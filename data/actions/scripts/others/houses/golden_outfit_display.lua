@@ -51,7 +51,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			item:getPosition():sendMagicEffect(171)
 		end
 	else 
-        player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You need Full Golden Outfit to use it.")
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need Full Golden Outfit to use it.")
 		item:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
 	return true

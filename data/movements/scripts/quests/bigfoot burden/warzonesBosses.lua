@@ -76,7 +76,7 @@ if not warzoneConfig then
         for i = 1, #spectators do
             if spectators[i]:isPlayer() then
                 spectators[i]:teleportTo(roomInfo.exit)
-                spectators[i]:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, msg)
+                spectators[i]:sendTextMessage(MESSAGE_EVENT_ADVANCE, msg)
             else
                 spectators[i]:remove()
             end
@@ -113,13 +113,13 @@ function onStepIn(creature, item, pos, fromPosition)
     end
 
     if  creature:getStorageValue(info.storage) > os.time() then
-        creature:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "You have already cleared this warzone in the last 20 hours.")
+        creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have already cleared this warzone in the last 20 hours.")
         creature:teleportTo(fromPosition)
         return false
     end
 
     if info.locked then
-        creature:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Please, wait until the room is cleared. This happens 30 minutes after the last team entered.")
+        creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Please, wait until the room is cleared. This happens 30 minutes after the last team entered.")
         creature:teleportTo(fromPosition)
         return true
     end
