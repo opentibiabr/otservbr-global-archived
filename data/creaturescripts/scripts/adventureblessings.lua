@@ -1,7 +1,6 @@
 local freeBlessMaxLevel = 20
 
-function onLogin(cid)
-    local player = Player(cid)
+function onLogin(player)
     if player:getLevel() <= freeBlessMaxLevel then
     	for i = 1, 8 do
     		if not player:hasBlessing(i) then

@@ -124,7 +124,7 @@ function onLogin(player)
 
 	-- Set Client XP Gain Rate
 	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
-		displayRate = Game.getExperienceStage(player:getLevel())
+		displayRate = getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
 		else
 		displayRate = 1
 	end
