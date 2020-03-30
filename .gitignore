@@ -359,3 +359,4 @@ theforgottenserver.exe
 data/world/otservbr.otbm
 config.lua
 tfs.exe
+*.dll

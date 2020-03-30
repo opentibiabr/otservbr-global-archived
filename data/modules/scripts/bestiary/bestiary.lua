@@ -1,3 +1,9 @@
+BestiarySystem = {
+    Developer = "gpedro, DudZ",
+	Version = "1.0",
+	lastUpdate = "31/03/2020 - 12:00"
+}
+
 Bestiary = {}
 
 dofile('data/modules/scripts/bestiary/assets.lua')
@@ -26,6 +32,7 @@ Bestiary.findRaceByName = function(race)
     return false
 end
 
+
 Bestiary.getRaceByMonsterId = function(monsterId)
     local races = Bestiary.Races
     for i = 1, #races do
@@ -36,9 +43,9 @@ Bestiary.getRaceByMonsterId = function(monsterId)
     return false
 end
 
-Bestiary.sendCreatures = function (playerId, msg)
-    local player = Player(playerId)
-    if not player then
+Bestiary.sendCreatures = function(player, msg)
+    local playerLocal = Player(player:getId())
+    if not playerLocal then
         return true
     end
 
@@ -47,7 +54,7 @@ Bestiary.sendCreatures = function (playerId, msg)
 
     local race = Bestiary.findRaceByName(raceName)
     if not race then
-        print("> [Bestiary]: race was not found")
+        print("> [Bestiary]: race was not found: "..raceName)
         return true
     end
 
@@ -55,17 +62,22 @@ Bestiary.sendCreatures = function (playerId, msg)
     msg:addByte(Bestiary.S_Packets.SendBestiaryOverview)
     msg:addString(race.name) -- race name
     msg:addU16(#race.monsters) -- monster count
+	creaturesKilled = player:getBestiaryCountByRace(race)
     for i = 1, #race.monsters do
         msg:addU16(race.monsters[i]) -- monster name
-        msg:addU16(0x01) -- monster kill count (starts by 1)
+		local tmpStatus = 1
+		if creaturesKilled[race.monsters[i]] ~= nil then
+			tmpStatus = Bestiary.GetKillStatus(Bestiary.Monsters[race.monsters[i]], creaturesKilled[race.monsters[i]])
+		end
+        msg:addU16(tmpStatus) -- monster kill count (starts by 1)
     end
 
     msg:sendToPlayer(player)
 end
 
-Bestiary.sendRaces = function(playerId)
-    local player = Player(playerId)
-    if not player then
+Bestiary.sendRaces = function(player, msg)
+    local playerLocal = Player(player:getId())
+    if not playerLocal then
         return true
     end
     local msg = NetworkMessage()
@@ -74,37 +86,38 @@ Bestiary.sendRaces = function(playerId)
     for k, race in ipairs(Bestiary.Races) do
         msg:addString(race.name)
         msg:addU16(#race.monsters)
-        msg:addU16(math.random(#race.monsters)) -- TODO current
+        msg:addU16(player:getBestiaryRaceUnlocked(race))
     end
     msg:sendToPlayer(player)
 end
 
-Bestiary.sendCharms = function(playerId, msg)
-    local player = Player(playerId)
-    if not player then
+Bestiary.sendCharms = function(player, msg)
+    local playerLocal = Player(player:getId())
+    if not playerLocal then
         return true
     end
+
     local msg = NetworkMessage()
     msg:addByte(Bestiary.S_Packets.SendBestiaryCharmsData)
-	msg:addU32(50000) --Total charm points TODO
+	msg:addU32(player:getCharmPoints())
     msg:addByte(#Bestiary.Charms)
-    for k, charm in ipairs(Bestiary.Charms) do
+    for k, charm in ipairs(Bestiary.Charms) do -- TODO get better charms bytes
 		msg:addByte(k) -- id
         msg:addString(charm.name) --name
         msg:addString(charm.description) --description
-        msg:addByte(0) --unknown (unlocked?) 0 ok | 1-2 não faz nada | 3+ não testado
+        msg:addByte(0) --unknown (unlocked?) 0 ok | 1-2 nï¿½o faz nada | 3+ nï¿½o testado
 		msg:addU16(charm.points) --charm points needed charm.points
-        msg:addByte(0) --selecionado o monsto, da pra resetar? 0 : custo em charms | 1 : custo em gp | 2+ não testado
-        msg:addByte(0) --unknown (unlocked?) 0 ok | 1 crasha | 2+ não testado
+        msg:addByte(0) --selecionado o monsto, da pra resetar? 0 : custo em charms | 1 : custo em gp | 2+ nï¿½o testado
+        msg:addByte(0) --unknown (unlocked?) 0 ok | 1 crasha | 2+ nï¿½o testado
     end
 	msg:addByte(16)
 	msg:addU16(0)
     msg:sendToPlayer(player)
 end
 
-Bestiary.sendBuyCharmRune = function (playerId, msg)
-    local player = Player(playerId)
-    if not player then
+Bestiary.sendBuyCharmRune = function(player, msg)
+    local playerLocal = Player(player:getId())
+    if not playerLocal then
         return true
     end
 
@@ -114,9 +127,21 @@ Bestiary.sendBuyCharmRune = function (playerId, msg)
     return true
 end
 
-Bestiary.sendMonsterData = function(playerId, msg)
-    local player = Player(playerId)
-    if not player then
+Bestiary.GetKillStatus = function(bestiaryMonster, killAmount)
+    if killAmount < bestiaryMonster.FirstUnlock then
+        return Bestiary.KillStatus.FIRST_LEVEL
+    elseif killAmount < bestiaryMonster.SecondUnlock then
+        return Bestiary.KillStatus.SECOND_LEVEL
+    elseif killAmount < bestiaryMonster.toKill then
+        return Bestiary.KillStatus.THIRD_LEVEL
+    end
+	return Bestiary.KillStatus.FINISHED
+end
+
+
+Bestiary.sendMonsterData = function(player, msg)
+    local playerLocal = Player(player:getId())
+    if not playerLocal then
         return true
     end
 
@@ -126,7 +151,6 @@ Bestiary.sendMonsterData = function(playerId, msg)
         print("> [Bestiary]: race was not found")
         return true
     end
-
     local bestiaryMonster = Bestiary.Monsters[monsterId]
     if not bestiaryMonster then
         print("> [Bestiary]: monster was not found")
@@ -138,62 +162,41 @@ Bestiary.sendMonsterData = function(playerId, msg)
         print("> [Bestiary]: monstertype was not found")
         return true
     end
+    local killCounter = player:getBestiaryCountByMonster(Bestiary.MonstersName[bestiaryMonster.name])
 
-    -- TODO
-    local firstMaxKill =  bestiaryMonster.FirstUnlock
-    local secondMaxKill =  bestiaryMonster.SecondUnlock
-    local thirdMaxKill = bestiaryMonster.toKill
-    local killCounter = 350
+	local currentLevel = Bestiary.GetKillStatus(bestiaryMonster, killCounter)
 
     local msg = NetworkMessage()
     msg:addByte(Bestiary.S_Packets.SendBestiaryMonsterData)
     msg:addU16(monsterId)
     msg:addString(race)
 
-    local currentLevel = 1
-    if killCounter < firstMaxKill then
-        currentLevel = 1
-    elseif killCounter < secondMaxKill then
-        currentLevel = 2
-    elseif killCounter < thirdMaxKill then
-        currentLevel = 3
-    else
-        currentLevel = 4
-    end
-
-    msg:addByte(currentLevel) 
+    msg:addByte(currentLevel) -- Progess
     
-    -- TODO: counter
     msg:addU32(killCounter) -- kill count
-    msg:addU16(firstMaxKill) -- max kill first phase
-    msg:addU16(secondMaxKill)  -- max kill second phase
-    msg:addU16(thirdMaxKill)  -- max kill third phase
+    msg:addU16(bestiaryMonster.FirstUnlock) -- max kill first phase
+    msg:addU16(bestiaryMonster.SecondUnlock)  -- max kill second phase
+    msg:addU16(bestiaryMonster.toKill)  -- max kill third phase
 
     msg:addByte(bestiaryMonster.Stars)  -- Difficult
-    msg:addByte(1) -- TODO: occourrence
-    local lootSize = #monster:getLoot()
-    msg:addByte(lootSize)
+    msg:addByte(Bestiary.getMonsterOccurrencyByName(bestiaryMonster.name)) -- Occurence
+	local monsterLoot = monster:getLoot()
+    msg:addByte(#monsterLoot)
 
-    if lootSize > 0 then
-        local loots = monster:getLoot()
-        for i = 1, lootSize do
-            local loot = loots[i]
+    if #monsterLoot > 0 then
+        for i = 1, #monsterLoot do
+            local loot = monsterLoot[i]
             local item = ItemType(loot.itemId)
-            if item then
-                local type = 0
+            if item then 
+                local type = 0 -- TODO 0 = normal loot   /  1 = special event loot
                 local difficult = Bestiary.calculateDifficult(loot.chance)
-
-                if killCounter == 0 then
-                    msg:addU16(0x00)
-                    msg:addByte(0x0) -- 0 = normal loot   /  1 = special event loot
-                    msg:addByte(difficult)
-                else 
-                    msg:addItemId(loot.itemId)
-                    msg:addByte(difficult)
-                    msg:addByte(0x0) -- 0 = normal loot   /  1 = special event loot
-                    msg:addString(item:getName())
-                    msg:addByte(item:isStackable() and 0x1 or 0x0)
-                end 
+				msg:addItemId(killCounter > 0 and loot.itemId or 0)
+                msg:addByte(difficult)
+                msg:addByte(type)
+				if killCounter > 0 then
+					msg:addString(item:getName())
+					msg:addByte(item:isStackable() and 0x1 or 0x0)
+				end
             end
         end
     end
@@ -230,9 +233,14 @@ Bestiary.sendMonsterData = function(playerId, msg)
 
             i = i + 1
         end
-        
-        msg:addU16(1) -- enable or disable description
-        msg:addString("otservbr global is the fucking awesome project")
+		local bestiaryCreatureFinishingKeys = ""
+		for b = 1, #Bestiary.CreatureEncryptionOrder do
+			for i = #Bestiary.CreatureEncryptionKeys[Bestiary.CreatureEncryptionOrder[b]], 1, -1 do
+				bestiaryCreatureFinishingKeys = bestiaryCreatureFinishingKeys .. Bestiary.CreatureEncryptionKeys[Bestiary.CreatureEncryptionOrder[b]]:sub(i,i)
+			end
+		end
+        msg:addU16(1) --TODO DESCRIPTION
+        msg:addString(bestiaryCreatureFinishingKeys)
     end
 
     if currentLevel > 3 then
@@ -294,26 +302,129 @@ Bestiary.createLootSlot = function (msg, itemId, itemName, difficult, type, isSt
     msg:addByte(isStackable and 0x0 or 0x1)
 end
 
+Bestiary.getMonsterOccurrencyByName = function(monsterName)
+	for i, b in pairs(Bestiary.MonstersOccurrency) do
+		if table.contains(b.monsters, monsterName) then
+			return i
+		end
+	end
+	return Bestiary.Occurencies.HARMLESS_ORDINARY
+
+end
+
 function onRecvbyte(player, msg, byte)
+	Bestiary.setupDatabase()
     if (byte == Bestiary.C_Packets.RequestBestiaryData) then
-        Bestiary.sendRaces(player:getId())
-        Bestiary.sendCharms(player:getId())
+        Bestiary.sendRaces(player)
+        Bestiary.sendCharms(player)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryOverview) then
-        Bestiary.sendCreatures(player:getId(), msg)
+        Bestiary.sendCreatures(player, msg)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryMonsterData) then
-        Bestiary.sendMonsterData(player:getId(), msg)
+        Bestiary.sendMonsterData(player, msg)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryCharmUnlock) then
-        Bestiary.sendBuyCharmRune(player:getId(), msg)
+        Bestiary.sendBuyCharmRune(player, msg)
 		--TestarBytes(player,msg)
     end
 end
 
+Bestiary.setupDatabase = function()
+	db.query([[CREATE TABLE IF NOT EXISTS `bestiary_killcount` (
+		`player_id` INT NULL,
+		`monster_id` INT UNSIGNED NULL,
+		`count` INT UNSIGNED NULL,
+		`finished` BOOLEAN,
 
-
-function TestarBytes(player, msg)
-	print("Bytes Test Start")
-	for i= 1, 16 do
-		print(i.." "..msg:getByte())
-	end
-	print("Bytes Test End")
+		CONSTRAINT `bestiary_killcount_players_fk` FOREIGN KEY (`player_id`) REFERENCES `trindera_global`.`players` (`id`)
+	)]])
 end
+
+function Player.getBestiaryRaceUnlocked(self, raceObject) --Returns int with the unlocked amount
+	local playerId = self:getGuid()
+	local query = db.storeQuery("SELECT COUNT(monster_id) as c FROM `bestiary_killcount` WHERE player_id = " .. playerId .. " AND `monster_id` IN (" .. table.concat(raceObject.monsters, ",") .. ")")
+	local count = result.getNumber(query, "c")
+	result.free(query)
+	return count
+end
+
+
+function Player.getBestiaryCountByRace(self, raceObject) --Returns table indexed by monsterID and by kill count
+	local playerId = self:getGuid()
+	local query = db.storeQuery("SELECT `monster_id`, `count` FROM `bestiary_killcount` WHERE player_id = " .. playerId .. " AND `monster_id` IN (" .. table.concat(raceObject.monsters, ",") .. ")")
+	local raceMonsters = {}
+	
+	if query then
+		repeat
+			local monsterID = result.getNumber(query, "monster_id")
+			local count = result.getNumber(query, "count")
+
+			raceMonsters[monsterID] = count
+		until not result.next(query)
+
+		result.free(query)
+	end
+
+	return raceMonsters
+end
+
+function Player.getBestiaryCountByMonster(self, monsterID) --Returns int with the kill count
+	local playerId = self:getGuid()
+	local query = db.storeQuery("SELECT `count` FROM `bestiary_killcount` WHERE `player_id` = " .. playerId.. " AND `monster_id` = "..monsterID)
+	local count = 0
+	if query then
+		count = result.getNumber(query, "count")
+		result.free(query)
+	end
+
+	return count
+end
+
+
+function Player.getCharmPoints(self)
+	local cp = self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_POINTS)
+	if cp == nil or cp < 0 then
+		cp = 0
+		self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_POINTS, cp)
+	end
+	return cp
+end
+
+function Player.addCharmPoints(self, amount)
+	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_POINTS, self:getCharmPoints() + amount)
+end
+
+function Player.setCharmPoints(self, value)
+	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_POINTS, value)
+end
+
+function Player.addBestiaryKill(self, monsterId) --MonsterID can be Name
+
+	if type(monsterId) == "string" then
+		monsterId = Bestiary.MonstersName[monsterId]
+		if not monsterId then
+			return
+		end
+	end
+	local plId = self:getGuid()
+	local curCount = self:getBestiaryCountByMonster(monsterId)
+	local monster = Bestiary.Monsters[monsterId]
+	if curCount == 0 then
+		db.query("INSERT INTO `bestiary_killcount` (`player_id`, `monster_id`, `count`) VALUES (" .. plId .. ", " .. monsterId .. ", 1);")
+		self:sendTextMessage(MESSAGE_STATUS_SMALL, 'You unlocked details for creature "'..monster.name..'" ')
+		return
+	end
+
+	curCount = curCount + 1
+	status = Bestiary.GetKillStatus(monster, curCount)
+	db.query('UPDATE `bestiary_killcount` SET `count` = ' .. curCount .. ',`finished` = '.. ((status == Bestiary.KillStatus.FINISHED) and 1 or 0) .. ' WHERE `player_id` = ' .. plId .. " AND `monster_id` = "..monsterId)
+
+
+    if curCount == monster.checkFirst or curCount == monster.checkSecond then
+    	self:sendTextMessage(MESSAGE_STATUS_SMALL, 'You unlocked details for creature "'..target:getName()..'" ')
+    elseif curCount == monster.toKill then
+    	self:sendTextMessage(MESSAGE_STATUS_SMALL, 'You unlocked full details for creature "'..target:getName()..'" ')
+		self:addCharmPoints(monster.CharmsPoints)
+	end	
+end
+
+
+
