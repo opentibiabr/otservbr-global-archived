@@ -319,13 +319,13 @@ addOutfitCondition = Condition.setOutfit
 
 function doCombat(cid, combat, var) return combat:execute(cid, var) end
 
-function isCreature(cid) return Creature(cid) end
-function isPlayer(cid) return Player(cid) end
-function isMonster(cid) return Monster(cid) end
-function isSummon(cid) return Creature(cid):getMaster() end
-function isNpc(cid) return Npc(cid) end
-function isItem(uid) return Item(uid) end
-function isContainer(uid) return Container(uid) end
+function isCreature(cid) return Creature(cid) ~= nil end
+function isPlayer(cid) return Player(cid) ~= nil end
+function isMonster(cid) return Monster(cid) ~= nil end
+function isSummon(cid) return Creature(cid):getMaster() ~= nil end
+function isNpc(cid) return Npc(cid) ~= nil end
+function isItem(uid) return Item(uid) ~= nil end
+function isContainer(uid) return Container(uid) ~= nil end
 
 function getCreatureName(cid) local c = Creature(cid) return c and c:getName() or false end
 function getCreatureHealth(cid) local c = Creature(cid) return c and c:getHealth() or false end
@@ -499,9 +499,9 @@ function getPlayerFood(cid)
 end
 function canPlayerLearnInstantSpell(cid, name) local p = Player(cid) return p and p:canLearnSpell(name) or false end
 function getPlayerLearnedInstantSpell(cid, name) local p = Player(cid) return p and p:hasLearnedSpell(name) or false end
-function isPlayerGhost(cid) local p = Player(cid) return p and p:isInGhostMode() or false end
-function isPlayerPzLocked(cid) local p = Player(cid) return p and p:isPzLocked() or false end
-function isPremium(cid) local p = Player(cid) return p and p:isPremium() or false end
+function isPlayerGhost(cid) local p = Player(cid) return p ~= nil and p:isInGhostMode() or false end
+function isPlayerPzLocked(cid) local p = Player(cid) return p ~= nil and p:isPzLocked() or false end
+function isPremium(cid) local p = Player(cid) return p ~= nil and p:isPremium() or false end
 function getPlayersByIPAddress(ip, mask)
 	if mask == nil then mask = 0xFFFFFFFF end
 	local masked = bit.band(ip, mask)
@@ -820,7 +820,7 @@ function isItemDoor(itemId) return ItemType(itemId):isDoor() end
 function isItemContainer(itemId) return ItemType(itemId):isContainer() end
 function isItemFluidContainer(itemId) return ItemType(itemId):isFluidContainer() end
 function isItemMovable(itemId) return ItemType(itemId):isMovable() end
-function isCorpse(uid) local i = Item(uid) return i and ItemType(i:getId()):isCorpse() or false end
+function isCorpse(uid) local i = Item(uid) return i ~= nil and ItemType(i:getId()):isCorpse() or false end
 
 isItemMoveable = isItemMovable
 isMoveable = isMovable
