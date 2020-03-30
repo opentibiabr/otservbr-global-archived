@@ -3,8 +3,8 @@
 	<!-- Bestiary -->
 	<module type="recvbyte" byte="225" script="bestiary/bestiary.lua" />
 	<module type="recvbyte" byte="226" script="bestiary/bestiary.lua" />
-  <module type="recvbyte" byte="227" script="bestiary/bestiary.lua" />
-  <module type="recvbyte" byte="228" script="bestiary/bestiary.lua" />
+	<module type="recvbyte" byte="227" script="bestiary/bestiary.lua" />
+ 	<module type="recvbyte" byte="228" script="bestiary/bestiary.lua" />
 
 	<!-- GameStore -->
 	<module type="recvbyte" byte="232" script="gamestore/gamestore.lua"/>
