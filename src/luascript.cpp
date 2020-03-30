@@ -1923,6 +1923,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(RELOAD_TYPE_NPCS)
 	registerEnum(RELOAD_TYPE_RAIDS)
 	registerEnum(RELOAD_TYPE_SCRIPTS)
+	registerEnum(RELOAD_TYPE_STAGES)
 	registerEnum(RELOAD_TYPE_SPELLS)
 	registerEnum(RELOAD_TYPE_TALKACTIONS)
 	registerEnum(RELOAD_TYPE_WEAPONS)
@@ -4900,7 +4901,10 @@ int LuaScriptInterface::luaGameReload(lua_State* L)
 
 	if (reloadType == RELOAD_TYPE_GLOBAL) {
 		pushBoolean(L, g_luaEnvironment.loadFile("data/global.lua") == 0);
+		pushBoolean(L, g_luaEnvironment.loadFile("data/stages.lua") == 0);
 		pushBoolean(L, g_scripts->loadScripts("scripts/lib", true, true));
+	} else if (reloadType == RELOAD_TYPE_STAGES) {
+		pushBoolean(L, g_luaEnvironment.loadFile("data/stages.lua") == 0);
 	} else {
 		pushBoolean(L, g_game.reload(reloadType));
 	}

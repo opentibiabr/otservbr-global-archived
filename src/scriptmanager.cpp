@@ -69,6 +69,11 @@ bool ScriptingManager::loadScriptSystems()
 		std::cout << "[Warning - ScriptingManager::loadScriptSystems] Can not load data/global.lua" << std::endl;
 	}
 
+	if (g_luaEnvironment.loadFile("data/stages.lua") == -1) {
+		std::cout << "[Warning - ScriptingManager::loadScriptSystems] Can not load data/stages.lua" << std::endl;
+		return false;
+	}
+
 	g_scripts = new Scripts();
 	std::cout << ">> Loading lua libs" << std::endl;
 	if (!g_scripts->loadScripts("scripts/lib", true, false)) {

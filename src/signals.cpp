@@ -196,6 +196,9 @@ void Signals::sighupHandler()
 
 	g_luaEnvironment.loadFile("data/global.lua");
 	std::cout << "Reloaded global.lua." << std::endl;
+	
+	g_luaEnvironment.loadFile("data/stages.lua");
+	std::cout << "Reloaded stages.lua." << std::endl;
 
 	lua_gc(g_luaEnvironment.getLuaState(), LUA_GCCOLLECT, 0);
 }
