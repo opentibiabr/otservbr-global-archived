@@ -1,8 +1,6 @@
 /**
- * @file spawn.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,9 +24,9 @@
 #include "monster.h"
 #include "configmanager.h"
 #include "scheduler.h"
-#include "events.h"
 
 #include "pugicast.h"
+#include "events.h"
 
 extern Events* g_events;
 extern ConfigManager g_config;
@@ -164,7 +162,7 @@ bool Spawns::isInZone(const Position& centerPos, int32_t radius, const Position&
 	}
 
 	return ((pos.getX() >= centerPos.getX() - radius) && (pos.getX() <= centerPos.getX() + radius) &&
-			(pos.getY() >= centerPos.getY() - radius) && (pos.getY() <= centerPos.getY() + radius));
+	        (pos.getY() >= centerPos.getY() - radius) && (pos.getY() <= centerPos.getY() + radius));
 }
 
 void Spawn::startSpawnCheck()

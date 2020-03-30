@@ -17,22 +17,16 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_DATABASEMANAGER_H_2B75821C555E4D1D83E32B20D683217C
-#define FS_DATABASEMANAGER_H_2B75821C555E4D1D83E32B20D683217C
-#include "database.h"
+#ifndef TFS_XTEA_H
+#define TFS_XTEA_H
 
-class DatabaseManager
-{
-	public:
-		static bool tableExists(const std::string& table);
+namespace xtea {
 
-		static int32_t getDatabaseVersion();
-		static bool isDatabaseSetup();
+using key = std::array<uint32_t, 4>;
 
-		static bool optimizeTables();
-		static void updateDatabase();
+void encrypt(uint8_t* data, size_t length, const key& k);
+void decrypt(uint8_t* data, size_t length, const key& k);
 
-		static bool getDatabaseConfig(const std::string& config, int32_t& value);
-		static void registerDatabaseConfig(const std::string& config, int32_t value);
-};
-#endif
+} // namespace xtea
+
+#endif // TFS_XTEA_H

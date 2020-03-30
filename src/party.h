@@ -1,8 +1,6 @@
 /**
- * @file party.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_PARTY_H_
-#define OT_SRC_PARTY_H_
+#ifndef FS_PARTY_H_41D4D7CF417C4CC99FAE94D552255044
+#define FS_PARTY_H_41D4D7CF417C4CC99FAE94D552255044
 
 #include "player.h"
 #include "monsters.h"
@@ -82,7 +80,7 @@ class Party
 		void updatePlayerTicks(Player* player, uint32_t points);
 		void clearPlayerPoints(Player* player);
 
-	protected:
+	private:
 		bool canEnableSharedExperience();
 
 		std::map<uint32_t, int64_t> ticksMap;

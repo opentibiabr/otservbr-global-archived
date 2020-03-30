@@ -1,8 +1,6 @@
 /**
- * @file thread_holder_base.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_THREADHOLDERBASE_H_
-#define OT_SRC_THREADHOLDERBASE_H_
+#ifndef FS_THREAD_HOLDER_H_BEB56FC46748E71D15A5BF0773ED2E67
+#define FS_THREAD_HOLDER_H_BEB56FC46748E71D15A5BF0773ED2E67
 
 #include <thread>
 #include <atomic>
