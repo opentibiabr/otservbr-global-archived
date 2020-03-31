@@ -1,11 +1,10 @@
 BlessingsDialog = {
 	Developer = "Charles (Cjaker)",
-	Version = "1.0",
-	LastUpdate = "14/07/2017 - 8:47 (PM)",
+	Version = "1.1",
+	LastUpdate = "24/03/2020",
 	Missing = {
 		"Insert & Select query in blessings_history",
 		"Gamestore buy blessing",
-		"Correct percents in blessings dialog"
 	},
 }
 
@@ -49,35 +48,47 @@ function sendBlessingsDialog(player)
 	local msg = NetworkMessage()
 	msg:addByte(Server.BlessingsInfo)
 	msg:addByte(8) -- total blessings
-	local c, bless = 1, 2
+	local c, bless, totalBless = 1, 2, 1
 	while (c < 9) do
 		msg:addU16(bless) -- bless type
+		--msg:addByte(0)
 		if (player:hasBlessing(c)) then
 			msg:addByte(player:getBlessingCount(c)) -- amount of unique bless
+			if c > 1 then
+				totalBless = totalBless + 1
+			end
 		else
 			msg:addByte(0)
 		end
 		c = c + 1
 		bless = bless * 2
 	end
+	local backpackLossChance = {100, 70, 45, 25, 10, 0, 0, 0}
+	local skillLoss = {0, 8, 16, 24, 32, 40, 48, 56}
+
+	
+	local playerAmulet = player:getSlotItem(CONST_SLOT_NECKLACE)
+	local haveSkull = player:getSkull() >= 4
+	hasAol = (playerAmulet and playerAmulet:getId() == ITEM_AMULETOFLOSS)
+	
+	equipLoss = backpackLossChance[totalBless]
+	if haveSkull then
+		equipLoss = 100
+	elseif hasAol then
+		equipLoss = 0
+	end
 
 	msg:addByte(2) -- BYTE PREMIUM (only work with premium days)
-	msg:addByte(100) -- XP Loss Lower
-	msg:addByte(100) -- XP/Skill loss min pvp death
-	msg:addByte(100) -- XP/Skill loss max pvp death
-	msg:addByte(100) -- XP/Skill pve death
-	msg:addByte(100) -- Equip container lose pvp death
-	msg:addByte(100) -- Equip container pve death
+	msg:addByte(player:isPremium() and 30 or 0) -- XP Loss Lower POR SER PREMIUM
+	msg:addByte(skillLoss[totalBless]) -- XP/Skill loss min pvp death
+	msg:addByte(skillLoss[totalBless]) -- XP/Skill loss max pvp death
+	msg:addByte(skillLoss[totalBless]) -- XP/Skill pve death
+	msg:addByte(equipLoss) -- Equip container lose pvp death
+	msg:addByte(equipLoss) -- Equip container pve death
 
-	local haveSkull = player:getSkull() >= 4
-	if (haveSkull) then
-		msg:addByte(1) -- is red/black skull
-		local playerAmulet = player:getSlotItem(CONST_SLOT_AMULET)
-		msg:addByte((playerAmulet and playerAmulet:getId() == 2173) and 1 or 0)
-	else
-		msg:addByte(0)
-		msg:addByte(0)
-	end
+	msg:addByte(haveSkull and 1 or 0) -- is red/black skull
+	msg:addByte(hasAol and 1 or 0)
+
 
 	-- History
 	local historyAmount = 1
