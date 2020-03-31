@@ -22,15 +22,14 @@ function talk.onSay(player, words, param)
 	--trim left
 	split[2] = split[2]:gsub("^%s*(.-)$", "%1")
 	
-	player:sendCancelMessage("Adicionado " .. split[2] .. " charm points para o personagem '" .. target:getName() .. "'.")
-	target:sendCancelMessage("Recebido " .. split[2] .. " charm points!")
+	player:sendCancelMessage("Added " .. split[2] .. " charm points to character '" .. target:getName() .. "'.")
+	target:sendCancelMessage("Received " .. split[2] .. " charm points!")
 	target:addCharmPoints(tonumber(split[2]))
     target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
 talk:separator(" ")
 talk:register()
-
 local talk = TalkAction("/resetcharms")
 
 function talk.onSay(player, words, param)
@@ -47,10 +46,76 @@ function talk.onSay(player, words, param)
 		return false
 	end
 
-	player:sendCancelMessage("Resetado as charms do personagem '" .. target:getName() .. "'.")	
-	player:sendCancelMessage("Adicionado " .. split[2] .. " charm points para o personagem '" .. target:getName() .. "'.")
-	target:sendCancelMessage("Resetado as suas charms points!")
+	player:sendCancelMessage("Reseted charm points from character '" .. target:getName() .. "'.")	
+	target:sendCancelMessage("Reseted your charm points!")
 	target:setCharmPoints(0)
+	target:setCharmRuneUsedAmount(0)
+	target:setCharmRuneSlotExpansion(false)
+	for i, charm in pairs(Bestiary.Charms) do
+		target:resetCharmRuneCreature(charm)
+	end
     target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
+
+
+talk:separator(" ")
+talk:register()
+
+
+local talk = TalkAction("/charmexpansion")
+
+function talk.onSay(player, words, param)
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	if param == "" then
+		param = player:getName()
+	end
+	local target = Player(param)
+	if not target then
+		player:sendCancelMessage("A player with that name is not online.")
+		return false
+	end
+
+	player:sendCancelMessage("Added charm expansion for player '" .. target:getName() .. "'.")	
+	target:sendCancelMessage("Received charm expansion!")
+	target:setCharmRuneSlotExpansion(true)
+    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+
+end
+
+
+talk:separator(" ")
+talk:register()
+
+
+local talk = TalkAction("/charmrunes")
+
+function talk.onSay(player, words, param)
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	if param == "" then
+		param = player:getName()
+	end
+	local target = Player(param)
+	if not target then
+		player:sendCancelMessage("A player with that name is not online.")
+		return false
+	end
+
+	player:sendCancelMessage("Added all charm runes to '" .. target:getName() .. "'.")	
+	target:sendCancelMessage("Received all charm runes!")
+	for i, charm in pairs(Bestiary.Charms) do
+		target:addCharmRune(charm)
+	end
+    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+
+end
+
+
+talk:separator(" ")
+talk:register()
