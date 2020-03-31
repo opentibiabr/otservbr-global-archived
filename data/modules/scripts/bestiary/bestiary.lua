@@ -417,7 +417,7 @@ Bestiary.setupDatabase = function()
 		`count` INT UNSIGNED NULL,
 		`finished` BOOLEAN DEFAULT '0',
 
-		CONSTRAINT `bestiary_killcount_players_fk` FOREIGN KEY (`player_id`) REFERENCES `trindera_global`.`players` (`id`)
+		CONSTRAINT `bestiary_killcount_players_fk` FOREIGN KEY (`player_id`) REFERENCES `otserv`.`players` (`id`)
 	)]])
 end
 
