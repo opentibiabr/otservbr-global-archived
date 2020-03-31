@@ -17,7 +17,6 @@
 		<flag lightcolor="0"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="200"/>
-		<!-- <flag preyable="0"/> -->
 	</flags>
 	<script>
 		<event name="GloothHorror"/>

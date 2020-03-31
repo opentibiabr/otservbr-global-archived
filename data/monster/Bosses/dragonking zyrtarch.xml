@@ -18,7 +18,6 @@
 		<flag canwalkonenergy="1" />
 		<flag canwalkonfire="1" />
 		<flag canwalkonpoison="1" />
-		<!-- <flag preyable="0"/> -->
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" skill="112" attack="85"/>
