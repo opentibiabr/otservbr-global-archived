@@ -1,9 +1,9 @@
 Bestiary = {}
 
-Bestiary.Credits = {
-    Developer = "gpedro, DudZ, ticardo, lBaah",
-	Version = "1.0",
-	lastUpdate = "31/03/2020 - 12:00"
+BestiarySystem = {
+    Developer = "gpedro, lbaah, Ticardo (Rick), DudZ",
+    Version = "1.0",
+    lastUpdate = "31/03/2020 - 12:00"
 }
 
 Bestiary.Config = {
