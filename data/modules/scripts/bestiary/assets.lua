@@ -1,8 +1,8 @@
 Bestiary.Storage = {
 	PLAYER_CHARM_POINTS = 61301000,
-	PLAYER_CHARM_RUNE_AMOUNT = 61302001,
-	PLAYER_CHARM_SLOT_EXPANSION = 61302002,
-	PLAYER_CHARM_RUNE_BIT = 61302003,
+	PLAYER_CHARM_SLOT_EXPANSION = 61302001,
+	PLAYER_CHARM_RUNE_BIT = 61302002,
+	PLAYER_CHARM_RUNE_USED_BIT = 61302003,
 	PLAYER_CHARM_RUNE_BASE = 61303000,
 	PLAYER_CHARM_RUNE_MONSTER_BASE = 61304000
 }
@@ -179,6 +179,25 @@ Bestiary.CharmsNames = {
 	["Scavenge"] = 13,
 	["Gut"] = 14,
 	["Low Blow"] = 15
+}
+
+Bestiary.CharmsBinaries = {
+	[0] = 1,
+	[1] = 2,
+	[2] = 4,
+	[3] = 8,
+	[4] = 16,
+	[5] = 32,
+	[6] = 64,
+	[7] = 128,
+	[8] = 256,
+	[9] = 512,
+	[10] = 1024,
+	[11] = 2048,
+	[12] = 4096,
+	[13] = 8192,
+	[14] = 16384,
+	[15] = 32768
 }
 
 

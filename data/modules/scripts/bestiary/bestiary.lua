@@ -11,8 +11,8 @@ Bestiary.Config = {
 	FreeRunesAmount = 3,
 	ResetMonsterPriceModifierXLevel = 100,
 	EnabledRunes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
-	Multiplicator = 0.05,
-	Probability = 0.05
+	Multiplicator = 0.05, --TODO implement this variable
+	Probability = 0.05 -- TODO implement this variable
 }
 
 dofile('data/modules/scripts/bestiary/assets.lua')
@@ -113,6 +113,8 @@ Bestiary.sendCharms = function(player, msg)
     msg:addByte(Bestiary.S_Packets.SendBestiaryCharmsData)
 	msg:addU32(player:getCharmPoints())
 
+	local playerCurBit = player:getCharmUnlockedRunesBit()
+
     msg:addByte(#Bestiary.Config.EnabledRunes)
     for i = 1, #Bestiary.Config.EnabledRunes do
 		local k = Bestiary.Config.EnabledRunes[i]
@@ -123,7 +125,8 @@ Bestiary.sendCharms = function(player, msg)
         msg:addByte(0) --TODO unknown (unlocked?) 0 ok | 1-2 não faz nada | 3+ n�o testado
 		msg:addU16(charm.points) --charm points needed charm.points
 
-		if player:hasCharmRune(charm) then
+		--if player:hasCharmRune(charm) then
+		if player:hasCharmUnlockedRuneBit(charm, playerCurBit) then
 			msg:addByte(1) -- Charm liberado = 1 | bloqueado = 0
 			local charmCreature = player:getCharmRuneCreature(charm)
 			if charmCreature > 0 then
@@ -143,9 +146,17 @@ Bestiary.sendCharms = function(player, msg)
 	--Send unlocked and unused monsters 
 
 	local finishedMonsters = player:getBestiaryFinished()
+	local usedRunes = player:getCharmUsedRuneBitAll()
+
+	for i = 1, #usedRunes do
+		local thisCharm = Bestiary.Charms[usedRunes[i]]
+		local thisCharmCreature  = player:getCharmRuneCreature(thisCharm)
+		table.remove(finishedMonsters, table.find(finishedMonsters, thisCharmCreature))
+	end
+	
 	msg:addU16(#finishedMonsters)
 	for i = 1, #finishedMonsters do
-		msg:addU16(finishedMonsters[i]) -- monster id que já foram terminados, pra poder selecionar no charm --TODO filtrar monstros que já possuem runas
+		msg:addU16(finishedMonsters[i]) -- monster id que já foram terminados, pra poder selecionar no charm (menos monstros que ja tem charm aplicado)
 	end
 
     msg:sendToPlayer(player)
@@ -170,9 +181,13 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 		end
 		player:popupFYI("You sucessfully unlocked \"".. thisCharm.name .."\" for ".. thisCharm.points .." charm points.")
 		player:setCharmPoints(player:getCharmPoints() - thisCharm.points)
-		player:addCharmRune(thisCharm)
+
+		local curBit = player:getCharmUnlockedRunesBit()
+		player:setCharmUnlockedRuneBit(Bestiary.bitToggle(curBit, thisCharm.id, true))
+		curBit = player:getCharmUnlockedRunesBit()
+
 	elseif action == 1 then -- set creature
-		local usedRunes = player:getCharmRuneUsedAmount()
+		local usedRunes = player:getCharmUsedRuneBitAll()
 		local hasExpansion = player:getCharmRuneSlotExpansion()
 		local isPremium = player:isPremium()
 		local limitRunes = 0
@@ -188,15 +203,11 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 			limitRunes = Bestiary.Config.FreeRunesAmount
 			message = "Creature has been set!\n\nYou are not a Premium player, so you can only benefit from up to ".. limitRunes .." runes!\nPremium players can hold up to ".. Bestiary.Config.PremiumRunesAmount .." creatures at once.\nCharm Expansion allow you to set creatures to all runes at once!"
 		end
-		print(isPremium)
-		print(hasExpansion)
-		print(usedRunes)
-		print(limitRunes)
-		if limitRunes <= usedRunes then
+		if limitRunes <= #usedRunes then
 			player:popupFYI("You don't have any charm slots available.")
 			return
 		end
-		player:setCharmRuneUsedAmount(usedRunes + 1)
+		--player:setCharmRuneUsedAmount(usedRunes + 1)  REPLACED BY BIT
 		player:setCharmRuneCreature(thisCharm, monsterID)
 		player:popupFYI(message)
 		
@@ -361,34 +372,16 @@ Bestiary.calculateDifficult = function (chance)
     if chance < 0.2 then
        return 4
     end 
-
     if chance < 1 then
        return 3
     end 
-
     if chance < 5 then
        return 2
     end 
-
     if chance < 25 then
         return 1
     end
-
     return 0
-end
-
-Bestiary.createEmptyLootSlot = function (msg, difficult, type)
-    msg:addU16(0x0)
-    msg:addByte(difficult)
-    msg:addByte(type)
-end
-
-Bestiary.createLootSlot = function (msg, itemId, itemName, difficult, type, isStackable)
-    msg:addItemId(itemId)
-    msg:addByte(difficult)
-    msg:addString(itemName)
-    msg:addByte(type)
-    msg:addByte(isStackable and 0x0 or 0x1)
 end
 
 Bestiary.getMonsterOccurrencyByName = function(monsterName)
@@ -404,17 +397,13 @@ end
 function onRecvbyte(player, msg, byte)
 	Bestiary.setupDatabase()
     if (byte == Bestiary.C_Packets.RequestBestiaryData) then
-		print("RequestBestiaryData")
         Bestiary.sendRaces(player)
         Bestiary.sendCharms(player)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryOverview) then
-		print("RequestBestiaryOverview")
         Bestiary.sendCreatures(player, msg)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryMonsterData) then
-		print("RequestBestiaryMonsterData")
         Bestiary.sendMonsterData(player, msg)
     elseif (byte == Bestiary.C_Packets.RequestBestiaryCharmUnlock) then
-		print("RequestBestiaryCharmUnlock")
         Bestiary.sendBuyCharmRune(player, msg)
         Bestiary.sendCharms(player)
 		--TestarBytes(player,msg)
@@ -439,7 +428,6 @@ function Player.getBestiaryRaceUnlocked(self, raceObject) --Returns int with the
 	result.free(query)
 	return count
 end
-
 
 function Player.getBestiaryCountByRace(self, raceObject) --Returns table indexed by monsterID and by kill count
 	local playerId = self:getGuid()
@@ -505,28 +493,27 @@ function Player.setCharmPoints(self, value)
 	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_POINTS, value)
 end
 
-function Player.addCharmRune(self, charmRuneObj)
-	self:setStorageValue(charmRuneObj.storage, 1)
+function Player.getCharmUnlockedRunesBit(self)
+	return math.max(self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_BIT), 0)
 end
 
-function Player.getCharmRunesBit(self)
-	local c = math.max(self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_BIT), 0)
+function Player.hasCharmUnlockedRuneBit(self, charmRuneObj, input) 
+	if not input then
+		input = self:getCharmUnlockedRunesBit()
+	end
+	return not (bit.band(input, 2^charmRuneObj.id) == 0)
+end
+
+function Player.setCharmUnlockedRuneBit(self, value) 
+	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_BIT, value)
+end
+
+function Player.getCharmUsedRunesBit(self)
+	local c = math.max(self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_USED_BIT), 0)
 	return c
 end
 
-function Player.addCharmRuneBit(self, charmRuneObj) 
-	local c = self:getCharmRunesBit()
-	
-	return c ~= nil and c > 0
-end
-
-function Player.hasCharmRuneBit(self, charmRuneObj) 
-	local c = self:getCharmRunesBit()
-
-	return c ~= nil and c > 0
-end
-
-function Player.hasCharmRune(self, charmRuneObj) -- Can check either via name, ID or object
+function Player.hasCharmUsedRuneBit(self, charmRuneObj, input) 
 	if type(charmRuneObj) == "string" then
 		charmRuneObj = Bestiary.CharmsNames[charmRuneObj]
 		if not charmRuneObj then
@@ -536,28 +523,35 @@ function Player.hasCharmRune(self, charmRuneObj) -- Can check either via name, I
 	elseif type(charmRuneObj) == "number" then
 		charmRuneObj = Bestiary.Charms[charmRuneObj]
 	end
-	local c = self:getStorageValue(charmRuneObj.storage)
-	return c ~= nil and c > 0
+	if not input then
+		input = self:getCharmUsedRunesBit()
+	end
+	return not bit.band(input, 2^charmRuneObj.id) == 0
+end
+
+function Player.setCharmUsedRuneBit(self, value) 
+	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_USED_BIT, value)
+end
+
+function Player.getCharmUsedRuneBitAll(self, input)
+	if not input then
+		input = self:getCharmUsedRunesBit()
+	end
+	return Bestiary.bitSet(input)
 end
 
 function Player.resetCharmRuneCreature(self, charmRuneObj, creatureID)
-	self:setCharmRuneCreature(charmRuneObj, 0)
+	self:setCharmUsedRuneBit(Bestiary.bitToggle(self:getCharmUsedRunesBit(), charmRuneObj.id, false))
+	self:setStorageValue(charmRuneObj.storageMonster, 0)
 end
 
 function Player.setCharmRuneCreature(self, charmRuneObj, creatureID)
+	self:setCharmUsedRuneBit(Bestiary.bitToggle(self:getCharmUsedRunesBit(), charmRuneObj.id, true))
 	self:setStorageValue(charmRuneObj.storageMonster, creatureID)
 end
 
 function Player.getCharmRuneCreature(self, charmRuneObj)
 	return math.max(self:getStorageValue(charmRuneObj.storageMonster), 0)
-end
-
-function Player.getCharmRuneUsedAmount(self)
-	return math.max(self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_AMOUNT), 0)
-end
-
-function Player.setCharmRuneUsedAmount(self, amount)
-	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_RUNE_AMOUNT, amount)
 end
 
 function Player.getCharmRuneSlotExpansion(self)
@@ -599,13 +593,46 @@ function Player.addBestiaryKill(self, monsterId) --MonsterID can be Name
 end
 
 
-function Player.getCharmBonus(self, target)
+function Player.getCharmFromTarget(self, target)
 	local bestiaryEntry = Bestiary.MonstersName[target:getName()]
 	if not bestiaryEntry then
 		return nil
 	end
-	if self:getCharmRuneUsedAmount() == 0 then
+	local usedRunes = self:getCharmUsedRuneBitAll()
+	if #usedRunes == 0 then
 		return nil
 	end
-	
+	for i = 1, #usedRunes do
+		local thisCharm = Bestiary.Charms[usedRunes[i]]
+		local thisCharmCreature  = self:getCharmRuneCreature(thisCharm)
+		if bestiaryEntry == thisCharmCreature then
+			return thisCharm
+		end
+	end
+	return nil
 end
+
+
+Bestiary.bitToggle = function(input, id, on)  -- to add, we use |, which means OR, which in turns make sue that the final number has the flags which both of the left sided and right sided has
+	print(on)
+	if on then
+		return bit.bor(input, 2^id)
+	else
+		local negateFlag = bit.bnot(2^id)
+		return bit.band(input,negateFlag)
+	end
+end
+
+Bestiary.bitSet = function(input)  
+	local i = 0
+	local rtn = {}
+	repeat
+		if (bit.band(input, 1)) == 1 then
+			table.insert(rtn, i)
+		end
+		input = bit.rshift(input, 1)
+		i = i + 1
+	until input == 0
+    return rtn;
+end
+

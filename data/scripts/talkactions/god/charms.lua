@@ -51,9 +51,11 @@ function talk.onSay(player, words, param)
 	target:setCharmPoints(0)
 	target:setCharmRuneUsedAmount(0)
 	target:setCharmRuneSlotExpansion(false)
+	
 	for i, charm in pairs(Bestiary.Charms) do
 		target:resetCharmRuneCreature(charm)
 	end
+	target:setCharmUnlockedRuneBit(0)
     target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
@@ -109,9 +111,13 @@ function talk.onSay(player, words, param)
 
 	player:sendCancelMessage("Added all charm runes to '" .. target:getName() .. "'.")	
 	target:sendCancelMessage("Received all charm runes!")
+	playerCurBit = target:getCharmRunesBit()
+
 	for i, charm in pairs(Bestiary.Charms) do
 		target:addCharmRune(charm)
+		playerCurBit = target:calculateCharmRuneBit(charm, true, playerCurBit)
 	end
+	target:setCharmRuneBit(playerCurBit)
     target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
@@ -119,3 +125,4 @@ end
 
 talk:separator(" ")
 talk:register()
+
