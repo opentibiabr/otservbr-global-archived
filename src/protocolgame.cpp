@@ -1486,31 +1486,32 @@ void ProtocolGame::sendBlessStatus()
 	NetworkMessage msg;
 	uint8_t blessCount = 0;
 	uint8_t maxBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
+	bool bless[8];
+	int flags = 0;
 	for (int i = 1; i <= maxBlessings; i++) {
 		if (player->hasBlessing(i)) {
-			blessCount++;
+			if (i > 1) {
+				blessCount++;
+			}
+			bless[i - 1] = true;
+			flags += (1 << (i));
+		}
+		else {
+			bless[i - 1] = false;
 		}
 	}
 
 	msg.addByte(0x9C);
-	if (blessCount >= 5) {
-		if (player->getProtocolVersion() >= 1120) {
-			uint8_t blessFlag = 0;
-			uint8_t maxFlag = static_cast<uint8_t>((maxBlessings == 8) ? 256 : 64);
-			for (int i = 2; i < maxFlag; i *= 2) {
-				blessFlag += i;
-			}
-
-			msg.add<uint16_t>(blessFlag - 1);
-		} else {
-			msg.add<uint16_t>(0x01);
-		}
-	} else {
-		msg.add<uint16_t>(0x00);
-	}
-
 	if (player->getProtocolVersion() >= 1120) {
-		msg.addByte((blessCount >= 5) ? 2 : 1); // 1 = Disabled | 2 = normal | 3 = green
+		msg.add<uint16_t>(flags);
+
+		msg.addByte((blessCount >= 7) ? 3 : (blessCount >= 5) ? 2 : 1); // 1 = Disabled | 2 = normal | 3 = green
+	}
+	else if (blessCount >= 5) {
+		msg.add<uint16_t>(0x01);
+	}
+	else {
+		msg.add<uint16_t>(0x00);
 	}
 
 	writeToOutputBuffer(msg);
