@@ -62,8 +62,9 @@ function Container.getContentDescription(self, outputBuffer)
 		else
 			table.insert(buffer, ", ")
 		end
-
-		table.insert(buffer, item:getNameDescription())
+		
+		local cid = ItemType(item:getId()):getClientId()
+		table.insert(buffer, '{' .. cid .. '|' .. item:getNameDescription() .. '}')
 	end
 
 	if firstItem then
