@@ -750,8 +750,7 @@
 
 	<!-- aritos task -->
 	<action itemid="2419" script="quests/aritos task/scimitar.lua" />
-	<action actionid="26544" script="quests/aritos task/tp.lua" />
-
+	
 	<!-- Thieves Guild Quest -->
 	<action itemid="8693" script="quests/the thieves guild/dwarfDisguiseKit.lua" />
 	<action itemid="8701" script="quests/the thieves guild/note.lua" />
