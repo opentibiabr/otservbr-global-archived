@@ -1,6 +1,6 @@
 local storages = {
-	[26101] = Storage.SvargrondArena.Greenhorn,
-	[27101] = Storage.SvargrondArena.Scrapper,
+	[26102] = Storage.SvargrondArena.Greenhorn,
+	[27104] = Storage.SvargrondArena.Scrapper,
 	[28101] = Storage.SvargrondArena.Warlord
 }
 

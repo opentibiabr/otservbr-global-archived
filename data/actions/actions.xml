@@ -449,7 +449,7 @@
 	<action fromid="2376" toid="2404" script="others/destroy.lua" />
 	<action itemid="2406" script="others/destroy.lua" />
 	<action fromid="2408" toid="2415" script="others/destroy.lua" />
-	<action fromid="2417" toid="2419" script="others/destroy.lua" />
+	<action fromid="2417" toid="2418" script="others/destroy.lua" />
 	<action fromid="2421" toid="2453" script="others/destroy.lua" />
 	<action fromid="5792" toid="5797" script="others/dice.lua" />
 	<action itemid="6277" script="others/baking.lua" />
@@ -747,6 +747,10 @@
 	<action fromaid="50122" toaid="50125" script="quests/the hidden city of beregar/coalExitWagons.lua" />
 	<action fromuid="50113" touid="50123" script="quests/the hidden city of beregar/wagonMazeLevers.lua" />
 	<action uniqueid="50124" script="quests/the hidden city of beregar/wagonMazeExit.lua" />
+
+	<!-- aritos task -->
+	<action itemid="2419" script="quests/aritos task/scimitar.lua" />
+	<action actionid="26544" script="quests/aritos task/tp.lua" />
 
 	<!-- Thieves Guild Quest -->
 	<action itemid="8693" script="quests/the thieves guild/dwarfDisguiseKit.lua" />

@@ -314,18 +314,6 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 
-	elseif targetId == 103 and targetActionId == 4205 then
-		if player:getStorageValue(Storage.TibiaTales.IntoTheBonePit) ~= 1 then
-			return false
-		end
-
-		local remains = Game.createItem(2248, 1, toPosition)
-		if remains then
-			remains:setActionId(4206)
-		end
-		toPosition:sendMagicEffect(CONST_ME_HITAREA)
-		addEvent(removeRemains, 60000, toPosition)
-
 		elseif targetId == 22674 then
 		if not player:removeItem(5091, 1) then
 			return false
@@ -424,6 +412,17 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
+	elseif targetId == 103 and targetActionId == 4205 then
+		if player:getStorageValue(Storage.TibiaTales.IntoTheBonePit) ~= 1 then
+			return false
+		end
+
+		local remains = Game.createItem(2248, 1, toPosition)
+		if remains then
+			remains:setActionId(4206)
+		end
+		toPosition:sendMagicEffect(CONST_ME_HITAREA)
+		addEvent(removeRemains, 60000, toPosition)
 	--sea of light
 	elseif targetId == 8634 then
 		if target.actionid == 4224 then
