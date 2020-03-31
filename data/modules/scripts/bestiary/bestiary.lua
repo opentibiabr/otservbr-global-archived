@@ -501,7 +501,7 @@ function Player.hasCharmUnlockedRuneBit(self, charmRuneObj, input)
 	if not input then
 		input = self:getCharmUnlockedRunesBit()
 	end
-	return not (bit.band(input, 2^charmRuneObj.id) == 0)
+	return not (bit.band(input, Bestiary.CharmsBinaries[charmRuneObj.id]) == 0)
 end
 
 function Player.setCharmUnlockedRuneBit(self, value) 
@@ -526,7 +526,7 @@ function Player.hasCharmUsedRuneBit(self, charmRuneObj, input)
 	if not input then
 		input = self:getCharmUsedRunesBit()
 	end
-	return not bit.band(input, 2^charmRuneObj.id) == 0
+	return not bit.band(input, Bestiary.CharmsBinaries[charmRuneObj.id]) == 0
 end
 
 function Player.setCharmUsedRuneBit(self, value) 
@@ -616,9 +616,9 @@ end
 Bestiary.bitToggle = function(input, id, on)  -- to add, we use |, which means OR, which in turns make sue that the final number has the flags which both of the left sided and right sided has
 	print(on)
 	if on then
-		return bit.bor(input, 2^id)
+		return bit.bor(input, Bestiary.CharmsBinaries[id])
 	else
-		local negateFlag = bit.bnot(2^id)
+		local negateFlag = bit.bnot(Bestiary.CharmsBinaries[id])
 		return bit.band(input,negateFlag)
 	end
 end
