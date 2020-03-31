@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Outburst" nameDescription="Outburst" race="energy" experience="120000" speed="500" script="rewardboss.lua">
+<monster name="Outburst" nameDescription="Outburst" race="energy" experience="50000" speed="500" script="rewardboss.lua">
 	<health now="290000" max="290000"/>
 	<look type="876" head="79" body="0" legs="94" feet="0" addons="3" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>

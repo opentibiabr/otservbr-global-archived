@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Blightwalker" nameDescription="a blightwalker" race="undead" experience="5850" speed="175">
+<monster name="Blightwalker" nameDescription="a blightwalker" race="undead" experience="5850" speed="350">
 	<health now="8900" max="8900"/>
 	<look type="246" corpse="6354"/>
 	<targetchange interval="4000" chance="10"/>

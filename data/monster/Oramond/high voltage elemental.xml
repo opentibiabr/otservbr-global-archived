@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="High Voltage Elemental" nameDescription="a high voltage elemental" race="blood" experience="1500" speed="139" manacost="330">
+<monster name="High Voltage Elemental" nameDescription="a high voltage elemental" race="blood" experience="1500" speed="278" manacost="330">
 	<health now="1500" max="1500"/>
-	<look type="293" corpse="8966" />
+	<look type="293" corpse="8966"/>
 	<targetchange interval="2000" chance="0"/>
 	<flags>
 		<flag summonable="0"/>
@@ -17,14 +17,14 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="66" attack="70" />
+		<attack name="melee" interval="2000" skill="66" attack="70"/>
 		<attack name="energy" interval="2000" chance="10" range="7" radius="2" target="1" min="-205" max="-497">
-			<attribute key="shootEffect" value="energy" />
-			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
 		</attack>
 		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-201" max="-277">
-			<attribute key="shootEffect" value="energyball" />
-			<attribute key="areaEffect" value="energy" />
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="energy"/>
 		</attack>
 	</attacks>
 	<defenses armor="11" defense="11"/>
@@ -33,9 +33,9 @@
 		<element earthPercent="-1"/>
 	</elements>
 	<immunities>
-		<immunity fire="1" />
-		<immunity energy="1" />
-		<immunity ice="1" />
+		<immunity fire="1"/>
+		<immunity energy="1"/>
+		<immunity ice="1"/>
 	</immunities>
 	<loot>
 		<item id="2148" countmax="185" chance="100000"/><!-- gold coin -->

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Nymph" nameDescription="a nymph" race="blood" experience="850" speed="114" manacost="450">
+<monster name="Nymph" nameDescription="a nymph" race="blood" experience="850" speed="228" manacost="450">
 	<health now="900" max="900"/>
 	<look type="989" corpse="29094"/>
 	<targetchange interval="4000" chance="10"/>

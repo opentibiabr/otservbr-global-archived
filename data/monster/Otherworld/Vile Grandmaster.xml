@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Vile Grandmaster" nameDescription="a vile grandmaster" race="blood" experience="1500" speed="140" manacost="390">
+<monster name="Vile Grandmaster" nameDescription="a vile grandmaster" race="blood" experience="1500" speed="280" manacost="390">
 	<health now="1700" max="1700"/>
 	<look type="268" head="97" body="0" legs="95" feet="94" addons="1" corpse="24679"/>
 	<targetchange interval="4000" chance="20"/>

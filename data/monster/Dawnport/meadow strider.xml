@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Meadow Strider" nameDescription="a meadow strider" race="blood" experience="50" speed="68">
+<monster name="Meadow Strider" nameDescription="a meadow strider" race="blood" experience="50" speed="136">
 	<health now="100" max="100"/>
 	<look type="530" corpse="23821"/>
 	<targetchange interval="5000" chance="8"/>

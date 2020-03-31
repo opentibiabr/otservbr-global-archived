@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="5400" speed="190">
+<monster name="Crazed Winter Vanguard" nameDescription="a Crazed Winter Vanguard" race="blood" experience="5400" speed="380">
 	<health now="5800" max="5800"/>
 	<look type="1136" body="123" legs="28" feet="20" addons="1" corpse="34760"/>
 	<targetchange interval="4000" chance="10"/>
@@ -39,7 +39,7 @@
 		
 	<elements>
 		<element physicalPercent="30"/>
-		<element holyPercent="50" />
+		<element holyPercent="50"/>
 		<element firePercent="-10"/>
 	</elements>
 	
