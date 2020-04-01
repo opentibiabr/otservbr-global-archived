@@ -1,8 +1,6 @@
 /**
- * @file lockfree.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_LOCKFREE_H_
-#define OT_SRC_LOCKFREE_H_
+#ifndef FS_LOCKFREE_H_8C707AEB7C7235A2FBC5D4EDDF03B008
+#define FS_LOCKFREE_H_8C707AEB7C7235A2FBC5D4EDDF03B008
 
 #if _MSC_FULL_VER >= 190023918 // Workaround for VS2015 Update 2. Boost.Lockfree is a header-only library, so this should be safe to do.
 #define _ENABLE_ATOMIC_ALIGNMENT_FIX

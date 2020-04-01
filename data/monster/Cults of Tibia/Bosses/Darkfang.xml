@@ -4,7 +4,6 @@
 	<look type="308" corpse="20380" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -57,26 +56,26 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item name="Gold Coin" countmax="100" chance="13600000" />
-		<item name="Gold Coin" countmax="100" chance="13600000" />
-		<item name="Platinum Coin" countmax="10" chance="13600000" />
-		<item name="Berserk Potions" countmax="3" chance="13600000" />
-		<item name="Black Pearl" countmax="3" chance="13600000" />
-		<item name="Onyx Chips" countmax="5" chance="13600000" />
-		<item name="Small Enchanted Sapphire" countmax="10" chance="13600000" />
-		<item name="Ultimate Health Potion" countmax="5" chance="13600000" />
-		<item name="Platinum Amulet" chance="13600000" />
-		<item name="Stone Skin Amulet" chance="13600000" />
-		<item name="Time Ring" chance="13600000" />
-		<item name="Troll Green" countmax="2" chance="13600000" />
-		<item name="Werewolf Fur" countmax="2" chance="13600000" />
-		<item name="Wolf Paw" countmax="2" chance="13600000" />
-		<item name="Bonebreaker" chance="400" />
-		<item name="Dreaded Cleaver" chance="400" />
-		<item name="Werewolf Amulet" chance="400" />
-		<item name="Sai	" chance="250" />
-		<item name="Wolf Trophy" chance="250" />
-		<item name="Silver Token" chance="250" />
-		<item name="Wolf Backpack" chance="100" />
+		<item name="gold coin" countmax="100" chance="13600000" />
+		<item name="gold coin" countmax="100" chance="13600000" />
+		<item name="platinum coin" countmax="10" chance="13600000" />
+		<item name="berserk potion" countmax="3" chance="13600000" />
+		<item name="black pearl" countmax="3" chance="13600000" />
+		<item name="onyx chip" countmax="5" chance="13600000" />
+		<item name="small enchanted sapphire" countmax="10" chance="13600000" />
+		<item name="ultimate health potion" countmax="5" chance="13600000" />
+		<item name="platinum amulet" chance="13600000" />
+		<item name="stone skin amulet" chance="13600000" />
+		<item id="2169" chance="13600000" /><!-- time ring -->
+		<item name="troll green" countmax="2" chance="13600000" />
+		<item name="werewolf fur" countmax="2" chance="13600000" />
+		<item name="wolf paw" countmax="2" chance="13600000" />
+		<item name="bonebreaker" chance="400" />
+		<item name="dreaded cleaver" chance="400" />
+		<item name="werewolf amulet" chance="400" />
+		<item name="sai" chance="250" />
+		<item id="7394" chance="13600000" /><!-- wolf trophy -->
+		<item name="silver token" chance="250" />
+		<item name="wolf backpack" chance="100" />
 	</loot>
 </monster>

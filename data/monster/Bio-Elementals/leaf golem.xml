@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Leaf Golem" nameDescription="a leaf golem" race="undead" experience="45" speed="68" manacost="390">
+<monster name="Leaf Golem" nameDescription="a leaf golem" race="undead" experience="45" speed="136" manacost="390">
 	<health now="90" max="90"/>
 	<look type="567" corpse="21358"/>
 	<targetchange interval="4000" chance="10"/>

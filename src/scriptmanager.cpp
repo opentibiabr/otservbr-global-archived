@@ -1,8 +1,6 @@
 /**
- * @file scriptmanager.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,8 +29,8 @@
 #include "weapons.h"
 #include "globalevent.h"
 #include "events.h"
-#include "modules.h"
 #include "script.h"
+#include "modules.h"
 #include "imbuements.h"
 
 Actions* g_actions = nullptr;
@@ -69,6 +67,11 @@ bool ScriptingManager::loadScriptSystems()
 {
 	if (g_luaEnvironment.loadFile("data/global.lua") == -1) {
 		std::cout << "[Warning - ScriptingManager::loadScriptSystems] Can not load data/global.lua" << std::endl;
+	}
+
+	if (g_luaEnvironment.loadFile("data/stages.lua") == -1) {
+		std::cout << "[Warning - ScriptingManager::loadScriptSystems] Can not load data/stages.lua" << std::endl;
+		return false;
 	}
 
 	g_scripts = new Scripts();

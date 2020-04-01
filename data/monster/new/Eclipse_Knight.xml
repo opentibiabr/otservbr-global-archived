@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Eclipse Knight" nameDescription="an eclipse knight" race="undead" experience="5650" speed="240">
-	<health now="8350" max="8350"/>
+<monster name="Eclipse Knight" nameDescription="an eclipse knight" race="undead" experience="4650" speed="240">
+	<health now="45000" max="45000"/>
 	<look type="234" corpse="6328"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

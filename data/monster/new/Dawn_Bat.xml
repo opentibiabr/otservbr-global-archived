@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Dawn Bat" namedescription="a dawn bat" race="blood" experience="10" speed="100" manacost="250">
+<monster name="Dawn Bat" namedescription="a dawn bat" race="blood" experience="10" speed="200" manacost="250">
 	<health now="30" max="30"/>
 	<look type="122" corpse="6053"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="1"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

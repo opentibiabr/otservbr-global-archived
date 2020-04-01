@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Scourge Of Oblivion" nameDescription="The Scourge Of Oblivion" race="energy" experience="50000" speed="450" script="rewardboss.lua">
+<monster name="The Scourge Of Oblivion" nameDescription="The Scourge Of Oblivion" race="energy" experience="75000" speed="450" script="rewardboss.lua">
 	<health now="800000" max="800000"/>
 	<look type="875" head="79" body="79" legs="60" feet="79" addons="3" corpse="26217"/>
 	<targetchange interval="2000" chance="25"/>
@@ -96,44 +96,44 @@
 		<voice sentence="I AM DEVOURER!" yell="1"/>
 	</voices>
 	<loot>
-		<item name="Platinum Coin" countmax="15" chance="100000"/>
-		<item name="Crystal Coin" countmax="7" chance="100000"/>
-		<item name="Green Crystal Shard" countmax="3" chance="100000"/>
-		<item name="Violet Crystal Shard" countmax="3" chance="100000"/>
-		<item name="Spark Sphere" chance="100000"/>
-		<item name="Plasmatic Lightning" chance="100000"/>
-		<item name="Emerald Bangle" chance="100000"/>
-		<item name="Royal Star" countmax="100" chance="66666"/>
-		<item name="Small Amethyst" countmax="12" chance="66666"/>
-		<item name="Silver Token" countmax="12" chance="66666"/>
-		<item name="Mastermind Potion" countmax="10" chance="66666"/>
-		<item name="Ultimate Mana Potion" countmax="6" chance="66666"/>
-		<item name="Giant Emerald" chance="66666"/>
-		<item name="Red Gem" chance="66666"/>
-		<item name="Small Ruby" countmax="12" chance="33333"/>
-		<item name="Bullseye Potion" countmax="10" chance="33333"/>
-		<item name="Gold Token" countmax="8" chance="33333"/>
-		<item name="Supreme Health Potion" countmax="6" chance="33333"/>
-		<item name="Blue Crystal Shard" countmax="3" chance="33333"/>
-		<item name="Giant Sapphire" chance="33333"/>
-		<item name="Green Gem" chance="33333"/>
-		<item name="Collar of Blue Plasma" chance="33333"/>
-		<item name="Huge Chunk of Crude Iron" chance="33333"/>
-		<item name="Magic Sulphur" chance="33333"/>
-		<item name="Ring of the Sky" chance="33333"/>
-		<item name="Ultimate Spirit Potion" countmax="20" chance="15000"/>
-		<item name="Small Diamond" countmax="12" chance="15000"/>
-		<item name="Small Emerald" countmax="12" chance="15000"/>
-		<item name="Rift Shield" chance="5000"/>
-		<item name="Giant Shimmering Pearl" chance="5000"/>
-		<item name="Arcane Staff" chance="5000"/>
-		<item name="Skullcracker Armor" chance="5000"/>
-		<item name="Chaos Mace" chance="5000"/>
-		<item name="Cat's Paw" chance="5000"/>
-		<item name="Piggy Bank" chance="5000"/>
-		<item name="Mysterious Remains" chance="5000"/>
-		<item name="Energy Bar" chance="5000"/>
-		<item name="Library Ticket" unique="1" chance="500"/>
-		<item name="The Calamity" unique="1" chance="500"/>
+		<item name="platinum coin" countmax="15" chance="100000"/>
+		<item name="crystal coin" countmax="7" chance="100000"/>
+		<item name="green crystal shard" countmax="3" chance="100000"/>
+		<item name="violet crystal shard" countmax="3" chance="100000"/>
+		<item name="spark sphere" chance="100000"/>
+		<item name="plasmatic lightning" chance="100000"/>
+		<item name="emerald bangle" chance="100000"/>
+		<item name="royal star" countmax="100" chance="66666"/>
+		<item name="small amethyst" countmax="12" chance="66666"/>
+		<item name="silver token" countmax="12" chance="66666"/>
+		<item name="mastermind potion" countmax="10" chance="66666"/>
+		<item name="ultimate mana potion" countmax="6" chance="66666"/>
+		<item name="giant emerald" chance="66666"/>
+		<item name="red gem" chance="66666"/>
+		<item name="small ruby" countmax="12" chance="33333"/>
+		<item name="bullseye potion" countmax="10" chance="33333"/>
+		<item name="gold token" countmax="8" chance="33333"/>
+		<item name="supreme health potion" countmax="6" chance="33333"/>
+		<item name="blue crystal shard" countmax="3" chance="33333"/>
+		<item name="giant sapphire" chance="33333"/>
+		<item name="green gem" chance="33333"/>
+		<item id="26182" chance="33333"/><!-- collar of blue plasma -->
+		<item name="huge chunk of crude iron" chance="33333"/>
+		<item name="magic sulphur" chance="33333"/>
+		<item name="ring of the sky" chance="33333"/>
+		<item name="ultimate spirit potion" countmax="20" chance="15000"/>
+		<item name="small diamond" countmax="12" chance="15000"/>
+		<item name="small emerald" countmax="12" chance="15000"/>
+		<item name="rift shield" chance="5000"/>
+		<item id="281" chance="5000"/><!-- giant shimmering pearl -->
+		<item name="arcane staff" chance="5000"/>
+		<item name="skullcracker armor" chance="5000"/>
+		<item name="chaos mace" chance="5000"/>
+		<item name="cat's paw" chance="5000"/>
+		<item name="piggy bank" chance="5000"/>
+		<item name="mysterious remains" chance="5000"/>
+		<item name="energy bar" chance="5000"/>
+		<item name="library ticket" unique="1" chance="500"/>
+		<item name="calamity" unique="1" chance="500"/>
 	</loot>
 </monster>

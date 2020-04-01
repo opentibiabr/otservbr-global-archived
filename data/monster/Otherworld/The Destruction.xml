@@ -29,7 +29,6 @@
 			<attribute key="shootEffect" value="energyball"/>
 			<attribute key="areaEffect" value="explosionarea"/>
 		</attack>
-		<attack name="big fire wave2" interval="2000" chance="20" min="-600" max="-900"/>
 		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="0" min="-200" max="-400">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>

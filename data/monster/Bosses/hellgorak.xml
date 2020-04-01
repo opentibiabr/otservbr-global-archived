@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Hellgorak" nameDescription="Hellgorak" race="blood" experience="10000" speed="165">
+<monster name="Hellgorak" nameDescription="Hellgorak" race="blood" experience="10000" speed="330">
 	<health now="25850" max="25850"/>
 	<look type="12" head="19" body="96" legs="21" feet="81" corpse="6068"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

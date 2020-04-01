@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Wolf" nameDescription="a wolf" race="blood" experience="18" speed="82">
+<monster name="Wolf" nameDescription="a wolf" race="blood" experience="18" speed="164">
 	<health now="25" max="25"/>
 	<look type="918" corpse="5968"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

@@ -28,13 +28,16 @@ function Creature.getClosestFreePosition(self, position, maxRadius, mustBeReacha
 	return Position()
 end
 
-
 function Creature.getMonster(self)
 	return self:isMonster() and self or nil
 end
 
 function Creature.getPlayer(self)
 	return self:isPlayer() and self or nil
+end
+
+function Creature.isContainer(self)
+	return false
 end
 
 function Creature.isItem(self)
@@ -50,6 +53,10 @@ function Creature.isNpc(self)
 end
 
 function Creature.isPlayer(self)
+	return false
+end
+
+function Creature.isTeleport(self)
 	return false
 end
 
@@ -114,8 +121,8 @@ function Creature:removeSummon(monster)
 
 	summon:setTarget(nil)
 	summon:setFollowCreature(nil)
-	summon:setDropLoot(false)
-	summon:setSkillLoss(false)
+	summon:setDropLoot(true)
+	summon:setSkillLoss(true)
 	summon:setMaster(nil)
 
 	return true

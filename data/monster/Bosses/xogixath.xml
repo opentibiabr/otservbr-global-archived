@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Xogixath" nameDescription="xogixath" race="fire" experience="21000" speed="190" script="rewardboss.lua">
+<monster name="Xogixath" nameDescription="xogixath" race="fire" experience="22000" speed="190" script="rewardboss.lua">
 	<health now="28000" max="28000"/>
 	<look type="842" head="3" body="16" legs="75" feet="19" addons="2" corpse="13973"/>
 	<targetchange interval="4000" chance="10"/>

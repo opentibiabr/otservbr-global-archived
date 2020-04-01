@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Serpent Spawn" nameDescription="a serpent spawn" race="venom" experience="3050" speed="117">
+<monster name="Serpent Spawn" nameDescription="a serpent spawn" race="venom" experience="3050" speed="234">
 	<health now="3000" max="3000"/>
 	<look type="220" corpse="6061"/>
 	<targetchange interval="4000" chance="10"/>

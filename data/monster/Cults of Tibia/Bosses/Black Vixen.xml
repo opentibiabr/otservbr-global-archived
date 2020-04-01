@@ -4,7 +4,6 @@
 	<look type="1038" corpse="32057" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -60,29 +59,28 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item name="Gold Coin" countmax="100" chance="13600000" />
-		<item name="Gold Coin" countmax="100" chance="13600000" />
-		<item name="Platinum Coin" countmax="10" chance="13600000" />
-		<item name="Assassin Star" countmax="9" chance="13600000" />
-		<item name="Black Pearl" countmax="2" chance="13600000" />
-		<item name="Great Mana Potion" countmax="2" chance="13600000" />
-		<item name="Great Spirit Potion" countmax="2" chance="13600000" />
-		<item name="Small Enchanted Emerald" countmax="2" chance="13600000" />
-		<item name="Ultimate Mana Potion" countmax="2" chance="13600000" />
-		<item name="Ultimate Spirit Potion" countmax="2" chance="13600000" />
-		<item name="Fox Paw" countmax="2" chance="13600000" />
-		<item name="Moonlight Rod" chance="13600000" />
-		<item name="Stealth Ring" chance="13600000" />
-		<item name="Werefox Tail" chance="13600000" />
-		<item name="Green Gem" chance="400" />
-		<item name="Troll Green" chance="400" />
-		<item name="Werewolf Amulet" chance="400" />
-		<item name="Composite Hornbow" chance="250" />
-		<item name="Sai" chance="250" />
-		<item name="Silver Token" chance="250" />
-		<item name="Werefox Trophy" chance="250" />
-		<item name="Foxtail" chance="100" />
-		<item name="Wolf Backpack" chance="100" />
-		<item name="Silver Token" chance="100" />
+		<item name="gold coin" countmax="100" chance="13600000" />
+		<item name="gold coin" countmax="100" chance="13600000" /><item name="platinum coin" countmax="10" chance="13600000" />
+		<item name="assassin star" countmax="9" chance="13600000" />
+		<item name="black pearl" countmax="2" chance="13600000" />
+		<item name="great mana potion" countmax="2" chance="13600000" />
+		<item name="great spirit potion" countmax="2" chance="13600000" />
+		<item name="small enchanted emerald" countmax="2" chance="13600000" />
+		<item name="ultimate mana potion" countmax="2" chance="13600000" />
+		<item name="ultimate spirit potion" countmax="2" chance="13600000" />
+		<item name="fox paw" countmax="2" chance="13600000" />
+		<item name="moonlight rod" chance="13600000" />
+		<item name="stealth ring" chance="13600000" />
+		<item name="werefox tail" chance="13600000" />
+		<item name="green gem" chance="400" />
+		<item name="troll green" chance="400" />
+		<item name="werewolf amulet" chance="400" />
+		<item name="composite hornbow" chance="250" />
+		<item name="sai" chance="250" />
+		<item name="silver token" chance="250" />
+		<item id="30941" chance="250" /><!-- werefox trophy -->
+		<item name="foxtail" chance="100" />
+		<item name="wolf backpack" chance="100" />
+		<item name="silver token" chance="100" />
 	</loot>
 </monster>

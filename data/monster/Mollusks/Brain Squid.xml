@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Brain Squid" nameDescription="a brain squid" race="undead" experience="21000" speed="215">
+<monster name="Brain Squid" nameDescription="a brain squid" race="undead" experience="17850" speed="430">
 	<health now="18000" max="18000"/>
 	<look type="1059" head="97" body="18" legs="61" feet="85" corpse="33329"/>
 	<targetchange interval="5000" chance="8"/>

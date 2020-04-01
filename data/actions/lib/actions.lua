@@ -703,7 +703,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 
 	--The Ice Islands Quest
 	if targetId == 388 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.SulphurLava) < 1 then
 				player:addItem(7247, 1) -- fine sulphur
 				player:setStorageValue(Storage.TheIceIslands.SulphurLava, 1)
@@ -713,7 +713,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 
 	elseif targetId == 4184 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.SporesMushroom) < 1 then
 				player:addItem(7251, 1)
 				player:setStorageValue(Storage.TheIceIslands.SporesMushroom, 1)
@@ -788,7 +788,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 
 	--The Ice Islands Quest
 	if targetId == 7261 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.FrostbiteHerb) < 1 then
 				player:addItem(7248, 1)
 				player:setStorageValue(Storage.TheIceIslands.FrostbiteHerb, 1)
@@ -798,7 +798,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		end
 
 	elseif targetId == 2733 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.FlowerCactus) < 1 then
 				player:addItem(7245, 1)
 				player:setStorageValue(Storage.TheIceIslands.FlowerCactus, 1)
@@ -810,7 +810,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		end
 
 	elseif targetId == 4017 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.FlowerBush) < 1 then
 				player:addItem(7249, 1)
 				player:setStorageValue(Storage.TheIceIslands.FlowerBush, 1)

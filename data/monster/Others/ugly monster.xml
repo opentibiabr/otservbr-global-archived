@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ugly Monster" nameDescription="a ugly monster" race="blood" experience="650" speed="140">
+<monster name="Ugly Monster" nameDescription="an ugly monster" race="blood" experience="650" speed="140">
 	<health now="13000" max="13000"/>
 	<look type="1218" corpse="36386"/>
 	<targetchange interval="4000" chance="10"/>

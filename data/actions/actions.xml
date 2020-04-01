@@ -313,7 +313,6 @@
 	<action itemid="7286" script="quests/ice islands/cure.lua" />
 	<action itemid="7253" script="quests/ice islands/paint.lua" />
 	<action itemid="2361" script="quests/ice islands/yakchal.lua" />
-	<action itemid="2565" script="quests/ice islands/spoon.lua" />
 
 	<!-- In Service Of Yalahar Quest -->
 	<action itemid="9737" script="quests/in service of yalahar/charm.lua" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Dryad" nameDescription="a dryad" race="blood" experience="190" speed="115">
+<monster name="Dryad" nameDescription="a dryad" race="blood" experience="190" speed="230">
 	<health now="310" max="310"/>
 	<look type="137" addons="3" head="80" body="59" legs="7" feet="101" corpse="20323"/>
 	<targetchange interval="4000" chance="10"/>

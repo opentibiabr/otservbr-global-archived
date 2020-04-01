@@ -17,31 +17,31 @@
 		<flag runonhealth="100"/>
 	</flags>
 	<attacks>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="rat" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="rat" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="chicken" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="chicken" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="green frog" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="green frog" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="bug" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="bug" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="pig" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="pig" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="kongra" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="kongra" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="dog" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="dog" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="12" range="7" target="1" radius="4" monster="skunk" duration="2000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="skunk" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="outfit" interval="2000" chance="6" range="7" target="1" radius="4" monster="donkey" duration="4000">
+		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="donkey" duration="2000">
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
 	</attacks>

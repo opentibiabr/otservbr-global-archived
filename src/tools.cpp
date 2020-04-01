@@ -1,8 +1,6 @@
 /**
- * @file tools.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1272,6 +1270,9 @@ const char* getReturnMessage(ReturnValue value)
 
 		case RETURNVALUE_YOUCANNOTTRADETHISHOUSE:
 			return "You can not trade this house.";
+
+		case RETURNVALUE_YOUDONTHAVEREQUIREDPROFESSION:
+			return "You don't have the required profession.";
 
 		case RETURNVALUE_NOTENOUGHFISTLEVEL:
 			return "You do not have enough fist level";

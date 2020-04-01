@@ -17,7 +17,7 @@ function Container.createLootItem(self, item)
 		end
 	end
 
-		if itemCount > 0 then
+	if itemCount > 0 then
 		local tmpItem = self:addItem(item.itemId, math.min(itemCount, 100))
 		if not tmpItem then
 			return false

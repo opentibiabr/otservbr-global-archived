@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Vicious Squire" nameDescription="a vicious squire" race="blood" experience="900" speed="130" manacost="390">
+<monster name="Vicious Squire" nameDescription="a vicious squire" race="blood" experience="900" speed="260" manacost="390">
 	<health now="1000" max="1000"/>
 	<look type="131" head="97" body="26" legs="71" feet="114" addons="1" corpse="24673"/>
 	<targetchange interval="4000" chance="20"/>

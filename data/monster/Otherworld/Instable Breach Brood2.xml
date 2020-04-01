@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Instable Breach Brood" nameDescription="an instable breach brood" race="energy" experience="1100" speed="135">
+<monster name="Instable Breach Brood" nameDescription="an instable breach brood" race="energy" experience="1100" speed="270">
 	<health now="2200" max="2200"/>
 	<look type="878" corpse="26048"/>
 	<targetchange interval="2000" chance="10"/>

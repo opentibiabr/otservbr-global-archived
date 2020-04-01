@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Herald of Gloom" nameDescription="a herald of gloom" experience="450" speed="85" race="undead">
+<monster name="Herald of Gloom" nameDescription="a herald of gloom" experience="450" speed="170" race="undead">
 	<health now="340" max="340"/>
 	<targetchange speed="0" chance="8"/>
 	<look type="320" corpse="9915"/>

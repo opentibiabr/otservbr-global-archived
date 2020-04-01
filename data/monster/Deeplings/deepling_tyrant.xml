@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Deepling Tyrant" nameDescription="a deepling tyrant" race="blood" experience="4200" speed="155">
-	<health now="4900" max="4900"/>
+<monster name="Deepling Tyrant" nameDescription="a deepling tyrant" race="blood" experience="4200" speed="310">
+	<health now="4500" max="4500"/>
 	<look type="442" corpse="15188"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>

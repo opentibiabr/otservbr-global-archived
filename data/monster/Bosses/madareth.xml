@@ -4,7 +4,6 @@
 	<look type="12" head="77" body="116" legs="82" feet="79" corpse="8721"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

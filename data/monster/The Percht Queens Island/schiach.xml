@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Schiach" nameDescription="an schiach" race="blood" experience="580" speed="140">
+<monster name="Schiach" nameDescription="an schiach" race="blood" experience="580" speed="280">
 	<health now="600" max="600"/>
 	<look type="1162" head="19" body="10" legs="19" feet="57" corpse="35127"/>
 	<targetchange interval="5000" chance="8"/>

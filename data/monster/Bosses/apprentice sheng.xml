@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Apprentice Sheng" nameDescription="Apprentice Sheng" race="blood" experience="150" speed="85">
+<monster name="Apprentice Sheng" nameDescription="Apprentice Sheng" race="blood" experience="150" speed="170">
 	<health now="95" max="95"/>
 	<look type="23" corpse="5981"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

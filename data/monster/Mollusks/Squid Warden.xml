@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Squid Warden" nameDescription="a squid warden" race="undead" experience="18000" speed="215">
+<monster name="Squid Warden" nameDescription="a squid warden" race="undead" experience="15300" speed="430">
 	<health now="16500" max="16500"/>
 	<look type="1059" head="9" body="21" legs="41" feet="85" corpse="32486"/>
 	<targetchange interval="5000" chance="8"/>

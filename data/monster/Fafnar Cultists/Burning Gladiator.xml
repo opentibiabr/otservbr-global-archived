@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Burning Gladiator" nameDescription="a burning gladiator" race="blood" experience="10500" speed="145">
+<monster name="Burning Gladiator" nameDescription="a burning gladiator" race="blood" experience="7350" speed="290">
 	<health now="10000" max="10000"/>
 	<look type="541" head="95" body="113" legs="21" feet="21" addons="1" corpse="36481"/>
 	<targetchange interval="4000" chance="10"/>

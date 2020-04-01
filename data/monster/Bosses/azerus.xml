@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Azerus" nameDescription="Azerus" race="blood" experience="6000" speed="143">
+<monster name="Azerus" nameDescription="Azerus" race="blood" experience="6000" speed="286">
 	<health now="26000" max="26000"/>
 	<look type="309" corpse="0"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

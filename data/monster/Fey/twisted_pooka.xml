@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Twisted Pooka" nameDescription="a twisted pooka" race="blood" experience="600" speed="115" manacost="450">
+<monster name="Twisted Pooka" nameDescription="a twisted pooka" race="blood" experience="600" speed="230" manacost="450">
 	<health now="700" max="700"/>
 	<look type="978" corpse="29114"/>
 	<targetchange interval="4000" chance="10"/>

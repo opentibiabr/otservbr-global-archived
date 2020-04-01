@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Undead Elite Gladiator" nameDescription="an undead elite gladiator" race="undead" experience="7900" speed="150">
+<monster name="Undead Elite Gladiator" nameDescription="an undead elite gladiator" race="undead" experience="4740" speed="300">
 	<health now="8000" max="8000"/>
 	<look type="306" corpse="9823"/>
 	<targetchange interval="4000" chance="10"/>

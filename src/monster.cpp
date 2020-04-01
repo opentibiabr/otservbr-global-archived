@@ -46,23 +46,23 @@ Monster* Monster::createMonster(const std::string& name)
 	return new Monster(mType);
 }
 
-Monster::Monster(MonsterType* monsterType) :
+Monster::Monster(MonsterType* mType) :
 	Creature(),
-	strDescription(asLowerCaseString(monsterType->nameDescription)),
-	mType(monsterType)
+	strDescription(asLowerCaseString(mType->nameDescription)),
+	mType(mType)
 {
-	defaultOutfit = monsterType->info.outfit;
-	currentOutfit = monsterType->info.outfit;
-	skull = monsterType->info.skull;
+	defaultOutfit = mType->info.outfit;
+	currentOutfit = mType->info.outfit;
+	skull = mType->info.skull;
 	float multiplier = g_config.getFloat(ConfigManager::RATE_MONSTER_HEALTH);
-	health = monsterType->info.health*multiplier;
-	healthMax = monsterType->info.healthMax*multiplier;
-	baseSpeed = monsterType->info.baseSpeed;
-	internalLight = monsterType->info.light;
-	hiddenHealth = monsterType->info.hiddenHealth;
+	health = mType->info.health*multiplier;
+	healthMax = mType->info.healthMax*multiplier;
+	baseSpeed = mType->info.baseSpeed;
+	internalLight = mType->info.light;
+	hiddenHealth = mType->info.hiddenHealth;
 
 	// register creature events
-	for (const std::string& scriptName : monsterType->info.scripts) {
+	for (const std::string& scriptName : mType->info.scripts) {
 		if (!registerCreatureEvent(scriptName)) {
 			std::cout << "[Warning - Monster::Monster] Unknown event name: " << scriptName << std::endl;
 		}
@@ -886,11 +886,11 @@ void Monster::onThinkTarget(uint32_t interval)
 		if (mType->info.changeTargetSpeed != 0) {
 			bool canChangeTarget = true;
 
-			if (targetExetaCooldown > 0) {
-				targetExetaCooldown -= interval;
+			if (challengeFocusDuration > 0) {
+				challengeFocusDuration -= interval;
 
-				if (targetExetaCooldown <= 0) {
-					targetExetaCooldown = 0;
+				if (challengeFocusDuration <= 0) {
+					challengeFocusDuration = 0;
 				}
 			}
 
@@ -912,8 +912,8 @@ void Monster::onThinkTarget(uint32_t interval)
 					targetChangeTicks = 0;
 					targetChangeCooldown = mType->info.changeTargetSpeed;
 
-					if (targetExetaCooldown > 0) {
-						targetExetaCooldown = 0;
+					if (challengeFocusDuration > 0) {
+						challengeFocusDuration = 0;
 					}
 
 					if (mType->info.changeTargetChance >= uniform_random(1, 100)) {
@@ -1952,6 +1952,7 @@ void Monster::setNormalCreatureLight()
 void Monster::drainHealth(Creature* attacker, int32_t damage)
 {
 	Creature::drainHealth(attacker, damage);
+
 	if (damage > 0 && randomStepping) {
 		ignoreFieldDamage = true;
 		updateMapCache();
@@ -1978,7 +1979,7 @@ bool Monster::challengeCreature(Creature* creature)
 	bool result = selectTarget(creature);
 	if (result) {
 		targetChangeCooldown = 8000;
-		targetExetaCooldown = targetChangeCooldown;
+		challengeFocusDuration = targetChangeCooldown;
 		targetChangeTicks = 0;
 	}
 	return result;

@@ -1,3 +1,5 @@
+-- WARNING: function preyTimeLeft: Using the "/reload global" command will cause a problem in timing of the prey
+
 math.randomseed(os.time())
 dofile('data/lib/lib.lua')
 
@@ -20,7 +22,6 @@ damageImpact = {} -- global table to insert data
 nextPreyTime = {}
 
 -- From here down are the functions of TFS
-
 function getDistanceBetween(firstPosition, secondPosition)
 	local xDif = math.abs(firstPosition.x - secondPosition.x)
 	local yDif = math.abs(firstPosition.y - secondPosition.y)
@@ -246,6 +247,46 @@ function Player:getMarriageDescription(thing)
         descr = descr .. "married to " .. getPlayerNameById(playerSpouse) .. '.'
     end
     return descr
+end
+
+-- Marry
+function getPlayerNameById(id)
+	local resultName = db.storeQuery("SELECT `name` FROM `players` WHERE `id` = " .. db.escapeString(id))
+	local name = result.getDataString(resultName, "name")
+	if resultName ~= false then
+		result.free(resultName)
+		return name
+	end
+	return false
+end
+
+-- Prey slots consumption
+-- WARNING: function preyTimeLeft: Using the "/reload global" command will cause a problem in timing of the prey
+function preyTimeLeft(player, slot)
+	local timeLeft = player:getPreyTimeLeft(slot) / 60
+	local monster = player:getPreyCurrentMonster(slot)
+	if (timeLeft > 0) then
+		local playerId = player:getId()
+		local currentTime = os.time()
+		local timePassed = currentTime - nextPreyTime[playerId][slot]
+		if timePassed >= 59 then
+			timeLeft = timeLeft - 1
+			nextPreyTime[playerId][slot] = currentTime + 60
+		else
+			timeLeft = timeLeft - 0
+		end
+		if (timeLeft < 1) then		
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+			player:setPreyCurrentMonster(slot, "")
+		end
+		-- Setting new timeLeft
+		player:setPreyTimeLeft(slot, timeLeft * 60)
+	else
+		-- Expiring prey as there's no timeLeft
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
+		player:setPreyCurrentMonster(slot, "")
+	end
+	return player:sendPreyData(slot)
 end
 
 -- The following 2 functions can be used for delayed shouted text

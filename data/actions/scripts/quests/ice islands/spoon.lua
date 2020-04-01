@@ -7,7 +7,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	player:setStorageValue(Storage.TheApeCity.SnakeDestroyer, 1)
 	player:addItem(8204, 1)
 	toPosition:sendMagicEffect(CONST_ME_FIREAREA)
 	return true

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Deathling Scout" nameDescription="a deathling scout" race="blood" experience="6300" speed="155">
+<monster name="Deathling Scout" nameDescription="a deathling scout" race="blood" experience="6300" speed="310">
 	<health now="7200" max="7200"/>
 	<look type="413" corpse="33373"/>
 	<targetchange interval="4000" chance="10"/>
@@ -43,8 +43,8 @@
 		<immunity fire="1"/>
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="VBOX&#176;"/>
-		<voice sentence="O(J-&quot;LJ-T =|-&#176;"/> 
+		<voice sentence="VBOX°O"/>
+		<voice sentence='O(J-"LJ-T =|-°'/> 
 	</voices>
 	<loot>
 		<item name="crystalline arrow" countmax="25" chance="29860"/>
