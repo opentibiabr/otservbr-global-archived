@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Cult Scholar" nameDescription="a cult scholar" race="blood" experience="1100" speed="130" manacost="390">
+<monster name="Cult Scholar" nameDescription="a cult scholar" race="blood" experience="1100" speed="260" manacost="390">
 	<health now="1650" max="1650"/>
 	<look type="145" head="0" body="77" legs="21" feet="21" addons="1" corpse="24673"/>
 	<targetchange interval="4000" chance="20"/>

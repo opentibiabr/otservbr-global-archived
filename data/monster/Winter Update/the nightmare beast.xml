@@ -4,7 +4,6 @@
 	<look type="1144" corpse="34797"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-	    <!-- <flag preyable="0"/> -->
         <flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
@@ -31,38 +30,38 @@
 		<immunity paralyze="1"/>
 	</immunities>
 	<loot>
-		<item name="Ultimate Spirit Potion" countmax="20" chance="60780"/>
-		<item name="Supreme Health Potion" countmax="6" chance="4920"/>
-		<item name="Silver Token" countmax="3" chance="4920"/>
-		<item name="Gold Token" countmax="3" chance="4920"/>
-        <item name="Platinum Coin" countmax="5" chance="60780"/>
-		<item name="Crystal Coin" countmax="2" chance="10000"/>
-		<item name="Berserk Potion" countmax="10" chance="10000"/>
-		<item name="Bullseye Potion" countmax="10" chance="10000"/>
-		<item name="Mastermind Potion" countmax="10" chance="10000"/>
-		<item name="Royal Star" countmax="100" chance="10000"/>
-		<item name="Blue Gem" chance="160"/>
-		<item name="Green Gem" chance="160"/>
-		<item name="Piggy Bank" chance="160"/>
-		<item name="Red Gem" chance="160"/>
-		<item name="Violet Gem" chance="160"/>
-		<item name="Yellow Gem" chance="160"/>
-		<item name="Beast's Nightmare-Cushion" chance="160"/>
-		<item id="26198" chance="160"/> <!-- Collar of Blue Plasma -->
-		<item id="26199" chance="160"/> <!-- Collar of Green Plasma -->
-		<item id="26200" chance="160"/> <!-- Collar of Red Plasma -->
-		<item name="Dragon Figurine" chance="160"/>
-		<item name="Huge Chunk of Crude Iron" chance="160"/>
-        <item name="Ring of Blue Plasma" chance="160"/>
-		<item name="Ring of Green Plasma" chance="160"/>
-		<item name="Ring of Red Plasma" chance="160"/>
-		<item name="Ring of the Sky" chance="160"/>
-		<item name="Dark Whispers" chance="100"/>
-		<item name="Enchanted Sleep Shawl" chance="100"/>
-		<item name="Ice Shield" chance="100"/>
-		<item name="Purple Tendril Lantern" chance="100"/>
-		<item name="Soul Stone" chance="100"/>
-		<item name="Turquoise Tendril Lantern" chance="100"/>
-		<item name="Unicorn Figurine" chance="100"/>
+		<item name="ultimate spirit potion" countmax="20" chance="60780"/>
+		<item name="supreme health potion" countmax="6" chance="4920"/>
+		<item name="silver token" countmax="3" chance="4920"/>
+		<item name="gold token" countmax="3" chance="4920"/>
+        <item name="platinum coin" countmax="5" chance="60780"/>
+		<item name="crystal coin" countmax="2" chance="10000"/>
+		<item name="berserk potion" countmax="10" chance="10000"/>
+		<item name="bullseye potion" countmax="10" chance="10000"/>
+		<item name="mastermind potion" countmax="10" chance="10000"/>
+		<item name="royal star" countmax="100" chance="10000"/>
+		<item name="blue gem" chance="160"/>
+		<item name="green gem" chance="160"/>
+		<item name="piggy bank" chance="160"/>
+		<item name="red gem" chance="160"/>
+		<item name="violet gem" chance="160"/>
+		<item name="yellow gem" chance="160"/>
+		<item name="beast's nightmare-cushion" chance="160"/>
+		<item id="26198" chance="160"/> <!-- collar of blue plasma -->
+		<item id="26199" chance="160"/> <!-- collar of green plasma -->
+		<item id="26200" chance="160"/> <!-- collar of red plasma -->
+		<item name="dragon figurine" chance="160"/>
+		<item name="huge chunk of crude iron" chance="160"/>
+		<item id="26185" chance="160"/><!-- ring of blue plasma -->
+		<item id="26187" chance="160"/><!-- ring of green plasma -->
+		<item id="26189" chance="160"/><!-- ring of red plasma -->
+		<item name="ring of the sky" chance="160"/>
+		<item name="dark whispers" chance="100"/>
+		<item name="enchanted sleep shawl" chance="100"/>
+		<item name="ice shield" chance="100"/>
+		<item name="purple tendril lantern" chance="100"/>
+		<item name="soul stone" chance="100"/>
+		<item name="turquoise tendril lantern" chance="100"/>
+		<item name="unicorn figurine" chance="100"/>
 	</loot>
 </monster>

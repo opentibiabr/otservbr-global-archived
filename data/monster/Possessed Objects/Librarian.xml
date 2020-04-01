@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Librarian" nameDescription="a librarian" race="undead" experience="0" speed="250">
-	<health now="10000" max="10000"/>
+	<health now="11000" max="11000"/>
 	<look type="1067" corpse="33357"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>

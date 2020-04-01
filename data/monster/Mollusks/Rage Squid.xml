@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Rage Squid" nameDescription="a rage squid" race="undead" experience="19000" speed="215">
+<monster name="Rage Squid" nameDescription="a rage squid" race="undead" experience="14820" speed="430">
 	<health now="17000" max="17000"/>
 	<look type="1059" head="94" body="78" legs="78" feet="0" corpse="32482"/>
 	<targetchange interval="5000" chance="8"/>

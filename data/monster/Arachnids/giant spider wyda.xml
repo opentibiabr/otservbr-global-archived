@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Giant Spider" nameDescription="a giant spider" race="venom" experience="12" speed="120">
+<monster name="Giant Spider" nameDescription="a giant spider" race="venom" experience="12" speed="240">
 	<health now="20" max="20"/>
 	<look type="38" corpse="5977"/>
 	<targetchange interval="2000" chance="0"/>

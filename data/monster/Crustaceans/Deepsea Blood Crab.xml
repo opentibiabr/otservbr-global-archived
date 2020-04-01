@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Deepsea Blood Crab" nameDescription="a deepsea blood crab" race="blood" experience="180" speed="190">
+<monster name="Deepsea Blood Crab" nameDescription="a deepsea blood crab" race="blood" experience="180" speed="380">
 	<health now="320" max="320"/>
 	<look type="200" corpse="6075"/>
 	<targetchange interval="4000" chance="10"/>

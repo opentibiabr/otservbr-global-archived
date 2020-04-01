@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Muglex Clan Assassin" nameDescription="a muglex clan assassin" race="blood" experience="48" speed="70">
+<monster name="Muglex Clan Assassin" nameDescription="a muglex clan assassin" race="blood" experience="48" speed="140">
 	<health now="75" max="75"/>
 	<look type="296" corpse="6002"/>
 	<targetchange interval="10000" chance="0"/>

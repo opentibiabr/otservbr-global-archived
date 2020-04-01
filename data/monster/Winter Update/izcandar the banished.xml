@@ -4,7 +4,6 @@
 	<look type="1137" head="1" body="114" legs="76" feet="0" addons="2" corpse="6068" />
 	<targetchange interval="4000" chance="10" />
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -27,15 +26,6 @@
 	</attacks>
 	<defenses armor="76" defense="0" />
 	<elements>
-		<element physicalPercent="100" />
-		<element holyPercent="100" />
-		<element deathPercent="100" />
-		<element firePercent="100" />
-		<element energyPercent="100" />
-		<element icePercent="100" />
-		<element earthPercent="100" />
-		<element drownPercent="100" />
-		<element healPercent="100" />
 	</elements>
 	<immunities>
 		<immunity invisible="1" />
@@ -43,19 +33,19 @@
 		<immunity lifedrain="1" />
 	</immunities>
 	<loot>
-		<item name="Berserk Potion" countmax="10" chance="100000000000" />
-		<item name="Crystal Coin" chance="100000000000" />
-		<item name="Energy Bar" chance="100000000000" />
-		<item name="Giant Sapphire" chance="100000000000" />
-		<item name="Gold Token" countmax="2" chance="100000000000" />
-		<item name="Silver Token" countmax="2" chance="100000000000" />
-		<item name="Royal Star" countmax="100" chance="100000000000" />
-		<item name="Green Gem" countmax="2" chance="100000000000" />
-		<item name="Huge Chunk of Crude Iron" chance="25100" />
-		<item name="Mysterious Remains" chance="25000" />
-		<item name="Piggy Bank" chance="12800" />
-		<item name="Platinum Coin" countmax="10" chance="12000" />
-		<item name="Supreme Health Potion" countmax="10" chance="12000" />
-		<item name="Ultimate Mana Potion" countmax="20" chance="12000" />
+		<item name="berserk potion" countmax="10" chance="100000" />
+		<item name="crystal coin" chance="100000" />
+		<item name="energy bar" chance="100000" />
+		<item name="giant sapphire" chance="100000" />
+		<item name="gold token" countmax="2" chance="100000" />
+		<item name="silver token" countmax="2" chance="100000" />
+		<item name="royal star" countmax="100" chance="100000" />
+		<item name="green gem" countmax="2" chance="100000" />
+		<item name="huge chunk of crude iron" chance="25100" />
+		<item name="mysterious remains" chance="25000" />
+		<item name="piggy bank" chance="12800" />
+		<item name="platinum coin" countmax="10" chance="12000" />
+		<item name="supreme health potion" countmax="10" chance="12000" />
+		<item name="ultimate mana potion" countmax="20" chance="12000" />
 	</loot>
 </monster>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Faun" nameDescription="a faun" race="blood" experience="800" speed="105" manacost="450">
+<monster name="Faun" nameDescription="a faun" race="blood" experience="800" speed="210" manacost="450">
 	<health now="900" max="900"/>
 	<look type="980" head="81" body="115" legs="114" feet="81" corpse="29102"/>
 	<targetchange interval="4000" chance="10"/>

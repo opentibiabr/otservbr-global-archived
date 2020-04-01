@@ -1,8 +1,6 @@
 /**
- * @file protocolgame.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_PROTOCOLGAME_H_
-#define OT_SRC_PROTOCOLGAME_H_
+#ifndef FS_PROTOCOLGAME_H_FACA2A2D1A9348B78E8FD7E8003EBB87
+#define FS_PROTOCOLGAME_H_FACA2A2D1A9348B78E8FD7E8003EBB87
 
 #include "protocol.h"
 #include "chat.h"
@@ -87,7 +85,7 @@ class ProtocolGame final : public Protocol
 		void disconnectClient(const std::string& message) const;
 		void writeToOutputBuffer(const NetworkMessage& msg);
 
-		void release() final;
+		void release() override;
 
 		void checkCreatureAsKnown(uint32_t id, bool& known, uint32_t& removedKnown);
 
@@ -96,9 +94,9 @@ class ProtocolGame final : public Protocol
 		bool canSee(const Position& pos) const;
 
 		// we have all the parse methods
-		void parsePacket(NetworkMessage& msg) final;
-		void onRecvFirstMessage(NetworkMessage& msg) final;
-		void onConnect() final;
+		void parsePacket(NetworkMessage& msg) override;
+		void onRecvFirstMessage(NetworkMessage& msg) override;
+		void onConnect() override;
 
 		//Parse methods
 		void parseAutoWalk(NetworkMessage& msg);
@@ -303,17 +301,17 @@ class ProtocolGame final : public Protocol
 		void sendCloseContainer(uint8_t cid);
 
 		//inventory
-		void sendInventoryClientIds();
 		void sendInventoryItem(slots_t slot, const Item* item);
+		void sendInventoryClientIds();
 
 		//messages
 		void sendModalWindow(const ModalWindow& modalWindow);
 
 		//analyzers
-   		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
-   		void sendUpdateSupplyTracker(const Item* item);
- 		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
- 		void sendUpdateLootTracker(Item* item);
+		void sendKillTrackerUpdate(Container* corpse, const std::string& name, const Outfit_t creatureOutfit);
+		void sendUpdateSupplyTracker(const Item* item);
+		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
+		void sendUpdateLootTracker(Item* item);
 
 		//Help functions
 

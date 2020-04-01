@@ -479,7 +479,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 		if moveItem then
 			local parent = item:getParent()
-			if parent:getSize() == parent:getCapacity() then
+			if parent:isContainer() and parent:getSize() == parent:getCapacity() then
 				self:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM))
 				return false
 			else
@@ -597,6 +597,10 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 end
 
 function Player:onReportBug(message, position, category)
+	if self:getAccountType() == ACCOUNT_TYPE_NORMAL then
+		return false
+	end
+
 	local name = self:getName()
 	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
 
@@ -706,12 +710,22 @@ local function useStaminaXp(player)
 	player:setExpBoostStamina(staminaMinutes * 60)
 end
 
+local function getRateFromTable(t, level, default)
+	for _, rate in ipairs(t) do
+		if level >= rate.minlevel and (not rate.maxlevel or level <= rate.maxlevel) then
+			return rate.multiplier
+		end
+	end
+
+	return default
+end
+
 function Player:onGainExperience(source, exp, rawExp)
 	if not source or source:isPlayer() then
 		return exp
 	end
 
-	-- Soul Regeneration
+	-- Soul regeneration
 	local vocation = self:getVocation()
 	if self:getSoul() < vocation:getMaxSoul() and exp >= self:getLevel() then
 		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks() * 1000)
@@ -719,10 +733,10 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Experience Stage Multiplier
-	exp = exp * Game.getExperienceStage(self:getLevel())
-	baseExp = rawExp * Game.getExperienceStage(self:getLevel())
+	exp = exp * getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
+	baseExp = rawExp * exp
 	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
-		displayRate = Game.getExperienceStage(self:getLevel())
+		displayRate = exp
 		else
 		displayRate = 1
 	end
@@ -748,13 +762,14 @@ function Player:onGainExperience(source, exp, rawExp)
 		displayRate = displayRate * ((self:getStoreXpBoost()+100)/100)
 	end
 
-	-- Stamina Bonus
+	-- Stamina modifier
 	if configManager.getBoolean(configKeys.STAMINA_SYSTEM) then
 		useStamina(self)
+
 		local staminaMinutes = self:getStamina()
 		if staminaMinutes > 2400 and self:isPremium() then
 			exp = exp + baseExp * 0.5
-			displayRate = displayRate + Game.getExperienceStage(self:getLevel()) * 0.5
+			displayRate = displayRate + exp * 0.5
 			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
 			exp = exp * 0.5

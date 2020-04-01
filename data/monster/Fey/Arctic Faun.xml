@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Arctic Faun" nameDescription="an arctic faun" race="blood" experience="300" speed="105">
+<monster name="Arctic Faun" nameDescription="an arctic faun" race="blood" experience="300" speed="210">
 	<health now="300" max="300"/>
 	<look type="980" head="85" body="0" legs="0" feet="85" corpse="33423"/>
 	<targetchange interval="5000" chance="8"/>
@@ -47,21 +47,21 @@
 	</voices>
 	<loot>
 		<item name="gold coin" countmax="105" chance="100000"/>
-		<item name="Dandelion Seeds" chance="14870"/>
-		<item name="Strong Health Potion" chance="11760"/>
-		<item name="Fresh Fruit" chance="10290"/>
-		<item name="Shimmering Beetles" chance="9330"/>
-		<item name="Leaf Star" countmax="3" chance="8720"/>
-		<item name="Goat Grass" chance="7280"/>
-		<item name="Cookie" countmax="5" chance="6150"/>
-		<item name="Grapes" chance="5400"/>
-		<item name="Rainbow Quartz" countmax="2" chance="5260"/>
-		<item name="Small Stone" countmax="2" chance="5260"/>
-		<item name="Panpipes" chance="4510"/>
-		<item name="Great Health Potion" chance="3590"/>
-		<item name="Wood Cape" chance="820"/>
-		<item name="Leaf Legs" chance="340"/>
-		<item name="Wooden Spellbook" chance="210"/>
-		<item name="Die" chance="140"/>
+		<item name="dandelion seeds" chance="14870"/>
+		<item name="strong health potion" chance="11760"/>
+		<item name="fresh fruit" chance="10290"/>
+		<item name="shimmering beetles" chance="9330"/>
+		<item name="leaf star" countmax="3" chance="8720"/>
+		<item name="goat grass" chance="7280"/>
+		<item name="cookie" countmax="5" chance="6150"/>
+		<item name="grapes" chance="5400"/>
+		<item name="rainbow quartz" countmax="2" chance="5260"/>
+		<item name="small stone" countmax="2" chance="5260"/>
+		<item name="panpipes" chance="4510"/>
+		<item name="great health potion" chance="3590"/>
+		<item name="wood cape" chance="820"/>
+		<item name="leaf legs" chance="340"/>
+		<item name="wooden spellbook" chance="210"/>
+		<item id="5792" chance="140"/><!-- die -->
 	</loot>
 </monster>

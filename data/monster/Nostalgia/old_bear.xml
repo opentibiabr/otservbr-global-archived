@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Bear" namedescription="a bear" race="blood" experience="23" speed="78">
+<monster name="Bear" namedescription="a bear" race="blood" experience="23" speed="156">
 	<health now="80" max="80"/>
 	<look type="919" corpse="5975"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

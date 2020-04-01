@@ -1,8 +1,6 @@
 /**
- * @file protocolgame.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -282,13 +280,13 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	uint32_t msgKey[4];
-	msgKey[0] = msg.get<uint32_t>();
-	msgKey[1] = msg.get<uint32_t>();
-	msgKey[2] = msg.get<uint32_t>();
-	msgKey[3] = msg.get<uint32_t>();
+	xtea::key key;
+	key[0] = msg.get<uint32_t>();
+	key[1] = msg.get<uint32_t>();
+	key[2] = msg.get<uint32_t>();
+	key[3] = msg.get<uint32_t>();
 	enableXTEAEncryption();
-	setXTEAKey(msgKey);
+	setXTEAKey(std::move(key));
 
 	msg.skipBytes(1); // gamemaster flag
 
@@ -1675,19 +1673,6 @@ void ProtocolGame::sendChannel(uint16_t channelId, const std::string& channelNam
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendIcons(uint16_t icons)
-{
-	NetworkMessage msg;
-	msg.addByte(0xA2);
-	if (version >= 1140) { // TODO: verify compatibility of the new icon range ( 16-31 )
-		msg.add<uint32_t>(icons);
-	} else {
-		msg.add<uint16_t>(icons);
-	}
-
-	writeToOutputBuffer(msg);
-}
-
 void ProtocolGame::sendChannelMessage(const std::string& author, const std::string& text, SpeakClasses type, uint16_t channel)
 {
 	NetworkMessage msg;
@@ -1698,6 +1683,19 @@ void ProtocolGame::sendChannelMessage(const std::string& author, const std::stri
 	msg.addByte(type);
 	msg.add<uint16_t>(channel);
 	msg.addString(text);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendIcons(uint16_t icons)
+{
+	NetworkMessage msg;
+	msg.addByte(0xA2);
+	if (version >= 1140) { // TODO: verify compatibility of the new icon range ( 16-31 )
+		msg.add<uint32_t>(icons);
+	} else {
+		msg.add<uint16_t>(icons);
+	}
+
 	writeToOutputBuffer(msg);
 }
 

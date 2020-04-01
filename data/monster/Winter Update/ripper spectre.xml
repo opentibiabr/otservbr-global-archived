@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="190">
+<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="380">
 	<health now="3800" max="3800"/>
 	<look type="1119" head="101" body="39" legs="61" feet="39" corpse="34664"/>
 	<targetchange interval="4000" chance="10"/>
@@ -46,7 +46,7 @@
 	</immunities>
 	<loot>
 	<!--Common-->
-		<item name="platinum coin" countmax="5" chance="100000" />
+		<item name="platinum coin" countmax="5" chance="100000"/>
 		<item name="Great Spirit Potion" countmax="2" chance="30910"/>
 	<!--Uncommon-->	
 		<item name="Two Handed Sword" chance="16500"/>
@@ -60,7 +60,7 @@
      	<item name="Coral Brooch" chance="1330"/>
 		<item name="Serpent Sword" chance="1950"/>
 	<!--Rare-->
-		<item name="Hexagonal Ruby" chance="800" />
+		<item name="Hexagonal Ruby" chance="800"/>
 		<item name="Assassin Dagger" chance="970"/>
 	<!--Very Rare-->
 		<item name="Spike Sword" chance="530"/>

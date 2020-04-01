@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Falcon Paladin" nameDescription="a falcon paladin" race="blood" experience="7500" speed="110">
+<monster name="Falcon Paladin" nameDescription="a falcon paladin" race="blood" experience="4920" speed="220">
 	<health now="8500" max="8500"/>
 	<look type="1071" head="57" body="94" legs="38" feet="86" addons="2" corpse="32558"/>
 	<targetchange interval="4000" chance="10"/>

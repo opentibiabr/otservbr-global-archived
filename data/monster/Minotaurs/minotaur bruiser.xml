@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Minotaur Bruiser" nameDescription="a minotaur bruiser" race="blood" experience="50" speed="84">
+<monster name="Minotaur Bruiser" nameDescription="a minotaur bruiser" race="blood" experience="50" speed="168">
 	<health now="100" max="100"/>
 	<look type="25" corpse="5969"/>
 	<targetchange interval="4000" chance="0"/>

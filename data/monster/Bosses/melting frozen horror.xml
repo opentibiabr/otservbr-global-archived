@@ -19,7 +19,6 @@
 		<flag canwalkonenergy="1" />
 		<flag canwalkonfire="1" />
 		<flag canwalkonpoison="1" />
-		<!-- <flag preyable="0"/> -->
 		<flag rewardboss="1"/>
 	</flags>
 	<attacks>

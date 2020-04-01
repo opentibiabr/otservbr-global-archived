@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Dracola" nameDescription="Dracola" race="undead" experience="11000" speed="185">
+<monster name="Dracola" nameDescription="Dracola" race="undead" experience="11000" speed="370">
 	<health now="16200" max="16200"/>
 	<look type="231" corpse="6307"/>
 	<targetchange interval="2000" chance="5"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

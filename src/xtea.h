@@ -1,8 +1,6 @@
 /**
- * @file protocolold.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,31 +17,16 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_PROTOCOLOLD_H_
-#define OT_SRC_PROTOCOLOLD_H_
+#ifndef TFS_XTEA_H
+#define TFS_XTEA_H
 
-#include "protocol.h"
+namespace xtea {
 
-class NetworkMessage;
-class OutputMessage;
+using key = std::array<uint32_t, 4>;
 
-class ProtocolOld final : public Protocol
-{
-	public:
-		// static protocol information
-		enum {server_sends_first = false};
-		enum {protocol_identifier = 0x01};
-		enum {use_checksum = false};
-		static const char* protocol_name() {
-			return "old login protocol";
-		}
+void encrypt(uint8_t* data, size_t length, const key& k);
+void decrypt(uint8_t* data, size_t length, const key& k);
 
-		explicit ProtocolOld(Connection_ptr initConnection) : Protocol(initConnection) {}
+} // namespace xtea
 
-		void onRecvFirstMessage(NetworkMessage& msg) final;
-
-	protected:
-		void disconnectClient(const std::string& message);
-};
-
-#endif
+#endif // TFS_XTEA_H

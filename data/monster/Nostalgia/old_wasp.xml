@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Wasp" nameDescription="a wasp" race="venom" experience="24" speed="160">
+<monster name="Wasp" nameDescription="a wasp" race="venom" experience="24" speed="320">
 	<health now="35" max="35"/>
 	<look type="923" corpse="5989"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

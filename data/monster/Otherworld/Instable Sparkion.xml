@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Instable Sparkion" nameDescription="an instable sparkion" race="energy" experience="1350" speed="140">
+<monster name="Instable Sparkion" nameDescription="an instable sparkion" race="energy" experience="1350" speed="280">
 	<health now="1900" max="1900"/>
 	<look type="877" corpse="26044"/>
 	<targetchange interval="2000" chance="10"/>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Ushuriel" nameDescription="Ushuriel" race="fire" experience="10000" speed="220">
+<monster name="Ushuriel" nameDescription="Ushuriel" race="fire" experience="10000" speed="440">
 	<health now="31500" max="31500"/>
 	<look type="12" head="0" body="95" legs="19" feet="112" corpse="6068"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

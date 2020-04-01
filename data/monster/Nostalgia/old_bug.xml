@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Bug" namedescription="a bug" race="venom" experience="18" speed="80">
+<monster name="Bug" namedescription="a bug" race="venom" experience="18" speed="160">
 	<health now="29" max="29"/>
 	<look type="920" corpse="5990"/>
 	<targetchange interval="4000" chance="0"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

@@ -1,4 +1,20 @@
-__picif = {}
+-- Functions from The Forgotten Server
+function Creature:onChangeOutfit(outfit)
+	return true
+end
+
+function Creature:onAreaCombat(tile, isAggressive)
+	return RETURNVALUE_NOERROR
+end
+
+function Creature:onTargetCombat(target)
+	return RETURNVALUE_NOERROR
+end
+
+function Creature:onHear(speaker, words, type)
+end
+
+-- Functions from OTServBR-Global
 function Creature:onChangeOutfit(outfit)
 	return true
 end
@@ -34,15 +50,16 @@ local function removeCombatProtection(cid)
 	end, time * 1000, cid)
 end
 
+picIf = {}
 function Creature:onTargetCombat(target)
 	if not self then
 		return true
 	end
 
-	if not __picif[target.uid] then
+	if not picIf[target.uid] then
 		if target:isMonster() then
 			target:registerEvent("RewardSystemSlogan")
-			__picif[target.uid] = {}
+			picIf[target.uid] = {}
 		end
 	end
 	
@@ -125,6 +142,5 @@ function Creature:onDrainHealth(attacker, typePrimary, damagePrimary, typeSecond
 			end
 		end
 	end
-
 	return typePrimary, damagePrimary, typeSecondary, damageSecondary, colorPrimary, colorSecondary
 end

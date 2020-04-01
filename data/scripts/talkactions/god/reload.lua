@@ -47,6 +47,11 @@ local reloadTypes = {
 	["spell"] = RELOAD_TYPE_SPELLS,
 	["spells"] =  RELOAD_TYPE_SPELLS,
 
+	["stages"] = RELOAD_TYPE_STAGES,
+	["stage"] = RELOAD_TYPE_STAGES,
+	["rate"] = RELOAD_TYPE_STAGES,
+	["rates"] = RELOAD_TYPE_STAGES,
+
 	["talk"] = RELOAD_TYPE_TALKACTIONS,
 	["talkaction"] = RELOAD_TYPE_TALKACTIONS,
 	["talkactions"] = RELOAD_TYPE_TALKACTIONS,

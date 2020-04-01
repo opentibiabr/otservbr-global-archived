@@ -20,7 +20,6 @@
 		<flag canwalkonpoison="1"/>
 		<flag canwalkonenergy="1"/>
 		<flag canwalkonfire="1"/>
-		<!-- <flag preyable="0"/> -->
 	</flags>
 	<script>
 		<event name="GloothHorror"/>

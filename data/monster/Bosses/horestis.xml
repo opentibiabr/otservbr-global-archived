@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Horestis" nameDescription="Horestis" race="undead" experience="3500" speed="170">
+<monster name="Horestis" nameDescription="Horestis" race="undead" experience="3500" speed="340">
 	<health now="6000" max="6000"/>
 	<look type="88" corpse="6031"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Lumbering Carnivor" nameDescription="a Lumbering Carnivor" race="blood" experience="2200" speed="200">
+<monster name="Lumbering Carnivor" nameDescription="a Lumbering Carnivor" race="blood" experience="1320" speed="400">
 	<health now="2600" max="2600"/>
 	<look type="1139" head="79" body="119" legs="57" feet="85" addons="1" corpse="34703"/>
 	<targetchange interval="4000" chance="10"/>
@@ -18,14 +18,14 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-200" max="-500" />
+		<attack name="melee" interval="2000" min="-200" max="-500"/>
 		<attack name="physical" interval="2000" chance="10" radius="4" min="-100" max="-150">
-			<attribute key="areaEffect" value="groundshaker" />
+			<attribute key="areaEffect" value="groundshaker"/>
 		</attack>
 	</attacks>
 		<defenses armor="71" defense="20">
 		<defense name="healing" interval="2000" chance="10" min="150" max="200">
-			<attribute key="areaEffect" value="blueshimmer" />
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>
 	</defenses>
 	<elements>

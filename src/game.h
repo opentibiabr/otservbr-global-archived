@@ -1,8 +1,6 @@
 /**
- * @file game.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_GAME_H_
-#define OT_SRC_GAME_H_
+#ifndef FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
+#define FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 
 #include "account.h"
 #include "combat.h"
@@ -72,7 +70,7 @@ enum LightState_t {
 	LIGHT_STATE_SUNRISE,
 };
 
-static constexpr int32_t EVENT_LIGHTINTERVAL = 7500;
+static constexpr int32_t EVENT_LIGHTINTERVAL = 10000;
 static constexpr int32_t EVENT_DECAYINTERVAL = 250;
 static constexpr int32_t EVENT_DECAY_BUCKETS = 4;
 static constexpr int32_t EVENT_IMBUEMENTINTERVAL = 250;
@@ -476,9 +474,6 @@ class Game
 			return lightHour;
 		}
 
-		bool loadExperienceStages();
-		uint64_t getExperienceStage(uint32_t level);
-
 		void loadMotdNum();
 		void saveMotdNum() const;
 		const std::string& getMotdHash() const { return motdHash; }
@@ -531,7 +526,7 @@ class Game
 		std::forward_list<Item*> toDecayItems;
 		std::forward_list<Item*> toImbuedItems;
 
-	protected:
+	private:
 		void checkImbuements();
 
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
@@ -595,10 +590,6 @@ class Game
 
 		std::string motdHash;
 		uint32_t motdNum = 0;
-
-		uint32_t lastStageLevel = 0;
-		bool stagesEnabled = false;
-		bool useLastStageLevel = false;
 };
 
 #endif

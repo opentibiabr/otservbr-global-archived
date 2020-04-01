@@ -1,8 +1,6 @@
 /**
- * @file iomap.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_IOMAP_H_
-#define OT_SRC_IOMAP_H_
+#ifndef FS_IOMAP_H_8085D4B1037A44288494A52FDBB775E4
+#define FS_IOMAP_H_8085D4B1037A44288494A52FDBB775E4
 
 #include "item.h"
 #include "map.h"
@@ -149,7 +147,7 @@ class IOMap
 			errorString = error;
 		}
 
-	protected:
+	private:
 		bool parseMapDataAttributes(OTB::Loader& loader, const OTB::Node& mapNode, Map& map, const std::string& fileName);
 		bool parseWaypoints(OTB::Loader& loader, const OTB::Node& waypointsNode, Map& map);
 		bool parseTowns(OTB::Loader& loader, const OTB::Node& townsNode, Map& map);

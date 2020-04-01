@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Arachir The Ancient One" nameDescription="Arachir The Ancient One" race="undead" experience="1800" speed="143">
+<monster name="Arachir The Ancient One" nameDescription="Arachir The Ancient One" race="undead" experience="1800" speed="286">
 	<health now="1600" max="1600"/>
 	<look type="287" corpse="8937"/>
 	<targetchange interval="5000" chance="10"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -64,6 +63,6 @@
 		<item id="9020" chance="100000"/>
 		<item id="2152" chance="50000" countmax="5"/>
 		<item id="2534" chance="6300"/>
-		<item id="2144" chance="8980" />
+		<item id="2144" chance="8980"/>
 	</loot>
 </monster>

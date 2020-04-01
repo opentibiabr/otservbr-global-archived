@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Thanatursus" nameDescription="a Thanatursus" race="blood" experience="6300" speed="180">
+<monster name="Thanatursus" nameDescription="a Thanatursus" race="blood" experience="6300" speed="400">
 	<health now="7200" max="7200"/>
 	<look type="1134" head="19" corpse="34707"/>
 	<targetchange interval="4000" chance="10"/>
@@ -16,9 +16,9 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1" />
-		<flag canwalkonfire="1" />
-		<flag canwalkonpoison="1" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
 	</flags>
 	
 	<attacks>

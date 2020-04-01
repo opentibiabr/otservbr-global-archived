@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Ungreez" nameDescription="Ungreez" race="blood" experience="500" speed="120" manacost="10000">
+<monster name="Ungreez" nameDescription="Ungreez" race="blood" experience="500" speed="240" manacost="10000">
 	<health now="8200" max="8200"/>
 	<look type="35" corpse="5995"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
-		<!-- <flag preyable="0"/> -->
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
