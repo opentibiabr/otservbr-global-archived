@@ -113,9 +113,11 @@ function onRecvbyte(player, msg, byte)
 		if not itemTile then
 			return
 		end
-		-- TODO make player move to the loot before quicklooting, else it will grab from distance the loot
-			--TODO if distance > 1, walk to closest position and queue (is that possible????) the quickloot
-			--TODO if distance <= 1, do the quickloot
+
+		if player:getPosition():getDistance(position) > 1 then
+			return
+		end
+
 		local thing = itemTile:getThing(stackPos)
 		if thing then
 			local corpseOwner = thing:getCorpseOwner()
@@ -153,14 +155,16 @@ function onRecvbyte(player, msg, byte)
 				else
 					player:sendTextMessage(MESSAGE_LOOT, "You looted none of the dropped items.")
 				end
+
 				if #notLootedItemsFromList > 0 then
 					player:sendCancelMessage("Could not loot " .. table.concat(notLootedItemsFromList, ", ") .. ".")
 				end
 			elseif thing:isItem() and canLootItem(thing.itemid, lootMode, lootList) then
-				local itemType = thing:getType() -- Tentativa de arrumar bug de as vezes lootiar um corpo inteiro pra dentro da bp
-    			if itemType:isCorpse() then
+				local itemType = thing:getType()
+				if itemType:isCorpse() then
 					return
 				end
+
 				local itemLooted = lootItem(player, quickLootBackpacks, thing)
 				if not itemLooted.looted then
 					player:sendCancelMessage(itemLooted.message)
@@ -185,11 +189,15 @@ function onRecvbyte(player, msg, byte)
 			player:setQuickLootBackpack(category, nil)
 			player:sendLootBackpacks()
 		elseif action == 2 then
-			local category = msg:getByte() -- category
+			local categoryId = msg:getByte() -- category
 			local quickLootBackpacks = player:getQuickLootBackpacks()
 			
 			if quickLootBackpacks[category] then
-				-- TODO: add sendContainer
+				local category = quickLootBackpacks[categoryId]
+				local container = getContainerByQuickLootCategory(player, categoryId, category.sid)
+				if container then
+					-- TODO: add sendContainer
+				end
 			end
 
 		elseif action == 3 then
@@ -337,6 +345,7 @@ end
 
 function getContainerBySlot(player, containerSlot, containerIndex)
 	local item
+
 	local container = player:getContainerById(containerSlot - 64)
 	if container then
 		item = container:getItem(containerIndex)
@@ -348,6 +357,17 @@ function getContainerBySlot(player, containerSlot, containerIndex)
 end
 
 function getContainerByQuickLootCategory(player, categoryId, serverId)
+	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
+	if inbox then
+		local itemsCount = inbox:getItemCountById(serverId)
+		if itemsCount then
+			local insideInbox = checkContainerCategory(inbox, categoryId)
+			if insideInbox then
+				return insideInbox
+			end
+		end
+	end
+
 	local mainBp = player:getSlotItem(CONST_SLOT_BACKPACK)
 	if mainBp and checkItemCategory(mainBp, categoryId) then
 		return mainBp
