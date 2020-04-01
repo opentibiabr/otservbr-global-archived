@@ -4,7 +4,8 @@ Bestiary.Storage = {
 	PLAYER_CHARM_RUNE_BIT = 61302002,
 	PLAYER_CHARM_RUNE_USED_BIT = 61302003,
 	PLAYER_CHARM_RUNE_BASE = 61303000,
-	PLAYER_CHARM_RUNE_MONSTER_BASE = 61304000
+	PLAYER_CHARM_RUNE_MONSTER_BASE = 61304000,
+	PLAYER_BESTIARY_MONSTER = 61305000
 }
 
 
@@ -1456,6 +1457,6 @@ Bestiary.MonstersName = {
 -- Regex to parse upper table into the lower one:
 --Search: \[(\d{1,4})\].*name = ('|")(.*)('|"), class.*
 --Replace: ["$3"] = $1,
-Bestiary.CreatureEncryptionKeys = {"gnikcuf a si labolG", "!oiarac sion ", "vreSTO", "� !tcejorp emosewa "}
+Bestiary.CreatureEncryptionKeys = {"gnikcuf a si labolG", "!oiarac sion ", "vreSTO", "hE !tcejorp emosewa "}
 Bestiary.CreatureEncryptionOrder = {3,1,4,2}
 

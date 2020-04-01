@@ -49,11 +49,10 @@ function talk.onSay(player, words, param)
 	player:sendCancelMessage("Reseted charm points from character '" .. target:getName() .. "'.")	
 	target:sendCancelMessage("Reseted your charm points!")
 	target:setCharmPoints(0)
-	target:setCharmRuneUsedAmount(0)
 	target:setCharmRuneSlotExpansion(false)
-	
-	for i, charm in pairs(Bestiary.Charms) do
-		target:resetCharmRuneCreature(charm)
+	local runesUsed = target:getCharmUsedRuneBitAll()
+	for i, charm in pairs(runesUsed) do
+		target:resetCharmRuneCreature(Bestiary.Charms[charm])
 	end
 	target:setCharmUnlockedRuneBit(0)
     target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
@@ -111,13 +110,11 @@ function talk.onSay(player, words, param)
 
 	player:sendCancelMessage("Added all charm runes to '" .. target:getName() .. "'.")	
 	target:sendCancelMessage("Received all charm runes!")
-	playerCurBit = target:getCharmRunesBit()
-
+	local playerCurBit = target:getCharmUnlockedRunesBit()
 	for i, charm in pairs(Bestiary.Charms) do
-		target:addCharmRune(charm)
-		playerCurBit = target:calculateCharmRuneBit(charm, true, playerCurBit)
+		playerCurBit = Bestiary.bitToggle(playerCurBit, charm.id, true)
 	end
-	target:setCharmRuneBit(playerCurBit)
+	target:setCharmUnlockedRuneBit(playerCurBit)
     target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
@@ -126,3 +123,46 @@ end
 talk:separator(" ")
 talk:register()
 
+
+local talk = TalkAction("/setbestiary")
+
+function talk.onSay(player, words, param)
+	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
+		return true
+	end
+
+	local usage = "/setbestiary PLAYER NAME,MONSTER NAME,AMOUNT"
+	if param == "" then
+		player:sendCancelMessage("Command param required. Usage: ".. usage)
+		return false
+	end
+	local split = param:split(",")
+	if not split[3] then
+		player:sendCancelMessage("Insufficient parameters. Usage: ".. usage)
+		return false
+	end
+	local target = Player(split[1])
+	if not target then
+		player:sendCancelMessage("A player with that name is not online.")
+		return false
+	end
+	
+	split[2] = split[2]:gsub("^%s*(.-)$", "%1") --Trim left
+	split[3] = split[3]:gsub("^%s*(.-)$", "%1") --Trim left
+
+	local monsterID = Bestiary.MonstersName[split[2]]
+	if not monsterID then
+		player:sendCancelMessage("This monster has no bestiary. Type the name exactly as in game.")
+		return false
+	end
+	local amount = tonumber(split[3])
+
+	player:sendCancelMessage("Set bestiary kill of monster '".. split[2] .. "' from player '" .. target:getName() .. "' to '" .. amount .. "'.")	
+	target:sendCancelMessage("Updated kills of monster '".. split[2] .. "'!")
+	local playerCurBit = target:setBestiaryKillCount(monsterID, amount)
+    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+end
+
+
+talk:separator(" ")
+talk:register()
