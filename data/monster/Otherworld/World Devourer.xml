@@ -28,7 +28,6 @@
 		<attack name="death" interval="2000" chance="20" radius="4" target="1" min="-400" max="-800">
 			<attribute key="areaEffect" value="smallclouds"/>
 		</attack>
-		<attack name="big energy wave2" interval="2000" chance="20" min="-900" max="-1300"/>
 		<attack name="energy" interval="2000" chance="20" radius="4" target="1" min="-400" max="-800">
 			<attribute key="shootEffect" value="energy"/>
 			<attribute key="areaEffect" value="yellowenergy"/>

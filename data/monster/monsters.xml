@@ -840,7 +840,7 @@
 	<monster name="The Blightfather" file="Bosses/the_blightfather.xml"/>
 	<monster name="The Bloodtusk" file="Bosses/the_bloodtusk.xml"/>
 	<monster name="The Bloodweb" file="Bosses/the_bloodweb.xml"/>
-	<monster name="The Book of Death" file="11.8/The Book of Death.xml"/>
+	<monster name="The Book of Death" file="Bosses/The Book of Death.xml"/>
 	<monster name="The Collector" file="Bosses/the_collector.xml"/>
 	<monster name="The Count" file="Bosses/the_count.xml"/>
 	<monster name="The Weakened Count" file="Bosses/the weakened count.xml"/>
@@ -1551,7 +1551,6 @@
 	<monster name="Dreadmaw" file="new/Dreadmaw.xml"/>
 	<monster name="Duskbringer" file="new/Duskbringer.xml"/>
 	<monster name="Eclipse Knight" file="new/Eclipse_Knight.xml"/>
-	<monster name="Essence of Darkness" file="new/Essence_of_Darkness.xml"/>
 	<monster name="Fahim the Wise" file="new/Fahim_the_Wise.xml"/>
 	<monster name="Flame of Omrafir" file="new/Flame_of_Omrafir.xml"/>
 	<monster name="Fleabringer" file="new/Fleabringer.xml"/>

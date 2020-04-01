@@ -16,7 +16,6 @@
 		<flag lightcolor="0"/>
 		<flag targetdistance="1"/>
 		<flag runonhealth="0"/>
-		<!-- <flag preyable="0"/> -->
 	</flags>
 	<attacks>
 		<attack name="energy pulse explosion" interval="1000" chance="100" min="-5000" max="-6000"/>

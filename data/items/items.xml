@@ -33497,7 +33497,7 @@
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="250" />
 	</item>
-	<item id="24710" name="wereboar tusks" plural="wereboar tusks">
+	<item id="24710" name="wereboar tusks">
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="190" />
 	</item>
@@ -42582,7 +42582,7 @@
 	<item id="34698" article="a" name="giant emerald">
 		<attribute key="weight" value="150" />
 	</item>
-	<item id="34699" article="a" name="giant amethyst">
+	<item id="34699" article="a" name="giant sapphire">
 		<attribute key="weight" value="150" />
 	</item>
 	<item id="34700" article="a" name="dead lumbering carnivor">
@@ -43450,7 +43450,7 @@
 	<item id="35148" article="a" name="fly agaric">
 		<attribute key="weight" value="700" />
 	</item>
-	<item id="35149" article="a" name="small ladubug">
+	<item id="35149" article="a" name="small ladybug">
 		<attribute key="weight" value="700" />
 	</item>
 	<item id="35150" article="a" name="rainbow necklace">
@@ -45643,7 +45643,7 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36559" article="a" name="sulphur blossom lamp">
-		<attribute key="decayTo" value="336558" />
+		<attribute key="decayTo" value="33658" />
 		<attribute key="duration" value="60" />
 		<attribute key="wrapableTo" value="26054" />
 	</item>

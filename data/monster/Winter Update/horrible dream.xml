@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="Horrible Dream" nameDescription="a Horrible Dream" race="blobs" experience="300" speed="180">
+<monster name="Horrible Dream" nameDescription="a horrible dream" race="venom" experience="300" speed="180">
 	<health now="320" max="320" />
 	<look type="315" corpse="9960" />
 	<targetchange interval="5000" chance="0" />

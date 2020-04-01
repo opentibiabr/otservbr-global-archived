@@ -21,7 +21,7 @@
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-962"/>
-		<attack name="big fire wave" interval="2000" chance="20" min="-600" max="-900"/>
+		<attack name="practise fire wave" interval="2000" chance="20" min="-600" max="-900"/>
 		<attack name="lifedrain" interval="2000" chance="20" radius="8" min="0" max="0">
 			<attribute key="areaEffect" value="redshimmer"/>
 		</attack>
