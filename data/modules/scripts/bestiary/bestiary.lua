@@ -1,7 +1,7 @@
 Bestiary = {}
 
 BestiarySystem = {
-	Developer = "gpedro, lbaah, Ticardo (Rick), DudZ",
+	Developer = "fernando mieza (flyckks), gpedro, lbaah, Ticardo (Rick), DudZ",
 	Version = "1.0",
 	lastUpdate = "31/03/2020 - 12:00"
 }
