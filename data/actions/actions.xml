@@ -313,6 +313,7 @@
 	<action itemid="7286" script="quests/ice islands/cure.lua" />
 	<action itemid="7253" script="quests/ice islands/paint.lua" />
 	<action itemid="2361" script="quests/ice islands/yakchal.lua" />
+	<action itemid="2565" script="quests/ice islands/spoon.lua" />
 
 	<!-- In Service Of Yalahar Quest -->
 	<action itemid="9737" script="quests/in service of yalahar/charm.lua" />
@@ -750,7 +751,7 @@
 
 	<!-- aritos task -->
 	<action itemid="2419" script="quests/aritos task/scimitar.lua" />
-	
+
 	<!-- Thieves Guild Quest -->
 	<action itemid="8693" script="quests/the thieves guild/dwarfDisguiseKit.lua" />
 	<action itemid="8701" script="quests/the thieves guild/note.lua" />
@@ -813,6 +814,7 @@
 	<action fromaid="50006" toaid="50010" script="worldchanges/the mummy's curse/horestisJars.lua" />
 
 	<!-- Others (Quests) -->
+	<action actionid="64434" script="quests/others/doorcomb.lua" />
 	<action fromaid="4249" toaid="4250" script="quests/others/draconiaQuestWalls.lua" />
 	<action actionid="5556" script="quests/others/plateArmorQuest.lua" />
 	<action actionid="5558" script="quests/others/blackKnightQuest.lua" />

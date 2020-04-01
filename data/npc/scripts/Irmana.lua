@@ -31,7 +31,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Especially for you, mylady, we are offering a pretty {hat} and a beautiful {dress} like the ones I wear. Which one are you interested in?", cid)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 3 then
-			if(doPlayerRemoveMoney(cid, 150000) and getPlayerStorageValue(cid, 1007) < 1) then
+			if(doPlayerRemoveMoney(cid, 1500000) and getPlayerStorageValue(cid, 1007) < 1) then
 				npcHandler:say("Congratulations! Here is your brand-new accessory, I hope you like it. Please visit us again! ", cid)
 				npcHandler.topic[cid] = 0
 				player:addOutfitAddon(140, 2)
@@ -42,7 +42,7 @@ function creatureSayCallback(cid, type, msg)
 				end
 			end
 		elseif npcHandler.topic[cid] == 4 then
-			if(doPlayerRemoveMoney(cid, 150000) and getPlayerStorageValue(cid, 1008) < 1) then
+			if(doPlayerRemoveMoney(cid, 1500000) and getPlayerStorageValue(cid, 1008) < 1) then
 				npcHandler:say("Congratulations! Here is your brand-new accessory, I hope you like it. Please visit us again! ", cid)
 				npcHandler.topic[cid] = 0
 				player:addOutfitAddon(140, 1)

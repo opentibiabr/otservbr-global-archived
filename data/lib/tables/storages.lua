@@ -722,7 +722,6 @@ Storage = {
 
 		Knight = {
 			AddonSword = 12153,
-
 			MissionHelmet = 12154,
 			AddonHelmet = 12155,
 			AddonHelmetTimer = 12156,
@@ -775,9 +774,8 @@ Storage = {
 			MissionStaff = 15001,
 			MissionMask = 15002
 		},
-
 		firstOrientalAddon = 50137,
-		secondOrientalAddon = 50138
+		secondOrientalAddon = 50138,	
 	},
 	TheAncientTombs = {
 		DefaultStart = 12100,
