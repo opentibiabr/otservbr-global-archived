@@ -560,11 +560,11 @@ end
 
 function setupDatabase()
 	db.query([[CREATE TABLE IF NOT EXISTS `quickloot_containers` (
-		`player_id` INT NULL,
-		`category_id` INT UNSIGNED NULL,
-		`cid` INT UNSIGNED NULL,
-		`sid` INT UNSIGNED NULL,
+		`player_id` INT NOT NULL,
+		`category_id` INT UNSIGNED NOT NULL,
+		`cid` INT UNSIGNED NOT NULL,
+		`sid` INT UNSIGNED NOT NULL,
 
-		CONSTRAINT `fk_player_id` FOREIGN KEY (`player_id`) REFERENCES `otserv`.`players` (`id`)
+		CONSTRAINT `fk_player_id` FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
 	)]])
 end
