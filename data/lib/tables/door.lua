@@ -322,6 +322,8 @@ questDoor = {
 	{ closedDoor = 10782, openDoor = 10783 },
 	{ closedDoor = 10791, openDoor = 10792 },
 	{ closedDoor = 12104, openDoor = 12105 },
+	{ closedDoor = 12195, openDoor = 12196 },
+	{ closedDoor = 12195, openDoor = 12196 },
 	{ closedDoor = 12204, openDoor = 12205 },
 	{ closedDoor = 13022, openDoor = 13023 },
 	{ closedDoor = 19847, openDoor = 19848 },
