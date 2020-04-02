@@ -5,7 +5,8 @@ Bestiary.Credits = {
 	Version = "1.1",
 	lastUpdate = "01/04/2020 - 12:00",
 	todo = {"Add modifiers for the runes implementation",
-			"Add correct monster locations in the bestiary"}
+			"Add correct monster locations in the bestiary",
+			"Fix monster occurency"}
 }
 
 Bestiary.Config = {
@@ -292,10 +293,10 @@ Bestiary.sendMonsterData = function(player, msg)
     msg:addU16(bestiaryMonster.toKill)  -- max kill third phase
 
     msg:addByte(bestiaryMonster.Stars)  -- Difficult
-    msg:addByte(Bestiary.getMonsterOccurrencyByName(bestiaryMonster.name)) -- Occurence
+	local monsterOccurency = Bestiary.getMonsterOccurrencyByName(bestiaryMonster.name)
+	msg:addByte(1) -- TODO Occurency
 	local monsterLoot = monster:getLoot()
     msg:addByte(#monsterLoot)
-
     if #monsterLoot > 0 then
         for i = 1, #monsterLoot do
             local loot = monsterLoot[i]
@@ -303,10 +304,11 @@ Bestiary.sendMonsterData = function(player, msg)
             if item then 
                 local type = 0 -- TODO 0 = normal loot   /  1 = special event loot
                 local difficult = Bestiary.calculateDifficult(loot.chance)
-				msg:addItemId(killCounter > 0 and loot.itemId or 0)
-                msg:addByte(difficult)
-                msg:addByte(type)
-				if killCounter > 0 then
+
+				msg:addItemId(currentLevel > 1 and loot.itemId or 0)
+				msg:addByte(difficult)
+				msg:addByte(type)
+				if currentLevel > 1 then
 					msg:addString(item:getName())
 					msg:addByte(item:isStackable() and 0x1 or 0x0)
 				end
@@ -403,7 +405,7 @@ Bestiary.getMonsterOccurrencyByName = function(monsterName)
 			return i
 		end
 	end
-	return Bestiary.Occurencies.HARMLESS_ORDINARY
+	return Bestiary.Occurrencies.HARMLESS_ORDINARY
 
 end
 
@@ -613,7 +615,6 @@ end
 
 
 Bestiary.bitToggle = function(input, id, on)  -- to add, we use |, which means OR, which in turns make sue that the final number has the flags which both of the left sided and right sided has
-	print(on)
 	if on then
 		return bit.bor(input, Bestiary.CharmsBinaries[id])
 	else
