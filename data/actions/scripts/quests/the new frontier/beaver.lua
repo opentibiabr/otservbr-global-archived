@@ -1,4 +1,3 @@
-
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid == 8002 then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 5 and player:getStorageValue(Storage.TheNewFrontier.Beaver1) < 1 then

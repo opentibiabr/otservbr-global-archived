@@ -117,7 +117,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	elseif npcHandler.topic[cid] == 4 then
 		if msgcontains(msg, 'yes') then
-			if not player:removeItem(5924, 1) then
+			if not player:removeItem(11422, 1) then
 				npcHandler:say('Lying is not exactly honourable, |PLAYERNAME|. Shame on you.', cid)
 				return true
 			end

@@ -247,6 +247,21 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		addEvent(revertItem, 30 * 1000, toPosition, 469, 8579)
 
 	-- Gravedigger Quest
+	elseif targetActionId == 3076 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14a) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14b) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a dragon tear. This one is warm to the touch and burns in a fiery light.')
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:addItem(21401, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission14b, 1)
+	elseif targetActionId == 3077 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14b) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14c) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a dragon tear. This one shines and shimmers as if still liquid.')
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:addItem(21401, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission14c, 1)
+	elseif targetActionId == 3075 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14c) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission14) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a dragon tear. It glows in an unearthli orange light.')
+		player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:addItem(21401, 1)
+		player:setStorageValue(Storage.GravediggerOfDrefia.Mission14, 1)
 	elseif targetActionId == 4654 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission49) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission50) < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a piece of the scroll. You pocket it quickly.')
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
@@ -298,18 +313,6 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 				break
 			end
 		end
-
-	elseif targetId == 103 and targetActionId == 4205 then
-		if player:getStorageValue(Storage.TibiaTales.IntoTheBonePit) ~= 1 then
-			return false
-		end
-
-		local remains = Game.createItem(2248, 1, toPosition)
-		if remains then
-			remains:setActionId(4206)
-		end
-		toPosition:sendMagicEffect(CONST_ME_HITAREA)
-		addEvent(removeRemains, 60000, toPosition)
 
 		elseif targetId == 22674 then
 		if not player:removeItem(5091, 1) then
@@ -409,6 +412,17 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
+	elseif targetId == 103 and targetActionId == 4205 then
+		if player:getStorageValue(Storage.TibiaTales.IntoTheBonePit) ~= 1 then
+			return false
+		end
+
+		local remains = Game.createItem(2248, 1, toPosition)
+		if remains then
+			remains:setActionId(4206)
+		end
+		toPosition:sendMagicEffect(CONST_ME_HITAREA)
+		addEvent(removeRemains, 60000, toPosition)
 	--sea of light
 	elseif targetId == 8634 then
 		if target.actionid == 4224 then
@@ -689,7 +703,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 
 	--The Ice Islands Quest
 	if targetId == 388 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.SulphurLava) < 1 then
 				player:addItem(7247, 1) -- fine sulphur
 				player:setStorageValue(Storage.TheIceIslands.SulphurLava, 1)
@@ -699,7 +713,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 
 	elseif targetId == 4184 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.SporesMushroom) < 1 then
 				player:addItem(7251, 1)
 				player:setStorageValue(Storage.TheIceIslands.SporesMushroom, 1)
@@ -774,7 +788,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 
 	--The Ice Islands Quest
 	if targetId == 7261 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.FrostbiteHerb) < 1 then
 				player:addItem(7248, 1)
 				player:setStorageValue(Storage.TheIceIslands.FrostbiteHerb, 1)
@@ -784,7 +798,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		end
 
 	elseif targetId == 2733 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.FlowerCactus) < 1 then
 				player:addItem(7245, 1)
 				player:setStorageValue(Storage.TheIceIslands.FlowerCactus, 1)
@@ -796,7 +810,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		end
 
 	elseif targetId == 4017 then
-		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 20 then
 			if player:getStorageValue(Storage.TheIceIslands.FlowerBush) < 1 then
 				player:addItem(7249, 1)
 				player:setStorageValue(Storage.TheIceIslands.FlowerBush, 1)

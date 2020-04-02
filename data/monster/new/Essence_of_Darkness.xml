@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Essence of Darkness" nameDescription="an Essence of Darkness" race="blobs" experience="30" speed="180">
+	<health now="1000" max="1000" />
+	<look type="315" corpse="9960" />
+	<targetchange interval="5000" chance="0" />
+	<flags>
+		<!-- <flag preyable="0"/> -->
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="85" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-25" />
+		<attack name="physical" interval="2000" chance="25" range="3" radius="4" target="0" min="-35" max="-60">
+			<attribute key="areaEffect" value="poff" />
+		</attack>
+		<attack name="death blob curse" interval="2000" range="5" chance="5" />
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="2000" chance="5" min="20" max="30">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-100" />
+		<element icePercent="-100" />
+		<element firePercent="-98" />
+		<element holyPercent="-80" />
+		<element energyPercent="-100" />
+		<element deathPercent="-100" />
+		<element earthPercent="-100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+	</loot>
+</monster>

@@ -214,6 +214,12 @@ local config = {
 		},
 		storage = Storage.TheApeCity.HolyApeHair
 	},
+	[4055] = {
+		items = {
+			{itemId = 2088, actionId = 4055}
+		},
+		storage = Storage.QuestChests.Panpipe
+	},
 	[5556] = {
 		items = {
 			{itemId = 2463}
