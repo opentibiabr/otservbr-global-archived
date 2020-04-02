@@ -150,6 +150,7 @@ function onLogin(player)
 		player:setBaseXpGain(displayRate*0.5*100) -- ALL players low stamina
 		player:setStaminaXpBoost(50)
 	end
+	player:setBaseXpGain(100)
 
 	if player:getClient().version > 1110 then
 		local worldTime = getWorldTime()

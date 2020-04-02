@@ -733,11 +733,12 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Experience Stage Multiplier
-	exp = exp * getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
-	baseExp = rawExp * exp
+	local getExperienceStage = getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
+	exp = exp * getExperienceStage
+	baseExp = rawExp * getExperienceStage
 	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
 		displayRate = exp
-		else
+	else
 		displayRate = 1
 	end
 
@@ -785,7 +786,7 @@ function Player:onGainExperience(source, exp, rawExp)
 		end
 	end
 
-	self:setBaseXpGain(displayRate * 100)
+	self:setBaseXpGain(100)
 	return exp
 end
 
