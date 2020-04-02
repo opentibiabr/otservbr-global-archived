@@ -121,35 +121,23 @@ function onLogin(player)
         player:setStorageValue(Storage.combatProtectionStorage, 1)
         onMovementRemoveProtection(playerId, player:getPosition(), 10)
 	end
-
 	-- Set Client XP Gain Rate
+	local baseExp = 100
 	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
-		displayRate = getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
-		else
-		displayRate = 1
+		baseExp = getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
 	end
+
 	local staminaMinutes = player:getStamina()
-	local storeBoost = player:getExpBoostStamina()
-	player:setStoreXpBoost(storeBoost > 0 and 50 or 0)
-	if staminaMinutes > 2400 and player:isPremium() and storeBoost > 0 then
-		player:setBaseXpGain(displayRate*2*100) -- Premium + Stamina boost + Store boost
-		player:setStaminaXpBoost(150)
-	elseif staminaMinutes > 2400 and player:isPremium() and storeBoost <= 0 then
-		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Stamina boost
-		player:setStaminaXpBoost(150)
-	elseif staminaMinutes <= 2400 and staminaMinutes > 840 and player:isPremium() and storeBoost > 0 then
-		player:setBaseXpGain(displayRate*1.5*100) -- Premium + Store boost
-		player:setStaminaXpBoost(100)
-	elseif staminaMinutes > 840 and storeBoost > 0 then
-		player:setBaseXpGain(displayRate*1.5*100) -- FACC + Store boost
-		player:setStaminaXpBoost(100)
-	elseif staminaMinutes <= 840 and storeBoost > 0 then
-		player:setBaseXpGain(displayRate*1*100) -- ALL players low stamina + Store boost
-		player:setStaminaXpBoost(50)
-	elseif staminaMinutes <= 840 then
-		player:setBaseXpGain(displayRate*0.5*100) -- ALL players low stamina
-		player:setStaminaXpBoost(50)
+	local doubleExp = false -- pode mudar pra true se tiver double no server
+	local staminaBonus = (staminaMinutes > 2400) and 150 or ((staminaMinutes < 840) and 50 or 100)
+
+	if doubleExp then
+		baseExp = baseExp * 2
 	end
+
+	player:setStaminaXpBoost(staminaBonus)
+	player:setBaseXpGain(baseExp)
+	--player:setStoreXpBoost(storeXpBoost) NÃO DEVE SER DEFINIDA AQUI PORQUE DEPENDE DA STORE/DO USUARIO QUANDO COMPROU
 
 	if player:getClient().version > 1110 then
 		local worldTime = getWorldTime()
