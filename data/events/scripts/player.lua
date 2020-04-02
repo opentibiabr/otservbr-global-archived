@@ -774,9 +774,8 @@ function Player:onGainExperience(source, exp, rawExp)
 			exp = exp * 1.5
 			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
-			exp = exp * 0.5
+			exp = exp * 0.5 --TODO destroy loot of people with 840- stamina
 			self:setStaminaXpBoost(50)
-			displayRate = displayRate * 0.5
 		else
 			self:setStaminaXpBoost(100)
 		end
