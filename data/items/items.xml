@@ -42765,19 +42765,19 @@
 	</item>
 	<item id="34739" article="a" name="dead menacing carnivor">
 		<attribute key="containerSize" value="10" />
-		<attribute key="decayTo" value="34744" />
+		<attribute key="decayTo" value="34738" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="34740" article="a" name="dead menacing carnivor">
 		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="34743" />
+		<attribute key="decayTo" value="34739" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="34741" article="a" name="dead menacing carnivor">
 		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="34742" />
+		<attribute key="decayTo" value="34740" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
