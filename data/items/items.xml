@@ -33535,6 +33535,7 @@
 	</item>
 	<item id="24718" article="a" name="werewolf helmet">
 		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />	
 		<attribute key="armor" value="9" />
 		<attribute key="speed" value="30" />
 		<attribute key="showattributes" value="1" />
