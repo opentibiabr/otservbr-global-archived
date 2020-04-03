@@ -475,7 +475,12 @@ function Player.setQuickLootBackpack(self, categoryId, containerSlot, containerP
 	local container = getContainerBySlot(self, containerSlot, containerPosition)
 	if not container then
 		return
-	end
+    end
+    
+    if container.itemid == GOLD_POUCH and categoryId ~= QuickLootCategory.Gold then
+        self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+        return
+    end
 	
 	-- if exists another value, remove custom attribute
 	local oldServerId = container.itemid
