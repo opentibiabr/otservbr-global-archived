@@ -1,5 +1,11 @@
 Bestiary.Storage = {
-	PLAYER_CHARM_POINTS = 61301000
+	PLAYER_CHARM_POINTS = 61301000,
+	PLAYER_CHARM_SLOT_EXPANSION = 61302001,
+	PLAYER_CHARM_RUNE_BIT = 61302002,
+	PLAYER_CHARM_RUNE_USED_BIT = 61302003,
+	PLAYER_CHARM_RUNE_BASE = 61303000,
+	PLAYER_CHARM_RUNE_MONSTER_BASE = 61304000,
+	PLAYER_BESTIARY_MONSTER = 61305000
 }
 
 
@@ -139,23 +145,62 @@ Bestiary.MonstersOccurrency = {
 
 
 Bestiary.Charms = {
-	[0] = { name = 'Wound', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as physical damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600, },
-    [1] = { name = 'Enflame', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as fire damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 1000},
-    [2] = { name = 'Poison', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as earth damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600},
-    [3] = { name = 'Freeze', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as ice damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800},
-    [4] = { name = 'Zap', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as energy damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800},
-    [5] = { name = 'Curse', description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as death damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 900},
-    [6] = { name = 'Cripple', description = "Cripples the creature with a certain chance and paralyses it for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 500},
-    [7] = { name = 'Parry', description = "Any damage taken is reflected to the aggressor with a certain chance.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 1000},
-    [8] = { name = 'Dodge', description = "Dodges an attack with a certain chance without taking any damage at all.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 600},
-    [9] = { name = 'Adrenaline Burst', description = "Bursts of adrenaline enhance your reflexes with a certain chance after you get hit and let you move faster for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500},
-    [10] = { name = 'Numb', description = "Numbs the creature with a certain chance after its attack and paralyses the creature for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500},
-    [11] = { name = 'Cleanse', description = "Cleanses you from within with a certain chance after you get hit and removes one random active negative status effect and temporarily makes you immune against it.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 700},
-    [12] = { name = 'Bless', description = "Blesses you and reduces skill and experience loss by 3% when killed by the chosen creature.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000},
-    [13] = { name = 'Scavenge', description = "Enhances your chances to successfully skin/dust a skinnable/dustable creature.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 1500},
-    [14] = { name = 'Gut', description = "Gutting the creature yields 10% more creature products.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000},
-    [15] = { name = 'Low Blow', description = "Adds 8% critical hit chance to attacks with critical hit weapons.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000}
+	[0] = { name = 'Wound', id = 0, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 0, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 0, damageType = COMBAT_PHYSICALDAMAGE, message = "You wounded the monster.", description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as physical damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600, },
+    [1] = { name = 'Enflame', id = 1, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 1, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 1,damageType = COMBAT_FIREDAMAGE, message = "You enflame the monster.", description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as fire damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 1000},
+    [2] = { name = 'Poison', id = 2, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 2, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 2, damageType = COMBAT_EARTHDAMAGE, message = "You poisoned the monster.", description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as earth damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600},
+    [3] = { name = 'Freeze', id = 3, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 3, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 3, damageType = COMBAT_ICEDAMAGE, message = "You frozen the monster.", description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as ice damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800},
+    [4] = { name = 'Zap', id = 4, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 4, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 4, damageType = COMBAT_ENERGYDAMAGE, message = "You eletrocuted the monster.", description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as energy damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800},
+    [5] = { name = 'Curse', id = 5, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 5, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 5, damageType = COMBAT_DEATHDAMAGE, message = "You curse the monster.", description = "Triggers on a creature with a certain chance and deals 5% of its initial hit points as death damage once.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 900},
+    [6] = { name = 'Cripple', id = 6, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 6, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 6, description = "Cripples the creature with a certain chance and paralyses it for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 500},
+    [7] = { name = 'Parry', id = 7, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 7, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 7, message = "You parry the attack.", description = "Any damage taken is reflected to the aggressor with a certain chance.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 1000},
+    [8] = { name = 'Dodge', id = 8, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 8, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 8, message = "You dodged the attack.", description = "Dodges an attack with a certain chance without taking any damage at all.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 600},
+    [9] = { name = 'Adrenaline Burst', id = 9, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 9, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 9, message = "Your movements where bursted.", description = "Bursts of adrenaline enhance your reflexes with a certain chance after you get hit and let you move faster for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500},
+    [10] = { name = 'Numb', id = 10, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 10, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 10, description = "Numbs the creature with a certain chance after its attack and paralyses the creature for 10 seconds.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500},
+    [11] = { name = 'Cleanse', id = 11, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 11, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 11, description = "Cleanses you from within with a certain chance after you get hit and removes one random active negative status effect and temporarily makes you immune against it.", type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 700},
+    [12] = { name = 'Bless', id = 12, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 12, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 12, description = "Blesses you and reduces skill and experience loss by 3% when killed by the chosen creature.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000},
+    [13] = { name = 'Scavenge', id = 13, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 13, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 13, description = "Enhances your chances to successfully skin/dust a skinnable/dustable creature.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 1500},
+    [14] = { name = 'Gut', id = 14, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 14, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 14, description = "Gutting the creature yields 10% more creature products.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000},
+    [15] = { name = 'Low Blow', id = 15, storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 15, storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 15, description = "Adds 8% critical hit chance to attacks with critical hit weapons.", type = Bestiary.CharmsTypes.CHARM_PASSIVE, points = 2000}
 }
+
+Bestiary.CharmsNames = {
+	["Wound"] = 0,
+	["Enflame"] = 1,
+	["Poison"] = 2,
+	["Freeze"] = 3,
+	["Zap"] = 4,
+	["Curse"] = 5,
+	["Cripple"] = 6,
+	["Parry"] = 7,
+	["Dodge"] = 8,
+	["Adrenaline Burst"] = 9,
+	["Numb"] = 10,
+	["Cleanse"] = 11,
+	["Bless"] = 12,
+	["Scavenge"] = 13,
+	["Gut"] = 14,
+	["Low Blow"] = 15
+}
+
+Bestiary.CharmsBinaries = {
+	[0] = 1,
+	[1] = 2,
+	[2] = 4,
+	[3] = 8,
+	[4] = 16,
+	[5] = 32,
+	[6] = 64,
+	[7] = 128,
+	[8] = 256,
+	[9] = 512,
+	[10] = 1024,
+	[11] = 2048,
+	[12] = 4096,
+	[13] = 8192,
+	[14] = 16384,
+	[15] = 32768
+}
+
 
 Bestiary.Races = {
     {name = "Amphibic", monsters = {262, 267, 268, 269, 270, 271, 563, 738, 913} },
@@ -1412,6 +1457,6 @@ Bestiary.MonstersName = {
 -- Regex to parse upper table into the lower one:
 --Search: \[(\d{1,4})\].*name = ('|")(.*)('|"), class.*
 --Replace: ["$3"] = $1,
-Bestiary.CreatureEncryptionKeys = {"gnikcuf a si labolG", "!oiarac sion ", "vreSTO", "� !tcejorp emosewa "}
+Bestiary.CreatureEncryptionKeys = {"gnikcuf a si labolG", "!oiarac sion ", "vreSTO", "hE !tcejorp emosewa "}
 Bestiary.CreatureEncryptionOrder = {3,1,4,2}
 
