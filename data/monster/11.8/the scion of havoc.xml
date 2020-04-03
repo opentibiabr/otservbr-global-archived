@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Scion of Havoc" nameDescription="the scion of havoc" race="energy" experience="0" speed="350">
 	<health now="10000" max="10000"/>
-	<look type="875" head="94" body="79" legs="79" feet="79" addons="3" corpse="26217"/>
+	<look type="875" head="94" body="79" legs="79" feet="79" addons="3" corpse="26220"/>
 	<targetchange interval="5000" chance="8"/>
 	<flags>
 		<flag summonable="0"/>
