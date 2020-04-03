@@ -857,8 +857,8 @@
 	<monster name="The Pale Count" file="Bosses/the_pale_count.xml"/>
 	<monster name="The Plasmother" file="Bosses/the_plasmother.xml"/>
 	<monster name="The Snapper" file="Bosses/the_snapper.xml"/>
-	<monster name="The Distorted Astral Source" file="Bosses/The Distorted Astral Source.xml"/>
-	<monster name="The Astral Source" file="Bosses/The Astral Source.xml"/>
+	<monster name="The Distorted Astral Source" file="Bosses/the distorted astral source.xml"/>
+	<monster name="The Astral Source" file="Bosses/the astral source.xml"/>
 	<monster name="Thul" file="Bosses/thul.xml"/>
 	<monster name="Tiquandas Revenge" file="Bosses/tiquandas_revenge.xml"/>
 	<monster name="Tirecz" file="Bosses/tirecz.xml"/>
@@ -873,7 +873,7 @@
 	<monster name="Warlord Ruzad" file="Bosses/warlord_ruzad.xml"/>
 	<monster name="White Pale" file="Bosses/white_pale.xml"/>
 	<monster name="Wrath of the Emperor" file="Bosses/wrath_of_the_emperor.xml"/>
-	<monster name="Xenia" file="Bosses/Xenia.xml"/>
+	<monster name="Xenia" file="Bosses/xenia.xml"/>
 	<monster name="Yaga The Crone" file="Bosses/Yaga The Crone.xml"/>
 	<monster name="Yakchal" file="Bosses/yakchal.xml"/>
 	<monster name="Zanakeph" file="Bosses/zanakeph.xml"/>
