@@ -202,6 +202,12 @@ class Player final : public Creature, public Cylinder
 		uint16_t getStaminaMinutes() const {
 			return staminaMinutes;
 		}
+
+		void sendItemsPrice() {
+			if (client) {
+				client->sendItemsPrice();
+			}
+		}
 		
 		// New Prey
 		uint16_t getPreyState(uint16_t slot) const {
