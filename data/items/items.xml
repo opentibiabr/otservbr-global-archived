@@ -46533,6 +46533,7 @@
 		<attribute key="attack" value="5" />
 		<attribute key="elementFire" value="45" />
 		<attribute key="weaponType" value="axe" />
+		<attribute key="slotType" value="two-handed" />
 		<attribute key="skillAxe" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
