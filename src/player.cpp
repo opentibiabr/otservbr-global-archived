@@ -3086,6 +3086,17 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 			itemMap.emplace(item->getClientID(), Item::countByType(item, -1));
 		}
 
+		const ItemType& itemType = Item::items[item->getID()];
+		if (itemType.transformEquipTo 
+								&& itemType.transformEquipTo != item->getID()) {
+			itemMap.emplace(Item::items[itemType.transformEquipTo].clientId, 1);
+		}
+
+		if (itemType.transformDeEquipTo
+							&& itemType.transformDeEquipTo != item->getID()) {
+			itemMap.emplace(Item::items[itemType.transformDeEquipTo].clientId, 1);
+		}
+
 		if (Container* container = item->getContainer()) {
 			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
 				auto containerSearch = itemMap.find((*it)->getClientID());
@@ -3097,13 +3108,16 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 					itemMap.emplace((*it)->getClientID(), Item::countByType(*it, -1));
 				}
 				itemMap.emplace((*it)->getClientID(), Item::countByType(*it, -1));
+
 				const ItemType& itItemType = Item::items[(*it)->getID()];
 
-				if (itItemType.transformEquipTo) {
+				if (itItemType.transformEquipTo 
+							&& itItemType.transformEquipTo != (*it)->getID()) {
 					itemMap.emplace(Item::items[itItemType.transformEquipTo].clientId, 1);
 				}
 
-				if (itItemType.transformDeEquipTo) {
+				if (itItemType.transformDeEquipTo
+						&& itItemType.transformDeEquipTo != (*it)->getID()) {
 					itemMap.emplace(Item::items[itItemType.transformDeEquipTo].clientId, 1);
 				}
 			}
