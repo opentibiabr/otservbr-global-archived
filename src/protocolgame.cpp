@@ -2801,6 +2801,10 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	sendPremiumTrigger();
 	sendStoreHighlight();
 
+	if (version >= 1200) {
+		sendItemsPrice();
+	}
+
 	//gameworld light-settings
 	sendWorldLight(g_game.getWorldLightInfo());
 
@@ -3933,4 +3937,21 @@ void ProtocolGame::parseExtendedOpcode(NetworkMessage& msg)
 
 	// process additional opcodes via lua script event
 	addGameTask(&Game::parsePlayerExtendedOpcode, player->getID(), opcode, buffer);
+}
+
+void ProtocolGame::sendItemsPrice()
+{
+	NetworkMessage msg;
+	msg.addByte(0xCD);
+
+	msg.add<uint16_t>(g_game.getItemsPriceCount());
+	if (g_game.getItemsPriceCount() > 0) {
+		std::map<uint16_t, uint32_t> items = g_game.getItemsPrice();
+		for (const auto& it : items) {
+			msg.addItemId(it.first);
+			msg.add<uint32_t>(it.second);
+		}
+	}
+
+	writeToOutputBuffer(msg);
 }
