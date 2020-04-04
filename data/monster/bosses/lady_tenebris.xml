@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lady Tenebris" nameDescription="Lady Tenebris" race="blood" experience="50000" speed="370" script="rewardboss.lua">
+	<health now="150000" max="150000" />
+	<look type="433" head="57" body="95" legs="38" feet="94" addons="2" corpse="6560" />
+	<targetchange interval="2000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag staticattack="98" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag rewardboss="1"/>
+	</flags>
+	<script>
+		<event name="HealthForgotten"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-800" max="-1300"/>
+		<attack name="death" interval="2000" chance="13" length="8" spread="0" min="-1200" max="-1500">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="death" interval="2000" chance="13" radius="4" target="1" min="-400" max="-600">
+			<attribute key="shootEffect" value="death" />
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="tenebris summon" interval="2000" chance="14"/>
+		<attack name="tenebris ultimate" interval="2000" chance="30"/>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="3000" chance="25" min="600" max="2700">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="50" />
+		<element earthPercent="-10" />
+		<element energyPercent="50" />
+		<element deathPercent="80" />
+		<element physicalPercent="50" />
+		<element holyPercent="80" />
+		<element icePercent="50" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="50000" chance="30">
+		<voice sentence="May the embrace of darkness kill you!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="50" chance="10000" /> <!-- Gold Coin -->
+		<item id="2152" countmax="50" chance="10000" /> <!-- Platinum Coin -->
+		<item id="2150" countmax="10" chance="10000" /> <!-- small amethyst -->
+		<item id="2145" countmax="10" chance="10000" /> <!-- small diamond -->
+		<item id="2147" countmax="10" chance="10000" /> <!-- small ruby -->
+		<item id="9970" countmax="10" chance="10000" /> <!-- small topaz -->
+		<item id="7590" countmax="100" chance="10000" /> <!-- Great Mana Potions -->
+		<item id="8472" countmax="100" chance="10000" /> <!-- Great Spirit Potions -->
+		<item id="22396" countmax="2" chance="2000" /> <!-- Cluster of Solace -->
+		<item id="18413" countmax="3" chance="2000" /> <!-- blue crystal shard -->
+		<item id="18415" countmax="5" chance="5000" /> <!-- Green Crystal Shard -->
+		<item id="22396" countmax="2" chance="2000" /> <!-- Cluster of Solace -->
+		<item id="18414" countmax="3" chance="5000" /> <!-- Violet Crystal Shard -->
+		<item id="7632" chance="6000" /> <!-- Giant Shimmering Pearl -->
+		<item id="2155" chance="2000" /> <!-- green gem -->
+		<item id="7440" chance="2000" /> <!-- mastermind potion -->
+		<item id="24851" chance="2000" /> <!-- onyx pendant -->
+		<item id="2156" chance="1000" /> <!-- red gem -->
+		<item id="2123" chance="2000" /> <!-- ring of the sky -->
+		<item id="7451" chance="2000" /> <!-- shadow sceptre -->
+		<item id="8903" chance="1000" /> <!-- spellbook of lost souls -->
+		<item id="8901" chance="1000" /> <!-- spellbook of warding -->
+		<item id="2436" chance="1000" /> <!-- skull staff -->
+		<item id="2154" chance="1000" /> <!-- yellow gem -->
+		<item id="18390" chance="1000" /> <!-- wand of defiance -->
+		<item id="25377" chance="100000"/><!-- Gold Token -->
+		<item id="25172" chance="100000"/><!-- Silver Token -->
+		<item id="2453" chance="200" /> <!-- arcane staff -->
+		<item id="27641" chance="200" /> <!-- Shadow Mask -->
+		<item id="27642" chance="200" /> <!-- Shadow Paint -->
+		<item id="25411" chance="200" /> <!-- book of lies -->
+		<item id="22422" chance="200" /> <!-- Crude Umbral Spellbook -->
+		<item id="27625" chance="500" unique="1" /> <!-- part of a rune (four) -->
+		<item id="2138" chance="200" /> <!-- sapphire amulet -->
+		<item id="22423" chance="200" /> <!-- umbral spellbook -->
+	</loot>
+</monster>

@@ -597,6 +597,10 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 end
 
 function Player:onReportBug(message, position, category)
+	if self:getAccountType() == ACCOUNT_TYPE_NORMAL then
+		return false
+	end
+
 	local name = self:getName()
 	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
 
@@ -706,12 +710,22 @@ local function useStaminaXp(player)
 	player:setExpBoostStamina(staminaMinutes * 60)
 end
 
+local function getRateFromTable(t, level, default)
+	for _, rate in ipairs(t) do
+		if level >= rate.minlevel and (not rate.maxlevel or level <= rate.maxlevel) then
+			return rate.multiplier
+		end
+	end
+
+	return default
+end
+
 function Player:onGainExperience(source, exp, rawExp)
 	if not source or source:isPlayer() then
 		return exp
 	end
 
-	-- Soul Regeneration
+	-- Soul regeneration
 	local vocation = self:getVocation()
 	if self:getSoul() < vocation:getMaxSoul() and exp >= self:getLevel() then
 		soulCondition:setParameter(CONDITION_PARAM_SOULTICKS, vocation:getSoulGainTicks() * 1000)
@@ -719,11 +733,12 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 
 	-- Experience Stage Multiplier
-	exp = exp * Game.getExperienceStage(self:getLevel())
-	baseExp = rawExp * Game.getExperienceStage(self:getLevel())
+	local expStage = getRateFromTable(experienceStages, self:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
+	exp = exp * expStage
+	baseExp = rawExp * expStage
 	if Game.getStorageValue(GlobalStorage.XpDisplayMode) > 0 then
-		displayRate = Game.getExperienceStage(self:getLevel())
-		else
+		displayRate = expStage
+	else
 		displayRate = 1
 	end
 
@@ -731,21 +746,24 @@ function Player:onGainExperience(source, exp, rawExp)
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
 		if (self:getPreyCurrentMonster(slot) == source:getName() and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
 			exp = exp + math.floor(exp * (self:getPreyBonusValue(slot) / 100))
-			preyTimeLeft(self, slot) -- slot consumption
 			break
+		end
+		if (self:getPreyTimeLeft(slot) / 60) > 0 then
+			preyTimeLeft(self, slot) -- slot consumption, outside of the mosnter check
 		end
 	end
 
 	-- Store Bonus
-	local Boost = self:getExpBoostStamina()
 	useStaminaXp(self) -- Use store boost stamina
-	self:setStoreXpBoost(Boost > 0 and 50 or 0)
-	if (self:getExpBoostStamina() <= 0 and self:getStoreXpBoost() > 0) then
-		self:setStoreXpBoost(0) -- Reset Store boost to 0 if boost stamina has ran out
-	end
-	if (self:getStoreXpBoost() > 0) then
-		exp = exp + (baseExp * (self:getStoreXpBoost()/100)) -- Exp Boost
-		displayRate = displayRate * ((self:getStoreXpBoost()+100)/100)
+	
+	local Boost = self:getExpBoostStamina()
+	local stillHasBoost = Boost > 0
+	local storeXpBoostAmount = stillHasBoost and self:getStoreXpBoost() or 0
+
+	self:setStoreXpBoost(storeXpBoostAmount) 
+
+	if (storeXpBoostAmount > 0) then
+		exp = exp + (baseExp * (storeXpBoostAmount/100)) -- Exp Boost
 	end
 
 	-- Stamina Bonus
@@ -753,23 +771,16 @@ function Player:onGainExperience(source, exp, rawExp)
 		useStamina(self)
 		local staminaMinutes = self:getStamina()
 		if staminaMinutes > 2400 and self:isPremium() then
-			exp = exp + baseExp * 0.5
-			displayRate = displayRate + Game.getExperienceStage(self:getLevel()) * 0.5
+			exp = exp * 1.5
 			self:setStaminaXpBoost(150)
 		elseif staminaMinutes <= 840 then
-			exp = exp * 0.5
+			exp = exp * 0.5 --TODO destroy loot of people with 840- stamina
 			self:setStaminaXpBoost(50)
-			displayRate = displayRate * 0.5
 		else
 			self:setStaminaXpBoost(100)
 		end
-		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
-			if self:getPreyState(slot) == 2 then
-			 preyTimeLeft(self, slot) -- slot consumption
-			end
-		end
 	end
-
+	
 	self:setBaseXpGain(displayRate * 100)
 	return exp
 end

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Arachnophobica" nameDescription="an arachnophobica" race="blood" experience="4700" speed="400">
+	<health now="5000" max="5000"/>
+	<look type="1135" corpse="34711"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+			<attack name="Arachnophobicawavedice" interval="2000" chance="20" min="-250" max="-350"/>
+			<attack name="Arachnophobicawaveenergy" interval="2000" chance="20" min="-250" max="-350"/>
+			<attack name="physical" interval="2000" chance="10" target="1" radius="4" min="-250" max="-350">
+		<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+			<attack name="death" interval="2000" chance="10" range="7" min="-200" max="-300">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		</attacks>
+		<defenses armor="70" defense="0">
+			<defense name="healing" interval="2000" chance="10" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-40"/>
+		<element deathPercent="50"/>
+		<element energyPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="10000" chance="7">
+		<voice sentence="Tip tap tip tap!"/>
+	</voices>
+	<loot>
+<!--common-->
+<item name="platinum coin" countmax="14" chance="100000"/>
+<item name="great spirit potion" countmax="3" chance="100000"/>
+<!--uncommon-->
+<item name="essence of a bad dream" chance="15000"/>
+<item name="energy ring" chance="12050"/>
+<item name="silver amulet" chance="15000"/>
+<item name="sword ring" chance="11050"/>
+<item name="spider fangs" chance="11800"/>
+<item name="mind stone" chance="17800"/>
+<item name="wand of cosmic energy" chance="17800"/>
+<!--semi-rare-->
+<item name="magma amulet" chance="8900"/>
+<item name="elven amulet" countmax="2" chance="8100"/>
+<item id="26200" chance="10590"/>  <!--collar of red plasma-->
+<item name="sacred tree amulet" chance="7500"/>
+<item name="spider silk" chance="6500"/>
+<item name="life ring" chance="5560"/>
+<item name="orb" chance="7800"/>
+<item name="underworld rod" chance="7120"/>
+<item id="26185" chance="1000"/> <!--ring of blue plasma-->
+<item name="ring of healing" chance="9120"/>
+<item name="strange talisman" chance="8110"/>
+<item name="axe ring" chance="7220"/>
+<item name="power ring" chance="6080"/>
+<item id="6300" chance="7502"/> <!--death ring-->
+<item name="garlic necklace" chance="7550"/>
+<item name="platinum amulet" chance="7650"/>
+<!--rare-->
+<item id="26199" chance="10590"/>  <!--collar of green plasma-->
+<item name="Strange Symbol" chance="2640"/>
+<item name="stone skin amulet" chance="2600"/>
+<item name="necklace of the deep" chance="1800"/>
+</loot>
+</monster>

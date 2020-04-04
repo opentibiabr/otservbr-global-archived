@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Chayenne" nameDescription="Chayenne" race="blood" experience="0" speed="300" script="rewardboss.lua">
+	<health now="200000" max="200000"/>
+	<look type="155" head="78" body="0" legs="105" feet="99" addons="0" corpse="6081"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="3000" skill="300" attack="150"/>
+		<attack name="manadrain" interval="2000" chance="15" range="1" min="0" max="-1500"/>
+		<attack name="lifedrain" interval="2000" chance="15" range="7" target="1" min="0" max="-1250">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="20">
+		<defense name="healing" interval="1000" chance="1" min="0" max="10000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="3500" chance="30" min="1000" max="1000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" monster="Devovorga" duration="10000">
+			<attribute key="areaEffect" value="energy"/>
+		</defense>
+		<defense name="outfit" interval="2000" chance="10" monster="Chayenne" duration="10000">
+			<attribute key="areaEffect" value="energy"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="10"/>
+		<element energyPercent="20"/>
+		<element deathPercent="30"/>
+		<element icePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="10">
+		<voice sentence="We don't stop playing because we grow old, we grow old because we stop playing."/>
+		<voice sentence="Oooh dang, he's hot *-*"/>
+		<voice sentence="Oh came on, take it easy."/>
+		<voice sentence="Work hard, play harder!"/>
+		<voice sentence="They are doing WHAT with my quest?!"/>
+	</voices>
+	<loot>
+		<item id="6571" countmax="2" chance="100000" /> <!-- surprise bag -->
+		<item id="7632" chance="100000" /> <!-- giant shimmering pearl -->
+		<item id="16014" chance="100000" /> <!-- Anniversary Cake -->
+		<item id="16015" chance="100000" unique="1" /> <!-- Chayenne's Magical Key -->
+	</loot>
+</monster>

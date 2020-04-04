@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Frost Servant" nameDescription="a frost servant" race="undead" experience="295" speed="95">
+	<health now="385" max="385"/>
+	<look type="261" corpse="7282"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="140" attack="40"/>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="hirintror summon" interval="2000" chance="18"/>
+	</defenses>
+	<elements>
+		<element physicalPercent="0"/>
+		<element energyPercent="0"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity ice="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Gnarr."/>
+		<voice sentence="Crrrrk."/>
+		<voice sentence="Chrrr."/>
+	</voices>
+	<loot>
+	</loot>
+</monster>

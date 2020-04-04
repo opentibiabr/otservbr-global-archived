@@ -1,8 +1,6 @@
 /**
- * @file combat.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_COMBAT_H_
-#define OT_SRC_COMBAT_H_
+#ifndef FS_COMBAT_H_B02CE79230FC43708699EE91FCC8F7CC
+#define FS_COMBAT_H_B02CE79230FC43708699EE91FCC8F7CC
 
 #include "thing.h"
 #include "condition.h"
@@ -40,7 +38,7 @@ class ValueCallback final : public CallBack
 		explicit ValueCallback(formulaType_t initType): type(initType) {}
 		void getMinMaxValues(Player* player, CombatDamage& damage, bool useCharges) const;
 
-	protected:
+	private:
 		formulaType_t type;
 };
 
@@ -160,7 +158,7 @@ class MatrixArea
 			return data_[i];
 		}
 
-	protected:
+	private:
 		uint32_t centerX;
 		uint32_t centerY;
 
@@ -190,7 +188,7 @@ class AreaCombat
 		void setupExtArea(const std::list<uint32_t>& list, uint32_t rows);
 		void clear();
 
-	protected:
+	private:
 		enum MatrixOperation_t {
 			MATRIXOPERATION_COPY,
 			MATRIXOPERATION_MIRROR,
@@ -301,7 +299,7 @@ class Combat
 			params.origin = origin;
 		}
 
-	protected:
+	private:
 		static void doCombatDefault(Creature* caster, Creature* target, const CombatParams& params);
 
 		static void CombatFunc(Creature* caster, const Position& pos, const AreaCombat* area, const CombatParams& params, CombatFunction func, CombatDamage* data);
@@ -333,10 +331,10 @@ class MagicField final : public Item
 	public:
 		explicit MagicField(uint16_t type) : Item(type), createTime(OTSYS_TIME()) {}
 
-		MagicField* getMagicField() final {
+		MagicField* getMagicField() override {
 			return this;
 		}
-		const MagicField* getMagicField() const final {
+		const MagicField* getMagicField() const override {
 			return this;
 		}
 

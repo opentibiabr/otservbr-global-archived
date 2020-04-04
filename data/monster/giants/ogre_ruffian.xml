@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Ogre Ruffian" nameDescription="an ogre ruffian" race="blood" experience="5000" speed="430">
+	<health now="5500" max="5500"/>
+	<look type="1212" corpse="36362"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="physical" interval="2000" chance="13" radius="5" min="-250" max="-450">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" range="4" radius="5" target="1" min="-200" max="-350">
+			<attribute key="shootEffect" value="largerock"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="102" defense="102"/>
+	<elements>
+		<element icePercent="-20"/>
+		<element physicalPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="ogre ear stud" chance="17270"/>
+		<item name="ogre nose ring" chance="15830"/>
+		<item name="pair of iron fists" chance="2160"/>
+		<item name="meat" countmax="5" chance="8630"/>
+		<item name="diamond sceptre" chance="5760"/>
+		<item name="war hammer" chance="2160"/>
+		<item name="metal spats" chance="1440"/>
+		<item name="skull fetish" chance="1440"/>
+		<item name="stone skin amulet" chance="4320"/>
+	</loot>
+</monster>

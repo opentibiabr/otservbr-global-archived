@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Baleful Bunny" nameDescription="an baleful bunny" race="blood" experience="450" speed="340">
+	<health now="500" max="500"/>
+	<look type="1157" head="95" body="42" legs="19" feet="57" corpse="35137"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="physical" interval="2000" chance="1" target="1" radius="4" min="-100" max="-150">
+			<attribute key="areaEffect" value="POFF"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="1" radius="1" min="-100" max="-150">
+			<attribute key="areaEffect" value="ENERGYAREA"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="111" target="1" radius="4" min="-100" max="-150">
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element earthPercent="5"/>
+		<element energyPercent="5"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Borborygmus... borborygmus..."/>
+	</voices>
+	<loot>
+		<item name="platinum coin" chance="100000"/>
+		<item name="terra amulet" chance="8480"/>
+		<item name="snakebite rod" chance="7420"/>
+		<item name="leaf star" countmax="2" chance="7120"/>
+		<item name="lightning pendant" chance="6820"/>
+		<item name="strange talisman" chance="5760"/>
+		<item name="sacred tree amulet" chance="2730"/>
+		<item name="yetislippers" chance="450"/>
+	</loot>
+</monster>

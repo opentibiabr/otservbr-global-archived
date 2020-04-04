@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Eclipse Knight" nameDescription="an eclipse knight" race="undead" experience="4650" speed="240">
+	<health now="45000" max="45000"/>
+	<look type="234" corpse="6328"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5000"/>
+		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="-781">
+			<attribute key="shootEffect" value="throwingknife"/>
+		</attack>
+		<attack name="dark torturer skill reducer" interval="2000" chance="5"/>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="10" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="0"/>
+		<element energyPercent="0"/>
+		<element deathPercent="0"/>
+		<element icePercent="0"/>
+		<element holyPercent="0"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Yes, flee from me!"/>
+	</voices>
+	<loot>
+		<item name="Midnight Shard" chance="25000"/>
+	</loot>
+</monster>

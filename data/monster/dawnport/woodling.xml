@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Woodling" nameDescription="a woodling" race="blood" experience="40" speed="130">
+	<health now="80" max="80"/>
+	<look type="535" corpse="23817"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="14"/>
+		<attack name="woodling paralyze" interval="2000" chance="10"/>
+		<attack name="poison" interval="2000" chance="15" range="3" min="-4" max="-9">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="insects"/>
+		</attack>
+	</attacks>
+	<defenses armor="1" defense="2"/>
+	<loot>
+		<item id="23839" countmax="10" chance="9450"/><!-- simple arrows -->
+		<item id="2148" countmax="12" chance="100000"/> <!-- gold coin -->
+		<item id="20103" chance="14500"/> <!-- piece of swampling wood -->
+		<item id="2120" chance="5700"/> <!-- rope -->
+		<item id="2484" chance="4950"/> <!-- studded armor -->
+		<item id="2526" chance="2670"/> <!-- studded shield -->
+		<item id="20102" chance="20250"/> <!-- swampling moss -->
+		<item id="2787" countmax="4" chance="18200"/> <!-- white mushroom -->
+	</loot>
+</monster>

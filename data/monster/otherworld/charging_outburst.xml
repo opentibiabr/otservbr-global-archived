@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Charging Outburst" nameDescription="Charging Outburst" race="energy" experience="50000" speed="300" script="rewardboss.lua">
+	<health now="12000" max="12000"/>
+	<look type="876" head="77" body="82" legs="82" feet="0" addons="3" corpse="0"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="ChargingOutDeath"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-300" max="-1800"/>
+		<attack name="death" interval="2000" chance="25" radius="3" min="-300" max="-500">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="25" radius="8" min="-450" max="-900">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="25" length="8" spread="0" min="-600" max="-1000">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+		<attack name="outburst explode" interval="10000" chance="100" min="-1500" max="-2000"/>
+	</attacks>
+	<defenses armor="100" defense="100"/>
+	<elements>
+		<element physicalPercent="-50"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="The Sandking" nameDescription="The Sandking" race="venom" experience="0" speed="250" script="rewardboss.lua">
+	<health now="50000" max="50000" />
+	<look type="1013" corpse="25151" />
+	<targetchange interval="5000" chance="30" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="20" target="1" range="4" radius="4" min="0" max="-500">
+			<attribute key="areaEffect" value="stones" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="5" speedchange="-650" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30"/>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="7000" chance="10">
+		<voice sentence="CREEEAK!" />
+	</voices>
+	<loot>
+		<item name="small amethyst" countmax="10" chance="21000" />
+		<item name="small emerald" countmax="10" chance="19000" />
+		<item name="red gem" chance="12000" />
+		<item name="platinum coin" countmax="30" chance="68299" />
+		<item name="gold coin" countmax="200" chance="100000" />
+		<item name="small diamond" countmax="10" chance="21000" />
+		<item name="green gem" chance="12000" />
+		<item name="luminous orb" chance="35000" />
+		<item name="great mana potion" countmax="10" chance="31230" />
+		<item name="ultimate health potion" countmax="10" chance="28230" />
+		<item name="cobra crown" chance="400" />
+		<item name="silver token" chance="2500" />
+		<item name="gold token" chance="1532" />
+		<item name="small topaz" countmax="10" chance="11520" />
+		<item name="blue gem" chance="21892" />
+		<item name="yellow gem" chance="29460" />
+		<item name="magic sulphur" chance="18920"/>
+		<item id="7440" chance="2000"/>
+		<item id="22396" countmax="2" chance="2000"/> <!-- cluster of solace -->
+		<item name="Hailstorm Rod" chance="3470" />
+		<item id="2153" chance="1000"/><!-- violet gem -->
+		<item name="ring of healing" chance="20000" />
+		<item id="2147" countmax="10" chance="7360"/><!-- small ruby -->
+		<item id="7632" chance="28540" /> <!-- Giant Shimmering Pearl -->
+		<item name="Skull Staff" chance="13790" />
+		<item name="Grasshopper Legs" chance="13790" />
+		<item name="Huge Chunk of Crude Iron" countmax="2" chance="10000" />
+		<item id="7404" chance="430"/><!-- Assassin Dagger-->
+		<item name="runed sword" chance="6666"/>
+		<item name="djinn blade" chance="200" />
+		<item id="18415" countmax="3" chance="10000"/><!-- green crystal shard -->
+		<item id="18414" countmax="3" chance="10000"/><!-- violet crystal shard -->
+		<item id="18413" countmax="3" chance="10000"/><!-- blue crystal shard -->
+		<item id="8472" chance="4800"/><!-- great spirit potion -->
+		<item id="18451" chance="7030" /><!-- crystalline axe -->
+		<item id="2453" chance="200" /> <!-- arcane staff -->
+		<item name="heart of the mountain" chance="400" />
+	</loot>
+</monster>

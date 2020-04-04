@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="An Astral Glyph" nameDescription="an astral glyph" race="energy" experience="0" speed="470">
+	<health now="50000" max="50000"/>
+	<look typeex="26893" corpse="0"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<script>
+		<event name="AstralGlyphDeath"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="100"/>
+		<attack name="energy" interval="2000" chance="25" radius="3" target="0" min="-200" max="-400">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="25" radius="5" min="-200" max="-400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+</monster>

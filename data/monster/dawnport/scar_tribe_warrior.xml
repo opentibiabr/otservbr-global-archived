@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Orc Warrior" nameDescription="an orc warrior" race="blood" experience="50" speed="190">
+	<health now="125" max="125"/>
+	<look type="7" corpse="5979"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+				<flag isblockable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="25"/>
+	</attacks>
+	<defenses armor="5" defense="10"/>
+	<voices interval="5000" chance="10">
+		<voice sentence="Alk!"/>
+		<voice sentence="Trak grrrr brik."/>
+		<voice sentence="Grow truk grrrr."/>
+	</voices>
+	<loot>
+		<item id="12409" chance="6740"/><!-- broken helmet -->
+		<item id="2464" chance="5620"/><!-- chain armor -->
+		<item id="2148" countmax="8" chance="100000"/><!-- gold coin -->
+		<item id="2666" chance="13480"/><!-- meat -->
+		<item id="12435" chance="5620"/><!-- orc leather -->
+		<item id="12436" chance="1120"/><!-- skull belt -->
+	</loot>
+</monster>

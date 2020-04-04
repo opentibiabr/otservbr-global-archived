@@ -1,8 +1,6 @@
 /**
- * @file otserv.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,14 +28,13 @@
 #include "configmanager.h"
 #include "scriptmanager.h"
 #include "rsa.h"
-#include "protocolold.h"
 #include "protocollogin.h"
 #include "protocolstatus.h"
 #include "databasemanager.h"
 #include "scheduler.h"
 #include "databasetasks.h"
 #include "script.h"
-// TODO: #include "stdarg.h"
+#include <fstream>
 
 DatabaseTasks g_databaseTasks;
 Dispatcher g_dispatcher;
@@ -89,7 +86,6 @@ int main(int argc, char* argv[])
 	g_loaderSignal.wait(g_loaderUniqueLock);
 
 	if (serviceManager.is_running()) {
-
 		std::cout << ">> " << g_config.getString(ConfigManager::SERVER_NAME) << " Server Online!" << std::endl << std::endl;
 		serviceManager.run();
 	} else {
@@ -105,7 +101,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-void mainLoader(int argc, char* argv[], ServiceManager* services)
+void mainLoader(int, char*[], ServiceManager* services)
 {
 	//dispatcher thread
 	g_game.setGameState(GAME_STATE_STARTUP);
@@ -129,24 +125,29 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 #endif
 	std::cout << std::endl;
 
-	std::cout << "Special Credits for: " << STATUS_SERVER_CREDITS << "." << std::endl;
-	std::cout << "Visit our forum for updates, support, and resources: https://forums.otserv.com.br/" << std::endl;
-	std::cout << "Link of repository: https://github.com/opentibiabr/OTServBR-Global/" << std::endl;
-	std::cout << "List of contributors: https://github.com/opentibiabr/OTServBR-Global/graphs/contributors" << std::endl;
+	std::cout << "A server developed by " << STATUS_SERVER_DEVELOPERS << std::endl;
+	std::cout << "Visit our forum for updates, support, and resources: https://otserv.com.br/" << std::endl;
 	std::cout << std::endl;
 
-	// TODO: dirty for now; Use stdarg;
-	if (argc > 1) {
-		std::string param = { argv[1] };
-		if (param == "-c") {
-			g_config.setConfigFileLua(argv[2]);
+	// check if config.lua or config.lua.dist exist
+	std::ifstream c_test("./config.lua");
+	if (!c_test.is_open()) {
+		std::ifstream config_lua_dist("./config.lua.dist");
+		if (config_lua_dist.is_open()) {
+			std::cout << ">> copying config.lua.dist to config.lua" << std::endl;
+			std::ofstream config_lua("config.lua");
+			config_lua << config_lua_dist.rdbuf();
+			config_lua.close();
+			config_lua_dist.close();
 		}
+	} else {
+		c_test.close();
 	}
 
 	// read global config
-	std::cout << ">> Loading config: " << g_config.getConfigFileLua() << std::endl;
+	std::cout << ">> Loading config" << std::endl;
 	if (!g_config.load()) {
-		startupErrorMessage("Unable to load Config File!");
+		startupErrorMessage("Unable to load config.lua!");
 		return;
 	}
 
@@ -160,7 +161,12 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 #endif
 
 	//set RSA key
-    g_RSA.loadPEM("key.pem");
+	try {
+		g_RSA.loadPEM("key.pem");
+	} catch(const std::exception& e) {
+		startupErrorMessage(e.what());
+		return;
+	}
 
 	std::cout << ">> Establishing database connection..." << std::flush;
 
@@ -175,7 +181,7 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 	std::cout << ">> Running database manager" << std::endl;
 
 	if (!DatabaseManager::isDatabaseSetup()) {
-		startupErrorMessage("The database you have specified in config lua file is empty, please import the schema.sql to your database.");
+		startupErrorMessage("The database you have specified in config.lua is empty, please import the schema.sql to your database.");
 		return;
 	}
 	g_databaseTasks.start();
@@ -251,7 +257,6 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 		startupErrorMessage(ss.str());
 		return;
 	}
-
 	std::cout << asUpperCaseString(worldType) << std::endl;
 
 	std::cout << ">> Loading map" << std::endl;
@@ -269,9 +274,6 @@ void mainLoader(int argc, char* argv[], ServiceManager* services)
 
 	// OT protocols
 	services->add<ProtocolStatus>(static_cast<uint16_t>(g_config.getNumber(ConfigManager::STATUS_PORT)));
-
-	// Legacy login protocol
-	services->add<ProtocolOld>(static_cast<uint16_t>(g_config.getNumber(ConfigManager::LOGIN_PORT)));
 
 	RentPeriod_t rentPeriod;
 	std::string strRentPeriod = asLowerCaseString(g_config.getString(ConfigManager::HOUSE_RENT_PERIOD));

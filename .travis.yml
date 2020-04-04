@@ -2,30 +2,26 @@ dist: bionic
 language: cpp
 
 
-matrix:
+jobs:
   include:
   - #dist: bionic
     compiler: gcc
     os: linux
-    sudo: required
   - #dist: bionic
     compiler: clang
     os: linux
-    sudo: required
   - dist: xenial
     compiler: gcc
     os: linux
-    sudo: required
   - dist: xenial
     compiler: clang
     os: linux
-    sudo: required
 
 compiler:
   - clang
   - gcc
 env:
-  matrix:
+  jobs:
     - BUILD_TYPE=Debug LUAJIT=OFF
     - BUILD_TYPE=Debug LUAJIT=ON
     - BUILD_TYPE=Release LUAJIT=OFF

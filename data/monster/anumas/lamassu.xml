@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lamassu" nameDescription="a lamassu" race="blood" experience="9000" speed="320">
+	<health now="8700" max="8700"/>
+	<look type="1190" head="50" body="2" legs="0" feet="95" corpse="36229"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-550"/>
+		<attack name="holy" interval="2000" chance="20" radius="3" min="-350" max="-490">
+			<attribute key="areaEffect" value="holyarea"/>
+	    </attack>
+		<attack name="earth" interval="2000" chance="20" range="5" radius="3" target="1" min="-330" max="-410">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="smallplants"/>	
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82"/>
+	<elements>
+		<element earthPercent="80"/>
+		<element deathPercent="-30"/>
+		<element holyPercent="80"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+	    <item name="Platinum Coin" chance="100000"/>
+		<item name="Lamassu Horn" countmax="5" chance="13400"/>
+		<item name="Red Crystal Fragment" chance="10500"/>
+		<item name="Terra Amulet" chance="10000"/>
+		<item name="Lamassu Hoof" chance="7700"/>
+	    <item name="Violet Crystal Shard" chance="6800"/>
+		<item name="Blue Crystal Shard" chance="6500"/>
+		<item name="Red Gem" chance="6200"/>
+		<item name="Terra Hood" chance="5900"/>
+		<item name="Sacred Tree Amulet" chance="2300"/>
+	    <item name="Elven Amulet" chance="2000"/>
+	    <item name="Violet Gem" chance="1700"/>
+	</loot>
+</monster>

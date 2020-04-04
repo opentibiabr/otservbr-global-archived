@@ -3183,6 +3183,12 @@
 	</movevent>
 	<movevent event="DeEquip" itemid="35150" slot="necklace" function="onDeEquipItem" />
 
+	<movevent event="Equip" itemid="37451" slot="hand" level="180" function="onEquipItem"> <!-- Phantasmal Axe -->
+		<vocation name="Knight" />
+		<vocation name="Elite Knight" showInDescription="0" />
+	</movevent>
+	<movevent event="DeEquip" itemid="37451" slot="hand" function="onDeEquipItem" />
+
 	<!-- Imbuements -->
 	<movevent event="Equip" itemid="2423" slot="hand" function="onEquipItem" />
 	<movevent event="DeEquip" itemid="2423" slot="hand" function="onDeEquipItem" />

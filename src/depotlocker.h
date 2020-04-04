@@ -1,8 +1,6 @@
 /**
- * @file depotlocker.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_DEPOTLOCKER_H_
-#define OT_SRC_DEPOTLOCKER_H_
+#ifndef FS_DEPOTLOCKER_H_53AD8E0606A34070B87F792611F4F3F8
+#define FS_DEPOTLOCKER_H_53AD8E0606A34070B87F792611F4F3F8
 
 #include "container.h"
 #include "inbox.h"
@@ -30,17 +28,17 @@ class DepotLocker final : public Container
 	public:
 		explicit DepotLocker(uint16_t type);
 
-		DepotLocker* getDepotLocker() final {
+		DepotLocker* getDepotLocker() override {
 			return this;
 		}
-		const DepotLocker* getDepotLocker() const final {
+		const DepotLocker* getDepotLocker() const override {
 			return this;
 		}
 
 		void removeInbox(Inbox* inbox);
 
 		//serialization
-		Attr_ReadValue readAttr(AttrTypes_t attr, PropStream& propStream) final;
+		Attr_ReadValue readAttr(AttrTypes_t attr, PropStream& propStream) override;
 
 		uint16_t getDepotId() const {
 			return depotId;
@@ -51,12 +49,12 @@ class DepotLocker final : public Container
 
 		//cylinder implementations
 		ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,
-				uint32_t flags, Creature* actor = nullptr) const final;
+				uint32_t flags, Creature* actor = nullptr) const override;
 
-		void postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t link = LINK_OWNER) final;
-		void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t link = LINK_OWNER) final;
+		void postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t link = LINK_OWNER) override;
+		void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t link = LINK_OWNER) override;
 
-		bool canRemove() const final {
+		bool canRemove() const override {
 			return false;
 		}
 

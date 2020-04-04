@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Yakchal" nameDescription="Yakchal" race="blood" experience="4400" speed="220">
+	<health now="5750" max="5750"/>
+	<look type="149" head="8" body="0" legs="85" feet="85" addons="1" corpse="20546"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="50"/>
+		<flag targetdistance="4"/>
+		<flag runonhealth="100"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-389"/>
+		<attack name="ice" interval="2000" chance="18" target="1" radius="4" min="0" max="-430">
+			<attribute key="areaEffect" value="icearea"/>
+			<attribute key="shootEffect" value="smallice"/>
+		</attack>
+		<attack name="physical" interval="3000" chance="34" range="7" radius="3" target="1" min="-200" max="-300">
+			<attribute key="shootEffect" value="snowball"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="10" range="7" speedchange="-300" duration="20000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="20">
+		<defense name="healing" interval="1000" chance="25" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="50"/>
+		<element energyPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="4">
+		<summon name="Ice Golem" interval="1000" chance="13"/>
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="YOU BETTER DIE TO MY MINIONS BECAUSE YOU'LL WISH YOU DID IF I COME FOR YOU!"/>
+		<voice sentence="DESTROY THE INFIDELS"/>
+		<voice sentence="You are mine!"/>
+		<voice sentence="I will make you all pay!"/>
+		<voice sentence="No one will stop my plans!"/>
+		<voice sentence="You are responsible for this!"/>
+	</voices>
+	<loot>
+		<item id="7290" chance="100000"/>				<!-- shard -->
+		<item id="2148" countmax="283" chance="97000"/>	<!-- gold coin -->
+		<item id="5912" chance="74000"/>				<!-- blue piece of cloth -->
+		<item id="7440" chance="65000"/>				<!-- mastermind potion -->
+		<item id="9971" chance="33000"/>				<!-- gold ingot -->
+		<item id="7449" chance="22000"/>				<!-- crystal sword -->
+		<item id="2201" chance="15000"/>				<!-- dragon necklace -->
+		<item id="7896" chance="12000"/>				<!-- glacier kilt -->
+		<item id="7590" chance="9500"/>					<!-- great mana potion -->
+		<item id="7443" chance="8000"/>					<!-- bullseye potion -->
+		<item id="7897" chance="8000"/>					<!-- glacier robe -->
+		<item id="2436" chance="8000"/>					<!-- skull staff -->
+		<item id="7459" chance="6350"/>					<!-- pair of earmuffs -->
+		<item id="7439" chance="4700"/>					<!-- berserk potion -->
+		<item id="2168" chance="4700"/>					<!-- life ring -->
+		<item id="7410" chance="4700"/>					<!-- queen's sceptre -->
+		<item id="2195" chance="1500"/>					<!-- boots of haste -->
+		<item id="2796" chance="1500"/>					<!-- green mushroom -->
+	</loot>
+</monster>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="White Pale" nameDescription="White Pale" race="blood" experience="390" speed="170" script="rewardboss.lua">
+	<health now="500" max="500"/>
+	<look type="564" corpse="21295"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="45" attack="40"/>
+		<attack name="earth" interval="2000" chance="14" radius="5" target="0" min="-100" max="-110">
+			<attribute key="areaEffect" value="smallplants"/>
+		</attack>
+		<attack name="poisoncondition" interval="2000" chance="12" radius="3" target="0" min="-200" max="-300">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="white pale paralyze" interval="2000" chance="11"/>
+	</attacks>
+	<defenses armor="8" defense="11">
+		<defense name="white pale summon" interval="2000" chance="12"/>
+	</defenses>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item id="21400" chance="200" /><!-- silver token -->
+		<item id="2148" countmax="100" chance="80000" /><!-- gold coin -->
+		<item id="2148" countmax="100" chance="70000" /><!-- gold coin -->
+		<item id="21693" chance="500" /><!-- ring -->
+		<item id="21692" chance="500" /><!--  Albino Plate -->
+		<item id="2168" chance="1000" /><!-- Life Ring -->
+		<item id="2145" chance="7000" /><!-- Small Diamond, -->
+		<item id="2666" countmax="4" chance="70000" /><!-- Meat -->
+		<item id="10609" chance="70000" /><!-- Lump of Dirt -->
+		<item id="2439" chance="70000" /><!-- Daramian Mace -->
+		<item id="11192" chance="70000" /><!-- fang -->
+	</loot>
+</monster>

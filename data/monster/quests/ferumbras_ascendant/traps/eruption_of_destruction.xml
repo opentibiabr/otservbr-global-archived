@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Eruption of Destruction" nameDescription="an eruption of destruction" race="undead" experience="320" speed="120">
+	<health now="4000" max="4000"/>
+	<look typeex="389" corpse="0"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag hidehealth="0"/>
+	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+	<attacks>
+		<attack name="speed" interval="2000" chance="25" radius="7" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="eruption of destruction explosion" interval="2000" chance="250" min="-4000" max="-6000"/>
+	</attacks>
+	<defenses armor="30" defense="30"/>
+	<immunities>
+		<immunity drunk="1"/>
+		<immunity outfit="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

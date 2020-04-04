@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Eradicator" nameDescription="Eradicator" race="energy" experience="50000" speed="450" script="rewardboss.lua">
+	<health now="290000" max="290000"/>
+	<look type="875" head="79" body="3" legs="114" feet="79" addons="1" corpse="26220"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="HeartBossDeath"/>
+		<event name="EradicatorTransform"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-300" max="-1800"/>
+		<attack name="physical" interval="2000" chance="20" length="8" spread="0" min="-600" max="-1000">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="8" spread="0" min="-600" max="-1000">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="8" min="-450" max="-900">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="big energy wave" interval="2000" chance="20" min="-700" max="-1000"/>
+		<attack name="death" interval="2000" chance="25" radius="4" target="1" min="-300" max="-600">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+	</attacks>
+	<defenses armor="100" defense="100"/>
+	<elements>
+		<element holyPercent="30"/>
+		<element firePercent="30"/>
+		<element energyPercent="30"/>
+		<element icePercent="30"/>
+		<element earthPercent="30"/>
+		<element physicalPercent="70"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="25" chance="100000"/><!-- platinum coin -->
+		<item id="18415" countmax="3" chance="8000"/><!-- green crystal shard -->
+		<item id="7590" countmax="5" chance="8000"/><!-- great mana potion -->
+		<item id="8472" countmax="5" chance="8000"/><!-- great spirit potion -->
+		<item id="2150" countmax="5" chance="8000"/><!-- small amethyst -->
+		<item id="2147" countmax="5" chance="8000"/><!-- small ruby -->
+		<item id="9970" countmax="5" chance="8000"/><!-- small topaz -->
+		<item id="8473" countmax="10" chance="8000"/><!-- ultimate health potion -->
+		<item id="18414" countmax="3" chance="8000"/><!-- violet crystal shard -->
+		<item id="26191" chance="8000"/><!-- energy bar -->
+		<item id="26176" chance="8000"/><!-- plasmatic lightning -->
+		<item id="26174" chance="8000"/><!-- spark sphere -->
+		<item id="25377" chance="100000"/><!-- gold token -->
+		<item id="26165" chance="100000"/><!-- mysterious remains -->
+		<item id="26166" chance="100000"/><!-- odd organ -->
+		<item id="2158" chance="6000"/><!-- blue gem -->
+		<item id="2155" chance="6000"/><!-- green gem -->
+		<item id="8901" chance="6000"/><!-- spellbook of warding -->
+		<item id="2445" chance="4000"/><!-- crystal mace -->
+		<item id="26185" chance="3500"/><!-- ring of blue plasma -->
+		<item id="26187" chance="3500"/><!-- ring of green plasma -->
+		<item id="26189" chance="3500"/><!-- ring of red plasma -->
+		<item id="2645" unique="1" chance="5000"/><!-- steel boots -->
+		<item id="8903" unique="1" chance="3000"/><!-- spellbook of lost souls -->
+	</loot>
+</monster>

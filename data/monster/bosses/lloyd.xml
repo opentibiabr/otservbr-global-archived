@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lloyd" nameDescription="Lloyd" race="energy" experience="50000" speed="400" script="rewardboss.lua">
+	<health now="64000" max="64000"/>
+	<look type="940" corpse="27595"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="1"/>
+		<flag rewardboss="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<script>
+		<event name="Lloyd"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="70" min="-200" max="-1400"/>
+		<attack name="energy" interval="2000" chance="12" length="6" spread="0" min="-130" max="-460">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="lloyd wave" interval="2000" chance="12" min="-430" max="-560"/>
+		<attack name="lloyd wave2" interval="2000" chance="12" min="-230" max="-460"/>
+		<attack name="lloyd wave3" interval="2000" chance="12" min="-430" max="-660"/>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="180" max="250"/>
+	</defenses>
+	<elements>
+		<element physicalPercent="0"/>
+		<element deathPercent="50"/>
+		<element energyPercent="0"/>
+		<element earthPercent="0"/>
+		<element icePercent="0"/>
+		<element holyPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity drown="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="200" chance="97000"/><!-- gold coin -->
+		<item id="2152" countmax="30" chance="90000"/><!-- platinum coin -->
+		<item id="7590" countmax="3" chance="22120"/><!-- great mana potion -->
+		<item id="8473" countmax="3" chance="19500"/><!-- ultimate health potion -->
+		<item id="2493" chance="1000"/><!-- demon helmet -->
+		<item id="18413" countmax="5" chance="9660"/><!-- blue crystal shard -->
+		<item id="18414" countmax="5" chance="9660"/><!-- green crystal shard-->
+		<item id="18415" countmax="5" chance="9660"/><!-- violet crystal shard -->
+		<item id="2149" countmax="5" chance="9660"/><!-- small emerald -->
+		<item id="2147" countmax="5" chance="7360"/><!-- small ruby -->
+		<item id="9970" countmax="5" chance="7350"/><!-- small topaz -->
+		<item id="2150" countmax="5" chance="7150"/><!-- small amethyst -->
+		<item id="5888" countmax="2" chance="5888"/><!--  Piece of Hell Steel -->
+		<item id="5887" countmax="2" chance="5909"/><!--  Piece of Royal Steel -->
+		<item id="7424" chance="5000"/><!-- Lunar Staff -->
+		<item id="2158" chance="5000"/><!-- Blue Gem -->
+		<item id="2155" chance="5000"/><!-- Green Gem -->
+		<item id="2154" chance="5000"/><!-- yellow Gem -->
+		<item id="2195" chance="5000"/><!-- boh -->
+		<item id="26182" chance="5000"/><!-- collar of blue plasma -->
+		<item id="5891" chance="5000"/><!-- enchanted chicken wing -->
+		<item id="7895" chance="5000"/><!--  Lightning Legs -->
+		<item id="12410" chance="5000"/><!--  luminous orb -->
+		<item id="7440" chance="5000"/><!--  Mastermind Potion -->
+		<item id="5904" chance="5000"/><!--  Magic Sulphur -->
+		<item id="27627" chance="500" unique="1"/><!--  part of a rune(six) -->
+		<item id="2214" chance="1970"/><!-- ring of healing -->
+		<item id="8920" chance="1970"/><!--  Wand of Starstorm -->
+		<item id="8900" chance="1970"/><!--   Spellbook of Enlightenment -->
+		<item id="11355" chance="1970"/><!--   Spellweaver's Robe -->
+		<item id="25383" chance="1970"/><!--   Rift Lance -->
+		<item id="25377" chance="100000"/><!-- Gold Token -->
+		<item id="25172" chance="100000"/><!-- Silver Token -->
+	</loot>
+</monster>

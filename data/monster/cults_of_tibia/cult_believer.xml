@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cult Believer" nameDescription="a cult believer" race="blood" experience="850" speed="260" manacost="390">
+	<health now="975" max="975"/>
+	<look type="132" head="98" body="77" legs="39" feet="57" addons="1" corpse="24673"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="0"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="10" max="-250"/>
+	</attacks>
+	<defenses armor="35" defense="50">
+		<defense name="healing" interval="4000" chance="25" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="13">
+		<voice sentence="Death to the unbelievers!"/>
+	</voices>
+	<loot>
+		<item id="2543" countmax="10" chance="90450"/>	<!-- bolt -->
+		<item id="2148" countmax="30" chance="75410"/>	<!-- gold coin -->
+		<item id="2681" chance="15400"/>				<!-- grapes -->
+		<item id="7591" countmax="2" chance="12340"/>	<!--great health potion -->
+		<item id="2666" chance="5000"/>					<!-- meat -->
+		<item id="2455" chance="830"/>					<!-- crossbow -->
+		<item id="2652" chance="760"/>				<!-- Green Tunic -->
+		<item id="2164" countmax="2" chance="700"/>	<!-- Might Ring -->
+		<item id="2120" chance="1000"/>					<!-- Rope -->
+		<item id="2661" chance="1000"/>					<!-- Scarf -->
+		<item id="1949" chance="830"/>					<!-- Scroll -->
+		<item id="2145" chance="830"/>					<!-- Small Diamond -->
+		<item id="2391" chance="130"/>					<!-- War Hammer -->
+		<item id="2381" chance="830"/>					<!-- Halberd -->
+		<item id="2515" chance="330"/>					<!-- Guardian Shield -->
+		<item id="2477" chance="230"/>					<!-- Knight Legs -->
+		<item id="2475" chance="200"/>					<!-- Warrior Helmet -->
+	</loot>
+</monster>

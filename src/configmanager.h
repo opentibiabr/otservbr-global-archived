@@ -1,8 +1,6 @@
 /**
- * @file configmanager.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_CONFIGMANAGER_H_
-#define OT_SRC_CONFIGMANAGER_H_
+#ifndef FS_CONFIGMANAGER_H_6BDD23BD0B8344F4B7C40E8BE6AF6F39
+#define FS_CONFIGMANAGER_H_6BDD23BD0B8344F4B7C40E8BE6AF6F39
 
 class ConfigManager
 {
@@ -44,16 +42,16 @@ class ConfigManager
 			CLASSIC_EQUIPMENT_SLOTS,
 			CLASSIC_ATTACK_SPEED,
 			SCRIPTS_CONSOLE_LOGS,
-			ALLOW_BLOCK_SPAWN,
 			REMOVE_WEAPON_AMMO,
 			REMOVE_WEAPON_CHARGES,
 			REMOVE_POTION_CHARGES,
-			STOREMODULES,
-			QUEST_LUA,
 			SERVER_SAVE_NOTIFY_MESSAGE,
 			SERVER_SAVE_CLEAN_MAP,
 			SERVER_SAVE_CLOSE,
 			SERVER_SAVE_SHUTDOWN,
+			FORCE_MONSTERTYPE_LOAD,
+			STOREMODULES,
+			ALLOW_BLOCK_SPAWN,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
@@ -110,16 +108,16 @@ class ConfigManager
 			MAX_CONTAINER,
 			MAX_ITEM,
 			MARKET_OFFER_DURATION,
+			VERSION_MIN,
+			VERSION_MAX,
+			DEPOT_BOXES,
+			FREE_DEPOT_LIMIT,
+			PREMIUM_DEPOT_LIMIT,
 			CHECK_EXPIRED_MARKET_OFFERS_EACH_MINUTES,
 			MAX_MARKET_OFFERS_AT_A_TIME_PER_PLAYER,
 			EXP_FROM_PLAYERS_LEVEL_RANGE,
 			MAX_PACKETS_PER_SECOND,
 			STORE_COIN_PACKET,
-			VERSION_MIN,
-			VERSION_MAX,
-			FREE_DEPOT_LIMIT,
-			PREMIUM_DEPOT_LIMIT,
-			DEPOT_BOXES,
 			DAY_KILLS_TO_RED,
 			WEEK_KILLS_TO_RED,
 			MONTH_KILLS_TO_RED,
@@ -143,8 +141,8 @@ class ConfigManager
 		bool reload();
 
 		const std::string& getString(string_config_t what) const;
-		int16_t getShortNumber(integer_config_t what) const;
 		int32_t getNumber(integer_config_t what) const;
+		int16_t getShortNumber(integer_config_t what) const;
 		bool getBoolean(boolean_config_t what) const;
 		float getFloat(floating_config_t what) const;
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Rupture" nameDescription="Rupture" race="energy" experience="112000" speed="450" script="rewardboss.lua">
+	<health now="290000" max="290000"/>
+	<look type="875" head="77" body="98" legs="3" feet="85" corpse="26220"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="RuptureResonance" />
+		<event name="RuptureHeal" />
+		<event name="HeartBossDeath" />
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-250" max="-1000"/>
+		<attack name="energy" interval="2000" chance="25" length="10" spread="0" min="-350" max="-800">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="death" interval="2000" chance="25" target="1" radius="4" min="-150" max="-300">
+			<attribute key="areaEffect" value="smallclouds"/>
+			<attribute key="shootEffect" value="suddendeath"/>
+		</attack>
+		<attack name="rupture wave" interval="2000" chance="20" min="-700" max="-1100"/>
+		<attack name="lifedrain" interval="2000" chance="25" length="9" spread="0" min="-300" max="-600">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+	</attacks>
+	<defenses armor="100" defense="100">
+		<defense name="healing" interval="2000" chance="15" min="150" max="400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="-10"/>
+		<element earthPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="10" chance="100000"/><!-- platinum coin -->
+		<item id="8473" countmax="5" chance="8000"/><!-- ultimate health potion -->
+		<item id="18413" countmax="3" chance="8000"/><!-- blue crystal shard -->
+		<item id="18415" countmax="3" chance="8000"/><!-- green crystal shard -->
+		<item id="2150" countmax="10" chance="8000"/><!-- small amethyst -->
+		<item id="2146" countmax="5" chance="8000"/><!-- small sapphire -->
+		<item id="18414" countmax="3" chance="8000"/><!-- violet crystal shard -->
+		<item id="26191" countmax="5" chance="8000"/><!-- energy bar -->
+		<item id="26162" chance="8000"/><!-- plasma pearl -->
+		<item id="26166" chance="100000"/><!-- odd organ -->
+		<item id="25377" chance="100000"/><!-- gold token -->
+		<item id="26165" chance="100000"/><!-- mysterious remains -->
+		<item id="2155" chance="6000"/><!-- green gem -->
+		<item id="7427" chance="6000"/><!-- chaos mace -->
+		<item id="26187" chance="4000"/><!-- ring of green plasma -->
+		<item id="26189" chance="4000"/><!-- ring of red plasma -->
+		<item id="26130" unique="1" chance="2000"/><!-- tiara of power -->
+		<item id="26133" unique="1" chance="2000"/><!-- void boots -->
+	</loot>
+</monster>

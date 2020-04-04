@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Necropharus" nameDescription="Necropharus" race="blood" experience="1050" speed="240">
+	<health now="750" max="750" />
+	<look type="209" corpse="20574" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-80" poison="8" />
+		<attack name="physical" interval="3000" chance="70" range="5" min="-60" max="-217">
+			<attribute key="areaEffect" value="mortarea" />
+			<attribute key="shootEffect" value="suddendeath" />
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="20" range="1" min="-80" max="-120">
+			<attribute key="areaEffect" value="redspark" />
+		</attack>
+		<attack name="fire" interval="1000" chance="17" range="7" min="-50" max="-140">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="fire" />
+		</attack>
+		<attack name="energy" interval="1000" chance="17" range="7" min="-50" max="-140">
+			<attribute key="shootEffect" value="energy" />
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="0" max="300">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="20" />
+		<element deathPercent="50" />
+		<element physicalPercent="-5" />
+		<element firePercent="-5" />
+		<element holyPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity poison="1" />
+		<immunity lifedrain="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Ghoul" interval="1000" chance="20" />
+		<summon name="Ghost" interval="1000" chance="17" />
+		<summon name="Mummy" interval="1000" chance="15" />
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="You will rise as my servant!" />
+		<voice sentence="Praise to my master Urgith!" />
+	</voices>
+	<loot>
+		<item id="11237" chance="100000" />				<!-- book of necromantic rituals -->
+		<item id="2148" countmax="99" chance="100000" />	<!-- gold coin -->
+		<item id="12431" chance="100000" />				<!-- necromantic robe -->
+		<item id="5809" chance="100000" />				<!-- soul stone -->
+		<item id="2423" chance="52000" />				<!-- clerical mace -->
+		<item id="2436" chance="47000" />				<!-- skull staff -->
+		<item id="2449" chance="38000" />				<!-- bone club -->
+		<item id="2229" chance="19000" />				<!-- skull -->
+		<item id="2796" chance="14000" />				<!-- green mushroom -->
+		<item id="2186" chance="14000" />				<!-- moonlight rod -->
+		<item id="2231" chance="9500" />					<!-- big bone -->
+		<item id="2541" chance="9500" />					<!-- bone shield -->
+		<item id="2195" chance="4700" />					<!-- boots of haste -->
+		<item id="2663" chance="4700" />					<!-- mystic turban -->
+		<item id="7589" chance="4700" />					<!-- strong mana potion -->
+	</loot>
+</monster>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Darkfang" nameDescription="a darkfang" race="blood" experience="4000" speed="250" script="rewardboss.lua">
+	<health now="4800" max="4800" />
+	<look type="308" corpse="20380" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-290" />
+		<attack name="werewolf skill reducer" interval="2000" range="1" chance="15" />
+		<attack name="lifedrain" interval="2000" chance="15" radius="8" target="0" min="-100" max="-300">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+		<attack name="physical" interval="2000" chance="18" radius="3"  min="200" max="340">
+			<attribute key="areaEffect" value="groundshaker" />
+		</attack>
+			<attack name="speed" interval="2000" chance="15" range="7" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="healing" interval="4000" chance="15" min="150" max="345">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<summons maxSummons="2">
+		<summon name="Gloom Wolf" interval="2000" chance="20" />
+	</summons>
+		<voices interval="2000" chance="5">
+		<voice sentence="The ferocity of wolves will frighten the fearful! Roarrr!" />
+		<voice sentence="You are my next meal! Grrr!" />
+	</voices>
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element deathPercent="50" />
+		<element icePercent="50" />
+		<element holyPercent="50" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="100" chance="13600000" />
+		<item name="gold coin" countmax="100" chance="13600000" />
+		<item name="platinum coin" countmax="10" chance="13600000" />
+		<item name="berserk potion" countmax="3" chance="13600000" />
+		<item name="black pearl" countmax="3" chance="13600000" />
+		<item name="onyx chip" countmax="5" chance="13600000" />
+		<item name="small enchanted sapphire" countmax="10" chance="13600000" />
+		<item name="ultimate health potion" countmax="5" chance="13600000" />
+		<item name="platinum amulet" chance="13600000" />
+		<item name="stone skin amulet" chance="13600000" />
+		<item id="2169" chance="13600000" /><!-- time ring -->
+		<item name="troll green" countmax="2" chance="13600000" />
+		<item name="werewolf fur" countmax="2" chance="13600000" />
+		<item name="wolf paw" countmax="2" chance="13600000" />
+		<item name="bonebreaker" chance="400" />
+		<item name="dreaded cleaver" chance="400" />
+		<item name="werewolf amulet" chance="400" />
+		<item name="sai" chance="250" />
+		<item id="7394" chance="13600000" /><!-- wolf trophy -->
+		<item name="silver token" chance="250" />
+		<item name="wolf backpack" chance="100" />
+	</loot>
+</monster>

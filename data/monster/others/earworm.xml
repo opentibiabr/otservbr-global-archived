@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Earworm" nameDescription="an earworm" race="blood" experience="2000" speed="155">
+	<health now="4000" max="4000"/>
+	<look type="26" corpse="36497"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-240" poison="25"/>
+		<attack name="earth" interval="2000" chance="15" range="5" target="1" min="-320" max="-450">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="greennote"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="12" radius="3" min="-280" max="-350">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="46" defense="46"/>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="2" chance="82000"/>
+		<item name="Envenomed Arrow" countmax="47" chance="68000"/>
+		<item name="Earth Arrow" countmax="21" chance="65000"/>
+		<item name="Worm" countmax="3" chance="61500"/>
+		<item name="Lump of Dirt" chance="42000"/>
+		<item name="Green Memory Shard" chance="35000"/>
+		<item name="Blue Memory Shard" chance="35000"/>
+		<item name="Violet Memory Shard" chance="32000"/>
+		<item name="Terra Amulet" chance="26000"/>
+		<item name="Terra hood" chance="16500"/>
+		<item name="Sacred Tree Amulet" chance="12300"/>
+	</loot>
+</monster>

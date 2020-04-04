@@ -1110,50 +1110,34 @@ function GameStore.processStackablePurchase(player, offerId, offerCount, offerNa
   if inbox and inbox:getEmptySlots() > 0 then
     if (isKegExerciseItem(offerId)) then
       if (offerCount >= 500) then
-        local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
-        local function changeParcel(parcel)
-          local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
-          if parcel then
-            parcel:setAttribute(ITEM_ATTRIBUTE_NAME, packagename)
-            local pendingCount = offerCount
-            while (pendingCount > 0) do
-              local pack
-              if (pendingCount > 500) then
-                pack = 500
-              else
-                pack = pendingCount
-              end
-              local kegExerciseItem = parcel:addItem(offerId, 1)
-              kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
-              pendingCount = pendingCount - pack
-            end
-          end
+		local pendingCount = offerCount
+		while (pendingCount > 0) do
+			local pack
+			if (pendingCount > 500) then
+				pack = 500
+			else
+				pack = pendingCount
+			end
+			local kegExerciseItem = inbox:addItem(offerId, 1)
+            kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, pack)
+			pendingCount = pendingCount - pack
         end
-        addEvent(function() changeParcel(parcel) end, 250)
       else
         local kegExerciseItem = inbox:addItem(offerId, 1)
         kegExerciseItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, offerCount)
       end
     elseif (offerCount > 100) then
-      local parcel = Item(inbox:addItem(23782, 1):getUniqueId())
-      local function changeParcel(parcel)
-        local packagename = '' .. offerCount .. 'x ' .. offerName .. ' package.'
-        if parcel then
-          parcel:setAttribute(ITEM_ATTRIBUTE_NAME, packagename)
-          local pendingCount = offerCount
-          while (pendingCount > 0) do
-            local pack
-            if (pendingCount > 100) then
-              pack = 100
-            else
-              pack = pendingCount
-            end
-            parcel:addItem(offerId, pack)
-            pendingCount = pendingCount - pack
-          end
+		local pendingCount = offerCount
+		while (pendingCount > 0) do
+			local pack
+			if (pendingCount > 100) then
+				pack = 100
+			else
+				pack = pendingCount
+			end
+			inbox:addItem(offerId, pack)
+			pendingCount = pendingCount - pack
         end
-      end
-      addEvent(function() changeParcel(parcel) end, 250)
     else
       inbox:addItem(offerId, offerCount)
     end

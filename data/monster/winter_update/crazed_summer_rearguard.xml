@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crazed Summer Rearguard" nameDescription="a Crazed Summer Rearguard" race="blood" experience="4700" speed="400">
+	<health now="5300" max="5300"/>
+	<look type="1136" head="1" body="94" legs="20" feet="119" corpse="34719"/>
+	<targetchange interval="4000" chance="10"/>
+	
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	
+	<attacks>
+		<attack name="melee" interval="2000" min="-210" max="-530"/>
+		<attack name="fire" interval="2000" chance="10" length="3" spread="0" min="-270" max="-710">
+		<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" target="1" radius="5" min="-350" max="-380">
+		<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" target="1" radius="5" min="-200" max="-350">
+		<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+		 
+	<defenses armor="70" defense="20"/>
+		<defense name="healing" interval="2000" chance="14" min="150" max="250">
+		<attribute key="areaEffect" value="blueshimmer"/>
+	</defense>
+	
+	<elements>
+		<element physicalPercent="30"/>
+		<element holyPercent="50"/>
+		<element icePercent="-10"/>
+	</elements>
+	
+	<immunities>
+		<immunity holy="0"/>
+		<immunity death="0"/>
+		<immunity ice="0"/>
+		<immunity fire="1"/>
+		<immunity earth="0"/>
+		<immunity energy="0"/>
+		<immunity physical="0"/>
+		<immunity lifedrain="1"/>
+		<immunity drown="1"/>
+		<immunity paralyze="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+		<immunity outfit="1"/>
+	</immunities>
+	
+	<voices interval="10000" chance="7">
+		<voice sentence="Is this real life?"/>
+		<voice sentence="Weeeuuu weeeuuu!!!"/>
+	</voices>
+	
+	<loot>
+	<!--common-->
+		<item name="power bolt" chance="1000000"/>
+		<item name="small enchanted sapphire" countmax="2" chance="1000000"/>
+		<item name="platinum coin" countmax="5" chance="1000000"/>
+	<!--uncommon-->
+		<item id="5921" chance="1500"/><!-- heaven blossom -->
+		<item name="dream essence egg" chance="1155"/>
+		<item name="elvish talisman" chance="1355"/>
+		<item name="violet crystal shard" chance="1475"/>
+		<item name="small enchanted ruby" chance="1755"/>
+		<item name="red crystal fragment" chance="1565"/>
+	<!--semi-rare-->
+		<item name="leaf star" countmax="8" chance="11100"/>
+		<item id="26185" chance="1000"/> <!--ring of blue plasma-->
+		<item name="sun fruit" chance="25800"/>
+		<item id="26198" chance="1590"/>  <!--collar of blue plasma -->
+		<item name="wood cape" chance="30000"/>
+	<!--rare-->
+		<item name="small diamond" chance="800"/>
+		<item name="yellow gem" chance="640"/>
+		<item name="crystal crossbow" chance="600"/>
+	</loot>
+</monster>

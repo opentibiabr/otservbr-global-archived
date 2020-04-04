@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Sword of Vengeance" nameDescription="a sword of vegeance" race="fire" experience="0" speed="360">
+	<health now="2000" max="2000"/>
+	<look typeex="26895" corpse="0"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag isblockable="0"/>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="50"/>
+		<attack name="manadrain" interval="2000" chance="20" radius="6" min="-40" max="-160">
+      			<attribute key="areaEffect" value="blueshimmer" />
+   		</attack>
+		<attack name="berserk" interval="2000" chance="15" min="-40" max="-160"/>
+		<attack name="energy" interval="2000" chance="15" length="4" spread="0" min="-40" max="-100">
+			<attribute key="areaEffect" value="energy" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30"/>
+  	<immunities>
+    		<immunity lifedrain="1" />
+    		<immunity invisible="1" />
+    		<immunity paralyze="1" />
+    		<immunity drunk="1" />
+  	</immunities>
+</monster>

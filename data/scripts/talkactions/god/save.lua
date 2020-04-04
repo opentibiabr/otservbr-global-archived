@@ -15,7 +15,7 @@ function talk.onSay(player, words, param)
 			save(tonumber(param) * 60 * 1000)
 		else
 			saveServer()
-			player:sendTextMessage(MESSAGE_STATUS_CONSOLE_BLUE, "Server is saved ...")
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Server is saved ...")
 		end
 	end
 end

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Oberon's Spite" nameDescription="a Oberon's Spite" race="blood" experience="20000" speed="0">
+	<health now="10000" max="10000" />
+	<look typeex="12168" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1400" min="150" max="800" />
+	</attacks>
+	<defenses armor="82" defense="50">
+	<defense name="healing" interval="1400" chance="20" min="400" max="550">
+		<attribute key="areaEffect" value="blueshimmer" />
+	</defense>
+	</defenses>
+		 <summons maxSummons="1">
+	<summon name="Falcon paladin" interval="2000" chance="70" />
+	</summons>
+	<elements>
+		<element firePercent="100" />
+		<element earthPercent="100" />
+		<element energyPercent="100" />
+		<element deathPercent="100" />
+		<element physicalPercent="100" />
+		<element holyPercent="100" />
+		<element icePercent="100" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

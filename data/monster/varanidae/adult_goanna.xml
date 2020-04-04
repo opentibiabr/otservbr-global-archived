@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Adult Goanna" nameDescription="an adult goanna" race="blood" experience="6650" speed="420">
+	<health now="8300" max="8300"/>
+	<look type="1195" corpse="36240"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="10"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350" poison="19"/>
+		<attack name="wave t" interval="2000" chance="10" min="-250" max="-380"/>
+		<attack name="earth" interval="2000" chance="12" range="3" radius="1" target="1" min="-450" max="-550">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15" radius="5" min="-210" max="-300">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="84" defense="84">
+	    <defense name="speed" interval="2000" chance="5" speedchange="500" duration="5000">
+		    <attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>	
+	<elements>
+		<element earthPercent="75"/>
+		<element energyPercent="-10"/>
+	</elements>
+	<immunities>
+	    <immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="3" chance="100000"/>
+		<item name="Envenomed Arrow" countmax="8" chance="55360"/>
+		<item name="Earth Arrow" countmax="29" chance="16800"/>
+		<item name="Terra Rod" chance="11000"/>
+		<item name="Goanna Meat" chance="12140"/>
+		<item name="Goanna Claw" chance="4290"/>
+		<item name="Lizard Heart" chance="1400"/>
+		<item name="Red Goanna Scale" chance="10000"/>
+		<item name="Fur Armor" chance="3200"/>
+		<item name="Serpent Sword" chance="3600"/>
+		<item name="Terra Amulet" chance="4650"/>
+		<item name="Terra Hood" chance="7100"/>
+		<item name="Wood Cape" chance="1800"/>
+		<item name="Scared Frog" chance="2100"/>
+		<item name="Sacred Tree Amulet" chance="2500"/>
+		<item name="Small Tortoise" chance="1800"/>
+	</loot>
+</monster>

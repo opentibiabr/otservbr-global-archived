@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lisa" nameDescription="Lisa" race="venom" experience="18000" speed="200">
+	<health now="55000" max="55000"/>
+	<look type="604" corpse="23359"/>
+	<targetchange interval="2000" chance="3"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushcreatures="1"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="150" attack="100" poison="900"/>
+		<attack name="lifedrain" interval="2000" chance="20" range="7" target="1" radius="1" min="-200" max="-400">
+			<attribute key="shootEffect" value="greenstar"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="effect" interval="2000" chance="15" range="7" target="1" radius="6">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="bigplants"/>
+		</attack>
+		<attack name="effect" interval="2000" chance="15" range="7" target="1" radius="6">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="plantattack"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="13" radius="8" target="0" min="-100" max="-200">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="lisa paralyze" interval="2000" chance="12"/>
+		<attack name="lisa skill reducer" interval="2000" chance="15"/>
+		<attack name="lisa wave" interval="2000" chance="11" min="-400" max="-900"/>
+	</attacks>
+	<defenses armor="15" defense="25">
+		<defense name="lisa summon" interval="2000" chance="5"/>
+		<defense name="lisa heal" interval="1000" chance="100"/>
+	</defenses>
+	<elements>
+		<element energyPercent="10"/>
+		<element deathPercent="5"/>
+		<element firePercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+		<immunity poison="1"/>
+	</immunities>
+	<loot>
+		<item id="23515" countmax="5" chance="20000"/><!-- bowl of glooth soup -->
+		<item id="23551" chance="1000"/><!-- glooth axe -->
+		<item id="23550" chance="1000"/><!-- glooth blade -->
+		<item id="23549" chance="1000"/><!-- glooth club -->
+		<item id="23514" countmax="5" chance="50000"/><!-- glooth sandwich -->
+		<item id="23517" countmax="5" chance="50000"/><!-- glooth steak -->
+		<item id="23543" chance="2000"/><!-- glooth whip -->
+		<item id="7591" countmax="5" chance="30000"/><!-- great health potion -->
+		<item id="7590" countmax="5" chance="30000"/><!-- great mana potion -->
+		<item id="8472" countmax="5" chance="30000"/><!-- great spirit potion -->
+		<item id="23589" chance="800"/><!-- lisa's doll -->
+		<item id="23568" countmax="3" chance="100000"/><!-- slimy leaf tentacle -->
+		<item id="2150" countmax="5" chance="50000"/><!-- small amethyst -->
+		<item id="2147" countmax="5" chance="50000"/><!-- small ruby -->
+		<item id="9970" countmax="5" chance="50000"/><!-- small topaz -->
+	</loot>
+</monster>

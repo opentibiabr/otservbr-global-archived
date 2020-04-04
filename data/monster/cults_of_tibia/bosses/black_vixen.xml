@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Black Vixen" nameDescription="a black vixen" race="blood" experience="3200" speed="200" script="rewardboss.lua">
+	<health now="3200" max="3200" />
+	<look type="1038" corpse="32057" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="3" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-290" />
+		<attack name="physical" interval="1000" chance="20" range="7" min="100" max="720">
+			<attribute key="shootEffect" value="throwingstar" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+		<attack name="death" interval="1000" chance="14" length="5" spread="0" min="-100" max="-700">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="werewolf" duration="2000"/>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="healing" interval="4000" chance="15" min="150" max="345">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="15" duration="10000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<summons maxSummons="2">
+		<summon name="werefox" interval="2000" chance="20" />
+	</summons>
+	<voices interval="2000" chance="5">
+		<voice sentence="You are not clever enough to defeat me!" />
+		<voice sentence="The slyness of foxes will deceive the unwary!" />
+	</voices>
+	<elements>
+		<element physicalPercent="50" />
+		<element energyPercent="50" />
+		<element earthPercent="50" />
+		<element firePercent="50" />
+		<element deathPercent="50" />
+		<element icePercent="-40" />
+		<element holyPercent="50" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="100" chance="13600000" />
+		<item name="gold coin" countmax="100" chance="13600000" /><item name="platinum coin" countmax="10" chance="13600000" />
+		<item name="assassin star" countmax="9" chance="13600000" />
+		<item name="black pearl" countmax="2" chance="13600000" />
+		<item name="great mana potion" countmax="2" chance="13600000" />
+		<item name="great spirit potion" countmax="2" chance="13600000" />
+		<item name="small enchanted emerald" countmax="2" chance="13600000" />
+		<item name="ultimate mana potion" countmax="2" chance="13600000" />
+		<item name="ultimate spirit potion" countmax="2" chance="13600000" />
+		<item name="fox paw" countmax="2" chance="13600000" />
+		<item name="moonlight rod" chance="13600000" />
+		<item name="stealth ring" chance="13600000" />
+		<item name="werefox tail" chance="13600000" />
+		<item name="green gem" chance="400" />
+		<item name="troll green" chance="400" />
+		<item name="werewolf amulet" chance="400" />
+		<item name="composite hornbow" chance="250" />
+		<item name="sai" chance="250" />
+		<item name="silver token" chance="250" />
+		<item id="30941" chance="250" /><!-- werefox trophy -->
+		<item name="foxtail" chance="100" />
+		<item name="wolf backpack" chance="100" />
+		<item name="silver token" chance="100" />
+	</loot>
+</monster>

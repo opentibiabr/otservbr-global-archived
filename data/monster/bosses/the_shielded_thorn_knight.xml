@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Shielded Thorn Knight" nameDescription="the shielded thorn knight" race="blood" experience="0" speed="390" manacost="290">
+	<health now="70000" max="70000" />
+	<look type="512" addons="3" head="81" body="121" legs="121" feet="121" corpse="0" />
+	<targetchange interval="5000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<script>
+		<event name="ThornKnightDeath"/>
+		<event name="HealthForgotten"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-600" max="-1000" />
+		<attack name="lifedrain" interval="2000" chance="12" length="4" spread="3" min="-400" max="-700">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="12" length="9" spread="0" min="-1400" max="-1700">
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+		<attack name="death" interval="2000" chance="12" length="9" spread="0" min="-400" max="-700">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="10" min="-200" max="-250">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60">
+	<defense name="healing" interval="2000" chance="20" min="1550" max="2550">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="1000" chance="12" speedchange="620" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="80" />
+		<element holyPercent="80" />
+		<element earthPercent="100" />
+		<element deathPercent="80" />
+		<element firePercent="80" />
+		<element physicalPercent="80" />
+		<element icePercent="80" />
+	</elements>
+</monster>

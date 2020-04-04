@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Destruction" nameDescription="The Destruction" race="energy" experience="0" speed="400">
+	<health now="250000" max="250000"/>
+	<look type="876" head="78" body="80" legs="77" feet="19" corpse="0"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="HeartMinionDeath" />
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1393"/>
+		<attack name="energy" interval="2000" chance="20" radius="4" target="1" min="-300" max="-600">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="4" target="1" min="-400" max="-800">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="0" min="-200" max="-400">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="8" min="0" max="0">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="10" spread="0" min="-500" max="-900">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="10" spread="0" min="-500" max="-900">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+		<attack name="destruction summon" interval="2000" chance="20"/>
+	</attacks>
+	<defenses armor="100" defense="100">
+		<defense name="healing" interval="2000" chance="20" min="0" max="546">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Deepworm" nameDescription="a Deepworm" race="blood" experience="2300" speed="204">
+	<health now="3500" max="3500"/>
+	<look type="1054" corpse="8721"/>
+	<targetchange interval="4000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+				<flag isblockable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+	</attacks>
+	<defenses armor="10" defense="15"/>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+	</loot>
+</monster>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Manticore" nameDescription="a manticore" race="blood" experience="5100" speed="300">
+	<health now="6700" max="6700"/>
+	<look type="1189" head="116" body="97" legs="113" feet="20" corpse="36225"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500"/>
+		<attack name="fire" interval="2000" chance="13" length="8" spread="0" min="-350" max="-450">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+    		<attack name="poison" interval="4000" chance="15" radius="3" target="1" min="-300" max="-400">
+     			<attribute key="areaEffect" value="greenbubble"/>
+     			<attribute key="shootEffect" value="envenomedarrow"/>
+     		</attack>
+    		<attack name="fire" interval="2000" chance="22" target="1" range="4" min="-300" max="-500">
+     			<attribute key="shootEffect" value="burstarrow"/>
+     		</attack>
+	</attacks>
+	<defenses armor="78" defense="78"/>
+	<elements>
+		<element firePercent="80"/>
+		<element icePercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="flaming arrow" countmax="11" chance="4090"/>
+		<item name="royal star" countmax="4" chance="1120"/>
+		<item name="manticore tail" chance="8550"/>
+		<item name="manticore ear" chance="6690"/>
+		<item name="magma legs" chance="740"/>
+		<item name="magma monocle" chance="1860"/>
+		<item name="magma boots" chance="370"/>
+		<item name="magma coat" chance="2970"/>
+		<item name="wand of everblazing" chance="1120"/>
+		<item name="wand of dragonbreath" chance="740"/>
+		<item name="wand of draconia" chance="370"/>
+	</loot>
+</monster>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Gelidrazah the Frozen" nameDescription="Gelidrazah the Frozen" race="undead" experience="9000" speed="250">
+	<health now="10000" max="10000"/>
+	<look type="947" head="57" body="30" legs="57" feet="57" addons="3" corpse="27733"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400"/>
+		<attack name="lifedrain" interval="2000" chance="10" target="0" length="8" spread="3" min="-175" max="-380">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="5" target="0" radius="3" speedchange="-700" duration="12000">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" target="0" length="7" spread="3" speedchange="-850" duration="18000">
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="5" radius="3" target="0" min="-200" max="-350">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="10" target="1" radius="4" min="-150" max="-300">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="5" target="0" length="1" spread="0" min="100" max="-400">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="20" target="1" radius="4" speedchange="-600" duration="12000">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45">
+		<defense name="healing" interval="2000" chance="10" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="290" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-10"/>
+		<element deathPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity ice="1"/>
+		<immunity earth="1"/>
+	</immunities>
+	<loot>
+		<item id="27605" chance="100000"/> <!-- dragon blood -->
+		<item id="2672" countmax="3" chance="80000"/> <!-- dragon ham -->
+		<item id="27606" chance="100000"/> <!-- dragon tongue -->
+		<item id="2167" chance="5000"/> <!-- energy ring -->
+		<item id="8887" chance="500"/> <!-- frozen plate -->
+		<item id="18412" chance="2000"/> <!-- glacial rod -->
+		<item id="7888" chance="25000"/> <!-- glacier amulet -->
+		<item id="7902" chance="8000"/> <!-- glacier mask  -->
+		<item id="2148" countmax="130" chance="90000"/> <!-- gold coin -->
+		<item id="2033" chance="3000"/> <!-- golden mug -->
+		<item id="7441" chance="5000"/> <!-- ice cube -->
+		<item id="21696" chance="7000"/> <!-- icicle bow -->
+		<item id="7409" chance="100"/> <!-- northern star -->
+		<item id="2152" countmax="3" chance=""/> <!-- platinum coin -->
+		<item id="21697" chance="7000"/> <!-- runic ice shield -->
+		<item id="27607" chance="100000"/> <!-- scale of Gelidrazah -->
+		<item id="7290" chance="30000"/> <!-- shard -->
+		<item id="2146" chance="10000"/> <!-- small sapphire -->
+	</loot>
+</monster>

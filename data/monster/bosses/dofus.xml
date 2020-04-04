@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dofus" nameDescription="Dofus" race="blood" experience="11800" speed="390">
+	<health now="100000" max="100000" />
+	<look type="88" corpse="6031" />
+	<targetchange interval="60000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="150" attack="150" />
+		<attack name="physical" interval="2000" chance="24" range="7" min="-480" max="-800">
+			<attribute key="shootEffect" value="largerock" />
+		</attack>
+		<attack name="fire" interval="2000" chance="100" range="7" min="-820" max="-950">
+			<attribute key="areaEffect" value="energyarea" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="2000" chance="12" speedchange="380" duration="4000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="1000" chance="25" min="1000" max="2000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity energy="1" />
+		<immunity fire="1" />
+		<immunity poison="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+               <item id="3954" chance="1000" /><!-- bear doll -->
+                <item id="6512" chance="1000" /><!-- santa doll -->
+                <item id="6579" chance="1000" /><!-- tibia doll -->
+                <item id="9693" chance="1000" /><!-- jester doll -->
+                <item id="10306" chance="1000" /><!-- fan doll of King Tibianus -->
+                <item id="11256" chance="1000" /><!-- snowman doll -->
+                <item id="12666" chance="1000" /><!-- gamemaster doll -->
+                <item id="13559" chance="1000" /><!-- dread doll -->
+                <item id="13560" chance="1000" /><!-- fan doll of Queen Eloise -->
+                <item id="13581" chance="1000" /><!-- dread doll -->
+                <item id="16107" chance="1000" /><!-- doll of Durin The Almighty -->
+                <item id="20105" chance="1000" /><!-- rat god doll -->
+                <item id="20624" chance="1000" /><!-- bookworm doll -->
+                <item id="20625" chance="1000" /><!-- draken doll -->
+                <item id="23589" chance="1000" /><!-- lisa's doll -->
+                <item id="23806" chance="1000" /><!-- black knight doll -->
+                <item id="24331" chance="1000" /><!-- assassin doll -->
+<item id="21400" chance="1000" /><!-- silver raid token -->
+<item id="21399" chance="1000" /><!-- gold raid token -->
+	</loot>
+</monster>

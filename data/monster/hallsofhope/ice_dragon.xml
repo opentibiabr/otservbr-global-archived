@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ice Dragon" nameDescription="an ice dragon" race="blood" experience="2300" speed="212" manacost="290">
+	<health now="2500" max="2500"/>
+	<look type="947" head="11" body="11" legs="11" feet="11" corpse="27733"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="1"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="10"/>
+		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="-25">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+	<elements>
+		<element energyPercent="20"/>
+		<element holyPercent="1"/>
+		<element earthPercent="-12"/>
+		<element deathPercent="-10"/>
+	</elements>
+	<loot>
+		<item id="2148" countmax="165" chance="50320"/><!-- gold coin -->
+		<item id="2152" countmax="2" chance="50320"/><!-- platinun coin -->
+		<item id="2789" countmax="2" chance="50320"/><!-- Brown Mushrooms -->
+		<item id="2666" countmax="2" chance="50320"/><!-- Meats -->
+		<item id="27051" countmax="2" chance="20000"/><!-- cave turnip -->
+		<item id="5022" countmax="2" chance="50320"/><!-- Orichalcum Pearl -->
+		<item id="2230" chance="1130"/><!-- bone -->
+		<item id="2449" chance="4900"/><!-- bone club -->
+		<item id="2379" chance="1800"/><!-- dagger -->
+		<item id="2667" chance="12750"/><!-- fish -->
+		<item id="2467" chance="2510"/><!-- leather armor -->
+		<item id="2461" chance="1940"/><!-- leather helmet -->
+		<item id="2235" chance="1000"/><!-- moldy cheese -->
+		<item id="2406" chance="8870"/><!-- short sword -->
+		<item id="2559" chance="9700"/><!-- small axe -->
+		<item id="1294" countmax="3" chance="15290"/><!-- small stone -->
+		<item id="12495" chance="910"/><!-- Goblin Ear Gingerbreadman -->
+		<item id="6501" chance="910"/><!-- Goblin Ear Gingerbreadman -->
+	</loot>
+</monster>

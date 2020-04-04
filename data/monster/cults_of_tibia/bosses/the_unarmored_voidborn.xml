@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="The Unarmored Voidborn" nameDescription="The Unarmored Voidborn" race="undead" experience="15000" speed="250" script="rewardboss.lua">
+	<health now="250000" max="250000" />
+	<look type="987" corpse="29369" />
+	<targetchange interval="5000" chance="50" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-550" />
+		<attack name="death" interval="2000" chance="20" length="7" spread="5" min="0" max="-400">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="energy" interval="2000" chance="30" radius="5" min="-250" max="-440"/>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+	<elements>
+		<element deathPercent="-300"/>
+		<element firePercent="-300"/>
+		<element icePercent="-300"/>
+		<element earthPercent="-300"/>
+		<element holyPercent="-300"/>
+		<element physicalPercent="-300"/>
+		<element energyPercent="-300"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<voices interval="7000" chance="10">
+		<voice sentence="CHHRRR!" />
+	</voices>
+	<loot>
+		<item name="magic sulphur" countmax="10" chance="8920"/>
+		<item name="gold ingot" countmax="10" chance="21200"/>
+		<item id="7633" chance="26900"/>
+		<item name="berserker" chance="8920"/>
+		<item name="abyss hammer" chance="7620"/>
+		<item name="skull helmet" chance="9700"/>
+		<item name="silver token" chance="2732"/>
+		<item name="gold token" chance="1532"/>
+		<item name="gold coin" countmax="200" chance="100000" />
+		<item name="platinum coin" countmax="25" chance="29840" />
+		<item name="yellow gem" chance="29460" />
+		<item name="blue gem" chance="21892" />
+		<item name="skull fetish" chance="7270" />
+		<item name="bonebreaker" chance="9510" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="small diamond" countmax="10" chance="12760" />
+		<item name="small amethyst" countmax="10" chance="14700" />
+		<item name="small topaz" countmax="10" chance="11520" />
+		<item name="small sapphire" countmax="10" chance="13790" />
+		<item name="small emerald" countmax="10" chance="14700" />
+		<item name="small amethyst" countmax="10" chance="12259" />
+		<item name="energy bar" countmax="3" chance="16872" />
+		<item name="ultimate health potion" countmax="10" chance="27652" />
+		<item name="great mana potion" countmax="10" chance="33721" />
+		<item name="great spirit potion" countmax="5" chance="25690" />
+		<item id="26198" chance="12798" />
+		<item name="piece of royal steel" chance="15890" />
+		<item name="shadow sceptre" chance="7890" />
+		<item id="26189" chance="14542" />
+		<item name="terra hood" chance="16892" />
+	</loot>
+</monster>

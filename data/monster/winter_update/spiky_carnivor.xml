@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Spiky Carnivor" nameDescription="a Spiky Carnivor" race="blood" experience="1500" speed="320">
+	<health now="2800" max="2800"/>
+	<look type="1133" head="85" body="39" legs="86" feet="85" corpse="34737"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-200" max="-400"/>
+		<attack name="physical" interval="2000" chance="10" radius="4" min="-230" max="-380">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="71" defense="20">
+		<defense name="healing" interval="2000" chance="10" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+	<!--Common-->
+	    <item name="Platinum Coin" countmax="6" chance="100000"/>
+	<!--Uncommon-->
+		<item name="Green Glass Plate" countmax="17" chance="12000"/>
+		<item name="Blue Crystal Splinter" chance="11500"/>
+		<item name="Brown Crystal Splinter" chance="11000"/>
+		<item name="Dark Armor" chance="10000"/>
+		<item name="Guardian Shield" chance="9000"/>
+	<!--Semi-Rare-->
+		<item name="Rainbow Quartz" chance="8500"/>
+		<item name="Blue Robe" chance="8000"/>
+		<item name="Glacier Amulet" chance="7500"/>
+		<item name="Lightning Pendant" chance="2200"/>
+		<item name="Prismatic Quartz" chance="6500"/>
+		<item name="Talon" chance="6000"/>
+		<item name="Terra Amulet" chance="5500"/>
+		<item name="Warrior Helmet" chance="4000"/>
+	<!--Rare-->
+		<item name="Shockwave Amulet" chance="2550"/>
+		<item name="Terra Mantle" chance="4050"/>
+	<!--Very Rare-->
+		<item name="Buckle" chance="250"/>
+		<item name="Doublet" chance="250"/>
+	</loot>
+</monster>

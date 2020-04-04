@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Animated Ogre Savage" nameDescription="an animated ogre savage" race="blood" experience="950" speed="240">
+	<health now="1400" max="1400" />
+	<look type="858" corpse="24803" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag respawntype="night" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269" fire="6" />
+		<attack name="fire" interval="2000" chance="15" range="7" min="-70" max="-180">
+			<attribute key="shootEffect" value="poison" />
+		</attack>
+	</attacks>
+	<defenses armor="20" defense="20">
+		<defense name="healing" interval="2000" chance="10" min="80" max="95">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-10" />
+		<element icePercent="10" />
+		<element firePercent="10" />
+	</elements>
+	<immunities>
+		<immunity earth="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="3000" chance="50">
+		<voice sentence="Must! Chop! Food! Raahh!" />
+		<voice sentence="You tasty!" />
+	</voices>
+	<loot>
+		<item id="2148" countmax="130" chance="92000" />	<!-- gold coin -->
+		<item id="2666" chance="6200" />					<!-- meat -->
+		<item id="24849" countmax="2" chance="3200" />					<!-- Onyx Chip -->
+		<item id="24850" countmax="3" chance="3200" />					<!-- Opal -->
+		<item id="2687" countmax="7" chance="2200" />					<!-- Cookies -->
+		<item id="8844" countmax="2" chance="1200" />					<!-- jappenno -->
+		<item id="9970" countmax="2" chance="1200" />					<!-- small topaz -->
+		<item id="2147" countmax="2" chance="1200" />					<!-- small ruby -->
+		<item id="7439" chance="1200" />					<!-- Berserk Potion -->
+		<item id="2194" chance="2200" />					<!-- Mysterious Fetish -->
+		<item id="24844" chance="1200" />					<!-- Ogre Ear Stud -->
+		<item id="24845" chance="1200" />					<!--   Ogre Nose Ring -->
+		<item id="24847" chance="1200" />					<!--  Skull Fetish -->
+		<item id="7588" countmax="3" chance="2200" />					<!-- SHP -->
+		<item id="2391" chance="600" />					<!-- war hammer -->
+		<item id="24848" chance="300" />					<!-- Shamanic Mask -->
+	</loot>
+</monster>

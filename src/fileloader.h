@@ -1,8 +1,6 @@
 /**
- * @file fileloader.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_FILELOADER_H_
-#define OT_SRC_FILELOADER_H_
+#ifndef FS_FILELOADER_H_9B663D19E58D42E6BFACFE5B09D7A05E
+#define FS_FILELOADER_H_9B663D19E58D42E6BFACFE5B09D7A05E
 
 #include <limits>
 #include <vector>
@@ -50,17 +48,17 @@ struct Node
 	enum NodeChar: uint8_t
 	{
 		ESCAPE = 0xFD,
-		START  = 0xFE,
+		START = 0xFE,
 		END = 0xFF,
 	};
 };
 
 struct LoadError : std::exception {
-	const char* what() const noexcept = 0;
+	const char* what() const noexcept override = 0;
 };
 
-struct InvalidOTBFormat : LoadError {
-	const char* what() const noexcept final {
+struct InvalidOTBFormat final : LoadError {
+	const char* what() const noexcept override {
 		return "Invalid OTBM file format";
 	}
 };
@@ -140,7 +138,7 @@ class PropStream
 			return true;
 		}
 
-	protected:
+	private:
 		const char* p = nullptr;
 		const char* end = nullptr;
 };
@@ -180,7 +178,7 @@ class PropWriteStream
 			std::copy(str.begin(), str.end(), std::back_inserter(buffer));
 		}
 
-	protected:
+	private:
 		std::vector<char> buffer;
 };
 

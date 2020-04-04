@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Energetic Book" nameDescription="an energetic book" race="undead" experience="12155" speed="440">
+	<health now="18500" max="18500"/>
+	<look type="1061" head="15" body="91" legs="85" feet="0" corpse="32478"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="energy" interval="2000" chance="14" range="7" min="-200" max="-680">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="40" radius="3" min="-200" max="-505">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="physical" interval="1500" chance="30" length="8" spread="0" min="-200" max="-700">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="40"/>
+	<elements>
+		<element earthPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity holy="1"/>
+		<immunity energy="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="28" chance="100000"/>
+		<item id="33316" countmax="8" chance="900"/>
+		<item id="33317" countmax="7" chance="900"/>
+		<item name="Ultimate Health Potion" countmax="7" chance="10000"/>
+		<item name="Ultimate Mana Potion" countmax="7" chance="10000"/>
+		<item name="Energy Ball" countmax="7" chance="900"/>
+		<item id="33313" countmax="7" chance="800"/>
+		<item name="Lightning Pendant" chance="500"/>
+		<item name="Lightning Boots" chance="500"/>
+		<item name="Lightning Headband" chance="500"/>
+		<item name="Might Ring" chance="500"/>
+		<item name="Spellweaver's Robe" chance="350"/>
+		<item name="Wand of Defiance" chance="350"/>
+		<item name="Haunted Blade" chance="550"/>
+		<item name="Lightning Legs" chance="350"/>
+	</loot>
+</monster>

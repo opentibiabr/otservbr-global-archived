@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ragiaz" nameDescription="ragiaz" race="undead" experience="100000" speed="340" script="rewardboss.lua">
+	<health now="380000" max="380000" />
+	<look type="862" head="76" body="57" legs="19" feet="0" addons="3" corpse="25151" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag rewardboss="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-1400" max="-2300"/>
+		<attack name="death" interval="2000" chance="20" radius="4" target="0" min="-500" max="-900">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="4" range="4" target="1" min="-500" max="-900">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="3" min="-1000" max="-1200">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="10" spread="0" min="-1500" max="-1900">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="7" speedchange="-600" duration="20000">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="10" min="1000" max="2000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="20" speedchange="600" duration="4000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="ragiaz transform" interval="2000" chance="8"/>
+	</defenses>
+	<elements>
+		<element earthPercent="10"/>
+		<element firePercent="10"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="30"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity drunk="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="2154" chance="1000"/><!-- yellow gem -->
+		<item id="18419" countmax="5" chance="3000"/><!-- cyan crystal fragment -->
+		<item id="18420" countmax="5" chance="3000"/><!-- red crystal fragment -->
+		<item id="18421" countmax="5" chance="3000"/><!-- green crystal fragment -->
+		<item id="2143" countmax="8" chance="3000"/><!-- white pearl -->
+		<item id="2146" countmax="9" chance="3000"/><!-- small sapphire -->
+		<item id="2148" countmax="200" chance="98000"/><!-- gold coin -->
+		<item id="2150" countmax="5" chance="3000"/><!-- small amethyst -->
+		<item id="2152" countmax="58" chance="8000"/><!-- platinum coin -->
+		<item id="2155" chance="1000"/><!-- green gem -->
+		<item id="2156" chance="1000"/><!-- red gem -->
+		<item id="2158" chance="1000"/><!-- blue gem -->
+		<item id="2436" chance="4000"/><!-- skull staff -->
+		<item id="25414" chance="100" unique="1"/><!-- death gaze -->
+		<item id="25522" chance="700"/><!-- ritt bow -->
+		<item id="25523" chance="700"/><!-- rift crossbow -->
+		<item id="6500" chance="11000"/><!-- demonic essence -->
+		<item id="7420" chance="500"/><!-- reaper's axe -->
+		<item id="7426" chance="4000"/><!-- amber staff -->
+		<item id="7590" countmax="5" chance="3000"/><!-- great mana potion -->
+		<item id="7591" countmax="5" chance="3100"/><!-- great health potion -->
+		<item id="7632" countmax="5" chance="3000"/><!-- giant shimmering pearl -->
+		<item id="7633" countmax="5" chance="3000"/><!-- giant shimmering pearl -->
+		<item id="8472" countmax="5" chance="3100"/><!-- great spirit potion -->
+		<item id="8473" countmax="5" chance="3000"/><!-- ultimate health potion -->
+		<item id="9970" countmax="8" chance="3000"/><!-- small topaz -->
+	</loot>
+</monster>

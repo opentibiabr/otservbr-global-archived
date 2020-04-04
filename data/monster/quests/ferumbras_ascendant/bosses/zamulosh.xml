@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zamulosh" nameDescription="zamulosh" race="undead" experience="55000" speed="320" script="rewardboss.lua">
+	<health now="300000" max="300000" />
+	<look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="25151" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag rewardboss="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="3000" min="-1500" max="-2300"/>
+		<attack name="death" interval="1000" chance="10" length="12" spread="3" min="-700" max="-800">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" length="12" spread="0" target="0" min="-2600" max="-3300">
+			<attribute key="areaEffect" value="teleport"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" length="6" spread="2" min="-900" max="-1500">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="35" radius="8" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="healing" interval="2000" chance="25" min="220" max="535">
+			<attribute key="areaEffect" value="yellowbubble"/>
+		</defense>
+		<defense name="zamulosh invisible" interval="2000" chance="25"/>
+		<defense name="zamulosh tp" interval="2000" chance="15"/>
+	</defenses>
+	<elements>
+		<element deathPercent="15"/>
+		<element firePercent="15"/>
+		<element energyPercent="15"/>
+		<element icePercent="15"/>
+		<element physicalPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="Zamulosh2" interval="1000" chance="100" max="1"/>
+	</summons>
+	<voices interval="5000" chance="10">
+		<voice sentence="I AM ZAMULOSH!"/>
+	</voices>
+	<loot>
+		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="2148" countmax="200" chance="98000"/><!-- gold coin -->
+		<item id="7632" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
+		<item id="7633" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
+		<item id="2146" countmax="9" chance="12000"/><!-- small sapphire -->
+		<item id="2143" countmax="8" chance="12000"/><!-- white pearl -->
+		<item id="2150" countmax="5" chance="10000"/><!-- small amethyst -->
+		<item id="9970" countmax="8" chance="10000"/><!-- small topaz -->
+		<item id="2152" countmax="58" chance="8000"/><!-- platinum coin -->
+		<item id="6500" chance="11000"/><!-- demonic essence -->
+		<item id="18416" countmax="6" chance="10000"/><!-- green crystal splinter -->
+		<item id="18417" countmax="6" chance="10000"/><!-- brown crystal splinter -->
+		<item id="18418" countmax="6" chance="10000"/><!-- blue crystal splinter -->
+		<item id="2156" chance="1000"/><!-- red gem -->
+		<item id="2154" chance="1000"/><!-- yellow gem -->
+		<item id="2155" chance="1000"/><!-- green gem -->
+		<item id="2158" chance="1000"/><!-- blue gem -->
+		<item id="2169" chance="6000"/><!-- time ring -->
+		<item id="2214" chance="6000"/><!-- ring of healing -->
+		<item id="25523" chance="770"/><!-- rift crossbow -->
+		<item id="8878" chance="770"/><!-- crystalline armor -->
+		<item id="25382" chance="670"/><!-- rift shield -->
+		<item id="25418" chance="500" unique="1"/><!-- maimer -->
+		<item id="25211" chance="500" unique="1"/><!-- book of lies -->
+	</loot>
+</monster>

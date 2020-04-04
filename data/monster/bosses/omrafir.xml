@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Omrafir" nameDescription="Omrafir" race="fire" experience="50000" speed="480" script="rewardboss.lua">
+	<health now="322000" max="322000"/>
+	<look type="12" head="78" body="3" legs="79" feet="79" addons="0" corpse="6068"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="390" attack="500"/>
+		<attack name="omrafir wave" interval="2000" chance="17" min="-500" max="-1000"/>
+		<attack name="omrafir beam" interval="2000" chance="15" min="-7000" max="-10000"/>
+		<attack name="fire" interval="2000" chance="15" length="10" spread="0" min="-1000" max="-3000">
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" radius="3" target="0" min="-200" max="-400">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="19" radius="4" target="0" min="-150" max="-300">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="1" target="1" min="0" max="0">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="firefield" interval="2000" chance="12" radius="3" target="1">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+	</attacks>
+	<defenses armor="155" defense="165">
+		<defense name="healing" interval="2000" chance="22" min="440" max="800">
+			<attribute key="areaEffect" value="redspark"/>
+		</defense>
+		<defense name="omrafir summon" interval="2000" chance="50"/>
+		<defense name="omrafir healing 2" interval="2000" chance="20"/>
+	</defenses>
+	<elements>
+		<element earthPercent="50"/>
+		<element deathPercent="50"/>
+		<element icePercent="50"/>
+		<element energyPercent="50"/>
+		<element holyPercent="50"/>
+		<element physicalPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity outfit="1"/>
+		<immunity fire="1"/>
+		<immunity drunk="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="FIRST I'LL OBLITERATE YOU THEN I BURN THIS PRISON DOWN!!"/>
+		<voice sentence="I'M TOO HOT FOR YOU TO HANDLE!" yell="1"/>
+		<voice sentence="FREEDOM FOR PRINCESS" yell="1"/>
+		<voice sentence="THE POWER OF HIS INTERNAL FIRE RENEWS OMRAFIR!" yell="1"/>
+		<voice sentence="OMRAFIR INHALES DEEPLY!" yell="1"/>
+		<voice sentence="OMRAFIR BREATHES INFERNAL FIRE" yell="1"/>
+		<voice sentence="I WILL RULE WHEN THE NEW ORDER IS ESTABLISHED!" yell="1"/>
+	</voices>
+	<loot>
+		<item id="18413" countmax="5" chance="37500"/><!-- blue crystal shard -->
+		<item id="22396" countmax="4" chance="62500"/><!-- cluster of solace -->
+		<item id="18419" countmax="3" chance="43750"/><!-- cyan crystal fragment -->
+		<item id="5954" chance="100000"/><!-- demon horn -->
+		<item id="6500" countmax="4" chance="812500"/><!-- demonic essence -->
+		<item id="22612" chance="6250"/><!-- demonic tapestry -->
+		<item id="22397" countmax="2" chance="81250"/><!-- dream matter -->
+		<item id="22610" chance="3250" unique="1"/><!-- dream warden mask -->
+		<item id="22613" chance="2500"/><!-- eye pod -->
+		<item id="7632" chance="43750"/><!-- giant shimmering pearl -->
+		<item id="7633" chance="43750"/><!-- giant shimmering pearl -->
+		<item id="2148" countmax="100" chance="18750"/><!-- gold coin -->
+		<item id="7590" countmax="8" chance="6250"/><!-- great mana potion -->
+		<item id="8472" countmax="8" chance="56250"/><!-- great spirit potion -->
+		<item id="18421" countmax="3" chance="37500"/><!-- green crystal fragment -->
+		<item id="18415" countmax="5" chance="18750"/><!-- green crystal shard -->
+		<item id="2155" chance="18750"/><!-- green gem -->
+		<item id="7893" chance="12500"/><!-- lightning boots -->
+		<item id="7898" chance="18750"/><!-- lightning robe -->
+		<item id="22616" chance="12500"/><!-- nightmare hook -->
+		<item id="22608" chance="100000" unique="1"/><!-- nightmare horn -->
+		<item id="2152" countmax="20" chance="93750"/><!-- platinum coin -->
+		<item id="22611" chance="6250"/><!-- psychedelic tapestry -->
+		<item id="18420" countmax="3" chance="6250"/><!-- red crystal fragment -->
+		<item id="2214" chance="6250"/><!-- ring of healing -->
+		<item id="5741" chance="6250"/><!-- skull helmet -->
+		<item id="2645" chance="6250"/><!-- steel boots -->
+		<item id="8473" countmax="8" chance="31250"/><!-- ultimate health potion -->
+		<item id="22598" countmax="3" chance="81250"/><!-- unrealized dream -->
+		<item id="18414" countmax="5" chance="18750"/><!-- violet crystal shard -->
+	</loot>
+</monster>

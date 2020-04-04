@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Welter" nameDescription="The Welter" race="blood" experience="11000" speed="256" script="rewardboss.lua">
+	<health now="25000" max="25000"/>
+	<look type="563" corpse="21291"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="300"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="100"/>
+		<attack name="poisoncondition" interval="2000" chance="17" length="8" spread="3" min="-500" max="-660">
+			<attribute key="areaEffect" value="smallplants"/>
+		</attack>
+		<attack name="death" interval="2000" chance="14" length="8" spread="0" min="-200" max="-450">
+			<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="18" range="7" target="1" radius="4" min="-150" max="-270">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="13" range="1" target="1" radius="1" min="-120" max="-230">
+			<attribute key="shootEffect" value="ice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="the welter paralyze" interval="2000" chance="9"/>
+	</attacks>
+	<defenses armor="27" defense="45">
+		<defense name="healing" interval="2000" chance="32" min="250" max="600">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="12" radius="5" min="150" max="700">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="the welter summon2" interval="2000" chance="9"/>
+		<defense name="the welter heal" interval="2000" chance="8"/>
+	</defenses>
+	<elements>
+		<element icePercent="50"/>
+		<element holyPercent="30"/>
+		<element physicalPercent="-5"/>
+		<element energyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity earth="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="egg2" interval="2000" chance="16"/>
+		<summon name="spawn of the welter" interval="2000" chance="16"/>
+	</summons>
+	<voices interval="2000" chance="5">
+		<voice sentence="FCHHHHH" yell="1"/>
+	</voices>
+	<loot>
+	<item id="21400" chance="200"/><!-- silver token -->
+		<item id="21690" chance="200"/> <!-- Triple Bolt Crossbow -->
+		<item id="2475" chance="2000"/> <!-- Warrior Helmet-->
+		<item id="21691" chance="500"/> <!-- Shrunken Head Necklace -->
+		<item id="2195" chance="1000"/> <!-- Boots of Haste -->
+		<item id="2536" chance="2000"/> <!--  Medusa Shield -->
+		<item id="2396" chance="2000"/> <!--  Ice Rapier -->
+		<item id="2146" countmax="2" chance="20000"/> <!-- Small Sapphire -->
+		<item id="2476" chance="3000"/> <!-- Knight Armor -->
+		<item id="7588" countmax="2" chance="20000"/> <!-- Strong Health Potion -->
+		<item id="10219" subtype="5" chance="1000"/> <!-- Sacred Tree Amulet-->
+		<item id="2197" subtype="5" chance="20000"/> <!-- Stone Skin Amulet-->
+		<item id="9971" chance="800"/> <!-- Gold Ingot -->
+		<item id="2498" chance="500"/> <!-- Royal Helmet -->
+		<item id="7632" chance="600"/> <!-- Giant Shimmering Pearl -->
+		<item id="4850" chance="2000"/> <!-- Hydra Egg,-->
+		<item id="7589" countmax="2" chance="20000"/> <!-- Strong Mana Potions-->
+		<item id="2152" countmax="10" chance="20000"/> <!--  Platinum Coin-->
+		<item id="2148" countmax="100" chance="20000"/> <!--  Gold Coins -->
+	</loot>
+</monster>

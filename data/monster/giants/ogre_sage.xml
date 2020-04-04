@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Ogre Sage" nameDescription="an ogre sage" race="blood" experience="5500" speed="460">
+	<health now="4800" max="4800"/>
+	<look type="1214" corpse="36370"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-450"/>
+		<attack name="lifedrain" interval="2000" chance="24" range="7" target="1" min="-50" max="-130">
+			<attribute key="shootEffect" value="smallstone"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="16" range="4" min="-100" max="-165">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="death" interval="2000" chance="10" range="7" target="1" radius="3" min="-115" max="-200">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="13" range="7" target="1" radius="4" min="-200" max="-300">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="93" defense="93">
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="75"/>
+		<element energyPercent="-30"/>
+		<element holyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="Young Goanna" interval="2000" chance="10"/>
+	</summons>
+	<loot>
+		<item name="platinum coin" countmax="3" chance="100000"/>
+		<item name="ogre ear stud" chance="7950"/>
+		<item name="ogre nose ring" chance="15830"/>
+		<item name="shamanic talisman" chance="10230"/>
+		<item name="broken shamanic staff" chance="12500"/>
+		<item name="skull fetish" chance="9090"/>
+		<item name="terra boots" chance="4550"/>
+		<item name="bone fetish" chance="2270"/>
+		<item name="sacred tree amulet" chance="1140"/>
+	</loot>
+</monster>

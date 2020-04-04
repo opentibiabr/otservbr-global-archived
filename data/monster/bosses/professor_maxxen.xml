@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Professor Maxxen" nameDescription="Professor Maxxen" race="energy" experience="15500" speed="340" script="rewardboss.lua">
+	<health now="90000" max="90000"/>
+	<look type="679" corpse="24279"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag rewardboss="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="180" attack="200"/>
+		<attack name="energy" interval="2000" chance="11" radius="8" min="-250" max="-500">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" length="8" spread="0" min="-450" max="-1500">
+			<attribute key="areaEffect" value="teleport"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" length="8" spread="0" min="-450" max="-500">
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+		<attack name="war golem skill reducer" interval="2000" chance="22"/>
+		<attack name="war golem electrify" interval="2000" range="2" chance="16"/>
+		<attack name="glooth fairy skill reducer" interval="2000" chance="20"/>
+		<attack name="glooth fairy paralyze" interval="2000" chance="9"/>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="speed" interval="2000" chance="13" speedchange="460" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="20" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="generator" interval="30000" chance="50"/>
+		<defense name="maxxenTeleport" interval="2000" chance="5"/>
+		<defense name="glooth fairy healing" interval="1000"/>
+	</defenses>
+	<summons maxSummons="8">
+		<summon name="walker" interval="2000" chance="10"/>
+		<summon name="glooth trasher" interval="2000" chance="10"/>
+		<summon name="glooth smasher" interval="2000" chance="10"/>
+		<summon name="glooth slasher" interval="2000" chance="10"/>
+	</summons>
+	<loot>
+		<item id="24270" chance="1000" unique="1"/><!-- Glooth Glider Casing -->
+		<item id="23663" chance="1000" unique="1"/><!-- feedbag -->
+	</loot>
+</monster>

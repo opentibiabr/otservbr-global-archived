@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Gelidrazah the Frozen" nameDescription="gelidrazah the frozen" race="blood" experience="9000" speed="350">
+	<health now="10000" max="10000" />
+	<look type="947" head="57" body="11" legs="38" feet="38" addons="3" corpse="27733" />
+	<targetchange interval="5000" chance="0" />
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="400"/>
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="112" attack="85"/>
+		<attack name="ice" interval="2000" chance="20" radius="5" target="1" range="5" min="-310" max="-495">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" length="9" spread="3" speedchange="-600" duration="10000">
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="15" length="9" spread="0" min="-310" max="-395">
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="15" radius="3" min="-210" max="-395">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="12" length="8" spread="3" min="-150" max="-280">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="52" defense="64">
+		<defense name="healing" interval="2000" chance="15" min="150" max="450">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-10"/>
+		<element firePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity drown="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity poison="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="56" chance="97000" /><!--gold coin -->
+		<item id="2152" countmax="2" chance="97000" /><!--platinum coin -->
+		<item id="27606" chance="100000" /><!-- dragon tongue -->
+		<item id="7290" chance="25000" /><!-- shard -->
+		<item id="7888" chance="25000" /><!-- glacier amulet-->
+		<item id="7902" chance="25000" /><!--  glacier mask -->
+		<item id="7441" chance="25000" /><!--  ice cube-->
+		<item id="2672" chance="25000" countmax="5" /><!-- dragon ham-->
+		<item id="2146" chance="25000" /><!-- small sapphire -->
+		<item id="2033" chance="25000" /><!-- golden mug -->
+		<item id="27605" countmax="2" chance="80000" /><!-- dragon blood-->
+		<item id="21696" chance="500" /><!-- icicle bow -->
+		<item id="21697" chance="500" /><!-- runic ice shield -->
+		<item id="7409" chance="1500" /><!-- glacial rod -->
+		<item id="18412" chance="1500" /><!-- northern star -->
+		<item id="27607" chance="100000" /><!-- gelidrazah scale -->
+	</loot>
+</monster>

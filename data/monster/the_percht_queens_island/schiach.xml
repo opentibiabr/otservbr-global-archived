@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Schiach" nameDescription="an schiach" race="blood" experience="580" speed="280">
+	<health now="600" max="600"/>
+	<look type="1162" head="19" body="10" legs="19" feet="57" corpse="35127"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="50"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+<attacks>
+			<attack name="melee" interval="2000" min="-100" max="-200"/>
+ 		<attack name="ice" interval="2000" chance="70" range="7" min="-100" max="-125">
+			<attribute key="shootEffect" value="snowball"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="50" length="3" spread="0" min="-90" max="-250">
+			<attribute key="areaEffect" value="GIANTICE"/>
+		</attack>
+			<attack name="fire" interval="2000" chance="50" target="1" radius="3" min="-100" max="-250">
+			<attribute key="areaEffect" value="FIREAREA"/>
+		</attack>
+	 			<attack name="fire" interval="2000" chance="50" radius="4" min="-100" max="-250">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+			<attack name="fire" interval="2000" chance="50" length="3" spread="0" min="-100" max="-250">
+			<attribute key="areaEffect" value="FIREATTACK"/>
+		</attack>
+		</attacks>
+	<defenses armor="43" defense="43"/>
+	<elements>
+		<element icePercent="10"/>
+		<element holyPercent="-20"/>
+		<element firePercent="-20"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Krik Krik!"/>
+		<voice sentence="Psh psh psh!!"/>
+	</voices>
+	<loot>
+		<item name="gold coin" countmax="50" chance="100000"/>
+		<item name="fireworks capsule" chance="13220"/>
+		<item name="broken bell" chance="11070"/>
+		<item name="grainy fireworks powder" chance="7700"/>
+		<item name="versicolour fireworks powder" chance="4290"/>
+		<item name="percht horns" chance="3960"/>
+		<item name="bright bell" chance="2920"/>
+		<item name="green fireworks powder" chance="2550"/>
+		<item name="purple fireworks powder" chance="2440"/>
+		<item name="turquoise fireworks powder" chance="40"/>
+		<item name="orange fireworks powder" chance="2260"/>
+		<item name="yellow fireworks powder" chance="2180"/>
+		<item name="red fireworks powder" chance="1780"/>
+		<item name="glacier kilt" chance="1180"/>
+		<item name="glacier robe" chance="630"/>
+	</loot>
+</monster>
