@@ -33535,6 +33535,7 @@
 	</item>
 	<item id="24718" article="a" name="werewolf helmet">
 		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />	
 		<attribute key="armor" value="9" />
 		<attribute key="speed" value="30" />
 		<attribute key="showattributes" value="1" />
@@ -42765,19 +42766,19 @@
 	</item>
 	<item id="34739" article="a" name="dead menacing carnivor">
 		<attribute key="containerSize" value="10" />
-		<attribute key="decayTo" value="34744" />
+		<attribute key="decayTo" value="34738" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="34740" article="a" name="dead menacing carnivor">
 		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="34743" />
+		<attribute key="decayTo" value="34739" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="34741" article="a" name="dead menacing carnivor">
 		<attribute key="containerSize" value="20" />
-		<attribute key="decayTo" value="34742" />
+		<attribute key="decayTo" value="34740" />
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="blood" />
 	</item>
@@ -46532,6 +46533,7 @@
 		<attribute key="attack" value="5" />
 		<attribute key="elementFire" value="45" />
 		<attribute key="weaponType" value="axe" />
+		<attribute key="slotType" value="two-handed" />
 		<attribute key="skillAxe" value="1" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
