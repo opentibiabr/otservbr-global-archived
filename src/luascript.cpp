@@ -2432,6 +2432,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "sendInventory", LuaScriptInterface::luaPlayerSendInventory);
 	registerMethod("Player", "updateSupplyTracker", LuaScriptInterface::luaPlayerUpdateSupplyTracker);
+	registerMethod("Player", "updateLootTracker", LuaScriptInterface::luaPlayerUpdateLootTracker);
 
 	registerMethod("Player", "getDepotChest", LuaScriptInterface::luaPlayerGetDepotChest);
 	registerMethod("Player", "getInbox", LuaScriptInterface::luaPlayerGetInbox);
@@ -2521,6 +2522,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "addItem", LuaScriptInterface::luaPlayerAddItem);
 	registerMethod("Player", "addItemEx", LuaScriptInterface::luaPlayerAddItemEx);
 	registerMethod("Player", "removeItem", LuaScriptInterface::luaPlayerRemoveItem);
+	registerMethod("Player", "sendContainer", LuaScriptInterface::luaPlayerSendContainer);
 
 	registerMethod("Player", "getMoney", LuaScriptInterface::luaPlayerGetMoney);
 	registerMethod("Player", "addMoney", LuaScriptInterface::luaPlayerAddMoney);
@@ -3879,6 +3881,27 @@ int LuaScriptInterface::luaPlayerUpdateSupplyTracker(lua_State* L)
 	pushBoolean(L, true);
 
  	return 1;
+}
+
+int LuaScriptInterface::luaPlayerUpdateLootTracker(lua_State* L)
+{
+	// player:updateLootTracker(item)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	Item* item = getUserdata<Item>(L, 2);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	player->updateLootTracker(item);
+	pushBoolean(L, true);
+
+	return 1;
 }
 
 int LuaScriptInterface::luaGetDepotId(lua_State* L)
@@ -9802,6 +9825,26 @@ int LuaScriptInterface::luaPlayerRemoveItem(lua_State* L)
 	int32_t subType = getNumber<int32_t>(L, 4, -1);
 	bool ignoreEquipped = getBoolean(L, 5, false);
 	pushBoolean(L, player->removeItemOfType(itemId, count, subType, ignoreEquipped));
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSendContainer(lua_State* L)
+{
+	// player:sendContainer(container)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+	
+	Container* container = getUserdata<Container>(L, 2);
+	if (!container) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	player->sendContainer(container->getClientID(), container, container->hasParent(), container->getFirstIndex());
+	pushBoolean(L, true);
 	return 1;
 }
 

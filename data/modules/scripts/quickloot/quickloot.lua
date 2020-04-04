@@ -143,6 +143,7 @@ function onRecvbyte(player, msg, byte)
 					local itemStr = k:getCount().. "x "..k:getName()
 					if not table.contains(itemsAfter, k) then
 						table.insert(lootedItems, itemStr)
+						player:updateLootTracker(k)
 					elseif canLootItem(k.itemid, lootMode, lootList) then
 						table.insert(notLootedItemsFromList, itemStr)
 					else
@@ -189,17 +190,16 @@ function onRecvbyte(player, msg, byte)
 			player:setQuickLootBackpack(category, nil)
 			player:sendLootBackpacks()
 		elseif action == 2 then
-			local categoryId = msg:getByte() -- category
+			local categoryId = msg:getByte()
 			local quickLootBackpacks = player:getQuickLootBackpacks()
 			
-			if quickLootBackpacks[category] then
+			if quickLootBackpacks[categoryId] then
 				local category = quickLootBackpacks[categoryId]
 				local container = getContainerByQuickLootCategory(player, categoryId, category.sid)
 				if container then
-					-- TODO: add sendContainer
+					player:sendContainer(container)
 				end
 			end
-
 		elseif action == 3 then
 			local bpFallback = player:getQuickLootMainContainerFallback()
 			if  bpFallback ~= nil then
@@ -387,6 +387,10 @@ function getContainerByQuickLootCategory(player, categoryId, serverId)
 end
 
 function checkContainerCategory(containerItem, categoryId)
+	if not containerItem then
+		return nil
+	end
+
 	local container = Container(containerItem.uid)
 	if container then
 		if checkItemCategory(container, categoryId) then
