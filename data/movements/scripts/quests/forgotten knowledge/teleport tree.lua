@@ -2,7 +2,7 @@
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 	if player:getStorageValue(Storage.ForgottenKnowledge.PlantCounter) < 5 or player:getStorageValue(Storage.ForgottenKnowledge.BirdCounter) < 3 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You don\'t help in anything to enter here.')

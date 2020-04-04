@@ -3378,6 +3378,142 @@ if not Quests then
 				},
 			},
 		},
+		[44] = {
+			name = "Shadows of Yalahar Quest", startstorageid = 82960, startstoragevalue = 1,
+			missions = {
+				[1] = {
+					name = "Mission 01: Errand boy", storageid = 82960, startvalue = 1, endvalue = 7,
+					states = {
+						[1] = "Telas asked you to get research notes from some other researchers. Go to each one of them and ask for it. Just say research notes.",
+						[2] = "You asked 1 of 5 research",
+						[3] = "You asked 2 of 5 research.",
+						[4] = "You asked 3 of 5 research.",
+						[5] = "You asked 4 of 5 research.",
+						[6] = "You asked 5 of 5 research",
+						[7] = "You asked all researchers.",
+					},
+
+				},
+				[2] = {
+					name = "Mission 02: A vital part", storageid = 82961, startvalue = 1, endvalue = 3,
+					states = {
+						[1] = "Telas needs you to find a Mago Mechanic Core. You will find one in the Factory Quarter in Yalahar.",
+						[2] = "Go back to Telas and report about your mission.",
+						[3] = "You completed the mission, ask the next mission.",
+					},
+
+				},
+
+				[3] = {
+					name = "Mission 03: The right ingredients", storageid = 82962, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Your next mission is to get 10 elemental crystals for Telas. To obtain it use a pick on an earth elemental's dead body. Once you have all 10, go back to Telas and report about your mission.",
+						[2] = "You have given elemental crystals for Telas, ask about his new mission.",
+					},
+
+				},
+
+				[4] = {
+					name = "Mission 04: Gathering golem parts", storageid = 82963, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Telas gave you a golem disassembler to get parts of a golem, just use the disassembler on a worker golem's or damaged worker golem's body. You need 6 golem parts and report your mission.",
+						[2] = "You have given golem parts for Telas, ask about his new mission.",
+					},
+
+				},
+
+				[5] = {
+					name = "Mission 05: Charged to charge", storageid = 82964, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Telas needs three different kinds of charges. To get charged, you need to find a Charging Machine. You can find one in the Alchemist Quarter in Yalahar.",
+						[2] = "You delivered the necessary load for Telas.",
+					},
+
+				},
+
+				[6] = {
+					name = "Mission 06: Out of the blue", storageid = 82965, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Telas now needs a golem blueprint to compare with his own plans. Head back to the Factory Quarter in Yalahar.",
+						[2] = "You have given golem blueprint for Telas, ask about his new mission.",
+					},
+
+				},
+
+				[7] = {
+					name = "Mission 07: Powering up", storageid = 82966, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "For this mission, you need to obtain an old power core, again in Alchemist Quarter, in a cave near the west side of the coast.",
+						[2] = "You have given old power core for Telas, ask about his new mission.",
+					},
+
+				},
+
+				[8] = {
+					name = "Mission 08: Getting things stable", storageid = 82967, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "You must go to the Sunken Quarter in Yalahar and get a stabilizer.",
+						[2] = "You have given stabilizer for Telas, ask about his new mission.",
+					},
+
+				},
+
+				[9] = {
+					name = "Mission 09: Researching the ritual", storageid = 82968, startvalue = 0, endvalue = 10,
+					states = {
+						[0] = "The library is in the center of Yalahar, but you have to be at mission three of the In Service of Yalahar Quest to enter the center of Yalahar.",
+						[1] = "You read 1 of 8 book.",
+						[2] = "You read 2 of 8 book.",
+						[3] = "You read 3 of 8 book.",
+						[4] = "You read 4 of 8 book.",
+						[5] = "You read 5 of 8 book.",
+						[6] = "You read 6 of 8 book.",
+						[7] = "You read 7 of 8 book..",
+						[8] = "You read all 8 books correctly, complete the ritual using the pen in the middle of the room.",
+						[9] = "You finished the ritual, go back Telas and reporting the mission.",
+						[10] = "You completed the mission, ask the next mission.",
+					},
+
+				},
+
+				[10] = {
+					name = "Mission 10: The right ingredients", storageid = 82969, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "In this mission you will need to bring a total of 3 ingredients for Telas a total of 6 possible. Telas will asking one item at a time, to deliver the item it will ask the next, so until you get 3.",
+						[2] = "You have given all ingredients for Telas, ask about his new mission.",
+					},
+
+				},
+
+				[11] = {
+					name = "Mission 11: Take a shower", storageid = 82970, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Go to Factory Quarter in Yalahar now need to take a shower energy.",
+						[2] = "You completed the mission, ask the next mission.",
+					},
+
+				},
+				[12] = {
+					name = "Mission 12: Headless", storageid = 82971, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Telas now needs a golem head (head golem) that can be obtained in Fenrock.",
+						[2] = "You have given golem head for Telas, ask about his new mission.",
+					},
+
+				},
+				[13] = {
+					name = "Mission 13: Fruits of success", storageid = 82972, startvalue = 1, endvalue = 4,
+					states = {
+						[1] = "Now you can use the lever in Telas house. Down there you need to talk to Telas about your mission, he will tell you that you need to use the lever next to you, to activate the Telas Golem.",
+						[2] = "Pull the lever and give life to our masterpiece!",
+						[3] = "Report the mission to Telas and you earn 25,000 experience points and access to the laboratory where you can get a Golem Wrench in a bag and Modified Gnarlhound to tame them.",
+						[4] = "You finished the mission, and with that Telas gave you access to laboratory.",
+					},
+
+				},
+
+			},
+		},
 	}
 end
 

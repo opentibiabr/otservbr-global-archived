@@ -8,7 +8,7 @@ function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)
 function onThink()				npcHandler:onThink()					end
 
 local config = {
-	['brown piece of cloth'] = {
+	['brown pieces of cloth'] = {
 		itemId = 5913,
 		count = 20,
 		value = 1,
@@ -41,7 +41,7 @@ local config = {
 			success = 'Hooray! These bat wings are ugly enough. Now the last thing: Please bring me 30 heaven blossoms to neutralise the ghoulish stench.'
 		}
 	},
-	['heaven blossom'] = {
+	['heaven blossoms'] = {
 		itemId = 5921,
 		count = 30,
 		value = 4,
