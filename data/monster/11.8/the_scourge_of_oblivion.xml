@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="The Scourge Of Oblivion" nameDescription="The Scourge Of Oblivion" race="energy" experience="75000" speed="450" script="rewardboss.lua">
 	<health now="800000" max="800000"/>
-	<look type="875" head="79" body="79" legs="60" feet="79" addons="3" corpse="26217"/>
+	<look type="875" head="79" body="79" legs="60" feet="79" addons="3" corpse="26220"/>
 	<targetchange interval="2000" chance="25"/>
 	<flags>
 		<flag rewardboss="1"/>
