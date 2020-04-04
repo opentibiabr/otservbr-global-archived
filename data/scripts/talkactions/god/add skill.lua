@@ -55,8 +55,6 @@ function talk.onSay(player, words, param)
 	end
 
 	local ch = split[2]:sub(1, 1)
-	print(ch)
-	print(count)
 	if ch == "l" or ch == "e" then
 		targetLevel = target:getLevel() + count
 		targetExp = getExpForLevel(targetLevel)
