@@ -2432,6 +2432,8 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "sendInventory", LuaScriptInterface::luaPlayerSendInventory);
 	registerMethod("Player", "updateSupplyTracker", LuaScriptInterface::luaPlayerUpdateSupplyTracker);
+	registerMethod("Player", "updateKillTracker", LuaScriptInterface::luaPlayerUpdateKillTracker);
+
 	registerMethod("Player", "updateLootTracker", LuaScriptInterface::luaPlayerUpdateLootTracker);
 
 	registerMethod("Player", "getDepotChest", LuaScriptInterface::luaPlayerGetDepotChest);
@@ -3882,6 +3884,34 @@ int LuaScriptInterface::luaPlayerUpdateSupplyTracker(lua_State* L)
 
  	return 1;
 }
+
+int LuaScriptInterface::luaPlayerUpdateKillTracker(lua_State* L)
+{
+	// player:updateKillTracker(creature, corpse)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	Creature* monster = getUserdata<Creature>(L, 2);
+	if (!monster) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	Container* corpse = getUserdata<Container>(L, 3);
+	if (!corpse) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	player->updateKillTracker(corpse, monster->getName(), monster->getCurrentOutfit());
+	pushBoolean(L, true);
+
+	return 1;
+}
+
 
 int LuaScriptInterface::luaPlayerUpdateLootTracker(lua_State* L)
 {
