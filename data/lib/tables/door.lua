@@ -1,6 +1,4 @@
--- Note: The closedDoorUnlocked transform the door closed (only with onUse of the player) to the door locked (with onUse of the key), only need add the id of closedDoor and the lockedDoor.
--- The rest of the variables are self-explanatory, create more variables within the table and add the door ids in their variables.
--- Be careful, do not add quest door inside the level door table or vice versa, this will lock the doors.
+-- Be careful, do not add quest door inside the level door table, this will lock the doors.
 
 -- ID of the keys.
 keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092}
@@ -135,72 +133,6 @@ keyUnlockedDoor = {
 	{ closedDoor = 26544, openDoor = 26546 },
 	{ closedDoor = 33118, openDoor = 32582 },
 	{ closedDoor = 33120, openDoor = 32583 },
-	}
-	
--- Add the common closed key door here and in the second variable the door locked with the key.
--- This allows that when using the closed door with the key, it becomes the locked door.
-fromClosedToLockedDoor = {
-	{ keyDoorClosed = 1210, keyDoorLocked = 1209 },
-	{ keyDoorClosed = 1213, keyDoorLocked = 1212 },
-	{ keyDoorClosed = 1232, keyDoorLocked = 1231 },
-	{ keyDoorClosed = 1235, keyDoorLocked = 1234 },
-	{ keyDoorClosed = 1250, keyDoorLocked = 1249 },
-	{ keyDoorClosed = 1253, keyDoorLocked = 1252 },
-	{ keyDoorClosed = 3536, keyDoorLocked = 3535 },
-	{ keyDoorClosed = 3545, keyDoorLocked = 3544 },
-	{ keyDoorClosed = 4914, keyDoorLocked = 4913 },
-	{ keyDoorClosed = 4917, keyDoorLocked = 4916 },
-	{ keyDoorClosed = 5099, keyDoorLocked = 5098 },
-	{ keyDoorClosed = 5108, keyDoorLocked = 5107 },
-	{ keyDoorClosed = 5117, keyDoorLocked = 5116 },
-	{ keyDoorClosed = 5126, keyDoorLocked = 5125 },
-	{ keyDoorClosed = 5135, keyDoorLocked = 5134 },
-	{ keyDoorClosed = 5141, keyDoorLocked = 5140 },
-	{ keyDoorClosed = 5144, keyDoorLocked = 5143 },
-	{ keyDoorClosed = 5279, keyDoorLocked = 5278 },
-	{ keyDoorClosed = 5282, keyDoorLocked = 5281 },
-	{ keyDoorClosed = 5733, keyDoorLocked = 5732 },
-	{ keyDoorClosed = 5736, keyDoorLocked = 5735 },
-	{ keyDoorClosed = 6193, keyDoorLocked = 6192 },
-	{ keyDoorClosed = 6196, keyDoorLocked = 6195 },
-	{ keyDoorClosed = 6250, keyDoorLocked = 6249 },
-	{ keyDoorClosed = 6253, keyDoorLocked = 6252 },
-	{ keyDoorClosed = 6795, keyDoorLocked = 6799 },
-	{ keyDoorClosed = 6797, keyDoorLocked = 6801 },
-	{ keyDoorClosed = 6892, keyDoorLocked = 6891 },
-	{ keyDoorClosed = 6901, keyDoorLocked = 6900 },
-	{ keyDoorClosed = 7034, keyDoorLocked = 7033 },
-	{ keyDoorClosed = 7043, keyDoorLocked = 7042 },
-	{ keyDoorClosed = 8542, keyDoorLocked = 8541 },
-	{ keyDoorClosed = 8545, keyDoorLocked = 8544 },
-	{ keyDoorClosed = 9166, keyDoorLocked = 9165 },
-	{ keyDoorClosed = 9169, keyDoorLocked = 9168 },
-	{ keyDoorClosed = 9268, keyDoorLocked = 9267 },
-	{ keyDoorClosed = 9271, keyDoorLocked = 9270 },
-	{ keyDoorClosed = 10269, keyDoorLocked = 10268 },
-	{ keyDoorClosed = 10272, keyDoorLocked = 10271 },
-	{ keyDoorClosed = 10469, keyDoorLocked = 10468 },
-	{ keyDoorClosed = 10478, keyDoorLocked = 10477 },
-	{ keyDoorClosed = 10776, keyDoorLocked = 10775 },
-	{ keyDoorClosed = 10785, keyDoorLocked = 10784 },
-	{ keyDoorClosed = 12093, keyDoorLocked = 12092 },
-	{ keyDoorClosed = 12100, keyDoorLocked = 12099 },
-	{ keyDoorClosed = 12189, keyDoorLocked = 12188 },
-	{ keyDoorClosed = 12198, keyDoorLocked = 12197 },
-	{ keyDoorClosed = 14634, keyDoorLocked = 14633 },
-	{ keyDoorClosed = 14641, keyDoorLocked = 14640 },
-	{ keyDoorClosed = 19841, keyDoorLocked = 19840 },
-	{ keyDoorClosed = 19850, keyDoorLocked = 19849 },
-	{ keyDoorClosed = 19981, keyDoorLocked = 19980 },
-	{ keyDoorClosed = 19990, keyDoorLocked = 19989 },
-	{ keyDoorClosed = 20274, keyDoorLocked = 20273 },
-	{ keyDoorClosed = 20283, keyDoorLocked = 20282 },
-	{ keyDoorClosed = 22815, keyDoorLocked = 22814 },
-	{ keyDoorClosed = 22824, keyDoorLocked = 22823 },
-	{ keyDoorClosed = 26542, keyDoorLocked = 26541 },
-	{ keyDoorClosed = 26544, keyDoorLocked = 26543 },
-	{ keyDoorClosed = 33118, keyDoorLocked = 33117 },
-	{ keyDoorClosed = 33120, keyDoorLocked = 33119 },
 	}
 -- Keys doors end. 
 	
