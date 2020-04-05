@@ -420,6 +420,10 @@ enum QuickLootCategory_t : uint8_t {
 	LOOT_STASH_RETRIEVE = 27,
 	LOOT_GOLD = 30,
 	LOOT_UNASSIGNED = 31,
+
+	LOOT_START = LOOT_ARMOR,
+	LOOT_END = LOOT_UNASSIGNED
+
 };
 
 enum WeaponType_t : uint8_t {
