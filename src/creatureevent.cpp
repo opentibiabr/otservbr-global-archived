@@ -213,6 +213,15 @@ bool CreatureEvent::configureEvent(const pugi::xml_node& node)
 	return true;
 }
 
+void CreatureEvents::removeInvalidEvents()
+{
+	for (auto it = creatureEvents.begin(); it != creatureEvents.end(); ++it) {
+		if (it->second.getScriptId() == 0) {
+			creatureEvents.erase(it->second.getName());
+		}
+	}
+}
+
 std::string CreatureEvent::getScriptEventName() const
 {
 	//Depending on the type script event name is different

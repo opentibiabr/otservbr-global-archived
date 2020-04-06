@@ -84,13 +84,22 @@ class Event
 		}
 
 		/**
-		 * @brief Check if event has a script file
+		 * @brief Check if event is scripted
 		 * 
 		 * @return true 
 		 * @return false 
 		 */
 		bool isScripted() const {
 			return scripted;
+		}
+
+		/**
+		 * @brief Get the Script Id object
+		 * 
+		 * @return int32_t 
+		 */
+		int32_t getScriptId() {
+			return scriptId;
 		}
 
 		bool scripted = false;

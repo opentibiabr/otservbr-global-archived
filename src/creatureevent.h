@@ -71,6 +71,7 @@ class CreatureEvent final : public Event
 
 		void clearEvent();
 		void copyEvent(CreatureEvent* creatureEvent);
+		void removeInvalidEvents();
 
 		//scripting
 		bool executeOnLogin(Player* player) const;
