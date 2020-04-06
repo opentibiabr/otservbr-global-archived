@@ -15,9 +15,12 @@ for index, value in ipairs(levelDoor) do
 end
 
 function door.onStepIn(player, item, position, fromPosition)
-	local itemId = item:getId()
+	if isMonster then
+		return false
+	end
+
     for index, value in ipairs(questDoor) do
-		 if value.openDoor == itemId then
+		 if value.openDoor == item.itemid then
 			if player:getStorageValue(item.actionid) ~= -1 then
 				return true
 			else
@@ -28,7 +31,7 @@ function door.onStepIn(player, item, position, fromPosition)
 		end
 	end
 	for index, value in ipairs(levelDoor) do
-		 if value.openDoor == itemId then
+		 if value.openDoor == item.itemid then
 			if item.actionid > 0 and player:getLevel() >= item.actionid - 1000 then
 				return true
 			else
@@ -44,6 +47,7 @@ end
 for index, value in ipairs(doorIds) do
     door:id(value)
 end
+
 door:register()
 
 -- Level and quests closing door (onStepOut).
@@ -63,6 +67,10 @@ for index, value in ipairs(levelDoor) do
 end
 
 function door.onStepOut(creature, item, position, fromPosition)
+	if isMonster then
+		return false
+	end
+
 	local tile = Tile(position)
 	if tile:getCreatureCount() > 0 then
 		return true
@@ -106,4 +114,5 @@ end
 for index, value in ipairs(doorIds) do
     door:id(value)
 end
+
 door:register()
