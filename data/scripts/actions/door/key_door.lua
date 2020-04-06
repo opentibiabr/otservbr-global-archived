@@ -1,4 +1,3 @@
--- Locked key door (is always the first id (in items.xml has the description "It is locked")
 local doorId = {}
 local keyDoorLocked = {}
 
@@ -53,11 +52,13 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		doorCreature:teleportTo(toPosition, true)
 	end
 
+	-- It is locked msg
 	if table.contains(keyDoorLocked, item.itemid) then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
 		return true
 	end
 
+	-- onUse unlocked door
     for index, value in ipairs(keyUnlockedDoor) do
 		 if value.closedDoor == item.itemid then
 				item:transform(value.openDoor)
@@ -71,7 +72,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
-	-- Key use on door
+	-- Key use on door (locked door)
 	if target.actionid > 0 then
 		for index, value in ipairs(keyLockedDoor) do
 			for i, v in ipairs(keyUnlockedDoor) do
