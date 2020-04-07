@@ -948,11 +948,13 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 			local imbuement = item:getImbuement(i)
 			if imbuement then
 				local percent = imbuement:getElementDamage() 
+				local totalDmg = primaryDamage --store it for damage adjustment
 				if percent and percent > 0 then
 					if primaryDamage ~= 0 then
-						secondaryDamage = primaryDamage*math.min(percent/100, 1)
+						local factor = percent / 100
 						secondaryType = imbuement:getCombatType()
-						primaryDamage = secondaryDamage
+						primaryDamage = totalDmg * (1 - factor)
+						secondaryDamage = totalDmg * (factor)
 					end
 				end
 			end
