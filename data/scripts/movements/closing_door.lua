@@ -14,9 +14,10 @@ for index, value in ipairs(levelDoor) do
     end
 end
 
-function door.onStepIn(player, item, position, fromPosition)
-	if isMonster then
-		return false
+function door.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return
 	end
 
     for index, value in ipairs(questDoor) do
@@ -67,8 +68,9 @@ for index, value in ipairs(levelDoor) do
 end
 
 function door.onStepOut(creature, item, position, fromPosition)
-	if isMonster then
-		return false
+	local player = creature:getPlayer()
+	if not player then
+		return
 	end
 
 	local tile = Tile(position)
