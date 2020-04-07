@@ -1183,9 +1183,12 @@ void Events::eventPlayerOnCombat(Player* player, Creature* target, Item* item, C
 			damage.primary.value = -damage.primary.value;
 			damage.secondary.value = -damage.secondary.value;
 		}
-
-		if (damage.origin == ORIGIN_SPELL && damage.primary.type != COMBAT_PHYSICALDAMAGE) { //do not apply imbuement damage to elemental spells 
-			if (player->getVocationId() != 4 || player->getVocationId() != 8) { //only knights get the element applied to their skills
+		/*
+		Only spell damage that does physical damage will get the elemental damage, it applies to all vocations.
+		Knights have physical damage so all spells will deal elemental damage 
+		*/
+		if (damage.origin == ORIGIN_SPELL && damage.primary.type != COMBAT_PHYSICALDAMAGE) { 
+			if (player->getVocationId() != 4 || player->getVocationId() != 8) {
 				damage.primary.value = damage.primary.value + damage.secondary.value;
 				damage.secondary.type = COMBAT_NONE;
 				damage.secondary.value = 0;
