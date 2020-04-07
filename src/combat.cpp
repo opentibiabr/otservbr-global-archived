@@ -994,7 +994,11 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 
+	int16_t elementAttack = 0; // To calculate elemental damage after executing spell script and get real damage.
+	int32_t attackValue = 7; // default start attack value
 	int parameters = 1;
+	bool shouldCalculateSecondaryDamage = false;
+
 	switch (type) {
 		case COMBAT_FORMULA_LEVELMAGIC: {
 			//onGetPlayerMinMaxValues(player, level, maglevel)
@@ -1009,7 +1013,6 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 			Item* tool = player->getWeapon();
 			const Weapon* weapon = g_weapons->getWeapon(tool);
 
-			int32_t attackValue = 7;
 			if (weapon) {
 				attackValue = tool->getAttack();
 				if (tool->getWeaponType() == WEAPON_AMMO) {
@@ -1019,8 +1022,21 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 					}
 				}
 
-				damage.secondary.type = weapon->getElementType();
-				damage.secondary.value = weapon->getElementDamage(player, nullptr, tool);
+				CombatType_t elementType = weapon->getElementType();
+				damage.secondary.type = elementType;
+
+				if (elementType != COMBAT_NONE) {
+					const WeaponMelee* weaponM = (WeaponMelee*)weapon;
+					if (weaponM) {
+						elementAttack = weaponM->elementDamage;
+						shouldCalculateSecondaryDamage = true;
+						attackValue += elementAttack;
+					}
+				}
+				else {
+					shouldCalculateSecondaryDamage = false;
+				}
+		
 				if (useCharges) {
 					uint16_t charges = tool->getCharges();
 					if (charges != 0) {
@@ -1046,11 +1062,27 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 	int size0 = lua_gettop(L);
 	if (lua_pcall(L, parameters, 2, 0) != 0) {
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
-	} else {
-		damage.primary.value = normal_random(
+	}
+	else {
+
+		int32_t defaultDmg = normal_random(
 			LuaScriptInterface::getNumber<int32_t>(L, -2),
 			LuaScriptInterface::getNumber<int32_t>(L, -1)
 		);
+
+		if (shouldCalculateSecondaryDamage) {
+			double factor = (double)elementAttack / (double)attackValue; //attack value here is phys dmg + element dmg
+			int32_t elementDamage = std::round(defaultDmg * factor);
+			int32_t physDmg = std::round(defaultDmg * (1.0 - factor));
+			damage.primary.value = physDmg;
+			damage.secondary.value = elementDamage;
+
+		} else {
+			damage.primary.value = defaultDmg;
+			damage.secondary.type = COMBAT_NONE;
+			damage.secondary.value = 0;
+		}
+		
 		lua_pop(L, 2);
 	}
 
