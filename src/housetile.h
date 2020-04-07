@@ -36,6 +36,7 @@ class HouseTile final : public DynamicTile
 		Tile* queryDestination(int32_t& index, const Thing& thing, Item** destItem,
 				uint32_t& flags) override;
 
+		void addThing(Thing* thing) override final;
 		void addThing(int32_t index, Thing* thing) override;
 		void virtual internalAddThing(uint32_t index, Thing* thing) override;
 

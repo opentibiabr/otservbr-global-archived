@@ -30,6 +30,11 @@ extern Game g_game;
 HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHouse) :
 	DynamicTile(initX, initY, initZ), house(initHouse) {}
 
+void HouseTile::addThing(Thing* thing)
+{
+	addThing(0, thing);
+}
+
 void HouseTile::addThing(int32_t index, Thing* thing)
 {
 	Tile::addThing(index, thing);
