@@ -1184,11 +1184,10 @@ void Events::eventPlayerOnCombat(Player* player, Creature* target, Item* item, C
 			damage.secondary.value = -damage.secondary.value;
 		}
 		/*
-		Only spell damage that does physical damage will get the elemental damage, it applies to all vocations.
-		Knights have physical damage so all spells will deal elemental damage 
+			Only EK with dealing physical damage will get elemental damage on skill
 		*/
-		if (damage.origin == ORIGIN_SPELL && damage.primary.type != COMBAT_PHYSICALDAMAGE) { 
-			if (player->getVocationId() != 4 || player->getVocationId() != 8) {
+		if (damage.origin == ORIGIN_SPELL) {
+			if (player->getVocationId() != 4 && player->getVocationId() != 8) {
 				damage.primary.value = damage.primary.value + damage.secondary.value;
 				damage.secondary.type = COMBAT_NONE;
 				damage.secondary.value = 0;
