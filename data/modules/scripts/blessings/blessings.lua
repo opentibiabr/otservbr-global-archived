@@ -6,7 +6,7 @@ Blessings.Credits = {
 	lastUpdate = "08/04/2020",
 	todo = {
 		"Insert & Select query in blessings_history",
-		"Add unfair fight reduction",
+		"Add unfair fight reductio (convert the get killer is pvp fight with getDamageMap of dead player)",
 		"Gamestore buy blessing",
 		"Test ank print text",
 		"Test all functions",
@@ -113,8 +113,6 @@ Blessings.sendBlessStatus = function(player)
 	else
 		msg:addU16(0)
 	end
-	local backpackLossChance = {100, 70, 45, 25, 10, 0, 0, 0}
-	local skillLoss = {0, 8, 16, 24, 32, 40, 48, 56}
 
 	msg:sendToPlayer(player)
 end
