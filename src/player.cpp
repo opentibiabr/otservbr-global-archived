@@ -2020,29 +2020,29 @@ void Player::death(Creature* lastHitCreature)
 		uint8_t unfairFightReduction = 100;
 		int playerDmg = 0;
 		int othersDmg = 0;
-			uint32_t sumLevels = 0;
-			uint32_t inFightTicks = 5 * 60 * 1000;
-			for (const auto& it : damageMap) {
-				CountBlock_t cb = it.second;
-				if ((OTSYS_TIME() - cb.ticks) <= inFightTicks) {
-					Player* damageDealer = g_game.getPlayerByID(it.first);
-					if (damageDealer) {
-						playerDmg += cb.total;
-						sumLevels += damageDealer->getLevel();
-					}
-					else{
-						othersDmg += cb.total;
-					}
-					}
+		uint32_t sumLevels = 0;
+		uint32_t inFightTicks = 5 * 60 * 1000;
+		for (const auto& it : damageMap) {
+			CountBlock_t cb = it.second;
+			if ((OTSYS_TIME() - cb.ticks) <= inFightTicks) {
+				Player* damageDealer = g_game.getPlayerByID(it.first);
+				if (damageDealer) {
+					playerDmg += cb.total;
+					sumLevels += damageDealer->getLevel();
 				}
+				else{
+					othersDmg += cb.total;
+				}
+			}
+		}
 		bool pvpDeath = false;
 		if(playerDmg > 0 || othersDmg > 0){
-		pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
+			pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
 		}
-			if (pvpDeath && sumLevels > level) {
-				double reduce = level / static_cast<double>(sumLevels);
-				unfairFightReduction = std::max<uint8_t>(20, std::floor((reduce * 100) + 0.5));
-			}
+		if (pvpDeath && sumLevels > level) {
+			double reduce = level / static_cast<double>(sumLevels);
+			unfairFightReduction = std::max<uint8_t>(20, std::floor((reduce * 100) + 0.5));
+		}
 
 		//Magic level loss
 		uint64_t sumMana = 0;
@@ -2135,25 +2135,7 @@ void Player::death(Creature* lastHitCreature)
 			}
 		}
 
-		uint8_t maxBlessing = 8;
-		if (hasBlessing(6)) {
-			if (pvpDeath && hasBlessing(1)) {
-				removeBlessing(1, 1);
-			} else {
-				for (int i = 2; i <= maxBlessing; i++) {
-					removeBlessing(i, 1);
-				}
-			}
-			setDropLoot(false);
-		} else {
-			if (pvpDeath && hasBlessing(1)) {
-				removeBlessing(1, 1);
-			} else {
-				for (int i = 2; i <= maxBlessing; i++) {
-					removeBlessing(i, 1);
-				}
-			}
-		}
+
 
 		sendStats();
 		sendSkills();

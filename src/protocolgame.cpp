@@ -1481,41 +1481,6 @@ void ProtocolGame::sendBasicData()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendBlessStatus()
-{
-	NetworkMessage msg;
-	uint8_t blessCount = 0;
-	uint8_t maxBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
-	for (int i = 1; i <= maxBlessings; i++) {
-		if (player->hasBlessing(i)) {
-			blessCount++;
-		}
-	}
-
-	msg.addByte(0x9C);
-	if (blessCount >= 5) {
-		if (player->getProtocolVersion() >= 1120) {
-			uint8_t blessFlag = 0;
-			uint8_t maxFlag = static_cast<uint8_t>((maxBlessings == 8) ? 256 : 64);
-			for (int i = 2; i < maxFlag; i *= 2) {
-				blessFlag += i;
-			}
-
-			msg.add<uint16_t>(blessFlag - 1);
-		} else {
-			msg.add<uint16_t>(0x01);
-		}
-	} else {
-		msg.add<uint16_t>(0x00);
-	}
-
-	if (player->getProtocolVersion() >= 1120) {
-		msg.addByte((blessCount >= 5) ? 2 : 1); // 1 = Disabled | 2 = normal | 3 = green
-	}
-
-	writeToOutputBuffer(msg);
-}
-
 void ProtocolGame::sendStoreHighlight()
 {
 	NetworkMessage msg;
@@ -2799,7 +2764,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 
 	sendStats();
 	sendSkills();
-	sendBlessStatus();
+
 	sendPremiumTrigger();
 	sendStoreHighlight();
 

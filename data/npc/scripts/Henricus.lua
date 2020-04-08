@@ -14,7 +14,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	local totalBlessPrice = getBlessingsCost(player:getLevel()) * 5 * 1.1
+	local missing, totalBlessPrice = Blessings.getInquisitionPrice(player)
 
 	if msgcontains(msg, "inquisitor") then
 		npcHandler:say("The churches of the gods entrusted me with the enormous and responsible task to lead the inquisition. I leave the field work to inquisitors who I recruit from fitting people that cross my way.", cid)
@@ -25,7 +25,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "blessing") or msgcontains(msg, "bless") then
 		if player:getStorageValue(Storage.TheInquisition.Questline) == 25 then --if quest is done
-			npcHandler:say("Do you want to receive the blessing of the inquisition - which means all five available blessings - for " .. totalBlessPrice .. " gold?", cid)
+			npcHandler:say("Do you want to receive the blessing of the inquisition - which means ".. (missing == 5 and "all five available" or missing ) .." blessings - for " .. totalBlessPrice .. " gold?", cid)
 			npcHandler.topic[cid] = 7
 		else
 			npcHandler:say("You cannot get this blessing unless you have completed The Inquisition Quest.", cid)
@@ -184,7 +184,7 @@ local function creatureSayCallback(cid, type, msg)
 			if player:getStorageValue(Storage.TheInquisition.Questline) == 22 then
 				npcHandler:say({
 					"Incredible! You're a true defender of faith! I grant you the title of a High Inquisitor for your noble deeds. From now on you can obtain the blessing of the inquisition which makes the pilgrimage of ashes obsolete ...",
-					"The blessing of the inquisition will bestow upon you all available blessings for the price of 60000 gold. Also, don't forget to ask me about your {outfit} to receive the final addon as demon hunter."
+					"The blessing of the inquisition will bestow upon you all available blessings for the price of 110000 gold. Also, don't forget to ask me about your {outfit} to receive the final addon as demon hunter."
 				}, cid)
 				player:setStorageValue(Storage.TheInquisition.Questline, 23)
 				player:setStorageValue(Storage.TheInquisition.Mission07, 3) -- The Inquisition Questlog- "Mission 7: The Shadow Nexus"
@@ -202,13 +202,11 @@ local function creatureSayCallback(cid, type, msg)
 		end              
            npcHandler.topic[cid] = 0			
 		elseif npcHandler.topic[cid] == 7 then
-			if player:getBlessings() == 5 then
+			if missing == 0 then
 				npcHandler:say("You already have been blessed!", cid)
 			elseif player:removeMoneyNpc(totalBlessPrice) then
 				npcHandler:say("You have been blessed by all of five gods!, |PLAYERNAME|.", cid)
-				for b = 1, 5 do
-					player:addBlessing(b)
-				end
+				player:addMissingBless(false)
 				player:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 			else
 				npcHandler:say("Come back when you have enough money.", cid)

@@ -8,10 +8,11 @@ function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)
 function onThink()				npcHandler:onThink()					end
 
 -- Spark of the Phoenix
-local blessKeyword = keywordHandler:addKeyword({'phoenix'}, StdModule.say, {npcHandler = npcHandler, text = 'The Spark of the Phoenix is given by me and by the great geomancer of the local earth temple. Do you wish to receive my part of the Spark of the Phoenix for |BLESSCOST| gold?'})
+local blessKeyword = keywordHandler:addKeyword({'spark of the phoenix'}, StdModule.say, {npcHandler = npcHandler, text = 'The Spark of the Phoenix is given by me and by the great geomancer of the local earth temple. Do you wish to receive my part of the Spark of the Phoenix for |BLESSCOST| gold?'})
 	blessKeyword:addChildKeyword({'yes'}, StdModule.bless, {npcHandler = npcHandler, text = 'So receive the spark of the phoenix, pilgrim.', cost = '|BLESSCOST|', bless = 3})
 	blessKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'Maybe another time.', reset = true})
-keywordHandler:addAliasKeyword({'spark'})
+	keywordHandler:addAliasKeyword({'spark'})
+	keywordHandler:addAliasKeyword({'phoenix'})
 
 -- Basic
 keywordHandler:addKeyword({'gods'}, StdModule.say, {npcHandler = npcHandler, text = 'The ways of the gods are imprehensible to mortals. On the other hand, the elements are raw forces and can be understood and tamed.'})
