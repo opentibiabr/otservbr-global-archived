@@ -113,6 +113,8 @@ Blessings.sendBlessStatus = function(player)
 	else
 		msg:addU16(0)
 	end
+	local backpackLossChance = {100, 70, 45, 25, 10, 0, 0, 0}
+	local skillLoss = {0, 8, 16, 24, 32, 40, 48, 56}
 
 	msg:sendToPlayer(player)
 end
