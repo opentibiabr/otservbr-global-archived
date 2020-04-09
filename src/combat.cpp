@@ -1026,9 +1026,8 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 				damage.secondary.type = elementType;
 
 				if (elementType != COMBAT_NONE) {
-					const WeaponMelee* weaponM = (WeaponMelee*)weapon;
-					if (weaponM) {
-						elementAttack = weaponM->elementDamage;
+					if (weapon) {
+						elementAttack = weapon->getElementDamageValue();
 						shouldCalculateSecondaryDamage = true;
 						attackValue += elementAttack;
 					}
