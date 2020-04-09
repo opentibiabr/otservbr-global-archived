@@ -332,6 +332,7 @@ class ProtocolGame final : public Protocol
 		void AddPlayerStats(NetworkMessage& msg);
 		void AddOutfit(NetworkMessage& msg, const Outfit_t& outfit);
 		void AddPlayerSkills(NetworkMessage& msg);
+		void sendBlessStatus();
 		void sendPremiumTrigger();
 		void AddWorldLight(NetworkMessage& msg, LightInfo lightInfo);
 		void AddCreatureLight(NetworkMessage& msg, const Creature* creature);

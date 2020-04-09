@@ -1097,6 +1097,11 @@ class Player final : public Creature, public Cylinder
 				client->sendBasicData();
 			}
 		}
+		void sendBlessStatus() const {
+			if (client) {
+				client->sendBlessStatus();
+			}
+		}
 		void sendSkills() const {
 			if (client) {
 				client->sendSkills();

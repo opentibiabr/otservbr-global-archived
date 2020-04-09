@@ -15,8 +15,7 @@ Blessings.Credits = {
 		"WotE data\\movements\\scripts\\quests\\wrath of the emperor\\realmTeleport.lua has line checking if player has bless 1??? wtf",
 		"add blessings module support npc\\lib\\npcsystem\\modules.lua",
 		"Fix store buying bless",
-		"Check if store is inside lua or source...",
-		"Find better way to sendBlessStatus"
+		"Check if store is inside lua or source..."
 	}
 }
 
@@ -25,7 +24,7 @@ Blessings.Config = {
 	HasToF = false, -- Enables/disables twist of fate
 	InquisitonBlessPriceMultiplier = 1.1, -- Bless price multiplied by henricus
 	SkulledDeathLoseStoreItem = true, -- Destroy all items on store when dying with red/blackskull
-	InventoryGlowOnFiveBless = true, -- Glow in yellow inventory items when the player has 5 or more bless
+	InventoryGlowOnFiveBless = true, -- Glow in yellow inventory items when the player has 5 or more bless,
 	Debug = true -- Prin debug messages in console if enabled
 }
 
@@ -61,8 +60,13 @@ Blessings.DebugPrint = function(content,pre,pos)
 	else
 		pos = " " .. pos
 	end
-
-	print("[Blessings] "..pre .. content..pos)
+	if type(content) == "boolean" then
+		print("[Blessings] START BOOL - "..pre)
+		print(content)
+		print("[Blessings] END BOOL - "..pos)
+	else
+		print("[Blessings] "..pre .. content..pos)
+	end
 end
 
 Blessings.C_Packet = {
@@ -85,13 +89,14 @@ function onRecvbyte(player, msg, byte)
 	end
 end
 
-Blessings.sendBlessStatus = function(player)
+Blessings.sendBlessStatus = function(player, curBless)
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessStatus)
 	callback = function(k) return true end
-	local curBless = player:getBlessings(callback) -- ex: {1, 2, 5, 7}
+	if curBless == nil then
+		curBless = player:getBlessings(callback) -- ex: {1, 2, 5, 7}
+	end
 	Blessings.DebugPrint(#curBless, "sendBlessStatus curBless")
-	Blessings.DebugPrint(player:getClient().version, "sendBlessStatus player:getClient().version")
 	if player:getClient().version >= 1120 then 
 		local bitWiseCurrentBless = 0
 		local blessCount = 0
@@ -180,8 +185,6 @@ Blessings.sendBlessDialog = function(player)
 	end
 
 	msg:sendToPlayer(player)
-	
-	Blessings.sendBlessStatus(player)
 end
 
 Blessings.getBlessingsCost = function(level)
@@ -232,7 +235,6 @@ Blessings.checkBless = function(player)
 end
 
 Blessings.doAdventurerBlessing = function(player)
-	Blessings.sendBlessStatus(player)
 	if player:getLevel() > Blessings.Config.AdventurerBlessingLevel then
 		return true
 	end
@@ -290,13 +292,13 @@ Blessings.ClearBless = function(player, killer, currentBless)
 	end
 	for i = 1, #currentBless do
 		
-	Blessings.DebugPrint(i, "ClearBless curBless i", " | "..currentBless[i].name)
+		Blessings.DebugPrint(i, "ClearBless curBless i", " | "..currentBless[i].name)
 		player:removeBlessing(currentBless[i].id, 1)
 	end
 end
 
+
 Blessings.BuyAllBlesses = function(player)
-	Blessings.sendBlessStatus(player)
 	if not Tile(player:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) and (player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT))  then
 		player:sendCancelMessage("You can't buy bless while in battle.")
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
@@ -331,7 +333,6 @@ Blessings.BuyAllBlesses = function(player)
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
 	
-	Blessings.sendBlessStatus(player)
 end
 
 Blessings.PlayerDeath = function(player, corpse, killer)
@@ -348,15 +349,13 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 	elseif #curBless < 5 and hasAol and not hasToF then
 		player:removeItem(ITEM_AMULETOFLOSS, 1, -1, false)
 	end
-
-	Blessings.ClearBless(player, killer, curBless)
+	--Blessings.ClearBless(player, killer, curBless) IMPLEMENTED IN SOURCE BECAUSE THIS WAS HAPPENING BEFORE SKILL/EXP CALCULATIONS
 
 
 	if not player:getSlotItem(CONST_SLOT_BACKPACK) then
 		player:addItem(ITEM_BAG, 1, false, CONST_SLOT_BACKPACK)
 	end
 	
-	Blessings.sendBlessStatus(player)
 	return true
 end
 

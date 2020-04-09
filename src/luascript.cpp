@@ -10274,6 +10274,7 @@ int LuaScriptInterface::luaPlayerAddBlessing(lua_State* L)
 	uint8_t count = getNumber<uint8_t>(L, 3);
 
 	player->addBlessing(blessing, count);
+	player->sendBlessStatus();
 	pushBoolean(L, true);
 	return 1;
 }

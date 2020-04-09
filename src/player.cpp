@@ -2135,12 +2135,20 @@ void Player::death(Creature* lastHitCreature)
 			}
 		}
 
-
+		//Make player lose bless
+		uint8_t maxBlessing = 8;
+		if (pvpDeath && hasBlessing(1)) {
+			removeBlessing(1, 1); //Remove TOF only
+		} else {
+			for (int i = 2; i <= maxBlessing; i++) {
+				removeBlessing(i, 1);
+			}
+		}
 
 		sendStats();
 		sendSkills();
 		sendReLoginWindow(unfairFightReduction);
-
+		sendBlessStatus();
 		if (getSkull() == SKULL_BLACK) {
 			health = 40;
 			mana = 0;

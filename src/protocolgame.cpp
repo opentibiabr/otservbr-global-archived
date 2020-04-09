@@ -1481,6 +1481,40 @@ void ProtocolGame::sendBasicData()
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendBlessStatus()
+{
+	NetworkMessage msg;
+	uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
+	//Ignore ToF (bless 1)
+	uint8_t blessCount = 0;
+	uint16_t flag = 0;
+	uint16_t pow2 = 2;
+	for (int i = 1; i <= 8; i++) {
+		if (player->hasBlessing(i)) {
+			if (i > 1)
+				blessCount++;
+			flag |= pow2;
+		}
+		pow2 = pow2 * 2;
+	}
+
+	msg.addByte(0x9C);
+
+	if (player->getProtocolVersion() >= 1120) {
+		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
+			flag |= 1;
+		
+		msg.add<uint16_t>(flag);
+		msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
+	}else if (blessCount >= 5) {
+		msg.add<uint16_t>(0x01);
+	} else {
+		msg.add<uint16_t>(0x00);
+	}
+
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendStoreHighlight()
 {
 	NetworkMessage msg;
@@ -2764,6 +2798,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 
 	sendStats();
 	sendSkills();
+	sendBlessStatus();
 
 	sendPremiumTrigger();
 	sendStoreHighlight();

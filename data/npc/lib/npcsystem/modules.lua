@@ -182,7 +182,6 @@ if Modules == nil then
 			end
 			player:addBlessing(parameters.bless, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			Blessings.sendBlessStatus(player)
 		end
 
 		npcHandler:resetNpc(cid)
