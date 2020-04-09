@@ -160,7 +160,6 @@ int32_t Weapons::getMaxWeaponDamage(uint32_t level, int32_t attackSkill, int32_t
 	else {
 		return static_cast<int32_t>(std::round((0.09 * attackFactor * attackValue * attackSkill) + (level / 5)));
 	}
-	
 }
 
 bool Weapon::configureEvent(const pugi::xml_node& node)
