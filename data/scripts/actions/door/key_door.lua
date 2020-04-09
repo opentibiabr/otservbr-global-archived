@@ -45,7 +45,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		if query ~= RETURNVALUE_NOERROR then
 			toPosition.x = toPosition.x - 1
-			toPosition.y = toPosition.y - 1
+			toPosition.y = toPosition.y + 1
 			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
 		end
 		if query ~= RETURNVALUE_NOERROR then
