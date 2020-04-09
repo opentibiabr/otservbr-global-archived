@@ -40,7 +40,7 @@ keyLockedDoor = {
 	{ lockedDoor = 7042, closedDoor = 7043, openDoor = 7044 },
 	{ lockedDoor = 8541, closedDoor = 8542, openDoor = 8543 },
 	{ lockedDoor = 8544, closedDoor = 8545, openDoor = 8546 },
-	{ lockedDoor = 9165, closedDoor = 9165, openDoor = 9167 },
+	{ lockedDoor = 9165, closedDoor = 9166, openDoor = 9167 },
 	{ lockedDoor = 9168, closedDoor = 9169, openDoor = 9170 },
 	{ lockedDoor = 9267, closedDoor = 9268, openDoor = 9269 },
 	{ lockedDoor = 9270, closedDoor = 9271, openDoor = 9272 },
