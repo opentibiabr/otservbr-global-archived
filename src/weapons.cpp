@@ -601,7 +601,6 @@ bool WeaponMelee::getSkillType(const Player* player, const Item* item,
 	return false;
 }
 
-
 int32_t WeaponMelee::getElementDamage(const Player* player, const Creature*, const Item* item) const
 {
 	if (elementType == COMBAT_NONE) {
@@ -849,7 +848,6 @@ int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* t
 
 	return -normal_random(minValue, static_cast<int32_t>(maxValue * player->getVocation()->distDamageMultiplier));
 }
-
 
 int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage /*= false*/) const
 {
