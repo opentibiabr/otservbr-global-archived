@@ -66,8 +66,8 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	-- onUse unlocked door
 	for index, value in ipairs(keyLockedDoor) do
-		 if value.closedDoor == item.itemid then
-				item:transform(value.openDoor)
+		if value.closedDoor == item.itemid then
+			item:transform(value.openDoor)
 			return true
 		end
 	end
