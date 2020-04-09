@@ -88,7 +88,7 @@ class Weapon : public Event
 		virtual int32_t getElementDamage(const Player* player, const Creature* target, const Item* item) const = 0;
 		virtual CombatType_t getElementType() const = 0;
 		virtual int16_t getElementDamageValue() const = 0;
-		virtual CombatDamage Weapon::getCombatDamage(CombatDamage combat, Player* player, Item* item, int32_t damageModifier) const;
+		virtual CombatDamage getCombatDamage(CombatDamage combat, Player* player, Item* item, int32_t damageModifier) const;
 		uint16_t getID() const {
 			return id;
 		}
