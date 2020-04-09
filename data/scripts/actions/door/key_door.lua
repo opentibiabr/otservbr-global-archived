@@ -56,10 +56,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	-- It is locked msg
-	if table.contains(keyLockedDoor, item.itemid) then
-		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
-		return true
-	elseif table.contains(keyUnlockedDoor, item.itemid) and item.actionid == 1001 or item.actionid == 101 then
+	if table.contains(keyLockedDoor, item.itemid) or (table.contains(keyUnlockedDoor, item.itemid) and table.contains({1001, 101}, item.actionid)) then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
 		return true
 	end
@@ -85,15 +82,14 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				player:sendCancelMessage("The key does not match.")
 				return true
 			end
-			if item.actionid == target.actionid and value.lockedDoor == target.itemid then
-				target:transform(value.openDoor)
-				return true
-			elseif item.actionid == target.actionid and value.openDoor == target.itemid then
-				target:transform(value.lockedDoor)
-				return true
-			elseif item.actionid == target.actionid and value.closedDoor == target.itemid then
-				target:transform(value.lockedDoor)
-				return true
+			if item.actionid == target.actionid then
+				if value.lockedDoor == target.itemid then
+					target:transform(value.openDoor)
+					return true
+				elseif table.contains({value.openDoor, value.closedDoor}, target.itemid) then
+					target:transform(value.lockedDoor)
+					return true
+				end
 			end
 		end
 	end
