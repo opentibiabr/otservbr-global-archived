@@ -1,29 +1,32 @@
 local doorId = {}
 local keyDoorLocked = {}
-
-local door = Action()
-
-for index, value in ipairs(keyUnlockedDoor) do
-	if not table.contains(doorId, value.openDoor) then
-		table.insert(doorId, value.openDoor)
-	end
-	if not table.contains(doorId, value.closedDoor) then
-		table.insert(doorId, value.closedDoor)
-	end
-end
+local keyDoorUnlocked = {}
 
 for index, value in ipairs(keyLockedDoor) do
 	if not table.contains(doorId, value.closedDoor) then
 		table.insert(doorId, value.closedDoor)
 	end
-	if not table.contains(keyDoorLocked, value.closedDoor) then
-		table.insert(keyDoorLocked, value.closedDoor)
+	if not table.contains(doorId, value.lockedDoor) then
+		table.insert(doorId, value.lockedDoor)
+	end
+	if not table.contains(doorId, value.openDoor) then
+		table.insert(doorId, value.openDoor)
+	end
+	if not table.contains(keyDoorLocked, value.lockedDoor) then
+		table.insert(keyDoorLocked, value.lockedDoor)
+	end
+	if not table.contains(keyDoorUnlocked, value.closedDoor) then
+		table.insert(keyDoorUnlocked, value.closedDoor)
 	end
 end
 
-for keys = 2967, 2973 do
-	table.insert(doorId, keys)
+for index, value in pairs(keysID) do
+	if not table.contains(doorId, value) then
+		table.insert(doorId, value)
+	end
 end
+
+local door = Action()
 
 function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
@@ -56,16 +59,19 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if table.contains(keyDoorLocked, item.itemid) then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
 		return true
+	elseif table.contains(keyDoorUnlocked, item.itemid) and item.actionid == 1001 or item.actionid == 101 then
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
+		return true
 	end
 
 	-- onUse unlocked door
-    for index, value in ipairs(keyUnlockedDoor) do
+	for index, value in ipairs(keyLockedDoor) do
 		 if value.closedDoor == item.itemid then
 				item:transform(value.openDoor)
 			return true
 		end
 	end
-	for index, value in ipairs(keyUnlockedDoor) do
+	for index, value in ipairs(keyLockedDoor) do
 		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
 			return true
@@ -75,21 +81,23 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	-- Key use on door (locked door)
 	if target.actionid > 0 then
 		for index, value in ipairs(keyLockedDoor) do
-			for i, v in ipairs(keyUnlockedDoor) do
-				if item.actionid == target.actionid and value.closedDoor == target.itemid then
-					target:transform(value.openDoor)
-					return true
-				elseif item.actionid == target.actionid and value.openDoor == target.itemid then
-					target:transform(value.closedDoor)
-					return true
-				elseif item.actionid == target.actionid and v.closedDoor == target.itemid then
-					target:transform(value.closedDoor)
-					return true
-				end
+			if item.actionid ~= target.actionid and value.lockedDoor == target.itemid then
+				player:sendCancelMessage("The key does not match.")
+				return true
+			end
+			if item.actionid == target.actionid and value.lockedDoor == target.itemid then
+				target:transform(value.openDoor)
+				return true
+			elseif item.actionid == target.actionid and value.openDoor == target.itemid then
+				target:transform(value.lockedDoor)
+				return true
+			elseif item.actionid == target.actionid and value.closedDoor == target.itemid then
+				target:transform(value.lockedDoor)
+				return true
 			end
 		end
 	else
-		player:sendTextMessage(MESSAGE_STATUS_SMALL, "The key does not match.")
+		player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
 	return true
 end
