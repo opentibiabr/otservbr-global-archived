@@ -50,7 +50,7 @@ class Weapons final : public BaseEvents
 		const Weapon* getWeapon(const Item* item) const;
 
 		static int32_t getMaxMeleeDamage(int32_t attackSkill, int32_t attackValue);
-		static int32_t getMaxWeaponDamage(uint32_t level, int32_t attackSkill, int32_t attackValue, float attackFactor);
+		static int32_t getMaxWeaponDamage(uint32_t level, int32_t attackSkill, int32_t attackValue, float attackFactor, bool isMelee);
 
 		bool registerLuaEvent(Weapon* event);
 		void clear(bool fromLua) override final;
@@ -249,11 +249,12 @@ class WeaponMelee final : public Weapon
 		int32_t getElementDamage(const Player* player, const Creature* target, const Item* item) const override;
 		CombatType_t getElementType() const override { return elementType; }
 
+		uint16_t elementDamage = 0;
+
 	private:
 		bool getSkillType(const Player* player, const Item* item, skills_t& skill, uint32_t& skillpoint) const override;
 
 		CombatType_t elementType = COMBAT_NONE;
-		uint16_t elementDamage = 0;
 };
 
 class WeaponDistance final : public Weapon
