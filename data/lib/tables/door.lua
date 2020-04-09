@@ -5,7 +5,7 @@ keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092}
 
 -- The lockedDoor is the doors with the description "It is locked". Use this (with no action) to keep a door permanently isoled.
 -- The closedDoor is the doors that are unlocked, when using them open normally.
-keyLockedDoor = {
+keyDoor = {
 	{ lockedDoor = 1209, closedDoor = 1210, openDoor = 1211 },
 	{ lockedDoor = 1212, closedDoor = 1213, openDoor = 1214 },
 	{ lockedDoor = 1231, closedDoor = 1232, openDoor = 1233 },
