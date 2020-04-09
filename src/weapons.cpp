@@ -409,7 +409,6 @@ bool Weapon::useFist(Player* player, Creature* target)
 
 void Weapon::internalUseWeapon(Player* player, Item* item, Creature* target, int32_t damageModifier) const
 {
-	using namespace std;
 	if (scripted) {
 		LuaVariant var;
 		var.type = VARIANT_NUMBER;
