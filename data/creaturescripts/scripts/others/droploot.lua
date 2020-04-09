@@ -3,5 +3,6 @@ function onDeath(player, corpse, killer, mostDamage, unjustified, mostDamage_unj
 	if getPlayerFlagValue(player, PlayerFlag_NotGenerateLoot) then --or player:getVocation():getId() == VOCATION_NONE then
 		return true
 	end
+	Blessings.DebugPrint("DropLoot")
 	return Blessings.PlayerDeath(player, corpse, killer)
 end

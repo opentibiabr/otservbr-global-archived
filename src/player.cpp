@@ -4095,7 +4095,7 @@ double Player::getLostPercent() const
 {
 	int32_t blessingCount = 0;
 	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
-	for (int i = 1; i <= maxBlessing; i++) {
+	for (int i = 2; i <= maxBlessing; i++) {
 		if (hasBlessing(i)) {
 			blessingCount++;
 		}
@@ -4112,7 +4112,7 @@ double Player::getLostPercent() const
 	}
 
 	double lossPercent;
-	if (level >= 25) {
+	if (level >= 24) {
 		double tmpLevel = level + (levelPercent / 100.);
 		lossPercent = ((tmpLevel + 50) * 50 * ((tmpLevel * tmpLevel) - (5 * tmpLevel) + 8)) / experience;
 	} else {

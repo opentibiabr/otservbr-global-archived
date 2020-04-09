@@ -25,6 +25,7 @@ Blessings.Config = {
 	HasToF = false, -- Enables/disables twist of fate
 	InquisitonBlessPriceMultiplier = 1.1, -- Bless price multiplied by henricus
 	SkulledDeathLoseStoreItem = true, -- Destroy all items on store when dying with red/blackskull
+	InventoryGlowOnFiveBless = true, -- Glow in yellow inventory items when the player has 5 or more bless
 	Debug = true -- Prin debug messages in console if enabled
 }
 
@@ -98,9 +99,14 @@ Blessings.sendBlessStatus = function(player)
 			if curBless[i].losscount then
 				blessCount = blessCount + 1
 			end
-			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, Blessings.BitWiseTable[curBless[i].id])
+			if (not curBless[i].losscount and Blessings.Config.HasToF) or curBless[i].losscount then
+				bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, Blessings.BitWiseTable[curBless[i].id])
+			end
 		end
-		msg:addU16(bitWiseCurrentBless) -- 
+		if blessCount > 5 and Blessings.Config.InventoryGlowOnFiveBless then
+			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, 1)
+		end
+		msg:addU16(bitWiseCurrentBless)  
 		dlgBtnColour = 1
 		if blessCount >= 7 then
 			dlgBtnColour = 3
@@ -290,6 +296,7 @@ Blessings.ClearBless = function(player, killer, currentBless)
 end
 
 Blessings.BuyAllBlesses = function(player)
+	Blessings.sendBlessStatus(player)
 	if not Tile(player:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) and (player:isPzLocked() or player:getCondition(CONDITION_INFIGHT, CONDITIONID_DEFAULT))  then
 		player:sendCancelMessage("You can't buy bless while in battle.")
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
@@ -323,6 +330,8 @@ Blessings.BuyAllBlesses = function(player)
 		player:sendCancelMessage("You don't have enough money. You need " .. totalCost .. " to buy all blesses.", cid)
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
+	
+	Blessings.sendBlessStatus(player)
 end
 
 Blessings.PlayerDeath = function(player, corpse, killer)
