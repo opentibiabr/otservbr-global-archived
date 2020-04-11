@@ -73,6 +73,9 @@
 	<event type="kill" name="AstralPower" script="quests/forgotten knowledge/bound astral power.lua"/>
 	<event type="think" name="AstralSource" script="quests/forgotten knowledge/astral source.lua"/>
 	<event type="think" name="DistortedSource" script="quests/forgotten knowledge/distorted source.lua"/>
+	
+	<!-- Grave Danger -->
+	<event type="kill" name="UrmahlulluKill" script="quests/grave danger/urmahlulluKill.lua" />
 
 	<!-- hero of rathleton -->
 	<event type="death" name="TentacleDeep" script="quests/hero of rathleton/tentacle.lua"/>
