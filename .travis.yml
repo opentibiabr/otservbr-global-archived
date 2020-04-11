@@ -40,7 +40,6 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
-      - libspdlog-dev
 
 before_script:
   - mkdir build && cd build
