@@ -81,7 +81,13 @@
 
 	<!-- Roshamuul-->
 	<event type="kill" name="lowerRoshamuul" script="lowerRoshamuul.lua"/>
-
+	
+	<!-- Changes of Urmahlullu -->
+	<event type="death" name="SummonWild" event="script" script="quests/Issavi/immaculate.lua"/>
+	<event type="death" name="SummonTamed" event="script" script="quests/Issavi/tamed.lua"/>
+	<event type="death" name="SummonWisdom" event="script" script="quests/Issavi/wisdom.lua"/>
+	<event type="death" name="SummonWeakened" event="script" script="quests/Issavi/weakened.lua"/>
+	
 	<!-- ferumbras ascedant quest-->
 	<event type="death" name="boneCapsule" script="quests/ferumbras ascendant/bone capsule.lua" />
 	<event type="kill" name="BossesKill" script="quests/ferumbras ascendant/bossesKill.lua" />
