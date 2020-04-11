@@ -56,7 +56,7 @@ function onLogin(player)
 	"mozradek_kill",
 	"xogixath_kill",
 	"CultoFafnar",
-	"UrmahlulluKill",
+	"UrmahlulluKill"
 }
 	
 	for i = 1, #events do
