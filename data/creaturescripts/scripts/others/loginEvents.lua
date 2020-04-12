@@ -55,7 +55,8 @@ function onLogin(player)
 	"bragrumol_kill",
 	"mozradek_kill",
 	"xogixath_kill",
-	"CultoFafnar"
+	"CultoFafnar",
+	"BestiaryOnKill"
 }
 	
 	for i = 1, #events do

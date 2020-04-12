@@ -4235,7 +4235,8 @@ const luaL_Reg LuaScriptInterface::luaBitReg[] = {
 
 int LuaScriptInterface::luaBitNot(lua_State* L)
 {
-	lua_pushnumber(L, ~getNumber<uint32_t>(L, -1));
+	int32_t number = getNumber<int32_t>(L, -1);
+	lua_pushnumber(L, ~number);
 	return 1;
 }
 
