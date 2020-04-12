@@ -2015,29 +2015,29 @@ void Player::death(Creature* lastHitCreature)
 		uint8_t unfairFightReduction = 100;
 		int playerDmg = 0;
 		int othersDmg = 0;
-			uint32_t sumLevels = 0;
-			uint32_t inFightTicks = 5 * 60 * 1000;
-			for (const auto& it : damageMap) {
-				CountBlock_t cb = it.second;
-				if ((OTSYS_TIME() - cb.ticks) <= inFightTicks) {
-					Player* damageDealer = g_game.getPlayerByID(it.first);
-					if (damageDealer) {
-						playerDmg += cb.total;
-						sumLevels += damageDealer->getLevel();
-					}
-					else{
-						othersDmg += cb.total;
-					}
-					}
+		uint32_t sumLevels = 0;
+		uint32_t inFightTicks = 5 * 60 * 1000;
+		for (const auto& it : damageMap) {
+			CountBlock_t cb = it.second;
+			if ((OTSYS_TIME() - cb.ticks) <= inFightTicks) {
+				Player* damageDealer = g_game.getPlayerByID(it.first);
+				if (damageDealer) {
+					playerDmg += cb.total;
+					sumLevels += damageDealer->getLevel();
 				}
+				else{
+					othersDmg += cb.total;
+				}
+			}
+		}
 		bool pvpDeath = false;
 		if(playerDmg > 0 || othersDmg > 0){
-		pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
+			pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
 		}
-			if (pvpDeath && sumLevels > level) {
-				double reduce = level / static_cast<double>(sumLevels);
-				unfairFightReduction = std::max<uint8_t>(20, std::floor((reduce * 100) + 0.5));
-			}
+		if (pvpDeath && sumLevels > level) {
+			double reduce = level / static_cast<double>(sumLevels);
+			unfairFightReduction = std::max<uint8_t>(20, std::floor((reduce * 100) + 0.5));
+		}
 
 		//Magic level loss
 		uint64_t sumMana = 0;
@@ -2130,30 +2130,20 @@ void Player::death(Creature* lastHitCreature)
 			}
 		}
 
+		//Make player lose bless
 		uint8_t maxBlessing = 8;
-		if (hasBlessing(6)) {
-			if (pvpDeath && hasBlessing(1)) {
-				removeBlessing(1, 1);
-			} else {
-				for (int i = 2; i <= maxBlessing; i++) {
-					removeBlessing(i, 1);
-				}
-			}
-			setDropLoot(false);
+		if (pvpDeath && hasBlessing(1)) {
+			removeBlessing(1, 1); //Remove TOF only
 		} else {
-			if (pvpDeath && hasBlessing(1)) {
-				removeBlessing(1, 1);
-			} else {
-				for (int i = 2; i <= maxBlessing; i++) {
-					removeBlessing(i, 1);
-				}
+			for (int i = 2; i <= maxBlessing; i++) {
+				removeBlessing(i, 1);
 			}
 		}
 
 		sendStats();
 		sendSkills();
 		sendReLoginWindow(unfairFightReduction);
-
+		sendBlessStatus();
 		if (getSkull() == SKULL_BLACK) {
 			health = 40;
 			mana = 0;
@@ -4090,7 +4080,7 @@ double Player::getLostPercent() const
 {
 	int32_t blessingCount = 0;
 	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
-	for (int i = 1; i <= maxBlessing; i++) {
+	for (int i = 2; i <= maxBlessing; i++) {
 		if (hasBlessing(i)) {
 			blessingCount++;
 		}
@@ -4107,7 +4097,7 @@ double Player::getLostPercent() const
 	}
 
 	double lossPercent;
-	if (level >= 25) {
+	if (level >= 24) {
 		double tmpLevel = level + (levelPercent / 100.);
 		lossPercent = ((tmpLevel + 50) * 50 * ((tmpLevel * tmpLevel) - (5 * tmpLevel) + 8)) / experience;
 	} else {
