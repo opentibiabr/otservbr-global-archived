@@ -1482,7 +1482,7 @@ void ProtocolGame::sendBasicData()
 void ProtocolGame::sendBlessStatus()
 {
 	NetworkMessage msg;
-	uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
+	//uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6; (compartability for the client 10)
 	//Ignore ToF (bless 1)
 	uint8_t blessCount = 0;
 	uint16_t flag = 0;
