@@ -47596,7 +47596,7 @@
 		<attribute key="quicklootcategory" value="creatureproduct" />
 		<attribute key="weight" value="76" />
 	</item>
-	<item id="36459" name="Urmahlullu's Paws">
+	<item id="36459" name="Urmahlullu's Paw">
 		<attribute key="quicklootcategory" value="creatureproduct" />
 		<attribute key="weight" value="76" />
 	</item>
@@ -48907,7 +48907,7 @@
 		<attribute key="quicklootcategory" value="ring" />
 		<attribute key="absorbPercentDeath" value="7" />
 	</item>
-	<item id="37457" article="a" name="giant amethyst" >
+	<item id="37457" article="a" name="giant sapphire" >
 		<attribute key="quicklootcategory" value="valuable" />
 		<attribute key="weight" value="170" />
 		<attribute key="showcount" value="1" />
