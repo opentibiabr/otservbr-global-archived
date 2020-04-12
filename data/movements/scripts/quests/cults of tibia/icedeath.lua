@@ -60,6 +60,7 @@ function onStepIn(creature, item, position, fromPosition)
 		end
 		player:addHealth((-player:getHealth() + 1))
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You were killed by something evil and others.")
+		-- TODO parse active blessings and show that you didn't lose any blessings
 		-- player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are still blessed with Wisdom of Solitude, Spark of the Phoenix, Fire of the Suns, Spiritual Shielding, Embrace of Tibia, Heart of the Mountani, Blood of the Montain and Twist of Fate.")
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost 0 experience and 0.00% of all of your skills.")
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You did not lose any items.")
