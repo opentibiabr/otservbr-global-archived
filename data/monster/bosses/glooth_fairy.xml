@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Fairy" nameDescription="a glooth fairy" race="blood" experience="19000" speed="600" manacost="490">
+	<health now="59000" max="59000" />
+	<look type="600" corpse="23363" />
+	<targetchange interval="4000" chance="80" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="210" attack="260" />
+		<attack name="firecondition" interval="1000" chance="7" range="2" min="-200" max="-1000">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="yellowspark" />
+		</attack>
+		<attack name="physical" interval="1000" chance="7" radius="6" target="0" min="-50" max="-150">
+			<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="1000" chance="50" radius="5" target="0" min="-20" max="-100">
+			<attribute key="areaEffect" value="yellowspark" />
+		</attack>
+		<attack name="firefield" interval="1000" chance="4" radius="8" target="0">
+			<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-50" max="-150">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="13" length="8" spread="0" min="-50" max="-100">
+			<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="1000" chance="10" length="8" spread="3" min="-30" max="-100">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="165" defense="150">
+		<defense name="healing" interval="1000" chance="15" min="500" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="1000" chance="25" min="200" max="300">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="10" speedchange="1800" duration="3000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<immunities>
+    <immunity invisible="1" />
+    <immunity paralyze="1" />
+  </immunities>
+	<elements>
+		<element energyPercent="25" />
+		<element holyPercent="20" />
+		<element earthPercent="-10" />
+		<element deathPercent="-10" />
+	</elements>
+	<loot>
+			<item id="2148" countmax="199" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="14" chance="37170"/><!-- platinum coin -->
+		<item id="23474" chance="14630"/><!-- glooth injection tube -->
+		<item id="7590" chance="11270"/><!-- great mana potion -->
+		<item id="23514" chance="10550"/><!-- glooth sandwich -->
+		<item id="9970" countmax="2" chance="4320"/><!-- small topaz -->
+		<item id="2149" countmax="2" chance="3600"/><!-- small emerald -->
+		<item id="23554" chance="2400"/><!-- glooth amulet -->
+		<item id="9690" chance="1920"/><!-- gear wheel -->
+		<item id="23551" chance="1200"/><!-- glooth axe -->
+		<item id="23529" chance="1200"/><!-- glooth spear -->
+		<item id="23538" chance="1200"/><!-- heat core -->
+		<item id="2154" chance="960"/><!-- yellow gem -->
+		<item id="23550" chance="720"/><!-- glooth blade -->
+		<item id="23549" chance="480"/><!-- glooth club -->
+		<item id="23536" chance="480"/><!-- rubber cap -->
+		<item id="2156" chance="980"/><!-- Red Gem  -->
+		<item id="23663" chance="480"/><!-- backpack  -->
+		<item id="5880" chance="980"/><!-- iron ore  -->
+		<item id="23515" chance="280"/><!--  bowl of glooth soup  -->
+	</loot>
+</monster>

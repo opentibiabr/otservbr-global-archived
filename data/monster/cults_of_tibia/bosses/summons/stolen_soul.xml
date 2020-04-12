@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Stolen Soul" nameDescription="a stolen soul" race="undead" experience="0" speed="180">
+	<health now="5000" max="5000" />
+	<look type="294" />
+	<targetchange interval="5000" chance="100" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+	</attacks>
+	<defenses armor="50" defense="50">
+	</defenses>
+	<elements>
+	</elements>
+</monster>

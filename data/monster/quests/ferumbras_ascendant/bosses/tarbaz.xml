@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Tarbaz" nameDescription="tarbaz" race="undead" experience="50000" speed="320" script="rewardboss.lua">
+	<health now="290000" max="290000" />
+	<look type="842" head="0" body="21" legs="19" feet="3" addons="2" corpse="25151" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag rewardboss="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-1000" max="-2000"/>
+		<attack name="fire" interval="3000" chance="20" length="10" spread="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="25" radius="7" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="5" min="-300" max="-700">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" length="10" spread="0" min="-500" max="-800">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20"  length="8" spread="3" min="-500" max="-800">
+			<attribute key="areaEffect" value="fireattack"/>
+		</attack>
+	</attacks>
+	<defenses armor="100" defense="120">
+		<defense name="healing" interval="2000" chance="10" min="900" max="3500">
+			<attribute key="areaEffect" value="greenshimmer" />
+		</defense>
+		<defense name="speed" interval="3000" chance="30" speedchange="460" duration="7000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<attack name="tarbaz tp" interval="2000" chance="3"/>
+	</defenses>
+	<elements>
+		<element earthPercent="10"/>
+		<element holyPercent="10"/>
+		<element firePercent="10"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="30">
+		<voice sentence="You are a failure."/>
+	</voices>
+	<loot>
+		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="2154" chance="1000"/><!-- yellow gem -->
+		<item id="2148" countmax="184" chance="98000"/>	<!-- gold coin -->
+		<item id="7590" countmax="10" chance="23000"/><!-- great mana potion -->
+		<item id="7632" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
+		<item id="7633" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
+		<item id="8472" countmax="10" chance="46100"/><!-- great spirit potion -->
+		<item id="8473" countmax="10" chance="23000"/><!-- ultimate health potion -->
+		<item id="9970" countmax="8" chance="10000"/><!-- small topaz -->
+		<item id="2146" countmax="9" chance="12000"/>	<!-- small sapphire -->
+		<item id="2143" countmax="8" chance="12000"/>	<!-- white pearl -->
+		<item id="2155" chance="1000"/><!-- green gem -->
+		<item id="7888" chance="4000"/><!-- glacier amulet -->
+		<item id="7896" chance="1000"/><!-- glacier kilt -->
+		<item id="7897" chance="1000"/><!-- glacier robe -->
+		<item id="2150" countmax="5" chance="10000"/>	<!-- small amethyst -->
+		<item id="2152" countmax="58" chance="8000"/>	<!-- platinum coin -->
+		<item id="18413" countmax="5" chance="10000"/>	<!-- blue crystal shard -->
+		<item id="18414" countmax="5" chance="10000"/>	<!-- violet crystal shard -->
+		<item id="18415" countmax="5" chance="10000"/>	<!-- green crystal shard -->
+		<item id="2153" chance="1000"/><!-- violet gem -->
+		<item id="25523" chance="800"/><!-- rift crossbow -->
+		<item id="25383" chance="800"/><!-- rift lance -->
+		<item id="2155" chance="1000"/><!-- green gem -->
+		<item id="8910" chance="4000"/><!-- underworld rod -->
+		<item id="25413" chance="500" unique="1"/><!-- shroud of despair -->
+	</loot>
+</monster>

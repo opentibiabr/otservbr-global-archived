@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Biting Book" nameDescription="a biting book" race="undead" experience="9350" speed="480">
+	<health now="6500" max="6500"/>
+	<look type="1066" corpse="33353"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1055"/>
+		<attack name="physical" interval="1000" chance="12" radius="5" min="0" max="-1210">
+			<attribute key="areaEffect" value="smoke"/>
+		</attack>
+		<attack name="physical" interval="1000" chance="14" radius="3" min="0" max="-1210">
+			<attribute key="areaEffect" value="bats"/>
+		</attack>
+	</attacks>
+	<defenses armor="76" defense="40"/>
+	<elements>
+		<element physicalPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2231" countmax="2" chance="500"/> <!-- big bone -->
+		<item name="Book Page" countmax="4" chance="500"/>
+		<item name="Glowing Rune" countmax="2" chance="500"/>
+		<item name="Platinum Coin" countmax="5" chance="10000"/>
+		<item name="Silken Bookmark" countmax="3" chance="500"/>
+	</loot>
+</monster>

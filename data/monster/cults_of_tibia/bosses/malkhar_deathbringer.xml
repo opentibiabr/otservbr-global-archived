@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Malkhar Deathbringer" nameDescription="Malkhar Deathbringer" race="blood" experience="0" speed="250">
+	<health now="15000" max="30000" />
+	<look type="134" head="19" body="94" legs="41" feet="57" addons="0" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400" />
+	<attack name="death" interval="2000" chance="40" target="1" range="8" radius="8" min="0" max="-500">
+		<attribute key="shootEffect" value="death" />
+		<attribute key="areaEffect" value="mortarea" />
+	</attack>
+	</attacks>
+	<defenses armor="35" defense="50">
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+	</immunities>
+</monster>

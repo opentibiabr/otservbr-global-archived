@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Vexclaw" nameDescription="a vexclaw" race="fire" experience="5680" speed="270">
+	<health now="8500" max="8500"/>
+	<look type="854" corpse="25432"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="75" attack="150"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-120"/>
+		<attack name="fire" interval="2000" chance="20" range="7" radius="7" target="1" min="-150" max="-250">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="choking fear drown" interval="2000" chance="20"/>
+		<attack name="death" interval="2000" chance="20" radius="4" target="1" min="-150" max="-400">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-50" max="-200">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="firefield" interval="2000" chance="10" range="7" radius="1" target="1">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-300" max="-490">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="energy strike" interval="2000" chance="10" range="1" min="-210" max="-300">
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-300" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="180" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="30"/>
+		<element deathPercent="30"/>
+		<element energyPercent="50"/>
+		<element earthPercent="40"/>
+		<element icePercent="-10"/>
+		<element holyPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity drown="1"/>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Weakness must be culled!"/>
+		<voice sentence="Power is miiiiine!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="100" chance="60000"/><!-- gold coin -->
+		<item id="2148" countmax="99" chance="60000"/><!-- gold coin -->
+		<item id="2152" countmax="6" chance="100000"/><!-- platinum coin -->
+		<item id="2795" countmax="6" chance="7740"/><!-- fire mushroom -->
+		<item id="7590" countmax="3" chance="8285"/><!-- great mana potion -->
+		<item id="8472" countmax="3" chance="8285"/><!-- great spirit potion -->
+		<item id="8473" countmax="3" chance="8285"/><!-- ultimate health potion -->
+		<item id="2147" countmax="3" chance="4985"/><!-- small ruby -->
+		<item id="2149" chance="3000"/><!-- small emerald -->
+		<item id="2150" countmax="3" chance="1985"/><!-- small amethyst -->
+		<item id="9970" countmax="3" chance="2485"/><!-- small topaz -->
+		<item id="2151" countmax="3" chance="1571"/><!-- talon -->
+		<item id="6500" chance="1885"/><!-- demonic essence -->
+		<item id="25384" chance="1285"/><!-- Vexclaw Talon -->
+		<item id="2156" chance="885"/><!-- Red Gem -->
+		<item id="2164" chance="1285"/><!-- might ring -->
+		<item id="2418" chance="1328"/><!-- golden sickle -->
+		<item id="1982" chance="9390"/><!-- purple tome -->
+		<item id="2171" chance="1213"/><!-- platinum amulet -->
+		<item id="2462" chance="1504"/><!-- devil helmet -->
+		<item id="2396" chance="1666"/><!-- ice rapier -->
+		<item id="2432" chance="1003"/><!-- fire axe -->
+		<item id="2520" chance="989"/><!-- demon shield -->
+		<item id="2393" chance="1290"/><!-- giant sword -->
+		<item id="7382" chance="320"/><!-- demonrage sword -->
+		<item id="2514" chance="400"/><!-- mastermind shield -->
+		<item id="2472" chance="340"/><!-- magic plate armor -->
+		<item id="25523" chance="220"/><!-- rift crossbow -->
+		<item id="25522" chance="220"/><!-- Rift Bow-->
+	</loot>
+</monster>

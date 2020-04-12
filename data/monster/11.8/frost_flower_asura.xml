@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Frost Flower Asura" nameDescription="a frost flower asura" race="blood" experience="4200" speed="220">
+	<health now="3500" max="3500"/>
+	<look type="150" head="0" body="0" legs="0" feet="86" addon="3" corpse="33420"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="3"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="0"/>
+	</flags>
+		<attacks>
+		<attack name="melee" interval="2000" min="-110" max="-400"/>
+		<attack name="holy" interval="1300" chance="14" length="8" spread="0" min="-185" max="-210">
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+		<attack name="ice" interval="1000" chance="9" range="7" target="1" min="-120" max="-200">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+	</attacks>
+	<defenses armor="56" defense="30">
+		<defense name="healing" interval="2000" chance="15" min="90" max="150">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="50"/>
+		<element energyPercent="-25"/>
+	</elements>
+	<immunities>
+		<immunity fire="1"/>
+		<immunity ice="1"/>
+		<immunity earth="1"/>
+		<immunity drown="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="242" chance="97000"/>	            <!-- gold coin -->
+ 		<item id="2148" countmax="102" chance="97000"/>	            <!-- gold coin -->
+		<item id="2656" chance="2000"/>					<!-- Blue Robe -->
+	</loot>
+</monster>

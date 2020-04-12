@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Animated Stone Rhino" nameDescription="an animated stone rhino" race="blood" experience="1800" speed="150" manacost="290">
+	<health now="3000" max="3000" />
+	<look type="936" corpse="27750" />
+	<targetchange interval="5000" chance="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="1" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="15" />
+		<flag respawntype="night" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="10" />
+		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="500">
+			<attribute key="shootEffect" value="smallstone" />
+		</attack>
+	</attacks>
+	<elements>
+		<element energyPercent="20" />
+		<element holyPercent="1" />
+		<element earthPercent="-12" />
+		<element deathPercent="-10" />
+	</elements>
+	<voices interval="2000" chance="7">
+		<voice sentence="Snarl!" />
+		<voice sentence="SNIFF!" />
+	</voices>
+	<loot>
+		<item id="5925" chance="50320" />
+		<item id="27056" chance="50320" />
+		<item id="27057" chance="50320" />
+		<item id="24842" chance="50320" />
+	</loot>
+</monster>

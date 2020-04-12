@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zorvorax" nameDescription="zorvorax" race="undead" experience="9000" speed="350">
+	<health now="10000" max="10000"/>
+	<look type="928" corpse="6306"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="800"/>
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="112" attack="85"/>
+		<attack name="death" interval="2000" chance="15" range="7" radius="5" target="1" min="-120" max="-650">
+			<attribute key="shootEffect" value="death"/>
+			<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="11" range="7" min="-330" max="-805">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="undead dragon curse" interval="2000" chance="10"/>
+		<attack name="death" interval="2000" chance="9" length="8" spread="3" min="-300" max="-780">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+	</attacks>
+	<defenses armor="52" defense="64">
+		<defense name="healing" interval="2000" chance="55" min="450" max="550">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-10"/>
+		<element physicalPercent="10"/>
+		<element icePercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity death="1"/>
+		<immunity earth="1"/>
+		<immunity drown="1"/>
+	</immunities>
+	<loot>
+		<item id="27610" chance="100000"/><!-- zorvorax bones -->
+		<item id="2148" countmax="24" chance="100000"/><!-- gold coin -->
+		<item id="7591" chance="20000" countmax="3"/><!-- great health potion -->
+		<item id="8472" chance="20000" countmax="3"/><!-- great spirit potion -->
+		<item id="13291" chance="500"/><!-- maxilla maximus -->
+		<item id="2152" countmax="4" chance="40000"/><!-- platinum coin -->
+		<item id="5944" chance="100000"/><!-- soul orb -->
+		<item id="5741" chance="25000"/><!-- skull helmet -->
+		<item id="9971" chance="25000"/><!-- gold ingot -->
+		<item id="2173" chance="25000"/><!-- aol -->
+		<item id="7430" chance="25000"/><!-- dragonbone staff -->
+		<item id="9810" chance="26670"/><!-- rust armor -->
+		<item id="6300" chance="13330"/><!-- death ring -->
+		<item id="11233" countmax="2" chance="50000"/><!-- unholy bone -->
+	</loot>
+</monster>

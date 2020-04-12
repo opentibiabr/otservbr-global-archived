@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Breach Brood" nameDescription="a breach brood" race="energy" experience="1760" speed="270">
+	<health now="3500" max="3500"/>
+	<look type="878" corpse="26048"/>
+	<targetchange interval="2000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+		<attack name="energy" interval="2000" chance="25" target="1" range="6" min="-200" max="-400">
+			<attribute key="shootEffect" value="flasharrow"/>
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="5" min="-150" max="-350">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="breach brood reducer" interval="2000" chance="20"/>
+	</attacks>
+	<defenses armor="52" defense="52"/>
+	<elements>
+		<element earthPercent="-20"/>
+		<element deathPercent="10"/>
+		<element icePercent="30"/>
+		<element firePercent="40"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="4000" chance="15">
+		<voice sentence="Hisss!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="5" chance="100000"/><!-- platinum coin -->
+		<item id="26191" chance="15000"/><!-- energy bar -->
+		<item id="26201" chance="15000"/><!-- energy drink -->
+		<item id="26174" chance="15000"/><!-- spark sphere -->
+		<item id="7591" chance="12200"/><!-- great health potion -->
+		<item id="7590" chance="12000"/><!-- great mana potion -->
+		<item id="8472" chance="11700"/><!-- great spirit potion -->
+		<item id="26163" chance="11500"/><!-- crystallized anger -->
+		<item id="26167" chance="10600"/><!-- curious matter -->
+		<item id="26170" chance="9600"/><!-- volatile proto matter -->
+		<item id="26162" chance="9600"/><!-- plasma pearls -->
+		<item id="18418" countmax="2" chance="7400"/><!-- blue crystal splinter -->
+		<item id="18419" chance="6500"/><!-- cyan crystal fragment -->
+		<item id="18413" chance="4400"/><!-- blue crystal shard -->
+		<item id="18415" chance="4100"/><!-- green crystal shard -->
+		<item id="26200" chance="470"/><!-- collar of red plasma -->
+		<item id="26198" chance="470"/><!-- collar of blue plasma -->
+	</loot>
+</monster>

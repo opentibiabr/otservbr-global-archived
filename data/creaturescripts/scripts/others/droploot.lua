@@ -1,6 +1,6 @@
 dofile('data/modules/scripts/blessings/blessings.lua')
 function onDeath(player, corpse, killer, mostDamage, unjustified, mostDamage_unjustified)
-	if getPlayerFlagValue(player, PlayerFlag_NotGenerateLoot) then --or player:getVocation():getId() == VOCATION_NONE then
+	if player:hasFlag(PlayerFlag_NotGenerateLoot) then
 		return true
 	end
 	Blessings.DebugPrint("onDeath DROPLOOT EVENT DropLoot")

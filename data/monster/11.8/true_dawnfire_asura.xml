@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="True Dawnfire Asura" nameDescription="a true dawnfire asura" race="blood" experience="7475" speed="360">
+	<health now="8500" max="8500"/>
+	<look type="1068" head="79" body="94" legs="120" feet="79" addon="1" corpse="33404"/>
+<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-100"/>
+		<attack name="lifedrain" interval="2000" chance="10" length="4" spread="2" min="-50" max="-200">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+			<attack name="fire" interval="1000" chance="15" length="1" min="120" max="450">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+				<attack name="death" interval="1000" chance="10" radius="3" target="1" min="150" max="350">
+			<attribute key="areaEffect" value="mortarea"/>
+	</attack>
+		 		<attack name="death" interval="2000" chance="10" radius="4" min="100" max="300">
+	 			<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="77" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="20"/>
+		<element energyPercent="-10"/>
+		<element earthPercent="-15"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="242" chance="97000"/>	<!-- gold coin -->
+		<item id="2152" countmax="6" chance="18200"/>				<!-- fish -->
+		<item id="6558" chance="2000"/>				<!-- Concentrated Demonic Blood -->
+		<item id="7590" chance="2000"/>				<!-- Great Mana Potion -->
+		<item id="2150" countmax="3" chance="210"/>					<!-- Small Amethyst -->
+		<item id="2145" countmax="3" chance="300"/>					<!-- Small Diamond -->
+		<item id="2149" countmax="3" chance="300"/>					<!-- Small Emeralds -->
+		<item id="2147" countmax="3" chance="350"/>					<!-- Small Rubbie -->
+		<item id="9970" countmax="3" chance="280"/>					<!-- Small Topaz -->
+		<item id="2158" chance="400"/>					<!-- Blue Gem -->
+		<item id="6300" chance="460"/>					<!-- Death Ring -->
+		<item id="6500" chance="430"/>					<!-- Demonic Essence -->
+		<item id="8871" chance="520"/>					<!--  Focus Cape -->
+		<item id="24630" chance="800"/>					<!-- Golden Lotus Brooch -->
+		<item id="7899" chance="400"/>					<!-- Magma Coat -->
+	    <item id="2194" chance="400"/>					<!-- Mysterious Fetish -->
+	    <item id="2663" chance="400"/>					<!-- Mystic Turban -->
+	    <item id="24637" chance="400"/>					<!-- Oriental Shoes -->
+	    <item id="24631" chance="600"/>					<!-- Peacock Feather Fan -->
+		<item id="5911" chance="300"/>					<!-- Red Piece of Cloth -->
+		<item id="2133" chance="400"/>					<!--  Ruby Necklace -->
+		<item id="5944" chance="400"/>					<!-- Soul Orb -->
+		<item id="8902" chance="400"/>					<!-- Spellbook of Mind Control -->
+	    <item id="2187" chance="400"/>					<!-- Wand of Inferno -->
+	</loot>
+</monster>

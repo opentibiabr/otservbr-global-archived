@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Stabilizing Reality Reaver" nameDescription="a stabilizing reality reaver" race="energy" experience="1950" speed="310">
+	<health now="2500" max="2500"/>
+	<look type="879" corpse="26068"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="energy" interval="2000" target="1" radius="5" chance="20" range="5" min="-180" max="-300">
+			<attribute key="areaEffect" value="purpleenergy"/>
+			<attribute key="shootEffect" value="energyball"/>
+		</attack>
+		<attack name="reality reaver wave" interval="2000" chance="20" min="-200" max="-350"/>
+		<attack name="physical" interval="2000" radius="3" chance="20" min="-80" max="-200">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="45" defense="45">
+		<defense name="invisible" interval="2000" chance="15" duration="5000">
+			<attribute key="areaEffect" value="poff"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="80" max="210">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="10" speedchange="330" duration="8000">
+			<attribute key="areaEffect" value="blackspark"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="-20"/>
+		<element physicalPercent="15"/>
+		<element icePercent="20"/>
+		<element firePercent="50"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="4000" chance="15">
+		<voice sentence="Ssshhh!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="4" chance="100000"/><!-- platinum coin -->
+		<item id="7591" chance="14200"/><!-- great health potion -->
+		<item id="8472" chance="14000"/><!-- great spirit potion -->
+		<item id="7590" chance="12700"/><!-- great mana potion -->
+		<item id="26201" chance="11200"/><!-- energy drink -->
+		<item id="26191" chance="10900"/><!-- energy bar -->
+		<item id="26157" chance="9900"/><!-- condensed energy -->
+		<item id="26180" chance="8300"/><!-- small energy ball -->
+		<item id="26162" chance="8000"/><!-- plasma pearl -->
+		<item id="18420" chance="3400"/><!-- red crystal fragment -->
+		<item id="18414" chance="3400"/><!-- violet crystal shard -->
+		<item id="18418" countmax="2" chance="2700"/><!-- blue crystal splinter -->
+		<item id="18413" chance="1900"/><!-- blue crystal shard -->
+		<item id="2156" chance="1500"/><!-- red gem -->
+		<item id="8920" chance="1100"/><!-- wand of starstorm -->
+	</loot>
+</monster>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Feeble Glooth Horror" nameDescription="feeble glooth horror" race="venom" experience="245" speed="200">
+	<health now="5000" max="5000"/>
+	<look type="677" corpse="0"/>
+	<targetchange interval="60000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushcreatures="1"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="200"/>
+	</flags>
+	<script>
+		<event name="GloothHorror"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="110" attack="50"/>
+	</attacks>
+	<defenses armor="15" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="500" max="600">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-20"/>
+		<element icePercent="15"/>
+		<element energyPercent="10"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+		<immunity poison="1"/>
+	</immunities>
+</monster>

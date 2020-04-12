@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Young Goanna" nameDescription="a young goanna" race="blood" experience="6100" speed="380">
+	<health now="6200" max="6200"/>
+	<look type="1196" corpse="36244"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="10"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-230" poison="15"/>
+		<attack name="earth" interval="2000" chance="15" range="3" radius="1" target="1" min="-300" max="-490">
+			<attribute key="shootEffect" value="earth"/>
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+	</attacks>
+	<defenses armor="78" defense="78">
+	    <defense name="speed" interval="2000" chance="5" speedchange="350" duration="5000">
+		    <attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>	
+	<elements>
+	    <element energyPercent="-20"/>
+		<element earthPercent="80"/>
+	</elements>
+	<immunities>
+	    <immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="3" chance="100000"/>
+		<item name="Envenomed Arrow" countmax="35" chance="68000"/>
+		<item name="Terra Rod" chance="10900"/>
+		<item name="Goanna Meat" chance="9800"/>
+		<item name="Snakebite Rod" chance="9000"/>
+		<item name="Blue Goanna Scale" chance="7900"/>
+		<item name="Goanna Claw" chance="4300"/>
+		<item name="Serpent Sword" chance="4000"/>
+		<item name="Leaf Star" countmax="3" chance="3800"/>
+		<item name="Silver Amulet" chance="3800"/>
+		<item name="Springsprout Rod" chance="2700"/>
+		<item name="Scared Frog" chance="2100"/>
+		<item name="Terra Amulet" chance="1100"/>
+		<item name="Lizard Heart" chance="800"/>
+		<item name="Sacred Tree Amulet" chance="800"/>
+		<item name="Small Tortoise" chance="550"/>
+		<item name="Fur Armor" chance="270"/>
+		<item name="Terra Hood" chance="250"/>
+	</loot>
+</monster>

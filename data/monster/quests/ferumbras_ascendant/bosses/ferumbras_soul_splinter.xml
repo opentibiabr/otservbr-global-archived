@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ferumbras Soul Splinter" nameDescription="ferumbras soul splinter" race="venom" experience="12000" speed="390">
+	<health now="150000" max="150000"/>
+	<look type="843" corpse="0"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+	<script>
+		<event name="FerumbrasSoulSplinter"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="200"/>
+		<attack name="poisoncondition" interval="2000" chance="20" radius="6" target="0" min="-250" max="-520">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="ferumbras electrify" interval="2000" chance="18"/>
+		<attack name="manadrain" interval="2000" chance="16" radius="6" target="0" min="-225" max="-410">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="21" radius="6" target="0" min="-200" max="-450">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="ferumbras soulfire" interval="2000" chance="20" range="7"/>
+		<attack name="lifedrain" interval="2000" chance="17" length="8" spread="0" min="-590" max="-1050">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="100" defense="120">
+		<defense name="healing" interval="2000" chance="23" min="600" max="2490">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="3" min="20000" max="35000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="14" speedchange="700" duration="7000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="90"/>
+		<element holyPercent="-10"/>
+		<element physicalPercent="-50"/>
+	</elements>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity outfit="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Demon2" interval="2000" chance="11" max="3"/>
+	</summons>
+</monster>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Wine Cask" nameDescription="a wine cask" race="blood" experience="0" speed="0">
+	<health now="30000" max="30000" />
+	<look typeex="1773" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="0" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="0" />
+	</flags>
+	<script>
+		<event name="Splash" />
+    </script>
+	<attacks>
+	</attacks>
+	<defenses armor="35" defense="35">
+	</defenses>
+	<elements>
+		<element deathPercent="50" />
+		<element firePercent="50" />
+		<element energyPercent="50" />
+		<element icePercent="50" />
+		<element holyPercent="50" />
+		<element physicalPercent="-20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

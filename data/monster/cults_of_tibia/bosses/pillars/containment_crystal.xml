@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Containment Crystal" nameDescription="a containment crystal" race="undead" experience="0" speed="0">
+	<health now="20000" max="20000" />
+	<look typeex="8633" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="energy" interval="2000" chance="40" radius="3" min="-100" max="-220">
+			<attribute key="areaEffect" value="purpleenergy" />
+	</attack>
+	</attacks>
+	<defenses armor="35" defense="50">
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+	</immunities>
+</monster>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ripper Spectre" nameDescription="a ripper spectre" race="blood" experience="3500" speed="380">
+	<health now="3800" max="3800"/>
+	<look type="1119" head="101" body="39" legs="61" feet="39" corpse="34664"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="70"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-370"/>
+		<attack name="poison" interval="2000" chance="20" radius="4" min="-200" max="-390">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="poison" interval="2000" chance="15" target="1" radius="4" min="-320" max="-460">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" length="3" spread="0" min="-200" max="-340">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+	<defenses armor="69" defense="69">
+		<defense name="healing" interval="2000" chance="10" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="20"/>
+		<element icePercent="20"/>
+		<element firePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity earth="1"/>
+	</immunities>
+	<loot>
+	<!--Common-->
+		<item name="platinum coin" countmax="5" chance="100000"/>
+		<item name="Great Spirit Potion" countmax="2" chance="30910"/>
+	<!--Uncommon-->	
+		<item name="Two Handed Sword" chance="16500"/>
+		<item name="Terra Rod" chance="4780"/>
+		<item name="Silver Brooch" chance="15190"/>
+		<item name="Emerald Bangle" chance="14740"/>
+	<!--Semi-Rare-->	
+		<item name="Twin Hooks" chance="1170"/>
+		<item name="Springsprout Rod" chance="1210"/>
+		<item id="34721" chance="1890"/>
+     	<item name="Coral Brooch" chance="1330"/>
+		<item name="Serpent Sword" chance="1950"/>
+	<!--Rare-->
+		<item name="Hexagonal Ruby" chance="800"/>
+		<item name="Assassin Dagger" chance="970"/>
+	<!--Very Rare-->
+		<item name="Spike Sword" chance="530"/>
+		<item name="Wyvern Fang" chance="120"/>
+	</loot>
+</monster>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dawn Scorpion" nameDescription="a dawn scorpion" race="venom" experience="45" speed="144">
+	<health now="65" max="65"/>
+	<look type="43" corpse="5988"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag isblockable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="5"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="20" attack="20" poison="40"/>
+		<attack name="poison" interval="2000" chance="10" range="1" min="-10" max="-20">
+			<attribute key="shootEffect" value="poison"/>
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="11" defense="5"/>
+	<loot>
+		<item id="2148" countmax="4" chance="100000"/><!-- gold coin -->
+	</loot>
+</monster>

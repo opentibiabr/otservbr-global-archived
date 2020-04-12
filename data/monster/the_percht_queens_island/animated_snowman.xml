@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Animated Snowman" nameDescription="an animated snowman" race="energy" experience="400" speed="230">
+	<health now="450" max="450"/>
+	<look type="1159" head="19" body="10" legs="19" feet="57" corpse="35162"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+<attacks>
+		<attack name="melee" interval="2000" min="0" max="-20"/>
+		<attack name="energy" interval="2000" chance="10" range="7" radius="2" target="1" min="-10" max="-40">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25"/>
+	<elements>
+		<element icePercent="20"/>
+		<element firePercent="-20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="gold coin" countmax="50" chance="100000"/>
+		<item name="Twig Arms" chance="91770"/>
+		<item name="Shiver Arrow" chance="7310"/>
+		<item name="Ice Rapier" chance="4750"/>
+		<item name="Glacier Mask" chance="4570"/>
+		<item name="Snowball" countmax="5" chance="4000"/>
+		<item name="Hailstorm Rod" chance="3470"/>
+		<item name="Glacier Mask" chance="250"/>
+		<item name="Glacier Amulet" chance="3290"/>
+		<item name="Moonlight Rod" chance="1830"/>
+		<item name="Glacier Kilt" chance="1100"/>
+	</loot>
+</monster>

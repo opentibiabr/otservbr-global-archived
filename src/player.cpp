@@ -1,6 +1,4 @@
 /**
- * @file player.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -192,7 +190,6 @@ std::string Player::getDescription(int32_t lookDistance) const
 			s << ", which has " << memberCount << " members, " << guild->getMembersOnline().size() << " of them online.";
 		}
 	}
-
 	return s.str();
 }
 
@@ -385,8 +382,8 @@ float Player::getAttackFactor() const
 {
 	switch (fightMode) {
 		case FIGHTMODE_ATTACK: return 1.0f;
-		case FIGHTMODE_BALANCED: return 1.2f;
-		case FIGHTMODE_DEFENSE: return 2.0f;
+		case FIGHTMODE_BALANCED: return 0.75f;
+		case FIGHTMODE_DEFENSE: return 0.5f;
 		default: return 1.0f;
 	}
 }
@@ -805,9 +802,9 @@ DepotChest* Player::getDepotBox()
 {
 	DepotChest* depotBoxs = new DepotChest(ITEM_DEPOT);
 	depotBoxs->incrementReferenceCounter();
-	depotBoxs->setMaxDepotItems(getMaxDepotItems()); //check each depotID, if depot limit is 1000, so all depots have 17k items max, causes crash?? I think not
-	for (uint32_t index = 1; index <= 17; ++index) {
-		depotBoxs->internalAddThing(getDepotChest(18 - index, true));
+	depotBoxs->setMaxDepotItems(getMaxDepotItems());
+	for (uint32_t index = 1; index <= 18; ++index) {
+		depotBoxs->internalAddThing(getDepotChest(19 - index, true));
 	}
 	return depotBoxs;
 }
@@ -828,11 +825,10 @@ DepotChest* Player::getDepotChest(uint32_t depotId, bool autoCreate)
 		depotChest = new DepotChest(ITEM_DEPOT_NULL + depotId);
 	}
 	else {
-		depotChest = new DepotChest(ITEM_DEPOT);
+		depotChest = new DepotChest(ITEM_DEPOT_XVIII);
 	}
 
 	depotChest->incrementReferenceCounter();
-	//depotChest->setMaxDepotItems(getMaxDepotItems()); why ?? my depot commit don't have this code, is possible add more items in depot with this
 	depotChests[depotId] = depotChest;
 	return depotChest;
 }
@@ -1523,7 +1519,7 @@ void Player::setNextActionTask(SchedulerTask* task)
 
 	if (task) {
 		actionTaskEvent = g_scheduler.addEvent(task);
-		//resetIdleTime();
+		resetIdleTime();
 	}
 }
 
@@ -1551,7 +1547,7 @@ void Player::onThink(uint32_t interval)
 			kickPlayer(true);
 		} else if (client && idleTime == 60000 * kickAfterMinutes) {
 			std::ostringstream ss;
-			ss << "You have been idle for " << kickAfterMinutes << " minutes. You will be disconnected in one minute if you are still idle then.";
+			ss << "There was no variation in your behaviour for " << kickAfterMinutes << " minutes. You will be disconnected in one minute if there is no change in your actions until then.";
 			client->sendTextMessage(TextMessage(MESSAGE_STATUS_WARNING, ss.str()));
 		}
 	}
@@ -1748,7 +1744,6 @@ void Player::addExperience(Creature* source, uint64_t exp, bool sendText/* = fal
 
 		updateBaseSpeed();
 		setBaseSpeed(getBaseSpeed());
-		//setBaseXpGain(g_game.getExperienceStage(level)*100);
 		g_game.changeSpeed(this, 0);
 		g_game.addCreatureHealth(this);
 
@@ -3080,15 +3075,6 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 			itemMap.emplace(item->getClientID(), Item::countByType(item, -1));
 		}
 
-		const ItemType& itemType = Item::items[item->getID()];
-		if (itemType.transformEquipTo) {
-			itemMap.emplace(Item::items[itemType.transformEquipTo].clientId, 1);
-		}
-
-		if (itemType.transformDeEquipTo) {
-			itemMap.emplace(Item::items[itemType.transformDeEquipTo].clientId, 1);
-		}
-
 		if (Container* container = item->getContainer()) {
 			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
 				auto containerSearch = itemMap.find((*it)->getClientID());
@@ -3100,15 +3086,6 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 					itemMap.emplace((*it)->getClientID(), Item::countByType(*it, -1));
 				}
 				itemMap.emplace((*it)->getClientID(), Item::countByType(*it, -1));
-				const ItemType& itItemType = Item::items[(*it)->getID()];
-
-				if (itItemType.transformEquipTo) {
-					itemMap.emplace(Item::items[itItemType.transformEquipTo].clientId, 1);
-				}
-
-				if (itItemType.transformDeEquipTo) {
-					itemMap.emplace(Item::items[itItemType.transformDeEquipTo].clientId, 1);
-				}
 			}
 		}
 	}

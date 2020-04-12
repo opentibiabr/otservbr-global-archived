@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dark Soul" nameDescription="a dark soul" race="undead" experience="0" speed="162">
+	<health now="5000" max="5000"/>
+	<look type="714" corpse="26397"/>
+	<targetchange interval="60000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="250"/>
+	</flags>
+	<defenses armor="10" defense="15">
+		<defense name="speed" interval="2000" chance="8" speedchange="240" duration="20000">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+		<defense name="healing" interval="2000" chance="25" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="2000" chance="15" duration="2000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+	</immunities>
+</monster>

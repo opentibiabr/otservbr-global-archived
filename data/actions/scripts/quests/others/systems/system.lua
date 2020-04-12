@@ -40,6 +40,10 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			return false
 		end
 	end
+	
+	if storage == 26300 or storage == 27300 or storage == 28300 then
+		player:setStorageValue(Storage.SvargrondArena.Pit, -1)
+	end
 
 	if player:getStorageValue(storage) > 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The ' .. ItemType(item.itemid):getName() .. ' is empty.')

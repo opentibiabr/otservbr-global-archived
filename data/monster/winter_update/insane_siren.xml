@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Insane Siren" nameDescription="an insane siren" race="blood" experience="6000" speed="420">
+	<health now="6500" max="6500"/>
+	<look type="1137" head="94" body="94" legs="79" feet="20" addons="3" corpse="34771"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-530"/>
+		<attack name="fire" interval="2000" chance="20" length="3" spread="0" min="-270" max="-710">
+		<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" target="1" radius="5" min="-350" max="-380">
+		<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" target="1" radius="5" min="-200" max="-350">
+		<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		 </attacks>
+ 		<defenses armor="70" defense="20"/>
+			<defense name="healing" interval="2000" chance="14" min="150" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	<elements>
+		<element icePercent="-20"/>
+		<element physicalPercent="-10"/>
+		<element holyPercent="25"/>
+		<element energyPercent="55"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Dream or nightmare?"/>
+	</voices>
+	<loot>
+		<item name="Platinum Coin" countmax="12" chance="100000"/>
+		<item name="Ultimate Health Potion" chance="14970"/>
+		<item name="Miraculum" chance="13090"/>
+		<item name="Dream Essence Egg" chance="11980"/>
+		<item name="Wand of Draconia" chance="7700"/>
+		<item name="Holy Orchid" chance="5650"/>
+		<item name="Magma Amulet" chance="5130"/>
+		<item name="Wand of Inferno" chance="4360"/>
+		<item name="Fire Axe" chance="3590"/>
+		<item name="Magma Coat" chance="3340"/>
+		<item name="Wand of Dragonbreath" chance="2650"/>
+		<item name="Sun Fruit" chance="2570"/>
+		<item name="Magma Legs" chance="1200"/>
+		<item name="Magma Monocle" chance="260"/>
+	</loot>
+</monster>

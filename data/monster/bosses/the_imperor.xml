@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Imperor" nameDescription="The Imperor" race="blood" experience="8000" speed="310">
+	<health now="15000" max="15000"/>
+	<look type="237" corpse="6364"/>
+	<targetchange interval="5000" chance="5" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="1500" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="100" poison="280"/>
+		<attack name="fire" interval="2000" chance="20" range="7" radius="4" target="1" min="-100" max="-350">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="2500" chance="12" range="7" radius="2" target="1" min="-100" max="-460">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="fireattack" />
+		</attack>
+		<attack name="diabolic imp skill reducer" interval="2000" chance="10" range="7"/>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="healing" interval="2000" chance="35" min="275" max="840">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="the imperor summon" interval="2000" chance="21"/>
+		<defense name="speed" interval="2000" chance="12" speedchange="1496" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="invisible" interval="2000" chance="11" duration="5000">
+			<attribute key="areaEffect" value="teleport" />
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="50" />
+		<element physicalPercent="30" />
+		<element earthPercent="50" />
+		<element deathPercent="20" />
+		<element icePercent="-10" />
+	</elements>
+	<immunities>
+		<immunity fire="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity outfit="1" />
+		<immunity drunk="1" />
+		<immunity invisible="1" />
+	</immunities>
+		<voices interval="2000" chance="5">
+		<voice sentence="Poke! Poke! &lt;chuckle&gt;"/>
+		<voice sentence="Let me tickle you with my trident!"/>
+	</voices>
+	<loot>
+		<item id="6500" chance="100000"/><!-- demonic essence -->
+		<item id="2148" countmax="150" chance="100000"/><!-- gold coin -->
+		<item id="6534" chance="100000"/><!-- the Imperor's trident -->
+		<item id="2548" chance="53850"/><!-- pitchfork -->
+		<item id="2432" chance="11000"/><!-- fire axe -->
+		<item id="2152" countmax="3" chance="46150"/><!-- platinum coin -->
+		<item id="5944" chance="100000"/><!-- soul orb -->
+		<item id="2488" chance="30770"/><!-- crown legs -->
+		<item id="2470" chance="7690"/><!-- golden legs -->
+		<item id="2136" chance="15380"/><!-- demonbone amulet -->
+		<item id="2542" chance="7690"/><!-- tempest shield -->
+		<item id="2515" chance="15400"/><!-- guardian shield -->
+		<item id="7899" chance="15380"/><!-- magma coat -->
+		<item id="2150" countmax="4" chance="30770"/><!-- small amethyst -->
+		<item id="2147" countmax="4" chance="7690"/><!-- small ruby -->
+	</loot>
+</monster>

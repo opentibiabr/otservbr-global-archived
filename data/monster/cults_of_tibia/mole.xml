@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Mole" nameDescription="a Mole" race="blood" experience="100" speed="160">
+	<health now="200" max="200"/>
+	<look type="1068" corpse="8721"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+				<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-10"/>
+		<attack name="energy" interval="2000" chance="15" range="7" min="0" max="-20">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" range="7" min="0" max="-20">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="energyfield" interval="2000" chance="10" range="7" target="1">
+			<attribute key="shootEffect" value="energyball"/>
+		</attack>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+	</loot>
+</monster>

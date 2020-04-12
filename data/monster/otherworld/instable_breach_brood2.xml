@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Instable Breach Brood" nameDescription="an instable breach brood" race="energy" experience="1100" speed="270">
+	<health now="2200" max="2200"/>
+	<look type="878" corpse="26048"/>
+	<targetchange interval="2000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-240"/>
+		<attack name="energy" interval="2000" chance="25" target="1" range="6" min="-160" max="-250">
+			<attribute key="shootEffect" value="flasharrow"/>
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="5" min="-80" max="-200">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="breach brood reducer" interval="2000" chance="20"/>
+	</attacks>
+	<defenses armor="35" defense="35"/>
+	<elements>
+		<element earthPercent="-20"/>
+		<element deathPercent="10"/>
+		<element icePercent="30"/>
+		<element firePercent="40"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="4000" chance="15">
+		<voice sentence="Hisss!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="2" chance="20000"/><!-- platinum coin -->
+		<item id="26177" chance="10200"/><!-- crystal bone -->
+		<item id="26162" chance="10100"/><!-- plasma pearls -->
+		<item id="26201" chance="4900"/><!-- energy drink -->
+		<item id="8472" chance="4800"/><!-- great spirit potion -->
+		<item id="7590" chance="4400"/><!-- great mana potion -->
+		<item id="26191" chance="4200"/><!-- energy bar -->
+		<item id="7591" chance="4200"/><!-- great health potion -->
+		<item id="18415" chance="3400"/><!-- green crystal shard -->
+		<item id="18419" chance="3300"/><!-- cyan crystal fragment -->
+		<item id="18418" chance="2600"/><!-- blue crystal splinter -->
+		<item id="18413" chance="2100"/><!-- blue crystal shard -->
+	</loot>
+</monster>

@@ -1,8 +1,6 @@
 /**
- * @file connection.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -218,12 +216,12 @@ void Connection::parseHeader(const boost::system::error_code& error)
 	try {
 		readTimer.expires_from_now(boost::posix_time::seconds(CONNECTION_READ_TIMEOUT));
 		readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()),
-			std::placeholders::_1));
+		                                    std::placeholders::_1));
 
 		// Read packet content
 		msg.setLength(size + NetworkMessage::HEADER_LENGTH);
 		boost::asio::async_read(socket, boost::asio::buffer(msg.getBodyBuffer(), size),
-			std::bind(&Connection::parsePacket, shared_from_this(), std::placeholders::_1));
+		                        std::bind(&Connection::parsePacket, shared_from_this(), std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
 		std::cout << "[Network error - Connection::parseHeader] " << e.what() << std::endl;
 		close(FORCE_CLOSE);
@@ -276,12 +274,12 @@ void Connection::parsePacket(const boost::system::error_code& error)
 	try {
 		readTimer.expires_from_now(boost::posix_time::seconds(CONNECTION_READ_TIMEOUT));
 		readTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()),
-			std::placeholders::_1));
+		                                    std::placeholders::_1));
 
 		// Wait to the next packet
 		boost::asio::async_read(socket,
-			boost::asio::buffer(msg.getBuffer(), NetworkMessage::HEADER_LENGTH),
-			std::bind(&Connection::parseHeader, shared_from_this(), std::placeholders::_1));
+		                        boost::asio::buffer(msg.getBuffer(), NetworkMessage::HEADER_LENGTH),
+		                        std::bind(&Connection::parseHeader, shared_from_this(), std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
 		std::cout << "[Network error - Connection::parsePacket] " << e.what() << std::endl;
 		close(FORCE_CLOSE);
@@ -308,11 +306,11 @@ void Connection::internalSend(const OutputMessage_ptr& conMsg)
 	try {
 		writeTimer.expires_from_now(boost::posix_time::seconds(CONNECTION_WRITE_TIMEOUT));
 		writeTimer.async_wait(std::bind(&Connection::handleTimeout, std::weak_ptr<Connection>(shared_from_this()),
-			std::placeholders::_1));
+		                                     std::placeholders::_1));
 
 		boost::asio::async_write(socket,
-			boost::asio::buffer(conMsg->getOutputBuffer(), conMsg->getLength()),
-			std::bind(&Connection::onWriteOperation, shared_from_this(), std::placeholders::_1));
+		                         boost::asio::buffer(conMsg->getOutputBuffer(), conMsg->getLength()),
+		                         std::bind(&Connection::onWriteOperation, shared_from_this(), std::placeholders::_1));
 	} catch (boost::system::system_error& e) {
 		std::cout << "[Network error - Connection::internalSend] " << e.what() << std::endl;
 		close(FORCE_CLOSE);

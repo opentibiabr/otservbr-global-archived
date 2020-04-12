@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Enraged Thorn Knight" nameDescription="the enraged thorn knight" race="blood" experience="30000" speed="350" script="rewardboss.lua">
+	<health now="20000" max="20000"/>
+	<look type="512" addons="3" head="81" body="121" legs="121" feet="121" corpse="6080"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="15"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+		<flag rewardboss="1"/>
+	</flags>
+	<script>
+		<event name="HealthForgotten"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-600" max="-1000"/>
+		<attack name="lifedrain" interval="2000" chance="12" length="4" spread="3" min="-400" max="-700">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="12" length="9" spread="0" min="-1400" max="-1700">
+			<attribute key="areaEffect" value="carniphila"/>
+		</attack>
+		<attack name="death" interval="2000" chance="12" length="9" spread="0" min="-400" max="-700">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="10" min="-200" max="-250">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60">
+		<defense name="healing" interval="2000" chance="20" min="1550" max="2550">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="1000" chance="12" speedchange="620" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="80"/>
+		<element holyPercent="80"/>
+		<element earthPercent="100"/>
+		<element deathPercent="80"/>
+		<element firePercent="80"/>
+		<element physicalPercent="80"/>
+		<element icePercent="80"/>
+	</elements>
+	<loot>
+		<item id="2148" countmax="165" chance="50320"/><!-- gold coin -->
+		<item id="2152" countmax="30" chance="50320"/><!-- platinun coin -->
+		<item id="18413" countmax="5" chance="9660"/><!-- blue crystal shard -->
+		<item id="18414" countmax="5" chance="9660"/><!-- green crystal shard-->
+		<item id="18415" countmax="5" chance="9660"/><!-- violet crystal shard -->
+		<item id="2149" countmax="5" chance="9660"/><!-- small emerald -->
+		<item id="2147" countmax="5" chance="7360"/><!-- small ruby -->
+		<item id="9970" countmax="5" chance="7350"/><!-- small topaz -->
+		<item id="2150" countmax="5" chance="7150"/><!-- small amethyst -->
+		<item id="5887" countmax="2" chance="5909"/><!--  Piece of Royal Steel -->
+		<item id="7590" countmax="3" chance="22120"/><!-- great mana potion -->
+		<item id="8473" countmax="3" chance="19500"/><!-- ultimate health potion -->
+		<item id="8472" countmax="3" chance="18250"/><!-- great spirit potion -->
+		<item id="2158" chance="5000"/><!-- Blue Gem -->
+		<item id="2156" chance="2200"/><!-- red gem -->
+		<item id="2155" chance="5000"/><!-- Green Gem -->
+		<item id="2154" chance="5000"/><!-- yellow Gem -->
+		<item id="6500" chance="14460"/><!-- demonic essence -->
+		<item id="7439" chance="14460"/><!-- Berserk Potion -->
+		<item id="7443" chance="14460"/><!--Bullseye Potion -->
+		<item id="7632" chance="7000"/><!-- Giant Shimmering Pearl -->
+		<item id="2407" chance="20000"/><!-- Bright -->
+		<item id="7453" chance="100"/><!-- Executioner -->
+		<item id="27622" chance="100"/><!-- Forbidden Fruit -->
+		<item id="5015" chance="500"/><!-- Mandrake -->
+		<item id="2536" chance="1000"/><!-- Medusa Shield -->
+		<item id="10219" chance="500"/><!-- Sacred Tree Amulet -->
+		<item id="5875" chance="1000"/><!-- Sniper Gloves -->
+		<item id="5884" chance="1000"/><!-- Spirit Container -->
+		<item id="8880" chance="500"/><!-- Swamplair Armor -->
+		<item id="22537" chance="1000"/><!-- Trapped Bad Dream Monster -->
+		<item id="27621" chance="200"/><!-- Thorn Seed -->
+		<item id="27622" chance="500" unique="1"/><!-- Part of a Rune(one)-->
+		<item id="25377" chance="100000"/><!-- Gold Token -->
+		<item id="25172" chance="100000"/><!-- silver token -->
+	</loot>
+</monster>

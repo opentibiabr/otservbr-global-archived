@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Faceless Bane" nameDescription="a Faceless Bane" race="blood" experience="14000" speed="250" script="rewardboss.lua">
+	<health now="17000" max="17000" />
+	<look type="1122" head="0" body="4" legs="95" feet="4" corpse="34651" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag isblockable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5" />
+	</attacks>
+	<elements>
+		<element deathPercent="1" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+		<!--common-->
+		<item name="Book Backpack" chance="100000" />
+		<item name="Ectoplasmic Shield" chance="100000" />
+		<item name="Spirit Guide" chance="100000" />
+		<item name="Enchanted Pendulet" chance="100000" />
+	</loot>
+</monster>

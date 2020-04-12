@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dread Minion" nameDescription="a dread minion" race="undead" experience="3000" speed="370">
+	<health now="4500" max="4500" />
+	<look type="882" corpse="26213" />
+	<targetchange interval="20000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag staticattack="85" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="30" attack="50" />
+		<attack name="manadrain" interval="2000" chance="20" range="6" radius="4" target="1" min="-100" max="-400">
+			<attribute key="areaEffect" value="bluebubble" />
+		</attack>
+		<attack name="energy" interval="2000" chance="20" range="6" radius="4" target="1" min="-100" max="-220">
+			<attribute key="shootEffect" value="energy" />
+			<attribute key="areaEffect" value="purpleenergy" />
+		</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="90" max="150">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+	</elements>
+	<immunities>
+		<immunity energy="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+	</immunities>
+</monster>

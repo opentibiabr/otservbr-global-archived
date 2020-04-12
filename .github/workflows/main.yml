@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  debug_build:
+    runs-on: [ubuntu-18.04]
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: sudo apt install cmake build-essential liblua5.2-dev libgmp3-dev libmysqlclient-dev libboost-system-dev libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev libcrypto++-dev
+
+    - name: Prepare build Environment
+      run: |
+        mkdir build && cd build
+        cmake -DCMAKE_BUILD_TYPE=Debug ..
+    
+    - name: Build
+      run: |
+        cd build
+        make -j `nproc`
+  
+  release_build:
+    runs-on: [ubuntu-18.04]
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: sudo apt install cmake build-essential liblua5.2-dev libgmp3-dev libmysqlclient-dev libboost-system-dev libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev libcrypto++-dev
+
+    - name: Prepare build Environment
+      run: |
+        mkdir build && cd build
+        cmake -DCMAKE_BUILD_TYPE=Release ..
+    
+    - name: Build
+      run: |
+        cd build
+        make -j `nproc`

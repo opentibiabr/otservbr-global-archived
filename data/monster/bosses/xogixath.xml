@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Xogixath" nameDescription="xogixath" race="fire" experience="22000" speed="190" script="rewardboss.lua">
+	<health now="28000" max="28000"/>
+	<look type="842" head="3" body="16" legs="75" feet="19" addons="2" corpse="13973"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-650"/>
+		<attack name="Sudden Death" interval="2000" chance="16" range="5" target="1" min="-450" max="-550"/>
+		<attack name="fire" interval="2000" chance="14" range="5" radius="3" target="1" min="-400" max="-480">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" radius="4" min="-400" max="-550">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="12" length="5" spread="0" min="-420" max="-600">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+	</attacks>
+	<defenses armor="86" defense="86"/>
+	<elements>
+		<element deathPercent="50"/>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="9" chance="100000"/>
+		<item name="Red Gem" countmax="2" chance="65000"/>
+		<item name="Green Crystal Shard" chance="16000"/>
+		<item name="Sea Horse Figurine" chance="2400"/>
+		<item name="Winged Boots" chance="120"/>
+		<item name="Small Sapphire" countmax="3" chance="48000"/>
+		<item name="Stone Skin Amulet" chance="54000"/>
+		<item id="36204" chance="6500"/>
+		<item name="Fire Axe" chance="34000"/>
+		<item id="36392" chance="520"/><!-- Enchanted blister Ring -->
+	</loot>
+</monster>

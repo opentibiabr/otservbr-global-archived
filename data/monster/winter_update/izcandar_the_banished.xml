@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Izcandar the Banished" nameDescription="Izcandar the Banished" race="blood" experience="6900" speed="250" script="rewardboss.lua">
+	<health now="7600" max="7600" />
+	<look type="1137" head="1" body="114" legs="76" feet="0" addons="2" corpse="6068" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag isblockable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-5" />
+	</attacks>
+	<defenses armor="76" defense="0" />
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+		<immunity lifedrain="1" />
+	</immunities>
+	<loot>
+		<item name="berserk potion" countmax="10" chance="100000" />
+		<item name="crystal coin" chance="100000" />
+		<item name="energy bar" chance="100000" />
+		<item name="giant sapphire" chance="100000" />
+		<item name="gold token" countmax="2" chance="100000" />
+		<item name="silver token" countmax="2" chance="100000" />
+		<item name="royal star" countmax="100" chance="100000" />
+		<item name="green gem" countmax="2" chance="100000" />
+		<item name="huge chunk of crude iron" chance="25100" />
+		<item name="mysterious remains" chance="25000" />
+		<item name="piggy bank" chance="12800" />
+		<item name="platinum coin" countmax="10" chance="12000" />
+		<item name="supreme health potion" countmax="10" chance="12000" />
+		<item name="ultimate mana potion" countmax="20" chance="12000" />
+	</loot>
+</monster>

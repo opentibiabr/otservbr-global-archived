@@ -1,8 +1,6 @@
 /**
- * @file events.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_EVENTS_H_
-#define OT_SRC_EVENTS_H_
+#ifndef FS_EVENTS_H_BD444CC0EE167E5777E4C90C766B36DC
+#define FS_EVENTS_H_BD444CC0EE167E5777E4C90C766B36DC
 
 #include "imbuements.h"
 #include "luascript.h"
@@ -38,6 +36,7 @@ class Events
 		int32_t creatureOnChangeOutfit = -1;
 		int32_t creatureOnAreaCombat = -1;
 		int32_t creatureOnTargetCombat = -1;
+		int32_t creatureOnHear = -1;
 		int32_t creatureOnDrainHealth = -1;
 
 		// Party
@@ -73,8 +72,8 @@ class Events
 		int32_t playerOnCombat = -1;
 
 		// Monster
-		int32_t monsterOnSpawn = -1;
 		int32_t monsterOnDropLoot = -1;
+		int32_t monsterOnSpawn = -1;
 	};
 
 	public:
@@ -86,6 +85,7 @@ class Events
 		bool eventCreatureOnChangeOutfit(Creature* creature, const Outfit_t& outfit);
 		ReturnValue eventCreatureOnAreaCombat(Creature* creature, Tile* tile, bool aggressive);
 		ReturnValue eventCreatureOnTargetCombat(Creature* creature, Creature* target);
+		void eventCreatureOnHear(Creature* creature, Creature* speaker, const std::string& words, SpeakClasses type);
 		void eventCreatureOnDrainHealth(Creature* creature, Creature* attacker, CombatType_t& typePrimary, int32_t& damagePrimary, CombatType_t& typeSecondary, int32_t& damageSecondary, TextColor_t& colorPrimary, TextColor_t& colorSecondary);
 
 		// Party
@@ -121,8 +121,8 @@ class Events
 		void eventPlayerOnCombat(Player* player, Creature* target, Item* item, CombatDamage& damage);
 
 		// Monster
-		void eventMonsterOnSpawn(Monster* monster, const Position& position);
 		void eventMonsterOnDropLoot(Monster* monster, Container* corpse);
+		void eventMonsterOnSpawn(Monster* monster, const Position& position);
 
 	private:
 		LuaScriptInterface scriptInterface;

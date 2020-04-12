@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Armenius" nameDescription="Armenius" race="undead" experience="500" speed="220">
+	<health now="550" max="550" />
+	<look type="68" corpse="6006" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="50" />
+		<attack name="lifedrain" interval="2000" chance="20" radius="1" target="1" range="1" min="-50" max="-200">
+			<attribute key="areaEffect" value="smallclouds" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="0" speedchange="-400" duration="60000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+		<defense name="outfit" interval="2000" chance="10" monster="bat" duration="5000">
+			<attribute key="areaEffect" value="groundshaker" />
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="300" duration="3000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="15" min="15" max="25" />
+	</defenses>
+	<elements>
+		<element physicalPercent="35" />
+		<element firePercent="-10" />
+		<element holyPercent="-25" />
+	</elements>
+	<immunities>
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity earth="1" />
+		<immunity death="1" />
+		<immunity drown="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="You know what, I changed my mind. BRING IT!" />
+	</voices>
+	<loot>
+		<item id="2534" chance="230" />					<!-- vampire shield -->
+	</loot>
+</monster>
