@@ -736,16 +736,6 @@ local function useStaminaXp(player)
 	player:setExpBoostStamina(staminaMinutes * 60)
 end
 
-local function getRateFromTable(t, level, default)
-	for _, rate in ipairs(t) do
-		if level >= rate.minlevel and (not rate.maxlevel or level <= rate.maxlevel) then
-			return rate.multiplier
-		end
-	end
-
-	return default
-end
-
 function Player:onGainExperience(source, exp, rawExp)
 	if not source or source:isPlayer() then
 		return exp
