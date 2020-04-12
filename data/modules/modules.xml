@@ -13,6 +13,11 @@
 	<!-- EquipObject -->
 	<module type="recvbyte" byte="119" delay="1000" script="equipobject/equipobject.lua"/>
 
+	<!-- QuickLoot -->
+	<module type="recvbyte" byte="143" script="quickloot/quickloot.lua"/>
+	<module type="recvbyte" byte="144" script="quickloot/quickloot.lua"/>
+	<module type="recvbyte" byte="145" script="quickloot/quickloot.lua"/>
+
 	<!-- Prey System -->
 	<module type="recvbyte" byte="235" script="prey system/prey.lua" />
 	<module type="recvbyte" byte="237" script="prey system/prey.lua" />

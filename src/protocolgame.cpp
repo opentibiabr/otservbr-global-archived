@@ -3722,7 +3722,14 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[item->getFluidType() & 7]);
 	} else if (version >= 1150 && it.isContainer()) {
-		msg.addByte(0x00);
+		uint32_t quickLootFlags = item->getQuickLootFlags();
+		if (quickLootFlags > 0) {
+			msg.addByte(2);
+			msg.add<uint32_t>(quickLootFlags);
+		}
+		else {
+			msg.addByte(0x00);
+		}
 	}
 
 	if (it.isAnimation) {
@@ -3775,9 +3782,9 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
  	msg.addByte(isCorpseEmpty ? 0 : corpse->size());
 
 	if (!isCorpseEmpty) {
- 		for (ContainerIterator it = corpse->iterator(); it.hasNext(); it.advance()) {
- 			AddItem(msg, *it);
- 		}
+		for (const auto& it : corpse->getItemList()) {
+			AddItem(msg, it);
+		}
  	}
 
  	writeToOutputBuffer(msg);
@@ -3818,7 +3825,7 @@ void ProtocolGame::sendUpdateLootTracker(Item* item)
 
   	NetworkMessage msg;
   	msg.addByte(0xCF);
- 	msg.addItemId(item->getID());
+	AddItem(msg, item);
  	msg.addString(item->getName());
  	item->setIsLootTrackeable(false);
 

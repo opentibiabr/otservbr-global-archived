@@ -154,6 +154,18 @@ function Player:onLook(thing, position, distance)
 				description = string.format("%s, Unique ID: %d", description, uniqueId)
 			end
 
+			if thing:isContainer() then
+				local quickLootCategories = {}
+				local container = Container(thing.uid)
+				for categoryId = LOOT_START, LOOT_END do
+					if container:hasQuickLootCategory(categoryId) then
+						table.insert(quickLootCategories, categoryId)
+					end
+				end
+
+				description = string.format("%s, QuickLootCategory: (%s)", description, table.concat(quickLootCategories, ", "))
+			end
+
 			local itemType = thing:getType()
 
 			local transformEquipId = itemType:getTransformEquipId()
@@ -277,17 +289,20 @@ local function antiPush(self, item, count, fromPosition, toPosition, fromCylinde
 end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
+
 	-- No move items with actionID = 8000
 	if item:getActionId() == BLOCK_ITEM_WITH_ACTION then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return false
 	end
+
 	-- Store Items
     if isInArray(storeItemID,item.itemid) then
         self:sendCancelMessage('You cannot move this item outside this container.')
         return false
     end
- 	-- No move if item count > 20 items
+
+	-- No move if item count > 20 items
 	local tile = Tile(toPosition)
 	if tile and tile:getItemCount() > 20 then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
@@ -461,11 +476,22 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		return false
 	end
 
-	-- Check two-handed weapons
+	-- Handle move items to the ground
 	if toPosition.x ~= CONTAINER_POSITION then
+		if item:isContainer() then
+			local container = Container(item.uid)
+			for categoryId = LOOT_START, LOOT_END do
+				if container:hasQuickLootCategory(categoryId) then
+					container:removeQuickLootCategory(categoryId)
+					self:setQuickLootBackpack(categoryId, nil)
+				end
+			end
+		end
+
 		return true
 	end
 
+	-- Check two-handed weapons
 	if item:getTopParent() == self and bit.band(toPosition.y, 0x40) == 0 then
 		local itemType, moveItem = ItemType(item:getId())
 		if bit.band(itemType:getSlotPosition(), SLOTP_TWO_HAND) ~= 0 and toPosition.y == CONST_SLOT_LEFT then

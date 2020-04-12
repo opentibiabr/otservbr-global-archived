@@ -613,6 +613,29 @@ class Item : virtual public Thing
 			return isLootTrackeable;
 		}
 
+		uint32_t getQuickLootFlags() const
+		{
+			if (!attributes) {
+				return 0;
+			}
+
+			if (!attributes->hasAttribute(ITEM_ATTRIBUTE_CUSTOM)) {
+				return 0;
+			}
+
+			uint32_t flags = 0;
+			for (uint8_t i = LOOT_START; i < LOOT_END; i++)
+			{
+				const ItemAttributes::CustomAttribute* attr = getCustomAttribute("quickLootCategory" + std::to_string(i));
+				if (attr != nullptr) {
+					flags |= (1 << i);
+					continue;
+				}
+			}
+
+			return flags;
+		}
+
 		void removeAttribute(itemAttrTypes type) {
 			if (attributes) {
 				attributes->removeAttribute(type);
@@ -640,6 +663,27 @@ class Item : virtual public Thing
 
 		const ItemAttributes::CustomAttribute* getCustomAttribute(const std::string& key) {
 			return getAttributes()->getCustomAttribute(key);
+		}
+		const ItemAttributes::CustomAttribute* getCustomAttribute(const std::string& key) const {
+			if (!attributes) {
+				return nullptr;
+			}
+
+			if (!attributes->hasAttribute(ITEM_ATTRIBUTE_CUSTOM)) {
+				return nullptr;
+			}
+
+			ItemAttributes::CustomAttributeMap* customAttrMap = attributes->getAttr(ITEM_ATTRIBUTE_CUSTOM).value.custom;
+			if (!customAttrMap) {
+				return nullptr;
+			}
+
+			auto it = customAttrMap->find(asLowerCaseString(key));
+			if (it != customAttrMap->end()) {
+				return &(it->second);
+			}
+
+			return nullptr;
 		}
 
 		bool removeCustomAttribute(int64_t key) {
@@ -811,6 +855,9 @@ class Item : virtual public Thing
 		// Returns the player that is holding this item in his inventory
 		Player* getHoldingPlayer() const;
 
+		QuickLootCategory_t getLootCategory() const {
+			return items[id].quickLootCategory;
+		}
 		WeaponType_t getWeaponType() const {
 			return items[id].weaponType;
 		}

@@ -858,6 +858,8 @@ class LuaScriptInterface
 		static int luaPlayerGetCapacity(lua_State* L);
 		static int luaPlayerSetCapacity(lua_State* L);
 
+		static int luaPlayerCanOpenCorpse(lua_State* L);
+
 		static int luaPlayerGetKills(lua_State* L);
 		static int luaPlayerSetKills(lua_State* L);
 
@@ -868,7 +870,9 @@ class LuaScriptInterface
 		static int luaPlayerGetRewardList(lua_State* L);
 
 		static int luaPlayerSendInventory(lua_State* L);
- 		static int luaPlayerUpdateSupplyTracker(lua_State* L);
+		static int luaPlayerUpdateKillTracker(lua_State* L);
+		static int luaPlayerUpdateLootTracker(lua_State* L);
+		static int luaPlayerUpdateSupplyTracker(lua_State* L);
 
 		static int luaPlayerGetDepotChest(lua_State* L);
 		static int luaPlayerGetInbox(lua_State* L);
@@ -958,6 +962,7 @@ class LuaScriptInterface
 		static int luaPlayerAddItem(lua_State* L);
 		static int luaPlayerAddItemEx(lua_State* L);
 		static int luaPlayerRemoveItem(lua_State* L);
+		static int luaPlayerSendContainer(lua_State* L);
 
 		static int luaPlayerGetMoney(lua_State* L);
 		static int luaPlayerAddMoney(lua_State* L);
@@ -1251,6 +1256,7 @@ class LuaScriptInterface
 		static int luaItemTypeGetExtraDefense(lua_State* L);
 		static int luaItemTypeGetImbuingSlots(lua_State* L);
 		static int luaItemTypeGetArmor(lua_State* L);
+		static int luaItemTypeGetLootCategory(lua_State* L);
 		static int luaItemTypeGetWeaponType(lua_State* L);
 
 		static int luaItemTypeGetElementType(lua_State* L);
