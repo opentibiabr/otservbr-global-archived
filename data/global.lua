@@ -124,6 +124,16 @@ function getPvpBlessingCost(level)
 	end
 end
 
+function getRateFromTable(t, level, default)
+	for _, rate in ipairs(t) do
+		if level >= rate.minlevel and (not rate.maxlevel or level <= rate.maxlevel) then
+			return rate.multiplier
+		end
+	end
+
+	return default
+end
+
 function isInRange(pos, fromPos, toPos)
 	return pos.x >= fromPos.x and pos.y >= fromPos.y and pos.z >= fromPos.z and pos.x <= toPos.x and pos.y <= toPos.y and pos.z <= toPos.z
 end
