@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Black Sphinx Acolyte" nameDescription="a black sphinx acolyte" race="blood" experience="7200" speed="310">
+	<health now="8100" max="8100"/>
+	<look type="1200" head="114" body="95" legs="94" feet="95" addons="0" corpse="36258"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="70"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400"/>
+		<attack name="earth" interval="2000" chance="10" radius="3" min="-300" max="-400">
+			<attribute key="areaEffect" value="smallplants"/>
+		</attack>
+		<attack name="death" interval="2000" chance="13" range="4" radius="3" target="1" min="-400" max="-450">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82"/>
+	<elements>
+		<element earthPercent="90"/>
+	</elements>
+	<immunities>
+		<immunity death="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="1">
+		<summon name="Skeleton Elite Warrior" interval="2000" chance="10" max="1"/>
+	</summons>
+	<voices interval="5000" chance="10">
+		<voice sentence="Darkness is the mother of all knowledge!"/>
+		<voice sentence="Get thee gone, unworthy!"/>
+		<voice sentence="The Black Sphinx will prevail!"/>
+	</voices>
+	<loot>
+	    <item name="Platinum Coin" countmax="5" chance="100000"/>
+		<item name="Blue Crystal Shard" chance="5000"/>
+	    <item name="Snakebite Rod" chance="4700"/>
+		<item name="Underworld Rod" chance="3400"/>
+		<item name="Violet Gem" chance="2600"/>
+	    <item name="Opal" countmax="2" chance="2200"/>
+	    <item name="Wand of Voodoo" chance="2200"/>
+		<item id="36166" chance="3400"/>
+		<item name="Small Enchanted Emerald" countmax="3" chance="1500"/>
+	</loot>
+</monster>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Sand Vortex" nameDescription="a sand vortex" race="venom" experience="0" speed="140">
+	<health now="20000" max="20000" />
+	<look typeex="26138"/>
+	<targetchange interval="5000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+	<attack name="melee" interval="2000" min="0" max="-200" />
+	<attack name="physical" interval="2000" chance="10" radius="4" min="0" max="-200">
+		<attribute key="areaEffect" value="poff" />
+	</attack>
+	<attack name="speed" interval="2000" chance="20" radius="4" speedchange="-650" duration="5000">
+			<attribute key="areaEffect" value="poff" />
+	</attack>
+	<attack name="drunk" interval="2000" chance="10" target="1" range="1" duration="5000">
+	</attack>
+	</attacks>
+	<defenses armor="30" defense="30">
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+</monster>

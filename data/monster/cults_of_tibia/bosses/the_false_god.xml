@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="The False God" nameDescription="The False God" race="blood" experience="75000" speed="230" script="rewardboss.lua">
+	<health now="300000" max="300000" />
+	<look type="984" corpse="25151" />
+	<targetchange interval="5000" chance="30" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="0" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="20" target="1" range="4" radius="4" min="0" max="-500">
+			<attribute key="areaEffect" value="stones" />
+		</attack>
+		<attack name="speed" interval="2000" chance="20" radius="5" speedchange="-650" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="30"/>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="7000" chance="10">
+		<voice sentence="CREEEAK!" />
+	</voices>
+	<loot>
+		<item id="7633" chance="26900"/>
+		<item name="magic sulphur" chance="18920"/>
+		<item name="mino shield" chance="17620"/>
+		<item name="silver token" chance="1732"/>
+		<item name="gold token" chance="1532"/>
+		<item name="gold coin" countmax="200" chance="100000" />
+		<item name="platinum coin" countmax="30" chance="29840" />
+		<item name="piece of hell steel" countmax="9" chance="12370" />
+		<item name="red piece of cloth" countmax="6" chance="16370" />
+		<item name="yellow gem" chance="29460" />
+		<item name="blue gem" chance="21892" />
+		<item name="underworld rod" chance="117270" />
+		<item name="war axe" chance="127270" />
+		<item name="pair of iron fists" chance="9510" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="small diamond" countmax="10" chance="12760" />
+		<item name="small amethyst" countmax="10" chance="14700" />
+		<item name="small topaz" countmax="10" chance="11520" />
+		<item name="small sapphire" countmax="10" chance="13790" />
+		<item name="small emerald" countmax="10" chance="14700" />
+		<item name="small amethyst" countmax="10" chance="12259" />
+		<item name="energy bar" countmax="3" chance="16872" />
+		<item name="ultimate health potion" countmax="10" chance="27652" />
+		<item name="great mana potion" countmax="10" chance="33721" />
+		<item name="great spirit potion" countmax="5" chance="25690" />
+		<item name="piece of royal steel" chance="15890" />
+		<item name="execowtioner axe" chance="7890" />
+		<item name="maimer" chance="1890" />
+		<item name="ornate mace" chance="7890" />
+		<item name="velvet mantle" chance="1890" />
+		<item name="iron ore" chance="14542" />
+		<item name="giant sword" chance="16892" />
+	</loot>
+</monster>

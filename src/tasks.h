@@ -1,8 +1,6 @@
 /**
- * @file tasks.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_TASKS_H_
-#define OT_SRC_TASKS_H_
+#ifndef FS_TASKS_H_A66AC384766041E59DCA059DAB6E1976
+#define FS_TASKS_H_A66AC384766041E59DCA059DAB6E1976
 
 #include <condition_variable>
 #include "thread_holder_base.h"
@@ -54,10 +52,12 @@ class Task
 		}
 
 	protected:
+		std::chrono::system_clock::time_point expiration = SYSTEM_TIME_ZERO;
+
+	private:
 		// Expiration has another meaning for scheduler tasks,
 		// then it is the time the task should be added to the
 		// dispatcher
-		std::chrono::system_clock::time_point expiration = SYSTEM_TIME_ZERO;
 		std::function<void (void)> func;
 };
 
@@ -76,7 +76,7 @@ class Dispatcher : public ThreadHolder<Dispatcher> {
 
 		void threadMain();
 
-	protected:
+	private:
 		std::thread thread;
 		std::mutex taskLock;
 		std::condition_variable taskSignal;

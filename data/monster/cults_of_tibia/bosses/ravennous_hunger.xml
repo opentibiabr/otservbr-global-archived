@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Ravennous Hunger" nameDescription="Ravennous Hunger" race="blood" experience="0" speed="280" script="rewardboss.lua">
+	<health now="100000" max="100000"/>
+	<look type="556" corpse="6324"/>
+	<targetchange interval="4000" chance="20"/>
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag runonhealth="0" />
+	</flags>
+	<script>
+		<event name="healLeiden" />
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-900" />
+	</attacks>
+	<defenses armor="35" defense="50"/>
+	<elements>
+		<element deathPercent="-80"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<summons maxSummons="4">
+		<summon name="Mutated Bat" interval="2000" chance="100" />
+		<summon name="Mutated Bat" interval="2000" chance="100" />
+		<summon name="Mutated Bat" interval="2000" chance="100" />
+		<summon name="Mutated Bat" interval="2000" chance="100" />
+	</summons>
+	<voices interval="8000" chance="13">
+		<voice sentence="SU-*burp* SUFFEEER!" />
+	</voices>
+	<loot>
+		<item name="bed of nails" chance="67000" />
+		<item name="small sapphire" countmax="10" chance="21000" />
+		<item name="great spirit potion" countmax="5" chance="33230" />
+		<item name="yellow gem" chance="12000" />
+		<item id="7633" chance="5000" />
+		<item name="platinum coin" countmax="30" chance="68299" />
+		<item name="lightning legs" chance="18000" />
+		<item name="sacred tree amulet" chance="15000" />
+		<item name="wood cape" chance="9000" />
+		<item name="gold token" chance="1532" />
+		<item name="gold coin" countmax="200" chance="100000" />
+		<item name="small emerald" countmax="10" chance="19000" />
+		<item name="great mana potion" countmax="5" chance="31230" />
+		<item name="red gem" chance="12000" />
+		<item name="oriental shoes" chance="11000" />
+		<item name="torn shirt" chance="42000" />
+		<item name="fig leaf" chance="32000" />
+		<item name="luminous orb" chance="35000" />
+		<item name="wooden spellbook" chance="4500" />
+		<item name="elven legs" chance="16000" />
+		<item name="small diamond" countmax="10" chance="21000" />
+		<item name="ultimate health potion" countmax="5" chance="28230" />
+		<item name="energy bar" countmax="5" chance="53000" />
+		<item name="green gem" chance="12000" />
+		<item name="broken key ring" chance="4000" />
+		<item name="muck rod" chance="10000" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="cobra crown" chance="400" />
+		<item name="silver token" chance="2500" />
+		<item name="elven mail" chance="3000" />
+	</loot>
+</monster>

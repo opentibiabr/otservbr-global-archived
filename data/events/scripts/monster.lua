@@ -1,4 +1,8 @@
 function Monster:onDropLoot(corpse)
+	if configManager.getNumber(configKeys.RATE_LOOT) == 0 then
+		return
+	end
+
 	local mType = self:getType()
 	if mType:isRewardBoss() then
 		corpse:registerReward()
@@ -25,6 +29,8 @@ function Monster:onDropLoot(corpse)
 				player:sendTextMessage(MESSAGE_LOOT, text)
 			end
 		end
+
+		player:updateKillTracker(self, corpse)
 	else
 		local text = ("Loot of %s: nothing (due to low stamina)"):format(mType:getNameDescription())
 		local party = player:getParty()

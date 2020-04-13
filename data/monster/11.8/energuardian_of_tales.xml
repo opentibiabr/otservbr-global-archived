@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Energuardian of Tales" nameDescription="an energuardian of tales" race="undead" experience="11475" speed="420">
+	<health now="14000" max="14000"/>
+	<look type="1063" body="85" feet="93" head="66" legs="82" addons="3" corpse="32571"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-10" max="-550"/>
+	 	<attack name="energy" interval="1000" chance="13" radius="3" min="-100" max="-555">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="40"/>
+	<elements>
+		<element icePercent="50"/>
+		<element earthPercent="30"/>
+		<element holyPercent="50"/>
+		<element firePercent="80"/>
+		<element energyPercent="50"/>
+		<element deathPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="33316" countmax="5" chance="10000"/>
+		<item id="33317" countmax="5" chance="10000"/>
+		<item name="Small Amethyst" countmax="5" chance="10000"/>
+		<item name="Flash Arrow" countmax="5" chance="10000"/>
+		<item name="Lightning Legs" chance="250"/>
+		<item name="Spellbook of Warding" chance="350"/>
+		<item name="Ultimate Health Potion" countmax="5" chance="10000"/>
+		<item name="Ultimate Mana Potion" countmax="5" chance="10000"/>
+		<item name="Wand of Starstorm" chance="300"/>
+	</loot>
+</monster>

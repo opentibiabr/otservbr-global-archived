@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Yaga The Crone" nameDescription="Yaga The Crone" race="blood" experience="375" speed="240">
+	<health now="620" max="620"/>
+	<look type="54" corpse="20587"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="4"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-50"/>
+		<attack name="fire" interval="2500" chance="50" range="5" min="-30" max="-50">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="poisoncondition" interval="3000" chance="13" range="5" min="-10" max="-10">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="firefield" interval="2000" chance="13" range="5">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="20">
+		<defense name="invisible" interval="2000" chance="18" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="outfit" interval="4000" chance="9" monster="green frog" duration="4000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="-5"/>
+		<element earthPercent="1"/>
+		<element physicalPercent="-1"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Where did I park my hut?"/>
+		<voice sentence="You will taste so sweet!"/>
+		<voice sentence="Hexipooh, bewitched are you!"/>
+	</voices>
+	<loot>
+		<item name="cape" chance="66000"/>
+		<item name="broom" chance="62500"/>
+		<item name="cookie" countmax="8" chance="62500"/>
+		<item name="gold coin" countmax="55" chance="29170"/>
+		<item name="star herb" chance="20833"/>
+		<item name="wolf tooth chain" chance="20833"/>
+		<item name="garlic necklace" chance="8333"/>
+		<item name="spellbook of mind control" chance="8333"/>
+		<item name="coat" chance="4170"/>
+		<item name="necrotic rod" chance="4170"/>
+		<item name="silver dagger" chance="4170"/>
+	</loot>
+</monster>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Soul-Broken Harbinger" nameDescription="a Soul-Broken Harbinger" race="blood" experience="5800" speed="420">
+	<health now="6300" max="6300"/>
+	<look type="1137" head="124" body="31" legs="17" feet="81" addons="3" corpse="34775"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-240"/>
+		<attack name="physical" interval="2000" chance="20" range="7" min="0" max="-120">
+			<attribute key="shootEffect" value="arrow"/>
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="20" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="-5"/>
+		<element firePercent="-30"/>
+		<element deathPercent="20"/>
+		<element icePercent="55"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+	    <item name="Platinum Coin" countmax="12" chance="100000"/>
+		<item id="34696" countmax="3" chance="15750"/> <!-- Ice Flower -->
+		<item name="Dream Essence Egg" chance="13700"/>
+		<item name="Elvish Talisman" chance="4790"/>
+		<item name="Knight Legs" chance="4450"/>
+		<item name="Glacier Kilt" chance="4110"/>
+		<item name="Glacier Shoes" chance="3770"/>
+		<item name="Ice Rapier" chance="3770"/>
+		<item name="Spellbook of Mind Control" chance="2400"/>
+		<item name="Crown Shield" chance="1710"/>
+		<item name="Wood Cape" chance="1710"/>
+		<item id="26185" chance="1370"/> <!-- Ring of Blue Plasma -->
+		<item name="Tower Shield" chance="680"/>
+		<item id="26199" chance="680"/> <!-- Collar of Green Plasma -->
+	</loot>
+</monster>

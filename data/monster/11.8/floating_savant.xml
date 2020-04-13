@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Floating Savant" nameDescription="a floating savant" race="undead" experience="8000" speed="330">
+	<health now="8000" max="8000"/>
+	<look type="1063" head="113" body="94" legs="78" feet="78" addons="0" corpse="33341"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="fire" interval="2000" chance="15" range="7" min="-390" max="-480">
+			<attribute key="shootEffect" value="fire"/>
+		</attack>
+			<attack name="energy" interval="2000" chance="14" range="7" min="-390" max="-480">
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="12" radius="3" min="-300" max="-400">
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="4" spread="3" min="-490" max="-630">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+	</attacks>
+		 <summons maxSummons="1">
+		<summon name="Lava Lurker Attendant" interval="2000" chance="70"/>
+	</summons>
+	<defenses armor="82" defense="40"/>
+	<elements>
+		<element icePercent="50"/>
+		<element earthPercent="30"/>
+		<element holyPercent="50"/>
+		<element firePercent="80"/>
+		<element energyPercent="50"/>
+		<element deathPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="tssooosh tsoooosh tssoooosh!"/>
+	</voices>
+	<loot>
+		 <item name="small enchanted ruby" countmax="5" chance="10000"/>
+		<item name="Red Crystal Fragment" countmax="2" chance="10000"/>
+		<item name="Red Gem" countmax="3" chance="10000"/>
+		<item name="Red Piece of Cloth" countmax="3" chance="10000"/>
+		<item name="Concentrated Demonic Blood" countmax="5" chance="12000"/>
+		<item name="Demonic Essence" countmax="5" chance="10000"/>
+		<item id="2553" chance="10000"/><!-- pick -->
+ 		<item name="Sample of Monster Blood" countmax="5" chance="10000"/>
+	</loot>
+</monster>

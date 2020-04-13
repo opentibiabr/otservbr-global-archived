@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Plagueroot" nameDescription="a Plagueroot" race="venom" experience="55000" speed="170" script="rewardboss.lua">
+	<health now="20000" max="20000" />
+	<look type="1121" corpse="34660" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="210" attack="260" />
+		<attack name="firecondition" interval="1000" chance="7" range="2" min="-200" max="-1000">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="yellowspark" />
+		</attack>
+		<attack name="physical" interval="1000" chance="7" radius="6" target="0" min="-50" max="-150">
+			<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="1000" chance="50" radius="5" target="0" min="-20" max="-100">
+			<attribute key="areaEffect" value="yellowspark" />
+		</attack>
+		<attack name="firefield" interval="1000" chance="4" radius="8" target="0">
+			<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-50" max="-150">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="fire" interval="1000" chance="13" length="8" spread="0" min="-50" max="-100">
+			<attribute key="areaEffect" value="explosion" />
+		</attack>
+		<attack name="fire" interval="1000" chance="10" length="8" spread="3" min="-30" max="-100">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="165" defense="150">
+		<defense name="healing" interval="1000" chance="15" min="500" max="1000">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="healing" interval="1000" chance="25" min="200" max="300">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+		<defense name="speed" interval="1000" chance="10" speedchange="1800" duration="3000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="220" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="5" chance="100000" />
+		<item name="Piggy Bank" chance="100000" />
+		<item name="Mysterious Remains" chance="100000" />
+		<item name="Energy Bar" chance="100000" />
+		<item name="Silver Token" countmax="3" chance="100000" />
+		<item name="Gold Token" countmax="2" chance="22000" />
+		<item name="Supreme Health Potion" chance="23550" />
+		<item name="Ultimate Mana Potion" chance="25550" />
+		<item name="Huge Chunk of Crude Iron" chance="27550" />
+		<item name="Royal Star" countmax="100" chance="15770" />
+		<item name="Green Gem" countmax="2" chance="12800" />
+		<item name="Yellow Gem" countmax="2" chance="12000" />
+		<item name="Red Gem" countmax="2" chance="12700" />
+		<item name="Bullseye Potion" countmax="10" chance="25000" />
+		<item name="Pomegranate" chance="8000" />
+		<item name="Crystal Coin" countmax="2" chance="7700" />
+		<item name="Skull Staff" chance="7650" />
+		<item name="Chaos Mace" chance="2200" />
+		<item name="Gold Ingot" chance="2800" />
+		<item id="26199" chance="2500" /> <!-- collar of green plasma-->
+		<item id="7632" chance="2600" /> <!-- Giant Shimmering Pearl -->
+		<item name="Blue Gem" chance="2500" />
+		<item name="Violet Gem" countmax="2" chance="2300" />
+		<item name="Living Armor" chance="1100" />
+		<item name="Magic Sulphur" chance="1000" />
+		<item name="Mastermind Potion" countmax="10" chance="800" />
+		<item id="26185" chance="800" /> <!-- ring of blue plasma-->
+		<item name="Ring of the Sky" chance="800" />
+		<item name="Living Vine Bow" chance="750" />
+		<item name="Abyss Hammer" chance="700" />
+		<item id="26187" chance="600" /> <!-- ring of green plasma-->
+		<item name="Plagueroot Offshoot" chance="500" />
+		<item name="Turquoise Tendril Lantern" chance="400" />
+	</loot>
+</monster>

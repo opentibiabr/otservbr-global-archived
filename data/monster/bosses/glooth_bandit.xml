@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth Bandit" nameDescription="a glooth bandit" race="blood" experience="2000" speed="300" manacost="450">
+	<health now="2600" max="2600"/>
+	<look type="129" head="115" body="80" legs="114" feet="114" corpse="24251"/>
+	<targetchange interval="5000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag isblockable="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="25"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="1000" min="0" max="-300"/>
+		<attack name="physical" interval="2000" chance="50" range="8" min="-60" max="-200">
+			<attribute key="shootEffect" value="arrow"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="65">
+		<defense name="healing" interval="3000" chance="35" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity poison="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="100" chance="49000"/>
+		<item id="2152" countmax="3" chance="29900"/>
+		<item id="9970" countmax="2" chance="2900"/>
+		<item id="23574" chance="300"/> <!-- Gloot bag -->
+		<item id="23514" chance="2900"/> <!-- Glooth Sandwich-->
+		<item id="23517" chance="1900"/> <!-- Gloot stek -->
+		<item id="7591" countmax="3" chance="2900"/> <!-- Great Health Potion -->
+		<item id="7590" countmax="3" chance="2900"/> <!-- Great Mana Potion -->
+		<item id="8472" countmax="3" chance="2900"/> <!--  Great Spirit Potion -->
+		<item id="23551" chance="1400"/> <!-- Glooth Axe -->
+		<item id="23529" chance="300"/> <!-- Glooth Spear -->
+		<item id="8473" chance="2900"/> <!-- Ultimate Health Potion -->
+		<item id="3962" chance="400"/> <!-- Beastslayer Axe  -->
+		<item id="23554" chance="300"/> <!-- Glooth Amulet -->
+		<item id="23550" chance="200"/> <!-- Glooth Blade -->
+		<item id="23535" chance="200"/> <!-- Glooth Cape -->
+		<item id="23549" chance="200"/> <!-- Glooth Club  -->
+		<item id="2155" chance="100"/> <!-- Green Gem  -->
+		<item id="2436" chance="500"/> <!-- Skull Staff  -->
+		<item id="7903" chance="400"/> <!-- Terra Hood  -->
+		<item id="7885" chance="300"/> <!-- Terra Legs  -->
+		<item id="7884" chance="200"/> <!-- Terra Mantle  -->
+		<item id="2454" chance="90"/> <!-- War Axe  -->
+	</loot>
+</monster>

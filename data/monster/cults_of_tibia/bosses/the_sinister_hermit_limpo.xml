@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Sinister Hermit" nameDescription="The Sinister Hermit" race="blood" experience="0" speed="250">
+	<health now="30000" max="30000" />
+	<look type="153" head="1" body="30" legs="30" feet="11" addons="3" />
+	<targetchange interval="4000" chance="20" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="0" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-400" />
+		<attack name="earth" interval="2000" chance="25" length="7" spread="8" min="-120" max="-488">
+			<attribute key="areaEffect" value="smallplants" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="50">
+		<defense name="healing" interval="2000" chance="20" min="0" max="800">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="shock head skill reducer 2" interval="2000" radius="8" chance="30">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+	</elements>
+	<immunities>
+		<immunity invisibility="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<summons maxSummons="4">
+		<summon name="Vermin Swarm" interval="20000" chance="100" />
+	</summons>
+</monster>

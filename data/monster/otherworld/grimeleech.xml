@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Grimeleech" nameDescription="a grimeleech" race="undead" experience="6560" speed="340">
+	<health now="9500" max="9500"/>
+	<look type="855" corpse="25436"/>
+  	<targetchange interval="3000" chance="20"/>
+  	<flags>
+    	<flag summonable="0"/>
+    	<flag attackable="1"/>
+    	<flag hostile="1"/>
+    	<flag illusionable="1"/>
+   		<flag convinceable="0"/>
+    	<flag pushable="0"/>
+    	<flag canpushitems="1"/>
+    	<flag canpushcreatures="1"/>
+    	<flag targetdistance="1"/>
+    	<flag staticattack="90"/>
+    	<flag runonhealth="0"/>
+  	</flags>
+  	<attacks>
+    		<attack name="melee" interval="2000" skill="70" attack="80"/>
+    		<attack name="melee" interval="2000" chance="2" skill="153" attack="100"/>
+    		<attack name="physical" interval="2000" chance="14" range="7" target="1" min="100" max="-565">
+      			<attribute key="shootEffect" value="death"/>
+      			<attribute key="areaEffect" value="mortarea"/>
+    		</attack>
+    		<attack name="death" interval="2000" chance="12" length="8" spread="0" min="-150" max="-220">
+      			<attribute key="areaEffect" value="redspark"/>
+    		</attack>
+    		<attack name="death" interval="2000" chance="13" radius="4" target="0" min="-225" max="-375">
+      			<attribute key="areaEffect" value="redspark"/>
+    		</attack>
+    		<attack name="physical" interval="2000" chance="9" length="8" spread="3" min="0" max="-300">
+      			<attribute key="areaEffect" value="explosionarea"/>
+    		</attack>
+  	</attacks>
+  	<defenses armor="30" defense="30">
+    		<defense name="healing" interval="2000" chance="16" min="130" max="205">
+      			<attribute key="areaEffect" value="redshimmer"/>
+    		</defense>
+    		<defense name="effect" interval="2000" chance="9">
+      			<attribute key="areaEffect" value="greenshimmer"/>
+    		</defense>
+    		<defense name="effect" interval="2000" chance="10">
+      			<attribute key="areaEffect" value="redspark"/>
+    		</defense>
+    		<defense name="speed" interval="2000" chance="12" speedchange="532" duration="4000">
+      			<attribute key="areaEffect" value="redshimmer"/>
+    		</defense>
+  	</defenses>
+  	<elements>
+    		<element energyPercent="-10"/>
+    		<element earthPercent="40"/>
+    		<element physicalPercent="20"/>
+    		<element icePercent="65"/>
+    		<element holyPercent="-10"/>
+    		<element deathPercent="80"/>
+    		<element firePercent="-10"/>
+  	</elements>
+  	<immunities>
+    		<immunity lifedrain="1"/>
+    		<immunity paralyze="1"/>
+    		<immunity invisible="1"/>
+  	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="Death... Taste!" yell="1"/>
+	</voices>
+	<loot>
+	<item id="2148" countmax="271" chance="59020"/><!-- gold coin -->
+		<item id="2152" countmax="4" chance="45230"/><!-- platinum coin -->
+		<item id="6558" chance="2760"/><!-- concentrated demonic blood -->
+		<item id="6500" chance="2920"/><!-- demonic essence -->
+		<item id="2795" countmax="4" chance="9720"/><!-- Fire Mushrooms -->
+		<item id="7591" countmax="4" chance="8550"/><!-- Great Health Potions -->
+		<item id="7590" countmax="4" chance="8070"/><!-- great mana potion -->
+		<item id="8472" countmax="4" chance="8170"/><!-- great spirit potion -->
+		<item id="2796" countmax="4" chance="2140"/><!-- green mushroom -->
+		<item id="2150" countmax="2" chance="1940"/><!-- Small Amethysts -->
+		<item id="2145" countmax="2" chance="1940"/><!-- Small Amethysts -->
+		<item id="2147" countmax="2" chance="1940"/><!-- Small Rubies -->
+		<item id="9970" countmax="2" chance="1940"/><!-- Small Topazes -->
+		<item id="2520" chance="390"/><!-- demon shield -->
+		<item id="2462" chance="1500"/><!-- Devil Helmet -->
+		<item id="7894" chance="1000"/><!-- Magma Legs, -->
+		<item id="7418" chance="1460"/><!-- Nightmare Blade -->
+		<item id="2156" chance="760"/><!-- Red Gem -->
+		<item id="25523" chance="240"/><!-- Rift Crossbow-->
+		<item id="25382" chance="230"/><!-- Rift Shield-->
+		<item id="25386" chance="1910"/><!-- Some Grimeleech Wings-->
+		<item id="2645" chance="690"/><!-- steel boots -->
+		<item id="8910" chance="1280"/><!-- Underworld Rod-->
+		<item id="25383" chance="100"/><!-- Rift Lance -->
+		<item id="2154" chance="900"/><!-- Yellow Gem -->
+		<item id="8922" chance="900"/><!-- Wand of Voodoo. -->
+		<item id="7388" chance="1000"/><!-- Vile Axe -->
+		<item id="7414" chance="900"/><!-- Abyss Hammer -->
+	</loot>
+</monster>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Inky" nameDescription="Inky" race="blood" experience="250" speed="240">
+	<health now="750" max="750"/>
+	<look type="46" corpse="6065"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-156" poison="2"/>
+		<attack name="lifedrain" interval="2000" chance="15" radius="3" target="0" min="0" max="-87">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="19" radius="3" target="0" min="0" max="-80">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="7" radius="4" target="0" min="-56" max="-87">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="quara constrictor electrify" range="1" interval="2000" chance="10"/>
+	</attacks>
+	<defenses armor="15" defense="15"/>
+	<elements>
+		<element earthPercent="90"/>
+		<element energyPercent="-5"/>
+	</elements>
+	<immunities>
+		<immunity drown="1"/>
+		<immunity ice="1"/>
+		<immunity fire="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Tssss!"/>
+		<voice sentence="Gaaahhh!"/>
+		<voice sentence="Gluh! Gluh!"/>
+		<voice sentence="Boohaa!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="13" chance="12000"/>	<!-- gold coin -->
+	</loot>
+</monster>

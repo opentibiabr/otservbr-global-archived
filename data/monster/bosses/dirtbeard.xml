@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dirtbeard" nameDescription="Dirtbeard" race="blood" experience="375" speed="300">
+	<health now="630" max="630" />
+	<look type="98" corpse="20478" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="50" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-125" />
+		<attack name="physical" interval="2000" chance="30" range="7" min="0" max="-100">
+			<attribute key="shootEffect" value="throwingstar" />
+		</attack>
+		<attack name="melee" interval="2000" chance="30" range="7" radius="3" target="0">
+			<attribute key="areaEffect" value="rednote" />
+		</attack>
+		<attack name="pirate corsair skill reducer" interval="2000" chance="5" />
+	</attacks>
+	<defenses armor="30" defense="35" />
+	<elements>
+		<element earthPercent="20" />
+		<element holyPercent="10" />
+		<element icePercent="-5" />
+		<element firePercent="-10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="You are no match for the scourge of the seas!" />
+		<voice sentence="You move like a seasick whale!" />
+		<voice sentence="Yarr, death to all landlubbers!" />
+	</voices>
+	<summons maxSummons="2">
+		<summon name="Pirate Marauder" interval="4000" chance="30" />
+	</summons>
+	<loot>
+		<item id="2148" countmax="95" chance="2000" />				<!-- gold coin -->
+		<item id="2152" countmax="9" chance="30000" />				<!-- plat coin -->
+		<item id="10292" chance="1000" />				<!-- pointed rabbitslayer -->
+		<item id="10299" chance="1000" />				<!-- helmet of nature -->
+		<item id="10291" chance="1000" />				<!-- odd hat -->
+		<item id="10318" chance="2000" />				<!-- the shield Nevermourn -->
+	</loot>
+</monster>

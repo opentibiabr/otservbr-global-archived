@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crazed Summer Vanguard" nameDescription="a Crazed Summer Vanguard" race="blood" experience="5000" speed="390">
+	<health now="5500" max="5500"/>
+	<look type="1136" head="20" body="94" legs="20" feet="81" addons="1" corpse="34715"/>
+	<targetchange interval="4000" chance="10"/>
+	
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	
+	<attacks>
+		<attack name="melee" interval="2000" min="-160" max="-530"/>
+		<attack name="fire" interval="2000" chance="10" length="3" spread="0" min="-270" max="-710">
+		<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" range="7" min="-250" max="-300">
+		<attribute key="shootEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" target="1" radius="5" min="-350" max="-380">
+		<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="10" target="1" radius="5" min="-200" max="-350">
+		<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+		 
+	<defenses armor="70" defense="20"/>
+		<defense name="healing" interval="2000" chance="14" min="150" max="250">
+		<attribute key="areaEffect" value="blueshimmer"/>
+	</defense>
+		
+	<elements>
+		<element physicalPercent="30"/>
+		<element holyPercent="50"/>
+		<element icePercent="-10"/>
+	</elements>	
+	
+	<immunities>
+		<immunity holy="0"/>
+		<immunity death="0"/>
+		<immunity ice="0"/>
+		<immunity fire="1"/>
+		<immunity earth="0"/>
+		<immunity energy="0"/>
+		<immunity physical="0"/>
+		<immunity lifedrain="1"/>
+		<immunity drown="1"/>
+		<immunity paralyze="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+		<immunity outfit="1"/>
+	</immunities>
+	
+	<voices interval="10000" chance="7">
+		<voice sentence="I see colours, all colours! Or are these just illusions?"/>
+		<voice sentence="La di da di doo!!"/>
+	</voices>
+	<loot>
+	<!--common-->
+		<item name="platinum coin" countmax="13" chance="1000000"/>
+		<item name="elven astral observer" countmax="2" chance="1000000"/>
+	<!--uncommon-->
+		<item name="dream essence egg" chance="15000"/>
+		<item name="belted cape" chance="11550"/>
+		<item name="two handed sword" chance="13550"/>
+		<item name="seeds" chance="14750"/>
+		<item id="2419" chance="17550"/> <!-- scimitar -->
+		<item name="knife" chance="15650"/>
+		<item name="dragon necklace" chance="14550"/>
+		<item name="magma amulet" chance="1655"/>
+		<item name="wand of dragonbreath" chance="15150"/>
+		<item name="wand of draconia" chance="1263"/>
+	<!--semi-rare-->
+		<item name="magma boots" chance="11100"/>
+	<!--rare-->
+		<item name="sun fruit" chance="1800"/>
+	<!--very rare-->
+		<item name="bullseye potion" chance="800"/>
+	</loot>
+</monster>

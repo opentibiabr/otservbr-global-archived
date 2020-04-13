@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Dawnfly" nameDescription="a dawnfly" race="venom" experience="35" speed="200">
+	<health now="90" max="90"/>
+	<look type="528" corpse="23825"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag isblockable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="16" poison="8"/>
+		<attack name="poison" interval="2000" chance="9" range="7" min="-4" max="-8">
+			<attribute key="shootEffect" value="poisonarrow"/>
+		</attack>
+	</attacks>
+	<defenses armor="1" defense="2">
+		<defense name="speed" interval="2000" chance="11" speedchange="238" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<loot>
+		<item id="23839" countmax="16" chance="21360"/><!-- simple arrows -->
+		<item id="2485" chance="4140"/> <!-- doublet -->
+		<item id="19738" chance="11940"/> <!-- damselfly wing -->
+		<item id="19743" chance="10130"/> <!-- damselfly eye -->
+		<item id="2148" countmax="12" chance="100000"/> <!-- gold coin -->
+		<item id="7618" chance="3630"/> <!-- health potion -->
+		<item id="7620" chance="3800"/> <!-- mana potion -->
+		<item id="2545" countmax="8" chance="14500"/><!-- poison arrows -->
+	</loot>
+</monster>

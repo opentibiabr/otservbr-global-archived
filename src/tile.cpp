@@ -1,8 +1,6 @@
 /**
- * @file tile.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,6 +33,7 @@
 #include "teleport.h"
 #include "trashholder.h"
 #include "housetile.h"
+#include "iomap.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -501,6 +500,12 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileF
 				return RETURNVALUE_NOTPOSSIBLE;
 			}
 
+			if (monster->isSummon()) {
+				if (ground->getID() >= ITEM_WALKABLE_SEA_START && ground->getID() <= ITEM_WALKABLE_SEA_END) { 
+					return RETURNVALUE_NOTPOSSIBLE;
+				}
+			}
+
 			const CreatureVector* creatures = getCreatures();
 			if (monster->canPushCreatures() && !monster->isSummon()) {
 				if (creatures) {
@@ -930,7 +935,7 @@ void Tile::addThing(int32_t, Thing* thing)
 
 			items = makeItemList();
 			items->insert(items->getBeginDownItem(), item);
-			items->addDownItemCount(1);
+			items->increaseDownItemCount();
 			onAddTileItem(item);
 		}
 	}
@@ -1112,7 +1117,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 
 			item->setParent(nullptr);
 			items->erase(it);
-			items->addDownItemCount(-1);
+			items->decreaseDownItemCount();
 			onRemoveTileItem(spectators, oldStackPosVector, item);
 		}
 	}
@@ -1497,7 +1502,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 			}
 		} else {
 			items->insert(items->getBeginDownItem(), item);
-			items->addDownItemCount(1);
+			items->increaseDownItemCount();
 		}
 
 		setTileFlags(item);
@@ -1641,100 +1646,4 @@ Item* Tile::getUseItem(int32_t index) const
 	}
 
 	return nullptr;
-}
-
-HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHouse) :
-	DynamicTile(initX, initY, initZ), house(initHouse) {}
-
-void HouseTile::addThing(int32_t index, Thing* thing)
-{
-	Tile::addThing(index, thing);
-
-	if (!thing->getParent()) {
-		return;
-	}
-
-	if (Item* item = thing->getItem()) {
-		updateHouse(item);
-	}
-}
-
-void HouseTile::updateHouse(Item* item)
-{
-	if (item->getParent() != this) {
-		return;
-	}
-
-	Door* door = item->getDoor();
-	if (door) {
-		if (door->getDoorId() != 0) {
-			house->addDoor(door);
-		}
-	}
-	else {
-		BedItem* bed = item->getBed();
-		if (bed) {
-			house->addBed(bed);
-		}
-	}
-}
-
-ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t tileFlags, Creature* actor/* = nullptr*/) const
-{
-	if (const Creature* creature = thing.getCreature()) {
-		if (const Player* player = creature->getPlayer()) {
-			if (!house->isInvited(player)) {
-				return RETURNVALUE_PLAYERISNOTINVITED;
-			}
-		}
-		else if (const Monster* monster = creature->getMonster()) {
-			if (monster->isSummon()) {
-				if (monster->isPet() && !house->isInvited(monster->getMaster()->getPlayer())) {
-					return RETURNVALUE_NOTPOSSIBLE;
-				}
-				if (monster->isPet() && house->isInvited(monster->getMaster()->getPlayer()) && (hasFlag(TILESTATE_BLOCKSOLID) || (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_NOFIELDBLOCKPATH)))) {
-					return RETURNVALUE_NOTPOSSIBLE;
-				} 
-				else {
-					return RETURNVALUE_NOERROR;
-				}
-			}
-		}
-	}
-	else if (thing.getItem() && actor) {
-		Player* actorPlayer = actor->getPlayer();
-		if (!house->isInvited(actorPlayer)) {
-			return RETURNVALUE_CANNOTTHROW;
-		}
-	}
-	return Tile::queryAdd(index, thing, count, tileFlags, actor);
-}
-
-Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** destItem, uint32_t& tileFlags)
-{
-	if (const Creature* creature = thing.getCreature()) {
-		if (const Player* player = creature->getPlayer()) {
-			if (!house->isInvited(player)) {
-				const Position& entryPos = house->getEntryPosition();
-				Tile* destTile = g_game.map.getTile(entryPos);
-				if (!destTile) {
-					std::cout << "Error: [HouseTile::queryDestination] House entry not correct"
-						<< " - Name: " << house->getName()
-						<< " - House id: " << house->getId()
-						<< " - Tile not found: " << entryPos << std::endl;
-
-					destTile = g_game.map.getTile(player->getTemplePosition());
-					if (!destTile) {
-						destTile = &(Tile::nullptr_tile);
-					}
-				}
-
-				index = -1;
-				*destItem = nullptr;
-				return destTile;
-			}
-		}
-	}
-
-	return Tile::queryDestination(index, thing, destItem, tileFlags);
 }

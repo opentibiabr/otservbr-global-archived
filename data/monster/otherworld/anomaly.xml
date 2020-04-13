@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Anomaly" nameDescription="Anomaly" race="energy" experience="50000" speed="400" script="rewardboss.lua">
+	<health now="290000" max="290000"/>
+	<look type="876" head="19" body="98" legs="19" feet="79" addons="1" corpse="26220"/>
+	<targetchange interval="2000" chance="25"/>
+	
+	<flags>
+		<flag rewardboss="1"/>
+		<!--<flag preyable="0" />-->
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag hidehealth="0"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	
+	<script>
+		<event name="AnomalyTransform"/>
+		<event name="HeartBossDeath"/>
+	</script>
+	
+	<attacks>
+		<attack name="melee" interval="2000" min="-300" max="-1400"/>
+		<attack name="death" interval="2000" chance="25" radius="4" target="1" min="-300" max="-600">
+			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="shootEffect" value="suddendeath"/>
+		</attack>
+		<attack name="anomaly wave" interval="2000" chance="25" min="-500" max="-900"/>
+		<attack name="physical" interval="2000" chance="25" length="9" spread="0" min="-600" max="-1000">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="25" length="9" spread="0" min="-300" max="-600">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+	</attacks>
+	
+	<defenses armor="100" defense="100">
+		<defense name="healing" interval="2000" chance="30" min="150" max="400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	
+	<elements>
+		<element holyPercent="-20"/>
+		<element deathPercent="0"/>
+		<element icePercent="0"/>
+		<element firePercent="-20"/>
+		<element earthPercent="20"/>
+		<element energyPercent="-20"/>
+		<element physicalPercent="-20"/>
+		<element lifedrainPercent="0"/>
+		<element drownPercent="0"/>
+	</elements>
+	
+	<immunities>
+		<immunity holy="0"/>
+		<immunity death="0"/>
+		<immunity ice="0"/>
+		<immunity fire="0"/>
+		<immunity earth="0"/>
+		<immunity energy="0"/>
+		<immunity physical="0"/>
+		<immunity lifedrain="1"/>
+		<immunity drown="1"/>
+		<immunity paralyze="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+		<immunity outfit="1"/>
+	</immunities>
+	
+	<voices interval="2000" chance="20">
+		<voice sentence="Brzlll! Brzzzl!"/>
+	</voices>
+	
+	<loot>
+	<!-- Always -->
+		<item id="25377" countmax="4" chance="100000"/><!-- gold token -->
+		<item id="26165" chance="100000"/><!-- mysterious remains -->
+		<item id="26166" chance="100000"/><!-- odd organ -->
+	<!-- Common -->
+		<item id="2148" countmax="200" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="30" chance="100000"/><!-- platinum coin -->
+		<item id="18413" countmax="3" chance="8000"/><!-- blue crystal shard -->
+		<item id="18414" countmax="3" chance="8000"/><!-- violet crystal shard -->
+		<item id="18415" countmax="3" chance="8000"/><!-- green crystal shard -->
+		<item id="2150" countmax="10" chance="8000"/><!-- small amethyst -->
+		<item id="2145" countmax="10" chance="8000"/><!-- small diamond -->
+		<item id="9970" countmax="10" chance="8000"/><!-- small topaz -->
+		<item id="7590" countmax="10" chance="8000"/><!-- great mana potion -->
+		<item id="8472" countmax="5" chance="8000"/><!-- great spirit potion -->
+		<item id="8473" countmax="5" chance="8000"/><!-- ultimate health potion -->
+		<item id="26201" countmax="5" chance="8000"/><!-- energy drink -->
+		<item id="2154" chance="8000"/><!-- yellow gem -->
+		<item id="2158" chance="6000"/><!-- blue gem -->
+		<item id="2155" chance="6000"/><!-- green gem -->
+		<item id="26198" chance="3500"/><!-- collar of blue plasma -->
+		<item id="26185" chance="3500"/><!-- ring of blue plasma -->
+		<item id="26187" chance="3500"/><!-- ring of green plasma -->
+		<item id="26167" chance="8000"/><!-- curious matter -->
+		<item id="26175" chance="8000"/><!-- frozen lightning -->
+		<item id="18450" chance="4000"/><!-- Crystalline Sword -->
+		<item id="7901" chance="4000"/><!-- lightning headband -->
+		<item id="7427" chance="3000"/><!-- chaos mace -->
+		<item id="7451" chance="3000"/><!-- shadow sceptre -->
+		<item id="8901" chance="3000"/><!-- spellbook of warding -->
+		<item id="7895" chance="2500"/><!-- lightning legs -->
+		<item id="7898" chance="2500"/><!-- lightning robe -->
+		<item id="26130" unique="1" chance="1600"/><!-- tiara of power -->
+		<item id="26133" unique="1" chance="1600"/><!-- void boots -->
+		<item id="6553" unique="1" chance="1600"/><!-- ruthless axe -->
+	<!-- Uncommon -->
+		<item id="7633" countmax="3" chance="1600"/><!-- Giant Shimmering Pearl -->
+	</loot>
+</monster>

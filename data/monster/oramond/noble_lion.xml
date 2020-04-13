@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Noble Lion" nameDescription="a noble lion" race="blood" experience="400" speed="230">
+	<health now="1000" max="1000"/>
+	<look type="570" corpse="24232"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="70" attack="40"/>
+	</attacks>
+	<defenses armor="26" defense="26">
+		<defense name="speed" interval="2000" chance="15" speedchange="250" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="50"/>
+		<element earthPercent="25"/>
+		<element icePercent="25"/>
+		<element firePercent="20"/>
+		<element physicalPercent="5"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="2000" chance="7">
+		<voice sentence="Groarrrr! Rwarrrr"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="68" chance="100000"/> <!-- gold coin -->
+		<item id="2666" chance="25000"/> <!-- meat -->
+		<item id="2671" chance="25000"/> <!-- ham -->
+		<item id="10608" chance="20000"/> <!-- lion’s mane -->
+	</loot>
+</monster>

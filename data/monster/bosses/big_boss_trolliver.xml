@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Big Boss Trolliver" nameDescription="Big Boss Trolliver" race="blood" experience="105" speed="190">
+	<health now="150" max="150" />
+	<look type="281" corpse="7926" />
+	<targetchange interval="2000" chance="5" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-45" />
+	</attacks>
+	<defenses armor="25" defense="25" />
+	<summons maxSummons="5">
+		<summon name="Troll Champion" interval="2000" chance="30" />
+	</summons>
+	<elements>
+		<element energyPercent="15" />
+		<element holyPercent="10" />
+		<element earthPercent="-10" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+	</immunities>
+	<loot>
+		<item id="2148" countmax="64" chance="100000" />	<!-- gold coin -->
+		<item id="2389" chance="25000" />				<!-- spear -->
+		<item id="2666" countmax="3" chance="9650" />	<!-- meat -->
+		<item id="2643" chance="9000" />					<!-- leather boots -->
+		<item id="2448" chance="5450" />					<!-- studded club -->
+		<item id="2170" chance="100000" />				<!-- silver amulet -->
+	</loot>
+</monster>

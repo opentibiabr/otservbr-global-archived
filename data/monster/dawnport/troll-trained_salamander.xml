@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Troll-Trained Salamander" nameDescription="a troll-trained salamander" race="blood" experience="23" speed="112">
+	<health now="70" max="70"/>
+	<look type="529" corpse="19707"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="11" poison="5"/>
+		<attack name="earth" interval="2000" chance="11" range="5" target="1" min="-4" max="-6">
+			<attribute key="shootEffect" value="smallearth"/>
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="0" defense="0"/>
+	<loot>
+		<item id="2386" chance="5080"/><!-- axe -->
+		<item id="2449" chance="4630"/><!-- bone club -->
+		<item id="23839" countmax="5" chance="17650"/><!-- simple arrows -->
+		<item id="2148" countmax="11" chance="100000"/><!-- gold coin -->
+		<item id="2458" chance="6300"/><!-- chain helmet -->
+		<item id="7618" chance="1520"/><!-- health potion -->
+		<item id="19737" countmax="5" chance="34410"/><!-- insectoid eggs -->
+		<item id="2666" chance="9940"/><!-- meat -->
+		<item id="2545" countmax="2" chance="2970"/><!-- poison arrows -->
+		<item id="2406" chance="4470"/><!-- short sword -->
+		<item id="2554" chance="5080"/><!-- shovel -->
+		<item id="2482" chance="4070"/><!-- studded helmet -->
+	</loot>
+</monster>

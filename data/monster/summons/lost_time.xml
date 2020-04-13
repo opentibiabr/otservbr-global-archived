@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lost Time" nameDescription="a lost time" race="undead" experience="0" speed="160">
+	<health now="2000" max="2000"/>
+	<look typeex="27631" corpse="0"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag isblockable="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="50" attack="25"/>
+    		<attack name="white shade paralyze" interval="2000" chance="18"/>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+  	<immunities>
+    		<immunity invisible="1" />
+    		<immunity paralyze="1" />
+    		<immunity drunk="1" />
+  	</immunities>
+</monster>

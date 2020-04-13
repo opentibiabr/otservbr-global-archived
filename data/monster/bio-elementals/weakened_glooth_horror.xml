@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Weakened Glooth Horror" nameDescription="a weakened glooth horror" race="venom" experience="245" speed="200">
+	<health now="10000" max="10000"/>
+	<look type="677" corpse="0"/>
+	<targetchange interval="60000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushcreatures="1"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="200"/>
+		<flag canwalkonpoison="1"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+	</flags>
+	<script>
+		<event name="GloothHorror"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" skill="90" attack="100"/>
+		<attack name="death" interval="2000" chance="17" length="8" spread="3" min="-300" max="-600">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="death" interval="2000" chance="11" target="1" range="1" min="-200" max="-400">
+			<attribute key="shootEffect" value="poison"/>
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="25">
+		<defense name="healing" interval="2000" chance="15" min="500" max="600">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-20"/>
+		<element icePercent="15"/>
+		<element energyPercent="10"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
+		<immunity invisible="1"/>
+		<immunity poison="1"/>
+	</immunities>
+</monster>

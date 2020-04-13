@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Razzagorn" nameDescription="razzagorn" race="fire" experience="65000" speed="340" script="rewardboss.lua">
+	<health now="290000" max="290000" />
+	<look type="842" head="78" body="94" legs="52" feet="126" addons="0" corpse="25151" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="1" />
+		<flag rewardboss="1" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-1000" max="-2000"/>
+		<attack name="fire" interval="3000" chance="20" length="10" spread="0" min="-500" max="-1000">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="25" radius="7" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="greenbubble"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="7" min="-500" max="-700">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" radius="5" min="-300" max="-700">
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" length="12" spread="0" min="-1500" max="-1800">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" length="10" spread="3" min="-500" max="-800">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="20" length="10" spread="3" min="-500" max="-800">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="188" defense="145">
+		<defense name="healing" interval="2000" chance="15" min="1000" max="3000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="8" speedchange="480" duration="6000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="razzagorn summon" interval="2000" chance="3"/>
+	</defenses>
+	<elements>
+		<element earthPercent="10"/>
+		<element holyPercent="10"/>
+		<element firePercent="10"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element physicalPercent="10"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity drunk="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<voices interval="2000" chance="5">
+		<voice sentence="YOUR FUTILE ATTACKS ONLY FEED MY RAGE!"/>
+		<voice sentence="YOU-ARE-WEAK!!"/>
+		<voice sentence="DEEESTRUCTIOOON!!"/>
+	</voices>
+	<summons maxSummons="2">
+		<summon name="Eruption of Destruction" interval="2000" chance="15" max="2"/>
+	</summons>
+	<loot>
+		<item id="25172" chance="1000000"/><!-- silver token -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="6558" chance="10000"/><!-- concentrate demonic blood -->
+		<item id="2148" countmax="200" chance="98000"/><!-- gold coin -->
+		<item id="2143" countmax="8" chance="12000"/><!-- white pearl -->
+		<item id="2146" countmax="9" chance="12000"/><!-- small sapphire -->
+		<item id="2150" countmax="5" chance="10000"/><!-- small amethyst -->
+		<item id="2152" countmax="58" chance="8000"/><!-- platinum coin -->
+		<item id="2153" chance="1000"/><!-- blue gem -->
+		<item id="2154" chance="1000"/><!-- yellow gem -->
+		<item id="2156" chance="1000"/><!-- red gem -->
+		<item id="2158" chance="1000"/><!-- blue gem -->
+		<item id="2181" chance="13000"/><!-- terra rod -->
+		<item id="2462" chance="8000"/><!-- devil helmet-->
+		<item id="24849" countmax="5" chance="46100"/><!-- onyx chip -->
+		<item id="24850" countmax="5" chance="46100"/><!-- opal -->
+		<item id="25410" chance="500"/><!-- visage of the end days-->
+		<item id="25418" chance="500" unique="1"/><!-- maimer-->
+		<item id="5022" countmax="5" chance="46100"/><!-- orichalcum pearl -->
+		<item id="6500" chance="11000"/><!-- demonic essence -->
+		<item id="7439" chance="8000"/><!-- berserker potion-->
+		<item id="7440" chance="4000"/><!-- mastermind potion-->
+		<item id="7443" chance="4000"/><!-- bullseye potion-->
+		<item id="7590" countmax="5" chance="23000"/><!-- great mana potion -->
+		<item id="7591" countmax="5" chance="46100"/><!-- great health potion -->
+		<item id="7632" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
+		<item id="7633" countmax="5" chance="14000"/><!-- giant shimmering pearl -->
+		<item id="8472" countmax="10" chance="46100"/><!-- great spirit potion -->
+		<item id="2522" chance="100" unique="1"/><!-- great shield -->
+		<item id="8473" countmax="5" chance="23000"/><!-- ultimate health potion -->
+		<item id="9970" countmax="8" chance="10000"/><!-- small topaz -->
+	</loot>
+</monster>

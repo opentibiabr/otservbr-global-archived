@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Charger" nameDescription="a charger" race="energy" experience="85" speed="300">
+	<health now="1600" max="1600"/>
+	<look type="293" corpse="0"/>
+	<targetchange interval="4000" chance="15"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+    	<event name="ChargerSpawn"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-300"/>
+		<attack name="energy" interval="2000" chance="20" range="4" radius="2" target="1" min="-200" max="-450">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="20" range="5" target="1" min="-200" max="-350">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energycondition" interval="2000" chance="15" radius="5" min="-400" max="-800">
+			<attribute key="areaEffect" value="yellowspark"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50"/>
+	<elements>
+		<element energyPercent="80"/>
+		<element deathPercent="25"/>
+		<element earthPercent="-10"/>
+		<element icePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<walkablefields>
+		<walkablefield energy="1"/>
+	</walkablefields>
+</monster>

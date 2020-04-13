@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Broken Shaper" nameDescription="a broken shaper" race="blood" experience="1600" speed="310" manacost="290">
+	<health now="2200" max="2200"/>
+	<look type="932" head="132" body="95" legs="0" feet="121" corpse="27736"/>
+	<targetchange interval="5000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="98"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+	<attack name="melee" interval="2000" min="0" max="-200"/>
+	<attack name="physical" interval="2000" chance="35" range="7" target="1" min="0" max="-150">
+		<attribute key="shootEffect" value="smallstone"/>
+	</attack>
+	<attack name="physical" interval="2000" chance="35" length="5" spread="0" min="0" max="-100">
+		<attribute key="areaEffect" value="rednote"/>
+	</attack>
+	</attacks>
+	<defenses armor="25" defense="25">
+     <defense name="speed" interval="2000" chance="10" speedchange="336" duration="2000">
+       <attribute key="areaEffect" value="redshimmer"/>
+     </defense>
+  	<defense name="healing" interval="2000" chance="15" min="0" max="250">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+  </defenses>
+	<elements>
+		<element energyPercent="-20"/>
+		<element earthPercent="20"/>
+		<element firePercent="-15"/>
+	</elements>
+	<voices interval="2000" chance="7">
+		<voice sentence="&lt;grunt&gt;"/>
+		<voice sentence="Raar!!"/>
+	</voices>
+	<loot>
+		<item id="2148" countmax="165" chance="100320"/><!-- gold coin -->
+		<item id="2152" countmax="2" chance="70320"/><!-- platinun coin -->
+		<item id="27051" countmax="2" chance="20000"/><!-- cave turnip -->
+		<item id="27052" chance="17000"/><!-- Ancient Belt Buckle -->
+		<item id="27053" chance="20000"/><!-- Cracked Alabaster Vase -->
+		<item id="27054" chance="13000"/><!-- Rhino Horn Carving -->
+		<item id="27058" chance="4000"/><!--  Ancient Coin -->
+		<item id="2260" chance="15000"/><!-- Blank Rune -->
+		<item id="2666" countmax="2" chance="50320"/><!-- Meats -->
+		<item id="5022" countmax="2" chance="5000"/><!-- Orichalcum Pearl -->
+		<item id="5912" countmax="2" chance="1000"/><!--  Blue Piece of Cloth -->
+		<item id="5913" countmax="2" chance="5000"/><!--   Brown Piece of Cloth -->
+		<item id="5914" countmax="2" chance="2000"/><!--   yellow Piece of Cloth -->
+		<item id="2195" chance="230"/><!-- boh -->
+		<item id="7591" chance="7000"/><!--  Great Health Potion-->
+		<item id="2396" chance="1000"/><!-- ice rapier -->
+		<item id="2162" chance="1000"/><!-- Magic Light Wand -->
+		<item id="24849" chance="4200"/><!-- Onyx Chip -->
+		<item id="2214" chance="2000"/><!-- ring of healing -->
+        <item id="2147" chance="3000"/><!-- small ruby -->
+		<item id="2146" chance="5000"/><!-- small sapphire -->
+		<item id="2789" countmax="5" chance="6500"/><!-- Brown Mushroom -->
+	</loot>
+</monster>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Tazhadur" nameDescription="a Tazhadur" race="undead" experience="9000" speed="250">
+	<health now="10000" max="10000" />
+	<look type="947" head="57" body="118" legs="57" feet="0" addons="3" corpse="27733" />
+	<targetchange interval="4000" chance="10" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag isblockable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-500" />
+		<attack name="fire" interval="2000" chance="20" range="7" radius="4" target="1" min="-150" max="-200">
+			<attribute key="shootEffect" value="fire" />
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+		<attack name="firefield" interval="2000" chance="10" range="7" radius="4" target="1">
+			<attribute key="shootEffect" value="fire" />
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="8" spread="3" min="-200" max="-300">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="35" defense="35">
+		<defense name="healing" interval="2000" chance="15" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element earthPercent="80" />
+		<element deathPercent="-10" />
+		<element icePercent="-20" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity fire="1" />
+	</immunities>
+	<loot>
+		<item id="2387" chance="10000" /> <!-- double axe -->
+		<item id="27605" countmax="2" chance="100000"/> <!-- dragon blood -->
+		<item id="2672" countmax="5" chance="40000" /> <!-- dragon ham -->
+		<item id="2434" chance="6000" /> <!-- dragon hammer -->
+		<item id="2201" chance="10000" /> <!-- dragon necklace -->
+		<item id="2492" chance="3000" /> <!-- dragon scale mail -->
+		<item id="2516" chance="6000" /> <!-- dragon shield -->
+		<item id="27606" chance="100000"/> <!-- dragon tongue -->
+		<item id="7430" chance="1000" /> <!-- dragonbone staff -->
+		<item id="2148" countmax="100" chance="90000" /> <!-- gold coin -->
+		<item id="5877" chance="100000" /> <!-- green dragon leather -->
+		<item id="5920" chance="100000" /> <!-- green dragon scale -->
+		<item id="2145" chance="800" /> <!-- small diamond -->
+		<item id="7588" chance="1000" /> <!-- strong health potion -->
+		<item id="27608" chance="100000" /> <!-- tooth of Tazhadur -->
+		<item id="2187" chance="2500" /> <!-- wand of inferno -->
+	</loot>
+</monster>

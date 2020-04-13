@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="World Devourer" nameDescription="World Devourer" race="energy" experience="77700" speed="450" script="rewardboss.lua">
+	<health now="25000" max="25000"/>
+	<look type="875" head="82" body="79" legs="81" feet="113" addons="3" corpse="0"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+		<event name="HeartBossDeath"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-1600"/>
+		<attack name="lifedrain" interval="2000" chance="20" length="10" spread="0" min="-400" max="-800">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="death" interval="2000" chance="20" radius="4" target="1" min="-400" max="-800">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="20" radius="4" target="1" min="-400" max="-800">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="20" length="10" spread="0" min="-600" max="-1200">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="20" radius="8" min="0" max="0">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="anomaly break" interval="2000" chance="40"/>
+		<attack name="devourer summon" interval="2000" chance="25"/>
+	</attacks>
+	<defenses armor="150" defense="150"/>
+	<elements>
+		<element physicalPercent="10"/>
+		<element energyPercent="20"/>
+		<element deathPercent="10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="100" chance="100000"/><!-- gold coin -->
+		<item id="2152" countmax="20" chance="100000"/><!-- platinum coin -->
+		<item id="18413" countmax="3" chance="10000"/><!-- blue crystal shard -->
+		<item id="7590" countmax="5" chance="10000"/><!-- great mana potion -->
+		<item id="8472" countmax="5" chance="10000"/><!-- great spirit potion -->
+		<item id="18415" countmax="3" chance="10000"/><!-- green crystal shard -->
+		<item id="8473" countmax="5" chance="10000"/><!-- ultimate health potion -->
+		<item id="18414" countmax="3" chance="10000"/><!-- violet crystal shard -->
+		<item id="26163" chance="10000"/><!-- crystallized anger -->
+		<item id="26164" chance="10000"/><!-- energy vein -->
+		<item id="7632" chance="5000"/><!-- giant shimmering pearl -->
+		<item id="7633" chance="5000"/><!-- giant shimmering pearl -->
+		<item id="26166" chance="10000"/><!-- odd organ -->
+		<item id="26176" chance="10000"/><!-- plasmatic lightning -->
+		<item id="2155" chance="10000"/><!-- green gem -->
+		<item id="25377" chance="100000"/><!-- gold token -->
+		<item id="7426" chance="10000"/><!-- amber staff -->
+		<item id="7901" chance="8000"/><!-- lightning headband -->
+		<item id="26189" chance="8000"/><!-- ring of red plasma -->
+		<item id="2153" chance="8000"/><!-- violet gem -->
+		<item id="26130" unique="1" chance="6000"/><!-- tiara of power -->
+		<item id="26133" unique="1" chance="6000"/><!-- void boots -->
+		<item id="26342" unique="1" chance="4000"/><!-- devourer core -->
+		<item id="26340" unique="1" chance="2000"/><!-- crackling egg -->
+	</loot>
+</monster>

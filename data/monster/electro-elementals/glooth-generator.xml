@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Glooth-Generator" nameDescription="a glooth-generator" race="venom" experience="3000" speed="0">
+	<health now="12000" max="12000"/>
+	<look typeex="23081" corpse="0"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="0"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+		<flag isblockable="0" />
+	</flags>
+	<attacks>
+		<attack name="energy" interval="2000" chance="18" radius="2" target="0" min="-200" max="-600">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="50" defense="50">
+		<defense name="glooth-generator summon" interval="1000" chance="100"/>
+	</defenses>
+	<elements>
+		<element firePercent="25"/>
+		<element holyPercent="25"/>
+		<element energyPercent="25"/>
+		<element icePercent="25"/>
+		<element deathPercent="25"/>
+		<element physicalPercent="25"/>
+		<element earthPercent="25"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+</monster>

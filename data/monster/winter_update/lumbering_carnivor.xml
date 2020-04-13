@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lumbering Carnivor" nameDescription="a Lumbering Carnivor" race="blood" experience="1320" speed="400">
+	<health now="2600" max="2600"/>
+	<look type="1139" head="79" body="119" legs="57" feet="85" addons="1" corpse="34703"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-200" max="-500"/>
+		<attack name="physical" interval="2000" chance="10" radius="4" min="-100" max="-150">
+			<attribute key="areaEffect" value="groundshaker"/>
+		</attack>
+	</attacks>
+		<defenses armor="71" defense="20">
+		<defense name="healing" interval="2000" chance="10" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="20"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+	<!--Common-->
+		<item name="platinum coin" countmax="5" chance="100000"/>
+		<item name="Blue Glass Plate" countmax="3" chance="100000"/>
+	<!--Uncommon-->
+		<item id="2376" chance="15000"/> <!--sword-->
+		<item name="Axe" chance="14000"/>
+		<item name="Ice Rapier" chance="12000"/>
+	<!--Semi-Rare-->
+		<item name="Glorious Axe" chance="6100"/>
+		<item name="Blue Robe" chance="4600"/>
+		<item name="Two Handed Sword" chance="13000"/>
+		<item name="Fur Armor" chance="5400"/>
+		<item id="7632" chance="3200"/> <!--Giant Shimmering Pearlz-->
+		<item name="Green Crystal Shard" chance="3100"/>
+		<item name="Violet Gem" chance="4000"/>
+		<item name="Green Gem" chance="4800"/>
+		<item name="Blue Gem" chance="4000"/>
+	<!--Rare-->
+	<!--Very Rare-->
+		<item name="Focus Cape" chance="3000"/>
+	</loot>
+</monster>

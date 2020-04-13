@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="True Midnight Asura" nameDescription="a true midnight asura" race="blood" experience="7313" speed="340">
+	<health now="9000" max="9000"/>
+	<look type="1068" head="72" body="95" legs="72" feet="0" addon="3" corpse="33360"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="80"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-269"/>
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="0" max="-70"/>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="100" max="400">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="death" interval="2000" chance="10" length="8" spread="0" min="100" max="400">
+	 			<attribute key="areaEffect" value="blacksmoke"/>
+		</attack>
+		<attack name="speed" interval="2000" chance="15" radius="1" target="1" speedchange="-100" duration="30000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		 <attack name="drunk" interval="2000" chance="10" range="3" target="1" radius="4" duration="4000">
+			<attribute key="areaEffect" value="stun"/>
+		</attack>
+	</attacks>
+	<defenses armor="75" defense="55">
+		<defense name="healing" interval="2000" chance="15" min="50" max="100">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="2000" chance="15" speedchange="320" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+				<defense name="invisible" interval="2000" chance="20" duration="10000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element icePercent="20"/>
+		<element firePercent="20"/>
+		<element energyPercent="-10"/>
+		<element earthPercent="-15"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item id="2148" countmax="242" chance="97000"/>	            <!-- gold coin -->
+		<item id="2152" countmax="6" chance="18200"/>				    <!-- fish -->
+		<item id="7368" countmax="2" chance="2000"/>				    <!-- Assassin Stars -->
+		<item id="2144" chance="2000"/>				                <!--  Black Pearls -->
+		<item id="6558" chance="2000"/>				                <!-- Concentrated Demonic Blood -->
+		<item id="6500" chance="2210"/>					            <!-- Demonic Essence -->
+		<item id="2145" countmax="3" chance="800"/>					<!-- Small Diamond -->
+		<item id="2149" countmax="3" chance="900"/>					<!-- Small Emeralds -->
+		<item id="2147" countmax="3" chance="650"/>					<!-- Small Rubbie -->
+		<item id="2146" countmax="3" chance="580"/>					<!-- Small Sapphire -->
+		<item id="9970" countmax="3" chance="580"/>					<!-- Small Topaz -->
+		<item id="7591" chance="700"/>					                <!-- Great Health Potion -->
+		<item id="2143" chance="660"/>					<!-- White Pearl -->
+		<item id="7404" chance="430"/>					<!-- Assassin Dagger-->
+		<item id="2158" chance="3420"/>					<!--  Blue Gem -->
+		<item id="2656" chance="3400"/>					<!-- Blue Robe -->
+		<item id="9971" chance="400"/>					<!--  Gold Ingot -->
+	    <item id="24630" chance="600"/>				<!-- Golden Lotus Brooch -->
+	    <item id="2186" chance="630"/>					<!-- Moonlight Rod, -->
+	    <item id="2185" chance="690"/>					<!-- Necrotic Rod -->
+	    <item id="24637" chance="480"/>					<!-- Oriental Shoes -->
+		<item id="24631" chance="500"/>					<!-- Peacock Feather Fan -->
+		<item id="8889" chance="400"/>					<!--  Skullcracker Armor -->
+		<item id="2134" chance="600"/>					<!-- Silver Brooch -->
+		<item id="2170" chance="600"/>					<!-- Silver amulet -->
+		<item id="5944" chance="600"/>					<!-- Soul Orb -->
+		<item id="8902" chance="400"/>					<!-- Spellbook of Mind Control -->
+	    <item id="3967" chance="400"/>					<!-- Tribal Mask -->
+		<item id="8910" chance="400"/>					<!-- Underworld Rod  -->
+		<item id="2154" chance="400"/>					<!--  Yellow Gem  -->
+	</loot>
+</monster>

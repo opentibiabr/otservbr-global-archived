@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Burster Spectre" nameDescription="a Burster Spectre" race="blood" experience="6000" speed="400">
+	<health now="6500" max="6500"/>
+	<look type="1122" head="7" body="19" legs="86" feet="19" addons="0" corpse="34801"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag isblockable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+<attacks>
+		<attack name="melee" interval="2000" min="-400" max="-580"/>
+		<attack name="lifedrain" interval="2000" chance="25" radius="4" min="-270" max="-390">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="25" target="1" radius="4" min="-280" max="-410">
+			<attribute key="areaEffect" value="icearea"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="5200" target="1" min="-280" max="-370">
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+				<attack name="ice" interval="2000" chance="20" length="5" spread="3" min="-200" max="-290">
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+	</attacks>
+	<defenses armor="70" defense="70">
+		<defense name="healing" interval="2000" chance="30" min="150" max="200">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element firePercent="-20"/>
+		<element icePercent="30"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity physical="1"/>
+	</immunities>
+	<voices interval="10000" chance="7">
+		<voice sentence="We came tooo thiiiiss wooorld to... get youuu!"/>
+	</voices>
+	<loot>
+	<!--common-->
+		<item name="platinum coin" countmax="7" chance="100000"/>
+		<item name="great spirit potion" countmax="3" chance="100000"/>
+	<!--uncommon-->
+		<item name="protection amulet" chance="15000"/>
+		<item name="life crystal" chance="12050"/>
+	<!--semi-rare-->
+		<item name="silver amulet" chance="15000"/>
+		<item name="wand of voodoo" chance="11050"/>
+		<item name="wand of cosmic energy" chance="11800"/>
+		<item name="dragon necklace" chance="16600"/>
+		<item name="stone skin amulet" chance="8860"/>
+		<item id="34720" chance="15600"/> <!--blue ectoplasm-->
+		<item name="glacier amulet" chance="16890"/>
+		<item name="orb" chance="18980"/>
+		<item name="hailstorm rod" chance="17550"/>
+	<!--rare-->
+		<item name="elven amulet" chance="1800"/>
+		<item name="garlic necklace" chance="2640"/>
+		<item name="platinum amulet" chance="2600"/>
+		<item name="mind stone" chance="1800"/>
+	<!--very rare-->
+		<item name="glacial rod" chance="520"/>
+		<item name="shockwave amulet" chance="620"/>
+		<item name="strange symbol" chance="720"/>
+		<item name="hexagonal ruby" chance="480"/>
+	</loot>
+</monster>

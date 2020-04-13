@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Zarcorix Of Yalahar" nameDescription="Zarcorix Of Yalahar" race="blood" experience="0" speed="200">
+	<health now="99999999" max="99999999" />
+	<look type="309" corpse="20550" />
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+	</flags>
+	<attacks>
+	<attack name="melee" interval="2000" min="0" max="-400" />
+	</attacks>
+	<defenses armor="0" defense="0" />
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="11">
+	</voices>
+</monster>

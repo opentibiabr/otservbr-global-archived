@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Time Waster" nameDescription="a time waster" race="undead" experience="0" speed="100">
+	<health now="1000" max="1000"/>
+	<look typeex="26397" corpse="0"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="100" attack="100"/>
+		<attack name="lifedrain" interval="2000" chance="17" range="7" min="-40" max="-60">
+      			<attribute key="shootEffect" value="suddendeath" />
+      			<attribute key="areaEffect" value="yalaharighost" />
+   		</attack>
+    		<attack name="white shade paralyze" interval="2000" chance="18"/>
+	</attacks>
+	<defenses armor="10" defense="10"/>
+  	<immunities>
+    		<immunity death="1" />
+    		<immunity lifedrain="1" />
+    		<immunity earth="1" />
+    		<immunity drown="1" />
+    		<immunity invisible="1" />
+    		<immunity paralyze="1" />
+    		<immunity drunk="1" />
+			<immunity physical="1" />
+			<immunity energy="1" />
+			<immunity fire="1" />
+			<immunity ice="1" />
+			<immunity holy="1" />
+  	</immunities>
+</monster>

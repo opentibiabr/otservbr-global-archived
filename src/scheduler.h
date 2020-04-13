@@ -1,8 +1,6 @@
 /**
- * @file scheduler.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_SCHEDULER_H_
-#define OT_SRC_SCHEDULER_H_
+#ifndef FS_SCHEDULER_H_2905B3D5EAB34B4BA8830167262D2DC1
+#define FS_SCHEDULER_H_2905B3D5EAB34B4BA8830167262D2DC1
 
 #include "tasks.h"
 #include <unordered_set>
@@ -44,7 +42,7 @@ class SchedulerTask : public Task
 			return expiration;
 		}
 
-	protected:
+	private:
 		SchedulerTask(uint32_t delay, std::function<void (void)>&& f) : Task(delay, std::move(f)) {}
 
 		uint32_t eventId = 0;
@@ -69,7 +67,8 @@ class Scheduler : public ThreadHolder<Scheduler>
 		void shutdown();
 
 		void threadMain();
-	protected:
+
+	private:
 		std::thread thread;
 		std::mutex eventLock;
 		std::condition_variable eventSignal;

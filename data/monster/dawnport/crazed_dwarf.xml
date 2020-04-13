@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Crazed Dwarf" nameDescription="a crazed dwarf" race="blood" experience="50" speed="156">
+	<health now="105" max="105"/>
+	<look type="69" corpse="6007"/>
+	<targetchange interval="2000" chance="0"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="1"/>
+		<flag isblockable="0"/>
+		<flag canpushitems="0"/>
+		<flag canpushcreatures="0"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="10" attack="26"/>
+	</attacks>
+	<defenses armor="7" defense="10"/>
+	<loot>
+		<item id="2386" chance="12860"/><!-- axe -->
+		<item id="2148" countmax="4" chance="100000"/><!-- gold coin -->
+		<item id="2388" chance="25710"/><!-- hatchet -->
+		<item id="2649" chance="8570"/><!-- leather legs -->
+		<item id="2597" chance="4290"/><!-- letter -->
+		<item id="2553" chance="8570"/><!-- pick -->
+		<item id="2510" chance="17140"/><!-- plate shield -->
+		<item id="2484" chance="8570"/><!-- studded armor -->
+		<item id="2787" chance="47140"/><!-- white mushroom -->
+	</loot>
+</monster>

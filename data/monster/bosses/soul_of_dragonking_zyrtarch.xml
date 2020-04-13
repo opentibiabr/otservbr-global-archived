@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Soul of Dragonking Zyrtarch" nameDescription="soul of dragonking zyrtarch" race="fire" experience="70700" speed="500" script="rewardboss.lua">
+	<health now="150000" max="150000" />
+	<look type="938" corpse="27733" />
+	<targetchange interval="5000" chance="0" />
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag staticattack="90"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+		<flag rewardboss="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="112" attack="85"/>
+		<attack name="fire" interval="2000" chance="20" range="7" target="1" min="-110" max="-495">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="20" range="7" target="1" radius="4" min="-110" max="-495">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="20" radius="8" min="-110" max="-495">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+		<attack name="charged energy elemental electrify" interval="2000" chance="15" radius="5" min="-1100" max="-1100">
+			<attribute key="areaEffect" value="yellowenergy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" length="9" spread="4" min="-710" max="-895">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="9" spread="4" min="-710" max="-895">
+			<attribute key="areaEffect" value="fire"/>
+		</attack>
+		<attack name="fire" interval="2000" chance="15" length="9" spread="0" min="-710" max="-895">
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+	</attacks>
+	<defenses armor="52" defense="64">
+		<defense name="healing" interval="2000" chance="15" min="450" max="550">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element energyPercent="20" />
+		<element holyPercent="1" />
+		<element earthPercent="-12" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity drown="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity earth="1" />
+	</immunities>
+	<loot>
+		<item id="25377" chance="100000"/><!-- Gold Token -->
+		<item id="25172" chance="100000"/><!-- Silver Token -->
+		<item id="2148" countmax="100" chance="97000" /><!--gold coin -->
+		<item id="2148" countmax="100" chance="97000" /><!--gold coin -->
+		<item id="2154" chance="1000" /><!--yellow Gem -->
+		<item id="5882" chance="5000" /><!-- Red Dragon Scale -->
+		<item id="5889" chance="500" /><!-- Piece of Draconian Steel -->
+		<item id="9980" chance="500" /><!--crystal of power -->
+		<item id="12644" chance="300" /><!-- Shield of Corruption-->
+		<item id="9970" countmax="5" chance="3000" /><!--small topaz -->
+		<item id="2149" countmax="5" chance="3000" /><!--small emerald -->
+		<item id="9971" chance="500" /><!--gold ingot -->
+		<item id="11308" chance="100" /><!-- Drachaku-->
+		<item id="2150" countmax="5" chance="3000" /><!--small amethyst -->
+		<item id="8849" chance="500" /><!-- Modified Crossbow -->
+		<item id="2158" chance="1000" /><!--Blue Gem -->
+		<item id="8472" countmax="3" chance="3000" /><!--great spirit potion -->
+		<item id="2506" chance="15" unique="1"/><!-- Dragon Scale Helmet-->
+		<item id="2156" chance="1000" /><!--red Gem -->
+		<item id="18414" countmax="5" chance="3000" /><!--green crystal shard-->
+		<item id="18415" countmax="5" chance="3000" /><!--violet crystal shard -->
+		<item id="5887" chance="500" /><!-- Piece of Royal Steel -->
+		<item id="7590" countmax="3" chance="3000" /><!--great mana potion -->
+		<item id="2155" chance="1000" /><!--Green Gem -->
+		<item id="5948" chance="5000" /><!-- Red Dragon Leather-->
+		<item id="5904" chance="500" /><!-- Magic Sulphur -->
+		<item id="27623" chance="500" unique="1" /><!-- Part of a Rune(segunda) -->
+		<item id="18413" countmax="5" chance="3000" /><!--blue crystal shard -->
+		<item id="7632" chance="500" /><!--Giant Shimmering Pearl -->
+		<item id="8473" countmax="3" chance="3000" /><!--ultimate health potion -->
+		<item id="8902" chance="500" /><!-- Spellbook of Mind Control-->
+		<item id="12648" chance="300" unique="1"/><!-- Snake God's Sceptre-->
+		<item id="2152" countmax="6" chance="90000" /><!--platinum coin -->
+		<item id="2147" countmax="5" chance="3000" /><!--small ruby -->
+	</loot>
+</monster>

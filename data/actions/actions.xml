@@ -691,12 +691,6 @@
 	<action itemid="29390" script="others/carpets.lua"/> <!-- decorated carpet -->
 	<action itemid="29391" script="others/carpets.lua"/> <!-- decorated carpet -->
 
-	<!-- Svargrond Arena Quest-->
-	<action actionid="13100" script="quests/svargrond arena/arenaDoor.lua" />
-	<action actionid="26101" script="quests/svargrond arena/arenaDoor.lua" />
-	<action actionid="27101" script="quests/svargrond arena/arenaDoor.lua" />
-	<action actionid="28101" script="quests/svargrond arena/arenaDoor.lua" />
-
 	<!-- The Queen of the Banshees Quest -->
 	<action fromuid="49998" touid="50002" script="quests/the queen of the banshees/theFirstSeal.lua" />
 	<action fromuid="50005" touid="50010" script="quests/the queen of the banshees/theSixthSeal.lua" />

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Efreet" nameDescription="an efreet" race="blood" experience="410" speed="234">
+	<health now="550" max="550"/>
+	<look type="103" corpse="7349"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag targetdistance="1"/>
+		<flag canwalkonenergy="0"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-110"/>
+		<attack name="fire" interval="6000" chance="80" radius="3" min="0" max="-110">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="speed" interval="3500" chance="35" radius="1" target="1" range="5" duration="20000" speedchange="-450">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="physical" interval="6000" chance="40" radius="1" target="1" range="5" min="-20" max="-100">
+			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="shootEffect" value="suddendeath"/>
+		</attack>
+		<attack name="energy" interval="5000" chance="20" radius="1" target="1" range="5" min="-40" max="-200">
+			<attribute key="areaEffect" value="firearea"/>
+			<attribute key="shootEffect" value="energy"/>
+		</attack>
+		<attack name="drunk" interval="1000" chance="20" range="5" radius="1" target="1" duration="30000"/>
+		<attack name="outfit" interval="2000" chance="50" range="5" radius="1" target="1" duration="60000" monster="Rat">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="30" defense="40"/>
+	<elements>
+		<element earthPercent="-10"/>
+		<element energyPercent="0"/>
+		<element deathPercent="-20"/>
+		<element icePercent="5"/>
+		<element holyPercent="8"/>
+		<element energyPercent="-60"/>
+		<element firePercent="-90"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="2">
+		<summon name="Green Djinn" interval="5000" chance="20"/>
+	</summons>
+	<voices interval="5000" chance="5">
+		<voice sentence="I grant you a deathwish!"/>
+		<voice sentence="Good wishes are for fairytales"/>
+	</voices>
+		<loot>
+		<item name="gold coin" countmax="130" chance="97420"/>
+		<item name="royal spear" countmax="3" chance="15240"/>
+		<item name="strong mana potion" chance="10340"/>
+		<item name="pear" chance="9240"/>
+		<item name="jewelled belt" chance="8000"/>
+		<item name="small emerald" chance="7240"/>
+		<item name="heavy machete" chance="5090"/>
+		<item name="green piece of cloth" chance="3010"/>
+		<item name="green tapestry" chance="2150"/>
+		<item name="noble turban" chance="1050"/>
+		<item name="magma monocle" chance="360"/>
+		<item name="wand of inferno" chance="360"/>
+		<item name="mystic turban" chance="170"/>
+		<item name="small oil lamp" chance="170"/>
+		<item name="green gem" chance="170"/>
+	</loot>
+</monster>

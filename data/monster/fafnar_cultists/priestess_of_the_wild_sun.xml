@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<monster name="Priestess of the Wild Sun" nameDescription="a priestess of the wild sun" race="blood" experience="6400" speed="320">
+	<health now="8500" max="8500"/>
+	<look type="1199" head="114" body="78" legs="94" feet="0" addons="0" corpse="36254"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="80"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-350"/>
+		<attack name="targetfirering" interval="2000" chance="8" target="1" distance="3" min="-300" max="-500"/>
+		<attack name="fire" interval="2000" chance="14" radius="2" target="1" distance="3" min="-350" max="-500">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="explosion"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="10" radius="3" min="-250" max="-400">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="12" length="4" spread="3" min="-250" max="-350">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+	</attacks>
+	<defenses armor="82" defense="82"/>
+	<elements>
+		<element energyPercent="85"/>
+		<element firePercent="80"/>
+		<element icePercent="-25"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="Fafnar will burn you!"/>
+		<voice sentence="Fear the Wild Sun!"/>
+		<voice sentence="There is only one true sun!"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmax="2" chance="100000"/>
+		<item name="fafnar symbol" chance="7360"/>	
+		<item id="36268" chance="6610"/><!-- Secret Instruction (Gryphon Mask) -->
+		<item id="36270" chance="6610"/><!-- Secret Instruction (Mirror Mask) -->
+		<item id="36271" chance="6610"/><!-- Secret Instruction (Silver Mask) -->
+		<item id="36166" chance="2540"/>
+		<item name="sea horse figurine" chance="910"/>
+		<item id="36204" chance="530"/>
+		<item name="wand of decay" chance="1250"/>
+		<item name="wand of everblazing" chance="1290"/>
+		<item name="golden sickle" chance="1250"/>
+		<item name="relic sword" chance="1390"/>
+		<item name="war axe" chance="1777"/>
+	</loot>
+</monster>

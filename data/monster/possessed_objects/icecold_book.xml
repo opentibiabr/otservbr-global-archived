@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Icecold Book" nameDescription="an icecold book" race="undead" experience="12750" speed="440">
+	<health now="21000" max="21000"/>
+	<look type="1061" head="87" body="85" legs="79" feet="0" corpse="32474"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="0"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200"/>
+		<attack name="ice" interval="1000" chance="10" range="7" min="-700" max="-850">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="1000" chance="10" range="7" min="-100" max="-380">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="2000" chance="15" length="5" spread="0" min="-350" max="-980">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="iceattack"/>
+		</attack>
+		<attack name="ice" interval="1000" chance="12" range="7" radius="3" min="-230" max="-880">
+			<attribute key="shootEffect" value="smallice"/>
+			<attribute key="areaEffect" value="icetornado"/>
+		</attack>
+	</attacks>
+		<defenses armor="82" defense="40"/>
+	<elements>
+		<element firePercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+		<immunity ice="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="8" chance="100000"/>
+		<item name="Book Page" countmax="3" chance="100000"/>
+		<item name="Small Diamond" countmax="8" chance="100000"/>
+		<item name="Small Sapphire" countmax="8" chance="100000"/>
+		<item name="Quill" countmax="8" chance="100000"/>
+		<item name="Ultimate Health Potion" countmax="8" chance="100000"/>
+		<item name="Ultimate Mana Potion" countmax="8" chance="100000"/>
+		<item name="Diamond Sceptre" chance="100000"/>
+		<item name="Frosty Heart" countmax="8" chance="100000"/>
+		<item name="Glacier Mask" chance="350"/>
+		<item name="Ice Rapier" chance="250"/>
+		<item name="Silken Bookmark" countmax="8" chance="100000"/>
+		<item name="Crystal Mace" chance="250"/>
+		<item name="Glacier Kilt" chance="250"/>
+		<item name="Glacier Robe" chance="250"/>
+		<item name="Glacier Shoes" chance="350"/>
+		<item name="Strange Helmet" chance="1000"/>
+		<item name="Sapphire Hammer" chance="300"/>
+		<item id="7441" chance="100000"/> <!-- ice cube -->
+		<item name="Glacial Rod" chance="150"/>
+		<item name="Crystalline Armor" chance="250"/>
+	</loot>
+</monster>

@@ -23,7 +23,7 @@ addTravelKeyword('edron', 110, Position(33176, 31765, 6)) -- {x = 33176, y = 317
 addTravelKeyword('oramond', 70, Position(33479, 31985, 7)) -- {x = 33479, y = 31985, z = 7}
 addTravelKeyword('darashia', 120, Position(33289, 32481, 6)) -- {x = 33289, y = 32481, z = 6}
 addTravelKeyword('thais', 130, Position(32310, 32210, 6)) --
-addTravelKeyword('issavi', 130, Position(33957, 31515, 0))
+addTravelKeyword('issavi', 130, Position(33902, 31464, 6))
 
 -- Darashia
 local travelNode = keywordHandler:addKeyword({'darashia'}, StdModule.say, {npcHandler = npcHandler, text = 'Do you seek a passage to Darashia for |TRAVELCOST|?', cost = 0, discount = 'postman'})

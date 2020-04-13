@@ -1,8 +1,6 @@
 /**
- * @file item.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -215,7 +213,6 @@ Item* Item::clone() const
 			g_game.toDecayItems.push_front(item);
 		}
 	}
-
 	return item;
 }
 
@@ -1956,8 +1953,6 @@ bool Item::hasMarketAttributes() const
 			if (duration != getDefaultDuration()) {
 				return false;
 			}
-		} else {
-			return false;
 		}
 	}
 
@@ -1965,7 +1960,7 @@ bool Item::hasMarketAttributes() const
 		for (uint8_t slot = 0; slot < items[id].imbuingSlots; slot++) {
 			Item* item = const_cast<Item*>(this);
 			uint32_t info = item->getImbuement(slot);
-			if (info >> 8 != 0) {
+			if (info) {
 				return false;
 			}
 		}

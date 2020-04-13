@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Distorted Astral Source" nameDescription="the distorted astral source" race="energy" experience="3000" speed="0" manacost="390">
+	<health now="10000000" max="10000000"/>
+	<look typeex="26897" corpse="0"/>
+	<targetchange interval="4000" chance="10"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<script>
+		<event name="DistortedSource"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-330"/>
+		<attack name="energy" interval="2000" chance="15" range="7" radius="6" target="1" min="0" max="-500">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="7" radius="6" target="1" min="0" max="-500">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" target="0" length="5" spread="3" min="0" max="-400">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="manadrain" interval="2000" chance="25" radius="5" min="-200" max="-400">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="17" min="1000" max="1300"/>
+	</defenses>
+	<elements>
+		<element physicalPercent="0"/>
+		<element holyPercent="0"/>
+		<element icePercent="0"/>
+		<element earthPercent="0"/>
+		<element deathPercent="0"/>
+		<element firePercent="0"/>
+	</elements>
+	<immunities>
+		<immunity energy="1"/>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+</monster>

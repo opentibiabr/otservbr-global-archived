@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Mutated Pumpkin" nameDescription="The Mutated Pumpkin" race="undead" experience="30000" speed="400"  script="rewardboss.lua">
+	<health now="500000" max="500000"/>
+	<look type="292" corpse="8960"/>
+	<targetchange interval="5000" chance="8"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="85"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="105" attack="85"/>
+		<attack name="manadrain" interval="3000" chance="18" range="7" target="1" min="-100" max="-300">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+		<attack name="earth" interval="2000" chance="15" radius="7" target="0" min="-100" max="-300">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="energy" interval="3000" chance="14" radius="7" target="0" min="-40" max="-300">
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="death" interval="1000" chance="10" radius="8" target="0" min="-30" max="-300">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="earth" interval="3000" chance="12" length="8" spread="3" min="-100" max="-300">
+			<attribute key="areaEffect" value="plantattack"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="10" length="6" spread="0" min="-100" max="-400">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+		<attack name="outfit" interval="1000" chance="2" radius="8" target="0" monster="The Mutated Pumpkin" duration="5000">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+	</attacks>
+	<defenses armor="60" defense="60">
+		<defense name="healing" interval="4000" chance="15" min="2000" max="2900">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<voices interval="5000" chance="20">
+		<voice sentence="I had the Halloween Hare for breakfast!"/>
+		<voice sentence="Your soul will be mine...wait, wrong line"/>
+		<voice sentence="Trick or treat? I saw death!"/>
+		<voice sentence="No wait! Don't kill me! It's me, your friend!"/>
+		<voice sentence="Bunnies, bah! I'm the real thing!"/>
+		<voice sentence="Muahahahaha!"/>
+		<voice sentence="I've come to avenge all those mutilated pumpkins!"/>
+		<voice sentence="Wait until I get you!"/>
+		<voice sentence="Fear the spirit of Halloween!"/>
+	</voices>
+	<loot>
+		<item name="pumpkin" chance="100000"/>
+		<item name="yummy gummy worm" countmax="20" chance="100000"/>
+		<item id="2688" countmax="50" chance="1000"/><!-- candy canes -->
+		<item id="6569" countmax="50" chance="1000"/><!-- candies -->
+		<item name="spiderwebs" chance="1000"/>
+		<item id="9006" chance="1000"/><!-- toy spider -->
+		<item id="6492" chance="1000"/><!-- bat decoration -->
+		<item id="6526" chance="1000"/><!-- skeleton decoration -->
+		<item name="bar of chocolate" chance="1000"/>
+		<item id="6570" chance="1000"/><!-- surprise bag -->
+		<item id="6571" chance="1000"/><!-- surprise bag -->
+		<item id="2096" chance="1000"/><!-- pumpkinhead -->
+	</loot>
+</monster>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Unstable Spark" nameDescription="an unstable spark" race="energy" experience="1500" speed="278">
+	<health now="10500" max="10500"/>
+	<look type="290" corpse="0"/>
+	<targetchange interval="4000" chance="15"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag staticattack="90"/>
+		<flag lightlevel="0"/>
+		<flag lightcolor="0"/>
+		<flag targetdistance="1"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<script>
+    	<event name="SparksDeath"/>
+	</script>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-500"/>
+		<attack name="physical" interval="2000" chance="20" target="1" radius="6" min="-180" max="-500">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="15" spread="0" length="10" min="-300" max="-700">
+			<attribute key="areaEffect" value="teleport"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="20" radius="8" min="-180" max="-350">
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+	</attacks>
+	<defenses armor="80" defense="80"/>
+	<elements>
+		<element earthPercent="-10"/>
+	</elements>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+		<immunity energy="1"/>
+		<immunity death="1"/>
+	</immunities>
+</monster>

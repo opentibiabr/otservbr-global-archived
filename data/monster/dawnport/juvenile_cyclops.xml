@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Juvenile Cyclops" nameDescription="a juvenile cyclops" race="blood" experience="130" speed="160" manacost="490">
+	<health now="260" max="260"/>
+	<look type="22" corpse="5962"/>
+	<targetchange interval="2000" chance="5"/>
+	<flags>
+		<flag summonable="1"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="1"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag isblockable="0"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="20" attack="30"/>
+		<attack name="physical" interval="2000" chance="10" range="7" min="0" max="-20">
+			<attribute key="shootEffect" value="largerock"/>
+		</attack>
+	</attacks>
+	<defenses armor="6" defense="22"/>
+	<loot>
+		<item id="2464" chance="10810"/> <!-- chain armor -->
+		<item id="2458" chance="12160"/> <!-- chain helmet -->
+		<item id="10574" chance="4050"/><!-- cyclops toe -->
+		<item id="2148" countmax="25" chance="100000"/><!-- gold coin -->
+		<item id="2388" chance="9460"/> <!-- hatchet -->
+		<item id="2398" chance="18920"/> <!-- mace -->
+		<item id="2666" chance="30070"/><!-- meat -->
+		<item id="2510" chance="1350"/><!-- plate shield -->
+		<item id="2468" chance="9460"/> <!-- studded legs -->
+		<item id="2376" chance="21620"/> <!-- sword -->
+		<item id="2129" chance="1350"/><!-- wolf tooth chain -->
+	</loot>
+</monster>

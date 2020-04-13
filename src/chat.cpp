@@ -1,8 +1,6 @@
 /**
- * @file chat.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -296,40 +294,40 @@ bool Chat::load()
 		return false;
 	}
 
-
 	for (auto channelNode : doc.child("channels").children()) {
 		uint16_t channelId = pugi::cast<uint16_t>(channelNode.attribute("id").value());
 		std::string channelName = channelNode.attribute("name").as_string();
 		bool isPublic = channelNode.attribute("public").as_bool();
-
 		pugi::xml_attribute scriptAttribute = channelNode.attribute("script");
+
 		auto it = normalChannels.find(channelId);
 		if (it != normalChannels.end()) {
 			ChatChannel& channel = it->second;
 			channel.publicChannel = isPublic;
 			channel.name = channelName;
-			
-				if (scriptAttribute) {
+
+			if (scriptAttribute) {
 				if (scriptInterface.loadFile("data/chatchannels/scripts/" + std::string(scriptAttribute.as_string())) == 0) {
 					channel.onSpeakEvent = scriptInterface.getEvent("onSpeak");
 					channel.canJoinEvent = scriptInterface.getEvent("canJoin");
 					channel.onJoinEvent = scriptInterface.getEvent("onJoin");
 					channel.onLeaveEvent = scriptInterface.getEvent("onLeave");
-					
 				} else {
 					std::cout << "[Warning - Chat::load] Can not load script: " << scriptAttribute.as_string() << std::endl;
 				}
 			}
+
 			UsersMap tempUserMap = std::move(channel.users);
 			for (const auto& pair : tempUserMap) {
 				channel.addUser(*pair.second);
 			}
 			continue;
 		}
+
 		ChatChannel channel(channelId, channelName);
 		channel.publicChannel = isPublic;
-		
-			if (scriptAttribute) {
+
+		if (scriptAttribute) {
 			if (scriptInterface.loadFile("data/chatchannels/scripts/" + std::string(scriptAttribute.as_string())) == 0) {
 				channel.onSpeakEvent = scriptInterface.getEvent("onSpeak");
 				channel.canJoinEvent = scriptInterface.getEvent("canJoin");

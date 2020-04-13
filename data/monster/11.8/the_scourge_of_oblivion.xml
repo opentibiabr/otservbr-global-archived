@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="The Scourge Of Oblivion" nameDescription="The Scourge Of Oblivion" race="energy" experience="75000" speed="450" script="rewardboss.lua">
+	<health now="800000" max="800000"/>
+	<look type="875" head="79" body="79" legs="60" feet="79" addons="3" corpse="26220"/>
+	<targetchange interval="2000" chance="25"/>
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="250" attack="350"/>
+		<attack name="manadrain" interval="1000" chance="7" range="7" min="-900" max="-1500">
+			<attribute key="shootEffect" value="energy"/>
+			<attribute key="areaEffect" value="poff"/>
+		</attack>
+		<attack name="drunk" interval="2000" chance="20" target="0" radius="5" duration="9000">
+			<attribute key="areaEffect" value="smallclouds"/>
+		</attack>
+		<attack name="strength" interval="1000" chance="9" range="7">
+			<attribute key="shootEffect" value="largerock"/>
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+		<attack name="energy strike" interval="2000" chance="30" range="1" min="-2000" max="-2700">
+		</attack>
+		<attack name="fire" interval="2000" chance="8" range="7" radius="7" target="1" min="-1550" max="-2550">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="energy" interval="2000" chance="15" range="7" target="1" min="-1075" max="-2405">
+			<attribute key="shootEffect" value="energyball"/>
+			<attribute key="areaEffect" value="energy"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="20" radius="8" target="0" min="-600" max="-1500">
+			<attribute key="areaEffect" value="bluebubble"/>
+		</attack>
+		<attack name="lifedrain" interval="2000" chance="10" length="8" spread="0" min="-750" max="-1200">
+			<attribute key="areaEffect" value="purpleenergy"/>
+		</attack>		
+		<attack name="renegade knight" interval="2000" chance="30"/>		
+		<attack name="choking fear drown" interval="2000" chance="20"/>
+		<attack name="death" interval="2000" chance="20" radius="4" target="1" min="-450" max="-1400">
+			<attribute key="shootEffect" value="suddendeath"/>
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="manadrain" interval="1000" chance="10" radius="8" target="0" min="-800" max="-2300">
+			<attribute key="areaEffect" value="greenshimmer"/>
+		</attack>
+		<attack name="speed" interval="1000" chance="12" radius="6" target="0" speedchange="-1900" duration="60000">
+			<attribute key="areaEffect" value="poison"/>
+		</attack>
+		<attack name="strength" interval="1000" chance="8" radius="5" target="0">
+			<attribute key="areaEffect" value="blackspark"/>
+		</attack>		
+		<attack name="fire" interval="1000" chance="34" range="7" radius="7" target="1" min="-100" max="-700">
+			<attribute key="shootEffect" value="fire"/>
+			<attribute key="areaEffect" value="firearea"/>
+		</attack>
+		<attack name="lifedrain" interval="1000" chance="15" length="8" spread="0" min="-300" max="-950">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</attack>
+	</attacks>
+	<defenses armor="160" defense="160">
+		<defense name="healing" interval="6000" chance="25" min="2000" max="5000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="speed" interval="1000" chance="8" speedchange="1901" duration="5000">
+			<attribute key="areaEffect" value="redshimmer"/>
+		</defense>
+		<defense name="invisible" interval="1000" chance="4" duration="5000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+		<defense name="invisible" interval="1000" chance="17" duration="2000">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<immunities>
+		<immunity lifedrain="1"/>
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<summons maxSummons="8">
+		<summon name="Charger" interval="1000" chance="15" max="3"/>
+		<summon name="Spark of Destruction" interval="1000" chance="15" max="5"/>
+	</summons>
+	<voices interval="2000" chance="7">
+		<voice sentence="I AM DEVOURER!" yell="1"/>
+	</voices>
+	<loot>
+		<item name="platinum coin" countmax="15" chance="100000"/>
+		<item name="crystal coin" countmax="7" chance="100000"/>
+		<item name="green crystal shard" countmax="3" chance="100000"/>
+		<item name="violet crystal shard" countmax="3" chance="100000"/>
+		<item name="spark sphere" chance="100000"/>
+		<item name="plasmatic lightning" chance="100000"/>
+		<item name="emerald bangle" chance="100000"/>
+		<item name="royal star" countmax="100" chance="66666"/>
+		<item name="small amethyst" countmax="12" chance="66666"/>
+		<item name="silver token" countmax="12" chance="66666"/>
+		<item name="mastermind potion" countmax="10" chance="66666"/>
+		<item name="ultimate mana potion" countmax="6" chance="66666"/>
+		<item name="giant emerald" chance="66666"/>
+		<item name="red gem" chance="66666"/>
+		<item name="small ruby" countmax="12" chance="33333"/>
+		<item name="bullseye potion" countmax="10" chance="33333"/>
+		<item name="gold token" countmax="8" chance="33333"/>
+		<item name="supreme health potion" countmax="6" chance="33333"/>
+		<item name="blue crystal shard" countmax="3" chance="33333"/>
+		<item name="giant sapphire" chance="33333"/>
+		<item name="green gem" chance="33333"/>
+		<item id="26182" chance="33333"/><!-- collar of blue plasma -->
+		<item name="huge chunk of crude iron" chance="33333"/>
+		<item name="magic sulphur" chance="33333"/>
+		<item name="ring of the sky" chance="33333"/>
+		<item name="ultimate spirit potion" countmax="20" chance="15000"/>
+		<item name="small diamond" countmax="12" chance="15000"/>
+		<item name="small emerald" countmax="12" chance="15000"/>
+		<item name="rift shield" chance="5000"/>
+		<item id="281" chance="5000"/><!-- giant shimmering pearl -->
+		<item name="arcane staff" chance="5000"/>
+		<item name="skullcracker armor" chance="5000"/>
+		<item name="chaos mace" chance="5000"/>
+		<item name="cat's paw" chance="5000"/>
+		<item name="piggy bank" chance="5000"/>
+		<item name="mysterious remains" chance="5000"/>
+		<item name="energy bar" chance="5000"/>
+		<item name="library ticket" unique="1" chance="500"/>
+		<item name="calamity" unique="1" chance="500"/>
+	</loot>
+</monster>
