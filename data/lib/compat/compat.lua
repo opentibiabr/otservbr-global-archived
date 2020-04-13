@@ -611,7 +611,7 @@ function doPlayerAddExp(cid, exp, useMult, ...)
 	end
 
 	if useMult then
-		exp = exp * Game.getRateFromTable(player:getLevel())
+		exp = exp * getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
 	end
 	return player:addExperience(exp, ...)
 end

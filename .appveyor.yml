@@ -32,6 +32,7 @@ install:
   - cmd : vcpkg install libmariadb:x64-windows
   - cmd : vcpkg install pugixml:x64-windows
   - cmd : vcpkg install mpir:x64-windows
+  - cmd : vcpkg install spdlog:x64-windows
 
 build:
   parallel: true
