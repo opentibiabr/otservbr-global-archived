@@ -790,7 +790,7 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
   `player_id` int(11) NOT NULL,
   `num` smallint(2) NOT NULL,
   `state` smallint(2) NOT NULL DEFAULT '1',
-  `unlocked` tinyint(1) NOT NULL DEFAULT '0',
+  `unlocked` smallint(2) NOT NULL DEFAULT '0',
   `current` varchar(40) NOT NULL DEFAULT '',
   `monster_list` varchar(360) NOT NULL,
   `free_reroll_in` int(11) NOT NULL DEFAULT '0',

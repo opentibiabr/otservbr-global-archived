@@ -47,7 +47,7 @@ clientVersionStr = "Only support outdated 10.00 and version 12.00"
 -- Depot Limit
 freeDepotLimit = 2000
 premiumDepotLimit = 10000
-depotBoxes = 17
+depotBoxes = 18
 
 -- GameStore
 gamestoreByModules = true

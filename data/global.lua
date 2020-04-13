@@ -104,24 +104,14 @@ function doCreatureSayWithRadius(cid, text, type, radiusx, radiusy, position)
 	end
 end
 
-function getBlessingsCost(level)
-	if level <= 30 then
-		return 2000
-	elseif level >= 120 then
-		return 20000
-	else
-		return (level - 20) * 200
+function getRateFromTable(t, level, default)
+	for _, rate in ipairs(t) do
+		if level >= rate.minlevel and (not rate.maxlevel or level <= rate.maxlevel) then
+			return rate.multiplier
+		end
 	end
-end
 
-function getPvpBlessingCost(level)
-	if level <= 30 then
-		return 2000
-	elseif level >= 270 then
-		return 50000
-	else
-		return (level - 20) * 200
-	end
+	return default
 end
 
 function isInRange(pos, fromPos, toPos)

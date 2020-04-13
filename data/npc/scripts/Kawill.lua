@@ -11,6 +11,8 @@ function onThink()				npcHandler:onThink()					end
 local blessKeyword = keywordHandler:addKeyword({'spark of the phoenix'}, StdModule.say, {npcHandler = npcHandler, text = 'The Spark of the Phoenix is given by me and by the great pyromancer in the nearby fire temple. Do you wish to receive my part of the Spark of the Phoenix?'}, function(player) return player:getStorageValue(Storage.KawillBlessing) ~= 1 end)
 	blessKeyword:addChildKeyword({'yes'}, StdModule.say, {npcHandler = npcHandler, text = 'So receive the blessing of the life-giving earth, pilgrim.', reset = true}, nil, function(player) player:setStorageValue(Storage.KawillBlessing, 1) player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE) end)
 	blessKeyword:addChildKeyword({''}, StdModule.say, {npcHandler = npcHandler, text = 'Ok. If you don\'t want it...', reset = true})
+	keywordHandler:addAliasKeyword({'spark'})
+	keywordHandler:addAliasKeyword({'phoenix'})
 
 -- Basic
 keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'The gods are treacherous and vain. They want to use us like they did in the past. Only the elements can be trusted, because all they want is for nature to run its set course.'})

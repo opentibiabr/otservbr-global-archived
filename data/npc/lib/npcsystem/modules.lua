@@ -169,15 +169,15 @@ if Modules == nil then
 		local parseInfo = {[TAG_BLESSCOST] = getBlessingsCost(player:getLevel()), [TAG_PVPBLESSCOST] = getPvpBlessingCost(player:getLevel())}
 		if player:hasBlessing(parameters.bless) then
 			npcHandler:say("You already possess this blessing.", cid)
-		elseif parameters.bless == 7 and player:getStorageValue(Storage.KawillBlessing) ~= 1 then
+		elseif parameters.bless == 3 and player:getStorageValue(Storage.KawillBlessing) ~= 1 then
 			npcHandler:say("You need the blessing of the great geomancer first.", cid)
-		elseif parameters.bless == 1 and player:getBlessings() == 0 and not player:getItemById(2173, true) then
+		elseif parameters.bless == 1 and #player:getBlessings() == 0 and not player:getItemById(2173, true) then
 			npcHandler:say("You don't have any of the other blessings nor an amulet of loss, so it wouldn't make sense to bestow this protection on you now. Remember that it can only protect you from the loss of those!", cid)
 		elseif not player:removeMoneyNpc(type(parameters.cost) == "string" and npcHandler:parseMessage(parameters.cost, parseInfo) or parameters.cost) then
 			npcHandler:say("Oh. You do not have enough money.", cid)
 		else
 			npcHandler:say(parameters.text or "You have been blessed by one of the seven gods!", cid)
-			if parameters.bless == 7 then
+			if parameters.bless == 3 then
 				player:setStorageValue(Storage.KawillBlessing, 0)
 			end
 			player:addBlessing(parameters.bless, 1)

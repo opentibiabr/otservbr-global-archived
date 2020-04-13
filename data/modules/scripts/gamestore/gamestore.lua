@@ -2207,7 +2207,7 @@ GameStore.Categories = {
 			icons = { "Bath_Tub.png" },
 			name = "Bath Tub",
 			price = 250,
-			id = 26312,
+			id = 29336,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		},

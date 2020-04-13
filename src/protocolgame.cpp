@@ -1482,33 +1482,32 @@ void ProtocolGame::sendBasicData()
 void ProtocolGame::sendBlessStatus()
 {
 	NetworkMessage msg;
+	//uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6; (compartability for the client 10)
+	//Ignore ToF (bless 1)
 	uint8_t blessCount = 0;
-	uint8_t maxBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
-	for (int i = 1; i <= maxBlessings; i++) {
+	uint16_t flag = 0;
+	uint16_t pow2 = 2;
+	for (int i = 1; i <= 8; i++) {
 		if (player->hasBlessing(i)) {
-			blessCount++;
+			if (i > 1)
+				blessCount++;
+			flag |= pow2;
 		}
+		pow2 = pow2 * 2;
 	}
 
 	msg.addByte(0x9C);
-	if (blessCount >= 5) {
-		if (player->getProtocolVersion() >= 1120) {
-			uint8_t blessFlag = 0;
-			uint8_t maxFlag = static_cast<uint8_t>((maxBlessings == 8) ? 256 : 64);
-			for (int i = 2; i < maxFlag; i *= 2) {
-				blessFlag += i;
-			}
-
-			msg.add<uint16_t>(blessFlag - 1);
-		} else {
-			msg.add<uint16_t>(0x01);
-		}
-	} else {
-		msg.add<uint16_t>(0x00);
-	}
 
 	if (player->getProtocolVersion() >= 1120) {
-		msg.addByte((blessCount >= 5) ? 2 : 1); // 1 = Disabled | 2 = normal | 3 = green
+		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
+			flag |= 1;
+		
+		msg.add<uint16_t>(flag);
+		msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
+	}else if (blessCount >= 5) {
+		msg.add<uint16_t>(0x01);
+	} else {
+		msg.add<uint16_t>(0x00);
 	}
 
 	writeToOutputBuffer(msg);
@@ -2798,8 +2797,13 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	sendStats();
 	sendSkills();
 	sendBlessStatus();
+
 	sendPremiumTrigger();
 	sendStoreHighlight();
+
+	if (version >= 1200) {
+		sendItemsPrice();
+	}
 
 	//gameworld light-settings
 	sendWorldLight(g_game.getWorldLightInfo());
@@ -3718,7 +3722,14 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[item->getFluidType() & 7]);
 	} else if (version >= 1150 && it.isContainer()) {
-		msg.addByte(0x00);
+		uint32_t quickLootFlags = item->getQuickLootFlags();
+		if (quickLootFlags > 0) {
+			msg.addByte(2);
+			msg.add<uint32_t>(quickLootFlags);
+		}
+		else {
+			msg.addByte(0x00);
+		}
 	}
 
 	if (it.isAnimation) {
@@ -3771,9 +3782,9 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
  	msg.addByte(isCorpseEmpty ? 0 : corpse->size());
 
 	if (!isCorpseEmpty) {
- 		for (ContainerIterator it = corpse->iterator(); it.hasNext(); it.advance()) {
- 			AddItem(msg, *it);
- 		}
+		for (const auto& it : corpse->getItemList()) {
+			AddItem(msg, it);
+		}
  	}
 
  	writeToOutputBuffer(msg);
@@ -3814,7 +3825,7 @@ void ProtocolGame::sendUpdateLootTracker(Item* item)
 
   	NetworkMessage msg;
   	msg.addByte(0xCF);
- 	msg.addItemId(item->getID());
+	AddItem(msg, item);
  	msg.addString(item->getName());
  	item->setIsLootTrackeable(false);
 
@@ -3933,4 +3944,21 @@ void ProtocolGame::parseExtendedOpcode(NetworkMessage& msg)
 
 	// process additional opcodes via lua script event
 	addGameTask(&Game::parsePlayerExtendedOpcode, player->getID(), opcode, buffer);
+}
+
+void ProtocolGame::sendItemsPrice()
+{
+	NetworkMessage msg;
+	msg.addByte(0xCD);
+
+	msg.add<uint16_t>(g_game.getItemsPriceCount());
+	if (g_game.getItemsPriceCount() > 0) {
+		std::map<uint16_t, uint32_t> items = g_game.getItemsPrice();
+		for (const auto& it : items) {
+			msg.addItemId(it.first);
+			msg.add<uint32_t>(it.second);
+		}
+	}
+
+	writeToOutputBuffer(msg);
 }

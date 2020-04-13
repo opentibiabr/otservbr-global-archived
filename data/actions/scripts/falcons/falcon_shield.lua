@@ -11,9 +11,12 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	player:removeItem(32521, 1)  
-	player:removeItem(32518, 1)  
-	player:addItem(32422, 1)  
+	local mould = Position(33361, 31341, 7)
+	toPosition:sendMagicEffect(CONST_ME_POFF)
+	toPosition:sendMagicEffect(CONST_ME_HITAREA)
+	mould:sendMagicEffect(CONST_ME_SMOKE)
+	player:removeItem(32518, 1)
+	player:addItem(32422, 1)
 	item:remove(1)
 	return true
 end

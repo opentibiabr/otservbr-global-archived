@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modules>
+	<!-- Bestiary -->
+	<module type="recvbyte" byte="225" script="bestiary/bestiary.lua" />
+	<module type="recvbyte" byte="226" script="bestiary/bestiary.lua" />
+	<module type="recvbyte" byte="227" script="bestiary/bestiary.lua" />
+ 	<module type="recvbyte" byte="228" script="bestiary/bestiary.lua" />
+
 	<!-- GameStore -->
 	<module type="recvbyte" byte="232" script="gamestore/gamestore.lua"/>
 	<module type="recvbyte" byte="233" script="gamestore/gamestore.lua"/>
@@ -12,6 +18,11 @@
 
 	<!-- EquipObject -->
 	<module type="recvbyte" byte="119" delay="1000" script="equipobject/equipobject.lua"/>
+
+	<!-- QuickLoot -->
+	<module type="recvbyte" byte="143" script="quickloot/quickloot.lua"/>
+	<module type="recvbyte" byte="144" script="quickloot/quickloot.lua"/>
+	<module type="recvbyte" byte="145" script="quickloot/quickloot.lua"/>
 
 	<!-- Prey System -->
 	<module type="recvbyte" byte="235" script="prey system/prey.lua" />

@@ -502,6 +502,8 @@ function getPlayerLearnedInstantSpell(cid, name) local p = Player(cid) return p 
 function isPlayerGhost(cid) local p = Player(cid) return p ~= nil and p:isInGhostMode() or false end
 function isPlayerPzLocked(cid) local p = Player(cid) return p ~= nil and p:isPzLocked() or false end
 function isPremium(cid) local p = Player(cid) return p ~= nil and p:isPremium() or false end
+function getBlessingsCost(level) return Blessings.getBlessingsCost(level) end
+function getPvpBlessingCost(level) return Blessings.getPvpBlessingCost(level) end
 function getPlayersByIPAddress(ip, mask)
 	if mask == nil then mask = 0xFFFFFFFF end
 	local masked = bit.band(ip, mask)
@@ -609,7 +611,7 @@ function doPlayerAddExp(cid, exp, useMult, ...)
 	end
 
 	if useMult then
-		exp = exp * Game.getRateFromTable(player:getLevel())
+		exp = exp * getRateFromTable(experienceStages, player:getLevel(), configManager.getNumber(configKeys.RATE_EXP))
 	end
 	return player:addExperience(exp, ...)
 end

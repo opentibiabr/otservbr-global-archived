@@ -1189,9 +1189,9 @@ Storage = {
 		TrophyWarlord = 1107,
 
 		-- Actions Reward Doors
-		Greenhorn = 26100,
-		Scrapper = 27100,
-		Warlord = 28100
+		Greenhorn = 26101,
+		Scrapper = 27101,
+		Warlord = 28101
 	},
 	QuestChests = {
 		-- Todo: Move to a seperate range

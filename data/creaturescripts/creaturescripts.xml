@@ -223,6 +223,11 @@
 	<event type="death" name="PlayerDeath" script="others/playerdeath.lua" />
 	<event type="death" name="DropLoot" script="others/droploot.lua" />
 	<event type="advance" name="AdvanceSave" script="others/advance_save.lua" />
-	<event type="kill" name="bonusPreyLootKill" script="preyloot.lua"/>
+  	<event type="kill" name="bonusPreyLootKill" script="preyloot.lua"/>
 	<event type="death" name="bonusPreyLootDeath" script="preyloot.lua" />
+
+  	<!-- Bestiary -->
+  	<event type="kill" name="BestiaryOnKill" script="bestiaryadd.lua"/>
+
+
 </creaturescripts>

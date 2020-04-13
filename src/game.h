@@ -230,6 +230,9 @@ class Game
 		uint32_t getPlayersRecord() const {
 			return playersRecord;
 		}
+		uint16_t getItemsPriceCount() const {
+			return itemsSaleCount;
+		}
 
 		LightInfo getWorldLightInfo() const;
 
@@ -474,6 +477,8 @@ class Game
 			return lightHour;
 		}
 
+		bool loadItemsPrice();
+
 		void loadMotdNum();
 		void saveMotdNum() const;
 		const std::string& getMotdHash() const { return motdHash; }
@@ -482,6 +487,7 @@ class Game
 
 		void sendOfflineTrainingDialog(Player* player);
 
+		const std::map<uint16_t, uint32_t>& getItemsPrice() const { return itemsPriceMap; }
 		const std::unordered_map<uint32_t, Player*>& getPlayers() const { return players; }
 		const std::map<uint32_t, Npc*>& getNpcs() const { return npcs; }
 
@@ -528,7 +534,7 @@ class Game
 
 	private:
 		void checkImbuements();
-
+		void applyImbuementEffects(Creature* attacker, CombatDamage& damage, int32_t realDamage);
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
 		void playerWhisper(Player* player, const std::string& text);
 		bool playerYell(Player* player, const std::string& text);
@@ -590,6 +596,9 @@ class Game
 
 		std::string motdHash;
 		uint32_t motdNum = 0;
+
+		std::map<uint16_t, uint32_t> itemsPriceMap;
+		uint16_t itemsSaleCount;
 };
 
 #endif

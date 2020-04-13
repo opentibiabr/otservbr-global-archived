@@ -37,27 +37,16 @@ function Player.hasFlag(self, flag)
 	return self:getGroup():hasFlag(flag)
 end
 
-function Player.getLossPercent(self)
-	local blessings = 0
-	local lossPercent = {
-		[0] = 100,
-		[1] = 70,
-		[2] = 45,
-		[3] = 25,
-		[4] = 10,
-		[5] = 0
-	}
-
-	for i = 1, 5 do
-		if self:hasBlessing(i) then
-			blessings = blessings + 1
-		end
-	end
-	return lossPercent[blessings]
-end
-
 function Player.isPremium(self)
 	return self:getPremiumDays() > 0 or configManager.getBoolean(configKeys.FREE_PREMIUM)
+end
+
+function Player.isPromoted(self)
+    local vocation = self:getVocation()
+    local promotedVocation = vocation:getPromotion()
+    promotedVocation = promotedVocation and promotedVocation:getId() or 0
+
+    return promotedVocation == 0 and vocation:getId() ~= promotedVocation
 end
 
 function Player.sendCancelMessage(self, message)
