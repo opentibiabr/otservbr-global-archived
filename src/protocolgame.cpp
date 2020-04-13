@@ -288,6 +288,16 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	enableXTEAEncryption();
 	setXTEAKey(std::move(key));
 
+#ifdef DEBUG_MODE
+	if (operatingSystem >= CLIENTOS_OTCLIENT_LINUX) {
+		NetworkMessage opcodeMessage;
+		opcodeMessage.addByte(0x32);
+		opcodeMessage.addByte(0x00);
+		opcodeMessage.add<uint16_t>(0x00);
+		writeToOutputBuffer(opcodeMessage);
+	}
+#endif // DEBUG_MODE
+
 	msg.skipBytes(1); // gamemaster flag
 
 	std::string sessionKey = msg.getString();
@@ -1983,21 +1993,21 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
-    NetworkMessage msg;
-    msg.addByte(0xF2);
-    msg.addByte(0x00);
+	NetworkMessage msg;
+	msg.addByte(0xF2);
+	msg.addByte(0x00);
 
-    writeToOutputBuffer(msg);
+	writeToOutputBuffer(msg);
 
-    g_dispatcher.addTask(
-        createTask(std::bind([](ProtocolGame* client) {
+	g_dispatcher.addTask(
+		createTask(std::bind([](ProtocolGame* client) {
 			if (client) {
 				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
-                client->player->coinBalance = coinBalance;
-                client->sendCoinBalance();
-            }
-        }, this))
-    );
+				client->player->coinBalance = coinBalance;
+				client->sendCoinBalance();
+			}
+		}, this))
+	);
 }
 
 void ProtocolGame::sendMarketLeave()
