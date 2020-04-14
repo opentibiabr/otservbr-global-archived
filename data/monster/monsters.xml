@@ -1020,6 +1020,8 @@
 	<monster name="Lost Berserker" file="dwarves/lost_berserker.xml"/>
 	<monster name="Lost Husher" file="dwarves/lost_husher.xml"/>
 	<monster name="Lost Thrower" file="dwarves/lost_thrower.xml"/>
+	<monster name="Dwarf Henchman" file="Dwarves/dwarf_henchman.xml"/>
+	<monster name="Dwarf Dispenser" file="Dwarves/dwarf_dispenser.xml"/>
 
 	<!-- Dworcs -->
 	<monster name="Dworc Fleshhunter" file="dworcs/dworc_fleshhunter.xml"/>
@@ -1317,7 +1319,8 @@
 	<monster name="Wild Warrior" file="outlaws/wild_warrior.xml"/>
 	<monster name="Feverish Citizen" file="outlaws/feverish_citizen.xml"/>
 	<monster name="Crypt Defiler" file="outlaws/crypt_defiler.xml"/>
-	<monster name="Nomad Female" file="outlaws/nomadfemale.xml"/>
+	<monster name="Nomad Female" file="outlaws/nomadfemale.xml"/>	
+	<monster name="Travelling Merchant" file="Outlaws/travelling_merchant.xml"/>
 
 	<!-- The Percht Queens Island -->
 	<monster name="Animated Snowman" file="the_percht_queens_island/animated_snowman.xml"/>
