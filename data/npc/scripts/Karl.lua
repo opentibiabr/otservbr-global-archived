@@ -30,6 +30,27 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	end
+	if msgcontains(msg, "whisper beer") and player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 17 then
+		npcHandler:say("Do you want to buy a bottle of our finest whisper beer for 80 gold?", cid)
+		npcHandler.topic[cid] = 2
+	elseif msgcontains(msg, "yes") then
+		if npcHandler.topic[cid] == 2 then
+			if player:getMoney() + player:getBankBalance() >= 80 then
+				player:removeMoneyNpc(80)
+				npcHandler:say("Here. Don't take it into the city though.", cid)
+				player:addItem(6106, 1)
+				player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 18)
+				npcHandler.topic[cid] = 0
+			else
+				npcHandler:say("You don't have enough money.", cid)
+			end
+		end
+	elseif msgcontains(msg, "no") then
+		if npcHandler.topic[cid] == 2 then
+			npcHandler:say("Then not.", cid)
+			npcHandler.topic[cid] = 0
+		end
+	end
 	return true
 end
 

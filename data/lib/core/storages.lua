@@ -1105,7 +1105,14 @@ Storage = {
 		AccessToGoroma = 12707,
 		Shipwrecked = 12708,
 		DragahsSpellbook = 12709,
-		TheCounterspell = 12710
+		TheCounterspell = 12710,
+		MerianaQuest = 12711,
+		TortoiseEgg = 12712,
+		DoorPirateSet = 12713,
+		DoorEgg = 12714,
+		TreasureMap = 12715,
+		TreasureMap1 = 12716,
+		TreasureMap2 = 12717
 	},
 	SearoutesAroundYalahar = {
 		TownsCounter = 12800,
@@ -1116,7 +1123,7 @@ Storage = {
 		PortHope = 12805,
 		Thais = 12806,
 		LibertyBay = 12807,
-		Carlin = 12808,
+		Carlin = 12808
 	},
 	KillingInTheNameOf = {
 		LugriNecromancers = 50000,

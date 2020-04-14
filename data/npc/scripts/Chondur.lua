@@ -41,6 +41,57 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say('Maybe next time.', cid)
 		npcHandler.topic[cid] = 0
 	end
+	
+	-- MERIANA QUEST
+	if msgcontains(msg, "mission") then
+		if player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 10 then
+		npcHandler:say("The evil cult has placed a curse on one of the captains here. I need at least five of their pirate voodoo dolls to lift that curse.", cid)
+		player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 11)
+		npcHandler.topic[cid] = 0
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 11) and player:getItemCount(5810) == 5 then
+		npcHandler:say("Did you bring one of the required pirate voodoo dolls?", cid)
+		npcHandler.topic[cid] = 2
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 12) and player:getItemCount(5810) == 4 then
+		npcHandler:say("Did you bring one of the required pirate voodoo dolls?", cid)
+		npcHandler.topic[cid] = 3
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 13) and player:getItemCount(5810) == 3 then
+		npcHandler:say("Did you bring one of the required pirate voodoo dolls?", cid)
+		npcHandler.topic[cid] = 4
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 14)and player:getItemCount(5810) == 2 then
+		npcHandler:say("Did you bring one of the required pirate voodoo dolls?", cid)
+		npcHandler.topic[cid] = 5
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 15) and player:getItemCount(5810) == 1 then
+		npcHandler:say("Did you bring one of the required pirate voodoo dolls?", cid)
+		npcHandler.topic[cid] = 6
+	end
+	elseif msgcontains(msg, "yes") then
+		if npcHandler.topic[cid] == 2 then
+			npcHandler:say("Now I can weaken that curse a bit. Thank you.", cid)
+			player:removeItem(5810, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 12)
+			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 3 then
+			npcHandler:say("Now I can weaken that curse a bit. Thank you.", cid)
+			player:removeItem(5810, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 13)
+			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 4 then
+			npcHandler:say("Now I can weaken that curse a bit. Thank you.", cid)
+			player:removeItem(5810, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 14)
+			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 5 then
+			npcHandler:say("Now I can weaken that curse a bit. Thank you.", cid)
+			player:removeItem(5810, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 15)
+			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 6 then
+			npcHandler:say("Finally I can put an end to that curse. I thank you so much.", cid)
+			player:removeItem(5810, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 16)
+			npcHandler.topic[cid] = 0
+		end
+	end
 	return true
 end
 

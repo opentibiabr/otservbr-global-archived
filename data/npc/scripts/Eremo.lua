@@ -7,6 +7,20 @@ function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
 function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
 function onThink()				npcHandler:onThink()					end
 
+local function creatureSayCallback(cid, type, msg)
+	if not npcHandler:isFocused(cid) then
+		return false
+	end
+	local player = Player(cid)
+	if msgcontains(msg, "letter") then
+		if player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 6 then
+			npcHandler:say("A letter from that youngster Morgan? I believed him dead since years. These news are good news indeed. Thank you very much, my friend.", cid)
+			player:removeItem(6113, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 7)
+		end
+	end
+end
+
 -- Wisdom of Solitude
 local blessKeyword = keywordHandler:addKeyword({'solitude'}, StdModule.say, {npcHandler = npcHandler, text = 'Would you like to receive that protection for a sacrifice of |BLESSCOST| gold, child?'})
 	blessKeyword:addChildKeyword({'yes'}, StdModule.bless, {npcHandler = npcHandler, text = 'So receive the wisdom of solitude, pilgrim.', cost = '|BLESSCOST|', bless = 2})
@@ -71,4 +85,5 @@ npcHandler:setMessage(MESSAGE_GREET, 'Welcome to my little garden, adventurer |P
 npcHandler:setMessage(MESSAGE_FAREWELL, 'It was a pleasure to help you, |PLAYERNAME|.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'It was a pleasure to help you, |PLAYERNAME|.')
 
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

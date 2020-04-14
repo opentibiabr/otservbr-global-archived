@@ -43,6 +43,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "raymond striker") then
 		if player:getStorageValue(Storage.TheShatteredIsles.AccessToLagunaIsland) == 1 then
 			npcHandler:say("<blushes> Oh, he is so wonderful. A very special man with a special place in my heart.", cid)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 1)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "mermaid") then

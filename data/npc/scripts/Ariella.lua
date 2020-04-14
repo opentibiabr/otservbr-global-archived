@@ -16,7 +16,6 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
 	if msgcontains(msg, 'cookie') then
 		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31
 				and player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Ariella) ~= 1 then
@@ -69,6 +68,39 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	end
+	
+	-- MERIANA QUEST
+	if msgcontains(msg, "mission") then
+		if player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 3 then
+		npcHandler:say("You know, we have plenty of rum here but we lack some basic food. Especially food that easily becomes mouldy is a problem. Bring me 100 breads and you will help me a lot.", cid)
+		player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 4)
+		npcHandler.topic[cid] = 0
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 4) and player:getItemCount(2689) == 100 then
+		npcHandler:say("Are you here to bring me the 100 pieces of bread that I requested?", cid)
+		npcHandler.topic[cid] = 3
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 16) then
+		selfSay("The sailors always tell tales about the famous beer of Carlin. You must know, alcohol is forbidden in that city.", cid)
+		npcHandler:say("The beer is served in a secret whisper bar anyway. Bring me a sample of the whisper beer, NOT the usual beer but whisper beer. I hope you are listening.", cid)
+		player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 17)
+		npcHandler.topic[cid] = 0
+	elseif(player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 18) and player:getItemCount(6106) then
+		npcHandler:say("Did you get a sample of the whisper beer from Carlin?", cid)
+		npcHandler.topic[cid] = 4
+	end		
+		
+	elseif msgcontains(msg, "yes") then
+		if npcHandler.topic[cid] == 3 then
+			npcHandler:say("What a joy. At least for a few days adequate supply is ensured.", cid)
+			player:removeItem(2689, 100)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 5)
+			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 4 then
+			npcHandler:say("Thank you very much. I will test this beauty in privacy.", cid)
+			player:removeItem(6106, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 19)
+			npcHandler.topic[cid] = 0
+		end
+	end	
 	return true
 end
 

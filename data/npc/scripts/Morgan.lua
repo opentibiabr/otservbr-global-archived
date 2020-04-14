@@ -73,6 +73,27 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say('What would you like me to forge for you? A {knight\'s sword} or a {warrior\'s sword}?', cid)
 		npcHandler.topic[cid] = 1
 	end
+	
+	-- MERIANA QUEST
+	if msgcontains(msg, "mission") then
+		if player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 5 then
+			selfSay("Hm, if you are that eager to work I have an idea how you could help me out. A distant relative of mine, the old sage Eremo lives on the isle Cormaya, near Edron.", cid)
+			selfSay("He has not heard from me since ages. He might assume that I am dead. Since I don't want him to get into trouble for receiving a letter from a pirate I ask you to deliver it personally.", cid)
+			npcHandler:say("Of course it's a long journey but you asked for it. You will have to prove us your worth. Are you up to that?", cid)
+			npcHandler.topic[cid] = 1
+		elseif player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 7 then
+			npcHandler:say("Thank you for delivering my letter to Eremo. I have no more missions for you.", cid)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 8)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "yes") then
+		if npcHandler.topic[cid] == 1 then
+			npcHandler:say("Alright, we will see. Here, take this letter and deliver it safely to old Eremo on Cormaya.", cid)
+			player:addItem(6113, 1)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 6)
+			npcHandler.topic[cid] = 0
+		end
+	end
 	return true
 end
 

@@ -67,8 +67,27 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			npcHandler.topic[cid] = 0
 		end
-		return true
 	end
+	
+	-- MERIANA QUEST
+	if msgcontains(msg, "fafnar fire") then
+		if player:getStorageValue(Storage.TheShatteredIsles.MerianaQuest) == 20 then
+		npcHandler:say("Pssht, not that loud. So they have sent you to get... the stuff?", cid)
+		npcHandler.topic[cid] = 5
+	end
+	elseif msgcontains(msg, "yes") then
+		if npcHandler.topic[cid] == 5 then
+			npcHandler:say("Finally. You have no idea how difficult it is to keep something secret here. And you brought me all the crystal coins I demanded?.", cid)
+			npcHandler.topic[cid] = 6
+		end
+	elseif msgcontains(msg, "Your continued existence is payment enough") then
+		if npcHandler.topic[cid] == 6 then
+			npcHandler:say("What?? How dare you?! I am a sorcerer of the most renowned academy on the face of this world. Do you think some lousy pirates could scare me? Get lost! Now! I will have no further dealings wit.", cid)
+			player:setStorageValue(Storage.TheShatteredIsles.MerianaQuest, 21)
+			npcHandler.topic[cid] = 0
+		end
+	end	
+	return true	
 end
 
 keywordHandler:addKeyword({'shop'}, StdModule.say, {npcHandler = npcHandler, text = 'I sell potions and fluids. If you\'d like to see my offers, ask me for a {trade}.'})
