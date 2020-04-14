@@ -1,12 +1,12 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 35591) then
-		if(getPlayerStorageValue(cid, 95592) == 7) then
-			setPlayerStorageValue(cid, 95592, 8)
+		if(player:getStorageValue(Storage.ShadownofYalahar.Questline) == 7) then
+			player:addItem(10167, 1)
+			player:say("You have found a mago mechanic core.", TALKTYPE_MONSTER_SAY)
+			player:setStorageValue(Storage.ShadownofYalahar.Questline, 8)
 			setPlayerStorageValue(cid, 82961, 2) -- quest log
-			doPlayerAddItem(cid, 10167, 1)
-			doPlayerSendTextMessage(cid, 19, "You have found a mago mechanic core.")
 		else
-			doPlayerSendTextMessage(cid, 19, "The strange machine is empty.")
+			player:say("The strange machine is empty.", TALKTYPE_MONSTER_SAY)
 		end
 	end
 	return true

@@ -1,11 +1,11 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 35607) then
-		if(getPlayerStorageValue(cid, 95592) == 39) and getPlayerStorageValue(cid, 99195) < 1 then
-			doPlayerAddItem(cid, 10173, 1)
-			doPlayerSendTextMessage(cid, 19, "You have found a golem head.")
-			setPlayerStorageValue(cid, 99195, 1)
+		if(player:getStorageValue(Storage.ShadownofYalahar.Questline) == 39) and player:getStorageValue(Storage.ShadownofYalahar.rewardHead) < 1 then
+			player:addItem(10173, 1)
+			player:say("You have found a golem head.", TALKTYPE_MONSTER_SAY)
+			player:setStorageValue(Storage.ShadownofYalahar.rewardHead, 1)
 		else
-			doPlayerSendTextMessage(cid, 19, "The box is empty.")
+			player:say("The box is empty.", TALKTYPE_MONSTER_SAY)			
 		end
 	end
 	return true

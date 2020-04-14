@@ -1,10 +1,13 @@
-function onStepIn(cid, item, position, lastPosition)
-	if(item.uid == 35594) then
-		if(getPlayerStorageValue(cid, 95592) == 14) then
-			setPlayerStorageValue(cid, 95592, 15)
-			doCreatureSay(cid, "You have gained a charge!", TALKTYPE_ORANGE_1)
-			doSendMagicEffect(getCreaturePosition(cid), 48)
-		end
+function onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
+	end
+
+	if player:getStorageValue(Storage.ShadownofYalahar.Questline) == 14 then		
+		player:say("You have gained a charge!", TALKTYPE_MONSTER_SAY)
+		player:setStorageValue(Storage.ShadownofYalahar.Questline, 15)
+		player:getPosition():sendMagicEffect(CONST_ME_PURPLEENERGY)
 	end
 	return true
 end

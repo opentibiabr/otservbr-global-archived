@@ -412,8 +412,8 @@
 	<movevent event="StepIn" itemid="13174" script="quests/rottin wood quest/trap.lua"/>
 
 	<!-- Shadows of Yalahar Quest -->
-	<movevent event="StepIn" uniqueid="35594" script="quests/shadows of yalahar quest/tileCharge.lua"/>
-	<movevent event="StepIn" uniqueid="35605" script="quests/shadows of yalahar quest/tileShower11.lua"/>
+	<movevent event="StepIn" actionid="35594" script="quests/shadows of yalahar quest/tileCharge.lua"/>
+	<movevent event="StepIn" actionid="35605" script="quests/shadows of yalahar quest/tileShower11.lua"/>
 	<movevent event="StepIn" uniqueid="35608" script="quests/shadows of yalahar quest/entranceTeleport.lua"/>
 
 	<!-- Waterfall Quest (Port Hope) -->

@@ -1048,7 +1048,25 @@ Storage = {
 		doorLastLaboratorio13 =	35610,
 		doorCathedral = 35615,
 		doorThorn = 35616,
-		doorFibula = 35617
+		doorFibula = 35617,
+		-- rewards
+		rewardCathedral = 35618,
+		rewardFibula = 35620,
+		rewardHead = 35621,
+		rewardOut = 35623,
+		rewardPower = 35624,
+		rewardStable = 35625,
+		rewardThorn = 35626,
+		book1 = 35619,
+		book2 = 35622,
+		book3 = 35627,
+		book4 = 35628,
+		book5 = 35629,
+		book6 = 35630,
+		book7 = 35631,
+		book8 = 35632,
+		bookExaust = 35633,
+		bookCenter = 35634
 	},
 	CaptainHaba = 12540,
 	secretService = {

@@ -1,11 +1,11 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 35598) then
-		if(getPlayerStorageValue(cid, 95592) == 19) and getPlayerStorageValue(cid, 93415) < 1 then
-			doPlayerAddItem(cid, 10170, 1)
-			doPlayerSendTextMessage(cid, 19, "You have found a old power core.")
-			setPlayerStorageValue(cid, 93415, 1)
+		if(player:getStorageValue(Storage.ShadownofYalahar.Questline) == 19) and player:getStorageValue(Storage.ShadownofYalahar.rewardPower) < 1 then
+			player:addItem(10170, 1)
+			player:say("You have found a old power core.", TALKTYPE_MONSTER_SAY)
+			player:setStorageValue(Storage.ShadownofYalahar.rewardPower, 1)
 		else
-			doPlayerSendTextMessage(cid, 19, "The strange machine is empty.")
+			player:say("The strange machine is empty.", TALKTYPE_MONSTER_SAY)
 		end
 	end
 	return true

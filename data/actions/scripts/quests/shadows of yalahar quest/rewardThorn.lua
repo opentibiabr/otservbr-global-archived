@@ -1,11 +1,11 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 35620) then
-		if(getPlayerStorageValue(cid, 95592) == 33) and getPlayerStorageValue(cid, 93419) < 1 then
-			doPlayerAddItem(cid, 10159, 1)
-			doPlayerSendTextMessage(cid, 19, "You have found a bloodkiss flower.")
-			setPlayerStorageValue(cid, 93419, 1)
+		if(player:getStorageValue(Storage.ShadownofYalahar.Questline) == 33) and player:getStorageValue(Storage.ShadownofYalahar.rewardThorn) < 1 then
+			player:addItem(10159, 1)
+			player:say("You have found a bloodkiss flower.", TALKTYPE_MONSTER_SAY)
+			player:setStorageValue(Storage.ShadownofYalahar.rewardThorn, 1)
 		else
-			doPlayerSendTextMessage(cid, 19, "The flower is empty.")
+			player:say("The flower is empty.", TALKTYPE_MONSTER_SAY)
 		end
 	end
 	return true

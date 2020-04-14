@@ -1,11 +1,11 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 35612) then
-		if(getPlayerStorageValue(cid, 95592) == 44) then
-			doPlayerAddItem(cid, 18516, 1)
-			doPlayerSendTextMessage(cid, 19, "You have found a golem wrench.")
-			setPlayerStorageValue(cid, 95592, 45)
+		if(player:getStorageValue(Storage.ShadownofYalahar.Questline) == 44) then
+			player:addItem(18516, 1)
+			player:say("You have found a golem wrench.", TALKTYPE_MONSTER_SAY)
+			player:setStorageValue(Storage.ShadownofYalahar.Questline, 45)
 		else
-			doPlayerSendTextMessage(cid, 19, "The chest is empty.")
+			player:say("The cheast is empty.", TALKTYPE_MONSTER_SAY)
 		end
 	end
 	return true
