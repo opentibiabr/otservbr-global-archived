@@ -1953,7 +1953,7 @@ bool Item::hasMarketAttributes() const
 			if (duration != getDefaultDuration()) {
 				return false;
 			}
-		} else if (attr.type == ITEM_ATTRIBUTE_CUSTOM) {
+		} else if (attr.type == ITEM_ATTRIBUTE_IMBUINGSLOTS) {
 			if (items[id].imbuingSlots > 0) {
 				for (uint8_t slot = 0; slot < items[id].imbuingSlots; slot++) {
 					Item* item = const_cast<Item*>(this);
