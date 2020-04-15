@@ -34,7 +34,7 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler.topic[cid] = 0
         end  
 
-    elseif msgcontains(msg, "deer") then
+    elseif msgcontains(msg, "white deer") then
         npcHandler:say("The white deer are somewhat sacred to the elves. Though their fur and antlers are rumoured to earn a decent amount of {gold} on the market, it's probably not worth the trouble.", cid)
         npcHandler.topic[cid] = 3
         
@@ -43,7 +43,7 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler:say("Just between you and me, I heard a guy named {Cruleo} is offering some handsome cash for the trophies of a white deer.", cid)
             npcHandler.topic[cid] = 4 
         end    
-    elseif msgcontains(msg, "cruleo") then
+    elseif msgcontains(msg, "cruelo") then
         if npcHandler.topic[cid] == 4 then           
             player:addMapMark(Position(32723, 31793, 7), MAPMARK_FLAG, "Cruleo's Hut")
             npcHandler:say("He has a house in the wilderness. Just between Ab'Dendriel and the orcland. I'll mark his hut on your map.", cid)
