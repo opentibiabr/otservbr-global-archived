@@ -19061,22 +19061,20 @@
 		<attribute key="description" value="He talks, moves and sings just like a real person." />
 		<attribute key="weight" value="777" />
 	</item>
-	<item id="10066" article="a" name="dark essence">
+	<item id="10066" article="a" name="grease essence">
 		<attribute key="weight" value="260" />
 	</item>
 	<item id="10067" article="a" name="giant screwdriver">
 		<attribute key="weight" value="200" />
 	</item>
-	<item id="10068" article="a" name="flask with paint">
+	<item id="10068" article="a" name="vial of elemental water">
 		<attribute key="weight" value="180" />
 	</item>
 	<item id="10069" article="a" name="energy net">
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="10070" article="a" name="grey bag">
+	<item id="10070" article="a" name="bag of screws">
 		<attribute key="weight" value="800" />
-		<attribute key="containerSize" value="8" />
-		<attribute key="slotType" value="backpack" />
 	</item>
 	<item id="10072" article="a" name="yalahari gear wheel">
 		<attribute key="weight" value="5" />
@@ -19093,7 +19091,7 @@
 	<item id="10076" article="a" name="chaos matter">
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="10089" article="an" name="antidote potion">
+	<item id="10089" article="an" name="wonder glue">
 		<attribute key="weight" value="175" />
 	</item>
 	<item id="10090" article="a" name="parchment"> <!-- The Scatterbrained Sorcerer Quest. -->
