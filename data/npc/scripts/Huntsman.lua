@@ -27,18 +27,30 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler.topic[cid] = 2
         end
 	
-	elseif msgcontains(msg, "benevola") then
+    elseif msgcontains(msg, "benevola") then
         if npcHandler.topic[cid] == 2 then
-            player:addMapMark(Position(32596, 31746, 7), MAPMARK_FLAG, "Benevolas Hut")
+            player:addMapMark(Position(32596, 31746, 7), MAPMARK_FLAG, "Benevola's Hut")
             npcHandler:say("She is a bit overly concerned about that nature and balance stuff but she has a good heart. She is living in the woods between Carlin and Ab'Dendriel. I'll mark her hut on your map.", cid)
             npcHandler.topic[cid] = 0
         end
 
+    elseif msgcontains(msg, "cruelo") then
+            player:addMapMark(Position(32723, 31793, 7), MAPMARK_FLAG, "Cruelo's Hut")
+            npcHandler:say("He has a house in the wilderness. Just between Ab'Dendriel and the orcland. I'll mark his hut on your map.", cid)
+            npcHandler.topic[cid] = 0
+        
+    elseif msgcontains(msg, "deer") then
+        npcHandler:say("The white deer are somewhat sacred to the elves. Though their fur and antlers are rumoured to earn a decent amount of gold on the market, it's probably not worth the trouble.", cid)
+        npcHandler.topic[cid] = 0        
+
+	
 	end		
 	return true
 end
 
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m just a simple {huntsman}.'})
+keywordHandler:addKeyword({'gold'}, StdModule.say, {npcHandler = npcHandler, text = 'Just between you and me, I heard a guy named Cruleo is offering some handsome cash for the trophies of a white deer.'})
+keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Sorry, I don\'t think telling a stranger your name is a smart thing to do.'})
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye. Take care.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "I can still see you.")
