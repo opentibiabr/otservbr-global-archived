@@ -44,7 +44,7 @@ keyDoor = {
 	{ lockedDoor = 9168, closedDoor = 9169, openDoor = 9170 },
 	{ lockedDoor = 9267, closedDoor = 9268, openDoor = 9269 },
 	{ lockedDoor = 9270, closedDoor = 9271, openDoor = 9272 },
-	{ lockedDoor = 10268, closedDoor = 12269, openDoor = 10270 },
+	{ lockedDoor = 10268, closedDoor = 10269, openDoor = 10270 },
 	{ lockedDoor = 10271, closedDoor = 10272, openDoor = 10273 },
 	{ lockedDoor = 10468, closedDoor = 10469, openDoor = 10470 },
 	{ lockedDoor = 10477, closedDoor = 10478, openDoor = 10479 },
