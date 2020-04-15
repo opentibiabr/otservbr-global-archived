@@ -29,7 +29,7 @@ local function creatureSayCallback(cid, type, msg)
 	
 	elseif msgcontains(msg, "benevola") then
         if npcHandler.topic[cid] == 2 then
-            player:addMapMark(Position(32596, 31746, 7), MAPMARK_FLAG, "Benevolas Hut")
+            player:addMapMark(Position(32596, 31746, 7), MAPMARK_FLAG, "Benevola's Hut")
             npcHandler:say("She is a bit overly concerned about that nature and balance stuff but she has a good heart. She is living in the woods between Carlin and Ab'Dendriel. I'll mark her hut on your map.", cid)
             npcHandler.topic[cid] = 0
         end  
@@ -56,7 +56,6 @@ end
 
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m just a simple {huntsman}.'})
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Sorry, I don\'t think telling a stranger your name is a smart thing to do.'})
-
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye. Take care.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "I can still see you.")
