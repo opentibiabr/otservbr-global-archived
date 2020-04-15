@@ -8,10 +8,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not targetPosition then
 		return true
 	end
-	
-	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	player:teleportTo(targetPosition)
-	targetPosition:sendMagicEffect(CONST_ME_TELEPORT)
+	if player:getStorageValue(Storage.ShadownofYalahar.golemServant) == 18 and player:getStorageValue(Storage.ShadownofYalahar.Questline) == 39 then
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(targetPosition)
+		targetPosition:sendMagicEffect(CONST_ME_TELEPORT)
+	end
 	return true
 end
 
