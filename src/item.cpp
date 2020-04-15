@@ -1953,16 +1953,19 @@ bool Item::hasMarketAttributes() const
 			if (duration != getDefaultDuration()) {
 				return false;
 			}
-		}
-	}
-
-	if (items[id].imbuingSlots > 0) {
-		for (uint8_t slot = 0; slot < items[id].imbuingSlots; slot++) {
-			Item* item = const_cast<Item*>(this);
-			uint32_t info = item->getImbuement(slot);
-			if (info) {
-				return false;
+		} else if (attr.type == ITEM_ATTRIBUTE_CUSTOM) {
+			if (items[id].imbuingSlots > 0) {
+				for (uint8_t slot = 0; slot < items[id].imbuingSlots; slot++) {
+					Item* item = const_cast<Item*>(this);
+					uint32_t info = item->getImbuement(slot);
+					if (info >> 8 != 0) {
+						return false;
+					}
+				}
 			}
+
+		} else {
+			return false;
 		}
 	}
 
