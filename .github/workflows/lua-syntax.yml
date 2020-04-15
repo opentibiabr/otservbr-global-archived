@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.head_ref }}
 
     - name: Get file changes
       id: get_file_changes
