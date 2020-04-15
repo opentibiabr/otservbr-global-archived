@@ -14,7 +14,7 @@ local function creatureSayCallback(cid, type, msg)
 	
    	local player = Player(cid)   	
 	if msgcontains(msg, "repairs") then
-		if player:getStorageValue(Storage.ShadownofYalahar.golemServant) < 1 then
+		if player:getStorageValue(Storage.ShadownofYalahar.golemServant) < 1 and player:getStorageValue(Storage.ShadownofYalahar.Questline) == 39 then
 		npcHandler:say({
 				"You must bring me the correct components or tools. The items deteriorate when they leave their conservation fields so you must be quick ...",
 				"Are you ready, flesh unit?"
