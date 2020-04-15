@@ -1,18 +1,15 @@
-name: CI
+name: Build - Linux
 
-on:
-  push:
-    branches: [ develop ]
-  pull_request:
-    branches: [ develop ]
+on:  pull_request
 
 jobs:
   debug_build:
-    runs-on: [ubuntu-18.04]
+    runs-on: ubuntu-18.04
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
 
     - name: Install Dependencies
       run: sudo apt install cmake build-essential liblua5.2-dev libgmp3-dev libmysqlclient-dev libboost-system-dev libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev libcrypto++-dev libspdlog-dev
@@ -28,10 +25,9 @@ jobs:
         make -j `nproc`
   
   release_build:
-    runs-on: [ubuntu-18.04]
+    runs-on: ubuntu-18.04
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE
     - uses: actions/checkout@v2
 
     - name: Install Dependencies
