@@ -1,4 +1,4 @@
-name: C++ syntax check
+name: C++ linter
 
 on: [pull_request]
 

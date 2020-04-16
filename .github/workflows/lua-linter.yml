@@ -1,0 +1,36 @@
+name: Lua linter
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get file changes
+      id: get_file_changes
+      uses: trilom/file-changes-action@v1.2.3
+      with:
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
+        output: ' '
+        fileOutput: ' '
+
+    - name: Echo file changes
+      run: |
+        cat $HOME/files.txt
+        cat $HOME/files_modified.txt
+        cat $HOME/files_added.txt
+        cat $HOME/files_removed.txt
+        echo '${{ steps.get_file_changes.outputs.files}}'
+        echo '${{ steps.get_file_changes.outputs.files_modified}}'
+        echo '${{ steps.get_file_changes.outputs.files_added}}'
+        echo '${{ steps.get_file_changes.outputs.files_removed}}'
+
+
+    - uses: leafo/gh-actions-lua@v5
+    - uses: leafo/gh-actions-luarocks@v2
+    - name: build
+      run: luarocks install luacheck
+    - name: Test Lua syntax
+      run: if [ $(echo ${{ steps.get_file_changes.outputs.files_modified}} ${{ steps.get_file_changes.outputs.files_added}} | egrep ' data\/' | wc -l) -gt 0 ]; then luacheck --no-config --no-global --no-unused --no-unused-args --no-cache -d $(echo ${{ steps.get_file_changes.outputs.files_modified}} ${{ steps.get_file_changes.outputs.files_added}} | egrep -o ' data\/\S*\.lua' | column); fi
