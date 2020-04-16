@@ -12,7 +12,7 @@ npcHandler:setMessage(MESSAGE_GREET, 'Hi there, |PLAYERNAME|! You look like you 
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Bye, |PLAYERNAME|')
 
 local function onTradeRequest(cid)
-	if Player(cid):getStorageValue(Storage.thievesGuild.Mission08) =< 1 then
+	if Player(cid):getStorageValue(Storage.thievesGuild.Mission08) <= 1 then
 		npcHandler:say("I don't know you and I don't have any dealings with people whom I don't trust.", cid)
 		return false
 	end
