@@ -14,6 +14,7 @@ function Container.createLootItem(self, item)
 			itemCount = randvalue % item.maxCount
 			if itemCount == 0 then
 				itemCount = item.minCount
+			end
 		else
 			itemCount = 1
 		end
