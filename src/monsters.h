@@ -50,7 +50,7 @@ struct LootBlock {
 	LootBlock() {
 		id = 0;
 		countmax = 1;
-		countmin = 0;
+		countmin = 1;
 		chance = 0;
 
 		subType = -1;
