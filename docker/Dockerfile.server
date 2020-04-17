@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libmysqlclient-dev \
   libpugixml-dev \
   libgmp3-dev \
-  libspdlog-dev \
   unrar
 
 WORKDIR /opt/otserver
