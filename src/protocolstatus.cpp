@@ -74,7 +74,7 @@ void ProtocolStatus::onRecvFirstMessage(NetworkMessage& msg)
 		case 0x01: {
 			uint16_t requestedInfo = msg.get<uint16_t>(); // only a Byte is necessary, though we could add new info here
 			std::string characterName;
-			if (requestedInfo & REQUEST_PLAYER_STATUS_INFO) {
+			if ((requestedInfo & REQUEST_PLAYER_STATUS_INFO) != 0) {
 				characterName = msg.getString();
 			}
 			g_dispatcher.addTask(createTask(std::bind(&ProtocolStatus::sendInfo, std::static_pointer_cast<ProtocolStatus>(shared_from_this()),
@@ -177,20 +177,20 @@ void ProtocolStatus::sendInfo(uint16_t requestedInfo, const std::string& charact
 {
 	auto output = OutputMessagePool::getOutputMessage();
 
-	if (requestedInfo & REQUEST_BASIC_SERVER_INFO) {
+	if ((requestedInfo & REQUEST_BASIC_SERVER_INFO) != 0) {
 		output->addByte(0x10);
 		output->addString(g_config.getString(ConfigManager::SERVER_NAME));
 		output->addString(g_config.getString(ConfigManager::IP));
 		output->addString(std::to_string(g_config.getNumber(ConfigManager::LOGIN_PORT)));
 	}
 
-	if (requestedInfo & REQUEST_OWNER_SERVER_INFO) {
+	if ((requestedInfo & REQUEST_OWNER_SERVER_INFO) != 0) {
 		output->addByte(0x11);
 		output->addString(g_config.getString(ConfigManager::OWNER_NAME));
 		output->addString(g_config.getString(ConfigManager::OWNER_EMAIL));
 	}
 
-	if (requestedInfo & REQUEST_MISC_SERVER_INFO) {
+	if ((requestedInfo & REQUEST_MISC_SERVER_INFO) != 0) {
 		output->addByte(0x12);
 		output->addString(g_config.getString(ConfigManager::MOTD));
 		output->addString(g_config.getString(ConfigManager::LOCATION));
@@ -198,14 +198,14 @@ void ProtocolStatus::sendInfo(uint16_t requestedInfo, const std::string& charact
 		output->add<uint64_t>((OTSYS_TIME() - ProtocolStatus::start) / 1000);
 	}
 
-	if (requestedInfo & REQUEST_PLAYERS_INFO) {
+	if ((requestedInfo & REQUEST_PLAYERS_INFO) != 0) {
 		output->addByte(0x20);
 		output->add<uint32_t>(g_game.getPlayersOnline());
 		output->add<uint32_t>(g_config.getNumber(ConfigManager::MAX_PLAYERS));
 		output->add<uint32_t>(g_game.getPlayersRecord());
 	}
 
-	if (requestedInfo & REQUEST_MAP_INFO) {
+	if ((requestedInfo & REQUEST_MAP_INFO) != 0) {
 		output->addByte(0x30);
 		output->addString(g_config.getString(ConfigManager::MAP_NAME));
 		output->addString(g_config.getString(ConfigManager::MAP_AUTHOR));
@@ -215,7 +215,7 @@ void ProtocolStatus::sendInfo(uint16_t requestedInfo, const std::string& charact
 		output->add<uint16_t>(mapHeight);
 	}
 
-	if (requestedInfo & REQUEST_EXT_PLAYERS_INFO) {
+	if ((requestedInfo & REQUEST_EXT_PLAYERS_INFO) != 0) {
 		output->addByte(0x21); // players info - online players list
 
 		const auto& players = g_game.getPlayers();
@@ -226,7 +226,7 @@ void ProtocolStatus::sendInfo(uint16_t requestedInfo, const std::string& charact
 		}
 	}
 
-	if (requestedInfo & REQUEST_PLAYER_STATUS_INFO) {
+	if ((requestedInfo & REQUEST_PLAYER_STATUS_INFO) != 0) {
 		output->addByte(0x22); // players info - online status info of a player
 		if (g_game.getPlayerByName(characterName) != nullptr) {
 			output->addByte(0x01);
@@ -235,7 +235,7 @@ void ProtocolStatus::sendInfo(uint16_t requestedInfo, const std::string& charact
 		}
 	}
 
-	if (requestedInfo & REQUEST_SERVER_SOFTWARE_INFO) {
+	if ((requestedInfo & REQUEST_SERVER_SOFTWARE_INFO) != 0) {
 		output->addByte(0x23); // server software info
 		output->addString(STATUS_SERVER_NAME);
 		output->addString(STATUS_SERVER_VERSION);

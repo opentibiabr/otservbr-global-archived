@@ -27,8 +27,8 @@ Inbox::Inbox(uint16_t type) : Container(type, 30, false, true)
 	maxInboxItems = std::numeric_limits<uint16_t>::max();
 }
 
-ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
-		uint32_t flags, Creature*) const
+ReturnValue Inbox::queryAdd(int32_t /*index*/, const Thing& thing, uint32_t /*count*/,
+		uint32_t flags, Creature* /*actor*/) const
 {
 	int32_t addCount = 0;
 
@@ -37,7 +37,7 @@ ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 	}
 
 	const Item* item = thing.getItem();
-	if (!item) {
+	if (item == nullptr) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
@@ -65,7 +65,7 @@ ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,
 	return RETURNVALUE_NOERROR;
 }
 
-void Inbox::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
+void Inbox::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t /*link*/)
 {
 	Cylinder* localParent = getParent();
 	if (localParent != nullptr) {
@@ -73,7 +73,7 @@ void Inbox::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t
 	}
 }
 
-void Inbox::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t)
+void Inbox::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t /*link*/)
 {
 	Cylinder* localParent = getParent();
 	if (localParent != nullptr) {
@@ -83,7 +83,7 @@ void Inbox::postRemoveNotification(Thing* thing, const Cylinder* newParent, int3
 
 Cylinder* Inbox::getParent() const
 {
-	if (parent) {
+	if (parent != nullptr) {
 		return parent->getParent();
 	}
 	return nullptr;

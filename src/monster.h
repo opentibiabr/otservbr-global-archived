@@ -144,7 +144,7 @@ class Monster final : public Creature
 		void drainHealth(Creature* attacker, int32_t damage) override;
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void onCreatureWalk() override;
-		bool getNextStep(Direction& direction, uint32_t& flags) override;
+		bool getNextStep(Direction& nextDirection, uint32_t& flags) override;
 		void onFollowCreatureComplete(const Creature* creature) override;
 
 		void onThink(uint32_t interval) override;
@@ -174,7 +174,7 @@ class Monster final : public Creature
 			return !isSummon() && getHealth() <= mType->info.runAwayHealth && challengeFocusDuration <= 0;
 		}
 
-		bool getDistanceStep(const Position& targetPos, Direction& direction, bool flee = false);
+		bool getDistanceStep(const Position& targetPos, Direction& moveDirection, bool flee = false);
 		bool isTargetNearby() const {
 			return stepDuration >= 1;
 		}
@@ -256,11 +256,11 @@ class Monster final : public Creature
 		bool canUseAttack(const Position& pos, const Creature* target) const;
 		bool canUseSpell(const Position& pos, const Position& targetPos,
 						 const spellBlock_t& sb, uint32_t interval, bool& inRange, bool& resetTicks);
-		bool getRandomStep(const Position& creaturePos, Direction& direction) const;
-		bool getDanceStep(const Position& creaturePos, Direction& direction,
+		bool getRandomStep(const Position& creaturePos, Direction& moveDirection) const;
+		bool getDanceStep(const Position& creaturePos, Direction& moveDirection,
 						  bool keepAttack = true, bool keepDistance = true);
 		bool isInSpawnRange(const Position& pos) const;
-		bool canWalkTo(Position pos, Direction direction) const;
+		bool canWalkTo(Position pos, Direction moveDirection) const;
 
 		static bool pushItem(Item* item);
 		static void pushItems(Tile* tile);

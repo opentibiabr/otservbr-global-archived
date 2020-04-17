@@ -144,13 +144,13 @@ bool IOMapSerialize::loadItem(PropStream& propStream, Cylinder* parent)
 	}
 
 	const ItemType& iType = Item::items[id];
-	if (iType.moveable || !tile || iType.isCarpet()) {
+	if (iType.moveable || (tile == nullptr) || iType.isCarpet()) {
 		//create a new item
 		Item* item = Item::CreateItem(id);
-		if (item) {
+		if (item != nullptr) {
 			if (item->unserializeAttr(propStream)) {
 				Container* container = item->getContainer();
-				if (container && !loadContainer(propStream, container)) {
+				if ((container != nullptr) && !loadContainer(propStream, container)) {
 					delete item;
 					return false;
 				}
@@ -181,10 +181,10 @@ bool IOMapSerialize::loadItem(PropStream& propStream, Cylinder* parent)
 			}
 		}
 
-		if (item) {
+		if (item != nullptr) {
 			if (item->unserializeAttr(propStream)) {
 				Container* container = item->getContainer();
-				if (container && !loadContainer(propStream, container)) {
+				if ((container != nullptr) && !loadContainer(propStream, container)) {
 					return false;
 				}
 
@@ -198,7 +198,7 @@ bool IOMapSerialize::loadItem(PropStream& propStream, Cylinder* parent)
 			if (dummy) {
 				dummy->unserializeAttr(propStream);
 				Container* container = dummy->getContainer();
-				if (container) {
+				if (container != nullptr) {
 					if (!loadContainer(propStream, container)) {
 						return false;
 					}
@@ -222,7 +222,7 @@ void IOMapSerialize::saveItem(PropWriteStream& stream, const Item* item)
 	stream.write<uint16_t>(item->getID());
 	item->serializeAttr(stream);
 
-	if (container) {
+	if (container != nullptr) {
 		// Hack our way into the attributes
 		stream.write<uint8_t>(ATTR_CONTAINER_ITEMS);
 		stream.write<uint32_t>(container->size());
@@ -237,7 +237,7 @@ void IOMapSerialize::saveItem(PropWriteStream& stream, const Item* item)
 void IOMapSerialize::saveTile(PropWriteStream& stream, const Tile* tile)
 {
 	const TileItemVector* tileItems = tile->getItemList();
-	if (!tileItems) {
+	if (tileItems == nullptr) {
 		return;
 	}
 

@@ -31,7 +31,7 @@ using PlayerVector = std::vector<Player*>;
 class Party
 {
 	public:
-		explicit Party(Player* leader);
+		explicit Party(Player* initLeader);
 
 		Player* getLeader() const {
 			return leader;
@@ -67,7 +67,7 @@ class Party
 		bool canOpenCorpse(uint32_t ownerId) const;
 
 		void shareExperience(uint64_t experience, Creature* source = nullptr);
-		bool setSharedExperience(Player* player, bool sharedExpActive);
+		bool setSharedExperience(Player* player, bool newSharedExpActive);
 		bool isSharedExperienceActive() const {
 			return sharedExpActive;
 		}

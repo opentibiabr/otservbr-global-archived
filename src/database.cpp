@@ -37,7 +37,7 @@ bool Database::connect()
 {
 	// connection handle initialization
 	handle = mysql_init(nullptr);
-	if (!handle) {
+	if (handle == nullptr) {
 		std::cout << std::endl << "Failed to initialize MySQL connection handle." << std::endl;
 		return false;
 	}
@@ -113,7 +113,7 @@ bool Database::executeQuery(const std::string& query)
 	MYSQL_RES* m_res = mysql_store_result(handle);
 	databaseLock.unlock();
 
-	if (m_res) {
+	if (m_res != nullptr) {
 		mysql_free_result(m_res);
 	}
 
@@ -188,7 +188,7 @@ DBResult::DBResult(MYSQL_RES* res)
 	size_t i = 0;
 
 	MYSQL_FIELD* field = mysql_fetch_field(handle);
-	while (field) {
+	while (field != nullptr) {
 		listNames[field->name] = i++;
 		field = mysql_fetch_field(handle);
 	}

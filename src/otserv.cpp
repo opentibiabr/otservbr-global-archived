@@ -26,9 +26,9 @@
 #include "iomarket.h"
 
 #include "configmanager.h"
-#include "scriptmanager.h"
 #include "rsa.h"
 #include "protocollogin.h"
+#include "scriptmanager.h"
 #include "protocolstatus.h"
 #include "databasemanager.h"
 #include "scheduler.h"
@@ -57,7 +57,7 @@ void startupErrorMessage(const std::string& errorStr)
 	g_loaderSignal.notify_all();
 }
 
-void mainLoader(int argc, char* argv[], ServiceManager* servicer);
+void mainLoader(int argc, char* argv[], ServiceManager* services);
 
 void badAllocationHandler()
 {
@@ -101,7 +101,7 @@ int main(int argc, char* argv[])
 	return 0;
 }
 
-void mainLoader(int, char*[], ServiceManager* services)
+void mainLoader(int /*unused*/, char* /*unused*/[], ServiceManager* services)
 {
 	//dispatcher thread
 	g_game.setGameState(GAME_STATE_STARTUP);

@@ -264,7 +264,7 @@ bool ChatChannel::executeOnSpeakEvent(const Player& player, SpeakClasses& type, 
 	} else if (lua_gettop(L) > 0) {
 		if (lua_isboolean(L, -1)) {
 			result = LuaScriptInterface::getBoolean(L, -1);
-		} else if (lua_isnumber(L, -1)) {
+		} else if (lua_isnumber(L, -1) != 0) {
 			result = true;
 			type = LuaScriptInterface::getNumber<SpeakClasses>(L, -1);
 		}

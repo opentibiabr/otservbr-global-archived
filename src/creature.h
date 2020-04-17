@@ -350,7 +350,7 @@ class Creature : virtual public Thing
 		virtual void changeHealth(int32_t healthChange, bool sendHealthChange = true);
 		virtual void changeMana(int32_t manaChange);
 
-		void gainHealth(Creature* attacker, int32_t healthGain);
+		void gainHealth(Creature* healer, int32_t healthGain);
 		virtual void drainHealth(Creature* attacker, int32_t damage);
 		virtual void drainMana(Creature* attacker, int32_t manaLoss);
 
@@ -391,10 +391,10 @@ class Creature : virtual public Thing
 		virtual void onCreatureWalk();
 		virtual bool getNextStep(Direction& dir, uint32_t& flags);
 
-		void onAddTileItem(const Tile* tile, const Position& pos);
-		virtual void onUpdateTileItem(const Tile* tile, const Position& pos, const Item* oldItem,
+		void onAddTileItem(const Tile* tileItem, const Position& pos);
+		virtual void onUpdateTileItem(const Tile* updateTile, const Position& pos, const Item* oldItem,
 		                              const ItemType& oldType, const Item* newItem, const ItemType& newType);
-		virtual void onRemoveTileItem(const Tile* tile, const Position& pos, const ItemType& iType,
+		virtual void onRemoveTileItem(const Tile* updateTile, const Position& pos, const ItemType& iType,
 		                              const Item* item);
 
 		virtual void onCreatureAppear(Creature* creature, bool isLogin);
@@ -552,8 +552,8 @@ class Creature : virtual public Thing
 		CreatureEventList getCreatureEvents(CreatureEventType_t type);
 
 		void updateMapCache();
-		void updateTileCache(const Tile* tile, int32_t dx, int32_t dy);
-		void updateTileCache(const Tile* tile, const Position& pos);
+		void updateTileCache(const Tile* newTile, int32_t dx, int32_t dy);
+		void updateTileCache(const Tile* upTile, const Position& pos);
 		void onCreatureDisappear(const Creature* creature, bool isLogout);
 		virtual void doAttacking(uint32_t) {}
 		virtual bool hasExtraSwing() {

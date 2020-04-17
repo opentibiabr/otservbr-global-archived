@@ -528,7 +528,7 @@ class Item : virtual public Thing
 		static Items items;
 
 		// Constructor for items
-		Item(const uint16_t type, uint16_t count = 0);
+		Item(const uint16_t itemId, uint16_t itemCount = 0);
 		Item(const Item& i);
 		virtual Item* clone() const;
 

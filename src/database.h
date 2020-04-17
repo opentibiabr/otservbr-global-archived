@@ -204,7 +204,7 @@ class DBResult
 class DBInsert
 {
 	public:
-		explicit DBInsert(std::string query);
+		explicit DBInsert(std::string insertQuery);
 		bool addRow(const std::string& row);
 		bool addRow(std::ostringstream& row);
 		bool execute();

@@ -1,6 +1,6 @@
 /**
  * @file modules.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -30,7 +30,7 @@ Modules::Modules() :
 	scriptInterface.initState();
 }
 
-void Modules::clear(bool) 
+void Modules::clear(bool /*unused*/)
 {
 	//clear recvbyte list
 	for (auto& it : recvbyteList) {
@@ -68,7 +68,7 @@ bool Modules::registerEvent(Event_ptr event, const pugi::xml_node&)
 	}
 
 	Module* oldModule = getEventByRecvbyte(module->getRecvbyte(), false);
-	if (oldModule) {	
+	if (oldModule) {
 		if (!oldModule->isLoaded() && oldModule->getEventType() == module->getEventType()) {
 			oldModule->copyEvent(module.get());
 		}
@@ -137,7 +137,7 @@ bool Module::configureEvent(const pugi::xml_node& node)
 	}
 
 	pugi::xml_attribute delayAttribute = node.attribute("delay");
-	if (delayAttribute) {
+	if (delayAttribute != nullptr) {
 		delay = static_cast<uint16_t>(delayAttribute.as_uint());
 	}
 
@@ -187,7 +187,7 @@ void Module::executeOnRecvbyte(Player* player, NetworkMessage& msg)
 	scriptInterface->pushFunction(scriptId);
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
-	
+
 	LuaScriptInterface::pushUserdata<NetworkMessage>(L, &msg);
 	LuaScriptInterface::setWeakMetatable(L, -1, "NetworkMessage");
 

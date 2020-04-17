@@ -52,32 +52,33 @@ void RSA::loadPEM(const std::string& filename)
 	std::ifstream file{filename};
 
 	std::ostringstream oss;
-	for (std::string line; std::getline(file, line); oss << line);
-	std::string key = oss.str();
+	for (std::string line; std::getline(file, line); oss << line) {
+		std::string key = oss.str();
 
-	if (key.substr(0, header.size()) != header) {
-		throw std::runtime_error("Missing RSA private key header.");
-	}
-
-	if (key.substr(key.size() - footer.size(), footer.size()) != footer) {
-		throw std::runtime_error("Missing RSA private key footer.");
-	}
-
-	key = key.substr(header.size(), key.size() - footer.size());
-
-	CryptoPP::ByteQueue queue;
-	CryptoPP::Base64Decoder decoder;
-	decoder.Attach(new CryptoPP::Redirector(queue));
-	decoder.Put(reinterpret_cast<const uint8_t*>(key.c_str()), key.size());
-	decoder.MessageEnd();
-
-	try {
-		pk.BERDecodePrivateKey(queue, false, queue.MaxRetrievable());
-
-		if (!pk.Validate(prng, 3)) {
-			throw std::runtime_error("RSA private key is not valid.");
+		if (key.substr(0, header.size()) != header) {
+			throw std::runtime_error("Missing RSA private key header.");
 		}
-	} catch (const CryptoPP::Exception& e) {
-		std::cout << e.what() << '\n';
+
+		if (key.substr(key.size() - footer.size(), footer.size()) != footer) {
+			throw std::runtime_error("Missing RSA private key footer.");
+		}
+
+		key = key.substr(header.size(), key.size() - footer.size());
+
+		CryptoPP::ByteQueue queue;
+		CryptoPP::Base64Decoder decoder;
+		decoder.Attach(new CryptoPP::Redirector(queue));
+		decoder.Put(reinterpret_cast<const uint8_t*>(key.c_str()), key.size());
+		decoder.MessageEnd();
+
+		try {
+			pk.BERDecodePrivateKey(queue, false, queue.MaxRetrievable());
+
+			if (!pk.Validate(prng, 3)) {
+				throw std::runtime_error("RSA private key is not valid.");
+			}
+		} catch (const CryptoPP::Exception& e) {
+			std::cout << e.what() << '\n';
+		}
 	}
 }

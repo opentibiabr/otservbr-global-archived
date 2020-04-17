@@ -127,12 +127,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, co
 	query << "SELECT `id`, `password` FROM `accounts` WHERE `name` = " << db.escapeString(accountName);
 	DBResult_ptr result = db.storeQuery(query.str());
 	if (!result) {
-		std::cout << "[IOLoginData::gameworldAuthentication] Account not found!" << std::endl;		
+		std::cout << "[IOLoginData::gameworldAuthentication] Account not found!" << std::endl;
 		return 0;
 	}
 
 	if (transformToSHA1(password) != result->getString("password")) {
-		std::cout << "[IOLoginData::gameworldAuthentication] Wrong Password! " << transformToSHA1(password) << "!=" << result->getString("password") << std::endl;		
+		std::cout << "[IOLoginData::gameworldAuthentication] Wrong Password! " << transformToSHA1(password) << "!=" << result->getString("password") << std::endl;
 		return 0;
 	}
 
@@ -142,12 +142,12 @@ uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, co
 	query << "SELECT `account_id`, `name`, `deletion` FROM `players` WHERE `name` = " << db.escapeString(characterName);
 	result = db.storeQuery(query.str());
 	if (!result) {
-		std::cout << "[IOLoginData::gameworldAuthentication] Not able to find player(" << characterName << ")" << std::endl;		
+		std::cout << "[IOLoginData::gameworldAuthentication] Not able to find player(" << characterName << ")" << std::endl;
 		return 0;
 	}
 
 	if (result->getNumber<uint32_t>("account_id") != accountId || result->getNumber<uint64_t>("deletion") != 0) {
-		std::cout << "[IOLoginData::gameworldAuthentication] Account mismatch or account has been marked as deleted!" << std::endl;		
+		std::cout << "[IOLoginData::gameworldAuthentication] Account mismatch or account has been marked as deleted!" << std::endl;
 		return 0;
 	}
 	characterName = result->getString("name");
@@ -208,7 +208,7 @@ bool IOLoginData::preloadPlayer(Player* player, const std::string& name)
 
 	player->setGUID(result->getNumber<uint32_t>("id"));
 	Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
-	if (!group) {
+	if (group == nullptr) {
 		std::cout << "[Error - IOLoginData::preloadPlayer] " << player->name << " has Group ID " << result->getNumber<uint16_t>("group_id") << " which doesn't exist." << std::endl;
 		return false;
 	}
@@ -232,7 +232,7 @@ bool IOLoginData::loadPlayerById(Player* player, uint32_t id)
 }
 
 // New Prey
-bool IOLoginData::loadPlayerPreyData(Player* player) 
+bool IOLoginData::loadPlayerPreyData(Player* player)
 {
 	Database& db = Database::getInstance();
 	DBResult_ptr result;
@@ -367,11 +367,11 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 
 	player->coinBalance = IOAccount::getCoinBalance(player->getAccount());
-	
-	player->preyBonusRerolls = result->getNumber<uint16_t>("bonus_rerolls"); 
+
+	player->preyBonusRerolls = result->getNumber<uint16_t>("bonus_rerolls");
 
 	Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
-	if (!group) {
+	if (group == nullptr) {
 		std::cout << "[Error - IOLoginData::loadPlayer] " << player->name << " has Group ID " << result->getNumber<uint16_t>("group_id") << " which doesn't exist" << std::endl;
 		return false;
 	}
@@ -412,7 +412,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	propStream.init(conditions, conditionsSize);
 
 	Condition* condition = Condition::createCondition(propStream);
-	while (condition) {
+	while (condition != nullptr) {
 		if (condition->unserialize(propStream)) {
 			player->storedConditionList.push_front(condition);
 		} else {
@@ -476,7 +476,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	player->offlineTrainingSkill = result->getNumber<int32_t>("offlinetraining_skill");
 
 	Town* town = g_game.map.towns.getTown(result->getNumber<uint32_t>("town_id"));
-	if (!town) {
+	if (town == nullptr) {
 		std::cout << "[Error - IOLoginData::loadPlayer] " << player->name << " has Town ID " << result->getNumber<uint32_t>("town_id") << " which doesn't exist" << std::endl;
 		return false;
 	}
@@ -520,12 +520,12 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 		player->guildNick = result->getString("nick");
 
 		Guild* guild = g_game.getGuild(guildId);
-		if (!guild) {
+		if (guild == nullptr) {
 			guild = IOGuild::loadGuild(guildId);
 			g_game.addGuild(guild);
 		}
 
-		if (guild) {
+		if (guild != nullptr) {
 			player->guild = guild;
 			GuildRank_ptr rank = guild->getRankById(playerRankId);
 			if (!rank) {
@@ -623,7 +623,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 	}
 
 	// Store Inbox
-	if (!player->inventory[CONST_SLOT_STORE_INBOX]) {
+	if (player->inventory[CONST_SLOT_STORE_INBOX] == nullptr) {
 		player->internalAddThing(CONST_SLOT_STORE_INBOX, Item::CreateItem(ITEM_STORE_INBOX));
 	}
 
@@ -1056,7 +1056,7 @@ bool IOLoginData::savePlayer(Player* player)
 	ItemBlockList itemList;
 	for (int32_t slotId = 1; slotId <= 11; ++slotId) {
 		Item* item = player->inventory[slotId];
-		if (item) {
+		if (item != nullptr) {
 			itemList.emplace_back(slotId, item);
 		}
 	}
@@ -1103,7 +1103,7 @@ bool IOLoginData::savePlayer(Player* player)
 	if (!rewardList.empty()) {
 		DBInsert rewardQuery("INSERT INTO `player_rewards` (`player_id`, `pid`, `sid`, `itemtype`, `count`, `attributes`) VALUES ");
 		itemList.clear();
-	
+
 		int running = 0;
 		for (const auto& rewardId : rewardList) {
 			Reward* reward = player->getReward(rewardId, false);
@@ -1135,7 +1135,7 @@ bool IOLoginData::savePlayer(Player* player)
 	if (!saveItems(player, itemList, inboxQuery, propWriteStream)) {
 		return false;
 	}
-	
+
 	// New Prey
 	query.str(std::string());
 	query << "DELETE FROM `prey_slots` WHERE `player_id` = " << player->getGUID();
@@ -1224,7 +1224,7 @@ bool IOLoginData::getGuidByNameEx(uint32_t& guid, bool& specialVip, std::string&
 	Group* group = g_game.groups.getGroup(result->getNumber<uint16_t>("group_id"));
 
 	uint64_t flags;
-	if (group) {
+	if (group != nullptr) {
 		flags = group->flags;
 	} else {
 		flags = 0;

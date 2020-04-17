@@ -146,7 +146,9 @@ void Connection::parseHeader(const boost::system::error_code& error)
 	if (error) {
 		close(FORCE_CLOSE);
 		return;
-	} else if (connectionState == CONNECTION_STATE_DISCONNECTED) {
+
+	}
+	if (connectionState == CONNECTION_STATE_DISCONNECTED) {
 		return;
 	}
 
@@ -175,11 +177,12 @@ void Connection::parseHeader(const boost::system::error_code& error)
 
 					accept();
 					return;
-				} else {
-					std::cout << "[Network error - Connection::parseHeader] Invalid Client Login" << std::endl;
-					close(FORCE_CLOSE);
-					return;
 				}
+
+				std::cout << "[Network error - Connection::parseHeader] Invalid Client Login" << std::endl;
+				close(FORCE_CLOSE);
+				return;
+
 			}
 			++serverNameTime;
 
@@ -190,11 +193,12 @@ void Connection::parseHeader(const boost::system::error_code& error)
 
 				accept();
 				return;
-			} else {
-				std::cout << "[Network error - Connection::parseHeader] Invalid Client Login" << std::endl;
-				close(FORCE_CLOSE);
-				return;
 			}
+
+			std::cout << "[Network error - Connection::parseHeader] Invalid Client Login" << std::endl;
+			close(FORCE_CLOSE);
+			return;
+
 		}
 	}
 
@@ -236,7 +240,9 @@ void Connection::parsePacket(const boost::system::error_code& error)
 	if (error) {
 		close(FORCE_CLOSE);
 		return;
-	} else if (connectionState == CONNECTION_STATE_DISCONNECTED) {
+	}
+
+	if (connectionState == CONNECTION_STATE_DISCONNECTED) {
 		return;
 	}
 

@@ -50,12 +50,12 @@
 
 Tile* IOMap::createTile(Item*& ground, Item* item, uint16_t x, uint16_t y, uint8_t z)
 {
-	if (!ground) {
+	if (ground == nullptr) {
 		return new StaticTile(x, y, z);
 	}
 
 	Tile* tile;
-	if ((item && item->isBlocking()) || ground->isBlocking()) {
+	if (((item != nullptr) && item->isBlocking()) || ground->isBlocking()) {
 		tile = new StaticTile(x, y, z);
 	} else {
 		tile = new DynamicTile(x, y, z);
@@ -502,4 +502,3 @@ bool IOMap::parseWaypoints(OTB::Loader& loader, const OTB::Node& waypointsNode, 
 	}
 	return true;
 }
-

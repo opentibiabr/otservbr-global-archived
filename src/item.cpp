@@ -27,8 +27,8 @@
 #include "house.h"
 #include "game.h"
 #include "bed.h"
-#include "rewardchest.h"
 #include "imbuements.h"
+#include "rewardchest.h"
 
 #include "actions.h"
 #include "spells.h"
@@ -97,7 +97,7 @@ Item* Item::CreateItem(const uint16_t type, uint16_t count /*= 0*/)
 uint32_t Item::getImbuement(uint8_t slot) {
 	int64_t slotid = IMBUEMENT_SLOT + slot;
 	const ItemAttributes::CustomAttribute* attr = getCustomAttribute(slotid);
-	if (attr) {
+	if (attr != nullptr) {
 		uint32_t info = static_cast<uint32_t>(boost::get<int64_t>(attr->value));
 		if(info << 8)
 			return info;
@@ -218,7 +218,7 @@ Item* Item::clone() const
 
 bool Item::equals(const Item* otherItem) const
 {
-	if (!otherItem || id != otherItem->id) {
+	if ((otherItem == nullptr) || id != otherItem->id) {
 		return false;
 	}
 
@@ -302,7 +302,7 @@ Cylinder* Item::getTopParent()
 {
 	Cylinder* aux = getParent();
 	Cylinder* prevaux = dynamic_cast<Cylinder*>(this);
-	if (!aux) {
+	if (aux == nullptr) {
 		return prevaux;
 	}
 
@@ -311,7 +311,7 @@ Cylinder* Item::getTopParent()
 		aux = aux->getParent();
 	}
 
-	if (prevaux) {
+	if (prevaux != nullptr) {
 		return prevaux;
 	}
 	return aux;
@@ -321,7 +321,7 @@ const Cylinder* Item::getTopParent() const
 {
 	const Cylinder* aux = getParent();
 	const Cylinder* prevaux = dynamic_cast<const Cylinder*>(this);
-	if (!aux) {
+	if (aux == nullptr) {
 		return prevaux;
 	}
 
@@ -330,7 +330,7 @@ const Cylinder* Item::getTopParent() const
 		aux = aux->getParent();
 	}
 
-	if (prevaux) {
+	if (prevaux != nullptr) {
 		return prevaux;
 	}
 	return aux;
@@ -340,7 +340,7 @@ Tile* Item::getTile()
 {
 	Cylinder* cylinder = getTopParent();
 	//get root cylinder
-	if (cylinder && cylinder->getParent()) {
+	if ((cylinder != nullptr) && (cylinder->getParent() != nullptr)) {
 		cylinder = cylinder->getParent();
 	}
 	return dynamic_cast<Tile*>(cylinder);
@@ -350,7 +350,7 @@ const Tile* Item::getTile() const
 {
 	const Cylinder* cylinder = getTopParent();
 	//get root cylinder
-	if (cylinder && cylinder->getParent()) {
+	if ((cylinder != nullptr) && (cylinder->getParent() != nullptr)) {
 		cylinder = cylinder->getParent();
 	}
 	return dynamic_cast<const Tile*>(cylinder);
@@ -361,9 +361,13 @@ uint16_t Item::getSubType() const
 	const ItemType& it = items[id];
 	if (it.isFluidContainer() || it.isSplash()) {
 		return getFluidType();
-	} else if (it.stackable) {
+	}
+
+	if (it.stackable) {
 		return count;
-	} else if (it.charges != 0) {
+	}
+
+	if (it.charges != 0) {
 		return getCharges();
 	}
 	return count;
@@ -372,8 +376,8 @@ uint16_t Item::getSubType() const
 Player* Item::getHoldingPlayer() const
 {
 	Cylinder* p = getParent();
-	while (p) {
-		if (p->getCreature()) {
+	while (p != nullptr) {
+		if (p->getCreature() != nullptr) {
 			return p->getCreature()->getPlayer();
 		}
 
@@ -725,7 +729,7 @@ bool Item::unserializeAttr(PropStream& propStream)
 	return true;
 }
 
-bool Item::unserializeItemNode(OTB::Loader&, const OTB::Node&, PropStream& propStream)
+bool Item::unserializeItemNode(OTB::Loader& /*unused*/, const OTB::Node& /*unused*/, PropStream& propStream)
 {
 	return unserializeAttr(propStream);
 }
@@ -903,7 +907,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	std::ostringstream s;
 	s << getNameDescription(it, item, subType, addArticle);
 
-	if (item) {
+	if (item != nullptr) {
 		subType = item->getSubType();
 	}
 
@@ -911,7 +915,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		if (it.runeLevel > 0 || it.runeMagLevel > 0) {
 			if (RuneSpell* rune = g_spells->getRuneSpell(it.id)) {
 				int32_t tmpSubType = subType;
-				if (item) {
+				if (item != nullptr) {
 					tmpSubType = item->getSubType();
 				}
 				s << ". " << (it.stackable && tmpSubType > 1 ? "They" : "It") << " can only be used by ";
@@ -968,7 +972,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 
 			int32_t attack;
 			int8_t hitChance;
-			if (item) {
+			if (item != nullptr) {
 				attack = item->getAttack();
 				hitChance = item->getHitChance();
 			} else {
@@ -1137,7 +1141,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 			bool begin = true;
 
 			int32_t attack, defense, extraDefense;
-			if (item) {
+			if (item != nullptr) {
 				attack = item->getAttack();
 				defense = item->getDefense();
 				extraDefense = item->getExtraDefense();
@@ -1320,10 +1324,10 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				s << ')';
 			}
 		}
-	} else if (it.armor != 0 || (item && item->getArmor() != 0) || it.showAttributes) {
+	} else if (it.armor != 0 || ((item != nullptr) && item->getArmor() != 0) || it.showAttributes) {
 		bool begin = true;
 
-		int32_t armor = (item ? item->getArmor() : it.armor);
+		int32_t armor = (item != nullptr ? item->getArmor() : it.armor);
 		if (armor != 0) {
 			s << " (Arm:" << armor;
 			begin = false;
@@ -1382,7 +1386,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				}
 			}
 
-			if (!show) {
+			if (show == 0) {
 				bool protectionBegin = true;
 				for (size_t i = 0; i < COMBAT_COUNT; ++i) {
 					if (it.abilities->absorbPercent[i] == 0) {
@@ -1427,7 +1431,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				}
 			}
 
-			if (!show) {
+			if (show == 0) {
 				bool tmp = true;
 
 				for (size_t i = 0; i < COMBAT_COUNT; ++i) {
@@ -1480,7 +1484,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	} else if (it.isContainer() || (item && item->getContainer())) {
 		uint32_t volume = 0;
-		if (!item || !item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+		if ((item == nullptr) || !item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 			if (it.isContainer()) {
 				volume = it.maxItems;
 			} else {
@@ -1534,7 +1538,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				s << '.' << std::endl;
 
 				if (lookDistance <= 4) {
-					if (item) {
+					if (item != nullptr) {
 						text = &item->getText();
 						if (!text->empty()) {
 							const std::string& writer = item->getWriter();
@@ -1558,7 +1562,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 				} else {
 					s << "You are too far away to read it";
 				}
-			} else if (it.levelDoor != 0 && item) {
+			} else if (it.levelDoor != 0 && (item != nullptr)) {
 				uint16_t actionId = item->getActionId();
 				if (actionId >= it.levelDoor) {
 					s << " for level " << (actionId - it.levelDoor);
@@ -1572,7 +1576,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	}
 
 	if (it.showDuration) {
-		if (item && item->hasAttribute(ITEM_ATTRIBUTE_DURATION)) {
+		if ((item != nullptr) && item->hasAttribute(ITEM_ATTRIBUTE_DURATION)) {
 			uint32_t duration = item->getDuration() / 1000;
 			s << " that will expire in ";
 
@@ -1611,7 +1615,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	if (!it.allowDistRead || (it.id >= 7369 && it.id <= 7371)) {
 		s << '.';
 	} else {
-		if (!text && item) {
+		if ((text == nullptr) && (item != nullptr)) {
 			text = &item->getText();
 		}
 
@@ -1623,7 +1627,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	if (it.wieldInfo != 0) {
 		s << std::endl << "It can only be wielded properly by ";
 
-		if (it.wieldInfo & WIELDINFO_PREMIUM) {
+		if ((it.wieldInfo & WIELDINFO_PREMIUM) != 0u) {
 			s << "premium ";
 		}
 
@@ -1633,12 +1637,12 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 			s << "players";
 		}
 
-		if (it.wieldInfo & WIELDINFO_LEVEL) {
+		if ((it.wieldInfo & WIELDINFO_LEVEL) != 0u) {
 			s << " of level " << it.minReqLevel << " or higher";
 		}
 
-		if (it.wieldInfo & WIELDINFO_MAGLV) {
-			if (it.wieldInfo & WIELDINFO_LEVEL) {
+		if ((it.wieldInfo & WIELDINFO_MAGLV) != 0u) {
+			if ((it.wieldInfo & WIELDINFO_LEVEL) != 0u) {
 				s << " and";
 			} else {
 				s << " of";
@@ -1651,7 +1655,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	}
 
 	if (lookDistance <= 1) {
-		if (item) {
+		if (item != nullptr) {
 			const uint32_t weight = item->getWeight();
 			if (weight != 0 && it.pickupable) {
 				s << std::endl << getWeightDescription(it, weight, item->getItemCount());
@@ -1661,7 +1665,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 		}
 	}
 
-	if (item) {
+	if (item != nullptr) {
 		const std::string& specialDescription = item->getSpecialDescription();
 		if (!specialDescription.empty()) {
 			s << std::endl << specialDescription;
@@ -1673,7 +1677,7 @@ std::string Item::getDescription(const ItemType& it, int32_t lookDistance,
 	}
 
 	if (it.allowDistRead && it.id >= 7369 && it.id <= 7371) {
-		if (!text && item) {
+		if ((text == nullptr) && (item != nullptr)) {
 			text = &item->getText();
 		}
 
@@ -1692,23 +1696,23 @@ std::string Item::getDescription(int32_t lookDistance) const
 
 std::string Item::getNameDescription(const ItemType& it, const Item* item /*= nullptr*/, int32_t subType /*= -1*/, bool addArticle /*= true*/)
 {
-	if (item) {
+	if (item != nullptr) {
 		subType = item->getSubType();
 	}
 
 	std::ostringstream s;
 
-	const std::string& name = (item ? item->getName() : it.name);
+	const std::string& name = (item != nullptr ? item->getName() : it.name);
 	if (!name.empty()) {
 		if (it.stackable && subType > 1) {
 			if (it.showCount) {
 				s << subType << ' ';
 			}
 
-			s << (item ? item->getPluralName() : it.getPluralName());
+			s << (item != nullptr ? item->getPluralName() : it.getPluralName());
 		} else {
 			if (addArticle) {
-				const std::string& article = (item ? item->getArticle() : it.article);
+				const std::string& article = (item != nullptr ? item->getArticle() : it.article);
 				if (!article.empty()) {
 					s << article << ' ';
 				}
@@ -1731,7 +1735,7 @@ std::string Item::getNameDescription() const
 std::string Item::getWeightDescription(const ItemType& it, uint32_t weight, uint32_t count /*= 1*/)
 {
 	std::ostringstream ss;
-	if (it.stackable && count > 1 && it.showCount != 0) {
+	if (it.stackable && count > 1 && static_cast<int>(it.showCount) != 0) {
 		ss << "They weigh ";
 	} else {
 		ss << "It weighs ";
@@ -1830,7 +1834,7 @@ const std::string& ItemAttributes::getStrAttr(itemAttrTypes type) const
 	}
 
 	const Attribute* attr = getExistingAttr(type);
-	if (!attr) {
+	if (attr == nullptr) {
 		return emptyString;
 	}
 	return *attr->value.string;
@@ -1880,7 +1884,7 @@ int64_t ItemAttributes::getIntAttr(itemAttrTypes type) const
 	}
 
 	const Attribute* attr = getExistingAttr(type);
-	if (!attr) {
+	if (attr == nullptr) {
 		return 0;
 	}
 	return attr->value.integer;
@@ -1960,7 +1964,7 @@ bool Item::hasMarketAttributes() const
 		for (uint8_t slot = 0; slot < items[id].imbuingSlots; slot++) {
 			Item* item = const_cast<Item*>(this);
 			uint32_t info = item->getImbuement(slot);
-			if (info) {
+			if (info != 0u) {
 				return false;
 			}
 		}

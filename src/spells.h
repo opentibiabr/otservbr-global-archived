@@ -96,7 +96,7 @@ class BaseSpell
 class CombatSpell final : public Event, public BaseSpell
 {
 	public:
-		CombatSpell(Combat* combat, bool needTarget, bool needDirection);
+		CombatSpell(Combat* initCombat, bool initNeedTarget, bool initNeedDirection);
 		~CombatSpell();
 
 		// non-copyable

@@ -132,7 +132,7 @@ void Condition::setTicks(int32_t newTicks)
 	endTime = ticks + OTSYS_TIME();
 }
 
-bool Condition::executeCondition(Creature*, int32_t interval)
+bool Condition::executeCondition(Creature* /*unused*/, int32_t interval)
 {
 	if (ticks == -1) {
 		return true;
@@ -252,7 +252,7 @@ Condition* Condition::createCondition(PropStream& propStream)
 	return createCondition(static_cast<ConditionId_t>(id), static_cast<ConditionType_t>(type), ticks, 0, buff != 0, subId);
 }
 
-bool Condition::startCondition(Creature*)
+bool Condition::startCondition(Creature* /*unused*/)
 {
 	if (ticks > 0) {
 		endTime = ticks + OTSYS_TIME();
@@ -305,12 +305,12 @@ bool ConditionGeneric::executeCondition(Creature* creature, int32_t interval)
 	return Condition::executeCondition(creature, interval);
 }
 
-void ConditionGeneric::endCondition(Creature*)
+void ConditionGeneric::endCondition(Creature* /*creature*/)
 {
 	//
 }
 
-void ConditionGeneric::addCondition(Creature*, const Condition* addCondition)
+void ConditionGeneric::addCondition(Creature* /*creature*/, const Condition* addCondition)
 {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
@@ -441,7 +441,7 @@ void ConditionAttributes::updateStats(Player* player)
 	bool needUpdate = false;
 
 	for (int32_t i = STAT_FIRST; i <= STAT_LAST; ++i) {
-		if (stats[i]) {
+		if (stats[i] != 0) {
 			needUpdate = true;
 			player->setVarStats(static_cast<stats_t>(i), stats[i]);
 		}
@@ -470,7 +470,7 @@ void ConditionAttributes::updateSkills(Player* player)
 	bool needUpdateSkills = false;
 
 	for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-		if (skills[i]) {
+		if (skills[i] != 0) {
 			needUpdateSkills = true;
 			player->setVarSkill(static_cast<skills_t>(i), skills[i]);
 		}
@@ -489,18 +489,18 @@ bool ConditionAttributes::executeCondition(Creature* creature, int32_t interval)
 void ConditionAttributes::endCondition(Creature* creature)
 {
 	Player* player = creature->getPlayer();
-	if (player) {
+	if (player != nullptr) {
 		bool needUpdate = false;
 
 		for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
-			if (skills[i] || skillsPercent[i]) {
+			if ((skills[i] != 0) || (skillsPercent[i] != 0)) {
 				needUpdate = true;
 				player->setVarSkill(static_cast<skills_t>(i), -skills[i]);
 			}
 		}
 
 		for (int32_t i = STAT_FIRST; i <= STAT_LAST; ++i) {
-			if (stats[i]) {
+			if (stats[i] != 0) {
 				needUpdate = true;
 				player->setVarStats(static_cast<stats_t>(i), -stats[i]);
 			}
@@ -681,7 +681,7 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 	}
 }
 
-void ConditionRegeneration::addCondition(Creature*, const Condition* addCondition)
+void ConditionRegeneration::addCondition(Creature* /*creature*/, const Condition* addCondition)
 {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
@@ -742,7 +742,7 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 
 			if (isBuff && realHealthGain > 0) {
 				Player* player = creature->getPlayer();
-				if (player) {
+				if (player != nullptr) {
 					std::string healString = std::to_string(realHealthGain) + (realHealthGain != 1 ? " hitpoints." : " hitpoint.");
 
 					TextMessage message(MESSAGE_HEALED, "You were healed for " + healString);
@@ -800,7 +800,7 @@ bool ConditionRegeneration::setParam(ConditionParam_t param, int32_t value)
 	}
 }
 
-void ConditionSoul::addCondition(Creature*, const Condition* addCondition)
+void ConditionSoul::addCondition(Creature* /*creature*/, const Condition* addCondition)
 {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
@@ -924,11 +924,17 @@ bool ConditionDamage::unserializeProp(ConditionAttr_t attr, PropStream& propStre
 
 		delayed = (value != 0);
 		return true;
-	} else if (attr == CONDITIONATTR_PERIODDAMAGE) {
+	}
+
+	if (attr == CONDITIONATTR_PERIODDAMAGE) {
 		return propStream.read<int32_t>(periodDamage);
-	} else if (attr == CONDITIONATTR_OWNER) {
+	}
+
+	if (attr == CONDITIONATTR_OWNER) {
 		return propStream.skip(4);
-	} else if (attr == CONDITIONATTR_INTERVALDATA) {
+	}
+
+	if (attr == CONDITIONATTR_INTERVALDATA) {
 		IntervalInfo damageInfo;
 		if (!propStream.read<IntervalInfo>(damageInfo)) {
 			return false;
@@ -940,6 +946,7 @@ bool ConditionDamage::unserializeProp(ConditionAttr_t attr, PropStream& propStre
 		}
 		return true;
 	}
+
 	return Condition::unserializeProp(attr, propStream);
 }
 
@@ -1096,7 +1103,9 @@ bool ConditionDamage::getNextDamage(int32_t& damage)
 	if (periodDamage != 0) {
 		damage = periodDamage;
 		return true;
-	} else if (!damageList.empty()) {
+	}
+
+	if (!damageList.empty()) {
 		IntervalInfo& damageInfo = damageList.front();
 		damage = damageInfo.value;
 		if (ticks != -1) {
@@ -1119,7 +1128,7 @@ bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange)
 	damage.primary.type = Combat::ConditionToDamageType(conditionType);
 
 	Creature* attacker = g_game.getCreatureByID(owner);
-	if (field && creature->getPlayer() && attacker && attacker->getPlayer()) {
+	if (field && (creature->getPlayer() != nullptr) && (attacker != nullptr) && (attacker->getPlayer() != nullptr)) {
 		damage.primary.value = static_cast<int32_t>(std::round(damage.primary.value / 2.));
 	}
 
@@ -1136,7 +1145,7 @@ bool ConditionDamage::doDamage(Creature* creature, int32_t healthChange)
 	return g_game.combatChangeHealth(attacker, creature, damage);
 }
 
-void ConditionDamage::endCondition(Creature*)
+void ConditionDamage::endCondition(Creature* /*creature*/)
 {
 	//
 }
@@ -1560,7 +1569,9 @@ bool ConditionLight::unserializeProp(ConditionAttr_t attr, PropStream& propStrea
 
 		lightInfo.color = value;
 		return true;
-	} else if (attr == CONDITIONATTR_LIGHTLEVEL) {
+	}
+
+	if (attr == CONDITIONATTR_LIGHTLEVEL) {
 		uint32_t value;
 		if (!propStream.read<uint32_t>(value)) {
 			return false;
@@ -1568,11 +1579,16 @@ bool ConditionLight::unserializeProp(ConditionAttr_t attr, PropStream& propStrea
 
 		lightInfo.level = value;
 		return true;
-	} else if (attr == CONDITIONATTR_LIGHTTICKS) {
+	}
+
+	if (attr == CONDITIONATTR_LIGHTTICKS) {
 		return propStream.read<uint32_t>(internalLightTicks);
-	} else if (attr == CONDITIONATTR_LIGHTINTERVAL) {
+	}
+
+	if (attr == CONDITIONATTR_LIGHTINTERVAL) {
 		return propStream.read<uint32_t>(lightChangeInterval);
 	}
+
 	return Condition::unserializeProp(attr, propStream);
 }
 
@@ -1603,7 +1619,7 @@ void ConditionSpellCooldown::addCondition(Creature* creature, const Condition* a
 
 		if (subId != 0 && ticks > 0) {
 			Player* player = creature->getPlayer();
-			if (player) {
+			if (player != nullptr) {
 				player->sendSpellCooldown(subId, ticks);
 			}
 		}
@@ -1618,7 +1634,7 @@ bool ConditionSpellCooldown::startCondition(Creature* creature)
 
 	if (subId != 0 && ticks > 0) {
 		Player* player = creature->getPlayer();
-		if (player) {
+		if (player != nullptr) {
 			player->sendSpellCooldown(subId, ticks);
 		}
 	}
@@ -1632,7 +1648,7 @@ void ConditionSpellGroupCooldown::addCondition(Creature* creature, const Conditi
 
 		if (subId != 0 && ticks > 0) {
 			Player* player = creature->getPlayer();
-			if (player) {
+			if (player != nullptr) {
 				player->sendSpellGroupCooldown(static_cast<SpellGroup_t>(subId), ticks);
 			}
 		}
@@ -1647,7 +1663,7 @@ bool ConditionSpellGroupCooldown::startCondition(Creature* creature)
 
 	if (subId != 0 && ticks > 0) {
 		Player* player = creature->getPlayer();
-		if (player) {
+		if (player != nullptr) {
 			player->sendSpellGroupCooldown(static_cast<SpellGroup_t>(subId), ticks);
 		}
 	}

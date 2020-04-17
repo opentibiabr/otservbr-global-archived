@@ -20,9 +20,9 @@
 #include "otpch.h"
 
 #include "events.h"
-#include "tools.h"
 #include "item.h"
 #include "player.h"
+#include "tools.h"
 
 #include <set>
 
@@ -231,7 +231,7 @@ ReturnValue Events::eventCreatureOnAreaCombat(Creature* creature, Tile* tile, bo
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.creatureOnAreaCombat);
 
-	if (creature) {
+	if (creature != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, creature);
 		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
 	} else {
@@ -274,7 +274,7 @@ ReturnValue Events::eventCreatureOnTargetCombat(Creature* creature, Creature* ta
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.creatureOnTargetCombat);
 
-	if (creature) {
+	if (creature != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, creature);
 		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
 	} else {
@@ -344,14 +344,14 @@ void Events::eventCreatureOnDrainHealth(Creature* creature, Creature* attacker, 
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.creatureOnDrainHealth);
 
-	if (creature) {
+	if (creature != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, creature);
 		LuaScriptInterface::setCreatureMetatable(L, -1, creature);
 	} else {
 		lua_pushnil(L);
 	}
 
-	if (attacker) {
+	if (attacker != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, attacker);
 		LuaScriptInterface::setCreatureMetatable(L, -1, attacker);
 	} else {
@@ -942,7 +942,7 @@ void Events::eventPlayerOnGainExperience(Player* player, Creature* source, uint6
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 
-	if (source) {
+	if (source != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, source);
 		LuaScriptInterface::setCreatureMetatable(L, -1, source);
 	} else {
@@ -1047,7 +1047,7 @@ bool Events::eventPlayerCanBeAppliedImbuement(Player* player, Imbuement* imbueme
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.playerCanBeAppliedImbuement);
 
-	if (player) {
+	if (player != nullptr) {
 		LuaScriptInterface::pushUserdata<Player>(L, player);
 		LuaScriptInterface::setMetatable(L, -1, "Player");
 	} else {
@@ -1081,7 +1081,7 @@ void Events::eventPlayerOnApplyImbuement(Player* player, Imbuement* imbuement, I
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.playerOnApplyImbuement);
 
-	if (player) {
+	if (player != nullptr) {
 		LuaScriptInterface::pushUserdata<Player>(L, player);
 		LuaScriptInterface::setMetatable(L, -1, "Player");
 	} else {
@@ -1118,7 +1118,7 @@ void Events::eventPlayerClearImbuement(Player* player, Item* item, uint8_t slot)
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.playerClearImbuement);
 
-	if (player) {
+	if (player != nullptr) {
 		LuaScriptInterface::pushUserdata<Player>(L, player);
 		LuaScriptInterface::setMetatable(L, -1, "Player");
 	} else {
@@ -1154,14 +1154,14 @@ void Events::eventPlayerOnCombat(Player* player, Creature* target, Item* item, C
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 
-	if (target) {
+	if (target != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, target);
 		LuaScriptInterface::setMetatable(L, -1, "Creature");
 	} else {
 		lua_pushnil(L);
 	}
 
-	if(item){
+	if(item != nullptr){
 		LuaScriptInterface::pushUserdata<Item>(L, item);
 		LuaScriptInterface::setMetatable(L, -1, "Item");
 	}else{

@@ -164,7 +164,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		uint8_t getCurrentMount() const;
-		void setCurrentMount(uint8_t mountId);
+		void setCurrentMount(uint8_t mount);
 		bool isMounted() const {
 			return defaultOutfit.lookMount != 0;
 		}
@@ -208,7 +208,7 @@ class Player final : public Creature, public Cylinder
 				client->sendItemsPrice();
 			}
 		}
-		
+
 		// New Prey
 		uint16_t getPreyState(uint16_t slot) const {
 			return preySlotState[slot];
@@ -296,7 +296,7 @@ class Player final : public Creature, public Cylinder
 		Guild* getGuild() const {
 			return guild;
 		}
-		void setGuild(Guild* guild);
+		void setGuild(Guild* newGuild);
 
 		  GuildRank_ptr getGuildRank() const {
 			return guildRank;
@@ -315,7 +315,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		bool isInWar(const Player* player) const;
-		bool isInWarList(uint32_t guild_id) const;
+		bool isInWarList(uint32_t guildId) const;
 
 		void setLastWalkthroughAttempt(int64_t walkthroughAttempt) {
 			lastWalkthroughAttempt = walkthroughAttempt;
@@ -367,8 +367,8 @@ class Player final : public Creature, public Cylinder
 		bool isInviting(const Player* player) const;
 		bool isPartner(const Player* player) const;
 		void sendPlayerPartyIcons(Player* player);
-		bool addPartyInvitation(Party* party);
-		void removePartyInvitation(Party* party);
+		bool addPartyInvitation(Party* newParty);
+		void removePartyInvitation(Party* remParty);
 		void clearPartyInvitations();
 
 		void sendUnjustifiedPoints();
@@ -394,7 +394,7 @@ class Player final : public Creature, public Cylinder
 			return imbuing != nullptr;
 		}
 		void inImbuing(Item* item);
-		
+
 		void addBlessing(uint8_t index, uint8_t count) {
 			if (blessings[index - 1] == 255) {
 				return;
@@ -593,8 +593,8 @@ class Player final : public Creature, public Cylinder
 		void setVarStats(stats_t stat, int32_t modifier);
 		int32_t getDefaultStats(stats_t stat) const;
 
-		void addConditionSuppressions(uint32_t conditions);
-		void removeConditionSuppressions(uint32_t conditions);
+		void addConditionSuppressions(uint32_t addConditions);
+		void removeConditionSuppressions(uint32_t removeConditions);
 
 		Reward* getReward(uint32_t rewardId, bool autoCreate);
 		void removeReward(uint32_t rewardId);
@@ -650,7 +650,7 @@ class Player final : public Creature, public Cylinder
 		}
 
 		//V.I.P. functions
-		void notifyStatusChange(Player* player, VipStatus_t status);
+		void notifyStatusChange(Player* loginPlayer, VipStatus_t status);
 		bool removeVIP(uint32_t vipGuid);
 		bool addVIP(uint32_t vipGuid, const std::string& vipName, VipStatus_t status);
 		bool addVIPInternal(uint32_t vipGuid);
@@ -1003,9 +1003,9 @@ class Player final : public Creature, public Cylinder
 		}
 
 		//event methods
-		void onUpdateTileItem(const Tile* tile, const Position& pos, const Item* oldItem,
+		void onUpdateTileItem(const Tile* updateTile, const Position& pos, const Item* oldItem,
 									  const ItemType& oldType, const Item* newItem, const ItemType& newType) override;
-		void onRemoveTileItem(const Tile* tile, const Position& pos, const ItemType& iType,
+		void onRemoveTileItem(const Tile* fromTile, const Position& pos, const ItemType& iType,
 									  const Item* item) override;
 
 		void onCreatureAppear(Creature* creature, bool isLogin) override;
@@ -1304,10 +1304,10 @@ class Player final : public Creature, public Cylinder
 
 		uint32_t getNextActionTime() const;
 
-		Item* getWriteItem(uint32_t& windowTextId, uint16_t& maxWriteLen);
-		void setWriteItem(Item* item, uint16_t maxWriteLen = 0);
+		Item* getWriteItem(uint32_t& retWindowTextId, uint16_t& retMaxWriteLen);
+		void setWriteItem(Item* item, uint16_t maxWriteLength = 0);
 
-		House* getEditHouse(uint32_t& windowTextId, uint32_t& listId);
+		House* getEditHouse(uint32_t& retWindowTextId, uint32_t& retListId);
 		void setEditHouse(House* house, uint32_t listId = 0);
 
 		void learnInstantSpell(const std::string& spellName);
@@ -1379,7 +1379,7 @@ class Player final : public Creature, public Cylinder
 
 			return false;
  		}
- 
+
    		void updateSupplyTracker(const Item* item)
  		{
   			if (client && getProtocolVersion() > 1140) {
@@ -1409,7 +1409,7 @@ class Player final : public Creature, public Cylinder
 		void checkTradeState(const Item* item);
 		bool hasCapacity(const Item* item, uint32_t count) const;
 
-		void gainExperience(uint64_t exp, Creature* source);
+		void gainExperience(uint64_t gainExp, Creature* source);
 		void addExperience(Creature* source, uint64_t exp, bool sendText = false);
 		void removeExperience(uint64_t exp, bool sendText = false);
 
@@ -1565,7 +1565,7 @@ class Player final : public Creature, public Cylinder
 		uint16_t storeXpBoost = 0;
 		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
-		
+
 		// New Prey
 		uint16_t preyBonusRerolls = 0;
 		std::vector<uint16_t> preySlotState = {0, 0, 0};

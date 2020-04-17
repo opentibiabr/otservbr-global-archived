@@ -1,6 +1,6 @@
 /**
  * @file rewardchest.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -31,24 +31,24 @@ RewardChest::RewardChest(uint16_t type) :
 	pagination = true;
 }
 
-ReturnValue RewardChest::queryAdd(int32_t, const Thing&, uint32_t,
-	uint32_t, Creature* actor/* = nullptr*/) const
+ReturnValue RewardChest::queryAdd(int32_t /*index*/, const Thing& /*thing*/, uint32_t /*count*/,
+	uint32_t /*flags*/, Creature* actor/* = nullptr*/) const
 {
-	if (actor) {
+	if (actor != nullptr) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
-		
+
 	return RETURNVALUE_NOERROR;
 }
 
-void RewardChest::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
+void RewardChest::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t /*link*/)
 {
 	if (parent != nullptr) {
 		parent->postAddNotification(thing, oldParent, index, LINK_PARENT);
 	}
 }
 
-void RewardChest::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t)
+void RewardChest::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t /*link*/)
 {
 	if (parent != nullptr) {
 		parent->postRemoveNotification(thing, newParent, index, LINK_PARENT);

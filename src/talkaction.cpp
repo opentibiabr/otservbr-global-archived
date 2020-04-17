@@ -114,9 +114,9 @@ TalkActionResult_t TalkActions::playerSaySpell(Player* player, SpeakClasses type
 
 		if (it->second.executeSay(player, param, type)) {
 			return TALKACTION_CONTINUE;
-		} else {
-			return TALKACTION_BREAK;
 		}
+
+		return TALKACTION_BREAK;
 	}
 	return TALKACTION_CONTINUE;
 }
@@ -130,7 +130,7 @@ bool TalkAction::configureEvent(const pugi::xml_node& node)
 	}
 
 	pugi::xml_attribute separatorAttribute = node.attribute("separator");
-	if (separatorAttribute) {
+	if (separatorAttribute != nullptr) {
 		separator = pugi::cast<char>(separatorAttribute.value());
 	}
 

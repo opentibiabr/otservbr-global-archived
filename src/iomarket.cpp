@@ -117,7 +117,7 @@ HistoryMarketOfferList IOMarket::getOwnHistory(MarketAction_t action, uint32_t p
 	return offerList;
 }
 
-void IOMarket::processExpiredOffers(DBResult_ptr result, bool)
+void IOMarket::processExpiredOffers(DBResult_ptr result, bool /*unused*/)
 {
 	if (!result) {
 		return;

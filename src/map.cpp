@@ -82,12 +82,12 @@ Tile* Map::getTile(uint16_t x, uint16_t y, uint8_t z) const
 	}
 
 	const QTreeLeafNode* leaf = QTreeNode::getLeafStatic<const QTreeLeafNode*, const QTreeNode*>(&root, x, y);
-	if (!leaf) {
+	if (leaf == nullptr) {
 		return nullptr;
 	}
 
 	const Floor* floor = leaf->getFloor(z);
-	if (!floor) {
+	if (floor == nullptr) {
 		return nullptr;
 	}
 	return floor->tiles[x & FLOOR_MASK][y & FLOOR_MASK];
@@ -106,25 +106,25 @@ void Map::setTile(uint16_t x, uint16_t y, uint8_t z, Tile* newTile)
 	if (QTreeLeafNode::newLeaf) {
 		//update north
 		QTreeLeafNode* northLeaf = root.getLeaf(x, y - FLOOR_SIZE);
-		if (northLeaf) {
+		if (northLeaf != nullptr) {
 			northLeaf->leafS = leaf;
 		}
 
 		//update west leaf
 		QTreeLeafNode* westLeaf = root.getLeaf(x - FLOOR_SIZE, y);
-		if (westLeaf) {
+		if (westLeaf != nullptr) {
 			westLeaf->leafE = leaf;
 		}
 
 		//update south
 		QTreeLeafNode* southLeaf = root.getLeaf(x, y + FLOOR_SIZE);
-		if (southLeaf) {
+		if (southLeaf != nullptr) {
 			leaf->leafS = southLeaf;
 		}
 
 		//update east
 		QTreeLeafNode* eastLeaf = root.getLeaf(x + FLOOR_SIZE, y);
-		if (eastLeaf) {
+		if (eastLeaf != nullptr) {
 			leaf->leafE = eastLeaf;
 		}
 	}
@@ -134,9 +134,9 @@ void Map::setTile(uint16_t x, uint16_t y, uint8_t z, Tile* newTile)
 	uint32_t offsetY = y & FLOOR_MASK;
 
 	Tile*& tile = floor->tiles[offsetX][offsetY];
-	if (tile) {
+	if (tile != nullptr) {
 		TileItemVector* items = newTile->getItemList();
-		if (items) {
+		if (items != nullptr) {
 			for (auto it = items->rbegin(), end = items->rend(); it != end; ++it) {
 				tile->addThing(*it);
 			}
@@ -144,7 +144,7 @@ void Map::setTile(uint16_t x, uint16_t y, uint8_t z, Tile* newTile)
 		}
 
 		Item* ground = newTile->getGround();
-		if (ground) {
+		if (ground != nullptr) {
 			tile->addThing(ground);
 			newTile->setGround(nullptr);
 		}
@@ -160,7 +160,7 @@ bool Map::placeCreature(const Position& centerPos, Creature* creature, bool exte
 	bool placeInPZ;
 
 	Tile* tile = getTile(centerPos.x, centerPos.y, centerPos.z);
-	if (tile) {
+	if (tile != nullptr) {
 		placeInPZ = tile->hasFlag(TILESTATE_PROTECTIONZONE);
 		ReturnValue ret = tile->queryAdd(0, *creature, 1, FLAG_IGNOREBLOCKITEM);
 		foundTile = forceLogin || ret == RETURNVALUE_NOERROR || ret == RETURNVALUE_PLAYERISNOTINVITED;
@@ -515,7 +515,7 @@ bool Map::checkSightLine(const Position& fromPos, const Position& toPos) const
 		}
 
 		const Tile* tile = getTile(start.x, start.y, start.z);
-		if (tile && tile->hasProperty(CONST_PROP_BLOCKPROJECTILE)) {
+		if ((tile != nullptr) && tile->hasProperty(CONST_PROP_BLOCKPROJECTILE)) {
 			return false;
 		}
 	}
@@ -548,7 +548,9 @@ const Tile* Map::canWalkTo(const Creature& creature, const Position& pos) const
 	int32_t walkCache = creature.getWalkCache(pos);
 	if (walkCache == 0) {
 		return nullptr;
-	} else if (walkCache == 1) {
+	}
+
+	if (walkCache == 1) {
 		return getTile(pos.x, pos.y, pos.z);
 	}
 
@@ -845,7 +847,7 @@ int_fast32_t AStarNodes::getTileWalkCost(const Creature& creature, const Tile* t
 	if (const MagicField* field = tile->getFieldItem()) {
 		CombatType_t combatType = field->getCombatType();
 		const Monster* monster = creature.getMonster();
-		if (!creature.isImmune(combatType) && !creature.hasCondition(Combat::DamageToConditionType(combatType)) && (monster && !monster->canWalkOnFieldType(combatType))) {
+		if (!creature.isImmune(combatType) && !creature.hasCondition(Combat::DamageToConditionType(combatType)) && ((monster != nullptr) && !monster->canWalkOnFieldType(combatType))) {
 			cost += MAP_NORMALWALKCOST * 18;
 		}
 	}
@@ -877,7 +879,7 @@ QTreeLeafNode* QTreeNode::getLeaf(uint32_t x, uint32_t y)
 	}
 
 	QTreeNode* node = child[((x & 0x8000) >> 15) | ((y & 0x8000) >> 14)];
-	if (!node) {
+	if (node == nullptr) {
 		return nullptr;
 	}
 	return node->getLeaf(x << 1, y << 1);
@@ -887,7 +889,7 @@ QTreeLeafNode* QTreeNode::createLeaf(uint32_t x, uint32_t y, uint32_t level)
 {
 	if (!isLeaf()) {
 		uint32_t index = ((x & 0x8000) >> 15) | ((y & 0x8000) >> 14);
-		if (!child[index]) {
+		if (child[index] == nullptr) {
 			if (level != FLOOR_BITS) {
 				child[index] = new QTreeNode();
 			} else {
@@ -912,7 +914,7 @@ QTreeLeafNode::~QTreeLeafNode()
 
 Floor* QTreeLeafNode::createFloor(uint32_t z)
 {
-	if (!array[z]) {
+	if (array[z] == nullptr) {
 		array[z] = new Floor();
 	}
 	return array[z];
@@ -922,7 +924,7 @@ void QTreeLeafNode::addCreature(Creature* c)
 {
 	creature_list.push_back(c);
 
-	if (c->getPlayer()) {
+	if (c->getPlayer() != nullptr) {
 		player_list.push_back(c);
 	}
 }
@@ -934,7 +936,7 @@ void QTreeLeafNode::removeCreature(Creature* c)
 	*iter = creature_list.back();
 	creature_list.pop_back();
 
-	if (c->getPlayer()) {
+	if (c->getPlayer() != nullptr) {
 		iter = std::find(player_list.begin(), player_list.end(), c);
 		assert(iter != player_list.end());
 		*iter = player_list.back();

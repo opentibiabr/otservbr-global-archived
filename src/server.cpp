@@ -22,8 +22,8 @@
 #include "outputmessage.h"
 #include "server.h"
 #include "scheduler.h"
-#include "configmanager.h"
 #include "ban.h"
+#include "configmanager.h"
 
 extern ConfigManager g_config;
 Ban g_bans;

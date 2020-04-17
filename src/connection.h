@@ -1,6 +1,6 @@
 /**
  * @file connection.h
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -101,7 +101,7 @@ class Connection : public std::enable_shared_from_this<Connection>
 		void accept(Protocol_ptr protocol);
 		void accept();
 
-		void send(const OutputMessage_ptr& msg);
+		void send(const OutputMessage_ptr& conMsg);
 
 		uint32_t getIP();
 
@@ -114,7 +114,7 @@ class Connection : public std::enable_shared_from_this<Connection>
 		static void handleTimeout(ConnectionWeak_ptr connectionWeak, const boost::system::error_code& error);
 
 		void closeSocket();
-		void internalSend(const OutputMessage_ptr& msg);
+		void internalSend(const OutputMessage_ptr& conMsg);
 
 		boost::asio::ip::tcp::socket& getSocket() {
 			return socket;

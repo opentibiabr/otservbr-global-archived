@@ -35,7 +35,7 @@ class Player;
 class AccessList
 {
 	public:
-		void parseList(const std::string& list);
+		void parseList(const std::string& listToParse);
 		void addPlayer(const std::string& name);
 		void addGuild(const std::string& name);
 		void addGuildRank(const std::string& name, const std::string& guildName);
@@ -43,7 +43,7 @@ class AccessList
 
 		bool isInList(const Player* player);
 
-		void getList(std::string& list) const;
+		void getList(std::string& retList) const;
 
 	private:
 		std::string list;
@@ -92,7 +92,7 @@ class Door final : public Item
 		void onRemoved() override;
 
 	private:
-		void setHouse(House* house);
+		void setHouse(House* newHouse);
 
 		House* house = nullptr;
 		std::unique_ptr<AccessList> accessList;
@@ -208,7 +208,7 @@ class House
 
 		HouseTransferItem* getTransferItem();
 		void resetTransferItem();
-		bool executeTransfer(HouseTransferItem* item, Player* player);
+		bool executeTransfer(HouseTransferItem* item, Player* newOwner);
 
 		const HouseTileList& getTiles() const {
 			return houseTiles;

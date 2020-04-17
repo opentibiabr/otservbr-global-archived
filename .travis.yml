@@ -44,6 +44,7 @@ addons:
       - libgmp3-dev
       - clang-7
       - llvm-7-dev
+      - ccache
 
 before_script:
   - mkdir build && cd build

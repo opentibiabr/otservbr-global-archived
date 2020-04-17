@@ -60,10 +60,10 @@ class Guild
 			return ranks;
 		}
 
-		GuildRank_ptr getRankById(uint32_t id);
-		GuildRank_ptr getRankByName(const std::string& name) const;
+		GuildRank_ptr getRankById(uint32_t rankId);
+		GuildRank_ptr getRankByName(const std::string& guildName) const;
 		GuildRank_ptr getRankByLevel(uint8_t level) const;
-		void addRank(uint32_t id, const std::string& name, uint8_t level);
+		void addRank(uint32_t rankId, const std::string& rankName, uint8_t level);
 
 		const std::string& getMotd() const {
 			return motd;

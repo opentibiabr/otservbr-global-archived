@@ -91,7 +91,7 @@ bool CreatureEvents::registerLuaEvent(CreatureEvent* event)
 	}
 
 	CreatureEvent* oldEvent = getEventByName(creatureEvent->getName(), false);
-	if (oldEvent) {
+	if (oldEvent != nullptr) {
 		//if there was an event with the same that is not loaded
 		//(happens when realoading), it is reused
 		if (!oldEvent->isLoaded() && oldEvent->getEventType() == creatureEvent->getEventType()) {
@@ -99,11 +99,11 @@ bool CreatureEvents::registerLuaEvent(CreatureEvent* event)
 		}
 
 		return false;
-	} else {
+	} 
 		//if not, register it normally
 		creatureEvents.emplace(creatureEvent->getName(), std::move(*creatureEvent));
 		return true;
-	}
+	
 }
 
 CreatureEvent* CreatureEvents::getEventByName(const std::string& name, bool forceLoaded /*= true*/)
@@ -361,7 +361,7 @@ bool CreatureEvent::executeOnPrepareDeath(Creature* creature, Creature* killer)
 	LuaScriptInterface::pushUserdata<Creature>(L, creature);
 	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
 
-	if (killer) {
+	if (killer != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, killer);
 		LuaScriptInterface::setCreatureMetatable(L, -1, killer);
 	} else {
@@ -390,14 +390,14 @@ bool CreatureEvent::executeOnDeath(Creature* creature, Item* corpse, Creature* k
 
 	LuaScriptInterface::pushThing(L, corpse);
 
-	if (killer) {
+	if (killer != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, killer);
 		LuaScriptInterface::setCreatureMetatable(L, -1, killer);
 	} else {
 		lua_pushnil(L);
 	}
 
-	if (mostDamageKiller) {
+	if (mostDamageKiller != nullptr) {
 		LuaScriptInterface::pushUserdata<Creature>(L, mostDamageKiller);
 		LuaScriptInterface::setCreatureMetatable(L, -1, mostDamageKiller);
 	} else {
@@ -518,7 +518,7 @@ void CreatureEvent::executeHealthChange(Creature* creature, Creature* attacker, 
 
 	LuaScriptInterface::pushUserdata(L, creature);
 	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-	if (attacker) {
+	if (attacker != nullptr) {
 		LuaScriptInterface::pushUserdata(L, attacker);
 		LuaScriptInterface::setCreatureMetatable(L, -1, attacker);
 	} else {
@@ -560,7 +560,7 @@ void CreatureEvent::executeManaChange(Creature* creature, Creature* attacker, Co
 
 	LuaScriptInterface::pushUserdata(L, creature);
 	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
-	if (attacker) {
+	if (attacker != nullptr) {
 		LuaScriptInterface::pushUserdata(L, attacker);
 		LuaScriptInterface::setCreatureMetatable(L, -1, attacker);
 	} else {

@@ -267,7 +267,7 @@ class Combat
 		static bool isPlayerCombat(const Creature* target);
 		static CombatType_t ConditionToDamageType(ConditionType_t type);
 		static ConditionType_t DamageToConditionType(CombatType_t type);
-		static ReturnValue canTargetCreature(Player* attacker, Creature* target);
+		static ReturnValue canTargetCreature(Player* player, Creature* target);
 		static ReturnValue canDoCombat(Creature* caster, Tile* tile, bool aggressive);
 		static ReturnValue canDoCombat(Creature* attacker, Creature* target);
 		static void postCombatEffects(Creature* caster, const Position& pos, const CombatParams& params);
@@ -275,7 +275,7 @@ class Combat
 		static void addDistanceEffect(Creature* caster, const Position& fromPos, const Position& toPos, uint8_t effect);
 
 		void doCombat(Creature* caster, Creature* target) const;
-		void doCombat(Creature* caster, const Position& pos) const;
+		void doCombat(Creature* caster, const Position& position) const;
 
 		bool setCallback(CallBackParam_t key);
 		CallBack* getCallback(CallBackParam_t key);
@@ -290,7 +290,7 @@ class Combat
 		void addCondition(const Condition* condition) {
 			params.conditionList.emplace_front(condition);
 		}
-		void setPlayerCombatValues(formulaType_t formulaType, double mina, double minb, double maxa, double maxb);
+		void setPlayerCombatValues(formulaType_t newFormulaType, double newMina, double newMinb, double newMaxa, double newMaxb);
 		void postCombatEffects(Creature* caster, const Position& pos) const {
 			postCombatEffects(caster, pos, params);
 		}
@@ -305,7 +305,7 @@ class Combat
 		static void CombatFunc(Creature* caster, const Position& pos, const AreaCombat* area, const CombatParams& params, CombatFunction func, CombatDamage* data);
 
 		static void CombatHealthFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data);
-		static void CombatManaFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* damage);
+		static void CombatManaFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data);
 		static void CombatConditionFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data);
 		static void CombatDispelFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data);
 		static void CombatNullFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data);

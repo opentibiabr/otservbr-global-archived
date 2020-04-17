@@ -21,9 +21,9 @@
 
 #include "tile.h"
 #include "monster.h"
-#include "housetile.h"
-#include "house.h"
 #include "game.h"
+#include "house.h"
+#include "housetile.h"
 
 extern Game g_game;
 
@@ -34,7 +34,7 @@ void HouseTile::addThing(int32_t index, Thing* thing)
 {
 	Tile::addThing(index, thing);
 
-	if (!thing->getParent()) {
+	if (thing->getParent() == nullptr) {
 		return;
 	}
 
@@ -47,7 +47,7 @@ void HouseTile::internalAddThing(uint32_t index, Thing* thing)
 {
 	Tile::internalAddThing(index, thing);
 
-	if (!thing->getParent()) {
+	if (thing->getParent() == nullptr) {
 		return;
 	}
 
@@ -63,13 +63,13 @@ void HouseTile::updateHouse(Item* item)
 	}
 
 	Door* door = item->getDoor();
-	if (door) {
+	if (door != nullptr) {
 		if (door->getDoorId() != 0) {
 			house->addDoor(door);
 		}
 	} else {
 		BedItem* bed = item->getBed();
-		if (bed) {
+		if (bed != nullptr) {
 			house->addBed(bed);
 		}
 	}
@@ -88,16 +88,16 @@ ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t coun
 				if (!house->isInvited(monster->getMaster()->getPlayer())) {
 					return RETURNVALUE_NOTPOSSIBLE;
 				}
+
 				if (house->isInvited(monster->getMaster()->getPlayer()) && (hasFlag(TILESTATE_BLOCKSOLID) || (hasBitSet(FLAG_PATHFINDING, flags) && hasFlag(TILESTATE_NOFIELDBLOCKPATH)))) {
 					return RETURNVALUE_NOTPOSSIBLE;
-				} 
-				else {
-					return RETURNVALUE_NOERROR;
 				}
+
+				return RETURNVALUE_NOERROR;
 			}
 		}
 	}
-	else if (thing.getItem() && actor) {
+	else if ((thing.getItem() != nullptr) && (actor != nullptr)) {
 		Player* actorPlayer = actor->getPlayer();
 		if (!house->isInvited(actorPlayer)) {
 			return RETURNVALUE_CANNOTTHROW;
@@ -113,14 +113,14 @@ Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** des
 			if (!house->isInvited(player)) {
 				const Position& entryPos = house->getEntryPosition();
 				Tile* destTile = g_game.map.getTile(entryPos);
-				if (!destTile) {
+				if (destTile == nullptr) {
 					std::cout << "Error: [HouseTile::queryDestination] House entry not correct"
 						<< " - Name: " << house->getName()
 						<< " - House id: " << house->getId()
 						<< " - Tile not found: " << entryPos << std::endl;
 
 					destTile = g_game.map.getTile(player->getTemplePosition());
-					if (!destTile) {
+					if (destTile == nullptr) {
 						destTile = &(Tile::nullptr_tile);
 					}
 				}

@@ -23,7 +23,7 @@
 
 VirtualCylinder* VirtualCylinder::virtualCylinder = new VirtualCylinder;
 
-int32_t Cylinder::getThingIndex(const Thing*) const
+int32_t Cylinder::getThingIndex(const Thing* /*unused*/) const
 {
 	return -1;
 }
@@ -38,7 +38,7 @@ size_t Cylinder::getLastIndex() const
 	return 0;
 }
 
-uint32_t Cylinder::getItemTypeCount(uint16_t, int32_t) const
+uint32_t Cylinder::getItemTypeCount(uint16_t /*unused*/, int32_t /*unused*/) const
 {
 	return 0;
 }
@@ -53,12 +53,12 @@ Thing* Cylinder::getThing(size_t) const
 	return nullptr;
 }
 
-void Cylinder::internalAddThing(Thing*)
+void Cylinder::internalAddThing(Thing* /*unused*/)
 {
 	//
 }
 
-void Cylinder::internalAddThing(uint32_t, Thing*)
+void Cylinder::internalAddThing(uint32_t /*unused*/, Thing* /*unused*/)
 {
 	//
 }

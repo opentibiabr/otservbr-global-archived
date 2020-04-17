@@ -115,8 +115,8 @@ class MoveEvent final : public Event
 		bool loadFunction(const pugi::xml_attribute& attr, bool isScripted) override;
 
 		uint32_t fireStepEvent(Creature* creature, Item* item, const Position& pos);
-		uint32_t fireAddRemItem(Item* item, Item* tileItem, const Position& pos);
-		uint32_t fireEquip(Player* player, Item* item, slots_t slot, bool isCheck);
+		uint32_t fireAddRemItem(Item* item, Item* fromTile, const Position& pos);
+		uint32_t fireEquip(Player* player, Item* item, slots_t toSlot, bool isCheck);
 
 		uint32_t getSlot() const {
 			return slot;
@@ -124,8 +124,8 @@ class MoveEvent final : public Event
 
 		//scripting
 		bool executeStep(Creature* creature, Item* item, const Position& pos);
-		bool executeEquip(Player* player, Item* item, slots_t slot, bool isCheck);
-		bool executeAddRemItem(Item* item, Item* tileItem, const Position& pos);
+		bool executeEquip(Player* player, Item* item, slots_t onSlot, bool isCheck);
+		bool executeAddRemItem(Item* item, Item* fromTile, const Position& pos);
 		//
 
 		//onEquip information
@@ -226,7 +226,7 @@ class MoveEvent final : public Event
 		static uint32_t AddItemField(Item* item, Item* tileItem, const Position& pos);
 		static uint32_t RemoveItemField(Item* item, Item* tileItem, const Position& pos);
 
-		static uint32_t EquipItem(MoveEvent* moveEvent, Player* player, Item* item, slots_t slot, bool boolean);
+		static uint32_t EquipItem(MoveEvent* moveEvent, Player* player, Item* item, slots_t slot, bool isCheck);
 		static uint32_t DeEquipItem(MoveEvent* moveEvent, Player* player, Item* item, slots_t slot, bool boolean);
 
 		MoveEvent_t eventType = MOVE_EVENT_NONE;

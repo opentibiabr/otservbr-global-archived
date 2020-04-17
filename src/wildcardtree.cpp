@@ -44,7 +44,7 @@ const WildcardTreeNode* WildcardTreeNode::getChild(char ch) const
 WildcardTreeNode* WildcardTreeNode::addChild(char ch, bool breakp)
 {
 	WildcardTreeNode* child = getChild(ch);
-	if (child) {
+	if (child != nullptr) {
 		if (breakp && !child->breakpoint) {
 			child->breakpoint = true;
 		}
@@ -77,7 +77,7 @@ void WildcardTreeNode::remove(const std::string& str)
 	size_t len = str.length();
 	for (size_t pos = 0; pos < len; ++pos) {
 		cur = cur->getChild(str[pos]);
-		if (!cur) {
+		if (cur == nullptr) {
 			return;
 		}
 		path.push(cur);
@@ -118,7 +118,9 @@ ReturnValue WildcardTreeNode::findOne(const std::string& query, std::string& res
 		size_t size = cur->children.size();
 		if (size == 0) {
 			return RETURNVALUE_NOERROR;
-		} else if (size > 1 || cur->breakpoint) {
+		}
+
+		if (size > 1 || cur->breakpoint) {
 			return RETURNVALUE_NAMEISTOOAMBIGUOUS;
 		}
 

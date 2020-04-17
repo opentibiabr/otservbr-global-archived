@@ -545,8 +545,8 @@ bool Action::configureEvent(const pugi::xml_node& node)
 
 namespace {
 
-bool enterMarket(Player* player, Item*, const Position&, Thing*,
-														const Position&, bool) {
+bool enterMarket(Player* player, Item* /*unused*/, const Position& /*unused*/, Thing* /*unused*/,
+														const Position& /*unused*/, bool /*unused*/) {
 	if (player->getLastDepotId() == -1) {
 		return false;
 	}
@@ -555,8 +555,8 @@ bool enterMarket(Player* player, Item*, const Position&, Thing*,
 	return true;
 }
 
-bool useImbueShrine(Player* player, Item*, const Position&, Thing* target,
-												const Position& toPos, bool) {
+bool useImbueShrine(Player* player, Item* /*unused*/, const Position& /*unused*/, Thing* target,
+												const Position& toPos, bool /*unused*/) {
 	Item* item = target != nullptr ? target->getItem() : nullptr;
 	if (item == nullptr) {
 		player->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");

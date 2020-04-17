@@ -74,13 +74,13 @@ class NpcScriptInterface final : public LuaScriptInterface
 class NpcEventsHandler
 {
 	public:
-		NpcEventsHandler(const std::string& file, Npc* npc);
+		NpcEventsHandler(const std::string& file, Npc* npcEvent);
 
 		void onCreatureAppear(Creature* creature);
 		void onCreatureDisappear(Creature* creature);
 		void onCreatureMove(Creature* creature, const Position& oldPos, const Position& newPos);
 		void onCreatureSay(Creature* creature, SpeakClasses, const std::string& text);
-		void onPlayerTrade(Player* player, int32_t callback, uint16_t itemId, uint8_t count, uint8_t amount, bool ignore = false, bool inBackpacks = false);
+		void onPlayerTrade(Player* player, int32_t callback, uint16_t itemid, uint8_t count, uint8_t amount, bool ignore = false, bool inBackpacks = false);
 		void onPlayerCloseChannel(Player* player);
 		void onPlayerEndTrade(Player* player);
 		void onThink();
@@ -158,7 +158,7 @@ class Npc final : public Creature
 		void doSay(const std::string& text);
 		void doSayToPlayer(Player* player, const std::string& text);
 
-		void doMoveTo(const Position& pos);
+		void doMoveTo(const Position& target);
 
 		int32_t getMasterRadius() const {
 			return masterRadius;
@@ -186,7 +186,7 @@ class Npc final : public Creature
 		static uint32_t npcAutoID;
 
 	private:
-		explicit Npc(const std::string& name);
+		explicit Npc(const std::string& initName);
 
 		void onCreatureAppear(Creature* creature, bool isLogin) override;
 		void onRemoveCreature(Creature* creature, bool isLogout) override;

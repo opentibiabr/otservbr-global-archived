@@ -67,7 +67,7 @@ class ProtocolGame final : public Protocol
 
 		explicit ProtocolGame(Connection_ptr initConnection) : Protocol(initConnection) {}
 
-		void login(const std::string& name, uint32_t accnumber, OperatingSystem_t operatingSystem);
+		void login(const std::string& name, uint32_t accountId, OperatingSystem_t operatingSystem);
 		void logout(bool displayEffect, bool forced);
 
 		void AddItem(NetworkMessage& msg, const Item* item);
@@ -173,7 +173,7 @@ class ProtocolGame final : public Protocol
 		void parseCloseChannel(NetworkMessage& msg);
 
 		//Store methods
-		void parseStoreOpen(NetworkMessage &message);
+		void parseStoreOpen(NetworkMessage &msg);
 		void parseStoreRequestOffers(NetworkMessage &message);
 		void parseStoreBuyOffer(NetworkMessage &message);
 		void parseCoinTransfer(NetworkMessage &msg);
@@ -203,7 +203,7 @@ class ProtocolGame final : public Protocol
 		void sendSkills();
 		void sendPing();
 		void sendPingBack();
-		void sendCreatureTurn(const Creature* creature, uint32_t stackpos);
+		void sendCreatureTurn(const Creature* creature, uint32_t stackPos);
 		void sendCreatureSay(const Creature* creature, SpeakClasses type, const std::string& text, const Position* pos = nullptr);
 
 		// Unjust Panel

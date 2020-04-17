@@ -118,7 +118,7 @@ class ScriptEnvironment
 			this->scriptId = newScriptId;
 			this->interface = newScriptInterface;
 		}
-		bool setCallbackId(int32_t callbackId, LuaScriptInterface* scriptInterface);
+		bool setCallbackId(int32_t newCallbackId, LuaScriptInterface* scriptInterface);
 
 		int32_t getScriptId() const {
 			return scriptId;
@@ -131,7 +131,7 @@ class ScriptEnvironment
 			timerEvent = true;
 		}
 
-		void getEventInfo(int32_t& scriptId, LuaScriptInterface*& scriptInterface, int32_t& callbackId, bool& timerEvent) const;
+		void getEventInfo(int32_t& retScriptId, LuaScriptInterface*& retScriptInterface, int32_t& retCallbackId, bool& retTimerEvent) const;
 
 		void addTempItem(Item* item);
 		static void removeTempItem(Item* item);
@@ -202,7 +202,7 @@ enum ErrorCode_t {
 class LuaScriptInterface
 {
 	public:
-		explicit LuaScriptInterface(std::string interfaceName);
+		explicit LuaScriptInterface(std::string initInterfaceName);
 		virtual ~LuaScriptInterface();
 
 		// non-copyable

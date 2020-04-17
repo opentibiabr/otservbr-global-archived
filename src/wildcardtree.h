@@ -34,7 +34,7 @@ class WildcardTreeNode
 
 		WildcardTreeNode* getChild(char ch);
 		const WildcardTreeNode* getChild(char ch) const;
-		WildcardTreeNode* addChild(char ch, bool breakpoint);
+		WildcardTreeNode* addChild(char ch, bool breakp);
 
 		void insert(const std::string& str);
 		void remove(const std::string& str);

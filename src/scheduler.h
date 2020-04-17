@@ -62,7 +62,7 @@ class Scheduler : public ThreadHolder<Scheduler>
 {
 	public:
 		uint32_t addEvent(SchedulerTask* task);
-		bool stopEvent(uint32_t eventId);
+		bool stopEvent(uint32_t eventid);
 
 		void shutdown();
 

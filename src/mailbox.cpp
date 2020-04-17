@@ -25,27 +25,27 @@
 
 extern Game g_game;
 
-ReturnValue Mailbox::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t, Creature*) const
+ReturnValue Mailbox::queryAdd(int32_t /*index*/, const Thing& thing, uint32_t /*count*/, uint32_t /*flags*/, Creature* /*actor*/) const
 {
 	const Item* item = thing.getItem();
-	if (item && Mailbox::canSend(item)) {
+	if ((item != nullptr) && Mailbox::canSend(item)) {
 		return RETURNVALUE_NOERROR;
 	}
 	return RETURNVALUE_NOTPOSSIBLE;
 }
 
-ReturnValue Mailbox::queryMaxCount(int32_t, const Thing&, uint32_t count, uint32_t& maxQueryCount, uint32_t) const
+ReturnValue Mailbox::queryMaxCount(int32_t /*index*/, const Thing& /*thing*/, uint32_t count, uint32_t& maxQueryCount, uint32_t /*flags*/) const
 {
 	maxQueryCount = std::max<uint32_t>(1, count);
 	return RETURNVALUE_NOERROR;
 }
 
-ReturnValue Mailbox::queryRemove(const Thing&, uint32_t, uint32_t) const
+ReturnValue Mailbox::queryRemove(const Thing& /*thing*/, uint32_t /*count*/, uint32_t /*flags*/) const
 {
 	return RETURNVALUE_NOTPOSSIBLE;
 }
 
-Cylinder* Mailbox::queryDestination(int32_t&, const Thing&, Item**, uint32_t&)
+Cylinder* Mailbox::queryDestination(int32_t& /*index*/, const Thing& /*thing*/, Item** /*destItem*/, uint32_t& /*flags*/)
 {
 	return this;
 }
@@ -55,35 +55,35 @@ void Mailbox::addThing(Thing* thing)
 	return addThing(0, thing);
 }
 
-void Mailbox::addThing(int32_t, Thing* thing)
+void Mailbox::addThing(int32_t /*index*/, Thing* thing)
 {
 	Item* item = thing->getItem();
-	if (item && Mailbox::canSend(item)) {
+	if ((item != nullptr) && Mailbox::canSend(item)) {
 		sendItem(item);
 	}
 }
 
-void Mailbox::updateThing(Thing*, uint16_t, uint32_t)
+void Mailbox::updateThing(Thing* /*thing*/, uint16_t /*itemId*/, uint32_t /*count*/)
 {
 	//
 }
 
-void Mailbox::replaceThing(uint32_t, Thing*)
+void Mailbox::replaceThing(uint32_t /*index*/, Thing* /*thing*/)
 {
 	//
 }
 
-void Mailbox::removeThing(Thing*, uint32_t)
+void Mailbox::removeThing(Thing* /*thing*/, uint32_t /*count*/)
 {
 	//
 }
 
-void Mailbox::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
+void Mailbox::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t /*link*/)
 {
 	getParent()->postAddNotification(thing, oldParent, index, LINK_PARENT);
 }
 
-void Mailbox::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t)
+void Mailbox::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t /*link*/)
 {
 	getParent()->postRemoveNotification(thing, newParent, index, LINK_PARENT);
 }
@@ -101,7 +101,7 @@ bool Mailbox::sendItem(Item* item) const
 	}
 
 	Player* player = g_game.getPlayerByName(receiver);
-	if (player) {
+	if (player != nullptr) {
 		if (g_game.internalMoveItem(item->getParent(), player->getInbox(), INDEX_WHEREEVER,
 		                            item, item->getItemCount(), nullptr, FLAG_NOLIMIT) == RETURNVALUE_NOERROR) {
 			g_game.transformItem(item, item->getID() + 1);
@@ -127,7 +127,7 @@ bool Mailbox::sendItem(Item* item) const
 bool Mailbox::getReceiver(Item* item, std::string& name) const
 {
 	const Container* container = item->getContainer();
-	if (container) {
+	if (container != nullptr) {
 		for (Item* containerItem : container->getItemList()) {
 			if (containerItem->getID() == ITEM_LABEL && getReceiver(containerItem, name)) {
 				return true;

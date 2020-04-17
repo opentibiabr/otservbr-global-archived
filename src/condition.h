@@ -20,7 +20,7 @@
 #ifndef FS_CONDITION_H_F92FF8BDDD5B4EA59E2B1BB5C9C0A086
 #define FS_CONDITION_H_F92FF8BDDD5B4EA59E2B1BB5C9C0A086
 
-#include <list>  
+#include <list>
 
 #include "fileloader.h"
 #include "enums.h"
@@ -134,7 +134,7 @@ class ConditionGeneric : public Condition
 		bool startCondition(Creature* creature) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 		void endCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* condition) override;
+		void addCondition(Creature* creature, const Condition* addCondition) override;
 		uint32_t getIcons() const override;
 
 		ConditionGeneric* clone() const override {
@@ -151,7 +151,7 @@ class ConditionAttributes final : public ConditionGeneric
 		bool startCondition(Creature* creature) final;
 		bool executeCondition(Creature* creature, int32_t interval) final;
 		void endCondition(Creature* creature) final;
-		void addCondition(Creature* creature, const Condition* condition) final;
+		void addCondition(Creature* creature, const Condition* addCondition) final;
 
 		bool setParam(ConditionParam_t param, int32_t value) final;
 
@@ -259,7 +259,7 @@ class ConditionDamage final : public Condition
 		bool startCondition(Creature* creature) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 		void endCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* condition) override;
+		void addCondition(Creature* creature, const Condition* addCondition) override;
 		uint32_t getIcons() const override;
 
 		ConditionDamage* clone() const override {
@@ -310,7 +310,7 @@ class ConditionSpeed final : public Condition
 		bool startCondition(Creature* creature) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 		void endCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* condition) override;
+		void addCondition(Creature* creature, const Condition* addCondition) override;
 		uint32_t getIcons() const override;
 
 		ConditionSpeed* clone() const override {
@@ -319,7 +319,7 @@ class ConditionSpeed final : public Condition
 
 		bool setParam(ConditionParam_t param, int32_t value) override;
 
-		void setFormulaVars(float mina, float minb, float maxa, float maxb);
+		void setFormulaVars(float NewMina, float NewMinb, float NewMaxa, float NewMaxb);
 
 		//serialization
 		void serialize(PropWriteStream& propWriteStream) override;
@@ -346,13 +346,13 @@ class ConditionOutfit final : public Condition
 		bool startCondition(Creature* creature) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 		void endCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* condition) override;
+		void addCondition(Creature* creature, const Condition* addCondition) override;
 
 		ConditionOutfit* clone() const override {
 			return new ConditionOutfit(*this);
 		}
 
-		void setOutfit(const Outfit_t& outfit);
+		void setOutfit(const Outfit_t& newOutfit);
 
 		//serialization
 		void serialize(PropWriteStream& propWriteStream) override;
@@ -371,7 +371,7 @@ class ConditionLight final : public Condition
 		bool startCondition(Creature* creature) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 		void endCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* addCondition) override;
+		void addCondition(Creature* creature, const Condition* condition) override;
 
 		ConditionLight* clone() const override {
 			return new ConditionLight(*this);
@@ -396,7 +396,7 @@ class ConditionSpellCooldown final : public ConditionGeneric
 			ConditionGeneric(initId, initType, initTicks, initBuff, initSubId) {}
 
 		bool startCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* condition) override;
+		void addCondition(Creature* creature, const Condition* addCondition) override;
 
 		ConditionSpellCooldown* clone() const override {
 			return new ConditionSpellCooldown(*this);
@@ -410,7 +410,7 @@ class ConditionSpellGroupCooldown final : public ConditionGeneric
 			ConditionGeneric(initId, initType, initTicks, initBuff, initSubId) {}
 
 		bool startCondition(Creature* creature) override;
-		void addCondition(Creature* creature, const Condition* condition) override;
+		void addCondition(Creature* creature, const Condition* addCondition) override;
 
 		ConditionSpellGroupCooldown* clone() const override {
 			return new ConditionSpellGroupCooldown(*this);

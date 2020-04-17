@@ -29,7 +29,7 @@ void printXMLError(const std::string& where, const std::string& fileName, const 
 	std::cout << '[' << where << "] Failed to load " << fileName << ": " << result.description() << std::endl;
 
 	FILE* file = fopen(fileName.c_str(), "rb");
-	if (!file) {
+	if (file == nullptr) {
 		return;
 	}
 
@@ -306,9 +306,12 @@ int32_t uniform_random(int32_t minNumber, int32_t maxNumber)
 	static std::uniform_int_distribution<int32_t> uniformRand;
 	if (minNumber == maxNumber) {
 		return minNumber;
-	} else if (minNumber > maxNumber) {
+	}
+
+	if (minNumber > maxNumber) {
 		std::swap(minNumber, maxNumber);
 	}
+
 	return uniformRand(getRandomGenerator(), std::uniform_int_distribution<int32_t>::param_type(minNumber, maxNumber));
 }
 
@@ -317,7 +320,9 @@ int32_t normal_random(int32_t minNumber, int32_t maxNumber)
 	static std::normal_distribution<float> normalRand(0.5f, 0.25f);
 	if (minNumber == maxNumber) {
 		return minNumber;
-	} else if (minNumber > maxNumber) {
+	}
+
+	if (minNumber > maxNumber) {
 		std::swap(minNumber, maxNumber);
 	}
 
@@ -361,7 +366,7 @@ std::string convertIPToString(uint32_t ip)
 std::string formatDate(time_t time)
 {
 	const tm* tms = localtime(&time);
-	if (!tms) {
+	if (tms == nullptr) {
 		return {};
 	}
 
@@ -376,7 +381,7 @@ std::string formatDate(time_t time)
 std::string formatDateShort(time_t time)
 {
 	const tm* tms = localtime(&time);
-	if (!tms) {
+	if (tms == nullptr) {
 		return {};
 	}
 
@@ -671,7 +676,7 @@ ShootTypeNames shootTypeNames = {
 };
 
 CombatTypeNames combatTypeNames = {
-	
+
 	{COMBAT_DROWNDAMAGE, 		"drown"},
 	{COMBAT_DEATHDAMAGE, 		"death"},
 	{COMBAT_ENERGYDAMAGE, 		"energy"},
@@ -1002,49 +1007,71 @@ itemAttrTypes stringToItemAttribute(const std::string& str)
 {
 	if (str == "aid") {
 		return ITEM_ATTRIBUTE_ACTIONID;
-	} else if (str == "uid") {
+	}
+	if (str == "uid") {
 		return ITEM_ATTRIBUTE_UNIQUEID;
-	} else if (str == "description") {
+	}
+	if (str == "description") {
 		return ITEM_ATTRIBUTE_DESCRIPTION;
-	} else if (str == "text") {
+	}
+	if (str == "text") {
 		return ITEM_ATTRIBUTE_TEXT;
-	} else if (str == "date") {
+	}
+	if (str == "date") {
 		return ITEM_ATTRIBUTE_DATE;
-	} else if (str == "writer") {
+	}
+	if (str == "writer") {
 		return ITEM_ATTRIBUTE_WRITER;
-	} else if (str == "name") {
+	}
+	if (str == "name") {
 		return ITEM_ATTRIBUTE_NAME;
-	} else if (str == "article") {
+	}
+	if (str == "article") {
 		return ITEM_ATTRIBUTE_ARTICLE;
-	} else if (str == "pluralname") {
+	}
+	if (str == "pluralname") {
 		return ITEM_ATTRIBUTE_PLURALNAME;
-	} else if (str == "weight") {
+	}
+	if (str == "weight") {
 		return ITEM_ATTRIBUTE_WEIGHT;
-	} else if (str == "attack") {
+	}
+	if (str == "attack") {
 		return ITEM_ATTRIBUTE_ATTACK;
-	} else if (str == "defense") {
+	}
+	if (str == "defense") {
 		return ITEM_ATTRIBUTE_DEFENSE;
-	} else if (str == "extradefense") {
+	}
+	if (str == "extradefense") {
 		return ITEM_ATTRIBUTE_EXTRADEFENSE;
-	} else if (str == "armor") {
+	}
+	if (str == "armor") {
 		return ITEM_ATTRIBUTE_ARMOR;
-	} else if (str == "hitchance") {
+	}
+	if (str == "hitchance") {
 		return ITEM_ATTRIBUTE_HITCHANCE;
-	} else if (str == "shootrange") {
+	}
+	if (str == "shootrange") {
 		return ITEM_ATTRIBUTE_SHOOTRANGE;
-	} else if (str == "owner") {
+	}
+	if (str == "owner") {
 		return ITEM_ATTRIBUTE_OWNER;
-	} else if (str == "duration") {
+	}
+	if (str == "duration") {
 		return ITEM_ATTRIBUTE_DURATION;
-	} else if (str == "decaystate") {
+	}
+	if (str == "decaystate") {
 		return ITEM_ATTRIBUTE_DECAYSTATE;
-	} else if (str == "corpseowner") {
+	}
+	if (str == "corpseowner") {
 		return ITEM_ATTRIBUTE_CORPSEOWNER;
-	} else if (str == "charges") {
+	}
+	if (str == "charges") {
 		return ITEM_ATTRIBUTE_CHARGES;
-	} else if (str == "fluidtype") {
+	}
+	if (str == "fluidtype") {
 		return ITEM_ATTRIBUTE_FLUIDTYPE;
-	} else if (str == "doorid") {
+	}
+	if (str == "doorid") {
 		return ITEM_ATTRIBUTE_DOORID;
 	}
 	return ITEM_ATTRIBUTE_NONE;
@@ -1310,11 +1337,17 @@ SpellGroup_t stringToSpellGroup(std::string value)
 	std::string tmpStr = asLowerCaseString(value);
 	if (tmpStr == "attack" || tmpStr == "1") {
 		return SPELLGROUP_ATTACK;
-	} else if (tmpStr == "healing" || tmpStr == "2") {
+	}
+
+	if (tmpStr == "healing" || tmpStr == "2") {
 		return SPELLGROUP_HEALING;
-	} else if (tmpStr == "support" || tmpStr == "3") {
+	}
+
+	if (tmpStr == "support" || tmpStr == "3") {
 		return SPELLGROUP_SUPPORT;
-	} else if (tmpStr == "special" || tmpStr == "4") {
+	}
+
+	if (tmpStr == "special" || tmpStr == "4") {
 		return SPELLGROUP_SPECIAL;
 	}
 
@@ -1368,7 +1401,7 @@ NameEval_t validateName(const std::string &name)
 }
 bool isCaskItem(uint16_t itemId)
 {
-	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) || 
-		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) || 
+	return (itemId >= ITEM_HEALTH_CASK_START && itemId <= ITEM_HEALTH_CASK_END) ||
+		(itemId >= ITEM_MANA_CASK_START && itemId <= ITEM_MANA_CASK_END) ||
 		(itemId >= ITEM_SPIRIT_CASK_START && itemId <= ITEM_SPIRIT_CASK_END);
 }

@@ -42,7 +42,7 @@ Container::Container(uint16_t initType, uint16_t initSize, bool initUnlocked /*=
 Container::Container(Tile* tile) : Container(ITEM_BROWSEFIELD, 30, false, true)
 {
 	TileItemVector* itemVector = tile->getItemList();
-	if (itemVector) {
+	if (itemVector != nullptr) {
 		for (Item* item : *itemVector) {
 			if (((item->getContainer() || item->hasProperty(CONST_PROP_MOVEABLE)) || (item->isWrapable() && !item->hasProperty(CONST_PROP_MOVEABLE) && !item->hasProperty(CONST_PROP_BLOCKPATH))) && !item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 				itemlist.push_front(item);
@@ -83,7 +83,7 @@ Item* Container::clone() const
 Container* Container::getParentContainer()
 {
 	Thing* thing = getParent();
-	if (!thing) {
+	if (thing == nullptr) {
 		return nullptr;
 	}
 	return thing->getContainer();
@@ -93,11 +93,11 @@ Container* Container::getTopParentContainer() const
 {
 	Thing* thing = getParent();
 	Thing* prevThing = const_cast<Container*>(this);
-	if (!thing) {
+	if (thing == nullptr) {
 		return prevThing->getContainer();
 	}
 
-	while (thing->getParent() != nullptr && thing->getParent()->getContainer()) {
+	while (thing->getParent() != nullptr && (thing->getParent()->getContainer() != nullptr)) {
 		prevThing = thing;
 		thing = thing->getParent();
 	}
@@ -192,7 +192,7 @@ std::ostringstream& Container::getContentDescription(std::ostringstream& os) con
 		Item* item = *it;
 
 		Container* container = item->getContainer();
-		if (container && !container->empty()) {
+		if ((container != nullptr) && !container->empty()) {
 			continue;
 		}
 
@@ -326,12 +326,12 @@ ReturnValue Container::queryAdd(int32_t addIndex, const Thing& addThing, uint32_
 
 	const Cylinder* cylinder = getParent();
 	if (!hasBitSet(FLAG_NOLIMIT, flags)) {
-		while (cylinder) {
+		while (cylinder != nullptr) {
 			if (cylinder == &addThing) {
 				return RETURNVALUE_THISISIMPOSSIBLE;
 			}
 
-			if (dynamic_cast<const Inbox*>(cylinder)) {
+			if (dynamic_cast<const Inbox*>(cylinder) != nullptr) {
 				return RETURNVALUE_CONTAINERNOTENOUGHROOM;
 			}
 
@@ -342,7 +342,7 @@ ReturnValue Container::queryAdd(int32_t addIndex, const Thing& addThing, uint32_
 			return RETURNVALUE_CONTAINERNOTENOUGHROOM;
 		}
 	} else {
-		while (cylinder) {
+		while (cylinder != nullptr) {
 			if (cylinder == &addThing) {
 				return RETURNVALUE_THISISIMPOSSIBLE;
 			}
@@ -467,7 +467,7 @@ Cylinder* Container::queryDestination(int32_t& index, const Thing &thing, Item**
 		*destItem = nullptr;
 
 		Container* parentContainer = dynamic_cast<Container*>(getParent());
-		if (parentContainer) {
+		if (parentContainer != nullptr) {
 			return parentContainer;
 		}
 		return this;
@@ -489,18 +489,18 @@ Cylinder* Container::queryDestination(int32_t& index, const Thing &thing, Item**
 	}
 
 	const Item* item = thing.getItem();
-	if (!item) {
+	if (item == nullptr) {
 		return this;
 	}
 
 	if (index != INDEX_WHEREEVER) {
 		Item* itemFromIndex = getItemByIndex(index);
-		if (itemFromIndex) {
+		if (itemFromIndex != nullptr) {
 			*destItem = itemFromIndex;
 		}
 
 		Cylinder* subCylinder = dynamic_cast<Cylinder*>(*destItem);
-		if (subCylinder) {
+		if (subCylinder != nullptr) {
 			index = INDEX_WHEREEVER;
 			*destItem = nullptr;
 			return subCylinder;
@@ -586,12 +586,12 @@ void Container::updateThing(Thing* thing, uint16_t itemId, uint32_t count)
 void Container::replaceThing(uint32_t index, Thing* thing)
 {
 	Item* item = thing->getItem();
-	if (!item) {
+	if (item == nullptr) {
 		return /*RETURNVALUE_NOTPOSSIBLE*/;
 	}
 
 	Item* replacedItem = getItemByIndex(index);
-	if (!replacedItem) {
+	if (replacedItem == nullptr) {
 		return /*RETURNVALUE_NOTPOSSIBLE*/;
 	}
 
@@ -688,14 +688,14 @@ Thing* Container::getThing(size_t index) const
 	return getItemByIndex(index);
 }
 
-void Container::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
+void Container::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t /*link*/)
 {
 	Cylinder* topParent = getTopParent();
-	if (topParent->getCreature()) {
+	if (topParent->getCreature() != nullptr) {
 		topParent->postAddNotification(thing, oldParent, index, LINK_TOPPARENT);
 	} else if (topParent == this) {
 		//let the tile class notify surrounding players
-		if (topParent->getParent()) {
+		if (topParent->getParent() != nullptr) {
 			topParent->getParent()->postAddNotification(thing, oldParent, index, LINK_NEAR);
 		}
 	} else {
@@ -703,14 +703,14 @@ void Container::postAddNotification(Thing* thing, const Cylinder* oldParent, int
 	}
 }
 
-void Container::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t)
+void Container::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t /*link*/)
 {
 	Cylinder* topParent = getTopParent();
-	if (topParent->getCreature()) {
+	if (topParent->getCreature() != nullptr) {
 		topParent->postRemoveNotification(thing, newParent, index, LINK_TOPPARENT);
 	} else if (topParent == this) {
 		//let the tile class notify surrounding players
-		if (topParent->getParent()) {
+		if (topParent->getParent() != nullptr) {
 			topParent->getParent()->postRemoveNotification(thing, newParent, index, LINK_NEAR);
 		}
 	} else {
@@ -723,7 +723,7 @@ void Container::internalAddThing(Thing* thing)
 	internalAddThing(0, thing);
 }
 
-void Container::internalAddThing(uint32_t, Thing* thing)
+void Container::internalAddThing(uint32_t /*index*/, Thing* thing)
 {
 	Item* item = thing->getItem();
 	if (item == nullptr) {

@@ -24,8 +24,8 @@
 #include "house.h"
 #include "iologindata.h"
 #include "game.h"
-#include "configmanager.h"
 #include "bed.h"
+#include "configmanager.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -56,7 +56,7 @@ void House::setOwner(uint32_t guid, bool updateDatabase/* = true*/, Player* play
 
 	if (owner != 0) {
 		//send items to depot
-		if (player) {
+		if (player != nullptr) {
 			transferToDepot(player);
 		} else {
 			transferToDepot();
@@ -137,7 +137,7 @@ void House::updateDoorDescription() const
 
 AccessHouseLevel_t House::getHouseAccessLevel(const Player* player)
 {
-	if (!player) {
+	if (player == nullptr) {
 		return HOUSE_OWNER;
 	}
 
@@ -162,12 +162,12 @@ AccessHouseLevel_t House::getHouseAccessLevel(const Player* player)
 
 bool House::kickPlayer(Player* player, Player* target)
 {
-	if (!target) {
+	if (target == nullptr) {
 		return false;
 	}
 
 	HouseTile* houseTile = dynamic_cast<HouseTile*>(target->getTile());
-	if (!houseTile || houseTile->getHouse() != this) {
+	if ((houseTile == nullptr) || houseTile->getHouse() != this) {
 		return false;
 	}
 
@@ -191,7 +191,7 @@ void House::setAccessList(uint32_t listId, const std::string& textlist)
 		subOwnerList.parseList(textlist);
 	} else {
 		Door* door = getDoorByNumber(listId);
-		if (door) {
+		if (door != nullptr) {
 			door->setAccessList(textlist);
 		}
 
@@ -219,7 +219,7 @@ bool House::transferToDepot() const
 	}
 
 	Player* player = g_game.getPlayerByGUID(owner);
-	if (player) {
+	if (player != nullptr) {
 		transferToDepot(player);
 	} else {
 		Player tmpPlayer(nullptr);
@@ -319,13 +319,15 @@ bool House::getAccessList(uint32_t listId, std::string& list) const
 	if (listId == GUEST_LIST) {
 		guestList.getList(list);
 		return true;
-	} else if (listId == SUBOWNER_LIST) {
+	}
+
+	if (listId == SUBOWNER_LIST) {
 		subOwnerList.getList(list);
 		return true;
 	}
 
 	Door* door = getDoorByNumber(listId);
-	if (!door) {
+	if (door == nullptr) {
 		return false;
 	}
 
@@ -408,7 +410,7 @@ HouseTransferItem* House::getTransferItem()
 
 void House::resetTransferItem()
 {
-	if (transferItem) {
+	if (transferItem != nullptr) {
 		Item* tmpItem = transferItem;
 		transferItem = nullptr;
 		transfer_container.setParent(nullptr);
@@ -433,13 +435,13 @@ HouseTransferItem* HouseTransferItem::createHouseTransferItem(House* house)
 void HouseTransferItem::onTradeEvent(TradeEvents_t event, Player* owner)
 {
 	if (event == ON_TRADE_TRANSFER) {
-		if (house) {
+		if (house != nullptr) {
 			house->executeTransfer(this, owner);
 		}
 
 		g_game.internalRemoveItem(this, 1);
 	} else if (event == ON_TRADE_CANCEL) {
-		if (house) {
+		if (house != nullptr) {
 			house->resetTransferItem();
 		}
 	}
@@ -500,7 +502,7 @@ void AccessList::parseList(const std::string& listToParse)
 void AccessList::addPlayer(const std::string& name)
 {
 	Player* player = g_game.getPlayerByName(name);
-	if (player) {
+	if (player != nullptr) {
 		playerList.insert(player->getGUID());
 	} else {
 		uint32_t guid = IOLoginData::getGuidByName(name);
@@ -520,19 +522,19 @@ const Guild* getGuildByName(const std::string& name)
 	}
 
 	const Guild* guild = g_game.getGuild(guildId);
-	if (guild) {
+	if (guild != nullptr) {
 		return guild;
 	}
 
 	return IOGuild::loadGuild(guildId);
 }
 
-}
+}  // namespace
 
 void AccessList::addGuild(const std::string& name)
 {
 	const Guild* guild = getGuildByName(name);
-	if (guild) {
+	if (guild != nullptr) {
 		for (const auto& rank : guild->getRanks()) {
 			guildRankList.insert(rank->id);
 		}
@@ -542,7 +544,7 @@ void AccessList::addGuild(const std::string& name)
 void AccessList::addGuildRank(const std::string& name, const std::string& guildName)
 {
 	const Guild* guild = getGuildByName(guildName);
-	if (guild) {
+	if (guild != nullptr) {
 		const GuildRank_ptr rank = guild->getRankByName(name);
 		if (rank) {
 			guildRankList.insert(rank->id);
@@ -641,7 +643,7 @@ void Door::setHouse(House* newHouse)
 
 bool Door::canUse(const Player* player)
 {
-	if (!house) {
+	if (house == nullptr) {
 		return true;
 	}
 
@@ -675,7 +677,7 @@ void Door::onRemoved()
 {
 	Item::onRemoved();
 
-	if (house) {
+	if (house != nullptr) {
 		house->removeDoor(this);
 	}
 }

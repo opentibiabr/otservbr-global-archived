@@ -27,8 +27,8 @@
 
 #include "player.h"
 
-#include "configmanager.h"
 #include "actions.h"
+#include "configmanager.h"
 #include "game.h"
 #include "iologindata.h"
 #include "iomarket.h"
@@ -65,7 +65,7 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 {
 	//dispatcher thread
 	Player* foundPlayer = g_game.getPlayerByName(name);
-	if (!foundPlayer || g_config.getBoolean(ConfigManager::ALLOW_CLONES)) {
+	if ((foundPlayer == nullptr) || g_config.getBoolean(ConfigManager::ALLOW_CLONES)) {
 		player = new Player(getThis());
 		player->setName(name);
 
@@ -92,7 +92,7 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			return;
 		}
 
-		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT) && player->getAccountType() < ACCOUNT_TYPE_GAMEMASTER && g_game.getPlayerByAccount(player->getAccount())) {
+		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT) && player->getAccountType() < ACCOUNT_TYPE_GAMEMASTER && (g_game.getPlayerByAccount(player->getAccount()) != nullptr)) {
 			disconnectClient("You may only login with one character\nof your account at the same time.");
 			return;
 		}
@@ -213,7 +213,7 @@ void ProtocolGame::connect(uint32_t playerId, OperatingSystem_t operatingSystem)
 void ProtocolGame::logout(bool displayEffect, bool forced)
 {
 	//dispatcher thread
-	if (!player) {
+	if (player == nullptr) {
 		return;
 	}
 
@@ -533,7 +533,7 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 
 	int32_t count;
 	Item* ground = tile->getGround();
-	if (ground) {
+	if (ground != nullptr) {
 		AddItem(msg, ground);
 		count = 1;
 	} else {
@@ -541,7 +541,7 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 	}
 
 	const TileItemVector* items = tile->getItemList();
-	if (items) {
+	if (items != nullptr) {
 		for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
 			AddItem(msg, *it);
 
@@ -582,7 +582,7 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 		}
 	}
 
-	if (items) {
+	if (items != nullptr) {
 		for (auto it = items->getBeginDownItem(), end = items->getEndDownItem(); it != end; ++it) {
 			AddItem(msg, *it);
 
@@ -623,7 +623,7 @@ void ProtocolGame::GetFloorDescription(NetworkMessage& msg, int32_t x, int32_t y
 	for (int32_t nx = 0; nx < width; nx++) {
 		for (int32_t ny = 0; ny < height; ny++) {
 			Tile* tile = g_game.map.getTile(x + nx + offset, y + ny + offset, z);
-			if (tile) {
+			if (tile != nullptr) {
 				if (skip >= 0) {
 					msg.addByte(skip);
 					msg.addByte(0xFF);
@@ -678,7 +678,7 @@ void ProtocolGame::checkCreatureAsKnown(uint32_t id, bool& known, uint32_t& remo
 
 bool ProtocolGame::canSee(const Creature* c) const
 {
-	if (!c || !player || c->isRemoved()) {
+	if ((c == nullptr) || (player == nullptr) || c->isRemoved()) {
 		return false;
 	}
 
@@ -696,7 +696,7 @@ bool ProtocolGame::canSee(const Position& pos) const
 
 bool ProtocolGame::canSee(int32_t x, int32_t y, int32_t z) const
 {
-	if (!player) {
+	if (player == nullptr) {
 		return false;
 	}
 
@@ -717,11 +717,8 @@ bool ProtocolGame::canSee(int32_t x, int32_t y, int32_t z) const
 
 	//negative offset means that the action taken place is on a lower floor than ourself
 	int32_t offsetz = myPos.getZ() - z;
-	if ((x >= myPos.getX() - 8 + offsetz) && (x <= myPos.getX() + 9 + offsetz) &&
-			(y >= myPos.getY() - 6 + offsetz) && (y <= myPos.getY() + 7 + offsetz)) {
-		return true;
-	}
-	return false;
+	return (x >= myPos.getX() - 8 + offsetz) && (x <= myPos.getX() + 9 + offsetz) &&
+			(y >= myPos.getY() - 6 + offsetz) && (y <= myPos.getY() + 7 + offsetz);
 }
 
 // Parse methods
@@ -820,7 +817,7 @@ void ProtocolGame::parseClearingImbuement(NetworkMessage& msg)
 	addGameTask(&Game::playerClearingImbuement, player->getID(), slot);
 }
 
-void ProtocolGame::parseCloseImbuingWindow(NetworkMessage&)
+void ProtocolGame::parseCloseImbuingWindow(NetworkMessage& /*unused*/)
 {
 	addGameTask(&Game::playerCloseImbuingWindow, player->getID());
 }
@@ -1376,7 +1373,7 @@ void ProtocolGame::sendCreatureType(const Creature* creature, uint8_t creatureTy
 
 	if (creatureType == CREATURETYPE_SUMMONPLAYER && player->getProtocolVersion() >= 1120) {
 		const Creature* master = creature->getMaster();
-		if (master) {
+		if (master != nullptr) {
 			msg.add<uint32_t>(master->getID());
 		}
 	}
@@ -1423,8 +1420,9 @@ void ProtocolGame::sendAddMarker(const Position& pos, uint8_t markType, const st
 {
 	NetworkMessage msg;
 	msg.addByte(0xDD);
-	if (version >= 1200)
+	if (version >= 1200) {
 		msg.addByte(0x00); // unknow
+}
 
 	msg.addPosition(pos);
 	msg.addByte(markType);
@@ -1489,8 +1487,9 @@ void ProtocolGame::sendBlessStatus()
 	uint16_t pow2 = 2;
 	for (int i = 1; i <= 8; i++) {
 		if (player->hasBlessing(i)) {
-			if (i > 1)
+			if (i > 1) {
 				blessCount++;
+}
 			flag |= pow2;
 		}
 		pow2 = pow2 * 2;
@@ -1499,8 +1498,9 @@ void ProtocolGame::sendBlessStatus()
 	msg.addByte(0x9C);
 
 	if (player->getProtocolVersion() >= 1120) {
-		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
+		if (blessCount >= 5) { //Show up the glowing effect in items if have all blesses
 			flag |= 1;
+		}
 
 		msg.add<uint16_t>(flag);
 		msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
@@ -1908,7 +1908,7 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 	msg.addByte(std::min<uint32_t>(IOMarket::getPlayerOfferCount(player->getGUID()), std::numeric_limits<uint8_t>::max()));
 
 	DepotLocker* depotLocker = player->getDepotLocker(depotId);
-	if (!depotLocker) {
+	if (depotLocker == nullptr) {
 		msg.add<uint16_t>(0x00);
 		writeToOutputBuffer(msg);
 		return;
@@ -1964,7 +1964,7 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 
 void ProtocolGame::sendCoinBalance()
 {
-	if (!player) {
+	if (player == nullptr) {
 		return;
 	}
 
@@ -2322,7 +2322,7 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 
 	std::string weaponName = getWeaponName(it.weaponType);
 
-	if (it.slotPosition & SLOTP_TWO_HAND) {
+	if ((it.slotPosition & SLOTP_TWO_HAND) != 0u) {
 		if (!weaponName.empty()) {
 			weaponName += ", two-handed";
 		} else {
@@ -2359,7 +2359,7 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 	}
 
 	MarketStatistics* statistics = IOMarket::getInstance().getPurchaseStatistics(itemId);
-	if (statistics) {
+	if (statistics != nullptr) {
 		msg.addByte(0x01);
 		msg.add<uint32_t>(statistics->numTransactions);
 		msg.add<uint32_t>(std::min<uint64_t>(std::numeric_limits<uint32_t>::max(), statistics->totalPrice));
@@ -2370,7 +2370,7 @@ void ProtocolGame::sendMarketDetail(uint16_t itemId)
 	}
 
 	statistics = IOMarket::getInstance().getSaleStatistics(itemId);
-	if (statistics) {
+	if (statistics != nullptr) {
 		msg.addByte(0x01);
 		msg.add<uint32_t>(statistics->numTransactions);
 		msg.add<uint32_t>(std::min<uint64_t>(std::numeric_limits<uint32_t>::max(), statistics->totalPrice));
@@ -2472,7 +2472,7 @@ void ProtocolGame::sendCreatureSay(const Creature* creature, SpeakClasses type, 
 	}
 
 	msg.addByte(type);
-	if (pos) {
+	if (pos != nullptr) {
 		msg.addPosition(*pos);
 	} else {
 		msg.addPosition(creature->getPosition());
@@ -2489,7 +2489,7 @@ void ProtocolGame::sendToChannel(const Creature* creature, SpeakClasses type, co
 
 	static uint32_t statementId = 0;
 	msg.add<uint32_t>(++statementId);
-	if (!creature) {
+	if (creature == nullptr) {
 		msg.add<uint32_t>(0x00);
 	} else if (type == TALKTYPE_CHANNEL_R2) {
 		msg.add<uint32_t>(0x00);
@@ -2516,7 +2516,7 @@ void ProtocolGame::sendPrivateMessage(const Player* speaker, SpeakClasses type, 
 	msg.addByte(0xAA);
 	static uint32_t statementId = 0;
 	msg.add<uint32_t>(++statementId);
-	if (speaker) {
+	if (speaker != nullptr) {
 		msg.addString(speaker->getName());
 		msg.add<uint16_t>(speaker->getLevel());
 	} else {
@@ -2547,7 +2547,7 @@ void ProtocolGame::sendChangeSpeed(const Creature* creature, uint32_t speed)
 
 void ProtocolGame::sendCancelWalk()
 {
-	if (player) {
+	if (player != nullptr) {
 		NetworkMessage msg;
 		msg.addByte(0xB5);
 		msg.addByte(player->getDirection());
@@ -2564,7 +2564,7 @@ void ProtocolGame::sendSkills()
 
 void ProtocolGame::sendPing()
 {
-	if (player) {
+	if (player != nullptr) {
 		NetworkMessage msg;
 		msg.addByte(0x1D);
 		writeToOutputBuffer(msg);
@@ -2603,7 +2603,7 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
-    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) { 
+    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
         // on newer clients, sending health 0 causes it to show the creature name with an empty healthbar
         return;
     }
@@ -2687,7 +2687,7 @@ void ProtocolGame::sendUpdateTile(const Tile* tile, const Position& pos)
 	msg.addByte(0x69);
 	msg.addPosition(pos);
 
-	if (tile) {
+	if (tile != nullptr) {
 		GetTileDescription(tile, msg);
 		msg.addByte(0x00);
 		msg.addByte(0xFF);
@@ -2718,8 +2718,8 @@ void ProtocolGame::sendFightModes()
 	NetworkMessage msg;
 	msg.addByte(0xA7);
 	msg.addByte(player->fightMode);
-	msg.addByte(player->chaseMode);
-	msg.addByte(player->secureMode);
+	msg.addByte(static_cast<uint8_t>(player->chaseMode));
+	msg.addByte(static_cast<uint8_t>(player->secureMode));
 	msg.addByte(PVP_MODE_DOVE);
 	writeToOutputBuffer(msg);
 }
@@ -2922,7 +2922,7 @@ void ProtocolGame::sendMoveCreature(const Creature* creature, const Position& ne
 void ProtocolGame::sendInventoryItem(slots_t slot, const Item* item)
 {
 	NetworkMessage msg;
-	if (item) {
+	if (item != nullptr) {
 		msg.addByte(0x78);
 		msg.addByte(slot);
 		AddItem(msg, item);
@@ -2981,7 +2981,7 @@ void ProtocolGame::sendRemoveContainerItem(uint8_t cid, uint16_t slot, const Ite
 	msg.addByte(0x72);
 	msg.addByte(cid);
 	msg.add<uint16_t>(slot);
-	if (lastItem) {
+	if (lastItem != nullptr) {
 		AddItem(msg, lastItem);
 	} else {
 		msg.add<uint16_t>(0x00);
@@ -3052,7 +3052,7 @@ void ProtocolGame::sendOutfitWindow()
 
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 	Mount* currentMount = g_game.mounts.getMountByID(player->getCurrentMount());
-	if (currentMount) {
+	if (currentMount != nullptr) {
 		currentOutfit.lookMount = currentMount->clientId;
 	}
 
@@ -3178,7 +3178,7 @@ void ProtocolGame::sendSpellGroupCooldown(SpellGroup_t groupId, uint32_t time)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendOpenStore(uint8_t)
+void ProtocolGame::sendOpenStore(uint8_t /*unused*/)
 {
 	NetworkMessage msg;
 
@@ -3219,7 +3219,7 @@ void ProtocolGame::sendOpenStore(uint8_t)
 		for(std::string iconStr : category->icons) {
 			msg.addString(iconStr);
 		}
-		msg.addString(""); //TODO: parentCategory
+		msg.addString(""); // TODO: parentCategory
 	}
 
 	writeToOutputBuffer(msg);
@@ -3281,7 +3281,7 @@ void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category)
 				disabledReason << "You already have this mount.";
 			}
 		} else if (offer->type == PROMOTION) {
-			if (player->isPromoted() || !player->isPremium()) { //TODO: add support to multiple promotion levels
+			if (player->isPromoted() || !player->isPremium()) { // TODO: add support to multiple promotion levels
 				disabled=1;
 				disabledReason << "You can't get this promotion";
 			}
@@ -3301,7 +3301,7 @@ void ProtocolGame::sendStoreCategoryOffers(StoreCategory* category)
 		}
 
 		msg.add<uint16_t>(0);
-		//TODO: add support to suboffers
+		// TODO: add support to suboffers
 	}
 
 	writeToOutputBuffer(msg);
@@ -3348,7 +3348,7 @@ void ProtocolGame::sendStoreTrasactionHistory(HistoryStoreOfferList &list, uint3
 	NetworkMessage msg;
 	uint32_t isLastPage = (list.size() <= entriesPerPage) ? 0x01:0x00;
 
-	//TODO: Support multiple pages
+	// TODO: Support multiple pages
 	isLastPage=0x01; //FIXME
 	page=0x00;
 	////////////////////////
@@ -3419,7 +3419,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		if (player->getProtocolVersion() >= 1120) {
 			if (creatureType == CREATURETYPE_SUMMONPLAYER) {
 				const Creature* master = creature->getMaster();
-				if (master) {
+				if (master != nullptr) {
 					msg.add<uint32_t>(master->getID());
 				}
 			}
@@ -3463,9 +3463,9 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	if (player->getProtocolVersion() >= 1120) {
 		if (creatureType == CREATURETYPE_MONSTER) {
 			const Creature* master = creature->getMaster();
-			if (master) {
+			if (master != nullptr) {
 				const Player* masterPlayer = master->getPlayer();
-				if (masterPlayer) {
+				if (masterPlayer != nullptr) {
 					creatureType = CREATURETYPE_SUMMONPLAYER;
 				}
 			}
@@ -3481,7 +3481,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	if (player->getProtocolVersion() >= 1120) {
 		if (creatureType == CREATURETYPE_SUMMONPLAYER) {
 			const Creature* master = creature->getMaster();
-			if (master) {
+			if (master != nullptr) {
 				msg.add<uint32_t>(master->getID());
 			}
 		}
@@ -3494,7 +3494,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	}
 
 	if (version < 1185) {
-		if (otherPlayer) {
+		if (otherPlayer != nullptr) {
 			msg.add<uint16_t>(otherPlayer->getHelpers());
 		} else {
 			msg.add<uint16_t>(0x00);
@@ -3641,7 +3641,7 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 	bool itemHasImbue = false;
 	for (uint8_t i = 0; i < slot; i++) {
 		uint32_t info = item->getImbuement(i);
-		if (info >> 8) {
+		if ((info >> 8) != 0u) {
 			itemHasImbue = true;
 			break;
 		}
@@ -3662,7 +3662,7 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 
 	for (uint8_t i = 0; i < slot; i++) {
 		uint32_t info = item->getImbuement(i);
-		if (info >> 8) {
+		if ((info >> 8) != 0u) {
 			msg.addByte(0x01);
 
 			addImbuementInfo(msg, (info & 0xFF));
@@ -3790,11 +3790,11 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
  	msg.addByte(0xD1);
  	msg.addString(name);
  	msg.add<uint16_t>(creatureOutfit.lookType ? creatureOutfit.lookType : 21);
- 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookHead : 0x00);
- 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookBody : 0x00);
- 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookLegs : 0x00);
- 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookFeet : 0x00);
- 	msg.addByte(creatureOutfit.lookType ? creatureOutfit.lookAddons : 0x00);
+ 	msg.addByte(creatureOutfit.lookType != 0u ? creatureOutfit.lookHead : 0x00);
+ 	msg.addByte(creatureOutfit.lookType != 0u ? creatureOutfit.lookBody : 0x00);
+ 	msg.addByte(creatureOutfit.lookType != 0u ? creatureOutfit.lookLegs : 0x00);
+ 	msg.addByte(creatureOutfit.lookType != 0u ? creatureOutfit.lookFeet : 0x00);
+ 	msg.addByte(creatureOutfit.lookType != 0u ? creatureOutfit.lookAddons : 0x00);
  	msg.addByte(isCorpseEmpty ? 0 : corpse->size());
 
 	if (!isCorpseEmpty) {
@@ -3808,7 +3808,7 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
 
 void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  {
- 	if (!player || !item || getVersion() < 1140) {
+ 	if ((player == nullptr) || (item == nullptr) || getVersion() < 1140) {
  		return;
  	}
 
@@ -3821,7 +3821,7 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
 
 void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
  {
- 	if (!player || getVersion() < 1140) {
+ 	if ((player == nullptr) || getVersion() < 1140) {
  		return;
  	}
 
@@ -3835,7 +3835,7 @@ void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
 
 void ProtocolGame::sendUpdateLootTracker(Item* item)
 {
- 	if (!player || getVersion() < 1140) {
+ 	if ((player == nullptr) || getVersion() < 1140) {
  		return;
  	}
 

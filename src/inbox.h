@@ -52,4 +52,3 @@ class Inbox final : public Container
 };
 
 #endif
-

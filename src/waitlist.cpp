@@ -94,15 +94,17 @@ std::size_t WaitingList::getTime(std::size_t slot)
 {
 	if (slot < 5) {
 		return 5;
-	} else if (slot < 10) {
-		return 10;
-	} else if (slot < 20) {
-		return 20;
-	} else if (slot < 50) {
-		return 60;
-	} else {
-		return 120;
 	}
+	if (slot < 10) {
+		return 10;
+	}
+	if (slot < 20) {
+		return 20;
+	}
+	if (slot < 50) {
+		return 60;
+	}
+	return 120;
 }
 
 bool WaitingList::clientLogin(const Player* player)

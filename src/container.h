@@ -52,8 +52,8 @@ class Container : public Item, public Cylinder
 {
 	public:
 		explicit Container(uint16_t type);
-		Container(uint16_t type, uint16_t size, bool unlocked = true, bool pagination = false);
-		explicit Container(Tile* type);
+		Container(uint16_t initType, uint16_t initSize, bool initUnlocked = true, bool initPagination = false);
+		explicit Container(Tile* tile);
 		~Container();
 
 		// non-copyable
@@ -135,7 +135,7 @@ class Container : public Item, public Cylinder
 		}
 
 		//cylinder implementations
-		virtual ReturnValue queryAdd(int32_t index, const Thing& thing, uint32_t count,
+		virtual ReturnValue queryAdd(int32_t addIndex, const Thing& addThing, uint32_t addCount,
 				uint32_t flags, Creature* actor = nullptr) const override;
 		ReturnValue queryMaxCount(int32_t index, const Thing& thing, uint32_t count, uint32_t& maxQueryCount,
 				uint32_t flags) const override final;

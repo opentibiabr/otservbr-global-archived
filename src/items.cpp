@@ -378,12 +378,12 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 	nameToItems.insert({ asLowerCaseString(it.name), id });
 
 	pugi::xml_attribute articleAttribute = itemNode.attribute("article");
-	if (articleAttribute) {
+	if (articleAttribute != nullptr) {
 		it.article = articleAttribute.as_string();
 	}
 
 	pugi::xml_attribute pluralAttribute = itemNode.attribute("plural");
-	if (pluralAttribute) {
+	if (pluralAttribute != nullptr) {
 		it.pluralName = pluralAttribute.as_string();
 	}
 

@@ -1,6 +1,6 @@
 /**
  * @file reward.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -33,22 +33,22 @@ Reward::Reward() :
 	pagination = true;
 }
 
-ReturnValue Reward::queryAdd(int32_t, const Thing& thing, uint32_t,
-	uint32_t, Creature* actor/* = nullptr*/) const
+ReturnValue Reward::queryAdd(int32_t /*index*/, const Thing& thing, uint32_t /*count*/,
+	uint32_t /*flags*/, Creature* actor/* = nullptr*/) const
 {
-	if (actor) {
+	if (actor != nullptr) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
 	const Item* item = thing.getItem();
-	if (!item) {
+	if (item == nullptr) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
-	
+
 	if (item == this) {
 		return RETURNVALUE_THISISIMPOSSIBLE;
 	}
-	
+
 	if (!item->isPickupable()) {
 		return RETURNVALUE_CANNOTPICKUP;
 	}
@@ -56,7 +56,7 @@ ReturnValue Reward::queryAdd(int32_t, const Thing& thing, uint32_t,
 	return RETURNVALUE_NOERROR;
 }
 
-void Reward::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t)
+void Reward::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t /*link*/)
 {
 	Cylinder* localParent = getParent();
 	if (localParent != nullptr) {
@@ -64,7 +64,7 @@ void Reward::postAddNotification(Thing* thing, const Cylinder* oldParent, int32_
 	}
 }
 
-void Reward::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t)
+void Reward::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t /*link*/)
 {
 	Cylinder* localParent = getParent();
 	if (localParent != nullptr) {
@@ -74,7 +74,7 @@ void Reward::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 
 Cylinder* Reward::getParent() const
 {
-	if (parent) {
+	if (parent != nullptr) {
 		return parent->getParent();
 	}
 	return nullptr;

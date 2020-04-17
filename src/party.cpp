@@ -78,7 +78,7 @@ void Party::disband()
 
 bool Party::leaveParty(Player* player)
 {
-	if (!player) {
+	if (player == nullptr) {
 		return false;
 	}
 
@@ -143,7 +143,7 @@ bool Party::leaveParty(Player* player)
 
 bool Party::passPartyLeadership(Player* player)
 {
-	if (!player || leader == player || player->getParty() != this) {
+	if ((player == nullptr) || leader == player || player->getParty() != this) {
 		return false;
 	}
 
@@ -349,7 +349,7 @@ void Party::updateSharedExperience()
 
 bool Party::setSharedExperience(Player* player, bool newSharedExpActive)
 {
-	if (!player || leader != player) {
+	if ((player == nullptr) || leader != player) {
 		return false;
 	}
 
