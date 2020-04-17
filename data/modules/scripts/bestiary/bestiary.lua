@@ -293,8 +293,7 @@ Bestiary.sendMonsterData = function(player, msg)
     msg:addU16(bestiaryMonster.toKill)  -- max kill third phase
 
     msg:addByte(bestiaryMonster.Stars)  -- Difficult
-	local monsterOccurency = Bestiary.getMonsterOccurrencyByName(bestiaryMonster.name)
-	msg:addByte(1) -- TODO Occurency
+	msg:addByte(bestiaryMonster.Occurrence)  -- Occurency
 	local monsterLoot = monster:getLoot()
     msg:addByte(#monsterLoot)
     if #monsterLoot > 0 then
@@ -397,16 +396,6 @@ Bestiary.calculateDifficult = function (chance)
         return 1
     end
     return 0
-end
-
-Bestiary.getMonsterOccurrencyByName = function(monsterName)
-	for i, b in pairs(Bestiary.MonstersOccurrency) do
-		if table.contains(b.monsters, monsterName) then
-			return i
-		end
-	end
-	return Bestiary.Occurrencies.HARMLESS_ORDINARY
-
 end
 
 function onRecvbyte(player, msg, byte)
@@ -567,7 +556,7 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	if curCount == 0 then
 		self:sendBestiaryEntryChanged(monsterID)
 		self:setBestiaryKillCount(monsterID, 1)
-		self:sendTextMessage(MESSAGE_STATUS_SMALL, 'You unlocked details for creature "'..monster.name..'" ')
+		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
 		return
 	end
 
@@ -576,10 +565,10 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	self:setBestiaryKillCount(monsterID, curCount)
 	
     if curCount == monster.FirstUnlock or curCount == monster.SecondUnlock then
-    	self:sendTextMessage(MESSAGE_STATUS_SMALL, 'You unlocked details for creature "'..monster.name..'".')
+    	self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
 		self:sendBestiaryEntryChanged(monsterID)
     elseif curCount == monster.toKill then
-    	self:sendTextMessage(MESSAGE_STATUS_SMALL, 'You unlocked full details for creature "'..monster.name..'"!')
+    	self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
 		self:addCharmPoints(monster.CharmsPoints)
 		self:sendBestiaryEntryChanged(monsterID)
 	end	

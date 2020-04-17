@@ -33,16 +33,9 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `lastday` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `email` varchar(255) NOT NULL DEFAULT '',
   `creation` int(11) NOT NULL DEFAULT '0',
-  `key` varchar(20) NOT NULL DEFAULT '0',
-  `premium_points` int(11) NOT NULL DEFAULT '0',
-  `create_date` int(11) NOT NULL DEFAULT '0',
-  `create_ip` int(11) NOT NULL DEFAULT '0',
-  `flag` varchar(80) NOT NULL DEFAULT '',
   `passed` int(11) NOT NULL DEFAULT '0',
   `block` int(11) NOT NULL DEFAULT '0',
   `refresh` int(11) NOT NULL DEFAULT '0',
-  `birth_date` varchar(50) NOT NULL DEFAULT '',
-  `loyalty_points` bigint(20) NOT NULL DEFAULT '0',
   `authToken` varchar(100) NOT NULL DEFAULT '',
   CONSTRAINT `accounts_pk` PRIMARY KEY (`id`),
   CONSTRAINT `accounts_unique` UNIQUE (`name`)
@@ -270,8 +263,6 @@ CREATE TABLE IF NOT EXISTS `guilds` (
   `creationdata` int(11) NOT NULL,
   `motd` varchar(255) NOT NULL DEFAULT '',
   `residence` int(11) NOT NULL DEFAULT '0',
-  `description` VARCHAR(2000) NOT NULL DEFAULT '',
-  `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   CONSTRAINT `guilds_pk` PRIMARY KEY (`id`),
   CONSTRAINT `guilds_name_unique` UNIQUE (`name`),
   CONSTRAINT `guilds_owner_unique` UNIQUE (`ownerid`),
@@ -809,18 +800,6 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 -- --------------------------------------------------------
 
 --
--- Table structure `player_charms`
---
-
-CREATE TABLE `player_charms` (
-  `id` int(11) NOT NULL,
-  `player_id` int(11) NOT NULL,
-  `charm` VARCHAR(20),
-  `monster` VARCHAR(20)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
---
 -- Create Account GOD/god
 --
 INSERT INTO `accounts`
@@ -833,4 +812,3 @@ INSERT INTO `accounts`
 INSERT INTO `players`
 (`id`, `name`,           `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
 (1,    'ADM',             6,          1,            1,       0,          150,      150,         0,            106,        95,         78,         116,        128,        5,      5,         2,         '',           400,   1 );
-
