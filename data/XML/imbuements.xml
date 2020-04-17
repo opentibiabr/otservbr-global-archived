@@ -51,32 +51,32 @@
 		<attribute key="description" value="Converts 25% of the physical damage to earth damage." />
 		<attribute key="effect" type="damage" combat="earth" value="25" />
 		<attribute key="item" value="10603" count="25" />
-		<attribute key="item" value="10557" count="5" />
+		<attribute key="item" value="10557" count="20" />
 	</imbuement>
 	<imbuement name="Venom" base="3" subgroup=" (Earth)" category="0" iconid="7">
 		<attribute key="description" value="Converts 50% of the physical damage to earth damage." />
 		<attribute key="effect" type="damage" combat="earth" value="50" />
 		<attribute key="item" value="10603" count="25" />
-		<attribute key="item" value="10557" count="5" />
-		<attribute key="item" value="23565" count="5" />
+		<attribute key="item" value="10557" count="20" />
+		<attribute key="item" value="23565" count="2" />
 	</imbuement>
 	<imbuement name="Frost" base="1" subgroup=" (Ice)" category="0" iconid="19">
 		<attribute key="description" value="Converts 10% of the physical damage to ice damage." />
 		<attribute key="effect" type="damage" combat="ice" value="10" />
-		<attribute key="item" value="10567" count="25" />
+		<attribute key="item" value="10578" count="25" />
 	</imbuement>
 	<imbuement name="Frost" base="2" subgroup=" (Ice)" category="0" iconid="19">
 		<attribute key="description" value="Converts 25% of the physical damage to ice damage." />
 		<attribute key="effect" type="damage" combat="ice" value="25" />
-		<attribute key="item" value="10567" count="25" />
-		<attribute key="item" value="10578" count="20" />
+		<attribute key="item" value="10578" count="25" />
+		<attribute key="item" value="24170" count="10" />
 	</imbuement>
 	<imbuement name="Frost" base="3" subgroup=" (Ice)" category="0" iconid="19">
 		<attribute key="description" value="Converts 50% of the physical damage to ice damage." />
 		<attribute key="effect" type="damage" combat="ice" value="50" />
-		<attribute key="item" value="10567" count="25" />
-		<attribute key="item" value="10578" count="20" />
-		<attribute key="item" value="24170" count="1" />
+		<attribute key="item" value="10578" count="25" />
+		<attribute key="item" value="24170" count="10" />
+		<attribute key="item" value="10567" count="5" />
 	</imbuement>
 	<imbuement name="Electrify" base="1" subgroup=" (Energy)" category="0" iconid="10">
 		<attribute key="description" value="Converts 10% of the physical damage to energy damage." />
@@ -177,19 +177,19 @@
 
 	<!-- Protections Imbuements -->
 	<imbuement name="Lich Shroud" base="1" category="4" iconid="25">
-		<attribute key="description" value="Reduces death damage by 3%." />
-		<attribute key="effect" type="reduction" combat="death" value="3" />
+		<attribute key="description" value="Reduces death damage by 2%." />
+		<attribute key="effect" type="reduction" combat="death" value="2" />
 		<attribute key="item" value="12422" count="25" />
 	</imbuement>
 	<imbuement name="Lich Shroud" base="2" category="4" iconid="25">
-		<attribute key="description" value="Reduces death damage by 8%." />
-		<attribute key="effect" type="reduction" combat="death" value="8" />
+		<attribute key="description" value="Reduces death damage by 5%." />
+		<attribute key="effect" type="reduction" combat="death" value="5" />
 		<attribute key="item" value="12422" count="25" />
 		<attribute key="item" value="24663" count="20" />
 	</imbuement>
 	<imbuement name="Lich Shroud" base="3" category="4" iconid="25">
-		<attribute key="description" value="Reduces death damage by 15%." />
-		<attribute key="effect" type="reduction" combat="death" value="15" />
+		<attribute key="description" value="Reduces death damage by 10%." />
+		<attribute key="effect" type="reduction" combat="death" value="10" />
 		<attribute key="item" value="12422" count="25" />
 		<attribute key="item" value="24663" count="20" />
 		<attribute key="item" value="10577" count="5" />
@@ -205,7 +205,7 @@
 		<attribute key="item" value="20103" count="25" />
 		<attribute key="item" value="10611" count="20" />
 	</imbuement>
-	<imbuement name="Snake Skin" base="3" category="5" iconid="28">
+	<imbuement name="Snake Skin" base="3" category="5" iconid="30">
 		<attribute key="description" value="Reduces earth damage by 15%." />
 		<attribute key="effect" type="reduction" combat="earth" value="15" />
 		<attribute key="item" value="20103" count="25" />
@@ -215,18 +215,18 @@
 	<imbuement name="Hide Dragon" base="1" category="6" iconid="34">
 		<attribute key="description" value="Reduces fire damage by 3%." />
 		<attribute key="effect" type="reduction" combat="fire" value="3" />
-		<attribute key="item" value="5877" count="25" />
+		<attribute key="item" value="5877" count="20" />
 	</imbuement>
 	<imbuement name="Hide Dragon" base="2" category="6" iconid="34">
 		<attribute key="description" value="Reduces fire damage by 8%." />
 		<attribute key="effect" type="reduction" combat="fire" value="8" />
-		<attribute key="item" value="5877" count="25" />
+		<attribute key="item" value="5877" count="20" />
 		<attribute key="item" value="18425" count="10" />
 	</imbuement>
 	<imbuement name="Hide Dragon" base="3" category="6" iconid="34">
 		<attribute key="description" value="Reduces fire damage by 15%." />
 		<attribute key="effect" type="reduction" combat="fire" value="15" />
-		<attribute key="item" value="5877" count="25" />
+		<attribute key="item" value="5877" count="20" />
 		<attribute key="item" value="18425" count="10" />
 		<attribute key="item" value="12614" count="5" />
 	</imbuement>
@@ -246,7 +246,7 @@
 		<attribute key="effect" type="reduction" combat="ice" value="15" />
 		<attribute key="item" value="11212" count="25" />
 		<attribute key="item" value="11224" count="15" />
-		<attribute key="item" value="15425" count="10" />
+		<attribute key="item" value="15425" count="5" />
 	</imbuement>
 	<imbuement name="Cloud Fabric" base="1" category="8" iconid="31">
 		<attribute key="description" value="Reduces energy damage by 3%." />
@@ -287,18 +287,18 @@
 	<!-- Speed Imbuement -->
 	<imbuement name="Swiftness" base="1" category="10" iconid="73">
 		<attribute key="description" value="Raises walking speed by 10." />
-		<attribute key="effect" type="speed" value="20" />
+		<attribute key="effect" type="speed" value="10" />
 		<attribute key="item" value="19738" count="15" />
 	</imbuement>
 	<imbuement name="Swiftness" base="2" category="10" iconid="73">
 		<attribute key="description" value="Raises walking speed by 15." />
-		<attribute key="effect" type="speed" value="30" />
+		<attribute key="effect" type="speed" value="15" />
 		<attribute key="item" value="19738" count="15" />
 		<attribute key="item" value="11219" count="25" />
 	</imbuement>
 	<imbuement name="Swiftness" base="3" category="10" iconid="73">
 		<attribute key="description" value="Raises walking speed by 30." />
-		<attribute key="effect" type="speed" value="60" />
+		<attribute key="effect" type="speed" value="30" />
 		<attribute key="item" value="19738" count="15" />
 		<attribute key="item" value="11219" count="25" />
 		<attribute key="item" value="15484" count="20" />
@@ -416,19 +416,19 @@
 	<imbuement name="Featherweight" base="1" category="17" iconid="64">
 		<attribute key="description" value="Raises capacity by 3." />
 		<attribute key="effect" type="capacity" value="3" />
-		<attribute key="item" value="28998" count="25" />
+		<attribute key="item" value="28999" count="20" />
 	</imbuement>
 	<imbuement name="Featherweight" base="2" category="17" iconid="64">
 		<attribute key="description" value="Raises capacity by 8." />
 		<attribute key="effect" type="capacity" value="8" />
-		<attribute key="item" value="28998" count="25" />
-		<attribute key="item" value="29006" count="10" />
+		<attribute key="item" value="28999" count="20" />
+		<attribute key="item" value="29007" count="10" />
 	</imbuement>
 	<imbuement name="Featherweight" base="3" category="17" iconid="64">
 		<attribute key="description" value="Raises capacity by 15." />
 		<attribute key="effect" type="capacity" value="15" />
-		<attribute key="item" value="28998" count="25" />
-		<attribute key="item" value="29006" count="10" />
+		<attribute key="item" value="28999" count="20" />
+		<attribute key="item" value="29007" count="10" />
 		<attribute key="item" value="22539" count="5" />
 	</imbuement>
 </imbuements>
