@@ -1082,6 +1082,9 @@ class LuaScriptInterface
 		static int luaPlayerGetIdleTime(lua_State* L);
 		static int luaPlayerGetFreeBackpackSlots(lua_State* L);
 
+		// Stash
+		static int luaPlayerSetDepotStash(lua_State* L);
+
 		// Monster
 		static int luaMonsterCreate(lua_State* L);
 

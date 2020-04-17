@@ -1075,9 +1075,6 @@
 	<!-- Market -->
 	<action itemid="14405" function="market" />
 
-	<!-- Supply stash -->
-  	<action itemid="32450" script="others/objects/supplystash.lua" />
-
 	<!-- Dolls -->
 	<action itemid="5080" script="others/dolls.lua" />
 	<action itemid="5669" script="others/dolls.lua" />

@@ -345,6 +345,9 @@ class ProtocolGame final : public Protocol
 		//shop
 		void AddShopItem(NetworkMessage& msg, const ShopInfo& item);
 
+		// stash supply
+		void sendDepotStash(bool enable);
+
 		//otclient
 		void parseExtendedOpcode(NetworkMessage& msg);
 

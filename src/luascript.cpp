@@ -2573,6 +2573,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "hasLearnedSpell", LuaScriptInterface::luaPlayerHasLearnedSpell);
 
 	registerMethod("Player", "sendImbuementPanel", LuaScriptInterface::luaPlayerSendImbuementPanel);
+	registerMethod("Player", "setDepotStash", LuaScriptInterface::luaPlayerSetDepotStash);
 
 	registerMethod("Player", "sendTutorial", LuaScriptInterface::luaPlayerSendTutorial);
 	registerMethod("Player", "addMapMark", LuaScriptInterface::luaPlayerAddMapMark);
@@ -11370,6 +11371,21 @@ int LuaScriptInterface::luaPlayerGetFreeBackpackSlots(lua_State* L)
 	}
 
 	lua_pushnumber(L, std::max<uint16_t>(0, player->getFreeBackpackSlots()));
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetDepotStash(lua_State* L)
+{
+	// player:setDepotStash(idle)
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		pushBoolean(L, false);
+		return 1;
+	}
+
+	player->sendDepotStash(getBoolean(L, 2));
+	pushBoolean(L, true);
 	return 1;
 }
 
