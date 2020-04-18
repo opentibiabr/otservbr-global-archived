@@ -28,9 +28,9 @@ function Monster:onDropLoot(corpse)
 			else
 				player:sendTextMessage(MESSAGE_LOOT, text)
 			end
+			player:updateKillTracker(self, corpse)
 		end
-
-		player:updateKillTracker(self, corpse)
+		
 	else
 		local text = ("Loot of %s: nothing (due to low stamina)"):format(mType:getNameDescription())
 		local party = player:getParty()
