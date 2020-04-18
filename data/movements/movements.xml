@@ -3030,7 +3030,7 @@
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" showInDescription="0" />
 	</movevent>
-	<movevent event="DeEquip" itemid="35232" slot="hand" function="onDeEquipItem" />
+	<movevent event="DeEquip" itemid="35232" slot="head" function="onDeEquipItem" />
 	
 	<movevent event="Equip" itemid="35233" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Sword -->
 		<vocation name="Knight" />
