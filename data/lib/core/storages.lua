@@ -1066,7 +1066,8 @@ Storage = {
 		book7 = 35631,
 		book8 = 35632,
 		bookExaust = 35633,
-		bookCenter = 35634
+		bookCenter = 35634,
+		golemServant = 35635
 	},
 	CaptainHaba = 12540,
 	secretService = {
@@ -1118,6 +1119,7 @@ Storage = {
 		ToAppeaseTheMightyQuest = 13330,
 		IntoTheBonePit = 3938,
 		TheExterminator = 3939,
+		TrollSabotage = 54894,
 
 		RestInHallowedGround = {
 			Questline = 3940,
