@@ -8,6 +8,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if headItem and isInArray({5461, 12541, 15408}, headItem.itemid) then
 		player:teleportTo(Position(33248, 31771, 8))
 		player:getPosition():sendMagicEffect(CONST_ME_WATERSPLASH)
+		return true
 	end
 	
 	player:teleportTo(fromPosition)
