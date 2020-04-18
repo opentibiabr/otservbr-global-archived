@@ -18,7 +18,7 @@ function onStepIn(creature, item, position, fromPosition)
 			creature:remove()
 		end
 	else
-		creature:teleportTo(fromPosition, false)
+		creature:teleportTo(fromPosition, true)
 	end
 
 	return true
