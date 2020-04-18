@@ -426,15 +426,12 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 	--sea of light
 	elseif targetId == 8634 then
 		if target.actionid == 4224 then
-			if math.random(100) <= 30 then
-				if player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4 and player:getStorageValue(target.actionid) ~= 1 then
-					player:addItem(10614, 1)
-					player:setStorageValue(target.actionid, 1)
-					player:setStorageValue(Storage.SeaOfLightQuest.Questline, 5)
-					player:say("*crush*", TALKTYPE_MONSTER_SAY)
-				end
-			else
-				player:getPosition():sendMagicEffect(CONST_ME_POFF)
+			if player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4 and player:getStorageValue(target.actionid) ~= 1 then
+				player:addItem(10614, 1)
+				toPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
+				player:setStorageValue(target.actionid, 1)
+				player:setStorageValue(Storage.SeaOfLightQuest.Questline, 5)
+				player:say("*crush*", TALKTYPE_MONSTER_SAY)
 			end
 		end
 	-- Shadows of Yalahar

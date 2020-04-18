@@ -369,6 +369,7 @@
 	<movevent event="StepIn" actionid="50017" script="quests/the queen of the banshees/theSecondSealPearl.lua" />
 	<movevent event="StepIn" uniqueid="50021" script="quests/the queen of the banshees/theSecondSealFlame.lua" />
 	<movevent event="StepIn" uniqueid="50022" script="quests/the queen of the banshees/theLastFlame.lua" />
+	<movevent event="StepIn" fromuid="2292" touid="2294" script="quests/the queen of the banshees/teleport.lua" />
 
 	<!--- The New Frontier Quest -->
 	<movevent event="StepIn" actionid="8000" script="quests/the new frontier/wayOut.lua" />
@@ -401,6 +402,12 @@
 	<movevent event="StepIn" uniqueid="50127" script="quests/the hidden city of beregar/pythiusTeleport.lua" />
 	<movevent event="StepIn" fromaid="50125" toaid="50126" script="quests/the hidden city of beregar/pythiusBossTeleport.lua" />
 
+	<!--- Troll Sabotage -->
+	<movevent event="StepIn" fromaid="189" toaid="190" script="quests/trollsabotage/trollsabotage.lua" />
+	<!-- <movevent event="StepIn" fromuid="19912" touid="19914"  script="quests/trollsabotage/trollsabotage.lua" /> -->
+	<movevent event="StepIn" actionid="19911" script="quests/trollsabotage/elvanir.lua" />
+	<movevent event="StepIn" fromuid="2290" touid="2291" script="quests/trollsabotage/vortex.lua" />
+	
 	<!--- Unnatural Selection -->
 	<movevent event="StepIn" actionid="12332" script="quests/unnatural selection/Mission2AllAroundtheWorld.lua" />
 	<movevent event="StepIn" actionid="12333" script="quests/unnatural selection/Mission3DanceDanceEvolution.lua" />

@@ -2672,7 +2672,7 @@ if not Quests then
 			name = "The White Raven Monastery", startstorageid = Storage.WhiteRavenMonasteryQuest.QuestLog, startstoragevalue = 1,
 			missions = {
 				[1] = {
-					name = "Access to the Isle of Kings", storageid = Storage.WhiteRavenMonasteryQuest.Passage, endvalue = 1,
+					name = "Access to the Isle of Kings", storageid = Storage.WhiteRavenMonasteryQuest.Passage, startvalue = 1, endvalue = 1,
 					states = {
 						[1] = "You are a friend of Dalbrect. Since you returned his family brooch he will sail you to the Isle of Kings unless you do something stupid.",
 					},
@@ -2781,6 +2781,17 @@ if not Quests then
 						[1] = "Boozer in Vernore asked you to bring him some special dwarven brown ale. You may find some in the brewery in Kazordoon.",
 						[2] = "You found the special dwarven brown ale. Bring it to Boozer in Vernore.",
 						[3] = "You have completed The Ultimate Booze Quest!",
+					},
+
+				},
+				
+				[10] = {
+					name = "Troll Sabotage Quest", storageid = Storage.TibiaTales.TrollSabotage, startvalue = 1, endvalue = 4,
+					states = {
+						[1] = "Come back and ask me for the quest when you solved this mystery!",
+						[2] = "Return and report mission to Jerom!!",
+						[3] = "Bring troll lady to Grarkharok!! Here, give troll lady! Take take! Bring lady to Grarkharok for make tribe!! Now GO!.",
+						[4] = "You have completed the Quest!",
 					},
 
 				},

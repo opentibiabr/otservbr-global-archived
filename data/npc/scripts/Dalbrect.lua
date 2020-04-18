@@ -4,8 +4,8 @@ NpcSystem.parseParameters(npcHandler)
 
 function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
 function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureSay(cid, type, msg)	npcHandler:onCreatureSay(cid, type, msg)	end
+function onThink()						npcHandler:onThink()						end
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -13,43 +13,22 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
 	if msgcontains(msg, 'brooch') then
-		if player:getStorageValue(Storage.WhiteRavenMonasteryQuest.Passage) == 1 then
-			npcHandler:say('You have recovered my brooch! I shall forever be in your debt, my friend!', cid)
-			return true
+		if player:getStorageValue(Storage.WhiteRavenMonasteryQuest.Passage) < 1 then
+			npcHandler:say('What? You want me to examine a brooch?', cid)
+			npcHandler.topic[cid] = 1
 		end
-
-		npcHandler:say('What? You want me to examine a brooch?', cid)
-		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
-			if player:getItemCount(2318) == 0 then
-				npcHandler:say('What are you talking about? I am too poor to be interested in jewelry.', cid)
+				npcHandler:say("Can it be? I recognize my family's arms! You have found a treasure indeed! I am poor and all I can offer you is my friendship, but ... please ... give that brooch to me", cid)
+				npcHandler.topic[cid] = 2
+		elseif npcHandler.topic[cid] == 2 and player:getItemCount(2318) == 1 then
+				player:removeItem(2318, 1)
+				npcHandler:say("Thank you! I shall consider you my friend from now on! Just let me know if you need something {passage}!", cid)
+				player:setStorageValue(Storage.WhiteRavenMonasteryQuest.Passage, 1)
+				player:setStorageValue(Storage.WhiteRavenMonasteryQuest.QuestLog, 1) -- Quest log
 				npcHandler.topic[cid] = 0
-				return true
-			end
-
-			npcHandler:say('Can it be? I recognise my family\'s arms! You have found a treasure indeed! I am poor and all I can offer you is my friendship, but ... please ... give that brooch to me?', cid)
-			npcHandler.topic[cid] = 2
-		elseif npcHandler.topic[cid] == 2 then
-			npcHandler.topic[cid] = 0
-			if not player:removeItem(2318, 1) then
-				npcHandler:say('I should have known better than to ask for an act of kindness in this cruel, selfish, world!', cid)
-				return true
-			end
-
-			npcHandler:say('Thank you! I shall consider you my friend from now on! Just let me know if you {need} something!', cid)
-			player:setStorageValue(Storage.WhiteRavenMonasteryQuest.Passage, 1)
-			player:setStorageValue(Storage.WhiteRavenMonasteryQuest.QuestLog, 1) -- Quest log
 		end
-	elseif msgcontains(msg, 'no') then
-		if npcHandler.topic[cid] == 1 then
-			npcHandler:say('Then stop being a fool. I am poor and I have to work the whole day through!', cid)
-		elseif npcHandler.topic[cid] == 2 then
-			npcHandler:say('I should have known better than to ask for an act of kindness in this cruel, selfish, world!', cid)
-		end
-		npcHandler.topic[cid] = 0
 	end
 	return true
 end
