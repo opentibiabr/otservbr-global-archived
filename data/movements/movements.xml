@@ -403,7 +403,7 @@
 	<movevent event="StepIn" fromaid="50125" toaid="50126" script="quests/the hidden city of beregar/pythiusBossTeleport.lua" />
 
 	<!--- Troll Sabotage -->
-	<movevent event="StepIn" fromaid="189" toaid="190" script="quests/trollsabotage/trollsabotage.lua" />
+	<!-- <movevent event="StepIn" fromaid="189" toaid="190" script="quests/trollsabotage/trollsabotage.lua" /> -->
 	<movevent event="StepIn" actionid="19911" script="quests/trollsabotage/elvanir.lua" />
 	<movevent event="StepIn" fromuid="2290" touid="2291" script="quests/trollsabotage/vortex.lua" />
 	
