@@ -404,7 +404,6 @@
 
 	<!--- Troll Sabotage -->
 	<movevent event="StepIn" fromaid="189" toaid="190" script="quests/trollsabotage/trollsabotage.lua" />
-	<!-- <movevent event="StepIn" fromuid="19912" touid="19914"  script="quests/trollsabotage/trollsabotage.lua" /> -->
 	<movevent event="StepIn" actionid="19911" script="quests/trollsabotage/elvanir.lua" />
 	<movevent event="StepIn" fromuid="2290" touid="2291" script="quests/trollsabotage/vortex.lua" />
 	
@@ -3049,7 +3048,7 @@
 		<vocation name="Knight" />
 		<vocation name="Elite Knight" showInDescription="0" />
 	</movevent>
-	<movevent event="DeEquip" itemid="35232" slot="hand" function="onDeEquipItem" />
+	<movevent event="DeEquip" itemid="35232" slot="head" function="onDeEquipItem" />
 	
 	<movevent event="Equip" itemid="35233" slot="hand" level="220" function="onEquipItem"> <!-- Cobra Sword -->
 		<vocation name="Knight" />
