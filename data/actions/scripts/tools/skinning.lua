@@ -7,7 +7,7 @@ local config = {
 --#		[6017] = {value = 25000, newItem = 13159, after = 2993}, -- after being killed
 
 		-- Minotaurs
-		[2830] = {value = 25000, newItem = 5878, after = 2831}, -- minotaur
+		[3090] = {value = 25000, newItem = 5878, after = 2831}, -- minotaur
 --#		[5969] = {value = 25000, newItem = 5878, after = 2831},	-- minotaur, after being killed
 		[2871] = {value = 25000, newItem = 5878, after = 2872}, -- minotaur archer
 --#		[5982] = {value = 25000, newItem = 5878, after = 2872}, -- minotaur archer, after being killed
@@ -48,7 +48,7 @@ local config = {
 
 		-- Dragons
 		[3104] = {value = 25000, newItem = 5877, after = 3105},
-		[2844] = {value = 25000, newItem = 5877, after = 2845},
+		[2844] = {value = 25000, newItem = 5877, after = 3105},
 --#		[5973] = {value = 25000, newItem = 5877, after = 3105}, -- after being killed
 
 		-- Dragon Lords
