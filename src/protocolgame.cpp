@@ -3396,7 +3396,9 @@ void ProtocolGame::sendModalWindow(const ModalWindow& modalWindow)
 void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bool known, uint32_t remove)
 {
 	CreatureType_t creatureType = creature->getType();
-
+    if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
+        creatureType = CREATURETYPE_MONSTER_HIDDEN;
+    }
 	const Player* otherPlayer = creature->getPlayer();
 
 	if (known) {
