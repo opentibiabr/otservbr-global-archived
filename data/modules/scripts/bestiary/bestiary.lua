@@ -553,7 +553,7 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	local curCount = self:getBestiaryKillCount(monsterID)
 	local monster = Bestiary.Monsters[monsterID]
 	if curCount == 0 then
-		if self:getClient().version == 1200 then
+		if self:getClient().version >= 1200 then
 			self:sendBestiaryEntryChanged(monsterID)
 		end
 		self:setBestiaryKillCount(monsterID, 1)
@@ -567,13 +567,13 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	
     if curCount == monster.FirstUnlock or curCount == monster.SecondUnlock then
     	self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
-		if self:getClient().version == 1200 then
+		if self:getClient().version >= 1200 then
 			self:sendBestiaryEntryChanged(monsterID)
 		end
     elseif curCount == monster.toKill then
     	self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
 		self:addCharmPoints(monster.CharmsPoints)
-		if self:getClient().version == 1200 then
+		if self:getClient().version >= 1200 then
 			self:sendBestiaryEntryChanged(monsterID)
 		end
 	end	
