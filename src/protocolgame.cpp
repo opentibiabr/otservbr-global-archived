@@ -3396,9 +3396,6 @@ void ProtocolGame::sendModalWindow(const ModalWindow& modalWindow)
 void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bool known, uint32_t remove)
 {
 	CreatureType_t creatureType = creature->getType();
-    if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
-        creatureType = CREATURETYPE_MONSTER_HIDDEN;
-    }
 	const Player* otherPlayer = creature->getPlayer();
 
 	if (known) {
@@ -3408,7 +3405,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.add<uint16_t>(0x61);
 		msg.add<uint32_t>(remove);
 		msg.add<uint32_t>(creature->getID());
-		msg.addByte(creatureType);
+        if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
+			msg.addByte(CREATURETYPE_MONSTER_HIDDEN);
+	    } else {
+			msg.addByte(creatureType);
+		}
 
 		if (player->getProtocolVersion() >= 1120) {
 			if (creatureType == CREATURETYPE_SUMMONPLAYER) {
@@ -3419,11 +3420,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 			}
 		}
 
-        if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
-            msg.addString("");
-        } else {
-		    msg.addString(creature->getName());
-        }
+		if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
+			msg.addString("");
+		} else {
+			msg.addString(creature->getName());
+		}
 	}
 
 	if (creature->isHealthHidden()) {
@@ -3466,7 +3467,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		}
 	}
 
-	msg.addByte(creatureType); // Type (for summons)
+	if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
+		msg.addByte(CREATURETYPE_MONSTER_HIDDEN);
+	} else {
+		msg.addByte(creatureType); // Type (for summons)
+	}
 
 	if (player->getProtocolVersion() >= 1120) {
 		if (creatureType == CREATURETYPE_SUMMONPLAYER) {
