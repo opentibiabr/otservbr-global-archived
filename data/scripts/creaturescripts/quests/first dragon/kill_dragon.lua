@@ -6,7 +6,7 @@ function killDragon.onKill(player, target)
 	end
 	if target:getName():lower() == "dragon" then
 		local storage = player:getStorageValue(Storage.FirstDragon.DragonCounter)
-		if storage < 200 then
+		if storage >= 0 and storage < 200 then
 			player:setStorageValue(Storage.FirstDragon.DragonCounter, player:getStorageValue(Storage.FirstDragon.DragonCounter) + 1)
 		end
 	end
