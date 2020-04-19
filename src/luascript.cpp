@@ -9652,13 +9652,7 @@ int LuaScriptInterface::luaPlayerSetBankBalance(lua_State* L)
 		return 1;
 	}
 
-	int64_t balance = getNumber<int64_t>(L, 2);
-	if (balance < 0) {
-		reportErrorFunc("Invalid bank balance value.");
-		lua_pushnil(L);
-		return 1;
-	}
-
+	uint64_t balance = getNumber<uint64_t>(L, 2);
 	player->setBankBalance(balance);
 	pushBoolean(L, true);
 	return 1;
