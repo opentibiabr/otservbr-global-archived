@@ -3419,7 +3419,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 			}
 		}
 
-		msg.addString(creature->getName());
+        if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
+            msg.addString("");
+        } else {
+		    msg.addString(creature->getName());
+        }
 	}
 
 	if (creature->isHealthHidden()) {
