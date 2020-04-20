@@ -52,7 +52,7 @@ end
 
 function loadAttribute.onStartup()
 	addEvent(loadingAttribute, 1 * 1000)
-	print(">> Action and unique loading system for .lua")
+	print(">> Action and unique loading system per Lua")
 	print("> All actions loaded.")
 	print("> All uniques loaded.")
 	return true

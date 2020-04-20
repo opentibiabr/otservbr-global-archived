@@ -960,4 +960,6 @@ mapNpcs = {
 	[959] = {name = "Tefrit", pos = {x=33839,y=31693,z=5}},
 	[960] = {name = "Saideh", pos = {x=33844,y=31638,z=7}},
 	[961] = {name = "Tarun", pos = {x=32976,y=32715,z=7}},
+	[962] = {name = "NomadNPC", pos = {x=31941,y=31305,z=6}},
+	[963] = {name = "Kais", pos = {x=32910,y=32512,z=8}},
 }
