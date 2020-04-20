@@ -83,7 +83,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 			playerTile:teleportTo(config.newPos)
 			playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)	
-			playerTile:setStorageValue(Storage.TheSecretLibrary.TheOrderOfTheFalcon.OberonTimer, os.time() + 20 * 60 * 3600) -- + 20 * 60 * 3600
+			playerTile:setStorageValue(Storage.TheSecretLibrary.TheOrderOfTheFalcon.OberonTimer, os.time() + 20 * 60 * 60)
 			addEvent(clearOberonRoom, 60 * config.time * 1000, playerTile:getId(), config.centerRoom, config.range, config.range, config.exitPosition)
 			playerTile:sendTextMessage(MESSAGE_STATUS_SMALL, "You have 10 minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.")
 			item:transform(1946)
