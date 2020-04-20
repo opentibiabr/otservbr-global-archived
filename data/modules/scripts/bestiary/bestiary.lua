@@ -543,7 +543,6 @@ function Player.setCharmRuneSlotExpansion(self, onOff)
 end
 
 function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
-
 	if type(monsterID) == "string" then
 		monsterID = Bestiary.MonstersName[monsterID]
 		if not monsterID then
@@ -554,7 +553,9 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	local curCount = self:getBestiaryKillCount(monsterID)
 	local monster = Bestiary.Monsters[monsterID]
 	if curCount == 0 then
-		self:sendBestiaryEntryChanged(monsterID)
+		if self:getClient().version >= 1200 then
+			self:sendBestiaryEntryChanged(monsterID)
+		end
 		self:setBestiaryKillCount(monsterID, 1)
 		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
 		return
@@ -566,11 +567,15 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	
     if curCount == monster.FirstUnlock or curCount == monster.SecondUnlock then
     	self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
-		self:sendBestiaryEntryChanged(monsterID)
+		if self:getClient().version >= 1200 then
+			self:sendBestiaryEntryChanged(monsterID)
+		end
     elseif curCount == monster.toKill then
     	self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
 		self:addCharmPoints(monster.CharmsPoints)
-		self:sendBestiaryEntryChanged(monsterID)
+		if self:getClient().version >= 1200 then
+			self:sendBestiaryEntryChanged(monsterID)
+		end
 	end	
 end
 
