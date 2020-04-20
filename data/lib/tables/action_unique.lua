@@ -37,7 +37,23 @@ UniqueTable = {
 Unique IDS
 As the name implies, it should be used in unique functions, where they should only be repeated once per action. It is advisable to use the uniques, because when repeated their use, the log of the repetition is returned in distro. It also does not risk conflicting with storages and other types of actions.
 
+Note that you don't need to register UIDS in the scripts, just duplicate a new table and configure it with the variables, add a new UID (within the range of the scritp) and it will be set automatically by the script.
+
+UID 13000/14000 reserved range for keys.
+UID 14001/16000 reserved range for commom rewards.
+UID 16001/17000 reserved range for container rewards.
 ]]
+
+	-- Keys quest
+	[13000] = {itemId = 1290, itemPos = Position(32652, 32107, 7), keyAction = 4055, itemReward = 2088, storage = Storage.Quest.Panpipe.Key4055Reward}, -- panpipe quest/key 4055
+
+	-- Rewards without a container, it is only received by the player, are the common rewards, just duplicate the table and configure correctly, the scripts already register the entire table automatically.
+	-- UID reserved range 14001/16000.
+	--[xxxxx] = {itemId = xxxx, itemPos = Position(xxxxx, xxxxx, xx), itemReward = {{xxxx, x}}, storage = Storage.Quest.QuestName},
+	
+	-- Reward inside of container, there is also the option to put a key inside, if the table has a variable for key, then it is inside the bag.
+	-- UID reserved range 16001/17000.
+	--[xxxx] = {itemId = xxxx, itemPos = Position(xxxxx, xxxxx, xx), itemBag = xxxx, keyItem = xxxx, keyAction = xxxx, itemReward = {{xxxx, x}, {xxxx, x}, {xxxx, x}}, weight = xxxx, storage = Storage.Quest.QuestName},
 
 	-- The first dragon Quest Start
 	-- Treasure Chests Start

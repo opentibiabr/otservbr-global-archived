@@ -314,7 +314,7 @@
 
 	<!-- Secret Service Quest -->
 	<movevent event="StepIn" actionid="12571" script="quests/secret service/pirates.lua" />
-	<movevent event="StepIn" fromaid="12583" toaid="12584" script="quests/secret service/amazons.lua" />
+	<movevent event="StepIn" fromuid="23204" touid="23205" script="quests/secret service/amazons.lua" />
 
 	<!-- Teleports -->
 	<movevent event="StepIn" fromaid="9700" toaid="9705" script="others/teleports/teleportAbDendriel.lua" />

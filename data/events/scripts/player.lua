@@ -9,8 +9,8 @@ CONTAINER_WEIGHT = 1000000 -- 1000000 = 10k = 10000.00 oz | this function is onl
 -- Items sold on the store that should not be moved off the store container
 local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
 
--- No move/trade items with actionID 8000
-BLOCK_ITEM_WITH_ACTION = 8000
+-- No move/trade items with actionID 100
+BLOCK_ITEM_WITH_ACTION = 100
 
 -- Capacity imbuement store
 local STORAGE_CAPACITY_IMBUEMENT = 42154

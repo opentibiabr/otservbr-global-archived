@@ -67,6 +67,8 @@ keyDoor = {
 	{ lockedDoor = 26543, closedDoor = 26544, openDoor = 26546 },
 	{ lockedDoor = 33117, closedDoor = 33118, openDoor = 32582 },
 	{ lockedDoor = 33119, closedDoor = 33120, openDoor = 32583 },
+	{ lockedDoor = 35607, closedDoor = 35608, openDoor = 35611 },
+	{ lockedDoor = 35609, closedDoor = 35610, openDoor = 35612 },
 	}
 
 -- These are the common doors, the ones that just open and close without any special requirements.
@@ -131,10 +133,6 @@ customDoor = {
 	{ closedDoor = 34689, openDoor = 34677 },
 	{ closedDoor = 34690, openDoor = 34678 },
 	]]
-	{ closedDoor = 35607, openDoor = 35611 },
-	{ closedDoor = 35608, openDoor = 35611 },
-	{ closedDoor = 35609, openDoor = 35612 },
-	{ closedDoor = 35610, openDoor = 35612 },
 	{ closedDoor = 35668, openDoor = 35672 },
 	{ closedDoor = 35669, openDoor = 35672 },
 	{ closedDoor = 35670, openDoor = 35673 },

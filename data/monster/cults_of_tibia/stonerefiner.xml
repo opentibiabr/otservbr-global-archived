@@ -45,14 +45,12 @@
 		<voice sentence="nomnomnom"/>
 	</voices>
 	<loot>
-		<!--Comum-->
-		<item name="gold coin" countmax="200" chance="4050"/>
-		<item name="platinum coin" countmax="3" chance="4050"/>
-		<item name="glob of acid slime" chance="4050"/>
-		<item id="13757" countmax="5" chance="450"/>
- 		<item name="poisonous slime" countmax="3" chance="350"/>
- 		<item name="rat cheese" countmax="2" chance="4050"/>
- 		<item name="stonerefiner's skull" countmax="200" chance="300"/>
-		<item name="Half-Digested Stones" countmax="5" chance="400"/>
+		<item name="platinum coin" countmax="4" chance="50930"/>
+		<item name="rare earth" countmax="2" chance="39750"/>
+		<item id="13757" countmax="5" chance="27980"/><!-- coal -->
+		<item name="glob of acid slime" chance="23680"/>
+		<item name="stonerefiner's skull" chance="20110"/>
+		<item name="poisonous slime" countmax="3" chance="20040"/>
+		<item name="half-digested stones" countmax="5" chance="15210"/>
 	</loot>
 </monster>

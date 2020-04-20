@@ -24,7 +24,7 @@
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-800" max="-1300"/>
-		<attack name="death" interval="2000" chance="13" length="8" spread="0" min="-1200" max="-1500">
+		<attack name="death" interval="15000" chance="13" length="8" spread="0" min="-1200" max="-1500">
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
 		<attack name="death" interval="2000" chance="13" radius="4" target="1" min="-400" max="-600">

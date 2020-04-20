@@ -54,6 +54,7 @@ local function creatureSayCallback(cid, type, msg)
 				'Needless to say, the Marid won\'t be too eager to part with it. Try not to get killed until you have delivered the stone to me.'
 			}, cid)
 			player:setStorageValue(Storage.DjinnWar.EfreetFaction.Mission02, 1)
+			player:setStorageValue(Storage.DjinnWar.EfreetFaction.DoorToMaridTerritory, 1)
 
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('Then not.', cid)

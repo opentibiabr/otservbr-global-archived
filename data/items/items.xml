@@ -21764,7 +21764,13 @@
 	<item fromid="11931" toid="11932" article="a" name="statue" />
 	<item id="11933" article="a" name="sapphire stand" />
 	<item fromid="11934" toid="11935" article="a" name="chair" />
-	<item fromid="11937" toid="11946" article="a" name="corrupted wall" />
+	<item id="11936" article="a" name="blood cask" />
+	<item fromid="11937" toid="11941" article="a" name="corrupted wall" />
+	<item id="11942" name="marble floor" />
+	<item fromid="11943" toid="11944" article="a" name="corrupted wall" />
+	<item id="11945" name="marble floor" />
+	<item id="11946" article="a" name="corrupted wall" />
+	<item id="11947" name="marble floor" />
 	<item id="11948" article="a" name="window" />
 	<item fromid="11949" toid="11952" article="a" name="corrupted wall" />
 	<item fromid="11953" toid="11958" name="marble floor" />
@@ -21852,6 +21858,8 @@
 	<item id="12105" article="an" name="open door">
 		<attribute key="type" value="door" />
 	</item>
+	<item id="12108" name="dragon spikes" />
+	<item fromid="12109" toid="12111" article="a" name="dragon spike" />
 	<item id="12113" name="timbers" />
 	<item fromid="12115" toid="12124" name="carpet" />
 	<item fromid="12125" toid="12137" name="roof" />
@@ -27663,7 +27671,11 @@
 	</item>
 	<item id="19511" article="a" name="wooden scaffolding" />
 	<item fromid="19512" toid="19514" article="a" name="small wooden fence" />
-	<item fromid="19515" toid="19517" article="a" name="wooden ramp" />
+	<item id="19515" article="a" name="wooden ramp" />
+	<item id="19516" article="a" name="wooden ramp">
+		<attribute key="floorchange" value="north" />
+	</item>
+	<item id="19517" article="a" name="wooden ramp" />
 	<item id="19518" name="muddy floor">
 		<attribute key="description" value="There is a hole in the ceiling." />
 	</item>

@@ -560,9 +560,9 @@
 
 	<!-- Rookgaard -->
 	<action actionid="50239" script="rookgaard/SewerLever.lua" />
-	<action actionid="5637" script="rookgaard/katanaQuestLever.lua" />
-	<action actionid="1002" script="rookgaard/katanaQuestDoor.lua" />
-	<action actionid="5638" script="rookgaard/bearroomQuestLever.lua" />
+	<action uniqueid="5635" script="rookgaard/katanaQuestLever.lua" />
+	<action uniqueid="5636" script="rookgaard/katanaQuestDoor.lua" />
+	<action uniqueid="5638" script="rookgaard/bearroomQuestLever.lua" />
 	<action actionid="5639" script="rookgaard/doubletQuest.lua" />
 	<action actionid="5640" script="rookgaard/honeyflowerQuest.lua" />
 	<action actionid="5641" script="rookgaard/bananaQuest.lua" />
