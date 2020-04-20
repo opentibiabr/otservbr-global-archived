@@ -33,4 +33,4 @@ jobs:
     - name: build
       run: luarocks install luacheck
     - name: Test Lua syntax
-      run: if [ $(echo ${{ steps.get_file_changes.outputs.files_modified}} ${{ steps.get_file_changes.outputs.files_added}} | egrep ' data\/' | wc -l) -gt 0 ]; then luacheck --no-config --no-global --no-unused --no-unused-args --no-cache -d $(echo ${{ steps.get_file_changes.outputs.files_modified}} ${{ steps.get_file_changes.outputs.files_added}} | egrep -o ' data\/\S*\.lua' | column); fi
+      run: if [ $(echo "${{ steps.get_file_changes.outputs.files_modified}}" "${{ steps.get_file_changes.outputs.files_added}}" | egrep ' data\/' | wc -l) -gt 0 ]; then luacheck --no-config --no-global --no-unused --no-unused-args --no-cache -d $(echo "${{ steps.get_file_changes.outputs.files_modified}}" "${{ steps.get_file_changes.outputs.files_added}}" | egrep -o ' data\/\S*\.lua' | column); fi
