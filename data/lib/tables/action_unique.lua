@@ -51,7 +51,12 @@ UID 16001/17000 reserved range for container rewards.
 
 	-- Rewards without a container, it is only received by the player, are the common rewards, just duplicate the table and configure correctly, the scripts already register the entire table automatically.
 	-- UID reserved range 14001/16000.
-	--[xxxxx] = {itemId = xxxx, itemPos = Position(xxxxx, xxxxx, xx), itemReward = {{xxxx, x}}, storage = Storage.Quest.QuestName},
+	--[exampleItemUID] = {exampleItemID = xxxx, itemPos = Position(xPos, yPos, zPos), itemReward = {{rewardID, rewardCount}}, storage = Storage.Quest.QuestName},
+	[14001] = {itemId = 26408, itemPos = Position(32349, 32194, 9), itemReward = {{26654, 1}}, storage = Storage.HallsOfHope.Reward1},
+	[14002] = {itemId = 26408, itemPos = Position(32382, 32368, 9), itemReward = {{26654, 1}}, storage = Storage.HallsOfHope.Reward2},
+	[14003] = {itemId = 26408, itemPos = Position(32287, 32119, 7), itemReward = {{26654, 1}}, storage = Storage.HallsOfHope.Reward3},
+	[14004] = {itemId = 26409, itemPos = Position(32389, 32001, 6), itemReward = {{26654, 1}}, storage = Storage.HallsOfHope.Reward4},
+	[14005] = {itemId = 26408, itemPos = Position(32449, 32109, 8), itemReward = {{26654, 1}}, storage = Storage.HallsOfHope.Reward5},
 	
 	-- Reward inside of container, there is also the option to put a key inside, if the table has a variable for key, then it is inside the bag.
 	-- UID reserved range 16001/17000.

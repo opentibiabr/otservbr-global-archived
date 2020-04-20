@@ -16,6 +16,7 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 						if ItemType(itemid):isStackable() or ItemType(itemid):getCharges() then
 							player:addItem(itemid, count)
 							player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(itemid) .. ".")
+							player:setStorageValue(setting.storage, 1)
 						else
 							for c = 1, count do
 								player:setStorageValue(setting.storage, 1)
