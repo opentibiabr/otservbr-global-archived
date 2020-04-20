@@ -18,12 +18,10 @@ Reserved player action storage key ranges (const.h at the source)
 [1000 - 1500]
 [2001 - 2011]
 
-[100] = unmoveable items
-[101] = pickable items
-[102] = well down action
-
 Others reserved player action storages
-[100 = it is locked door]
+[100] = unmoveable/untrade/unusable items
+[101] = use pick floor
+[102] = well down action
 [1000 = level door. Here 1 must be used followed by the level. Example: 1010 = level 10, 1100 = level 100] 
 ]]
 	{actionId = 24890, itemId = 4552, itemPos = Position(33135, 32652, 7), storage = Storage.FirstDragon.DesertTile, msg = "You enter the beautiful oasis. By visiting this sacred site you're infused with the power of water bringing life to the desert."},
