@@ -39,6 +39,6 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 end
 
 for uniqueids = 14001,16000 do
-commonReward:uid(uniqueids)
+	commonReward:uid(uniqueids)
 end
 commonReward:register()
