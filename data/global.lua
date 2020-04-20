@@ -3,7 +3,7 @@
 math.randomseed(os.time())
 dofile('data/lib/lib.lua')
 
-NOT_MOVEABLE_ACTION = 8000
+NOT_MOVEABLE_ACTION = 100
 PARTY_PROTECTION = 1 -- Set to 0 to disable.
 ADVANCED_SECURE_MODE = 1 -- Set to 0 to disable.
 
