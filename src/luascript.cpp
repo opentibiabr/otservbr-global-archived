@@ -9652,7 +9652,14 @@ int LuaScriptInterface::luaPlayerSetBankBalance(lua_State* L)
 		return 1;
 	}
 
-	uint64_t balance = getNumber<uint64_t>(L, 2);
+	std::string value = getString(L, 2);
+	int64_t signedBalance = std::strtoll(value.c_str(), NULL, 10);
+	uint64_t balance = 0;
+
+	if (signedBalance > 0) {
+		balance = std::strtoull(value.c_str(), NULL, 10);
+	}
+
 	player->setBankBalance(balance);
 	pushBoolean(L, true);
 	return 1;
