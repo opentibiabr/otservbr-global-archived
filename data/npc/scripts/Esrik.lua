@@ -9,10 +9,10 @@ function onThink()				npcHandler:onThink()					end
 
 local function getTable(player)
 	local itemsList = {
-		{name="exercise sword", id=32384, buy=262500, subtype = 500},
-		{name="exercise axe", id=32385, buy=262500, subtype = 500},
-		{name="exercise club", id=32386, buy=262500, subtype = 500},
-		{name="exercise bow", id=32387, buy=262500, subtype = 500},
+		{name="exercise sword", id=32384, buy=262500, charges = 500},
+		{name="exercise axe", id=32385, buy=262500, charges = 500},
+		{name="exercise club", id=32386, buy=262500, charges = 500},
+		{name="exercise bow", id=32387, buy=262500, charges = 500},
 		{name="axe", id=2386, buy=20, sell=7},
 		{name="battle axe", id=2378, buy=235, sell=80},
 		{name="battle hammer", id=2417, buy=350, sell=120},
@@ -143,12 +143,12 @@ local function setNewTradeTable(table)
 	local items, item = {}
 	for i = 1, #table do
 		item = table[i]
-		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = item.subType, realName = item.name}
+		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, charges = item.charges, realName = item.name}
 	end
 	return items
 end
 
-local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
+local function onBuy(cid, item, charges, amount, ignoreCap, inBackpacks)
 	local player = Player(cid)
 	local items = setNewTradeTable(getTable(player))
 	if not ignoreCap and player:getFreeCapacity() < ItemType(items[item].itemId):getWeight(amount) then
@@ -160,7 +160,7 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 		player:addItem(items[item].itemId, amount)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	elseif ItemType(items[item].itemId):getCharges() then
-		player:addItem(items[item].itemId, subType)
+		player:addItem(items[item].itemId, charges)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	else
 		player:addItem(items[item].itemId)
@@ -169,10 +169,10 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	return true
 end
 
-local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
+local function onSell(cid, item, charges, amount, ignoreCap, inBackpacks)
 	local player = Player(cid)
 	local items = setNewTradeTable(getTable(player))
-	if items[item].sellPrice and player:removeItem(items[item].itemId, amount, subType) then
+	if items[item].sellPrice and player:removeItem(items[item].itemId, amount) then
 		player:addMoney(items[item].sellPrice * amount)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Sold '..amount..'x '..items[item].realName..' for '..items[item].sellPrice * amount..' gold coins.')
 	else
