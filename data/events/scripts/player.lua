@@ -404,8 +404,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 				lionrock.taskactive.topaz = true
 			end
 
-			local item = Tile(Position(33077, 32298, 9))
-			if (item:getItemCountById(7473) > 0) then
+			local searingFirePosition = Tile(Position(33077, 32298, 9))
+			if (searingFirePosition:getItemCountById(7473) > 0) then
 				local flametopaz = Game.createItem(7473, 1, Position(33077, 32298, 9))
 			end
 		end
