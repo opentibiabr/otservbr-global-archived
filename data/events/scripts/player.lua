@@ -362,8 +362,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 				lionrock.taskactive.ruby = true
 			end
 
-			local fireFieldPosition = Tile(Position(33069, 32298, 9))
-			if (fireFieldPosition:getItemCountById(1488) > 0) then
+			local rubyFieldPosition = Tile(Position(33069, 32298, 9))
+			if (rubyFieldPosition:getItemCountById(1488) > 0) then
 				local flameruby = Game.createItem(1488, 1, Position(33069, 32298, 9))
 			end
 		end
@@ -390,8 +390,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 				lionrock.taskactive.amethyst = true
 			end
 
-			local item = Tile(Position(33077, 32302, 9))
-			if (item:getItemCountById(1500) > 0) then
+			local sapphireFieldPosition = Tile(Position(33077, 32302, 9))
+			if (sapphireFieldPosition:getItemCountById(1500) > 0) then
 				local flameamethyst = Game.createItem(1500, 1, Position(33077, 32302, 9))
 			end
 		end
@@ -528,8 +528,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 		-- The player also shouldn't be able to insert items into the boss corpse
 		local tileCorpse = Tile(container:getPosition())
-		for _, item in ipairs(tileCorpse:getItems() or { }) do
-			if item:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2^31 - 1 and item:getName() == container:getName() then
+		for index, value in ipairs(tileCorpse:getItems() or { }) do
+			if value:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2^31 - 1 and value:getName() == container:getName() then
 				self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 				return false
 			end
