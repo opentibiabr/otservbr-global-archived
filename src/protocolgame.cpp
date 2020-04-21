@@ -1983,21 +1983,21 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
-    NetworkMessage msg;
-    msg.addByte(0xF2);
-    msg.addByte(0x00);
+	NetworkMessage msg;
+	msg.addByte(0xF2);
+	msg.addByte(0x00);
 
-    writeToOutputBuffer(msg);
+	writeToOutputBuffer(msg);
 
-    g_dispatcher.addTask(
-        createTask(std::bind([](ProtocolGame* client) {
+	g_dispatcher.addTask(
+		createTask(std::bind([](ProtocolGame* client) {
 			if (client) {
 				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
-                client->player->coinBalance = coinBalance;
-                client->sendCoinBalance();
-            }
-        }, this))
-    );
+				client->player->coinBalance = coinBalance;
+				client->sendCoinBalance();
+			}
+		}, this))
+	);
 }
 
 void ProtocolGame::sendMarketLeave()
@@ -2603,6 +2603,11 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
+    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) { 
+        // on newer clients, sending health 0 causes it to show the creature name with an empty healthbar
+        return;
+    }
+
 	NetworkMessage msg;
 	msg.addByte(0x8C);
 	msg.add<uint32_t>(creature->getID());
@@ -3405,9 +3410,9 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.add<uint16_t>(0x61);
 		msg.add<uint32_t>(remove);
 		msg.add<uint32_t>(creature->getID());
-        if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
-			msg.addByte(CREATURETYPE_MONSTER_HIDDEN);
-	    } else {
+		if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
+			msg.addByte(CREATURETYPE_HIDDEN);
+		} else {
 			msg.addByte(creatureType);
 		}
 
@@ -3420,7 +3425,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 			}
 		}
 
-		if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
+		if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
 			msg.addString("");
 		} else {
 			msg.addString(creature->getName());
@@ -3467,8 +3472,8 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		}
 	}
 
-	if (player->getProtocolVersion() >= 1120 && creatureType == CREATURETYPE_MONSTER && creature->isHealthHidden()) {
-		msg.addByte(CREATURETYPE_MONSTER_HIDDEN);
+	if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
+		msg.addByte(CREATURETYPE_HIDDEN);
 	} else {
 		msg.addByte(creatureType); // Type (for summons)
 	}
