@@ -41,14 +41,13 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Do you have 30 demonic essences to offer to the demonic messenger?", cid)
 		npcHandler.topic[cid] = 3
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 3 then
-		if not player:removeItem(6500, 30) then
-			npcHandler:say("You don\'t have the demonic essences, back here when you get it.", cid)
-			npcHandler:releaseFocus(cid)
-		else
+		if player:removeItem(6500, 30) then
 			npcHandler:say("Excellent! This will empower possibilty to create a breach is enough to let you pass into that hellish hiding place. ...", cid)
 			player:addItem(24838, 1)
-			player:removeItem(6500, 30)
 			player:setStorageValue(Storage.FerumbrasAscension.Access, 1)
+		else
+			npcHandler:say("You don\'t have the demonic essences, back here when you get it.", cid)
+			npcHandler:releaseFocus(cid)			
 		end
 	elseif msgcontains(msg, "godbreaker") then
 		npcHandler:say("For a long time, I thought the godbreaker to be some apocryphal myth. But apparently others had learned about the godbreaker in the aeons past and lusted for its power. ...", cid)
