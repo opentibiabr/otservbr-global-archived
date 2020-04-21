@@ -2,7 +2,7 @@
 -- You just need to add a new table in the actions_uniques file and this script will pull everything from there.
 -- Remember to add the uniqueid at the end of the script.
 local commonReward = Action()
-	
+
 function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	local setting = UniqueTable[item.uid]
 	if setting then

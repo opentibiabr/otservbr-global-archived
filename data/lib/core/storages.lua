@@ -31,35 +31,35 @@ Storage = {
 		},
 		-- update 6.4
 		AdornedUHRune = {
-		},	 
+		},
 		BarbarianAxe = {
 		},
 		BerserkerTreasure = {
-		},	
+		},
 		DarkArmor = {
-		},	
+		},
 		DemonHelmet = {
-		},	
+		},
 		DoubleHero = {
-		},	
+		},
 		EdronGoblin = {
-		},	
+		},
 		FireAxe = {
-		},	
+		},
 		PoisonDaggers = {
-		},	
+		},
 		Ring = {
-		},	
+		},
 		ShamanTreasure = {
-		},	
+		},
 		StrongPotions = {
-		},	
+		},
 		TrollCave = {
-		},	
+		},
 		VampireShield = {
-		},	
+		},
 		WeddingRing = {
-		},	
+		},
 		-- update 6.5
 		AlawarsVault = {
 		},
@@ -126,7 +126,7 @@ Storage = {
 		BarbarianOutfits = {
 		},
 		BeggarOutfits = {
-		},	
+		},
 		CitizenOutfits = {
 		},
 		CitizenOutfitsRook = {
@@ -166,7 +166,7 @@ Storage = {
 		TheSweatyCyclops = {
 		},
 		TreasureIsland = {
-		},	
+		},
 		WarriorOutfits = {
 		},
 		WizardOutfits = {
@@ -229,7 +229,7 @@ Storage = {
 		NomadsLand = {
 		},
 		RestInHallowedGround = {
-		},	
+		},
 		SecretService = {
 		},
 		StealFromThieves = {
@@ -241,7 +241,7 @@ Storage = {
 		TheUltimateBooze = {
 		},
 		ToAppeaseTheMighty = {
-		}, 
+		},
 		ToBlindTheEnemy = {
 		},
 		ToOutfoxAFox = {
@@ -260,11 +260,11 @@ Storage = {
 		TheDemonOak = {
 		},
 		TheHuntForTheSeaSerpent = {
-		}, 
+		},
 		TheInquisition = {
 		},
 		TheThievesGuild = {
-		}, 
+		},
 		TrollSabotage = {
 		},
 		VampireHunter = {
@@ -583,20 +583,20 @@ Storage = {
 		},
 		PoltergeistOutfits = {
 		},
-		
+
 	}, -- quests
-		DeeplingsWorldChange = {
-			Questline = 25000,
-			FirstStage = 25001,
-			SecondStage = 25002,
-			ThirdStage = 25003,
-			Crystal = 25004,
-		},
-		LiquidBlackQuest = {
-			Questline = 24000,
-			Visitor = 24001,
-		},
-		KilmareshQuest = {
+	DeeplingsWorldChange = {
+		Questline = 25000,
+		FirstStage = 25001,
+		SecondStage = 25002,
+		ThirdStage = 25003,
+		Crystal = 25004,
+	},
+	LiquidBlackQuest = {
+		Questline = 24000,
+		Visitor = 24001,
+	},
+	KilmareshQuest = {
 		Questline = 22000,
 		First = {
 			Title = 22002,
@@ -649,24 +649,24 @@ Storage = {
 			Remains = 22023,
 		},
 	},
-	
+
 	TheSecretLibrary = {
 		TheOrderOfTheFalcon = {
 			OberonTimer = 25580,
 		},
-	LiquidDeath = 25581,
-	Mota = 25582,
-	MotaDoor = 25583,
-	BasinDoor = 25584,
-	SkullDoor = 25585,
-	TheLament = 25586,
-	GreenTel = 25587,
-	BlueTel = 25588,
-	BlackTel = 25589,
-	PinkTel = 25590,
-	Peacock = 25591,
-	HighDry = 25592,
-	},	
+		LiquidDeath = 25581,
+		Mota = 25582,
+		MotaDoor = 25583,
+		BasinDoor = 25584,
+		SkullDoor = 25585,
+		TheLament = 25586,
+		GreenTel = 25587,
+		BlueTel = 25588,
+		BlackTel = 25589,
+		PinkTel = 25590,
+		Peacock = 25591,
+		HighDry = 25592,
+	},
 
 	DeeplingBosses = {
 		Jaul = 35600,
@@ -674,12 +674,12 @@ Storage = {
 		Obujos = 35602,
 		DeeplingStatus = 35603
 	},
-		Exercisedummy = {
+	Exercisedummy = {
 		exaust = 98231521
 	},
 
 	DangerousDepths = {
-	Questline = 800,
+		Questline = 800,
 		Dwarves = {
 			Status = 897,
 			Home = 801, -- Missão
@@ -1001,7 +1001,7 @@ Storage = {
 		TheEctoplasm = 111,
 		TheSpectralDress = 112,
 		TheSpectralStone = 113,
-        TheAstralPortals = 114,
+		TheAstralPortals = 114,
 		TheIslandofDragons = 115,
 		TheIceMusic = 116
 	},
@@ -1336,7 +1336,7 @@ Storage = {
 		AssassinBaseOutfit = 50080,
 		AssassinFirstAddon = 50081,
 		AssassinSecondAddon = 50082,
-		
+
 		-- Golden Outfit
 		GoldenOutfit = 52000,
 

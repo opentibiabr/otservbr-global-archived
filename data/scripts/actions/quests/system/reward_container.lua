@@ -2,7 +2,7 @@
 -- You just need to add a new table in the actions_uniques file and this script will pull everything from there.
 -- Remember to add the uniqueid at the end of the script.
 local containerReward = Action()
-	
+
 function containerReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	local setting = UniqueTable[item.uid]
 	if player:getStorageValue(setting.storage) < 0 then
@@ -27,8 +27,8 @@ function containerReward.onUse(player, item, fromPosition, itemEx, toPosition)
 					player:setStorageValue(setting.storage, 1)
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemBag) .. ".")
 				else
-				player:setStorageValue(setting.storage, 1)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemBag) .. ".")
+					player:setStorageValue(setting.storage, 1)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemBag) .. ".")
 				end
 			else
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemBag) .. ". Weighing " .. setting.weight .. " oz it is too heavy.")
@@ -39,10 +39,10 @@ function containerReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	else
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
 	end
-return true
+	return true
 end
 
 for uniqueids = 16001,17000 do
-containerReward:uid(uniqueids)
+	containerReward:uid(uniqueids)
 end
 containerReward:register()

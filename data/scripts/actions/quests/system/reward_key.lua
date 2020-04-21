@@ -1,7 +1,7 @@
 -- This script loads key into any item.
 -- You just need to add a new table in the actions_uniques file and this script will pull everything from there.
 local keyReward = Action()
-	
+
 function keyReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	local setting = UniqueTable[item.uid]
 	if setting then
@@ -16,10 +16,10 @@ function keyReward.onUse(player, item, fromPosition, itemEx, toPosition)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
 		end
 	end
-return true
+	return true
 end
 
 for uniqueids = 13000, 14000 do
-    keyReward:uid(uniqueids)
+	keyReward:uid(uniqueids)
 end
 keyReward:register()
