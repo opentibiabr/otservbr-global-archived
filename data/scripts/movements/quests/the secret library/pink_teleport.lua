@@ -8,7 +8,7 @@ function pinkTeleport.onStepIn(creature, item, fromPosition, toPosition)
 
 	if player:getStorageValue(Storage.TheSecretLibrary.Peacock) == 2 then
 		player:teleportTo(Position(32880, 32828, 11))
-		player:sendMagicEffect(CONST_ME_TELEPORT)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
 	return true
 end
