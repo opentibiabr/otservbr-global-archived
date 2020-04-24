@@ -518,7 +518,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 			// std::cout << "Player: " << player->getName() << " sent an unknown packet header: 0x" << std::hex << static_cast<uint16_t>(recvbyte) << std::dec << "!" << std::endl;
 			break;
 	}
-	/* temporary solution to disconnections while opening store 
+	/* temporary solution to disconnections while opening store
 		if (msg.isOverrun()) {
 			disconnect();
 		}
@@ -1068,7 +1068,7 @@ void ProtocolGame::parseRuleViolationReport(NetworkMessage &msg)
 		translation = msg.getString();
 	} else if (reportType == REPORT_TYPE_STATEMENT) {
 		translation = msg.getString();
-		msg.get<uint32_t>(); // statement id, used to get whatever player have said, we don't log that.  
+		msg.get<uint32_t>(); // statement id, used to get whatever player have said, we don't log that.
 	}
 
 	addGameTask(&Game::playerReportRuleViolationReport, player->getID(), targetName, reportType, reportReason, comment, translation);
@@ -1501,7 +1501,7 @@ void ProtocolGame::sendBlessStatus()
 	if (player->getProtocolVersion() >= 1120) {
 		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
 			flag |= 1;
-		
+
 		msg.add<uint16_t>(flag);
 		msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
 	}else if (blessCount >= 5) {
@@ -1991,7 +1991,7 @@ void ProtocolGame::updateCoinBalance()
 
 	g_dispatcher.addTask(
 		createTask(std::bind([](ProtocolGame* client) {
-			if (client) {
+			if (client && client->player) {
 				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
 				client->player->coinBalance = coinBalance;
 				client->sendCoinBalance();
@@ -3811,7 +3811,7 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  	if (!player || !item || getVersion() < 1140) {
  		return;
  	}
- 
+
    	NetworkMessage msg;
  	msg.addByte(0xCE);
  	msg.add<uint16_t>(item->getClientID());
