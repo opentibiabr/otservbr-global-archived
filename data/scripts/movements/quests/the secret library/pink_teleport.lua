@@ -1,19 +1,17 @@
-local tpgolem = MoveEvent()
+local pinkTeleport = MoveEvent()
 
-function tpgolem.onStepIn(creature, item, position, fromPosition)
-
+function pinkTeleport.onStepIn(creature, item, fromPosition, toPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
 	end
 
 	if player:getStorageValue(Storage.TheSecretLibrary.Peacock) == 2 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"teleported")
 		player:teleportTo(Position(32880, 32828, 11))
+		player:sendMagicEffect(CONST_ME_TELEPORT)
 	end
-	
 	return true
 end
 
-tpgolem:aid(26698)
-tpgolem:register()
+pinkTeleport:aid(26698)
+pinkTeleport:register()

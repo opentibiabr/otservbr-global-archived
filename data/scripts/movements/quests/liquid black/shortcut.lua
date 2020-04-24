@@ -1,16 +1,19 @@
-local exittp = {x = 33478, y = 31314, z = 7}
-local errotp = {x = 33446, y = 31273, z = 14}
+local enterPosition = {x = 33478, y = 31314, z = 7}
 
 local shortcut = MoveEvent()
 
-function shortcut.onStepIn(player, item, frompos, item2, topos)
+function shortcut.onStepIn(creature, item, fromPosition, toPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return true
+	end
+
 	if player:getStorageValue(Storage.LiquidBlackQuest.Visitor) >= 4 then
 		player:setStorageValue(Storage.LiquidBlackQuest.Visitor, 5)
-		player:sendTextMessage(MESSAGE_INFO_DESCR,"Exit.")
-		player:teleportTo(exittp)
+		player:teleportTo(enterPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else
-		player:teleportTo(errotp)
+		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
 	return true
