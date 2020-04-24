@@ -1983,21 +1983,21 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
-    NetworkMessage msg;
-    msg.addByte(0xF2);
-    msg.addByte(0x00);
+	NetworkMessage msg;
+	msg.addByte(0xF2);
+	msg.addByte(0x00);
 
-    writeToOutputBuffer(msg);
+	writeToOutputBuffer(msg);
 
-    g_dispatcher.addTask(
-        createTask(std::bind([](ProtocolGame* client) {
+	g_dispatcher.addTask(
+		createTask(std::bind([](ProtocolGame* client) {
 			if (client) {
 				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
-                client->player->coinBalance = coinBalance;
-                client->sendCoinBalance();
-            }
-        }, this))
-    );
+				client->player->coinBalance = coinBalance;
+				client->sendCoinBalance();
+			}
+		}, this))
+	);
 }
 
 void ProtocolGame::sendMarketLeave()
@@ -2603,6 +2603,11 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
+    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) { 
+        // on newer clients, sending health 0 causes it to show the creature name with an empty healthbar
+        return;
+    }
+
 	NetworkMessage msg;
 	msg.addByte(0x8C);
 	msg.add<uint32_t>(creature->getID());
@@ -3396,7 +3401,6 @@ void ProtocolGame::sendModalWindow(const ModalWindow& modalWindow)
 void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bool known, uint32_t remove)
 {
 	CreatureType_t creatureType = creature->getType();
-
 	const Player* otherPlayer = creature->getPlayer();
 
 	if (known) {
@@ -3406,7 +3410,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.add<uint16_t>(0x61);
 		msg.add<uint32_t>(remove);
 		msg.add<uint32_t>(creature->getID());
-		msg.addByte(creatureType);
+		if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
+			msg.addByte(CREATURETYPE_HIDDEN);
+		} else {
+			msg.addByte(creatureType);
+		}
 
 		if (player->getProtocolVersion() >= 1120) {
 			if (creatureType == CREATURETYPE_SUMMONPLAYER) {
@@ -3417,7 +3425,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 			}
 		}
 
-		msg.addString(creature->getName());
+		if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
+			msg.addString("");
+		} else {
+			msg.addString(creature->getName());
+		}
 	}
 
 	if (creature->isHealthHidden()) {
@@ -3460,7 +3472,11 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		}
 	}
 
-	msg.addByte(creatureType); // Type (for summons)
+	if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
+		msg.addByte(CREATURETYPE_HIDDEN);
+	} else {
+		msg.addByte(creatureType); // Type (for summons)
+	}
 
 	if (player->getProtocolVersion() >= 1120) {
 		if (creatureType == CREATURETYPE_SUMMONPLAYER) {
