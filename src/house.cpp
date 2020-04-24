@@ -492,6 +492,8 @@ void AccessList::parseList(const std::string& listToParse)
 			} else {
 				addGuildRank(line.substr(0, at_pos - 1), line.substr(at_pos + 1));
 			}
+		} else if (line == "*") {
+			allowEveryone = true;
 		} else if (line.find("!") != std::string::npos || line.find("*") != std::string::npos || line.find("?") != std::string::npos) {
 			continue; // regexp no longer supported
 		} else {
@@ -555,6 +557,10 @@ void AccessList::addGuildRank(const std::string& name, const std::string& guildN
 
 bool AccessList::isInList(const Player* player)
 {
+	if (allowEveryone) {
+		return true;
+	}
+
 	std::string name = asLowerCaseString(player->getName());
 	std::cmatch what;
 
