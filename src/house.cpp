@@ -569,6 +569,19 @@ void AccessList::addExpression(const std::string& expression)
 
 	replaceString(outExp, "*", ".*");
 	replaceString(outExp, "?", ".?");
+	replaceString(outExp, "0", "");
+	replaceString(outExp, "1", "");
+	replaceString(outExp, "2", "");
+	replaceString(outExp, "3", "");
+	replaceString(outExp, "4", "");
+	replaceString(outExp, "5", "");
+	replaceString(outExp, "6", "");
+	replaceString(outExp, "7", "");
+	replaceString(outExp, "8", "");
+	replaceString(outExp, "9", "");
+	replaceString(outExp, "**", ".*");
+	replaceString(outExp, "*", ".*");
+	replaceString(outExp, "?", ".?");
 
 	try {
 		if (!outExp.empty()) {
