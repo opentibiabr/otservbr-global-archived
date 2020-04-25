@@ -35242,8 +35242,8 @@
 		<attribute key="transformEquipTo" value="24790" />
 		<attribute key="showduration" value="1" />
 		<attribute key="stopduration" value="1" />
-		<attribute key="armor" value="2" />
-		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="armor" value="3" />
+		<attribute key="absorbPercentPhysical" value="6" />
 		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="24718" article="a" name="werewolf helmet">
@@ -35339,7 +35339,7 @@
 	<item id="24738" article="a" name="purple nightshade blossom" plural="purple nightshade blossoms">
 		<attribute key="weight" value="200" />
 	</item>
-	<item id="24739" article="a" name="moonlight crystal" plural="moonlight crystals">
+	<item id="24739" article="a" name="moonlight crystals">
 		<attribute key="quicklootcategory" value="valuable" />
 		<attribute key="weight" value="400" />
 	</item>
@@ -35509,8 +35509,8 @@
 		<attribute key="quicklootcategory" value="amulet" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="transformDeEquipTo" value="24717" />
-		<attribute key="armor" value="2" />
-		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="armor" value="3" />
+		<attribute key="absorbPercentPhysical" value="6" />
 		<attribute key="duration" value="3600" />
 		<attribute key="showattributes" value="1" />
 		<attribute key="showduration" value="1" />
