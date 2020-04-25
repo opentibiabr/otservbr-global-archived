@@ -14,7 +14,6 @@
 	<raid name="OrcsThais" file="thais/orcs.xml" interval2="500" margin="70" />
 	<raid name="RatsThais" file="thais/rats.xml" interval2="500" margin="80" />
 	<raid name="Cyclops" file="thais/cyclops.xml" interval2="500" margin="30" />
-	<raid name="Orc SamBP" file="thais/orcsambp.xml" interval2="300" margin="110" />
 	<raid name="Wild Horses" file="thais/wildhorses.xml" interval2="500" margin="80" />
 
 	<!-- Raids Venore -->
@@ -22,6 +21,7 @@
 	<raid name="Dharalion" file="venore/dharalion.xml" interval2="500" margin="70" />
 	<raid name="Citizen" file="venore/feverish_citizen.xml" interval2="500" margin="40" />
 	<raid name="Hunters" file="venore/hunter.xml" interval2="500" margin="65" />
+	<raid name="Orc Backpack" file="venore/orc_backpack.xml" interval2="300" margin="110" />
 	<raid name="Fernfang" file="venore/fernfang.xml" interval2="1440" margin="80" />
 	<raid name="The Old Widow" file="venore/the_old_widow.xml" interval2="1440" margin="60" />
 	<raid name="Undead Army" file="venore/undead.xml" interval2="500" margin="100" />
