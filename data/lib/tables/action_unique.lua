@@ -112,4 +112,22 @@ UniqueTable = {
 	[24896] = {itemId = 27828, itemPos = Position(31994, 32390, 9), destination = Position(33047, 32713, 3)},
 	-- The first dragon Quest End
 
+	-- Insectoid cell
+	[25001] = {itemId = 14437, itemPos = Position(33480, 31196, 7), storage = Storage.InsectoidCell.Reward1, reward = 15572},
+	[25002] = {itemId = 14437, itemPos = Position(33486, 31192, 1), storage = Storage.InsectoidCell.Reward2, reward = 15572},
+	[25003] = {itemId = 14437, itemPos = Position(33511, 31169, 6), storage = Storage.InsectoidCell.Reward3, reward = 15572},
+	[25004] = {itemId = 14437, itemPos = Position(33544, 31208, 5), storage = Storage.InsectoidCell.Reward4, reward = 15572},
+	[25005] = {itemId = 14437, itemPos = Position(33553, 31240, 8), storage = Storage.InsectoidCell.Reward5, reward = 15572},
+	[25006] = {itemId = 14437, itemPos = Position(33554, 31196, 8), storage = Storage.InsectoidCell.Reward6, reward = 15572},
+	[25007] = {itemId = 14437, itemPos = Position(33586, 31213, 8), storage = Storage.InsectoidCell.Reward7, reward = 15572},
+	[25008] = {itemId = 14437, itemPos = Position(33588, 31212, 4), storage = Storage.InsectoidCell.Reward8, reward = 15572},
+	[25009] = {itemId = 14437, itemPos = Position(33605, 31223, 1), storage = Storage.InsectoidCell.Reward9, reward = 15572},
+	[25010] = {itemId = 14438, itemPos = Position(33476, 31199, 2), storage = Storage.InsectoidCell.Reward10, reward = 15572},
+	[25011] = {itemId = 14438, itemPos = Position(33480, 31196, 4), storage = Storage.InsectoidCell.Reward11, reward = 15572},
+	[25012] = {itemId = 14438, itemPos = Position(33562, 31218, 2), storage = Storage.InsectoidCell.Reward12, reward = 15572},
+	[25013] = {itemId = 14438, itemPos = Position(33564, 31217, 6), storage = Storage.InsectoidCell.Reward13, reward = 15572},
+	[25014] = {itemId = 14438, itemPos = Position(33587, 31251, 7), storage = Storage.InsectoidCell.Reward14, reward = 15572},
+	[25015] = {itemId = 14438, itemPos = Position(33610, 31221, 5), storage = Storage.InsectoidCell.Reward15, reward = 15572},
+	[25016] = {itemId = 14438, itemPos = Position(33478, 31197, 3), storage = Storage.InsectoidCell.Reward16, reward = 15572},
+
 }
