@@ -9,9 +9,6 @@ CONTAINER_WEIGHT = 1000000 -- 1000000 = 10k = 10000.00 oz | this function is onl
 -- Items sold on the store that should not be moved off the store container
 local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
 
--- No move/trade items with actionID 8000
-BLOCK_ITEM_WITH_ACTION = 8000
-
 -- Capacity imbuement store
 local STORAGE_CAPACITY_IMBUEMENT = 42154
 
@@ -106,7 +103,7 @@ function Player:onLook(thing, position, distance)
 			description = description .. thing:getDescription(distance)
 			local charges = thing:getCharges()
 			if charges then
-			description = string.format("%s\nIt has %d refillings left.", description, charges)
+				description = string.format("%s\nIt has %d refillings left.", description, charges)
 			end
 		else
 			description = description .. thing:getDescription(distance)
@@ -188,10 +185,9 @@ function Player:onLook(thing, position, distance)
 			description = string.format(str, description, thing:getHealth(), thing:getMaxHealth()) .. "."
 		end
 
-		local position = thing:getPosition()
 		description = string.format(
-			"%s\nPosition: %d, %d, %d",
-			description, position.x, position.y, position.z
+		"%s\nPosition: %d, %d, %d",
+		description, position.x, position.y, position.z
 		)
 
 		if thing:isCreature() then
@@ -220,8 +216,9 @@ function Player:onLookInBattleList(creature, distance)
 
 		local position = creature:getPosition()
 		description = string.format(
-			"%s\nPosition: %d, %d, %d",
-			description, position.x, position.y, position.z
+		"%s\nPosition: %d, %d, %d",
+		description, position.x, position.y, position.z
+
 		)
 
 		if creature:isPlayer() then
@@ -290,17 +287,17 @@ end
 
 function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, toCylinder)
 
-	-- No move items with actionID = 8000
-	if item:getActionId() == BLOCK_ITEM_WITH_ACTION then
+	-- No move items with actionID = 100
+	if item:getActionId() == NOT_MOVEABLE_ACTION then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return false
 	end
 
 	-- Store Items
-    if isInArray(storeItemID,item.itemid) then
-        self:sendCancelMessage('You cannot move this item outside this container.')
-        return false
-    end
+	if isInArray(storeItemID,item.itemid) then
+		self:sendCancelMessage('You cannot move this item outside this container.')
+		return false
+	end
 
 	-- No move if item count > 20 items
 	local tile = Tile(toPosition)
@@ -317,15 +314,15 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 	-- Loot Analyser apenas 11.x+
 	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-    	local t = Tile(fromCylinder:getPosition())
-    	local corpse = t:getTopDownItem()
-    	if corpse then
-    	    local itemType = corpse:getType()
-    		if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
-    		    self:sendLootStats(item)
-    		end
-    	end
-    end
+		local t = Tile(fromCylinder:getPosition())
+		local corpse = t:getTopDownItem()
+		if corpse then
+			local itemType = corpse:getType()
+			if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
+				self:sendLootStats(item)
+			end
+		end
+	end
 
 	-- Cults of Tibia begin
 	local frompos = Position(33023, 31904, 14) -- Checagem
@@ -338,7 +335,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 				item:remove(1)
 				if tileBoss:getTopCreature():getHealth() <= 300 then
 					tileBoss:getTopCreature():remove()
-					local monster  = Game.createMonster('the corruptor of souls', toPosition)
+					local monster = Game.createMonster('the corruptor of souls', toPosition)
 					monster:registerEvent('checkPiso')
 					if Game.getStorageValue('healthSoul') > 0 then
 						monster:addHealth(-(monster:getHealth() - Game.getStorageValue('healthSoul')))
@@ -357,59 +354,59 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	if self:getStorageValue(lionrock.storages.playerCanDoTasks) - os.time() < 0 then
 		local p, i = lionrock.positions, lionrock.items
 		local checkPr = false
-		if item:getId() == 2147 and toPosition.x == 33069 and toPosition.y == 32298  and toPosition.z == 9 then
+		if item:getId() == 2147 and toPosition.x == 33069 and toPosition.y == 32298 and toPosition.z == 9 then
 			-- Ruby
 			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the ruby on the small socket. A red flame begins to burn.")
-				checkPr = true
+			checkPr = true
 			if lionrock.taskactive.ruby ~= true then
 				lionrock.taskactive.ruby = true
 			end
 
-			local item = Tile(Position(33069, 32298, 9))
-			if (item:getItemCountById(1488) > 0) then
-			local flameruby = Game.createItem(1488, 1, Position(33069, 32298, 9))
+			local rubyFieldPosition = Tile(Position(33069, 32298, 9))
+			if (rubyFieldPosition:getItemCountById(1488) > 0) then
+				local flameruby = Game.createItem(1488, 1, Position(33069, 32298, 9))
 			end
 		end
 
-		if item:getId() == 2146 and toPosition.x == 33069 and toPosition.y == 32302  and toPosition.z == 9 then
+		if item:getId() == 2146 and toPosition.x == 33069 and toPosition.y == 32302 and toPosition.z == 9 then
 			-- Sapphire
 			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the sapphire on the small socket. A blue flame begins to burn.")
-				checkPr = true
+			checkPr = true
 			if lionrock.taskactive.sapphire ~= true then
 				lionrock.taskactive.sapphire = true
 			end
 
-			local item = Tile(Position(33069, 32302, 9))
-			if (item:getItemCountById(8058) > 0) then
-			local flamesapphire = Game.createItem(8058, 1, Position(33069, 32302, 9))
+			local mysticFlamePosition = Tile(Position(33069, 32302, 9))
+			if (mysticFlamePosition:getItemCountById(8058) > 0) then
+				local flamesapphire = Game.createItem(8058, 1, Position(33069, 32302, 9))
 			end
 		end
 
-		if item:getId() == 2150 and toPosition.x == 33077 and toPosition.y == 32302  and toPosition.z == 9 then
+		if item:getId() == 2150 and toPosition.x == 33077 and toPosition.y == 32302 and toPosition.z == 9 then
 			-- Amethyst
 			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the amethyst on the small socket. A violet flame begins to burn.")
-				checkPr = true
+			checkPr = true
 			if lionrock.taskactive.amethyst ~= true then
 				lionrock.taskactive.amethyst = true
 			end
 
-			local item = Tile(Position(33077, 32302, 9))
-			if (item:getItemCountById(1500) > 0) then
-			local flameamethyst = Game.createItem(1500, 1, Position(33077, 32302, 9))
+			local sapphireFieldPosition = Tile(Position(33077, 32302, 9))
+			if (sapphireFieldPosition:getItemCountById(1500) > 0) then
+				local flameamethyst = Game.createItem(1500, 1, Position(33077, 32302, 9))
 			end
 		end
 
-		if item:getId() == 9970 and toPosition.x == 33077 and toPosition.y == 32298  and toPosition.z == 9 then
+		if item:getId() == 9970 and toPosition.x == 33077 and toPosition.y == 32298 and toPosition.z == 9 then
 			-- Topaz
 			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the topaz on the small socket. A yellow flame begins to burn.")
-				checkPr = true
+			checkPr = true
 			if lionrock.taskactive.topaz ~= true then
 				lionrock.taskactive.topaz = true
 			end
 
-			local item = Tile(Position(33077, 32298, 9))
-			if (item:getItemCountById(7473) > 0) then
-			local flametopaz = Game.createItem(7473, 1, Position(33077, 32298, 9))
+			local searingFirePosition = Tile(Position(33077, 32298, 9))
+			if (searingFirePosition:getItemCountById(7473) > 0) then
+				local flametopaz = Game.createItem(7473, 1, Position(33077, 32298, 9))
 			end
 		end
 
@@ -530,9 +527,9 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 
 		-- The player also shouldn't be able to insert items into the boss corpse
-		local tile = Tile(container:getPosition())
-		for _, item in ipairs(tile:getItems() or { }) do
-			if item:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2^31 - 1 and item:getName() == container:getName() then
+		local tileCorpse = Tile(container:getPosition())
+		for index, value in ipairs(tileCorpse:getItems() or { }) do
+			if value:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER) == 2^31 - 1 and value:getName() == container:getName() then
 				self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 				return false
 			end
@@ -546,8 +543,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	end
 
 	-- Players cannot throw items on reward chest
-	local tile = Tile(toPosition)
-	if tile and tile:getItemById(ITEM_REWARD_CHEST) then
+	local tileChest = Tile(toPosition)
+	if tileChest and tileChest:getItemById(ITEM_REWARD_CHEST) then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		self:getPosition():sendMagicEffect(CONST_ME_POFF)
 		return false
@@ -662,15 +659,15 @@ function Player:onTurn(direction)
 end
 
 function Player:onTradeRequest(target, item)
-	-- No trade items with actionID = 8000
-	if item:getActionId() == BLOCK_ITEM_WITH_ACTION then
+	-- No trade items with actionID = 100
+	if item:getActionId() == NOT_MOVEABLE_ACTION then
 		return false
 	end
 
 	if isInArray(storeItemID,item.itemid) then
-        return false
-    end
- 	return true
+		return false
+	end
+	return true
 end
 
 function Player:onTradeAccept(target, item, targetItem)
@@ -771,12 +768,12 @@ function Player:onGainExperience(source, exp, rawExp)
 
 	-- Store Bonus
 	useStaminaXp(self) -- Use store boost stamina
-	
+
 	local Boost = self:getExpBoostStamina()
 	local stillHasBoost = Boost > 0
 	local storeXpBoostAmount = stillHasBoost and self:getStoreXpBoost() or 0
 
-	self:setStoreXpBoost(storeXpBoostAmount) 
+	self:setStoreXpBoost(storeXpBoostAmount)
 
 	if (storeXpBoostAmount > 0) then
 		exp = exp + (baseExp * (storeXpBoostAmount/100)) -- Exp Boost
@@ -796,7 +793,7 @@ function Player:onGainExperience(source, exp, rawExp)
 			self:setStaminaXpBoost(100)
 		end
 	end
-	
+
 	self:setBaseXpGain(displayRate * 100)
 	return exp
 end
@@ -817,10 +814,10 @@ function Player:onGainSkillTries(skill, tries)
 end
 
 function Player:onRemoveCount(item)
-    -- Apenas cliente 11.x
-    if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-  	    self:sendWaste(item:getId())
-    end
+	-- Apenas cliente 11.x
+	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
+		self:sendWaste(item:getId())
+	end
 end
 
 function Player:onRequestQuestLog()
@@ -856,12 +853,12 @@ function Player:canBeAppliedImbuement(imbuement, item)
 	if imbuement:isPremium() and self:getPremiumDays() < 1 then
 		return false
 	end
-	
+
 	if self:getStorageValue(Storage.ForgottenKnowledge.Tomes) > 0 then
-              imbuable = true 
-   	else         
-              return false      
-   	end
+		imbuable = true
+	else
+		return false
+	end
 
 	if not self:canImbueItem(imbuement, item) then
 		return false
@@ -963,7 +960,7 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 		for i = 0, slots - 1 do
 			local imbuement = item:getImbuement(i)
 			if imbuement then
-				local percent = imbuement:getElementDamage() 
+				local percent = imbuement:getElementDamage()
 				local totalDmg = primaryDamage --store it for damage adjustment
 				if percent and percent > 0 then
 					if primaryDamage ~= 0 then

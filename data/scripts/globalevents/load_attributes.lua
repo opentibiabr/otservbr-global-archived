@@ -12,7 +12,7 @@ local function loadingAttribute()
 			-- Checks that you have no items created.
 			if tile:getItemCountById(value.itemId) == 0 then
 				-- If not have items created, thisc create the item.
-				item = Game.createItem(value.itemId, 1, value.itemPos) 
+				item = Game.createItem(value.itemId, 1, value.itemPos)
 			end
 			if not item then
 				item = tile:getItemById(value.itemId)
@@ -37,7 +37,7 @@ local function loadingAttribute()
 			-- Checks that you have no items created.
 			if tile:getItemCountById(value.itemId) == 0 then
 				-- If not have items created, thisc create the item.
-				item = Game.createItem(value.itemId, 1, value.itemPos) 
+				item = Game.createItem(value.itemId, 1, value.itemPos)
 			end
 			if not item then
 				item = tile:getItemById(value.itemId)
@@ -52,7 +52,7 @@ end
 
 function loadAttribute.onStartup()
 	addEvent(loadingAttribute, 1 * 1000)
-	print(">> Action and unique loading system for .lua")
+	print(">> Action and unique loading system per Lua")
 	print("> All actions loaded.")
 	print("> All uniques loaded.")
 	return true

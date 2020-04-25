@@ -67,7 +67,9 @@ keyDoor = {
 	{ lockedDoor = 26543, closedDoor = 26544, openDoor = 26546 },
 	{ lockedDoor = 33117, closedDoor = 33118, openDoor = 32582 },
 	{ lockedDoor = 33119, closedDoor = 33120, openDoor = 32583 },
-	}
+	{ lockedDoor = 35607, closedDoor = 35608, openDoor = 35611 },
+	{ lockedDoor = 35609, closedDoor = 35610, openDoor = 35612 },
+}
 
 -- These are the common doors, the ones that just open and close without any special requirements.
 customDoor = {
@@ -131,10 +133,6 @@ customDoor = {
 	{ closedDoor = 34689, openDoor = 34677 },
 	{ closedDoor = 34690, openDoor = 34678 },
 	]]
-	{ closedDoor = 35607, openDoor = 35611 },
-	{ closedDoor = 35608, openDoor = 35611 },
-	{ closedDoor = 35609, openDoor = 35612 },
-	{ closedDoor = 35610, openDoor = 35612 },
 	{ closedDoor = 35668, openDoor = 35672 },
 	{ closedDoor = 35669, openDoor = 35672 },
 	{ closedDoor = 35670, openDoor = 35673 },
@@ -147,7 +145,7 @@ customDoor = {
 	{ closedDoor = 36330, openDoor = 36332 },
 	{ closedDoor = 36498, openDoor = 36499 },
 	{ closedDoor = 36500, openDoor = 36501 },
-	}
+}
 
 -- These are the doors for missions, they need access from some mission (storage) to be able to enter. Put the storage value in the action id of the door and it will open only to the player who has the storage value.
 questDoor = {
@@ -205,8 +203,8 @@ questDoor = {
 	{ closedDoor = 34685, openDoor = 34686 },
 	{ closedDoor = 36403, openDoor = 36404 },
 	{ closedDoor = 36405, openDoor = 36406 },
-	}
-	
+}
+
 -- Level doors.
 -- It's simple, just add a 1 followed by the amount of levels the player needs to be able to pass.
 -- For example:
@@ -268,4 +266,4 @@ levelDoor = {
 	{ closedDoor = 34672, openDoor = 34674 },
 	{ closedDoor = 34675, openDoor = 34677 },
 	{ closedDoor = 34676, openDoor = 34678 },
-	}
+}

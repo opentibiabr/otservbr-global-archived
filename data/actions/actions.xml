@@ -269,9 +269,6 @@
 	<action itemid="24714" script="quests/grimvale/silverLiquid.lua" />
 	<action itemid="24730" script="quests/grimvale/closedSilveredTrap.lua" />
 
-	<!-- Halls of Hope -->
-	<action fromuid="17391" touid="17395" script="quests/halls of hope/rewards.lua"/>
-
 	<!-- Heart of Destruction Quest -->
 	<action itemid="26342" script="quests/heart of destruction/devourerAcess.lua"/>
 	<action itemid="26194" script="quests/heart of destruction/sparkionEggs.lua"/>
@@ -560,9 +557,9 @@
 
 	<!-- Rookgaard -->
 	<action actionid="50239" script="rookgaard/SewerLever.lua" />
-	<action actionid="5637" script="rookgaard/katanaQuestLever.lua" />
-	<action actionid="1002" script="rookgaard/katanaQuestDoor.lua" />
-	<action actionid="5638" script="rookgaard/bearroomQuestLever.lua" />
+	<action uniqueid="5635" script="rookgaard/katanaQuestLever.lua" />
+	<action uniqueid="5636" script="rookgaard/katanaQuestDoor.lua" />
+	<action uniqueid="5638" script="rookgaard/bearroomQuestLever.lua" />
 	<action actionid="5639" script="rookgaard/doubletQuest.lua" />
 	<action actionid="5640" script="rookgaard/honeyflowerQuest.lua" />
 	<action actionid="5641" script="rookgaard/bananaQuest.lua" />

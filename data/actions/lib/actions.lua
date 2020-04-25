@@ -144,9 +144,9 @@ function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	if math.random(7) == 1 then
-		local item = Game.createItem(destroyId, 1, toPosition)
-		if item ~= nil then
-			item:decay()
+		local itemDestroy = Game.createItem(destroyId, 1, toPosition)
+		if itemDestroy ~= nil then
+			itemDestroy:decay()
 		end
 
 		-- Against The Spider Cult (Spider Eggs)
@@ -162,7 +162,7 @@ function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
 		-- Move items outside the container
 		if target:isContainer() then
 			for i = target:getSize() - 1, 0, -1 do
-   				local containerItem = target:getItem(i)
+				local containerItem = target:getItem(i)
 				if containerItem then
 					containerItem:moveTo(toPosition)
 				end
@@ -187,7 +187,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local tile = Tile(toPosition)
 	local ground = tile:getGround()
-	if ground and isInArray(ropeSpots, ground.itemid) or tile:getItemById(14435) then
+	if ground and table.contains(ropeSpots, ground.itemid) or tile:getItemById(14435) then
 		player:teleportTo(toPosition:moveUpstairs())
 		if targetId == 8592 then
 			if player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 22 then
@@ -195,7 +195,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 		return true
-	elseif isInArray(holeId, targetId) then
+	elseif table.contains(holeId, targetId) then
 		toPosition.z = toPosition.z + 1
 		tile = Tile(toPosition)
 		if tile then
@@ -216,11 +216,11 @@ end
 
 function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetId, targetActionId = target.itemid, target.actionid
-	if isInArray(holes, targetId) then
+	if table.contains(holes, targetId) then
 		target:transform(targetId + 1)
 		target:decay()
 
-	elseif isInArray({231, 9059}, targetId) then
+	elseif table.contains({231, 9059}, targetId) then
 		local rand = math.random(100)
 		if target.actionid == 100 and rand <= 20 then
 			target:transform(489)
@@ -232,7 +232,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 
-		-- Wrath of the emperor quest
+	-- Wrath of the emperor quest
 	elseif targetId == 351 and targetActionId == 8024 then
 		player:addItem(12297, 1)
 		player:say("You dig out a handful of earth from this sacred place.", TALKTYPE_MONSTER_SAY)
@@ -259,7 +259,6 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addItem(21250, 1)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission70, 1)
 
-	-- ???
 	elseif targetActionId == 50118 then
 		local wagonItem = Tile(Position(32717, 31492, 11)):getItemById(7131)
 		if wagonItem then
@@ -279,7 +278,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 
-	elseif isInArray({9632, 20230, 17672, 18586, 18580}, targetId) then
+	elseif table.contains({9632, 20230, 17672, 18586, 18580}, targetId) then
 		if player:getStorageValue(Storage.SwampDiggingTimeout) >= os.time() then
 			toPosition:sendMagicEffect(CONST_ME_POFF)
 			return false
@@ -311,7 +310,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 		addEvent(removeRemains, 60000, toPosition)
 
-		elseif targetId == 22674 then
+	elseif targetId == 22674 then
 		if not player:removeItem(5091, 1) then
 			return false
 		end
@@ -342,11 +341,11 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	local targetId, targetActionId = target.itemid, target.actionid
-	if isInArray({354, 355}, targetId) and (target:hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) or target:hasAttribute(ITEM_ATTRIBUTE_ACTIONID)) then
+	if table.contains({354, 355}, targetId) and targetActionId == 101 then
 		target:transform(392)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
-		
+
 	elseif targetId == 23759 then
 		target:remove()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
@@ -384,7 +383,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-	elseif targetId == 6299 then
+	elseif targetId == 6299 and target.actionid > 0 then
 		target:transform(482)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
@@ -409,7 +408,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-	--sea of light
+	-- Sea Of Light
 	elseif targetId == 8634 then
 		if target.actionid == 4224 then
 			if math.random(100) <= 30 then
@@ -424,7 +423,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 
-	-- grimvale quest
+	-- Grimvale Quest
 	elseif targetId == 24731 then
 		if player:getStorageValue(Storage.Grimvale.SilverVein) < os.time() then
 			local chance = math.random(1, 10)
@@ -441,7 +440,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are still exhausted from earlier attempts. Getting liquid silver out of the mountain needs concentration and a steady hand.')
 		end
 
-	--The Ice Islands Quest, Nibelor 1: Breaking the Ice
+		--The Ice Islands Quest, Nibelor 1: Breaking the Ice
 	elseif targetId == 3621 and targetActionId == 12026 then
 		local missionProgress, pickAmount = player:getStorageValue(Storage.TheIceIslands.Mission02), player:getStorageValue(Storage.TheIceIslands.PickAmount)
 		if missionProgress < 1 or pickAmount >= 3 or player:getStorageValue(Storage.TheIceIslands.Questline) ~= 3 then
@@ -467,7 +466,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		toPosition:sendMagicEffect(CONST_ME_TELEPORT)
 
 	elseif targetId == 1304 then
-	--The Pits of Inferno Quest
+		-- The Pits of Inferno Quest
 		if target.uid == 1022 then
 			for i = 1, #lava do
 				Game.createItem(5815, 1, lava[i])
@@ -475,7 +474,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			target:transform(2256)
 			toPosition:sendMagicEffect(CONST_ME_SMOKE)
 
-	-- naginata quest
+		-- naginata quest
 		elseif targetActionId == 50058 then
 			local stoneStorage = Game.getStorageValue(GlobalStorage.NaginataStone)
 			if stoneStorage ~= 5 then
@@ -488,13 +487,13 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			doTargetCombatHealth(0, player, COMBAT_PHYSICALDAMAGE, -31, -39, CONST_ME_NONE)
 		end
 
-	 --The Banshee Quest
+	-- The Banshee Quest
 	elseif targetId == 9025 and targetActionId == 101 then
 		target:transform(392)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 
-	 -- The Hidden City of Beregar Quest
+	-- The Hidden City of Beregar Quest
 	elseif targetActionId == 50090 then
 		if player:getStorageValue(Storage.hiddenCityOfBeregar.WayToBeregar) == 1 then
 			player:teleportTo(Position(32566, 31338, 10))
@@ -523,21 +522,21 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 
 		iterateArea(
-			function(position)
-				local groundItem = Tile(position):getGround()
-				if groundItem and groundItem.itemid == 598 then
-					groundItem:transform(5815)
-				end
-			end,
-			Position(32550, 31373, 15),
-			Position(32551, 31379, 15)
+		function(position)
+			local groundItem = Tile(position):getGround()
+			if groundItem and groundItem.itemid == 598 then
+				groundItem:transform(5815)
+			end
+		end,
+		Position(32550, 31373, 15),
+		Position(32551, 31379, 15)
 		)
 		iterateArea(
-			function(position)
-				position:sendMagicEffect(CONST_ME_POFF)
-			end,
-			Position(32551, 31374, 15),
-			Position(32551, 31379, 15)
+		function(position)
+			position:sendMagicEffect(CONST_ME_POFF)
+		end,
+		Position(32551, 31374, 15),
+		Position(32551, 31379, 15)
 		)
 
 		local portal = Game.createItem(1387, 1, Position(32551, 31376, 15))
@@ -545,11 +544,11 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			portal:setActionId(50126)
 		end
 
-		-- The Asure
+	-- The Asure
 	elseif targetActionId == 50091 then
 		player:teleportTo(Position(32960, 32676, 4))
 
-		-- Wrath of the emperor quest
+	-- Wrath of the emperor quest
 	elseif targetId == 12296 then
 		player:addItem(12295, 1)
 		player:say("The cracked part of the table lets you cut out a large chunk of wood with your pick.", TALKTYPE_MONSTER_SAY)
@@ -557,19 +556,21 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif targetId == 22671 then
 		target:transform(392)
 		target:decay()
-	end
---Lower Roshamuul
-if (target ~= nil) and target:isItem() and (target:getId() == 22469) then
-	if math.random(100) > 50 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone produces some fine gravel.")
-		target:transform(22467)
-		target:decay()
 	else
-		Game.createMonster("Frazzlemaw", toPosition)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone yields nothing but slightly finer, yet still unusable rubber.")
-		target:transform(22468)
-		target:decay()
+		return false
 	end
+	--Lower Roshamuul
+	if (target ~= nil) and target:isItem() and (target:getId() == 22469) then
+		if math.random(100) > 50 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone produces some fine gravel.")
+			target:transform(22467)
+			target:decay()
+		else
+			Game.createMonster("Frazzlemaw", toPosition)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Crushing the stone yields nothing but slightly finer, yet still unusable rubber.")
+			target:transform(22468)
+			target:decay()
+		end
 		return true
 	end
 	return true
@@ -577,13 +578,13 @@ end
 
 function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetId = target.itemid
-	if isInArray(JUNGLE_GRASS, targetId) then
+	if table.contains(JUNGLE_GRASS, targetId) then
 		target:transform(targetId == 19433 and 19431 or targetId - 1)
 		target:decay()
 		return true
 	end
 
-	if isInArray(WILD_GROWTH, targetId) then
+	if table.contains(WILD_GROWTH, targetId) then
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 		target:remove()
 		return true
@@ -593,7 +594,7 @@ function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({2416, 10515}, item.itemid) then
+	if not table.contains({2416, 10515}, item.itemid) then
 		return false
 	end
 
@@ -602,7 +603,7 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
 	-- In Service Of Yalahar Quest
 	if targetUniqueId == 3071 then
 		if player:getStorageValue(Storage.InServiceofYalahar.SewerPipe01) < 1 then
---			doSetMonsterOutfit(player, 'skeleton', 3 * 1000)
+			--			doSetMonsterOutfit(player, 'skeleton', 3 * 1000)
 			fromPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
 			player:setStorageValue(Storage.InServiceofYalahar.SewerPipe01, 1)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission01, player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1) -- StorageValue for Questlog 'Mission 01: Something Rotten'
@@ -640,7 +641,7 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
 
 	elseif targetUniqueId == 3074 then
 		if player:getStorageValue(Storage.InServiceofYalahar.SewerPipe04) < 1 then
---			doSetMonsterOutfit(player, 'bog raider', 5 * 1000)
+			--			doSetMonsterOutfit(player, 'bog raider', 5 * 1000)
 			player:say('You have used the crowbar on a knot.', TALKTYPE_MONSTER_SAY)
 			player:setStorageValue(Storage.InServiceofYalahar.SewerPipe04, 1)
 			player:setStorageValue(Storage.InServiceofYalahar.Mission01, player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1) -- StorageValue for Questlog 'Mission 01: Something Rotten'
@@ -711,7 +712,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 	-- What a foolish Quest - Mission 8 (Sulphur)
 	elseif targetId == 8573 or targetId == 388 then
 		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= 21
-				or player:getStorageValue(Storage.WhatAFoolishQuest.InflammableSulphur) == 1 then
+		or player:getStorageValue(Storage.WhatAFoolishQuest.InflammableSulphur) == 1 then
 			return false
 		end
 
@@ -726,7 +727,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({2550, 10513}, item.itemid) then
+	if not table.contains({2550, 10513}, item.itemid) then
 		return false
 	end
 
@@ -744,7 +745,7 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 		Game.createItem(2694, 1, toPosition)
 		return true
 	end
-		-- Secret Library
+	-- Secret Library
 	if targetActionId == 64028 then
 		player:teleportTo(Position(32515, 32535, 12))
 		return true
@@ -754,26 +755,24 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({2566, 10511, 10515}, item.itemid) then
+	if not table.contains({2566, 10511, 10515}, item.itemid) then
 		return false
 	end
 
 	local targetId = target.itemid
 
-	-- by vikingtibia
+	--The Ice Islands Quest
 	if targetId == 2992 then
-		--if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
-			--if player:getStorageValue(cid, 41600) >= 0  then
+		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
+			if player:getStorageValue(cid, 41600) >= 0 then
 				player:addItem(13159, 1)
 				target:transform(2993)
-				--player:setStorageValue(Storage.TheIceIslands.FrostbiteHerb, 1)
+				player:setStorageValue(Storage.TheIceIslands.FrostbiteHerb, 1)
 				toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 				player:say('You cut a Rabbits Foot from a rabbit.', TALKTYPE_MONSTER_SAY)
-
+			end
 		end
-
-	--The Ice Islands Quest
-	if targetId == 7261 then
+	elseif targetId == 7261 then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
 			if player:getStorageValue(Storage.TheIceIslands.FrostbiteHerb) < 1 then
 				player:addItem(7248, 1)
@@ -782,7 +781,6 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 				player:say('You cut a leaf from a frostbite herb.', TALKTYPE_MONSTER_SAY)
 			end
 		end
-
 	elseif targetId == 2733 then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
 			if player:getStorageValue(Storage.TheIceIslands.FlowerCactus) < 1 then
@@ -794,7 +792,6 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 				player:say('You cut a flower from a cactus.', TALKTYPE_MONSTER_SAY)
 			end
 		end
-
 	elseif targetId == 4017 then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) >= 21 then
 			if player:getStorageValue(Storage.TheIceIslands.FlowerBush) < 1 then
@@ -832,7 +829,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 	-- What a foolish Quest (Mission 8)
 	elseif targetId == 4008 then
 		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= 22
-				or player:getStorageValue(Storage.WhatAFoolishQuest.SpecialLeaves) == 1 then
+		or player:getStorageValue(Storage.WhatAFoolishQuest.SpecialLeaves) == 1 then
 			return false
 		end
 
@@ -840,7 +837,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		player:addItem(8109, 1)
 		toPosition:sendMagicEffect(CONST_ME_BLOCKHIT)
 
-	elseif isInArray(fruits, targetId) and player:removeItem(6278, 1) then
+	elseif table.contains(fruits, targetId) and player:removeItem(6278, 1) then
 		target:remove(1)
 		player:addItem(6279, 1)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)

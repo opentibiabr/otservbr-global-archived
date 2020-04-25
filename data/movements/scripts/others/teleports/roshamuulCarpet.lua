@@ -4,7 +4,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local town = Town(2)
+	local town = Town(8)
 	if not town then
 		return true
 	end

@@ -3,16 +3,16 @@ local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
 function onCreatureAppear(cid)
-npcHandler:onCreatureAppear(cid)
+	npcHandler:onCreatureAppear(cid)
 end
 function onCreatureDisappear(cid)
-npcHandler:onCreatureDisappear(cid)
+	npcHandler:onCreatureDisappear(cid)
 end
 function onCreatureSay(cid, type, msg)
-npcHandler:onCreatureSay(cid, type, msg)
+	npcHandler:onCreatureSay(cid, type, msg)
 end
 function onThink()
-npcHandler:onThink()	
+	npcHandler:onThink()
 end
 
 local function creatureSayCallback(cid, type, msg)
@@ -38,6 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 				'I do not have to add that this is a dangerous mission, do I? If you are discovered expect to be attacked! So goodluck, human!'
 			}, cid)
 			player:setStorageValue(Storage.DjinnWar.MaridFaction.Mission02, 1)
+			player:setStorageValue(Storage.DjinnWar.EfreetFaction.DoorToEfreetTerritory, 1)
 
 		elseif missionProgress == 1 then
 			npcHandler:say('Did you already retrieve the spyreport?', cid)

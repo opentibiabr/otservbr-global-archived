@@ -6,9 +6,9 @@ local vocation = {}
 local town = {}
 local config = {
 	towns = {
-		["venore"] = 1,
-		["thais"] = 2,
-		["carlin"] = 4
+		["venore"] = 9,
+		["thais"] = 8,
+		["carlin"] = 6
 	},
 
 	vocations = {

@@ -8,24 +8,21 @@ function onKill(creature, target, item)
 
 	local cName = target:getName():lower()
 
-
-
-	if(isInArray({'cult enforcer', 'cult believer', 'cult scholar'}, cName)) then
-		local posCorpo = target:getPosition()
+	if(table.contains({'cult enforcer', 'cult believer', 'cult scholar'}, cName)) then
+		local corpsePosition = target:getPosition()
 		local rand = math.random(1,2)
 		if rand == 1 then
-			Game.createItem(26140, 1, posCorpo):setActionId(5580)
+			Game.createItem(26140, 1, corpsePosition):setActionId(5580)
 			addEvent(function()
-			local portal1 = Tile(posCorpo):getItemById(26140)
-			portal1:remove(1) end, (1*60*1000), 26140, 1, posCorpo)
+			local teleport1 = Tile(corpsePosition):getItemById(26140)
+			teleport1:remove(1) end, (1*60*1000), 26140, 1, corpsePosition)
 		end
 		if rand == 2 then
-			Game.createItem(26138, 1, posCorpo):setActionId(5580)
+			Game.createItem(26138, 1, corpsePosition):setActionId(5580)
 			addEvent(function()
-			local portal2 = Tile(posCorpo):getItemById(26138)
-			portal2:remove(1) end, (1*60*1000), 26138, 1, posCorpo)
+			local teleport2 = Tile(corpsePosition):getItemById(26138)
+			teleport2:remove(1) end, (1*60*1000), 26138, 1, corpsePosition)
 		end
 	end
-
 	return true
 end

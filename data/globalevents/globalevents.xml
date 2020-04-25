@@ -22,8 +22,6 @@
 	<!-- Mad Mage -->
 	<globalevent name="Mad" interval="14400000" script="bosses/Mad.lua"/>
 
-	<globalevent name="npcs" type="startup" script="others/npcspawn.lua"/>
-
 	<!-- Grimvale -->
 	<globalevent name="Grimvale" interval="60000" script="others/grimvale.lua" />
 	<globalevent name="Respawn" type="startup" script="others/grimvaleRespawn.lua" />
