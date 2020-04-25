@@ -963,4 +963,5 @@ mapNpcs = {
 	[962] = {name = "NomadNPC", pos = Position(31941, 31305, 6)},
 	[963] = {name = "Kais", pos = Position(32910, 32512, 8)},
 	[964] = {name = "Pythius The RottenNPC", pos = Position(32590, 31407, 15)},
+	[965] = {name = "Stan", pos = Position(32944, 32110, 6)},
 }
