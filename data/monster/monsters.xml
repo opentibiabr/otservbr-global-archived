@@ -821,6 +821,7 @@
 	<monster name="Ron the Ripper" file="bosses/ron_the_ripper.xml"/>
 	<monster name="Rottie the Rotworm" file="bosses/rottie_the_rotworm.xml"/>
 	<monster name="Rotworm Queen" file="bosses/rotworm_queen.xml"/>
+	<monster name="Scarlett Etzel" file="bosses/scarlett_etzel.xml"/>
 	<monster name="Scorn of the Emperor" file="bosses/scorn_of_the_emperor.xml"/>
 	<monster name="Shardhead" file="bosses/shardhead.xml"/>
 	<monster name="Sharptooth" file="bosses/sharptooth.xml"/>
