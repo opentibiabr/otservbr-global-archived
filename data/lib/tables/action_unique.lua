@@ -63,6 +63,12 @@ UniqueTable = {
 	-- UID reserved range 16001/17000.
 	--[xxxx] = {itemId = xxxx, itemPos = Position(xxxxx, xxxxx, xx), itemBag = xxxx, keyItem = xxxx, keyAction = xxxx, itemReward = {{xxxx, x}, {xxxx, x}, {xxxx, x}}, weight = xxxx, storage = Storage.Quest.QuestName},
 
+	-- Teleports
+	-- UID reserved range 17001/18000
+	[17001] = {itemId = 4978, itemPos = Position(33315, 32647, 6), destination = Position(33384, 32627, 7), effect = CONST_ME_TELEPORT},
+	[17002] = {itemId = 3591, itemPos = Position(33383, 32626, 7), destination = Position(33314, 32647, 6), effect = CONST_ME_TELEPORT},
+	[17003] = {itemId = 36319, itemPos = Position(33395, 32660, 6), destination = Position(33395, 32658, 6), effect = CONST_ME_TELEPORT},
+
 	-- The first dragon Quest Start
 	-- Treasure Chests Start
 	[24851] = {itemId = 27545, itemPos = Position(32809, 32546, 6), name = 'giant shimmering pearl', count = 1},

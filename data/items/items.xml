@@ -488,6 +488,7 @@
 	<item id="1397" article="a" name="mystic flame">
 		<attribute key="description" value="You feel drawn to the mesmerizing light." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="1398" article="a" name="ramp">
 		<attribute key="floorchange" value="east" />
@@ -7362,10 +7363,12 @@
 	<item id="3587" article="a" name="small boat" />
 	<item fromid="3588" toid="3590" article="a" name="small boat">
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="3591" toid="3592" article="a" name="small boat" />
 	<item fromid="3593" toid="3595" article="a" name="small boat">
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="3596" article="a" name="small boat" />
 	<item fromid="3597" toid="3598" article="a" name="small sail" />
@@ -9651,6 +9654,7 @@
 	<item id="5755" article="a" name="turtle" />
 	<item id="5756" article="a" name="turtle">
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="5757" toid="5761" article="a" name="turtle" />
 	<item id="5762" article="a" name="dead quara constrictor">
@@ -32937,6 +32941,7 @@
 	<item fromid="22671" toid="22676" article="a" name="sand" />
 	<item id="22677" article="a" name="large crystal teleporter">
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="22678" article="an" name="unknown item" />
 	<item fromid="22679" toid="22685" article="a" name="sand" />
@@ -34310,17 +34315,21 @@
 	<item id="24108" article="a" name="water vortex">
 		<attribute key="description" value="It draws you nearer." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="24109" article="a" name="water vortex">
 		<attribute key="description" value="It draws you nearer." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="24110" article="a" name="hot geyser">
 		<attribute key="description" value="A hot current buffets you upward." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="24112" article="a" name="strange machine">
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="24113" article="a" name="strange machine">
 		<attribute key="decayTo" value="24112" />
@@ -35418,6 +35427,7 @@
 	<item id="24762" article="a" name="water vortex">
 		<attribute key="description" value="It draws you nearer." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="24763" article="an" name="adventurer's map">
 		<attribute key="weight" value="200" />
@@ -36274,6 +36284,7 @@
 	<item id="25403" article="a" name="water vortex">
 		<attribute key="description" value="It draws you nearer." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="25404" article="a" name="ramp">
 		<attribute key="floorchange" value="down" />
@@ -36339,6 +36350,7 @@
 	<item id="25417" article="a" name="vortex">
 		<attribute key="description" value="It draws you nearer." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="25418" article="a" name="maimer">
 		<attribute key="weight" value="7700" />
@@ -37362,6 +37374,7 @@
 	</item>
 	<item fromid="26138" toid="26140" name="vortex" >
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="26141" article="an" name="explosive barrel">
 		<attribute key="description" value="This barrel is highly explosive." />
@@ -38471,26 +38484,32 @@
 	<item fromid="27715" toid="27716" article="a" name="portal of black energy">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="27717" toid="27718" article="a" name="portal of green energy">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="27719" toid="27720" article="a" name="portal of violet energy">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="27721" toid="27722" article="a" name="portal of orange energy">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="27723" toid="27724" article="a" name="portal of golden energy">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="27725" toid="27726" article="a" name="portal of blue energy">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="27727" article="an" name="inert astral shaper rune">
 		<attribute key="weight" value="850" />
@@ -43341,20 +43360,24 @@
 	<item fromid="33166" toid="33168" article="an" name="unknown (teleport)">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="33169" article="an" name="opticorder rectifier"/>
 	<item id="33170" article="a" name="unknown corpse"/>
 	<item id="33171" article="an" name="energy gate">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="33172" article="a" name="death portal">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="33173" article="a" name="death portal">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="33174" article="a" name="torch of change">
 		<attribute key="wrapableTo" value="26054" />
@@ -44576,10 +44599,12 @@
 	<item id="34617" article="a" name="portal">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item id="34618" article="a" name="portal">
 		<attribute key="description" value="You can see the other side through it." />
 		<attribute key="type" value="teleport" />
+		<attribute key="effect" value="teleport" />
 	</item>
 	<item fromid="34619" toid="34624" article="an" name="old desk"/>
 	<item id="34626" article="a" name="minotaur skull">
