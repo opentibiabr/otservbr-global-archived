@@ -659,7 +659,7 @@ function Player:onTurn(direction)
 end
 
 function Player:onTradeRequest(target, item)
-	-- No trade items with actionID = 8000
+	-- No trade items with actionID = 100
 	if item:getActionId() == NOT_MOVEABLE_ACTION then
 		return false
 	end
