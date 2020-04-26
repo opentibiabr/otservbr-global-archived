@@ -1,5 +1,5 @@
 local config = {
-    position = {fromPosition = Position(33415, 31522, 11), toPosition = Position(33445, 31554, 11)}
+	position = {fromPosition = Position(33415, 31522, 11), toPosition = Position(33445, 31554, 11)}
 }
 
 local spawnByDay = true
@@ -76,8 +76,7 @@ local function spectators()
 		if spec:isPlayer() then
 			oldpos = spec:getPosition()
 		end
-		--addEvent(teleport, 1 60 * 1000, spec, oldpos)
-		teleport(spec, oldpos)
+		addEvent(teleport, 1, 60 * 1000, spec, oldpos)
 	end
 	if Game.getStorageValue(GlobalStorage.Feroxa.Active) == 2 then
 		addEvent(removeItems, 15 * 60 * 1000)
@@ -91,7 +90,6 @@ local function spectators()
 	addEvent(spectators, 15 * 60 * 1000)
 	addEvent(Game.broadcastMessage, 15 * 60 * 1000, 'Half of the current full moon is visible now, there are still a lot of clouds in front of it.', MESSAGE_EVENT_ADVANCE)
 end
-
 
 function onThink(interval, lastExecution)
 	local chance = Game.getStorageValue(GlobalStorage.Feroxa.Chance)

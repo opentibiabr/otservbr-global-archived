@@ -18,19 +18,14 @@ local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     end
     return false
 end
- function onThink(interval, lastExecution)
+
+function onThink(interval, lastExecution)
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
-
-
-
-	 addEvent(Game.broadcastMessage, 150, 'Beware! Mawhawk!', MESSAGE_EVENT_ADVANCE)
-
-
+    addEvent(Game.broadcastMessage, 150, 'Beware! Mawhawk!', MESSAGE_EVENT_ADVANCE)
     local boss =
-
-	Game.createMonster(config.monsterName, config.bossPosition, true, true)
+    Game.createMonster(config.monsterName, config.bossPosition, true, true)
     boss:setReward(true)
     return true
 end

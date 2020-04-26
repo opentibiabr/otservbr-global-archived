@@ -1,7 +1,8 @@
+
 local config = {
-    monsterName = 'Grand Canon Dominus',
-    bossPosition = Position(33384, 31282, 6),
-    centerPosition = Position(33384, 31282, 6),
+    monsterName = 'Grand Chaplain Gaunder',
+    bossPosition = Position(33370, 31327, 5),
+    centerPosition = Position(33370, 31327, 5),
     rangeX = 50,
     rangeY = 50
 }
@@ -24,7 +25,7 @@ end
     end
 
     local boss =
-	Game.createMonster(config.monsterName, config.bossPosition, true, true)
+    Game.createMonster(config.monsterName, config.bossPosition, true, true)
     boss:setReward(true)
     return true
 end

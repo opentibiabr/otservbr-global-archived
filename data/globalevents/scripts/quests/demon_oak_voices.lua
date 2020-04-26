@@ -21,7 +21,6 @@ function onThink(interval, lastExecution)
 		if isInRange(spectator:getPosition(), questArea[1], questArea[2]) then
 			return true
 		end
-
 		spectator:say(sound, TALKTYPE_MONSTER_YELL, false, 0, DEMON_OAK_POSITION)
 	end
 	return true

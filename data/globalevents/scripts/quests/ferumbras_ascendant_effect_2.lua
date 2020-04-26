@@ -1,4 +1,3 @@
--- Ferumbras Quest feita por Ciroc
 local effects = {
     {position = Position(33463, 32385, 13), text = '', effect = 73},
     {position = Position(33468, 32387, 13), text = '', effect = 73},
@@ -13,15 +12,15 @@ local effects = {
     {position = Position(33421, 32847, 13), text = '', effect = 73},
     {position = Position(33429, 32845, 13), text = '', effect = 73},
     {position = Position(33458, 32813, 14), text = '', effect = 73},
-    {position = Position(33464, 32817, 14), text = '', effect = 73}
+    {position = Position(33464, 32817, 14), text = '', effect = 73},
 }
 
 function onThink(interval)
     for i = 1, #effects do
         local settings = effects[i]
-            if settings.effect then
-                settings.position:sendMagicEffect(settings.effect)
+        if settings.effect then
+            settings.position:sendMagicEffect(settings.effect)
         end
     end
-   return true
+    return true
 end

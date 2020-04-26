@@ -1,7 +1,5 @@
 function onStartup(interval)
-
-     local chance = math.random(1, 6)
-
+	local chance = math.random(1, 6)
 	if (chance == 1) then -- venore
 		setGlobalStorageValue(9710, 1)
 		Game.createItem(7853, {x = 32833, y = 32081, z = 7})

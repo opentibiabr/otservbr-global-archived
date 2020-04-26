@@ -1,33 +1,33 @@
 local startupGlobalStorages = {
-GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
-GlobalStorage.TheAncientTombs.DiprathSwitchesGlobalStorage,
-GlobalStorage.TheAncientTombs.ThalasSwitchesGlobalStorage,
-GlobalStorage.HeroRathleton.FirstMachines,
-GlobalStorage.HeroRathleton.SecondMachines,
-GlobalStorage.HeroRathleton.ThirdMachines,
-GlobalStorage.HeroRathleton.DeepRunning,
-GlobalStorage.HeroRathleton.HorrorRunning,
-GlobalStorage.HeroRathleton.LavaRunning,
-GlobalStorage.HeroRathleton.MaxxenRunning,
-GlobalStorage.HeroRathleton.LavaCounter,
-GlobalStorage.HeroRathleton.FourthMachines,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal1,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal2,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal3,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal4,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal5,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal6,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal7,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal8,
-GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals,
-GlobalStorage.FerumbrasAscendantQuest.FerumbrasEssence,
-GlobalStorage.Feroxa.Active,
-GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats,
-GlobalStorage.FerumbrasAscendantQuest.Elements.Active,
-GlobalStorage.FerumbrasAscendantQuest.Elements.First,
-GlobalStorage.FerumbrasAscendantQuest.Elements.Second,
-GlobalStorage.FerumbrasAscendantQuest.Elements.Third,
-GlobalStorage.FerumbrasAscendantQuest.Elements.Done
+	GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
+	GlobalStorage.TheAncientTombs.DiprathSwitchesGlobalStorage,
+	GlobalStorage.TheAncientTombs.ThalasSwitchesGlobalStorage,
+	GlobalStorage.HeroRathleton.FirstMachines,
+	GlobalStorage.HeroRathleton.SecondMachines,
+	GlobalStorage.HeroRathleton.ThirdMachines,
+	GlobalStorage.HeroRathleton.DeepRunning,
+	GlobalStorage.HeroRathleton.HorrorRunning,
+	GlobalStorage.HeroRathleton.LavaRunning,
+	GlobalStorage.HeroRathleton.MaxxenRunning,
+	GlobalStorage.HeroRathleton.LavaCounter,
+	GlobalStorage.HeroRathleton.FourthMachines,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal1,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal2,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal3,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal4,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal5,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal6,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal7,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal8,
+	GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals,
+	GlobalStorage.FerumbrasAscendantQuest.FerumbrasEssence,
+	GlobalStorage.Feroxa.Active,
+	GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats,
+	GlobalStorage.FerumbrasAscendantQuest.Elements.Active,
+	GlobalStorage.FerumbrasAscendantQuest.Elements.First,
+	GlobalStorage.FerumbrasAscendantQuest.Elements.Second,
+	GlobalStorage.FerumbrasAscendantQuest.Elements.Third,
+	GlobalStorage.FerumbrasAscendantQuest.Elements.Done
 }
 
 function onStartup()
@@ -67,8 +67,8 @@ function onStartup()
 
 	-- Ferumbras Ascendant quest
 	for i = 1, #GlobalStorage.FerumbrasAscendantQuest.Habitats do
-	local storage = GlobalStorage.FerumbrasAscendantQuest.Habitats[i]
-	Game.setStorageValue(storage, 0)
+		local storage = GlobalStorage.FerumbrasAscendantQuest.Habitats[i]
+		Game.setStorageValue(storage, 0)
 	end
 
 	-- Check house auctions

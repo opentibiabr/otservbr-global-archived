@@ -1,8 +1,7 @@
-
 local config = {
-    monsterName = 'Grand Chaplain Gaunder',
-    bossPosition = Position(33370, 31327, 5),
-    centerPosition = Position(33370, 31327, 5),
+    monsterName = 'Grand Commander Soeren',
+    bossPosition = Position(33376, 31320, 2),
+    centerPosition = Position(33376, 31320, 2),
     rangeX = 50,
     rangeY = 50
 }
@@ -19,13 +18,13 @@ local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     end
     return false
 end
- function onThink(interval, lastExecution)
+function onThink(interval, lastExecution)
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
 
     local boss =
-	Game.createMonster(config.monsterName, config.bossPosition, true, true)
+    Game.createMonster(config.monsterName, config.bossPosition, true, true)
     boss:setReward(true)
     return true
 end

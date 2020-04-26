@@ -39,24 +39,22 @@ local effects = {
 	{fromPosition = Position(32520, 32610, 12), toPosition = Position(32520, 32612, 12), effect = CONST_ME_FIREAREA},
 	{fromPosition = Position(32521, 32610, 12), toPosition = Position(32521, 32612, 12), effect = CONST_ME_FIREAREA},
 	{fromPosition = Position(32526, 32610, 12), toPosition = Position(32526, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32532, 32610, 12), toPosition = Position(32532, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32533, 32610, 12), toPosition = Position(32533, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32538, 32610, 12), toPosition = Position(32538, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32539, 32610, 12), toPosition = Position(32539, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32544, 32610, 12), toPosition = Position(32544, 32612, 12), effect = CONST_ME_FIREAREA},
-    {fromPosition = Position(32545, 32610, 12), toPosition = Position(32545, 32612, 12), effect = CONST_ME_FIREAREA},
-
-
+	{fromPosition = Position(32532, 32610, 12), toPosition = Position(32532, 32612, 12), effect = CONST_ME_FIREAREA},
+	{fromPosition = Position(32533, 32610, 12), toPosition = Position(32533, 32612, 12), effect = CONST_ME_FIREAREA},
+	{fromPosition = Position(32538, 32610, 12), toPosition = Position(32538, 32612, 12), effect = CONST_ME_FIREAREA},
+	{fromPosition = Position(32539, 32610, 12), toPosition = Position(32539, 32612, 12), effect = CONST_ME_FIREAREA},
+	{fromPosition = Position(32544, 32610, 12), toPosition = Position(32544, 32612, 12), effect = CONST_ME_FIREAREA},
+	{fromPosition = Position(32545, 32610, 12), toPosition = Position(32545, 32612, 12), effect = CONST_ME_FIREAREA},
 }
 
 function onThink(interval)
 	local jolf
 	for i = 1, #effects do
-        local settings = effects[i]
+		local settings = effects[i]
 		fromPosition = settings.fromPosition
 		toPosition = settings.toPosition
 		local spectators = Game.getSpectators(settings.fromPosition, false, true, 7, 7, 5, 5)
-        if #spectators > 0 then
+		if #spectators > 0 then
 			if settings.effect then
 				for y = fromPosition.y, toPosition.y do
 					local newPosition = Position(fromPosition.x, y, fromPosition.z)
@@ -64,7 +62,7 @@ function onThink(interval)
 
 					jolf = Tile(newPosition):getTopCreature()
 					if jolf and jolf:isPlayer() then
-					doTargetCombatHealth(0, jolf, COMBAT_PHYSICALDAMAGE, -500, -1000, settings.effect)
+						doTargetCombatHealth(0, jolf, COMBAT_PHYSICALDAMAGE, -500, -1000, settings.effect)
 					end
 				end
 				for x = fromPosition.x, toPosition.x do
@@ -72,7 +70,7 @@ function onThink(interval)
 					newPosition2:sendMagicEffect(settings.effect)
 					jolf = Tile(newPosition2):getTopCreature()
 					if jolf and jolf:isPlayer() then
-					doTargetCombatHealth(0, jolf, COMBAT_PHYSICALDAMAGE, -10, -500, settings.effect)
+						doTargetCombatHealth(0, jolf, COMBAT_PHYSICALDAMAGE, -10, -500, settings.effect)
 					end
 				end
 			end
