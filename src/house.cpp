@@ -460,6 +460,7 @@ void AccessList::parseList(const std::string& listToParse)
 {
 	playerList.clear();
 	guildRankList.clear();
+	allowEveryone = false;
 	this->list = list;
 	if (list.empty()) {
 		return;
