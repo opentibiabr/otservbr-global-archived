@@ -19,22 +19,47 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-100"/>
-		<attack name="lifedrain" interval="2000" chance="20" radius="1" target="1" min="-150" max="-250">
+		<attack name="dreadbeast skill reducer" interval="3000" chance="15" target="1" range="1">
 			<attribute key="areaEffect" value="yellowenergy"/>
 			<attribute key="shootEffect" value="suddendeath"/>
+		</attack>
+		<attack name="drown" interval="1000" chance="15" range="1" target="1" min="-70" max="-90">
+			<attribute key="areaEffect" value="bluebubble"/>
+			<attribute key="shootEffect" value="ice"/>
 		</attack>
 		<attack name="lifedrain" interval="2000" chance="20" radius="1" target="1" min="-150" max="-250">
 			<attribute key="areaEffect" value="purpleenergy"/>
 			<attribute key="shootEffect" value="suddendeath"/>
 		</attack>
 	</attacks>
-	<defenses armor="34" defense="36"/>
+	<defenses armor="34" defense="36">
+		<defense name="healing" interval="5000" chance="20" min="35" max="65">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
 	<elements>
-		<element firePercent="70"/>
-		<element physicalPercent="-25"/>
+		<element physicalPercent="30"/>
+		<element firePercent="55"/>
+		<element energyPercent="15"/>
+		<element icePercent="40"/>
+		<element drownPercent="75"/>
+		<element holyPercent="-50"/>
 	</elements>
 	<immunities>
+		<immunity death="1"/>
 		<immunity earth="1"/>
-		<immunity paralyze="1"/>
+		<immunity lifedrain="1"/>
 	</immunities>
+	<loot>
+		<item name="gold coin" countmax="88" chance="11690"/>
+		<item id="2230" chance="8230"/><!-- bone -->
+		<item name="plate armor" chance="2810"/>
+		<item id="2229" chance="2810"/><!-- skull -->
+		<item id="2231" chance="1950"/><!-- big bone -->
+		<item name="bone club" chance="1520"/>
+		<item name="bone shield" chance="1520"/>
+		<item name="health potion" chance="870"/>
+		<item name="green mushroom" chance="650"/>
+		<item name="hardened bone" chance="650"/>
+	</loot>
 </monster>
