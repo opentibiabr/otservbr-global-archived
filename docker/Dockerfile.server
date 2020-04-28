@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libmysqlclient-dev \
   libpugixml-dev \
   libgmp3-dev \
-  libspdlog-dev \
   unrar
 
 WORKDIR /opt/otserver
@@ -28,9 +27,9 @@ RUN cp config.lua.dist config.lua \
   && sed -i '/mysqlUser = .*$/c\mysqlUser = "otserver"' config.lua \
   && sed -i '/mysqlPass = .*$/c\mysqlPass = "otserver"' config.lua \
   && sed -i '/mysqlDatabase = .*$/c\mysqlDatabase = "otserver"' config.lua \
-  && unrar x data/world/world.rar data/world/
+  && unrar x -o+ data/world/world.rar data/world/
 
-# RUN rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc` && cp tfs /opt/otserver
-RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sleep 5 && cp tfs /opt/otserver
+# RUN rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc` && cp otbr /opt/otserver
+RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sleep 5 && cp otbr /opt/otserver
 
-ENTRYPOINT /opt/otserver/tfs
+ENTRYPOINT /opt/otserver/otbr

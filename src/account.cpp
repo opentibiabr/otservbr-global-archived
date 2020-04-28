@@ -1,6 +1,6 @@
-/** 
+/**
  * @file account.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -27,13 +27,18 @@
 
 uint32_t IOAccount::getCoinBalance(uint32_t accountId)
 {
+	DLOG_F(INFO, "Getting account [%d] coin balance ...", accountId);
 	std::ostringstream query;
 	query << "SELECT `coins` FROM `accounts` WHERE `id` = " << accountId;
-
+	DLOG_F(INFO, "... Query: [%s] ...", query.str().c_str());
 	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
 	if (!result) {
+		LOG_F(ERROR, "Error getting account [%d] coin balance! Result[%d]",
+																		result);
 		return false;
 	}
+	LOG_F(INFO, "Account: [%d] Coin Balance:[%d]", accountId,
+										result->getNumber<uint32_t>("coins"));
 
 	return result->getNumber<uint32_t>("coins");
 }

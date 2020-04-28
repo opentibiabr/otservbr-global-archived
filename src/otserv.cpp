@@ -70,9 +70,9 @@ void badAllocationHandler()
 int main(int argc, char* argv[])
 {
 #ifdef DEBUG_LOG
-	spdlog::set_pattern("[%Y-%d-%m %H:%M:%S.%e] [file %@] [func %!] [thread %t] [%l] %v ");
-	SPDLOG_DEBUG("[OTSERV] SPDLOG LOG DEBUG ENABLED");
+	loguru::g_stderr_verbosity = 9;
 #endif
+	loguru::init(argc, argv);
 	// Setup bad allocation handler
 	std::set_new_handler(badAllocationHandler);
 

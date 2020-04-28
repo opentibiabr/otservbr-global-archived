@@ -1,4 +1,4 @@
-set(tfs_SRC
+set(otbr_SRC
 	${CMAKE_CURRENT_LIST_DIR}/otpch.cpp
 	${CMAKE_CURRENT_LIST_DIR}/account.cpp
 	${CMAKE_CURRENT_LIST_DIR}/actions.cpp
@@ -39,6 +39,7 @@ set(tfs_SRC
 	${CMAKE_CURRENT_LIST_DIR}/items.cpp
 	${CMAKE_CURRENT_LIST_DIR}/imbuements.cpp
 	${CMAKE_CURRENT_LIST_DIR}/luascript.cpp
+	${CMAKE_CURRENT_LIST_DIR}/loguru.cpp
 	${CMAKE_CURRENT_LIST_DIR}/mailbox.cpp
 	${CMAKE_CURRENT_LIST_DIR}/map.cpp
 	${CMAKE_CURRENT_LIST_DIR}/modules.cpp
@@ -82,4 +83,3 @@ set(tfs_SRC
 	${CMAKE_CURRENT_LIST_DIR}/wildcardtree.cpp
 	${CMAKE_CURRENT_LIST_DIR}/xtea.cpp
 	PARENT_SCOPE)
-

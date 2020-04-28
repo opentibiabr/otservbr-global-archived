@@ -169,6 +169,13 @@
     <ClCompile Include="..\src\item.cpp" />
     <ClCompile Include="..\src\items.cpp" />
     <ClCompile Include="..\src\luascript.cpp" />
+    <ClCompile Include="..\src\loguru.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>loguru.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="..\src\mailbox.cpp" />
     <ClCompile Include="..\src\map.cpp" />
     <ClCompile Include="..\src\modules.cpp" />
@@ -220,7 +227,7 @@
     <ClCompile Include="..\src\xtea.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TheForgottenServer.rc" />
+    <ResourceCompile Include="otservbr-global.rc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\account.h" />
@@ -266,6 +273,7 @@
     <ClInclude Include="..\src\items.h" />
     <ClInclude Include="..\src\lockfree.h" />
     <ClInclude Include="..\src\luascript.h" />
+    <ClInclude Include="..\src\loguru.h" />
     <ClInclude Include="..\src\mailbox.h" />
     <ClInclude Include="..\src\map.h" />
     <ClInclude Include="..\src\modules.h" />
