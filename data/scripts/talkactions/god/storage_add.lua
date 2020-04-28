@@ -1,7 +1,8 @@
-local talk = TalkAction("/addstorage")
-
 -- /addstorage <key>,[<value>=1],[<player>=self]
-function talk.onSay(player, words, param)
+
+local storage = TalkAction("/addstorage")
+
+function storage.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -13,13 +14,11 @@ function talk.onSay(player, words, param)
 	end
 
 	local split = param:split(",")
-	
-	-- Check if it was passed some value to be set to the storage
-	local value = 1
+	local value = 1 -- Check if it was passed some value to be set to the storage
 	if split[2] then
 		value = split[2]
 	end
-		
+
 	-- Check if it should add storage to another player
 	if split[3] then
 		local targetPlayer = Player(param[3])
@@ -33,9 +32,8 @@ function talk.onSay(player, words, param)
 	else
 		player:setStorageValue(split[1], value)
 	end
-
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+storage:separator(" ")
+storage:register()

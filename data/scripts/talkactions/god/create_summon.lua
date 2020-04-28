@@ -1,6 +1,6 @@
-local talk = TalkAction("/m")
+local createSummon = TalkAction("/s")
 
-function talk.onSay(player, words, param)
+function createSummon.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -13,7 +13,7 @@ function talk.onSay(player, words, param)
 	local position = player:getPosition()
 	local monster = Game.createMonster(param, position)
 	if monster then
-		monster:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:addSummon(monster)
 		position:sendMagicEffect(CONST_ME_MAGIC_RED)
 	else
 		player:sendCancelMessage("There is not enough room.")
@@ -22,5 +22,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+createSummon:separator(" ")
+createSummon:register()

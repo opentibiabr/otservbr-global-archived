@@ -1,6 +1,6 @@
-local talk = TalkAction("/t")
+local pushTown = TalkAction("/t")
 
-function talk.onSay(player, words, param)
+function pushTown.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -8,3 +8,5 @@ function talk.onSay(player, words, param)
 	player:teleportTo(player:getTown():getTemplePosition())
 	return false
 end
+
+pushTown:register()

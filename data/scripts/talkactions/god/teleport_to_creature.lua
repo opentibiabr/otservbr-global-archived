@@ -1,6 +1,6 @@
-local talk = TalkAction("/goto")
+local teleportToCreature = TalkAction("/goto")
 
-function talk.onSay(player, words, param)
+function teleportToCreature.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -19,5 +19,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+teleportToCreature:separator(" ")
+teleportToCreature:register()

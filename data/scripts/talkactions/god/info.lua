@@ -1,12 +1,12 @@
-local talk = TalkAction("/info")
+local info = TalkAction("/info")
 
-function talk.onSay(player, words, param)
+function info.onSay(player, words, param)
 	local target = Player(param)
 	if not target then
 		player:sendCancelMessage("Player not found.")
 		return false
 	end
-	
+
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -38,5 +38,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+info:separator(" ")
+info:register()

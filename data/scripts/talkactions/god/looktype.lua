@@ -1,5 +1,3 @@
-local talk = TalkAction("/looktype")
-
 -- keep it ordered
 local invalidTypes = {
 	1, 135, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173,
@@ -10,11 +8,13 @@ local invalidTypes = {
 	646, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661, 662, 663
 }
 
-function talk.onSay(player, words, param)
+local looktype = TalkAction("/looktype")
+
+function looktype.onSay(player, words, param)
 	if not player:getGroup():getAccess() then
 		return true
 	end
-	
+
 	if param == "" then
 		player:sendCancelMessage("Command param required.")
 		return false
@@ -31,5 +31,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+looktype:separator(" ")
+looktype:register()

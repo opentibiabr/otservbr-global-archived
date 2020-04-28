@@ -1,6 +1,6 @@
-local talk = TalkAction("/a")
+local skipTiles = TalkAction("/a")
 
-function talk.onSay(player, words, param)
+function skipTiles.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -28,5 +28,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+skipTiles:separator(" ")
+skipTiles:register()

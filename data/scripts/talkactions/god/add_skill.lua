@@ -1,6 +1,3 @@
-local talk = TalkAction("/addskill")
-
--- function for the talkaction /addskill 
 local function getSkillId(skillName)
 	if skillName == "club" then
 		return SKILL_CLUB
@@ -18,13 +15,16 @@ local function getSkillId(skillName)
 		return SKILL_FIST
 	end
 end
--- function for the talkaction /addskill 
+
 local function getExpForLevel(level)
 	level = level - 1
 	return ((50 * level * level * level) - (150 * level * level) + (400 * level)) / 3
 end
 
-function talk.onSay(player, words, param)
+
+local addSkill = TalkAction("/addskill")
+
+function addSkill.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -73,5 +73,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+addSkill:separator(" ")
+addSkill:register()
