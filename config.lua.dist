@@ -70,6 +70,10 @@ houseRentPeriod = "never"
 timeBetweenActions = 500
 timeBetweenExActions = 700
 
+-- Push Delay
+pushDelay = 1000
+pushDistanceDelay = 1500
+
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
 -- NOTE: unzip the map world.rar
