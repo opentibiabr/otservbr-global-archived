@@ -25,46 +25,60 @@
 #include "database.h"
 #include "databasetasks.h"
 
-uint32_t IOAccount::getCoinBalance(uint32_t accountId)
-{
-	DLOG_F(INFO, "Getting account [%d] coin balance ...", accountId);
+uint32_t IOAccount::getCoinBalance(uint32_t accountId) {
+	DLOG_F(INFO, "Getting account [%d] coin balance.", accountId);
+
 	std::ostringstream query;
 	query << "SELECT `coins` FROM `accounts` WHERE `id` = " << accountId;
-	DLOG_F(INFO, "... Query: [%s] ...", query.str().c_str());
+	DLOG_F(INFO, "Query:[%s].", query.str().c_str());
+
 	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
 	if (!result) {
-		LOG_F(ERROR, "Error getting account [%d] coin balance! Result[%d]",
-																		result);
+		LOG_F(ERROR, "Error getting account [%d] coin balance! Result[%d].",
+				result);
 		return false;
 	}
-	LOG_F(INFO, "Account: [%d] Coin Balance:[%d]", accountId,
-										result->getNumber<uint32_t>("coins"));
+	LOG_F(INFO, "Account: [%d] Coin Balance:[%d].", accountId,
+			result->getNumber<uint32_t>("coins"));
 
 	return result->getNumber<uint32_t>("coins");
 }
 
-void IOAccount::addCoins(uint32_t accountId, int32_t amount)
-{
+void IOAccount::addCoins(uint32_t accountId, int32_t amount) {
+	LOG_F(INFO, "Adding coins[%d] to account[%d].", amount, accountId);
+
 	std::ostringstream query;
-	query << "UPDATE `accounts` SET `coins` = `coins` + " << amount << " WHERE `id` = " << accountId;
+	query << "UPDATE `accounts` SET `coins` = `coins` + " << amount
+			<< " WHERE `id` = " << accountId;
+	DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
 	g_databaseTasks.addTask(query.str());
 }
 
-void IOAccount::removeCoins(uint32_t accountId, int32_t amount)
-{
+void IOAccount::removeCoins(uint32_t accountId, int32_t amount) {
+	LOG_F(INFO, "Removing coins[%d] from account[%d].", amount, accountId);
+
 	std::ostringstream query;
-	query << "UPDATE `accounts` SET `coins` = `coins` - " << amount << " WHERE `id` = " << accountId;
+	query << "UPDATE `accounts` SET `coins` = `coins` - " << amount
+			<< " WHERE `id` = " << accountId;
+	DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
 	g_databaseTasks.addTask(query.str());
 }
 
-void IOAccount::registerTransaction(uint32_t accountId, int32_t coins, const std::string& description)
-{
+void IOAccount::registerTransaction(uint32_t accountId, int32_t coins,
+									const std::string& description) {
+	LOG_F(INFO, "Register coin transaction: account[%d], coins[%d], "
+		"description[%s].", accountId, coins, description.c_str());
+
 	Database& db = Database::getInstance();
 
 	std::ostringstream query;
-	query << "INSERT INTO `store_history` (`account_id`, `coin_amount`, `description`, `time`) VALUES (" << accountId << "," << coins << "," << db.escapeString(description) << "," << time(nullptr) << ")";
+	query << "INSERT INTO `store_history` (`account_id`, `coin_amount`, "
+			"`description`, `time`) VALUES (" << accountId << "," << coins
+			<< "," << db.escapeString(description) << "," << time(nullptr)
+			<< ")";
+	DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
 	db.executeQuery(query.str());
 }
