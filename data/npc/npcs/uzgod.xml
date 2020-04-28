@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Uzgod" walkinterval="2000" floorchange="0" script="uzgod.lua">
+	<health now="100" max="100"/>
+	<look type="160" head="96" body="60" legs="97" feet="116"/>
+<voices>
+<voice text="By the sons of fire! Best weapons in town!" interval2="100" margin="1" yell="no"/>
+</voices>
+	<parameters>
+		<parameter key="message_greet" value="Hiho |PLAYERNAME|! Wanna {weapon}, eh?"/>
+		<parameter key="message_farewell" value="Guut bye. Coming back soon, |PLAYERNAME|."/>
+		<parameter key="message_walkaway" value="Guut bye. Coming back soon, |PLAYERNAME|."/>
+		<parameter key="message_sendtrade" value="Fine weapons, eh?"/>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="two handed sword,2377,950;    dagger,2379,5;    exercise sword,32384,262500,500;    exercise axe,32385,262500,500;    exercise club,32386,262500,500;    exercise bow,32387,262500,500;    rapier,2384,15;    sabre,2385,35;    morning star,2394,430;    mace,2398,90;    battle hammer,2417,350;    battle axe,2378,235;    spear,2389,10"/>
+		<parameter key="shop_sellable" value="two handed sword,2377,190;dagger,2379,1;spike sword,2383,225;rapier,2384,3;sabre,2385,5;fire sword,2392,1000;carlin sword,2395,118;longsword,2397,51;war hammer,2391,470;morning star,2394,100;mace,2398,23;battle hammer,2417,50;battle axe,2378,75;halberd,2381,310;double axe,2387,260;orcish axe,2428,350;spear,2389,1"/>
+	</parameters>
+</npc>
