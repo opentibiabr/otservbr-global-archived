@@ -21,7 +21,7 @@
 		<flag canwalkonpoison="1"/>
 	</flags>
 	<script>
-		<event name="Lloyd"/>
+		<event name="LloydPrepareDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" skill="70" min="-200" max="-1400"/>

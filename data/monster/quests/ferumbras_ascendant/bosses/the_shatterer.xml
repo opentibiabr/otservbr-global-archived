@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="The Shatterer" nameDescription="the shatterer" race="fire" experience="58000" speed="320">
+<monster name="The Shatterer" nameDescription="The Shatterer" race="fire" experience="58000" speed="320">
 	<health now="220000" max="220000" />
-        <look type="842" head="77" body="113" legs="21" feet="94" addons="0" corpse="6068" />
+		<look type="842" head="77" body="113" legs="21" feet="94" addons="0" corpse="6068" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -15,7 +15,10 @@
 		<flag targetdistance="1" />
 		<flag staticattack="90" />
 		<flag runonhealth="2500" />
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="-200" max="-3000"/>
 		<attack name="manadrain" interval="2000" chance="10" range="7" min="-200" max="-1000"/>

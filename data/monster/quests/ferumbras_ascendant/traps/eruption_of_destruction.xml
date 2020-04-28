@@ -16,7 +16,10 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 		<flag hidehealth="0"/>
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="speed" interval="2000" chance="25" radius="7" speedchange="-600" duration="15000">
 			<attribute key="areaEffect" value="bluebubble"/>

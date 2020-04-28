@@ -336,14 +336,14 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 				if tileBoss:getTopCreature():getHealth() <= 300 then
 					tileBoss:getTopCreature():remove()
 					local monster = Game.createMonster('the corruptor of souls', toPosition)
-					monster:registerEvent('checkPiso')
+					monster:registerEvent('CheckTile')
 					if Game.getStorageValue('healthSoul') > 0 then
 						monster:addHealth(-(monster:getHealth() - Game.getStorageValue('healthSoul')))
 					end
-					Game.setStorageValue('checkPiso', os.time()+30)
+					Game.setStorageValue('CheckTile', os.time()+30)
 				end
 			elseif tileBoss:getTopCreature():getName():lower() == 'the corruptor of souls' then
-				Game.setStorageValue('checkPiso', os.time()+30)
+				Game.setStorageValue('CheckTile', os.time()+30)
 				item:remove(1)
 			end
 		end

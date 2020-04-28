@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Zamulosh" nameDescription="zamulosh" race="undead" experience="55000" speed="320"  script="zamuloshsummon.lua">
+<monster name="Zamulosh" nameDescription="Zamulosh" race="undead" experience="55000" speed="320"  script="zamuloshsummon.lua">
 	<health now="1000" max="1000" />
-        <look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="25151" />
+		<look type="862" head="16" body="12" legs="73" feet="55" addons="0" corpse="25151" />
 	<targetchange interval="5000" chance="8" />
 	<flags>
 		<flag summonable="0" />
@@ -15,7 +15,10 @@
 		<flag targetdistance="1"/>
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+			<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<script>
 		<event name="zamuloshClone"/>
 	</script>

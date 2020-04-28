@@ -20,8 +20,8 @@
 		<flag canwalkonpoison="1"/>
 	</flags>
 	<script>
-		<event name="DragonEgg"/>
-		<event name="DragonEgg2"/>
+		<event name="DragonEggPrepareDeath"/>
+		<event name="DragonEggHealthChange"/>
 	</script>
 	<immunities>
 		<immunity paralyze="1"/>

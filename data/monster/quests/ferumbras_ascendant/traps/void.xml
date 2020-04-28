@@ -17,7 +17,10 @@
 		<flag runonhealth="0"/>
 		<flag hidehealth="1"/>
 		<flag isblockable="0"/>
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 	</attacks>
 	<immunities>
