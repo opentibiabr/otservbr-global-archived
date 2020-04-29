@@ -3,33 +3,51 @@
 -- Remember to add the uniqueid at the end of the script.
 local commonReward = Action()
 
+local function checkWeightAndBackpackRoom(player, itemWeight, message)
+	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+	if not backpack or backpack:getEmptySlots(true) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ", but you have no room to take it.")
+		return false
+	elseif (player:getFreeCapacity() / 100) < (itemWeight) then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ". Weighing " .. itemWeight .. " oz, it is too heavy for you to carry.")
+		return false
+	end
+	return true
+end
+
 function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	local setting = UniqueTable[item.uid]
 	if setting then
-		if player:getStorageValue(setting.storage) < 0 then
-			local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
-			if backpack and backpack:getEmptySlots(true) >= 1 then
-				if (player:getFreeCapacity() / 100) > getItemWeight(setting.itemReward) then
-					for i = 1, #setting.itemReward do
-						local itemid = setting.itemReward[i][1]
-						local count = setting.itemReward[i][2]
-						if ItemType(itemid):isStackable() or ItemType(itemid):getCharges() then
-							player:addItem(itemid, count)
-							player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(itemid) .. ".")
-							player:setStorageValue(setting.storage, 1)
-						else
-							for c = 1, count do
-								player:setStorageValue(setting.storage, 1)
-								player:addItem(setting.itemReward, 1)
-								player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemReward) .. ".")
-							end
-						end
+		if player:getStorageValue(setting.storage) < 0 then			
+			for i = 1, #setting.itemReward do						
+				local itemid = setting.itemReward[i][1]
+				local count = setting.itemReward[i][2]
+				local itemDescriptions = getItemDescriptions(itemid)
+				local itemName = itemDescriptions.name
+
+				if count > 1 and (ItemType(itemid):isStackable() or ItemType(itemid):getCharges() > 0) then
+					if (itemDescriptions.plural) then
+						itemName = itemDescriptions.plural
 					end
+					local message = "You have found " .. count .. " " .. itemName
+					if not (checkWeightAndBackpackRoom(player, getItemWeight(itemid)*count, message)) then
+						return true
+					end
+					player:addItem(itemid, count)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ".")
+					player:setStorageValue(setting.storage, 1)
 				else
-					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemReward) .. ". Weighing " .. getItemWeight(setting.itemReward) .. " oz it is too heavy.")
+					local itemArticle = itemDescriptions.article
+					local message = "You have found " .. itemArticle .. " " .. itemName
+					if not (checkWeightAndBackpackRoom(player, getItemWeight(itemid), message)) then
+						return true
+					end					
+					for c = 1, count do						
+						player:setStorageValue(setting.storage, 1)
+						player:addItem(itemid, 1)
+						player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ".")
+					end
 				end
-			else
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a " .. getItemName(setting.itemReward) .. ", but you have no room to take it")
 			end
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
