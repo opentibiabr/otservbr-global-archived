@@ -112,6 +112,16 @@ UniqueTable = {
 	[24896] = {itemId = 27828, itemPos = Position(31994, 32390, 9), destination = Position(33047, 32713, 3)},
 	-- The first dragon Quest End
 
+	-- Tortoise Egg Nargor Start
+	[24897] = {itemId = 5677, itemPos = Position(31938, 32837, 7), name = 'tortoise egg from Nargor', count = 1},
+	--  Tortoise Egg Nargor End
+
+	-- Meriana Quest Tavern Map Start
+	[24906] = {storage = Storage.TheShatteredIsles.TavernMap1, message = "You have sucessfully read plan A."},
+	[24907] = {storage = Storage.TheShatteredIsles.TavernMap2, message = "You have sucessfully read plan B."},
+	[24908] = {storage = Storage.TheShatteredIsles.TavernMap3, message = "You have sucessfully read plan C."},
+	-- Meriana Quest Tavern Map TEnd
+
 	-- Insectoid cell
 	[25001] = {itemId = 14437, itemPos = Position(33480, 31196, 7), storage = Storage.InsectoidCell.Reward1, reward = 15572},
 	[25002] = {itemId = 14437, itemPos = Position(33486, 31192, 1), storage = Storage.InsectoidCell.Reward2, reward = 15572},

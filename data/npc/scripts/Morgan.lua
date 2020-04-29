@@ -22,6 +22,19 @@ local function creatureSayCallback(cid, type, msg)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			npcHandler:say('Ahh. So Duncan sent you, eh? You must have done something really impressive. Okay, take this fine sabre from me, mate.', cid)
 		end
+	elseif msgcontains(msg, "mission") then
+		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 3 then
+			npcHandler:say({
+				'Hm, if you are that eager to work I have an idea how you could help me out. A distant relative of mine, the old sage Eremo lives on the isle Cormaya, near Edron. ...',
+				'He has not heard from me since ages. He might assume that I am dead. Since I don\'t want him to get into trouble for receiving a letter from a pirate I ask you to deliver it personally. ...',
+				'Of course it\'s a long journey but you asked for it. You will have to prove us your worth. Are you up to that?'
+			}, cid)
+			npcHandler.topic[cid] = 2
+		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 5 then
+			npcHandler:say("Thank you for delivering my letter to Eremo. I have no more missions for you.", cid)
+			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 6)
+			npcHandler.topic[cid] = 0
+		end
 	elseif msgcontains(msg, 'warrior\'s sword') then
 		if player:hasOutfit(player:getSex() == PLAYERSEX_FEMALE and 142 or 134, 2) then
 			npcHandler:say('You already have this outfit!', cid)
@@ -72,6 +85,15 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'forge') then
 		npcHandler:say('What would you like me to forge for you? A {knight\'s sword} or a {warrior\'s sword}?', cid)
 		npcHandler.topic[cid] = 1
+	elseif msgcontains(msg, 'yes') then
+		if npcHandler.topic[cid] == 2 then
+			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 3 then
+				npcHandler:say('Alright, we will see. Here, take this letter and deliver it safely to old Eremo on Cormaya.', cid)
+				player:addItem(8188, 1)
+				player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 4)
+				npcHandler.topic[cid] = 0
+			end
+		end
 	end
 	return true
 end

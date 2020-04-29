@@ -26,6 +26,23 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'addon') and player:getStorageValue(Storage.OutfitQuest.PirateBaseOutfit) == 1 then
 		npcHandler:say('To get pirate hat you need give me Brutus Bloodbeard\'s Hat, Lethal Lissy\'s Shirt, Ron the Ripper\'s Sabre and Deadeye Devious\' Eye Patch. Do you have them with you?', cid)
 		npcHandler.topic[cid] = 2
+	elseif msgcontains(msg, "mission") then
+		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 1 then
+			npcHandler:say("You know, we have plenty of rum here but we lack some basic food. Especially food that easily becomes mouldy is a problem. Bring me 100 breads and you will help me a lot.", cid)
+			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 2)
+		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 2 then
+			npcHandler:say("Are you here to bring me the 100 pieces of bread that I requested?", cid)
+			npcHandler.topic[cid] = 3
+		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 10 then
+			npcHandler:say({
+				'The sailors always tell tales about the famous beer of Carlin. You must know, alcohol is forbidden in that city. ...',
+				'The beer is served in a secret whisper bar anyway. Bring me a sample of the whisper beer, NOT the usual beer but whisper beer. I hope you are listening.',
+			}, cid)
+			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 11)
+		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 12 then
+			npcHandler:say("Did you get a sample of the whisper beer from Carlin?", cid)
+			npcHandler.topic[cid] = 4
+		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
 			if not player:removeItem(8111, 1) then
@@ -55,9 +72,33 @@ local function creatureSayCallback(cid, type, msg)
 					end
 				else
 					npcHandler:say("You do not have all the required items.", cid)
+					npcHandler.topic[cid] = 0
 				end
 			else
 				npcHandler:say("It seems you already have this addon, don\'t you try to mock me son!", cid)
+				npcHandler.topic[cid] = 0
+			end
+		elseif npcHandler.topic[cid] == 3 then
+			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 2 then
+				if player:removeItem(2689, 100) then
+					npcHandler:say("What a joy. At least for a few days adequate supply is ensured.", cid)
+					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 3)
+					npcHandler.topic[cid] = 0
+				else
+					npcHandler:say("Come back when you got all neccessary items.", cid)
+					npcHandler.topic[cid] = 0
+				end
+			end
+		elseif npcHandler.topic[cid] == 4 then
+			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 12 then
+				if player:removeItem(6106, 1) then
+					npcHandler:say("Thank you very much. I will test this beauty in privacy.", cid)
+					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 14)
+					npcHandler.topic[cid] = 0
+				else
+					npcHandler:say("Come back when you got the neccessary item.", cid)
+					npcHandler.topic[cid] = 0
+				end
 			end
 		end
 	elseif msgcontains(msg, 'no') then

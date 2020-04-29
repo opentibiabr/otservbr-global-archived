@@ -2406,6 +2406,85 @@ if not Quests then
 				},
 
 				[6] = {
+					name = "Access to Nargor", storageid = Storage.TheShatteredIsles.AccessToNargor, startvalue = 1, endvalue = 1, description = "After convincing the people in Sabrehaven that you are a trustworthy hero, Sebastian will sail you to Nargor.",
+				},
+
+				[7] = {
+					name = "Ray's Mission 1: Fafnar's Fire", storageid = Storage.TheShatteredIsles.RaysMission1, startvalue = 1, endvalue = 3,
+					states = {
+						[1] = "Ray Striker asked you to travel to Edron and pretend to the alchemist Sandra that you are the one whom the other pirates sent to get the fire. When she asks for a payment, tell her 'Your continued existence is payment enough'.",
+						[2] = "Sandra will be enraged and will cut any deals with pirates. Report back to Raymond Striker.",
+						[3] = "Ray Striker was pleased to hear about Sandra's rage. If you haven't done so yet, ask him for other missions.",
+					},
+				},
+
+				[8] = {
+					name = "Ray's Mission 2: Sabotage", storageid = Storage.TheShatteredIsles.RaysMission2, startvalue = 1, endvalue = 3,
+					states = {
+						[1] = "Buy a fire bug at Liberty Bay and infiltrate Nargor. Find the pirates' harbour and use the fire bug to sabotage their catapult there.",
+						[2] = "You were able to sabotage the catapult in the pirate's harbour. Report back to Ray Striker to tell him about mission.",
+						[3] = "Ray Striker was pleased to hear about successful sabotage. If you haven't done so yet, ask him for other missions.",
+					},
+				},
+
+				[9] = {
+					name = "Ray's Mission 3: Spy Mission", storageid = Storage.TheShatteredIsles.RaysMission3, startvalue = 1, endvalue = 2,
+					states = {
+						[1] = "Travel to Nargor and try to enter de pirate's tavern by deceiving the guard in front of it. Read all the plans which you can find in the tavern and report back to Striker.",
+						[2] = "You studied all of the pirate's plans in their tavern which will give insight about their next strikes. If you haven't done so yet, ask Ray for another mission.",
+					},
+				},
+
+				[10] = {
+					name = "Ray's Mission 4: Proof of Death", storageid = Storage.TheShatteredIsles.RaysMission4, startvalue = 1, endvalue = 5,
+					states = {
+						[1] = "Travel to Nargor and try to find out more about the mission Klaus offers. He apparently wants the death of Ray Striker and your task is to convince him that Ray is dead.",
+						[2] = "Klaus told you to kill Ray Striker and bring him his lucky pillow as a proof. Ray should be interested in hearing about this mission.",
+						[3] = "You informed Ray that Klaus needs his lucky pillow as proof of his death. Ray gave it to you, now go convince Klaus that the mission is fulfilled and Ray is Dead!",
+						[4] = "Klaus belieaves that Ray Striker is dead and will celebrate a big party. You should tell Ray about your successful mission.",
+						[5] = "Ray was very impressed to hear about your successful mission and gave you a ship and a pirate outfit as reward.",
+					},
+				},
+
+				[11] = {
+					name = "Reputation in Sabrehaven: Suspicious", storageid = Storage.TheShatteredIsles.ReputationInSabrehaven, startvalue = 2, endvalue = 13,
+					states = {
+						[2] = "Ariella asked you for a few days of adequate supply. Help her and improve your reputation in Sabrehaven.",
+						[3] = "You have finished one mission. Ask around in Sabrehaven and surroundings whether the people there might have missions for you. This will improve your reputation and earn their trust.",
+						[4] = "Morgan asked you to deliver a letter safely to old Eremo on Cormaya. Help him and improve your reputation in Sabrehaven.",
+						[5] = "You delivered the letter safely to old Eremo. Report back to Morgan and improve your reputation in Sabrehaven.",
+						[6] = "You have finished two missions. Ask around in Sabrehaven and surroundings whether the people there might have missions for you. This will improve your reputation and earn their trust.",
+						[7] = "Duncan requested an atlas of the explorers society. Help him and improve your reputation in Sabrehaven.",
+						[8] = "You have finished three missions. Ask around in Sabrehaven and surroundings whether the people there might have missions for you. This will improve your reputation and earn their trust.",
+						[9] = "Chondur asked at least five pirate voodoo dolls to lift the curse. Help him and improve your reputation in Sabrehaven.",
+						[10] = "You have finished four missions. Ask around in Sabrehaven and surroundings whether the people there might have missions for you. This will improve your reputation and earn their trust.",
+						[11] = "Ariella asked you to bring a sample of whisper beer from a secret whisper bar in Carlin. Help her and improve your reputation in Sabrehaven.",
+						[12] = "Take the sample of whisper beer to Ariella. Help her and improve your reputation in Sabrehaven.",
+					},
+				},
+
+				[12] = {
+					name = "Reputation in Sabrehaven: Friendly", storageid = Storage.TheShatteredIsles.ReputationInSabrehaven, startvalue = 14, endvalue = 17,
+					states = {
+						[14] = "You have finished five missions. People in Sabrehaven seem to start trusting you. Maybe this is a good time for some more difficult missions.",
+						[15] = "You have finished six missions. People in Sabrehaven seem to start trusting you. Maybe this is a good time for some more difficult missions.",
+						[16] = "You have finished seven missions. People in Sabrehaven seem to start trusting you. Maybe this is a good time for some more difficult missions.",
+					},
+				},
+
+				[13] = {
+					name = "Reputation in Sabrehaven: Cordial", storageid = Storage.TheShatteredIsles.ReputationInSabrehaven, startvalue = 18, endvalue = 19, description = "You have finished eight missions. People in Sabrehaven seem to trust you, but there is still one last mission left.",
+				},
+
+				[14] = {
+					name = "Reputation in Sabrehaven: Loyal", storageid = Storage.TheShatteredIsles.ReputationInSabrehaven, startvalue = 20, endvalue = 22,
+					states = {
+						[20] = "You have finished nine missions. People in Sabrehaven are considering you as one of them.",
+						[21] = "You have finished all missions. People in Sabrehaven are considering you as one of them and you earned their full trust.",
+					},
+				},
+
+				[15] = {
 					name = "The Counterspell", storageid = Storage.TheShatteredIsles.TheCounterspell, startvalue = 1, endvalue = 4,
 					states = {
 						[1] = "You have begun Chondur's ritual. Bring him a fresh dead chicken so that he can begin to create a counterspell which will allow you to pass the magical barrier on Goroma.",
@@ -2416,7 +2495,7 @@ if not Quests then
 
 				},
 
-				[7] = {
+				[16] = {
 					name = "The Errand", storageid = Storage.TheShatteredIsles.TheErrand, startvalue = 1, endvalue = 2,
 					states = {
 						[1] = "You told Eleonore to run a small errand. Deliver the 200 gold pieces she gave to the herbalist Charlotta in the south-western part of Liberty Bay.",
@@ -2425,7 +2504,7 @@ if not Quests then
 
 				},
 
-				[8] = {
+				[17] = {
 					name = "The Governor's Daughter", storageid = Storage.TheShatteredIsles.TheGovernorDaughter, startvalue = 1, endvalue = 3,
 					states = {
 						[1] = "You promised to find Eleonore's lost ring. She told you that a parrot stole it from her dressing table and flew to the nearby mountains. You might need a rake to retrieve the ring.",

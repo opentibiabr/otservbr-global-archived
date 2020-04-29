@@ -21,6 +21,15 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('You already have stampor mount.', cid)
 			npcHandler.topic[cid] = 0
 		end
+	elseif msgcontains(msg, "mission") then
+		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 8 then
+			npcHandler:say("The evil cult has placed a curse on one of the captains here. I need at least five of their pirate voodoo dolls to lift that curse.", cid)
+			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 9)
+			npcHandler.topic[cid] = 0
+		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 9 then
+			npcHandler:say("Did you bring five pirate voodoo dolls?", cid)
+			npcHandler.topic[cid] = 2
+		end
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
 			if player:removeItem(13299, 50) and player:removeItem(13301, 30) and player:removeItem(13300, 100) then
@@ -36,6 +45,17 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say('Sorry you don\'t have the necessary items.', cid)
 			end
 			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 2 then
+			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 9 then
+				if player:removeItem(5810, 5) then
+					npcHandler:say("Finally I can put an end to that curse. I thank you so much.", cid)
+					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 10)
+					npcHandler.topic[cid] = 0
+				else
+					npcHandler:say("You don't have it...", cid)
+					npcHandler.topic[cid] = 0
+				end
+			end
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] > 2 then
 		npcHandler:say('Maybe next time.', cid)

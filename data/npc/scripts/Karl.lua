@@ -19,6 +19,11 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Do you bring me a barrel of beer??", cid)
 			npcHandler.topic[cid] = 1
 		end
+	elseif msgcontains(msg, "whisper beer") then
+		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 11 then
+			npcHandler:say("Do you want to buy a bottle of our finest whisper beer for 80 gold?", cid)
+			npcHandler.topic[cid] = 2
+		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 			if player:removeItem(7706, 1) then
@@ -28,6 +33,18 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("You don't have any barrel of beer!", cid)
 			end
 			npcHandler.topic[cid] = 0
+		elseif npcHandler.topic[cid] == 2 then
+			if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 11 then
+				if player:removeMoneyNpc(80) then
+					npcHandler:say("Here. Don't take it into the city though.", cid)
+					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 12)
+					player:addItem(6106,1)
+					npcHandler.topic[cid] = 0
+				else
+					npcHandler:say("You don't have enough money.", cid)
+				end
+				
+			end
 		end
 	end
 	return true
