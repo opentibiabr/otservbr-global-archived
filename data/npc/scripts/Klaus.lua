@@ -21,13 +21,12 @@ local function creatureSayCallback(cid, type, msg)
     end
 
     local player = Player(cid)
-
     if msgcontains(msg, 'mission') then
         if player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 1 then
             npcHandler:say(
-                'Hmm, you look like a seasoned seadog. Kill Captain Ray Striker, bring me his lucky pillow as a proof and you are our hero!',
-                cid
-            )
+                'Hmm, you look like a seasoned seadog. Kill Captain Ray Striker, \
+                bring me his lucky pillow as a proof and you are our hero!',
+            cid)
             player:setStorageValue(Storage.TheShatteredIsles.RaysMission4, 2)
         elseif player:getStorageValue(Storage.TheShatteredIsles.RaysMission4) == 3 then
             npcHandler:say("Do you have Striker's pillow?", cid)
