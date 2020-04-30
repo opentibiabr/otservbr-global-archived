@@ -24,9 +24,9 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'stampor') or msgcontains(msg, 'mount') then
 		if not player:hasMount(11) then
 			npcHandler:say(
-				'You did bring all the items I requqested, cuild. Good. Shall I travel to the spirit realm and try finding a stampor compasion for you?',
-				cid
-			)
+				'You did bring all the items I requqested, cuild. Good. \
+				Shall I travel to the spirit realm and try finding a stampor compasion for you?',
+			cid)
 			npcHandler.topic[cid] = 1
 		else
 			npcHandler:say('You already have stampor mount.', cid)
@@ -35,9 +35,9 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'mission') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 8 then
 			npcHandler:say(
-				'The evil cult has placed a curse on one of the captains here. I need at least five of their pirate voodoo dolls to lift that curse.',
-				cid
-			)
+				'The evil cult has placed a curse on one of the captains here. \
+				I need at least five of their pirate voodoo dolls to lift that curse.',
+			cid)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 9)
 			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 9 then
@@ -51,11 +51,11 @@ local function creatureSayCallback(cid, type, msg)
 					{
 						'Ohhhhh Mmmmmmmmmmmm Ammmmmgggggggaaaaaaa ...',
 						'Aaaaaaaaaahhmmmm Mmmaaaaaaaaaa Kaaaaaamaaaa ...',
-						"Brrt! I think it worked! It's a male stampor. I linked this spirit to yours. You can probably already summon him to you ...",
+						"Brrt! I think it worked! It's a male stampor. \
+						I linked this spirit to yours. You can probably already summon him to you ...",
 						'So, since me are done here... I need to prepare another ritual, so please let me work, cuild.'
 					},
-					cid
-				)
+				cid)
 				player:addMount(11)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 			else
@@ -97,15 +97,19 @@ end
 notReadyKeyword(
 	'outfit',
 	{
-		"Hum? Sorry, but I don't sense enough spiritual wisdom in you to even allow you to touch the mask and staff I'm wearing... yet. ...",
-		'I know of a really wise ape healer, though, who might be able to bless you with shamanic energy. You should become his apprentice first if you desire to become mine.'
+		"Hum? Sorry, but I don't sense enough spiritual wisdom in you to even allow \
+		you to touch the mask and staff I'm wearing... yet. ...",
+		'I know of a really wise ape healer, though, who might be able to bless you with shamanic energy. \
+		You should become his apprentice first if you desire to become mine.'
 	}
 )
 notReadyKeyword(
 	'addon',
 	{
-		"Hum? Sorry, but I don't sense enough spiritual wisdom in you to even allow you to touch the mask and staff I'm wearing... yet. ...",
-		'I know of a really wise ape healer, though, who might be able to bless you with shamanic energy. You should become his apprentice first if you desire to become mine.'
+		"Hum? Sorry, but I don't sense enough spiritual wisdom in you to even allow \
+		you to touch the mask and staff I'm wearing... yet. ...",
+		'I know of a really wise ape healer, though, who might be able to bless you with shamanic energy. \
+		You should become his apprentice first if you desire to become mine.'
 	}
 )
 notReadyKeyword('task', "The time hasn't come yet, my child. Believe and learn.")
@@ -155,11 +159,15 @@ end
 -- Staff
 addTaskKeyword(
 	{
-		"If you fulfil a task for me, I'll grant you a staff like the one I'm wearing. Do you want to hear the requirements?",
+		"If you fulfil a task for me, I'll grant you a staff like the one I'm wearing. \
+		Do you want to hear the requirements?",
 		{
-			'Deep in the Tiquandian jungle a monster lurks which is seldom seen. It is the revenge of the jungle against humankind. ...',
-			'This monster, if slain, carries a rare root called Mandrake. If you find it, bring it to me. Also, gather 5 of the voodoo dolls used by the mysterious dworc voodoomasters. ...',
-			'If you manage to fulfil this task, I will grant you your own staff. Have you understood everything and are ready for this test?'
+			'Deep in the Tiquandian jungle a monster lurks which is seldom seen. \
+			It is the revenge of the jungle against humankind. ...',
+			'This monster, if slain, carries a rare root called Mandrake. If you find it, bring it to me. \
+			Also, gather 5 of the voodoo dolls used by the mysterious dworc voodoomasters. ...',
+			'If you manage to fulfil this task, I will grant you your own staff. \
+			Have you understood everything and are ready for this test?'
 		},
 		"Good! Come back once you've found a mandrake and collected 5 dworcish voodoo dolls."
 	},
@@ -170,11 +178,16 @@ addTaskKeyword(
 -- Mask
 addTaskKeyword(
 	{
-		"You have successfully passed the first task. If you can fulfil my second task, I'll grant you a mask like the one I'm wearing. Do you want to hear the requirements?",
+		"You have successfully passed the first task. \
+		If you can fulfil my second task, I'll grant you a mask like the one I'm wearing. \
+		Do you want to hear the requirements?",
 		{
-			"The dworcs of Tiquanda like to wear certain tribal masks which I'd like to take a look at. Please bring me 5 of these masks. ...",
-			"Secondly, the high ape magicians of Banuta use banana staffs. I'd love to learn more about theses staffs, so please bring me 5 of them, too. ...",
-			"If you manage to fulfil this task, I'll grant you your own mask. Have you understood everything and are you ready for this test?"
+			"The dworcs of Tiquanda like to wear certain tribal masks which I'd like to take a look at. \
+			Please bring me 5 of these masks. ...",
+			"Secondly, the high ape magicians of Banuta use banana staffs. \
+			I'd love to learn more about theses staffs, so please bring me 5 of them, too. ...",
+			"If you manage to fulfil this task, I'll grant you your own mask. \
+			Have you understood everything and are you ready for this test?"
 		},
 		'Good! Come back once you have collected 5 tribal masks and 5 banana staffs.'
 	},
@@ -247,7 +260,8 @@ addItemKeyword(
 		"I'm proud of you my child, excellent work. This staff shall be yours from now on!",
 		'A rare root with mysterious powers.',
 		{
-			'Together with the spirits of the ancestors, I seek for wisdom. Together we can change the flow of magic to do things that are beyond the limits of ordinary magic. ...',
+			'Together with the spirits of the ancestors, I seek for wisdom. \
+			Together we can change the flow of magic to do things that are beyond the limits of ordinary magic. ...',
 			'In conversations with the spirits, I gain insight into secrets that would have been lost otherwise.'
 		}
 	},
@@ -305,7 +319,8 @@ addTaskStatusKeyword(
 
 addTaskStatusKeyword(
 	'addon',
-	'The time has come, my child. I sense great spiritual wisdom in you and I shall grant you a sign of your progress if you can fulfil my task.',
+	'The time has come, my child. I sense great spiritual wisdom in you and I shall grant you a \
+	sign of your progress if you can fulfil my task.',
 	1
 )
 addTaskStatusKeyword('addon', 'I shall grant you a sign of your progress as a shaman if you can fulfil my task.', 3)
@@ -322,7 +337,8 @@ keywordHandler:addKeyword(
 	StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "Ten prayers for a blessed stake? Don't tell me they made you travel whole Tibia for it! Listen, child, if you bring me a wooden stake, I'll bless it for you. <chuckles>"
+		text = "Ten prayers for a blessed stake? Don't tell me they made you travel whole Tibia for it! \
+		Listen, child, if you bring me a wooden stake, I'll bless it for you. <chuckles>"
 	},
 	function(player)
 		return player:getStorageValue(Storage.FriendsandTraders.TheBlessedStake) == 11
@@ -412,7 +428,8 @@ local acceptKeyword =
 	StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = 'This is really not advisable. Behind this barrier, strong forces are raging violently. Are you sure that you want to go there?'
+		text = 'This is really not advisable. Behind this barrier, strong forces are raging violently. \
+		Are you sure that you want to go there?'
 	}
 )
 acceptKeyword:addChildKeyword(
@@ -421,7 +438,8 @@ acceptKeyword:addChildKeyword(
 	{
 		npcHandler = npcHandler,
 		text = {
-			"I guess I cannot stop you then. Since you told me about my apprentice, it's my turn to help you. I'll perform a ritual for you, but I need a few ingredients. ...",
+			"I guess I cannot stop you then. Since you told me about my apprentice, it's my turn to help you. \
+			I'll perform a ritual for you, but I need a few ingredients. ...",
 			'Bring me one fresh dead chicken, one fresh dead rat and one fresh dead black sheep, in that order.'
 		},
 		reset = true
@@ -523,7 +541,8 @@ keywordHandler:addKeyword(
 	StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "Ah, the energy barrier set up by the cult is maintained by lousy magic, but it's still effective. Without a proper counterspell, you won't be able to pass it."
+		text = "Ah, the energy barrier set up by the cult is maintained by lousy magic, but it's still effective. \
+		Without a proper counterspell, you won't be able to pass it."
 	}
 )
 
