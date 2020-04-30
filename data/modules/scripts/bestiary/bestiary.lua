@@ -3,7 +3,7 @@ Bestiary = {}
 Bestiary.Credits = {
 	Developer = "fernando mieza (flyckks), gpedro, lbaah, Ticardo (Rick), DudZ, Ruiivo",
 	Version = "1.1",
-	lastUpdate = "01/04/2020 - 12:00",
+	lastUpdate = "30/04/2020 - 01:20",
 	todo = {
 		"Add modifiers for the runes implementation",
 		"Fix monster occurency"
@@ -337,27 +337,24 @@ Bestiary.sendMonsterData = function(player, msg)
 	if currentLevel > 2 then
 		local monsterElements = Bestiary.getMonsterElements(monster)
 
-		-- elements size
-		msg:addByte(#monsterElements)
-		local i = 0
-		for _, value in pairs(monsterElements) do
-			-- elements id
-			msg:addByte(i)
+	-- elements size
+        msg:addByte(#monsterElements)
+        local i = 0
+        for _, value in pairs(monsterElements) do
+            -- elements id
+            msg:addByte(i)
 
-			-- element percent
-			msg:addU16(value)
+            -- element percent
+            msg:addU16(value)
 
-			i = i + 1
+            i = i + 1
 		end
-		local bestiaryCreatureFinishingKeys = ""
-		for b = 1, #Bestiary.CreatureEncryptionOrder do
-			for i = #Bestiary.CreatureEncryptionKeys[Bestiary.CreatureEncryptionOrder[b]], 1, -1 do
-				bestiaryCreatureFinishingKeys = bestiaryCreatureFinishingKeys .. Bestiary.CreatureEncryptionKeys[Bestiary.CreatureEncryptionOrder[b]]:sub(i, i)
-			end
-		end
-		msg:addU16(1) --locations
+		
+		-- locations
+		msg:addU16(1)
 		msg:addString(bestiaryMonster.Locations)
-	end
+		
+    end
 
 	if currentLevel > 3 then
 		-- charm things
