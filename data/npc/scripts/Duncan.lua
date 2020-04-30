@@ -25,15 +25,16 @@ local function creatureSayCallback(cid, type, msg)
 
 	if isInArray({'outfit', 'addon'}, msg) and player:getStorageValue(Storage.OutfitQuest.PirateBaseOutfit) == 1 then
 		npcHandler:say(
-			"You're talking about my sabre? Well, even though you earned our trust, you'd have to fulfill a task first before you are granted to wear such a sabre.",
-			cid
-		)
+			"You're talking about my sabre? Well, even though you earned our trust, \
+			you'd have to fulfill a task first before you are granted to wear such a sabre.",
+		cid)
 	elseif msgcontains(msg, 'mission') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 6 then
 			npcHandler:say(
-				'I need a new quality atlas for our captains. Only one of the best will do it. I heard the explorers society sells the best, but only to members of a certain rank. You will have to get this rank or ask a high ranking member to buy it for you.',
-				cid
-			)
+				'I need a new quality atlas for our captains. Only one of the best will do it. \
+				I heard the explorers society sells the best, but only to members of a certain rank. \
+				You will have to get this rank or ask a high ranking member to buy it for you.',
+			cid)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 7)
 			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 7 then
@@ -44,9 +45,10 @@ local function creatureSayCallback(cid, type, msg)
 				player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) < 0
 		 then
 			npcHandler:say(
-				'You did some impressive things. I think people here start considering you as one of us. But these are dire times and everyone of us is expected to give his best and even exceed himself. Do you think you can handle that?',
-				cid
-			)
+				'You did some impressive things. I think people here start considering you as one of us. \
+				But these are dire times and everyone of us is expected to give his best and even exceed himself. \
+				Do you think you can handle that?',
+				cid)
 			npcHandler.topic[cid] = 7
 		elseif player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) == 1 then
 			npcHandler:say('Did you rescue one of those poor soon-to-be baby tortoises from Nargor?', cid)
@@ -56,8 +58,7 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(storage) < 1 then
 			npcHandler:say(
 				"Are you up to the task which I'm going to give you and willing to prove you're worthy of wearing such a sabre?",
-				cid
-			)
+				cid)
 			npcHandler.topic[cid] = 1
 		end
 	elseif msgcontains(msg, 'eye patches') then
@@ -79,12 +80,12 @@ local function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say(
 				{
-					'Listen, the task is not that hard. Simply prove that you are with us and not with the pirates from Nargor by bringingme some of their belongings. ...',
+					'Listen, the task is not that hard. Simply prove that you are with us and not with the \
+					pirates from Nargor by bringingme some of their belongings. ...',
 					'Bring me 100 of their eye patches, 100 of their peg legs and 100 of their hooks, in that order. ...',
 					'Have you understood everything I told you and are willing to handle this task?'
 				},
-				cid
-			)
+				cid)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 2 then
 			player:setStorageValue(storage, 1)
@@ -112,8 +113,7 @@ local function creatureSayCallback(cid, type, msg)
 				player:setStorageValue(storage, 4)
 				npcHandler:say(
 					"I see, I see. Well done. Go to Morgan and tell him this codeword: 'firebird'. He'll know what to do.",
-					cid
-				)
+				cid)
 				npcHandler.topic[cid] = 0
 			else
 				npcHandler:say("You don't have it...", cid)
@@ -133,13 +133,16 @@ local function creatureSayCallback(cid, type, msg)
 			if player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) < 0 then
 				npcHandler:say(
 					{
-						'I am glad to hear this. Please listen. The pirates on Nargor are breeding tortoises. They think eating tortoises makes a hard man even harder. ...',
-						"However I am quite fond of tortoises and can't stand the thought of them being eaten. So I convinced Captain Striker that I can train them to help us. As a substitute for rafts and such ...",
-						'All I need is one tortoise egg from Nargor. This is the opportunity to save a tortoise from a gruesome fate! ...',
-						'I will ask Sebastian to bring you there. Travel to Nargor, find their tortoise eggs and bring me at least one of them.'
+						'I am glad to hear this. Please listen. The pirates on Nargor are breeding tortoises. \
+						They think eating tortoises makes a hard man even harder. ...',
+						"However I am quite fond of tortoises and can't stand the thought of them being eaten. \
+						So I convinced Captain Striker that I can train them to help us. As a substitute for rafts and such ...",
+						'All I need is one tortoise egg from Nargor. \
+						This is the opportunity to save a tortoise from a gruesome fate! ...',
+						'I will ask Sebastian to bring you there. \
+						Travel to Nargor, find their tortoise eggs and bring me at least one of them.'
 					},
-					cid
-				)
+				cid)
 				player:setStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor, 1)
 				npcHandler.topic[cid] = 0
 			end
@@ -147,7 +150,8 @@ local function creatureSayCallback(cid, type, msg)
 			if player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) == 1 then
 				if player:removeItem(6125, 1) then
 					npcHandler:say(
-						'A real tortoise egg ... I guess you are more accustomed to rescue some noblewoman in distress but you did something goodtoday.',
+						'A real tortoise egg ... I guess you are more accustomed to rescue some \
+						noblewoman in distress but you did something goodtoday.',
 						cid
 					)
 					player:setStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor, 2)
