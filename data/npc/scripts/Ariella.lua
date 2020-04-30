@@ -35,14 +35,16 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, 'addon') and player:getStorageValue(Storage.OutfitQuest.PirateBaseOutfit) == 1 then
 		npcHandler:say(
-			"To get pirate hat you need give me Brutus Bloodbeard's Hat, Lethal Lissy's Shirt, Ron the Ripper's Sabre and Deadeye Devious' Eye Patch. Do you have them with you?",
+			"To get pirate hat you need give me Brutus Bloodbeard's Hat, \
+			Lethal Lissy's Shirt, Ron the Ripper's Sabre and Deadeye Devious' Eye Patch. Do you have them with you?",
 			cid
 		)
 		npcHandler.topic[cid] = 2
 	elseif msgcontains(msg, 'mission') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 1 then
 			npcHandler:say(
-				'You know, we have plenty of rum here but we lack some basic food. Especially food that easily becomes mouldy is a problem. Bring me 100 breads and you will help me a lot.',
+				'You know, we have plenty of rum here but we lack some basic food. \
+				Especially food that easily becomes mouldy is a problem. Bring me 100 breads and you will help me a lot.',
 				cid
 			)
 			player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 2)
@@ -52,8 +54,10 @@ local function creatureSayCallback(cid, type, msg)
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 10 then
 			npcHandler:say(
 				{
-					'The sailors always tell tales about the famous beer of Carlin. You must know, alcohol is forbidden in that city. ...',
-					'The beer is served in a secret whisper bar anyway. Bring me a sample of the whisper beer, NOT the usual beer but whisper beer. I hope you are listening.'
+					'The sailors always tell tales about the famous beer of Carlin. \
+					You must know, alcohol is forbidden in that city. ...',
+					'The beer is served in a secret whisper bar anyway. \
+					Bring me a sample of the whisper beer, NOT the usual beer but whisper beer. I hope you are listening.'
 				},
 				cid
 			)
