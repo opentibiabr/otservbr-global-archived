@@ -39,7 +39,8 @@ local function creatureSayCallback(cid, type, msg)
 					'Hm, if you are that eager to work I have an idea how you could help me out. \
 					A distant relative of mine, the old sage Eremo lives on the isle Cormaya, near Edron. ...',
 					"He has not heard from me since ages. He might assume that I am dead. \
-					Since I don't want him to get into trouble for receiving a letter from a pirate I ask you to deliver it personally. ...",
+					Since I don't want him to get into trouble for receiving a letter from a \
+					pirate I ask you to deliver it personally. ...",
 					"Of course it's a long journey but you asked for it. \
 					You will have to prove us your worth. Are you up to that?"
 				},
