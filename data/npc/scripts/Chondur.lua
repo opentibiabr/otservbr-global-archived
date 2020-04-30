@@ -410,7 +410,7 @@ keywordHandler:addKeyword(
 keywordHandler:addAliasKeyword({'energy field'})
 
 -- Start mission
-local counterspellKeyword =
+local startcounterspellKeyword =
 	keywordHandler:addKeyword(
 	{'counterspell'},
 	StdModule.say,
@@ -423,7 +423,7 @@ local counterspellKeyword =
 	end
 )
 local acceptKeyword =
-	counterspellKeyword:addChildKeyword(
+	startcounterspellKeyword:addChildKeyword(
 	{'yes'},
 	StdModule.say,
 	{
