@@ -356,7 +356,7 @@ Bestiary.sendMonsterData = function(player, msg)
 			end
 		end
 		msg:addU16(1) --locations
-		msg:addString(bestiaryCreatureFinishingKeys)
+		msg:addString(bestiaryMonster.Locations)
 	end
 
 	if currentLevel > 3 then
