@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+	npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+	npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+	npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+	npcHandler:onThink()
+end
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -19,15 +27,23 @@ local function creatureSayCallback(cid, type, msg)
 	local feetItem = player:getSlotItem(CONST_SLOT_FEET)
 
 	if msgcontains(msg, 'enter') then
-		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission3) == 1 and player:getStorageValue(Storage.TheShatteredIsles.AccessToYavern) < 0 then
-            if headItem and headItem.itemid == 6096 and armorItem and armorItem.itemid == 6095 and legsItem and legsItem.itemid == 5918 and feetItem and feetItem.itemid == 5462 then
-                npcHandler:say('Hey, I rarely see a dashing pirate like you! Get in, matey!', cid)
+		if
+			player:getStorageValue(Storage.TheShatteredIsles.RaysMission3) == 1 and
+				player:getStorageValue(Storage.TheShatteredIsles.AccessToYavern) < 0
+		 then
+			if
+				headItem and headItem.itemid == 6096 and armorItem and armorItem.itemid == 6095 and legsItem and
+					legsItem.itemid == 5918 and
+					feetItem and
+					feetItem.itemid == 5462
+			 then
+				npcHandler:say('Hey, I rarely see a dashing pirate like you! Get in, matey!', cid)
 				player:setStorageValue(Storage.TheShatteredIsles.AccessToYavern, 1)
 			else
 				npcHandler:say("YOU WILL NOT PASS! Erm ... I mean you don't look like a true pirate to me. You won't get in.", cid)
-            end
+			end
 		end
-    end
+	end
 	return true
 end
 
