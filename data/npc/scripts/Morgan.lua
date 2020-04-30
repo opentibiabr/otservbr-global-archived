@@ -21,7 +21,6 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
 	if msgcontains(msg, 'firebird') then
 		if player:getStorageValue(Storage.OutfitQuest.PirateSabreAddon) == 4 then
 			player:setStorageValue(Storage.OutfitQuest.PirateSabreAddon, 5)
@@ -29,20 +28,22 @@ local function creatureSayCallback(cid, type, msg)
 			player:addOutfitAddon(155, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 			npcHandler:say(
-				'Ahh. So Duncan sent you, eh? You must have done something really impressive. Okay, take this fine sabre from me, mate.',
-				cid
-			)
+				'Ahh. So Duncan sent you, eh? You must have done something really impressive. \
+				Okay, take this fine sabre from me, mate.',
+			cid)
 		end
 	elseif msgcontains(msg, 'mission') then
 		if player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 3 then
 			npcHandler:say(
 				{
-					'Hm, if you are that eager to work I have an idea how you could help me out. A distant relative of mine, the old sage Eremo lives on the isle Cormaya, near Edron. ...',
-					"He has not heard from me since ages. He might assume that I am dead. Since I don't want him to get into trouble for receiving a letter from a pirate I ask you to deliver it personally. ...",
-					"Of course it's a long journey but you asked for it. You will have to prove us your worth. Are you up to that?"
+					'Hm, if you are that eager to work I have an idea how you could help me out. \
+					A distant relative of mine, the old sage Eremo lives on the isle Cormaya, near Edron. ...',
+					"He has not heard from me since ages. He might assume that I am dead. \
+					Since I don't want him to get into trouble for receiving a letter from a pirate I ask you to deliver it personally. ...",
+					"Of course it's a long journey but you asked for it. \
+					You will have to prove us your worth. Are you up to that?"
 				},
-				cid
-			)
+			cid)
 			npcHandler.topic[cid] = 2
 		elseif player:getStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven) == 5 then
 			npcHandler:say('Thank you for delivering my letter to Eremo. I have no more missions for you.', cid)
@@ -117,13 +118,17 @@ keywordHandler:addKeyword(
 	StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = 'I can forge the finest {weapons} for knights and warriors. They may wear them proudly and visible to everyone.'
+		text = 'I can forge the finest {weapons} for knights and warriors. \
+		They may wear them proudly and visible to everyone.'
 	}
 )
 keywordHandler:addKeyword(
 	{'weapons'},
 	StdModule.say,
-	{npcHandler = npcHandler, text = "Would you rather be interested in a {knight's sword} or in a {warrior's sword}?"}
+	{
+		npcHandler = npcHandler,
+		text = "Would you rather be interested in a {knight's sword} or in a {warrior's sword}?"
+	}
 )
 
 npcHandler:setMessage(MESSAGE_GREET, 'Hello there.')
