@@ -545,8 +545,9 @@ if not Quests then
 					endvalue = 3,
 					description =
 					function(player)
-						return string.format("Find a truffle sniffing pig and lure it around. Occasionally it will unearth some truffles. \
-						Use the baby pig on the truffles to feed it 3 times. Then report back to the gnomes. %d / 3",
+						return string.format("Find a truffle sniffing pig and lure it around. \
+						Occasionally it will unearth some truffles. Use the baby pig on the truffles to feed it 3 times. \
+						Then report back to the gnomes. %d / 3",
 						(math.max(player:getStorageValue(Storage.BigfootBurden.MushroomCount), 0)))
 					end
 				},
@@ -568,8 +569,8 @@ if not Quests then
 					endvalue = 4,
 					description =
 					function(player)
-						return string.format("Use the harmonic bell on the mad golems in the golem workshop so that they will automatically \
-						be teleported to the gnomish workshops. Then report back to the gnomes. %d / 4",
+						return string.format("Use the harmonic bell on the mad golems in the golem workshop so that they will \
+						automatically be teleported to the gnomish workshops. Then report back to the gnomes. %d / 4",
 						(math.max(player:getStorageValue(Storage.BigfootBurden.GolemCount), 0)))
 					end
 				},
@@ -723,8 +724,8 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 6,
 					states = {
-						[1] = "Your mission is to find a way to enter the north of the valley and find a passage to the great gate itself. \
-							Search any temples or settlements you come across for hidden passages.",
+						[1] = "Your mission is to find a way to enter the north of the valley and find a \
+						passage to the great gate itself. Search any temples or settlements you come across for hidden passages.",
 						[2] = "Report Zalamon about the strange symbols that you found.",
 						[3] = "Get the greasy oil from Zalamon's storage room and put them on the levers that you found.",
 						[4] = "Due to being extra greasy, the leavers can now be moved.",
@@ -2066,7 +2067,8 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 7,
 					states = {
-						[1] = "You found Angelina in a Prison. She told you a secret: Lynda in Thais can create a blessed wand. Greet her from Angelina, maybe she will aid you.",
+						[1] = "You found Angelina in a Prison. She told you a secret: \
+						Lynda in Thais can create a blessed wand. Greet her from Angelina, maybe she will aid you.",
 						[2] = "Lynda send you to bring her a sample of all five wands and five rods \
 							(Snakebite, Moonlight, Necrotic, Terra, Hailstorm, Vortex, Dragonbreath, Decay, Cosmic Energy and Inferno)",
 						[3] = "Bring Lynda 10 ounces of magic sulphur",
@@ -2270,8 +2272,10 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Spectulus asked you to enter the Lost Mines beneath Edron and recover a rare crystal. In exchange for it you will gain access to the lair of the Collector who guards a vital component of the device.",
-						[2] = "Luckily, you survived the horrors of the Lost Mines and recovered a rare crystal. You should visit Spectulus in Edron to seek counsel on what to do next.",
+						[1] = "Spectulus asked you to enter the Lost Mines beneath Edron and recover a rare crystal. In exchange for \
+						it you will gain access to the lair of the Collector who guards a vital component of the device.",
+						[2] = "Luckily, you survived the horrors of the Lost Mines and recovered a rare crystal. \
+						You should visit Spectulus in Edron to seek counsel on what to do next.",
 						[3] = "You returned to astronomer Spectulus and gave him the rare crystal."
 					}
 				},
@@ -2946,7 +2950,8 @@ if not Quests then
 						[4] = "To cure Nilsor dogs, bring him the 4th of 7 ingredients: the Frostbite Herb. \
 							You can find it on mountain peaks. You will need to cut it with a fine kitchen knife.",
 						[5] = "To cure Nilsor dogs, bring him the 5th of 7 ingredients: Purple Kiss Blossom. \
-							The purple kiss is a plant that grows in a place called jungle. You will have to use a kitchen knife to harvest its blossom.",
+							The purple kiss is a plant that grows in a place called jungle. \
+							You will have to use a kitchen knife to harvest its blossom.",
 						[6] = "To cure Nilsor dogs, bring him the 6th of 7 ingredients: the Hydra Tongue. \
 							The hydra tongue is a common pest plant in warmer regions. You might find one in a shop.",
 						[7] = "To cure Nilsor dogs, bring him the 7th of 7 ingredients: Spores of a Giant Glimmercap Mushroom. \
@@ -5135,7 +5140,8 @@ end
 -- Player functions
 function Player.questIsStarted(self, questId)
 	local quest = Game.getQuest(questId)
-	if quest and self:getStorageValue(quest.startstorageid) ~= -1 or self:getStorageValue(quest.startstorageid) >= quest.startstoragevalue then
+	if quest and self:getStorageValue(quest.startstorageid) ~= -1
+	or self:getStorageValue(quest.startstorageid) >= quest.startstoragevalue then
 		return true
 	end
 	return false
