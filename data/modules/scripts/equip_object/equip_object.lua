@@ -28,7 +28,7 @@ function onRecvbyte(player, msg, byte)
 
 	local newItemType = ItemType(item:getId())
 	local slotP = EquipObject.Slots[newItemType:getSlotPosition()]
-	if newItemType:getWeaponType() == WEAPON_SHIELD  then
+	if newItemType:getWeaponType() == WEAPON_SHIELD then
 		slotP = CONST_SLOT_RIGHT
 	end
 

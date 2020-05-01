@@ -66,21 +66,23 @@ Prey.Bonuses = {
 Prey.MonsterList = {
 	[CONST_MONSTER_TIER_BRONZE] = {
 		"Rotworm", "Carrion Worm", "Skeleton", "Ghoul", "Cyclops", "Cyclops Drone", "Cyclops Smith", "Dark Magician",
-		"Beholder", "Dragon", "Dragon Hatchling", "Dwarf", "Dwarf Guard", "Dwarf Geomancer", "Dwarf Soldier", "Earth Elemental",
-		"Fire Elemental", "Gargoyle", "Merlkin", "Minotaur", "Minotaur Guard", "Minotaur Mage", "Minotaur Archer", "Nomad",
-		"Amazon", "Hunter", "Orc", "Orc Berserker", "Orc Leader", "Orc Shaman", "Orc Spearman", "Orc Warlord", "Panda",
-		"Rotworm Queen", "Tarantula", "Scarab", "Skeleton Warrior", "Smuggler"
+		"Beholder", "Dragon", "Dragon Hatchling", "Dwarf", "Dwarf Guard", "Dwarf Geomancer", "Dwarf Soldier",
+		"Earth Elemental", "Fire Elemental", "Gargoyle", "Merlkin", "Minotaur", "Minotaur Guard", "Minotaur Mage",
+		"Minotaur Archer", "Nomad", "Amazon", "Hunter", "Orc", "Orc Berserker", "Orc Leader", "Orc Shaman",
+		"Orc Spearman", "Orc Warlord", "Panda", "Rotworm Queen", "Tarantula", "Scarab", "Skeleton Warrior", "Smuggler"
 	},
 	[CONST_MONSTER_TIER_SILVER] = {
-		 "Pirate Buccaneer", "Pirate Ghost", "Pirate Marauder", "Pirate Skeleton", "Dragon Lord Hatchling", "Frost Dragon Hatchling",
-		"Behemoth", "Faun", "Dark Faun", "Dragon Lord", "Frost Dragon", "Hydra", "Hero", "Bullwark", "Giant Spider", "Crystal Spider",
-		"Deepling Brawler", "Deepling Elite", "Deepling Guard", "Deepling Master Librarian", "Deepling Tyrant", "Deepling Warrior",
-		"Wyrm", "Elder Wyrm", "Fleshslicer", "Frost Giant", "Ghastly Dragon", "Ice Golem", "Infernalist", "Warlock", "Lich",
-		"Lizard Chosen", "Lizard Dragon Priest", "Lizard High Guard", "Lizard Legionnaire", "Lizard Zaogun", "Massive Energy Elemental",
-		"Massive Fire Elemental", "Massive Water Elemental", "Minotaur Amazon", "Execowtioner", "Minotaur Hunter", "Mooh'Tah Warrior",
-		"Mutated Bat", "Mutated Human", "Necromancer", "Nightmare", "Nightmare Scion", "Ogre Brute", "Ogre Savage", "Ogre Shaman",
-		"Orclops Doomhauler", "Orclops Ravager", "Quara Constrictor", "Quara Constrictor Scout", "Quara Hydromancer", "Quara Mantassin",
-		"Quara Pincher", "Quara Predator", "Sea Serpent", "Shaper Matriarch", "Silencer", "Spitter", "Worker Golem", "Werewolf",
+		"Pirate Buccaneer", "Pirate Ghost", "Pirate Marauder", "Pirate Skeleton", "Dragon Lord Hatchling",
+		"Frost Dragon Hatchling", "Behemoth", "Faun", "Dark Faun", "Dragon Lord", "Frost Dragon", "Hydra", "Hero",
+		"Bullwark", "Giant Spider", "Crystal Spider", "Deepling Brawler", "Deepling Elite", "Deepling Guard",
+		"Deepling Master Librarian", "Deepling Tyrant", "Deepling Warrior", "Wyrm", "Elder Wyrm", "Fleshslicer",
+		"Frost Giant", "Ghastly Dragon", "Ice Golem", "Infernalist", "Warlock", "Lich", "Lizard Chosen",
+		"Lizard Dragon Priest", "Lizard High Guard", "Lizard Legionnaire", "Lizard Zaogun", "Massive Energy Elemental",
+		"Massive Fire Elemental", "Massive Water Elemental", "Minotaur Amazon", "Execowtioner", "Minotaur Hunter",
+		"Mooh'Tah Warrior", "Mutated Bat", "Mutated Human", "Necromancer", "Nightmare", "Nightmare Scion", "Ogre Brute",
+		"Ogre Savage", "Ogre Shaman", "Orclops Doomhauler", "Orclops Ravager", "Quara Constrictor",
+		"Quara Constrictor Scout", "Quara Hydromancer", "Quara Mantassin", "Quara Pincher", "Quara Predator",
+		"Sea Serpent", "Shaper Matriarch", "Silencer", "Spitter", "Worker Golem", "Werewolf",
 		"Hellspawn", "Shadow Tentacle", "Vampire Bride", "Dragonling", "Shock Head", "Frazzlemaw",
 	},
 	[CONST_MONSTER_TIER_GOLD] = {
@@ -145,11 +147,11 @@ function Player.setRandomBonusValue(self, slot, bonus, typeChange)
 	end
 	if (self:getPreyBonusValue(slot) == 0) then
 		self:setPreyBonusValue(slot, math.random(min, max))
-	end	
+	end
 	self:setPreyBonusGrade(slot, math.floor((self:getPreyBonusValue(slot) - min) / (max - min) * 10))
 	if (self:getPreyBonusGrade(slot) == 10 and self:getPreyBonusValue(slot) < max) then
 		self:setPreyBonusGrade(slot, self:getPreyBonusGrade(slot) - 1)
-	end	
+	end
 	if (self:getPreyBonusGrade(slot) == 0 and self:getPreyBonusValue(slot) >= min) then
 		self:setPreyBonusGrade(slot, 1)
 	end
@@ -184,7 +186,8 @@ function Player.createMonsterList(self)
 	while (#monsters ~= 9) do
 		local randomMonster = Prey.MonsterList[self:getMonsterTier()][math.random(#Prey.MonsterList[self:getMonsterTier()])]
 		-- Verify that monster actually exists
-		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster) and not table.contains(repeatedList, randomMonster) then
+		if MonsterType(randomMonster) and not table.contains(monsters, randomMonster)
+		and not table.contains(repeatedList, randomMonster) then
 			monsters[#monsters + 1] = randomMonster
 		end
 	end
@@ -237,7 +240,9 @@ function Player.preyAction(self, msg)
 	if (action == Prey.Actions.NEW_LIST) then
 
 		-- Verifying state
-		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER) and self:getPreyState(slot) ~= Prey.StateTypes.INACTIVE then
+		if (self:getPreyState(slot) ~= Prey.StateTypes.ACTIVE and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION
+		and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER)
+		and self:getPreyState(slot) ~= Prey.StateTypes.INACTIVE then
 			return self:sendErrorDialog("This is slot is not even active.")
 		end
 
@@ -286,7 +291,8 @@ function Player.preyAction(self, msg)
 		end
 
 		-- Verifying slot state
-		if (self:getPreyState(slot) ~= Prey.StateTypes.SELECTION and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER) then
+		if (self:getPreyState(slot) ~= Prey.StateTypes.SELECTION
+		and self:getPreyState(slot) ~= Prey.StateTypes.SELECTION_CHANGE_MONSTER) then
 			return self:sendErrorDialog("This slot can't select monsters.")
 		end
 
@@ -319,7 +325,7 @@ function Player.selectPreyMonster(self, slot, monster)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		-- Generating random bonus stats
 		self:setRandomBonusValue(slot, true, true)
-	end	
+	end
 
 	-- Setting current monster
 	self:setPreyCurrentMonster(slot, monster:getName())
@@ -337,7 +343,7 @@ function Player.sendPreyData(self, slot)
 		self:setPreyUnlocked(CONST_PREY_SLOT_FIRST, 2)
 		self:setPreyState(CONST_PREY_SLOT_FIRST, 1)
 	end
-	
+
 	-- Unlock/lock second slot (premium status)
 	if self:isPremium() then
 		if self:getPreyState(CONST_PREY_SLOT_SECOND) == 0 then
@@ -348,20 +354,20 @@ function Player.sendPreyData(self, slot)
 		self:setPreyUnlocked(CONST_PREY_SLOT_SECOND, 0)
 		self:setPreyState(CONST_PREY_SLOT_SECOND, 0)
 	end
-	
+
 	-- Unlock store slot
 	if self:getPreyState(CONST_PREY_SLOT_THIRD) == 0 then
 		if self:getStorageValue(STORE_SLOT_STORAGE) == 1	then
 			self:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
-			self:setPreyState(CONST_PREY_SLOT_THIRD, 1)	
+			self:setPreyState(CONST_PREY_SLOT_THIRD, 1)
 		else
 			self:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 1)
 			self:setPreyState(CONST_PREY_SLOT_THIRD, 0)
 		end
 	end
-	
+
 	local slotState = self:getPreyState(slot)
-	
+
 	local msg = NetworkMessage()
 	msg:addByte(Prey.S_Packets.PreyData) -- packet header
 
@@ -388,7 +394,7 @@ function Player.sendPreyData(self, slot)
 				return self:resetPreySlot(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 			end
 		end
-		
+
 	elseif slotState == Prey.StateTypes.SELECTION then
 		msg:addByte(slot)
 		msg:addByte(3)
@@ -444,8 +450,8 @@ function Player.sendPreyData(self, slot)
 		msg:addByte(slot)
 		msg:addByte(slotState)
 		msg:addByte(self:getPreyUnlocked(slot))
-	end	
-	
+	end
+
 	-- Next free reroll
 	msg:addU16(self:getMinutesUntilFreeReroll(slot))
 
@@ -465,7 +471,7 @@ function Player.sendPreyData(self, slot)
 	msg:addU32(self:getRerollPrice())
 
 	-- Wildcard and Direct Selection price.
-	if self:getClient().version >= 1190 then 
+	if self:getClient().version >= 1190 then
 		msg:addByte(0x01)
 		msg:addByte(0x05)
 	end
