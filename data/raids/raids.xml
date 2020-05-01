@@ -68,14 +68,14 @@
 	<!-- Seacrest Grounds North -->
 	<raid name="Crustacea Gigantica seacrest2" file="oramond/crustacea_gigantica_5.xml" interval2="300" margin="60"/>
 	<!-- Port Hope -->
-	<raid name="Kongras" file="porthope/kongras.xml" interval2="500" margin="60" />
-	<raid name="Lizards" file="porthope/lizards.xml" interval2="500" margin="95" />
-	<raid name="Midnight Panther One" file="porthope/midnight_panther_1.xml" interval2="280" margin="20"/>
-	<raid name="Midnight Panther Two" file="porthope/midnight_panther_2.xml" interval2="280" margin="20"/>
-	<raid name="Midnight Panther Three" file="porthope/midnight_panther_3.xml" interval2="280" margin="20"/>
-	<raid name="Sspawn" file="porthope/serpent_spawn.xml" interval2="500" margin="60" />
-	<raid name="Terror" file="porthope/terrorbirds.xml" interval2="500" margin="100" />
-	<raid name="The Welter" file="porthope/the_welter.xml" interval2="440" margin="60"/>
+	<raid name="Kongras" file="port_hope/kongras.xml" interval2="500" margin="60" />
+	<raid name="Lizards" file="port_hope/lizards.xml" interval2="500" margin="95" />
+	<raid name="Midnight Panther One" file="port_hope/midnight_panther_1.xml" interval2="280" margin="20"/>
+	<raid name="Midnight Panther Two" file="port_hope/midnight_panther_2.xml" interval2="280" margin="20"/>
+	<raid name="Midnight Panther Three" file="port_hope/midnight_panther_3.xml" interval2="280" margin="20"/>
+	<raid name="Sspawn" file="port_hope/serpent_spawn.xml" interval2="500" margin="60" />
+	<raid name="Terror" file="port_hope/terrorbirds.xml" interval2="500" margin="100" />
+	<raid name="The Welter" file="port_hope/the_welter.xml" interval2="440" margin="60"/>
 	<!-- Rookgaard -->
 	<raid name="Munster" file="rookgaard/munster.xml" interval2="500" margin="40" />
 	<raid name="Rats" file="rookgaard/rats.xml" interval2="500" margin="70" />
