@@ -19,19 +19,17 @@ function onStepIn(creature, item, position, fromPosition)
 			break
 		end
 	end
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 
-	position:sendMagicEffect(CONST_ME_TELEPORT)
-
-	local destination
+	local destination = Position(32803, 31587, 1)
 	if not correct then
-		destination = Position(32803, 31587, 1)
 		player:teleportTo(destination)
 		destination:sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end
 
-	destination = Position(32701, 31639, 6)
-	player:teleportTo(destination)
-	destination:sendMagicEffect(CONST_ME_TELEPORT)
+	local position = Position(32701, 31639, 6)
+	player:teleportTo(position)
+	position:sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end
