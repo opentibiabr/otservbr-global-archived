@@ -292,7 +292,8 @@ bool Actions::registerLuaEvent(Action* event) {
 
 ReturnValue Actions::canUse(const Player* player, const Position& pos) {
 	DLOG_F(INFO, "Player[%d] canUse from position:x[%d], y[%d], z[%d]?",
-					player->getID(), pos.getX(), pos.getY(), pos.getZ());
+					player == nullptr ? 0 : player->getID(),
+					pos.getX(), pos.getY(), pos.getZ());
 	if (pos.x != 0xFFFF) {
 		const Position& playerPos = player->getPosition();
 		if (playerPos.z != pos.z) {
@@ -314,8 +315,8 @@ ReturnValue Actions::canUse(const Player* player, const Position& pos) {
 ReturnValue Actions::canUse(const Player* player, const Position& pos,
 							const Item* item) {
 	DLOG_F(INFO, "Player[%d] canUse cid[%d] from position:x[%d], y[%d], z[%d]?",
-			player->getID(), item->getClientID(), pos.getX(), pos.getY(),
-			pos.getZ());
+			player == nullptr ? 0 : player->getID(), item == nullptr ?
+			0 : item->getClientID(), pos.getX(), pos.getY(), pos.getZ());
 	Action* action = getAction(item);
 	if (action != nullptr) {
 		return action->canExecuteAction(player, pos);
@@ -327,8 +328,9 @@ ReturnValue Actions::canUse(const Player* player, const Position& pos,
 ReturnValue Actions::canUseFar(const Creature* creature, const Position& toPos,
 								bool checkLineOfSight, bool checkFloor) {
 	DLOG_F(INFO, "Creature[%d] canUseFar to position:x[%d], y[%d], z[%d],"
-	"checkLineOfSight[%d], checkFloor[%d]", creature->getID(), toPos.getX(),
-		toPos.getY(), toPos.getZ(), checkLineOfSight, checkFloor);
+		"checkLineOfSight[%d], checkFloor[%d]", creature == nullptr ?
+		0 : creature->getID(), toPos.getX(), toPos.getY(), toPos.getZ(),
+		checkLineOfSight, checkFloor);
 
 	if (toPos.x == 0xFFFF) {
 		DLOG_F(INFO, "Creature can use far!");
@@ -358,7 +360,8 @@ ReturnValue Actions::canUseFar(const Creature* creature, const Position& toPos,
 }
 
 Action* Actions::getAction(const Item* item) {
-	DLOG_F(INFO, "Get Item cid:[%d] Action", item->getClientID());
+	DLOG_F(INFO, "Get Item cid:[%d] Action", item == nullptr ?
+			0 : item->getClientID());
 
 	if (item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
 		DLOG_F(INFO, "Item has Attribute UniqueID");
@@ -390,8 +393,9 @@ Action* Actions::getAction(const Item* item) {
 ReturnValue Actions::internalUseItem(Player* player, const Position& pos,
 									uint8_t index, Item* item, bool isHotkey) {
 	DLOG_F(INFO, "Internal Use Item Player[%d], Position:x[%d], y[%d], z[%d], "
-		"Index:[%d], Item cid:[%d], isHotkey:[%d]", player->getID(), pos.getX(),
-		pos.getY(), pos.getZ(), index, item->getClientID(), isHotkey);
+		"Index:[%d], Item cid:[%d], isHotkey:[%d]", player == nullptr ?
+		0 : player->getID(), pos.getX(), pos.getY(), pos.getZ(), index,
+		item == nullptr ? 0 : item->getClientID(), isHotkey);
 
 	if (Door* door = item->getDoor()) {
 		DLOG_F(INFO, "Door");
@@ -539,8 +543,9 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos,
 bool Actions::useItem(Player* player, const Position& pos, uint8_t index,
 						Item* item, bool isHotkey) {
 	DLOG_F(INFO, "Use Item Player[%d], Position:x[%d], y[%d], z[%d], "
-		"Index:[%d], Item cid:[%d], isHotkey:[%d]", player->getID(), pos.getX(),
-		pos.getY(), pos.getZ(), index, item->getClientID(), isHotkey);
+		"Index:[%d], Item cid:[%d], isHotkey:[%d]", player == nullptr ?
+		0 : player->getID(), pos.getX(), pos.getY(), pos.getZ(), index,
+		item == nullptr ? 0 : item->getClientID(), isHotkey);
 
 	player->setNextAction(OTSYS_TIME() + g_config.getNumber(
 										ConfigManager::ACTIONS_DELAY_INTERVAL));
@@ -566,9 +571,10 @@ bool Actions::useItemEx(Player* player, const Position& fromPos,
 						Creature* creature/* = nullptr*/) {
 	DLOG_F(INFO, "Use Item Ex Player[%d], From Position:x[%d], y[%d], z[%d], "
 		"To Position:x[%d], y[%d], z[%d], toStackPos[%d], Item cid:[%d], "
-		"isHotkey:[%d]", player->getID(), fromPos.getX(), fromPos.getY(),
-		fromPos.getZ(), toPos.getX(), toPos.getY(),	toPos.getZ(), toStackPos,
-		item->getClientID(), isHotkey);
+		"isHotkey:[%d]", player == nullptr ? 0 : player->getID(),
+		fromPos.getX(), fromPos.getY(), fromPos.getZ(), toPos.getX(),
+		toPos.getY(),	toPos.getZ(), toStackPos, item == nullptr ?
+		0 : item->getClientID(), isHotkey);
 
 	player->setNextAction(OTSYS_TIME() + g_config.getNumber(
 									ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
@@ -661,7 +667,8 @@ namespace {
 
 bool enterMarket(Player* player, Item* /*unused*/, const Position& /*unused*/,
 			Thing* /*unused*/, const Position& /*unused*/, bool /*unused*/) {
-	DLOG_F(INFO, "Player[%d] trying to enter market.", player->getID());
+	DLOG_F(INFO, "Player[%d] trying to enter market.", player == nullptr ?
+			0 : player->getID());
 
 	if (player->getLastDepotId() == -1) {
 		DLOG_F(WARNING, "Player[%d] doesn't have depot!", player->getID());
@@ -677,7 +684,8 @@ bool useImbueShrine(Player* player, Item* /*unused*/,
 					const Position& /*unused*/, Thing* target,
 					const Position& toPos, bool /*unused*/) {
 	DLOG_F(INFO, "Use Imbue Shrine: Player[%d], Position: x[%d], y[%d], z[%d],",
-		 	player->getID(), toPos.getX(), toPos.getY(), toPos.getZ());
+		 	player == nullptr ? 0 : player->getID(), toPos.getX(),
+			toPos.getY(), toPos.getZ());
 
 	Item* item = target != nullptr ? target->getItem() : nullptr;
 	if (item == nullptr) {
@@ -752,7 +760,8 @@ std::string Action::getScriptEventName() const {
 ReturnValue Action::canExecuteAction(const Player* player,
 									const Position& toPos) {
 	DLOG_F(INFO, "Player[%d] can execute action position:x[%d], y[%d], z[%d]?",
-			player->getID(), toPos.getX(), toPos.getY(), toPos.getZ());
+			player == nullptr ? 0 : player->getID(), toPos.getX(), toPos.getY(),
+			toPos.getZ());
 	if (!allowFarUse) {
 		return g_actions->canUse(player, toPos);
 	}
@@ -763,7 +772,8 @@ ReturnValue Action::canExecuteAction(const Player* player,
 Thing* Action::getTarget(Player* player, Creature* targetCreature,
 						const Position& toPosition, uint8_t toStackPos) const {
 	DLOG_F(INFO, "getTarget:Player[%d], Target[%d], Position:x[%d], y[%d], "
-		"z[%d], toStackPos[%d].", player->getID(), targetCreature->getID(),
+		"z[%d], toStackPos[%d].", player == nullptr ? 0 : player->getID(),
+		targetCreature == nullptr ? 0 : targetCreature->getID(),
 		toPosition.getX(), toPosition.getY(), toPosition.getZ(), toStackPos);
 
 	if (targetCreature != nullptr) {
@@ -778,9 +788,10 @@ bool Action::executeUse(Player* player, Item* item,
 						const Position& toPosition, bool isHotkey) {
 	DLOG_F(INFO, "Use Item Ex Player[%d], From Position:x[%d], y[%d], z[%d], "
 		"To Position:x[%d], y[%d], z[%d], toStackPos[%d], Item cid:[%d], "
-		"isHotkey:[%d]", player->getID(), fromPosition.getX(),
-		fromPosition.getY(), fromPosition.getZ(), toPosition.getX(),
-		toPosition.getY(), toPosition.getZ(), item->getClientID(), isHotkey);
+		"isHotkey:[%d]", player == nullptr ? 0 : player->getID(),
+		fromPosition.getX(), fromPosition.getY(), fromPosition.getZ(),
+		toPosition.getX(), toPosition.getY(), toPosition.getZ(),
+		item == nullptr ? 0 : item->getClientID(), isHotkey);
 
 	// onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (!scriptInterface->reserveScriptEnv()) {
