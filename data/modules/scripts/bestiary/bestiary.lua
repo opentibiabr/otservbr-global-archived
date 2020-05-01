@@ -1,32 +1,33 @@
+
 Bestiary = {}
 
 Bestiary.Credits = {
-	Developer = "fernando mieza (flyckks), gpedro, lbaah, Ticardo (Rick), DudZ",
+	Developer = "fernando mieza (flyckks), gpedro, lbaah, Ticardo (Rick), DudZ, Ruiivo",
 	Version = "1.1",
-	lastUpdate = "01/04/2020 - 12:00",
-	todo = {"Add modifiers for the runes implementation",
-			"Add correct monster locations in the bestiary",
-			"Fix monster occurency"}
+	lastUpdate = "30/04/2020 - 01:20",
+	todo = {
+		"Add modifiers for the runes implementation",
+		"Fix monster occurency"
+	}
 }
 
 Bestiary.Config = {
 	PremiumRunesAmount = 6,
 	FreeRunesAmount = 3,
 	ResetMonsterPriceModifierXLevel = 100,
-	EnabledRunes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
+	EnabledRunes = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
 	Multiplicator = 0.05, --TODO implement this variable
 	Probability = 0.05 -- TODO implement this variable
 }
 
-dofile('data/modules/scripts/bestiary/assets.lua')
+dofile("data/modules/scripts/bestiary/assets.lua")
 
 Bestiary.S_Packets = {
 	SendBestiaryData = 0xd5,
 	SendBestiaryOverview = 0xd6,
 	SendBestiaryMonsterData = 0xd7,
 	SendBestiaryCharmsData = 0xd8,
-	SendBestiaryTracker = 0xd9,
-
+	SendBestiaryTracker = 0xd9
 }
 
 Bestiary.C_Packets = {
@@ -46,7 +47,6 @@ Bestiary.findRaceByName = function(race)
 	return false
 end
 
-
 Bestiary.getRaceByMonsterId = function(monsterId)
 	local races = Bestiary.Races
 	for i = 1, #races do
@@ -63,20 +63,19 @@ Bestiary.sendCreatures = function(player, msg)
 		return true
 	end
 	local text = ""
-	local monsterIDs ={}
+	local monsterIDs = {}
 	local search = msg:getByte()
 	if search == 1 then
 		local monsterAmount = msg:getU16()
-		for i =1, monsterAmount do
+		for i = 1, monsterAmount do
 			table.insert(monsterIDs, msg:getU16())
 		end
 	else
-
 		local raceName = msg:getString()
 
 		local race = Bestiary.findRaceByName(raceName)
 		if not race then
-			print("> [Bestiary]: race was not found: "..raceName .." | search " .. search)
+			print("> [Bestiary]: race was not found: " .. raceName .. " | search " .. search)
 			return true
 		end
 		monsterIDs = race.monsters
@@ -90,7 +89,8 @@ Bestiary.sendCreatures = function(player, msg)
 	for i = 1, #monsterIDs do
 		msg:addU16(monsterIDs[i]) -- monster name
 		if creaturesKilled[monsterIDs[i]] ~= nil then
-			msg:addU16(Bestiary.GetKillStatus(Bestiary.Monsters[monsterIDs[i]], creaturesKilled[monsterIDs[i]])) -- monster kill count (starts by 1)
+			-- monster kill count (starts by 1)
+			msg:addU16(Bestiary.GetKillStatus(Bestiary.Monsters[monsterIDs[i]], creaturesKilled[monsterIDs[i]]))
 		else
 			msg:addByte(0) --Blacks out unknown monsters
 		end
@@ -115,7 +115,6 @@ Bestiary.sendRaces = function(player, msg)
 	msg:sendToPlayer(player)
 end
 
-
 Bestiary.sendCharms = function(player, msg)
 	local playerLocal = Player(player:getId())
 	if not playerLocal then
@@ -136,24 +135,24 @@ Bestiary.sendCharms = function(player, msg)
 		local charm = Bestiary.Charms[k]
 		msg:addByte(k) -- id
 		msg:addString(charm.name) --name
-		msg:addString(charm.description) --description
-		msg:addByte(0) --TODO unknown (unlocked?) 0 ok | 1-2 não faz nada | 3+ n�o testado
+		msg:addString(charm.description) -- description
+		msg:addByte(0) --TODO unknown (unlocked?) 0 ok | 1-2 does nothing | 3+ no tested
 		msg:addU16(charm.points) --charm points needed charm.points
 
 		--if player:hasCharmRune(charm) then
 		if player:hasCharmUnlockedRuneBit(charm, playerCurBit) then
-			msg:addByte(1) -- Charm liberado = 1 | bloqueado = 0
+			msg:addByte(1) -- Charm unlocked = 1 | locked = 0
 			local charmCreature = player:getCharmRuneCreature(charm)
 			if charmCreature > 0 then
-				msg:addByte(1) -- Tem criatura selecionada
+				msg:addByte(1) -- Has creature selected
 				msg:addU16(charmCreature)
 				msg:addU32(removeRuneCost)
 			else
-				msg:addByte(0)  -- Não Tem criatura selecionada
+				msg:addByte(0) -- Has no creature selected
 			end
 		else
-			msg:addByte(0) -- charm bloqueado
-			msg:addByte(0) -- nenhum monstro selecionado
+			msg:addByte(0) -- Charm locked
+			msg:addByte(0) -- Has no creature selected
 		end
 	end
 	msg:addByte(4) -- 0x4?? 0x10??
@@ -165,13 +164,15 @@ Bestiary.sendCharms = function(player, msg)
 
 	for i = 1, #usedRunes do
 		local thisCharm = Bestiary.Charms[usedRunes[i]]
-		local thisCharmCreature  = player:getCharmRuneCreature(thisCharm)
+		local thisCharmCreature = player:getCharmRuneCreature(thisCharm)
 		table.remove(finishedMonsters, table.find(finishedMonsters, thisCharmCreature))
 	end
 
 	msg:addU16(#finishedMonsters)
 	for i = 1, #finishedMonsters do
-		msg:addU16(finishedMonsters[i]) -- monster id que já foram terminados, pra poder selecionar no charm (menos monstros que ja tem charm aplicado)
+		-- monster id that have already been finished
+		-- to be able to select the charm (less monsters that already have charm applied)
+		msg:addU16(finishedMonsters[i])
 	end
 
 	msg:sendToPlayer(player)
@@ -194,7 +195,7 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 			player:popupFYI("You don't have enough charm points to unlock this rune.")
 			return
 		end
-		player:popupFYI("You sucessfully unlocked \"".. thisCharm.name .."\" for ".. thisCharm.points .." charm points.")
+		player:popupFYI('You sucessfully unlocked "' .. thisCharm.name .. '" for ' .. thisCharm.points .. " charm points.")
 		player:setCharmPoints(player:getCharmPoints() - thisCharm.points)
 
 		local curBit = player:getCharmUnlockedRunesBit()
@@ -211,11 +212,18 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 				limitRunes = 100
 			else
 				limitRunes = Bestiary.Config.PremiumRunesAmount
-				message = "Creature has been set!\n\nYou are Premium player, so you benefit from up to ".. limitRunes .." runes!\nCharm Expansion allow you to set creatures to all runes at once!"
+				message =
+					"Creature has been set!\n\nYou are Premium player, so you benefit from up to " ..
+					limitRunes .. " runes!\nCharm Expansion allow you to set creatures to all runes at once!"
 			end
 		else
 			limitRunes = Bestiary.Config.FreeRunesAmount
-			message = "Creature has been set!\n\nYou are not a Premium player, so you can only benefit from up to ".. limitRunes .." runes!\nPremium players can hold up to ".. Bestiary.Config.PremiumRunesAmount .." creatures at once.\nCharm Expansion allow you to set creatures to all runes at once!"
+			message =
+				"Creature has been set!\n\nYou are not a Premium player, so you can only benefit from up to " ..
+				limitRunes ..
+					" runes!\nPremium players can hold up to " ..
+						Bestiary.Config.PremiumRunesAmount .. " creatures at once.\nCharm Expansion \
+						allow you to set creatures to all runes at once!"
 		end
 		if limitRunes <= #usedRunes then
 			player:popupFYI("You don't have any charm slots available.")
@@ -224,7 +232,6 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 		--player:setCharmRuneUsedAmount(usedRunes + 1)  REPLACED BY BIT
 		player:setCharmRuneCreature(thisCharm, monsterID)
 		player:popupFYI(message)
-
 	elseif action == 2 then -- reset creature
 		if not player:removeMoneyNpc(Bestiary.getRemoveRuneCost(player)) then
 			player:popupFYI("You don't have enough gold.")
@@ -234,7 +241,7 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 		player:popupFYI("You sucessfully removed the creature.")
 	end
 
-	print("> [Bestiary]: Trying to buy rune: "..runeID)
+	print("> [Bestiary]: Trying to buy rune: " .. runeID)
 	return true
 end
 
@@ -250,7 +257,7 @@ Bestiary.GetKillStatus = function(bestiaryMonster, killAmount)
 end
 
 Bestiary.getRemoveRuneCost = function(player)
-	return player:getLevel()*Bestiary.Config.ResetMonsterPriceModifierXLevel
+	return player:getLevel() * Bestiary.Config.ResetMonsterPriceModifierXLevel
 end
 
 Bestiary.sendMonsterData = function(player, msg)
@@ -289,11 +296,11 @@ Bestiary.sendMonsterData = function(player, msg)
 
 	msg:addU32(killCounter) -- kill count
 	msg:addU16(bestiaryMonster.FirstUnlock) -- max kill first phase
-	msg:addU16(bestiaryMonster.SecondUnlock)  -- max kill second phase
-	msg:addU16(bestiaryMonster.toKill)  -- max kill third phase
+	msg:addU16(bestiaryMonster.SecondUnlock) -- max kill second phase
+	msg:addU16(bestiaryMonster.toKill) -- max kill third phase
 
-	msg:addByte(bestiaryMonster.Stars)  -- Difficult
-	msg:addByte(bestiaryMonster.Occurrence)  -- Occurency
+	msg:addByte(bestiaryMonster.Stars) -- Difficult
+	msg:addByte(bestiaryMonster.Occurrence) -- Occurency
 	local monsterLoot = monster:getLoot()
 	msg:addByte(#monsterLoot)
 	if #monsterLoot > 0 then
@@ -335,7 +342,7 @@ Bestiary.sendMonsterData = function(player, msg)
 	if currentLevel > 2 then
 		local monsterElements = Bestiary.getMonsterElements(monster)
 
-		-- elements size
+	-- elements size
 		msg:addByte(#monsterElements)
 		local i = 0
 		for _, value in pairs(monsterElements) do
@@ -347,14 +354,11 @@ Bestiary.sendMonsterData = function(player, msg)
 
 			i = i + 1
 		end
-		local bestiaryCreatureFinishingKeys = ""
-		for b = 1, #Bestiary.CreatureEncryptionOrder do
-			for i = #Bestiary.CreatureEncryptionKeys[Bestiary.CreatureEncryptionOrder[b]], 1, -1 do
-				bestiaryCreatureFinishingKeys = bestiaryCreatureFinishingKeys .. Bestiary.CreatureEncryptionKeys[Bestiary.CreatureEncryptionOrder[b]]:sub(i,i)
-			end
-		end
-		msg:addU16(1) --locations
-		msg:addString(bestiaryCreatureFinishingKeys)
+
+		-- locations
+		msg:addU16(1)
+		msg:addString(bestiaryMonster.Locations)
+
 	end
 
 	if currentLevel > 3 then
@@ -366,7 +370,7 @@ Bestiary.sendMonsterData = function(player, msg)
 	msg:sendToPlayer(player)
 end
 
-Bestiary.getMonsterElements = function (monster)
+Bestiary.getMonsterElements = function(monster)
 	local elements = monster:getElementList()
 	local monsterElements = Bestiary.getDefaultElements()
 
@@ -380,17 +384,17 @@ Bestiary.getMonsterElements = function (monster)
 	return monsterElements
 end
 
-Bestiary.calculateDifficult = function (chance)
+Bestiary.calculateDifficult = function(chance)
 	chance = chance / 1000
 
 	if chance < 0.2 then
-	   return 4
+		return 4
 	end
 	if chance < 1 then
-	   return 3
+		return 3
 	end
 	if chance < 5 then
-	   return 2
+		return 2
 	end
 	if chance < 25 then
 		return 1
@@ -553,11 +557,9 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	local curCount = self:getBestiaryKillCount(monsterID)
 	local monster = Bestiary.Monsters[monsterID]
 	if curCount == 0 then
-		if self:getClient().version >= 1200 then
-			self:sendBestiaryEntryChanged(monsterID)
-		end
+		self:sendBestiaryEntryChanged(monsterID)
 		self:setBestiaryKillCount(monsterID, 1)
-		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
+		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "' .. monster.name .. '"')
 		return
 	end
 
@@ -566,19 +568,14 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	self:setBestiaryKillCount(monsterID, curCount)
 
 	if curCount == monster.FirstUnlock or curCount == monster.SecondUnlock then
-		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
-		if self:getClient().version >= 1200 then
-			self:sendBestiaryEntryChanged(monsterID)
-		end
+		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "' .. monster.name .. '"')
+		self:sendBestiaryEntryChanged(monsterID)
 	elseif curCount == monster.toKill then
-		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "'..monster.name..'"')
+		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "' .. monster.name .. '"')
 		self:addCharmPoints(monster.CharmsPoints)
-		if self:getClient().version >= 1200 then
-			self:sendBestiaryEntryChanged(monsterID)
-		end
+		self:sendBestiaryEntryChanged(monsterID)
 	end
 end
-
 
 function Player.getCharmFromTarget(self, target)
 	local bestiaryEntry = Bestiary.MonstersName[target:getName()]
@@ -591,7 +588,7 @@ function Player.getCharmFromTarget(self, target)
 	end
 	for i = 1, #usedRunes do
 		local thisCharm = Bestiary.Charms[usedRunes[i]]
-		local thisCharmCreature  = self:getCharmRuneCreature(thisCharm)
+		local thisCharmCreature = self:getCharmRuneCreature(thisCharm)
 		if bestiaryEntry == thisCharmCreature then
 			return thisCharm
 		end
@@ -599,21 +596,25 @@ function Player.getCharmFromTarget(self, target)
 	return nil
 end
 
-
 function Player.sendBestiaryEntryChanged(self, monsterID)
+	if self:getClient().version < 1200 then
+		return
+	end
 	local msg = NetworkMessage()
 	msg:addByte(Bestiary.S_Packets.SendBestiaryTracker)
 	msg:addU16(monsterID)
 	msg:sendToPlayer(self)
 end
 
-
-Bestiary.bitToggle = function(input, id, on)  -- to add, we use |, which means OR, which in turns make sue that the final number has the flags which both of the left sided and right sided has
+-- To add, we use
+-- Which means OR
+-- Which in turns make sue that the final number has the flags which both of the left sided and right sided has
+Bestiary.bitToggle = function(input, id, on)
 	if on then
 		return bit.bor(input, Bestiary.CharmsBinaries[id])
 	else
 		local negateFlag = bit.bnot(Bestiary.CharmsBinaries[id])
-		return bit.band(input,negateFlag)
+		return bit.band(input, negateFlag)
 	end
 end
 
@@ -627,5 +628,5 @@ Bestiary.bitSet = function(input)
 		input = bit.rshift(input, 1)
 		i = i + 1
 	until input == 0
-	return rtn;
+	return rtn
 end
