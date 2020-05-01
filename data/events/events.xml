@@ -42,6 +42,6 @@
 	<event class="Player" method="onRemoveCount" enabled="1" /><!-- Tibia 11 function -->
 
 	<!-- Monster Methods -->
-	<event class="Monster" method="onDropLoot" enabled="1" /> 
+	<event class="Monster" method="onDropLoot" enabled="1" />
 	<event class="Monster" method="onSpawn" enabled="1" />
 </events>
