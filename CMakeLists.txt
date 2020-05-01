@@ -128,7 +128,11 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
 
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE   "-Wall -Werror -pipe -fvisibility=hidden -march=native -O2")
+  set(CMAKE_CXX_FLAGS_RELEASE  "-Wall -Werror -pipe -fvisibility=hidden -O2")
+
+  if (NOT CCACHE_PROGRAM)
+    set(CMAKE_CXX_FLAGS_RELEASE  "${CMAKE_CXX_FLAGS_RELEASE} -march=native")
+  endif()
 
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
   # Ubuntu 16.04
