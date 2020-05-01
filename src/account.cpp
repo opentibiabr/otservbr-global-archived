@@ -34,8 +34,7 @@ uint32_t IOAccount::getCoinBalance(uint32_t accountId) {
 
 	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
 	if (!result) {
-		LOG_F(ERROR, "Error getting account [%d] coin balance! Result[%d].",
-				result);
+		LOG_F(ERROR, "Error getting account [%d] coin balance!");
 		return false;
 	}
 	LOG_F(INFO, "Account: [%d] Coin Balance:[%d].", accountId,
