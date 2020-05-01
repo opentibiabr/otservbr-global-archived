@@ -26,7 +26,7 @@
 #include "databasetasks.h"
 
 uint32_t IOAccount::getCoinBalance(uint32_t accountId) {
-	DLOG_F(INFO, "Getting account [%d] coin balance.", accountId);
+	DLOG_F(INFO, "Getting account[%d] coin balance.", accountId);
 
 	std::ostringstream query;
 	query << "SELECT `coins` FROM `accounts` WHERE `id` = " << accountId;
@@ -34,10 +34,10 @@ uint32_t IOAccount::getCoinBalance(uint32_t accountId) {
 
 	DBResult_ptr result = Database::getInstance().storeQuery(query.str());
 	if (!result) {
-		LOG_F(ERROR, "Error getting account [%d] coin balance!");
+		LOG_F(ERROR, "Error getting account[%d] coin balance!", accountId);
 		return false;
 	}
-	LOG_F(INFO, "Account: [%d] Coin Balance:[%d].", accountId,
+	LOG_F(INFO, "Account:[%d] Coin Balance:[%d].", accountId,
 			result->getNumber<uint32_t>("coins"));
 
 	return result->getNumber<uint32_t>("coins");
