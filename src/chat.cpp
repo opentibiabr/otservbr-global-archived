@@ -345,14 +345,14 @@ bool Chat::load()
 
 ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 {
-	if (getChannel(player, channelId)) {
+	if (getChannel(player, channelId) != nullptr) {
 		return nullptr;
 	}
 
 	switch (channelId) {
 		case CHANNEL_GUILD: {
 			Guild* guild = player.getGuild();
-			if (guild) {
+			if (guild != nullptr) {
 				auto ret = guildChannels.emplace(std::make_pair(guild->getId(), ChatChannel(channelId, guild->getName())));
 				return &ret.first->second;
 			}
@@ -361,7 +361,7 @@ ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PARTY: {
 			Party* party = player.getParty();
-			if (party) {
+			if (party != nullptr) {
 				auto ret = partyChannels.emplace(std::make_pair(party, ChatChannel(channelId, "Party")));
 				return &ret.first->second;
 			}
@@ -370,7 +370,7 @@ ChatChannel* Chat::createChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PRIVATE: {
 			//only 1 private channel for each premium player
-			if (!player.isPremium() || getPrivateChannel(player)) {
+			if (!player.isPremium() || (getPrivateChannel(player) != nullptr)) {
 				return nullptr;
 			}
 
@@ -397,7 +397,7 @@ bool Chat::deleteChannel(const Player& player, uint16_t channelId)
 	switch (channelId) {
 		case CHANNEL_GUILD: {
 			Guild* guild = player.getGuild();
-			if (!guild) {
+			if (guild == nullptr) {
 				return false;
 			}
 
@@ -412,7 +412,7 @@ bool Chat::deleteChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PARTY: {
 			Party* party = player.getParty();
-			if (!party) {
+			if (party == nullptr) {
 				return false;
 			}
 
@@ -443,7 +443,7 @@ bool Chat::deleteChannel(const Player& player, uint16_t channelId)
 ChatChannel* Chat::addUserToChannel(Player& player, uint16_t channelId)
 {
 	ChatChannel* channel = getChannel(player, channelId);
-	if (channel && channel->addUser(player)) {
+	if ((channel != nullptr) && channel->addUser(player)) {
 		return channel;
 	}
 	return nullptr;
@@ -452,7 +452,7 @@ ChatChannel* Chat::addUserToChannel(Player& player, uint16_t channelId)
 bool Chat::removeUserFromChannel(const Player& player, uint16_t channelId)
 {
 	ChatChannel* channel = getChannel(player, channelId);
-	if (!channel || !channel->removeUser(player)) {
+	if ((channel == nullptr) || !channel->removeUser(player)) {
 		return false;
 	}
 
@@ -493,7 +493,7 @@ void Chat::removeUserFromAllChannels(const Player& player)
 bool Chat::talkToChannel(const Player& player, SpeakClasses type, const std::string& text, uint16_t channelId)
 {
 	ChatChannel* channel = getChannel(player, channelId);
-	if (!channel) {
+	if (channel == nullptr) {
 		return false;
 	}
 
@@ -574,7 +574,7 @@ ChatChannel* Chat::getChannel(const Player& player, uint16_t channelId)
 	switch (channelId) {
 		case CHANNEL_GUILD: {
 			Guild* guild = player.getGuild();
-			if (guild) {
+			if (guild != nullptr) {
 				auto it = guildChannels.find(guild->getId());
 				if (it != guildChannels.end()) {
 					return &it->second;
@@ -585,7 +585,7 @@ ChatChannel* Chat::getChannel(const Player& player, uint16_t channelId)
 
 		case CHANNEL_PARTY: {
 			Party* party = player.getParty();
-			if (party) {
+			if (party != nullptr) {
 				auto it = partyChannels.find(party);
 				if (it != partyChannels.end()) {
 					return &it->second;
@@ -602,11 +602,11 @@ ChatChannel* Chat::getChannel(const Player& player, uint16_t channelId)
 					return nullptr;
 				}
 				return &channel;
-			} else {
-				auto it2 = privateChannels.find(channelId);
-				if (it2 != privateChannels.end() && it2->second.isInvited(player.getGUID())) {
-					return &it2->second;
-				}
+			}
+
+			auto it2 = privateChannels.find(channelId);
+			if (it2 != privateChannels.end() && it2->second.isInvited(player.getGUID())) {
+				return &it2->second;
 			}
 			break;
 		}

@@ -32,7 +32,6 @@ install:
   - cmd : vcpkg install libmariadb:x64-windows
   - cmd : vcpkg install pugixml:x64-windows
   - cmd : vcpkg install mpir:x64-windows
-  - cmd : vcpkg install spdlog:x64-windows
 
 build:
   parallel: true
@@ -41,12 +40,12 @@ build:
 
 # scripts to run after build (working directory and environment changes are persisted from the previous steps)
 after_build:
-  - 7z a -tzip otbr.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
+  - 7z a -tzip otservbr-global.zip -r .\vc14\*.exe -ir!.\vc14\*.dll
 
 cache:
   - c:\tools\vcpkg\installed\
 
 artifacts:
-  - path: vc14\**\theforgottenserver*.exe
+  - path: vc14\**\otservbr-global*.exe
   - path: vc14\**\*.dll
-  - path: otbr.zip
+  - path: otservbr-global.zip

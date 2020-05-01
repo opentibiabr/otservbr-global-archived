@@ -56,6 +56,12 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			addEvent(revertAshes, 5 * 60 * 1000) -- 5 minutes
 			createTeleport:setDestination(Position(32857, 32234, 11))
 			return true
+	elseif target.uid == 2273 then
+		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission2) == 1 then
+			player:setStorageValue(Storage.TheShatteredIsles.RaysMission2, 2)
+			toPosition:sendMagicEffect(CONST_ME_FIREAREA)
+			return true
 		end
+	end
 	return false
 end
