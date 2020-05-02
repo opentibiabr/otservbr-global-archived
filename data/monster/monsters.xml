@@ -248,8 +248,8 @@
 	<monster name="Eliz The Unyielding STOP" file="cults_of_tibia/bosses/eliz_the_unyielding_stop.xml"/>
 	<monster name="Mezlon The Defiler STOP" file="cults_of_tibia/bosses/mezlon_the_defiler_stop.xml"/>
 
-	<monster name="The Sinister Hermit SUJO" file="cults_of_tibia/bosses/the_sinister_hermit_sujo.xml"/>
-	<monster name="The Sinister Hermit LIMPO" file="cults_of_tibia/bosses/the_sinister_hermit_limpo.xml"/>
+	<monster name="The Sinister Hermit Dirty" file="cults_of_tibia/bosses/the_sinister_hermit_dirty.xml"/>
+	<monster name="The Sinister Hermit Clean" file="cults_of_tibia/bosses/the_sinister_hermit_clean.xml"/>
 	<monster name="The Souldespoiler" file="cults_of_tibia/bosses/the_souldespoiler.xml"/>
 
 	<monster name="The Armored Voidborn" file="cults_of_tibia/bosses/the_armored_voidborn.xml"/>

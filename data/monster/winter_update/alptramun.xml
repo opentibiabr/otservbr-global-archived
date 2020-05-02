@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Alptramun" nameDescription="a Alptramun" race="blood" experience="55000" speed="250" script="rewardboss.lua">
+<monster name="Alptramun" nameDescription="Alptramun" race="blood" experience="55000" speed="250" script="rewardboss.lua">
 	<health now="22" max="22"/>
 	<look type="1143" corpse="34793"/>
 	<targetchange interval="4000" chance="10"/>
 	<flags>
-	    <!-- <flag preyable="0"/> -->
-        <flag rewardboss="1"/>
+		<flag rewardboss="1"/>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
 		<flag hostile="1"/>
@@ -43,7 +42,7 @@
 		<immunity paralyze="1"/>
 		<immunity death="1"/>
 	</immunities>
-	<loot>		
+	<loot>
 		<!--every-->
 		<item name="silver token" countmax="5" chance="100000000"/>
 		<item name="skull staff" countmax="5" chance="100000000"/>

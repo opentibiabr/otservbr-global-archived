@@ -11,11 +11,11 @@ dofile('data/modules/scripts/gamestore/init.lua')
 
 -- Premium
 
-GameStore.Categories = { 
+GameStore.Categories = {
 	{
 	icons = { "Category_PremiumTime.png" },
 	name = "Premium Time",
-	offers = { 
+	offers = {
 		{
 			icons = { "Premium_Time_30.png" },
 			name = "30 Days",
@@ -25,7 +25,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM,
 			validUntil = 30,
 			description = "Enhance your gaming experience by gaining additional abilities and advantages:\n\n\n- access to Premium areas\n- use Tibia's transport system (ships, carpet)\n- more spells\n- rent houses\n- found guilds\n- offline training\n- larger depots\n- and many more\n\n- valid for all characters on this account\n- activated at purchase",
-		}, 
+		},
 		{
 			icons = { "Premium_Time_90.png" },
 			name = "90 Days",
@@ -35,7 +35,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM,
 			validUntil = 30,
 			description = "Enhance your gaming experience by gaining additional abilities and advantages:\n\n\n- access to Premium areas\n- use Tibia's transport system (ships, carpet)\n- more spells\n- rent houses\n- found guilds\n- offline training\n- larger depots\n- and many more\n\n- valid for all characters on this account\n- activated at purchase",
-		}, 
+		},
 		{
 			icons = { "Premium_Time_180.png" },
 			name = "180 Days",
@@ -45,7 +45,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM,
 			validUntil = 30,
 			description = "Enhance your gaming experience by gaining additional abilities and advantages:\n\n\n- access to Premium areas\n- use Tibia's transport system (ships, carpet)\n- more spells\n- rent houses\n- found guilds\n- offline training\n- larger depots\n- and many more\n\n- valid for all characters on this account\n- activated at purchase",
-		}, 
+		},
 		{
 			icons = { "Premium_Time_360.png" },
 			name = "360 Days",
@@ -55,16 +55,16 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_PREMIUM,
 			validUntil = 30,
 			description = "Enhance your gaming experience by gaining additional abilities and advantages:\n\n\n- access to Premium areas\n- use Tibia's transport system (ships, carpet)\n- more spells\n- rent houses\n- found guilds\n- offline training\n- larger depots\n- and many more\n\n- valid for all characters on this account\n- activated at purchase",
-		} 
+		}
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_SALVE,
-		}, 
+		},
 -- Blessings
 	{
 	icons = { "Category_Blessings.png" },
 	name = "Blessings",
-	offers = { 
+	offers = {
 		{
 			icons = { "All_PvE_Blessings.png" },
 			name = "All Regular Blessings",
@@ -80,7 +80,7 @@ GameStore.Categories = {
 			price = 8,
 			id = 1,
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
-		}, 
+		},
 		{
 			icons = { "Wisdom_of_Solitude.png" },
 			name = "The Wisdom of Solitude",
@@ -104,7 +104,7 @@ GameStore.Categories = {
 			price = 15,
 			id = 4,
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
-		}, 
+		},
 		{
 			icons = { "Spiritual_Shielding.png" },
 			name = "The Spiritual Shielding",
@@ -112,7 +112,7 @@ GameStore.Categories = {
 			price = 15,
 			id = 5,
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
-		}, 
+		},
 		{
 			icons = { "Embrace_of_Tibia.png" },
 			name = "The Embrace of Tibia",
@@ -120,7 +120,7 @@ GameStore.Categories = {
 			price = 15,
 			id = 6,
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
-		}, 
+		},
 		{
 			icons = { "Heart_of_the_Mountain.png" },
 			name = "Heart of the Mountain",
@@ -128,7 +128,7 @@ GameStore.Categories = {
 			price = 25,
 			id = 7,
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
-		}, 
+		},
 		{
 			icons = { "Blood_of_the_Mountain.png" },
 			name = "Blood of the Mountain",
@@ -136,7 +136,7 @@ GameStore.Categories = {
 			price = 25,
 			id = 8,
 			type = GameStore.OfferTypes.OFFER_TYPE_BLESSINGS,
-		},	
+		},
 		{
 			icons = { "Death_Redemption.png" },
 			name = "Death Redemption",
@@ -148,12 +148,12 @@ GameStore.Categories = {
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
--- Casks							
+		},
+-- Casks
 	{
 	icons = { "Category_Casks.png" },
 	name = "Casks",
-	offers = { 
+	offers = {
 		{
 			icons = { "Mana_Cask.png" },
 			name = "Mana Cask",
@@ -163,7 +163,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Strong_Mana_Cask.png" },
 			name = "Strong Mana Cask",
@@ -173,7 +173,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Great_Mana_Cask.png" },
 			name = "Great Mana Cask",
@@ -183,7 +183,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Mana_Cask.png" },
 			name = "Ultimate Mana Cask",
@@ -193,7 +193,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to refill your mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Health_Cask.png" },
 			name = "Health Cask",
@@ -203,7 +203,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Strong_Health_Cask.png" },
 			name = "Strong Health Cask",
@@ -213,7 +213,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Great_Health_Cask.png" },
 			name = "Great Health Cask",
@@ -223,7 +223,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Health_Cask.png" },
 			name = "Ultimate Health Cask",
@@ -233,7 +233,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Supreme_Health_Cask.png" },
 			name = "Supreme Health Cask",
@@ -243,7 +243,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Great_Spirit_Cask.png" },
 			name = "Great Spirit Cask",
@@ -253,7 +253,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Place it in your house and fill up potions to restore your hit points and mana!\n\n\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used to fill up potions by all characters that have access to the house\n- potions created from this cask will be sent to your Store inbox and can only be stored there and in depot box\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n- usable 1000 times a piece\n- can only be purchased with transferable Tibia Coins",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Spirit_Cask.png" },
 			name = "Ultimate Spirit Cask",
@@ -273,7 +273,7 @@ GameStore.Categories = {
 	description = "Buy your character a boost to speed up your character development.",
 	icons = { "Category_ExerciseWeapons.png" },
 	name = "Exercise Weapons",
-	offers = { 
+	offers = {
 		{
 			icons = { "Exercise_Sword.png" },
 			name = "Exercise Sword",
@@ -283,9 +283,9 @@ GameStore.Categories = {
 			number = 1,
 			description = "Use it to train your sword fighting skill on an exercise dummy!\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it on an exercise dummy to train your sword fighting skill\n- usable 500 times a piece",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
-			icons = { "Exercise_Axe.png" },			
+			icons = { "Exercise_Axe.png" },
 			name = "Exercise Axe",
 			price = 25,
 			id = 32385,
@@ -293,7 +293,7 @@ GameStore.Categories = {
 			number = 1,
 			description = "Use it to train your axe fighting skill on an exercise dummy!\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it on an exercise dummy to train your axe fighting skill\n- usable 500 times a piece",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Exercise_Club.png" },
 			name = "Exercise Club",
@@ -337,12 +337,12 @@ GameStore.Categories = {
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
+		},
 -- Kegs
 	{
 	icons = { "Category_Kegs.png" },
 	name = "Kegs",
-	offers = { 
+	offers = {
 		{
 			icons = { "Mana_Keg.png" },
 			name = "Mana Keg",
@@ -352,7 +352,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Strong_Mana_Keg.png" },
 			name = "Strong Mana Keg",
@@ -362,7 +362,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Mana_Keg.png" },
 			name = "Great Mana Keg",
@@ -372,7 +372,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Mana_Keg.png" },
 			name = "Ultimate Mana Keg",
@@ -382,7 +382,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to refill your mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Health_Keg.png" },
 			name = "Health Keg",
@@ -392,7 +392,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Strong_Health_Keg.png" },
 			name = "Strong Health Keg",
@@ -402,7 +402,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Health_Keg.png" },
 			name = "Great Health Keg",
@@ -412,7 +412,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Health_Keg.png" },
 			name = "Ultimate Health Keg",
@@ -422,7 +422,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Supreme_Health_Keg.png" },
 			name = "Supreme Health Keg",
@@ -432,7 +432,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to restore your hit points no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Spirit_Keg.png" },
 			name = "Great Spirit Keg",
@@ -442,7 +442,7 @@ GameStore.Categories = {
 			number = 500,
 			description = "Fill up potions to restore your hit points and mana no matter where you are!\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n- usable 500 times a piece\n- saves capacity because it's constant weight equals only 250 potions",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Spirit_Keg.png" },
 			name = "Ultimate Spirit Keg",
@@ -456,12 +456,12 @@ GameStore.Categories = {
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
+		},
 -- Potions
 	{
 	icons = { "Category_Potions.png" },
 	name = "Potions",
-	offers = { 
+	offers = {
 		{
 			icons = { "Health_Potion.png" },
 			name = "Health Potion",
@@ -471,7 +471,7 @@ GameStore.Categories = {
 			number = 125,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Health_Potion.png" },
 			name = "Health Potion",
@@ -481,7 +481,7 @@ GameStore.Categories = {
 			number = 300,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Strong_Health_Potion.png" },
 			name = "Strong Health Potion",
@@ -491,7 +491,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Strong_Health_Potion.png" },
 			name = "Strong Health Potion",
@@ -501,7 +501,7 @@ GameStore.Categories = {
 			number = 250,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Health_Potion.png" },
 			name = "Great Health Potion",
@@ -511,7 +511,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Health_Potion.png" },
 			name = "Great Health Potion",
@@ -521,7 +521,7 @@ GameStore.Categories = {
 			number = 250,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Health_Potion.png" },
 			name = "Ultimate Health Potion",
@@ -531,7 +531,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Health_Potion.png" },
 			name = "Ultimate Health Potion",
@@ -551,7 +551,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Supreme_Health_Potion.png" },
 			name = "Supreme Health Potion",
@@ -561,7 +561,7 @@ GameStore.Categories = {
 			number = 250,
 			description = "Restores your character's hit points.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Mana_Potion.png" },
 			name = "Mana Potion",
@@ -571,7 +571,7 @@ GameStore.Categories = {
 			number = 125,
 			description = "Refills your character's mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Mana_Potion.png" },
 			name = "Mana Potion",
@@ -591,7 +591,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Refills your character's mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Strong_Mana_Potion.png" },
 			name = "Strong Mana Potion",
@@ -601,7 +601,7 @@ GameStore.Categories = {
 			number = 250,
 			description = "Refills your character's mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Mana_Potion.png" },
 			name = "Great Mana Potion",
@@ -611,7 +611,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Refills your character's mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Mana_Potion.png" },
 			name = "Great Mana Potion",
@@ -621,7 +621,7 @@ GameStore.Categories = {
 			number = 250,
 			description = "Refills your character's mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Mana_Potion.png" },
 			name = "Ultimate Mana Potion",
@@ -631,7 +631,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Refills your character's mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Mana_Potion.png" },
 			name = "Ultimate Mana Potion",
@@ -651,7 +651,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Restores your character's hit points and mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Great_Spirit_Potion.png" },
 			name = "Great Spirit Potion",
@@ -661,7 +661,7 @@ GameStore.Categories = {
 			number = 250,
 			description = "Restores your character's hit points and mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Spirit_Potion.png" },
 			name = "Ultimate Spirit Potion",
@@ -671,7 +671,7 @@ GameStore.Categories = {
 			number = 100,
 			description = "Restores your character's hit points and mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Ultimate_Spirit_Potion.png" },
 			name = "Ultimate Spirit Potion",
@@ -681,17 +681,17 @@ GameStore.Categories = {
 			number = 250,
 			description = "Restores your character's hit points and mana.\n\n\n- only usable by purchasing character\n- only buyable if fitting vocation and level of purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}  
+		}
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
--- Runes		
+		},
+-- Runes
 	{
 	description = "Buy magically filled runes to unleash their energy when in need of it.",
 	icons = { "Category_Runes.png" },
 	name = "Runes",
-	offers = { 
+	offers = {
 		{
 			icons = { "Animate_Dead_Rune.png" },
 			name = "Animate Dead Rune",
@@ -701,7 +701,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Avalanche_Rune.png" },
 			name = "Avalanche Rune",
@@ -721,7 +721,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nUsing this rune together with some mana, you can convince certain creatures. The needed amount of mana is determined by the power of the creature one wishes to convince, so the amount of mana to convince a rat is lower than that which is needed for an orc.",
 			icons = { "Convince_Creature_Rune.png" },
@@ -731,7 +731,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nIn the old days, many adventurers fell prey to poisonous creatures that were roaming the caves and forests. After many years of research druids finally succeeded in altering the cure poison spell so it could be bound to a rune. By using this rune it is possible to stop the effect of any known poison.",
 			icons = { "Cure_Poison_Rune_(Item).png" },
@@ -741,7 +741,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nNothing is worse than being cornered when fleeing from an enemy you just cannot beat, especially if the obstacles in your way are items you could easily remove if only you had the time! However, there is one reliable remedy: The Disintegrate rune will instantly destroy up to 500 movable items that are in your way, making room for a quick escape.",
 			icons = { "Disintegrate_Rune.png" },
@@ -761,7 +761,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nThis spell creates a limited barrier made up of crackling energy that will cause electrical damage to all those passing through. Since there are few creatures that are immune to the harmful effects of energy this spell is not to be underestimated.",
 			icons = { "Energy_Field_Rune.png" },
@@ -801,7 +801,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nThis rune is a deadly weapon in the hands of the skilled user. On releasing it an area of 9 square metres is covered by searing flames that will scorch all those that are unfortunate enough to be caught in them. Worse, many monsters are confused by the unexpected blaze, and with a bit of luck a caster will even manage to trap his opponents by using the spell.",
 			icons = { "Fire_Bomb_Rune.png" },
@@ -811,7 +811,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nWhen this rune is used a field of one square metre is covered by searing fire that will last for some minutes, gradually diminishing as the blaze wears down. As with all field spells, Fire Field is quite useful to block narrow passageways or to create large, connected barriers.",
 			icons = { "Fire_Field_Rune.png" },
@@ -821,7 +821,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nThis rune offers reliable protection against all creatures that are afraid of fire. The exceptionally long duration of the spell as well as the possibility to form massive barriers or even protective circles out of fire walls make this a versatile, practical spell.",
 			icons = { "Fire_Wall_Rune.png" },
@@ -831,7 +831,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nA shot of this rune affects a huge area - up to 37 square metres! It stands to reason that the Great Fireball is a favourite of most Tibians, as it is well suited both to hit whole crowds of monsters and individual targets that are difficult to hit because they are fast or hard to spot.",
 			icons = { "Great_Fireball_Rune.png" },
@@ -841,7 +841,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nParticularly creatures determined by the element fire are vulnerable against this ice-cold rune. Being hit by the magic stored in this rune, an ice arrow seems to pierce the heart of the struck victim. The damage done by this rune is quite impressive which makes this a quite popular rune among Tibian mages.",
 			icons = { "Icicle_Rune.png" },
@@ -851,7 +851,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nThis rune is commonly used by young adventurers who are not skilled enough to use the rune's stronger version. Also, since the rune's effectiveness is determined by the user's magic skill, it is still popular among experienced spell casters who use it to get effective healing magic at a cheap price.",
 			icons = { "Intense_Healing_Rune_(Item).png" },
@@ -861,7 +861,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nThis spell causes all particles that are contained in the surrounding air to quickly gather and contract until a solid wall is formed that covers one full square metre. The wall that is formed that way is impenetrable to any missiles or to light and no creature or character can walk through it. However, the wall will only last for a couple of seconds.",
 			icons = { "Magic_Wall_Rune.png" },
@@ -871,7 +871,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nThis rune causes an area of 9 square metres to be contaminated with toxic gas that will poison anybody who is caught within it. Conceivable applications include the blocking of areas or the combat against fast-moving or invisible targets. Keep in mind, however, that there are a number of creatures that are immune to poison.",
 			icons = { "Poison_Bomb_Rune.png" },
@@ -881,7 +881,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nWhen this rune is used a wall of concentrated toxic fumes is created which inflicts a moderate poison on all those who are foolish enough to enter it. The effect is usually impressive enough to discourage monsters from doing so, although few of the stronger ones will hesitate if there is nothing but a poison wall between them and their dinner.",
 			icons = { "Poison_Wall_Rune.png" },
@@ -891,7 +891,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- only buyable if fitting vocation and level of purchasing character\n- cannot be purchased by characters with protection zone block or battle sign\n- cannot be purchased if capacity is exceeded\n\nSoulfire is an immensely evil spell as it directly targets a creature's very life essence. When the rune is used on a victim, its soul is temporarily moved out of its body, casting it down into the blazing fires of hell itself! Note that the experience and the mental strength of the caster influence the damage that is caused.",
 			icons = { "Soulfire_Rune.png" },
@@ -901,7 +901,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Stone_Shower_Rune.png" },
 			name = "Stone Shower Rune",
@@ -911,7 +911,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Sudden_Death_Rune.png" },
 			name = "Sudden Death Rune",
@@ -921,7 +921,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Thunderstorm_Rune.png" },
 			name = "Thunderstorm Rune",
@@ -941,7 +941,7 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		}, 
+		},
 		{
 			icons = { "Wild_Growth_Rune.png" },
 			name = "Wild Growth Rune",
@@ -951,13 +951,13 @@ GameStore.Categories = {
 			count = 250,
 			number = 250,
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		} 
+		}
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
+		},
 -- Mounts
-	{	
+	{
 	description = "Buy your character one or more of the fabolous Mountsoffered here.",
 	icons = { "Category_Mounts.png" },
 	name = "Mounts",
@@ -969,7 +969,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 114,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Armoured War Horse is a dangerous black beauty! When you see its threatening, blood-red eyes coming towards you, you'll know trouble is on its way. Protected by its heavy armour plates, the warhorse is the perfect partner for dangerous hunting sessions and excessive enemy slaughtering.",
 			icons = { "Armoured_War_Horse.png" },
@@ -977,7 +977,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 23,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nRumour has it that many years ago elder witches had gathered to hold a magical feast high up in the mountains. They had crossbred Batcat to easily conquer rocky canyons and deep valleys. Nobody knows what happened on their way up but only the mount has been seen ever since.",
 			icons = { "Batcat.png" },
@@ -985,7 +985,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 77,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nBadgers have been a staple of the Tibian fauna for a long time, and finally some daring souls have braved the challenge to tame some exceptional specimens - and succeeded! While the common badger you can encounter during your travels might seem like a rather unassuming creature, the Battle Badger, the Ether Badger, and the Zaoan Badger are fierce and mighty beasts, which are at your beck and call.",
 			icons = { "Battle_Badger.png" },
@@ -993,7 +993,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 147,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nTreat your character to a new travelling companion with a gentle nature and an impressive antler: The noble Black Stag will carry you through the deepest snow.",
 			icons = { "Black_Stag.png" },
@@ -1001,7 +1001,7 @@ GameStore.Categories = {
 			price = 660,
 			id = 73,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Blackpelt is out searching for the best bamboo in Tibia. Its heavy armour allows it to visit even the most dangerous places. Treat it nicely with its favourite food from time to time and it will become a loyal partner.",
 			icons = { "Blackpelt.png" },
@@ -1017,7 +1017,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 113,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYou are fascinated by insectoid creatures and can picture yourself riding one during combat or just for travelling? The Bloodcurl will carry you through the Tibian wilderness with ease.",
 			icons = { "Bloodcurl.png" },
@@ -1025,7 +1025,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 92,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nOwls have always been a symbol of mystery, magic and wisdom in Tibian myths and fairy tales. Having one of these enigmatic creatures of the night as a trustworthy companion provides you with a silent guide whose ever-watchful eyes will cut through the shadows, help you navigate the darkness and unravel great secrets.",
 			icons = { "Boreal_Owl.png" },
@@ -1033,7 +1033,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 129,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYour lower back worsens with every trip you spend on the back of your mount and you are looking for a more comfortable alternative to travel through the lands? Say no more! The Bunny Dray comes with two top-performing hares that never get tired thanks to the brand new and highly innovative propulsion technology. Just keep some back-up carrots in your pocket and you will be fine!",
 			icons = { "Bunny_Dray.png" },
@@ -1057,7 +1057,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 117,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIf you are more of an imp than an angel, you may prefer riding out on a Cinderhoof to scare fellow Tibians on their festive strolls. Its devilish mask, claw-like hands and sharp hooves makes it the perfect companion for any daring adventurer who likes to stand out.",
 			icons = { "Cinderhoof.png" },
@@ -1089,7 +1089,7 @@ GameStore.Categories = {
 			price = 570,
 			id = 79,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIt is said that the Cranium Spider was born long before Banor walked the earth of Tibia. While its parents died in the war against the cruel hordes sent by Brog and Zathroth, their child survived by hiding in skulls of burned enemies. It never left its hiding spot and as it grew older, the skulls merged into its body. Now, it is fully-grown and thirsts for revenge.",
 			icons = { "Cranium_Spider.png" },
@@ -1105,7 +1105,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 33,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "The Death Crawler is a scorpion that has surpassed the natural boundaries of its own kind. Way bigger, stronger and faster than ordinary scorpions, it makes a perfect companion for fearless heroes and explorers. Just be careful of his poisonous sting when you mount it.",
 			icons = { "Death_Crawler.png" },
@@ -1121,7 +1121,7 @@ GameStore.Categories = {
 			price = 450,
 			id = 41,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nOnce captured and held captive by a mad hunter, the Doombringer is the result of sick experiments. Fed only with demon dust and concentrated demonic blood it had to endure a dreadful transformation. The demonic blood that is now running through its veins, however, provides it with incredible strength and endurance.",
 			icons = { "Doombringer.png" },
@@ -1129,7 +1129,7 @@ GameStore.Categories = {
 			price = 780,
 			id = 53,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nDo you like fluffy bunnies but think they are too small? Do you admire the majesty of stags and their antlers but are afraid of their untameable wilderness? Do not worry, the mystic creature Dreadhare consolidates the best qualities of both animals. Hop on its backs and enjoy the ride.",
 			icons = { "Dreadhare.png" },
@@ -1137,7 +1137,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 104,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIt is said that in ancient times, the sabre-tooth tiger was already used as a mount by elder warriors of Svargrond. As seafaring began to expand, this noble big cat was also transported to other regions in Tibia. Influenced by the new environment and climatic changes, the fur of the Ebony Tiger has developed its extraordinary colouring over several generations.",
 			icons = { "Ebony_Tiger.png" },
@@ -1145,7 +1145,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 123,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThousands of years ago, its ancestors ruled the world. Only recently, it found its way into Tibia. The Ember Saurian has been spotted in a sea of flames and fire deep down in the depths of Kazordoon.",
 			icons = { "Ember_Saurian.png" },
@@ -1153,7 +1153,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 111,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nRide an Emerald Sphinx on your way through ancient chambers and tombs and have a loyal friend by your side while fighting countless mummies and other creatures.",
 			icons = { "Emerald_Sphinx.png" },
@@ -1161,7 +1161,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 108,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nWaccoons are cuddly creatures that love nothing more than to be petted and snuggled! Share a hug, ruffle the fur of the Emerald Waccoon and scratch it behind its ears to make it happy.",
 			icons = { "Emerald_Waccoon.png" },
@@ -1193,7 +1193,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 124,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nWhen the nights are getting longer and freezing wind brings driving snow into the land, snowmen rise and shine on every corner. Lately, a peaceful, arcane creature has found shelter in one of them and used its magical power to call the Festive Snowman into being. Wrap yourself up well and warmly and jump on the back of your new frosty companion.",
 			icons = { "Festive_Snowman.png" },
@@ -1201,7 +1201,7 @@ GameStore.Categories = {
 			price = 900,
 			id = 135,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIt is said that the Gloom Widow was born long before Banor walked the earth of Tibia. While its parents died in the war against the cruel hordes sent by Brog and Zathroth, their child survived by hiding in skulls of burned enemies. It never left its hiding spot and as it grew older, the skulls merged into its body. Now, it is fully-grown and thirsts for revenge.",
 			icons = { "Gloom_Widow.png" },
@@ -1209,7 +1209,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 118,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nLegend has it that a mare and a stallion once reached the end of a rainbow and decided to stay there. Influenced by the mystical power of the rainbow, the mare gave birth to an exceptional foal: Not only the big, strong horn on its forehead but the unusual colouring of its hair makes the Prismatic Unicorn a unique mount in every respect.",
 			icons = { "Prismatic_Unicorn.png" },
@@ -1217,7 +1217,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 115,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYour lower back worsens with every trip you spend on the back of your mount and you are looking for a more comfortable alternative to travel through the lands? Say no more! The Rabbit Rickshaw comes with two top-performing hares that never get tired thanks to the brand new and highly innovative propulsion technology. Just keep some back-up carrots in your pocket and you will be fine!",
 			icons = { "Rabbit_Rickshaw.png" },
@@ -1225,7 +1225,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 138,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nA wild, ancient creature, which had been hiding in the depths of the shadows for a very long time, has been spotted in Tibia again! The almighty Shadow Draptor has returned and only the bravest Tibians can control such a beast!",
 			icons = { "Shadow_Draptor.png" },
@@ -1249,7 +1249,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 110,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIt is said that in ancient times, the sabre-tooth tiger was already used as a mount by elder warriors of Svargrond. As seafaring began to expand, this noble big cat was also transported to other regions in Tibia. Influenced by the new environment and climatic changes, the fur of the Jungle Tiger has developed its extraordinary colouring over several generations.",
 			icons = { "Jungle_Tiger.png" },
@@ -1257,7 +1257,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 125,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThousands of years ago, its ancestors ruled the world. Only recently, it found its way into Tibia. The Lagoon Saurian feels most comfortable in torrential rivers and behind dangerous waterfalls.",
 			icons = { "Lagoon_Saurian.png" },
@@ -1273,7 +1273,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 107,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nRide a Shadow Sphinx on your way through ancient chambers and tombs and have a loyal friend by your side while fighting countless mummies and other creatures.",
 			icons = { "Shadow_Sphinx.png" },
@@ -1281,7 +1281,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 109,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nDo you like fluffy bunnies but think they are too small? Do you admire the majesty of stags and their antlers but are afraid of their untameable wilderness? Do not worry, the mystic creature Jackalope consolidates the best qualities of both animals. Hop on its backs and enjoy the ride.",
 			icons = { "Jackalope.png" },
@@ -1297,7 +1297,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 100,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIncredible strength and smartness, an irrepressible will to survive, passionately hunting in groups. If these attributes apply to your character, we have found the perfect partner for you. Have a proper look at Shadow Claw, which stands loyally by its master's side in every situation. It is time to become the leader of the wolf pack!",
 			icons = { "Shadow_Claw.png" },
@@ -1305,7 +1305,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 101,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIncredible strength and smartness, an irrepressible will to survive, passionately hunting in groups. If these attributes apply to your character, we have found the perfect partner for you. Have a proper look at Snow Pelt, which stands loyally by its master's side in every situation. It is time to become the leader of the wolf pack!",
 			icons = { "Snow_Pelt.png" },
@@ -1337,7 +1337,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 142,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYou are intrigued by tortoises and would love to throne on a tortoise shell when travelling the Tibian wilderness? The Swamp Snapper might become your new trustworthy companion then, which will transport you safely and even carry you during combat.",
 			icons = { "Swamp_Snapper.png" },
@@ -1345,7 +1345,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 95,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYou are intrigued by tortoises and would love to throne on a tortoise shell when travelling the Tibian wilderness? The Mould Shell might become your new trustworthy companion then, which will transport you safely and even carry you during combat.",
 			icons = { "Mould_Shell.png" },
@@ -1361,7 +1361,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 97,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYou are fascinated by insectoid creatures and can picture yourself riding one during combat or just for travelling? The Leafscuttler will carry you through the Tibian wilderness with ease.",
 			icons = { "Leafscuttler.png" },
@@ -1369,7 +1369,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 93,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nYou are fascinated by insectoid creatures and can picture yourself riding one during combat or just for travelling? The Mouldpincer will carry you through the Tibian wilderness with ease.",
 			icons = { "Mouldpincer.png" },
@@ -1377,7 +1377,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 91,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nWhen the nights are getting longer and freezing wind brings driving snow into the land, snowmen rise and shine on every corner. Lately, a peaceful, arcane creature has found shelter in one of them and used its magical power to call the Muffled Snowman into being. Wrap yourself up well and warmly and jump on the back of your new frosty companion.",
 			icons = { "Muffled_Snowman.png" },
@@ -1385,7 +1385,7 @@ GameStore.Categories = {
 			price = 900,
 			id = 136,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIf you are more of an imp than an angel, you may prefer riding out on a Nightdweller to scare fellow Tibians on their festive strolls. Its devilish mask, claw-like hands and sharp hooves makes it the perfect companion for any daring adventurer who likes to stand out.",
 			icons = { "Nightdweller.png" },
@@ -1409,7 +1409,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 89,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		},  
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Slagsnare has external characteristics of different breeds. It is assumed that his brain is also composed of many different species, which makes it completely unpredictable. Only few have managed to approach this creature unharmed and only the best could tame it.",
 			icons = { "Slagsnare.png" },
@@ -1417,7 +1417,7 @@ GameStore.Categories = {
 			price = 780,
 			id = 84,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Nightstinger has external characteristics of different breeds. It is assumed that his brain is also composed of many different species, which makes it completely unpredictable. Only few have managed to approach this creature unharmed and only the best could tame it.",
 			icons = { "Nightstinger.png" },
@@ -1425,7 +1425,7 @@ GameStore.Categories = {
 			price = 780,
 			id = 85,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Razorcreep has external characteristics of different breeds. It is assumed that his brain is also composed of many different species, which makes it completely unpredictable. Only few have managed to approach this creature unharmed and only the best could tame it.",
 			icons = { "Razorcreep.png" },
@@ -1433,7 +1433,7 @@ GameStore.Categories = {
 			price = 780,
 			id = 86,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nGet yourself a mighty travelling companion with broad shoulders and a gentle heart. Gorongra is a physically imposing creature that is much more peaceful than its relatives, Tiquanda's wild kongras, and will carry you safely wherever you ask it to go.",
 			icons = { "Gorongra.png" },
@@ -1449,7 +1449,7 @@ GameStore.Categories = {
 			price = 720,
 			id = 82,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nGet yourself a mighty travelling companion with broad shoulders and a gentle heart. Silverneck is a physically imposing creature that is much more peaceful than its relatives, Tiquanda's wild kongras, and will carry you safely wherever you ask it to go.",
 			icons = { "Silverneck.png" },
@@ -1465,7 +1465,7 @@ GameStore.Categories = {
 			price = 570,
 			id = 78,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIf the Plumfish moves its fins, it generates enough air pressure that it can even float over land. Its numerous eyes allow it to quickly detect dangers even in confusing situations and eliminate them with one powerful bite. If you watch your fingers, you are going to be good friends.",
 			icons = { "Plumfish.png" },
@@ -1481,7 +1481,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 75,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nWaccoons are cuddly creatures that love nothing more than to be petted and snuggled! Share a hug, ruffle the fur of the Ringtail Waccoon and scratch it behind its ears to make it happy.",
 			icons = { "Ringtail_Waccoon.png" },
@@ -1513,7 +1513,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 69,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Flying Divan is the perfect mount for those who are too busy to take care of an animal mount or simply like to travel on a beautiful, magic hand-woven carpet.",
 			icons = { "Flying_Divan.png" },
@@ -1545,7 +1545,7 @@ GameStore.Categories = {
 			price = 900,
 			id = 67,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nTreat your character to a new travelling companion with a gentle nature and an impressive antler: The noble Shadow Hart will carry you through the deepest snow.",
 			icons = { "Shadow_Hart.png" },
@@ -1553,7 +1553,7 @@ GameStore.Categories = {
 			price = 660,
 			id = 72,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nWith its thick, shaggy hair, the Tundra Rambler will keep you warm even in the chilly climate of the Ice Islands. Due to its calm and peaceful nature, it is not letting itself getting worked up easily.",
 			icons = { "Tundra_Rambler.png" },
@@ -1577,7 +1577,7 @@ GameStore.Categories = {
 			price = 750,
 			id = 64,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIf you are more interested in the achievements of science, you may enjoy a ride on the Golden Dragonfly, one of the new insect-like flying machines. Even if you do not move around, the wings of these unusual vehicles are always in motion.",
 			icons = { "Golden_Dragonfly.png" },
@@ -1585,7 +1585,7 @@ GameStore.Categories = {
 			price = 600,
 			id = 59,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIf you are more interested in the achievements of science, you may enjoy a ride on the Steel Bee, one of the new insect-like flying machines. Even if you do not move around, the wings of these unusual vehicles are always in motion.",
 			icons = { "Steel_Bee.png" },
@@ -1593,7 +1593,7 @@ GameStore.Categories = {
 			price = 600,
 			id = 60,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		},  
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nOnce captured and held captive by a mad hunter, the Hailstorm Fury is the result of sick experiments. Fed only with demon dust and concentrated demonic blood it had to endure a dreadful transformation. The demonic blood that is now running through its veins, however, provides it with incredible strength and endurance.",
 			icons = { "Hailstorm_Fury.png" },
@@ -1601,7 +1601,7 @@ GameStore.Categories = {
 			price = 780,
 			id = 55,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Siegebreaker is out searching for the best bamboo in Tibia. Its heavy armour allows it to visit even the most dangerous places. Treat it nicely with its favourite food from time to time and it will become a loyal partner.",
 			icons = { "Siegebreaker.png" },
@@ -1617,7 +1617,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 57,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nOnce a majestic and proud warhorse, the Nethersteed has fallen in a horrible battle many years ago. Driven by agony and pain, its spirit once again took possession of its rotten corpse to avenge its death. Stronger than ever, it seeks a master to join the battlefield, aiming for nothing but death and destruction.",
 			icons = { "Nethersteed.png" },
@@ -1625,7 +1625,7 @@ GameStore.Categories = {
 			price = 900,
 			id = 50,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nOnce a majestic and proud warhorse, the Tempest has fallen in a horrible battle many years ago. Driven by agony and pain, its spirit once again took possession of its rotten corpse to avenge its death. Stronger than ever, it seeks a master to join the battlefield, aiming for nothing but death and destruction.",
 			icons = { "Tempest.png" },
@@ -1641,7 +1641,7 @@ GameStore.Categories = {
 			price = 900,
 			id = 47,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Tombstinger is a scorpion that has surpassed the natural boundaries of its own kind. Way bigger, stronger and faster than ordinary scorpions, it makes a perfect companion for fearless heroes and explorers. Just be careful of his poisonous sting when you mount it.",
 			icons = { "Tombstinger.png" },
@@ -1649,7 +1649,7 @@ GameStore.Categories = {
 			price = 600,
 			id = 36,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		},  
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nFor centuries, humans and monsters have dumped their garbage in the swamps around Venore. The combination of old, rusty weapons, stale mana and broken runes have turned some of the swamp dwellers into gigantic frogs. Benefit from those mutations and make the Toxic Toad a faithful mount for your adventures even beyond the bounds of the swamp.",
 			icons = { "Toxic_Toad.png" },
@@ -1657,7 +1657,7 @@ GameStore.Categories = {
 			price = 690,
 			id = 122,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		},  
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nThe Jade Pincer is a scorpion that has surpassed the natural boundaries of its own kind. Way bigger, stronger and faster than ordinary scorpions, it makes a perfect companion for fearless heroes and explorers. Just be careful of his poisonous sting when you mount it.",
 			icons = { "Jade_Pincer.png" },
@@ -1665,7 +1665,7 @@ GameStore.Categories = {
 			price = 600,
 			id = 49,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIts roaring is piercing marrow and bone and can be heard over ten miles away. The Jade Lion is the undisputed ruler of its territory and no one messes with this animal. Show no fear and prove yourself worthy of its trust and you will get yourself a valuable companion for your adventures.",
 			icons = { "Jade_Lion.png" },
@@ -1673,7 +1673,7 @@ GameStore.Categories = {
 			price = 450,
 			id = 48,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nRumour has it that many years ago elder witches had gathered to hold a magical feast high up in the mountains. They had crossbred Venompaw to easily conquer rocky canyons and deep valleys. Nobody knows what happened on their way up but only the mount has been seen ever since.",
 			icons = { "Venompaw.png" },
@@ -1681,7 +1681,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 76,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nIts roaring is piercing marrow and bone and can be heard over ten miles away. The Winter King is the undisputed ruler of its territory and no one messes with this animal. Show no fear and prove yourself worthy of its trust and you will get yourself a valuable companion for your adventures.",
 			icons = { "Winter_King.png" },
@@ -1697,7 +1697,7 @@ GameStore.Categories = {
 			price = 870,
 			id = 105,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 
+		},
 		{
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nOnce captured and held captive by a mad hunter, the Woodland Prince is the result of sick experiments. Fed only with demon dust and concentrated demonic blood it had to endure a dreadful transformation. The demonic blood that is now running through its veins, however, provides it with incredible strength and endurance.",
 			icons = { "Woodland_Prince.png" },
@@ -1737,17 +1737,17 @@ GameStore.Categories = {
 			price = 870,
 			id = 154,
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}  
+		}
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
+		},
 	{
 -- Base outfit has addon = 0 or no defined addon. By default addon is set to 0.
 	description = "Buy your character one more of the classy outfits offered here.",
 	icons = { "Category_Outfits.png" },
 	name = "Outfits",
-	offers = { 
+	offers = {
 		{
 			icons = { "Outfit_Arena_Champion_Male_Addon_3.png", "Outfit_Arena_Champion_Female_Addon_3.png" },
 			name = "Full Arena Champion Outfit",
@@ -1864,7 +1864,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nThe Herbalist outfit is the perfect outfit for all herbs collectors. Those of you who are aware that you do not necessarily have to reach into the mouth of a hydra to get a hydra tongue and those who know exactly where to get blood- and shadow-herbs will find a matching outfit for their daily hobby. Show the world your affinity for herbs and impress your friends with your knowledge of medicine and potions.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		}, 
+		},
 		{
 			icons = { "Outfit_Herder_Male_Addon_3.png", "Outfit_Herder_Female_Addon_3.png" },
 			name = "Full Herder Outfit",
@@ -1873,7 +1873,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nThe Herder is one with nature, being outside all day, watching carefully over his flock. If you like to spend time on picturesque meadows and are always looking for greener pastures, then this outfit is for you.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		}, 
+		},
 		{
 			icons = { "Outfit_Lupine_Warden_Male_Addon_3.png", "Outfit_Lupine_Warden_Female_Addon_3.png" },
 			name = "Full Lupine Warden Outfit",
@@ -1891,7 +1891,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nThe Mercenary carries a powerful, razor-sharp axe on his shoulders that effortlessly cuts through any armour and bone. You should better tell your friends to keep a safe distance, since heads will roll over the blood-soaked battleground after a powerful swing of yours.\nConsidering the sheer size of this axe, it might even be possible to chop onions without shedding a tear.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		}, 
+		},
 		{
 			icons = { "Outfit_Owl_Keeper_Male_Addon_3.png", "Outfit_Owl_Keeper_Female_Addon_3.png" },
 			name = "Full Owl Keeper Outfit",
@@ -1900,7 +1900,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nOwl Keepers are often referred to as spirits walking through the forest at night, mere shadows during the day. They are also said to be shamans, protecting the flora and fauna of the Tibian lands. You often see them wearing a stag's antlers on their head and in the company of an owl, for they are as wise and mysterious as these intriguing creatures.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		}, 
+		},
 		{
 			icons = { "Outfit_Pharaoh_Male_Addon_3.png", "Outfit_Pharaoh_Female_Addon_3.png" },
 			name = "Full Pharaoh Outfit",
@@ -1954,7 +1954,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nThe mutated pumpkin is too weak for your mighty weapons? Time to show that evil vegetable how to scare the living daylight out of people! Put on a scary looking pumpkin on your head and spread terror and fear amongst the Tibian population.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		}, 
+		},
 		{
 			icons = { "Outfit_Sea_Dog_Male_Addon_3.png", "Outfit_Sea_Dog_Female_Addon_3.png" },
 			name = "Full Sea Dog Outfit",
@@ -1999,7 +1999,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nYou are in love with the deep soul of Mother Earth and prefer to walk in the shadows of her wooden children? Choose the Spirit Caller outfit to live in harmony with nature.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		},		
+		},
 		{
 			icons = { "Outfit_Sun_Priest_Male_Addon_3.png", "Outfit_Sun_Priest_Female_Addon_3.png" },
 			name = "Full Sun Priest Outfit",
@@ -2008,7 +2008,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- only usable by purchasing character\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\nDo you worship warm temperatures and are opposed to the thought of long and dark winter nights? Do you refuse to spend countless evenings in front of your chimney while ice-cold wind whistles through the cracks and niches of your house? It is time to stop freezing and to become an honourable Sun Priest! With this stylish outfit, you can finally show the world your unconditional dedication and commitment to the sun!",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		},  
+		},
 		{
 			icons = { "Outfit_Trophy_Hunter_Male_Addon_3.png", "Outfit_Trophy_Hunter_Female_Addon_3.png" },
 			name = "Full Trophy Hunter Outfit",
@@ -2086,13 +2086,13 @@ GameStore.Categories = {
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
+		},
 -- House items
 	{
 	description = "Buy exceptional equipment to upgrade your Tibia House",
 	icons = { "Category_HouseTools.png" },
 	name = "Houses",
-	offers = { 
+	offers = {
 -- Decorations
 		{
 			count = 1,
@@ -2165,7 +2165,7 @@ GameStore.Categories = {
 			id = 26098,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Baby_Rotworm_(Store).png" },
@@ -2174,7 +2174,7 @@ GameStore.Categories = {
 			id = 32390,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Baby_Unicorn.png" },
@@ -2183,7 +2183,7 @@ GameStore.Categories = {
 			id = 36538,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Bamboo_Mat.png" },
@@ -2228,7 +2228,7 @@ GameStore.Categories = {
 			id = 27893,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Blooming_Cactus.png" },
@@ -2237,7 +2237,7 @@ GameStore.Categories = {
 			id = 27892,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Blue_Round_Cushion.png" },
@@ -2246,7 +2246,7 @@ GameStore.Categories = {
 			id = 36057,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Blue_Square_Cushion.png" },
@@ -2264,7 +2264,7 @@ GameStore.Categories = {
 			id = 26381,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Carnivorous_Plant.png" },
@@ -2273,7 +2273,7 @@ GameStore.Categories = {
 			id = 33417,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Cat_in_a_Basket.png" },
@@ -2291,7 +2291,7 @@ GameStore.Categories = {
 			id = 27889,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Chest_of_Abundance.png" },
@@ -2300,7 +2300,7 @@ GameStore.Categories = {
 			id = 33516,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Colourful_Carpet.png" },
@@ -2309,7 +2309,7 @@ GameStore.Categories = {
 			id = 27085,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Crested_Carpet.png" },
@@ -2327,7 +2327,7 @@ GameStore.Categories = {
 			id = 26363,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},  
+		},
 		{
 			count = 1,
 			icons = { "Crystal_Lamp_(Store).png" },
@@ -2336,7 +2336,7 @@ GameStore.Categories = {
 			id = 36031,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 	
+		},
 		{
 			count = 1,
 			icons = { "Curly_Hortensis_Lamp_(Lit).png" },
@@ -2345,7 +2345,7 @@ GameStore.Categories = {
 			id = 36530,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 											
+		},
 		{
 			count = 1,
 			icons = { "Dark_Parquet.png" },
@@ -2354,7 +2354,7 @@ GameStore.Categories = {
 			id = 26369,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Decorated_Carpet.png" },
@@ -2363,7 +2363,7 @@ GameStore.Categories = {
 			id = 29390,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Demon_(Pet).png" },
@@ -2381,7 +2381,7 @@ GameStore.Categories = {
 			id = 36047,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},											
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Diamond_Carpet.png" },
@@ -2390,7 +2390,7 @@ GameStore.Categories = {
 			id = 27088,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Dog_House.png" },
@@ -2399,7 +2399,7 @@ GameStore.Categories = {
 			id = 26353,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Dungeon_Scene_Painting.png" },
@@ -2408,7 +2408,7 @@ GameStore.Categories = {
 			id = 32045,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 											
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Emerald_Carpet.png" },
@@ -2417,7 +2417,7 @@ GameStore.Categories = {
 			id = 26367,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Fennec.png" },
@@ -2426,7 +2426,7 @@ GameStore.Categories = {
 			id = 32394,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- to trigger an animation feed it with meat, ham, dragon ham, haunch of a boar, roasted meat or bug meat\n- can be fed once every 65 seconds\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Ferumbras_Bust.png" },
@@ -2435,7 +2435,7 @@ GameStore.Categories = {
 			id = 32040,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner\n-house owner can use it to display a duplicate of an owned Ferumbras' Hat on this bust - also works if the character has already turned Ferumbras' hat in to earn the outfit addon",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},								
+		},
 		{
 			count = 1,
 			icons = { "Ferumbras_Portrait.png" },
@@ -2444,7 +2444,7 @@ GameStore.Categories = {
 			id = 32048,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},								
+		},
 		{
 			count = 1,
 			icons = { "Festive_Filled_Shoes.png" },
@@ -2453,7 +2453,7 @@ GameStore.Categories = {
 			id = 35021,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Fireplace.png" },
@@ -2462,7 +2462,7 @@ GameStore.Categories = {
 			id = 35027,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Pile_of_Presents.png" },
@@ -2471,7 +2471,7 @@ GameStore.Categories = {
 			id = 35039,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Pyramid.png" },
@@ -2480,7 +2480,7 @@ GameStore.Categories = {
 			id = 35042,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Rocking_Chair.png" },
@@ -2489,7 +2489,7 @@ GameStore.Categories = {
 			id = 35035,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Sack_of_Presents.png" },
@@ -2498,7 +2498,7 @@ GameStore.Categories = {
 			id = 35041,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Sleigh.png" },
@@ -2507,7 +2507,7 @@ GameStore.Categories = {
 			id = 35038,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Table.png" },
@@ -2516,7 +2516,7 @@ GameStore.Categories = {
 			id = 35023,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},							
+		},
 		{
 			count = 1,
 			icons = { "Festive_Tree.png" },
@@ -2525,7 +2525,7 @@ GameStore.Categories = {
 			id = 35031,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},			
+		},
 		{
 			count = 1,
 			icons = { "Fish_in_a_Tank.png" },
@@ -2534,7 +2534,7 @@ GameStore.Categories = {
 			id = 26347,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},	
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Flowery_Carpet.png" },
@@ -2570,7 +2570,7 @@ GameStore.Categories = {
 			id = 27087,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Gloomy_Poisonous_Fungi_(Lit).png" },
@@ -2579,7 +2579,7 @@ GameStore.Categories = {
 			id = 33497,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Glowing_Sulphur_Fungi_(Lit).png" },
@@ -2588,7 +2588,7 @@ GameStore.Categories = {
 			id = 33495,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Golden_Demon_Skull.png" },
@@ -2597,7 +2597,7 @@ GameStore.Categories = {
 			id = 36046,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			description = "Buy an incredible Golden Dragon Tapestry to decorate your home.",
@@ -2606,7 +2606,7 @@ GameStore.Categories = {
 			price = 70,
 			id = 26379,
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Golden_Minotaur_Skull.png" },
@@ -2642,7 +2642,7 @@ GameStore.Categories = {
 			id = 26100,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Baby_Hedgehog.png" },
@@ -2705,7 +2705,7 @@ GameStore.Categories = {
 			id = 26368,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Lit_Predator_Lamp.png" },
@@ -2714,7 +2714,7 @@ GameStore.Categories = {
 			id = 26092,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Lit_Protectress_Lamp.png" },
@@ -2723,7 +2723,7 @@ GameStore.Categories = {
 			id = 26096,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Lit_Skull_Lamp.png" },
@@ -2732,7 +2732,7 @@ GameStore.Categories = {
 			id = 27103,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Little_Big_Flower_Lamp_(Lit).png" },
@@ -2741,7 +2741,7 @@ GameStore.Categories = {
 			id = 36532,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Lordly_Tapestry.png" },
@@ -2750,7 +2750,7 @@ GameStore.Categories = {
 			id = 26104,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Luminescent_Fungi_(Lit).png" },
@@ -2768,7 +2768,7 @@ GameStore.Categories = {
 			id = 26376,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Menacing_Tapestry.png" },
@@ -2822,7 +2822,7 @@ GameStore.Categories = {
 			id = 29354,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Night_Sky_Carpet.png" },
@@ -2831,13 +2831,13 @@ GameStore.Categories = {
 			id = 27090,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},  
+		},
 		{
 			count = 1,
 			icons = { "Painting_of_Tibiasula.png" },
 			name = "Painting of Tibiasula",
 			price = 250,
-			id = 33518, 
+			id = 33518,
 			id = 33519,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
@@ -2850,7 +2850,7 @@ GameStore.Categories = {
 			id = 27100,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Patterned_Carpet.png" },
@@ -2940,7 +2940,7 @@ GameStore.Categories = {
 			id = 32398,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},	
+		},
 		{
 			count = 1,
 			icons = { "Red_Roses.png" },
@@ -2949,7 +2949,7 @@ GameStore.Categories = {
 			id = 27895,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Exalted_Sarcophagus.png" },
@@ -2967,7 +2967,7 @@ GameStore.Categories = {
 			id = 29352,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Ship's_Wheel.png" },
@@ -3087,7 +3087,7 @@ GameStore.Categories = {
 			id = 27886,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Venorean_Table_Clock.png" },
@@ -3105,7 +3105,7 @@ GameStore.Categories = {
 			id = 29350,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Violet_Round_Cushion.png" },
@@ -3159,7 +3159,7 @@ GameStore.Categories = {
 			id = 29359,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rolled-up_Yalaharian_Carpet.png" },
@@ -3178,8 +3178,8 @@ GameStore.Categories = {
 			id = 27896,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
--- Furniture										
+		},
+-- Furniture
 		{
 			icons = { "Alchemistic_Cabinet.png" },
 			name = "Alchemistic Cabinet",
@@ -3189,7 +3189,7 @@ GameStore.Categories = {
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to open up some storage space\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		},
-		{		
+		{
 			icons = { "Alchemistic_Chair.png" },
 			name = "Alchemistic Chair",
 			price = 50,
@@ -3233,7 +3233,7 @@ GameStore.Categories = {
 			count = 1,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to open up some storage space\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},		
+		},
 		{
 			icons = { "Comfy_Table.png" },
 			name = "Comfy Table",
@@ -3269,7 +3269,7 @@ GameStore.Categories = {
 			count = 1,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to open up some storage space\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			icons = { "Dwarven_Stone_Table.png" },
 			name = "Dwarven Stone Table",
@@ -3296,7 +3296,7 @@ GameStore.Categories = {
 			id = 26065,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Ferocious_Table.png" },
@@ -3341,7 +3341,7 @@ GameStore.Categories = {
 			id = 36540,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Hrodmiran_Table.png" },
@@ -3350,7 +3350,7 @@ GameStore.Categories = {
 			id = 36514,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},	
+		},
 		{
 			count = 1,
 			icons = { "Magnificent_Cabinet.png" },
@@ -3368,7 +3368,7 @@ GameStore.Categories = {
 			id = 26061,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},		
+		},
 		{
 			count = 1,
 			icons = { "Magnificent_Table.png" },
@@ -3395,7 +3395,7 @@ GameStore.Categories = {
 			id = 29398,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},  
+		},
 		{
 			count = 1,
 			icons = { "Ornate_Chair.png" },
@@ -3413,7 +3413,7 @@ GameStore.Categories = {
 			id = 29401,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 										
+		},
 		{
 			count = 1,
 			icons = { "Ornate_Table.png" },
@@ -3422,7 +3422,7 @@ GameStore.Categories = {
 			id = 29397,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Round_Side_Table.png" },
@@ -3431,7 +3431,7 @@ GameStore.Categories = {
 			id = 36043,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rustic_Cabinet.png" },
@@ -3440,7 +3440,7 @@ GameStore.Categories = {
 			id = 26356,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Rustic_Chair.png" },
@@ -3449,7 +3449,7 @@ GameStore.Categories = {
 			id = 26351,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 										
+		},
 		{
 			count = 1,
 			icons = { "Rustic_Table.png" },
@@ -3458,7 +3458,7 @@ GameStore.Categories = {
 			id = 26354,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 	
+		},
 		{
 			count = 1,
 			icons = { "Rustic_Trunk.png" },
@@ -3467,7 +3467,7 @@ GameStore.Categories = {
 			id = 26358,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Skeletal_Cabinet.png" },
@@ -3476,7 +3476,7 @@ GameStore.Categories = {
 			id = 33415,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},  
+		},
 		{
 			count = 1,
 			icons = { "Skeletal_Chair.png" },
@@ -3494,7 +3494,7 @@ GameStore.Categories = {
 			id = 32266,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 										
+		},
 		{
 			count = 1,
 			icons = { "Skeletal_Table.png" },
@@ -3503,7 +3503,7 @@ GameStore.Categories = {
 			id = 32264,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Square_Side_Table.png" },
@@ -3512,7 +3512,7 @@ GameStore.Categories = {
 			id = 29397,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},	
+		},
 		{
 			count = 1,
 			icons = { "Vengothic_Cabinet.png" },
@@ -3521,7 +3521,7 @@ GameStore.Categories = {
 			id = 27903,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}, 
+		},
 		{
 			count = 1,
 			icons = { "Vengothic_Chair.png" },
@@ -3539,7 +3539,7 @@ GameStore.Categories = {
 			id = 27905,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Vengothic_Table.png" },
@@ -3566,7 +3566,7 @@ GameStore.Categories = {
 			id = 29339,
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Verdant_Table.png" },
@@ -3594,7 +3594,7 @@ GameStore.Categories = {
 			description = "- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to trigger an animation\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
 		},
--- Upgrades											
+-- Upgrades
 		{
 			count = 1,
 			icons = { "Reward_Shrine_(Item).png" },
@@ -3612,7 +3612,7 @@ GameStore.Categories = {
 			id = 32145,
 			description = "Train your skills more effectively at home than in public on this expert exercise dummy!\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used by all characters that have access to the house\n- can only be used by one character at a time\n- use one of the exercise weapons on this dummy\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},									
+		},
 		{
 			count = 1,
 			icons = { "Ferumbras_Exercise_Dummy.png" },
@@ -3649,7 +3649,7 @@ GameStore.Categories = {
 			id = 26055,
 			description = "Send your letters and parcels right from your own home!\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used by all characters that have access to the house\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},	
+		},
 		{
 			count = 1,
 			icons = { "Monk_Exercise_Dummy.png" },
@@ -3668,7 +3668,7 @@ GameStore.Categories = {
 			id = 26057,
 			description = "Send your letters and parcels right from your own home!\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used by all characters that have access to the house\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		},										
+		},
 		{
 			count = 1,
 			icons = { "Shiny_Reward_Shrine.png" },
@@ -3677,17 +3677,17 @@ GameStore.Categories = {
 			id = 29024,
 			description = "Pick up your daily reward comfortably in your own four walls!\n- can only be unwrapped in a house owned by the purchasing character\n- comes in a box which can only be unwrapped by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- can be used by all characters that have access to the house\n- use it to open the reward wall\n- will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HOUSE,
-		}									
+		}
 		},
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
-		}, 
--- Extras						
+		},
+-- Extras
 	{
 	description = "Buy an Extra Services.",
 	icons = { "Category_Extras.png" },
 	name = "Extra",
-	offers = { 
+	offers = {
 -- Extras Services
 		{
 			icons = { "Name_Change.png" },
@@ -3696,7 +3696,7 @@ GameStore.Categories = {
 			id = 65002,
 			description = "Tired of your current character name? Purchase a new one!\n\n\n- only usable by purchasing character\n- relog required after purchase to finalise the name change",
 			type = GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE,
-		}, 
+		},
 		{
 			icons = { "Sex_Change.png" },
 			name = "Sex Change",
@@ -3704,8 +3704,8 @@ GameStore.Categories = {
 			id = 65003,
 			description = "Turns your female character into a male one - or vice versa.\n\n\n- only usable by purchasing character\n- activated at purchase\n- you will keep all outfits you have purchased or earned in quest",
 			type = GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE,
-		},																		
--- Usefull Things										
+		},
+-- Usefull Things
 		{
 			icons = { "Gold_Converter.png" },
 			name = "Gold Converter",
@@ -3745,7 +3745,7 @@ GameStore.Categories = {
 			price = 15,
 			description = "Changes automatically either a stack of 100 gold pieces into 1 platinum coin, or a stack of 100 platinum coins into 1 crystal coin!\n\n\n- only usable by purchasing character\n- will be sent to your Store inbox and can only be stored there and in depot box\n- use it to activate or deactivate the automatic conversion\n- converts all stacks of 100 gold or platinum in the inventory whenever it is activated\n- deactivated upon purchase\n- usable for 500 conversions a piece",
 			type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
-		},										
+		},
 		{
 			icons = { "Permanent_Prey_Slot.png" },
 			name = "Permanent Prey Slot",
@@ -3753,7 +3753,7 @@ GameStore.Categories = {
 			price = 900,
 			description = "Get an additional prey slot to activate additional prey!\n\n- only usable by purchasing character\n- maximum amount that can be owned by character: 3\n- added directly to Prey dialog",
 			type = GameStore.OfferTypes.OFFER_TYPE_PREYSLOT,
-		},								
+		},
 		{
 			icons = { "Prey_Bonus_Reroll.png" },
 			name = "5x Prey Willcard",
@@ -3794,13 +3794,13 @@ GameStore.Categories = {
 			rookgaard = true,
 			state = GameStore.States.STATE_NONE,
 		},
--- Tournament				
+-- Tournament
 	{
 	icons = { "Category_Tournament.png" },
 	name = "Tournament",
 	offers = {
--- Tickets 										
--- Exclusive Offers 
+-- Tickets
+-- Exclusive Offers
 		{
 			icons = { "Cerberus_Champion.png" },
 			name = "Cerberus Champion",
@@ -3808,7 +3808,7 @@ GameStore.Categories = {
 			id = 146,
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nA fierce and grim guardian of the underworld has risen to fight side by side with the bravest warriors in order to send evil creatures into the realm of the dead. The three headed Cerberus Champion is constantly baying for blood and using its sharp fangs it easily rips apart even the strongest armour and shield.",
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 						
+		},
 		{
 			icons = { "Jousting_Eagle.png" },
 			name = "Jousting Eagle",
@@ -3816,7 +3816,7 @@ GameStore.Categories = {
 			id = 145,
 			description = "- only usable by purchasing character\n- provides character with a speed boost\n\nHigh above the clouds far away from dry land, the training of giant eagles takes place. Only the cream of the crop is able to survive in such harsh environment long enough to call themselves Jousting Eagles while the weaklings find themselves at the bottom of the sea. The tough ones become noble and graceful mounts that are well known for their agility and endurance.",
 			type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
-		}, 	
+		},
 		{
 			icons = { "Outfit_Lion_of_War_Male_Addon_3.png", "Outfit_Lion_of_War_Female_Addon_3.png" },
 			name = "Full Lion of War Outfit",
@@ -3843,7 +3843,7 @@ GameStore.Categories = {
 			addon = 3,
 			description = "- usable by all characters of the account\n- colours can be changed using the Outfit dialog\n- includes basic outfit and 2 addons which can be selected individually\n\n- According to ancient rumours, the pulsating orb that the Void Master balances skilfully on the tip of his staff consists of powerful cosmic spheres. If you gaze too long into the infinite emptiness inside the orb, its powers will absorb your mind.",
 			type = GameStore.OfferTypes.OFFER_TYPE_OUTFIT,
-		}, 
+		},
 		{
 			icons = { "Cerberus_Champion_Puppy.png" },
 			name = "Cerberus Champion Puppy",
@@ -3910,13 +3910,13 @@ GameStore.Categories = {
 local runningId = 45000
 for k, category in ipairs(GameStore.Categories) do
   if category.name == "Outfits" and category.offers then
-    for m, offer in ipairs(category.offers) do
-      offer.id = runningId
-      runningId = runningId + 1
+	for m, offer in ipairs(category.offers) do
+	  offer.id = runningId
+	  runningId = runningId + 1
 
-      if not offer.type then
-        offer.type = GameStore.OfferTypes.OFFER_TYPE_NONE
-      end
-    end
+	  if not offer.type then
+		offer.type = GameStore.OfferTypes.OFFER_TYPE_NONE
+	  end
+	end
   end
 end

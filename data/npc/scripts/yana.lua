@@ -1,4 +1,4 @@
- local keywordHandler = KeywordHandler:new()
+	local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
@@ -87,7 +87,7 @@ local info = {
 				value = 4,
 			},
 			['powerful'] = {
-				text = "The powerful bundle for the void imbuement consists of 25 rope belts, 25 silencer claws and 5 grimeleech wings. Would you like to buy it for 6 gold tokens?",				
+				text = "The powerful bundle for the void imbuement consists of 25 rope belts, 25 silencer claws and 5 grimeleech wings. Would you like to buy it for 6 gold tokens?",
 				itens = {
 					[1] = {id = 12448, amount = 25},
 					[2] = {id = 22534, amount = 25},
@@ -96,17 +96,25 @@ local info = {
 				value = 6,
 			}
 		},
-	
+
 	}
 }
 
 local answerType = {}
 local answerLevel = {}
 
-function onCreatureAppear(cid) npcHandler:onCreatureAppear(cid) end
-function onCreatureDisappear(cid) npcHandler:onCreatureDisappear(cid) end
-function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) end
-function onThink() npcHandler:onThink() end
+function onCreatureAppear(cid)
+	npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+	npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+	npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+	npcHandler:onThink()
+end
 
 local function greetCallback(cid)
 	npcHandler.topic[cid] = 0
@@ -167,7 +175,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 5 then
 		if msgcontains(msg, "yes") then
-			local neededCap = 0 
+			local neededCap = 0
 			for i = 1, #info.products[answerType[cid]][answerLevel[cid]].itens do
 				neededCap = neededCap + ItemType(info.products[answerType[cid]][answerLevel[cid]].itens[i]):getWeight()
 			end

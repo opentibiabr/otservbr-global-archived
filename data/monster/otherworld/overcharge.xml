@@ -18,7 +18,7 @@
 		<flag runonhealth="0"/>
 	</flags>
 	<script>
-    	<event name="OverDeath" />
+    	<event name="OverchargeDeath" />
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-100" max="-500"/>

@@ -20,7 +20,7 @@
 		<flag canwalkonfire="1" />
 	</flags>
 	<script>
-		<event name="RiftInvader"/>
+		<event name="RiftInvaderDeath"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" skill="70" attack="130"/>
