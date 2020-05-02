@@ -55,8 +55,8 @@ function onStepIn(creature, item, position, fromPosition)
 		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Second, 3) -- blue
 		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Third, 2) -- green
 		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Four, 4) -- blood
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You hear a whisper: \
-		'You will not be guided but your path shines in the colours red, blue and green. Heed this hierarchy.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You hear a whisper: \z
+		'You will not be guided but your path shines in the colours red, blue and green. Heed this hierarchy.'")
 		leverFirst:setActionId(53820 + Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.First))
 		leverSecond:setActionId(53820 + Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Second))
 		leverThird:setActionId(53820 + Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Third))

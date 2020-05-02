@@ -215,10 +215,10 @@ local function changeVocation(player, fromVocation, toVocation)
 			.. db.escapeString(player:getName():lower()))
 		local accountId = result.getDataInt(resultId, "id")
 		player:remove()
-		db.query("UPDATE `players` SET `maglevel` = '0', `manaspent` = '0', `skill_fist` = '10', \
-		`skill_fist_tries` = '0', `skill_club` = '10', `skill_club_tries` = '0', `skill_sword` = '10', \
-		`skill_sword_tries` = '0', `skill_axe` = '10', `skill_axe_tries` = '0', `skill_dist` = '10', \
-		`skill_dist_tries` = '0', `skill_shielding` = '10', `skill_shielding_tries` = '0', `skill_fishing` = '10', \
+		db.query("UPDATE `players` SET `maglevel` = '0', `manaspent` = '0', `skill_fist` = '10', \z
+		`skill_fist_tries` = '0', `skill_club` = '10', `skill_club_tries` = '0', `skill_sword` = '10', \z
+		`skill_sword_tries` = '0', `skill_axe` = '10', `skill_axe_tries` = '0', `skill_dist` = '10', \z
+		`skill_dist_tries` = '0', `skill_shielding` = '10', `skill_shielding_tries` = '0', `skill_fishing` = '10', \z
 		`skill_fishing_tries` = '0' WHERE `players`.`id` = " .. accountId)
 		end
 end

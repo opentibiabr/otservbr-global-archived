@@ -61,7 +61,7 @@ function onStepIn(creature, item, position, fromPosition)
 		firstSqm = Position(32698, 31405, 8),
 		storageBarkless = Storage.CultsOfTibia.Barkless.ice,
 		msgs = {
-			"As you enter the icy cavern, you feel an unnatural frostiness.\
+			"As you enter the icy cavern, you feel an unnatural frostiness. \z
 			The ice cold air stings in your face. Survive and prove worthy.", -- on enter
 			"Your body temperature sinks. You can see your breath freezing in the cold.", -- 30/60 seconds
 			"The icy cold is grasping to you. You can barely move anymore.", -- 120 seconds

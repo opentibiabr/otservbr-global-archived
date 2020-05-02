@@ -32,7 +32,7 @@ function onStepIn(creature, item, position, fromPosition)
 			player:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
 		else
 			player:teleportTo(fromPosition, true)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"The combined powers of decaying souls\
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"The combined powers of decaying souls \z
 			roaming these halls may help breach this barrier, it needs but a vessel to bind them.")
 		end
 	elseif position == secondCheck or position == Position(secondCheck.x + 1, secondCheck.y, secondCheck.z) then
@@ -42,14 +42,14 @@ function onStepIn(creature, item, position, fromPosition)
 			player:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
 		else
 			player:teleportTo(fromPosition, true)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The combined powers of decaying souls\
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The combined powers of decaying souls \z
 			roaming these halls may help breach this barrier, it needs but a vessel to bind them.")
 		end
 	elseif misguided then
 		for i, position in pairs(misguided) do
 			if player:getStorageValue(Storage.CultsOfTibia.Misguided.Exorcisms) >= 5 then
 				player:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As you cross the threshold in to the inner\
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As you cross the threshold in to the inner \z
 				sanctuary of the cult of the Misguided, you feel an eerie presence all around you.")
 				break
 			else

@@ -1,5 +1,5 @@
 local messages = {
-	{"Gnomedix: So let the examination begin! Now don't move. Don't be afraid.\
+	{"Gnomedix: So let the examination begin! Now don't move. Don't be afraid. \z
 	The good doctor gnome won't hurt you - hopefully!", CONST_ME_LOSEENERGY},
 	{"Gnomedix: Now! Now! Don't panic! It's all over soon!"},
 	{"Gnomedix: Let me try a bigger chisel!", CONST_ME_POFF},
@@ -7,7 +7,7 @@ local messages = {
 	{"Gnomedix: I need a drill! Gnomenursey, quick!"},
 	{"Gnomedix: Hold still now! This might tickle a little..", CONST_ME_STUN},
 	{"Gnomedix: Take this, you evil ... whatever you are!"},
-	{"Gnomedix: I got it! Yikes! What was that? Uhm, well ...\
+	{"Gnomedix: I got it! Yikes! What was that? Uhm, well ... \z
 	you passed the ear examination. Talk to Gnomaticus for your next test.", CONST_ME_BLOCKHIT}
 }
 

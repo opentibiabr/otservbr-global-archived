@@ -15,7 +15,7 @@ function position.onSay(player, words, param)
 	elseif split and param ~= "" then
 		player:teleportTo(Position(split[1], split[2], split[3]))
 	elseif param == "" then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your current position is:\
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your current position is: \z
 		" .. position.x .. ", " .. position.y .. ", " .. position.z .. ".")
 	end
 	return false

@@ -8,7 +8,7 @@ function onStepIn(creature, item, position, fromPosition)
 		-- StorageValue for Questlog 'Mission 10: The Final Battle'
 		player:setStorageValue(Storage.InServiceofYalahar.Mission10, 3)
 		player:setStorageValue(Storage.InServiceofYalahar.Questline, 52)
-		player:say('It seems by defeating Azerus you have stopped this army from entering your world! \
+		player:say('It seems by defeating Azerus you have stopped this army from entering your world! \z
 			Better leave this ghastly place forever.', TALKTYPE_MONSTER_SAY)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end

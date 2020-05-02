@@ -16,22 +16,22 @@ local config = {
 		position = Position(33216, 32450, 1)
 	},
 	[5] = {
-		text = "Wow, it's hot up here. Luckily the skull can't get a sunburn any more, \
+		text = "Wow, it's hot up here. Luckily the skull can't get a sunburn any more, \z
 			but you can, so you better descend again!",
 		position = Position(33151, 32845, 2)
 	},
 	[6] = {
-		text = "Considering that higher places around here aren't that easy to reach, \
+		text = "Considering that higher places around here aren't that easy to reach, \z
 			you think the view from here is tolerably good.",
 		position = Position(32589, 32801, 4)
 	},
 	[7] = {
-		text = "Yep, that's a pretty high spot. \
+		text = "Yep, that's a pretty high spot. \z
 			If Lazaran ever sees what the skull sees, he'd be pretty satisfied with that nice view.",
 		position = Position(32346, 32808, 2)
 	},
 	[8] = {
-		text = "Well, there are higher spots around here, but none of them is as easily reachable as this one. \
+		text = "Well, there are higher spots around here, but none of them is as easily reachable as this one. \z
 			It just has to suffice.",
 		position = Position(32789, 31238, 3)
 	},
@@ -40,7 +40,7 @@ local config = {
 		position = Position(32236, 31096, 2)
 	},
 	[10] = {
-		text = "That's definitely one of the highest spots in whole Tibia. \
+		text = "That's definitely one of the highest spots in whole Tibia. \z
 			If that's not simply perfect you don't know what it is.",
 		position = Position(32344, 32265, 0)
 	},

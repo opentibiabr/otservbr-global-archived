@@ -226,7 +226,7 @@ end
 
 -- Core functions
 DailyReward.insertHistory = function(playerId, dayStreak, description)
-	return db.query(string.format("INSERT INTO `daily_reward_history`(`player_id`, `daystreak`, `timestamp`, \
+	return db.query(string.format("INSERT INTO `daily_reward_history`(`player_id`, `daystreak`, `timestamp`, \z
 		`description`) VALUES (%s, %s, %s, %s)", playerId, dayStreak, os.time(), db.escapeString(description)))
 end
 
@@ -238,7 +238,7 @@ DailyReward.retrieveHistoryEntries = function(playerId)
 	end
 
 	local entries = {}
-	local resultId = db.storeQuery("SELECT * FROM `daily_reward_history` WHERE `player_id` = \
+	local resultId = db.storeQuery("SELECT * FROM `daily_reward_history` WHERE `player_id` = \z
 		" .. player:getGuid() .. " ORDER BY `timestamp` DESC LIMIT 15;")
 	if resultId ~= false then
 		repeat
@@ -490,7 +490,7 @@ function Player.selectDailyReward(self, msg)
 		end
 
 		-- Registering history
-		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \
+		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
 			" .. self:getDayStreak() + 1 .. ". Picked items: " .. description)
 		DailyReward.processReward(playerId, source)
 	end
@@ -514,7 +514,7 @@ function Player.selectDailyReward(self, msg)
 				description = description .. reward.things[i].name .. "."
 			end
 		end
-		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \
+		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
 			" .. self:getDayStreak() + 1 .. ". Picked reward: " .. description)
 		DailyReward.processReward(playerId, source)
 	end
@@ -523,11 +523,11 @@ function Player.selectDailyReward(self, msg)
 
 		--[[local window = ModalWindow {
 			title = 'Warning',
-			message = 'You still have 20 minutes XP Boost from a previous daily reward left. \
+			message = 'You still have 20 minutes XP Boost from a previous daily reward left. \z
 				If you claim your daily reward now, you will lose this remaining time.'
 		}
 		window:addButton('Ok', function(button, choice)
-			DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \
+			DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
 				" .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward.xpminutes .. " minutes.")
 			DailyReward.processReward(playerId, source)
 		end)
@@ -536,14 +536,14 @@ function Player.selectDailyReward(self, msg)
 
 		self:setExpBoostStamina(self:getExpBoostStamina() + (reward.xpminutes * 60))
 		self:setStoreXpBoost(50)
-		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \
+		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
 			" .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward.xpminutes .. " minutes.")
 		DailyReward.processReward(playerId, source)
 	end
 
 	if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) then
 		self:setPreyBonusRerolls(self:getPreyBonusRerolls() + reward.rerollCount)
-		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \
+		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
 			" .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward.rerollCount .. "x Prey bonus reroll(s)")
 		DailyReward.processReward(playerId, source)
 	end
@@ -777,7 +777,7 @@ local function sendItemChoose(player, items, current)
 			end
 		end
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have claimed " .. description)
-		DailyReward.insertHistory(player:getGuid(), player:getDayStreak(), "Claimed reward no. \
+		DailyReward.insertHistory(player:getGuid(), player:getDayStreak(), "Claimed reward no. \z
 			" .. player:getDayStreak() + 1 .. ". Picked items: " .. description)
 		DailyReward.pickedReward(playerId)
 	end)

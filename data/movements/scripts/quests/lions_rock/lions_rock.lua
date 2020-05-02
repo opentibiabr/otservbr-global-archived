@@ -32,7 +32,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if item.actionid == 41346 then
 		if player:getStorageValue(lionrock.storages.translation1) < 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"With the aid of the old scroll you translate the inscriptions on the golden statue: \
+				"With the aid of the old scroll you translate the inscriptions on the golden statue: \z
 					And the mighty lion defeated the greedy hyaena." ..
 				"As a sign of victory he took its blood, red as voracity and lust, and created a precious treasure.")
 			player:setStorageValue(lionrock.storages.translation1, 1)
@@ -42,9 +42,9 @@ function onStepIn(creature, item, position, fromPosition)
 	if item.actionid == 41347 then
 		if player:getStorageValue(lionrock.storages.translation2) < 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"With the aid of the old scroll you translate the inscriptions on the floor: \
+				"With the aid of the old scroll you translate the inscriptions on the floor: \z
 					And the mighty lion defeated the lazy lizard." ..
-				"As a sign of victory he took its egg, blue as sloth and conceit, \
+				"As a sign of victory he took its egg, blue as sloth and conceit, \z
 					and out of a foul creature he created a precious treasure.")
 			player:setStorageValue(lionrock.storages.translation2, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
@@ -53,9 +53,9 @@ function onStepIn(creature, item, position, fromPosition)
 	if item.actionid == 41348 then
 		if player:getStorageValue(lionrock.storages.translation3) < 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"With the aid of the old scroll you translate the inscriptions on the floor: \
+				"With the aid of the old scroll you translate the inscriptions on the floor: \z
 					And the mighty lion defeated the jealous snake." ..
-				"As a sign of victory he took its eye, yellow as envy and malevolence, \
+				"As a sign of victory he took its eye, yellow as envy and malevolence, \z
 					and out of a foul creature he created a precious treasure.")
 			player:setStorageValue(lionrock.storages.translation3, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)
@@ -64,9 +64,9 @@ function onStepIn(creature, item, position, fromPosition)
 	if item.actionid == 41349 then -- 4
 		if player:getStorageValue(lionrock.storages.translation4) < 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"With the aid of the old scroll you translate the inscriptions on the golden altar: \
+				"With the aid of the old scroll you translate the inscriptions on the golden altar: \z
 					And the mighty lion defeated the treacherous." ..
-				"scorpion. As a sign of victory he took its poison, violet as deceit and betrayal, \
+				"scorpion. As a sign of victory he took its poison, violet as deceit and betrayal, \z
 					and created a precious treasure.")
 			player:setStorageValue(lionrock.storages.translation4, 1)
 			player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)

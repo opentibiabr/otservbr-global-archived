@@ -9,16 +9,16 @@ local configQuest = {
 		secondSqm = Position(32746, 31469, 8),
 		storageBarkless = Storage.CultsOfTibia.Barkless.tar,
 		msgs = {
-			"As you enter the tar pits, you feel the heat around you rising dramatically. \
+			"As you enter the tar pits, you feel the heat around you rising dramatically. \z
 			Survive the heat long enough to prove worthy.", -- on enter
 			"Your body is heating up, the air around you is flickering.", -- 30/60 seconds
-			"The heat is now unbearable, the blood in your body feels like lava. \
+			"The heat is now unbearable, the blood in your body feels like lava. \z
 			There's almost no strength left in you - act quickly!", -- 90 segunds
-			"Embrace the stigma of bad fortune. The tar does not feel so hot anymore. \
+			"Embrace the stigma of bad fortune. The tar does not feel so hot anymore. \z
 			You passed the tar trial.", -- step in the first tile
-			"Your body reacts to this strange green substance as you reach out to touch it. \
+			"Your body reacts to this strange green substance as you reach out to touch it. \z
 			You feel an urge for more of this energy.", -- step in the second tile
-			"The tar covering you has cooled down and tell off for the most part. \
+			"The tar covering you has cooled down and tell off for the most part. \z
 			Your body is not heated up anymore.", -- there's no time to step
 		}
 	},
@@ -34,13 +34,13 @@ local configQuest = {
 		msgs = {
 			"As you enter the sulphur pits, you feel the dry, burning vapours of the sulphur all around you. Prove worthy, survive the acid.", -- on enter
 			"The sulphur is burning your skin. You almost feel your body melting away in acid.", -- 30/60 segunds
-			"The acid burning is now unbearable, you skin feels like a sieve. \
+			"The acid burning is now unbearable, you skin feels like a sieve. \z
 			]There's almost no strength left in you - act quickly!", -- 90 segunds
-			"Embrace the stigma of vanity. The sulphur does not burn your skin anymore. \
+			"Embrace the stigma of vanity. The sulphur does not burn your skin anymore. \z
 			You passed the trial.", -- step in the first tile
-			"You are now ready to prove your worth. \
+			"You are now ready to prove your worth. \z
 			Take heart and cross the threshold of sulphur.", -- step in the second tile
-			"The acid covering you has cooled down and tell off for the most part. \
+			"The acid covering you has cooled down and tell off for the most part. \z
 			Your body is not heated up anymore.", --  there's no time to step
 		}
 	},

@@ -222,7 +222,7 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 				"Creature has been set!\n\nYou are not a Premium player, so you can only benefit from up to " ..
 				limitRunes ..
 					" runes!\nPremium players can hold up to " ..
-						Bestiary.Config.PremiumRunesAmount .. " creatures at once.\nCharm Expansion \
+						Bestiary.Config.PremiumRunesAmount .. " creatures at once.\nCharm Expansion \z
 						allow you to set creatures to all runes at once!"
 		end
 		if limitRunes <= #usedRunes then

@@ -72,8 +72,8 @@ function onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDama
 			killerGuild = killerGuild and killerGuild:getId() or 0
 			if killerGuild ~= 0 and targetGuild ~= killerGuild and isInWar(playerId, killer.uid) then
 				local warId = false
-				resultId = db.storeQuery('SELECT `id` FROM `guild_wars` WHERE `status` = 1 AND\
-					((`guild1` = ' .. killerGuild .. ' AND `guild2` = ' .. targetGuild .. ') OR\
+				resultId = db.storeQuery('SELECT `id` FROM `guild_wars` WHERE `status` = 1 AND \z
+					((`guild1` = ' .. killerGuild .. ' AND `guild2` = ' .. targetGuild .. ') OR \z
 					(`guild1` = ' .. targetGuild .. ' AND `guild2` = ' .. killerGuild .. '))')
 				if resultId ~= false then
 					warId = result.getNumber(resultId, 'id')
@@ -81,8 +81,8 @@ function onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDama
 				end
 
 				if warId ~= false then
-					db.asyncQuery('INSERT INTO `guildwar_kills` (`killer`, `target`, `killerguild`, `targetguild`, `time`, `warid`)\
-					VALUES (' .. db.escapeString(killerName) .. ', ' .. db.escapeString(player:getName()) .. ', ' .. killerGuild .. ',\
+					db.asyncQuery('INSERT INTO `guildwar_kills` (`killer`, `target`, `killerguild`, `targetguild`, `time`, `warid`) \z
+					VALUES (' .. db.escapeString(killerName) .. ', ' .. db.escapeString(player:getName()) .. ', ' .. killerGuild .. ', \z
 					' .. targetGuild .. ', ' .. os.time() .. ', ' .. warId .. ')')
 				end
 			end
