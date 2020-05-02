@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)               npcHandler:onCreatureAppear(cid)             end
-function onCreatureDisappear(cid)       npcHandler:onCreatureDisappear(cid)               end
-function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg) end
-function onThink()                 npcHandler:onThink()                         end
+function onCreatureAppear(cid)
+     npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+     npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+     npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+     npcHandler:onThink()
+end
 
 -- ID, Count, Price
 local eventShopItems = {
@@ -28,7 +36,7 @@ local function creatureSayCallback(cid, type, msg)
      if (msg == "event shop") then
           npcHandler:say("In our website enter in {Events} => {Events Shop}.", cid)
      end
-     
+
      if (eventShopItems[msg]) then
           npcHandler.topic[cid] = 0
           local itemId, itemCount, itemPrice = eventShopItems[msg][1], eventShopItems[msg][2], eventShopItems[msg][3]
@@ -44,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
      if (eventShopItems[npcHandler.topic[cid]]) then
           local itemId, itemCount, itemPrice = eventShopItems[npcHandler.topic[cid]][1], eventShopItems[npcHandler.topic[cid]][2], eventShopItems[npcHandler.topic[cid]][3]
           if (msg == "no" or
-               msg == "não") then
+               msg == "nï¿½o") then
                npcHandler:say("So... what you want?", cid)
                npcHandler.topic[cid] = 0
           elseif (msg == "yes" or

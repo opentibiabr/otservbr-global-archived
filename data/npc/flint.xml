@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Flint" walkinterval="2000" floorchange="0" script="flint.lua">
+	<health now="100" max="100"/>
+	<look type="134" head="95" body="57" legs="76" feet="39" addons="0"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="    exercise sword,32384,262500,500;    exercise axe,32385,262500,500;    exercise club,32386,262500,500;    exercise bow,32387,262500,500;"/>
+		<parameter key="shop_sellable" value="    Alloy Legs,23539,11000;    axe,2386,7;    crest of the deep seas,24261,10000;    Battle Axe,2378,80;    Battle Hammer,2417,120;    battle shield,2513,95;    Bone Sword,2450,20;    Brass Armor,2465,150;    Brass Helmet,2460,30;    Brass Legs,2478,49;    Cowtana,23548,2500;    Dwarven Shield,2525,100;    Execowtioner Axe,23547,12000;    Fire Sword,2392,1000;    Gearwheel Chain,23541,5000;    Glooth Amulet,23554,2000;    Glooth Axe,23551,1500;    Glooth Blade,23550,1500;    Glooth cap,23535,7000;    Glooth Club,23549,1500;    Glooth Whip,23543,2500;    Halberd,2381,400;    Heat Core,23538,10000;    Metal Bat,23542,9000;    Metal Spats,23540,2000;    Mino Lance,23545,7000;    Mino Shield,23546,3000;    Moohtah Plate,23537,6000;    Moohtant Cudgel,23544,14000;    Plate Armor,2463,400;    Rubber Cap,23536,11000;    War Hammer,2391,470;    Steel Helmet,2457,293;    shovel,2554,8;    watch,2036,6;    wooden hammer,2556,15;"/>
+	</parameters>
+</npc>

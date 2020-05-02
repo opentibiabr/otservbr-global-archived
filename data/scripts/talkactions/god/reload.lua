@@ -1,5 +1,3 @@
-local talk = TalkAction("/reload")
-
 local reloadTypes = {
 	["all"] = RELOAD_TYPE_ALL,
 
@@ -63,7 +61,9 @@ local reloadTypes = {
 	["libs"] = RELOAD_TYPE_GLOBAL
 }
 
-function talk.onSay(player, words, param)
+local reload = TalkAction("/reload")
+
+function reload.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -86,5 +86,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+reload:separator(" ")
+reload:register()

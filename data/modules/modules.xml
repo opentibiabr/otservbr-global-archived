@@ -17,7 +17,7 @@
 	<module type="recvbyte" byte="254" script="gamestore/gamestore.lua"/>
 
 	<!-- EquipObject -->
-	<module type="recvbyte" byte="119" delay="1000" script="equipobject/equipobject.lua"/>
+	<module type="recvbyte" byte="119" delay="1000" script="equip_object/equip_object.lua"/>
 
 	<!-- QuickLoot -->
 	<module type="recvbyte" byte="143" script="quickloot/quickloot.lua"/>
@@ -25,27 +25,17 @@
 	<module type="recvbyte" byte="145" script="quickloot/quickloot.lua"/>
 
 	<!-- Prey System -->
-	<module type="recvbyte" byte="235" script="prey system/prey.lua" />
-	<module type="recvbyte" byte="237" script="prey system/prey.lua" />
+	<module type="recvbyte" byte="235" script="prey_system/prey.lua" />
+	<module type="recvbyte" byte="237" script="prey_system/prey.lua" />
 
 	<!-- Blessings -->
 	<module type="recvbyte" byte="207" script="blessings/blessings.lua" />
 
 	<!-- Cults of Tibia -->
-	<module type="recvbyte" byte="15" script="cults of tibia/death.lua" />
+	<module type="recvbyte" byte="15" script="cults_of_tibia/death.lua" />
 
 	<!-- Daily Reward Wall -->
-	<module type="recvbyte" byte="216" script="dailyreward/dailyreward.lua" />
-	<module type="recvbyte" byte="217" script="dailyreward/dailyreward.lua" />
-	<module type="recvbyte" byte="218" script="dailyreward/dailyreward.lua" />
-
-	<!-- Inspection System (11.10)
-	<module type="recvbyte" byte="205" script="inspection/inspection.lua"/>
-	<module type="recvbyte" byte="206" script="inspection/inspection.lua"/>
-	-->
-
-	<!-- Expert Pvp
-	<module type="recvbyte" byte="160" script="expertpvp/fightmodes.lua"/> -->
-
-	<!-- Join agression formula is still unknown TODO: add it.-->
+	<module type="recvbyte" byte="216" script="daily_reward/daily_reward.lua" />
+	<module type="recvbyte" byte="217" script="daily_reward/daily_reward.lua" />
+	<module type="recvbyte" byte="218" script="daily_reward/daily_reward.lua" />
 </modules>

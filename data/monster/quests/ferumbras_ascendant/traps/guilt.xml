@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Guilt" nameDescription="guilt from tarbaz" race="undead" experience="320" speed="0">
+<monster name="Guilt" nameDescription="Guilt from Tarbaz" race="undead" experience="320" speed="0">
 	<health now="2000" max="2000"/>
 	<look type="583" corpse="0"/>
 	<targetchange interval="2000" chance="8"/>
@@ -16,7 +16,10 @@
 		<flag staticattack="90"/>
 		<flag runonhealth="0"/>
 		<flag hidehealth="0"/>
-	<flag canwalkonenergy="1" /><flag canwalkonfire="1" /><flag canwalkonpoison="1" /></flags>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
 	<attacks>
 		<attack name="physical" interval="2000" chance="50" range="7" min="-300" max="-400">
 			<attribute key="shootEffect" value="energy"/>

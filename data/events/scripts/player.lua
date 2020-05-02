@@ -4,7 +4,7 @@ GOLD_POUCH = 26377
 ITEM_STORE_INBOX = 26052
 
 DISABLE_CONTAINER_WEIGHT = 0 -- 0 = ENABLE CONTAINER WEIGHT CHECK | 1 = DISABLE CONTAINER WEIGHT CHECK
-CONTAINER_WEIGHT = 1000000 -- 1000000 = 10k = 10000.00 oz | this function is only for containers, item below the weight determined here can be moved inside the container, for others items look game.cpp at the src
+CONTAINER_WEIGHT = 1000000 -- 1000000 = 10k = 10000.00 oz
 
 -- Items sold on the store that should not be moved off the store container
 local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
@@ -119,7 +119,8 @@ function Player:onLook(thing, position, distance)
 				local duration = thing:getImbuementDuration(slot)
 				if duration > 0 then
 					local imbue = thing:getImbuement(slot)
-					imbuingSlots = string.format("%s%s %s %s", imbuingSlots, imbue:getBase().name, imbue:getName(), getTime(duration))
+					imbuingSlots = string.format("%s%s %s %s",
+						imbuingSlots, imbue:getBase().name, imbue:getName(), getTime(duration))
 				else
 					imbuingSlots = string.format("%sEmpty Slot", imbuingSlots)
 				end
@@ -203,8 +204,10 @@ function Player:onLookInBattleList(creature, distance)
 	local description = "You see " .. creature:getDescription(distance)
 	if creature:isMonster() then
 		local master = creature:getMaster()
-		if master and table.contains({'thundergiant','grovebeast','emberwing','skullfrost'}, creature:getName():lower()) then
-			description = description..' (Master: ' .. master:getName() .. '). It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
+		local summons = {'thundergiant','grovebeast','emberwing','skullfrost'}
+		if master and table.contains(summons, creature:getName():lower()) then
+			description = description..' (Master: ' .. master:getName() .. '). \
+				It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
 		end
 	end
 	if self:getGroup():getAccess() then
@@ -307,7 +310,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	end
 
 	-- No move parcel very heavy
-	if DISABLE_CONTAINER_WEIGHT == 0 and ItemType(item:getId()):isContainer() and item:getWeight() > CONTAINER_WEIGHT then
+	if DISABLE_CONTAINER_WEIGHT == 0 and ItemType(item:getId()):isContainer()
+	and item:getWeight() > CONTAINER_WEIGHT then
 		self:sendCancelMessage("Your cannot move this item too heavy.")
 		return false
 	end
@@ -336,14 +340,14 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 				if tileBoss:getTopCreature():getHealth() <= 300 then
 					tileBoss:getTopCreature():remove()
 					local monster = Game.createMonster('the corruptor of souls', toPosition)
-					monster:registerEvent('checkPiso')
+					monster:registerEvent('CheckTile')
 					if Game.getStorageValue('healthSoul') > 0 then
 						monster:addHealth(-(monster:getHealth() - Game.getStorageValue('healthSoul')))
 					end
-					Game.setStorageValue('checkPiso', os.time()+30)
+					Game.setStorageValue('CheckTile', os.time()+30)
 				end
 			elseif tileBoss:getTopCreature():getName():lower() == 'the corruptor of souls' then
-				Game.setStorageValue('checkPiso', os.time()+30)
+				Game.setStorageValue('CheckTile', os.time()+30)
 				item:remove(1)
 			end
 		end
@@ -370,7 +374,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 		if item:getId() == 2146 and toPosition.x == 33069 and toPosition.y == 32302 and toPosition.z == 9 then
 			-- Sapphire
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the sapphire on the small socket. A blue flame begins to burn.")
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+				"You place the sapphire on the small socket. A blue flame begins to burn.")
 			checkPr = true
 			if lionrock.taskactive.sapphire ~= true then
 				lionrock.taskactive.sapphire = true
@@ -384,7 +389,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 		if item:getId() == 2150 and toPosition.x == 33077 and toPosition.y == 32302 and toPosition.z == 9 then
 			-- Amethyst
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the amethyst on the small socket. A violet flame begins to burn.")
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+				"You place the amethyst on the small socket. A violet flame begins to burn.")
 			checkPr = true
 			if lionrock.taskactive.amethyst ~= true then
 				lionrock.taskactive.amethyst = true
@@ -398,7 +404,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 		if item:getId() == 9970 and toPosition.x == 33077 and toPosition.y == 32298 and toPosition.z == 9 then
 			-- Topaz
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the topaz on the small socket. A yellow flame begins to burn.")
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+				"You place the topaz on the small socket. A yellow flame begins to burn.")
 			checkPr = true
 			if lionrock.taskactive.topaz ~= true then
 				lionrock.taskactive.topaz = true
@@ -412,7 +419,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 		if checkPr == true then
 			-- Adding the Fountain which gives present
-			if lionrock.taskactive.ruby == true and lionrock.taskactive.sapphire == true and lionrock.taskactive.amethyst == true and lionrock.taskactive.topaz == true then
+			if lionrock.taskactive.ruby == true and lionrock.taskactive.sapphire == true
+			and lionrock.taskactive.amethyst == true and lionrock.taskactive.topaz == true then
 				local fountain = Game.createItem(6390, 1, Position(33073, 32300, 9))
 				fountain:setActionId(41357)
 				local stone = Tile(Position(33073, 32300, 9)):getItemById(3608)
@@ -430,7 +438,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 	-- SSA exhaust
 	local exhaust = { }
-	if toPosition.x == CONTAINER_POSITION and toPosition.y == CONST_SLOT_NECKLACE and item:getId() == STONE_SKIN_AMULET then
+	if toPosition.x == CONTAINER_POSITION and toPosition.y == CONST_SLOT_NECKLACE
+	and item:getId() == STONE_SKIN_AMULET then
 		local pid = self:getId()
 		if exhaust[pid] then
 			self:sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED)
@@ -446,7 +455,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 	local containerIdFrom = fromPosition.y - 64
 	local containerFrom = self:getContainerById(containerIdFrom)
 	if (containerFrom) then
-		if (containerFrom:getId() == ITEM_STORE_INBOX and toPosition.y >= 1 and toPosition.y <= 11 and toPosition.y ~= 3) then
+		if (containerFrom:getId() == ITEM_STORE_INBOX
+		and toPosition.y >= 1 and toPosition.y <= 11 and toPosition.y ~= 3) then
 			self:sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM)
 			return false
 		end
@@ -460,7 +470,8 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 		-- Gold Pouch
 		if (containerTo:getId() == GOLD_POUCH) then
-			if (not (item:getId() == ITEM_CRYSTAL_COIN or item:getId() == ITEM_PLATINUM_COIN or item:getId() == ITEM_GOLD_COIN)) then
+			if (not (item:getId() == ITEM_CRYSTAL_COIN or item:getId() == ITEM_PLATINUM_COIN
+			or item:getId() == ITEM_GOLD_COIN)) then
 				self:sendCancelMessage("You can move only money to this container.")
 				return false
 			end
@@ -599,7 +610,8 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 
 	local file = io.open(string.format("data/reports/players/%s-%s-%d.txt", name, targetName, reportType), "a")
 	if not file then
-		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "There was an error when processing your report, please contact a gamemaster.")
+		self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+			"There was an error when processing your report, please contact a gamemaster.")
 		return
 	end
 
@@ -615,7 +627,8 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 	end
 	io.write("------------------------------\n")
 	io.close(file)
-	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Thank you for reporting %s. Your report will be processed by %s team as soon as possible.", targetName, configManager.getString(configKeys.SERVER_NAME)))
+	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Thank you for reporting %s. Your report \
+		will be processed by %s team as soon as possible.", targetName, configManager.getString(configKeys.SERVER_NAME)))
 	return
 end
 
@@ -628,7 +641,8 @@ function Player:onReportBug(message, position, category)
 	local file = io.open("data/reports/bugs/" .. name .. " report.txt", "a")
 
 	if not file then
-		self:sendTextMessage(MESSAGE_EVENT_DEFAULT, "There was an error when processing your report, please contact a gamemaster.")
+		self:sendTextMessage(MESSAGE_EVENT_DEFAULT,
+			"There was an error when processing your report, please contact a gamemaster.")
 		return true
 	end
 
@@ -643,7 +657,8 @@ function Player:onReportBug(message, position, category)
 	io.write("Comment: " .. message .. "\n")
 	io.close(file)
 
-	self:sendTextMessage(MESSAGE_EVENT_DEFAULT, "Your report has been sent to " .. configManager.getString(configKeys.SERVER_NAME) .. ".")
+	self:sendTextMessage(MESSAGE_EVENT_DEFAULT,
+		"Your report has been sent to " .. configManager.getString(configKeys.SERVER_NAME) .. ".")
 	return true
 end
 
@@ -757,7 +772,8 @@ function Player:onGainExperience(source, exp, rawExp)
 
 	-- Prey Bonus
 	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
-		if (self:getPreyCurrentMonster(slot) == source:getName() and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
+		if (self:getPreyCurrentMonster(slot) == source:getName()
+		and self:getPreyBonusType(slot) == CONST_BONUS_XP_BONUS) then
 			exp = exp + math.floor(exp * (self:getPreyBonusValue(slot) / 100))
 			break
 		end
@@ -920,31 +936,36 @@ function Player:clearImbuement(item, slot)
 	end
 
 	if item:getTopParent() ~= self or item:getParent() == self then
-		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR,
+			"An error occurred while applying the clearing charm to the item.")
 		return false
 	end
 
 	-- slot is not used
 	local info = item:getImbuementDuration(slot)
 	if info == 0 then
-		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR,
+			"An error occurred while applying the clearing charm to the item.")
 		return false
 	end
 
 	local imbuement = item:getImbuement(slot)
 	if not self:removeMoneyNpc(imbuement:getBase().removecust) then
-		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "You don't have enough money " ..imbuement:getBase().removecust.. " gps.")
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR,
+			"You don't have enough money " ..imbuement:getBase().removecust.. " gps.")
 		return false
 	end
 
 	if not item:cleanImbuement(slot) then
-		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR, "An error occurred while applying the clearing charm to the item.")
+		self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_ERROR,
+			"An error occurred while applying the clearing charm to the item.")
 		return false
 	end
 
 	-- Update item
 	local nitem = Item(item.uid)
-	self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_SUCCESS, "Congratulations! You have successfully applied the clearing charm to your item.");
+	self:sendImbuementResult(MESSAGEDIALOG_CLEARING_CHARM_SUCCESS,
+		"Congratulations! You have successfully applied the clearing charm to your item.");
 	self:sendImbuementPanel(nitem)
 
 	return true

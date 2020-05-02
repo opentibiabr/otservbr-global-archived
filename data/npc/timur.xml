@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Timur" walkinterval="2000" floorchange="0" script="timur.lua">
+	<health now="100" max="100"/>
+	<look type="128" head="0" body="116" legs="63" feet="95" addons="0"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="    arrow, 2544, 3;    bolt, 2543, 4;    fishing rod, 2580, 170;    hand auger, 36169, 25;    net, 36324, 50;    rope, 2120, 65;    viking helmet, 2473, 265;    worm, 3976, 1;"/>
+		<parameter key="shop_sellable" value="    bow, 2456, 130;    crossbow, 2455, 160;    hatchet, 2388, 25;    mace, 2398, 30;    viking helmet, 2473, 66;"/>
+	</parameters>
+</npc>

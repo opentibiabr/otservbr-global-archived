@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Armenius" walkinterval="2000" script="armenius_npc.lua">
+	<health now="100" max="100"/>
+	<look type="330" head="58" body="43" legs="38" feet="76" addons="0"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="meat,2666,5;cheese,2696,5;ham,2671,8;bread,2689,3;egg,2328,2;tomato,2685,3;mug of beer,2012,3,3;"/>
+	</parameters>
+</npc>

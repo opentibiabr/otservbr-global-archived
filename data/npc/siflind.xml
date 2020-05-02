@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Siflind" walkinterval="2000" script="silfind.lua">
+	<health now="100" max="100"/>
+	<look type="158" head="76" body="81" legs="95" feet="114" addons="1"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="  great spirit potion,8472,190;  great mana potion,7590,120;  great health potion,7591,190;  strong health potion,7588,100;  strong mana potion,7589,80;  health potion,7618,45;  mana potion,7620,50;  ultimate health potion,8473,310;  ultimate mp,26029,350;    Supreme Health Potion,26031,500;    ultimate spirit potion,26030,350;  terra rod,2181,10000;  snakebite rod,2182,500;  necrotic rod,2185,5000;  moonlight rod,2186,1000;  underworld rod,8910,22000;  northwind rod,8911,7500;  springsprout rod,8912,18000;  hailstorm rod,2183,15000;  wand of decay,2188,5000;  wand of cosmic energy,2189,10000;  wand of vortex,2190,500;  wand of dragonbreath,2191,1000;  wand of draconia,8921,7500;  wand of starstorm,8920,18000;  wand of voodoo,8922,22000;  wand of inferno,2187,15000;  blank rune,2260,10;  spellbook,6120,150"/>
+		<parameter key="shop_sellable" value="  empty potion flask,7634,5;  empty potion flask,7635,5;  empty potion flask,7636,5;  vial,2006,5;"/>
+	</parameters>
+</npc>

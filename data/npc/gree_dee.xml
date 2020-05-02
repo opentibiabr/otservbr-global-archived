@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Gree Dee" walkinterval="2000" floorchange="0" script="gree_dee.lua">
+	<health now="100" max="100"/>
+	<look type="129" head="97" body="77" legs="87" feet="115" addons="0"/>
+<voices>
+<voice text="Come and buy at a cheap rate!" interval2="100" margin="1" yell="no"/>
+<voice text="Feel FREE to buy my ITEMS!" interval2="120" margin="1" yell="yes"/>
+</voices>
+<parameters>
+		<parameter key="module_shop" value="1"/>
+		 <parameter key="message_farewell" value="You really should have bought some extra stuff, just in case."/>
+		 <parameter key="message_walkaway" value="You really should have bought some extra stuff, just in case."/>
+		<parameter key="message_sendtrade" value="You will not believe how cheap my items are."/>
+		<parameter key="message_greet" value="Be greeted esteemed customer with a full purse!"/>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="    brocade backpack, 9774, 20;    brocade bag, 9775, 5;    fishing rod, 2580, 150;    hand auger, 36169, 25;    machete, 2420, 40;    net, 36324, 50;    pick, 2553, 50;    present, 1990, 10;    rope, 2120, 50;    scroll, 1949, 5;    scythe, 2550, 50;    shovel, 2554, 50;    torch, 2050, 2;    valentine's card, 6538, 30;    watch, 6091, 20;    worm, 3976, 1"/>
+		<parameter key="shop_sellable" value="    rope,2120,8;    empty potion flask, 7634, 5;    empty potion flask, 7635, 5;    empty potion flask, 7636, 5;    vial, 2006, 5"/>
+	</parameters>
+</npc>

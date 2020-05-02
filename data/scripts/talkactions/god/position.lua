@@ -1,6 +1,6 @@
-local talk = TalkAction("/pos")
+local position = TalkAction("/pos")
 
-function talk.onSay(player, words, param)
+function position.onSay(player, words, param)
 
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
@@ -15,10 +15,11 @@ function talk.onSay(player, words, param)
 	elseif split and param ~= "" then
 		player:teleportTo(Position(split[1], split[2], split[3]))
 	elseif param == "" then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your current position is: " .. position.x .. ", " .. position.y .. ", " .. position.z .. ".")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your current position is:\
+		" .. position.x .. ", " .. position.y .. ", " .. position.z .. ".")
 	end
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+position:separator(" ")
+position:register()

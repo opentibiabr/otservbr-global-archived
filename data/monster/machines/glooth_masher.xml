@@ -2,51 +2,50 @@
 <monster name="Glooth Masher" nameDescription="a glooth masher" race="venom" experience="2200" speed="260">
 	<health now="2700" max="2700"/>
 	<look type="600" corpse="23343"/>
-  <targetchange interval="5000" chance="8" />
-  <flags>
-    <flag summonable="0" />
-    <flag attackable="1" />
-    <flag hostile="1" />
-    <flag illusionable="0" />
-    <flag convinceable="0" />
-    <flag pushable="0" />
-    <flag canpushitems="1" />
-    <flag canpushcreatures="1" />
-    <flag targetdistance="1" />
-    <flag staticattack="90" />
-    <flag runonhealth="0" />
-	<flag isblockable="0" />
-	<!-- <flag preyable="0"/> -->
-  </flags>
-  <attacks>
-    <attack name="melee" interval="2000" skill="60" attack="50" />
-    <attack name="melee" interval="2000" chance="2" skill="86" attack="100" /><!-- BLOOD RAGE -->
-    <attack name="energy" interval="2000" chance="25" range="7" min="-125" max="-245">
-      <attribute key="shootEffect" value="energy" />
-    </attack>
-    <attack name="war golem skill reducer" interval="2000" chance="16"/>
-    <attack name="war golem electrify" interval="2000" chance="9" range="7"/>
-  </attacks>
-  <defenses armor="40" defense="45">
-    <defense name="speed" interval="2000" chance="13" speedchange="404" duration="4000">
-      <attribute key="areaEffect" value="redshimmer" />
-    </defense>
-    <defense name="healing" interval="2000" chance="20" min="200" max="250">
-      <attribute key="areaEffect" value="blueshimmer" />
-    </defense>
-  </defenses>
-  <elements>
-    <element holyPercent="15" />
-    <element firePercent="10" />
-    <element energyPercent="5" />
-    <element physicalPercent="10" />
-    <element deathPercent="30" />
-  </elements>
-  <immunities>
-    <immunity invisible="1" />
-	<immunity earth="1" />
-    <immunity paralyze="1" />
-  </immunities>
-	<loot>
-	</loot>
+	<targetchange interval="5000" chance="8" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag isblockable="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="60" attack="50" />
+		<attack name="melee" interval="2000" chance="2" skill="86" attack="100" />
+		<!-- blood rage -->
+		<attack name="energy" interval="2000" chance="25" range="7" min="-125" max="-245">
+			<attribute key="shootEffect" value="energy" />
+		</attack>
+		<attack name="war golem skill reducer" interval="2000" chance="16"/>
+		<attack name="war golem electrify" interval="2000" chance="9" range="7"/>
+	</attacks>
+	<defenses armor="40" defense="45">
+		<defense name="speed" interval="2000" chance="13" speedchange="404" duration="4000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="healing" interval="2000" chance="20" min="200" max="250">
+			<attribute key="areaEffect" value="blueshimmer" />
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="15" />
+		<element firePercent="10" />
+		<element energyPercent="5" />
+		<element physicalPercent="10" />
+		<element deathPercent="30" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity earth="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot></loot>
 </monster>

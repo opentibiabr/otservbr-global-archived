@@ -97,7 +97,7 @@ Blessings.sendBlessStatus = function(player, curBless)
 		curBless = player:getBlessings(callback) -- ex: {1, 2, 5, 7}
 	end
 	Blessings.DebugPrint(#curBless, "sendBlessStatus curBless")
-	if player:getClient().version >= 1120 then 
+	if player:getClient().version >= 1120 then
 		local bitWiseCurrentBless = 0
 		local blessCount = 0
 		for i = 1, #curBless do
@@ -111,7 +111,7 @@ Blessings.sendBlessStatus = function(player, curBless)
 		if blessCount > 5 and Blessings.Config.InventoryGlowOnFiveBless then
 			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, 1)
 		end
-		msg:addU16(bitWiseCurrentBless)  
+		msg:addU16(bitWiseCurrentBless)
 		dlgBtnColour = 1
 		if blessCount >= 7 then
 			dlgBtnColour = 3
@@ -131,9 +131,9 @@ end
 Blessings.sendBlessDialog = function(player)
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessDialog)
-	
+
 	callback = function(k) return true end
-	local curBless = player:getBlessings()	
+	local curBless = player:getBlessings()
 
 	msg:addByte(Blessings.Config.HasToF and #Blessings.All or (#Blessings.All - 1)) -- total blessings
 	for k = 1, #Blessings.All do
@@ -151,11 +151,11 @@ Blessings.sendBlessDialog = function(player)
 		PvPmaxXPLoss = math.floor(PvPminXPLoss * 1.15)
 	end
 	local PvEXPLoss = PvPminXPLoss
-	
+
 	local playerAmulet = player:getSlotItem(CONST_SLOT_NECKLACE)
 	local haveSkull = player:getSkull() >= 4
 	hasAol = (playerAmulet and playerAmulet:getId() == ITEM_AMULETOFLOSS)
-	
+
 	equipLoss = Blessings.LossPercent[#curBless].item
 	if haveSkull then
 		equipLoss = 100
@@ -291,7 +291,7 @@ Blessings.ClearBless = function(player, killer, currentBless)
 		return
 	end
 	for i = 1, #currentBless do
-		
+
 		Blessings.DebugPrint(i, "ClearBless curBless i", " | "..currentBless[i].name)
 		player:removeBlessing(currentBless[i].id, 1)
 	end
@@ -332,7 +332,7 @@ Blessings.BuyAllBlesses = function(player)
 		player:sendCancelMessage("You don't have enough money. You need " .. totalCost .. " to buy all blesses.", cid)
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
-	
+
 end
 
 Blessings.PlayerDeath = function(player, corpse, killer)
@@ -343,7 +343,7 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 
 	if haveSkull then  -- lose all bless + drop all items
 		Blessings.DropLoot(player, corpse, 100, true)
-	elseif #curBless < 5 and not hasAol then -- lose all items 
+	elseif #curBless < 5 and not hasAol then -- lose all items
 		local equipLoss = Blessings.LossPercent[#curBless].item
 		Blessings.DropLoot(player, corpse, equipLoss)
 	elseif #curBless < 5 and hasAol and not hasToF then
@@ -355,7 +355,7 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 	if not player:getSlotItem(CONST_SLOT_BACKPACK) then
 		player:addItem(ITEM_BAG, 1, false, CONST_SLOT_BACKPACK)
 	end
-	
+
 	return true
 end
 
@@ -364,7 +364,7 @@ function Player.getBlessings(self, filter, hasblessingFilter)
 	if filter == nil then
 		filter = function(b) return b.losscount end
 	end
-	
+
 	if hasblessingFilter == nil then
 		hasblessingFilter = function(p, b) return p:hasBlessing(b) end
 	end

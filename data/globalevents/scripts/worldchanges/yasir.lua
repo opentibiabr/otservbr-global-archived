@@ -61,24 +61,24 @@ function onStartup()
 			local randTown = config[math.random(#config)]
 			print('>> Yasir: '.. randTown.mapName ..'. ')
 			iterateArea(
-				function(position)
-					local tile = Tile(position)
-					if tile then
-						local items = tile:getItems()
-						if items then
-							for i = 1, #items do
-								items[i]:remove()
-							end
-						end
-
-						local ground = tile:getGround()
-						if ground then
-							ground:remove()
+			function(position)
+				local tile = Tile(position)
+				if tile then
+					local items = tile:getItems()
+					if items then
+						for i = 1, #items do
+							items[i]:remove()
 						end
 					end
-				end,
-				randTown.fromPosition,
-				randTown.toPosition
+
+					local ground = tile:getGround()
+					if ground then
+						ground:remove()
+					end
+				end
+			end,
+			randTown.fromPosition,
+			randTown.toPosition
 			)
 
 			if randTown.removeItems then

@@ -52,7 +52,6 @@ function onThink(interval, lastExecution, thinkInterval)
 	if raids[date] then
 		raidDays[#raidDays + 1] = raids[date]
 	end
-
 	if #raidDays == 0 then
 		return true
 	end
@@ -64,6 +63,5 @@ function onThink(interval, lastExecution, thinkInterval)
 			settings.alreadyExecuted = true
 		end
 	end
-
 	return true
 end

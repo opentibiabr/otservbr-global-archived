@@ -1,6 +1,6 @@
-local talk = TalkAction("/up")
+local up = TalkAction("/up")
 
-function talk.onSay(player, words, param)
+function up.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -11,5 +11,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+up:separator(" ")
+up:register()

@@ -1,6 +1,6 @@
-local talk = TalkAction("/set")
+local storageSet = TalkAction("/set")
 
-function talk.onSay(cid, words, param)
+function storageSet.onSay(cid, words, param)
 	local player = Player(cid)
 	if not player:getGroup():getAccess() then
 		return true
@@ -32,5 +32,5 @@ function talk.onSay(cid, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+storageSet:separator(" ")
+storageSet:register()

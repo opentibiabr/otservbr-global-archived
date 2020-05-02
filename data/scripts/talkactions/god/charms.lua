@@ -1,6 +1,6 @@
-local talk = TalkAction("/addcharms")
+local addCharm = TalkAction("/addcharms")
 
-function talk.onSay(player, words, param)
+function addCharm.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -21,18 +21,19 @@ function talk.onSay(player, words, param)
 	end
 	--trim left
 	split[2] = split[2]:gsub("^%s*(.-)$", "%1")
-	
+
 	player:sendCancelMessage("Added " .. split[2] .. " charm points to character '" .. target:getName() .. "'.")
 	target:sendCancelMessage("Received " .. split[2] .. " charm points!")
 	target:addCharmPoints(tonumber(split[2]))
-    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+	target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
-talk:separator(" ")
-talk:register()
-local talk = TalkAction("/resetcharms")
+addCharm:separator(" ")
+addCharm:register()
 
-function talk.onSay(player, words, param)
+local resetCharm = TalkAction("/resetcharms")
+
+function resetCharm.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -46,7 +47,7 @@ function talk.onSay(player, words, param)
 		return false
 	end
 
-	player:sendCancelMessage("Reseted charm points from character '" .. target:getName() .. "'.")	
+	player:sendCancelMessage("Reseted charm points from character '" .. target:getName() .. "'.")
 	target:sendCancelMessage("Reseted your charm points!")
 	target:setCharmPoints(0)
 	target:setCharmRuneSlotExpansion(false)
@@ -55,18 +56,16 @@ function talk.onSay(player, words, param)
 		target:resetCharmRuneCreature(Bestiary.Charms[charm])
 	end
 	target:setCharmUnlockedRuneBit(0)
-    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+	target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
 
+resetCharm:separator(" ")
+resetCharm:register()
 
-talk:separator(" ")
-talk:register()
+local charmExpansion = TalkAction("/charmexpansion")
 
-
-local talk = TalkAction("/charmexpansion")
-
-function talk.onSay(player, words, param)
+function charmExpansion.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -80,21 +79,19 @@ function talk.onSay(player, words, param)
 		return false
 	end
 
-	player:sendCancelMessage("Added charm expansion for player '" .. target:getName() .. "'.")	
+	player:sendCancelMessage("Added charm expansion for player '" .. target:getName() .. "'.")
 	target:sendCancelMessage("Received charm expansion!")
 	target:setCharmRuneSlotExpansion(true)
-    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+	target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
 
+charmExpansion:separator(" ")
+charmExpansion:register()
 
-talk:separator(" ")
-talk:register()
+local charmRune = TalkAction("/charmrunes")
 
-
-local talk = TalkAction("/charmrunes")
-
-function talk.onSay(player, words, param)
+function charmRune.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -108,25 +105,23 @@ function talk.onSay(player, words, param)
 		return false
 	end
 
-	player:sendCancelMessage("Added all charm runes to '" .. target:getName() .. "'.")	
+	player:sendCancelMessage("Added all charm runes to '" .. target:getName() .. "'.")
 	target:sendCancelMessage("Received all charm runes!")
 	local playerCurBit = target:getCharmUnlockedRunesBit()
 	for i, charm in pairs(Bestiary.Charms) do
 		playerCurBit = Bestiary.bitToggle(playerCurBit, charm.id, true)
 	end
 	target:setCharmUnlockedRuneBit(playerCurBit)
-    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+	target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 
 end
 
+charmRune:separator(" ")
+charmRune:register()
 
-talk:separator(" ")
-talk:register()
+local setBestiary = TalkAction("/setbestiary")
 
-
-local talk = TalkAction("/setbestiary")
-
-function talk.onSay(player, words, param)
+function setBestiary.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -146,7 +141,7 @@ function talk.onSay(player, words, param)
 		player:sendCancelMessage("A player with that name is not online.")
 		return false
 	end
-	
+
 	split[2] = split[2]:gsub("^%s*(.-)$", "%1") --Trim left
 	split[3] = split[3]:gsub("^%s*(.-)$", "%1") --Trim left
 
@@ -157,12 +152,12 @@ function talk.onSay(player, words, param)
 	end
 	local amount = tonumber(split[3])
 
-	player:sendCancelMessage("Set bestiary kill of monster '".. split[2] .. "' from player '" .. target:getName() .. "' to '" .. amount .. "'.")	
+	player:sendCancelMessage("Set bestiary kill of monster '".. split[2] .. "' from player '" .. target:getName() .. "' to '" .. amount .. "'.")
 	target:sendCancelMessage("Updated kills of monster '".. split[2] .. "'!")
 	local playerCurBit = target:setBestiaryKillCount(monsterID, amount)
-    target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
+	target:getPosition():sendMagicEffect(CONST_ME_HOLYAREA)
 end
 
 
-talk:separator(" ")
-talk:register()
+setBestiary:separator(" ")
+setBestiary:register()

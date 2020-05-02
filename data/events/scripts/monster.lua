@@ -30,7 +30,7 @@ function Monster:onDropLoot(corpse)
 			end
 			player:updateKillTracker(self, corpse)
 		end
-		
+
 	else
 		local text = ("Loot of %s: nothing (due to low stamina)"):format(mType:getNameDescription())
 		local party = player:getParty()
@@ -60,7 +60,8 @@ function Monster:onSpawn(position)
 
 		if self:getName():lower() == 'iron servant replica' then
 			local chance = math.random(100)
-			if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.MechanismDiamond) >= 1 and Game.getStorageValue(GlobalStorage.ForgottenKnowledge.MechanismGolden) >= 1 then
+			if Game.getStorageValue(GlobalStorage.ForgottenKnowledge.MechanismDiamond) >= 1
+			and Game.getStorageValue(GlobalStorage.ForgottenKnowledge.MechanismGolden) >= 1 then
 				if chance > 30 then
 					local chance2 = math.random(2)
 					if chance2 == 1 then

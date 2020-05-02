@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Rafzan" walkinterval="2000" floorchange="0" script="rafzan.lua">
+	<health now="100" max="100"/>
+	<look type="540"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="message_greet" value="Hello, hello. Me peaceful, poor and honest goblin. Are you lookin' for {trade}?"/>
+		<parameter key="message_farewell" value="Bye, little adventurer."/>
+		<parameter key="shop_buyable" value="Backpack,1988,10;Bag,1987,4;Fishing Rod,2580,150;Rope,2120,50;Shovel,2554,10;Scythe,2550,12;Torch,2050,2;Worm,3976,1;"/>
+		<parameter key="shop_sellable" value="Fishing Rod,2580,30;Leather Harness,20126,750;Ratana,20092,500;Rope,2120,8;Shovel,2554,2;Spike Shield,20090,250;Spiky Club,20139,300;Life Preserver,20093,300;"/>
+		<parameter key="message_sendtrade" value="Ah, you too clever for me to make any meagre profit. Just please, please don't rob poor stupid goblin too much, you master of shrewd trading."/>
+	</parameters>
+</npc>

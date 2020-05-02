@@ -5,8 +5,10 @@ Note that it is used to create action and unique in game by Lua.
 The script responsible for this load is found in the folder data/scripts/globalevents/load_attributes.lua
 
 For example:
-{actionId = 101, itemId = 355,
-		itemPos= Position (32774, 32289, 10)
+{
+	actionId = 101,
+	itemId = 355,
+	itemPos = Position(32774, 32289, 10)
 	},
 
 ]]
@@ -29,7 +31,6 @@ ActionTable = {
 	[102] = well down action
 	[1000 = level door. Here 1 must be used followed by the level. Example: 1010 = level 10, 1100 = level 100]
 	]]
-
 	{
 		actionId = 24890,
 		itemId = 4552,
@@ -37,7 +38,6 @@ ActionTable = {
 		storage = Storage.FirstDragon.DesertTile,
 		msg = "You enter the beautiful oasis. \
 		By visiting this sacred site you're infused with the power of water bringing life to the desert."
-
 	},
 	{
 		actionId = 24890,
@@ -46,7 +46,6 @@ ActionTable = {
 		storage = Storage.FirstDragon.DesertTile,
 		msg = "You enter the beautiful oasis. \
 		By visiting this sacred site you're infused with the power of water bringing life to the desert."
-
 	},
 	{
 		actionId = 24891,
@@ -55,7 +54,6 @@ ActionTable = {
 		storage = Storage.FirstDragon.StoneSculptureTile,
 		msg = "You enter the circle of trees and flowers. \
 		By visiting this sacred site you're infused with the power of nature and plants."
-
 	},
 	{
 		actionId = 24891,
@@ -64,7 +62,6 @@ ActionTable = {
 		storage = Storage.FirstDragon.StoneSculptureTile,
 		msg = "You enter the circle of trees and flowers. \
 		By visiting this sacred site you're infused with the power of nature and plants."
-
 	},
 	{
 		actionId = 24892,
@@ -73,7 +70,6 @@ ActionTable = {
 		storage = Storage.FirstDragon.SuntowerTile,
 		msg = "You entered the suntower of Ab'dendriel. \
 		By visiting this sacred site you're infused with the power of the life-giving sun."
-
 	},
 	{
 		actionId = 24892,
@@ -114,7 +110,6 @@ UniqueTable = {
 		itemPos= Position(32652, 32107, 7),
 		keyAction = 4055, itemReward = 2088,
 		storage = Storage.Quest.Panpipe.Key4055Reward
-
 	},
 
 	-- Rewards without a container, it is only received by the player, are the common rewards.
@@ -123,42 +118,32 @@ UniqueTable = {
 	[14001] = {
 		itemId = 26408,
 		itemPos= Position(32349, 32194, 9),
-		itemReward = {{26654, 1}
-	},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward1
-
 	},
 	[14002] = {
 		itemId = 26408,
 		itemPos= Position(32382, 32368, 9),
-		itemReward = {{26654, 1}
-	},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward2
-
 	},
 	[14003] = {
 		itemId = 26408,
 		itemPos= Position(32287, 32119, 7),
-		itemReward = {{26654, 1}
-	},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward3
-
 	},
 	[14004] = {
 		itemId = 26409,
 		itemPos= Position(32389, 32001, 6),
-		itemReward = {{26654, 1}
-	},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward4
-
 	},
 	[14005] = {
 		itemId = 26408,
 		itemPos= Position(32449, 32109, 8),
-		itemReward = {{26654, 1}
-	},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward5
-
 	},
 
 	-- Reward inside of container, there is also the option to put a key inside.
@@ -169,14 +154,11 @@ UniqueTable = {
 		itemId = xxxx,
 		itemPos= Position(xxxxx, xxxxx, xx),
 		itemBag = xxxx,
-		keyItem = xxxx, keyAction = xxxx,
-		itemReward = {{xxxx, x
-	}, {xxxx, x
-	}, {xxxx, x}
-	},
+		keyItem = xxxx,
+		keyAction = xxxx,
+		itemReward = {{xxxx, x}, {xxxx, x}, {xxxx, x}},
 		weight = xxxx,
 		storage = Storage.Quest.QuestName
-
 	},
 	]]
 
@@ -200,8 +182,7 @@ UniqueTable = {
 		destination = Position(33395, 32658, 6),
 		effect = CONST_ME_TELEPORT
 	},
-
-	-- The first dragon Quest Start
+	-- The First dragon Quest
 	-- Treasure Chests Start
 	[24851] = {
 		itemId = 27545,
@@ -344,70 +325,83 @@ UniqueTable = {
 		count = 3
 	},
 	-- Final Reward End
+	-- The First Dragon Lever
 	[24874] = {
 		itemId = 9825,
 		itemPos= Position(33583, 30992, 14)
-	}, -- The First Dragon lever.
+	},
+	-- Tazhadur entrance
 	[24882] = {
 		itemId = 9565,
 		itemPos= Position(33234, 32276, 12),
 		storage = Storage.FirstDragon.DragonCounter,
-		value = 200, range = 10, timer = Storage.FirstDragon.TazhadurTimer,
+		value = 200, range = 10,
+		timer = Storage.FirstDragon.TazhadurTimer,
 		newPos = Position(32015, 32466, 8),
 		bossName = 'Tazhadur',
 		bossPos = Position(32018, 32465, 8)
-	}, -- Tazhadur entrance.
+	},
+	-- Kalyassa entrance
 	[24883] = {
 		itemId = 9562,
 		itemPos= Position(33160, 31320, 5),
 		storage = Storage.FirstDragon.ChestCounter,
-		value = 5, range = 10, timer = Storage.FirstDragon.KalyassaTimer,
+		value = 5, range = 10,
+		timer = Storage.FirstDragon.KalyassaTimer,
 		newPos = Position(32078, 32456, 8),
 		bossName = 'Kalyassa',
 		bossPos = Position(32079, 32459, 8)
-	}, -- Kalyassa entrance.
+	},
+	-- Zorvorax entrance
 	[24884] = {
 		itemId = 9564,
 		itemPos= Position(33003, 31593, 11),
 		storage = Storage.FirstDragon.SecretsCounter,
-		value = 3, range = 10, timer = Storage.FirstDragon.ZorvoraxTimer,
+		value = 3, range = 10,
+		timer = Storage.FirstDragon.ZorvoraxTimer,
 		newPos = Position(32008, 32396, 8),
 		bossName = 'Zorvorax',
 		bossPos = Position(32015, 32396, 8)
-	}, -- Zorvorax entrance.
+	},
+	-- Gelidrazah entrance
 	[24885] = {
 		itemId = 9563,
 		itemPos= Position(32276, 31367, 4),
 		storage = Storage.FirstDragon.GelidrazahAccess,
-		value = 1, range = 10, timer = Storage.FirstDragon.GelidrazahTimer,
+		value = 1, range = 10,
+		timer = Storage.FirstDragon.GelidrazahTimer,
 		newPos = Position(32076, 32402, 8),
 		bossName = 'Gelidrazah The Frozen',
 		bossPos = Position(32078, 32400, 8)
-	}, -- Gelidrazah entrance.
+	},
+	-- Tazhadur exit
 	[24886] = {
 		itemId = 9565,
 		itemPos= Position(32013, 32467, 8),
 		backPos  = Position(33234, 32278, 12)
-	}, -- Tazhadur exit.
+	},
+	-- Kalyassa exit
 	[24887] = {
 		itemId = 9562,
 		itemPos= Position(32076, 32457, 8),
 		backPos  = Position(33162, 31320, 5)
-	}, -- Kalyassa exit.
+	},
+	-- Zorvorax exit
 	[24888] = {
 		itemId = 9564,
 		itemPos= Position(32006, 32395, 8),
 		backPos  = Position(33002, 31595, 11)
-	}, -- Zorvorax exit.
+	},
+	-- Gelidrazah exit
 	[24889] = {
 		itemId = 9563,
 		itemPos= Position(32077, 32404, 8),
 		backPos  = Position(32278, 31367, 4)
-	}, -- Gelidrazah exit.
+	},
 	[24893] = {
 		itemId = 2743,
 		itemPos= Position(33608, 31022, 14)
-	}, --
+	},
 	[24894] = {
 		itemId = 1387,
 		itemPos= Position(33597, 30996, 14),
@@ -423,8 +417,25 @@ UniqueTable = {
 		itemPos= Position(31994, 32390, 9),
 		destination = Position(33047, 32713, 3)
 	},
-	-- The first dragon Quest End
-
+	-- The Shattered Isles
+	[24897] = {
+		itemId = 5677,
+		itemPos = Position(31938, 32837, 7),
+		name = 'tortoise egg from Nargor',
+		count = 1
+	},
+    [24906] = {
+		storage = Storage.TheShatteredIsles.TavernMap1,
+		message = "You have sucessfully read plan A."
+	},
+    [24907] = {
+		storage = Storage.TheShatteredIsles.TavernMap2,
+		message = "You have sucessfully read plan B."
+	},
+    [24908] = {
+		storage = Storage.TheShatteredIsles.TavernMap3,
+		message = "You have sucessfully read plan C."
+	},
 	-- Insectoid cell
 	[25001] = {
 		itemId = 14437,

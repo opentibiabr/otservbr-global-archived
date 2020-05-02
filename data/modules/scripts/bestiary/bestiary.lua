@@ -1,3 +1,4 @@
+
 Bestiary = {}
 
 Bestiary.Credits = {
@@ -88,7 +89,8 @@ Bestiary.sendCreatures = function(player, msg)
 	for i = 1, #monsterIDs do
 		msg:addU16(monsterIDs[i]) -- monster name
 		if creaturesKilled[monsterIDs[i]] ~= nil then
-			msg:addU16(Bestiary.GetKillStatus(Bestiary.Monsters[monsterIDs[i]], creaturesKilled[monsterIDs[i]])) -- monster kill count (starts by 1)
+			-- monster kill count (starts by 1)
+			msg:addU16(Bestiary.GetKillStatus(Bestiary.Monsters[monsterIDs[i]], creaturesKilled[monsterIDs[i]]))
 		else
 			msg:addByte(0) --Blacks out unknown monsters
 		end
@@ -133,24 +135,24 @@ Bestiary.sendCharms = function(player, msg)
 		local charm = Bestiary.Charms[k]
 		msg:addByte(k) -- id
 		msg:addString(charm.name) --name
-		msg:addString(charm.description) --description
-		msg:addByte(0) --TODO unknown (unlocked?) 0 ok | 1-2 não faz nada | 3+ n�o testado
+		msg:addString(charm.description) -- description
+		msg:addByte(0) --TODO unknown (unlocked?) 0 ok | 1-2 does nothing | 3+ no tested
 		msg:addU16(charm.points) --charm points needed charm.points
 
 		--if player:hasCharmRune(charm) then
 		if player:hasCharmUnlockedRuneBit(charm, playerCurBit) then
-			msg:addByte(1) -- Charm liberado = 1 | bloqueado = 0
+			msg:addByte(1) -- Charm unlocked = 1 | locked = 0
 			local charmCreature = player:getCharmRuneCreature(charm)
 			if charmCreature > 0 then
-				msg:addByte(1) -- Tem criatura selecionada
+				msg:addByte(1) -- Has creature selected
 				msg:addU16(charmCreature)
 				msg:addU32(removeRuneCost)
 			else
-				msg:addByte(0) -- Não Tem criatura selecionada
+				msg:addByte(0) -- Has no creature selected
 			end
 		else
-			msg:addByte(0) -- charm bloqueado
-			msg:addByte(0) -- nenhum monstro selecionado
+			msg:addByte(0) -- Charm locked
+			msg:addByte(0) -- Has no creature selected
 		end
 	end
 	msg:addByte(4) -- 0x4?? 0x10??
@@ -168,7 +170,9 @@ Bestiary.sendCharms = function(player, msg)
 
 	msg:addU16(#finishedMonsters)
 	for i = 1, #finishedMonsters do
-		msg:addU16(finishedMonsters[i]) -- monster id que já foram terminados, pra poder selecionar no charm (menos monstros que ja tem charm aplicado)
+		-- monster id that have already been finished
+		-- to be able to select the charm (less monsters that already have charm applied)
+		msg:addU16(finishedMonsters[i])
 	end
 
 	msg:sendToPlayer(player)
@@ -218,7 +222,8 @@ Bestiary.sendBuyCharmRune = function(player, msg)
 				"Creature has been set!\n\nYou are not a Premium player, so you can only benefit from up to " ..
 				limitRunes ..
 					" runes!\nPremium players can hold up to " ..
-						Bestiary.Config.PremiumRunesAmount .. " creatures at once.\nCharm Expansion allow you to set creatures to all runes at once!"
+						Bestiary.Config.PremiumRunesAmount .. " creatures at once.\nCharm Expansion \
+						allow you to set creatures to all runes at once!"
 		end
 		if limitRunes <= #usedRunes then
 			player:popupFYI("You don't have any charm slots available.")
@@ -338,23 +343,23 @@ Bestiary.sendMonsterData = function(player, msg)
 		local monsterElements = Bestiary.getMonsterElements(monster)
 
 	-- elements size
-        msg:addByte(#monsterElements)
-        local i = 0
-        for _, value in pairs(monsterElements) do
-            -- elements id
-            msg:addByte(i)
+		msg:addByte(#monsterElements)
+		local i = 0
+		for _, value in pairs(monsterElements) do
+			-- elements id
+			msg:addByte(i)
 
-            -- element percent
-            msg:addU16(value)
+			-- element percent
+			msg:addU16(value)
 
-            i = i + 1
+			i = i + 1
 		end
-		
+
 		-- locations
 		msg:addU16(1)
 		msg:addString(bestiaryMonster.Locations)
-		
-    end
+
+	end
 
 	if currentLevel > 3 then
 		-- charm things
@@ -601,7 +606,10 @@ function Player.sendBestiaryEntryChanged(self, monsterID)
 	msg:sendToPlayer(self)
 end
 
-Bestiary.bitToggle = function(input, id, on) -- to add, we use |, which means OR, which in turns make sue that the final number has the flags which both of the left sided and right sided has
+-- To add, we use
+-- Which means OR
+-- Which in turns make sue that the final number has the flags which both of the left sided and right sided has
+Bestiary.bitToggle = function(input, id, on)
 	if on then
 		return bit.bor(input, Bestiary.CharmsBinaries[id])
 	else

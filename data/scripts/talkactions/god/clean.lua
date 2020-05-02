@@ -1,6 +1,6 @@
-local talk = TalkAction("/clean")
+local clean = TalkAction("/clean")
 
-function talk.onSay(player, words, param)
+function clean.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -12,5 +12,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+clean:separator(" ")
+clean:register()

@@ -18,7 +18,6 @@ function onStepIn(creature, item, position, fromPosition)
 	if wallItem then
 		wallItem:remove()
 	end
-
 	item:transform(item.itemid - 1)
 	return true
 end
@@ -37,7 +36,6 @@ function onStepOut(creature, item, position, fromPosition)
 	if not Tile(wall.position):getItemById(wall.itemId) then
 		Game.createItem(wall.itemId, 1, wall.position)
 	end
-
 	item:transform(item.itemid + 1)
 	return true
 end
