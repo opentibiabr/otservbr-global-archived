@@ -1,0 +1,50 @@
+name: Check Build on Ubuntu
+
+on:
+
+  push:
+    paths:
+      - cmake/**
+      - src/**
+      - CMakeLists.txt
+
+  pull_request:
+    paths:
+      - cmake/**
+      - src/**
+      - CMakeLists.txt
+
+jobs:
+  job:
+    name: ${{ matrix.os }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
+        buildtype: [Debug, Release]
+        luajit: [on, off]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: >
+        sudo apt install cmake build-essential liblua5.2-dev libgmp3-dev
+        libmysqlclient-dev libboost-system-dev libboost-iostreams-dev
+        libboost-filesystem-dev libpugixml-dev libcrypto++-dev libspdlog-dev
+
+    - name: Prepare build Environment
+      run: |
+        mkdir build && cd build
+        cmake -DCMAKE_BUILD_TYPE=${{ matrix.buildtype }} -DUSE_LUAJIT=${{ matrix.luajit }} ..
+
+    - name: Build
+      run: |
+        cd build
+        make -j `nproc`
+
+    - name: Upload binary
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.os }}-otbr-amd64-${{ matrix.buildtype }}-LUAJIT=${{ matrix.luajit }}-${{ github.sha }}
+        path: ${{ runner.workspace }}/otservbr-global/build/otbr
