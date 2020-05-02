@@ -76,13 +76,16 @@ function reload.onSay(player, words, param)
 	logCommand(player, words, param)
 
 	local reloadType = reloadTypes[param:lower()]
-	if not reloadType then
+	if reloadType then
+		Game.reload(reloadType)
+		player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Reloaded %s.", param:lower()))
+		print("Reloaded: " .. param:lower() .. ".")
+		return true
+	elseif not reloadType then
 		player:sendCancelMessage("Reload type not found.")
+		print("Reload type not found.")
 		return false
 	end
-
-	Game.reload(reloadType)
-	player:sendTextMessage(MESSAGE_INFO_DESCR, string.format("Reloaded %s.", param:lower()))
 	return false
 end
 
