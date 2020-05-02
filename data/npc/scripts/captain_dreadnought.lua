@@ -8,9 +8,9 @@ local town = {}
 local config = {
 
 	towns = {
-		["venore"] = 9,
-		["thais"] = 8,
-		["carlin"] = 6
+		["venore"] = TOWNS_LIST.VENORE,
+		["thais"] = TOWNS_LIST.THAIS,
+		["carlin"] = TOWNS_LIST.CARLIN
 	},
 
 	vocations = {

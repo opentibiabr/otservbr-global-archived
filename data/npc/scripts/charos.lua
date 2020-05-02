@@ -4,16 +4,16 @@ NpcSystem.parseParameters(npcHandler)
 
 local config = {
 	towns = {
-		["venore"] = 9,
-		["thais"] = 8,
-		["kazordoon"] = 7,
-		["carlin"] = 6,
-		["ab\'dendriel"] = 5,
-		["liberty bay"] = 14,
-		["port hope"] = 15,
-		["ankrahmun"] = 10,
-		["darashia"] = 13,
-		["edron"] = 11
+		["venore"] = TOWNS_LIST.VENORE,
+		["thais"] = TOWNS_LIST.THAIS,
+		["kazordoon"] = TOWNS_LIST.KAZORDOON,
+		["carlin"] = TOWNS_LIST.CARLAIN,
+		["ab'dendriel"] = TOWNS_LIST.AB_DENDRIEL,
+		["liberty bay"] = TOWNS_LIST.LIBERTY_BAY,
+		["port hope"] = TOWNS_LIST.PORT_HOPE,
+		["ankrahmun"] = TOWNS_LIST.ANKRAHMUN,
+		["darashia"] = TOWNS_LIST.DARASHIA,
+		["edron"] = TOWNS_LIST.EDRON
 	},
 }
 
