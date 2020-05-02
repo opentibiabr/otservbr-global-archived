@@ -47,7 +47,7 @@
 	<!-- adventurers_guild -->
 	<event type="kill" name="TheGreatDragonHuntKill" script="quests/adventurers_guild/the_great_dragon_hunt.lua"/>
 	<!-- bigfoots_burden_quest -->
-	<event type="death" name="BossDeath" script="quests/bigfoot_burden/boss_room_kick.lua"/>
+	<event type="death" name="BossWarzoneDeath" script="quests/bigfoot_burden/boss_room_kick.lua"/>
 	<event type="kill" name="BossesWarzone" script="quests/bigfoot_burden/bosses_warzone.lua"/>
 	<event type="kill" name="ParasiteWarzone" script="quests/bigfoot_burden/parasite.lua"/>
 	<event type="kill" name="VersperothKill" script="quests/bigfoot_burden/versperoth_kill.lua"/>
