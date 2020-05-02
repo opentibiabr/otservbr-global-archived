@@ -49,7 +49,7 @@ local yasirEnabled = true
 local yasirChance = 33
 
 local function spawnYasir(position)
-	local npc = Game.createNpc('Yasir', position)
+	local npc = Game.createNpc('yasir', position)
 	if npc then
 		npc:setMasterPos(position)
 	end
