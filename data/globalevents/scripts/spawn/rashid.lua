@@ -11,7 +11,7 @@ function onStartup()
 
    local day = os.date("*t").wday
    if days[day] then
-      doCreateNpc("Rashid", days[day])
+      doCreateNpc("rashid", days[day])
    else
       print("[!] -> Cannot create Rashid. Day: " .. day .. ".")
    end

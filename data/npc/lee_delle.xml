@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Lee'Delle" walkinterval="2000" floorchange="0" script="lee'_delle.lua">
+<npc name="Lee'Delle" walkinterval="2000" floorchange="0" script="lee_delle.lua">
 	<health now="100" max="100"/>
 	<look type="140" head="78" body="76" legs="72" feet="96" addons="0"/>
 	<parameters>
