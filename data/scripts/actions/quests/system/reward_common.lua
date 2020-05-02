@@ -3,19 +3,6 @@
 -- Remember to add the uniqueid at the end of the script.
 local commonReward = Action()
 
-local function checkWeightAndBackpackRoom(player, itemWeight, message)
-	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
-	if not backpack or backpack:getEmptySlots(true) < 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ", but you have no room to take it.")
-		return false
-	end
-	if (player:getFreeCapacity() / 100) < itemWeight then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ". Weighing " .. itemWeight .. " oz, it is too heavy for you to carry.")
-		return false
-	end
-	return true
-end
-
 local function playerAddItem(params)
 	local player = params.player
 	if not checkWeightAndBackpackRoom(player, params.weight, params.message) then
