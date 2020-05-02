@@ -32,7 +32,7 @@ function onEquip(player, item, slot, isCheck)
 		end
 		if player:getStorageValue(Storage.CultsOfTibia.Misguided.Mission) == 2 then
 			player:setStorageValue(Storage.CultsOfTibia.Misguided.Mission, 3)
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"The amulet burns your skin.\
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"The amulet burns your skin. \z
 			It hungers for energy right now, gather a large amount of energy as fast as possible to charge it. ")
 		end
 	end

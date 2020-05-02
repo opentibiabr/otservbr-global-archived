@@ -23,7 +23,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) < 1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You finally have enough renown among the gnomes,\
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You finally have enough renown among the gnomes, \z
 		ask Gnomission for a mission to fight on the warzones.")
 		player:teleportTo(fromPosition)
 		position:sendMagicEffect(CONST_ME_TELEPORT)

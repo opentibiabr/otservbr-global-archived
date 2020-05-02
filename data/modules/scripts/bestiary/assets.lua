@@ -42,9 +42,8 @@ Bestiary.Charms = {
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 0,
 		damageType = COMBAT_PHYSICALDAMAGE,
 		message = "You wounded the monster.",
-		description = "Triggers on a creature with a certain chance and deals 5% of \
-			of \
-			its initial hit points as physical damage once.",
+		description = "Triggers on a creature with a certain chance and deals 5% \z
+			of its initial hit points as physical damage once.",
 		type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600,
 	},
 	[1] = {
@@ -53,7 +52,7 @@ Bestiary.Charms = {
 		storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 1,
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 1,damageType = COMBAT_FIREDAMAGE,
 		message = "You enflame the monster.",
-		description = "Triggers on a creature with a certain chance and deals 5% of \
+		description = "Triggers on a creature with a certain chance and deals 5% \z
 			of its initial hit points as fire damage once.",
 		type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 1000
 	},
@@ -64,7 +63,7 @@ Bestiary.Charms = {
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 2,
 		damageType = COMBAT_EARTHDAMAGE,
 		message = "You poisoned the monster.",
-		description = "Triggers on a creature with a certain chance and deals 5% of \
+		description = "Triggers on a creature with a certain chance and deals 5% \z
 			of its initial hit points as earth damage once.",
 		type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 600
 	},
@@ -75,7 +74,7 @@ Bestiary.Charms = {
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 3,
 		damageType = COMBAT_ICEDAMAGE,
 		message = "You frozen the monster.",
-		description = "Triggers on a creature with a certain chance and deals 5% of \
+		description = "Triggers on a creature with a certain chance and deals 5% \z
 			of its initial hit points as ice damage once.",
 		type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800
 	},
@@ -86,7 +85,7 @@ Bestiary.Charms = {
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 4,
 		damageType = COMBAT_ENERGYDAMAGE,
 		message = "You eletrocuted the monster.",
-		description = "Triggers on a creature with a certain chance and deals 5% of \
+		description = "Triggers on a creature with a certain chance and deals 5% \z
 			of its initial hit points as energy damage once.",
 		type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 800
 	},
@@ -97,7 +96,7 @@ Bestiary.Charms = {
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 5,
 		damageType = COMBAT_DEATHDAMAGE,
 		message = "You curse the monster.",
-		description = "Triggers on a creature with a certain chance and deals 5% of \
+		description = "Triggers on a creature with a certain chance and deals 5% \z
 			of its initial hit points as death damage once.",
 		type = Bestiary.CharmsTypes.CHARM_OFFENSIVE, points = 900
 	},
@@ -133,7 +132,7 @@ Bestiary.Charms = {
 		storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 9,
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 9,
 		message = "Your movements where bursted.",
-		description = "Bursts of adrenaline enhance your reflexes with a certain chance \
+		description = "Bursts of adrenaline enhance your reflexes with a certain chance \z
 			after you get hit and let you move faster for 10 seconds.",
 		type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 500
 	},
@@ -150,7 +149,7 @@ Bestiary.Charms = {
 		id = 11,
 		storage = Bestiary.Storage.PLAYER_CHARM_RUNE_BASE + 11,
 		storageMonster = Bestiary.Storage.PLAYER_CHARM_RUNE_MONSTER_BASE + 11,
-		description = "Cleanses you from within with a certain chance after you get hit and \
+		description = "Cleanses you from within with a certain chance after you get hit and \z
 			removes one random active negative status effect and temporarily makes you immune against it.",
 		type = Bestiary.CharmsTypes.CHARM_DEFENSIVE, points = 700
 	},
@@ -340,7 +339,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "The Laguna Islands, Arena and Zoo Quarter, Tiquanda/Tarantula Caves, \
+		Locations = "The Laguna Islands, Arena and Zoo Quarter, Tiquanda/Tarantula Caves, \z
 		Shadowthorn Bog God Temple, Northern Zao Plantations, Northern Brimstone Bug Cave."
 	},
 	[267] = {
@@ -451,7 +450,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Various locations like Goroma, Edron, Port Hope, Nargor and other Shattered Isles. \
+		Locations = "Various locations like Goroma, Edron, Port Hope, Nargor and other Shattered Isles. \z
 		There is also one located underwater by The Tibianic, however it is unreachable."
 	},
 	[237] = {
@@ -463,7 +462,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Calassa, Frozen Trench, Sunken Quarter, Alchemist Quarter (unreachable), \
+		Locations = "Calassa, Frozen Trench, Sunken Quarter, Alchemist Quarter (unreachable), \z
 		The Inquisition Quest, Seacrest Grounds."
 	},
 	[238] = {
@@ -497,7 +496,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Malada, Arena Quarter, Treasure Island Eastern Caves, \
+		Locations = "Malada, Arena Quarter, Treasure Island Eastern Caves, \z
 		Hrodmir Quara Scout Caves, Quara Grotto, Oramond."
 	},
 	[241] = {
@@ -575,7 +574,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Goroma (beyond electric barrier), Laguna Islands, Shattered Isles, Underground Port Hope, \
+		Locations = "Goroma (beyond electric barrier), Laguna Islands, Shattered Isles, Underground Port Hope, \z
 		Mistrock, Treasure Island. There is also one underwater next to The Tibianic, however it is unreachable."
 	},
 	[437] = {
@@ -587,7 +586,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Svargrond (Sea Serpent Area), Drefia. \
+		Locations = "Svargrond (Sea Serpent Area), Drefia. \z
 		There is also one under Rookgaard Academy, however it is unreachable."
 	},
 	[697] = {
@@ -599,8 +598,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 3,
-		Locations = "Calassa, Treasure Island , Seacrest Grounds. \
-		In the Seacrest Grounds the spawns are Varying Monster Spawns in which the common creature is an Abyssal Calamary. \
+		Locations = "Calassa, Treasure Island , Seacrest Grounds. \z
+		In the Seacrest Grounds the spawns are Varying Monster Spawns in which the common creature is an Abyssal Calamary. \z
 		The chance to spawn a Crustacea Gigantica seems to be around 1%-2%."
 	},
 	[734] = {
@@ -634,7 +633,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Fiehonja. During Deeplings stage 1 around 10 spawns exist. \
+		Locations = "Fiehonja. During Deeplings stage 1 around 10 spawns exist. \z
 		Also may spawn during the gemcutting mission. Many more spawns in almost all areas of Deepling stage 2 and 3."
 	},
 	[772] = {
@@ -866,8 +865,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Sabrehaven, Rookgaard, The McRonalds Farm in Thais, Northport, \
-		Fibula, Carlin (killable but unreachable), Greenshore, Krimhorn, Orc Fortress, \
+		Locations = "Sabrehaven, Rookgaard, The McRonalds Farm in Thais, Northport, \z
+		Fibula, Carlin (killable but unreachable), Greenshore, Krimhorn, Orc Fortress, \z
 		Factory Quarter, also theres one in the farm near Edron."
 	},
 	[212] = {
@@ -912,9 +911,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Various locations, sighted in the Shattered Isles, Venore, Thais, Femor Hills, \
-		Cormaya, Edron Troll-Goblin Peninsula, Liberty Bay, Port Hope, Fibula, Drefia, Factory Quarter, \
-		bordering Orc Fort, Rookgaard Premium Zone (not reachable), AbDendriel elf caves, \
+		Locations = "Various locations, sighted in the Shattered Isles, Venore, Thais, Femor Hills, \z
+		Cormaya, Edron Troll-Goblin Peninsula, Liberty Bay, Port Hope, Fibula, Drefia, Factory Quarter, \z
+		bordering Orc Fort, Rookgaard Premium Zone (not reachable), AbDendriel elf caves, \z
 		Northern coast of Tibia between Dalbrect and Northport."
 	},
 	[318] = {
@@ -937,7 +936,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 3,
-		Locations = "Any place with penguins like, Formorgar Glacier, Helheim, Tyrsung or Svargrond. \
+		Locations = "Any place with penguins like, Formorgar Glacier, Helheim, Tyrsung or Svargrond. \z
 		Known spawn locations: west of Svargrond, up the Formorgar Glacier."
 	},
 	[561] = {
@@ -1004,9 +1003,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Maze of Lost Souls, in and around Ashta daramai, Formorgar Mines, \
-		Mad Technomancer room, Dark Cathedral, Demona, Goroma, Tarpit Tomb, Peninsula Tomb, \
-		Deeper Banuta, Forbidden Lands, Beregar Mines, Farmine Mines, Drillworm Caves, 2 caves on Hrodmir, \
+		Locations = "Maze of Lost Souls, in and around Ashta daramai, Formorgar Mines, \z
+		Mad Technomancer room, Dark Cathedral, Demona, Goroma, Tarpit Tomb, Peninsula Tomb, \z
+		Deeper Banuta, Forbidden Lands, Beregar Mines, Farmine Mines, Drillworm Caves, 2 caves on Hrodmir, \z
 		Orc Fortress (single spawn) and Medusa Tower."
 	},
 	[326] = {
@@ -1018,7 +1017,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Formorgar Glacier, Formorgar Mines, Nibelor Ice Cave, Ice Witch Temple, \
+		Locations = "Formorgar Glacier, Formorgar Mines, Nibelor Ice Cave, Ice Witch Temple, \z
 		Deeper Banuta, Crystal Caves, Chyllfroest."
 	},
 	[503] = {
@@ -1228,7 +1227,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Glooth Factory, Underground Glooth Factory, Rathleton Sewers, Jaccus Maxxens Dungeon, \
+		Locations = "Glooth Factory, Underground Glooth Factory, Rathleton Sewers, Jaccus Maxxens Dungeon, \z
 		Oramond Dungeon (depending on Magistrate votes)."
 	},
 	[1039] = {
@@ -1240,7 +1239,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, Abandoned Sewers, \
+		Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, Abandoned Sewers, \z
 		Oramond Dungeon (depending on Magistrate votes), Jaccus Maxxens Dungeon."
 	},
 	[1041] = {
@@ -1252,7 +1251,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, \
+		Locations = "Workshop Quarter, Glooth Factory, Underground Glooth Factory, \z
 		Oramond Dungeon (depending on Magistrate votes), Jaccus Maxxens Dungeon."
 	},
 	[1043] = {
@@ -1308,7 +1307,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "The Secret Library. There are also two incarcerated in the Issavi prison, \
+		Locations = "The Secret Library. There are also two incarcerated in the Issavi prison, \z
 		reachable from the city Library."
 	},
 	[1751] = {
@@ -1331,9 +1330,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Ghostlands (Warlock area; unreachable), \
-		Liberty Bay (hidden underground passage; unreachable), Razzachai, deep in Pits of Inferno \
-		(found in every throneroom except Verminor's), deep Formorgar Mines, Demon Forge, \
+		Locations = "Hero Cave, Ferumbras' Citadel, Goroma, Ghostlands (Warlock area; unreachable), \z
+		Liberty Bay (hidden underground passage; unreachable), Razzachai, deep in Pits of Inferno \z
+		(found in every throneroom except Verminor's), deep Formorgar Mines, Demon Forge, \z
 		Alchemist Quarter, Magician Quarter, Chyllfroest, Oramond Dungeon, Abandoned Sewers."
 	},
 	[40] = {
@@ -1345,7 +1344,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Desert Dungeon, Ancient Temple, Magician Tower, Shadow Tomb, Ghostlands, Goroma, \
+		Locations = "Desert Dungeon, Ancient Temple, Magician Tower, Shadow Tomb, Ghostlands, Goroma, \z
 		Plains of Havoc at Ornamented Shield Quest, Spike Sword Quest."
 	},
 	[285] = {
@@ -1379,7 +1378,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Inquisition, Pits of Inferno, Fenrock, Fury Dungeon and inside the \
+		Locations = "Inquisition, Pits of Inferno, Fenrock, Fury Dungeon and inside the \z
 		Hellgore volcano on Goroma during the Fire from the Earth Mini World Change."
 	},
 	[291] = {
@@ -1391,7 +1390,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Pits of Inferno (Apocalypse's Throne Room), The Inquisition Quest \
+		Locations = "Pits of Inferno (Apocalypse's Throne Room), The Inquisition Quest \z
 		(The Shadow Nexus, Battlefield), Vengoth, Fury Dungeon, Oramond Fury Dungeon, The Extension Site."
 	},
 	[294] = {
@@ -1403,7 +1402,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Infernatil's Throneroom The Inquisition Quest Area, Hellgorge, \
+		Locations = "Infernatil's Throneroom The Inquisition Quest Area, Hellgorge, \z
 		Roshamuul Prison, Chyllfroest, Oramond Dungeon, The Extension Site and under the Asura Palace."
 	},
 	[295] = {
@@ -1426,7 +1425,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Deep in Pits of Inferno (Apocalypse's throne room), The Dark Path, \
+		Locations = "Deep in Pits of Inferno (Apocalypse's throne room), The Dark Path, \z
 		The Blood Halls, The Vats, The Hive, The Shadow Nexus, a room deep in Formorgar Mines, Roshamuul Prison, Oramond Dungeon, Grounds of Destruction."
 	},
 	[314] = {
@@ -1438,7 +1437,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Pits of Inferno, Formorgar Mines, Edron Demon Forge (The Vats, The Foundry), \
+		Locations = "Pits of Inferno, Formorgar Mines, Edron Demon Forge (The Vats, The Foundry), \z
 		Magician Quarter, Alchemist Quarter, Roshamuul Prison."
 	},
 	[519] = {
@@ -1703,11 +1702,11 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Thais Ancient Temple, Darashia Dragon Lair, Mount Sternum Dragon Cave, Mintwallin, \
-		deep in Fibula Dungeon, Kazordoon Dragon Lair (near Dwarf Bridge), Plains of Havoc, Elven Bane castle, \
-		Maze of Lost Souls, southern cave and dragon tower in Shadowthorn, Orc Fortress, Venore Dragon Lair, \
-		Pits of Inferno, Behemoth Quest room in Edron, Hero Cave, deep Cyclopolis, Edron Dragon Lair, Goroma, \
-		Ankrahmun Dragon Lairs, Draconia, Dragonblaze Peaks, some Ankrahmun Tombs, \
+		Locations = "Thais Ancient Temple, Darashia Dragon Lair, Mount Sternum Dragon Cave, Mintwallin, \z
+		deep in Fibula Dungeon, Kazordoon Dragon Lair (near Dwarf Bridge), Plains of Havoc, Elven Bane castle, \z
+		Maze of Lost Souls, southern cave and dragon tower in Shadowthorn, Orc Fortress, Venore Dragon Lair, \z
+		Pits of Inferno, Behemoth Quest room in Edron, Hero Cave, deep Cyclopolis, Edron Dragon Lair, Goroma, \z
+		Ankrahmun Dragon Lairs, Draconia, Dragonblaze Peaks, some Ankrahmun Tombs, \z
 		underground of Fenrock (on the way to Beregar), Krailos Steppe and Crystal Lakes."
 	},
 	[39] = {
@@ -1719,12 +1718,12 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Ankrahmun Dragon Lairs, Banshee Quest final room (level 60+ to open the door), \
-		Deeper Cyclopolis past the Dragon Spawn (level 30+ to open the door), Draconia, Edron Dragon Lair, \
-		Fibula Dungeon (level 50+ to open the door), Maze of Lost Souls (level 30+ to open the door), \
-		Pits of Inferno Dragon Lair, Dragon Lord hole in Plains of Havoc, Carlin Dragon Lair, \
-		Thais Dragon Lair, Goroma Dragon Lairs, Hot Spot, Venore Dragon Lair, Arena and Zoo Quarter (Yalahar), \
-		beneath Fenrock, Darashia Dragon Lair, Razzachai, Dragonblaze Peaks, Ferumbras Citadel, \
+		Locations = "Ankrahmun Dragon Lairs, Banshee Quest final room (level 60+ to open the door), \z
+		Deeper Cyclopolis past the Dragon Spawn (level 30+ to open the door), Draconia, Edron Dragon Lair, \z
+		Fibula Dungeon (level 50+ to open the door), Maze of Lost Souls (level 30+ to open the door), \z
+		Pits of Inferno Dragon Lair, Dragon Lord hole in Plains of Havoc, Carlin Dragon Lair, \z
+		Thais Dragon Lair, Goroma Dragon Lairs, Hot Spot, Venore Dragon Lair, Arena and Zoo Quarter (Yalahar), \z
+		beneath Fenrock, Darashia Dragon Lair, Razzachai, Dragonblaze Peaks, Ferumbras Citadel, \z
 		Fury Dungeon, Lower Spike, Krailos Steppe."
 	},
 	[121] = {
@@ -1736,11 +1735,11 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Many on the northern Hydra Mountain in east Tiquanda, 3-4 on the southern Hydra Mountain, \
-		1 at the Hydra Egg Quest in Tiquanda, 1 north-east of the Elephant Tusk Quest, \
-		2 above the Forbidden Lands hydra cave here and many inside it, many in Deeper Banuta, \
-		many on Talahu surface, a few in Ferumbras Citadel basement on Kharos, \
-		2 on a hill in the Yalahar Arena and Zoo Quarter, 1 deep in the Yalahar Foreigner Quarter (Crystal Lake), \
+		Locations = "Many on the northern Hydra Mountain in east Tiquanda, 3-4 on the southern Hydra Mountain, \z
+		1 at the Hydra Egg Quest in Tiquanda, 1 north-east of the Elephant Tusk Quest, \z
+		2 above the Forbidden Lands hydra cave here and many inside it, many in Deeper Banuta, \z
+		many on Talahu surface, a few in Ferumbras Citadel basement on Kharos, \z
+		2 on a hill in the Yalahar Arena and Zoo Quarter, 1 deep in the Yalahar Foreigner Quarter (Crystal Lake), \z
 		many in the Oramond Hydra/Bog Raider Cave."
 	},
 	[317] = {
@@ -1752,7 +1751,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Okolnir, Razzachai, Ice Witch Temple, Frost Dragon Tunnel, \
+		Locations = "Okolnir, Razzachai, Ice Witch Temple, Frost Dragon Tunnel, \z
 		Yakchal Crypt (only during Yakchal's awakening ritual), Dragonblaze Peaks, Deeper Banuta, Chyllfroest."
 	},
 	[385] = {
@@ -1764,7 +1763,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Thais Dragon Lair, beneath Fenrock, Darashia Dragon Lair, Venore Dragon Lair, \
+		Locations = "Thais Dragon Lair, beneath Fenrock, Darashia Dragon Lair, Venore Dragon Lair, \z
 		Edron Dragon Lair, Dragonblaze Peaks, Krailos Steppe. Also summoned by Lizard Dragon Priests."
 	},
 	[386] = {
@@ -1776,7 +1775,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Thais Dragon Lair, Venore Dragon Lair, Edron Dragon Lair by the Fire Axe Quest, \
+		Locations = "Thais Dragon Lair, Venore Dragon Lair, Edron Dragon Lair by the Fire Axe Quest, \z
 		on the way to Pythius the Rotten, Razzachai, Dragonblaze Peaks."
 	},
 	[402] = {
@@ -1788,7 +1787,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Okolnir, Factory Quarter (Yalahar), Dragonblaze Peaks, Ice Witch Temple, \
+		Locations = "Okolnir, Factory Quarter (Yalahar), Dragonblaze Peaks, Ice Witch Temple, \z
 		Frost Dragon Tunnel, Chyllfroest."
 	},
 	[461] = {
@@ -1800,7 +1799,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Drefia Wyrm Lair (after the Medusa Shield Quest room), Darashia Wyrm Hills, Arena and Zoo Quarter, \
+		Locations = "Drefia Wyrm Lair (after the Medusa Shield Quest room), Darashia Wyrm Hills, Arena and Zoo Quarter, \z
 		beneath Fenrock, Deeper Razachai, Lower Spike, Vandura Wyrm Cave and Vandura Mountain in Liberty Bay."
 	},
 	[617] = {
@@ -1834,7 +1833,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Ghastly Dragon Lair, Corruption Hole, Razachai including the Inner Sanctum, \
+		Locations = "Ghastly Dragon Lair, Corruption Hole, Razachai including the Inner Sanctum, \z
 		Zao Palace, Deeper Banuta, Chyllfroest."
 	},
 	[672] = {
@@ -1901,7 +1900,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Cyclopolis, Hero Cave in Edron, Ankrahmun tombs, Serpentine Tower, Factory Quarter in Yalahar, \
+		Locations = "Cyclopolis, Hero Cave in Edron, Ankrahmun tombs, Serpentine Tower, Factory Quarter in Yalahar, \z
 		Deeper Banuta, Goroma inside the volcano and beneath Fenrock."
 	},
 	[236] = {
@@ -1913,8 +1912,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Water Elemental Cave in Port Hope, Water Elemental Dungeon, Deeper Banuta, Malada, Ramoa, \
-		Talahu, Folda (7 spawn on the 3rd floor), Water Elemental Cave in Outlaw Camp (only during the Down the \
+		Locations = "Water Elemental Cave in Port Hope, Water Elemental Dungeon, Deeper Banuta, Malada, Ramoa, \z
+		Talahu, Folda (7 spawn on the 3rd floor), Water Elemental Cave in Outlaw Camp (only during the Down the \z
 		Drain Mini World Change), Krailos Steppe underwater cave."
 	},
 	[279] = {
@@ -1926,7 +1925,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Calassa, Frozen Trench, Water Elemental Dungeon through the water channels, \
+		Locations = "Calassa, Frozen Trench, Water Elemental Dungeon through the water channels, \z
 		before Zugurosh in The Inquisition Quest."
 	},
 	[313] = {
@@ -1949,7 +1948,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Forbidden Lands, on top of a hill in the northern part of the Arena and Zoo Quarter, \
+		Locations = "Forbidden Lands, on top of a hill in the northern part of the Arena and Zoo Quarter, \z
 		Lower Spike, Truffels Garden and Mushroom Gardens."
 	},
 	[456] = {
@@ -1983,7 +1982,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Edron Earth Elemental Cave (17 of them on the first floor), Vandura Mountain, \
+		Locations = "Edron Earth Elemental Cave (17 of them on the first floor), Vandura Mountain, \z
 		Deeper Banuta, Vengoth Castle, Robson Isle, Drillworm Caves, Crystal Grounds, Middle Spike."
 	},
 	[889] = {
@@ -2182,7 +2181,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 3,
 		Occurrence = 3,
-		Locations = "Dryads appear in forest areas of Edron, Port Hope, Carlin and Cormaya during raids in June. \
+		Locations = "Dryads appear in forest areas of Edron, Port Hope, Carlin and Cormaya during raids in June. \z
 		There are 5 total waves, the initial one with the raid message and the rest every 15 minutes during next hour."
 	},
 	[462] = {
@@ -2194,9 +2193,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "All around Tiquanda and Feyrist. Several groups of Wisps can be found in and around \
-		the forests north of Edron. West of Hardek. Inside the Cyclops Camp. North of the triple \
-		Wyvern spawn outside Kazordoon. West of Ab'Dendriel. West of Venore Amazon Camp. \
+		Locations = "All around Tiquanda and Feyrist. Several groups of Wisps can be found in and around \z
+		the forests north of Edron. West of Hardek. Inside the Cyclops Camp. North of the triple \z
+		Wyvern spawn outside Kazordoon. West of Ab'Dendriel. West of Venore Amazon Camp. \z
 		A few spawns around Venore, 2 spawn on the Formorgar Glacier, and on Krimhorn."
 	},
 	[1434] = {
@@ -2329,8 +2328,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ab'Dendriel Underground, Cyclopolis, Femor Hills, Kazordoon Prison, Kazordoon Surroundings, \
-		Maze of the Lost Souls, Mistrock, Mount Sternum, Outlaw Camp, Plains of Havoc, Shadowthorn, \
+		Locations = "Ab'Dendriel Underground, Cyclopolis, Femor Hills, Kazordoon Prison, Kazordoon Surroundings, \z
+		Maze of the Lost Souls, Mistrock, Mount Sternum, Outlaw Camp, Plains of Havoc, Shadowthorn, \z
 		Thais Northern Dungeon, Thais Surroundings, Thais Underground, Ulderek's Rock, Yalahar Foreigner Quarter."
 	},
 	[55] = {
@@ -2342,8 +2341,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Cyclopolis, deepest part of Tarpit Tomb after the flame, Forbidden Lands, Vandura Mountain, \
-		Deeper Banuta, Serpentine Tower (unreachable), deep into the Formorgar Mines, Arena and Zoo Quarter, \
+		Locations = "Cyclopolis, deepest part of Tarpit Tomb after the flame, Forbidden Lands, Vandura Mountain, \z
+		Deeper Banuta, Serpentine Tower (unreachable), deep into the Formorgar Mines, Arena and Zoo Quarter, \z
 		The Dark Path, Lower Spike, Chyllfroest, Medusa Tower and Underground Glooth Factory (west side)."
 	},
 	[324] = {
@@ -2355,7 +2354,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \
+		Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \z
 		Mammoth Shearing Factory, Chyllfroest."
 	},
 	[334] = {
@@ -2367,7 +2366,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \
+		Locations = "Tyrsung (in the Jotunar mountain), Formorgar Glacier (single spawn), \z
 		Mammoth Shearing Factory, Chyllfroest."
 	},
 	[389] = {
@@ -2379,7 +2378,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Cyclopolis second floor and below, Mistrock, Mount Sternum, \
+		Locations = "Cyclopolis second floor and below, Mistrock, Mount Sternum, \z
 		Cyclops Camp second floor and in the Cyclops version of the Forsaken Mine."
 	},
 	[391] = {
@@ -2523,7 +2522,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "All the Tombs, Lich Hell, Drefia, Medusa Shield Quest room, Old Fortress, Old Masonry, \
+		Locations = "All the Tombs, Lich Hell, Drefia, Medusa Shield Quest room, Old Fortress, Old Masonry, \z
 		beneath Fenrock, Cemetery Quarter and Magician Quarter."
 	},
 	[10] = {
@@ -2535,7 +2534,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Demona, Ghostland (Banshee Quest area), Temple of Xayepocax, Oasis Tomb, Kharos, Magician Quarter, \
+		Locations = "Demona, Ghostland (Banshee Quest area), Temple of Xayepocax, Oasis Tomb, Kharos, Magician Quarter, \z
 		beneath Fenrock, The Arcanum."
 	},
 	[11] = {
@@ -2547,8 +2546,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "North of Mount Sternum, Plains of Havoc, Outlaw Camp, Dark Cathedral, Femor Hills, \
-		Maze of Lost Souls, north of the Amazon Camp, at the entrance and in the Hero Cave, \
+		Locations = "North of Mount Sternum, Plains of Havoc, Outlaw Camp, Dark Cathedral, Femor Hills, \z
+		Maze of Lost Souls, north of the Amazon Camp, at the entrance and in the Hero Cave, \z
 		a castle tower at Elvenbane, Trade Quarter, Smuggler camp on Tyrsung, Formorgar Mines."
 	},
 	[12] = {
@@ -2560,7 +2559,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Amazon Camp (Venore), Amazon Camp (Carlin), Amazonia, \
+		Locations = "Amazon Camp (Venore), Amazon Camp (Carlin), Amazonia, \z
 		single respawn to the north west of Thais, Foreigner Quarter in Yalahar."
 	},
 	[47] = {
@@ -2572,7 +2571,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Dark Cathedral, Outlaw Camp, North of Thais, Cyclopolis, in Edron Hero Cave and around it, \
+		Locations = "Dark Cathedral, Outlaw Camp, North of Thais, Cyclopolis, in Edron Hero Cave and around it, \z
 		the small camp near Femor Hills, in Ghostlands disguised as a statue."
 	},
 	[54] = {
@@ -2584,9 +2583,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Vandura, west of the Dwarf Mines in a small house, Amazon Tower north of Carlin, \
-		Triangle Tower, Temple of Xayepocax, Green Claw Swamp and Amazon Camp (Venore), \
-		Dark Cathedral (2 levels underground), Goroma Volcano (underground), west from Necromant House, \
+		Locations = "Vandura, west of the Dwarf Mines in a small house, Amazon Tower north of Carlin, \z
+		Triangle Tower, Temple of Xayepocax, Green Claw Swamp and Amazon Camp (Venore), \z
+		Dark Cathedral (2 levels underground), Goroma Volcano (underground), west from Necromant House, \z
 		Mammoth Shearing Factory, Trade Quarter in Yalahar, The Witches' Cliff (only accessible during a quest)."
 	},
 	[57] = {
@@ -2598,7 +2597,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Edron Hero Cave, Triangle Tower near Thais, Maze of Lost Souls, Deeper Dark Cathedral, \
+		Locations = "Edron Hero Cave, Triangle Tower near Thais, Maze of Lost Souls, Deeper Dark Cathedral, \z
 		Isle of the Kings, Trade Quarter."
 	},
 	[58] = {
@@ -2621,8 +2620,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Triangle Tower, Drefia, Edron Hero Cave in the Warlock room, White Flower Temple, \
-		Ghostlands, Shadow Tomb, Ancient Ruins Tomb, Tarpit Tomb, Stone Tomb, Mountain Tomb, Peninsula Tomb, \
+		Locations = "Triangle Tower, Drefia, Edron Hero Cave in the Warlock room, White Flower Temple, \z
+		Ghostlands, Shadow Tomb, Ancient Ruins Tomb, Tarpit Tomb, Stone Tomb, Mountain Tomb, Peninsula Tomb, \z
 		Oasis Tomb, Yalahar Trade Quarter and Isle of the Kings."
 	},
 	[73] = {
@@ -2634,7 +2633,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "In Hero Cave in Edron, it has many rooms with many kinds of monsters and different amounts of Heroes. \
+		Locations = "In Hero Cave in Edron, it has many rooms with many kinds of monsters and different amounts of Heroes. \z
 		Also in Magician Quarter, accompanied by other monsters. Old Fortress"
 	},
 	[77] = {
@@ -2646,7 +2645,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Venore Amazon Camp, Carlin Amazon Camp, Amazon Tower, east of Carlin, underneath the Fields of Glory, \
+		Locations = "Venore Amazon Camp, Carlin Amazon Camp, Amazon Tower, east of Carlin, underneath the Fields of Glory, \z
 		west of Venore, Oasis Tomb, on the smallest of the Laguna Islands, Foreigner Quarter and Trade Quarter."
 	},
 	[222] = {
@@ -2669,7 +2668,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Dark Cathedral, Tiquanda Bandit Caves, Outlaw Camp, mountain pass west of Ankrahmun, \
+		Locations = "Dark Cathedral, Tiquanda Bandit Caves, Outlaw Camp, mountain pass west of Ankrahmun, \z
 		Tyrsung, Thais Bandit Cave, Formorgar Mines. Also summoned by Gamel."
 	},
 	[224] = {
@@ -2780,7 +2779,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Liberty Bay Cult Cave, Formorgar Mines, Yalahar Magician Quarter, \
+		Locations = "Liberty Bay Cult Cave, Formorgar Mines, Yalahar Magician Quarter, \z
 		in the caves on top of the Hrodmir mountains."
 	},
 	[310] = {
@@ -2792,7 +2791,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 1,
-		Locations = "Ankrahmun Pharaoh Tombs, Deeper Drefia, Kha'zeel Mountains, Northern Darama Desert, \
+		Locations = "Ankrahmun Pharaoh Tombs, Deeper Drefia, Kha'zeel Mountains, Northern Darama Desert, \z
 		Southern Darama Desert, Yalahar Foreigner Quarter, Yalahar Trade Quarter."
 	},
 	[322] = {
@@ -2826,7 +2825,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Ice Witch Temple, tower in Krimhorn, caves around Hrodmir ('camps' area), \
+		Locations = "Ice Witch Temple, tower in Krimhorn, caves around Hrodmir ('camps' area), \z
 		Formorgar Glacier deepest mines, Magician Quarter in Yalahar (Level 60 Requirement Door)."
 	},
 	[332] = {
@@ -2860,7 +2859,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Hero Cave (Edron), Magician Tower, Dark Cathedral and Yalahar Academy of Magic in \
+		Locations = "Hero Cave (Edron), Magician Tower, Dark Cathedral and Yalahar Academy of Magic in \z
 		Magician Quarter and a single one on The Witches' Cliff (only accessible during a quest)."
 	},
 	[372] = {
@@ -2883,7 +2882,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "South of Elvenbane and Ab'Dendriel, Ferngrims Gate, Northeast of Carlin, \
+		Locations = "South of Elvenbane and Ab'Dendriel, Ferngrims Gate, Northeast of Carlin, \z
 		Edron Hunter Camps, Yalahar - Trade Quarter and Foreigner Quarter."
 	},
 	[521] = {
@@ -3324,7 +3323,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ulderek's Rock, Edron Orc Cave, Ancient Temple, Ice Islands, Venore Orc Cave, \
+		Locations = "Ulderek's Rock, Edron Orc Cave, Ancient Temple, Ice Islands, Venore Orc Cave, \z
 		Rookgaard Orc Fortress, Rookgaard main cave, Fibula Dungeon, Elvenbane, Foreigner Quarter, Zao Orc Land."
 	},
 	[6] = {
@@ -3336,7 +3335,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Edron Orc Cave, Temple of Xayepocax, below Point of No Return in Outlaw Camp, Venore Orc Cave, \
+		Locations = "Edron Orc Cave, Temple of Xayepocax, below Point of No Return in Outlaw Camp, Venore Orc Cave, \z
 		Maze of Lost Souls, Orc Fort, north west of Thais, Elvenbane, Plains Of Havoc, Foreigner Quarter, Zao Orc Land."
 	},
 	[7] = {
@@ -3348,8 +3347,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ancient Temple in Thais, Orc Fort, below Point of No Return in Outlaw Camp and inside a \
-		mountain north of it, Orc Peninsula, Folda, Edron Orc cave, Maze of Lost Souls, Elvenbane Castle, \
+		Locations = "Ancient Temple in Thais, Orc Fort, below Point of No Return in Outlaw Camp and inside a \z
+		mountain north of it, Orc Peninsula, Folda, Edron Orc cave, Maze of Lost Souls, Elvenbane Castle, \z
 		Foreigner Quarter, Zao Orc Land."
 	},
 	[8] = {
@@ -3361,8 +3360,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Orc Fort, Dwacatra, Orc Peninsula, Elvenbane, Edron Orc Cave, Plains of Havoc, \
-		below Point of No Return in Outlaw Camp, Maze of Lost Souls, Cyclopolis, Desert Dungeon, \
+		Locations = "Orc Fort, Dwacatra, Orc Peninsula, Elvenbane, Edron Orc Cave, Plains of Havoc, \z
+		below Point of No Return in Outlaw Camp, Maze of Lost Souls, Cyclopolis, Desert Dungeon, \z
 		Ancient Temple, Foreigner Quarter, Zao Orc Land."
 	},
 	[15] = {
@@ -3374,7 +3373,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "In many dungeons around Tibia like the troll cave in Thais, south of Carlin (out the east \
+		Locations = "In many dungeons around Tibia like the troll cave in Thais, south of Carlin (out the east \z
 		exit and down the hole), Island of Destiny, Edron Troll Cave, and in Ab'Dendriel. Also found in Rookgaard."
 	},
 	[23] = {
@@ -3386,9 +3385,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Cyclopolis, Mintwallin, Maze of Lost Souls, Dark Pyramid, Folda (hidden cave), \
-		Kazordoon (The Horned Fox's hideout), the Plains of Havoc, Point of No Return south of Outlaw Camp, \
-		Elvenbane, the depths of Fibula Dungeon (level 50+), cave east from Dwarf Bridge, Foreigner Quarter, \
+		Locations = "Cyclopolis, Mintwallin, Maze of Lost Souls, Dark Pyramid, Folda (hidden cave), \z
+		Kazordoon (The Horned Fox's hideout), the Plains of Havoc, Point of No Return south of Outlaw Camp, \z
+		Elvenbane, the depths of Fibula Dungeon (level 50+), cave east from Dwarf Bridge, Foreigner Quarter, \z
 		Rookgaard Minotaur Hell (not reachable)."
 	},
 	[24] = {
@@ -3400,8 +3399,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ancient Temple, way to Mintwallin, Folda Underground Cave, Outlaw Camp, Plains of Havoc, \
-		Kazordoon Minotaur Tower, Daramian Minotaur Pyramid, Deeper Fibula Dungeon (level 50+ to open the door), \
+		Locations = "Ancient Temple, way to Mintwallin, Folda Underground Cave, Outlaw Camp, Plains of Havoc, \z
+		Kazordoon Minotaur Tower, Daramian Minotaur Pyramid, Deeper Fibula Dungeon (level 50+ to open the door), \z
 		Hero Cave, Foreigner Quarter and Elvenbane."
 	},
 	[25] = {
@@ -3413,9 +3412,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Mino Hell (Rookgaard), Two outside Bear Room Quest, (Rookgaard) and also 2x on the premium side, \
-		Mintwallin, Folda, Minotaur Pyramid, Outlaw Camp, Kazordoon minotaur cave, Plains of Havoc, Elven Bane, \
-		Deeper Fibula Dungeon (level 50+ to open the door), Ancient Temple, Maze of Lost Souls, \
+		Locations = "Mino Hell (Rookgaard), Two outside Bear Room Quest, (Rookgaard) and also 2x on the premium side, \z
+		Mintwallin, Folda, Minotaur Pyramid, Outlaw Camp, Kazordoon minotaur cave, Plains of Havoc, Elven Bane, \z
+		Deeper Fibula Dungeon (level 50+ to open the door), Ancient Temple, Maze of Lost Souls, \z
 		Thais Minotaur Camp, Foreigner Quarter."
 	},
 	[29] = {
@@ -3427,8 +3426,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ancient Temple, Mintwallin, Minotaur Pyramid, Maze of Lost Souls, Folda, Cyclopolis, \
-		Deeper Fibula Dungeon (level 50+ to open the door), Hero Cave, underground of Elvenbane, \
+		Locations = "Ancient Temple, Mintwallin, Minotaur Pyramid, Maze of Lost Souls, Folda, Cyclopolis, \z
+		Deeper Fibula Dungeon (level 50+ to open the door), Hero Cave, underground of Elvenbane, \z
 		Plains of Havoc, Kazordoon Minotaur Cave, Foreigner Quarter."
 	},
 	[50] = {
@@ -3440,9 +3439,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Orc Fortress, Folda Dungeon, Edron Orc Cave and around it, Ancient Temple, \
-		Venore Orc Cave, below the Point of No Return in Outlaw Camp, Plains of Havoc, \
-		North of Thais in the Orc Peninsula, Elvenbane and Orc Camp in Foreigner Quarter. \
+		Locations = "Orc Fortress, Folda Dungeon, Edron Orc Cave and around it, Ancient Temple, \z
+		Venore Orc Cave, below the Point of No Return in Outlaw Camp, Plains of Havoc, \z
+		North of Thais in the Orc Peninsula, Elvenbane and Orc Camp in Foreigner Quarter. \z
 		Also found in Rookgaard West plains, Zao Orc Land."
 	},
 	[53] = {
@@ -3476,7 +3475,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Femor Hills, north east of Carlin, Edron Goblin Cave, Rookgaard (Premium Area), \
+		Locations = "Femor Hills, north east of Carlin, Edron Goblin Cave, Rookgaard (Premium Area), \z
 		Maze of Lost Souls and Fenrock."
 	},
 	[62] = {
@@ -3488,7 +3487,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Yalahar Foreigner Quarter and Trade Quarter, Maze of Lost Souls, Orc Fort (unreachable), \
+		Locations = "Yalahar Foreigner Quarter and Trade Quarter, Maze of Lost Souls, Orc Fort (unreachable), \z
 		Hellgate, Shadowthorn, Ab'Dendriel elf caves, Elvenbane, north of Thais."
 	},
 	[63] = {
@@ -3500,7 +3499,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Yalahar Foreigner Quarter, Demona, Shadowthorn, northwest of Ab'Dendriel, Maze of Lost Souls, \
+		Locations = "Yalahar Foreigner Quarter, Demona, Shadowthorn, northwest of Ab'Dendriel, Maze of Lost Souls, \z
 		Cyclopolis, Elvenbane, near Mount Sternum."
 	},
 	[64] = {
@@ -3512,8 +3511,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Yalahar Foreigner Quarter, Shadowthorn, northwest of Ab'Dendriel, north and west of Mount Sternum, \
-		Hellgate, Maze of Lost Souls, near Knightwatch Tower in the Plains of Havoc. \
+		Locations = "Yalahar Foreigner Quarter, Shadowthorn, northwest of Ab'Dendriel, north and west of Mount Sternum, \z
+		Hellgate, Maze of Lost Souls, near Knightwatch Tower in the Plains of Havoc. \z
 		Two may also spawn when a Desperate White Deer or an Enraged White Deer is killed."
 	},
 	[66] = {
@@ -3525,7 +3524,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Mount Sternum Undead Cave, Dwarf Mines, Circle Room in Kazordoon, Triangle Tower, \
+		Locations = "Mount Sternum Undead Cave, Dwarf Mines, Circle Room in Kazordoon, Triangle Tower, \z
 		Tiquanda Dwarf Cave, Cormaya Dwarven Cave, Beregar Mines."
 	},
 	[69] = {
@@ -3537,7 +3536,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Kazordoon Dwarf Mines, Dwarf Bridge, deep Elvenbane, Tiquanda Dwarf Cave, Cormaya Dwarf Cave, \
+		Locations = "Kazordoon Dwarf Mines, Dwarf Bridge, deep Elvenbane, Tiquanda Dwarf Cave, Cormaya Dwarf Cave, \z
 		Island of Destiny (Knights area), Beregar."
 	},
 	[70] = {
@@ -3549,7 +3548,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Kazordoon Dwarf Mines, Dwacatra, Ferngrims Gate, Cyclopolis, Mount Sternum Undead Cave, \
+		Locations = "Kazordoon Dwarf Mines, Dwacatra, Ferngrims Gate, Cyclopolis, Mount Sternum Undead Cave, \z
 		Stonehome Rotworm cave (near Edron), Maze of Lost Souls, Tiquanda Dwarf Cave, Beregar, Cormaya Dwarf Cave."
 	},
 	[71] = {
@@ -3561,7 +3560,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Kazordoon Dwarf Mines, Cyclopolis, Dwacatra, Ferngrims Gate, Dwarf Bridge, \
+		Locations = "Kazordoon Dwarf Mines, Cyclopolis, Dwacatra, Ferngrims Gate, Dwarf Bridge, \z
 		Mount Sternum Undead Cave, Beregar, Tiquanda Dwarf Cave, Cormaya Dwarf Cave."
 	},
 	[76] = {
@@ -3573,7 +3572,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Port Hope Swamp Trolls, Venore Swamp Troll Cave, all around north area of Port Hope, \
+		Locations = "Port Hope Swamp Trolls, Venore Swamp Troll Cave, all around north area of Port Hope, \z
 		small spawn north-west of Venore and in cave south-east of Thais, also one in Foreigner Quarter."
 	},
 	[214] = {
@@ -3585,7 +3584,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "South of Port Hope around Trapwood. There is also a group of 3 voodoomasters \
+		Locations = "South of Port Hope around Trapwood. There is also a group of 3 voodoomasters \z
 		and 2 crypt shamblers on the shore east of Trapwood."
 	},
 	[215] = {
@@ -3685,7 +3684,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Edron Troll-Goblin Peninsula, Ab'dendriel Shadow Caves, Thais South-East Troll Caves, \
+		Locations = "Edron Troll-Goblin Peninsula, Ab'dendriel Shadow Caves, Thais South-East Troll Caves, \z
 		Dusalk's Troll Clan Cave, Island of Destiny in Paladin's guild."
 	},
 	[393] = {
@@ -3697,8 +3696,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 10,
 		Stars = 1,
 		Occurrence = 3,
-		Locations = "They do not have a set respawn spot. They are announced to be stealing presents from a \
-			random Tibian city and spawn in the aforetold city. \
+		Locations = "They do not have a set respawn spot. They are announced to be stealing presents from a \z
+			random Tibian city and spawn in the aforetold city. \z
 			There are two or three messages that appear on each raid and three massive spawns of goblins."
 	},
 	[463] = {
@@ -3787,7 +3786,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 30,
 		Stars = 2,
 		Occurrence = 3,
-		Locations = "Rookgaard's central cave in the new western Troll tunnel, \
+		Locations = "Rookgaard's central cave in the new western Troll tunnel, \z
 		north-west of Carlin during raids and Thais Knights' Guild arena during raids on Kingsday."
 	},
 	[886] = {
@@ -3821,7 +3820,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \
+		Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
 		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
 	},
 	[917] = {
@@ -3833,7 +3832,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \
+		Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
 		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
 	},
 	[918] = {
@@ -3845,7 +3844,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \
+		Locations = "Venore Corym Cave, Tiquanda Corym Cave, Corym Black Market, \z
 		Carlin Corym Cave/Dwarf Mines Diggers Depths Mine, Upper Spike."
 	},
 	[920] = {
@@ -3901,7 +3900,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Oramond Mountain Hideout, Oramond Minotaur Camp (northern camp), \
+		Locations = "Oramond Mountain Hideout, Oramond Minotaur Camp (northern camp), \z
 		Underground Glooth Factory, Oramond Dungeon."
 	},
 	[1045] = {
@@ -3924,7 +3923,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Oramond Mountain Hideout, Oramond Minotaur Camp (northern camp), \
+		Locations = "Oramond Mountain Hideout, Oramond Minotaur Camp (northern camp), \z
 		Underground Glooth Factory, Oramond Dungeon."
 	},
 	[1051] = {
@@ -3936,7 +3935,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Oramond/Southern Plains, Minotaur Hills, \
+		Locations = "Oramond/Southern Plains, Minotaur Hills, \z
 		Oramond Dungeon (depending on Magistrate votes), Underground Glooth Factory."
 	},
 	[1052] = {
@@ -3948,7 +3947,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Oramond/Southern Plains, Minotaur Hills, \
+		Locations = "Oramond/Southern Plains, Minotaur Hills, \z
 		Oramond Dungeon (depending on Magistrate votes), Underground Glooth Factory"
 	},
 	[1053] = {
@@ -3960,7 +3959,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Oramond/Southern Plains, Minotaur Hills, \
+		Locations = "Oramond/Southern Plains, Minotaur Hills, \z
 		Oramond Dungeon (depending on Magistrate votes), Underground Glooth Factory, Oramond Fury Dungeon."
 	},
 	[1109] = {
@@ -4247,7 +4246,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Grimvale: -1 floor from ground level, also seen on surface during full moon (12th-14th of every month). \
+		Locations = "Grimvale: -1 floor from ground level, also seen on surface during full moon (12th-14th of every month). \z
 		Also in the were-beasts cave south-west of Edron and in the Last Sanctum."
 	},
 	[1549] = {
@@ -4270,11 +4269,11 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ancient Temple, Alatar Lake, Mount Sternum Undead Cave, Desert Dungeon, Hellgate, \
-		Helheim, Fibula Dungeon, Villa Scapula, Hero Cave before Dragons, Eastern Drefia, Folda hidden cave, \
-		Maze of Lost Souls, way to Mintwallin, before Kazordoon city entrance, abandoned building east of Venore, \
-		Green Claw Swamp, north of the Venore Amazon Camp, Below Point of No Return in Outlaw Camp, Vandura Bonelord Cave, \
-		Triangle Tower, Hidden cave north of Port Hope, Deeper Banuta, Dark Cathedral, Shadow Tomb, Ancient Ruins Tomb, \
+		Locations = "Ancient Temple, Alatar Lake, Mount Sternum Undead Cave, Desert Dungeon, Hellgate, \z
+		Helheim, Fibula Dungeon, Villa Scapula, Hero Cave before Dragons, Eastern Drefia, Folda hidden cave, \z
+		Maze of Lost Souls, way to Mintwallin, before Kazordoon city entrance, abandoned building east of Venore, \z
+		Green Claw Swamp, north of the Venore Amazon Camp, Below Point of No Return in Outlaw Camp, Vandura Bonelord Cave, \z
+		Triangle Tower, Hidden cave north of Port Hope, Deeper Banuta, Dark Cathedral, Shadow Tomb, Ancient Ruins Tomb, \z
 		Tarpit Tomb, Mountain Tomb, Peninsula Tomb, Oasis Tomb and beneath Fenrock."
 	},
 	[51] = {
@@ -4286,7 +4285,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Mal'ouquah, Oasis Tomb, under the Ankrahmun Library Tomb, \
+		Locations = "Mal'ouquah, Oasis Tomb, under the Ankrahmun Library Tomb, \z
 		Serpentine Tower last floor behind the Magic Walls, Deeper Banuta, Goroma underground, Magician Quarter."
 	},
 	[80] = {
@@ -4309,7 +4308,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Meriana Gargoyle Cave, Ankrahmun Tombs, Mal'ouquah, Goroma, Deeper Banuta, \
+		Locations = "Meriana Gargoyle Cave, Ankrahmun Tombs, Mal'ouquah, Goroma, Deeper Banuta, \z
 		Formorgar Mines, Vengoth, Farmine Mines, Upper Spike and Medusa Tower."
 	},
 	[103] = {
@@ -4343,8 +4342,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Hellgate, near the Hellgate Library, Deeper Banuta, behind piano in Cult Cave to the \
-		northeast of Liberty Bay, Vandura Bonelord Cave, Goroma, Helheim, \
+		Locations = "Hellgate, near the Hellgate Library, Deeper Banuta, behind piano in Cult Cave to the \z
+		northeast of Liberty Bay, Vandura Bonelord Cave, Goroma, Helheim, \z
 		underground of Fenrock (on the way to Beregar), Vengoth."
 	},
 	[109] = {
@@ -4378,7 +4377,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Pits of Inferno, Formorgar Mines, Cemetery Quarter, Edron \
+		Locations = "Pits of Inferno, Formorgar Mines, Cemetery Quarter, Edron \z
 		(In multiple places during The Inquisition Quest), Alchemist Quarter, Vengoth Castle, Deeper Banuta, Krailos Ruins."
 	},
 	[330] = {
@@ -4390,7 +4389,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Atop of the Formorgar Glacier and deep inside Formorgar Mines, Frost Dragon Tunnel, \
+		Locations = "Atop of the Formorgar Glacier and deep inside Formorgar Mines, Frost Dragon Tunnel, \z
 		Ice Witch Temple, Nibelor Ice Cave, the Crystal Caves in The Inquisition Quest, Mushroom Gardens."
 	},
 	[460] = {
@@ -4402,7 +4401,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Underneath Malada and Talahu, Edron Bog Raider Cave in Stonehome, \
+		Locations = "Underneath Malada and Talahu, Edron Bog Raider Cave in Stonehome, \z
 		Edron Earth Elemental Cave, Alchemist Quarter, Vengoth Castle, Robson Isle. Oramond Hydra/Bog Raider Cave."
 	},
 	[518] = {
@@ -4414,7 +4413,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Cemetery Quarter, Alchemist Quarter and in the Arena and Zoo Quarter (unreachable), \
+		Locations = "Cemetery Quarter, Alchemist Quarter and in the Arena and Zoo Quarter (unreachable), \z
 		Vengoth Castle, Formorgar Mines, Lower Spike, Robson Isle (single respawn), Krailos."
 	},
 	[520] = {
@@ -4503,7 +4502,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 1,
-		Locations = "Fury Dungeon and Goroma volcano (surface floor, inner volcano) only during the \
+		Locations = "Fury Dungeon and Goroma volcano (surface floor, inner volcano) only during the \z
 		Fire from the Earth Mini World Change."
 	},
 	[978] = {
@@ -4548,7 +4547,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Dark Grounds, Guzzlemaw Valley (if less than 100 Blowing Horns tasks \
+		Locations = "Dark Grounds, Guzzlemaw Valley (if less than 100 Blowing Horns tasks \z
 		have been done the day before) and the Silencer Plateau (when Silencer Resonating Chambers are used there)."
 	},
 	[1013] = {
@@ -4560,7 +4559,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Guzzlemaw Valley, and a single spawn in a tower in Upper Roshamuul \
+		Locations = "Guzzlemaw Valley, and a single spawn in a tower in Upper Roshamuul \z
 		(south of the Depot and west of the entrance to Roshamuul Prison)."
 	},
 	[1014] = {
@@ -4935,7 +4934,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Orc Fort, the Orc Peninsula, Magician Tower and northwest (tower) or south \
+		Locations = "Orc Fort, the Orc Peninsula, Magician Tower and northwest (tower) or south \z
 		(underground) of Thais, Zao steppe (encaged), Vengoth."
 	},
 	[13] = {
@@ -4958,8 +4957,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "In Rookgaard Sheep field, Greenshore and other farms like the one in Thais, east of Carlin. \
-		They can also be found wandering the fields of Edron, and some can be found along with a \
+		Locations = "In Rookgaard Sheep field, Greenshore and other farms like the one in Thais, east of Carlin. \z
+		They can also be found wandering the fields of Edron, and some can be found along with a \z
 		Black Sheep with the Hunter in Femur Hills."
 	},
 	[16] = {
@@ -4971,9 +4970,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Several spawns near Kazordoon, Femor Hills, north of Thais, near the White Flower Temple, \
-		Rookgaard Bear Cave, Bear Room Quest in Rookgaard, Rookgaard Bear Mountain, South of Villa Scapula, \
-		Ferngrims Gate, North of Carlin, Fields of Glory, Edron Troll Cave, south of Venore, Desert Dungeon, \
+		Locations = "Several spawns near Kazordoon, Femor Hills, north of Thais, near the White Flower Temple, \z
+		Rookgaard Bear Cave, Bear Room Quest in Rookgaard, Rookgaard Bear Mountain, South of Villa Scapula, \z
+		Ferngrims Gate, North of Carlin, Fields of Glory, Edron Troll Cave, south of Venore, Desert Dungeon, \z
 		first floor of the Orc Fort mountain and west of Outlaw Camp."
 	},
 	[21] = {
@@ -4985,7 +4984,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Rookgaard and Mainland, in most sewers and caves near towns. \
+		Locations = "Rookgaard and Mainland, in most sewers and caves near towns. \z
 		They can be found almost everywhere in Tibia."
 	},
 	[27] = {
@@ -5008,7 +5007,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Darama (Devourer, Kha'labal), in most grassy areas of Tibia, also found in \
+		Locations = "Darama (Devourer, Kha'labal), in most grassy areas of Tibia, also found in \z
 		Rookgaard and on Tutorial Island. There are also 2 unreachable Deer found near Fiehonja's protection zone."
 	},
 	[32] = {
@@ -5020,8 +5019,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 1,
 		Stars = 0,
 		Occurrence = 0,
-		Locations = "Isle of the Kings, North of the Thais temple, Lubos house, west of Carlin (with sheep), \
-		Edron north of castle and one south towards Ivory Towers, Liberty Bay (Silverhand Manor), \
+		Locations = "Isle of the Kings, North of the Thais temple, Lubos house, west of Carlin (with sheep), \z
+		Edron north of castle and one south towards Ivory Towers, Liberty Bay (Silverhand Manor), \z
 		Mintwallin central park and on the way to the old Mintwallin area, Factory Quarter (Yalahar)."
 	},
 	[41] = {
@@ -5066,8 +5065,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Almost everywhere in tibia, they seem to have a nest-like place in Greenshore, \
-		a semi-large spawn at the entrance to the Port Hope troll cave and in cave near Ankrahmun ship. \
+		Locations = "Almost everywhere in tibia, they seem to have a nest-like place in Greenshore, \z
+		a semi-large spawn at the entrance to the Port Hope troll cave and in cave near Ankrahmun ship. \z
 		Also appears in Rat Plague in Thais and Rat Plague in Rookgaard."
 	},
 	[60] = {
@@ -5079,8 +5078,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Rookgaard, Orc Fort, under Femor Hills with Goblins, some farms like The McRonald's Farm, \
-		Liberty Bay slums and Nargor, Foreigner Quarter in Yalahar, Isle of the Kings, \
+		Locations = "Rookgaard, Orc Fort, under Femor Hills with Goblins, some farms like The McRonald's Farm, \z
+		Liberty Bay slums and Nargor, Foreigner Quarter in Yalahar, Isle of the Kings, \z
 		cells in Tafariel's throneroom in Pits of Inferno, Gardens of Night."
 	},
 	[74] = {
@@ -5125,7 +5124,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Unannounced raid in Edron outside the depot, Tiquanda, Shattered Isles, \
+		Locations = "Unannounced raid in Edron outside the depot, Tiquanda, Shattered Isles, \z
 		Liberty Bay, south gate of Thais."
 	},
 	[110] = {
@@ -5181,7 +5180,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Dark Cathedral, Tiquanda, Drefia, Mount Sternum, Folda, Ghostlands, Kazordoon, \
+		Locations = "Dark Cathedral, Tiquanda, Drefia, Mount Sternum, Folda, Ghostlands, Kazordoon, \z
 		Femor Hills, Thais Bat Dungeon, Thais Bandit Cave and in many other caves."
 	},
 	[123] = {
@@ -5204,7 +5203,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Tiquanda, Meriana, Arena and Zoo Quarter. Three unreachable ones are found in the Rookgaard Academy, \
+		Locations = "Tiquanda, Meriana, Arena and Zoo Quarter. Three unreachable ones are found in the Rookgaard Academy, \z
 		below Ankrahmun (during the Nomads Land Quest), and on Charles's ship."
 	},
 	[211] = {
@@ -5216,7 +5215,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "East of Port Hope close to Grizzly Adams, deep in the jungle, \
+		Locations = "East of Port Hope close to Grizzly Adams, deep in the jungle, \z
 		Arena and Zoo Quarter, Mammoth Shearing Factory."
 	},
 	[260] = {
@@ -5261,7 +5260,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "North of Carlin, Northwest of Thais, East of Kazordoon, Yalahar, Dawnport, \
+		Locations = "North of Carlin, Northwest of Thais, East of Kazordoon, Yalahar, Dawnport, \z
 		Edron Hunters Camp, Plains of Havoc and other Tibian woods."
 	},
 	[387] = {
@@ -5273,7 +5272,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 1,
 		Stars = 0,
 		Occurrence = 0,
-		Locations = "Carlin, Rookgaard, Factory Quarter, Yalahar, \
+		Locations = "Carlin, Rookgaard, Factory Quarter, Yalahar, \z
 		The Witches' Cliff (only accessible during a quest), probably more areas."
 	},
 	[502] = {
@@ -5285,8 +5284,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside the arena with other mutated creatures), \
-		Razzachai, Vampire Castle on Vengoth, Robson's Isle, Mushroom Gardens, Souleater Mountains, \
+		Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside the arena with other mutated creatures), \z
+		Razzachai, Vampire Castle on Vengoth, Robson's Isle, Mushroom Gardens, Souleater Mountains, \z
 		Northern Zao Plantations, Middle Spike."
 	},
 	[509] = {
@@ -5298,9 +5297,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Cemetery Quarter (around 10 underground on the west side along with banshees, \
-		and 4 bats on the church roof), Alchemist Quarter (4 found on top of roofs), \
-		Arena and Zoo Quarter (2 under the arena with other mutated creatures), \
+		Locations = "Cemetery Quarter (around 10 underground on the west side along with banshees, \z
+		and 4 bats on the church roof), Alchemist Quarter (4 found on top of roofs), \z
+		Arena and Zoo Quarter (2 under the arena with other mutated creatures), \z
 		Razzachai, Northern Zao Plantations, Souleater Mountains, Middle Spike, Vengoth and Vengoth Castle."
 	},
 	[516] = {
@@ -5312,7 +5311,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside with other mutated creatures), \
+		Locations = "Alchemist Quarter, Arena and Zoo Quarter (Inside with other mutated creatures), \z
 		Muggy Plains, Souleater Mountains and Northern Zao Plantations."
 	},
 	[555] = {
@@ -5379,7 +5378,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Zao Steppe, Raging Mage Tower, Gnarlhound Caves. \
+		Locations = "Zao Steppe, Raging Mage Tower, Gnarlhound Caves. \z
 		Four inaccessible ones can be seen in Telas's basement."
 	},
 	[693] = {
@@ -5402,7 +5401,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 2,
-		Locations = "Around Ab'Dendriel, Carlin (east from Lothar), Femor Hills and Ferngrims Gate, usually in pairs. \
+		Locations = "Around Ab'Dendriel, Carlin (east from Lothar), Femor Hills and Ferngrims Gate, usually in pairs. \z
 		They will appear when they're not overhunted."
 	},
 	[723] = {
@@ -5447,7 +5446,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 1,
-		Locations = "South-east, east and north-east of Thais depending on the Horse Station World Change; \
+		Locations = "South-east, east and north-east of Thais depending on the Horse Station World Change; \z
 		one near Roswitha in Rathleton."
 	},
 	[751] = {
@@ -5459,7 +5458,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 2,
-		Locations = "South-east, east and north-east of Thais depending on the Horse Station World Change; \
+		Locations = "South-east, east and north-east of Thais depending on the Horse Station World Change; \z
 		one in the Gardens of Night (here, unreachable); one near Roswitha in Rathleton."
 	},
 	[752] = {
@@ -5493,7 +5492,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 30,
 		Stars = 2,
 		Occurrence = 3,
-		Locations = "It raids every four hours, starting at server save, in groups of one to three at \
+		Locations = "It raids every four hours, starting at server save, in groups of one to three at \z
 		various places around Venore swamp, especially near the southern production site."
 	},
 	[877] = {
@@ -5637,7 +5636,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Deep inside the Tiquanda Jungle including Tiquanda Laboratory and a small cave, \
+		Locations = "Deep inside the Tiquanda Jungle including Tiquanda Laboratory and a small cave, \z
 		Forbidden Lands, Deeper Banuta, Arena and Zoo quarter in Yalahar."
 	},
 	[221] = {
@@ -5649,7 +5648,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Tiquanda, Trapwood, the outskirts of Chor and Forbidden Lands, Alchemist Quarter in Yalahar, \
+		Locations = "Tiquanda, Trapwood, the outskirts of Chor and Forbidden Lands, Alchemist Quarter in Yalahar, \z
 		Tiquanda Laboratory."
 	},
 	[511] = {
@@ -5661,7 +5660,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Vengoth surface, Vengoth Castle (Boreth's tower), Northern Zao Plantations, Tiquanda Laboratory, \
+		Locations = "Vengoth surface, Vengoth Castle (Boreth's tower), Northern Zao Plantations, Tiquanda Laboratory, \z
 		Dryad Gardens."
 	},
 	[679] = {
@@ -5717,7 +5716,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Leaf dungeon in Hellgate, Lair of the Treeling Witch, Forest Fury Camp and in the \
+		Locations = "Leaf dungeon in Hellgate, Lair of the Treeling Witch, Forest Fury Camp and in the \z
 		Forest Fury version of the Forsaken Mine."
 	},
 	[982] = {
@@ -5773,7 +5772,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ankrahmun Library Tomb, Tarpit Tomb, Mountain Tomb, Peninsula Tomb, Darama, Tiquanda, \
+		Locations = "Ankrahmun Library Tomb, Tarpit Tomb, Mountain Tomb, Peninsula Tomb, Darama, Tiquanda, \z
 		Drefia, Forbidden Lands, Arena Quarter, Lion's Rock."
 	},
 	[113] = {
@@ -5785,7 +5784,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Chor, the lizard city south-east from Port Hope. They can also be found in Yalahar's \
+		Locations = "Chor, the lizard city south-east from Port Hope. They can also be found in Yalahar's \z
 		Foreigner Quarter and in Zzaion."
 	},
 	[114] = {
@@ -5819,7 +5818,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "In the crocodile cave and the jungle east of Port Hope as well as the swamp to the north, \
+		Locations = "In the crocodile cave and the jungle east of Port Hope as well as the swamp to the north, \z
 		Fenrock, Arena and Zoo Quarter, Trade Quarter, Talahu, also located on Meriana and Laguna Islands."
 	},
 	[220] = {
@@ -5831,7 +5830,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Deeper Banuta, Forbidden Islands: Talahu (Medusa Cave) and Kharos (at level -1), Razzachai, \
+		Locations = "Deeper Banuta, Forbidden Islands: Talahu (Medusa Cave) and Kharos (at level -1), Razzachai, \z
 		Deep below the Crystal Lakes in Foreigner Quarter, Cult's cave in the Magician Quarter, Medusa Tower."
 	},
 	[258] = {
@@ -5843,7 +5842,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Laguna Islands, Fenrock, Port Hope and also can be found behind a wall below the \
+		Locations = "Laguna Islands, Fenrock, Port Hope and also can be found behind a wall below the \z
 		center of Liberty Bay. These cannot be reached."
 	},
 	[259] = {
@@ -5866,10 +5865,10 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Beregar, Black Knight's Villa, Chor, Ghostlands, Chyllfroest, Crystal Gardens, \
-		Crystal Grounds, Dragon Lair (Edron), Drillworm Cave, Folda, Hero Fortress, Kazordoon, \
-		Green Djinn Tower, Mushroom Fields,Paradox Tower, Plains of Havoc, Plague Spike, \
-		Poachers' Camp (Ferngrims Gate), Stonehome, Tiquanda, Truffels Garden, \
+		Locations = "Beregar, Black Knight's Villa, Chor, Ghostlands, Chyllfroest, Crystal Gardens, \z
+		Crystal Grounds, Dragon Lair (Edron), Drillworm Cave, Folda, Hero Fortress, Kazordoon, \z
+		Green Djinn Tower, Mushroom Fields,Paradox Tower, Plains of Havoc, Plague Spike, \z
+		Poachers' Camp (Ferngrims Gate), Stonehome, Tiquanda, Truffels Garden, \z
 		Vandura Mountain, Vega, Venore, Wyvern Cave (Ferngrims Gate), Wyvern Hill and Wyvern Ulderek's Rock Cave."
 	},
 	[438] = {
@@ -5925,7 +5924,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Corruption Hole, Razachai, \
+		Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Corruption Hole, Razachai, \z
 		Temple of Equilibrium, Northern Zao Plantations."
 	},
 	[624] = {
@@ -5937,7 +5936,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Zao Orc Land (in fort), \
+		Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Zao Orc Land (in fort), \z
 		Corruption Hole, Razachai, Temple of Equilibrium, Northern Zao Plantations."
 	},
 	[625] = {
@@ -5949,7 +5948,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Zao Orc Land (single spawn in fort), \
+		Locations = "Zzaion, Zao Palace and its antechambers, Muggy Plains, Zao Orc Land (single spawn in fort), \z
 		Corruption Hole, Razachai, Temple of Equilibrium, Northern Zao Plantations."
 	},
 	[627] = {
@@ -5961,7 +5960,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Northern Zao Plantations, Souleater Mountains, Muggy Plains, \
+		Locations = "Northern Zao Plantations, Souleater Mountains, Muggy Plains, \z
 		Killer Caiman Cave in the Zao Steppe, Chyllfroest."
 	},
 	[655] = {
@@ -6006,7 +6005,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 3,
 		Occurrence = 3,
-		Locations = "Zao, north east of Dragonblaze Peaks during raid. There are up to 10 draptors per raid, \
+		Locations = "Zao, north east of Dragonblaze Peaks during raid. There are up to 10 draptors per raid, \z
 		while 6 of them may also appear in mission 8 of Wrath of the Emperor Quest."
 	},
 	[1096] = {
@@ -6062,11 +6061,11 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ancient Temple under the Rotworm area, under White Flower Temple, \
-		Mount Sternum Undead Cave on the last floor, Thais Troll Cave, Bonelord cave in Drefia, \
-		Green Claw Swamp, Dwarf Mines, Villa Scapula, Ankrahmun Tombs, Dark Cathedral, north of Port Hope, \
-		Deeper Banuta, on Folda on the floor above the Water Elementals, Hellgate, Vengoth, Alchemist Quarter, \
-		Yalahar and Carlin sewers, Ghostlands, Desert Dungeon, Dusalk's Troll Clan Cave, Nargor, \
+		Locations = "Ancient Temple under the Rotworm area, under White Flower Temple, \z
+		Mount Sternum Undead Cave on the last floor, Thais Troll Cave, Bonelord cave in Drefia, \z
+		Green Claw Swamp, Dwarf Mines, Villa Scapula, Ankrahmun Tombs, Dark Cathedral, north of Port Hope, \z
+		Deeper Banuta, on Folda on the floor above the Water Elementals, Hellgate, Vengoth, Alchemist Quarter, \z
+		Yalahar and Carlin sewers, Ghostlands, Desert Dungeon, Dusalk's Troll Clan Cave, Nargor, \z
 		and in a cave northeast of Ab'Dendriel."
 	},
 	[20] = {
@@ -6122,7 +6121,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Alchemist Quarter, Drefia, Razzachai, Souleater Mountains, \
+		Locations = "Alchemist Quarter, Drefia, Razzachai, Souleater Mountains, \z
 		Northern Zao Plantations and Raging Mage tower."
 	},
 	[515] = {
@@ -6167,7 +6166,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Rathleton Sewers, Lower Rathleton, Oramond/Western Plains, \
+		Locations = "Rathleton Sewers, Lower Rathleton, Oramond/Western Plains, \z
 		Underground Glooth Factory, Jaccus Maxxen's Dungeon."
 	},
 	[1658] = {
@@ -6190,13 +6189,13 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ancient Temple in the Skeleton area, way to Mintwallin, Old Mintwallin Quest, \
-		Alatar Lake, Magician Tower, Mount Sternum Undead Cave, Ghostlands, Hellgate, \
-		Maze of Lost Souls, below Point of No Return in Outlaw Camp, Plains of Havoc in Necromant House, \
-		Drefia and Drefia's underground caves, Edron ghoul hill, Venore Amazon Camp underground, \
-		Venore Swamp Troll cave, Ghostship between Venore and Darashia, Triangle Tower, Dark Cathedral, \
-		Ankrahmun tombs, Isle of the Kings, Treasure Island, Nargor Undead Cave, Helheim, Lion's Rock, \
-		The Witches' Cliff (only accessible during a quest) and a cave northeast of Ab'Dendriel. \
+		Locations = "Ancient Temple in the Skeleton area, way to Mintwallin, Old Mintwallin Quest, \z
+		Alatar Lake, Magician Tower, Mount Sternum Undead Cave, Ghostlands, Hellgate, \z
+		Maze of Lost Souls, below Point of No Return in Outlaw Camp, Plains of Havoc in Necromant House, \z
+		Drefia and Drefia's underground caves, Edron ghoul hill, Venore Amazon Camp underground, \z
+		Venore Swamp Troll cave, Ghostship between Venore and Darashia, Triangle Tower, Dark Cathedral, \z
+		Ankrahmun tombs, Isle of the Kings, Treasure Island, Nargor Undead Cave, Helheim, Lion's Rock, \z
+		The Witches' Cliff (only accessible during a quest) and a cave northeast of Ab'Dendriel. \z
 		Also found behind a wall in both Rookgaard and Paradox Tower, although they cannot be reached."
 	},
 	[33] = {
@@ -6208,8 +6207,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "In many dungeons around Tibia, like the Ancient Temple and Ghostlands. \
-		Also found in Rookgaard tombs and north east of Port Hope, in the jungle of Tiquanda, \
+		Locations = "In many dungeons around Tibia, like the Ancient Temple and Ghostlands. \z
+		Also found in Rookgaard tombs and north east of Port Hope, in the jungle of Tiquanda, \z
 		beneath Fenrock and in the desert Tombs, Vengoth Castle."
 	},
 	[37] = {
@@ -6221,9 +6220,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Triangle Tower, Hellgate, Draconia, Plains of Havoc, Pits of Inferno, Thais Ancient Temple, \
-		Fibula Dungeon, Mintwallin, Mount Sternum hidden cave, Drefia, Ghost Ship, Edron Hero Cave, Shadowthorn, \
-		Elvenbane, Ghostlands, Femor Hills, White Flower Temple, Isle of the Kings, Dark Cathedral, Ankrahmun Tombs, \
+		Locations = "Triangle Tower, Hellgate, Draconia, Plains of Havoc, Pits of Inferno, Thais Ancient Temple, \z
+		Fibula Dungeon, Mintwallin, Mount Sternum hidden cave, Drefia, Ghost Ship, Edron Hero Cave, Shadowthorn, \z
+		Elvenbane, Ghostlands, Femor Hills, White Flower Temple, Isle of the Kings, Dark Cathedral, Ankrahmun Tombs, \z
 		Ramoa, Helheim, Vengoth, Upper Spike, Lion's Rock."
 	},
 	[48] = {
@@ -6235,8 +6234,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ghost Ship, Drefia, Ankrahmun Tombs, Mount Sternum Undead Cave between Thais and Kazordoon, \
-		Dark Cathedral, under Treasure Island, Isle of the Kings, Grothmok tunnels (in Dwarven Mines), Goroma, \
+		Locations = "Ghost Ship, Drefia, Ankrahmun Tombs, Mount Sternum Undead Cave between Thais and Kazordoon, \z
+		Dark Cathedral, under Treasure Island, Isle of the Kings, Grothmok tunnels (in Dwarven Mines), Goroma, \z
 		Ramoa, Lich Hell, Upper Spike."
 	},
 	[65] = {
@@ -6248,7 +6247,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Drefia, Darama's Dark Pyramid, Draconia, Mount Sternum Undead Cave, Green Claw Swamp, \
+		Locations = "Drefia, Darama's Dark Pyramid, Draconia, Mount Sternum Undead Cave, Green Claw Swamp, \z
 		Venore Amazon Camp underground, Helheim, Upper Spike, all Tombs, Dark Cathedral, Lion's Rock."
 	},
 	[68] = {
@@ -6260,9 +6259,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Drefia, Ghost Ship between Venore and Darashia, some Ankrahmun Tombs, Lich Hell, \
-		Serpentine Tower (unreachable), Ghostlands (unreachable). House between Plains of Havoc and Dark Cathedral, \
-		Hellgate (only during Zevelon Duskbringer raid), Edron Undead Cave, Vengoth Castle (and mountains before door), \
+		Locations = "Drefia, Ghost Ship between Venore and Darashia, some Ankrahmun Tombs, Lich Hell, \z
+		Serpentine Tower (unreachable), Ghostlands (unreachable). House between Plains of Havoc and Dark Cathedral, \z
+		Hellgate (only during Zevelon Duskbringer raid), Edron Undead Cave, Vengoth Castle (and mountains before door), \z
 		Edron Vampire Crypt."
 	},
 	[78] = {
@@ -6274,9 +6273,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Single one under the White Flower Temple in Thais (respawn takes about 20-25 minutes), \
-		Banshee Quest area in Ghostlands (also accesible by Isle of the Kings), Demon Quest Room, Drefia, \
-		Ancient Ruins Tomb, Desert Dungeon (unreachable), Pits of Inferno in Tafariel's Throne room, \
+		Locations = "Single one under the White Flower Temple in Thais (respawn takes about 20-25 minutes), \z
+		Banshee Quest area in Ghostlands (also accesible by Isle of the Kings), Demon Quest Room, Drefia, \z
+		Ancient Ruins Tomb, Desert Dungeon (unreachable), Pits of Inferno in Tafariel's Throne room, \z
 		Cemetery Quarter in Yalahar, Vengoth Castle, one in Robson Isle."
 	},
 	[99] = {
@@ -6288,8 +6287,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Ankrahmun Library Tomb, Ancient Ruins Tomb, Oasis Tomb, Mountain Tomb, Drefia, Kharos, \
-		Pits of Inferno, Lich Hell in Ramoa, Cemetery Quarter in Yalahar, underground of Fenrock (on the way to Beregar). \
+		Locations = "Ankrahmun Library Tomb, Ancient Ruins Tomb, Oasis Tomb, Mountain Tomb, Drefia, Kharos, \z
+		Pits of Inferno, Lich Hell in Ramoa, Cemetery Quarter in Yalahar, underground of Fenrock (on the way to Beregar). \z
 		Can also be seen during an undead raid in Darashia or Carlin."
 	},
 	[100] = {
@@ -6301,7 +6300,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ankrahmun Tombs, Trapwood, Ramoa, Hellgate, Helheim, Mount Sternum Undead Cave, Deeper Catacombs, \
+		Locations = "Ankrahmun Tombs, Trapwood, Ramoa, Hellgate, Helheim, Mount Sternum Undead Cave, Deeper Catacombs, \z
 		Cemetery Quarter, Treasure Island, Upper Spike, Lion's Rock."
 	},
 	[101] = {
@@ -6313,7 +6312,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Old Fortress, Ankrahmun Tombs, Helheim, Ramoa, Lich Hell, beneath Fenrock, Deeper Banuta, \
+		Locations = "Old Fortress, Ankrahmun Tombs, Helheim, Ramoa, Lich Hell, beneath Fenrock, Deeper Banuta, \z
 		Vengoth Castle, Vandura Mountain, Robson's Isle, Middle Spike, Lion's Rock, Mother of Scarabs Lair, Caverna Exanima."
 	},
 	[256] = {
@@ -6336,7 +6335,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Drefia, Goroma, Nargor Undead Cave, hidden caves under Treasure Island, \
+		Locations = "Drefia, Goroma, Nargor Undead Cave, hidden caves under Treasure Island, \z
 		single spawn at Liberty Bay ruins, Chyllfroest (unreachable)."
 	},
 	[281] = {
@@ -6359,8 +6358,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Helheim (single, isolated spawn), Pits of Inferno (Ashfalor's throneroom), \
-		Demon Forge (The Shadow Nexus and The Arcanum), under Razachai (including the Inner Sanctum), \
+		Locations = "Helheim (single, isolated spawn), Pits of Inferno (Ashfalor's throneroom), \z
+		Demon Forge (The Shadow Nexus and The Arcanum), under Razachai (including the Inner Sanctum), \z
 		Chyllfroest, Oramond Fury Dungeon."
 	},
 	[283] = {
@@ -6372,7 +6371,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Pits of Inferno, Formorgar Mines, Helheim, \
+		Locations = "Pits of Inferno, Formorgar Mines, Helheim, \z
 		Roshamuul Prison and in The Arcanum (Part of the Inquisition quest)."
 	},
 	[284] = {
@@ -6395,7 +6394,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Pits of Inferno, The Crystal Caves and The Soul Well in The Inquisition Quest, \
+		Locations = "Pits of Inferno, The Crystal Caves and The Soul Well in The Inquisition Quest, \z
 		Drefia Grim Reaper Dungeons, as well in Vengoth."
 	},
 	[298] = {
@@ -6418,7 +6417,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Helheim, Demon Forge (The Arcanum), beneath Fenrock, Vandura Bonelord Cave, \
+		Locations = "Helheim, Demon Forge (The Arcanum), beneath Fenrock, Vandura Bonelord Cave, \z
 		Alchemist Quarter and Cemetery Quarter."
 	},
 	[388] = {
@@ -6430,7 +6429,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 10,
 		Stars = 1,
 		Occurrence = 3,
-		Locations = "Ab'Dendriel, Ankrahmun, Carlin, Darashia, Edron, Kazordoon (floor -3, between entrance and depot), \
+		Locations = "Ab'Dendriel, Ankrahmun, Carlin, Darashia, Edron, Kazordoon (floor -3, between entrance and depot), \z
 		Liberty Bay, Port Hope (west, east and south across river from Depot), Svargrond, Thais, Venore, Yalahar."
 	},
 	[446] = {
@@ -6453,8 +6452,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 0,
-		Locations = "Drefia Grim Reaper Dungeons, deep in Drefia Wyrm Lair (after the Medusa Shield Quest), \
-		Edron (Hero Cave), Yalahar (Cemetery Quarter), Oramond Dungeon, \
+		Locations = "Drefia Grim Reaper Dungeons, deep in Drefia Wyrm Lair (after the Medusa Shield Quest), \z
+		Edron (Hero Cave), Yalahar (Cemetery Quarter), Oramond Dungeon, \z
 		  Abandoned Sewers and optionally in the Demon Oak Quest."
 	},
 	[483] = {
@@ -6664,7 +6663,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Around the higher level areas of Drefia, \
+		Locations = "Around the higher level areas of Drefia, \z
 		including the Drefia Grim Reaper Dungeons and the Drefia Vampire Crypt."
 	},
 	[976] = {
@@ -6687,7 +6686,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Oramond/Southern Plains, Lower Rathleton, Oramond/Western Plains, \
+		Locations = "Oramond/Southern Plains, Lower Rathleton, Oramond/Western Plains, \z
 		Underground Glooth Factory, Jaccus Maxxen's Dungeon."
 	},
 	[1055] = {
@@ -6864,10 +6863,10 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Almost everywhere, like Ancient Temple, Vandura, Folda dungeon, Fibula Dungeon, \
-		caves connecting Edron and Cormaya, Venore Swamp Troll cave, Thais Troll cave, Ferngrims Gate, \
-		Dwarf Mines, Hellgate, below the graves in eastern Rookgaard, spider cave in western Rookgaard, \
-		cave northeast of Ab'Dendriel, Darashia Rotworm Caves, Liberty Bay, Fenrock, \
+		Locations = "Almost everywhere, like Ancient Temple, Vandura, Folda dungeon, Fibula Dungeon, \z
+		caves connecting Edron and Cormaya, Venore Swamp Troll cave, Thais Troll cave, Ferngrims Gate, \z
+		Dwarf Mines, Hellgate, below the graves in eastern Rookgaard, spider cave in western Rookgaard, \z
+		cave northeast of Ab'Dendriel, Darashia Rotworm Caves, Liberty Bay, Fenrock, \z
 		below Green Claw Swamp and some other places."
 	},
 	[30] = {
@@ -6879,7 +6878,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "Almost everywhere, in grass areas, sewers like Carlin sewers, \
+		Locations = "Almost everywhere, in grass areas, sewers like Carlin sewers, \z
 		caves like as Ancient Temple, Rookgaard and the Tiquanda Tarantula Caves."
 	},
 	[36] = {
@@ -6902,15 +6901,15 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Plains of Havoc, Point of no Return in Outlaw Camp, Ghostlands, Hellgate, \
-		Mintwallin Secret Laboratory, Mad Mage Room deep below Ancient Temple, \
-		Mount Sternum Undead Cave, Green Claw Swamp, Maze of Lost Souls, \
-		Crusader Helmet Quest in the Dwarf Mines, Mushroom Gardens, \
-		west drillworm cave, Edron Hero Cave, Edron Orc Cave, \
-		on a hill near Drefia, on a hill north-west of Ankrahmun (inaccessible), \
-		Forbidden Lands, Deeper Banuta, Malada, Ramoa, Arena and Zoo Quarter, \
-		second floor up of Cemetery Quarter, beneath Fenrock, Vengoth Castle, \
-		Vandura Mountain, in a cave in Robson Isle, Chyllfroest, Spider Caves, \
+		Locations = "Plains of Havoc, Point of no Return in Outlaw Camp, Ghostlands, Hellgate, \z
+		Mintwallin Secret Laboratory, Mad Mage Room deep below Ancient Temple, \z
+		Mount Sternum Undead Cave, Green Claw Swamp, Maze of Lost Souls, \z
+		Crusader Helmet Quest in the Dwarf Mines, Mushroom Gardens, \z
+		west drillworm cave, Edron Hero Cave, Edron Orc Cave, \z
+		on a hill near Drefia, on a hill north-west of Ankrahmun (inaccessible), \z
+		Forbidden Lands, Deeper Banuta, Malada, Ramoa, Arena and Zoo Quarter, \z
+		second floor up of Cemetery Quarter, beneath Fenrock, Vengoth Castle, \z
+		Vandura Mountain, in a cave in Robson Isle, Chyllfroest, Spider Caves, \z
 		Second floor of Krailos Spider Lair , Caverna Exanima."
 	},
 	[43] = {
@@ -6922,10 +6921,10 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Near Thais Troll Cave, Plague Spike, Drefia, Jakundaf Desert, \
-		Green Claw Swamp, beneath Folda, Maze of Lost Souls, Plains of Havoc, \
-		Venore and Ankrahmun Dragon Lairs, beneath Edron Graveyard, Ancient Temple, \
-		Hellgate, Mad Mage Room, Ankrahmun Tombs, Treasure Island, Mal'ouquah, Ramoa, \
+		Locations = "Near Thais Troll Cave, Plague Spike, Drefia, Jakundaf Desert, \z
+		Green Claw Swamp, beneath Folda, Maze of Lost Souls, Plains of Havoc, \z
+		Venore and Ankrahmun Dragon Lairs, beneath Edron Graveyard, Ancient Temple, \z
+		Hellgate, Mad Mage Room, Ankrahmun Tombs, Treasure Island, Mal'ouquah, Ramoa, \z
 		Cyclopolis, Ghostlands, Vengoth, Lion's Rock."
 	},
 	[44] = {
@@ -6937,8 +6936,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 5,
 		Stars = 1,
 		Occurrence = 0,
-		Locations = "South of Thais, west of Ab'Dendriel, northeastern Cormaya, \
-		Green Claw Swamp between Kazordoon and Venore, Wasp Tower in Rookgaard, \
+		Locations = "South of Thais, west of Ab'Dendriel, northeastern Cormaya, \z
+		Green Claw Swamp between Kazordoon and Venore, Wasp Tower in Rookgaard, \z
 		Wasp Towers in Darashia, all over Tiquanda, and all over Vandura."
 	},
 	[45] = {
@@ -6961,8 +6960,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Ankrahmun Library Tomb, Stone Tomb, Peninsula Tomb, Mother of Scarabs Lair, \
-		Kha'zeel Scarab Lair, deep in Larva Caves (found beneath steps underground), Lion's Rock, \
+		Locations = "Ankrahmun Library Tomb, Stone Tomb, Peninsula Tomb, Mother of Scarabs Lair, \z
+		Kha'zeel Scarab Lair, deep in Larva Caves (found beneath steps underground), Lion's Rock, \z
 		Arena and Zoo Quarter and beneath Fenrock."
 	},
 	[82] = {
@@ -6974,8 +6973,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ankrahmun Pharaoh Tombs, Ashta'daramai, Daramian Mountain Scarab Lair, \
-		Daramian Scarab Caves, Daramian Scarab Lairs, Deeper Drefia, Kha'zeel Mountains, Lion's Rock, \
+		Locations = "Ankrahmun Pharaoh Tombs, Ashta'daramai, Daramian Mountain Scarab Lair, \z
+		Daramian Scarab Caves, Daramian Scarab Lairs, Deeper Drefia, Kha'zeel Mountains, Lion's Rock, \z
 		Northern Darama Desert, Port Hope Surroundings, Treasure Island, Yalahar Factory Quarter."
 	},
 	 [83] = {
@@ -6987,7 +6986,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Ankrahmun Tombs, the sand around Ankrahmun (use a shovel), deep in Larva caves, \
+		Locations = "Ankrahmun Tombs, the sand around Ankrahmun (use a shovel), deep in Larva caves, \z
 		the path leading to Chor, beneath Fenrock, Lion's Rock."
 	},
 	[124] = {
@@ -6999,7 +6998,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "All around Port Hope and Tiquanda, Dark Cathedral, Vandura, Meriana, Razzachai, \
+		Locations = "All around Port Hope and Tiquanda, Dark Cathedral, Vandura, Meriana, Razzachai, \z
 		and Slime cave east of Venore, Arena and Zoo Quarter, Gnarlhound Caves."
 	},
 	[213] = {
@@ -7011,8 +7010,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 1,
 		Stars = 0,
 		Occurrence = 0,
-		Locations = "Ab'Dendriel, Ab'Dendriel Surroundings, Carlin, Cormaya, Edron Surroundings, \
-		Feyrist Meadows, Fibula, Fields of Glory, Green Claw Swamp, Issavi, Kazordoon Surroundings, Meriana, \
+		Locations = "Ab'Dendriel, Ab'Dendriel Surroundings, Carlin, Cormaya, Edron Surroundings, \z
+		Feyrist Meadows, Fibula, Fields of Glory, Green Claw Swamp, Issavi, Kazordoon Surroundings, Meriana, \z
 		Outlaw Camp, Port Hope Surroundings, Stonehome, Thais Surroundings, Venore Southern Swamp, Venore Surroundings"
 	},
 	[219] = {
@@ -7024,10 +7023,10 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Tiquanda Tarantula Caves, Spider Caves, Trapwood ground level and underground, \
-		in 2 small caves South of Thais, Dark Cathedral, single spawn on top of Crocodile den north of Port Hope, \
-		Plains of Havoc, underground Liberty Bay, Nargor Undead Cave and other constituents of the Shattered Isles, \
-		Green Claw Swamp, first floor up in the big building in the Cemetery Quarter, Robson Isle, Vengoth. \
+		Locations = "Tiquanda Tarantula Caves, Spider Caves, Trapwood ground level and underground, \z
+		in 2 small caves South of Thais, Dark Cathedral, single spawn on top of Crocodile den north of Port Hope, \z
+		Plains of Havoc, underground Liberty Bay, Nargor Undead Cave and other constituents of the Shattered Isles, \z
+		Green Claw Swamp, first floor up in the big building in the Cemetery Quarter, Robson Isle, Vengoth. \z
 		After the summer update of 2008, tarantulas can be seen on the beginner's island of Rookgaard."
 	},
 	[227] = {
@@ -7039,8 +7038,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 1,
 		Stars = 0,
 		Occurrence = 0,
-		Locations = "Ab'Dendriel, Carlin Surroundings, Cormaya, Feyrist Meadows, Grimvale, Issavi, \
-		Kazordoon Surroundings, Liberty Bay City, Liberty Bay Surroundings, Meriana, Plains of Havoc, \
+		Locations = "Ab'Dendriel, Carlin Surroundings, Cormaya, Feyrist Meadows, Grimvale, Issavi, \z
+		Kazordoon Surroundings, Liberty Bay City, Liberty Bay Surroundings, Meriana, Plains of Havoc, \z
 		Port Hope Surroundings, Yalahar Arena Quarter, Yalahar Centre, Yalahar Magician Quarter."
 	},
 	[228] = {
@@ -7052,8 +7051,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 1,
 		Stars = 0,
 		Occurrence = 0,
-		Locations = "Banuta, Carlin Surroundings, Feyrist Meadows, Grimvale, Liberty Bay City, \
-		Liberty Bay Surroundings, Meriana, Plains of Havoc, Port Hope Surroundings, \
+		Locations = "Banuta, Carlin Surroundings, Feyrist Meadows, Grimvale, Liberty Bay City, \z
+		Liberty Bay Surroundings, Meriana, Plains of Havoc, Port Hope Surroundings, \z
 		Yalahar Arena Quarter, Yalahar Centre, Yalahar Magician Quarter."
 	},
 	[251] = {
@@ -7065,8 +7064,8 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Edron, Cormaya, Drillworm Caves, Venore Swamps, Liberty Bay, Vandura, \
-		Hellgate, Fibula Dungeon, Stonehome, Kazordoon, Darashia Rotworm Caves, Port Hope, \
+		Locations = "Edron, Cormaya, Drillworm Caves, Venore Swamps, Liberty Bay, Vandura, \z
+		Hellgate, Fibula Dungeon, Stonehome, Kazordoon, Darashia Rotworm Caves, Port Hope, \z
 		Ancient Temple, Fenrock, Arena and Zoo Quarter."
 	},
 	[621] = {
@@ -7078,7 +7077,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Zao Steppe, Northern Zao Plantations and the Horestis Tomb \
+		Locations = "Zao Steppe, Northern Zao Plantations and the Horestis Tomb \z
 		(only when the curse of Horestis is not active)."
 	},
 	[631] = {
@@ -7090,7 +7089,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 15,
 		Stars = 2,
 		Occurrence = 0,
-		Locations = "Steppe of Zao, Lion's Rock, Zao Terramite Caves, Darama Terramite Cave, \
+		Locations = "Steppe of Zao, Lion's Rock, Zao Terramite Caves, Darama Terramite Cave, \z
 		Terramite Breeding Tunnels. Also raids desert north of Ankrahmun."
 	},
 	[632] = {
@@ -7102,7 +7101,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Zao Wailing Widow Cave, Northern Zao Plantations, Northern Brimstone Bug Cave, \
+		Locations = "Zao Wailing Widow Cave, Northern Zao Plantations, Northern Brimstone Bug Cave, \z
 		Razzachai, Chyllfroest, Krailos Spider Lair."
 	},
 	[633] = {
@@ -7114,7 +7113,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 0,
-		Locations = "Zao Wailing Widow Cave, Muggy Plains (during raid), Razzachai, \
+		Locations = "Zao Wailing Widow Cave, Muggy Plains (during raid), Razzachai, \z
 		Northern Zao Plantations, Northern Brimstone Bug Cave, Chyllfroest."
 	},
 	[641] = {
@@ -7280,7 +7279,7 @@ Bestiary.Monsters = {
 		CharmsPoints = 25,
 		Stars = 3,
 		Occurrence = 2,
-		Locations = "The Hive: east tower (beyond gates), west tower (including beyond gates), \
+		Locations = "The Hive: east tower (beyond gates), west tower (including beyond gates), \z
 		also anywhere Hive Overseers are found (as summons), Hive Outpost."
 	},
 	[801] = {
@@ -7292,9 +7291,9 @@ Bestiary.Monsters = {
 		CharmsPoints = 50,
 		Stars = 4,
 		Occurrence = 2,
-		Locations = "The Hive towers: on the highest floor of each tower, \
-		and in many of the closed rooms accessed with pheromones; \
-		many in the large underground room of the west tower. \
+		Locations = "The Hive towers: on the highest floor of each tower, \z
+		and in many of the closed rooms accessed with pheromones; \z
+		many in the large underground room of the west tower. \z
 		Liberty Bay Hive Outpost: one spawn on the second floor underground."
 	},
 	[878] = {

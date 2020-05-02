@@ -17,7 +17,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 		elseif player:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneVI) < 1 and
 		player:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneVI) <= os.time() then
 			player:teleportTo(Position(fromPosition.x + 1, fromPosition.y, fromPosition.z))
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter this warzone. \
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter this warzone. \z
 			The enemy still pumps lava into this area. Find a way to stop the pumps!")
 		elseif player:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneVI) > os.time() then
 			player:teleportTo(warzoneVI)
@@ -37,7 +37,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 		elseif player:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneV) < 1 and
 		player:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneV) <= os.time() then
 			player:teleportTo(Position(fromPosition.x, fromPosition.y + 1, fromPosition.z))
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter this warzone. \
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter this warzone. \z
 			The enemy still pumps lava into this area. Find a way to stop the pumps!")
 		elseif player:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneV) > os.time() then
 			player:teleportTo(warzoneV)
@@ -56,7 +56,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 			player:teleportTo(warzoneIV)
 		elseif player:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneIV) < 1 and player:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneIV) <= os.time() then
 			player:teleportTo(Position(fromPosition.x, fromPosition.y + 1, fromPosition.z))
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter this warzone. \
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter this warzone. \z
 			The enemy still pumps lava into this area. Find a way to stop the pumps!")
 		elseif player:getStorageValue(Storage.DangerousDepths.Acessos.TimerWarzoneIV) > os.time() then
 			player:teleportTo(warzoneIV)

@@ -206,7 +206,7 @@ function Player:onLookInBattleList(creature, distance)
 		local master = creature:getMaster()
 		local summons = {'thundergiant','grovebeast','emberwing','skullfrost'}
 		if master and table.contains(summons, creature:getName():lower()) then
-			description = description..' (Master: ' .. master:getName() .. '). \
+			description = description..' (Master: ' .. master:getName() .. '). \z
 				It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
 		end
 	end
@@ -627,8 +627,8 @@ function Player:onReportRuleViolation(targetName, reportType, reportReason, comm
 	end
 	io.write("------------------------------\n")
 	io.close(file)
-	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Thank you for reporting %s. Your report \
-		will be processed by %s team as soon as possible.", targetName, configManager.getString(configKeys.SERVER_NAME)))
+	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Thank you for reporting %s. Your report \z
+	will be processed by %s team as soon as possible.", targetName, configManager.getString(configKeys.SERVER_NAME)))
 	return
 end
 

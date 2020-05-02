@@ -435,10 +435,10 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		if player:getStorageValue(Storage.Grimvale.SilverVein) < os.time() then
 			local chance = math.random(1, 10)
 			if chance >= 5 then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Even after a thorough and frustrating \
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Even after a thorough and frustrating \z
 					search you could not find enough liquified silver in this vein to fill a flask.")
 			elseif chance <= 4 then
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Carefully you gather some of the liquified \
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Carefully you gather some of the liquified \z
 					silver from this vein in a small flask. You now feel strangely affected to the moon.")
 				player:addItem(24714)
 				target:transform(4475)
@@ -446,7 +446,7 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 			player:setStorageValue(Storage.Grimvale.SilverVein, os.time() + 2 * 60)
 		else
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are still exhausted from earlier attempts. \
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are still exhausted from earlier attempts. \z
 				Getting liquid silver out of the mountain needs concentration and a steady hand.")
 		end
 

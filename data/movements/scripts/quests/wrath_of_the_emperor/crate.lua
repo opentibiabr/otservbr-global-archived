@@ -3,7 +3,7 @@ function catchPlayer(cid)
 	player:setStorageValue(Storage.WrathoftheEmperor.GuardcaughtYou, 1)
 	player:setStorageValue(Storage.WrathoftheEmperor.CrateStatus, 0)
 	player:teleportTo({x = 33361, y = 31206, z = 8}, false)
-	player:say("The guards have spotted you. You were forcibly dragged into a small cell. \
+	player:say("The guards have spotted you. You were forcibly dragged into a small cell. \z
 		It looks like you need to build another disguise.", TALKTYPE_MONSTER_SAY)
 	return true
 end
@@ -16,7 +16,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	local playerId = player:getId()
 	if item.actionid == 8015 then
-		player:say("You hear guards moving behind doors in the distance. \
+		player:say("You hear guards moving behind doors in the distance. \z
 			If you have any sort of disguise with you, this is the moment to use it.", TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 8016 then
 		if Tile(Position(player:getPosition().y < 31094 and 33080 
@@ -38,7 +38,7 @@ function onStepIn(creature, item, position, fromPosition)
 			catchPlayer(playerId)
 		end
 	elseif item.actionid == 8021 then
-		player:say("Guards heavily patrol this area. \
+		player:say("Guards heavily patrol this area. \z
 			Try to stay hidden and do not draw any attention to yourself by trying to attack.", TALKTYPE_MONSTER_SAY)
 	elseif item.actionid == 8022 then
 		if player:getStorageValue(Storage.WrathoftheEmperor.CrateStatus) ~= 1 then
