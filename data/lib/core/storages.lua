@@ -2054,7 +2054,8 @@ Storage = {
 		Druid = 50828,
 		Paladin = 50829,
 		Knight = 50830,
-		Oressa = 50831
+		Oressa = 50831,
+		DoorVocation = 50832,
 	},
 
 	EruaranGreeting = 3250,

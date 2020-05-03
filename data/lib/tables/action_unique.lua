@@ -578,5 +578,35 @@ UniqueTable = {
 		itemPos = {x = 33478, y = 31197, z = 3},
 		storage = Storage.InsectoidCell.Reward16,
 		reward = 15572
+	},
+	--Dawnport
+	-- Vocation doors
+	[25017] = {
+		itemId = 12195,
+		itemPos = {x = 32055, y = 31885, z = 6},
+		vocation = 1,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32054, y = 31884, z = 6}
+	},
+	[25018] = {
+		itemId = 7040,
+		itemPos = {x = 32073, y = 31885, z = 6},
+		vocation = 2,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32073, y = 31884, z = 6}
+	},
+	[25019] = {
+		itemId = 6898,
+		itemPos = {x = 32059, y = 31885, z = 6},
+		vocation = 3,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32059, y = 31884, z = 6}
+	},
+	[25020] = {
+		itemId = 9279,
+		itemPos = {x = 32069, y = 31885, z = 6},
+		vocation = 4,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32068, y = 31884, z = 6}
 	}
 }

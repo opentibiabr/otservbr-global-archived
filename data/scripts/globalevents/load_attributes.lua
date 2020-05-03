@@ -51,9 +51,6 @@ function loadAttribute.onStartup()
 			end
 		end
 	end
-	print(">> Loading action and unique per Lua")
-	print("> All actions loaded.")
-	print("> All uniques loaded.")
 	return true
 end
 
