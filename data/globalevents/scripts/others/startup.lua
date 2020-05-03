@@ -31,7 +31,8 @@ local startupGlobalStorages = {
 }
 
 function onStartup()
-	print(string.format(">> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters.\n>> Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
+	print(string.format(">> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters.\n>> \z
+	Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
 	print(">> Loaded " .. (#SignTable) .. " map signs.")
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
@@ -40,27 +41,31 @@ function onStartup()
 	local time = os.time()
 	db.asyncQuery('TRUNCATE TABLE `players_online`')
 
-	-- zerar storages e permitir compra de boost na store
+	-- reset storages and allow purchase of boost in the store
 	db.query('UPDATE `player_storage` SET `value` = 0 WHERE `player_storage`.`key` = 51052')
 
-	-- deletar as guilds canceladas e rejeitadas
+	-- delete canceled and rejected guilds
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 2')
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 3')
 
-	-- deletar as guilds que estão muito tempo pendentes 3 dias
+	-- Delete guilds that are pending for 3 days
 	db.asyncQuery('DELETE FROM `guild_wars` WHERE `status` = 0 AND (`started` + 72 * 60 * 60) <= ' .. os.time())
 
-	--db.asyncQuery("UPDATE `guild_wars` SET `status` = 4, `ended` = " .. os.time() .. " WHERE `status` = 1 AND (`started` + 3* 60 * 60) < " .. os.time())
 	db.asyncQuery('DELETE FROM `players` WHERE `deletion` != 0 AND `deletion` < ' .. time)
 	db.asyncQuery('DELETE FROM `ip_bans` WHERE `expires_at` != 0 AND `expires_at` <= ' .. time)
-	db.asyncQuery('DELETE FROM `market_history` WHERE `inserted` <= ' .. (time - configManager.getNumber(configKeys.MARKET_OFFER_DURATION)))
+	db.asyncQuery('DELETE FROM `market_history` WHERE `inserted` <= \z
+	' .. (time - configManager.getNumber(configKeys.MARKET_OFFER_DURATION)))
 
 	-- Move expired bans to ban history
 	local resultId = db.storeQuery('SELECT * FROM `account_bans` WHERE `expires_at` != 0 AND `expires_at` <= ' .. time)
 	if resultId ~= false then
 		repeat
 			local accountId = result.getNumber(resultId, 'account_id')
-			db.asyncQuery('INSERT INTO `account_ban_history` (`account_id`, `reason`, `banned_at`, `expired_at`, `banned_by`) VALUES (' .. accountId .. ', ' .. db.escapeString(result.getString(resultId, 'reason')) .. ', ' .. result.getNumber(resultId, 'banned_at') .. ', ' .. result.getNumber(resultId, 'expires_at') .. ', ' .. result.getNumber(resultId, 'banned_by') .. ')')
+			db.asyncQuery('INSERT INTO `account_ban_history` (`account_id`, `reason`, `banned_at`, \z
+			`expired_at`, `banned_by`) VALUES (' .. accountId .. ', \z
+			' .. db.escapeString(result.getString(resultId, 'reason')) .. ', \z
+			' .. result.getNumber(resultId, 'banned_at') .. ', ' .. result.getNumber(resultId, 'expires_at') .. ', \z
+			' .. result.getNumber(resultId, 'banned_by') .. ')')
 			db.asyncQuery('DELETE FROM `account_bans` WHERE `account_id` = ' .. accountId)
 		until not result.next(resultId)
 		result.free(resultId)
@@ -73,7 +78,9 @@ function onStartup()
 	end
 
 	-- Check house auctions
-	local resultId = db.storeQuery('SELECT `id`, `highest_bidder`, `last_bid`, (SELECT `balance` FROM `players` WHERE `players`.`id` = `highest_bidder`) AS `balance` FROM `houses` WHERE `owner` = 0 AND `bid_end` != 0 AND `bid_end` < ' .. time)
+	local resultId = db.storeQuery('SELECT `id`, `highest_bidder`, `last_bid`, (SELECT `balance` FROM \z
+	`players` WHERE `players`.`id` = `highest_bidder`) AS `balance` FROM `houses` WHERE `owner` = 0 AND \z
+	`bid_end` != 0 AND `bid_end` < ' .. time)
 	if resultId ~= false then
 		repeat
 			local house = House(result.getNumber(resultId, 'id'))
@@ -85,7 +92,8 @@ function onStartup()
 					db.query('UPDATE `players` SET `balance` = ' .. (balance - lastBid) .. ' WHERE `id` = ' .. highestBidder)
 					house:setOwnerGuid(highestBidder)
 				end
-				db.asyncQuery('UPDATE `houses` SET `last_bid` = 0, `bid_end` = 0, `highest_bidder` = 0, `bid` = 0 WHERE `id` = ' .. house:getId())
+				db.asyncQuery('UPDATE `houses` SET `last_bid` = 0, `bid_end` = 0, `highest_bidder` = 0, \z
+				`bid` = 0 WHERE `id` = ' .. house:getId())
 			end
 		until not result.next(resultId)
 		result.free(resultId)
