@@ -57,18 +57,18 @@ function onStartup()
 	' .. (time - configManager.getNumber(configKeys.MARKET_OFFER_DURATION)))
 
 	-- Move expired bans to ban history
-	local resultId = db.storeQuery('SELECT * FROM `account_bans` WHERE `expires_at` != 0 AND `expires_at` <= ' .. time)
-	if resultId ~= false then
+	local banResultId = db.storeQuery('SELECT * FROM `account_bans` WHERE `expires_at` != 0 AND `expires_at` <= ' .. time)
+	if banResultId ~= false then
 		repeat
-			local accountId = result.getNumber(resultId, 'account_id')
+			local accountId = result.getNumber(banResultId, 'account_id')
 			db.asyncQuery('INSERT INTO `account_ban_history` (`account_id`, `reason`, `banned_at`, \z
 			`expired_at`, `banned_by`) VALUES (' .. accountId .. ', \z
-			' .. db.escapeString(result.getString(resultId, 'reason')) .. ', \z
-			' .. result.getNumber(resultId, 'banned_at') .. ', ' .. result.getNumber(resultId, 'expires_at') .. ', \z
-			' .. result.getNumber(resultId, 'banned_by') .. ')')
+			' .. db.escapeString(result.getString(banResultId, 'reason')) .. ', \z
+			' .. result.getNumber(banResultId, 'banned_at') .. ', ' .. result.getNumber(banResultId, 'expires_at') .. ', \z
+			' .. result.getNumber(banResultId, 'banned_by') .. ')')
 			db.asyncQuery('DELETE FROM `account_bans` WHERE `account_id` = ' .. accountId)
-		until not result.next(resultId)
-		result.free(resultId)
+		until not result.next(banResultId)
+		result.free(banResultId)
 	end
 
 	-- Ferumbras Ascendant quest

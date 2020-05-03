@@ -346,6 +346,17 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 			return true
 		end
 	end
+	--Dawnport some cracks down
+	local crackPosition = Position(32099, 31930, 7)
+	if (toPosition == crackPosition) then
+		local tile = Tile(crackPosition)
+		local crack = tile:getItemById(6299)
+		if (crack) then
+			player:teleportTo({x = 32099, y = 31930, z = 8})
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			return true
+		end
+	end
 
 	local targetId, targetActionId = target.itemid, target.actionid
 	if table.contains({354, 355}, targetId) and targetActionId == 101 then
