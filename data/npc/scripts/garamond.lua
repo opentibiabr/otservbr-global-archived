@@ -380,7 +380,8 @@ local function creatureSayCallback(cid, type, msg)
 			"Your choice of vocation will determine your life in Tibia, and the skills and fighting techniques you may use. ...",
 			"There are four vocation: knight, druid, paladin and sorcerer. If you want to know more about them, \z
 			talk to Oressa in the temple. ...",
-			"I myself teach try-out spells for both the magical classes, whereas Tybald in the next room specialises in knight and paladin spells."
+			"I myself teach try-out spells for both the magical classes, \z
+			whereas Tybald in the next room specialises in knight and paladin spells."
 			},
 		cid)
 	elseif msgcontains(msg, "oressa") then
