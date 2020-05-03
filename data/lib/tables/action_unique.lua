@@ -86,7 +86,52 @@ ActionTable = {
 		storage = Storage.FirstDragon.SuntowerTile,
 		msg = "You entered the suntower of Ab'dendriel. \
 		By visiting this sacred site you're infused with the power of the life-giving sun."
-	}
+	},
+		--Dawnport
+	--Sorcerer vocation tile
+	{
+		actionId = 40001,
+		itemId = 413,
+		itemPos = {
+			{x = 32055, y = 31889, z = 5},
+			{x = 32055, y = 31890, z = 5},
+			{x = 32055, y = 31891, z = 5},
+			{x = 32055, y = 31892, z = 5}
+		}
+	},
+	--Druid vocation tile
+	{
+		actionId = 40002,
+		itemId = 413,
+		itemPos = {
+			{x = 32063, y = 31901, z = 5},
+			{x = 32064, y = 31901, z = 5},
+			{x = 32065, y = 31901, z = 5},
+			{x = 32066, y = 31901, z = 5}
+		}
+	},
+	--Paladin vocation tile
+	{
+		actionId = 40003,
+		itemId = 413,
+		itemPos = {
+			{x = 32075, y = 31889, z = 5},
+			{x = 32075, y = 31890, z = 5},
+			{x = 32075, y = 31891, z = 5},
+			{x = 32075, y = 31892, z = 5},
+		}
+	},
+	--Knight vocation tile
+	{
+		actionId = 40004,
+		itemId = 413,
+		itemPos = {
+			{x = 32063, y = 31880, z = 5},
+			{x = 32064, y = 31880, z = 5},
+			{x = 32065, y = 31880, z = 5},
+			{x = 32066, y = 31880, z = 5}
+		}
+	},
 }
 
 UniqueTable = {

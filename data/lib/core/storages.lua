@@ -2049,6 +2049,13 @@ Storage = {
 		Reward15 = 50825,
 		Reward16 = 50826,
 	},
+	Dawnport = {
+		Sorcerer = 50827,
+		Druid = 50828,
+		Paladin = 50829,
+		Knight = 50830,
+		Oressa = 50831
+	},
 
 	EruaranGreeting = 3250,
 	MaryzaCookbook = 50721,
