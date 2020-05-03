@@ -115,8 +115,8 @@ local function changeVocation(player, fromVocation, toVocation)
 		}
 	}
 	player:setVocation(toVocation) -- first set vocation, to add items
-	for toVocation = 1, 4 do
-		for slot, info in pairs(vocationsItems[toVocation]) do
+	for vocationIds = 1, 4 do
+		for slot, info in pairs(vocationsItems[vocationIds]) do
 			local itemCount = player:getItemCount(info[1])
 			if itemCount > 0 and info[3] then
 				if info[1] ~= 8704 and info[1] ~= 7620 and info[1] ~= 23723 and info[1] ~= 23722 then
@@ -243,7 +243,8 @@ local function changeVocation(player, fromVocation, toVocation)
 			end
 
 			if player:getSkillLevel(skills[i]) > limits[2] then
-				local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = " .. db.escapeString(player:getName():lower()))
+				local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = \z
+				" .. db.escapeString(player:getName():lower()))
 				local accountId = result.getDataInt(resultId, "id")
 				player:remove()
 				db.query("UPDATE `players` SET `maglevel` = '0', `manaspent` = '0', `skill_fist` = '10', \z
