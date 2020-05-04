@@ -240,6 +240,8 @@ target_link_libraries(otbr ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
 set(PRE_CONFIGURE_FILE "cmake/gitmetadata.h.in")
 set(POST_CONFIGURE_FILE "${CMAKE_CURRENT_BINARY_DIR}/gitmetadata.h")
 include(git_watcher)
-add_dependencies(otbr check_git)
-target_include_directories(otbr PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+if (Git_FOUND)
+    add_dependencies(tfs check_git)
+    target_include_directories(tfs PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+endif()
 ### END  Git Version ###
