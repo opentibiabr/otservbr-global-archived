@@ -54,13 +54,13 @@ FIND_PATH (CRYPTOPP_INCLUDE_DIR
   DOC "CryptoPP include directory")
 
 FIND_LIBRARY (CRYPTOPP_LIBRARY_DEBUG
-  NAMES cryptlibd cryptoppd
+  NAMES cryptlibd cryptoppd libcryptopp
   HINTS ${CRYPTOPP_ROOT_DIR}
   PATH_SUFFIXES lib
   DOC "CryptoPP debug library")
 
 FIND_LIBRARY (CRYPTOPP_LIBRARY_RELEASE
-  NAMES cryptlib cryptopp
+  NAMES cryptlib cryptopp libcryptopp
   HINTS ${CRYPTOPP_ROOT_DIR}
   PATH_SUFFIXES lib
   DOC "CryptoPP release library")

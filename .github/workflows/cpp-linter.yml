@@ -1,9 +1,24 @@
 name: C++ linter
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - v*
+
+    tags:
+      - v*
+
+    paths:
+      - src/**
+
+  pull_request:
+    paths:
+      - src/**
 
 jobs:
-  build:
+  cpplint:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2

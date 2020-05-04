@@ -1,8 +1,15 @@
-name: Check Build on Ubuntu
+name: Build on Ubuntu
 
 on:
-
   push:
+    branches:
+      - master
+      - develop
+      - v*
+
+    tags:
+      - v*
+
     paths:
       - cmake/**
       - src/**
@@ -32,6 +39,7 @@ jobs:
         sudo apt install cmake build-essential liblua5.2-dev libgmp3-dev
         libmysqlclient-dev libboost-system-dev libboost-iostreams-dev
         libboost-filesystem-dev libpugixml-dev libcrypto++-dev libspdlog-dev
+        libluajit-5.1-dev libboost-date-time-dev unrar zip
 
     - name: Prepare build Environment
       run: |
@@ -42,9 +50,23 @@ jobs:
       run: |
         cd build
         make -j `nproc`
+        mv otbr ../
+
+    - name: Clean workspace
+      shell: bash
+      run: find . -maxdepth 1 ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
+
+    - name: Prepare datapack contents
+      shell: bash
+      run: |
+        mv config.lua.dist config.lua
+        unrar x -o+ data/world/world.rar data/world/
+        rm data/world/world.rar
+        cd ..
+        zip -r otservbr.zip otservbr-global
 
     - name: Upload binary
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }}-otbr-amd64-${{ matrix.buildtype }}-LUAJIT=${{ matrix.luajit }}-${{ github.sha }}
-        path: ${{ runner.workspace }}/otservbr-global/build/otbr
+        path: ${{ runner.workspace }}/otservbr.zip

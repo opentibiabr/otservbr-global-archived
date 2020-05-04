@@ -41,7 +41,8 @@ FIND_PATH(MYSQL_INCLUDE_DIR mysql.h
 		/usr/local/mysql/include
 		/usr/local/mysql/include/mysql
 		$ENV{ProgramFiles}/MySQL/*/include
-		$ENV{SystemDrive}/MySQL/*/include)
+		$ENV{SystemDrive}/MySQL/*/include
+		PATH_SUFFIXES mysql)
 
 #----------------- FIND MYSQL_LIB_DIR -------------------
 IF (WIN32)
@@ -58,7 +59,7 @@ IF (WIN32)
 	ENDIF (CMAKE_BUILD_TYPE STREQUAL Debug)
 
 	FIND_LIBRARY(MYSQL_LIB NAMES mysqlclient libmariadb
-				 PATHS
+			PATHS
 				 $ENV{MYSQL_DIR}/lib/${libsuffixDist}
 				 $ENV{MYSQL_DIR}/libmysql
 				 $ENV{MYSQL_DIR}/libmysql/${libsuffixBuild}
@@ -67,7 +68,7 @@ IF (WIN32)
 				 $ENV{ProgramFiles}/MySQL/*/lib/${libsuffixDist}
 				 $ENV{SystemDrive}/MySQL/*/lib/${libsuffixDist})
 ELSE (WIN32)
-	FIND_LIBRARY(MYSQL_LIB NAMES mysqlclient mariadbclient
+	FIND_LIBRARY(MYSQL_LIB NAMES mysqlclient mariadbclient libmariadb libmariadbclient
 				 PATHS
 				 $ENV{MYSQL_DIR}/libmysql/.libs
 				 $ENV{MYSQL_DIR}/lib
@@ -105,10 +106,16 @@ IF (MYSQL_INCLUDE_DIR AND MYSQL_LIB_DIR)
 	IF (MYSQL_TAOCRYPT)
 		SET(MYSQL_CLIENT_LIBS ${MYSQL_CLIENT_LIBS} ${MYSQL_TAOCRYPT})
 	ENDIF (MYSQL_TAOCRYPT)
-	# Added needed mysqlclient dependencies on Windows
+	# Add needed mysqlclient dependencies on Windows
 	IF (WIN32)
 		SET(MYSQL_CLIENT_LIBS ${MYSQL_CLIENT_LIBS} ws2_32)
 	ENDIF (WIN32)
+	IF (APPLE)
+		SET(MYSQL_CLIENT_LIBS ${MYSQL_CLIENT_LIBS} iconv)
+	ENDIF (APPLE)
+	IF (UNIX)
+		SET(MYSQL_CLIENT_LIBS ${MYSQL_CLIENT_LIBS} "-ldl")
+	ENDIF (UNIX)
 
 	MESSAGE(STATUS "MySQL Include dir: ${MYSQL_INCLUDE_DIR}  library dir: ${MYSQL_LIB_DIR}")
 	MESSAGE(STATUS "MySQL client libraries: ${MYSQL_CLIENT_LIBS}")

@@ -1,4 +1,4 @@
-<?xml_version="1.0"_encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <movements>
 	<!-- dawnport -->
 	<movevent event="StepIn" fromaid="20001" toaid="20004" script="dawnport/vocation_trial.lua"/>

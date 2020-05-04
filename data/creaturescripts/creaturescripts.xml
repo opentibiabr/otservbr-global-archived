@@ -1,4 +1,4 @@
-<?xml_version="1.0"_encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
 	<!-- monsters -->
 	<event type="think" name="GazHaragothHeal" script="monster/gaz_haragoth_heal.lua"/>
