@@ -38,7 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 				'I do not have to add that this is a dangerous mission, do I? If you are discovered expect to be attacked! So goodluck, human!'
 			}, cid)
 			player:setStorageValue(Storage.DjinnWar.MaridFaction.Mission02, 1)
-			player:setStorageValue(Storage.DjinnWar.EfreetFaction.DoorToEfreetTerritory, 1)
+			player:setStorageValue(Storage.DjinnWar.MaridFaction.DoorToEfreetTerritory, 1)
 
 		elseif missionProgress == 1 then
 			npcHandler:say('Did you already retrieve the spyreport?', cid)
