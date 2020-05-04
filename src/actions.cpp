@@ -64,7 +64,7 @@ void Actions::clearMap(ActionUseMap* map, bool fromLua) {
 }
 
 void Actions::clear(bool fromLua) {
-	LOG_F(INFO, "Clear");
+	DLOG_F(INFO, "Clear");
 
 	DLOG_F(INFO, "Clear Use Item");
 	clearMap(&useItemMap, fromLua);
@@ -233,8 +233,8 @@ bool Actions::registerLuaEvent(Action* event) {
 				auto result = useItemMap.emplace(*i, std::move(*action));
 				if (!result.second) {
 					LOG_F(WARNING, "Duplicate registered item with id:[%d] in "
-							"range from id:[%d], to id[%d]!", *i, v.at(0),
-							v.at(v.size() - 1));
+								"range from id:[%d], to id[%d]!", *i, v.at(0),
+								v.at(v.size() - 1));
 					continue;
 				}
 			}
@@ -285,7 +285,7 @@ bool Actions::registerLuaEvent(Action* event) {
 			return true;
 		}
 	} else {
-		LOG_F(WARNING, "There is no id / aid / uid set for this event");
+		LOG_F(ERROR, "There is no id / aid / uid set for this event");
 		return false;
 	}
 }
@@ -297,18 +297,21 @@ ReturnValue Actions::canUse(const Player* player, const Position& pos) {
 	if (pos.x != 0xFFFF) {
 		const Position& playerPos = player->getPosition();
 		if (playerPos.z != pos.z) {
-			DLOG_F(WARNING, "Player first needs to go [%s]",
-				playerPos.z > pos.z ? "Upstairs" : "Downstairs");
+			DLOG_F(WARNING, "Player[%d] first needs to go [%s]",
+				player == nullptr ? 0 : player->getID(), playerPos.z > pos.z ?
+				"Upstairs" : "Downstairs");
 			return playerPos.z > pos.z ?
 					RETURNVALUE_FIRSTGOUPSTAIRS : RETURNVALUE_FIRSTGODOWNSTAIRS;
 		}
 
 		if (!Position::areInRange<1, 1>(playerPos, pos)) {
-			DLOG_F(WARNING, "Player is too far to use!");
+			DLOG_F(WARNING, "Player[%s] is too far to use!",
+							player == nullptr ? 0 : player->getID());
 			return RETURNVALUE_TOOFARAWAY;
 		}
 	}
-	DLOG_F(WARNING, "Player can use!");
+	DLOG_F(INFO, "Player[%d] canUse from his position!",
+	player == nullptr ? 0 : player->getID());
 	return RETURNVALUE_NOERROR;
 }
 
@@ -321,37 +324,42 @@ ReturnValue Actions::canUse(const Player* player, const Position& pos,
 	if (action != nullptr) {
 		return action->canExecuteAction(player, pos);
 	}
-	DLOG_F(INFO, "Player can use!");
+	DLOG_F(INFO, "Player[%d] canUse item from his position!",
+					player == nullptr ? 0 : player->getID());
 	return RETURNVALUE_NOERROR;
 }
 
 ReturnValue Actions::canUseFar(const Creature* creature, const Position& toPos,
 								bool checkLineOfSight, bool checkFloor) {
 	DLOG_F(INFO, "Creature[%d] canUseFar to position:x[%d], y[%d], z[%d],"
-		"checkLineOfSight[%d], checkFloor[%d]", creature == nullptr ?
-		0 : creature->getID(), toPos.getX(), toPos.getY(), toPos.getZ(),
-		checkLineOfSight, checkFloor);
+			"checkLineOfSight[%d], checkFloor[%d]", creature == nullptr ?
+			0 : creature->getID(), toPos.getX(), toPos.getY(), toPos.getZ(),
+			checkLineOfSight, checkFloor);
 
 	if (toPos.x == 0xFFFF) {
-		DLOG_F(INFO, "Creature can use far!");
+		DLOG_F(INFO, "Creature[%d] can use from far!", creature == nullptr ?
+														0 : creature->getID());
 		return RETURNVALUE_NOERROR;
 	}
 
 	const Position& creaturePos = creature->getPosition();
 	if (checkFloor && creaturePos.z != toPos.z) {
-		DLOG_F(WARNING, "Creature first needs to go [%s]",
-				creaturePos.z > toPos.z ? "Upstairs" : "Downstairs");
+		DLOG_F(WARNING, "Creature[%d] first needs to go [%s]",
+		creature == nullptr ? 0 : creature->getID(), creaturePos.z > toPos.z ?
+													"Upstairs" : "Downstairs");
 		return creaturePos.z > toPos.z ?
 					RETURNVALUE_FIRSTGOUPSTAIRS : RETURNVALUE_FIRSTGODOWNSTAIRS;
 	}
 
 	if (!Position::areInRange<7, 5>(toPos, creaturePos)) {
-		DLOG_F(WARNING, "Creature is too far to use!");
+		DLOG_F(WARNING, "Creature[%d] is too far to use!",
+						creature == nullptr ? 0 : creature->getID());
 		return RETURNVALUE_TOOFARAWAY;
 	}
 
 	if (checkLineOfSight && !g_game.canThrowObjectTo(creaturePos, toPos)) {
-		DLOG_F(WARNING, "Creature can throw!");
+		DLOG_F(WARNING, "Creature[%d] can throw!", creature == nullptr ?
+													0 : creature->getID());
 		return RETURNVALUE_CANNOTTHROW;
 	}
 
@@ -573,7 +581,7 @@ bool Actions::useItemEx(Player* player, const Position& fromPos,
 		"To Position:x[%d], y[%d], z[%d], toStackPos[%d], Item cid:[%d], "
 		"isHotkey:[%d]", player == nullptr ? 0 : player->getID(),
 		fromPos.getX(), fromPos.getY(), fromPos.getZ(), toPos.getX(),
-		toPos.getY(),	toPos.getZ(), toStackPos, item == nullptr ?
+		toPos.getY(), toPos.getZ(), toStackPos, item == nullptr ?
 		0 : item->getClientID(), isHotkey);
 
 	player->setNextAction(OTSYS_TIME() + g_config.getNumber(
@@ -659,7 +667,7 @@ bool Action::configureEvent(const pugi::xml_node& node) {
 		DLOG_F(INFO, "Event[%s]: Check Floor:[%d]", node.name(), checkFloor);
 	}
 
-	DLOG_F(INFO, "Event[%s] configured with success!");
+	DLOG_F(INFO, "Event[%s] configured with success!", node.name());
 	return true;
 }
 
@@ -671,12 +679,14 @@ bool enterMarket(Player* player, Item* /*unused*/, const Position& /*unused*/,
 			0 : player->getID());
 
 	if (player->getLastDepotId() == -1) {
-		DLOG_F(WARNING, "Player[%d] doesn't have depot!", player->getID());
+		DLOG_F(WARNING, "Player[%d] doesn't have depot!", player == nullptr ?
+														0 : player->getID());
 		return false;
 	}
 
 	player->sendMarketEnter(player->getLastDepotId());
-	DLOG_F(INFO, "enterMarket: Player[%d] Success!", player->getID());
+	DLOG_F(INFO, "enterMarket: Player[%d] Success!", player == nullptr ?
+														0 : player->getID());
 	return true;
 }
 
@@ -787,8 +797,8 @@ bool Action::executeUse(Player* player, Item* item,
 						const Position& fromPosition, Thing* target,
 						const Position& toPosition, bool isHotkey) {
 	DLOG_F(INFO, "Use Item Ex Player[%d], From Position:x[%d], y[%d], z[%d], "
-		"To Position:x[%d], y[%d], z[%d], toStackPos[%d], Item cid:[%d], "
-		"isHotkey:[%d]", player == nullptr ? 0 : player->getID(),
+		"To Position:x[%d], y[%d], z[%d], Item cid:[%d], isHotkey:[%d]",
+		player == nullptr ? 0 : player->getID(),
 		fromPosition.getX(), fromPosition.getY(), fromPosition.getZ(),
 		toPosition.getX(), toPosition.getY(), toPosition.getZ(),
 		item == nullptr ? 0 : item->getClientID(), isHotkey);
