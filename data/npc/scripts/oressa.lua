@@ -15,7 +15,6 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local vocation = {}
 local voices = {
 	{ text = "You can't take it all with you - sell your Dawnport things before \z
 	you receive the gear of your definite vocation!" },
@@ -29,25 +28,6 @@ local voices = {
 
 npcHandler:addModule(VoiceModule:new(voices))
 
-keywordHandler:addKeyword({"healing"}, StdModule.say,
-	{
-		npcHandler = npcHandler,
-		text = "You are hurt, my child. I will heal your wounds."
-	},
-	function(player)
-		return player:getCondition(CONDITION_POISON) ~= nil
-	end,
-	function(player)
-		local health = player:getHealth()
-		if health < 40 then
-			player:addHealth(40 - health)
-		end
-		player:removeCondition(CONDITION_POISON)
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	end
-)
-keywordHandler:addAliasKeyword({"help"})
-
 -- Basic keywords
 keywordHandler:addKeyword({"name"}, StdModule.say,
 	{
@@ -58,7 +38,7 @@ keywordHandler:addKeyword({"name"}, StdModule.say,
 keywordHandler:addKeyword({"healer"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "If you are hurt my child, I will heal your wounds."
+		text = "If you are hurt my child, I will {heal} your wounds."
 	}
 )
 keywordHandler:addKeyword({"job"}, StdModule.say,
@@ -143,8 +123,39 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	-- vocation dialog
-	if npcHandler.topic[cid] == 0 and msgcontains(msg, "vocation") then
+	local health = player:getHealth()
+	-- Heal and help dialog
+	if msgcontains(msg, "heal") and npcHandler.topic[cid] == 0 then
+		if health < 40 or player:getCondition(CONDITION_POISON) then
+			if health < 40 then
+				player:addHealth(40 - health)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			if player:getCondition(CONDITION_POISON) then
+				player:removeCondition(CONDITION_POISON)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			selfSay("You are hurt, my child. I will heal your wounds.", cid)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "help") and npcHandler.topic[cid] == 0 then
+		if player:getCondition(CONDITION_POISON) == nil or health > 40 then
+			return selfSay("You do not need any healing right now.", cid)
+		end
+		if health < 40 or player:getCondition(CONDITION_POISON) then
+			if health < 40 then
+				player:addHealth(40 - health)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			if player:getCondition(CONDITION_POISON) then
+				player:removeCondition(CONDITION_POISON)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			selfSay("You are hurt, my child. I will heal your wounds.", cid)
+			npcHandler.topic[cid] = 0
+		end
+	-- Vocation dialog
+	elseif npcHandler.topic[cid] == 0 and msgcontains(msg, "vocation") then
 		selfSay("A vocation is your profession and destiny, determining your skills and way of fighting. \z
 				There are four vocations in Tibia: {knight}, {sorcerer}, {paladin} or {druid}. \z
 				Each one has its unique special abilities. ... ", cid)
@@ -155,8 +166,8 @@ local function creatureSayCallback(cid, type, msg)
 		selfSay("Think carefully, as you can't change your vocation later on! You will have to choose your vocation in order \z
 				to leave Dawnport for the main continent through one of these {doors} behind me. ... ", cid)
 		selfSay("Talk to me again when you are ready to choose your vocation, and I will set you on your way. ", cid)
-			npcHandler.topic[cid] = 1
-	-- choosing dialog start
+		npcHandler.topic[cid] = 1
+	-- Choosing dialog start
 	elseif msgcontains(msg, "choosing") or msgcontains(msg, "choose") and npcHandler.topic[cid] == 0 then
 		selfSay("I'll help you decide. Tell me: Do you like to keep your {distance}, or do you like {close} combat?", cid)
 		npcHandler.topic[cid] = 2
@@ -172,7 +183,7 @@ local function creatureSayCallback(cid, type, msg)
 			monster's attention to them. ...", cid)
 		selfSay("So tell me: DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!", cid)
 		npcHandler.topic[cid] = 5
-	-- paladin
+	-- Paladin
 	elseif msgcontains(msg, "bow") or msgcontains(msg, "spear") and npcHandler.topic[cid] == 3 then
 		selfSay("Then you should join the ranks of the paladins, noble hunters and rangers of the wild, who rely on the \z
 			swiftness of movement and ranged attacks. ...", cid)
@@ -183,12 +194,12 @@ local function creatureSayCallback(cid, type, msg)
 		selfSay("They can also use holy magic to slay the unholy and undead in particular. ...", cid)
 		selfSay("DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!", cid)
 		npcHandler.topic[cid] = 5
-	-- mage
+	-- Mage
 	elseif msgcontains(msg, "magic") and npcHandler.topic[cid] == 3 then
 		selfSay("Tell me: Do you prefer to {heal} and cast the power of nature and ice, or do you want to rain \z
 			fire and {death} on your foes?", cid)
 		npcHandler.topic[cid] = 4
-	-- druid
+	-- Druid
 	elseif msgcontains(msg, "heal") and npcHandler.topic[cid] == 4 then
 		selfSay("Then you should learn the ways of the druids, healers and powerful masters of natural magic. ...", cid)
 		selfSay("Druids can heal their friends and allies, but they can also cast powerful ice and earth magic \z
@@ -197,7 +208,7 @@ local function creatureSayCallback(cid, type, msg)
 			much more damage than paladins or knights. ...", cid)
 		selfSay("So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!", cid)
 		npcHandler.topic[cid] = 5
-	-- sorcerer
+	-- Sorcerer
 	elseif msgcontains(msg, "death") and npcHandler.topic[cid] == 4 then
 		selfSay("Then you should become a sorcerer, a mighty wielder of deathly energies and arcane fire. ...", cid)
 		selfSay("Sorcerers are powerful casters of magic. They use fire, energy and death magic to lay low their enemies. \z
@@ -206,10 +217,10 @@ local function creatureSayCallback(cid, type, msg)
 			but they deal much more damage than paladins or knights. ...", cid)
 		selfSay("So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!", cid)
 		npcHandler.topic[cid] = 5
-	-- choosing dialog start
+	-- Choosing dialog start
 	elseif msgcontains(msg, "decided") and npcHandler.topic[cid] == 0 then
 		selfSay("So tell me, which {vocation} do you want to choose: {knight}, {sorcerer}, {paladin} or {druid}?", cid)
-	-- say vocations name
+	-- Say vocations name
 	elseif msgcontains(msg, "sorcerer") and npcHandler.topic[cid] == 0 then
 		selfSay("Sorcerers are powerful casters of death, energy and fire magic. \z
 			They can do a little ice or earth damage as well. ...", cid)
@@ -245,7 +256,6 @@ local function creatureSayCallback(cid, type, msg)
 			for index, value in ipairs(vocations)do
 				if index == player:getVocation():getId() then
 					player:setStorageValue(value, index)
-					print("storage")
 				end
 			end
 			-- Cycle through the slots table and store the slot id in slot
@@ -255,13 +265,13 @@ local function creatureSayCallback(cid, type, msg)
 				-- If the item exists meaning its not nil then continue
 				if item then
 					item:remove()
-					print("remove items")
 				end
 			end
 			selfSay("SO BE IT. CAST OFF YOUR TRAINING GEAR AND RISE, NOBLE ".. player:getVocation():getName():upper() .. "! ...", cid)
 			selfSay("Go through the second door from the right. Open the chest and take the equipment inside \z
 				before you leave to the north. ...", cid)
 			selfSay("Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!", cid)
+			npcHandler.topic[cid] = 0
 		end
 	end
 	return true
