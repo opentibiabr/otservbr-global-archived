@@ -170,7 +170,7 @@ NpcTable = {
 	[169] = {name = "maro", position = {x = 33622, y = 31883, z = 6}},
 	[170] = {name = "flint", position = {x = 33635, y = 31882, z = 6}},
 	[171] = {name = "graham", position = {x = 33611, y = 31886, z = 6}},
-	[172] = {name = "oressa", position = {x = 32059, y = 31889, z = 6}},
+	[172] = {name = "oressa", position = {x = 32064, y = 31891, z = 6}},
 	[173] = {name = "fyodor", position = {x = 33639, y = 31897, z = 6}},
 	[174] = {name = "azalea", position = {x = 33593, y = 31899, z = 6}},
 	[175] = {name = "pemaret", position = {x = 33286, y = 31955, z = 6}},
