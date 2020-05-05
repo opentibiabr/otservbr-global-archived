@@ -5,7 +5,6 @@ function vocationDoor.onUse(player, item, target, position, fromPosition)
 	if player:getStorageValue(setting.storage) == setting.vocation then --Check Oressa storage before choose vocation
 		player:teleportTo(setting.destination)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:setStorageValue(setting.storage, -1) --Delete storage
 	elseif player:getStorageValue(setting.storage) ~= setting.vocation then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The door seems to be sealed against unwanted intruders.")
 	end

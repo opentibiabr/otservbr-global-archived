@@ -132,6 +132,81 @@ ActionTable = {
 			{x = 32066, y = 31880, z = 5}
 		}
 	},
+	--Stairs decided vocation back
+	{
+		actionId = 40005,
+		itemId = 1385,
+		itemPos = {
+			{x = 32063, y = 31889, z = 6},
+			{x = 32064, y = 31889, z = 6},
+			{x = 32065, y = 31889, z = 6},
+			{x = 32066, y = 31889, z = 6}
+		}
+	},
+	--Sorcerer door tile
+	{
+		actionId = 40006,
+		itemId = 406,
+		itemPos = {
+			{x = 32053, y = 31884, z = 6},
+			{x = 32054, y = 31884, z = 6},
+			{x = 32055, y = 31884, z = 6}
+		}
+	},
+	--Druid door tile
+	{
+		actionId = 40007,
+		itemId = 406,
+		itemPos = {
+			{x = 32072, y = 31884, z = 6},
+			{x = 32073, y = 31884, z = 6},
+			{x = 32074, y = 31884, z = 6}
+		}
+	},
+	--Paladin door tile
+	{
+		actionId = 40008,
+		itemId = 406,
+		itemPos = {
+			{x = 32058, y = 31884, z = 6},
+			{x = 32059, y = 31884, z = 6},
+			{x = 32060, y = 31884, z = 6}
+		}
+	},
+	--Knight door tile
+	{
+		actionId = 40009,
+		itemId = 406,
+		itemPos = {
+			{x = 32067, y = 31884, z = 6},
+			{x = 32068, y = 31884, z = 6},
+			{x = 32069, y = 31884, z = 6}
+		}
+	},
+	--Sorcerer chest tile
+	{
+		actionId = 40010,
+		itemId = 406,
+		itemPos = {{x = 32054, y = 31880, z = 6}}
+	},
+	--Druid chest tile
+	{
+		actionId = 40011,
+		itemId = 406,
+		itemPos = {{x = 32073, y = 31880, z = 6}}
+	},
+	--Paladin chest tile
+	{
+		actionId = 40012,
+		itemId = 406,
+		itemPos = {{x = 32059, y = 31880, z = 6}}
+	},
+	--Knight chest tile
+	{
+		actionId = 40013,
+		itemId = 406,
+		itemPos = {{x = 32068, y = 31880, z = 6}}
+	}
 }
 
 UniqueTable = {
@@ -470,15 +545,15 @@ UniqueTable = {
 		name = 'tortoise egg from Nargor',
 		count = 1
 	},
-    [24906] = {
+	[24906] = {
 		storage = Storage.TheShatteredIsles.TavernMap1,
 		message = "You have sucessfully read plan A."
 	},
-    [24907] = {
+	[24907] = {
 		storage = Storage.TheShatteredIsles.TavernMap2,
 		message = "You have sucessfully read plan B."
 	},
-    [24908] = {
+	[24908] = {
 		storage = Storage.TheShatteredIsles.TavernMap3,
 		message = "You have sucessfully read plan C."
 	},
