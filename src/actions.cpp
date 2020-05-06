@@ -305,7 +305,7 @@ ReturnValue Actions::canUse(const Player* player, const Position& pos) {
 		}
 
 		if (!Position::areInRange<1, 1>(playerPos, pos)) {
-			DLOG_F(WARNING, "Player[%s] is too far to use!",
+			DLOG_F(WARNING, "Player[%d] is too far to use!",
 							player == nullptr ? 0 : player->getID());
 			return RETURNVALUE_TOOFARAWAY;
 		}
