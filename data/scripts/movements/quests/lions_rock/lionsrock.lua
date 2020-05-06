@@ -27,7 +27,6 @@ function lionsRockEntrance.onStepIn(creature, item, position, fromPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to pass the Lion's Tests to enter the inner sanctum!")
 		return false
 	end
-	return true
 end
 
 function lionsRockSigns.onStepIn(creature, item, position, fromPosition)

@@ -33,7 +33,7 @@ function lionsRockSkeleton.onUse(player, item, fromPosition, target, toPosition,
             forgotten deity, built in the tunnels deep below the rock centuries ago. This holy site was once guarded \z
             by mystical lions and they may still be down there. But yet I haven't succeeded in entering the inner \z
             sanctum. The entrance to the lower temple areas is protected by an old and powerful enchantment. I \z
-            studied the inscriptions on the temple walls and thus learned that the key to the inner sanctum is the \z 
+            studied the inscriptions on the temple walls and thus learned that the key to the inner sanctum is the \z
             passing of three tests. The first test is the Lion's Strength. In order to honour the site's mystical \z
             cats of prey one has to hunt and slay a cobra. The cobra's tongue must be laid down at a stone statue as \z
             a sacrifice. The second test is the Lion's Beauty. One has to burn the petals of a lion's mane flower on \z
@@ -144,7 +144,8 @@ function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, to
 			amphora:transform(amphoraBrokenID)
 			player:sendTextMessage(
 				MESSAGE_EVENT_ADVANCE,
-				'As you pass incautiously, the ancient amphora crumbles to shards and dust. Amidst the debris you discover an old scroll.'
+				'As you pass incautiously, the ancient amphora crumbles to shards and dust. \z
+				Amidst the debris you discover an old scroll.'
 			)
 			player:setStorageValue(setting.need, 5)
 			player:addItem(setting.addItem, 1)

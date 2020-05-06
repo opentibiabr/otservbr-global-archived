@@ -451,7 +451,8 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 1,
 		needNext = 2,
-		message = 'You have sacrificed a cobra tongue at an ancient statue. The light in the small pyramid nearby begins to shine.',
+		message = 'You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
+		pyramid nearby begins to shine.',
 		effect = CONST_ME_BLOCKHIT
 	},
 	[24911] = {
@@ -475,7 +476,8 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 3,
 		needNext = 4,
-		message = 'You have purified a sacret pedestal with holy water. You have now passed the last test to enter thge inner sanctum.',
+		message = 'You have purified a sacret pedestal with holy water. You have now passed the last test\z
+		 to enter thge inner sanctum.',
 		effect = CONST_ME_LOSEENERGY
 	},
 	[24913] = {
