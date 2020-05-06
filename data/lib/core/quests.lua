@@ -4826,7 +4826,8 @@ if not Quests then
 					states = {
 						[1] = function(player)
 							return ("A remnant cult of Zathroth has formed in a forbidden temple beneath Carlin. \z
-						Find out what's behind this and stop it in time.\nTemporarily vaporised souls:\n%d Decaying\n%d Withering"):format(
+						Find out what's behind this and stop it in time.\nTemporarily vaporised souls:\n%d Decaying\n%d \z
+						Withering"):format(
 								math.max(player:getStorageValue(18551), 0),
 								math.max(player:getStorageValue(18550), 0)
 							)

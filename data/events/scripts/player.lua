@@ -375,7 +375,9 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 	-- SSA exhaust
 	local exhaust = {}
-	if toPosition.x == CONTAINER_POSITION and toPosition.y == CONST_SLOT_NECKLACE and item:getId() == STONE_SKIN_AMULET then
+	if
+		(toPosition.x == CONTAINER_POSITION) and (toPosition.y == CONST_SLOT_NECKLACE) and (item:getId() == STONE_SKIN_AMULET)
+	 then
 		local pid = self:getId()
 		if exhaust[pid] then
 			self:sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED)
@@ -411,7 +413,10 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 		-- Gold Pouch
 		if (containerTo:getId() == GOLD_POUCH) then
-			if (not (item:getId() == ITEM_CRYSTAL_COIN or item:getId() == ITEM_PLATINUM_COIN or item:getId() == ITEM_GOLD_COIN)) then
+			if
+				(not ((item:getId() == ITEM_CRYSTAL_COIN) or (item:getId() == ITEM_PLATINUM_COIN) or
+					(item:getId() == ITEM_GOLD_COIN)))
+			 then
 				self:sendCancelMessage('You can move only money to this container.')
 				return false
 			end
