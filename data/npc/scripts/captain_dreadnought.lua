@@ -134,12 +134,12 @@ local function creatureSayCallback(cid, type, msg)
 		end
 		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
 		if container and container:getSize() > 0 then
-			local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2553, 5710, 8722, 8723}
+			local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2420, 2480, 2553, 2580, 5710, 8722, 8723}
 			local toBeDeleted = {}
 
 			for i = 0, container:getSize() do
-				if player:getMoney() > 0 then
-					player:removeMoney(math.abs(0 - player:getMoney()))
+				if player:getMoney() > 500 then
+					player:removeMoney(math.abs(500 - player:getMoney()))
 				end
 				local item = container:getItem(i)
 				if item then
@@ -244,7 +244,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
 		if container and container:getSize() > 0 then
-			local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2553, 5710, 8722, 8723}
+			local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2420, 2480, 2553, 2580, 5710, 8722, 8723}
 			local toBeDeleted = {}
 
 			for i = 0, container:getSize() do
