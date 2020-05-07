@@ -54,10 +54,6 @@ local townTable = {
 --Venore town
 local venoreTown = Town(TOWNS_LIST.VENORE)
 
-local slots = {
-	1, 2, 4, 5, 6, 7, 8, 9, 10
-}
-
 local function greetCallback(cid)
 	local player = Player(cid)
 	npcHandler:setMessage(MESSAGE_GREET, "Well, well, a new ".. player:getVocation():getName():lower() .."! \z
@@ -123,40 +119,6 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
 			err, shops and bank and such!", cid)
 		npcHandler.topic[cid] = 0
-		--Cycle through the slots table and store the slot id in slot
-		for index, value in pairs(slots) do
-			--Get the player's slot item and store it in item
-			local item = player:getSlotItem(value)
-			--If the item exists meaning its not nil then continue
-			if item then
-				item:remove()
-			end
-		end
-		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
-		if container and container:getSize() > 0 then
-			local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2420, 2480, 2553, 2580, 5710, 8722, 8723}
-			local toBeDeleted = {}
-
-			for i = 0, container:getSize() do
-				if player:getMoney() > 500 then
-					player:removeMoney(math.abs(500 - player:getMoney()))
-				end
-				local item = container:getItem(i)
-				if item then
-					if not table.contains(allowedIds, item:getId()) then
-						toBeDeleted[#toBeDeleted + 1] = item.uid
-					end
-				end
-			end
-			if #toBeDeleted > 0 then
-				for i, v in pairs(toBeDeleted) do
-					local item = Item(v)
-					if item then
-						item:remove()
-					end
-				end
-			end
-		end
 	elseif msgcontains(msg, "ab'dendriel") and npcHandler.topic[cid] == 5 then
 		npcHandler:say(
 			{
@@ -231,40 +193,6 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
 					err, shops and bank and such!", cid)
 				npcHandler.topic[cid] = 0
-			end
-		end
-		--Cycle through the slots table and store the slot id in slot
-		for index, value in pairs(slots) do
-			--Get the player's slot item and store it in item
-			local item = player:getSlotItem(value)
-			--If the item exists meaning its not nil then continue
-			if item then
-				item:remove()
-			end
-		end
-		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
-		if container and container:getSize() > 0 then
-			local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2420, 2480, 2553, 2580, 5710, 8722, 8723}
-			local toBeDeleted = {}
-
-			for i = 0, container:getSize() do
-				if player:getMoney() > 0 then
-					player:removeMoney(math.abs(0 - player:getMoney()))
-				end
-				local item = container:getItem(i)
-				if item then
-					if not table.contains(allowedIds, item:getId()) then
-						toBeDeleted[#toBeDeleted + 1] = item.uid
-					end
-				end
-			end
-			if #toBeDeleted > 0 then
-				for i, v in pairs(toBeDeleted) do
-					local item = Item(v)
-					if item then
-						item:remove()
-					end
-				end
 			end
 		end
 	else
