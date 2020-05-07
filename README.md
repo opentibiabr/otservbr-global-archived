@@ -4,17 +4,17 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/github/opentibiabr/otservbr-global?branch=develop&passingText=develop%20-%20OK&svg=true)](https://ci.appveyor.com/project/opentibiabr/otservbr-global "Download nightly builds for Windows")
 [![Build Status](https://travis-ci.org/opentibiabr/OTServBR-Global.svg?branch=develop)](https://travis-ci.org/opentibiabr/OTServBR-Global "Linux Build Status - Develop Branch")
 
-![Build on MacOS](https://github.com/FootOT/otservbr-global/workflows/Build%20on%20MacOS/badge.svg)
-![Build on Ubuntu](https://github.com/FootOT/otservbr-global/workflows/Build%20on%20Ubuntu/badge.svg)
-![Build on Windows](https://github.com/FootOT/otservbr-global/workflows/Build%20on%20Windows/badge.svg)
+[![Build on MacOS](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20MacOS/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+MacOS%22)
+[![Build on Ubuntu](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Ubuntu/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Ubuntu%22)
+[![Build on Windows](https://github.com/opentibiabr/otservbr-global/workflows/Build%20on%20Windows/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Build+on+Windows%22)
 
 ## Syntax/Linters
-![C++ linter](https://github.com/FootOT/otservbr-global/workflows/C++%20linter/badge.svg)
+[![C++ linter](https://github.com/opentibiabr/otservbr-global/workflows/C++%20linter/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22C%2B%2B+linter%22)
 
-![Lua linter](https://github.com/FootOT/otservbr-global/workflows/Lua%20linter/badge.svg)
-![Lua syntax check](https://github.com/FootOT/otservbr-global/workflows/Lua%20syntax%20check/badge.svg)
+[![Lua linter](https://github.com/opentibiabr/otservbr-global/workflows/Lua%20linter/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Lua+linter%22)
+[![Lua syntax check](https://github.com/opentibiabr/otservbr-global/workflows/Lua%20syntax%20check/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22Lua+syntax+check%22)
 
-![XML syntax check](https://github.com/FootOT/otservbr-global/workflows/XML%20syntax%20check/badge.svg)
+[![XML syntax check](https://github.com/opentibiabr/otservbr-global/workflows/XML%20syntax%20check/badge.svg)](https://github.com/opentibiabr/otservbr-global/actions?query=workflow%3A%22XML+syntax+check%22)
 
 ## Docs/Help
 [![Documentation](https://codedocs.xyz/Costallat/otservbr-global.svg)](https://codedocs.xyz/Costallat/otservbr-global/)
