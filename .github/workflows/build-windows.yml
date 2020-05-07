@@ -75,26 +75,27 @@ jobs:
         run: find $RUNNER_WORKSPACE
         shell: bash
 
-      - name: Upload artifact binary (exe)
-        uses: actions/upload-artifact@v2
-        with:
-          name: otbr-${{ matrix.os }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}-${{ github.sha }}
-          path: ${{ runner.workspace }}/build/otbr.exe
-        if: contains( matrix.os, 'windows')
+      - name: Create datapack
+        shell: powershell
+        run: |
+          md ${{ runner.workspace }}\otservbr-global\otservbr-global
+          Copy-Item ${{ runner.workspace }}\otservbr-global\config.lua.dist     ${{ runner.workspace }}\otservbr-global\otservbr-global
+          Copy-Item ${{ runner.workspace }}\otservbr-global\key.pem             ${{ runner.workspace }}\otservbr-global\otservbr-global
+          Copy-Item ${{ runner.workspace }}\otservbr-global\LICENSE             ${{ runner.workspace }}\otservbr-global\otservbr-global
+          Copy-Item ${{ runner.workspace }}\otservbr-global\README.md           ${{ runner.workspace }}\otservbr-global\otservbr-global
+          Copy-Item ${{ runner.workspace }}\build\otbr.exe      ${{ runner.workspace }}\otservbr-global\otservbr-global\otservbr-global.exe
+          get-childitem -path ${{ runner.workspace }}\build -filter *.dll -recurse | copy-item -destination ${{ runner.workspace }}\otservbr-global\otservbr-global
+          Copy-Item ${{ runner.workspace }}\otservbr-global\data -Destination   ${{ runner.workspace }}\otservbr-global\otservbr-global\data
+          Copy-Item -Path ${{ runner.workspace }}\otservbr-global\data\* -Destination ${{ runner.workspace }}\otservbr-global\otservbr-global\data -Recurse
+          Compress-Archive -Path ${{ runner.workspace }}\otservbr-global\otservbr-global -DestinationPath ${{ runner.workspace }}\otservbr.zip
 
-      - name: Upload artifact binary (dlls)
-        uses: actions/upload-artifact@v2
-        with:
-          name: otbr-${{ matrix.os }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}-${{ github.sha }}
-          path: ${{ runner.workspace }}/build/*.dll
-        if: contains( matrix.os, 'windows')
-
-      - name: Prepare datapack contents
-        run: find . -maxdepth 1 ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
+      - name: dir
+        run: find $RUNNER_WORKSPACE
         shell: bash
 
-      - name: Upload datapack contents
+      - name: Upload datapack
         uses: actions/upload-artifact@v2
         with:
           name: otbr-${{ matrix.os }}-${{ matrix.buildtype }}-luajit=${{ matrix.luajit }}-${{ github.sha }}
-          path: ${{ github.workspace }}
+          path: ${{ runner.workspace }}/otservbr.zip
+        if: contains( matrix.os, 'windows')
