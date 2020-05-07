@@ -2187,7 +2187,7 @@ GlobalStorage = {
 
 }
 
--- Função de extração de values
+-- Values extraction function
 local function extractValues(tab)
   local ret = {}
   for _, v in pairs(tab) do
@@ -2204,16 +2204,16 @@ local function extractValues(tab)
 end
 
 local benchmark = os.clock()
-local extraction = extractValues(Storage) -- Chama a função
-table.sort(extraction) -- Ordena a tabela
--- A escolha da ordenação se deve ao fato de que ordenação é bem barato O(log2(n)) e aí podemos simplesmente comparar um a um os elementos achando duplicatas em O(n)
+local extraction = extractValues(Storage) -- Call function
+table.sort(extraction) -- Sort the table
+-- The choice of sorting is due to the fact that sorting is very cheap O (log2 (n)) and then we can simply compare one by one the elements finding duplicates in O(n)
 
--- Percorre a tabela extraída verificando se há duplicatas
+-- Scroll through the extracted table for duplicates
 if #extraction > 1 then
   for i = 1, #extraction - 1 do
     if extraction[i] == extraction[i+1] then
       print("Duplicate storage value found: ".. extraction[i])
     end 
   end
-  print(string.format("Processado em %.4f(s)", os.clock() - benchmark))
+  print(string.format("Processed in %.4f(s)", os.clock() - benchmark))
 end
