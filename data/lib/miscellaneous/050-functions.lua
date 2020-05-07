@@ -409,3 +409,16 @@ function kickerPlayerRoomAfferMin(playername, fromPosition, toPosition, teleport
 		addEvent(kickerPlayerRoomAfferMin, min*1000,playername, fromPosition, toPosition, teleportPos, message, monsterName, subt, false, itemtable, blockmonsters)
 	end
 end
+
+function checkWeightAndBackpackRoom(player, itemWeight, message)
+	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+	if not backpack or backpack:getEmptySlots(true) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ", but you have no room to take it.")
+		return false
+	end
+	if (player:getFreeCapacity() / 100) < itemWeight then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, message .. ". Weighing " .. itemWeight .. " oz, it is too heavy for you to carry.")
+		return false
+	end
+	return true
+end

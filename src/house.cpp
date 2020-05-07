@@ -456,7 +456,7 @@ bool House::executeTransfer(HouseTransferItem* item, Player* newOwner)
 	return true;
 }
 
-void AccessList::parseList(const std::string& listToParse)
+void AccessList::parseList(const std::string& list)
 {
 	playerList.clear();
 	guildRankList.clear();
