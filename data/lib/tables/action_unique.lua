@@ -271,7 +271,7 @@ UniqueTable = {
 		itemId = 3058,
 		itemPos = {x = 32143, y = 31910, z = 8},
 		itemReward = {{480, 1}},
-		storage = Storage.Quest.Dawnport.LegionHelmet
+		storage = Storage.Quest.SanctuaryOfTheLizardGod.LegionHelmet
 	},
 
 	-- Reward inside of container, y = there is also the option to put a key inside.

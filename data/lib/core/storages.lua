@@ -490,10 +490,10 @@ Storage = {
 		-- update 10.55
 		Dawnport = {
 			VocationReward = 30001,
-			LizardGodTeleport = 30002,
-			LegionHelmet = 30003
 		},
 		SanctuaryOfTheLizardGod = {
+			LizardGodTeleport = 30002,
+			LegionHelmet = 30003
 		},
 		-- update 10.70
 		HeroOfRathleton = {
