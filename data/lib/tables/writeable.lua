@@ -1,3 +1,29 @@
+BookTable = {
+	[1] = {
+	-- Hiding the Amulet (Dawnport quest)
+		itemId = 23764,
+		itemPos = {x = 32046, y = 31915, z = 7},
+		text =
+[[
+(You can barely read the following words on this soiled piece of paper)
+
+... growing weaker by the minute. I should have... bad feeling about this!
+The cyclops ...
+... too many of them. No help. I must...
+... hid the ancient amulet beneath the sand, before ...should have listened to ...
+Must hide... paper, hope an adventurer will...
+
+
+... amulet will be washed ashore if not found...
+To any adventurer friend: ... shovel... beach...
+.. dig there. ... take it to Morris, maybe he ... decipher the engravings.
+
+Signed
+Dormovo the Impetuous
+]]
+	},
+}
+
 SignTable = {
 	[1] = {
 		itemId = 1429,

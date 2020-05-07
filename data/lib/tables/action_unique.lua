@@ -229,42 +229,49 @@ UniqueTable = {
 		itemId = 1290,
 		itemPos = {x = 32652, y = 32107, z = 7},
 		keyAction = 4055,
-		itemReward = {2088, 1},
+		itemReward = {{2088, 1}},
 		storage = Storage.Quest.Panpipe.Key4055Reward
 	},
 
-	-- Rewards without a container, it is only received by the player, are the common rewards.
+	-- Rewards without a container (commom reward), it is only received by the player, are the common rewards.
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically.
 	-- UID reserved range 14001/16000.
 	[14001] = {
 		itemId = 26408,
 		itemPos = {x = 32349, y = 32194, z = 9},
-		itemReward = {26654, 1},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward1
 	},
 	[14002] = {
 		itemId = 26408,
 		itemPos = {x = 32382, y = 32368, z = 9},
-		itemReward = {26654, 1},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward2
 	},
 	[14003] = {
 		itemId = 26408,
 		itemPos = {x = 32287, y = 32119, z = 7},
-		itemReward = {26654, 1},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward3
 	},
 	[14004] = {
 		itemId = 26409,
 		itemPos = {x = 32389, y = 32001, z = 6},
-		itemReward = {26654, 1},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward4
 	},
 	[14005] = {
 		itemId = 26408,
 		itemPos = {x = 32449, y = 32109, z = 8},
-		itemReward = {26654, 1},
+		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward5
+	},
+	-- Legion helmet quest (dawnport)
+	[14006] = {
+		itemId = 3058,
+		itemPos = {x = 32143, y = 31910, z = 8},
+		itemReward = {{480, 1}},
+		storage = Storage.Quest.Dawnport.LegionHelmet
 	},
 
 	-- Reward inside of container, y = there is also the option to put a key inside.
@@ -278,7 +285,7 @@ UniqueTable = {
 		itemBag = xxxx,
 		keyItem = xxxx,
 		keyAction = xxxx,
-		itemReward = {xxxx, y = x}, y = {xxxx, y = x}, y = {xxxx, y = x},
+		itemReward = {{xxxx, y = x}, y = {xxxx, y = x}, y = {xxxx, y = x}},
 		weight = xxxx,
 		storage = Storage.Quest.QuestName
 	},
@@ -689,7 +696,7 @@ UniqueTable = {
 	[25021] = {
 		itemId = 1387,
 		itemPos = {x = 32112, y = 31936, z = 8},
-		storage = Storage.Quest.Dawnport.Legionhelmet,
+		storage = Storage.Quest.Dawnport.LizardGodTeleport,
 		destination = {x = 32124, y = 31938, z = 8}
 	},
 	-- Dawnport vocation rewards

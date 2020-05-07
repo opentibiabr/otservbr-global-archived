@@ -34012,8 +34012,8 @@
 		<attribute key="weight" value="100" />
 		<attribute key="description" value="This could be the key to a room in the outpost." />
 	</item>
-	<item id="23764" article="a" name="krailos">
-		<attribute key="description" value="krailos" />
+	<item id="23764" article="a" name="piece of paper">
+		<attribute key="description" value="It is torn and blotched, but you can still make out some meticulous handwriting." />
 	</item>
 	<item id="23765" article="a" name="well with a lion-like face">
 		<attribute key="description" value="The water pouring out of the mouth has a faint glow." />
@@ -34045,7 +34045,7 @@
 		<attribute key="containerSize" value="20" />
 		<attribute key="slotType" value="backpack" />
 	</item>
-	<item id="23783" article="a" name="dead explorer" />
+	<item id="23783" article="a" name="skeleton" />
 	<item id="23784" article="an" name="old parchment">
 		<attribute key="weight" value="200" />
 	</item>
