@@ -2,12 +2,16 @@ if(APPLE)
 	find_package(PkgConfig REQUIRED)
 	pkg_check_modules(PC_PUGIXML QUIET pugixml)
 	set(PUGIXML_DEFINITIONS ${PC_PUGIXML_CFLAGS_OTHER})
-	
+
 	find_path(PUGIXML_INCLUDE_DIR pugixml.hpp HINTS ${PC_PUGIXML_INCLUDEDIR} ${PC_PUGIXML_INCLUDE_DIRS})
 	find_library(PUGIXML_LIBRARIES NAMES pugixml HINTS ${PC_PUGIXML_LIBDIR} ${PC_PUGIXML_LIBRARY_DIRS})
 else()
 	find_path(PUGIXML_INCLUDE_DIR NAMES pugixml.hpp)
-	find_library(PUGIXML_LIBRARIES NAMES pugixml)
+	if(CMAKE_BUILD_TYPE STREQUAL Debug)
+		find_library(PUGIXML_LIBRARIES NAMES pugixml_d pugixml)
+	else()
+		find_library(PUGIXML_LIBRARIES NAMES pugixml)
+	endif()
 endif()
 
 include(FindPackageHandleStandardArgs)

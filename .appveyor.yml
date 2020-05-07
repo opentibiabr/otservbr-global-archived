@@ -21,17 +21,18 @@ only_commits:
     - CMakeLists.txt
 
 install:
-  - cmd : vcpkg install boost-iostreams:x64-windows
   - cmd : vcpkg install boost-asio:x64-windows
-  - cmd : vcpkg install boost-system:x64-windows
   - cmd : vcpkg install boost-filesystem:x64-windows
-  - cmd : vcpkg install boost-variant:x64-windows
+  - cmd : vcpkg install boost-iostreams:x64-windows
   - cmd : vcpkg install boost-lockfree:x64-windows
+  - cmd : vcpkg install boost-system:x64-windows
+  - cmd : vcpkg install boost-variant:x64-windows
   - cmd : vcpkg install cryptopp:x64-windows
-  - cmd : vcpkg install luajit:x64-windows
   - cmd : vcpkg install libmariadb:x64-windows
-  - cmd : vcpkg install pugixml:x64-windows
+  - cmd : vcpkg install lua:x64-windows
+  - cmd : vcpkg install luajit:x64-windows
   - cmd : vcpkg install mpir:x64-windows
+  - cmd : vcpkg install pugixml:x64-windows
 
 build:
   parallel: true

@@ -1,38 +1,52 @@
 dist: bionic
 language: cpp
-
-
-jobs:
+matrix:
   include:
-  - dist: bionic
-    compiler: gcc
-    os: linux
-  - dist: bionic
-    compiler: clang
-    os: linux
-  - dist: xenial
-    compiler: gcc
-    os: linux
-  - dist: xenial
-    compiler: clang
-    os: linux
+    - dist: bionic
+      env:
+        - BUILD_TYPE=Debug LUAJIT=OFF
 
-compiler:
-  - clang
+    - dist: bionic
+      env:
+        - BUILD_TYPE=Debug LUAJIT=ON
+
+    - dist: bionic
+      env:
+        - BUILD_TYPE=Release LUAJIT=OFF
+
+    - dist: bionic
+      env:
+        - BUILD_TYPE=Release LUAJIT=ON
+
+    - dist: xenial
+      env:
+        - BUILD_TYPE=Debug LUAJIT=OFF
+
+    - dist: xenial
+      env:
+        - BUILD_TYPE=Debug LUAJIT=ON
+
+    - dist: xenial
+      env:
+        - BUILD_TYPE=Release LUAJIT=OFF
+
+    - dist: xenial
+      env:
+        - BUILD_TYPE=Release LUAJIT=ON
+
+
+
+compilers:
   - gcc
-env:
-  jobs:
-    - BUILD_TYPE=Debug LUAJIT=OFF
-    - BUILD_TYPE=Debug LUAJIT=ON
-    - BUILD_TYPE=Release LUAJIT=OFF
-    - BUILD_TYPE=Release LUAJIT=ON
-    global:
-      - CC="/usr/bin/clang-7"
+  # - clang
+
+
 cache: apt
 addons:
   apt:
+    update: true
     packages:
-      - libboost-dev
+      - libboost-date-time-dev
       - libboost-system-dev
       - libboost-filesystem-dev
       - libboost-iostreams-dev
@@ -42,8 +56,6 @@ addons:
       - libmysqlclient-dev
       - libpugixml-dev
       - libgmp3-dev
-      - clang-7
-      - llvm-7-dev
       - ccache
 
 before_script:

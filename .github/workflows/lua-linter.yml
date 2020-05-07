@@ -1,9 +1,24 @@
 name: Lua linter
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - v*
+
+    tags:
+      - v*
+
+    paths:
+      - data/**
+
+  pull_request:
+    paths:
+      - data/**
 
 jobs:
-  build:
+  luacheck:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -29,8 +44,11 @@ jobs:
 
 
     - uses: leafo/gh-actions-lua@v5
+
     - uses: leafo/gh-actions-luarocks@v2
-    - name: build
+
+    - name: Install luacheck
       run: luarocks install luacheck
+
     - name: Test Lua syntax
       run: if [ $(echo "${{ steps.get_file_changes.outputs.files_modified}}" "${{ steps.get_file_changes.outputs.files_added}}" | egrep '[^\/]+(.lua\h|.lua$)' | wc -l) -gt 0 ]; then luacheck --no-config --no-global --no-unused --no-unused-args --no-cache -d $(echo "${{ steps.get_file_changes.outputs.files_modified}}" "${{ steps.get_file_changes.outputs.files_added}}" | egrep -o ' data\/\S*\.lua' | column); fi
