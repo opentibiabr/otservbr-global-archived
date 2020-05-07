@@ -2186,3 +2186,34 @@ GlobalStorage = {
 	XpDisplayMode = 5634
 
 }
+
+-- Função de extração de values
+local function extractValues(tab)
+  local ret = {}
+  for _, v in pairs(tab) do
+    if type(v) == "number" then
+      table.insert(ret, v)
+    else
+      local extraction = extractValues(v)
+      for _, k in pairs(extraction) do
+        table.insert(ret, k)
+      end
+    end
+  end
+  return ret
+end
+
+local benchmark = os.clock()
+local extraction = extractValues(Storage) -- Chama a função
+table.sort(extraction) -- Ordena a tabela
+-- A escolha da ordenação se deve ao fato de que ordenação é bem barato O(log2(n)) e aí podemos simplesmente comparar um a um os elementos achando duplicatas em O(n)
+
+-- Percorre a tabela extraída verificando se há duplicatas
+if #extraction > 1 then
+  for i = 1, #extraction - 1 do
+    if extraction[i] == extraction[i+1] then
+      print("Duplicate storage value found: ".. extraction[i])
+    end 
+  end
+  print(string.format("Processado em %.4f(s)", os.clock() - benchmark))
+end
