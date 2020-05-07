@@ -268,9 +268,10 @@ UniqueTable = {
 	},
 
 	-- Reward inside of container, y = there is also the option to put a key inside.
-	-- If the table has a variable for key, y = then it is inside the bag.
+	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag.
 	-- UID reserved range 16001/17000.
 	--[[
+	Example:
 	[xxxx] = {
 		itemId = xxxx,
 		itemPos = {x = xxxxx, y = xxxxx, y = xx),
@@ -654,6 +655,7 @@ UniqueTable = {
 		storage = Storage.InsectoidCell.Reward16,
 		reward = 15572
 	},
+
 	--Dawnport
 	-- Vocation doors
 	[25017] = {
@@ -683,5 +685,52 @@ UniqueTable = {
 		vocation = 4,
 		storage = Storage.Dawnport.DoorVocation,
 		destination = {x = 32068, y = 31884, z = 6}
+	},
+	[25021] = {
+		itemId = 1387,
+		itemPos = {x = 32112, y = 31936, z = 8},
+		storage = Storage.Quest.Dawnport.Legionhelmet,
+		destination = {x = 32124, y = 31938, z = 8}
+	},
+	-- Dawnport vocation rewards
+	-- Sorcerer
+	[25022] = {
+		itemId = 1740,
+		itemPos = {x = 32054, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2175, 1}, {2190, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
+		itemRewardContainer = {{7620, 5}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 1
+	},
+	-- Druid
+	[25023] = {
+		itemId = 1740,
+		itemPos = {x = 32073, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2175, 1}, {2182, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
+		itemRewardContainer = {{7620, 5}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 2
+	},
+	-- Paladin
+	[25024] = {
+		itemId = 1740,
+		itemPos = {x = 32059, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2389, 1}, {2660, 1}, {8923, 1}, {2461, 1}},
+		itemRewardContainer = {{2544, 100}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 3
+	},
+	-- Knight
+	[25025] = {
+		itemId = 1740,
+		itemPos = {x = 32068, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2509, 1}, {8602, 1}, {2465, 1}, {2460, 1}, {2478, 1}},
+		itemRewardContainer = {{7618, 5}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 4
 	}
 }
