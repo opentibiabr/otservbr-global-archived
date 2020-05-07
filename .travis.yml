@@ -1,6 +1,7 @@
 dist: bionic
 language: cpp
-matrix:
+os: linux
+jobs:
   include:
     - dist: bionic
       env:
@@ -36,7 +37,7 @@ matrix:
 
 
 
-compilers:
+compiler:
   - gcc
   # - clang
 
