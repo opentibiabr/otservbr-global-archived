@@ -12,10 +12,12 @@ on:
 
     paths:
       - data/**
+      - .github/**
 
   pull_request:
     paths:
       - data/**
+      - .github/**
 
 jobs:
   luacheck:
@@ -50,5 +52,9 @@ jobs:
     - name: Install luacheck
       run: luarocks install luacheck
 
-    - name: Test Lua syntax
+    - name: Run luacheck on changed files
       run: if [ $(echo "${{ steps.get_file_changes.outputs.files_modified}}" "${{ steps.get_file_changes.outputs.files_added}}" | egrep '[^\/]+(.lua\h|.lua$)' | wc -l) -gt 0 ]; then luacheck --no-config --no-global --no-unused --no-unused-args --no-cache -d $(echo "${{ steps.get_file_changes.outputs.files_modified}}" "${{ steps.get_file_changes.outputs.files_added}}" | egrep -o ' data\/\S*\.lua' | column); fi
+
+    - name: Run luacheck on all files
+      if: github.ref == 'refs/heads/develop'
+      run: luacheck --no-config --no-global --no-unused --no-unused-args --no-cache -d data/

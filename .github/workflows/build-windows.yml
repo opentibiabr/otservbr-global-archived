@@ -14,12 +14,14 @@ on:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - .github/**
 
   pull_request:
     paths:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - .github/**
 
 jobs:
   job:

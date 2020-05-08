@@ -12,10 +12,12 @@ on:
 
     paths:
       - data/**
+      - .github/**
 
   pull_request:
     paths:
       - data/**
+      - .github/**
 
 jobs:
   luac:

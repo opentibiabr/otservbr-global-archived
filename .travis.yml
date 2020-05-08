@@ -56,7 +56,6 @@ addons:
       - libluajit-5.1-dev
       - libmysqlclient-dev
       - libpugixml-dev
-      - libgmp3-dev
       - ccache
 
 before_script:

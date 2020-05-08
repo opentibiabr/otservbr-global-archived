@@ -14,12 +14,14 @@ on:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - .github/**
 
   pull_request:
     paths:
       - cmake/**
       - src/**
       - CMakeLists.txt
+      - .github/**
 
 jobs:
   job:
@@ -36,10 +38,11 @@ jobs:
 
     - name: Install Dependencies
       run: >
-        sudo apt install cmake build-essential liblua5.2-dev libgmp3-dev
-        libmysqlclient-dev libboost-system-dev libboost-iostreams-dev
-        libboost-filesystem-dev libpugixml-dev libcrypto++-dev libspdlog-dev
-        libluajit-5.1-dev libboost-date-time-dev unrar zip
+        sudo apt-get update && sudo apt-get install cmake build-essential
+        liblua5.2-dev libmysqlclient-dev libboost-system-dev
+        libboost-iostreams-dev libboost-filesystem-dev libpugixml-dev
+        libcrypto++-dev libspdlog-dev libluajit-5.1-dev libboost-date-time-dev
+        unrar zip
 
     - name: Prepare build Environment
       run: |
