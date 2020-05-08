@@ -28,7 +28,7 @@
 	<event type="death" name="BossDeath" script="others/boss_reward_chest.lua"/>
 	<event type="healthchange" name="BossParticipation" script="others/boss_reward_chest.lua"/>
 	<event type="think" name="BossThink" script="others/boss_reward_chest.lua"/>
-	<event type="death" name="Droploot" script="others/droploot.lua"/>
+	<event type="death" name="DropLoot" script="others/droploot.lua"/>
 	<event type="login" name="PlayerLogin" script="others/login.lua"/>
 	<event type="login" name="LoginEvents" script="others/login_events.lua"/>
 	<event type="logout" name="PlayerLogout" script="others/logout.lua"/>

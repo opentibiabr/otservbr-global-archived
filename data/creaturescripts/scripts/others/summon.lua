@@ -26,7 +26,7 @@ function onLogin(player)
 
 	if pet then
 		position = player:getPosition()
-		summonpet = Game.createMonster(pet, position, true, false, cid)
+		summonpet = Game.createMonster(pet, position, true, false, player)
 		player:addSummon(summonpet)
 		player:setStorageValue(storage, os.time() + petTimeLeft)
 		summonpet:registerEvent('petdeath')
