@@ -238,7 +238,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addItem(12297, 1)
 		player:say("You dig out a handful of earth from this sacred place.", TALKTYPE_MONSTER_SAY)
 
-	-- RookgaardTutorialIsland
+	-- Rookgaard tutorial island
 	elseif targetId == 8579 and player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 20 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"You dug a hole! Walk onto it as long as it is open to jump down into the forest cave.")
@@ -248,13 +248,36 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		target:transform(469)
 		addEvent(revertItem, 30 * 1000, toPosition, 469, 8579)
 
-	-- Gravedigger Quest
+	-- Gravedigger quest
 	elseif targetActionId == 4654 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission49) == 1
 	and player:getStorageValue(Storage.GravediggerOfDrefia.Mission50) < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found a piece of the scroll. You pocket it quickly.")
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 		player:addItem(21250, 1)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission50, 1)
+
+    elseif item.actionid == 4654 and player:getStorageValue(9925) == 1 and player:getStorageValue(9926) < 1 then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a piece of the scroll. You pocket it quickly.')
+        player:getPosition():sendMagicEffect(CONST_ME_POFF)
+        player:addItem(21250, 1)
+		player:setStorageValue(9926, 1)
+
+    elseif item.actionid == 4668 and player:getStorageValue(12902) == 1 and player:getStorageValue(12903) < 1 then
+        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A torn scroll piece emerges. Probably gnawed off by rats.')
+        player:getPosition():sendMagicEffect(CONST_ME_POFF)
+        player:addItem(21250, 1)
+		player:setStorageValue(12903, 1)
+
+    -- Ferumbras ascendant
+	elseif item.actionid == 53803 and player:getStorageValue(Storage.FerumbrasAscension.Ring) < 1 then
+		player:addItem(24826, 1)
+		player:setStorageValue(Storage.FerumbrasAscension.Ring, 1)
+		target:getPosition():sendMagicEffect(CONST_ME_POFF)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are digging out a precious looking signet ring, made of silver and adorned with a sun.')
+
+	elseif targetId == 23712 then
+		target:transform(23713)
+		addEvent(revertItem, 30 * 1000, toPosition, 23713, 23712)
 
 	elseif targetActionId == 4668 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission69) == 1
 	and player:getStorageValue(Storage.GravediggerOfDrefia.Mission70) < 1 then
@@ -329,7 +352,6 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 	else
 		return false
 	end
-
 	return true
 end
 
