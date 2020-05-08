@@ -223,6 +223,22 @@ if(BUILD_DOC)
 endif (BUILD_DOC)
 
 # *****************************************************************************
+# Git Version
+# *****************************************************************************
+
+# Define the two required variables before including
+# the source code for watching a git repository.
+set(PRE_CONFIGURE_FILE "cmake/gitmetadata.h.in")
+set(POST_CONFIGURE_FILE "${CMAKE_CURRENT_BINARY_DIR}/gitmetadata.h")
+include(git_watcher)
+if (Git_FOUND)
+    message("-- Git Found")
+    add_dependencies(otbr check_git)
+    target_include_directories(otbr PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+endif()
+
+
+# *****************************************************************************
 # Includes & Libraries
 # *****************************************************************************
 include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
@@ -233,15 +249,3 @@ target_link_libraries(otbr ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
                       ${CMAKE_THREAD_LIBS_INIT})
-
-### Git Version ###
-# Define the two required variables before including
-# the source code for watching a git repository.
-set(PRE_CONFIGURE_FILE "cmake/gitmetadata.h.in")
-set(POST_CONFIGURE_FILE "${CMAKE_CURRENT_BINARY_DIR}/gitmetadata.h")
-include(git_watcher)
-if (Git_FOUND)
-    add_dependencies(otbr check_git)
-    target_include_directories(otbr PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-endif()
-### END  Git Version ###
