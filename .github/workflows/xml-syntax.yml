@@ -12,10 +12,12 @@ on:
 
     paths:
       - data/**.xml
+      - .github/**
 
   pull_request:
     paths:
       - data/**.xml
+      - .github/**
 
 jobs:
   xmllint:
