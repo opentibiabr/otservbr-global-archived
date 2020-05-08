@@ -112,10 +112,8 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	SetConsoleTitle(STATUS_SERVER_NAME);
 #endif
 #if defined(GIT_RETRIEVED_STATE) && GIT_RETRIEVED_STATE
-	std::cout << STATUS_SERVER_NAME << " - Version " << GIT_DESCRIBE
-																<< std::endl;
-	std::cout << "Git SHA1 " << GIT_SHORT_SHA1  << " dated "
-										<< GIT_COMMIT_DATE_ISO8601 << std::endl;
+	std::cout << STATUS_SERVER_NAME << " - Version [" << GIT_HEAD_SHA1 << "]"
+				<< " dated [" << GIT_COMMIT_DATE_ISO8601 << "]" <<std::endl;
 	#if GIT_IS_DIRTY
 	std::cout << "*** DIRTY - NOT OFFICIAL RELEASE ***" << std::endl;
 	#endif

@@ -81,20 +81,20 @@ CHECK_REQUIRED_VARIABLE(GIT_EXECUTABLE)
 
 
 set(_state_variable_names
-        GIT_RETRIEVED_STATE
-        GIT_HEAD_SHA1
-        GIT_IS_DIRTY
-        GIT_AUTHOR_NAME
-        GIT_AUTHOR_EMAIL
-        GIT_COMMIT_DATE_ISO8601
-        GIT_COMMIT_SUBJECT
-        GIT_COMMIT_BODY
-        GIT_DESCRIBE
-        GIT_SHORT_SHA1
-        # >>>
-        # 1. Add the name of the additional git variable you're interested in monitoring
-        #    to this list.
-        )
+    GIT_RETRIEVED_STATE
+    GIT_HEAD_SHA1
+    GIT_IS_DIRTY
+    GIT_AUTHOR_NAME
+    GIT_AUTHOR_EMAIL
+    GIT_COMMIT_DATE_ISO8601
+    GIT_COMMIT_SUBJECT
+    GIT_COMMIT_BODY
+    # GIT_SHORT_SHA1
+    # GIT_DESCRIBE
+    # >>>
+    # 1. Add the name of the additional git variable you're interested in monitoring
+    #    to this list.
+)
 
 
 
@@ -103,12 +103,12 @@ set(_state_variable_names
 #              "exit_code" and "output" variables.
 macro(RunGitCommand)
     execute_process(COMMAND
-            "${GIT_EXECUTABLE}" ${ARGV}
-            WORKING_DIRECTORY "${_working_dir}"
-            RESULT_VARIABLE exit_code
-            OUTPUT_VARIABLE output
-            ERROR_QUIET
-            OUTPUT_STRIP_TRAILING_WHITESPACE)
+        "${GIT_EXECUTABLE}" ${ARGV}
+        WORKING_DIRECTORY "${_working_dir}"
+        RESULT_VARIABLE exit_code
+        OUTPUT_VARIABLE output
+        ERROR_QUIET
+        OUTPUT_STRIP_TRAILING_WHITESPACE)
     if(NOT exit_code EQUAL 0)
         set(ENV{GIT_RETRIEVED_STATE} "false")
     endif()
@@ -170,15 +170,15 @@ function(GetGitState _working_dir)
         set(ENV{GIT_COMMIT_BODY} "${output}")
     endif()
 
-    RunGitCommand(describe --tags "--match=v*" ${object})
-    if(exit_code EQUAL 0)
-        set(ENV{GIT_DESCRIBE} "${output}")
-    endif()
+    # RunGitCommand(rev-parse --short ${object})
+    # if(exit_code EQUAL 0)
+    #     set(ENV{GIT_SHORT_SHA1} ${output})
+    # endif()
 
-    RunGitCommand(rev-parse --short ${object})
-    if(exit_code EQUAL 0)
-        set(ENV{GIT_SHORT_SHA1} ${output})
-    endif()
+    # RunGitCommand(describe --tags "--match=v*" ${object})
+    # if(exit_code EQUAL 0)
+    #     set(ENV{GIT_DESCRIBE} "${output}")
+    # endif()
 
     # >>>
     # 2. Additional git properties can be added here via the
@@ -255,13 +255,13 @@ endfunction()
 #              changed, then a file is configured.
 function(SetupGitMonitoring)
     add_custom_target(check_git
-            ALL
-            DEPENDS ${PRE_CONFIGURE_FILE}
-            BYPRODUCTS
+        ALL
+        DEPENDS ${PRE_CONFIGURE_FILE}
+        BYPRODUCTS
             ${POST_CONFIGURE_FILE}
             ${GIT_STATE_FILE}
-            COMMENT "Checking the git repository for changes..."
-            COMMAND
+        COMMENT "Checking the git repository for changes..."
+        COMMAND
             ${CMAKE_COMMAND}
             -D_BUILD_TIME_CHECK_GIT=TRUE
             -DGIT_WORKING_DIR=${GIT_WORKING_DIR}
