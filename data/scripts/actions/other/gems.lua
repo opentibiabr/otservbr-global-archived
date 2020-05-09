@@ -1,4 +1,3 @@
-
 local lionsRockSanctuaryPos = Position(33073, 32300, 9)
 local lionsRockSanctuaryRockId = 3608
 local lionsRockSanctuaryFountainId = 6390
@@ -53,6 +52,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
+	-- reset lion's fields
 	local function lionsRockFieldReset()
 		local gemSpot = Tile(setting.itemPos):getItemById(setting.fieldId)
 		if gemSpot then
@@ -61,6 +61,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
+	-- check if all lion's fields are set
 	local function checkLionsRockFields(storage)
 		if Game.getStorageValue(GlobalStorage.lionsRockFields) == 3 then
 			local stone = Tile(lionsRockSanctuaryPos):getItemById(lionsRockSanctuaryRockId)
@@ -73,6 +74,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
+	-- delay to create lion's field
 	local function lionsRockCreateField(itemPos, fieldId, storage)
 		local gemSpot = Tile(itemPos):getItemById(fieldId)
 		if not gemSpot then
@@ -81,12 +83,14 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			checkLionsRockFields(storage)
 		end
 	end
+
 	if player:getStorageValue(setting.need) >= setting.needCount then
 		if setting.needItem == item.itemid then
 			local gemSpot = Tile(setting.itemPos):getItemById(setting.fieldId)
 			if not gemSpot then
 				toPosition:sendMagicEffect(setting.effect)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message)
+				item:remove()
 				addEvent(lionsRockCreateField, 2 * 1000, setting.itemPos, setting.fieldId, setting.need)
 				addEvent(lionsRockFieldReset, 60 * 1000)
 			end
