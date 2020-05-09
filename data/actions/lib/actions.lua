@@ -353,12 +353,6 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 
-	elseif targetId == 23759 then
-		target:remove()
-		toPosition:sendMagicEffect(CONST_ME_POFF)
-		player:addItem(23760, 1)
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You picked a beautiful lion's mane flower.")
-
 	-- shiny stone refining
 	elseif target.itemid == 11227 then
 		local chance = math.random(1,100)
@@ -414,23 +408,25 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
-	-- Sea Of Light
+	-- Sea of light quest
 	elseif targetId == 8634 then
-		if target.actionid == 4224 then
-			if math.random(100) <= 30 then
-				if player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4
-				and player:getStorageValue(target.actionid) ~= 1 then
-					player:addItem(10614, 1)
-					player:setStorageValue(target.actionid, 1)
-					player:setStorageValue(Storage.SeaOfLightQuest.Questline, 5)
-					player:say("*crush*", TALKTYPE_MONSTER_SAY)
-				end
-			else
-				player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			end
+		local setting = UniqueTable[target.uid]
+		if not setting then
+			return true
 		end
 
-	-- Grimvale Quest
+		if math.random(100) <= setting.chance then
+			if (player:getStorageValue(setting.storage) == setting.value) then
+				player:addItem(setting.addItem, 1)
+				player:setStorageValue(setting.storage, player:getStorageValue(setting.storage) + 1)
+				player:say(setting.say, TALKTYPE_MONSTER_SAY)
+			end
+		else
+			player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		end
+		return true
+
+	-- Grimvale quest
 	elseif targetId == 24731 then
 		if player:getStorageValue(Storage.Grimvale.SilverVein) < os.time() then
 			local chance = math.random(1, 10)
@@ -658,7 +654,7 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
 			player:setStorageValue(Storage.InServiceofYalahar.SewerPipe03, 1)
 			-- StorageValue for Questlog "Mission 01: Something Rotten"
 			player:setStorageValue(Storage.InServiceofYalahar.Mission01,
-				player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1) 
+				player:getStorageValue(Storage.InServiceofYalahar.Mission01) + 1)
 		end
 
 	elseif targetUniqueId == 3074 then

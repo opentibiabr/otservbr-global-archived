@@ -688,9 +688,6 @@
 	<action actionid="42505" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<!-- sams old backpack quest -->
 	<action actionid="42535" script="quests/sam_old_backpack/door.lua" />
-	<!-- sea of light quest -->
-	<action itemid="10615" script="quests/sea_of_light/collector_corpse.lua" />
-	<action itemid="10614" script="quests/sea_of_light/rare_crystal.lua" />
 	<!-- secret library -->
 	<action actionid="34000" script="quests/secret_library/brokul_lever.lua" />
 	<!-- secret service quest -->

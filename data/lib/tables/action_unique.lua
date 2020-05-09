@@ -687,5 +687,23 @@ UniqueTable = {
 		itemPos = Position(33478, 31197, 3),
 		storage = Storage.InsectoidCell.Reward16,
 		reward = 15572
+	},
+	-- Sea of Lights
+	[25017] = {
+		itemId = 8571,
+		itemPos = Position(32011, 31709, 7),
+		storage = Storage.SeaOfLightQuest.Questline,
+		value = 7,
+		setStorage = Storage.SeaOfLightQuest.Mission3,
+		destination = Position(32017, 31730, 8)
+	},
+	[25018] = {
+		itemId = 8634,
+		itemPos = Position(33031, 31758, 8),
+		storage = Storage.SeaOfLightQuest.Questline,
+		value = 4,
+		chance = 30,
+		addItem = 10614,
+		say = '*crush*'
 	}
 }
