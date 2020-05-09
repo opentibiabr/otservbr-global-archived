@@ -38,7 +38,7 @@ jobs:
             triplet: x64-windows
             packages: >
               boost-asio boost-iostreams boost-system boost-filesystem
-              boost-variant boost-lockfree lua luajit libmariadb pugixml
+              boost-variant boost-lockfree luajit libmariadb pugixml
               cryptopp
 
     steps:
