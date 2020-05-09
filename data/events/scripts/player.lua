@@ -133,7 +133,8 @@ function Player:onLook(thing, position, distance)
 		if thing:isMonster() then
 			local master = thing:getMaster()
 			if master and table.contains({'thundergiant','grovebeast','emberwing','skullfrost'}, thing:getName():lower()) then
-				description = description..' (Master: ' .. master:getName() .. '). It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
+				description = description..' (Master: ' .. master:getName() .. '). \z
+				It will disappear in ' .. getTimeinWords(master:getStorageValue(Storage.PetSummon) - os.time())
 			end
 		end
 	end
@@ -353,88 +354,6 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 	end
 	-- Cults of Tibia end
-
-	--- LIONS ROCK START
-	if self:getStorageValue(lionrock.storages.playerCanDoTasks) - os.time() < 0 then
-		local p, i = lionrock.positions, lionrock.items
-		local checkPr = false
-		if item:getId() == 2147 and toPosition.x == 33069 and toPosition.y == 32298 and toPosition.z == 9 then
-			-- Ruby
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You place the ruby on the small socket. A red flame begins to burn.")
-			checkPr = true
-			if lionrock.taskactive.ruby ~= true then
-				lionrock.taskactive.ruby = true
-			end
-
-			local rubyFieldPosition = Tile(Position(33069, 32298, 9))
-			if (rubyFieldPosition:getItemCountById(1488) > 0) then
-				local flameruby = Game.createItem(1488, 1, Position(33069, 32298, 9))
-			end
-		end
-
-		if item:getId() == 2146 and toPosition.x == 33069 and toPosition.y == 32302 and toPosition.z == 9 then
-			-- Sapphire
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"You place the sapphire on the small socket. A blue flame begins to burn.")
-			checkPr = true
-			if lionrock.taskactive.sapphire ~= true then
-				lionrock.taskactive.sapphire = true
-			end
-
-			local mysticFlamePosition = Tile(Position(33069, 32302, 9))
-			if (mysticFlamePosition:getItemCountById(8058) > 0) then
-				local flamesapphire = Game.createItem(8058, 1, Position(33069, 32302, 9))
-			end
-		end
-
-		if item:getId() == 2150 and toPosition.x == 33077 and toPosition.y == 32302 and toPosition.z == 9 then
-			-- Amethyst
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"You place the amethyst on the small socket. A violet flame begins to burn.")
-			checkPr = true
-			if lionrock.taskactive.amethyst ~= true then
-				lionrock.taskactive.amethyst = true
-			end
-
-			local sapphireFieldPosition = Tile(Position(33077, 32302, 9))
-			if (sapphireFieldPosition:getItemCountById(1500) > 0) then
-				local flameamethyst = Game.createItem(1500, 1, Position(33077, 32302, 9))
-			end
-		end
-
-		if item:getId() == 9970 and toPosition.x == 33077 and toPosition.y == 32298 and toPosition.z == 9 then
-			-- Topaz
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE,
-				"You place the topaz on the small socket. A yellow flame begins to burn.")
-			checkPr = true
-			if lionrock.taskactive.topaz ~= true then
-				lionrock.taskactive.topaz = true
-			end
-
-			local searingFirePosition = Tile(Position(33077, 32298, 9))
-			if (searingFirePosition:getItemCountById(7473) > 0) then
-				local flametopaz = Game.createItem(7473, 1, Position(33077, 32298, 9))
-			end
-		end
-
-		if checkPr == true then
-			-- Adding the Fountain which gives present
-			if lionrock.taskactive.ruby == true and lionrock.taskactive.sapphire == true
-			and lionrock.taskactive.amethyst == true and lionrock.taskactive.topaz == true then
-				local fountain = Game.createItem(6390, 1, Position(33073, 32300, 9))
-				fountain:setActionId(41357)
-				local stone = Tile(Position(33073, 32300, 9)):getItemById(3608)
-				if stone ~= nil then
-					stone:remove()
-				end
-				self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Something happens at the centre of the room ...");
-			end
-
-			-- Removing Item
-			item:remove(1)
-		end
-	end
-	---- LIONS ROCK END
 
 	-- SSA exhaust
 	local exhaust = { }

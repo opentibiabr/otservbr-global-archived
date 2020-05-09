@@ -12,7 +12,6 @@ For example:
 	},
 
 ]]
-
 ActionTable = {
 	--[[
 	Action IDS
@@ -103,49 +102,47 @@ UniqueTable = {
 	UID 14001/16000 reserved range for commom rewards.
 	UID 16001/17000 reserved range for container rewards.
 	]]
-
 	-- Keys quest
 	[13000] = {
 		itemId = 1290,
-		itemPos= Position(32652, 32107, 7),
-		keyAction = 4055, itemReward = 2088,
+		itemPos = Position(32652, 32107, 7),
+		keyAction = 4055,
+		itemReward = 2088,
 		storage = Storage.Quest.Panpipe.Key4055Reward
 	},
-
 	-- Rewards without a container, it is only received by the player, are the common rewards.
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically.
 	-- UID reserved range 14001/16000.
 	[14001] = {
 		itemId = 26408,
-		itemPos= Position(32349, 32194, 9),
+		itemPos = Position(32349, 32194, 9),
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward1
 	},
 	[14002] = {
 		itemId = 26408,
-		itemPos= Position(32382, 32368, 9),
+		itemPos = Position(32382, 32368, 9),
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward2
 	},
 	[14003] = {
 		itemId = 26408,
-		itemPos= Position(32287, 32119, 7),
+		itemPos = Position(32287, 32119, 7),
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward3
 	},
 	[14004] = {
 		itemId = 26409,
-		itemPos= Position(32389, 32001, 6),
+		itemPos = Position(32389, 32001, 6),
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward4
 	},
 	[14005] = {
 		itemId = 26408,
-		itemPos= Position(32449, 32109, 8),
+		itemPos = Position(32449, 32109, 8),
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward5
 	},
-
 	-- Reward inside of container, there is also the option to put a key inside.
 	-- If the table has a variable for key, then it is inside the bag.
 	-- UID reserved range 16001/17000.
@@ -161,24 +158,23 @@ UniqueTable = {
 		storage = Storage.Quest.QuestName
 	},
 	]]
-
 	-- Teleports
 	-- UID reserved range 17001/18000
 	[17001] = {
 		itemId = 4978,
-		itemPos= Position(33315, 32647, 6),
+		itemPos = Position(33315, 32647, 6),
 		destination = Position(33384, 32627, 7),
 		effect = CONST_ME_TELEPORT
 	},
 	[17002] = {
 		itemId = 3591,
-		itemPos= Position(33383, 32626, 7),
+		itemPos = Position(33383, 32626, 7),
 		destination = Position(33314, 32647, 6),
 		effect = CONST_ME_TELEPORT
 	},
 	[17003] = {
 		itemId = 36319,
-		itemPos= Position(33395, 32660, 6),
+		itemPos = Position(33395, 32660, 6),
 		destination = Position(33395, 32658, 6),
 		effect = CONST_ME_TELEPORT
 	},
@@ -186,121 +182,121 @@ UniqueTable = {
 	-- Treasure Chests Start
 	[24851] = {
 		itemId = 27545,
-		itemPos= Position(32809, 32546, 6),
+		itemPos = Position(32809, 32546, 6),
 		name = 'giant shimmering pearl',
 		count = 1
 	},
 	[24852] = {
 		itemId = 27545,
-		itemPos= Position(32765, 31019, 9),
+		itemPos = Position(32765, 31019, 9),
 		name = 'gold nugget',
 		count = 2
 	},
 	[24853] = {
 		itemId = 27545,
-		itemPos= Position(32046, 32894, 10),
+		itemPos = Position(32046, 32894, 10),
 		name = 'blue crystal shard',
 		count = 1
 	},
 	[24854] = {
 		itemId = 27543,
-		itemPos= Position(32808, 31580, 3),
+		itemPos = Position(32808, 31580, 3),
 		name = 'violet crystal shard',
 		count = 1
 	},
 	[24855] = {
 		itemId = 27543,
-		itemPos= Position(33260, 32228, 10),
+		itemPos = Position(33260, 32228, 10),
 		name = 'green crystal splinter',
 		count = 2
 	},
 	[24856] = {
 		itemId = 27543,
-		itemPos= Position(33016, 32614, 6),
+		itemPos = Position(33016, 32614, 6),
 		name = 'red gem',
 		count = 1
 	},
 	[24857] = {
 		itemId = 27543,
-		itemPos= Position(33054, 32393, 10),
+		itemPos = Position(33054, 32393, 10),
 		name = 'onyx chip',
 		count = 3
 	},
 	[24858] = {
 		itemId = 27543,
-		itemPos= Position(32208, 31849, 10),
+		itemPos = Position(32208, 31849, 10),
 		name = 'platinum coin',
 		count = 3
 	},
 	[24859] = {
 		itemId = 27543,
-		itemPos= Position(32024, 32602, 10),
+		itemPos = Position(32024, 32602, 10),
 		name = 'red crystal fragment',
 		count = 2
 	},
 	[24860] = {
 		itemId = 27543,
-		itemPos= Position(33224, 31647, 7),
+		itemPos = Position(33224, 31647, 7),
 		name = 'yellow gem',
 		count = 1
 	},
 	[24861] = {
 		itemId = 27543,
-		itemPos= Position(32701, 31458, 5),
+		itemPos = Position(32701, 31458, 5),
 		name = 'talon',
 		count = 3
 	},
 	[24862] = {
 		itemId = 27543,
-		itemPos= Position(32647, 32091, 8),
+		itemPos = Position(32647, 32091, 8),
 		name = 'white pearl',
 		count = 2
 	},
 	[24863] = {
 		itemId = 27545,
-		itemPos= Position(32577, 31896, 7),
+		itemPos = Position(32577, 31896, 7),
 		name = 'gold ingot',
 		count = 1
 	},
 	[24864] = {
 		itemId = 27543,
-		itemPos= Position(33676, 31753, 6),
+		itemPos = Position(33676, 31753, 6),
 		name = 'opal',
 		count = 3
 	},
 	[24865] = {
 		itemId = 27545,
-		itemPos= Position(32242, 31390, 5),
+		itemPos = Position(32242, 31390, 5),
 		name = 'small diamond',
 		count = 2
 	},
 	[24866] = {
 		itemId = 27543,
-		itemPos= Position(33613, 31811, 9),
+		itemPos = Position(33613, 31811, 9),
 		name = 'green crystal shard',
 		count = 1
 	},
 	[24867] = {
 		itemId = 27543,
-		itemPos= Position(32873, 32900, 9),
+		itemPos = Position(32873, 32900, 9),
 		name = 'black pearl',
 		count = 3
 	},
 	[24868] = {
 		itemId = 27543,
-		itemPos= Position(32171, 32974, 7),
+		itemPos = Position(32171, 32974, 7),
 		name = 'emerald bangle',
 		count = 1
 	},
 	[24869] = {
 		itemId = 27545,
-		itemPos= Position(32960, 31461, 3),
+		itemPos = Position(32960, 31461, 3),
 		name = 'green gem',
 		count = 1
 	},
 	[24870] = {
 		itemId = 27543,
-		itemPos= Position(33340, 31411, 7),
+		itemPos = Position(33340, 31411, 7),
 		name = 'giant shimmering pearl',
 		count = 1
 	},
@@ -308,19 +304,19 @@ UniqueTable = {
 	-- Final Reward Start
 	[24871] = {
 		itemId = 1746,
-		itemPos= Position(33616, 31015, 13),
+		itemPos = Position(33616, 31015, 13),
 		name = 'porcelain mask',
 		count = 1
 	},
 	[24872] = {
 		itemId = 27531,
-		itemPos= Position(33617, 31015, 13),
+		itemPos = Position(33617, 31015, 13),
 		name = 'backpack',
 		count = 1
 	},
 	[24873] = {
 		itemId = 1746,
-		itemPos= Position(33618, 31015, 13),
+		itemPos = Position(33618, 31015, 13),
 		name = 'colourful feathers',
 		count = 3
 	},
@@ -328,14 +324,15 @@ UniqueTable = {
 	-- The First Dragon Lever
 	[24874] = {
 		itemId = 9825,
-		itemPos= Position(33583, 30992, 14)
+		itemPos = Position(33583, 30992, 14)
 	},
 	-- Tazhadur entrance
 	[24882] = {
 		itemId = 9565,
-		itemPos= Position(33234, 32276, 12),
+		itemPos = Position(33234, 32276, 12),
 		storage = Storage.FirstDragon.DragonCounter,
-		value = 200, range = 10,
+		value = 200,
+		range = 10,
 		timer = Storage.FirstDragon.TazhadurTimer,
 		newPos = Position(32015, 32466, 8),
 		bossName = 'Tazhadur',
@@ -344,9 +341,10 @@ UniqueTable = {
 	-- Kalyassa entrance
 	[24883] = {
 		itemId = 9562,
-		itemPos= Position(33160, 31320, 5),
+		itemPos = Position(33160, 31320, 5),
 		storage = Storage.FirstDragon.ChestCounter,
-		value = 5, range = 10,
+		value = 5,
+		range = 10,
 		timer = Storage.FirstDragon.KalyassaTimer,
 		newPos = Position(32078, 32456, 8),
 		bossName = 'Kalyassa',
@@ -355,9 +353,10 @@ UniqueTable = {
 	-- Zorvorax entrance
 	[24884] = {
 		itemId = 9564,
-		itemPos= Position(33003, 31593, 11),
+		itemPos = Position(33003, 31593, 11),
 		storage = Storage.FirstDragon.SecretsCounter,
-		value = 3, range = 10,
+		value = 3,
+		range = 10,
 		timer = Storage.FirstDragon.ZorvoraxTimer,
 		newPos = Position(32008, 32396, 8),
 		bossName = 'Zorvorax',
@@ -366,9 +365,10 @@ UniqueTable = {
 	-- Gelidrazah entrance
 	[24885] = {
 		itemId = 9563,
-		itemPos= Position(32276, 31367, 4),
+		itemPos = Position(32276, 31367, 4),
 		storage = Storage.FirstDragon.GelidrazahAccess,
-		value = 1, range = 10,
+		value = 1,
+		range = 10,
 		timer = Storage.FirstDragon.GelidrazahTimer,
 		newPos = Position(32076, 32402, 8),
 		bossName = 'Gelidrazah The Frozen',
@@ -377,44 +377,44 @@ UniqueTable = {
 	-- Tazhadur exit
 	[24886] = {
 		itemId = 9565,
-		itemPos= Position(32013, 32467, 8),
-		backPos  = Position(33234, 32278, 12)
+		itemPos = Position(32013, 32467, 8),
+		backPos = Position(33234, 32278, 12)
 	},
 	-- Kalyassa exit
 	[24887] = {
 		itemId = 9562,
-		itemPos= Position(32076, 32457, 8),
-		backPos  = Position(33162, 31320, 5)
+		itemPos = Position(32076, 32457, 8),
+		backPos = Position(33162, 31320, 5)
 	},
 	-- Zorvorax exit
 	[24888] = {
 		itemId = 9564,
-		itemPos= Position(32006, 32395, 8),
-		backPos  = Position(33002, 31595, 11)
+		itemPos = Position(32006, 32395, 8),
+		backPos = Position(33002, 31595, 11)
 	},
 	-- Gelidrazah exit
 	[24889] = {
 		itemId = 9563,
-		itemPos= Position(32077, 32404, 8),
-		backPos  = Position(32278, 31367, 4)
+		itemPos = Position(32077, 32404, 8),
+		backPos = Position(32278, 31367, 4)
 	},
 	[24893] = {
 		itemId = 2743,
-		itemPos= Position(33608, 31022, 14)
+		itemPos = Position(33608, 31022, 14)
 	},
 	[24894] = {
 		itemId = 1387,
-		itemPos= Position(33597, 30996, 14),
+		itemPos = Position(33597, 30996, 14),
 		destination = Position(33583, 30990, 14)
 	},
 	[24895] = {
 		itemId = 27828,
-		itemPos= Position(33047, 32712, 3),
+		itemPos = Position(33047, 32712, 3),
 		destination = Position(31994, 32391, 9)
 	},
 	[24896] = {
 		itemId = 27828,
-		itemPos= Position(31994, 32390, 9),
+		itemPos = Position(31994, 32390, 9),
 		destination = Position(33047, 32713, 3)
 	},
 	-- The Shattered Isles
@@ -424,112 +424,267 @@ UniqueTable = {
 		name = 'tortoise egg from Nargor',
 		count = 1
 	},
-    [24906] = {
+	[24906] = {
 		storage = Storage.TheShatteredIsles.TavernMap1,
-		message = "You have sucessfully read plan A."
+		message = 'You have sucessfully read plan A.'
 	},
-    [24907] = {
+	[24907] = {
 		storage = Storage.TheShatteredIsles.TavernMap2,
-		message = "You have sucessfully read plan B."
+		message = 'You have sucessfully read plan B.'
 	},
-    [24908] = {
+	[24908] = {
 		storage = Storage.TheShatteredIsles.TavernMap3,
-		message = "You have sucessfully read plan C."
+		message = 'You have sucessfully read plan C.'
+	},
+	-- Lions Rock
+	[24909] = {
+		itemId = 6082,
+		itemPos = Position(33146, 32341, 8),
+		storage = Storage.LionsRock.Progress
+	},
+	[24910] = {
+		itemId = 23761,
+		itemPos = Position(33137, 32291, 8),
+		storage = Storage.LionsRock.LionsStrength,
+		pagodaPos = Position(33134, 32289, 8),
+		useItem = 10551,
+		need = Storage.LionsRock.Progress,
+		needCount = 1,
+		needNext = 2,
+		message = 'You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
+		pyramid nearby begins to shine.',
+		effect = CONST_ME_BLOCKHIT
+	},
+	[24911] = {
+		itemId = 1481,
+		itemPos = Position(33138, 32369, 8),
+		storage = Storage.LionsRock.LionsBeauty,
+		pagodaPos = Position(33136, 32369, 8),
+		useItem = 23760,
+		need = Storage.LionsRock.Progress,
+		needCount = 2,
+		needNext = 3,
+		message = "You burnt a lion's mane flower. The light in the small pyramid nearby begins to shine.",
+		effect = CONST_ME_REDSMOKE
+	},
+	[24912] = {
+		itemId = 23762,
+		itemPos = Position(33154, 32279, 8),
+		storage = Storage.LionsRock.LionsTears,
+		pagodaPos = Position(33156, 32279, 8),
+		useItem = 23835,
+		need = Storage.LionsRock.Progress,
+		needCount = 3,
+		needNext = 4,
+		message = 'You have purified a sacret pedestal with holy water. You have now passed the last test\z
+		 to enter thge inner sanctum.',
+		effect = CONST_ME_LOSEENERGY
+	},
+	[24913] = {
+		itemId = 23765,
+		itemPos = Position(33137, 32351, 6),
+		storage = Storage.LionsRock.GetHolyWater,
+		addItem = 23835,
+		need = Storage.LionsRock.Progress,
+		needCount = 1
+	},
+	[24914] = {
+		itemId = 8058,
+		itemPos = Position(33128, 32308, 8),
+		toPos = Position(33122, 32308, 8),
+		need = Storage.LionsRock.Progress,
+		needCount = 4
+	},
+	[24915] = {
+		itemId = 24314,
+		itemBrokenId = 24315,
+		itemPos = Position(33119, 32247, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 4,
+		addItem = 23836
+	},
+	[24916] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.SnakeSign,
+		itemPos = Position(33095, 32244, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the jealous snake.',
+		message2 = 'As a sign of victory he tooks its eye, yellow as envy and malevolence, and out \z
+		of a foul creature created a precious treasure.'
+	},
+	[24917] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.LizardSign,
+		itemPos = Position(33128, 32300, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the lazy lizard.',
+		message2 = 'As a sign of victory he tooks its egg, blue as sloth and conceit, and out \z
+		of a foul creature created a precious treasure.'
+	},
+	[24918] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.ScorpionSign,
+		itemPos = Position(33109, 32329, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the golden altar: \z
+		And the mighty lion defeated the treacherous scorpion.',
+		message2 = 'As a sign of victory he tooks its poison, violet as deceit and betrayal, and \z
+		created a precious treasure.'
+	},
+	[24919] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.HyenaSign,
+		itemPos = Position(33127, 32340, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the golden statue: \z
+		And the mighty lion defeated the greedy hyaena.',
+		message2 = 'As a sign of victory he tooks its blood, red as voracity and lust, and \z
+		created a precious treasure.'
+	},
+	[24920] = {
+		itemId = 23812,
+		itemPos = Position(33069, 32298, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2147,
+		fieldId = 1492,
+		message = 'You place the ruby on the small socket. A red flame begins to burn.',
+		effect = CONST_ME_MAGIC_RED
+	},
+	[24921] = {
+		itemId = 23813,
+		itemPos = Position(33069, 32302, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2146,
+		fieldId = 24618,
+		message = 'You place the sapphire on the small socket. A blue flame begins to burn.',
+		effect = CONST_ME_MAGIC_BLUE
+	},
+	[24922] = {
+		itemId = 23811,
+		itemPos = Position(33077, 32302, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2150,
+		fieldId = 7465,
+		message = 'You place the amethyst on the small socket. A violet flame begins to burn.',
+		effect = CONST_ME_PURPLESMOKE
+	},
+	[24923] = {
+		itemId = 23808,
+		itemPos = Position(33077, 32298, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 9970,
+		fieldId = 1500,
+		message = 'You place the topaz on the small socket. A yellow flame begins to burn.',
+		effect = CONST_ME_BLOCKHIT
 	},
 	-- Insectoid cell
 	[25001] = {
 		itemId = 14437,
-		itemPos= Position(33480, 31196, 7),
+		itemPos = Position(33480, 31196, 7),
 		storage = Storage.InsectoidCell.Reward1,
 		reward = 15572
 	},
 	[25002] = {
 		itemId = 14437,
-		itemPos= Position(33486, 31192, 1),
+		itemPos = Position(33486, 31192, 1),
 		storage = Storage.InsectoidCell.Reward2,
 		reward = 15572
 	},
 	[25003] = {
 		itemId = 14437,
-		itemPos= Position(33511, 31169, 6),
+		itemPos = Position(33511, 31169, 6),
 		storage = Storage.InsectoidCell.Reward3,
 		reward = 15572
 	},
 	[25004] = {
 		itemId = 14437,
-		itemPos= Position(33544, 31208, 5),
+		itemPos = Position(33544, 31208, 5),
 		storage = Storage.InsectoidCell.Reward4,
 		reward = 15572
 	},
 	[25005] = {
 		itemId = 14437,
-		itemPos= Position(33553, 31240, 8),
+		itemPos = Position(33553, 31240, 8),
 		storage = Storage.InsectoidCell.Reward5,
 		reward = 15572
 	},
 	[25006] = {
 		itemId = 14437,
-		itemPos= Position(33554, 31196, 8),
+		itemPos = Position(33554, 31196, 8),
 		storage = Storage.InsectoidCell.Reward6,
 		reward = 15572
 	},
 	[25007] = {
 		itemId = 14437,
-		itemPos= Position(33586, 31213, 8),
+		itemPos = Position(33586, 31213, 8),
 		storage = Storage.InsectoidCell.Reward7,
 		reward = 15572
 	},
 	[25008] = {
 		itemId = 14437,
-		itemPos= Position(33588, 31212, 4),
+		itemPos = Position(33588, 31212, 4),
 		storage = Storage.InsectoidCell.Reward8,
 		reward = 15572
 	},
 	[25009] = {
 		itemId = 14437,
-		itemPos= Position(33605, 31223, 1),
+		itemPos = Position(33605, 31223, 1),
 		storage = Storage.InsectoidCell.Reward9,
 		reward = 15572
 	},
 	[25010] = {
 		itemId = 14438,
-		itemPos= Position(33476, 31199, 2),
+		itemPos = Position(33476, 31199, 2),
 		storage = Storage.InsectoidCell.Reward10,
 		reward = 15572
 	},
 	[25011] = {
 		itemId = 14438,
-		itemPos= Position(33480, 31196, 4),
+		itemPos = Position(33480, 31196, 4),
 		storage = Storage.InsectoidCell.Reward11,
 		reward = 15572
 	},
 	[25012] = {
 		itemId = 14438,
-		itemPos= Position(33562, 31218, 2),
+		itemPos = Position(33562, 31218, 2),
 		storage = Storage.InsectoidCell.Reward12,
 		reward = 15572
 	},
 	[25013] = {
 		itemId = 14438,
-		itemPos= Position(33564, 31217, 6),
+		itemPos = Position(33564, 31217, 6),
 		storage = Storage.InsectoidCell.Reward13,
 		reward = 15572
 	},
 	[25014] = {
 		itemId = 14438,
-		itemPos= Position(33587, 31251, 7),
+		itemPos = Position(33587, 31251, 7),
 		storage = Storage.InsectoidCell.Reward14,
 		reward = 15572
 	},
 	[25015] = {
 		itemId = 14438,
-		itemPos= Position(33610, 31221, 5),
+		itemPos = Position(33610, 31221, 5),
 		storage = Storage.InsectoidCell.Reward15,
 		reward = 15572
 	},
 	[25016] = {
 		itemId = 14438,
-		itemPos= Position(33478, 31197, 3),
+		itemPos = Position(33478, 31197, 3),
 		storage = Storage.InsectoidCell.Reward16,
 		reward = 15572
 	}

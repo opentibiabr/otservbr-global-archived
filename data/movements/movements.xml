@@ -285,9 +285,6 @@
 	<movevent event="StepIn" fromuid="17521" touid="17523" script="quests/killing_in_the_name_of/boss.lua"/>
 	<!-- krailos -->
 	<movevent event="StepIn" actionid="19049" script="quests/krailos/acess_depot.lua"/>
-	<!-- lions rock -->
-	<movevent event="StepIn" actionid="41344" script="quests/lions_rock/lions_rock.lua"/>
-	<movevent event="StepIn" fromaid="41346" toaid="41349" script="quests/lions_rock/lions_rock.lua"/>
 	<!-- nightmare isles worldchange -->
 	<movevent event="StepIn" fromuid="64001" touid="64003" script="quests/nightmare_isles/teleport.lua"/>
 	<!-- entrance -->
