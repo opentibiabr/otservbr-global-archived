@@ -568,7 +568,9 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		-- Grimvale Quest
 		if target.actionid == 4224 then
 			if math.random(100) <= 30 then
-				if player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4 and player:getStorageValue(target.actionid) ~= 1 then
+				if
+					(player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4) and (player:getStorageValue(target.actionid) ~= 1)
+				 then
 					player:addItem(10614, 1)
 					player:setStorageValue(target.actionid, 1)
 					player:setStorageValue(Storage.SeaOfLightQuest.Questline, 5)

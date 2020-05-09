@@ -127,7 +127,8 @@ local function creatureSayCallback(cid, type, msg)
 			elseif timeStorage > 0 and timeStorage < os.time() then
 				npcHandler:say(
 					"...connects to N942. Alright!! That's it! I just finished a prototype device! And it looks like I \z
-					figured out the initial failure. A very special crystal is needed for the device to work. Aren't you as curious as me to know what went wrong?",
+					figured out the initial failure. A very special crystal is needed for the device to work. Aren't \z
+					you as curious as me to know what went wrong?",
 					cid
 				)
 				npcHandler.topic[cid] = 2
