@@ -3349,10 +3349,12 @@ void Player::doAttacking(uint32_t)
 		bool classicSpeed = g_config.getBoolean(ConfigManager::CLASSIC_ATTACK_SPEED);
 
 		if (weapon) {
-			if (!weapon->interruptSwing()) {
-				result = weapon->useWeapon(this, tool, attackedCreature);
-			} else if (!classicSpeed && !canDoAction()) {
-				delay = getNextActionTime();
+			if (g_config.getBoolean(ConfigManager::ACTION_DELAY_INTERRUPT_ATTACK)){
+				if (!weapon->interruptSwing()) {
+					result = weapon->useWeapon(this, tool, attackedCreature);
+				} else if (!classicSpeed && !canDoAction()) {
+					delay = getNextActionTime();
+				}
 			} else {
 				result = weapon->useWeapon(this, tool, attackedCreature);
 			}

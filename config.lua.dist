@@ -68,7 +68,8 @@ houseRentPeriod = "never"
 -- Do not touch here
 -- Avoid use of WIPE program to crash the distro
 timeBetweenActions = 500
-timeBetweenExActions = 700
+timeBetweenExActions = 1000
+actionTimerInterruptAttack = true -- should actions interval interrupt attack?
 
 -- Push Delay
 pushDelay = 1000

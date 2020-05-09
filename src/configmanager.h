@@ -52,6 +52,7 @@ class ConfigManager
 			FORCE_MONSTERTYPE_LOAD,
 			STOREMODULES,
 			ALLOW_BLOCK_SPAWN,
+			ACTION_DELAY_INTERRUPT_ATTACK,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
