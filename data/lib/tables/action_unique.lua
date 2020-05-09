@@ -696,5 +696,14 @@ UniqueTable = {
 		storageNeeded = 7,
 		updateStorage = Storage.SeaOfLightQuest.Mission3,
 		destination = Position(32017, 31730, 8)
+	},
+	[25018] = {
+		itemId = 8634,
+		itemPos = Position(33031, 31758, 8),
+		storage = Storage.SeaOfLightQuest.Questline,
+		storageNeeded = 4,
+		chance = 30,
+		addItem = 10614,
+		say = '*crush*'
 	}
 }

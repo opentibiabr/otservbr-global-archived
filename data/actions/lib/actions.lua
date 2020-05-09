@@ -561,20 +561,22 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 	elseif targetId == 8634 then -- Sea Of Light Quest
-		if target.actionid == 4224 then
-			if math.random(100) <= 30 then
-				if
-					(player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4) and (player:getStorageValue(target.actionid) ~= 1)
-				 then
-					player:addItem(10614, 1)
-					player:setStorageValue(target.actionid, 1)
-					player:setStorageValue(Storage.SeaOfLightQuest.Questline, 5)
-					player:say('*crush*', TALKTYPE_MONSTER_SAY)
-				end
-			else
-				player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			end
+		local setting = UniqueTable[target.uid]
+		if not setting then
+			return true
 		end
+
+		if math.random(100) <= setting.chance then
+			if (player:getStorageValue(setting.storage) == setting.storageNeeded) then
+				player:addItem(setting.addItem, 1)
+				player:setStorageValue(setting.storage, player:getStorageValue(setting.storage) + 1)
+				player:say(setting.say, TALKTYPE_MONSTER_SAY)
+			end
+		else
+			player:getPosition():sendMagicEffect(CONST_ME_POFF)
+		end
+
+		return true
 	elseif targetId == 24731 then -- Grimvale Quest
 		if player:getStorageValue(Storage.Grimvale.SilverVein) < os.time() then
 			local chance = math.random(1, 10)
