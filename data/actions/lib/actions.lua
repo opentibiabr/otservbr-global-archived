@@ -256,18 +256,6 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addItem(21250, 1)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission50, 1)
 
-    elseif item.actionid == 4654 and player:getStorageValue(9925) == 1 and player:getStorageValue(9926) < 1 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You found a piece of the scroll. You pocket it quickly.')
-        player:getPosition():sendMagicEffect(CONST_ME_POFF)
-        player:addItem(21250, 1)
-		player:setStorageValue(9926, 1)
-
-    elseif item.actionid == 4668 and player:getStorageValue(12902) == 1 and player:getStorageValue(12903) < 1 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A torn scroll piece emerges. Probably gnawed off by rats.')
-        player:getPosition():sendMagicEffect(CONST_ME_POFF)
-        player:addItem(21250, 1)
-		player:setStorageValue(12903, 1)
-
     -- Ferumbras ascendant
 	elseif item.actionid == 53803 and player:getStorageValue(Storage.FerumbrasAscension.Ring) < 1 then
 		player:addItem(24826, 1)
