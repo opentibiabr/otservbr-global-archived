@@ -1,9 +1,3 @@
-local lionsRockSkeleton = Action()
-local lionsRockSacrificesTest = Action()
-local lionsGetLionsMane = Action()
-local lionsGetHolyWater = Action()
-local lionsRockTranslationScroll = Action()
-local lionsRockFountain = Action()
 
 local lionsRockSanctuaryRockId = 3608
 
@@ -17,9 +11,11 @@ local rewards = {
 	'yellow gem'
 }
 
+-- Lions rock skeleton
+local lionsRockSkeleton = Action()
+
 function lionsRockSkeleton.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local setting = UniqueTable[item.uid]
-
 	if not setting then
 		return true
 	end
@@ -49,9 +45,14 @@ function lionsRockSkeleton.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
+lionsRockSkeleton:uid(24909)
+lionsRockSkeleton:register()
+
+-- Lions rock sacrifices
+local lionsRockSacrificesTest = Action()
+
 function lionsRockSacrificesTest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local setting = UniqueTable[target.uid]
-
 	if not setting then
 		return true
 	end
@@ -90,6 +91,14 @@ function lionsRockSacrificesTest.onUse(player, item, fromPosition, target, toPos
 	return true
 end
 
+lionsRockSacrificesTest:id(10551)
+lionsRockSacrificesTest:id(23760)
+lionsRockSacrificesTest:id(23835)
+lionsRockSacrificesTest:register()
+
+-- Get lions mane
+local lionsGetLionsMane = Action()
+
 function lionsGetLionsMane.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 23759 then
 		if player:getStorageValue(Storage.LionsRock.Progress) > 0 then
@@ -103,9 +112,14 @@ function lionsGetLionsMane.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
+lionsGetLionsMane:id(23759)
+lionsGetLionsMane:register()
+
+-- Get holy water
+local lionsGetHolyWater = Action()
+
 function lionsGetHolyWater.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local setting = UniqueTable[item.uid]
-
 	if not setting then
 		return true
 	end
@@ -120,9 +134,14 @@ function lionsGetHolyWater.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
+lionsGetHolyWater:uid(24913)
+lionsGetHolyWater:register()
+
+-- Rock translation scroll
+local lionsRockTranslationScroll = Action()
+
 function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local setting = UniqueTable[item.uid]
-
 	if not setting then
 		return true
 	end
@@ -156,6 +175,12 @@ function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, to
 	return true
 end
 
+lionsRockTranslationScroll:id(24314)
+lionsRockTranslationScroll:register()
+
+-- Lions rock fountain
+local lionsRockFountain = Action()
+
 function lionsRockFountain.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.LionsRock.Time) < os.time() then
 		local reward = ''
@@ -188,23 +213,6 @@ function lionsRockFountain.onUse(player, item, fromPosition, target, toPosition,
 	end
 	return true
 end
-
-lionsRockSkeleton:uid(24909)
-lionsRockSkeleton:register()
-
-lionsRockSacrificesTest:id(10551)
-lionsRockSacrificesTest:id(23760)
-lionsRockSacrificesTest:id(23835)
-lionsRockSacrificesTest:register()
-
-lionsGetHolyWater:uid(24913)
-lionsGetHolyWater:register()
-
-lionsGetLionsMane:id(23759)
-lionsGetLionsMane:register()
-
-lionsRockTranslationScroll:id(24314)
-lionsRockTranslationScroll:register()
 
 lionsRockFountain:id(6390)
 lionsRockFountain:register()
