@@ -732,7 +732,7 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 	internalHealthTicks += interval;
 	internalManaTicks += interval;
 
-	if (creature->getZone() != ZONE_PROTECTION) {
+	if ((creature->getZone() != ZONE_PROTECTION) || g_config.getBoolean(ConfigManager::ALLOW_PROTECTION_ZONE_REGENERATION)) {
 		if (internalHealthTicks >= healthTicks) {
 			internalHealthTicks = 0;
 

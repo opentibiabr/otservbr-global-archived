@@ -19,6 +19,7 @@ monthKillsToRedSkull = 10
 redSkullDuration = 30
 blackSkullDuration = 45
 orangeSkullDuration = 7
+allowProtectionZoneRegeneration = false -- enable/disable food regeneration in protection zone
 
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
