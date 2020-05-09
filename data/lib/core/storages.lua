@@ -2049,6 +2049,19 @@ Storage = {
 		Reward15 = 50825,
 		Reward16 = 50826,
 	},
+	LionsRock = {
+		Progress = 50880,
+		LionsStrength = 50881,
+		LionsBeauty = 50882,
+		LionsTears = 50883,
+		GetLionsMane = 50884,
+		GetHolyWater = 50885,
+		SnakeSign = 50886,
+		LizardSign = 50887,
+		ScorpionSign = 50888,
+		HyenaSign = 50889,
+		Time = 50890
+	},
 
 	EruaranGreeting = 3250,
 	MaryzaCookbook = 50721,
@@ -2183,6 +2196,7 @@ GlobalStorage = {
 	NaginataStone = 50058,
 	ExpBoost = 51052,
 	SwordOfFury = 5635,
-	XpDisplayMode = 5634
+	XpDisplayMode = 5634,
+	lionsRockFields = 5636
 
 }

@@ -436,6 +436,161 @@ UniqueTable = {
 		storage = Storage.TheShatteredIsles.TavernMap3,
 		message = 'You have sucessfully read plan C.'
 	},
+	-- Lions Rock
+	[24909] = {
+		itemId = 6082,
+		itemPos = Position(33146, 32341, 8),
+		storage = Storage.LionsRock.Progress
+	},
+	[24910] = {
+		itemId = 23761,
+		itemPos = Position(33137, 32291, 8),
+		storage = Storage.LionsRock.LionsStrength,
+		pagodaPos = Position(33134, 32289, 8),
+		useItem = 10551,
+		need = Storage.LionsRock.Progress,
+		needCount = 1,
+		needNext = 2,
+		message = 'You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
+		pyramid nearby begins to shine.',
+		effect = CONST_ME_BLOCKHIT
+	},
+	[24911] = {
+		itemId = 1481,
+		itemPos = Position(33138, 32369, 8),
+		storage = Storage.LionsRock.LionsBeauty,
+		pagodaPos = Position(33136, 32369, 8),
+		useItem = 23760,
+		need = Storage.LionsRock.Progress,
+		needCount = 2,
+		needNext = 3,
+		message = "You burnt a lion's mane flower. The light in the small pyramid nearby begins to shine.",
+		effect = CONST_ME_REDSMOKE
+	},
+	[24912] = {
+		itemId = 23762,
+		itemPos = Position(33154, 32279, 8),
+		storage = Storage.LionsRock.LionsTears,
+		pagodaPos = Position(33156, 32279, 8),
+		useItem = 23835,
+		need = Storage.LionsRock.Progress,
+		needCount = 3,
+		needNext = 4,
+		message = 'You have purified a sacret pedestal with holy water. You have now passed the last test\z
+		 to enter thge inner sanctum.',
+		effect = CONST_ME_LOSEENERGY
+	},
+	[24913] = {
+		itemId = 23765,
+		itemPos = Position(33137, 32351, 6),
+		storage = Storage.LionsRock.GetHolyWater,
+		addItem = 23835,
+		need = Storage.LionsRock.Progress,
+		needCount = 1
+	},
+	[24914] = {
+		itemId = 8058,
+		itemPos = Position(33128, 32308, 8),
+		toPos = Position(33122, 32308, 8),
+		need = Storage.LionsRock.Progress,
+		needCount = 4
+	},
+	[24915] = {
+		itemId = 24314,
+		itemBrokenId = 24315,
+		itemPos = Position(33119, 32247, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 4,
+		addItem = 23836
+	},
+	[24916] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.SnakeSign,
+		itemPos = Position(33095, 32244, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the jealous snake.',
+		message2 = 'As a sign of victory he tooks its eye, yellow as envy and malevolence, and out \z
+		of a foul creature created a precious treasure.'
+	},
+	[24917] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.LizardSign,
+		itemPos = Position(33128, 32300, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the lazy lizard.',
+		message2 = 'As a sign of victory he tooks its egg, blue as sloth and conceit, and out \z
+		of a foul creature created a precious treasure.'
+	},
+	[24918] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.ScorpionSign,
+		itemPos = Position(33109, 32329, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the golden altar: \z
+		And the mighty lion defeated the treacherous scorpion.',
+		message2 = 'As a sign of victory he tooks its poison, violet as deceit and betrayal, and \z
+		created a precious treasure.'
+	},
+	[24919] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.HyenaSign,
+		itemPos = Position(33127, 32340, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = 'With the aid of the old scroll you translate the inscriptions on the golden statue: \z
+		And the mighty lion defeated the greedy hyaena.',
+		message2 = 'As a sign of victory he tooks its blood, red as voracity and lust, and \z
+		created a precious treasure.'
+	},
+	[24920] = {
+		itemId = 23812,
+		itemPos = Position(33069, 32298, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2147,
+		fieldId = 1492,
+		message = 'You place the ruby on the small socket. A red flame begins to burn.',
+		effect = CONST_ME_MAGIC_RED
+	},
+	[24921] = {
+		itemId = 23813,
+		itemPos = Position(33069, 32302, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2146,
+		fieldId = 24618,
+		message = 'You place the sapphire on the small socket. A blue flame begins to burn.',
+		effect = CONST_ME_MAGIC_BLUE
+	},
+	[24922] = {
+		itemId = 23811,
+		itemPos = Position(33077, 32302, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2150,
+		fieldId = 7465,
+		message = 'You place the amethyst on the small socket. A violet flame begins to burn.',
+		effect = CONST_ME_PURPLESMOKE
+	},
+	[24923] = {
+		itemId = 23808,
+		itemPos = Position(33077, 32298, 9),
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 9970,
+		fieldId = 1500,
+		message = 'You place the topaz on the small socket. A yellow flame begins to burn.',
+		effect = CONST_ME_BLOCKHIT
+	},
 	-- Insectoid cell
 	[25001] = {
 		itemId = 14437,

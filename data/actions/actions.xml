@@ -285,10 +285,6 @@
 	<action actionid="5640" script="rookgaard/honey_flower_quest.lua" />
 	<action actionid="5641" script="rookgaard/banana_quest.lua" />
 	<!-- shrines (weapons enchanting gems) -->
-	<action itemid="2146" script="shrines/ice_feyrist_entrance.lua" />
-	<action itemid="2147" script="shrines/fire_feyrist_entrance.lua" />
-	<action itemid="2149" script="shrines/earth_feyrist_entrance.lua" />
-	<action itemid="2150" script="shrines/energy_feyrist_entrance.lua" />
 	<action fromaid="24999" toaid="25002" script="shrines/feyrist_exit.lua" />
 	<!-- systems -->
 	<action actionid="2000" script="system/quest_system1.lua" />
@@ -625,12 +621,6 @@
 	<action itemid="8266" script="quests/koshei_amulet/boss.lua" />
 	<action uniqueid="3070" script="quests/koshei_amulet/switch.lua" />
 	<action actionid="40532" script="quests/koshei_amulet/bag.lua" />
-	<!-- lions rock quest -->
-	<action itemid="23760" script="quests/lions_rock/lion_rock.lua" />
-	<action itemid="23835" script="quests/lions_rock/lion_rock.lua" />
-	<action itemid="10551" script="quests/lions_rock/lion_rock.lua" />
-	<action fromaid="41354" toaid="41357" script="quests/lions_rock/lion_rock.lua" />
-	<action actionid="41345" script="quests/lions_rock/lion_rock.lua" />
 	<!-- lower roshamuul quest -->
 	<action itemid="22387" script="quests/lower_roshamuul/mixture.lua" />
 	<action itemid="22388" script="quests/lower_roshamuul/mixture.lua" />
