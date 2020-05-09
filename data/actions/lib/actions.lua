@@ -265,6 +265,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 
 	elseif targetId == 23712 then
 		target:transform(23713)
+		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 		addEvent(revertItem, 30 * 1000, toPosition, 23713, 23712)
 
 	elseif targetActionId == 4668 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission69) == 1
@@ -412,11 +413,6 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 
 	elseif targetId == 6299 and target.actionid > 0 then
 		target:transform(482)
-		target:decay()
-		toPosition:sendMagicEffect(CONST_ME_HITAREA)
-
-	elseif targetId == 23712 then
-		target:transform(23713)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_HITAREA)
 
