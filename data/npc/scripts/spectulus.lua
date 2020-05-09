@@ -87,7 +87,8 @@ local function creatureSayCallback(cid, type, msg)
 			cid, false, true, 200)
 			npcHandler.topic[cid] = 1
 		elseif cStorage == 1 then
-			npcHandler:say("You should find the beggar somewhere in Edron. Stay persistent, I'm sure he knows more than he wants to tell us.",cid)
+			npcHandler:say("You should find the beggar somewhere in Edron. Stay persistent, \z
+				I'm sure he knows more than he wants to tell us.",cid)
 		elseif cStorage == 2 then
 			if not player:removeItem(10613, 1) then
 				npcHandler:say(
@@ -114,24 +115,18 @@ local function creatureSayCallback(cid, type, msg)
 					component needed to finish it. Alright, B connects to D and another two nails marked with S go... hmmm.",
 				cid, false, true, 200)
 			elseif timeStorage > 0 and timeStorage < os.time() then
-				npcHandler:say(
-					"...connects to N942. Alright!! That's it! I just finished a prototype device! And it looks like I \z
+				npcHandler:say("...connects to N942. Alright!! That's it! I just finished a prototype device! And it looks like I \z
 					figured out the initial failure. A very special crystal is needed for the device to work. Aren't \z
-					you as curious as me to know what went wrong?",
-				cid, false, true, 200)
+					you as curious as me to know what went wrong?", cid, false, true, 200)
 				npcHandler.topic[cid] = 2
 			end
 		elseif cStorage == 4 then
-			npcHandler:say(
-				"Did you enter the Lost Mines yet? They are west of Edron, close to the sea. You will also need a \z
-				pick once you get to the crystal deposit.",
-			cid, false, true, 200)
+			npcHandler:say("Did you enter the Lost Mines yet? They are west of Edron, close to the sea. You will also need a \z
+				pick once you get to the crystal deposit.", cid, false, true, 200)
 		elseif cStorage == 5 then
 			if player:getItemCount(10614) == 0 then
-				npcHandler:say(
-					"Hm, so did you find a rare crystal? Show me... hey! That's not a rare crystal. What... where did \z
-					you get that anyway? Please return to me with the right crystal.",
-				cid, false, true, 200)
+				npcHandler:say("Hm, so did you find a rare crystal? Show me... hey! That's not a rare crystal. What... where did \z
+					you get that anyway? Please return to me with the right crystal.", cid, false, true, 200)
 				return true
 			end
 			player:addExperience(500, true)
@@ -147,8 +142,8 @@ local function creatureSayCallback(cid, type, msg)
 			cid, false, true, 200)
 			addEvent(releasePlayer, 1000, cid)
 		elseif cStorage == 6 then
-			npcHandler:say("Well, the only thing left to do would be to offer the crystal at the well of the collector. \z
-			There must be a pedestal near the well, where you need to put your donation. Ha, do you think you could do that?", cid)
+			npcHandler:say("Well, the only thing left to do would be to offer the crystal at the well of the collector. There \z
+				must be a pedestal near the well, where you need to put your donation. Ha, do you think you could do that?", cid)
 			npcHandler.topic[cid] = 5
 		elseif cStorage == 7 then
 			npcHandler:say(
@@ -161,11 +156,12 @@ local function creatureSayCallback(cid, type, msg)
 			in there. It is the only way to finish the {Lightboat}.", cid)
 		elseif cStorage == 9 then
 			if player:getItemCount(10616) == 0 then
-				npcHandler:say("Put the mirror crystal into the special carrying device I gave you and bring it directly to me.", cid)
+				npcHandler:say("Put the mirror crystal into the special carrying device \z
+					I gave you and bring it directly to me.", cid)
 				return true
 			end
 			npcHandler:say("Do you have the mirror crystal? Unbelievable! Alright I will extract the crystal from the device \z
-			myself, would you please give me the device with the crystal and step back?", cid)
+				myself, would you please give me the device with the crystal and step back?", cid)
 			npcHandler.topic[cid] = 7
 		end
 	elseif msgcontains(msg, "yes") then
@@ -183,7 +179,7 @@ local function creatureSayCallback(cid, type, msg)
 			addEvent(releasePlayer, 1000, cid)
 		elseif npcHandler.topic[cid] == 2 then
 			npcHandler:say("The device needs a special crystal. It's called {mirror crystal}. The inventor somehow damaged it \z
-			- with fatal results. He had to give up, as no second crystal was left to try. I, however, know of \z
+				- with fatal results. He had to give up, as no second crystal was left to try. I, however, know of \z
 				another one... but are you up to the task?", cid)
 			npcHandler.topic[cid] = 3
 		elseif npcHandler.topic[cid] == 3 then
@@ -207,8 +203,8 @@ local function creatureSayCallback(cid, type, msg)
 			cid, false, true, 200)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
-			npcHandler:say("Good, because if you wouldn't do it... listen, this well is on one of the isles near Carlin. There you \z
-				offer the crystal. Once you get access to its lair, find the collector and... convince it to give \z
+			npcHandler:say("Good, because if you wouldn't do it... listen, this well is on one of the isles near Carlin. \z
+				There you offer the crystal. Once you get access to its lair, find the collector and... convince it to give \z
 				you the mirror crystal. Understood?", cid)
 			npcHandler.topic[cid] = 6
 		elseif npcHandler.topic[cid] == 6 then
