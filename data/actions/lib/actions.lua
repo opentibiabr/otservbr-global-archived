@@ -397,7 +397,8 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 	elseif targetId == 351 and targetActionId == 8024 then -- Wrath of the emperor quest
 		player:addItem(12297, 1)
 		player:say('You dig out a handful of earth from this sacred place.', TALKTYPE_MONSTER_SAY)
-	elseif targetId == 8579 and player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 20 then -- RookgaardTutorialIsland
+	elseif targetId == 8579 and player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 20 then
+		-- RookgaardTutorialIsland
 		player:sendTextMessage(
 			MESSAGE_EVENT_ADVANCE,
 			'You dug a hole! Walk onto it as long as it is open to jump down into the forest cave.'
@@ -831,7 +832,8 @@ function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
 				addEvent(revertCask, 3 * 60 * 1000, toPosition)
 			end
 		end
-	elseif targetActionId == 12566 and player:getStorageValue(Storage.secretService.TBIMission06) == 1 then -- Secret Service Quest
+	elseif (targetActionId == 12566) and (player:getStorageValue(Storage.secretService.TBIMission06) == 1) then
+		-- Secret Service Quest
 		local yellPosition = Position(32204, 31157, 8)
 		if player:getOutfit().lookType == 137 then -- amazon lookType
 			player:setStorageValue(Storage.secretService.TBIMission06, 2)
