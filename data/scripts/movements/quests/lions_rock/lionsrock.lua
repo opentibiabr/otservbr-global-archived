@@ -1,5 +1,5 @@
+-- Lions rock entrance
 local lionsRockEntrance = MoveEvent()
-local lionsRockSigns = MoveEvent()
 
 function lionsRockEntrance.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
@@ -29,6 +29,12 @@ function lionsRockEntrance.onStepIn(creature, item, position, fromPosition)
 	end
 end
 
+lionsRockEntrance:uid(24914)
+lionsRockEntrance:register()
+
+-- Lions rock sign
+local lionsRockSigns = MoveEvent()
+
 function lionsRockSigns.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
@@ -54,10 +60,8 @@ function lionsRockSigns.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-lionsRockEntrance:uid(24914)
-lionsRockEntrance:register()
-
 for value = 24916, 24919 do
 	lionsRockSigns:uid(value)
 end
+
 lionsRockSigns:register()
