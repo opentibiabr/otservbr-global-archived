@@ -307,6 +307,7 @@ local function creatureSayCallback(cid, type, msg)
 				cid
 			)
 			player:addExperience(6000, true)
+			player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 			player:setStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine, 10)
 			npcHandler.topic[cid] = 0
 		end
