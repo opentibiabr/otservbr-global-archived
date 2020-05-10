@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   git \
   cmake \
   build-essential \
-  libboost-dev \
+  libboost-date-time-dev \
   libboost-system-dev \
   libboost-filesystem-dev \
   libboost-iostreams-dev \
@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libluajit-5.1-dev \
   libmysqlclient-dev \
   libpugixml-dev \
-  libgmp3-dev \
   unrar
 
 WORKDIR /opt/otserver

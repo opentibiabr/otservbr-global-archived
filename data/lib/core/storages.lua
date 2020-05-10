@@ -3,6 +3,7 @@
 -- Sort it in Values -
 
 Storage = {
+  -- News quest development
 	Quest = {
 		-- update pre-6.0
 		DeeperFibula = {
@@ -602,8 +603,8 @@ Storage = {
 		},
 		PoltergeistOutfits = {
 		},
+	},
 
-	}, -- quests
 	DeeplingsWorldChange = {
 		Questline = 25000,
 		FirstStage = 25001,
@@ -2076,6 +2077,18 @@ Storage = {
 		Oressa = 50831,
 		DoorVocation = 50832,
 		Tutorial = 50833
+	LionsRock = {
+		Progress = 50840,
+		LionsStrength = 50841,
+		LionsBeauty = 50842,
+		LionsTears = 50843,
+		GetLionsMane = 50844,
+		GetHolyWater = 50845,
+		SnakeSign = 50846,
+		LizardSign = 50847,
+		ScorpionSign = 50848,
+		HyenaSign = 50849,
+		Time = 50850
 	},
 
 	EruaranGreeting = 3250,
@@ -2212,6 +2225,7 @@ GlobalStorage = {
 	NaginataStone = 50058,
 	ExpBoost = 51052,
 	SwordOfFury = 5635,
-	XpDisplayMode = 5634
+	XpDisplayMode = 5634,
+	lionsRockFields = 5636
 
 }

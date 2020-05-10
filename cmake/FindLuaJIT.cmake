@@ -10,7 +10,7 @@
 find_path(LUA_INCLUDE_DIR luajit.h
   HINTS
     ENV LUA_DIR
-  PATH_SUFFIXES include/luajit-2.0 include/luajit-2.1 include
+  PATH_SUFFIXES include/luajit-2.0 include/luajit-2.1 include luajit
   PATHS
   ~/Library/Frameworks
   /Library/Frameworks
@@ -21,7 +21,7 @@ find_path(LUA_INCLUDE_DIR luajit.h
 )
 
 find_library(LUA_LIBRARY
-  NAMES luajit-5.1
+  NAMES luajit-5.1 lua51
   HINTS
     ENV LUA_DIR
   PATH_SUFFIXES lib
@@ -60,4 +60,3 @@ FIND_PACKAGE_HANDLE_STANDARD_ARGS(LuaJIT
                                   VERSION_VAR LUAJIT_VERSION_STRING)
 
 mark_as_advanced(LUA_INCLUDE_DIR LUA_LIBRARIES LUA_LIBRARY LUA_MATH_LIBRARY)
-

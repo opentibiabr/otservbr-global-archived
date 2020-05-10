@@ -48,28 +48,38 @@ project(otbr)
 
 # Add cmake folder to help find cmake packages
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
 # Find packages.
-find_package(CryptoPP REQUIRED)
+if (WIN32)
+    # On Windows you must use cryptopp-static because the dynamic link library
+    # is the FIPS DLL (which is something you should avoid).
+    find_package(cryptopp CONFIG REQUIRED)
+    set(CRYPTOPP_LIBRARIES "cryptopp-static")
+else ()
+  find_package(CryptoPP REQUIRED)
+endif ()
+
 find_package(PugiXML REQUIRED)
 find_package(MySQL REQUIRED)
 find_package(Threads REQUIRED)
-find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams REQUIRED)
+find_package(Boost 1.53.0 COMPONENTS system filesystem iostreams date_time REQUIRED)
 
 # Selects LuaJIT if user defines or auto-detected
-if(DEFINED USE_LUAJIT AND NOT USE_LUAJIT)
-  set(FORCE_LUAJIT ${USE_LUAJIT})
-else()
-  find_package(LuaJIT)
-  set(FORCE_LUAJIT ${LuaJIT_FOUND})
-endif()
+if (DEFINED USE_LUAJIT AND NOT USE_LUAJIT)
+    set(FORCE_LUAJIT ${USE_LUAJIT})
+else ()
+    find_package(LuaJIT)
+    set(FORCE_LUAJIT ${LuaJIT_FOUND})
+endif ()
 option(USE_LUAJIT "Use LuaJIT" ${FORCE_LUAJIT})
-if(FORCE_LUAJIT)
-  if(APPLE)
-    set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
-  endif()
-else()
-  find_package(Lua REQUIRED)
-endif()
+
+if (FORCE_LUAJIT)
+    if (APPLE)
+        set(CMAKE_EXE_LINKER_FLAGS "-pagezero_size 10000 -image_base 100000000")
+    endif ()
+else ()
+    find_package(Lua REQUIRED)
+endif ()
 
 
 # *****************************************************************************
@@ -142,10 +152,10 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   # using Visual Studio C++
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE   " -fvisibility=hidden -march=native -O2")
+  set(CMAKE_CXX_FLAGS_RELEASE   " /Wall")
 
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
-  set(CMAKE_CXX_FLAGS_DEBUG     " -O0 -g -Wextra")
+  set(CMAKE_CXX_FLAGS_DEBUG     " /Wall")
 endif()
 
 
@@ -213,7 +223,29 @@ if(BUILD_DOC)
 endif (BUILD_DOC)
 
 # *****************************************************************************
+# Git Version
+# *****************************************************************************
+
+# Define the two required variables before including
+# the source code for watching a git repository.
+set(PRE_CONFIGURE_FILE "cmake/gitmetadata.h.in")
+set(POST_CONFIGURE_FILE "${CMAKE_CURRENT_BINARY_DIR}/gitmetadata.h")
+include(git_watcher)
+if (Git_FOUND)
+    message("-- Git Found")
+    add_dependencies(otbr check_git)
+    target_include_directories(otbr PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+endif()
+
+
+# *****************************************************************************
 # Includes & Libraries
 # *****************************************************************************
-include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR} ${CRYPTOPP_INCLUDE_DIR})
-target_link_libraries(otbr dl ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES} ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
+                    ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
+                    ${CRYPTOPP_INCLUDE_DIR})
+
+target_link_libraries(otbr ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
+                      ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
+                      ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
+                      ${CMAKE_THREAD_LIBS_INIT})

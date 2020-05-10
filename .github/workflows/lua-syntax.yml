@@ -1,12 +1,23 @@
 name: Lua syntax check
 
 on:
+  push:
+    branches:
+      - master
+      - develop
+      - v*
+
+    tags:
+      - v*
+
+    paths:
+      - data/**
+      - .github/**
+
   pull_request:
     paths:
       - data/**
-  push:
-    paths:
-      - data/**
+      - .github/**
 
 jobs:
   luac:

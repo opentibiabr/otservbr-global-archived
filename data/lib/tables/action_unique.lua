@@ -12,7 +12,6 @@ For example:
 	},
 
 ]]
-
 ActionTable = {
 	--[[
 	Action IDS
@@ -265,14 +264,13 @@ UniqueTable = {
 	It is advisable to use the uniques, because when repeated their use, the log of the repetition is returned in distro.
 	It also does not risk conflicting with storages and other types of actions.
 
-	You don't need to register UIDS in the scripts, just duplicate a new table and configure it with the variables.
+	You don"t need to register UIDS in the scripts, just duplicate a new table and configure it with the variables.
 	Add a new UID (within the range of the script) and it will be set automatically by the script.
 
 	UID 13000/14000 reserved range for keys.
 	UID 14001/16000 reserved range for commom rewards.
 	UID 16001/17000 reserved range for container rewards.
 	]]
-
 	-- Keys quest
 	-- Panpipe key 4055
 	[13000] = {
@@ -359,7 +357,6 @@ UniqueTable = {
 		storage = Storage.Quest.QuestName
 	},
 	]]
-
 	-- Teleports
 	-- UID reserved range 17001/18000
 	[17001] = {
@@ -385,121 +382,121 @@ UniqueTable = {
 	[24851] = {
 		itemId = 27545,
 		itemPos = {x = 32809, y = 32546, z = 6},
-		name = 'giant shimmering pearl',
+		name = "giant shimmering pearl",
 		count = 1
 	},
 	[24852] = {
 		itemId = 27545,
 		itemPos = {x = 32765, y = 31019, z = 9},
-		name = 'gold nugget',
+		name = "gold nugget",
 		count = 2
 	},
 	[24853] = {
 		itemId = 27545,
 		itemPos = {x = 32046, y = 32894, z = 10},
-		name = 'blue crystal shard',
+		name = "blue crystal shard",
 		count = 1
 	},
 	[24854] = {
 		itemId = 27543,
 		itemPos = {x = 32808, y = 31580, z = 3},
-		name = 'violet crystal shard',
+		name = "violet crystal shard",
 		count = 1
 	},
 	[24855] = {
 		itemId = 27543,
 		itemPos = {x = 33260, y = 32228, z = 10},
-		name = 'green crystal splinter',
+		name = "green crystal splinter",
 		count = 2
 	},
 	[24856] = {
 		itemId = 27543,
 		itemPos = {x = 33016, y = 32614, z = 6},
-		name = 'red gem',
+		name = "red gem",
 		count = 1
 	},
 	[24857] = {
 		itemId = 27543,
 		itemPos = {x = 33054, y = 32393, z = 10},
-		name = 'onyx chip',
+		name = "onyx chip",
 		count = 3
 	},
 	[24858] = {
 		itemId = 27543,
 		itemPos = {x = 32208, y = 31849, z = 10},
-		name = 'platinum coin',
+		name = "platinum coin",
 		count = 3
 	},
 	[24859] = {
 		itemId = 27543,
 		itemPos = {x = 32024, y = 32602, z = 10},
-		name = 'red crystal fragment',
+		name = "red crystal fragment",
 		count = 2
 	},
 	[24860] = {
 		itemId = 27543,
 		itemPos = {x = 33224, y = 31647, z = 7},
-		name = 'yellow gem',
+		name = "yellow gem",
 		count = 1
 	},
 	[24861] = {
 		itemId = 27543,
 		itemPos = {x = 32701, y = 31458, z = 5},
-		name = 'talon',
+		name = "talon",
 		count = 3
 	},
 	[24862] = {
 		itemId = 27543,
 		itemPos = {x = 32647, y = 32091, z = 8},
-		name = 'white pearl',
+		name = "white pearl",
 		count = 2
 	},
 	[24863] = {
 		itemId = 27545,
 		itemPos = {x = 32577, y = 31896, z = 7},
-		name = 'gold ingot',
+		name = "gold ingot",
 		count = 1
 	},
 	[24864] = {
 		itemId = 27543,
 		itemPos = {x = 33676, y = 31753, z = 6},
-		name = 'opal',
+		name = "opal",
 		count = 3
 	},
 	[24865] = {
 		itemId = 27545,
 		itemPos = {x = 32242, y = 31390, z = 5},
-		name = 'small diamond',
+		name = "small diamond",
 		count = 2
 	},
 	[24866] = {
 		itemId = 27543,
 		itemPos = {x = 33613, y = 31811, z = 9},
-		name = 'green crystal shard',
+		name = "green crystal shard",
 		count = 1
 	},
 	[24867] = {
 		itemId = 27543,
 		itemPos = {x = 32873, y = 32900, z = 9},
-		name = 'black pearl',
+		name = "black pearl",
 		count = 3
 	},
 	[24868] = {
 		itemId = 27543,
 		itemPos = {x = 32171, y = 32974, z = 7},
-		name = 'emerald bangle',
+		name = "emerald bangle",
 		count = 1
 	},
 	[24869] = {
 		itemId = 27545,
 		itemPos = {x = 32960, y = 31461, z = 3},
-		name = 'green gem',
+		name = "green gem",
 		count = 1
 	},
 	[24870] = {
 		itemId = 27543,
 		itemPos = {x = 33340, y = 31411, z = 7},
-		name = 'giant shimmering pearl',
+		name = "giant shimmering pearl",
 		count = 1
 	},
 	-- Treasure Chests End
@@ -507,19 +504,19 @@ UniqueTable = {
 	[24871] = {
 		itemId = 1746,
 		itemPos = {x = 33616, y = 31015, z = 13},
-		name = 'porcelain mask',
+		name = "porcelain mask",
 		count = 1
 	},
 	[24872] = {
 		itemId = 27531,
 		itemPos = {x = 33617, y = 31015, z = 13},
-		name = 'backpack',
+		name = "backpack",
 		count = 1
 	},
 	[24873] = {
 		itemId = 1746,
 		itemPos = {x = 33618, y = 31015, z = 13},
-		name = 'colourful feathers',
+		name = "colourful feathers",
 		count = 3
 	},
 	-- Final Reward End
@@ -533,10 +530,11 @@ UniqueTable = {
 		itemId = 9565,
 		itemPos = {x = 33234, y = 32276, z = 12},
 		storage = Storage.FirstDragon.DragonCounter,
-		value = 200, range = 10,
+		value = 200,
+		range = 10,
 		timer = Storage.FirstDragon.TazhadurTimer,
 		newPos = {x = 32015, y = 32466, z = 8},
-		bossName = 'Tazhadur',
+		bossName = "Tazhadur",
 		bossPos = {x = 32018, y = 32465, z = 8}
 	},
 	-- Kalyassa entrance
@@ -544,10 +542,11 @@ UniqueTable = {
 		itemId = 9562,
 		itemPos = {x = 33160, y = 31320, z = 5},
 		storage = Storage.FirstDragon.ChestCounter,
-		value = 5, range = 10,
+		value = 5,
+		range = 10,
 		timer = Storage.FirstDragon.KalyassaTimer,
 		newPos = {x = 32078, y = 32456, z = 8},
-		bossName = 'Kalyassa',
+		bossName = "Kalyassa",
 		bossPos = {x = 32079, y = 32459, z = 8}
 	},
 	-- Zorvorax entrance
@@ -555,10 +554,11 @@ UniqueTable = {
 		itemId = 9564,
 		itemPos = {x = 33003, y = 31593, z = 11},
 		storage = Storage.FirstDragon.SecretsCounter,
-		value = 3, range = 10,
+		value = 3,
+		range = 10,
 		timer = Storage.FirstDragon.ZorvoraxTimer,
 		newPos = {x = 32008, y = 32396, z = 8},
-		bossName = 'Zorvorax',
+		bossName = "Zorvorax",
 		bossPos = {x = 32015, y = 32396, z = 8}
 	},
 	-- Gelidrazah entrance
@@ -566,10 +566,11 @@ UniqueTable = {
 		itemId = 9563,
 		itemPos = {x = 32276, y = 31367, z = 4},
 		storage = Storage.FirstDragon.GelidrazahAccess,
-		value = 1, range = 10,
+		value = 1,
+		range = 10,
 		timer = Storage.FirstDragon.GelidrazahTimer,
 		newPos = {x = 32076, y = 32402, z = 8},
-		bossName = 'Gelidrazah The Frozen',
+		bossName = "Gelidrazah The Frozen",
 		bossPos = {x = 32078, y = 32400, z = 8}
 	},
 	-- Tazhadur exit
@@ -619,7 +620,7 @@ UniqueTable = {
 	[24897] = {
 		itemId = 5677,
 		itemPos = {x = 31938, y = 32837, z = 7},
-		name = 'tortoise egg from Nargor',
+		name = "tortoise egg from Nargor",
 		count = 1
 	},
 	[24906] = {
@@ -633,6 +634,161 @@ UniqueTable = {
 	[24908] = {
 		storage = Storage.TheShatteredIsles.TavernMap3,
 		message = "You have sucessfully read plan C."
+	},
+	-- Lions Rock
+	[24909] = {
+		itemId = 6082,
+		itemPos = {x = 33146, y = 32341, z = 8},
+		storage = Storage.LionsRock.Progress
+	},
+	[24910] = {
+		itemId = 23761,
+		itemPos = {x = 33137, y = 32291, z = 8},
+		storage = Storage.LionsRock.LionsStrength,
+		pagodaPos = {x = 33134, y = 32289, z = 8},
+		useItem = 10551,
+		need = Storage.LionsRock.Progress,
+		needCount = 1,
+		needNext = 2,
+		message = "You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
+		pyramid nearby begins to shine.",
+		effect = CONST_ME_BLOCKHIT
+	},
+	[24911] = {
+		itemId = 1481,
+		itemPos = {x = 33138, y = 32369, z = 8},
+		storage = Storage.LionsRock.LionsBeauty,
+		pagodaPos = {x = 33136, y = 32369, z = 8},
+		useItem = 23760,
+		need = Storage.LionsRock.Progress,
+		needCount = 2,
+		needNext = 3,
+		message = "You burnt a lion's mane flower. The light in the small pyramid nearby begins to shine.",
+		effect = CONST_ME_REDSMOKE
+	},
+	[24912] = {
+		itemId = 23762,
+		itemPos = {x = 33154, y = 32279, z = 8},
+		storage = Storage.LionsRock.LionsTears,
+		pagodaPos = {x = 33156, y = 32279, z = 8},
+		useItem = 23835,
+		need = Storage.LionsRock.Progress,
+		needCount = 3,
+		needNext = 4,
+		message = "You have purified a sacret pedestal with holy water. You have now passed the last test\z
+		 to enter thge inner sanctum.",
+		effect = CONST_ME_LOSEENERGY
+	},
+	[24913] = {
+		itemId = 23765,
+		itemPos = {x = 33137, y = 32351, z = 6},
+		storage = Storage.LionsRock.GetHolyWater,
+		addItem = 23835,
+		need = Storage.LionsRock.Progress,
+		needCount = 1
+	},
+	[24914] = {
+		itemId = 8058,
+		itemPos = {x = 33128, y = 32308, z = 8},
+		toPos = {x = 33122, y = 32308, z = 8},
+		need = Storage.LionsRock.Progress,
+		needCount = 4
+	},
+	[24915] = {
+		itemId = 24314,
+		itemBrokenId = 24315,
+		itemPos = {x = 33119, y = 32247, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 4,
+		addItem = 23836
+	},
+	[24916] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.SnakeSign,
+		itemPos = {x = 33095, y = 32244, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = "With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the jealous snake.",
+		message2 = "As a sign of victory he tooks its eye, yellow as envy and malevolence, and out \z
+		of a foul creature created a precious treasure."
+	},
+	[24917] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.LizardSign,
+		itemPos = {x = 33128, y = 32300, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = "With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the lazy lizard.",
+		message2 = "As a sign of victory he tooks its egg, blue as sloth and conceit, and out \z
+		of a foul creature created a precious treasure."
+	},
+	[24918] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.ScorpionSign,
+		itemPos = {x = 33109, y = 32329, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = "With the aid of the old scroll you translate the inscriptions on the golden altar: \z
+		And the mighty lion defeated the treacherous scorpion.",
+		message2 = "As a sign of victory he tooks its poison, violet as deceit and betrayal, and \z
+		created a precious treasure."
+	},
+	[24919] = {
+		itemId = 3152,
+		storage = Storage.LionsRock.HyenaSign,
+		itemPos = {x = 33127, y = 32340, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 5,
+		needItem = 23836,
+		message1 = "With the aid of the old scroll you translate the inscriptions on the golden statue: \z
+		And the mighty lion defeated the greedy hyaena.",
+		message2 = "As a sign of victory he tooks its blood, red as voracity and lust, and \z
+		created a precious treasure."
+	},
+	[24920] = {
+		itemId = 23812,
+		itemPos = {x = 33069, y = 32298, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2147,
+		fieldId = 1492,
+		message = "You place the ruby on the small socket. A red flame begins to burn.",
+		effect = CONST_ME_MAGIC_RED
+	},
+	[24921] = {
+		itemId = 23813,
+		itemPos = {x = 33069, y = 32302, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2146,
+		fieldId = 24618,
+		message = "You place the sapphire on the small socket. A blue flame begins to burn.",
+		effect = CONST_ME_MAGIC_BLUE
+	},
+	[24922] = {
+		itemId = 23811,
+		itemPos = {x = 33077, y = 32302, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 2150,
+		fieldId = 7465,
+		message = "You place the amethyst on the small socket. A violet flame begins to burn.",
+		effect = CONST_ME_PURPLESMOKE
+	},
+	[24923] = {
+		itemId = 23808,
+		itemPos = {x = 33077, y = 32298, z = 9},
+		need = Storage.LionsRock.Progress,
+		needCount = 9,
+		needItem = 9970,
+		fieldId = 1500,
+		message = "You place the topaz on the small socket. A yellow flame begins to burn.",
+		effect = CONST_ME_BLOCKHIT
 	},
 	-- Insectoid cell
 	[25001] = {
@@ -731,7 +887,6 @@ UniqueTable = {
 		storage = Storage.InsectoidCell.Reward16,
 		reward = 15572
 	},
-
 	--Dawnport
 	-- Vocation doors
 	-- Sorcerer
@@ -818,6 +973,24 @@ UniqueTable = {
 		itemId = 3748,
 		itemPos = {x = 32028, y = 31882, z = 7},
 		storage = Storage.Quest.Dawnport.TheRareHerb,
-		message = "You harvested some of the herb's flower buds. Bring them Morris for a reward."
+		reward = 15572
+	},
+	-- Sea of Lights
+	[25027] = {
+		itemId = 8571,
+		itemPos = {x = 32011, y = 31709, z = 7},
+		storage = Storage.SeaOfLightQuest.Questline,
+		value = 7,
+		setStorage = Storage.SeaOfLightQuest.Mission3,
+		destination = {x = 32017, y = 31730, z = 8}
+	},
+	[25028] = {
+		itemId = 8634,
+		itemPos = {x = 33031, y = 31758, z = 8},
+		storage = Storage.SeaOfLightQuest.Questline,
+		value = 4,
+		chance = 30,
+		addItem = 10614,
+		say = "*crush*"
 	}
 }

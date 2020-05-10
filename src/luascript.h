@@ -20,11 +20,7 @@
 #ifndef FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
 #define FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
 
-#if __has_include("luajit/lua.hpp")
-#include <luajit/lua.hpp>
-#else
 #include <lua.hpp>
-#endif
 
 #if LUA_VERSION_NUM >= 502
 #ifndef LUA_COMPAT_ALL
@@ -750,7 +746,7 @@ class LuaScriptInterface
 		static int luaContainerHasItem(lua_State* L);
 		static int luaContainerAddItem(lua_State* L);
 		static int luaContainerAddItemEx(lua_State* L);
-		
+
 		static int luaContainerGetCorpseOwner(lua_State* L);
 		static int luaContainerRegisterReward(lua_State* L);
 
@@ -1020,7 +1016,7 @@ class LuaScriptInterface
 		static int luaPlayerPopupFYI(lua_State* L);
 
 		static int luaPlayerIsPzLocked(lua_State* L);
-	
+
 		// New Prey
 		static int luaPlayerGetPreyState(lua_State * L);
 		static int luaPlayerGetPreyUnlocked(lua_State * L);
@@ -1344,10 +1340,10 @@ class LuaScriptInterface
 
 		static int luaMonsterTypeGetAttackList(lua_State* L);
 		static int luaMonsterTypeAddAttack(lua_State* L);
-		
+
 		static int luaMonsterTypeGetDefenseList(lua_State* L);
 		static int luaMonsterTypeAddDefense(lua_State* L);
-		
+
 		static int luaMonsterTypeGetElementList(lua_State* L);
 		static int luaMonsterTypeAddElement(lua_State* L);
 
@@ -1355,13 +1351,13 @@ class LuaScriptInterface
 
 		static int luaMonsterTypeGetVoices(lua_State* L);
 		static int luaMonsterTypeAddVoice(lua_State* L);
-		
+
 		static int luaMonsterTypeGetLoot(lua_State* L);
 		static int luaMonsterTypeAddLoot(lua_State* L);
 
 		static int luaMonsterTypeGetCreatureEvents(lua_State* L);
 		static int luaMonsterTypeRegisterEvent(lua_State* L);
-		
+
 		static int luaMonsterTypeEventOnCallback(lua_State* L);
 		static int luaMonsterTypeEventType(lua_State* L);
 

@@ -67,7 +67,7 @@ function table.copy(t, out)
 end
 
 function unserializeTable(str, out)
-	local tmp = loadstring("return " .. str)
+	local tmp = load("return " .. str)
 	if tmp then
 		tmp = tmp()
 	else

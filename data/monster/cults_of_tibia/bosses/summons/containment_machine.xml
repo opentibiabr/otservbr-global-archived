@@ -16,7 +16,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-	</attack>
+		<attack></attack>
 	</attacks>
 	<defenses armor="35" defense="50">
 	</defenses>
