@@ -1,8 +1,10 @@
 function getJackLastMissionState(player)
 	if player:getStorageValue(Storage.TibiaTales.JackFutureQuest.LastMissionState) == 1 then
-		return "You told Jack the truth about his personality. You also explained that you and Spectulus made a mistake by assuming him as the real Jack."
+		return "You told Jack the truth about his personality. You also explained that you and Spectulus \z
+		made a mistake by assuming him as the real Jack."
 	else
-		return "You lied to the confused Jack about his true personality. You and Spectulus made him believe that he is in fact a completely different person. Now he will never be able to find out the truth."
+		return "You lied to the confused Jack about his true personality. You and Spectulus made him \z
+		believe that he is in fact a completely different person. Now he will never be able to find out the truth."
 	end
 end
 

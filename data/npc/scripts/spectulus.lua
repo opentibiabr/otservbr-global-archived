@@ -269,7 +269,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 30
 		elseif player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 4 then
 			npcHandler:say(
-				"You're back from {Jack}! Mh, by the looks of your face I doubt our little redecoration project yielded any success. But I had an even better idea while you were gone - ready to give it another try?",
+				"You're back from {Jack}! Mh, by the looks of your face I doubt our little redecoration \z
+				project yielded any success. But I had an even better idea while you were gone - ready to give it another try?",
 				cid
 			)
 			npcHandler.topic[cid] = 32
@@ -278,20 +279,29 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 33
 		elseif player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 8 then
 			npcHandler:say(
-				"Did you find out what hobby {Jack} has? Did you separate him from this activity? Only if he has a free mind, he can truly get back to his former self! Now all you need to do is talk to him again!",
+				"Did you find out what hobby {Jack} has? Did you separate him from this activity? \z
+				Only if he has a free mind, he can truly get back to his former self! Now all you need to do is talk to him again!",
 				cid
 			)
 			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 9 then
 			npcHandler:say(
 				{
-					"Oh you are back already. Hm... I doubt it worked, did it? It DID? Oh well... good job. Really! Now... the thing is - the actual {Jack} wrote. No, no wait. Calm down first. ...",
-					"You remember me explaining the fold in time, causing a tiny disturbance in infinity? Well, as I already told you, {Jack} was indeed not transported to the future... but to the past. ...",
-					"I received some kind of letter this morning that has been stored for me by the Academy for about 70 years now. ...",
-					"It said it should be opened at a specific day 20 years ago to prevent this whole incident but I wasn't even at the Academy by that time. Someone just found the letter earlier today and brought it to my attention. ...",
-					"So our {Jack} here was in fact... a completely different person. Now, now... don't get upset, there was no chance for me to warn you earlier! ...",
-					"And it wasn't all that bad, was it? Heh... I mean... everyone needs a change in life now and then! And he can still come here if he likes to! ...",
-					"Or wait - erm... better not tell him where exactly I live, I have some kind of presentiment concerning that whole affair... yes, we should just leave everything as it is now, indeed we should. ...",
+					"Oh you are back already. Hm... I doubt it worked, did it? It DID? Oh well... good job. Really! \z
+					Now... the thing is - the actual {Jack} wrote. No, no wait. Calm down first. ...",
+					"You remember me explaining the fold in time, causing a tiny disturbance in infinity? Well, as I \z
+					already told you, {Jack} was indeed not transported to the future... but to the past. ...",
+					"I received some kind of letter this morning that has been stored for me by the Academy for \z
+					about 70 years now. ...",
+					"It said it should be opened at a specific day 20 years ago to prevent this whole incident but I \z
+					wasn't even at the Academy by that time. Someone just found the letter earlier today and brought \z
+					it to my attention. ...",
+					"So our {Jack} here was in fact... a completely different person. Now, now... don't get upset, \z
+					there was no chance for me to warn you earlier! ...",
+					"And it wasn't all that bad, was it? Heh... I mean... everyone needs a change in life now and then! \z
+						And he can still come here if he likes to! ...",
+					"Or wait - erm... better not tell him where exactly I live, I have some kind of presentiment concerning \z
+					that whole affair... yes, we should just leave everything as it is now, indeed we should. ...",
 					"Anyway you did a great job and I thank you for... putting your hands into my fire Player... once again."
 				},
 				cid
@@ -466,13 +476,23 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 27 then
 			npcHandler:say(
 				{
-					"Very well, hmmm, but this one might get a bit - unpleasant. What? No no, not for you. Probably only for the person I want you to help me with. You know, I once had an {intern}. His name was {Jack}. ...",
-					"He was as eager as you to help me - quite a nice person, really. At the time he was still around I was working on a device to transport its user to any specified point in time - be it back or to the future if you know what I mean. ...",
-					"He was helping me quite a lot, no matter which task I applied to him. And one day we finally did it, our tempus machina was up and running. He was certainly all man of action when he actually stepped into the machine for our first run. ...",
-					"The device was designed for one person with enough room for some provisions and one or two books for reading if one would land in some drab solitude. You never know, you know? So we fired it up and yes, it actually worked! ...",
+					"Very well, hmmm, but this one might get a bit - unpleasant. What? No no, not for you. Probably only \z
+					for the person I want you to help me with. You know, I once had an {intern}. His name was {Jack}. ...",
+					"He was as eager as you to help me - quite a nice person, really. At the time he was still around I was \z
+					working on a device to transport its user to any specified point in time - be it back or to the future \z
+					if you know what I mean. ...",
+					"He was helping me quite a lot, no matter which task I applied to him. And one day we finally did it, our \z
+					tempus machina was up and running. He was certainly all man of action when he actually stepped into the \z
+					machine for our first run. ...",
+					"The device was designed for one person with enough room for some provisions and one or two books for reading \z
+					if one would land in some drab solitude. You never know, you know? So we fired it up and yes, it actually \z
+					worked! ...",
 					"He completely disappeared right before my eyes! Eureka! Well ahem, there was but one tiny little problem. ...",
-					"As all magical calibration was done from my lab I never thought about adding some sort of control to its interior. In other words {Jack} has travelled in time, without any means to come back. ...",
-					"Sleepless days of intensive research, however, brought me to the conclusion that he was not actually travelling to the future, but to another {dimension}, {parallel} to ours. There is still a chance to rescue him - and you can help me. What do you say?"
+					"As all magical calibration was done from my lab I never thought about adding some sort of control to its \z
+					interior. In other words {Jack} has travelled in time, without any means to come back. ...",
+					"Sleepless days of intensive research, however, brought me to the conclusion that he was not actually \z
+					travelling to the future, but to another {dimension}, {parallel} to ours. There is still a chance to rescue \z
+					him - and you can help me. What do you say?"
 				},
 				cid,
 				false,
@@ -483,12 +503,18 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 28 then
 			npcHandler:say(
 				{
-					"You know, in some way you remind me of {Jack}. Well, I am glad you are up to this task - we just have to get him back. I owe that to him and I owe it to science. Alright, now let me explain that whole {dimensional} problem. ...",
-					"The bad news is, using the device at that state was not a good idea. We effectively caused a magical distortion in the fabric of time, space and thus folded infinity - just a little. ...",
+					"You know, in some way you remind me of {Jack}. Well, I am glad you are up to this task - we just have \z
+					to get him back. I owe that to him and I owe it to science. Alright, now let me explain that whole \z
+					{dimensional} problem. ...",
+					"The bad news is, using the device at that state was not a good idea. We effectively caused a magical \z
+					distortion in the fabric of time, space and thus folded infinity - just a little. ...",
 					"The good news is that {Jack} is still on our world, and not even inconveniently far away. ...",
-					"Unfortunately in the current state of time, he was never interested in attending Edron Academy, he never looked for a job to finance his studies and of course has never been one of my interns. ...",
-					"Since he was in the magic sphere during the launch, the time fold only affected his own {dimensional} anchoring. ...",
-					"The number of parallel {dimensions} is endless and the fold made him slip into one completely different course of time where he never was the person I once knew. ...",
+					"Unfortunately in the current state of time, he was never interested in attending Edron Academy, he \z
+					never looked for a job to finance his studies and of course has never been one of my interns. ...",
+					"Since he was in the magic sphere during the launch, the time fold only affected his own {dimensional} \z
+					anchoring. ...",
+					"The number of parallel {dimensions} is endless and the fold made him slip into one completely different \z
+					course of time where he never was the person I once knew. ...",
 					"Now you know it all. Still want to help?"
 				},
 				cid,
@@ -500,8 +526,11 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 29 then
 			npcHandler:say(
 				{
-					"Thank you. So here we are - now how to get {Jack} back to our {dimension}? Well, the answer to that is easy. It is simply not possible. All my tests concerning the reversal of the process failed. ...",
-					"But {Jack} is not yet lost to us - if we can get him back to his former self! You have to tell him about his former life, convince him, change his environment. But at first you will need to talk to him and find out who exactly we are dealing with now. ...",
+					"Thank you. So here we are - now how to get {Jack} back to our {dimension}? Well, the answer to that \z
+					is easy. It is simply not possible. All my tests concerning the reversal of the process failed. ...",
+					"But {Jack} is not yet lost to us - if we can get him back to his former self! You have to tell him \z
+					about his former life, convince him, change his environment. But at first you will need to talk to him \z
+					and find out who exactly we are dealing with now. ...",
 					"I will mark his current location on your map, just ask him about me and see what happens - good luck."
 				},
 				cid,
@@ -514,16 +543,22 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 30 then
 			npcHandler:say(
-				"Yes? And he didn't remember anything? Not even me? That's not good. Then we will have to do everything ourselves. Are you ready to continue?",
+				"Yes? And he didn't remember anything? Not even me? That's not good. Then we will have to \z
+				do everything ourselves. Are you ready to continue?",
 				cid
 			)
 			npcHandler.topic[cid] = 31
 		elseif npcHandler.topic[cid] == 31 then
 			npcHandler:say(
 				{
-					"A trigger is needed to make him recall what happened. First thing should be to change his environment to be more... familiar. As soon as he will have the things he used to have around him, his memories will come back. ...",
-					"I know that he used to have a very comfy red cushioned chair and an old globe which sat near the middle of the room. He also used a smaller telescope and he had that extremely large amphora in a corner. And... there was one other thing. ...",
-					"A rocking horse. He just loved it! Find these items, buy them if you need to and place them where {Jack} lives. Ask him about the furniture and don't forget to tell me about his reaction!"
+					"A trigger is needed to make him recall what happened. First thing should be to change his \z
+					environment to be more... familiar. As soon as he will have the things he used to have around \z
+					him, his memories will come back. ...",
+					"I know that he used to have a very comfy red cushioned chair and an old globe which sat near \z
+					the middle of the room. He also used a smaller telescope and he had that extremely large amphora \z
+					in a corner. And... there was one other thing. ...",
+					"A rocking horse. He just loved it! Find these items, buy them if you need to and place them \z
+					where {Jack} lives. Ask him about the furniture and don't forget to tell me about his reaction!"
 				},
 				cid,
 				false,
@@ -535,10 +570,14 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 32 then
 			npcHandler:say(
 				{
-					"Alright listen. As long as his social environment accepts him as the person he is now, he will never come free from the shackles that bind him to this alternate self. ...",
+					"Alright listen. As long as his social environment accepts him as the person he is now, \z
+					he will never come free from the shackles that bind him to this alternate self. ...",
 					"Oh, he has a sister you say? And his mother is living with them? ...",
-					"Hm... that's strange, I don't even recall his family. Never knew he had a mother and a sister. Tell them the truth about him - maybe they will understand and even help him getting this over with. ...",
-					"But be careful, the {dimensional} shift could mean that they will not even know what you're talking about since they are more closely linked to him than anyone else."
+					"Hm... that's strange, I don't even recall his family. Never knew he had a mother and a \z
+					sister. Tell them the truth about him - maybe they will understand and even help him getting \z
+					this over with. ...",
+					"But be careful, the {dimensional} shift could mean that they will not even know what you're \z
+					talking about since they are more closely linked to him than anyone else."
 				},
 				cid,
 				false,
@@ -550,8 +589,12 @@ local function creatureSayCallback(cid, type, msg)
 		elseif npcHandler.topic[cid] == 33 then
 			npcHandler:say(
 				{
-					"Success!! Now it will be far easier to convince him of his true self! Excellent work. Now the only thing left to do is to separate him from whatever still binds him to that place. Did he develop any habits perhaps? ...",
-					"A hobby or something! Yes, ask him about his hobbies! Convince him somehow that anything he is doing there does not match his true self - he didn't have any hobbies except a healthy interest in science - you MUST convince him, no matter what! ...",
+					"Success!! Now it will be far easier to convince him of his true self! Excellent work. \z
+					Now the only thing left to do is to separate him from whatever still binds him to that place. \z
+						Did he develop any habits perhaps? ...",
+					"A hobby or something! Yes, ask him about his hobbies! Convince him somehow that anything he is \z
+					doing there does not match his true self - he didn't have any hobbies except a healthy interest in \z
+					science - you MUST convince him, no matter what! ...",
 					"Or everything we achieved would be in vain. We can still save Jack! Now go and do what you must do."
 				},
 				cid,
@@ -566,9 +609,14 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) == 10 then
 			npcHandler:say(
 				{
-					"Well you know Jack - after all you talked to him in person. He will get over it. As for the real Jack, my former intern... I am glad that nothing serious happened to him. ...",
-					"According to his letter, he did just fine so many years ago. He somehow managed to make a name of himself when he cast some magic we enhanced through our research - of course no one back then had ever seen such spells. ...",
-					"Oh and he sends his regards to... how did he put it - 'whoever is currently helping me getting out of whatever mess I am currently in'. I... don't really know how this was meant but I guess this is directed at... you!"
+					"Well you know Jack - after all you talked to him in person. He will get over it. \z
+					As for the real Jack, my former intern... I am glad that nothing serious happened to him. ...",
+					"According to his letter, he did just fine so many years ago. He somehow managed to make a \z
+					name of himself when he cast some magic we enhanced through our research - of course no one \z
+					back then had ever seen such spells. ...",
+					"Oh and he sends his regards to... how did he put it - 'whoever is currently helping me getting \z
+					out of whatever mess I am currently in'. I... don't really know how this was meant but I \z
+					guess this is directed at... you!"
 				},
 				cid
 			)
@@ -751,7 +799,9 @@ keywordHandler:addKeyword(
 	StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "He was the first one I ever hired as an intern to help me with my studies and research. He did an exceptionally good job and I certainly don't know where I would stand today without him. We have to save him |PLAYERNAME|!"
+		text = "He was the first one I ever hired as an intern to help me with my studies and research. He \z
+		did an exceptionally good job and I certainly don't know where I would stand today without him. \z
+		We have to save him |PLAYERNAME|!"
 	}
 )
 keywordHandler:addKeyword(
