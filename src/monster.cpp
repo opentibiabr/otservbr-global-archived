@@ -1071,7 +1071,7 @@ void Monster::pushItems(Tile* tile)
 					|| item->hasProperty(CONST_PROP_BLOCKSOLID))) {
 				if (moveCount < 20 && Monster::pushItem(item)) {
 					++moveCount;
-				} else if (g_game.internalRemoveItem(item) == RETURNVALUE_NOERROR) {
+				} else if (!item->isCorpse() && g_game.internalRemoveItem(item) == RETURNVALUE_NOERROR) {
 					++removeCount;
 				}
 			}
@@ -1121,7 +1121,7 @@ void Monster::pushCreatures(Tile* tile)
 				}
 
 				monster->changeHealth(-monster->getHealth());
-				monster->setDropLoot(false);
+				monster->setDropLoot(true);
 				removeCount++;
 			}
 
