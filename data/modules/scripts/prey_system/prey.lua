@@ -455,10 +455,8 @@ function Player.sendPreyData(self, slot)
 	-- Next free reroll
 	msg:addU16(self:getMinutesUntilFreeReroll(slot))
 
-	-- Client 11.9+ compat, feature unavailable.
-	if self:getClient().version >= 1190 then
-		msg:addByte(0x00)
-	end
+	-- Feature unavailable.
+	msg:addByte(0x00)
 
 	-- Send resources
 	msg:addByte(0xEC)
@@ -471,10 +469,8 @@ function Player.sendPreyData(self, slot)
 	msg:addU32(self:getRerollPrice())
 
 	-- Wildcard and Direct Selection price.
-	if self:getClient().version >= 1190 then
-		msg:addByte(0x01)
-		msg:addByte(0x05)
-	end
+	msg:addByte(0x01)
+	msg:addByte(0x05)
 
 	msg:sendToPlayer(self)
 end

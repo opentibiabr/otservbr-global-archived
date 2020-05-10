@@ -3,9 +3,7 @@ function Player.sendFakeDeathWindow(self)
 	msg:addByte(0x28);
 	msg:addByte(0x01);
 	msg:addByte(2);
-	if (self:getClient().os >= 1120) then
-		msg:addByte(0x00); -- Use death redemption
-	end
+	msg:addByte(0x00); -- Use death redemption
 	msg:sendToPlayer(self, false);
 	return true
 end

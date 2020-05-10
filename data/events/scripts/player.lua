@@ -317,15 +317,13 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		return false
 	end
 
-	-- Loot Analyser apenas 11.x+
-	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-		local t = Tile(fromCylinder:getPosition())
-		local corpse = t:getTopDownItem()
-		if corpse then
-			local itemType = corpse:getType()
-			if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
-				self:sendLootStats(item)
-			end
+	-- Loot Analyser
+	local t = Tile(fromCylinder:getPosition())
+	local corpse = t:getTopDownItem()
+	if corpse then
+		local itemType = corpse:getType()
+		if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
+			self:sendLootStats(item)
 		end
 	end
 
@@ -749,10 +747,7 @@ function Player:onGainSkillTries(skill, tries)
 end
 
 function Player:onRemoveCount(item)
-	-- Apenas cliente 11.x
-	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-		self:sendWaste(item:getId())
-	end
+	self:sendWaste(item:getId())
 end
 
 function Player:onRequestQuestLog()
