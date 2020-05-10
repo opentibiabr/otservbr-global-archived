@@ -39,6 +39,9 @@ maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
+GMFullLightOnEquipItem = false -- If its on, GMs will have full light, if set to false they will have the light as players.
+
+
 -- Version Manual
 clientVersionMin = 1100
 clientVersionMax = 1200

@@ -52,6 +52,7 @@ class ConfigManager
 			FORCE_MONSTERTYPE_LOAD,
 			STOREMODULES,
 			ALLOW_BLOCK_SPAWN,
+			GM_FULL_LIGHT_ON_EQUIP_ITEM,
 
 			LAST_BOOLEAN_CONFIG /* this must be the last one */
 		};
