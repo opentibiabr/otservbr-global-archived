@@ -3899,11 +3899,11 @@ void Game::internalCreatureChangeOutfit(Creature* creature, const Outfit_t& outf
 		return;
 	}
 
-	creature->setCurrentOutfit(outfit);
-
 	if (creature->isInvisible()) {
 		return;
 	}
+	
+	creature->setCurrentOutfit(outfit);
 
 	//send to clients
 	SpectatorHashSet spectators;
