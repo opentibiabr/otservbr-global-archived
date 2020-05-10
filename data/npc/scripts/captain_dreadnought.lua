@@ -16,11 +16,11 @@ function onThink()
 end
 
 local voices = {
-	{ text = "No smuggling aboard this ship! Only 20 pieces of any creature product allowed!" },
-	{ text = "No fear! The Sea Cat will ship you safely to the mainland!" },
-	{ text = "All aboard! Prepare to sail!" },
-	{ text = "Come hell or high water, we'll reach any port I sail you to!" },
-	{ text = "This island is too small. I need sea water around me." }
+	{text = "No smuggling aboard this ship! Only 20 pieces of any creature product allowed!"},
+	{text = "No fear! The Sea Cat will ship you safely to the mainland!"},
+	{text = "All aboard! Prepare to sail!" },
+	{text = "Come hell or high water, we'll reach any port I sail you to!"},
+	{text = "This island is too small. I need sea water around me."}
 }
 
 npcHandler:addModule(VoiceModule:new(voices))
@@ -204,7 +204,8 @@ local function creatureSayCallback(cid, type, msg)
 end
 
 npcHandler:setMessage(MESSAGE_FAREWELL, "You sure you want to spend time on this piece of rock? \z
-	I can show you the world! Huh.")
+I can show you the world! Huh.")
+
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 

@@ -29,8 +29,16 @@ ActionTable = {
 	[100] = unmoveable/untrade/unusable items
 	[101] = use pick floor
 	[102] = well down action
+	[103] = dawnport key 0010 (gained with Woblin npc)
 	[1000 = level door. Here 1 must be used followed by the level. Example: 1010 = level 10, 1100 = level 100]
 	]]
+
+	-- Dawnport door key 0010 (npcs dormitory)
+	{
+		actionId = 103,
+		itemId = 10477,
+		itemPos = {{x = 32067, y = 31896, z = 3}}
+	},
 	{
 		actionId = 24890,
 		itemId = 4552,
@@ -86,6 +94,47 @@ ActionTable = {
 		storage = Storage.FirstDragon.SuntowerTile,
 		msg = "You entered the suntower of Ab'dendriel. \
 		By visiting this sacred site you're infused with the power of the life-giving sun."
+	},
+	-- Feyrist shrines entrance
+	{
+		actionId = 24893,
+		itemId = false,
+		itemPos = {
+			{x = 32194, y = 31418, z = 2},
+			{x = 32194, y = 31419, z = 2},
+			{x = 32195, y = 31418, z = 2},
+			{x = 32195, y = 31419, z = 2}
+		},
+	},
+	{
+		actionId = 24894,
+		itemId = false,
+		itemPos = {
+			{x = 32910, y = 32338, z = 15},
+			{x = 32910, y = 32339, z = 15},
+			{x = 32911, y = 32338, z = 15},
+			{x = 32911, y = 32339, z = 15}
+		}
+	},
+	{
+		actionId = 24895,
+		itemId = false,
+		itemPos = {
+			{x = 32973, y = 32225, z = 7},
+			{x = 32973, y = 32226, z = 7},
+			{x = 32974, y = 32225, z = 7},
+			{x = 32974, y = 32226, z = 7}
+		}
+	},
+	{
+		actionId = 24896,
+		itemId = false,
+		itemPos = {
+			{x = 33060, y = 32713, z = 5},
+			{x = 33060, y = 32714, z = 5},
+			{x = 33061, y = 32713, z = 5},
+			{x = 33061, y = 32714, z = 5}
+		}
 	},
 		--Dawnport
 	--Sorcerer vocation tile
@@ -225,17 +274,28 @@ UniqueTable = {
 	]]
 
 	-- Keys quest
+	-- Panpipe key 4055
 	[13000] = {
 		itemId = 1290,
 		itemPos = {x = 32652, y = 32107, z = 7},
 		keyAction = 4055,
-		itemReward = {{2088, 1}},
+		itemReward = 2088,
 		storage = Storage.Quest.Panpipe.Key4055Reward
+	},
+	-- Dawnport quest key 0010
+	[13001] = {
+		itemId = 1717,
+		itemPos = {x = 32068, y = 31895, z = 3},
+		keyAction = 103,
+		itemReward = 23763,
+		storage = Storage.Quest.Dawnport.Key0010
 	},
 
 	-- Rewards without a container (commom reward), it is only received by the player, are the common rewards.
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically.
 	-- UID reserved range 14001/16000.
+
+	-- Halls of hope
 	[14001] = {
 		itemId = 26408,
 		itemPos = {x = 32349, y = 32194, z = 9},
@@ -266,12 +326,21 @@ UniqueTable = {
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward5
 	},
+	-- Dawnport
 	-- Legion helmet quest (dawnport)
 	[14006] = {
 		itemId = 3058,
 		itemPos = {x = 32143, y = 31910, z = 8},
 		itemReward = {{480, 1}},
 		storage = Storage.Quest.SanctuaryOfTheLizardGod.LegionHelmet
+	},
+	-- Dawnport quest
+	-- Torn log book
+	[14007] = {
+		itemId = 1740,
+		itemPos = {x = 32059, y = 31800, z = 10},
+		itemReward = {{23749, 1}},
+		storage = Storage.Quest.Dawnport.TornLogBook
 	},
 
 	-- Reward inside of container, y = there is also the option to put a key inside.
@@ -665,20 +734,23 @@ UniqueTable = {
 
 	--Dawnport
 	-- Vocation doors
+	-- Sorcerer
 	[25017] = {
 		itemId = 12195,
 		itemPos = {x = 32055, y = 31885, z = 6},
 		vocation = 1,
 		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32054, y = 31884, z = 6}
+		destination = {x = 32054, y = 31883, z = 6}
 	},
+	-- Druid
 	[25018] = {
 		itemId = 7040,
 		itemPos = {x = 32073, y = 31885, z = 6},
 		vocation = 2,
 		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32073, y = 31884, z = 6}
+		destination = {x = 32073, y = 31883, z = 6}
 	},
+	-- Paladin
 	[25019] = {
 		itemId = 6898,
 		itemPos = {x = 32059, y = 31885, z = 6},
@@ -686,12 +758,13 @@ UniqueTable = {
 		storage = Storage.Dawnport.DoorVocation,
 		destination = {x = 32059, y = 31884, z = 6}
 	},
+	-- Knight
 	[25020] = {
 		itemId = 9279,
 		itemPos = {x = 32069, y = 31885, z = 6},
 		vocation = 4,
 		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32068, y = 31884, z = 6}
+		destination = {x = 32068, y = 31883, z = 6}
 	},
 	[25021] = {
 		itemId = 1387,
@@ -739,5 +812,12 @@ UniqueTable = {
 		itemRewardContainer = {{7618, 5}, {18559, 1}},
 		storage = Storage.Quest.Dawnport.VocationReward,
 		value = 4
+	},
+	-- The rare herb
+	[25026] = {
+		itemId = 3748,
+		itemPos = {x = 32028, y = 31882, z = 7},
+		storage = Storage.Quest.Dawnport.TheRareHerb,
+		message = "You harvested some of the herb's flower buds. Bring them Morris for a reward."
 	}
 }

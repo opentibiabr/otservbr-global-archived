@@ -16,14 +16,14 @@ function onThink()
 end
 
 local voices = {
-	{ text = "You can't take it all with you - sell your Dawnport things before \z
-	you receive the gear of your definite vocation!" },
-	{ text = "Leave all Dawnport things behind you and choose your destiny!" },
-	{ text = "Come to me if you need healing!" },
-	{ text = "Choose your vocation and explore the mainland!" },
-	{ text = "Talk to me to choose your definite vocation! Become a knight, paladin, druid or sorcerer!" },
-	{ text = "World needs brave adventurers like you. Choose your vocation and sail to the mainland!" },
-	{ text = "Poisoned? Bleeding? Wounded? I can help!" }
+	{text = "You can't take it all with you - sell your Dawnport things before \z
+		you receive the gear of your definite vocation!"},
+	{text = "Leave all Dawnport things behind you and choose your destiny!"},
+	{text = "Come to me if you need healing!"},
+	{text = "Choose your vocation and explore the mainland!"},
+	{text = "Talk to me to choose your definite vocation! Become a knight, paladin, druid or sorcerer!"},
+	{text = "World needs brave adventurers like you. Choose your vocation and sail to the mainland!"},
+	{text = "Poisoned? Bleeding? Wounded? I can help!"}
 }
 
 npcHandler:addModule(VoiceModule:new(voices))
@@ -299,13 +299,19 @@ local function creatureSayCallback(cid, type, msg)
 				-- Get the player's slot item and store it in item
 				local item = player:getSlotItem(value)
 				-- If the item exists meaning its not nil then continue
-				if item then
+				if item and not table.contains({2480}, item:getId()) then
 					item:remove()
 				end
 			end
 			local container = player:getSlotItem(CONST_SLOT_BACKPACK)
 			if container and container:getSize() > 0 then
-				local allowedIds = {2050, 2051, 2052, 2053, 2054, 2055, 2056, 2148, 2420, 2480, 2553, 2580, 5710, 8722, 8723}
+				local allowedIds = {
+					2050, 2051, 2052, 2053,
+					2054, 2055, 2056, 2120,
+					2148, 2420, 2480, 2553,
+					2554, 2580, 5710, 8722,
+					8723
+				}
 				local toBeDeleted = {}
 
 				for i = 0, container:getSize() do

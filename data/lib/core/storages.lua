@@ -490,10 +490,26 @@ Storage = {
 		-- update 10.55
 		Dawnport = {
 			VocationReward = 30001,
+			Questline = 30002,
+			GoMain = 30003,
+			TheLostAmulet = 30004,
+			TheStolenLogBook = 30005,
+			TheRareHerb = 30006,
+			TheDormKey = 30007,
+			StrangeAmulet = 30008,
+			TornLogBook = 30009,
+			HerbFlower = 30010,
+			MorriskTroll = 30011,
+			MorrisTrollCount = 30012,
+			MorrisGoblin = 30013,
+			MorrisGoblinCount = 30014,
+			MorrisMinos = 30015,
+			MorrisMinosCount = 30016,
+			Key0010 = 30017
 		},
 		SanctuaryOfTheLizardGod = {
-			LizardGodTeleport = 30002,
-			LegionHelmet = 30003
+			LizardGodTeleport = 30020,
+			LegionHelmet = 30021
 		},
 		-- update 10.70
 		HeroOfRathleton = {
@@ -2059,6 +2075,7 @@ Storage = {
 		Knight = 50830,
 		Oressa = 50831,
 		DoorVocation = 50832,
+		Tutorial = 50833
 	},
 
 	EruaranGreeting = 3250,
@@ -2067,6 +2084,7 @@ Storage = {
 	Factions = 50723,
 	blockMovementStorage = 100000,
 	PetSummon = 60045,
+
 	isTraining = 37
 
 }

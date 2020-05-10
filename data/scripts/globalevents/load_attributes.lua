@@ -22,6 +22,9 @@ function loadAttribute.onStartup()
 				if item and value.actionId then
 					item:setActionId(value.actionId)
 				end
+				if value.itemId == false then
+					item = tile:getTopTopItem():setActionId(value.actionId)
+				end
 				-- This function add one action id on an item inside the container
 				-- It was developed to add action on daily respawn item
 				if item and value.isDailyAIDContainerItem then
@@ -48,6 +51,51 @@ function loadAttribute.onStartup()
 			-- If he found the item, add the unique id
 			if item then
 				item:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, key)
+			end
+		end
+	end
+	-- It load signs on map table
+	for key, value in pairs(SignTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- Create item
+				item = Game.createItem(value.itemId, 1, value.itemPos)
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the text
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, value.text)
+			end
+		end
+	end
+	-- It load book on map table
+	for key, value in pairs(BookTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- Create item
+				item = Game.createItem(value.itemId, 1, value.itemPos) 
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the text
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
+			end
+			-- This add text on book inside a container
+			if item and value.containerBook then
+				itemAttr = item:addItem(value.bookId, 1)
+				itemAttr:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
 			end
 		end
 	end

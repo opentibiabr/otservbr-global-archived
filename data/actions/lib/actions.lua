@@ -216,6 +216,33 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
+	--Dawnport quest (Morris amulet task)
+	local sandPosition = Position(32099, 31933, 7)
+	if (toPosition == sandPosition) then
+		local sandTile = Tile(sandPosition)
+		local amuletId = sandTile:getItemById(22679)
+		if amuletId then
+			if player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 1 then
+				local rand = math.random(100)
+				if rand <= 10 then
+					player:addItem(23750, 1)
+					player:setStorageValue(Storage.Quest.Dawnport.TheLostAmulet, 2)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found an ancient amulet. Strange engravings cover it. Maybe Morris can make them out.")
+				elseif rand <= 80 then
+					player:addItem(23766, 1)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You dig up sand and sea shells.")
+				elseif rand > 95 then
+					player:addItem(3976, math.random(1, 10))
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You dig up some worms. But you are confident that you'll find the amulet here, somewhere.")
+				end
+				toPosition:sendMagicEffect(CONST_ME_POFF)
+			else
+				return false
+			end
+		end
+		return true
+	end
+
 	local targetId, targetActionId = target.itemid, target.actionid
 	if table.contains(holes, targetId) then
 		target:transform(targetId + 1)
