@@ -37,7 +37,7 @@ if not warzoneConfig then
 	}
 
 	warzoneConfig.spawnBoss = function (name, pos)
-		local boss = Game.createMonster(name, pos)
+		local boss = Game.createMonster(name, pos, false, true)
 		if boss then
 			local c = warzoneConfig.findByName(name)
 			c.locked = true
