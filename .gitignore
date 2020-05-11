@@ -373,3 +373,7 @@ config.lua
 
 # SFTP for Sublime
 sftp-config.json
+
+# Binaries
+otbr
+otbr.old
