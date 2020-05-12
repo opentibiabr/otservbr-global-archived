@@ -169,12 +169,30 @@ local function creatureSayCallback(cid, type, msg)
 					to leave Dawnport for the main continent through one of these {doors} behind me. ... ",
 				"Talk to me again when you are ready to choose your vocation, and I will set you on your way. "
 			},
-			cid, false, true, 0)
+			cid, false, true, 200)
 		npcHandler.topic[cid] = 1
 	-- Choosing dialog start
 	elseif msgcontains(msg, "choosing") or msgcontains(msg, "choose") and npcHandler.topic[cid] == 0 then
-		npcHandler:say("I'll help you decide. Tell me: Do you like to keep your {distance}, or do you like {close} combat?", cid)
-		npcHandler.topic[cid] = 2
+		if player:getLevel() >= 8 then
+			npcHandler:say("I'll help you decide. Tell me: Do you like to keep your {distance}, or do you like {close} combat?", cid)
+			npcHandler.topic[cid] = 2
+		else
+			npcHandler:say(
+				{
+					"A vocation is your profession and destiny, determining your skills and way of fighting. \z
+						There are four vocations in Tibia: {knight}, {sorcerer}, {paladin} or {druid}. \z
+						Each one has its unique special abilities. ... ",
+					"When you leave the outpost through one of the four gates upstairs, you will be equipped with \z
+						training gear of a specific vocation in order to defend yourself against the monsters outside. ... ",
+					"You can try them out as often as you wish to. When you have gained enough experience to reach level 8, \z
+						you are ready to choose the definite vocation that is to become your destiny. ... ",
+					"Think carefully, as you can't change your vocation later on! You will have to choose your vocation in order \z
+						to leave Dawnport for the main continent through one of these {doors} behind me. ... ",
+					"Talk to me again when you are ready to choose your vocation, and I will set you on your way. "
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
 	elseif msgcontains(msg, "distance") and npcHandler.topic[cid] == 2 then
 		npcHandler:say("Tell me: Do you prefer to fight with {bow} and {spear}, or do you want to cast {magic}?", cid)
 		npcHandler.topic[cid] = 3
@@ -189,7 +207,7 @@ local function creatureSayCallback(cid, type, msg)
 					monster's attention to them. ...",
 				"So tell me: DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 0)
+		cid, false, true, 200)
 		npcHandler.topic[cid] = 5
 	-- Paladin
 	elseif msgcontains(msg, "bow") or msgcontains(msg, "spear") and npcHandler.topic[cid] == 3 then
@@ -204,7 +222,7 @@ local function creatureSayCallback(cid, type, msg)
 				"They can also use holy magic to slay the unholy and undead in particular. ...",
 				"DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 0)
+		cid, false, true, 200)
 		npcHandler.topic[cid] = 5
 	-- Mage
 	elseif msgcontains(msg, "magic") and npcHandler.topic[cid] == 3 then
@@ -222,7 +240,7 @@ local function creatureSayCallback(cid, type, msg)
 					much more damage than paladins or knights. ...",
 				"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 0)
+		cid, false, true, 200)
 		npcHandler.topic[cid] = 5
 	-- Sorcerer
 	elseif msgcontains(msg, "death") and npcHandler.topic[cid] == 4 then
@@ -235,58 +253,108 @@ local function creatureSayCallback(cid, type, msg)
 					but they deal much more damage than paladins or knights. ...",
 				"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 0)
+		cid, false, true, 200)
 		npcHandler.topic[cid] = 5
 	-- Choosing dialog start
 	elseif msgcontains(msg, "decided") and npcHandler.topic[cid] == 0 then
 		npcHandler:say("So tell me, which {vocation} do you want to choose: {knight}, {sorcerer}, {paladin} or {druid}?", cid)
 	-- Say vocations name
 	elseif msgcontains(msg, "sorcerer") and npcHandler.topic[cid] == 0 then
-		npcHandler:say(
-			{
-				"Sorcerers are powerful casters of death, energy and fire magic. \z
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Sorcerers are powerful casters of death, energy and fire magic. \z
 					They can do a little ice or earth damage as well. ...",
-				"Sorcerers cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+					"Sorcerers cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
 					and can target several enemies. ...",
-				"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
-			},
-		cid, false, true, 0)
-		npcHandler.topic[cid] = 5
+					"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 5
+		else
+			npcHandler:say(
+				{
+					"Sorcerers are powerful casters of death, energy and fire magic. \z
+					They can do a little ice or earth damage as well. ...",
+					"Sorcerers cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+					and can target several enemies. ..."
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
 	elseif msgcontains(msg, "druid") and npcHandler.topic[cid] == 0 then
-		npcHandler:say(
-			{
-				"Druids are healers and powerful masters of ice and earth magic. \z
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Druids are healers and powerful masters of ice and earth magic. \z
 					They can also do a little energy, fire or death damage as well. ... ",
-				"Druids cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+					"Druids cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+						and can target several enemies. ... ",
+					"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 5
+		else
+			npcHandler:say(
+				{
+					"Druids are healers and powerful masters of ice and earth magic. \z
+					They can also do a little energy, fire or death damage as well. ... ",
+					"Druids cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
 					and can target several enemies. ... ",
-				"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
-			},
-		cid, false, true, 0)
-		npcHandler.topic[cid] = 5
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
 	elseif msgcontains(msg, "paladin") and npcHandler.topic[cid] == 0 then
-		npcHandler:say(
-			{
-				"Paladins are sturdy distance fighters. They are tougher than druids or sorcerers and can carry more items, \z
-					but they are less tough than a knight. ... ",
-				"Paladins have the longest attack range, and can deal the most damage on a single target. ... ",
-				"They can also use holy magic to slay the unholy and undead in particular. ... ",
-				"So tell me: DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
-			},
-		cid, false, true, 0)
-		npcHandler.topic[cid] = 5
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Paladins are sturdy distance fighters. They are tougher than druids or sorcerers and can carry more 	items, \z
+						but they are less tough than a knight. ... ",
+					"Paladins have the longest attack range, and can deal the most damage on a single target. ... ",
+					"They can also use holy magic to slay the unholy and undead in particular. ... ",
+					"So tell me: DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 5
+		else
+			npcHandler:say(
+				{
+					"Paladins are sturdy distance fighters. They are tougher than druids or sorcerers and can carry more 	items, \z
+						but they are less tough than a knight. ... ",
+					"Paladins have the longest attack range, and can deal the most damage on a single target. ... ",
+					"They can also use holy magic to slay the unholy and undead in particular. ... "
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
 	elseif msgcontains(msg, "knight") and npcHandler.topic[cid] == 0 then
-		npcHandler:say(
-			{
-				"Knights are stalwart melee fighters, the toughest of all vocations. They can take more damage and carry \z
-					more items than the other vocations, but they will deal less damage than paladins, druids or sorcerers. ... ",
-				"Knights can wield one- or two-handed swords, axes and clubs, and they can cast a few spells to draw a \z
-					monster's attention to them. ... ",
-				"If you want to be a tough melee fighter who can resist much longer than anyone else, \z
-					you should consider choosing the knight vocation.",
-				"DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
-			},
-		cid, false, true, 0)
-		npcHandler.topic[cid] = 5
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Knights are stalwart melee fighters, the toughest of all vocations. They can take more damage and carry \z
+						more items than the other vocations, but they will deal less damage than paladins, druids or sorcerers. ... ",
+					"Knights can wield one- or two-handed swords, axes and clubs, and they can cast a few spells to draw a \z
+						monster's attention to them. ... ",
+					"If you want to be a tough melee fighter who can resist much longer than anyone else, \z
+						you should consider choosing the knight vocation.",
+					"DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 5
+		else
+			npcHandler:say(
+				{
+					"Knights are stalwart melee fighters, the toughest of all vocations. They can take more damage and carry \z
+						more items than the other vocations, but they will deal less damage than paladins, druids or sorcerers. ... ",
+					"Knights can wield one- or two-handed swords, axes and clubs, and they can cast a few spells to draw a \z
+						monster's attention to them. ... ",
+					"If you want to be a tough melee fighter who can resist much longer than anyone else, \z
+						you should consider choosing the knight vocation."
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
 	elseif npcHandler.topic[cid] == 5 then
 		if msgcontains(msg, "yes") then
 			for index, value in ipairs(vocations)do
@@ -341,7 +409,7 @@ local function creatureSayCallback(cid, type, msg)
 						before you leave to the north. ...",
 					"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
 				},
-			cid, false, true, 0)
+			cid, false, true, 200)
 			npcHandler.topic[cid] = 0
 		end
 	end

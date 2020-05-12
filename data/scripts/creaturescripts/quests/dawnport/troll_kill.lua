@@ -9,7 +9,7 @@ function trollKill.onKill(player, target)
 	end
 
 	local killAmount = player:getStorageValue(Storage.DawnportQuest.MorrisTrollCount)
-	if player:getStorageValue(Storage.DawnportQuest.MorriskTroll) == 1 and killAmount < 5000 then
+	if player:getStorageValue(Storage.DawnportQuest.MorriskTroll) >= 0 and killAmount < 5000 then
 		player:setStorageValue(Storage.DawnportQuest.MorrisTrollCount, killAmount + 1)
 	end
 	return true

@@ -10,7 +10,7 @@ function minotaurKill.onKill(player, target)
 	end
 
 	local killAmount = player:getStorageValue(Storage.DawnportQuest.MorrisMinosCount)
-	if player:getStorageValue(Storage.DawnportQuest.MorrisMinos) == 1 and killAmount < 20 then
+	if player:getStorageValue(Storage.DawnportQuest.MorrisMinos) >= 0 and killAmount < 20 then
 		player:setStorageValue(Storage.DawnportQuest.MorrisMinosCount, killAmount + 1)
 	end
 	return true

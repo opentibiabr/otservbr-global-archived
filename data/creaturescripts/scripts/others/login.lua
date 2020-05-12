@@ -24,19 +24,13 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 end
 
 function onLogin(player)
-	local loginStr = 'Welcome to ' .. configManager.getString(configKeys.SERVER_NAME) .. '!'
-	if player:getLastLoginSaved() <= 0 then
-		loginStr = loginStr .. ' Please choose your outfit.'
-		player:sendOutfitWindow()
-	else
-		if loginStr ~= "" then
-			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
-		end
-
-		loginStr = string.format('Your last visit was on %s.', os.date('%a %b %d %X %Y', player:getLastLoginSaved()))
+	if player:getLastLoginSaved() == 0 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Use these stairs to enter the Adventurer's Outpost on Dawnport.")
+		player:sendTutorial(1)
 	end
 
-	player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
+	player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
+
 
 	local playerId = player:getId()
 
@@ -44,14 +38,7 @@ function onLogin(player)
 
 	player:loadSpecialStorage()
 
-	--[[-- Maintenance mode
-	if (player:getGroup():getId() < 2) then
-		return false
-	else
-
-	end--]]
-
-	if (player:getGroup():getId() >= 4) then
+	if player:getGroup():getId() >= 4 then
 		player:setGhostMode(true)
 	end
 
@@ -98,9 +85,8 @@ function onLogin(player)
 	end
 
 	-- Open channels
-	if table.contains({"Rookgaard", "Dawnport"}, player:getTown():getName())then
+	if table.contains({TOWNS_LIST.DAWNPORT, TOWNS_LIST.DAWNPORT_TUTORIAL}, player:getTown():getId())then
 		player:openChannel(3) -- World chat
-		player:openChannel(6) -- Advertsing rook main
 	else
 		player:openChannel(3) -- World chat
 		player:openChannel(5) -- Advertsing main

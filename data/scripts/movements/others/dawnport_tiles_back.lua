@@ -40,7 +40,7 @@ local dawnportOressaStair = MoveEvent()
 function dawnportOressaStair.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
-		return
+		return true
 	end
 
 	local teleport = setting[item.actionid]
@@ -66,6 +66,10 @@ function dawnportOressaStair.onStepIn(creature, item, position, fromPosition)
 			end
 		end
 	end
+	if player:getLevel() == 20 then
+		player:teleportTo(fromPosition, true)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	end
 	return true
 end
 
@@ -74,3 +78,45 @@ for key = 40005, 40013 do
 end
 
 dawnportOressaStair:register()
+
+local tutorialTiles = MoveEvent()
+
+function tutorialTiles.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return
+	end
+
+	if item.itemid == 22693 then
+		player:teleportTo({x = 32070, y = 31900, z = 6}, true)
+	elseif item.itemid == 23745 then
+		player:teleportTo({x = 32075, y = 31899, z = 5}, true)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "<krrk> <krrrrrk> You move away hurriedly.")
+	end
+	return true
+end
+
+tutorialTiles:id(22693, 23745)
+tutorialTiles:register()
+
+local tutorialTiles2 = MoveEvent()
+
+function tutorialTiles2.onStepIn(creature, item, position, fromPosition)
+	local player = creature:getPlayer()
+	if not player then
+		return
+	end
+
+	if item.uid == 25027 then
+		if player:getStorageValue(Storage.Quest.Dawnport.Questline) == 1 then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions.")
+			player:sendTutorial(2)
+			player:setStorageValue(Storage.Quest.Dawnport.Questline, 1)
+			player:setStorageValue(Storage.Quest.Dawnport.GoMain, 1)
+		end
+	end
+	return true
+end
+
+tutorialTiles2:uid(25027)
+tutorialTiles2:register()

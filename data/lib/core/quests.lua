@@ -5091,8 +5091,8 @@ if not Quests then
 					storageid = Storage.Quest.Dawnport.GoMain,
 					startvalue = 1,
 					endvalue = 2,
-					description = "You have reached the Outpost, where young heros are trained un combat and hunting. \
-					When you have reached level 8 at least, you can leave for tge Mainland. Talk to Inigo if you have questions.."
+					description = "You have reached the Outpost, where young heroes are trained in combat and hunting. \z
+					When you have reached level 8 at least, you can leave for the Mainland. Talk to Inigo if you have questions."
 				},
 				[2] = {
 					name = "The Lost Amulet",

@@ -975,8 +975,13 @@ UniqueTable = {
 		storage = Storage.Quest.Dawnport.TheRareHerb,
 		reward = 15572
 	},
-	-- Sea of Lights
+	-- Dawnport tutorial tile
 	[25027] = {
+		itemId = 3139,
+		itemPos = {x = 32075, y = 31898, z = 5}
+	},
+	-- Sea of Lights
+	[25028] = {
 		itemId = 8571,
 		itemPos = {x = 32011, y = 31709, z = 7},
 		storage = Storage.SeaOfLightQuest.Questline,
@@ -984,7 +989,7 @@ UniqueTable = {
 		setStorage = Storage.SeaOfLightQuest.Mission3,
 		destination = {x = 32017, y = 31730, z = 8}
 	},
-	[25028] = {
+	[25029] = {
 		itemId = 8634,
 		itemPos = {x = 33031, y = 31758, z = 8},
 		storage = Storage.SeaOfLightQuest.Questline,

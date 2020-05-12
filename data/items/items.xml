@@ -32948,9 +32948,8 @@
 	<item fromid="22686" toid="22689" name="unknown item" />
 	<item id="22690" name="unknown item" />
 	<item id="22691" name="unknown item" />
-	<item id="22693" article="a" name="hole">
-		<attribute key="floorchange" value="down" />
-	</item>
+	<!-- dawnport tutorial -->
+	<item id="22693" article="a" name="hole"/>
 	<item id="22696" article="a" name="cake backpack">
 		<attribute key="weight" value="1800" />
 		<attribute key="containerSize" value="20" />
@@ -33967,6 +33966,7 @@
 	<item id="23744" article="a" name="forlorn shovel">
 		<attribute key="description" value="Apparently forgotten by someone who intended to use it with something nearby." />
 	</item>
+	<!-- dawnport tutorial -->
 	<item id="23745" article="a" name="closed trapdoor">
 		<attribute key="description" value="It can only be opened from the other side." />
 	</item>

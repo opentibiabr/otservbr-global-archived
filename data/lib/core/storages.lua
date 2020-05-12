@@ -3,7 +3,8 @@
 -- Sort it in Values -
 
 Storage = {
-  -- News quest development
+  	-- News quest development
+  	-- New storages
 	Quest = {
 		-- update pre-6.0
 		DeeperFibula = {
@@ -604,7 +605,7 @@ Storage = {
 		PoltergeistOutfits = {
 		},
 	},
-
+	-- Old storages
 	DeeplingsWorldChange = {
 		Questline = 25000,
 		FirstStage = 25001,
@@ -2077,6 +2078,7 @@ Storage = {
 		Oressa = 50831,
 		DoorVocation = 50832,
 		Tutorial = 50833
+	},
 	LionsRock = {
 		Progress = 50840,
 		LionsStrength = 50841,
@@ -2099,7 +2101,6 @@ Storage = {
 	PetSummon = 60045,
 
 	isTraining = 37
-
 }
 
 GlobalStorage = {

@@ -42,11 +42,11 @@ function Player.isPremium(self)
 end
 
 function Player.isPromoted(self)
-    local vocation = self:getVocation()
-    local promotedVocation = vocation:getPromotion()
-    promotedVocation = promotedVocation and promotedVocation:getId() or 0
+	local vocation = self:getVocation()
+	local promotedVocation = vocation:getPromotion()
+	promotedVocation = promotedVocation and promotedVocation:getId() or 0
 
-    return promotedVocation == 0 and vocation:getId() ~= promotedVocation
+	return promotedVocation == 0 and vocation:getId() ~= promotedVocation
 end
 
 function Player.sendCancelMessage(self, message)
@@ -149,21 +149,21 @@ function Player.checkGnomeRank(self)
 end
 
 function Player.addFamePoint(self)
-    local points = self:getStorageValue(SPIKE_FAME_POINTS)
-    local current = math.max(0, points)
-    self:setStorageValue(SPIKE_FAME_POINTS, current + 1)
-    self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a fame point.")
+	local points = self:getStorageValue(SPIKE_FAME_POINTS)
+	local current = math.max(0, points)
+	self:setStorageValue(SPIKE_FAME_POINTS, current + 1)
+	self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have received a fame point.")
 end
 
 function Player.getFamePoints(self)
-    local points = self:getStorageValue(SPIKE_FAME_POINTS)
-    return math.max(0, points)
+	local points = self:getStorageValue(SPIKE_FAME_POINTS)
+	return math.max(0, points)
 end
 
 function Player.removeFamePoints(self, amount)
-    local points = self:getStorageValue(SPIKE_FAME_POINTS)
-    local current = math.max(0, points)
-    self:setStorageValue(SPIKE_FAME_POINTS, current - amount)
+	local points = self:getStorageValue(SPIKE_FAME_POINTS)
+	local current = math.max(0, points)
+	self:setStorageValue(SPIKE_FAME_POINTS, current - amount)
 end
 
 function Player.depositMoney(self, amount)
@@ -183,12 +183,27 @@ function Player.transferMoneyTo(self, target, amount)
 
 	local targetPlayer = Player(target)
 	if targetPlayer then
-		targetPlayer:setBankBalance(targetPlayer:getBankBalance() + amount)
+		local town = targetPlayer:getTown()
+		if town and town:getId() ~= TOWNS_LIST.DAWNPORT or town:getId() ~= TOWNS_LIST.DAWNPORT_TUTORIAL then -- Blocking transfer to Dawnport
+			targetPlayer:setBankBalance(targetPlayer:getBankBalance() + amount)
+		end
 	else
 		if not playerExists(target) then
 			return false
 		end
-		db.query("UPDATE `players` SET `balance` = `balance` + '" .. amount .. "' WHERE `name` = " .. db.escapeString(target))
+
+		local query_town = db.storeQuery('SELECT `town_id` FROM `players` WHERE `name` = ' .. db.escapeString(target) ..' LIMIT 1;')
+		if query_town ~= false then
+			local town = result.getDataInt(query_town, "town_id")
+			if town then
+				local town_id = Town(town) and Town(town):getId()
+				if town_id and town_id  == TOWNS_LIST.DAWNPORT or town_id == TOWNS_LIST.DAWNPORT_TUTORIAL then -- Blocking transfer to Dawnport
+					return false
+				end
+			end
+			result.free(consulta)
+			db.query("UPDATE `players` SET `balance` = `balance` + '" .. amount .. "' WHERE `name` = " .. db.escapeString(target))
+		end
 	end
 
 	self:setBankBalance(self:getBankBalance() - amount)
@@ -257,17 +272,17 @@ end
 
 -- Loot Analyser
 function Player.sendLootStats(self, item)
-    local msg = NetworkMessage()
-    msg:addByte(0xCF) -- loot analyser bit
-    msg:addItem(item, self) -- item userdata
-    msg:addString(getItemName(item:getId()))
-    msg:sendToPlayer(self)
+	local msg = NetworkMessage()
+	msg:addByte(0xCF) -- loot analyser bit
+	msg:addItem(item, self) -- item userdata
+	msg:addString(getItemName(item:getId()))
+	msg:sendToPlayer(self)
 end
 
 -- Supply Analyser
 function Player.sendWaste(self, item)
-    local msg = NetworkMessage()
-    msg:addByte(0xCE) -- waste bit
-    msg:addItemId(item) -- itemId
-    msg:sendToPlayer(self)
+	local msg = NetworkMessage()
+	msg:addByte(0xCE) -- waste bit
+	msg:addItemId(item) -- itemId
+	msg:sendToPlayer(self)
 end

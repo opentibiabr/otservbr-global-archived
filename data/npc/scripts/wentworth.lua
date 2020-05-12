@@ -1,9 +1,6 @@
- local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-
-local count = {}
-local transfer = {}
 
 function onCreatureAppear(cid)
 	npcHandler:onCreatureAppear(cid)
@@ -25,9 +22,11 @@ local voices = {
 }
 
 local function greetCallback(cid)
-	count[cid], transfer[cid] = nil, nil
+	count[cid] = nil
 	return true
 end
+
+local count = {}
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -118,18 +117,19 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, "yes") then
-			if player:getLevel() < 9 then
+			if player:getLevel() == 8 then
 				if count[cid] > 1000 or player:getBankBalance() >= 1000 then
 					npcHandler:say("Sorry, but you can't deposit that much.", cid)
 					npcHandler.topic[cid] = 0
 					return false
 				end
-			elseif player:getLevel() > 9 and player:getLevel() < 20 then
+			elseif player:getLevel() > 9 then
 				if count[cid] > 2000 or player:getBankBalance() >= 2000 then
 					npcHandler:say("Sorry, but you can't deposit that much.", cid)
 					npcHandler.topic[cid] = 0
 					return false
 				end
+			end
 			if player:depositMoney(count[cid]) then
 				npcHandler:say("Alright, we have added the amount of " .. count[cid] .. " gold to your {balance}. \z
 				You can {withdraw} your money anytime you want to.", cid)
@@ -352,6 +352,12 @@ keywordHandler:addKeyword({"job"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
 		text = "I work in this bank. I can change money for you and help you with your bank account."
+	}
+)
+keywordHandler:addKeyword({"transfer"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I'm afraid this service is not available to you until you reach the World mainland."
 	}
 )
 
