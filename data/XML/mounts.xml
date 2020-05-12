@@ -160,4 +160,7 @@
 	<mount id="158" clientid="1284" name="Snow Strider" speed="20" premium="yes" />
 	<mount id="159" clientid="1285" name="Dusk Pryer" speed="20" premium="yes" />
 	<mount id="160" clientid="1286" name="Dawn Strayer" speed="20" premium="yes" />
+	<mount id="161" clientid="1324" name="Benevolent Savanna Ostrich" speed="20" premium="yes" />
+	<mount id="162" clientid="1325" name="Benevolent Coral Rhea" speed="20" premium="yes" />
+	<mount id="163" clientid="1326" name="Benevolent Eventide Nandu" speed="20" premium="yes" />
 </mounts>
