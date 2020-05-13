@@ -3,7 +3,7 @@ function onCastSpell(player, variant)
     local tile = Tile(position)
     if tile and player:getSkull() ~= SKULL_BLACK then
         if #player:getSummons() >= 2 then
-            player:sendCancelMessage("You cannot summon more players.")
+            player:sendCancelMessage("You cannot control more creatures.")
             player:getPosition():sendMagicEffect(CONST_ME_POFF)
             return false
         end
