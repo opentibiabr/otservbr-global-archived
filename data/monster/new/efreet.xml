@@ -2,6 +2,7 @@
 <monster name="Efreet" nameDescription="an efreet" race="blood" experience="410" speed="234">
 	<health now="550" max="550"/>
 	<look type="103" corpse="7349"/>
+	<targetstrategies nearest="100" health="0" damage="0" random="0"/>
 	<flags>
 		<flag summonable="0"/>
 		<flag attackable="1"/>
