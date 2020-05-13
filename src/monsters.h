@@ -29,6 +29,7 @@ const uint32_t MAX_STATICWALK = 100;
 struct LootBlock {
 	uint16_t id;
 	uint32_t countmax;
+	uint32_t countmin;
 	uint32_t chance;
 
 	//optional
@@ -49,6 +50,7 @@ struct LootBlock {
 	LootBlock() {
 		id = 0;
 		countmax = 1;
+		countmin = 1;
 		chance = 0;
 
 		subType = -1;
