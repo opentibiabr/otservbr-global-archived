@@ -2206,7 +2206,7 @@ end
 local benchmark = os.clock()
 local extraction = extractValues(Storage) -- Call function
 table.sort(extraction) -- Sort the table
--- The choice of sorting is due to the fact that sorting is very cheap O (log2 (n)) and then we can simply compare one by one the elements finding duplicates in O(n)
+-- The choice of sorting is due to the fact that sorting is very cheap O (n log2 (n)) and then we can simply compare one by one the elements finding duplicates in O(n)
 
 -- Scroll through the extracted table for duplicates
 if #extraction > 1 then
