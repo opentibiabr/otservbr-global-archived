@@ -146,21 +146,27 @@
 	<mount id="144" clientid="1191" name="Gryphon" speed="20" premium="yes" />
  	<mount id="145" clientid="1208" name="Jousting Eagle" speed="20" premium="yes" />
 	<mount id="146" clientid="1209" name="Cerberus Champion" speed="20" premium="yes" />
-	<mount id="147" clientid="1247" name="Battle Badger" speed="20" premium="yes" />
-	<mount id="148" clientid="1248" name="Ether Badger" speed="20" premium="yes" />
-	<mount id="149" clientid="1249" name="Zaoan Badger" speed="20" premium="yes" />
-	<mount id="150" clientid="1257" name="Blue Rolling Barrel" speed="20" premium="yes" />
-	<mount id="151" clientid="1258" name="Red Rolling Barrel" speed="20" premium="yes" />
-	<mount id="152" clientid="1259" name="Green Rolling Barrel" speed="20" premium="yes" />
-	<mount id="153" clientid="1264" name="Floating Sage" speed="20" premium="yes" />
-	<mount id="154" clientid="1265" name="Floating Scholar" speed="20" premium="yes" />
-	<mount id="155" clientid="1266" name="Floating Augur" speed="20" premium="yes" />
-	<mount id="156" clientid="1269" name="Haze" speed="20" premium="yes" />
-	<mount id="157" clientid="1281" name="Antelope" speed="20" premium="yes" />
-	<mount id="158" clientid="1284" name="Snow Strider" speed="20" premium="yes" />
-	<mount id="159" clientid="1285" name="Dusk Pryer" speed="20" premium="yes" />
-	<mount id="160" clientid="1286" name="Dawn Strayer" speed="20" premium="yes" />
-	<mount id="161" clientid="1324" name="Benevolent Savanna Ostrich" speed="20" premium="yes" />
-	<mount id="162" clientid="1325" name="Benevolent Coral Rhea" speed="20" premium="yes" />
-	<mount id="163" clientid="1326" name="Benevolent Eventide Nandu" speed="20" premium="yes" />
+	<mount id="147" clientid="1229" name="Cold Percht Sleigh Variant" speed="20" premium="yes" />
+	<mount id="148" clientid="1230" name="Bright Percht Sleigh Variant" speed="20" premium="yes" />
+	<mount id="149" clientid="1231" name="Dark Percht Sleigh Variant" speed="20" premium="yes" />
+	<mount id="150" clientid="1232" name="Cold Percht Sleigh Final" speed="20" premium="yes" />
+	<mount id="151" clientid="1233" name="Bright Percht Sleigh Final" speed="20" premium="yes" />
+	<mount id="152" clientid="1234" name="Dark Percht Sleigh Final" speed="20" premium="yes" />
+	<mount id="153" clientid="1247" name="Battle Badger" speed="20" premium="yes" />
+	<mount id="154" clientid="1248" name="Ether Badger" speed="20" premium="yes" />
+	<mount id="155" clientid="1249" name="Zaoan Badger" speed="20" premium="yes" />
+	<mount id="156" clientid="1257" name="Blue Rolling Barrel" speed="20" premium="yes" />
+	<mount id="157" clientid="1258" name="Red Rolling Barrel" speed="20" premium="yes" />
+	<mount id="158" clientid="1259" name="Green Rolling Barrel" speed="20" premium="yes" />
+	<mount id="159" clientid="1264" name="Floating Sage" speed="20" premium="yes" />
+	<mount id="160" clientid="1265" name="Floating Scholar" speed="20" premium="yes" />
+	<mount id="161" clientid="1266" name="Floating Augur" speed="20" premium="yes" />
+	<mount id="162" clientid="1269" name="Haze" speed="20" premium="yes" />
+	<mount id="163" clientid="1281" name="Antelope" speed="20" premium="yes" />
+	<mount id="164" clientid="1284" name="Snow Strider" speed="20" premium="yes" />
+	<mount id="165" clientid="1285" name="Dusk Pryer" speed="20" premium="yes" />
+	<mount id="166" clientid="1286" name="Dawn Strayer" speed="20" premium="yes" />
+	<mount id="167" clientid="1324" name="Benevolent Savanna Ostrich" speed="20" premium="yes" />
+	<mount id="168" clientid="1325" name="Benevolent Coral Rhea" speed="20" premium="yes" />
+	<mount id="169" clientid="1326" name="Benevolent Eventide Nandu" speed="20" premium="yes" />
 </mounts>
