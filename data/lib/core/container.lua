@@ -28,7 +28,7 @@ function Container.createLootItem(self, item)
 		if not tmpItem then
 			return false
 		end
-	
+
 		if tmpItem:isContainer() then
 			for i = 1, #item.childLoot do
 				if not tmpItem:createLootItem(item.childLoot[i]) then
