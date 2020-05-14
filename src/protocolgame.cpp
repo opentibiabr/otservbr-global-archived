@@ -2748,7 +2748,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 
 		if (isLogin) {
 			if (const Player* creaturePlayer = creature->getPlayer()) {
-				if (!creaturePlayer->isAccessPlayer() || creaturePlayer->getAccountType() == ACCOUNT_TYPE_NORMAL)
+				if (!creaturePlayer->isAccessPlayer() || !creaturePlayer->getAccountType() >= ACCOUNT_TYPE_NORMAL)
 					sendMagicEffect(pos, CONST_ME_TELEPORT);
 			} else {
 				sendMagicEffect(pos, CONST_ME_TELEPORT);
