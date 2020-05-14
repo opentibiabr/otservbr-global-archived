@@ -210,7 +210,7 @@ if not Quests then
 							Please try to retrieve the missing logbook which must be in one of the sunken shipwrecks.",
 						[2] = "Report about your Calassa mission to Berenice in Liberty Bay."
 					}
-				},
+				}
 			}
 		},
 		[2] = {
@@ -247,7 +247,7 @@ if not Quests then
 						[5] = "You need to get more samples of ghosts.",
 						[6] = "You got all the ghost scraps."
 					}
-				},
+				}
 			}
 		},
 		[3] = {
@@ -260,10 +260,11 @@ if not Quests then
 					storageid = Storage.SpikeTaskQuest.Gnomilly,
 					startvalue = 0,
 					endvalue = 100,
-					description =
-					function(player)
-						return string.format("You have %d points of task. You need 100 points to take Cave Explorer outfit.",
-						(math.max(player:getStorageValue(Storage.SpikeTaskQuest.Gnomilly), 0)))
+					description = function(player)
+						return string.format(
+							"You have %d points of task. You need 100 points to take Cave Explorer outfit.",
+							(math.max(player:getStorageValue(Storage.SpikeTaskQuest.Gnomilly), 0))
+						)
 					end
 				},
 				[2] = {
@@ -271,10 +272,11 @@ if not Quests then
 					storageid = Storage.SpikeTaskQuest.Gnombold.Points,
 					startvalue = 0,
 					endvalue = 100,
-					description =
-					function(player)
-						return string.format("You have %d points of task. You need 100 points to take first addon.",
-						(math.max(player:getStorageValue(Storage.SpikeTaskQuest.Gnombold.Points), 0)))
+					description = function(player)
+						return string.format(
+							"You have %d points of task. You need 100 points to take first addon.",
+							(math.max(player:getStorageValue(Storage.SpikeTaskQuest.Gnombold.Points), 0))
+						)
 					end
 				},
 				[3] = {
@@ -282,13 +284,14 @@ if not Quests then
 					storageid = Storage.SpikeTaskQuest.Gnomargery.Points,
 					startvalue = 0,
 					endvalue = 100,
-					description =
-					function(player)
-						return string.format("You have %d points of task. You need 100 points to take second addon.",
-						(math.max(player:getStorageValue(Storage.SpikeTaskQuest.Gnomargery.Points), 0)))
+					description = function(player)
+						return string.format(
+							"You have %d points of task. You need 100 points to take second addon.",
+							(math.max(player:getStorageValue(Storage.SpikeTaskQuest.Gnomargery.Points), 0))
+						)
 					end
 				}
-			},
+			}
 		},
 		[4] = {
 			name = "A Father's Burden",
@@ -388,7 +391,7 @@ if not Quests then
 						[1] = "Find the dragon Glitterscale in the caves north of Thais and take its scale to Tereban.",
 						[2] = "You handed the looted scale to Tereban."
 					}
-				},
+				}
 			}
 		},
 		[5] = {
@@ -448,11 +451,12 @@ if not Quests then
 					storageid = Storage.BigfootBurden.Shooting,
 					startvalue = 0,
 					endvalue = 5,
-					description =
-					function(player)
-						return string.format("Hit five targets in a row. \z
+					description = function(player)
+						return string.format(
+							"Hit five targets in a row. \z
 						Don't hit an innocent target as it will reset your hit counter. %d / 5",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.Shooting), 0)))
+							(math.max(player:getStorageValue(Storage.BigfootBurden.Shooting), 0))
+						)
 					end
 				},
 				[7] = {
@@ -496,11 +500,12 @@ if not Quests then
 					storageid = Storage.BigfootBurden.Rank,
 					startvalue = 0,
 					endvalue = 999999,
-					description =
-					function(player)
-						return string.format("Your reputation in the eyes of gnomekind is %d.\nYour standing rises at: \z
+					description = function(player)
+						return string.format(
+							"Your reputation in the eyes of gnomekind is %d.\nYour standing rises at: \z
 						\nReputation   30 - I \nReputation  120 - II \nReputation  480 - III \nReputation 1440 - IV \n",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.Rank), 0)))
+							(math.max(player:getStorageValue(Storage.BigfootBurden.Rank), 0))
+						)
 					end
 				},
 				[12] = {
@@ -508,11 +513,12 @@ if not Quests then
 					storageid = Storage.BigfootBurden.RepairedCrystalCount,
 					startvalue = 0,
 					endvalue = 5,
-					description =
-					function(player)
-						return string.format("Use the repair crystal to repair five damaged blue crystals in the crystal caves. \z
+					description = function(player)
+						return string.format(
+							"Use the repair crystal to repair five damaged blue crystals in the crystal caves. \z
 						Damaged crystals will not glow.\n%d / 5",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount), 0)))
+							(math.max(player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount), 0))
+						)
 					end
 				},
 				[13] = {
@@ -520,11 +526,12 @@ if not Quests then
 					storageid = Storage.BigfootBurden.ExtractedCount,
 					startvalue = 0,
 					endvalue = 7,
-					description =
-					function(player)
-						return string.format("Kill crystal crushers and use the discharger item on the corpse to collect their charges. \z
+					description = function(player)
+						return string.format(
+							"Kill crystal crushers and use the discharger item on the corpse to collect their charges. \z
 						Gather 7 charges and report back. %d / 7",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.ExtractedCount), 0 )))
+							(math.max(player:getStorageValue(Storage.BigfootBurden.ExtractedCount), 0))
+						)
 					end
 				},
 				[14] = {
@@ -532,10 +539,11 @@ if not Quests then
 					storageid = Storage.BigfootBurden.ExterminatedCount,
 					startvalue = 0,
 					endvalue = 10,
-					description =
-					function(player)
-						return string.format("Kill 10 of the wigglers for the gnomes. Then report back. %d / 10",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.ExterminatedCount), 0)))
+					description = function(player)
+						return string.format(
+							"Kill 10 of the wigglers for the gnomes. Then report back. %d / 10",
+							(math.max(player:getStorageValue(Storage.BigfootBurden.ExterminatedCount), 0))
+						)
 					end
 				},
 				[15] = {
@@ -543,12 +551,13 @@ if not Quests then
 					storageid = Storage.BigfootBurden.MushroomCount,
 					startvalue = 0,
 					endvalue = 3,
-					description =
-					function(player)
-						return string.format("Find a truffle sniffing pig and lure it around. \z
+					description = function(player)
+						return string.format(
+							"Find a truffle sniffing pig and lure it around. \z
 						Occasionally it will unearth some truffles. Use the baby pig on the truffles to feed it 3 times. \z
 						Then report back to the gnomes. %d / 3",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.MushroomCount), 0)))
+							(math.max(player:getStorageValue(Storage.BigfootBurden.MushroomCount), 0))
+						)
 					end
 				},
 				[16] = {
@@ -567,11 +576,12 @@ if not Quests then
 					storageid = Storage.BigfootBurden.GolemCount,
 					startvalue = 0,
 					endvalue = 4,
-					description =
-					function(player)
-						return string.format("Use the harmonic bell on the mad golems in the golem workshop so that they will \z
+					description = function(player)
+						return string.format(
+							"Use the harmonic bell on the mad golems in the golem workshop so that they will \z
 						automatically be teleported to the gnomish workshops. Then report back to the gnomes. %d / 4",
-						(math.max(player:getStorageValue(Storage.BigfootBurden.GolemCount), 0)))
+							(math.max(player:getStorageValue(Storage.BigfootBurden.GolemCount), 0))
+						)
 					end
 				},
 				[18] = {
@@ -618,7 +628,7 @@ if not Quests then
 						[1] = "Deliver the Abyssador's lash to gnomission to enter the third warzone for free.",
 						[2] = "You may enter the third warzone without using a mission crystal."
 					}
-				},
+				}
 			}
 		},
 		[6] = {
@@ -661,7 +671,7 @@ if not Quests then
 						[2] = "You pushed the Mammoth! Go tell Sven that you pushed the Mammoth!",
 						[3] = "You have completed this Test! You can now be a citizen of Svargrond!"
 					}
-				},
+				}
 			}
 		},
 		[7] = {
@@ -746,7 +756,7 @@ if not Quests then
 						[2] = "Eternal guardians and lizard chosen has been awaken. Survive them and report it to Zalamon!",
 						[3] = "You Survived the Waves and reported Zalamon about your success! You got a Serpent Crest as reward!"
 					}
-				},
+				}
 			}
 		},
 		[8] = {
@@ -786,7 +796,7 @@ if not Quests then
 							You have pledged eternal loyalty to King Malor and may enter Mal'ouquah freely. Djanni'hah!",
 						[2] = ""
 					}
-				},
+				}
 			}
 		},
 		[9] = {
@@ -851,7 +861,7 @@ if not Quests then
 						[12] = "Chondur was surprised to hear that you had to travel through all of Tibia to have your \z
 							wooden stake blessed. He offered you help with the blessing if you should need one again in the future."
 					}
-				},
+				}
 			}
 		},
 		[10] = {
@@ -897,7 +907,7 @@ if not Quests then
 							prepare is Sweet Mangonaise Elixir. Bring him the ingredients he told you.",
 						[16] = "You have completed all the dishes. You are now able to make all the dishes in any order you want."
 					}
-				},
+				}
 			}
 		},
 		[11] = {
@@ -1064,7 +1074,7 @@ if not Quests then
 							Choose carefully which reward you pick as you can only take one item.",
 						[5] = "You have completed the Quest!"
 					}
-				},
+				}
 			}
 		},
 		[12] = {
@@ -1077,10 +1087,11 @@ if not Quests then
 					storageid = 2500,
 					startvalue = 0,
 					endvalue = 10,
-					description =
-					function(player)
-						return string.format("You are member of the Paw and Fur hunting elite. You currently have %d Paw and Fur points.",
-						(math.max(player:getStorageValue(2500), 0)))
+					description = function(player)
+						return string.format(
+							"You are member of the Paw and Fur hunting elite. You currently have %d Paw and Fur points.",
+							(math.max(player:getStorageValue(2500), 0))
+						)
 					end
 				},
 				[2] = {
@@ -1088,10 +1099,11 @@ if not Quests then
 					storageid = 2500,
 					startvalue = 11,
 					endvalue = 40,
-					description =
-					function(player)
-						return string.format("You are Ranger of the Paw and Fur hunting elite. You currently have %d Paw and Fur points.",
-						(math.max(player:getStorageValue(2500), 0)))
+					description = function(player)
+						return string.format(
+							"You are Ranger of the Paw and Fur hunting elite. You currently have %d Paw and Fur points.",
+							(math.max(player:getStorageValue(2500), 0))
+						)
 					end
 				},
 				[3] = {
@@ -1099,11 +1111,12 @@ if not Quests then
 					storageid = 2500,
 					startvalue = 41,
 					endvalue = 69,
-					description =
-					function(player)
-						return string.format("You are Big Game Hunter in the Paw and Fur hunting elite. \z
+					description = function(player)
+						return string.format(
+							"You are Big Game Hunter in the Paw and Fur hunting elite. \z
 							You currently have %d Paw and Fur points.",
-						(math.max(player:getStorageValue(2500), 0)))
+							(math.max(player:getStorageValue(2500), 0))
+						)
 					end
 				},
 				[4] = {
@@ -1111,12 +1124,13 @@ if not Quests then
 					storageid = 2500,
 					startvalue = 70,
 					endvalue = 99,
-					description =
-					function(player)
-						return string.format("You are Trophy Hunter in the Paw and Fur hunting elite. \z
+					description = function(player)
+						return string.format(
+							"You are Trophy Hunter in the Paw and Fur hunting elite. \z
 							You currently have %d Paw and Fur points. \z
 							Ask Grizzly Adams for 'special task' he might have something for you.",
-						(math.max(player:getStorageValue(2500), 0)))
+							(math.max(player:getStorageValue(2500), 0))
+						)
 					end
 				},
 				[5] = {
@@ -1124,12 +1138,13 @@ if not Quests then
 					storageid = 2500,
 					startvalue = 100,
 					endvalue = 9999,
-					description =
-					function(player)
-						return string.format("You have obtained the highest possible rank in the Paw and Fur hunting elite, \z
+					description = function(player)
+						return string.format(
+							"You have obtained the highest possible rank in the Paw and Fur hunting elite, \z
 							you are Elite Hunter. You currently have %d Paw and Fur points. \z
 							Ask Grizzly Adams for 'special task' he might have something for you.",
-						(math.max(player:getStorageValue(2500), 0)))
+							(math.max(player:getStorageValue(2500), 0))
+						)
 					end
 				},
 				[6] = {
@@ -1356,10 +1371,8 @@ if not Quests then
 					storageid = 1501,
 					startvalue = 0,
 					endvalue = 100,
-					description =
-					function(player)
-						return string.format("You already hunted %d/100 Trolls.",
-						(math.max(player:getStorageValue(1501), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/100 Trolls.", (math.max(player:getStorageValue(1501), 0)))
 					end
 				},
 				[37] = {
@@ -1367,10 +1380,8 @@ if not Quests then
 					storageid = 1502,
 					startvalue = 0,
 					endvalue = 150,
-					description =
-					function(player)
-						return string.format("You already hunted %d/150 Goblins.",
-						(math.max(player:getStorageValue(1502), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/150 Goblins.", (math.max(player:getStorageValue(1502), 0)))
 					end
 				},
 				[38] = {
@@ -1378,10 +1389,8 @@ if not Quests then
 					storageid = 65002,
 					startvalue = 0,
 					endvalue = 5000,
-					description =
-					function(player)
-						return string.format("You already hunted %d/5000 Minotaurs.",
-						(math.max(player:getStorageValue(65002), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/5000 Minotaurs.", (math.max(player:getStorageValue(65002), 0)))
 					end
 				},
 				[39] = {
@@ -1389,10 +1398,11 @@ if not Quests then
 					storageid = 65001,
 					startvalue = 0,
 					endvalue = 4000,
-					description =
-					function(player)
-						return string.format("You already hunted %d/4000 Necromancers and Priestess.",
-						(math.max(player:getStorageValue(65001), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/4000 Necromancers and Priestess.",
+							(math.max(player:getStorageValue(65001), 0))
+						)
 					end
 				},
 				[40] = {
@@ -1400,10 +1410,8 @@ if not Quests then
 					storageid = 65003,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 crocodiles.",
-						(math.max(player:getStorageValue(65003), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 crocodiles.", (math.max(player:getStorageValue(65003), 0)))
 					end
 				},
 				[41] = {
@@ -1411,10 +1419,8 @@ if not Quests then
 					storageid = 65004,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 badgers.",
-						(math.max(player:getStorageValue(65004), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 badgers.", (math.max(player:getStorageValue(65004), 0)))
 					end
 				},
 				[42] = {
@@ -1422,10 +1428,8 @@ if not Quests then
 					storageid = 65005,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 tarantulas.",
-						(math.max(player:getStorageValue(65005), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 tarantulas.", (math.max(player:getStorageValue(65005), 0)))
 					end
 				},
 				[43] = {
@@ -1433,10 +1437,8 @@ if not Quests then
 					storageid = 65006,
 					startvalue = 0,
 					endvalue = 150,
-					description =
-					function(player)
-						return string.format("You already hunted %d/150 carniphilas.",
-						(math.max(player:getStorageValue(65006), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/150 carniphilas.", (math.max(player:getStorageValue(65006), 0)))
 					end
 				},
 				[44] = {
@@ -1444,10 +1446,8 @@ if not Quests then
 					storageid = 65007,
 					startvalue = 0,
 					endvalue = 200,
-					description =
-					function(player)
-						return string.format("You already hunted %d/200 stone golems.",
-						(math.max(player:getStorageValue(65007), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/200 stone golems.", (math.max(player:getStorageValue(65007), 0)))
 					end
 				},
 				[45] = {
@@ -1455,10 +1455,8 @@ if not Quests then
 					storageid = 65008,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 mammoths.",
-						(math.max(player:getStorageValue(65008), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 mammoths.", (math.max(player:getStorageValue(65008), 0)))
 					end
 				},
 				[46] = {
@@ -1466,10 +1464,8 @@ if not Quests then
 					storageid = 65009,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 gnarlhounds.",
-						(math.max(player:getStorageValue(65009), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 gnarlhounds.", (math.max(player:getStorageValue(65009), 0)))
 					end
 				},
 				[47] = {
@@ -1477,10 +1473,8 @@ if not Quests then
 					storageid = 65010,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 terramites.",
-						(math.max(player:getStorageValue(65010), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 terramites.", (math.max(player:getStorageValue(65010), 0)))
 					end
 				},
 				[48] = {
@@ -1488,10 +1482,8 @@ if not Quests then
 					storageid = 65011,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 apes.",
-						(math.max(player:getStorageValue(65011), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 apes.", (math.max(player:getStorageValue(65011), 0)))
 					end
 				},
 				[49] = {
@@ -1499,10 +1491,11 @@ if not Quests then
 					storageid = 65012,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 thornback tortoises.",
-						(math.max(player:getStorageValue(65012), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/300 thornback tortoises.",
+							(math.max(player:getStorageValue(65012), 0))
+						)
 					end
 				},
 				[50] = {
@@ -1510,10 +1503,8 @@ if not Quests then
 					storageid = 65013,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 gargoyles.",
-						(math.max(player:getStorageValue(65013), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 gargoyles.", (math.max(player:getStorageValue(65013), 0)))
 					end
 				},
 				[51] = {
@@ -1521,10 +1512,8 @@ if not Quests then
 					storageid = 65014,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 ice golems.",
-						(math.max(player:getStorageValue(65014), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 ice golems.", (math.max(player:getStorageValue(65014), 0)))
 					end
 				},
 				[52] = {
@@ -1532,10 +1521,8 @@ if not Quests then
 					storageid = 65015,
 					startvalue = 0,
 					endvalue = 400,
-					description =
-					function(player)
-						return string.format("You already hunted %d/400 quara scouts.",
-						(math.max(player:getStorageValue(65015), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/400 quara scouts.", (math.max(player:getStorageValue(65015), 0)))
 					end
 				},
 				[53] = {
@@ -1543,10 +1530,8 @@ if not Quests then
 					storageid = 65016,
 					startvalue = 0,
 					endvalue = 400,
-					description =
-					function(player)
-						return string.format("You already hunted %d/400 mutated rats.",
-						(math.max(player:getStorageValue(65016), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/400 mutated rats.", (math.max(player:getStorageValue(65016), 0)))
 					end
 				},
 				[54] = {
@@ -1554,10 +1539,8 @@ if not Quests then
 					storageid = 65017,
 					startvalue = 0,
 					endvalue = 250,
-					description =
-					function(player)
-						return string.format("You already hunted %d/250 ancient scarabs.",
-						(math.max(player:getStorageValue(65017), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/250 ancient scarabs.", (math.max(player:getStorageValue(65017), 0)))
 					end
 				},
 				[55] = {
@@ -1565,10 +1548,8 @@ if not Quests then
 					storageid = 65018,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 wyverns.",
-						(math.max(player:getStorageValue(65018), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 wyverns.", (math.max(player:getStorageValue(65018), 0)))
 					end
 				},
 				[56] = {
@@ -1576,10 +1557,8 @@ if not Quests then
 					storageid = 65019,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 lancer beetles.",
-						(math.max(player:getStorageValue(65019), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 lancer beetles.", (math.max(player:getStorageValue(65019), 0)))
 					end
 				},
 				[57] = {
@@ -1587,10 +1566,8 @@ if not Quests then
 					storageid = 65020,
 					startvalue = 0,
 					endvalue = 400,
-					description =
-					function(player)
-						return string.format("You already hunted %d/400 wailing widows.",
-						(math.max(player:getStorageValue(65020), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/400 wailing widows.", (math.max(player:getStorageValue(65020), 0)))
 					end
 				},
 				[58] = {
@@ -1598,10 +1575,8 @@ if not Quests then
 					storageid = 65021,
 					startvalue = 0,
 					endvalue = 250,
-					description =
-					function(player)
-						return string.format("You already hunted %d/250 killer caimans.",
-						(math.max(player:getStorageValue(65021), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/250 killer caimans.", (math.max(player:getStorageValue(65021), 0)))
 					end
 				},
 				[59] = {
@@ -1609,10 +1584,8 @@ if not Quests then
 					storageid = 65022,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 bonebeasts.",
-						(math.max(player:getStorageValue(65022), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 bonebeasts.", (math.max(player:getStorageValue(65022), 0)))
 					end
 				},
 				[60] = {
@@ -1620,10 +1593,8 @@ if not Quests then
 					storageid = 65023,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 crystal spiders.",
-						(math.max(player:getStorageValue(65023), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 crystal spiders.", (math.max(player:getStorageValue(65023), 0)))
 					end
 				},
 				[61] = {
@@ -1631,10 +1602,8 @@ if not Quests then
 					storageid = 65024,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 mutated tigers.",
-						(math.max(player:getStorageValue(65024), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 mutated tigers.", (math.max(player:getStorageValue(65024), 0)))
 					end
 				},
 				[62] = {
@@ -1642,10 +1611,8 @@ if not Quests then
 					storageid = 65025,
 					startvalue = 0,
 					endvalue = 600,
-					description =
-					function(player)
-						return string.format("You already hunted %d/600 underwater quara.",
-						(math.max(player:getStorageValue(65025), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/600 underwater quara.", (math.max(player:getStorageValue(65025), 0)))
 					end
 				},
 				[63] = {
@@ -1653,10 +1620,8 @@ if not Quests then
 					storageid = 65026,
 					startvalue = 0,
 					endvalue = 500,
-					description =
-					function(player)
-						return string.format("You already hunted %d/500 giant spiders.",
-						(math.max(player:getStorageValue(65026), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/500 giant spiders.", (math.max(player:getStorageValue(65026), 0)))
 					end
 				},
 				[64] = {
@@ -1664,10 +1629,8 @@ if not Quests then
 					storageid = 65027,
 					startvalue = 0,
 					endvalue = 300,
-					description =
-					function(player)
-						return string.format("You already hunted %d/300 werewolves.",
-						(math.max(player:getStorageValue(65027), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/300 werewolves.", (math.max(player:getStorageValue(65027), 0)))
 					end
 				},
 				[65] = {
@@ -1675,10 +1638,8 @@ if not Quests then
 					storageid = 65028,
 					startvalue = 0,
 					endvalue = 400,
-					description =
-					function(player)
-						return string.format("You already hunted %d/400 nightmares.",
-						(math.max(player:getStorageValue(65028), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/400 nightmares.", (math.max(player:getStorageValue(65028), 0)))
 					end
 				},
 				[66] = {
@@ -1686,10 +1647,8 @@ if not Quests then
 					storageid = 65029,
 					startvalue = 0,
 					endvalue = 600,
-					description =
-					function(player)
-						return string.format("You already hunted %d/600 hellspawns.",
-						(math.max(player:getStorageValue(65029), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/600 hellspawns.", (math.max(player:getStorageValue(65029), 0)))
 					end
 				},
 				[67] = {
@@ -1697,10 +1656,11 @@ if not Quests then
 					storageid = 65030,
 					startvalue = 0,
 					endvalue = 800,
-					description =
-					function(player)
-						return string.format("You already hunted %d/800 high class lizards.",
-						(math.max(player:getStorageValue(65030), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/800 high class lizards.",
+							(math.max(player:getStorageValue(65030), 0))
+						)
 					end
 				},
 				[68] = {
@@ -1708,10 +1668,8 @@ if not Quests then
 					storageid = 65031,
 					startvalue = 0,
 					endvalue = 600,
-					description =
-					function(player)
-						return string.format("You already hunted %d/600 stampors.",
-						(math.max(player:getStorageValue(65031), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/600 stampors.", (math.max(player:getStorageValue(65031), 0)))
 					end
 				},
 				[69] = {
@@ -1719,10 +1677,8 @@ if not Quests then
 					storageid = 65032,
 					startvalue = 0,
 					endvalue = 500,
-					description =
-					function(player)
-						return string.format("You already hunted %d/500 brimstone bugs.",
-						(math.max(player:getStorageValue(65032), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/500 brimstone bugs.", (math.max(player:getStorageValue(65032), 0)))
 					end
 				},
 				[70] = {
@@ -1730,10 +1686,8 @@ if not Quests then
 					storageid = 65033,
 					startvalue = 0,
 					endvalue = 400,
-					description =
-					function(player)
-						return string.format("You already hunted %d/400 mutated bats.",
-						(math.max(player:getStorageValue(65033), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/400 mutated bats.", (math.max(player:getStorageValue(65033), 0)))
 					end
 				},
 				[71] = {
@@ -1741,10 +1695,8 @@ if not Quests then
 					storageid = 65034,
 					startvalue = 0,
 					endvalue = 650,
-					description =
-					function(player)
-						return string.format("You already hunted %d/650 hydras.",
-						(math.max(player:getStorageValue(65034), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/650 hydras.", (math.max(player:getStorageValue(65034), 0)))
 					end
 				},
 				[72] = {
@@ -1752,10 +1704,8 @@ if not Quests then
 					storageid = 65035,
 					startvalue = 0,
 					endvalue = 800,
-					description =
-					function(player)
-						return string.format("You already hunted %d/800 serpent spawns.",
-						(math.max(player:getStorageValue(65035), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/800 serpent spawns.", (math.max(player:getStorageValue(65035), 0)))
 					end
 				},
 				[73] = {
@@ -1763,10 +1713,8 @@ if not Quests then
 					storageid = 65036,
 					startvalue = 0,
 					endvalue = 500,
-					description =
-					function(player)
-						return string.format("You already hunted %d/500 medusas.",
-						(math.max(player:getStorageValue(65036), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/500 medusas.", (math.max(player:getStorageValue(65036), 0)))
 					end
 				},
 				[74] = {
@@ -1774,10 +1722,8 @@ if not Quests then
 					storageid = 65037,
 					startvalue = 0,
 					endvalue = 700,
-					description =
-					function(player)
-						return string.format("You already hunted %d/700 behemoths.",
-						(math.max(player:getStorageValue(65037), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/700 behemoths.", (math.max(player:getStorageValue(65037), 0)))
 					end
 				},
 				[75] = {
@@ -1785,10 +1731,11 @@ if not Quests then
 					storageid = 65038,
 					startvalue = 0,
 					endvalue = 900,
-					description =
-					function(player)
-						return string.format("You already hunted %d/900 sea serpents and young sea serpents.",
-						(math.max(player:getStorageValue(65038), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/900 sea serpents and young sea serpents.",
+							(math.max(player:getStorageValue(65038), 0))
+						)
 					end
 				},
 				[76] = {
@@ -1796,10 +1743,8 @@ if not Quests then
 					storageid = 65039,
 					startvalue = 0,
 					endvalue = 250,
-					description =
-					function(player)
-						return string.format("You already hunted %d/250 hellhounds.",
-						(math.max(player:getStorageValue(65039), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/250 hellhounds.", (math.max(player:getStorageValue(65039), 0)))
 					end
 				},
 				[77] = {
@@ -1807,10 +1752,8 @@ if not Quests then
 					storageid = 65040,
 					startvalue = 0,
 					endvalue = 500,
-					description =
-					function(player)
-						return string.format("You already hunted %d/500 ghastly dragons.",
-						(math.max(player:getStorageValue(65040), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/500 ghastly dragons.", (math.max(player:getStorageValue(65040), 0)))
 					end
 				},
 				[78] = {
@@ -1818,10 +1761,8 @@ if not Quests then
 					storageid = 65041,
 					startvalue = 0,
 					endvalue = 900,
-					description =
-					function(player)
-						return string.format("You already hunted %d/900 drakens.",
-						(math.max(player:getStorageValue(65041), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/900 drakens.", (math.max(player:getStorageValue(65041), 0)))
 					end
 				},
 				[79] = {
@@ -1829,10 +1770,8 @@ if not Quests then
 					storageid = 65042,
 					startvalue = 0,
 					endvalue = 650,
-					description =
-					function(player)
-						return string.format("You already hunted %d/650 destroyers.",
-						(math.max(player:getStorageValue(65042), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/650 destroyers.", (math.max(player:getStorageValue(65042), 0)))
 					end
 				},
 				[80] = {
@@ -1840,10 +1779,8 @@ if not Quests then
 					storageid = 65043,
 					startvalue = 0,
 					endvalue = 400,
-					description =
-					function(player)
-						return string.format("You already hunted %d/400 undead dragons.",
-						(math.max(player:getStorageValue(65043), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/400 undead dragons.", (math.max(player:getStorageValue(65043), 0)))
 					end
 				},
 				[81] = {
@@ -1851,10 +1788,8 @@ if not Quests then
 					storageid = 65044,
 					startvalue = 0,
 					endvalue = 6666,
-					description =
-					function(player)
-						return string.format("You already hunted %d/6666 demons.",
-						(math.max(player:getStorageValue(65044), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/6666 demons.", (math.max(player:getStorageValue(65044), 0)))
 					end
 				},
 				[82] = {
@@ -1862,10 +1797,11 @@ if not Quests then
 					storageid = 65045,
 					startvalue = 0,
 					endvalue = 500,
-					description =
-					function(player)
-						return string.format("You already hunted %d/500 green djinns or efreets.",
-						(math.max(player:getStorageValue(65045), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/500 green djinns or efreets.",
+							(math.max(player:getStorageValue(65045), 0))
+						)
 					end
 				},
 				[83] = {
@@ -1873,10 +1809,11 @@ if not Quests then
 					storageid = 65046,
 					startvalue = 0,
 					endvalue = 500,
-					description =
-					function(player)
-						return string.format("You already hunted %d/500 blue djinns or marids.",
-						(math.max(player:getStorageValue(65046), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/500 blue djinns or marids.",
+							(math.max(player:getStorageValue(65046), 0))
+						)
 					end
 				},
 				[84] = {
@@ -1884,10 +1821,8 @@ if not Quests then
 					storageid = 65047,
 					startvalue = 0,
 					endvalue = 3000,
-					description =
-					function(player)
-						return string.format("You already hunted %d/3000 pirates.",
-						(math.max(player:getStorageValue(65047), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65047), 0)))
 					end
 				},
 				[85] = {
@@ -1895,10 +1830,8 @@ if not Quests then
 					storageid = 65048,
 					startvalue = 0,
 					endvalue = 3000,
-					description =
-					function(player)
-						return string.format("You already hunted %d/3000 pirates.",
-						(math.max(player:getStorageValue(65048), 0)))
+					description = function(player)
+						return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65048), 0)))
 					end
 				},
 				[86] = {
@@ -1906,10 +1839,11 @@ if not Quests then
 					storageid = 65049,
 					startvalue = 0,
 					endvalue = 5000,
-					description =
-					function(player)
-						return string.format("Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.",
-						(math.max(player:getStorageValue(65049), 0)))
+					description = function(player)
+						return string.format(
+							"Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.",
+							(math.max(player:getStorageValue(65049), 0))
+						)
 					end
 				},
 				[87] = {
@@ -1917,13 +1851,14 @@ if not Quests then
 					storageid = 65050,
 					startvalue = 0,
 					endvalue = 4000,
-					description =
-					function(player)
-						return string.format("You already hunted %d/4000 necromancers and priestess.",
-						(math.max(player:getStorageValue(65050), 0)))
+					description = function(player)
+						return string.format(
+							"You already hunted %d/4000 necromancers and priestess.",
+							(math.max(player:getStorageValue(65050), 0))
+						)
 					end
 				}
-			},
+			}
 		},
 		[13] = {
 			name = "Outfit and Addon Quests",
@@ -2220,7 +2155,7 @@ if not Quests then
 						[1] = "Your current task is to collect 5 tribal masks from the dworcs and 5 banana staves from the apes. \z
 							Bring them to Chondur to earn your shamanic mask."
 					}
-				},
+				}
 			}
 		},
 		[14] = {
@@ -2240,7 +2175,7 @@ if not Quests then
 							The problem is, some giant spiders made the tunnels where the storage is their new home.",
 						[3] = "You have completed Dwarven Armor Quest!"
 					}
-				},
+				}
 			}
 		},
 		[15] = {
@@ -2295,7 +2230,7 @@ if not Quests then
 						[4] = "It may have been the excitement or simple nervousness but as soon as Spectulus removed the crystal, \z
 							it somehow slipped. Unfinishable for all eternity, the device left yet another scholar in despair."
 					}
-				},
+				}
 			}
 		},
 		[16] = {
@@ -2511,7 +2446,7 @@ if not Quests then
 							Kill him and bring back his beard as proof.",
 						[2] = "You have reported back that you have completed your mission, you are now a Special Agent!"
 					}
-				},
+				}
 			}
 		},
 		[17] = {
@@ -2568,7 +2503,7 @@ if not Quests then
 					endvalue = 1,
 					description = "You defeated Rahemos and received a Helmet Piece"
 				}
-			},
+			}
 		},
 		[18] = {
 			name = "The Ape City",
@@ -2620,7 +2555,7 @@ if not Quests then
 							As reward, you can buy sacred statues from Hairycles. \z
 							If you haven't done so yet, you should also ask him for a shaman outfit."
 					}
-				},
+				}
 			}
 		},
 		[19] = {
@@ -2696,7 +2631,7 @@ if not Quests then
 						[8] = "You have passed the bridge to Rookgaard and have sucessfully completed the Tutorial. \z
 							If you want to skip the tutorial in the future with a new character, simply say 'skip tutorial' to Santiago."
 					}
-				},
+				}
 			}
 		},
 		[20] = {
@@ -2741,7 +2676,7 @@ if not Quests then
 						[2] = "You successfully exchanged the lamps. Malor will be happy to hear about this.",
 						[3] = "The Efreet are very satisfied with your help. King Malor allowed you to trade with Yaman and Alesar."
 					}
-				},
+				}
 			}
 		},
 		[21] = {
@@ -2793,7 +2728,7 @@ if not Quests then
 						[2] = "You successfully exchanged the lamps. Gabel will be happy to hear about this.",
 						[3] = "The Marid deeply appreciate your help. King Gabel allowed you to trade with Haroun and Nah'bob."
 					}
-				},
+				}
 			}
 		},
 		[22] = {
@@ -2860,7 +2795,7 @@ if not Quests then
 							You heard that Boozer in Venore tried to brew some. Maybe you should pay him a visit.",
 						[2] = "Grombur liked the ale and you are now allowed to enter his part of the mine."
 					}
-				},
+				}
 			}
 		},
 		[23] = {
@@ -3035,7 +2970,7 @@ if not Quests then
 						[5] = "Once all 4 obelisks are marked report back to Hjaern.",
 						[6] = "You got the Norseman outfit and you have access to the Yakchal room deep in the Formorgar Mines."
 					}
-				},
+				}
 			}
 		},
 		[24] = {
@@ -3137,7 +3072,7 @@ if not Quests then
 						[4] = "You got the the second addon of Demon Hunter Outfit! Go now to the reward room and choose one wisely!",
 						[5] = "You have completed The Inquisition Quest! You can now buy the Blessing of the Inquisition!"
 					}
-				},
+				}
 			}
 		},
 		[25] = {
@@ -3321,7 +3256,7 @@ if not Quests then
 						Cael will now make a Dragon Throne for you after you bring him a Red Piece of Cloth. \z
 						He will reward you with 5000 experience points for each extra tome you give to him."
 					}
-				},
+				}
 			}
 		},
 		[26] = {
@@ -3474,7 +3409,7 @@ if not Quests then
 						[4] = "Grand Postman for Special Operations",
 						[5] = "Arch Postman"
 					}
-				},
+				}
 			}
 		},
 		[27] = {
@@ -3539,8 +3474,9 @@ if not Quests then
 					name = "Access to Nargor",
 					storageid = Storage.TheShatteredIsles.AccessToNargor,
 					startvalue = 1,
-					endvalue = 1, description = "After convincing the people in Sabrehaven that you are a trustworthy hero, \z
-					Sebastian will sail you to Nargor.",
+					endvalue = 1,
+					description = "After convincing the people in Sabrehaven that you are a trustworthy hero, \z
+					Sebastian will sail you to Nargor."
 				},
 				[7] = {
 					name = "Ray's Mission 1: Fafnar's Fire",
@@ -3553,8 +3489,8 @@ if not Quests then
 						'Your continued existence is payment enough'.",
 						[2] = "Sandra will be enraged and will cut any deals with pirates. Report back to Raymond Striker.",
 						[3] = "Ray Striker was pleased to hear about Sandra's rage. If you haven't done so yet, \z
-						ask him for other missions.",
-					},
+						ask him for other missions."
+					}
 				},
 				[8] = {
 					name = "Ray's Mission 2: Sabotage",
@@ -3567,8 +3503,8 @@ if not Quests then
 						[2] = "You were able to sabotage the catapult in the pirate's harbour. \z
 						Report back to Ray Striker to tell him about mission.",
 						[3] = "Ray Striker was pleased to hear about successful sabotage. \z
-						If you haven't done so yet, ask him for other missions.",
-					},
+						If you haven't done so yet, ask him for other missions."
+					}
 				},
 				[9] = {
 					name = "Ray's Mission 3: Spy Mission",
@@ -3579,8 +3515,8 @@ if not Quests then
 						[1] = "Travel to Nargor and try to enter de pirate's tavern by deceiving the guard in front of it. \z
 						Read all the plans which you can find in the tavern and report back to Striker.",
 						[2] = "You studied all of the pirate's plans in their tavern which will give insight about their next strikes. \z
-						If you haven't done so yet, ask Ray for another mission.",
-					},
+						If you haven't done so yet, ask Ray for another mission."
+					}
 				},
 				[10] = {
 					name = "Ray's Mission 4: Proof of Death",
@@ -3597,8 +3533,8 @@ if not Quests then
 						[4] = "Klaus belieaves that Ray Striker is dead and will celebrate a big party. \z
 						You should tell Ray about your successful mission.",
 						[5] = "Ray was very impressed to hear about your successful mission \z
-						and gave you a ship and a pirate outfit as reward.",
-					},
+						and gave you a ship and a pirate outfit as reward."
+					}
 				},
 				[11] = {
 					name = "Reputation in Sabrehaven: Suspicious",
@@ -3625,10 +3561,9 @@ if not Quests then
 						people there might have missions for you. This will improve your reputation and earn their trust.",
 						[11] = "Ariella asked you to bring a sample of whisper beer from a secret whisper bar in Carlin. \z
 						Help her and improve your reputation in Sabrehaven.",
-						[12] = "Take the sample of whisper beer to Ariella. Help her and improve your reputation in Sabrehaven.",
-					},
+						[12] = "Take the sample of whisper beer to Ariella. Help her and improve your reputation in Sabrehaven."
+					}
 				},
-
 				[12] = {
 					name = "Reputation in Sabrehaven: Friendly",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
@@ -3640,18 +3575,17 @@ if not Quests then
 						[15] = "You have finished six missions. People in Sabrehaven seem to start trusting you. \z
 						Maybe this is a good time for some more difficult missions.",
 						[16] = "You have finished seven missions. People in Sabrehaven seem to start trusting you. \z
-						Maybe this is a good time for some more difficult missions.",
-					},
+						Maybe this is a good time for some more difficult missions."
+					}
 				},
-
 				[13] = {
 					name = "Reputation in Sabrehaven: Cordial",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
 					startvalue = 18,
-					endvalue = 19, description = "You have finished eight missions. \z
-					People in Sabrehaven seem to trust you, but there is still one last mission left.",
+					endvalue = 19,
+					description = "You have finished eight missions. \z
+					People in Sabrehaven seem to trust you, but there is still one last mission left."
 				},
-
 				[14] = {
 					name = "Reputation in Sabrehaven: Loyal",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
@@ -3660,8 +3594,8 @@ if not Quests then
 					states = {
 						[20] = "You have finished nine missions. People in Sabrehaven are considering you as one of them.",
 						[21] = "You have finished all missions. \z
-						People in Sabrehaven are considering you as one of them and you earned their full trust.",
-					},
+						People in Sabrehaven are considering you as one of them and you earned their full trust."
+					}
 				},
 				[15] = {
 					name = "The Counterspell",
@@ -3701,7 +3635,7 @@ if not Quests then
 						[2] = "You found the ring. Return it to Eleonore.",
 						[3] = "You returned the ring to Eleonore."
 					}
-				},
+				}
 			}
 		},
 		[28] = {
@@ -3803,7 +3737,7 @@ if not Quests then
 						[3] = "You have reported back that you have completed the mission, \z
 						Dorian now allows you to trade with Black Bert."
 					}
-				},
+				}
 			}
 		},
 		[29] = {
@@ -3892,7 +3826,7 @@ if not Quests then
 						[1] = "Rashid has declare you as one of his recognized traders, \z
 						and now you are able to trade with him anytime.."
 					}
-				},
+				}
 			}
 		},
 		[30] = {
@@ -3949,7 +3883,7 @@ if not Quests then
 					endvalue = 1,
 					description = "You broke all the seals."
 				}
-			},
+			}
 		},
 		[31] = {
 			name = "The Ultimate Challenges",
@@ -3985,7 +3919,7 @@ if not Quests then
 						[1] = "You have to defeat all enemies in this mode.",
 						[2] = "You have defeated all enemies in this mode."
 					}
-				},
+				}
 			}
 		},
 		[32] = {
@@ -4012,7 +3946,7 @@ if not Quests then
 						[2] = "You returned Fugio's Diary. \z
 						Costello was very thankful about your help and gave you a blessed ankh as reward."
 					}
-				},
+				}
 			}
 		},
 		[33] = {
@@ -4022,7 +3956,8 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "To Appease the Mighty",
-					storageid = Storage.TibiaTales.ToAppeaseTheMightyQuest, stargtvalue = 0,
+					storageid = Storage.TibiaTales.ToAppeaseTheMightyQuest,
+					stargtvalue = 0,
 					endvalue = 4,
 					states = {
 						[1] = "Kazzan sent you to talk with Ubaid and Umar to offer an appeasement treaty to the Djinn races. \z
@@ -4057,8 +3992,8 @@ if not Quests then
 						\n\nThe Lion's Strength 1/1\nThe Lion's Beauty 1/1\nThe Lion's Tears 0/1",
 						[4] = "You have passed the three tests of Lion's Rock and thus lit the three mystical pyramids. You may enter\z
 						 the inner sanctum now. - What other secrets could be hidden down there?",
-						[5] = 'You found a mysterious scroll in the debris of an old amphora. It seems it could help to translate the\z
-						 old temple inscriptions.',
+						[5] = "You found a mysterious scroll in the debris of an old amphora. It seems it could help to translate the\z
+						 old temple inscriptions.",
 						[6] = function(player)
 							return string.format(
 								"lions' enemies in this area of the temple. What could be the resolution?\z
@@ -4099,7 +4034,7 @@ if not Quests then
 					}
 				},
 				[4] = {
-					name = 'Against the Spider Cult',
+					name = "Against the Spider Cult",
 					storageid = Storage.TibiaTales.AgainstTheSpiderCult,
 					startvalue = 1,
 					endvalue = 6,
@@ -4132,10 +4067,11 @@ if not Quests then
 					storageid = Storage.TibiaTales.RestInHallowedGround.HolyWater,
 					startvalue = 1,
 					endvalue = 15,
-					description =
-					function(player)
-						return string.format("You sanctified %d of 15 graves.",
-						(math.max(player:getStorageValue(Storage.TibiaTales.RestInHallowedGround.HolyWater), 0)))
+					description = function(player)
+						return string.format(
+							"You sanctified %d of 15 graves.",
+							(math.max(player:getStorageValue(Storage.TibiaTales.RestInHallowedGround.HolyWater), 0))
+						)
 					end
 				},
 				[6] = {
@@ -4189,6 +4125,38 @@ if not Quests then
 						[3] = "You have completed The Ultimate Booze Quest!"
 					}
 				},
+				[10] = {
+					name = "Jack to the Future",
+					storageid = Storage.TibiaTales.JackFutureQuest.QuestLine,
+					startvalue = 1,
+					endvalue = 11,
+					states = {
+						[1] = "Spectulus told you about a failed experiment he once did, involving an intern \z
+						named Jack, and asked you to help him rescue Jack. Go to Jack's house and talk to him \z
+						about Spectulus.",
+						[2] = "You have talked to Jack and found out that he is not remembering the time \z
+						accident or Spectulus. Return to Spectulus in the Edron Academy to tell him about \z
+						your findings.",
+						[3] = "Spectulus wants you to trigger Jack's memory. Jack used to like his red cushioned \z
+						chair, an old globe, a telescope, a large amphora and a rocking horse. Place those in his \z
+						room and ask him about it.",
+						[4] = "You have talked to Jack about the furniture you placed in his house. Report it back \z
+						to Spectulus in the Edron Academy.",
+						[5] = "Spectulus sent you once again to his former intern Jack. Explain the incident to the \z
+						people close to him. Talk to Jack's mother and sister and return to Spectulus to report their reaction.",
+						[6] = "You have talked with Jack's mother and sister. Report it back to Spectulus.",
+						[7] = "Spectulus suggested asking Jack abouthis hobbies. Make Jack leave his hobby be by whateber \z
+						means it takes. Only by doing this he will be separated from what distracts him from his former self.",
+						[8] = "You found out and destroyed Jack's hobby. Jack is now finally ready and beginning to change. \z
+						He event seems to start remembering Spectulus and the Academy.",
+						[9] = "Jack is finally remembering Spectulus and the Academy. Report back your mission.",
+						[10] = "Spectulus found out that you were convincing the wrong Jack. His real intern was transported \z
+						way back to the past. He left a note years ago which, to your misery, reached Spectulus a little too late.",
+						[11] = function(player)
+							return string.format("%s", getJackLastMissionState(player))
+						end
+					}
+				}
 			}
 		},
 		[34] = {
@@ -4286,7 +4254,7 @@ if not Quests then
 						[2] = "Bring Lazaran a Pot of brown water for a party after the great hunt.",
 						[3] = "You brought Lazaran the beer and got a Serpent Crest as reward!"
 					}
-				},
+				}
 			}
 		},
 		[35] = {
@@ -4434,7 +4402,7 @@ if not Quests then
 					states = {
 						[4] = "Now that you have a basic outfit, you should talk to Bozo about your missions to gain further rewards."
 					}
-				},
+				}
 			}
 		},
 		[36] = {
@@ -4514,11 +4482,12 @@ if not Quests then
 					storageid = Storage.WrathoftheEmperor.Mission06,
 					startvalue = 0,
 					endvalue = 4,
-					description =
-					function(player)
-						return string.format("Explore the area where Zlak is to find Lizard Magistratus and kill 4 of them. \z
+					description = function(player)
+						return string.format(
+							"Explore the area where Zlak is to find Lizard Magistratus and kill 4 of them. \z
 						You currently have %d killed. Report back to Zlak if you finished it.",
-						(math.max(player:getStorageValue(Storage.WrathoftheEmperor.Mission06), 0)))
+							(math.max(player:getStorageValue(Storage.WrathoftheEmperor.Mission06), 0))
+						)
 					end
 				},
 				[7] = {
@@ -4526,11 +4495,12 @@ if not Quests then
 					storageid = Storage.WrathoftheEmperor.Mission07,
 					startvalue = 0,
 					endvalue = 6,
-					description =
-					function(player)
-						return string.format("Explore the area where Zlak is to find Lizard Noble and kill 6 of them. \z
+					description = function(player)
+						return string.format(
+							"Explore the area where Zlak is to find Lizard Noble and kill 6 of them. \z
 						You currently have %d killed. Report back to Zlak if you finished it.",
-						(math.max(player:getStorageValue(Storage.WrathoftheEmperor.Mission07), 0)))
+							(math.max(player:getStorageValue(Storage.WrathoftheEmperor.Mission07), 0))
+						)
 					end
 				},
 				[8] = {
@@ -4597,7 +4567,7 @@ if not Quests then
 						[0] = "The Emperor has promised you wealth beyond measure. Go claim it in the ministry.",
 						[1] = "You completed this Quest!"
 					}
-				},
+				}
 			}
 		},
 		[37] = {
@@ -4611,8 +4581,8 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 3000,
 					description = "Five Juicy roots from the outskirts of Rathleton may already help feed the poor. \z
-					Try to find a city official to deliver them to or go to the Rathleton poor house.",
-				},
+					Try to find a city official to deliver them to or go to the Rathleton poor house."
+				}
 			}
 		},
 		[38] = {
@@ -4686,7 +4656,7 @@ if not Quests then
 					states = {
 						[1] = "Description Fault."
 					}
-				},
+				}
 			}
 		},
 		[39] = {
@@ -4699,10 +4669,9 @@ if not Quests then
 					storageid = Storage.FirstDragon.DragonCounter,
 					startvalue = 0,
 					endvalue = 200,
-					description =
-					function(player)
+					description = function(player)
 						return ("You already hunted %d/200 dragons."):format(player:getStorageValue(Storage.FirstDragon.DragonCounter))
-					end,
+					end
 				},
 				[2] = {
 					name = "Treasure",
@@ -4726,8 +4695,8 @@ if not Quests then
 					startvalue = 0,
 					endvalue = 3,
 					description = "Undead dragons aspires for life. \z
-					No better way to see life as it grows around the world, is there?",
-				},
+					No better way to see life as it grows around the world, is there?"
+				}
 			}
 		},
 		[40] = {
@@ -4740,11 +4709,11 @@ if not Quests then
 					storageid = Storage.CultsOfTibia.Minotaurs.jamesfrancisTask,
 					startvalue = 0,
 					endvalue = 50,
-					description =
-					function(player)
+					description = function(player)
 						return ("James asked you to enter the cave for hunting 50 empowered minotaurs. \z
 						Then he will be able to continue his research.\nMinotaurs killed: %d/50"):format(
-						player:getStorageValue(Storage.CultsOfTibia.Minotaurs.jamesfrancisTask))
+							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.jamesfrancisTask)
+						)
 					end
 				},
 				[2] = {
@@ -4805,18 +4774,19 @@ if not Quests then
 						Whatever happened to their leader, only a true Barkless can find out.",
 						[2] = "You survived the sulphur and tar trial. You accepted the stigma of misfortune and vanity. \z
 						The hardest part, however, is yet to come. Give your life to the ice... to become true and purified.",
-						[3] =
-						function(player)
-							return("You survived the Trial. Barkless now have the right to see the cult leader but a \z
+						[3] = function(player)
+							return ("You survived the Trial. Barkless now have the right to see the cult leader but a \z
 							powerful relic is sealing the path.\nBarkless markings broken to reverse the power of the cult object: \z
-							%d of 10"):format(math.max(player:getStorageValue(Storage.CultsOfTibia.Barkless.Objects), 0))
+							%d of 10"):format(
+								math.max(player:getStorageValue(Storage.CultsOfTibia.Barkless.Objects), 0)
+							)
 						end,
 						[4] = "You broke enough Barkless markings to now reverse the seal \z
 						held up by the cult object in the ritual chamber. \z
 						The power you gained feels unnatural and excessive but it seems ther is no other way.",
-						[5] = "Something far more powerful than the beliel of your Barkless brothers \z
+						[5] = 'Something far more powerful than the beliel of your Barkless brothers \z
 						and sisters powered the seal to the leader. Whatever the case - find Leiden, \z
-						or as he's known to his devotees: the \"Penitent\".",
+						or as he\'s known to his devotees: the "Penitent".',
 						[6] = "The Leiden you confronted has strayed far from his own original vision of Barkless. \z
 						What you encountered was more monster than elf and less virtuous than his devotees would have you believe.",
 						[7] = "You returned to Gerimor after putting an end to the mischief of Leyden the Penitent. \z
@@ -4832,11 +4802,11 @@ if not Quests then
 						[1] = "ASD",
 						[2] = "Below a ruin in the vicinity of the outlaw camp east of Thais a strange figure in ragged clothes \z
 						hinted at something weird going on in a cave. He seemed too confused to decide whether to stop you.",
-						[3] =
-						function(player)
-							return("While rubbish, the amulet you equipe emits a strange aura of splendour. \z
+						[3] = function(player)
+							return ("While rubbish, the amulet you equipe emits a strange aura of splendour. \z
 							You feel an urge to fulfill the amulets hunger for especific deaths... \nExorcisms: %d/5 "):format(
-							math.max(player:getStorageValue(Storage.CultsOfTibia.Misguided.Exorcisms), 0))
+								math.max(player:getStorageValue(Storage.CultsOfTibia.Misguided.Exorcisms), 0)
+							)
 						end,
 						[4] = "You defeated the cult leader of Misguided by uncovering the true master to pull his strings \z
 						and freeing this world from its malicious existance. Return to Gerimor to tell him about the victory.",
@@ -4886,17 +4856,18 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] =
-						function(player)
+						[1] = function(player)
 							return ("A remnant cult of Zathroth has formed in a forbidden temple beneath Carlin. \z
-						Find out what's behind this and stop it in time.\nTemporarily vaporised souls:\n%d Decaying\n%d Withering")
-						:format(math.max(player:getStorageValue(18551), 0), math.max(player:getStorageValue(18550), 0))
+						Find out what's behind this and stop it in time.\nTemporarily vaporised souls:\n%d Decaying\n%d Withering"):format(
+								math.max(player:getStorageValue(18551), 0),
+								math.max(player:getStorageValue(18550), 0)
+							)
 						end,
 						[2] = "ASD",
 						[3] = "You returned to Gerimor after encounter with the remnants of Zathroth. On one hand its is \z
 						furtunate that Zathroth indeed wasn't behind all this, but on the other... what is going on there?"
 					}
-				},
+				}
 			}
 		},
 		[41] = {
@@ -4910,12 +4881,15 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] =
-						function(player)
-							return string.format("Destroy makeshift homes of the Lost to force them to fight you! Try making some \z
+						[1] = function(player)
+							return string.format(
+								"Destroy makeshift homes of the Lost to force them to fight you! Try making some \z
 							prisoners in the progress and report back to Klom Stonecutter.\n\nLost Exiles: %d/20\nPrisoners (bonus): \z
-							%d/3"):format(math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles), 0),
-							math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners), 0))
+							%d/3"
+							):format(
+								math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.LostExiles), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Prisoners), 0)
+							)
 						end,
 						[2] = "You drove off the Lost but more are sure to come. Check back with Klom Stonecutter at a later time."
 					}
@@ -4926,11 +4900,12 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] =
-						function(player)
-							return string.format("Klome Stonecutter sent you on a grave mission to exterminate large populaces of \z
+						[1] = function(player)
+							return string.format(
+								"Klome Stonecutter sent you on a grave mission to exterminate large populaces of \z
 							subterranian life. Looks like the dwarves make short work of the deep intruders.\n\nSubterranean organisms: \z
-							%d/50"):format(math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms), 0))
+							%d/50"
+							):format(math.max(player:getStorageValue(Storage.DangerousDepths.Dwarves.Organisms), 0))
 						end,
 						[2] = "You helped Klom defend the outpost by cutting down a number of vermin from deep down below. \z
 						The gnomes don't seem to completely approve of this but everyone appreciates the drop in the enemy's ranks."
@@ -4942,10 +4917,11 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] =
-						function(player)
-							return string.format("Gnomus sent you on a mission to measure the rising heat from below.\n\nLocation A: \z
-							%d/1\nLocation B: %d/1\nLocation C: %d/1\nLocation D: %d/1\nLocation E: %d/1"):format(
+						[1] = function(player)
+							return string.format(
+								"Gnomus sent you on a mission to measure the rising heat from below.\n\nLocation A: \z
+							%d/1\nLocation B: %d/1\nLocation C: %d/1\nLocation D: %d/1\nLocation E: %d/1"
+							):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationA), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationB), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationC), 0),
@@ -4965,12 +4941,13 @@ if not Quests then
 					states = {
 						[1] = "Gnomus sent you to find and rescue the gnome ordnance the outpost is currently waiting for. \z
 						Travel to the east of the cave system and find the old gnome trail where reinforcements will arrive.",
-						[2] =
-						function(player)
-							return string.format("You found the old gnome trail where ordnance for the gnome outpost arrive, escort them \z
-							and their pack animals to safety and return to Gnomus.\n\nRescued gnomes: %d/5\nRescued animals: %d/3"):format(
-							math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.GnomesCount), 0),
-							math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.CrawlersCount), 0)
+						[2] = function(player)
+							return string.format(
+								"You found the old gnome trail where ordnance for the gnome outpost arrive, escort them \z
+							and their pack animals to safety and return to Gnomus.\n\nRescued gnomes: %d/5\nRescued animals: %d/3"
+							):format(
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.GnomesCount), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.CrawlersCount), 0)
 							)
 						end,
 						[3] = "You helped Lardoc Bashsmite fighting back the verminous growth in the northern mineshaft. \z
@@ -4983,11 +4960,12 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] =
-						function(player)
-							return string.format("Chart the area around the deep base for Gnomus. Look for especific landmarks: \z
+						[1] = function(player)
+							return string.format(
+								"Chart the area around the deep base for Gnomus. Look for especific landmarks: \z
 							\n\nOld Gate: %d/1\nThe Gaze: %d/1\nLost Ruin: %d/1\nOutpost: %d/1\nBastion: %d/1\nBroken Tower: \z
-							%d/1"):format(
+							%d/1"
+							):format(
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.OldGate), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.TheGaze), 0),
 								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LostRuin), 0),
@@ -5006,15 +4984,16 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] =
-						function(player)
-							return string.format("You found the mine shaft. Burn all the growth and report back to Lardoc Bashsmite! \z
-							\n\nFirst Room: %d/1\nSecond room: %d/1\nThird room: %d/1\nFourth room: %d/1\nFifth room: %d/1"):format(
-							math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.firstBarrel), 0),
-							math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.secondBarrel), 0),
-							math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.thirdBarrel), 0),
-							math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.fourthBarrel), 0),
-							math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.fifthBarrel), 0)
+						[1] = function(player)
+							return string.format(
+								"You found the mine shaft. Burn all the growth and report back to Lardoc Bashsmite! \z
+							\n\nFirst Room: %d/1\nSecond room: %d/1\nThird room: %d/1\nFourth room: %d/1\nFifth room: %d/1"
+							):format(
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.firstBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.secondBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.thirdBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.fourthBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.fifthBarrel), 0)
 							)
 						end,
 						[2] = "You helped Lardoc Bashsmite fighting back the verminous growth in the northern mineshaft. \z
@@ -5027,18 +5006,17 @@ if not Quests then
 					startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] =
-						function(player)
-							return string.format("Lardoc asked you to follow a plan of the gnomes to stop the deep threat by trying to \z
+						[1] = function(player)
+							return string.format(
+								"Lardoc asked you to follow a plan of the gnomes to stop the deep threat by trying to \z
 							neutralise diremaw spawn with pesticies. Diremaws lay eggs inside corpses of their skin. \z
-							\n\nNeutralised: %d/20"):format(
-								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.DiremawsCount), 0)
-							)
+							\n\nNeutralised: %d/20"
+							):format(math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.DiremawsCount), 0))
 						end,
 						[2] = "You reported back to Lardoc Bashsmite to inform him that the gnome's plan to \z
 						neutralise diremaw corpses seems to work."
 					}
-				},
+				}
 			}
 		},
 		[42] = {
@@ -5058,7 +5036,7 @@ if not Quests then
 						[4] = "STATE 4",
 						[5] = "STATE 5"
 					}
-				},
+				}
 			}
 		},
 		[43] = {
@@ -5071,8 +5049,7 @@ if not Quests then
 					storageid = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton,
 					startvalue = 0,
 					endvalue = 2,
-					description =
-					function(player)
+					description = function(player)
 						return ("You are exploring the Kha'zeel Dragon Lairs. Others obviously found a terrible end here. \z
 						But the dragon hoards might justify the risks. You killed %d/50 dragons and dragon lords."):format(
 							math.max(player:getStorageValue(Storage.AdventurersGuild.GreatDragonHunt.DragonCounter), 0)
@@ -5080,7 +5057,7 @@ if not Quests then
 					end
 				}
 			}
-		},
+		}
 	}
 end
 
@@ -5142,7 +5119,7 @@ function Game.isQuestStorage(key, value, oldValue)
 					local mission = Game.getMission(questId, missionId)
 					if mission then
 						if mission.storageid == key and value >= mission.startvalue and value <= mission.endvalue then
-							return mission.description or oldValue < mission.storageid or oldValue > mission.endvalue;
+							return mission.description or oldValue < mission.storageid or oldValue > mission.endvalue
 						end
 					end
 				end
@@ -5195,8 +5172,10 @@ end
 -- Player functions
 function Player.questIsStarted(self, questId)
 	local quest = Game.getQuest(questId)
-	if quest and self:getStorageValue(quest.startstorageid) ~= -1
-	or self:getStorageValue(quest.startstorageid) >= quest.startstoragevalue then
+	if
+		quest and self:getStorageValue(quest.startstorageid) ~= -1 or
+			self:getStorageValue(quest.startstorageid) >= quest.startstoragevalue
+	 then
 		return true
 	end
 	return false
@@ -5288,7 +5267,6 @@ function Player.sendQuestTracker(self)
 	msg:delete()
 end
 
-
 function Player.sendQuestLog(self)
 	local msg = NetworkMessage()
 	msg:addByte(0xF0)
@@ -5296,7 +5274,7 @@ function Player.sendQuestLog(self)
 	for questId = 1, #Quests do
 		if self:questIsStarted(questId) then
 			msg:addU16(questId)
-			msg:addString(Quests[questId].name .. ""..(self:questIsCompleted(questId) and " (completed)" or ""))
+			msg:addString(Quests[questId].name .. "" .. (self:questIsCompleted(questId) and " (completed)" or ""))
 			msg:addByte(self:questIsCompleted(questId))
 		end
 	end
@@ -5315,7 +5293,7 @@ function Player.sendQuestLine(self, questId)
 		if missions then
 			for missionId = 1, #missions do
 				if self:missionIsStarted(questId, missionId) then
-					if (self:getClient().version >= 1120)then
+					if (self:getClient().version >= 1120) then
 						msg:addU16(questId)
 					end
 					msg:addString(self:getMissionName(questId, missionId))

@@ -183,121 +183,121 @@ UniqueTable = {
 	[24851] = {
 		itemId = 27545,
 		itemPos = Position(32809, 32546, 6),
-		name = 'giant shimmering pearl',
+		name = "giant shimmering pearl",
 		count = 1
 	},
 	[24852] = {
 		itemId = 27545,
 		itemPos = Position(32765, 31019, 9),
-		name = 'gold nugget',
+		name = "gold nugget",
 		count = 2
 	},
 	[24853] = {
 		itemId = 27545,
 		itemPos = Position(32046, 32894, 10),
-		name = 'blue crystal shard',
+		name = "blue crystal shard",
 		count = 1
 	},
 	[24854] = {
 		itemId = 27543,
 		itemPos = Position(32808, 31580, 3),
-		name = 'violet crystal shard',
+		name = "violet crystal shard",
 		count = 1
 	},
 	[24855] = {
 		itemId = 27543,
 		itemPos = Position(33260, 32228, 10),
-		name = 'green crystal splinter',
+		name = "green crystal splinter",
 		count = 2
 	},
 	[24856] = {
 		itemId = 27543,
 		itemPos = Position(33016, 32614, 6),
-		name = 'red gem',
+		name = "red gem",
 		count = 1
 	},
 	[24857] = {
 		itemId = 27543,
 		itemPos = Position(33054, 32393, 10),
-		name = 'onyx chip',
+		name = "onyx chip",
 		count = 3
 	},
 	[24858] = {
 		itemId = 27543,
 		itemPos = Position(32208, 31849, 10),
-		name = 'platinum coin',
+		name = "platinum coin",
 		count = 3
 	},
 	[24859] = {
 		itemId = 27543,
 		itemPos = Position(32024, 32602, 10),
-		name = 'red crystal fragment',
+		name = "red crystal fragment",
 		count = 2
 	},
 	[24860] = {
 		itemId = 27543,
 		itemPos = Position(33224, 31647, 7),
-		name = 'yellow gem',
+		name = "yellow gem",
 		count = 1
 	},
 	[24861] = {
 		itemId = 27543,
 		itemPos = Position(32701, 31458, 5),
-		name = 'talon',
+		name = "talon",
 		count = 3
 	},
 	[24862] = {
 		itemId = 27543,
 		itemPos = Position(32647, 32091, 8),
-		name = 'white pearl',
+		name = "white pearl",
 		count = 2
 	},
 	[24863] = {
 		itemId = 27545,
 		itemPos = Position(32577, 31896, 7),
-		name = 'gold ingot',
+		name = "gold ingot",
 		count = 1
 	},
 	[24864] = {
 		itemId = 27543,
 		itemPos = Position(33676, 31753, 6),
-		name = 'opal',
+		name = "opal",
 		count = 3
 	},
 	[24865] = {
 		itemId = 27545,
 		itemPos = Position(32242, 31390, 5),
-		name = 'small diamond',
+		name = "small diamond",
 		count = 2
 	},
 	[24866] = {
 		itemId = 27543,
 		itemPos = Position(33613, 31811, 9),
-		name = 'green crystal shard',
+		name = "green crystal shard",
 		count = 1
 	},
 	[24867] = {
 		itemId = 27543,
 		itemPos = Position(32873, 32900, 9),
-		name = 'black pearl',
+		name = "black pearl",
 		count = 3
 	},
 	[24868] = {
 		itemId = 27543,
 		itemPos = Position(32171, 32974, 7),
-		name = 'emerald bangle',
+		name = "emerald bangle",
 		count = 1
 	},
 	[24869] = {
 		itemId = 27545,
 		itemPos = Position(32960, 31461, 3),
-		name = 'green gem',
+		name = "green gem",
 		count = 1
 	},
 	[24870] = {
 		itemId = 27543,
 		itemPos = Position(33340, 31411, 7),
-		name = 'giant shimmering pearl',
+		name = "giant shimmering pearl",
 		count = 1
 	},
 	-- Treasure Chests End
@@ -305,19 +305,19 @@ UniqueTable = {
 	[24871] = {
 		itemId = 1746,
 		itemPos = Position(33616, 31015, 13),
-		name = 'porcelain mask',
+		name = "porcelain mask",
 		count = 1
 	},
 	[24872] = {
 		itemId = 27531,
 		itemPos = Position(33617, 31015, 13),
-		name = 'backpack',
+		name = "backpack",
 		count = 1
 	},
 	[24873] = {
 		itemId = 1746,
 		itemPos = Position(33618, 31015, 13),
-		name = 'colourful feathers',
+		name = "colourful feathers",
 		count = 3
 	},
 	-- Final Reward End
@@ -335,7 +335,7 @@ UniqueTable = {
 		range = 10,
 		timer = Storage.FirstDragon.TazhadurTimer,
 		newPos = Position(32015, 32466, 8),
-		bossName = 'Tazhadur',
+		bossName = "Tazhadur",
 		bossPos = Position(32018, 32465, 8)
 	},
 	-- Kalyassa entrance
@@ -347,7 +347,7 @@ UniqueTable = {
 		range = 10,
 		timer = Storage.FirstDragon.KalyassaTimer,
 		newPos = Position(32078, 32456, 8),
-		bossName = 'Kalyassa',
+		bossName = "Kalyassa",
 		bossPos = Position(32079, 32459, 8)
 	},
 	-- Zorvorax entrance
@@ -359,7 +359,7 @@ UniqueTable = {
 		range = 10,
 		timer = Storage.FirstDragon.ZorvoraxTimer,
 		newPos = Position(32008, 32396, 8),
-		bossName = 'Zorvorax',
+		bossName = "Zorvorax",
 		bossPos = Position(32015, 32396, 8)
 	},
 	-- Gelidrazah entrance
@@ -371,7 +371,7 @@ UniqueTable = {
 		range = 10,
 		timer = Storage.FirstDragon.GelidrazahTimer,
 		newPos = Position(32076, 32402, 8),
-		bossName = 'Gelidrazah The Frozen',
+		bossName = "Gelidrazah The Frozen",
 		bossPos = Position(32078, 32400, 8)
 	},
 	-- Tazhadur exit
@@ -421,20 +421,20 @@ UniqueTable = {
 	[24897] = {
 		itemId = 5677,
 		itemPos = Position(31938, 32837, 7),
-		name = 'tortoise egg from Nargor',
+		name = "tortoise egg from Nargor",
 		count = 1
 	},
 	[24906] = {
 		storage = Storage.TheShatteredIsles.TavernMap1,
-		message = 'You have sucessfully read plan A.'
+		message = "You have sucessfully read plan A."
 	},
 	[24907] = {
 		storage = Storage.TheShatteredIsles.TavernMap2,
-		message = 'You have sucessfully read plan B.'
+		message = "You have sucessfully read plan B."
 	},
 	[24908] = {
 		storage = Storage.TheShatteredIsles.TavernMap3,
-		message = 'You have sucessfully read plan C.'
+		message = "You have sucessfully read plan C."
 	},
 	-- Lions Rock
 	[24909] = {
@@ -451,8 +451,8 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 1,
 		needNext = 2,
-		message = 'You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
-		pyramid nearby begins to shine.',
+		message = "You have sacrificed a cobra tongue at an ancient statue. The light in the small \z
+		pyramid nearby begins to shine.",
 		effect = CONST_ME_BLOCKHIT
 	},
 	[24911] = {
@@ -476,8 +476,8 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 3,
 		needNext = 4,
-		message = 'You have purified a sacret pedestal with holy water. You have now passed the last test\z
-		 to enter thge inner sanctum.',
+		message = "You have purified a sacret pedestal with holy water. You have now passed the last test\z
+		 to enter thge inner sanctum.",
 		effect = CONST_ME_LOSEENERGY
 	},
 	[24913] = {
@@ -510,10 +510,10 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 5,
 		needItem = 23836,
-		message1 = 'With the aid of the old scroll you translate the inscriptions on the floor: \z
-		And the mighty lion defeated the jealous snake.',
-		message2 = 'As a sign of victory he tooks its eye, yellow as envy and malevolence, and out \z
-		of a foul creature created a precious treasure.'
+		message1 = "With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the jealous snake.",
+		message2 = "As a sign of victory he tooks its eye, yellow as envy and malevolence, and out \z
+		of a foul creature created a precious treasure."
 	},
 	[24917] = {
 		itemId = 3152,
@@ -522,10 +522,10 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 5,
 		needItem = 23836,
-		message1 = 'With the aid of the old scroll you translate the inscriptions on the floor: \z
-		And the mighty lion defeated the lazy lizard.',
-		message2 = 'As a sign of victory he tooks its egg, blue as sloth and conceit, and out \z
-		of a foul creature created a precious treasure.'
+		message1 = "With the aid of the old scroll you translate the inscriptions on the floor: \z
+		And the mighty lion defeated the lazy lizard.",
+		message2 = "As a sign of victory he tooks its egg, blue as sloth and conceit, and out \z
+		of a foul creature created a precious treasure."
 	},
 	[24918] = {
 		itemId = 3152,
@@ -534,10 +534,10 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 5,
 		needItem = 23836,
-		message1 = 'With the aid of the old scroll you translate the inscriptions on the golden altar: \z
-		And the mighty lion defeated the treacherous scorpion.',
-		message2 = 'As a sign of victory he tooks its poison, violet as deceit and betrayal, and \z
-		created a precious treasure.'
+		message1 = "With the aid of the old scroll you translate the inscriptions on the golden altar: \z
+		And the mighty lion defeated the treacherous scorpion.",
+		message2 = "As a sign of victory he tooks its poison, violet as deceit and betrayal, and \z
+		created a precious treasure."
 	},
 	[24919] = {
 		itemId = 3152,
@@ -546,10 +546,10 @@ UniqueTable = {
 		need = Storage.LionsRock.Progress,
 		needCount = 5,
 		needItem = 23836,
-		message1 = 'With the aid of the old scroll you translate the inscriptions on the golden statue: \z
-		And the mighty lion defeated the greedy hyaena.',
-		message2 = 'As a sign of victory he tooks its blood, red as voracity and lust, and \z
-		created a precious treasure.'
+		message1 = "With the aid of the old scroll you translate the inscriptions on the golden statue: \z
+		And the mighty lion defeated the greedy hyaena.",
+		message2 = "As a sign of victory he tooks its blood, red as voracity and lust, and \z
+		created a precious treasure."
 	},
 	[24920] = {
 		itemId = 23812,
@@ -558,7 +558,7 @@ UniqueTable = {
 		needCount = 9,
 		needItem = 2147,
 		fieldId = 1492,
-		message = 'You place the ruby on the small socket. A red flame begins to burn.',
+		message = "You place the ruby on the small socket. A red flame begins to burn.",
 		effect = CONST_ME_MAGIC_RED
 	},
 	[24921] = {
@@ -568,7 +568,7 @@ UniqueTable = {
 		needCount = 9,
 		needItem = 2146,
 		fieldId = 24618,
-		message = 'You place the sapphire on the small socket. A blue flame begins to burn.',
+		message = "You place the sapphire on the small socket. A blue flame begins to burn.",
 		effect = CONST_ME_MAGIC_BLUE
 	},
 	[24922] = {
@@ -578,7 +578,7 @@ UniqueTable = {
 		needCount = 9,
 		needItem = 2150,
 		fieldId = 7465,
-		message = 'You place the amethyst on the small socket. A violet flame begins to burn.',
+		message = "You place the amethyst on the small socket. A violet flame begins to burn.",
 		effect = CONST_ME_PURPLESMOKE
 	},
 	[24923] = {
@@ -588,7 +588,7 @@ UniqueTable = {
 		needCount = 9,
 		needItem = 9970,
 		fieldId = 1500,
-		message = 'You place the topaz on the small socket. A yellow flame begins to burn.',
+		message = "You place the topaz on the small socket. A yellow flame begins to burn.",
 		effect = CONST_ME_BLOCKHIT
 	},
 	-- Insectoid cell
@@ -704,6 +704,14 @@ UniqueTable = {
 		value = 4,
 		chance = 30,
 		addItem = 10614,
-		say = '*crush*'
+		say = "*crush*"
+	},
+	[25019] = {
+		itemId = 3706,
+		itemPos = Position(33277, 31754, 7),
+		storage = Storage.TibiaTales.JackFutureQuest.Statue,
+		value = 1,
+		setStorage = Storage.TibiaTales.JackFutureQuest.QuestLine,
+		addItem = 11343
 	}
 }
