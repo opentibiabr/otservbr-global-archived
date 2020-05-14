@@ -16,7 +16,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<script>
-		<event name="healLeiden" />
+		<event name="LeidenHeal" />
     </script>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-400" />
