@@ -2603,7 +2603,7 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
-    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) { 
+    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
         // on newer clients, sending health 0 causes it to show the creature name with an empty healthbar
         return;
     }
@@ -2748,7 +2748,8 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 
 		if (isLogin) {
 			if (const Player* creaturePlayer = creature->getPlayer()) {
-				if (!creaturePlayer->isAccessPlayer() || !creaturePlayer->getAccountType() >= ACCOUNT_TYPE_NORMAL)
+				if (!creaturePlayer->isAccessPlayer() ||
+						creaturePlayer->getAccountType() == ACCOUNT_TYPE_NORMAL)
 					sendMagicEffect(pos, CONST_ME_TELEPORT);
 			} else {
 				sendMagicEffect(pos, CONST_ME_TELEPORT);
@@ -2762,7 +2763,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	msg.addByte(0x17);
 
 	msg.add<uint32_t>(player->getID());
-	msg.add<uint16_t>(0x32); // beat duration (50)
+	msg.add<uint16_t>(0x32);  // beat duration (50)
 
 	msg.addDouble(Creature::speedA, 3);
 	msg.addDouble(Creature::speedB, 3);
