@@ -2744,8 +2744,8 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		uint32_t removedKnown;
 		checkCreatureAsKnown(creature->getID(), known, removedKnown);
 		AddCreature(msg, creature, known, removedKnown);
-		writeToOutputBuffer(msg);		
-		
+		writeToOutputBuffer(msg);
+
 		if (isLogin) {
 			if (const Player* creaturePlayer = creature->getPlayer()) {
 				if (!creaturePlayer->isAccessPlayer() || !creaturePlayer->getAccountType() >= ACCOUNT_TYPE_NORMAL)
