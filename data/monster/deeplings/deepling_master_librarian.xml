@@ -4,7 +4,7 @@
 	<look type="443" corpse="15211" />
 	<targetchange interval="4000" chance="10" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
-	</flags>
+	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -18,7 +18,7 @@
 		<flag runonhealth="250" />
 		<flag canwalkonenergy="0" />
 		<flag canwalkonpoison="0" />
-	</flags>
+		</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-210" />
 		<attack name="ice" interval="2000" chance="10" length="10" spread="3" min="-260" max="-450">

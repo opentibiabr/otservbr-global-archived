@@ -5,7 +5,7 @@
 	<targetchange interval="2000" chance="25" />
 	
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
-	</flags>
+	<flags>
 		<flag rewardboss="1" />
 		<!--<flag preyable="0" />-->
 		<flag summonable="0" />

@@ -4,7 +4,7 @@
 	<look type="947" head="11" body="11" legs="11" feet="11" corpse="27733" />
 	<targetchange interval="5000" chance="0" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
-	</flags>
+	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />

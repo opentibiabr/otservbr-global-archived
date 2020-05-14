@@ -4,7 +4,7 @@
 	<look type="842" head="3" body="16" legs="75" feet="19" addons="2" corpse="13973" />
 	<targetchange interval="4000" chance="10" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
-	</flags>
+	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
