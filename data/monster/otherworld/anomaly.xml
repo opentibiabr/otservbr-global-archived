@@ -4,7 +4,8 @@
 	<look type="876" head="19" body="98" legs="19" feet="79" addons="1" corpse="26220" />
 	<targetchange interval="2000" chance="25" />
 	
-	<targetstrategies nearest="70" health="10" damage="10" random="10" /> 	<flags>
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
+	</flags>
 		<flag rewardboss="1" />
 		<!--<flag preyable="0" />-->
 		<flag summonable="0" />

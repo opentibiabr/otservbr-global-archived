@@ -3,7 +3,8 @@
 	<health now="25500" max="25500" />
 	<look type="681" />
 		<targetchange interval="5000" chance="8" />
-		<targetstrategies nearest="70" health="10" damage="10" random="10" /> 	<flags>
+		<targetstrategies nearest="70" health="10" damage="10" random="10" />
+	</flags>
 			<flag summonable="0" />
 			<flag attackable="1" />
 			<flag hostile="1" />
@@ -18,7 +19,7 @@
 			<flag canwalkonenergy="1" />
 			<flag canwalkonfire="1" />
 			<flag canwalkonpoison="1" />
-		</flags>
+	</flags>
 		<script>
 			<event name="TentacleDeep" />
 		</script>

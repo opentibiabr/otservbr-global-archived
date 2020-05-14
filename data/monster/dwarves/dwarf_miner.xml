@@ -3,7 +3,7 @@
 	<health now="120" max="120" />
 	<look type="160" head="77" body="101" legs="97" feet="115" corpse="6007" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
-	<flags>
+	</flags>
 		<flag summonable="1" />
 		<flag attackable="1" />
 		<flag hostile="1" />

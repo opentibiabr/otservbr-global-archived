@@ -3,7 +3,8 @@
 	<health now="22" max="22" />
 	<look type="1029" corpse="30752" />
 	<targetchange interval="4000" chance="10" />
-	<targetstrategies nearest="70" health="10" damage="10" random="10" /> 	<flags>
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
+	</flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />

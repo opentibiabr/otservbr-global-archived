@@ -3,7 +3,8 @@
 	<health now="275" max="275" />
 	<look type="265" corpse="7330" />
 	<targetchange interval="4000" chance="10" />
-	<targetstrategies nearest="70" health="0" damage="30" random="0" /> 	<flags>
+	<targetstrategies nearest="70" health="0" damage="30" random="0" />
+	</flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -43,7 +44,7 @@
 	<voices interval="5000" chance="10">
 		<voice sentence="Ymirs Mjalle!" />
 		<voice sentence="No run so much, must stay fat!" />
-		<voice sentence="Hörre Sjan Flan!" />
+		<voice sentence="Hï¿½rre Sjan Flan!" />
 		<voice sentence="Damned fast food." />
 		<voice sentence="Come kiss the cook!" />
 	</voices>

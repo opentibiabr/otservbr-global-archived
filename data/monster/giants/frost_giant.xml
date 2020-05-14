@@ -3,7 +3,8 @@
 	<health now="270" max="270" />
 	<look type="257" corpse="7330" />
 	<targetchange interval="4000" chance="10" />
-	<targetstrategies nearest="70" health="0" damage="30" random="0" /> 	<flags>
+	<targetstrategies nearest="70" health="0" damage="30" random="0" />
+	</flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -38,8 +39,8 @@
 		<voice sentence="Hmm Humansoup!" />
 		<voice sentence="Stand still ya tasy snack!" />
 		<voice sentence="Joh Thun!" />
-		<voice sentence="Bröre Smöde!" />
-		<voice sentence="Hörre Sjan Flan!" />
+		<voice sentence="Brï¿½re Smï¿½de!" />
+		<voice sentence="Hï¿½rre Sjan Flan!" />
 		<voice sentence="Forle Bramma" />
 	</voices>
 	<loot>
