@@ -238,7 +238,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 			}
 		}
 
-		if (displayEffect && player->getHealth() > 0) {
+		if (displayEffect && player->getHealth() > 0 && !player->isInGhostMode()) {
 			g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
 		}
 	}
@@ -2744,10 +2744,15 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		uint32_t removedKnown;
 		checkCreatureAsKnown(creature->getID(), known, removedKnown);
 		AddCreature(msg, creature, known, removedKnown);
-		writeToOutputBuffer(msg);
-
+		writeToOutputBuffer(msg);		
+		
 		if (isLogin) {
-			sendMagicEffect(pos, CONST_ME_TELEPORT);
+			if (const Player* creaturePlayer = creature->getPlayer()) {
+				if (!creaturePlayer->isAccessPlayer() || !creaturePlayer->getAccountType() >= ACCOUNT_TYPE_NORMAL)
+					sendMagicEffect(pos, CONST_ME_TELEPORT);
+			} else {
+				sendMagicEffect(pos, CONST_ME_TELEPORT);
+			}
 		}
 
 		return;
