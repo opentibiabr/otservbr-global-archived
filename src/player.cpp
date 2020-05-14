@@ -3580,6 +3580,8 @@ void Player::onAttackedCreature(Creature* target)
 			pzLocked = true;
 			sendIcons();
 		}
+		
+		targetPlayer->addInFightTicks();
 
 		if (getSkull() == SKULL_NONE && getSkullClient(targetPlayer) == SKULL_YELLOW) {
 			addAttacked(targetPlayer);
@@ -3589,8 +3591,6 @@ void Player::onAttackedCreature(Creature* target)
 				pzLocked = true;
 				sendIcons();
 			}
-			
-			targetPlayer->addInFightTicks();
 
 			if (!Combat::isInPvpZone(this, targetPlayer) && !isInWar(targetPlayer)) {
 				addAttacked(targetPlayer);
