@@ -69,7 +69,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_male.png" },
 			name = "Hireling (male)",
-			price = 5,
+			price = 150,
 			id = 28799,
 			count = 1,
 			number = 1,
@@ -80,7 +80,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_female.png" },
 			name = "Hireling (female)",
-			price = 5,
+			price = 150,
 			id = 28798,
 			count = 1,
 			number = 1,
@@ -91,7 +91,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_namechange.png" },
 			name = "Hireling Name Change",
-			price = 5,
+			price = 250,
 			id = 28797,
 			count = 1,
 			number = 1,
@@ -101,7 +101,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_sexchange.png" },
 			name = "Hireling Sex Change",
-			price = 5,
+			price = 120,
 			id = 28796,
 			count = 1,
 			number = 1,
@@ -111,7 +111,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_skill_cooking.png" },
 			name = "Hireling Skill (Cooking)",
-			price = 5,
+			price = 900,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.COOKING,
 			count = 1,
 			number = 1,
@@ -121,7 +121,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_skill_trader.png" },
 			name = "Hireling Skill (Trader)",
-			price = 5,
+			price = 250,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.TRADER,
 			count = 1,
 			number = 1,
@@ -131,7 +131,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_skill_steward.png" },
 			name = "Hireling Skill (Steward)",
-			price = 5,
+			price = 250,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.STEWARD,
 			count = 1,
 			number = 1,
@@ -141,7 +141,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_skill_banker.png" },
 			name = "Hireling Skill (Banker)",
-			price = 5,
+			price = 250,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.BANKER,
 			count = 1,
 			number = 1,
@@ -161,7 +161,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_banker.png" },
 			name = "Hireling Banker Dress",
-			price = 5,
+			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.BANKER,
 			count = 1,
 			number = 1,
@@ -171,7 +171,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_trader.png" },
 			name = "Hireling Trader Dress",
-			price = 5,
+			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.TRADER,
 			count = 1,
 			number = 1,
@@ -181,7 +181,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_cooking.png" },
 			name = "Hireling Cook Dress",
-			price = 5,
+			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.COOKING,
 			count = 1,
 			number = 1,
@@ -191,7 +191,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_steward.png" },
 			name = "Hireling Steward Dress",
-			price = 5,
+			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.STEWARD,
 			count = 1,
 			number = 1,
@@ -201,7 +201,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_servant.png" },
 			name = "Hireling Servant Dress",
-			price = 5,
+			price = 300,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.SERVANT,
 			count = 1,
 			number = 1,
@@ -211,7 +211,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_hydra.png" },
 			name = "Hireling Hydra Dress",
-			price = 5,
+			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.HYDRA,
 			count = 1,
 			number = 1,
@@ -221,7 +221,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_ferumbras.png" },
 			name = "Hireling Ferumbras Dress",
-			price = 5,
+			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.FERUMBRAS,
 			count = 1,
 			number = 1,
@@ -231,7 +231,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_bonelord.png" },
 			name = "Hireling Bonelord Dress",
-			price = 5,
+			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.BONELORD,
 			count = 1,
 			number = 1,
@@ -241,7 +241,7 @@ GameStore.Categories = {
 		{
 			icons = { "hireling_outfit_dragon.png" },
 			name = "Hireling Dragon Dress",
-			price = 5,
+			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.DRAGON,
 			count = 1,
 			number = 1,

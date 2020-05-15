@@ -1414,6 +1414,9 @@ function GameStore.processHirelingPurchase(player, offer, productType, hirelingN
 		return addPlayerEvent(sendStorePurchaseSuccessful, 650, playerId, message)
 		-- If not, we ask him to do!
 	else
+		if player:getHirelingsCount() >= 10 then
+			return error({code = 1, message = "You cannot have more than 10 hirelings."})
+		end
 		-- TODO: Use the correct dialog (byte 0xDB) on client 1205+
 		-- for compatibility, request name using the change name dialog
 		return addPlayerEvent(sendRequestPurchaseData, 250, playerId, offerId, GameStore.ClientOfferTypes.CLIENT_STORE_OFFER_NAMECHANGE)
