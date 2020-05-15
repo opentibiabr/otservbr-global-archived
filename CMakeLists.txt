@@ -237,6 +237,15 @@ if (Git_FOUND)
     target_include_directories(otbr PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 endif()
 
+# *****************************************************************************
+# Tests
+# *****************************************************************************
+
+option(PACKAGE_TESTS "Build the tests" OFF)
+if(PACKAGE_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
 
 # *****************************************************************************
 # Includes & Libraries
