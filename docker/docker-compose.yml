@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   otserver:
+    container_name: otserver
     build:
       context: ../
       dockerfile: ./docker/Dockerfile.server
@@ -32,6 +33,7 @@ services:
       - db-volume:/var/lib/mysql
   
   otweb:
+    container_name: otwebsite
     image: webdevops/php-nginx:alpine-php7
     restart: unless-stopped
     environment:
@@ -46,6 +48,7 @@ services:
       - otdb
 
   otlogin:
+    container_name: otwebsite_login
     build: 
       context: ./
       dockerfile: ./Dockerfile.login
