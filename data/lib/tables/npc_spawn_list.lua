@@ -961,5 +961,6 @@ mapNpcs = {
 	[960] = {name = "saideh", pos = {x=33844,y=31638,z=7}},
 	[961] = {name = "tarun", pos = {x=32976,y=32715,z=7}},
 	[962] = {name = "nomadnpc", pos = {x=31941,y=31305,z=6}},
-	[963] = {name = "pythius_the_rottennpc", pos = {x=32590,y=31407,z=15}}
+	[963] = {name = "pythius_the_rottennpc", pos = {x=32590,y=31407,z=15}},
+	[964] = {name = "iwar", pos = {x=32618,y=31917,z=8}}
 }
