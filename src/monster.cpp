@@ -854,7 +854,7 @@ void Monster::doAttacking(uint32_t interval)
 			break;
 		}
 		
-		if(it->isMelee && isFleeing()){
+		if(spellBlock.isMelee && isFleeing()){
 			continue;
 		}
 
