@@ -272,7 +272,7 @@ local cutItems = {
 }
 
 function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
-	if not target or type(target) ~= "userdata" or not target:isItem() then
+	if not target or target == nil or type(target) ~= "userdata" or not target:isItem() then
 		return false
 	end
 
@@ -293,12 +293,8 @@ function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
-	if math.random(7) == 1 then
-		local itemDestroy = Game.createItem(destroyId, 1, toPosition)
-		if itemDestroy ~= nil then
-			itemDestroy:decay()
-		end
-
+	local watt = ItemType(item.itemid):getAttack()	
+	if math.random(1, 80) <= (watt and watt > 10 and watt or 10) then
 		-- Against The Spider Cult (Spider Eggs)
 		if targetId == 7585 then
 			local eggStorage = player:getStorageValue(Storage.TibiaTales.AgainstTheSpiderCult)
@@ -318,10 +314,25 @@ function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
 				end
 			end
 		end
+		
+		-- Being better than cipsoft
+		if target:getFluidType() ~= 0 then
+			local fluid = Game.createItem(2016, target:getFluidType(), toPosition)
+			if fluid ~= nil then
+				fluid:decay()
+			end
+		end
+		
+		target:remove(1)
+		
+		local itemDestroy = Game.createItem(destroyId, 1, toPosition)
+		if itemDestroy ~= nil then
+			itemDestroy:decay()
+		end
+		
 		if targetId == 29087 or targetId == 29088 then -- energy barrier na threatned dreams quest (feyrist)
 			addEvent(Game.createItem, math.random(13000, 17000), targetId, 1, toPosition)
-		end
-		target:remove(1)
+		end		
 	end
 
 	toPosition:sendMagicEffect(CONST_ME_POFF)
