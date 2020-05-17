@@ -1,0 +1,210 @@
+/**
+ * Open Tibia Server - a free and open-source MMORPG server emulator
+ * Copyright (C) 2020 Open Tibia Community
+ */
+
+#ifndef SRC_ACCOUNT_HPP_
+#define SRC_ACCOUNT_HPP_
+
+#include <string>
+#include <vector>
+#include <limits.h>
+
+#include "database.h"
+#include "databasetasks.h"
+#include "definitions.h"
+
+namespace account {
+
+enum Errors {
+  ERROR_NULLPTR = INT_MIN,
+  ERROR_DB,
+  ERROR_INVALID_ID,
+  ERROR_INVALID_NAME,
+  ERROR_NOT_INITIALIZED,
+  ERROR_INVALID_ACC_TYPE,
+  ERROR_INVALID_PASSWORD,
+  ERROR_INVALID_NUMBER_OF_DAYS,
+  ERROR_LOADING_ACCOUNT_PLAYERS,
+  ERROR_NO = 0
+};
+
+enum AccountType : uint8_t {
+  ACCOUNT_TYPE_NORMAL = 1,
+  ACCOUNT_TYPE_TUTOR = 2,
+  ACCOUNT_TYPE_SENIORTUTOR = 3,
+  ACCOUNT_TYPE_GAMEMASTER = 4,
+  ACCOUNT_TYPE_GOD = 5
+};
+
+typedef struct {
+  std::string name;
+  uint64_t deletion;
+} Player;
+
+/**
+ * @brief Account class to handle account information
+ *
+ */
+class Account {
+ public:
+  /**
+   * @brief Construct a new Account object
+   *
+   */
+  Account();
+
+  /**
+   * @brief Construct a new Account object
+   *
+   * @param id Set Account ID to be used by LoadAccountDB
+   */
+  explicit Account(uint32_t id);
+
+  /**
+   * @brief Construct a new Account object
+   *
+   * @param name Set Account Name to be used by LoadAccountDB
+   */
+  explicit Account(std::string name);
+
+  /***************************************************************************
+   * Interfaces
+   **************************************************************************/
+
+  /**
+   * @brief Set the Database Interface used to get and set information from
+   * the database
+   *
+   * @param database Database Interface pointer to be used
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t SetDatabaseInterface(Database *database);
+
+  /**
+   * @brief Set the Database Tasks Interface used to schedule db update
+   *
+   * @param database Database Interface pointer to be used
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t SetDatabaseTasksInterface(DatabaseTasks *db_tasks);
+
+
+  /***************************************************************************
+   * Coins Methods
+   **************************************************************************/
+
+  /**
+   * @brief Get the amount of coins that the account has from database.
+   *
+   * @param accountId Account ID to get the coins.
+   * @param coins Pointer to return the number of coins
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t GetCoins(uint32_t *coins);
+
+  /**
+   * @brief Add coins to the account and update database.
+   *
+   * @param amount Amount of coins to be added
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t AddCoins(int32_t amount);
+
+  /**
+   * @brief Removes coins from the account and update database.
+   *
+   * @param amount Amount of coins to be removed
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t RemoveCoins(int32_t amount);
+
+  /**
+   * @brief Register all the transactions of coins in database.
+   *
+   * @param coins Number of coins of the transaction
+   * @param description Description of transaction
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t RegisterCoinsTransaction(int32_t coins,
+                                  const std::string &description);
+
+
+  /***************************************************************************
+   * Database
+   **************************************************************************/
+
+  /**
+   * @brief Try to load account from DB using Account ID or Name if they were
+   * initialized.
+   *
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t LoadAccountDB();
+
+  /**
+   * @brief Try to
+   *
+   * @param name
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t LoadAccountDB(std::string name);
+
+  /**
+   * @brief
+   *
+   * @param id
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t LoadAccountDB(uint32_t id);
+
+  /**
+   * @brief
+   *
+   * @return error_t ERROR_NO(0) Success, otherwise Fail.
+   */
+  error_t SaveAccountDB();
+
+
+  /***************************************************************************
+   * Setters and Getters
+   **************************************************************************/
+
+  error_t GetID(uint32_t *id);
+
+  error_t SetName(std::string  name);
+  error_t GetName(std::string *name);
+
+  error_t SetPassword(std::string  password);
+  error_t GetPassword(std::string *password);
+
+  error_t SetRemaningDays(uint32_t  days);
+  error_t GetRemaningDays(uint32_t *days);
+
+  error_t SetPremiumLastDay(time_t  last_day);
+  error_t GetPremiumLastDay(time_t *last_day);
+
+  error_t SetAccountType(AccountType  account_type);
+  error_t GetAccountType(AccountType *account_type);
+
+  error_t GetAccountPlayers(std::vector<Player> *players);
+
+ private:
+  error_t SetID(uint32_t id);
+  error_t LoadAccountDB(std::ostringstream &query);
+  error_t LoadAccountPlayersDB(std::vector<Player> *players);
+
+  Database *db_;
+  DatabaseTasks *db_tasks_;
+
+  uint32_t id_;
+  std::string name_;
+  std::string password_;
+  uint32_t premium_remaining_days_;
+  time_t premium_last_day_;
+  AccountType account_type_;
+};
+
+}  // namespace account
+
+#endif  // SRC_ACCOUNT_HPP_

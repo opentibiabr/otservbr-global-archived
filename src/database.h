@@ -21,8 +21,11 @@
 #define FS_DATABASE_H_A484B0CDFDE542838F506DCE3D40C693
 
 #include <boost/lexical_cast.hpp>
-
 #include <mysql/mysql.h>
+#include <memory>
+#include <mutex>
+#include <map>
+#include <iostream>
 
 class DBResult;
 using DBResult_ptr = std::shared_ptr<DBResult>;
