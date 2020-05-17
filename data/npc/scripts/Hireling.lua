@@ -11,7 +11,7 @@ local transfer = {} -- for banking
 
 function onCreatureAppear(cid)
 	npcHandler:onCreatureAppear(cid)
-	
+
 	if not hireling then
 		local creature = Creature(cid)
 		local position = creature:getPosition()
@@ -56,7 +56,7 @@ local GREETINGS = {
 	STASH = "Of course, here is your stash! Well-maintained and neatly sorted for your convenience!"
 }
 
-local function setTopic(cid, topic) 
+local function setTopic(cid, topic)
 	npcHandler.topic[cid] = topic
 end
 
@@ -104,14 +104,14 @@ local function getHirelingServiceString(cid)
 	return str
 end
 
-local function getTopic(cid) 
+local function getTopic(cid)
 	return npcHandler.topic[cid] and npcHandler.topic[cid] > 0 and npcHandler.topic[cid] or TOPIC.SERVICES
 end
 
 local function sendSkillNotLearned(cid, SKILL)
 	local message = "Sorry, but I do not have mastery in this skill yet."
 	local profession
-	if SKILL == HIRELING_SKILLS.BANKER then 
+	if SKILL == HIRELING_SKILLS.BANKER then
 		profession = "banker"
 	elseif SKILL == HIRELING_SKILLS.COOKING then
 		profession = "cooker"
@@ -119,7 +119,7 @@ local function sendSkillNotLearned(cid, SKILL)
 		profession = "steward"
 	elseif SKILL == HIRELING_SKILLS.TRADER then
 		profession = "trader"
-	end 
+	end
 
 	if profession then
 		message = string.format("I'm not a %s and would not know how to help you with that, sorry. I can start a %s apprenticeship if you buy it for me in the store!", profession, profession)
@@ -778,8 +778,8 @@ local function getGoodsGreetingMessage()
 	if not hireling:hasSkill(HIRELING_SKILLS.TRADER) then
 		str = "While I'm not a trader, I still have a collection of {various} items to sell if you like!"
 	else
-		str = "I sell a {selection} of {various} items, {equipment}, " .. 
-			"{distance} weapons, {wands} and {rods}, {potions}, {runes}, " .. 
+		str = "I sell a {selection} of {various} items, {equipment}, " ..
+			"{distance} weapons, {wands} and {rods}, {potions}, {runes}, " ..
 			"{supplies}, {tools} and {postal} goods. Just ask!"
 	end
 	return str
@@ -787,7 +787,7 @@ end
 
 local function getTable(cid)
 	local topic = getTopic(cid)
-	if topic == TOPIC_GOODS.VARIOUS then 
+	if topic == TOPIC_GOODS.VARIOUS then
 		return HIRELING_GOODS.VARIOUS
 	elseif topic == TOPIC_GOODS.EQUIPMENT then
 		return HIRELING_GOODS.EQUIPMENT
@@ -811,7 +811,7 @@ local function getTable(cid)
 end
 
 local function setNewTradeTable(table)
-	local items, item
+	local items, item = {}
 	for i = 1, #table do
 		item = table[i]
 		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = 0, realName = item.name}
@@ -834,7 +834,7 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 		selfSay("You don't have enough money.", cid)
 	else
 		player:addItem(ittype:getId(), amount)
-		
+
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	end
 	return true
@@ -897,7 +897,7 @@ local function handleGoodsActions(cid, msg)
 		setTopic(cid, TOPIC_GOODS.POSTAL)
 	end
 
-	
+
 	if table.contains(TOPIC_GOODS, getTopic(cid)) then
 		sendTradeWindow(cid)
 	end
@@ -979,7 +979,7 @@ local function handleFoodActions(cid, msg)
 			setTopic(cid, TOPIC.SERVICES)
 			npcHandler:say("Alright then, ask me for other {services}, if you want.", cid)
 		else --invalid word
-			
+
 		end
 	elseif topic == TOPIC_FOOD.SKILL_CHOOSE then
 		if msgcontains(msg, "magic") then
