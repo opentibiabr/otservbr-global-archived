@@ -228,7 +228,7 @@ end
 Blessings.checkBless = function(player)
 	local result, bless = 'Received blessings:'
 	for k, v in pairs(Blessings.All) do
-		result = player:hasBlessing(k) and result .. '\\n' .. v.name or result
+		result = player:hasBlessing(k) and result .. '\n' .. v.name or result
 	end
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 20 > result:len() and 'No blessings received.' or result)
 	return true

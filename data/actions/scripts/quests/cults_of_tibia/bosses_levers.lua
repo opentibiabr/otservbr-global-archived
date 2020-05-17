@@ -337,7 +337,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 			end
 		end
 	kickerPlayerRoomAfferMin(convertTable, frompos, topos, Position(33109, 31887, 15), "You were kicked for exceeding the time limit within the boss room.", '', 60, true, ittable, blockmonsters)
-	Game.createMonster("The Sinister Hermit SUJO", Position(33131, 31925, 15))
+	Game.createMonster("The Sinister Hermit Dirty", Position(33131, 31925, 15))
 	ativarGeyser()
 	end
 end
