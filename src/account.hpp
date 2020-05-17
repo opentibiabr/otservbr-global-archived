@@ -17,15 +17,16 @@
 namespace account {
 
 enum Errors {
-  ERROR_NULLPTR = INT_MIN,
-  ERROR_DB,
+  ERROR_DB = INT_MIN,
+  ERROR_INVALID_ACC_TYPE,
   ERROR_INVALID_ID,
   ERROR_INVALID_NAME,
-  ERROR_NOT_INITIALIZED,
-  ERROR_INVALID_ACC_TYPE,
-  ERROR_INVALID_PASSWORD,
   ERROR_INVALID_NUMBER_OF_DAYS,
+  ERROR_INVALID_PASSWORD,
   ERROR_LOADING_ACCOUNT_PLAYERS,
+  ERROR_NOT_INITIALIZED,
+  ERROR_NULLPTR,
+  ERROR_VALUE_OVERFLOW,
   ERROR_NO = 0
 };
 
@@ -178,8 +179,8 @@ class Account {
   error_t SetPassword(std::string  password);
   error_t GetPassword(std::string *password);
 
-  error_t SetRemaningDays(uint32_t  days);
-  error_t GetRemaningDays(uint32_t *days);
+  error_t SetPremiumRemaningDays(uint32_t  days);
+  error_t GetPremiumRemaningDays(uint32_t *days);
 
   error_t SetPremiumLastDay(time_t  last_day);
   error_t GetPremiumLastDay(time_t *last_day);

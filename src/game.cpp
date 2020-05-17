@@ -5124,7 +5124,7 @@ void Game::updatePremium(account::Account& account)
   time_t timeNow = time(nullptr);
   uint32_t rem_days = 0;
   time_t last_day;
-  account.GetRemaningDays(&rem_days);
+  account.GetPremiumRemaningDays(&rem_days);
   if (rem_days != 0)
   {
     account.GetPremiumLastDay(&last_day);
@@ -5135,11 +5135,11 @@ void Game::updatePremium(account::Account& account)
 			uint32_t days = (timeNow - last_day) / 86400;
 			if (days > 0) {
 				if (days >= rem_days) {
-					if(!account.SetRemaningDays(0) || !account.SetPremiumLastDay(0)) {
+					if(!account.SetPremiumRemaningDays(0) || !account.SetPremiumLastDay(0)) {
             std::cout << "Failed to set account premium days!" << std::endl;
           }
 				} else {
-					account.SetRemaningDays((rem_days - days));
+					account.SetPremiumRemaningDays((rem_days - days));
 					time_t remainder = (timeNow - last_day) % 86400;
 					account.SetPremiumLastDay(timeNow - remainder);
 				}

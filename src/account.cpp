@@ -25,6 +25,7 @@
 #include "otpch.h"
 
 #include <algorithm>
+#include <limits>
 
 namespace account {
 
@@ -96,9 +97,10 @@ error_t Account::GetCoins(uint32_t *coins) {
 
   if (db_ == nullptr || coins == nullptr || id_ == 0) {
       LOG_F(ERROR, "Error account not initialized!");
-      DLOG_F(ERROR, "db_[%s], coins[%s], id_[%s]", db_ == nullptr ? "nullptr": "ok",
-                                          coins == nullptr ? "nullptr": "ok",
-                                          id_ == 0 ? "0": "ok");
+      DLOG_F(ERROR, "db_[%s], coins[%s], id_[%s]",
+                                            db_ == nullptr ? "nullptr": "ok",
+                                            coins == nullptr ? "nullptr": "ok",
+                                            id_ == 0 ? "0": "ok");
       return ERROR_NULLPTR;
   }
 
@@ -125,9 +127,16 @@ error_t Account::AddCoins(int32_t amount) {
       LOG_F(ERROR, "Error database tasks not initialized!");
       return ERROR_NULLPTR;
   }
+  uint32_t current_coins = 0;
+  this->GetCoins(&current_coins);
+
+  if ((current_coins + amount) > std::numeric_limits<uint32_t>::max()) {
+    LOG_F(ERROR, "Overflow variable size!");
+    return ERROR_VALUE_OVERFLOW;
+  }
 
   std::ostringstream query;
-  query << "UPDATE `accounts` SET `coins` = `coins` + " << amount
+  query << "UPDATE `accounts` SET `coins` = "<< (current_coins + amount)
         << " WHERE `id` = " << id_;
   DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
@@ -145,9 +154,17 @@ error_t Account::RemoveCoins(int32_t amount) {
       return ERROR_NULLPTR;
   }
 
+  uint32_t current_coins = 0;
+  this->GetCoins(&current_coins);
+
+  if ((current_coins - amount) < std::numeric_limits<uint32_t>::min()) {
+    LOG_F(ERROR, "Underflow variable size!");
+    return ERROR_VALUE_OVERFLOW;
+  }
+
   std::ostringstream query;
-  query << "UPDATE `accounts` SET `coins` = `coins` - " << amount
-          << " WHERE `id` = " << id_;
+  query << "UPDATE `accounts` SET `coins` = "<< (current_coins - amount)
+        << " WHERE `id` = " << id_;
   DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
   db_tasks_->addTask(query.str());
@@ -228,7 +245,7 @@ error_t Account::LoadAccountDB(std::ostringstream &query) {
   this->SetAccountType(static_cast<AccountType>(
                                           result->getNumber<int32_t>("type")));
   this->SetPassword(result->getString("password"));
-  this->SetRemaningDays(result->getNumber<uint16_t>("premdays"));
+  this->SetPremiumRemaningDays(result->getNumber<uint16_t>("premdays"));
   this->SetPremiumLastDay(result->getNumber<time_t>("lastday"));
 
   return ERROR_NO;
@@ -345,7 +362,7 @@ error_t Account::GetPassword(std::string *password) {
   return ERROR_NO;
 }
 
-error_t Account::SetRemaningDays(uint32_t days) {
+error_t Account::SetPremiumRemaningDays(uint32_t days) {
   if (days < 0) {
     LOG_F(ERROR, "Invalid Remaning Premium Days!", days);
     return ERROR_INVALID_NUMBER_OF_DAYS;
@@ -354,7 +371,7 @@ error_t Account::SetRemaningDays(uint32_t days) {
   return ERROR_NO;
 }
 
-error_t Account::GetRemaningDays(uint32_t *days) {
+error_t Account::GetPremiumRemaningDays(uint32_t *days) {
   if (days == nullptr) {
     LOG_F(ERROR, "Pointer is a nullptr!");
     return ERROR_NULLPTR;

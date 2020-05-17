@@ -322,7 +322,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   if (g_config.getBoolean(ConfigManager::FREE_PREMIUM)) {
     player->premiumDays = std::numeric_limits<uint16_t>::max();
   } else {
-    acc.GetRemaningDays(&(player->premiumDays));
+    acc.GetPremiumRemaningDays(&(player->premiumDays));
   }
 
   acc.GetCoins(&(player->coinBalance));

@@ -112,7 +112,7 @@ void ProtocolLogin::getCharacterList(const std::string& accountName, const std::
 		output->add<uint32_t>(0);
 	} else {
     uint32_t days;
-    account.GetRemaningDays(&days);
+    account.GetPremiumRemaningDays(&days);
     output->addByte(0);
     output->add<uint32_t>(time(nullptr) + (days * 86400));
   }
