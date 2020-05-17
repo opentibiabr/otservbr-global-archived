@@ -1284,7 +1284,7 @@ bool Monster::getDanceStep(const Position& creaturePos, Direction& moveDirection
 	uint32_t centerToDist = std::max<uint32_t>(distance_x, distance_y);
 	
 	//monsters not at targetDistance shouldn't dancestep
-	if (centerToDist < mType->info.targetDistance) {
+	if (centerToDist < (uint32_t) mType->info.targetDistance) {
 		return false;
 	}
 
