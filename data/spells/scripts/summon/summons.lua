@@ -41,7 +41,7 @@ function onCastSpell(player, variant)
     end
 
     player:addSummon(mySummon)
-    mySummon:registerEvent('petdeath')
+    mySummon:registerEvent('SummonDeath')
 
     local deltaSpeed = math.max(player:getBaseSpeed() - mySummon:getBaseSpeed(), 0)
     mySummon:changeSpeed(deltaSpeed)
