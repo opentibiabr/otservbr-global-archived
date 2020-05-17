@@ -34,7 +34,8 @@ if(CCACHE_PROGRAM)
     set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
 endif()
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
+# Make will print more details
+set(CMAKE_VERBOSE_MAKEFILE OFF)
 
 # *****************************************************************************
 # Project OTBR
