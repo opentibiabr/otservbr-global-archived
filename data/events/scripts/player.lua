@@ -84,7 +84,7 @@ local function getTimeinWords(secs)
 		timeStr = timeStr .. ' hours '
 	end
 
-	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. 'seconds.'
+	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. ' seconds.'
 
 	return timeStr
 end
