@@ -508,11 +508,11 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 
 				if (++it != resultList.end()) {
 					const Position& targetPosition = target->getPosition();
-					int32_t minRange = Position::getDistanceX(myPos, targetPosition) + Position::getDistanceY(myPos, targetPosition);
+					int32_t minRange = std::max<int32_t>(Position::getDistanceX(myPos, targetPosition), Position::getDistanceY(myPos, targetPosition));
 					do {
 						const Position& pos = (*it)->getPosition();
 
-						int32_t distance = Position::getDistanceX(myPos, pos) + Position::getDistanceY(myPos, pos);
+						int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
 						if (distance < minRange) {
 							target = *it;
 							minRange = distance;
@@ -527,7 +527,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 					}
 
 					const Position& pos = creature->getPosition();
-					int32_t distance = Position::getDistanceX(myPos, pos) + Position::getDistanceY(myPos, pos);
+					int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
 					if (distance < minRange) {
 						target = creature;
 						minRange = distance;
