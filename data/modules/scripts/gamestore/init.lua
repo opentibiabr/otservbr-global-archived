@@ -944,6 +944,12 @@ GameStore.canUseHirelingName = function(name)
 		return result
 	end
 
+	local matchthree = name:match("[^a-zA-Z ]")
+	if (matchthree) then
+		result.reason = "The hireling name has invalid characters"
+		return result
+	end
+
 	if (count > 1) then
 		result.reason = "The hireling name have more than 1 whitespace."
 		return result
@@ -969,18 +975,6 @@ GameStore.canUseHirelingName = function(name)
 		end
 	end
 
-	
-	local letters = "{}|_*+-=<>0123456789@#%^&()/*'\\.,:;~!\"$"
-	for i = 1, letters:len() do
-		local c = letters:sub(i, i)
-		for i = 1, name:len() do
-			local m = name:sub(i, i)
-			if m == c then
-				result.reason = "You can't use this letter \"" .. c .. "\" in your hireling name."
-				return result
-			end
-		end
-	end
 	result.ability = true
 	return result
 end
