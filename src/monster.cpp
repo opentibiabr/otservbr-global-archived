@@ -488,20 +488,46 @@ void Monster::onCreatureLeave(Creature* creature)
 
 bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAULT*/)
 {
+	if (searchType == TARGETSEARCH_DEFAULT) {
+		int32_t rnd = uniform_random(1, 100);
+		
+		searchType = TARGETSEARCH_NEAREST;
+		
+		int32_t sum = this->mType->info.targetStrategiesNearestPercent;
+		if (rnd > sum) {
+			searchType = TARGETSEARCH_HP;
+			sum += this->mType->info.targetStrategiesLowerHPPercent;
+
+			if (rnd > sum) {
+				searchType = TARGETSEARCH_DAMAGE;
+				sum += this->mType->info.targetStrategiesMostDamagePercent;
+				if (rnd > sum) {
+					searchType = TARGETSEARCH_RANDOM;
+				}
+			}
+		}
+	}
+	
 	std::list<Creature*> resultList;
 	const Position& myPos = getPosition();
 
 	for (Creature* creature : targetList) {
-		if (followCreature != creature && isTarget(creature)) {
-			if (searchType == TARGETSEARCH_RANDOM || canUseAttack(myPos, creature)) {
+		if (isTarget(creature)) {
+			if ((this->mType->info.targetDistance == 1) || canUseAttack(myPos, creature)) {
 				resultList.push_back(creature);
 			}
 		}
 	}
-
+	
+	if (resultList.empty()) {
+		return false;
+	}
+	
+	Creature* target = nullptr;
+	
 	switch (searchType) {
 		case TARGETSEARCH_NEAREST: {
-			Creature* target = nullptr;
+			target = nullptr;
 			if (!resultList.empty()) {
 				auto it = resultList.begin();
 				target = *it;
@@ -539,10 +565,51 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 				return true;
 			}
 			break;
-		}
+		}		
+		case TARGETSEARCH_HP: {
+			target = nullptr;
+			if (!resultList.empty()) {
+				auto it = resultList.begin();
+				target = *it;
+				if (++it != resultList.end()) {
+					int32_t minHp = target->getHealth();
+					do {
+						if ((*it)->getHealth() < minHp) {
+							target = *it;
 
-		case TARGETSEARCH_DEFAULT:
-		case TARGETSEARCH_ATTACKRANGE:
+							minHp = target->getHealth();
+						}
+					} while (++it != resultList.end());
+				}
+			}
+			if (target && selectTarget(target)) {
+				return true;
+			}
+			break;
+		}
+		case TARGETSEARCH_DAMAGE: {
+			target = nullptr;
+			if (!resultList.empty()) {
+				auto it = resultList.begin();
+				target = *it;
+				if (++it != resultList.end()) {
+					int32_t mostDamage = 0;
+					do {
+						const auto& dmg = damageMap.find((*it)->getID());
+						if (dmg != damageMap.end()) {
+							if (dmg->second.total > mostDamage) {
+								mostDamage = dmg->second.total;
+								target = *it;
+							}
+						}
+					} while (++it != resultList.end());
+				}
+			}
+			if (target && selectTarget(target)) {
+				return true;
+			}
+			break;
+		}
 		case TARGETSEARCH_RANDOM:
 		default: {
 			if (!resultList.empty()) {
@@ -550,18 +617,13 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 				std::advance(it, uniform_random(0, resultList.size() - 1));
 				return selectTarget(*it);
 			}
-
-			if (searchType == TARGETSEARCH_ATTACKRANGE) {
-				return false;
-			}
-
 			break;
 		}
 	}
 
 	//lets just pick the first target in the list
 	for (Creature* target : targetList) {
-		if (followCreature != target && selectTarget(target)) {
+		if (selectTarget(target)) {
 			return true;
 		}
 	}
@@ -757,10 +819,10 @@ void Monster::onThink(uint32_t interval)
 				}
 			} else if (!targetList.empty()) {
 				if (!followCreature || !hasFollowPath) {
-					searchTarget();
+					searchTarget(TARGETSEARCH_NEAREST);
 				} else if (isFleeing()) {
 					if (attackedCreature && !canUseAttack(getPosition(), attackedCreature)) {
-						searchTarget(TARGETSEARCH_ATTACKRANGE);
+						searchTarget(TARGETSEARCH_DEFAULT);
 					}
 				}
 			}
@@ -790,6 +852,10 @@ void Monster::doAttacking(uint32_t interval)
 
 		if (attackedCreature == nullptr) {
 			break;
+		}
+		
+		if(spellBlock.isMelee && isFleeing()){
+			continue;
 		}
 
 		if (canUseSpell(myPos, targetPos, spellBlock, interval, inRange, resetTicks)) {
@@ -917,11 +983,7 @@ void Monster::onThinkTarget(uint32_t interval)
 					}
 
 					if (mType->info.changeTargetChance >= uniform_random(1, 100)) {
-						if (mType->info.targetDistance <= 1) {
-							searchTarget(TARGETSEARCH_RANDOM);
-						} else {
-							searchTarget(TARGETSEARCH_NEAREST);
-						}
+						searchTarget(TARGETSEARCH_DEFAULT);
 					}
 				}
 			}
@@ -1220,6 +1282,11 @@ bool Monster::getDanceStep(const Position& creaturePos, Direction& moveDirection
 	int_fast32_t distance_y = std::abs(offset_y);
 
 	uint32_t centerToDist = std::max<uint32_t>(distance_x, distance_y);
+	
+	//monsters not at targetDistance shouldn't dancestep
+	if (centerToDist < (uint32_t) mType->info.targetDistance) {
+		return false;
+	}
 
 	std::vector<Direction> dirList;
 

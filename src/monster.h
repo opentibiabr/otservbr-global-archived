@@ -32,9 +32,10 @@ using CreatureList = std::list<Creature*>;
 
 enum TargetSearchType_t {
 	TARGETSEARCH_DEFAULT,
-	TARGETSEARCH_RANDOM,
-	TARGETSEARCH_ATTACKRANGE,
 	TARGETSEARCH_NEAREST,
+	TARGETSEARCH_HP,
+	TARGETSEARCH_DAMAGE,
+	TARGETSEARCH_RANDOM
 };
 
 class Monster final : public Creature
