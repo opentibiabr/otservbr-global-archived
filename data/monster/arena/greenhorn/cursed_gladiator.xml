@@ -2,6 +2,7 @@
 <monster name="Cursed Gladiator" nameDescription="a cursed gladiator" race="undead" experience="215" speed="170">
 	<health now="435" max="435" />
 	<look type="100" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

@@ -2,6 +2,7 @@
 <monster name="Deathbringer" nameDescription="Deathbringer" race="undead" experience="5100" speed="300">
 	<health now="8440" max="8440" />
 	<look type="231" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

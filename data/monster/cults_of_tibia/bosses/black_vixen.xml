@@ -3,6 +3,7 @@
 	<health now="3200" max="3200" />
 	<look type="1038" corpse="32057" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -26,9 +27,9 @@
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="death" interval="1000" chance="14" length="5" spread="0" min="-100" max="-700">
-			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="werewolf" duration="2000"/>
+		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="werewolf" duration="2000" />
 	</attacks>
 	<defenses armor="40" defense="45">
 		<defense name="healing" interval="4000" chance="15" min="150" max="345">

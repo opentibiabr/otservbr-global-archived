@@ -1,66 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Sin Devourer" nameDescription="a sin devourer" experience="500" speed="360" race="undead">
-	<health now="2700" max="2700"/>
-	<look type="320" corpse="0"/>
-	<targetchange speed="10" chance="8"/>
+	<health now="2700" max="2700" />
+	<look type="320" corpse="0" />
+	<targetchange speed="10" chance="8" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="30" poison="80"/>
-		<attack name="nightstalker paralyze" interval="2000" chance="19" range="7"/>
+		<attack name="melee" interval="2000" skill="50" attack="30" poison="80" />
+		<attack name="nightstalker paralyze" interval="2000" chance="19" range="7" />
 		<attack name="lifedrain" interval="2000" chance="12" range="1" target="1" min="-360" max="-470">
-			<attribute key="areaEffect" value="holyarea"/>
+			<attribute key="areaEffect" value="holyarea" />
 		</attack>
 		<attack name="speed" range="6" interval="2000" target="1" chance="40" speedchange="-600" duration="20000">
-			<attribute key="areaEffect" value="icearea"/>
-			<attribute key="shootEffect" value="snowball"/>
+			<attribute key="areaEffect" value="icearea" />
+			<attribute key="shootEffect" value="snowball" />
 		</attack>
 		<attack name="silencer skill reducer" range="4" interval="2000" chance="30">
-			<attribute key="areaEffect" value="poff"/>
+			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="35">
 		<defense name="healing" interval="2000" chance="13" min="60" max="130">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="invisible" interval="2000" chance="10" duration="4000">
-			<attribute key="areaEffect" value="yellowbubble"/>
+			<attribute key="areaEffect" value="yellowbubble" />
 		</defense>
 	</defenses>
 	<elements>
-		<element physicalPercent="40"/>
-		<element energyPercent="40"/>
-		<element deathPercent="40"/>
-		<element icePercent="40"/>
-		<element holyPercent="40"/>
+		<element physicalPercent="40" />
+		<element energyPercent="40" />
+		<element deathPercent="40" />
+		<element icePercent="40" />
+		<element holyPercent="40" />
 	</elements>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity fire="1"/>
-		<immunity death="1"/>
+		<immunity paralyze="1" />
+		<immunity fire="1" />
+		<immunity death="1" />
 	</immunities>
 	<loot>
-		<item id="2804" chance="4830"/><!-- shadow herb -->
-		<item id="2200" chance="850"/><!-- protection amulet -->
-		<item id="2171" chance="120"/><!-- platinum amulet -->
-		<item id="2195" chance="120"/><!-- boots of haste -->
-		<item id="7589" chance="1600"/><!-- strong mana potion -->
-		<item id="2148" countmax="110" chance="89840"/><!-- gold coin -->
-		<item id="7407" chance="320"/><!-- haunted blade -->
-		<item id="7427" chance="120"/><!-- chaos mace -->
-		<item id="9942" chance="130"/><!-- crystal of balance -->
-		<item id="2124" chance="1030"/><!-- crystal ring -->
-		<item id="8870" chance="520"/><!-- spirit cloak -->
+		<item id="2804" chance="4830" /><!-- shadow herb -->
+		<item id="2200" chance="850" /><!-- protection amulet -->
+		<item id="2171" chance="120" /><!-- platinum amulet -->
+		<item id="2195" chance="120" /><!-- boots of haste -->
+		<item id="7589" chance="1600" /><!-- strong mana potion -->
+		<item id="2148" countmax="110" chance="89840" /><!-- gold coin -->
+		<item id="7407" chance="320" /><!-- haunted blade -->
+		<item id="7427" chance="120" /><!-- chaos mace -->
+		<item id="9942" chance="130" /><!-- crystal of balance -->
+		<item id="2124" chance="1030" /><!-- crystal ring -->
+		<item id="8870" chance="520" /><!-- spirit cloak -->
 	</loot>
 </monster>

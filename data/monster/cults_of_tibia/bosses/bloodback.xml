@@ -3,6 +3,7 @@
 	<health now="5200" max="5200" />
 	<look type="1039" corpse="32061" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -19,12 +20,12 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-290" />
-		<attack name="physical" interval="1000" chance="20" range="7" min="-100" max="-420"/>
+		<attack name="physical" interval="1000" chance="20" range="7" min="-100" max="-420" />
 		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-600" duration="20000">
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="death" interval="1000" chance="14" length="5" spread="0" min="-100" max="-200">
-			<attribute key="areaEffect" value="redspark"/>
+			<attribute key="areaEffect" value="redspark" />
 		</attack>
 	</attacks>
 	<defenses armor="40" defense="45">

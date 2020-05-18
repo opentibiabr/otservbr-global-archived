@@ -3,6 +3,7 @@
 	<health now="15000" max="15000" />
 	<look type="1071" head="57" body="75" legs="77" feet="86" corpse="32437" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -26,7 +27,7 @@
 			<attribute key="shootEffect" value="etherealspear" />
 		</attack>
 		<attack name="holy" interval="2000" chance="14" length="8" spread="0" min="-100" max="-1000">
-			<attribute key="areaEffect" value="energy"/>
+			<attribute key="areaEffect" value="energy" />
 		</attack>
 		<attack name="lifedrain" interval="1000" chance="15" range="5" radius="3"   min="-200" max="-700">
 			<attribute key="areaEffect" value="holyarea" />

@@ -3,6 +3,7 @@
 	<health now="25000" max="25000" />
 	<look type="351" corpse="11362" />
 	<targetchange interval="4000" chance="5" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -49,8 +50,8 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item name="silver token" chance="2732"/>
-		<item name="gold token" chance="1530"/>
+		<item name="silver token" chance="2732" />
+		<item name="gold token" chance="1530" />
 		<item name="gold coin" countmax="200" chance="100000" />
 		<item name="platinum coin" countmax="57" chance="29840" />
 		<item name="lightning legs" chance="8723" />

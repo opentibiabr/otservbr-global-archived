@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Shadow Tentacle" nameDescription="a shadow tentacle" race="venom" experience="0" speed="350">
-	<health now="22500" max="22500"/>
-	<look type="681" corpse="26924"/>
-  	<targetchange interval="5000" chance="8"/>
-  	<flags>
+	<health now="22500" max="22500" />
+	<look type="681" corpse="26924" />
+  	<targetchange interval="5000" chance="8" />
+  	<targetstrategies nearest="70" health="10" damage="10" random="10" />
+	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -21,7 +22,7 @@
 	</flags>
   	<attacks>
     		<attack name="melee" interval="2000" skill="88" attack="100" />
-    		<attack name="blightwalker curse" interval="2000" chance="10"/>
+    		<attack name="blightwalker curse" interval="2000" chance="10" />
     		<attack name="lifedrain" interval="2000" chance="14" radius="4" target="0" min="-65" max="-135">
       			<attribute key="areaEffect" value="greenshimmer" />
     		</attack>

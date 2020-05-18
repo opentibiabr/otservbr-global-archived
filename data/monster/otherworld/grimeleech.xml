@@ -1,101 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Grimeleech" nameDescription="a grimeleech" race="undead" experience="6560" speed="340">
-	<health now="9500" max="9500"/>
-	<look type="855" corpse="25436"/>
-  	<targetchange interval="3000" chance="20"/>
-  	<flags>
-    	<flag summonable="0"/>
-    	<flag attackable="1"/>
-    	<flag hostile="1"/>
-    	<flag illusionable="1"/>
-   		<flag convinceable="0"/>
-    	<flag pushable="0"/>
-    	<flag canpushitems="1"/>
-    	<flag canpushcreatures="1"/>
-    	<flag targetdistance="1"/>
-    	<flag staticattack="90"/>
-    	<flag runonhealth="0"/>
-    	<flag canwalkonenergy="0"/>
+	<health now="9500" max="9500" />
+	<look type="855" corpse="25436" />
+  	<targetchange interval="3000" chance="20" />
+  	<targetstrategies nearest="70" health="10" damage="10" random="10" />
+	<flags>
+    	<flag summonable="0" />
+    	<flag attackable="1" />
+    	<flag hostile="1" />
+    	<flag illusionable="1" />
+   		<flag convinceable="0" />
+    	<flag pushable="0" />
+    	<flag canpushitems="1" />
+    	<flag canpushcreatures="1" />
+    	<flag targetdistance="1" />
+    	<flag staticattack="90" />
+    	<flag runonhealth="0" />
+    	<flag canwalkonenergy="0" />
   	</flags>
   	<attacks>
-    		<attack name="melee" interval="2000" skill="70" attack="80"/>
-    		<attack name="melee" interval="2000" chance="2" skill="153" attack="100"/>
+    		<attack name="melee" interval="2000" skill="70" attack="80" />
+    		<attack name="melee" interval="2000" chance="2" skill="153" attack="100" />
     		<attack name="physical" interval="2000" chance="14" range="7" target="1" min="100" max="-565">
-      			<attribute key="shootEffect" value="death"/>
-      			<attribute key="areaEffect" value="mortarea"/>
+      			<attribute key="shootEffect" value="death" />
+      			<attribute key="areaEffect" value="mortarea" />
     		</attack>
     		<attack name="death" interval="2000" chance="12" length="8" spread="0" min="-150" max="-220">
-      			<attribute key="areaEffect" value="redspark"/>
+      			<attribute key="areaEffect" value="redspark" />
     		</attack>
     		<attack name="death" interval="2000" chance="13" radius="4" target="0" min="-225" max="-375">
-      			<attribute key="areaEffect" value="redspark"/>
+      			<attribute key="areaEffect" value="redspark" />
     		</attack>
     		<attack name="physical" interval="2000" chance="9" length="8" spread="3" min="0" max="-300">
-      			<attribute key="areaEffect" value="explosionarea"/>
+      			<attribute key="areaEffect" value="explosionarea" />
     		</attack>
   	</attacks>
   	<defenses armor="30" defense="30">
     		<defense name="healing" interval="2000" chance="16" min="130" max="205">
-      			<attribute key="areaEffect" value="redshimmer"/>
+      			<attribute key="areaEffect" value="redshimmer" />
     		</defense>
     		<defense name="effect" interval="2000" chance="9">
-      			<attribute key="areaEffect" value="greenshimmer"/>
+      			<attribute key="areaEffect" value="greenshimmer" />
     		</defense>
     		<defense name="effect" interval="2000" chance="10">
-      			<attribute key="areaEffect" value="redspark"/>
+      			<attribute key="areaEffect" value="redspark" />
     		</defense>
     		<defense name="speed" interval="2000" chance="12" speedchange="532" duration="4000">
-      			<attribute key="areaEffect" value="redshimmer"/>
+      			<attribute key="areaEffect" value="redshimmer" />
     		</defense>
   	</defenses>
   	<elements>
-    		<element energyPercent="-10"/>
-    		<element earthPercent="40"/>
-    		<element physicalPercent="20"/>
-    		<element icePercent="65"/>
-    		<element holyPercent="-10"/>
-    		<element deathPercent="80"/>
-    		<element firePercent="-10"/>
+    		<element energyPercent="-10" />
+    		<element earthPercent="40" />
+    		<element physicalPercent="20" />
+    		<element icePercent="65" />
+    		<element holyPercent="-10" />
+    		<element deathPercent="80" />
+    		<element firePercent="-10" />
   	</elements>
   	<immunities>
-    		<immunity lifedrain="1"/>
-    		<immunity paralyze="1"/>
-    		<immunity invisible="1"/>
+    		<immunity lifedrain="1" />
+    		<immunity paralyze="1" />
+    		<immunity invisible="1" />
   	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="Death... Taste!" yell="1"/>
+		<voice sentence="Death... Taste!" yell="1" />
 	</voices>
 	<loot>
-		<item name="gold coin" countmax="197" chance="100000"/>
-		<item name="platinum coin" countmax="8" chance="100000"/>
-		<item name="great mana potion" countmax="3" chance="34850"/>
-		<item name="great health potion" countmax="3" chance="34290"/>
-		<item name="great spirit potion" countmax="3" chance="30860"/>
-		<item name="concentrated demonic blood" countmax="3" chance="23400"/>
-		<item name="demonic essence" chance="19240"/>
-		<item name="some grimeleech wings" chance="19080"/>
-		<item name="fire mushroom" countmax="5" chance="15360"/>
-		<item name="green mushroom" countmax="5" chance="14800"/>
-		<item name="small diamond" countmax="5" chance="11290"/>
-		<item name="small ruby" countmax="5" chance="10750"/>
-		<item name="small topaz" countmax="5" chance="9660"/>
-		<item name="small amethyst" countmax="5" chance="9640"/>
-		<item name="underworld rod" chance="6890"/>
-		<item name="wand of voodoo" chance="4810"/>
-		<item name="red gem" chance="3930"/>
-		<item name="yellow gem" chance="2900"/>
-		<item name="devil helmet" chance="1360"/>
-		<item name="magma legs" chance="1150"/>
-		<item name="demon shield" chance="1010"/>
-		<item name="nightmare blade" chance="930"/>
-		<item name="blue gem" chance="780"/>
-		<item name="rift crossbow" chance="720"/>
-		<item name="steel boots" chance="640"/>
-		<item name="rift shield" chance="620"/>
-		<item name="rift lance" chance="580"/>
-		<item name="rift bow" chance="370"/>
-		<item name="abyss hammer" chance="210"/>
-		<item name="vile axe" chance="180"/>
-		<item name="magic plate armor" chance="60"/>
+		<item name="gold coin" countmax="197" chance="100000" />
+		<item name="platinum coin" countmax="8" chance="100000" />
+		<item name="great mana potion" countmax="3" chance="34850" />
+		<item name="great health potion" countmax="3" chance="34290" />
+		<item name="great spirit potion" countmax="3" chance="30860" />
+		<item name="concentrated demonic blood" countmax="3" chance="23400" />
+		<item name="demonic essence" chance="19240" />
+		<item name="some grimeleech wings" chance="19080" />
+		<item name="fire mushroom" countmax="5" chance="15360" />
+		<item name="green mushroom" countmax="5" chance="14800" />
+		<item name="small diamond" countmax="5" chance="11290" />
+		<item name="small ruby" countmax="5" chance="10750" />
+		<item name="small topaz" countmax="5" chance="9660" />
+		<item name="small amethyst" countmax="5" chance="9640" />
+		<item name="underworld rod" chance="6890" />
+		<item name="wand of voodoo" chance="4810" />
+		<item name="red gem" chance="3930" />
+		<item name="yellow gem" chance="2900" />
+		<item name="devil helmet" chance="1360" />
+		<item name="magma legs" chance="1150" />
+		<item name="demon shield" chance="1010" />
+		<item name="nightmare blade" chance="930" />
+		<item name="blue gem" chance="780" />
+		<item name="rift crossbow" chance="720" />
+		<item name="steel boots" chance="640" />
+		<item name="rift shield" chance="620" />
+		<item name="rift lance" chance="580" />
+		<item name="rift bow" chance="370" />
+		<item name="abyss hammer" chance="210" />
+		<item name="vile axe" chance="180" />
+		<item name="magic plate armor" chance="60" />
 	</loot>
 </monster>

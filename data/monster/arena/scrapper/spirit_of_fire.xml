@@ -2,6 +2,7 @@
 <monster name="Spirit of Fire" nameDescription="a spirit of fire" race="blood" experience="950" speed="220">
 	<health now="2210" max="2210" />
 	<look type="242" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

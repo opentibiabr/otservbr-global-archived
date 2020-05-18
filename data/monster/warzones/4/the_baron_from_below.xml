@@ -3,6 +3,7 @@
 	<health now="50000" max="50000" />
 	<look type="1045" corpse="30868" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -35,7 +36,7 @@
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
 		<attack name="earth" interval="2000" chance="15" radius="5" min="0" max="-1000">
-			<attribute key="areaEffect" value="smallplants"/>
+			<attribute key="areaEffect" value="smallplants" />
 		</attack>
 	</attacks>
 	<elements>

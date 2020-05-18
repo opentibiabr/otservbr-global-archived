@@ -3,6 +3,7 @@
 	<health now="100000" max="100000" />
 	<look type="1047" corpse="32008" />
 	<targetchange interval="2000" chance="50" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -47,7 +48,7 @@
 	</immunities>
 	<voices interval="2000" chance="5">
 		<voice sentence="Chhhhhhh!" />
-		<voice sentence="SzzzzSzzz! SzzzzSzzz!"/>
+		<voice sentence="SzzzzSzzz! SzzzzSzzz!" />
 	</voices>
 	<loot>
 		<item id="2148" countmax="198" chance="100000" />		<!-- gold coin -->

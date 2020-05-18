@@ -3,6 +3,7 @@
 	<health now="5000" max="5000" />
 	<look type="1040" corpse="32065" />
 	<targetchange interval="2000" chance="11" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -23,7 +24,7 @@
 		<attack name="physical" interval="100" chance="22" radius="3" min="-200" max="-310">
 			<attribute key="areaEffect" value="explosionarea" />
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebear" duration="2000"/>
+		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebear" duration="2000" />
 		<attack name="lifedrain" interval="100" chance="15" radius="3" target="0" min="-100" max="-200">
 			<attribute key="areaEffect" value="whitenote" />
 		</attack>
@@ -62,7 +63,7 @@
 		<item name="small enchanted sapphire" countmax="2" chance="13600000" />
 		<item name="bear paw" countmax="2" chance="13600000" />
 		<item name="furry club" chance="13600000" />
-		<item id="281" chance="5000"/><!-- giant shimmering pearl -->
+		<item id="281" chance="5000" /><!-- giant shimmering pearl -->
 		<item name="great health potion" countmax="5" chance="13600000" />
 		<item name="honeycomb" countmax="2" chance="13600000" />
 		<item name="spiked squelcher" chance="13600000" />

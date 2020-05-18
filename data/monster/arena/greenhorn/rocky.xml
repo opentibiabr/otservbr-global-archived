@@ -2,6 +2,7 @@
 <monster name="Rocky" nameDescription="Rocky" race="undead" experience="190" speed="170">
 	<health now="390" max="390" />
 	<look type="95" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

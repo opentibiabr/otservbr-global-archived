@@ -3,6 +3,7 @@
 	<health now="1500" max="1500" />
 	<look type="976" corpse="6004" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -16,7 +17,7 @@
 		<flag canwalkonpoison="1" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-300"/>
+		<attack name="melee" interval="2000" min="0" max="-300" />
 		<attack name="earth" interval="2000" chance="20" range="1" target="1" min="-100" max="-150" poison="4">
 			<attribute key="shootEffect" value="earth" />
 			<attribute key="areaEffect" value="carniphila" />
@@ -32,8 +33,8 @@
 	</defense>
 	</defenses>
 	<elements>
-		<element firePercent="-20"/>
-		<element holyPercent="-25"/>
+		<element firePercent="-20" />
+		<element holyPercent="-25" />
 	</elements>
 	<immunities>
 		<immunity earth="1" />

@@ -3,6 +3,7 @@
 	<health now="3300" max="3300" />
 	<look type="1031" corpse="24723" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -26,9 +27,9 @@
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 		<attack name="death" interval="1000" chance="14" length="5" spread="0" min="-100" max="-700">
-			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebadger" duration="2000"/>
+		<attack name="outfit" interval="1000" chance="1" target="1" radius="1" monster="Werebadger" duration="2000" />
 		<attack name="ghastly dragon curse" interval="2000" chance="5" range="1" />
 	</attacks>
 	<defenses armor="40" defense="45">

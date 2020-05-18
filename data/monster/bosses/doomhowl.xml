@@ -2,6 +2,7 @@
 <monster name="Doomhowl" nameDescription="Doomhowl" experience="3750" speed="320" race="blood">
 	<health now="8500" max="8500" />
 	<look type="308" corpse="20607" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

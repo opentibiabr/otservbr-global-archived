@@ -1,69 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Incredibly Old Witch" nameDescription="an incredibly old witch" race="blood" experience="0" speed="180">
-	<health now="100" max="100"/>
-	<look type="54" corpse="6081"/>
-	<targetchange interval="5000" chance="8"/>
+	<health now="100" max="100" />
+	<look type="54" corpse="6081" />
+	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="1"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="100"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="100" />
 	</flags>
 	<attacks>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="rat" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="chicken" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="green frog" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="bug" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="pig" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="kongra" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="dog" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="skunk" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 		<attack name="outfit" interval="4000" chance="12" range="7" target="1" radius="4" monster="donkey" duration="2000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</attack>
 	</attacks>
 		<immunities>
-		<immunity physical="1"/>
-		<immunity energy="1"/>
-		<immunity fire="1"/>
-		<immunity poison="1"/>
-		<immunity ice="1"/>
-		<immunity holy="1"/>
-		<immunity death="1"/>
-		<immunity lifedrain="1"/>
-		<immunity manadrain="1"/>
-		<immunity paralyze="1"/>
-		<immunity drunk="1"/>
-		<immunity invisible="1"/>
+		<immunity physical="1" />
+		<immunity energy="1" />
+		<immunity fire="1" />
+		<immunity poison="1" />
+		<immunity ice="1" />
+		<immunity holy="1" />
+		<immunity death="1" />
+		<immunity lifedrain="1" />
+		<immunity manadrain="1" />
+		<immunity paralyze="1" />
+		<immunity drunk="1" />
+		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="Feel the wrath of the witch!"/>
-		<voice sentence="Oh how you will regret to have disturbed me!"/>
-		<voice sentence="I will teach them all to leave me alone!"/>
-		<voice sentence="Everyone is so stupid!"/>
-		<voice sentence="Stupid people!"/>
+		<voice sentence="Feel the wrath of the witch!" />
+		<voice sentence="Oh how you will regret to have disturbed me!" />
+		<voice sentence="I will teach them all to leave me alone!" />
+		<voice sentence="Everyone is so stupid!" />
+		<voice sentence="Stupid people!" />
 	</voices>
 </monster>

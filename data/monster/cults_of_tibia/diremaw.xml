@@ -1,56 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Diremaw" nameDescription="a Diremaw" race="blood" experience="2500" speed="300">
-	<health now="3600" max="3600"/>
-	<look type="1055" corpse="8721"/>
-	<targetchange interval="2000" chance="11"/>
+	<health now="3600" max="3600" />
+	<look type="1055" corpse="8721" />
+	<targetchange interval="2000" chance="11" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-				<flag isblockable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="4"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="300"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+				<flag isblockable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="4" />
+		<flag staticattack="90" />
+		<flag runonhealth="300" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="50" attack="450"/>
+		<attack name="melee" interval="2000" skill="50" attack="450" />
 		<attack name="physical" interval="2000" chance="22" range="7" min="0" max="-150">
-			<attribute key="shootEffect" value="spear"/>
-			<attribute key="areaEffect" value="explosionarea"/>
+			<attribute key="shootEffect" value="spear" />
+			<attribute key="areaEffect" value="explosionarea" />
 		</attack>
 		<attack name="bleedcondition" interval="2000" chance="40" range="7" target="1" radius="3" min="-300" max="-400">
-			<attribute key="shootEffect" value="throwingknife"/>
-			<attribute key="areaEffect" value="blackspark"/>
+			<attribute key="shootEffect" value="throwingknife" />
+			<attribute key="areaEffect" value="blackspark" />
 		</attack>
 		<attack name="fire" interval="2000" chance="15" range="7" radius="2" target="1" min="-160" max="-260">
-			<attribute key="shootEffect" value="burstarrow"/>
-			<attribute key="areaEffect" value="explosion"/>
+			<attribute key="shootEffect" value="burstarrow" />
+			<attribute key="areaEffect" value="explosion" />
 		</attack>
 		<attack name="lifedrain" interval="2000" chance="14" radius="4" target="0" min="-35" max="-150">
-			<attribute key="areaEffect" value="explosionarea"/>
+			<attribute key="areaEffect" value="explosionarea" />
 		</attack>
 	</attacks>
 	<defenses armor="30" defense="30">
 		<defense name="healing" interval="2000" chance="7" min="95" max="180">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="speed" interval="2000" chance="10" speedchange="520" duration="5000">
-			<attribute key="areaEffect" value="poff"/>
+			<attribute key="areaEffect" value="poff" />
 		</defense>
 	</defenses>
 	<elements>
-		<element firePercent="10"/>
-		<element holyPercent="10"/>
-		<element icePercent="-5"/>
+		<element firePercent="10" />
+		<element holyPercent="10" />
+		<element icePercent="-5" />
 	</elements>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
 	</immunities>
 	<loot>
 	</loot>

@@ -2,6 +2,7 @@
 <monster name="Orcus the Cruel" nameDescription="Orcus the cruel" race="blood" experience="280" speed="230">
 	<health now="480" max="480" />
 	<look type="59" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
