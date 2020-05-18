@@ -842,7 +842,6 @@ Storage = {
 			Decaying = 18551,
 			bossTimer = 18504
 		},
-
 		Misguided = {
 			Mission = 18007,
 			Monsters = 18540,

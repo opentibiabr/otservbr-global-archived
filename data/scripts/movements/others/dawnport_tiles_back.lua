@@ -29,10 +29,10 @@ local setting = {
 local vocations = {
 	msgVoc = "You should leave for the Mainland now. Go left to reach the ship.",
 	msgNoVoc = "You have not the right vocation to enter this room.",
-	[40010] = {vocation = 1, destination = {x = 32054, y = 31879, z = 6}},
-	[40011] = {vocation = 2, destination = {x = 32073, y = 31879, z = 6}},
-	[40012] = {vocation = 3, destination = {x = 32059, y = 31879, z = 6}},
-	[40013] = {vocation = 4, destination = {x = 32068, y = 31879, z = 6}},
+	[40010] = {vocation = VOCATION.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
+	[40011] = {vocation = VOCATION.DRUID, destination = {x = 32073, y = 31879, z = 6}},
+	[40012] = {vocation = VOCATION.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
+	[40013] = {vocation = VOCATION.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
 }
 
 local dawnportOressaStair = MoveEvent()
@@ -108,7 +108,7 @@ function tutorialTiles2.onStepIn(creature, item, position, fromPosition)
 	end
 
 	if item.uid == 25027 then
-		if player:getStorageValue(Storage.Quest.Dawnport.Questline) == 1 then
+		if player:getStorageValue(Storage.Quest.Dawnport.Questline) < 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions.")
 			player:sendTutorial(2)
 			player:setStorageValue(Storage.Quest.Dawnport.Questline, 1)

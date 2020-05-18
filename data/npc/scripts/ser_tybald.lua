@@ -22,7 +22,10 @@ keywordHandler:addSpellKeyword({"findperson"},
 		spellName = "Find Person",
 		price = 80,
 		level = 8,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 keywordHandler:addSpellKeyword({"light"},
@@ -31,7 +34,10 @@ keywordHandler:addSpellKeyword({"light"},
 		spellName = "Light",
 		price = 0,
 		level = 8,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 keywordHandler:addSpellKeyword({"magicrope"},
@@ -40,7 +46,10 @@ keywordHandler:addSpellKeyword({"magicrope"},
 		spellName = "Magic Rope",
 		price = 200,
 		level = 9,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 keywordHandler:addSpellKeyword({"curepoison"},
@@ -49,7 +58,10 @@ keywordHandler:addSpellKeyword({"curepoison"},
 		spellName = "Cure Poison",
 		price = 150,
 		level = 10,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 keywordHandler:addSpellKeyword({"levitate"},
@@ -58,7 +70,10 @@ keywordHandler:addSpellKeyword({"levitate"},
 		spellName = "Levitate",
 		price = 500,
 		level = 12,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 keywordHandler:addSpellKeyword({"haste"},
@@ -67,7 +82,10 @@ keywordHandler:addSpellKeyword({"haste"},
 		spellName = "Haste",
 		price = 600,
 		level = 14,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 keywordHandler:addSpellKeyword({"greatlight"},
@@ -76,7 +94,10 @@ keywordHandler:addSpellKeyword({"greatlight"},
 		spellName = "Great Light",
 		price = 500,
 		level = 13,
-		vocation = {3,4}
+		vocation = {
+			VOCATION.CLIENT_ID.PALADIN,
+			VOCATION.CLIENT_ID.KNIGHT
+		}
 	}
 )
 --spells for paladin
@@ -86,7 +107,7 @@ keywordHandler:addSpellKeyword({"conjurebolt"},
 		spellName = "Conjure Bolt",
 		price = 750,
 		level = 17,
-		vocation = 3
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjurepoisonedarrow"},
@@ -95,7 +116,7 @@ keywordHandler:addSpellKeyword({"conjurepoisonedarrow"},
 		spellName = "Conjure Poisoned Arrow",
 		price = 700,
 		level = 16,
-		vocation = 3
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjurearrow"},
@@ -103,7 +124,7 @@ keywordHandler:addSpellKeyword({"conjurearrow"},
 		npcHandler = npcHandler,
 		spellName = "Conjure Arrow",
 		price = 450,
-		level = 13,vocation = 3
+		level = 13,vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"lighthealing"},
@@ -112,7 +133,7 @@ keywordHandler:addSpellKeyword({"lighthealing"},
 		spellName = "Light Healing",
 		price = 0,
 		level = 8,
-		vocation = 3
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 -- spells for knight
@@ -122,7 +143,7 @@ keywordHandler:addSpellKeyword({"brutalstrike"},
 		spellName = "Brutal Strike",
 		price = 1000,
 		level = 16,
-		vocation = 4
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"woundcleansing"},
@@ -131,7 +152,7 @@ keywordHandler:addSpellKeyword({"woundcleansing"},
 		spellName = "Wound Cleansing",
 		price = 0,
 		level = 8,
-		vocation = 4
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 
@@ -317,4 +338,5 @@ end
 
 npcHandler:setMessage(MESSAGE_GREET, "Welcome, child. Have you come to learn about {magic}? \z
 	Then you are in the right place. I can teach you many useful {spells}.")
+
 npcHandler:addModule(FocusModule:new())

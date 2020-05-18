@@ -233,24 +233,26 @@ function Player.hasRookgaardShield(self)
 		or self:getItemCount(2530) > 0
 end
 
+
+function Player.isSorcerer(self)
+	return table.contains({VOCATION.ID.SORCERER, VOCATION.ID.MASTER_SORCERER}, self:getVocation():getId())
+end
+
 function Player.isDruid(self)
-	return isInArray({2, 6}, self:getVocation():getId())
+	return table.contains({VOCATION.ID.DRUID, VOCATION.ID.ELDER_DRUID}, self:getVocation():getId())
 end
 
 function Player.isKnight(self)
-	return isInArray({4, 8}, self:getVocation():getId())
+	return table.contains({VOCATION.ID.KNIGHT, VOCATION.ID.ELITE_KNIGHT}, self:getVocation():getId())
 end
 
 function Player.isPaladin(self)
-	return isInArray({3, 7}, self:getVocation():getId())
+	return table.contains({VOCATION.ID.PALADIN, VOCATION.ID.ROYAL_PALADIN}, self:getVocation():getId())
 end
 
 function Player.isMage(self)
-	return isInArray({1, 2, 5, 6}, self:getVocation():getId())
-end
-
-function Player.isSorcerer(self)
-	return isInArray({1, 5}, self:getVocation():getId())
+	return table.contains({VOCATION.ID.SORCERER, VOCATION.ID.MASTER_SORCERER, VOCATION.ID.DRUID, VOCATION.ID.ELDER_DRUID},
+		self:getVocation():getId())
 end
 
 -- Impact Analyser

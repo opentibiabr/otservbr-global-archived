@@ -1646,7 +1646,7 @@
 	<movevent event="Equip" itemid="23719" slot="hand" level="1" function="onEquipItem">
 		<!-- the scorcher -->
 		<vocation name="sorcerer"/>
-		<vocation name="master sorcerer" showindescription="0"/>
+		<vocation name="dawnport sorcerer" showindescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="23719" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2190" slot="hand" level="7" function="onEquipItem">
@@ -1757,7 +1757,7 @@
 	<movevent event="Equip" itemid="23721" slot="hand" level="1" function="onEquipItem">
 		<!-- the chiller -->
 		<vocation name="druid"/>
-		<vocation name="elder druid" showindescription="0"/>
+		<vocation name="dawnport druid" showindescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="23721" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2182" slot="hand" level="7" function="onEquipItem">

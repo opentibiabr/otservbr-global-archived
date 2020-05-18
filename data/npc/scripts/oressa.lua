@@ -106,11 +106,12 @@ keywordHandler:addKeyword({"rookgaard"}, StdModule.say,
 	}
 )
 
-local vocations = {
-	[1] = Storage.Dawnport.DoorVocation,
-	[2] = Storage.Dawnport.DoorVocation,
-	[3] = Storage.Dawnport.DoorVocation,
-	[4] = Storage.Dawnport.DoorVocation
+--From topic of vocation to topic of the "yes" msg (choosing vocation)
+local topicTable = {
+	[5] = VOCATION.KNIGHT,
+	[6] = VOCATION.PALADIN,
+	[7] = VOCATION.DRUID,
+	[8] = VOCATION.SORCERER
 }
 
 local slots = {
@@ -223,7 +224,7 @@ local function creatureSayCallback(cid, type, msg)
 				"DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
 			},
 		cid, false, true, 200)
-		npcHandler.topic[cid] = 5
+		npcHandler.topic[cid] = 6
 	-- Mage
 	elseif msgcontains(msg, "magic") and npcHandler.topic[cid] == 3 then
 		npcHandler:say("Tell me: Do you prefer to {heal} and cast the power of nature and ice, or do you want to rain \z
@@ -241,7 +242,7 @@ local function creatureSayCallback(cid, type, msg)
 				"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
 			},
 		cid, false, true, 200)
-		npcHandler.topic[cid] = 5
+		npcHandler.topic[cid] = 7
 	-- Sorcerer
 	elseif msgcontains(msg, "death") and npcHandler.topic[cid] == 4 then
 		npcHandler:say(
@@ -254,7 +255,7 @@ local function creatureSayCallback(cid, type, msg)
 				"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
 			},
 		cid, false, true, 200)
-		npcHandler.topic[cid] = 5
+		npcHandler.topic[cid] = 8
 	-- Choosing dialog start
 	elseif msgcontains(msg, "decided") and npcHandler.topic[cid] == 0 then
 		npcHandler:say("So tell me, which {vocation} do you want to choose: {knight}, {sorcerer}, {paladin} or {druid}?", cid)
@@ -270,7 +271,7 @@ local function creatureSayCallback(cid, type, msg)
 					"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
 				},
 			cid, false, true, 200)
-			npcHandler.topic[cid] = 5
+			npcHandler.topic[cid] = 8
 		else
 			npcHandler:say(
 				{
@@ -293,7 +294,7 @@ local function creatureSayCallback(cid, type, msg)
 					"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
 				},
 			cid, false, true, 200)
-			npcHandler.topic[cid] = 5
+			npcHandler.topic[cid] = 7
 		else
 			npcHandler:say(
 				{
@@ -316,7 +317,7 @@ local function creatureSayCallback(cid, type, msg)
 					"So tell me: DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
 				},
 			cid, false, true, 200)
-			npcHandler.topic[cid] = 5
+			npcHandler.topic[cid] = 6
 		else
 			npcHandler:say(
 				{
@@ -355,63 +356,64 @@ local function creatureSayCallback(cid, type, msg)
 			cid, false, true, 200)
 			npcHandler.topic[cid] = 0
 		end
-	elseif npcHandler.topic[cid] == 5 then
-		if msgcontains(msg, "yes") then
-			for index, value in ipairs(vocations)do
-				if index == player:getVocation():getId() then
-					player:setStorageValue(value, index)
-				end
+	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 5
+	or npcHandler.topic[cid] == 6
+	or npcHandler.topic[cid] == 7
+	or npcHandler.topic[cid] == 8 then
+		for index, value in pairs(topicTable)do
+			if npcHandler.topic[cid] == index then
+				player:setVocation(Vocation(value))
+				player:setStorageValue(Storage.Dawnport.DoorVocation, value)
 			end
-			-- Cycle through the slots table and store the slot id in slot
-			for index, value in pairs(slots) do
-				-- Get the player's slot item and store it in item
-				local item = player:getSlotItem(value)
-				-- If the item exists meaning its not nil then continue
-				if item and not table.contains({2480}, item:getId()) then
-					item:remove()
-				end
-			end
-			local container = player:getSlotItem(CONST_SLOT_BACKPACK)
-			if container and container:getSize() > 0 then
-				local allowedIds = {
-					2050, 2051, 2052, 2053,
-					2054, 2055, 2056, 2120,
-					2148, 2420, 2480, 2553,
-					2554, 2580, 5710, 8722,
-					8723
-				}
-				local toBeDeleted = {}
-
-				for i = 0, container:getSize() do
-					if player:getMoney() > 500 then
-						player:removeMoney(math.abs(500 - player:getMoney()))
-					end
-					local item = container:getItem(i)
-					if item then
-						if not table.contains(allowedIds, item:getId()) then
-							toBeDeleted[#toBeDeleted + 1] = item.uid
-						end
-					end
-				end
-				if #toBeDeleted > 0 then
-					for i, v in pairs(toBeDeleted) do
-						local item = Item(v)
-						if item then
-							item:remove()
-						end
-					end
-				end
-			end
-			npcHandler:say(
-				{
-					"SO BE IT. CAST OFF YOUR TRAINING GEAR AND RISE, NOBLE ".. player:getVocation():getName():upper() .. "! ...",
-					"Go through the second door from the right. Open the chest and take the equipment inside \z
-						before you leave to the north. ...",
-					"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
-				},
-			cid, false, true, 200)
-			npcHandler.topic[cid] = 0
 		end
+		-- Cycle through the slots table and store the slot id in slot
+		for index, value in pairs(slots) do
+			-- Get the player's slot item and store it in item
+			local item = player:getSlotItem(value)
+			-- If the item exists meaning its not nil then continue
+			if item and not table.contains({2480}, item:getId()) then
+				item:remove()
+			end
+		end
+		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
+		local allowedIds = {
+				2050, 2051, 2052, 2053,
+				2054, 2055, 2056, 2120,
+				2148, 2420, 2480, 2553,
+				2554, 2580, 5710, 8722,
+				8723
+			}
+		local toBeDeleted = {}
+		if container and container:getSize() > 0 then
+			for i = 0, container:getSize() do
+				if player:getMoney() > 500 then
+					player:removeMoney(math.abs(500 - player:getMoney()))
+				end
+				local item = container:getItem(i)
+				if item then
+					if not table.contains(allowedIds, item:getId()) then
+						toBeDeleted[#toBeDeleted + 1] = item.uid
+					end
+				end
+			end
+			if #toBeDeleted > 0 then
+				for i, v in pairs(toBeDeleted) do
+					local item = Item(v)
+					if item then
+						item:remove()
+					end
+				end
+			end
+		end
+		npcHandler:say(
+			{
+				"SO BE IT. CAST OFF YOUR TRAINING GEAR AND RISE, NOBLE ".. player:getVocation():getName():upper() .. "! ...",
+				"Go through the second door from the right. Open the chest and take the equipment inside \z
+					before you leave to the north. ...",
+				"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
+			},
+		cid, false, true, 200)
+		npcHandler.topic[cid] = 0
 	end
 	return true
 end

@@ -205,6 +205,12 @@ local function changeVocation(player, fromVocation, toVocation)
 			'As a paladin, you can use the following spells: Magic Patch, Arrow Call.',
 			'As a knight, you can use the following spells: Bruise Bane.'
 		}
+		firstVocationMsg = {
+			[VOCATION.CLIENT_ID.SORCERER] = 'sorcerer',
+			[VOCATION.CLIENT_ID.DRUID] = 'druid',
+			[VOCATION.CLIENT_ID.PALADIN] = 'paladin',
+			[VOCATION.CLIENT_ID.KNIGHT] = 'knight'
+		}
 
 	trialStorages = {Storage.Dawnport.Sorcerer, Storage.Dawnport.Druid, Storage.Dawnport.Paladin, Storage.Dawnport.Knight}
 	if player:getStorageValue(trialStorages[1]) == -1
@@ -214,11 +220,11 @@ local function changeVocation(player, fromVocation, toVocation)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'As this is the first time you try out a vocation, \z
 		the Guild has kitted you out. ' .. msg[toVocation])
 	elseif player:getStorageValue(trialStorages[toVocation]) == -1 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('As this is your first time as a %s\z
-		' .. ', you received a few extra items. ' .. msg[toVocation], player:getVocation():getName()))
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('As this is your first time as a \z
+		'.. firstVocationMsg[player:getVocation():getClientId()] ..', you received a few extra items. ' .. msg[toVocation], player:getVocation():getName()))
 	elseif player:getStorageValue(trialStorages[toVocation]) > -1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format('You have received the weapons of a \z
-		%s' .. '. ' .. msg[toVocation], player:getVocation():getName()))
+		'.. firstVocationMsg[player:getVocation():getClientId()] ..'. ' .. msg[toVocation], player:getVocation():getName()))
 	end
 
 	if fromVocation ~= 0 then
@@ -275,8 +281,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 		if player:getLevel() > 19 and (centerPosition:getDistance(fromPosition) < centerPosition:getDistance(position)) then
 			player:teleportTo(Position(fromPosition))
 		elseif fromVocation ~= toVocation
-		and (centerPosition:getDistance(fromPosition) < centerPosition:getDistance(position))
-		and player:getStorageValue(Storage.Dawnport.Oressa) < 1 then
+		and (centerPosition:getDistance(fromPosition) < centerPosition:getDistance(position)) then
 			getFirstItems(player)
 			player:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
 			changeVocation(player, fromVocation, toVocation)

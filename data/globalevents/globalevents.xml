@@ -26,7 +26,6 @@
 	<globalevent name="checkinbox" interval="30000" script="others/check_inbox.lua"/>
 	<globalevent name="rentedmounts" interval="15000" script="others/check_mount.lua" />
 	<globalevent interval="100000" name="guildwar" script="others/guild_war.lua"/>
-	<globalevent name="load map" type="startup" script="others/map_loading.lua"/>
 	<globalevent type="record" name="playerrecord" script="others/online_record.lua" />
 	<globalevent name="serversave" time="05:55:00" script="others/server_save.lua" />
 	<globalevent type="startup" name="serverstartup" script="others/startup.lua" />

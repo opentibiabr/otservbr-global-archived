@@ -1,3 +1,7 @@
+local additionalMap = {
+	{ description = "map description", file = "data/world/worldchanges/example.otbm", enabled = false}
+}
+
 local startupGlobalStorages = {
 	GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
 	GlobalStorage.TheAncientTombs.DiprathSwitchesGlobalStorage,
@@ -31,11 +35,20 @@ local startupGlobalStorages = {
 }
 
 function onStartup()
+	print(">> Loading additional maps")
+	for index, value in ipairs(AdditionalMap) do
+		if value.enabled then
+			Game.loadMap(value.file)
+			print("> Loaded " .. (#AdditionalMap) .. " additional map.")
+		end
+	end
+
 	print(string.format(">> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters.\n>> \z
 	Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
 	print(">> Loaded " .. (#SignTable) .. " signs in the map.")
 	print(">> Loaded " .. (#BookTable) .. " books in the map.")
 	print(">> Loaded action and unique per Lua")
+
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
 	end
