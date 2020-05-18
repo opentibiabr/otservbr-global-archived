@@ -19,7 +19,12 @@ WORKDIR /opt/otserver
 COPY src/    ./src/
 COPY data/   ./data/
 COPY cmake/  ./cmake/
-COPY key.pem CMakeLists.txt config.lua.dist ./
+COPY key.pem CMakeLists.txt ./
+
+# RUN rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc` && cp otbr /opt/otserver
+RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sleep 5 && cp otbr /opt/otserver
+
+COPY config.lua.dist ./
 
 RUN cp config.lua.dist config.lua \
   && sed -i '/mysqlHost = .*$/c\mysqlHost = "otdb"' config.lua \
@@ -27,8 +32,5 @@ RUN cp config.lua.dist config.lua \
   && sed -i '/mysqlPass = .*$/c\mysqlPass = "otserver"' config.lua \
   && sed -i '/mysqlDatabase = .*$/c\mysqlDatabase = "otserver"' config.lua \
   && unrar x -o+ data/world/world.rar data/world/
-
-# RUN rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc` && cp otbr /opt/otserver
-RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sleep 5 && cp otbr /opt/otserver
 
 ENTRYPOINT /opt/otserver/otbr

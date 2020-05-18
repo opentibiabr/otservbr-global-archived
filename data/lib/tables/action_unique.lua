@@ -997,5 +997,13 @@ UniqueTable = {
 		chance = 30,
 		addItem = 10614,
 		say = "*crush*"
+	},
+	[25030] = {
+		itemId = 3706,
+		itemPos = Position(33277, 31754, 7),
+		storage = Storage.TibiaTales.JackFutureQuest.Statue,
+		value = 1,
+		setStorage = Storage.TibiaTales.JackFutureQuest.QuestLine,
+		addItem = 11343
 	}
 }
