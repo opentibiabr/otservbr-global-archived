@@ -8,7 +8,7 @@ For example:
 {
 	actionId = 101,
 	itemId = 355,
-	itemPos = {{x = 32774, y = 32289, z = 10}
+	itemPos = {{x = 32774, y = 32289, z = 10}}
 	},
 
 ]]
@@ -37,6 +37,85 @@ ActionTable = {
 		actionId = 103,
 		itemId = 10477,
 		itemPos = {{x = 32067, y = 31896, z = 3}}
+	}
+	-- cults of tibia doors
+	-- minotaur entrance
+	{
+		actionId = 17999,
+		itemId = 5288,
+		itemPos = {{x = 31950, y = 32501, z = 8}}
+	},
+	-- minotaur final boss
+	{
+		actionId = 18507,
+		itemId = 1243,
+		itemPos = {{x = 31957, y = 32468, z = 9}}
+	},
+	-- mota investigation
+	{
+		actionId = 18508,
+		itemId = 1243,
+		itemPos = {{x = 33273, y = 32172, z = 8}}
+	},
+	-- mota entrance (gareth)
+	{
+		actionId = 18509,
+		itemId = 1243,
+		itemPos = {{x = 33220, y = 32147, z = 9}}
+	},
+	-- mota entrance (denominator)
+	{
+		actionId = 18510,
+		itemId = 1243,
+		itemPos = {{x = 33220, y = 32149, z = 9}}
+	},
+	-- barkless acess trial
+	{
+		actionId = 18511,
+		itemId = 25162,
+		itemPos = {{x = 32688, y = 31543, z = 9}}
+	},
+	-- barkless acess tar
+	{
+		actionId = 18512,
+		itemId = false,
+		itemPos = {
+			{x = 32747, y = 31462, z = 8},
+			{x = 32678, y = 31506, z = 8}
+		}
+	},
+	-- barkless acess energy and ice
+	{
+		actionId = 18513,
+		itemId = false,
+		itemPos = {
+			{x = 32742, y = 31408, z = 8},
+			{x = 32686, y = 31430, z = 8}
+		}
+	},
+	-- barkless boss acess
+	{
+		actionId = 18514,
+		itemId = 25162,
+		itemPos = {{x = 32672, y = 31543, z = 9}}
+	},
+	-- life (sandking) boss acess
+	{
+		actionId = 18515,
+		itemId = 5290,
+		itemPos = {{x = 33295, y = 32271, z = 12}}
+	},
+	-- misguided (the souldespoiler) boss acess
+	{
+		actionId = 18516,
+		itemId = 5290,
+		itemPos = {{x = 32508, y = 32370, z = 9}}
+	},
+	-- final boss
+	{
+		actionId = 18517,
+		itemId = 6202,
+		itemPos = {{x = 33452, y = 32241, z = 7}}
 	},
 	{
 		actionId = 24890,
@@ -135,7 +214,7 @@ ActionTable = {
 			{x = 33061, y = 32714, z = 5}
 		}
 	},
-		--Dawnport
+	--Dawnport
 	--Sorcerer vocation tile
 	{
 		actionId = 40001,

@@ -7,9 +7,9 @@ function onKill(creature, target)
 		return true
 	end
 
-	local storage = creature:getStorageValue(Storage.CultsOfTibia.Minotaurs.jamesfrancisTask)
+	local storage = creature:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask)
 	if(isInArray({'minotaur cult follower', 'minotaur cult zealot', 'minotaur cult prophet'}, target:getName():lower()) and storage >= 0 and storage < 50)then
-		creature:setStorageValue(Storage.CultsOfTibia.Minotaurs.jamesfrancisTask, storage + 1)
+		creature:setStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask, storage + 1)
 	end
 	return true
 end

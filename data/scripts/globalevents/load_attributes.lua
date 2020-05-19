@@ -22,8 +22,11 @@ function loadAttribute.onStartup()
 				if item and value.actionId then
 					item:setActionId(value.actionId)
 				end
-				if value.itemId == false then
-					item = tile:getTopTopItem():setActionId(value.actionId)
+				if value.itemId == false and tile:getTopDownItem() then
+					tile:getTopDownItem():setActionId(value.actionId)
+				end
+				if value.itemId == false and tile:getTopTopItem() then
+					tile:getTopTopItem():setActionId(value.actionId)
 				end
 				-- This function add one action id on an item inside the container
 				-- It was developed to add action on daily respawn item

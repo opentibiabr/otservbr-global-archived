@@ -2,6 +2,7 @@
 <monster name="Bloodpaw" nameDescription="Bloodpaw" race="blood" experience="50" speed="156">
 	<health now="100" max="100" />
 	<look type="42" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

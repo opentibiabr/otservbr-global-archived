@@ -1,56 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Stonerefiner" nameDescription="a Stonerefiner" race="blood" experience="500" speed="220">
-	<health now="800" max="800"/>
-	<look type="1032" corpse="30771"/>
-	<targetchange interval="4000" chance="10"/>
+	<health now="800" max="800" />
+	<look type="1032" corpse="30771" />
+	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-100"/>
+		<attack name="melee" interval="2000" min="0" max="-100" />
 		<attack name="lifedrain" interval="2000" chance="15" range="7" radius="4" target="1" min="-40" max="-100">
-			<attribute key="areaEffect" value="stones"/>
+			<attribute key="areaEffect" value="stones" />
 		</attack>
 				<attack name="lifedrain" interval="1000" chance="15" range="4" radius="2" min="-40" max="-100">
-			<attribute key="areaEffect" value="blackspark"/>
+			<attribute key="areaEffect" value="blackspark" />
 		</attack>
 	</attacks>
 	<defenses armor="40" defense="45">
 		<defense name="healing" interval="4000" chance="15" min="50" max="145">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
-		<element earthPercent="1"/>
-		<element firePercent="1"/>
-		<element holyPercent="90"/>
+		<element earthPercent="1" />
+		<element firePercent="1" />
+		<element holyPercent="90" />
 	</elements>
 	<immunities>
-		<immunity earth="1"/>
-		<immunity invisible="1"/>
-		<immunity paralyze="1"/>
+		<immunity earth="1" />
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
 	</immunities>
 			<voices interval="5000" chance="10">
-		<voice sentence="knak knak knak"/>
-		<voice sentence="nomnomnom"/>
+		<voice sentence="knak knak knak" />
+		<voice sentence="nomnomnom" />
 	</voices>
 	<loot>
-		<item name="platinum coin" countmax="4" chance="50930"/>
-		<item name="rare earth" countmax="2" chance="39750"/>
-		<item id="13757" countmax="5" chance="27980"/><!-- coal -->
-		<item name="glob of acid slime" chance="23680"/>
-		<item name="stonerefiner's skull" chance="20110"/>
-		<item name="poisonous slime" countmax="3" chance="20040"/>
-		<item name="half-digested stones" countmax="5" chance="15210"/>
+		<item name="platinum coin" countmax="4" chance="50930" />
+		<item name="rare earth" countmax="2" chance="39750" />
+		<item id="13757" countmax="5" chance="27980" /><!-- coal -->
+		<item name="glob of acid slime" chance="23680" />
+		<item name="stonerefiner's skull" chance="20110" />
+		<item name="poisonous slime" countmax="3" chance="20040" />
+		<item name="half-digested stones" countmax="5" chance="15210" />
 	</loot>
 </monster>

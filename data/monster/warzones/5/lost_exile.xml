@@ -3,6 +3,7 @@
 	<health now="1600" max="1600" />
 	<look type="537" corpse="33430" />
 	<targetchange interval="5000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -28,7 +29,7 @@
 			<attribute key="shootEffect" value="largerock" />
 			<attribute key="areaEffect" value="poison" />
 		</attack>
-		<attack name="sudden death" interval="2000" chance="15" range="7"  min="-70" max="-250"/>
+		<attack name="sudden death" interval="2000" chance="15" range="7"  min="-70" max="-250" />
 		<attack name="drunk" interval="2000" chance="10" range="7" duration="5000">
 			<attribute key="shootEffect" value="energy" />
 		</attack>

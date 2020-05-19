@@ -3,6 +3,7 @@
 	<health now="15000" max="30000" />
 	<look type="144" head="1" body="38" legs="1" feet="60" addons="0" />
 	<targetchange interval="4000" chance="20" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

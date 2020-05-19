@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Desperate Soul" nameDescription="a desperate soul" race="blood" experience="0" speed="670">
-	<health now="15" max="15"/>
-	<look type="262" head="69" body="66" legs="69" feet="66" corpse="7338"/>
-	<targetchange interval="2000" chance="5"/>
+	<health now="15" max="15" />
+	<look type="262" head="69" body="66" legs="69" feet="66" corpse="7338" />
+	<targetchange interval="2000" chance="5" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="0"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="1"/>
-		<flag canpushitems="0"/>
-		<flag staticattack="90"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="15"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="0" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="1" />
+		<flag canpushitems="0" />
+		<flag staticattack="90" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="15" />
 	</flags>
 	<defenses armor="6" defense="7">
 		<defense name="speed" interval="2000" chance="25" speedchange="1200" duration="4000">
@@ -23,14 +24,14 @@
 		</defense>
 	</defenses>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity earth="1"/>
-		<immunity lifedrain="1"/>
-		<immunity invisible="1"/>
-		<immunity fire="1"/>
-		<immunity ice="1"/>
-		<immunity physical="1"/>
-		<immunity holy="1"/>
-		<immunity energy="1"/>
+		<immunity paralyze="1" />
+		<immunity earth="1" />
+		<immunity lifedrain="1" />
+		<immunity invisible="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+		<immunity physical="1" />
+		<immunity holy="1" />
+		<immunity energy="1" />
 	</immunities>
 </monster>

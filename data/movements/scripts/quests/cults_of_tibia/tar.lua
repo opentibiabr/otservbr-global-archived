@@ -7,7 +7,7 @@ local configQuest = {
 		effect = CONST_ME_HITBYFIRE,
 		firstSqm = Position(32750, 31508, 8),
 		secondSqm = Position(32746, 31469, 8),
-		storageBarkless = Storage.CultsOfTibia.Barkless.tar,
+		storageBarkless = Storage.CultsOfTibia.Barkless.Tar,
 		msgs = {
 			"As you enter the tar pits, you feel the heat around you rising dramatically. \z
 			Survive the heat long enough to prove worthy.", -- on enter
@@ -108,7 +108,7 @@ function onStepIn(creature, item, position, fromPosition)
 			if player:getStorageValue(value.storageBarkless) == 2 then
 				player:setStorageValue(value.storageBarkless, 3)
 				if player:getStorageValue(Storage.CultsOfTibia.Barkless.sulphur) == 3 and
-				player:getStorageValue(Storage.CultsOfTibia.Barkless.tar) == 3 then
+				player:getStorageValue(Storage.CultsOfTibia.Barkless.Tar) == 3 then
 					player:setStorageValue(Storage.CultsOfTibia.Barkless.Mission, 2)
 				end
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, value.msgs[5])
@@ -127,7 +127,7 @@ function onStepOut(creature, item, position, fromPosition)
 	if item:getActionId() == 5531 then
 		if fromPosition.x == 32736 then
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			if player:getStorageValue(Storage.CultsOfTibia.Barkless.tar) < 3 then
+			if player:getStorageValue(Storage.CultsOfTibia.Barkless.Tar) < 3 then
 				player:teleportTo(Position(32737, 31451, 8), true)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You are not ready yet.")
 				return false

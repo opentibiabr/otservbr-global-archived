@@ -434,7 +434,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if msgcontains(msg, "missions") and npcHandler.topic[cid] == 1 then
 		-- Final boss check
-		if player:getStoragevalue(Storage.CultsOfTibia.finalBoss.Mission) > 2 then
+		if player:getStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission) > 2 then
 			npcHandler:say("You have already fulfilled your job to my full satisfaction. \z
 				The cults are investigated and the final boss is eliminated. \z
 				I have nothing more for you to do. Fare you well!", cid)
@@ -446,13 +446,14 @@ local function creatureSayCallback(cid, type, msg)
 		and player:getStoragevalue(Storage.CultsOfTibia.Misguided.Mission) == 5
 		and player:getStoragevalue(Storage.CultsOfTibia.Orcs.Mission) == 3
 		and player:getStoragevalue(Storage.CultsOfTibia.Humans.Mission) == 3
-		and player:getStoragevalue(Storage.CultsOfTibia.finalBoss.Mission) < 2 then
+		and player:getStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission) < 2 then
 			npcHandler:say("It seems to me that you have done all the missions I gave you. All the cults have been revealed and now you can kill their leader, the final boss, to save the world from a possible catastrophe.", cid)
 			npcHandler.topic[cid] = 0
-			if player:getStoragevalue(Storage.CultsOfTibia.finalBoss.Mission) < 1 then
-				player:setStoragevalue(Storage.CultsOfTibia.finalBoss.Mission, 1)
+			if player:getStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission) < 1 then
+				player:setStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission, 1)
+				player:setStorageValue(Storage.CultsOfTibia.FinalBoss.AcessDoor, 1)
 			end
-		elseif player:getStoragevalue(Storage.CultsOfTibia.finalBoss.Mission) == 2 then
+		elseif player:getStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission) == 2 then
 			npcHandler:say("You did it! You put an end to the cults, and as a return, here's your reward.", cid)
 			npcHandler.topic[cid] = 9
 			local item = ""
@@ -474,7 +475,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			player:addExperience(50000)
 			player:addItem(29422)
-			player:setStoragevalue(Storage.CultsOfTibia.finalBoss.Mission, 3)
+			player:setStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission, 3)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained 50000 experience points.")
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a mystery box.")
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You gained a " .. item .. ".")

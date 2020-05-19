@@ -3,6 +3,7 @@
 	<health now="220000" max="220000" />
 		<look type="842" head="77" body="113" legs="21" feet="94" addons="0" corpse="6068" />
 	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -20,35 +21,35 @@
 		<flag canwalkonpoison="1" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" min="-200" max="-3000"/>
-		<attack name="manadrain" interval="2000" chance="10" range="7" min="-200" max="-1000"/>
+		<attack name="melee" interval="2000" min="-200" max="-3000" />
+		<attack name="manadrain" interval="2000" chance="10" range="7" min="-200" max="-1000" />
 		<attack name="physical" interval="3000" chance="44" range="7" min="-400" max="-2000">
-			<attribute key="shootEffect" value="whirlwindsword"/>
-			<attribute key="areaEffect" value="redspark"/>
+			<attribute key="shootEffect" value="whirlwindsword" />
+			<attribute key="areaEffect" value="redspark" />
 		</attack>
 		<attack name="speed" interval="2000" chance="15" range="7" speedchange="-400" duration="15000">
-			<attribute key="shootEffect" value="throwingknife"/>
+			<attribute key="shootEffect" value="throwingknife" />
 		</attack>
 		<attack name="ice" interval="2000" chance="20" range="7" radius="7" target="0" min="0" max="-800">
-			<attribute key="areaEffect" value="bigplants"/>
+			<attribute key="areaEffect" value="bigplants" />
 		</attack>
 	</attacks>
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="3000" chance="35" min="400" max="6000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="speed" interval="4000" chance="80" speedchange="440" duration="6000">
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="areaEffect" value="redshimmer" />
 		</defense>
 	</defenses>
 	<elements>
-		<element earthPercent="10"/>
-		<element holyPercent="10"/>
-		<element firePercent="10"/>
-		<element energyPercent="10"/>
-		<element icePercent="10"/>
-		<element physicalPercent="10"/>
-		<element deathPercent="10"/>
+		<element earthPercent="10" />
+		<element holyPercent="10" />
+		<element firePercent="10" />
+		<element energyPercent="10" />
+		<element icePercent="10" />
+		<element physicalPercent="10" />
+		<element deathPercent="10" />
 	</elements>
 	<immunities>
 		<immunity earth="1" />
@@ -58,14 +59,14 @@
 		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="30">
-		<voice sentence="STOMP! SHAKE! SHATTERER!!"/>
+		<voice sentence="STOMP! SHAKE! SHATTERER!!" />
 	</voices>
 	<loot>
-		<item id="7590" countmax="10" chance="23000"/><!-- great mana potion -->
-		<item id="8472" countmax="10" chance="46100"/><!-- great spirit potion -->
-		<item id="8473" countmax="10" chance="46100"/><!-- ultimate health potion -->
-		<item id="2147" countmax="12" chance="12000"/>	<!-- small ruby -->
-		<item id="2152" countmax="10" chance="8000"/>	<!-- platinum coin -->
-		<item id="2148" countmax="200" chance="30000"/>	<!-- gold coin -->
+		<item id="7590" countmax="10" chance="23000" /><!-- great mana potion -->
+		<item id="8472" countmax="10" chance="46100" /><!-- great spirit potion -->
+		<item id="8473" countmax="10" chance="46100" /><!-- ultimate health potion -->
+		<item id="2147" countmax="12" chance="12000" />	<!-- small ruby -->
+		<item id="2152" countmax="10" chance="8000" />	<!-- platinum coin -->
+		<item id="2148" countmax="200" chance="30000" />	<!-- gold coin -->
 	</loot>
 </monster>

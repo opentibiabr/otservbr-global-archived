@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="The Source Of Corruption" nameDescription="The Source Of Corruption" race="undead" experience="0" speed="120" script="rewardboss.lua">
 	<health now="500000" max="500000" />
-	<look type="979" corpse="26223"/>
+	<look type="979" corpse="26223" />
 	<targetchange interval="5000" chance="20" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag rewardboss="1"/>
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
@@ -19,9 +20,9 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-1500" />
-		<attack name="Source of Corruption Wave" interval="2000" chance="15"/>
+		<attack name="Source of Corruption Wave" interval="2000" chance="15" />
 	</attacks>
-	<defenses armor="30" defense="30"/>
+	<defenses armor="30" defense="30" />
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />

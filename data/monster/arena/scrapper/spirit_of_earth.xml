@@ -2,6 +2,7 @@
 <monster name="Spirit of Earth" nameDescription="a spirit of earth" race="undead" experience="800" speed="180">
 	<health now="1200" max="1200" />
 	<look type="67" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

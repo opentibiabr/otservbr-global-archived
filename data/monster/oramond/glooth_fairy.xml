@@ -3,6 +3,7 @@
 	<health now="59000" max="59000" />
 	<look type="600" corpse="23343" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -25,10 +26,10 @@
 	</attacks>
 	<defenses armor="40" defense="40">
 		<defense name="healing" interval="3000" chance="35" min="150" max="300">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="healing" interval="3000" chance="5" min="7500" max="8000">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
@@ -37,10 +38,10 @@
 		<element firePercent="-5" />
 	</elements>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
-		<immunity earth="1"/>
-		<immunity energy="0"/>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity earth="1" />
+		<immunity energy="0" />
 	</immunities>
 	<loot>
 		<item id="23474" countmax="3" chance="100000" /> <!-- glooth injection tube -->

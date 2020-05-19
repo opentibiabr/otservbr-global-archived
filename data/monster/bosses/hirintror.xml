@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Hirintror" nameDescription="Hirintror" race="undead" experience="800" speed="190" script="rewardboss.lua">
-	<health now="1500" max="1500"/>
-	<look type="261" corpse="7282"/>
-	<targetchange interval="2000" chance="5"/>
+	<health now="1500" max="1500" />
+	<look type="261" corpse="7282" />
+	<targetchange interval="2000" chance="5" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="90"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag staticattack="90" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="140" attack="40"/>
-		<attack name="hirintror freeze" interval="2000" chance="15"/>
+		<attack name="melee" interval="2000" skill="140" attack="40" />
+		<attack name="hirintror freeze" interval="2000" chance="15" />
 		<attack name="ice" interval="2000" chance="15" range="7" target="1" radius="3" min="-75" max="-150">
-			<attribute key="shootEffect" value="ice"/>
-			<attribute key="areaEffect" value="yellowspark"/>
+			<attribute key="shootEffect" value="ice" />
+			<attribute key="areaEffect" value="yellowspark" />
 		</attack>
-		<attack name="ice golem paralyze" interval="2000" chance="11"/>
-		<attack name="hirintror skill reducer" interval="2000" chance="10"/>
+		<attack name="ice golem paralyze" interval="2000" chance="11" />
+		<attack name="hirintror skill reducer" interval="2000" chance="10" />
 	</attacks>
 	<defenses armor="25" defense="26">
-		<defense name="hirintror summon" interval="2000" chance="18"/>
+		<defense name="hirintror summon" interval="2000" chance="18" />
 	</defenses>
 	<elements>
-		<element physicalPercent="30"/>
-		<element energyPercent="-20"/>
+		<element physicalPercent="30" />
+		<element energyPercent="-20" />
 	</elements>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity holy="1"/>
-		<immunity death="1"/>
-		<immunity fire="1"/>
-		<immunity ice="1"/>
-		<immunity drunk="1"/>
-		<immunity invisible="1"/>
+		<immunity paralyze="1" />
+		<immunity holy="1" />
+		<immunity death="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+		<immunity drunk="1" />
+		<immunity invisible="1" />
 	</immunities>
 	<voices interval="2000" chance="5">
-		<voice sentence="Srk."/>
-		<voice sentence="Krss!"/>
-		<voice sentence="Chrrk! Krk!"/>
+		<voice sentence="Srk." />
+		<voice sentence="Krss!" />
+		<voice sentence="Chrrk! Krk!" />
 	</voices>
 	<loot>
 		<item id="21697" chance="200" /><!-- runic shieldd -->

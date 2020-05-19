@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Organic Matter" nameDescription="an organic matter" race="venom" experience="0" speed="0">
 	<health now="10000" max="10000" />
-	<look type="617"/>
+	<look type="617" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

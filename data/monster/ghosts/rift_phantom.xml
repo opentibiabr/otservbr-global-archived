@@ -2,6 +2,7 @@
 <monster name="Rift Phantom" nameDescription="a rift phantom" race="undead" experience="0" speed="160" manacost="100">
 	<health now="150" max="150" />
 	<look type="48" corpse="5993" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="0" />

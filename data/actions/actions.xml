@@ -380,7 +380,6 @@
 	<action uniqueid="3170" script="quests/children_of_the_revolution/zalamon_door.lua" />
 	<!-- cults of tibia quest -->
 	<action fromaid="5500" toaid="5506" script="quests/cults_of_tibia/bosses_levers.lua" />
-	<action actionid="5510" script="quests/cults_of_tibia/doors.lua" />
 	<action actionid="5520" script="quests/cults_of_tibia/lever_mota.lua" />
 	<action actionid="5522" script="quests/cults_of_tibia/document.lua" />
 	<action actionid="5523" script="quests/cults_of_tibia/crate.lua" />

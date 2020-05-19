@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dragon Warden" nameDescription="a dragon warden" race="blood" experience="4600" speed="320">
-<health now="2800" max="2800"/>
-<look type="947" head="5" body="5" legs="8" feet="8" corpse="27854"/>
+<health now="2800" max="2800" />
+<look type="947" head="5" body="5" legs="8" feet="8" corpse="27854" />
   <targetchange interval="2000" chance="5" />
-  <flags>
+  	<flags>
     <flag summonable="0" />
     <flag attackable="1" />
     <flag hostile="1" />
@@ -20,7 +20,7 @@
   <attacks>
     <attack name="melee" interval="2000" skill="80" attack="80" />
    <attack name="fire" interval="2000" chance="17" length="8" spread="3" min="-150" max="-230">
-		<attribute key="areaEffect" value="firearea"/>
+		<attribute key="areaEffect" value="firearea" />
 	</attack>
   </attacks>
   <defenses armor="45" defense="35">
