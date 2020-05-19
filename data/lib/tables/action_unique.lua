@@ -37,7 +37,7 @@ ActionTable = {
 		actionId = 103,
 		itemId = 10477,
 		itemPos = {{x = 32067, y = 31896, z = 3}}
-	}
+	},
 	-- cults of tibia doors
 	-- minotaur entrance
 	{
