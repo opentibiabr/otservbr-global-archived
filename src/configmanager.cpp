@@ -30,6 +30,7 @@
 #endif
 
 extern Game g_game;
+extern ConfigManager g_config;
 
 namespace {
 
