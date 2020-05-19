@@ -23,6 +23,7 @@
 #include "game.h"
 
 extern Game g_game;
+extern ConfigManager g_config;
 
 bool Condition::setParam(ConditionParam_t param, int32_t value)
 {
