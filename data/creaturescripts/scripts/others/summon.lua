@@ -31,6 +31,9 @@ function onLogin(player)
 		player:setStorageValue(storage, os.time() + petTimeLeft)
 		summonpet:registerEvent('SummonDeath')
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
+		
+		local deltaSpeed = math.max(player:getBaseSpeed() - summonpet:getBaseSpeed(), 0)
+		summonpet:changeSpeed(deltaSpeed)
 	end
 	return true
 end
