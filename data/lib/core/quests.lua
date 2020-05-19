@@ -4706,13 +4706,13 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "The Strengthtening of the Minotaurs",
-					storageid = Storage.CultsOfTibia.Minotaurs.jamesfrancisTask,
+					storageid = Storage.CultsOfTibia.Minotaurs.JamesFrancisTask,
 					startvalue = 0,
 					endvalue = 50,
 					description = function(player)
 						return ("James asked you to enter the cave for hunting 50 empowered minotaurs. \z
 						Then he will be able to continue his research.\nMinotaurs killed: %d/50"):format(
-							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.jamesfrancisTask)
+							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask)
 						)
 					end
 				},
