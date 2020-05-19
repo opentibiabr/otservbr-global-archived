@@ -1,5 +1,5 @@
 local setting = {
-		[5511] = {storage = Storage.CultsOfTibia.FinalBoss.BossTimer},
+		[5511] = {storage = Storage.CultsOfTibia.Minotaurs.BossTimer},
 		[5513] = {storage = Storage.CultsOfTibia.Humans.BossTimer},
 		[5514] = {storage = Storage.CultsOfTibia.Misguided.BossTimer},
 		[5515] = {storage = Storage.CultsOfTibia.FinalBoss.BossTimer},

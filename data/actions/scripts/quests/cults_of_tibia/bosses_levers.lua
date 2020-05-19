@@ -227,7 +227,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 				local newpos = Position(33162, i, 15)
 				local nplayer = Tile(newpos):getTopCreature()
 				if nplayer and nplayer:isPlayer() then
-					nplayer:setStorageValue(Storage.CultsOfTibia.FinalBoss.BossTimer, os.time() + 20 * 60 * 60)
+					nplayer:setStorageValue(Storage.CultsOfTibia.Minotaurs.BossTimer, os.time() + 20 * 60 * 60)
 					nplayer:teleportTo(Position(33169, 31915, 15),true)
 					convertTable[#convertTable + 1] = nplayer:getId()
 					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
