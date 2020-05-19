@@ -20,6 +20,7 @@
 #include "otpch.h"
 
 #include "condition.h"
+#include "configmanager.h"
 #include "game.h"
 
 extern Game g_game;
