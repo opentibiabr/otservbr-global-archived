@@ -21,5 +21,16 @@ disable:setParameter(CONDITION_PARAM_TICKS, 10000)
 combat:addCondition(disable)
 
 function onCastSpell(creature, var)
+local summon = creature:getSummons()
+	for i = 1, #summon do
+		if summon[i]:getType():isPet() then
+			local deltaSpeed = math.max(creature:getBaseSpeed() - summon[i]:getBaseSpeed(), 0)
+			local PetSpeed = ((summon[i]:getBaseSpeed() + deltaSpeed) * 0.8) - 72
+			local PetHaste = createConditionObject(CONDITION_HASTE)
+			setConditionParam(PetHaste, CONDITION_PARAM_TICKS, 10000)
+			setConditionParam(PetHaste, CONDITION_PARAM_SPEED, PetSpeed)
+			summon[i]:addCondition(PetHaste)
+		end
+	end
 	return combat:execute(creature, var)
 end
