@@ -157,8 +157,10 @@ function Player:onLook(thing, position, distance)
 				local quickLootCategories = {}
 				local container = Container(thing.uid)
 				for categoryId = LOOT_START, LOOT_END do
-					if container:hasQuickLootCategory(categoryId) then
-						table.insert(quickLootCategories, categoryId)
+					if container ~= nil then
+						if container:hasQuickLootCategory(categoryId) then
+							table.insert(quickLootCategories, categoryId)
+						end
 					end
 				end
 
