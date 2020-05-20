@@ -45901,6 +45901,12 @@
 		<attribute key="weight" value="4000" />
 		<attribute key="slotType" value="two-handed" />
 		<attribute key="skillDist" value="2" />
+		<attribute key="weaponType" value="distance"/>
+		<attribute key="ammoType" value="bolt"/>
+		<attribute key="range" value="6"/>
+		<attribute key="hitChance" value="6"/>
+		<attribute key="attack" value="7"/>
+		<attribute key="imbuingSlots" value="2"/>
 	</item>
 	<item id="35229" name="cobra boots">
 		<attribute key="weight" value="900" />
