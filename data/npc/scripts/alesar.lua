@@ -97,9 +97,7 @@ local function onTradeRequest(cid)
 	return true
 end
 
--- Greeting
-keywordHandler:addGreetKeyword({"djanni'hah"}, {npcHandler = npcHandler, text = "What do you want from me, |PLAYERNAME|?"})
-
+npcHandler:setMessage(MESSAGE_GREET, "What do you want from me, |PLAYERNAME|?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Finally.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Finally.")
 npcHandler:setMessage(MESSAGE_SENDTRADE, "At your service, just browse through my wares.")
