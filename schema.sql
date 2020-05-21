@@ -23,7 +23,7 @@ INSERT INTO `server_config` (`config`, `value`) VALUES ('db_version', '0'), ('mo
 --
 
 CREATE TABLE IF NOT EXISTS `accounts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `password` char(40) NOT NULL,
   `secret` char(16) DEFAULT NULL,
@@ -44,106 +44,126 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure `coins_transactions`
+--
+
+CREATE TABLE IF NOT EXISTS `coins_transactions` (
+  `id`					int(11) 			UNSIGNED NOT NULL AUTO_INCREMENT,
+  `account_id` 	int(11) 			UNSIGNED NOT NULL,
+  `type` 				tinyint(1) 		UNSIGNED NOT NULL,
+  `amount` 			int(12) 			UNSIGNED NOT NULL,
+  `description` varchar(3500) NOT NULL,
+  `timestamp` 	timestamp 		DEFAULT CURRENT_TIMESTAMP,
+  INDEX `account_id` (`account_id`),
+  CONSTRAINT `coins_transactions_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `coins_transactions_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure `players`
 --
 
 CREATE TABLE IF NOT EXISTS `players` (
-	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`name` varchar(255) NOT NULL,
-	`group_id` int(11) NOT NULL DEFAULT '1',
-	`account_id` int(11) NOT NULL DEFAULT '0',
-	`level` int(11) NOT NULL DEFAULT '1',
-	`vocation` int(11) NOT NULL DEFAULT '0',
-	`health` int(11) NOT NULL DEFAULT '150',
-	`healthmax` int(11) NOT NULL DEFAULT '150',
-	`experience` bigint(20) NOT NULL DEFAULT '0',
-	`lookbody` int(11) NOT NULL DEFAULT '0',
-	`lookfeet` int(11) NOT NULL DEFAULT '0',
-	`lookhead` int(11) NOT NULL DEFAULT '0',
-	`looklegs` int(11) NOT NULL DEFAULT '0',
-	`looktype` int(11) NOT NULL DEFAULT '136',
-	`lookaddons` int(11) NOT NULL DEFAULT '0',
-	`maglevel` int(11) NOT NULL DEFAULT '0',
-	`mana` int(11) NOT NULL DEFAULT '0',
-	`manamax` int(11) NOT NULL DEFAULT '0',
-	`manaspent` int(11) UNSIGNED NOT NULL DEFAULT '0',
-	`soul` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`town_id` int(11) NOT NULL DEFAULT '1',
-	`posx` int(11) NOT NULL DEFAULT '0',
-	`posy` int(11) NOT NULL DEFAULT '0',
-	`posz` int(11) NOT NULL DEFAULT '0',
-	`conditions` blob NOT NULL,
-	`cap` int(11) NOT NULL DEFAULT '0',
-	`sex` int(11) NOT NULL DEFAULT '0',
-	`lastlogin` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`lastip` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`save` tinyint(1) NOT NULL DEFAULT '1',
-	`skull` tinyint(1) NOT NULL DEFAULT '0',
-	`skulltime` bigint(20) NOT NULL DEFAULT '0',
-	`lastlogout` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`blessings` tinyint(2) NOT NULL DEFAULT '0',
-	`blessings1` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings2` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings3` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings4` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings5` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings6` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings7` tinyint(4) NOT NULL DEFAULT '0',
-	`blessings8` tinyint(4) NOT NULL DEFAULT '0',
-	`onlinetime` int(11) NOT NULL DEFAULT '0',
-	`deletion` bigint(15) NOT NULL DEFAULT '0',
-	`balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`offlinetraining_time` smallint(5) UNSIGNED NOT NULL DEFAULT '43200',
-	`offlinetraining_skill` int(11) NOT NULL DEFAULT '-1',
-	`stamina` smallint(5) UNSIGNED NOT NULL DEFAULT '2520',
-	`skill_fist` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_fist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_club` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_club_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_sword` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_sword_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_axe` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_axe_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_dist` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_dist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_shielding` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_shielding_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_fishing` int(10) UNSIGNED NOT NULL DEFAULT '10',
-	`skill_fishing_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_critical_hit_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_critical_hit_damage` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_critical_hit_damage_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_life_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_life_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_life_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_life_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_mana_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_mana_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_mana_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_mana_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_criticalhit_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_criticalhit_damage` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_lifeleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_lifeleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_manaleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`skill_manaleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`prey_stamina_1` int(11) DEFAULT NULL,
-	`prey_stamina_2` int(11) DEFAULT NULL,
-	`prey_stamina_3` int(11) DEFAULT NULL,
-	`prey_column` smallint(6) NOT NULL DEFAULT '1',
-	`xpboost_stamina` smallint(5) DEFAULT NULL,
-	`xpboost_value` tinyint(4) DEFAULT NULL,
-	`marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
-	`marriage_spouse` int(11) NOT NULL DEFAULT '-1',
-	`bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
-	INDEX `account_id` (`account_id`),
-	INDEX `vocation` (`vocation`),
-	CONSTRAINT `players_pk` PRIMARY KEY (`id`),
-	CONSTRAINT `players_unique` UNIQUE (`name`),
-	CONSTRAINT `players_account_fk`
-		FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
-		ON DELETE CASCADE
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `group_id` int(11) NOT NULL DEFAULT '1',
+  `account_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `level` int(11) NOT NULL DEFAULT '1',
+  `vocation` int(11) NOT NULL DEFAULT '0',
+  `health` int(11) NOT NULL DEFAULT '150',
+  `healthmax` int(11) NOT NULL DEFAULT '150',
+  `experience` bigint(20) NOT NULL DEFAULT '0',
+  `lookbody` int(11) NOT NULL DEFAULT '0',
+  `lookfeet` int(11) NOT NULL DEFAULT '0',
+  `lookhead` int(11) NOT NULL DEFAULT '0',
+  `looklegs` int(11) NOT NULL DEFAULT '0',
+  `looktype` int(11) NOT NULL DEFAULT '136',
+  `lookaddons` int(11) NOT NULL DEFAULT '0',
+  `maglevel` int(11) NOT NULL DEFAULT '0',
+  `mana` int(11) NOT NULL DEFAULT '0',
+  `manamax` int(11) NOT NULL DEFAULT '0',
+  `manaspent` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `soul` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `town_id` int(11) NOT NULL DEFAULT '1',
+  `posx` int(11) NOT NULL DEFAULT '0',
+  `posy` int(11) NOT NULL DEFAULT '0',
+  `posz` int(11) NOT NULL DEFAULT '0',
+  `conditions` blob NOT NULL,
+  `cap` int(11) NOT NULL DEFAULT '0',
+  `sex` int(11) NOT NULL DEFAULT '0',
+  `lastlogin` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `lastip` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `save` tinyint(1) NOT NULL DEFAULT '1',
+  `skull` tinyint(1) NOT NULL DEFAULT '0',
+  `skulltime` bigint(20) NOT NULL DEFAULT '0',
+  `lastlogout` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `blessings` tinyint(2) NOT NULL DEFAULT '0',
+  `blessings1` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings2` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings3` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings4` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings5` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings6` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings7` tinyint(4) NOT NULL DEFAULT '0',
+  `blessings8` tinyint(4) NOT NULL DEFAULT '0',
+  `onlinetime` int(11) NOT NULL DEFAULT '0',
+  `deletion` bigint(15) NOT NULL DEFAULT '0',
+  `balance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `offlinetraining_time` smallint(5) UNSIGNED NOT NULL DEFAULT '43200',
+  `offlinetraining_skill` int(11) NOT NULL DEFAULT '-1',
+  `stamina` smallint(5) UNSIGNED NOT NULL DEFAULT '2520',
+  `skill_fist` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_fist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_club` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_club_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_sword` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_sword_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_axe` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_axe_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_dist` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_dist_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_shielding` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_shielding_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_fishing` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `skill_fishing_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_damage` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_critical_hit_damage_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_life_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_chance` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_chance_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_amount` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_mana_leech_amount_tries` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_criticalhit_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_criticalhit_damage` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_lifeleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_lifeleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_manaleech_chance` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `skill_manaleech_amount` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `prey_stamina_1` int(11) DEFAULT NULL,
+  `prey_stamina_2` int(11) DEFAULT NULL,
+  `prey_stamina_3` int(11) DEFAULT NULL,
+  `prey_column` smallint(6) NOT NULL DEFAULT '1',
+  `xpboost_stamina` smallint(5) DEFAULT NULL,
+  `xpboost_value` tinyint(4) DEFAULT NULL,
+  `marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
+  `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
+  `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
+  INDEX `account_id` (`account_id`),
+  INDEX `vocation` (`vocation`),
+  CONSTRAINT `players_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `players_unique` UNIQUE (`name`),
+  CONSTRAINT `players_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -152,21 +172,21 @@ CREATE TABLE IF NOT EXISTS `players` (
 --
 
 CREATE TABLE IF NOT EXISTS `account_bans` (
-	`account_id` int(11) NOT NULL,
-	`reason` varchar(255) NOT NULL,
-	`banned_at` bigint(20) NOT NULL,
-	`expires_at` bigint(20) NOT NULL,
-	`banned_by` int(11) NOT NULL,
-	INDEX `banned_by` (`banned_by`),
-	CONSTRAINT `account_bans_pk` PRIMARY KEY (`account_id`),
-	CONSTRAINT `account_bans_account_fk`
-		FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE,
-	CONSTRAINT `account_bans_player_fk`
-		FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE
+  `account_id` int(11) UNSIGNED NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `banned_at` bigint(20) NOT NULL,
+  `expires_at` bigint(20) NOT NULL,
+  `banned_by` int(11) NOT NULL,
+  INDEX `banned_by` (`banned_by`),
+  CONSTRAINT `account_bans_pk` PRIMARY KEY (`account_id`),
+  CONSTRAINT `account_bans_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_bans_player_fk`
+    FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -176,23 +196,23 @@ CREATE TABLE IF NOT EXISTS `account_bans` (
 --
 
 CREATE TABLE IF NOT EXISTS `account_ban_history` (
-	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`account_id` int(11) NOT NULL,
-	`reason` varchar(255) NOT NULL,
-	`banned_at` bigint(20) NOT NULL,
-	`expired_at` bigint(20) NOT NULL,
-	`banned_by` int(11) NOT NULL,
-	INDEX `account_id` (`account_id`),
-	INDEX `banned_by` (`banned_by`),
-	CONSTRAINT `account_bans_history_account_fk`
-		FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE,
-	CONSTRAINT `account_bans_history_player_fk`
-		FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE,
-	CONSTRAINT `account_ban_history_pk` PRIMARY KEY (`id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` int(11) UNSIGNED NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `banned_at` bigint(20) NOT NULL,
+  `expired_at` bigint(20) NOT NULL,
+  `banned_by` int(11) NOT NULL,
+  INDEX `account_id` (`account_id`),
+  INDEX `banned_by` (`banned_by`),
+  CONSTRAINT `account_bans_history_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_bans_history_player_fk`
+    FOREIGN KEY (`banned_by`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `account_ban_history_pk` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -202,20 +222,20 @@ CREATE TABLE IF NOT EXISTS `account_ban_history` (
 --
 
 CREATE TABLE IF NOT EXISTS `account_viplist` (
-	`account_id` int(11) NOT NULL COMMENT 'id of account whose viplist entry it is',
-	`player_id` int(11) NOT NULL COMMENT 'id of target player of viplist entry',
-	`description` varchar(128) NOT NULL DEFAULT '',
-	`icon` tinyint(2) UNSIGNED NOT NULL DEFAULT '0',
-	`notify` tinyint(1) NOT NULL DEFAULT '0',
-	INDEX `account_id` (`account_id`),
-	INDEX `player_id` (`player_id`),
-	CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`),
-	CONSTRAINT `account_viplist_account_fk`
-		FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
-		ON DELETE CASCADE,
-	CONSTRAINT `account_viplist_player_fk`
-		FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
-		ON DELETE CASCADE
+  `account_id` int(11) UNSIGNED NOT NULL COMMENT 'id of account whose viplist entry it is',
+  `player_id` int(11) NOT NULL COMMENT 'id of target player of viplist entry',
+  `description` varchar(128) NOT NULL DEFAULT '',
+  `icon` tinyint(2) UNSIGNED NOT NULL DEFAULT '0',
+  `notify` tinyint(1) NOT NULL DEFAULT '0',
+  INDEX `account_id` (`account_id`),
+  INDEX `player_id` (`player_id`),
+  CONSTRAINT `account_viplist_unique` UNIQUE (`account_id`, `player_id`),
+  CONSTRAINT `account_viplist_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `account_viplist_player_fk`
+    FOREIGN KEY (`player_id`) REFERENCES `players` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -741,19 +761,19 @@ CREATE TABLE IF NOT EXISTS `player_storage` (
 --
 
 CREATE TABLE IF NOT EXISTS `store_history` (
-	`id` int(11) NOT NULL AUTO_INCREMENT,
-	`account_id` int(11) NOT NULL,
-	`mode` smallint(2) NOT NULL DEFAULT '0',
-	`description` varchar(3500) NOT NULL,
-	`coin_amount` int(12) NOT NULL,
-	`time` bigint(20) UNSIGNED NOT NULL,
-	`timestamp` int(11) NOT NULL DEFAULT '0',
-	`coins` int(11) NOT NULL DEFAULT '0',
-	INDEX `account_id` (`account_id`),
-	CONSTRAINT `store_history_pk` PRIMARY KEY (`id`),
-	CONSTRAINT `store_history_account_fk`
-		FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
-		ON DELETE CASCADE
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account_id` int(11) UNSIGNED NOT NULL,
+  `mode` smallint(2) NOT NULL DEFAULT '0',
+  `description` varchar(3500) NOT NULL,
+  `coin_amount` int(12) NOT NULL,
+  `time` bigint(20) UNSIGNED NOT NULL,
+  `timestamp` int(11) NOT NULL DEFAULT '0',
+  `coins` int(11) NOT NULL DEFAULT '0',
+  INDEX `account_id` (`account_id`),
+  CONSTRAINT `store_history_pk` PRIMARY KEY (`id`),
+  CONSTRAINT `store_history_account_fk`
+    FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

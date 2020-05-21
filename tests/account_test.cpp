@@ -808,3 +808,42 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
   result = account_orig.SaveAccountDB();
   REQUIRE(result == account::ERROR_NO);
 }
+
+TEST_CASE("Register Coin Transaction", "[IntegrationTest]") {
+	account::Account account(1);
+  std::string db_ip("127.0.0.1");
+  std::string db_user("otserver");
+  std::string db_password("otserver");
+  std::string db_database("otserver");
+  if (!Database::getInstance().connect(
+          db_ip.c_str(),
+          db_user.c_str(),
+          db_password.c_str(),
+          db_database.c_str(),
+          0,
+          NULL)) {
+    std::cout << "Failed to connect to database.";
+    return;
+  }
+
+  error_t result;
+  result = account.RegisterCoinsTransaction(account::COIN_ADD, 50,
+                                            "Test Register Add Coin 1");
+  CHECK(result == account::ERROR_NO);
+
+  result = account.RegisterCoinsTransaction(account::COIN_ADD, 100,
+                                            "Test Register Add Coin 2");
+  CHECK(result == account::ERROR_NO);
+
+  result = account.RegisterCoinsTransaction(account::COIN_REMOVE, 250,
+                                            "Test Register Remove Coin 3");
+  CHECK(result == account::ERROR_NO);
+
+  result = account.RegisterCoinsTransaction(account::COIN_REMOVE, 500,
+                                            "Test Register Remove Coin 4");
+  CHECK(result == account::ERROR_NO);
+
+  result = account.RegisterCoinsTransaction(account::COIN_ADD, 1000,
+                                            "Test Register Add Coin 5");
+  CHECK(result == account::ERROR_NO);
+}

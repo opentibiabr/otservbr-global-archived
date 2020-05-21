@@ -39,6 +39,11 @@ enum AccountType : uint8_t {
   ACCOUNT_TYPE_GOD = 5
 };
 
+enum CoinTransactionType : uint8_t {
+  COIN_ADD = 1,
+  COIN_REMOVE = 2,
+};
+
 typedef struct {
   std::string name;
   uint64_t deletion;
@@ -122,13 +127,14 @@ class Account {
   error_t RemoveCoins(uint32_t amount);
 
   /**
-   * @brief Register all the transactions of coins in database.
+   * @brief Register account coins transactions in database.
    *
-   * @param coins Number of coins of the transaction(positive or negative)
-   * @param description Description of transaction
+   * @param type Type of the transaction(Add/Remove).
+   * @param coins Amount of coins
+   * @param description Description of the transaction
    * @return error_t ERROR_NO(0) Success, otherwise Fail.
    */
-  error_t RegisterCoinsTransaction(int32_t coins,
+  error_t RegisterCoinsTransaction(CoinTransactionType type, uint32_t coins,
                                   const std::string &description);
 
 

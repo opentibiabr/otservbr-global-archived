@@ -183,10 +183,11 @@ error_t Account::RemoveCoins(uint32_t amount) {
   return ERROR_NO;
 }
 
-error_t Account::RegisterCoinsTransaction(int32_t coins,
-                                const std::string& description) {
-  LOG_F(INFO, "Register coin transaction: account[%d], coins[%d], "
-      "description[%s].", id_, coins, description.c_str());
+error_t Account::RegisterCoinsTransaction(CoinTransactionType type,
+                                          uint32_t coins,
+                                          const std::string& description) {
+  LOG_F(INFO, "Register coin transaction: account[%d], type[%d], coins[%d], "
+      "description[%s].", type, id_, coins, description.c_str());
 
   if (db_ == nullptr) {
       LOG_F(ERROR, "Error database interface not initialized!");
@@ -194,10 +195,9 @@ error_t Account::RegisterCoinsTransaction(int32_t coins,
   }
 
   std::ostringstream query;
-  query << "INSERT INTO `store_history` (`account_id`, `coin_amount`, "
-          "`description`, `time`) VALUES (" << id_ << "," << coins
-          << "," << db_->escapeString(description) << "," << time(nullptr)
-          << ")";
+  query << "INSERT INTO `coins_transactions` (`account_id`, `type`, `amount`,"
+          " `description`) VALUES (" << id_ << ", " << type << ", "<< coins
+          << "," << db_->escapeString(description) << ")";
   DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
   if (!db_->executeQuery(query.str())) {
@@ -272,7 +272,7 @@ error_t Account::LoadAccountPlayersDB(std::vector<Player> *players) {
         << id_ << " ORDER BY `name` ASC";
   DBResult_ptr result = db_->storeQuery(query.str());
   if (!result) {
-    LOG_F(ERROR, "Error loading account players![%s]", query.str());
+    LOG_F(ERROR, "Error loading account players![%s]", query.str().c_str());
     return ERROR_DB;
   }
 

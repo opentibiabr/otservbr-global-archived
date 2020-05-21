@@ -5774,7 +5774,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
       }
 
       account.RemoveCoins(amount);
-      account.RegisterCoinsTransaction(-amount, "Sold on Market");
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                      "Sold on Market");
     } else {
 			std::forward_list<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty()) {
@@ -5804,7 +5805,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
       account::Account account;
       account.LoadAccountDB(buyerPlayer->getAccount());
       account.AddCoins(amount);
-      account.RegisterCoinsTransaction(amount, "Purchased on Market");
+      account.RegisterCoinsTransaction(account::COIN_ADD, amount,
+                                      "Purchased on Market");
     }
     else if (it.stackable)
     {
@@ -5870,7 +5872,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
       account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.AddCoins(amount);
-      account.RegisterCoinsTransaction(amount, "Purchased on Market");
+      account.RegisterCoinsTransaction(account::COIN_ADD, amount,
+                                      "Purchased on Market");
 		} else if (it.stackable) {
 			uint16_t tmpAmount = amount;
 			while (tmpAmount > 0) {
@@ -5905,7 +5908,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			if (it.id == ITEM_STORE_COIN) {
         account::Account account;
         account.LoadAccountDB(sellerPlayer->getAccount());
-        account.RegisterCoinsTransaction(-amount, "Sold on Market");
+        account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                        "Sold on Market");
       }
 		} else {
 			IOLoginData::increaseBankBalance(offer.playerId, totalPrice);
@@ -5915,7 +5919,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 				if (IOLoginData::loadPlayerById(sellerPlayer, offer.playerId)) {
           account::Account account;
           account.LoadAccountDB(sellerPlayer->getAccount());
-          account.RegisterCoinsTransaction(-amount, "Sold on Market");
+          account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                          "Sold on Market");
 		}
 
 				delete sellerPlayer;
@@ -6017,7 +6022,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
         account::Account account;
         account.LoadAccountDB(player->getAccount());
         account.RemoveCoins(offer->price);
-        account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+        account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                        offer->name);
 				while(pendingCount>0)
 				{
 					Item* item;
@@ -6034,7 +6040,9 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 						delete item;
 						player->sendStoreError(STORE_ERROR_PURCHASE, "We couldn't deliver all the items.\nOnly the delivered ones were charged from you account");
             account.AddCoins((offer->price * (tmp->count - pendingCount)/tmp->count));
-            account.RegisterCoinsTransaction(-1*offer->price + (offer->price * (tmp->count - pendingCount))/tmp->count, offer->name);
+            account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                  offer->price + (offer->price * (tmp->count - pendingCount))/tmp->count,
+                  offer->name);
 						return;
 					}
 					pendingCount-= std::min<uint16_t>(pendingCount,packSize);
@@ -6056,7 +6064,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
         account::Account account;
         account.LoadAccountDB(player->getAccount());
         account.RemoveCoins(offer->price);
-        account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+        account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                        offer->name);
 				message<< "You've successfully bought the "<< outfitOffer->name << ".";
         uint32_t coins;
         account.GetCoins(&coins);
@@ -6081,7 +6090,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
           player->sendStoreError(STORE_ERROR_PURCHASE, "An error ocurred processing your purchase. Try again later.");
 					return;
 				} else {
-          account.RegisterCoinsTransaction( -1*offer->price, offer->name);
+          account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                          offer->name);
 					message << "You've successfully bought the " << mount->name <<" Mount.";
           uint32_t coins;
           account.GetCoins(&coins);
@@ -6156,7 +6166,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
                 account::Account account;
                 account.LoadAccountDB(player->getAccount());
                 account.RemoveCoins(offer->price);
-                account.RegisterCoinsTransaction(-1 * offer->price, offer->name);
+                account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                                                offer->price, offer->name);
                 uint32_t coins;
                 account.GetCoins(&coins);
                 message << "You have successfully changed you name, you must relog to see the changes.";
@@ -6202,7 +6213,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
       account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
-      account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                      offer->name);
       uint32_t coins;
       account.GetCoins(&coins);
 			player->sendStorePurchaseSuccessful(message.str(), coins);
@@ -6218,7 +6230,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
           account::Account account;
           account.LoadAccountDB(player->getAccount());
           account.RemoveCoins(offer->price);
-          account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+          account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                                          offer->price, offer->name);
           uint32_t coins;
           account.GetCoins(&coins);
 					player->setVocation(promotedId);
@@ -6236,7 +6249,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
       account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
-      account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                      offer->name);
 			uint32_t coins;
       account.GetCoins(&coins);
 			player->setPremiumDays(player->premiumDays+premiumTimeOffer->days);
@@ -6263,7 +6277,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
           account::Account account;
           account.LoadAccountDB(player->getAccount());
           account.RemoveCoins(offer->price);
-          account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+          account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                          offer->name);
 			    uint32_t coins;
           account.GetCoins(&coins);
 					addMagicEffect(fromPosition, CONST_ME_POFF);
@@ -6292,7 +6307,8 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
       account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
-      account.RegisterCoinsTransaction(-1*offer->price, offer->name);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                      offer->name);
       uint32_t coins;
       account.GetCoins(&coins);
 			player->addBlessing(blessingsToAdd, 1);
@@ -6340,11 +6356,13 @@ void Game::playerCoinTransfer(uint32_t playerId, const std::string &receiverName
       sender_account.RemoveCoins(amount);
       receiver_account.AddCoins(amount);
       message << "Transfered to " << receiverName;
-      sender_account.RegisterCoinsTransaction(-1 * amount, message.str());
+      sender_account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                              message.str());
 
       message.str("");
       message << "Received from" << sender->name;
-      receiver_account.RegisterCoinsTransaction(amount, message.str());
+      receiver_account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                                                amount, message.str());
 
       sender_account.GetCoins(&sender_coins);
       message.str("");
