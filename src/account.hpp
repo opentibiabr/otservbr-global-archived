@@ -21,12 +21,13 @@ enum Errors {
   ERROR_INVALID_ACC_TYPE,
   ERROR_INVALID_ID,
   ERROR_INVALID_NAME,
-  ERROR_INVALID_NUMBER_OF_DAYS,
   ERROR_INVALID_PASSWORD,
   ERROR_LOADING_ACCOUNT_PLAYERS,
   ERROR_NOT_INITIALIZED,
   ERROR_NULLPTR,
   ERROR_VALUE_OVERFLOW,
+  ERROR_VALUE_NOT_ENOUGH_COINS,
+  ERROR_INVALID_LAST_DAY,
   ERROR_NO = 0
 };
 
@@ -110,7 +111,7 @@ class Account {
    * @param amount Amount of coins to be added
    * @return error_t ERROR_NO(0) Success, otherwise Fail.
    */
-  error_t AddCoins(int32_t amount);
+  error_t AddCoins(uint32_t amount);
 
   /**
    * @brief Removes coins from the account and update database.
@@ -118,12 +119,12 @@ class Account {
    * @param amount Amount of coins to be removed
    * @return error_t ERROR_NO(0) Success, otherwise Fail.
    */
-  error_t RemoveCoins(int32_t amount);
+  error_t RemoveCoins(uint32_t amount);
 
   /**
    * @brief Register all the transactions of coins in database.
    *
-   * @param coins Number of coins of the transaction
+   * @param coins Number of coins of the transaction(positive or negative)
    * @param description Description of transaction
    * @return error_t ERROR_NO(0) Success, otherwise Fail.
    */

@@ -101,7 +101,7 @@ error_t Account::GetCoins(uint32_t *coins) {
                                             db_ == nullptr ? "nullptr": "ok",
                                             coins == nullptr ? "nullptr": "ok",
                                             id_ == 0 ? "0": "ok");
-      return ERROR_NULLPTR;
+      return ERROR_NOT_INITIALIZED;
   }
 
   std::ostringstream query;
@@ -111,7 +111,7 @@ error_t Account::GetCoins(uint32_t *coins) {
   DBResult_ptr result = db_->storeQuery(query.str());
   if (!result) {
       LOG_F(ERROR, "Error getting account[%d] coins !", id_);
-      return false;
+      return ERROR_DB;
   }
 
   *coins = result->getNumber<uint32_t>("coins");
@@ -120,33 +120,38 @@ error_t Account::GetCoins(uint32_t *coins) {
   return ERROR_NO;
 }
 
-error_t Account::AddCoins(int32_t amount) {
+error_t Account::AddCoins(uint32_t amount) {
   LOG_F(INFO, "Adding coins[%d] to account[%d].", amount, id_);
 
   if (db_tasks_ == nullptr) {
       LOG_F(ERROR, "Error database tasks not initialized!");
       return ERROR_NULLPTR;
   }
+  if (amount == 0)  {
+    LOG_F(WARNING, "Amount has value zero!");
+    return ERROR_NO;
+  }
+
   uint32_t current_coins = 0;
   this->GetCoins(&current_coins);
-
-  if ((current_coins + amount) > std::numeric_limits<uint32_t>::max()) {
+  if ((current_coins + amount) < current_coins) {
     LOG_F(ERROR, "Overflow variable size!");
     return ERROR_VALUE_OVERFLOW;
   }
 
   std::ostringstream query;
-  query << "UPDATE `accounts` SET `coins` = "<< (current_coins + amount)
+  query << "UPDATE `accounts` SET `coins` = " << (current_coins + amount)
         << " WHERE `id` = " << id_;
   DLOG_F(INFO, "Query:[%s].", query.str().c_str());
 
+  DLOG_F(INFO, "Adding Task to Add Coins[%d] to Account[%d]", amount, id_);
   db_tasks_->addTask(query.str());
   DLOG_F(INFO, "Add Coins DBTask added!");
 
   return ERROR_NO;
 }
 
-error_t Account::RemoveCoins(int32_t amount) {
+error_t Account::RemoveCoins(uint32_t amount) {
   LOG_F(INFO, "Removing coins[%d] from account[%d].", amount, id_);
 
   if (db_tasks_ == nullptr) {
@@ -154,12 +159,17 @@ error_t Account::RemoveCoins(int32_t amount) {
       return ERROR_NULLPTR;
   }
 
+  if (amount == 0)  {
+    LOG_F(WARNING, "Amount has value zero!");
+    return ERROR_NO;
+  }
+
   uint32_t current_coins = 0;
   this->GetCoins(&current_coins);
 
-  if ((current_coins - amount) < std::numeric_limits<uint32_t>::min()) {
-    LOG_F(ERROR, "Underflow variable size!");
-    return ERROR_VALUE_OVERFLOW;
+  if ((current_coins - amount) > current_coins) {
+    LOG_F(ERROR, "Not enough coins!");
+    return ERROR_VALUE_NOT_ENOUGH_COINS;
   }
 
   std::ostringstream query;
@@ -281,10 +291,10 @@ error_t Account::SaveAccountDB() {
   std::ostringstream query;
 
   query << "UPDATE `accounts` SET "
-        << "`name` = " << name_
-        << "`type` = " << account_type_
-        << "`password` = " << password_
-        << "`premdays` = " << premium_remaining_days_
+        << "`name` = " << db_->escapeString(name_) << " , "
+        << "`type` = " << account_type_ << " , "
+        << "`password` = " << db_->escapeString(password_) << " , "
+        << "`premdays` = " << premium_remaining_days_ << " , "
         << "`lastday` = " << premium_last_day_;
 
   if (id_ != 0) {
@@ -363,10 +373,6 @@ error_t Account::GetPassword(std::string *password) {
 }
 
 error_t Account::SetPremiumRemaningDays(uint32_t days) {
-  if (days < 0) {
-    LOG_F(ERROR, "Invalid Remaning Premium Days!", days);
-    return ERROR_INVALID_NUMBER_OF_DAYS;
-  }
   premium_remaining_days_ = days;
   return ERROR_NO;
 }
@@ -384,7 +390,7 @@ error_t Account::GetPremiumRemaningDays(uint32_t *days) {
 error_t Account::SetPremiumLastDay(time_t last_day) {
   if (last_day < 0) {
     LOG_F(ERROR, "Invalid Premium Last Day!", last_day);
-    return ERROR_INVALID_ID;
+    return ERROR_INVALID_LAST_DAY;
   }
   premium_last_day_ = last_day;
   return ERROR_NO;
