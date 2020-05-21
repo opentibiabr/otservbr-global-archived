@@ -58,7 +58,22 @@ class Database
 		 */
 		bool connect();
 
-		/**
+    /**
+     * @brief Connect to the database using parameters
+     *
+     * @param host
+     * @param user
+     * @param password
+     * @param database
+     * @param port
+     * @param sock
+     * @return true Success
+     * @return false Fail
+     */
+    bool connect(const char *host, const char *user, const char *password,
+                const char *database, uint32_t port, const char *sock);
+
+    /**
 		 * Executes command.
 		 *
 		 * Executes query which doesn't generates results (eg. INSERT, UPDATE, DELETE...).
