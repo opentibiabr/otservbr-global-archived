@@ -53,13 +53,13 @@ ActionTable = {
 	-- mota entrance (gareth)
 	{
 		actionId = 18509,
-		itemId = 1243,
+		itemId = 1255,
 		itemPos = {{x = 33220, y = 32147, z = 9}}
 	},
 	-- mota entrance (denominator)
 	{
 		actionId = 18510,
-		itemId = 1243,
+		itemId = 1255,
 		itemPos = {{x = 33220, y = 32149, z = 9}}
 	},
 	-- barkless acess trial
