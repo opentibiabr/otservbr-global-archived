@@ -10362,8 +10362,12 @@ int LuaScriptInterface::luaPlayerGetTibiaCoins(lua_State* L)
 	// player:getTibiaCoins()
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		lua_pushnumber(L, player->coinBalance);
-	} else {
+    account::Account account(player->getAccount());
+    account.LoadAccountDB();
+    uint32_t coins;
+    account.GetCoins(&coins);
+    lua_pushnumber(L, coins);
+  } else {
 		lua_pushnil(L);
 	}
 	return 1;
@@ -10378,17 +10382,17 @@ int LuaScriptInterface::luaPlayerAddTibiaCoins(lua_State* L)
 		return 1;
 	}
 
-	if (player->coinBalance != std::numeric_limits<int32_t>::max()) {
-		int32_t coins = getNumber<int32_t>(L, 2);
-		int32_t addCoins = std::min<int32_t>(std::numeric_limits<int32_t>::max() - player->coinBalance, coins);
-		if (addCoins > 0) {
-			player->setTibiaCoins(player->coinBalance + addCoins);
-      account::Account account;
-      account.LoadAccountDB(player->getAccount());
-      account.AddCoins(addCoins);
-		}
-	}
-	pushBoolean(L, true);
+  uint32_t coins = getNumber<uint32_t>(L, 2);
+
+  account::Account account(player->getAccount());
+  account.LoadAccountDB();
+  if(account.AddCoins(coins)) {
+    account.GetCoins(&(player->coinBalance));
+    pushBoolean(L, true);
+  } else {
+    lua_pushnil(L);
+  }
+
 	return 1;
 }
 
@@ -10401,17 +10405,17 @@ int LuaScriptInterface::luaPlayerRemoveTibiaCoins(lua_State* L)
 		return 1;
 	}
 
-	if (player->coinBalance != std::numeric_limits<int32_t>::max()) {
-		int32_t coins = getNumber<int32_t>(L, 2);
-		int32_t removeCoins = std::min<int32_t>(player->coinBalance, coins);
-		if (removeCoins > 0) {
-			player->setTibiaCoins(player->coinBalance - removeCoins);
-      account::Account account;
-      account.LoadAccountDB(player->getAccount());
-      account.RemoveCoins(removeCoins);
-		}
-	}
-	pushBoolean(L, true);
+  uint32_t coins = getNumber<uint32_t>(L, 2);
+
+  account::Account account(player->getAccount());
+  account.LoadAccountDB();
+  if (account.RemoveCoins(coins)) {
+    account.GetCoins(&(player->coinBalance));
+    pushBoolean(L, true);
+  } else {
+    lua_pushnil(L);
+  }
+
 	return 1;
 }
 
