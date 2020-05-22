@@ -47,7 +47,7 @@ ActionTable = {
 	-- mota investigation
 	{
 		actionId = 18508,
-		itemId = 1243,
+		itemId = 1255,
 		itemPos = {{x = 33273, y = 32172, z = 8}}
 	},
 	-- mota entrance (gareth)
