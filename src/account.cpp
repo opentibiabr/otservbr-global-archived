@@ -20,9 +20,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#include "otpch.h"
+
 #include "account.hpp"
 #include "databasetasks.h"
-#include "otpch.h"
 
 #include <algorithm>
 #include <limits>
@@ -337,7 +338,7 @@ error_t Account::GetID(uint32_t *id) {
 error_t Account::SetName(std::string name) {
   if (name.empty()) {
     LOG_F(ERROR, "Name can't be empty!");
-    return ERROR_INVALID_NAME;
+    return ERROR_INVALID_ACC_NAME;
   }
   name_ = name;
   return ERROR_NO;
@@ -356,7 +357,7 @@ error_t Account::GetName(std::string *name) {
 error_t Account::SetPassword(std::string password) {
   if (password.empty()) {
     LOG_F(ERROR, "Password can't be empty!");
-    return ERROR_INVALID_PASSWORD;
+    return ERROR_INVALID_ACC_PASSWORD;
   }
   password_ = password;
   return ERROR_NO;

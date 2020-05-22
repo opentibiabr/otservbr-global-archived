@@ -126,7 +126,7 @@ TEST_CASE("Set Name - Empty", "[UnitTest]") {
   error_t result;
   std::string new_name;
   result = account.SetName(new_name);
-  REQUIRE(result == account::ERROR_INVALID_NAME);
+  REQUIRE(result == account::ERROR_INVALID_ACC_NAME);
 }
 
 TEST_CASE("Get Name - Nullptr", "[UnitTest]") {
@@ -158,7 +158,7 @@ TEST_CASE("Set Password - Empty", "[UnitTest]") {
   error_t result;
   std::string new_password;
   result = account.SetPassword(new_password);
-  REQUIRE(result == account::ERROR_INVALID_PASSWORD);
+  REQUIRE(result == account::ERROR_INVALID_ACC_PASSWORD);
 }
 
 TEST_CASE("Get Password - Nullptr", "[UnitTest]") {
