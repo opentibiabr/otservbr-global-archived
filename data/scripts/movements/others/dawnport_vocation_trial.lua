@@ -47,17 +47,27 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 	local vocation = DawnportTable[item.actionid]
 	if vocation then
 		local getVocation = player:getVocation()
-		if getVocation and getVocation:getId() == vocation.first.id or getVocation:getId() == vocation.second.id then
+		if getVocation and getVocation:getId() == vocation.first.id
+		or getVocation:getId() == vocation.second.id and player:getLevel() < 20 then
 			return true
 		end
-
+		-- Center room position
 		local centerPosition = Position(32065, 31891, 5)
 		if centerPosition:getDistance(fromPosition) < centerPosition:getDistance(position) then
+			-- Set for the dawnport vocation if is level 8 or minor
 			if player:getLevel() <= 7 then
 				player:setVocation(Vocation(vocation.first.id))
-			elseif player:getLevel() >= 8 then
+			-- Set for the vocation main if is level 8 or more
+			elseif player:getLevel() >= 8 and player:getLevel() < 20 then
 				player:setVocation(Vocation(vocation.second.id))
+				setStats(player)
+			-- If player is level 20 or more then do not pass on vocation trial tile
+			elseif player:getLevel() >= 20 then
+				player:teleportTo(fromPosition, true)
+				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+				return true
 			end
+			-- Change outfit
 			if player:getSex() == PLAYERSEX_MALE then
 				player:setOutfit({
 					lookBody = vocation.outfit.lookBody,
@@ -81,21 +91,26 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 					lookFeet = vocation.outfit.lookFeet
 				})
 			end
+			-- First step
 			if getVocation and getVocation:getId() == VOCATION.ID.NONE then
 				player:sendTutorial(vocation.tutorial)
 				getFirstItems(player)
-				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As this is the first time you try out a vocation, the Guild has kitted you out. " .. vocation.firstMessage)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+					"As this is the first time you try out a vocation, the Guild has kitted you out. " .. vocation.firstMessage)
+			-- Second step
 			elseif player:getStorageValue(vocation.storage) == -1 and getVocation:getId() ~= VOCATION.ID.NONE then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("As this is your first time as a \z
 				".. vocation.name ..', you received a few extra items. ' .. vocation.firstMessage))
 				player:setStorageValue(vocation.storage, 1)
 				player:sendTutorial(vocation.tutorial)
+			-- Other steps
 			elseif player:getStorageValue(vocation.storage) >= 1 then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("You have received the weapons of a \z
 				".. vocation.name ..', you received a few extra items. ' .. vocation.firstMessage))
 			end
+			-- Remove player items (weapon and shield) on step in
 			removeItems(player)
-
+			-- Set skills
 			for i = 1, #vocation.skills do
 				if player:getMagicLevel() ~= nil then
 					if player:getMagicLevel() > vocation.limits[1] then
@@ -111,7 +126,6 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 						return true
 					end
 				end
-
 				if player:getSkillLevel(vocation.skills[i]) > vocation.limits[2] then
 					local resultId = db.storeQuery("SELECT `id` FROM `players` WHERE `name` = \z
 					" .. db.escapeString(player:getName():lower()))
@@ -125,7 +139,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 					return true
 				end
 			end
-
+			-- Add player item
 			local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
 			for slot, info in pairs(vocation.items) do
 				local extra
@@ -134,20 +148,20 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 				else
 					local equipped = player:getSlotItem(slot)
 					if equipped then
-						equipped:moveTo(backpack)
+						if backpack then
+							equipped:moveTo(backpack)
+						end
 					end
 				end
-
 				local giveItem = true
-				if info.limit and info.limitStorage then
-					local given = math.max(player:getStorageValue(info.limitStorage), 0)
+				if info.limit and info.storage then
+					local given = math.max(player:getStorageValue(info.storage), 0)
 					if given >= info.limit then
 						giveItem = false
 					else
-						player:setStorageValue(info.limitStorage, given + 1)
+						player:setStorageValue(info.storage, given + 1)
 					end
 				end
-
 				if giveItem then
 					if extra then
 						player:addItemEx(Game.createItem(info[1], info[2]), false, INDEX_WHEREEVER, 0)
@@ -159,7 +173,6 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 					end
 				end
 			end
-
 			-- Set town from tutorial island to dawnport (Oressa temple)
 			if player:getTown() == Town(TOWNS_LIST.DAWNPORT_TUTORIAL) then
 				player:setTown(Town(TOWNS_LIST.DAWNPORT))
