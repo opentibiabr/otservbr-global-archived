@@ -2011,6 +2011,14 @@
 	<movevent event="Equip" itemid="22415" slot="hand" level="250" function="onEquipItem"/>
 	<movevent event="DeEquip" itemid="22415" slot="hand" function="onDeEquipItem"/>
 	<!-- shields -->
+	<!-- spellbook of the novice -->
+	<movevent event="Equip" itemid="23771" slot="shield" function="onEquipItem">
+		<vocation name="Sorcerer"/>
+		<vocation name="Dawnport Sorcerer" showInDescription="0"/>
+		<vocation name="Druid"/>
+		<vocation name="Dawnport Druid" showInDescription="0"/>
+	</movevent>
+	<movevent event="DeEquip" itemid="23771" slot="shield" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="34058" slot="shield" level="180" function="onEquipItem">
 		<!-- shoulder plate -->
 		<vocation name="Sorcerer"/>

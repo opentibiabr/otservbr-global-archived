@@ -1739,13 +1739,30 @@ Storage = {
 		Reward16 = 50826
 	},
 	Dawnport = {
+		--Reward items storages
+		SorcererHealthPotion = 50851,
+		SorcererManaPotion = 50852,
+		SorcererLightestMissile = 50853,
+		SorcererLightStoneShower = 50854,
+		DruidHealthPotion = 50855,
+		DruidManaPotion = 50856,
+		DruidLightestMissile = 50857,
+		DruidLightStoneShower = 50858,
+		PaladinHealthPotion = 50859,
+		PaladinManaPotion = 50860,
+		PaladinLightestMissile = 50861,
+		PaladinLightStoneShower = 50862,
+		KnightHealthPotion = 50863,
+		KnightManaPotion = 50864,
+		KnightLightestMissile = 50865,
+		KnightLightStoneShower = 50866,
+
 		Sorcerer = 50827,
 		Druid = 50828,
 		Paladin = 50829,
 		Knight = 50830,
-		Oressa = 50831,
-		DoorVocation = 50832,
-		Tutorial = 50833
+		DoorVocation = 50831,
+		Tutorial = 50832
 	},
 	LionsRock = {
 		Progress = 50840,
