@@ -28,7 +28,7 @@ enum Errors {
   ERROR_VALUE_OVERFLOW,
   ERROR_VALUE_NOT_ENOUGH_COINS,
   ERROR_INVALID_LAST_DAY,
-  ERROR_NO = 0
+  ERROR_NO = 1
 };
 
 enum AccountType : uint8_t {

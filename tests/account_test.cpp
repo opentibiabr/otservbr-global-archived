@@ -290,7 +290,7 @@ TEST_CASE("Get Account Players", "[UnitTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   error_t result;
@@ -314,13 +314,13 @@ TEST_CASE("Remove Coins From Account With Zero Coins", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   DatabaseTasks db_tasks;
   if (account::ERROR_NO != account.SetDatabaseTasksInterface(&db_tasks)) {
     std::cout << "Failed to connect to database tasks.";
-    return;
+    FAIL("DB Tasks connection failes");
   }
   db_tasks.SetDatabaseInterface(&Database::getInstance());
   db_tasks.startThread();
@@ -356,13 +356,13 @@ TEST_CASE("Add Maximum Number Of Coins", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   DatabaseTasks db_tasks;
   if (account::ERROR_NO != account.SetDatabaseTasksInterface(&db_tasks)) {
     std::cout << "Failed to connect to database tasks.";
-    return;
+    FAIL("DB Tasks connection failes");
   }
   db_tasks.SetDatabaseInterface(&Database::getInstance());
   db_tasks.startThread();
@@ -404,13 +404,13 @@ TEST_CASE("Add Maximum Number Of Coins Plus One", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   DatabaseTasks db_tasks;
   if (account::ERROR_NO != account.SetDatabaseTasksInterface(&db_tasks)) {
     std::cout << "Failed to connect to database tasks.";
-    return;
+    FAIL("DB Tasks connection failes");
   }
   db_tasks.SetDatabaseInterface(&Database::getInstance());
   db_tasks.startThread();
@@ -450,13 +450,13 @@ TEST_CASE("Add/Remove Coins Operation", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB Tasks connection failes");
   }
 
   DatabaseTasks db_tasks;
   if (account::ERROR_NO != account.SetDatabaseTasksInterface(&db_tasks)) {
     std::cout << "Failed to connect to database tasks.";
-    return;
+    FAIL("DB connection failes");
   }
   db_tasks.SetDatabaseInterface(&Database::getInstance());
   db_tasks.startThread();
@@ -499,7 +499,7 @@ TEST_CASE("Load Account Using ID From Constructor", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB Tasks connection failes");
   }
 
   error_t result;
@@ -551,7 +551,7 @@ TEST_CASE("Load Account Using Name From Constructor", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   error_t result;
@@ -603,7 +603,7 @@ TEST_CASE("Load Account Using ID", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   error_t result;
@@ -655,7 +655,7 @@ TEST_CASE("Load Account Using Name", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   error_t result;
@@ -708,7 +708,7 @@ TEST_CASE("Save Account", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   error_t result;
@@ -823,7 +823,7 @@ TEST_CASE("Register Coin Transaction", "[IntegrationTest]") {
           0,
           NULL)) {
     std::cout << "Failed to connect to database.";
-    return;
+    FAIL("DB connection failes");
   }
 
   error_t result;
