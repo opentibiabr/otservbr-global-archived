@@ -2285,6 +2285,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Item", "setCustomAttribute", LuaScriptInterface::luaItemSetCustomAttribute);
 	registerMethod("Item", "removeCustomAttribute", LuaScriptInterface::luaItemRemoveCustomAttribute);
 
+	registerMethod("Item", "getWeapon", LuaScriptInterface::luaItemGetWeapon);
+
 	registerMethod("Item", "moveTo", LuaScriptInterface::luaItemMoveTo);
 	registerMethod("Item", "transform", LuaScriptInterface::luaItemTransform);
 	registerMethod("Item", "decay", LuaScriptInterface::luaItemDecay);
@@ -6966,6 +6968,26 @@ int LuaScriptInterface::luaItemSerializeAttributes(lua_State* L)
 	size_t attributesSize;
 	const char* attributes = propWriteStream.getStream(attributesSize);
 	lua_pushlstring(L, attributes, attributesSize);
+	return 1;
+}
+
++int LuaScriptInterface::luaItemGetWeapon(lua_State* L)
+{
+	// item:getWeapon()
+	Item* item = getUserdata<Item>(L, 1);
+	if (!item) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const Weapon* weapon = g_weapons->getWeapon(item);
+	if (weapon) {
+		pushUserdata<Weapon>(L, weapon)
+		setItemMetatable(L, -1, weapon);
+	} else {
+		lua_pushnumber(L, -1);
+	}
+
 	return 1;
 }
 
@@ -17222,11 +17244,15 @@ int LuaScriptInterface::luaWeaponSoul(lua_State* L)
 
 int LuaScriptInterface::luaWeaponBreakChance(lua_State* L)
 {
-	// weapon:breakChance(percent)
+	// get: weapon:breakChance() set: weapon:breakChance(percent)
 	Weapon* weapon = getUserdata<Weapon>(L, 1);
 	if (weapon) {
-		weapon->setBreakChance(getNumber<uint32_t>(L, 2));
-		pushBoolean(L, true);
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, weapon->getBreakChance());
+		} else {
+			weapon->setBreakChance(getNumber<uint32_t>(L, 2));
+			pushBoolean(L, true);
+		}
 	} else {
 		lua_pushnil(L);
 	}
