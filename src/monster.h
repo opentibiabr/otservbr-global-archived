@@ -77,6 +77,13 @@ class Monster final : public Creature
 		std::string getDescription(int32_t) const override {
 			return strDescription + '.';
 		}
+		
+		const std::string getNewName() const {
+			return newName;
+		}
+		void setNewName(std::string new_name) {
+			newName = new_name;
+		}
 
 		CreatureType_t getType() const override {
 			return CREATURETYPE_MONSTER;
@@ -205,7 +212,8 @@ class Monster final : public Creature
 
 		MonsterType* mType;
 		Spawn* spawn = nullptr;
-
+		
+		std::string newName = "";
 		int64_t lastMeleeAttack = 0;
 
 		uint32_t attackTicks = 0;
