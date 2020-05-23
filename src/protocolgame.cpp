@@ -2724,7 +2724,7 @@ void ProtocolGame::sendFightModes()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos, int32_t stackpos, bool isLogin)
+void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos, int32_t stackpos, bool isLogin, std::string newName/* = ""*/)
 {
 	if (!canSee(pos)) {
 		return;
@@ -2743,7 +2743,10 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		bool known;
 		uint32_t removedKnown;
 		checkCreatureAsKnown(creature->getID(), known, removedKnown);
-		AddCreature(msg, creature, known, removedKnown);
+		if (newName != "") 
+			AddCreature(msg, creature, known, removedKnown, newName);
+		else
+			AddCreature(msg, creature, known, removedKnown);
 		writeToOutputBuffer(msg);
 
 		if (isLogin) {
@@ -3434,7 +3437,18 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
 			msg.addString("");
 		} else {
-			msg.addString(creature->getName());
+			std::string creature_name = creature->getName();
+			if (newName != "") {
+				creature_name = newName;
+			} else if (const Monster* monster = creature->getMonster()) {
+				const std::string newNameMonster = monster->getNewName();
+				if (newNameMonster != "") {
+					std::ostringstream ss;
+					ss << monster->getLevel();
+					creature_name = newNameMonster;
+				}
+			}
+			msg.addString(creature_name); // Send creature name to client.
 		}
 	}
 
@@ -3980,6 +3994,32 @@ void ProtocolGame::sendItemsPrice()
 			msg.addItemId(it.first);
 			msg.add<uint32_t>(it.second);
 		}
+	}
+
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::reloadCreature(const Creature* creature, const std::string newName)
+{
+	if (!canSee(creature))
+		return;
+
+	uint32_t stackpos = creature->getTile()->getClientIndexOfCreature(player, creature);
+
+	if (stackpos >= 10)
+		return;
+
+	NetworkMessage msg;
+
+	std::unordered_set<uint32_t>::iterator it = std::find(knownCreatureSet.begin(), knownCreatureSet.end(), creature->getID());
+	if(it != knownCreatureSet.end()) {
+		RemoveTileThing(msg, creature->getPosition(), stackpos);
+		msg.addByte(0x6A);
+		msg.addPosition(creature->getPosition());
+		msg.addByte(stackpos);
+		AddCreature(msg, creature, false, creature->getID(), newName);
+	} else {
+		sendAddCreature(creature, creature->getPosition(), stackpos, false, newName);
 	}
 
 	writeToOutputBuffer(msg);

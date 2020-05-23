@@ -825,6 +825,7 @@ class LuaScriptInterface
 		static int luaCreatureRemove(lua_State* L);
 		static int luaCreatureTeleportTo(lua_State* L);
 		static int luaCreatureSay(lua_State* L);
+		static int luaCreatureReload(lua_State* L);
 
 		static int luaCreatureGetDamageMap(lua_State* L);
 
