@@ -6971,7 +6971,7 @@ int LuaScriptInterface::luaItemSerializeAttributes(lua_State* L)
 	return 1;
 }
 
-+int LuaScriptInterface::luaItemGetWeapon(lua_State* L)
+int LuaScriptInterface::luaItemGetWeapon(lua_State* L)
 {
 	// item:getWeapon()
 	Item* item = getUserdata<Item>(L, 1);
