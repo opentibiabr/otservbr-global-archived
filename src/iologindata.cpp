@@ -644,6 +644,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 				DepotChest* depotChest = player->getDepotChest(pid, true);
 				if (depotChest) {
 					depotChest->internalAddThing(item);
+					item->startDecaying();
 				}
 			} else {
 				ItemMap::const_iterator it2 = itemMap.find(pid);
@@ -654,6 +655,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 				Container* container = it2->second.first->getContainer();
 				if (container) {
 					container->internalAddThing(item);
+					item->startDecaying();
 				}
 			}
 		}
@@ -696,6 +698,12 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 			}
 
 			ItemMap::const_iterator it2 = itemMap.find(pid);
+			
+			for (const auto& it : player->depotLockerMap) {
+				it.second->setParent(VirtualCylinder::virtualCylinder);
+				it.second->startDecaying();
+			}
+			
 			if (it2 == itemMap.end()) {
 				continue;
 			}
