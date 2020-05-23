@@ -13,7 +13,7 @@ indent_style = tab
 indent_size = 4
 
 # Google Style
-[*.{cpp,hpp,h}]
+[*.{cpp,hpp,h,sql}]
 indent_style = space
 indent_size = 2
 

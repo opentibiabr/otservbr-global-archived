@@ -6019,7 +6019,6 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			} else {
 				uint16_t pendingCount = tmp->count;
 				uint8_t packSize = (offer->type == STACKABLE_ITEM) ? 100 : 1;
-        account::Account account;
         account.LoadAccountDB(player->getAccount());
         account.RemoveCoins(offer->price);
         account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
@@ -6048,7 +6047,6 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					pendingCount-= std::min<uint16_t>(pendingCount,packSize);
 				}
 
-        uint32_t coins;
         account.GetCoins(&coins);
         player->sendStorePurchaseSuccessful(message.str(), coins);
         return;
@@ -6061,13 +6059,11 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 
 			if (!player->canWear(looktype, addons)) {
 				player->addOutfit(looktype, addons);
-        account::Account account;
         account.LoadAccountDB(player->getAccount());
         account.RemoveCoins(offer->price);
         account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
                                         offer->name);
 				message<< "You've successfully bought the "<< outfitOffer->name << ".";
-        uint32_t coins;
         account.GetCoins(&coins);
         player->sendStorePurchaseSuccessful(message.str(), coins);
         return;
@@ -6082,7 +6078,6 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				player->sendStoreError(STORE_ERROR_PURCHASE, "You arealdy own this mount.");
 				return;
 			} else {
-        account::Account account;
         account.LoadAccountDB(player->getAccount());
         account.RemoveCoins(mntOffer->price);
         if (!player->tameMount(mount->id)) {
@@ -6093,7 +6088,6 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
           account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
                                           offer->name);
 					message << "You've successfully bought the " << mount->name <<" Mount.";
-          uint32_t coins;
           account.GetCoins(&coins);
           player->sendStorePurchaseSuccessful(message.str(), coins);
           return;
@@ -6163,12 +6157,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 							query << "UPDATE `players` SET `name` = " << db.escapeString(newName) << " WHERE `id` = "
 								  << player->getGUID();
 							if (db.executeQuery(query.str())) {
-                account::Account account;
                 account.LoadAccountDB(player->getAccount());
                 account.RemoveCoins(offer->price);
                 account.RegisterCoinsTransaction(account::COIN_REMOVE,
                                                 offer->price, offer->name);
-                uint32_t coins;
                 account.GetCoins(&coins);
                 message << "You have successfully changed you name, you must relog to see the changes.";
                 player->sendStorePurchaseSuccessful(message.str(), coins);
@@ -6210,12 +6202,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			}
 			playerChangeOutfit(player->getID(),playerOutfit);
 			//TODO: add the other sex equivalent outfits player already have in the current sex.
-      account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
       account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
                                       offer->name);
-      uint32_t coins;
       account.GetCoins(&coins);
 			player->sendStorePurchaseSuccessful(message.str(), coins);
 			return;
@@ -6227,12 +6217,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					player->sendStoreError(STORE_ERROR_PURCHASE, "Your character cannot be promoted.");
 					return;
 				} else {
-          account::Account account;
           account.LoadAccountDB(player->getAccount());
           account.RemoveCoins(offer->price);
           account.RegisterCoinsTransaction(account::COIN_REMOVE,
                                           offer->price, offer->name);
-          uint32_t coins;
           account.GetCoins(&coins);
 					player->setVocation(promotedId);
 					player->addStorageValue(STORAGEVALUE_PROMOTION,1);
@@ -6246,12 +6234,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			}
 		} else if (offer->type == PREMIUM_TIME) {
 			PremiumTimeOffer* premiumTimeOffer = (PremiumTimeOffer*) offer;
-      account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
       account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
                                       offer->name);
-			uint32_t coins;
       account.GetCoins(&coins);
 			player->setPremiumDays(player->premiumDays+premiumTimeOffer->days);
 			IOLoginData::addPremiumDays(player->getAccount(),premiumTimeOffer->days);
@@ -6274,12 +6260,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					player->sendStoreError(STORE_ERROR_PURCHASE, "Your character cannot be teleported there at the moment.");
 					return;
 				} else {
-          account::Account account;
           account.LoadAccountDB(player->getAccount());
           account.RemoveCoins(offer->price);
           account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
                                           offer->name);
-			    uint32_t coins;
           account.GetCoins(&coins);
 					addMagicEffect(fromPosition, CONST_ME_POFF);
 					addMagicEffect(toPosition,CONST_ME_TELEPORT);
@@ -6304,12 +6288,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				}
 				blessingsToAdd = bless;
 			}
-      account::Account account;
       account.LoadAccountDB(player->getAccount());
       account.RemoveCoins(offer->price);
       account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
                                       offer->name);
-      uint32_t coins;
       account.GetCoins(&coins);
 			player->addBlessing(blessingsToAdd, 1);
 			message<< "You've successfully bought the "<< offer->name << ".";
