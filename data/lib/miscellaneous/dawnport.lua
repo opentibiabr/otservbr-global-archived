@@ -39,6 +39,10 @@ function setStats(player)
 end
 
 DawnportTable = {
+	Effects = {
+		CONST_ME_TUTORIALARROW,
+		CONST_ME_TUTORIALSQUARE
+	},
 	Storage = {
 		Storage.Dawnport.Sorcerer,
 		Storage.Dawnport.Druid,
@@ -55,6 +59,7 @@ DawnportTable = {
 			id = 5,
 		},
 		tutorial = 5,
+		effectPosition = {x = 32050, y = 31891, z = 5},
 		skills = {1,2,3,4,5},
 		limits = {20, 20},
 		storage = Storage.Dawnport.Sorcerer,
@@ -90,6 +95,7 @@ DawnportTable = {
 			id = 6,
 		},
 		tutorial = 6,
+		effectPosition = {x = 32064, y = 31905, z = 5},
 		skills = {1,2,3,4,5},
 		limits = {20, 20},
 		storage = Storage.Dawnport.Druid,
@@ -125,6 +131,7 @@ DawnportTable = {
 			id = 7,
 		},
 		tutorial = 4,
+		effectPosition = {x = 32078, y = 31891, z = 5},
 		skills = {1,2,3,5},
 		limits = {9, 20},
 		receiveArrow = true,
@@ -161,6 +168,7 @@ DawnportTable = {
 			id = 8,
 		},
 		tutorial = 3,
+		effectPosition = {x = 32064, y = 31876, z = 5},
 		skills= {4},
 		limits= {4, 20},
 		storage = Storage.Dawnport.Knight,

@@ -24,16 +24,11 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 end
 
 function onLogin(player)
-	if player:getLastLoginSaved() == 0 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Use these stairs to enter the Adventurer's Outpost on Dawnport.")
-		player:sendTutorial(1)
+	if player:getLastLoginSaved() > 0 then
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
 
-	player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
-
-
 	local playerId = player:getId()
-
 	DailyReward.init(playerId)
 
 	player:loadSpecialStorage()

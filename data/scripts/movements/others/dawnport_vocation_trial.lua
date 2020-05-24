@@ -60,6 +60,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 			-- Set for the vocation main if is level 8 or more
 			elseif player:getLevel() >= 8 and player:getLevel() < 20 then
 				player:setVocation(Vocation(vocation.second.id))
+				-- Set player stats if have level 9 or more (health, mana, capacity)
 				setStats(player)
 			-- If player is level 20 or more then do not pass on vocation trial tile
 			elseif player:getLevel() >= 20 then
@@ -93,10 +94,13 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 			end
 			-- First step
 			if getVocation and getVocation:getId() == VOCATION.ID.NONE then
+				for i = 1, #DawnportTable.Effects do
+					Position(vocation.effectPosition):sendMagicEffect(DawnportTable.Effects[i])
+				end
 				player:sendTutorial(vocation.tutorial)
-				getFirstItems(player)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 					"As this is the first time you try out a vocation, the Guild has kitted you out. " .. vocation.firstMessage)
+				getFirstItems(player)
 			-- Second step
 			elseif player:getStorageValue(vocation.storage) == -1 and getVocation:getId() ~= VOCATION.ID.NONE then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("As this is your first time as a \z
@@ -172,10 +176,6 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 						end
 					end
 				end
-			end
-			-- Set town from tutorial island to dawnport (Oressa temple)
-			if player:getTown() == Town(TOWNS_LIST.DAWNPORT_TUTORIAL) then
-				player:setTown(Town(TOWNS_LIST.DAWNPORT))
 			end
 			player:getPosition():sendMagicEffect(CONST_ME_BLOCKHIT)
 		end
