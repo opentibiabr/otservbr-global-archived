@@ -546,9 +546,9 @@ Storage = {
 		},
 		MotA = {
 			Mission = 18002,
-			Pedra1 = 18510,
-			Pedra2 = 18511,
-			Pedra3 = 18512,
+			Stone1 = 18510,
+			Stone2 = 18511,
+			Stone3 = 18512,
 			Answer = 18513,
 			QuestionId = 18514,
 			AcessDoorInvestigation = 18508,
