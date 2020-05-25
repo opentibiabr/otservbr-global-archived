@@ -515,54 +515,65 @@ Storage = {
 	CultsOfTibia = {
 		Questline = 17950,
 		Minotaurs = {
-			Acesso = 17999,
-			jamesfrancisTask = 18000,
+			EntranceAcess = 17999,
+			JamesFrancisTask = 18000,
 			Mission = 18001,
-			bossTimer = 18500
+			BossTimer = 18500,
+			AcessDoor = 18507
 		},
 		MotA = {
 			Mission = 18002,
-			Pedra1 = 18510,
-			Pedra2 = 18511,
-			Pedra3 = 18512,
-			Respostas = 18513,
-			Perguntaid = 18514
+			Stone1 = 18510,
+			Stone2 = 18511,
+			Stone3 = 18512,
+			Answer = 18513,
+			QuestionId = 18514,
+			AcessDoorInvestigation = 18508,
+			AcessDoorEntrance = 18509,
+			AcessDoorExit = 18510
 		},
 		Barkless = {
 			Mission = 18003,
 			sulphur = 18520,
-			tar = 18521,
-			ice = 18522,
+			Tar = 18521,
+			Ice = 18522,
 			Death = 18523,
 			Objects = 18524,
 			Temp = 18525,
-			bossTimer = 18501
+			BossTimer = 18501,
+			TrialAcessDoor = 18511,
+			TarAcessDoor = 18512,
+			AcessDoor = 18513,
+			BossAcessDoor = 18514
 		},
 		Orcs = {
 			Mission = 18004,
-			lookType = 18530,
-			bossTimer = 18502
+			LookType = 18530,
+			BossTimer = 18502
 		},
 		Life = {
 			Mission = 18005,
-			bossTimer = 18503
+			BossTimer = 18503,
+			AcessDoor = 18515
 		},
 		Humans = {
 			Mission = 18006,
 			Vaporized = 18550,
 			Decaying = 18551,
-			bossTimer = 18504
+			BossTimer = 18504
 		},
 		Misguided = {
 			Mission = 18007,
 			Monsters = 18540,
 			Exorcisms = 18541,
 			Time = 18542,
-			bossTimer = 18505
+			BossTimer = 18505,
+			AcessDoor = 18516
 		},
-		finalBoss = {
+		FinalBoss = {
 			Mission = 18008,
-			bossTimer = 18506
+			BossTimer = 18506,
+			AcessDoor = 18517
 		}
 	},
 	ThreatenedDreams = {

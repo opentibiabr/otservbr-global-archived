@@ -32,6 +32,7 @@ local startupGlobalStorages = {
 
 function onStartup()
 	print(string.format('>> Loaded %d npcs and spawned %d monsters.\n>> Loaded %d towns with %d houses in total.', Game.getNpcCount(), Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
+	print(">> Loaded action and unique per Lua")
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
 	end
