@@ -152,9 +152,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 				else
 					local equipped = player:getSlotItem(slot)
 					if equipped then
-						if backpack then
-							equipped:moveTo(backpack)
-						end
+						equipped:moveTo(backpack)
 					end
 				end
 				local giveItem = true
@@ -168,7 +166,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 				end
 				if giveItem then
 					if extra then
-						player:addItemEx(Game.createItem(info[1], info[2]), false, INDEX_WHEREEVER, 0)
+						player:addItemEx(Game.createItem(info[1], info[2]), true, INDEX_WHEREEVER, 0)
 					else
 						local ret = player:addItem(info[1], info[2], false, 1, slot)
 						if not ret then

@@ -52,11 +52,11 @@ DawnportTable = {
 	[40001] = {
 		-- First vocation (from lvl 1 to 7)
 		first = {
-			id = 1,
+			id = VOCATION.ID.DAWNPORT_SORCERER,
 		},
 		-- Second vocation (from lvl 8 to 20)
 		second = {
-			id = 5,
+			id = VOCATION.ID.SORCERER,
 		},
 		tutorial = 5,
 		effectPosition = {x = 32050, y = 31891, z = 5},
@@ -88,11 +88,11 @@ DawnportTable = {
 	[40002] = {
 		-- First vocation (from lvl 1 to 7)
 		first = {
-			id = 2,
+			id = VOCATION.ID.DAWNPORT_DRUID,
 		},
 		-- Second vocation (from lvl 8 to 20)
 		second = {
-			id = 6,
+			id = VOCATION.ID.DRUID,
 		},
 		tutorial = 6,
 		effectPosition = {x = 32064, y = 31905, z = 5},
@@ -124,11 +124,11 @@ DawnportTable = {
 	[40003] = {
 		-- First vocation (from lvl 1 to 7)
 		first = {
-			id = 3,
+			id = VOCATION.ID.DAWNPORT_PALADIN,
 		},
 		-- Second vocation (from lvl 8 to 20)
 		second = {
-			id = 7,
+			id = VOCATION.ID.PALADIN,
 		},
 		tutorial = 4,
 		effectPosition = {x = 32078, y = 31891, z = 5},
@@ -161,11 +161,11 @@ DawnportTable = {
 	[40004] = {
 		-- First vocation (from lvl 1 to 7)
 		first = {
-			id = 4,
+			id = VOCATION.ID.DAWNPORT_KNIGHT,
 		},
 		-- Second vocation (from lvl 8 to 20)
 		second = {
-			id = 8,
+			id = VOCATION.ID.KNIGHT,
 		},
 		tutorial = 3,
 		effectPosition = {x = 32064, y = 31876, z = 5},
