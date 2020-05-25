@@ -166,7 +166,7 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 				end
 				if giveItem then
 					if extra then
-						player:addItemEx(Game.createItem(info[1], info[2]), true, INDEX_WHEREEVER, 0)
+						player:addItemEx(Game.createItem(info[1], info[2]), INDEX_WHEREEVER, 0)
 					else
 						local ret = player:addItem(info[1], info[2], false, 1, slot)
 						if not ret then
