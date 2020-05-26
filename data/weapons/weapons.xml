@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <weapons>
 	<!-- rods -->
-	<wand id="23721" level="1" mana="1" min="4" max="8" type="ice">		<!-- the chiller -->
-		<vocation name="Druid" />
-	</wand>
 	<wand id="2182" level="7" mana="2" min="8" max="18" type="earth">		<!-- snakebit rod -->
 		<vocation name="Druid" />
 	</wand>
@@ -75,9 +72,6 @@
 		<vocation name="Druid" />
 	</wand>
 	<!-- wands -->
-	<wand id="23719" level="1" mana="1" min="4" max="8" type="fire">		<!-- the scorcher -->
-		<vocation name="Sorcerer" />
-	</wand>
 	<wand id="2190" level="7" mana="2" min="8" max="18" type="energy">		<!-- wand of vortex -->
 		<vocation name="Sorcerer" />
 	</wand>

@@ -36,7 +36,7 @@ function onLogin(player)
 		"TheBaronFromBelowKill",
 		--Dawnport Quest
 		"MorrisMinotaurKill",
-		"MorrisGlobinKill",
+		"MorrisGoblinKill",
 		"MorrisTrollKill",
 		--Elemental Spheres Quest
 		"OverlordKill",

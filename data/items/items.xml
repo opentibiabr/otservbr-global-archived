@@ -33932,7 +33932,6 @@
 	<item id="23716" article="a" name="stone floor" />
 	<item id="23717" article="a" name="stone floor" />
 	<item id="23719" article="the" name="scorcher">
-		<attribute key="description" value="It's warm to the touch." />
 		<attribute key="weight" value="1500" />
 		<attribute key="weaponType" value="wand" />
 		<attribute key="quicklootcategory" value="weaponwand" />
@@ -33940,7 +33939,6 @@
 		<attribute key="range" value="3" />
 	</item>
 	<item id="23721" article="the" name="chiller">
-		<attribute key="description" value="It is a little, well, chilly to the touch." />
 		<attribute key="weight" value="1500" />
 		<attribute key="weaponType" value="wand" />
 		<attribute key="quicklootcategory" value="weaponwand" />
@@ -34025,9 +34023,8 @@
 	</item>
 	<item fromid="23769" toid="23770" article="a" name="dead goblin" />
 	<item id="23771" article="a" name="spellbook of the novice">
-		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
+		<attribute key="defense" value="8" />
 		<attribute key="weaponType" value="shield" />
-		<attribute key="weight" value="1400" />
 	</item>
 	<item id="23772" article="a" name="broken wooden shield">
 		<attribute key="weight" value="4000" />

@@ -1643,12 +1643,6 @@
 		<vocation name="Master Sorcerer" showInDescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="29060" slot="hand" function="onDeEquipItem"/>
-	<movevent event="Equip" itemid="23719" slot="hand" level="1" function="onEquipItem">
-		<!-- the scorcher -->
-		<vocation name="Sorcerer"/>
-		<vocation name="Dawnport Sorcerer" showInDescription="0"/>
-	</movevent>
-	<movevent event="DeEquip" itemid="23719" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2190" slot="hand" level="7" function="onEquipItem">
 		<!-- wand of vortex -->
 		<vocation name="Sorcerer"/>
@@ -1754,12 +1748,6 @@
 		<vocation name="Master Sorcerer" showInDescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="25991" slot="hand" function="onDeEquipItem"/>
-	<movevent event="Equip" itemid="23721" slot="hand" level="1" function="onEquipItem">
-		<!-- the chiller -->
-		<vocation name="Druid"/>
-		<vocation name="Dawnport Druid" showInDescription="0"/>
-	</movevent>
-	<movevent event="DeEquip" itemid="23721" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2182" slot="hand" level="7" function="onEquipItem">
 		<!-- snakebite rod -->
 		<vocation name="Druid"/>

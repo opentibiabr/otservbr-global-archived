@@ -168,10 +168,10 @@ function tutorialTile3.onStepIn(creature, item, position, fromPosition)
 		return
 	end
 
-	if player:getStorageValue(Storage.Quest.Dawnport.Tutorial) ~= 0 then
+	if player:getStorageValue(Storage.Dawnport.Tutorial) ~= 0 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "To walk on STAIRS, use your arrow keys on your keyboard. You can also use them to walk in general.")
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:setStorageValue(Storage.Quest.Dawnport.Tutorial, 0)
+		player:setStorageValue(Storage.Dawnport.Tutorial, 0)
 	end
 	return true
 end
@@ -190,7 +190,7 @@ end
 
 tutorialTile3:register()
 
---
+-- Message before down stairs of vocation tiles
 local tutorialTile4 = MoveEvent()
 
 function tutorialTile4.onStepIn(creature, item, position, fromPosition)
@@ -199,10 +199,10 @@ function tutorialTile4.onStepIn(creature, item, position, fromPosition)
 		return
 	end
 
-	if player:getStorageValue(Storage.Quest.Dawnport.MessageStair) < 1 then
+	if player:getStorageValue(Storage.Dawnport.MessageStair) < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "To ATTACK, click on a target in the battle list next to the game window. A red frame shows which enemy you're attacking.")
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:setStorageValue(Storage.Quest.Dawnport.MessageStair, 1)
+		player:setStorageValue(Storage.Dawnport.MessageStair, 1)
 	end
 	return true
 end
