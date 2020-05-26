@@ -108,10 +108,10 @@ keywordHandler:addKeyword({"rookgaard"}, StdModule.say,
 
 --From topic of vocation to topic of the "yes" msg (choosing vocation)
 local topicTable = {
-	[5] = VOCATION.KNIGHT,
-	[6] = VOCATION.PALADIN,
-	[7] = VOCATION.DRUID,
-	[8] = VOCATION.SORCERER
+	[5] = VOCATION.ID.KNIGHT,
+	[6] = VOCATION.ID.PALADIN,
+	[7] = VOCATION.ID.DRUID,
+	[8] = VOCATION.ID.SORCERER
 }
 
 local slots = {

@@ -29,10 +29,10 @@ local setting = {
 local vocations = {
 	msgVoc = "You should leave for the Mainland now. Go left to reach the ship.",
 	msgNoVoc = "You have not the right vocation to enter this room.",
-	[40010] = {vocation = VOCATION.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
-	[40011] = {vocation = VOCATION.DRUID, destination = {x = 32073, y = 31879, z = 6}},
-	[40012] = {vocation = VOCATION.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
-	[40013] = {vocation = VOCATION.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
+	[40010] = {vocation = VOCATION.ID.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
+	[40011] = {vocation = VOCATION.ID.DRUID, destination = {x = 32073, y = 31879, z = 6}},
+	[40012] = {vocation = VOCATION.ID.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
+	[40013] = {vocation = VOCATION.ID.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
 }
 
 local setVocation = {
@@ -58,22 +58,31 @@ function dawnportOressaStair.onStepIn(creature, item, position, fromPosition)
 
 	local teleport = setting[item.actionid]
 	if teleport then
-		if player:getStorageValue(teleport.storage) == player:getVocation():getId() then
+		if player:getStorageValue(Storage.Dawnport.DoorVocationFinish) < 1 then
+			player:setStorageValue(Storage.Dawnport.DoorVocationFinish, 1)
+			return true
+		elseif player:getStorageValue(Storage.Dawnport.DoorVocationFinish) == 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, teleport.msg)
 			player:teleportTo(teleport.destination, true)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			return true
 		end
 	end
 
 	local vocationTeleport = vocations[item.actionid]
 	if vocationTeleport then
-		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
+		if player:getStorageValue(Storage.Dawnport.ChestRoomFinish) < 1 then
+			player:setStorageValue(Storage.Dawnport.ChestRoomFinish, 1)
+			return true
+		end
+
+		if player:getStorageValue(Storage.Dawnport.ChestRoomFinish) == 1 then
 			if player:getVocation():getId() == vocationTeleport.vocation then
-				player:teleportTo(vocationTeleport.destination)
+				player:teleportTo(vocationTeleport.destination, true)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, vocations.msgVoc)
 			else
-				player:teleportTo(vocationTeleport.destination)
+				player:teleportTo(vocationTeleport.destination, true)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, vocations.msgNoVoc)
 			end

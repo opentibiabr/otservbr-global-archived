@@ -1762,8 +1762,10 @@ Storage = {
 		Paladin = 50829,
 		Knight = 50830,
 		DoorVocation = 50831,
-		Tutorial = 50832,
-		MessageStair = 50833
+		DoorVocationFinish = 50832,
+		ChestRoomFinish = 50833,
+		Tutorial = 50834,
+		MessageStair = 50835
 	},
 	LionsRock = {
 		Progress = 50840,
