@@ -2188,23 +2188,19 @@ GlobalStorage = {
 }
 
 -- Values extraction function
-local function extractValues(tab)
-  local ret = {}
-  for _, v in pairs(tab) do
-    if type(v) == "number" then
-      table.insert(ret, v)
-    else
-      local extraction = extractValues(v)
-      for _, k in pairs(extraction) do
-        table.insert(ret, k)
-      end
-    end
-  end
-  return ret
+local function extractValues(tab, ret)
+	if type(tab) == "number" then
+		table.insert(ret, tab)
+	else
+		for _, v in pairs(tab) do
+			extractValues(v, ret)
+		end
+	end
 end
 
 local benchmark = os.clock()
-local extraction = extractValues(Storage) -- Call function
+local extraction = {}
+extractValues(Storage, extraction)  -- Call function
 table.sort(extraction) -- Sort the table
 -- The choice of sorting is due to the fact that sorting is very cheap O (n log2 (n)) and then we can simply compare one by one the elements finding duplicates in O(n)
 
