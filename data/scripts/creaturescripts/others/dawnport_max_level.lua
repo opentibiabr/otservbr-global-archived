@@ -6,7 +6,8 @@ function dawnportMaxLevel.onAdvance(creature, target)
 		return true
 	end
 
-	if player:getLevel() == 20 and player:getTown() and player:getTown():getId() == TOWNS_LIST.DAWNPORT then
+	local town = player:getTown()
+	if player:getLevel() == 20 and town and town:getId() == TOWNS_LIST.DAWNPORT then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"You have reached the limit level and have to choose your vocation and leave Dawnport.")
 		addEvent(function(uid)

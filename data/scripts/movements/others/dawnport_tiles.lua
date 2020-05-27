@@ -1,9 +1,4 @@
-local setting = {
-	[40005] = {
-		destination = {x = 32063, y = 31891, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands."
-	},
+local chestRoomTile = {
 	[40006] = {
 		destination = {x = 32054, y = 31883, z= 6},
 		storage = Storage.Dawnport.DoorVocation,
@@ -23,6 +18,14 @@ local setting = {
 		destination = {x = 32068, y = 31883, z = 6},
 		storage = Storage.Dawnport.DoorVocation,
 		msg = "You have chosen your vocation. You cannot go back."
+	}
+}
+
+local oressaStair = {
+	[40005] = {
+		destination = {x = 32063, y = 31891, z= 6},
+		storage = Storage.Dawnport.DoorVocation,
+		msg = "You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands."
 	}
 }
 
@@ -48,22 +51,34 @@ local effects = {
 }
 
 -- Oressa stair, back if have reached level 20 or choose vocation
-local dawnportOressaStair = MoveEvent()
+-- Chest vocation rook back before pass
+local dawnportTileBack = MoveEvent()
 
-function dawnportOressaStair.onStepIn(creature, item, position, fromPosition)
+function dawnportTileBack.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
 	end
 
-	local teleport = setting[item.actionid]
+	local teleport = chestRoomTile[item.actionid]
 	if teleport then
-		if player:getStorageValue(Storage.Dawnport.DoorVocationFinish) < 1 then
-			player:setStorageValue(Storage.Dawnport.DoorVocationFinish, 1)
-			return true
-		elseif player:getStorageValue(Storage.Dawnport.DoorVocationFinish) == 1 then
+		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, teleport.msg)
 			player:teleportTo(teleport.destination, true)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			return true
+		end
+	end
+
+	local stair = oressaStair[item.actionid]
+	if stair then
+		if player:getStorageValue(Storage.Dawnport.DoorVocation) == player:getVocation():getId() then
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, stair.msg)
+			player:teleportTo(stair.destination, true)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			return true
+		elseif player:getLevel() == 20 then
+			player:teleportTo(fromPosition, true)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			return true
 		end
@@ -88,18 +103,14 @@ function dawnportOressaStair.onStepIn(creature, item, position, fromPosition)
 			end
 		end
 	end
-	if player:getLevel() == 20 then
-		player:teleportTo(fromPosition, true)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	end
 	return true
 end
 
 for key = 40005, 40013 do
-	dawnportOressaStair:aid(key)
+	dawnportTileBack:aid(key)
 end
 
-dawnportOressaStair:register()
+dawnportTileBack:register()
 
 -- First tutorial tile, on the first dawnport town
 local tutorialTile = MoveEvent()

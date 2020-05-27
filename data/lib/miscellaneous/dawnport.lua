@@ -115,7 +115,7 @@ DawnportTable = {
 		items = {
 			[CONST_SLOT_LEFT] = {23721, 1, true}, -- the chiller
 			[CONST_SLOT_RIGHT] = {23771, 1, true}, -- spellbook of the novice
-			[11] = {8704, 2, true, storage = Storage.Dawnport.StorageItemDruidHealthPotion, limit = 1}, -- potion
+			[11] = {8704, 2, true, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
 			[12] = {7620, 10, true, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
 			[13] = {23723, 2, true, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
 			[14] = {23722, 2, true, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1} -- 2 light stone shower runes
