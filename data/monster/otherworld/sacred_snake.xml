@@ -27,4 +27,7 @@
 		<element firePercent="-10" />
 		<element icePercent="-10" />
 	</elements>
+	<loot>
+		<item name="eggs of a sacred snake" countmin="1" countmax="20" chance="100000" />
+	</loot>
 </monster>

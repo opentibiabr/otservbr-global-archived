@@ -15,12 +15,6 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 local spell = Spell(SPELL_INSTANT)
 
 function spell.onCastSpell(creature, var)
-	if Tile(creature:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) then
-		creature:sendCancelMessage(RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE)
-		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
-
 	local vocation = creature:getVocation()
 	if vocation and vocation:getClientId() == VOCATION.CLIENT_ID.KNIGHT then
 		return combat:execute(creature, var)

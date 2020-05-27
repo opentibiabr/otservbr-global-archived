@@ -26,6 +26,35 @@ local voices = {
 
 npcHandler:addModule(VoiceModule:new(voices))
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- Buyable
+shopModule:addBuyableItem({"backpack"}, 1988, 10, 1)
+shopModule:addBuyableItem({"bag"}, 1987, 4, 1)
+shopModule:addBuyableItem({"bread"}, 2689, 3, 1)
+shopModule:addBuyableItem({"carrot"}, 2684, 1, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 5, 1)
+shopModule:addBuyableItem({"cherry"}, 2679, 1, 1)
+shopModule:addBuyableItem({"egg"}, 2695, 1, 1)
+shopModule:addBuyableItem({"fishing rod"}, 2580, 150, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
+shopModule:addBuyableItem({"machete"}, 2420, 6, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+shopModule:addBuyableItem({"pick"}, 2553, 15, 1)
+shopModule:addBuyableItem({"rope"}, 2120, 50, 1)
+shopModule:addBuyableItem({"salmon"}, 2668, 2, 1)
+shopModule:addBuyableItem({"scroll"}, 1949, 5, 1)
+shopModule:addBuyableItem({"shovel"}, 2554, 10, 1)
+shopModule:addBuyableItem({"torch"}, 2050, 2, 1)
+shopModule:addBuyableItem({"worm"}, 3976, 1, 1)
+-- sellable
+shopModule:addSellableItem({"cheese"}, 2696, 2, 1)
+shopModule:addSellableItem({"fishing rod"}, 2580, 30, 1)
+shopModule:addSellableItem({"meat"}, 2666, 2, 1)
+shopModule:addSellableItem({"rope"}, 2120, 8, 1)
+shopModule:addSellableItem({"shovel"}, 2554, 2, 1)
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
@@ -40,6 +69,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Woke up on this island. Had to eat squirrels before the adventurers found me and took me in. End of story."
 			},
 		cid, false, true, 200)
+		npcHandler.topic[cid] = 0
 	elseif msgcontains(msg, "rope") then
 		npcHandler:say(
 			{
@@ -48,6 +78,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Now, about that rope - ask me for equipment to see my wares. <winks>"
 			},
 		cid, false, true, 200)
+		npcHandler.topic[cid] = 0
 	end
 	return true
 end
@@ -110,7 +141,7 @@ keywordHandler:addKeyword({'mr morris'}, StdModule.say,
 keywordHandler:addKeyword({'oressa'}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "Quiet little lady, her. Knows her way around the isle, looking for herbs and stuff; \z
+		text = "Quiet little lady, her. Knows her way around the isle, looking for herbs and stuff \z
 			but mostly spends her time in the temple, helping younglings like you choose a vocation."
 	}
 )
@@ -131,6 +162,7 @@ keywordHandler:addKeyword({'hamish'}, StdModule.say,
 )
 
 npcHandler:setMessage(MESSAGE_GREET, "Hello there, mate. Here for a {trade}? My stock's just been refilled.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. You can also have a look at food or {equipment} only.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Have fun!")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

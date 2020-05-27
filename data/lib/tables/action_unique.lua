@@ -333,6 +333,15 @@ ActionTable = {
 		actionId = 40013,
 		itemId = 406,
 		itemPos = {{x = 32068, y = 31880, z = 6}}
+	},
+	--Dawnport bridge
+	{
+		actionId = 40014,
+		itemId = false,
+		itemPos = {
+			{x = 32107, y = 31901, z = 7},
+			{x = 32104, y = 31906, z = 7}
+		}
 	}
 }
 
@@ -408,7 +417,7 @@ UniqueTable = {
 	[14006] = {
 		itemId = 3058,
 		itemPos = {x = 32143, y = 31910, z = 8},
-		itemReward = {{480, 1}},
+		itemReward = {{2480, 1}},
 		storage = Storage.Quest.SanctuaryOfTheLizardGod.LegionHelmet
 	},
 	-- Dawnport quest
@@ -1000,11 +1009,10 @@ UniqueTable = {
 		storage = Storage.Dawnport.DoorVocation,
 		destination = {x = 32068, y = 31883, z = 6}
 	},
+	-- Sacred snake teleport
 	[25021] = {
 		itemId = 1387,
-		itemPos = {x = 32112, y = 31936, z = 8},
-		storage = Storage.Quest.Dawnport.LizardGodTeleport,
-		destination = {x = 32124, y = 31938, z = 8}
+		itemPos = {x = 32112, y = 31936, z = 8}
 	},
 	-- Dawnport vocation rewards
 	-- Sorcerer
@@ -1049,10 +1057,8 @@ UniqueTable = {
 	},
 	-- The rare herb
 	[25026] = {
-		itemId = 3748,
-		itemPos = {x = 32028, y = 31882, z = 7},
-		storage = Storage.Quest.Dawnport.TheRareHerb,
-		reward = 15572
+		itemId = 23748,
+		itemPos = {x = 32028, y = 31882, z = 7}
 	},
 	-- Dawnport tutorial tile
 	[25027] = {

@@ -19,6 +19,8 @@ function dawnportSetVocation.onAdvance(player, skill, oldLevel, newLevel)
 
 	if newLevel == 8 then
 		player:setVocation(Vocation(vocation))
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+		"Congratulations! You may now choose your vocation and leave Dawnport. Talk to Oressa in the temple.")
 	end
 	return true
 end

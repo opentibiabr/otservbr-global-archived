@@ -15,12 +15,6 @@ combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 local spell = Spell(SPELL_INSTANT)
 
 function spell.onCastSpell(creature, var)
-	if Tile(creature:getPosition()):hasFlag(TILESTATE_PROTECTIONZONE) then
-		creature:sendCancelMessage(RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE)
-		creature:getPosition():sendMagicEffect(CONST_ME_POFF)
-		return false
-	end
-
 	local vocation = creature:getVocation()
 	local paladin, druid, sorcerer = VOCATION.CLIENT_ID.PALADIN, VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.SORCERER
 	if vocation and vocation:getClientId() == paladin
