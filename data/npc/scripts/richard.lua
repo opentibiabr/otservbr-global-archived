@@ -21,7 +21,8 @@ local voices = {
 	{text = "Everything an adventurer needs!"},
 	{text = "A rope is the adventurer's best friend!"},
 	{text = "Fresh meat! Durable provisions! Ropes and shovels!"},
-	{text = "Feeling like a bit of treasure-seeking? Buy a shovel or a pick and investigate likely-looking stone piles and cracks!"}
+	{text = "Feeling like a bit of treasure-seeking? \z
+		Buy a shovel or a pick and investigate likely-looking stone piles and cracks!"}
 }
 
 npcHandler:addModule(VoiceModule:new(voices))
@@ -30,6 +31,7 @@ npcHandler:addModule(VoiceModule:new(voices))
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- Buyable
+-- Name, id, price, count/charges
 shopModule:addBuyableItem({"backpack"}, 1988, 10, 1)
 shopModule:addBuyableItem({"bag"}, 1987, 4, 1)
 shopModule:addBuyableItem({"bread"}, 2689, 3, 1)
@@ -48,7 +50,7 @@ shopModule:addBuyableItem({"scroll"}, 1949, 5, 1)
 shopModule:addBuyableItem({"shovel"}, 2554, 10, 1)
 shopModule:addBuyableItem({"torch"}, 2050, 2, 1)
 shopModule:addBuyableItem({"worm"}, 3976, 1, 1)
--- sellable
+-- Sellable
 shopModule:addSellableItem({"cheese"}, 2696, 2, 1)
 shopModule:addSellableItem({"fishing rod"}, 2580, 30, 1)
 shopModule:addSellableItem({"meat"}, 2666, 2, 1)
