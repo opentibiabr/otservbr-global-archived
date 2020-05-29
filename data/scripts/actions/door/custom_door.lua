@@ -1,12 +1,12 @@
 local doorIds = {}
 for index, value in ipairs(customDoor) do
-    if not table.contains(doorIds, value.openDoor) then
-        table.insert(doorIds, value.openDoor)
-    end
+	if not table.contains(doorIds, value.openDoor) then
+		table.insert(doorIds, value.openDoor)
+	end
 
-    if not table.contains(doorIds, value.closedDoor) then
-        table.insert(doorIds, value.closedDoor)
-    end
+	if not table.contains(doorIds, value.closedDoor) then
+		table.insert(doorIds, value.closedDoor)
+	end
 end
 
 local customDoor = Action()
@@ -15,7 +15,7 @@ function customDoor.onUse(player, item, fromPosition, target, toPosition, isHotk
 		return true
 	end
 
-    for index, value in ipairs(CustomDoorTable) do
+	for index, value in ipairs(CustomDoorTable) do
 		 if value.closedDoor == item.itemid then
 			item:transform(value.openDoor)
 		end
@@ -29,7 +29,7 @@ function customDoor.onUse(player, item, fromPosition, target, toPosition, isHotk
 end
 
 for index, value in ipairs(doorIds) do
-    customDoor:id(value)
+	customDoor:id(value)
 end
 
 customDoor:register()

@@ -1,17 +1,17 @@
 local doorIds = {}
 for index, value in ipairs(levelDoor) do
-    if not table.contains(doorIds, value.openDoor) then
-        table.insert(doorIds, value.openDoor)
-    end
+	if not table.contains(doorIds, value.openDoor) then
+		table.insert(doorIds, value.openDoor)
+	end
 
-    if not table.contains(doorIds, value.closedDoor) then
-        table.insert(doorIds, value.closedDoor)
-    end
+	if not table.contains(doorIds, value.closedDoor) then
+		table.insert(doorIds, value.closedDoor)
+	end
 end
 
 local levelDoor = Action()
 function levelDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    for index, value in ipairs(LevelDoorTable) do
+	for index, value in ipairs(LevelDoorTable) do
 		 if value.closedDoor == item.itemid then
 			if item.actionid > 0 and player:getLevel() >= item.actionid - 1000 then
 				item:transform(value.openDoor)
@@ -31,7 +31,7 @@ function levelDoor.onUse(player, item, fromPosition, target, toPosition, isHotke
 end
 
 for index, value in ipairs(doorIds) do
-    levelDoor:id(value)
+	levelDoor:id(value)
 end
 
 levelDoor:register()
