@@ -5,7 +5,7 @@ keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092}
 
 -- The lockedDoor is the doors with the description "It is locked". Use this (with no action) to keep a door permanently isoled.
 -- The closedDoor is the doors that are unlocked, when using them open normally.
-keyDoor = {
+KeyDoorTable = {
 	{ lockedDoor = 1209, closedDoor = 1210, openDoor = 1211 },
 	{ lockedDoor = 1212, closedDoor = 1213, openDoor = 1214 },
 	{ lockedDoor = 1231, closedDoor = 1232, openDoor = 1233 },
@@ -72,7 +72,7 @@ keyDoor = {
 }
 
 -- These are the common doors, the ones that just open and close without any special requirements.
-customDoor = {
+CustomDoorTable = {
 	{ closedDoor = 1219, openDoor = 1220 },
 	{ closedDoor = 1221, openDoor = 1222 },
 	{ closedDoor = 1237, openDoor = 1238 },
@@ -148,7 +148,7 @@ customDoor = {
 }
 
 -- These are the doors for missions, they need access from some mission (storage) to be able to enter. Put the storage value in the action id of the door and it will open only to the player who has the storage value.
-questDoor = {
+QuestDoorTable = {
 	{ closedDoor = 1223, openDoor = 1224 },
 	{ closedDoor = 1225, openDoor = 1226 },
 	{ closedDoor = 1241, openDoor = 1242 },
@@ -210,7 +210,7 @@ questDoor = {
 -- For example:
 -- Level 10 put the action id: 1010 on the door.
 -- Level 100 put the action id: 1100 on the door. And so on.
-levelDoor = {
+LevelDoorTable = {
 	{ closedDoor = 1227, openDoor = 1228 },
 	{ closedDoor = 1229, openDoor = 1230 },
 	{ closedDoor = 1245, openDoor = 1246 },
