@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if msgcontains(msg, "research notes") then
+	if msgcontains(msg, "mission") then
 		if player:getStorageValue(Storage.TheWayToYalahar.QuestLine) < 1 and player:getStorageValue(Storage.ExplorerSociety.JoiningtheExplorers) >= 4 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) >= 4 then
 			npcHandler:say({
 				"There is indeed something that needs our attention. In the far north, a new city named Yalahar was discovered. It seems to be incredibly huge. ...",
