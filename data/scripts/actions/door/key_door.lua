@@ -1,7 +1,7 @@
 local doorId = {}
 local keyLockedDoor = {}
 local keyUnlockedDoor = {}
-for index, value in ipairs(keyDoor) do
+for index, value in ipairs(KeyDoorTable) do
 	if not table.contains(doorId, value.closedDoor) then
 		table.insert(doorId, value.closedDoor)
 	end
