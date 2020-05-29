@@ -1,7 +1,6 @@
 local doorId = {}
 local keyLockedDoor = {}
 local keyUnlockedDoor = {}
-
 for index, value in ipairs(keyDoor) do
 	if not table.contains(doorId, value.closedDoor) then
 		table.insert(doorId, value.closedDoor)
@@ -26,33 +25,10 @@ for index, value in pairs(keysID) do
 	end
 end
 
-local door = Action()
-
-function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-	local doorCreature = Tile(toPosition):getTopCreature()
-	if doorCreature then
-		toPosition.x = toPosition.x + 1
-		local query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		if query ~= RETURNVALUE_NOERROR then
-			toPosition.x = toPosition.x - 1
-			toPosition.y = toPosition.y + 1
-			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		end
-		if query ~= RETURNVALUE_NOERROR then
-			toPosition.y = toPosition.y - 2
-			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		end
-		if query ~= RETURNVALUE_NOERROR then
-			toPosition.x = toPosition.x - 1
-			toPosition.y = toPosition.y + 1
-			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		end
-		if query ~= RETURNVALUE_NOERROR then
-			player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-			return true
-		end
-		doorCreature:teleportTo(toPosition, true)
+local keyDoor = Action()
+function keyDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if Creature.checkCreatureInsideDoor(player, toPosition) then
+		return true
 	end
 
 	-- It is locked msg
@@ -61,23 +37,23 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	-- onUse unlocked door
-	for index, value in ipairs(keyDoor) do
+	-- onUse unlocked key door
+	for index, value in ipairs(KeyDoorTable) do
 		if value.closedDoor == item.itemid then
 			item:transform(value.openDoor)
 			return true
 		end
 	end
-	for index, value in ipairs(keyDoor) do
+	for index, value in ipairs(KeyDoorTable) do
 		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
 			return true
 		end
 	end
 
-	-- Key use on door (locked door)
+	-- Key use on door (locked key door)
 	if target.actionid > 0 then
-		for index, value in ipairs(keyDoor) do
+		for index, value in ipairs(KeyDoorTable) do
 			if item.actionid ~= target.actionid and value.lockedDoor == target.itemid then
 				player:sendCancelMessage("The key does not match.")
 				return true
@@ -97,7 +73,7 @@ function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 for key, value in pairs(doorId) do
-	door:id(value)
+	keyDoor:id(value)
 end
 
-door:register()
+keyDoor:register()
