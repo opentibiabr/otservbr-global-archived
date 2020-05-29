@@ -155,6 +155,7 @@ void Game::setGameState(GameState_t newState)
 			}
 
 			saveMotdNum();
+			saveGameState();
 
 			g_dispatcher.addTask(
 				createTask(std::bind(&Game::shutdown, this)));
@@ -177,6 +178,7 @@ void Game::setGameState(GameState_t newState)
 				}
 			}
 
+			saveGameState();
 			break;
 		}
 
@@ -4305,7 +4307,7 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					tmpPlayer->sendTextMessage(message);
 				}
 
-				applyImbuementEffects(attackerPlayer, damage, manaDamage);
+				applyImbuementEffects(attackerPlayer, manaDamage);
 				damage.primary.value -= manaDamage;
 				if (damage.primary.value < 0) {
 					damage.secondary.value = std::max<int32_t>(0, damage.secondary.value + damage.primary.value);
@@ -4883,7 +4885,7 @@ void Game::checkImbuements()
 	cleanup();
 }
 
-void Game::applyImbuementEffects(Creature * attacker, CombatDamage & damage, int32_t realDamage)
+void Game::applyImbuementEffects(Creature * attacker, int32_t realDamage)
 {
 	Player *attackerPlayer = (Player *)attacker;
 	if (attackerPlayer) {
