@@ -18,11 +18,13 @@ function customDoor.onUse(player, item, fromPosition, target, toPosition, isHotk
 	for index, value in ipairs(CustomDoorTable) do
 		 if value.closedDoor == item.itemid then
 			item:transform(value.openDoor)
+			return true
 		end
 	end
 	for index, value in ipairs(CustomDoorTable) do
 		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
+			return true
 		end
 	end
 	return true
