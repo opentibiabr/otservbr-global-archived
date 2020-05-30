@@ -1766,7 +1766,8 @@ Storage = {
 		ChestRoomFinish = 50833,
 		Tutorial = 50834,
 		MessageStair = 50835,
-		Lever = 50836
+		Lever = 50836,
+		Mainland = 50837
 	},
 	LionsRock = {
 		Progress = 50840,

@@ -288,3 +288,20 @@ function Player.sendWaste(self, item)
 	msg:addItemId(item) -- itemId
 	msg:sendToPlayer(self)
 end
+
+local ACCOUNT_STORAGES = {}
+function Player.getAccountStorage(self, accountId, key, forceUpdate)
+	local accountId = self:getAccountId()
+	if ACCOUNT_STORAGES[accountId] and not forceUpdate then
+		return ACCOUNT_STORAGES[accountId]
+	end
+
+	local query = db.storeQuery("SELECT `key`, MAX(`value`) as value FROM `player_storage` WHERE `player_id` IN (SELECT `id` FROM `players` WHERE `account_id` = ".. accountId ..") AND `key` = ".. key .." GROUP BY `key` LIMIT 1;")
+	if query ~= false then
+		local value = result.getDataInt(query, "value")
+		ACCOUNT_STORAGES[accountId] = value
+		result.free(query)
+		return value
+	end
+	return false
+end

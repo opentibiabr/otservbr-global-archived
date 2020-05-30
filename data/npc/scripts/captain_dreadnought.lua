@@ -116,6 +116,7 @@ local function creatureSayCallback(cid, type, msg)
 		player:setTown(venoreTown)
 		player:teleportTo(venoreTown:getTemplePosition())
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:setStorageValue(Storage.Dawnport.Mainland, 1)
 		npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
 			err, shops and bank and such!", cid)
 		npcHandler.topic[cid] = 0
@@ -190,6 +191,7 @@ local function creatureSayCallback(cid, type, msg)
 				player:setTown(townId)
 				player:teleportTo(townId:getTemplePosition())
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+				player:setStorageValue(Storage.Dawnport.Mainland, 1)
 				npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
 					err, shops and bank and such!", cid)
 				npcHandler.topic[cid] = 0

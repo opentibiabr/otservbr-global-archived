@@ -234,7 +234,7 @@ local function creatureSayCallback(cid, type, msg)
 					We really need help against the monsters that swarm this island, and the whole world of {Tibia}. \z
 					If you're unsure on how to {help} exactly, I can give you directions."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "menesto") then
 		npcHandler:say(
 			{
@@ -246,7 +246,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Well, if you have any questions as to THIS plane of existence, which we call {Tibia}, just ask me. \z
 					I can give directions, {hints}, you name it. <winks at you>"
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "play") then
 		npcHandler:say(
 			{
@@ -261,7 +261,7 @@ local function creatureSayCallback(cid, type, msg)
 					be careful not to die, as {dying} HURTS. ...",
 				"If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "combat") then
 		npcHandler:say(
 			{
@@ -272,7 +272,7 @@ local function creatureSayCallback(cid, type, msg)
 				"To automatically follow your target, click on 'Chase Opponent' in your combat controls - the top left button. ...",
 				"You can also define your attack and defense mode, by selecting {offensive}, {balanced} or {defensive} fighting."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "pvp") then
 		npcHandler:say(
 			{
@@ -284,7 +284,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Here on {Dawnport}, PvP is not allowed inside the outpost, \z
 					and not possible until you have reached level 8 at least. If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "players") then
 		npcHandler:say(
 			{
@@ -292,7 +292,7 @@ local function creatureSayCallback(cid, type, msg)
 				"If you want to message a specific player, right-click on his or her name and select \z
 					'Message to <player name>'. This will open up a chat channel where you can type in your message to him or her."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "npc") then
 		npcHandler:say(
 			{
@@ -306,7 +306,7 @@ local function creatureSayCallback(cid, type, msg)
 				"You can try this out by asking an NPC about their {job}, as this is a keyword most will react to. \z
 					If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "spells") then
 		npcHandler:say(
 			{
@@ -317,7 +317,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Once you're level 8, new spells become available upstairs at the spell trainers {Garamond} and {Tybald}. \z
 					They can tell you more."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "shovel") then
 		npcHandler:say(
 			{
@@ -327,7 +327,7 @@ local function creatureSayCallback(cid, type, msg)
 					If you don't have the money yet, go out and kill some {monsters} outside - \z
 					and maybe you'll even find a shovel, who knows!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "dawnport") then
 		npcHandler:say(
 			{
@@ -343,7 +343,7 @@ local function creatureSayCallback(cid, type, msg)
 				"That is why we need your help - choose the vocation that suits you, take up its arms and help us \z
 					defend this place against the evil that wants to claim it! If you need any help in how to do these things, ask me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "mainland") then
 		npcHandler:say(
 			{
@@ -354,7 +354,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Premium adventurers can also sail to the many islands that surround the mainland, which offer many more dangers \z
 					and mysteries to be explored; and you can do quests to ride mounts, and dress in a variety of new outfits."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "figthing") then
 		npcHandler:say(
 			{
@@ -372,7 +372,7 @@ local function creatureSayCallback(cid, type, msg)
 					She can also heal you if you are severely wounded or poisoned - just say 'heal' or 'help' to her. ...",
 				"If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "vocations") then
 		npcHandler:say(
 			{
@@ -385,7 +385,7 @@ local function creatureSayCallback(cid, type, msg)
 					talk to {Oressa} downstairs in the temple. She can also heal you if you are hurt or poisoned. ...",
 				"If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "help") then
 		npcHandler:say(
 			{
@@ -398,7 +398,7 @@ local function creatureSayCallback(cid, type, msg)
 					It will come in handy when you set about finding secret entrances to dungeons or hidden treasures - \z
 					many useful things lie hidden beneath earth, sand or stones! "
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "offensive") then
 		npcHandler:say(
 			{
@@ -408,7 +408,7 @@ local function creatureSayCallback(cid, type, msg)
 					and are sure you can survive its harder attacks. \z
 					I can also tell you something about {balanced} and {defensive} fighting."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "balanced") then
 		npcHandler:say(
 			{
@@ -416,7 +416,7 @@ local function creatureSayCallback(cid, type, msg)
 					Magical damage you deal is not affected by this. ...",
 				"I can also tell you something about {offensive} and {defensive} fighting."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "defensive") then
 		npcHandler:say(
 			{
@@ -424,7 +424,7 @@ local function creatureSayCallback(cid, type, msg)
 					The magical damage you deal is not affected by this. ...",
 				"I can also tell you something about {offensive} and {balanced} fighting."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "skull") then
 		npcHandler:say(
 			{
@@ -432,7 +432,7 @@ local function creatureSayCallback(cid, type, msg)
 				"A red skull means someone has killed many other {players}, while a black skull depicts \z
 					someone on a serious killing spree - so watch out!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "hamish") then
 		npcHandler:say(
 			{
@@ -443,7 +443,7 @@ local function creatureSayCallback(cid, type, msg)
 					{Morris} patched him up and said he could use him, so Hamish came here. \z
 					If you need a wand, rune or potion, Hamish's your man."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "coltrayne") then
 		npcHandler:say(
 			{
@@ -452,7 +452,7 @@ local function creatureSayCallback(cid, type, msg)
 				"When a fire destroyed his foster family's home, he took up an unsteady life, always wandering around. \z
 					Then he met {Morris} and decided to go adventuring with him."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "morris") then
 		npcHandler:say(
 			{
@@ -464,7 +464,7 @@ local function creatureSayCallback(cid, type, msg)
 					Not sure that sending others on missions is really all it's about for him, \z
 					but if you're looking for a quest, go ask Morris for one."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "skills") then
 		npcHandler:say(
 			{
@@ -474,7 +474,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Druids and sorcerers train their magic level by using their mana through {spells} and runes. \z
 					Their wand or rod damage is not affected by their magic level. If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "rope") then
 		npcHandler:say(
 			{
@@ -484,7 +484,7 @@ local function creatureSayCallback(cid, type, msg)
 					If you don't have the money, kill and loot a few {monsters} - maybe one of them \z
 					even has a rope with it, that sort of thing happens."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "oressa") then
 		npcHandler:say(
 			{
@@ -494,7 +494,7 @@ local function creatureSayCallback(cid, type, msg)
 				"If you need healing, go see her. Oressa can also help you decide if you want to \z
 					choose your vocation to leave for the {Mainland}."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "temple") then
 		npcHandler:say(
 			{
@@ -504,7 +504,7 @@ local function creatureSayCallback(cid, type, msg)
 				"To be fully blessed, you should start the Pilgrimage of Ashes at a local guide in the \z
 					harbour once you have reached the {mainland}."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "dying") then
 		npcHandler:say(
 			{
@@ -515,7 +515,7 @@ local function creatureSayCallback(cid, type, msg)
 					but you will always lose some {skills} and experience, so be careful. ...",
 				"Always have a {rope} with you, for a start. A rope is essential."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "druid spells") then
 		npcHandler:say(
 			{
@@ -527,7 +527,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Once you're level 8, new spells become available upstairs at the spell trainers {Garamond} and {Tybald}. \z
 					They can tell you more."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "train") then
 		npcHandler:say(
 			{
@@ -545,7 +545,7 @@ local function creatureSayCallback(cid, type, msg)
 					She can also heal you if you are severely wounded or poisoned - just say 'heal' or 'help' to her. ...",
 				"If you have any other questions, tell me."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "bless") then
 		npcHandler:say(
 			{
@@ -559,7 +559,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Here on {Dawnport}, you are protected from losses in a PvP fight by the Adventurer's Blessing - \z
 					unless you attack another player. If you attack another player or reach level 20, you will lose this blessing."
 			},
-		cid, false, true, 200)
+		cid, false, true, 1)
 	elseif msgcontains(msg, "hints") then
 		for i = 0,35,1 do
 			if i <= 35 then
@@ -570,22 +570,74 @@ local function creatureSayCallback(cid, type, msg)
 		end
 
 	elseif msgcontains(msg, "rookgaard") then
-		npcHandler:say("Hmmmm. Long time i visited that isle. \z
-			Not very exciting place. Why do you ask? Do you wish to go there?", cid)
-		npcHandler.topic[cid] = 1
-	elseif msgcontains(msg, "yes") then
-		if npcHandler.topic[cid] == 1 then
+		if Player.getAccountStorage(player, accountId, Storage.Dawnport.Mainland, true) == 1 then
+			npcHandler:say("Hmmm. Long time I visited that isle. Not very exciting place. \z
+			Why do you ask? Do you wish to go there?", cid)
+			npcHandler.topic[cid] = 1
+		else
 			npcHandler:say(
-				{
-				"Careful, careful, it's a one-way ticket only! \z
-					You can never come back here if you leave now, and you will loso all your Dawnport equipment and products! ...",
-				"Are you {SURE} you want to {LEAVE} Dawnport for ROOKGAARD?"
-				},
-		cid, false, true, 200)
-			npcHandler.topic[cid] = 2
-		elseif npcHandler.topic[cid] == 2 then
+				"I'm sorry, but I cannot let you go there, you'll get much better training here than on that ancient isle.", cid)
 			npcHandler.topic[cid] = 0
 		end
+	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then
+		npcHandler:say({
+			"Careful, careful, it's a one-way ticket only! \z
+			You can never come back here if you leave now, and you will loso all your Dawnport equipment and products! ...",
+			"Are you {SURE} you want to {LEAVE} Dawnport for ROOKGAARD?"
+		}, cid, false, true, 1)
+		npcHandler.topic[cid] = 2
+	elseif msgcontains(msg, "yes") or msgcontains(msg, "sure") or msgcontains(msg, "leave") and npcHandler.topic[cid] == 2 then
+		local town = Town(TOWNS_LIST.ROOKGAARD)
+		player:setTown(town)
+		player:teleportTo(town:getTemplePosition())
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+
+		local slots = {
+			1, 2, 4, 5, 6, 7, 8, 9, 10
+		}
+		-- Cycle through the slots table and store the slot id in slot
+		for index, value in pairs(slots) do
+			-- Get the player's slot item and store it in item
+			local item = player:getSlotItem(value)
+			-- If the item exists meaning its not nil then continue
+			if item and not table.contains({1987, 1988, 2050, 2461, 2651, 2649}, item:getId()) then
+				item:remove()
+			end
+		end
+		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
+		local toBeDeleted = {}
+		local allowedIds = {
+			1987, 2050, 2120, 2148
+		}
+		if container and container:getSize() > 0 then
+			for i = 0, container:getSize() do
+				if player:getMoney() > 1500 then
+					player:removeMoney(math.abs(1500 - player:getMoney()))
+				end
+				local item = container:getItem(i)
+				if item then
+					if not table.contains(allowedIds, item:getId()) then
+						toBeDeleted[#toBeDeleted + 1] = item.uid
+					end
+				end
+			end
+			if #toBeDeleted > 0 then
+				for i, v in pairs(toBeDeleted) do
+					local item = Item(v)
+					if item then
+						item:remove()
+					end
+				end
+			end
+		end
+		player:addItem(2382, 1)
+		player:addItem(1987, 1)
+		player:addItem(2050, 1)
+		player:addItem(2674, 1)
+		player:addItem(2650, 1)
+		npcHandler:say("Then so be it. I'm sorry to see you go, but if this is what you want, step this way... right. \z
+		Now, cover your eyes... GO!", cid)
+		npcHandler.topic[cid] = 0
 	end
 	return true
 end

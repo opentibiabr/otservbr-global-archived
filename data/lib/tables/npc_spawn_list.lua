@@ -962,6 +962,6 @@ NpcTable = {
 	[961] = {name = "tarun", position = {x = 32976, y = 32715, z = 7}},
 	[962] = {name = "nomadnpc", position = {x = 31941, y = 31305, z = 6}},
 	[963] = {name = "kais", position = {x = 32910, y = 32512, z = 8}},
-	[964] = {name = "pythius_the_rottennpc", pos = {x=32590,y=31407,z=15}},
-	[965] = {name = "iwar", pos = {x=32618,y=31917,z=8}}
+	[964] = {name = "pythius_the_rottennpc", position = {x = 32590,y = 31407,z = 15}},
+	[965] = {name = "iwar", position = {x = 32618,y = 31917,z = 8}}
 }
