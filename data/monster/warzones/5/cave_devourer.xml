@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Cave Devourer" nameDescription="a cave devourer" race="blood" experience="2800" speed="120">
+<monster name="Cave Devourer" nameDescription="a cave devourer" race="blood" experience="2800" speed="240">
 	<health now="5400" max="5400" />
 	<look type="1036" corpse="30794" />
 	<targetchange interval="5000" chance="10" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Tunnel Tyrant" nameDescription="a tunnel tyrant" race="blood" experience="4000" speed="120">
+<monster name="Tunnel Tyrant" nameDescription="a tunnel tyrant" race="blood" experience="4000" speed="240">
 	<health now="6400" max="6400" />
 	<look type="1035" corpse="30790" />
 	<targetchange interval="10000" chance="10" />
