@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name="Isolde" walkinterval="2000" floorchange="0" script="isolde.lua">
+<npc name="Isolde" walkinterval="2000" floorchange="0" script="isolde.lua" speechbubble="1">
 	<health now="100" max="100"/>
-	<look type="139" head="19" body="33" legs="109" feet="128" addons="1"/>
+	<look type="139" head="3" body="33" legs="109" feet="128" addons="1"/>
 </npc>

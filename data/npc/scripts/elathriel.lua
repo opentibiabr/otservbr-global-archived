@@ -14,6 +14,93 @@ end
 function onThink()
 npcHandler:onThink()	
 end
+-- SPELLS FOR DRUID
+keywordHandler:addSpellKeyword({"ice wave"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ice Wave",
+		price = 850,
+		level = 18,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"terra wave"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Terra Wave",
+		price = 2500,
+		level = 38,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+-- RUNES SPELLS
+)
+keywordHandler:addSpellKeyword({"light magic missile rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light Magic Missile Rune",
+		price = 500,
+		level = 15,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"stalagmite rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "stalagmite rune",
+		price = 1400,
+		level = 24,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"heavy magic missile rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Heavy Magic Missile Rune",
+		price = 1500,
+		level = 25,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"avalanche rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Poison Wall Rune",
+		price = 1200,
+		level = 30,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"explosion rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Explosion Rune",
+		price = 1800,
+		level = 31,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+
+keywordHandler:addKeyword({"attack spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{ice wave}' and '{terra wave}'."
+	}
+)
+keywordHandler:addKeyword({"runes"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{light magic missile rune}', '{stalagmite rune}', '{heavy magic missile rune}', '{avalanche rune}' \z
+		and '{explosion rune}'."
+	}
+)
+keywordHandler:addKeyword({"spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can teach you {attack spells} and {runes}. \z
+		What kind of spell do you wish to learn?"
+	}
+)
 
 keywordHandler:addKeyword({'business'}, StdModule.say, {npcHandler = npcHandler, text = 'I am the leader of the Kuridai and the Az\'irel of Ab\'Dendriel. Humans would call it {sheriff}, executioner, or avenger.'})
 keywordHandler:addKeyword({'sheriff'}, StdModule.say, {npcHandler = npcHandler, text = 'Sometimes people get imprisoned for some time. True criminals will be cast out and for comitting the worst crimes offenders are thrown into the hellgate.'})

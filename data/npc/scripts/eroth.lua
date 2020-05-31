@@ -15,6 +15,156 @@ function onThink()
 npcHandler:onThink()	
 end
 
+-- SPELLS FOR DRUID
+keywordHandler:addSpellKeyword({"magic shield"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Magic Shield",
+		price = 450,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"creature illusion"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Creature Illusion",
+		price = 1000,
+		level = 23,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"summon creature"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Summon Creature",
+		price = 2000,
+		level = 25,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"invisible"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Invisible",
+		price = 2000,
+		level = 35,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+-- RUNES SPELLS
+keywordHandler:addSpellKeyword({"poison field rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Poison Field Rune",
+		price = 300,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"fire field rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Fire Field Rune",
+		price = 500,
+		level = 15,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"convince creature rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Convince Creature Rune",
+		price = 800,
+		level = 16,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"destroy field rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Destroy Field Rune",
+		price = 700,
+		level = 17,
+		vocation = {VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"energy field rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Destroy Field Rune",
+		price = 700,
+		level = 18,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"fire bomb rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "fire bomb rune",
+		price = 1500,
+		level = 27,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"chameleon rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Chameleon Rune",
+		price = 1300,
+		level = 27,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"poison wall rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Poison Wall Rune",
+		price = 1600,
+		level = 29,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"fire wall rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Fire Wall Rune",
+		price = 2000,
+		level = 33,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"energy wall rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Energy Wall Rune",
+		price = 2500,
+		level = 41,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+
+keywordHandler:addKeyword({"support spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{magic shield}', '{creature illusion}', '{summon creature}', '{invisible}'."
+	}
+)
+keywordHandler:addKeyword({"runes"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{poison field rune}', '{fire field rune}', '{destroy field rune}', '{energy field rune}', \z
+		'{fire bomb rune}', '{poison wall rune}', '{fire wall rune}', '{energy wall rune}'."
+	}
+)
+keywordHandler:addKeyword({"spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can teach you {support spells} and {runes}. \z
+		What kind of spell do you wish to learn?"
+	}
+)
+
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the leader of the Cenath caste."})
 keywordHandler:addKeyword({'kuridai'}, StdModule.say, {npcHandler = npcHandler, text = "The Kuridai are aggressive and victims of their instincts. Without our help they would surely die in a foolish war."})
 keywordHandler:addKeyword({'crunor'}, StdModule.say, {npcHandler = npcHandler, text = "Gods are for the weak. We will master the world on our own. We need no gods."})

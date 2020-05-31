@@ -15,4 +15,9 @@ function onThink()
     npcHandler:onThink()
 end
 
+local voices = {
+	{ text = "It is not my style to yell around here. We can have a private conversation if you are interested in the sorcerer vocation." }
+}
+
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

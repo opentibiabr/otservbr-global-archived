@@ -15,6 +15,412 @@ function onThink()
 	npcHandler:onThink()
 end
 
+local voices = {
+	{ text = "Flowers to liven up your house!" },
+	{ text = "Healing for your wounds and cures for your curses!" },
+	{ text = "Teaching fellow druids!" }
+}
+
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- sellable
+shopModule:addSellableItem({"exotic flowers"}, 2107, 300, 1)
+shopModule:addSellableItem({"flower bowl"}, 2102, 6, 1)
+shopModule:addSellableItem({"god flowers"}, 2100, 5, 1)
+shopModule:addSellableItem({"honey flower"}, 2103, 5, 1)
+shopModule:addSellableItem({"indoor plant"}, 2101, 8, 1)
+shopModule:addSellableItem({"potted flower"}, 2104, 5, 1)
+
+-- spells for druid
+keywordHandler:addSpellKeyword({"apprentice's strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Apprentice's Strike",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"light healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light Healing",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"find person"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Find Person",
+		price = 80,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"magic rope"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Magic Rope",
+		price = 200,
+		level = 9,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"cure poison"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Poison",
+		price = 150,
+		level = 10,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"energy strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Energy Strike",
+		price = 800,
+		level = 12,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"levitate"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Levitate",
+		price = 500,
+		level = 12,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"great light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Great Light",
+		price = 500,
+		level = 13,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"terra strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Terra Strike",
+		price = 800,
+		level = 13,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"flame strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Flame Strike",
+		price = 800,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"food"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Food",
+		price = 300,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"haste"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Haste",
+		price = 600,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"magic shield"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Magic Shield",
+		price = 450,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"convince creature rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Convince Creature Rune",
+		price = 800,
+		level = 16,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"physical strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Physical Strike",
+		price = 800,
+		level = 16,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"destroy field rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Destroy Field Rune",
+		price = 700,
+		level = 17,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"heal friend"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Heal Friend",
+		price = 800,
+		level = 18,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"ice wave"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ice Wave",
+		price = 850,
+		level = 18,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"intense healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Intense Healing",
+		price = 350,
+		level = 20,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"strong haste"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Strong Haste",
+		price = 1300,
+		level = 20,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"disintegrate rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Disintegrate Rune",
+		price = 900,
+		level = 21,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"cure electrification"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Electrification",
+		price = 1000,
+		level = 22,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"creature illusion"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Creature Illusion",
+		price = 1000,
+		level = 23,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"summon creature"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Summon Creature",
+		price = 2000,
+		level = 25,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"ultimate light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ultimate Light",
+		price = 1600,
+		level = 26,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"animate dead rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Animate Dead Rune",
+		price = 1200,
+		level = 27,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"chameleon rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Chameleon Rune",
+		price = 1300,
+		level = 27,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"cure burning"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Burning",
+		price = 2000,
+		level = 30,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"ultimate healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ultimate Healing",
+		price = 1000,
+		level = 30,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"mass healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Mass Healing",
+		price = 2200,
+		level = 36,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"terra wave"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Terra Wave",
+		price = 2500,
+		level = 38,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"strong ice wave"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Strong Ice Wave",
+		price = 7500,
+		level = 40,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"cure bleeding"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Bleeding",
+		price = 2500,
+		level = 45,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"envenom"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Envenom",
+		price = 6000,
+		level = 50,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"paralyse rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Paralyse Rune",
+		price = 1900,
+		level = 54,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"strong terra strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Strong Terra Strike",
+		price =6000,
+		level = 70,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"strong ice strike"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Strong Ice Strike",
+		price = 6000,
+		level = 70,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"summon grovebeast"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Summon Grovebeast",
+		price = 50000,
+		level = 200,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+
+keywordHandler:addKeyword({"healing spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{light healing}', '{heal friend}', '{cure poison}', '{cure electrification}', \z
+		'{intense healing}', '{cure burning}', '{ultimate healing}', '{mass healing}' and '{cure bleeding}'."
+	}
+)
+keywordHandler:addKeyword({"support spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{find person}', '{magic rope}', '{levitate}', '{light}', \z
+		'{great light}', '{haste}', '{food}', '{magic shield}', '{strong haste}', '{creature illusion}' \z
+		'{summon creature}', '{ultimate light}', '{envenom}', '{summon grovebeast}'."
+	}
+)
+keywordHandler:addKeyword({"attack spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{apprentice's strike}', '{energy strike}', '{terra strike}', '{flame strike}', \z
+		'{physical strike}', '{ice wave}', '{terra wave}', '{strong ice wave}', '{strong terra strike}' and '{strong ice strike}'."
+	}
+)
+keywordHandler:addKeyword({"runes"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{convince creature rune}', '{destroy field rune}', '{disintegrate rune}', '{animate dead rune}', \z
+		'{chameleon rune}' and '{paralyse rune}'."
+	}
+)
+keywordHandler:addKeyword({"spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can teach you {healing spells}, {support spells}, {attack spells} and {runes}. \z
+		What kind of spell do you wish to learn?"
+	}
+)
 -- Twist of Fate
 local blessKeyword = keywordHandler:addKeyword({'twist of fate'}, StdModule.say, {npcHandler = npcHandler,
 	text = {
@@ -88,8 +494,9 @@ keywordHandler:addAliasKeyword({'spark'})
 keywordHandler:addKeyword({'solitude'}, StdModule.say, {npcHandler = npcHandler, text = 'Talk to the hermit Eremo on the isle of Cormaya about this blessing.'})
 keywordHandler:addAliasKeyword({'wisdom'})
 
-npcHandler:setMessage(MESSAGE_GREET, 'Welcome, young |PLAYERNAME|! If you are heavily wounded or poisoned, I can {heal} you for free.')
+npcHandler:setMessage(MESSAGE_GREET, 'Welcome, young |PLAYERNAME|! If you are heavily wounded or poisoned, I can {heal} you for free and selling {spells}.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Remember: If you are heavily wounded or poisoned, I can heal you for free.')
 npcHandler:setMessage(MESSAGE_FAREWELL, 'May the gods bless you, |PLAYERNAME|!')
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

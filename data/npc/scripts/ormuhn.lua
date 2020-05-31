@@ -15,31 +15,246 @@ function onThink()
     npcHandler:onThink()
 end
 
-keywordHandler:addSpellKeyword({'find', 'person'}, {npcHandler = npcHandler, spellName = 'Find Person', price = 80, level = 8, vocation = 4})
-keywordHandler:addSpellKeyword({'great', 'light'}, {npcHandler = npcHandler, spellName = 'Great Light', price = 500, level = 13, vocation = 4})
-keywordHandler:addSpellKeyword({'light'}, {npcHandler = npcHandler, spellName = 'Light', price = 0, level = 8, vocation = 4})
-keywordHandler:addSpellKeyword({'magic', 'rope'}, {npcHandler = npcHandler, spellName = 'Magic Rope', price = 200, level = 9, vocation = 4})
-keywordHandler:addSpellKeyword({'cure', 'poison'}, {npcHandler = npcHandler, spellName = 'Cure Poison', price = 150, level = 10, vocation = 4})
-keywordHandler:addSpellKeyword({'intense', 'wound', 'cleansing'}, {npcHandler = npcHandler, spellName = 'Intense Wound Cleansing', price = 6000, level = 80, vocation = 4})
-keywordHandler:addSpellKeyword({'wound', 'cleansing'}, {npcHandler = npcHandler, spellName = 'Wound Cleansing', price = 0, level = 8, vocation = 4})
-keywordHandler:addSpellKeyword({'levitate'}, {npcHandler = npcHandler, spellName = 'Levitate', price = 500, level = 12, vocation = 4})
-keywordHandler:addSpellKeyword({'haste'}, {npcHandler = npcHandler, spellName = 'Haste', price = 600, level = 14, vocation = 4})
-keywordHandler:addSpellKeyword({'brutal', 'strike'}, {npcHandler = npcHandler, spellName = 'Brutal Strike', price = 1000, level = 16, vocation = 4})
-keywordHandler:addSpellKeyword({'charge'}, {npcHandler = npcHandler, spellName = 'Charge', price = 1300, level = 25, vocation = 4})
-keywordHandler:addSpellKeyword({'whirlwind', 'throw'}, {npcHandler = npcHandler, spellName = 'Whirlwind Throw', price = 1500, level = 28, vocation = 4})
-keywordHandler:addSpellKeyword({'groundshaker'}, {npcHandler = npcHandler, spellName = 'Groundshaker', price = 1500, level = 33, vocation = 4})
-keywordHandler:addSpellKeyword({'fierce', 'berserk'}, {npcHandler = npcHandler, spellName = 'Fierce Berserk', price = 7500, level = 90, vocation = 4})
-keywordHandler:addSpellKeyword({'berserk'}, {npcHandler = npcHandler, spellName = 'Berserk', price = 2500, level = 35, vocation = 4})
-keywordHandler:addSpellKeyword({'inflict', 'wound'}, {npcHandler = npcHandler, spellName = 'Inflict Wound', price = 2500, level = 40, vocation = 4})
-keywordHandler:addSpellKeyword({'cure', 'bleeding'}, {npcHandler = npcHandler, spellName = 'Cure Bleeding', price = 2500, level = 45, vocation = 4})
-keywordHandler:addSpellKeyword({'intense', 'recovery'}, {npcHandler = npcHandler, spellName = 'Intense Recovery', price = 10000, level = 100, vocation = 4})
-keywordHandler:addSpellKeyword({'recovery'}, {npcHandler = npcHandler, spellName = 'Recovery', price = 4000, level = 50, vocation = 4})
-keywordHandler:addSpellKeyword({'front', 'sweep'}, {npcHandler = npcHandler, spellName = 'Front Sweep', price = 4000, level = 70, vocation = 4})
-keywordHandler:addSpellKeyword({'annihilation'}, {npcHandler = npcHandler, spellName = 'Annihilation', price = 20000, level = 110, vocation = 4})
+--SPELLS KNIGTH
+keywordHandler:addSpellKeyword({"find person"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Find Person",
+		price = 80,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"wound cleansing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Wound Cleansing",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"magic rope"}, 
+	{
+		npcHandler = npcHandler,
+		spellName = "Magic Rope", 
+		price = 200, 
+		level = 9, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"cure poison"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Poison",
+		price = 150,
+		level = 10,
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"levitate"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Levitate", 
+		price = 500, 
+		level = 12, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"great light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Great Light",
+		price = 500,
+		level = 13,
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"haste"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Haste", 
+		price = 600, 
+		level = 14, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"brutal strike"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Brutal Strike", 
+		price = 1000, 
+		level = 16, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"charge"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Charge", 
+		price = 1300, 
+		level = 25, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"whirlwind throw"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Whirlwind Throw", 
+		price = 1500, 
+		level = 28, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"groundshaker"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Groundshaker", 
+		price = 1500, 
+		level = 33, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"berserk"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Berserk", 
+		price = 2500, 
+		level = 35, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"inflict wound"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Inflict Wound", 
+		price = 2500, 
+		level = 40, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"cure bleeding"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Cure Bleeding", 
+		price = 2500, 
+		level = 45, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"recovery"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Recovery", 
+		price = 4000, 
+		level = 50, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"front sweep"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Front Sweep", 
+		price = 4000, 
+		level = 70, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"intense wound cleansing"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Intense Wound Cleansing", 
+		price = 6000, 
+		level = 80, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"fierce berserk"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Fierce Berserk", 
+		price = 7500, 
+		level = 90, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"intense recovery"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Intense Recovery", 
+		price = 10000, 
+		level = 100, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"annihilation"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Annihilation", 
+		price = 20000, 
+		level = 110, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"summon skullfrost"}, 
+	{
+		npcHandler = npcHandler, 
+		spellName = "Summon Skullfrost", 
+		price = 50000, 
+		level = 200, 
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
 
-keywordHandler:addKeyword({'healing', 'spells'}, StdModule.say, {npcHandler = npcHandler, text = "In this category I have '{Bruise Bane}', '{Cure Bleeding}', '{Wound Cleansing}', '{Cure Poison}', '{Intense Wound Cleansing}', '{Recovery}' and '{Intense Recovery}'."})
-keywordHandler:addKeyword({'attack', 'spells'}, StdModule.say, {npcHandler = npcHandler, text = {"In this category I have '{Whirlwind Throw}', '{Groundshaker}', '{Berserk}' and '{Fierce Berserk}' as well as ...", "'{Brutal Strike}', '{Front Sweep}', '{Inflict Wound}' and '{Annihilation}'"}})
-keywordHandler:addKeyword({'support', 'spells'}, StdModule.say, {npcHandler = npcHandler, text = "In this category I have '{Light}', '{Find Person}', '{Magic Rope}', '{Levitate}', '{Haste}', '{Charge}' and '{Great Light}'."})
-keywordHandler:addKeyword({'spells'}, StdModule.say, {npcHandler = npcHandler, text = 'I can teach you {healing spells}, {attack spells} and {support spells}. What kind of spell do you wish to learn? You can also tell me for which level you would like to learn a spell, if you prefer that.'})
+
+keywordHandler:addKeyword({"healing spells"}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "In this category I have '{Bruise Bane}', '{Cure Bleeding}', '{Wound Cleansing}', '{Cure Poison}', \z
+		'{Intense Wound Cleansing}', '{Recovery}' and '{Intense Recovery}'."
+	}
+)
+keywordHandler:addKeyword({"attack spells"}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "In this category I have '{Whirlwind Throw}', '{Groundshaker}', '{Berserk}' and '{Fierce Berserk}' as well as ...', \z 
+		'{Brutal Strike}', '{Front Sweep}', '{Inflict Wound}' and '{Annihilation}'."
+	}
+)
+keywordHandler:addKeyword({"support spells"}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "In this category I have '{Light}', '{Find Person}', '{Magic Rope}', '{Levitate}', '{Haste}', '{Charge}' and '{Great Light}'."
+	}
+)
+keywordHandler:addKeyword({"spells"}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I can teach you {healing spells}, {attack spells} and {support spells}. What kind of spell do you wish to learn? You \z
+		can also tell me for which level you would like to learn a spell, if you prefer that."
+	}
+)
+
+keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the arena master. I supervise all challenges that take place in this arena and train true fighters."})
+keywordHandler:addKeyword({'arena'}, StdModule.say, {npcHandler = npcHandler, text = "If you wish to test your mortal Akh you are at the right place."})
+keywordHandler:addKeyword({'akh'}, StdModule.say, {npcHandler = npcHandler, text = "As far as I know this is what you would call your body. Ask a priest for further information."})
+keywordHandler:addKeyword({'temple'}, StdModule.say, {npcHandler = npcHandler, text = "The temple takes care of your Uthun. In this arena we challenge your Akh."})
+keywordHandler:addKeyword({'pharaoh'}, StdModule.say, {npcHandler = npcHandler, text = "The pharaoh, our mighty leader, is an unliving god."})
+keywordHandler:addKeyword({'scarab'}, StdModule.say, {npcHandler = npcHandler, text = "Scarabs might be sacred, but they are also a challenge. If you are able to overcome one of them, its spirit will forgive you. The everlasting sand will grant him rebirth anyway."})
+keywordHandler:addKeyword({'darama'}, StdModule.say, {npcHandler = npcHandler, text = "This continent will be the first to prosper under the guidance of our pharaoh."})
+keywordHandler:addKeyword({'undeath'}, StdModule.say, {npcHandler = npcHandler, text = "We are the chosen ones."})
+keywordHandler:addKeyword({'chosen ones'}, StdModule.say, {npcHandler = npcHandler, text = "I am one of the chosen. To become like me you have to serve the pharaoh and his temple faithfully."})
+
+npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. What do you want?")
+npcHandler:setMessage(MESSAGE_FAREWELL, "May enlightenment be your path, |PLAYERNAME|.")
 
 npcHandler:addModule(FocusModule:new())

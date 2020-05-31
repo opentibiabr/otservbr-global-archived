@@ -15,6 +15,91 @@ function onThink()
 npcHandler:onThink()	
 end
 
+-- SPELLS FOR DRUID
+keywordHandler:addSpellKeyword({"light healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light Healing",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"cure poison"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Poison",
+		price = 150,
+		level = 10,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"intense healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Intense Healing",
+		price = 350,
+		level = 20,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"ultimate healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ultimate Healing",
+		price = 1000,
+		level = 30,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+-- RUNES SPELLS
+keywordHandler:addSpellKeyword({"cure poison rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Poison Rune",
+		price = 600,
+		level = 15,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"intense healing rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Intense Healing Rune",
+		price = 600,
+		level = 15,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+keywordHandler:addSpellKeyword({"ultimate healing rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ultimate Healing Rune",
+		price = 1500,
+		level = 24,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+
+keywordHandler:addKeyword({"healing spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{light healing}', '{cure poison}',	'{intense healing}', '{ultimate healing}'."
+	}
+)
+keywordHandler:addKeyword({"runes"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{intense healing rune}', '{cure poison rune}',	'{ultimate healing rune}'."
+	}
+)
+keywordHandler:addKeyword({"spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can teach you {healing spells} and {runes}. \z
+		What kind of spell do you wish to learn?"
+	}
+)
 -- Twist of Fate
 local blessKeyword = keywordHandler:addKeyword({'twist of fate'}, StdModule.say, {npcHandler = npcHandler,
 	text = {

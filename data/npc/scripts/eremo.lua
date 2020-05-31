@@ -15,6 +15,72 @@ function onThink()
 	npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- Buyable
+shopModule:addBuyableItem({"amulet of loss"}, 2173, 45000, 1)
+shopModule:addBuyableItem({"broken amulet"}, 2196, 50000, 1)
+-- sellable
+shopModule:addSellableItem({"amulet of loss"}, 2173, 50000, 1)
+shopModule:addSellableItem({"protection amulet"}, 2200, 700, 1)
+
+-- SPELLS
+keywordHandler:addSpellKeyword({"challenge"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Challenge",
+		price = 2000,
+		level = 20,
+		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+	}
+)
+keywordHandler:addSpellKeyword({"conjure wand of darkness"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Conjure Wand of Darkness",
+		price = 5000,
+		level = 41,
+		vocation = {VOCATION.CLIENT_ID.SORCERER}
+	}
+)
+keywordHandler:addSpellKeyword({"conjure diamond arrow"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Conjure Diamond Arrow",
+		price = 15000,
+		level = 150,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"conjure spectral bolt"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Conjure Spectral Bolt",
+		price = 15000,
+		level = 150,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+-- RUNES SPELLS
+keywordHandler:addSpellKeyword({"wild growth rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Wild Growth Rune",
+		price = 2000,
+		level = 27,
+		vocation = {VOCATION.CLIENT_ID.DRUID}
+	}
+)
+
+keywordHandler:addKeyword({"spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can teach you {challenge}, {conjure wand of darkness}, {conjure diamond arrow}, {conjure spectral bolt} and {wild growth rune}. \z
+		What kind of spell do you wish to learn?"
+	}
+)
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false

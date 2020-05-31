@@ -15,6 +15,162 @@ function onThink()
 	npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- Buyable
+-- Name, id, price, count/charges
+shopmodule:addbuyableitem({"sniper gloves"}, 5875, 2000, 1)
+
+-- SPELLS FOR PALADIN
+keywordHandler:addSpellKeyword({"light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"light healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Light Healing",
+		price = 0,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"find person"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Find Person",
+		price = 80,
+		level = 8,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"cure poison"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Cure Poison",
+		price = 150,
+		level = 10,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"great light"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Great Light",
+		price = 500,
+		level = 13,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"conjure arrow"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Conjure Arrow",
+		price = 450,
+		level = 13,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"magic shield"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Magic Shield",
+		price = 450,
+		level = 14,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"conjure poisoned arrow"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Conjure Poisoned Arrow",
+		price = 700,
+		level = 16,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"intense healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Intense Healing",
+		price = 350,
+		level = 20,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"conjure explosive arrow"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Conjure Explosive Arrow",
+		price = 1000,
+		level = 25,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"ultimate healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Ultimate Healing",
+		price = 1000,
+		level = 30,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+keywordHandler:addSpellKeyword({"divine healing"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Divine Healing",
+		price = 3000,
+		level = 35,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+-- RUNES SPELLS
+keywordHandler:addSpellKeyword({"destroy field rune"},
+	{
+		npcHandler = npcHandler,
+		spellName = "Destroy Field Rune",
+		price = 700,
+		level = 17,
+		vocation = {VOCATION.CLIENT_ID.PALADIN}
+	}
+)
+
+keywordHandler:addKeyword({"healing spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{light healing}', '{cure poison}', '{intense healing}', '{ultimate healing}' \z
+		and '{divine healing}'."
+	}
+)
+keywordHandler:addKeyword({"support spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{find person}', '{light}', '{great light}', '{conjure arrow}', '{magic shield}', \z
+		'{conjure poisoned arrow}' and '{conjure explosive arrow}'."
+		
+	}
+)
+keywordHandler:addKeyword({"runes"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "In this category I have '{destroy field rune}'."
+	}
+)
+keywordHandler:addKeyword({"spells"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can teach you {healing spells}, {support spells} and {runes}. \z
+		What kind of spell do you wish to learn?"
+	}
+)
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
