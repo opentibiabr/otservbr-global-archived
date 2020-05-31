@@ -142,13 +142,6 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 	enableXTEAEncryption();
 	setXTEAKey(std::move(key));
 
-	if (version < g_config.getNumber(ConfigManager::VERSION_MIN) || version > g_config.getNumber(ConfigManager::VERSION_MAX)) {
-		std::ostringstream ss;
-		ss << "Only clients with protocol " << g_config.getString(ConfigManager::VERSION_STR) << " allowed!";
-		disconnectClient(ss.str(), version);
-		return;
-	}
-
 	if (g_game.getGameState() == GAME_STATE_STARTUP) {
 		disconnectClient("Gameworld is starting up. Please wait.", version);
 		return;
