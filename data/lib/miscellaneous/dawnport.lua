@@ -1,4 +1,140 @@
-function setStats(player)
+function dawnportAddFirstItems(player, item, slot)
+	local firstItems = {
+		slots = {
+			[CONST_SLOT_HEAD] = Game.createItem(2461),
+			[CONST_SLOT_ARMOR] = Game.createItem(2651),
+			[CONST_SLOT_LEGS] = Game.createItem(2649),
+			[CONST_SLOT_FEET] = Game.createItem(2643)
+		}
+	}
+
+	for slot, item in pairs(firstItems.slots) do
+		local ret = player:addItemEx(item, false, sot)
+		if not ret then
+			player:addItemEx(item, false, INDEX_WHEREEVER, 0)
+		end
+	end
+end
+
+function dawnportTileStep(player, vocation)
+	-- First Step
+	local getVocation = player:getVocation()
+	if getVocation and getVocation:getId() == VOCATION.ID.NONE then
+		for i = 1, #DawnportTable.Effects do
+			Position(vocation.effectPosition):sendMagicEffect(DawnportTable.Effects[i])
+		end
+		player:sendTutorial(vocation.tutorial)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+		"As this is the first time you try out a vocation, the Guild has kitted you out. " .. vocation.firstMessage)
+		dawnportAddFirstItems(player, item, slot)
+	-- Second step
+	elseif player:getStorageValue(vocation.storage) == -1 and getVocation:getId() ~= VOCATION.ID.NONE then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("As this is your first time as a \z
+		".. vocation.name ..', you received a few extra items. ' .. vocation.firstMessage))
+		player:setStorageValue(vocation.storage, 1)
+		player:sendTutorial(vocation.tutorial)
+	-- Other steps
+	elseif player:getStorageValue(vocation.storage) >= 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("You have received the weapons of a \z
+		".. vocation.name ..', you received a few extra items. ' .. vocation.firstMessage))
+	end
+end
+
+function dawnportSetVocation(player, vocation)
+	-- Set for the dawnport vocation if is level 8 or minor
+	if player:getLevel() <= 7 then
+		player:setVocation(Vocation(vocation.first.id))
+	-- Set for the vocation main if is level 8 or more
+	elseif player:getLevel() >= 8 and player:getLevel() < 20 then
+		player:setVocation(Vocation(vocation.second.id))
+		-- Set player stats if have level 9 or more (health, mana, capacity)
+		dawnportSetStats(player)
+	-- If player is level 20 or more then do not pass on vocation trial tile
+	elseif player:getLevel() >= 20 then
+		player:teleportTo(fromPosition, true)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		return true
+	end
+end
+
+function dawnportRemoveItems(player)
+	local itemIds = {
+		{id = 2379},
+		{id = 2456},
+		{id = 2512},
+		{id = 23719},
+		{id = 23721},
+		{id = 23771}
+	}
+
+	for i = 1, #itemIds do
+		if player:removeItem(itemIds[i].id, 1) then
+			player:removeItem(itemIds[i].id, 1)
+		end
+	end
+end
+
+function dawnportAddItems(player, vocation)
+	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+	for slot, info in pairs(vocation.items) do
+		local extra
+		if slot > CONST_SLOT_AMMO then
+			extra = true
+		else
+			local equipped = player:getSlotItem(slot)
+			if equipped then
+				equipped:moveTo(backpack)
+			end
+		end
+		local giveItem = true
+		if info.limit and info.storage then
+			local given = math.max(player:getStorageValue(info.storage), 0)
+			if given >= info.limit then
+				giveItem = false
+			else
+				player:setStorageValue(info.storage, given + 1)
+			end
+		end
+		if giveItem then
+			if extra then
+				player:addItemEx(Game.createItem(info[1], info[2]), INDEX_WHEREEVER, 0)
+			else
+				local ret = player:addItem(info[1], info[2], false, 1, slot)
+				if not ret then
+					player:addItemEx(Game.createItem(info[1], info[2]), false, slot)
+				end
+			end
+		end
+	end
+end
+
+function dawnportSetOutfit(player, vocation)
+	if player:getSex() == PLAYERSEX_MALE then
+		player:setOutfit({
+			lookBody = vocation.outfit.lookBody,
+			lookAddons = vocation.outfit.lookAddons,
+			lookTypeName = vocation.outfit.lookTypeName,
+			lookType = vocation.outfit.lookTypeEx,
+			lookHead = vocation.outfit.lookHead,
+			lookMount = vocation.outfit.lookMount,
+			lookLegs = vocation.outfit.lookLegs,
+			lookFeet = vocation.outfit.lookFeet
+		})
+	else
+		player:setOutfit({
+			lookBody = vocation.outfit.lookBody,
+			lookAddons = vocation.outfit.lookAddons,
+			lookTypeName = vocation.outfit.lookTypeName,
+			lookType = vocation.outfit.lookTypeFm,
+			lookHead = vocation.outfit.lookHead,
+			lookMount = vocation.outfit.lookMount,
+			lookLegs = vocation.outfit.lookLegs,
+			lookFeet = vocation.outfit.lookFeet
+		})
+	end
+end
+
+function dawnportSetStats(player)
 	local skillTable = {
 		[VOCATION.ID.SORCERER] = {
 			level = 9,
@@ -82,7 +218,8 @@ DawnportTable = {
 			[11] = {8704, 2, true, storage = Storage.Dawnport.SorcererHealthPotion, limit = 1}, -- potion
 			[12] = {7620, 10, true, storage = Storage.Dawnport.SorcererManaPotion, limit = 1}, -- potion
 			[13] = {23723, 2, true, storage = Storage.Dawnport.SorcererLightestMissile, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, true, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1} -- 2 light stone shower runes
+			[14] = {23722, 2, true, storage = Storage.Dawnport.SorcererLightStoneShower, limit = 1}, -- 2 light stone shower runes
+			[15] = {2666, 1, true, storage = Storage.Dawnport.SorcererMeat, limit = 1}, -- 1 meat
 		},
 	},
 	[40002] = {
@@ -118,7 +255,8 @@ DawnportTable = {
 			[11] = {8704, 2, true, storage = Storage.Dawnport.DruidHealthPotion, limit = 1}, -- potion
 			[12] = {7620, 10, true, storage = Storage.Dawnport.DruidManaPotion, limit = 1}, -- potion
 			[13] = {23723, 2, true, storage = Storage.Dawnport.DruidLightestMissile, limit = 1}, -- 2 lightest missile runes
-			[14] = {23722, 2, true, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1} -- 2 light stone shower runes
+			[14] = {23722, 2, true, storage = Storage.Dawnport.DruidLightStoneShower, limit = 1}, -- 2 light stone shower runes
+			[15] = {2666, 1, true, storage = Storage.Dawnport.DruidMeat, limit = 1}, -- 1 meat
 		}
 	},
 	[40003] = {
@@ -155,7 +293,8 @@ DawnportTable = {
 			[11] = {8704, 7, true, storage = Storage.Dawnport.PaladinHealthPotion, limit = 1}, -- potion
 			[12] = {7620, 5, true, storage = Storage.Dawnport.PaladinManaPotion, limit = 1}, -- potion
 			[13] = {23723, 1, true, storage = Storage.Dawnport.PaladinLightestMissile, limit = 1}, -- 1 lightest missile rune
-			[14] = {23722, 1, true, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1} -- 1 light stone shower rune
+			[14] = {23722, 1, true, storage = Storage.Dawnport.PaladinLightStoneShower, limit = 1}, -- 1 light stone shower rune
+			[15] = {2666, 1, true, storage = Storage.Dawnport.PaladinMeat, limit = 1}, -- 1 meat
 		}
 	},
 	[40004] = {
@@ -190,8 +329,7 @@ DawnportTable = {
 			[CONST_SLOT_RIGHT] = {2512, 1, true}, -- wooden shield
 			[11] = {8704, 10, true, storage = Storage.Dawnport.KnightHealthPotion, limit = 1}, -- potion
 			[12] = {7620, 2, true, storage = Storage.Dawnport.KnightManaPotion, limit = 1}, -- potion
-			[13] = {23723, 1, true, storage = Storage.Dawnport.KnightLightestMissile, limit = 1}, -- 1 lightest missile rune
-			[14] = {23722, 1, true, storage = Storage.Dawnport.KnightLightStoneShower, limit = 1} -- 1 light stone shower rune
+			[13] = {2666, 1, true, storage = Storage.Dawnport.KnightMeat, limit = 1} -- 1 meat
 		}
 	}
 }

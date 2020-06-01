@@ -586,7 +586,7 @@ local function creatureSayCallback(cid, type, msg)
 			"Are you {SURE} you want to {LEAVE} Dawnport for ROOKGAARD?"
 		}, cid, false, true, 1)
 		npcHandler.topic[cid] = 2
-	elseif msgcontains(msg, "yes") or msgcontains(msg, "sure") or msgcontains(msg, "leave") and npcHandler.topic[cid] == 2 then
+	elseif npcHandler.topic[cid] == 2 and msgcontains(msg, "yes") or msgcontains(msg, "sure") or msgcontains(msg, "leave") then
 		local town = Town(TOWNS_LIST.ROOKGAARD)
 		player:setTown(town)
 		player:teleportTo(town:getTemplePosition())
