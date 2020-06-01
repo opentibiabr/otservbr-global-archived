@@ -23,20 +23,15 @@ INSERT INTO `server_config` (`config`, `value`) VALUES ('db_version', '0'), ('mo
 --
 
 CREATE TABLE IF NOT EXISTS `accounts` (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
-  `password` char(40) NOT NULL,
-  `secret` char(16) DEFAULT NULL,
-  `type` int(11) NOT NULL DEFAULT '1',
-  `premdays` int(11) NOT NULL DEFAULT '0',
-  `coins` int(12) UNSIGNED NOT NULL DEFAULT '0',
-  `lastday` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `email` varchar(255) NOT NULL DEFAULT '',
-  `creation` int(11) NOT NULL DEFAULT '0',
-  `passed` int(11) NOT NULL DEFAULT '0',
-  `block` int(11) NOT NULL DEFAULT '0',
-  `refresh` int(11) NOT NULL DEFAULT '0',
-  `authToken` varchar(100) NOT NULL DEFAULT '',
+  `id`        int(11)       UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name`      varchar(32)   NOT NULL,
+  `password`  char(40)      NOT NULL,
+  `email`     varchar(255)  NOT NULL DEFAULT '',
+  `premdays`  int(11)       NOT NULL DEFAULT '0',
+  `lastday`   int(10)       UNSIGNED NOT NULL DEFAULT '0',
+  `type`      tinyint(1)    UNSIGNED NOT NULL DEFAULT '1',
+  `coins`     int(12)       UNSIGNED NOT NULL DEFAULT '0',
+  `creation`  int(11)       UNSIGNED NOT NULL DEFAULT '0',
   CONSTRAINT `accounts_pk` PRIMARY KEY (`id`),
   CONSTRAINT `accounts_unique` UNIQUE (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -824,16 +819,16 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 --
 INSERT INTO `accounts`
 (`id`,  `name`, `password`, `type`) VALUES
-(1, 'god', '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
+(1, 'GOD', '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
 
 --
 -- Create ADM player on GOD account
 -- Create sample characters
 INSERT INTO `players`
-(`id`, `name`, `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
-(1, 'Rook Sample', 1, 1, 2, 0, 155, 155, 100, 113, 115, 95, 39, 129, 60, 60, 1, '', 410, 0),
-(2, 'Sorcerer Sample', 1, 1, 8, 1, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
-(3, 'Druid Sample', 1, 1, 8, 2, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
-(4, 'Paladin Sample', 1, 1, 8, 3, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
-(5, 'Knight Sample', 1, 1, 8, 4, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
-(6, 'ADM', 6, 1, 2, 0, 150, 150, 0, 113, 115, 95, 39, 129, 60, 60, 1, '', 410, 1 );
+(`id`, `name`,              `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
+(1,     'Rook Sample',      1, 1, 2, 0, 155, 155, 100,  113, 115, 95, 39, 129, 60, 60, 1, '', 410, 0),
+(2,     'Sorcerer Sample',  1, 1, 8, 1, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
+(3,     'Druid Sample',     1, 1, 8, 2, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
+(4,     'Paladin Sample',   1, 1, 8, 3, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
+(5,     'Knight Sample',    1, 1, 8, 4, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
+(6,     'ADM',              6, 1, 2, 0, 150, 150, 0,    113, 115, 95, 39, 129, 60, 60, 1, '', 410, 1 );
