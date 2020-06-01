@@ -16,7 +16,7 @@ ActionTable = {
 	--[[
 	Action IDS
 	Use actionID only if you need to create a function that is called multiple times in different locations.
-	The action is also used as storage, x storage is added in the player,
+	The action is also used as storage, "x" storage is added in the player,
 	and the same action number gives access to a door, for example.
 
 	Reserved player action storage key ranges (const.h at the source)
@@ -28,9 +28,16 @@ ActionTable = {
 	[100] = unmoveable/untrade/unusable items
 	[101] = use pick floor
 	[102] = well down action
+	[103] = dawnport key 0010 (gained with Woblin npc)
 	[1000 = level door. Here 1 must be used followed by the level. Example: 1010 = level 10, 1100 = level 100]
 	]]
 
+	-- Dawnport door key 0010 (npcs dormitory)
+	{
+		actionId = 103,
+		itemId = 10477,
+		itemPos = {{x = 32067, y = 31896, z = 3}}
+	},
 	-- cults of tibia doors
 	-- minotaur entrance
 	{
@@ -175,7 +182,7 @@ ActionTable = {
 			{x = 32194, y = 31419, z = 2},
 			{x = 32195, y = 31418, z = 2},
 			{x = 32195, y = 31419, z = 2}
-		}
+		},
 	},
 	{
 		actionId = 24894,
@@ -206,6 +213,135 @@ ActionTable = {
 			{x = 33061, y = 32713, z = 5},
 			{x = 33061, y = 32714, z = 5}
 		}
+	},
+	--Dawnport
+	--Sorcerer vocation tile
+	{
+		actionId = 40001,
+		itemId = 413,
+		itemPos = {
+			{x = 32055, y = 31889, z = 5},
+			{x = 32055, y = 31890, z = 5},
+			{x = 32055, y = 31891, z = 5},
+			{x = 32055, y = 31892, z = 5}
+		}
+	},
+	--Druid vocation tile
+	{
+		actionId = 40002,
+		itemId = 413,
+		itemPos = {
+			{x = 32063, y = 31901, z = 5},
+			{x = 32064, y = 31901, z = 5},
+			{x = 32065, y = 31901, z = 5},
+			{x = 32066, y = 31901, z = 5}
+		}
+	},
+	--Paladin vocation tile
+	{
+		actionId = 40003,
+		itemId = 413,
+		itemPos = {
+			{x = 32075, y = 31889, z = 5},
+			{x = 32075, y = 31890, z = 5},
+			{x = 32075, y = 31891, z = 5},
+			{x = 32075, y = 31892, z = 5},
+		}
+	},
+	--Knight vocation tile
+	{
+		actionId = 40004,
+		itemId = 413,
+		itemPos = {
+			{x = 32063, y = 31880, z = 5},
+			{x = 32064, y = 31880, z = 5},
+			{x = 32065, y = 31880, z = 5},
+			{x = 32066, y = 31880, z = 5}
+		}
+	},
+	--Stairs decided vocation back
+	{
+		actionId = 40005,
+		itemId = 1385,
+		itemPos = {
+			{x = 32063, y = 31889, z = 6},
+			{x = 32064, y = 31889, z = 6},
+			{x = 32065, y = 31889, z = 6},
+			{x = 32066, y = 31889, z = 6}
+		}
+	},
+	--Sorcerer door tile
+	{
+		actionId = 40006,
+		itemId = 406,
+		itemPos = {
+			{x = 32053, y = 31884, z = 6},
+			{x = 32054, y = 31884, z = 6},
+			{x = 32055, y = 31884, z = 6}
+		}
+	},
+	--Druid door tile
+	{
+		actionId = 40007,
+		itemId = 406,
+		itemPos = {
+			{x = 32072, y = 31884, z = 6},
+			{x = 32073, y = 31884, z = 6},
+			{x = 32074, y = 31884, z = 6}
+		}
+	},
+	--Paladin door tile
+	{
+		actionId = 40008,
+		itemId = 406,
+		itemPos = {
+			{x = 32058, y = 31884, z = 6},
+			{x = 32059, y = 31884, z = 6},
+			{x = 32060, y = 31884, z = 6}
+		}
+	},
+	--Knight door tile
+	{
+		actionId = 40009,
+		itemId = 406,
+		itemPos = {
+			{x = 32067, y = 31884, z = 6},
+			{x = 32068, y = 31884, z = 6},
+			{x = 32069, y = 31884, z = 6}
+		}
+	},
+	--Sorcerer chest tile
+	{
+		actionId = 40010,
+		itemId = 406,
+		itemPos = {{x = 32054, y = 31880, z = 6}}
+	},
+	--Druid chest tile
+	{
+		actionId = 40011,
+		itemId = 406,
+		itemPos = {{x = 32073, y = 31880, z = 6}}
+	},
+	--Paladin chest tile
+	{
+		actionId = 40012,
+		itemId = 406,
+		itemPos = {{x = 32059, y = 31880, z = 6}}
+	},
+	--Knight chest tile
+	{
+		actionId = 40013,
+		itemId = 406,
+		itemPos = {{x = 32068, y = 31880, z = 6}}
+	},
+	--Dawnport bridge
+	{
+		actionId = 40014,
+		itemId = false,
+		itemPos = {
+			{x = 32107, y = 31901, z = 7},
+			{x = 32104, y = 31906, z = 7}
+		}
 	}
 }
 
@@ -231,6 +367,14 @@ UniqueTable = {
 		keyAction = 4055,
 		itemReward = 2088,
 		storage = Storage.Quest.Panpipe.Key4055Reward
+	},
+	-- Dawnport quest key 0010
+	[13001] = {
+		itemId = 1717,
+		itemPos = {x = 32068, y = 31895, z = 3},
+		keyAction = 103,
+		itemReward = 23763,
+		storage = Storage.Quest.Dawnport.Key0010
 	},
 
 	-- Rewards without a container (commom reward), it is only received by the player, are the common rewards.
@@ -267,6 +411,22 @@ UniqueTable = {
 		itemPos = {x = 32449, y = 32109, z = 8},
 		itemReward = {{26654, 1}},
 		storage = Storage.HallsOfHope.Reward5
+	},
+	-- Dawnport
+	-- Legion helmet quest (dawnport)
+	[14006] = {
+		itemId = 3058,
+		itemPos = {x = 32143, y = 31910, z = 8},
+		itemReward = {{2480, 1}},
+		storage = Storage.Quest.SanctuaryOfTheLizardGod.LegionHelmet
+	},
+	-- Dawnport quest
+	-- Torn log book
+	[14007] = {
+		itemId = 1740,
+		itemPos = {x = 32059, y = 31800, z = 10},
+		itemReward = {{23749, 1}},
+		storage = Storage.Quest.Dawnport.TornLogBook
 	},
 
 	-- Reward inside of container, y = there is also the option to put a key inside.
@@ -814,6 +974,96 @@ UniqueTable = {
 		itemPos = {x = 33478, y = 31197, z = 3},
 		storage = Storage.InsectoidCell.Reward16,
 		reward = 15572
+	},
+	--Dawnport
+	-- Vocation doors
+	-- Sorcerer
+	[25017] = {
+		itemId = 12195,
+		itemPos = {x = 32055, y = 31885, z = 6},
+		vocation = VOCATION.ID.SORCERER,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32054, y = 31883, z = 6}
+	},
+	-- Druid
+	[25018] = {
+		itemId = 7040,
+		itemPos = {x = 32073, y = 31885, z = 6},
+		vocation = VOCATION.ID.DRUID,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32073, y = 31883, z = 6}
+	},
+	-- Paladin
+	[25019] = {
+		itemId = 6898,
+		itemPos = {x = 32059, y = 31885, z = 6},
+		vocation = VOCATION.ID.PALADIN,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32059, y = 31884, z = 6}
+	},
+	-- Knight
+	[25020] = {
+		itemId = 9279,
+		itemPos = {x = 32069, y = 31885, z = 6},
+		vocation = VOCATION.ID.KNIGHT,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32068, y = 31883, z = 6}
+	},
+	-- Sacred snake teleport
+	[25021] = {
+		itemId = 1387,
+		itemPos = {x = 32112, y = 31936, z = 8}
+	},
+	-- Dawnport vocation rewards
+	-- Sorcerer
+	[25022] = {
+		itemId = 1740,
+		itemPos = {x = 32054, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2175, 1}, {2190, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
+		itemRewardContainer = {{7620, 5}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 1
+	},
+	-- Druid
+	[25023] = {
+		itemId = 1740,
+		itemPos = {x = 32073, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2175, 1}, {2182, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
+		itemRewardContainer = {{7620, 5}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 2
+	},
+	-- Paladin
+	[25024] = {
+		itemId = 1740,
+		itemPos = {x = 32059, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2389, 1}, {2660, 1}, {8923, 1}, {2461, 1}},
+		itemRewardContainer = {{2544, 100}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 3
+	},
+	-- Knight
+	[25025] = {
+		itemId = 1740,
+		itemPos = {x = 32068, y = 31882, z = 6},
+		itemBag = 1988,
+		itemReward = {{2643, 1}, {2509, 1}, {8602, 1}, {2465, 1}, {2460, 1}, {2478, 1}},
+		itemRewardContainer = {{7618, 5}, {18559, 1}},
+		storage = Storage.Quest.Dawnport.VocationReward,
+		value = 4
+	},
+	-- The rare herb
+	[25026] = {
+		itemId = 23748,
+		itemPos = {x = 32028, y = 31882, z = 7}
+	},
+	-- Dawnport tutorial tile
+	[25027] = {
+		itemId = 3139,
+		itemPos = {x = 32075, y = 31898, z = 5}
 	},
 	-- Sea of Lights
 	[25028] = {

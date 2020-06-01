@@ -27,7 +27,7 @@ POINTSSTORAGE = 2500
 tasks =
 {
 	[1] = {killsRequired = 100, raceName = "Trolls", level = {6, 19}, premium = true, creatures = {"troll", "troll champion", "island troll", "swamp troll"}, rewards = {{type = "exp", value = {200}},{type = "money", value = {200}}}},
-    [2] = {killsRequired = 150, raceName = "Goblins", level = {6, 19}, premium = true, creatures = {"goblin", "goblin assassin", "goblin leader"}, rewards = {{type = "exp", value = {300}},{type = "money", value = {250}}}},
+	[2] = {killsRequired = 150, raceName = "Goblins", level = {6, 19}, premium = true, creatures = {"goblin", "goblin assassin", "goblin leader"}, rewards = {{type = "exp", value = {300}},{type = "money", value = {250}}}},
 	[3] = {killsRequired = 300, raceName = "Crocodiles", level = {6, 49}, premium = true, creatures = {"crocodile"}, rewards = {{type = "exp", value = {800}},{type = "achievement", value = {"Blood-Red Snapper"}},{type = "storage", value = {34100, 1}},{type = "points", value = {1}}}},
 	[4] = {killsRequired = 300, raceName = "Badgers", level = {6, 49}, premium = true, creatures = {"badger"}, rewards = {{type = "exp", value = {500}},{type = "points", value = {1}}}},
 	[5] = {killsRequired = 300, raceName = "Tarantulas", level = {6, 49}, premium = true, creatures = {"tarantula"}, rewards = {{type = "exp", value = {1500}},{type = "achievement", value = {"No More Hiding"}},{type = "storage", value = {34101, 1}},{type = "points", value = {2}}}},
@@ -76,7 +76,10 @@ tasks =
 	[48] = {killsRequired = 3000, raceName = "Pirates second task", level = {1, 9999}, storage = {REPEATSTORAGE_BASE + 47, 3}, norepeatable = true, premium = true, creatures = {"pirate ghost", "pirate marauder", "pirate cutthroad", "pirate buccaneer", "pirate corsair", "pirate skeleton"}, rewards = {{type = "exp", value = {10000}},{type = "money", value = {5000}},{type = "storage", value = {17523, 1}}}},
 	[49] = {killsRequired = 5000, raceName = "Minotaurs", level = {1, 9999}, storage = {12700, 1}, norepeatable = true, premium = false, creatures = {"minotaur", "minotaur mage", "minotaur archer"}, rewards = {{type = "storage", value = {17522, 1}}}},
 	[50] = {killsRequired = 4000, raceName = "Necromancers and Priestess", level = {60, 9999}, norepeatable = true, premium = true, creatures = {"necromancer", "priestess"}, rewards = {{type = "storage", value = {34133, 1}},{type = "storage", value = {17521, 1}}}},
-    }
+	[51] = {killsRequired = 20, raceName = "Mountain Trolls", level = {1, 9999}, storage = {12701, 1}, norepeatable = true, premium = false, creatures = {"mountain trolls"}, rewards = {{type = "storage", value = {17524, 1}}}},
+	[52] = {killsRequired = 20, raceName = "Muglex Clan Footman", level = {1, 9999}, storage = {12702, 1}, norepeatable = true, premium = false, creatures = {"muglex clan footman "}, rewards = {{type = "storage", value = {17525, 1}}}},
+	[53] = {killsRequired = 20, raceName = "Minotaur Bruisers", level = {1, 9999}, storage = {12703, 1}, norepeatable = true, premium = false, creatures = {"minotaur bruisers"}, rewards = {{type = "storage", value = {17526, 1}}}},
+	}
 
 tasksByPlayer = 3
 repeatTimes = 3

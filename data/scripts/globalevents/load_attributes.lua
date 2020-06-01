@@ -57,6 +57,51 @@ function loadAttribute.onStartup()
 			end
 		end
 	end
+	-- It load signs on map table
+	for key, value in pairs(SignTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- Create item
+				item = Game.createItem(value.itemId, 1, value.itemPos)
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the text
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, value.text)
+			end
+		end
+	end
+	-- It load book on map table
+	for key, value in pairs(BookTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- Create item
+				item = Game.createItem(value.itemId, 1, value.itemPos) 
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the text
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
+			end
+			-- This add text on book inside a container
+			if item and value.containerBook then
+				itemAttr = item:addItem(value.bookId, 1)
+				itemAttr:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
+			end
+		end
+	end
 	return true
 end
 

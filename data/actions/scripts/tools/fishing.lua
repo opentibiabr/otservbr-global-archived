@@ -1,4 +1,4 @@
-local waterIds = {493, 4608, 4609, 4610, 4611, 13550, 13552, 4612, 4613, 4614, 4615, 4616, 4617, 4618, 4619, 4620, 4621, 4622, 4623, 4624, 4625, 7236, 10499, 15401, 15402, 13549}
+local waterIds = {493, 4608, 4609, 4610, 4611, 13550, 13552, 4612, 4613, 4614, 4615, 4616, 4617, 4618, 4619, 4620, 4621, 4622, 4623, 4624, 4625, 7236, 10499, 15401, 15402, 13549, 23785}
 local lootTrash = {2234, 2238, 2376, 2509, 2667}
 local lootCommon = {2152, 2167, 2168, 2669, 7588, 7589}
 local lootRare = {2143, 2146, 2149, 7158, 7159}
@@ -38,18 +38,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-
-	-- COMEÇO
 	if targetId == 13549 then
-		--local owner = target:getAttribute(ITEM_ATTRIBUTE_CORPSEOWNER)
-		--if owner ~= 0 and owner ~= player.uid then
-		--	player:sendTextMessage(MESSAGE_STATUS_SMALL, "You are not the owner.")
-		--	return true
-		--end
-
 		toPosition:sendMagicEffect(CONST_ME_WATERSPLASH)
-		--target:remove()
-
 		local rareChance = math.random(100)
 		if rareChance == 1 then
 			player:addItem(lootVeryRare1[math.random(#lootVeryRare1)], 1)
@@ -63,14 +53,25 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	-- FIM
-
 	if targetId ~= 7236 then
 		toPosition:sendMagicEffect(CONST_ME_LOSEENERGY)
 	end
 
 	if targetId == 493 or targetId == 15402 then
 		return true
+	end
+
+	if useWorms and player:removeItem("worm", 1) and targetId == 23785 then
+		if player:getStorageValue(Storage.Quest.Dawnport.TheDormKey) == 2 then
+			if math.random(100) >= 97 then
+				player:addItem(23773, 1)
+				player:setStorageValue(Storage.Quest.Dawnport.TheDormKey, 3)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "With a giant splash, you heave an enormous fish out of the water.")
+				return true
+			end
+		elseif math.random(100) <= math.min(math.max(10 + (player:getEffectiveSkillLevel(SKILL_FISHING) - 10) * 0.597, 10), 50) then
+			player:addItem(2667, 1)
+		end
 	end
 
 	player:addSkillTries(SKILL_FISHING, 1)

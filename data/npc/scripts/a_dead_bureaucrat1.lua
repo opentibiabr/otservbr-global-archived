@@ -23,10 +23,10 @@ local voices = {
 npcHandler:addModule(VoiceModule:new(voices))
 
 local config = {
-	[1] = "wand",
-	[2] = "rod",
-	[3] = "bow",
-	[4] = "sword"
+	[VOCATION.CLIENT_ID.SORCERER] = "wand",
+	[VOCATION.CLIENT_ID.DRUID] = "rod",
+	[VOCATION.CLIENT_ID.PALADIN] = "bow",
+	[VOCATION.CLIENT_ID.KNIGHT] = "sword"
 }
 
 local function greetCallback(cid)
@@ -40,7 +40,9 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	local vocationId = player:getVocation():getBase():getId()
+	local vocation = player:getVocation()
+	local vocationId = vocation:getId()
+	local vocationClientId = vocation:getClientId()
 
 	if msgcontains(msg, "pumin") then
 		if npcHandler.topic[cid] == 0 and player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
@@ -58,7 +60,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, Vocation(vocationId):getName()) then
 		if npcHandler.topic[cid] == 2 then
-			npcHandler:say("Huhu, please don't hurt me with your " .. config[vocationId] .. "! Reason of your visit?", cid)
+			npcHandler:say("Huhu, please don't hurt me with your " .. config[vocationClientId] .. "! Reason of your visit?", cid)
 			npcHandler.topic[cid] = 3
 		end
 	elseif msgcontains(msg, "411") then

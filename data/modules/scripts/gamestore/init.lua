@@ -128,7 +128,7 @@ end
 
 function onRecvbyte(player, msg, byte)
 	if not configManager.getBoolean(STOREMODULES) then return true end
-	if player:getVocation():getId() == 0 and not GameStore.haveCategoryRook() then
+	if player:getVocation():getId() == VOCATION.ID.NONE and not GameStore.haveCategoryRook() then
 		return player:sendCancelMessage("Store don't have offers for rookgaard citizen.")
 	end
 
@@ -268,7 +268,7 @@ function parseBuyStoreOffer(playerId, msg)
 	-- All guarding conditions under which the offer should not be processed must be included here
 	if (table.contains(GameStore.OfferTypes, offer.type) == false) -- we've got an invalid offer type
 	or (not player) -- player not found
-	or (player:getVocation():getId() == 0) and (not GameStore.haveOfferRook(id)) -- we don't have such offer
+	or (player:getVocation():getId() == VOCATION.ID.NONE) and (not GameStore.haveOfferRook(id)) -- we don't have such offer
 	or (not offer) -- we could not find the offer
 	or (offer.type == GameStore.OfferTypes.OFFER_TYPE_NONE) -- offer is disabled
 	or (offer.type ~= GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE and
@@ -379,7 +379,7 @@ function openStore(playerId)
 	end
 
 	local GameStoreCategories, GameStoreCount = nil, 0
-	if (player:getVocation():getId() == 0) then
+	if (player:getVocation():getId() == VOCATION.ID.NONE) then
 		GameStoreCategories, GameStoreCount = getCategoriesRook()
 	else
 		GameStoreCategories, GameStoreCount = GameStore.Categories, #GameStore.Categories

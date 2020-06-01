@@ -5109,7 +5109,100 @@ if not Quests then
 					end
 				}
 			}
-		}
+		},
+		[44] = {
+			name = "Dawnport",
+			startstorageid = Storage.Quest.Dawnport.Questline,
+			startstoragevalue = 1,
+			missions = {
+				[1] = {
+					name = "In the Adventures Outpost",
+					storageid = Storage.Quest.Dawnport.GoMain,
+					startvalue = 1,
+					endvalue = 2,
+					description = "You have reached the Outpost, where young heroes are trained in combat and hunting. \z
+					When you have reached level 8 at least, you can leave for the Mainland. Talk to Inigo if you have questions."
+				},
+				[2] = {
+					name = "The Lost Amulet",
+					storageid = Storage.Quest.Dawnport.TheLostAmulet,
+					startvalue = 1,
+					endvalue = 3,
+					states = {
+						[1] = "Mr Morris tasked you to find an ancient amulet that was lost somewhare on Dawnport - probably next to a corpse somewhare.",
+						[2] = "Come back to Mr Morris",
+						[3] = "Mr Morris thanks for the help"
+					}
+				},
+				[3] = {
+					name = "The Stolen Log Book",
+					storageid = Storage.Quest.Dawnport.TheStolenLogBook,
+					startvalue = 1,
+					endvalue = 2,
+					states = {
+						[1] = "Mr Morris urged you fo find a log book that was stolen by trolls.",
+						[2] = "Mr Morris thanks for the help"
+					}
+				},
+				[4] = {
+					name = "The Rare Herb",
+					storageid = Storage.Quest.Dawnport.TheRareHerb,
+					startvalue = 1,
+					endvalue = 3,
+					states = {
+						[1] = "Mr Morris needs the rae Dawnfire herb harvested and brought to hin. It grows on grey sand only, he said.",
+						[2] = "Come back to Mr Morris",
+						[3] = "Mr Morris thanks for the help"
+					}
+				},
+				[5] = {
+					name = "The Dorm Key",
+					storageid = Storage.Quest.Dawnport.TheDormKey,
+					startvalue = 1,
+					endvalue = 5,
+					states = {
+						[1] = "The key to the adventurer's dormitory has disappeared. Maybe you can find it. Ask around to find out who was the last to have seen it.",
+						[2] = "use the fishing rod in the nearby lake to fish old nasty",
+						[3] = "Come back to Woblin with Old Nasty",
+						[4] = "Come back to Mr Morris with key 0010",
+						[5] = "Mr Morris thanks for the help"
+					}
+				},
+				[6] = {
+					name = "Task: Mountain Trolls",
+					storageid = 65062,
+					startvalue = 0,
+					endvalue = 20,
+					description =
+					function(player)
+						return string.format("You already hunted %d/20 Mountain Trolls.",
+						(math.max(player:getStorageValue(65062), 0)))
+					end
+				},
+				[7] = {
+					name = "Task: Muglex Clan Footman",
+					storageid = 65061,
+					startvalue = 0,
+					endvalue = 20,
+					description =
+					function(player)
+						return string.format("You already hunted %d/20 Muglex Clan Footman.",
+						(math.max(player:getStorageValue(65061), 0)))
+					end
+				},
+				[8] = {
+					name = "Task: Minotaur Bruisers",
+					storageid = 65060,
+					startvalue = 0,
+					endvalue = 20,
+					description =
+					function(player)
+						return string.format("You already hunted %d/20 Minotaurs Bruisers.",
+						(math.max(player:getStorageValue(65060), 0)))
+					end
+				},
+			}
+		},
 	}
 end
 

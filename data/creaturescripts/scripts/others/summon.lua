@@ -1,40 +1,33 @@
-local petNames = {
-	[1] = 'thundergiant',
-	[2] = 'grovebeast',
-	[3] = 'emberwing',
-	[4] = 'skullfrost'
+local setting = {
+	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
+	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
+	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
+	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
 }
 
 local storage = Storage.PetSummon
 
 function onLogin(player)
-	local vocationid = player:getVocation():getId()
-	local pet
+	local vocationId = setting[player:getVocation():getId()]
+	local summonName
 	local petTimeLeft = player:getStorageValue(storage) - player:getLastLogout()
 
 	if petTimeLeft > 0 then
-		if vocationid == 5 then
-			pet = "thundergiant"
-		elseif vocationid == 6 then
-			pet = "grovebeast"
-		elseif vocationid == 7 then
-			pet = "emberwing"
-		elseif vocationid == 8 then
-			pet = "skullfrost"
+		if vocationId then
+			summonName = vocationId.name
 		end
 	end
 
-	if pet then
+	if summonName then
 		position = player:getPosition()
-		summonpet = Game.createMonster(pet, position, true, false, player)
-		player:addSummon(summonpet)
+		summonMonster = Game.createMonster(summonName, position, true, false, player)
+		player:addSummon(summonMonster)
 		player:setStorageValue(storage, os.time() + petTimeLeft)
-		summonpet:registerEvent('SummonDeath')
+		summonMonster:registerEvent("SummonDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 	return true
 end
-
 
 function onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
 	local player = creature:getMaster()
@@ -55,7 +48,7 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 		return false
 	end
 
-	if table.contains(petNames,creature:getName():lower()) then
+	if table.contains(setting, creature:getName():lower()) then
 		player:setStorageValue(storage, os.time()) --Imeddiately expire creature
 	end
 	return true

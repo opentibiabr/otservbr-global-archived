@@ -18,7 +18,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<script>
-		<event name="feroxaTrasnform" />
+		<event name="FeroxaTransform"/>
 	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-1400" max="-1800" />

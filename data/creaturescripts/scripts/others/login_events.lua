@@ -34,6 +34,10 @@ function onLogin(player)
 		"LostExileKill",
 		"SnailSlimeKill",
 		"TheBaronFromBelowKill",
+		--Dawnport Quest
+		"MorrisMinotaurKill",
+		"MorrisGoblinKill",
+		"MorrisTrollKill",
 		--Elemental Spheres Quest
 		"OverlordKill",
 		--Ferumbras Ascendant Quest

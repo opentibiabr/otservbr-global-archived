@@ -3,6 +3,8 @@
 -- Sort it in Values -
 
 Storage = {
+  	-- News quest development
+  	-- New storages
 	Quest = {
 		-- update pre-6.0
 		DeeperFibula = {},
@@ -265,8 +267,29 @@ Storage = {
 		Oramond = {},
 		Rathleton = {},
 		-- update 10.55
-		Dawnport = {},
-		SanctuaryOfTheLizardGod = {},
+		Dawnport = {
+			VocationReward = 30001,
+			Questline = 30002,
+			GoMain = 30003,
+			TheLostAmulet = 30004,
+			TheStolenLogBook = 30005,
+			TheRareHerb = 30006,
+			TheDormKey = 30007,
+			StrangeAmulet = 30008,
+			TornLogBook = 30009,
+			HerbFlower = 30010,
+			MorriskTroll = 30011,
+			MorrisTrollCount = 30012,
+			MorrisGoblin = 30013,
+			MorrisGoblinCount = 30014,
+			MorrisMinos = 30015,
+			MorrisMinosCount = 30016,
+			Key0010 = 30017
+		},
+		SanctuaryOfTheLizardGod = {
+			LizardGodTeleport = 30020,
+			LegionHelmet = 30021
+		},
 		-- update 10.70
 		HeroOfRathleton = {},
 		LionsRock = {},
@@ -1715,18 +1738,51 @@ Storage = {
 		Reward15 = 50825,
 		Reward16 = 50826
 	},
+	Dawnport = {
+		--Reward items storages
+		SorcererHealthPotion = 50851,
+		SorcererManaPotion = 50852,
+		SorcererLightestMissile = 50853,
+		SorcererLightStoneShower = 50854,
+		SorcererMeat = 50855,
+		DruidHealthPotion = 50856,
+		DruidManaPotion = 50857,
+		DruidLightestMissile = 50858,
+		DruidLightStoneShower = 50859,
+		DruidMeat = 50860,
+		PaladinHealthPotion = 50861,
+		PaladinManaPotion = 50862,
+		PaladinLightestMissile = 50863,
+		PaladinLightStoneShower = 50864,
+		PaladinMeat = 50865,
+		KnightHealthPotion = 50866,
+		KnightManaPotion = 50867,
+		KnightMeat = 50868,
+
+		Sorcerer = 50827,
+		Druid = 50828,
+		Paladin = 50829,
+		Knight = 50830,
+		DoorVocation = 50831,
+		DoorVocationFinish = 50832,
+		ChestRoomFinish = 50833,
+		Tutorial = 50834,
+		MessageStair = 50835,
+		Lever = 50836,
+		Mainland = 50837
+	},
 	LionsRock = {
-		Progress = 50880,
-		LionsStrength = 50881,
-		LionsBeauty = 50882,
-		LionsTears = 50883,
-		GetLionsMane = 50884,
-		GetHolyWater = 50885,
-		SnakeSign = 50886,
-		LizardSign = 50887,
-		ScorpionSign = 50888,
-		HyenaSign = 50889,
-		Time = 50890
+		Progress = 50840,
+		LionsStrength = 50841,
+		LionsBeauty = 50842,
+		LionsTears = 50843,
+		GetLionsMane = 50844,
+		GetHolyWater = 50845,
+		SnakeSign = 50846,
+		LizardSign = 50847,
+		ScorpionSign = 50848,
+		HyenaSign = 50849,
+		Time = 50850
 	},
 	EruaranGreeting = 3250,
 	MaryzaCookbook = 50721,

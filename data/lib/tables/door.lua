@@ -1,7 +1,7 @@
 -- Be careful, do not add quest door inside the level door table, this will lock the doors.
 
 -- ID of the keys.
-keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092}
+keysID = {2086, 2087, 2088, 2089, 2090, 2091, 2092, 23763}
 
 -- The lockedDoor is the doors with the description "It is locked". Use this (with no action) to keep a door permanently isoled.
 -- The closedDoor is the doors that are unlocked, when using them open normally.
