@@ -27,12 +27,12 @@ local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- Buyable
 -- Name, id, price, count/charges
-shopmodule:addbuyableitem({"blue gem"}, 2158, 5000, 1)
-shopmodule:addbuyableitem({"golden mug"}, 2033, 250, 1)
-shopmodule:addbuyableitem({"green gem"}, 2155, 5000, 1)
-shopmodule:addbuyableitem({"red gem"}, 2156, 1000, 1)
-shopmodule:addbuyableitem({"violet gem"}, 2153, 10000, 1)
-shopmodule:addbuyableitem({"yellow gem"}, 2154, 1000, 1)
+shopModule:addBuyableItem({"blue gem"}, 2158, 5000, 1)
+shopModule:addBuyableItem({"golden mug"}, 2033, 250, 1)
+shopModule:addBuyableItem({"green gem"}, 2155, 5000, 1)
+shopModule:addBuyableItem({"red gem"}, 2156, 1000, 1)
+shopModule:addBuyableItem({"violet gem"}, 2153, 10000, 1)
+shopModule:addBuyableItem({"yellow gem"}, 2154, 1000, 1)
 
 -- SPELLS FOR SORCERER
 keywordHandler:addSpellKeyword({"apprentice's strike"},

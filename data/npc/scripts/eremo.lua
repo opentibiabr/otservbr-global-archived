@@ -19,11 +19,11 @@ end
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- Buyable
-shopModule:addBuyableItem({"amulet of loss"}, 2173, 45000, 1)
-shopModule:addBuyableItem({"broken amulet"}, 2196, 50000, 1)
+shopModule:addSellableItem({"amulet of loss"}, 2173, 45000, 1)
+shopModule:addSellableItem({"broken amulet"}, 2196, 50000, 1)
 -- sellable
-shopModule:addSellableItem({"amulet of loss"}, 2173, 50000, 1)
-shopModule:addSellableItem({"protection amulet"}, 2200, 700, 1)
+shopModule:addBuyableItem({"amulet of loss"}, 2173, 50000, 1)
+shopModule:addBuyableItem({"protection amulet"}, 2200, 700, 1)
 
 -- SPELLS
 keywordHandler:addSpellKeyword({"challenge"},

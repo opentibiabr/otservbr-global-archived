@@ -25,12 +25,12 @@ local voices = {
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- sellable
-shopModule:addSellableItem({"exotic flowers"}, 2107, 300, 1)
-shopModule:addSellableItem({"flower bowl"}, 2102, 6, 1)
-shopModule:addSellableItem({"god flowers"}, 2100, 5, 1)
-shopModule:addSellableItem({"honey flower"}, 2103, 5, 1)
-shopModule:addSellableItem({"indoor plant"}, 2101, 8, 1)
-shopModule:addSellableItem({"potted flower"}, 2104, 5, 1)
+shopModule:addBuyableItem({"exotic flowers"}, 2107, 300, 1)
+shopModule:addBuyableItem({"flower bowl"}, 2102, 6, 1)
+shopModule:addBuyableItem({"god flowers"}, 2100, 5, 1)
+shopModule:addBuyableItem({"honey flower"}, 2103, 5, 1)
+shopModule:addBuyableItem({"indoor plant"}, 2101, 8, 1)
+shopModule:addBuyableItem({"potted flower"}, 2104, 5, 1)
 
 -- spells for druid
 keywordHandler:addSpellKeyword({"apprentice's strike"},

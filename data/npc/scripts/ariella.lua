@@ -16,7 +16,27 @@ function onThink()
 end
 
 local voices = {{text = "Have a drink in Meriana's only tavern!"}}
-npcHandler:addModule(VoiceModule:new(voices))
+npcHandler:addModule(VoiceModule:new(voices
+
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- sellable
+shopModule:addBuyableItem({"banana"}, 2676, 5, 1)
+shopModule:addBuyableItem({"blueberry"}, 2677, 1, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 6, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
+shopModule:addBuyableItem({"juice squeezer"}, 5865, 100, 1)
+shopModule:addBuyableItem({"mango"}, 5097, 10, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+shopModule:addBuyableItem({"melon"}, 2682, 10, 1)
+shopModule:addBuyableItem({"orange"}, 2675, 10, 1)
+shopModule:addBuyableItem({"pear"}, 2673, 5, 1)
+shopModule:addBuyableItem({"pineapple"}, 12415, 12, 1)
+shopModule:addBuyableItem({"pumpkin"}, 2683, 10, 1)
+shopModule:addBuyableItem({"red apple"}, 2674, 5, 1)
+shopModule:addBuyableItem({"strawberry"}, 2680, 2, 1)
+shopModule:addBuyableItem({"valentine's cake"}, 6393, 100, 1)
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -136,6 +156,10 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	return true
 end
+
+npcHandler:setMessage(MESSAGE_GREET, "Hi there |PLAYERNAME|, and welcome to my tavern.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, take a look at my tasty offers.")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

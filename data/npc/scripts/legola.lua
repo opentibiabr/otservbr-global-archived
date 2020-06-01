@@ -23,9 +23,9 @@ local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- Buyable
 -- Name, id, price, count/charges
-shopmodule:addbuyableitem({"girlish hair decoration"}, 12399, 30, 1)
-shopmodule:addbuyableitem({"hunter's quiver"}, 12425, 80, 1)
-shopmodule:addbuyableitem({"protective charm"}, 12400, 60, 1)
+shopModule:addBuyableItem({"girlish hair decoration"}, 12399, 30, 1)
+shopModule:addBuyableItem({"hunter's quiver"}, 12425, 80, 1)
+shopModule:addBuyableItem({"protective charm"}, 12400, 60, 1)
 
 -- SPELLS FOR PALADIN
 keywordHandler:addSpellKeyword({"light"},

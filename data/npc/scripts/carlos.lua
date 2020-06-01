@@ -14,6 +14,12 @@ end
 function onThink()
 	npcHandler:onThink()
 end
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+--buyable
+shopModule:addBuyableItem({"ham"}, 2671, 2, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 2, 1)
 
 local voices = {
 	{ text = 'Hmm, we should do something about your outfit.' },

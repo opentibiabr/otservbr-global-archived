@@ -20,7 +20,7 @@ local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
 -- Buyable
 -- Name, id, price, count/charges
-shopmodule:addbuyableitem({"sniper gloves"}, 5875, 2000, 1)
+shopModule:addBuyableItem({"sniper gloves"}, 5875, 2000, 1)
 
 -- SPELLS FOR PALADIN
 keywordHandler:addSpellKeyword({"light"},

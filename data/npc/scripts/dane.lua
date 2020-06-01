@@ -15,6 +15,14 @@ function onThink()
     npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- sellable
+shopModule:addBuyableItem({"vial of lemonade"}, 2006, 2, 1, 5)
+shopModule:addBuyableItem({"vial of milk"}, 2006, 2, 1, 6)
+shopModule:addBuyableItem({"vial of water"}, 2006, 1, 1, 1)
+
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this place of relaxation."})
 keywordHandler:addKeyword({'wave cellar'}, StdModule.say, {npcHandler = npcHandler, text = "It's pretty, isn't it?"})
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "I am Dane."})

@@ -26,6 +26,25 @@ local voices = {
 }
 npcHandler:addModule(VoiceModule:new(voices))
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+-- sellable
+shopModule:addBuyableItem({"bread"}, 2689, 3, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 5, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+--buyable
+shopModule:addSellableItem({"bread"}, 2689, 1, 1)
+shopModule:addSellableItem({"carrot"}, 2684, 1, 1)
+shopModule:addSellableItem({"cheese"}, 2696, 2, 1)
+shopModule:addSellableItem({"cherry"}, 2679, 1, 1)
+shopModule:addSellableItem({"dead rat"}, 2813, 2, 1)
+shopModule:addSellableItem({"egg"}, 2328, 1, 1)
+shopModule:addSellableItem({"ham"}, 2671, 4, 1)
+shopModule:addSellableItem({"meat"}, 2666, 2, 1)
+shopModule:addSellableItem({"salmon"}, 2668, 2, 1)
+
 -- Basic keywords
 keywordHandler:addKeyword({'hint'}, StdModule.rookgaardHints, {npcHandler = npcHandler})
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Billy.'})
@@ -52,27 +71,20 @@ keywordHandler:addKeyword({'sell'}, StdModule.say, {npcHandler = npcHandler, tex
 keywordHandler:addKeyword({'merchant'}, StdModule.say, {npcHandler = npcHandler, text = 'To view the offers of a merchant, simply talk to him or her and ask for a {trade}.'})
 keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'That\'s right, I\'m the god of cooking!'})
 keywordHandler:addKeyword({'recipe'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'d love to make pancakes, but I\'m lacking a decent {pan}. If you get me one, I\'ll reward you.'})
-
 keywordHandler:addKeyword({'armor'}, StdModule.say, {npcHandler = npcHandler, text = 'Armor and shields can be bought at {Dixi\'s} or at {Lee\'Delle\'s}. Dixi runs that shop near {Obi\'s}.'})
 keywordHandler:addAliasKeyword({'shield'})
-
 keywordHandler:addKeyword({'backpack'}, StdModule.say, {npcHandler = npcHandler, text = 'Get that from {Al Dee} or {Lee\'Delle}.'})
 keywordHandler:addAliasKeyword({'shovel'})
 keywordHandler:addAliasKeyword({'rope'})
 keywordHandler:addAliasKeyword({'fishing'})
-
 keywordHandler:addKeyword({'money'}, StdModule.say, {npcHandler = npcHandler, text = 'Well, no gold, no deal. Earn gold by fighting {monsters} and picking up the things they carry. Sell it to {merchants} to make profit!'})
 keywordHandler:addAliasKeyword({'gold'})
-
 keywordHandler:addKeyword({'magic'}, StdModule.say, {npcHandler = npcHandler, text = 'I can spell but I don\'t know any spells.'})
 keywordHandler:addAliasKeyword({'spell'})
-
 keywordHandler:addKeyword({'food'}, StdModule.say, {npcHandler = npcHandler, text = 'Just ask me for a {trade} to see my offers.'})
 keywordHandler:addAliasKeyword({'buy'})
 keywordHandler:addAliasKeyword({'stuff'})
 keywordHandler:addAliasKeyword({'offer'})
-
--- Names
 keywordHandler:addKeyword({'obi'}, StdModule.say, {npcHandler = npcHandler, text = 'I like him, we usually have a drink or two once a week and share stories about {Willie}.'})
 keywordHandler:addKeyword({'norma'}, StdModule.say, {npcHandler = npcHandler, text = 'That girl is all about party now. I think she was fed up with {equipment} selling.'})
 keywordHandler:addKeyword({'loui'}, StdModule.say, {npcHandler = npcHandler, text = 'Now that\'s one crazy fellow. I usually hear him scream about some hole.'})
