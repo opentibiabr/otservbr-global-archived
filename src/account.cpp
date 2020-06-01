@@ -220,9 +220,9 @@ error_t Account::LoadAccountDB() {
     return this->LoadAccountDB(id_);
   } else if (!name_.empty()) {
     return this->LoadAccountDB(name_);
-  } else {
-    LOG_F(ERROR, "Account not initialized! ID and Name without value!");
   }
+
+  LOG_F(ERROR, "Account not initialized! ID and Name without value!");
   return ERROR_NOT_INITIALIZED;
 }
 
