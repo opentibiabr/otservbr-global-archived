@@ -1,3 +1,4 @@
+-- First items, added only in first step and having no vocation
 function dawnportAddFirstItems(player, item, slot)
 	local firstItems = {
 		slots = {
@@ -16,6 +17,7 @@ function dawnportAddFirstItems(player, item, slot)
 	end
 end
 
+-- On step in tiles, for first step, second and third or more steps
 function dawnportTileStep(player, vocation)
 	-- First Step
 	local getVocation = player:getVocation()
@@ -34,12 +36,13 @@ function dawnportTileStep(player, vocation)
 		player:setStorageValue(vocation.storage, 1)
 		player:sendTutorial(vocation.tutorial)
 	-- Other steps
-	elseif player:getStorageValue(vocation.storage) >= 1 then
+	elseif player:getStorageValue(vocation.storage) == 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("You have received the weapons of a \z
-		".. vocation.name ..', you received a few extra items. ' .. vocation.firstMessage))
+			".. vocation.name ..'. ' .. vocation.firstMessage))
 	end
 end
 
+-- Set vocation
 function dawnportSetVocation(player, vocation)
 	-- Set for the dawnport vocation if is level 8 or minor
 	if player:getLevel() <= 7 then
@@ -57,6 +60,7 @@ function dawnportSetVocation(player, vocation)
 	end
 end
 
+-- Remove items (weapons and shield)
 function dawnportRemoveItems(player)
 	local itemIds = {
 		{id = 2379},
@@ -74,6 +78,7 @@ function dawnportRemoveItems(player)
 	end
 end
 
+-- Add items
 function dawnportAddItems(player, vocation)
 	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
 	for slot, info in pairs(vocation.items) do
@@ -108,6 +113,7 @@ function dawnportAddItems(player, vocation)
 	end
 end
 
+-- Set outfit for each vocation
 function dawnportSetOutfit(player, vocation)
 	if player:getSex() == PLAYERSEX_MALE then
 		player:setOutfit({
@@ -134,6 +140,7 @@ function dawnportSetOutfit(player, vocation)
 	end
 end
 
+-- Set health/mana/capacity per vocation
 function dawnportSetStats(player)
 	local skillTable = {
 		[VOCATION.ID.SORCERER] = {
@@ -174,6 +181,7 @@ function dawnportSetStats(player)
 	end
 end
 
+-- Table of configs
 DawnportTable = {
 	Effects = {
 		CONST_ME_TUTORIALARROW,
@@ -272,7 +280,6 @@ DawnportTable = {
 		effectPosition = {x = 32078, y = 31891, z = 5},
 		skills = {1,2,3,5},
 		limits = {9, 20},
-		receiveArrow = true,
 		storage = Storage.Dawnport.Paladin,
 		name = "paladin",
 		firstMessage = "As a paladin, you can use the following spells: Magic Patch, Arrow Call.",
