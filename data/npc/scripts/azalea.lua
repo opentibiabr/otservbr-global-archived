@@ -24,7 +24,7 @@ local voices = {
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
--- sellable
+
 shopModule:addBuyableItem({"exotic flowers"}, 2107, 300, 1)
 shopModule:addBuyableItem({"flower bowl"}, 2102, 6, 1)
 shopModule:addBuyableItem({"god flowers"}, 2100, 5, 1)

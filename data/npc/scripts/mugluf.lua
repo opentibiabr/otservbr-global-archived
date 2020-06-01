@@ -15,4 +15,12 @@ function onThink()
     npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"ham"}, 2671, 10, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 7, 1)
+shopModule:addBuyableItem({"salmon"}, 2668, 6, 1)
+
 npcHandler:addModule(FocusModule:new())

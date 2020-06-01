@@ -22,7 +22,7 @@ local voices = {
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
--- sellable
+
 shopModule:addBuyableItem({"banana"}, 2676, 3, 1)
 shopModule:addBuyableItem({"blueberry"}, 2677, 1, 1)
 shopModule:addBuyableItem({"carrot"}, 2684, 3, 1)

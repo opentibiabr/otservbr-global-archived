@@ -18,7 +18,7 @@ end
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
--- sellable
+
 shopModule:addBuyableItem({"fish"}, 2667, 5, 1)
 
 keywordHandler:addKeyword({'offer'}, StdModule.say, {npcHandler = npcHandler, text = "Well, I sell freshly caught fish. You like some? Of course, you can buy more than one at once. *grin* Just ask me for a {trade}."})

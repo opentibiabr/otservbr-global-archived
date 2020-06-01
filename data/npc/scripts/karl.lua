@@ -15,6 +15,12 @@ function onThink()
 	npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"vial of beer"}, 2006, 2, 1, 3)
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false

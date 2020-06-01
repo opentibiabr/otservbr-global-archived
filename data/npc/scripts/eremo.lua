@@ -21,7 +21,7 @@ npcHandler:addModule(shopModule)
 -- Buyable
 shopModule:addSellableItem({"amulet of loss"}, 2173, 45000, 1)
 shopModule:addSellableItem({"broken amulet"}, 2196, 50000, 1)
--- sellable
+
 shopModule:addBuyableItem({"amulet of loss"}, 2173, 50000, 1)
 shopModule:addBuyableItem({"protection amulet"}, 2200, 700, 1)
 

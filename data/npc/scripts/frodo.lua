@@ -18,6 +18,15 @@ end
 local voices = { {text = 'Come into my tavern and share some stories!'} }
 npcHandler:addModule(VoiceModule:new(voices))
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"bread"}, 2689, 4, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 6, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+
 -- Basic
 keywordHandler:addKeyword({'hut'}, StdModule.say, {npcHandler = npcHandler, text = "I hope you like it. Would you like some {food}?"})
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the owner of this saloon. I call it Frodo's Hut. I am also {selling} food."})

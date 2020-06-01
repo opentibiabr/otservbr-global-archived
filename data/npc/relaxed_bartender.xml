@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Relaxed Bartender" walkinterval="0" floorchange="0" script="relaxed_bartender.lua">
+<health now="100" max="100"/>
+<look type="542" head="114" body="10" legs="126" feet="126" addons="0"/>
+</npc>

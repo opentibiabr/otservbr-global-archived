@@ -15,6 +15,13 @@ function onThink()
     npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"ham"}, 2671, 6, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 3, 1)
+
 keywordHandler:addKeyword({'meat'}, StdModule.say, {npcHandler = npcHandler, text = "I can offer you ham or meat. If you'd like to check the quality of my wares, ask me for a {trade}."})
 
 npcHandler:setMessage(MESSAGE_GREET, "Welcome to my humble {meat} shop, |PLAYERNAME|.")

@@ -18,7 +18,7 @@ end
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
--- sellable
+
 shopModule:addBuyableItem({"beetroot"}, 8845, 2, 1)
 shopModule:addBuyableItem({"bunch of wheat"}, 2694, 1, 1)
 shopModule:addBuyableItem({"cheese"}, 2696, 5, 1)

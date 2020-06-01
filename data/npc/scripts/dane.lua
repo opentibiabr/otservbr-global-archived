@@ -18,7 +18,7 @@ end
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
--- sellable
+
 shopModule:addBuyableItem({"vial of lemonade"}, 2006, 2, 1, 5)
 shopModule:addBuyableItem({"vial of milk"}, 2006, 2, 1, 6)
 shopModule:addBuyableItem({"vial of water"}, 2006, 1, 1, 1)

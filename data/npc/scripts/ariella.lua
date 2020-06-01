@@ -21,7 +21,7 @@ npcHandler:addModule(VoiceModule:new(voices
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
--- sellable
+
 shopModule:addBuyableItem({"banana"}, 2676, 5, 1)
 shopModule:addBuyableItem({"blueberry"}, 2677, 1, 1)
 shopModule:addBuyableItem({"cheese"}, 2696, 6, 1)

@@ -15,6 +15,19 @@ function onThink()
 	npcHandler:onThink()
 end
 
+local voices = {
+	{ text = "Uh, uh." }
+}
+
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"banana"}, 2676, 5, 1)
+shopModule:addBuyableItem({"monkey statue 'hear' kit"}, 5087, 65, 1)
+shopModule:addBuyableItem({"monkey statue 'see' kit"}, 5086, 65, 1)
+shopModule:addBuyableItem({"monkey statue 'speak' kit"}, 5088, 65, 1)
+
 local function greetCallback(cid)
 	if Player(cid):getStorageValue(Storage.TheApeCity.Questline) < 12 then
 		npcHandler:setMessage(MESSAGE_GREET, 'Oh! Hello! Hello! Did not notice! So {busy}.')
@@ -484,6 +497,10 @@ local function onTradeRequest(cid)
 	return true
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Oh! Hello! Hello! Did not notice!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Bye, bye!")
+
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

@@ -395,7 +395,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 
-	if msgcontains(msg, "cough syrup") then
+	if msgcontains(msg, "flask of cough syrup") then
 		npcHandler:say("Do you want to buy a bottle of cough syrup for 50 gold?", cid)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'mission') then

@@ -24,14 +24,18 @@ local voices = {
 }
 npcHandler:addModule(VoiceModule:new(voices))
 
---[[
-addon
-Pretty, isn't it? I made it myself, but I could teach you how to do that if you like. What do you say?
-hat
-13:44 Norma: Pretty, isn't it? I made it myself, but I could teach you how to do that if you like. What do you say?
-yes
-13:44 Norma: Okay, here we go, listen closely! I need a few things... a basic hat of course, maybe a legion helmet would do. Then about 100 chicken feathers... and 50 honeycombs as glue. That's it, come back to me once you gathered it!!
-]]
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"bread"}, 2689, 3, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 5, 1)
+shopModule:addBuyableItem({"egg"}, 2328, 2, 1)
+shopModule:addBuyableItem({"party cake"}, 6280, 50, 1)
+shopModule:addBuyableItem({"vial of beer"}, 2006, 3, 1, 3)
+shopModule:addBuyableItem({"vial of lemonade"}, 2006, 2, 1, 5)
+shopModule:addBuyableItem({"vial of milk"}, 2006, 2, 1, 6)
+shopModule:addBuyableItem({"vial of wine"}, 2006, 3, 1, 15)
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -113,24 +117,19 @@ keywordHandler:addKeyword({'tibia'}, StdModule.say, {npcHandler = npcHandler, te
 keywordHandler:addKeyword({'premium'}, StdModule.say, {npcHandler = npcHandler, text = 'As a premium adventurer you have many advantages, you should check them out!'})
 keywordHandler:addKeyword({'drink'}, StdModule.say, {npcHandler = npcHandler, text = 'I serve the best drinks in town! What\'s it gonna be, lemonade? Wine? Milk? Beer? Just ask me for a {trade}!'})
 keywordHandler:addKeyword({'temple'}, StdModule.say, {npcHandler = npcHandler, text = 'The temple is a good place to visit if you\'re in urgent need for healing.'})
-
 keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = 'Well, the only help I could give you are some general {hints}. And a delicious {drink} along with it.'})
 keywordHandler:addAliasKeyword({'information'})
-
 keywordHandler:addKeyword({'backpack'}, StdModule.say, {npcHandler = npcHandler, text = 'No sorry, I\'m out of that business. Please ask {Al Dee} or {Lee\'Delle} if you need equipment.'})
 keywordHandler:addAliasKeyword({'rope'})
 keywordHandler:addAliasKeyword({'shovel'})
 keywordHandler:addAliasKeyword({'fishing'})
-
 keywordHandler:addKeyword({'armor'}, StdModule.say, {npcHandler = npcHandler, text = 'No sorry, I\'m out of that business. Please ask {Dixi} or {Lee\'Delle} if you need equipment.'})
 keywordHandler:addAliasKeyword({'shield'})
-
 keywordHandler:addKeyword({'offer'}, StdModule.say, {npcHandler = npcHandler, text = 'Oh, would you like something to eat or drink? Ask me for a {trade} to see my offers!'})
 keywordHandler:addAliasKeyword({'sell'})
 keywordHandler:addAliasKeyword({'buy'})
 keywordHandler:addAliasKeyword({'wares'})
 keywordHandler:addAliasKeyword({'stuff'})
-
 -- Names
 keywordHandler:addKeyword({'mary'}, StdModule.say, {npcHandler = npcHandler, text = '<gets a dreamy look in her eyes>'})
 keywordHandler:addKeyword({'al', 'dee'}, StdModule.say, {npcHandler = npcHandler, text = 'Al Dee treats his customers friendly, but he\'s badmouthing them once he had a few beers.'})

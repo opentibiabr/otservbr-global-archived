@@ -28,7 +28,7 @@ npcHandler:addModule(shopModule)
 shopModule:addSellableItem({"bow"}, 2456, 100, 1)
 shopModule:addSellableItem({"crossbow"}, 2455, 120, 1)
 shopModule:addSellableItem({"spear"}, 2389, 3, 1)
--- Sellable
+
 shopModule:addBuyableItem({'arrow'}, 2544, 3, 1)
 shopModule:addBuyableItem({'bolt'}, 2543, 4, 1)
 shopModule:addBuyableItem({'bow'}, 2456, 400, 1)

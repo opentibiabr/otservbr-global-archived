@@ -18,6 +18,19 @@ end
 local voices = { {text = 'The Horn of Plenty is always open for tired adventurers.'} }
 npcHandler:addModule(VoiceModule:new(voices))
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"bread"}, 2689, 4, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 6, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+shopModule:addBuyableItem({"vial of beer"}, 2006, 3, 1, 3)
+shopModule:addBuyableItem({"vial of lemonade"}, 2006, 2, 1, 5)
+shopModule:addBuyableItem({"vial of water"}, 2006, 2, 1, 1)
+shopModule:addBuyableItem({"vial of wine"}, 2006, 3, 1, 15)
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false

@@ -15,6 +15,20 @@ function onThink()
 	npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"bread"}, 2689, 8, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 12, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 16, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+shopModule:addBuyableItem({"vial of lemonade"}, 2012, 2, 1, 5)
+shopModule:addBuyableItem({"vial of water"}, 2012, 1, 1, 1)
+shopModule:addBuyableItem({"vial of milk"}, 2012, 3, 1, 6)
+
+shopModule:addSellableItem({"ice cube"}, 7441, 250, 1)
+
 local message = {}
 
 local config = {

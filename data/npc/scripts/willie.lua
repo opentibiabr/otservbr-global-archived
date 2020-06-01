@@ -23,16 +23,32 @@ local voices = {
 }
 npcHandler:addModule(VoiceModule:new(voices))
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"bread"}, 2689, 3, 1)
+shopModule:addBuyableItem({"cheese"}, 2696, 5, 1)
+shopModule:addBuyableItem({"ham"}, 2671, 8, 1)
+shopModule:addBuyableItem({"meat"}, 2666, 5, 1)
+
+shopModule:addSellableItem({"meat"}, 2666, 2, 1)
+shopModule:addSellableItem({"bread"}, 2689, 1, 1)
+shopModule:addSellableItem({"carrot"}, 2684, 1, 1)
+shopModule:addSellableItem({"cheese"}, 2696, 2, 1)
+shopModule:addSellableItem({"cherry"}, 2679, 1, 1)
+shopModule:addSellableItem({"egg"}, 2328, 1, 1)
+shopModule:addSellableItem({"ham"}, 2671, 4, 1)
+shopModule:addSellableItem({"salmon"}, 2668, 2, 1)
+
 -- Basic keywords
 keywordHandler:addKeyword({'offer'}, StdModule.say, {npcHandler = npcHandler, text = 'Haven\'t they taught you anything at school? Ask for a {trade} if you want to trade.'})
 keywordHandler:addAliasKeyword({'sell'})
 keywordHandler:addAliasKeyword({'buy'})
 keywordHandler:addAliasKeyword({'food'})
-
 keywordHandler:addKeyword({'information'}, StdModule.say, {npcHandler = npcHandler, text = 'Help yourself. Or ask the other {citizens}, I don\'t have time for that.'})
 keywordHandler:addAliasKeyword({'help'})
 keywordHandler:addAliasKeyword({'hint'})
-
 keywordHandler:addKeyword({'how', 'are', 'you'}, StdModule.say, {npcHandler = npcHandler, text = 'Fine enough.'})
 keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'Willie.'})
 keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a farmer and a cook.'})
@@ -52,7 +68,6 @@ keywordHandler:addKeyword({'rat'}, StdModule.say, {npcHandler = npcHandler, text
 keywordHandler:addKeyword({'monster'}, StdModule.say, {npcHandler = npcHandler, text = 'Are you afraid of monsters? I bet even the sight of a {rat} would let your knees tremble. Hahaha.'})
 keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = 'Do I look like a clock?'})
 keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m a farmer, not a preacher.'})
-
 -- Names
 keywordHandler:addKeyword({'al', 'dee'}, StdModule.say, {npcHandler = npcHandler, text = 'Can\'t stand him.'})
 keywordHandler:addKeyword({'amber'}, StdModule.say, {npcHandler = npcHandler, text = 'Quite a babe.'})
