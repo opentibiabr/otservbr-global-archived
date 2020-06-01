@@ -1,26 +1,14 @@
 function onUpdateDatabase()
-    print("[DB] Updating database to version 1 (Hireling)")
-
-    db.query([[
-		CREATE TABLE IF NOT EXISTS `player_hirelings` (
-            `id` INT NOT NULL PRIMARY KEY auto_increment,
-            `player_id` INT NOT NULL,
-            `name` varchar(255),
-            `active` tinyint unsigned NOT NULL DEFAULT '0',
-            `sex` tinyint unsigned NOT NULL DEFAULT '0',
-            `posx` int(11) NOT NULL DEFAULT '0',
-            `posy` int(11) NOT NULL DEFAULT '0',
-            `posz` int(11) NOT NULL DEFAULT '0',
-            `lookbody` int(11) NOT NULL DEFAULT '0',
-            `lookfeet` int(11) NOT NULL DEFAULT '0',
-            `lookhead` int(11) NOT NULL DEFAULT '0',
-            `looklegs` int(11) NOT NULL DEFAULT '0',
-            `looktype` int(11) NOT NULL DEFAULT '136',
-            
-            FOREIGN KEY(`player_id`) REFERENCES `players`(`id`)
-                ON DELETE CASCADE
-		)
-	]])
-
-    return true -- true = There are others migrations file | false = this is the last migration file
+	print("> Updating database to version 1 (sample players)")
+	-- Rook Sample
+	db.query("UPDATE `players` SET `level` = 2, `vocation` = 0, `health` = 155, `healthmax` = 155, `experience` = 100, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 60, `manamax` = 60, `town_id` = 1, `cap` = 410 WHERE `id` = 0;")
+	-- Sorcerer Sample
+	db.query("UPDATE `players` SET `level` = 8, `vocation` = 1, `health` = 185, `healthmax` = 185, `experience` = 4200, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 90, `manamax` = 90, `town_id` = 8, `cap` = 470 WHERE `id` = 1;")
+	-- Druid Sample
+	db.query("UPDATE `players` SET `level` = 8, `vocation` = 2, `health` = 185, `healthmax` = 185, `experience` = 4200, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 90, `manamax` = 90, `town_id` = 8, `cap` = 470 WHERE `id` = 2;")
+	-- Paladin Sample
+	db.query("UPDATE `players` SET `level` = 8, `vocation` = 3, `health` = 185, `healthmax` = 185, `experience` = 4200, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 90, `manamax` = 90, `town_id` = 8, `cap` = 470 WHERE `id` = 3;")
+	-- Knight Sample
+	db.query("UPDATE `players` SET `level` = 8, `vocation` = 4, `health` = 185, `healthmax` = 185, `experience` = 4200, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 90, `manamax` = 90, `town_id` = 8, `cap` = 470 WHERE `id` = 4;")
+	return true
 end

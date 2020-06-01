@@ -65,7 +65,7 @@ GameStore.Categories = {
 	description = "Buy your own house servant",
 	icons = { "Category_Hirelings.png" },
 	name = "Hirelings",
-	offers = { 
+	offers = {
 		{
 			icons = { "hireling_male.png" },
 			name = "Hireling (male)",
@@ -76,7 +76,7 @@ GameStore.Categories = {
 			sexId = HIRELING_SEX.MALE,
 			description = "-can only be unwrapped in a house owned by the purchasing character\n\n-comes in a magic lamp which can only be used by purchasing character\n\n-will be sent to your Store inbox and can only be stored there and in depot box\n\n-can be used by all characters that have access to the house\n\n-use the magic lamp to summon your hireling\n\n-will be wrapped back and sent to inbox if the purchasing character is no longer the house owner",
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING,
-		}, 
+		},
 		{
 			icons = { "hireling_female.png" },
 			name = "Hireling (female)",
@@ -149,15 +149,15 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL,
 		},
 	},
-		rookgaard = true,
-		state = GameStore.States.STATE_NONE,
-	}, 
+	rookgaard = true,
+	state = GameStore.States.STATE_NONE,
+},
 -- Hireling Outfits
 {
 	description = "Buy new dresses for your hirelings",
 	icons = { "Category_Hirelings_outfits.png" },
 	name = "Hirelings Dresses",
-	offers = { 
+	offers = {
 		{
 			icons = { "hireling_outfit_banker.png" },
 			name = "Hireling Banker Dress",
@@ -249,8 +249,8 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 	},
-		rookgaard = true,
-		state = GameStore.States.STATE_NONE,
+	rookgaard = true,
+	state = GameStore.States.STATE_NONE,
 },
 -- Blessings
 	{

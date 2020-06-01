@@ -1,5 +1,5 @@
 function onShutdown()
-    print('>> Saving Hirelings')
-    SaveHirelings()
-    return true
+	print('>> Saving Hirelings')
+	SaveHirelings()
+	return true
 end
