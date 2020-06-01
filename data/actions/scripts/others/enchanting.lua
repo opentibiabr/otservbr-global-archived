@@ -4,10 +4,10 @@ local config = {
 }
 
 local spheres = {
-	[7759] = {3, 7},
-	[7760] = {1, 5},
-	[7761] = {2, 6},
-	[7762] = {4, 8}
+	[7759] = {VOCATION.CLIENT_ID.PALADIN},
+	[7760] = {VOCATION.CLIENT_ID.SORCERER},
+	[7761] = {VOCATION.CLIENT_ID.DRUID},
+	[7762] = {VOCATION.CLIENT_ID.KNIGHT}
 }
 
 local enchantableGems = {2147, 2146, 2149, 2150}
@@ -43,10 +43,12 @@ local enchantedItems = {
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-	if isInArray({33268, 33269}, toPosition.x) and toPosition.y == 31830 and toPosition.z == 10 and player:getStorageValue(Storage.ElementalSphere.QuestLine) > 0 then
-		if not isInArray(spheres[item.itemid], player:getVocation():getId()) then
+	if table.contains({33268, 33269}, toPosition.x)
+	and toPosition.y == 31830 and toPosition.z == 10
+	and player:getStorageValue(Storage.ElementalSphere.QuestLine) > 0 then
+		if not table.contains(spheres[item.itemid], player:getVocation():getClientId()) then
 			return false
-		elseif isInArray({7915, 7916}, target.itemid) then
+		elseif table.contains({7915, 7916}, target.itemid) then
 			player:say('Turn off the machine first.', TALKTYPE_MONSTER_SAY)
 			return true
 		else

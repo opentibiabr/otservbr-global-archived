@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Glooth Masher" nameDescription="a glooth masher" race="venom" experience="2200" speed="260">
-	<health now="2700" max="2700"/>
-	<look type="600" corpse="23343"/>
+	<health now="2700" max="2700" />
+	<look type="600" corpse="23343" />
 	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -24,8 +25,8 @@
 		<attack name="energy" interval="2000" chance="25" range="7" min="-125" max="-245">
 			<attribute key="shootEffect" value="energy" />
 		</attack>
-		<attack name="war golem skill reducer" interval="2000" chance="16"/>
-		<attack name="war golem electrify" interval="2000" chance="9" range="7"/>
+		<attack name="war golem skill reducer" interval="2000" chance="16" />
+		<attack name="war golem electrify" interval="2000" chance="9" range="7" />
 	</attacks>
 	<defenses armor="40" defense="45">
 		<defense name="speed" interval="2000" chance="13" speedchange="404" duration="4000">

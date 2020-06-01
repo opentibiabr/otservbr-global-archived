@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Frenzy" nameDescription="Frenzy" race="energy" experience="1313" speed="380">
-	<health now="8210" max="8210"/>
-	<look type="290" corpse="0"/>
-	<targetchange interval="4000" chance="25"/>
+	<health now="8210" max="8210" />
+	<look type="290" corpse="0" />
+	<targetchange interval="4000" chance="25" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag staticattack="90"/>
-		<flag lightlevel="0"/>
-		<flag lightcolor="0"/>
-		<flag targetdistance="1"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag staticattack="90" />
+		<flag lightlevel="0" />
+		<flag lightcolor="0" />
+		<flag targetdistance="1" />
+		<flag runonhealth="0" />
 	</flags>
 	<script>
-    	<event name="HeartMinionDeath"/>
+    	<event name="HeartMinionDeath" />
 	</script>
 	<attacks>
-		<attack name="melee" interval="2000" min="0" max="-1047"/>
-		<attack name="big energy purple wave2" interval="2000" min="0" max="-730"/>
+		<attack name="melee" interval="2000" min="0" max="-1047" />
+		<attack name="big energy purple wave2" interval="2000" min="0" max="-730" />
 		<attack name="physical" interval="2000" chance="20" radius="4" min="0" max="-464">
-			<attribute key="areaEffect" value="energyarea"/>
+			<attribute key="areaEffect" value="energyarea" />
 		</attack>
 		<attack name="physical" interval="2000" chance="20" radius="7" min="0" max="0">
-			<attribute key="areaEffect" value="poff"/>
+			<attribute key="areaEffect" value="poff" />
 		</attack>
 	</attacks>
 	<defenses armor="100" defense="100">
 		<defense name="healing" interval="2000" chance="20" min="0" max="438">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<elements>
-		<element physicalPercent="40"/>
-		<element holyPercent="25"/>
-		<element deathPercent="20"/>
-		<element earthPercent="-5"/>
+		<element physicalPercent="40" />
+		<element holyPercent="25" />
+		<element deathPercent="20" />
+		<element earthPercent="-5" />
 	</elements>
 	<immunities>
-		<immunity invisible="1"/>
-		<immunity paralyze="1"/>
-		<immunity fire="1"/>
-		<immunity ice="1"/>
-		<immunity energy="1"/>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
+		<immunity fire="1" />
+		<immunity ice="1" />
+		<immunity energy="1" />
 	</immunities>
 	<walkablefields>
-		<walkablefield poison="1"/>
+		<walkablefield poison="1" />
 	</walkablefields>
 </monster>

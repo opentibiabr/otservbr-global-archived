@@ -20,7 +20,7 @@ Blessings.Credits = {
 }
 
 Blessings.Config = {
-	AdventurerBlessingLevel = 20, -- Free full bless until level
+	AdventurerBlessingLevel = 0, -- Free full bless until level
 	HasToF = false, -- Enables/disables twist of fate
 	InquisitonBlessPriceMultiplier = 1.1, -- Bless price multiplied by henricus
 	SkulledDeathLoseStoreItem = true, -- Destroy all items on store when dying with red/blackskull
@@ -228,7 +228,7 @@ end
 Blessings.checkBless = function(player)
 	local result, bless = 'Received blessings:'
 	for k, v in pairs(Blessings.All) do
-		result = player:hasBlessing(k) and result .. '\\n' .. v.name or result
+		result = player:hasBlessing(k) and result .. '\n' .. v.name or result
 	end
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 20 > result:len() and 'No blessings received.' or result)
 	return true

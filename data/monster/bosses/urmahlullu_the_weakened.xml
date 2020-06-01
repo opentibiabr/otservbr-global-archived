@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Urmahlullu the Weakened" nameDescription="urmahlullu the weakened" race="blood" experience="85000" speed="190" script="rewardboss.lua">
-	<health now="130000" max="130000"/>
-	<look type="1197" head="57" body="75" legs="38" feet="86" corpse="36248"/>
-	<targetchange interval="4000" chance="10"/>
+	<health now="130000" max="130000" />
+	<look type="1197" head="57" body="75" legs="38" feet="86" corpse="36248" />
+	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
+		<flag summonable="0" />
 		<flag rewardboss="1" />
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="70"/>
-		<flag runonhealth="0"/>
-		<flag canwalkonenergy="1"/>
-		<flag canwalkonfire="1"/>
-		<flag canwalkonpoison="1"/>
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="70" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
 	</flags>
 	<attacks>
-        <attack name="melee" interval="2000" min="-50" max="-1100"/>
+        <attack name="melee" interval="2000" min="-50" max="-1100" />
         <attack name="fire" interval="3000" chance="20" needtarget="0" radius="4" min="-500" max="-800">
 			<attribute key="areaEffect" value="firearea" />
 		</attack>	
 		<attack name="fire" interval="2000" chance="20" needtarget="0" radius="3" min="-550" max="-800">
 		    <attribute key="areaEffect" value="firearea" />
 		</attack>
-		<attack name="urmahlulluring" interval="2000" chance="18" min="-450" max="-600"/>	
+		<attack name="urmahlulluring" interval="2000" chance="18" min="-450" max="-600" />	
 	</attacks>
-	<defenses armor="84" defense="84"/>
+	<defenses armor="84" defense="84" />
 	<elements>
-		<element energyPercent="40"/>
-		<element firePercent="100"/>
+		<element energyPercent="40" />
+		<element firePercent="100" />
 	</elements>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
 	</immunities>
 	<voices interval="5000" chance="10">
-		<voice sentence="You will regret this!"/>
+		<voice sentence="You will regret this!" />
 	</voices>
 	<loot>
 		<item name="platinum coin" countmax="6" chance="96000" />

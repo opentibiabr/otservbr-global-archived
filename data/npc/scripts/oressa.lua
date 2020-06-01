@@ -1,4 +1,4 @@
-	local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
@@ -16,127 +16,415 @@ function onThink()
 end
 
 local voices = {
-	{ text = 'Feeling lost, my child? Ask me for hints or help!' },
-	{ text = 'Come to me if you need healing!' },
-	{ text = 'Welcome to the temple of Dawnport!' },
-	{ text = 'Don\'t despair! Help is near!' }
+	{text = "You can't take it all with you - sell your Dawnport things before \z
+		you receive the gear of your definite vocation!"},
+	{text = "Leave all Dawnport things behind you and choose your destiny!"},
+	{text = "Come to me if you need healing!"},
+	{text = "Choose your vocation and explore the mainland!"},
+	{text = "Talk to me to choose your definite vocation! Become a knight, paladin, druid or sorcerer!"},
+	{text = "World needs brave adventurers like you. Choose your vocation and sail to the mainland!"},
+	{text = "Poisoned? Bleeding? Wounded? I can help!"}
 }
+
 npcHandler:addModule(VoiceModule:new(voices))
 
--- Greeting and Farewell
-keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hello, |PLAYERNAME|! You are looking really bad. Let me heal your wounds. It\'s my job after all.'},
-	function(player) return player:getHealth() < 65 or player:getCondition(CONDITION_POISON) ~= nil end,
-	function(player)
-		local health = player:getHealth()
-		if health < 65 then player:addHealth(65 - health) end
-		player:removeCondition(CONDITION_POISON)
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-	end
-)
-keywordHandler:addAliasKeyword({'hello'})
-
-keywordHandler:addGreetKeyword({'hi'}, {npcHandler = npcHandler, text = 'Hello, |PLAYERNAME|! I\'ll {heal} you if you are injured or poisoned. Feel free to ask me for {help} or general {hints}.'}, function(player) return player:getSex() == PLAYERSEX_FEMALE end)
-keywordHandler:addAliasKeyword({'hello'})
-
-keywordHandler:addFarewellKeyword({'bye'}, {npcHandler = npcHandler, text = 'Farewell, |PLAYERNAME|!'})
-keywordHandler:addAliasKeyword({'farewell'})
-
 -- Basic keywords
-keywordHandler:addKeyword({'hint'}, StdModule.rookgaardHints, {npcHandler = npcHandler})
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = 'My name is Oressa.'})
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'Me? Oh, I\'m just a humble helper. Ask me if you need {help} or {healing}.'})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = 'Now it is |TIME|, my child.'})
---keywordHandler:addKeyword({'monk'}, StdModule.say, {npcHandler = npcHandler, text = 'I have sacrificed my life to serve the good gods of {Tibia} and to help newcomers in this world.'})
-keywordHandler:addKeyword({'bank'}, StdModule.say, {npcHandler = npcHandler, text = 'You can deposit your money at the bank. That way you won\'t lose it if you get {killed}. The bank is just under the academy and to the right.'})
-keywordHandler:addKeyword({'destiny'}, StdModule.say, {npcHandler = npcHandler, text = 'Your near destiny will be to choose a {vocation} once you are level 8. Whether you will become a {knight}, {sorcerer}, {paladin} or {druid} is a big decision!'})
-keywordHandler:addKeyword({'tibia'}, StdModule.say, {npcHandler = npcHandler, text = 'That\'s where we are - the world of Tibia, in a village called {Rookgaard}, to be precise, with many {monsters}, {quests} and {citizens} around.'})
-keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = 'How can I help you? I can tell you about specific {citizens} if you tell me their name. I can also give you general {hints} about {Tibia}. '})
-keywordHandler:addKeyword({'citizen'}, StdModule.say, {npcHandler = npcHandler, text = 'Only a few people live in our village, most of them are {merchants}. You can either ask them for a {trade} or about various other topics, like the names of other citizens, their {job} or Tibia in general.'})
-keywordHandler:addKeyword({'trade'}, StdModule.say, {npcHandler = npcHandler, text = 'I don\'t have any goods for trade, but if you ask one of the {merchants}, he or she will gladly show you what you can buy or sell.'})
-keywordHandler:addKeyword({'rat'}, StdModule.say, {npcHandler = npcHandler, text = 'A single rat doesn\'t pose a grave danger to you, but be careful not to get cornered by many of them. They could still {kill} you.'})
-keywordHandler:addKeyword({'spider'}, StdModule.say, {npcHandler = npcHandler, text = 'If you face spiders, beware of the {poisonous} ones. If you are poisoned, you will constantly lose health. Come to me and I\'ll heal you from poison.'})
-keywordHandler:addKeyword({'kill'}, StdModule.say, {npcHandler = npcHandler, text = 'If you get killed, you will revive in this temple. However, you will lose experience and also equipment, which can be quite painful. Take good care of yourself!'})
-keywordHandler:addKeyword({'poison'}, StdModule.say, {npcHandler = npcHandler, text = 'Poison is very dangerous! Don\'t ever drink green liquids, they are poisonous and will make you lose health!'})
-keywordHandler:addKeyword({'vocation'}, StdModule.say, {npcHandler = npcHandler, text = 'There are four vocations in Tibia: {knight}, {sorcerer}, {paladin} or {druid}. Each vocation has its unique special abilities.'})
-keywordHandler:addKeyword({'knight'}, StdModule.say, {npcHandler = npcHandler, text = 'Knights are close combat fighters. They usually wield melee weapons such as swords, axes or clubs.'})
-keywordHandler:addKeyword({'druid'}, StdModule.say, {npcHandler = npcHandler, text = 'Druids are nature magicians. Their speciality is casting ice and earth magic, as well as providing healing for others.'})
-keywordHandler:addKeyword({'paladin'}, StdModule.say, {npcHandler = npcHandler, text = 'Paladins are well-trained distance fighters and can cast holy magic. You will usually see them wearing bows or crossbows.'})
-keywordHandler:addKeyword({'sorcerer'}, StdModule.say, {npcHandler = npcHandler, text = 'Sorcerers are elemental magicians. They have mastered fire, energy and death magic.'})
-keywordHandler:addKeyword({'shop'}, StdModule.say, {npcHandler = npcHandler, text = 'You can buy and sell goods from merchants. To do so, simply talk to them and ask them for a {trade}. They will gladly show you their offers and also the things they buy from you.'})
-keywordHandler:addKeyword({'equip'}, StdModule.say, {npcHandler = npcHandler, text = 'You can buy equipment from the {merchants} in this village once you earned some {gold}. Some {monsters} also carry equipment pieces with them.'})
-keywordHandler:addKeyword({'shovel'}, StdModule.say, {npcHandler = npcHandler, text = 'Shovels are very useful. There may be a hidden entrance under a loose pile of stone and without a shovel, how would you know?'})
-keywordHandler:addKeyword({'rope'}, StdModule.say, {npcHandler = npcHandler, text = 'Never go adventuring without a rope! If you don\'t have one when you fall through a hole in the ground, you won\'t be able to leave without a rope.'})
-keywordHandler:addKeyword({'weapon'}, StdModule.say, {npcHandler = npcHandler, text = 'To defend yourself against enemies, you will need a weapon. You can purchase weapons at {Obi}\'s shop.'})
-keywordHandler:addKeyword({'food'}, StdModule.say, {npcHandler = npcHandler, text = 'Food is very important for your health. If you are hurt in a fight with a {monster}, select \'Use\' on food such as cheese, ham or meat to eat it. This will slowly refill your health.'})
-keywordHandler:addKeyword({'premium'}, StdModule.say, {npcHandler = npcHandler, text = 'As a premium adventurer, you are an official tax payer and thus privileged in many ways. For example, you can travel by {ship} and get better deals from {merchants}.'})
-keywordHandler:addKeyword({'ship'}, StdModule.say, {npcHandler = npcHandler, text = {'Ships are a comfortable way of travelling to distant cities. At any harbour, you can board the ship and ask its captain where he sails to.', 'Travelling by ship will cost you some gold, though, so be sure to have money with you.'}})
-keywordHandler:addKeyword({'potion'}, StdModule.say, {npcHandler = npcHandler, text = 'Potions will come in handy once you are in a fight deep in a dungeon. If you aren\'t in immediate danger, you can simply eat {food} to regain health, though.'})
-keywordHandler:addKeyword({'academy'}, StdModule.say, {npcHandler = npcHandler, text = 'The academy is just north of here. You can learn helpful things there from {Seymour}, if you wish to!'})
-keywordHandler:addKeyword({'king'}, StdModule.say, {npcHandler = npcHandler, text = 'Well, King Tibianus of course. The island of {Rookgaard} belongs to his kingdom.'})
-keywordHandler:addKeyword({'rookgaard'}, StdModule.say, {npcHandler = npcHandler, text = 'The {gods} have chosen this isle as the point of arrival for newborn souls. The {citizens} will help you if you ask them.'})
-keywordHandler:addKeyword({'god'}, StdModule.say, {npcHandler = npcHandler, text = 'They created {Tibia} and all life on it. Visit our {academy} and learn about them.'})
-keywordHandler:addKeyword({'monster'}, StdModule.say, {npcHandler = npcHandler, text = 'Monsters are a constant threat to this village. You would tremendously help us by fighting them, starting with {rats} in the {sewers}, then turning to {spiders} or {wolves}.'})
-keywordHandler:addKeyword({'merchant'}, StdModule.say, {npcHandler = npcHandler, text = 'You can buy and sell goods from merchants. To do so, simply talk to them and ask them for a {trade}. They will gladly show you their offers and also the things they buy from you.'})
-keywordHandler:addKeyword({'sewer'}, StdModule.say, {npcHandler = npcHandler, text = 'The sewers are right below this village. North of this temple, you find a sewer grate which leads down, but there are also many small huts in the village which are connected to the sewers.'})
-
-keywordHandler:addKeyword({'buy'}, StdModule.say, {npcHandler = npcHandler, text = 'I\'m sorry, but I\'m not interested in worldly goods. If you want to buy or sell something, you should ask a local merchant for a trade.'})
-keywordHandler:addAliasKeyword({'sell'})
-
-keywordHandler:addKeyword({'shield'}, StdModule.say, {npcHandler = npcHandler, text = 'To defend yourself against enemies, you will need armor and shields. You can purchase both at {Dixi}\'s shop.'})
-keywordHandler:addAliasKeyword({'armor'})
-
-keywordHandler:addKeyword({'money'}, StdModule.say, {npcHandler = npcHandler, text = 'You can earn a fair amount of gold by fighting {monsters} and picking up the things they carry. Many {citizens} are buying some of that loot, simply ask around.'})
-keywordHandler:addAliasKeyword({'gold'})
-
-keywordHandler:addKeyword({'quest'}, StdModule.say, {npcHandler = npcHandler, text = 'Oh, I can handle my tasks myself, thank you. If you are looking for something to do, you should listen to the local {citizens} and ask them for {quests}. You could also help us fight {monsters}.'})
-keywordHandler:addAliasKeyword({'mission'})
-
-keywordHandler:addKeyword({'wolf'}, StdModule.say, {npcHandler = npcHandler, text = 'Wolves can only be found outside of the village. If you want to know where their dens are, best talk to {Dallheim} or {Zerbrus} at the bridges.'})
-keywordHandler:addAliasKeyword({'wolves'})
-
-keywordHandler:addKeyword({'adventure'}, StdModule.say, {npcHandler = npcHandler, text = 'I can see a bright future for you... you will soon embark on a very big adventure and explore the world of {Tibia} - maybe even influence history!'})
-keywordHandler:addAliasKeyword({'explore'})
-
-keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'You are poisoned. I will help you.'},
-	function(player) return player:getCondition(CONDITION_POISON) ~= nil end,
-	function(player)
-		local health = player:getHealth()
-		if health < 65 then player:addHealth(65 - health) end
-		player:removeCondition(CONDITION_POISON)
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
-	end
+keywordHandler:addKeyword({"name"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I am Oressa Fourwinds, the {healer}. "
+	}
 )
-keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'Let me heal your wounds.'},
-	function(player) return player:getHealth() < 185 end,
-	function(player)
-		local health = player:getHealth()
-		if health < 185 then player:addHealth(185 - health) end
-		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-	end
+keywordHandler:addKeyword({"healer"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "If you are hurt my child, I will {heal} your wounds."
+	}
 )
-keywordHandler:addKeyword({'heal'}, StdModule.say, {npcHandler = npcHandler, text = 'You aren\'t looking really bad, |PLAYERNAME|. I can only help in cases of real emergencies. Raise your health simply by eating food.'})
+keywordHandler:addKeyword({"job"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I can {heal} you if you are hurt. I can also help you choose your {vocation}. "
+	}
+)
+keywordHandler:addKeyword({"doors"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Behind each of those doors, the equipment and skills of one vocation lies - \z
+		sorcerer, paladin, knight or druid. ...",
+		"When you have reached level 8, you can choose your definite vocation. You have to talk to me to receive it, \z
+		and then you may open one of the doors, take up your vocation's gear, and leave the island. But be aware: ...",
+		"Once you have chosen your vocation and stepped through a door, you cannot go back or choose a different vocation. \z
+		So choose well!"
+	}
+)
+keywordHandler:addKeyword({"inigo"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "He has seen much, and likes to help the younger ones. If you have questions about what to do, \z
+			or whom to ask for anything, go to Inigo."
+	}
+)
+keywordHandler:addKeyword({"richard"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Found a new way of living and took to it like a fish to water."
+	}
+)
+keywordHandler:addKeyword({"coltrayne"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Ah. Some wounds never heal. <sighs> Shipwrecked in body and mind. Nowhere to go, so he doesn't leave."
+	}
+)
+keywordHandler:addKeyword({"morris"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "He broods over problems he won't share. But maybe you can help him with a little quest or two."
+	}
+)
+keywordHandler:addKeyword({"hamish"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "He lives only for his experiments and potions"
+	}
+)
+keywordHandler:addKeyword({"dawnport"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = {
+			"This is a strange place. Many beings are called to it. I dreamed of it long before I came here. ...",
+			"Something spoke to me, telling me I had to be its voice; a voice of the Oracle here for the sake of \z
+			the adventurers that would come to defend {World} against evil and need to {choose} their destiny."
+		}
+	}
+)
+keywordHandler:addKeyword({"rookgaard"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I have heard of it, yes."
+	}
+)
 
--- Names
-keywordHandler:addKeyword({'obi'}, StdModule.say, {npcHandler = npcHandler, text = 'Obi\'s {shop} is to the north-east of this humble temple. He sells {weapons}, and his granddaughter {Dixi} sells {armor} and {shields} upstairs.'})
-keywordHandler:addKeyword({'norma'}, StdModule.say, {npcHandler = npcHandler, text = 'She recently opened a little bar north of this village.'})
-keywordHandler:addKeyword({'loui'}, StdModule.say, {npcHandler = npcHandler, text = 'That\'s a sad story. He used to help me guard this temple, but for some reason he went out of his mind.'})
-keywordHandler:addKeyword({'santiago'}, StdModule.say, {npcHandler = npcHandler, text = 'I absolutely appreciate what he\'s doing. He has helped me a lot since he took up the job of welcoming newcomers to this island.'})
-keywordHandler:addKeyword({'zirella'}, StdModule.say, {npcHandler = npcHandler, text = 'That old lady hasn\'t had an easy life. Her son {Tom} completely abandoned her, but I have no idea why.'})
-keywordHandler:addKeyword({'al', 'dee'}, StdModule.say, {npcHandler = npcHandler, text = 'In Al Dee\'s shop you\'ll find important general equipment such as {ropes}, {shovels} and torches.'})
-keywordHandler:addKeyword({'amber'}, StdModule.say, {npcHandler = npcHandler, text = 'Amber is such a lovely girl, and also a very experienced {explorer} and {adventurer}. It\'s always interesting to chat with her.'})
-keywordHandler:addKeyword({'billy'}, StdModule.say, {npcHandler = npcHandler, text = 'He\'s a farmer, just like his cousin {Willie}. He doesn\'t talk to everybody, though.'})
-keywordHandler:addKeyword({'willie'}, StdModule.say, {npcHandler = npcHandler, text = 'Willie is a farmer, just like his cousin {Billy}. His farm is located left of the temple. You can buy and sell {food} there.'})
---keywordHandler:addKeyword({'cipfried'}, StdModule.say, {npcHandler = npcHandler, text = 'Yes? How can I {help} you?'})
-keywordHandler:addKeyword({'dixi'}, StdModule.say, {npcHandler = npcHandler, text = 'That\'s {Obi\'s} granddaughter. Her counter is just upstairs from Obi\'s shop. She helps him by selling {armor} and {shields}.'})
-keywordHandler:addKeyword({'hyacinth'}, StdModule.say, {npcHandler = npcHandler, text = 'Hyacinth is a close friend of mine. He left the village many years ago to live in solitude. I think all this bustle here simply was too much for him.'})
-keywordHandler:addKeyword({'lee\'delle'}, StdModule.say, {npcHandler = npcHandler, text = 'Lee\'Delle\'s shop is on the {premium} side of the village. You should visit her!'})
-keywordHandler:addKeyword({'lily'}, StdModule.say, {npcHandler = npcHandler, text = 'You must have passed the house of Lily on your way here. She sells {potions}. If you pick blueberries or find cookies, she\'ll buy them from you.'})
-keywordHandler:addKeyword({'oracle'}, StdModule.say, {npcHandler = npcHandler, text = 'You can find the oracle on the top floor of the {academy}, just above {Seymour}. Go there when you are level 8 to find your {destiny}.'})
-keywordHandler:addKeyword({'paulie'}, StdModule.say, {npcHandler = npcHandler, text = 'He is the {bank} clerk, making sure your {money} remains safe.'})
-keywordHandler:addKeyword({'seymour'}, StdModule.say, {npcHandler = npcHandler, text = 'Seymour is a loyal follower of the {king} and a teacher in the {academy}.'})
-keywordHandler:addKeyword({'tom'}, StdModule.say, {npcHandler = npcHandler, text = 'Tom is the main provider for leather armor in this village. You can sell fresh corpses or even minotaur leather to him.'})
-keywordHandler:addKeyword({'dallheim'}, StdModule.say, {npcHandler = npcHandler, text = 'May the gods bless our loyal guardsmen! Day and night they stand watch on our bridges, ensuring that it is not passed by dangerous {monsters}!'})
-keywordHandler:addAliasKeyword({'zerbrus'})
+--From topic of vocation to topic of the "yes" msg (choosing vocation)
+local topicTable = {
+	[5] = VOCATION.ID.KNIGHT,
+	[6] = VOCATION.ID.PALADIN,
+	[7] = VOCATION.ID.DRUID,
+	[8] = VOCATION.ID.SORCERER
+}
 
-npcHandler:setMessage(MESSAGE_WALKAWAY, 'Well, bye then.')
+local slots = {
+	1, 2, 4, 5, 6, 7, 8, 9, 10
+}
+
+local function creatureSayCallback(cid, type, msg)
+	if not npcHandler:isFocused(cid) then
+		return false
+	end
+
+	local player = Player(cid)
+	local health = player:getHealth()
+	-- Heal and help dialog
+	if msgcontains(msg, "heal") and npcHandler.topic[cid] == 0 then
+		if health < 40 or player:getCondition(CONDITION_POISON) then
+			if health < 40 then
+				player:addHealth(40 - health)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			if player:getCondition(CONDITION_POISON) then
+				player:removeCondition(CONDITION_POISON)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			npcHandler:say("You are hurt, my child. I will heal your wounds.", cid)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "help") and npcHandler.topic[cid] == 0 then
+		if player:getCondition(CONDITION_POISON) == nil or health > 40 then
+			return npcHandler:say("You do not need any healing right now.", cid)
+		end
+		if health < 40 or player:getCondition(CONDITION_POISON) then
+			if health < 40 then
+				player:addHealth(40 - health)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			if player:getCondition(CONDITION_POISON) then
+				player:removeCondition(CONDITION_POISON)
+				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
+			end
+			npcHandler:say("You are hurt, my child. I will heal your wounds.", cid)
+			npcHandler.topic[cid] = 0
+		end
+	-- Vocation dialog
+	elseif npcHandler.topic[cid] == 0 and msgcontains(msg, "vocation") then
+		npcHandler:say(
+			{
+				"A vocation is your profession and destiny, determining your skills and way of fighting. \z
+					There are four vocations in Tibia: {knight}, {sorcerer}, {paladin} or {druid}. \z
+					Each one has its unique special abilities. ... ",
+				"When you leave the outpost through one of the four gates upstairs, you will be equipped with \z
+					training gear of a specific vocation in order to defend yourself against the monsters outside. ... ",
+				"You can try them out as often as you wish to. When you have gained enough experience to reach level 8, \z
+					you are ready to choose the definite vocation that is to become your destiny. ... ",
+				"Think carefully, as you can't change your vocation later on! You will have to choose your vocation in order \z
+					to leave Dawnport for the main continent through one of these {doors} behind me. ... ",
+				"Talk to me again when you are ready to choose your vocation, and I will set you on your way. "
+			},
+			cid, false, true, 200)
+		npcHandler.topic[cid] = 1
+	-- Choosing dialog start
+	elseif msgcontains(msg, "choosing") or msgcontains(msg, "choose") and npcHandler.topic[cid] == 0 then
+		if player:getLevel() >= 8 then
+			npcHandler:say("I'll help you decide. Tell me: Do you like to keep your {distance}, or do you like {close} combat?", cid)
+			npcHandler.topic[cid] = 2
+		else
+			npcHandler:say(
+				{
+					"A vocation is your profession and destiny, determining your skills and way of fighting. \z
+						There are four vocations in Tibia: {knight}, {sorcerer}, {paladin} or {druid}. \z
+						Each one has its unique special abilities. ... ",
+					"When you leave the outpost through one of the four gates upstairs, you will be equipped with \z
+						training gear of a specific vocation in order to defend yourself against the monsters outside. ... ",
+					"You can try them out as often as you wish to. When you have gained enough experience to reach level 8, \z
+						you are ready to choose the definite vocation that is to become your destiny. ... ",
+					"Think carefully, as you can't change your vocation later on! You will have to choose your vocation in order \z
+						to leave Dawnport for the main continent through one of these {doors} behind me. ... ",
+					"Talk to me again when you are ready to choose your vocation, and I will set you on your way. "
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "distance") and npcHandler.topic[cid] == 2 then
+		npcHandler:say("Tell me: Do you prefer to fight with {bow} and {spear}, or do you want to cast {magic}?", cid)
+		npcHandler.topic[cid] = 3
+	-- knight
+	elseif msgcontains(msg, "close") and npcHandler.topic[cid] == 2 then
+		npcHandler:say(
+			{
+				"Then you should choose the {vocation} of a knight and become a valiant fighter with sword and shield. ...",
+				"Knights are the toughest of all vocations. They can take more damage and carry more items than the other \z
+					vocations, but they will deal less damage than paladins, druids or sorcerers. ...",
+				"Knights can wield one- or two-handed swords, axes and clubs, and they can cast a few spells to draw a \z
+					monster's attention to them. ...",
+				"So tell me: DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
+			},
+		cid, false, true, 200)
+		npcHandler.topic[cid] = 5
+	-- Paladin
+	elseif msgcontains(msg, "bow") or msgcontains(msg, "spear") and npcHandler.topic[cid] == 3 then
+		npcHandler:say(
+			{
+				"Then you should join the ranks of the paladins, noble hunters and rangers of the wild, who rely on the \z
+					swiftness of movement and ranged attacks. ...",
+				"Paladins are jacks of all trades. They are tougher than the magically gifted and can carry more items \z
+					than druids or sorcerers, but they can take not as much damage as a knight can. ...",
+				"Paladins deal more damage than knights but less than druids or sorcerers, and have the longest range \z
+					in their distance attacks. ...",
+				"They can also use holy magic to slay the unholy and undead in particular. ...",
+				"DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
+			},
+		cid, false, true, 200)
+		npcHandler.topic[cid] = 6
+	-- Mage
+	elseif msgcontains(msg, "magic") and npcHandler.topic[cid] == 3 then
+		npcHandler:say("Tell me: Do you prefer to {heal} and cast the power of nature and ice, or do you want to rain \z
+			fire and {death} on your foes?", cid)
+		npcHandler.topic[cid] = 4
+	-- Druid
+	elseif msgcontains(msg, "heal") and npcHandler.topic[cid] == 4 then
+		npcHandler:say(
+			{
+				"Then you should learn the ways of the druids, healers and powerful masters of natural magic. ...",
+				"Druids can heal their friends and allies, but they can also cast powerful ice and earth magic \z
+					to kill their enemies. They can do a little energy, fire or death damage as well. ...",
+				"Druids cannot take much damage or carry many items, but they deal \z
+					much more damage than paladins or knights. ...",
+				"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
+			},
+		cid, false, true, 200)
+		npcHandler.topic[cid] = 7
+	-- Sorcerer
+	elseif msgcontains(msg, "death") and npcHandler.topic[cid] == 4 then
+		npcHandler:say(
+			{
+				"Then you should become a sorcerer, a mighty wielder of deathly energies and arcane fire. ...",
+				"Sorcerers are powerful casters of magic. They use fire, energy and death magic to lay low their enemies. \z
+					They can do a little ice or earth damage as well. ...",
+				"Sorcerers cannot take much damage or carry many items, \z
+					but they deal much more damage than paladins or knights. ...",
+				"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
+			},
+		cid, false, true, 200)
+		npcHandler.topic[cid] = 8
+	-- Choosing dialog start
+	elseif msgcontains(msg, "decided") and npcHandler.topic[cid] == 0 then
+		npcHandler:say("So tell me, which {vocation} do you want to choose: {knight}, {sorcerer}, {paladin} or {druid}?", cid)
+	-- Say vocations name
+	elseif msgcontains(msg, "sorcerer") and npcHandler.topic[cid] == 0 then
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Sorcerers are powerful casters of death, energy and fire magic. \z
+					They can do a little ice or earth damage as well. ...",
+					"Sorcerers cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+					and can target several enemies. ...",
+					"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 8
+		else
+			npcHandler:say(
+				{
+					"Sorcerers are powerful casters of death, energy and fire magic. \z
+					They can do a little ice or earth damage as well. ...",
+					"Sorcerers cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+					and can target several enemies. ..."
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "druid") and npcHandler.topic[cid] == 0 then
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Druids are healers and powerful masters of ice and earth magic. \z
+					They can also do a little energy, fire or death damage as well. ... ",
+					"Druids cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+						and can target several enemies. ... ",
+					"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 7
+		else
+			npcHandler:say(
+				{
+					"Druids are healers and powerful masters of ice and earth magic. \z
+					They can also do a little energy, fire or death damage as well. ... ",
+					"Druids cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
+					and can target several enemies. ... ",
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "paladin") and npcHandler.topic[cid] == 0 then
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Paladins are sturdy distance fighters. They are tougher than druids or sorcerers and can carry more 	items, \z
+						but they are less tough than a knight. ... ",
+					"Paladins have the longest attack range, and can deal the most damage on a single target. ... ",
+					"They can also use holy magic to slay the unholy and undead in particular. ... ",
+					"So tell me: DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 6
+		else
+			npcHandler:say(
+				{
+					"Paladins are sturdy distance fighters. They are tougher than druids or sorcerers and can carry more 	items, \z
+						but they are less tough than a knight. ... ",
+					"Paladins have the longest attack range, and can deal the most damage on a single target. ... ",
+					"They can also use holy magic to slay the unholy and undead in particular. ... "
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "knight") and npcHandler.topic[cid] == 0 then
+		if player:getLevel() >= 8 then
+			npcHandler:say(
+				{
+					"Knights are stalwart melee fighters, the toughest of all vocations. They can take more damage and carry \z
+						more items than the other vocations, but they will deal less damage than paladins, druids or sorcerers. ... ",
+					"Knights can wield one- or two-handed swords, axes and clubs, and they can cast a few spells to draw a \z
+						monster's attention to them. ... ",
+					"If you want to be a tough melee fighter who can resist much longer than anyone else, \z
+						you should consider choosing the knight vocation.",
+					"DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 5
+		else
+			npcHandler:say(
+				{
+					"Knights are stalwart melee fighters, the toughest of all vocations. They can take more damage and carry \z
+						more items than the other vocations, but they will deal less damage than paladins, druids or sorcerers. ... ",
+					"Knights can wield one- or two-handed swords, axes and clubs, and they can cast a few spells to draw a \z
+						monster's attention to them. ... ",
+					"If you want to be a tough melee fighter who can resist much longer than anyone else, \z
+						you should consider choosing the knight vocation."
+				},
+			cid, false, true, 200)
+			npcHandler.topic[cid] = 0
+		end
+	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 5
+	or npcHandler.topic[cid] == 6
+	or npcHandler.topic[cid] == 7
+	or npcHandler.topic[cid] == 8 then
+		for index, value in pairs(topicTable)do
+			if not player:getStorageValue(Storage.Dawnport.DoorVocation) == value then
+				player:setVocation(Vocation(value))
+				player:setStorageValue(Storage.Dawnport.DoorVocation, value)
+			else
+				npcHandler.topic[cid] = 0
+				return true
+			end
+		end
+		-- Cycle through the slots table and store the slot id in slot
+		for index, value in pairs(slots) do
+			-- Get the player's slot item and store it in item
+			local item = player:getSlotItem(value)
+			-- If the item exists meaning its not nil then continue
+			if item and not table.contains({2480}, item:getId()) then
+				item:remove()
+			end
+		end
+		local container = player:getSlotItem(CONST_SLOT_BACKPACK)
+		local allowedIds = {
+				2050, 2051, 2052, 2053,
+				2054, 2055, 2056, 2120,
+				2148, 2420, 2480, 2553,
+				2554, 2580, 5710, 8722,
+				8723
+			}
+		local toBeDeleted = {}
+		if container and container:getSize() > 0 then
+			for i = 0, container:getSize() do
+				if player:getMoney() > 500 then
+					player:removeMoney(math.abs(500 - player:getMoney()))
+				end
+				local item = container:getItem(i)
+				if item then
+					if not table.contains(allowedIds, item:getId()) then
+						toBeDeleted[#toBeDeleted + 1] = item.uid
+					end
+				end
+			end
+			if #toBeDeleted > 0 then
+				for i, v in pairs(toBeDeleted) do
+					local item = Item(v)
+					if item then
+						item:remove()
+					end
+				end
+			end
+		end
+		npcHandler:say(
+			{
+				"SO BE IT. CAST OFF YOUR TRAINING GEAR AND RISE, NOBLE ".. player:getVocation():getName():upper() .. "! ...",
+				"Go through the second door from the right. Open the chest and take the equipment inside \z
+					before you leave to the north. ...",
+				"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
+			},
+		cid, false, true, 200)
+		npcHandler.topic[cid] = 0
+	end
+	return true
+end
+
+npcHandler:setMessage(MESSAGE_GREET, "Welcome, young adventurer. Tell me if you need help in \z
+	{choosing} your {vocation}, or if you have {decided} on the {vocation} you want to choose.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye, child.")
+
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

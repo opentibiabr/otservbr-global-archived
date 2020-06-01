@@ -59,7 +59,7 @@ function onStepIn(creature, item, position, fromPosition)
 		toPos2 = Position(32728, 31435, 8),
 		effect = CONST_ME_GIANTICE,
 		firstSqm = Position(32698, 31405, 8),
-		storageBarkless = Storage.CultsOfTibia.Barkless.ice,
+		storageBarkless = Storage.CultsOfTibia.Barkless.Ice,
 		msgs = {
 			"As you enter the icy cavern, you feel an unnatural frostiness. \z
 			The ice cold air stings in your face. Survive and prove worthy.", -- on enter

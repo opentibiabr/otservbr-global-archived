@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<monster name="3478" nameDescription="a Beholder" race="venom" experience="170" speed="170">
+<monster name="Beholder" nameDescription="a Beholder" race="venom" experience="170" speed="170">
 	<health now="260" max="260" />
 	<look type="924" corpse="5992" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

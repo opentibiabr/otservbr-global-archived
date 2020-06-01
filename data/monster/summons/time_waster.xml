@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Time Waster" nameDescription="a time waster" race="undead" experience="0" speed="100">
-	<health now="1000" max="1000"/>
-	<look typeex="26397" corpse="0"/>
-	<targetchange interval="5000" chance="8"/>
+	<health now="1000" max="1000" />
+	<look typeex="26397" corpse="0" />
+	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="100" attack="100"/>
+		<attack name="melee" interval="2000" skill="100" attack="100" />
 		<attack name="lifedrain" interval="2000" chance="17" range="7" min="-40" max="-60">
       			<attribute key="shootEffect" value="suddendeath" />
       			<attribute key="areaEffect" value="yalaharighost" />
    		</attack>
-    		<attack name="white shade paralyze" interval="2000" chance="18"/>
+    		<attack name="white shade paralyze" interval="2000" chance="18" />
 	</attacks>
-	<defenses armor="10" defense="10"/>
+	<defenses armor="10" defense="10" />
   	<immunities>
     		<immunity death="1" />
     		<immunity lifedrain="1" />

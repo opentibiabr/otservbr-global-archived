@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Fiery Blood" nameDescription="a fiery blood" race="undead" experience="0" speed="150">
 	<health now="5000" max="5000" />
-	<look type="49" corpse="8964"/>
+	<look type="49" corpse="8964" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

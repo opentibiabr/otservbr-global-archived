@@ -133,7 +133,7 @@ end
 
 function onRecvbyte(player, msg, byte)
 	if not configManager.getBoolean(STOREMODULES) then return true end
-	if player:getVocation():getId() == 0 and not GameStore.haveCategoryRook() then
+	if player:getVocation():getId() == VOCATION.ID.NONE and not GameStore.haveCategoryRook() then
 		return player:sendCancelMessage("Store don't have offers for rookgaard citizen.")
 	end
 
@@ -197,14 +197,18 @@ function parseTransferCoins(playerId, msg)
 	if accountId == player:getAccountId() then
 		return addPlayerEvent(sendStoreError, 350, playerId, GameStore.StoreErrors.STORE_ERROR_TRANSFER, "You cannot transfer coin to a character in the same account.")
 	end
+	
+	if player:canRemoveCoins(amount) then
+		player:removeCoinsBalance(amount)
+		db.query("UPDATE `accounts` SET `coins` = `coins` + " .. amount .. " WHERE `id` = " .. accountId)
+		addPlayerEvent(sendStorePurchaseSuccessful, 550, playerId, "You have transfered " .. amount .. " coins to " .. reciver .. " successfully")
 
-	db.query("UPDATE `accounts` SET `coins` = `coins` + " .. amount .. " WHERE `id` = " .. accountId)
-	player:removeCoinsBalance(amount)
-	addPlayerEvent(sendStorePurchaseSuccessful, 550, playerId, "You have transfered " .. amount .. " coins to " .. reciver .. " successfully")
-
-	-- Adding history for both reciver/sender
-	GameStore.insertHistory(accountId, GameStore.HistoryTypes.HISTORY_TYPE_NONE, player:getName() .. " transfered you this amount.", amount)
-	GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, "You transfered this amount to " .. reciver, -1 * amount) -- negative
+		-- Adding history for both reciver/sender
+		GameStore.insertHistory(accountId, GameStore.HistoryTypes.HISTORY_TYPE_NONE, player:getName() .. " transfered you this amount.", amount)
+		GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, "You transfered this amount to " .. reciver, -1 * amount) -- negative
+	else 
+		addPlayerEvent(sendStoreError, 350, player, GameStore.StoreErrors.STORE_ERROR_TRANSFER, "You don't have enough funds to transfer these coins.")
+	end	
 end
 
 function sendShowDescription(playerId, offerId)
@@ -269,7 +273,7 @@ function parseBuyStoreOffer(playerId, msg)
 	-- All guarding conditions under which the offer should not be processed must be included here
 	if (table.contains(GameStore.OfferTypes, offer.type) == false) -- we've got an invalid offer type
 	or (not player) -- player not found
-	or (player:getVocation():getId() == 0) and (not GameStore.haveOfferRook(id)) -- we don't have such offer
+	or (player:getVocation():getId() == VOCATION.ID.NONE) and (not GameStore.haveOfferRook(id)) -- we don't have such offer
 	or (not offer) -- we could not find the offer
 	or (offer.type == GameStore.OfferTypes.OFFER_TYPE_NONE) -- offer is disabled
 	or (offer.type ~= GameStore.OfferTypes.OFFER_TYPE_NAMECHANGE and
@@ -393,7 +397,7 @@ function openStore(playerId)
 	end
 
 	local GameStoreCategories, GameStoreCount = nil, 0
-	if (player:getVocation():getId() == 0) then
+	if (player:getVocation():getId() == VOCATION.ID.NONE) then
 		GameStoreCategories, GameStoreCount = getCategoriesRook()
 	else
 		GameStoreCategories, GameStoreCount = GameStore.Categories, #GameStore.Categories

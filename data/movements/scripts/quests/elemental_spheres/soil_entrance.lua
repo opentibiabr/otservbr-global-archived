@@ -1,8 +1,8 @@
 local setting = {
-	[24541] = {position = Position(33085, 32096, 13), vocation = 4, storage = 10130}, -- Knight
-	[24542] = {position = Position(33264, 32201, 13), vocation = 3, storage = 10131}, -- Paladin
-	[24543] = {position = Position(33330, 32077, 13), vocation = 2, storage = 10132}, -- Druid
-	[24544] = {position = Position(33183, 32198, 13), vocation = 1, storage = 10133} -- Sorcerer
+	[24541] = {destination = Position(33085, 32096, 13), vocation = VOCATION.CLIENT_ID.KNIGHT, storage = 10130},
+	[24542] = {destination = Position(33264, 32201, 13), vocation = VOCATION.CLIENT_ID.PALADIN, storage = 10131},
+	[24543] = {destination = Position(33330, 32077, 13), vocation = VOCATION.CLIENT_ID.DRUID, storage = 10132},
+	[24544] = {destination = Position(33183, 32198, 13), vocation = VOCATION.CLIENT_ID.SORCERER, storage = 10133}
 }
 
 function onStepIn(creature, item, position, fromPosition)
@@ -12,14 +12,14 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	local teleport = setting[item.uid]
-	if not teleport or player:getVocation():getBase():getId() ~= teleport.vocation or player:getLevel() < 10 then
+	if not teleport or player:getVocation():getClientId() ~= teleport.vocation or player:getLevel() < 10 then
 		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say('Your vocation cant enter in this teleport.', TALKTYPE_MONSTER_SAY)
 		return true
 	end
 
-	player:teleportTo(teleport.position)
+	player:teleportTo(teleport.destination)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:setStorageValue(teleport.storage, 1)
 	return true

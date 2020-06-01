@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Charged Anomaly" nameDescription="a charged anomaly" race="energy" experience="0" speed="100" script="rewardboss.lua">
-	<health now="18000" max="18000"/>
-	<look type="876" head="80" body="80" legs="19" feet="80" addons="1" corpse="0"/>
-	<targetchange interval="2000" chance="25"/>
+	<health now="18000" max="18000" />
+	<look type="876" head="80" body="80" legs="19" feet="80" addons="1" corpse="0" />
+	<targetchange interval="2000" chance="25" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag rewardboss="1"/>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag rewardboss="1" />
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<script>
-		<event name="ChargedAnomalyDeath"/>
+		<event name="ChargedAnomalyDeath" />
 	</script>
 	<attacks>
-		<attack name="melee" interval="2000" min="-900" max="-2100"/>
+		<attack name="melee" interval="2000" min="-900" max="-2100" />
 		<attack name="energy" interval="2000" chance="25" radius="3" min="-500" max="-900">
-			<attribute key="areaEffect" value="bigclouds"/>
+			<attribute key="areaEffect" value="bigclouds" />
 		</attack>
 		<attack name="energy" interval="2000" chance="25" spread="0" length="7" min="-350" max="-700">
-			<attribute key="areaEffect" value="energyarea"/>
+			<attribute key="areaEffect" value="energyarea" />
 		</attack>
 		<attack name="energy" interval="2000" chance="25" spread="0" length="7" min="-500" max="-800">
-			<attribute key="areaEffect" value="yellowenergy"/>
+			<attribute key="areaEffect" value="yellowenergy" />
 		</attack>
-		<attack name="anomaly break" interval="2000" chance="40"/>
-		<attack name="charge vortex" interval="9000" chance="100"/>
+		<attack name="anomaly break" interval="2000" chance="40" />
+		<attack name="charge vortex" interval="9000" chance="100" />
 	</attacks>
 	<defenses armor="100" defense="100">
 		<defense name="healing" interval="2000" radius="8" chance="25" min="0" max="0">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 	</defenses>
 	<immunities>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
-		<immunity lifedrain="1"/>
-		<immunity drown="1"/>
-		<immunity earth="1"/>
-		<immunity ice="1"/>
-		<immunity energy="1"/>
-		<immunity fire="1"/>
-		<immunity death="1"/>
-		<immunity holy="1"/>
-		<immunity physical="1"/>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+		<immunity lifedrain="1" />
+		<immunity drown="1" />
+		<immunity earth="1" />
+		<immunity ice="1" />
+		<immunity energy="1" />
+		<immunity fire="1" />
+		<immunity death="1" />
+		<immunity holy="1" />
+		<immunity physical="1" />
 	</immunities>
 </monster>

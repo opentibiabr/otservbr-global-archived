@@ -238,7 +238,7 @@ void ProtocolGame::logout(bool displayEffect, bool forced)
 			}
 		}
 
-		if (displayEffect && player->getHealth() > 0) {
+		if (displayEffect && player->getHealth() > 0 && !player->isInGhostMode()) {
 			g_game.addMagicEffect(player->getPosition(), CONST_ME_POFF);
 		}
 	}
@@ -2615,7 +2615,7 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
-    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) { 
+    if (player->getProtocolVersion() >= 1120 && creature->isHealthHidden()) {
         // on newer clients, sending health 0 causes it to show the creature name with an empty healthbar
         return;
     }
@@ -2759,7 +2759,13 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		writeToOutputBuffer(msg);
 
 		if (isLogin) {
-			sendMagicEffect(pos, CONST_ME_TELEPORT);
+			if (const Player* creaturePlayer = creature->getPlayer()) {
+				if (!creaturePlayer->isAccessPlayer() ||
+						creaturePlayer->getAccountType() == ACCOUNT_TYPE_NORMAL)
+					sendMagicEffect(pos, CONST_ME_TELEPORT);
+			} else {
+				sendMagicEffect(pos, CONST_ME_TELEPORT);
+			}
 		}
 
 		return;
@@ -2769,7 +2775,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	msg.addByte(0x17);
 
 	msg.add<uint32_t>(player->getID());
-	msg.add<uint16_t>(0x32); // beat duration (50)
+	msg.add<uint16_t>(0x32);  // beat duration (50)
 
 	msg.addDouble(Creature::speedA, 3);
 	msg.addDouble(Creature::speedB, 3);

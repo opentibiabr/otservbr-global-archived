@@ -1,53 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dragon Essence" nameDescription="a dragon essence" race="undead" experience="0" speed="250">
-	<health now="30000" max="30000"/>
-	<look type="248" corpse="0"/>
-	<targetchange interval="2000" chance="5"/>
+	<health now="30000" max="30000" />
+	<look type="248" corpse="0" />
+	<targetchange interval="2000" chance="5" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="1"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="1"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="250"/>
-		<flag isblockable="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="1" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="250" />
+		<flag isblockable="0" />
 	</flags>
 	<script>
-		<event name="Dragon Essence Death"/>
+		<event name="Dragon Essence Death" />
 	</script>
 	<attacks>
-		<attack name="melee" interval="2000" skill="80" attack="110"/>
+		<attack name="melee" interval="2000" skill="80" attack="110" />
 		<attack name="fire" interval="2000" chance="18" length="8" spread="0" min="-850" max="-1250">
-			<attribute key="areaEffect" value="icearea"/>
+			<attribute key="areaEffect" value="icearea" />
 		</attack>
 		<attack name="fire" interval="2000" chance="15" range="7" radius="3" target="0" min="-450" max="-720">
-			<attribute key="areaEffect" value="fire"/>
+			<attribute key="areaEffect" value="fire" />
 		</attack>
 		<attack name="fire" interval="2000" chance="12" length="8" spread="3" min="-750" max="-880">
-			<attribute key="areaEffect" value="fire"/>
+			<attribute key="areaEffect" value="fire" />
 		</attack>
 	</attacks>
 	<defenses armor="22" defense="35">
 		<defense name="healing" interval="2000" chance="16" min="150" max="200">
-			<attribute key="areaEffect" value="blueshimmer"/>
+			<attribute key="areaEffect" value="blueshimmer" />
 		</defense>
 		<defense name="speed" interval="2000" chance="8" speedchange="262" duration="7000">
-			<attribute key="areaEffect" value="redshimmer"/>
+			<attribute key="areaEffect" value="redshimmer" />
 		</defense>
 	</defenses>
 	<elements>
-		<element poisonPercent="10"/>
-		<element energyPercent="10"/>
+		<element poisonPercent="10" />
+		<element energyPercent="10" />
 	</elements>
 	<immunities>
-		<immunity ice="1"/>
-		<immunity lifedrain="1"/>
-		<immunity paralyze="1"/>
-		<immunity invisible="1"/>
+		<immunity ice="1" />
+		<immunity lifedrain="1" />
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
 	</immunities>
 </monster>

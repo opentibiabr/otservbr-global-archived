@@ -32948,9 +32948,8 @@
 	<item fromid="22686" toid="22689" name="unknown item" />
 	<item id="22690" name="unknown item" />
 	<item id="22691" name="unknown item" />
-	<item id="22693" article="a" name="hole">
-		<attribute key="floorchange" value="down" />
-	</item>
+	<!-- dawnport tutorial -->
+	<item id="22693" article="a" name="hole"/>
 	<item id="22696" article="a" name="cake backpack">
 		<attribute key="weight" value="1800" />
 		<attribute key="containerSize" value="20" />
@@ -33933,7 +33932,6 @@
 	<item id="23716" article="a" name="stone floor" />
 	<item id="23717" article="a" name="stone floor" />
 	<item id="23719" article="the" name="scorcher">
-		<attribute key="description" value="It's warm to the touch." />
 		<attribute key="weight" value="1500" />
 		<attribute key="weaponType" value="wand" />
 		<attribute key="quicklootcategory" value="weaponwand" />
@@ -33941,7 +33939,6 @@
 		<attribute key="range" value="3" />
 	</item>
 	<item id="23721" article="the" name="chiller">
-		<attribute key="description" value="It is a little, well, chilly to the touch." />
 		<attribute key="weight" value="1500" />
 		<attribute key="weaponType" value="wand" />
 		<attribute key="quicklootcategory" value="weaponwand" />
@@ -33967,6 +33964,7 @@
 	<item id="23744" article="a" name="forlorn shovel">
 		<attribute key="description" value="Apparently forgotten by someone who intended to use it with something nearby." />
 	</item>
+	<!-- dawnport tutorial -->
 	<item id="23745" article="a" name="closed trapdoor">
 		<attribute key="description" value="It can only be opened from the other side." />
 	</item>
@@ -34012,8 +34010,8 @@
 		<attribute key="weight" value="100" />
 		<attribute key="description" value="This could be the key to a room in the outpost." />
 	</item>
-	<item id="23764" article="a" name="krailos">
-		<attribute key="description" value="krailos" />
+	<item id="23764" article="a" name="piece of paper">
+		<attribute key="description" value="It is torn and blotched, but you can still make out some meticulous handwriting." />
 	</item>
 	<item id="23765" article="a" name="well with a lion-like face">
 		<attribute key="description" value="The water pouring out of the mouth has a faint glow." />
@@ -34025,8 +34023,8 @@
 	</item>
 	<item fromid="23769" toid="23770" article="a" name="dead goblin" />
 	<item id="23771" article="a" name="spellbook of the novice">
-		<attribute key="description" value="It shows your spells and can also shield against attacks when worn." />
-		<attribute key="weight" value="1400" />
+		<attribute key="defense" value="8" />
+		<attribute key="weaponType" value="shield" />
 	</item>
 	<item id="23772" article="a" name="broken wooden shield">
 		<attribute key="weight" value="4000" />
@@ -34045,7 +34043,7 @@
 		<attribute key="containerSize" value="20" />
 		<attribute key="slotType" value="backpack" />
 	</item>
-	<item id="23783" article="a" name="dead explorer" />
+	<item id="23783" article="a" name="skeleton" />
 	<item id="23784" article="an" name="old parchment">
 		<attribute key="weight" value="200" />
 	</item>

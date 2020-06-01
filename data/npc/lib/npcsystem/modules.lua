@@ -1117,6 +1117,8 @@ if Modules == nil then
 
 		if not isItemFluidContainer(itemid) then
 			subType = -1
+		elseif subType == 0 then 
+			subType = -1
 		end
 
 		if player:removeItem(itemid, amount, subType, ignoreEquipped) then

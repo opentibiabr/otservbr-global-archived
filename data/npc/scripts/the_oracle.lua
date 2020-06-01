@@ -26,19 +26,19 @@ local config = {
 	vocations = {
 		["sorcerer"] = {
 			text = "A SORCERER! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = 1
+			vocationId = VOCATION.SORCERER
 		},
 		["druid"] = {
 			text = "A DRUID! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = 2
+			vocationId = VOCATION.DRUID
 		},
 		["paladin"] = {
 			text = "A PALADIN! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = 3
+			vocationId = VOCATION.PALADIN
 		},
 		["knight"] = {
 			text = "A KNIGHT! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = 4
+			vocationId = VOCATION.KNIGHT
 		}
 	}
 }
@@ -55,7 +55,7 @@ local function greetCallback(cid)
 		YOU CAN ONLY LEAVE WITH LEVEL 9 OR LOWER.", cid)
 		npcHandler:resetNpc(cid)
 		return false
-	elseif player:getVocation():getId() > 0 then
+	elseif player:getVocation():getId() > VOCATION.NONE then
 		npcHandler:say("YOU ALREADY HAVE A VOCATION!", cid)
 		npcHandler:resetNpc(cid)
 		return false
@@ -124,7 +124,9 @@ end
 npcHandler:setCallback(CALLBACK_ONADDFOCUS, onAddFocus)
 npcHandler:setCallback(CALLBACK_ONRELEASEFOCUS, onReleaseFocus)
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:setMessage(MESSAGE_FAREWELL, "COME BACK WHEN YOU ARE PREPARED TO FACE YOUR DESTINY!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "COME BACK WHEN YOU ARE PREPARED TO FACE YOUR DESTINY!")
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

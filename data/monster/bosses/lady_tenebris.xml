@@ -3,6 +3,7 @@
 	<health now="150000" max="150000" />
 	<look type="433" head="57" body="95" legs="38" feet="94" addons="2" corpse="6560" />
 	<targetchange interval="2000" chance="20" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -17,22 +18,22 @@
 		<flag runonhealth="0" />
 		<flag canwalkonenergy="1" />
 		<flag canwalkonfire="1" />
-		<flag rewardboss="1"/>
+		<flag rewardboss="1" />
 	</flags>
 	<script>
-		<event name="HealthForgotten"/>
+		<event name="HealthForgotten" />
 	</script>
 	<attacks>
-		<attack name="melee" interval="2000" min="-800" max="-1300"/>
-		<attack name="death" interval="15000" chance="13" length="8" spread="0" min="-1200" max="-1500">
+		<attack name="melee" interval="2000" min="-800" max="-1300" />
+		<attack name="death" interval="06000" chance="13" length="8" spread="0" min="-1200" max="-1500">
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
 		<attack name="death" interval="2000" chance="13" radius="4" target="1" min="-400" max="-600">
 			<attribute key="shootEffect" value="death" />
 			<attribute key="areaEffect" value="smallclouds" />
 		</attack>
-		<attack name="tenebris summon" interval="2000" chance="14"/>
-		<attack name="tenebris ultimate" interval="2000" chance="30"/>
+		<attack name="tenebris summon" interval="2000" chance="14" />
+		<attack name="tenebris ultimate" interval="2000" chance="30" />
 	</attacks>
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="3000" chance="25" min="600" max="2700">
@@ -84,8 +85,8 @@
 		<item id="2436" chance="1000" /> <!-- skull staff -->
 		<item id="2154" chance="1000" /> <!-- yellow gem -->
 		<item id="18390" chance="1000" /> <!-- wand of defiance -->
-		<item id="25377" chance="100000"/><!-- Gold Token -->
-		<item id="25172" chance="100000"/><!-- Silver Token -->
+		<item id="25377" chance="100000" /><!-- Gold Token -->
+		<item id="25172" chance="100000" /><!-- Silver Token -->
 		<item id="2453" chance="200" /> <!-- arcane staff -->
 		<item id="27641" chance="200" /> <!-- Shadow Mask -->
 		<item id="27642" chance="200" /> <!-- Shadow Paint -->
