@@ -361,9 +361,12 @@ local function creatureSayCallback(cid, type, msg)
 	or npcHandler.topic[cid] == 7
 	or npcHandler.topic[cid] == 8 then
 		for index, value in pairs(topicTable)do
-			if npcHandler.topic[cid] == index then
+			if not player:getStorageValue(Storage.Dawnport.DoorVocation) == value then
 				player:setVocation(Vocation(value))
 				player:setStorageValue(Storage.Dawnport.DoorVocation, value)
+			else
+				npcHandler.topic[cid] = 0
+				return true
 			end
 		end
 		-- Cycle through the slots table and store the slot id in slot
