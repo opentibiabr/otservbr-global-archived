@@ -20,9 +20,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	
 	local hireling = getHirelingById(hireling_id)
-	
+
 	hireling:setPosition(spawnPosition)
 	item:remove(1)
 	hireling:spawn()
