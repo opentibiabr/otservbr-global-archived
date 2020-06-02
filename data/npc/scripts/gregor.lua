@@ -229,37 +229,156 @@ keywordHandler:addKeyword({'support spells'}, StdModule.say,
 		text = "In this category I have '{Light}', '{Find Person}' and '{Great Light}'."
 	}
 )
-keywordHandler:addKeyword({'spells'}, StdModule.say,
+keywordHandler:addKeyword({"spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = 'I can teach you {healing spells} and {support spells}. What kind of spell do you wish to learn? You can also \z
-		tell me for which level you would like to learn a spell, if you prefer that.'
+		text = "I can teach you {healing spells} and {support spells}. \z
+		What kind of spell do you wish to learn? You can also tell me for which level \z
+		you would like to learn a spell, if you prefer that."
 	}
 )
 
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the first knight. I trained some of the greatest heroes of Tibia."})
-keywordHandler:addKeyword({'heroes'}, StdModule.say, {npcHandler = npcHandler, text = "Of course, you heard of them. Knights are the best fighters in Tibia."})
-keywordHandler:addKeyword({'king'}, StdModule.say, {npcHandler = npcHandler, text = "Hail to our King!"})
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "You are joking, eh? Of course, you know me. I am Gregor, the first knight."})
-keywordHandler:addKeyword({'gregor'}, StdModule.say, {npcHandler = npcHandler, text = "A great name, isn't it?"})
-keywordHandler:addKeyword({'tibia'}, StdModule.say, {npcHandler = npcHandler, text = "Beautiful Tibia. And with our help everyone is save."})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = "It is time to join the Knights!"})
-keywordHandler:addKeyword({'knights'}, StdModule.say, {npcHandler = npcHandler, text = "Knights are the warriors of Tibia. Without us, no one would be safe. Every brave and strong man or woman can join us."})
-keywordHandler:addKeyword({'bozo'}, StdModule.say, {npcHandler = npcHandler, text = "Some day someone will make something happen to him..."})
-keywordHandler:addKeyword({'elane'}, StdModule.say, {npcHandler = npcHandler, text = "A bow might be a fine weapon for someone not strong enough to wield a REAL weapon."})
-keywordHandler:addKeyword({'frodo'}, StdModule.say, {npcHandler = npcHandler, text = "I and my students often share a cask of beer or wine at Frodo's hut."})
-keywordHandler:addKeyword({'gorn'}, StdModule.say, {npcHandler = npcHandler, text = "Always concerned with his profit. What a loss! He was adventuring with baxter in the old days."})
-keywordHandler:addKeyword({'baxter'}, StdModule.say, {npcHandler = npcHandler, text = "He was an adventurer once."})
-keywordHandler:addKeyword({'lynda'}, StdModule.say, {npcHandler = npcHandler, text = "Before she became a priest she won the Miss Tibia contest three times in a row."})
-keywordHandler:addKeyword({'mcronald'}, StdModule.say, {npcHandler = npcHandler, text = "Peaceful farmers."})
-keywordHandler:addKeyword({'ferumbras'}, StdModule.say, {npcHandler = npcHandler, text = "A fine game to hunt. But be careful, he cheats!"})
-keywordHandler:addKeyword({'muriel'}, StdModule.say, {npcHandler = npcHandler, text = "Bah, go away with these sorcerer tricks. Only cowards use tricks."})
-keywordHandler:addKeyword({'oswald'}, StdModule.say, {npcHandler = npcHandler, text = "What an idiot."})
-keywordHandler:addKeyword({'quentin'}, StdModule.say, {npcHandler = npcHandler, text = "I will never understand this peaceful monks and priests."})
-keywordHandler:addKeyword({'sam'}, StdModule.say, {npcHandler = npcHandler, text = "He has the muscles, but lacks the guts."})
-keywordHandler:addKeyword({'tibianus'}, StdModule.say, {npcHandler = npcHandler, text = "Hail to our King!"})
-keywordHandler:addKeyword({'outfit'}, StdModule.say, {npcHandler = npcHandler, text = "Only the bravest warriors may wear adorned helmets. They are traditionally awarded after having completed a difficult task for our guild."})
-keywordHandler:addKeyword({'helmet'}, StdModule.say, {npcHandler = npcHandler, text = "Only the bravest warriors may wear adorned helmets. They are traditionally awarded after having completed a difficult task for our guild."})
+keywordHandler:addKeyword({"job"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I am the first knight. I trained some of the greatest heroes of Tibia."
+	}
+)
+keywordHandler:addKeyword({"heroes"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Of course, you heard of them. Knights are the best fighters in Tibia."
+	}
+)
+keywordHandler:addKeyword({"king"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Hail to our King!"
+	}
+)
+keywordHandler:addKeyword({"name"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "You are joking, eh? Of course, you know me. I am Gregor, the first knight."
+	}
+)
+keywordHandler:addKeyword({"gregor"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "A great name, isn't it?"
+	}
+)
+keywordHandler:addKeyword({"tibia"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Beautiful Tibia. And with our help everyone is save."
+	}
+)
+keywordHandler:addKeyword({"time"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "It is time to join the Knights!"
+	}
+)
+keywordHandler:addKeyword({"knights"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Knights are the warriors of Tibia. Without us, no one would be safe. \z
+		Every brave and strong man or woman can join us."
+	}
+)
+keywordHandler:addKeyword({"bozo"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Some day someone will make something happen to him..."
+	}
+)
+keywordHandler:addKeyword({"elane"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "A bow might be a fine weapon for someone not strong enough to wield a REAL weapon."
+	}
+)
+keywordHandler:addKeyword({"frodo"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I and my students often share a cask of beer or wine at Frodo's hut."
+	}
+)
+keywordHandler:addKeyword({"gorn"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Always concerned with his profit. What a loss! He was adventuring with baxter in the old days."
+	}
+)
+keywordHandler:addKeyword({"baxter"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "He was an adventurer once."
+	}
+)
+keywordHandler:addKeyword({"lynda"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Before she became a priest she won the Miss Tibia contest three times in a row."
+	}
+)
+keywordHandler:addKeyword({"mcronald"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Peaceful farmers."
+	}
+)
+keywordHandler:addKeyword({"ferumbras"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "A fine game to hunt. But be careful, he cheats!"
+	}
+)
+keywordHandler:addKeyword({"muriel"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Bah, go away with these sorcerer tricks. Only cowards use tricks."
+	}
+)
+keywordHandler:addKeyword({"oswald"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "What an idiot."
+	}
+)
+keywordHandler:addKeyword({"quentin"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I will never understand this peaceful monks and priests."
+	}
+)
+keywordHandler:addKeyword({"sam"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "He has the muscles, but lacks the guts."
+	}
+)
+keywordHandler:addKeyword({"tibianus"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Hail to our King!"
+	}
+)
+keywordHandler:addKeyword({"outfit"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Only the bravest warriors may wear adorned helmets. \z
+		They are traditionally awarded after having completed a difficult task for our guild."
+	}
+)
+keywordHandler:addKeyword({"helmet"}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Only the bravest warriors may wear adorned helmets. \z
+		They are traditionally awarded after having completed a difficult task for our guild."
+	}
+)
 
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. What do you want?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Be careful on your journeys.")
