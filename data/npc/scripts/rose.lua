@@ -14,6 +14,20 @@ end
 function onThink()
 	npcHandler:onThink()
 end
+local voices = { 
+	{text = 'Have a look at my beautiful flowers!'} 
+}
+
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"exotic flowers"}, 2107, 300, 1)
+shopModule:addBuyableItem({"flower bowl"}, 2102, 6, 1)
+shopModule:addBuyableItem({"god flowers"}, 2100, 5, 1)
+shopModule:addBuyableItem({"honey flower"}, 2103, 5, 1)
+shopModule:addBuyableItem({"indoor plant"}, 2101, 8, 1)
+shopModule:addBuyableItem({"potted flower"}, 2104, 5, 1)
 
 local function creatureSayCallback(cid, type, msg)
 	if(not npcHandler:isFocused(cid)) then
@@ -44,5 +58,16 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "My name is Rose, nice to meet you, Player."})
+keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "Here you may buy some of the most beautiful flowers."})
+keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = "Sorry, I have no watch on me."})
+keywordHandler:addKeyword({'Rose'}, StdModule.say, {npcHandler = npcHandler, text = "That's me. I am not for sale. <giggles>"})
+keywordHandler:addKeyword({'flowers'}, StdModule.say, {npcHandler = npcHandler, text = "I offer indoor plants, flower bowls, god flowers, honey flowers and potted flowers. What do you need?"})
+
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to Crunor's finest warehouse, |PLAYERNAME|.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Here you may buy some of the most beautiful flowers.")
+
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
