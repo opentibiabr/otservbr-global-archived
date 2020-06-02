@@ -506,6 +506,7 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		return false
 	end
 
+	self:closeImbuementWindow()
 	return true
 end
 
