@@ -18,6 +18,10 @@ local voices = {
 	{ text = "Enjoy a good drink in the Hard Rock Tavern!." }
 }
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
 shopModule:addBuyableItem({"bread"}, 2689, 4, 1)
 shopModule:addBuyableItem({"cheese"}, 2696, 6, 1)
 shopModule:addBuyableItem({"cookie"}, 2687, 5, 1)

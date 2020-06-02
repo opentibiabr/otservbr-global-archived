@@ -14,6 +14,7 @@ end
 function onThink()
     npcHandler:onThink()
 end
+local voices = {
 	{ text = "Bows, crossbows and ammunition for sale." }
 }
 

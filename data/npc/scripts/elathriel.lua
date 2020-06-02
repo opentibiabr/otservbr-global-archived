@@ -34,7 +34,6 @@ keywordHandler:addSpellKeyword({"terra wave"},
 	}
 )
 -- RUNES SPELLS
-)
 keywordHandler:addSpellKeyword({"light magic missile rune"},
 	{
 		npcHandler = npcHandler,

@@ -14,9 +14,9 @@ end
 function onThink()
 	npcHandler:onThink()
 end
-
-local voices = {{text = "Have a drink in Meriana's only tavern!"}}
-npcHandler:addModule(VoiceModule:new(voices
+local voices = {
+	{text = "Have a drink in Meriana's only tavern!"}
+}
 
 -- NPC shop
 local shopModule = ShopModule:new()
@@ -161,5 +161,6 @@ npcHandler:setMessage(MESSAGE_GREET, "Hi there |PLAYERNAME|, and welcome to my t
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
 npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, take a look at my tasty offers.")
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

@@ -79,8 +79,6 @@ shopModule:addSellableItem({"white pearl"}, 2143, 160, 1)
 
 npcHandler:setMessage(MESSAGE_GREET, "Salutations, |PLAYERNAME|! I trade with various rare gems.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye, |PLAYERNAME|!")
-npcHandler:setMessage(MESSAGE_NEEDMOREMONEY, "You don't have enough cash to afford it!")
-npcHandler:setMessage(MESSAGE_DECLINE, "Then not.")
 
 npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

@@ -15,8 +15,9 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local voices = { {text = 'Teaching paladin spells! Just come to me!'} }
-npcHandler:addModule(VoiceModule:new(voices
+local voices = {
+	{text = 'Teaching paladin spells! Just come to me!'}
+}
 
 -- NPC shop
 local shopModule = ShopModule:new()
@@ -210,4 +211,5 @@ addGloveKeyword({
 	}, function(player) return player:getStorageValue(Storage.OutfitQuest.Hunter.AddonGlove) == -1 end, function(player) player:removeItem(5875, 1) player:setStorageValue(Storage.OutfitQuest.Hunter.AddonGlove, 1) player:addOutfitAddon(129, 2) player:addOutfitAddon(137, 1) player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE) end
 )
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())
