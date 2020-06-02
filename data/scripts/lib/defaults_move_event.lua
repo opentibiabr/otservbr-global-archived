@@ -17,6 +17,7 @@ function defaultRemoveItem(moveitem, tileitem, pos)
 end
 
 function defaultEquip(player, item, slot, isCheck)
+    self:closeImbuementWindow()
 	return true
 end
 
