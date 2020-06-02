@@ -15,7 +15,7 @@ function onThink()
 npcHandler:onThink()	
 end
 -- SPELLS FOR DRUID
-keywordHandler:addSpellKeyword({"ice wave"},
+keywordHandler:addSpellKeyword({"icewave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ice Wave",
@@ -24,7 +24,7 @@ keywordHandler:addSpellKeyword({"ice wave"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"terra wave"},
+keywordHandler:addSpellKeyword({"terrawave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Terra Wave",
@@ -34,7 +34,7 @@ keywordHandler:addSpellKeyword({"terra wave"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"light magic missile rune"},
+keywordHandler:addSpellKeyword({"lightmagicmissilerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Magic Missile Rune",
@@ -43,7 +43,7 @@ keywordHandler:addSpellKeyword({"light magic missile rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"stalagmite rune"},
+keywordHandler:addSpellKeyword({"stalagmiterune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "stalagmite rune",
@@ -52,7 +52,7 @@ keywordHandler:addSpellKeyword({"stalagmite rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"heavy magic missile rune"},
+keywordHandler:addSpellKeyword({"heavymagicmissilerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Heavy Magic Missile Rune",
@@ -61,7 +61,7 @@ keywordHandler:addSpellKeyword({"heavy magic missile rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"avalanche rune"},
+keywordHandler:addSpellKeyword({"avalancherune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Wall Rune",
@@ -70,7 +70,7 @@ keywordHandler:addSpellKeyword({"avalanche rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"explosion rune"},
+keywordHandler:addSpellKeyword({"explosionrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Explosion Rune",
@@ -83,14 +83,14 @@ keywordHandler:addSpellKeyword({"explosion rune"},
 keywordHandler:addKeyword({"attack spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{ice wave}' and '{terra wave}'."
+		text = "In this category I have '{icewave}' and '{terrawave}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{light magic missile rune}', '{stalagmite rune}', '{heavy magic missile rune}', '{avalanche rune}' \z
-		and '{explosion rune}'."
+		text = "In this category I have '{lightmagicmissilerune}', '{stalagmiterune}', '{heavymagicmissilerune}', '{avalancherune}' \z
+		and '{explosionrune}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say,

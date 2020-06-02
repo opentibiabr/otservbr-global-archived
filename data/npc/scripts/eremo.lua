@@ -35,7 +35,7 @@ keywordHandler:addSpellKeyword({"challenge"},
 		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
-keywordHandler:addSpellKeyword({"conjure wand of darkness"},
+keywordHandler:addSpellKeyword({"conjurewandofdarkness"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Wand of Darkness",
@@ -44,7 +44,7 @@ keywordHandler:addSpellKeyword({"conjure wand of darkness"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"conjure diamond arrow"},
+keywordHandler:addSpellKeyword({"conjurediamondarrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Diamond Arrow",
@@ -53,7 +53,7 @@ keywordHandler:addSpellKeyword({"conjure diamond arrow"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure spectral bolt"},
+keywordHandler:addSpellKeyword({"conjurespectralbolt"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Spectral Bolt",
@@ -63,7 +63,7 @@ keywordHandler:addSpellKeyword({"conjure spectral bolt"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"wild growth rune"},
+keywordHandler:addSpellKeyword({"wildgrowthrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Wild Growth Rune",
@@ -76,7 +76,7 @@ keywordHandler:addSpellKeyword({"wild growth rune"},
 keywordHandler:addKeyword({"spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "I can teach you {challenge}, {conjure wand of darkness}, {conjure diamond arrow}, {conjure spectral bolt} and {wild growth rune}. \z
+		text = "I can teach you '{challenge}', '{conjurewandofdarkness}', '{conjurediamondarrow}', '{conjurespectralbolt}' and '{wildgrowthrune}'. \z
 		What kind of spell do you wish to learn?"
 	}
 )

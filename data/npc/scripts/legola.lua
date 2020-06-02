@@ -38,7 +38,7 @@ keywordHandler:addSpellKeyword({"light"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"light healing"},
+keywordHandler:addSpellKeyword({"lighthealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Healing",
@@ -47,7 +47,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"find person"},
+keywordHandler:addSpellKeyword({"findperson"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Find Person",
@@ -56,7 +56,7 @@ keywordHandler:addSpellKeyword({"find person"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison"},
+keywordHandler:addSpellKeyword({"curepoison"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison",
@@ -65,7 +65,7 @@ keywordHandler:addSpellKeyword({"cure poison"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"great light"},
+keywordHandler:addSpellKeyword({"greatlight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Light",
@@ -74,7 +74,7 @@ keywordHandler:addSpellKeyword({"great light"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure arrow"},
+keywordHandler:addSpellKeyword({"conjurearrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Arrow",
@@ -83,7 +83,7 @@ keywordHandler:addSpellKeyword({"conjure arrow"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"magic shield"},
+keywordHandler:addSpellKeyword({"magicshield"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Shield",
@@ -92,16 +92,7 @@ keywordHandler:addSpellKeyword({"magic shield"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure poisoned arrow"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Poisoned Arrow",
-		price = 700,
-		level = 16,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
-keywordHandler:addSpellKeyword({"intense healing"},
+keywordHandler:addSpellKeyword({"intensehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing",
@@ -110,7 +101,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure explosive arrow"},
+keywordHandler:addSpellKeyword({"conjureexplosivearrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Explosive Arrow",
@@ -119,7 +110,7 @@ keywordHandler:addSpellKeyword({"conjure explosive arrow"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate healing"},
+keywordHandler:addSpellKeyword({"ultimatehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Healing",
@@ -128,7 +119,7 @@ keywordHandler:addSpellKeyword({"ultimate healing"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"divine healing"},
+keywordHandler:addSpellKeyword({"divinehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Divine Healing",
@@ -138,7 +129,7 @@ keywordHandler:addSpellKeyword({"divine healing"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"destroy field rune"},
+keywordHandler:addSpellKeyword({"destroyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -151,15 +142,15 @@ keywordHandler:addSpellKeyword({"destroy field rune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{light healing}', '{cure poison}', '{intense healing}', '{ultimate healing}' \z
-		and '{divine healing}'."
+		text = "In this category I have '{lighthealing}', '{curepoison}', '{intensehealing}', '{ultimatehealing}' \z
+		and '{divinehealing}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{find person}', '{light}', '{great light}', '{conjure arrow}', '{magic shield}', \z
-		'{conjure poisoned arrow}' and '{conjure explosive arrow}'."
+		text = "In this category I have '{findperson}', '{light}', '{greatlight}', '{conjurearrow}', '{magicshield}', \z
+		and '{conjureexplosivearrow}'."
 		
 	}
 )

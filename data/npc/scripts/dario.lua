@@ -61,7 +61,7 @@ keywordHandler:addSpellKeyword({"light"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"light healing"},
+keywordHandler:addSpellKeyword({"lighthealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Healing",
@@ -70,7 +70,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"find person"},
+keywordHandler:addSpellKeyword({"findperson"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Find Person",
@@ -79,7 +79,7 @@ keywordHandler:addSpellKeyword({"find person"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"magic rope"},
+keywordHandler:addSpellKeyword({"magicrope"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Rope",
@@ -88,7 +88,7 @@ keywordHandler:addSpellKeyword({"magic rope"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison"},
+keywordHandler:addSpellKeyword({"curepoison"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison",
@@ -106,7 +106,7 @@ keywordHandler:addSpellKeyword({"levitate"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure arrow"},
+keywordHandler:addSpellKeyword({"conjurearrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Arrow",
@@ -115,7 +115,7 @@ keywordHandler:addSpellKeyword({"conjure arrow"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"great light"},
+keywordHandler:addSpellKeyword({"greatlight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Light",
@@ -133,25 +133,7 @@ keywordHandler:addSpellKeyword({"haste"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure poisoned arrow"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Poisoned Arrow",
-		price = 700,
-		level = 16,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
-keywordHandler:addSpellKeyword({"conjure bolt"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Bolt",
-		price = 750,
-		level = 17,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
-keywordHandler:addSpellKeyword({"intense healing"},
+keywordHandler:addSpellKeyword({"intensehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing",
@@ -160,7 +142,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"ethereal spear"},
+keywordHandler:addSpellKeyword({"etherealspear"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ethereal Spear",
@@ -169,16 +151,7 @@ keywordHandler:addSpellKeyword({"ethereal spear"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure sniper arrow"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Sniper Arrow",
-		price = 800,
-		level = 24,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
-keywordHandler:addSpellKeyword({"conjure explosive arrow"},
+keywordHandler:addSpellKeyword({"conjureexplosivearrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Explosive Arrow",
@@ -187,7 +160,7 @@ keywordHandler:addSpellKeyword({"conjure explosive arrow"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"cancel invisibility"},
+keywordHandler:addSpellKeyword({"cancelinvisibility"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cancel Invisibility",
@@ -196,16 +169,7 @@ keywordHandler:addSpellKeyword({"cancel invisibility"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure piercing bolt"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Piercing Bolt",
-		price = 850,
-		level = 33,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
-keywordHandler:addSpellKeyword({"divine healing"},
+keywordHandler:addSpellKeyword({"divinehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Divine Healing",
@@ -214,7 +178,7 @@ keywordHandler:addSpellKeyword({"divine healing"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"divine missile"},
+keywordHandler:addSpellKeyword({"divinemissile"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Divine Missile",
@@ -223,7 +187,7 @@ keywordHandler:addSpellKeyword({"divine missile"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"enchant spear"},
+keywordHandler:addSpellKeyword({"enchantspear"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Enchant Spear",
@@ -232,7 +196,7 @@ keywordHandler:addSpellKeyword({"enchant spear"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"divine caldera"},
+keywordHandler:addSpellKeyword({"divinecaldera"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Divine Caldera",
@@ -250,15 +214,6 @@ keywordHandler:addSpellKeyword({"recovery"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure power bolt"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Power Bolt",
-		price = 2000,
-		level = 59,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
 keywordHandler:addSpellKeyword({"salvation"},
 	{
 		npcHandler = npcHandler,
@@ -268,7 +223,7 @@ keywordHandler:addSpellKeyword({"salvation"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"holy flash"},
+keywordHandler:addSpellKeyword({"holyflash"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Holy Flash",
@@ -277,7 +232,7 @@ keywordHandler:addSpellKeyword({"holy flash"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"cure curse"},
+keywordHandler:addSpellKeyword({"curecurse"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Curse",
@@ -286,7 +241,7 @@ keywordHandler:addSpellKeyword({"cure curse"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"strong ethereal spear"},
+keywordHandler:addSpellKeyword({"strongetherealspear"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Ethereal Spear",
@@ -295,7 +250,7 @@ keywordHandler:addSpellKeyword({"strong ethereal spear"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"intense recovery"},
+keywordHandler:addSpellKeyword({"intenserecovery"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Recovery",
@@ -304,7 +259,7 @@ keywordHandler:addSpellKeyword({"intense recovery"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"summon emberwing"},
+keywordHandler:addSpellKeyword({"summonemberwing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Summon Emberwing",
@@ -314,7 +269,7 @@ keywordHandler:addSpellKeyword({"summon emberwing"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"destroy field rune"},
+keywordHandler:addSpellKeyword({"destroyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -327,23 +282,23 @@ keywordHandler:addSpellKeyword({"destroy field rune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{light healing}', '{cure poison}', '{intense healing}', '{divine healing}', '{recovery}', \z
-		'{salvation}', '{cure curse}' and '{intense recovery}'."
+		text = "In this category I have '{lighthealing}', '{curepoison}', '{intensehealing}', '{divinehealing}', '{recovery}', \z
+		'{salvation}', '{curecurse}' and '{intenserecovery}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{find person}', '{light}', '{magic rope}', '{levitate}', '{great light}', '{conjure arrow}', '{haste}', \z
-		'{conjure poisoned arrow}', '{conjure bolt}', '{conjure sniper arrow}', '{conjure explosive arrow}', \z
-		'{cancel invisibility}', '{conjure piercing bolt}', '{enchant spear}', '{conjure power bolt}' and '{summon emberwing}'."
+		text = "In this category I have '{findperson}', '{light}', '{magicrope}', '{levitate}', '{greatlight}', '{conjurearrow}', '{haste}', \z
+		'{conjureexplosivearrow}', \z
+		'{cancelinvisibility}', '{enchantspear}' and '{summonemberwing}'."
 		
 	}
 )
 keywordHandler:addKeyword({"attack spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{ethereal spear}', '{divine missile}', '{divine caldera}', '{holy flash}' and '{strong ethereal spear}'."
+		text = "In this category I have '{etherealspear}', '{divinemissile}', '{divinecaldera}', '{holyflash}' and '{strongetherealspear}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,

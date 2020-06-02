@@ -16,7 +16,7 @@ npcHandler:onThink()
 end
 
 -- SPELLS FOR DRUID
-keywordHandler:addSpellKeyword({"apprentice's strike"},
+keywordHandler:addSpellKeyword({"apprenticesstrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Apprentice's Strike",
@@ -34,7 +34,7 @@ keywordHandler:addSpellKeyword({"light"},
 		vocation = {VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.PALADIN}
 	}
 )
-keywordHandler:addSpellKeyword({"find person"},
+keywordHandler:addSpellKeyword({"findperson"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Find Person",
@@ -43,7 +43,7 @@ keywordHandler:addSpellKeyword({"find person"},
 		vocation = {VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.PALADIN}
 	}
 )
-keywordHandler:addSpellKeyword({"great light"},
+keywordHandler:addSpellKeyword({"greatlight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Light",

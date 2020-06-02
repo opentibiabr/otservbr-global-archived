@@ -28,7 +28,7 @@ shopModule:addBuyableItem({'bow'}, 2456, 400, 1)
 shopModule:addBuyableItem({'crossbow'}, 2455, 500, 1)
 shopModule:addBuyableItem({'spear'}, 2389, 9, 1)
 
-keywordHandler:addSpellKeyword({"conjure arrow"},
+keywordHandler:addSpellKeyword({"conjurearrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Arrow",
@@ -37,16 +37,7 @@ keywordHandler:addSpellKeyword({"conjure arrow"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"conjure poisoned arrow"},
-	{
-		npcHandler = npcHandler,
-		spellName = "Conjure Poisoned Arrow",
-		price = 700,
-		level = 16,
-		vocation = VOCATION.CLIENT_ID.PALADIN
-	}
-)
-keywordHandler:addSpellKeyword({"conjure explosive arrow"},
+keywordHandler:addSpellKeyword({"conjureexplosivearrow"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Conjure Explosive Arrow",
@@ -59,7 +50,7 @@ keywordHandler:addSpellKeyword({"conjure explosive arrow"},
 keywordHandler:addKeyword({"spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "I can teach you {conjure arrow}, {conjure poisoned arrow} and {conjure explosive arrow}. \z
+		text = "I can teach you {conjure arrow} and {conjure explosive arrow}. \z
 		What kind of spell do you wish to learn?"
 	}
 )

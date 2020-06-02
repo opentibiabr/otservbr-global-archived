@@ -16,7 +16,7 @@ npcHandler:onThink()
 end
 
 -- SPELLS FOR DRUID
-keywordHandler:addSpellKeyword({"light healing"},
+keywordHandler:addSpellKeyword({"lighthealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Healing",
@@ -25,7 +25,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison"},
+keywordHandler:addSpellKeyword({"curepoison"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison",
@@ -34,7 +34,7 @@ keywordHandler:addSpellKeyword({"cure poison"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"intense healing"},
+keywordHandler:addSpellKeyword({"intensehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing",
@@ -43,7 +43,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate healing"},
+keywordHandler:addSpellKeyword({"ultimatehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Healing",
@@ -53,7 +53,7 @@ keywordHandler:addSpellKeyword({"ultimate healing"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"cure poison rune"},
+keywordHandler:addSpellKeyword({"curepoisonrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison Rune",
@@ -62,7 +62,7 @@ keywordHandler:addSpellKeyword({"cure poison rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"intense healing rune"},
+keywordHandler:addSpellKeyword({"intensehealingrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing Rune",
@@ -71,7 +71,7 @@ keywordHandler:addSpellKeyword({"intense healing rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate healing rune"},
+keywordHandler:addSpellKeyword({"ultimatehealingrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Healing Rune",
@@ -84,13 +84,13 @@ keywordHandler:addSpellKeyword({"ultimate healing rune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{light healing}', '{cure poison}',	'{intense healing}', '{ultimate healing}'."
+		text = "In this category I have '{lighthealing}', '{curepoison}',	'{intensehealing}', '{ultimatehealing}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{intense healing rune}', '{cure poison rune}',	'{ultimate healing rune}'."
+		text = "In this category I have '{intensehealingrune}', '{curepoisonrune}',	'{ultimatehealingrune}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say,

@@ -16,7 +16,7 @@ npcHandler:onThink()
 end
 
 -- SPELLS FOR DRUID
-keywordHandler:addSpellKeyword({"magic shield"},
+keywordHandler:addSpellKeyword({"magicshield"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Shield",
@@ -25,7 +25,7 @@ keywordHandler:addSpellKeyword({"magic shield"},
 		vocation = {VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.PALADIN}
 	}
 )
-keywordHandler:addSpellKeyword({"creature illusion"},
+keywordHandler:addSpellKeyword({"creatureillusion"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Creature Illusion",
@@ -34,7 +34,7 @@ keywordHandler:addSpellKeyword({"creature illusion"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"summon creature"},
+keywordHandler:addSpellKeyword({"summoncreature"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Summon Creature",
@@ -53,7 +53,7 @@ keywordHandler:addSpellKeyword({"invisible"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"poison field rune"},
+keywordHandler:addSpellKeyword({"poisonfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Field Rune",
@@ -62,7 +62,7 @@ keywordHandler:addSpellKeyword({"poison field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"fire field rune"},
+keywordHandler:addSpellKeyword({"firefieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Field Rune",
@@ -71,7 +71,7 @@ keywordHandler:addSpellKeyword({"fire field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"convince creature rune"},
+keywordHandler:addSpellKeyword({"convincecreaturerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Convince Creature Rune",
@@ -80,7 +80,7 @@ keywordHandler:addSpellKeyword({"convince creature rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"destroy field rune"},
+keywordHandler:addSpellKeyword({"destroyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -89,7 +89,7 @@ keywordHandler:addSpellKeyword({"destroy field rune"},
 		vocation = {VOCATION.CLIENT_ID.DRUID, VOCATION.CLIENT_ID.PALADIN}
 	}
 )
-keywordHandler:addSpellKeyword({"energy field rune"},
+keywordHandler:addSpellKeyword({"energyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -98,7 +98,7 @@ keywordHandler:addSpellKeyword({"energy field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"fire bomb rune"},
+keywordHandler:addSpellKeyword({"firebombrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "fire bomb rune",
@@ -107,7 +107,7 @@ keywordHandler:addSpellKeyword({"fire bomb rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"chameleon rune"},
+keywordHandler:addSpellKeyword({"chameleonrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Chameleon Rune",
@@ -116,7 +116,7 @@ keywordHandler:addSpellKeyword({"chameleon rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"poison wall rune"},
+keywordHandler:addSpellKeyword({"poisonwallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Wall Rune",
@@ -125,7 +125,7 @@ keywordHandler:addSpellKeyword({"poison wall rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"fire wall rune"},
+keywordHandler:addSpellKeyword({"firewallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Wall Rune",
@@ -134,7 +134,7 @@ keywordHandler:addSpellKeyword({"fire wall rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"energy wall rune"},
+keywordHandler:addSpellKeyword({"energywallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Wall Rune",
@@ -147,14 +147,14 @@ keywordHandler:addSpellKeyword({"energy wall rune"},
 keywordHandler:addKeyword({"support spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{magic shield}', '{creature illusion}', '{summon creature}', '{invisible}'."
+		text = "In this category I have '{magicshield}', '{creatureillusion}', '{summoncreature}', '{invisible}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{poison field rune}', '{fire field rune}', '{destroy field rune}', '{energy field rune}', \z
-		'{fire bomb rune}', '{poison wall rune}', '{fire wall rune}', '{energy wall rune}'."
+		text = "In this category I have '{poisonfieldrune}', '{firefieldrune}', '{destroyfieldrune}', '{energyfieldrune}', \z
+		'{firebombrune}', '{poisonwallrune}', '{firewallrune}', '{energywallrune}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say,

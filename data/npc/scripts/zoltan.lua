@@ -16,7 +16,7 @@ function onThink()
 end
 
 -- SPELLS FOR DRUID
-keywordHandler:addSpellKeyword({"mass healing"},
+keywordHandler:addSpellKeyword({"masshealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Mass Healing",
@@ -25,7 +25,7 @@ keywordHandler:addSpellKeyword({"mass healing"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"divine caldera"},
+keywordHandler:addSpellKeyword({"divinecaldera"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Divine Caldera",
@@ -34,7 +34,7 @@ keywordHandler:addSpellKeyword({"divine caldera"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"wrath of nature"},
+keywordHandler:addSpellKeyword({"wrathofnature"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Wrath of Nature",
@@ -43,7 +43,7 @@ keywordHandler:addSpellKeyword({"wrath of nature"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"rage of the skies"},
+keywordHandler:addSpellKeyword({"rageoftheskies"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Rage of the Skies",
@@ -61,7 +61,7 @@ keywordHandler:addSpellKeyword({"protector"},
 		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
-keywordHandler:addSpellKeyword({"swift foot"},
+keywordHandler:addSpellKeyword({"swiftfoot"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Swift Foot",
@@ -70,7 +70,7 @@ keywordHandler:addSpellKeyword({"swift foot"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"eternal winter"},
+keywordHandler:addSpellKeyword({"eternalwinter"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Eternal Winter",
@@ -79,7 +79,7 @@ keywordHandler:addSpellKeyword({"eternal winter"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"hell's core"},
+keywordHandler:addSpellKeyword({"Hellscore"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Hell's Core",
@@ -88,7 +88,7 @@ keywordHandler:addSpellKeyword({"hell's core"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"blood rage"},
+keywordHandler:addSpellKeyword({"bloodrage"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Blood Rage",
@@ -106,7 +106,7 @@ keywordHandler:addSpellKeyword({"sharpshooter"},
 		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
-keywordHandler:addSpellKeyword({"fierce berserk"},
+keywordHandler:addSpellKeyword({"fierceberserk"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fierce Berserk",
@@ -115,7 +115,7 @@ keywordHandler:addSpellKeyword({"fierce berserk"},
 		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate terra strike"},
+keywordHandler:addSpellKeyword({"ultimateterrastrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Terra Strike",
@@ -124,7 +124,7 @@ keywordHandler:addSpellKeyword({"ultimate terra strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate flame strike"},
+keywordHandler:addSpellKeyword({"ultimateflamestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Flame Strike",
@@ -133,7 +133,7 @@ keywordHandler:addSpellKeyword({"ultimate flame strike"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate ice strike"},
+keywordHandler:addSpellKeyword({"ultimateicestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Ice Strike",
@@ -142,7 +142,7 @@ keywordHandler:addSpellKeyword({"ultimate ice strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate energy strike"},
+keywordHandler:addSpellKeyword({"ultimateenergystrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Energy Strike",
@@ -152,7 +152,7 @@ keywordHandler:addSpellKeyword({"ultimate energy strike"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"energy bomb rune"},
+keywordHandler:addSpellKeyword({"energybombrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Bomb Rune",
@@ -161,7 +161,7 @@ keywordHandler:addSpellKeyword({"energy bomb rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"paralyse rune"},
+keywordHandler:addSpellKeyword({"paralyserune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Paralyse Rune",
@@ -174,21 +174,21 @@ keywordHandler:addSpellKeyword({"paralyse rune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{mass healing}'."
+		text = "In this category I have '{masshealing}'."
 	}
 )
 keywordHandler:addKeyword({"specials spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{divine caldera}', '{wrath of nature}', '{rage of the skies}', '{protector}', '{swift foot}', \z
-		'{eternal winter}', '{hell's core}', '{blood rage}', '{sharpshootere}', '{fierce berserk}', '{ultimate terra strike}', \z
-		'{ultimate flame strike}', '{ultimate ice strike}', '{ultimate energy strike}'."
+		text = "In this category I have '{divinecaldera}', '{wrathofnature}', '{rageoftheskies}', '{protector}', '{swiftfoot}', \z
+		'{eternalwinter}', '{Hellscore}', '{bloodrage}', '{sharpshootere}', '{fierceberserk}', '{ultimateterrastrike}', \z
+		'{ultimateflamestrike}', '{ultimateicestrike}', '{ultimateenergystrike}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{poison field rune}' and '{paralyse rune}'."
+		text = "In this category I have '{poison field rune}' and '{paralyserune}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say,

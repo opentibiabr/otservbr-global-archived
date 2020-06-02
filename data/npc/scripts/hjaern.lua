@@ -22,7 +22,7 @@ npcHandler:addModule(shopModule)
 shopModule:addBuyableItem({"shard"}, 7290, 2000, 1)
 
 -- SPELLS FOR DRUID
-keywordHandler:addSpellKeyword({"apprentice's strike"},
+keywordHandler:addSpellKeyword({"apprenticesstrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Apprentice's Strike",
@@ -40,7 +40,7 @@ keywordHandler:addSpellKeyword({"light"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"light healing"},
+keywordHandler:addSpellKeyword({"lighthealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Healing",
@@ -49,7 +49,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"find person"},
+keywordHandler:addSpellKeyword({"findperson"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Find Person",
@@ -58,7 +58,7 @@ keywordHandler:addSpellKeyword({"find person"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"magic rope"},
+keywordHandler:addSpellKeyword({"magicrope"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Rope",
@@ -67,7 +67,7 @@ keywordHandler:addSpellKeyword({"magic rope"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison"},
+keywordHandler:addSpellKeyword({"curepoison"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison",
@@ -76,7 +76,7 @@ keywordHandler:addSpellKeyword({"cure poison"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"energy strike"},
+keywordHandler:addSpellKeyword({"energystrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Strike",
@@ -94,7 +94,7 @@ keywordHandler:addSpellKeyword({"levitate"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"great light"},
+keywordHandler:addSpellKeyword({"greatlight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Light",
@@ -103,7 +103,7 @@ keywordHandler:addSpellKeyword({"great light"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"terra strike"},
+keywordHandler:addSpellKeyword({"terrastrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Terra Strike",
@@ -112,7 +112,7 @@ keywordHandler:addSpellKeyword({"terra strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"flame strike"},
+keywordHandler:addSpellKeyword({"flamestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Flame Strike",
@@ -139,7 +139,7 @@ keywordHandler:addSpellKeyword({"haste"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"magic shield"},
+keywordHandler:addSpellKeyword({"magicshield"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Shield",
@@ -148,7 +148,7 @@ keywordHandler:addSpellKeyword({"magic shield"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ice strike"},
+keywordHandler:addSpellKeyword({"icestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ice Strike",
@@ -157,7 +157,7 @@ keywordHandler:addSpellKeyword({"ice strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"physical strike"},
+keywordHandler:addSpellKeyword({"physicalstrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Physical Strike",
@@ -166,7 +166,7 @@ keywordHandler:addSpellKeyword({"physical strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"heal friend"},
+keywordHandler:addSpellKeyword({"healfriend"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Heal Friend",
@@ -175,7 +175,7 @@ keywordHandler:addSpellKeyword({"heal friend"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ice wave"},
+keywordHandler:addSpellKeyword({"icewave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ice Wave",
@@ -184,7 +184,7 @@ keywordHandler:addSpellKeyword({"ice wave"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"intense healing"},
+keywordHandler:addSpellKeyword({"intensehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing",
@@ -193,7 +193,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"strong haste"},
+keywordHandler:addSpellKeyword({"stronghaste"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Haste",
@@ -202,7 +202,7 @@ keywordHandler:addSpellKeyword({"strong haste"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"cure electrification"},
+keywordHandler:addSpellKeyword({"cureelectrification"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Electrification",
@@ -211,7 +211,7 @@ keywordHandler:addSpellKeyword({"cure electrification"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"creature illusion"},
+keywordHandler:addSpellKeyword({"creatureillusion"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Creature Illusion",
@@ -220,7 +220,7 @@ keywordHandler:addSpellKeyword({"creature illusion"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"summon creature"},
+keywordHandler:addSpellKeyword({"summoncreature"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Summon Creature",
@@ -229,7 +229,7 @@ keywordHandler:addSpellKeyword({"summon creature"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate light"},
+keywordHandler:addSpellKeyword({"ultimatelight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Light",
@@ -238,7 +238,7 @@ keywordHandler:addSpellKeyword({"ultimate light"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"cure burning"},
+keywordHandler:addSpellKeyword({"cureburning"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Burning",
@@ -247,7 +247,7 @@ keywordHandler:addSpellKeyword({"cure burning"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate healing"},
+keywordHandler:addSpellKeyword({"ultimatehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Healing",
@@ -265,7 +265,7 @@ keywordHandler:addSpellKeyword({"invisible"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"mass healing"},
+keywordHandler:addSpellKeyword({"masshealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Mass Healing",
@@ -274,7 +274,7 @@ keywordHandler:addSpellKeyword({"mass healing"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"terra wave"},
+keywordHandler:addSpellKeyword({"terrawave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Terra Wave",
@@ -283,7 +283,7 @@ keywordHandler:addSpellKeyword({"terra wave"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"strong ice wave"},
+keywordHandler:addSpellKeyword({"strongicewave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Ice Wave",
@@ -292,7 +292,7 @@ keywordHandler:addSpellKeyword({"strong ice wave"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"cure bleeding"},
+keywordHandler:addSpellKeyword({"curebleeding"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Bleeding",
@@ -310,7 +310,7 @@ keywordHandler:addSpellKeyword({"envenom"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"strong terra strike"},
+keywordHandler:addSpellKeyword({"strongterrastrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Terra Strike",
@@ -319,7 +319,7 @@ keywordHandler:addSpellKeyword({"strong terra strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"strong ice strike"},
+keywordHandler:addSpellKeyword({"strongicestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Ice Strike",
@@ -328,7 +328,7 @@ keywordHandler:addSpellKeyword({"strong ice strike"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"summon grovebeast"},
+keywordHandler:addSpellKeyword({"summongrovebeast"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Summon Grovebeast",
@@ -338,7 +338,7 @@ keywordHandler:addSpellKeyword({"summon grovebeast"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"poison field rune"},
+keywordHandler:addSpellKeyword({"poisonfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Field Rune",
@@ -347,7 +347,7 @@ keywordHandler:addSpellKeyword({"poison field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"fire field rune"},
+keywordHandler:addSpellKeyword({"firefieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Field Rune",
@@ -356,7 +356,7 @@ keywordHandler:addSpellKeyword({"fire field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"light magic missile rune"},
+keywordHandler:addSpellKeyword({"lightmagicmissilerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Magic Missile Rune",
@@ -365,7 +365,7 @@ keywordHandler:addSpellKeyword({"light magic missile rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"intense healing rune"},
+keywordHandler:addSpellKeyword({"intensehealingrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing Rune",
@@ -374,7 +374,7 @@ keywordHandler:addSpellKeyword({"intense healing rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison rune"},
+keywordHandler:addSpellKeyword({"curepoisonrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison Rune",
@@ -383,7 +383,7 @@ keywordHandler:addSpellKeyword({"cure poison rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"convince creature rune"},
+keywordHandler:addSpellKeyword({"convincecreaturerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Convince Creature Rune",
@@ -392,7 +392,7 @@ keywordHandler:addSpellKeyword({"convince creature rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"destroy field rune"},
+keywordHandler:addSpellKeyword({"destroyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -401,7 +401,7 @@ keywordHandler:addSpellKeyword({"destroy field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"energy field rune"},
+keywordHandler:addSpellKeyword({"energyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -410,7 +410,7 @@ keywordHandler:addSpellKeyword({"energy field rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"disintegrate rune"},
+keywordHandler:addSpellKeyword({"disintegraterune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Disintegrate Rune",
@@ -419,7 +419,7 @@ keywordHandler:addSpellKeyword({"disintegrate rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate healing rune"},
+keywordHandler:addSpellKeyword({"ultimatehealingrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Healing Rune",
@@ -428,7 +428,7 @@ keywordHandler:addSpellKeyword({"ultimate healing rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"stalagmite rune"},
+keywordHandler:addSpellKeyword({"stalagmiterune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "stalagmite rune",
@@ -437,7 +437,7 @@ keywordHandler:addSpellKeyword({"stalagmite rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"poison bomb rune"},
+keywordHandler:addSpellKeyword({"poisonbombrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Bomb Rune",
@@ -446,7 +446,7 @@ keywordHandler:addSpellKeyword({"poison bomb rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"heavy magic missile rune"},
+keywordHandler:addSpellKeyword({"heavymagicmissilerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Heavy Magic Missile Rune",
@@ -455,7 +455,7 @@ keywordHandler:addSpellKeyword({"heavy magic missile rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"fire bomb rune"},
+keywordHandler:addSpellKeyword({"firebombrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "fire bomb rune",
@@ -464,7 +464,7 @@ keywordHandler:addSpellKeyword({"fire bomb rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"animate dead rune"},
+keywordHandler:addSpellKeyword({"animatedeadrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Animate Dead Rune",
@@ -473,7 +473,7 @@ keywordHandler:addSpellKeyword({"animate dead rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"chameleon rune"},
+keywordHandler:addSpellKeyword({"chameleonrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Chameleon Rune",
@@ -482,7 +482,7 @@ keywordHandler:addSpellKeyword({"chameleon rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"icicle rune"},
+keywordHandler:addSpellKeyword({"iciclerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Icicle Rune",
@@ -491,7 +491,7 @@ keywordHandler:addSpellKeyword({"icicle rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"stone shower rune"},
+keywordHandler:addSpellKeyword({"stoneshowerrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Stone Shower Rune",
@@ -500,7 +500,7 @@ keywordHandler:addSpellKeyword({"stone shower rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"poison wall rune"},
+keywordHandler:addSpellKeyword({"poisonwallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Wall Rune",
@@ -509,7 +509,7 @@ keywordHandler:addSpellKeyword({"poison wall rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"avalanche rune"},
+keywordHandler:addSpellKeyword({"avalancherune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Avalanche Rune",
@@ -518,7 +518,7 @@ keywordHandler:addSpellKeyword({"avalanche rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"explosion rune"},
+keywordHandler:addSpellKeyword({"explosionrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Explosion Rune",
@@ -527,7 +527,7 @@ keywordHandler:addSpellKeyword({"explosion rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"fire wall rune"},
+keywordHandler:addSpellKeyword({"firewallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Wall Rune",
@@ -536,7 +536,7 @@ keywordHandler:addSpellKeyword({"fire wall rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"energy wall rune"},
+keywordHandler:addSpellKeyword({"energywallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Wall Rune",
@@ -545,7 +545,7 @@ keywordHandler:addSpellKeyword({"energy wall rune"},
 		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
-keywordHandler:addSpellKeyword({"paralyse rune"},
+keywordHandler:addSpellKeyword({"paralyserune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Paralyse Rune",
@@ -558,33 +558,33 @@ keywordHandler:addSpellKeyword({"paralyse rune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{light healing}', '{heal friend}', '{cure poison}', '{cure electrification}', \z
-		'{intense healing}', '{cure burning}', '{ultimate healing}', '{mass healing}' and '{cure bleeding}'."
+		text = "In this category I have '{lighthealing}', '{healfriend}', '{curepoison}', '{cureelectrification}', \z
+		'{intensehealing}', '{cureburning}', '{ultimatehealing}', '{masshealing}' and '{curebleeding}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{find person}', '{magic rope}', '{levitate}', '{light}', \z
-		'{great light}', '{haste}', '{food}', '{magic shield}', '{strong haste}', '{creature illusion}', \z
-		'{summon creature}', '{ultimate light}', '{invisible}', '{envenom}', '{summon grovebeast}'."
+		text = "In this category I have '{findperson}', '{magicrope}', '{levitate}', '{light}', \z
+		'{greatlight}', '{haste}', '{food}', '{magicshield}', '{stronghaste}', '{creatureillusion}', \z
+		'{summoncreature}', '{ultimatelight}', '{invisible}', '{envenom}', '{summongrovebeast}'."
 	}
 )
 keywordHandler:addKeyword({"attack spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{apprentice's strike}', '{energy strike}', '{terra strike}', '{flame strike}', '{ice strike}',\z
-		'{physical strike}', '{ice wave}', '{terra wave}', '{strong ice wave}', '{strong terra strike}' and '{strong ice strike}'."
+		text = "In this category I have '{apprenticesstrike}', '{energystrike}', '{terrastrike}', '{flamestrike}', '{icestrike}',\z
+		'{physicalstrike}', '{icewave}', '{terrawave}', '{strongicewave}', '{strongterrastrike}' and '{strongicestrike}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{poison field rune}', '{fire field rune}', '{light magic missile rune}', '{intense healing rune}', \z
-		'{cure poison rune}', '{convince creature rune}', '{destroy field rune}', '{energy field rune}', '{disintegrate rune}',\z
-		'{ultimate healing rune}', '{stalagmite rune}', '{poison bomb rune}', '{heavy magic missile rune}', '{fire bomb rune}', '{animate dead rune}', \z
-		'{chameleon rune}', '{icicle rune}', '{stone shower rune}', '{poison wall rune}', '{avalanche rune}', '{explosion rune}', \z
-		'{fire wall rune}', '{energy wall rune}' and '{paralyse rune}'."
+		text = "In this category I have '{poisonfieldrune}', '{firefieldrune}', '{lightmagicmissilerune}', '{intensehealingrune}', \z
+		'{curepoisonrune}', '{convincecreaturerune}', '{destroyfieldrune}', '{energyfieldrune}', '{disintegraterune}',\z
+		'{ultimatehealingrune}', '{stalagmiterune}', '{poisonbombrune}', '{heavymagicmissilerune}', '{firebombrune}', '{animatedeadrune}', \z
+		'{chameleonrune}', '{iciclerune}', '{stoneshowerrune}', '{poisonwallrune}', '{avalancherune}', '{explosionrune}', \z
+		'{firewallrune}', '{energywallrune}' and '{paralyserune}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say,

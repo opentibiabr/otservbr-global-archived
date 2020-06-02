@@ -16,7 +16,7 @@ function onThink()
 end
 
 --SPELLS KNIGTH
-keywordHandler:addSpellKeyword({"find person"},
+keywordHandler:addSpellKeyword({"findperson"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Find Person",
@@ -34,7 +34,7 @@ keywordHandler:addSpellKeyword({"light"},
 		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison"},
+keywordHandler:addSpellKeyword({"curepoison"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison",
@@ -52,7 +52,7 @@ keywordHandler:addSpellKeyword({"wound cleansing"},
 		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
-keywordHandler:addSpellKeyword({"great light"},
+keywordHandler:addSpellKeyword({"greatlight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Light",
@@ -64,13 +64,13 @@ keywordHandler:addSpellKeyword({"great light"},
 keywordHandler:addKeyword({'healing spells'}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{Wound Cleansing}' and '{Cure Poison}'."
+		text = "In this category I have '{woundcleansing}' and '{curepoison}'."
 	}
 )
 keywordHandler:addKeyword({'support spells'}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{Light}', '{Find Person}' and '{Great Light}'."
+		text = "In this category I have '{Light}', '{findperson}' and '{greatlight}'."
 	}
 )
 keywordHandler:addKeyword({'spells'}, StdModule.say,

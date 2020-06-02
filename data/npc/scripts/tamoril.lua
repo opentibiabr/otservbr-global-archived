@@ -35,7 +35,7 @@ shopModule:addBuyableItem({"violet gem"}, 2153, 10000, 1)
 shopModule:addBuyableItem({"yellow gem"}, 2154, 1000, 1)
 
 -- SPELLS FOR SORCERER
-keywordHandler:addSpellKeyword({"apprentice's strike"},
+keywordHandler:addSpellKeyword({"apprenticesstrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Apprentice's Strike",
@@ -53,7 +53,7 @@ keywordHandler:addSpellKeyword({"light"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"light healing"},
+keywordHandler:addSpellKeyword({"lighthealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Healing",
@@ -62,7 +62,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"find person"},
+keywordHandler:addSpellKeyword({"findperson"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Find Person",
@@ -71,7 +71,7 @@ keywordHandler:addSpellKeyword({"find person"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"magic rope"},
+keywordHandler:addSpellKeyword({"magicrope"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Rope",
@@ -80,7 +80,7 @@ keywordHandler:addSpellKeyword({"magic rope"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"cure poison"},
+keywordHandler:addSpellKeyword({"curepoison"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Cure Poison",
@@ -89,7 +89,7 @@ keywordHandler:addSpellKeyword({"cure poison"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"energy strike"},
+keywordHandler:addSpellKeyword({"energystrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Strike",
@@ -107,7 +107,7 @@ keywordHandler:addSpellKeyword({"levitate"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"great light"},
+keywordHandler:addSpellKeyword({"greatlight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Light",
@@ -116,7 +116,7 @@ keywordHandler:addSpellKeyword({"great light"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"terra strike"},
+keywordHandler:addSpellKeyword({"terrastrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Terra Strike",
@@ -125,7 +125,7 @@ keywordHandler:addSpellKeyword({"terra strike"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"flame strike"},
+keywordHandler:addSpellKeyword({"flamestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Flame Strike",
@@ -143,7 +143,7 @@ keywordHandler:addSpellKeyword({"haste"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"magic shield"},
+keywordHandler:addSpellKeyword({"magicshield"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Shield",
@@ -152,7 +152,7 @@ keywordHandler:addSpellKeyword({"magic shield"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"ice strike"},
+keywordHandler:addSpellKeyword({"icestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ice Strike",
@@ -161,7 +161,7 @@ keywordHandler:addSpellKeyword({"ice strike"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"death strike"},
+keywordHandler:addSpellKeyword({"deathstrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Death Strike",
@@ -170,7 +170,7 @@ keywordHandler:addSpellKeyword({"death strike"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"fire wave"},
+keywordHandler:addSpellKeyword({"firewave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Wave",
@@ -179,7 +179,7 @@ keywordHandler:addSpellKeyword({"fire wave"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"intense healing"},
+keywordHandler:addSpellKeyword({"intensehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Intense Healing",
@@ -188,7 +188,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"strong haste"},
+keywordHandler:addSpellKeyword({"stronghaste"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Haste",
@@ -197,7 +197,7 @@ keywordHandler:addSpellKeyword({"strong haste"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"energy beam"},
+keywordHandler:addSpellKeyword({"energybeam"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Beam",
@@ -206,7 +206,7 @@ keywordHandler:addSpellKeyword({"energy beam"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"creature illusion"},
+keywordHandler:addSpellKeyword({"creatureillusion"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Creature Illusion",
@@ -215,7 +215,7 @@ keywordHandler:addSpellKeyword({"creature illusion"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"summon creature"},
+keywordHandler:addSpellKeyword({"summoncreature"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Summon Creature",
@@ -233,7 +233,7 @@ keywordHandler:addSpellKeyword({"ignite"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate light"},
+keywordHandler:addSpellKeyword({"ultimatelight"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Light",
@@ -242,7 +242,7 @@ keywordHandler:addSpellKeyword({"ultimate light"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"great energy beam"},
+keywordHandler:addSpellKeyword({"greatenergybeam"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Energy Beam",
@@ -251,7 +251,7 @@ keywordHandler:addSpellKeyword({"great energy beam"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"ultimate healing"},
+keywordHandler:addSpellKeyword({"ultimatehealing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Ultimate Healing",
@@ -278,7 +278,7 @@ keywordHandler:addSpellKeyword({"invisible"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"energy wave"},
+keywordHandler:addSpellKeyword({"energywave"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Wave",
@@ -296,7 +296,7 @@ keywordHandler:addSpellKeyword({"lightning"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"strong flame strike"},
+keywordHandler:addSpellKeyword({"strongflamestrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Flame Strike",
@@ -305,7 +305,7 @@ keywordHandler:addSpellKeyword({"strong flame strike"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"strong energy strike"},
+keywordHandler:addSpellKeyword({"strongenergystrike"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Strong Energy Strike",
@@ -323,7 +323,7 @@ keywordHandler:addSpellKeyword({"curse"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"summon thundergiant"},
+keywordHandler:addSpellKeyword({"summonthundergiant"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Summon Thundergiant",
@@ -333,7 +333,7 @@ keywordHandler:addSpellKeyword({"summon thundergiant"},
 	}
 )
 -- RUNES SPELLS
-keywordHandler:addSpellKeyword({"poison field rune"},
+keywordHandler:addSpellKeyword({"poisonfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Field Rune",
@@ -342,7 +342,7 @@ keywordHandler:addSpellKeyword({"poison field rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"fire field rune"},
+keywordHandler:addSpellKeyword({"firefieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Field Rune",
@@ -351,7 +351,7 @@ keywordHandler:addSpellKeyword({"fire field rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"light magic missile rune"},
+keywordHandler:addSpellKeyword({"lightmagicmissilerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Light Magic Missile Rune",
@@ -360,7 +360,7 @@ keywordHandler:addSpellKeyword({"light magic missile rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"destroy field rune"},
+keywordHandler:addSpellKeyword({"destroyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Destroy Field Rune",
@@ -369,7 +369,7 @@ keywordHandler:addSpellKeyword({"destroy field rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"energy field rune"},
+keywordHandler:addSpellKeyword({"energyfieldrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Field Rune",
@@ -378,7 +378,7 @@ keywordHandler:addSpellKeyword({"energy field rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"disintegrate rune"},
+keywordHandler:addSpellKeyword({"disintegraterune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Disintegrate Rune",
@@ -387,7 +387,7 @@ keywordHandler:addSpellKeyword({"disintegrate rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"stalagmite rune"},
+keywordHandler:addSpellKeyword({"stalagmiterune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "stalagmite rune",
@@ -396,7 +396,7 @@ keywordHandler:addSpellKeyword({"stalagmite rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"heavy magic missile rune"},
+keywordHandler:addSpellKeyword({"heavymagicmissilerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Heavy Magic Missile Rune",
@@ -405,7 +405,7 @@ keywordHandler:addSpellKeyword({"heavy magic missile rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"soulfire rune"},
+keywordHandler:addSpellKeyword({"soulfirerune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Soulfire Rune",
@@ -414,7 +414,7 @@ keywordHandler:addSpellKeyword({"soulfire rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"fire bomb rune"},
+keywordHandler:addSpellKeyword({"firebombrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "fire bomb rune",
@@ -423,7 +423,7 @@ keywordHandler:addSpellKeyword({"fire bomb rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"animate dead rune"},
+keywordHandler:addSpellKeyword({"animatedeadrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Animate Dead Rune",
@@ -432,7 +432,7 @@ keywordHandler:addSpellKeyword({"animate dead rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"fireball rune"},
+keywordHandler:addSpellKeyword({"fireballrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fireball Rune",
@@ -441,7 +441,7 @@ keywordHandler:addSpellKeyword({"fireball rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"thunderstorm rune"},
+keywordHandler:addSpellKeyword({"thunderstormrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Thunderstorm Rune",
@@ -450,7 +450,7 @@ keywordHandler:addSpellKeyword({"thunderstorm rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"poison wall rune"},
+keywordHandler:addSpellKeyword({"poisonwallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Poison Wall Rune",
@@ -459,7 +459,7 @@ keywordHandler:addSpellKeyword({"poison wall rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"great fireball rune"},
+keywordHandler:addSpellKeyword({"greatfireballrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Great Fireball Rune",
@@ -468,7 +468,7 @@ keywordHandler:addSpellKeyword({"great fireball rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"explosion rune"},
+keywordHandler:addSpellKeyword({"explosionrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Explosion Rune",
@@ -477,7 +477,7 @@ keywordHandler:addSpellKeyword({"explosion rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"magic wall rune"},
+keywordHandler:addSpellKeyword({"magicwallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Magic Wall Rune",
@@ -486,7 +486,7 @@ keywordHandler:addSpellKeyword({"magic wall rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"fire wall rune"},
+keywordHandler:addSpellKeyword({"firewallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Fire Wall Rune",
@@ -495,7 +495,7 @@ keywordHandler:addSpellKeyword({"fire wall rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"energy bomb rune"},
+keywordHandler:addSpellKeyword({"energybombrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Bomb Rune",
@@ -504,7 +504,7 @@ keywordHandler:addSpellKeyword({"energy bomb rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"energy wall rune"},
+keywordHandler:addSpellKeyword({"energywallrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Energy Wall Rune",
@@ -513,7 +513,7 @@ keywordHandler:addSpellKeyword({"energy wall rune"},
 		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
-keywordHandler:addSpellKeyword({"sudden death rune"},
+keywordHandler:addSpellKeyword({"suddendeathrune"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Sudden Death Rune",
@@ -526,32 +526,32 @@ keywordHandler:addSpellKeyword({"sudden death rune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{light healing}', '{cure poison}', '{intense healing}' and '{ultimate healing}'."
+		text = "In this category I have '{lighthealing}', '{curepoison}', '{intensehealing}' and '{ultimatehealing}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{find person}', '{magic rope}', '{levitate}', '{light}', '{great light}', '{haste}', '{magic shield}', \z
-		'{strong haste}', '{creature illusion}', '{summon creature}', '{ultimate light}', '{invisible}', and '{summon thundergiant}'."
+		text = "In this category I have '{findperson}', '{magicrope}', '{levitate}', '{light}', '{greatlight}', '{haste}', '{magicshield}', \z
+		'{stronghaste}', '{creatureillusion}', '{summoncreature}', '{ultimatelight}', '{invisible}', and '{summonthundergiant}'."
 		
 	}
 )
 keywordHandler:addKeyword({"attack spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{apprentice's strike}', '{energy strike}', '{terra strike}', '{flame strike}', '{ice strike}',\z
-		'{death strike}', '{fire wave}', '{energy beam}', '{ignite}', '{great energy beam}', '{electrify}', '{energy wave}', \z
-		'{energy wave}', '{lightning}', '{strong flame strike}', '{strong energy strike}' and '{Curse}'."
+		text = "In this category I have '{apprenticesstrike}', '{energystrike}', '{terrastrike}', '{flamestrike}', '{icestrike}',\z
+		'{deathstrike}', '{firewave}', '{energybeam}', '{ignite}', '{greatenergybeam}', '{electrify}', '{energywave}', \z
+		'{energywave}', '{lightning}', '{strongflamestrike}', '{strongenergystrike}' and '{Curse}'."
 	}
 )
 keywordHandler:addKeyword({"runes"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{poison field rune}', '{fire field rune}', '{light magic missile rune}', '{destroy field rune}', \z
-		'{energy field rune}', '{disintegrate rune}', '{stalagmite rune}', '{heavy magic missile rune}', '{soulfire rune}', \z
-		'{fire bomb rune}', '{fireball rune}', '{animate dead rune}', '{thunderstorm rune}', '{poison wall rune}', '{great fireball rune}', \z
-		'{explosion rune}', '{magic wall rune}', '{fire wall rune}', '{energy bomb rune}', '{energy wall rune}' and '{sudden death rune}'."
+		text = "In this category I have '{poisonfieldrune}', '{firefieldrune}', '{lightmagicmissilerune}', '{destroyfieldrune}', \z
+		'{energyfieldrune}', '{disintegraterune}', '{stalagmiterune}', '{heavymagicmissilerune}', '{soulfirerune}', \z
+		'{firebombrune}', '{fireballrune}', '{animatedeadrune}', '{thunderstormrune}', '{poisonwallrune}', '{greatfireballrune}', \z
+		'{explosionrune}', '{magicwallrune}', '{firewallrune}', '{energybombrune}', '{energywallrune}' and '{suddendeathrune}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say,
