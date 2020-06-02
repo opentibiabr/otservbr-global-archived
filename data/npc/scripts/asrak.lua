@@ -47,7 +47,7 @@ keywordHandler:addSpellKeyword({"findperson"},
 		vocation = {VOCATION.CLIENT_ID.PALADIN, VOCATION.CLIENT_ID.KNIGHT}
 	}
 )
-keywordHandler:addSpellKeyword({"wound cleansing"},
+keywordHandler:addSpellKeyword({"woundcleansing"},
 	{
 		npcHandler = npcHandler,
 		spellName = "Wound Cleansing",
