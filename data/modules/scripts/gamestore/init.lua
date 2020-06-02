@@ -1087,6 +1087,7 @@ function GameStore.processAllBlessingsPurchase(player)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
+	db.query("UPDATE `accounts` SET `lastday` = ".. os.time() .." WHERE `id` = " .. player:getAccountId())
 	player:addPremiumDays(offerId-3000)
 
 	-- Update Prey Data
