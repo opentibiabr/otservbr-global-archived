@@ -361,12 +361,15 @@ local function creatureSayCallback(cid, type, msg)
 	or npcHandler.topic[cid] == 7
 	or npcHandler.topic[cid] == 8 then
 		for index, value in pairs(topicTable)do
-			if not player:getStorageValue(Storage.Dawnport.DoorVocation) == value then
-				player:setVocation(Vocation(value))
-				player:setStorageValue(Storage.Dawnport.DoorVocation, value)
-			else
-				npcHandler.topic[cid] = 0
-				return true
+			if npcHandler.topic[cid] == index then
+				local storage = player:getStorageValue(Storage.Dawnport.DoorVocation)
+				if storage ~= 1 and storage ~= 2 and storage ~= 3 and storage ~= 4 then
+					player:setVocation(Vocation(value))
+					player:setStorageValue(Storage.Dawnport.DoorVocation, value)
+				else
+					npcHandler.topic[cid] = 0
+					return true
+				end
 			end
 		end
 		-- Cycle through the slots table and store the slot id in slot
@@ -416,6 +419,8 @@ local function creatureSayCallback(cid, type, msg)
 				"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
 			},
 		cid, false, true, 200)
+		-- For stop the event started at level 20, so that players who are already allowed to leave dawnport, do not return.
+		stopEvent(teleportToDawnportTemple)
 		npcHandler.topic[cid] = 0
 	end
 	return true

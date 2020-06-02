@@ -181,17 +181,21 @@ function dawnportSetStats(player)
 	end
 end
 
+-- Teleport to the dawnport temple after reaching level 20 (the player has five minutes before being teleported)
+function dawnportPlayerTeleportToTemple(uid)
+	local player = Player(uid)
+	if player then
+		local town = player:getTown()
+		player:teleportTo(town:getTemplePosition())
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	end
+end
+
 -- Table of configs
 DawnportTable = {
 	Effects = {
 		CONST_ME_TUTORIALARROW,
 		CONST_ME_TUTORIALSQUARE
-	},
-	Storage = {
-		Storage.Dawnport.Sorcerer,
-		Storage.Dawnport.Druid,
-		Storage.Dawnport.Paladin,
-		Storage.Dawnport.Knight
 	},
 	[40001] = {
 		-- First vocation (from lvl 1 to 7)
