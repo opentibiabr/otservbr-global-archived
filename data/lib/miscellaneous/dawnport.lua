@@ -182,11 +182,16 @@ function dawnportSetStats(player)
 end
 
 -- Teleport to the dawnport temple after reaching level 20 (the player has five minutes before being teleported)
-function dawnportPlayerTeleportToTemple(uid)
+function teleportToDawnportTemple(uid)
 	local player = Player(uid)
 	if player then
-		player:teleportTo(player:getTown():getTemplePosition())
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		-- If not have the Oressa storage, teleport player to the temple
+		if player:getStorageValue(Storage.Dawnport.DoorVocation) == -1 then
+			player:teleportTo(player:getTown():getTemplePosition())
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		else
+			return true
+		end
 	end
 end
 
