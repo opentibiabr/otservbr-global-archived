@@ -175,7 +175,8 @@ local function creatureSayCallback(cid, type, msg)
 	-- Choosing dialog start
 	elseif msgcontains(msg, "choosing") or msgcontains(msg, "choose") and npcHandler.topic[cid] == 0 then
 		if player:getLevel() >= 8 then
-			npcHandler:say("I'll help you decide. Tell me: Do you like to keep your {distance}, or do you like {close} combat?", cid)
+			npcHandler:say("I'll help you decide. \z
+				Tell me: Do you like to keep your {distance}, or do you like {close} combat?", cid)
 			npcHandler.topic[cid] = 2
 		else
 			npcHandler:say(
