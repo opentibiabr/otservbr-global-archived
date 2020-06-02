@@ -14,6 +14,19 @@ end
 function onThink()
 	npcHandler:onThink()
 end
+local voices = { 
+	{text = 'Fine jewels, rings and amulets!'} 
+}
+
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"golden amulet"}, 2130, 6600, 1)
+shopModule:addBuyableItem({"ruby necklace"}, 2133, 3560, 1)
+shopModule:addBuyableItem({"wedding ring"}, 2121, 990, 1)
+
+shopModule:addSellableItem({"wedding ring"}, 2121, 100, 1)
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -57,5 +70,10 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Welcome, |PLAYERNAME|. I'm looking forward to {trade} with you.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "I sell some of the most beautiful jewels in Tibia.")
+
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
