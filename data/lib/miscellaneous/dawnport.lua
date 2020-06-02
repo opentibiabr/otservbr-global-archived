@@ -185,8 +185,7 @@ end
 function dawnportPlayerTeleportToTemple(uid)
 	local player = Player(uid)
 	if player then
-		local town = player:getTown()
-		player:teleportTo(town:getTemplePosition())
+		player:teleportTo(player:getTown():getTemplePosition())
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end
 end
