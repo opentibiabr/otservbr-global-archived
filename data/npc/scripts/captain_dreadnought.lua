@@ -106,21 +106,22 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 7
 	elseif player:isPremium() == false then
 		local cityNames = freeTown[msg:lower()]
-		if not msgcontains(msg, "ab'dendriel") and not msgcontains(msg, "carlin")
-	and not msgcontains(msg, "thais") and not msgcontains(msg, "venore") then
+		if cityNames then
+			local townId = Town(cityNames)
+			if player:getTown() ~= townId then
+				player:setTown(townId)
+				player:teleportTo(townId:getTemplePosition())
+				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+				player:setStorageValue(Storage.Dawnport.Mainland, 1)
+				npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
+					err, shops and bank and such!", cid)
+				npcHandler.topic[cid] = 0
+				return true
+			end
+		else
 			npcHandler:say("What? Whatever that is, it's not a port I sail to. {Ab'Dendriel}, \z
 			{Carlin}, {Thais} or {Venore}?", cid)
 			npcHandler.topic[cid] = 7
-		elseif cityNames and npcHandler.topic[cid] == 7 then
-			local townId = Town(cityNames)
-			player:setTown(townId)
-			player:teleportTo(townId:getTemplePosition())
-			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			player:setStorageValue(Storage.Dawnport.Mainland, 1)
-			npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
-			err, shops and bank and such!", cid)
-			npcHandler.topic[cid] = 0
-			return true
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 or npcHandler.topic[cid] == 2 then
 		npcHandler:say(
