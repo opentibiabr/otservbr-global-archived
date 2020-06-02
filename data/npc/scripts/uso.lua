@@ -22,7 +22,7 @@ keywordHandler:addSpellKeyword({"find person"},
 		spellName = "Find Person",
 		price = 80,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"light"},
@@ -31,7 +31,7 @@ keywordHandler:addSpellKeyword({"light"},
 		spellName = "Light",
 		price = 0,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"wound cleansing"},
@@ -40,7 +40,7 @@ keywordHandler:addSpellKeyword({"wound cleansing"},
 		spellName = "Wound Cleansing",
 		price = 0,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"magic rope"}, 
@@ -49,7 +49,7 @@ keywordHandler:addSpellKeyword({"magic rope"},
 		spellName = "Magic Rope", 
 		price = 200, 
 		level = 9, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"cure poison"},
@@ -58,7 +58,7 @@ keywordHandler:addSpellKeyword({"cure poison"},
 		spellName = "Cure Poison",
 		price = 150,
 		level = 10,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"levitate"}, 
@@ -67,7 +67,7 @@ keywordHandler:addSpellKeyword({"levitate"},
 		spellName = "Levitate", 
 		price = 500, 
 		level = 12, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"great light"},
@@ -76,7 +76,7 @@ keywordHandler:addSpellKeyword({"great light"},
 		spellName = "Great Light",
 		price = 500,
 		level = 13,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"haste"}, 
@@ -85,7 +85,7 @@ keywordHandler:addSpellKeyword({"haste"},
 		spellName = "Haste", 
 		price = 600, 
 		level = 14, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"brutal strike"}, 
@@ -94,7 +94,7 @@ keywordHandler:addSpellKeyword({"brutal strike"},
 		spellName = "Brutal Strike", 
 		price = 1000, 
 		level = 16, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"charge"}, 
@@ -103,7 +103,7 @@ keywordHandler:addSpellKeyword({"charge"},
 		spellName = "Charge", 
 		price = 1300, 
 		level = 25, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"whirlwind throw"}, 
@@ -112,7 +112,7 @@ keywordHandler:addSpellKeyword({"whirlwind throw"},
 		spellName = "Whirlwind Throw", 
 		price = 1500, 
 		level = 28, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"groundshaker"}, 
@@ -121,7 +121,7 @@ keywordHandler:addSpellKeyword({"groundshaker"},
 		spellName = "Groundshaker", 
 		price = 1500, 
 		level = 33, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"berserk"}, 
@@ -130,7 +130,7 @@ keywordHandler:addSpellKeyword({"berserk"},
 		spellName = "Berserk", 
 		price = 2500, 
 		level = 35, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"inflict wound"}, 
@@ -139,7 +139,7 @@ keywordHandler:addSpellKeyword({"inflict wound"},
 		spellName = "Inflict Wound", 
 		price = 2500, 
 		level = 40, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"cure bleeding"}, 
@@ -148,7 +148,7 @@ keywordHandler:addSpellKeyword({"cure bleeding"},
 		spellName = "Cure Bleeding", 
 		price = 2500, 
 		level = 45, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"recovery"}, 
@@ -157,7 +157,7 @@ keywordHandler:addSpellKeyword({"recovery"},
 		spellName = "Recovery", 
 		price = 4000, 
 		level = 50, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"front sweep"}, 
@@ -166,7 +166,7 @@ keywordHandler:addSpellKeyword({"front sweep"},
 		spellName = "Front Sweep", 
 		price = 4000, 
 		level = 70, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"intense wound cleansing"}, 
@@ -175,7 +175,7 @@ keywordHandler:addSpellKeyword({"intense wound cleansing"},
 		spellName = "Intense Wound Cleansing", 
 		price = 6000, 
 		level = 80, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"fierce berserk"}, 
@@ -184,7 +184,7 @@ keywordHandler:addSpellKeyword({"fierce berserk"},
 		spellName = "Fierce Berserk", 
 		price = 7500, 
 		level = 90, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"intense recovery"}, 
@@ -193,7 +193,7 @@ keywordHandler:addSpellKeyword({"intense recovery"},
 		spellName = "Intense Recovery", 
 		price = 10000, 
 		level = 100, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"annihilation"}, 
@@ -202,7 +202,7 @@ keywordHandler:addSpellKeyword({"annihilation"},
 		spellName = "Annihilation", 
 		price = 20000, 
 		level = 110, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"summon skullfrost"}, 
@@ -211,7 +211,7 @@ keywordHandler:addSpellKeyword({"summon skullfrost"},
 		spellName = "Summon Skullfrost", 
 		price = 50000, 
 		level = 200, 
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 

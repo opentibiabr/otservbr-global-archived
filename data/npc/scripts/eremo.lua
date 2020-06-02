@@ -32,7 +32,7 @@ keywordHandler:addSpellKeyword({"challenge"},
 		spellName = "Challenge",
 		price = 2000,
 		level = 20,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"conjure wand of darkness"},
@@ -41,7 +41,7 @@ keywordHandler:addSpellKeyword({"conjure wand of darkness"},
 		spellName = "Conjure Wand of Darkness",
 		price = 5000,
 		level = 41,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"conjure diamond arrow"},
@@ -50,7 +50,7 @@ keywordHandler:addSpellKeyword({"conjure diamond arrow"},
 		spellName = "Conjure Diamond Arrow",
 		price = 15000,
 		level = 150,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjure spectral bolt"},
@@ -59,7 +59,7 @@ keywordHandler:addSpellKeyword({"conjure spectral bolt"},
 		spellName = "Conjure Spectral Bolt",
 		price = 15000,
 		level = 150,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 -- RUNES SPELLS
@@ -69,7 +69,7 @@ keywordHandler:addSpellKeyword({"wild growth rune"},
 		spellName = "Wild Growth Rune",
 		price = 2000,
 		level = 27,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 

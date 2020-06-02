@@ -22,7 +22,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		spellName = "Light Healing",
 		price = 0,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"cure poison"},
@@ -31,7 +31,7 @@ keywordHandler:addSpellKeyword({"cure poison"},
 		spellName = "Cure Poison",
 		price = 150,
 		level = 10,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"intense healing"},
@@ -40,7 +40,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		spellName = "Intense Healing",
 		price = 350,
 		level = 20,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"ultimate healing"},
@@ -49,7 +49,7 @@ keywordHandler:addSpellKeyword({"ultimate healing"},
 		spellName = "Ultimate Healing",
 		price = 1000,
 		level = 30,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 -- RUNES SPELLS
@@ -59,7 +59,7 @@ keywordHandler:addSpellKeyword({"cure poison rune"},
 		spellName = "Cure Poison Rune",
 		price = 600,
 		level = 15,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"intense healing rune"},
@@ -68,7 +68,7 @@ keywordHandler:addSpellKeyword({"intense healing rune"},
 		spellName = "Intense Healing Rune",
 		price = 600,
 		level = 15,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"ultimate healing rune"},
@@ -77,7 +77,7 @@ keywordHandler:addSpellKeyword({"ultimate healing rune"},
 		spellName = "Ultimate Healing Rune",
 		price = 1500,
 		level = 24,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 

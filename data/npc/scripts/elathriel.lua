@@ -21,7 +21,7 @@ keywordHandler:addSpellKeyword({"ice wave"},
 		spellName = "Ice Wave",
 		price = 850,
 		level = 18,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"terra wave"},
@@ -30,7 +30,7 @@ keywordHandler:addSpellKeyword({"terra wave"},
 		spellName = "Terra Wave",
 		price = 2500,
 		level = 38,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 -- RUNES SPELLS
@@ -41,7 +41,7 @@ keywordHandler:addSpellKeyword({"light magic missile rune"},
 		spellName = "Light Magic Missile Rune",
 		price = 500,
 		level = 15,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"stalagmite rune"},
@@ -50,7 +50,7 @@ keywordHandler:addSpellKeyword({"stalagmite rune"},
 		spellName = "stalagmite rune",
 		price = 1400,
 		level = 24,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"heavy magic missile rune"},
@@ -59,7 +59,7 @@ keywordHandler:addSpellKeyword({"heavy magic missile rune"},
 		spellName = "Heavy Magic Missile Rune",
 		price = 1500,
 		level = 25,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"avalanche rune"},
@@ -68,7 +68,7 @@ keywordHandler:addSpellKeyword({"avalanche rune"},
 		spellName = "Poison Wall Rune",
 		price = 1200,
 		level = 30,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"explosion rune"},
@@ -77,7 +77,7 @@ keywordHandler:addSpellKeyword({"explosion rune"},
 		spellName = "Explosion Rune",
 		price = 1800,
 		level = 31,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 

@@ -35,7 +35,7 @@ keywordHandler:addSpellKeyword({"light healing"},
 		spellName = "Light Healing",
 		price = 0,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"find person"},
@@ -53,7 +53,7 @@ keywordHandler:addSpellKeyword({"wound cleansing"},
 		spellName = "Wound Cleansing",
 		price = 0,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.KNIGHT}
+		vocation = VOCATION.CLIENT_ID.KNIGHT
 	}
 )
 keywordHandler:addSpellKeyword({"cure poison"},
@@ -80,7 +80,7 @@ keywordHandler:addSpellKeyword({"conjure arrow"},
 		spellName = "Conjure Arrow",
 		price = 450,
 		level = 13,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"magic shield"},
@@ -89,7 +89,7 @@ keywordHandler:addSpellKeyword({"magic shield"},
 		spellName = "Magic Shield",
 		price = 450,
 		level = 14,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjure poisoned arrow"},
@@ -98,7 +98,7 @@ keywordHandler:addSpellKeyword({"conjure poisoned arrow"},
 		spellName = "Conjure Poisoned Arrow",
 		price = 700,
 		level = 16,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"intense healing"},
@@ -107,7 +107,7 @@ keywordHandler:addSpellKeyword({"intense healing"},
 		spellName = "Intense Healing",
 		price = 350,
 		level = 20,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"conjure explosive arrow"},
@@ -116,7 +116,7 @@ keywordHandler:addSpellKeyword({"conjure explosive arrow"},
 		spellName = "Conjure Explosive Arrow",
 		price = 1000,
 		level = 25,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"ultimate healing"},
@@ -125,7 +125,7 @@ keywordHandler:addSpellKeyword({"ultimate healing"},
 		spellName = "Ultimate Healing",
 		price = 1000,
 		level = 30,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 keywordHandler:addSpellKeyword({"divine healing"},
@@ -134,7 +134,7 @@ keywordHandler:addSpellKeyword({"divine healing"},
 		spellName = "Divine Healing",
 		price = 3000,
 		level = 35,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 -- RUNES SPELLS
@@ -144,7 +144,7 @@ keywordHandler:addSpellKeyword({"destroy field rune"},
 		spellName = "Destroy Field Rune",
 		price = 700,
 		level = 17,
-		vocation = {VOCATION.CLIENT_ID.PALADIN}
+		vocation = VOCATION.CLIENT_ID.PALADIN
 	}
 )
 

@@ -121,7 +121,7 @@ keywordHandler:addSpellKeyword({"food"},
 		spellName = "Food",
 		price = 300,
 		level = 14,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"haste"},
@@ -157,7 +157,7 @@ keywordHandler:addSpellKeyword({"death strike"},
 		spellName = "Death Strike",
 		price = 800,
 		level = 16,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"physical strike"},
@@ -166,7 +166,7 @@ keywordHandler:addSpellKeyword({"physical strike"},
 		spellName = "Physical Strike",
 		price = 800,
 		level = 16,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"heal friend"},
@@ -175,7 +175,7 @@ keywordHandler:addSpellKeyword({"heal friend"},
 		spellName = "Heal Friend",
 		price = 800,
 		level = 18,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"ice wave"},
@@ -184,7 +184,7 @@ keywordHandler:addSpellKeyword({"ice wave"},
 		spellName = "Ice Wave",
 		price = 850,
 		level = 18,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"intense healing"},
@@ -211,7 +211,7 @@ keywordHandler:addSpellKeyword({"cure electrification"},
 		spellName = "Cure Electrification",
 		price = 1000,
 		level = 22,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"energy beam"},
@@ -220,7 +220,7 @@ keywordHandler:addSpellKeyword({"energy beam"},
 		spellName = "Energy Beam",
 		price = 1000,
 		level = 23,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"creature illusion"},
@@ -247,7 +247,7 @@ keywordHandler:addSpellKeyword({"ignite"},
 		spellName = "Ignite",
 		price = 1500,
 		level = 26,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"ultimate light"},
@@ -265,7 +265,7 @@ keywordHandler:addSpellKeyword({"great energy beam"},
 		spellName = "Great Energy Beam",
 		price = 1800,
 		level = 29,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"cure burning"},
@@ -274,7 +274,7 @@ keywordHandler:addSpellKeyword({"cure burning"},
 		spellName = "Cure Burning",
 		price = 2000,
 		level = 30,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"ultimate healing"},
@@ -292,7 +292,7 @@ keywordHandler:addSpellKeyword({"electrify"},
 		spellName = "Electrify",
 		price = 2500,
 		level = 34,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"invisible"},
@@ -310,7 +310,7 @@ keywordHandler:addSpellKeyword({"mass healing"},
 		spellName = "Mass Healing",
 		price = 2200,
 		level = 36,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"terra wave"},
@@ -319,7 +319,7 @@ keywordHandler:addSpellKeyword({"terra wave"},
 		spellName = "Terra Wave",
 		price = 2500,
 		level = 38,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"strong ice wave"},
@@ -328,7 +328,7 @@ keywordHandler:addSpellKeyword({"strong ice wave"},
 		spellName = "Strong Ice Wave",
 		price = 7500,
 		level = 40,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"enchant staff"},
@@ -337,7 +337,7 @@ keywordHandler:addSpellKeyword({"enchant staff"},
 		spellName = "Enchant Staff",
 		price = 2000,
 		level = 41,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"cure bleeding"},
@@ -346,7 +346,7 @@ keywordHandler:addSpellKeyword({"cure bleeding"},
 		spellName = "Cure Bleeding",
 		price = 2500,
 		level = 45,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"envenom"},
@@ -355,7 +355,7 @@ keywordHandler:addSpellKeyword({"envenom"},
 		spellName = "Envenom",
 		price = 6000,
 		level = 50,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"lightning"},
@@ -364,7 +364,7 @@ keywordHandler:addSpellKeyword({"lightning"},
 		spellName = "Lightning",
 		price = 5000,
 		level = 55,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"strong flame strike"},
@@ -373,7 +373,7 @@ keywordHandler:addSpellKeyword({"strong flame strike"},
 		spellName = "Strong Flame Strike",
 		price =6000,
 		level = 70,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"strong terra strike"},
@@ -382,7 +382,7 @@ keywordHandler:addSpellKeyword({"strong terra strike"},
 		spellName = "Strong Terra Strike",
 		price =6000,
 		level = 70,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"strong energy strike"},
@@ -391,7 +391,7 @@ keywordHandler:addSpellKeyword({"strong energy strike"},
 		spellName = "Strong Energy Strike",
 		price = 6000,
 		level = 70,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"strong ice strike"},
@@ -400,7 +400,7 @@ keywordHandler:addSpellKeyword({"strong ice strike"},
 		spellName = "Strong Ice Strike",
 		price = 6000,
 		level = 70,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"curse"},
@@ -409,7 +409,7 @@ keywordHandler:addSpellKeyword({"curse"},
 		spellName = "Curse",
 		price = 6000,
 		level = 75,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"summon grovebeast"},
@@ -418,7 +418,7 @@ keywordHandler:addSpellKeyword({"summon grovebeast"},
 		spellName = "Summon Grovebeast",
 		price = 50000,
 		level = 200,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"summon thundergiant"},
@@ -427,7 +427,7 @@ keywordHandler:addSpellKeyword({"summon thundergiant"},
 		spellName = "Summon Thundergiant",
 		price = 50000,
 		level = 200,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 -- RUNES SPELLS
@@ -491,7 +491,7 @@ keywordHandler:addSpellKeyword({"poison bomb rune"},
 		spellName = "Poison Bomb Rune",
 		price = 1000,
 		level = 25,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"heavy magic missile rune"},
@@ -527,7 +527,7 @@ keywordHandler:addSpellKeyword({"fireball rune"},
 		spellName = "Fireball Rune",
 		price = 1600,
 		level = 27,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"icicle rune"},
@@ -536,7 +536,7 @@ keywordHandler:addSpellKeyword({"icicle rune"},
 		spellName = "Icicle Rune",
 		price = 1700,
 		level = 28,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"stone shower rune"},
@@ -545,7 +545,7 @@ keywordHandler:addSpellKeyword({"stone shower rune"},
 		spellName = "Stone Shower Rune",
 		price = 1100,
 		level = 28,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"thunderstorm rune"},
@@ -554,7 +554,7 @@ keywordHandler:addSpellKeyword({"thunderstorm rune"},
 		spellName = "Thunderstorm Rune",
 		price = 1100,
 		level = 28,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"poison wall rune"},
@@ -572,7 +572,7 @@ keywordHandler:addSpellKeyword({"great fireball rune"},
 		spellName = "Great Fireball Rune",
 		price = 1200,
 		level = 30,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"avalanche rune"},
@@ -581,7 +581,7 @@ keywordHandler:addSpellKeyword({"avalanche rune"},
 		spellName = "Avalanche Rune",
 		price = 1200,
 		level = 30,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"explosion rune"},
@@ -599,7 +599,7 @@ keywordHandler:addSpellKeyword({"magic wall rune"},
 		spellName = "Magic Wall Rune",
 		price = 2100,
 		level = 32,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"fire wall rune"},
@@ -617,7 +617,7 @@ keywordHandler:addSpellKeyword({"energy bomb rune"},
 		spellName = "Energy Bomb Rune",
 		price = 2300,
 		level = 37,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 keywordHandler:addSpellKeyword({"energy wall rune"},
@@ -635,7 +635,7 @@ keywordHandler:addSpellKeyword({"paralyse rune"},
 		spellName = "Paralyse Rune",
 		price = 1900,
 		level = 54,
-		vocation = {VOCATION.CLIENT_ID.SORCERER}
+		vocation = VOCATION.CLIENT_ID.SORCERER
 	}
 )
 

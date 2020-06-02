@@ -22,7 +22,7 @@ keywordHandler:addSpellKeyword({"apprentice's strike"},
 		spellName = "Apprentice's Strike",
 		price = 0,
 		level = 8,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 keywordHandler:addSpellKeyword({"light"},
@@ -58,7 +58,7 @@ keywordHandler:addSpellKeyword({"food"},
 		spellName = "Food",
 		price = 300,
 		level = 14,
-		vocation = {VOCATION.CLIENT_ID.DRUID}
+		vocation = VOCATION.CLIENT_ID.DRUID
 	}
 )
 
