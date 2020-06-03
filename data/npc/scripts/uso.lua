@@ -219,28 +219,29 @@ keywordHandler:addSpellKeyword({"summonskullfrost"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "In this category I have '{Bruise Bane}', '{curebleeding}', '{woundcleansing}', '{curepoison}', \z
-		'{intensewoundcleansing}', '{Recovery}' and '{intenserecovery}'."
+		text = "In this category I have '{Bruise Bane}', '{curebleeding}', '{woundcleansing}', \z
+		'{curepoison}', '{intensewoundcleansing}', '{Recovery}' and '{intenserecovery}'."
 	}
 )
 keywordHandler:addKeyword({"attack spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "In this category I have '{whirlwindthrow}', '{Groundshaker}', '{Berserk}' and '{fierceberserk}' as well as ...', \z 
-		'{brutalstrike}', '{frontsweep}', '{inflictwound}' and '{Annihilation}'."
+		text = "In this category I have '{whirlwindthrow}', '{Groundshaker}', '{Berserk}' and '{fierceberserk}' \z
+		as well as ...', '{brutalstrike}', '{frontsweep}', '{inflictwound}' and '{Annihilation}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "In this category I have '{Light}', '{findperson}', '{magicrope}', '{Levitate}', '{Haste}', '{Charge}' and '{greatlight}'."
+		text = "In this category I have '{Light}', '{findperson}', '{magicrope}', '{Levitate}', '{Haste}', \z
+		'{Charge}' and '{greatlight}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "I can teach you {healing spells}, {attack spells} and {support spells}. What kind of spell do you wish to learn? You \z
-		can also tell me for which level you would like to learn a spell, if you prefer that."
+		text = "I can teach you {healing spells}, {attack spells} and {support spells}. What kind of spell do \z
+		you wish to learn? You can also tell me for which level you would like to learn a spell, if you prefer that."
 	}
 )
 

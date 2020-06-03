@@ -18,7 +18,7 @@ end
 -- NPC shop
 local shopModule = ShopModule:new()
 npcHandler:addModule(shopModule)
-
+-- buyable
 shopModule:addBuyableItem({"amphora"}, 2023, 4, 1)
 shopModule:addBuyableItem({"armor rack kit"}, 6114, 90, 1)
 shopModule:addBuyableItem({"barrel kit"}, 3919, 12, 1)
@@ -117,7 +117,8 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'first rod') or msgcontains(msg, 'first wand') then
 		if player:isMage() then
 			if player:getStorageValue(Storage.firstMageWeapon) == -1 then
-				npcHandler:say('So you ask me for a {' .. ItemType(itemId):getName() .. '} to begin your adventure?', cid)
+				npcHandler:say('So you ask me for a {' .. ItemType(itemId):getName() .. '} to begin your \z
+				adventure?', cid)
 				npcHandler.topic[cid] = 1
 			else
 				npcHandler:say('What? I have already gave you one {' .. ItemType(itemId):getName() .. '}!', cid)

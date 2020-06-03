@@ -15,8 +15,9 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local voices = { {text = 'Gather around me, young knights! I\'m going to teach you some spells!'} }
-npcHandler:addModule(VoiceModule:new(voices))
+local voices = { 
+	{text = 'Gather around me, young knights! I\'m going to teach you some spells!'} 
+}
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -37,23 +38,28 @@ local function creatureSayCallback(cid, type, msg)
 		elseif addonProgress == 1 then
 			npcHandler:say('Your current task is to bring me 100 perfect behemoth fangs, |PLAYERNAME|.', cid)
 		elseif addonProgress == 2 then
-			npcHandler:say('Your current task is to retrieve the helmet of Ramsay the Reckless from Banuta, |PLAYERNAME|.', cid)
+			npcHandler:say('Your current task is to retrieve the helmet of Ramsay the Reckless from Banuta, \z
+			|PLAYERNAME|.', cid)
 		elseif addonProgress == 3 then
 			npcHandler:say('Your current task is to obtain a flask of warrior\'s sweat, |PLAYERNAME|.', cid)
 		elseif addonProgress == 4 then
 			npcHandler:say('Your current task is to bring me royal steel, |PLAYERNAME|.', cid)
 		elseif addonProgress == 5 then
-			npcHandler:say('Please talk to Sam and tell him I sent you. I\'m sure he will be glad to refine your helmet, |PLAYERNAME|.', cid)
+			npcHandler:say('Please talk to Sam and tell him I sent you. I\'m sure he will be glad to refine your \z
+			helmet, |PLAYERNAME|.', cid)
 		else
-			npcHandler:say('You\'ve already completed the task and can consider yourself a mighty warrior, |PLAYERNAME|.', cid)
+			npcHandler:say('You\'ve already completed the task and can consider yourself a mighty warrior, \z
+			|PLAYERNAME|.', cid)
 		end
 
 	elseif msgcontains(msg, 'behemoth fang') then
 		if addonProgress == 1 then
-			npcHandler:say('Have you really managed to fulfil the task and brought me 100 perfect behemoth fangs?', cid)
+			npcHandler:say('Have you really managed to fulfil the task and brought me 100 perfect behemoth \z
+			fangs?', cid)
 			npcHandler.topic[cid] = 3
 		else
-			npcHandler:say('You\'re not serious asking that, are you? They come from behemoths, of course. Unless there are behemoth rabbits. Duh.', cid)
+			npcHandler:say('You\'re not serious asking that, are you? They come from behemoths, of course. \z
+			Unless there are behemoth rabbits. Duh.', cid)
 		end
 
 	elseif msgcontains(msg, 'ramsay') then
@@ -69,7 +75,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say('Were you able to get hold of a flask with pure warrior\'s sweat?', cid)
 			npcHandler.topic[cid] = 5
 		else
-			npcHandler:say('Warrior\'s sweat can be magically extracted from headgear worn by a true warrior, but only in small amounts. Djinns are said to be good at magical extractions.', cid)
+			npcHandler:say('Warrior\'s sweat can be magically extracted from headgear worn by a true warrior, \z
+			but only in small amounts. Djinns are said to be good at magical extractions.', cid)
 		end
 
 	elseif msgcontains(msg, 'royal steel') then
@@ -83,15 +90,20 @@ local function creatureSayCallback(cid, type, msg)
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, 'yes') then
 			npcHandler:say({
-				'Well then, listen closely. First, you will have to prove that you are a fierce and restless warrior by bringing me 100 perfect behemoth fangs. ...',
-				'Secondly, please retrieve a helmet for us which has been lost a long time ago. The famous Ramsay the Reckless wore it when exploring an ape settlement. ...',
-				'Third, we need a new flask of warrior\'s sweat. We\'ve run out of it recently, but we need a small amount for the show battles in our arena. ...',
-				'Lastly, I will have our smith refine your helmet if you bring me royal steel, an especially noble metal. ...',
+				'Well then, listen closely. First, you will have to prove that you are a fierce and restless \z
+				warrior by bringing me 100 perfect behemoth fangs. ...',
+				'Secondly, please retrieve a helmet for us which has been lost a long time ago. \z
+				The famous Ramsay the Reckless wore it when exploring an ape settlement. ...',
+				'Third, we need a new flask of warrior\'s sweat. We\'ve run out of it recently, \z
+				but we need a small amount for the show battles in our arena. ...',
+				'Lastly, I will have our smith refine your helmet if you bring me royal steel, \z
+				an especially noble metal. ...',
 				'Did you understand everything I told you and are willing to handle this task?'
 			}, cid)
 			npcHandler.topic[cid] = 2
 		elseif msgcontains(msg, 'no') then
-			npcHandler:say('Bah. Then you will have to wait for the day these helmets are sold in shops, but that will not happen before hell freezes over.', cid)
+			npcHandler:say('Bah. Then you will have to wait for the day these helmets are sold in shops, \z
+			but that will not happen before hell freezes over.', cid)
 			npcHandler.topic[cid] = 0
 		end
 
@@ -117,7 +129,8 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonHelmet, 2)
 			player:setStorageValue(Storage.OutfitQuest.Knight.MissionHelmet, 2)
 			player:setStorageValue(Storage.OutfitQuest.Knight.RamsaysHelmetDoor, 1)
-			npcHandler:say('I\'m deeply impressed, brave Knight |PLAYERNAME|. I expected nothing less from you. Now, please retrieve Ramsay\'s helmet.', cid)
+			npcHandler:say('I\'m deeply impressed, brave Knight |PLAYERNAME|. I expected nothing less from you. \z
+			Now, please retrieve Ramsay\'s helmet.', cid)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('There is no need to rush anyway.', cid)
 		end
@@ -132,7 +145,8 @@ local function creatureSayCallback(cid, type, msg)
 
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonHelmet, 3)
 			player:setStorageValue(Storage.OutfitQuest.Knight.MissionHelmet, 3)
-			npcHandler:say('Good work, brave Knight |PLAYERNAME|! Even though it is damaged, it has a lot of sentimental value. Now, please bring me warrior\'s sweat.', cid)
+			npcHandler:say('Good work, brave Knight |PLAYERNAME|! Even though it is damaged, \z
+			it has a lot of sentimental value. Now, please bring me warrior\'s sweat.', cid)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('There is no need to rush anyway.', cid)
 		end
@@ -147,7 +161,8 @@ local function creatureSayCallback(cid, type, msg)
 
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonHelmet, 4)
 			player:setStorageValue(Storage.OutfitQuest.Knight.MissionHelmet, 4)
-			npcHandler:say('Now that is a pleasant surprise, brave Knight |PLAYERNAME|! There is only one task left now: Obtain royal steel to have your helmet refined.', cid)
+			npcHandler:say('Now that is a pleasant surprise, brave Knight |PLAYERNAME|! There is only one task \z
+			left now: Obtain royal steel to have your helmet refined.', cid)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('There is no need to rush anyway.', cid)
 		end
@@ -162,7 +177,8 @@ local function creatureSayCallback(cid, type, msg)
 
 			player:setStorageValue(Storage.OutfitQuest.Knight.AddonHelmet, 5)
 			player:setStorageValue(Storage.OutfitQuest.Knight.MissionHelmet, 5)
-			npcHandler:say('You truly deserve to wear an adorned helmet, brave Knight |PLAYERNAME|. Please talk to Sam and tell him I sent you. I\'m sure he will be glad to refine your helmet.', cid)
+			npcHandler:say('You truly deserve to wear an adorned helmet, brave Knight |PLAYERNAME|. Please talk to \z
+			Sam and tell him I sent you. I\'m sure he will be glad to refine your helmet.', cid)
 		elseif msgcontains(msg, 'no') then
 			npcHandler:say('There is no need to rush anyway.', cid)
 		end
@@ -384,5 +400,6 @@ npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. What do you want?
 npcHandler:setMessage(MESSAGE_FAREWELL, "Be careful on your journeys.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Be careful on your journeys.")
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

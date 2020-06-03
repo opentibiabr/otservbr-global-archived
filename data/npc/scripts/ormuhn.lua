@@ -226,33 +226,79 @@ keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 keywordHandler:addKeyword({"attack spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "In this category I have '{whirlwindthrow}', '{Groundshaker}', '{Berserk}' and '{fierceberserk}' as well as ...', \z 
-		'{brutalstrike}', '{frontsweep}', '{inflictwound}' and '{Annihilation}'."
+		text = "In this category I have '{whirlwindthrow}', '{Groundshaker}', '{Berserk}' and '{fierceberserk}' \z
+		as well as ...', '{brutalstrike}', '{frontsweep}', '{inflictwound}' and '{Annihilation}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "In this category I have '{Light}', '{findperson}', '{magicrope}', '{Levitate}', '{Haste}', '{Charge}' and '{greatlight}'."
+		text = "In this category I have '{Light}', '{findperson}', '{magicrope}', '{Levitate}', '{Haste}', \z
+		'{Charge}' and '{greatlight}'."
 	}
 )
 keywordHandler:addKeyword({"spells"}, StdModule.say, 
 	{
 		npcHandler = npcHandler, 
-		text = "I can teach you {healing spells}, {attack spells} and {support spells}. What kind of spell do you wish to learn? You \z
-		can also tell me for which level you would like to learn a spell, if you prefer that."
+		text = "I can teach you {healing spells}, {attack spells} and {support spells}. What kind of spell do you \z
+		wish to learn? You can also tell me for which level you would like to learn a spell, if you prefer that."
 	}
 )
 
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the arena master. I supervise all challenges that take place in this arena and train true fighters."})
-keywordHandler:addKeyword({'arena'}, StdModule.say, {npcHandler = npcHandler, text = "If you wish to test your mortal Akh you are at the right place."})
-keywordHandler:addKeyword({'akh'}, StdModule.say, {npcHandler = npcHandler, text = "As far as I know this is what you would call your body. Ask a priest for further information."})
-keywordHandler:addKeyword({'temple'}, StdModule.say, {npcHandler = npcHandler, text = "The temple takes care of your Uthun. In this arena we challenge your Akh."})
-keywordHandler:addKeyword({'pharaoh'}, StdModule.say, {npcHandler = npcHandler, text = "The pharaoh, our mighty leader, is an unliving god."})
-keywordHandler:addKeyword({'scarab'}, StdModule.say, {npcHandler = npcHandler, text = "Scarabs might be sacred, but they are also a challenge. If you are able to overcome one of them, its spirit will forgive you. The everlasting sand will grant him rebirth anyway."})
-keywordHandler:addKeyword({'darama'}, StdModule.say, {npcHandler = npcHandler, text = "This continent will be the first to prosper under the guidance of our pharaoh."})
-keywordHandler:addKeyword({'undeath'}, StdModule.say, {npcHandler = npcHandler, text = "We are the chosen ones."})
-keywordHandler:addKeyword({'chosen ones'}, StdModule.say, {npcHandler = npcHandler, text = "I am one of the chosen. To become like me you have to serve the pharaoh and his temple faithfully."})
+keywordHandler:addKeyword({'job'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I am the arena master. I supervise all challenges that take place in this arena and train \z
+		true fighters."
+	}
+)
+keywordHandler:addKeyword({'arena'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "If you wish to test your mortal Akh you are at the right place."
+	}
+)
+keywordHandler:addKeyword({'akh'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "As far as I know this is what you would call your body. Ask a priest for further information."
+keywordHandler:addKeyword({'temple'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The temple takes care of your Uthun. In this arena we challenge your Akh."
+	}
+)
+keywordHandler:addKeyword({'pharaoh'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The pharaoh, our mighty leader, is an unliving god."
+	}
+)
+keywordHandler:addKeyword({'scarab'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Scarabs might be sacred, but they are also a challenge. If you are able to overcome one of them, \z
+		its spirit will forgive you. The everlasting sand will grant him rebirth anyway."
+	}
+)
+keywordHandler:addKeyword({'darama'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "This continent will be the first to prosper under the guidance of our pharaoh."
+	}
+)
+keywordHandler:addKeyword({'undeath'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "We are the chosen ones."
+	}
+)
+keywordHandler:addKeyword({'chosen ones'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I am one of the chosen. To become like me you have to serve the pharaoh and his temple faithfully."
+	}
+)
 
 npcHandler:setMessage(MESSAGE_GREET, "Greetings, |PLAYERNAME|. What do you want?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "May enlightenment be your path, |PLAYERNAME|.")
