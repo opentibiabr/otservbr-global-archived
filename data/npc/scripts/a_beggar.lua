@@ -1,7 +1,6 @@
-	local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-
 
 function onCreatureAppear(cid)
 	npcHandler:onCreatureAppear(cid)
@@ -21,7 +20,6 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
-
 	if(msgcontains(msg, "want")) then
 		if(getPlayerStorageValue(cid, 10050) == 1) then
 			npcHandler:say("The guys from the magistrate sent you here, didn't they?", cid)
@@ -29,10 +27,12 @@ function creatureSayCallback(cid, type, msg)
 		end
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 1) then
-			selfSay("Thought so. You'll have to talk to the king though. The beggar king that is. The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ", cid)
+			selfSay("Thought so. You'll have to talk to the king though. The beggar king that is. \z
+			The king does not grant an audience to just everyone. You know how those kings are, don't you? ... ", cid)
 			selfSay("However, to get an audience with the king, you'll have to help his subjects a bit. ... ", cid)
 			selfSay("His subjects that would be us, the poor, you know? ... ", cid)
-			selfSay("So why don't you show your dedication to the poor? Go and help Chavis at the poor house. He's collecting food for people like us. ... ", cid)
+			selfSay("So why don't you show your dedication to the poor? Go and help Chavis at the poor house. \z
+			He's collecting food for people like us. ... ", cid)
 			selfSay("If you brought enough of the stuff you'll see that the king will grant you entrance in his {palace}.", cid)
 			npcHandler.topic[cid] = 0
 			setPlayerStorageValue(cid, 20051, 1) -- quest log mission 1 completada

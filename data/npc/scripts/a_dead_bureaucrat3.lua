@@ -23,7 +23,9 @@ local voices = {
 npcHandler:addModule(VoiceModule:new(voices))
 
 local function greetCallback(cid)
-	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. (Player(cid):getSex() == PLAYERSEX_FEMALE and "beautiful lady" or "handsome gentleman") .. ", welcome to the atrium of Pumin's Domain. We require some information from you before we can let you pass. Where do you want to go?")
+	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. (Player(cid):getSex() == PLAYERSEX_FEMALE and "beautiful \z
+	lady" or "handsome gentleman") .. ", welcome to the atrium of Pumin's Domain. We require some information from \z
+	you before we can let you pass. Where do you want to go?")
 	return true
 end
 
@@ -53,7 +55,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "145") then
 		if npcHandler.topic[cid] == 3 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 3)
-			npcHandler:say("That's right, you can get Form 145 from me. However, I need Form 411 first. Come back when you have it.", cid)
+			npcHandler:say("That's right, you can get Form 145 from me. However, I need Form 411 first. Come back when \z
+			you have it.", cid)
 			npcHandler.topic[cid] = 0
 		elseif player:getStorageValue(Storage.PitsOfInferno.ThronePumin) == 6 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 7)
@@ -62,6 +65,19 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	return true
 end
+
+keywordHandler:addKeyword({'job'}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I'm a bureaucrat who does not even find the time to eat. Just look how bony I am! *SIGH*"
+	}
+)
+keywordHandler:addKeyword({'name'}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Sorry, I seem to have forgotten it!"
+    }
+)
 
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye and don't forget me!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye and don't forget me!")

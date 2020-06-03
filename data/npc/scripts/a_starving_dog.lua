@@ -15,6 +15,11 @@ function onThink()
 	npcHandler:onThink()
 end
 
+local voices = {
+	{ text = 'Sniff.' },
+	{ text = 'Munch.' }
+}
+
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
@@ -30,7 +35,7 @@ local function creatureSayCallback(cid, type, msg)
 			if player:removeItem(2666, 1) then
 				npcHandler:say("<munch>", cid)
 				player:setStorageValue(Storage.TheIceIslands.Questline, 2)
-				player:setStorageValue(Storage.TheIceIslands.Mission01, 2) -- Questlog The Ice Islands Quest, Befriending the Musher
+				player:setStorageValue(Storage.TheIceIslands.Mission01, 2) -- Questlog The Ice Islands Quest
 				npcHandler.topic[cid] = 0
 			end
 		end
@@ -38,5 +43,9 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Wuff")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Sniff")
+
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

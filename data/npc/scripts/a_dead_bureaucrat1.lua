@@ -20,8 +20,6 @@ local voices = {
 	{ text = 'Hail Pumin. Yes, hail.' }
 }
 
-npcHandler:addModule(VoiceModule:new(voices))
-
 local config = {
 	[1] = "wand",
 	[2] = "rod",
@@ -30,7 +28,9 @@ local config = {
 }
 
 local function greetCallback(cid)
-	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. (Player(cid):getSex() == PLAYERSEX_FEMALE and "beautiful lady" or "handsome gentleman") .. ", welcome to the atrium of Pumin's Domain. We require some information from you before we can let you pass. Where do you want to go?")
+	npcHandler:setMessage(MESSAGE_GREET, "Hello " .. (Player(cid):getSex() == PLAYERSEX_FEMALE and "beautiful \z
+	lady" or "handsome gentleman") .. ", welcome to the atrium of Pumin's Domain. We require some information from \z
+	you before we can let you pass. Where do you want to go?")
 	return true
 end
 
@@ -44,11 +44,13 @@ local function creatureSayCallback(cid, type, msg)
 
 	if msgcontains(msg, "pumin") then
 		if npcHandler.topic[cid] == 0 and player:getStorageValue(Storage.PitsOfInferno.ThronePumin) < 1 then
-			npcHandler:say("Sure, where else. Everyone likes to meet my master, he is a great demon, isn't he? Your name is ...?", cid)
+			npcHandler:say("Sure, where else. Everyone likes to meet my master, he is a great demon, isn't he? Your \z
+			name is ...?", cid)
 			npcHandler.topic[cid] = 1
 		elseif npcHandler.topic[cid] == 3 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 1)
-			npcHandler:say("How very interesting. I need to tell that to my master immediately. Please go to my colleagues and ask for Form 356. You will need it in order to proceed.", cid)
+			npcHandler:say("How very interesting. I need to tell that to my master immediately. Please go to my colleagues \z
+			and ask for Form 356. You will need it in order to proceed.", cid)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, player:getName()) then
@@ -72,7 +74,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "no") then
 		if npcHandler.topic[cid] == 4 then
 			player:setStorageValue(Storage.PitsOfInferno.ThronePumin, 4)
-			npcHandler:say("Oh, what a pity. Go see one of my colleagues. I give you the permission to get Form 287. Bye!", cid)
+			npcHandler:say("Oh, what a pity. Go see one of my colleagues. I give you the permission to \z
+			get Form 287. Bye!", cid)
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 5 then
@@ -88,9 +91,23 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+keywordHandler:addKeyword({'job'}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "I'm a bureaucrat who does not even find the time to eat. Just look how bony I am! *SIGH*"
+	}
+)
+keywordHandler:addKeyword({'name'}, StdModule.say,
+	{
+		npcHandler = npcHandler,
+		text = "Sorry, I seem to have forgotten it!"
+    }
+)
+
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye and don't forget me!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye and don't forget me!")
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

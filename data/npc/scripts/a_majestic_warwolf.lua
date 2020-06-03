@@ -14,6 +14,9 @@ end
 function onThink()
 	npcHandler:onThink()
 end
+local voices = {
+	{ text = 'YOOOOUHHOOOUU' }
+}
 
 local function greetCallback(cid)
 	if Player(cid):getStorageValue(Storage.OutfitQuest.DruidHatAddon) < 9 then
@@ -44,9 +47,11 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
-npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:setMessage(MESSAGE_GREET, "Interesting. A human who can speak the language of wolves.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "YOOOOUHHOOOUU!")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "YOOOOUHHOOOUU!")
+
+npcHandler:addModule(VoiceModule:new(voices))
+npcHandler:setCallback(CALLBACK_GREET, greetCallback)
+npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

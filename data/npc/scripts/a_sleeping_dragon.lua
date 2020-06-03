@@ -1,4 +1,4 @@
-	local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
@@ -33,22 +33,34 @@ local function creatureSayCallback(cid, type, msg)
 		if(msg == "SOLOSARASATIQUARIUM") and player:getStorageValue(Storage.WrathoftheEmperor.InterdimensionalPotion) == 1 then
 			npcHandler:say({
 				"Dragon dreams are golden. ...",
-				"A broad darkness surrounds you as if a heavy curtain is closing before your eyes. After what seems like minutes of floating through emptiness, you get the feeling as if a hole opens in the dark before you. ...",
-				"The hole grows larger, you cannot close your eyes. An unimaginable black. Deeper and darker than any nothingness you could possibly imagine drags you into it. ...",
-				"You feel as if you cannot breathe anymore. The very second you let loose of your consciousness, you sense all heaviness around you lifted. ...",
-				"You dive into an ocean of emerald light. Feeling like born anew the colour around you is almost overwhelming. Countless objects of all shapes and sizes are dashing past you. Racing against each other, millions are clashing in the distance. ..",
-				"The loudness of the gargantuan spectacle around you bursts your hearing, yet you absorb all the sounds around you. ...",
-				"As several large obstacles move aside directly in front of you, an intense bright centre leaps into your view. Though you cannot perceive how fast you are, your pace seems too slow. ...",
+				"A broad darkness surrounds you as if a heavy curtain is closing before your eyes. After what seems like \z
+				minutes of floating through emptiness, you get the feeling as if a hole opens in the dark before you. ...",
+				"The hole grows larger, you cannot close your eyes. An unimaginable black. Deeper and darker than any \z
+				nothingness you could possibly imagine drags you into it. ...",
+				"You feel as if you cannot breathe anymore. The very second you let loose of your consciousness, \z
+				you sense all heaviness around you lifted. ...",
+				"You dive into an ocean of emerald light. Feeling like born anew the colour around you is almost \z
+				overwhelming. Countless objects of all shapes and sizes are dashing past you. Racing against each other, \z
+				millions are clashing in the distance. ..",
+				"The loudness of the gargantuan spectacle around you bursts your hearing, yet you absorb all \z
+				the sounds around you. ...",
+				"As several large obstacles move aside directly in front of you, an intense bright centre leaps into \z
+				your view. Though you cannot perceive how fast you are, your pace seems too slow. ...",
 				"Ever decelerating, you ultimately approach a middle in this chaos of tones of green. ...",
-				"As you come closer to it, yellowish shades of orange embrace you, softer shapes emerge and you almost forget the mayhem before. In warm comfort you see what lies in the heart of it all. ...",
-				"A majestic dragon in his sleep is surrounded by what seems the warmth and energy of a thousand suns. The tranquillity of its sight makes you smile gently. ...",
-				"You feel a perfect mixture of joy, compassion and sudden peacefulness. Bright xanthous impressions of topaz, orange and white welcome you at the final halt of your journey. ...",
+				"As you come closer to it, yellowish shades of orange embrace you, softer shapes emerge and you almost \z
+				forget the mayhem before. In warm comfort you see what lies in the heart of it all. ...",
+				"A majestic dragon in his sleep is surrounded by what seems the warmth and energy of a thousand suns. \z
+				The tranquillity of its sight makes you smile gently. ...",
+				"You feel a perfect mixture of joy, compassion and sudden peacefulness. Bright xanthous impressions \z
+				of topaz, orange and white welcome you at the final halt of your journey. ...",
 				"Dragon dreams are golden. ...",
-				"You find yourself inside the dragon's dream. You can {look} around or {go} into a specific direction. You can also {take} or {use} an object. Enter {help} to display this information at any time."
+				"You find yourself inside the dragon's dream. You can {look} around or {go} into a specific direction. \z
+				You can also {take} or {use} an object. Enter {help} to display this information at any time."
 			}, cid)
 			npcHandler.topic[cid] = 1
 		elseif(msg:lower() == "help" and npcHandler.topic[cid] > 0 and npcHandler.topic[cid] < 34) then
-			npcHandler:say("You find yourself inside the dragon's dream. You can {look} around or {go} into a specific direction. You can also {take} or {use} an object. Enter {help} to display this information at any time.", cid)
+			npcHandler:say("You find yourself inside the dragon's dream. You can {look} around or {go} into a specific \z
+			direction. You can also {take} or {use} an object. Enter {help} to display this information at any time.", cid)
 		elseif(msg:lower() == "west" and npcHandler.topic[cid] == 1) then
 			npcHandler:say("Advancing to the west, you recognise an increase of onyx on the ground.", cid)
 			npcHandler.topic[cid] = 2
@@ -59,16 +71,20 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You return to the plateau in the east.", cid)
 			npcHandler.topic[cid] = 4
 		elseif(msg:lower() == "south" and npcHandler.topic[cid] == 4) then
-			npcHandler:say("You wander to the south, passing large obelisks of emerald to your left and sprawling trees of topaz to your right. ", cid)
+			npcHandler:say("You wander to the south, passing large obelisks of emerald to your left and sprawling trees of \z
+			topaz to your right. ", cid)
 			npcHandler.topic[cid] = 5
 		elseif(msg:lower() == "take stand" and npcHandler.topic[cid] == 5) then
-			npcHandler:say("As you rip the solid stand out of its socket and take it with you, the large gate opens with a deafening rumble. ", cid)
+			npcHandler:say("As you rip the solid stand out of its socket and take it with you, the large gate opens with a \z
+			deafening rumble. ", cid)
 			npcHandler.topic[cid] = 6
 		elseif(msg:lower() == "east" and npcHandler.topic[cid] == 6) then
-			npcHandler:say("You gasp at the size of the large open gate as you walk through to head further to the east.", cid)
+			npcHandler:say("You gasp at the size of the large open gate as you walk through to head further to the \z
+			east.", cid)
 			npcHandler.topic[cid] = 7
 		elseif(msg:lower() == "take model" and npcHandler.topic[cid] == 7) then
-			npcHandler:say("You reach for a small solitary arrangement of combined small houses and put it in your pocket.", cid)
+			npcHandler:say("You reach for a small solitary arrangement of combined small houses and put it in \z
+			your pocket.", cid)
 			npcHandler.topic[cid] = 8
 		elseif(msg:lower() == "take emeralds" and npcHandler.topic[cid] == 8) then
 			npcHandler:say("You take an emerald from the pile. ", cid)
@@ -80,7 +96,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You head back north to the plateau. ", cid)
 			npcHandler.topic[cid] = 11
 		elseif(msg:lower() == "east" and npcHandler.topic[cid] == 11) then
-			npcHandler:say("You travel east across several large emerald bluffs and edges. All sorts of gems are scattered alongside your path. ", cid)
+			npcHandler:say("You travel east across several large emerald bluffs and edges. All sorts of gems are \z
+			scattered alongside your path. ", cid)
 			npcHandler.topic[cid] = 12
 		elseif(msg:lower() == "take rubies" and npcHandler.topic[cid] == 12) then
 			npcHandler:say("You take a rather large ruby out of a pile before you. ", cid)
@@ -91,7 +108,8 @@ local function creatureSayCallback(cid, type, msg)
 		elseif(msg:lower() == "use attachment" and npcHandler.topic[cid] == 14) then
 			npcHandler:say({
 				"Avoiding the bright light, you carefully put the attachment on top of the strange socket. ...",
-				"As your eyes adjust to the sudden reduction of brightness, you see the giant wings of the gate before you move to the side. You can also make out something shiny on the ground."
+				"As your eyes adjust to the sudden reduction of brightness, you see the giant wings of the gate before \z
+				you move to the side. You can also make out something shiny on the ground."
 			}, cid)
 			npcHandler.topic[cid] = 15
 		elseif(msg:lower() == "take mirror" and npcHandler.topic[cid] == 15) then
@@ -99,14 +117,18 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 16
 		elseif(msg:lower() == "north" and npcHandler.topic[cid] == 16) then
 			npcHandler:say({
-				"Your path to the north is open. You pass the gigantic gate wings to your left and right as you advance. After about an hour of travel you hear a slight rustling in the distance. You head further into that direction. ...",
+				"Your path to the north is open. You pass the gigantic gate wings to your left and right as you advance. \z
+				After about an hour of travel you hear a slight rustling in the distance. \z
+				You head further into that direction. ...",
 				"The rustling gets louder until you come to a small dune. Behind it you find the source of the noise."
 			}, cid)
 			npcHandler.topic[cid] = 17
 		elseif(msg:lower() == "use model" and npcHandler.topic[cid] == 17) then
 			npcHandler:say({
-				"You lunge out and throw the model far into the water. As nothing happens, you turn your back to the ocean. ...",
-				"The very moment you walk down the dune to head back south, rays of light burst over your head in a shock wave that makes you tumble down the rest of the hill. ...",
+				"You lunge out and throw the model far into the water. As nothing happens, you turn \z
+				your back to the ocean. ...",
+				"The very moment you walk down the dune to head back south, rays of light burst over \z
+				your head in a shock wave that makes you tumble down the rest of the hill. ...",
 				"You can also hear a deep loud scraping for several minutes somewhere far in the west."
 			}, cid)
 			npcHandler.topic[cid] = 18
@@ -129,7 +151,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You leave the massive open gate behind you and go to the west. ", cid)
 			npcHandler.topic[cid] = 24
 		elseif(msg:lower() == "bastesh" and npcHandler.topic[cid] == 24) then
-			npcHandler:say("This huge statue of Bastesh is made from onyx, and thrones on a large plateau which can be reached by a sprawling stairway. She holds a large {sapphire} in her hands. ", cid)
+			npcHandler:say("This huge statue of Bastesh is made from onyx, and thrones on a large plateau which can \z
+			be reached by a sprawling stairway. She holds a large {sapphire} in her hands. ", cid)
 			npcHandler.topic[cid] = 25
 		elseif(msg:lower() == "take sapphire" and npcHandler.topic[cid] == 25) then
 			npcHandler:say("You carefully remove the sapphire from Bastesh's grasp. ", cid)
@@ -147,36 +170,50 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You put the stand into a small recess you find near the middle of the plateau. ", cid)
 			npcHandler.topic[cid] = 30
 		elseif(msg:lower() == "use ruby" and npcHandler.topic[cid] == 30) then
-			npcHandler:say("As the ruby slips into the notch, the strong red of the stone intensifies a thousandfold. You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the plateau with astounding precision. ", cid)
+			npcHandler:say("As the ruby slips into the notch, the strong red of the stone intensifies a thousandfold. \z
+			You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the \z
+			plateau with astounding precision. ", cid)
 			npcHandler.topic[cid] = 31
 		elseif(msg:lower() == "use sapphire" and npcHandler.topic[cid] == 31) then
-			npcHandler:say("As the sapphire slips into the notch, the deep blue of the stone intensifies a thousandfold. You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the plateau with astounding precision. ", cid)
+			npcHandler:say("As the sapphire slips into the notch, the deep blue of the stone intensifies a thousandfold. \z
+			You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of \z
+			the plateau with astounding precision. ", cid)
 			npcHandler.topic[cid] = 32
 		elseif(msg:lower() == "use emerald" and npcHandler.topic[cid] == 32) then
-			npcHandler:say("As the emerald slips into the notch, the vibrant green of the stone intensifies a thousandfold. You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the plateau with astounding precision. ", cid)
+			npcHandler:say("As the emerald slips into the notch, the vibrant green of the stone intensifies a thousandfold. \z
+			You fear to hurt your eyes and turn away immediately. The ray seems to be directed to the centre of the \z
+			plateau with astounding precision. ", cid)
 			npcHandler.topic[cid] = 33
 		elseif(msg:lower() == "use mirror" and npcHandler.topic[cid] == 33) then
 			npcHandler:say({
 				"With your eyes covered and avoiding direct sight of the rays, you put the mirror into the stand. ...",
-				"Instinctively you run to a larger emerald bluff near the raise to find cover. Mere seconds after you claimed the sturdy shelter, a deep dark humming starts to swirl through the air. ...",
-				"Seconds pass as the hum gets louder. The noise is maddening, drowning all other sounds around you. As you cover your ears in pain, the humming explodes into a deafening growl. ...",
+				"Instinctively you run to a larger emerald bluff near the raise to find cover. Mere seconds after you \z
+				claimed the sturdy shelter, a deep dark humming starts to swirl through the air. ...",
+				"Seconds pass as the hum gets louder. The noise is maddening, drowning all other sounds around you. \z
+				As you cover your ears in pain, the humming explodes into a deafening growl. ...",
 				"You raise your head above the edge of the emerald to catch a glimpse of what's happening. ...",
-				"The hand seems to have grown into a fist. In the distance you can now see a blurry scheme of a creature too large for your eyes to get a sharper view of its head. ...",
-				"Blending the rays, the mirror directs pure white light directly towards the part where you assume the face of the creature. ...",
-				"The growl transforms into a scream, everything around you seems to compress. As you press yourself tightly against the bluff, everything falls silent and in a split second, the dark being dissolves into bursts of blackness. You wake."
+				"The hand seems to have grown into a fist. In the distance you can now see a blurry scheme of a creature \z
+				too large for your eyes to get a sharper view of its head. ...",
+				"Blending the rays, the mirror directs pure white light directly towards the part where you assume \z
+				the face of the creature. ...",
+				"The growl transforms into a scream, everything around you seems to compress. As you press yourself \z
+				tightly against the bluff, everything falls silent and in a split second, the dark being dissolves \z
+				into bursts of blackness. You wake."
 			}, cid)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 28)
-			player:setStorageValue(Storage.WrathoftheEmperor.Mission09, 2) --Questlog, Wrath of the Emperor "Mission 09: The Sleeping Dragon"
+			player:setStorageValue(Storage.WrathoftheEmperor.Mission09, 2) --Questlog, "Mission 09: The Sleeping Dragon"
 			npcHandler.topic[cid] = 0
 	end
 	elseif player:getStorageValue(Storage.WrathoftheEmperor.Questline) == 28 then
 		if(msgcontains(msg, "wayfarer")) then
-			npcHandler:say("I call you the wayfarer. You travelled through my dreams. You ultimately freed my mind. My mind accepted you and so will I.", cid)
+			npcHandler:say("I call you the wayfarer. You travelled through my dreams. You ultimately freed my mind. \z
+			My mind accepted you and so will I.", cid)
 			npcHandler.topic[cid] = 40
 		elseif(msgcontains(msg, "mission") and npcHandler.topic[cid] == 40) then
 			npcHandler:say({
 				"Aaaah... free at last. Hmmm. ...",
-				"I assume you need to get through the gate to reach the evildoer. I can help you if you trust me, wayfarer. I will share a part of my mind with you which should enable you to step through the gate. ...",
+				"I assume you need to get through the gate to reach the evildoer. I can help you if you trust me, \z
+				wayfarer. I will share a part of my mind with you which should enable you to step through the gate. ...",
 				"This procedure may be exhausting. Are you prepared to receive my key?"
 			}, cid)
 			npcHandler.topic[cid] = 41
@@ -187,10 +224,12 @@ local function creatureSayCallback(cid, type, msg)
 				"GAIN. ...",
 				"RISE. ...",
 				"The transfer was successful. ...",
-				"You are now prepared to enter the realm of the evildoer. I am grateful for your help, wayfarer. Should you seek my council, use this charm I cede to you. For my spirit will guide you wherever you are. May you enjoy a sheltered future, you shall prevail."
+				"You are now prepared to enter the realm of the evildoer. I am grateful for your help, wayfarer. \z
+				Should you seek my council, use this charm I cede to you. For my spirit will guide you wherever you are. \z
+				May you enjoy a sheltered future, you shall prevail."
 			}, cid)
 			player:setStorageValue(Storage.WrathoftheEmperor.Questline, 29)
-			player:setStorageValue(Storage.WrathoftheEmperor.Mission10, 1) --Questlog, Wrath of the Emperor "Mission 10: A Message of Freedom"
+			player:setStorageValue(Storage.WrathoftheEmperor.Mission10, 1) --Questlog, "Mission 10: A Message of Freedom"
 			player:addItem(11260, 1)
 			player:addAchievement('Wayfarer')
 			npcHandler.topic[cid] = 0

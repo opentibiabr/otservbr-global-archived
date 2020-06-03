@@ -15,14 +15,29 @@ function onThink()
     npcHandler:onThink()
 end
 
-local voices = { {text = 'Chchch'} }
-npcHandler:addModule(VoiceModule:new(voices))
+local voices = { 
+    {text = 'Chchch'} 
+}
 
-keywordHandler:addKeyword({'acorn'}, StdModule.say, {npcHandler = npcHandler, text = "Chh? Chhh?? <though you don't understand squirrelish, that one seems really excited>"})
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addSellableItem({"acorn"}, 11213, 10, 1)
+shopModule:addSellableItem({"walnut"}, 7909, 8, 1)
+
+keywordHandler:addKeyword({'acorn'}, StdModule.say, 
+    {
+        npcHandler = npcHandler, 
+        text = "Chh? Chhh?? <though you don't understand squirrelish, that one seems really excited>"
+    }
+)
 
 npcHandler:setMessage(MESSAGE_GREET, "Chhchh?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Chh...")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Chh...")
-npcHandler:setMessage(MESSAGE_SENDTRADE, "Chchch. Chh! <you're not sure, but it seems that squirrel wants to trade your valuable acorns for useless stones that it found and considered uneatable>")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Chchch. Chh! <you're not sure, but it seems that squirrel wants to trade \z
+your valuable acorns for useless stones that it found and considered uneatable>")
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())
