@@ -17,10 +17,13 @@ end
 
 local function greetCallback(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 1 or player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) > 3 then
+	if player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 1 or 
+	player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) > 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "Whatcha do in my place?")
-	elseif player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 2 and player:getStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer) < os.time() then
-		npcHandler:setMessage(MESSAGE_GREET, "You back. You know, you right. Brother is right. Fist not always good. Tell him that!")
+	elseif player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 2 and 
+	player:getStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer) < os.time() then
+		npcHandler:setMessage(MESSAGE_GREET, "You back. You know, you right. Brother is right. \z
+		Fist not always good. Tell him that!")
 		player:setStorageValue(Storage.OutfitQuest.BarbarianAddon, 3)
 	end
 	return true
@@ -61,13 +64,15 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "fighting spirit") then
 		if npcHandler.topic[cid] == 6 then
-			npcHandler:say("If you want to help bro, bring him fighting spirit. Magic fighting spirit. Ask Djinn.", cid)
+			npcHandler:say("If you want to help bro, bring him fighting spirit. \z
+			Magic fighting spirit. Ask Djinn.", cid)
 			player:setStorageValue(Storage.OutfitQuest.BarbarianAddon, 5)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "present") then
 		if player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 11 then
-			npcHandler:say("Bron gave me present. Ugly, but nice from him. Me want to give present too. You help me?", cid)
+			npcHandler:say("Bron gave me present. Ugly, but nice from him. Me want to give present too. \z
+			You help me?", cid)
 			npcHandler.topic[cid] = 6
 		end
 	elseif msgcontains(msg, "ore") then
@@ -91,7 +96,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 11
 		end
 	elseif msgcontains(msg, "axe") then
-		if player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 16 and player:getStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer) < os.time() then
+		if player:getStorageValue(Storage.OutfitQuest.BarbarianAddon) == 16 and 
+		player:getStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer) < os.time() then
 			npcHandler:say("Axe is done! For you. Take. Wear like me.", cid)
 			player:setStorageValue(Storage.OutfitQuest.BarbarianAddon, 17)
 			player:addOutfitAddon(147, 1)
@@ -115,8 +121,10 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:resetNpc(cid)
 		elseif npcHandler.topic[cid] == 6 then
 			npcHandler:say({
-				"Good! Me make shiny weapon. If you help me, I make one for you too. Like axe I wear. I need stuff. Listen. ...",
-				"Me need 100 iron ore. Then need crude iron. Then after that 50 behemoth fangs. And 50 lizard leather. You understand?",
+				"Good! Me make shiny weapon. If you help me, I make one for you too. Like axe I wear. \z
+				I need stuff. Listen. ...",
+				"Me need 100 iron ore. Then need crude iron. Then after that 50 behemoth fangs. And 50 \z
+				lizard leather. You understand?",
 				"Help me yes or no?"
 			}, cid)
 			npcHandler.topic[cid] = 7
@@ -144,9 +152,10 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		elseif npcHandler.topic[cid] == 11 then
 			if player:removeItem(5876, 50) then
-				npcHandler:say("Ah! All stuff there. I will start making axes now. Come later and ask me for axe.", cid)
+				npcHandler:say("Ah! All stuff there. I will start making axes now. Come later and \z
+				ask me for axe.", cid)
 				player:setStorageValue(Storage.OutfitQuest.BarbarianAddon, 16)
-				player:setStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer, os.time() + 2 * 60 * 60) -- 2 hours
+				player:setStorageValue(Storage.OutfitQuest.BarbarianAddonWaitTimer, os.time() + 2 * 60 * 60) --2 hours
 				npcHandler.topic[cid] = 0
 			end
 		end
