@@ -164,7 +164,8 @@ keywordHandler:addKeyword({'hamish'}, StdModule.say,
 )
 
 npcHandler:setMessage(MESSAGE_GREET, "Hello there, mate. Here for a {trade}? My stock's just been refilled.")
-npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. You can also have a look at food or {equipment} only.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. \z
+	You can also have a look at food or {equipment} only.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Have fun!")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

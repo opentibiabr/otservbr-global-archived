@@ -65,7 +65,9 @@ local function creatureSayCallback(cid, type, msg)
 				One wonders what for, as they can hardly read! Anyway, we need it back. \z
 				Would you go looking for it?", cid)
 			npcHandler.topic[cid] = 2
-		elseif player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) == 1 and player:getStorageValue(Storage.Quest.Dawnport.TheStolenLogBook) == 1 and player:getItemCount(23749) == 1 then
+		elseif player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) == 1
+		and player:getStorageValue(Storage.Quest.Dawnport.TheStolenLogBook) == 1
+		and player:getItemCount(23749) == 1 then
 			npcHandler:say("Ah, yes, that's it! Torn and gnawed, but, ah well, the information is still retrievable. \z
 				Thank you. Here's your reward.", cid)
 			player:removeItem(23749, 1)
