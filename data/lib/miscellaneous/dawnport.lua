@@ -53,10 +53,6 @@ function dawnportSetVocation(player, vocation)
 		-- Set player stats if have level 9 or more (health, mana, capacity)
 		dawnportSetStats(player)
 	-- If player is level 20 or more then do not pass on vocation trial tile
-	elseif player:getLevel() >= 20 then
-		player:teleportTo(fromPosition, true)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		return true
 	end
 end
 
@@ -144,25 +140,25 @@ end
 function dawnportSetStats(player)
 	local skillTable = {
 		[VOCATION.ID.SORCERER] = {
-			level = 9,
+			level = 8,
 			health = 5 * (player:getLevel() + 29),
 			mana = 5 * ((6 * player:getLevel()) - (5 * 8) + 10),
 			capacity = (10 * (player:getLevel() + 39))*100
 		},
 		[VOCATION.ID.DRUID] = {
-			level = 9,
+			level = 8,
 			health = 5 * (player:getLevel() + 29),
 			mana = 5 * ((6 * player:getLevel()) - (5 * 8) + 10),
 			capacity = (10 * (player:getLevel() + 39))*100
 		},
 		[VOCATION.ID.PALADIN] = {
-			level = 9,
+			level = 8,
 			health = 5 * ((2 * player:getLevel()) - 8 + 29),
 			mana = 5 * ((3 * player:getLevel())- (2 * 8) + 10),
 			capacity = (10 * ((2 * player:getLevel()) - 8 + 39))*100
 		},
 		[VOCATION.ID.KNIGHT] = {
-			level = 9,
+			level = 8,
 			health = 5 *((3 * player:getLevel()) - (2 * 8) + 29),
 			mana = 5 *(player:getLevel() + 10),
 			capacity = (5 *((5 * player:getLevel()) - (5 * 8) + 94))*100
@@ -178,6 +174,18 @@ function dawnportSetStats(player)
 			player:addMana(player:getMaxMana())
 			player:setCapacity(skillSetting.capacity)
 		end
+	end
+end
+
+-- Set rookgaard health/mana/capacity (after talk with Inigo npc)
+function rookgaardSetStats(player)
+	local vocation = player:getVocation()
+	if player:getLevel() <= 8 and vocation and vocation:getId() == VOCATION.ID.NONE then
+    	player:setMaxHealth(5 * (player:getLevel() + 29))
+   		player:addHealth(player:getMaxHealth())
+    	player:setMaxMana(5 * ((6 * player:getLevel()) - (5 * 8) + 10))
+    	player:addMana(player:getMaxMana())
+		player:setCapacity((10 * (player:getLevel() + 39))*100)
 	end
 end
 
