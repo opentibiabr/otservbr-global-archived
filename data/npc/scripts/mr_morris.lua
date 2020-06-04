@@ -39,7 +39,9 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) < 1 then
 			npcHandler:say(
 				{
-					"Ah, you found the amulet! Ah. Really? Poor Dormovo. Always a bit hasty. Forgot his rope, or food, or potions - it was to be expected he would meet an early end. Oh, well.",
+					"Ah, you found the amulet! Ah. Really? Poor Dormovo. \z
+						Always a bit hasty. Forgot his rope, or food, or potions - \z
+						it was to be expected he would meet an early end. Oh, well.",
 					"Here is your reward, as promised."
 				},
 			cid, false, true, 10)
@@ -60,7 +62,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "log book") then
 		if player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) < 1 then
 			npcHandler:say("The first log book from the first foray group has been stolen by trolls. \z
-				One wonders what for, as they can hardly read! Anyway, we need it back. Would you go looking for it?", cid)
+				One wonders what for, as they can hardly read! Anyway, we need it back. \z
+				Would you go looking for it?", cid)
 			npcHandler.topic[cid] = 2
 		elseif player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) == 1 and player:getStorageValue(Storage.Quest.Dawnport.TheStolenLogBook) == 1 and player:getItemCount(23749) == 1 then
 			npcHandler:say("Ah, yes, that's it! Torn and gnawed, but, ah well, the information is still retrievable. \z

@@ -68,7 +68,8 @@ local hints = {
 	[27] = "You can found a party with your friends by right-clicking on a player and selecting 'Invite to Party'. \z
 		If you are invited to a party, right-click on yourself and select 'Join Party'.",
 	[28] = "Only found parties with people you trust! You can attack people in your party without getting a {skull}. \z
-		This is helpful for training your {skills}, but can be abused to kill people without having to fear negative consequences.",
+		This is helpful for training your {skills}, \z
+		but can be abused to kill people without having to fear negative consequences.",
 	[29] = "The leader of a party has the option to distribute gathered experience among all {players} in the party. \z
 		If you are the leader, right-click on yourself and select 'Enable Shared Experience'.",
 	[30] = "If you see someone with a {skull} symbol next to their name, it means he or she has attacked \z
@@ -586,7 +587,8 @@ local function creatureSayCallback(cid, type, msg)
 			"Are you {SURE} you want to {LEAVE} Dawnport for ROOKGAARD?"
 		}, cid, false, true, 10)
 		npcHandler.topic[cid] = 2
-	elseif npcHandler.topic[cid] == 2 and msgcontains(msg, "yes") or msgcontains(msg, "sure") or msgcontains(msg, "leave") then
+	elseif npcHandler.topic[cid] == 2 and msgcontains(msg, "yes")
+	or msgcontains(msg, "sure") or msgcontains(msg, "leave") then
 		local town = Town(TOWNS_LIST.ROOKGAARD)
 		player:setTown(town)
 		player:setVocation(Vocation(VOCATION.ID.NONE))
