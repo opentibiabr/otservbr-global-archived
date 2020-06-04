@@ -1790,6 +1790,8 @@ Storage = {
 	Factions = 50723,
 	blockMovementStorage = 100000,
 	PetSummon = 60045,
+	TrainerRoom = 60046,
+	NpcSpawn = 60047,
 	isTraining = 37
 }
 
