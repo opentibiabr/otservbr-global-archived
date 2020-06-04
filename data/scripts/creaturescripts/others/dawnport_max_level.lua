@@ -11,7 +11,7 @@ function dawnportMaxLevel.onAdvance(creature, target)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"You have reached the limit level and have to choose your vocation and leave Dawnport.")
 		-- Adds the event that teleports the player to the temple in five minutes after reaching level 20
-		addEvent(teleportToDawnportTemple, 1 * 60 * 1000, player:getId())
+		addEvent(teleportToDawnportTemple, 5 * 60 * 1000, player:getId())
 	end
 	return true
 end

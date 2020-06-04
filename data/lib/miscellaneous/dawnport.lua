@@ -189,8 +189,6 @@ function teleportToDawnportTemple(uid)
 		if player:getStorageValue(Storage.Dawnport.DoorVocation) == -1 then
 			player:teleportTo(player:getTown():getTemplePosition())
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		else
-			return true
 		end
 	end
 end
