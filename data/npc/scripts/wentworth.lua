@@ -43,7 +43,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Would you like to know more about the {basic} functions of your bank account, the {advanced} functions, \z
 					or are you already bored, perhaps?"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 0
 		return true
 ---------------------------- balance ---------------------

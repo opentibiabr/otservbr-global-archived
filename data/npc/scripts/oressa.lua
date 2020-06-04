@@ -170,7 +170,7 @@ local function creatureSayCallback(cid, type, msg)
 					to leave Dawnport for the main continent through one of these {doors} behind me. ... ",
 				"Talk to me again when you are ready to choose your vocation, and I will set you on your way. "
 			},
-			cid, false, true, 200)
+			cid, false, true, 10)
 		npcHandler.topic[cid] = 1
 	-- Choosing dialog start
 	elseif msgcontains(msg, "choosing") or msgcontains(msg, "choose") and npcHandler.topic[cid] == 0 then
@@ -192,7 +192,7 @@ local function creatureSayCallback(cid, type, msg)
 						to leave Dawnport for the main continent through one of these {doors} behind me. ... ",
 					"Talk to me again when you are ready to choose your vocation, and I will set you on your way. "
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "distance") and npcHandler.topic[cid] == 2 then
@@ -209,7 +209,7 @@ local function creatureSayCallback(cid, type, msg)
 					monster's attention to them. ...",
 				"So tell me: DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 5
 	-- Paladin
 	elseif msgcontains(msg, "bow") or msgcontains(msg, "spear") and npcHandler.topic[cid] == 3 then
@@ -224,7 +224,7 @@ local function creatureSayCallback(cid, type, msg)
 				"They can also use holy magic to slay the unholy and undead in particular. ...",
 				"DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 6
 	-- Mage
 	elseif msgcontains(msg, "magic") and npcHandler.topic[cid] == 3 then
@@ -242,7 +242,7 @@ local function creatureSayCallback(cid, type, msg)
 					much more damage than paladins or knights. ...",
 				"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 7
 	-- Sorcerer
 	elseif msgcontains(msg, "death") and npcHandler.topic[cid] == 4 then
@@ -255,7 +255,7 @@ local function creatureSayCallback(cid, type, msg)
 					but they deal much more damage than paladins or knights. ...",
 				"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 8
 	-- Choosing dialog start
 	elseif msgcontains(msg, "decided") and npcHandler.topic[cid] == 0 then
@@ -271,7 +271,7 @@ local function creatureSayCallback(cid, type, msg)
 					and can target several enemies. ...",
 					"So tell me: DO YOU WISH TO BECOME A POWERFUL SORCERER? Answer with a proud {YES} if that is your choice!"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 8
 		else
 			npcHandler:say(
@@ -281,7 +281,7 @@ local function creatureSayCallback(cid, type, msg)
 					"Sorcerers cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
 					and can target several enemies. ..."
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "druid") and npcHandler.topic[cid] == 0 then
@@ -294,7 +294,7 @@ local function creatureSayCallback(cid, type, msg)
 						and can target several enemies. ... ",
 					"So tell me: DO YOU WISH TO BECOME A SAGACIOUS DRUID? Answer with a proud {YES} if that is your choice!"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 7
 		else
 			npcHandler:say(
@@ -304,7 +304,7 @@ local function creatureSayCallback(cid, type, msg)
 					"Druids cannot take much damage or carry many items, but they deal more damage than paladins or knights, \z
 					and can target several enemies. ... ",
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "paladin") and npcHandler.topic[cid] == 0 then
@@ -317,7 +317,7 @@ local function creatureSayCallback(cid, type, msg)
 					"They can also use holy magic to slay the unholy and undead in particular. ... ",
 					"So tell me: DO YOU WISH TO BECOME A DARING PALADIN? Answer with a proud {YES} if that is your choice!"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 6
 		else
 			npcHandler:say(
@@ -327,7 +327,7 @@ local function creatureSayCallback(cid, type, msg)
 					"Paladins have the longest attack range, and can deal the most damage on a single target. ... ",
 					"They can also use holy magic to slay the unholy and undead in particular. ... "
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "knight") and npcHandler.topic[cid] == 0 then
@@ -342,7 +342,7 @@ local function creatureSayCallback(cid, type, msg)
 						you should consider choosing the knight vocation.",
 					"DO YOU WISH TO BECOME A VALIANT KNIGHT? Answer with a proud {YES} if that is your choice!"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 5
 		else
 			npcHandler:say(
@@ -354,7 +354,7 @@ local function creatureSayCallback(cid, type, msg)
 					"If you want to be a tough melee fighter who can resist much longer than anyone else, \z
 						you should consider choosing the knight vocation."
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 5
@@ -418,7 +418,7 @@ local function creatureSayCallback(cid, type, msg)
 					before you leave to the north. ...",
 				"Take the ship to reach the Mainland. Farewell, friend and good luck in all you undertake!"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 0
 	end
 	return true

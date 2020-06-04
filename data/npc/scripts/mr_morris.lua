@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 					"Ah, you found the amulet! Ah. Really? Poor Dormovo. Always a bit hasty. Forgot his rope, or food, or potions - it was to be expected he would meet an early end. Oh, well.",
 					"Here is your reward, as promised."
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 1
 		elseif player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 2 and player:getItemCount(23750) == 1 then
 			npcHandler:say(
@@ -114,7 +114,7 @@ local function creatureSayCallback(cid, type, msg)
 						light grey-brown sand, and is usually surrounded by fireflies. \z
 						Use the herb to pluck off the fresh flower buds, and return to me."
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			player:setStorageValue(Storage.Quest.Dawnport.TheRareHerb, 1)
 			player:setStorageValue(Storage.Quest.Dawnport.HerbFlower, 1)
 			npcHandler.topic[cid] = 0
@@ -157,7 +157,7 @@ local function creatureSayCallback(cid, type, msg)
 						Lately, they have raided our ship and made off with most of the Captain's rum stock!",
 					"I will reward you if you kill 20 mountain trolls. Would you do that?"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 6
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorriskTroll) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisTrollCount) >= 20 then
@@ -177,7 +177,7 @@ local function creatureSayCallback(cid, type, msg)
 						Lately, they have raided our ship and made off with most of the Captain's rum stock!",
 					"I will reward you if you kill 20 muglex clan footmen. Would you do that?"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 7
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorrisGoblin) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisGoblinCount) >= 20 then
@@ -197,7 +197,7 @@ local function creatureSayCallback(cid, type, msg)
 						Lately, they have raided our ship and made off with most of the Captain's rum stock!",
 					"I will reward you if you kill 20 minotaur bruisers. Would you do that?"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 8
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorrisMinos) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisMinosCount) >= 20 then
