@@ -39,10 +39,12 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) < 1 then
 			npcHandler:say(
 				{
-					"Ah, you found the amulet! Ah. Really? Poor Dormovo. Always a bit hasty. Forgot his rope, or food, or potions - it was to be expected he would meet an early end. Oh, well.",
+					"Ah, you found the amulet! Ah. Really? Poor Dormovo. \z
+						Always a bit hasty. Forgot his rope, or food, or potions - \z
+						it was to be expected he would meet an early end. Oh, well.",
 					"Here is your reward, as promised."
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 1
 		elseif player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 2 and player:getItemCount(23750) == 1 then
 			npcHandler:say(
@@ -60,9 +62,12 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "log book") then
 		if player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) < 1 then
 			npcHandler:say("The first log book from the first foray group has been stolen by trolls. \z
-				One wonders what for, as they can hardly read! Anyway, we need it back. Would you go looking for it?", cid)
+				One wonders what for, as they can hardly read! Anyway, we need it back. \z
+				Would you go looking for it?", cid)
 			npcHandler.topic[cid] = 2
-		elseif player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) == 1 and player:getStorageValue(Storage.Quest.Dawnport.TheStolenLogBook) == 1 and player:getItemCount(23749) == 1 then
+		elseif player:getStorageValue(Storage.Quest.Dawnport.TornLogBook) == 1
+		and player:getStorageValue(Storage.Quest.Dawnport.TheStolenLogBook) == 1
+		and player:getItemCount(23749) == 1 then
 			npcHandler:say("Ah, yes, that's it! Torn and gnawed, but, ah well, the information is still retrievable. \z
 				Thank you. Here's your reward.", cid)
 			player:removeItem(23749, 1)
@@ -114,7 +119,7 @@ local function creatureSayCallback(cid, type, msg)
 						light grey-brown sand, and is usually surrounded by fireflies. \z
 						Use the herb to pluck off the fresh flower buds, and return to me."
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			player:setStorageValue(Storage.Quest.Dawnport.TheRareHerb, 1)
 			player:setStorageValue(Storage.Quest.Dawnport.HerbFlower, 1)
 			npcHandler.topic[cid] = 0
@@ -157,7 +162,7 @@ local function creatureSayCallback(cid, type, msg)
 						Lately, they have raided our ship and made off with most of the Captain's rum stock!",
 					"I will reward you if you kill 20 mountain trolls. Would you do that?"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 6
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorriskTroll) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisTrollCount) >= 20 then
@@ -177,7 +182,7 @@ local function creatureSayCallback(cid, type, msg)
 						Lately, they have raided our ship and made off with most of the Captain's rum stock!",
 					"I will reward you if you kill 20 muglex clan footmen. Would you do that?"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 7
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorrisGoblin) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisGoblinCount) >= 20 then
@@ -197,7 +202,7 @@ local function creatureSayCallback(cid, type, msg)
 						Lately, they have raided our ship and made off with most of the Captain's rum stock!",
 					"I will reward you if you kill 20 minotaur bruisers. Would you do that?"
 				},
-			cid, false, true, 200)
+			cid, false, true, 10)
 			npcHandler.topic[cid] = 8
 		elseif player:getStorageValue(Storage.Quest.Dawnport.MorrisMinos) == 1 then
 			if player:getStorageValue(Storage.Quest.Dawnport.MorrisMinosCount) >= 20 then
