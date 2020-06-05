@@ -796,6 +796,16 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure `player_stash`
+--
+
+CREATE TABLE IF NOT EXISTS `player_stash` (
+  `player_id` INT(16) NOT NULL,
+  `item_id` INT(16) NOT NULL,
+  `item_count` INT(32) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

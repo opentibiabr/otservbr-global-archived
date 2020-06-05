@@ -1,5 +1,7 @@
 SupplyStash = {}
 
+SupplyStash.Size = 1000
+
 SupplyStash.Credits = {
 	Developer = "DudZ, Ticardo (Rick), gpedro",
 	Version = "1.0",
@@ -13,56 +15,40 @@ SupplyStash.C_Packets = { Withdraw = 0x28 }
 function onRecvbyte(player, msg, byte)
     if (byte == SupplyStash.C_Packets.Withdraw) then
 		SupplyStash.parseStash(player, msg)
+	else
+		print("byte desconhecido - " ..byte)
     end
 end
 
-function stashContainer(container, items)
-	if container:isContainer() then
-		for index = 0, container:getSize() do
-			local item = container:getItem(index)
-			if item then
-				local type = item:getType()
-				if item:isContainer() then
-					items = stashContainer(Container(item.uid), items)
-				elseif item:isItem() and type:isStackable() then
-					local cid = type:getClientId()
-					if not items[cid] then
-						items[cid] = 0
-					end
+function loadStash(player)
+	local items = {}
+	
+	local resultId = db.storeQuery("SELECT * FROM `player_stash` WHERE `player_id` = " .. player:getGuid())
 
-					local current = items[cid] or 0
-					items[cid] = current + item:getSubType()
-				end
-			end
-		end
-	end
+	if resultId ~= false then
+	    repeat
+			items[result.getDataInt(resultId , "item_id")] = result.getDataInt(resultId , "item_count")
+		until not result.next(resultId)
+	end	
+	result.free(resultId)
 
 	return items
 end
 
 SupplyStash.sendOpenWindow = function(player)
-	print("SupplyStash.sendOpenWindow")
-	local msg = NetworkMessage()
-	msg:addByte(SupplyStash.S_Packets.OpenWindow);
-
-	local items = {}
-	for id = 1, configManager.getNumber("depotBoxes") do
-		local container = player:getDepotChest(id, true)
-		if container:getItemHoldingCount() > 0 then
-			items = stashContainer(container, items)
-		end
-	end
-
-	-- workaround: idk why #items not working
+	local items = loadStash(player)
 	local count = 0
 	local depotSlots = 1
+
 	for _, itemCount in pairs(items) do
-		print(math.floor(math.min(itemCount / 100, 1)))
-		depotSlots = depotSlots + math.ceil(math.min(itemCount / 100, 1))
+		depotSlots = depotSlots + math.ceil(math.max(itemCount / 100, 1))
 		count = count + 1
 	end
 
+	local msg = NetworkMessage()
+	msg:addByte(SupplyStash.S_Packets.OpenWindow);
 	msg:addU16(count)
+
 	for id, count in pairs(items) do
 		msg:addU16(id)
 		msg:addU32(count)
@@ -70,7 +56,6 @@ SupplyStash.sendOpenWindow = function(player)
 
 	msg:addU16(SupplyStash.Size - depotSlots)
 	msg:sendToPlayer(player)
-
 	return true
 end
 
