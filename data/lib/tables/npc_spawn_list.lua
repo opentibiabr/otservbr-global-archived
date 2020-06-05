@@ -344,7 +344,7 @@ NpcTable = {
 	[343] = {name = "buddel_tyrsung", position = {x = 32332, y = 31227, z = 7}},
 	[344] = {name = "oliver", position = {x = 32894, y = 31228, z = 7}},
 	[345] = {name = "zurak", position = {x = 33154, y = 31230, z = 7}},
-	[346] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}},
+	[346] = {name = "zurak", position = {x = 33158, y = 31225, z = 7}},
 	[347] = {name = "dorbin", position = {x = 32783, y = 31236, z = 7}},
 	[348] = {name = "oiriz", position = {x = 32787, y = 31238, z = 7}},
 	[349] = {name = "a_grumpy_cyclops", position = {x = 32822, y = 31238, z = 7}},
@@ -951,6 +951,7 @@ NpcTable = {
 	[950] = {name = "ninev", position = {x = 33871, y = 31528, z = 7}},
 	[951] = {name = "ninos", position = {x = 33904, y = 31498, z = 7}},
 	[952] = {name = "ramina", position = {x = 33903, y = 31495, z = 7}},
+	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}}
 }
 
 CustomNpcTable = {
