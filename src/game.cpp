@@ -1095,7 +1095,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 
 		Cylinder* subCylinder = toCylinder->queryDestination(index, *item, &toItem, flags);
 
-		if (subCylinder->getItem()->getID() == ITEM_SUPPLY_STASH) { //should be here?
+		if (toCylinder->getContainer() != NULL && subCylinder->getItem()->getID() == ITEM_SUPPLY_STASH) { //should be here?
 
 			if (!(item->isStackable()) || 
 				item->getID() == ITEM_GOLD_COIN ||
