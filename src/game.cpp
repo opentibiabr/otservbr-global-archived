@@ -1072,60 +1072,11 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (toPos.x == 0xFFFF) {
 		if (toPos.y & 0x40) {
 			toIndex = toPos.z;
-		} else {
+		}
+		else {
 			toIndex = static_cast<uint8_t>(toPos.y);
 		}
 	}
-
-	uint32_t flags = 0;
-	int32_t index = toIndex;
-	Item* toItem = nullptr;
-
-	Cylinder* subCylinder = toCylinder->queryDestination(index, *item, &toItem, flags);
-
-	if (subCylinder->getItem()->getID() == ITEM_SUPPLY_STASH) { //should be here?
-
-		if (!(item->isStackable()) || 
-			item->getID() == ITEM_GOLD_COIN ||
-			item->getID() == ITEM_PLATINUM_COIN ||
-			item->getID() == ITEM_CRYSTAL_COIN ) {
-			return player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		}
-				
-		std::ostringstream query;
-		uint32_t itemCount = count;
-		query << "SELECT * FROM `player_stash` WHERE `player_id` = ";
-		query << player->getGUID() << " AND `item_id` = " << item->getClientID() << ";";
-
-		DBResult_ptr hasItem = Database::getInstance().storeQuery(query.str());
-
-		query.str("");
-
-		if (!hasItem) {
-			query << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES (";
-			query << player->getGUID() << ", ";
-			query << item->getClientID() << ", ";
-			query << itemCount << " )";
-		} else {
-			int32_t qntInStash = hasItem->getNumber<int32_t>("item_count");
-			query << "UPDATE `player_stash` SET `item_count` = ";
-			query << itemCount + qntInStash;
-			query << " WHERE `player_id` = " << player->getGUID();
-			query << " AND `item_id` = " << item->getClientID() << ";";
-		}
-
-		bool result = Database::getInstance().executeQuery(query.str());
-		query.str("");
-
-		if (result) {
-			internalRemoveItem(item, itemCount);
-			query << "Stowed " << itemCount << " object" << (itemCount > 1 ? "s." : ".");
-			return player->sendCancelMessage(query.str());
-		}
-		return player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-	}
-
-
 
 	if (item->isWrapable()){
 		HouseTile* toHouseTile = dynamic_cast<HouseTile*>(map.getTile(mapToPos));
@@ -1137,7 +1088,55 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	}
 	ReturnValue ret = internalMoveItem(fromCylinder, toCylinder, toIndex, item, count, nullptr, 0, player);
 	if (ret != RETURNVALUE_NOERROR) {
-		player->sendCancelMessage(ret);
+		
+		uint32_t flags = 0;
+		int32_t index = toIndex;
+		Item* toItem = nullptr;
+
+		Cylinder* subCylinder = toCylinder->queryDestination(index, *item, &toItem, flags);
+
+		if (subCylinder->getItem()->getID() == ITEM_SUPPLY_STASH) { //should be here?
+
+			if (!(item->isStackable()) || 
+				item->getID() == ITEM_GOLD_COIN ||
+				item->getID() == ITEM_PLATINUM_COIN ||
+				item->getID() == ITEM_CRYSTAL_COIN ) {
+				return player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+			}
+				
+			std::ostringstream query;
+			uint32_t itemCount = count;
+			query << "SELECT * FROM `player_stash` WHERE `player_id` = ";
+			query << player->getGUID() << " AND `item_id` = " << item->getClientID() << ";";
+
+			DBResult_ptr hasItem = Database::getInstance().storeQuery(query.str());
+
+			query.str("");
+
+			if (!hasItem) {
+				query << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES (";
+				query << player->getGUID() << ", ";
+				query << item->getClientID() << ", ";
+				query << itemCount << " )";
+			} else {
+				int32_t qntInStash = hasItem->getNumber<int32_t>("item_count");
+				query << "UPDATE `player_stash` SET `item_count` = ";
+				query << itemCount + qntInStash;
+				query << " WHERE `player_id` = " << player->getGUID();
+				query << " AND `item_id` = " << item->getClientID() << ";";
+			}
+
+			bool result = Database::getInstance().executeQuery(query.str());
+			query.str("");
+
+			if (result) {
+				internalRemoveItem(item, itemCount);
+				query << "Stowed " << itemCount << " object" << (itemCount > 1 ? "s." : ".");
+				return player->sendCancelMessage(query.str());
+			}
+			return player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		}
+		return player->sendCancelMessage(ret);
 	}
 }
 
