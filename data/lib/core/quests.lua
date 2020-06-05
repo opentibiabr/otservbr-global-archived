@@ -1371,7 +1371,6 @@ if not Quests then
 					storageid = 1501,
 					startvalue = 0,
 					endvalue = 100,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/100 Trolls.", (math.max(player:getStorageValue(1501), 0)))
 					end
@@ -1381,7 +1380,6 @@ if not Quests then
 					storageid = 1502,
 					startvalue = 0,
 					endvalue = 150,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/150 Goblins.", (math.max(player:getStorageValue(1502), 0)))
 					end
@@ -1391,7 +1389,6 @@ if not Quests then
 					storageid = 65002,
 					startvalue = 0,
 					endvalue = 5000,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/5000 Minotaurs.", (math.max(player:getStorageValue(65002), 0)))
 					end
@@ -1401,7 +1398,6 @@ if not Quests then
 					storageid = 65001,
 					startvalue = 0,
 					endvalue = 4000,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/4000 Necromancers and Priestess.",
@@ -1414,7 +1410,6 @@ if not Quests then
 					storageid = 65003,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 crocodiles.", (math.max(player:getStorageValue(65003), 0)))
 					end
@@ -1424,7 +1419,6 @@ if not Quests then
 					storageid = 65004,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 badgers.", (math.max(player:getStorageValue(65004), 0)))
 					end
@@ -1434,7 +1428,6 @@ if not Quests then
 					storageid = 65005,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 tarantulas.", (math.max(player:getStorageValue(65005), 0)))
 					end
@@ -1444,7 +1437,6 @@ if not Quests then
 					storageid = 65006,
 					startvalue = 0,
 					endvalue = 150,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/150 carniphilas.", (math.max(player:getStorageValue(65006), 0)))
 					end
@@ -1454,7 +1446,6 @@ if not Quests then
 					storageid = 65007,
 					startvalue = 0,
 					endvalue = 200,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/200 stone golems.", (math.max(player:getStorageValue(65007), 0)))
 					end
@@ -1464,7 +1455,6 @@ if not Quests then
 					storageid = 65008,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 mammoths.", (math.max(player:getStorageValue(65008), 0)))
 					end
@@ -1474,7 +1464,6 @@ if not Quests then
 					storageid = 65009,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 gnarlhounds.", (math.max(player:getStorageValue(65009), 0)))
 					end
@@ -1484,7 +1473,6 @@ if not Quests then
 					storageid = 65010,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 terramites.", (math.max(player:getStorageValue(65010), 0)))
 					end
@@ -1494,7 +1482,6 @@ if not Quests then
 					storageid = 65011,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 apes.", (math.max(player:getStorageValue(65011), 0)))
 					end
@@ -1504,7 +1491,6 @@ if not Quests then
 					storageid = 65012,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/300 thornback tortoises.",
@@ -1517,7 +1503,6 @@ if not Quests then
 					storageid = 65013,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 gargoyles.", (math.max(player:getStorageValue(65013), 0)))
 					end
@@ -1527,7 +1512,6 @@ if not Quests then
 					storageid = 65014,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 ice golems.", (math.max(player:getStorageValue(65014), 0)))
 					end
@@ -1537,7 +1521,6 @@ if not Quests then
 					storageid = 65015,
 					startvalue = 0,
 					endvalue = 400,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 quara scouts.", (math.max(player:getStorageValue(65015), 0)))
 					end
@@ -1547,7 +1530,6 @@ if not Quests then
 					storageid = 65016,
 					startvalue = 0,
 					endvalue = 400,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 mutated rats.", (math.max(player:getStorageValue(65016), 0)))
 					end
@@ -1557,7 +1539,6 @@ if not Quests then
 					storageid = 65017,
 					startvalue = 0,
 					endvalue = 250,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/250 ancient scarabs.", (math.max(player:getStorageValue(65017), 0)))
 					end
@@ -1567,7 +1548,6 @@ if not Quests then
 					storageid = 65018,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 wyverns.", (math.max(player:getStorageValue(65018), 0)))
 					end
@@ -1577,7 +1557,6 @@ if not Quests then
 					storageid = 65019,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 lancer beetles.", (math.max(player:getStorageValue(65019), 0)))
 					end
@@ -1587,7 +1566,6 @@ if not Quests then
 					storageid = 65020,
 					startvalue = 0,
 					endvalue = 400,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 wailing widows.", (math.max(player:getStorageValue(65020), 0)))
 					end
@@ -1597,7 +1575,6 @@ if not Quests then
 					storageid = 65021,
 					startvalue = 0,
 					endvalue = 250,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/250 killer caimans.", (math.max(player:getStorageValue(65021), 0)))
 					end
@@ -1607,7 +1584,6 @@ if not Quests then
 					storageid = 65022,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 bonebeasts.", (math.max(player:getStorageValue(65022), 0)))
 					end
@@ -1617,7 +1593,6 @@ if not Quests then
 					storageid = 65023,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 crystal spiders.", (math.max(player:getStorageValue(65023), 0)))
 					end
@@ -1627,7 +1602,6 @@ if not Quests then
 					storageid = 65024,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 mutated tigers.", (math.max(player:getStorageValue(65024), 0)))
 					end
@@ -1637,7 +1611,6 @@ if not Quests then
 					storageid = 65025,
 					startvalue = 0,
 					endvalue = 600,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/600 underwater quara.", (math.max(player:getStorageValue(65025), 0)))
 					end
@@ -1647,7 +1620,6 @@ if not Quests then
 					storageid = 65026,
 					startvalue = 0,
 					endvalue = 500,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 giant spiders.", (math.max(player:getStorageValue(65026), 0)))
 					end
@@ -1657,7 +1629,6 @@ if not Quests then
 					storageid = 65027,
 					startvalue = 0,
 					endvalue = 300,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/300 werewolves.", (math.max(player:getStorageValue(65027), 0)))
 					end
@@ -1667,7 +1638,6 @@ if not Quests then
 					storageid = 65028,
 					startvalue = 0,
 					endvalue = 400,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 nightmares.", (math.max(player:getStorageValue(65028), 0)))
 					end
@@ -1677,7 +1647,6 @@ if not Quests then
 					storageid = 65029,
 					startvalue = 0,
 					endvalue = 600,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/600 hellspawns.", (math.max(player:getStorageValue(65029), 0)))
 					end
@@ -1687,7 +1656,6 @@ if not Quests then
 					storageid = 65030,
 					startvalue = 0,
 					endvalue = 800,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/800 high class lizards.",
@@ -1700,7 +1668,6 @@ if not Quests then
 					storageid = 65031,
 					startvalue = 0,
 					endvalue = 600,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/600 stampors.", (math.max(player:getStorageValue(65031), 0)))
 					end
@@ -1710,7 +1677,6 @@ if not Quests then
 					storageid = 65032,
 					startvalue = 0,
 					endvalue = 500,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 brimstone bugs.", (math.max(player:getStorageValue(65032), 0)))
 					end
@@ -1720,7 +1686,6 @@ if not Quests then
 					storageid = 65033,
 					startvalue = 0,
 					endvalue = 400,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 mutated bats.", (math.max(player:getStorageValue(65033), 0)))
 					end
@@ -1730,7 +1695,6 @@ if not Quests then
 					storageid = 65034,
 					startvalue = 0,
 					endvalue = 650,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/650 hydras.", (math.max(player:getStorageValue(65034), 0)))
 					end
@@ -1740,7 +1704,6 @@ if not Quests then
 					storageid = 65035,
 					startvalue = 0,
 					endvalue = 800,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/800 serpent spawns.", (math.max(player:getStorageValue(65035), 0)))
 					end
@@ -1750,7 +1713,6 @@ if not Quests then
 					storageid = 65036,
 					startvalue = 0,
 					endvalue = 500,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 medusas.", (math.max(player:getStorageValue(65036), 0)))
 					end
@@ -1760,7 +1722,6 @@ if not Quests then
 					storageid = 65037,
 					startvalue = 0,
 					endvalue = 700,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/700 behemoths.", (math.max(player:getStorageValue(65037), 0)))
 					end
@@ -1770,7 +1731,6 @@ if not Quests then
 					storageid = 65038,
 					startvalue = 0,
 					endvalue = 900,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/900 sea serpents and young sea serpents.",
@@ -1783,7 +1743,6 @@ if not Quests then
 					storageid = 65039,
 					startvalue = 0,
 					endvalue = 250,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/250 hellhounds.", (math.max(player:getStorageValue(65039), 0)))
 					end
@@ -1793,7 +1752,6 @@ if not Quests then
 					storageid = 65040,
 					startvalue = 0,
 					endvalue = 500,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/500 ghastly dragons.", (math.max(player:getStorageValue(65040), 0)))
 					end
@@ -1803,7 +1761,6 @@ if not Quests then
 					storageid = 65041,
 					startvalue = 0,
 					endvalue = 900,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/900 drakens.", (math.max(player:getStorageValue(65041), 0)))
 					end
@@ -1813,7 +1770,6 @@ if not Quests then
 					storageid = 65042,
 					startvalue = 0,
 					endvalue = 650,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/650 destroyers.", (math.max(player:getStorageValue(65042), 0)))
 					end
@@ -1823,7 +1779,6 @@ if not Quests then
 					storageid = 65043,
 					startvalue = 0,
 					endvalue = 400,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/400 undead dragons.", (math.max(player:getStorageValue(65043), 0)))
 					end
@@ -1833,7 +1788,6 @@ if not Quests then
 					storageid = 65044,
 					startvalue = 0,
 					endvalue = 6666,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/6666 demons.", (math.max(player:getStorageValue(65044), 0)))
 					end
@@ -1843,7 +1797,6 @@ if not Quests then
 					storageid = 65045,
 					startvalue = 0,
 					endvalue = 500,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/500 green djinns or efreets.",
@@ -1856,7 +1809,6 @@ if not Quests then
 					storageid = 65046,
 					startvalue = 0,
 					endvalue = 500,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/500 blue djinns or marids.",
@@ -1869,7 +1821,6 @@ if not Quests then
 					storageid = 65047,
 					startvalue = 0,
 					endvalue = 3000,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65047), 0)))
 					end
@@ -1879,7 +1830,6 @@ if not Quests then
 					storageid = 65048,
 					startvalue = 0,
 					endvalue = 3000,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format("You already hunted %d/3000 pirates.", (math.max(player:getStorageValue(65048), 0)))
 					end
@@ -1889,7 +1839,6 @@ if not Quests then
 					storageid = 65049,
 					startvalue = 0,
 					endvalue = 5000,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"Budrik asked you to kill 5000 minotaurs for him. You already killed %d minotaurs.",
@@ -1902,7 +1851,6 @@ if not Quests then
 					storageid = 65050,
 					startvalue = 0,
 					endvalue = 4000,
-					avoidMsgOnEveryUpdate = true,
 					description = function(player)
 						return string.format(
 							"You already hunted %d/4000 necromancers and priestess.",
@@ -4758,13 +4706,13 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "The Strengthtening of the Minotaurs",
-					storageid = Storage.CultsOfTibia.Minotaurs.JamesFrancisTask,
+					storageid = Storage.CultsOfTibia.Minotaurs.jamesfrancisTask,
 					startvalue = 0,
 					endvalue = 50,
 					description = function(player)
 						return ("James asked you to enter the cave for hunting 50 empowered minotaurs. \z
 						Then he will be able to continue his research.\nMinotaurs killed: %d/50"):format(
-							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask)
+							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.jamesfrancisTask)
 						)
 					end
 				},
@@ -5109,100 +5057,7 @@ if not Quests then
 					end
 				}
 			}
-		},
-		[44] = {
-			name = "Dawnport",
-			startstorageid = Storage.Quest.Dawnport.Questline,
-			startstoragevalue = 1,
-			missions = {
-				[1] = {
-					name = "In the Adventures Outpost",
-					storageid = Storage.Quest.Dawnport.GoMain,
-					startvalue = 1,
-					endvalue = 2,
-					description = "You have reached the Outpost, where young heroes are trained in combat and hunting. \z
-					When you have reached level 8 at least, you can leave for the Mainland. Talk to Inigo if you have questions."
-				},
-				[2] = {
-					name = "The Lost Amulet",
-					storageid = Storage.Quest.Dawnport.TheLostAmulet,
-					startvalue = 1,
-					endvalue = 3,
-					states = {
-						[1] = "Mr Morris tasked you to find an ancient amulet that was lost somewhare on Dawnport - probably next to a corpse somewhare.",
-						[2] = "Come back to Mr Morris",
-						[3] = "Mr Morris thanks for the help"
-					}
-				},
-				[3] = {
-					name = "The Stolen Log Book",
-					storageid = Storage.Quest.Dawnport.TheStolenLogBook,
-					startvalue = 1,
-					endvalue = 2,
-					states = {
-						[1] = "Mr Morris urged you fo find a log book that was stolen by trolls.",
-						[2] = "Mr Morris thanks for the help"
-					}
-				},
-				[4] = {
-					name = "The Rare Herb",
-					storageid = Storage.Quest.Dawnport.TheRareHerb,
-					startvalue = 1,
-					endvalue = 3,
-					states = {
-						[1] = "Mr Morris needs the rae Dawnfire herb harvested and brought to hin. It grows on grey sand only, he said.",
-						[2] = "Come back to Mr Morris",
-						[3] = "Mr Morris thanks for the help"
-					}
-				},
-				[5] = {
-					name = "The Dorm Key",
-					storageid = Storage.Quest.Dawnport.TheDormKey,
-					startvalue = 1,
-					endvalue = 5,
-					states = {
-						[1] = "The key to the adventurer's dormitory has disappeared. Maybe you can find it. Ask around to find out who was the last to have seen it.",
-						[2] = "use the fishing rod in the nearby lake to fish old nasty",
-						[3] = "Come back to Woblin with Old Nasty",
-						[4] = "Come back to Mr Morris with key 0010",
-						[5] = "Mr Morris thanks for the help"
-					}
-				},
-				[6] = {
-					name = "Task: Mountain Trolls",
-					storageid = 65062,
-					startvalue = 0,
-					endvalue = 20,
-					description =
-					function(player)
-						return string.format("You already hunted %d/20 Mountain Trolls.",
-						(math.max(player:getStorageValue(65062), 0)))
-					end
-				},
-				[7] = {
-					name = "Task: Muglex Clan Footman",
-					storageid = 65061,
-					startvalue = 0,
-					endvalue = 20,
-					description =
-					function(player)
-						return string.format("You already hunted %d/20 Muglex Clan Footman.",
-						(math.max(player:getStorageValue(65061), 0)))
-					end
-				},
-				[8] = {
-					name = "Task: Minotaur Bruisers",
-					storageid = 65060,
-					startvalue = 0,
-					endvalue = 20,
-					description =
-					function(player)
-						return string.format("You already hunted %d/20 Minotaurs Bruisers.",
-						(math.max(player:getStorageValue(65060), 0)))
-					end
-				},
-			}
-		},
+		}
 	}
 end
 
@@ -5428,6 +5283,7 @@ function Player.sendQuestLog(self)
 end
 
 function Player.sendQuestLine(self, questId)
+	-- consider migrate to ProtocolGame.cpp
 	local quest = Game.getQuest(questId)
 	if quest then
 		local missions = quest.missions
@@ -5438,17 +5294,14 @@ function Player.sendQuestLine(self, questId)
 		if missions then
 			for missionId = 1, #missions do
 				if self:missionIsStarted(questId, missionId) then
-					if (self:getClient().version >= 1120) then
-						msg:addU16(questId)
-					end
+					msg:addU16(questId)
 					msg:addString(self:getMissionName(questId, missionId))
 					msg:addString(self:getMissionDescription(questId, missionId))
 				end
 			end
 		end
-		if (self:getClient().os == CLIENTOS_NEW_WINDOWS) then
-			self:sendQuestTracker()
-		end
+
+		self:sendQuestTracker()
 		msg:sendToPlayer(self)
 		msg:delete()
 	end
@@ -5458,25 +5311,6 @@ function Player.updateStorage(self, key, value, oldValue, currentFrameTime)
 	local guid = self:getGuid()
 	if LastQuestlogUpdate[guid] ~= currentFrameTime and Game.isQuestStorage(key, value, oldValue) then
 		LastQuestlogUpdate[guid] = currentFrameTime
-		if Game.sendQuestLogUpdatedMessage(value) then
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your questlog has been updated.")
-		end
+		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your questlog has been updated.")
 	end
-end
-
-function Game.sendQuestLogUpdatedMessage(oldValue)
-	for questId = 1, #Quests do
-		local quest = Game.getQuest(questId)
-		if quest and quest.missions then
-			for missionId = 1, #quest.missions do
-				local mission = Game.getMission(questId, missionId)
-				if mission and mission.avoidMsgOnEveryUpdate and mission.avoidMsgOnEveryUpdate == true then
-					if oldValue >= 0 then
-						return false
-					end
-				end
-			end
-		end
-	end
-	return true
 end
