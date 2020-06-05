@@ -1093,6 +1093,10 @@
 	<action itemid="25419" script="valuables/randomitems.lua" />
 	<action itemid="26165" script="valuables/randomitems.lua" />
 	<action itemid="32014" script="valuables/randomitems.lua" />
+
+	<!-- Supply stash -->
+  	<action itemid="32450" script="others/objects/supplystash.lua" />
+  	
 </actions>
 
 <!--
