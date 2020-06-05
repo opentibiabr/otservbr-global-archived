@@ -9,16 +9,22 @@ function Container.createLootItem(self, item)
 
 	local itemCount = 0
 	local randvalue = getLootRandom()
+	local lootBlockType = ItemType(item.itemId)
+	
 	if randvalue < item.chance then
-		if ItemType(item.itemId):isStackable() then
-			itemCount = randvalue % item.maxCount + 1
+		if lootBlockType:isStackable() then
+			local maxc, minc = item.maxCount or 1, item.minCount or 1
+			itemCount = math.max(0, randvalue % (maxc - minc + 1)) + minc			
 		else
 			itemCount = 1
 		end
 	end
-
-	if itemCount > 0 then
-		local tmpItem = self:addItem(item.itemId, math.min(itemCount, 100))
+	
+	while (itemCount > 0) do
+		local n = math.min(itemCount, 100)
+		itemCount = itemCount - n
+		
+		local tmpItem = self:addItem(item.itemId, n)
 		if not tmpItem then
 			return false
 		end
@@ -33,7 +39,9 @@ function Container.createLootItem(self, item)
 		end
 
 		if item.subType ~= -1 then
-			tmpItem:setAttribute(ITEM_ATTRIBUTE_CHARGES, item.subType)
+			tmpItem:transform(item.itemId, item.subType)
+		elseif lootBlockType:isFluidContainer() then
+			tmpItem:transform(item.itemId, 0)
 		end
 
 		if item.actionId ~= -1 then

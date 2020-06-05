@@ -1081,9 +1081,6 @@ void Events::eventPlayerOnApplyImbuement(Player* player, Imbuement* imbuement, I
 	lua_State* L = scriptInterface.getLuaState();
 	scriptInterface.pushFunction(info.playerOnApplyImbuement);
 
-	player->sendSkills();
-	player->sendStats();
-
 	if (player) {
 		LuaScriptInterface::pushUserdata<Player>(L, player);
 		LuaScriptInterface::setMetatable(L, -1, "Player");

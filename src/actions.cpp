@@ -721,8 +721,10 @@ bool useImbueShrine(Player* player, Item* /*unused*/,
 	}
 
 	if ((toPos.y & 0x40) == 0) {
-		player->sendImbuementWindow(target->getItem());
-		return true;
+		player->sendTextMessage(MESSAGE_STATUS_SMALL,
+								"You cannot imbue an equipped item.");
+		DLOG_F(WARNING, "You cannot imbue an equipped item!");
+		return false;
 	}
 
 	DLOG_F(INFO, "Send Imbuement Windows.");
