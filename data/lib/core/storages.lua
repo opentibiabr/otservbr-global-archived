@@ -691,6 +691,7 @@ Storage = {
 		Flower = 10125,
 		Ring2 = 10126,
 		Bone = 10127,
+		FlowerPuzzleTimer = 10128,
 		Reward = 10116
 	},
 	ForgottenKnowledge = {
