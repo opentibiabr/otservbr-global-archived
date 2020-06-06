@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spells>
 	<!-- under construction summons -->
-	<instant group="support" spellid="194" name="Summon Creature EK" words="utevo gran res eq" lvl="200" mana="1000" cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
+	<instant group="support" spellid="194" name="Summon Skullfrost" words="utevo gran res eq" lvl="200" mana="1000"  cooldown="1800000" groupcooldown="2000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Elite Knight"/>
 	</instant>
-	<instant group="support" spellid="195" name="Summon Creature RP" words="utevo gran res sac" lvl="200" mana="2000" cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
+	<instant group="support" spellid="195" name="Summon Emberwing" words="utevo gran res sac" lvl="200" mana="2000"  cooldown="1800000" groupcooldown="2000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Royal Paladin"/>
 	</instant>
-	<instant group="support" spellid="196" name="Summon Creature MS" words="utevo gran res ven" lvl="200" mana="3000" cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
+	<instant group="support" spellid="196" name="Summon Thundergiant" words="utevo gran res ven" lvl="200" mana="3000"  cooldown="1800000" groupcooldown="2000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Master Sorcerer"/>
 	</instant>
-	<instant group="support" spellid="197" name="Summon Creature ED" words="utevo gran res dru" lvl="200" mana="3000" cooldown="1800000" groupcooldown="4000" needlearn="0" script="summon/summons.lua">
+	<instant group="support" spellid="197" name="Summon Grovebeast" words="utevo gran res dru" lvl="200" mana="3000"  cooldown="1800000" groupcooldown="2000" needlearn="0" script="summon/summons.lua">
 		<vocation name="Elder Druid"/>
 	</instant>
 	<!-- under construction -->
@@ -1217,13 +1217,14 @@
 	<instant name="Heal Monster 9x9" words="#####459" direction="1" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="healing/heal monsters 9x9.lua" />
 	<instant name="Remorseless Wave" words="#####460" direction="1" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/remorseless wave.lua" />
 	<instant name="Source of Corruption Wave" words="#####461" direction="1" aggressive="0" blockwalls="1" needtarget="0" needlearn="1" script="monster/source of corruption wave.lua" />
-	<instant name="emberBeastArea" words="###462" selftarget="1" exhaustion="2000" needlearn="1" script="monster/emberBeastArea.lua" />
-	<instant name="emberBeastHur" words="###463" direction="1" selftarget="1" exhaustion="2000" needlearn="1" script="monster/emberBeastHur.lua" />
-	<instant name="aggresiveLavaWave" words="###464" direction="1" selftarget="1" exhaustion="2000" needlearn="1" script="monster/aggresiveLavaWave.lua" />
-	<instant name="ravennousLavaLurkerWave" words="###465" selftarget="1" exhaustion="2000" needlearn="1" script="monster/ravennousLavaLurkerWave.lua" />
-	<instant name="ravennousLavaLurkerWave2" words="###466" direction="1" selftarget="1" exhaustion="2000" needlearn="1" script="monster/ravennousLavaLurkerWave2.lua" />
-	<instant name="arachnophobicawavedice" words="###467" direction="1" selftarget="1" exhaustion="2000" needlearn="1" script="monster/arachnophobica wavedice.lua" />
-	<instant name="arachnophobicawaveenergy" words="###468" direction="1" selftarget="1" exhaustion="2000" needlearn="1" script="monster/arachnophobica waveenergy.lua" />
-	<instant name="pixie skill reducer" words="###469" blockwalls="1" aggressive="1" needtarget="0" exhaustion="2000" needlearn="1" script="monster/pixie skill reducer.lua" />
-	<instant name="Ice Crystal Bomb" words="###470" direction="1" selftarget="1" exhaustion="2000" needlearn="1" script="monster/ice_crystal_bomb.lua"/>
+	<instant name="emberBeastArea" words="###462"  selftarget="1" exhaustion="2000" needlearn="1"  script="monster/emberBeastArea.lua" />
+	<instant name="emberBeastHur" words="###463" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/emberBeastHur.lua" />
+	<instant name="aggresiveLavaWave" words="###464" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/aggresiveLavaWave.lua" />
+	<instant name="ravennousLavaLurkerWave" words="###465"  selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ravennousLavaLurkerWave.lua" />
+	<instant name="ravennousLavaLurkerWave2" words="###466" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ravennousLavaLurkerWave2.lua" />
+	<instant name="arachnophobicawavedice" words="###467" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/arachnophobica wavedice.lua" />
+	<instant name="arachnophobicawaveenergy" words="###468" direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/arachnophobica waveenergy.lua" />
+	<instant name="pixie skill reducer" words="###469" blockwalls="1" aggressive="1" needtarget="0" exhaustion="2000" needlearn="1"  script="monster/pixie skill reducer.lua" />
+	<instant name="Ice Crystal Bomb" words="###470"  direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ice_crystal_bomb.lua"/>
+	<instant name="summon challenge" words="###471" blockwalls="1" needtarget="0" needlearn="1" script="monster/summonchallenge.lua"/>
 </spells>
