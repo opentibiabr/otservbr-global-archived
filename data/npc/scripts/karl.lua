@@ -66,5 +66,6 @@ end
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Please come back, but don't tell others.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Please come back, but don't tell others.")
 npcHandler:setMessage(MESSAGE_GREET, 'Pshhhht! Not that loud ... but welcome.')
+
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

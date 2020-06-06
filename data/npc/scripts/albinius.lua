@@ -15,10 +15,36 @@ end
 function onThink()
 	npcHandler:onThink()
 end
+local voices = {
+	{ text = 'Walk in the light of Shaper wisdom!'},
+	{ text = 'Our ways are the ways of the Shapers.'}
+}
 
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "I am Albinius, a worshipper of the {Astral Shapers}."})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = "Precisely time."})
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I find ways to unveil the secrets of the stars. Judging by this question, I doubt you follow my weekly publications concerning this research."})
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"heavy old tome"}, 26654, 30, 1)
+
+keywordHandler:addKeyword({'name'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I am Albinius, a worshipper of the {Astral Shapers}."
+	}
+)
+keywordHandler:addKeyword({'time'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Precisely time."
+	}
+)
+keywordHandler:addKeyword({'job'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I find ways to unveil the secrets of the stars. Judging by this question, \z
+		I doubt you follow my weekly publications concerning this research."
+	}
+)
 
 local runes = {
 	{runeid = 27622},
@@ -44,20 +70,25 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if msgcontains(msg, "shapers") then
 		npcHandler:say({
-			"The {Shapers} were an advanced civilisation, well versed in art, construction, language and exploration of our world in their time. ...",
-			"The foundations of this {temple} are testament to their genius and advanced understanding of complex problems. They were master craftsmen and excelled in magic."
+			"The {Shapers} were an advanced civilisation, well versed in art, construction, language and \z
+			exploration of our world in their time. ...",
+			"The foundations of this {temple} are testament to their genius and advanced understanding of \z
+			complex problems. They were master craftsmen and excelled in magic."
 		}, cid)
 	end
 
 	if msgcontains(msg, 'temple') then
 		npcHandler:say({
-			"The temple has been restored to its former glory, yet we strife to live and praise in the Shaper ways. Do you still need me to take some old tomes from you my child?"
+			"The temple has been restored to its former glory, yet we strife to live and praise in the Shaper ways. \z
+			Do you still need me to take some old tomes from you my child?"
 		}, cid)
 		npcHandler.topic[cid] = 1
 	end
-	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 and player:getItemCount(26654) >= 5 then
+	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 and 
+	player:getItemCount(26654) >= 5 then
 		player:removeItem(26654, 5)
-		npcHandler:say('Thank you very much for your contribution, child. Your first step in the ways of the {Shapers} has been taken.', cid)
+		npcHandler:say('Thank you very much for your contribution, child. Your first step in the ways \z
+		of the {Shapers} has been taken.', cid)
 		player:setStorageValue(Storage.ForgottenKnowledge.Tomes, 1)
 	elseif  msgcontains(msg, "no") and npcHandler.topic[cid] == 1 then
 		npcHandler:say('I understand. Return to me if you change your mind, my child.', cid)
@@ -72,7 +103,8 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'buy') then
-		npcHandler:say("I'm sorry, I don't buy anything. My main concern right now is the bulding of this temple.", cid)
+		npcHandler:say("I'm sorry, I don't buy anything. My main concern right now is the \z
+		bulding of this temple.", cid)
 		openShopWindow(cid, getTable(), onBuy, onSell)
 	end
 
@@ -108,7 +140,8 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'ice portal') then
 		if player:getStorageValue(Storage.ForgottenKnowledge.Tomes) == 1 then
 			npcHandler:say({
-				"You may pass this portal if you have 50 fish as offering. Do you have the fish with you?"
+				"You may pass this portal if you have 50 fish as offering. \z
+				Do you have the fish with you?"
 			}, cid)
 			npcHandler.topic[cid] = 2
 		else
@@ -117,12 +150,15 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 2 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessIce) < 1 and player:getItemCount(2667) >= 50 then
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessIce) < 1 and 
+		player:getItemCount(2667) >= 50 then
 			player:removeItem(2667, 50)
-			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Ice now.', cid)
+			npcHandler:say('Thank you for your offering. You may pass the Portal \z
+			to the Powers of Ice now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessIce, 1)
 		else
-			npcHandler:say("I'm sorry, you don't have enough fish. Return if you can offer fifty of them.", cid)
+			npcHandler:say("I'm sorry, you don't have enough fish. Return if you can \z
+			offer fifty of them.", cid)
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 2 then
 		npcHandler:say("In this case I'm sorry, you may not pass this portal.", cid)
@@ -132,7 +168,8 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'holy portal') then
 		if player:getStorageValue(Storage.ForgottenKnowledge.Tomes) == 1 then
 			npcHandler:say({
-				"You may pass this portal if you have 50 incantation notes as offering. Do you have the incantation notes with you?"
+				"You may pass this portal if you have 50 incantation notes as offering. \z
+				Do you have the incantation notes with you?"
 			}, cid)
 			npcHandler.topic[cid] = 3
 		else
@@ -141,12 +178,15 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 3 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessGolden) < 1 and player:getItemCount(21246) >= 50 then
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessGolden) < 1 and 	
+		player:getItemCount(21246) >= 50 then
 			player:removeItem(21246, 50)
-			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Holy now.', cid)
+			npcHandler:say('Thank you for your offering. You may pass the Portal to \z
+			the Powers of Holy now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessGolden, 1)
 		else
-			npcHandler:say("I'm sorry, you don't have enough incantation notes. Return if you can offer fifty of them.", cid)
+			npcHandler:say("I'm sorry, you don't have enough incantation notes. \z
+			Return if you can offer fifty of them.", cid)
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 3 then
 		npcHandler:say("In this case I'm sorry, you may not pass this portal.", cid)
@@ -156,7 +196,8 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'energy portal') then
 		if player:getStorageValue(Storage.ForgottenKnowledge.Tomes) == 1 then
 			npcHandler:say({
-				"You may pass this portal if you have 50 marsh stalker feathers as offering. Do you have the marsh stalker feathers with you?"
+				"You may pass this portal if you have 50 marsh stalker feathers as offering. \z
+				Do you have the marsh stalker feathers with you?"
 			}, cid)
 			npcHandler.topic[cid] = 4
 		else
@@ -165,12 +206,15 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 4 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessViolet) < 1 and player:getItemCount(19742) >= 50 then
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessViolet) < 1 and 
+		player:getItemCount(19742) >= 50 then
 			player:removeItem(19742, 50)
-			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Energy now.', cid)
+			npcHandler:say('Thank you for your offering. You may pass the Portal to the \z
+			Powers of Energy now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessViolet, 1)
 		else
-			npcHandler:say("I'm sorry, you don't have enough marsh stalker feathers. Return if you can offer fifty of them.", cid)
+			npcHandler:say("I'm sorry, you don't have enough marsh stalker feathers. \z
+			Return if you can offer fifty of them.", cid)
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 4 then
 		npcHandler:say("In this case I'm sorry, you may not pass this portal.", cid)
@@ -180,7 +224,8 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'earth portal') then
 		if player:getStorageValue(Storage.ForgottenKnowledge.Tomes) == 1 then
 			npcHandler:say({
-				"You may pass this portal if you have 50 acorns as offering. Do you have the acorns with you?"
+				"You may pass this portal if you have 50 acorns as offering. \z
+				Do you have the acorns with you?"
 			}, cid)
 			npcHandler.topic[cid] = 5
 		else
@@ -189,12 +234,15 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 5 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessEarth) < 1 and player:getItemCount(11213) >= 50 then
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessEarth) < 1 and 
+		player:getItemCount(11213) >= 50 then
 			player:removeItem(11213, 50)
-			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Earth now.', cid)
+			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers \z
+			of Earth now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessEarth, 1)
 		else
-			npcHandler:say("I'm sorry, you don't have enough acorns. Return if you can offer fifty of them.", cid)
+			npcHandler:say("I'm sorry, you don't have enough acorns. Return if you can offer \z
+			fifty of them.", cid)
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 5 then
 		npcHandler:say("In this case I'm sorry, you may not pass this portal.", cid)
@@ -204,7 +252,8 @@ local function creatureSayCallback(cid, type, msg)
 	if msgcontains(msg, 'death portal') then
 		if player:getStorageValue(Storage.ForgottenKnowledge.Tomes) == 1 then
 			npcHandler:say({
-				"You may pass this portal if you have 50 pelvis bones as offering. Do you have the pelvis bones with you?"
+				"You may pass this portal if you have 50 pelvis bones as offering. \z
+				Do you have the pelvis bones with you?"
 			}, cid)
 			npcHandler.topic[cid] = 6
 		else
@@ -213,12 +262,15 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'yes') and npcHandler.topic[cid] == 6 then
-		if player:getStorageValue(Storage.ForgottenKnowledge.AccessDeath) < 1 and player:getItemCount(12437) >= 50 then
+		if player:getStorageValue(Storage.ForgottenKnowledge.AccessDeath) < 1 and 
+		player:getItemCount(12437) >= 50 then
 			player:removeItem(12437, 50)
-			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of Death now.', cid)
+			npcHandler:say('Thank you for your offering. You may pass the Portal to the Powers of \z
+			Death now.', cid)
 			player:setStorageValue(Storage.ForgottenKnowledge.AccessDeath, 1)
 		else
-			npcHandler:say("I'm sorry, you don't have enough pelvis bones. Return if you can offer fifty of them.", cid)
+			npcHandler:say("I'm sorry, you don't have enough pelvis bones. Return if you can offer \z
+			fifty of them.", cid)
 		end
 	elseif msgcontains(msg, 'no') and npcHandler.topic[cid] == 6 then
 		npcHandler:say("In this case I'm sorry, you may not pass this portal.", cid)
@@ -226,7 +278,10 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_WALKAWAY, "Oh... farewell, child.")
+npcHandler:setMessage(MESSAGE_GREET, "Greetings, pilgrim. Welcome to the halls of hope. We are the \z
+keepers of this temple and welcome everyone willing to contribute.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell, my child.")
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

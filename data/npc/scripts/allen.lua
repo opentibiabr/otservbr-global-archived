@@ -15,7 +15,7 @@ function onThink()
     npcHandler:onThink()
 end
 local voices = {
-	{ text = "Hey, need some furniture for your house? Come to the Plank and Treasurechest Market!" }
+	{ text = "Hey, need some furniture for your house? Come to the Plank and Treasurechest Market!"}
 }
 
 -- NPC shop
@@ -33,15 +33,51 @@ shopModule:addBuyableItem({"venorean wardrobe kit"}, 20255, 50, 1)
 shopModule:addBuyableItem({"wooden chair kit"}, 3903, 15, 1)
 shopModule:addBuyableItem({"yellow bed kit"}, 7905, 80, 1)
 
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = "My name is Allen Richardson. I am the owner of this market."})
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I run this market and sell furniture."})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = "It is 11:44 am. Too bad we run out of cuckoo clocks."})
-keywordHandler:addKeyword({'furniture'}, StdModule.say, {npcHandler = npcHandler, text = "At this counter you can buy chairs. What do you need?"})
-keywordHandler:addKeyword({'chairs'}, StdModule.say, {npcHandler = npcHandler, text = "I can offer you wooden chairs, rocking chairs, red cushioned chairs, green cushioned chairs and sofa chairs."})
-keywordHandler:addKeyword({'sofa chair'}, StdModule.say, {npcHandler = npcHandler, text = "You want to buy a sofa chair for 55 gold?"})
-keywordHandler:addKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = "Hmm, but I'm sure, it would fit nicely into your house."})
+keywordHandler:addKeyword({'name'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "My name is Allen Richardson. I am the owner of this market."
+	}
+)
+keywordHandler:addKeyword({'job'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I run this market and sell furniture."
+	}
+)
+keywordHandler:addKeyword({'time'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "It is 11:44 am. Too bad we run out of cuckoo clocks."
+	}
+)
+keywordHandler:addKeyword({'furniture'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "At this counter you can buy chairs. What do you need?"
+	}
+)
+keywordHandler:addKeyword({'chairs'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I can offer you wooden chairs, rocking chairs, red cushioned chairs, \z
+		green cushioned chairs and sofa chairs."
+	}
+)
+keywordHandler:addKeyword({'sofa chair'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, text = "You want to buy a sofa chair for 55 gold?"
+	}
+)
+keywordHandler:addKeyword({'no'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Hmm, but I'm sure, it would fit nicely into your house."
+	}
+)
 
-npcHandler:setMessage(MESSAGE_GREET, "Welcome to the Plank and Treasurechest Market, |PLAYERNAME|! Best {trades} in town!")
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to the Plank and Treasurechest Market, |PLAYERNAME|! \z
+Best {trades} in town!")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye, |PLAYERNAME|.")
 
 npcHandler:addModule(VoiceModule:new(voices))

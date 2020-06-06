@@ -34,14 +34,15 @@ keywordHandler:addKeyword({'gossip'}, StdModule.say,
 keywordHandler:addKeyword({'cultistis'}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "The talks about the cult are getting tiresome. There is no such thing. It is only another superstition here."
+		text = "The talks about the cult are getting tiresome. There is no such thing. \z
+		It is only another superstition here."
 	}
 )
 keywordHandler:addKeyword({'quara'}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "The quara are treacherous foes that don't fight with common tactics. This and the security of the seas, \z
-        to what they can withdraw, make it difficult to handle them properly."
+		text = "The quara are treacherous foes that don't fight with common tactics. \z
+		This and the security of the seas, to what they can withdraw, make it difficult to handle them properly."
 	}
 )
 keywordHandler:addKeyword({'pirate'}, StdModule.say,

@@ -15,10 +15,32 @@ function onThink()
 	npcHandler:onThink()
 end
 
-keywordHandler:addKeyword({'soldiers'}, StdModule.say, {npcHandler = npcHandler, text = "It was the elite of the whole army. They were called the Red Legion (also known as the bloody legion)."})
-keywordHandler:addKeyword({'orcs'}, StdModule.say, {npcHandler = npcHandler, text = "The orcs attacked the workers from time to time and so they disturbed the WORKS on the city."})
-keywordHandler:addKeyword({'cruelty'}, StdModule.say, {npcHandler = npcHandler, text = "The soldiers treated the workers like slaves."})
-keywordHandler:addKeyword({'island'}, StdModule.say, {npcHandler = npcHandler, text = "The General of the Red Legion became very angry about these attacks and after some months he STROKE back!"})
+keywordHandler:addKeyword({'soldiers'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "It was the elite of the whole army. They were called the Red Legion \z
+		(also known as the bloody legion)."
+	}
+)
+keywordHandler:addKeyword({'orcs'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The orcs attacked the workers from time to time and so they disturbed the WORKS on the city."
+	}
+)
+keywordHandler:addKeyword({'cruelty'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The soldiers treated the workers like slaves."
+	}
+)
+keywordHandler:addKeyword({'island'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The General of the Red Legion became very angry about these attacks and after some \z
+		months he STROKE back!"
+	}
+)
 
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
@@ -41,12 +63,14 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "rebel") then
 		npcHandler:say({
 			'All rebels were brought to the giant castle. Guarded by the Red Legion, ... <m>',
-			'... they had to work and live in even worser conditions. Also some FRIENDS of the king\'s sister were brought there.'
+			'... they had to work and live in even worser conditions. Also some FRIENDS of the king\'s \z
+			sister were brought there.'
 		}, cid)
 	elseif msgcontains(msg, "friends") then
 		npcHandler:say({
 			'The king\'s sister was pretty upset about the situation there but her brother ... <m>',
-			'... didn\'t want to do anything about this matter. So she made a PLAN to destroy the Red Legion for their CRUELTY forever.'
+			'... didn\'t want to do anything about this matter. So she made a PLAN to destroy the Red Legion \z
+			for their CRUELTY forever.'
 		}, cid)
 	elseif msgcontains(msg, "plan") then
 		npcHandler:say({
@@ -81,7 +105,8 @@ local function creatureSayCallback(cid, type, msg)
 			'... the orcs went back to their cities. The city of Carlin was rescued. <m>',
 			'Since then, a woman has always been ruling over Carlin and this statue ... <m>',
 			'... was made to remind us of their great tactics against the orcs ... <m>',
-			'... and the Red Legion. So that was the story of Carlin and these Fields of Glory. I hope you liked it. *He smiles*'
+			'... and the Red Legion. So that was the story of Carlin and these Fields of Glory. \z
+			I hope you liked it. *He smiles*'
 		}, cid)
 	end
 	return true

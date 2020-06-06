@@ -21,8 +21,9 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local voices = { {text = 'AHHHH THE PAIN OF AGESSS! THE PAIN!'} }
-npcHandler:addModule(VoiceModule:new(voices))
+local voices = { 
+{text = 'AHHHH THE PAIN OF AGESSS! THE PAIN!'} 
+}
 
 local function greetCallback(cid)
 	local player = Player(cid)
@@ -32,15 +33,18 @@ local function greetCallback(cid)
 	end
 
 	if not player:removeItem(2787, 1) then
-		npcHandler:say('AHHHH THE PAIN OF AGESSS! I NEED MUSSSSHRROOOMSSS TO EASSSE MY PAIN! BRRRING ME MUSHRRROOOMSSS!', cid)
+		npcHandler:say('AHHHH THE PAIN OF AGESSS! I NEED MUSSSSHRROOOMSSS TO EASSSE MY PAIN! \z
+		BRRRING ME MUSHRRROOOMSSS!', cid)
 		return false
 	end
 
 	player:setStorageValue(Storage.Dragonfetish, 1)
 	player:addItem(2319, 1)
-	npcHandler:say('AHHH MUSHRRROOOMSSS! NOW MY PAIN WILL BE EASSSED FOR A WHILE! TAKE THISS AND LEAVE THE DRAGONSSS\' CEMETERY AT ONCE!', cid)
+	npcHandler:say('AHHH MUSHRRROOOMSSS! NOW MY PAIN WILL BE EASSSED FOR A WHILE! \z
+	TAKE THISS AND LEAVE THE DRAGONSSS\' CEMETERY AT ONCE!', cid)
 	return false
 end
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:addModule(FocusModule:new())

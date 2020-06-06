@@ -15,12 +15,22 @@ function onThink()
 npcHandler:onThink()	
 end
 
-local voices = { {text = 'Please leave me alone... I have to study.'} }
+local voices = { 
+	{text = 'Please leave me alone... I have to study.'} 
+}
+
+keywordHandler:addGreetKeyword({"ashari"}, 
+	{
+		npcHandler = npcHandler, 
+		text = "Greetings, |PLAYERNAME|."
+	}
+)
+keywordHandler:addFarewellKeyword({"asgha thrazi"}, 
+	{
+		npcHandler = npcHandler, 
+		text = "Good bye, |PLAYERNAME|."
+	}
+)
+
 npcHandler:addModule(VoiceModule:new(voices))
-
--- Greeting message
-keywordHandler:addGreetKeyword({"ashari"}, {npcHandler = npcHandler, text = "Greetings, |PLAYERNAME|."})
---Farewell message
-keywordHandler:addFarewellKeyword({"asgha thrazi"}, {npcHandler = npcHandler, text = "Good bye, |PLAYERNAME|."})
-
 npcHandler:addModule(FocusModule:new())

@@ -15,14 +15,33 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local voices = { {text = 'Passages to Tibia, Folda and Vega.'} }
-npcHandler:addModule(VoiceModule:new(voices))
+local voices = { 
+	{text = 'Passages to Tibia, Folda and Vega.'}
+}
 
 -- Travel
 local function addTravelKeyword(keyword, text, cost, destination)
-	local travelKeyword = keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'Do you want to sail ' .. text, cost = cost})
-		travelKeyword:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, cost = cost, destination = destination})
-		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'We would like to serve you some time.', reset = true})
+	local travelKeyword = keywordHandler:addKeyword({keyword}, StdModule.say, 
+		{
+			npcHandler = npcHandler, 
+			text = 'Do you want to sail ' .. text, cost = cost
+		}
+	)
+		travelKeyword:addChildKeyword({'yes'}, StdModule.travel, 
+			{
+				npcHandler = npcHandler, 
+				premium = false, 
+				cost = cost, 
+				destination = destination
+			}
+		)
+		travelKeyword:addChildKeyword({'no'}, StdModule.say, 
+			{
+				npcHandler = npcHandler, 
+				text = 'We would like to serve you some time.', 
+				reset = true
+			}
+		)
 end
 
 addTravelKeyword('tibia', 'back to Tibia?', 0, Position(32235, 31674, 7))
@@ -30,8 +49,24 @@ addTravelKeyword('vega', 'to Vega for |TRAVELCOST|?', 10, Position(32020, 31692,
 addTravelKeyword('folda', 'to Folda for |TRAVELCOST|?', 10, Position(32046, 31578, 7))
 
 -- Basic
-keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = 'Where do you want to go? To {Tibia}, {Folda} or {Vega}?'})
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = 'I am the captain of this ship.'})
-keywordHandler:addKeyword({'captain'}, StdModule.say, {npcHandler = npcHandler, text = 'I am the captain of this ship.'})
+keywordHandler:addKeyword({'passage'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = 'Where do you want to go? To {Tibia}, {Folda} or {Vega}?'
+	}
+)
+keywordHandler:addKeyword({'job'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = 'I am the captain of this ship.'
+	}
+)
+keywordHandler:addKeyword({'captain'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = 'I am the captain of this ship.'
+	}
+)
 
+npcHandler:addModule(VoiceModule:new(voices))
 npcHandler:addModule(FocusModule:new())

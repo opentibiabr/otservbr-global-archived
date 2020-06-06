@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Alberto" walkinterval="2000" floorchange="0" script="alberto.lua" speechbubble="1">>
+	<health now="100" max="100"/>
+	<look type="133" head="21" body="0" legs="38" feet="38" addons="1"/>
+</npc>
