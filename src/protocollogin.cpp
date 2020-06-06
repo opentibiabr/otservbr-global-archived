@@ -24,11 +24,15 @@
 #include "outputmessage.h"
 #include "rsa.h"
 #include "tasks.h"
-
+#include "account.hpp"
 #include "configmanager.h"
 #include "iologindata.h"
 #include "ban.h"
 #include "game.h"
+
+#include <algorithm>
+#include <limits>
+#include <vector>
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -46,21 +50,27 @@ void ProtocolLogin::disconnectClient(const std::string& message, uint16_t versio
 
 void ProtocolLogin::getCharacterList(const std::string& accountName, const std::string& password, uint16_t version)
 {
-	//dispatcher thread
-	Account account;
-	if (!IOLoginData::loginserverAuthentication(accountName, password, account)) {
+	// Load Account Information
+  int result = 0;
+  account::Account account;
+  result = account.LoadAccountDB(accountName);
+  if (result) {
+    return;
+  }
+
+  // Check Login Password
+	if (!IOLoginData::LoginServerAuthentication(accountName, password)) {
 		disconnectClient("Account name or password is not correct.", version);
 		return;
 	}
 
 	auto output = OutputMessagePool::getOutputMessage();
-	//Update premium days
+	// Update premium days
 	Game::updatePremium(account);
 
-	//
 	const std::string& motd = g_config.getString(ConfigManager::MOTD);
 	if (!motd.empty()) {
-		//Add MOTD
+		// Add MOTD
 		output->addByte(0x14);
 
 		std::ostringstream ss;
@@ -68,39 +78,44 @@ void ProtocolLogin::getCharacterList(const std::string& accountName, const std::
 		output->addString(ss.str());
 	}
 
-	//Add session key
+	// Add session key
 	output->addByte(0x28);
 	output->addString(accountName + "\n" + password);
 
-	//Add char list
-	output->addByte(0x64);
+	// Add char list
+  std::vector<account::Player> players;
+  account.GetAccountPlayers(&players);
+  output->addByte(0x64);
 
-	output->addByte(1); // number of worlds
+  output->addByte(1);  // number of worlds
 
-	output->addByte(0); // world id
+	output->addByte(0);  // world id
 	output->addString(g_config.getString(ConfigManager::SERVER_NAME));
 	output->addString(g_config.getString(ConfigManager::IP));
 
 	output->add<uint16_t>(g_config.getShortNumber(ConfigManager::GAME_PORT));
 
 	output->addByte(0);
-	//
-	uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(), account.characters.size());
+
+	uint8_t size = std::min<size_t>(std::numeric_limits<uint8_t>::max(),
+                                  players.size());
 	output->addByte(size);
 	for (uint8_t i = 0; i < size; i++) {
 		output->addByte(0);
-		output->addString(account.characters[i]);
+		output->addString(players[i].name);
 	}
 
-	//Add premium days
+	// Add premium days
 	output->addByte(0);
 	if (g_config.getBoolean(ConfigManager::FREE_PREMIUM)) {
 		output->addByte(1);
 		output->add<uint32_t>(0);
 	} else {
-		output->addByte(0);
-		output->add<uint32_t>(time(nullptr) + (account.premiumDays * 86400));
-	}
+    uint32_t days;
+    account.GetPremiumRemaningDays(&days);
+    output->addByte(0);
+    output->add<uint32_t>(time(nullptr) + (days * 86400));
+  }
 
 	send(output);
 

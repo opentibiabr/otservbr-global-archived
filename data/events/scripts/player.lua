@@ -824,8 +824,17 @@ function Player:onApplyImbuement(imbuement, item, slot, protectionCharm)
 	local price = base.price + (protectionCharm and base.protection or 0)
 
 	local chance = protectionCharm and 100 or base.percent
-	if math.random(100) > chance then
-		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "Item failed to apply imbuement.")
+	if math.random(100) > chance then -- failed attempt
+		self:sendImbuementResult(MESSAGEDIALOG_IMBUEMENT_ROLL_FAILED, "Oh no!\n\nThe imbuement has failed. You have lost the astral sources and gold you needed for the imbuement.\n\nNext time use a protection charm to better your chances.")
+		-- Removing items
+		for _, pid in pairs(imbuement:getItems()) do
+			self:removeItem(pid.itemid, pid.count)
+		end
+		-- Removing money
+		self:removeMoneyNpc(price)
+		-- Refreshing shrine window
+		local nitem = Item(item.uid)
+		self:sendImbuementPanel(nitem)
 		return false
 	end
 

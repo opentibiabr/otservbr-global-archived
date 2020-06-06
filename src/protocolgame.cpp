@@ -92,7 +92,9 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 			return;
 		}
 
-		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT) && player->getAccountType() < ACCOUNT_TYPE_GAMEMASTER && g_game.getPlayerByAccount(player->getAccount())) {
+		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT)
+        && player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER
+        && g_game.getPlayerByAccount(player->getAccount())) {
 			disconnectClient("You may only login with one character\nof your account at the same time.");
 			return;
 		}
@@ -1992,8 +1994,11 @@ void ProtocolGame::updateCoinBalance()
 	g_dispatcher.addTask(
 		createTask(std::bind([](ProtocolGame* client) {
 			if (client && client->player) {
-				auto coinBalance = IOAccount::getCoinBalance(client->player->getAccount());
-				client->player->coinBalance = coinBalance;
+        account::Account account;
+        account.LoadAccountDB(client->player->getAccount());
+        uint32_t coins;
+        account.GetCoins(&coins);
+        client->player->coinBalance = coins;
 				client->sendCoinBalance();
 			}
 		}, this))
@@ -2749,7 +2754,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		if (isLogin) {
 			if (const Player* creaturePlayer = creature->getPlayer()) {
 				if (!creaturePlayer->isAccessPlayer() ||
-						creaturePlayer->getAccountType() == ACCOUNT_TYPE_NORMAL)
+						creaturePlayer->getAccountType() == account::ACCOUNT_TYPE_NORMAL)
 					sendMagicEffect(pos, CONST_ME_TELEPORT);
 			} else {
 				sendMagicEffect(pos, CONST_ME_TELEPORT);
@@ -2770,7 +2775,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	msg.addDouble(Creature::speedC, 3);
 
 	// can report bugs?
-	if (player->getAccountType() >= ACCOUNT_TYPE_NORMAL) {
+	if (player->getAccountType() >= account::ACCOUNT_TYPE_NORMAL) {
 		msg.addByte(0x01);
 	} else {
 		msg.addByte(0x00);

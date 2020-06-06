@@ -1,19 +1,19 @@
 local spheres = {
-	[8300] = {3, 7},
-	[8304] = {1, 5},
-	[8305] = {2, 6},
-	[8306] = {4, 8}
+	[8300] = VOCATION.CLIENT_ID.PALADIN,
+	[8304] = VOCATION.CLIENT_ID.SORCERER,
+	[8305] = VOCATION.CLIENT_ID.DRUID,
+	[8306] = VOCATION.CLIENT_ID.KNIGHT
 }
 
 local globalTable = {
-	[1] = 10005,
-	[2] = 10006,
-	[3] = 10007,
-	[4] = 10008
+	[VOCATION.CLIENT_ID.SORCERER] = 10005,
+	[VOCATION.CLIENT_ID.DRUID] = 10006,
+	[VOCATION.CLIENT_ID.PALADIN] = 10007,
+	[VOCATION.CLIENT_ID.KNIGHT] = 10008
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({7917, 7918, 7913, 7914}, target.itemid) then
+	if not table.contains({7917, 7918, 7913, 7914}, target.itemid) then
 		return false
 	end
 
@@ -21,11 +21,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if not isInArray(spheres[item.itemid], player:getVocation():getId()) then
+	if not table.contains(spheres[item.itemid], player:getVocation():getClientId()) then
 		return false
 	end
 
-	if isInArray({7917, 7918}, target.itemid) then
+	if table.contains({7917, 7918}, target.itemid) then
 		player:say('Turn off the machine first.', TALKTYPE_MONSTER_SAY)
 		return true
 	end

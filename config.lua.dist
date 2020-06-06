@@ -65,10 +65,8 @@ housePriceEachSQM = 1000
 houseRentPeriod = "never"
 
 -- Item Usage
--- Do not touch here
--- Avoid use of WIPE program to crash the distro
-timeBetweenActions = 500
-timeBetweenExActions = 700
+timeBetweenActions = 200
+timeBetweenExActions = 1000
 
 -- Push Delay
 pushDelay = 1000

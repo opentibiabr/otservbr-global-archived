@@ -47,6 +47,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) < 1 then
 			   player:setStorageValue(Storage.CultsOfTibia.Barkless.Mission, 1)
+			   player:setStorageValue(Storage.CultsOfTibia.Barkless.TrialAcessDoor, 1)
 			end
 	elseif msgcontains(msg, "purest") and npcHandler.topic[cid] == 2 then
 			npcHandler:say({"Purification is but one of the difficult steps on your way to the other side. The {trial} of tar, sulphur and ice."}, cid)

@@ -253,7 +253,7 @@
     <ResourceCompile Include="otservbr-global.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\account.h" />
+    <ClInclude Include="..\src\account.hpp" />
     <ClInclude Include="..\src\actions.h" />
     <ClInclude Include="..\src\ban.h" />
     <ClInclude Include="..\src\baseevents.h" />

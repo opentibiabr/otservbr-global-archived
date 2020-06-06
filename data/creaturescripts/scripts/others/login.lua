@@ -24,34 +24,28 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 end
 
 function onLogin(player)
-	local loginStr = 'Welcome to ' .. configManager.getString(configKeys.SERVER_NAME) .. '!'
-	if player:getLastLoginSaved() <= 0 then
-		loginStr = loginStr .. ' Please choose your outfit.'
-		player:sendOutfitWindow()
-	else
-		if loginStr ~= "" then
-			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
+	local items = {
+		{2120, 1},
+		{2148, 3}
+	}
+	if player:getLastLoginSaved() == 0 then
+		local backpack = player:addItem(1988)
+		if backpack then
+			for i = 1, #items do
+				backpack:addItem(items[i][1], items[i][2])
+			end
 		end
-
-		loginStr = string.format('Your last visit was on %s.', os.date('%a %b %d %X %Y', player:getLastLoginSaved()))
+		player:addItem(2050, 1, true, 1, CONST_SLOT_AMMO)
+	else
+		player:sendTextMessage(MESSAGE_STATUS_DEFAULT, string.format("Your last visit in ".. SERVER_NAME ..": %s.", os.date("%d. %b %Y %X", player:getLastLoginSaved())))
 	end
 
-	player:sendTextMessage(MESSAGE_STATUS_DEFAULT, loginStr)
-
 	local playerId = player:getId()
-
 	DailyReward.init(playerId)
 
 	player:loadSpecialStorage()
 
-	--[[-- Maintenance mode
-	if (player:getGroup():getId() < 2) then
-		return false
-	else
-
-	end--]]
-
-	if (player:getGroup():getId() >= 4) then
+	if player:getGroup():getId() >= 4 then
 		player:setGhostMode(true)
 	end
 
@@ -98,9 +92,8 @@ function onLogin(player)
 	end
 
 	-- Open channels
-	if table.contains({"Rookgaard", "Dawnport"}, player:getTown():getName())then
+	if table.contains({TOWNS_LIST.DAWNPORT, TOWNS_LIST.DAWNPORT_TUTORIAL}, player:getTown():getId())then
 		player:openChannel(3) -- World chat
-		player:openChannel(6) -- Advertsing rook main
 	else
 		player:openChannel(3) -- World chat
 		player:openChannel(5) -- Advertsing main

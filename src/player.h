@@ -17,29 +17,30 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef FS_PLAYER_H_4083D3D3A05B4EDE891B31BB720CD06F
-#define FS_PLAYER_H_4083D3D3A05B4EDE891B31BB720CD06F
+#ifndef SRC_PLAYER_H_
+#define SRC_PLAYER_H_
 
-#include "creature.h"
+#include "account.hpp"
 #include "container.h"
+#include "creature.h"
 #include "cylinder.h"
-#include "outfit.h"
-#include "enums.h"
-#include "vocation.h"
-#include "protocolgame.h"
-#include "ioguild.h"
-#include "party.h"
-#include "inbox.h"
 #include "depotchest.h"
 #include "depotlocker.h"
-#include "guild.h"
+#include "enums.h"
+#include "gamestore.h"
 #include "groups.h"
-#include "town.h"
+#include "guild.h"
+#include "imbuements.h"
+#include "inbox.h"
+#include "ioguild.h"
 #include "mounts.h"
+#include "outfit.h"
+#include "party.h"
+#include "protocolgame.h"
 #include "reward.h"
 #include "rewardchest.h"
-#include "gamestore.h"
-#include "imbuements.h"
+#include "town.h"
+#include "vocation.h"
 
 class House;
 class NetworkMessage;
@@ -208,7 +209,7 @@ class Player final : public Creature, public Cylinder
 				client->sendItemsPrice();
 			}
 		}
-		
+
 		// New Prey
 		uint16_t getPreyState(uint16_t slot) const {
 			return preySlotState[slot];
@@ -394,7 +395,7 @@ class Player final : public Creature, public Cylinder
 			return imbuing != nullptr;
 		}
 		void inImbuing(Item* item);
-		
+
 		void addBlessing(uint8_t index, uint8_t count) {
 			if (blessings[index - 1] == 255) {
 				return;
@@ -475,7 +476,7 @@ class Player final : public Creature, public Cylinder
 		uint32_t getAccount() const {
 			return accountNumber;
 		}
-		AccountType_t getAccountType() const {
+		account::AccountType getAccountType() const {
 			return accountType;
 		}
 		uint32_t getLevel() const {
@@ -1379,7 +1380,7 @@ class Player final : public Creature, public Cylinder
 
 			return false;
  		}
- 
+
    		void updateSupplyTracker(const Item* item)
  		{
   			if (client && getProtocolVersion() > 1140) {
@@ -1403,7 +1404,15 @@ class Player final : public Creature, public Cylinder
 
 		uint16_t getFreeBackpackSlots() const;
 
-	private:
+
+  /*****************************************************************************
+   * Interfaces
+   ****************************************************************************/
+  error_t SetAccountInterface(account::Account *account);
+  error_t GetAccountInterface(account::Account *account);
+
+
+ private:
 		std::forward_list<Condition*> getMuteConditions() const;
 
 		void checkTradeState(const Item* item);
@@ -1542,13 +1551,13 @@ class Player final : public Creature, public Cylinder
 		int32_t purchaseCallback = -1;
 		int32_t saleCallback = -1;
 		int32_t MessageBufferCount = 0;
-		int32_t premiumDays = 0;
+		uint32_t premiumDays = 0;
 		int32_t bloodHitCount = 0;
 		int32_t shieldBlockCount = 0;
 		int32_t offlineTrainingSkill = -1;
 		int32_t offlineTrainingTime = 0;
 		int32_t idleTime = 0;
-		int32_t coinBalance = 0;
+		uint32_t coinBalance = 0;
 		uint16_t expBoostStamina = 0;
 
 		uint16_t lastStatsTrainingTime = 0;
@@ -1565,7 +1574,7 @@ class Player final : public Creature, public Cylinder
 		uint16_t storeXpBoost = 0;
 		uint16_t staminaXpBoost = 100;
 		int16_t lastDepotId = -1;
-		
+
 		// New Prey
 		uint16_t preyBonusRerolls = 0;
 		std::vector<uint16_t> preySlotState = {0, 0, 0};
@@ -1588,7 +1597,8 @@ class Player final : public Creature, public Cylinder
 		BlockType_t lastAttackBlockType = BLOCK_NONE;
 		tradestate_t tradeState = TRADE_NONE;
 		fightMode_t fightMode = FIGHTMODE_ATTACK;
-		AccountType_t accountType = ACCOUNT_TYPE_NORMAL;
+		account::AccountType accountType =
+                                    account::AccountType::ACCOUNT_TYPE_NORMAL;
 
 		bool chaseMode = false;
 		bool secureMode = false;
@@ -1644,6 +1654,8 @@ class Player final : public Creature, public Cylinder
 		friend class Actions;
 		friend class IOLoginData;
 		friend class ProtocolGame;
+
+  account::Account *account_;
 };
 
-#endif
+#endif  // SRC_PLAYER_H_
