@@ -379,8 +379,34 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
-	local targetId,
-		targetActionId = target.itemid, target.actionid
+	--Dawnport quest (Morris amulet task)
+	local sandPosition = Position(32099, 31933, 7)
+	if (toPosition == sandPosition) then
+		local sandTile = Tile(sandPosition)
+		local amuletId = sandTile:getItemById(22679)
+		if amuletId then
+			if player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 1 then
+				local rand = math.random(100)
+				if rand <= 10 then
+					player:addItem(23750, 1)
+					player:setStorageValue(Storage.Quest.Dawnport.TheLostAmulet, 2)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found an ancient amulet. Strange engravings cover it. Maybe Morris can make them out.")
+				elseif rand <= 80 then
+					player:addItem(23766, 1)
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You dig up sand and sea shells.")
+				elseif rand > 95 then
+					player:addItem(3976, math.random(1, 10))
+					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You dig up some worms. But you are confident that you'll find the amulet here, somewhere.")
+				end
+				toPosition:sendMagicEffect(CONST_ME_POFF)
+			else
+				return false
+			end
+		end
+		return true
+	end
+
+	local targetId, targetActionId = target.itemid, target.actionid
 	if table.contains(holes, targetId) then
 		target:transform(targetId + 1)
 		target:decay()
@@ -395,10 +421,11 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			Game.createMonster("Scarab", toPosition)
 		end
 		toPosition:sendMagicEffect(CONST_ME_POFF)
+	-- Wrath of the emperor quest
 	elseif targetId == 351 and targetActionId == 8024 then
-		-- Wrath of the emperor quest
 		player:addItem(12297, 1)
 		player:say("You dig out a handful of earth from this sacred place.", TALKTYPE_MONSTER_SAY)
+	-- Rookgaard tutorial island
 	elseif targetId == 8579 and player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 20 then
 		-- RookgaardTutorialIsland
 		player:sendTextMessage(
@@ -411,9 +438,8 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 		target:transform(469)
 		addEvent(revertItem, 30 * 1000, toPosition, 469, 8579)
 	elseif
-		targetActionId == 4654 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission49) == 1 and
-			player:getStorageValue(Storage.GravediggerOfDrefia.Mission50) < 1
-	 then
+		targetActionId == 4654 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission49) == 1
+		and player:getStorageValue(Storage.GravediggerOfDrefia.Mission50) < 1 then
 		-- Gravedigger Quest
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You found a piece of the scroll. You pocket it quickly.")
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
@@ -489,7 +515,6 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 	else
 		return false
 	end
-
 	return true
 end
 
@@ -508,6 +533,17 @@ function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 				20000
 			)
 
+			return true
+		end
+	end
+	--Dawnport some cracks down
+	local crackPosition = Position(32099, 31930, 7)
+	if (toPosition == crackPosition) then
+		local tile = Tile(crackPosition)
+		local crack = tile:getItemById(6299)
+		if (crack) then
+			player:teleportTo({x = 32099, y = 31930, z = 8})
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			return true
 		end
 	end

@@ -1,5 +1,4 @@
 local storage = 674531
-local voc = {4, 8}
 
 local area = createCombatArea(AREA_CIRCLE3X3)
 
@@ -29,7 +28,8 @@ function onTargetTile(creature, pos)
                 local max = 8000
                 local player = Player(creatureTable[r])
 
-                if isPlayer(creatureTable[r]) == true and isInArray(voc, player:getVocation():getId()) then
+                if isPlayer(creatureTable[r]) == true
+                and table.contains({VOCATION.CLIENT_ID.KNIGHT}, player:getVocation():getClientId()) then
                     doTargetCombatHealth(creature, creatureTable[r], COMBAT_FIREDAMAGE, -min, -max, CONST_ME_NONE)
                 elseif isMonster(creatureTable[r]) == true then
                     doTargetCombatHealth(creature, creatureTable[r], COMBAT_FIREDAMAGE, -min, -max, CONST_ME_NONE)

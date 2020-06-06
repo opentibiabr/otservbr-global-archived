@@ -514,7 +514,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif npcHandler.topic[cid] == 13 then
 		if msgcontains(msg, 'yes') then
 			if not player:transferMoneyTo(transfer[cid], count[cid]) then
-				npcHandler:say('You cannot transfer money to this account.', cid)
+				npcHandler:say("I'm afraid this character only holds a junior account at our bank. Do not worry, though. Once he has chosen his vocation or is no longer on Dawnport, his account will be upgraded.", cid)
 			else
 				npcHandler:say('Very well. You have transferred ' .. count[cid] .. ' gold to ' .. transfer[cid] ..'.', cid)
 				transfer[cid] = nil

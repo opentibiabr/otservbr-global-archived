@@ -47,6 +47,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 			if player:getStorageValue(Storage.CultsOfTibia.Misguided.Mission) < 2 then
 			   player:setStorageValue(Storage.CultsOfTibia.Misguided.Mission, 2)
+			   player:setStorageValue(Storage.CultsOfTibia.Misguided.AcessDoor, 1)
 			end
 	elseif msgcontains(msg, "cave") and npcHandler.topic[cid] == 1 then
 			npcHandler:say({"I was stationed in this cave to... guard something. Right now I am not even sure what that was."}, cid)

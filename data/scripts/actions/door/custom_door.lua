@@ -1,59 +1,37 @@
--- custom doors (house door)
-local door = Action()
 local doorIds = {}
+for index, value in ipairs(CustomDoorTable) do
+	if not table.contains(doorIds, value.openDoor) then
+		table.insert(doorIds, value.openDoor)
+	end
 
-for index, value in ipairs(customDoor) do
-    if not table.contains(doorIds, value.openDoor) then
-        table.insert(doorIds, value.openDoor)
-    end
-
-    if not table.contains(doorIds, value.closedDoor) then
-        table.insert(doorIds, value.closedDoor)
-    end
+	if not table.contains(doorIds, value.closedDoor) then
+		table.insert(doorIds, value.closedDoor)
+	end
 end
 
-function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local doorCreature = Tile(toPosition):getTopCreature()
-	if doorCreature then
-		toPosition.x = toPosition.x + 1
-		local query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		if query ~= RETURNVALUE_NOERROR then
-			toPosition.x = toPosition.x - 1
-			toPosition.y = toPosition.y + 1
-			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		end
-		if query ~= RETURNVALUE_NOERROR then
-			toPosition.y = toPosition.y - 2
-			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		end
-		if query ~= RETURNVALUE_NOERROR then
-			toPosition.x = toPosition.x - 1
-			toPosition.y = toPosition.y + 1
-			query = Tile(toPosition):queryAdd(doorCreature, bit.bor(FLAG_IGNOREBLOCKCREATURE, FLAG_PATHFINDING))
-		end
-		if query ~= RETURNVALUE_NOERROR then
-			player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+local customDoor = Action()
+function customDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if Creature.checkCreatureInsideDoor(player, toPosition) then
+		return true
+	end
+
+	for index, value in ipairs(CustomDoorTable) do
+		 if value.closedDoor == item.itemid then
+			item:transform(value.openDoor)
 			return true
 		end
-		doorCreature:teleportTo(toPosition, true)
 	end
-	
-	local itemId = item:getId()
-    for index, value in ipairs(customDoor) do
-		 if value.closedDoor == itemId then
-			item:transform(value.openDoor)
-		end
-	end
-	for index, value in ipairs(customDoor) do
-		if value.openDoor == itemId then
+	for index, value in ipairs(CustomDoorTable) do
+		if value.openDoor == item.itemid then
 			item:transform(value.closedDoor)
+			return true
 		end
 	end
 	return true
 end
 
 for index, value in ipairs(doorIds) do
-    door:id(value)
+	customDoor:id(value)
 end
 
-door:register()
+customDoor:register()
