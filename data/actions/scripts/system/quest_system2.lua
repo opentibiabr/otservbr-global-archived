@@ -363,6 +363,18 @@ local config = {
 		},
 		storage = 857448
 	},
+	[65211] = {
+		items = {
+			{itemId = 2145, count = 1}
+		},
+		storage = 857449
+	},
+	[65212] = {
+		items = {
+			{itemId = 2088, actionId = 3667}
+		},
+		storage = 857450
+	},
 	-- 65203 reservado
 }
 
