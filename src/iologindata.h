@@ -20,7 +20,7 @@
 #ifndef FS_IOLOGINDATA_H_28B0440BEC594654AC0F4E1A5E42B2EF
 #define FS_IOLOGINDATA_H_28B0440BEC594654AC0F4E1A5E42B2EF
 
-#include "account.h"
+#include "account.hpp"
 #include "player.h"
 #include "database.h"
 
@@ -29,14 +29,13 @@ using ItemBlockList = std::list<std::pair<int32_t, Item*>>;
 class IOLoginData
 {
 	public:
-		static Account loadAccount(uint32_t accno);
-		static bool saveAccount(const Account& acc);
 
-		static bool loginserverAuthentication(const std::string& name, const std::string& password, Account& account);
+		static bool LoginServerAuthentication(const std::string& name,
+                                          const std::string& password);
 		static uint32_t gameworldAuthentication(const std::string& accountName, const std::string& password, std::string& characterName);
 
-		static AccountType_t getAccountType(uint32_t accountId);
-		static void setAccountType(uint32_t accountId, AccountType_t accountType);
+		static account::AccountType getAccountType(uint32_t accountId);
+		static void setAccountType(uint32_t accountId, account::AccountType accountType);
 		static void updateOnlineStatus(uint32_t guid, bool login);
 		static bool preloadPlayer(Player* player, const std::string& name);
 

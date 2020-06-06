@@ -81,4 +81,6 @@ static constexpr auto AUTHENTICATOR_PERIOD = 30U;
 #define M_PI 3.14159265358979323846
 #endif
 
+typedef int error_t;
+
 #endif

@@ -2,6 +2,9 @@ image: Visual Studio 2019
 
 shallow_clone: true
 
+# set clone depth
+clone_depth: 1
+
 platform:
   - x64
 
