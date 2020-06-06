@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Aggressive Matter" nameDescription="a agressive matter" race="venom" experience="0" speed="230">
 	<health now="5000" max="5000" />
-	<look type="615"/>
+	<look type="615" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

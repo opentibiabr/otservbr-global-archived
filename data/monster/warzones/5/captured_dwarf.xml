@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Captured Dwarf" nameDescription="a captured dwarf" race="blood" experience="0" speed="200">
 	<health now="100" max="100" />
-	<look type="538"/>
+	<look type="538" />
 	<targetchange interval="0" chance="0" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="0" />

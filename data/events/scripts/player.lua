@@ -84,7 +84,7 @@ local function getTimeinWords(secs)
 		timeStr = timeStr .. ' hours '
 	end
 
-	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. 'seconds.'
+	timeStr = timeStr .. minutes .. ' minutes and '.. seconds .. ' seconds.'
 
 	return timeStr
 end
@@ -179,6 +179,12 @@ function Player:onLook(thing, position, distance)
 			if decayId ~= -1 then
 				description = string.format("%s\nDecays to: %d", description, decayId)
 			end
+			
+			local clientId = itemType:getClientId()
+			if clientId then
+				description = string.format("%s\nClient ID: %d", description, clientId)
+			end
+			
 		elseif thing:isCreature() then
 			local str = "%s\nHealth: %d / %d"
 			if thing:isPlayer() and thing:getMaxMana() > 0 then

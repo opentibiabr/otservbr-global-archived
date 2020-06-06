@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Makeshift Home" nameDescription="a makeshift home" race="blood" experience="1800" speed="0">
 	<health now="6900" max="6900" />
-	<look typeex="30601"/>
+	<look typeex="30601" />
 	<targetchange interval="5000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

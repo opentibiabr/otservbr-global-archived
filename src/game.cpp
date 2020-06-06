@@ -213,7 +213,7 @@ bool Game::loadItemsPrice()
 	std::ostringstream query, query2;
 	query << "SELECT DISTINCT `itemtype` FROM `market_offers`;";
 
-	Database& db = Database::getInstance();	
+	Database& db = Database::getInstance();
 	DBResult_ptr result = db.storeQuery(query.str());
 	if (!result) {
 		return false;
@@ -1384,7 +1384,6 @@ ReturnValue Game::internalRemoveItem(Item* item, int32_t count /*= -1*/, bool te
 	if (cylinder == nullptr) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
-
 	Tile* fromTile = cylinder->getTile();
 	if (fromTile) {
 		auto it = browseFields.find(fromTile);
@@ -1392,38 +1391,32 @@ ReturnValue Game::internalRemoveItem(Item* item, int32_t count /*= -1*/, bool te
 			cylinder = fromTile;
 		}
 	}
-
 	if (count == -1) {
 		count = item->getItemCount();
 	}
-
 	//check if we can remove this item
 	ReturnValue ret = cylinder->queryRemove(*item, count, flags | FLAG_IGNORENOTMOVEABLE);
 	if (ret != RETURNVALUE_NOERROR) {
 		return ret;
 	}
-
 	if (!item->canRemove()) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
-
 	if (!test) {
 		int32_t index = cylinder->getThingIndex(item);
-
 		//remove the item
 		cylinder->removeThing(item, count);
 
 		if (item->isRemoved()) {
-			ReleaseItem(item);
+			item->onRemoved();
 			if (item->canDecay()) {
 				decayItems->remove(item);
 			}
+			ReleaseItem(item);
 		}
 
 		cylinder->postRemoveNotification(item, nullptr, index);
 	}
-
-	item->onRemoved();
 	return RETURNVALUE_NOERROR;
 }
 
@@ -2470,18 +2463,18 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		}
 		return;
 	}
-	
-	const Container* container = item->getContainer();	
+
+	const Container* container = item->getContainer();
 	if (container && container->getItemHoldingCount() > 0) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
-	
+
 	if ((item->getHoldingPlayer() && item->getID() == 26054) || (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID))) {
 		player->sendCancelMessage("You can only wrap/unwrap in the floor.");
 		return;
 	}
-	
+
 	std::string itemName = item->getName();
 	const ItemAttributes::CustomAttribute* attr = item->getCustomAttribute("unWrapId");
 	uint16_t unWrapId = 0;
@@ -2503,7 +2496,7 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 			std::string key = "unWrapId";
 			newItem->setCustomAttribute(key, val);
 			item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-			if (hiddenCharges > 0) { 
+			if (hiddenCharges > 0) {
 				item->setDate(hiddenCharges);
 			}
 			startDecay(item);
@@ -3389,7 +3382,7 @@ void Game::playerApplyImbuement(uint32_t playerId, uint32_t imbuementid, uint8_t
 	}
 
 	if (!player->inImbuing()) {
-		return;	
+		return;
 	}
 
 	Imbuement* imbuement = g_imbuements->getImbuement(imbuementid);
@@ -3413,7 +3406,7 @@ void Game::playerClearingImbuement(uint32_t playerid, uint8_t slot)
 	}
 
 	if (!player->inImbuing()) {
-		return;	
+		return;
 	}
 
 	Item* item = player->imbuing;
@@ -4910,7 +4903,7 @@ void Game::applyImbuementEffects(Creature * attacker, CombatDamage & damage, int
 			Combat::doCombatMana(nullptr, attackerPlayer, tmpDamage, tmpParams);
 		}
 	}
-	
+
 }
 
 void Game::checkLight()
@@ -5528,12 +5521,12 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		fee = 1000;
 	}
 
-	if (type == MARKETACTION_SELL) {	
+	if (type == MARKETACTION_SELL) {
 
 		if (fee > (player->getBankBalance() + player->getMoney())) {
 			return;
-		}	
-		
+		}
+
 		DepotLocker* depotLocker = player->getDepotLocker(player->getLastDepotId());
 		if (!depotLocker) {
 			return;
@@ -5597,7 +5590,7 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 	const MarketOfferList& sellOffers = IOMarket::getActiveOffers(MARKETACTION_SELL, it.id);
 	player->sendMarketBrowseItem(it.id, buyOffers, sellOffers);
 
-	// 
+	//
 	player->updateMarketExhausted(); // Exhausted for create offert in the market
 }
 
@@ -5742,7 +5735,7 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 			IOAccount::removeCoins(player->getAccount(), amount);
 			IOAccount::registerTransaction(player->getAccount(), -amount, "Sold on Market");
 
-		} else { 
+		} else {
 			std::forward_list<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty()) {
 				return;
@@ -5812,8 +5805,8 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 		if (totalPrice > (player->getBankBalance() + player->getMoney())) {
 			return;
-		}	
-		
+		}
+
 		// Have enough money on the bank
 		if(totalPrice <= player->getBankBalance())
 		{

@@ -2,6 +2,7 @@
 <monster name="Achad" nameDescription="Achad" race="blood" experience="70" speed="185">
 	<health now="185" max="185" />
 	<look type="146" head="93" body="93" legs="57" feet="97" addons="3" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

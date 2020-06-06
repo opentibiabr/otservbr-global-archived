@@ -943,6 +943,9 @@ class Item : virtual public Thing
 		bool isMoveable() const {
 			return items[id].moveable;
 		}
+		bool isCorpse() const {
+			return items[id].corpseType != RACE_NONE;
+		}
 		bool isPickupable() const {
 			return items[id].pickupable;
 		}

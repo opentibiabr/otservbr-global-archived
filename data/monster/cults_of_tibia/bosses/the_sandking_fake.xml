@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="The Sandking" nameDescription="The Sandking" race="venom" experience="0" speed="250">
 	<health now="50000" max="50000" />
-	<look type="1013"/>
+	<look type="1013" />
 	<targetchange interval="5000" chance="30" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

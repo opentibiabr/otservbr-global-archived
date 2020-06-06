@@ -2,6 +2,7 @@
 <monster name="Rift Lord" nameDescription="a rift lord" race="fire" experience="0" speed="200">
 	<health now="5" max="5" />
 	<look type="12" head="9" body="19" legs="9" feet="85" corpse="0" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="0" />

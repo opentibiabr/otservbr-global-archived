@@ -3,6 +3,7 @@
 	<health now="5000" max="5000" />
 	<look type="1041" />
 	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -18,8 +19,8 @@
 	</flags>
 	<attacks>
 		<attack name="melee" interval="2000" min="0" max="-150" />
-		<attack name="ravennousLavaLurkerWave" interval="2000" chance="15" min="0" max="-400"/>
-		<attack name="ravennousLavaLurkerWave2" direction="1" interval="2000" chance="100" min="0" max="-400"/>
+		<attack name="ravennousLavaLurkerWave" interval="2000" chance="15" min="0" max="-400" />
+		<attack name="ravennousLavaLurkerWave2" direction="1" interval="2000" chance="100" min="0" max="-400" />
 	</attacks>
 	<defenses armor="45" defense="33" />
 	<elements>

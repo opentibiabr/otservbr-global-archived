@@ -3,6 +3,7 @@
 	<health now="1500" max="1500" />
 	<look type="65" corpse="6004" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -17,7 +18,7 @@
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="98" attack="75"/>
+		<attack name="melee" interval="2000" skill="98" attack="75" />
 	</attacks>
 	<defenses armor="15" defense="15" />
 	<immunities>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Misguided Thief" nameDescription="a misguided thief" race="blood" experience="1200" speed="240" manacost="390">
 	<health now="1800" max="1800" />
-	<look type="684" head="58" body="58" legs="41" feet="76" corpse="29361"  />
+	<look type="684" head="58" body="58" legs="41" feet="76" corpse="29361"   />
 	<targetchange interval="4000" chance="20" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

@@ -2,6 +2,7 @@
 <monster name="The Masked Marauder" nameDescription="The Masked Marauder" race="blood" experience="3500" speed="250">
 	<health now="7320" max="7320" />
 	<look type="234" corpse="7349" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
