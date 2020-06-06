@@ -256,12 +256,15 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 	}
 
 	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
+
+	if (operatingSystem <= CLIENTOS_NEW_WINDOWS) 
+		enableCompact();
+
 	version = msg.get<uint16_t>();
-	enableCompact();
 
 	clientVersion = msg.get<uint32_t>();
 
-	msg.skipBytes(3); // U32 client version, U8 client type, U16 dat revision
+	msg.skipBytes(3); // U16 dat revision, game preview state
 
 	if (clientVersion >= 1149 && clientVersion < 1200) {
 		// on 1149.6xxx, this was removed later.
@@ -1452,6 +1455,8 @@ void ProtocolGame::sendBasicData()
 
 void ProtocolGame::sendBlessStatus()
 {
+	if (!player) return;
+
 	NetworkMessage msg;
 	//uint8_t maxClientBlessings = (player->operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6; (compartability for the client 10)
 	//Ignore ToF (bless 1)
@@ -1469,17 +1474,9 @@ void ProtocolGame::sendBlessStatus()
 
 	msg.addByte(0x9C);
 
-	if (player) {
-		if (blessCount >= 5) //Show up the glowing effect in items if have all blesses
-			flag |= 1;
-
-		msg.add<uint16_t>(flag);
-		msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
-	} else if (blessCount >= 5) {
-		msg.add<uint16_t>(0x01);
-	} else {
-		msg.add<uint16_t>(0x00);
-	}
+	msg.add<uint16_t>((blessCount >= 5) ? (flag | 1) : flag); //Show up the glowing effect in items if have all blesses
+	msg.addByte((blessCount >= 7) ? 3 : ((blessCount >= 5) ? 2 : 1)); // 1 = Disabled | 2 = normal | 3 = green
+	// msg.add<uint16_t>(0);
 
 	writeToOutputBuffer(msg);
 }
@@ -1510,31 +1507,43 @@ void ProtocolGame::sendPremiumTrigger()
 }
 
 // Send preyInfo
-void ProtocolGame::sendPreyData()
-{
+void ProtocolGame::closeImbuingWindow() {
 	NetworkMessage msg;
-	for (int i = 0; i < 3; i++) {
-		msg.addByte(0xE8);
-		msg.addByte(i);
+	msg.addByte(0xEC);
+	writeToOutputBuffer(msg);
+}
 
-		msg.addByte(0x00);
-		msg.addByte(0x00);
-		msg.add<uint16_t>(0);
-		msg.addByte(0x00); // wildCards
+void ProtocolGame::initPreyData() 
+{
+	for (uint8_t i = 0; i <= PREY_SLOTNUM_THIRD; i++) {
+		sendPreyData(static_cast<PreySlotNum_t>(i), PREY_STATE_LOCKED);
 	}
 
-	msg.addByte(0xEC);
-	msg.addByte(0xEE);
-	msg.addByte(0x0A);
-	msg.add<uint64_t>(0);
-	msg.addByte(0xEE);
-	msg.addByte(0x01);
-	msg.add<uint64_t>(0);
-	// prey prices
-	msg.addByte(0xE9);
-	msg.add<uint32_t>(0);
-	msg.addByte(0x00); // reRoll Price (1 in tibia)
-	msg.addByte(0x00); // selectCreatureDirectly price (5 in tibia)
+	sendResourcesBalance();
+	sendPreyRerollPrice();
+}
+
+void ProtocolGame::sendPreyRerollPrice(uint32_t price /*= 0*/, uint8_t wildcard /*= 0*/, uint8_t directly /*= 0*/)
+{
+	NetworkMessage msg;
+	msg.addByte(0xE9); // reroll prices
+	msg.add<uint32_t>(price); // price
+	msg.addByte(wildcard); // wildcard
+	msg.addByte(directly); // selectCreatureDirectly price (5 in tibia)
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendPreyData(PreySlotNum_t slot, PreyState_t slotState)
+{
+	NetworkMessage msg;
+	msg.addByte(0xE8);
+	msg.addByte(slot);
+
+	msg.addByte(slotState);
+	msg.addByte(0x00); // empty byte
+	msg.add<uint16_t>(0); // next free roll
+	msg.addByte(0x00); // wildCards
+
 	writeToOutputBuffer(msg);
 }
 
@@ -1764,21 +1773,25 @@ void ProtocolGame::sendGameNews()
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendResourceBalance(uint64_t money, uint64_t bank)
+void ProtocolGame::sendResourcesBalance(uint64_t money /*= 0*/, uint64_t bank /*= 0*/, uint64_t prey /*= 0*/)
+{
+	sendResourceBalance(RESOURCE_BANK, bank);
+	sendResourceBalance(RESOURCE_INVENTORY, money);
+	sendResourceBalance(RESOURCE_PREY, prey);
+}
+
+void ProtocolGame::sendResourceBalance(Resource_t resourceType, uint64_t value)
 {
 	NetworkMessage msg;
 	msg.addByte(0xEE);
-	msg.addByte(0x00);
-	msg.add<uint64_t>(bank);
-	msg.addByte(0xEE);
-	msg.addByte(0x01);
-	msg.add<uint64_t>(money);
+	msg.addByte(resourceType);
+	msg.add<uint64_t>(value);
 	writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
 {
-	sendResourceBalance(player->getMoney(), player->getBankBalance());
+	sendResourcesBalance(player->getMoney(), player->getBankBalance());
 
 	NetworkMessage msg;
 	msg.addByte(0x7B);
@@ -1919,7 +1932,7 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 	writeToOutputBuffer(msg);
 
 	updateCoinBalance();
-	sendResourceBalance(player->getMoney(), player->getBankBalance());
+	sendResourcesBalance(player->getMoney(), player->getBankBalance());
 }
 
 void ProtocolGame::sendCoinBalance()
@@ -1928,10 +1941,16 @@ void ProtocolGame::sendCoinBalance()
 		return;
 	}
 
+	// send is updating
+	// TODO: export this to it own function
 	NetworkMessage msg;
 	msg.addByte(0xF2);
 	msg.addByte(0x01);
+	writeToOutputBuffer(msg);
 
+	msg.reset();
+
+	// send update
 	msg.addByte(0xDF);
 	msg.addByte(0x01);
 
@@ -1943,12 +1962,6 @@ void ProtocolGame::sendCoinBalance()
 
 void ProtocolGame::updateCoinBalance()
 {
-	NetworkMessage msg;
-	msg.addByte(0xF2);
-	msg.addByte(0x00);
-
-	writeToOutputBuffer(msg);
-
 	g_dispatcher.addTask(
 		createTask(std::bind([](ProtocolGame* client) {
 			if (client && client->player) {
@@ -2739,11 +2752,8 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 	msg.addString(g_config.getString(ConfigManager::STORE_IMAGES_URL));
 	msg.add<uint16_t>(static_cast<uint16_t>(g_config.getNumber(ConfigManager::STORE_COIN_PACKET)));
 
-	if (shouldAddExivaRestrictions) {
-		msg.addByte(0x00); // exiva button enabled
-	}
-
-	msg.addByte(0x01); // tournament button enabled
+	msg.addByte(shouldAddExivaRestrictions ? 0x01 : 0x00); // exiva button enabled
+	// msg.addByte(0x01); // tournament button enabled
 
 	writeToOutputBuffer(msg);
 
@@ -2807,7 +2817,7 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 
 	sendBasicData();
 	sendInventoryClientIds();
-	sendPreyData();
+	initPreyData();
 
 	player->sendClientCheck();
 	player->sendGameNews();
@@ -3037,9 +3047,6 @@ void ProtocolGame::sendOutfitWindow()
 		}
 
 		protocolOutfits.emplace_back(outfit.name, outfit.lookType, addons);
-		if (protocolOutfits.size() == 150 && version < 1185) { // Game client doesn't allow more than 100 outfits
-			break;
-		}
 	}
 
 	msg.add<uint16_t>(protocolOutfits.size());
@@ -3296,6 +3303,7 @@ void ProtocolGame::sendStoreTrasactionHistory(HistoryStoreOfferList &list, uint3
 		msg.add<uint32_t>(offer.time);
 		msg.addByte(offer.mode);
 		msg.add<uint32_t>(offer.amount); //FIXME: investigate why it doesn't send the price properly
+		msg.addByte(0x00); // 0 = transferable tibia coin, 1 = normal tibia coin
 		msg.addString(offer.description);
 	}
 
@@ -3354,6 +3362,8 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 			const Creature* master = creature->getMaster();
 			if (master) {
 				msg.add<uint32_t>(master->getID());
+			} else {
+				msg.add<uint32_t>(0x00);
 			}
 		}
 
@@ -3412,6 +3422,8 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		const Creature* master = creature->getMaster();
 		if (master) {
 			msg.add<uint32_t>(master->getID());
+		} else {
+			msg.add<uint32_t>(0x00);
 		}
 	}
 
@@ -3463,14 +3475,22 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
 	msg.addByte(0xA1);
 
 	msg.add<uint16_t>(player->getMagicLevel());
-	msg.add<uint16_t>(player->getBaseMagicLevel());
+		
+	if (player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
+		msg.add<uint16_t>(player->getBaseMagicLevel());
+	}
+
 	msg.add<uint16_t>(player->getBaseMagicLevel());
 	msg.add<uint16_t>(player->getMagicLevelPercent() * 100);
 
 	for (uint8_t i = SKILL_FIRST; i <= SKILL_FISHING; ++i) {
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
-		msg.add<uint16_t>(player->getBaseSkill(i));
+		
+		if (player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
+			msg.add<uint16_t>(player->getBaseSkill(i));
+		}
+
 		msg.add<uint16_t>(player->getSkillPercent(i) * 100);
 	}
 
@@ -3591,7 +3611,7 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 		msg.add<uint16_t>(itm.second);
 	}
 
-	sendResourceBalance(player->getMoney(), player->getBankBalance());
+	sendResourcesBalance(player->getMoney(), player->getBankBalance());
 
 	writeToOutputBuffer(msg);
 }
@@ -3606,7 +3626,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 		msg.addByte(count);
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[count & 7]);
-	} else if (it.isContainer()) {
+	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
 		msg.addByte(0x00);
 	}
 
@@ -3625,7 +3645,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 		msg.addByte(std::min<uint16_t>(0xFF, item->getItemCount()));
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[item->getFluidType() & 7]);
-	} else if (it.isContainer()) {
+	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
 		uint32_t quickLootFlags = item->getQuickLootFlags();
 		if (quickLootFlags > 0) {
 			msg.addByte(2);
@@ -3695,11 +3715,11 @@ void ProtocolGame::sendKillTrackerUpdate(Container* corpse, const std::string& n
 
 void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
  {
- 	if (!player || !item || getVersion() < 1140) {
+ 	if (!player || !item) {
  		return;
  	}
 
-   	NetworkMessage msg;
+	NetworkMessage msg;
  	msg.addByte(0xCE);
  	msg.add<uint16_t>(item->getClientID());
 
@@ -3708,7 +3728,7 @@ void ProtocolGame::sendUpdateSupplyTracker(const Item* item)
 
 void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
  {
- 	if (!player || getVersion() < 1140) {
+ 	if (!player) {
  		return;
  	}
 
@@ -3722,12 +3742,12 @@ void ProtocolGame::sendUpdateImpactTracker(int32_t quantity, bool isHeal)
 
 void ProtocolGame::sendUpdateLootTracker(Item* item)
 {
- 	if (!player || getVersion() < 1140) {
+ 	if (!player) {
  		return;
  	}
 
-  	NetworkMessage msg;
-  	msg.addByte(0xCF);
+	NetworkMessage msg;
+	msg.addByte(0xCF);
 	AddItem(msg, item);
  	msg.addString(item->getName());
  	item->setIsLootTrackeable(false);

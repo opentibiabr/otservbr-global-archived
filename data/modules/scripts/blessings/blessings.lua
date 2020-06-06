@@ -85,6 +85,7 @@ function onRecvbyte(player, msg, byte)
 end
 
 Blessings.sendBlessStatus = function(player, curBless)
+	-- why not using ProtocolGame::sendBlessStatus ?
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessStatus)
 	callback = function(k) return true end
@@ -109,26 +110,19 @@ Blessings.sendBlessStatus = function(player, curBless)
 	end
 
 	msg:addU16(bitWiseCurrentBless)
-	dlgBtnColour = 1
+	msg:addByte(blessCount >= 7 and 3 or (blessCount > 0 and 2 or 1)) -- Bless dialog button colour 1 = Disabled | 2 = normal | 3 = green
 
-	if blessCount >= 7 then
-		dlgBtnColour = 3
-	elseif blessCount > 0 then
-		dlgBtnColour = 2
-	end
-
-	msg:addByte(dlgBtnColour) -- Bless dialog button colour 1 = Disabled | 2 = normal | 3 = green
-
-	if #curBless >= 5 then
-		msg:addU16(1) -- TODO ?
-	else
-		msg:addU16(0)
-	end
+	-- if #curBless >= 5 then
+	-- 	msg:addU16(1) -- TODO ?
+	-- else
+	-- 	msg:addU16(0)
+	-- end
 
 	msg:sendToPlayer(player)
 end
 
 Blessings.sendBlessDialog = function(player)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessDialog)
 

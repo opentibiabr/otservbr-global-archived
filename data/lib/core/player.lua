@@ -240,6 +240,7 @@ end
 
 -- Impact Analyser
 function Player.sendHealingImpact(self, healAmmount)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xCC) -- DEC: 204
 	msg:addByte(0) -- 0 = healing / 1 = damage (boolean)
@@ -248,6 +249,7 @@ function Player.sendHealingImpact(self, healAmmount)
 end
 
 function Player.sendDamageImpact(self, damage)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xCC) -- DEC: 204
 	msg:addByte(1) -- 0 = healing / 1 = damage (boolean)
@@ -257,6 +259,7 @@ end
 
 -- Loot Analyser
 function Player.sendLootStats(self, item)
+	-- TODO: Use ProtocolGame::sendUpdateLootTracker
     local msg = NetworkMessage()
     msg:addByte(0xCF) -- loot analyser bit
     msg:addItem(item, self) -- item userdata
@@ -266,6 +269,7 @@ end
 
 -- Supply Analyser
 function Player.sendWaste(self, item)
+	-- TODO: Use ProtocolGame::sendUpdateSupplyTracker!
     local msg = NetworkMessage()
     msg:addByte(0xCE) -- waste bit
     msg:addItemId(item) -- itemId

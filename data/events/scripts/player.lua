@@ -603,7 +603,8 @@ function Player:onTradeRequest(target, item)
 end
 
 function Player:onTradeAccept(target, item, targetItem)
-	target:closeImbuementWindow(self)
+	self:closeImbuementWindow()
+	target:closeImbuementWindow()
 	return true
 end
 

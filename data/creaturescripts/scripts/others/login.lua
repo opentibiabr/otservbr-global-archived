@@ -1,4 +1,5 @@
 function Player.sendTibiaTime(self, hours, minutes)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xEF)
 	msg:addByte(hours)

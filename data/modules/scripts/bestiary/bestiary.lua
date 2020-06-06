@@ -597,6 +597,7 @@ function Player.getCharmFromTarget(self, target)
 end
 
 function Player.sendBestiaryEntryChanged(self, monsterID)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(Bestiary.S_Packets.SendBestiaryTracker)
 	msg:addU16(monsterID)

@@ -1,4 +1,5 @@
 function Player.sendFakeDeathWindow(self)
+	-- consider migrating to ProtocolGame::sendDeath
 	local msg = NetworkMessage();
 	msg:addByte(0x28);
 	msg:addByte(0x01);

@@ -401,6 +401,7 @@ function Player.sendOpenRewardWall(self, shrine)
 end
 
 function Player.sendCollectionResource(self, value)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xEE) -- resource byte
 	msg:addByte(0x14)

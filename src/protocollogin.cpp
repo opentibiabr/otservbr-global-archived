@@ -114,16 +114,17 @@ void ProtocolLogin::onRecvFirstMessage(NetworkMessage& msg)
 		return;
 	}
 
-	msg.skipBytes(2); // client OS
-	// OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
+	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
+
+	if (operatingSystem <= CLIENTOS_NEW_WINDOWS) 
+		enableCompact();
 
 	uint16_t version = msg.get<uint16_t>();
-	enableCompact();
 
 	msg.skipBytes(17);
 	/*
 	 * Skipped bytes:
-	 * 4 bytes: protocolVersion
+	 * 4 bytes: client version
 	 * 12 bytes: dat, spr, pic signatures (4 bytes each)
 	 * 1 byte: 0
 	 */

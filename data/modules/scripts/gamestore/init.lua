@@ -64,6 +64,7 @@ GameStore.SendingPackets = {
 	S_CoinBalance = 0xDF, -- 223
 	S_StoreError = 0xE0, -- 224
 	S_RequestPurchaseData = 0xE1, -- 225
+	S_ShowDescription = 0xEA,
 	S_CoinBalanceUpdating = 0xF2, -- 242
 	S_OpenStore = 0xFB, -- 251
 	S_StoreOffers = 0xFC, -- 252
@@ -206,7 +207,7 @@ function sendShowDescription(playerId, offerId)
 	end
 	local offer = GameStore.getOfferById(offerId)
 	local msg = NetworkMessage()
-	msg:addByte(0xea)
+	msg:addByte(GameStore.SendingPackets.S_ShowDescription)
 	msg:addU32(offerId)
 	msg:addString(offer.description or "No description to be displayed")
 	msg:sendToPlayer(player)
@@ -396,13 +397,14 @@ function sendShowDescription(playerId, offerId)
 	end
 	local offer = GameStore.getOfferById(offerId)
 	local msg = NetworkMessage()
-	msg:addByte(0xea)
+	msg:addByte(GameStore.SendingPackets.S_ShowDescription)
 	msg:addU32(offerId)
 	msg:addString(offer.description or "No description to be displayed")
 	msg:sendToPlayer(player)
 end
 
 function sendShowStoreOffers(playerId, category)
+	-- consider using protocolgame::sendStoreCategoryOffers
 	local player = Player(playerId)
 	if not player then
 		return false
@@ -658,7 +660,7 @@ function sendCoinBalanceUpdating(playerId, updating)
 
 	local msg = NetworkMessage()
 	msg:addByte(GameStore.SendingPackets.S_CoinBalanceUpdating)
-	msg:addByte(0x00)
+	msg:addByte(updating and 1 or 0)
 	msg:sendToPlayer(player)
 
 	if updating == true then
@@ -673,9 +675,6 @@ function sendUpdateCoinBalance(playerId)
 	end
 
 	local msg = NetworkMessage()
-	msg:addByte(GameStore.SendingPackets.S_CoinBalanceUpdating)
-	msg:addByte(0x01)
-
 	msg:addByte(GameStore.SendingPackets.S_CoinBalance)
 	msg:addByte(0x01)
 

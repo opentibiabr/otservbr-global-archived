@@ -210,7 +210,10 @@ class ProtocolGame final : public Protocol
 		void sendUnjustifiedPoints(const uint8_t& dayProgress, const uint8_t& dayLeft, const uint8_t& weekProgress, const uint8_t& weekLeft, const uint8_t& monthProgress, const uint8_t& monthLeft, const uint8_t& skullDuration);
 
 		// Send preyInfo
-		void sendPreyData();
+		void closeImbuingWindow();
+		void initPreyData();
+		void sendPreyRerollPrice(uint32_t price = 0, uint8_t wildcard = 0,uint8_t directly = 0);
+		void sendPreyData(PreySlotNum_t slot, PreyState_t slotState);
 
 		void sendCancelWalk();
 		void sendChangeSpeed(const Creature* creature, uint32_t speed);
@@ -234,7 +237,8 @@ class ProtocolGame final : public Protocol
 		void sendCloseShop();
 		void sendClientCheck();
 		void sendGameNews();
-		void sendResourceBalance(uint64_t money, uint64_t bank);
+		void sendResourcesBalance(uint64_t money = 0, uint64_t bank = 0, uint64_t prey = 0);
+		void sendResourceBalance(Resource_t resourceType, uint64_t value);
 		void sendSaleItemList(const std::list<ShopInfo>& shop);
 		void sendMarketEnter(uint32_t depotId);
 		void updateCoinBalance();

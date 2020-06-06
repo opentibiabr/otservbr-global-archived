@@ -5283,6 +5283,7 @@ function Player.sendQuestLog(self)
 end
 
 function Player.sendQuestLine(self, questId)
+	-- consider migrate to ProtocolGame.cpp
 	local quest = Game.getQuest(questId)
 	if quest then
 		local missions = quest.missions
