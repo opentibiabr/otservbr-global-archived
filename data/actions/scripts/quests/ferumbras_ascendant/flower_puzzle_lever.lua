@@ -33,11 +33,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				return true
 			end
 		end
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.FlowerPuzzleTimer) >= 1 then
+		if Game.getStorageValue(Storage.FerumbrasAscension.FlowerPuzzleTimer) >= 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The portal still activated.')
 		else
-			Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.FlowerPuzzleTimer, 1)
-			addEvent(Game.setStorageValue, 30 * 1000, GlobalStorage.FerumbrasAscendantQuest.FlowerPuzzleTimer, 0)
+			Game.setStorageValue(Storage.FerumbrasAscension.FlowerPuzzleTimer, 1)
+			addEvent(Game.setStorageValue, 30 * 1000, Storage.FerumbrasAscension.FlowerPuzzleTimer, 0)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A portal forms as two beams of a strange construction dividing this room move towards each other.')
 			for x = 33475, 33479 do
 				local pos = Position(x, 32698, 14)
