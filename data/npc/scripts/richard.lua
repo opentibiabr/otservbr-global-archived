@@ -70,7 +70,7 @@ local function creatureSayCallback(cid, type, msg)
 					So I shipped to somewhere else. Terrible storm.",
 				"Woke up on this island. Had to eat squirrels before the adventurers found me and took me in. End of story."
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 0
 	elseif msgcontains(msg, "rope") then
 		npcHandler:say(
@@ -79,7 +79,7 @@ local function creatureSayCallback(cid, type, msg)
 					hole without a rope - heh, your bones will be gnawed clean before someone finds ya!",
 				"Now, about that rope - ask me for equipment to see my wares. <winks>"
 			},
-		cid, false, true, 200)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 0
 	end
 	return true
@@ -164,7 +164,8 @@ keywordHandler:addKeyword({'hamish'}, StdModule.say,
 )
 
 npcHandler:setMessage(MESSAGE_GREET, "Hello there, mate. Here for a {trade}? My stock's just been refilled.")
-npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. You can also have a look at food or {equipment} only.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "Of course, just browse through my wares. \z
+	You can also have a look at food or {equipment} only.")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Have fun!")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

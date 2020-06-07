@@ -20,7 +20,7 @@
 #ifndef FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 #define FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 
-#include "account.h"
+#include "account.hpp"
 #include "combat.h"
 #include "groups.h"
 #include "map.h"
@@ -420,7 +420,7 @@ class Game
 
 		std::forward_list<Item*> getMarketItemList(uint16_t wareId, uint16_t sufficientCount, DepotLocker* depotLocker);
 
-		static void updatePremium(Account& account);
+		static void updatePremium(account::Account& account);
 
 		void cleanup();
 		void shutdown();

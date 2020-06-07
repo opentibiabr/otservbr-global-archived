@@ -45,13 +45,13 @@ for i = 45, 60 do
 					local vocationClientId = player:getVocation():getClientId()
 
 					if isPlayer(creatureTable[r]) == true
-					and table.contains(VOCATION.SORCERER, VOCATION.DRUID, vocationClientId) then
+					and table.contains(VOCATION.ID.SORCERER, VOCATION.ID.DRUID, vocationClientId) then
 						player:addCondition(condition2)
 					elseif isPlayer(creatureTable[r]) == true
-					and table.contains(VOCATION.PALADIN, vocationClientId) then
+					and table.contains(VOCATION.ID.PALADIN, vocationClientId) then
 						player:addCondition(condition3)
 					elseif isPlayer(creatureTable[r]) == true
-					and table.contains(VOCATION.KNIGHT, vocationClientId) then
+					and table.contains(VOCATION.ID.KNIGHT, vocationClientId) then
 						player:addCondition(condition1)
 					elseif isMonster(creatureTable[r]) == true then
 					end

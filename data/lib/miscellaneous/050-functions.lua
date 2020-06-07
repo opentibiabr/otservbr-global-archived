@@ -500,3 +500,125 @@ function checkWeightAndBackpackRoom(player, itemWeight, message)
 	end
 	return true
 end
+
+function loadLuaMapAttributes()
+	print(">> Loading map attributes.")
+	-- It load actions
+	for index, value in pairs(ActionTable) do
+		for i = 1, #value.itemPos do
+			local tile = Tile(value.itemPos[i])
+			local item
+			-- Checks if the position is valid
+			if tile then
+				-- Checks that you have no items created
+				if tile:getItemCountById(value.itemId) == 0 then
+					-- If not have items created, this create the item
+					item = Game.createItem(value.itemId, 1, value.itemPos[i])
+				end
+				if not item then
+					item = tile:getItemById(value.itemId)
+				end
+				-- If he found the item, add the action id.
+				if item and value.actionId then
+					item:setActionId(value.actionId)
+				end
+				if value.itemId == false and tile:getTopDownItem() then
+					tile:getTopDownItem():setActionId(value.actionId)
+				end
+				if value.itemId == false and tile:getTopTopItem() then
+					tile:getTopTopItem():setActionId(value.actionId)
+				end
+				-- This function add one action id on an item inside the container
+				-- It was developed to add action on daily respawn item
+				if item and value.isDailyAIDContainerItem then
+					itemAttr = item:addItem(value.containerItem, 1)
+					itemAttr:setActionId(value.actionId)
+				end
+			end
+		end
+	end
+	-- It load uniques
+	for key, value in pairs(UniqueTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- If not have items created, thisc create the item
+				item = Game.createItem(value.itemId, 1, value.itemPos)
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the unique id
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, key)
+			end
+		end
+	end
+	-- It load signs on map table
+	for key, value in pairs(SignTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- Create item
+				item = Game.createItem(value.itemId, 1, value.itemPos)
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the text
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, value.text)
+			end
+		end
+	end
+	-- It load book on map table
+	for key, value in pairs(BookTable) do
+		local tile = Tile(value.itemPos)
+		local item
+		-- Checks if the position is valid
+		if tile then
+			-- Checks that you have no items created
+			if tile:getItemCountById(value.itemId) == 0 then
+				-- Create item
+				item = Game.createItem(value.itemId, 1, value.itemPos) 
+			end
+			if not item then
+				item = tile:getItemById(value.itemId)
+			end
+			-- If he found the item, add the text
+			if item then
+				item:setAttribute(ITEM_ATTRIBUTE_TEXT, value.text)
+			end
+		end
+	end
+end
+
+function loadLuaNpcs()
+	print(">> Loading NPC's, monsters and houses.")
+	for i = 1,#NpcTable do
+		local npc = NpcTable[i]
+		if npc and npc.name and npc.position then
+			local spawn = Game.createNpc(npc.name, npc.position)
+			if spawn then
+				spawn:setMasterPos(npc.position)
+			end
+		end
+	end
+end
+
+function loadCustomMaps()
+	print(">> Loading custom maps.")
+	for index, value in ipairs(CustomMapTable) do
+		if value.enabled then
+			-- It's load the map
+			Game.loadMap(value.file)
+			Game.setStorageValue(Storage.NpcSpawn, -1)
+		end
+	end
+end

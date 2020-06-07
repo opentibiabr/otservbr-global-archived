@@ -20,6 +20,8 @@
 #ifndef FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
 #define FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
 
+#include <list>
+
 enum RuleViolationType_t : uint8_t {
 	REPORT_TYPE_NAME = 0,
 	REPORT_TYPE_STATEMENT = 1,
@@ -199,14 +201,6 @@ enum SpellType_t : uint8_t {
 	SPELL_UNDEFINED = 0,
 	SPELL_INSTANT = 1,
 	SPELL_RUNE = 2,
-};
-
-enum AccountType_t : uint8_t {
-	ACCOUNT_TYPE_NORMAL = 1,
-	ACCOUNT_TYPE_TUTOR = 2,
-	ACCOUNT_TYPE_SENIORTUTOR = 3,
-	ACCOUNT_TYPE_GAMEMASTER = 4,
-	ACCOUNT_TYPE_GOD = 5
 };
 
 enum RaceType_t : uint8_t {

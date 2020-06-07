@@ -10,13 +10,8 @@ function dawnportMaxLevel.onAdvance(creature, target)
 	if player:getLevel() == 20 and town and town:getId() == TOWNS_LIST.DAWNPORT then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
 			"You have reached the limit level and have to choose your vocation and leave Dawnport.")
-		addEvent(function(uid)
-		local player = Player(uid)
-			if player then
-				player:teleportTo(town:getTemplePosition())
-				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-			end
-		end, 5 * 60 * 1000, player:getId())
+		-- Adds the event that teleports the player to the temple in five minutes after reaching level 20
+		addEvent(teleportToDawnportTemple, 5 * 60 * 1000, player:getId())
 	end
 	return true
 end

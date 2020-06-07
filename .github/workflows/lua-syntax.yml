@@ -11,12 +11,12 @@ on:
       - v*
 
     paths:
-      - data/**
+      - data/**.lua
       - .github/**
 
   pull_request:
     paths:
-      - data/**
+      - data/**.lua
       - .github/**
 
 jobs:

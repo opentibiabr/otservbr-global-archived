@@ -1100,11 +1100,11 @@ void LuaScriptInterface::registerFunctions()
 	//registerEnumIn(tableName, value)
 
 	// Enums
-	registerEnum(ACCOUNT_TYPE_NORMAL)
-	registerEnum(ACCOUNT_TYPE_TUTOR)
-	registerEnum(ACCOUNT_TYPE_SENIORTUTOR)
-	registerEnum(ACCOUNT_TYPE_GAMEMASTER)
-	registerEnum(ACCOUNT_TYPE_GOD)
+	registerEnum(account::ACCOUNT_TYPE_NORMAL)
+	registerEnum(account::ACCOUNT_TYPE_TUTOR)
+	registerEnum(account::ACCOUNT_TYPE_SENIORTUTOR)
+	registerEnum(account::ACCOUNT_TYPE_GAMEMASTER)
+	registerEnum(account::ACCOUNT_TYPE_GOD)
 
 	registerEnum(BUG_CATEGORY_MAP)
 	registerEnum(BUG_CATEGORY_TYPO)
@@ -2585,7 +2585,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "isPzLocked", LuaScriptInterface::luaPlayerIsPzLocked);
 
 	registerMethod("Player", "getClient", LuaScriptInterface::luaPlayerGetClient);
-	
+
 	// New prey
 	// GET
 	registerMethod("Player", "getPreyState", LuaScriptInterface::luaPlayerGetPreyState);
@@ -4584,13 +4584,13 @@ int LuaScriptInterface::luaGameLoadMap(lua_State* L)
 	g_dispatcher.addTask(createTask([path]() {
 		try {
 			g_game.loadMap(path);
-			
+
 		}
 		catch (const std::exception& e) {
 						// FIXME: Should only catch some exceptions
 				std::cout << "[Error - LuaScriptInterface::luaGameLoadMap] Failed to load map: "
 				 << e.what() << std::endl;
-			
+
 		}
 	}));
 	return 0;
@@ -8506,7 +8506,7 @@ int LuaScriptInterface::luaPlayerSetAccountType(lua_State* L)
 	// player:setAccountType(accountType)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		player->accountType = getNumber<AccountType_t>(L, 2);
+		player->accountType = getNumber<account::AccountType>(L, 2);
 		IOLoginData::setAccountType(player->getAccount(), player->accountType);
 		pushBoolean(L, true);
 	} else {
@@ -9891,7 +9891,7 @@ int LuaScriptInterface::luaPlayerSendContainer(lua_State* L)
 		lua_pushnil(L);
 		return 1;
 	}
-	
+
 	Container* container = getUserdata<Container>(L, 2);
 	if (!container) {
 		lua_pushnil(L);
@@ -10362,8 +10362,12 @@ int LuaScriptInterface::luaPlayerGetTibiaCoins(lua_State* L)
 	// player:getTibiaCoins()
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
-		lua_pushnumber(L, player->coinBalance);
-	} else {
+    account::Account account(player->getAccount());
+    account.LoadAccountDB();
+    uint32_t coins;
+    account.GetCoins(&coins);
+    lua_pushnumber(L, coins);
+  } else {
 		lua_pushnil(L);
 	}
 	return 1;
@@ -10378,15 +10382,17 @@ int LuaScriptInterface::luaPlayerAddTibiaCoins(lua_State* L)
 		return 1;
 	}
 
-	if (player->coinBalance != std::numeric_limits<int32_t>::max()) {
-		int32_t coins = getNumber<int32_t>(L, 2);
-		int32_t addCoins = std::min<int32_t>(std::numeric_limits<int32_t>::max() - player->coinBalance, coins);
-		if (addCoins > 0) {
-			player->setTibiaCoins(player->coinBalance + addCoins);
-			IOAccount::addCoins(player->getAccount(), addCoins);
-		}
-	}
-	pushBoolean(L, true);
+  uint32_t coins = getNumber<uint32_t>(L, 2);
+
+  account::Account account(player->getAccount());
+  account.LoadAccountDB();
+  if(account.AddCoins(coins)) {
+    account.GetCoins(&(player->coinBalance));
+    pushBoolean(L, true);
+  } else {
+    lua_pushnil(L);
+  }
+
 	return 1;
 }
 
@@ -10399,15 +10405,17 @@ int LuaScriptInterface::luaPlayerRemoveTibiaCoins(lua_State* L)
 		return 1;
 	}
 
-	if (player->coinBalance != std::numeric_limits<int32_t>::max()) {
-		int32_t coins = getNumber<int32_t>(L, 2);
-		int32_t removeCoins = std::min<int32_t>(player->coinBalance, coins);
-		if (removeCoins > 0) {
-			player->setTibiaCoins(player->coinBalance - removeCoins);
-			IOAccount::removeCoins(player->getAccount(), removeCoins);
-		}
-	}
-	pushBoolean(L, true);
+  uint32_t coins = getNumber<uint32_t>(L, 2);
+
+  account::Account account(player->getAccount());
+  account.LoadAccountDB();
+  if (account.RemoveCoins(coins)) {
+    account.GetCoins(&(player->coinBalance));
+    pushBoolean(L, true);
+  } else {
+    lua_pushnil(L);
+  }
+
 	return 1;
 }
 
@@ -12656,7 +12664,7 @@ int LuaScriptInterface::luaHouseGetItems(lua_State* L)
 				pushUserdata<Item>(L, item);
 				setItemMetatable(L, -1, item);
 				lua_rawseti(L, -2, ++index);
-				
+
 			}
 		}
 	}

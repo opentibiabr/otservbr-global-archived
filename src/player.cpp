@@ -49,9 +49,12 @@ MuteCountMap Player::muteCountMap;
 uint32_t Player::playerAutoID = 0x10010000;
 
 Player::Player(ProtocolGame_ptr p) :
-	Creature(), lastPing(OTSYS_TIME()), lastPong(lastPing), inbox(new Inbox(ITEM_INBOX)), client(std::move(p))
-{
-	inbox->incrementReferenceCounter();
+                                    Creature(),
+                                    lastPing(OTSYS_TIME()),
+                                    lastPong(lastPing),
+                                    inbox(new Inbox(ITEM_INBOX)),
+                                    client(std::move(p)) {
+  inbox->incrementReferenceCounter();
 }
 
 Player::~Player()
@@ -1981,7 +1984,7 @@ BlockType_t Player::blockHit(Creature* attacker, CombatType_t combatType, int32_
 				if (info >> 8) {
 					Imbuement* ib = g_imbuements->getImbuement(info & 0xFF);
 					const int16_t& absorbPercent2 = ib->absorbPercent[combatTypeToIndex(combatType)];
-					
+
 					if (absorbPercent2 != 0) {
 						damage -= std::ceil(damage * (absorbPercent2 / 100.));
 					}
@@ -4341,7 +4344,7 @@ void Player::sendUnjustifiedPoints()
 
 		auto dayMax = ((isRed ? 2 : 1) * g_config.getNumber(ConfigManager::DAY_KILLS_TO_RED));
 		auto weekMax = ((isRed ? 2 : 1) * g_config.getNumber(ConfigManager::WEEK_KILLS_TO_RED));
-		auto monthMax = ((isRed ? 2 : 1) * g_config.getNumber(ConfigManager::MONTH_KILLS_TO_RED));		
+		auto monthMax = ((isRed ? 2 : 1) * g_config.getNumber(ConfigManager::MONTH_KILLS_TO_RED));
 
 		uint8_t dayProgress = std::min(std::round(dayKills / dayMax * 100), 100.0);
 		uint8_t weekProgress = std::min(std::round(weekKills / weekMax * 100), 100.0);
@@ -4922,4 +4925,23 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 	}
 
 	return;
+}
+
+/*******************************************************************************
+ * Interfaces
+ ******************************************************************************/
+
+error_t Player::SetAccountInterface(account::Account *account) {
+  if (account == nullptr) {
+    LOG_F(ERROR, "Error database is nullptr!");
+    return account::ERROR_NULLPTR;
+  }
+
+  account_ = account;
+  return account::ERROR_NO;
+}
+
+error_t Player::GetAccountInterface(account::Account *account) {
+  account = account_;
+  return account::ERROR_NO;
 }
