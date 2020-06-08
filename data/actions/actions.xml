@@ -796,4 +796,8 @@
 	<action itemid="12318" script="quests/wrath_of_the_emperor/mission10_a_message_of_freedom_sceptre.lua" />
 	<action uniqueid="3198" script="quests/wrath_of_the_emperor/mission11_payback_time_lever.lua" />
 	<action uniqueid="3200" script="quests/wrath_of_the_emperor/mission12_just_rewards.lua" />
+
+	<!-- Hireling Lamp -->
+	<action itemid="34070" script="others/hirelinglamp.lua" />
+
 </actions>

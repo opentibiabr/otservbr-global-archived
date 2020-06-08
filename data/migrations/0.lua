@@ -10,5 +10,5 @@ function onUpdateDatabase()
 	db.query("UPDATE `players` SET `level` = 8, `vocation` = 3, `health` = 185, `healthmax` = 185, `experience` = 4200, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 90, `manamax` = 90, `town_id` = 8, `cap` = 470 WHERE `id` = 4;")
 	-- Knight Sample
 	db.query("UPDATE `players` SET `level` = 8, `vocation` = 4, `health` = 185, `healthmax` = 185, `experience` = 4200, `soul` = 100, `lookbody` = 113, `lookfeet` = 115, `lookhead` = 95, `looklegs` = 39, `looktype` = 129, `mana` = 90, `manamax` = 90, `town_id` = 8, `cap` = 470 WHERE `id` = 5;")
-	return false
+	return true
 end

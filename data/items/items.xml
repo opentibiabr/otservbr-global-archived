@@ -44560,6 +44560,13 @@
 		<attribute key="absorbPercentEnergy" value="6" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
+	<item id="34070" article="a" name="hireling lamp">
+		<attribute key="weight" value="1000" />
+		<attribute key="description" value="This mysterious lamp summons your very own personal hireling." />
+		<attribute key="pickupable" value="0" />
+		<attribute key="moveable" value="0" />
+	</item>
+
 	<item id="34073" name="unknown item" />
 	<item id="34580" article="a" name="Maxxenius head">
 		<attribute key="quicklootcategory" value="creatureproduct" />

@@ -143,7 +143,9 @@ class Npc final : public Creature
 		const std::string& getNameDescription() const override {
 			return name;
 		}
-
+		void setName(std::string newName) {
+			name = newName;
+		}
 		CreatureType_t getType() const override {
 			return CREATURETYPE_NPC;
 		}
