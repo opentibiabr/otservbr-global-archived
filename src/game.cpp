@@ -5108,9 +5108,9 @@ void Game::updatePremium(account::Account& account)
   uint32_t rem_days = 0;
   time_t last_day;
   account.GetPremiumRemaningDays(&rem_days);
+  account.GetPremiumLastDay(&last_day);
   if (rem_days != 0)
   {
-    account.GetPremiumLastDay(&last_day);
     if (last_day == 0) {
 			account.SetPremiumLastDay(timeNow);
 			save = true;
