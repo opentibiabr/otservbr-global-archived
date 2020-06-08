@@ -390,7 +390,7 @@ error_t Account::GetPremiumRemaningDays(uint32_t *days) {
 
 error_t Account::SetPremiumLastDay(time_t last_day) {
   if (last_day < 0) {
-    LOG_F(ERROR, "Invalid Premium Last Day!", last_day);
+    LOG_F(ERROR, "Invalid Premium Last Day!");
     return ERROR_INVALID_LAST_DAY;
   }
   premium_last_day_ = last_day;
