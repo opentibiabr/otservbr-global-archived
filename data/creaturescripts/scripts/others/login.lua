@@ -1,4 +1,5 @@
 function Player.sendTibiaTime(self, hours, minutes)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xEF)
 	msg:addByte(hours)
@@ -56,10 +57,8 @@ function onLogin(player)
 	nextUseXpStamina[playerId] = 1
 
 	-- Prey Small Window
-	if player:getClient().version > 1110 then
-		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
-			player:sendPreyData(slot)
-		end
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+		player:sendPreyData(slot)
 	end
 
 	-- New prey
@@ -131,12 +130,10 @@ function onLogin(player)
 	player:setStaminaXpBoost(staminaBonus)
 	player:setBaseXpGain(baseExp)
 
-	if player:getClient().version > 1110 then
-		local worldTime = getWorldTime()
-		local hours = math.floor(worldTime / 60)
-		local minutes = worldTime % 60
-		player:sendTibiaTime(hours, minutes)
-	end
+	local worldTime = getWorldTime()
+	local hours = math.floor(worldTime / 60)
+	local minutes = worldTime % 60
+	player:sendTibiaTime(hours, minutes)
 
 	if player:getStorageValue(Storage.isTraining) == 1 then --Reset exercise weapon storage
 		player:setStorageValue(Storage.isTraining,0)

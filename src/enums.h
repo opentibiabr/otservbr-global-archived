@@ -153,21 +153,14 @@ enum OperatingSystem_t : uint8_t {
 };
 
 // New Prey
-enum PreySlotNum_t : uint16_t
+enum PreySlotNum_t : uint8_t
 {
 	PREY_SLOTNUM_FIRST = 0,
 	PREY_SLOTNUM_SECOND = 1,
 	PREY_SLOTNUM_THIRD = 2,
 };
 
-enum PreySlotStatus_t : uint16_t
-{
-	PREY_SLOT_LOCKED = 0,
-	PREY_SLOT_UNLOCKED = 1,
-};
-
-
-enum PreyState_t : uint16_t
+enum PreyState_t : uint8_t
 {
 	PREY_STATE_LOCKED = 0,
 	PREY_STATE_INACTIVE = 1,
@@ -678,6 +671,13 @@ enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_DISAPPEAR = 3,
 	MONSTERS_EVENT_MOVE = 4,
 	MONSTERS_EVENT_SAY = 5,
+};
+
+enum Resource_t : uint8_t
+{
+	RESOURCE_BANK = 0x00,
+	RESOURCE_INVENTORY = 0x01,
+	RESOURCE_PREY = 0x0A,
 };
 
 #endif

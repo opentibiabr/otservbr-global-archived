@@ -1,11 +1,10 @@
 function Player.sendFakeDeathWindow(self)
+	-- consider migrating to ProtocolGame::sendDeath
 	local msg = NetworkMessage();
 	msg:addByte(0x28);
 	msg:addByte(0x01);
 	msg:addByte(2);
-	if (self:getClient().os >= 1120) then
-		msg:addByte(0x00); -- Use death redemption
-	end
+	msg:addByte(0x00); -- Use death redemption
 	msg:sendToPlayer(self, false);
 	return true
 end

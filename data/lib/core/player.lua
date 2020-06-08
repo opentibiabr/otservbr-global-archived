@@ -257,6 +257,7 @@ end
 
 -- Impact Analyser
 function Player.sendHealingImpact(self, healAmmount)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xCC) -- DEC: 204
 	msg:addByte(0) -- 0 = healing / 1 = damage (boolean)
@@ -265,6 +266,7 @@ function Player.sendHealingImpact(self, healAmmount)
 end
 
 function Player.sendDamageImpact(self, damage)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xCC) -- DEC: 204
 	msg:addByte(1) -- 0 = healing / 1 = damage (boolean)

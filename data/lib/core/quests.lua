@@ -5428,6 +5428,7 @@ function Player.sendQuestLog(self)
 end
 
 function Player.sendQuestLine(self, questId)
+	-- consider migrate to ProtocolGame.cpp
 	local quest = Game.getQuest(questId)
 	if quest then
 		local missions = quest.missions
@@ -5438,17 +5439,14 @@ function Player.sendQuestLine(self, questId)
 		if missions then
 			for missionId = 1, #missions do
 				if self:missionIsStarted(questId, missionId) then
-					if (self:getClient().version >= 1120) then
-						msg:addU16(questId)
-					end
+					msg:addU16(questId)
 					msg:addString(self:getMissionName(questId, missionId))
 					msg:addString(self:getMissionDescription(questId, missionId))
 				end
 			end
 		end
-		if (self:getClient().os == CLIENTOS_NEW_WINDOWS) then
-			self:sendQuestTracker()
-		end
+
+		self:sendQuestTracker()
 		msg:sendToPlayer(self)
 		msg:delete()
 	end
