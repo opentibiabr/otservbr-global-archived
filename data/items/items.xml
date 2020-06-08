@@ -45905,6 +45905,7 @@
 	<item id="35228" article="a" name="cobra crossbow">
 		<attribute key="weight" value="4000" />
 		<attribute key="slotType" value="two-handed" />
+		<attribute key="quicklootcategory" value="weapondistance" />
 		<attribute key="skillDist" value="2" />
 		<attribute key="weaponType" value="distance"/>
 		<attribute key="ammoType" value="bolt"/>
