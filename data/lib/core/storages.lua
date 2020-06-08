@@ -2187,6 +2187,7 @@ GlobalStorage = {
 
 }
 
+
 -- Values extraction function
 local function extractValues(tab, ret)
 	if type(tab) == "number" then
@@ -2200,16 +2201,16 @@ end
 
 local benchmark = os.clock()
 local extraction = {}
-extractValues(Storage, extraction)  -- Call function
+extractValues(Storage, extraction) -- Call function
 table.sort(extraction) -- Sort the table
 -- The choice of sorting is due to the fact that sorting is very cheap O (n log2 (n)) and then we can simply compare one by one the elements finding duplicates in O(n)
 
 -- Scroll through the extracted table for duplicates
 if #extraction > 1 then
-  for i = 1, #extraction - 1 do
-    if extraction[i] == extraction[i+1] then
-      print("Duplicate storage value found: ".. extraction[i])
-    end 
-  end
-  print(string.format("Processed in %.4f(s)", os.clock() - benchmark))
+	for i = 1, #extraction - 1 do
+		if extraction[i] == extraction[i+1] then
+			print("Duplicate storage value found: ".. extraction[i])
+		end
+	end
+	print(string.format("Processed in %.4f(s)", os.clock() - benchmark))
 end
