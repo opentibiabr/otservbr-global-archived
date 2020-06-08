@@ -20,6 +20,10 @@
 		<flag canwalkonfire="1" />
 		<flag canwalkonpoison="1" />
 	</flags>
+	<script>
+	<event name="SummonTamed"/>
+	<!--event name="SummonWisdom"/-->
+	</script>
 	<attacks>
 		<attack name="melee" interval="2000" min="-150" max="-1300" />
         <attack name="fire" interval="3000" chance="20" needtarget="0" radius="4" min="-500" max="-800">
