@@ -45912,7 +45912,7 @@
 		<attribute key="range" value="6" />
 		<attribute key="attack" value="7" />
 		<attribute key="hitChance" value="6" />
-		<attribute key="imbuingSlots" value="3" />
+		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="35229" name="cobra boots">
 		<attribute key="weight" value="900" />
