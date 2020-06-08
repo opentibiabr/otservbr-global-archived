@@ -16,16 +16,15 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_MOUNT = 5,
 	OFFER_TYPE_NAMECHANGE = 6,
 	OFFER_TYPE_SEXCHANGE = 7,
-	OFFER_TYPE_PROMOTION = 8,
-	OFFER_TYPE_HOUSE = 9,
-	OFFER_TYPE_EXPBOOST = 10,
-	OFFER_TYPE_PREYSLOT = 11,
-	OFFER_TYPE_PREYBONUS = 12,
-	OFFER_TYPE_TEMPLE = 13,
-	OFFER_TYPE_BLESSINGS = 14,
-	OFFER_TYPE_PREMIUM = 15,
-	OFFER_TYPE_POUCH = 16,
-	OFFER_TYPE_ALLBLESSINGS = 17
+	OFFER_TYPE_HOUSE = 8,
+	OFFER_TYPE_EXPBOOST = 9,
+	OFFER_TYPE_PREYSLOT = 10,
+	OFFER_TYPE_PREYBONUS = 11,
+	OFFER_TYPE_TEMPLE = 12,
+	OFFER_TYPE_BLESSINGS = 13,
+	OFFER_TYPE_PREMIUM = 14,
+	OFFER_TYPE_POUCH = 15,
+	OFFER_TYPE_ALLBLESSINGS = 16
 }
 
 GameStore.ClientOfferTypes = {
@@ -65,6 +64,7 @@ GameStore.SendingPackets = {
 	S_CoinBalance = 0xDF, -- 223
 	S_StoreError = 0xE0, -- 224
 	S_RequestPurchaseData = 0xE1, -- 225
+	S_ShowDescription = 0xEA,
 	S_CoinBalanceUpdating = 0xF2, -- 242
 	S_OpenStore = 0xFB, -- 251
 	S_StoreOffers = 0xFC, -- 252
@@ -157,9 +157,7 @@ function parseSendDescription(playerId, msg)
 	if not player then
 		return false
 	end
-	if player:getClient().version < 1180 then
-		return false
-	end
+
 	local offerId = msg:getU32()
 	if offerId then
 		addPlayerEvent(sendShowDescription, 350, playerId, offerId)
@@ -213,7 +211,7 @@ function sendShowDescription(playerId, offerId)
 	end
 	local offer = GameStore.getOfferById(offerId)
 	local msg = NetworkMessage()
-	msg:addByte(0xea)
+	msg:addByte(GameStore.SendingPackets.S_ShowDescription)
 	msg:addU32(offerId)
 	msg:addString(offer.description or "No description to be displayed")
 	msg:sendToPlayer(player)
@@ -246,11 +244,7 @@ function parseRequestStoreOffers(playerId, msg)
 		return false
 	end
 
-	local serviceType = GameStore.ServiceTypes.SERVICE_STANDERD
-	if player:getClient().version >= 1092 then
-		serviceType = msg:getByte()
-	end
-
+	local serviceType = msg:getByte()
 	local categoryName = msg:getString()
 
 	local category = GameStore.getCategoryByName(categoryName)
@@ -309,7 +303,6 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then GameStore.processPreySlotPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS then GameStore.processPreyBonusReroll(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE then GameStore.processTempleTeleportPurchase(player)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PROMOTION then GameStore.processPromotionPurchase(player, offer.id)
 		else
 			-- This should never happen by our convention, but just in case the guarding condition is messed up...
 			error({code = 0, message = "This offer is unavailable [2]"})
@@ -374,9 +367,6 @@ function openStore(playerId)
 	end
 	local msg = NetworkMessage()
 	msg:addByte(GameStore.SendingPackets.S_OpenStore)
-	if player:getClient().version < 1180 then
-		msg:addByte(0x00)
-	end
 
 	local GameStoreCategories, GameStoreCount = nil, 0
 	if (player:getVocation():getId() == VOCATION.ID.NONE) then
@@ -389,13 +379,7 @@ function openStore(playerId)
 		msg:addU16(GameStoreCount)
 		for k, category in ipairs(GameStoreCategories) do
 			msg:addString(category.name)
-			if player:getClient().version < 1180 then
-				msg:addString(category.description)
-			end
-
-			if player:getClient().version >= 1093 then
-				msg:addByte(category.state or GameStore.States.STATE_NONE)
-			end
+			msg:addByte(category.state or GameStore.States.STATE_NONE)
 
 			msg:addByte(#category.icons)
 			for m, icon in ipairs(category.icons) do
@@ -417,13 +401,14 @@ function sendShowDescription(playerId, offerId)
 	end
 	local offer = GameStore.getOfferById(offerId)
 	local msg = NetworkMessage()
-	msg:addByte(0xea)
+	msg:addByte(GameStore.SendingPackets.S_ShowDescription)
 	msg:addU32(offerId)
 	msg:addString(offer.description or "No description to be displayed")
 	msg:sendToPlayer(player)
 end
 
 function sendShowStoreOffers(playerId, category)
+	-- consider using protocolgame::sendStoreCategoryOffers
 	local player = Player(playerId)
 	if not player then
 		return false
@@ -434,14 +419,8 @@ function sendShowStoreOffers(playerId, category)
 	msg:addByte(GameStore.SendingPackets.S_StoreOffers)
 
 	msg:addString(category.name)
-	if player:getClient().version >= 1180 then
-		msg:addU32(0)
-		if player:getClient().version >= 1185 then
-			msg:addU32(0)
-		else
-			msg:addU16(0)
-		end
-	end
+	msg:addU32(0)
+	msg:addU32(0)
 	msg:addU16(category.offers and #category.offers or 0x00)
 
 	if category.offers then
@@ -548,11 +527,6 @@ function sendShowStoreOffers(playerId, category)
 						disabled = 1
 						disabledReason = "You already have this mount."
 					end
-				elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PROMOTION then
-					if GameStore.canAddPromotionToPlayer(playerId, offer.id).ability == false then
-						disabled = 1
-						disabledReason = "You can't get this promotion"
-					end
 				elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
 					local unlockedColumns = player:getStorageValue(STORE_SLOT_STORAGE)
 					if (unlockedColumns == 1) then
@@ -571,93 +545,46 @@ function sendShowStoreOffers(playerId, category)
 				end
 			end
 
-			if player:getClient().version >= 1180 then
-				msg:addString(name);
+			msg:addString(name);
+			msg:addByte(0x01);
+			msg:addU32(offer.id and offer.id or 0xFFFF);
+			msg:addU16(1);
+			msg:addU32(offerPrice);
+
+			msg:addByte(0x00);
+
+			msg:addByte(disabled)
+			if disabled == 1 then
 				msg:addByte(0x01);
-				msg:addU32(offer.id and offer.id or 0xFFFF);
-				msg:addU16(1);
-				msg:addU32(offerPrice);
-
-				msg:addByte(0x00);
-
-				msg:addByte(disabled)
-				if disabled == 1 and player:getClient().version >= 1093 then
-					msg:addByte(0x01);
-					msg:addString(disabledReason)
-				end
-
-				if (offer.state) then
-					if (offer.state == GameStore.States.STATE_SALE) then
-						local daySub = offer.validUntil - os.date("*t").day
-						if (daySub >= 0) then
-							msg:addByte(offer.state)
-							msg:addU32(os.time() + daySub * 86400)
-							msg:addU32(offer.basePrice)
-							haveSaleOffer = 1
-						else
-							msg:addByte(GameStore.States.STATE_NONE)
-						end
-					else
-						msg:addByte(offer.state)
-					end
-				else
-					msg:addByte(GameStore.States.STATE_NONE)
-				end
-				msg:addByte(0x00);
-
-				msg:addString(offer.icons[1])
-
-				msg:addU16(0);
-				msg:addU16(0x01);
-				msg:addU16(0x0182);
-				msg:addU16(0);
-				msg:addU16(0);
-				msg:addByte(0x00);
-			else
-				msg:addU32(offer.id and offer.id or 0xFFFF) -- offerid
-				msg:addString(name)
-				msg:addString(offer.description or GameStore.getDefaultDescription(offer.type))
-				msg:addU32(offerPrice)
-
-				if (offer.state) then
-					if (offer.state == GameStore.States.STATE_SALE) then
-						local daySub = offer.validUntil - os.date("*t").day
-						if (daySub >= 0) then
-							msg:addByte(offer.state)
-							msg:addU32(os.time() + daySub * 86400)
-							msg:addU32(offer.basePrice)
-							haveSaleOffer = 1
-						else
-							msg:addByte(GameStore.States.STATE_NONE)
-						end
-					else
-						msg:addByte(offer.state)
-					end
-				else
-					msg:addByte(GameStore.States.STATE_NONE)
-				end
-
-				if table.contains({ CLIENTOS_OTCLIENT_LINUX, CLIENTOS_OTCLIENT_WINDOWS, CLIENTOS_OTCLIENT_MAC }, player:getClient().os) then
-					if disabled == 1 then
-						msg:addByte(0) -- offer type 0 means disabled
-					else
-						msg:addByte(offer.type)
-					end
-				else
-					-- supporting the old way
-					msg:addByte(disabled)
-				end
-				if disabled == 1 and player:getClient().version >= 1093 then
-					msg:addString(disabledReason)
-				end
-
-				msg:addByte(#offer.icons)
-				for k, icon in ipairs(offer.icons) do
-					msg:addString(icon)
-				end
-
-				msg:addU16(0) -- We still don't support SubOffers!
+				msg:addString(disabledReason)
 			end
+
+			if (offer.state) then
+				if (offer.state == GameStore.States.STATE_SALE) then
+					local daySub = offer.validUntil - os.date("*t").day
+					if (daySub >= 0) then
+						msg:addByte(offer.state)
+						msg:addU32(os.time() + daySub * 86400)
+						msg:addU32(offer.basePrice)
+						haveSaleOffer = 1
+					else
+						msg:addByte(GameStore.States.STATE_NONE)
+					end
+				else
+					msg:addByte(offer.state)
+				end
+			else
+				msg:addByte(GameStore.States.STATE_NONE)
+			end
+
+			msg:addByte(0x00);
+			msg:addString(offer.icons[1])
+			msg:addU16(0);
+			msg:addU16(0x01);
+			msg:addU16(0x0182);
+			msg:addU16(0);
+			msg:addU16(0);
+			msg:addByte(0x00);
 		end
 	end
 
@@ -689,9 +616,7 @@ function sendStoreTransactionHistory(playerId, page, entriesPerPage)
 		msg:addU32(entry.time)
 		msg:addByte(entry.mode)
 		msg:addU32(entry.amount)
-		if player:getClient().version >= 1200 then
-			msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
-		end
+		msg:addByte(0x0) -- 0 = transferable tibia coin, 1 = normal tibia coin
 		msg:addString(entry.description)
 	end
 
@@ -739,7 +664,7 @@ function sendCoinBalanceUpdating(playerId, updating)
 
 	local msg = NetworkMessage()
 	msg:addByte(GameStore.SendingPackets.S_CoinBalanceUpdating)
-	msg:addByte(0x00)
+	msg:addByte(updating and 1 or 0)
 	msg:sendToPlayer(player)
 
 	if updating == true then
@@ -754,9 +679,6 @@ function sendUpdateCoinBalance(playerId)
 	end
 
 	local msg = NetworkMessage()
-	msg:addByte(GameStore.SendingPackets.S_CoinBalanceUpdating)
-	msg:addByte(0x01)
-
 	msg:addByte(GameStore.SendingPackets.S_CoinBalance)
 	msg:addByte(0x01)
 
@@ -962,84 +884,6 @@ GameStore.canChangeToName = function(name)
 	end
 	result.ability = true
 	return result
-end
-
-GameStore.canAddPromotionToPlayer = function(playerId, promotion, send)
-	local player = Player(playerId)
-	if not player then
-		return false
-	end
-
-	local result = {
-		ability = true
-	}
-	local vocation = player:getVocation()
-	-- Working --
-	local vocationCopy, baseVocation = vocation, vocation
-	vocation = vocation:getDemotion()
-	while vocation do
-		baseVocation = vocation
-		vocation = vocation:getDemotion()
-	end
-
-	local baseVocationsCount = GameStore.BaseVocationsCount or 4
-
-	local newVocId = (baseVocationsCount * promotion) + baseVocation:getId()
-
-	if not Vocation(newVocId) then
-		if send then
-			addPlayerEvent(sendStoreError, 350, playerId, GameStore.StoreErrors.STORE_ERROR_NETWORK, "The offer is fake, please report it!")
-		end
-		result.ability = false
-		return result
-	end
-	-- If promotion is less than player's voc, or player don't have previous promotion
-	if newVocId <= vocationCopy:getId() then
-		if send then
-			addPlayerEvent(sendStoreError, 350, playerId, GameStore.StoreErrors.STORE_ERROR_NETWORK, "You already have this promotion!")
-		end
-		result.ability = false
-		return result
-	end
-
-	if (newVocId - baseVocationsCount) ~= vocationCopy:getId() then
-		if send then
-			addPlayerEvent(sendStoreError, 350, playerId, GameStore.StoreErrors.STORE_ERROR_NETWORK, "You need higher promotion to get his one.")
-		end
-		result.ability = false
-		return result
-	end
-
-	result.vocId = newVocId
-	return result
-end
-
-GameStore.addPromotionToPlayer = function(playerId, promotion)
-	local player = Player(playerId)
-	if not player then
-		return false
-	end
-
-	local result = GameStore.canAddPromotionToPlayer(player, promotion, true)
-	if result.ability == false then return false end
-
-	local basics = {
-		health = 185,
-		mana = 40,
-		cap = 500
-	}
-
-	player:setVocation(result.vocId)
-	local newVoc = player:getVocation()
-	player:setMaxHealth(basics.health + (newVoc:getHealthGain() * player:getLevel()))
-	player:setMaxMana(basics.mana + (newVoc:getManaGain() * player:getLevel()))
-	player:setCapacity(basics.cap + (newVoc:getCapacityGain() * player:getLevel()))
-
-	player:addHealth(player:getMaxHealth())
-	player:addMana(player:getMaxMana())
-
-	player:sendTextMessage(MESSAGE_INFO_DESCR, "You have been promoted to " .. newVoc:getName())
-	return true
 end
 
 --
@@ -1293,12 +1137,6 @@ function GameStore.processTempleTeleportPurchase(player)
 	player:teleportTo(player:getTown():getTemplePosition())
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have been teleported to your hometown.')
-end
-
-function GameStore.processPromotionPurchase(player, offerId)
-	if not GameStore.addPromotionToPlayer(player.id, offerId) then
-		return error({code = 0})
-	end
 end
 
 --==Player==--

@@ -921,11 +921,6 @@ class Player final : public Creature, public Cylinder
 				client->sendCreatureType(creature, creatureType);
 			}
 		}
-		void sendCreatureHelpers(uint32_t creatureId, uint16_t helpers) {
-			if (client) {
-				client->sendCreatureHelpers(creatureId, helpers);
-			}
-		}
 		void sendSpellCooldown(uint8_t spellId, uint32_t time) {
 			if (client) {
 				client->sendSpellCooldown(spellId, time);
@@ -1373,7 +1368,7 @@ class Player final : public Creature, public Cylinder
 
    		bool updateKillTracker(Container* corpse, const std::string& playerName, const Outfit_t creatureOutfit) const
  		{
-  			if (client && getProtocolVersion() > 1140) {
+  			if (client) {
 				client->sendKillTrackerUpdate(corpse, playerName, creatureOutfit);
 				return true;
  			}
@@ -1383,21 +1378,21 @@ class Player final : public Creature, public Cylinder
 
    		void updateSupplyTracker(const Item* item)
  		{
-  			if (client && getProtocolVersion() > 1140) {
+  			if (client) {
  				client->sendUpdateSupplyTracker(item);
  			}
  		}
 
    		void updateImpactTracker(int32_t quantity, bool isHeal)
  		{
-  			if (client && getProtocolVersion() > 1140) {
+  			if (client) {
  				client->sendUpdateImpactTracker(quantity, isHeal);
  			}
  		}
 
    		void updateLootTracker(Item* item)
  		{
-  			if (client && getProtocolVersion() > 1140) {
+  			if (client) {
  				client->sendUpdateLootTracker(item);
  			}
  		}

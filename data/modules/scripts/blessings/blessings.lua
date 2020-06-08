@@ -80,16 +80,12 @@ Blessings.S_Packet  = {
 
 function onRecvbyte(player, msg, byte)
 	if (byte == Blessings.C_Packet.OpenWindow) then
-		if (player:getClient().os ~= CLIENTOS_NEW_WINDOWS and player:getClient().os ~= CLIENTOS_FLASH) then
-			player:sendCancelMessage("Only work with Flash Client & 11.0")
-			return false
-		end
-
 		Blessings.sendBlessDialog(player)
 	end
 end
 
 Blessings.sendBlessStatus = function(player, curBless)
+	-- why not using ProtocolGame::sendBlessStatus ?
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessStatus)
 	callback = function(k) return true end
@@ -97,38 +93,36 @@ Blessings.sendBlessStatus = function(player, curBless)
 		curBless = player:getBlessings(callback) -- ex: {1, 2, 5, 7}
 	end
 	Blessings.DebugPrint(#curBless, "sendBlessStatus curBless")
-	if player:getClient().version >= 1120 then
-		local bitWiseCurrentBless = 0
-		local blessCount = 0
-		for i = 1, #curBless do
-			if curBless[i].losscount then
-				blessCount = blessCount + 1
-			end
-			if (not curBless[i].losscount and Blessings.Config.HasToF) or curBless[i].losscount then
-				bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, Blessings.BitWiseTable[curBless[i].id])
-			end
+	local bitWiseCurrentBless = 0
+	local blessCount = 0
+
+	for i = 1, #curBless do
+		if curBless[i].losscount then
+			blessCount = blessCount + 1
 		end
-		if blessCount > 5 and Blessings.Config.InventoryGlowOnFiveBless then
-			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, 1)
+		if (not curBless[i].losscount and Blessings.Config.HasToF) or curBless[i].losscount then
+			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, Blessings.BitWiseTable[curBless[i].id])
 		end
-		msg:addU16(bitWiseCurrentBless)
-		dlgBtnColour = 1
-		if blessCount >= 7 then
-			dlgBtnColour = 3
-		elseif blessCount > 0 then
-			dlgBtnColour = 2
-		end
-		msg:addByte(dlgBtnColour) -- Bless dialog button colour 1 = Disabled | 2 = normal | 3 = green
-	elseif #curBless >= 5 then
-		msg:addU16(1) -- TODO ?
-	else
-		msg:addU16(0)
 	end
+
+	if blessCount > 5 and Blessings.Config.InventoryGlowOnFiveBless then
+		bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, 1)
+	end
+
+	msg:addU16(bitWiseCurrentBless)
+	msg:addByte(blessCount >= 7 and 3 or (blessCount > 0 and 2 or 1)) -- Bless dialog button colour 1 = Disabled | 2 = normal | 3 = green
+
+	-- if #curBless >= 5 then
+	-- 	msg:addU16(1) -- TODO ?
+	-- else
+	-- 	msg:addU16(0)
+	-- end
 
 	msg:sendToPlayer(player)
 end
 
 Blessings.sendBlessDialog = function(player)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessDialog)
 
