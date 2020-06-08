@@ -824,7 +824,7 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 	if(caster && caster->getPlayer()){
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
-			if (chance != 0 && uniform_random(1, 100) <= chance) {
+			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
 				damage.critical = true;
 				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
 				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
@@ -847,7 +847,7 @@ void Combat::doCombatHealth(Creature* caster, const Position& position, const Ar
 		if(caster && caster->getPlayer()){
 			// Critical damage
 			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
-			if (chance != 0 && uniform_random(1, 100) <= chance) {
+			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
 				damage.critical = true;
 				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
 				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
@@ -1012,11 +1012,12 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 			//onGetPlayerMinMaxValues(player, attackSkill, attackValue, attackFactor)
 			Item* tool = player->getWeapon();
 			const Weapon* weapon = g_weapons->getWeapon(tool);
+			Item* item = nullptr;
 
 			if (weapon) {
 				attackValue = tool->getAttack();
 				if (tool->getWeaponType() == WEAPON_AMMO) {
-					Item* item = player->getWeapon(true);
+					item = player->getWeapon(true);
 					if (item) {
 						attackValue += item->getAttack();
 					}
@@ -1044,7 +1045,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 				}
 			}
 
-			lua_pushnumber(L, player->getWeaponSkill(tool));
+			lua_pushnumber(L, player->getWeaponSkill(item ? item : tool));
 			lua_pushnumber(L, attackValue);
 			lua_pushnumber(L, player->getAttackFactor());
 			parameters += 3;

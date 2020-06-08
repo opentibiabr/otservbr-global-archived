@@ -1,11 +1,10 @@
 function Player.sendFakeDeathWindow(self)
+	-- consider migrating to ProtocolGame::sendDeath
 	local msg = NetworkMessage();
 	msg:addByte(0x28);
 	msg:addByte(0x01);
 	msg:addByte(2);
-	if (self:getClient().os >= 1120) then
-		msg:addByte(0x00); -- Use death redemption
-	end
+	msg:addByte(0x00); -- Use death redemption
 	msg:sendToPlayer(self, false);
 	return true
 end
@@ -43,8 +42,8 @@ function onStepIn(creature, item, position, fromPosition)
 	if not player then
 		return true
 	end
-	if player:getStorageValue(Storage.CultsOfTibia.Barkless.ice) == 2 then
-		player:setStorageValue(Storage.CultsOfTibia.Barkless.ice, 3)
+	if player:getStorageValue(Storage.CultsOfTibia.Barkless.Ice) == 2 then
+		player:setStorageValue(Storage.CultsOfTibia.Barkless.Ice, 3)
 		player:setStorageValue(Storage.CultsOfTibia.Barkless.Death, 1)
 		for _, conditionType in pairs(conditions) do
 			if player:getCondition(conditionType) then
@@ -66,6 +65,7 @@ function onStepIn(creature, item, position, fromPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost 0 experience and 0.00% of all of your skills.")
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You did not lose any items.")
 		player:setStorageValue(Storage.CultsOfTibia.Barkless.Mission, 3)
+		player:setStorageValue(Storage.CultsOfTibia.Barkless.AcessDoor, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The cold has all but disappeared from your body and you're getting warmer. You need to renew all preparations for purification.")
 		player:sendFakeDeathWindow()
 	else

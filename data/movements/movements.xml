@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <movements>
-	<!-- dawnport -->
-	<movevent event="StepIn" fromaid="20001" toaid="20004" script="dawnport/vocation_trial.lua"/>
 	<!-- oramond -->
 	<movevent event="StepIn" fromuid="50500" touid="50501" script="oramond/oramond_entrance.lua"/>
 	<movevent event="StepIn" fromaid="13400" toaid="13428" script="oramond/oramond_movements.lua"/>
@@ -1645,12 +1643,6 @@
 		<vocation name="Master Sorcerer" showInDescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="29060" slot="hand" function="onDeEquipItem"/>
-	<movevent event="Equip" itemid="23719" slot="hand" level="1" function="onEquipItem">
-		<!-- the scorcher -->
-		<vocation name="Sorcerer"/>
-		<vocation name="Master Sorcerer" showInDescription="0"/>
-	</movevent>
-	<movevent event="DeEquip" itemid="23719" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2190" slot="hand" level="7" function="onEquipItem">
 		<!-- wand of vortex -->
 		<vocation name="Sorcerer"/>
@@ -1756,12 +1748,6 @@
 		<vocation name="Master Sorcerer" showInDescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="25991" slot="hand" function="onDeEquipItem"/>
-	<movevent event="Equip" itemid="23721" slot="hand" level="1" function="onEquipItem">
-		<!-- the chiller -->
-		<vocation name="Druid"/>
-		<vocation name="Elder Druid" showInDescription="0"/>
-	</movevent>
-	<movevent event="DeEquip" itemid="23721" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="2182" slot="hand" level="7" function="onEquipItem">
 		<!-- snakebite rod -->
 		<vocation name="Druid"/>

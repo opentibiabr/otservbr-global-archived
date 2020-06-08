@@ -1,6 +1,6 @@
 /**
  * @file monster.cpp
- * 
+ *
  * The Forgotten Server - a free and open-source MMORPG server emulator
  * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
  *
@@ -490,9 +490,9 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 {
 	if (searchType == TARGETSEARCH_DEFAULT) {
 		int32_t rnd = uniform_random(1, 100);
-		
+
 		searchType = TARGETSEARCH_NEAREST;
-		
+
 		int32_t sum = this->mType->info.targetStrategiesNearestPercent;
 		if (rnd > sum) {
 			searchType = TARGETSEARCH_HP;
@@ -507,7 +507,7 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 			}
 		}
 	}
-	
+
 	std::list<Creature*> resultList;
 	const Position& myPos = getPosition();
 
@@ -518,29 +518,29 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 			}
 		}
 	}
-	
+
 	if (resultList.empty()) {
 		return false;
 	}
-	
-	Creature* target = nullptr;
-	
+
+	Creature* getTarget = nullptr;
+
 	switch (searchType) {
 		case TARGETSEARCH_NEAREST: {
-			target = nullptr;
+			getTarget = nullptr;
 			if (!resultList.empty()) {
 				auto it = resultList.begin();
-				target = *it;
+				getTarget = *it;
 
 				if (++it != resultList.end()) {
-					const Position& targetPosition = target->getPosition();
+					const Position& targetPosition = getTarget->getPosition();
 					int32_t minRange = std::max<int32_t>(Position::getDistanceX(myPos, targetPosition), Position::getDistanceY(myPos, targetPosition));
 					do {
 						const Position& pos = (*it)->getPosition();
 
 						int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
 						if (distance < minRange) {
-							target = *it;
+							getTarget = *it;
 							minRange = distance;
 						}
 					} while (++it != resultList.end());
@@ -555,43 +555,43 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 					const Position& pos = creature->getPosition();
 					int32_t distance = std::max<int32_t>(Position::getDistanceX(myPos, pos), Position::getDistanceY(myPos, pos));
 					if (distance < minRange) {
-						target = creature;
+						getTarget = creature;
 						minRange = distance;
 					}
 				}
 			}
 
-			if (target && selectTarget(target)) {
+			if (getTarget && selectTarget(getTarget)) {
 				return true;
 			}
 			break;
-		}		
+		}
 		case TARGETSEARCH_HP: {
-			target = nullptr;
+			getTarget = nullptr;
 			if (!resultList.empty()) {
 				auto it = resultList.begin();
-				target = *it;
+				getTarget = *it;
 				if (++it != resultList.end()) {
-					int32_t minHp = target->getHealth();
+					int32_t minHp = getTarget->getHealth();
 					do {
 						if ((*it)->getHealth() < minHp) {
-							target = *it;
+							getTarget = *it;
 
-							minHp = target->getHealth();
+							minHp = getTarget->getHealth();
 						}
 					} while (++it != resultList.end());
 				}
 			}
-			if (target && selectTarget(target)) {
+			if (getTarget && selectTarget(getTarget)) {
 				return true;
 			}
 			break;
 		}
 		case TARGETSEARCH_DAMAGE: {
-			target = nullptr;
+			getTarget = nullptr;
 			if (!resultList.empty()) {
 				auto it = resultList.begin();
-				target = *it;
+				getTarget = *it;
 				if (++it != resultList.end()) {
 					int32_t mostDamage = 0;
 					do {
@@ -599,13 +599,13 @@ bool Monster::searchTarget(TargetSearchType_t searchType /*= TARGETSEARCH_DEFAUL
 						if (dmg != damageMap.end()) {
 							if (dmg->second.total > mostDamage) {
 								mostDamage = dmg->second.total;
-								target = *it;
+								getTarget = *it;
 							}
 						}
 					} while (++it != resultList.end());
 				}
 			}
-			if (target && selectTarget(target)) {
+			if (getTarget && selectTarget(getTarget)) {
 				return true;
 			}
 			break;
@@ -853,7 +853,7 @@ void Monster::doAttacking(uint32_t interval)
 		if (attackedCreature == nullptr) {
 			break;
 		}
-		
+
 		if(spellBlock.isMelee && isFleeing()){
 			continue;
 		}
@@ -1282,7 +1282,7 @@ bool Monster::getDanceStep(const Position& creaturePos, Direction& moveDirection
 	int_fast32_t distance_y = std::abs(offset_y);
 
 	uint32_t centerToDist = std::max<uint32_t>(distance_x, distance_y);
-	
+
 	//monsters not at targetDistance shouldn't dancestep
 	if (centerToDist < (uint32_t) mType->info.targetDistance) {
 		return false;

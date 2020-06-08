@@ -99,8 +99,8 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-for value = 2146, 2150 do
-	gems:id(value)
+for index, value in pairs(shrine) do
+	gems:id(index)
 end
 
 gems:id(9970)
