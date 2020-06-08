@@ -89,7 +89,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "no") and npcHandler.topic[cid] == 0 then
 		npcHandler:say("What? Then what DO you want? Learn about the main World {cities}?", cid)
 		npcHandler.topic[cid] = 3
-	elseif msgcontains(msg, "cities") and npcHandler.topic[cid] == 3 or npcHandler.topic[cid] == 0 then
+	elseif msgcontains(msg, "cities") and npcHandler.topic[cid] == 3
+	or npcHandler.topic[cid] == 0 or npcHandler.topic[cid] == 8 then
 		npcHandler:say("Well, I can tell you stuff about {Ab'Dendriel}, {Ankrahmun}, {Carlin}, \z
 			{Darashia}, {Edron}, {Kazordoon}, {Liberty Bay}, {Port Hope}, {Svargrond}, {Thais}, {Venore} or {Yalahar}.", cid)
 		npcHandler.topic[cid] = 5

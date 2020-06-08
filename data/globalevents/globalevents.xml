@@ -29,6 +29,7 @@
 	<globalevent type="record" name="playerrecord" script="others/online_record.lua" />
 	<globalevent name="serversave" time="05:55:00" script="others/server_save.lua" />
 	<globalevent type="startup" name="serverstartup" script="others/startup.lua" />
+	<globalevent name="hirelingSave" type="shutdown" script="others/hireling_save.lua"/>
 
 	<!-- world changes -->
 	<globalevent name="furygates" type="startup" script="worldchanges/fury_gates.lua" />

@@ -1,3 +1,3 @@
-AdditionalMap = {
-	[1] = {file = "data/world/additional/example.otbm", enabled = false}
+CustomMapTable = {
+	[1] = {file = "data/world/custom/otservbr-custom.otbm", enabled = true}
 }

@@ -26,19 +26,19 @@ local config = {
 	vocations = {
 		["sorcerer"] = {
 			text = "A SORCERER! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = VOCATION.SORCERER
+			vocationId = VOCATION.ID.SORCERER
 		},
 		["druid"] = {
 			text = "A DRUID! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = VOCATION.DRUID
+			vocationId = VOCATION.ID.DRUID
 		},
 		["paladin"] = {
 			text = "A PALADIN! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = VOCATION.PALADIN
+			vocationId = VOCATION.ID.PALADIN
 		},
 		["knight"] = {
 			text = "A KNIGHT! ARE YOU SURE? THIS DECISION IS IRREVERSIBLE!",
-			vocationId = VOCATION.KNIGHT
+			vocationId = VOCATION.ID.KNIGHT
 		}
 	}
 }
@@ -55,7 +55,7 @@ local function greetCallback(cid)
 		YOU CAN ONLY LEAVE WITH LEVEL 9 OR LOWER.", cid)
 		npcHandler:resetNpc(cid)
 		return false
-	elseif player:getVocation():getId() > VOCATION.NONE then
+	elseif player:getVocation():getId() > VOCATION.ID.NONE then
 		npcHandler:say("YOU ALREADY HAVE A VOCATION!", cid)
 		npcHandler:resetNpc(cid)
 		return false
