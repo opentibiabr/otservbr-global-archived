@@ -45,16 +45,17 @@
 	<action itemid="23557" script="mounts/mounts.lua" />
 	<action itemid="23810" script="mounts/mounts.lua" />
 	<action itemid="30840" script="mounts/mounts.lua" />
+	<!--stone rhino-->
 	<action itemid="27628" script="mounts/mounts.lua" />
-	<!-- stone rhino -->
+	<!--flying book-->
 	<action itemid="32491" script="mounts/mounts.lua" />
-	<!-- flying book -->
+	<!--lacewing moth-->
 	<action itemid="34808" script="mounts/mounts.lua" />
-	<!-- lacewing moth -->
+	<!--hibernal moth-->
 	<action itemid="34809" script="mounts/mounts.lua" />
-	<!-- hibernal moth -->
+	<!--gryphon-->
 	<action itemid="36411" script="mounts/mounts.lua" />
-	<!-- gryphon -->
+	<!--music box-->
 	<action itemid="18511" script="mounts/music_box.lua" />
 	<!-- oramond -->
 	<action itemid="22944" script="oramond/teleport_west.lua" />

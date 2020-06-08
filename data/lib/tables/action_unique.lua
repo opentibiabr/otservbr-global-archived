@@ -1085,10 +1085,20 @@ UniqueTable = {
 	},
 	[25030] = {
 		itemId = 3706,
-		itemPos = Position(33277, 31754, 7),
+		itemPos =  {x = 33277, y = 31754, z = 7},
 		storage = Storage.TibiaTales.JackFutureQuest.Statue,
 		value = 1,
 		setStorage = Storage.TibiaTales.JackFutureQuest.QuestLine,
 		addItem = 11343
+	},
+	-- Custom trainer entrance
+	[25031] = {
+		itemId = 8058,
+		itemPos = {x = 1116, y = 1092, z = 7}
+	},
+	-- Custom npcs create
+	[25032] = {
+		itemId = false,
+		itemPos = {x = 32373, y = 32236, z = 7}
 	}
 }

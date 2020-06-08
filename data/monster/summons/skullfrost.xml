@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Skullfrost" nameDescription="a Skullfrost" race="undead" speed="500" manacost="1000">
+<monster name="Skullfrost" nameDescription="a Skullfrost" race="undead" speed="309" manacost="1000">
 	<health now="10000" max="10000" />
 	<look type="991" corpse="0" />
 	<targetchange interval="4000" chance="20" />
@@ -14,28 +14,30 @@
 		<flag pushable="1" />
 		<flag canpushitems="0" />
 		<flag canpushcreatures="1" />
-		<flag staticattack="98" />
-		<flag targetdistance="3" />
-		<flag runonhealth="9000" />
+		<flag staticattack="90" />
+		<flag targetdistance="4" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="death" interval="200" chance="25" min="-100" max="-280" />
-		<attack name="death" interval="500" chance="10" length="6" spread="0" target="1" min="-200" max="-500">
+		<attack name="melee" interval="2000" min="0" max="-200" /> <!-- melee -->
+		<attack name="sudden death" interval="2000" chance="17" range="7" min="-300" max="-350" /> <!-- sudden death -->
+		<attack name="death" interval="2000" chance="15" radius="2" range="6" target="1" min="-200" max="-250"> <!-- death explosion -->
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="death" interval="500" chance="10" radius="7" min="-50" max="-500">
+		<attack name="death" interval="3000" chance="25" target="1" range="5" radius="3" min="-180" max="-250"> <!-- death bomb -->
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
-		<attack name="ice" interval="2000" chance="15" target="1" radius="7" min="-100" max="-240">
+		<attack name="ice" interval="3000" chance="25" target="1" range="5" radius="3" min="-180" max="-250"> <!-- ice bomb -->
 			<attribute key="areaEffect" value="icearea" />
 		</attack>
-		<attack name="ice" interval="2000" chance="15" radius="7" target="0" min="-60" max="-400">
+		<attack name="ice" interval="2000" chance="15" radius="2" range="6" target="1" min="-200" max="-250"> <!-- ice explosion -->
 			<attribute key="areaEffect" value="icetornado" />
 		</attack>
+		<attack name="ice strike" interval="2000" chance="17" range="5" target="1" min="-300" max="-350" /> <!-- ice strike -->
 	</attacks>
-	<defenses armor="55" defense="95">
-		<defense name="healing" interval="3000" chance="25" min="80" max="400">
-			<attribute key="areaEffect" value="blueshimmer" />
+	<defenses armor="55" defense="55">
+		<defense name="healing" interval="2000" chance="75" min="400" max="400">
+			<attribute key="areaEffect" value="greenshimmer" />
 		</defense>
 	</defenses>
 	<elements>

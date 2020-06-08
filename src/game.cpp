@@ -43,6 +43,7 @@
 #include "script.h"
 #include "modules.h"
 #include "imbuements.h"
+#include "account.hpp"
 
 extern ConfigManager g_config;
 extern Actions* g_actions;
@@ -3675,7 +3676,7 @@ bool Game::playerYell(Player* player, const std::string& text)
 		return false;
 	}
 
-	if (player->getAccountType() < ACCOUNT_TYPE_GAMEMASTER) {
+	if (player->getAccountType() < account::AccountType::ACCOUNT_TYPE_GAMEMASTER) {
 		Condition* condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_YELLTICKS, 30000, 0);
 		player->addCondition(condition);
 	}
@@ -3693,7 +3694,7 @@ bool Game::playerSpeakTo(Player* player, SpeakClasses type, const std::string& r
 		return false;
 	}
 
-	if (type == TALKTYPE_PRIVATE_RED_TO && (player->hasFlag(PlayerFlag_CanTalkRedPrivate) || player->getAccountType() >= ACCOUNT_TYPE_GAMEMASTER)) {
+	if (type == TALKTYPE_PRIVATE_RED_TO && (player->hasFlag(PlayerFlag_CanTalkRedPrivate) || player->getAccountType() >= account::AccountType::ACCOUNT_TYPE_GAMEMASTER)) {
 		type = TALKTYPE_PRIVATE_RED_FROM;
 	} else {
 		type = TALKTYPE_PRIVATE_FROM;
@@ -5117,37 +5118,47 @@ void Game::updateCreatureType(Creature* creature)
 	}
 }
 
-void Game::updatePremium(Account& account)
+void Game::updatePremium(account::Account& account)
 {
-	bool save = false;
-	time_t timeNow = time(nullptr);
-
-	if (account.premiumDays != 0 && account.premiumDays != std::numeric_limits<uint16_t>::max()) {
-		if (account.lastDay == 0) {
-			account.lastDay = timeNow;
+  bool save = false;
+  time_t timeNow = time(nullptr);
+  uint32_t rem_days = 0;
+  time_t last_day;
+  account.GetPremiumRemaningDays(&rem_days);
+  if (rem_days != 0)
+  {
+    account.GetPremiumLastDay(&last_day);
+    if (last_day == 0) {
+			account.SetPremiumLastDay(timeNow);
 			save = true;
 		} else {
-			uint32_t days = (timeNow - account.lastDay) / 86400;
+			uint32_t days = (timeNow - last_day) / 86400;
 			if (days > 0) {
-				if (days >= account.premiumDays) {
-					account.premiumDays = 0;
-					account.lastDay = 0;
+				if (days >= rem_days) {
+					if(!account.SetPremiumRemaningDays(0) || !account.SetPremiumLastDay(0)) {
+            std::cout << "Failed to set account premium days!" << std::endl;
+          }
 				} else {
-					account.premiumDays -= days;
-					time_t remainder = (timeNow - account.lastDay) % 86400;
-					account.lastDay = timeNow - remainder;
+					account.SetPremiumRemaningDays((rem_days - days));
+					time_t remainder = (timeNow - last_day) % 86400;
+					account.SetPremiumLastDay(timeNow - remainder);
 				}
 
 				save = true;
 			}
 		}
-	} else if (account.lastDay != 0) {
-		account.lastDay = 0;
+  }
+  else if (last_day != 0)
+  {
+    account.SetPremiumLastDay(0);
 		save = true;
-	}
+  }
 
-	if (save && !IOLoginData::saveAccount(account)) {
-		std::cout << "> ERROR: Failed to save account: " << account.name << "!" << std::endl;
+  if (save && !account.SaveAccountDB()) {
+    std::string name;
+    account.GetName(&name);
+		std::cout << "> ERROR: Failed to save account: " << name << "!"
+              << std::endl;
 	}
 }
 
@@ -5552,13 +5563,17 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 		}
 
 		if (it.id == ITEM_STORE_COIN) {
-			if (amount > IOAccount::getCoinBalance(player->getAccount())) {
-				return;
-			}
+      account::Account account(player->getAccount());
+      account.LoadAccountDB();
+      uint32_t coins;
+      account.GetCoins(&coins);
 
-			IOAccount::removeCoins(player->getAccount(), static_cast<int32_t>(amount));
-		} else {
-			std::forward_list<Item *> itemList = getMarketItemList(it.wareId, amount, depotLocker);
+      if (amount > coins) {
+        return;
+      }
+      account.RemoveCoins(static_cast<uint32_t>(amount));
+    } else {
+      std::forward_list<Item *> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 
 			if (itemList.empty()) {
 				return;
@@ -5580,9 +5595,9 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
 					internalRemoveItem(item);
 				}
 			}
-		}
+    }
 
-		g_game.removeMoney(player, fee, 0, true);
+    g_game.removeMoney(player, fee, 0, true);
 	} else {
 
 		uint64_t totalPrice = price * amount;
@@ -5646,8 +5661,10 @@ void Game::playerCancelMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 
 		if (it.id == ITEM_STORE_COIN) {
-			IOAccount::addCoins(player->getAccount(), offer.amount);
-		}
+      account::Account account;
+      account.LoadAccountDB(player->getAccount());
+      account.AddCoins(offer.amount);
+    }
 		else if (it.stackable) {
 			uint16_t tmpAmount = offer.amount;
 			while (tmpAmount > 0) {
@@ -5747,14 +5764,19 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 
 		if (it.id == ITEM_STORE_COIN) {
-			if (amount > IOAccount::getCoinBalance(player->getAccount())) {
-				return;
-			}
+      account::Account account;
+      account.LoadAccountDB(player->getAccount());
+      uint32_t coins;
+      account.GetCoins(&coins);
+      if (amount > coins)
+      {
+        return;
+      }
 
-			IOAccount::removeCoins(player->getAccount(), amount);
-			IOAccount::registerTransaction(player->getAccount(), -amount, "Sold on Market");
-
-		} else {
+      account.RemoveCoins(amount);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                      "Sold on Market");
+    } else {
 			std::forward_list<Item*> itemList = getMarketItemList(it.wareId, amount, depotLocker);
 			if (itemList.empty()) {
 				return;
@@ -5780,10 +5802,15 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		player->setBankBalance(player->getBankBalance() + totalPrice);
 
 		if (it.id == ITEM_STORE_COIN) {
-			IOAccount::addCoins(buyerPlayer->getAccount(), amount);
-			IOAccount::registerTransaction(buyerPlayer->getAccount(), amount, "Purchased on Market");
-		}else if (it.stackable) {
-			uint16_t tmpAmount = amount;
+      account::Account account;
+      account.LoadAccountDB(buyerPlayer->getAccount());
+      account.AddCoins(amount);
+      account.RegisterCoinsTransaction(account::COIN_ADD, amount,
+                                      "Purchased on Market");
+    }
+    else if (it.stackable)
+    {
+      uint16_t tmpAmount = amount;
 			while (tmpAmount > 0) {
 				uint16_t stackCount = std::min<uint16_t>(100, tmpAmount);
 				Item* item = Item::CreateItem(it.id, stackCount);
@@ -5794,8 +5821,10 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 
 				tmpAmount -= stackCount;
 			}
-		} else {
-			int32_t subType;
+    }
+    else
+    {
+      int32_t subType;
 			if (it.charges != 0) {
 				subType = it.charges;
 			} else {
@@ -5809,9 +5838,9 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 					break;
 				}
 			}
-		}
+    }
 
-		if (buyerPlayer->isOffline()) {
+    if (buyerPlayer->isOffline()) {
 			IOLoginData::savePlayer(buyerPlayer);
 			delete buyerPlayer;
 		}
@@ -5840,8 +5869,11 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		}
 
 		if (it.id == ITEM_STORE_COIN) {
-			IOAccount::addCoins(player->getAccount(), amount);
-			IOAccount::registerTransaction(player->getAccount(), amount, "Purchased on Market");
+      account::Account account;
+      account.LoadAccountDB(player->getAccount());
+      account.AddCoins(amount);
+      account.RegisterCoinsTransaction(account::COIN_ADD, amount,
+                                      "Purchased on Market");
 		} else if (it.stackable) {
 			uint16_t tmpAmount = amount;
 			while (tmpAmount > 0) {
@@ -5874,15 +5906,21 @@ void Game::playerAcceptMarketOffer(uint32_t playerId, uint32_t timestamp, uint16
 		if (sellerPlayer) {
 			sellerPlayer->setBankBalance(sellerPlayer->getBankBalance() + totalPrice);
 			if (it.id == ITEM_STORE_COIN) {
-				IOAccount::registerTransaction(sellerPlayer->getAccount(), -amount, "Sold on Market");
-			}
+        account::Account account;
+        account.LoadAccountDB(sellerPlayer->getAccount());
+        account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                        "Sold on Market");
+      }
 		} else {
 			IOLoginData::increaseBankBalance(offer.playerId, totalPrice);
 			if (it.id == ITEM_STORE_COIN) {
 				sellerPlayer = new Player(nullptr);
 
 				if (IOLoginData::loadPlayerById(sellerPlayer, offer.playerId)) {
-					IOAccount::registerTransaction(sellerPlayer->getAccount(), -amount, "Sold on Market");
+          account::Account account;
+          account.LoadAccountDB(sellerPlayer->getAccount());
+          account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                          "Sold on Market");
 		}
 
 				delete sellerPlayer;
@@ -5941,13 +5979,11 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			return;
 		}
 
-/*
-		if ((offer->type == ITEM || offer->type == STACKABLE_ITEM && !((ItemOffer*)offer)->productId) //item offer without product id
-				|| (offer->type == MOUNT && !((MountOffer*)offer)->mountId) //mount offer without mountId
-				|| (offer->type == PREMIUM_TIME && !((PremiumTimeOffer*)offer)->days)) { }
-*/
-
-		if (IOAccount::getCoinBalance(player->getAccount()) < offer->price) //player doesnt have enough coins
+    account::Account account;
+    account.LoadAccountDB(player->getAccount());
+    uint32_t coins;
+    account.GetCoins(&coins);
+    if (coins < offer->price) //player doesnt have enough coins
 		{
 			player->sendStoreError(STORE_ERROR_PURCHASE, "You don't have enough coins");
 			return;
@@ -5983,9 +6019,10 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			} else {
 				uint16_t pendingCount = tmp->count;
 				uint8_t packSize = (offer->type == STACKABLE_ITEM) ? 100 : 1;
-				IOAccount::removeCoins(player->getAccount(), offer->price);
-				IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
-
+        account.LoadAccountDB(player->getAccount());
+        account.RemoveCoins(offer->price);
+        account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                        offer->name);
 				while(pendingCount>0)
 				{
 					Item* item;
@@ -6000,16 +6037,19 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 
 					if (internalAddItem(inbox, item, INDEX_WHEREEVER, FLAG_NOLIMIT) != RETURNVALUE_NOERROR) {
 						delete item;
-						IOAccount::addCoins(player->getAccount(),(offer->price * (tmp->count - pendingCount))/tmp->count); //charging partially
 						player->sendStoreError(STORE_ERROR_PURCHASE, "We couldn't deliver all the items.\nOnly the delivered ones were charged from you account");
-						IOAccount::registerTransaction(player->getAccount(), -1*offer->price + (offer->price * (tmp->count - pendingCount))/tmp->count, offer->name);
+            account.AddCoins((offer->price * (tmp->count - pendingCount)/tmp->count));
+            account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                  offer->price + (offer->price * (tmp->count - pendingCount))/tmp->count,
+                  offer->name);
 						return;
 					}
 					pendingCount-= std::min<uint16_t>(pendingCount,packSize);
 				}
 
-				player->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(player->getAccount()));
-				return;
+        account.GetCoins(&coins);
+        player->sendStorePurchaseSuccessful(message.str(), coins);
+        return;
 			}
 		} else if (offer->type == OUTFIT || offer->type == OUTFIT_ADDON) {
 			const OutfitOffer* outfitOffer = (OutfitOffer*) offer;
@@ -6018,12 +6058,15 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			uint8_t addons = outfitOffer->addonNumber;
 
 			if (!player->canWear(looktype, addons)) {
-				IOAccount::removeCoins(player->getAccount(), offer->price);
 				player->addOutfit(looktype, addons);
-				IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
+        account.LoadAccountDB(player->getAccount());
+        account.RemoveCoins(offer->price);
+        account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                        offer->name);
 				message<< "You've successfully bought the "<< outfitOffer->name << ".";
-				player->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(player->getAccount()));
-				return;
+        account.GetCoins(&coins);
+        player->sendStorePurchaseSuccessful(message.str(), coins);
+        return;
 			} else {
 				player->sendStoreError(STORE_ERROR_NETWORK, "This outfit seems not to suit you well, we are sorry for that!");
 				return;
@@ -6035,16 +6078,19 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				player->sendStoreError(STORE_ERROR_PURCHASE, "You arealdy own this mount.");
 				return;
 			} else {
-				IOAccount::removeCoins(player->getAccount(), mntOffer->price);
-				if (!player->tameMount(mount->id)) {
-					IOAccount::addCoins(player->getAccount(), mntOffer->price);
-					player->sendStoreError(STORE_ERROR_PURCHASE, "An error ocurred processing your purchase. Try again later.");
+        account.LoadAccountDB(player->getAccount());
+        account.RemoveCoins(mntOffer->price);
+        if (!player->tameMount(mount->id)) {
+          account.AddCoins(mntOffer->price);
+          player->sendStoreError(STORE_ERROR_PURCHASE, "An error ocurred processing your purchase. Try again later.");
 					return;
 				} else {
-					IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
+          account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                          offer->name);
 					message << "You've successfully bought the " << mount->name <<" Mount.";
-					player->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(player->getAccount()));
-					return;
+          account.GetCoins(&coins);
+          player->sendStorePurchaseSuccessful(message.str(), coins);
+          return;
 				}
 			}
 		} else if (offer->type == NAMECHANGE) {
@@ -6111,12 +6157,13 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 							query << "UPDATE `players` SET `name` = " << db.escapeString(newName) << " WHERE `id` = "
 								  << player->getGUID();
 							if (db.executeQuery(query.str())) {
-								IOAccount::removeCoins(player->getAccount(), offer->price);
-								IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
-
-								message << "You have successfully changed you name, you must relog to see the changes.";
-								player->sendStorePurchaseSuccessful(message.str(),
-																	IOAccount::getCoinBalance(player->getAccount()));
+                account.LoadAccountDB(player->getAccount());
+                account.RemoveCoins(offer->price);
+                account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                                                offer->price, offer->name);
+                account.GetCoins(&coins);
+                message << "You have successfully changed you name, you must relog to see the changes.";
+                player->sendStorePurchaseSuccessful(message.str(), coins);
 								return;
 							} else {
 								message << "An error ocurred processing your request, no changes were made.";
@@ -6155,9 +6202,12 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			}
 			playerChangeOutfit(player->getID(),playerOutfit);
 			//TODO: add the other sex equivalent outfits player already have in the current sex.
-			IOAccount::removeCoins(player->getAccount(),offer->price);
-			IOAccount::registerTransaction(player->getAccount(),-1*offer->price,offer->name);
-			player->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(player->getAccount()));
+      account.LoadAccountDB(player->getAccount());
+      account.RemoveCoins(offer->price);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                      offer->name);
+      account.GetCoins(&coins);
+			player->sendStorePurchaseSuccessful(message.str(), coins);
 			return;
 		} else if (offer->type == PROMOTION) {
 			if (player->isPremium() && !player->isPromoted()) {
@@ -6167,12 +6217,15 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					player->sendStoreError(STORE_ERROR_PURCHASE, "Your character cannot be promoted.");
 					return;
 				} else {
-					IOAccount::removeCoins(player->getAccount(), offer->price);
-					IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
+          account.LoadAccountDB(player->getAccount());
+          account.RemoveCoins(offer->price);
+          account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                                          offer->price, offer->name);
+          account.GetCoins(&coins);
 					player->setVocation(promotedId);
 					player->addStorageValue(STORAGEVALUE_PROMOTION,1);
 					message << "You've been promoted! Relog to see the changes.";
-					player->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(player->getAccount()));
+					player->sendStorePurchaseSuccessful(message.str(), coins);
 					return;
 				}
 			} else {
@@ -6181,12 +6234,15 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 			}
 		} else if (offer->type == PREMIUM_TIME) {
 			PremiumTimeOffer* premiumTimeOffer = (PremiumTimeOffer*) offer;
-			IOAccount::removeCoins(player->getAccount(),offer->price);
-			IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
+      account.LoadAccountDB(player->getAccount());
+      account.RemoveCoins(offer->price);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                      offer->name);
+      account.GetCoins(&coins);
 			player->setPremiumDays(player->premiumDays+premiumTimeOffer->days);
 			IOLoginData::addPremiumDays(player->getAccount(),premiumTimeOffer->days);
 			message<< "You've successfully bought "<< premiumTimeOffer->days << " days of premium time.";
-			player->sendStorePurchaseSuccessful(message.str(),IOAccount::getCoinBalance(player->getAccount()));
+			player->sendStorePurchaseSuccessful(message.str(),coins);
 			return;
 		} else if (offer->type == TELEPORT) {
 			TeleportOffer* tpOffer = (TeleportOffer*) offer;
@@ -6204,11 +6260,14 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					player->sendStoreError(STORE_ERROR_PURCHASE, "Your character cannot be teleported there at the moment.");
 					return;
 				} else {
-					IOAccount::removeCoins(player->getAccount(), offer->price);
-					IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
+          account.LoadAccountDB(player->getAccount());
+          account.RemoveCoins(offer->price);
+          account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                          offer->name);
+          account.GetCoins(&coins);
 					addMagicEffect(fromPosition, CONST_ME_POFF);
 					addMagicEffect(toPosition,CONST_ME_TELEPORT);
-					player->sendStorePurchaseSuccessful("You've successfully been teleported.", IOAccount::getCoinBalance(player->getAccount()));
+					player->sendStorePurchaseSuccessful("You've successfully been teleported.", coins);
 					return;
 				}
 			} else {
@@ -6229,12 +6288,14 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 				}
 				blessingsToAdd = bless;
 			}
-
-			IOAccount::removeCoins(player->getAccount(), offer->price);
+      account.LoadAccountDB(player->getAccount());
+      account.RemoveCoins(offer->price);
+      account.RegisterCoinsTransaction(account::COIN_REMOVE, offer->price,
+                                      offer->name);
+      account.GetCoins(&coins);
 			player->addBlessing(blessingsToAdd, 1);
-			IOAccount::registerTransaction(player->getAccount(), -1*offer->price, offer->name);
 			message<< "You've successfully bought the "<< offer->name << ".";
-			player->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(player->getAccount()));
+			player->sendStorePurchaseSuccessful(message.str(), coins);
 			return;
 		} else {
 			//TODO: BOOST_XP and BOOST_STAMINA (the support systems are not yet implemented)
@@ -6248,69 +6309,52 @@ void Game::playerCoinTransfer(uint32_t playerId, const std::string &receiverName
 {
 	Player* sender = getPlayerByID(playerId);
 	Player* receiver = getPlayerByName(receiverName);
+  std::stringstream message;
 	if (!sender) {
 		return;
-	} else {
-		std::ostringstream query;
-		Database &db = Database::getInstance();
-
-		query << "SELECT `name`,`account_id` from `players` WHERE `name`=" << db.escapeString(receiverName);
-
-		std::stringstream message;
-		DBResult_ptr result = db.storeQuery(query.str());
-		if (!result) {
-			message << "Player \"" << receiverName << "\" doesn't exist.";
+	} else if (!receiver) {
+      message << "Player \"" << receiverName << "\" doesn't exist.";
 			sender->sendStoreError(STORE_ERROR_TRANSFER, message.str());
 			return;
-		} else {
-			uint32_t receiverAccountId = result->getNumber<uint32_t>("account_id");
-			std::string capitalizedReceiverName = result->getString("name");
-			if (receiverAccountId == 0) {
-				message << "Player \"" << receiverName << "\" doesn't exist.";
-				sender->sendStoreError(STORE_ERROR_TRANSFER, message.str());
-				return;
-			} else if (sender->getAccount() == receiverAccountId) { //sender and receiver are the same
-				message << "You cannot send coins to your own account.";
-				sender->sendStoreError(STORE_ERROR_TRANSFER, message.str());
-				return;
-			} else if (IOAccount::getCoinBalance(sender->getAccount()) < amount) {
-				message << "You don't have enough funds to transfer these coins.";
-				sender->sendStoreError(STORE_ERROR_TRANSFER, message.str());
-				return;
-			} else {
-				DBTransaction transaction;
-				std::ostringstream querySender, queryReceiver;
+	} else {
 
-				querySender << "UPDATE `accounts` SET `coins` = `coins` - " << amount << " WHERE `id` = "
-							<< sender->getAccount();
-				queryReceiver << "UPDATE `accounts` SET `coins` = `coins` + " << amount << " WHERE `id` = "
-							  << receiverAccountId;
-				if (!transaction.begin()) {
-					sender->sendStoreError(STORE_ERROR_TRANSFER, "Internal error, try again later.");
-					return;
-				}
+    account::Account sender_account;
+    sender_account.LoadAccountDB(sender->getAccount());
+    account::Account receiver_account;
+    receiver_account.LoadAccountDB(receiver->getAccount());
+    uint32_t sender_coins;
+    sender_account.GetCoins(&sender_coins);
 
-				db.executeQuery(querySender.str());
-				db.executeQuery(queryReceiver.str());
+    if (sender->getAccount() == receiver->getAccount()) {  //sender and receiver are the same
+      message << "You cannot send coins to your own account.";
+      sender->sendStoreError(STORE_ERROR_TRANSFER, message.str());
+      return;
+    } else if (sender_coins < amount) {
+      message << "You don't have enough funds to transfer these coins.";
+      sender->sendStoreError(STORE_ERROR_TRANSFER, message.str());
+      return;
+    } else {
 
-				transaction.commit();
+      sender_account.RemoveCoins(amount);
+      receiver_account.AddCoins(amount);
+      message << "Transfered to " << receiverName;
+      sender_account.RegisterCoinsTransaction(account::COIN_REMOVE, amount,
+                                              message.str());
 
-				message << "Transfered to " << capitalizedReceiverName;
-				IOAccount::registerTransaction(sender->getAccount(), -1 * amount, message.str());
+      message.str("");
+      message << "Received from" << sender->name;
+      receiver_account.RegisterCoinsTransaction(account::COIN_REMOVE,
+                                                amount, message.str());
 
-				message.str("");
-				message << "Received from" << sender->name;
-				IOAccount::registerTransaction(receiverAccountId, amount, message.str());
-
-				message.str("");
-				message << "You have successfully transfered " << amount << " coins to " << capitalizedReceiverName << ".";
-				sender->sendStorePurchaseSuccessful(message.str(), IOAccount::getCoinBalance(sender->getAccount()));
-				if (receiver && !receiver->isOffline()) {
-					receiver->sendCoinBalance();
-				}
-			}
-		}
-	}
+      sender_account.GetCoins(&sender_coins);
+      message.str("");
+      message << "You have successfully transfered " << amount << " coins to " << receiverName << ".";
+      sender->sendStorePurchaseSuccessful(message.str(), sender_coins);
+      if (receiver && !receiver->isOffline()) {
+        receiver->sendCoinBalance();
+      }
+    }
+  }
 }
 
 void Game::playerStoreTransactionHistory(uint32_t playerId, uint32_t page)

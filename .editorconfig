@@ -8,9 +8,14 @@ indent_style = tab
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{cpp,h,lua,xml}]
+[*.{lua,xml}]
 indent_style = tab
 indent_size = 4
+
+# Google Style
+[*.{cpp,hpp,h,sql}]
+indent_style = space
+indent_size = 2
 
 [**.{.cpp,.h}]
 # Options not ubiquitous, but useful

@@ -691,6 +691,7 @@ Storage = {
 		Flower = 10125,
 		Ring2 = 10126,
 		Bone = 10127,
+		FlowerPuzzleTimer = 10128,
 		Reward = 10116
 	},
 	ForgottenKnowledge = {
@@ -1790,6 +1791,8 @@ Storage = {
 	Factions = 50723,
 	blockMovementStorage = 100000,
 	PetSummon = 60045,
+	TrainerRoom = 60046,
+	NpcSpawn = 60047,
 	isTraining = 37
 }
 

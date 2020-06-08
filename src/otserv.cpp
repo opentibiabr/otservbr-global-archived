@@ -68,6 +68,7 @@ void badAllocationHandler() {
 	exit(-1);
 }
 
+#ifndef UNIT_TESTING
 int main(int argc, char* argv[]) {
 #ifdef DEBUG_LOG
 	loguru::g_stderr_verbosity = 9;
@@ -102,6 +103,7 @@ int main(int argc, char* argv[]) {
 	g_dispatcher.join();
 	return 0;
 }
+#endif
 
 void mainLoader(int, char*[], ServiceManager* services) {
 	// dispatcher thread
