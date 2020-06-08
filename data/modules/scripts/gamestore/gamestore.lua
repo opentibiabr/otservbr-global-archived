@@ -63,11 +63,11 @@ GameStore.Categories = {
 --Hirelings
 {
 	description = "Buy your own house servant",
-	icons = { "Category_Hirelings.png" },
+	icons = { "Category_HouseTools_NPCApprenticeships.png" },
 	name = "Hirelings",
 	offers = {
 		{
-			icons = { "hireling_male.png" },
+			icons = { "Hireling_Male.png" },
 			name = "Hireling (male)",
 			price = 150,
 			id = 28799,
@@ -78,7 +78,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING,
 		},
 		{
-			icons = { "hireling_female.png" },
+			icons = { "Hireling_Female.png" },
 			name = "Hireling (female)",
 			price = 150,
 			id = 28798,
@@ -89,7 +89,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING,
 		},
 		{
-			icons = { "hireling_namechange.png" },
+			icons = { "Hireling_Male.png" },
 			name = "Hireling Name Change",
 			price = 250,
 			id = 28797,
@@ -99,7 +99,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_NAMECHANGE,
 		},
 		{
-			icons = { "hireling_sexchange.png" },
+			icons = { "Hireling_Male.png" },
 			name = "Hireling Sex Change",
 			price = 120,
 			id = 28796,
@@ -109,7 +109,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE,
 		},
 		{
-			icons = { "hireling_skill_cooking.png" },
+			icons = { "Hireling_Cook.png" },
 			name = "Hireling Skill (Cooking)",
 			price = 900,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.COOKING,
@@ -119,7 +119,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL,
 		},
 		{
-			icons = { "hireling_skill_trader.png" },
+			icons = { "Hireling_Trader.png" },
 			name = "Hireling Skill (Trader)",
 			price = 250,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.TRADER,
@@ -129,7 +129,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL,
 		},
 		{
-			icons = { "hireling_skill_steward.png" },
+			icons = { "Hireling_Steward.png" },
 			name = "Hireling Skill (Steward)",
 			price = 250,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.STEWARD,
@@ -139,7 +139,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL,
 		},
 		{
-			icons = { "hireling_skill_banker.png" },
+			icons = { "Hireling_Banker.png" },
 			name = "Hireling Skill (Banker)",
 			price = 250,
 			id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.BANKER,
@@ -155,11 +155,11 @@ GameStore.Categories = {
 -- Hireling Outfits
 {
 	description = "Buy new dresses for your hirelings",
-	icons = { "Category_Hirelings_outfits.png" },
+	icons = { "Category_HouseTools_NPCDresses.png" },
 	name = "Hirelings Dresses",
 	offers = {
 		{
-			icons = { "hireling_outfit_banker.png" },
+			icons = { "Hireling_Banker.png" },
 			name = "Hireling Banker Dress",
 			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.BANKER,
@@ -169,7 +169,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_trader.png" },
+			icons = { "Hireling_Trader.png" },
 			name = "Hireling Trader Dress",
 			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.TRADER,
@@ -179,7 +179,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_cooking.png" },
+			icons = { "Hireling_Cook.png" },
 			name = "Hireling Cook Dress",
 			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.COOKING,
@@ -189,7 +189,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_steward.png" },
+			icons = { "Hireling_Steward.png" },
 			name = "Hireling Steward Dress",
 			price = 500,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.STEWARD,
@@ -199,7 +199,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_servant.png" },
+			icons = { "Hireling_Servant.png" },
 			name = "Hireling Servant Dress",
 			price = 300,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.SERVANT,
@@ -209,7 +209,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_hydra.png" },
+			icons = { "Hireling_Hydra.png" },
 			name = "Hireling Hydra Dress",
 			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.HYDRA,
@@ -219,7 +219,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_ferumbras.png" },
+			icons = { "Hireling_Ferumbras.png" },
 			name = "Hireling Ferumbras Dress",
 			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.FERUMBRAS,
@@ -229,7 +229,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_bonelord.png" },
+			icons = { "Hireling_Bonelord.png" },
 			name = "Hireling Bonelord Dress",
 			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.BONELORD,
@@ -239,7 +239,7 @@ GameStore.Categories = {
 			type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
 		},
 		{
-			icons = { "hireling_outfit_dragon.png" },
+			icons = { "Hireling_Dragon.png" },
 			name = "Hireling Dragon Dress",
 			price = 900,
 			id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.DRAGON,
