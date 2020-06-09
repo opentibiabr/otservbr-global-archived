@@ -34,5 +34,8 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "LONG LIVE THE KING!")
+npcHandler:setMessage(MESSAGE_FAREWELL, "LONG LIVE THE KING!")
+
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())

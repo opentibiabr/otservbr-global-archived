@@ -142,15 +142,15 @@ keywordHandler:addSpellKeyword({"destroyfieldrune"},
 keywordHandler:addKeyword({"healing spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{lighthealing}', '{curepoison}', '{woundcleansing}', '{intensehealing}', '{ultimatehealing}' \z
-		and '{divinehealing}'."
+		text = "In this category I have '{lighthealing}', '{curepoison}', '{woundcleansing}', \z
+		'{intensehealing}', '{ultimatehealing}' and '{divinehealing}'."
 	}
 )
 keywordHandler:addKeyword({"support spells"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "In this category I have '{findperson}', '{light}', '{greatlight}', '{conjurearrow}', '{magicshield}', \z
-		and '{conjureexplosivearrow}'."
+		text = "In this category I have '{findperson}', '{light}', '{greatlight}', '{conjurearrow}', \z
+		'{magicshield}', and '{conjureexplosivearrow}'."
 		
 	}
 )
@@ -168,21 +168,102 @@ keywordHandler:addKeyword({"spells"}, StdModule.say,
 	}
 )
 
-keywordHandler:addKeyword({'name'}, StdModule.say, {npcHandler = npcHandler, text = " I am known as Asrak the Ironhoof."})
-keywordHandler:addKeyword({'job'}, StdModule.say, {npcHandler = npcHandler, text = "I am the overseer of the pits and the trainer of the gladiators."})
-keywordHandler:addKeyword({'gladiators'}, StdModule.say, {npcHandler = npcHandler, text = "Those wannabe fighters are weak and most of them are unable to comprehend a higher concept like the Mooh'Tah."})
-keywordHandler:addKeyword({'help'}, StdModule.say, {npcHandler = npcHandler, text = "I teach worthy warriors the way of the knight."})
-keywordHandler:addKeyword({'time'}, StdModule.say, {npcHandler = npcHandler, text = "It is 7:35 pm."})
-keywordHandler:addKeyword({'king'}, StdModule.say, {npcHandler = npcHandler, text = "I pledge no allegiance to any king, be it human or minotaurean."})
-keywordHandler:addKeyword({'army'}, StdModule.say, {npcHandler = npcHandler, text = "Your human army might be big, but without skills. They are only sheep to be slaughtered."})
-keywordHandler:addKeyword({'spell'}, StdModule.say, {npcHandler = npcHandler, text = "Sorry, I only teach spells to knights and paladins."})
-keywordHandler:addKeyword({'dungeon'}, StdModule.say, {npcHandler = npcHandler, text = "The dungeons of your desires and fears are the only ones you really should fear and those you really have to conquer."})
-keywordHandler:addKeyword({'gods'}, StdModule.say, {npcHandler = npcHandler, text = "By them we were imbued with the rage that almost costed our existence. By them we were used as pawns in wars that were not ours."})
-keywordHandler:addKeyword({'monsters'}, StdModule.say, {npcHandler = npcHandler, text = "Inferior creatures of rage, driven by their primitive urges. Only worthy to be noticed to test one's skills."})
-keywordHandler:addKeyword({'Ferumbras'}, StdModule.say, {npcHandler = npcHandler, text = "To rely on magic is like to cheat fate. All cheaters will find their just punishment one day, and so will he."})
-keywordHandler:addKeyword({'Excalibug'}, StdModule.say, {npcHandler = npcHandler, text = "If it's truly a weapon to slay gods it might be worth to be sought for."})
-keywordHandler:addKeyword({'Venore'}, StdModule.say, {npcHandler = npcHandler, text = "The city pays me well and those undisciplined gladiators need my skills and guidance badly."})
-keywordHandler:addKeyword({'Mintwallin'}, StdModule.say, {npcHandler = npcHandler, text = "The city is only a shadow of what we could have accomplished without that curse of rage that the gods bestowed upon us."})
+keywordHandler:addKeyword({'name'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = " I am known as Asrak the Ironhoof."
+	}
+)
+keywordHandler:addKeyword({'job'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I am the overseer of the pits and the trainer of the gladiators."
+	}
+)
+keywordHandler:addKeyword({'gladiators'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Those wannabe fighters are weak and most of them are unable to comprehend a \z
+		higher concept like the Mooh'Tah."
+	}
+)
+keywordHandler:addKeyword({'help'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I teach worthy warriors the way of the knight."
+	}
+)
+keywordHandler:addKeyword({'time'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "It is 7:35 pm."
+	}
+)
+keywordHandler:addKeyword({'king'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "I pledge no allegiance to any king, be it human or minotaurean."
+	}
+)
+keywordHandler:addKeyword({'army'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Your human army might be big, but without skills. They are only sheep to be slaughtered."
+	}
+)
+keywordHandler:addKeyword({'spell'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Sorry, I only teach spells to knights and paladins."
+	}
+)
+keywordHandler:addKeyword({'dungeon'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The dungeons of your desires and fears are the only ones you really should fear and those \z
+		you really have to conquer."
+	}
+)
+keywordHandler:addKeyword({'gods'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "By them we were imbued with the rage that almost costed our existence. \z
+		By them we were used as pawns in wars that were not ours."
+	}
+)
+keywordHandler:addKeyword({'monsters'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "Inferior creatures of rage, driven by their primitive urges. \z
+		Only worthy to be noticed to test one's skills."
+	}
+)
+keywordHandler:addKeyword({'Ferumbras'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "To rely on magic is like to cheat fate. All cheaters will find their just punishment one day, \z
+		and so will he."
+	}
+)
+keywordHandler:addKeyword({'Excalibug'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "If it's truly a weapon to slay gods it might be worth to be sought for."
+	}
+)
+keywordHandler:addKeyword({'Venore'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The city pays me well and those undisciplined gladiators need my skills and guidance badly."
+	}
+)
+keywordHandler:addKeyword({'Mintwallin'}, StdModule.say, 
+	{
+		npcHandler = npcHandler, 
+		text = "The city is only a shadow of what we could have accomplished without that curse of rage that \z
+		the gods bestowed upon us."
+	}
+)
 
 npcHandler:setMessage(MESSAGE_GREET, "I welcome you, i selling {spells} for knights and paladins")
 npcHandler:setMessage(MESSAGE_FAREWELL, "May your path be as straight as an arrow.")

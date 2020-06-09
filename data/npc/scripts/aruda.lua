@@ -25,7 +25,8 @@ local function greetCallback(cid)
 		npcHandler:setMessage(MESSAGE_GREET, "Oh, hello |PLAYERNAME|, your hair looks great! Who did it for you?")
 		npcHandler.topic[cid] = 1
 	else
-		npcHandler:setMessage(MESSAGE_GREET, "Oh, hello, handsome! It's a pleasure to meet you, |PLAYERNAME|. Gladly I have the time to {chat} a bit.")
+		npcHandler:setMessage(MESSAGE_GREET, "Oh, hello, handsome! It's a pleasure to meet you, |PLAYERNAME|. \z
+		Gladly I have the time to {chat} a bit.")
 		npcHandler.topic[cid] = nil
 	end
 	Price[cid] = nil
@@ -69,7 +70,8 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "job") or msgcontains(msg, "chat") then
-		npcHandler:say("I do some work now and then. Nothing unusual, though. So I have plenty time to chat. If you are interested in any topic just ask me.", cid)
+		npcHandler:say("I do some work now and then. Nothing unusual, though. So I have plenty time to chat. \z
+		If you are interested in any topic just ask me.", cid)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "name") then
@@ -96,7 +98,8 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "monster") or msgcontains(msg, "dungeon") then
-		npcHandler:say("UH! What a terrifying topic. Please let us speak about something more pleasant, I am a weak and small woman after all.", cid)
+		npcHandler:say("UH! What a terrifying topic. Please let us speak about something more pleasant, \z
+		I am a weak and small woman after all.", cid)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "sewer") then
@@ -108,14 +111,16 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "king") then
-		npcHandler:say("The king, that lives in this fascinating castle? I think he does look kind of cute in his luxurious robes, doesn't he?", cid)
+		npcHandler:say("The king, that lives in this fascinating castle? \z
+		I think he does look kind of cute in his luxurious robes, doesn't he?", cid)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 10
 	elseif msgcontains(msg, "sam") then
 		if Sex == PLAYERSEX_FEMALE then
 			npcHandler:say("He is soooo strong! What muscles! What a body! Did you ask him for a date?", cid)
 		else
-			npcHandler:say("He is soooo strong! What muscles! What a body! On the other hand, compared to you he looks quite puny.", cid)
+			npcHandler:say("He is soooo strong! What muscles! What a body! \z
+			On the other hand, compared to you he looks quite puny.", cid)
 		end
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
@@ -124,11 +129,13 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "gorn") then
-		npcHandler:say("He should really sell some stylish gowns or something like that. We Tibians never get some clothing of the latest fashion. It's a shame.", cid)
+		npcHandler:say("He should really sell some stylish gowns or something like that. \z
+		We Tibians never get some clothing of the latest fashion. It's a shame.", cid)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "quentin") then
-		npcHandler:say("I don't understand this lonely monks. I love company too much to become one. Hehehe!", cid)
+		npcHandler:say("I don't understand this lonely monks. \z
+		I love company too much to become one. Hehehe!", cid)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "bozo") then
@@ -174,7 +181,8 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "elane") then
-		npcHandler:say("I personally think it's inappropriate for a woman to become a warrior, what do you think about that?", cid)
+		npcHandler:say("I personally think it's inappropriate for a woman to become a warrior, \z
+		what do you think about that?", cid)
 		npcHandler.topic[cid] = 2
 		Price[cid] = 5
 	elseif msgcontains(msg, "marvik") then
@@ -202,7 +210,8 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 4
 		Price[cid] = nil
 	elseif msgcontains(msg, "yenny") then
-		npcHandler:say("Yenny? I know no Yenny, nor have I ever used that name! You have mistook me with someone else.", cid)
+		npcHandler:say("Yenny? I know no Yenny, nor have I ever used that name! \z
+		You have mistook me with someone else.", cid)
 		npcHandler.topic[cid] = nil
 		Price[cid] = nil
 		npcHandler:releaseFocus(cid)

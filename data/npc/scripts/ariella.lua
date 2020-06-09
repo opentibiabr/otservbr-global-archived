@@ -101,11 +101,15 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:resetNpc(cid)
 		elseif npcHandler.topic[cid] == 2 then
 			if player:getStorageValue(Storage.OutfitQuest.PirateHatAddon) == -1 then
-				if player:getItemCount(6101) > 0 and player:getItemCount(6102) > 0 and player:getItemCount(6100) > 0 and
+				if player:getItemCount(6101) > 0 and 
+				player:getItemCount(6102) > 0 and 
+				player:getItemCount(6100) > 0 and
 				player:getItemCount(6099) > 0
 				then
 					if
-					player:removeItem(6101, 1) and player:removeItem(6102, 1) and player:removeItem(6100, 1) and
+					player:removeItem(6101, 1) and 
+					player:removeItem(6102, 1) and 
+					player:removeItem(6100, 1) and
 					player:removeItem(6099, 1)
 					then
 						npcHandler:say("Ah, right! The pirate hat! Here you go.", cid)

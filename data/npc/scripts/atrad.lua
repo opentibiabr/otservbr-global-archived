@@ -15,6 +15,12 @@ function onThink()
 	npcHandler:onThink()
 end
 
+-- NPC shop
+local shopModule = ShopModule:new()
+npcHandler:addModule(shopModule)
+
+shopModule:addBuyableItem({"assassin star"}, 7368, 100, 1)
+
 function greetCallback(cid)
 	local player = Player(cid)
 	local fire = player:getCondition(CONDITION_FIRE)
@@ -33,7 +39,8 @@ function creatureSayCallback(cid, type, msg)
 
 	if(msgcontains(msg, "addon") or msgcontains(msg, "outfit")) then
 		if(getPlayerStorageValue(cid, 18999) < 1) then
-			npcHandler:say("You managed to deceive Erayo? Impressive. Well, I guess, since you have come that far, I might as well give you a task too, eh?", cid)
+			npcHandler:say("You managed to deceive Erayo? Impressive. Well, I guess, since you have come that far, \z
+			I might as well give you a task too, eh?", cid)
 			npcHandler.topic[cid] = 2
 		end
 	elseif(msgcontains(msg, "nose ring") or msgcontains(msg, "ring")) then
@@ -52,16 +59,24 @@ function creatureSayCallback(cid, type, msg)
 
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 2) then
-				npcHandler:say("Okay, listen up. I don't have a list of stupid objects, I just want two things. A behemoth claw and a nose ring. Got that?", cid)
+				npcHandler:say("Okay, listen up. I don't have a list of stupid objects, I just want two things. \z
+				A behemoth claw and a nose ring. Got that?", cid)
 				npcHandler.topic[cid] = 3
 		elseif(npcHandler.topic[cid] == 3) then
-				npcHandler:say("Good. Come back then you have BOTH. Should be clear where to get a behemoth claw from. There's a horned fox who wears a nose ring. Good luck.", cid)
+				npcHandler:say("Good. Come back then you have BOTH. Should be clear where to get a behemoth \z
+				claw from. There's a horned fox who wears a nose ring. Good luck.", cid)
 				setPlayerStorageValue(cid, 18999, 1)
 				npcHandler.topic[cid] = 0
 		end
 	end
 	return true
 end
+
+npcHandler:setMessage(MESSAGE_GREET, "Hehe. That's a good show, |PLAYERNAME|, with all the pyro effects. \z
+You got my attention. For a minute or so.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Good bye.")
+npcHandler:setMessage(MESSAGE_SENDTRADE, "There you go!")
 
 npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)

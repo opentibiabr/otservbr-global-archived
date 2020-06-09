@@ -16,7 +16,7 @@ function onThink()
 end
 
 local voices = {
-	{ text = 'Let me speak a few words to you.' },
-	{ text = 'Death comes to the best of us, but this time you had no chance.' }
+	{ text = 'Let me speak a few words to you.'},
+	{ text = 'Death comes to the best of us, but this time you had no chance.'}
 }
 npcHandler:addModule(VoiceModule:new(voices))
