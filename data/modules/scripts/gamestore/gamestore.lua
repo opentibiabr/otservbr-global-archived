@@ -3920,13 +3920,12 @@ GameStore.Categories = {
 		},
 		{
 			icons = { "Instant_Reward_Access.png" },
-			name = "Instant Reward Access",
+			name = "30x Instant Reward Access",
 			id = 65006,
 			count = 30,
-			number = 1,
 			price = 100,
 			description = "No matter where you are in Tibia, claim your daily reward on the spot!\n\n\n- only usable by purchasing character\n- added to your reward wall\n- maximum amount that can be owned by character: 90",
-			type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+			type = GameStore.OfferTypes.OFFER_TYPE_DAILYREWARD,
 		},
 		{
 			icons = { "Magic_Gold_Converter.png" },
