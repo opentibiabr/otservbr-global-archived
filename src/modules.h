@@ -83,13 +83,13 @@ class Modules final : public BaseEvents
 		Modules& operator=(const Modules&) = delete;
 	
 		void executeOnRecvbyte(Player* player, NetworkMessage& msg, uint8_t byte) const;
+		Module* getEventByRecvbyte(uint8_t recvbyte, bool force);
 
 	protected:
 		LuaScriptInterface& getScriptInterface() override;
 		std::string getScriptBaseName() const override;
 		Event_ptr getEvent(const std::string& nodeName) override;
 		bool registerEvent(Event_ptr  event, const pugi::xml_node& node) override;
-		Module* getEventByRecvbyte(uint8_t recvbyte, bool force);
 		void clear(bool) override final;
 
 		typedef std::map<uint8_t, Module> ModulesList;

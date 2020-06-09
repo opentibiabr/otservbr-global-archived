@@ -12,13 +12,15 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
-# Google Style
-[*.{cpp,hpp,h,sql}]
+# SQL
+[**.{sql}]
 indent_style = space
 indent_size = 2
 
-[**.{.cpp,.h}]
-# Options not ubiquitous, but useful
+# Google Style
+[*.{cpp,hpp,h}]
+indent_style = space
+indent_size = 2
 indent_brace_style = K&R
 spaces_around_brackets = none
 

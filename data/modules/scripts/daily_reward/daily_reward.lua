@@ -265,14 +265,10 @@ DailyReward.loadDailyReward = function(playerId, source)
 		source = REWARD_FROM_PANEL
 	end
 
-	if player:getClient().os == CLIENTOS_NEW_WINDOWS then
-		player:sendCollectionResource(player:getCollectionTokens())
-		player:sendDailyReward()
-		player:sendOpenRewardWall(source)
-		player:sendDailyRewardCollectionState(false)
-	else
-		player:sendCancelMessage("The current client does not have support, download the latest version.")
-	end
+	player:sendCollectionResource(player:getCollectionTokens())
+	player:sendDailyReward()
+	player:sendOpenRewardWall(source)
+	player:sendDailyRewardCollectionState(false)
 	return true
 end
 
@@ -405,6 +401,7 @@ function Player.sendOpenRewardWall(self, shrine)
 end
 
 function Player.sendCollectionResource(self, value)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(0xEE) -- resource byte
 	msg:addByte(0x14)
@@ -561,17 +558,16 @@ end
 
 function Player.sendRestingAreaState(self, zone, state)
 	local msg = NetworkMessage()
-	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-		msg:addByte(ServerPackets.RestingAreaState)
-		msg:addByte(zone) -- [1 if protection zone, 0 if not]
-		msg:addByte(state) -- [inactive = 0, active = 1]
-		if state == 1 then
-			msg:addString("Within Resting Area")
-		else
-			msg:addString("Resting Area (no active bonus)")
-		end
-		msg:sendToPlayer(self)
+
+	msg:addByte(ServerPackets.RestingAreaState)
+	msg:addByte(zone) -- [1 if protection zone, 0 if not]
+	msg:addByte(state) -- [inactive = 0, active = 1]
+	if state == 1 then
+		msg:addString("Within Resting Area")
+	else
+		msg:addString("Resting Area (no active bonus)")
 	end
+	msg:sendToPlayer(self)
 end
 
 function Player.sendDailyRewardCollectionState(self, state)

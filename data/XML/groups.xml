@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <groups>
-<group id="1" name="player" access="0" maxdepotitems="0" maxvipentries="0" />
-		<group id="2" name="Tutor" access="1" maxdepotitems="0" maxvipentries="200" >
+	<group id="1" name="player" access="0" maxdepotitems="0" maxvipentries="0" />
+	<group id="2" name="tutor" access="0" maxdepotitems="0" maxvipentries="200">
 		<flags>
 			<flag talkorangehelpchannel="1" />
 			<flag cannotbemuted="1" />
 		</flags>
 	</group>
-
-	<group id="3" name="Sennior Tutor" access="1" maxdepotitems="0" maxvipentries="200" >
+	<group id="3" name="sennior tutor" access="0" maxdepotitems="0" maxvipentries="200">
 		<flags>
 			<flag talkorangehelpchannel="1" />
 			<flag cannotbemuted="1" />
 		</flags>
 	</group>
-
-	<group id="4" name="gamemaster" access="1" maxdepotitems="0" maxvipentries="200" >
+	<group id="4" name="gamemaster" access="1" maxdepotitems="0" maxvipentries="200">
 		<flags>
 			<flag cannotusecombat="1" />
 			<flag cannotattackplayer="1" />
@@ -52,7 +50,7 @@
 			<flag isalwayspremium="1" />
 		</flags>
 	</group>
-	<group id="5" name="Community Manager" access="1" maxdepotitems="0" maxvipentries="200" >
+	<group id="5" name="community manager" access="1" maxdepotitems="0" maxvipentries="200">
 		<flags>
 			<flag cannotusecombat="1" />
 			<flag cannotattackplayer="1" />
@@ -91,7 +89,7 @@
 			<flag isalwayspremium="1" />
 		</flags>
 	</group>
-		<group id="6" name="ADM" access="1" maxdepotitems="0" maxvipentries="200" >
+	<group id="6" name="god" access="1" maxdepotitems="0" maxvipentries="200">
 		<flags>
 			<flag cannotusecombat="0" />
 			<flag cannotattackplayer="1" />

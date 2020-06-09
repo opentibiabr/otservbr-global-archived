@@ -42,6 +42,8 @@
 	<event type="login" name="SummonLogin" script="others/summon.lua"/>
 	<event type="think" name="SummonThink" script="others/summon.lua"/>
 	<event type="death" name="SummonDeath" script="others/summon.lua"/>
+	<!-- Hirelings -->
+	<event type="logout" name="HirelingLogoutPlayer" script="others/hireling_logout.lua" />
 
 	<!-- quests -->
 	<!-- adventurers_guild -->

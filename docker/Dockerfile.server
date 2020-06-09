@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libluajit-5.1-dev \
   libmysqlclient-dev \
   libpugixml-dev \
-  unrar
+  unzip
 
 WORKDIR /opt/otserver
 
@@ -31,6 +31,6 @@ RUN cp config.lua.dist config.lua \
   && sed -i '/mysqlUser = .*$/c\mysqlUser = "otserver"' config.lua \
   && sed -i '/mysqlPass = .*$/c\mysqlPass = "otserver"' config.lua \
   && sed -i '/mysqlDatabase = .*$/c\mysqlDatabase = "otserver"' config.lua \
-  && unrar x -o+ data/world/world.rar data/world/
+  && unzip -o data/world/world.zip -d data/world/
 
 ENTRYPOINT /opt/otserver/otbr

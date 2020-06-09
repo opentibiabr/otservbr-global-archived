@@ -7,7 +7,7 @@ DISABLE_CONTAINER_WEIGHT = 0 -- 0 = ENABLE CONTAINER WEIGHT CHECK | 1 = DISABLE 
 CONTAINER_WEIGHT = 1000000 -- 1000000 = 10k = 10000.00 oz
 
 -- Items sold on the store that should not be moved off the store container
-local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020}
+local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020,35172,35173,35174,35175,35176,35177,35178,35179,35180}
 
 -- Capacity imbuement store
 local STORAGE_CAPACITY_IMBUEMENT = 42154
@@ -323,15 +323,13 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		return false
 	end
 
-	-- Loot Analyser apenas 11.x+
-	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-		local t = Tile(fromCylinder:getPosition())
-		local corpse = t:getTopDownItem()
-		if corpse then
-			local itemType = corpse:getType()
-			if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
-				self:sendLootStats(item)
-			end
+	-- Loot Analyser
+	local t = Tile(fromCylinder:getPosition())
+	local corpse = t:getTopDownItem()
+	if corpse then
+		local itemType = corpse:getType()
+		if itemType:isCorpse() and toPosition.x == CONTAINER_POSITION then
+			self:sendLootStats(item)
 		end
 	end
 
@@ -611,7 +609,8 @@ function Player:onTradeRequest(target, item)
 end
 
 function Player:onTradeAccept(target, item, targetItem)
-	target:closeImbuementWindow(self)
+	self:closeImbuementWindow()
+	target:closeImbuementWindow()
 	return true
 end
 
@@ -755,10 +754,7 @@ function Player:onGainSkillTries(skill, tries)
 end
 
 function Player:onRemoveCount(item)
-	-- Apenas cliente 11.x
-	if self:getClient().os == CLIENTOS_NEW_WINDOWS then
-		self:sendWaste(item:getId())
-	end
+	self:sendWaste(item:getId())
 end
 
 function Player:onRequestQuestLog()
