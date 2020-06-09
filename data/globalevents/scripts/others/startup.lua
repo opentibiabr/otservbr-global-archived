@@ -31,17 +31,31 @@ local startupGlobalStorages = {
 }
 
 function onStartup()
+	print(">> Loading map attributes.")
+	-- Custom maps table
 	loadCustomMaps()
-	print("> Loaded " .. (#CustomMapTable) .. " custom map.")
+	-- Npc table
+	loadLuaNpcs(NpcTable)
+	-- Sign table
+	loadLuaMapSign(SignTable)
+	-- Book table
+	loadLuaMapBook(BookTable)
 
-	loadLuaNpcs()
-	print(string.format("> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters.\n> \z
-	Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
-
-	loadLuaMapAttributes()
-	print("> Loaded " .. (#SignTable) .. " signs in the map.")
-	print("> Loaded " .. (#BookTable) .. " books in the map.")
-	print("> Loaded action and unique per Lua")
+	-- Action and unique tables
+	-- Storage Doors table
+	loadLuaMapAction(ActionStorageDoor)
+	loadLuaMapUnique(UniqueStorageDoor)
+	-- Lever table
+	loadLuaMapAction(LeverAction)
+	loadLuaMapUnique(LeverUnique)
+	-- Tile table
+	loadLuaMapAction(TileAction)
+	loadLuaMapUnique(TileUnique)
+	-- Corpse table
+	loadLuaMapAction(CorpseAction)
+	loadLuaMapUnique(CorpseUnique)
+	print("> Loaded all actions in the map")
+	print("> Loaded all uniques in the map")
 
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)

@@ -160,8 +160,6 @@
 	<movevent event="StepIn" actionid="57242" script="quests/dangerous_depth/gnomes_ordnance_end.lua"/>
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous_depth/lost_exiles.lua"/>
 	<movevent event="StepIn" actionid="57230" script="quests/dangerous_depth/warzone_entrance.lua"/>
-	<!-- dark trails -->
-	<movevent event="StepIn" actionid="9745" script="quests/dark_trails/necrometer_tile_acess.lua"/>
 	<!-- demon helmet -->
 	<movevent event="StepIn" actionid="980" script="quests/demon_helmet/walls.lua"/>
 	<!-- demon oak -->

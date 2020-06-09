@@ -1,7 +1,6 @@
-	local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-
 
 function onCreatureAppear(cid)
 	npcHandler:onCreatureAppear(cid)
@@ -20,14 +19,15 @@ function creatureSayCallback(cid, type, msg)
 	if(not(npcHandler:isFocused(cid))) then
 		return false
 	end
-
-
+	
+	local player = Player(cid)
 	if(msgcontains(msg, "mission")) then
-		if(getPlayerStorageValue(cid, 10050) <= 2 and getPlayerStorageValue(cid, 871241) == 1) then
+		if player:getStorageValue(Storage.Darktrails.Mission01) == 2 and player:getStorageValue(Storage.Darktrails.Mission02) == 1 then
 			npcHandler:say("So I guess you are the one that the magistrate is sending to look after us, eh? ", cid)
 			npcHandler.topic[cid] = 1
-			else
+		else
 			npcHandler:say("You need some quests then come and talk with me again.", cid)
+			npcHandler.topic[cid] = 0
 		end
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 1) then
@@ -52,16 +52,14 @@ function creatureSayCallback(cid, type, msg)
 			selfSay("The city sealed those parts off, and I have no idea how anything could get in or out without the permission of the magistrate. ... ", cid)
 			selfSay("But since you are investigating on their behalf, you might work out some agreement with them, if you're mad enough to enter the sewers at all. ... ", cid)
 			selfSay("However, you will have to talk to one of the Glooth Brothers who are responsible for the sewer system's maintenance. You'll find them somewhere down there.", cid)
-			setPlayerStorageValue(cid, 20052, 1) -- quest log mission 2 completada
-			setPlayerStorageValue(cid, 20053, 0) -- quest log mission 2
-			setPlayerStorageValue(cid, 10050, 3) -- quest log mission 3
+			player:setStorageValue(Storage.Darktrails.Mission02, 2) -- mission 2 end
+			player:setStorageValue(Storage.Darktrails.Mission03, 1) -- mission 3 start
 			npcHandler.topic[cid] = 0
 		end
-
-
 	end
-
 	return true
 end
+
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

@@ -60,10 +60,6 @@
 	<!-- oramond -->
 	<action itemid="22944" script="oramond/teleport_west.lua" />
 	<action itemid="22949" script="oramond/teleport_north.lua" />
-	<action itemid="23400" script="oramond/gerator.lua" />
-	<action itemid="23401" script="oramond/gerator.lua" />
-	<action itemid="23402" script="oramond/gerator.lua" />
-	<action itemid="23403" script="oramond/gerator.lua" />
 	<action itemid="23668" script="oramond/sewer_grate_teleport.lua" />
 	<action itemid="23669" script="oramond/sewer_grate.lua" />
 	<action itemid="23422" script="oramond/elevator.lua" />
@@ -410,13 +406,6 @@
 	<action itemid="31993" script="quests/dangerous_depth/using_crystals.lua" />
 	<!-- access crystal -->
 	<action fromaid="57350" toaid="57367" script="quests/dangerous_depth/warzone_crystals.lua" />
-	<!-- dark trails quest -->
-	<action uniqueid="9511" script="quests/dark_trails/boss_the_ravager.lua" />
-	<action actionid="9512" script="quests/dark_trails/boss_death_priest_shargon.lua" />
-	<action actionid="9746" script="quests/dark_trails/corpse.lua" />
-	<action actionid="9748" script="quests/dark_trails/reward_room_exit.lua" />
-	<!-- deepling outfits quest -->
-	<action itemid="15358" script="quests/deepling_outfits/anchor.lua" />
 	<!-- demon helmet quest -->
 	<action uniqueid="2005" script="quests/demon_helmet/lever.lua" />
 	<!-- demon oak -->
@@ -634,11 +623,6 @@
 	<action itemid="25395" script="quests/mysterious_ornate/mysterious_metal_egg.lua" />
 	<action itemid="21382" script="quests/mysterious_ornate/mysterious_metal_egg.lua" />
 	<!-- oramond quest -->
-	<action itemid="23468" script="quests/oramond/juice_roots.lua" />
-	<action fromid="23475" toid="23478" script="quests/oramond/juice_roots.lua" />
-	<action itemid="23469" script="quests/oramond/juice_roots.lua" />
-	<action itemid="23470" script="quests/oramond/juice_roots.lua" />
-	<action itemid="23471" script="quests/oramond/juice_roots.lua" />
 	<action uniqueid="9513" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->
 	<action fromaid="4249" toaid="4250" script="quests/others/draconia_quest_walls.lua" />
