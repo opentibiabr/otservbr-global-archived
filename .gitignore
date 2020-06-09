@@ -366,7 +366,6 @@ config.lua
 # Extensions
 *.ini
 *.otb
-*.txt
 *.exe
 *.otbm
 *.rar
