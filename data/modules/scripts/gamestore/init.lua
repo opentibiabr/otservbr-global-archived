@@ -29,7 +29,8 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_HIRELING_NAMECHANGE = 18,
 	OFFER_TYPE_HIRELING_SEXCHANGE = 19,
 	OFFER_TYPE_HIRELING_SKILL = 20,
-	OFFER_TYPE_HIRELING_OUTFIT = 21
+	OFFER_TYPE_HIRELING_OUTFIT = 21,
+	OFFER_TYPE_DAILYREWARD = 22
 }
 
 GameStore.ClientOfferTypes = {
@@ -282,6 +283,7 @@ function parseBuyStoreOffer(playerId, msg)
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT and
+	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_DAILYREWARD and
 	not offer.id) then
 		return queueSendStoreAlertToUser("This offer is unavailable [1]", 350, playerId, GameStore.StoreErrors.STORE_ERROR_INFORMATION)
 	end
@@ -319,6 +321,7 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE      then GameStore.processHirelingChangeSexPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL      then GameStore.processHirelingSkillPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT      then GameStore.processHirelingOutfitPurchase(player, offer)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_DAILYREWARD        then GameStore.processDailyRewardPurchase(player, offer.count)
 		else
 			-- This should never happen by our convention, but just in case the guarding condition is messed up...
 			error({code = 0, message = "This offer is unavailable [2]"})
@@ -489,6 +492,7 @@ function sendShowStoreOffers(playerId, category)
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUCH and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT and
+			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_DAILYREWARD and
 			not offer.id then
 				disabled = 1
 			end
@@ -843,6 +847,9 @@ GameStore.getDefaultDescription = function(offerType)
 		descList = GameStore.DefaultDescriptions.PREYBONUS
 	elseif offerType == t.OFFER_TYPE_TEMPLE then
 		descList = GameStore.DefaultDescriptions.TEMPLE
+	elseif offerType == t.OFFER_TYPE_DAILYREWARD then
+		descList = GameStore.DefaultDescriptions.DAILYREWARD
+
 	else
 		return ""
 	end
@@ -1309,6 +1316,10 @@ function GameStore.processHirelingOutfitPurchase(player, offer)
 	local outfit = offer.id - HIRELING_STORAGE.OUTFIT
 	player:enableHirelingOutfit(outfit)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'A new hireling outfit has been added to all your hirelings')
+end
+
+function GameStore.processDailyRewardPurchase(player, offerCount)
+	player:setCollectionTokens(player:getCollectionTokens() + offerCount)
 end
 
 --==Player==--
