@@ -815,14 +815,14 @@ CREATE TABLE IF NOT EXISTS `prey_slots` (
 -- --------------------------------------------------------
 
 --
--- Create Account GOD/god
+-- Create Account god/god
 --
 INSERT INTO `accounts`
 (`id`,  `name`, `password`, `type`) VALUES
-(1, 'GOD', '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
+(1, 'god', '21298df8a3277357ee55b01df9530b535cf08ec1',  5);
 
 --
--- Create ADM player on GOD account
+-- Create player on GOD account
 -- Create sample characters
 INSERT INTO `players`
 (`id`, `name`,              `group_id`, `account_id`, `level`, `vocation`, `health`, `healthmax`, `experience`, `lookbody`, `lookfeet`, `lookhead`, `looklegs`, `looktype`, `mana`, `manamax`, `town_id`, `conditions`, `cap`, `sex`) VALUES
@@ -831,4 +831,4 @@ INSERT INTO `players`
 (3,     'Druid Sample',     1, 1, 8, 2, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
 (4,     'Paladin Sample',   1, 1, 8, 3, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
 (5,     'Knight Sample',    1, 1, 8, 4, 185, 185, 4200, 113, 115, 95, 39, 129, 90, 90, 8, '', 470, 1),
-(6,     'ADM',              6, 1, 2, 0, 150, 150, 0,    113, 115, 95, 39, 129, 60, 60, 1, '', 410, 1 );
+(6,     'GOD',              6, 1, 2, 0, 150, 150, 0,    113, 115, 95, 39, 129, 60, 60, 1, '', 410, 1 );
