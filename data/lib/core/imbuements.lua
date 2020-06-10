@@ -111,13 +111,13 @@ function Player.canImbueItem(self, imbuement, item)
 		print(">> [Imbuement::canImbueItem] Error on search imbuement '".. imbuement:getName() .. "'")
 		return false
 	end
-	
+
 	local equip = equipitems[imb_type]
 	if not equip then
 		print(">> [Imbuement::canImbueItem] Error on search Weapons imbuement '" .. imbuement:getName() .. "'")
 		return false
 	end
-	
+
 	local imbuable = false
 	for i, p in pairs(equip) do
 		if p:lower() == item_type then
@@ -159,7 +159,7 @@ function Item.getImbuementDuration(self, slot)
 	if binfo then
 		info = bit.rshift(binfo, 8)
 	end
-	
+
 	return info
 end
 
@@ -179,7 +179,7 @@ function Item.addImbuement(self, slot, id)
 	local imbuement = Imbuement(id)
 	if not imbuement then return false end
 	local duration = imbuement:getBase().duration
-	
+
 	local imbue = bit.bor(bit.lshift(duration, 8), id)
 	self:setCustomAttribute(IMBUEMENT_SLOT + slot, imbue)
 	return true
