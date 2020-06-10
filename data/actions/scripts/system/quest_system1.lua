@@ -1,8 +1,8 @@
 local specialQuests = {
-	[2215] = Storage.AnnihilatorDone,
+	[2215] = Storage.TheAnnihilator.AnnihilatorDone,
 	[2016] = Storage.DreamersChallenge.Reward,
 	[10544] = Storage.PitsOfInferno.WeaponReward,
-	[12513] = Storage.thievesGuild.Reward,
+	[12513] = Storage.ThievesGuild.Reward,
 	[12374] = Storage.WrathoftheEmperor.mainReward,
 	[26300] = Storage.SvargrondArena.RewardGreenhorn,
 	[27300] = Storage.SvargrondArena.RewardScrapper,
@@ -14,7 +14,7 @@ local questsExperience = {
 }
 
 local questLog = {
-	[9130] = Storage.hiddenCityOfBeregar.DefaultStart
+	[9130] = Storage.HiddenCityOfBeregar.DefaultStart
 }
 
 local tutorialIds = {
@@ -30,7 +30,7 @@ local achievementChest = {
 	[2215] = "Annihilator",
 }
 
-local hotaQuest = {12102, 12103, 12104, 12105, 12106, 12107}
+local hotaQuest = {50950, 50951, 50952, 50953, 50954, 50955}
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local storage = specialQuests[item.actionid]
@@ -40,9 +40,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			return false
 		end
 	end
-	
+
 	if storage == 26300 or storage == 27300 or storage == 28300 then
-		player:setStorageValue(Storage.SvargrondArena.Pit, -1)
+		player:setStorageValue(Storage.SvargrondArena.PitDoor, -1)
 	end
 
 	if player:getStorageValue(storage) > 0 then

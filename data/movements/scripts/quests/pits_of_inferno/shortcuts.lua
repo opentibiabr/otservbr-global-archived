@@ -1,5 +1,5 @@
 local setting = {
-	[8816] = Storage.PitsOfInferno.ShortcutHub,
+	[8816] = Storage.PitsOfInferno.ShortcutHubDoor,
 	[8817] = Storage.PitsOfInferno.ShortcutLevers
 }
 

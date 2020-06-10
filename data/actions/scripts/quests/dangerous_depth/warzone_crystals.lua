@@ -2,28 +2,28 @@ local crystalDuration = 5 * 60 -- 5 minutes
 
 local crystals = {
 	-- Warzone IV
-	[57350] = Storage.DangerousDepths.Crystals.WarzoneVI.mediumCrystal1,
-	[57351] = Storage.DangerousDepths.Crystals.WarzoneVI.bigCrystal1,
-	[57352] = Storage.DangerousDepths.Crystals.WarzoneVI.bigCrystal2,
-	[57353] = Storage.DangerousDepths.Crystals.WarzoneVI.mediumCrystal2,
-	[57354] = Storage.DangerousDepths.Crystals.WarzoneVI.smallCrystal1,
-	[57355] = Storage.DangerousDepths.Crystals.WarzoneVI.smallCrystal2,
+	[57350] = Storage.DangerousDepths.Crystals.WarzoneVI.MediumCrystal1,
+	[57351] = Storage.DangerousDepths.Crystals.WarzoneVI.BigCrystal1,
+	[57352] = Storage.DangerousDepths.Crystals.WarzoneVI.BigCrystal2,
+	[57353] = Storage.DangerousDepths.Crystals.WarzoneVI.MediumCrystal2,
+	[57354] = Storage.DangerousDepths.Crystals.WarzoneVI.SmallCrystal1,
+	[57355] = Storage.DangerousDepths.Crystals.WarzoneVI.SmallCrystal2,
 
 	-- Warzone V
-	[57356] = Storage.DangerousDepths.Crystals.WarzoneV.bigCrystal1,
-	[57357] = Storage.DangerousDepths.Crystals.WarzoneV.mediumCrystal1,
-	[57358] = Storage.DangerousDepths.Crystals.WarzoneV.bigCrystal2,
-	[57359] = Storage.DangerousDepths.Crystals.WarzoneV.mediumCrystal2,
-	[57360] = Storage.DangerousDepths.Crystals.WarzoneV.smallCrystal1,
-	[57361] = Storage.DangerousDepths.Crystals.WarzoneV.smallCrystal2,
+	[57356] = Storage.DangerousDepths.Crystals.WarzoneV.BigCrystal1,
+	[57357] = Storage.DangerousDepths.Crystals.WarzoneIV.MediumCrystal1,
+	[57358] = Storage.DangerousDepths.Crystals.WarzoneV.BigCrystal2,
+	[57359] = Storage.DangerousDepths.Crystals.WarzoneIV.MediumCrystal2,
+	[57360] = Storage.DangerousDepths.Crystals.WarzoneV.SmallCrystal1,
+	[57361] = Storage.DangerousDepths.Crystals.WarzoneV.SmallCrystal2,
 
 	-- Warzone IV
-	[57362] = Storage.DangerousDepths.Crystals.WarzoneIV.bigCrystal1,
-	[57363] = Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal1,
-	[57364] = Storage.DangerousDepths.Crystals.WarzoneIV.bigCrystal2,
-	[57365] = Storage.DangerousDepths.Crystals.WarzoneIV.mediumCrystal2,
-	[57366] = Storage.DangerousDepths.Crystals.WarzoneIV.smallCrystal1,
-	[57367] = Storage.DangerousDepths.Crystals.WarzoneIV.smallCrystal2,
+	[57362] = Storage.DangerousDepths.Crystals.WarzoneIV.BigCrystal1,
+	[57363] = Storage.DangerousDepths.Crystals.WarzoneIV.MediumCrystal1,
+	[57364] = Storage.DangerousDepths.Crystals.WarzoneIV.BigCrystal2,
+	[57365] = Storage.DangerousDepths.Crystals.WarzoneIV.MediumCrystal2,
+	[57366] = Storage.DangerousDepths.Crystals.WarzoneIV.SmallCrystal1,
+	[57367] = Storage.DangerousDepths.Crystals.WarzoneIV.SmallCrystal2,
 }
 
 local crystalsChance = {

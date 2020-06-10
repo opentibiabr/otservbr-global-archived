@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if player:getStorageValue(Storage.WhatAFoolishQuest.Contract) ~= 1 then
+	if player:getStorageValue(Storage.WhatAFoolish.Contract) ~= 1 then
 		return false
 	end
 

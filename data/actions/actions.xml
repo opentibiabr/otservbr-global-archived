@@ -342,7 +342,7 @@
 	<action actionid="50806" script="quests/adventurers_guild/warrior_skeleton.lua" />
 	<action actionid="50808" script="quests/adventurers_guild/treasure.lua" />
 	<!-- annihilator quest -->
-	<action actionid="2214" script="quests/annihilator/door.lua" />
+	<action actionid="51690" script="quests/annihilator/door.lua" />
 	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
 	<!-- barbarian test quest -->
 	<action fromid="7174" toid="7176" script="quests/barbarian_test/horn.lua" />
@@ -425,8 +425,7 @@
 	<!-- druid outfit quest -->
 	<action itemid="5938" script="quests/druid_outfit/waterskin.lua" />
 	<!-- dwarven legs quest -->
-	<action actionid="50109" script="quests/dwarven_legs/ore_wagon1.lua" />
-	<action actionid="42150" script="quests/dwarven_legs/ore_wagon2.lua" />
+	<action fromaid="50109" toaid="50110" script="quests/dwarven_legs/ore_wagon.lua" />
 	<action actionid="42139" script="quests/dwarven_legs/ladder.lua" />
 	<!-- elemental_spheres -->
 	<action uniqueid="9024" script="quests/elemental_spheres/lever.lua" />
@@ -447,16 +446,6 @@
 	<action itemid="7242" script="quests/explorer_society/resonance.lua" />
 	<action itemid="4851" script="quests/explorer_society/stone.lua" />
 	<action itemid="4853" script="quests/explorer_society/tracing_paper.lua" />
-	<action actionid="1098" script="quests/explorer_society/dwacatra_door.lua" />
-	<action actionid="1097" script="quests/explorer_society/chorurn_door.lua" />
-	<action actionid="1092" script="quests/explorer_society/bonelords_door.lua" />
-	<action actionid="1096" script="quests/explorer_society/orc_powder_door.lua" />
-	<action actionid="1094" script="quests/explorer_society/edron_door.lua" />
-	<action actionid="1095" script="quests/explorer_society/hellgate_door.lua" />
-	<action actionid="1091" script="quests/explorer_society/banshee_door.lua" />
-	<action actionid="1093" script="quests/explorer_society/calassa_door.lua" />
-	<!-- family brooch -->
-	<action actionid="32700" script="quests/explorer_society/carving_teleport_door.lua" />
 	<!-- father's burden quest -->
 	<action fromid="12545" toid="12546" script="quests/fathers_burden/corpse.lua" />
 	<!-- ferumbras ascendant quest -->
@@ -540,7 +529,7 @@
 	<action actionid="4650" script="quests/gravedigger/palanca.lua" />
 	<action itemid="21464" script="quests/gravedigger/cape.lua" />
 	<action actionid="4662" script="quests/gravedigger/scroll.lua" />
-	<action actionid="4669" script="quests/gravedigger/estante.lua" />
+	<action actionid="4669" script="quests/gravedigger/bookcase.lua" />
 	<action uniqueid="4663" script="quests/gravedigger/caixa.lua" />
 	<action itemid="21251" script="quests/gravedigger/sacrifice.lua" />
 	<action fromaid="4651" toaid="4653" script="quests/gravedigger/inscriptions.lua" />
@@ -568,7 +557,6 @@
 	<action actionid="14332" script="quests/heart_of_destruction/final_lever.lua" />
 	<action uniqueid="9600" script="quests/heart_of_destruction/reward.lua" />
 	<!-- hero of rathleton quest -->
-	<action actionid="24860" script="quests/hero_of_rathleton/access_door.lua" />
 	<action actionid="24861" script="quests/hero_of_rathleton/machines_deep_terror.lua" />
 	<action actionid="24863" script="quests/hero_of_rathleton/machines_glooth_horror.lua" />
 	<action actionid="24867" script="quests/hero_of_rathleton/machines_professor_maxxen.lua" />
@@ -604,7 +592,7 @@
 	<action itemid="8753" script="quests/inquisition/mw.lua" />
 	<action uniqueid="9021" script="quests/inquisition/reward_door.lua" />
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
-	<action actionid="1004" script="quests/inquisition/ungreez.lua" />
+	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
 	<!-- koshei amulet quest -->
 	<action itemid="8266" script="quests/koshei_amulet/boss.lua" />
@@ -670,8 +658,6 @@
 	<action actionid="42503" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<action actionid="42504" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<action actionid="42505" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<!-- sams old backpack quest -->
-	<action actionid="42535" script="quests/sam_old_backpack/door.lua" />
 	<!-- secret library -->
 	<action actionid="34000" script="quests/secret_library/brokul_lever.lua" />
 	<!-- secret service quest -->

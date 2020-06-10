@@ -26,8 +26,8 @@ function onKill(creature, target)
 		return true
 	end
 
-	Game.setStorageValue(GlobalStorage.Versperoth.Battle, 2)
-	addEvent(Game.setStorageValue, 30 * 60 * 1000, GlobalStorage.Versperoth.Battle, 0)
+	Game.setStorageValue(GlobalStorage.BigfootBurden.Versperoth.Battle, 2)
+	addEvent(Game.setStorageValue, 30 * 60 * 1000, GlobalStorage.BigfootBurden.Versperoth.Battle, 0)
 
 	blood = Tile(teleportPosition):getItemById(2016)
 	if blood then

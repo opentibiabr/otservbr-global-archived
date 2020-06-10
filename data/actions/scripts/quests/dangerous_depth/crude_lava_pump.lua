@@ -14,8 +14,8 @@ function onUse(player, item)
 		for _, spectator in pairs(spectators) do
 			if spectator:isPlayer() then
 				local jogador = spectator
-				if jogador:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneVI) < 1 then
-					jogador:setStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneVI, 1)
+				if jogador:getStorageValue(Storage.DangerousDepths.Acess.LavaPumpWarzoneVI) < 1 then
+					jogador:setStorageValue(Storage.DangerousDepths.Acess.LavaPumpWarzoneVI, 1)
 				end
 			end
 		end
@@ -32,8 +32,8 @@ function onUse(player, item)
 		for _, spectator in pairs(spectators) do
 			if spectator:isPlayer() then
 				local jogador = spectator
-				if jogador:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneV) < 1 then
-					jogador:setStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneV, 1)
+				if jogador:getStorageValue(Storage.DangerousDepths.Acess.LavaPumpWarzoneV) < 1 then
+					jogador:setStorageValue(Storage.DangerousDepths.Acess.LavaPumpWarzoneV, 1)
 				end
 			end
 		end
@@ -50,8 +50,8 @@ function onUse(player, item)
 		for _, spectator in pairs(spectators) do
 			if spectator:isPlayer() then
 				local jogador = spectator
-				if jogador:getStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneIV) < 1 then
-					jogador:setStorageValue(Storage.DangerousDepths.Acessos.LavaPumpWarzoneIV, 1)
+				if jogador:getStorageValue(Storage.DangerousDepths.Acess.LavaPumpWarzoneIV) < 1 then
+					jogador:setStorageValue(Storage.DangerousDepths.Acess.LavaPumpWarzoneIV, 1)
 				end
 			end
 		end

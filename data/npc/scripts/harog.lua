@@ -26,7 +26,7 @@ local function getTable(player)
 		{name="flask of rust remover", id=9930, buy=50},
 	}
 
-	if player:getStorageValue(Storage.hiddenCityOfBeregar.JusticeForAll) == 6 then
+	if player:getStorageValue(Storage.HiddenCityOfBeregar.JusticeForAll) == 6 then
 		for i = 1, #rustremover do
 			itemsList[#itemsList] = rustremover[i]
 		end

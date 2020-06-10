@@ -1,9 +1,9 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Active) < 1 then
+	if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Active) < 1 then
 		return false
 	end
 	if item.itemid == 10029 then
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Done) >= 1 then
+		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done) >= 1 then
 			local spectators = Game.getSpectators(item:getPosition(), false, false, 9, 9, 6, 6)
 			for i = 1, #spectators do
 				if spectators[i]:isPlayer() then
@@ -16,8 +16,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			revertStorages()
 			return true
 		end
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Done) < 1 then
-			Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Done, 2)
+		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done) < 1 then
+			Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done, 2)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Something clicked.")
 		end
 		item:transform(10030)

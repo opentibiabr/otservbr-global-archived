@@ -7,8 +7,8 @@ function onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDama
 	end
 
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You are dead.')
-	if player:getStorageValue(Storage.SvargrondArena.Pit) > 0 then
-		player:setStorageValue(Storage.SvargrondArena.Pit, 0)
+	if player:getStorageValue(Storage.SvargrondArena.PitDoor) > 0 then
+		player:setStorageValue(Storage.SvargrondArena.PitDoor, 0)
 	end
 
 	if not deathListEnabled then

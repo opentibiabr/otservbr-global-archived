@@ -12,10 +12,10 @@ function onCreatureSay(cid, type, msg)
 npcHandler:onCreatureSay(cid, type, msg)
 end
 function onThink()
-npcHandler:onThink()	
+npcHandler:onThink()
 end
 
-dream = 23042
+local storage = Storage.DreamOutfit
 
 local action = {}
 local weapon = {}
@@ -108,63 +108,61 @@ local ACTION = {
 	TRANSFORM = 3
 }
 
-	 -- dream START --
-
-
+-- dream START --
 function dreamFirst(cid, message, keywords, parameters, node)
 
-    if(not npcHandler:isFocused(cid)) then
-        return false
-    end
+	if(not npcHandler:isFocused(cid)) then
+		return false
+	end
 
-    if isPremium(cid) then
-    addon = getPlayerStorageValue(cid,dream)
-    if addon == -1 then
-        if getPlayerItemCount(cid,22610) >= 1 then
-        if doPlayerRemoveItem(cid,22610,1) then
-            selfSay(newaddon, cid)
+	if isPremium(cid) then
+		addon = getPlayerStorageValue(cid, storage)
+		if addon == -1 then
+			if getPlayerItemCount(cid,22610) >= 1 then
+				if doPlayerRemoveItem(cid,22610,1) then
+					selfSay(newaddon, cid)
 
-            doSendMagicEffect(getCreaturePosition(cid), 13)
-            doPlayerAddOutfit(cid, 577, 1)
-            doPlayerAddOutfit(cid, 578, 1)
-            setPlayerStorageValue(cid,dream,1)
-        end
-        else
-            selfSay(noitems, cid)
-        end
-    else
-        selfSay(already, cid)
-    end
-    end
+					doSendMagicEffect(getCreaturePosition(cid), 13)
+					doPlayerAddOutfit(cid, 577, 1)
+					doPlayerAddOutfit(cid, 578, 1)
+					setPlayerStorageValue(cid, storage,1)
+				end
+			else
+				selfSay(noitems, cid)
+			end
+		else
+			selfSay(already, cid)
+		end
+	end
 
 end
 
 function dreamSecond(cid, message, keywords, parameters, node)
-
-    if(not npcHandler:isFocused(cid)) then
-        return false
-    end
-
-    if isPremium(cid) then
-    addon = getPlayerStorageValue(cid,dream+1)
-    if addon == -1 then
-        if getPlayerItemCount(cid,22609) >= 1 then
-        if doPlayerRemoveItem(cid,22609,1) then
-            selfSay(newaddon, cid)
-
-            doSendMagicEffect(getCreaturePosition(cid), 13)
-           doPlayerAddOutfit(cid, 577, 2)
-            doPlayerAddOutfit(cid, 578, 2)
-            setPlayerStorageValue(cid,dream+1,1)
-        end
-        else
-            selfSay(noitems, cid)
-        end
-    else
-        selfSay(already, cid)
-    end
-    end
-
+	
+	if(not npcHandler:isFocused(cid)) then
+		return false
+	end
+	
+	if isPremium(cid) then
+		addon = getPlayerStorageValue(cid, storage+1)
+		if addon == -1 then
+			if getPlayerItemCount(cid,22609) >= 1 then
+				if doPlayerRemoveItem(cid,22609,1) then
+					selfSay(newaddon, cid)
+					
+					doSendMagicEffect(getCreaturePosition(cid), 13)
+					doPlayerAddOutfit(cid, 577, 2)
+					doPlayerAddOutfit(cid, 578, 2)
+					setPlayerStorageValue(cid, storage+1,1)
+				end
+			else
+				selfSay(noitems, cid)
+			end
+		else
+			selfSay(already, cid)
+		end
+	end
+	
 end
 -- dream END --
 

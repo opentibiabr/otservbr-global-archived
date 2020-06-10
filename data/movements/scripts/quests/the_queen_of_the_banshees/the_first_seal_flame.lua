@@ -4,8 +4,8 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.QueenOfBansheesQuest.FirstSeal) < 1 then
-		player:setStorageValue(Storage.QueenOfBansheesQuest.FirstSeal, 1)
+	if player:getStorageValue(Storage.QueenOfBanshees.FirstSeal) < 1 then
+		player:setStorageValue(Storage.QueenOfBanshees.FirstSeal, 1)
 		player:teleportTo(Position(32266, 31849, 15), false)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		Game.createMonster('ghost', Position(32276, 31902, 13), false, true)

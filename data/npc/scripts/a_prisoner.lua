@@ -19,9 +19,10 @@ local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
 	end
+
 	local player = Player(cid)
 	if msgcontains(msg, "riddle") then
-		if player:getStorageValue(Storage.madMageQuest) ~= 1 then
+		if player:getStorageValue(Storage.MadMageQuest) ~= 1 then
 			npcHandler:say("Great riddle, isn´t it? If you can tell me the correct answer, I will give you something. Hehehe!", cid)
 			npcHandler.topic[cid] = 1
 		end
@@ -46,7 +47,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Really, really, really, really?", cid)
 			npcHandler.topic[cid] = 5
 		elseif npcHandler.topic[cid] == 5 then
-			player:setStorageValue(Storage.madMageQuest, 1)
+			player:setStorageValue(Storage.MadMageQuest, 1)
 			npcHandler:say("Then take it and get happy - or die, hehe.", cid)
 			local key = player:addItem(2088, 1)
 			if key then
@@ -65,4 +66,5 @@ npcHandler:setMessage(MESSAGE_FAREWELL, "Next time we should talk about my surre
 npcHandler:setMessage(MESSAGE_GREET, "Huh? What? I can see! Wow! A non-mino. Did they {capture} you as well?")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

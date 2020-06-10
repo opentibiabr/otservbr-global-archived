@@ -4,8 +4,8 @@ function onStepIn(creature, item, position, fromPosition)
 		return false
 	end
 
-	if player:getStorageValue(Storage.QueenOfBansheesQuest.FifthSeal) < 1 then
-		player:setStorageValue(Storage.QueenOfBansheesQuest.FifthSeal, 1)
+	if player:getStorageValue(Storage.QueenOfBanshees.FifthSeal) < 1 then
+		player:setStorageValue(Storage.QueenOfBanshees.FifthSeal, 1)
 		player:teleportTo(Position(32268, 31856, 15), false)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else

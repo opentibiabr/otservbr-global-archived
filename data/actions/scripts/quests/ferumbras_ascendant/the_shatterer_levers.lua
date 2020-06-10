@@ -53,8 +53,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					Game.createMonster("Fury", { x=player:getPosition().x+math.random(-3, 3), y=player:getPosition().y+math.random(-3, 3), z=player:getPosition().z })
 				end
 			end
-			Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) + 1)
-			if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) >= 4 then
+			Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) + 1)
+			if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) >= 4 then
 				local boss = Tile(Position(33406, 32418, 14)):getTopCreature()
 				if boss:getName():lower() == 'the shatterer' then
 					boss:teleportTo(Position(33400, 32415, 14))
@@ -71,8 +71,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					Game.createMonster("Destroyer", { x=player:getPosition().x+math.random(-3, 3), y=player:getPosition().y+math.random(-3, 3), z=player:getPosition().z })
 				end
 			end
-			Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) + 1)
-			if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) >= 4 then
+			Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) + 1)
+			if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) >= 4 then
 				local boss = Tile(Position(33406, 32418, 14)):getTopCreature()
 				if boss:getName():lower() == 'the shatterer' then
 					boss:teleportTo(Position(33400, 32415, 14))
@@ -88,8 +88,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					bla:remove()
 				end
 			end
-			Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) + 1)
-			if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) >= 4 then
+			Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) + 1)
+			if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) >= 4 then
 				local boss = Tile(Position(33406, 32418, 14)):getTopCreature()
 				if boss:getName():lower() == 'the shatterer' then
 					boss:teleportTo(Position(33400, 32415, 14))
@@ -105,8 +105,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					bla:remove()
 				end
 			end
-			Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) + 1)
-			if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever) >= 4 then
+			Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) + 1)
+			if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever) >= 4 then
 				local boss = Tile(Position(33406, 32418, 14)):getTopCreature()
 				if boss:getName():lower() == 'the shatterer' then
 					boss:teleportTo(Position(33400, 32415, 14))

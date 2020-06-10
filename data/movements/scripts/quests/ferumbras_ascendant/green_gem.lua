@@ -28,18 +28,18 @@ local function revertBasin(position)
 end
 
 function revertStorages()
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Active, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.First, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Second, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Third, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Four, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Done, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Active, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.First, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Second, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Third, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Four, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done, 0)
 end
 
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player
-		or Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Active) >= 1 then
+		or Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Active) >= 1 then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		return true
 	end
@@ -52,10 +52,10 @@ function onStepIn(creature, item, position, fromPosition)
 		or Tile(Position(33651, 32661, 13)):getItemById(10030) -- lever red
 		local leverFour = Tile(Position(33673, 32688, 13)):getItemById(10029)
 		or Tile(Position(33673, 32688, 13)):getItemById(10030) -- lever green
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.First, 2) -- green
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Second, 3) -- blue
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Third, 1) -- red
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Four, 6) -- ice
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.First, 2) -- green
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Second, 3) -- blue
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Third, 1) -- red
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Four, 6) -- ice
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You hear a whisper: \z
 		'You will not be guided but your path shines in the colours green, blue and red. Heed this hierarchy.'")
 		leverFirst:setActionId(53821)
@@ -63,7 +63,7 @@ function onStepIn(creature, item, position, fromPosition)
 		leverThird:setActionId(53823)
 		leverFour:setActionId(53824)
 	end
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Active, 1)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Active, 1)
 	item:transform(9564)
 	addEvent(activeBasin, 1 * 1000, position)
 	addEvent(revertBasin, 60 * 60 * 1000, position)

@@ -17,7 +17,7 @@ end
 
 function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
-	return false
+		return false
 	end
 
 	local player = Player(cid)
@@ -27,7 +27,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 1
 		end
 	elseif msgcontains(msg, 'diary') then
-		if player:getStorageValue(Storage.WhiteRavenMonasteryQuest.Diary) == 1 then
+		if player:getStorageValue(Storage.WhiteRavenMonastery.Diary) == 1 then
 			npcHandler:say('Do you want me to inspect a diary?', cid)
 			npcHandler.topic[cid] = 2
 		end
@@ -46,7 +46,7 @@ function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, 'yes') then
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say('Thank you very much! From now on you may open the warded doors to the catacombs.', cid)
-			player:setStorageValue(Storage.WhiteRavenMonasteryQuest.Diary, 1)
+			player:setStorageValue(Storage.WhiteRavenMonastery.Diary, 1)
 		elseif npcHandler.topic[cid] == 2 then
 			if not player:removeItem(2325, 1) then
 				npcHandler:say('Uhm, as you wish.', cid)
@@ -55,7 +55,7 @@ function creatureSayCallback(cid, type, msg)
 
 			npcHandler:say('By the gods! This is brother Fugio\'s handwriting and what I read is horrible indeed! You have done our order a great favour by giving this diary to me! Take this blessed Ankh. May it protect you in even your darkest hours.', cid)
 			player:addItem(2327, 1)
-			player:setStorageValue(Storage.WhiteRavenMonasteryQuest.Diary, 2)
+			player:setStorageValue(Storage.WhiteRavenMonastery.Diary, 2)
 		end
 	elseif npcHandler.topic[cid] == 3 then
 		if not msgcontains(msg, 'amanda') then
@@ -79,4 +79,5 @@ npcHandler:setMessage(MESSAGE_GREET, "Welcome, |PLAYERNAME|! Feel free to tell m
 npcHandler:setMessage(MESSAGE_FAREWELL, "Good bye. Come back soon.")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

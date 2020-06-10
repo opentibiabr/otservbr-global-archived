@@ -6,7 +6,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	monster:remove()
 	position:sendMagicEffect(CONST_ME_POFF)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.FerumbrasEssence, 1)
-	addEvent(Game.setStorageValue, 2 * 60 * 1000, GlobalStorage.FerumbrasAscendantQuest.FerumbrasEssence, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.FerumbrasEssence, 1)
+	addEvent(Game.setStorageValue, 2 * 60 * 1000, GlobalStorage.FerumbrasAscendant.FerumbrasEssence, 0)
 	return true
 end

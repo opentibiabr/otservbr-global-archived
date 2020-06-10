@@ -1,14 +1,14 @@
 --[[
-	TODO
-		- Include PITS and ARENA table in SvargrondArena -> SvargrondArena.arenas / SvargrondArena.pits
-		- Restructure PITS and ARENA table (reward.storage does not seem to be used)
+TODO
+- Include PITS and ARENA table in SvargrondArena -> SvargrondArena.arenas / SvargrondArena.PitDoors
+- Restructure PITS and ARENA table (reward.storage does not seem to be used)
 ]]
 
 SvargrondArena = {
 	-- kick time in seconds (10 minutes)
 	kickTime = 600,
-	kickPosition = Position(32251, 31098, 6),
-	rewardPosition = Position(32222, 31080, 6),
+	kickPosition = {x = 32251, y = 31098, z = 6},
+	rewardPosition = {x = 32222, y = 31080, z = 6},
 
 	-- used to store event ids
 	kickEvents = {},
@@ -260,10 +260,10 @@ function SvargrondArena.kickPlayer(cid, hideMessage)
 		return
 	end
 
-	if player:getStorageValue(Storage.SvargrondArena.Pit) > 0 then
+	if player:getStorageValue(Storage.SvargrondArena.PitDoor) > 0 then
 		player:teleportTo(SvargrondArena.kickPosition)
 		SvargrondArena.kickPosition:sendMagicEffect(CONST_ME_TELEPORT)
-		player:setStorageValue(Storage.SvargrondArena.Pit, 0)
+		player:setStorageValue(Storage.SvargrondArena.PitDoor, 0)
 		if not hideMessage then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your time ran out!')
 		end
@@ -326,11 +326,11 @@ function SvargrondArena.sendPillarEffect(pitId)
 	if not positions then
 		local position = PITS[pitId].pillar
 		local effectPositions = {
-				Position(position.x - 1, position.y,     position.z),
-				Position(position.x + 1, position.y,     position.z),
-				Position(position.x + 1, position.y - 1, position.z),
-				Position(position.x + 1, position.y + 1, position.z),
-				Position(position.x,     position.y,     position.z)
+			Position(position.x - 1, position.y, position.z),
+			Position(position.x + 1, position.y, position.z),
+			Position(position.x + 1, position.y - 1, position.z),
+			Position(position.x + 1, position.y + 1, position.z),
+			Position(position.x, position.y, position.z)
 		}
 		SvargrondArena.effectPositionCache[pitId] = effectPositions
 		positions = effectPositions

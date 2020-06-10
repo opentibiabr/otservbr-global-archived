@@ -3,11 +3,11 @@ local config = {
 	[2373] = 2,
 	[2370] = 3,
 	[2372] = 4,
-	[2369] = 5,
-	[1241] = 5
+	[2369] = 5
 }
 
 local storage = Storage.TheAncientTombs.VashresamunInstruments
+
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetTable = config[item.itemid]
 	if not targetTable then
@@ -21,15 +21,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:setStorageValue(storage, math.max(1, player:getPlayerStorageValue(storage)) + 1)
 		fromPosition:sendMagicEffect(CONST_ME_SOUND_BLUE)
 	else
-		player:setStorageValue(storage, 5)
+		player:setStorageValue(Storage.TheAncientTombs.VashresamunsDoor, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You played them in correct order and got the access through door!')
-	end
-
-	if item.itemid == 1241 and player:getStorageValue(storage) == 5 then
-		player:teleportTo(toPosition, true)
-		item:transform(item.itemid + 1)
-	else
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You first must play the instruments in correct order to get the access!")
 	end
 	return true
 end

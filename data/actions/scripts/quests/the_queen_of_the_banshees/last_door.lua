@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	if player:getStorageValue(Storage.QueenOfBansheesQuest.Kiss) == 1 and player:getStorageValue(Storage.QueenOfBansheesQuest.LastSeal) < 1 then
+	if player:getStorageValue(Storage.QueenOfBanshees.KissDoor) == 1 and player:getStorageValue(Storage.QueenOfBanshees.LastSeal) < 1 then
 		player:teleportTo(toPosition, true)
 		item:transform(item.itemid + 1)
 	else

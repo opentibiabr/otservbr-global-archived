@@ -30,7 +30,7 @@ local function creatureSayCallback(cid, type, msg)
 			return true
 		end
 
-		player:setStorageValue(Storage.WhatAFoolishQuest.Cigar, 1)
+		player:setStorageValue(Storage.WhatAFoolish.Cigar, 1)
 		Npc():getPosition():sendMagicEffect(CONST_ME_EXPLOSIONHIT)
 		npcHandler:say({
 			'Ah what a fine blend. I really ...',

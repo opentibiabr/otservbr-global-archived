@@ -14,7 +14,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 	local WarzoneVI_b = Position(33717, 32302, 15)
 
 	if item:getPosition() == WarzoneIV then -- Warzone IV
-		if player:getStorageValue(Storage.DangerousDepths.Bosses.theBaronFromBelow) > os.time() then
+		if player:getStorageValue(Storage.DangerousDepths.Bosses.TheBaronFromBelow) > os.time() then
 			player:teleportTo(fromPosition)
 			player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 		else
@@ -23,7 +23,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 	end
 
 	if item:getPosition() == WarzoneV then -- Warzone V
-		if player:getStorageValue(Storage.DangerousDepths.Bosses.theCountOfTheCore) > os.time() then
+		if player:getStorageValue(Storage.DangerousDepths.Bosses.TheCountOfTheCore) > os.time() then
 			player:teleportTo(fromPosition)
 			player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 		else
@@ -32,7 +32,7 @@ function onStepIn(creature, item, position, fromPosition, toPosition)
 	end
 
 	if item:getPosition() == WarzoneVI then -- Warzone VI
-		if player:getStorageValue(Storage.DangerousDepths.Bosses.theDukeOfTheDepths) > os.time() then
+		if player:getStorageValue(Storage.DangerousDepths.Bosses.TheDukeOfTheDepths) > os.time() then
 			player:teleportTo(fromPosition)
 			player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 		else

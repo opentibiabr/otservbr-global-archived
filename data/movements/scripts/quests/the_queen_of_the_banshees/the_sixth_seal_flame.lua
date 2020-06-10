@@ -13,7 +13,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.QueenOfBansheesQuest.SixthSeal) >= 1 then
+	if player:getStorageValue(Storage.QueenOfBanshees.SixthSeal) >= 1 then
 		player:teleportTo(fromPosition)
 		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
 		return true
@@ -28,7 +28,7 @@ function onStepIn(creature, item, position, fromPosition)
 		end
 	end
 
-	player:setStorageValue(Storage.QueenOfBansheesQuest.SixthSeal, 1)
+	player:setStorageValue(Storage.QueenOfBanshees.SixthSeal, 1)
 	player:teleportTo(Position(32261, 31856, 15))
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	return true

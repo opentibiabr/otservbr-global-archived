@@ -11,23 +11,23 @@ local startupGlobalStorages = {
 	GlobalStorage.HeroRathleton.MaxxenRunning,
 	GlobalStorage.HeroRathleton.LavaCounter,
 	GlobalStorage.HeroRathleton.FourthMachines,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal1,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal2,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal3,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal4,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal5,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal6,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal7,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal8,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals,
-	GlobalStorage.FerumbrasAscendantQuest.FerumbrasEssence,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal1,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal2,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal3,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal4,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal5,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal6,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal7,
+	GlobalStorage.FerumbrasAscendant.Crystals.Crystal8,
+	GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals,
+	GlobalStorage.FerumbrasAscendant.FerumbrasEssence,
 	GlobalStorage.Feroxa.Active,
-	GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Active,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.First,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Second,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Third,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Done
+	GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats,
+	GlobalStorage.FerumbrasAscendant.Elements.Active,
+	GlobalStorage.FerumbrasAscendant.Elements.First,
+	GlobalStorage.FerumbrasAscendant.Elements.Second,
+	GlobalStorage.FerumbrasAscendant.Elements.Third,
+	GlobalStorage.FerumbrasAscendant.Elements.Done
 }
 
 function onStartup()
@@ -95,8 +95,8 @@ function onStartup()
 	end
 
 	-- Ferumbras Ascendant quest
-	for i = 1, #GlobalStorage.FerumbrasAscendantQuest.Habitats do
-		local storage = GlobalStorage.FerumbrasAscendantQuest.Habitats[i]
+	for i = 1, #GlobalStorage.FerumbrasAscendant.Habitats do
+		local storage = GlobalStorage.FerumbrasAscendant.Habitats[i]
 		Game.setStorageValue(storage, 0)
 	end
 

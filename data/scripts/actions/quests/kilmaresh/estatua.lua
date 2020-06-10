@@ -1,9 +1,9 @@
 local config = {
-	[57512] = {itemId = 35996, msg = "You bless the statue.", storage = Storage.KilmareshQuest.Sixth.Favor, getValue = 5, setValue = 6},
-	[57513] = {itemId = 35997, msg = "You bless the statue.", storage = Storage.KilmareshQuest.Sixth.Favor, getValue = 6, setValue = 7},
-	[57514] = {itemId = 35996, msg = "You bless the statue.", storage = Storage.KilmareshQuest.Sixth.Favor, getValue = 7, setValue = 8},
-	[57515] = {itemId = 35997, msg = "You bless the statue.", storage = Storage.KilmareshQuest.Sixth.Favor, getValue = 8, setValue = 9},
-	[57516] = {itemId = 35997, msg = "You bless the statue.", storage = Storage.KilmareshQuest.Sixth.Favor, getValue = 9, setValue = 10},
+	[57512] = {itemId = 35996, msg = "You bless the statue.", storage = Storage.Kilmaresh.Sixth.Favor, getValue = 5, setValue = 6},
+	[57513] = {itemId = 35997, msg = "You bless the statue.", storage = Storage.Kilmaresh.Sixth.Favor, getValue = 6, setValue = 7},
+	[57514] = {itemId = 35996, msg = "You bless the statue.", storage = Storage.Kilmaresh.Sixth.Favor, getValue = 7, setValue = 8},
+	[57515] = {itemId = 35997, msg = "You bless the statue.", storage = Storage.Kilmaresh.Sixth.Favor, getValue = 8, setValue = 9},
+	[57516] = {itemId = 35997, msg = "You bless the statue.", storage = Storage.Kilmaresh.Sixth.Favor, getValue = 9, setValue = 10},
 }
 
 local estatua = Action()

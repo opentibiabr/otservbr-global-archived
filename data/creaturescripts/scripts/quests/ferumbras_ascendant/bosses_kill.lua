@@ -11,20 +11,20 @@ local bosses = {
 }
 
 local crystals = {
-	[1] = {crystalPosition = Position(33390, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal1},
-	[2] = {crystalPosition = Position(33394, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal2},
-	[3] = {crystalPosition = Position(33397, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal3},
-	[4] = {crystalPosition = Position(33397, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal4},
-	[5] = {crystalPosition = Position(33394, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal5},
-	[6] = {crystalPosition = Position(33390, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal6},
-	[7] = {crystalPosition = Position(33387, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal7},
-	[8] = {crystalPosition = Position(33387, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal8}
+	[1] = {crystalPosition = Position(33390, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal1},
+	[2] = {crystalPosition = Position(33394, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal2},
+	[3] = {crystalPosition = Position(33397, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal3},
+	[4] = {crystalPosition = Position(33397, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal4},
+	[5] = {crystalPosition = Position(33394, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal5},
+	[6] = {crystalPosition = Position(33390, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal6},
+	[7] = {crystalPosition = Position(33387, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal7},
+	[8] = {crystalPosition = Position(33387, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal8}
 }
 local function transformCrystal()
 	for c = 1, #crystals do
 		local crystal = crystals[c]
 		Game.getStorageValue(crystal.globalStorage, 0)
-		Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals, 0)
+		Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals, 0)
 		local item = Tile(crystal.crystalPosition):getItemById(17586)
 		if item then
 			item:transform(17580)

@@ -42,7 +42,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 6
 		elseif
 			player:getStorageValue(Storage.TheShatteredIsles.RaysMission2) > 0 and
-				player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) < 0
+				player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) < 0
 		 then
 			npcHandler:say(
 				'You did some impressive things. I think people here start considering you as one of us. \
@@ -50,7 +50,7 @@ local function creatureSayCallback(cid, type, msg)
 				Do you think you can handle that?',
 				cid)
 			npcHandler.topic[cid] = 7
-		elseif player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) == 1 then
+		elseif player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) == 1 then
 			npcHandler:say('Did you rescue one of those poor soon-to-be baby tortoises from Nargor?', cid)
 			npcHandler.topic[cid] = 8
 		end
@@ -130,7 +130,7 @@ local function creatureSayCallback(cid, type, msg)
 				end
 			end
 		elseif npcHandler.topic[cid] == 7 then
-			if player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) < 0 then
+			if player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) < 0 then
 				npcHandler:say(
 					{
 						'I am glad to hear this. Please listen. The pirates on Nargor are breeding tortoises. \
@@ -143,18 +143,18 @@ local function creatureSayCallback(cid, type, msg)
 						Travel to Nargor, find their tortoise eggs and bring me at least one of them.'
 					},
 				cid)
-				player:setStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor, 1)
+				player:setStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor, 1)
 				npcHandler.topic[cid] = 0
 			end
 		elseif npcHandler.topic[cid] == 8 then
-			if player:getStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor) == 1 then
+			if player:getStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor) == 1 then
 				if player:removeItem(6125, 1) then
 					npcHandler:say(
 						'A real tortoise egg ... I guess you are more accustomed to rescue some \
 						noblewoman in distress but you did something goodtoday.',
 						cid
 					)
-					player:setStorageValue(Storage.TheShatteredIsles.AccessTortoiseEggNargor, 2)
+					player:setStorageValue(Storage.TheShatteredIsles.TortoiseEggNargorDoor, 2)
 					player:addAchievement('Animal Activist')
 					player:setStorageValue(Storage.TheShatteredIsles.ReputationInSabrehaven, 16)
 					npcHandler.topic[cid] = 0

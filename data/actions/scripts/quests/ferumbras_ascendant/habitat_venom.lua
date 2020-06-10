@@ -447,7 +447,7 @@ end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 10044 then
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Habitats.Venom) >= 1 then
+		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.Venom) >= 1 then
 			player:say('The lever are stucke, need some time to it can be moveable again.', TALKTYPE_MONSTER_SAY)
 			return true
 		end
@@ -459,10 +459,10 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			basin:getPosition():sendMagicEffect(CONST_ME_ENERGYAREA)
 			basin:transform(24852)
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Habitats.Venom, 1)
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats, Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats) + 1)
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.Venom, 1)
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats) + 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The room transforms into a completely different landscape.')
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats) >= 8 then
+		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats) >= 8 then
 			addEvent(functionRevert, 1 * 60 * 60 * 1000)
 		end
 	elseif item.itemid == 10045 then

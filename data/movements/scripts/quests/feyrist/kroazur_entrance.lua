@@ -21,7 +21,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	if player:getStorageValue(teleport.timer) > os.time() then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
+		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 		return true
@@ -29,7 +29,7 @@ function onStepIn(creature, item, position, fromPosition)
 
 	if roomIsOccupied(teleport.bossPos, teleport.range, teleport.range) then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
+		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:say('Someone is fighting against the boss! You need wait awhile.', TALKTYPE_MONSTER_SAY)
 		return true

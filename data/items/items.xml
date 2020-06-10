@@ -35721,7 +35721,7 @@
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
 	<item id="24852" name="unknown item" />
-	<item fromid="24908" toid="24909" name="unknown item" />
+	<item fromid="24908" toid="24909" name="unknown item (wall sign)" />
 	<item id="24910" article="a" name="bone flute">
 		<attribute key="weight" value="30" />
 		<attribute key="description" value="Crude pictures of animals are carved into it." />
