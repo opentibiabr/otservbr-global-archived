@@ -85,14 +85,6 @@ local enablingStorages = {
 }
 
 function Player.canImbueItem(self, imbuement, item)
-	for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
-		local slotItem = self:getSlotItem(slot)
-		if slotItem then
-			if slotItem == item then
-				return false
-			end
-		end
-	end
 	local item_type = ""
 	for tp, items in pairs(Imbuements_Weapons) do
 		if isInArray(items, item:getId()) then
@@ -137,6 +129,7 @@ function Player.canImbueItem(self, imbuement, item)
 	if imbuement:getBase().id == 3 and not self:getGroup():getAccess() and stg > -1 and self:getStorageValue(stg) < 1 then
 		return false
 	end
+
 	return true
 end
 
