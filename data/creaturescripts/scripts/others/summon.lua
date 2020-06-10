@@ -1,40 +1,31 @@
---By Igor Labanca
---Fixes by Leu (jlcvp)
-
-local petNames = {
-	[1] = 'thundergiant',
-	[2] = 'grovebeast',
-	[3] = 'emberwing',
-	[4] = 'skullfrost'
+local summon = {
+	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
+	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
+	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
+	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
 }
 
-local STORAGE_PET = Storage.PetSummon
+local summonStorage = Storage.PetSummon
 
 function onLogin(cid)
 	local player = Player(cid)
 
-	local vocationid = player:getVocation():getId()
-	local pet
-	local petTimeLeft = player:getStorageValue(STORAGE_PET) - player:getLastLogout()
+	local vocation = summon[player:getVocation()]
+	local summonName
+	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
 
 	if petTimeLeft > 0 then
-		if vocationid == 5 then
-			pet = "thundergiant"
-		elseif vocationid == 6 then
-			pet = "grovebeast"
-		elseif vocationid == 7 then
-			pet = "emberwing"
-		elseif vocationid == 8 then
-			pet = "skullfrost"
+		if vocation and vocation:getId() then
+			summonName = vocation.name
 		end
 	end
 
-	if pet then
+	if summonName then
 		position = player:getPosition()
-		summonMonster = Game.createMonster(pet, position, true, false, cid)
+		summonMonster = Game.createMonster(summonName, position, true, false, cid)
 		player:addSummon(summonMonster)
-		player:setStorageValue(STORAGE_PET, os.time() + petTimeLeft)
-		summonMonster:registerEvent('petdeath')
+		player:setStorageValue(summonStorage, os.time() + petTimeLeft)
+		summonMonster:registerEvent('SummonDeath')
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 	return true
@@ -44,9 +35,9 @@ end
 function onThink(cid, interval, item, position, lastPosition, fromPosition, toPosition)
 	local player = Player(cid)
 
-	if player and player:getStorageValue(STORAGE_PET) <= os.time() and player:getStorageValue(STORAGE_PET) > 0 then
+	if player and player:getStorageValue(summonStorage) <= os.time() and player:getStorageValue(summonStorage) > 0 then
 		doRemoveCreature (getCreatureSummons(cid)[1])
-		player:setStorageValue(STORAGE_PET,0)
+		player:setStorageValue(summonStorage,0)
 	end
 	return true
 end
@@ -57,12 +48,8 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 		return false
 	end
 
-	if table.contains(petNames,creature:getName():lower()) then
-		player:setStorageValue(STORAGE_PET, os.time()) --imeddiately expire creature
-
-		-- maybe we need to remove creature from the game manually?
-		-- doRemoveCreature (getCreatureSummons(player)[1])
+	if table.contains(summon,creature:getName():lower()) then
+		player:setStorageValue(summonStorage, os.time())
 	end
-
 	return true
 end
