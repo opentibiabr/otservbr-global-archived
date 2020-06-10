@@ -86,52 +86,52 @@ local enablingStorages = {
 
 function Player.canImbueItem(self, imbuement, item)
 for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
-    local slotItem = self:getSlotItem(slot)
-    if slotItem then
-        if slotItem == item then
-            return false
-        end
-    end
+	local slotItem = self:getSlotItem(slot)
+	if slotItem then
+		if slotItem == item then
+			return false
+		end
+	end
 end
 local item_type = ""
 for tp, items in pairs(Imbuements_Weapons) do
-    if isInArray(items, item:getId()) then
-        item_type = tp
-        break
-    end
+	if isInArray(items, item:getId()) then
+		item_type = tp
+		break
+	end
 end
 local imb_type = ""
 for ibt, imb_n in pairs(enablingStorages) do
-    if string.find(ibt, imbuement:getName():lower()) then
-        imb_type = ibt
-        break
-    end
+	if string.find(ibt, imbuement:getName():lower()) then
+		imb_type = ibt
+		break
+	end
 end
 if imb_type == "" then
-    print(">> [Imbuement::canImbueItem] Error on search imbuement '".. imbuement:getName() .. "'")
-    return false
+	print(">> [Imbuement::canImbueItem] Error on search imbuement '".. imbuement:getName() .. "'")
+	return false
 end
 
 local equip = equipitems[imb_type]
 if not equip then
-    print(">> [Imbuement::canImbueItem] Error on search Weapons imbuement '" .. imbuement:getName() .. "'")
-    return false
+	print(">> [Imbuement::canImbueItem] Error on search Weapons imbuement '" .. imbuement:getName() .. "'")
+	return false
 end
 
 local imbuable = false
 for i, p in pairs(equip) do
-    if p:lower() == item_type then
-        imbuable = true
-        break
-    end
+	if p:lower() == item_type then
+		imbuable = true
+		break
+	end
 end
 if not imbuable then
-    return false
+	return false
 end
 local stg = enablingStorages[imb_type]
 if not stg then
-    print(">> [Imbuement::canImbueItem] Error on search Storage imbuement '" .. imbuement:getName() .. "'")
-    return false
+	print(">> [Imbuement::canImbueItem] Error on search Storage imbuement '" .. imbuement:getName() .. "'")
+	return false
 end
 
 -- Player functions
