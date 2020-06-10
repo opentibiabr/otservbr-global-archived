@@ -133,7 +133,7 @@ function Player.canImbueItem(self, imbuement, item)
 		print(">> [Imbuement::canImbueItem] Error on search Storage imbuement '" .. imbuement:getName() .. "'")
 		return false
 	end
-	
+
 	if imbuement:getBase().id == 3 and not self:getGroup():getAccess() and stg > -1 and self:getStorageValue(stg) < 1 then
 		return false
 	end
