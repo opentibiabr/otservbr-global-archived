@@ -85,53 +85,54 @@ local enablingStorages = {
 }
 
 function Player.canImbueItem(self, imbuement, item)
-for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
-	local slotItem = self:getSlotItem(slot)
-	if slotItem then
-		if slotItem == item then
-			return false
+	for slot = CONST_SLOT_HEAD, CONST_SLOT_AMMO do
+		local slotItem = self:getSlotItem(slot)
+		if slotItem then
+			if slotItem == item then
+				return false
+			end
 		end
 	end
-end
-local item_type = ""
-for tp, items in pairs(Imbuements_Weapons) do
-	if isInArray(items, item:getId()) then
-		item_type = tp
-		break
+	local item_type = ""
+	for tp, items in pairs(Imbuements_Weapons) do
+		if isInArray(items, item:getId()) then
+			item_type = tp
+			break
+		end
 	end
-end
-local imb_type = ""
-for ibt, imb_n in pairs(enablingStorages) do
-	if string.find(ibt, imbuement:getName():lower()) then
-		imb_type = ibt
-		break
+	local imb_type = ""
+	for ibt, imb_n in pairs(enablingStorages) do
+		if string.find(ibt, imbuement:getName():lower()) then
+			imb_type = ibt
+			break
+		end
 	end
-end
-if imb_type == "" then
-	print(">> [Imbuement::canImbueItem] Error on search imbuement '".. imbuement:getName() .. "'")
-	return false
-end
-
-local equip = equipitems[imb_type]
-if not equip then
-	print(">> [Imbuement::canImbueItem] Error on search Weapons imbuement '" .. imbuement:getName() .. "'")
-	return false
-end
-
-local imbuable = false
-for i, p in pairs(equip) do
-	if p:lower() == item_type then
-		imbuable = true
-		break
+	if imb_type == "" then
+		print(">> [Imbuement::canImbueItem] Error on search imbuement '".. imbuement:getName() .. "'")
+		return false
 	end
-end
-if not imbuable then
-	return false
-end
-local stg = enablingStorages[imb_type]
-if not stg then
-	print(">> [Imbuement::canImbueItem] Error on search Storage imbuement '" .. imbuement:getName() .. "'")
-	return false
+	
+	local equip = equipitems[imb_type]
+	if not equip then
+		print(">> [Imbuement::canImbueItem] Error on search Weapons imbuement '" .. imbuement:getName() .. "'")
+		return false
+	end
+	
+	local imbuable = false
+	for i, p in pairs(equip) do
+		if p:lower() == item_type then
+			imbuable = true
+			break
+		end
+	end
+	if not imbuable then
+		return false
+	end
+	local stg = enablingStorages[imb_type]
+	if not stg then
+		print(">> [Imbuement::canImbueItem] Error on search Storage imbuement '" .. imbuement:getName() .. "'")
+		return false
+	end
 end
 
 -- Player functions
@@ -158,7 +159,7 @@ function Item.getImbuementDuration(self, slot)
 	if binfo then
 		info = bit.rshift(binfo, 8)
 	end
-
+	
 	return info
 end
 
@@ -178,7 +179,7 @@ function Item.addImbuement(self, slot, id)
 	local imbuement = Imbuement(id)
 	if not imbuement then return false end
 	local duration = imbuement:getBase().duration
-
+	
 	local imbue = bit.bor(bit.lshift(duration, 8), id)
 	self:setCustomAttribute(IMBUEMENT_SLOT + slot, imbue)
 	return true
