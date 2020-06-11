@@ -94,10 +94,10 @@ end
 -- Functions From OTServBR-Global
 function Player.getCookiesDelivered(self)
 	local storage, amount = {
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.SIMONTHEBEGGAR, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.MARKWIN, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.ARIELLA,
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.HAIRYCLES, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.DJINN, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.AVARTAR,
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.ORCKING, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.LORBAS, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.WYDA,
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.HJAERN
+		Storage.WhatAFoolish.CookieDelivery.SimonTheBeggar, Storage.WhatAFoolish.CookieDelivery.Markwin, Storage.WhatAFoolish.CookieDelivery.Ariella,
+		Storage.WhatAFoolish.CookieDelivery.Hairycles, Storage.WhatAFoolish.CookieDelivery.Djinn, Storage.WhatAFoolish.CookieDelivery.AvarTar,
+		Storage.WhatAFoolish.CookieDelivery.OrcKing, Storage.WhatAFoolish.CookieDelivery.Lorbas, Storage.WhatAFoolish.CookieDelivery.Wyda,
+		Storage.WhatAFoolish.CookieDelivery.Hjaern
 	}, 0
 	for i = 1, #storage do
 		if self:getStorageValue(storage[i]) == 1 then
@@ -306,4 +306,62 @@ function Player.getAccountStorage(self, accountId, key, forceUpdate)
 		return value
 	end
 	return false
+end
+
+function Player.getMarriageDescription(thing)
+	local descr = ""
+	if getPlayerMarriageStatus(thing:getGuid()) == MARRIED_STATUS then
+		playerSpouse = getPlayerSpouse(thing:getGuid())
+		if self == thing then
+			descr = descr .. " You are "
+		elseif thing:getSex() == PLAYERSEX_FEMALE then
+			descr = descr .. " She is "
+		else
+			descr = descr .. " He is "
+		end
+		descr = descr .. "married to " .. getPlayerNameById(playerSpouse) .. '.'
+	end
+	return descr
+end
+
+-- Special lib
+if not PLAYER_STORAGE then
+	PLAYER_STORAGE = {}
+end
+
+function Player:setSpecialStorage(storage, value)
+	if not PLAYER_STORAGE[self:getGuid()] then
+		self:loadSpecialStorage()
+	end
+
+	PLAYER_STORAGE[self:getGuid()][storage] = value
+end
+
+function Player:getSpecialStorage(storage)
+	if not PLAYER_STORAGE[self:getGuid()] then
+		self:loadSpecialStorage()
+	end
+
+	return PLAYER_STORAGE[self:getGuid()][storage]
+end
+
+function Player:loadSpecialStorage()
+	if not PLAYER_STORAGE then
+		PLAYER_STORAGE = {}
+	end
+
+	PLAYER_STORAGE[self:getGuid()] = {}
+	local resultId = db.storeQuery("SELECT * FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
+	if resultId then
+		local info = result.getStream(resultId , "info") or "{}"
+		unserializeTable(info, PLAYER_STORAGE[self:getGuid()])
+	end
+end
+
+function Player:saveSpecialStorage()
+	if PLAYER_STORAGE and PLAYER_STORAGE[self:getGuid()] then
+		local tmp = serializeTable(PLAYER_STORAGE[self:getGuid()])
+		db.query("DELETE FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
+		db.query(string.format("INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)", self:getGuid(), db.escapeBlob(tmp, #tmp)))
+	end
 end

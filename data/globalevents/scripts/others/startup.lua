@@ -1,35 +1,3 @@
-local startupGlobalStorages = {
-	GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
-	GlobalStorage.TheAncientTombs.DiprathSwitchesGlobalStorage,
-	GlobalStorage.TheAncientTombs.ThalasSwitchesGlobalStorage,
-	GlobalStorage.HeroRathleton.FirstMachines,
-	GlobalStorage.HeroRathleton.SecondMachines,
-	GlobalStorage.HeroRathleton.ThirdMachines,
-	GlobalStorage.HeroRathleton.DeepRunning,
-	GlobalStorage.HeroRathleton.HorrorRunning,
-	GlobalStorage.HeroRathleton.LavaRunning,
-	GlobalStorage.HeroRathleton.MaxxenRunning,
-	GlobalStorage.HeroRathleton.LavaCounter,
-	GlobalStorage.HeroRathleton.FourthMachines,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal1,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal2,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal3,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal4,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal5,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal6,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal7,
-	GlobalStorage.FerumbrasAscendant.Crystals.Crystal8,
-	GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals,
-	GlobalStorage.FerumbrasAscendant.FerumbrasEssence,
-	GlobalStorage.Feroxa.Active,
-	GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats,
-	GlobalStorage.FerumbrasAscendant.Elements.Active,
-	GlobalStorage.FerumbrasAscendant.Elements.First,
-	GlobalStorage.FerumbrasAscendant.Elements.Second,
-	GlobalStorage.FerumbrasAscendant.Elements.Third,
-	GlobalStorage.FerumbrasAscendant.Elements.Done
-}
-
 function onStartup()
 	print(">> Loading map attributes.")
 	-- Custom maps table
@@ -42,18 +10,30 @@ function onStartup()
 	loadLuaMapBook(BookTable)
 
 	-- Action and unique tables
-	-- Storage Doors table
-	loadLuaMapAction(ActionStorageDoor)
-	loadLuaMapUnique(UniqueStorageDoor)
-	-- Lever table
-	loadLuaMapAction(LeverAction)
-	loadLuaMapUnique(LeverUnique)
-	-- Tile table
-	loadLuaMapAction(TileAction)
-	loadLuaMapUnique(TileUnique)
+	-- Chest table
+	loadLuaMapAction(ChestAction)
+	loadLuaMapUnique(ChestUnique)
 	-- Corpse table
 	loadLuaMapAction(CorpseAction)
 	loadLuaMapUnique(CorpseUnique)
+	-- Doors quest table
+	loadLuaMapAction(QuestDoorAction)
+	loadLuaMapUnique(QuestDoorUnique)
+	-- Item table
+	loadLuaMapAction(ItemAction)
+	loadLuaMapUnique(ItemUnique)
+	-- Lever table
+	loadLuaMapAction(LeverAction)
+	loadLuaMapUnique(LeverUnique)
+	-- Teleport (magic forcefields) table
+	loadLuaMapAction(TeleportAction)
+	loadLuaMapUnique(TeleportUnique)
+	-- Teleport item table
+	loadLuaMapAction(TeleportItemAction)
+	loadLuaMapUnique(TeleportItemUnique)
+	-- Tile table
+	loadLuaMapAction(TileAction)
+	loadLuaMapUnique(TileUnique)
 	print("> Loaded all actions in the map")
 	print("> Loaded all uniques in the map")
 
@@ -126,7 +106,7 @@ function onStartup()
 	-- 0 = ignore exp rate /stage
 	-- 1 = include exp rate / stage
 	Game.setStorageValue(GlobalStorage.XpDisplayMode, 0)
-	
+
 	-- Hireling System
 	HirelingsInit()
 end

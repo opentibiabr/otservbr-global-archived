@@ -14,8 +14,8 @@ local mechanisms = {
 }
 
 local mechanisms2 = {
-	[9235] = {pos = {x = 32773, y = 31116, z = 7}},
-	[9236] = {pos = {x = 32780, y = 31115, z = 7}}
+	[1018] = {pos = {x = 32773, y = 31116, z = 7}},
+	[1019] = {pos = {x = 32780, y = 31115, z = 7}}
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)

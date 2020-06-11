@@ -11,7 +11,6 @@ local config = {
 	newPosition = Position(33215, 31470, 12)
 }
 
-
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(33201, 31475, 11) then

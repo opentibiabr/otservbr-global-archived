@@ -1,8 +1,8 @@
 local chests = {
-	[9008] = {itemid = 2495, count = 1},
-	[9009] = {itemid = 8905, count = 1},
-	[9010] = {itemid = 16111, count = 1},
-	[9011] = {itemid = 16112, count = 1}
+	[1002] = {itemid = 2495, count = 1},
+	[1003] = {itemid = 8905, count = 1},
+	[1004] = {itemid = 16111, count = 1},
+	[1005] = {itemid = 16112, count = 1}
 }
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -22,6 +22,5 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addItem(chest.itemid, chest.count)
 		player:setStorageValue(Storage.DemonOak.Done, 3)
 	end
-
 	return true
 end

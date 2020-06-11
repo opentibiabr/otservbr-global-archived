@@ -16,5 +16,5 @@ function tortoiseEggNargor.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-tortoiseEggNargor:uid(24897)
+tortoiseEggNargor:uid(14024)
 tortoiseEggNargor:register()

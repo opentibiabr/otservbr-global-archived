@@ -34,7 +34,6 @@ local function revertWalls(leverPosition)
 	end
 end
 
-
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, 'It doesn\'t move.')

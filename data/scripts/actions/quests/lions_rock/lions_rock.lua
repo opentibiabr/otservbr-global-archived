@@ -10,8 +10,8 @@ local rewards = {
 	'yellow gem'
 }
 
-local uniqueTable = {
-	[40003] = {
+local UniqueTable = {
+	[40004] = {
 		storage = Storage.LionsRock.LionsStrength,
 		itemPosition = {x = 33134, y = 32289, z = 8},
 		item = 10551,
@@ -22,7 +22,7 @@ local uniqueTable = {
 		pyramid nearby begins to shine.",
 		effect = CONST_ME_BLOCKHIT
 	},
-	[40004] = {
+	[40005] = {
 		storage = Storage.LionsRock.LionsBeauty,
 		itemPosition = {x = 33136, y = 32369, z = 8},
 		item = 23760,
@@ -32,7 +32,7 @@ local uniqueTable = {
 		message = "You burnt a lion's mane flower. The light in the small pyramid nearby begins to shine.",
 		effect = CONST_ME_REDSMOKE
 	},
-	[40005] = {
+	[40006] = {
 		storage = Storage.LionsRock.LionsTears,
 		itemPosition = {x = 33156, y = 32279, z = 8},
 		item = 23835,
@@ -79,7 +79,7 @@ function lionsRockSkeleton.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-lionsRockSkeleton:uid(24909)
+lionsRockSkeleton:uid(20001)
 lionsRockSkeleton:register()
 
 -- Lions rock sacrifices
@@ -160,7 +160,7 @@ function lionsGetHolyWater.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-lionsGetHolyWater:uid(40006)
+lionsGetHolyWater:uid(40007)
 lionsGetHolyWater:register()
 
 -- Rock translation scroll
@@ -201,7 +201,7 @@ function lionsRockTranslationScroll.onUse(player, item, fromPosition, target, to
 	return true
 end
 
-lionsRockTranslationScroll:id(40007)
+lionsRockTranslationScroll:id(40008)
 lionsRockTranslationScroll:register()
 
 -- Lions rock fountain

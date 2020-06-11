@@ -30,7 +30,7 @@ function onLogin(player)
 end
 
 
-function onThink(player, interval, item, position, lastPosition, fromPosition, toPosition)
+function onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
 	local player = creature:getMaster()
 	if not player then
 		return true

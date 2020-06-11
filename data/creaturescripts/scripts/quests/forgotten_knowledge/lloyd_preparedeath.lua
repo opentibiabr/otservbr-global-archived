@@ -7,7 +7,7 @@ local monsters = {
 
 local function revertLloyd(creature, cosmic)
 	local monster = Creature(creature)
-	if monster and creature:getHealth() >= 1 and creature:getPosition() == Position(32799, 32826, 14) then
+	if monster and monster:getHealth() >= 1 and monster:getPosition() == Position(32799, 32826, 14) then
 		monster:say('The cosmic energies in the chamber refocus on Lloyd.', TALKTYPE_MONSTER_SAY)
 		monster:teleportTo(Position(32799, 32828, 14))
 		monster:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

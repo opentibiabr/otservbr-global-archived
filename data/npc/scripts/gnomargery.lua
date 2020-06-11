@@ -69,7 +69,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(3500, true)
 				player:setStorageValue(SPIKE_LOWER_PARCEL_MAIN, -1)
-				player:setExhaustion(SPIKE_LOWER_PARCEL_DAILY, 86400)
+				player:setStorageValue(SPIKE_LOWER_PARCEL_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Deliver the four parcels to some of our far away outposts in the caverns.', cid)
 			end
@@ -81,7 +81,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(3500, true)
 				player:setStorageValue(SPIKE_LOWER_UNDERCOVER_MAIN, -1)
-				player:setExhaustion(SPIKE_LOWER_UNDERCOVER_DAILY, 86400)
+				player:setStorageValue(SPIKE_LOWER_UNDERCOVER_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Get three reports from our undercover agents posing as monsters in the caves around us.', cid)
 			end
@@ -93,7 +93,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(3500, true)
 				player:setStorageValue(SPIKE_LOWER_LAVA_MAIN, -1)
-				player:setExhaustion(SPIKE_LOWER_LAVA_DAILY, 86400)
+				player:setStorageValue(SPIKE_LOWER_LAVA_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Use the gnomish temperature measurement device to locate the hottest spot at the lava pools in the cave.', cid)
 			end
@@ -105,7 +105,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(3500, true)
 				player:setStorageValue(SPIKE_LOWER_KILL_MAIN, -1)
-				player:setExhaustion(SPIKE_LOWER_KILL_DAILY, 86400)
+				player:setStorageValue(SPIKE_LOWER_KILL_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Just go out to the caves and kill at least seven drillworms.', cid)
 			end
