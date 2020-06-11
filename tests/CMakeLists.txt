@@ -9,13 +9,12 @@ project(otbr_unittest)
 set(CMAKE_CXX_FLAGS     "-pipe -O0 -g -Wno-everything -std=c++11 -lstdc++ -lpthread -ldl")
 
 add_executable(otbr_unittest
-							${otbr_SRC}
 							main.cpp
 							account_test.cpp)
 
 target_compile_definitions(otbr_unittest PUBLIC -DUNIT_TESTING -DDEBUG_LOG)
 
-target_link_libraries(otbr_unittest Catch2::Catch2 ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
+target_link_libraries(otbr_unittest Catch2::Catch2 otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
 						${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
 						${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
 						${CMAKE_THREAD_LIBS_INIT})
