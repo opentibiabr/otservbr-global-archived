@@ -967,6 +967,7 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 		setField(L, "chance", lootBlock.chance);
 		setField(L, "subType", lootBlock.subType);
 		setField(L, "maxCount", lootBlock.countmax);
+		setField(L, "minCount", lootBlock.countmin);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
 		pushBoolean(L, lootBlock.unique);
@@ -14536,6 +14537,7 @@ void LuaScriptInterface::parseLoot(lua_State* L, const std::vector<LootBlock>& l
 		setField(L, "chance", lootBlock.chance);
 		setField(L, "subType", lootBlock.subType);
 		setField(L, "maxCount", lootBlock.countmax);
+		setField(L, "minCount", lootBlock.countmin);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
 		pushBoolean(L, lootBlock.unique);
@@ -15003,6 +15005,19 @@ int LuaScriptInterface::luaLootSetMaxCount(lua_State* L)
 	Loot* loot = getUserdata<Loot>(L, 1);
 	if (loot) {
 		loot->lootBlock.countmax = getNumber<uint32_t>(L, 2);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaLootSetMinCount(lua_State* L)
+{
+	// loot:setMinCount(min)
+	Loot* loot = getUserdata<Loot>(L, 1);
+	if (loot) {
+		loot->lootBlock.countmin = getNumber<uint32_t>(L, 2);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
