@@ -139,7 +139,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
 
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE   " -pipe -fvisibility=hidden -march=native -O3")
+  set(CMAKE_CXX_FLAGS_RELEASE   " -Wno-format -pipe -fvisibility=hidden -march=native -O3")
 
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
   # Ubuntu 16.04
