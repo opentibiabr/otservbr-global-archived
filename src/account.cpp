@@ -409,7 +409,7 @@ error_t Account::GetPremiumLastDay(time_t *last_day) {
 
 error_t Account::SetAccountType(AccountType account_type) {
   if (account_type < 0 || account_type > 5) {
-    LOG_F(ERROR, "Invalid Account Type!", static_cast<int>(account_type));
+    LOG_F(ERROR, "Invalid Account Type[%d]!", static_cast<int>(account_type));
     return ERROR_INVALID_ACC_TYPE;
   }
   account_type_ = account_type;
