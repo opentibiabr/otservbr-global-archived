@@ -4027,7 +4027,7 @@ if not Quests then
 					states = {
 						[1] = "Arito asked you to make a peace agreement between him and the Nomads.",
 						[2] = "Return to Arito and tell him the good news.",
-						[3] = "Now Arito are safe and you have acess to Nomads Cave."
+						[3] = "Now Arito are safe and you have access to Nomads Cave."
 					}
 				},
 				[3] = {

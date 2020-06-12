@@ -48,7 +48,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Elliott's keeps calling it that. It's just another job! You fixed some broken pipes and stuff? Let me check, {ok}?", cid)
 			npcHandler.topic[cid] = 3
 		end
-	-- Mission 3 start - sewer acess
+	-- Mission 3 start - sewer access
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 2) then
 			npcHandler:say("Good. Broken pipe and generator pieces, there's smoke evading. That's how you recognise them. See how you can fix them using your hands. Need about, oh, twenty of them at least repaired. Report to me or Jacob", cid)

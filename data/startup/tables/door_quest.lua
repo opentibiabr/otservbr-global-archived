@@ -30,7 +30,7 @@ QuestDoorAction = {
 		}
 	},
 	-- Rathleton quest door
-	[Storage.HeroRathleton.AcessDoor] = {
+	[Storage.HeroRathleton.AccessDoor] = {
 		itemId = false,
 		itemPos = {
 			{x = 33567, y = 31951, z = 14},
@@ -147,57 +147,57 @@ QuestDoorAction = {
 		itemPos = {{x = 32067, y = 31896, z = 3}}
 	},
 	-- Cults of tibia door
-	[Storage.CultsOfTibia.Minotaurs.EntranceAcessDoor] = {
+	[Storage.CultsOfTibia.Minotaurs.EntranceAccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 31950, y = 32501, z = 8}}
 	},
-	[Storage.CultsOfTibia.Minotaurs.AcessDoor] = {
+	[Storage.CultsOfTibia.Minotaurs.AccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 31957, y = 32468, z = 9}}
 	},
-	[Storage.CultsOfTibia.MotA.AcessDoorInvestigation] = {
+	[Storage.CultsOfTibia.MotA.AccessDoorInvestigation] = {
 		itemId = false,
 		itemPos = {{x = 33273, y = 32172, z = 8}}
 	},
-	[Storage.CultsOfTibia.MotA.AcessDoorGareth] = {
+	[Storage.CultsOfTibia.MotA.AccessDoorGareth] = {
 		itemId = false,
 		itemPos = {{x = 33220, y = 32147, z = 9}}
 	},
-	[Storage.CultsOfTibia.MotA.AcessDoorDenominator] = {
+	[Storage.CultsOfTibia.MotA.AccessDoorDenominator] = {
 		itemId = false,
 		itemPos = {{x = 33220, y = 32149, z = 9}}
 	},
-	[Storage.CultsOfTibia.Barkless.TrialAcessDoor] = {
+	[Storage.CultsOfTibia.Barkless.TrialAccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 32688, y = 31543, z = 9}}
 	},
-	[Storage.CultsOfTibia.Barkless.TarAcessDoor] = {
+	[Storage.CultsOfTibia.Barkless.TarAccessDoor] = {
 		itemId = false,
 		itemPos = {
 			{x = 32747, y = 31462, z = 8},
 			{x = 32678, y = 31506, z = 8}
 		}
 	},
-	[Storage.CultsOfTibia.Barkless.AcessDoor] = {
+	[Storage.CultsOfTibia.Barkless.AccessDoor] = {
 		itemId = false,
 		itemPos = {
 			{x = 32742, y = 31408, z = 8},
 			{x = 32686, y = 31430, z = 8}
 		}
 	},
-	[Storage.CultsOfTibia.Barkless.BossAcessDoor] = {
+	[Storage.CultsOfTibia.Barkless.BossAccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 32672, y = 31543, z = 9}}
 	},
-	[Storage.CultsOfTibia.Life.AcessDoor] = {
+	[Storage.CultsOfTibia.Life.AccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 33295, y = 32271, z = 12}}
 	},
-	[Storage.CultsOfTibia.Misguided.AcessDoor] = {
+	[Storage.CultsOfTibia.Misguided.AccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 32508, y = 32370, z = 9}}
 	},
-	[Storage.CultsOfTibia.FinalBoss.AcessDoor] = {
+	[Storage.CultsOfTibia.FinalBoss.AccessDoor] = {
 		itemId = false,
 		itemPos = {{x = 33452, y = 32241, z = 7}}
 	},

@@ -62,7 +62,7 @@ if npcHandler.topic[cid] == 1 and msgcontains(msg, "project") then
 	elseif npcHandler.topic[cid] == 5 and msgcontains(msg, "yes") then
 		npcHandler:say({"Fantastic! Go there and then tell me what you've seen. I've oppened the door for you. Take care of yourself!"}, cid)
 		player:setStorageValue(Storage.CultsOfTibia.Life.Mission, 2)
-		player:setStorageValue(Storage.CultsOfTibia.Life.AcessDoor, 1)
+		player:setStorageValue(Storage.CultsOfTibia.Life.AccessDoor, 1)
 		playerTopic[cid] = 0
 
 	-- Inútil

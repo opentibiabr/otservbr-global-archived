@@ -17,7 +17,7 @@ end
 
 local function greetCallback(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.Kilmaresh.First.Acesso) < 1 then
+	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "How could I help you?") -- It needs to be revised, it's not the same as the global
 		npcHandler.topic[cid] = 1
 	elseif (player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.Kilmaresh.First.JamesfrancisTask) <= 50)

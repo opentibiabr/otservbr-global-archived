@@ -285,7 +285,7 @@ Storage = {
 			TimeTaskMeasurements = 50137,
 			TimeTaskCharting = 50138
 		},
-		Acess = {
+		Access = {
 			LavaPumpWarzoneVI = 50139,
 			TimerWarzoneVI = 50140,
 			LavaPumpWarzoneV = 50141,
@@ -333,11 +333,11 @@ Storage = {
 		-- Reserved storage from 50200 - 50269
 		Questline = 50200,
 		Minotaurs = {
-			EntranceAcessDoor = 50201,
+			EntranceAccessDoor = 50201,
 			JamesfrancisTask = 50202,
 			Mission = 50203,
 			BossTimer = 50204,
-			AcessDoor = 50205
+			AccessDoor = 50205
 		},
 		MotA = {
 			Mission = 50210,
@@ -346,9 +346,9 @@ Storage = {
 			Stone3 = 50213,
 			Answer = 50214,
 			QuestionId = 50215,
-			AcessDoorInvestigation = 50216,
-			AcessDoorGareth = 50217,
-			AcessDoorDenominator = 50218
+			AccessDoorInvestigation = 50216,
+			AccessDoorGareth = 50217,
+			AccessDoorDenominator = 50218
 		},
 		Barkless = {
 			Mission = 50225,
@@ -359,10 +359,10 @@ Storage = {
 			Objects = 50230,
 			Temp = 50231,
 			BossTimer = 50232,
-			TrialAcessDoor = 50233,
-			TarAcessDoor = 50234,
-			AcessDoor = 50235,
-			BossAcessDoor = 50236
+			TrialAccessDoor = 50233,
+			TarAccessDoor = 50234,
+			AccessDoor = 50235,
+			BossAccessDoor = 50236
 		},
 		Orcs = {
 			Mission = 50240,
@@ -372,7 +372,7 @@ Storage = {
 		Life = {
 			Mission = 50245,
 			BossTimer = 50246,
-			AcessDoor = 50247
+			AccessDoor = 50247
 		},
 		Humans = {
 			Mission = 50250,
@@ -386,12 +386,12 @@ Storage = {
 			Exorcisms = 50257,
 			Time = 50258,
 			BossTimer = 50259,
-			AcessDoor = 50260
+			AccessDoor = 50260
 		},
 		FinalBoss = {
 			Mission = 50261,
 			BossTimer = 50262,
-			AcessDoor = 50263
+			AccessDoor = 50263
 		}
 	},
 	ThreatenedDreams = {
@@ -409,10 +409,10 @@ Storage = {
 		KroazurTimer = 50280,
 		CoupleMission01 = 50281,
 		CoupleMission02 = 50282,
-		FacelessBaneTime = 50282,
-		Reward01 = 50283,
-		Reward02 = 50284,
-		Reward03 = 50285
+		FacelessBaneTime = 50283,
+		Reward01 = 50284,
+		Reward02 = 50285,
+		Reward03 = 50286
 	},
 	FirstDragon = {
 		-- Reserved storage from 50350 - 50379
@@ -448,10 +448,10 @@ Storage = {
 		QuestLine = 50400,
 		VotesCasted = 50401,
 		Rank = 50402,
-		AcessDoor = 50403,
-		AcessTeleport1 = 50404,
-		AcessTeleport2 = 50405,
-		AcessTeleport3 = 50406
+		AccessDoor = 50403,
+		AccessTeleport1 = 50404,
+		AccessTeleport2 = 50405,
+		AccessTeleport3 = 50406
 	},
 	FerumbrasAscension = {
 		-- Reserved storage from 50420 - 50469
@@ -481,7 +481,7 @@ Storage = {
 		FirstDoor = 50443,
 		MonsterDoor = 50444,
 		TarbazDoor = 50445,
-		HabitatsAcess = 50446,
+		HabitatsAccess = 50446,
 		HabitatsTimer = 50447,
 		TarbazNotes = 50448,
 		ColorLever = 50449,
@@ -2184,8 +2184,8 @@ table.sort(extraction) -- Sort the table
 if #extraction > 1 then
 	for i = 1, #extraction - 1 do
 		if extraction[i] == extraction[i+1] then
-			print("Duplicate storage value found: ".. extraction[i])
-			print(string.format("Processed in %.4f(s)", os.clock() - benchmark))
+			print(">> Duplicate storage value found: ".. extraction[i])
+			print(string.format("> Processed in %.4f(s)", os.clock() - benchmark))
 		end
 	end
 end

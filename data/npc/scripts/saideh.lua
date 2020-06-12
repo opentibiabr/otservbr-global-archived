@@ -18,7 +18,7 @@ end
 local playerTopic = {}
 local function greetCallback(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.Kilmaresh.First.Acesso) < 1 then
+	if player:getStorageValue(Storage.Kilmaresh.First.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Hello, my name is Saideh. Once this was the entry to the crypt of our heroes. One of the graves belongs to our beloved hero Dayyan. Nowadays it is not a good idea to visit this place.")
 		playerTopic[cid] = 1
 	end
