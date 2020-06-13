@@ -10,6 +10,8 @@ function Party:onDisband()
 	return true
 end
 
+local maximumPlayers = 4 -- Depois desse número, vai dividir perder a experiencia.
+
 function Party:onShareExperience(exp)
 	local sharedExperienceMultiplier = 1.20 --20%
 	local vocationsIds = {}
@@ -28,8 +30,15 @@ function Party:onShareExperience(exp)
 
 	local size = #vocationsIds
 	if size > 1 then
-		sharedExperienceMultiplier = 1.0 + ((size * (5 * (size - 1) + 10)) / 100)
+		sharedExperienceMultiplier = 1.0 + ((size * (10 + (size - 1) * 5)) / 100)
 	end
 
-	return (exp * sharedExperienceMultiplier) / (#self:getMembers() + 1)
+	local countPlayersParty = #self:getMembers() + 1
+
+	local result = exp * sharedExperienceMultiplier
+	if countPlayersParty >= maximumPlayers then
+		result = result / countPlayersParty
+	end
+
+	return result
 end
