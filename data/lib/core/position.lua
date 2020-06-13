@@ -93,10 +93,10 @@ function Position:moveDownstairs()
             end
 
             local position = self + Position.directionOffset[direction]
-			local new_tile = Tile(position)
-			if not new_tile then return false end
+			local newTile = Tile(position)
+			if not newTile then return false end
 			
-            if new_tile:isWalkable(false, false, false, false, true) then
+            if newTile:isWalkable(false, false, false, false, true) then
                 swap(self, position)
                 return self
             end
