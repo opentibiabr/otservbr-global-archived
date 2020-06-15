@@ -60,10 +60,6 @@
 	<!-- oramond -->
 	<action itemid="22944" script="oramond/teleport_west.lua" />
 	<action itemid="22949" script="oramond/teleport_north.lua" />
-	<action itemid="23400" script="oramond/gerator.lua" />
-	<action itemid="23401" script="oramond/gerator.lua" />
-	<action itemid="23402" script="oramond/gerator.lua" />
-	<action itemid="23403" script="oramond/gerator.lua" />
 	<action itemid="23668" script="oramond/sewer_grate_teleport.lua" />
 	<action itemid="23669" script="oramond/sewer_grate.lua" />
 	<action itemid="23422" script="oramond/elevator.lua" />
@@ -157,7 +153,7 @@
 	<action fromid="6570" toid="6571" script="others/surprise_bag.lua" />
 	<action itemid="24324" script="others/sweet_heart.lua" />
 	<action itemid="3955" script="others/voodoo_doll.lua" />
-	<action fromuid="12140" touid="12149" script="others/ore_wagon.lua" />
+	<action fromuid="1042" touid="1051" script="others/ore_wagon.lua" />
 	<action fromid="36336" toid="36351" script="others/golden_outfit_display.lua" />
 	<!-- construction kits -->
 	<action fromid="3901" toid="3938" script="others/construction_kits.lua" />
@@ -279,9 +275,9 @@
 	<!-- rookgaard -->
 	<action actionid="30492" script="rookgaard/chest.lua" />
 	<action actionid="50239" script="rookgaard/sewer_lever.lua" />
-	<action uniqueid="5635" script="rookgaard/katana_quest_lever.lua" />
-	<action uniqueid="5636" script="rookgaard/katana_quest_door.lua" />
-	<action uniqueid="5638" script="rookgaard/bearroom_quest_lever.lua" />
+	<action uniqueid="1054" script="rookgaard/katana_quest_lever.lua" />
+	<action uniqueid="1055" script="rookgaard/katana_quest_door.lua" />
+	<action uniqueid="1056" script="rookgaard/bearroom_quest_lever.lua" />
 	<action actionid="5639" script="rookgaard/doublet_quest.lua" />
 	<action actionid="5640" script="rookgaard/honey_flower_quest.lua" />
 	<action actionid="5641" script="rookgaard/banana_quest.lua" />
@@ -298,7 +294,7 @@
 	<action actionid="26300" script="system/quest_system1.lua" />
 	<action actionid="27300" script="system/quest_system1.lua" />
 	<action actionid="28300" script="system/quest_system1.lua" />
-	<action uniqueid="9898" script="system/quest_system1.lua" />
+	<action uniqueid="64140" script="system/quest_system1.lua" />
 	<!-- tools -->
 	<action itemid="13158" script="tools/present.lua" />
 	<action itemid="8717" script="tools/lock_pick.lua" />
@@ -346,7 +342,7 @@
 	<action actionid="50806" script="quests/adventurers_guild/warrior_skeleton.lua" />
 	<action actionid="50808" script="quests/adventurers_guild/treasure.lua" />
 	<!-- annihilator quest -->
-	<action actionid="2214" script="quests/annihilator/door.lua" />
+	<action actionid="51690" script="quests/annihilator/door.lua" />
 	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
 	<!-- barbarian test quest -->
 	<action fromid="7174" toid="7176" script="quests/barbarian_test/horn.lua" />
@@ -410,19 +406,12 @@
 	<action itemid="31993" script="quests/dangerous_depth/using_crystals.lua" />
 	<!-- access crystal -->
 	<action fromaid="57350" toaid="57367" script="quests/dangerous_depth/warzone_crystals.lua" />
-	<!-- dark trails quest -->
-	<action uniqueid="9511" script="quests/dark_trails/boss_the_ravager.lua" />
-	<action actionid="9512" script="quests/dark_trails/boss_death_priest_shargon.lua" />
-	<action actionid="9746" script="quests/dark_trails/corpse.lua" />
-	<action actionid="9748" script="quests/dark_trails/reward_room_exit.lua" />
-	<!-- deepling outfits quest -->
-	<action itemid="15358" script="quests/deepling_outfits/anchor.lua" />
 	<!-- demon helmet quest -->
 	<action uniqueid="2005" script="quests/demon_helmet/lever.lua" />
 	<!-- demon oak -->
 	<action itemid="8293" script="quests/demon_oak/demon_oak.lua" />
-	<action fromuid="9008" touid="9011" script="quests/demon_oak/demon_oak_chest.lua" />
-	<action uniqueid="9007" script="quests/demon_oak/demon_oak_gravestone.lua" />
+	<action uniqueid="1001" script="quests/demon_oak/demon_oak_gravestone.lua" />
+	<action fromuid="1002" touid="1005" script="quests/demon_oak/demon_oak_chest.lua" />
 	<!-- devil helmet quest -->
 	<action actionid="20594" script="quests/devil_helmet/lever.lua" />
 	<!-- dreamer_challenge quest -->
@@ -436,11 +425,11 @@
 	<!-- druid outfit quest -->
 	<action itemid="5938" script="quests/druid_outfit/waterskin.lua" />
 	<!-- dwarven legs quest -->
-	<action actionid="50109" script="quests/dwarven_legs/ore_wagon1.lua" />
-	<action actionid="42150" script="quests/dwarven_legs/ore_wagon2.lua" />
+	<action fromaid="50109" toaid="50110" script="quests/dwarven_legs/ore_wagon.lua" />
 	<action actionid="42139" script="quests/dwarven_legs/ladder.lua" />
 	<!-- elemental_spheres -->
-	<action uniqueid="9024" script="quests/elemental_spheres/lever.lua" />
+	<action uniqueid="1010" script="quests/elemental_spheres/lever.lua" />
+	<action fromuid="1011" touid="1014" script="quests/elemental_spheres/lord_of_elements_lever.lua" />
 	<action fromid="7911" toid="7912" script="quests/elemental_spheres/machine1.lua" />
 	<action fromid="7913" toid="7914" script="quests/elemental_spheres/machine2.lua" />
 	<action fromid="7915" toid="7916" script="quests/elemental_spheres/machine1.lua" />
@@ -449,7 +438,6 @@
 	<action fromid="8302" toid="8303" script="quests/elemental_spheres/soils1.lua" />
 	<action fromid="8304" toid="8306" script="quests/elemental_spheres/soils2.lua" />
 	<action itemid="8300" script="quests/elemental_spheres/soils2.lua" />
-	<action fromuid="9025" touid="9028" script="quests/elemental_spheres/lord_of_elements_lever.lua" />
 	<!-- explorer_society quest -->
 	<action itemid="4869" script="quests/explorer_society/botanist.lua" />
 	<action itemid="4865" script="quests/explorer_society/butterfly.lua" />
@@ -458,16 +446,6 @@
 	<action itemid="7242" script="quests/explorer_society/resonance.lua" />
 	<action itemid="4851" script="quests/explorer_society/stone.lua" />
 	<action itemid="4853" script="quests/explorer_society/tracing_paper.lua" />
-	<action actionid="1098" script="quests/explorer_society/dwacatra_door.lua" />
-	<action actionid="1097" script="quests/explorer_society/chorurn_door.lua" />
-	<action actionid="1092" script="quests/explorer_society/bonelords_door.lua" />
-	<action actionid="1096" script="quests/explorer_society/orc_powder_door.lua" />
-	<action actionid="1094" script="quests/explorer_society/edron_door.lua" />
-	<action actionid="1095" script="quests/explorer_society/hellgate_door.lua" />
-	<action actionid="1091" script="quests/explorer_society/banshee_door.lua" />
-	<action actionid="1093" script="quests/explorer_society/calassa_door.lua" />
-	<!-- family brooch -->
-	<action actionid="32700" script="quests/explorer_society/carving_teleport_door.lua" />
 	<!-- father's burden quest -->
 	<action fromid="12545" toid="12546" script="quests/fathers_burden/corpse.lua" />
 	<!-- ferumbras ascendant quest -->
@@ -501,18 +479,18 @@
 	<action fromid="25429" toid="25430" script="quests/ferumbras_ascendant/boots_of_homecoming.lua" />
 	<action itemid="25354" script="quests/ferumbras_ascendant/purified_soul.lua" />
 	<action itemid="24838" script="quests/ferumbras_ascendant/teleportation_rod.lua" />
-	<action uniqueid="9525" script="quests/ferumbras_ascendant/ferumbras_lever.lua" />
-	<action uniqueid="9526" script="quests/ferumbras_ascendant/plagirath_lever.lua" />
-	<action uniqueid="9527" script="quests/ferumbras_ascendant/ragiaz_lever.lua" />
-	<action uniqueid="9528" script="quests/ferumbras_ascendant/razzagorn_lever.lua" />
-	<action uniqueid="9529" script="quests/ferumbras_ascendant/mazoran_lever.lua" />
-	<action uniqueid="9530" script="quests/ferumbras_ascendant/zamulosh_lever.lua" />
-	<action uniqueid="9531" script="quests/ferumbras_ascendant/tarbaz_lever.lua" />
-	<action uniqueid="9532" script="quests/ferumbras_ascendant/shulgrax_lever.lua" />
-	<action uniqueid="9533" script="quests/ferumbras_ascendant/the_shatterer_lever.lua" />
-	<action uniqueid="9534" script="quests/ferumbras_ascendant/rat_lever.lua" />
-	<action fromuid="9535" touid="9538" script="quests/ferumbras_ascendant/the_shatterer_levers.lua" />
-	<action uniqueid="9540" script="quests/ferumbras_ascendant/reward.lua" />
+	<action uniqueid="1021" script="quests/ferumbras_ascendant/ferumbras_lever.lua" />
+	<action uniqueid="1022" script="quests/ferumbras_ascendant/plagirath_lever.lua" />
+	<action uniqueid="1023" script="quests/ferumbras_ascendant/ragiaz_lever.lua" />
+	<action uniqueid="1024" script="quests/ferumbras_ascendant/razzagorn_lever.lua" />
+	<action uniqueid="1025" script="quests/ferumbras_ascendant/mazoran_lever.lua" />
+	<action uniqueid="1026" script="quests/ferumbras_ascendant/zamulosh_lever.lua" />
+	<action uniqueid="1027" script="quests/ferumbras_ascendant/tarbaz_lever.lua" />
+	<action uniqueid="1028" script="quests/ferumbras_ascendant/shulgrax_lever.lua" />
+	<action uniqueid="1029" script="quests/ferumbras_ascendant/the_shatterer_lever.lua" />
+	<action uniqueid="1030" script="quests/ferumbras_ascendant/rat_lever.lua" />
+	<action fromuid="1031" touid="1034" script="quests/ferumbras_ascendant/the_shatterer_levers.lua" />
+	<action uniqueid="1035" script="quests/ferumbras_ascendant/reward.lua" />
 	<action itemid="34784" script="quests/ferumbras_ascendant/mysterious_scroll.lua" />
 	<!-- forgotten knowledge -->
 	<action itemid="26402" script="quests/forgotten_knowledge/lantern.lua" />
@@ -551,7 +529,7 @@
 	<action actionid="4650" script="quests/gravedigger/palanca.lua" />
 	<action itemid="21464" script="quests/gravedigger/cape.lua" />
 	<action actionid="4662" script="quests/gravedigger/scroll.lua" />
-	<action actionid="4669" script="quests/gravedigger/estante.lua" />
+	<action actionid="4669" script="quests/gravedigger/bookcase.lua" />
 	<action uniqueid="4663" script="quests/gravedigger/caixa.lua" />
 	<action itemid="21251" script="quests/gravedigger/sacrifice.lua" />
 	<action fromaid="4651" toaid="4653" script="quests/gravedigger/inscriptions.lua" />
@@ -565,7 +543,7 @@
 	<action itemid="24730" script="quests/grimvale/closed_silvered_trap.lua" />
 	<action itemid="24714" script="quests/grimvale/silver_liquid.lua" />
 	<!-- heart of destruction quest -->
-	<action itemid="26342" script="quests/heart_of_destruction/devourer_acess.lua" />
+	<action itemid="26342" script="quests/heart_of_destruction/devourer_access.lua" />
 	<action itemid="26194" script="quests/heart_of_destruction/sparkion_eggs.lua" />
 	<action fromid="26340" toid="26341" script="quests/heart_of_destruction/sparkion_eggs.lua" />
 	<action actionid="14320" script="quests/heart_of_destruction/charges_lever.lua" />
@@ -577,9 +555,8 @@
 	<action actionid="14330" script="quests/heart_of_destruction/eradicator_lever.lua" />
 	<action actionid="14331" script="quests/heart_of_destruction/outburst_lever.lua" />
 	<action actionid="14332" script="quests/heart_of_destruction/final_lever.lua" />
-	<action uniqueid="9600" script="quests/heart_of_destruction/reward.lua" />
+	<action uniqueid="1038" script="quests/heart_of_destruction/reward.lua" />
 	<!-- hero of rathleton quest -->
-	<action actionid="24860" script="quests/hero_of_rathleton/access_door.lua" />
 	<action actionid="24861" script="quests/hero_of_rathleton/machines_deep_terror.lua" />
 	<action actionid="24863" script="quests/hero_of_rathleton/machines_glooth_horror.lua" />
 	<action actionid="24867" script="quests/hero_of_rathleton/machines_professor_maxxen.lua" />
@@ -605,17 +582,16 @@
 	<action uniqueid="3086" script="quests/in_service_of_yalahar/last_fight.lua" />
 	<action fromid="9743" toid="9744" script="quests/in_service_of_yalahar/matrix.lua" />
 	<action fromuid="3091" touid="3102" script="quests/in_service_of_yalahar/mechanism.lua" />
-	<action fromuid="9235" touid="9236" script="quests/in_service_of_yalahar/mechanism.lua" />
+	<action fromuid="1018" touid="1019" script="quests/in_service_of_yalahar/mechanism.lua" />
 	<action fromuid="3081" touid="3082" script="quests/in_service_of_yalahar/mr_west_door.lua" />
 	<action fromuid="3088" touid="3090" script="quests/in_service_of_yalahar/reward.lua" />
-	<action uniqueid="9031" script="quests/in_service_of_yalahar/morik_summon.lua" />
+	<action uniqueid="1015" script="quests/in_service_of_yalahar/morik_summon.lua" />
 	<action fromaid="23700" toaid="23701" script="quests/in_service_of_yalahar/yalahar_machine_war_golems.lua" />
 	<!-- inquisition quest -->
-	<action fromuid="9017" touid="9020" script="quests/inquisition/brother_lever.lua" />
+	<action fromuid="1006" touid="1009" script="quests/inquisition/brother_lever.lua" />
 	<action itemid="8753" script="quests/inquisition/mw.lua" />
-	<action uniqueid="9021" script="quests/inquisition/reward_door.lua" />
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
-	<action actionid="1004" script="quests/inquisition/ungreez.lua" />
+	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
 	<!-- koshei amulet quest -->
 	<action itemid="8266" script="quests/koshei_amulet/boss.lua" />
@@ -634,12 +610,7 @@
 	<action itemid="25395" script="quests/mysterious_ornate/mysterious_metal_egg.lua" />
 	<action itemid="21382" script="quests/mysterious_ornate/mysterious_metal_egg.lua" />
 	<!-- oramond quest -->
-	<action itemid="23468" script="quests/oramond/juice_roots.lua" />
-	<action fromid="23475" toid="23478" script="quests/oramond/juice_roots.lua" />
-	<action itemid="23469" script="quests/oramond/juice_roots.lua" />
-	<action itemid="23470" script="quests/oramond/juice_roots.lua" />
-	<action itemid="23471" script="quests/oramond/juice_roots.lua" />
-	<action uniqueid="9513" script="quests/oramond/glooth_fairy_lever.lua" />
+	<action uniqueid="1020" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->
 	<action fromaid="4249" toaid="4250" script="quests/others/draconia_quest_walls.lua" />
 	<action actionid="5556" script="quests/others/plate_armor_quest.lua" />
@@ -650,8 +621,8 @@
 	<action actionid="5633" script="quests/others/serpentine_tower_lever.lua" />
 	<action actionid="4210" script="quests/others/senja_castle_lever.lua" />
 	<action actionid="19910" script="quests/others/steal_from_thieves.lua" />
-	<action uniqueid="9177" script="quests/others/iron_helmet_lever.lua" />
-	<action uniqueid="9192" script="quests/others/orc_edron_lever.lua" />
+	<action uniqueid="1016" script="quests/others/iron_helmet_lever.lua" />
+	<action uniqueid="1017" script="quests/others/orc_edron_lever.lua" />
 	<action uniqueid="1912" script="quests/others/desert_dungeon_lever_quest.lua" />
 	<action uniqueid="50023" script="quests/others/triangle_tower_lever.lua" />
 	<action fromaid="50023" toaid="50024" script="quests/others/thais_lighthouse_lever.lua" />
@@ -664,7 +635,7 @@
 	<action actionid="8815" script="quests/pits_of_inferno/fountain.lua" />
 	<action actionid="2022" script="quests/pits_of_inferno/goshnar.lua" />
 	<action fromuid="2050" touid="2065" script="quests/pits_of_inferno/levers.lua" />
-	<action uniqueid="1021" script="quests/pits_of_inferno/oil.lua" />
+	<action uniqueid="1037" script="quests/pits_of_inferno/oil.lua" />
 	<action uniqueid="3300" script="quests/pits_of_inferno/stone_lever.lua" />
 	<action fromuid="2025" touid="2028" script="quests/pits_of_inferno/walls.lua" />
 	<action fromuid="3301" touid="3302" script="quests/pits_of_inferno/ladder_levers.lua" />
@@ -686,8 +657,6 @@
 	<action actionid="42503" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<action actionid="42504" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<action actionid="42505" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<!-- sams old backpack quest -->
-	<action actionid="42535" script="quests/sam_old_backpack/door.lua" />
 	<!-- secret library -->
 	<action actionid="34000" script="quests/secret_library/brokul_lever.lua" />
 	<!-- secret service quest -->
@@ -715,8 +684,7 @@
 	<action actionid="12105" script="quests/the_ancient_tombs/ruins_instruments.lua" />
 	<action actionid="12120" script="quests/the_ancient_tombs/lever.lua" />
 	<!-- - the ape city quest -->
-	<action actionid="12129" script="quests/the_ape_city/mission9_catacombs_lever.lua" />
-	<action uniqueid="12131" script="quests/the_ape_city/mission9_catacombs_lever.lua" />
+	<action fromuid="1040" touid="1041" script="quests/the_ape_city/mission9_catacombs_lever.lua" />
 	<action itemid="4846" script="quests/the_ape_city/mission9_catacombs_snake_destroyer.lua" />
 	<!-- the hidden city of beregar -->
 	<action actionid="50128" script="quests/the_hidden_city_of_beregar/deeper_mine_wagon.lua" />
@@ -762,7 +730,8 @@
 	<action itemid="13601" script="quests/their_master_voice/slime_gobbler.lua" />
 	<!-- threatened dreams quest -->
 	<action uniqueid="34123" script="quests/threatened_dreams/poacher_chest.lua" />
-	<action itemid="28600" script="quests/threatened_dreams/poacher_use.lua" />
+	<action itemid="34592" script="quests/threatened_dreams/poacher_use.lua" />
+	<action uniqueid="1039" script="quests/threatened_dreams/lever.lua" />
 	<!-- tibia tales quest -->
 	<action itemid="7496" script="quests/tibia_tales/ultimate_booze_beer_bottle.lua" />
 	<action itemid="8205" script="quests/tibia_tales/exterminator_flask.lua" />
@@ -770,7 +739,7 @@
 	<action uniqueid="21137" script="quests/tinder_box/reward.lua" />
 	<action itemid="22728" script="quests/tinder_box/tinder_box.lua" />
 	<!-- unnatural selection -->
-	<action uniqueid="12335" script="quests/unnatural_selection/mission5_ray_of_light.lua" />
+	<action uniqueid="1052" script="quests/unnatural_selection/mission5_ray_of_light.lua" />
 	<!-- what a foolish quest -->
 	<action itemid="7478" script="quests/what_a_foolish/flask.lua" />
 	<action itemid="7482" script="quests/what_a_foolish/crate.lua" />
@@ -790,7 +759,7 @@
 	<action itemid="12303" script="quests/wrath_of_the_emperor/mission02_firstcontact_repair_teleport.lua" />
 	<action itemid="12316" script="quests/wrath_of_the_emperor/mission03_the_keeper.lua" />
 	<action itemid="12320" script="quests/wrath_of_the_emperor/mission03_the_keeper.lua" />
-	<action uniqueid="12354" script="quests/wrath_of_the_emperor/mission04_sacrament_of_the_snake_sceptre.lua" />
+	<action uniqueid="1053" script="quests/wrath_of_the_emperor/mission04_sacrament_of_the_snake_sceptre.lua" />
 	<action fromuid="3184" touid="3185" script="quests/wrath_of_the_emperor/mission08_uninvited_guests_lever.lua" />
 	<action itemid="12328" script="quests/wrath_of_the_emperor/mission09_the_sleeping_dragon_mixture.lua" />
 	<action itemid="12318" script="quests/wrath_of_the_emperor/mission10_a_message_of_freedom_sceptre.lua" />

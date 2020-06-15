@@ -2,7 +2,7 @@ local peelerfun = Action()
 
 function peelerfun.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
-	if player:getStorageValue(Storage.KilmareshQuest.Eighth.Tefrit) == 2 then
+	if player:getStorageValue(Storage.Kilmaresh.Eighth.Tefrit) == 2 then
 		if table.contains({36211}, target.itemid) then
             player:sendTextMessage(MESSAGE_INFO_DESCR,"You are peeling a piece of tark off the again tree.")
 			player:addItem(36164, 1)

@@ -2,10 +2,10 @@ local cagekey = Action()
 
 function cagekey.onUse(player, item, frompos, item2, topos)
 
-    if player:getStorageValue(Storage.KilmareshQuest.Fourteen.Remains) == 2 then
+    if player:getStorageValue(Storage.Kilmaresh.Fourteen.Remains) == 2 then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You have found a wooden cage key.")
 		player:addItem(36214, 1) -- Wooden Cage Key
-        player:setStorageValue(Storage.KilmareshQuest.Fourteen.Remains, 3)
+        player:setStorageValue(Storage.Kilmaresh.Fourteen.Remains, 3)
     else
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Empty.")
     end

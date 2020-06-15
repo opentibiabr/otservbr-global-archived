@@ -17,7 +17,7 @@ end
 
 local function greetCallback(cid, message)
 	local player = Player(cid)
-	if not msgcontains(message, "djanni'hah") and player:getStorageValue(Storage.DjinnWar.Faction.Efreet) ~= 1 then
+	if not msgcontains(message, "djanni'hah") and player:getStorageValue(Storage.DjinnWar.Faction.EfreetDoor) ~= 1 then
 		npcHandler:say('Shove off, little one! Humans are not welcome here, |PLAYERNAME|!', cid)
 		return false
 	end
@@ -30,7 +30,7 @@ local function greetCallback(cid, message)
 		return false
 	end
 
-	if player:getStorageValue(Storage.DjinnWar.Faction.Efreet) ~= 1 then
+	if player:getStorageValue(Storage.DjinnWar.Faction.EfreetDoor) ~= 1 then
 		npcHandler:setMessage(MESSAGE_GREET, 'What? You know the word, |PLAYERNAME|? All right then - I won\'t kill you. At least, not now.  What brings you {here}?')
 	else
 		npcHandler:setMessage(MESSAGE_GREET, 'Still alive, |PLAYERNAME|? What brings you {here}?')
@@ -58,7 +58,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if msgcontains(msg, 'passage') then
-		if player:getStorageValue(Storage.DjinnWar.Faction.Efreet) ~= 1 then
+		if player:getStorageValue(Storage.DjinnWar.Faction.EfreetDoor) ~= 1 then
 			npcHandler:say({
 				'Only the mighty Efreet, the true djinn of Tibia, may enter Mal\'ouquah! ...',
 				'All Marid and little worms like yourself should leave now or something bad may happen. Am I right?'
@@ -81,7 +81,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 
 		elseif msgcontains(msg, 'no') then
-			if player:getStorageValue(Storage.DjinnWar.Faction.Marid) == 1 then
+			if player:getStorageValue(Storage.DjinnWar.Faction.MaridDoor) == 1 then
 				npcHandler:say('Who do you think you are? A Marid? Shove off you worm!', cid)
 				npcHandler.topic[cid] = 0
 			else
@@ -111,7 +111,7 @@ local function creatureSayCallback(cid, type, msg)
 				'Go now to general Baa\'leal and don\'t forget to greet him correctly! ...',
 				'And don\'t touch anything!'
 			}, cid)
-			player:setStorageValue(Storage.DjinnWar.Faction.Efreet, 1)
+			player:setStorageValue(Storage.DjinnWar.Faction.EfreetDoor, 1)
 			player:setStorageValue(Storage.DjinnWar.Faction.Greeting, 0)
 
 		elseif msgcontains(msg, 'no') then

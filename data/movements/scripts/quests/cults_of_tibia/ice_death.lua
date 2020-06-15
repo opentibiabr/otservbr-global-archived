@@ -65,7 +65,7 @@ function onStepIn(creature, item, position, fromPosition)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You lost 0 experience and 0.00% of all of your skills.")
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You did not lose any items.")
 		player:setStorageValue(Storage.CultsOfTibia.Barkless.Mission, 3)
-		player:setStorageValue(Storage.CultsOfTibia.Barkless.AcessDoor, 1)
+		player:setStorageValue(Storage.CultsOfTibia.Barkless.AccessDoor, 1)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The cold has all but disappeared from your body and you're getting warmer. You need to renew all preparations for purification.")
 		player:sendFakeDeathWindow()
 	else

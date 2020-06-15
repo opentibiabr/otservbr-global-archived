@@ -102,7 +102,7 @@ function onKill(creature, target)
 		addEvent(revertTeleport, 2 * 60 * 1000, teleportPos, 25417, 1387, oldPos)
 		revert()
 	end
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererLever, 0)
-	Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.TheShattererTimer, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererLever, 0)
+	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererTimer, 0)
 	return true
 end

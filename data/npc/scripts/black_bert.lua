@@ -97,7 +97,7 @@ shopModule:addBuyableItem({"wrinkled parchment"}, 14336, 4000, 1)
 
 local function onTradeRequest(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.thievesGuild.Mission08) ~= 8 then
+	if player:getStorageValue(Storage.ThievesGuild.Mission08) ~= 8 then
 		npcHandler:say("I don't know you and I don't have any dealings with people whom I don't trust.", cid)
 		return false
 	end

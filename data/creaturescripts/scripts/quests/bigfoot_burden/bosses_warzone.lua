@@ -22,11 +22,11 @@ function onKill(creature, target)
 			if (attackerPlayer:getStorageValue(Storage.BigfootBurden.WarzoneStatus) + 1) == bossConfig.status then
 				attackerPlayer:setStorageValue(Storage.BigfootBurden.WarzoneStatus, bossConfig.status)
 				if bossConfig.status == 4 then
-					attackerPlayer:setStorageValue(Storage.BigfootBurden.openGoldenFruits, 1)
+					attackerPlayer:setStorageValue(Storage.BigfootBurden.DoorGoldenFruits, 1)
 				end
 			end
 			attackerPlayer:setStorageValue(bossConfig.storage, 1)
-			attackerPlayer:setStorageValue(Storage.BigfootBurden.bossKills, attackerPlayer:getStorageValue(Storage.BigfootBurden.bossKills) + 1)
+			attackerPlayer:setStorageValue(Storage.BigfootBurden.BossKills, attackerPlayer:getStorageValue(Storage.BigfootBurden.BossKills) + 1)
 		end
 	end
 end

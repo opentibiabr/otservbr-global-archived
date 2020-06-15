@@ -453,7 +453,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 			if player:getStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission) < 1 then
 				player:setStoragevalue(Storage.CultsOfTibia.FinalBoss.Mission, 1)
-				player:setStorageValue(Storage.CultsOfTibia.FinalBoss.AcessDoor, 1)
+				player:setStorageValue(Storage.CultsOfTibia.FinalBoss.AccessDoor, 1)
 			end
 		elseif player:getStorageValue(Storage.CultsOfTibia.FinalBoss.Mission) == 2 then
 			npcHandler:say("You did it! You put an end to the cults, and as a return, here's your reward.", cid)

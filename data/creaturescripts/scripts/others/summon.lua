@@ -1,20 +1,20 @@
-local setting = {
+local summon = {
 	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
 	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
 	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
 	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
 }
 
-local storage = Storage.PetSummon
+local summonStorage = Storage.PetSummon
 
 function onLogin(player)
-	local vocationId = setting[player:getVocation():getId()]
+	local vocation = summon[player:getVocation()]
 	local summonName
-	local petTimeLeft = player:getStorageValue(storage) - player:getLastLogout()
+	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
 
 	if petTimeLeft > 0 then
-		if vocationId then
-			summonName = vocationId.name
+		if vocation and vocation:getId() then
+			summonName = vocation.name
 		end
 	end
 
@@ -26,22 +26,20 @@ function onLogin(player)
 		player:setStorageValue(storage, os.time() + petTimeLeft)
 		summonMonster:registerEvent("SummonDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-		
-		local deltaSpeed = math.max(player:getBaseSpeed() - summonpet:getBaseSpeed(), 0)
-		summonpet:changeSpeed(deltaSpeed)
 	end
 	return true
 end
 
+
 function onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
 	local player = creature:getMaster()
 	if not player then
-		return false
+		return true
 	end
 
-	if player and player:getStorageValue(storage) <= os.time() and player:getStorageValue(storage) > 0 then
-		doRemoveCreature (getCreatureSummons(cid)[1])
-		player:setStorageValue(storage,0)
+	if player and player:getStorageValue(summonStorage) <= os.time() and player:getStorageValue(summonStorage) > 0 then
+		doRemoveCreature(getCreatureSummons(player)[1])
+		player:setStorageValue(summonStorage,0)
 	end
 	return true
 end
@@ -52,8 +50,8 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 		return false
 	end
 
-	if table.contains(setting, creature:getName():lower()) then
-		player:setStorageValue(storage, os.time()) --Imeddiately expire creature
+	if table.contains(summon,creature:getName():lower()) then
+		player:setStorageValue(summonStorage, os.time())
 	end
 	return true
 end

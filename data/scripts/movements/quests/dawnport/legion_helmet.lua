@@ -1,8 +1,8 @@
 local sacrificeTeleport = MoveEvent()
 
 function sacrificeTeleport.onStepIn(creature, item, position, fromPosition)
-	local player, setting = creature:getPlayer(), UniqueTable[item.uid]
-	if not player or not setting then
+	local player = creature:getPlayer()
+	if not player then
 		return true
 	end
 
@@ -17,5 +17,5 @@ function sacrificeTeleport.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-sacrificeTeleport:uid(25021)
+sacrificeTeleport:uid(30010)
 sacrificeTeleport:register()

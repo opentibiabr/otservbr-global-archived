@@ -50,7 +50,7 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	player:setStorageValue(Storage.CultsOfTibia.MotA.Stone1, Stone1)
 	player:setStorageValue(Storage.CultsOfTibia.MotA.Stone2, Stone2)
 	player:setStorageValue(Storage.CultsOfTibia.MotA.Stone3, Stone3)
-	player:setStorageValue(Storage.CultsOfTibia.MotA.AcessDoorEntrance, -1)
+	player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorGareth, -1)
 	player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) + 1)
 	item:transform(transformid[item:getId()])
 	return true

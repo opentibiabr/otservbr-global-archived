@@ -215,12 +215,12 @@ if not Quests then
 		},
 		[2] = {
 			name = "Spirithunters Quest",
-			startstorageid = Storage.spiritHuntersQuest.missionUm,
+			startstorageid = Storage.SpiritHunters.Mission01,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Method",
-					storageid = Storage.spiritHuntersQuest.missionUm,
+					storageid = Storage.SpiritHunters.Mission01,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -230,7 +230,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "First Mission",
-					storageid = Storage.spiritHuntersQuest.missionUm,
+					storageid = Storage.SpiritHunters.Mission01,
 					startvalue = 2,
 					endvalue = 4,
 					states = {
@@ -240,7 +240,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "Second Mission",
-					storageid = Storage.spiritHuntersQuest.missionUm,
+					storageid = Storage.SpiritHunters.Mission01,
 					startvalue = 4,
 					endvalue = 6,
 					states = {
@@ -295,12 +295,12 @@ if not Quests then
 		},
 		[4] = {
 			name = "A Father's Burden",
-			startstorageid = Storage.FathersBurdenQuest.QuestLog,
+			startstorageid = Storage.FathersBurden.QuestLog,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "The Birthday Presents",
-					storageid = Storage.FathersBurdenQuest.Status,
+					storageid = Storage.FathersBurden.Status,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -311,7 +311,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "The Magic Bow - Sinew",
-					storageid = Storage.FathersBurdenQuest.Sinew,
+					storageid = Storage.FathersBurden.Sinew,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -321,7 +321,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "The Magic Bow - Wood",
-					storageid = Storage.FathersBurdenQuest.Wood,
+					storageid = Storage.FathersBurden.Wood,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -332,7 +332,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "The Magic Robe - Cloth",
-					storageid = Storage.FathersBurdenQuest.Cloth,
+					storageid = Storage.FathersBurden.Cloth,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -343,7 +343,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "The Magic Robe - Silk",
-					storageid = Storage.FathersBurdenQuest.Silk,
+					storageid = Storage.FathersBurden.Silk,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -353,7 +353,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "The Magic Rod - Crystal",
-					storageid = Storage.FathersBurdenQuest.Crystal,
+					storageid = Storage.FathersBurden.Crystal,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -363,7 +363,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "The Magic Rod - Root",
-					storageid = Storage.FathersBurdenQuest.Root,
+					storageid = Storage.FathersBurden.Root,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -373,7 +373,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "The Magic Shield - Iron",
-					storageid = Storage.FathersBurdenQuest.Iron,
+					storageid = Storage.FathersBurden.Iron,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -384,7 +384,7 @@ if not Quests then
 				},
 				[9] = {
 					name = "The Magic Shield - Scale",
-					storageid = Storage.FathersBurdenQuest.Scale,
+					storageid = Storage.FathersBurden.Scale,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -777,7 +777,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "The Marid and the Efreet - Marid Faction",
-					storageid = Storage.DjinnWar.Faction.Marid,
+					storageid = Storage.DjinnWar.Faction.MaridDoor,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -788,7 +788,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "The Efreet and the Efreet - Efreet Faction",
-					storageid = Storage.DjinnWar.Faction.Efreet,
+					storageid = Storage.DjinnWar.Faction.EfreetDoor,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2232,12 +2232,12 @@ if not Quests then
 		},
 		[15] = {
 			name = "Sea of Light",
-			startstorageid = Storage.SeaOfLightQuest.Questline,
+			startstorageid = Storage.SeaOfLight.Questline,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Mission 1: The Plans",
-					storageid = Storage.SeaOfLightQuest.Mission1,
+					storageid = Storage.SeaOfLight.Mission1,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -2255,7 +2255,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "Mission 2: The Collector",
-					storageid = Storage.SeaOfLightQuest.Mission2,
+					storageid = Storage.SeaOfLight.Mission2,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2268,7 +2268,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "Mission 3: The Mirror Crystal",
-					storageid = Storage.SeaOfLightQuest.Mission3,
+					storageid = Storage.SeaOfLight.Mission3,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -2287,12 +2287,12 @@ if not Quests then
 		},
 		[16] = {
 			name = "Secret Service",
-			startstorageid = Storage.secretService.Quest,
+			startstorageid = Storage.SecretService.Quest,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Mission 1: From Thais with Love",
-					storageid = Storage.secretService.TBIMission01,
+					storageid = Storage.SecretService.TBIMission01,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2304,7 +2304,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "Mission 1: For Your Eyes Only",
-					storageid = Storage.secretService.AVINMission01,
+					storageid = Storage.SecretService.AVINMission01,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -2317,7 +2317,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "Mission 1: Borrowed Knowledge",
-					storageid = Storage.secretService.CGBMission01,
+					storageid = Storage.SecretService.CGBMission01,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2327,7 +2327,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "Mission 2: Operation Green Claw",
-					storageid = Storage.secretService.TBIMission02,
+					storageid = Storage.SecretService.TBIMission02,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2338,7 +2338,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "Mission 2: A File Between Friends",
-					storageid = Storage.secretService.AVINMission02,
+					storageid = Storage.SecretService.AVINMission02,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2348,7 +2348,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "Mission 2: Codename:Lumberjack",
-					storageid = Storage.secretService.CGBMission02,
+					storageid = Storage.SecretService.CGBMission02,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2359,7 +2359,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "Mission 3: Treachery in Port Hope",
-					storageid = Storage.secretService.TBIMission03,
+					storageid = Storage.SecretService.TBIMission03,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2370,7 +2370,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "Mission 3: What Men are Made of",
-					storageid = Storage.secretService.AVINMission03,
+					storageid = Storage.SecretService.AVINMission03,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -2383,7 +2383,7 @@ if not Quests then
 				},
 				[9] = {
 					name = "Mission 3: Rust in Peace",
-					storageid = Storage.secretService.CGBMission03,
+					storageid = Storage.SecretService.CGBMission03,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2395,7 +2395,7 @@ if not Quests then
 				},
 				[10] = {
 					name = "Mission 4: Objective Hellgate",
-					storageid = Storage.secretService.TBIMission04,
+					storageid = Storage.SecretService.TBIMission04,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2405,7 +2405,7 @@ if not Quests then
 				},
 				[11] = {
 					name = "Mission 4: Pawn Captures Knight",
-					storageid = Storage.secretService.AVINMission04,
+					storageid = Storage.SecretService.AVINMission04,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2416,7 +2416,7 @@ if not Quests then
 				},
 				[12] = {
 					name = "Mission 4: Plot for A Plan",
-					storageid = Storage.secretService.CGBMission04,
+					storageid = Storage.SecretService.CGBMission04,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2426,7 +2426,7 @@ if not Quests then
 				},
 				[13] = {
 					name = "Mission 5: Coldfinger",
-					storageid = Storage.secretService.TBIMission05,
+					storageid = Storage.SecretService.TBIMission05,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2437,7 +2437,7 @@ if not Quests then
 				},
 				[14] = {
 					name = "Mission 5: A Cryptic Mission",
-					storageid = Storage.secretService.AVINMission05,
+					storageid = Storage.SecretService.AVINMission05,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2447,7 +2447,7 @@ if not Quests then
 				},
 				[15] = {
 					name = "Mission 5: No Admittance",
-					storageid = Storage.secretService.CGBMission05,
+					storageid = Storage.SecretService.CGBMission05,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2457,7 +2457,7 @@ if not Quests then
 				},
 				[16] = {
 					name = "Mission 6: The Weakest Spot",
-					storageid = Storage.secretService.TBIMission06,
+					storageid = Storage.SecretService.TBIMission06,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2469,7 +2469,7 @@ if not Quests then
 				},
 				[17] = {
 					name = "Mission 6: A Little Bribe Won't Hurt",
-					storageid = Storage.secretService.AVINMission06,
+					storageid = Storage.SecretService.AVINMission06,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2480,7 +2480,7 @@ if not Quests then
 				},
 				[18] = {
 					name = "Mission 6: News From the Past",
-					storageid = Storage.secretService.CGBMission06,
+					storageid = Storage.SecretService.CGBMission06,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2490,7 +2490,7 @@ if not Quests then
 				},
 				[19] = {
 					name = "Mission 7: Licence to Kill",
-					storageid = Storage.secretService.Mission07,
+					storageid = Storage.SecretService.Mission07,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2508,49 +2508,49 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "Omruc's Treasure",
-					storageid = 12101,
+					storageid = Storage.TheAncientTombs.OmrucsTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Omruc and received a helmet adornment"
 				},
 				[2] = {
 					name = "Thalas' Treasure",
-					storageid = 12102,
+					storageid = Storage.TheAncientTombs.ThalasTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Thalas and received a Gem Holder"
 				},
 				[3] = {
 					name = "Diphtrah's Treasure",
-					storageid = 12103,
+					storageid = Storage.TheAncientTombs.DiphtrahsTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Dipthrah and received a Damaged Helmet"
 				},
 				[4] = {
 					name = "Mahrdis' Treasure",
-					storageid = 12104,
+					storageid = Storage.TheAncientTombs.MahrdisTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Mahrdis and received a Helmet Ornament"
 				},
 				[5] = {
 					name = "Vashresamun's Treasure",
-					storageid = 12105,
+					storageid = Storage.TheAncientTombs.VashresamunsTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You solved the musical riddles of Vashresamun's Tomb and received a left horn."
 				},
 				[6] = {
 					name = "Morguthis' Treasure",
-					storageid = 12106,
+					storageid = Storage.TheAncientTombs.MorguthisTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Morguthis and received a Right Horn"
 				},
 				[7] = {
 					name = "Rahemos' Treasure",
-					storageid = 12107,
+					storageid = Storage.TheAncientTombs.RahemosTreasure,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Rahemos and received a Helmet Piece"
@@ -2785,12 +2785,12 @@ if not Quests then
 		},
 		[22] = {
 			name = "The Hidden City of Beregar",
-			startstorageid = Storage.hiddenCityOfBeregar.DefaultStart,
+			startstorageid = Storage.HiddenCityOfBeregar.DefaultStart,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Going Down",
-					storageid = Storage.hiddenCityOfBeregar.GoingDown,
+					storageid = Storage.HiddenCityOfBeregar.GoingDown,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -2801,7 +2801,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "Justice for All",
-					storageid = Storage.hiddenCityOfBeregar.JusticeForAll,
+					storageid = Storage.HiddenCityOfBeregar.JusticeForAll,
 					startvalue = 1,
 					endvalue = 6,
 					states = {
@@ -2827,7 +2827,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "Sweet as Chocolate Cake",
-					storageid = Storage.hiddenCityOfBeregar.SweetAsChocolateCake,
+					storageid = Storage.HiddenCityOfBeregar.SweetAsChocolateCake,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -2839,7 +2839,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "The Good Guard",
-					storageid = Storage.hiddenCityOfBeregar.TheGoodGuard,
+					storageid = Storage.HiddenCityOfBeregar.TheGoodGuard,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -3313,12 +3313,12 @@ if not Quests then
 		},
 		[26] = {
 			name = "The Postman Missions",
-			startstorageid = Storage.postman.Mission01,
+			startstorageid = Storage.Postman.Mission01,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Mission 01 - Check Postal Routes",
-					storageid = Storage.postman.Mission01,
+					storageid = Storage.Postman.Mission01,
 					startvalue = 1,
 					endvalue = 6,
 					states = {
@@ -3332,7 +3332,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "Mission 02 - Fix Mailbox",
-					storageid = Storage.postman.Mission02,
+					storageid = Storage.Postman.Mission02,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3343,7 +3343,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "Mission 03 - Bill Delivery",
-					storageid = Storage.postman.Mission03,
+					storageid = Storage.Postman.Mission03,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3355,7 +3355,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "Mission 04 - Aggressive Dogs",
-					storageid = Storage.postman.Mission04,
+					storageid = Storage.Postman.Mission04,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -3365,7 +3365,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "Mission 05 - Present Delivery",
-					storageid = Storage.postman.Mission05,
+					storageid = Storage.Postman.Mission05,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -3378,7 +3378,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "Mission 06 - New Uniforms",
-					storageid = Storage.postman.Mission06,
+					storageid = Storage.Postman.Mission06,
 					startvalue = 1,
 					endvalue = 13,
 					states = {
@@ -3401,7 +3401,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "Mission 07 - Measurements",
-					storageid = Storage.postman.Mission07,
+					storageid = Storage.Postman.Mission07,
 					startvalue = 1,
 					endvalue = 8,
 					states = {
@@ -3417,7 +3417,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "Mission 08 - Missing Courier",
-					storageid = Storage.postman.Mission08,
+					storageid = Storage.Postman.Mission08,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3428,7 +3428,7 @@ if not Quests then
 				},
 				[9] = {
 					name = "Mission 09 - Dear Santa",
-					storageid = Storage.postman.Mission09,
+					storageid = Storage.Postman.Mission09,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -3440,7 +3440,7 @@ if not Quests then
 				},
 				[10] = {
 					name = "Mission 10 - Mintwallin",
-					storageid = Storage.postman.Mission10,
+					storageid = Storage.Postman.Mission10,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3451,7 +3451,7 @@ if not Quests then
 				},
 				[11] = {
 					name = "Postman Rank",
-					storageid = Storage.postman.Rank,
+					storageid = Storage.Postman.Rank,
 					startvalue = 1,
 					endvalue = 5,
 					states = {
@@ -3692,12 +3692,12 @@ if not Quests then
 		},
 		[28] = {
 			name = "The Thieves Guild",
-			startstorageid = Storage.thievesGuild.Quest,
+			startstorageid = Storage.ThievesGuild.Quest,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Mission 1: Ivory Poaching",
-					storageid = Storage.thievesGuild.Mission01,
+					storageid = Storage.ThievesGuild.Mission01,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -3707,7 +3707,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "Mission 2: Burglary",
-					storageid = Storage.thievesGuild.Mission02,
+					storageid = Storage.ThievesGuild.Mission02,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3718,7 +3718,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "Mission 3: Invitation",
-					storageid = Storage.thievesGuild.Mission03,
+					storageid = Storage.ThievesGuild.Mission03,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3729,7 +3729,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "Mission 4: Bridge Robbery",
-					storageid = Storage.thievesGuild.Mission04,
+					storageid = Storage.ThievesGuild.Mission04,
 					startvalue = 1,
 					endvalue = 8,
 					states = {
@@ -3745,7 +3745,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "Mission 5: Enforcing Debts",
-					storageid = Storage.thievesGuild.Mission05,
+					storageid = Storage.ThievesGuild.Mission05,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -3756,7 +3756,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "Mission 6: Fishnapping",
-					storageid = Storage.thievesGuild.Mission06,
+					storageid = Storage.ThievesGuild.Mission06,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -3769,7 +3769,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "Mission 7: Blackmail",
-					storageid = Storage.thievesGuild.Mission07,
+					storageid = Storage.ThievesGuild.Mission07,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -3780,7 +3780,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "Mission 8: Message",
-					storageid = Storage.thievesGuild.Mission08,
+					storageid = Storage.ThievesGuild.Mission08,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -3883,54 +3883,54 @@ if not Quests then
 		},
 		[30] = {
 			name = "The Queen of the Banshees",
-			startstorageid = Storage.QueenOfBansheesQuest.FirstSeal,
+			startstorageid = Storage.QueenOfBanshees.FirstSeal,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "The Hidden Seal",
-					storageid = Storage.QueenOfBansheesQuest.FirstSeal,
+					storageid = Storage.QueenOfBanshees.FirstSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke the first seal."
 				},
 				[2] = {
 					name = "The Seal of Logic",
-					storageid = Storage.QueenOfBansheesQuest.SixthSeal,
+					storageid = Storage.QueenOfBanshees.SixthSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke the sixth seal."
 				},
 				[3] = {
 					name = "The Seal of True Path",
-					storageid = Storage.QueenOfBansheesQuest.FifthSeal,
+					storageid = Storage.QueenOfBanshees.FifthSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fifth seal."
 				},
 				[4] = {
 					name = "The Seal of Sacrifice",
-					storageid = Storage.QueenOfBansheesQuest.FourthSeal,
+					storageid = Storage.QueenOfBanshees.FourthSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fourth seal."
 				},
 				[5] = {
 					name = "The Seal of Demonrage",
-					storageid = Storage.QueenOfBansheesQuest.ThirdSeal,
+					storageid = Storage.QueenOfBanshees.ThirdSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke the third seal."
 				},
 				[6] = {
 					name = "The Plague Seal",
-					storageid = Storage.QueenOfBansheesQuest.SecondSeal,
+					storageid = Storage.QueenOfBanshees.SecondSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke the second seal."
 				},
 				[7] = {
 					name = "All Seals",
-					storageid = Storage.QueenOfBansheesQuest.LastSeal,
+					storageid = Storage.QueenOfBanshees.LastSeal,
 					startvalue = 1,
 					endvalue = 1,
 					description = "You broke all the seals."
@@ -3976,12 +3976,12 @@ if not Quests then
 		},
 		[32] = {
 			name = "The White Raven Monastery",
-			startstorageid = Storage.WhiteRavenMonasteryQuest.QuestLog,
+			startstorageid = Storage.WhiteRavenMonastery.QuestLog,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Access to the Isle of Kings",
-					storageid = Storage.WhiteRavenMonasteryQuest.Passage,
+					storageid = Storage.WhiteRavenMonastery.Passage,
 					endvalue = 1,
 					states = {
 						[1] = "You are a friend of Dalbrect. \z
@@ -3990,7 +3990,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "The Investigation",
-					storageid = Storage.WhiteRavenMonasteryQuest.Diary,
+					storageid = Storage.WhiteRavenMonastery.Diary,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -4027,12 +4027,12 @@ if not Quests then
 					states = {
 						[1] = "Arito asked you to make a peace agreement between him and the Nomads.",
 						[2] = "Return to Arito and tell him the good news.",
-						[3] = "Now Arito are safe and you have acess to Nomads Cave."
+						[3] = "Now Arito are safe and you have access to Nomads Cave."
 					}
 				},
 				[3] = {
 					name = "Lion's Rock",
-					storageid = Storage.LionsRock.Progress,
+					storageid = Storage.LionsRock.Questline,
 					startvalue = 1,
 					endvalue = 12,
 					states = {
@@ -4311,12 +4311,12 @@ if not Quests then
 		},
 		[35] = {
 			name = "What a foolish Quest",
-			startstorageid = Storage.WhatAFoolishQuest.Questline,
+			startstorageid = Storage.WhatAFoolish.Questline,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "What a foolish Quest - Tasks of a Fool",
-					storageid = Storage.WhatAFoolishQuest.Mission1,
+					storageid = Storage.WhatAFoolish.Mission1,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -4326,7 +4326,7 @@ if not Quests then
 				},
 				[2] = {
 					name = "What a foolish Quest - That stinks!",
-					storageid = Storage.WhatAFoolishQuest.Mission2,
+					storageid = Storage.WhatAFoolish.Mission2,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -4338,7 +4338,7 @@ if not Quests then
 				},
 				[3] = {
 					name = "What a foolish Quest - A Piece of Cake",
-					storageid = Storage.WhatAFoolishQuest.Mission3,
+					storageid = Storage.WhatAFoolish.Mission3,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -4348,7 +4348,7 @@ if not Quests then
 				},
 				[4] = {
 					name = "What a foolish Quest - Fool Spirits",
-					storageid = Storage.WhatAFoolishQuest.Mission4,
+					storageid = Storage.WhatAFoolish.Mission4,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -4359,7 +4359,7 @@ if not Quests then
 				},
 				[5] = {
 					name = "What a foolish Quest - Watch out for the foolish",
-					storageid = Storage.WhatAFoolishQuest.Mission5,
+					storageid = Storage.WhatAFoolish.Mission5,
 					startvalue = 1,
 					endvalue = 3,
 					states = {
@@ -4372,7 +4372,7 @@ if not Quests then
 				},
 				[6] = {
 					name = "What a foolish Quest - The queen of farts",
-					storageid = Storage.WhatAFoolishQuest.Mission6,
+					storageid = Storage.WhatAFoolish.Mission6,
 					startvalue = 1,
 					endvalue = 5,
 					states = {
@@ -4385,7 +4385,7 @@ if not Quests then
 				},
 				[7] = {
 					name = "What a foolish Quest - For your mice only",
-					storageid = Storage.WhatAFoolishQuest.Mission7,
+					storageid = Storage.WhatAFoolish.Mission7,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -4395,7 +4395,7 @@ if not Quests then
 				},
 				[8] = {
 					name = "What a foolish Quest - Smoking is a foolish thing",
-					storageid = Storage.WhatAFoolishQuest.Mission8,
+					storageid = Storage.WhatAFoolish.Mission8,
 					startvalue = 1,
 					endvalue = 5,
 					states = {
@@ -4408,7 +4408,7 @@ if not Quests then
 				},
 				[9] = {
 					name = "What a foolish Quest - A fool's bargain",
-					storageid = Storage.WhatAFoolishQuest.Mission9,
+					storageid = Storage.WhatAFoolish.Mission9,
 					startvalue = 1,
 					endvalue = 5,
 					states = {
@@ -4423,7 +4423,7 @@ if not Quests then
 				},
 				[10] = {
 					name = "What a foolish Quest - A sweet surprise",
-					storageid = Storage.WhatAFoolishQuest.Mission10,
+					storageid = Storage.WhatAFoolish.Mission10,
 					startvalue = 1,
 					endvalue = 2,
 					states = {
@@ -4434,7 +4434,7 @@ if not Quests then
 				},
 				[11] = {
 					name = "What a foolish Quest - The final foolishness",
-					storageid = Storage.WhatAFoolishQuest.Mission11,
+					storageid = Storage.WhatAFoolish.Mission11,
 					startvalue = 1,
 					endvalue = 4,
 					states = {
@@ -4448,7 +4448,7 @@ if not Quests then
 				},
 				[12] = {
 					name = "What a foolish Quest - To become a complete fool",
-					storageid = Storage.WhatAFoolishQuest.JesterOutfit,
+					storageid = Storage.WhatAFoolish.JesterOutfit,
 					startvalue = 4,
 					endvalue = 4,
 					states = {
@@ -4758,13 +4758,13 @@ if not Quests then
 			missions = {
 				[1] = {
 					name = "The Strengthtening of the Minotaurs",
-					storageid = Storage.CultsOfTibia.Minotaurs.JamesFrancisTask,
+					storageid = Storage.CultsOfTibia.Minotaurs.JamesfrancisTask,
 					startvalue = 0,
 					endvalue = 50,
 					description = function(player)
 						return ("James asked you to enter the cave for hunting 50 empowered minotaurs. \z
 						Then he will be able to continue his research.\nMinotaurs killed: %d/50"):format(
-							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask)
+							player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask)
 						)
 					end
 				},
@@ -4974,11 +4974,11 @@ if not Quests then
 								"Gnomus sent you on a mission to measure the rising heat from below.\n\nLocation A: \z
 							%d/1\nLocation B: %d/1\nLocation C: %d/1\nLocation D: %d/1\nLocation E: %d/1"
 							):format(
-								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationA), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationB), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationC), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationD), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.locationE), 0)
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationA), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationB), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationC), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationD), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Gnomes.LocationE), 0)
 							)
 						end,
 						[2] = "You helped Lardoc Bashsmite fighting back the verminous growth in the northern mineshaft. \z
@@ -5041,11 +5041,11 @@ if not Quests then
 								"You found the mine shaft. Burn all the growth and report back to Lardoc Bashsmite! \z
 							\n\nFirst Room: %d/1\nSecond room: %d/1\nThird room: %d/1\nFourth room: %d/1\nFifth room: %d/1"
 							):format(
-								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.firstBarrel), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.secondBarrel), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.thirdBarrel), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.fourthBarrel), 0),
-								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.fifthBarrel), 0)
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.FirstBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.SecondBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.ThirdBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.FourthBarrel), 0),
+								math.max(player:getStorageValue(Storage.DangerousDepths.Scouts.FifthBarrel), 0)
 							)
 						end,
 						[2] = "You helped Lardoc Bashsmite fighting back the verminous growth in the northern mineshaft. \z

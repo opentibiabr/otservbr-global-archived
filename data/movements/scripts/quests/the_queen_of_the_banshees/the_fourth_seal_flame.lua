@@ -7,7 +7,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.QueenOfBansheesQuest.FourthSeal) >= 1 then
+	if player:getStorageValue(Storage.QueenOfBanshees.FourthSeal) >= 1 then
 		player:teleportTo(fromPosition, true)
 		fromPosition:sendMagicEffect(CONST_ME_TELEPORT)
 		return true
@@ -21,7 +21,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	bloodItem:remove()
-	player:setStorageValue(Storage.QueenOfBansheesQuest.FourthSeal, 1)
+	player:setStorageValue(Storage.QueenOfBanshees.FourthSeal, 1)
 	player:teleportTo(destination)
 	destination:sendMagicEffect(CONST_ME_TELEPORT)
 	return true

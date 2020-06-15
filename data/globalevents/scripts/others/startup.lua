@@ -1,47 +1,41 @@
-local startupGlobalStorages = {
-	GlobalStorage.TheAncientTombs.AshmunrahSwitchesGlobalStorage,
-	GlobalStorage.TheAncientTombs.DiprathSwitchesGlobalStorage,
-	GlobalStorage.TheAncientTombs.ThalasSwitchesGlobalStorage,
-	GlobalStorage.HeroRathleton.FirstMachines,
-	GlobalStorage.HeroRathleton.SecondMachines,
-	GlobalStorage.HeroRathleton.ThirdMachines,
-	GlobalStorage.HeroRathleton.DeepRunning,
-	GlobalStorage.HeroRathleton.HorrorRunning,
-	GlobalStorage.HeroRathleton.LavaRunning,
-	GlobalStorage.HeroRathleton.MaxxenRunning,
-	GlobalStorage.HeroRathleton.LavaCounter,
-	GlobalStorage.HeroRathleton.FourthMachines,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal1,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal2,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal3,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal4,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal5,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal6,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal7,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal8,
-	GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals,
-	GlobalStorage.FerumbrasAscendantQuest.FerumbrasEssence,
-	GlobalStorage.Feroxa.Active,
-	GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Active,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.First,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Second,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Third,
-	GlobalStorage.FerumbrasAscendantQuest.Elements.Done
-}
-
 function onStartup()
+	print(">> Loading map attributes.")
+	-- Custom maps table
 	loadCustomMaps()
-	print("> Loaded " .. (#CustomMapTable) .. " custom map.")
+	-- Npc table
+	loadLuaNpcs(NpcTable)
+	-- Sign table
+	loadLuaMapSign(SignTable)
+	-- Book table
+	loadLuaMapBook(BookTable)
 
-	loadLuaNpcs()
-	print(string.format("> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters.\n> \z
-	Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
-
-	loadLuaMapAttributes()
-	print("> Loaded " .. (#SignTable) .. " signs in the map.")
-	print("> Loaded " .. (#BookTable) .. " books in the map.")
-	print("> Loaded action and unique per Lua")
+	-- Action and unique tables
+	-- Chest table
+	loadLuaMapAction(ChestAction)
+	loadLuaMapUnique(ChestUnique)
+	-- Corpse table
+	loadLuaMapAction(CorpseAction)
+	loadLuaMapUnique(CorpseUnique)
+	-- Doors quest table
+	loadLuaMapAction(QuestDoorAction)
+	loadLuaMapUnique(QuestDoorUnique)
+	-- Item table
+	loadLuaMapAction(ItemAction)
+	loadLuaMapUnique(ItemUnique)
+	-- Lever table
+	loadLuaMapAction(LeverAction)
+	loadLuaMapUnique(LeverUnique)
+	-- Teleport (magic forcefields) table
+	loadLuaMapAction(TeleportAction)
+	loadLuaMapUnique(TeleportUnique)
+	-- Teleport item table
+	loadLuaMapAction(TeleportItemAction)
+	loadLuaMapUnique(TeleportItemUnique)
+	-- Tile table
+	loadLuaMapAction(TileAction)
+	loadLuaMapUnique(TileUnique)
+	print("> Loaded all actions in the map")
+	print("> Loaded all uniques in the map")
 
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)
@@ -81,8 +75,8 @@ function onStartup()
 	end
 
 	-- Ferumbras Ascendant quest
-	for i = 1, #GlobalStorage.FerumbrasAscendantQuest.Habitats do
-		local storage = GlobalStorage.FerumbrasAscendantQuest.Habitats[i]
+	for i = 1, #GlobalStorage.FerumbrasAscendant.Habitats do
+		local storage = GlobalStorage.FerumbrasAscendant.Habitats[i]
 		Game.setStorageValue(storage, 0)
 	end
 
@@ -112,7 +106,7 @@ function onStartup()
 	-- 0 = ignore exp rate /stage
 	-- 1 = include exp rate / stage
 	Game.setStorageValue(GlobalStorage.XpDisplayMode, 0)
-	
+
 	-- Hireling System
 	HirelingsInit()
 end

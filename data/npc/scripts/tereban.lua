@@ -17,7 +17,7 @@ end
 
 local config = {
 	['strong sinew'] = {
-		storage = Storage.FathersBurdenQuest.Sinew,
+		storage = Storage.FathersBurden.Sinew,
 		messages = {
 			deliever = 'Do you have the required sinew?',
 			success = 'Ah, not only did you bring some sinew to me, you also made the world a safer place by killing Heoni.',
@@ -28,7 +28,7 @@ local config = {
 		itemId = 12504
 	},
 	['exquisite wood'] = {
-		storage = Storage.FathersBurdenQuest.Wood,
+		storage = Storage.FathersBurden.Wood,
 		messages = {
 			deliever = 'Could you find the wood we were talking about?',
 			success = 'Thank you. I feel somewhat embarrassed to put you into such a danger for some birthday present but I am sure you can handle it.',
@@ -39,7 +39,7 @@ local config = {
 		itemId = 12503
 	},
 	['spectral cloth'] = {
-		storage = Storage.FathersBurdenQuest.Cloth,
+		storage = Storage.FathersBurden.Cloth,
 		messages = {
 			deliever = 'Could you find the cloth I am looking for?',
 			success = 'It looks a bit scary but I guess sorcerers might even find that appealing. Thank you very much.',
@@ -50,7 +50,7 @@ local config = {
 		itemId = 12502
 	},
 	['exquisite silk'] = {
-		storage = Storage.FathersBurdenQuest.Silk,
+		storage = Storage.FathersBurden.Silk,
 		messages = {
 			deliever = 'So you\'ve found the silk that I need?',
 			success = 'Great. I better don\'t think about how big a spider has to be to produce such strands of silk.',
@@ -61,7 +61,7 @@ local config = {
 		itemId = 12501
 	},
 	['magic crystal'] = {
-		storage = Storage.FathersBurdenQuest.Crystal,
+		storage = Storage.FathersBurden.Crystal,
 		messages = {
 			deliever = 'Did you find the required crystal?',
 			success = 'Oh look at the colours and sparkles. This crystal is truly remarkable, thank you.',
@@ -72,7 +72,7 @@ local config = {
 		itemId = 12508
 	},
 	['mystic root'] = {
-		storage = Storage.FathersBurdenQuest.Root,
+		storage = Storage.FathersBurden.Root,
 		messages = {
 			deliever = 'Could you find the root which we are looking for?',
 			success = 'You are admirably determined in fulfilling your task. I will make sure that my sons appreciate what you did for their presents.',
@@ -83,7 +83,7 @@ local config = {
 		itemId = 12507
 	},
 	['old iron'] = {
-		storage = Storage.FathersBurdenQuest.Iron,
+		storage = Storage.FathersBurden.Iron,
 		messages = {
 			deliever = 'Have you found the iron that we need for the present?',
 			success = 'I wish there\'d an easier way to get that iron but those dwarfs are so stubborn. However, now we got what we need.',
@@ -94,7 +94,7 @@ local config = {
 		itemId = 12505
 	},
 	['flexible dragon scale'] = {
-		storage = Storage.FathersBurdenQuest.Scale,
+		storage = Storage.FathersBurden.Scale,
 		messages = {
 			deliever = 'Could you get Glitterscale\'s scales yet?',
 			success = 'These scales must have belonged to a fearsome beast. I envy you for your bravery.',
@@ -108,10 +108,10 @@ local config = {
 
 local message = {}
 local storages = {
-	Storage.FathersBurdenQuest.Sinew, Storage.FathersBurdenQuest.Wood,
-	Storage.FathersBurdenQuest.Cloth, Storage.FathersBurdenQuest.Silk,
-	Storage.FathersBurdenQuest.Crystal, Storage.FathersBurdenQuest.Root,
-	Storage.FathersBurdenQuest.Iron, Storage.FathersBurdenQuest.Scale
+	Storage.FathersBurden.Sinew, Storage.FathersBurden.Wood,
+	Storage.FathersBurden.Cloth, Storage.FathersBurden.Silk,
+	Storage.FathersBurden.Crystal, Storage.FathersBurden.Root,
+	Storage.FathersBurden.Iron, Storage.FathersBurden.Scale
 }
 
 function creatureSayCallback(cid, type, msg)
@@ -123,20 +123,20 @@ function creatureSayCallback(cid, type, msg)
 
 	if npcHandler.topic[cid] == 0 then
 		if msgcontains(msg, 'mission') then
-			if player:getStorageValue(Storage.FathersBurdenQuest.Status) == 1 then
-				if player:getStorageValue(Storage.FathersBurdenQuest.Progress) ~= 8 then
+			if player:getStorageValue(Storage.FathersBurden.Status) == 1 then
+				if player:getStorageValue(Storage.FathersBurden.Progress) ~= 8 then
 					npcHandler:say('Well, I need the parts of a sorcerer\'s robe, a paladin\'s bow, a knight\'s shield, and a druid\'s rod. If you cannot find one of them, ask me about it and I might provide you with some minor hints.', cid)
 					return true
 				end
 
-				player:setStorageValue(Storage.FathersBurdenQuest.Status, 2)
+				player:setStorageValue(Storage.FathersBurden.Status, 2)
 				player:addItem(12657, 1)
 				player:addExperience(8000, true)
 				npcHandler:say({
 					'I\'m so glad I finally have all the parts for the presents. Your reward is my eternal gratitude. Well, that and some gold of course. ...',
 					'Take this sachet over there, I wrapped the coins into this old cape I had still lying around here from a barter with a stranger, it is of no use for me anyway. Farewell and thank you once again.'
 				}, cid)
-			elseif player:getStorageValue(Storage.FathersBurdenQuest.Status) == 2 then
+			elseif player:getStorageValue(Storage.FathersBurden.Status) == 2 then
 				npcHandler:say('Thank you for your help!', cid)
 				return true
 			else
@@ -165,9 +165,9 @@ function creatureSayCallback(cid, type, msg)
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, 'yes') then
 			npcHandler:say('I am relieved someone as capable as you will handle the task. Well, I need the parts of a sorcerer\'s robe, a paladin\'s bow, a knight\'s shield, and a druid\'s wand.', cid)
-			player:setStorageValue(Storage.FathersBurdenQuest.QuestLog, 1)
-			player:setStorageValue(Storage.FathersBurdenQuest.Progress, 0)
-			player:setStorageValue(Storage.FathersBurdenQuest.Status, 1)
+			player:setStorageValue(Storage.FathersBurden.QuestLog, 1)
+			player:setStorageValue(Storage.FathersBurden.Progress, 0)
+			player:setStorageValue(Storage.FathersBurden.Status, 1)
 			for i = 1, #storages do
 				player:setStorageValue(storages[i], 1)
 			end
@@ -184,7 +184,7 @@ function creatureSayCallback(cid, type, msg)
 			end
 
 			player:setStorageValue(targetMessage.storage, 2)
-			player:setStorageValue(Storage.FathersBurdenQuest.Progress, player:getStorageValue(Storage.FathersBurdenQuest.Progress) + 1)
+			player:setStorageValue(Storage.FathersBurden.Progress, player:getStorageValue(Storage.FathersBurden.Progress) + 1)
 			player:addExperience(2500, true)
 			npcHandler:say(targetMessage.messages.success, cid)
 		elseif msgcontains(msg, 'no') then

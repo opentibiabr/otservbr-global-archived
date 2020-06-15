@@ -1,41 +1,41 @@
-local chestRoomTile = {
-	[40006] = {
-		destination = {x = 32054, y = 31883, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	},
-	[40007] = {
-		destination = {x = 32073, y = 31883, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	},
-	[40008] = {
-		destination = {x = 32059, y = 31883, z= 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	},
-	[40009] = {
-		destination = {x = 32068, y = 31883, z = 6},
-		storage = Storage.Dawnport.DoorVocation,
-		msg = "You have chosen your vocation. You cannot go back."
-	}
-}
-
 local oressaStair = {
-	[40005] = {
+	[25009] = {
 		destination = {x = 32063, y = 31891, z= 6},
 		storage = Storage.Dawnport.DoorVocation,
 		msg = "You cannot go upstairs. You have chosen a vocation and must now leave for the Mainlands."
 	}
 }
 
+local chestRoomTile = {
+	[25010] = {
+		destination = {x = 32054, y = 31883, z= 6},
+		storage = Storage.Dawnport.DoorVocation,
+		msg = "You have chosen your vocation. You cannot go back."
+	},
+	[25011] = {
+		destination = {x = 32073, y = 31883, z= 6},
+		storage = Storage.Dawnport.DoorVocation,
+		msg = "You have chosen your vocation. You cannot go back."
+	},
+	[25012] = {
+		destination = {x = 32059, y = 31883, z= 6},
+		storage = Storage.Dawnport.DoorVocation,
+		msg = "You have chosen your vocation. You cannot go back."
+	},
+	[25013] = {
+		destination = {x = 32068, y = 31883, z = 6},
+		storage = Storage.Dawnport.DoorVocation,
+		msg = "You have chosen your vocation. You cannot go back."
+	}
+}
+
 local vocations = {
 	msgVoc = "You should leave for the Mainland now. Go left to reach the ship.",
 	msgNoVoc = "You have not the right vocation to enter this room.",
-	[40010] = {vocation = VOCATION.ID.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
-	[40011] = {vocation = VOCATION.ID.DRUID, destination = {x = 32073, y = 31879, z = 6}},
-	[40012] = {vocation = VOCATION.ID.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
-	[40013] = {vocation = VOCATION.ID.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
+	[25014] = {vocation = VOCATION.ID.SORCERER, destination = {x = 32054, y = 31879, z = 6}},
+	[25015] = {vocation = VOCATION.ID.DRUID, destination = {x = 32073, y = 31879, z = 6}},
+	[25016] = {vocation = VOCATION.ID.PALADIN, destination = {x = 32059, y = 31879, z = 6}},
+	[25017] = {vocation = VOCATION.ID.KNIGHT, destination = {x = 32068, y = 31879, z = 6}},
 }
 
 local setVocation = {
@@ -106,10 +106,11 @@ function dawnportTileBack.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-for key = 40005, 40013 do
-	dawnportTileBack:aid(key)
+for index, value in pairs(chestRoomTile) do
+	dawnportTileBack:aid(index)
 end
 
+dawnportTileBack:aid(25009)
 dawnportTileBack:register()
 
 -- First tutorial tile, on the first dawnport town
@@ -143,19 +144,21 @@ function tutorialTile1.onStepIn(creature, item, position, fromPosition)
 		return
 	end
 
-	if item.uid == 25027 then
-		if player:getStorageValue(Storage.Quest.Dawnport.Questline) < 1 then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions.")
-			player:sendTutorial(2)
-			player:setStorageValue(Storage.Quest.Dawnport.Questline, 1)
-			player:setStorageValue(Storage.Quest.Dawnport.GoMain, 1)
-			player:setTown(Town(TOWNS_LIST.DAWNPORT))
-		end
+	if player:getStorageValue(Storage.Quest.Dawnport.Questline) == 1 then
+		return true
+	end
+
+	if player:getStorageValue(Storage.Quest.Dawnport.Questline) < 1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Welcome to Dawnport! Walk around and explore on your own, or talk to Inigo if you need directions.")
+		player:sendTutorial(2)
+		player:setStorageValue(Storage.Quest.Dawnport.Questline, 1)
+		player:setStorageValue(Storage.Quest.Dawnport.GoMain, 1)
+		player:setTown(Town(TOWNS_LIST.DAWNPORT))
 	end
 	return true
 end
 
-tutorialTile1:uid(25027)
+tutorialTile1:position({x = 32075, y = 31898, z = 5})
 tutorialTile1:register()
 
 -- Tutorial tile for not back to dawnport first town

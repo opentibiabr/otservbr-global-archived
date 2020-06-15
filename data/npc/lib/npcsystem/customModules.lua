@@ -1,6 +1,6 @@
 -- Custom Modules, created to help us in this datapack
 local travelDiscounts = {
-	['postman'] = {price = 10, storage = Storage.postman.Rank, value = 3},
+	['postman'] = {price = 10, storage = Storage.Postman.Rank, value = 3},
 	['new frontier'] = {price = 50, storage = Storage.TheNewFrontier.Mission03, value = 1}
 }
 

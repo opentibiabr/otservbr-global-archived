@@ -40,8 +40,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			end
 		end
-		Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.ZamuloshTimer, 1)
-		addEvent(clearForgotten, 30 * 60 * 1000, Position(33634, 32749, 11), Position(33654, 32765, 11), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendantQuest.ZamuloshTimer)
+		Game.setStorageValue(GlobalStorage.FerumbrasAscendant.ZamuloshTimer, 1)
+		addEvent(clearForgotten, 30 * 60 * 1000, Position(33634, 32749, 11), Position(33654, 32765, 11), Position(33319, 32318, 13), GlobalStorage.FerumbrasAscendant.ZamuloshTimer)
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)

@@ -131,7 +131,7 @@ local function creatureSayCallback(cid, type, msg)
 					Great place to start! ...",
 				"Though I can tell you about the other main World {cities} too, if you wish. So, ready to set sail for {Venore}?"
 			},
-		cid, false, true, 0)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 8
 	elseif msgcontains(msg, "venore") and npcHandler.topic[cid] == 8 then
 		player:setTown(venoreTown)
@@ -149,7 +149,7 @@ local function creatureSayCallback(cid, type, msg)
 				"... Sorry, just thinking aloud. Ahem. Very cosy and safe I guess if you're fond of nature. \z
 					I can {sail} there if you like."
 			},
-		cid, false, true, 0)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 9
 	elseif msgcontains(msg, "ankrahmun") and npcHandler.topic[cid] == 5 then
 		npcHandler:say("Only for premium travellers! Desert pyramid city close to the ocean, \z
@@ -183,7 +183,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Apes, bananas, hydras, tarantulas... Who'd want to go there? \z
 				Except for crazy adventurers like these guys here on the island, obviously. Still, I can {sail} there if you like.",
 			},
-		cid, false, true, 0)
+		cid, false, true, 10)
 		npcHandler.topic[cid] = 15
 	elseif msgcontains(msg, "svargrond") and npcHandler.topic[cid] == 5 then
 		npcHandler:say("Negative, can't bring you there. \z

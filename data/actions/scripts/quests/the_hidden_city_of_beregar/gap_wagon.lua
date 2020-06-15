@@ -7,11 +7,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	if player:getStorageValue(Storage.hiddenCityOfBeregar.RoyalRescue) ~= 1 then
+	if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) ~= 1 then
 		return false
 	end
 
-	player:setStorageValue(Storage.hiddenCityOfBeregar.RoyalRescue, 2)
+	player:setStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue, 2)
 	player:teleportTo(Position(32578, 31507, 9))
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	player:say("You safely passed the gap but your bridge collapsed behind you.", TALKTYPE_MONSTER_SAY)

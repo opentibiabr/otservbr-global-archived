@@ -23,7 +23,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 	if msgcontains(msg, 'enter') then
 		if player:getStorageValue(Storage.TheShatteredIsles.RaysMission3) == 1
-		and player:getStorageValue(Storage.TheShatteredIsles.AccessToYavern) < 0 then
+		and player:getStorageValue(Storage.TheShatteredIsles.YavernDoor) < 0 then
 			local headItem = player:getSlotItem(CONST_SLOT_HEAD)
 			local armorItem = player:getSlotItem(CONST_SLOT_ARMOR)
 			local legsItem = player:getSlotItem(CONST_SLOT_LEGS)
@@ -31,7 +31,7 @@ local function creatureSayCallback(cid, type, msg)
 			if headItem and headItem.itemid == 6096 and armorItem and armorItem.itemid == 6095
 			and legsItem and legsItem.itemid == 5918 and feetItem and feetItem.itemid == 5462 then
 				npcHandler:say('Hey, I rarely see a dashing pirate like you! Get in, matey!', cid)
-				player:setStorageValue(Storage.TheShatteredIsles.AccessToYavern, 1)
+				player:setStorageValue(Storage.TheShatteredIsles.YavernDoor, 1)
 			else
 				npcHandler:say("YOU WILL NOT PASS! Erm ... \
 				I mean you don't look like a true pirate to me. You won't get in.", cid)

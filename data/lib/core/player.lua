@@ -94,10 +94,10 @@ end
 -- Functions From OTServBR-Global
 function Player.getCookiesDelivered(self)
 	local storage, amount = {
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.SIMONTHEBEGGAR, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.MARKWIN, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.ARIELLA,
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.HAIRYCLES, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.DJINN, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.AVARTAR,
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.ORCKING, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.LORBAS, STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.WYDA,
-		STORAGE.WHATAFOOLISHQUEST.COOKIEDELIVERY.HJAERN
+		Storage.WhatAFoolish.CookieDelivery.SimonTheBeggar, Storage.WhatAFoolish.CookieDelivery.Markwin, Storage.WhatAFoolish.CookieDelivery.Ariella,
+		Storage.WhatAFoolish.CookieDelivery.Hairycles, Storage.WhatAFoolish.CookieDelivery.Djinn, Storage.WhatAFoolish.CookieDelivery.AvarTar,
+		Storage.WhatAFoolish.CookieDelivery.OrcKing, Storage.WhatAFoolish.CookieDelivery.Lorbas, Storage.WhatAFoolish.CookieDelivery.Wyda,
+		Storage.WhatAFoolish.CookieDelivery.Hjaern
 	}, 0
 	for i = 1, #storage do
 		if self:getStorageValue(storage[i]) == 1 then
@@ -306,4 +306,20 @@ function Player.getAccountStorage(self, accountId, key, forceUpdate)
 		return value
 	end
 	return false
+end
+
+function Player.getMarriageDescription(thing)
+	local descr = ""
+	if getPlayerMarriageStatus(thing:getGuid()) == MARRIED_STATUS then
+		playerSpouse = getPlayerSpouse(thing:getGuid())
+		if self == thing then
+			descr = descr .. " You are "
+		elseif thing:getSex() == PLAYERSEX_FEMALE then
+			descr = descr .. " She is "
+		else
+			descr = descr .. " He is "
+		end
+		descr = descr .. "married to " .. getPlayerNameById(playerSpouse) .. '.'
+	end
+	return descr
 end

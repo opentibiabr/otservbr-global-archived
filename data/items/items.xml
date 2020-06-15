@@ -33345,7 +33345,8 @@
 	<item id="23405" article="a" name="sewer cover">
 		<attribute key="floorchange" value="down"/>
 	</item>
-	<item fromid="23406" toid="23414" article="a" name="generator" />
+	<item id="23406" article="a" name="stone floor" />
+	<item fromid="23407" toid="23414" article="a" name="generator" />
 	<item fromid="23415" toid="23416" article="a" name="valve" />
 	<item fromid="23417" toid="23420" article="a" name="slime slide">
 		<attribute key="description" value="You can see the other side through it." />
@@ -35721,7 +35722,7 @@
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
 	<item id="24852" name="unknown item" />
-	<item fromid="24908" toid="24909" name="unknown item" />
+	<item fromid="24908" toid="24909" name="unknown item (wall sign)" />
 	<item id="24910" article="a" name="bone flute">
 		<attribute key="weight" value="30" />
 		<attribute key="description" value="Crude pictures of animals are carved into it." />

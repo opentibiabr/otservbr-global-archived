@@ -1,3 +1,70 @@
+local UniqueTable = {
+	[40011] = {
+		storage = Storage.InsectoidCell.Reward1,
+		reward = 15572
+	},
+	[40012] = {
+		storage = Storage.InsectoidCell.Reward2,
+		reward = 15572
+	},
+	[40013] = {
+		storage = Storage.InsectoidCell.Reward3,
+		reward = 15572
+	},
+	[40014] = {
+		storage = Storage.InsectoidCell.Reward4,
+		reward = 15572
+	},
+	[40015] = {
+		storage = Storage.InsectoidCell.Reward5,
+		reward = 15572
+	},
+	[40016] = {
+		storage = Storage.InsectoidCell.Reward6,
+		reward = 15572
+	},
+	[40017] = {
+		storage = Storage.InsectoidCell.Reward7,
+		reward = 15572
+	},
+	[40018] = {
+		storage = Storage.InsectoidCell.Reward8,
+		reward = 15572
+	},
+	[40019] = {
+		storage = Storage.InsectoidCell.Reward9,
+		reward = 15572
+	},
+	[40020] = {
+		storage = Storage.InsectoidCell.Reward10,
+		reward = 15572
+	},
+	[40021] = {
+		storage = Storage.InsectoidCell.Reward11,
+		reward = 15572
+	},
+	[40022] = {
+		storage = Storage.InsectoidCell.Reward12,
+		reward = 15572
+	},
+	[40023] = {
+		storage = Storage.InsectoidCell.Reward13,
+		reward = 15572
+	},
+	[40024] = {
+		storage = Storage.InsectoidCell.Reward14,
+		reward = 15572
+	},
+	[40025] = {
+		storage = Storage.InsectoidCell.Reward15,
+		reward = 15572
+	},
+	[40026] = {
+		storage = Storage.InsectoidCell.Reward16,
+		reward = 15572
+	}
+}
+
 local gooeyMass = Action()
 
 function gooeyMass.onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -24,8 +91,8 @@ function gooeyMass.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-for key = 25001, 25016 do
-	gooeyMass:uid(key)
+for index, value in pairs(UniqueTable) do
+	gooeyMass:uid(index)
 end
 
 gooeyMass:register()

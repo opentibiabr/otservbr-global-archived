@@ -23,7 +23,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if msgcontains(msg, 'brooch') then
-		if player:getStorageValue(Storage.WhiteRavenMonasteryQuest.Passage) == 1 then
+		if player:getStorageValue(Storage.WhiteRavenMonastery.Passage) == 1 then
 			npcHandler:say('You have recovered my brooch! I shall forever be in your debt, my friend!', cid)
 			return true
 		end
@@ -48,8 +48,8 @@ local function creatureSayCallback(cid, type, msg)
 			end
 
 			npcHandler:say('Thank you! I shall consider you my friend from now on! Just let me know if you {need} something!', cid)
-			player:setStorageValue(Storage.WhiteRavenMonasteryQuest.Passage, 1)
-			player:setStorageValue(Storage.WhiteRavenMonasteryQuest.QuestLog, 1) -- Quest log
+			player:setStorageValue(Storage.WhiteRavenMonastery.Passage, 1)
+			player:setStorageValue(Storage.WhiteRavenMonastery.QuestLog, 1) -- Quest log
 		end
 	elseif msgcontains(msg, 'no') then
 		if npcHandler.topic[cid] == 1 then
@@ -62,7 +62,7 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = 'I have only sailed to the isle of the kings once or twice. I dare not anger the monks by bringing travellers there without their permission.'}, function(player) return player:getStorageValue(Storage.WhiteRavenMonasteryQuest.Passage) ~= 1 end)
+keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = 'I have only sailed to the isle of the kings once or twice. I dare not anger the monks by bringing travellers there without their permission.'}, function(player) return player:getStorageValue(Storage.WhiteRavenMonastery.Passage) ~= 1 end)
 
 local travelNode = keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = 'Do you seek a passage to the isle of the kings for 10 gold coins?'})
 	travelNode:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, text = 'Have a nice trip!', cost = 10, destination = Position(32190, 31957, 6) })

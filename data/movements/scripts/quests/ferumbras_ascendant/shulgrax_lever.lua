@@ -4,7 +4,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.FlowerPuzzleTimer) >= 1 then
+	if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.FlowerPuzzleTimer) >= 1 then
 		player:teleportTo(Position(33436, 32800, 13))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else

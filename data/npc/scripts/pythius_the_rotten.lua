@@ -25,7 +25,7 @@ local offerKeyword = keywordHandler:addKeyword({"offer"}, StdModule.say, {npcHan
 			function(player) return player:getItemCount(2033) > 0 end,
 			function(player)
 				player:removeItem(2033, 1)
-				player:setStorageValue(Storage.hiddenCityOfBeregar.PythiusTheRotten, os.time() + 180)
+				player:setStorageValue(Storage.HiddenCityOfBeregar.PythiusTheRotten, os.time() + 180)
 			end
 		)
 		mugKeyword:addChildKeyword({"golden mug"}, StdModule.say, {npcHandler = npcHandler, text = "THIS IS NOT WORTH BEING PART OF MY TREASURE! BRING ME SOMETHING ELSE.", reset = true})

@@ -19,10 +19,10 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 
-	if player:getStorageValue(Storage.hiddenCityOfBeregar.OreWagon) == 1 then
+	if player:getStorageValue(Storage.HiddenCityOfBeregar.OreWagon) == 1 then
 		player:teleportTo(targetPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	elseif player:getStorageValue(Storage.hiddenCityOfBeregar.OreWagon) < 1 then
+	elseif player:getStorageValue(Storage.HiddenCityOfBeregar.OreWagon) < 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You don't know how to use this yet.")
 	end
 	return true

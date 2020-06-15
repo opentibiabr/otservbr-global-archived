@@ -155,11 +155,6 @@
 	<event type="kill" name="KillingInTheNameOfMinotaurKill" script="quests/killing_in_the_name_of/minotaur_kill.lua"/>
 	<!-- liquid black -->
 	<event type="kill" name="DeeplingBosses" script="quests/liquid_black/deepling_boss_kill.lua"/>
-	<!-- oramond quest -->
-	<event type="think" name="CanopicJar" script="quests/oramond/canopic_jar.lua"/>
-	<event type="death" name="TheRavagerDeath" script="quests/oramond/the_ravager_death.lua"/>
-	<event type="death" name="DeathShargonPriestDeath" script="quests/oramond/death_shargon_priest_death.lua"/>
-	<event type="think" name="TheRavagerHeal" script="quests/oramond/the_ravager_heal.lua"/>
 	<!-- raging mage tower worldchange -->
 	<event type="kill" name="EnergizedRagingMageKill" script="quests/raging_mage_tower/energized_raging_mage_kill.lua"/>
 	<event type="kill" name="ragingMageKill" script="quests/raging_mage_tower/raging_mage_kill.lua"/>

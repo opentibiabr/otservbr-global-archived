@@ -54,7 +54,7 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if item.actionid == 24844 then
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Elements.Done) >= 4 then
+		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Elements.Done) >= 4 then
 			if player:getStorageValue(setting.timer) < os.time() then
 				player:teleportTo(setting.toPosition)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -74,7 +74,7 @@ function onStepIn(creature, item, position, fromPosition)
 		end
 	end
 	if item.actionid == 24845 then
-		if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.FlowerPuzzleTimer) >= 1 then
+		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.FlowerPuzzleTimer) >= 1 then
 			if player:getStorageValue(setting.timer) < os.time() then
 				player:teleportTo(setting.toPosition)
 				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

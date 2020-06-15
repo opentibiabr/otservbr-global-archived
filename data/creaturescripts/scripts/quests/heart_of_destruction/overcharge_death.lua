@@ -14,7 +14,7 @@ local function setStorage()
 						for _, c in pairs(creatures) do
 							if isPlayer(c) then
 								if c:getStorageValue(14320) < 1 then
-									c:setStorageValue(14320, 1) -- Acess to boss Anomaly
+									c:setStorageValue(14320, 1) -- Access to boss Anomaly
 								end
 							end
 						end
@@ -39,7 +39,7 @@ local function setStorage()
 						for _, c in pairs(creatures) do
 							if isPlayer(c) then
 								if c:getStorageValue(14320) < 1 then
-									c:setStorageValue(14320, 1) -- Acess to boss Anomaly
+									c:setStorageValue(14320, 1) -- Access to boss Anomaly
 								end
 							end
 						end

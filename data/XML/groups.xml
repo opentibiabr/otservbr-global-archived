@@ -7,9 +7,11 @@
 			<flag cannotbemuted="1" />
 		</flags>
 	</group>
-	<group id="3" name="sennior tutor" access="0" maxdepotitems="0" maxvipentries="200">
+	<group id="3" name="senior tutor" access="0" maxdepotitems="0" maxvipentries="200">
 		<flags>
 			<flag talkorangehelpchannel="1" />
+			<flag cantalkredprivate="1" />
+			<flag cantalkredchannel="1" />
 			<flag cannotbemuted="1" />
 		</flags>
 	</group>

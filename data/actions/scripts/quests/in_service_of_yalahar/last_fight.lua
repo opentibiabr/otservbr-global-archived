@@ -60,7 +60,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	local amountOfPlayers = 3
+	local amountOfPlayers = 1
 	local spectators = Game.getSpectators(Position(32783, 31166, 10), false, true, 10, 10, 10, 10)
 	if #spectators < amountOfPlayers then
 		for i = 1, #spectators do

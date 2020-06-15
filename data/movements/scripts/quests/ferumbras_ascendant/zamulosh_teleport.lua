@@ -21,7 +21,7 @@ function onStepIn(creature, item, position, fromPosition)
 		end
 	elseif item.actionid == 34314 then
 		if player:getStorageValue(Storage.FerumbrasAscension.ZamuloshTeleports) >= 4
-		and Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Habitats.AllHabitats) >= 8 then
+		and Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.AllHabitats) >= 8 then
 			player:teleportTo(Position(33618, 32620, 10))
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE,

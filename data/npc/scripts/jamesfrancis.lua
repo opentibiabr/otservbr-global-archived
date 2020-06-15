@@ -15,15 +15,14 @@ function onThink()
 	npcHandler:onThink()
 end
 
-local playerTopic = {}
 local function greetCallback(cid)
 
 	local player = Player(cid)
 
-	if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Acesso) < 1 then
+	if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Access) < 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Gerimor is right. As an expert for minotaurs I am researching these creatures for years. I thought I already knew a lot but the monsters in this cave are {different}. It's a big {mystery}.")
 		playerTopic[cid] = 1
-	elseif (player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask) >= 0 and player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask) <= 50)
+	elseif (player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask) >= 0 and player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask) <= 50)
 	and player:getStorageValue(Storage.CultsOfTibia.Minotaurs.Mission) < 3 then
 		npcHandler:setMessage(MESSAGE_GREET, "How is your {mission} going?")
 		playerTopic[cid] = 5
@@ -48,36 +47,33 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
-	npcHandler.topic[cid] = playerTopic[cid]
 	local player = Player(cid)
-
-	-- Começou a quest
+	-- Start quest
 	if msgcontains(msg, "mystery") and npcHandler.topic[cid] == 1 then
 			npcHandler:say({"The minotaurs I faced in the cave are much stronger than the normal ones. What I were able to see before I had to flee: all of them seem to belong to a cult worshipping their god. Could you do me a {favour}?"}, cid)
 			npcHandler.topic[cid] = 2
-			playerTopic[cid] = 2
 	elseif msgcontains(msg, "favour") and npcHandler.topic[cid] == 2 then
 			npcHandler:say({"I'd like to work in this cave researching the minotaurs. But right now there are too many of hem and what is more, they are too powerful for me. Could you enter the cave and kill at least 50 of these creatures?"}, cid)
 			npcHandler.topic[cid] = 3
-			playerTopic[cid] = 3
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 3 then
-			npcHandler:say({"Very nice. Return to me if you've finished your job."}, cid)
-			player:setStorageValue(Storage.CultsOfTibia.Minotaurs.Mission, 2)
-			player:setStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask, 0)
-			player:setStorageValue(Storage.CultsOfTibia.Minotaurs.EntranceAcess, 1)
-
 		if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then
 			player:setStorageValue(Storage.CultsOfTibia.Questline, 1)
 		end
-
-	-- Entregando a quest
+		npcHandler:say({"Very nice. Return to me if you've finished your job."}, cid)
+		player:setStorageValue(Storage.CultsOfTibia.Minotaurs.Mission, 2)
+		player:setStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask, 0)
+		player:setStorageValue(Storage.CultsOfTibia.Minotaurs.EntranceAccessDoor, 1)
+		npcHandler.topic[cid] = 0
+	-- Delivering the quest
 	elseif msgcontains(msg, "mission") and npcHandler.topic[cid] == 5 then
-		if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesFrancisTask) >= 50 then
+		if player:getStorageValue(Storage.CultsOfTibia.Minotaurs.JamesfrancisTask) >= 50 then
 			npcHandler:say({"Great job! You have killed at least 50 of these monsters. I give this key to you to open the door to the inner area. Go there and find out what's going on."}, cid)
 			player:setStorageValue(Storage.CultsOfTibia.Minotaurs.Mission, 3)
-			player:setStorageValue(Storage.CultsOfTibia.Minotaurs.AcessDoor, 1)
+			player:setStorageValue(Storage.CultsOfTibia.Minotaurs.AccessDoor, 1)
+			npcHandler.topic[cid] = 0
 		else
 			npcHandler:say({"Come back when you have killed enough minotaurs."}, cid)
+			npcHandler.topic[cid] = 0
 		end
 	end
 	return true

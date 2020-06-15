@@ -30,12 +30,12 @@ function BeggarFirst(cid, message, keywords, parameters, node)
 
 	local player = Player(cid)
 	if player:isPremium() then
-		if player:getStorageValue(Storage.OutfitQuest.BeggarFirstAddon) == -1 then
+		if player:getStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor) == -1 then
 			if player:getItemCount(5883) >= 100 and player:getMoney() + player:getBankBalance() >= 20000 then
 				if player:removeItem(5883, 100) and player:removeMoneyNpc(20000) then
 					npcHandler:say("Ah, right! The beggar beard or beggar dress! Here you go.", cid)
 					player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-					player:setStorageValue(Storage.OutfitQuest.BeggarFirstAddon, 1)
+					player:setStorageValue(Storage.OutfitQuest.BeggarFirstAddonDoor, 1)
 					player:addOutfitAddon(153, 1)
 					player:addOutfitAddon(157, 1)
 				end
@@ -81,8 +81,8 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if msgcontains(msg, 'cookie') then
-		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31
-				and player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar) ~= 1 then
+		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
+				and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.SimonTheBeggar) ~= 1 then
 			npcHandler:say('Have you brought a cookie for the poor?', cid)
 			npcHandler.topic[cid] = 1
 		end
@@ -97,7 +97,7 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.SimonTheBeggar, 1)
+			player:setStorageValue(Storage.WhatAFoolish.CookieDelivery.SimonTheBeggar, 1)
 			if player:getCookiesDelivered() == 10 then
 				player:addAchievement('Allow Cookies?')
 			end
@@ -175,4 +175,5 @@ npcHandler:setMessage(MESSAGE_FAREWELL, "Have a nice day.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Have a nice day.")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

@@ -21,7 +21,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 	local player = Player(cid)
 	if msgcontains(msg, 'letter') then
-		if player:getStorageValue(Storage.thievesGuild.Mission06) == 1 then
+		if player:getStorageValue(Storage.ThievesGuild.Mission06) == 1 then
 			npcHandler:say('You would like Chantalle\'s letter? only if you are willing to pay a price. {gold} maybe?', cid)
 			npcHandler.topic[cid] = 1
 		end

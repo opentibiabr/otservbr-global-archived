@@ -12,7 +12,7 @@ local function setStorage()
 						for _, c in pairs(creatures) do
 							if isPlayer(c) then
 								if c:getStorageValue(14324) < 1 then
-									c:setStorageValue(14324, 1) -- Acess to boss realityquake
+									c:setStorageValue(14324, 1) -- Access to boss realityquake
 								end
 							end
 						end

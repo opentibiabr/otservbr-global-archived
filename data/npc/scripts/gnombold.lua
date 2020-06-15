@@ -67,7 +67,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(2000, true)
 				player:setStorageValue(SPIKE_MIDDLE_CHARGE_MAIN, -1)
-				player:setExhaustion(SPIKE_MIDDLE_CHARGE_DAILY, 86400)
+				player:setStorageValue(SPIKE_MIDDLE_CHARGE_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Charge this magnet at three monoliths in the cave system. With three charges, the magnet will disintegrate and charge you with its gathered energies. Step on the magnetic extractor here to deliver the charge to us, then report to me.', cid)
 			end
@@ -79,7 +79,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(2000, true)
 				player:setStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN, -1)
-				player:setExhaustion(SPIKE_MIDDLE_MUSHROOM_DAILY, 86400)
+				player:setStorageValue(SPIKE_MIDDLE_MUSHROOM_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Use the fertiliser on four gardener mushroom in the caves.', cid)
 			end
@@ -91,7 +91,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(2000, true)
 				player:setStorageValue(SPIKE_MIDDLE_NEST_MAIN, -1)
-				player:setExhaustion(SPIKE_MIDDLE_NEST_DAILY, 86400)
+				player:setStorageValue(SPIKE_MIDDLE_NEST_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Step into the transformer and destroy eight monster nests.', cid)
 			end
@@ -103,7 +103,7 @@ function creatureSayCallback(cid, type, msg)
 				player:addFamePoint()
 				player:addExperience(2000, true)
 				player:setStorageValue(SPIKE_MIDDLE_KILL_MAIN, -1)
-				player:setExhaustion(SPIKE_MIDDLE_KILL_DAILY, 86400)
+				player:setStorageValue(SPIKE_MIDDLE_KILL_DAILY, 86400)
 			else
 				npcHandler:say('Gnowful! Just go out to the caves and kill at least seven crystalcrushers.', cid)
 			end
@@ -213,7 +213,7 @@ function creatureSayCallback(cid, type, msg)
 	////KILL/////
 	///////////]]
 	if msgcontains(msg, 'kill') then
-		if player:getExhaustion(SPIKE_MIDDLE_KILL_DAILY) >= os.time() then
+		if player:getStorageValue(SPIKE_MIDDLE_KILL_DAILY) >= os.time() then
 			return npcHandler:say('Sorry, you have to wait ' .. string.diff(player:getStorageValue(SPIKE_MIDDLE_KILL_DAILY)-os.time()) .. ' before this task gets available again.', cid)
 		end
 

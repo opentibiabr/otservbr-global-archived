@@ -24,7 +24,7 @@ function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if(msgcontains(msg, "flou")) then
-		if(getPlayerStorageValue(cid, 72328) == 3) then
+		if(getPlayerStorageValue(cid, Storage.Navigator) < 1) then
 			npcHandler:say("Lhnjei gouthn naumpi! I know why you are here. I can {explain} everything.", cid)
 			npcHandler.topic[cid] = 1
 		end
@@ -81,7 +81,7 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Then take this one. And remember: DO NOT TELL ANYONE ABOUT ME OR ANYTHING YOU HAVE HEARD HERE TODAY.", cid)
 			player:addOutfitAddon(464, 2)
 			player:addOutfitAddon(463, 2)
-			setPlayerStorageValue(cid, 72328, 4)
+			setPlayerStorageValue(cid, Storage.Navigator, 4)
 			npcHandler.topic[cid] = 0
 		end
 	end

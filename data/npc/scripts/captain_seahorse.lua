@@ -18,11 +18,16 @@ end
 -- Travel
 local function addTravelKeyword(keyword, cost, destination, action)
 	local travelKeyword = keywordHandler:addKeyword({keyword}, StdModule.say, {npcHandler = npcHandler, text = 'Do you seek a seek a passage to ' .. keyword:titleCase() .. ' for |TRAVELCOST|?', cost = cost, discount = 'postman'})
-		travelKeyword:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, cost = cost, discount = 'postman', destination = destination}, nil, action)
-		travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'We would like to serve you some time.', reset = true})
+	travelKeyword:addChildKeyword({'yes'}, StdModule.travel, {npcHandler = npcHandler, premium = false, cost = cost, discount = 'postman', destination = destination}, nil, action)
+	travelKeyword:addChildKeyword({'no'}, StdModule.say, {npcHandler = npcHandler, text = 'We would like to serve you some time.', reset = true})
 end
 
-addTravelKeyword('venore', 40, Position(32954, 32022, 6), function(player) if player:getStorageValue(Storage.postman.Mission01) == 3 then player:setStorageValue(Storage.postman.Mission01, 4) end end)
+addTravelKeyword('venore', 40, Position(32954, 32022, 6),
+function(player)
+	if player:getStorageValue(Storage.Postman.Mission01) == 3 then
+		player:setStorageValue(Storage.Postman.Mission01, 4)
+	end
+end)
 addTravelKeyword('thais', 160, Position(32310, 32210, 6))
 addTravelKeyword('carlin', 110, Position(32387, 31820, 6))
 addTravelKeyword('krailos', 185, Position(33493, 31712, 6))
