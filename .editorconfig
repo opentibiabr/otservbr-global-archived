@@ -17,6 +17,11 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
+#cmake
+[CMakeLists.txt]
+indent_style = space
+indent_size = 2
+
 # Google Style
 [*.{cpp,hpp,h}]
 indent_style = space

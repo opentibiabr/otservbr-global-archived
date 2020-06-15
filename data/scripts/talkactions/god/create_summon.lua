@@ -14,6 +14,7 @@ function createSummon.onSay(player, words, param)
 	local monster = Game.createMonster(param, position)
 	if monster then
 		player:addSummon(monster)
+		monster:reload()
 		position:sendMagicEffect(CONST_ME_MAGIC_RED)
 	else
 		player:sendCancelMessage("There is not enough room.")

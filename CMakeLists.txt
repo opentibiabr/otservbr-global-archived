@@ -116,7 +116,7 @@ set(CMAKE_CXX_FLAGS     "${CMAKE_CXX_FLAGS} -std=c++11 -lstdc++ -lpthread -ldl")
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
   # using Clang
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE   "-pipe -fvisibility=hidden -march=native -O2 -Wno-everything")
+  set(CMAKE_CXX_FLAGS_RELEASE   "-pipe -fvisibility=hidden -march=native -O3 -Wno-everything")
 
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
   set(CMAKE_CXX_FLAGS_DEBUG     "-pipe -O0 -g -Wno-everything")
@@ -139,15 +139,15 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   # https://kristerw.blogspot.com/2017/09/useful-gcc-warning-options-not-enabled.html
 
   # cmake -DCMAKE_BUILD_TYPE=Release ..
-  set(CMAKE_CXX_FLAGS_RELEASE   "-Wall -Werror -pipe -fvisibility=hidden -march=native -O2")
+  set(CMAKE_CXX_FLAGS_RELEASE   " -Wno-format -pipe -fvisibility=hidden -march=native -O3")
 
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
   # Ubuntu 16.04
   if(CMAKE_CXX_COMPILER_VERSION STREQUAL "5.4.0")
-    set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Werror -pipe -O0 -g -Wextra -Wconversion -Wlogical-op -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+    set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Wextra -Werror -pipe -O0 -g -Wconversion -Wlogical-op -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
   else()
     # Ubuntu 18.04
-    set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Werror -pipe -O0 -g -Wextra -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
+    set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Wextra -Werror -pipe -O0 -g -Wconversion -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wnull-dereference -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
   endif()
 
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
@@ -159,14 +159,22 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   set(CMAKE_CXX_FLAGS_DEBUG     " /Wall")
 endif()
 
+# *****************************************************************************
+# Add Source Directory
+# *****************************************************************************
+add_subdirectory(src)
+
+
+# *****************************************************************************
+# Library
+# *****************************************************************************
+add_library(otbr_lib ${otbr_SRC})
+
 
 # *****************************************************************************
 # Executable
 # *****************************************************************************
-
-add_subdirectory(src)
-add_executable(otbr ${otbr_SRC})
-# set_target_properties(otbr PROPERTIES LINK_FLAGS "-std=c++11 -lstdc++ -lpthread -ldl")
+add_executable(otbr ${CMAKE_CURRENT_SOURCE_DIR}/src/otserv.cpp)
 
 
 # *****************************************************************************
@@ -246,6 +254,7 @@ option(PACKAGE_TESTS "Build the tests" OFF)
 if(PACKAGE_TESTS)
     enable_testing()
     add_subdirectory(tests)
+    target_compile_definitions(otbr_lib PRIVATE UNIT_TESTING=1)
 endif()
 
 # *****************************************************************************
@@ -255,7 +264,7 @@ include_directories(SYSTEM ${MYSQL_INCLUDE_DIR} ${LUA_INCLUDE_DIR}
                     ${Boost_INCLUDE_DIRS} ${PUGIXML_INCLUDE_DIR}
                     ${CRYPTOPP_INCLUDE_DIR})
 
-target_link_libraries(otbr ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
+target_link_libraries(otbr otbr_lib ${MYSQL_CLIENT_LIBS} ${LUA_LIBRARIES}
                       ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY}
                       ${PUGIXML_LIBRARIES} ${CRYPTOPP_LIBRARIES}
                       ${CMAKE_THREAD_LIBS_INIT})

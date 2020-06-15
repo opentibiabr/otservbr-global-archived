@@ -20,10 +20,11 @@ function onLogin(player)
 
 	if summonName then
 		position = player:getPosition()
-		summonMonster = Game.createMonster(summonName, position, true, false, player)
+		summonMonster = Game.createMonster(summonName, position, true, false)
 		player:addSummon(summonMonster)
-		player:setStorageValue(summonStorage, os.time() + petTimeLeft)
-		summonMonster:registerEvent('SummonDeath')
+		summonMonster:reload()
+		player:setStorageValue(storage, os.time() + petTimeLeft)
+		summonMonster:registerEvent("SummonDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 	return true

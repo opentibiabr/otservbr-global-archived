@@ -579,14 +579,10 @@ bool Game::internalPlaceCreature(Creature* creature, const Position& pos, bool e
 	return true;
 }
 
-bool Game::placeCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/, Creature* master)
+bool Game::placeCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/)
 {
 	if (!internalPlaceCreature(creature, pos, extendedPos, forced)) {
 		return false;
-	}
-
-	if (master) {
-		creature->setMaster(master);
 	}
 
 	SpectatorHashSet spectators;
@@ -3397,6 +3393,10 @@ void Game::playerApplyImbuement(uint32_t playerId, uint32_t imbuementid, uint8_t
 	if(item == nullptr) {
 		return;
 	}
+
+  if (item->getTopParent() != player || item->getParent() == player) {
+    return;
+  }
 
 	g_events->eventPlayerOnApplyImbuement(player, imbuement, item, slot, protectionCharm);
 }

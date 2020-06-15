@@ -7,10 +7,11 @@ function onCastSpell(player, variant)
 			local itemType = corpse:getType()
 			if itemType:isCorpse() and itemType:isMovable() then
 				if #player:getSummons() < 2 and player:getSkull() ~= SKULL_BLACK then
-					local summon = Game.createMonster("Skeleton", position, true, true, player)
+					local summon = Game.createMonster("Skeleton", position, true, true)
 					if summon then
 						corpse:remove()
 						player:addSummon(summon)
+						summon:reload()
 						position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 						return true
 					end
