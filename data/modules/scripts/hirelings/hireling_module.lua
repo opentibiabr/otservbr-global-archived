@@ -10,11 +10,9 @@ HirelingModule.S_Packets= { SendOutfitWindow = 0xC8 }
 
 HirelingModule.C_Packets = { RequestChangeOutfit = 0xD2, ConfirmOutfitChange = 0xD3  }
 
-
-
 local function getOutfit(msg, version)
 	local outfitType = 0
-	if(version >= 1220) then 
+	if(version >= 1220) then
 		outfitType = msg:getByte()
 	end
 
@@ -42,7 +40,7 @@ local function parseChangeOutfit(player,msg)
 	if not hireling then
 		player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-		
+
 		-- deplete msg to avoid setting an hireling outfit to player
 		getOutfit(msg,version)
 	else
@@ -51,10 +49,11 @@ local function parseChangeOutfit(player,msg)
 	end
 end
 
-function onRecvbyte(player, msg, byte)	
+function onRecvbyte(player, msg, byte)
 	if (byte == HirelingModule.C_Packets.ConfirmOutfitChange) then
-		if not player:isChangingHirelingOutfit() then return end
+		if not player:isChangingHirelingOutfit() then
+			return
+		end
 		parseChangeOutfit(player, msg)
 	end
-	
 end

@@ -7,7 +7,6 @@ end
 
 local toTakeRoots = Action()
 function toTakeRoots.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local harvestedCount = player:getStorageValue(20061)
 	local rand = math.random(1, 100)
 	if item.itemid == 23475 then
 		if rand <= 50 then
@@ -22,7 +21,9 @@ function toTakeRoots.onUse(player, item, fromPosition, target, toPosition, isHot
 			if player:getStorageValue(Storage.Oramond.MissionToTakeRoots) <= 0 then
 				player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 1)
 			end
-			player:setStorageValue(20061, harvestedCount > 0 and harvestedCount + 1 or 1)
+			player:setStorageValue(Storage.Oramond.HarvestedRootCount,
+				player:getStorageValue(Storage.Oramond.HarvestedRootCount) > 0
+				and player:getStorageValue(Storage.Oramond.HarvestedRootCount) + 1 or 1)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your harvesting attempt destroyed more of the juicy roots than you could salvage.')
 			item:transform(item.itemid + 2)
@@ -42,7 +43,9 @@ function toTakeRoots.onUse(player, item, fromPosition, target, toPosition, isHot
 			if player:getStorageValue(Storage.Oramond.MissionToTakeRoots) <= 0 then
 				player:setStorageValue(Storage.Oramond.MissionToTakeRoots, 1)
 			end
-			player:setStorageValue(20061, harvestedCount > 0 and harvestedCount + 1 or 1)
+			player:setStorageValue(Storage.Oramond.HarvestedRootCount,
+				player:getStorageValue(Storage.Oramond.HarvestedRootCount) > 0
+				and player:getStorageValue(Storage.Oramond.HarvestedRootCount) + 1 or 1)
 		else
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Your harvesting attempt destroyed more of the juicy roots than you could salvage.')
 			item:transform(item.itemid + 2)
@@ -55,5 +58,5 @@ function toTakeRoots.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-toTakeRoots:id(23468,23469,23470,23471,23475,23476,23477,23478)
+toTakeRoots:id(23475,23476,23477,23478)
 toTakeRoots:register()

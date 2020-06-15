@@ -686,7 +686,7 @@ function logCommand(player, words, param)
 	io.close(file)
 end
 
--- Special lib
+-- Special lib functions
 function insertIndex(i, buffer)
 	table.insert(buffer, "[")
 	if type(i) == "string" then
@@ -794,4 +794,76 @@ function pack(t, ...)
 		t[i] = tmp
 	end
 	return t
+end
+
+function Item:setSpecialAttribute(...)
+	local tmp
+	if self:hasAttribute(ITEM_ATTRIBUTE_SPECIAL) then
+		tmp = self:getAttribute(ITEM_ATTRIBUTE_SPECIAL)
+	else
+		tmp = "{}"
+	end
+
+	local tab = unserializeTable(tmp)
+	if tab then
+		setTableIndexes(tab, ...)
+		tmp = serializeTable(tab)
+		self:setAttribute(ITEM_ATTRIBUTE_SPECIAL, tmp)
+		return true
+	end
+end
+
+function Item:getSpecialAttribute(...)
+	local tmp
+	if self:hasAttribute(ITEM_ATTRIBUTE_SPECIAL) then
+		tmp = self:getAttribute(ITEM_ATTRIBUTE_SPECIAL)
+	else
+		tmp = "{}"
+	end
+
+	local tab = unserializeTable(tmp)
+	if tab then
+		return getTableIndexes(tab, ...)
+	end
+end
+
+if not PLAYER_STORAGE then
+	PLAYER_STORAGE = {}
+end
+
+function Player:setSpecialStorage(storage, value)
+	if not PLAYER_STORAGE[self:getGuid()] then
+		self:loadSpecialStorage()
+	end
+
+	PLAYER_STORAGE[self:getGuid()][storage] = value
+end
+
+function Player:getSpecialStorage(storage)
+	if not PLAYER_STORAGE[self:getGuid()] then
+		self:loadSpecialStorage()
+	end
+
+	return PLAYER_STORAGE[self:getGuid()][storage]
+end
+
+function Player:loadSpecialStorage()
+	if not PLAYER_STORAGE then
+		PLAYER_STORAGE = {}
+	end
+
+	PLAYER_STORAGE[self:getGuid()] = {}
+	local resultId = db.storeQuery("SELECT * FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
+	if resultId then
+		local info = result.getStream(resultId , "info") or "{}"
+		unserializeTable(info, PLAYER_STORAGE[self:getGuid()])
+	end
+end
+
+function Player:saveSpecialStorage()
+	if PLAYER_STORAGE and PLAYER_STORAGE[self:getGuid()] then
+		local tmp = serializeTable(PLAYER_STORAGE[self:getGuid()])
+		db.query("DELETE FROM `player_misc` WHERE `player_id` = " .. self:getGuid())
+		db.query(string.format("INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)", self:getGuid(), db.escapeBlob(tmp, #tmp)))
+	end
 end

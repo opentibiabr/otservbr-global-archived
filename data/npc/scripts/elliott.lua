@@ -16,13 +16,13 @@ function onThink()
 end
 
 function creatureSayCallback(cid, type, msg)
-	if(not(npcHandler:isFocused(cid))) then
+	if not npcHandler:isFocused(cid) then
 		return false
 	end
-	
+
 	local player = Player(cid)
 	-- Mission 3 start
-	if(msgcontains(msg, "abandoned sewers")) then
+	if msgcontains(msg, "abandoned sewers") then
 		if player:getStorageValue(Storage.Oramond.MissionAbandonedSewer) < 21 then
 			npcHandler:say("You want to enter the abandoned sewers? That's rather dangerous and not a good idea, man. That part of the sewers was not sealed off for nothing, you know? ...", cid)
 			npcHandler:say("But hey, it's your life, bro. So here's the deal. I'll let you into the abandoned sewers if you help me with our {mission}.", cid)
@@ -40,8 +40,8 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 7
 		end
 		-- Mission 3 start
-	elseif(msgcontains(msg, "mission")) then
-		if(npcHandler.topic[cid] == 0) then
+	elseif msgcontains(msg, "mission") then
+		if npcHandler.topic[cid] == 0 then
 			npcHandler:say("The sewers need repair. You in?", cid)
 			npcHandler.topic[cid] = 2
 			-- Mission 3 end
@@ -50,24 +50,24 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 3
 		end
 		-- Mission 3 start - sewer access
-	elseif(msgcontains(msg, "yes")) then
-		if(npcHandler.topic[cid] == 2) then
+	elseif msgcontains(msg, "yes") then
+		if npcHandler.topic[cid] == 2 then
 			npcHandler:say("Good. Broken pipe and generator pieces, there's smoke evading. That's how you recognise them. See how you can fix them using your hands. Need about, oh, twenty of them at least repaired. Report to me or Jacob", cid)
 			player:setStorageValue(Storage.Oramond.DoorAbandonedSewer, 1)
 			player:setStorageValue(Storage.Oramond.MissionAbandonedSewer, 0)
 			npcHandler.topic[cid] = 0
 		end
 		-- Task: The Ancient Sewers
-	elseif(msgcontains(msg, "ok")) then
-		if(npcHandler.topic[cid] == 3) then
+	elseif msgcontains(msg, "ok") then
+		if npcHandler.topic[cid] == 3 then
 			npcHandler:say("Good. Thanks, man. That's one vote you got for helping us with this.", cid)
 			player:setStorageValue(Storage.Oramond.MissionAbandonedSewer, 21) --goto Mission 3 end
 			npcHandler.topic[cid] = 0
 		end
 		-- Final Mission 5
-	elseif(msgcontains(msg, "report")) then
+	elseif msgcontains(msg, "report") then
 		if player:getStorageValue(Storage.DarkTrails.Mission05) == 1 then
-			if(npcHandler.topic[cid] == 7) then
+			if npcHandler.topic[cid] == 7 then
 				npcHandler:say("A sacrificial site? Damn, sounds like some freakish cult or something. Just great. And this ancient structure you talked about that's not part of the sewers? You'd better see the local historian about that, man. ...", cid)
 				npcHandler:say("He can make more sense of what you found there. His name is Barazbaz. He should be in the magistrate building.", cid)
 				player:setStorageValue(Storage.DarkTrails.Mission06, 1) -- start Mission 6
@@ -80,5 +80,10 @@ function creatureSayCallback(cid, type, msg)
 	end
 	return true
 end
+
+npcHandler:setMessage(MESSAGE_GREET, "<nods>")
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Good bye!') -- Need revision
+
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
