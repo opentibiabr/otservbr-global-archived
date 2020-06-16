@@ -104,6 +104,5 @@ npcHandler:setMessage(MESSAGE_SENDTRADE, "At your service, just browse through m
 
 npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
 npcHandler:addModule(FocusModule:new())
