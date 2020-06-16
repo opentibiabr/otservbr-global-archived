@@ -26,7 +26,7 @@
 		<vocation name="Paladin" />
 		<vocation name="Royal Paladin" />
 	</instant>
-	<instant group="support" spellid="92" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="180000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
+	<instant group="support" spellid="92" name="Conjure Wand of Darkness" words="exevo gran mort" lvl="41" mana="250" soul="0" prem="1" aggressive="0" selftarget="1" exhaustion="1800000" groupcooldown="2000" needlearn="0" script="conjuring/Conjure_Wand_of_Darkness.lua">
 		<vocation name="Sorcerer" />
 		<vocation name="Master Sorcerer" />
 	</instant>
