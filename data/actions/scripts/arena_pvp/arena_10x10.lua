@@ -31,7 +31,7 @@ function onUse(player, item, fromPosition, target, toPosition, monster, isHotkey
 				player:say("You need 10 players for enter in the arena.", TALKTYPE_ORANGE_1)
 				return true
 			else
-				player:say("You need 2 players for enter in the arena.", TALKTYPE_ORANGE_1)
+				player:say("You need 10 players for enter in the arena.", TALKTYPE_ORANGE_1)
 				return true
 			end
 		end
