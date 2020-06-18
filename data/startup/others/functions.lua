@@ -16,7 +16,7 @@ function loadLuaMapAction(tablename)
 					item = tile:getItemById(value.itemId)
 				end
 				-- If he found the item, add the action id.
-				if item and value.actionId then
+				if item then
 					item:setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
 				end
 				if value.itemId == false and tile:getTopDownItem() then

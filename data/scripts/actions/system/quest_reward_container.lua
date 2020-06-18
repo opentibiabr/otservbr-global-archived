@@ -2,7 +2,7 @@
 -- You just need to add a new table in the data/startup/tables/chest.lua file and this script will pull everything from there.
 local containerReward = Action()
 function containerReward.onUse(player, item, fromPosition, itemEx, toPosition)
-	local setting = UniqueTable[item.uid]
+	local setting = ChestUnique[item.uid]
 	if player:getStorageValue(setting.storage) < 0 then
 		local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
 		if backpack and backpack:getEmptySlots(true) > 1 then
