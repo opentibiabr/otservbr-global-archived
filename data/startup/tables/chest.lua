@@ -11,7 +11,11 @@
 	Reward with container
 	Varied rewards
 
-	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts.
+	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts
+
+	Note:
+	The "for use of the map" variables are only used to create the action or unique on the map during startup
+	The "for use of the script" variables are used by the scripts, to allow a single script to manage all rewards of the same type
 ]]
 
 ChestAction = {
@@ -115,8 +119,37 @@ ChestUnique = {
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
 	-- Path: data\scripts\actions\system\quest_reward_container.lua
 	[10001] = {
+		-- For use of the map
 		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = z}
+		itemPos = {x = xxxxx, y = yyyyy, z = z},
+		-- For use of the script
+		itemBag = containerId,
+		itemReward = {
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount}
+		},
+		weight = WeightContainerNumber,
+		storage = StorageKeyVariable
+	},
+	-- Example of chest having key reward
+	[10002] = {
+		-- For use of the map
+		itemId = false,
+		itemPos = {x = xxxxx, y = yyyyy, z = z},
+		-- For use of the script
+		itemBag = containerId,
+		itemReward = {
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount}
+		},
+		weight = WeightContainerNumber,
+		keyItem = keyId,
+		keyAction = keyActionNumber,
+		storage = StorageKeyVariable
 	},
 
 	-- Reward of others scrips files (varied rewards)
