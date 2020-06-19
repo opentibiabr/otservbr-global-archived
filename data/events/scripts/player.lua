@@ -9,9 +9,6 @@ CONTAINER_WEIGHT = 1000000 -- 1000000 = 10k = 10000.00 oz
 -- Items sold on the store that should not be moved off the store container
 local storeItemID = {32384,32385,32386,32387,32388,32389,32124,32125,32126,32127,32128,32129,32109,33299,26378,29020,35172,35173,35174,35175,35176,35177,35178,35179,35180}
 
--- Capacity imbuement store
-local STORAGE_CAPACITY_IMBUEMENT = 42154
-
 -- Players cannot throw items on teleports if set to true
 local blockTeleportTrashing = true
 
