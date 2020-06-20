@@ -148,7 +148,7 @@
 	<event type="kill" name="DiseasedTrio" script="quests/in_service_of_yalahar/diseased_trio_kill.lua"/>
 	<event type="kill" name="QuaraLeaders" script="quests/in_service_of_yalahar/quara_leader_kill.lua"/>
 	<!-- inquisition_quest -->
-	<event type="kill" name="IquisitionBossKill" script="quests/inquisition/inquisition_boss.lua"/>
+	<event type="kill" name="InquisitionBossKill" script="quests/inquisition/inquisition_boss.lua"/>
 	<event type="kill" name="UngreezKill" script="quests/inquisition/inquisition_ungreez.lua"/>
 	<!-- killing in the name of... -->
 	<event type="kill" name="KillingInTheNameOfKill" script="quests/killing_in_the_name_of/kill.lua"/>
