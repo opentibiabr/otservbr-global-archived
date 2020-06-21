@@ -69,10 +69,9 @@ local UniqueTable = {
 local gems = Action()
 
 function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	-- Gems teleport to feyrist
 	for index, value in pairs(shrine) do
 		if item.itemid == index then
-			if toPosition == value.targetAction then
+			if target.actionid == value.targetAction then
 				player:removeItem(index, 1)
 				player:teleportTo(value.destination)
 				player:getPosition():sendMagicEffect(CONST_ME_SMALLPLANTS)
@@ -89,13 +88,12 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
-	-- Use gems in the tile of lions rock quest
 	local setting = UniqueTable[target.uid]
 	if not setting then
 		return true
 	end
 
-	-- Reset lion's fields
+	-- reset lion's fields
 	local function lionsRockFieldReset()
 		local gemSpot = Tile(setting.itemPos):getItemById(setting.fieldId)
 		if gemSpot then
@@ -104,7 +102,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
-	-- Check if all lion's fields are set
+	-- check if all lion's fields are set
 	local function checkLionsRockFields(storage)
 		if Game.getStorageValue(GlobalStorage.LionsRockFields) == 3 then
 			local stone = Tile(lionsRockSanctuaryPos):getItemById(lionsRockSanctuaryRockId)
@@ -117,7 +115,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 
-	-- Delay to create lion's field
+	-- delay to create lion's field
 	local function lionsRockCreateField(itemPos, fieldId, storage)
 		local gemSpot = Tile(itemPos):getItemById(fieldId)
 		if not gemSpot then

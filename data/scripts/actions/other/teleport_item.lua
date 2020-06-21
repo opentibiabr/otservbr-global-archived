@@ -13,7 +13,7 @@ local teleportItem = Action()
 
 function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	-- Scarlett Etzel teleport item
-	if item.uid == 17003 then
+	if item.uid == 15007 then
 		if roomIsOccupied(setting.centerRoom, setting.range, setting.range) then
 			player:say("Someone is fighting against the boss! You need wait awhile.", TALKTYPE_MONSTER_SAY)
 			return true
@@ -32,7 +32,7 @@ function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHo
 		return true
 	end
 
-	local setting = UniqueTable[item.uid]
+	local setting = TeleportItemUnique[item.uid]
 	if setting then
 		player:teleportTo(setting.destination)
 		player:getPosition():sendMagicEffect(setting.effect)
@@ -40,7 +40,7 @@ function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-for key = 17001, 18000 do
+for key = 15001, 19999 do
 	teleportItem:uid(key)
 end
 
