@@ -6,7 +6,7 @@ local teleportItem = Action()
 function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	-- Scarlett Etzel teleport item
 	if item.uid == 15003 then
-		if roomIsOccupied(scarlettConfig.centerRoom, 11, 11) then
+		if roomIsOccupied({x = 33396, y = 32648, z = 6}, 11, 11) then
 			player:say("Someone is fighting against the boss! You need wait awhile.", TALKTYPE_MONSTER_SAY)
 			return true
 		end
