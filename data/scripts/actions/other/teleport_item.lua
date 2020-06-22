@@ -24,7 +24,7 @@ function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHo
 		return true
 	end
 
-	local setting = UniqueTable[item.uid]
+	local setting = TeleportItemUnique[item.uid]
 	if setting then
 		player:teleportTo(setting.destination)
 		player:getPosition():sendMagicEffect(setting.effect)
