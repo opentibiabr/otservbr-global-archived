@@ -132,6 +132,7 @@ Storage = {
 	Navigator = 30048,
 	DwarvenLegs = 30049,
 	PrinceDrazzakTime = 30050,
+	StoreExaust = 30051,
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
