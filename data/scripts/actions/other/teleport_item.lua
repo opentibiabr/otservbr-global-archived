@@ -12,7 +12,7 @@ function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHo
 		end
 
 		if player:getStorageValue(Storage.GraveDanger.ScarlettEtzel) > os.time() then
-			player:say("You already have faced Scarlett Etzel in the last ".. 20 .." hours. Try again later.", TALKTYPE_MONSTER_SAY)
+			player:say("You already have faced Scarlett Etzel in the last 20 hours. Try again later.", TALKTYPE_MONSTER_SAY)
 			return true
 		end
 
