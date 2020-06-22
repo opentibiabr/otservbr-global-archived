@@ -390,7 +390,7 @@ error_t Account::GetPremiumRemaningDays(uint32_t *days) {
 
 error_t Account::SetPremiumLastDay(time_t last_day) {
   if (last_day < 0) {
-    LOG_F(ERROR, "Invalid Premium Last Day!", last_day);
+    LOG_F(ERROR, "Invalid Premium Last Day!");
     return ERROR_INVALID_LAST_DAY;
   }
   premium_last_day_ = last_day;
@@ -409,7 +409,7 @@ error_t Account::GetPremiumLastDay(time_t *last_day) {
 
 error_t Account::SetAccountType(AccountType account_type) {
   if (account_type < 0 || account_type > 5) {
-    LOG_F(ERROR, "Invalid Account Type!", static_cast<int>(account_type));
+    LOG_F(ERROR, "Invalid Account Type[%d]!", static_cast<int>(account_type));
     return ERROR_INVALID_ACC_TYPE;
   }
   account_type_ = account_type;

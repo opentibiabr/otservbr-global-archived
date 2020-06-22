@@ -23,14 +23,14 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if msgcontains(msg, "weapons") then
-		if player:getStorageValue(Storage.secretService.AVINMission06) == 1 then
+		if player:getStorageValue(Storage.SecretService.AVINMission06) == 1 then
 			npcHandler:say("Crate of weapons you say.. for me?", cid)
 			npcHandler.topic[cid] = 1
 		end
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 			if player:removeItem(7707, 1) then
-				player:setStorageValue(Storage.secretService.AVINMission06, 2)
+				player:setStorageValue(Storage.SecretService.AVINMission06, 2)
 				npcHandler:say("Why thank you |PLAYERNAME|.", cid)
 			else
 				npcHandler:say("You don't have any crate of weapons!", cid)

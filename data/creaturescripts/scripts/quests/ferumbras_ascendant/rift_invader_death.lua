@@ -1,12 +1,12 @@
 local crystals = {
-	[1] = {fromPosition = Position(33389, 31467, 14), toPosition = Position(33391, 31469, 14), crystalPosition = Position(33390, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal1},
-	[2] = {fromPosition = Position(33393, 31467, 14), toPosition = Position(33395, 31469, 14), crystalPosition = Position(33394, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal2},
-	[3] = {fromPosition = Position(33396, 31470, 14), toPosition = Position(33398, 31472, 14), crystalPosition = Position(33397, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal3},
-	[4] = {fromPosition = Position(33396, 31474, 14), toPosition = Position(33398, 31476, 14), crystalPosition = Position(33397, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal4},
-	[5] = {fromPosition = Position(33393, 31477, 14), toPosition = Position(33395, 31479, 14), crystalPosition = Position(33394, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal5},
-	[6] = {fromPosition = Position(33389, 31477, 14), toPosition = Position(33391, 31479, 14), crystalPosition = Position(33390, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal6},
-	[7] = {fromPosition = Position(33386, 31474, 14), toPosition = Position(33388, 31476, 14), crystalPosition = Position(33387, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal7},
-	[8] = {fromPosition = Position(33386, 31470, 14), toPosition = Position(33388, 31472, 14), crystalPosition = Position(33387, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendantQuest.Crystals.Crystal8}
+	[1] = {fromPosition = Position(33389, 31467, 14), toPosition = Position(33391, 31469, 14), crystalPosition = Position(33390, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal1},
+	[2] = {fromPosition = Position(33393, 31467, 14), toPosition = Position(33395, 31469, 14), crystalPosition = Position(33394, 31468, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal2},
+	[3] = {fromPosition = Position(33396, 31470, 14), toPosition = Position(33398, 31472, 14), crystalPosition = Position(33397, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal3},
+	[4] = {fromPosition = Position(33396, 31474, 14), toPosition = Position(33398, 31476, 14), crystalPosition = Position(33397, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal4},
+	[5] = {fromPosition = Position(33393, 31477, 14), toPosition = Position(33395, 31479, 14), crystalPosition = Position(33394, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal5},
+	[6] = {fromPosition = Position(33389, 31477, 14), toPosition = Position(33391, 31479, 14), crystalPosition = Position(33390, 31478, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal6},
+	[7] = {fromPosition = Position(33386, 31474, 14), toPosition = Position(33388, 31476, 14), crystalPosition = Position(33387, 31475, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal7},
+	[8] = {fromPosition = Position(33386, 31470, 14), toPosition = Position(33388, 31472, 14), crystalPosition = Position(33387, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal8}
 }
 
 function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
@@ -28,9 +28,9 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 					return true
 				end
 				item:transform(17586)
-				Game.setStorageValue(GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals, Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals) + 1)
+				Game.setStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals, Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals) + 1)
 			end
-			if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.Crystals.AllCrystals) == 8 then
+			if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Crystals.AllCrystals) == 8 then
 				local creature = Tile(Position(33392, 31473, 14)):getTopCreature()
 				creature:say('NOOOOOOOOOOO!', TALKTYPE_MONSTER_YELL)
 				creature:say('FERUMBRAS BURSTS INTO SOUL SPLINTERS!', TALKTYPE_MONSTER_YELL, nil, nil, Position(33392, 31475, 14))

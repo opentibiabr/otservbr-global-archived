@@ -27,7 +27,7 @@ npcHandler:addModule(VoiceModule:new(voices))
 local function greetCallback(cid)
 	local player = Player(cid)
 
-	if player:getStorageValue(Storage.SeaOfLightQuest.Questline) < 10 then
+	if player:getStorageValue(Storage.SeaOfLight.Questline) < 10 then
 		npcHandler:setMessage(
 			MESSAGE_GREET,
 			"Hello |PLAYERNAME|! You're late, do you have no concept of time? My mission is of utmost importance. If you are not interested in helping me, you might as well just leave."
@@ -59,8 +59,8 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, "research") then
-		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
-		local tombsStorage = player:getStorageValue(Storage.spiritHuntersQuest.tombsUse)
+		local qStorage = player:getStorageValue(Storage.SpiritHunters.Mission01)
+		local tombsStorage = player:getStorageValue(Storage.SpiritHunters.TombUse)
 		if qStorage == -1 then
 			if npcHandler.topic[cid] == 17 then
 				npcHandler:say(
@@ -109,7 +109,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "mission") then
-		if player:getStorageValue(Storage.SeaOfLightQuest.Questline) == -1 then
+		if player:getStorageValue(Storage.SeaOfLight.Questline) == -1 then
 			npcHandler:say(
 				"Alright, you look bright enough to fulfil my requests - at least you do not fall asleep while standing there. \z
 					Ahem... I heard about a certain inventor who created a {magic device} to actually sail the {sea of light}. \z
@@ -120,13 +120,13 @@ local function creatureSayCallback(cid, type, msg)
 				200
 			)
 			npcHandler.topic[cid] = 1
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 1 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 1 then
 			npcHandler:say(
 				"You should find the beggar somewhere in Edron. Stay persistent, \z
 				I'm sure he knows more than he wants to tell us.",
 				cid
 			)
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 2 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 2 then
 			if not player:removeItem(10613, 1) then
 				npcHandler:say(
 					"o have you talked to the beggar? What did he tell you? Where are the plans...? Wh...? He did? He is? \z
@@ -140,9 +140,9 @@ local function creatureSayCallback(cid, type, msg)
 			end
 
 			player:addExperience(400, true)
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 3)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission1, 3)
-			player:setStorageValue(Storage.SeaOfLightQuest.StudyTimer, os.time() + 1800)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 3)
+			player:setStorageValue(Storage.SeaOfLight.Mission1, 3)
+			player:setStorageValue(Storage.SeaOfLight.StudyTimer, os.time() + 1800)
 			npcHandler:say(
 				"So have you talked to the beggar? What did he tell you? Where are the plans...? Wh...? He did? He is? \z
 				You've already got the plans? Beautiful!! Amazing! Alright it will take some time to recapitulate these plans.",
@@ -152,8 +152,8 @@ local function creatureSayCallback(cid, type, msg)
 				200
 			)
 			addEvent(releasePlayer, 1000, cid)
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 3 then
-			local timeStorage = player:getStorageValue(Storage.SeaOfLightQuest.StudyTimer)
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 3 then
+			local timeStorage = player:getStorageValue(Storage.SeaOfLight.StudyTimer)
 			if timeStorage > os.time() then
 				npcHandler:say(
 					"It will take some time to work out the initial problem of the device. Come back when I've found the \z
@@ -175,7 +175,7 @@ local function creatureSayCallback(cid, type, msg)
 				)
 				npcHandler.topic[cid] = 2
 			end
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 4 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 4 then
 			npcHandler:say(
 				"Did you enter the Lost Mines yet? They are west of Edron, close to the sea. You will also need a \z
 				pick once you get to the crystal deposit.",
@@ -184,7 +184,7 @@ local function creatureSayCallback(cid, type, msg)
 				true,
 				200
 			)
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 5 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 5 then
 			if player:getItemCount(10614) == 0 then
 				npcHandler:say(
 					"Hm, so did you find a rare crystal? Show me... hey! That's not a rare crystal. What... where did \z
@@ -197,8 +197,8 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 			player:addExperience(500, true)
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 6)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission2, 3)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 6)
+			player:setStorageValue(Storage.SeaOfLight.Mission2, 3)
 			npcHandler:say(
 				{
 					"Did you find a rare crystal? Show me... Amazing, absolutely amazing. This crystal alone is worth \z
@@ -212,14 +212,14 @@ local function creatureSayCallback(cid, type, msg)
 				200
 			)
 			addEvent(releasePlayer, 1000, cid)
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 6 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 6 then
 			npcHandler:say(
 				"Well, the only thing left to do would be to offer the crystal at the well of the collector. There \z
 				must be a pedestal near the well, where you need to put your donation. Ha, do you think you could do that?",
 				cid
 			)
 			npcHandler.topic[cid] = 5
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 7 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 7 then
 			npcHandler:say(
 				"Found the well yet? Look on one of the ice isles near Carlin. I'm perfectly sure that the well \z
 				with the pedestal is located on one of them. And be careful with the carrying device, I only have \z
@@ -229,13 +229,13 @@ local function creatureSayCallback(cid, type, msg)
 				true,
 				200
 			)
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 8 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 8 then
 			npcHandler:say(
 				"So have you found the well and entered the lair? I hope you can find the {mirror crystal}\z
 			in there. It is the only way to finish the {Lightboat}.",
 				cid
 			)
-		elseif player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 9 then
+		elseif player:getStorageValue(Storage.SeaOfLight.Questline) == 9 then
 			if player:getItemCount(10616) == 0 then
 				npcHandler:say(
 					"Put the mirror crystal into the special carrying device \z
@@ -251,7 +251,7 @@ local function creatureSayCallback(cid, type, msg)
 			)
 			npcHandler.topic[cid] = 7
 		elseif
-			(player:getStorageValue(Storage.SeaOfLightQuest.Questline) == 10) and
+			(player:getStorageValue(Storage.SeaOfLight.Questline) == 10) and
 				(player:getStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine) < 1)
 		 then
 			npcHandler:say(
@@ -313,8 +313,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "yes") then
 		if npcHandler.topic[cid] == 1 then
 			player:addExperience(100, true)
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 1)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission1, 1)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 1)
+			player:setStorageValue(Storage.SeaOfLight.Mission1, 1)
 			npcHandler:say(
 				{
 					"That's the spirit! As time is of the essence, we should start right now. ...",
@@ -344,9 +344,9 @@ local function creatureSayCallback(cid, type, msg)
 			)
 			npcHandler.topic[cid] = 4
 		elseif npcHandler.topic[cid] == 4 then
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 4)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission1, 4)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission2, 1)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 4)
+			player:setStorageValue(Storage.SeaOfLight.Mission1, 4)
+			player:setStorageValue(Storage.SeaOfLight.Mission2, 1)
 			player:addMapMark(Position(33103, 31811, 7), MAPMARK_CROSS, "Lost Mines")
 			npcHandler:say(
 				{
@@ -371,8 +371,8 @@ local function creatureSayCallback(cid, type, msg)
 			)
 			npcHandler.topic[cid] = 6
 		elseif npcHandler.topic[cid] == 6 then
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 7)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission3, 1)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 7)
+			player:setStorageValue(Storage.SeaOfLight.Mission3, 1)
 			player:addItem(10615, 1)
 			npcHandler:say(
 				"To collect the unbelievably rare, practically unique mirror crystal, you will need to use this \z
@@ -390,8 +390,8 @@ local function creatureSayCallback(cid, type, msg)
 			player:addItem(2145, 10)
 			player:addItem(2154, 1)
 			player:addExperience(1000, true)
-			player:setStorageValue(Storage.SeaOfLightQuest.Mission3, 4)
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 10)
+			player:setStorageValue(Storage.SeaOfLight.Mission3, 4)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 10)
 			npcHandler:say(
 				{
 					"Ah yes, slowly, carefully, careful ...",
@@ -458,7 +458,7 @@ local function creatureSayCallback(cid, type, msg)
 				marked on your map and take a few measurements on the graves.",
 				cid
 			)
-			player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 1)
+			player:setStorageValue(Storage.SpiritHunters.Mission01, 1)
 			player:addItem(12670, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 19 then
@@ -471,7 +471,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:addExperience(500, true)
 			player:addItem(2152, 5)
 			addEvent(releasePlayer, 1000, cid)
-			player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 2)
+			player:setStorageValue(Storage.SpiritHunters.Mission01, 2)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 27 then
 			npcHandler:say(
@@ -538,7 +538,7 @@ local function creatureSayCallback(cid, type, msg)
 				true,
 				200
 			)
-			player:setStorageValue(Storage.SeaOfLightQuest.Questline, 11)
+			player:setStorageValue(Storage.SeaOfLight.Questline, 11)
 			player:setStorageValue(Storage.TibiaTales.DefaultStart, 1)
 			player:setStorageValue(Storage.TibiaTales.JackFutureQuest.QuestLine, 1)
 			npcHandler.topic[cid] = 0
@@ -624,7 +624,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, "collective apparitions") then
-		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
+		local qStorage = player:getStorageValue(Storage.SpiritHunters.Mission01)
 		if qStorage == -1 then
 			if npcHandler.topic[cid] == 15 then
 				npcHandler:say(
@@ -756,7 +756,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 24
 		end
 	elseif msgcontains(msg, "task") then
-		if player:getStorageValue(Storage.SeaOfLightQuest.Mission3) == 4 then
+		if player:getStorageValue(Storage.SeaOfLight.Mission3) == 4 then
 		end
 	end
 

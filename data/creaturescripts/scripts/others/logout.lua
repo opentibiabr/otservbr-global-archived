@@ -4,7 +4,7 @@ function onLogout(player)
 		nextUseStaminaTime[playerId] = nil
 	end
 	player:saveSpecialStorage()
-	player:setStorageValue(Storage.Exercisedummy.exaust, 0)
+	player:setStorageValue(Storage.ExerciseDummyExhaust, 0)
 
 	local stats = player:inBossFight()
 	if stats then

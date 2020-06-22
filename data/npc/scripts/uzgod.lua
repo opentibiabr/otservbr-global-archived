@@ -37,7 +37,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	if(msgcontains(msg, "pickaxe")) then
-		if player:getStorageValue(Storage.ExplorerSociety.JoiningtheExplorers) == 1 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 1 then
+		if player:getStorageValue(Storage.ExplorerSociety.JoiningTheExplorers) == 1 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 1 then
 			npcHandler:say("True dwarven pickaxes having to be maded by true weaponsmith! You wanting to get pickaxe for explorer society?", cid)
 			npcHandler.topic[cid] = 1
 		end
@@ -52,7 +52,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 6
 		end
 	elseif(msgcontains(msg, "brooch")) then
-		if player:getStorageValue(Storage.ExplorerSociety.JoiningtheExplorers) == 2 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 2 then
+		if player:getStorageValue(Storage.ExplorerSociety.JoiningTheExplorers) == 2 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 2 then
 			npcHandler:say("You got me brooch?", cid)
 			npcHandler.topic[cid] = 3
 		end
@@ -66,7 +66,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Last key should be in the generals quarter near armory. Only General might have key to enter there too. But me not knowing how to enter Generals private room at barracks. You looking on your own ...", cid)
 			npcHandler:say("When got key, then you going down to dwarven prison and getting me that brooch. Tell me that you got brooch when having it.", cid)
 			npcHandler.topic[cid] = 0
-			player:setStorageValue(Storage.ExplorerSociety.JoiningtheExplorers, 2)
+			player:setStorageValue(Storage.ExplorerSociety.JoiningTheExplorers, 2)
+			player:setStorageValue(Storage.ExplorerSociety.DwacatraDoor, 1)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 2)
 		elseif(npcHandler.topic[cid] == 3) then
 			if player:removeItem(4845, 1) then -----
@@ -76,7 +77,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif(npcHandler.topic[cid] == 4) then
 			npcHandler:say("Here you have it.", cid)
 			player:addItem(4874, 1) -----
-			player:setStorageValue(Storage.ExplorerSociety.JoiningtheExplorers, 3)
+			player:setStorageValue(Storage.ExplorerSociety.JoiningTheExplorers, 3)
 			player:setStorageValue(Storage.ExplorerSociety.QuestLine, 3)
 			npcHandler.topic[cid] = 0
 		elseif(npcHandler.topic[cid] == 9) then

@@ -3,12 +3,12 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= 34
-			or player:getStorageValue(Storage.WhatAFoolishQuest.OldWornCloth) == 1 then
+	if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= 34
+			or player:getStorageValue(Storage.WhatAFoolish.OldWornCloth) == 1 then
 		return false
 	end
 
-	player:setStorageValue(Storage.WhatAFoolishQuest.OldWornCloth, 1)
+	player:setStorageValue(Storage.WhatAFoolish.OldWornCloth, 1)
 	player:say('Amazing! That was quite fast!', TALKTYPE_MONSTER_SAY)
 	toPosition:sendMagicEffect(CONST_ME_BLOCKHIT)
 	item:transform(7501)

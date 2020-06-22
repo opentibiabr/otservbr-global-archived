@@ -12,7 +12,7 @@ KeyDoorTable = {
 	{ lockedDoor = 1234, closedDoor = 1235, openDoor = 1236 },
 	{ lockedDoor = 1249, closedDoor = 1250, openDoor = 1251 },
 	{ lockedDoor = 1252, closedDoor = 1253, openDoor = 1254 },
-	{ lockedDoor = 3535, closedDoor = 3336, openDoor = 3537 },
+	{ lockedDoor = 3535, closedDoor = 3536, openDoor = 3537 },
 	{ lockedDoor = 3544, closedDoor = 3545, openDoor = 3546 },
 	{ lockedDoor = 4916, closedDoor = 4917, openDoor = 4918 },
 	{ lockedDoor = 4913, closedDoor = 4914, openDoor = 4915 },

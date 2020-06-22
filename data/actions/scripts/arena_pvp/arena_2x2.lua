@@ -1,44 +1,37 @@
-local function isPlayerInArea(fromPos, toPos)
-    for _x = fromPos.x, toPos.x do
-        for _y = fromPos.y, toPos.y do
-            for _z = fromPos.z, toPos.z do
-                creature = getTopCreature({x = _x, y = _y, z = _z})
-                    if (isPlayer(creature.uid)) then
-                    return true
-                end
-            end
-        end
-    end
-    return false
-end
+local setting = {
+	centerRoom = {x = 32255, y = 32178, z = 9},
+	range = 10
+}
 
-function onUse(cid, item, fromPosition, itemEx)
+local playerPositions = {
+	{fromPos = {x = 32269, y = 32180, z = 8}, toPos = {x = 32247, y = 32178, z = 9}}, -- Player 2
+	{fromPos = {x = 32270, y = 32180, z = 8}, toPos = {x = 32264, y = 32178, z = 9}} -- Player 1
+}
 
-	local player = Player(cid)
-	if not player then
-		return true
-	end
+local positions = {
+}
 
-if(itemEx.itemid == 24733) then
-	if player:getStorageValue(1) and not isPlayerInArea({x = 32244, y = 32169, z = 9, stackpos = 255}, {x = 32267, y = 32189, z = 9, stackpos = 255}) then
-		pos1 = {x = 32270, y = 32180, z = getCreaturePosition(cid).z} -- {x = 32270, y = 32180, z = 8}
-		pos2 = {x = 32269, y = 32180, z = getCreaturePosition(cid).z} -- {x = 32269, y = 32180, z = 8}
-		-- team 1
-		if(isPlayer(getTopCreature(pos1).uid)) then
-		if(isPlayer(getTopCreature(pos2).uid)) then
-		-- team 1
-			doTeleportThing(getTopCreature(pos1).uid, {x = 32264, y = 32178, z = 9})
-			doTeleportThing(getTopCreature(pos2).uid, {x = 32247, y = 32178, z = 9})
-			doRemoveItem(item.uid, 1)
-		else
-		doCreatureSay(cid, "You need 2 players for enter in Arena.", TALKTYPE_ORANGE_1)
+function onUse(player, item, fromPosition, target, toPosition, monster, isHotkey)
+	if toPosition == Position(32271, 32180, 8) then
+		if roomIsOccupied(setting.centerRoom, setting.range, setting.range) then
+			player:say("Please wait for the fighters come out of the arena.", TALKTYPE_ORANGE_1)
+			return true
 		end
-		else
-		doCreatureSay(cid, "You need 2 players for enter in Arena.", TALKTYPE_ORANGE_1)
+		for i = 1, #playerPositions do
+			local creature = Tile(playerPositions[i].fromPos):getTopCreature()
+			if creature and creature:getPlayer() then
+				creature:teleportTo(playerPositions[i].toPos)
+				creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			elseif not creature then
+				player:say("You need 2 players for enter in the arena.", TALKTYPE_ORANGE_1)
+				return true
+			else
+				player:say("You need 2 players for enter in the arena.", TALKTYPE_ORANGE_1)
+				return true
+			end
 		end
-		else
-		doCreatureSay(cid, "Please wait for the fighters come out of the arena.", TALKTYPE_ORANGE_1)
+	else
+		return false
 	end
 	return true
-end
 end

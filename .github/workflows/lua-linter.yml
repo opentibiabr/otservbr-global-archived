@@ -27,7 +27,7 @@ jobs:
 
     - name: Get file changes
       id: get_file_changes
-      uses: trilom/file-changes-action@v1.2.3
+      uses: trilom/file-changes-action@master
       with:
         githubToken: ${{ secrets.GITHUB_TOKEN }}
         output: ' '

@@ -76,7 +76,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	if player:getStorageValue(Storage.QueenOfBansheesQuest.ThirdSeal) < 1 then
+	if player:getStorageValue(Storage.QueenOfBanshees.ThirdSeal) < 1 then
 		if item.uid == table then
 			item:transform(1945)
 			Game.setStorageValue("switchNum", math.max(1, Game.getStorageValue("switchNum") + 1))

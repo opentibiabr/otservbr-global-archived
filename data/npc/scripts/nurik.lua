@@ -17,7 +17,7 @@ end
 
 local function greetCallback(cid)
 	local player = Player(cid)
-	if player:getStorageValue(Storage.thievesGuild.Mission04) ~= 6 or player:getOutfit().lookType ~= 66 then
+	if player:getStorageValue(Storage.ThievesGuild.Mission04) ~= 6 or player:getOutfit().lookType ~= 66 then
 		npcHandler:say('Excuse me, but I\'m waiting for someone important!', cid)
 		return false
 	end
@@ -50,7 +50,7 @@ local function creatureSayCallback(cid, type, msg)
 			local player = Player(cid)
 			if player:removeItem(8694, 1) then
 				player:addItem(8699, 1)
-				player:setStorageValue(Storage.thievesGuild.Mission04, 7)
+				player:setStorageValue(Storage.ThievesGuild.Mission04, 7)
 				npcHandler:say({
 					'Excellent! Here is the painting you requested. It\'s quite precious to my father, but imagine his joy when I tell him about my clever deal! ...',
 					'Now leave me alone please. I have to prepare for my departure. Now my family will not call me a squandering fool anymore!'

@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= 8 then
+	if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= 8 then
 		return false
 	end
 

@@ -1,9 +1,1688 @@
--- STORAGES --
--- (HIGHLY RECOMMENDED -> ONE mission per STORAGE) --
--- Sort it in Values -
+--[[
+Reserved player action storage key ranges (const.h)
+	It is possible to place the storage in a quest door, so the player who has that storage will go through the door
+
+	Reserved player action storage key ranges (const.h at the source)
+	[10000000 - 20000000]
+	[1000 - 1500]
+	[2001 - 2011]
+
+	Others reserved player action/storages
+	[100] = unmoveable/untrade/unusable items
+	[101] = use pick floor
+	[102] = well down action
+	[103-120] = others keys action
+	[103] = key 0010
+	[303] = key 0303
+	[1000] = level door. Here 1 must be used followed by the level.
+	Example: 1010 = level 10,
+	1100 = level 100]
+
+	[3001-3008] = key 3001/3008
+	[3012] = key 3012
+	[3033] = key 3033
+	[3100] = key 3100
+	[3142] = key 3142
+	[3200] = key 3200
+	[3301] = key 3301
+	[3302] = key 3302
+	[3303] = key 3303
+	[3304] = key 3304
+	[3350] = key 3350
+	[3520] = key 3520
+	[3600] = key 3600
+	[3610] = key 3610
+	[3620] = key 3620
+	[3650] = key 3650
+	[3666] = key 3666
+	[3667] = key 3667
+	[3700] = key 3700
+	[3701/3703] = key 3701/3703
+	[3800/3802] = key 3800/3802
+	[3899] = key 3899
+	[3900] = key 3900
+	[3909/3917] = key 3909/3917
+	[3923] = key 3923
+	[3925] = key 3925
+	[3930] = key 3930
+	[3932] = key 3932
+	[3934] = key 3934
+	[3935] = key 3935
+	[3936] = key 3936
+	[3938] = key 3938
+	[3940] = key 3940
+	[3950] = key 3950
+	[3960] = key 3960
+	[3980] = key 3980
+	[3988] = key 3988
+	[4001] = key 4001
+	[4009] = key 4009
+	[4022] = key 4022
+	[4023] = key 4023
+	[4033] = key 4033
+	[4037] = key 4037
+	[4055] = key 4055
+	[4210] = key 4210
+	[4501] = key 4501
+	[4502] = key 4502
+	[4503] = key 4503
+	[4600] = key 4600
+	[4601] = key 4601
+	[4603] = key 4603
+	[5000] = key 5000
+	[5002] = key 5002
+	[5010] = key 5010
+	[5050] = key 5050
+	[6010] = key 6010
+
+	Questline = Storage through the Quest
+]]
 
 Storage = {
-  	-- News quest development
+	-- General storages
+	isTraining = 30000,
+	NpcExhaust = 30001,
+	NpcExhaustOnBuy = 30002,
+	Dragonfetish = 30003,
+	EdronRopeQuest = 30004,
+	GhostShipQuest = 30005,
+	OrcKingGreeting = 30006,
+	MarkwinGreeting = 30007,
+	-- empty = 30008
+	WagonTicket = 30009,
+	BloodHerbQuest = 30010,
+	firstMageWeapon = 30011,
+	toOutfoxAFoxQuest = 30012,
+	MadMageQuest = 30013,
+	KawillBlessing = 30014,
+	RentedHorseTimer = 30015,
+	FountainOfLife = 30016,
+	KnightwatchTowerDoor = 30017,
+	-- Promotion Storage cannot be changed, it is set in source code
+	Promotion = 30018,
+	RookgaardHints = 30019,
+	RookgaardDestiny = 30020,
+	EruaranGreeting = 30021,
+	MaryzaCookbook = 30022,
+	combatProtectionStorage = 30023,
+	Factions = 30024,
+	blockMovementStorage = 30025,
+	PetSummon = 30026,
+	TrainerRoom = 30027,
+	NpcSpawn = 30028,
+	ExerciseDummyExhaust = 30029,
+	SamsOldBackpack = 30030,
+	SamsOldBackpackDoor = 30031,
+	CupCake = 30032,
+	ChayenneReward = 30033,
+	SwampDiggingTimeout = 30034,
+	HydraEggQuest = 30035,
+	Atrad = 30036,
+	ElementalistQuest1 = 30037,
+	ElementalistQuest2 = 30038,
+	ElementalistQuest3 = 30039,
+	ElementalistOutfitStart = 30040,
+	WayfarerOutfit = 30041,
+	DreamOutfit = 30042,
+	Percht1 = 30043,
+	Percht2 = 30044,
+	Percht3 = 30045,
+	Irmana1 = 30046,
+	Irmana2 = 30047,
+	Navigator = 30048,
+	DwarvenLegs = 30049,
+	PrinceDrazzakTime = 30050,
+	--[[
+	Old storages
+	Over time, this will be dropped and replaced by the table above
+	]]
+	DeeplingsWorldChange = {
+		-- Reserved storage from 50000 - 50009
+		Questline = 50000,
+		FirstStage = 50001,
+		SecondStage = 50002,
+		ThirdStage = 50003,
+		Crystal = 50004
+	},
+	LiquidBlackQuest = {
+		-- Reserved storage from 50010 - 50014
+		Questline = 50010,
+		Visitor = 50011
+	},
+	Kilmaresh = {
+		-- Reserved storage from 50015 - 50049
+		Questline = 50015,
+		First = {
+			Title = 50016
+		},
+		Second = {
+			Investigating = 50017
+		},
+		Third = {
+			Recovering = 50018
+		},
+		Fourth = {
+			Moe = 50019
+		},
+		Fifth = {
+			Memories = 50020
+		},
+		Sixth = {
+			Favor = 50021
+		},
+		Set = {
+			Ritual = 50022
+		},
+		Eighth = {
+			Yonan = 50023,
+			Narsai = 50024,
+			Shimun = 50025,
+			Tefrit = 50026
+		},
+		Nine = {
+			Owl = 50027
+		},
+		Tem = {
+			Bleeds = 50028
+		},
+		Eleven = {
+			Basin = 50029
+		},
+		Twelve = {
+			Boss = 50030,
+			Bragrumol = 50031,
+			Mozradek = 50032,
+			Xogixath = 50033
+		},
+		Thirteen = {
+			Fafnar = 50034,
+			Lyre = 50035,
+			Presente = 50036
+		},
+		Fourteen = {
+			Remains = 50037
+		}
+	},
+	TheSecretLibrary = {
+		-- Reserved storage from 50050 - 50069
+		TheOrderOfTheFalcon = {
+			OberonTimer = 50050
+		},
+		LiquidDeath = 50051,
+		Mota = 50052,
+		MotaDoor = 50053,
+		BasinDoor = 50054,
+		SkullDoor = 50055,
+		TheLament = 50056,
+		GreenTel = 50057,
+		BlueTel = 50058,
+		BlackTel = 50059,
+		PinkTel = 50060,
+		Peacock = 50061,
+		HighDry = 50062
+	},
+	DeeplingBosses = {
+		-- Reserved storage from 50070 - 50079
+		Jaul = 50070,
+		Tanjis = 50071,
+		Obujos = 50072,
+		DeeplingStatus = 50073
+	},
+	DangerousDepths = {
+		-- Reserved storage from 50080 - 50199
+		Questline = 50080,
+		Dwarves = {
+			Status = 50081,
+			Home = 50082, -- Mission
+			Subterranean = 50083, -- Mission
+			LostExiles = 50084,
+			Prisoners = 50085,
+			Organisms = 50086,
+			TimeTaskHome = 50087,
+			TimeTaskSubterranean = 50088
+		},
+		Scouts = {
+			Status = 50090,
+			Diremaw = 50091, -- Mission
+			Growth = 50092, -- Mission
+			DiremawsCount = 50093,
+			GnomishChest = 50094,
+			BarrelCount = 50095,
+			FirstBarrel = 50096,
+			SecondBarrel = 50097,
+			ThirdBarrel = 50098,
+			FourthBarrel = 50099,
+			FifthBarrel = 50100,
+			TimeTaskDiremaws = 50101,
+			TimeTaskGrowth = 50102,
+			Barrel = 50103,
+			BarrelTimer = 50104
+		},
+		Gnomes = {
+			Status = 50115,
+			Ordnance = 50116, -- Mission
+			Measurements = 50117, -- Mission
+			Charting = 50118, -- Mission
+			GnomeChartChest = 50119, -- Measurements
+			GnomeChartPaper = 50120, -- Charting
+			GnomesCount = 50121, -- Ordnance
+			CrawlersCount = 50122, -- Ordnance
+			LocationA = 50123, -- Measurements
+			LocationB = 50124, -- Measurements
+			LocationC = 50125, -- Measurements
+			LocationD = 50126, -- Measurements
+			LocationE = 50127, -- Measurements
+			LocationCount = 50128, -- Measurements
+			OldGate = 50129, -- Charting
+			TheGaze = 50130, -- Charting
+			LostRuin = 50131, -- Charting
+			Outpost = 50132, -- Charting
+			Bastion = 50133,
+			-- Charting
+			BrokenTower = 50134, -- Charting
+			ChartingCount = 50135, -- Contador
+			TimeTaskOrdnance = 50136,
+			TimeTaskMeasurements = 50137,
+			TimeTaskCharting = 50138
+		},
+		Access = {
+			LavaPumpWarzoneVI = 50139,
+			TimerWarzoneVI = 50140,
+			LavaPumpWarzoneV = 50141,
+			TimerWarzoneV = 50142,
+			LavaPumpWarzoneIV = 50143,
+			TimerWarzoneIV = 50144
+		},
+		Crystals = {
+			WarzoneVI = {
+				BigCrystal1 = 50155,
+				BigCrystal2 = 50156,
+				MediumCrystal1 = 50157,
+				MediumCrystal2 = 50158,
+				SmallCrystal1 = 50159,
+				SmallCrystal2 = 50160
+			},
+			WarzoneV = {
+				BigCrystal1 = 50165,
+				BigCrystal2 = 50166,
+				MediumCrystal1 = 50167,
+				MediumCrystal2 = 50168,
+				SmallCrystal1 = 50169,
+				SmallCrystal2 = 50170
+			},
+			WarzoneIV = {
+				BigCrystal1 = 50175,
+				BigCrystal2 = 50176,
+				MediumCrystal1 = 50177,
+				MediumCrystal2 = 50178,
+				SmallCrystal1 = 50179,
+				SmallCrystal2 = 50180
+			}
+		},
+		Bosses = {
+			TheCountOfTheCore = 50185,
+			TheDukeOfTheDepths = 50186,
+			TheBaronFromBelow = 50187,
+			TheCountOfTheCoreAchiev = 50188,
+			TheDukeOfTheDepthsAchiev = 50189,
+			TheBaronFromBelowAchiev = 50190,
+			LastAchievement = 50191
+		}
+	},
+	CultsOfTibia = {
+		-- Reserved storage from 50200 - 50269
+		Questline = 50200,
+		Minotaurs = {
+			EntranceAccessDoor = 50201,
+			JamesfrancisTask = 50202,
+			Mission = 50203,
+			BossTimer = 50204,
+			AccessDoor = 50205
+		},
+		MotA = {
+			Mission = 50210,
+			Stone1 = 50211,
+			Stone2 = 50212,
+			Stone3 = 50213,
+			Answer = 50214,
+			QuestionId = 50215,
+			AccessDoorInvestigation = 50216,
+			AccessDoorGareth = 50217,
+			AccessDoorDenominator = 50218
+		},
+		Barkless = {
+			Mission = 50225,
+			sulphur = 50226,
+			Tar = 50227,
+			Ice = 50228,
+			Death = 50229,
+			Objects = 50230,
+			Temp = 50231,
+			BossTimer = 50232,
+			TrialAccessDoor = 50233,
+			TarAccessDoor = 50234,
+			AccessDoor = 50235,
+			BossAccessDoor = 50236
+		},
+		Orcs = {
+			Mission = 50240,
+			LookType = 50241,
+			BossTimer = 50242
+		},
+		Life = {
+			Mission = 50245,
+			BossTimer = 50246,
+			AccessDoor = 50247
+		},
+		Humans = {
+			Mission = 50250,
+			Vaporized = 50251,
+			Decaying = 50252,
+			BossTimer = 50253
+		},
+		Misguided = {
+			Mission = 50255,
+			Monsters = 50256,
+			Exorcisms = 50257,
+			Time = 50258,
+			BossTimer = 50259,
+			AccessDoor = 50260
+		},
+		FinalBoss = {
+			Mission = 50261,
+			BossTimer = 50262,
+			AccessDoor = 50263
+		}
+	},
+	ThreatenedDreams = {
+		-- Reserved storage from 50270 - 50349
+		Start = 50270,
+		TroubledMission01 = 50271,
+		TroubledMission02 = 50272,
+		TroubledMission03 = 50273,
+		FairyMission01 = 50274,
+		FairyMission02 = 50275,
+		FairyMission03 = 50276,
+		FairyMission04 = 50277,
+		DreamMission01 = 50278,
+		DreamCounter = 50279,
+		KroazurTimer = 50280,
+		CoupleMission01 = 50281,
+		CoupleMission02 = 50282,
+		FacelessBaneTime = 50283,
+		Reward01 = 50284,
+		Reward02 = 50285,
+		Reward03 = 50286
+	},
+	FirstDragon = {
+		-- Reserved storage from 50350 - 50379
+		Questline = 50350,
+		DragonCounter = 50351,
+		ChestCounter = 50352,
+		TazhadurTimer = 50353,
+		KalyassaTimer = 50354,
+		SecretsCounter = 50355,
+		GelidrazahAccess = 50356,
+		GelidrazahTimer = 50357,
+		DesertTile = 50358,
+		StoneSculptureTile = 50359,
+		SuntowerTile = 50360,
+		ZorvoraxTimer = 50361,
+		Horn = 50362,
+		Scale = 50363,
+		Bones = 50364,
+		Tooth = 50365,
+		AccessCave = 50366,
+		SomewhatBeatable = 50367,
+		FirstDragonTimer = 50368,
+		RewardFeather = 50369,
+		RewardMask = 50370,
+		RewardBackpack = 50371
+	},
+	Grimvale = {
+		-- Reserved storage from 50380 - 50399
+		SilverVein = 50380
+	},
+	HeroRathleton = {
+		-- Reserved storage from 50400 - 50419
+		QuestLine = 50400,
+		VotesCasted = 50401,
+		Rank = 50402,
+		AccessDoor = 50403,
+		AccessTeleport1 = 50404,
+		AccessTeleport2 = 50405,
+		AccessTeleport3 = 50406
+	},
+	FerumbrasAscension = {
+		-- Reserved storage from 50420 - 50469
+		RiftRunner = 50420, -- Scroll
+		TheShattererTimer = 50421,
+		TheLordOfTheLiceTimer = 50422,
+		TarbazTimer = 50423,
+		RazzagornTimer = 50424,
+		RagiazTimer = 50425,
+		ZamuloshTimer = 50426,
+		ShulgraxTimer = 50427,
+		MazoranTimer = 50428,
+		PlagirathTimer = 50429,
+		FerumbrasTimer = 50430,
+		Tarbaz = 50431,
+		Razzagorn = 50432,
+		Ragiaz = 50433,
+		Zamulosh = 50434,
+		Shulgrax = 50435,
+		Mazoran = 50436,
+		Plagirath = 50437,
+		Access = 50438,
+		TheShatterer = 50439,
+		ZamuloshTeleports = 50440,
+		BasinCounter = 50441,
+		TheLordOfTheLiceAccess = 50442,
+		FirstDoor = 50443,
+		MonsterDoor = 50444,
+		TarbazDoor = 50445,
+		HabitatsAccess = 50446,
+		HabitatsTimer = 50447,
+		TarbazNotes = 50448,
+		ColorLever = 50449,
+		BoneFluteWall = 50450,
+		BoneFlute = 50451,
+		Ring = 50452,
+		Statue = 50453,
+		Fount = 50454,
+		Vampire = 50455,
+		Flower = 50456,
+		Ring2 = 50457,
+		Bone = 50458,
+		Reward = 50459
+	},
+	ForgottenKnowledge = {
+		-- Reserved storage from 50470 - 50519
+		AccessDeath = 50470,
+		AccessViolet = 50471,
+		AccessEarth = 50472,
+		AccessFire = 50473,
+		AccessIce = 50474,
+		AccessGolden = 50475,
+		AccessLast = 50476,
+		OldDesk = 50477,
+		GirlPicture = 50478,
+		SilverKey = 50479,
+		Phial = 50480,
+		BirdCounter = 50481,
+		PlantCounter = 50482,
+		GoldenServantCounter = 50483,
+		DiamondServantCounter = 50484,
+		AccessPortals = 50485,
+		AccessMachine = 50486,
+		LadyTenebrisTimer = 50487,
+		LadyTenebrisKilled = 50488,
+		LloydTimer = 50489,
+		LloydKilled = 50490,
+		ThornKnightTimer = 50491,
+		ThornKnightKilled = 50492,
+		DragonkingTimer = 50493,
+		DragonkingKilled = 50494,
+		HorrorTimer = 50495,
+		HorrorKilled = 50496,
+		TimeGuardianTimer = 50497,
+		TimeGuardianKilled = 50498,
+		LastLoreTimer = 50499,
+		LastLoreKilled = 50501,
+		BirdCage = 50502,
+		AccessLavaTeleport = 50503,
+		Ivalisse = 50504,
+		Chalice = 50505,
+		Tomes = 50506,
+		BabyDragon = 50507,
+		SpiderWeb = 50508
+	},
+	SweetyCyclops = {
+		-- Reserved storage from 50520 - 50529
+		AmuletTimer = 50520,
+		AmuletStatus = 50521
+	},
+	ExplorerSociety = {
+		-- Reserved storage from 50530 - 50599
+		QuestLine = 50530,
+		SpectralStone = 50531,
+		SkullOfRatha = 50532,
+		GiantSmithHammer = 50533,
+		JoiningTheExplorers = 505344,
+		TheIceDelivery = 50535,
+		TheButterflyHunt = 50536,
+		ThePlantCollection = 50537,
+		TheLizardUrn = 50538,
+		TheBonelordSecret = 50539,
+		TheOrcPowder = 50540,
+		CalassaQuest = 50541,
+		TheMemoryStone = 50542,
+		TheRuneWritings = 50543,
+		TheEctoplasm = 50544,
+		TheSpectralDress = 50545,
+		TheSpectralStone = 50546,
+		TheAstralPortals = 50547,
+		TheIslandofDragons = 50548,
+		TheIceMusic = 50549,
+		BansheeDoor = 50550,
+		BonelordsDoor = 50551,
+		CalassaDoor = 50552,
+		MemoryStoneDoor = 50553,
+		ElvenDoor = 50554,
+		OrcDoor = 50555,
+		ChorurnDoor = 50556,
+		DwacatraDoor = 50557,
+		FamilyBroochDoor = 50558
+	},
+	TravellingTrader = {
+		-- Reserved storage from 50600 - 50619
+		Mission01 = 50600,
+		Mission02 = 50601,
+		Mission03 = 50602,
+		Mission04 = 50603,
+		Mission05 = 50604,
+		Mission06 = 50605,
+		Mission07 = 50606,
+		packageDoor = 50607
+	},
+	DjinnWar = {
+		-- Reserved storage from 50620 - 50649
+		Faction = {
+			Greeting = 50620,
+			MaridDoor = 50621,
+			EfreetDoor = 50622
+		},
+		RecievedLamp = 50625,
+		-- Blue djinn
+		MaridFaction = {
+			Start = 50630,
+			Mission01 = 50631,
+			Mission02 = 50632,
+			RataMari = 50633,
+			Mission03 = 50634,
+			DoorToLamp = 50635,
+			DoorToEfreetTerritory = 50636
+		},
+		-- Green djinn
+		EfreetFaction = {
+			Start = 50640,
+			Mission01 = 50641,
+			Mission02 = 50642,
+			Mission03 = 50643,
+			DoorToLamp = 50644,
+			DoorToMaridTerritory = 50645
+		}
+	},
+	VampireHunter = {
+		-- Reserved storage from 50650 - 50659
+		Rank = 50650
+	},
+	BigfootBurden = {
+		-- Reserved storage from 50660 - 50719
+		QuestLine = 50660,
+		Test = 50661,
+		Shooting = 50662,
+		QuestLineComplete = 50663,
+		MelodyTone1 = 50664,
+		MelodyTone2 = 50665,
+		MelodyTone3 = 50666,
+		MelodyTone4 = 50667,
+		MelodyTone5 = 50668,
+		MelodyTone6 = 50669,
+		MelodyTone7 = 50670,
+		MelodyStatus = 50671,
+		Rank = 50672,
+		MissionCrystalKeeper = 50673,
+		CrystalKeeperTimout = 50674,
+		RepairedCrystalCount = 50675,
+		MissionRaidersOfTheLostSpark = 50676,
+		ExtractedCount = 50677,
+		RaidersOfTheLostSparkTimeout = 50678,
+		MissionExterminators = 50679,
+		ExterminatedCount = 50680,
+		ExterminatorsTimeout = 50681,
+		MissionMushroomDigger = 50682,
+		MushroomCount = 50683,
+		MushroomDiggerTimeout = 50684,
+		MissionMatchmaker = 50685,
+		MatchmakerStatus = 50686,
+		MatchmakerIdNeeded = 50687,
+		MatchmakerTimeout = 50688,
+		MissionTinkersBell = 50689,
+		GolemCount = 50690,
+		TinkerBellTimeout = 50691,
+		MissionSporeGathering = 50692,
+		SporeCount = 50693,
+		SporeGatheringTimeout = 50694,
+		MissionGrindstoneHunt = 50695,
+		GrindstoneStatus = 50696,
+		GrindstoneTimeout = 50697,
+		WarzoneStatus = 50698,
+		Warzone1Access = 50699,
+		Warzone2Access = 50700,
+		Warzone3Access = 50701,
+		Warzone1Reward = 50702,
+		Warzone2Reward = 50703,
+		Warzone3Reward = 50704,
+		BossKills = 50705,
+		DoorGoldenFruits = 50706,
+		BossWarzone1 = 50707,
+		BossWarzone2 = 50708,
+		BossWarzone3 = 50709
+	},
+	TheirMastersVoice = {
+		-- Reserved storage from 50720 - 50739
+		SlimeGobblerTimeout = 50720,
+		SlimeGobblerReceived = 50721
+	},
+	KosheiTheDeathless = {
+		-- Reserved storage from 50740 - 50749
+		RewardDoor = 50740
+	},
+	ElementalSphere = {
+		-- Reserved storage from 50750 - 50759
+		QuestLine = 50750,
+		BossStorage = 50751,
+		MachineGemCount = 50752
+	},
+	GravediggerOfDrefia = {
+		-- Reserved storage from 50760 - 50849
+		QuestStart = 50760,
+		Mission01 = 50761,
+		Mission02 = 50762,
+		Mission03 = 50763,
+		Mission04 = 50764,
+		Mission05 = 50765,
+		Mission06 = 50766,
+		Mission07 = 50767,
+		Mission08 = 50768,
+		Mission09 = 50769,
+		Mission10 = 50770,
+		Mission11 = 50771,
+		Mission12 = 50772,
+		Mission13 = 50773,
+		Mission14 = 50774,
+		Mission15 = 50775,
+		Mission16 = 50776,
+		Mission17 = 50777,
+		Mission18 = 50778,
+		Mission19 = 50779,
+		Mission20 = 50780,
+		Mission21 = 50781,
+		Mission22 = 50782,
+		Mission23 = 50783,
+		Mission24 = 50784,
+		Mission25 = 50785,
+		Mission26 = 50786,
+		Mission27 = 50787,
+		Mission28 = 50788,
+		Mission29 = 50789,
+		Mission30 = 50790,
+		Mission31 = 50791,
+		Mission32 = 50792,
+		Mission32a = 50793,
+		Mission32b = 50794,
+		Mission33 = 50795,
+		Mission34 = 50796,
+		Mission35 = 50797,
+		Mission36 = 50798,
+		Mission36a = 50799,
+		Mission37 = 50800,
+		Mission38 = 50801,
+		Mission38a = 50802,
+		Mission38b = 50803,
+		Mission38c = 50804,
+		Mission39 = 50805,
+		Mission40 = 50806,
+		Mission41 = 50807,
+		Mission42 = 50808,
+		Mission43 = 50809,
+		Mission44 = 50810,
+		Mission45 = 50811,
+		Mission46 = 50812,
+		Mission47 = 50813,
+		Mission48 = 50814,
+		Mission49 = 50815,
+		Mission50 = 50816,
+		Mission51 = 50817,
+		Mission50 = 50818,
+		Mission53 = 50819,
+		Mission54 = 50820,
+		Mission55 = 50821,
+		Mission56 = 50822,
+		Mission57 = 50823,
+		Mission58 = 50824,
+		Mission59 = 50825,
+		Mission60 = 50826,
+		Mission61 = 50827,
+		Mission62 = 50828,
+		Mission63 = 50829,
+		Mission64 = 50830,
+		Mission65 = 50831,
+		Mission66 = 50832,
+		Mission67 = 50833,
+		Mission68 = 50834,
+		Mission69 = 50835,
+		Mission70 = 50836,
+		Mission71 = 50837,
+		Mission72 = 50838,
+		Mission73 = 50839,
+		Mission74 = 50840,
+		Bookcase = 50841
+	},
+	Oramond = {
+		-- Reserved storage from 50850 - 50879
+		QuestLine = 50850,
+		VotingPoints = 50851,
+		MissionToTakeRoots = 50852,
+		HarvestedRootCount = 50853,
+		TaskProbing = 50854,
+		DoorBeggarKing = 50855,
+		MissionAbandonedSewer = 50856,
+		DoorAbandonedSewer = 50857
+	},
+	DarkTrails = {
+		-- Reserved storage from 50880 - 50909
+		Mission01 = 50881,
+		Mission02 = 50882,
+		Mission03 = 50883,
+		Mission04 = 50884,
+		Mission05 = 50885,
+		Mission06 = 50886,
+		Mission07 = 50887,
+		Mission08 = 50888,
+		Mission09 = 50889,
+		Mission10 = 50890,
+		Mission11 = 50891,
+		Mission12 = 50892,
+		Mission13 = 50893,
+		Mission14 = 50894,
+		Mission15 = 50895,
+		Mission16 = 50896,
+		Mission17 = 50897,
+		Mission18 = 50898,
+		Outfit = 50899, -- final storage
+		DoorQuandon = 50901,
+		DoorHideout = 50902
+	},
+	SpikeTaskQuest = {
+		-- Reserved storage from 50910 - 50959
+		QuestLine = 50910,
+		Gnomilly = 50911,
+		Gnombold = {
+			Points = 50912,
+			Nests = 50913,
+			Fertilise = 50914,
+			Kill = 50915,
+			Charges = 50916
+		},
+		Gnomargery = {
+			Points = 50920,
+			Deliver = 50921,
+			Undercover = 50922,
+			Temperature = 50923,
+			Kill = 50924
+		}
+	},
+	OutfitQuest = {
+		-- Reserved storage from 50960 - 51039
+		-- Until all outfit quests are completed
+		DefaultStart = 50960,
+		Ref = 50961,
+		Afflicted = {
+			Outfit = 50962,
+			AddonPlagueMask = 50963,
+			AddonPlagueBell = 50964
+		},
+		Citizen = {
+			-- Mission storages for temporary questlog entries
+			MissionHat = 50966,
+			AddonHat = 50967,
+			MissionBackpack = 50968,
+			AddonBackpack = 50969,
+			AddonBackpackTimer = 50970
+		},
+		-- Begger Outfit Quest
+		BeggarFirstAddonDoor = 50975, -- Staff quest
+		BeggarSecondAddon = 50976,
+		-- Druid-outfit Quest
+		DruidHatAddon = 50977,
+		DruidBodyAddon = 50978,
+		DruidAmuletDoor = 50979,
+		-- Barbarian-outfit Quest
+		BarbarianAddon = 50980,
+		BarbarianAddonWaitTimer = 50981,
+		-- Beggar
+		BeggarOutfit = 50982,
+		BeggarOutfitTimer = 50983,
+		-- Hunter-outfit Quest
+		HunterMusicSheet01 = 50984,
+		HunterMusicSheet02 = 50985,
+		HunterMusicSheet03 = 50986,
+		HunterMusicSheet04 = 50987,
+		HunterBodyAddon = 50988,
+		HunterHatAddon = 50989,
+		Hunter = {
+			AddonGlove = 50990,
+			AddonHat = 50991
+		},
+		Knight = {
+			AddonSword = 50992,
+			MissionHelmet = 50993,
+			AddonHelmet = 50994,
+			AddonHelmetTimer = 50995,
+			RamsaysHelmetDoor = 50996
+		},
+		MageSummoner = {
+			AddonWand = 50997,
+			AddonBelt = 50998,
+			MissionHatCloak = 50999,
+			AddonHatCloak = 51000,
+			AddonWandTimer = 51001
+		},
+		-- Nobleman Outfit
+		NoblemanFirstAddon = 51002,
+		NoblemanSecondAddon = 51003,
+		-- Norseman-outfit Quest
+		NorsemanAddon = 51004,
+		-- Warrior-outfit Quest
+		WarriorShoulderAddon = 51005,
+		WarriorSwordAddon = 51006,
+		WarriorShoulderTimer = 51007,
+		-- Wizard-outfit Quest
+		WizardAddon = 51008,
+		-- Pirate-outfit Quest
+		PirateBaseOutfit = 51009,
+		PirateSabreAddon = 51010,
+		PirateHatAddon = 51011,
+		-- Assassin Outfit
+		AssassinBaseOutfit = 51012,
+		AssassinFirstAddon = 51013,
+		AssassinSecondAddon = 51014,
+		-- Golden Outfit
+		GoldenOutfit = 51015,
+		NightmareOutfit = 51016,
+		NightmareDoor = 51017,
+		BrotherhoodOutfit = 51018,
+		BrotherhoodDoor = 51019,
+		Shaman = {
+			AddonStaffMask = 51020,
+			MissionStaff = 51021,
+			MissionMask = 51022
+		},
+		DeeplingAnchor = 51023,
+		FirstOrientalAddon = 51024,
+		SecondOrientalAddon = 51025
+	},
+	TheAncientTombs = {
+		-- Reserved storage from 50940 - 51059
+		DefaultStart = 50940,
+		VashresamunInstruments = 50941,
+		VashresamunsDoor = 50942,
+		MorguthisBlueFlameStorage1 = 50943,
+		MorguthisBlueFlameStorage2 = 50944,
+		MorguthisBlueFlameStorage3 = 50945,
+		MorguthisBlueFlameStorage4 = 50946,
+		MorguthisBlueFlameStorage5 = 50947,
+		MorguthisBlueFlameStorage6 = 50948,
+		MorguthisBlueFlameStorage7 = 50949,
+
+		OmrucsTreasure = 50950,
+		ThalasTreasure = 50951,
+		DiphtrahsTreasure = 50952,
+		MahrdisTreasure = 50953,
+		VashresamunsTreasure = 50954,
+		MorguthisTreasure = 50955,
+		RahemosTreasure = 50956
+	},
+	TheApeCity = {
+		-- Reserved storage from 51060 - 51079
+		Started = 51060,
+		Questline = 51061,
+		DworcDoor = 51062,
+		ChorDoor = 51063,
+		ParchmentDecyphering = 51064,
+		FibulaDoor = 51065,
+		WitchesCapSpot = 51066,
+		CasksDoor = 51067,
+		Casks = 51068,
+		HolyApeHair = 51069,
+		SnakeDestroyer = 51070,
+		ShamanOufit = 51071
+	},
+	TheNewFrontier = {
+		-- Reserved storage from 51080 - 51109
+		Questline = 51080,
+		Mission01 = 51081,
+		Mission02 = 51082,
+		Mission03 = 51083,
+		Mission04 = 51084,
+		Mission05 = 51085,
+		Mission06 = 51086,
+		Mission07 = 51087,
+		Mission08 = 51088,
+		Mission09 = 51089,
+		Mission10 = 51090,
+		TomeofKnowledge = 51091,
+		Beaver1 = 51092,
+		Beaver2 = 51093,
+		Beaver3 = 51094,
+		BribeKing = 51095,
+		BribeLeeland = 51096,
+		BribeExplorerSociety = 51097,
+		BribeWydrin = 51098,
+		BribeTelas = 51099,
+		BribeHumgolf = 51100
+	},
+	TheInquisition = {
+		-- Reserved storage from 51110 - 51139
+		Questline = 51110,
+		Mission01 = 51111,
+		Mission02 = 51112,
+		Mission03 = 51113,
+		Mission04 = 51114,
+		Mission05 = 51115,
+		Mission06 = 51116,
+		Mission07 = 51117,
+		RewardDoor = 51118,
+		GrofGuard = 51120,
+		KulagGuard = 51121,
+		MilesGuard = 51122,
+		TimGuard = 51123,
+		WalterGuard = 51124,
+		StorkusVampiredust = 51125,
+		EnterTeleport = 51126,
+		Reward = 51127,
+		RewardRoomText = 51128
+	},
+	BarbarianTest = {
+		-- Reserved storage from 51140 - 51159
+		Questline = 51140,
+		Mission01 = 51141,
+		Mission02 = 51142,
+		Mission03 = 51143,
+		MeadTotalSips = 51144,
+		MeadSuccessSips = 51145
+	},
+	TheIceIslands = {
+		-- Reserved storage from 51160 - 51199
+		Questline = 51160,
+		Mission01 = 51161, -- Befriending the Musher
+		Mission02 = 51162, -- Nibelor 1: Breaking the Ice
+		Mission03 = 51163, -- Nibelor 2: Ecological Terrorism
+		Mission04 = 51164, -- Nibelor 3: Artful Sabotage
+		Mission05 = 51165, -- Nibelor 4: Berserk Brewery
+		Mission06 = 51166, -- Nibelor 5: Cure the Dogs
+		Mission07 = 51167, -- The Secret of Helheim
+		Mission08 = 51168, -- The Contact
+		Mission09 = 51169, -- Formorgar Mines 1: The Mission
+		Mission10 = 51170, -- Formorgar Mines 2: Ghostwhisperer
+		Mission11 = 51171, -- Formorgar Mines 3: The Secret
+		Mission12 = 51172, -- Formorgar Mines 4: Retaliation
+		PickAmount = 51173,
+		PaintSeal = 51174,
+		SulphurLava = 51175,
+		SporesMushroom = 51176,
+		FrostbiteHerb = 51177,
+		FlowerCactus = 51178,
+		FlowerBush = 51179,
+		MemoryCrystal = 51180,
+		Obelisk01 = 51181,
+		Obelisk02 = 51182,
+		Obelisk03 = 51183,
+		Obelisk04 = 51184,
+		yakchalDoor = 51185
+	},
+	TheWayToYalahar = {
+		-- Reserved storage from 51200 - 51209
+		QuestLine = 51200
+	},
+	InServiceofYalahar = {
+		-- Reserved storage from 51210 - 51259
+		Questline = 51210,
+		Mission01 = 51211,
+		Mission02 = 51212,
+		Mission03 = 51213,
+		Mission04 = 51214,
+		Mission05 = 51215,
+		Mission06 = 51216,
+		Mission07 = 51217,
+		Mission08 = 51218,
+		Mission09 = 51219,
+		Mission10 = 51220,
+		SewerPipe01 = 51221,
+		SewerPipe02 = 51222,
+		SewerPipe03 = 51223,
+		SewerPipe04 = 51224,
+		DiseasedDan = 51225,
+		DiseasedBill = 55226,
+		DiseasedFred = 55227,
+		AlchemistFormula = 51228,
+		BadSide = 51229,
+		GoodSide = 55230,
+		MrWestDoor = 51231,
+		MrWestStatus = 51232,
+		TamerinStatus = 55233,
+		MorikSummon = 51234,
+		QuaraState = 51235,
+		QuaraSplasher = 51236,
+		QuaraSharptooth = 51237,
+		QuaraInky = 51238,
+		MatrixState = 51239,
+		SideDecision = 51240,
+		MatrixReward = 51241,
+		NotesPalimuth = 51242,
+		NotesAzerus = 51243,
+		DoorToAzerus = 51244,
+		DoorToBog = 55136,
+		DoorToLastFight = 55137,
+		DoorToMatrix = 51247,
+		DoorToQuara = 51248,
+		DoorToReward = 51249
+	},
+	ChildrenoftheRevolution = {
+		-- Reserved storage from 55145 - 51279
+		Questline = 55145,
+		Mission00 = 55146, -- Prove Your Worzz!
+		Mission01 = 51262,
+		Mission02 = 51263,
+		Mission03 = 51264,
+		Mission04 = 55148,
+		Mission05 = 51266,
+		SpyBuilding01 = 51267,
+		SpyBuilding02 = 51268,
+		SpyBuilding03 = 51269,
+		StrangeSymbols = 55154
+	},
+	UnnaturalSelection = {
+		-- Reserved storage from 55159 - 51299
+		Questline = 55159,
+		Mission01 = 51281,
+		Mission02 = 51282,
+		Mission03 = 51283,
+		Mission04 = 51284,
+		Mission05 = 51285,
+		Mission06 = 51286,
+		DanceStatus = 51287
+	},
+	WrathoftheEmperor = {
+		-- Reserved storage from 51300 - 51339
+		Questline = 51300,
+		Mission01 = 51301,
+		Mission02 = 51302,
+		Mission03 = 51303,
+		Mission04 = 51304,
+		Mission05 = 51305,
+		Mission06 = 51306,
+		Mission07 = 51307,
+		Mission08 = 51308,
+		Mission09 = 51309,
+		Mission10 = 51310,
+		Mission11 = 51311,
+		Mission12 = 51312,
+		CrateStatus = 51313, --1068
+		GuardcaughtYou = 51314, --1062
+		ZumtahStatus = 51315, --1066
+		PrisonReleaseStatus = 51316, --1067
+		GhostOfAPriest01 = 51317, --1070
+		GhostOfAPriest02 = 51318, --1071
+		GhostOfAPriest03 = 51319, --1072
+		InterdimensionalPotion = 51320, --1084
+		BossStatus = 51321, --1090
+		platinumReward = 51322,
+		backpackReward = 51323,
+		mainReward = 51324,
+		-- never set just added here
+		TeleportAccess = 51325
+	},
+	FriendsandTraders = {
+		-- Reserved storage from 51340 - 51359
+		DefaultStart = 51340,
+		TheSweatyCyclops = 51341,
+		TheMermaidMarina = 51342,
+		TheBlessedStake = 51343,
+		TheBlessedStakeWaitTime = 51344
+	},
+	Postman = {
+		-- Reserved storage from 51360 - 51389
+		Mission01 = 51360,
+		Mission02 = 51361,
+		Mission03 = 51362,
+		Mission04 = 51363,
+		Mission05 = 51364,
+		Mission06 = 51365,
+		Mission07 = 51366,
+		Mission08 = 51367,
+		Mission09 = 51368,
+		Mission10 = 51369,
+		Rank = 51370,
+		Door = 51371,
+		TravelCarlin = 51372,
+		TravelEdron = 51373,
+		TravelVenore = 51374,
+		TravelCormaya = 51375,
+		MeasurementsBenjamin = 51376,
+		MeasurementsKroox = 51377,
+		MeasurementsDove = 51378,
+		MeasurementsLiane = 51379,
+		MeasurementsChrystal = 51380,
+		MeasurementsOlrik = 51381
+	},
+	ThievesGuild = {
+		-- Reserved storage from 515206 - 51409
+		Quest = 515206,
+		Mission01 = 515207,
+		Mission02 = 515208,
+		Mission03 = 515209,
+		Mission04 = 51394,
+		Mission05 = 515151,
+		Mission06 = 51396,
+		Mission07 = 51397,
+		Mission08 = 51398,
+		Door = 51399,
+		Reward = 51400,
+		TheatreScript = 51401
+	},
+	TheHuntForTheSeaSerpent = {
+		-- Reserved storage from 51410 - 51419
+		CaptainHaba = 51410
+	},
+	SecretService = {
+		-- Reserved storage from 51420 - 51449
+		Quest = 51420,
+		TBIMission01 = 51421,
+		AVINMission01 = 51422,
+		CGBMission01 = 51423,
+		TBIMission02 = 51424,
+		AVINMission02 = 51425,
+		CGBMission02 = 51426,
+		TBIMission03 = 51427,
+		AVINMission03 = 51428,
+		CGBMission03 = 51429,
+		TBIMission04 = 51430,
+		AVINMission04 = 51431,
+		CGBMission04 = 51432,
+		TBIMission05 = 51433,
+		AVINMission05 = 51434,
+		CGBMission05 = 51435,
+		TBIMission06 = 51436,
+		AVINMission06 = 51437,
+		CGBMission06 = 51438,
+		Mission07 = 51439,
+		RottenTree = 51440
+	},
+	HiddenCityOfBeregar = {
+		-- Reserved storage from 51450 - 51479
+		DefaultStart = 51450,
+		WayToBeregar = 51451,
+		OreWagon = 51452,
+		GoingDown = 51453,
+		JusticeForAll = 51454,
+		GearWheel = 51455,
+		SweetAsChocolateCake = 51456,
+		RoyalRescue = 51457,
+		TheGoodGuard = 51458,
+		PythiusTheRotten = 51459,
+		DoorNorthMine = 51460,
+		DoorWestMine = 51461,
+		DoorSouthMine = 51462,
+		BrownMushrooms = 51463
+	},
+	TibiaTales = {
+		-- Reserved storage from 51480 - 51539
+		DefaultStart = 51480,
+		ultimateBoozeQuest = 51481,
+		AgainstTheSpiderCult = 51482,
+		AnInterestInBotany = 51483,
+		AnInterestInBotanyChestDoor = 51484,
+		AritosTask = 51485,
+		ToAppeaseTheMightyQuest = 51486,
+		IntoTheBonePit = 51487,
+		TheExterminator = 51488,
+		RestInHallowedGround = {
+			Questline = 51495,
+			HolyWater = 51496,
+			Graves = {
+				Grave1 = 51501,
+				Grave2 = 51502,
+				Grave3 = 51503,
+				Grave4 = 51504,
+				Grave5 = 51505,
+				Grave6 = 51506,
+				Grave7 = 51507,
+				Grave8 = 51508,
+				Grave9 = 51509,
+				Grave10 = 51510,
+				Grave11 = 51511,
+				Grave12 = 51512,
+				Grave13 = 51513,
+				Grave14 = 51514,
+				Grave15 = 51515,
+				Grave16 = 51516
+			}
+		},
+		JackFutureQuest = {
+			QuestLine = 51520,
+			Furniture01 = 51521,
+			Furniture02 = 51522,
+			Furniture03 = 51523,
+			Furniture04 = 51524,
+			Furniture05 = 51525,
+			Mother = 51526,
+			Sister = 51527,
+			Statue = 51528,
+			LastMissionState = 51529
+		}
+	},
+	TheShatteredIsles = {
+		-- Reserved storage from 51540 - 51589
+		DefaultStart = 51540,
+		TheGovernorDaughter = 51541,
+		TheErrand = 51542,
+		AccessToMeriana = 51543,
+		APoemForTheMermaid = 51544,
+		ADjinnInLove = 51545,
+		AccessToLagunaIsland = 51546,
+		AccessToGoroma = 51547,
+		Shipwrecked = 51548,
+		DragahsSpellbook = 51549,
+		TheCounterspell = 51550,
+		ReputationInSabrehaven = 51551,
+		RaysMission1 = 51552,
+		RaysMission2 = 51553,
+		RaysMission3 = 51554,
+		RaysMission4 = 51555,
+		AccessToNargor = 51556,
+		TortoiseEggNargorDoor = 51557,
+		TortoiseEggNargorTime = 51558,
+		YavernDoor = 51559,
+		TavernMap1 = 51560,
+		TavernMap2 = 51561,
+		TavernMap3 = 51562
+	},
+	SearoutesAroundYalahar = {
+		-- Reserved storage from 51590 - 51609
+		TownsCounter = 51590,
+		AbDendriel = 51591,
+		Darashia = 51592,
+		Venore = 51593,
+		Ankrahmun = 51594,
+		PortHope = 51595,
+		Thais = 51596,
+		LibertyBay = 51597,
+		Carlin = 51598
+	},
+	KillingInTheNameOf = {
+		-- Reserved storage from 51610 - 51629
+		LugriNecromancers = 51610,
+		LugriNecromancerCount = 51611,
+		BudrikMinos = 51612,
+		BudrikMinosCount = 51613,
+		MissionTiquandasRevenge = 51614,
+		TiquandasRevengeTeleport = 51615,
+		MissionDemodras = 51616,
+		DemodrasTeleport = 51617
+	},
+	QueenOfBanshees = {
+		-- Reserved storage from 51630 - 51649
+		FirstSeal = 51630,
+		SecondSeal = 51631,
+		ThirdSeal = 51632,
+		FourthSeal = 51633,
+		FifthSeal = 51634,
+		SixthSeal = 51635,
+		LastSeal = 51636,
+		ThirdSealWarlocks = 51637,
+		KissDoor = 51638
+	},
+	HotCuisineQuest = {
+		-- Reserved storage from 51650 - 51659
+		QuestStart = 51650,
+		CurrentDish = 51651,
+		QuestLog = 51652,
+		CookbookDoor = 51653
+	},
+	RookgaardTutorialIsland = {
+		-- Reserved storage from 51660 - 51679
+		tutorialHintsStorage = 51665,
+		SantiagoNpcGreetStorage = 51666,
+		SantiagoQuestLog = 51667,
+		cockroachKillStorage = 51668,
+		cockroachLegsMsgStorage = 51669,
+		cockroachBodyMsgStorage = 51670,
+		ZirellaNpcGreetStorage = 51671,
+		ZirellaQuestLog = 51672,
+		CarlosNpcGreetStorage = 51677,
+		CarlosQuestLog = 51678
+	},
+	BanutaSecretTunnel = {
+		-- Reserved storage from 51680 - 51689
+		DeeperBanutaShortcut = 51680,
+	},
+	TheAnnihilator = {
+		-- Reserved storage from 51690 - 51699
+		AnnihilatorDone = 51690
+	},
+	DemonOak = {
+		-- Reserved storage from 51700 - 51709
+		Done = 51700,
+		Progress = 51701,
+		Squares = 51702,
+		AxeBlowsBird = 51703,
+		AxeBlowsLeft = 51704,
+		AxeBlowsRight = 51705,
+		AxeBlowsFace = 51706
+	},
+	SvargrondArena = {
+		-- Reserved storage from 51710 - 51729
+		Arena = 51710,
+		PitDoor = 51711,
+		QuestLogGreenhorn = 51712,
+		QuestLogScrapper = 51713,
+		QuestLogWarlord = 51714,
+		RewardGreenhorn = 51715,
+		RewardScrapper = 51716,
+		RewardWarlord = 51717,
+		TrophyGreenhorn = 51718,
+		TrophyScrapper = 51719,
+		TrophyWarlord = 51720,
+		GreenhornDoor = 51721,
+		ScrapperDoor = 51722,
+		WarlordDoor= 51723
+	},
+	QuestChests = {
+		-- Reserved storage from 51730 - 51999
+		KosheiTheDeathlessLegs = 51730,
+		KosheiTheDeathlessGold = 51731,
+		TutorialShovel = 51732,
+		TutorialRope = 51733,
+		DemonHelmetQuestDemonShield = 51734,
+		DemonHelmetQuestDemonHelmet = 51735,
+		DemonHelmetQuestSteelBoots = 51736,
+		FormorgarMinesHoistSkeleton = 51737,
+		FormorgarMinesHoistChest = 51738,
+		-- Custom Quests, currently not using system.lua (aid 2000)
+		BlackKnightTreeCrownShield = 51739,
+		BlackKnightTreeCrownArmor = 51740,
+		BlackKnightTreeKey = 51741,
+		KosheiAmulet1 = 51742,
+		KosheiAmulet2 = 51743,
+		SilverBrooch = 51744,
+		FamilyBrooch = 51745,
+		DCQGhoul = 51746,
+		FirewalkerBoots = 51747,
+		DeeperFibulaKey = 51748,
+		SixRubiesQuest = 51749,
+		ParchmentRoomQuest = 51750,
+		WarzoneReward1 = 51751,
+		WarzoneReward2 = 51752,
+		WarzoneReward3 = 51753,
+		FathersBurdenWood = 51754,
+		FathersBurdenIron = 51755,
+		FathersBurdenRoot = 5176,
+		FathersBurdenCrystal = 51757,
+		FathersBurdenSilk = 51758,
+		FathersBurdenCloth = 51759,
+		OutlawCampKey1 = 51760,
+		OutlawCampKey2 = 51761,
+		OutlawCampKey3 = 51762,
+		DoubletQuest = 51763,
+		HoneyFlower = 51764,
+		BananaPalm = 51765,
+		WhisperMoss = 51766,
+		OldParchment = 51767,
+		DragahsSpellbook = 51768,
+		StealFromThieves = 51769
+	},
+	PitsOfInferno = {
+		-- Reserved storage from 52000 - 52019
+		ShortcutHubDoor = 52000,
+		ShortcutLeverDoor = 52001,
+		Pumin = 52002,
+		WeaponReward = 52003,
+		ThroneInfernatil = 52004,
+		ThroneTafariel = 52005,
+		ThroneVerminor = 52006,
+		ThroneApocalypse = 52007,
+		ThroneBazir = 52008,
+		ThroneAshfalor = 52009,
+		ThronePumin = 52010
+	},
+	HorestisTomb = {
+		-- Reserved storage from 52020 - 52029
+		JarFloor1 = 52020,
+		JarFloor2 = 52021,
+		JarFloor3 = 52022,
+		JarFloor4 = 52023,
+		JarFloor5 = 52024
+	},
+	WhiteRavenMonastery = {
+		-- Reserved storage from 52030 - 52039
+		QuestLog = 52030,
+		Passage = 52031,
+		Diary = 52032
+	},
+	FathersBurden = {
+		-- Reserved storage from 52040 - 52059
+		QuestLog = 52040,
+		Progress = 52041,
+		Status = 52042,
+		Sinew = 52043,
+		Wood = 52044,
+		Cloth = 52045,
+		Silk = 52046,
+		Crystal = 52047,
+		Root = 52048,
+		Iron = 52049,
+		Scale = 52050,
+		Corpse = {
+			Scale = 52051,
+			Sinew = 52052
+		}
+	},
+	WhatAFoolish = {
+		-- Reserved storage from 52060 - 52099
+		Questline = 52060,
+		Mission1 = 52061,
+		Mission2 = 52062,
+		Mission3 = 52063,
+		Mission4 = 52064,
+		Mission5 = 52065,
+		Mission6 = 52066,
+		Mission7 = 52067,
+		Mission8 = 52068,
+		Mission9 = 52069,
+		Mission10 = 52070,
+		Mission11 = 52071,
+		PieBuying = 52072,
+		PieBoxTimer = 52073,
+		TriangleTowerDoor = 52074,
+		EmperorBeardShave = 52075,
+		JesterOutfit = 52076,
+		WhoopeeCushion = 52077,
+		QueenEloiseCatDoor = 52078,
+		CatBasket = 52079,
+		ScaredCarina = 52080,
+		InflammableSulphur = 52081,
+		SpecialLeaves = 52082,
+		Cigar = 52083,
+		Contract = 52084,
+		CookieDelivery = {
+			SimonTheBeggar = 52085,
+			Markwin = 52086,
+			Ariella = 52087,
+			Hairycles = 52088,
+			Djinn = 52089,
+			AvarTar = 52090,
+			OrcKing = 52091,
+			Lorbas = 52092,
+			Wyda = 52093,
+			Hjaern = 52094
+		},
+		OldWornCloth = 52095,
+		LostDisguise = 52096,
+		ScaredKazzan = 52097
+	},
+	SpiritHunters = {
+		-- Reserved storage from 52100 - 52109
+		Mission01 = 52100,
+		TombUse = 52101,
+		CharmUse = 52102,
+		NightstalkerUse = 52103,
+		SouleaterUse = 52104,
+		GhostUse = 52105
+	},
+	SeaOfLight = {
+		-- Reserved storage from 52110 - 52119
+		Questline = 52110,
+		Mission1 = 52111,
+		Mission2 = 52112,
+		Mission3 = 52113,
+		StudyTimer = 52114,
+		LostMinesCrystal = 52115
+	},
+	Diapason = {
+		-- Reserved storage from 52120 - 52129
+		Lyre = 52120,
+		LyreTimer = 52121,
+		Edala = 52122,
+		EdalaTimer = 52123
+	},
+	AdventurersGuild = {
+		-- Reserved storage from 52130 - 52159
+		Stone = 52130,
+		MagicDoor = 52131,
+		CharosTrav = 52132,
+		FreeStone = {
+			Alia = 52133,
+			Amanda = 52134,
+			Brewster = 52135,
+			Isimov = 52136,
+			Kasmir = 52137,
+			Kjesse = 52138,
+			Lorietta = 52139,
+			Maealil = 52140,
+			Quentin = 52141,
+			RockWithASoftSpot = 52142,
+			Tyrias = 52143,
+			Yberius = 52144,
+			Rahkem = 52145
+		},
+		GreatDragonHunt = {
+			WarriorSkeleton = 52146,
+			DragonCounter = 52147
+		}
+	},
+	DreamersChallenge = {
+		-- Reserved storage from 52160 - 52199
+		LeverNightmare1 = 52160,
+		LeverNightmare2 = 52161,
+		LeverNightmare3 = 52162,
+		LeverBrotherhood1 = 52163,
+		LeverBrotherhood2 = 52164,
+		LeverBrotherhood3 = 52165,
+		TicTac = 52166,
+		Reward = 52167
+	},
+	HallsOfHope = {
+		-- Reserved storage from 52200 - 52219
+		Questline = 52200,
+		Reward1 = 52201,
+		Reward2 = 52202,
+		Reward3 = 52203,
+		Reward4 = 52204,
+		Reward5 = 52205
+	},
+	InsectoidCell = {
+		-- Reserved storage from 52220 - 52249
+		Questline = 52220,
+		Reward1 = 52221,
+		Reward2 = 52222,
+		Reward3 = 52223,
+		Reward4 = 52224,
+		Reward5 = 52225,
+		Reward6 = 52226,
+		Reward7 = 52227,
+		Reward8 = 52228,
+		Reward9 = 52229,
+		Reward10 = 52230,
+		Reward11 = 52231,
+		Reward12 = 52232,
+		Reward13 = 52233,
+		Reward14 = 52234,
+		Reward15 = 52235,
+		Reward16 = 52236
+	},
+	Dawnport = {
+		-- Reserved storage from 52250 - 52289
+		-- Reward items storages
+		SorcererHealthPotion = 52251,
+		SorcererManaPotion = 52252,
+		SorcererLightestMissile = 52253,
+		SorcererLightStoneShower = 52254,
+		SorcererMeat = 52255,
+		DruidHealthPotion = 52256,
+		DruidManaPotion = 52257,
+		DruidLightestMissile = 52258,
+		DruidLightStoneShower = 52259,
+		DruidMeat = 52260,
+		PaladinHealthPotion = 52261,
+		PaladinManaPotion = 52262,
+		PaladinLightestMissile = 52263,
+		PaladinLightStoneShower = 52264,
+		PaladinMeat = 52265,
+		KnightHealthPotion = 52266,
+		KnightManaPotion = 52267,
+		KnightMeat = 52268,
+
+		Sorcerer = 52269,
+		Druid = 52270,
+		Paladin = 52271,
+		Knight = 52272,
+		DoorVocation = 52273,
+		DoorVocationFinish = 52274,
+		ChestRoomFinish = 52275,
+		Tutorial = 52276,
+		MessageStair = 52277,
+		Lever = 52278,
+		Mainland = 52279
+	},
+	LionsRock = {
+		-- Reserved storage from 52290 - 52309
+		Questline = 52290,
+		LionsStrength = 52291,
+		LionsBeauty = 52292,
+		LionsTears = 52293,
+		GetLionsMane = 52294,
+		GetHolyWater = 52295,
+		SnakeSign = 52296,
+		LizardSign = 52297,
+		ScorpionSign = 52298,
+		HyenaSign = 52299,
+		Time = 52300
+	},
+	GraveDanger = {
+		-- Reserved storage from 52310 - 52339
+		Questline = 52310,
+		ScarlettEtzel = 52311
+	},
+	RottinWoodAndMaried = {
+		-- Reserved storage from 52340 - 52349
+		Questline = 52340,
+		RottinStart = 52341,
+		Trap = 52342,
+		Corpse = 52343,
+		Time = 52344,
+		Mission03 = 52345,
+	},
+	TheMummysCurse = {
+		-- Reserved storage from 52350 - 52359
+		Time1 = 52351,
+		Time2 = 52352,
+		Time3 = 52353,
+		Time4 = 52354,
+	},
+	-- News quest development
   	-- New storages
 	Quest = {
 		-- update pre-6.0
@@ -18,7 +1697,7 @@ Storage = {
 		ExplorerBrooch = {},
 		OrcFortress = {},
 		Panpipe = {
-			Key4055Reward = 20021
+			Key4055Reward = 10000
 		},
 		-- update 6.2
 		Draconia = {},
@@ -268,27 +1947,27 @@ Storage = {
 		Rathleton = {},
 		-- update 10.55
 		Dawnport = {
-			VocationReward = 30001,
-			Questline = 30002,
-			GoMain = 30003,
-			TheLostAmulet = 30004,
-			TheStolenLogBook = 30005,
-			TheRareHerb = 30006,
-			TheDormKey = 30007,
-			StrangeAmulet = 30008,
-			TornLogBook = 30009,
-			HerbFlower = 30010,
-			MorriskTroll = 30011,
-			MorrisTrollCount = 30012,
-			MorrisGoblin = 30013,
-			MorrisGoblinCount = 30014,
-			MorrisMinos = 30015,
-			MorrisMinosCount = 30016,
-			Key0010 = 30017
+			VocationReward = 20000,
+			Questline = 20001,
+			GoMain = 20002,
+			TheLostAmulet = 20003,
+			TheStolenLogBook = 20004,
+			TheRareHerb = 20005,
+			TheDormKey = 20006,
+			StrangeAmulet = 20007,
+			TornLogBook = 20008,
+			HerbFlower = 20009,
+			MorriskTroll = 20010,
+			MorrisTrollCount = 20011,
+			MorrisGoblin = 20012,
+			MorrisGoblinCount = 20013,
+			MorrisMinos = 20014,
+			MorrisMinosCount = 20015,
+			Key0010 = 20016
 		},
 		SanctuaryOfTheLizardGod = {
-			LizardGodTeleport = 30020,
-			LegionHelmet = 30021
+			LizardGodTeleport = 20020,
+			LegionHelmet = 20021
 		},
 		-- update 10.70
 		HeroOfRathleton = {},
@@ -342,1582 +2021,145 @@ Storage = {
 		-- update 12.30
 		FeasterOfSouls = {},
 		PoltergeistOutfits = {}
-	}, -- quests
-	DeeplingsWorldChange = {
-		Questline = 25000,
-		FirstStage = 25001,
-		SecondStage = 25002,
-		ThirdStage = 25003,
-		Crystal = 25004
-	},
-	LiquidBlackQuest = {
-		Questline = 24000,
-		Visitor = 24001
-	},
-	KilmareshQuest = {
-		Questline = 22000,
-		First = {
-			Title = 22002
-		},
-		Second = {
-			Investigating = 22003
-		},
-		Third = {
-			Recovering = 22004
-		},
-		Fourth = {
-			Moe = 22005
-		},
-		Fifth = {
-			Memories = 22006
-		},
-		Sixth = {
-			Favor = 22007
-		},
-		Set = {
-			Ritual = 22008
-		},
-		Eighth = {
-			Yonan = 22009,
-			Narsai = 22010,
-			Shimun = 22011,
-			Tefrit = 22012
-		},
-		Nine = {
-			Owl = 22013
-		},
-		Tem = {
-			Bleeds = 22014
-		},
-		Eleven = {
-			Basin = 22015
-		},
-		Twelve = {
-			Boss = 22016,
-			Bragrumol = 22017,
-			Mozradek = 22018,
-			Xogixath = 22019
-		},
-		Thirteen = {
-			Fafnar = 22020,
-			Lyre = 22021,
-			Presente = 22022
-		},
-		Fourteen = {
-			Remains = 22023
-		}
-	},
-	TheSecretLibrary = {
-		TheOrderOfTheFalcon = {
-			OberonTimer = 25580
-		},
-		LiquidDeath = 25581,
-		Mota = 25582,
-		MotaDoor = 25583,
-		BasinDoor = 25584,
-		SkullDoor = 25585,
-		TheLament = 25586,
-		GreenTel = 25587,
-		BlueTel = 25588,
-		BlackTel = 25589,
-		PinkTel = 25590,
-		Peacock = 25591,
-		HighDry = 25592
-	},
-	DeeplingBosses = {
-		Jaul = 35600,
-		Tanjis = 35601,
-		Obujos = 35602,
-		DeeplingStatus = 35603
-	},
-	Exercisedummy = {
-		exaust = 98231521
-	},
-	DangerousDepths = {
-		Questline = 800,
-		Dwarves = {
-			Status = 897,
-			Home = 801, -- Missão
-			Subterranean = 802, -- Missão
-			LostExiles = 803,
-			Prisoners = 804,
-			Organisms = 805,
-			PrisonerStg = 806,
-			timeTaskHome = 807,
-			timeTaskSubterranean = 808,
-			timeAcesso = 809
-		},
-		Scouts = {
-			Status = 899,
-			Diremaw = 810, -- Missão
-			Growth = 811, -- Missão
-			DiremawsCount = 812,
-			GnomishChest = 813,
-			BarrelCount = 814,
-			firstBarrel = 815,
-			secondBarrel = 816,
-			thirdBarrel = 817,
-			fourthBarrel = 818,
-			fifthBarrel = 819,
-			timeTaskDiremaws = 820,
-			timeTaskGrowth = 821,
-			barrelStg = 822,
-			barrelTimer = 823
-		},
-		Gnomes = {
-			Status = 898,
-			Ordnance = 824, -- Missão
-			Measurements = 825, -- Missão
-			Charting = 826, -- Missão
-			GnomeChartChest = 827, -- Measurements
-			GnomeChartPaper = 828, -- Charting
-			GnomesCount = 829, -- Ordnance
-			CrawlersCount = 830, -- Ordnance
-			locationA = 831, -- Measurements
-			locationB = 832, -- Measurements
-			locationC = 833, -- Measurements
-			locationD = 834, -- Measurements
-			locationE = 835, -- Measurements
-			locationCount = 836, -- Measurements
-			OldGate = 837, -- Charting
-			TheGaze = 838, -- Charting
-			LostRuin = 839, -- Charting
-			Outpost = 840, -- Charting
-			Bastion = 841,
-			-- Charting
-			BrokenTower = 842, -- Charting
-			ChartingCount = 843, -- Contador
-			timeTaskOrdnance = 844,
-			timeTaskMeasurements = 845,
-			timeTaskCharting = 846
-		},
-		Acessos = {
-			LavaPumpWarzoneVI = 847,
-			TimerWarzoneVI = 848,
-			LavaPumpWarzoneV = 849,
-			TimerWarzoneV = 850,
-			LavaPumpWarzoneIV = 851,
-			TimerWarzoneIV = 852
-		},
-		Crystals = {
-			WarzoneVI = {
-				bigCrystal1 = 853,
-				bigCrystal2 = 854,
-				mediumCrystal1 = 855,
-				mediumCrystal2 = 856,
-				smallCrystal1 = 857,
-				smallCrystal2 = 858
-			},
-			WarzoneV = {
-				bigCrystal1 = 859,
-				bigCrystal2 = 860,
-				mediumCrystal1 = 861,
-				mediumCrystal2 = 862,
-				smallCrystal1 = 863,
-				smallCrystal2 = 864
-			},
-			WarzoneIV = {
-				bigCrystal1 = 865,
-				bigCrystal2 = 866,
-				mediumCrystal1 = 867,
-				mediumCrystal2 = 868,
-				smallCrystal1 = 869,
-				smallCrystal2 = 870
-			}
-		},
-		Bosses = {
-			theCountOfTheCore = 871,
-			theDukeOfTheDepths = 872,
-			theBaronFromBelow = 873,
-			theCountOfTheCoreAchiev = 874,
-			theDukeOfTheDepthsAchiev = 875,
-			theBaronFromBelowAchiev = 876,
-			lastAchievement = 877
-		}
-	},
-	CultsOfTibia = {
-		Questline = 17950,
-		Minotaurs = {
-			EntranceAcess = 17999,
-			JamesFrancisTask = 18000,
-			Mission = 18001,
-			BossTimer = 18500,
-			AcessDoor = 18507
-		},
-		MotA = {
-			Mission = 18002,
-			Stone1 = 18510,
-			Stone2 = 18511,
-			Stone3 = 18512,
-			Answer = 18513,
-			QuestionId = 18514,
-			AcessDoorInvestigation = 18508,
-			AcessDoorEntrance = 18509,
-			AcessDoorExit = 18510
-		},
-		Barkless = {
-			Mission = 18003,
-			sulphur = 18520,
-			Tar = 18521,
-			Ice = 18522,
-			Death = 18523,
-			Objects = 18524,
-			Temp = 18525,
-			BossTimer = 18501,
-			TrialAcessDoor = 18511,
-			TarAcessDoor = 18512,
-			AcessDoor = 18513,
-			BossAcessDoor = 18514
-		},
-		Orcs = {
-			Mission = 18004,
-			LookType = 18530,
-			BossTimer = 18502
-		},
-		Life = {
-			Mission = 18005,
-			BossTimer = 18503,
-			AcessDoor = 18515
-		},
-		Humans = {
-			Mission = 18006,
-			Vaporized = 18550,
-			Decaying = 18551,
-			BossTimer = 18504
-		},
-		Misguided = {
-			Mission = 18007,
-			Monsters = 18540,
-			Exorcisms = 18541,
-			Time = 18542,
-			BossTimer = 18505,
-			AcessDoor = 18516
-		},
-		FinalBoss = {
-			Mission = 18008,
-			BossTimer = 18506,
-			AcessDoor = 18517
-		}
-	},
-	ThreatenedDreams = {
-		-- WIP
-		-- Reserved storage from 34999 - 35100
-		Start = 35000,
-		TroubledMission01 = 35001,
-		TroubledMission02 = 35002,
-		TroubledMission03 = 35003,
-		FairyMission01 = 35004,
-		FairyMission02 = 35005,
-		FairyMission03 = 35006,
-		FairyMission04 = 35007,
-		DreamMission01 = 35008,
-		DreamCounter = 35009,
-		KroazurTimer = 35010,
-		CoupleMission01 = 35011,
-		CoupleMission02 = 35012,
-		Reward01 = 35050,
-		Reward02 = 35051,
-		Reward03 = 35052
-	},
-	FirstDragon = {
-		Questline = 10195,
-		DragonCounter = 10196,
-		ChestCounter = 10197,
-		TazhadurTimer = 10198,
-		KalyassaTimer = 10199,
-		SecretsCounter = 10200,
-		GelidrazahAccess = 10221,
-		GelidrazahTimer = 10222,
-		DesertTile = 10223,
-		StoneSculptureTile = 10224,
-		SuntowerTile = 10225,
-		ZorvoraxTimer = 10226,
-		Horn = 10227,
-		Scale = 10228,
-		Bones = 10229,
-		Tooth = 10230,
-		AccessCave = 10231,
-		SomewhatBeatable = 10232,
-		FirstDragonTimer = 10233,
-		RewardFeather = 10234,
-		RewardMask = 10235,
-		RewardBackpack = 10236
-	},
-	Grimvale = {
-		SilverVein = 10094
-	},
-	RathletonQuest = {
-		QuestLine = 10068,
-		VotesCasted = 10069,
-		Rank = 10070
-	},
-	FerumbrasAscension = {
-		RiftRunner = 10076, -- do scroll
-		TheShattererTimer = 10128,
-		TheLordOfTheLiceTimer = 10129,
-		TarbazTimer = 10078,
-		RazzagornTimer = 10079,
-		RagiazTimer = 10080,
-		ZamuloshTimer = 10081,
-		ShulgraxTimer = 10082,
-		MazoranTimer = 10083,
-		PlagirathTimer = 10084,
-		FerumbrasTimer = 10085,
-		Tarbaz = 10086,
-		Razzagorn = 10087,
-		Ragiaz = 10088,
-		Zamulosh = 10089,
-		Shulgrax = 10090,
-		Mazoran = 10091,
-		Plagirath = 10092,
-		Access = 10111,
-		TheShatterer = 10112,
-		ZamuloshTeleports = 10113,
-		BasinCounter = 10114,
-		TheLordOfTheLiceAccess = 10115,
-		FirstDoor = 54391,
-		MonsterDoor = 54392,
-		TarbazDoor = 54393,
-		HabitatsAcess = 54394,
-		HabitatsTimer = 54395,
-		TarbazNotes = 10117,
-		ColorLever = 10118,
-		BoneFluteWall = 10119,
-		BoneFlute = 10120,
-		Ring = 10121,
-		Statue = 10122,
-		Fount = 10123,
-		Vampire = 10124,
-		Flower = 10125,
-		Ring2 = 10126,
-		Bone = 10127,
-		FlowerPuzzleTimer = 10128,
-		Reward = 10116
-	},
-	ForgottenKnowledge = {
-		AccessDeath = 10132,
-		AccessViolet = 10133,
-		AccessEarth = 10134,
-		AccessFire = 10135,
-		AccessIce = 10136,
-		AccessGolden = 10137,
-		AccessLast = 10138,
-		OldDesk = 10139,
-		GirlPicture = 10140,
-		SilverKey = 10141,
-		Phial = 10142,
-		BirdCounter = 10143,
-		PlantCounter = 10144,
-		GoldenServantCounter = 10145,
-		DiamondServantCounter = 10146,
-		AccessPortals = 10147,
-		AccessMachine = 10148,
-		LadyTenebrisTimer = 10149,
-		LadyTenebrisKilled = 10150,
-		LloydTimer = 10151,
-		LloydKilled = 10152,
-		ThornKnightTimer = 10153,
-		ThornKnightKilled = 10154,
-		DragonkingTimer = 10155,
-		DragonkingKilled = 10156,
-		HorrorTimer = 10157,
-		HorrorKilled = 10158,
-		TimeGuardianTimer = 10159,
-		TimeGuardianKilled = 10160,
-		LastLoreTimer = 10161,
-		LastLoreKilled = 10162,
-		BirdCage = 10163,
-		AccessLavaTeleport = 10164,
-		Ivalisse = 10165,
-		Chalice = 10166,
-		Tomes = 10167,
-		BabyDragon = 10168,
-		SpiderWeb = 10169
-	},
-	SweetyCyclops = {
-		AmuletTimer = 48,
-		AmuletStatus = 49
-	},
-	ExplorerSociety = {
-		QuestLine = 90,
-		bansheeDoor = 91,
-		bonelordsDoor = 92,
-		CalassaQuest = 93,
-		edronDoor = 94,
-		elvenDoor = 95,
-		orcDoor = 96,
-		urnDoor = 97,
-		SpectralStone = 98, -- = 1 - mission taken from Angus, = 2 - mission taken from Mortimer
-		skullofratha = 99,
-		giantsmithhammer = 100,
-		JoiningtheExplorers = 118,
-		TheIceDelivery = 102,
-		TheButterflyHunt = 103,
-		ThePlantCollection = 104,
-		TheLizardUrn = 105,
-		TheBonelordSecret = 106,
-		TheOrcPowder = 107,
-		TheElvenPoetry = 108,
-		TheMemoryStone = 109,
-		TheRuneWritings = 117,
-		TheEctoplasm = 111,
-		TheSpectralDress = 112,
-		TheSpectralStone = 113,
-		TheAstralPortals = 114,
-		TheIslandofDragons = 115,
-		TheIceMusic = 116
-	},
-	TravellingTrader = {
-		Mission01 = 210,
-		Mission02 = 211,
-		Mission03 = 212,
-		Mission04 = 213,
-		Mission05 = 214,
-		Mission06 = 215,
-		Mission07 = 216,
-		packageDoor = 217
-	},
-	DjinnWar = {
-		Faction = {
-			Greeting = 50717,
-			Marid = 50718,
-			Efreet = 50719
-		},
-		RecievedLamp = 50720,
-		-- blue djinn
-		MaridFaction = {
-			Start = 110,
-			Mission01 = 111,
-			Mission02 = 112,
-			RataMari = 113,
-			Mission03 = 114,
-			DoorToLamp = 115,
-			DoorToEfreetTerritory = 116
-		},
-		-- green djinn
-		EfreetFaction = {
-			Start = 120,
-			Mission01 = 121,
-			Mission02 = 122,
-			Mission03 = 123,
-			DoorToLamp = 124,
-			DoorToMaridTerritory = 125
-		}
-	},
-	VampireHunter = {
-		Rank = 402
-	},
-	BigfootBurden = {
-		QuestLine = 900,
-		Test = 901,
-		Shooting = 902,
-		QuestLineComplete = 903,
-		MelodyTone1 = 904,
-		MelodyTone2 = 905,
-		MelodyTone3 = 906,
-		MelodyTone4 = 907,
-		MelodyTone5 = 908,
-		MelodyTone6 = 909,
-		MelodyTone7 = 910,
-		MelodyStatus = 911,
-		Rank = 921,
-		MissionCrystalKeeper = 930,
-		CrystalKeeperTimout = 931,
-		RepairedCrystalCount = 932,
-		MissionRaidersOfTheLostSpark = 933,
-		ExtractedCount = 934,
-		RaidersOfTheLostSparkTimeout = 935,
-		MissionExterminators = 936,
-		ExterminatedCount = 937,
-		ExterminatorsTimeout = 938,
-		MissionMushroomDigger = 939,
-		MushroomCount = 940,
-		MushroomDiggerTimeout = 941,
-		MissionMatchmaker = 942,
-		MatchmakerStatus = 943,
-		MatchmakerIdNeeded = 963,
-		MatchmakerTimeout = 944,
-		MissionTinkersBell = 945,
-		GolemCount = 946,
-		TinkerBellTimeout = 947,
-		MissionSporeGathering = 948,
-		SporeCount = 949,
-		SporeGatheringTimeout = 950,
-		MissionGrindstoneHunt = 951,
-		GrindstoneStatus = 952,
-		GrindstoneTimeout = 953,
-		WarzoneStatus = 954,
-		Warzone1Access = 955,
-		Warzone2Access = 956,
-		Warzone3Access = 957,
-		Warzone1Reward = 958,
-		Warzone2Reward = 959,
-		Warzone3Reward = 960,
-		bossKills = 961,
-		openGoldenFruits = 962,
-		BossWarzone1 = 963,
-		BossWarzone2 = 964,
-		BossWarzone3 = 965
-	},
-	TheirMastersVoice = {
-		SlimeGobblerTimeout = 984,
-		SlimeGobblerReceived = 985
-	},
-	KosheiTheDeathless = {
-		RewardDoor = 3066
-	},
-	ElementalSphere = {
-		QuestLine = 10000,
-		BossStorage = 10001,
-		MachineGemCount = 10002
-	},
-	GravediggerOfDrefia = {
-		-- Just numbered the storages by the order they are used in the quest
-		-- should be renamed to the correct mission names etc.
-		QuestStart = 9990,
-		Mission01 = 9991,
-		Mission02 = 9992,
-		Mission03 = 9993,
-		Mission04 = 9994,
-		Mission05 = 9995,
-		Mission06 = 9996,
-		Mission07 = 9997,
-		Mission08 = 9998,
-		Mission09 = 9999,
-		Mission10 = 9950,
-		Mission11 = 9951,
-		Mission12 = 9952,
-		Mission13 = 9953,
-		Mission14 = 9954,
-		Mission15 = 9955,
-		Mission16 = 9956,
-		Mission17 = 9957,
-		Mission18 = 9958,
-		Mission19 = 9959,
-		Mission20 = 9960,
-		Mission21 = 9961,
-		Mission22 = 9962,
-		Mission23 = 9963,
-		Mission24 = 9964,
-		Mission25 = 9965,
-		Mission26 = 9966,
-		Mission27 = 9967,
-		Mission28 = 9968,
-		Mission29 = 9969,
-		Mission30 = 9970,
-		Mission31 = 9971,
-		Mission32 = 9972,
-		Mission32a = 9973,
-		Mission32b = 9974,
-		Mission33 = 9975,
-		Mission34 = 9976,
-		Mission35 = 9977,
-		Mission36 = 9978,
-		Mission36a = 9979,
-		Mission37 = 9980,
-		Mission38 = 9981,
-		Mission38a = 9982,
-		Mission38b = 9983,
-		Mission38c = 9984,
-		Mission39 = 9985,
-		Mission40 = 9986,
-		Mission41 = 9987,
-		Mission42 = 9988,
-		Mission43 = 9989,
-		Mission44 = 9920,
-		Mission45 = 9921,
-		Mission46 = 9922,
-		Mission47 = 9923,
-		Mission48 = 9924,
-		Mission49 = 9925,
-		Mission50 = 9926,
-		Mission51 = 9927,
-		Mission52 = 9928,
-		Mission53 = 9929,
-		Mission54 = 9930,
-		Mission55 = 9931,
-		Mission56 = 9932,
-		Mission57 = 9933,
-		Mission58 = 9934,
-		Mission59 = 9935,
-		Mission60 = 9936,
-		Mission61 = 9937,
-		Mission62 = 9938,
-		Mission63 = 9939,
-		Mission64 = 9940,
-		Mission65 = 9941,
-		Mission66 = 9942,
-		Mission67 = 9943,
-		Mission68 = 9944,
-		Mission69 = 9945,
-		Mission70 = 9946,
-		Mission71 = 9947,
-		Mission72 = 9948,
-		Mission73 = 9949,
-		Mission74 = 9876
-	},
-	Oramond = {
-		QuestLine = 10060,
-		VotingPoints = 10061,
-		MissionToTakeRoots = 20060,
-		HarvestedRootCount = 20061,
-		DoorBeggarKing = 20062,
-		DoorAbandonedSewer = 20063
-	},
-	DarkTrails = {
-		DoorQuandon = 20080
-	},
-	RathletonQuest = {
-		QuestLine = 10080,
-		VotesCasted = 10081,
-		Rank = 10082
-	},
-	SpikeTaskQuest = {
-		QuestLine = 6874100,
-		Gnomilly = 6874101,
-		Gnombold = {
-			Points = 6874102,
-			Nests = 6874103,
-			Fertilise = 6874104,
-			Kill = 6874105,
-			Charges = 6874106
-		},
-		Gnomargery = {
-			Points = 6874107,
-			Deliver = 6874108,
-			Undercover = 6874109,
-			Temperature = 6874110,
-			Kill = 6874111
-		}
-	},
-	OutfitQuest = {
-		DefaultStart = 12010, -- until all outfit quests are completed
-		Ref = 12010,
-		Afflicted = {
-			Outfit = 12005,
-			AddonPlagueMask = 12006,
-			AddonPlagueBell = 12007
-		},
-		Citizen = {
-			-- Mission storages for temporary questlog entries
-			MissionHat = 12009,
-			AddonHat = 12011,
-			MissionBackpack = 12008,
-			AddonBackpack = 12012,
-			AddonBackpackTimer = 12017
-		},
-		-- Begger Outfit Quest
-		BeggarFirstAddon = 22029,
-		BeggarSecondAddon = 22030,
-		-- Druid-outfit Quest
-		DruidHatAddon = 12013,
-		DruidBodyAddon = 12014,
-		DruidAmuletDoor = 12020,
-		-- Barbarian-outfit Quest
-		BarbarianAddon = 12015,
-		BarbarianAddonWaitTimer = 12016,
-		-- Beggar
-		BeggarOutfit = 12018,
-		BeggarOutfitTimer = 12019,
-		-- Hunter-outfit Quest
-		HunterMusicSheet01 = 12050,
-		HunterMusicSheet02 = 12051,
-		HunterMusicSheet03 = 12052,
-		HunterMusicSheet04 = 12053,
-		HunterBodyAddon = 12054,
-		HunterHatAddon = 12055,
-		Hunter = {
-			AddonGlove = 12054,
-			AddonHat = 12055
-		},
-		Knight = {
-			AddonSword = 12153,
-			MissionHelmet = 12154,
-			AddonHelmet = 12155,
-			AddonHelmetTimer = 12156,
-			RamsaysHelmetDoor = 12160
-		},
-		MageSummoner = {
-			AddonWand = 12061,
-			AddonBelt = 12062,
-			MissionHatCloak = 12063,
-			AddonHatCloak = 12064,
-			AddonWandTimer = 12072
-		},
-		-- Nobleman Outfit
-		NoblemanFirstAddon = 12069,
-		NoblemanSecondAddon = 12070,
-		-- Norseman-outfit Quest
-		NorsemanAddon = 12065,
-		-- Warrior-outfit Quest
-		WarriorShoulderAddon = 12067,
-		WarriorSwordAddon = 12068,
-		WarriorShoulderTimer = 12071,
-		-- Wizard-outfit Quest
-		WizardAddon = 12066,
-		-- Pirate-outfit Quest
-		PirateBaseOutfit = 50003,
-		PirateSabreAddon = 50002,
-		PirateHatAddon = 22034,
-		-- Assassin Outfit
-		AssassinBaseOutfit = 50080,
-		AssassinFirstAddon = 50081,
-		AssassinSecondAddon = 50082,
-		-- Golden Outfit
-		GoldenOutfit = 52000,
-		NightmareOutfit = 50083,
-		NightmareDoor = 3040,
-		BrotherhoodOutfit = 50084,
-		BrotherhoodDoor = 3044,
-		Shaman = {
-			AddonStaffMask = 15000,
-			MissionStaff = 15001,
-			MissionMask = 15002
-		},
-		firstOrientalAddon = 50137,
-		secondOrientalAddon = 50138
-	},
-	TheAncientTombs = {
-		DefaultStart = 12100,
-		VashresamunInstruments = 12109,
-		MorguthisBlueFlameStorage1 = 50214,
-		MorguthisBlueFlameStorage2 = 50215,
-		MorguthisBlueFlameStorage3 = 50216,
-		MorguthisBlueFlameStorage4 = 50217,
-		MorguthisBlueFlameStorage5 = 50218,
-		MorguthisBlueFlameStorage6 = 50219,
-		MorguthisBlueFlameStorage7 = 50220
-	},
-	TheApeCity = {
-		Started = 12120,
-		Questline = 12121, -- Storage through the Quest
-		DworcDoor = 12128,
-		ChorDoor = 12119,
-		ParchmentDecyphering = 12124,
-		FibulaDoor = 12125,
-		WitchesCapSpot = 12126,
-		CasksDoor = 12127,
-		Casks = 12128,
-		HolyApeHair = 12129,
-		SnakeDestroyer = 12151,
-		ShamanOufit = 12152
-	},
-	TheNewFrontier = {
-		Questline = 12130, -- Storage through the Quest
-		Mission01 = 12131,
-		Mission02 = 12132,
-		Mission03 = 12133,
-		Mission04 = 12134,
-		Mission05 = 12135,
-		Mission06 = 12136,
-		Mission07 = 12137,
-		Mission08 = 12138,
-		Mission09 = 12139,
-		Mission10 = 12140,
-		TomeofKnowledge = 12141,
-		Beaver1 = 12142,
-		Beaver2 = 12143,
-		Beaver3 = 12144,
-		BribeKing = 12145,
-		BribeLeeland = 12146,
-		BribeExplorerSociety = 12147,
-		BribeWydrin = 12148,
-		BribeTelas = 12149,
-		BribeHumgolf = 12150
-	},
-	TheInquisition = {
-		Questline = 12160, -- Storage through the Quest
-		Mission01 = 12161,
-		Mission02 = 12162,
-		Mission03 = 12163,
-		Mission04 = 12164,
-		Mission05 = 12165,
-		Mission06 = 12166,
-		Mission07 = 12167,
-		GrofGuard = 12170,
-		KulagGuard = 12171,
-		MilesGuard = 12172,
-		TimGuard = 12173,
-		WalterGuard = 12174,
-		StorkusVampiredust = 12175,
-		EnterTeleport = 12176,
-		Reward = 12177,
-		RewardRoomText = 12178
-	},
-	BarbarianTest = {
-		Questline = 12190, -- Storage through the Quest
-		Mission01 = 12191,
-		Mission02 = 12192,
-		Mission03 = 12193,
-		MeadTotalSips = 12194,
-		MeadSuccessSips = 12195
-	},
-	TheIceIslands = {
-		Questline = 12200, -- Storage through the Quest
-		Mission01 = 12201, -- Befriending the Musher
-		Mission02 = 12202, -- Nibelor 1: Breaking the Ice
-		Mission03 = 12203, -- Nibelor 2: Ecological Terrorism
-		Mission04 = 12204, -- Nibelor 3: Artful Sabotage
-		Mission05 = 12205, -- Nibelor 4: Berserk Brewery
-		Mission06 = 12206, -- Nibelor 5: Cure the Dogs
-		Mission07 = 12207, -- The Secret of Helheim
-		Mission08 = 12208, -- The Contact
-		Mission09 = 12209, -- Formorgar Mines 1: The Mission
-		Mission10 = 12210, -- Formorgar Mines 2: Ghostwhisperer
-		Mission11 = 12211, -- Formorgar Mines 3: The Secret
-		Mission12 = 12212, -- Formorgar Mines 4: Retaliation
-		PickAmount = 12213,
-		PaintSeal = 12214,
-		SulphurLava = 12215,
-		SporesMushroom = 12216,
-		FrostbiteHerb = 12217,
-		FlowerCactus = 12218,
-		FlowerBush = 12219,
-		MemoryCrystal = 12220,
-		Obelisk01 = 12221,
-		Obelisk02 = 12222,
-		Obelisk03 = 12223,
-		Obelisk04 = 12224,
-		yakchalDoor = 7814
-	},
-	TheWayToYalahar = {
-		QuestLine = 30
-	},
-	InServiceofYalahar = {
-		Questline = 12240, -- Storage through the Quest
-		Mission01 = 12241,
-		Mission02 = 12242,
-		Mission03 = 12243,
-		Mission04 = 12244,
-		Mission05 = 12245,
-		Mission06 = 12246,
-		Mission07 = 12247,
-		Mission08 = 12248,
-		Mission09 = 12249,
-		Mission10 = 12250,
-		SewerPipe01 = 12251,
-		SewerPipe02 = 12252,
-		SewerPipe03 = 12253,
-		SewerPipe04 = 12254,
-		DiseasedDan = 12255,
-		DiseasedBill = 12256,
-		DiseasedFred = 12257,
-		AlchemistFormula = 12258,
-		BadSide = 12259,
-		GoodSide = 12260,
-		MrWestDoor = 12261,
-		MrWestStatus = 12262,
-		TamerinStatus = 12263,
-		MorikSummon = 12264,
-		QuaraState = 12265,
-		QuaraSplasher = 12266,
-		QuaraSharptooth = 12267,
-		QuaraInky = 12268,
-		MatrixState = 12269,
-		SideDecision = 12270,
-		MatrixReward = 12271,
-		NotesPalimuth = 12272,
-		NotesAzerus = 12273,
-		DoorToAzerus = 12274,
-		DoorToBog = 12275,
-		DoorToLastFight = 12276,
-		DoorToMatrix = 12277,
-		DoorToQuara = 12278,
-		DoorToReward = 12279
-	},
-	ChildrenoftheRevolution = {
-		Questline = 12300, -- Storage through the Quest
-		Mission00 = 12301, -- Prove Your Worzz!
-		Mission01 = 12302,
-		Mission02 = 12303,
-		Mission03 = 12304,
-		Mission04 = 12305,
-		Mission05 = 12306,
-		SpyBuilding01 = 12307,
-		SpyBuilding02 = 12308,
-		SpyBuilding03 = 12309,
-		StrangeSymbols = 12310
-	},
-	UnnaturalSelection = {
-		Questline = 12330, -- Storage through the Quest
-		Mission01 = 12331,
-		Mission02 = 12332,
-		Mission03 = 12333,
-		Mission04 = 12334,
-		Mission05 = 12335,
-		Mission06 = 12336,
-		DanceStatus = 12337
-	},
-	WrathoftheEmperor = {
-		Questline = 12350, -- Storage through the Quest
-		Mission01 = 12351,
-		Mission02 = 12352,
-		Mission03 = 12353,
-		Mission04 = 12354,
-		Mission05 = 12355,
-		Mission06 = 12356,
-		Mission07 = 12357,
-		Mission08 = 12358,
-		Mission09 = 12359,
-		Mission10 = 12360,
-		Mission11 = 12361,
-		Mission12 = 12362,
-		CrateStatus = 12363, --1068
-		GuardcaughtYou = 12364, --1062
-		ZumtahStatus = 12365, --1066
-		PrisonReleaseStatus = 12366, --1067
-		GhostOfAPriest01 = 12367, --1070
-		GhostOfAPriest02 = 12368, --1071
-		GhostOfAPriest03 = 12369, --1072
-		InterdimensionalPotion = 12370, --1084
-		BossStatus = 12371, --1090
-		platinumReward = 12372,
-		backpackReward = 12373,
-		mainReward = 12374,
-		-- never set just added here
-		TeleportAccess = 1060
-	},
-	FriendsandTraders = {
-		DefaultStart = 12400,
-		TheSweatyCyclops = 12401,
-		TheMermaidMarina = 12402,
-		TheBlessedStake = 12403,
-		TheBlessedStakeWaitTime = 12404
-	},
-	postman = {
-		Mission01 = 12450,
-		Mission02 = 12451,
-		Mission03 = 12452,
-		Mission04 = 12453,
-		Mission05 = 12454,
-		Mission06 = 12455,
-		Mission07 = 12456,
-		Mission08 = 12457,
-		Mission09 = 12458,
-		Mission10 = 12459,
-		Rank = 12460,
-		Door = 12461,
-		TravelCarlin = 251,
-		TravelEdron = 252,
-		TravelVenore = 253,
-		TravelCormaya = 254,
-		MeasurementsBenjamin = 255,
-		MeasurementsKroox = 256,
-		MeasurementsDove = 257,
-		MeasurementsLiane = 258,
-		MeasurementsChrystal = 259,
-		MeasurementsOlrik = 260
-	},
-	thievesGuild = {
-		Quest = 12501,
-		Mission01 = 12502,
-		Mission02 = 12503,
-		Mission03 = 12504,
-		Mission04 = 12505,
-		Mission05 = 12506,
-		Mission06 = 12507,
-		Mission07 = 12508,
-		Mission08 = 12509,
-		Door = 12510,
-		Reward = 12513,
-		TheatreScript = 12514
-	},
-	CaptainHaba = 12540,
-	secretService = {
-		Quest = 12550,
-		TBIMission01 = 12551,
-		AVINMission01 = 12552,
-		CGBMission01 = 12553,
-		TBIMission02 = 12554,
-		AVINMission02 = 12555,
-		CGBMission02 = 12556,
-		TBIMission03 = 12557,
-		AVINMission03 = 12558,
-		CGBMission03 = 12559,
-		TBIMission04 = 12560,
-		AVINMission04 = 12561,
-		CGBMission04 = 12562,
-		TBIMission05 = 12563,
-		AVINMission05 = 12564,
-		CGBMission05 = 12565,
-		TBIMission06 = 12566,
-		AVINMission06 = 12567,
-		CGBMission06 = 12568,
-		Mission07 = 12569,
-		RottenTree = 12578
-	},
-	hiddenCityOfBeregar = {
-		DefaultStart = 12600,
-		WayToBeregar = 12601,
-		OreWagon = 12602,
-		GoingDown = 12603,
-		JusticeForAll = 12604,
-		GearWheel = 12605,
-		SweetAsChocolateCake = 12606,
-		RoyalRescue = 12607,
-		TheGoodGuard = 12608,
-		PythiusTheRotten = 12609,
-		DoorNorthMine = 12610,
-		DoorWestMine = 12611,
-		DoorSouthMine = 12612,
-		BrownMushrooms = 12613
-	},
-	TibiaTales = {
-		DefaultStart = 12650,
-		ultimateBoozeQuest = 12651,
-		AgainstTheSpiderCult = 12652,
-		AnInterestInBotany = 12653,
-		AnInterestInBotanyChest = 12654,
-		AritosTask = 12690,
-		ToAppeaseTheMightyQuest = 13330,
-		IntoTheBonePit = 3938,
-		TheExterminator = 3939,
-		RestInHallowedGround = {
-			Questline = 3940,
-			HolyWater = 3941,
-			Graves = {
-				Grave1 = 3942,
-				Grave2 = 3943,
-				Grave3 = 3944,
-				Grave4 = 3945,
-				Grave5 = 3946,
-				Grave6 = 3947,
-				Grave7 = 3948,
-				Grave8 = 3949,
-				Grave9 = 3950,
-				Grave10 = 3951,
-				Grave11 = 3952,
-				Grave12 = 3953,
-				Grave13 = 3954,
-				Grave14 = 3955,
-				Grave15 = 3956,
-				Grave16 = 3957
-			}
-		},
-		JackFutureQuest = {
-			QuestLine = 3958,
-			Furniture01 = 3959,
-			Furniture02 = 3960,
-			Furniture03 = 3961,
-			Furniture04 = 3962,
-			Furniture05 = 3963,
-			Mother = 3964,
-			Sister = 3965,
-			Statue = 3966,
-			LastMissionState = 3967
-		}
-	},
-	TheShatteredIsles = {
-		DefaultStart = 12700,
-		TheGovernorDaughter = 12701,
-		TheErrand = 12702,
-		AccessToMeriana = 12703,
-		APoemForTheMermaid = 12704,
-		ADjinnInLove = 12705,
-		AccessToLagunaIsland = 12706,
-		AccessToGoroma = 12707,
-		Shipwrecked = 12708,
-		DragahsSpellbook = 12709,
-		TheCounterspell = 12710,
-		ReputationInSabrehaven = 12711,
-		RaysMission1 = 12712,
-		RaysMission2 = 12713,
-		RaysMission3 = 12714,
-		RaysMission4 = 12715,
-		AccessToNargor = 12716,
-		AccessTortoiseEggNargor = 12717,
-		TortoiseEggNargorTime = 12718,
-		AccessToYavern = 12719,
-		TavernMap1 = 12720,
-		TavernMap2 = 12721,
-		TavernMap3 = 12722
-	},
-	SearoutesAroundYalahar = {
-		TownsCounter = 12800,
-		AbDendriel = 12801,
-		Darashia = 12802,
-		Venore = 12803,
-		Ankrahmun = 12804,
-		PortHope = 12805,
-		Thais = 12806,
-		LibertyBay = 12807,
-		Carlin = 12808
-	},
-	KillingInTheNameOf = {
-		LugriNecromancers = 50000,
-		LugriNecromancerCount = 65050,
-		BudrikMinos = 50001,
-		BudrikMinosCount = 65049,
-		MissionTiquandasRevenge = 22222,
-		TiquandasRevengeTeleport = 22555,
-		MissionDemodras = 22223,
-		DemodrasTeleport = 22556
-	},
-	QueenOfBansheesQuest = {
-		FirstSeal = 50013,
-		SecondSeal = 50019,
-		ThirdSeal = 50018,
-		FourthSeal = 50016,
-		FifthSeal = 50015,
-		SixthSeal = 50014,
-		LastSeal = 50021,
-		ThirdSealWarlocks = 50017,
-		Kiss = 50020
-	},
-	HotCuisineQuest = {
-		QuestStart = 50022,
-		CurrentDish = 50023,
-		QuestLog = 50024,
-		CookbookDoor = 50028
-	},
-	RookgaardTutorialIsland = {
-		tutorialHintsStorage = 50085,
-		SantiagoNpcGreetStorage = 50086,
-		SantiagoQuestLog = 50087,
-		cockroachKillStorage = 50088,
-		cockroachLegsMsgStorage = 50089,
-		cockroachBodyMsgStorage = 50090,
-		ZirellaNpcGreetStorage = 50091,
-		ZirellaQuestLog = 50092,
-		CarlosNpcGreetStorage = 50097,
-		CarlosQuestLog = 50098
-	},
-	DeeperBanutaShortcut = 50095,
-	AnnihilatorDone = 2215,
-	DemonOak = {
-		Done = 1010,
-		Progress = 1013,
-		Squares = 1014,
-		AxeBlowsBird = 8288,
-		AxeBlowsLeft = 8289,
-		AxeBlowsRight = 8290,
-		AxeBlowsFace = 8291
-	},
-	SvargrondArena = {
-		Arena = 1100,
-		Pit = 13100,
-		QuestLogGreenhorn = 50140,
-		QuestLogScrapper = 50141,
-		QuestLogWarlord = 50142,
-		RewardGreenhorn = 26300,
-		RewardScrapper = 27300,
-		RewardWarlord = 28300,
-		TrophyGreenhorn = 1103,
-		TrophyScrapper = 1105,
-		TrophyWarlord = 1107,
-		-- Actions Reward Doors
-		Greenhorn = 26101,
-		Scrapper = 27101,
-		Warlord = 28101
-	},
-	QuestChests = {
-		-- Todo: Move to a seperate range
-		KosheiTheDeathlessLegs = 3067,
-		KosheiTheDeathlessGold = 3068,
-		TutorialShovel = 50093,
-		TutorialRope = 50094,
-		DemonHelmetQuestDemonShield = 2212,
-		DemonHelmetQuestDemonHelmet = 2213,
-		DemonHelmetQuestSteelBoots = 2214,
-		FormorgarMinesHoistSkeleton = 3057,
-		FormorgarMinesHoistChest = 3058,
-		-- Custom Quests, currently not using system.lua (aid 2000)
-		BlackKnightTreeCrownShield = 490,
-		BlackKnightTreeCrownArmor = 491,
-		BlackKnightTreeKey = 9196,
-		KosheiAmulet1 = 3062,
-		KosheiAmulet2 = 3064,
-		SilverBrooch = 9185,
-		FamilyBrooch = 2286,
-		DCQGhoul = 9155,
-		FirewalkerBoots = 9130,
-		DeeperFibulaKey = 9136,
-		SixRubiesQuest = 50057,
-		ParchmentRoomQuest = 60994,
-		WarzoneReward1 = 9172,
-		WarzoneReward2 = 9173,
-		WarzoneReward3 = 9174,
-		FathersBurdenQuestWood = 3500,
-		FathersBurdenQuestIron = 3501,
-		FathersBurdenQuestRoot = 3502,
-		FathersBurdenQuestCrystal = 3503,
-		FathersBurdenQuestSilk = 3504,
-		FathersBurdenQuestCloth = 3505,
-		OutlawCampKey1 = 3301,
-		OutlawCampKey2 = 3302,
-		OutlawCampKey3 = 3303,
-		DoubletQuest = 64121,
-		HoneyFlower = 64131,
-		BananaPalm = 64132,
-		WhisperMoss = 50033,
-		OldParchment = 50034,
-		DragahsSpellbook = 50148,
-		StealFromThieves = 19910
-	},
-	PitsOfInferno = {
-		ShortcutHub = 8819,
-		ShortcutLevers = 8818,
-		Pumin = 50096,
-		WeaponReward = 10544,
-		ThroneInfernatil = 2080,
-		ThroneTafariel = 2081,
-		ThroneVerminor = 2082,
-		ThroneApocalypse = 2083,
-		ThroneBazir = 2084,
-		ThroneAshfalor = 2085,
-		ThronePumin = 2086
-	},
-	HorestisTomb = {
-		JarFloor1 = 50006,
-		JarFloor2 = 50007,
-		JarFloor3 = 50008,
-		JarFloor4 = 50009,
-		JarFloor5 = 50010
-	},
-	WhiteRavenMonasteryQuest = {
-		QuestLog = 50200,
-		Passage = 50201,
-		Diary = 50202
-	},
-	FathersBurdenQuest = {
-		QuestLog = 50203,
-		Progress = 50204,
-		Status = 50205,
-		Sinew = 50206,
-		Wood = 50207,
-		Cloth = 50208,
-		Silk = 50209,
-		Crystal = 50210,
-		Root = 50211,
-		Iron = 50212,
-		Scale = 50213,
-		Corpse = {
-			Scale = 3006,
-			Sinew = 3007
-		}
-	},
-	WhatAFoolishQuest = {
-		Questline = 3900,
-		Mission1 = 3901,
-		Mission2 = 3902,
-		Mission3 = 3903,
-		Mission4 = 3904,
-		Mission5 = 3905,
-		Mission6 = 3906,
-		Mission7 = 3907,
-		Mission8 = 3908,
-		Mission9 = 3909,
-		Mission10 = 3910,
-		Mission11 = 3911,
-		PieBuying = 3912,
-		PieBoxTimer = 3913,
-		TriangleTowerDoor = 3914,
-		EmperorBeardShave = 3915,
-		JesterOutfit = 3916,
-		WhoopeeCushion = 3917,
-		QueenEloiseCatDoor = 3918,
-		CatBasket = 3919,
-		ScaredCarina = 3920,
-		InflammableSulphur = 3921,
-		SpecialLeaves = 3922,
-		Cigar = 3923,
-		Contract = 3924,
-		CookieDelivery = {
-			SimonTheBeggar = 3925,
-			Markwin = 3926,
-			Ariella = 3927,
-			Hairycles = 3928,
-			Djinn = 3929,
-			AvarTar = 3930,
-			OrcKing = 3931,
-			Lorbas = 3932,
-			Wyda = 3933,
-			Hjaern = 3934
-		},
-		OldWornCloth = 3935,
-		LostDisguise = 3936,
-		ScaredKazzan = 3937
-	},
-	spiritHuntersQuest = {
-		missionUm = 165163,
-		tombsUse = 165164,
-		charmUse = 165165,
-		nightstalkerUse = 165166,
-		souleaterUse = 165167,
-		ghostUse = 165168
-	},
-	SeaOfLightQuest = {
-		Questline = 50250,
-		Mission1 = 50251,
-		Mission2 = 50252,
-		Mission3 = 50253,
-		StudyTimer = 50254,
-		LostMinesCrystal = 50255
-	},
-	Diapason = {
-		Lyre = 500,
-		LyreTimer = 501,
-		Edala = 502,
-		EdalaTimer = 503
-	},
-	-- Promotion Storage cannot be changed, it is set in source code
-	Promotion = 30018,
-	SwampDiggingTimeout = 50143,
-	HydraEggQuest = 320,
-	Dragonfetish = 504,
-	EdronRopeQuest = 505,
-	GhostShipQuest = 5556,
-	OrcKingGreeting = 83,
-	MarkwinGreeting = 258,
-	SamsOldBackpack = 330,
-	wagonTicket = 1131,
-	BloodHerbQuest = 50032,
-	firstMageWeapon = 50079,
-	toOutfoxAFoxQuest = 50135,
-	madMageQuest = 50136,
-	KawillBlessing = 50139,
-	RentedHorseTimer = 50561,
-	FountainOfLife = 50572,
-	KnightwatchTowerDoor = 9054,
-	RookgaardHints = 50700,
-	RookgaardDestiny = 50701,
-	AdventurersGuild = {
-		Stone = 50702,
-		MagicDoor = 50703,
-		CharosTrav = 50724,
-		FreeStone = {
-			Alia = 50704,
-			Amanda = 50705,
-			Brewster = 50706,
-			Isimov = 50707,
-			Kasmir = 50708,
-			Kjesse = 50709,
-			Lorietta = 50710,
-			Maealil = 50711,
-			Quentin = 50712,
-			RockWithASoftSpot = 50713,
-			Tyrias = 50714,
-			Yberius = 50715,
-			Rahkem = 50716
-		},
-		GreatDragonHunt = {
-			WarriorSkeleton = 50806,
-			DragonCounter = 50807
-		}
-	},
-	DreamersChallenge = {
-		LeverNightmare1 = 50815,
-		LeverNightmare2 = 50816,
-		LeverNightmare3 = 50817,
-		LeverBrotherhood1 = 50818,
-		LeverBrotherhood2 = 50819,
-		LeverBrotherhood3 = 50820,
-		Reward = 9050
-	},
-	HallsOfHope = {
-		Reward1 = 50801,
-		Reward2 = 50802,
-		Reward3 = 50803,
-		Reward4 = 50804,
-		Reward5 = 50805
-	},
-	InsectoidCell = {
-		Reward1 = 50811,
-		Reward2 = 50812,
-		Reward3 = 50813,
-		Reward4 = 50814,
-		Reward5 = 50815,
-		Reward6 = 50816,
-		Reward7 = 50817,
-		Reward8 = 50818,
-		Reward9 = 50819,
-		Reward10 = 50820,
-		Reward11 = 50821,
-		Reward12 = 50822,
-		Reward13 = 50823,
-		Reward14 = 50824,
-		Reward15 = 50825,
-		Reward16 = 50826
-	},
-	Dawnport = {
-		--Reward items storages
-		SorcererHealthPotion = 50851,
-		SorcererManaPotion = 50852,
-		SorcererLightestMissile = 50853,
-		SorcererLightStoneShower = 50854,
-		SorcererMeat = 50855,
-		DruidHealthPotion = 50856,
-		DruidManaPotion = 50857,
-		DruidLightestMissile = 50858,
-		DruidLightStoneShower = 50859,
-		DruidMeat = 50860,
-		PaladinHealthPotion = 50861,
-		PaladinManaPotion = 50862,
-		PaladinLightestMissile = 50863,
-		PaladinLightStoneShower = 50864,
-		PaladinMeat = 50865,
-		KnightHealthPotion = 50866,
-		KnightManaPotion = 50867,
-		KnightMeat = 50868,
-
-		Sorcerer = 50827,
-		Druid = 50828,
-		Paladin = 50829,
-		Knight = 50830,
-		DoorVocation = 50831,
-		DoorVocationFinish = 50832,
-		ChestRoomFinish = 50833,
-		Tutorial = 50834,
-		MessageStair = 50835,
-		Lever = 50836,
-		Mainland = 50837
-	},
-	LionsRock = {
-		Progress = 50840,
-		LionsStrength = 50841,
-		LionsBeauty = 50842,
-		LionsTears = 50843,
-		GetLionsMane = 50844,
-		GetHolyWater = 50845,
-		SnakeSign = 50846,
-		LizardSign = 50847,
-		ScorpionSign = 50848,
-		HyenaSign = 50849,
-		Time = 50850
-	},
-	EruaranGreeting = 3250,
-	MaryzaCookbook = 50721,
-	combatProtectionStorage = 50722,
-	Factions = 50723,
-	blockMovementStorage = 100000,
-	PetSummon = 60045,
-	TrainerRoom = 60046,
-	NpcSpawn = 60047,
-	isTraining = 37
+	}
 }
 
 GlobalStorage = {
-	FuryGates = 100,
 	DangerousDepths = {
+		-- Reserved storage from 60001 - 60009
 		Geodes = {
-			WarzoneVI = 533000,
-			WarzoneV = 533001,
-			WarzoneIV = 533002
+			WarzoneVI = 60001,
+			WarzoneV = 60002,
+			WarzoneIV = 60003
 		}
 	},
 	TheirMastersVoice = {
-		CurrentServantWave = 984,
-		ServantsKilled = 985
+		-- Reserved storage from 60010 - 60019
+		CurrentServantWave = 60010,
+		ServantsKilled = 60011
 	},
 	Feroxa = {
-		Chance = 566039,
-		Active = 566040
+		-- Reserved storage from 60020 - 60029
+		Chance = 60020,
+		Active = 60021
 	},
-	FerumbrasAscendantQuest = {
-		ZamuloshSummon = 566015,
-		FerumbrasEssence = 566026,
+	FerumbrasAscendant = {
+		-- Reserved storage from 60030 - 60069
+		ZamuloshSummon = 60030,
+		FerumbrasEssence = 60031,
+		DesperateSoul = 60032,
 		Crystals = {
-			Crystal1 = 566027,
-			Crystal2 = 566028,
-			Crystal3 = 566029,
-			Crystal4 = 566030,
-			Crystal5 = 566031,
-			Crystal6 = 566032,
-			Crystal7 = 566033,
-			Crystal8 = 566034,
-			AllCrystals = 566035
+			Crystal1 = 60040,
+			Crystal2 = 60041,
+			Crystal3 = 60042,
+			Crystal4 = 60043,
+			Crystal5 = 60044,
+			Crystal6 = 60045,
+			Crystal7 = 60046,
+			Crystal8 = 60047,
+			AllCrystals = 60048
 		},
 		Habitats = {
-			Roshamuul = 566064,
-			Grass = 566065,
-			Mushroom = 566066,
-			Desert = 566067,
-			Venom = 566068,
-			Ice = 566069,
-			Corrupted = 566070,
-			Dimension = 566071,
-			AllHabitats = 566072
+			Roshamuul = 60050,
+			Grass = 60051,
+			Mushroom = 60052,
+			Desert = 60053,
+			Venom = 60054,
+			Ice = 60055,
+			Corrupted = 60056,
+			Dimension = 60057,
+			AllHabitats = 60058
 		},
-		DesperateSoul = 566073,
 		Elements = {
-			First = 566074,
-			Second = 566075,
-			Third = 566076,
-			Four = 566108,
-			Active = 566077,
-			Done = 566078
+			First = 60060,
+			Second = 60061,
+			Third = 60062,
+			Four = 60063,
+			Active = 60064,
+			Done = 60065
 		}
 	},
 	HeroRathleton = {
-		FirstMachines = 566079,
-		SecondMachines = 566080,
-		ThirdMachines = 566081,
-		FourthMachines = 566082,
-		DeepRunning = 566083,
-		HorrorRunning = 566084,
-		LavaRunning = 566085,
-		LavaCounter = 566086,
-		MaxxenRunning = 566087,
-		TentacleWave = 566088,
-		DevourerWave = 566089,
-		GloothWave = 566090,
-		LavaChange = 566091
+		-- Reserved storage from 60070 - 60089
+		FirstMachines = 60070,
+		SecondMachines = 60071,
+		ThirdMachines = 60072,
+		FourthMachines = 60073,
+		DeepRunning = 60074,
+		HorrorRunning = 60075,
+		LavaRunning = 60076,
+		LavaCounter = 60077,
+		MaxxenRunning = 60078,
+		TentacleWave = 60079,
+		DevourerWave = 60080,
+		GloothWave = 60081,
+		LavaChange = 60082
 	},
 	ForgottenKnowledge = {
-		ActiveTree = 566095,
-		MechanismGolden = 566096,
-		MechanismDiamond = 566097,
-		GoldenServant = 566098,
-		DiamondServant = 566099,
-		AstralPowerCounter = 566100,
-		AstralGlyph = 566101
+		-- Reserved storage from 60090 - 60099
+		ActiveTree = 60090,
+		MechanismGolden = 60091,
+		MechanismDiamond = 60092,
+		GoldenServant = 60093,
+		DiamondServant = 60094,
+		AstralPowerCounter = 60095,
+		AstralGlyph = 60096
 	},
 	InServiceOfYalahar = {
-		LastFight = 982,
-		WarGolemsMachine1 = 23700,
-		WarGolemsMachine2 = 23701
+		-- Reserved storage from 60100 - 60109
+		LastFight = 60100,
+		WarGolemsMachine1 = 60101,
+		WarGolemsMachine2 = 60102
 	},
-	Yakchal = 987,
-	PitsOfInfernoLevers = 1000,
-	Warzones = 3143,
-	Weeper = 3144,
-	Versperoth = {
-		Battle = 3147,
-		Health = 3148
+	BigfootBurden = {
+		-- Reserved storage from 60110 - 60119
+		Warzones = 60110,
+		Weeper = 60111,
+		Versperoth = {
+			Battle = 60112,
+			Health = 60113
+		}
 	},
 	WrathOfTheEmperor = {
-		Light01 = 8018,
-		Light02 = 8019,
-		Light03 = 8020,
-		Light04 = 8021,
+		-- Reserved storage from 60120 - 60139
+		Light01 = 60120,
+		Light02 = 60121,
+		Light03 = 60122,
+		Light04 = 60123,
 		Bosses = {
-			Fury = 3189,
-			Wrath = 3190,
-			Scorn = 3191,
-			Spite = 3192
+			Fury = 60130,
+			Wrath = 60131,
+			Scorn = 60132,
+			Spite = 60133
 		}
 	},
 	ElementalSphere = {
-		BossRoom = 10004,
-		KnightBoss = 8568,
-		SorcererBoss = 8569,
-		PaladinBoss = 8570,
-		DruidBoss = 8578,
-		Machine1 = 10005,
-		Machine2 = 10006,
-		Machine3 = 10007,
-		Machine4 = 10008
+		-- Reserved storage from 60140 - 60159
+		BossRoom = 60140,
+		KnightBoss = 60141,
+		SorcererBoss = 60142,
+		PaladinBoss = 60143,
+		DruidBoss = 60144,
+		Machine1 = 60145,
+		Machine2 = 60146,
+		Machine3 = 60147,
+		Machine4 = 60148
 	},
 	TheAncientTombs = {
-		ThalasSwitchesGlobalStorage = 200,
-		DiprathSwitchesGlobalStorage = 201,
-		AshmunrahSwitchesGlobalStorage = 202
+		-- Reserved storage from 60160 - 60169
+		ThalasSwitchesGlobalStorage = 60160,
+		DiprathSwitchesGlobalStorage = 60161,
+		AshmunrahSwitchesGlobalStorage = 60162
 	},
-	NaginataStone = 50058,
-	ExpBoost = 51052,
-	SwordOfFury = 5635,
-	XpDisplayMode = 5634,
-	lionsRockFields = 5636
+	FuryGates = 65000,
+	Yakchal = 65001,
+	PitsOfInfernoLevers = 65002,
+	NaginataStone = 65003,
+	ExpBoost = 65004,
+	SwordOfFury = 65005,
+	XpDisplayMode = 65006,
+	LionsRockFields = 65007,
+	TheMummysCurse = 65007
 }
 
 
@@ -1942,8 +2184,8 @@ table.sort(extraction) -- Sort the table
 if #extraction > 1 then
 	for i = 1, #extraction - 1 do
 		if extraction[i] == extraction[i+1] then
-			print("Duplicate storage value found: ".. extraction[i])
+			print(">> Duplicate storage value found: ".. extraction[i])
+			print(string.format("> Processed in %.4f(s)", os.clock() - benchmark))
 		end
 	end
-	print(string.format("Processed in %.4f(s)", os.clock() - benchmark))
 end

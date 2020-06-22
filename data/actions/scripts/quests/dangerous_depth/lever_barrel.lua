@@ -5,19 +5,19 @@ local transformid = {
 
 local config = {
 	first = {
-	[1] = {fromPosition = Position(33877, 32060, 14), toPosition = Position(33888, 32068, 14), stgRoom = Storage.DangerousDepths.Scouts.firstBarrel},
+	[1] = {fromPosition = Position(33877, 32060, 14), toPosition = Position(33888, 32068, 14), stgRoom = Storage.DangerousDepths.Scouts.FirstBarrel},
 	},
 	second = {
-	[1] = {fromPosition = Position(33906, 32026, 14), toPosition = Position(33916, 32037, 14), stgRoom = Storage.DangerousDepths.Scouts.secondBarrel},
+	[1] = {fromPosition = Position(33906, 32026, 14), toPosition = Position(33916, 32037, 14), stgRoom = Storage.DangerousDepths.Scouts.SecondBarrel},
 	},
 	third = {
-	[1] = {fromPosition = Position(33865, 32009, 14), toPosition = Position(33874, 32020, 14), stgRoom = Storage.DangerousDepths.Scouts.thirdBarrel},
+	[1] = {fromPosition = Position(33865, 32009, 14), toPosition = Position(33874, 32020, 14), stgRoom = Storage.DangerousDepths.Scouts.ThirdBarrel},
 	},
 	fourth = {
-	[1] = {fromPosition = Position(33837, 31984, 14), toPosition = Position(33852, 31991, 14), stgRoom = Storage.DangerousDepths.Scouts.fourthBarrel},
+	[1] = {fromPosition = Position(33837, 31984, 14), toPosition = Position(33852, 31991, 14), stgRoom = Storage.DangerousDepths.Scouts.FourthBarrel},
 	},
 	fifth = {
-	[1] = {fromPosition = Position(33923, 31982, 14), toPosition = Position(33942, 31998, 14), stgRoom = Storage.DangerousDepths.Scouts.fifthBarrel},
+	[1] = {fromPosition = Position(33923, 31982, 14), toPosition = Position(33942, 31998, 14), stgRoom = Storage.DangerousDepths.Scouts.FifthBarrel},
 	},
 }
 
@@ -25,7 +25,7 @@ local function checarPos(item)
 	for _, info1 in pairs(config.first) do
 		local fromPos, toPos, stgRoom = info1.fromPosition, info1.toPosition, info1.stgRoom
 		if item:getPosition():isInRange(fromPos, toPos) then
-			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
+			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1
 			local player = Player(stgBarril)
 			if player then
 				if player:getStorageValue(stgRoom) < 1 then
@@ -38,7 +38,7 @@ local function checarPos(item)
 	for _, info2 in pairs(config.second) do
 		local fromPos, toPos, stgRoom = info2.fromPosition, info2.toPosition, info2.stgRoom
 		if item:getPosition():isInRange(fromPos, toPos) then
-			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
+			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1
 			local player = Player(stgBarril)
 			if player then
 				if player:getStorageValue(stgRoom) < 1 then
@@ -51,7 +51,7 @@ local function checarPos(item)
 	for _, info3 in pairs(config.third) do
 		local fromPos, toPos, stgRoom = info3.fromPosition, info3.toPosition, info3.stgRoom
 		if item:getPosition():isInRange(fromPos, toPos) then
-			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
+			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1
 			local player = Player(stgBarril)
 			if player then
 				if player:getStorageValue(stgRoom) < 1 then
@@ -64,7 +64,7 @@ local function checarPos(item)
 	for _, info4 in pairs(config.fourth) do
 		local fromPos, toPos, stgRoom = info4.fromPosition, info4.toPosition, info4.stgRoom
 		if item:getPosition():isInRange(fromPos, toPos) then
-			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
+			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1
 			local player = Player(stgBarril)
 			if player then
 				if player:getStorageValue(stgRoom) < 1 then
@@ -77,7 +77,7 @@ local function checarPos(item)
 	for _, info5 in pairs(config.fifth) do
 		local fromPos, toPos, stgRoom = info5.fromPosition, info5.toPosition, info5.stgRoom
 		if item:getPosition():isInRange(fromPos, toPos) then
-			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
+			local stgBarril = item:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1
 			local player = Player(stgBarril)
 			if player then
 				if player:getStorageValue(stgRoom) < 1 then
@@ -126,20 +126,20 @@ function onUse(player, item)
 
 	local posBarril = Position(33838, 32077, 14)
 	local stgCount = player:getStorageValue(Storage.DangerousDepths.Scouts.BarrelCount)
-	local barrelTimer = player:getStorageValue(Storage.DangerousDepths.Scouts.barrelTimer)
+	local BarrelTimer = player:getStorageValue(Storage.DangerousDepths.Scouts.BarrelTimer)
 
 	if item:getId() == 28594 then
-		if player:getStorageValue(Storage.DangerousDepths.Scouts.Growth) == 1 and stgCount < 5 and barrelTimer <= 0 then
+		if player:getStorageValue(Storage.DangerousDepths.Scouts.Growth) == 1 and stgCount < 5 and BarrelTimer <= 0 then
 			local barril = Game.createItem(31992, 1, posBarril)
-			local stgBarril = barril:getSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg) or -1
-			barril:setSpecialAttribute(Storage.DangerousDepths.Scouts.barrelStg, player:getId())
+			local stgBarril = barril:getSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel) or -1
+			barril:setSpecialAttribute(Storage.DangerousDepths.Scouts.Barrel, player:getId())
 			addEvent(function()
 				if barril then
 					explode(barril)
 				end
-			player:setStorageValue(Storage.DangerousDepths.Scouts.barrelTimer, 0)
+			player:setStorageValue(Storage.DangerousDepths.Scouts.BarrelTimer, 0)
 			end, 2 * 60 * 1000)
-			player:setStorageValue(Storage.DangerousDepths.Scouts.barrelTimer, os.time() + 2*60) -- Só para barrar.
+			player:setStorageValue(Storage.DangerousDepths.Scouts.BarrelTimer, os.time() + 2*60) -- Só para barrar.
 			--O tempo é setado em 0 ao barril explodir.
 		end
 	end

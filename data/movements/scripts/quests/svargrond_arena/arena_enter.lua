@@ -4,7 +4,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local pitId = player:getStorageValue(Storage.SvargrondArena.Pit)
+	local pitId = player:getStorageValue(Storage.SvargrondArena.PitDoor)
 	if pitId < 1 or pitId > 10 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You cannot enter without Halvar's permission.")
 		player:teleportTo(fromPosition, true)

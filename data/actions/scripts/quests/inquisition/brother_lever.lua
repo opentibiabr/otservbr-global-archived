@@ -1,5 +1,5 @@
 local config = {
-	[9017] = {
+	[1006] = {
 		wallPositions = {
 			Position(33226, 31721, 11),
 			Position(33227, 31721, 11),
@@ -18,7 +18,7 @@ local config = {
 		wallDown = 1524,
 		wallUp = 1050
 	},
-	[9018] = {
+	[1007] = {
 		wallPositions = {
 			Position(33223, 31724, 11),
 			Position(33223, 31725, 11),
@@ -33,7 +33,7 @@ local config = {
 		wallDown = 1526,
 		wallUp = 1049
 	},
-	[9019] = {
+	[1008] = {
 		wallPositions = {
 			Position(33226, 31735, 11),
 			Position(33227, 31735, 11),
@@ -52,7 +52,7 @@ local config = {
 		wallDown = 1524,
 		wallUp = 1050
 	},
-	[9020] = {
+	[1009] = {
 		wallPositions = {
 			Position(33241, 31724, 11),
 			Position(33241, 31725, 11),

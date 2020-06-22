@@ -22,9 +22,10 @@ local function creatureSayCallback(cid, type, msg)
 
 	if msgcontains(msg, "mission") then
 		local player = Player(cid)
-		if player:getStorageValue(Storage.hiddenCityOfBeregar.RoyalRescue) == 4 and player:removeItem(14350, 1) then
-			player:setStorageValue(Storage.hiddenCityOfBeregar.RoyalRescue, 5)
+		if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) == 4 and player:removeItem(14350, 1) then
+			player:setStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue, 5)
 			npcHandler:say("By the Gods! You have the key to the cell! Thank you sooo much, mate. And now leave. I'll wait here until the air is clean and then I'm out of here.", cid)
+			npcHandler.topic[cid] = 0
 		end
 	end
 	return true

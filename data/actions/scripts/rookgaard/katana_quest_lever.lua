@@ -6,7 +6,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		local doorItem = Tile(doorPosition):getItemById(5108)
 		if doorItem then
 			doorItem:transform(5109)
-			doorItem:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 5636)
+			doorItem:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 1055)
 			item:transform(1946)
 		end
 	else
@@ -15,7 +15,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		if doorItem then
 			tile:relocateTo(relocatePosition, true)
 			doorItem:transform(5108)
-			doorItem:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 5636)
+			doorItem:setAttribute(ITEM_ATTRIBUTE_UNIQUEID, 1055)
 			item:transform(1945)
 		end
 	end

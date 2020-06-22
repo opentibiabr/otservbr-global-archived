@@ -33,7 +33,7 @@ keywordHandler:addKeyword({'mistrock'}, StdModule.say, {npcHandler = npcHandler,
 	text = {
 		"Do you smell this? It's the smell of fire... the fire of a forge. Many people searched this rock here for a hidden path, but they haven't found anything. ...",
 		"I'd search on Fenrock if I were you. Even though there's snow on the surface, it's still warm underground. There are often caves under fresh lava streams."
-	}}, nil, function(player) if player:getStorageValue(Storage.hiddenCityOfBeregar.WayToBeregar) ~= 1 then player:setStorageValue(Storage.hiddenCityOfBeregar.WayToBeregar, 1) end end
+	}}, nil, function(player) if player:getStorageValue(Storage.HiddenCityOfBeregar.WayToBeregar) ~= 1 then player:setStorageValue(Storage.HiddenCityOfBeregar.WayToBeregar, 1) end end
 )
 keywordHandler:addKeyword({'offer'}, StdModule.say, {npcHandler = npcHandler, text = 'I can take you to {Yalahar} or {Fenrock}!'})
 keywordHandler:addKeyword({'passage'}, StdModule.say, {npcHandler = npcHandler, text = 'I can take you to {Yalahar} or {Fenrock}!'})

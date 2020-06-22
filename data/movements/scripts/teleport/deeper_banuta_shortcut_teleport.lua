@@ -15,7 +15,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.DeeperBanutaShortcut) < 100 then
+	if player:getStorageValue(Storage.BanutaSecretTunnel.DeeperBanutaShortcut) < 100 then
 		player:teleportTo(targetPosition)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	end

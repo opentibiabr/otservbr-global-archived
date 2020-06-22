@@ -38,7 +38,7 @@ local function creatureSayCallback(cid, type, msg)
 	local player = Player(cid)
 
 	if msgcontains(msg, 'mission') then
-		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
+		local qStorage = player:getStorageValue(Storage.SpiritHunters.Mission01)
 		if qStorage == 3 then
 			npcHandler:say("So, did you find anything worth examining? Did you actually catch a ghost?",cid)
 			npcHandler.topic[cid] = 3
@@ -63,18 +63,18 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 2
 		elseif npcHandler.topic[cid] == 2 then
 			npcHandler:say("Good, now all you need to do is find a ghost, defeat it and catch its very essence with the cage. Once you have it, return to me and Spectulus and I will move it into our chamber device. Good luck, return to me as soon as you are prepared.", cid)
-			player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 3)
+			player:setStorageValue(Storage.SpiritHunters.Mission01, 3)
 			player:addItem(12671, 1)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 3 then
-			if player:getStorageValue(Storage.spiritHuntersQuest.charmUse) == 1 then
+			if player:getStorageValue(Storage.SpiritHunters.CharmUse) == 1 then
 				npcHandler:say({"Fascinating, let me see. ...",
 								"Amazing! I will transfer this to our spirit chamber right about - now! ...",
 								"Alright, the device is holding it. The magical barrier should be able to contain nearly 20 times the current load. That's a complete success! Spectulus, are you seeing this? We did it! ...",
 								"Well, you did! You really helped us pulling this off. Thank you Lord Stalks! ...",
 								"I doubt we will have much time to hunt for new specimens ourselves in the near future. If you like, you can continue helping us by finding and capturing more and different ghosts. Just talk to me to receive a new task."
 								}, cid)
-				player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 4)
+				player:setStorageValue(Storage.SpiritHunters.Mission01, 4)
 				player:addExperience(500, true)
 				addEvent(releasePlayer, 1000, cid)
 				npcHandler.topic[cid] = 0
@@ -89,16 +89,16 @@ local function creatureSayCallback(cid, type, msg)
 							"Furhtermore, to successfully bind Nightstalkers to the cage, you will need to have caught at least 5 Ghosts. To bind Souleaters, you will need at least 5 Ghosts and 5 Nightstalkers. ...",
 							"The higher the amount of spirit energy in the cage, the higher its effective capacity. Oh and always come back and tell me if you lose your spirit cage."
 							}, cid)
-			player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 5)
+			player:setStorageValue(Storage.SpiritHunters.Mission01, 5)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 5 then
 			npcHandler:say("Good, of course you will also receive an additional monetary reward for your troubles. Are you fine with that?", cid)
 			npcHandler.topic[cid] = 6
 		elseif npcHandler.topic[cid] == 6 then
-			local nightstalkers, souleaters, ghost = player:getStorageValue(Storage.spiritHuntersQuest.nightstalkerUse), player:getStorageValue(Storage.spiritHuntersQuest.souleaterUse), player:getStorageValue(Storage.spiritHuntersQuest.ghostUse)
+			local nightstalkers, souleaters, ghost = player:getStorageValue(Storage.SpiritHunters.NightstalkerUse), player:getStorageValue(Storage.SpiritHunters.SouleaterUse), player:getStorageValue(Storage.SpiritHunters.GhostUse)
 			if nightstalkers >= 4 and souleaters >= 4 and ghost >= 4 then
 				npcHandler:say("Alright, let us see how many ghosts you caught!", cid)
-				player:setStorageValue(Storage.spiritHuntersQuest.missionUm, 6)
+				player:setStorageValue(Storage.SpiritHunters.Mission01, 6)
 				player:addExperience(8000, true)
 				player:addItem(2152, 60)
 				addEvent(releasePlayer, 1000, cid)
@@ -109,7 +109,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		end
 	elseif msgcontains(msg, 'research') then
-		local qStorage = player:getStorageValue(Storage.spiritHuntersQuest.missionUm)
+		local qStorage = player:getStorageValue(Storage.SpiritHunters.Mission01)
 		if qStorage == 4 then
 			npcHandler:say({"We are still in need of more research concerning environmental as well as psychic ecto-magical influences. Besides more common ghosts we also need some of the harder to come by nightstalkers and - if you're really hardboiled - souleaters. ...",
 						"We will of course pay for every ghost you catch. You will receive more if you hunt for some of the tougher fellows - but don't overdue it. What do you say?"

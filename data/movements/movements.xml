@@ -160,8 +160,6 @@
 	<movevent event="StepIn" actionid="57242" script="quests/dangerous_depth/gnomes_ordnance_end.lua"/>
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous_depth/lost_exiles.lua"/>
 	<movevent event="StepIn" actionid="57230" script="quests/dangerous_depth/warzone_entrance.lua"/>
-	<!-- dark trails -->
-	<movevent event="StepIn" actionid="9745" script="quests/dark_trails/necrometer_tile_acess.lua"/>
 	<!-- demon helmet -->
 	<movevent event="StepIn" actionid="980" script="quests/demon_helmet/walls.lua"/>
 	<!-- demon oak -->
@@ -282,7 +280,7 @@
 	<movevent event="StepIn" actionid="3244" script="quests/killing_in_the_name_of/boss.lua"/>
 	<movevent event="StepIn" fromuid="17521" touid="17523" script="quests/killing_in_the_name_of/boss.lua"/>
 	<!-- krailos -->
-	<movevent event="StepIn" actionid="19049" script="quests/krailos/acess_depot.lua"/>
+	<movevent event="StepIn" actionid="19049" script="quests/krailos/access_depot.lua"/>
 	<!-- nightmare isles worldchange -->
 	<movevent event="StepIn" fromuid="64001" touid="64003" script="quests/nightmare_isles/teleport.lua"/>
 	<!-- entrance -->

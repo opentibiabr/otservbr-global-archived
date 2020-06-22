@@ -192,7 +192,7 @@ local function creatureSayCallback(cid, type, msg)
 			else
 				npcHandler:say("Correct. The lower door is now open. The druid of Crunor lies.", cid)
 				player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) + 1)
-				player:setStorageValue(Storage.CultsOfTibia.MotA.AcessDoorExit)
+				player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorDenominator)
 			end
 		elseif msgcontains(msg, "no") then
 			npcHandler:say("SHUT DOWN.", cid)

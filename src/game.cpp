@@ -579,14 +579,10 @@ bool Game::internalPlaceCreature(Creature* creature, const Position& pos, bool e
 	return true;
 }
 
-bool Game::placeCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/, Creature* master)
+bool Game::placeCreature(Creature* creature, const Position& pos, bool extendedPos /*=false*/, bool forced /*= false*/)
 {
 	if (!internalPlaceCreature(creature, pos, extendedPos, forced)) {
 		return false;
-	}
-
-	if (master) {
-		creature->setMaster(master);
 	}
 
 	SpectatorHashSet spectators;
@@ -3398,6 +3394,10 @@ void Game::playerApplyImbuement(uint32_t playerId, uint32_t imbuementid, uint8_t
 		return;
 	}
 
+  if (item->getTopParent() != player || item->getParent() == player) {
+    return;
+  }
+
 	g_events->eventPlayerOnApplyImbuement(player, imbuement, item, slot, protectionCharm);
 }
 
@@ -5108,9 +5108,9 @@ void Game::updatePremium(account::Account& account)
   uint32_t rem_days = 0;
   time_t last_day;
   account.GetPremiumRemaningDays(&rem_days);
+  account.GetPremiumLastDay(&last_day);
   if (rem_days != 0)
   {
-    account.GetPremiumLastDay(&last_day);
     if (last_day == 0) {
 			account.SetPremiumLastDay(timeNow);
 			save = true;

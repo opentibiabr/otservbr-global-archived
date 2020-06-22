@@ -37,8 +37,8 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:say('I trade Enchanted Chicken Wing for Boots of Haste, Warrior Sweat for 4 Warrior Helmets, Fighting Spirit for 2 Royal Helmet Magic Sulphur for 3 Fire Swords', cid)
 		npcHandler.topic[cid] = 0
 	elseif msgcontains(msg, 'cookie') then
-		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31
-				and player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Djinn) ~= 1 then
+		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
+				and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.Djinn) ~= 1 then
 			npcHandler:say('You brought cookies! How nice of you! Can I have one?', cid)
 			npcHandler.topic[cid] = 5
 		end
@@ -64,7 +64,7 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Djinn, 1)
+			player:setStorageValue(Storage.WhatAFoolish.CookieDelivery.Djinn, 1)
 			if player:getCookiesDelivered() == 10 then
 				player:addAchievement('Allow Cookies?')
 			end
@@ -95,15 +95,12 @@ local function onTradeRequest(cid)
 	return true
 end
 
--- Greeting
-keywordHandler:addGreetKeyword({"djanni'hah"}, {npcHandler = npcHandler, text = "Be greeted, human |PLAYERNAME|. How can a humble djinn be of service?"})
-
+npcHandler:setMessage(MESSAGE_GREET, "Be greeted, human |PLAYERNAME|. How can a humble djinn be of service?")
 npcHandler:setMessage(MESSAGE_FAREWELL, "Farewell, human.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Farewell, human.")
 npcHandler:setMessage(MESSAGE_SENDTRADE, 'At your service, just browse through my wares.')
 
 npcHandler:setCallback(CALLBACK_ONTRADEREQUEST, onTradeRequest)
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setCallback(CALLBACK_GREET, greetCallback)
 
 npcHandler:addModule(FocusModule:new())

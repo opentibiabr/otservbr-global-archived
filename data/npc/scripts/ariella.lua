@@ -25,8 +25,8 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, "cookie") then
-		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31 and
-		player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Ariella) ~= 1 then
+		if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31 and
+		player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.Ariella) ~= 1 then
 			npcHandler:say("So you brought a cookie to a pirate?", cid)
 			npcHandler.topic[cid] = 1
 		end
@@ -68,7 +68,7 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.Ariella, 1)
+			player:setStorageValue(Storage.WhatAFoolish.CookieDelivery.Ariella, 1)
 			if player:getCookiesDelivered() == 10 then
 				player:addAchievement("Allow Cookies?")
 			end
@@ -138,4 +138,5 @@ local function creatureSayCallback(cid, type, msg)
 end
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

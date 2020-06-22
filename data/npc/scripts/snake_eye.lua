@@ -27,8 +27,8 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 0
 		end
 	elseif msgcontains(msg, 'documents') then
-		if player:getStorageValue(Storage.thievesGuild.Mission04) == 1 then
-			player:setStorageValue(Storage.thievesGuild.Mission04, 2)
+		if player:getStorageValue(Storage.ThievesGuild.Mission04) == 1 then
+			player:setStorageValue(Storage.ThievesGuild.Mission04, 2)
 			npcHandler:say('Funny thing that everyone thinks we have forgers for fake documents here. But no, we don\'t. The best forger is old Ahmet in Ankrahmun.', cid)
 		end
 	end

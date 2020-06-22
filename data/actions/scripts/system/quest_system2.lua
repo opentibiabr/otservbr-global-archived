@@ -63,7 +63,7 @@ local config = {
 		items = {
 			{itemId = 4855}
 		},
-		storage = Storage.ExplorerSociety.TheElvenPoetry,
+		storage = Storage.ExplorerSociety.ElvenDoor,
 		formerValue = 36,
 		newValue = 37
 	},
@@ -95,7 +95,7 @@ local config = {
 		items = {
 			{itemId = 2332}
 		},
-		storage = Storage.postman.Mission08,
+		storage = Storage.Postman.Mission08,
 		formerValue = 1,
 		newValue = 2
 	},
@@ -168,7 +168,7 @@ local config = {
 		items = {
 			{itemId = 2330}
 		},
-		storage = Storage.postman.Mission09,
+		storage = Storage.Postman.Mission09,
 		formerValue = 1,
 		newValue = 2
 	},
@@ -176,7 +176,7 @@ local config = {
 		items = {
 			{itemId = 2331}
 		},
-		storage = Storage.postman.Mission05,
+		storage = Storage.Postman.Mission05,
 		formerValue = 1,
 		newValue = 2
 	},
@@ -272,7 +272,7 @@ local config = {
 		items = {
 			{itemId = 8766}
 		},
-		storage = Storage.thievesGuild.Mission06,
+		storage = Storage.ThievesGuild.Mission06,
 		formerValue = 2,
 		newValue = 3,
 		say = 'To buy some time you replace the fish with a piece of carrot.'
@@ -281,7 +281,7 @@ local config = {
 		items = {
 			{itemId = 7736}
 		},
-		storage = Storage.secretService.RottenTree
+		storage = Storage.SecretService.RottenTree
 	},
 	[50032] = {
 		items = {
@@ -293,13 +293,13 @@ local config = {
 		items = {
 			{itemId = 2789, count = 10}
 		},
-		storage = Storage.hiddenCityOfBeregar.BrownMushrooms
+		storage = Storage.HiddenCityOfBeregar.BrownMushrooms
 	},
 	[50125] = {
 		items = {
 			{itemId = 14348}
 		},
-		storage = Storage.hiddenCityOfBeregar.JusticeForAll,
+		storage = Storage.HiddenCityOfBeregar.JusticeForAll,
 		formerValue = 3,
 		newValue = 4
 	},

@@ -58,8 +58,8 @@ local function creatureSayCallback(cid, type, msg)
 		end
 
 	elseif msgcontains(msg, '2000 steel shields') then
-		if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) ~= 29
-				or player:getStorageValue(Storage.WhatAFoolishQuest.Contract) == 2 then
+		if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= 29
+				or player:getStorageValue(Storage.WhatAFoolish.Contract) == 2 then
 			npcHandler:say('My offers are weapons, armors, helmets, legs, and shields. If you\'d like to see my offers, ask me for a {trade}.', cid)
 			return true
 		end
@@ -68,7 +68,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 2
 
 	elseif msgcontains(msg, 'contract') then
-		if player:getStorageValue(Storage.WhatAFoolishQuest.Contract) == 0 then
+		if player:getStorageValue(Storage.WhatAFoolish.Contract) == 0 then
 			npcHandler:say('Have you signed the contract?', cid)
 			npcHandler.topic[cid] = 4
 		end
@@ -91,7 +91,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 3
 		elseif npcHandler.topic[cid] == 3 then
 			player:addItem(7492, 1)
-			player:setStorageValue(Storage.WhatAFoolishQuest.Contract, 1)
+			player:setStorageValue(Storage.WhatAFoolish.Contract, 1)
 			npcHandler:say('Fine! Here is the contract. Please sign it. Talk to me about it again when you\'re done.', cid)
 			npcHandler.topic[cid] = 0
 		elseif npcHandler.topic[cid] == 4 then
@@ -101,7 +101,7 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:setStorageValue(Storage.WhatAFoolishQuest.Contract, 2)
+			player:setStorageValue(Storage.WhatAFoolish.Contract, 2)
 			npcHandler:say('Excellent! I will start working right away! Now that I am going to be rich, I will take the opportunity to tell some people what I REALLY think about them!', cid)
 			npcHandler.topic[cid] = 0
 		end

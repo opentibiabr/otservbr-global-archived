@@ -24,12 +24,13 @@ npcHandler:setMessage(MESSAGE_GREET, "No, you can't have my nose! If you're in n
 
 
 sleighinfo = {
-['bright percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 133, storageID = 10101},
-['cold percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 132, storageID = 10102},
-['dark percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 134, storageID = 10103},
-
+['bright percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 133, storageID = Storage.Percht1},
+['cold percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 132, storageID = Storage.Percht2},
+['dark percht sleigh'] = {cost = 0, items = {{35051,1}}, mount = 134, storageID = Storage.Percht3},
 }
-local o = {'bright percht sleigh', 'cold percht sleigh', 'dark percht sleigh'}
+
+local monsterName = {'bright percht sleigh', 'cold percht sleigh', 'dark percht sleigh'}
+
 function creatureSayCallback(cid, type, msg)
 local talkUser = cid
 local player = Player(cid)
@@ -97,7 +98,7 @@ local player = Player(cid)
 			return true
 		end
 	elseif msgcontains(msg, "mount") or msgcontains(msg, "mounts") or msgcontains(msg, "sleigh") or msgcontains(msg, "sleighs") then
-		npcHandler:say('I can give you one of the following sleighs: {' .. table.concat(o, "}, {") .. '}.', cid)
+		npcHandler:say('I can give you one of the following sleighs: {' .. table.concat(monsterName, "}, {") .. '}.', cid)
 		rtnt[talkUser] = nil
 		talkState[talkUser] = 0
 		npcHandler:resetNpc()

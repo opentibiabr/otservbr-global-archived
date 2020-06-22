@@ -5,7 +5,7 @@ function onKill(creature, target)
 	end
 
 	local player = creature:getPlayer()
-	local pit = player:getStorageValue(Storage.SvargrondArena.Pit)
+	local pit = player:getStorageValue(Storage.SvargrondArena.PitDoor)
 	if pit < 1 or pit > 10 then
 		return
 	end
@@ -34,7 +34,7 @@ function onKill(creature, target)
 			SvargrondArena.sendPillarEffect(pit)
 		end
 	end
-	player:setStorageValue(Storage.SvargrondArena.Pit, pit + 1)
+	player:setStorageValue(Storage.SvargrondArena.PitDoor, pit + 1)
 	player:say('Victory! Head through the new teleporter into the next room.', TALKTYPE_MONSTER_SAY)
 	return true
 end

@@ -3,7 +3,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
-	if player:getStorageValue(Storage.thievesGuild.Mission06) == 2 then
+	if player:getStorageValue(Storage.ThievesGuild.Mission06) == 2 then
 		player:removeItem(8762, 1)
 		player:say('In your haste you break the key while slipping in.', TALKTYPE_MONSTER_SAY)
 		player:teleportTo(Position(32359, 32788, 6))

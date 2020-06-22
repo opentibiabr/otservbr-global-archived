@@ -36,12 +36,13 @@ function onCastSpell(player, variant)
 
     if not summonName then return false end
 
-    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false, player)
+    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)
     if not mySummon then
         return combat:execute(player, variant)
     end
 
     player:addSummon(mySummon)
+    mySummon:reload()
     mySummon:registerEvent("SummonDeath")
 
     local deltaSpeed = math.max(player:getBaseSpeed() - mySummon:getBaseSpeed(), 0)

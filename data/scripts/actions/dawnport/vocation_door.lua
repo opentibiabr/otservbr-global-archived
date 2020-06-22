@@ -56,5 +56,8 @@ function vocationDoor.onUse(player, item, target, position, fromPosition)
 	return true
 end
 
-vocationDoor:uid(25017, 25018, 25019, 25020)
+for uniqueRange = 22001, 22004 do
+	vocationDoor:uid(uniqueRange)
+end
+
 vocationDoor:register()

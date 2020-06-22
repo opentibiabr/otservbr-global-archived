@@ -21,7 +21,6 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-
 	if npcHandler.topic[cid] == 0 then
 		if msgcontains(msg, 'outfit') then
 			npcHandler:say({
@@ -33,8 +32,8 @@ local function creatureSayCallback(cid, type, msg)
 			}, cid)
 			npcHandler.topic[cid] = 1
 		elseif msgcontains(msg, 'cookie') then
-			if player:getStorageValue(Storage.WhatAFoolishQuest.Questline) == 31
-					and player:getStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.AvarTar) ~= 1 then
+			if player:getStorageValue(Storage.WhatAFoolish.Questline) == 31
+			and player:getStorageValue(Storage.WhatAFoolish.CookieDelivery.AvarTar) ~= 1 then
 				npcHandler:say('Do you really think you could bribe a hero like me with a meagre cookie?', cid)
 				npcHandler.topic[cid] = 3
 			end
@@ -50,7 +49,7 @@ local function creatureSayCallback(cid, type, msg)
 				return true
 			end
 
-			player:setStorageValue(Storage.WhatAFoolishQuest.CookieDelivery.AvarTar, 1)
+			player:setStorageValue(Storage.WhatAFoolish.CookieDelivery.AvarTar, 1)
 			if player:getCookiesDelivered() == 10 then
 				player:addAchievement('Allow Cookies?')
 			end
@@ -67,18 +66,19 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif npcHandler.topic[cid] == 2 then
 		if msgcontains(msg, 'base') then
-			if player:getStorageValue(Storage.AnnihilatorDone) == 1 then
+			if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) == 1 then
 				player:addOutfit(541)
 				player:addOutfit(542)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
-				player:setStorageValue(Storage.AnnihilatorDone, 2)
+				player:setStorageValue(Storage.TheAnnihilator.AnnihilatorDone, 2)
 				npcHandler:say('Receive the base outfit, |PLAYERNAME|.', cid)
 			else
 				npcHandler:say('You need to complete annihilator quest first, |PLAYERNAME|.', cid)
 				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'shield') then
-			if player:getStorageValue(Storage.AnnihilatorDone) == 2 and player:getStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet) == 1 then
+			if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) == 2
+			and player:getStorageValue(Storage.QuestChests.DemonHelmetQuestDemonHelmet) == 1 then
 				player:addOutfitAddon(541, 1)
 				player:addOutfitAddon(542, 1)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -89,7 +89,8 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 2
 			end
 		elseif msgcontains(msg, 'helmet') then
-			if player:getStorageValue(Storage.AnnihilatorDone) == 2 and player:getStorageValue(Storage.DemonOak.Done) == 3 then
+			if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) == 2
+			and player:getStorageValue(Storage.DemonOak.Done) == 3 then
 				player:addOutfitAddon(541, 2)
 				player:addOutfitAddon(542, 2)
 				player:getPosition():sendMagicEffect(CONST_ME_MAGIC_BLUE)
@@ -109,4 +110,5 @@ npcHandler:setMessage(MESSAGE_FAREWELL, 'See you later, |PLAYERNAME|.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'See you later, |PLAYERNAME|.')
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())

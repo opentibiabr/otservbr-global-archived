@@ -9,8 +9,8 @@ function onKill(creature, target)
 	end
 
 	local player = creature:getPlayer()
-	if player:getStorageValue(Storage.thievesGuild.Mission04) == 3 then
-		player:setStorageValue(Storage.thievesGuild.Mission04, 4)
+	if player:getStorageValue(Storage.ThievesGuild.Mission04) == 3 then
+		player:setStorageValue(Storage.ThievesGuild.Mission04, 4)
 	end
 
 	return true

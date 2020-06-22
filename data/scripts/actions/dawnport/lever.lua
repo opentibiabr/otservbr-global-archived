@@ -67,5 +67,5 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-lever:aid(40014)
+lever:aid(30001)
 lever:register()

@@ -239,6 +239,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Here is the final addon for your demon hunter outfit. Congratulations!", cid)
 			player:setStorageValue(Storage.TheInquisition.Questline, 24)
 			player:setStorageValue(Storage.TheInquisition.Mission07, 4) -- The Inquisition Questlog- "Mission 7: The Shadow Nexus"
+			player:setStorageValue(Storage.TheInquisition.RewardDoor, 1)
 			player:addOutfitAddon(288, 1)
 			player:addOutfitAddon(289, 1)
 			player:addOutfitAddon(288, 2)

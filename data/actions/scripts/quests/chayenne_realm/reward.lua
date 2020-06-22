@@ -1,17 +1,18 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
-	if getPlayerStorageValue(cid, 72648) < 1 then
-		local bp = doPlayerAddItem(cid, 5949, 1)
-		doAddContainerItem(bp, 18511, 1)
-		doAddContainerItem(bp, 2745, 1)
-		doAddContainerItem(bp, 9948, 1)
-		doAddContainerItem(bp, 2144, 1)
-		doAddContainerItem(bp, 5882, 1)
-		doAddContainerItem(bp, 5791, 1)
-		doAddContainerItem(bp, 2114, 1)
-		doAddContainerItem(bp, 6570, 1)
-		setPlayerStorageValue(cid, 72648, 1)
-		doPlayerSendTextMessage(cid, 19, "You have found a beach backpack.")
+function onUse(player, item, fromPosition, itemEx, toPosition)
+	if player:getStorageValue(Storage.ChayenneReward) < 1 then
+		local backpack = player:addItem(5949, 1)
+		backpack:addItem(18511, 1)
+		backpack:addItem(2745, 1)
+		backpack:addItem(9948, 1)
+		backpack:addItem(2144, 1)
+		backpack:addItem(5882, 1)
+		backpack:addItem(5791, 1)
+		backpack:addItem(2114, 1)
+		backpack:addItem(6570, 1)
+		player:setStorageValue(Storage.ChayenneReward, 1)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a beach backpack.")
 	else
-		doPlayerSendTextMessage(cid, 19, "You already got your reward.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You already got your reward.")
 	end
+	return true
 end

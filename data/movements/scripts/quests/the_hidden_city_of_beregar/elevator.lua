@@ -14,7 +14,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(Storage.hiddenCityOfBeregar.GoingDown) == 2 then
+	if player:getStorageValue(Storage.HiddenCityOfBeregar.GoingDown) == 2 then
 		player:teleportTo(teleport)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else

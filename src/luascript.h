@@ -20,7 +20,11 @@
 #ifndef FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
 #define FS_LUASCRIPT_H_5344B2BC907E46E3943EA78574A212D8
 
-#include <lua.hpp>
+#if __has_include("luajit/lua.hpp")
+  #include <luajit/lua.hpp>
+#else
+  #include <lua.hpp>
+#endif
 
 #if LUA_VERSION_NUM >= 502
 #ifndef LUA_COMPAT_ALL
@@ -787,6 +791,8 @@ class LuaScriptInterface
 		static int luaCreatureGetMaster(lua_State* L);
 		static int luaCreatureSetMaster(lua_State* L);
 
+		static int luaCreatureReload(lua_State* L);
+
 		static int luaCreatureGetLight(lua_State* L);
 		static int luaCreatureSetLight(lua_State* L);
 
@@ -1392,6 +1398,7 @@ class LuaScriptInterface
 		static int luaDeleteLoot(lua_State* L);
 		static int luaLootSetId(lua_State* L);
 		static int luaLootSetMaxCount(lua_State* L);
+		static int luaLootSetMinCount(lua_State* L);
 		static int luaLootSetSubType(lua_State* L);
 		static int luaLootSetChance(lua_State* L);
 		static int luaLootSetActionId(lua_State* L);

@@ -5,8 +5,8 @@ function bragrumol.onKill(cid, target, damage, flags, corpse)
 		if(string.lower(getCreatureName(target)) == "bragrumol") then
 			for attackerUid, damage in pairs(target:getDamageMap()) do
 				local player = Player(attackerUid)
-				if player and player:getStorageValue(Storage.KilmareshQuest.Twelve.Bragrumol) == 1 then
-					player:setStorageValue(Storage.KilmareshQuest.Twelve.Bragrumol, 2)
+				if player and player:getStorageValue(Storage.Kilmaresh.Twelve.Bragrumol) == 1 then
+					player:setStorageValue(Storage.Kilmaresh.Twelve.Bragrumol, 2)
 				end
 			end
 		end

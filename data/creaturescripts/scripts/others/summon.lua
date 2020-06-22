@@ -7,9 +7,7 @@ local summon = {
 
 local summonStorage = Storage.PetSummon
 
-function onLogin(cid)
-	local player = Player(cid)
-
+function onLogin(player)
 	local vocation = summon[player:getVocation()]
 	local summonName
 	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
@@ -22,21 +20,25 @@ function onLogin(cid)
 
 	if summonName then
 		position = player:getPosition()
-		summonMonster = Game.createMonster(summonName, position, true, false, cid)
+		summonMonster = Game.createMonster(summonName, position, true, false)
 		player:addSummon(summonMonster)
-		player:setStorageValue(summonStorage, os.time() + petTimeLeft)
-		summonMonster:registerEvent('SummonDeath')
+		summonMonster:reload()
+		player:setStorageValue(storage, os.time() + petTimeLeft)
+		summonMonster:registerEvent("SummonDeath")
 		position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
 	return true
 end
 
 
-function onThink(cid, interval, item, position, lastPosition, fromPosition, toPosition)
-	local player = Player(cid)
+function onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
+	local player = creature:getMaster()
+	if not player then
+		return true
+	end
 
 	if player and player:getStorageValue(summonStorage) <= os.time() and player:getStorageValue(summonStorage) > 0 then
-		doRemoveCreature (getCreatureSummons(cid)[1])
+		doRemoveCreature(getCreatureSummons(player)[1])
 		player:setStorageValue(summonStorage,0)
 	end
 	return true

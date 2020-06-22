@@ -1,5 +1,10 @@
 local lever = Action()
 
+local setting = {
+	centerRoom = {x = 33616, y = 31022, z = 14},
+	range = 10
+}
+
 local monsterPosition = {
 	{position = Position(33574, 31013, 14)},
 	{position = Position(33592, 31013, 14)},
@@ -27,35 +32,35 @@ local playerPositions = {
 }
 
 local config = {
-			toPosition1 = Position(33574, 31017, 14), 
+			toPosition1 = Position(33574, 31017, 14),
 			roomTile1 = {
-				{fromPosition = Position(33582, 30993, 14)}, 
-				{fromPosition = Position(33583, 30993, 14)}, 
-				{fromPosition = Position(33584, 30993, 14)}, 
+				{fromPosition = Position(33582, 30993, 14)},
+				{fromPosition = Position(33583, 30993, 14)},
+				{fromPosition = Position(33584, 30993, 14)},
 			},
-			toPosition2 = Position(33592, 31017, 14), 
+			toPosition2 = Position(33592, 31017, 14),
 			roomTile2 = {
-				{fromPosition = Position(33582, 30994, 14)}, 
-				{fromPosition = Position(33583, 30994, 14)}, 
-				{fromPosition = Position(33584, 30994, 14)}, 
-			}, 
-			toPosition3 = Position(33592, 31035, 14), 
+				{fromPosition = Position(33582, 30994, 14)},
+				{fromPosition = Position(33583, 30994, 14)},
+				{fromPosition = Position(33584, 30994, 14)},
+			},
+			toPosition3 = Position(33592, 31035, 14),
 			roomTile3 = {
-				{fromPosition = Position(33582, 30995, 14)}, 
-				{fromPosition = Position(33583, 30995, 14)}, 
-				{fromPosition = Position(33584, 30995, 14)}, 
-			}, 
-			toPosition4 = Position(33574, 31035, 14), 
+				{fromPosition = Position(33582, 30995, 14)},
+				{fromPosition = Position(33583, 30995, 14)},
+				{fromPosition = Position(33584, 30995, 14)},
+			},
+			toPosition4 = Position(33574, 31035, 14),
 			roomTile4 = {
-				{fromPosition = Position(33582, 30996, 14)}, 
-				{fromPosition = Position(33583, 30996, 14)}, 
-				{fromPosition = Position(33584, 30996, 14)}, 
-			}, 
-			toPosition5 = Position(33583, 31026, 14), 
+				{fromPosition = Position(33582, 30996, 14)},
+				{fromPosition = Position(33583, 30996, 14)},
+				{fromPosition = Position(33584, 30996, 14)},
+			},
+			toPosition5 = Position(33583, 31026, 14),
 			roomTile5 = {
-				{fromPosition = Position(33582, 30997, 14)}, 
-				{fromPosition = Position(33583, 30997, 14)}, 
-				{fromPosition = Position(33584, 30997, 14)}, 
+				{fromPosition = Position(33582, 30997, 14)},
+				{fromPosition = Position(33583, 30997, 14)},
+				{fromPosition = Position(33584, 30997, 14)},
 			},
 }
 
@@ -65,24 +70,22 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			local creature = Tile(playerPositions[i]):getTopCreature()
 			if not creature then
 				item:transform(9826)
+				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need 5 players to fight with this boss.")
 				return true
 			end
 		end
 	end
 	if item.itemid == 9825 then
-		local specs, spec = Game.getSpectators(Position(33597, 31022, 14), false, false, 35, 35, 15, 15)
-		for i = 1, #specs do
-				spec = specs[i]
-				if spec:isPlayer() then
-						player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting with The First Dragon.")
-						return true
-				end
+		if roomIsOccupied(setting.centerRoom, setting.range, setting.range) then
+			player:say("Someone is fighting against the boss! You need wait awhile.", TALKTYPE_MONSTER_SAY)
+			return true
 		end
+
 		for d = 1, 5 do
-			Game.createMonster('Unbeatable Dragon', Position(math.random(33610, 33622), math.random(31016, 31030), 14), true, true)
+			Game.createMonster("unbeatable dragon", position(math.random(33610, 33622), math.random(31016, 31030), 14), true, true)
 		end
 		for b = 1, #monsterPosition do
-			Game.createMonster('Fallen Challenger', monsterPosition[b].position, true, true)
+			Game.createMonster("fallen challenger", monsterPosition[b].position, true, true)
 		end
 		for i = 1, #playerPositions do
 			local creature = Tile(playerPositions[i]):getTopCreature()
@@ -114,8 +117,9 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 				creature:setStorageValue(Storage.FirstDragon.SomewhatBeatable, 0)
 			end
 		end
-		addEvent(clearRoom, 30 * 60 * 1000, Position(33583, 31022, 14), 50, 50, fromPosition)
-		Game.createMonster('Spirit of Fertility', Position(33625, 31021, 14), true, true)
+		-- One hour for clean the room
+		addEvent(clearRoom, 60 * 60 * 1000, Position(33583, 31022, 14), 50, 50, fromPosition)
+		Game.createMonster("spirit of fertility", Position(33625, 31021, 14), true, true)
 		item:transform(9826)
 	elseif item.itemid == 9826 then
 		item:transform(9825)
@@ -123,5 +127,5 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-lever:uid(24874)
+lever:uid(30003)
 lever:register()

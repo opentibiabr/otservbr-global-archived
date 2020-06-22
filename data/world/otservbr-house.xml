@@ -234,7 +234,7 @@
 	<house name="Wolftower" houseid="2874" entryx="32643" entryy="32025" entryz="7" rent="500000" guildhall="true" townid="7" size="315" />
 	<house name="Riverspring" houseid="2875" entryx="32761" entryy="32128" entryz="7" rent="250000" townid="7" size="277" />
 	<house name="Outlaw Castle" houseid="2876" entryx="32660" entryy="32236" entryz="7" rent="250000" guildhall="true" townid="7" size="164" />
-	<house name="Marble Guildhall" houseid="2877" entryx="32622" entryy="31954" entryz="9" rent="250000" townid="7" size="205" />
+	<house name="Marble Guildhall" houseid="2877" entryx="32622" entryy="31954" entryz="9" rent="250000" townid="7" size="282" />
 	<house name="Iron Guildhall" houseid="2878" entryx="32607" entryy="31893" entryz="9" rent="250000" townid="7" size="240" />
 	<house name="Hill Hideout" houseid="2879" entryx="32593" entryy="31826" entryz="9" rent="250000" townid="7" size="195" />
 	<house name="Granite Guildhall" houseid="2880" entryx="32599" entryy="31949" entryz="5" rent="250000" guildhall="true" townid="7" size="294" />

@@ -59,7 +59,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 			player:removeMoneyNpc(valor)
 			player:addItem(28995, 1)
 			player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 2)
-			player:setStorageValue(Storage.CultsOfTibia.MotA.AcessDoorInvestigation, 1)
+			player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorInvestigation, 1)
 		if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then
 			player:setStorageValue(Storage.CultsOfTibia.Questline, 1)
 		end
@@ -99,7 +99,7 @@ if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) < 2 then
 		npcHandler:say({"You're back, nice. Angelo's team hasn't found an artefact yet? I thought the progress would be faster. Anyway thanks for you efforts. ...",
 						"I have no work for you right now. If you like to, you can have a look at the last floor. I open the door for you."}, cid)
 		player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 12)
-		player:setStorageValue(Storage.CultsOfTibia.MotA.AcessDoorEntrance, 1)
+		player:setStorageValue(Storage.CultsOfTibia.MotA.AccessDoorGareth, 1)
 		npcHandler.topic[cid] = 1
 		playerTopic[cid] = 1
 

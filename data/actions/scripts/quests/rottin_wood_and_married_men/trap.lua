@@ -10,7 +10,7 @@ function removeMonster()
 				if getCreatureName(creature.uid) == "Travelling Merchant" then
 					--doRemoveCreature(creature.uid)
 					doSendMagicEffect({x=Px, y=Py, z=7}, 45)
-					--setPlayerStorageValue(cid, 41650, -1)
+					--setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap, -1)
 				end
 			end
 		end
@@ -26,7 +26,7 @@ function removeTrap()
 			for Px = TOP_LEFT_CORNER.x, BOTTOM_RIGHT_CORNER.x do
    			    local trap = getTileItemById({x=Px, y=Py, z=7}, 13174)
  				 if trap then
-				 setPlayerStorageValue(cid, 41650, -1)
+				 setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap, -1)
     		     doRemoveItem(trap.uid, 1)
 			end
 		end
@@ -38,13 +38,13 @@ end
 function onUse(cid, item, fromPosition, itemEx, toPosition)
 	if(item.itemid == 13173) then
 		if(itemEx.itemid == 11436) then
-			if(getPlayerStorageValue(cid, 41600) == 5) and getPlayerStorageValue(cid, 41650) < 3 then
+			if(getPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Mission03) == 5) and getPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap) < 3 then
 			doCreatureSay(cid, "You place the trap carefully on the  ground. Between twigs and leaves it is almost invisible.", TALKTYPE_ORANGE_1)
 			doRemoveItem(item.uid, 1)
 			Game.createItem(13174, 1, toPosition)
-			setPlayerStorageValue(cid, 41650, getPlayerStorageValue(cid, 41650) + 1)
+			setPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap, getPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap) + 1)
 		else
-			if(getPlayerStorageValue(cid, 41650) == 3) then
+			if(getPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap) == 3) then
 			doCreatureSay(cid, "It looks like the merchants are about to arrive, better hide somewhere where you can see whats going on in the area.", TALKTYPE_ORANGE_1)
 			doRemoveItem(item.uid, 1)
 			Game.createItem(13174, 1, toPosition)

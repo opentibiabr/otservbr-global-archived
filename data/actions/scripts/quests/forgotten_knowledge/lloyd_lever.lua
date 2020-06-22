@@ -52,7 +52,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_POFF)
 					playerTile:teleportTo(config.newPosition)
 					playerTile:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-					playerTile:setExhaustion(Storage.ForgottenKnowledge.LloydTimer, os.time() + 20 * 3600)
+					playerTile:setStorageValue(Storage.ForgottenKnowledge.LloydTimer, os.time() + 20 * 3600)
 				else
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need to wait a while, recently someone challenge Lloyd.")
 					return true

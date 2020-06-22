@@ -33,8 +33,8 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-for key = 40001, 40004 do
-	dawnportVocationTrial:aid(key)
+for index, value in pairs(DawnportTable) do
+	dawnportVocationTrial:aid(index)
 end
 
 dawnportVocationTrial:register()

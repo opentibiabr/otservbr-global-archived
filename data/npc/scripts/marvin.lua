@@ -1,7 +1,6 @@
-	local keywordHandler = KeywordHandler:new()
+local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
-
 
 function onCreatureAppear(cid)
 	npcHandler:onCreatureAppear(cid)
@@ -21,15 +20,15 @@ function creatureSayCallback(cid, type, msg)
 		return false
 	end
 
-
+	local player = Player(cid)
 	if(msgcontains(msg, "funding")) then
-		if(getPlayerStorageValue(cid, 10050) == 7) then
+		if(player:setStorageValue(Storage.DarkTrails.Mission07) == 1) then
 			selfSay("So far you earned x votes. Each single vote can be spent on a different topic or you're also able to cast all your votes on one voting. ...", cid)
 			selfSay("Well in the topic b you have the possibility to vote for the funding of the {archives}, import of bug {milk} or street {repairs}.", cid)
 			npcHandler.topic[cid] = 1
 			else selfSay("You cant vote yet.", cid)
 		end
-			elseif(msgcontains(msg, "archives")) then
+	elseif(msgcontains(msg, "archives")) then
 		if(npcHandler.topic[cid] == 1) then
 			npcHandler:say("How many of your x votes do you want to cast?", cid)
 			npcHandler.topic[cid] = 2
@@ -41,15 +40,13 @@ function creatureSayCallback(cid, type, msg)
 		end
 	elseif(msgcontains(msg, "yes")) then
 		if(npcHandler.topic[cid] == 3) then
-		   setPlayerStorageValue(cid, 10050, 8)
-		   setPlayerStorageValue(cid, 20057, 1)
-		   setPlayerStorageValue(cid, 20058, 0)
+		   player:setStorageValue(Storage.DarkTrails.Mission08, 1)
 			npcHandler:say("Thanks, you successfully cast your vote. Feel free to continue gathering votes by helping the city! Farewell.", cid)
 			npcHandler.topic[cid] = 0
 		end
 	end
-
 	return true
 end
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
+
 npcHandler:addModule(FocusModule:new())
