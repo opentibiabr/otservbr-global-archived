@@ -25,7 +25,7 @@ local shrine = {
 	}
 }
 
-local UniqueTable = {
+local lionsRock = {
 	[25006] = {
 		storage = Storage.LionsRock.Questline,
 		value = 9,
@@ -72,7 +72,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	-- Gems teleport to feyrist
 	for index, value in pairs(shrine) do
 		if item.itemid == index then
-			if toPosition == value.targetAction then
+			if target.actionid == value.targetAction then
 				player:removeItem(index, 1)
 				player:teleportTo(value.destination)
 				player:getPosition():sendMagicEffect(CONST_ME_SMALLPLANTS)
@@ -90,7 +90,7 @@ function gems.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	-- Use gems in the tile of lions rock quest
-	local setting = UniqueTable[target.uid]
+	local setting = lionsRock[target.uid]
 	if not setting then
 		return true
 	end
