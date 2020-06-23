@@ -32,15 +32,13 @@ extern Game g_game;
 
 bool IOLoginData::LoginServerAuthentication(const std::string& name,
                                             const std::string& password) {
-  int result = 0;
-  account::Account *account = new account::Account();
-  result = account->LoadAccountDB(name);
-  if (result) {
+  account::Account account;
+  if (account::ERROR_NO != account.LoadAccountDB(name)) {
     return false;
   }
 
   std::string acc_password;
-  account->GetPassword(&acc_password);
+  account.GetPassword(&acc_password);
   if (transformToSHA1(password) != acc_password) {
     return false;
   }
