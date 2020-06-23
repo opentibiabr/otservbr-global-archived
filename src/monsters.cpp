@@ -58,6 +58,8 @@ void MonsterType::loadLoot(MonsterType* monsterType, LootBlock lootBlock)
 
 bool Monsters::loadFromXml(bool reloading /*= false*/)
 {
+
+	
 	unloadedMonsters = {};
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file("data/monster/monsters.xml");
@@ -82,6 +84,8 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 		} else {
 			unloadedMonsters.emplace(name, file);
 		}
+		
+
 	}
 	return true;
 }
@@ -107,6 +111,7 @@ bool Monsters::reload()
 
 	return loadFromXml(true);
 }
+
 
 ConditionDamage* Monsters::getDamageCondition(ConditionType_t conditionType,
 		int32_t maxDamage, int32_t minDamage, int32_t startDamage, uint32_t tickInterval)
@@ -1345,12 +1350,6 @@ bool Monsters::loadLootItem(const pugi::xml_node& node, LootBlock& lootBlock)
 	} else {
 		lootBlock.countmax = 1;
 	}
-	
-	if ((attr = node.attribute("countmin"))) {
-		lootBlock.countmin = std::max<int32_t>(1, pugi::cast<int32_t>(attr.value()));
-	} else {
-		lootBlock.countmin = 1;
-	}
 
 	if ((attr = node.attribute("chance")) || (attr = node.attribute("chance1"))) {
 		lootBlock.chance = std::min<int32_t>(MAX_LOOTCHANCE, pugi::cast<int32_t>(attr.value()));
@@ -1427,6 +1426,7 @@ void Monsters::loadLootContainer(const pugi::xml_node& node, LootBlock& lBlock)
 		}
 	}
 }
+
 
 MonsterType* Monsters::getMonsterType(const std::string& name)
 {
