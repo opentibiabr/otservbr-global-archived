@@ -931,6 +931,11 @@ class Player final : public Creature, public Cylinder
 				client->sendSpellGroupCooldown(groupId, time);
 			}
 		}
+		void reloadCreature(const Creature* creature) {
+			if (client) {
+				client->reloadCreature(creature);
+			}
+		}
 		void sendModalWindow(const ModalWindow& modalWindow);
 
 		//container
