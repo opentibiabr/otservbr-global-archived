@@ -42,6 +42,7 @@ function onUse(player, item, fromPosition, target, toPosition, monster, isHotkey
 					return true
 				end
 				if creature:getStorageValue(setting.storage) < os.time() then
+					item:remove()
 					creature:setStorageValue(setting.storage, os.time() + setting.timeToFightAgain * 60 * 60)
 					creature:teleportTo(playerPositions[i].toPos)
 					creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

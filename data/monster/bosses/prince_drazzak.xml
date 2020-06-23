@@ -60,8 +60,9 @@
 		<voice sentence="They used you fools to escape and they left ME behind!!??" />
 	</voices>
 	<loot>
-		<item id="22396" countmax="5" chance="100000" /><!-- cluster of solace -->
-		<item id="22598" countmax="3" chance="1000" /><!-- unrealized dream -->
+		<item id="22397" chance="100000" /><!-- Dream Matter -->
+		<item id="22396" countmax="2" chance="100000" /><!-- cluster of solace -->		
+		<item id="22598" countmax="3" chance="93750" /><!-- Unrealized Dream -->
 		<item id="6500" countmax="2" chance="100000" /><!-- demonic essence -->
 		<item id="5954" chance="50000" /><!-- demon horn -->
 		<item id="2152" countmax="50" chance="100000" /><!-- platinum coin -->
