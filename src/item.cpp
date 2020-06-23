@@ -115,7 +115,6 @@ void Item::setImbuement(uint8_t slot, int64_t info) {
 	return;
 }
 
-
 Container* Item::CreateItemAsContainer(const uint16_t type, uint16_t size)
 {
 	const ItemType& it = Item::items[type];
