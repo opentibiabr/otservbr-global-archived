@@ -29,6 +29,7 @@ const uint32_t MAX_STATICWALK = 100;
 struct LootBlock {
 	uint16_t id;
 	uint32_t countmax;
+  uint32_t countmin;
 	uint32_t chance;
 
 	//optional
@@ -49,6 +50,7 @@ struct LootBlock {
 	LootBlock() {
 		id = 0;
 		countmax = 1;
+    countmin = 1;
 		chance = 0;
 
 		subType = -1;
@@ -256,15 +258,12 @@ class Monsters
 		// non-copyable
 		Monsters(const Monsters&) = delete;
 		Monsters& operator=(const Monsters&) = delete;
-		
-		
+
 		bool loadFromXml(bool reloading = false);
 		bool isLoaded() const {
 			return loaded;
 		}
 		bool reload();
-		
-		
 
 		MonsterType* getMonsterType(const std::string& name);
 		void addMonsterType(const std::string& name, MonsterType* mType);
@@ -282,7 +281,6 @@ class Monsters
 
 		void loadLootContainer(const pugi::xml_node& node, LootBlock&);
 		bool loadLootItem(const pugi::xml_node& node, LootBlock&);
-		
 
 		std::map<std::string, std::string> unloadedMonsters;
 
