@@ -790,7 +790,7 @@ class LuaScriptInterface
 
 		static int luaCreatureGetMaster(lua_State* L);
 		static int luaCreatureSetMaster(lua_State* L);
-  
+
 		static int luaCreatureReload(lua_State* L);
 
 		static int luaCreatureGetLight(lua_State* L);
