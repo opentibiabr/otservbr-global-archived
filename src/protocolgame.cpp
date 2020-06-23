@@ -1166,8 +1166,8 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 		if (outfitType == 0) {
 			newOutfit.lookMount = msg.get<uint16_t>();
 		}
-    else if (outfitType == 1) {
-			//This value probably has something to do with try outfit variable inside outfit window dialog
+		else if (outfitType == 1) {
+        	//This value probably has something to do with try outfit variable inside outfit window dialog
         	//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
         	newOutfit.lookMount = 0;
         	msg.get<uint32_t>();
