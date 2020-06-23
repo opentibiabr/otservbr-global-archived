@@ -39,7 +39,6 @@
 #include "spells.h"
 #include "imbuements.h"
 
-
 extern Game g_game;
 extern ConfigManager g_config;
 extern Actions actions;
@@ -48,7 +47,6 @@ extern Chat* g_chat;
 extern Modules* g_modules;
 extern Spells* g_spells;
 extern Imbuements* g_imbuements;
-
 
 void ProtocolGame::release()
 {
@@ -594,7 +592,6 @@ void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
 		}
 	}
 }
-
 
 void ProtocolGame::parseCyclopediaCharacterInfo(NetworkMessage& msg)
 {
@@ -1156,11 +1153,9 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 		outfitModule->executeOnRecvbyte(player, msg);
 	}
 
-		if(msg.getBufferPosition() == startBufferPosition) {
+	if(msg.getBufferPosition() == startBufferPosition) {
 		uint8_t outfitType = 0;
-		if (version >= 1220) {//Maybe some versions before? but I don't have executable to check
 		outfitType = msg.getByte();
-    }
 		Outfit_t newOutfit;
 		newOutfit.lookType = msg.get<uint16_t>();
 		newOutfit.lookHead = msg.getByte();
@@ -1170,12 +1165,13 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 		newOutfit.lookAddons = msg.getByte();
 		if (outfitType == 0) {
 			newOutfit.lookMount = msg.get<uint16_t>();
-		} else if (outfitType == 1) {
+		}
+    else if (outfitType == 1) {
 			//This value probably has something to do with try outfit variable inside outfit window dialog
         	//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
         	newOutfit.lookMount = 0;
         	msg.get<uint32_t>();
-     	}
+		}
 		addGameTask(&Game::playerChangeOutfit, player->getID(), newOutfit);
 	}
 }
@@ -2349,9 +2345,7 @@ void ProtocolGame::sendCoinBalance()
 	msg.add<uint32_t>(player->coinBalance); //total coins
 	msg.add<uint32_t>(player->coinBalance); //transferable coins
 
-	if (version >= 1215) {
-		msg.add<uint32_t>(0);
-	}
+	msg.add<uint32_t>(0);
 
 	writeToOutputBuffer(msg);
 }
@@ -2359,7 +2353,7 @@ void ProtocolGame::sendCoinBalance()
 void ProtocolGame::updateCoinBalance()
 {
 	
-	NetworkMessage msg;
+    NetworkMessage msg;
     msg.addByte(0xF2);
     msg.addByte(0x00);
 
@@ -3844,7 +3838,6 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		msg.addByte(0);
  	}
 
-
 	msg.addByte(creature->getSpeechBubble());
 	msg.addByte(0xFF); // MARK_UNMARKED
 	msg.addByte(0x00); // inspection type
@@ -4301,6 +4294,31 @@ void ProtocolGame::sendItemsPrice()
 			msg.addItemId(it.first);
 			msg.add<uint32_t>(it.second);
 		}
+	}
+
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::reloadCreature(const Creature* creature)
+{
+	if (!canSee(creature))
+		return;
+
+	uint32_t stackpos = creature->getTile()->getClientIndexOfCreature(player, creature);
+
+	if (stackpos >= 10)
+		return;
+
+	NetworkMessage msg;
+
+	std::unordered_set<uint32_t>::iterator it = std::find(knownCreatureSet.begin(), knownCreatureSet.end(), creature->getID());
+	if (it != knownCreatureSet.end()) {
+		msg.addByte(0x6B);
+		msg.addPosition(creature->getPosition());
+		msg.addByte(stackpos);
+		AddCreature(msg, creature, false, 0);
+	} else {
+		sendAddCreature(creature, creature->getPosition(), stackpos, false);
 	}
 
 	writeToOutputBuffer(msg);
