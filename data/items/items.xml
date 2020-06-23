@@ -47096,21 +47096,29 @@
 		<attribute key="decayTo" value="36299" />
 		<attribute key="duration" value="200" />
 	</item>
-	<item id="36301" article="a" name="tournament carpet"/>
-	<item id="36302" article="a" name="sublime tournament carpet"/>
+	<item id="36301" article="a" name="tournament carpet">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
+	<item id="36302" article="a" name="sublime tournament carpet">
+		<attribute key="wrapableTo" value="26054" />
+	</item>
 	<item id="36303" article="a" name="tournament carpet"/>
 	<item id="36304" article="a" name="sublime tournament carpet"/>
 	<item id="36305" article="a" name="tournament accolade">
 		<attribute key="rotateTo" value="36306" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36306" article="a" name="tournament accolade">
 		<attribute key="rotateTo" value="36305" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36307" article="a" name="sublime tournament accolade">
 		<attribute key="rotateTo" value="36308" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36308" article="a" name="sublime tournament accolade">
 		<attribute key="rotateTo" value="36307" />
+		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="36309" article="a" name="pillar">
 		<attribute key="rotateTo" value="36311" />
