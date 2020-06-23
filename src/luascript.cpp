@@ -967,7 +967,7 @@ void LuaScriptInterface::pushLoot(lua_State* L, const std::vector<LootBlock>& lo
 		setField(L, "chance", lootBlock.chance);
 		setField(L, "subType", lootBlock.subType);
 		setField(L, "maxCount", lootBlock.countmax);
-    setField(L, "minCount", lootBlock.countmin);
+		setField(L, "minCount", lootBlock.countmin);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
 		pushBoolean(L, lootBlock.unique);
@@ -2353,6 +2353,8 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Creature", "getMaster", LuaScriptInterface::luaCreatureGetMaster);
 	registerMethod("Creature", "setMaster", LuaScriptInterface::luaCreatureSetMaster);
+
+	registerMethod("Creature", "reload", LuaScriptInterface::luaCreatureReload);
 
 	registerMethod("Creature", "getLight", LuaScriptInterface::luaCreatureGetLight);
 	registerMethod("Creature", "setLight", LuaScriptInterface::luaCreatureSetLight);
@@ -4864,8 +4866,7 @@ int LuaScriptInterface::luaGameCreateMonster(lua_State* L)
 	const Position& position = getPosition(L, 2);
 	bool extended = getBoolean(L, 3, false);
 	bool force = getBoolean(L, 4, false);
-	Creature* master = getCreature(L, 5);
-	if (g_game.placeCreature(monster, position, extended, force, master)) {
+	if (g_game.placeCreature(monster, position, extended, force)) {
 		pushUserdata<Monster>(L, monster);
 		setMetatable(L, -1, "Monster");
 	} else {
@@ -7776,6 +7777,28 @@ int LuaScriptInterface::luaCreatureSetMaster(lua_State* L)
 
 	pushBoolean(L, creature->setMaster(getCreature(L, 2)));
 	g_game.updateCreatureType(creature);
+	return 1;
+}
+
+int LuaScriptInterface::luaCreatureReload(lua_State* L)
+{
+	// creature:reload()
+	Creature* creature = getUserdata<Creature>(L, 1);
+	if (!creature) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	const Position& position = creature->getPosition();
+	SpectatorHashSet spectators;
+	g_game.map.getSpectators(spectators, position, false, true); // 3 parâmetro é multifloor, ver se há necessidade de usar.
+	for (Creature* spectator : spectators) {
+		Player* tmpPlayer = spectator->getPlayer();
+		if (tmpPlayer) {
+			tmpPlayer->reloadCreature(creature);
+		}
+	}
+
 	return 1;
 }
 
@@ -14544,6 +14567,7 @@ void LuaScriptInterface::parseLoot(lua_State* L, const std::vector<LootBlock>& l
 		setField(L, "chance", lootBlock.chance);
 		setField(L, "subType", lootBlock.subType);
 		setField(L, "maxCount", lootBlock.countmax);
+		setField(L, "minCount", lootBlock.countmin);
 		setField(L, "actionId", lootBlock.actionId);
 		setField(L, "text", lootBlock.text);
 		pushBoolean(L, lootBlock.unique);
@@ -17932,6 +17956,158 @@ int LuaScriptInterface::luaImbuementGetCombatType(lua_State* L)
 		lua_pushnil(L);
 	}
 	return 1;
+}
+
+// Mounts
+int LuaScriptInterface::luaCreateMount(lua_State* L)
+{
+	// Mount(id or name)
+	Mount* mount;
+	if (isNumber(L, 2)) {
+		mount = g_game.mounts.getMountByID(getNumber<uint32_t>(L, 2));
+	} else if (isString(L, 2)) {
+		std::string mountName = getString(L, 2);
+		mount = g_game.mounts.getMountByName(mountName);
+  	} else {
+    	mount = nullptr;
+ 	}
+
+ 	if (mount) {
+		pushUserdata<Mount>(L, mount);
+		setMetatable(L, -1, "Mount");
+	} else {
+		lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaMountGetName(lua_State* L)
+{
+	// mount:getName()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+    	pushString(L, mount->name);
+	} else {
+    	lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaMountGetId(lua_State* L)
+{
+	// mount:getId()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+		lua_pushnumber(L, mount->id);
+	} else {
+		lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaMountGetClientId(lua_State* L)
+{
+	// mount:getClientId()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+		lua_pushnumber(L, mount->clientId);
+	} else {
+		lua_pushnil(L);
+	}
+
+  return 1;
+}
+
+int LuaScriptInterface::luaMountGetSpeed(lua_State* L)
+{
+	// mount:getSpeed()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+		lua_pushnumber(L, mount->speed);
+	} else {
+		lua_pushnil(L);
+	}
+
+  return 1;
+}
+
+// Mounts
+int LuaScriptInterface::luaCreateMount(lua_State* L)
+{
+	// Mount(id or name)
+	Mount* mount;
+	if (isNumber(L, 2)) {
+		mount = g_game.mounts.getMountByID(getNumber<uint32_t>(L, 2));
+	} else if (isString(L, 2)) {
+		std::string mountName = getString(L, 2);
+		mount = g_game.mounts.getMountByName(mountName);
+  	} else {
+    	mount = nullptr;
+ 	}
+
+ 	if (mount) {
+		pushUserdata<Mount>(L, mount);
+		setMetatable(L, -1, "Mount");
+	} else {
+		lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaMountGetName(lua_State* L)
+{
+	// mount:getName()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+    	pushString(L, mount->name);
+	} else {
+    	lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaMountGetId(lua_State* L)
+{
+	// mount:getId()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+		lua_pushnumber(L, mount->id);
+	} else {
+		lua_pushnil(L);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaMountGetClientId(lua_State* L)
+{
+	// mount:getClientId()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+		lua_pushnumber(L, mount->clientId);
+	} else {
+		lua_pushnil(L);
+	}
+
+  return 1;
+}
+
+int LuaScriptInterface::luaMountGetSpeed(lua_State* L)
+{
+	// mount:getSpeed()
+	Mount* mount = getUserdata<Mount>(L, 1);
+	if (mount) {
+		lua_pushnumber(L, mount->speed);
+	} else {
+		lua_pushnil(L);
+	}
+
+  return 1;
 }
 
 // Mounts
