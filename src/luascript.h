@@ -790,6 +790,8 @@ class LuaScriptInterface
 
 		static int luaCreatureGetMaster(lua_State* L);
 		static int luaCreatureSetMaster(lua_State* L);
+  
+		static int luaCreatureReload(lua_State* L);
 
 		static int luaCreatureGetLight(lua_State* L);
 		static int luaCreatureSetLight(lua_State* L);
@@ -1396,6 +1398,7 @@ class LuaScriptInterface
 		static int luaDeleteLoot(lua_State* L);
 		static int luaLootSetId(lua_State* L);
 		static int luaLootSetMaxCount(lua_State* L);
+		static int luaLootSetMinCount(lua_State* L);
 		static int luaLootSetSubType(lua_State* L);
 		static int luaLootSetChance(lua_State* L);
 		static int luaLootSetActionId(lua_State* L);
@@ -1586,11 +1589,11 @@ class LuaScriptInterface
 		static int luaImbuementIsPremium(lua_State* L);
 		static int luaImbuementGetElementDamage(lua_State* L);
 		static int luaImbuementGetCombatType(lua_State* L);
-
-    	// Mounts
-    	static int luaCreateMount(lua_State* L);
-    	static int luaMountGetName(lua_State* L);
-    	static int luaMountGetId(lua_State* L);
+  
+		// Mounts
+		static int luaCreateMount(lua_State* L);
+		static int luaMountGetName(lua_State* L);
+		static int luaMountGetId(lua_State* L);
 		static int luaMountGetClientId(lua_State* L);
 		static int luaMountGetSpeed(lua_State* L);
 
