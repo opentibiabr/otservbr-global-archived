@@ -258,7 +258,7 @@ void Npc::onCreatureAppear(Creature* creature, bool isLogin)
 		if (npcEventHandler) {
 			npcEventHandler->onCreatureAppear(creature);
 		}
-	} else if (Player* player = creature->getPlayer()) {
+	} else {
 		if (npcEventHandler) {
 			npcEventHandler->onCreatureAppear(creature);
 		}
@@ -282,8 +282,10 @@ void Npc::onRemoveCreature(Creature* creature, bool isLogout)
 			npcEventHandler->onCreatureDisappear(creature);
 		}
 
-		spectators.erase(player);
-		updateIdleStatus();
+		if (Player* player = creature->getPlayer()) {
+			spectators.erase(player);
+			updateIdleStatus();
+		}
 	}
 }
 
