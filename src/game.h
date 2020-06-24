@@ -330,6 +330,10 @@ class Game
 		void internalCloseTrade(Player* player);
 		bool playerBroadcastMessage(Player* player, const std::string& text) const;
 		void broadcastMessage(const std::string& text, MessageClasses type) const;
+		
+		void playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType);
+		void playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType);
+		
 
 		//Implementation of player invoked events
 		void playerMoveThing(uint32_t playerId, const Position& fromPos, uint16_t spriteId, uint8_t fromStackPos,

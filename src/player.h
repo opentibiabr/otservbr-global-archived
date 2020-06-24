@@ -931,7 +931,6 @@ class Player final : public Creature, public Cylinder
 				client->sendSpellGroupCooldown(groupId, time);
 			}
 		}
-
 		void reloadCreature(const Creature* creature) {
 			if (client) {
 				client->reloadCreature(creature);
@@ -1251,6 +1250,71 @@ class Player final : public Creature, public Cylinder
 		void sendAddMarker(const Position& pos, uint8_t markType, const std::string& desc) {
 			if (client) {
 				client->sendAddMarker(pos, markType, desc);
+			}
+		}
+		void sendCyclopediaCharacterBaseInformation() {
+			if (client) {
+				client->sendCyclopediaCharacterBaseInformation();
+			}
+		}
+		void sendCyclopediaCharacterGeneralStats() {
+			if (client) {
+				client->sendCyclopediaCharacterGeneralStats();
+			}
+		}
+		void sendCyclopediaCharacterCombatStats() {
+			if (client) {
+				client->sendCyclopediaCharacterCombatStats();
+			}
+		}
+		void sendCyclopediaCharacterRecentDeaths() {
+			if (client) {
+				client->sendCyclopediaCharacterRecentDeaths();
+			}
+		}
+		void sendCyclopediaCharacterRecentPvPKills() {
+			if (client) {
+				client->sendCyclopediaCharacterRecentPvPKills();
+			}
+		}
+		void sendCyclopediaCharacterAchievements() {
+			if (client) {
+				client->sendCyclopediaCharacterAchievements();
+			}
+		}
+		void sendCyclopediaCharacterItemSummary() {
+			if (client) {
+				client->sendCyclopediaCharacterItemSummary();
+			}
+		}
+		void sendCyclopediaCharacterOutfitsMounts() {
+			if (client) {
+				client->sendCyclopediaCharacterOutfitsMounts();
+			}
+		}
+		void sendCyclopediaCharacterStoreSummary() {
+			if (client) {
+				client->sendCyclopediaCharacterStoreSummary();
+			}
+		}
+		void sendCyclopediaCharacterInspection() {
+			if (client) {
+				client->sendCyclopediaCharacterInspection();
+			}
+		}
+		void sendCyclopediaCharacterBadges() {
+			if (client) {
+				client->sendCyclopediaCharacterBadges();
+			}
+		}
+		void sendCyclopediaCharacterTitles() {
+			if (client) {
+				client->sendCyclopediaCharacterTitles();
+			}
+		}
+		void sendTournamentLeaderboard() {
+  			if (client && getProtocolVersion() >= 1215) {
+				client->sendTournamentLeaderboard();
 			}
 		}
 		void sendEnterWorld() {
@@ -1599,7 +1663,7 @@ class Player final : public Creature, public Cylinder
 		tradestate_t tradeState = TRADE_NONE;
 		fightMode_t fightMode = FIGHTMODE_ATTACK;
 		account::AccountType accountType =
-                                    account::AccountType::ACCOUNT_TYPE_NORMAL;
+									account::AccountType::ACCOUNT_TYPE_NORMAL;
 
 		bool chaseMode = false;
 		bool secureMode = false;
