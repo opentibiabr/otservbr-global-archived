@@ -93,8 +93,8 @@ void ProtocolGame::login(const std::string& name, uint32_t accountId, OperatingS
 		}
 
 		if (g_config.getBoolean(ConfigManager::ONE_PLAYER_ON_ACCOUNT)
-        && player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER
-        && g_game.getPlayerByAccount(player->getAccount())) {
+		&& player->getAccountType() < account::ACCOUNT_TYPE_GAMEMASTER
+		&& g_game.getPlayerByAccount(player->getAccount())) {
 			disconnectClient("You may only login with one character\nof your account at the same time.");
 			return;
 		}
@@ -1153,6 +1153,9 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 		outfitModule->executeOnRecvbyte(player, msg);
 	}
 
+	uint8_t outfitType = 0;
+	outfitType = msg.getByte();
+
 	if(msg.getBufferPosition() == startBufferPosition) {
 		uint8_t outfitType = 0;
 		outfitType = msg.getByte();
@@ -1167,13 +1170,13 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 			newOutfit.lookMount = msg.get<uint16_t>();
 		}
 		else if (outfitType == 1) {
-        	//This value probably has something to do with try outfit variable inside outfit window dialog
-        	//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
-        	newOutfit.lookMount = 0;
-        	msg.get<uint32_t>();
+			//This value probably has something to do with try outfit variable inside outfit window dialog
+			//if try outfit is set to 2 it expects uint32_t value after mounted and disable mounts from outfit window dialog
+			newOutfit.lookMount = 0;
+			msg.get<uint32_t>();
 		}
 		addGameTask(&Game::playerChangeOutfit, player->getID(), newOutfit);
-	}
+  	}
 }
 
 void ProtocolGame::parseToggleMount(NetworkMessage& msg)
@@ -2090,6 +2093,8 @@ void ProtocolGame::sendContainer(uint8_t cid, const Container* container, bool h
 	
 	msg.addByte(0x00); // To-do: Depot Find (boolean)
 
+	msg.addByte(0x00); // To-do: Depot Find (boolean)
+
 	msg.addByte(container->isUnlocked() ? 0x01 : 0x00); // Drag and drop
 	msg.addByte(container->hasPagination() ? 0x01 : 0x00); // Pagination
 
@@ -2125,6 +2130,7 @@ void ProtocolGame::sendShop(Npc* npc, const ShopInfoList& itemList)
 	msg.addByte(0x7A);
 	msg.addString(npc->getName());
 	msg.add<uint16_t>(3031); // TO-DO Coin used
+
 	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
 
@@ -2353,20 +2359,20 @@ void ProtocolGame::sendCoinBalance()
 void ProtocolGame::updateCoinBalance()
 {
 	
-    NetworkMessage msg;
-    msg.addByte(0xF2);
-    msg.addByte(0x00);
+	NetworkMessage msg;
+	msg.addByte(0xF2);
+	msg.addByte(0x00);
 
-    writeToOutputBuffer(msg);
+	writeToOutputBuffer(msg);
 	
 	g_dispatcher.addTask(
 		createTask(std::bind([](ProtocolGame* client) {
 			if (client && client->player) {
-        account::Account account;
-        account.LoadAccountDB(client->player->getAccount());
-        uint32_t coins;
-        account.GetCoins(&coins);
-        client->player->coinBalance = coins;
+		account::Account account;
+		account.LoadAccountDB(client->player->getAccount());
+		uint32_t coins;
+		account.GetCoins(&coins);
+		client->player->coinBalance = coins;
 				client->sendCoinBalance();
 			}
 		}, this))
@@ -2966,7 +2972,7 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 {
 	if (!canSee(pos)) {
 		return;
-	}
+ 	}
 
   	NetworkMessage msg;
   	msg.addByte(0x83);
@@ -2979,9 +2985,9 @@ void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 
 void ProtocolGame::sendCreatureHealth(const Creature* creature)
 {
-    if (creature->isHealthHidden()) { 
-        return;
-    }
+	if (creature->isHealthHidden()) { 
+		return;
+	}
 
 	NetworkMessage msg;
 	msg.addByte(0x8C);
@@ -3422,7 +3428,7 @@ void ProtocolGame::sendOutfitWindow()
 {
 	NetworkMessage msg;
 	msg.addByte(0xC8);
-	
+
 	bool mounted = false;
 	Outfit_t currentOutfit = player->getDefaultOutfit();
 	Mount* currentMount = g_game.mounts.getMountByID(player->getCurrentMount());
