@@ -210,39 +210,6 @@ void Game::saveGameState()
 	}
 }
 
-void Game::playerCyclopediaCharacterInfo(uint32_t playerId, CyclopediaCharacterInfoType_t characterInfoType)
-{
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
-	}
-
-	switch (characterInfoType) {
-		case CYCLOPEDIA_CHARACTERINFO_BASEINFORMATION: player->sendCyclopediaCharacterBaseInformation(); break;
-		case CYCLOPEDIA_CHARACTERINFO_GENERALSTATS: player->sendCyclopediaCharacterGeneralStats(); break;
-		case CYCLOPEDIA_CHARACTERINFO_COMBATSTATS: player->sendCyclopediaCharacterCombatStats(); break;
-		case CYCLOPEDIA_CHARACTERINFO_RECENTDEATHS: player->sendCyclopediaCharacterRecentDeaths(); break;
-		case CYCLOPEDIA_CHARACTERINFO_RECENTPVPKILLS: player->sendCyclopediaCharacterRecentPvPKills(); break;
-		case CYCLOPEDIA_CHARACTERINFO_ACHIEVEMENTS: player->sendCyclopediaCharacterAchievements(); break;
-		case CYCLOPEDIA_CHARACTERINFO_ITEMSUMMARY: player->sendCyclopediaCharacterItemSummary(); break;
-		case CYCLOPEDIA_CHARACTERINFO_OUTFITSMOUNTS: player->sendCyclopediaCharacterOutfitsMounts(); break;
-		case CYCLOPEDIA_CHARACTERINFO_STORESUMMARY: player->sendCyclopediaCharacterStoreSummary(); break;
-		case CYCLOPEDIA_CHARACTERINFO_INSPECTION: player->sendCyclopediaCharacterInspection(); break;
-		case CYCLOPEDIA_CHARACTERINFO_BADGES: player->sendCyclopediaCharacterBadges(); break;
-		case CYCLOPEDIA_CHARACTERINFO_TITLES: player->sendCyclopediaCharacterTitles(); break;
-	}
-}
-
-void Game::playerTournamentLeaderboard(uint32_t playerId, uint8_t leaderboardType)
-{
-	Player* player = getPlayerByID(playerId);
-	if (!player || leaderboardType > 1) {
-		return;
-	}
-
-	player->sendTournamentLeaderboard();
-}
-
 bool Game::loadItemsPrice()
 {
 	itemsSaleCount = 0;
