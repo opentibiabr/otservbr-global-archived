@@ -332,7 +332,7 @@ class ProtocolGame final : public Protocol
 
 		void AddCreature(NetworkMessage& msg, const Creature* creature, bool known, uint32_t remove);
 		void AddPlayerStats(NetworkMessage& msg);
-		void AddOutfit(NetworkMessage& msg, const Outfit_t& outfit);
+		void AddOutfit(NetworkMessage& msg, const Outfit_t& outfit, bool addMount = true);
 		void AddPlayerSkills(NetworkMessage& msg);
 		void sendBlessStatus();
 		void sendPremiumTrigger();
