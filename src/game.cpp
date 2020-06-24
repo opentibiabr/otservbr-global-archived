@@ -2420,31 +2420,26 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		return;
 	}
 
-	House* house = map.houses.getHouseByPlayerId(player->getGUID());
-	if (!house) {
-		player->sendCancelMessage("You don't own a house, you need own a house to use this.");
-		return;
-	}
-
 	Thing* thing = internalGetThing(player, pos, stackPos, 0, STACKPOS_TOPDOWN_ITEM);
 	if (!thing) {
 		return;
 	}
 
 	Item* item = thing->getItem();
-	Tile* tile = map.getTile(item->getPosition());
-	HouseTile* houseTile = dynamic_cast<HouseTile*>(tile);
-	if (!tile->hasFlag(TILESTATE_PROTECTIONZONE) || !houseTile) {
-		player->sendCancelMessage("You may construct this only inside a house.");
+	if (!item || item->getClientID() != spriteId || (!item->isWrapable() && item->getID() != ITEM_DECORATION_KIT) || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
-	if (houseTile->getHouse() != house) {
-		player->sendCancelMessage("Only owners can wrap/unwrap inside a house.");
-			return;
+
+	Tile* tile = map.getTile(pos);
+	if (!tile) {
+		player->sendCancelMessage("Put the construction kit on the floor first.");
+		return;
 	}
 
-	if (!item || item->getClientID() != spriteId || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) || (!item->isWrapable() && item->getID() != 26054)) {
-		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+	HouseTile* houseTile = dynamic_cast<HouseTile*>(tile);
+	if (!houseTile || !houseTile->getHouse() || !houseTile->getHouse()->isInvited(player)) {
+		player->sendCancelMessage("You may construct this only inside a house.");
 		return;
 	}
 
@@ -2452,10 +2447,10 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		std::forward_list<Direction> listDir;
 		if (player->getPathTo(pos, listDir, 0, 1, true, true)) {
 			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk,
-				this, player->getID(), listDir)));
+			                                this, player->getID(), listDir)));
 
 			SchedulerTask* task = createSchedulerTask(400, std::bind(&Game::playerWrapableItem, this,
-				playerId, pos, stackPos, spriteId));
+			                      playerId, pos, stackPos, spriteId));
 			player->setNextWalkActionTask(task);
 		} else {
 			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
@@ -2464,54 +2459,46 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 	}
 
 	const Container* container = item->getContainer();
-	if (container && container->getItemHoldingCount() > 0) {
+	if (container && !container->empty()) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
 
-	if ((item->getHoldingPlayer() && item->getID() == 26054) || (tile->hasFlag(TILESTATE_IMMOVABLEBLOCKSOLID) && !item->hasProperty(CONST_PROP_IMMOVABLEBLOCKSOLID))) {
-		player->sendCancelMessage("You can only wrap/unwrap in the floor.");
-		return;
-	}
-
+	uint16_t itemId = item->getID();
+	uint16_t newId = Item::items[itemId].wrapableTo;
 	std::string itemName = item->getName();
-	const ItemAttributes::CustomAttribute* attr = item->getCustomAttribute("unWrapId");
-	uint16_t unWrapId = 0;
-	if (attr != nullptr) {
-		uint32_t tmp = static_cast<uint32_t>(boost::get<int64_t>(attr->value));
-		unWrapId = (uint16_t)tmp;
+	if (newId != 0 && itemId != ITEM_DECORATION_KIT) {
+		uint16_t charges = item->getSubType();
+		Item* newItem = transformItem(item, newId);
+		if (newItem) {
+			if (internalMoveItem(newItem->getParent(), player, INDEX_WHEREEVER, newItem, newItem->getItemCount(), nullptr) == RETURNVALUE_NOERROR) {
+				newItem->setActionId(itemId);
+				newItem->setDate(charges);
+				newItem->setSpecialDescription("Unwrap it in your own house to create a " + itemName + ".");
+				addMagicEffect(pos, CONST_ME_POFF);
+				newItem->startDecaying();
+			} else {
+				player->sendCancelMessage("Make sure you have enough space in your backpack.");
+				transformItem(newItem, itemId);
+			}
+		}
+	} else if (newId == 0 && item->getActionId() != 0) {
+		uint16_t charges = static_cast<uint16_t>(item->getDate());
+		newId = item->getActionId();
+		Item* newItem = transformItem(item, newId);
+		if (newItem) {
+			if (charges > 0) {
+				newItem->setSubType(charges);
+			}
+			newItem->removeAttribute(ITEM_ATTRIBUTE_ACTIONID);
+			newItem->removeAttribute(ITEM_ATTRIBUTE_DATE);
+			newItem->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
+			addMagicEffect(pos, CONST_ME_POFF);
+			newItem->startDecaying();
+		}
 	}
-
-		if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
-			uint16_t hiddenCharges = 0;
-			if (isCaskItem(item->getID())) {
-				hiddenCharges = item->getSubType();
-			}
-			uint16_t oldItemID = item->getID();
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			Item* newItem = transformItem(item, 26054);
-			ItemAttributes::CustomAttribute val;
-			val.set<int64_t>(oldItemID);
-			std::string key = "unWrapId";
-			newItem->setCustomAttribute(key, val);
-			item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-			if (hiddenCharges > 0) {
-				item->setDate(hiddenCharges);
-			}
-			startDecay(item);
-		}
-		else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
-			uint16_t hiddenCharges = item->getDate();
-			item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			transformItem(item, unWrapId);
-			if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
-				item->setSubType(hiddenCharges);
-			}
-			item->removeCustomAttribute("unWrapId");
-			startDecay(item);
-		}
 }
+
 
 void Game::playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::string& text)
 {
@@ -6011,7 +5998,7 @@ void Game::playerBuyStoreOffer(uint32_t playerId, uint32_t offerId, uint8_t prod
 					Item* item;
 
 					if (offer->type == WRAP_ITEM) {
-						item = Item::CreateItem(TRANSFORM_BOX_ID, std::min<uint16_t>(packSize, pendingCount));
+						item = Item::CreateItem(ITEM_DECORATION_KIT, std::min<uint16_t>(packSize, pendingCount));
 						item->setActionId(tmp->productId);
 						item->setSpecialDescription("Unwrap it in your own house to create a <" + Item::items[tmp->productId].name + ">.");
 					} else {

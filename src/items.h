@@ -269,7 +269,6 @@ class ItemType
 		bool replaceable = true;
 		bool pickupable = false;
 		bool rotatable = false;
-		bool wrapable = false;
 		bool wrapContainer = false;
 		bool useable = false;
 		bool moveable = false;

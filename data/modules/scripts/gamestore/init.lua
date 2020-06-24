@@ -1093,12 +1093,12 @@ function GameStore.processHouseRelatedPurchase(player, offerId, offerCount)
 
 	local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 	if inbox and inbox:getEmptySlots() > 0 then
-		local decoKit = inbox:addItem(26054, 1)
+		local decoKit = inbox:addItem(ITEM_DECORATION_KIT, 1)
 		local function changeKit(kit)
 			local decoItemName = ItemType(offerId):getName()
 			if kit then
 				kit:setAttribute(ITEM_ATTRIBUTE_DESCRIPTION, "You bought this item in the Store.\nUnwrap it in your own house to create a <" .. decoItemName .. ">.")
-				kit:setCustomAttribute("unWrapId", offerId)
+				kit:setActionId(offerId)
 
 				if isCaskItem(offerId) then
 					kit:setAttribute(ITEM_ATTRIBUTE_DATE, offerCount)

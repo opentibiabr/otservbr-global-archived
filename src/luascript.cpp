@@ -1549,6 +1549,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_TYPE_SUPPLY)
 
 	registerEnum(ITEM_BAG)
+	registerEnum(ITEM_DECORATION_KIT)
 	registerEnum(ITEM_SHOPPING_BAG)
 	registerEnum(ITEM_GOLD_COIN)
 	registerEnum(ITEM_PLATINUM_COIN)
