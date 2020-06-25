@@ -4884,7 +4884,7 @@ void Player::onEquipImbueItem(Imbuement* imbuement)
 
 	// capacity
 	if (imbuement->capacity != 0) {
-		capacity += imbuement->capacity;
+		capacity += (capacity * imbuement->capacity)/100;
 		sendStats();
 	}
 
