@@ -1,3 +1,30 @@
+local UniqueTable = {
+	-- Vocation doors
+	[22001] = {
+		vocation = VOCATION.ID.SORCERER,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32054, y = 31883, z = 6}
+	},
+	-- Druid
+	[22002] = {
+		vocation = VOCATION.ID.DRUID,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32073, y = 31883, z = 6}
+	},
+	-- Paladin
+	[22003] = {
+		vocation = VOCATION.ID.PALADIN,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32059, y = 31884, z = 6}
+	},
+	-- Knight
+	[22004] = {
+		vocation = VOCATION.ID.KNIGHT,
+		storage = Storage.Dawnport.DoorVocation,
+		destination = {x = 32068, y = 31883, z = 6}
+	},
+}
+
 local slots = {
 	1, 2, 4, 5, 6, 7, 8, 9, 10
 }
@@ -56,8 +83,8 @@ function vocationDoor.onUse(player, item, target, position, fromPosition)
 	return true
 end
 
-for uniqueRange = 22001, 22004 do
-	vocationDoor:uid(uniqueRange)
+for index, value in pairs(UniqueTable) do
+	vocationDoor:uid(index)
 end
 
 vocationDoor:register()
