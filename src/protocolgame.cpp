@@ -38,6 +38,7 @@
 #include "modules.h"
 #include "spells.h"
 #include "imbuements.h"
+#include "iostash.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -423,6 +424,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x14: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::logout, getThis(), true, false))); break;
 		case 0x1D: addGameTask(&Game::playerReceivePingBack, player->getID()); break;
 		case 0x1E: addGameTask(&Game::playerReceivePing, player->getID()); break;
+		case 0x28: parseStashWithdraw(msg); break;
 		case 0x32: parseExtendedOpcode(msg); break; //otclient extended opcode
 		case 0x64: parseAutoWalk(msg); break;
 		case 0x65: addGameTask(&Game::playerMove, player->getID(), DIRECTION_NORTH); break;
@@ -3970,3 +3972,40 @@ void ProtocolGame::sendItemsPrice()
 
 	writeToOutputBuffer(msg);
 }
+
+void ProtocolGame::sendOpenStash()
+{
+	NetworkMessage msg;
+	msg.addByte(0x29);
+	AddPlayerStowedItems(msg);
+	writeToOutputBuffer(msg);
+}
+
+
+void ProtocolGame::AddPlayerStowedItems(NetworkMessage& msg)
+{
+	StashItemList list = IOStash::getStoredItems(player->guid);
+
+	msg.add<uint16_t>(list.size());
+
+	for each (auto item in list)
+	{
+		msg.add<uint16_t>(item.first);
+		msg.add<uint32_t>(item.second);
+	}
+
+	msg.add<uint16_t>(g_config.getNumber(ConfigManager::STASH_ITEMS) - IOStash::getStashSize(list));
+}
+
+void ProtocolGame::parseStashWithdraw(NetworkMessage& msg)
+{
+	uint16_t action = msg.getByte();
+	uint16_t itemId = msg.get<uint16_t>();
+	uint16_t itemCount = msg.get<uint32_t>();
+
+	if (IOStash::withdrawItem(player->guid, itemId, itemCount)) {
+		player->addItemFromStash(itemId, itemCount);
+	}
+	sendOpenStash();
+}
+

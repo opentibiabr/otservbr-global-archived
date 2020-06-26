@@ -33,6 +33,7 @@
 #include "movement.h"
 #include "scheduler.h"
 #include "weapons.h"
+#include "iostash.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -4923,4 +4924,99 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 	}
 
 	return;
+}
+
+bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
+	auto itemCID = Item::items.getItemIdByClientId(itemId).id;
+
+	const ItemType& it = Item::items[itemCID];
+	uint32_t stackCount = 100u;
+
+	while (itemCount > 0) {
+		auto addValue = itemCount > stackCount ? stackCount : itemCount;
+		itemCount -= addValue;
+		Item* newItem = Item::CreateItem(itemCID, addValue);
+
+		if (g_game.internalPlayerAddItem(this, newItem, true) != RETURNVALUE_NOERROR) {
+			std::cout << "[Player::addItensFromStash] Could not add itemId: " << itemCID << " count: " << addValue << " to playerId: " << this->guid << std::endl;
+			delete newItem;
+			return false;
+		}
+	}
+	return true;
+}
+
+void Player::stowContainer(Item* item) {
+	if (!isItemStorable(item)) {
+		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	ItemDeque itemList = ItemDeque();
+	std::map<uint16_t, std::pair<bool, uint32_t>> itemDict;	
+	uint32_t totalStowed = 0;
+	std::ostringstream retString;
+
+	if (item->getContainer() != NULL) {
+		itemList = getAllStorableItemsInContainer(item);
+	}
+	else {
+		itemList.push_back(item);
+	}
+
+	if (itemList.size() < 1) { //Safe check
+		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	for (Item* x : itemList) {
+		auto sameItemCountSum = x->getItemCount();
+
+		if (itemDict.count(x->getClientID()) == 1) {
+			sameItemCountSum += itemDict[x->getClientID()].second;
+		}
+
+		itemDict[x->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
+	}
+
+	itemDict = IOStash::stashContainer(this->guid, itemDict);
+
+	for (auto itemToRemove : itemList) {
+		g_game.internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
+		totalStowed += itemToRemove->getItemCount();
+	}
+
+	retString << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
+	sendCancelMessage(retString.str());
+}
+
+
+bool Player::isItemStorable(Item* item) {
+	auto isContainerAndHasSomethingInside = item->getContainer() != NULL && item->getContainer()->getItemList().size() > 0;
+	return (item->isStackable() &&
+		item->getID() != ITEM_GOLD_COIN &&
+		item->getID() != ITEM_PLATINUM_COIN &&
+		item->getID() != ITEM_CRYSTAL_COIN) ||
+		isContainerAndHasSomethingInside;
+}
+
+ItemDeque Player::getAllStorableItemsInContainer(Item* container) {
+
+	auto allITems = container->getContainer()->getItemList();
+
+	ItemDeque toReturnList = ItemDeque();
+
+	for (auto item : allITems) {
+		if (item->getContainer() != NULL) {
+			auto subContainer = getAllStorableItemsInContainer(item);
+			for (auto subContItem : subContainer) {
+				toReturnList.push_back(subContItem);
+			}
+		}
+		else if (isItemStorable(item)) {
+			toReturnList.push_back(item);
+		}
+	}
+
+	return toReturnList;
 }

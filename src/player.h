@@ -690,6 +690,10 @@ class Player final : public Creature, public Cylinder
 		bool isAttackable() const override;
 		static bool lastHitIsPlayer(Creature* lastHitCreature);
 
+		//stash functions
+		bool addItemFromStash(uint16_t itemId, uint32_t itemCount);
+		void stowContainer(Item* item);
+
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void changeMana(int32_t manaChange) override;
 		void changeSoul(int32_t soulChange);
@@ -1283,6 +1287,13 @@ class Player final : public Creature, public Cylinder
 			lastPong = OTSYS_TIME();
 		}
 
+		void sendOpenStash()
+		{
+			if (client) {
+				client->sendOpenStash();
+			}
+		}
+
 		void onThink(uint32_t interval) override;
 
 		void postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t link = LINK_OWNER) override;
@@ -1420,6 +1431,9 @@ class Player final : public Creature, public Cylinder
 		void removeExperience(uint64_t exp, bool sendText = false);
 
 		void updateInventoryWeight();
+
+		bool isItemStorable(Item* item);
+		ItemDeque getAllStorableItemsInContainer(Item* container);
 
 		void setNextWalkActionTask(SchedulerTask* task);
 		void setNextWalkTask(SchedulerTask* task);

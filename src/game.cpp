@@ -912,36 +912,6 @@ void Game::playerMoveItemByPlayerID(uint32_t playerId, const Position& fromPos, 
 
 }
 
-bool isItemStorable(Item * item) {
-	auto isContainerAndHasSomethingInside = item->getContainer() != NULL && item->getContainer()->getItemList().size() > 0;
-	return (item->isStackable() &&
-		item->getID() != ITEM_GOLD_COIN &&
-		item->getID() != ITEM_PLATINUM_COIN &&
-		item->getID() != ITEM_CRYSTAL_COIN) || 
-		isContainerAndHasSomethingInside;
-}
-
-ItemDeque getAllStorableItemsInContainer(Item* container) {
-
-	auto allITems = container->getContainer()->getItemList();
-
-	ItemDeque toReturnList = ItemDeque();
-
-	for (auto item : allITems) {
-		if (item->getContainer() != NULL) {
-			auto subContainer = getAllStorableItemsInContainer(item);
-			for (auto subContItem : subContainer) {
-				toReturnList.push_back(subContItem);
-			}
-		} 
-		else if(isItemStorable(item)) {
-			toReturnList.push_back(item);
-		}
-	}
-
-	return toReturnList;
-}
-
 void Game::playerMoveItem(Player* player, const Position& fromPos,
 						  uint16_t spriteId, uint8_t fromStackPos, const Position& toPos, uint8_t count, Item* item, Cylinder* toCylinder)
 {
@@ -993,137 +963,6 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 			player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 			return;
 		}
-	}
-
-	//STASH
-	if (toCylinder->getContainer() != NULL &&
-		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
-		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
-
-		if (!isItemStorable(item)) {
-			return player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		}
-
-		ItemDeque itemList = ItemDeque();
-		std::map<uint16_t, std::pair<bool, uint16_t>> itemDict;
-		const uint8_t ITEM_INDEX = 0;
-		const uint8_t SHOULD_UPDATE_INDEX = 1;
-		const uint8_t REMOVE_COUNT_INDEX = 2;
-
-		std::ostringstream query;		
-
-		if (item->getContainer() != NULL) {
-			itemList = getAllStorableItemsInContainer(item);
-		} else {
-			itemList.push_back(item);
-		}
-
-		if (itemList.size() < 1) { //Safe check
-			return player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		}
-
-		for (Item* x : itemList) {
-			auto sameItemCountSum = x->getItemCount();
-
-			if(itemDict.count(x->getClientID()) == 1) {
-				sameItemCountSum += itemDict[x->getClientID()].second;
-			} 
-
-			itemDict[x->getClientID()] = std::pair<bool, uint16_t>(false, sameItemCountSum);
-		}
-
-		query << "SELECT * FROM `player_stash` WHERE `player_id` = ";
-		query << player->getGUID() << " AND `item_id` IN (";
-
-		for (auto iter = itemDict.begin(); iter != itemDict.end(); iter++)
-		{
-			query << iter->first << (std::next(iter) != itemDict.end() ? "," : ")");
-		}
-
-		Database& db = Database::getInstance();
-		DBResult_ptr hasItem = db.storeQuery(query.str());
-
-		query.str("");
-
-		if (hasItem) {
-			do {
-				uint16_t itemId = hasItem->getNumber<uint16_t>("item_id");
-				uint16_t stashedCount = hasItem->getNumber<uint16_t>("item_count");
-				itemDict[itemId].second += stashedCount;
-				itemDict[itemId].first = true;
-			} while (hasItem->next());
-		}
-
-		std::ostringstream updateQuery;
-		std::ostringstream insertQuery;
-		bool hasInsert = false;
-		bool hasUpdate = false;
-		uint32_t totalStowed = 0;
-		
-		insertQuery << "INSERT INTO `player_stash` (`player_id`,`item_id`,`item_count`) VALUES ";
-		updateQuery << "UPDATE `player_stash` SET `item_count` = CASE `item_id`";
-		
-
-		for (auto itemSet : itemDict)
-		{
-			auto tuple = itemSet.second;
-			uint16_t itemCount = tuple.second;
-
-			if (tuple.first) {
-				updateQuery << " WHEN " << itemSet.first << " THEN " << itemCount;
-				hasUpdate = true;
-			}
-			else {
-				insertQuery << ( hasInsert ? ", " : "") << "(";
-				insertQuery << player->getGUID() << ", ";
-				insertQuery << itemSet.first << ", ";
-				insertQuery << itemCount << " )";
-				hasInsert = true;
-			}
-		}
-
-		updateQuery << " END WHERE `player_id` = " << player->getGUID();
-		updateQuery << " AND `item_id` IN ( ";
-		insertQuery << ";";
-
-		if (hasInsert) {
-			if (db.executeQuery(insertQuery.str())) {
-				for (auto itemToRemove : itemList) {
-					if (!itemDict[itemToRemove->getClientID()].first) {
-						internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
-						totalStowed += itemToRemove->getItemCount();
-					}
-				}
-			}
-		}
-
-		if (hasUpdate) {
-
-			bool hasMoreData = false;
-
-			for (auto iter = itemDict.begin(); iter != itemDict.end(); iter++)
-			{
-				auto tuple0 = itemDict[iter->first];
-
-				if (tuple0.first) {
-					updateQuery << (hasMoreData ? "," : "") << iter->first;
-					hasMoreData = true;
-				}
-				updateQuery << (std::next(iter) != itemDict.end() ? "" : ")");
-			}
-
-			if (db.executeQuery(updateQuery.str())) {
-				for (auto itemToRemove : itemList) {
-					if (itemDict[itemToRemove->getClientID()].first) {
-						internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
-						totalStowed += itemToRemove->getItemCount();
-					}
-				}
-			}
-		}
-
-		query << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
-		return player->sendCancelMessage(query.str());
 	}
 
 	if (!item->isPushable() || item->hasAttribute(ITEM_ATTRIBUTE_UNIQUEID)) {
@@ -1218,6 +1057,13 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 			(Position::getDistanceY(playerPos, mapToPos) > item->getThrowRange()) ||
 			(Position::getDistanceZ(mapFromPos, mapToPos) * 4 > item->getThrowRange())) {
 		player->sendCancelMessage(RETURNVALUE_DESTINATIONOUTOFREACH);
+		return;
+	}
+
+	if (toCylinder->getContainer() != NULL &&
+		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
+		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
+		player->stowContainer(item);
 		return;
 	}
 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 	
+	<!-- stash -->
+	<action itemid="32450" function="stash" />
+
 	<!-- Addons -->
 	<action fromid="18517" toid="18522" script="addons/addons.lua" />
 	<action fromid="13540" toid="13545" script="addons/afflictedOutfit.lua" />
@@ -1093,10 +1096,6 @@
 	<action itemid="25419" script="valuables/randomitems.lua" />
 	<action itemid="26165" script="valuables/randomitems.lua" />
 	<action itemid="32014" script="valuables/randomitems.lua" />
-
-	<!-- Supply stash -->
-  	<action itemid="32450" script="others/objects/supplystash.lua" />
-  	
 </actions>
 
 <!--
