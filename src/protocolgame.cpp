@@ -507,7 +507,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x8F: parseQuickLoot(msg); break;
 		case 0x90: parseLootContainer(msg); break;
 		case 0x91: parseQuickLootBlackWhitelist(msg); break;
-		case 0x92: parseResquestLockItems(); break;
+		case 0x92: parseRequestLockItems(); break;
 		case 0x96: parseSay(msg); break;
 		case 0x97: addGameTask(&Game::playerRequestChannels, player->getID()); break;
 		case 0x98: parseOpenChannel(msg); break;
@@ -994,7 +994,7 @@ void ProtocolGame::parseQuickLootBlackWhitelist(NetworkMessage& msg)
 	addGameTask(&Game::playerQuickLootBlackWhitelist, player->getID(), filter, listedItems);
 }
 
-void ProtocolGame::parseResquestLockItems()
+void ProtocolGame::parseRequestLockItems()
 {
 	addGameTask(&Game::playerRequestLockFind, player->getID());
 }

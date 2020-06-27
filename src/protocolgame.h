@@ -110,7 +110,7 @@ class ProtocolGame final : public Protocol
 		void parseQuickLoot(NetworkMessage& msg);
 		void parseLootContainer(NetworkMessage& msg);
 		void parseQuickLootBlackWhitelist(NetworkMessage& msg);
-		void parseResquestLockItems();
+		void parseRequestLockItems();
 
 		void parseFightModes(NetworkMessage& msg);
 		void parseAttack(NetworkMessage& msg);
