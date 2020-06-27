@@ -29,6 +29,7 @@ const uint32_t MAX_STATICWALK = 100;
 struct LootBlock {
 	uint16_t id;
 	uint32_t countmax;
+	uint32_t countmin;
 	uint32_t chance;
 
 	//optional
@@ -49,6 +50,7 @@ struct LootBlock {
 	LootBlock() {
 		id = 0;
 		countmax = 1;
+		countmin = 1;
 		chance = 0;
 
 		subType = -1;
@@ -162,6 +164,10 @@ class MonsterType
 		int32_t changeTargetChance = 0;
 		int32_t defense = 0;
 		int32_t armor = 0;
+		int32_t targetStrategiesNearestPercent = 0;
+		int32_t targetStrategiesLowerHPPercent = 0;
+		int32_t targetStrategiesMostDamagePercent = 0;
+		int32_t targetStrategiesRandom = 0;
 
 		bool canPushItems = false;
 		bool canPushCreatures = false;

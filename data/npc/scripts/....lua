@@ -2,13 +2,21 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg)		npcHandler:onCreatureSay(cid, type, msg)		end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+	npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+	npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+	npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+	npcHandler:onThink()
+end
 
 local function greetCallback(cid)
-	if Game.getStorageValue(GlobalStorage.FerumbrasAscendantQuest.DesperateSoul) ~= 1 then
+	if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.DesperateSoul) ~= 1 then
 		npcHandler:setMessage(MESSAGE_GREET, "Hello my friend, I saw that you send my soul here.")
 		return true
 	end

@@ -587,6 +587,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 	if (creature == followCreature || (creature == this && followCreature)) {
 		if (hasFollowPath) {
 			isUpdatingPath = true;
+			g_dispatcher.addTask(createTask(std::bind(&Game::updateCreatureWalk, &g_game, getID())));
 		}
 
 		if (newPos.z != oldPos.z || !canSee(followCreature->getPosition())) {
@@ -617,7 +618,7 @@ void Creature::onDeath()
 	Creature* lastHitCreature = g_game.getCreatureByID(lastHitCreatureId);
 	Creature* lastHitCreatureMaster;
 	if (lastHitCreature) {
-		lastHitUnjustified = lastHitCreature->onKilledCreature(this);
+		lastHitUnjustified = lastHitCreature->onKilledCreature(this, true);
 		lastHitCreatureMaster = lastHitCreature->getMaster();
 	} else {
 		lastHitCreatureMaster = nullptr;
@@ -1095,16 +1096,16 @@ void Creature::onAttackedCreatureKilled(Creature* target)
 	}
 }
 
-bool Creature::onKilledCreature(Creature* target, bool)
+bool Creature::onKilledCreature(Creature* target, bool lastHit)
 {
 	if (master) {
-		master->onKilledCreature(target);
+		master->onKilledCreature(target, lastHit);
 	}
 
 	//scripting event - onKill
 	const CreatureEventList& killEvents = getCreatureEvents(CREATURE_EVENT_KILL);
 	for (CreatureEvent* killEvent : killEvents) {
-		killEvent->executeOnKill(this, target);
+		killEvent->executeOnKill(this, target, lastHit);
 	}
 	return false;
 }

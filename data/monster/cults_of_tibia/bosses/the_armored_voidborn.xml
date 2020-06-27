@@ -3,6 +3,7 @@
 	<health now="50000" max="50000" />
 	<look type="987" />
 	<targetchange interval="5000" chance="50" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />
@@ -29,13 +30,13 @@
 	<defenses armor="50" defense="50">
 	</defenses>
 	<elements>
-		<element deathPercent="99"/>
-		<element firePercent="99"/>
-		<element icePercent="99"/>
-		<element earthPercent="99"/>
-		<element holyPercent="99"/>
-		<element physicalPercent="99"/>
-		<element energyPercent="99"/>
+		<element deathPercent="99" />
+		<element firePercent="99" />
+		<element icePercent="99" />
+		<element earthPercent="99" />
+		<element holyPercent="99" />
+		<element physicalPercent="99" />
+		<element energyPercent="99" />
 	</elements>
 	<immunities>
 		<immunity invisible="1" />

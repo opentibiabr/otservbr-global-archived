@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Dark Percht Sleigh" nameDescription="a dark percht sleigh" race="undead" experience="500" speed="0">
 	<health now="2300" max="2300" />
-	<look type="1165"/>
+	<look type="1165" />
 	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="0" />

@@ -3,6 +3,7 @@
 	<health now="350000" max="350000" />
 	<look type="591" head="0" body="94" legs="79" feet="79" corpse="22562" />
 	<targetchange interval="10000" chance="20" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -27,11 +28,11 @@
 			<attribute key="areaEffect" value="icearea" />
 		</attack>
 		<attack name="death" interval="2000" chance="13" length="8" spread="3" min="-100" max="-1000">
-			<attribute key="areaEffect" value="poff"/>
+			<attribute key="areaEffect" value="poff" />
 		</attack>
 		<attack name="death" interval="2000" chance="19" range="7" target="1" radius="6" min="-100" max="-800">
-			<attribute key="shootEffect" value="suddendeath"/>
-			<attribute key="areaEffect" value="mortarea"/>
+			<attribute key="shootEffect" value="suddendeath" />
+			<attribute key="areaEffect" value="mortarea" />
 		</attack>
 		<attack name="melee" interval="1800" chance="40" range="7" radius="5" target="0" min="0" max="-1000">
 			<attribute key="areaEffect" value="blackspark" />
@@ -40,14 +41,14 @@
 			<attribute key="areaEffect" value="fire" />
 		</attack>
 		<attack name="fire" interval="2000" chance="14" length="8" spread="0" min="-1600" max="-3400">
-			<attribute key="areaEffect" value="firearea"/>
+			<attribute key="areaEffect" value="firearea" />
 		</attack>
 		<attack name="physical" interval="2500" chance="20" range="7" radius="5" target="0" min="-200" max="-480">
 			<attribute key="areaEffect" value="greenshimmer" />
 		</attack>
-		<attack name="gaz'haragoth iceball" interval="2000" chance="24" min="-1000" max="-1000"/>
-		<attack name="gaz'haragoth death" interval="4000" chance="6"/>
-		<attack name="gaz'haragoth paralyze" interval="2000" chance="12"/>
+		<attack name="gaz'haragoth iceball" interval="2000" chance="24" min="-1000" max="-1000" />
+		<attack name="gaz'haragoth death" interval="4000" chance="6" />
+		<attack name="gaz'haragoth paralyze" interval="2000" chance="12" />
 	</attacks>
 	<defenses armor="55" defense="65">
 		<defense name="healing" interval="3000" chance="35" min="2500" max="3500">
@@ -77,8 +78,8 @@
 		<summon name="Nightmare of Gaz'haragoth" interval="4000" chance="33" />
 	</summons>
 	<voices interval="5000" chance="30">
-		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1"/>
-		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1"/>
+		<voice sentence="NO ONE WILL ESCAPE ME!" yell="1" />
+		<voice sentence="I'LL KEEP THE ORDER UP!" yell="1" />
 		<voice sentence="I've beaten tougher demons then you even know!" yell="1" />
 		<voice sentence="You puny humans will be my snacks!" yell="1" />
 	</voices>
@@ -103,7 +104,7 @@
 		<item id="22610" chance="1100" /> <!-- Dream Warden Mask -->
 		<item id="7632" chance="6000" /> <!-- Giant Shimmering Pearl -->
 		<item id="5954" chance="6000" /> <!-- Demon Horn -->
-		<item id="22608" chance="6000" unique="1"/> <!-- Nightmare Horn -->
+		<item id="22608" chance="6000" unique="1" /> <!-- Nightmare Horn -->
 		<item id="2168" chance="6000" /> <!-- Life Ring -->
 		<item id="22614" chance="6000" /> <!-- Nightmare Beacon -->
 		<item id="22613" chance="6000" /> <!-- Eye Pod -->

@@ -1,8 +1,8 @@
-local talk = TalkAction("/ban")
+local banDays = 7
 
-function talk.onSay(player, words, param)
+local ban = TalkAction("/ban")
 
-	local banDays = 7
+function ban.onSay(player, words, param)
 
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
@@ -46,5 +46,5 @@ function talk.onSay(player, words, param)
 	end
 end
 
-talk:separator(" ")
-talk:register()
+ban:separator(" ")
+ban:register()

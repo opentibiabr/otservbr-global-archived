@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Bonny Bunny" nameDescription="an bonny bunny" race="blood" experience="0" speed="170">
 	<health now="200" max="200" />
-	<look type="1158" head="95" body="42" legs="19" feet="57"/>
+	<look type="1158" head="95" body="42" legs="19" feet="57" />
 	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

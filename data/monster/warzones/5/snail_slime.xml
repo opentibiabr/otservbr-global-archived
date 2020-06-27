@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Snail Slime" nameDescription="a snail slime" race="venom" experience="160" speed="180">
 	<health now="1000" max="1000" />
-	<look type="19"/>
+	<look type="19" />
 	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag summonable="0" />
 		<flag attackable="1" />

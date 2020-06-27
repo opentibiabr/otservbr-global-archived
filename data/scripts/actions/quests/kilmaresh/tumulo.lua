@@ -2,9 +2,9 @@ local tumulo = Action()
 
 function tumulo.onUse(player, item, frompos, item2, topos)
 
-    if player:getStorageValue(Storage.KilmareshQuest.Thirteen.Presente) == 1 then
+    if player:getStorageValue(Storage.Kilmaresh.Thirteen.Presente) == 1 then
 
-		-- player:setStorageValue(Storage.KilmareshQuest.Treze.Presente, 2)
+		-- player:setStorageValue(Storage.Kilmaresh.Treze.Presente, 2)
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"The grave is empty. Nothing than gaping void.")
     else
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Empty.")

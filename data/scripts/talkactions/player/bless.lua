@@ -1,7 +1,7 @@
-local talk = TalkAction("!bless")
+local bless = TalkAction("!bless")
 
-function talk.onSay(player, words, param)
-    return Blessings.BuyAllBlesses(player)
+function bless.onSay(player, words, param)
+	return Blessings.BuyAllBlesses(player)
 end
 
-talk:register()
+bless:register()

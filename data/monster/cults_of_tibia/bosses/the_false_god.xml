@@ -3,6 +3,7 @@
 	<health now="300000" max="300000" />
 	<look type="984" corpse="25151" />
 	<targetchange interval="5000" chance="30" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
 		<flag summonable="0" />
@@ -28,7 +29,7 @@
 			<attribute key="areaEffect" value="redshimmer" />
 		</attack>
 	</attacks>
-	<defenses armor="30" defense="30"/>
+	<defenses armor="30" defense="30" />
 	<immunities>
 		<immunity paralyze="1" />
 		<immunity invisible="1" />
@@ -37,11 +38,11 @@
 		<voice sentence="CREEEAK!" />
 	</voices>
 	<loot>
-		<item id="7633" chance="26900"/>
-		<item name="magic sulphur" chance="18920"/>
-		<item name="mino shield" chance="17620"/>
-		<item name="silver token" chance="1732"/>
-		<item name="gold token" chance="1532"/>
+		<item id="7633" chance="26900" />
+		<item name="magic sulphur" chance="18920" />
+		<item name="mino shield" chance="17620" />
+		<item name="silver token" chance="1732" />
+		<item name="gold token" chance="1532" />
 		<item name="gold coin" countmax="200" chance="100000" />
 		<item name="platinum coin" countmax="30" chance="29840" />
 		<item name="piece of hell steel" countmax="9" chance="12370" />

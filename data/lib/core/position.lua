@@ -20,28 +20,6 @@ function Position:getNextPosition(direction, steps)
 end
 
 function Position:moveUpstairs()
-	local isWalkable = function (position)
-		local tile = Tile(position)
-		if not tile then
-			return false
-		end
-
-		local ground = tile:getGround()
-		if not ground or ground:hasProperty(CONST_PROP_BLOCKSOLID) then
-			return false
-		end
-
-		local items = tile:getItems()
-		for i = 1, tile:getItemCount() do
-			local item = items[i]
-			local itemType = item:getType()
-			if itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and item:hasProperty(CONST_PROP_BLOCKSOLID) then
-				return false
-			end
-		end
-		return true
-	end
-
 	local swap = function (lhs, rhs)
 		lhs.x, rhs.x = rhs.x, lhs.x
 		lhs.y, rhs.y = rhs.y, lhs.y
@@ -52,7 +30,7 @@ function Position:moveUpstairs()
 
 	local defaultPosition = self + Position.directionOffset[DIRECTION_SOUTH]
 	local toTile = Tile(defaultPosition)
-	if not toTile or not toTile:isWalkable() then
+	if not toTile or not toTile:isWalkable(false, false, false, false, true) then
 		for direction = DIRECTION_NORTH, DIRECTION_NORTHEAST do
 			if direction == DIRECTION_SOUTH then
 				direction = DIRECTION_WEST
@@ -60,7 +38,7 @@ function Position:moveUpstairs()
 
 			local position = self + Position.directionOffset[direction]
 			toTile = Tile(position)
-			if toTile and toTile:isWalkable() then
+			if toTile and toTile:isWalkable(false, false, false, false, true) then
 				swap(self, position)
 				return self
 			end
@@ -95,29 +73,7 @@ function Position:isInRange(from, to)
 	return false
 end
 
-function Position:moveDownstairs()
-    local isWalkable = function (position)
-        local tile = Tile(position)
-        if not tile then
-            return false
-        end
-
-        local ground = tile:getGround()
-        if not ground or ground:hasProperty(CONST_PROP_BLOCKSOLID) then
-            return false
-        end
-
-        local items = tile:getItems()
-        for i = 1, tile:getItemCount() do
-            local item = items[i]
-            local itemType = item:getType()
-            if itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and item:hasProperty(CONST_PROP_BLOCKSOLID) then
-                return false
-            end
-        end
-        return true
-    end
-
+function Position:moveDownstairs()    
     local swap = function (lhs, rhs)
         lhs.x, rhs.x = rhs.x, lhs.x
         lhs.y, rhs.y = rhs.y, lhs.y
@@ -127,14 +83,20 @@ function Position:moveDownstairs()
     self.z = self.z + 1
 
     local defaultPosition = self + Position.directionOffset[DIRECTION_SOUTH]
-    if not isWalkable(defaultPosition) then
+	local tile = Tile(defaultPosition)
+	if not tile then return false end	
+	
+    if not tile:isWalkable(false, false, false, false, true) then
         for direction = DIRECTION_NORTH, DIRECTION_NORTHEAST do
             if direction == DIRECTION_SOUTH then
                 direction = DIRECTION_WEST
             end
 
             local position = self + Position.directionOffset[direction]
-            if isWalkable(position) then
+			local newTile = Tile(position)
+			if not newTile then return false end
+			
+            if newTile:isWalkable(false, false, false, false, true) then
                 swap(self, position)
                 return self
             end
@@ -157,28 +119,6 @@ function Position:isInRange(fromPosition, toPosition)
         and self.x <= toPosition.x and self.y <= toPosition.y and self.z <= toPosition.z)
 end
 
-function Position:isWalkable()
-    local tile = Tile(self)
-    if not tile then
-          return false
-    end
-
-    local ground = tile:getGround()
-    if not ground or ground:hasProperty(CONST_PROP_BLOCKSOLID) then
-        return false
-    end
-
-    local items = tile:getItems()
-    for i = 1, tile:getItemCount() do
-        local item = items[i]
-        local itemType = item:getType()
-        if itemType:getType() ~= ITEM_TYPE_MAGICFIELD and not itemType:isMovable() and item:hasProperty(CONST_PROP_BLOCKSOLID) then
-            return false
-        end
-    end
-    return true
-end
-
 function getFreePosition(from, to)
     local result, tries = Position(from.x, from.y, from.z), 0
     repeat
@@ -188,7 +128,10 @@ function getFreePosition(from, to)
         if tries >= 20 then
             return result
         end
-    until result:isWalkable()
+		
+		local tile = Tile(result)
+		
+    until tile and tile:isWalkable(false, false, false, false, true)
     return result
 end
 
@@ -202,6 +145,35 @@ function getFreeSand()
         if tries >= 50 then
             return result
         end
-    until result:isWalkable() and Tile(result):getGround():getName() == "grey sand"
+		
+		local tile = Tile(result)
+		
+    until tile and tile:isWalkable(false, false, false, false, true) and tile:getGround():getName() == "grey sand"
     return result
+end
+
+function getDirectionTo(pos1, pos2)
+	local dir = DIRECTION_NORTH
+	if (pos1.x > pos2.x) then
+		dir = DIRECTION_WEST
+		if(pos1.y > pos2.y) then
+			dir = DIRECTION_NORTHWEST
+		elseif(pos1.y < pos2.y) then
+			dir = DIRECTION_SOUTHWEST
+		end
+	elseif (pos1.x < pos2.x) then
+		dir = DIRECTION_EAST
+		if(pos1.y > pos2.y) then
+			dir = DIRECTION_NORTHEAST
+		elseif(pos1.y < pos2.y) then
+			dir = DIRECTION_SOUTHEAST
+		end
+	else
+		if (pos1.y > pos2.y) then
+			dir = DIRECTION_NORTH
+		elseif(pos1.y < pos2.y) then
+			dir = DIRECTION_SOUTH
+		end
+	end
+	return dir
 end

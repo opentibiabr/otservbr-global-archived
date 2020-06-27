@@ -39,10 +39,9 @@ maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
--- Version Manual
-clientVersionMin = 1100
-clientVersionMax = 1200
-clientVersionStr = "Only support outdated 10.00 and version 12.00"
+--- Version
+clientVersion = 1200
+clientVersionStr = "12.00"
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -65,10 +64,12 @@ housePriceEachSQM = 1000
 houseRentPeriod = "never"
 
 -- Item Usage
--- Do not touch here
--- Avoid use of WIPE program to crash the distro
-timeBetweenActions = 500
-timeBetweenExActions = 700
+timeBetweenActions = 200
+timeBetweenExActions = 1000
+
+-- Push Delay
+pushDelay = 1000
+pushDistanceDelay = 1500
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end

@@ -1,5 +1,5 @@
 QuickLootSystem = {
-    Developer = "Ticardo (Rick), lBaah, dudantas, gpedro, DudZ",
+	Developer = "Ticardo (Rick), lBaah, dudantas, gpedro, DudZ",
 	Version = "1.0",
 	lastUpdate = "29/03/2020 - 12:00"
 }
@@ -31,7 +31,7 @@ local StorageQuickLoot = {
 local QUICKLOOT_CATEGORY_ATTRIBUTE = "quickLootCategory"
 
 local QUICKLOOT_MODE_BLACKLIST = 0
-local QUICKLOOT_MODE_WHITELIST = 1 
+local QUICKLOOT_MODE_WHITELIST = 1
 
 local QuickLootCategory = {
 	UnassignedLoot = 31,
@@ -77,7 +77,7 @@ function onRecvbyte(player, msg, byte)
 		local lootMode = msg:getByte()
 		local itemCount = msg:getU16()
 		local itemList = {}
-		
+
 		if itemCount >= 1 then
 			local item = nil
 			for i = 1, itemCount do
@@ -187,7 +187,7 @@ function onRecvbyte(player, msg, byte)
 			local category = msg:getByte()
 			local containerType = msg:getU16()
 			local containerSlot = msg:getU16()
-			local containerPosition = msg:getByte() 
+			local containerPosition = msg:getByte()
 			local containerId = msg:getU16()
 
 			player:setQuickLootBackpack(category, containerSlot, containerPosition, containerId)
@@ -201,7 +201,7 @@ function onRecvbyte(player, msg, byte)
 		elseif action == 2 then
 			local categoryId = msg:getByte()
 			local quickLootBackpacks = player:getQuickLootBackpacks()
-			
+
 			if quickLootBackpacks[categoryId] then
 				local category = quickLootBackpacks[categoryId]
 				local container = getContainerByQuickLootCategory(player, categoryId, category.sid)
@@ -218,7 +218,7 @@ function onRecvbyte(player, msg, byte)
 			end
 			player:sendLootBackpacks()
 		end
-		
+
 	end
 end
 
@@ -280,19 +280,19 @@ function lootItem(player, backpacks, item)
 		return QuickLootReturn.ITEM_WITH_NO_CATEGORY
 	end
 	local category = itemType:getLootCategory()
-	local definedBackpack = backpacks[category] 
+	local definedBackpack = backpacks[category]
 
 	-- If there is no bp defined for this category, set UnassignedLoot backpack as the target
-	if not definedBackpack then 
+	if not definedBackpack then
 		category = QuickLootCategory.UnassignedLoot
 		definedBackpack = backpacks[category]
 	end
-	
+
 	local destination = false
 
 
 	-- If there is no UnassignedLoot backpack defined or the player don't have the backpack in their inventory, set destination as the mainBp if fallback is enabled
-	if not definedBackpack or not player:getItemCount(definedBackpack.sid) then 
+	if not definedBackpack or not player:getItemCount(definedBackpack.sid) then
 		if player:getQuickLootMainContainerFallback() == 1 then
 			destination = player:getSlotItem(CONST_SLOT_BACKPACK)
 		else
@@ -306,16 +306,16 @@ function lootItem(player, backpacks, item)
 	if not destination then
 		return QuickLootReturn.COULD_NOT_FIND_ANY_BP
 	end
-	
+
 	-- check freeSlot (if you dont check, it will add items even being beyond backpack capacity)
-	if destination:getEmptySlots() == 0 then 
+	if destination:getEmptySlots() == 0 then
 	-- search for another BP form MainBP like this with FreeSlots
 	-- if cannot have slot to move, find next container inside selected backpack (or another container == this one in other backpack (recursive performance loss?))
 	-- else if it's fully full
 		-- move to UnassignedLoot (avoid redundancy checks by checking category again here, if it's already UnassignedLoot you can just go to main container)
 		-- if cannot have slot to move, find next container inside UnassignedLoot backpack
 		-- else if it's fully full
-			-- if main container fallback is enabled, move to main cotainer 
+			-- if main container fallback is enabled, move to main cotainer
 			-- else ignore (and send message to user)
 		destination = getFirstFreeBPOfType(player:getSlotItem(CONST_SLOT_BACKPACK), destination.itemid)
 		if not destination and not category == QuickLootCategory.UnassignedLoot then
@@ -390,7 +390,7 @@ function getContainerByQuickLootCategory(player, categoryId, serverId)
 	if insideBp then
 		return insideBp
 	end
-	
+
 	return nil
 end
 
@@ -420,7 +420,7 @@ function checkContainerCategory(containerItem, categoryId)
 	return nil
 end
 
--- Container Methods 
+-- Container Methods
 function Container.hasQuickLootCategory(self, categoryId)
 	return self:getCustomAttribute(string.format("%s%d", QUICKLOOT_CATEGORY_ATTRIBUTE, categoryId)) == 1
 end
@@ -435,18 +435,18 @@ end
 
 -- Player Methods
 function Player.sendLootBackpacks(self)
-	
+
 	local playerId = self:getGuid()
 	local containers = {}
 	local count = 0
 	local rows = db.storeQuery("SELECT `category_id`, `cid`, `sid` FROM `quickloot_containers` WHERE player_id = " .. playerId)
-	
+
 	if rows then
 		repeat
 			local categoryId = result.getNumber(rows, "category_id")
 			local clientId = result.getNumber(rows, "cid")
 			local serverId = result.getNumber(rows, "sid")
-			
+
 			if getContainerByQuickLootCategory(self, categoryId, serverId) then
 				count = count + 1
 				containers[categoryId] = clientId
@@ -455,21 +455,21 @@ function Player.sendLootBackpacks(self)
 
 		result.free(rows)
 	end
-	
+
 	local msg = NetworkMessage()
-	
+
 	msg:addByte(ServerPackets.SendBackpack)
 	msg:addByte(self:getQuickLootMainContainerFallback() or 1)
 	msg:addByte(count)
-	
+
 	for categoryId, clientId in pairs(containers) do
 		msg:addByte(categoryId)
 		-- if categoryId == QuickLootCategory.UnassignedLoot and not clientId then
-			--clientId = 
+			--clientId =
 		-- end
 		msg:addU16(clientId)
 	end
-	
+
 	msg:sendToPlayer(self)
 end
 
@@ -500,13 +500,13 @@ function Player.setQuickLootBackpack(self, categoryId, containerSlot, containerP
 	local container = getContainerBySlot(self, containerSlot, containerPosition)
 	if not container then
 		return
-    end
-    
-    if container.itemid == GOLD_POUCH and categoryId ~= QuickLootCategory.Gold then
-        self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
-        return
-    end
-	
+	end
+
+	if container.itemid == GOLD_POUCH and categoryId ~= QuickLootCategory.Gold then
+		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
+		return
+	end
+
 	-- if exists another value, remove custom attribute
 	local oldServerId = container.itemid
 	local oldContainer = getContainerByQuickLootCategory(self, categoryId, oldServerId)
@@ -516,14 +516,14 @@ function Player.setQuickLootBackpack(self, categoryId, containerSlot, containerP
 
 	-- and add custom attribute to new container
 	local serverId = container.itemid
-	
+
 	if not container:hasQuickLootCategory(categoryId) then
 		container:addQuickLootCategory(categoryId)
 	end
 
 	if count == 0 then
 		db.query("INSERT INTO `quickloot_containers` (`player_id`, `category_id`, `cid`, `sid`) VALUES (" .. playerId .. ", " .. categoryId .. ", " .. containerId .. ", " .. serverId .. ");")
-		return 
+		return
 	end
 
 	db.query('UPDATE `quickloot_containers` SET `cid` = ' .. containerId .. ', `sid` = ' .. serverId.. ' WHERE `player_id` = ' .. playerId .. ' AND `category_id` = ' .. categoryId .. '')
@@ -533,7 +533,7 @@ function Player.getQuickLootBackpacks(self)
 	local playerId = self:getGuid()
 	local query = db.storeQuery("SELECT `category_id`, `cid`, `sid` FROM `quickloot_containers` WHERE player_id = " .. playerId)
 	local containers = {}
-	
+
 	if query then
 		repeat
 			local categoryId = result.getNumber(query, "category_id")
@@ -577,7 +577,7 @@ function Player.setQuickLootItems(self, items)
 		items = {}
 	end
 
-	self:setSpecialStorage(StorageQuickLoot.ItemsToLoot, items) 
+	self:setSpecialStorage(StorageQuickLoot.ItemsToLoot, items)
 end
 
 function Player.getQuickLootItems(self)
@@ -585,7 +585,7 @@ function Player.getQuickLootItems(self)
 	if not value then
 		return {}
 	end
-	
+
 	return value
 end
 

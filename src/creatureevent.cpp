@@ -213,6 +213,15 @@ bool CreatureEvent::configureEvent(const pugi::xml_node& node)
 	return true;
 }
 
+void CreatureEvents::removeInvalidEvents()
+{
+	for (auto it = creatureEvents.begin(); it != creatureEvents.end(); ++it) {
+		if (it->second.getScriptId() == 0) {
+			creatureEvents.erase(it->second.getName());
+		}
+	}
+}
+
 std::string CreatureEvent::getScriptEventName() const
 {
 	//Depending on the type script event name is different
@@ -425,9 +434,9 @@ bool CreatureEvent::executeAdvance(Player* player, skills_t skill, uint32_t oldL
 	return scriptInterface->callFunction(4);
 }
 
-void CreatureEvent::executeOnKill(Creature* creature, Creature* target)
+void CreatureEvent::executeOnKill(Creature* creature, Creature* target, bool lastHit)
 {
-	//onKill(creature, target)
+	//onKill(creature, target, lastHit)
 	if (!scriptInterface->reserveScriptEnv()) {
 		std::cout << "[Error - CreatureEvent::executeOnKill] Call stack overflow" << std::endl;
 		return;
@@ -443,7 +452,8 @@ void CreatureEvent::executeOnKill(Creature* creature, Creature* target)
 	LuaScriptInterface::setCreatureMetatable(L, -1, creature);
 	LuaScriptInterface::pushUserdata<Creature>(L, target);
 	LuaScriptInterface::setCreatureMetatable(L, -1, target);
-	scriptInterface->callVoidFunction(2);
+	LuaScriptInterface::pushBoolean(L, lastHit);
+	scriptInterface->callVoidFunction(3);
 }
 
 void CreatureEvent::executeModalWindow(Player* player, uint32_t modalWindowId, uint8_t buttonId, uint8_t choiceId)

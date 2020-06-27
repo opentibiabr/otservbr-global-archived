@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Baltim" walkinterval="2000" floorchange="0" script="baltim.lua">
+	<health now="100" max="100"/>
+	<look type="129" head="96" body="86" legs="63" feet="115" addons="0"/>
+	<parameters>
+		<parameter key="message_greet" value="Hello |PLAYERNAME|! Do you need my services? I buy some {weapons} and {armor}."/>
+		<parameter key="message_farewell" value="Good bye, |PLAYERNAME|. Visit me whenever you want to sell something."/>
+		<parameter key="module_keywords" value="1"/>
+		<parameter key="keywords" value="weapons;armor;"/>
+		<parameter key="keyword_reply1" value="I don't have anything for sale, but if you want to sell something, ask me for a {trade} and see if I buy it from you."/>
+		<parameter key="keyword_reply2" value="I don't have anything for sale, but if you want to sell something, ask me for a {trade} and see if I buy it from you."/>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_sellable" value="steel helmet,2457,300;chain helmet,2458,50;leather helmet,2461,10;chain legs,2648,30;plate armor,2463,400;chain armor,2464,70;brass armor,2465,150;leather armor,2467,12;steel shield,2509,80;wooden shield,2512,5;battle shield,2513,95;two handed sword,2377,450;dagger,2379,2;rapier,2384,5;sabre,2385,12;short sword,2406,10;morning star,2394,90;mace,2398,30;battle hammer,2417,120;battle axe,2378,80;hand axe,2380,4;halberd,2381,400;spear,2389,3"/>
+	</parameters>
+</npc>

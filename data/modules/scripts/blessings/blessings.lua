@@ -20,7 +20,7 @@ Blessings.Credits = {
 }
 
 Blessings.Config = {
-	AdventurerBlessingLevel = 20, -- Free full bless until level
+	AdventurerBlessingLevel = 0, -- Free full bless until level
 	HasToF = false, -- Enables/disables twist of fate
 	InquisitonBlessPriceMultiplier = 1.1, -- Bless price multiplied by henricus
 	SkulledDeathLoseStoreItem = true, -- Destroy all items on store when dying with red/blackskull
@@ -80,16 +80,12 @@ Blessings.S_Packet  = {
 
 function onRecvbyte(player, msg, byte)
 	if (byte == Blessings.C_Packet.OpenWindow) then
-		if (player:getClient().os ~= CLIENTOS_NEW_WINDOWS and player:getClient().os ~= CLIENTOS_FLASH) then
-			player:sendCancelMessage("Only work with Flash Client & 11.0")
-			return false
-		end
-
 		Blessings.sendBlessDialog(player)
 	end
 end
 
 Blessings.sendBlessStatus = function(player, curBless)
+	-- why not using ProtocolGame::sendBlessStatus ?
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessStatus)
 	callback = function(k) return true end
@@ -97,43 +93,41 @@ Blessings.sendBlessStatus = function(player, curBless)
 		curBless = player:getBlessings(callback) -- ex: {1, 2, 5, 7}
 	end
 	Blessings.DebugPrint(#curBless, "sendBlessStatus curBless")
-	if player:getClient().version >= 1120 then 
-		local bitWiseCurrentBless = 0
-		local blessCount = 0
-		for i = 1, #curBless do
-			if curBless[i].losscount then
-				blessCount = blessCount + 1
-			end
-			if (not curBless[i].losscount and Blessings.Config.HasToF) or curBless[i].losscount then
-				bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, Blessings.BitWiseTable[curBless[i].id])
-			end
+	local bitWiseCurrentBless = 0
+	local blessCount = 0
+
+	for i = 1, #curBless do
+		if curBless[i].losscount then
+			blessCount = blessCount + 1
 		end
-		if blessCount > 5 and Blessings.Config.InventoryGlowOnFiveBless then
-			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, 1)
+		if (not curBless[i].losscount and Blessings.Config.HasToF) or curBless[i].losscount then
+			bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, Blessings.BitWiseTable[curBless[i].id])
 		end
-		msg:addU16(bitWiseCurrentBless)  
-		dlgBtnColour = 1
-		if blessCount >= 7 then
-			dlgBtnColour = 3
-		elseif blessCount > 0 then
-			dlgBtnColour = 2
-		end
-		msg:addByte(dlgBtnColour) -- Bless dialog button colour 1 = Disabled | 2 = normal | 3 = green
-	elseif #curBless >= 5 then
-		msg:addU16(1) -- TODO ?
-	else
-		msg:addU16(0)
 	end
+
+	if blessCount > 5 and Blessings.Config.InventoryGlowOnFiveBless then
+		bitWiseCurrentBless = bit.bor(bitWiseCurrentBless, 1)
+	end
+
+	msg:addU16(bitWiseCurrentBless)
+	msg:addByte(blessCount >= 7 and 3 or (blessCount > 0 and 2 or 1)) -- Bless dialog button colour 1 = Disabled | 2 = normal | 3 = green
+
+	-- if #curBless >= 5 then
+	-- 	msg:addU16(1) -- TODO ?
+	-- else
+	-- 	msg:addU16(0)
+	-- end
 
 	msg:sendToPlayer(player)
 end
 
 Blessings.sendBlessDialog = function(player)
+	-- TODO: Migrate to protocolgame.cpp
 	local msg = NetworkMessage()
 	msg:addByte(Blessings.S_Packet.BlessDialog)
-	
+
 	callback = function(k) return true end
-	local curBless = player:getBlessings()	
+	local curBless = player:getBlessings()
 
 	msg:addByte(Blessings.Config.HasToF and #Blessings.All or (#Blessings.All - 1)) -- total blessings
 	for k = 1, #Blessings.All do
@@ -151,11 +145,11 @@ Blessings.sendBlessDialog = function(player)
 		PvPmaxXPLoss = math.floor(PvPminXPLoss * 1.15)
 	end
 	local PvEXPLoss = PvPminXPLoss
-	
+
 	local playerAmulet = player:getSlotItem(CONST_SLOT_NECKLACE)
 	local haveSkull = player:getSkull() >= 4
 	hasAol = (playerAmulet and playerAmulet:getId() == ITEM_AMULETOFLOSS)
-	
+
 	equipLoss = Blessings.LossPercent[#curBless].item
 	if haveSkull then
 		equipLoss = 100
@@ -228,7 +222,7 @@ end
 Blessings.checkBless = function(player)
 	local result, bless = 'Received blessings:'
 	for k, v in pairs(Blessings.All) do
-		result = player:hasBlessing(k) and result .. '\\n' .. v.name or result
+		result = player:hasBlessing(k) and result .. '\n' .. v.name or result
 	end
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 20 > result:len() and 'No blessings received.' or result)
 	return true
@@ -275,7 +269,7 @@ Blessings.DropLoot = function(player, corpse, chance, skulled)
 		end
 	end
 	if skulled and Blessings.Config.SkulledDeathLoseStoreItem then
-		local inbox = self:getSlotItem(CONST_SLOT_STORE_INBOX)
+		local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
 		local inboxsize = inbox:getSize() - 1
 		for i = 0, inboxsize do
 			inbox:getItem(i):destroy()
@@ -291,7 +285,7 @@ Blessings.ClearBless = function(player, killer, currentBless)
 		return
 	end
 	for i = 1, #currentBless do
-		
+
 		Blessings.DebugPrint(i, "ClearBless curBless i", " | "..currentBless[i].name)
 		player:removeBlessing(currentBless[i].id, 1)
 	end
@@ -332,7 +326,7 @@ Blessings.BuyAllBlesses = function(player)
 		player:sendCancelMessage("You don't have enough money. You need " .. totalCost .. " to buy all blesses.", cid)
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	end
-	
+
 end
 
 Blessings.PlayerDeath = function(player, corpse, killer)
@@ -343,7 +337,7 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 
 	if haveSkull then  -- lose all bless + drop all items
 		Blessings.DropLoot(player, corpse, 100, true)
-	elseif #curBless < 5 and not hasAol then -- lose all items 
+	elseif #curBless < 5 and not hasAol then -- lose all items
 		local equipLoss = Blessings.LossPercent[#curBless].item
 		Blessings.DropLoot(player, corpse, equipLoss)
 	elseif #curBless < 5 and hasAol and not hasToF then
@@ -355,7 +349,7 @@ Blessings.PlayerDeath = function(player, corpse, killer)
 	if not player:getSlotItem(CONST_SLOT_BACKPACK) then
 		player:addItem(ITEM_BAG, 1, false, CONST_SLOT_BACKPACK)
 	end
-	
+
 	return true
 end
 
@@ -364,7 +358,7 @@ function Player.getBlessings(self, filter, hasblessingFilter)
 	if filter == nil then
 		filter = function(b) return b.losscount end
 	end
-	
+
 	if hasblessingFilter == nil then
 		hasblessingFilter = function(p, b) return p:hasBlessing(b) end
 	end

@@ -13,9 +13,9 @@ function onSpeak(player, type, message)
 	end
 
 	if player:getStorageValue(storage) > os.time() then
-        player:sendCancelMessage("You are muted from the Help channel for using it inappropriately.")
-        return false
-    end
+		player:sendCancelMessage("You are muted from the Help channel for using it inappropriately.")
+		return false
+	end
 
 	if playerAccountType >= ACCOUNT_TYPE_TUTOR then
 		if string.sub(message, 1, 6) == "!mute " then
@@ -43,12 +43,12 @@ function onSpeak(player, type, message)
 			if target then
 				if playerAccountType > target:getAccountType() then
 					if target:getStorageValue(storage) > os.time() then
-                        target:removeCondition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT, CHANNEL_HELP)
-                        sendChannelMessage(CHANNEL_HELP, TALKTYPE_CHANNEL_R1, target:getName() .. " has been unmuted.")
+						target:removeCondition(CONDITION_CHANNELMUTEDTICKS, CONDITIONID_DEFAULT, CHANNEL_HELP)
+						sendChannelMessage(CHANNEL_HELP, TALKTYPE_CHANNEL_R1, target:getName() .. " has been unmuted.")
 						target:setStorageValue(storage, -1)
 					else
-                        player:sendCancelMessage("That player is not muted.")
-                    end
+						player:sendCancelMessage("That player is not muted.")
+					end
 				else
 					player:sendCancelMessage("You are not authorized to unmute that player.")
 				end

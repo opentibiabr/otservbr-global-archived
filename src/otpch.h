@@ -44,11 +44,18 @@
 
 #include <pugixml.hpp>
 
+
+// Log library
 #ifdef DEBUG_LOG
-#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
-#else
-#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_ERROR
+	// DLOG_F(verbosity_name, fmt, ...)
+	// DVLOG_F(verbosity, fmt, ...)
+	// DLOG_IF_F(verbosity_name, cond, fmt, ...)
+	// DVLOG_IF_F(verbosity, cond, fmt, ...)
+	// DRAW_LOG_F(verbosity_name, fmt, ...)
+	// DRAW_VLOG_F(verbosity, fmt, ...)
+	#define LOGURU_DEBUG_LOGGING 1
 #endif
-#include <spdlog/spdlog.h>
+// #define LOGURU_WITH_STREAMS 1
+#include "loguru.h"
 
 #endif

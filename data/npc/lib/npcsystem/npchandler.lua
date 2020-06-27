@@ -1,7 +1,8 @@
 -- Advanced NPC System by Jiddo
 
 if NpcHandler == nil then
-local storage, duration = 1.4, 0.8
+	local storage = Storage.NpcExhaustOnBuy
+	local duration = 1
 	-- Constant talkdelay behaviors.
 	TALKDELAY_NONE = 0 -- No talkdelay. Npc will reply immedeatly.
 	TALKDELAY_ONTHINK = 1 -- Talkdelay handled through the onThink callback function. (Default)
@@ -81,6 +82,7 @@ local storage, duration = 1.4, 0.8
 		topic = nil,
 		messages = {
 			-- These are the default replies of all npcs. They can/should be changed individually for each npc.
+			-- Leave empty for no send message
 			[MESSAGE_GREET] = "Greetings, |PLAYERNAME|.",
 			[MESSAGE_FAREWELL] = "Good bye, |PLAYERNAME|.",
 			[MESSAGE_BUY] = "Do you want to buy |ITEMCOUNT| |ITEMNAME| for |TOTALCOST| gold coins?",
@@ -96,14 +98,14 @@ local storage, duration = 1.4, 0.8
 			[MESSAGE_NEEDSPACE] = "You do not have enough capacity.",
 			[MESSAGE_NEEDMORESPACE] = "You do not have enough capacity for all items.",
 			[MESSAGE_IDLETIMEOUT] = "Good bye.",
-			[MESSAGE_WALKAWAY] = "Good bye.",
+			[MESSAGE_WALKAWAY] = "",
 			[MESSAGE_DECLINE] = "Then not.",
 			[MESSAGE_SENDTRADE] = "Of course, just browse through my wares.",
 			[MESSAGE_NOSHOP] = "Sorry, I'm not offering anything.",
 			[MESSAGE_ONCLOSESHOP] = "Thank you, come back whenever you're in need of something else.",
 			[MESSAGE_ALREADYFOCUSED] = "|PLAYERNAME|, I am already talking to you.",
-			[MESSAGE_WALKAWAY_MALE] = "Good bye.",
-			[MESSAGE_WALKAWAY_FEMALE] = "Good bye."
+			[MESSAGE_WALKAWAY_MALE] = "",
+			[MESSAGE_WALKAWAY_FEMALE] = ""
 		}
 	}
 
@@ -474,7 +476,7 @@ local storage, duration = 1.4, 0.8
 	function NpcHandler:onBuy(creature, itemid, subType, amount, ignoreCap, inBackpacks)
 		local cid = creature.uid
 		if (os.time() - getPlayerStorageValue(cid, storage)) >= duration then
-		setPlayerStorageValue(cid, storage, os.time()) -- DELAY PRA COMPRAR
+		setPlayerStorageValue(cid, storage, os.time()) -- Delay for buy
 		local callback = self:getCallback(CALLBACK_ONBUY)
 		if callback == nil or callback(cid, itemid, subType, amount, ignoreCap, inBackpacks) then
 			if self:processModuleCallback(CALLBACK_ONBUY, cid, itemid, subType, amount, ignoreCap, inBackpacks) then

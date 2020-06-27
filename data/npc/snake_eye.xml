@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Snake Eye" walkinterval="2000" floorchange="0" script="snake_eye.lua">
+	<health now="100" max="100"/>
+	<look type="73" head="20" body="30" legs="40" feet="50" addons="1"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="wine,2006,10,15;meat,2666,4;fish,2667,10;bread,2689,10;mug of beer,2012,5,3;"/>
+	</parameters>
+</npc>

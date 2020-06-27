@@ -20,9 +20,9 @@
 #include "otpch.h"
 
 #if __has_include("luajit/lua.hpp")
-#include <luajit/lua.hpp>
+  #include <luajit/lua.hpp>
 #else
-#include <lua.hpp>
+  #include <lua.hpp>
 #endif
 
 #include "configmanager.h"
@@ -133,8 +133,7 @@ bool ConfigManager::load()
 
 		integer[MARKET_OFFER_DURATION] = getGlobalNumber(L, "marketOfferDuration", 30 * 24 * 60 * 60);
 
-		integer[VERSION_MIN] = getGlobalNumber(L, "clientVersionMin", CLIENT_VERSION_MIN);
-		integer[VERSION_MAX] = getGlobalNumber(L, "clientVersionMax", CLIENT_VERSION_MAX);
+		integer[VERSION] = getGlobalNumber(L, "clientVersion", CLIENT_VERSION);
 		integer[FREE_DEPOT_LIMIT] = getGlobalNumber(L, "freeDepotLimit", 2000);
 		integer[PREMIUM_DEPOT_LIMIT] = getGlobalNumber(L, "premiumDepotLimit", 8000);
 		integer[DEPOT_BOXES] = getGlobalNumber(L, "depotBoxes", 19);
@@ -212,6 +211,9 @@ bool ConfigManager::load()
 	integer[BLACK_SKULL_DURATION] = getGlobalNumber(L, "blackSkullDuration", 45);
 	integer[ORANGE_SKULL_DURATION] = getGlobalNumber(L, "orangeSkullDuration", 7);
 	integer[SERVER_SAVE_NOTIFY_DURATION] = getGlobalNumber(L, "serverSaveNotifyDuration", 5);
+
+	integer[PUSH_DELAY] = getGlobalNumber(L, "pushDelay", 1000);
+	integer[PUSH_DISTANCE_DELAY] = getGlobalNumber(L, "pushDistanceDelay", 1500);
 
 	floating[RATE_MONSTER_HEALTH] = getGlobalFloat(L, "rateMonsterHealth", 1.0);
 	floating[RATE_MONSTER_ATTACK] = getGlobalFloat(L, "rateMonsterAttack", 1.0);

@@ -20,7 +20,7 @@
 #ifndef FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 #define FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 
-#include "account.h"
+#include "account.hpp"
 #include "combat.h"
 #include "groups.h"
 #include "map.h"
@@ -206,7 +206,7 @@ class Game
 		  * \param extendedPos If true, the creature will in first-hand be placed 2 tiles away
 		  * \param force If true, placing the creature will not fail because of obstacles (creatures/items)
 		  */
-		bool placeCreature(Creature* creature, const Position& pos, bool extendedPos = false, bool force = false, Creature* master = nullptr);
+		bool placeCreature(Creature* creature, const Position& pos, bool extendedPos = false, bool force = false);
 
 		/**
 		  * Remove Creature from the map.
@@ -420,7 +420,7 @@ class Game
 
 		std::forward_list<Item*> getMarketItemList(uint16_t wareId, uint16_t sufficientCount, DepotLocker* depotLocker);
 
-		static void updatePremium(Account& account);
+		static void updatePremium(account::Account& account);
 
 		void cleanup();
 		void shutdown();
@@ -437,7 +437,6 @@ class Game
 		void changeLight(const Creature* creature);
 		void updateCreatureSkull(const Creature* player);
 		void updatePlayerShield(Player* player);
-		void updatePlayerHelpers(const Player& player);
 		void updateCreatureType(Creature* creature);
 		void updateCreatureWalkthrough(const Creature* creature);
 
@@ -534,7 +533,7 @@ class Game
 
 	private:
 		void checkImbuements();
-		void applyImbuementEffects(Creature* attacker, CombatDamage& damage, int32_t realDamage);
+		void applyImbuementEffects(Creature* attacker, int32_t realDamage);
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
 		void playerWhisper(Player* player, const std::string& text);
 		bool playerYell(Player* player, const std::string& text);

@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="White Pale" nameDescription="White Pale" race="blood" experience="390" speed="170" script="rewardboss.lua">
-	<health now="500" max="500"/>
-	<look type="564" corpse="21295"/>
-	<targetchange interval="2000" chance="0"/>
+	<health now="500" max="500" />
+	<look type="564" corpse="21295" />
+	<targetchange interval="2000" chance="0" />
+	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
 		<flag rewardboss="1" />
-		<flag summonable="0"/>
-		<flag attackable="1"/>
-		<flag hostile="1"/>
-		<flag illusionable="0"/>
-		<flag convinceable="0"/>
-		<flag pushable="0"/>
-		<flag canpushitems="1"/>
-		<flag canpushcreatures="0"/>
-		<flag targetdistance="1"/>
-		<flag staticattack="90"/>
-		<flag runonhealth="0"/>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="0" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="45" attack="40"/>
+		<attack name="melee" interval="2000" skill="45" attack="40" />
 		<attack name="earth" interval="2000" chance="14" radius="5" target="0" min="-100" max="-110">
-			<attribute key="areaEffect" value="smallplants"/>
+			<attribute key="areaEffect" value="smallplants" />
 		</attack>
 		<attack name="poisoncondition" interval="2000" chance="12" radius="3" target="0" min="-200" max="-300">
-			<attribute key="areaEffect" value="blackspark"/>
+			<attribute key="areaEffect" value="blackspark" />
 		</attack>
-		<attack name="white pale paralyze" interval="2000" chance="11"/>
+		<attack name="white pale paralyze" interval="2000" chance="11" />
 	</attacks>
 	<defenses armor="8" defense="11">
-		<defense name="white pale summon" interval="2000" chance="12"/>
+		<defense name="white pale summon" interval="2000" chance="12" />
 	</defenses>
 	<immunities>
-		<immunity invisible="1"/>
-		<immunity paralyze="1"/>
+		<immunity invisible="1" />
+		<immunity paralyze="1" />
 	</immunities>
 	<loot>
 		<item id="21400" chance="200" /><!-- silver token -->

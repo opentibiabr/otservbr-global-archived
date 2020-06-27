@@ -1,3 +1,10 @@
+local setting = {
+	[VOCATION.ID.MASTER_SORCERER] = {name = "thundergiant"},
+	[VOCATION.ID.ELDER_DRUID] = {name = "grovebeast"},
+	[VOCATION.ID.ROYAL_PALADIN] = {name = "emberwing"},
+	[VOCATION.ID.ELITE_KNIGHT] = {name = "skullfrost"}
+}
+
 function removePet(creatureId)
     local c = Creature(creatureId)
     if not c then return false end
@@ -21,27 +28,22 @@ function onCastSpell(player, variant)
     	return false
     end
 
-    local vocationId = player:getVocation():getId()
+    local vocationId = setting[player:getVocation():getId()]
     local summonName = nil
-    if vocationId == 5 then
-        summonName = "thundergiant"
-    elseif vocationId == 6 then
-        summonName = "grovebeast"
-    elseif vocationId == 7 then
-        summonName = "emberwing"
-    elseif vocationId == 8 then
-        summonName = "skullfrost"
+    if vocationId then
+        summonName = vocationId.name
     end
 
     if not summonName then return false end
 
-    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false, player)
+    local mySummon = Game.createMonster(summonName, player:getPosition(), true, false)
     if not mySummon then
         return combat:execute(player, variant)
     end
 
     player:addSummon(mySummon)
-    mySummon:registerEvent('petdeath')
+    mySummon:reload()
+    mySummon:registerEvent("SummonDeath")
 
     local deltaSpeed = math.max(player:getBaseSpeed() - mySummon:getBaseSpeed(), 0)
     mySummon:changeSpeed(deltaSpeed)

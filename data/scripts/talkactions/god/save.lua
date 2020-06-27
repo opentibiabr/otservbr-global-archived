@@ -1,5 +1,3 @@
-local talk = TalkAction("/save")
-
 local savingEvent = 0
 function save(delay)
 	saveServer()
@@ -8,7 +6,9 @@ function save(delay)
 	end
 end
 
-function talk.onSay(player, words, param)
+local save = TalkAction("/save")
+
+function save.onSay(player, words, param)
 	if player:getGroup():getAccess() then
 		if isNumber(param) then
 			stopEvent(savingEvent)
@@ -20,5 +20,5 @@ function talk.onSay(player, words, param)
 	end
 end
 
-talk:separator(" ")
-talk:register()
+save:separator(" ")
+save:register()

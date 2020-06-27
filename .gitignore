@@ -366,10 +366,13 @@ config.lua
 # Extensions
 *.ini
 *.otb
-*.txt
 *.exe
 *.otbm
 *.rar
 
 # SFTP for Sublime
 sftp-config.json
+
+# Binaries
+otbr
+otbr.old
