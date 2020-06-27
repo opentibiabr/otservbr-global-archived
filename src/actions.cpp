@@ -514,10 +514,6 @@ ReturnValue Actions::internalUseItem(Player* player, const Position& pos,
 			return RETURNVALUE_YOUARENOTTHEOWNER;
 		}
 
-		if (corpseOwner != 0 && player->canOpenCorpse(corpseOwner) && player->getProtocolVersion() <= 1149) {
-			g_game.playerQuickLoot(player->getID(), pos, container->getClientID(), STACKPOS_USEITEM, item);
-		}
-
 		// open/close container
 		int32_t oldContainerId = player->getContainerID(openContainer);
 		if (oldContainerId != -1) {
