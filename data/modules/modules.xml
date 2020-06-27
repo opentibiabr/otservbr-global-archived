@@ -19,6 +19,10 @@
 	<!-- EquipObject -->
 	<module type="recvbyte" byte="119" delay="1000" script="equip_object/equip_object.lua"/>
 
+	<!-- Prey System -->
+	<module type="recvbyte" byte="235" script="prey_system/prey.lua" />
+	<module type="recvbyte" byte="237" script="prey_system/prey.lua" />
+
 	<!-- Blessings -->
 	<module type="recvbyte" byte="207" script="blessings/blessings.lua" />
 
