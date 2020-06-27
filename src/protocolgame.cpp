@@ -3915,25 +3915,27 @@ void ProtocolGame::sendItemsPrice()
 
 void ProtocolGame::reloadCreature(const Creature* creature)
 {
-	if (!canSee(creature))
-		return;
+  if (!canSee(creature))
+    return;
 
-	uint32_t stackpos = creature->getTile()->getClientIndexOfCreature(player, creature);
+  uint32_t stackpos = creature->getTile()->getClientIndexOfCreature(player, creature);
 
-	if (stackpos >= 10)
-		return;
+  if (stackpos >= 10)
+    return;
 
-	NetworkMessage msg;
+  NetworkMessage msg;
 
-	std::unordered_set<uint32_t>::iterator it = std::find(knownCreatureSet.begin(), knownCreatureSet.end(), creature->getID());
-	if (it != knownCreatureSet.end()) {
-		msg.addByte(0x6B);
-		msg.addPosition(creature->getPosition());
-		msg.addByte(stackpos);
-		AddCreature(msg, creature, false, 0);
-	} else {
-		sendAddCreature(creature, creature->getPosition(), stackpos, false);
-	}
+  std::unordered_set<uint32_t>::iterator it = std::find(knownCreatureSet.begin(), knownCreatureSet.end(), creature->getID());
+  if (it != knownCreatureSet.end()) {
+    msg.addByte(0x6B);
+    msg.addPosition(creature->getPosition());
+    msg.addByte(stackpos);
+    AddCreature(msg, creature, false, 0);
+  }
+  else {
+    sendAddCreature(creature, creature->getPosition(), stackpos, false);
+  }
+}
 
 void ProtocolGame::sendOpenStash()
 {
@@ -3961,7 +3963,7 @@ void ProtocolGame::AddPlayerStowedItems(NetworkMessage& msg)
 
 void ProtocolGame::parseStashWithdraw(NetworkMessage& msg)
 {
-	uint16_t action = msg.getByte();
+	uint16_t action = msg.getByte(); //TODO
 	uint16_t itemId = msg.get<uint16_t>();
 	uint16_t itemCount = msg.get<uint32_t>();
 

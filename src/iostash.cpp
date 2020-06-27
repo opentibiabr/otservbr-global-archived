@@ -139,9 +139,8 @@ std::map<uint16_t, std::pair<bool, uint32_t>> IOStash::stashContainer(int player
 	return itemDict;
 }
 
-bool IOStash::withdrawItem(int playerId, uint16_t itemId, uint16_t count) {
-	
-	bool shouldUpdate = false;
+bool IOStash::withdrawItem(int playerId, uint16_t itemId, uint16_t count)
+{	
 	std::ostringstream query;
 	uint16_t remainingCount = 0;
 
