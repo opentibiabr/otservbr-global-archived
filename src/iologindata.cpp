@@ -307,6 +307,8 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   player->setBankBalance(result->getNumber<uint64_t>("balance"));
 
+  player->quickLootFallbackToMainContainer = result->getNumber<bool>("quick_loot_fallback");
+
   player->setSex(static_cast<PlayerSex_t>(result->getNumber<uint16_t>("sex")));
   player->level = std::max<uint32_t>(1, result->getNumber<uint32_t>("level"));
 
@@ -523,6 +525,14 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
         if (cid > 0) {
           openContainersList.emplace_back(std::make_pair(cid, itemContainer));
         }
+        if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+					uint32_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+					for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
+						if (hasBitSet(1 << category, flags)) {
+							player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+						}
+					}
+				}
       }
 
       if (pid >= 1 && pid <= 11) {
@@ -856,6 +866,19 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   query << "`conditions` = " << db.escapeBlob(conditions, conditionsSize) << ',';
+
+  // quickloot list
+	propWriteStream.clear();
+	propWriteStream.write<size_t>(player->quicklootItemIds.size());
+	for (auto it = player->quicklootItemIds.begin(), end = player->quicklootItemIds.end(); it != end; ++it) {
+		propWriteStream.write<uint16_t>(*it);
+	}
+
+  size_t attributesSize;
+	const char* attributes = propWriteStream.getStream(attributesSize);
+
+	attributes = propWriteStream.getStream(attributesSize);
+	query << "`autoloot` = " << db.escapeBlob(attributes, attributesSize) << ',';
 
   if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
     int64_t skullTime = 0;

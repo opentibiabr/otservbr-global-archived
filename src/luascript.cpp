@@ -1534,6 +1534,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_ATTRIBUTE_DOORID)
 	registerEnum(ITEM_ATTRIBUTE_SPECIAL)
 	registerEnum(ITEM_ATTRIBUTE_OPENCONTAINER)
+	registerEnum(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)
+	registerEnum(ITEM_ATTRIBUTE_OPENED)
 
 	registerEnum(ITEM_TYPE_DEPOT)
 	registerEnum(ITEM_TYPE_REWARDCHEST)
@@ -2621,6 +2623,12 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "isOffline", LuaScriptInterface::luaPlayerIsOffline);
 
+	registerMethod("Player", "getQuicklootList", LuaScriptInterface::luaPlayerGetQuicklootList);
+	registerMethod("Player", "manageQuickloot", LuaScriptInterface::luaPlayerManageQuickloot);
+	registerMethod("Player", "getContainers", LuaScriptInterface::luaPlayerGetContainers);
+	registerMethod("Player", "setLootContainer", LuaScriptInterface::luaPlayerSetLootContainer);
+	registerMethod("Player", "getLootContainer", LuaScriptInterface::luaPlayerGetLootContainer);
+
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
 	registerMetaMethod("Monster", "__eq", LuaScriptInterface::luaUserdataCompare);
@@ -2806,7 +2814,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("ItemType", "getExtraDefense", LuaScriptInterface::luaItemTypeGetExtraDefense);
 	registerMethod("ItemType", "getImbuingSlots", LuaScriptInterface::luaItemTypeGetImbuingSlots);
 	registerMethod("ItemType", "getArmor", LuaScriptInterface::luaItemTypeGetArmor);
-	registerMethod("ItemType", "getLootCategory", LuaScriptInterface::luaItemTypeGetLootCategory);
 	registerMethod("ItemType", "getWeaponType", LuaScriptInterface::luaItemTypeGetWeaponType);
 
 	registerMethod("ItemType", "getElementType", LuaScriptInterface::luaItemTypeGetElementType);
@@ -8587,24 +8594,6 @@ int LuaScriptInterface::luaPlayerGetFreeCapacity(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerCanOpenCorpse(lua_State* L)
-{
-	// player:canOpenCorpse(corpseOwner)
-	Player* player = getUserdata<Player>(L, 1);
-	if (!player) {
-		lua_pushnil(L);
-		return 1;
-	}
-	if (player) {
-		uint32_t corpseOwner = getNumber<uint32_t>(L, 2);
-		pushBoolean(L, player->canOpenCorpse(corpseOwner));
-	}
-	else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaPlayerGetKills(lua_State* L)
 {
 	// player:getKills()
@@ -11453,6 +11442,103 @@ int LuaScriptInterface::luaPlayerIsOffline(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerGetQuicklootList(lua_State* L)
+{
+	// player:getQuicklootList()
+	Player* player =  getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	lua_createtable(L, player->getQuicklootItems().size(), 0);
+
+	int index = 0;
+	for (const auto& id : player->getQuicklootItems()) {
+		lua_pushnumber(L, id);
+		lua_rawseti(L, -2, ++index);
+	}
+
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerManageQuickloot(lua_State* L)
+{
+	// player:manageQuickloot([itemid = 0])
+	Player* player =  getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	uint16_t itemid = getNumber<uint16_t>(L, 2, 0);
+	player->setQuicklootItem(itemid);
+	pushBoolean(L, true);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetContainers(lua_State* L)
+{
+	// player:getContainers()
+	Player* player =  getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	std::map<uint16_t, Container*> contMap = player->getContainers();
+
+	lua_createtable(L, contMap.size(), 0);
+	for (const auto& it : contMap) {
+		pushUserdata(L, it.second);
+		setMetatable(L, -1, "Container");
+		lua_rawseti(L, -2, it.first);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetLootContainer(lua_State* L)
+{
+	// player:setLootContainer(object, container)
+	Player* player =  getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	ObjectCategory_t category = getNumber<ObjectCategory_t>(L, 2);
+	Container* container = getUserdata<Container>(L, 3);
+	if (!container) {
+		player->setLootContainer(category, nullptr);
+		pushBoolean(L, true);
+		return 1;
+	}
+
+	pushBoolean(L, player->setLootContainer(category, container) != container);
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerGetLootContainer(lua_State* L)
+{
+	// player:getLootContainer(object)
+	Player* player =  getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	ObjectCategory_t category = getNumber<ObjectCategory_t>(L, 2);
+	Container* container = player->getLootContainer(category);
+	if (!container) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	pushUserdata(L, container);
+	setMetatable(L, -1, "Container");
+	return 1;
+}
+
 // Monster
 int LuaScriptInterface::luaMonsterCreate(lua_State* L)
 {
@@ -13260,18 +13346,6 @@ int LuaScriptInterface::luaItemTypeGetArmor(lua_State* L)
 	const ItemType* itemType = getUserdata<const ItemType>(L, 1);
 	if (itemType) {
 		lua_pushnumber(L, itemType->armor);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaItemTypeGetLootCategory(lua_State* L)
-{
-	// itemType:getLootCategory()
-	const ItemType* itemType = getUserdata<const ItemType>(L, 1);
-	if (itemType) {
-		lua_pushnumber(L, itemType->quickLootCategory);
 	} else {
 		lua_pushnil(L);
 	}

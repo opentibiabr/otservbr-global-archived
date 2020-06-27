@@ -861,8 +861,6 @@ class LuaScriptInterface
 		static int luaPlayerGetCapacity(lua_State* L);
 		static int luaPlayerSetCapacity(lua_State* L);
 
-		static int luaPlayerCanOpenCorpse(lua_State* L);
-
 		static int luaPlayerGetKills(lua_State* L);
 		static int luaPlayerSetKills(lua_State* L);
 
@@ -1025,6 +1023,13 @@ class LuaScriptInterface
 
 		static int luaPlayerIsPzLocked(lua_State* L);
 		static int luaPlayerIsOffline(lua_State* L);
+
+		// Quickloot
+        static int luaPlayerGetQuicklootList(lua_State* L);
+        static int luaPlayerManageQuickloot(lua_State* L);
+        static int luaPlayerGetContainers(lua_State* L);
+        static int luaPlayerSetLootContainer(lua_State* L);
+        static int luaPlayerGetLootContainer(lua_State* L);
 
 		// New Prey
 		static int luaPlayerGetPreyState(lua_State * L);
@@ -1262,7 +1267,6 @@ class LuaScriptInterface
 		static int luaItemTypeGetExtraDefense(lua_State* L);
 		static int luaItemTypeGetImbuingSlots(lua_State* L);
 		static int luaItemTypeGetArmor(lua_State* L);
-		static int luaItemTypeGetLootCategory(lua_State* L);
 		static int luaItemTypeGetWeaponType(lua_State* L);
 
 		static int luaItemTypeGetElementType(lua_State* L);

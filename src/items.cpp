@@ -42,6 +42,45 @@ void Items::clear()
 	nameToItems.clear();
 }
 
+using LootTypeNames = std::unordered_map<std::string, ItemTypes_t>;
+
+LootTypeNames lootTypeNames = {
+	{"armor",		ITEM_TYPE_ARMOR},
+	{"amulet",		ITEM_TYPE_AMULET},
+	{"legs",		ITEM_TYPE_BOOTS},
+	{"container",	ITEM_TYPE_CONTAINER},
+	{"decoration",	ITEM_TYPE_DECORATION},
+	{"food",		ITEM_TYPE_FOOD},
+	{"head",		ITEM_TYPE_HELMET},
+	{"legs",		ITEM_TYPE_LEGS},
+	{"other",		ITEM_TYPE_OTHER},
+	{"potion",		ITEM_TYPE_POTION},
+	{"ring",		ITEM_TYPE_RING},
+	{"rune",		ITEM_TYPE_RUNE},
+	{"shield",		ITEM_TYPE_SHIELD},
+	{"tools",		ITEM_TYPE_TOOLS},
+	{"valuables",	ITEM_TYPE_VALUABLE},
+	{"ammo",		ITEM_TYPE_AMMO},
+	{"axe",			ITEM_TYPE_AXE},
+	{"club",		ITEM_TYPE_CLUB},
+	{"distance",	ITEM_TYPE_DISTANCE},
+	{"sword",		ITEM_TYPE_SWORD},
+	{"wand",		ITEM_TYPE_WAND},
+	{"product",		ITEM_TYPE_CREATUREPRODUCT},
+	{"retrieve",	ITEM_TYPE_RETRIEVE},
+	{"gold",		ITEM_TYPE_GOLD},
+	{"unassigned",	ITEM_TYPE_UNASSIGNED},
+};
+
+ItemTypes_t Items::getLootType(const std::string& strValue)
+{
+	auto lootType = lootTypeNames.find(strValue);
+	if (lootType != lootTypeNames.end()) {
+		return lootType->second;
+	}
+	return ITEM_TYPE_NONE;
+}
+
 bool Items::reload()
 {
 	clear();

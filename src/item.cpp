@@ -632,6 +632,26 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 			break;
 		}
 
+		case ATTR_QUICKLOOTCONTAINER: {
+			uint32_t flags;
+			if (!propStream.read<uint32_t>(flags)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER, flags);
+			break;
+		}
+
+		case ATTR_OPENED: {
+			uint8_t opened;
+			if (!propStream.read<uint8_t>(opened)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_OPENED, opened);
+			break;
+		}
+
 		//these should be handled through derived classes
 		//If these are called then something has changed in the items.xml since the map was saved
 		//just read the values
@@ -863,6 +883,16 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 			// Serializing value type and value
 			entry.second.serialize(propWriteStream);
 		}
+	}
+
+	if (hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+		propWriteStream.write<uint8_t>(ATTR_QUICKLOOTCONTAINER);
+		propWriteStream.write<uint32_t>(getQuicklootAttr());
+	}
+
+	if (hasAttribute(ITEM_ATTRIBUTE_OPENED)) {
+		propWriteStream.write<uint8_t>(ATTR_OPENED);
+		propWriteStream.write<uint8_t>(getIntAttr(ITEM_ATTRIBUTE_OPENED));
 	}
 }
 

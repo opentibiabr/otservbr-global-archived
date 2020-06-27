@@ -105,7 +105,10 @@ enum AttrTypes_t {
 	ATTR_SPECIAL = 34,
 	ATTR_IMBUINGSLOTS = 35,
 	ATTR_OPENCONTAINER = 36,
-	ATTR_CUSTOM_ATTRIBUTES = 37
+	ATTR_CUSTOM_ATTRIBUTES = 37,
+
+	ATTR_QUICKLOOTCONTAINER = 38,
+	ATTR_OPENED = 39
 };
 
 enum Attr_ReadValue {
@@ -641,6 +644,27 @@ class Item : virtual public Thing
 		const ItemAttributes::CustomAttribute* getCustomAttribute(const std::string& key) {
 			return getAttributes()->getCustomAttribute(key);
 		}
+		const ItemAttributes::CustomAttribute* getCustomAttribute(const std::string& key) const {
+			if (!attributes) {
+				return nullptr;
+			}
+
+			if (!attributes->hasAttribute(ITEM_ATTRIBUTE_CUSTOM)) {
+				return nullptr;
+			}
+
+			ItemAttributes::CustomAttributeMap* customAttrMap = attributes->getAttr(ITEM_ATTRIBUTE_CUSTOM).value.custom;
+			if (!customAttrMap) {
+				return nullptr;
+			}
+
+			auto it = customAttrMap->find(asLowerCaseString(key));
+			if (it != customAttrMap->end()) {
+				return &(it->second);
+			}
+
+			return nullptr;
+		}
 
 		bool removeCustomAttribute(int64_t key) {
 			return getAttributes()->removeCustomAttribute(key);
@@ -869,6 +893,12 @@ class Item : virtual public Thing
 				return static_cast<uint8_t>(getIntAttr(ITEM_ATTRIBUTE_HITCHANCE));
 			}
 			return items[id].hitChance;
+		}
+		uint32_t getQuicklootAttr() const {
+			if (hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+				return getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+			}
+			return 0;
 		}
 
 		uint32_t getWorth() const;
