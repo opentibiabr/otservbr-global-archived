@@ -1751,34 +1751,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(TILESTATE_FLOORCHANGE_EAST_ALT)
 	registerEnum(TILESTATE_SUPPORTS_HANGABLE)
 
-	registerEnum(LOOT_UNASSIGNED)
-	registerEnum(LOOT_GOLD)
-	registerEnum(LOOT_ARMOR)
-	registerEnum(LOOT_AMULET)
-	registerEnum(LOOT_BOOTS)
-	registerEnum(LOOT_CONTAINER)
-	registerEnum(LOOT_CREATURE_PRODUCT)
-	registerEnum(LOOT_DECORATION)
-	registerEnum(LOOT_FOOD)
-	registerEnum(LOOT_HELMET)
-	registerEnum(LOOT_LEGS)
-	registerEnum(LOOT_OTHER)
-	registerEnum(LOOT_POTION)
-	registerEnum(LOOT_RING)
-	registerEnum(LOOT_RUNE)
-	registerEnum(LOOT_SHIELD)
-	registerEnum(LOOT_TOOL)
-	registerEnum(LOOT_VALUABLE)
-	registerEnum(LOOT_WEAPON_AMMO)
-	registerEnum(LOOT_WEAPON_AXE)
-	registerEnum(LOOT_WEAPON_CLUB)
-	registerEnum(LOOT_WEAPON_DISTANCE)
-	registerEnum(LOOT_WEAPON_SWORD)
-	registerEnum(LOOT_WEAPON_WAND)
-	registerEnum(LOOT_STASH_RETRIEVE)
-	registerEnum(LOOT_START)
-	registerEnum(LOOT_END)
-
 	registerEnum(WEAPON_NONE)
 	registerEnum(WEAPON_SWORD)
 	registerEnum(WEAPON_CLUB)
@@ -2426,8 +2398,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "setCapacity", LuaScriptInterface::luaPlayerSetCapacity);
 
 	registerMethod("Player", "getFreeCapacity", LuaScriptInterface::luaPlayerGetFreeCapacity);
-
-	registerMethod("Player", "canOpenCorpse", LuaScriptInterface::luaPlayerCanOpenCorpse);
 
 	registerMethod("Player", "getKills", LuaScriptInterface::luaPlayerGetKills);
 	registerMethod("Player", "setKills", LuaScriptInterface::luaPlayerSetKills);

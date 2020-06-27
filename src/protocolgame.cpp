@@ -3663,13 +3663,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[item->getFluidType() & 7]);
 	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
-		uint32_t quickLootFlags = item->getQuickLootFlags();
-		if (quickLootFlags > 0) {
-			msg.addByte(2);
-			msg.add<uint32_t>(quickLootFlags);
-		} else {
-			msg.addByte(0x00);
-		}
+		msg.addByte(0x00);
 	}
 
 	if (it.isAnimation) {
