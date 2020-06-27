@@ -906,7 +906,6 @@ void Game::playerMoveItemByPlayerID(uint32_t playerId, const Position& fromPos, 
 		return;
 	}
 	playerMoveItem(player, fromPos, spriteId, fromStackPos, toPos, count, nullptr, nullptr);
-
 }
 
 void Game::playerMoveItem(Player* player, const Position& fromPos,
@@ -1093,7 +1092,8 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	}
 	ReturnValue ret = internalMoveItem(fromCylinder, toCylinder, toIndex, item, count, nullptr, 0, player);
 	if (ret != RETURNVALUE_NOERROR) {
-		return player->sendCancelMessage(ret);
+		 player->sendCancelMessage(ret);
+     return;
 	}
 }
 
