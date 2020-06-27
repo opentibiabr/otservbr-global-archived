@@ -1535,7 +1535,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_ATTRIBUTE_SPECIAL)
 	registerEnum(ITEM_ATTRIBUTE_OPENCONTAINER)
 	registerEnum(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)
-	registerEnum(ITEM_ATTRIBUTE_OPENED)
 
 	registerEnum(ITEM_TYPE_DEPOT)
 	registerEnum(ITEM_TYPE_REWARDCHEST)
