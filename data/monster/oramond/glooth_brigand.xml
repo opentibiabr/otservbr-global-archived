@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Glooth Brigand" nameDescription="a glooth brigand" race="blood" experience="1900" speed="320" manacost="450">
 	<health now="2400" max="2400" />
-	<look type="137" head="114" body="114" legs="107" feet="114" corpse="24257" />
+	<look type="137" head="114" body="114" legs="109" feet="114" corpse="24257" />
 	<targetchange interval="5000" chance="5" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>
