@@ -1373,7 +1373,7 @@ GameStore.Categories = {
 				icons = { "Ether_Badger.png" },
 				name = "Ether Badger",
 				price = 690,
-				id = 148,
+				id = 154,
 				description = "- only usable by purchasing character\n- provides character with a speed boost\n\nBadgers have been a staple of the Tibian fauna for a long time, and finally some daring souls have braved the challenge to tame some exceptional specimens - and succeeded! While the common badger you can encounter during your travels might seem like a rather unassuming creature, the Battle Badger, the Ether Badger, and the Zaoan Badger are fierce and mighty beasts, which are at your beck and call.",
 				type = GameStore.OfferTypes.OFFER_TYPE_MOUNT,
 			},
