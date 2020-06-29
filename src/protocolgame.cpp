@@ -3944,7 +3944,7 @@ void ProtocolGame::AddPlayerStowedItems(NetworkMessage& msg)
 
 	msg.add<uint16_t>(list.size());
 
-	for each (auto item in list)
+	for (auto item : list)
 	{
 		msg.add<uint16_t>(item.first);
 		msg.add<uint32_t>(item.second);
