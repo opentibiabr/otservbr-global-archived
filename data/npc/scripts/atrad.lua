@@ -16,8 +16,10 @@ function onThink()
 end
 
 function greetCallback(cid)
-	local fire = Player(cid):getCondition(CONDITION_FIRE)
-	if fire then
+	local player = Player(cid)
+	local fire = player:getCondition(CONDITION_FIRE)
+	
+	if fire and (player:hasOutfit(156) or player:hasOutfit(152)) then
 		return true
 	end
 	return false
