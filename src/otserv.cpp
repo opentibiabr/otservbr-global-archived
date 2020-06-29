@@ -70,10 +70,7 @@ void badAllocationHandler() {
 
 #ifndef UNIT_TESTING
 int main(int argc, char* argv[]) {
-#ifdef DEBUG_LOG
-	loguru::g_stderr_verbosity = 9;
-#endif
-	loguru::init(argc, argv);
+
 	// Setup bad allocation handler
 	std::set_new_handler(badAllocationHandler);
 
