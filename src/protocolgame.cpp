@@ -1951,14 +1951,6 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 	sendResourcesBalance(player->getMoney(), player->getBankBalance());
 }
 
-void ProtocolGame::sendDepotStash(const bool enable)
-{
-	NetworkMessage msg;
-	msg.addByte(0x2A);
-	msg.addByte(enable);
-	writeToOutputBuffer(msg);
-}
-
 void ProtocolGame::sendCoinBalance()
 {
 	if (!player) {
@@ -3963,7 +3955,7 @@ void ProtocolGame::AddPlayerStowedItems(NetworkMessage& msg)
 
 void ProtocolGame::parseStashWithdraw(NetworkMessage& msg)
 {
-	uint16_t action = msg.getByte(); //TODO
+	msg.getByte(); //Action TODO()
 	uint16_t itemId = msg.get<uint16_t>();
 	uint16_t itemCount = msg.get<uint32_t>();
 

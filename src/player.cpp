@@ -4940,7 +4940,6 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 	auto itemCID = Item::items.getItemIdByClientId(itemId).id;
 
-	const ItemType& it = Item::items[itemCID];
 	uint32_t stackCount = 100u;
 
 	while (itemCount > 0) {
