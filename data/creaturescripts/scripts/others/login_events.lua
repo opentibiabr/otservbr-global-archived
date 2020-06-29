@@ -59,7 +59,7 @@ function onLogin(player)
 		"Azerus",
 		"QuaraLeaders",
 		--Inquisition
-		"IquisitionBossKill",
+		"InquisitionBossKill",
 		"UngreezKill",
 		--Killing In The Name Of
 		"KillingInTheNameOfKill",

@@ -3,8 +3,8 @@ local setting = {
 	clearRoomTime = 60, -- In hour
 	centerRoom = {x = 33528, y = 32334, z = 12},
 	range = 10,
-	exitPosition = {x = 33609, y = 32365, z = 11},
 	storage = Storage.PrinceDrazzakTime,
+	clearRoomStorage = GlobalStorage.PrinceDrazzakEventTime,
 	bossName = "prince drazzak",
 	bossPosition = {x = 33528, y = 32333, z = 12}
 }
@@ -29,29 +29,34 @@ function onUse(player, item, fromPosition, target, toPosition, monster, isHotkey
 	end
 
 	if toPosition == Position(33606, 32362, 11) then
-		if roomIsOccupied(setting.centerRoom, setting.range, setting.range) then
+		if roomIsOccupied(setting.centerRoom, setting.range, setting.range)
+					or Game.getStorageValue(setting.clearRoomStorage) == 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting against the boss! You need wait awhile.")
 			return true
 		end
 
 		for i = 1, #playerPositions do
 			local creature = Tile(playerPositions[i].fromPos):getTopCreature()
-			if creature then
+			if creature and creature:isPlayer() then
 				if creature:getStorageValue(setting.storage) >= os.time() then
 					creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have faced this boss in the last " .. setting.timeToFightAgain .. " hours.")
 					return true
 				end
 				if creature:getStorageValue(setting.storage) < os.time() then
-					item:remove()
 					creature:setStorageValue(setting.storage, os.time() + setting.timeToFightAgain * 60 * 60)
 					creature:teleportTo(playerPositions[i].toPos)
 					creature:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 				end
+			else
+				return false
 			end
 		end
-		-- One hour for clean the room
-		addEvent(clearRoom, setting.clearRoomTime * 60 * 1000, setting.centerRoom, setting.range, setting.range, setting.exitPosition)
+		item:remove()
+		-- One hour for clean the room and other time goto again
+		addEvent(clearRoom, setting.clearRoomTime * 60 * 1000, setting.centerRoom,
+					setting.range, setting.range, setting.clearRoomStorage)
 		Game.createMonster(setting.bossName, setting.bossPosition)
+		Game.setStorageValue(setting.clearRoomStorage, 1)
 	end
 	return true
 end

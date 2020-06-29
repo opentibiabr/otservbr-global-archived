@@ -10,5 +10,5 @@ function corpse.onUse(player)
 	return true
 end
 
-corpse:uid(20000)
+corpse:uid(20001)
 corpse:register()
