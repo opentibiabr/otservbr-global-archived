@@ -603,9 +603,7 @@ bool Action::loadFunction(const pugi::xml_attribute& attr, bool isScripted)
 		function = enterMarket;
 	} else if (strcasecmp(functionName, "imbuement") == 0) {
 		function = useImbueShrine;
-	}
-	else if (strcasecmp(functionName, "stash") == 0) {
-		DLOG_F(INFO, "function: stash");
+	}	else if (strcasecmp(functionName, "stash") == 0) {
 		function = enterStash;
 	} else {
 		if (!isScripted) {
