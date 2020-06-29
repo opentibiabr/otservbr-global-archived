@@ -725,7 +725,7 @@ bool Player::canWalkthrough(const Creature* creature) const
 
 	if (player) {
 		const Tile* playerTile = player->getTile();
-		if (!playerTile || (!playerTile->hasFlag(TILESTATE_NOPVPZONE) && !playerTile->hasFlag(TILESTATE_PROTECTIONZONE) && player->getLevel() > static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)))) {
+		if (!playerTile || (!playerTile->hasFlag(TILESTATE_NOPVPZONE) && !playerTile->hasFlag(TILESTATE_PROTECTIONZONE) && player->getLevel() > static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)) && g_game.getWorldType() != WORLD_TYPE_NO_PVP)) {
 			return false;
 		}
 
@@ -747,7 +747,7 @@ bool Player::canWalkthrough(const Creature* creature) const
 
 		thisPlayer->setLastWalkthroughPosition(creature->getPosition());
 		return true;
-	} else if (npc) { 
+	} else if (npc) {
 		const Tile* tile = npc->getTile();
 		const HouseTile* houseTile = dynamic_cast<const HouseTile*>(tile);
 		return (houseTile != nullptr);
@@ -774,12 +774,12 @@ bool Player::canWalkthroughEx(const Creature* creature) const
 	const Npc* npc = creature->getNpc();
 	if (player) {
 		const Tile* playerTile = player->getTile();
-		return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)));
-	} else if (npc) { 
+		return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)) || g_game.getWorldType() == WORLD_TYPE_NO_PVP);
+	} else if (npc) {
 		const Tile* tile = npc->getTile();
 		const HouseTile* houseTile = dynamic_cast<const HouseTile*>(tile);
 		return (houseTile != nullptr);
-	} else {		
+	} else {
 		return false;
 	}
 
@@ -5029,4 +5029,21 @@ ItemDeque Player::getAllStorableItemsInContainer(Item* container) {
 	}
 
 	return toReturnList;
+}
+
+/*******************************************************************************
+ * Interfaces
+ ******************************************************************************/
+
+error_t Player::SetAccountInterface(account::Account* account) {
+	if (account == nullptr) {
+		return account::ERROR_NULLPTR;
+	}
+	account_ = account;
+	return account::ERROR_NO;
+}
+
+error_t Player::GetAccountInterface(account::Account* account) {
+	account = account_;
+	return account::ERROR_NO;
 }

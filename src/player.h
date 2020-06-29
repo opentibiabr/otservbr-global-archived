@@ -1616,7 +1616,7 @@ class Player final : public Creature, public Cylinder
                                     account::AccountType::ACCOUNT_TYPE_NORMAL;
 
 		bool chaseMode = false;
-		bool secureMode = false;
+		bool secureMode = true;
 		bool inMarket = false;
 		bool wasMounted = false;
 		bool ghostMode = false;

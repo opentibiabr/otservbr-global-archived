@@ -47514,7 +47514,7 @@
 		<attribute key="range" value="6" />
 		<attribute key="attack" value="6" />
 		<attribute key="hitChance" value="4" />
-		<attribute key="skillDist" value="4" />
+		<attribute key="skillDist" value="2" />
 		<attribute key="absorbPercentDeath" value="4" />
 		<attribute key="weight" value="4700" />
 		<attribute key="imbuingSlots" value="3" />

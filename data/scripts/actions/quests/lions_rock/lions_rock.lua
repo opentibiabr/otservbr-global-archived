@@ -79,7 +79,7 @@ function lionsRockSkeleton.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-lionsRockSkeleton:uid(20001)
+lionsRockSkeleton:uid(20002)
 lionsRockSkeleton:register()
 
 -- Lions rock sacrifices

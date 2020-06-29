@@ -2159,7 +2159,10 @@ GlobalStorage = {
 	SwordOfFury = 65005,
 	XpDisplayMode = 65006,
 	LionsRockFields = 65007,
-	TheMummysCurse = 65007
+	TheMummysCurse = 65008,
+	OberonEventTime = 65009,
+	PrinceDrazzakEventTime = 65010,
+	ScarlettEtzelEventTime = 65011
 }
 
 
