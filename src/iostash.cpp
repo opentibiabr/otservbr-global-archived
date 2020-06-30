@@ -20,6 +20,7 @@
 #include "otpch.h"
 #include "iostash.h"
 #include "databasetasks.h"
+#include "enums.h"
 
 StashItemList IOStash::getStoredItems(uint32_t playerId) {
 	StashItemList itemList;
