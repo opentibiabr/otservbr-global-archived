@@ -30,7 +30,6 @@ DatabaseTasks::DatabaseTasks() {
 
 bool DatabaseTasks::SetDatabaseInterface(Database *database) {
   if (database == nullptr) {
-    LOG_F(ERROR, "Trying to set database pointer to point to a nullptr!");
     return false;
   }
 
@@ -41,7 +40,6 @@ bool DatabaseTasks::SetDatabaseInterface(Database *database) {
 void DatabaseTasks::start()
 {
   if (db_ == nullptr) {
-    LOG_F(ERROR, "Database Interface not initialized!");
     return;
   }
 	db_->connect();
@@ -91,7 +89,6 @@ void DatabaseTasks::addTask(std::string query, std::function<void(DBResult_ptr, 
 void DatabaseTasks::runTask(const DatabaseTask& task)
 {
   if (db_ == nullptr) {
-    LOG_F(ERROR, "Database Interface not initialized!");
     return;
   }
   bool success;

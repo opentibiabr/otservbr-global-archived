@@ -196,7 +196,7 @@ function clearBossRoom(playerId, bossId, centerPosition, rangeX, rangeY, exitPos
 	end
 end
 
-function clearRoom(centerPosition, rangeX, rangeY, exitPosition)
+function clearRoom(centerPosition, rangeX, rangeY, resetGlobalStorage)
 	local spectators,
 	spectator = Game.getSpectators(centerPosition, false, false, rangeX, rangeX, rangeY, rangeY)
 	for i = 1, #spectators do
@@ -204,6 +204,9 @@ function clearRoom(centerPosition, rangeX, rangeY, exitPosition)
 		if spectator:isMonster() then
 			spectator:remove()
 		end
+	end
+	if Game.getStorageValue(resetGlobalStorage) == 1 then
+		Game.setStorageValue(resetGlobalStorage, -1)
 	end
 end
 

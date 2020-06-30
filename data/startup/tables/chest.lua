@@ -11,7 +11,11 @@
 	Reward with container
 	Varied rewards
 
-	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts.
+	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts
+
+	Note:
+	The "for use of the map" variables are only used to create the action or unique on the map during startup
+	The "for use of the script" variables are used by the scripts, to allow a single script to manage all rewards of the same type
 ]]
 
 ChestAction = {
@@ -114,54 +118,38 @@ ChestUnique = {
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
 	-- Path: data\scripts\actions\system\quest_reward_container.lua
-	-- Dawnport vocation rewards
-	-- Sorcerer
 	[10001] = {
 		-- For use of the map
-		itemId = 1740,
-		itemPos = {x = 32054, y = 31882, z = 6},
+		itemId = false,
+		itemPos = {x = xxxxx, y = yyyyy, z = z},
 		-- For use of the script
-		itemBag = 1988,
-		itemReward = {{2643, 1}, {2175, 1}, {2190, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
-		itemRewardContainer = {{7620, 5}, {18559, 1}},
-		storage = Storage.Quest.Dawnport.VocationReward,
-		value = 1
+		itemBag = containerId,
+		itemReward = {
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount}
+		},
+		weight = WeightContainerNumber,
+		storage = StorageKeyVariable
 	},
-	-- Druid
+	-- Example of chest having key reward
 	[10002] = {
 		-- For use of the map
-		itemId = 1740,
-		itemPos = {x = 32073, y = 31882, z = 6},
+		itemId = false,
+		itemPos = {x = xxxxx, y = yyyyy, z = z},
 		-- For use of the script
-		itemBag = 1988,
-		itemReward = {{2643, 1}, {2175, 1}, {2182, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
-		itemRewardContainer = {{7620, 5}, {18559, 1}},
-		storage = Storage.Quest.Dawnport.VocationReward,
-		value = 2
-	},
-	-- Paladin
-	[10003] = {
-		-- For use of the map
-		itemId = 1740,
-		itemPos = {x = 32059, y = 31882, z = 6},
-		-- For use of the script
-		itemBag = 1988,
-		itemReward = {{2643, 1}, {2389, 1}, {2660, 1}, {8923, 1}, {2461, 1}},
-		itemRewardContainer = {{2544, 100}, {18559, 1}},
-		storage = Storage.Quest.Dawnport.VocationReward,
-		value = 3
-	},
-	-- Knight
-	[10004] = {
-		-- For use of the map
-		itemId = 1740,
-		itemPos = {x = 32068, y = 31882, z = 6},
-		-- For use of the script
-		itemBag = 1988,
-		itemReward = {{2643, 1}, {2509, 1}, {8602, 1}, {2465, 1}, {2460, 1}, {2478, 1}},
-		itemRewardContainer = {{7618, 5}, {18559, 1}},
-		storage = Storage.Quest.Dawnport.VocationReward,
-		value = 4
+		itemBag = containerId,
+		itemReward = {
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount},
+			{itemId, itemCount}
+		},
+		weight = WeightContainerNumber,
+		keyItem = keyId,
+		keyAction = keyActionNumber,
+		storage = StorageKeyVariable
 	},
 
 	-- Reward of others scrips files (varied rewards)
@@ -264,5 +252,26 @@ ChestUnique = {
 	[14024] = {
 		itemId = 5677,
 		itemPos = {x = 31938, y = 32837, z = 7}
+	},
+	-- Dawnport vocation rewards
+	-- Sorcerer
+	[14025] = {
+		itemId = 1740,
+		itemPos = {x = 32054, y = 31882, z = 6}
+	},
+	-- Druid
+	[14026] = {
+		itemId = 1740,
+		itemPos = {x = 32073, y = 31882, z = 6}
+	},
+	-- Paladin
+	[14027] = {
+		itemId = 1740,
+		itemPos = {x = 32059, y = 31882, z = 6}
+	},
+	-- Knight
+	[14028] = {
+		itemId = 1740,
+		itemPos = {x = 32068, y = 31882, z = 6}
 	}
 }

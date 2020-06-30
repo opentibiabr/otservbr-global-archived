@@ -4,8 +4,6 @@
 #include "../src/otpch.h"
 
 int main(int argc, char* argv[]) {
-	loguru::g_stderr_verbosity = 9;
-	loguru::init(argc, argv);
 
   int result = Catch::Session().run(argc, argv);
 

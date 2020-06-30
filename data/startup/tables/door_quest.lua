@@ -631,42 +631,22 @@ QuestDoorUnique = {
 	-- Vocation doors
 	-- Sorcerer
 	[22001] = {
-		-- For use of the map
 		itemId = 12195,
-		itemPos = {x = 32055, y = 31885, z = 6},
-		-- For use of the script
-		vocation = VOCATION.ID.SORCERER,
-		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32054, y = 31883, z = 6}
+		itemPos = {x = 32055, y = 31885, z = 6}
 	},
 	-- Druid
 	[22002] = {
-		-- For use of the map
 		itemId = 7040,
-		itemPos = {x = 32073, y = 31885, z = 6},
-		-- For use of the script
-		vocation = VOCATION.ID.DRUID,
-		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32073, y = 31883, z = 6}
+		itemPos = {x = 32073, y = 31885, z = 6}
 	},
 	-- Paladin
 	[22003] = {
-		-- For use of the map
 		itemId = 6898,
-		itemPos = {x = 32059, y = 31885, z = 6},
-		-- For use of the script
-		vocation = VOCATION.ID.PALADIN,
-		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32059, y = 31884, z = 6}
+		itemPos = {x = 32059, y = 31885, z = 6}
 	},
 	-- Knight
 	[22004] = {
-		-- For use of the map
 		itemId = 9279,
-		itemPos = {x = 32069, y = 31885, z = 6},
-		-- For use of the script
-		vocation = VOCATION.ID.KNIGHT,
-		storage = Storage.Dawnport.DoorVocation,
-		destination = {x = 32068, y = 31883, z = 6}
-	},
+		itemPos = {x = 32069, y = 31885, z = 6}
+	}
 }

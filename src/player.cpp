@@ -728,7 +728,7 @@ bool Player::canWalkthrough(const Creature* creature) const
 
 	if (player) {
 		const Tile* playerTile = player->getTile();
-		if (!playerTile || (!playerTile->hasFlag(TILESTATE_NOPVPZONE) && !playerTile->hasFlag(TILESTATE_PROTECTIONZONE) && player->getLevel() > static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)))) {
+		if (!playerTile || (!playerTile->hasFlag(TILESTATE_NOPVPZONE) && !playerTile->hasFlag(TILESTATE_PROTECTIONZONE) && player->getLevel() > static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)) && g_game.getWorldType() != WORLD_TYPE_NO_PVP)) {
 			return false;
 		}
 
@@ -777,7 +777,7 @@ bool Player::canWalkthroughEx(const Creature* creature) const
 	const Npc* npc = creature->getNpc();
 	if (player) {
 		const Tile* playerTile = player->getTile();
-		return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)));
+		return playerTile && (playerTile->hasFlag(TILESTATE_NOPVPZONE) || playerTile->hasFlag(TILESTATE_PROTECTIONZONE) || player->getLevel() <= static_cast<uint32_t>(g_config.getNumber(ConfigManager::PROTECTION_LEVEL)) || g_game.getWorldType() == WORLD_TYPE_NO_PVP);
 	} else if (npc) {
 		const Tile* tile = npc->getTile();
 		const HouseTile* houseTile = dynamic_cast<const HouseTile*>(tile);
@@ -5071,7 +5071,6 @@ std::map<uint16_t, Container*> Player::getContainers()
 
 error_t Player::SetAccountInterface(account::Account *account) {
   if (account == nullptr) {
-    LOG_F(ERROR, "Error database is nullptr!");
     return account::ERROR_NULLPTR;
   }
 

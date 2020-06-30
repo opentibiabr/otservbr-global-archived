@@ -1643,7 +1643,7 @@ class Player final : public Creature, public Cylinder
 		QuickLootFilter_t quickLootFilter;
 
 		bool chaseMode = false;
-		bool secureMode = false;
+		bool secureMode = true;
 		bool inMarket = false;
 		bool wasMounted = false;
 		bool ghostMode = false;
