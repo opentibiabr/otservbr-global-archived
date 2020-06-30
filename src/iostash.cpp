@@ -21,7 +21,7 @@
 #include "iostash.h"
 #include "databasetasks.h"
 
-StashItemList IOStash::getStoredItems(int playerId) {
+StashItemList IOStash::getStoredItems(uint32_t playerId) {
 	StashItemList itemList;
 
 	std::ostringstream query;
@@ -53,7 +53,7 @@ uint16_t IOStash::getStashSize(StashItemList itemList) {
 	return size;
 }
 
-std::map<uint16_t, std::pair<bool, uint32_t>> IOStash::stashContainer(int playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict)
+std::map<uint16_t, std::pair<bool, uint32_t>> IOStash::stashContainer(uint32_t playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict)
 {
 	std::ostringstream query;
 	query << "SELECT * FROM `player_stash` WHERE `player_id` = ";
@@ -133,7 +133,7 @@ std::map<uint16_t, std::pair<bool, uint32_t>> IOStash::stashContainer(int player
 	return itemDict;
 }
 
-bool IOStash::withdrawItem(int playerId, uint16_t itemId, uint16_t count)
+bool IOStash::withdrawItem(uint32_t playerId, uint16_t itemId, uint16_t count)
 {	
 	std::ostringstream query;
 	uint16_t remainingCount = 0;

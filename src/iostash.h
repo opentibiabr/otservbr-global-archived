@@ -28,10 +28,10 @@ public:
 		return instance;
 	}
 
-	static StashItemList getStoredItems(int playerId);
-	static bool withdrawItem(int playerId, uint16_t itemId, uint16_t count);
+	static StashItemList getStoredItems(uint32_t playerId);
+	static bool withdrawItem(uint32_t playerId, uint16_t itemId, uint16_t count);
 	static uint16_t getStashSize(StashItemList itemList);
-	static std::map<uint16_t, std::pair<bool, uint32_t>> stashContainer(int playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict);
+	static std::map<uint16_t, std::pair<bool, uint32_t>> stashContainer(uint32_t playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict);
 
 private:
 	IOStash() = default;
