@@ -46,7 +46,7 @@ StashItemList IOStash::getStoredItems(uint32_t playerId) {
 uint16_t IOStash::getStashSize(StashItemList itemList) {
 	uint16_t size = 0;
 
-	for each (auto item in itemList)
+	for each (auto item : itemList)
 	{
 		size += ceil(item.second / 100.0);
 	}
