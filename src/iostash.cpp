@@ -18,14 +18,8 @@
  */
 
 #include "otpch.h"
-
 #include "iostash.h"
-
-#include "configmanager.h"
 #include "databasetasks.h"
-#include "iologindata.h"
-#include "game.h"
-#include "scheduler.h"
 
 StashItemList IOStash::getStoredItems(int playerId) {
 	StashItemList itemList;

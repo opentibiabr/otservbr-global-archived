@@ -20,9 +20,6 @@
 #ifndef FS_IOSTASH_H_97FFA231D3199415D01D84860888044D
 #define FS_IOSTASH_H_97FFA231D3199415D01D84860888044D
 
-#include "enums.h"
-#include "database.h"
-
 class IOStash
 {
 public:
