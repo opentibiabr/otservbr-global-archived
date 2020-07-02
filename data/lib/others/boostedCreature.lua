@@ -1,3 +1,4 @@
+-- Made by Nekiro
 if not BoostedCreature then
 	BoostedCreature = {name = ""}
 end
