@@ -307,7 +307,7 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
   player->setBankBalance(result->getNumber<uint64_t>("balance"));
 
-  player->quickLootFallbackToMainContainer = result->getNumber<bool>("quick_loot_fallback");
+  player->quickLootFallbackToMainContainer = result->getNumber<bool>("quickloot_fallback");
 
   player->setSex(static_cast<PlayerSex_t>(result->getNumber<uint16_t>("sex")));
   player->level = std::max<uint32_t>(1, result->getNumber<uint32_t>("level"));
