@@ -109,4 +109,7 @@ function onStartup()
 
 	-- Hireling System
 	HirelingsInit()
+
+	-- Roll boosted creature
+	BoostedCreature:startup()
 end

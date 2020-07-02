@@ -708,6 +708,11 @@ function Player:onGainExperience(source, exp, rawExp)
 		end
 	end
 
+	-- Boosted Creature
+	if BoostedCreature.name and BoostedCreature.name:lower() == source:getName():lower() then
+		exp = exp * 2
+	end
+
 	-- Store Bonus
 	useStaminaXp(self) -- Use store boost stamina
 

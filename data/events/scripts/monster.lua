@@ -12,11 +12,18 @@ function Monster:onDropLoot(corpse)
 	local player = Player(corpse:getCorpseOwner())
 	local mType = self:getType()
 	if not player or player:getStamina() > 840 then
-		local monsterLoot = mType:getLoot()
-		for i = 1, #monsterLoot do
-			local item = corpse:createLootItem(monsterLoot[i])
-			if not item then
-				print('[Warning] DropLoot:', 'Could not add loot item to corpse.')
+		local times = 1
+		if BoostedCreature.name and BoostedCreature.name:lower() == self:getName():lower() then
+			times = 2
+		end
+
+		for i = 1, times do
+			local monsterLoot = mType:getLoot()
+			for i = 1, #monsterLoot do
+				local item = corpse:createLootItem(monsterLoot[i])
+				if not item then
+					print('[Warning] DropLoot:', 'Could not add loot item to corpse.')
+				end
 			end
 		end
 
