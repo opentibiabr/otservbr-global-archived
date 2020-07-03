@@ -1,17 +1,14 @@
-local greentp = Action()
+local greenTp = Action()
 
-function greentp.onUse(player, item, frompos, item2, topos)
-
-    if player:getStorageValue(Storage.TheSecretLibrary.BlueTel) == -1 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You have found a piece of ebony.")
+function greenTp.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if player:getStorageValue(Storage.TheSecretLibrary.BlueTel) == -1 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You have found a piece of ebony.")
 		player:addItem(33274, 1)
-        player:setStorageValue(Storage.TheSecretLibrary.BlueTel, 1)
-    else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "empty")
-    end
-	
-    return true
+		player:setStorageValue(Storage.TheSecretLibrary.BlueTel, 1)
+		return true
+	end
+	return false
 end
 
-greentp:uid(26695)
-greentp:register()
+greenTp:uid(1097)
+greenTp:register()

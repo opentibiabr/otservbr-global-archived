@@ -8,7 +8,7 @@
 	<movevent event="StepIn" fromaid="42630" toaid="42631" script="oramond/oramond_teleport.lua"/>
 	<movevent event="StepIn" actionid="50389" script="oramond/oramond_teleport.lua"/>
 	<movevent event="StepIn" actionid="36489" script="oramond/oramond_teleport.lua"/>
-	<movevent event="StepIn" uniqueid="26798" script="oramond/seacrest.lua"/>
+	<movevent event="StepIn" uniqueid="1110" script="oramond/seacrest.lua"/>
 	<movevent event="StepIn" fromuid="50510" touid="50515" script="oramond/teleport.lua"/>
 	<movevent event="StepIn" fromuid="50624" touid="50625" script="oramond/teleport.lua"/>
 	<movevent event="StepIn" actionid="42628" script="oramond/voting_oramond.lua"/>
@@ -197,7 +197,7 @@
 	<movevent event="StepIn" actionid="4254" script="quests/edron_rope/rope.lua"/>
 	<!-- elemental spheres -->
 	<movevent event="StepIn" actionid="9029" script="quests/elemental_spheres/aoe_teleport_out.lua"/>
-	<movevent event="StepIn" fromuid="24541" touid="24544" script="quests/elemental_spheres/soil_entrance.lua"/>
+	<movevent event="StepIn" fromuid="1062" touid="1065" script="quests/elemental_spheres/soil_entrance.lua"/>
 	<movevent event="StepIn" actionid="24545" script="quests/elemental_spheres/soil_exit.lua"/>
 	<movevent event="AddItem" tileitem="1" itemid="8568" script="quests/elemental_spheres/summon_overlord.lua"/>
 	<movevent event="AddItem" tileitem="1" itemid="8569" script="quests/elemental_spheres/summon_overlord.lua"/>
@@ -234,7 +234,7 @@
 	<movevent event="StepIn" actionid="24901" script="quests/feyrist/kroazur_exit.lua"/>
 	<!-- forgotten knowledge -->
 	<movevent event="StepIn" itemid="26403" script="quests/forgotten_knowledge/cave_entrance.lua"/>
-	<movevent event="StepIn" fromuid="24900" touid="24905" script="quests/forgotten_knowledge/challenger.lua"/>
+	<movevent event="StepIn" fromuid="1067" touid="1072" script="quests/forgotten_knowledge/challenger.lua"/>
 	<movevent event="StepIn" itemid="26396" script="quests/forgotten_knowledge/dragonking_vortex.lua"/>
 	<movevent event="StepIn" actionid="24873" script="quests/forgotten_knowledge/entrance_teleport.lua"/>
 	<movevent event="StepIn" fromid="27803" toid="27806" script="quests/forgotten_knowledge/fount.lua"/>
@@ -278,7 +278,7 @@
 	<!-- killing in the name of -->
 	<movevent event="StepIn" fromuid="3230" touid="3259" script="quests/killing_in_the_name_of/boss.lua"/>
 	<movevent event="StepIn" actionid="3244" script="quests/killing_in_the_name_of/boss.lua"/>
-	<movevent event="StepIn" fromuid="17521" touid="17523" script="quests/killing_in_the_name_of/boss.lua"/>
+	<movevent event="StepIn" fromuid="3260" touid="3262" script="quests/killing_in_the_name_of/boss.lua"/>
 	<!-- krailos -->
 	<movevent event="StepIn" actionid="19049" script="quests/krailos/access_depot.lua"/>
 	<!-- nightmare isles worldchange -->
@@ -308,12 +308,13 @@
 	<movevent event="StepIn" actionid="7799" script="quests/pits_of_inferno/trap.lua"/>
 	<!-- secret service -->
 	<movevent event="StepIn" actionid="12571" script="quests/secret_service/pirate.lua"/>
-	<movevent event="StepIn" fromuid="23204" touid="23205" script="quests/secret_service/amazon.lua"/>
+	<movevent event="StepIn" pos="32328;31802;8" script="quests/secret_service/amazon.lua"/>
+	<movevent event="StepIn" pos="32328;31803;8" script="quests/secret_service/amazon.lua"/>
 	<!--svargrond arena-->
 	<movevent event="StepIn" actionid="25100" script="quests/svargrond_arena/arena_enter.lua"/>
 	<movevent event="StepIn" actionid="25200" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" actionid="25300" script="quests/svargrond_arena/arena_pit.lua"/>
-	<movevent event="StepIn" fromuid="23201" touid="23203" script="quests/svargrond_arena/arena_trophy.lua"/>
+	<movevent event="StepIn" fromuid="3264" touid="3266" script="quests/svargrond_arena/arena_trophy.lua"/>
 	<!-- thais lighthouse -->
 	<movevent event="StepIn" fromaid="50025" toaid="50026" script="quests/thais_lighthouse/thais_lighthouse.lua"/>
 	<movevent event="StepOut" actionid="50025" script="quests/thais_lighthouse/thais_lighthouse.lua"/>
@@ -329,8 +330,8 @@
 	<movevent event="StepIn" actionid="12108" script="quests/the_ancient_tombs/tomb_teleport.lua"/>
 	<!-- the ape city -->
 	<movevent event="StepIn" actionid="12124" script="quests/the_ape_city/mission4_parchment_decyphering.lua"/>
-	<movevent event="StepIn" uniqueid="12129" script="quests/the_ape_city/mission9_the_deepest_catacomb_teleport.lua"/>
-	<movevent event="StepIn" uniqueid="12130" script="quests/the_ape_city/mission9_the_deepest_catacomb_teleport.lua"/>
+	<movevent event="StepIn" uniqueid="9257" script="quests/the_ape_city/mission9_the_deepest_catacomb_teleport.lua"/>
+	<movevent event="StepIn" uniqueid="9258" script="quests/the_ape_city/mission9_the_deepest_catacomb_teleport.lua"/>
 	<!-- the gravedigger of drefia -->
 	<movevent event="StepIn" fromaid="4534" toaid="4535" script="quests/the_gravedigger_of_drefia/dormitory_teleport.lua"/>
 	<movevent event="StepIn" fromaid="4541" toaid="4542" script="quests/the_gravedigger_of_drefia/sacrifice_teleport.lua"/>
@@ -345,8 +346,8 @@
 	<movevent event="StepIn" uniqueid="50127" script="quests/the_hidden_city_of_beregar/pythius_teleport.lua"/>
 	<movevent event="StepIn" actionid="50116" script="quests/the_hidden_city_of_beregar/tunnel.lua"/>
 	<!-- the ice islands -->
-	<movevent event="StepIn" uniqueid="12031" script="quests/the_ice_islands/helheim.lua"/>
-	<movevent event="StepIn" fromuid="12025" touid="12028" script="quests/the_ice_islands/nibelor_dog_led.lua"/>
+	<movevent event="StepIn" uniqueid="1061" script="quests/the_ice_islands/helheim.lua"/>
+	<movevent event="StepIn" fromuid="1057" touid="1060" script="quests/the_ice_islands/nibelor_dog_led.lua"/>
 	<!-- the new frontier -->
 	<movevent event="StepIn" actionid="12138" script="quests/the_new_frontier/jail_exit.lua"/>
 	<movevent event="StepIn" actionid="12135" script="quests/the_new_frontier/minotaur_boss.lua"/>
@@ -387,11 +388,11 @@
 	<movevent event="StepIn" fromuid="3189" touid="3192" script="quests/wrath_of_the_emperor/boss_teleport.lua"/>
 	<movevent event="StepIn" actionid="32362" script="quests/wrath_of_the_emperor/crate.lua"/>
 	<movevent event="StepIn" fromaid="8015" toaid="8023" script="quests/wrath_of_the_emperor/crate.lua"/>
-	<movevent event="StepIn" uniqueid="33198" script="quests/wrath_of_the_emperor/entrance_teleport.lua"/>
+	<movevent event="StepIn" uniqueid="1109" script="quests/wrath_of_the_emperor/entrance_teleport.lua"/>
 	<movevent event="StepIn" itemid="12334" script="quests/wrath_of_the_emperor/keeper.lua"/>
 	<movevent event="StepIn" uniqueid="3175" script="quests/wrath_of_the_emperor/prison.lua"/>
 	<movevent event="StepIn" actionid="8028" script="quests/wrath_of_the_emperor/realm_teleport.lua"/>
-	<movevent event="StepIn" uniqueid="12359" script="quests/wrath_of_the_emperor/sleeping_dragon_teleport.lua"/>
+	<movevent event="StepIn" uniqueid="9263" script="quests/wrath_of_the_emperor/sleeping_dragon_teleport.lua"/>
 	<movevent event="StepIn" fromaid="12382" toaid="12383" script="quests/wrath_of_the_emperor/teleport_rebel_to_zlak.lua"/>
 	<movevent event="StepIn" uniqueid="3197" script="quests/wrath_of_the_emperor/teleport_to_zalamon.lua"/>
 	<movevent event="StepIn" fromaid="12380" toaid="12381" script="quests/wrath_of_the_emperor/teleports_muggy_plains.lua"/>
