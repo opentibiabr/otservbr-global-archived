@@ -8,9 +8,9 @@ function clearDevourer()
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
-						for _, c in pairs(creatures) do
-							if isMonster(c) then
-								c:remove()
+						for _, creature in pairs(creatures) do
+							if creature:isMonster() then -- éMonstro
+								creature:remove()
 							end
 						end
 					end
@@ -34,11 +34,11 @@ local function setStorageDevourer()
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
-						for _, c in pairs(creatures) do
-							if isPlayer(c) then
-								c:setStorageValue(60835, 1)
-								c:setStorageValue(60814, 1)
-								c:setStorageValue(60828, 1)
+						for _, creature in pairs(creatures) do
+							if creature:isPlayer() then -- éPlayer
+								creature:setStorageValue(60835, 1)
+								creature:setStorageValue(60814, 1)
+								creature:setStorageValue(60828, 1)
 							end
 						end
 					end
@@ -60,11 +60,9 @@ local function setStorage(fromPos, toPos, storage)
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
-						for _, c in pairs(creatures) do
-							if isPlayer(c) then
-								if c:getStorageValue(storage) < 1 then
-									c:setStorageValue(storage, 1) -- Access to boss Anomaly
-								end
+						for _, creature in pairs(creatures) do
+							if creature:isPlayer() and creature:getStorageValue(storage) < 1 then
+								creature:setStorageValue(storage, 1) -- Access to boss Anomaly
 							end
 						end
 					end

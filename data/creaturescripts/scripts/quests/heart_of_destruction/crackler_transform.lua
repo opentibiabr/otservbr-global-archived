@@ -5,8 +5,8 @@ function onThink(creature)
 
 	if cracklerTransform == true then
 		local monster = Game.createMonster("depolarized crackler", creature:getPosition(), false, true)
-		creature:remove()
 		monster:addHealth(-monster:getHealth() + creature:getHealth(), false)
+		creature:remove()
 	end
 
 	return true
