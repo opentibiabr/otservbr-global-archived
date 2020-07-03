@@ -909,7 +909,7 @@ local function revertLava()
 	return true
 end
 local function lavaGrounds (cid)
-	local creature = Monster(cid)
+	local creature = Creature(cid)
 	if not creature then return true end
 	local summoncount = creature:getSummons()
 	if #summoncount < 4 then
