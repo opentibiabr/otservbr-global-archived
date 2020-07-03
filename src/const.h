@@ -600,7 +600,7 @@ enum item_t : uint16_t {
 
 	ITEM_DOCUMENT_RO = 1968, //read-only
 
-	ITEM_STONE_SKIN_AMULET = 2197;
+	ITEM_STONE_SKIN_AMULET = 2197,
 };
 
 enum PlayerFlags : uint64_t {
