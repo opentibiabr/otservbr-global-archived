@@ -12,7 +12,7 @@ local function setStorage()
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
 						for _, creature in pairs(creatures) do
-							if creature:isPlayer() and creature:getStorageValue(14320) < 1then
+							if creature:isPlayer() and creature:getStorageValue(14320) < 1 then
 								creature:setStorageValue(14320, 1) -- Access to boss Anomaly
 							end
 						end
