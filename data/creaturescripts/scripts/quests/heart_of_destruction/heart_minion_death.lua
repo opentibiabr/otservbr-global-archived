@@ -1,5 +1,5 @@
 function onDeath(creature)
-	if not creature:isMonster() then -- éMonstro!
+	if not creature or not creature:isMonster() then -- éMonstro!
 		return true
 	end
 	local monster = creature:getName():lower()
