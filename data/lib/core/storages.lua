@@ -1692,9 +1692,12 @@ Storage = {
 			RewardWarriorHelmet = 10002,
 			RewardDwarvenRing = 10003,
 			RewardElvenAmulet = 10004,
-			RewardKnightAxe = 10005,
+			RewardKnightAxe = 10005
 		},
-		OrnamentedShield = {},
+		OrnamentedShield = {
+			Bag = 10006,
+			RedBag = 10007
+		},
 		ShortSword = {},
 		ThaisLighthouse = {},
 		-- update 6.0

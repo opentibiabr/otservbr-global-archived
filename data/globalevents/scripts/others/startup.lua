@@ -26,6 +26,8 @@ function onStartup()
 	-- Item table
 	loadLuaMapAction(ItemAction)
 	loadLuaMapUnique(ItemUnique)
+	-- Item Unmoveable table
+	loadLuaMapAction(ItemUnmoveableAction)
 	-- Lever table
 	loadLuaMapAction(LeverAction)
 	loadLuaMapUnique(LeverUnique)
@@ -38,6 +40,9 @@ function onStartup()
 	-- Tile table
 	loadLuaMapAction(TileAction)
 	loadLuaMapUnique(TileUnique)
+	-- Tile pick table
+	loadLuaMapAction(TilePickAction)
+
 	print("> Loaded all actions in the map")
 	print("> Loaded all uniques in the map")
 
