@@ -2125,7 +2125,8 @@ GlobalStorage = {
 		Versperoth = {
 			Battle = 60112,
 			Health = 60113
-		}
+		},
+		Mouthpiece = 60114
 	},
 	WrathOfTheEmperor = {
 		-- Reserved storage from 60120 - 60139

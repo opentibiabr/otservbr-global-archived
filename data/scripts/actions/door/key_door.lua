@@ -27,10 +27,6 @@ end
 
 local keyDoor = Action()
 function keyDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	if Creature.checkCreatureInsideDoor(player, toPosition) then
-		return true
-	end
-
 	-- It is locked msg
 	if table.contains(keyLockedDoor, item.itemid) or (table.contains(keyUnlockedDoor, item.itemid) and table.contains({1001, 101}, item.actionid)) then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, "It is locked.")
@@ -46,6 +42,9 @@ function keyDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	for index, value in ipairs(KeyDoorTable) do
 		if value.openDoor == item.itemid then
+			if Creature.checkCreatureInsideDoor(player, toPosition) then
+				return false
+			end
 			item:transform(value.closedDoor)
 			return true
 		end
@@ -69,7 +68,7 @@ function keyDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 	end
-	return player:sendCancelMessage(RETURNVALUE_CANNOTUSETHISOBJECT)
+	return false
 end
 
 for key, value in pairs(doorId) do

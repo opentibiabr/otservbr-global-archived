@@ -10,7 +10,7 @@ Level 100 = 1100
 Chest (action) = 5000/15000
 Chest (unique) = 5000/15000
 Keys = 5000/6000
-Reward without a container 6001/10000
+Reward without a container 6001/8000
 
 TeleportItem (action) = 15001/20000 (this is teleport items, not magic forcefield)
 TeleportItem (unique) = 15001/20000 (this is teleport items, not magic forcefield)
