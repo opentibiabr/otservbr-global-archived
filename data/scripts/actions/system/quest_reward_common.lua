@@ -47,7 +47,7 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	return true
 end
 
-for uniqueRange = 6001, 10000 do
+for uniqueRange = 6001, 8000 do
 	commonReward:uid(uniqueRange)
 end
 

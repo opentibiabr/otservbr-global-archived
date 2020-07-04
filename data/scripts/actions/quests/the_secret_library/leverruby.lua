@@ -1,17 +1,14 @@
-local leverruby = Action()
+local leverRuby = Action()
 
-function leverruby.onUse(player, item, frompos, item2, topos)
-
-    if player:getStorageValue(Storage.TheSecretLibrary.Mota) == 7 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Success")
+function leverRuby.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if player:getStorageValue(Storage.TheSecretLibrary.Mota) == 7 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a reward.")
 		player:addItem(32409, 1)
-        player:setStorageValue(Storage.TheSecretLibrary.Mota, 8)
-    else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "empty")
-    end
-	
-    return true
+		player:setStorageValue(Storage.TheSecretLibrary.Mota, 8)
+		return true
+	end
+	return false
 end
 
-leverruby:uid(26685)
-leverruby:register()
+leverRuby:uid(1088)
+leverRuby:register()

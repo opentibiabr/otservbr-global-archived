@@ -246,20 +246,20 @@ local config = {
 		formerValue = 2,
 		newValue = 3
 	},
-	[12125] = {
+	[9255] = {
 		items = {
 			{itemId = 4850}
 		},
 		storage = Storage.HydraEggQuest
 	},
-	[12126] = {
+	[9256] = {
 		items = {
 			{itemId = 4840, decay = true}
 		},
 		storage = Storage.TheApeCity.WitchesCapSpot,
 		time = true
 	},
-	[12331] = {
+	[9259] = {
 		items = {
 			{itemId = 11076}
 		},
@@ -268,7 +268,7 @@ local config = {
 		newValue = 2,
 		say = 'You dig out a skull from the pile of bones. That must be the skull Lazaran talked about.'
 	},
-	[12507] = {
+	[9266] = {
 		items = {
 			{itemId = 8766}
 		},
@@ -277,7 +277,7 @@ local config = {
 		newValue = 3,
 		say = 'To buy some time you replace the fish with a piece of carrot.'
 	},
-	[12578] = {
+	[9277] = {
 		items = {
 			{itemId = 7736}
 		},

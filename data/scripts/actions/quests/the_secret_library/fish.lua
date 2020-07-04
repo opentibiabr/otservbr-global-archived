@@ -1,17 +1,14 @@
-local sealedbook = Action()
+local fish = Action()
 
-function sealedbook.onUse(player, item, frompos, item2, topos)
-
-    if player:getStorageValue(Storage.TheSecretLibrary.HighDry) == 2 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You have found a hawser.")
+function fish.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if player:getStorageValue(Storage.TheSecretLibrary.HighDry) == 2 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"You have found a hawser.")
 		player:addItem(32407, 1)
-        player:setStorageValue(Storage.TheSecretLibrary.HighDry, 3)
-    else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "empty")
-    end
-	
-    return true
+		player:setStorageValue(Storage.TheSecretLibrary.HighDry, 3)
+		return true
+	end
+	return false
 end
 
-sealedbook:uid(26702)
-sealedbook:register()
+fish:uid(1102)
+fish:register()

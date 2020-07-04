@@ -1,7 +1,7 @@
 --[[
 	Look README.md for see the reserved action/unique numbers
 	From range 5000 to 6000 is reserved for keys chest
-	From range 6001 to 10000 is reserved for reward without a container (common)
+	From range 6001 to 8000 is reserved for reward without a container (common)
 	From range 10001 to 14000 is reserved for reward in a container
 	From range 14001 to 15000 is reserved for others scripts (varied rewards)
 
