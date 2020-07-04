@@ -43,7 +43,7 @@ function keyDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	for index, value in ipairs(KeyDoorTable) do
 		if value.openDoor == item.itemid then
 			if Creature.checkCreatureInsideDoor(player, toPosition) then
-				return true
+				return false
 			end
 			item:transform(value.closedDoor)
 			return true
