@@ -68,7 +68,7 @@ function lionsRockEntrance.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-lionsRockEntrance:uid(30009)
+lionsRockEntrance:uid(35009)
 lionsRockEntrance:register()
 
 -- Lions rock sign

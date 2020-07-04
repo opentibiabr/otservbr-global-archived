@@ -16,6 +16,10 @@ function onStartup()
 	-- Corpse table
 	loadLuaMapAction(CorpseAction)
 	loadLuaMapUnique(CorpseUnique)
+	-- Doors key table
+	loadLuaMapAction(KeyDoorAction)
+	-- Doors level table
+	loadLuaMapAction(LevelDoorAction)
 	-- Doors quest table
 	loadLuaMapAction(QuestDoorAction)
 	loadLuaMapUnique(QuestDoorUnique)

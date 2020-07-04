@@ -1686,7 +1686,14 @@ Storage = {
   	-- New storages
 	Quest = {
 		-- update pre-6.0
-		DeeperFibula = {},
+		DeeperFibula = {
+			Key3980 = 10000,
+			RewardTowerShield = 10001,
+			RewardWarriorHelmet = 10002,
+			RewardDwarvenRing = 10003,
+			RewardElvenAmulet = 10004,
+			RewardKnightAxe = 10005,
+		},
 		OrnamentedShield = {},
 		ShortSword = {},
 		ThaisLighthouse = {},
@@ -1697,7 +1704,7 @@ Storage = {
 		ExplorerBrooch = {},
 		OrcFortress = {},
 		Panpipe = {
-			Key4055Reward = 10000
+			Key4055Reward = 11000
 		},
 		-- update 6.2
 		Draconia = {},

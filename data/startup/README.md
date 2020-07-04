@@ -1,5 +1,12 @@
 Reserved action/unique for tables:
 
+Door level:
+The defined range is from 1000/1999
+Since the three numbers after 1 determine the level
+Example:
+Level 10 = 1010
+Level 100 = 1100
+
 Chest (action) = 5000/15000
 Chest (unique) = 5000/15000
 Keys = 5000/6000
