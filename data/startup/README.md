@@ -21,8 +21,10 @@ Corpse (unique) = 20000/22000
 DoorStorage (action) = It is not defined, because it uses storages as action
 DoorStorage (unique) = 22001/25000
 
-Tile (action) = 25001/30000
-Tile (unique) = 25001/30000
+Tile (action) = 25001/29000
+Tile (unique) = 25001/29000
+Tile remove/create item (action) = 29001/30000
+Tile remove/create item (unique) = 29001/30000
 
 Lever (action) = 30001/35000
 Lever (unique) = 30001/35000
@@ -48,7 +50,7 @@ Action IDS
 	Others reserved player action/storages
 	[100] = unmoveable/untrade/unusable items
 	[101] = use pick floor
-	[102] = well down action
+	[102] = down floor action
 	[103] = key 0010
 	[103-120] = keys action
 	[303] = key 0303

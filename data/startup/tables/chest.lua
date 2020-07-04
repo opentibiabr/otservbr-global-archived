@@ -167,38 +167,25 @@ ChestUnique = {
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
 	-- Path: data\scripts\actions\system\quest_reward_container.lua
+
+	-- Ornamented shield quest
 	[10001] = {
-		-- For use of the map
-		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = z},
-		-- For use of the script
-		itemBag = containerId,
-		itemReward = {
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount}
-		},
-		weight = WeightContainerNumber,
-		storage = StorageKeyVariable
+		itemId = 2843,
+		itemPos = {x = 32778, y = 32282, z = 11},
+		itemBag = 1987,
+		keyItem = 2090,
+		keyAction = 3702,
+		itemReward = {{2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
+		weight = 194,
+		storage = Storage.Quest.OrnamentedShield.Bag
 	},
-	-- Example of chest having key reward
 	[10002] = {
-		-- For use of the map
-		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = z},
-		-- For use of the script
-		itemBag = containerId,
-		itemReward = {
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount}
-		},
-		weight = WeightContainerNumber,
-		keyItem = keyId,
-		keyAction = keyActionNumber,
-		storage = StorageKeyVariable
+		itemId = 1747,
+		itemPos = {x = 32769, y = 32302, z = 10},
+		itemBag = 1993,
+		itemReward = {{2071, 1}, {2175, 1}, {2199, 1}, {2152, 5} , {2169, 1}},
+		weight = 44,
+		storage = Storage.Quest.OrnamentedShield.RedBag
 	},
 
 	-- Reward of others scrips files (varied rewards)
