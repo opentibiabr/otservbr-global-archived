@@ -11,11 +11,14 @@
 	Reward with container
 	Varied rewards
 
-	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts
+	There is no need to tamper with the chests scripts, just register a new table and configure correctly
+	So the quest will work in-game
 
 	Note:
 	The "for use of the map" variables are only used to create the action or unique on the map during startup
-	The "for use of the script" variables are used by the scripts, to allow a single script to manage all rewards of the same type
+
+	The "for use of the script" variables are used by the scripts
+	To allow a single script to manage all rewards of the same type
 ]]
 
 ChestAction = {
@@ -29,10 +32,20 @@ ChestAction = {
 ChestUnique = {
 	-- Keys quest
 	-- data\scripts\actions\system\quest_reward_key.lua
-	-- Panpipe key 4055 chest
+	-- Deeper fibula quest key 3980
 	[5000] = {
 		-- For use of the map
-		itemId = false,
+		itemId = 385,
+		itemPos = {x = 32219, y = 32401, z = 10},
+		-- For use of the script
+		keyAction = 3980,
+		itemReward = 2091,
+		storage = Storage.Quest.DeeperFibula.Key3980
+	},
+	-- Panpipe quest key 4055
+	[5001] = {
+		-- For use of the map
+		itemId = 1290,
 		itemPos = {x = 32652, y = 32107, z = 7},
 		-- For use of the script
 		keyAction = 4055,
@@ -40,9 +53,9 @@ ChestUnique = {
 		storage = Storage.Quest.Panpipe.Key4055Reward
 	},
 	-- Dawnport quest key 0010 chest
-	[5001] = {
+	[5002] = {
 		-- For use of the map
-		itemId = false,
+		itemId = 1717,
 		itemPos = {x = 32068, y = 31895, z = 3},
 		-- For use of the script
 		keyAction = 103,
@@ -113,6 +126,42 @@ ChestUnique = {
 		-- For use of the script
 		itemReward = {{23749, 1}},
 		storage = Storage.Quest.Dawnport.TornLogBook
+	},
+	-- Deeper fibula quest
+	-- Tower shield
+	[6008] = {
+		itemId = 2843,
+		itemPos = {x = 32239, y = 32471, z = 10},
+		itemReward = {{2528, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardTowerShield
+	},
+	-- Warrior helmet
+	[6009] = {
+		itemId = 2843,
+		itemPos = {x = 32239, y = 32478, z = 10},
+		itemReward = {{2475, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardWarriorHelmet
+	},
+	-- Dwarven ring
+	[6010] = {
+		itemId = 3058,
+		itemPos = {x = 32233, y = 32491, z = 10},
+		itemReward = {{2213, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardDwarvenRing
+	},
+	-- Elven aulet
+	[6011] = {
+		itemId = 2844,
+		itemPos = {x = 32245, y = 32492, z = 10},
+		itemReward = {{2198, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardElvenAmulet
+	},
+	-- Knight axe
+	[6012] = {
+		itemId = 3058,
+		itemPos = {x = 32256, y = 32500, z = 10},
+		itemReward = {{2430, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardKnightAxe
 	},
 
 	-- Reward inside of container, there is also the option to put a key inside

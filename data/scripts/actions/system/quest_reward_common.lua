@@ -1,5 +1,6 @@
--- Common chest reward.
--- You just need to add a new table in the data/startup/tables/chest.lua file and this script will pull everything from there.
+-- Common chest reward
+-- You just need to add a new table in the data/startup/tables/chest.lua file
+-- This script will pull everything from there
 
 local commonReward = Action()
 local function playerAddItem(params)
@@ -14,7 +15,7 @@ local function playerAddItem(params)
 end
 
 function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
-	local setting = UniqueTable[item.uid]
+	local setting = ChestUnique[item.uid]
 	if not setting then
 		return true
 	end
@@ -28,7 +29,13 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		local count = setting.itemReward[i][2]
 		local itemDescriptions = getItemDescriptions(itemid)
 		local itemName = itemDescriptions.name
-		local addItemParams = {player = player, itemid = itemid, count = count, weight = getItemWeight(itemid) * count, storage = setting.storage}
+		local addItemParams = {
+			player = player,
+			itemid = itemid,
+			count = count,
+			weight = getItemWeight(itemid) * count,
+			storage = setting.storage
+		}
 
 		if count > 1 and (ItemType(itemid):isStackable() or ItemType(itemid):getCharges() > 0) then
 			if (itemDescriptions.plural) then
