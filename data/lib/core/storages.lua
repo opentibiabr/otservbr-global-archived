@@ -1683,7 +1683,7 @@ Storage = {
 		Time4 = 52354,
 	},
 	-- News quest development
-  	-- New storages
+	-- New storages
 	Quest = {
 		-- update pre-6.0
 		DeeperFibula = {
@@ -2189,7 +2189,8 @@ local benchmark = os.clock()
 local extraction = {}
 extractValues(Storage, extraction) -- Call function
 table.sort(extraction) -- Sort the table
--- The choice of sorting is due to the fact that sorting is very cheap O (n log2 (n)) and then we can simply compare one by one the elements finding duplicates in O(n)
+-- The choice of sorting is due to the fact that sorting is very cheap O (n log2 (n))
+-- And then we can simply compare one by one the elements finding duplicates in O(n)
 
 -- Scroll through the extracted table for duplicates
 if #extraction > 1 then
