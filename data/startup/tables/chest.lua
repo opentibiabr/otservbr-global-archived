@@ -11,11 +11,14 @@
 	Reward with container
 	Varied rewards
 
-	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts
+	There is no need to tamper with the chests scripts, just register a new table and configure correctly
+	So the quest will work in-game
 
 	Note:
 	The "for use of the map" variables are only used to create the action or unique on the map during startup
-	The "for use of the script" variables are used by the scripts, to allow a single script to manage all rewards of the same type
+
+	The "for use of the script" variables are used by the scripts
+	To allow a single script to manage all rewards of the same type
 ]]
 
 ChestAction = {
