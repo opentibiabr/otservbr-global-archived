@@ -25,6 +25,9 @@ function loadLuaMapAction(tablename)
 				if value.itemId == false and tile:getTopTopItem() then
 					tile:getTopTopItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
 				end
+				if value.itemId == false and tile:getGround() then
+					tile:getGround():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+				end
 			end
 		end
 	end
