@@ -14,7 +14,7 @@ local function playerAddItem(params)
 end
 
 function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
-	local setting = UniqueTable[item.uid]
+	local setting = ChestUnique[item.uid]
 	if not setting then
 		return true
 	end
