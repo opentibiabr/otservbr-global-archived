@@ -3959,9 +3959,20 @@ void ProtocolGame::parseStashWithdraw(NetworkMessage& msg)
 	uint16_t itemId = msg.get<uint16_t>();
 	uint16_t itemCount = msg.get<uint32_t>();
 
-	if (IOStash::withdrawItem(player->guid, itemId, itemCount)) {
-		player->addItemFromStash(itemId, itemCount);
+	auto itemCID = Item::items.getItemIdByClientId(itemId).id;
+	Item* newItem = Item::CreateItem(itemCID, itemCount);
+	StashItemList itemsToAdd = {{itemCID, itemCount}};
+
+	auto hasContainer = player->getFreeBackpackSlots() >= IOStash::getStashSize(itemsToAdd);
+	auto hasCap = player->hasCapacity(newItem, itemCount);
+
+	if (!hasContainer) player->sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM);
+	else if (!hasCap) player->sendCancelMessage(RETURNVALUE_NOTENOUGHCAPACITY);
+	else if (IOStash::withdrawItem(player->guid, itemId, itemCount)) {
+		player->addItemFromStash(itemCID, itemCount);
 	}
+
+	delete newItem;
 	sendOpenStash();
 }
 

@@ -4938,17 +4938,15 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 }
 
 bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
-	auto itemCID = Item::items.getItemIdByClientId(itemId).id;
-
 	uint32_t stackCount = 100u;
 
 	while (itemCount > 0) {
 		auto addValue = itemCount > stackCount ? stackCount : itemCount;
 		itemCount -= addValue;
-		Item* newItem = Item::CreateItem(itemCID, addValue);
+		Item* newItem = Item::CreateItem(itemId, addValue);
 
 		if (g_game.internalPlayerAddItem(this, newItem, true) != RETURNVALUE_NOERROR) {
-			std::cout << "[Player::addItensFromStash] Could not add itemId: " << itemCID << " count: " << addValue << " to playerId: " << this->guid << std::endl;
+			std::cout << "[Player::addItemFromStash] Could not add itemId: " << itemId << " count: " << addValue << " to playerId: " << this->guid << std::endl;
 			delete newItem;
 			return false;
 		}
@@ -4957,7 +4955,7 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 }
 
 void Player::stowContainer(Item* item, uint32_t count) {
-	if (!isItemStorable(item) || item == NULL) {
+	if (item == NULL || !isItemStorable(item)) {
 		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -4971,35 +4969,40 @@ void Player::stowContainer(Item* item, uint32_t count) {
 	if (itemType.isContainer()) {
 		itemList = getAllStorableItemsInContainer(item);
 	}	else {
-		itemList.push_back(item); //Fix item count
+		itemList.push_back(item);
 	}
 
-	for (Item* x : itemList) {
-		auto sameItemCountSum = x->getItemCount();
+	for (Item* i : itemList) {
+    auto sameItemCountSum = itemType.isContainer() ? i->getItemCount() : count;
 
-		if (itemDict.count(x->getClientID()) == 1) {
-			sameItemCountSum += itemDict[x->getClientID()].second;
+		if (itemDict.count(i->getClientID()) == 1) {
+			sameItemCountSum += itemDict[i->getClientID()].second;
 		}
 
-		itemDict[x->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
+		itemDict[i->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
 	}
 
 	itemDict = IOStash::stashContainer(this->guid, itemDict, g_config.getNumber(ConfigManager::STASH_ITEMS));
 
   if (itemDict.size() == 0) {
     if(itemList.size() == 0)
-      sendCancelMessage("there is nothing to stash in this container");
+      sendCancelMessage("There is nothing to stash in this container");
     else if (itemList.size() == 1 && !itemType.isContainer())
-      sendCancelMessage("you dont have capacity to stash this item");
+      sendCancelMessage("You don't have capacity in the Supply Stash to store this item");
     else
-      sendCancelMessage("you dont have capacity to stash this container");
+      sendCancelMessage("You don't have capacity in the Supply Stash to store this container");
     return;
   }
 
-	for (auto itemToRemove : itemList) {
-		g_game.internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
-		totalStowed += itemToRemove->getItemCount();
-	}
+  if (itemType.isContainer()) {
+    for (auto itemToRemove : itemList) {
+      g_game.internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
+      totalStowed += itemToRemove->getItemCount();
+    }
+  } else {
+    g_game.internalRemoveItem(item, count);
+    totalStowed += count;
+  }
 
 	retString << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
 	sendCancelMessage(retString.str());
