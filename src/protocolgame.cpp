@@ -3966,7 +3966,7 @@ void ProtocolGame::parseStashWithdraw(NetworkMessage& msg)
 	auto hasContainer = player->getFreeBackpackSlots() >= IOStash::getStashSize(itemsToAdd);
 	auto hasCap = player->hasCapacity(newItem, itemCount);
 
-	if (!hasContainer) player->sendCancelMessage(RETURNVALUE_CONTAINERNOTENOUGHROOM);
+	if (!hasContainer) player->sendCancelMessage("You do not have enough room to withdraw this item");
 	else if (!hasCap) player->sendCancelMessage(RETURNVALUE_NOTENOUGHCAPACITY);
 	else if (IOStash::withdrawItem(player->guid, itemId, itemCount)) {
 		player->addItemFromStash(itemCID, itemCount);
