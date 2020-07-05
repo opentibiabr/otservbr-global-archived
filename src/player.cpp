@@ -4956,8 +4956,8 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 	return true;
 }
 
-void Player::stowContainer(Item* item) {
-	if (!isItemStorable(item)) {
+void Player::stowContainer(Item* item, uint32_t count) {
+	if (!isItemStorable(item) || item == NULL) {
 		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -4966,17 +4966,12 @@ void Player::stowContainer(Item* item) {
 	std::map<uint16_t, std::pair<bool, uint32_t>> itemDict;	
 	uint32_t totalStowed = 0;
 	std::ostringstream retString;
+  const ItemType& itemType = Item::items[item->getID()];
 
-	if (item->getContainer() != NULL) {
+	if (itemType.isContainer()) {
 		itemList = getAllStorableItemsInContainer(item);
-	}
-	else {
-		itemList.push_back(item);
-	}
-
-	if (itemList.size() < 1) { //Safe check
-		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
-		return;
+	}	else {
+		itemList.push_back(item); //Fix item count
 	}
 
 	for (Item* x : itemList) {
@@ -4989,7 +4984,17 @@ void Player::stowContainer(Item* item) {
 		itemDict[x->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
 	}
 
-	itemDict = IOStash::stashContainer(this->guid, itemDict);
+	itemDict = IOStash::stashContainer(this->guid, itemDict, g_config.getNumber(ConfigManager::STASH_ITEMS));
+
+  if (itemDict.size() == 0) {
+    if(itemList.size() == 0)
+      sendCancelMessage("there is nothing to stash in this container");
+    else if (itemList.size() == 1 && !itemType.isContainer())
+      sendCancelMessage("you dont have capacity to stash this item");
+    else
+      sendCancelMessage("you dont have capacity to stash this container");
+    return;
+  }
 
 	for (auto itemToRemove : itemList) {
 		g_game.internalRemoveItem(itemToRemove, itemToRemove->getItemCount());

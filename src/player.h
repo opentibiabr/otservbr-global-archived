@@ -693,7 +693,7 @@ class Player final : public Creature, public Cylinder
 
 		//stash functions
 		bool addItemFromStash(uint16_t itemId, uint32_t itemCount);
-		void stowContainer(Item* item);
+		void stowContainer(Item* item, uint32_t count);
 
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void changeMana(int32_t manaChange) override;

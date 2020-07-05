@@ -54,8 +54,26 @@ uint16_t IOStash::getStashSize(StashItemList itemList) {
 	return size;
 }
 
-std::map<uint16_t, std::pair<bool, uint32_t>> IOStash::stashContainer(uint32_t playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict)
+std::map<uint16_t, std::pair<bool, uint32_t>> IOStash::stashContainer(uint32_t playerId, std::map<uint16_t, std::pair<bool, uint32_t>> itemDict, uint16_t stashSize)
 {
+	  StashItemList stashItemDict;
+
+	  for (auto item : itemDict) {
+	    stashItemDict[item.first] = item.second.second;
+	  }
+
+	  for (auto item : getStoredItems(playerId)) {
+	    if(stashItemDict[item.first] == NULL)
+	      stashItemDict[item.first] = item.second;
+	    else
+	      stashItemDict[item.first] += item.second;
+	  }
+
+	  if (getStashSize(stashItemDict) > stashSize) {
+	    itemDict.clear();
+	    return itemDict;
+	  }
+  
 	std::ostringstream query;
 	query << "SELECT * FROM `player_stash` WHERE `player_id` = ";
 	query << playerId << " AND `item_id` IN (";

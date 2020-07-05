@@ -1059,7 +1059,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (toCylinder->getContainer() != NULL &&
 		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
 		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
-		player->stowContainer(item);
+		player->stowContainer(item, count);
 		return;
 	}
 
@@ -1076,8 +1076,7 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	if (toPos.x == 0xFFFF) {
 		if (toPos.y & 0x40) {
 			toIndex = toPos.z;
-		}
-		else {
+		} else {
 			toIndex = static_cast<uint8_t>(toPos.y);
 		}
 	}
