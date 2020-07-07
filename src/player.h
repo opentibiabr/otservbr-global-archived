@@ -1598,7 +1598,8 @@ class Player final : public Creature, public Cylinder
 		BlockType_t lastAttackBlockType = BLOCK_NONE;
 		tradestate_t tradeState = TRADE_NONE;
 		fightMode_t fightMode = FIGHTMODE_ATTACK;
-		account::AccountType accountType = account::AccountType::ACCOUNT_TYPE_NORMAL;
+		account::AccountType accountType =
+                         account::AccountType::ACCOUNT_TYPE_NORMAL;
 
 		bool chaseMode = false;
 		bool secureMode = false;
