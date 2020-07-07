@@ -810,7 +810,7 @@ void ProtocolGame::parseSetOutfit(NetworkMessage& msg)
 			msg.get<uint32_t>();
 		}
 		addGameTask(&Game::playerChangeOutfit, player->getID(), newOutfit);
-    }
+  }
 }
 
 void ProtocolGame::parseToggleMount(NetworkMessage& msg)
