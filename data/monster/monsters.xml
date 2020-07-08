@@ -189,8 +189,6 @@
 	<monster name="Nymph" file="fey/nymph.xml" />
 	<monster name="Boogy" file="fey/boogy.xml" />
 	<monster name="Swan Maiden" file="fey/swan_maiden.xml" />
-	<monster name="Percht" file="quests/the_percht_queens_island/percht.xml" />
-	<monster name="Schiach" file="quests/the_percht_queens_island/schiach.xml" />
 	
 	<!-- Giants --> <!-- Missing Orger, Loricate Orger, Bellicose Orger -->
 	<monster name="Behemoth" file="giants/behemoth.xml" />
@@ -1112,7 +1110,9 @@
 	<monster name="Bright Percht Sleigh" file="quests/the_percht_queens_island/bright_percht_sleigh.xml" />
 	<monster name="Cold Percht Sleigh" file="quests/the_percht_queens_island/cold_percht_sleigh.xml" />
 	<monster name="Dark Percht Sleigh" file="quests/the_percht_queens_island/dark_percht_sleigh.xml" />
+	<monster name="Percht" file="quests/the_percht_queens_island/percht.xml" />
 	<monster name="Percht Minion" file="quests/the_percht_queens_island/percht_minion.xml" />
+	<monster name="Schiach" file="quests/the_percht_queens_island/schiach.xml" />
 	<monster name="The Percht Queen" file="quests/the_percht_queens_island/the_percht_queen.xml" />
 	<monster name="Warm Fire" file="quests/the_percht_queens_island/warm_fire.xml" />
 	
