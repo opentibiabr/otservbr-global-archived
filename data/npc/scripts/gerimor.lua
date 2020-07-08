@@ -20,7 +20,6 @@ local function greetCallback(cid)
 	if player then
 		npcHandler:setMessage(MESSAGE_GREET, "Greeting, |PLAYERNAME|! I welcome you to this sacred {place}. \z
 			If you are interested in {missions} just ask.")
-		npcHandler.topic[cid] = 1
 		end
 	npcHandler:addFocus(cid)
 	return true
@@ -65,7 +64,7 @@ keywordHandler:addKeyword({"persons"}, StdModule.say,
 	}
 )
 
-keywordHandler:addKeyword({"aproacches"}, StdModule.say,
+keywordHandler:addKeyword({"approaches"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
 		text = "We might not be many but we are diverse. \z
@@ -432,7 +431,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if msgcontains(msg, "missions") and npcHandler.topic[cid] == 1 then
+	if msgcontains(msg, "missions") then
 		-- Final boss check
 		if player:getStorageValue(Storage.CultsOfTibia.FinalBoss.Mission) > 2 then
 			npcHandler:say("You have already fulfilled your job to my full satisfaction. \z
