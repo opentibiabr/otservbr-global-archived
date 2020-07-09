@@ -5023,48 +5023,6 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 	return;
 }
 
-void Player::setQuicklootItem(uint16_t itemId, bool isLogin /* = false */)
-{
-	if (itemId == 0) {
-		quicklootItemIds.clear();
-		return;
-	}
-
-	int count = 0;
-	for (const auto& id : quicklootItemIds) {
-		if (id == itemId) {
-			quicklootItemIds.erase(quicklootItemIds.begin() + count);
-			return;
-		}
-		count++;
-	}
-
-	quicklootItemIds.emplace_back(itemId);
-}
-
-std::map<uint16_t, Container*> Player::getContainers()
-{
-	uint16_t count = 0;
-	std::map<uint16_t, Container*> contMap;
-	for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; i++) {
-		Item* item = inventory[i];
-		if (!item) {
-			continue;
-		}
-
-		Container* container = item->getContainer();
-		if (container) {
-			contMap[++count] = container;
-			for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
-				if ((*it)->getContainer()) {
-					contMap[++count] = (*it)->getContainer();
-				}
-			}
-		}
-	}
-	return contMap;
-}
-
 /*******************************************************************************
  * Interfaces
  ******************************************************************************/

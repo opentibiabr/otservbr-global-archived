@@ -1397,13 +1397,6 @@ class Player final : public Creature, public Cylinder
 			return it != quickLootListClientIds.end();
 		}
 
-		std::vector<uint16_t>& getQuicklootItems() {
-			return quicklootItemIds;
-		}
-
-		void setQuicklootItem(uint16_t itemId, bool isLogin = false);
-		std::map<uint16_t, Container*> getContainers();
-
    		bool updateKillTracker(Container* corpse, const std::string& playerName, const Outfit_t creatureOutfit) const
  		{
   			if (client) {
@@ -1510,8 +1503,6 @@ class Player final : public Creature, public Cylinder
 
 		std::map<ObjectCategory_t, Container*> quickLootContainers;
 		std::vector<uint16_t> quickLootListClientIds;
-
-		std::vector<uint16_t> quicklootItemIds;
 
 		std::vector<OutfitEntry> outfits;
 		GuildWarVector guildWarVector;

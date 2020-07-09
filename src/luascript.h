@@ -1024,9 +1024,6 @@ class LuaScriptInterface
 		static int luaPlayerIsPzLocked(lua_State* L);
 		static int luaPlayerIsOffline(lua_State* L);
 
-		// Quickloot
-        static int luaPlayerGetQuicklootList(lua_State* L);
-        static int luaPlayerManageQuickloot(lua_State* L);
         static int luaPlayerGetContainers(lua_State* L);
         static int luaPlayerSetLootContainer(lua_State* L);
         static int luaPlayerGetLootContainer(lua_State* L);

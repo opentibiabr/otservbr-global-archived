@@ -336,10 +336,10 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
     player->addBlessing(i, result->getNumber<uint16_t>(ss.str()));
   }
 
-  unsigned long conditionsSize;
-  const char* conditions = result->getStream("conditions", conditionsSize);
+  unsigned long attrSize;
+  const char* attr = result->getStream("conditions", attrSize);
   PropStream propStream;
-  propStream.init(conditions, conditionsSize);
+  propStream.init(attr, attrSize);
 
   Condition* condition = Condition::createCondition(propStream);
   while (condition) {
@@ -512,53 +512,54 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   std::vector<std::pair<uint8_t, Container*>> openContainersList;
 
   if ((result = db.storeQuery(query.str()))) {
-    loadItems(itemMap, result);
+  loadItems(itemMap, result);
 
-    for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
-      const std::pair<Item*, int32_t>& pair = it->second;
-      Item* item = pair.first;
-      int32_t pid = pair.second;
-
-      Container* itemContainer = item->getContainer();
-      if (itemContainer) {
-        uint8_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
-        if (cid > 0) {
-          openContainersList.emplace_back(std::make_pair(cid, itemContainer));
-        }
-        if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
-					uint32_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
-					for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
-						if (hasBitSet(1 << category, flags)) {
-							player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
-						}
-					}
-				}
-      }
-
-      if (pid >= 1 && pid <= 11) {
-        player->internalAddThing(pid, item);
-      } else {
-        ItemMap::const_iterator it2 = itemMap.find(pid);
-        if (it2 == itemMap.end()) {
-          continue;
-        }
-
-        Container* container = it2->second.first->getContainer();
-        if (container) {
-          container->internalAddThing(item);
-        }
-      }
+  for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+   const std::pair<Item*, int32_t>& pair = it->second;
+   Item* item = pair.first;
+   int32_t pid = pair.second;
+   if (pid >= 1 && pid <= 11) {
+    player->internalAddThing(pid, item);
+   } else {
+    ItemMap::const_iterator it2 = itemMap.find(pid);
+    if (it2 == itemMap.end()) {
+     continue;
     }
-  }
 
-  std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
-    return left.first < right.first;
-  });
+    Container* container = it2->second.first->getContainer();
+    if (container) {
+     container->internalAddThing(item);
+    }
+   }
 
-  for (auto& it : openContainersList) {
-    player->addContainer(it.first - 1, it.second);
-    g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
+   Container* itemContainer = item->getContainer();
+   if (itemContainer) {
+    uint8_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
+    if (cid > 0) {
+     openContainersList.emplace_back(std::make_pair(cid, itemContainer));
+    }
+    if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+     uint32_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+     for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
+      if (hasBitSet(1 << category, flags)) {
+       player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+      }
+     }
+    }
+   }
+
   }
+ }
+
+ std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
+  return left.first < right.first;
+ });
+
+ for (auto& it : openContainersList) {
+  player->addContainer(it.first - 1, it.second);
+  g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
+ }
+
 
   // Store Inbox
   if (!player->inventory[CONST_SLOT_STORE_INBOX]) {
@@ -701,6 +702,8 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
 
 bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList, DBInsert& query_insert, PropWriteStream& propWriteStream)
 {
+  Database& db = Database::getInstance();
+
   std::ostringstream ss;
 
   using ContainerBlock = std::pair<Container*, int32_t>;
@@ -708,9 +711,7 @@ bool IOLoginData::saveItems(const Player* player, const ItemBlockList& itemList,
 
   int32_t runningId = 100;
 
-  Database& db = Database::getInstance();
   const auto& openContainers = player->getOpenContainers();
-
   for (const auto& it : itemList) {
     int32_t pid = it.first;
     Item* item = it.second;
@@ -799,13 +800,13 @@ bool IOLoginData::savePlayer(Player* player)
   if (player->getHealth() <= 0) {
     player->changeHealth(1);
   }
-
   Database& db = Database::getInstance();
 
   std::ostringstream query;
   query << "SELECT `save` FROM `players` WHERE `id` = " << player->getGUID();
   DBResult_ptr result = db.storeQuery(query.str());
   if (!result) {
+    std::cout << player->getName() << " 01" << std::endl;
     return false;
   }
 
@@ -814,18 +815,6 @@ bool IOLoginData::savePlayer(Player* player)
     query << "UPDATE `players` SET `lastlogin` = " << player->lastLoginSaved << ", `lastip` = " << player->lastIP << " WHERE `id` = " << player->getGUID();
     return db.executeQuery(query.str());
   }
-
-  //serialize conditions
-  PropWriteStream propWriteStream;
-  for (Condition* condition : player->conditions) {
-    if (condition->isPersistent()) {
-      condition->serialize(propWriteStream);
-      propWriteStream.write<uint8_t>(CONDITIONATTR_END);
-    }
-  }
-
-  size_t conditionsSize;
-  const char* conditions = propWriteStream.getStream(conditionsSize);
 
   //First, an UPDATE query to write the player itself
   query.str(std::string());
@@ -865,20 +854,19 @@ bool IOLoginData::savePlayer(Player* player)
     query << "`lastip` = " << player->lastIP << ',';
   }
 
-  query << "`conditions` = " << db.escapeBlob(conditions, conditionsSize) << ',';
-
-  // quickloot list
-	propWriteStream.clear();
-	propWriteStream.write<size_t>(player->quicklootItemIds.size());
-	for (auto it = player->quicklootItemIds.begin(), end = player->quicklootItemIds.end(); it != end; ++it) {
-		propWriteStream.write<uint16_t>(*it);
-	}
+  //serialize conditions
+  PropWriteStream propWriteStream;
+  for (Condition* condition : player->conditions) {
+    if (condition->isPersistent()) {
+      condition->serialize(propWriteStream);
+      propWriteStream.write<uint8_t>(CONDITIONATTR_END);
+    }
+  }
 
   size_t attributesSize;
 	const char* attributes = propWriteStream.getStream(attributesSize);
 
-	attributes = propWriteStream.getStream(attributesSize);
-	query << "`autoloot` = " << db.escapeBlob(attributes, attributesSize) << ',';
+  query << "`conditions` = " << db.escapeBlob(attributes, attributesSize) << ',';
 
   if (g_game.getWorldType() != WORLD_TYPE_PVP_ENFORCED) {
     int64_t skullTime = 0;
@@ -1000,6 +988,7 @@ bool IOLoginData::savePlayer(Player* player)
   //item saving
   query << "DELETE FROM `player_items` WHERE `player_id` = " << player->getGUID();
   if (!db.executeQuery(query.str())) {
+    std::cout << player->getName() << " 10" << std::endl;
     return false;
   }
 
@@ -1014,6 +1003,7 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   if (!saveItems(player, itemList, itemsQuery, propWriteStream)) {
+    std::cout << player->getName() << " 11" << std::endl;
     return false;
   }
 
