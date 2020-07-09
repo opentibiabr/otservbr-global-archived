@@ -512,54 +512,52 @@ bool IOLoginData::loadPlayer(Player* player, DBResult_ptr result)
   std::vector<std::pair<uint8_t, Container*>> openContainersList;
 
   if ((result = db.storeQuery(query.str()))) {
-  loadItems(itemMap, result);
+    loadItems(itemMap, result);
 
-  for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
-   const std::pair<Item*, int32_t>& pair = it->second;
-   Item* item = pair.first;
-   int32_t pid = pair.second;
-   if (pid >= 1 && pid <= 11) {
-    player->internalAddThing(pid, item);
-   } else {
-    ItemMap::const_iterator it2 = itemMap.find(pid);
-    if (it2 == itemMap.end()) {
-     continue;
-    }
+    for (ItemMap::const_reverse_iterator it = itemMap.rbegin(), end = itemMap.rend(); it != end; ++it) {
+      const std::pair<Item*, int32_t>& pair = it->second;
+      Item* item = pair.first;
+      int32_t pid = pair.second;
+      if (pid >= 1 && pid <= 11) {
+        player->internalAddThing(pid, item);
+      } else {
+        ItemMap::const_iterator it2 = itemMap.find(pid);
+        if (it2 == itemMap.end()) {
+          continue;
+        }
 
-    Container* container = it2->second.first->getContainer();
-    if (container) {
-     container->internalAddThing(item);
-    }
-   }
-
-   Container* itemContainer = item->getContainer();
-   if (itemContainer) {
-    uint8_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
-    if (cid > 0) {
-     openContainersList.emplace_back(std::make_pair(cid, itemContainer));
-    }
-    if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
-     uint32_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
-     for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
-      if (hasBitSet(1 << category, flags)) {
-       player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+        Container* container = it2->second.first->getContainer();
+        if (container) {
+          container->internalAddThing(item);
+        }
       }
-     }
+
+      Container* itemContainer = item->getContainer();
+      if (itemContainer) {
+        uint8_t cid = item->getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER);
+        if (cid > 0) {
+          openContainersList.emplace_back(std::make_pair(cid, itemContainer));
+        }
+        if (item->hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+          uint32_t flags = item->getIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER);
+          for (uint8_t category = OBJECTCATEGORY_FIRST; category <= OBJECTCATEGORY_LAST; category++) {
+            if (hasBitSet(1 << category, flags)) {
+              player->setLootContainer((ObjectCategory_t)category, itemContainer, true);
+            }
+          }
+        }
+      }
     }
-   }
-
   }
- }
 
- std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
-  return left.first < right.first;
- });
+  std::sort(openContainersList.begin(), openContainersList.end(), [](const std::pair<uint8_t, Container*> &left, const std::pair<uint8_t, Container*> &right) {
+    return left.first < right.first;
+  });
 
- for (auto& it : openContainersList) {
-  player->addContainer(it.first - 1, it.second);
-  g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
- }
-
+  for (auto& it : openContainersList) {
+    player->addContainer(it.first - 1, it.second);
+    g_scheduler.addEvent(createSchedulerTask(((it.first) * 50), std::bind(&Game::playerUpdateContainer, &g_game, player->getGUID(), it.first - 1)));
+  }
 
   // Store Inbox
   if (!player->inventory[CONST_SLOT_STORE_INBOX]) {
@@ -864,7 +862,7 @@ bool IOLoginData::savePlayer(Player* player)
   }
 
   size_t attributesSize;
-	const char* attributes = propWriteStream.getStream(attributesSize);
+  const char* attributes = propWriteStream.getStream(attributesSize);
 
   query << "`conditions` = " << db.escapeBlob(attributes, attributesSize) << ',';
 
