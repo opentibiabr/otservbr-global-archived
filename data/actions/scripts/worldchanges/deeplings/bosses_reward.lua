@@ -1,5 +1,5 @@
 local rewards = {
-	[25610] = {
+	[9302] = {
 		storage = Storage.DeeplingBosses.Jaul,
 		bossName = 'Jaul',
 		items = {
@@ -9,7 +9,7 @@ local rewards = {
 			{itemId = 15453}
 		}
 	},
-	[25611] = {
+	[9303] = {
 		storage = Storage.DeeplingBosses.Tanjis,
 		bossName = 'Tanjis',
 		items = {
@@ -20,7 +20,7 @@ local rewards = {
 			{itemId = 15453}
 		}
 	},
-	[25612] = {
+	[9304] = {
 		storage = Storage.DeeplingBosses.Obujos,
 		bossName = 'Obujos',
 		items = {

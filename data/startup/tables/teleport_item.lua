@@ -40,6 +40,15 @@ TeleportItemAction = {
 			{x = 33061, y = 32714, z = 5}
 		}
 	},
+	-- Deeper fibula draw well
+	-- Path: data\scripts\quests\deeper_fibula\action-draw_well.lua
+	[15005] = {
+		itemId = false,
+		itemPos = {
+			{x = 32171, y = 32439, z = 7},
+			{x = 32172, y = 32439, z = 7}
+		}
+	},
 }
 
 TeleportItemUnique = {

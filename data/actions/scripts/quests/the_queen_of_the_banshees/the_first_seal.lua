@@ -1,10 +1,9 @@
 local config = {
-	[49998] = {position = Position(32259, 31891, 10), revert = true},
-	[49999] = {position = Position(32259, 31890, 10), revert = true},
-	[50000] = {position = Position(32259, 31891, 10), revert = true},
-	[50001] = {position = Position(32259, 31890, 10), revert = true},
-	[50002] = {position = Position(32266, 31860, 11)},
-
+	[1110] = {position = Position(32259, 31891, 10), revert = true},
+	[1111] = {position = Position(32259, 31890, 10), revert = true},
+	[1112] = {position = Position(32259, 31891, 10), revert = true},
+	[1113] = {position = Position(32259, 31890, 10), revert = true},
+	[1114] = {position = Position(32266, 31860, 11)},
 	time = 100
 }
 

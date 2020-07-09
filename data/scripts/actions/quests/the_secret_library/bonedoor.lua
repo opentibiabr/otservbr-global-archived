@@ -1,26 +1,17 @@
-local config = {
-	[26687] = {itemId = 11832, msg = "Success", storage = Storage.TheSecretLibrary.Mota, getValue = 9, setValue = 10},
-}
+local boneDoor = Action()
 
-local basinfire = Action()
-
-function basinfire.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-
-	local key = config[target.uid]
-		if key then
-			if player:getStorageValue(key.storage) == key.getValue then
-				if table.contains({key.itemId}, target.itemid) then
-					player:sendTextMessage(MESSAGE_INFO_DESCR, key.msg)
-					player:setStorageValue(key.storage, key.setValue)
-					player:removeItem(32648, 1)
-					player:setStorageValue(Storage.TheSecretLibrary.SkullDoor, 1)
-				end
-			else
-				player:sendTextMessage(MESSAGE_INFO_DESCR,"sorry")
-			end
+function boneDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if player:getStorageValue(Storage.TheSecretLibrary.Mota) == 9 then
+		if target.itemid == 11832 then
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "You have found a reward.")
+			player:setStorageValue(Storage.TheSecretLibrary.Mota, 10)
+			player:removeItem(32648, 1)
+			player:setStorageValue(Storage.TheSecretLibrary.SkullDoor, 1)
 		end
-	return true
+		return true
+	end
+	return false
 end
 
-basinfire:id(32648)
-basinfire:register()
+boneDoor:id(1090)
+boneDoor:register()

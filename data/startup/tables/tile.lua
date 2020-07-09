@@ -181,4 +181,15 @@ TileUnique = {
 		itemId = 23808,
 		itemPos = {x = 33077, y = 32298, z = 9}
 	},
+
+	-- Remove/create item on stepIn
+	-- Reserved uniques range from 29001/30000
+
+	-- Ornamented shield quest
+	[29001] = {
+		itemId = 9023,
+		itemPos = {x = 32770, y = 32282, z = 10},
+		targetPos = {x = 32771, y = 32297, z = 10},
+		targetItem = 387
+	}
 }
