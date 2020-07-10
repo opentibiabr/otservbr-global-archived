@@ -3927,6 +3927,7 @@ void ProtocolGame::reloadCreature(const Creature* creature)
   else {
     sendAddCreature(creature, creature->getPosition(), stackpos, false);
   }
+  writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::sendOpenStash()
