@@ -1801,8 +1801,12 @@ ReturnValue Game::internalTeleport(Thing* thing, const Position& newPos, bool pu
 
 void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 {
+	if (!player || !corpse) {
+		return;
+	}
+
 	std::vector<Item*> itemList;
-	bool ignoreListItems = (player->getProtocolVersion() >= 1150 ? player->quickLootFilter == QUICKLOOTFILTER_SKIPPEDLOOT : false);
+	bool ignoreListItems = (player->quickLootFilter == QUICKLOOTFILTER_SKIPPEDLOOT);
 
 	bool missedAnyGold = false;
 	bool missedAnyItem = false;
@@ -2003,7 +2007,7 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 
 		// consumed all sub-container & there is simply no more containers to iterate over.
 		// check if fallback should be used and if not, then break
-		bool quickFallback = (player->getProtocolVersion() >= 1150 ? player->quickLootFallbackToMainContainer : true);
+		bool quickFallback = (player->quickLootFallbackToMainContainer);
 		bool noFallback = fallbackConsumed || !quickFallback;
 		if (noFallback && (!lootContainer || !obtainedNewContainer)) {
 			break;
