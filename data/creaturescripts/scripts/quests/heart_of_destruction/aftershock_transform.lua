@@ -1,5 +1,5 @@
 function onThink(creature)
-	if not creature:isCreature() then
+	if not creature or not creature:isMonster() then
 		return false
 	end
 
@@ -7,7 +7,6 @@ function onThink(creature)
 	if realityQuakeStage == 0 then
 		if hp <= 80 and aftershockStage == 0 then
 			aftershockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("foreshock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + foreshockHealth, false)
@@ -18,7 +17,6 @@ function onThink(creature)
 			aftershockStage = 1
 		elseif hp <= 60 and aftershockStage == 1 then
 			aftershockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("foreshock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + foreshockHealth, false)
@@ -40,7 +38,6 @@ function onThink(creature)
 			aftershockStage = 3
 		elseif hp <= 25 and aftershockStage == 3 then
 			aftershockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("foreshock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + foreshockHealth, false)
@@ -51,7 +48,6 @@ function onThink(creature)
 			aftershockStage = 4
 		elseif hp <= 10 and aftershockStage == 4 then
 			aftershockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + aftershockHealth, false)

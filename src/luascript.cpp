@@ -1593,6 +1593,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_KEG_START)
 	registerEnum(ITEM_KEG_END)
 
+	registerEnum(ITEM_STONE_SKIN_AMULET)
+
+	registerEnum(ITEM_GOLD_POUCH)
+	registerEnum(ITEM_STORE_INBOX)
+
 	registerEnum(IMBUEMENT_SLOT)
 
 	registerEnum(PlayerFlag_CannotUseCombat)
