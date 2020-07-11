@@ -3518,7 +3518,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
 
  	// used for imbuement (Feather)
 	msg.add<uint32_t>(player->getCapacity()); // total capacity
-	msg.add<uint32_t>(player->getCapacity()); // base total capacity
+	msg.add<uint32_t>(player->getBaseCapacity()); // base total capacity
 }
 
 void ProtocolGame::AddOutfit(NetworkMessage& msg, const Outfit_t& outfit)
