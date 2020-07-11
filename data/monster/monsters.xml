@@ -66,7 +66,7 @@
 	<monster name="Seagull" file="birds/seagull.xml" />
 	<monster name="Terror Bird" file="birds/terror_bird.xml" />
 	
-	<!-- Construct -->	<!-- missing creature "cake golem" -->
+	<!-- Constructs -->	<!-- missing creature "cake golem" -->
 	<monster name="Animated Snowman" file="constructs/animated_snowman.xml" />
 	<monster name="Biting Book" file="constructs/biting_book.xml" />
 	<monster name="Clay Guardian" file="constructs/clay_guardian.xml" />
@@ -149,7 +149,7 @@
 	<monster name="Wyrm" file="dragons/wyrm.xml" />
 	<monster name="Ghastly Dragon" file="dragons/ghastly_dragon.xml" />
 	
-	<!-- Elemental --> <!-- Missing Furious Fire Elemental -->
+	<!-- Elementals --> <!-- missing creature "Furious Fire Elemental" -->
 	<monster name="Fire Elemental" file="elementals/fire_elemental.xml" />
 	<monster name="Massive Fire Elemental" file="elementals/massive_fire_elemental.xml" />
 	<monster name="Massive Water Elemental" file="elementals/massive_water_elemental.xml" />
@@ -166,7 +166,7 @@
 	<monster name="Ravenous Lava Lurker" file="elementals/ravenous_lava_lurker.xml" />
 	<monster name="Lava Lurker" file="elementals/lava_lurker.xml" />
 	
-	<!-- Extra Dimensional -->
+	<!-- Extra Dimensionals -->
 	<monster name="Breach Brood" file="extra_dimensional/breach_brood.xml" />
 	<monster name="Dread Intruder" file="extra_dimensional/dread_intruder.xml" />
 	<monster name="Instable Breach Brood" file="extra_dimensional/instable_breach_brood.xml" />
@@ -755,7 +755,7 @@
 	<monster name="Reflection Of Obujos" file="quests/mysterious_ornate_chest/reflection_of_obujos.xml" />
 	<monster name="Ugly Monster" file="quests/mysterious_ornate_chest/ugly_monster.xml" />
 	
-	<!-- Pits of Inferno -->
+	<!-- The Pits of Inferno Quest -->
 	<monster name="Countess Sorrow" file="quests/pits_of_inferno/countess_sorrow.xml" />
 	<monster name="Demon Goblin" file="quests/pits_of_inferno/demon_goblin.xml" />
 	<monster name="Dracola" file="quests/pits_of_inferno/dracola.xml" />
@@ -904,18 +904,18 @@
 
 	<!-- First Dragon Quest -->
 	<monster name="Dragon Wrath" file="quests/the_first_dragon/dragon_wrath.xml" />
-	<monster file="quests/the_first_dragon/angry_plant.xml" name="Angry Plant" />
-	<monster file="quests/the_first_dragon/bosses/fallen_challenger.xml" name="Fallen Challenger" />
-	<monster file="quests/the_first_dragon/bosses/the_first_dragon.xml" name="The First Dragon" />
-	<monster file="quests/the_first_dragon/bosses/tazhadur.xml" name="Tazhadur" />
-	<monster file="quests/the_first_dragon/bosses/kalyassa.xml" name="Kalyassa" />
-	<monster file="quests/the_first_dragon/bosses/zorvorax.xml" name="Zorvorax" />
-	<monster file="quests/the_first_dragon/bosses/gelidrazah_the_frozen.xml" name="Gelidrazah the Frozen" />
-	<monster file="quests/the_first_dragon/dragon_warden.xml" name="Dragon Warden" />
-	<monster file="quests/the_first_dragon/unbeatable_dragon.xml" name="Unbeatable Dragon" />
-	<monster file="quests/the_first_dragon/somewhat_beatable.xml" name="Somewhat Beatable" />
-	<monster file="quests/the_first_dragon/dragon_essence.xml" name="Dragon Essence" />
-	<monster file="quests/the_first_dragon/spirit_of_fertility.xml" name="Spirit of Fertility" />
+	<monster name="Angry Plant" file="quests/the_first_dragon/angry_plant.xml" />
+	<monster name="Fallen Challenger" file="quests/the_first_dragon/bosses/fallen_challenger.xml" />
+	<monster name="The First Dragon" file="quests/the_first_dragon/bosses/the_first_dragon.xml" />
+	<monster name="Tazhadur" file="quests/the_first_dragon/bosses/tazhadur.xml" />
+	<monster name="Kalyassa" file="quests/the_first_dragon/bosses/kalyassa.xml" />
+	<monster name="Zorvorax" file="quests/the_first_dragon/bosses/zorvorax.xml" />
+	<monster name="Gelidrazah the Frozen" file="quests/the_first_dragon/bosses/gelidrazah_the_frozen.xml" />
+	<monster name="Dragon Warden" file="quests/the_first_dragon/dragon_warden.xml" />
+	<monster name="Unbeatable Dragon" file="quests/the_first_dragon/unbeatable_dragon.xml" />
+	<monster name="Somewhat Beatable" file="quests/the_first_dragon/somewhat_beatable.xml" />
+	<monster name="Dragon Essence" file="quests/the_first_dragon/dragon_essence.xml" />
+	<monster name="Spirit of Fertility" file="quests/the_first_dragon/spirit_of_fertility.xml" />
 
 	<!-- Ferumbras Ascendant Quest -->
 	<monster name="Ascending Ferumbras" file="quests/ferumbras_ascendant/bosses/ascending_ferumbras.xml" />
@@ -1064,12 +1064,12 @@
 	<monster name="Unpleasant Dream" file="quests/the_dream_courts/unpleasant_dream.xml" />
 	<monster name="Lucifuga Aranea" file="quests/the_dream_courts/lucifuga_aranea.xml" />
 	
-	<!-- The Curse of Spreads -->
-	<monster file="quests/the_curse_spreads/feroxa.xml" name="feroxa" />
-	<monster file="quests/the_curse_spreads/feroxa2.xml" name="feroxa2" />
-	<monster file="quests/the_curse_spreads/feroxa3.xml" name="feroxa3" />
-	<monster file="quests/the_curse_spreads/feroxa4.xml" name="feroxa4" />
-	<monster file="quests/the_curse_spreads/feroxa5.xml" name="feroxa5" />
+	<!-- The Curse of Spreads Quest -->
+	<monster name="feroxa" file="quests/the_curse_spreads/feroxa.xml" />
+	<monster name="feroxa2" file="quests/the_curse_spreads/feroxa2.xml" />
+	<monster name="feroxa3" file="quests/the_curse_spreads/feroxa3.xml" />
+	<monster name="feroxa4" file="quests/the_curse_spreads/feroxa4.xml" />
+	<monster name="feroxa5" file="quests/the_curse_spreads/feroxa5.xml" />
 	<monster name="Black Vixen" file="quests/the_curse_spreads/black_vixen.xml" />
 	<monster name="Bloodback" file="quests/the_curse_spreads/bloodback.xml" />
 	<monster name="Darkfang" file="quests/the_curse_spreads/darkfang.xml" />
@@ -1082,14 +1082,14 @@
 	<monster name="Glooth Slasher" file="quests/hero_of_rathleton/glooth_slasher.xml" />
 	<monster name="Glooth Trasher" file="quests/hero_of_rathleton/glooth_trasher.xml" />
 	<monster name="Glooth-Generator" file="quests/hero_of_rathleton/glooth-generator.xml" />
-	<monster file="quests/hero_of_rathleton/deep_terror.xml" name="deep terror" />
-	<monster file="quests/hero_of_rathleton/professor_maxxen.xml" name="professor maxxen" />
-	<monster file="quests/hero_of_rathleton/tentacle_of_the_deep_terror.xml" name="tentacle of the deep terror" />
-	<monster file="quests/hero_of_rathleton/empowered_glooth_horror.xml" name="empowered glooth horror" />
-	<monster file="quests/hero_of_rathleton/feeble_glooth_horror.xml" name="feeble glooth horror" />
-	<monster file="quests/hero_of_rathleton/glooth_horror.xml" name="glooth horror" />
-	<monster file="quests/hero_of_rathleton/strong_glooth_horror.xml" name="strong glooth horror" />
-	<monster file="quests/hero_of_rathleton/weakened_glooth_horror.xml" name="weakened glooth horror"  />
+	<monster name="Deep Terror" file="quests/hero_of_rathleton/deep_terror.xml" />
+	<monster name="Professor Maxxen" file="quests/hero_of_rathleton/professor_maxxen.xml" />
+	<monster name="Tentacle of the Deep Terror" file="quests/hero_of_rathleton/tentacle_of_the_deep_terror.xml" />
+	<monster name="Empowered Glooth Horror" file="quests/hero_of_rathleton/empowered_glooth_horror.xml" />
+	<monster name="Feeble Glooth Horror" file="quests/hero_of_rathleton/feeble_glooth_horror.xml" />
+	<monster name="Glooth Horror" file="quests/hero_of_rathleton/glooth_horror.xml" />
+	<monster name="Strong Glooth Horror" file="quests/hero_of_rathleton/strong_glooth_horror.xml" />
+	<monster name="Weakened Glooth Horror" file="quests/hero_of_rathleton/weakened_glooth_horror.xml" />
 	
 	<!-- In Service of Yalahar Quest -->
 	<monster name="Azerus" file="quests/in_service_of_yalahar/azerus.xml" />
@@ -1233,67 +1233,67 @@
 	<monster name="Old Wolf" file="nostalgia/old_wolf.xml" />
 
 	<!-- Dawnport -->
-	<monster file="dawnport/weakened_shlorg.xml" name="weakened shlorg" />
-	<monster file="dawnport/mountain_troll.xml" name="mountain troll" />
-	<monster file="dawnport/salamander_trainer.xml" name="salamander trainer" />
-	<monster file="dawnport/troll_marauder.xml" name="troll marauder" />
-	<monster file="dawnport/muglex_clan_assassin.xml" name="muglex clan assassin" />
-	<monster file="dawnport/muglex_clan_footman.xml" name="muglex clan footman" />
-	<monster file="dawnport/muglex_clan_scavenger.xml" name="muglex clan scavenger" />
-	<monster file="dawnport/troll-trained_salamander.xml" name="troll-trained salamander" />
-	<monster file="dawnport/brittle_skeleton.xml" name="brittle skeleton" />
-	<monster file="dawnport/dawnfly.xml" name="dawnfly" />
- 	<monster file="dawnport/spidris_elitesumom.xml" name="spidris elite sumom" />
- 	<monster file="dawnport/woodling.xml" name="woodling" />
-	<monster file="dawnport/dawn_scorpion.xml" name="dawn scorpion" />
+	<monster name="Weakened Shlorg" file="dawnport/weakened_shlorg.xml" />
+	<monster name="Mountain Troll" file="dawnport/mountain_troll.xml" />
+	<monster name="Salamander Trainer" file="dawnport/salamander_trainer.xml" />
+	<monster name="Troll Marauder" file="dawnport/troll_marauder.xml" />
+	<monster name="Muglex Clan Assassin" file="dawnport/muglex_clan_assassin.xml" />
+	<monster name="Muglex Clan Footman" file="dawnport/muglex_clan_footman.xml" />
+	<monster name="Muglex Clan Scavenger" file="dawnport/muglex_clan_scavenger.xml" />
+	<monster name="Troll-trained Salamander" file="dawnport/troll-trained_salamander.xml" />
+	<monster name="Brittle Skeleton" file="dawnport/brittle_skeleton.xml" />
+	<monster name="Dawnfly" file="dawnport/dawnfly.xml" />
+ 	<monster name="Spidris Elite Sumom" file="dawnport/spidris_elitesumom.xml" />
+ 	<monster name="Woodling" file="dawnport/woodling.xml" />
+	<monster name="Dawn Scorpion" file="dawnport/dawn_scorpion.xml" />
 	<monster name="Dawn Bat" file="dawnport/dawn_bat.xml" />
 	<monster name="Sacred Snake" file="dawnport/sacred_snake.xml" />
-	<monster file="dawnport/scar_tribe_shaman.xml" name="scar tribe shaman" />
- 	<monster file="dawnport/scar_tribe_warrior.xml" name="scar tribe warrior" />
-	<monster file="dawnport/crazed_dwarf.xml" name="crazed dwarf" />
-	<monster file="dawnport/meadow_strider.xml" name="meadow strider" />
-	<monster file="dawnport/lesser_fire_devil.xml" name="lesser fire devil" />
-	<monster file="dawnport/juvenile_cyclops.xml" name="juvenile cyclops" />
+	<monster name="Scar Tribe Shaman" file="dawnport/scar_tribe_shaman.xml" />
+ 	<monster name="Scar Tribe Warrior" file="dawnport/scar_tribe_warrior.xml" />
+	<monster name="Crazed Dwarf" file="dawnport/crazed_dwarf.xml" />
+	<monster name="Meadow Strider" file="dawnport/meadow_strider.xml" />
+	<monster name="Lesser Fire devil" file="dawnport/lesser_fire_devil.xml" />
+	<monster name="Juvenile Cyclops" file="dawnport/juvenile_cyclops.xml" />
 
-	<!-- VOCATION SUMMONS LV 200+ -->
+	<!-- Vocation Summons LvL 200+ -->
 	<monster name="Emberwing" file="summons/emberwing.xml" />
 	<monster name="Thundergiant" file="summons/thundergiant.xml" />
 	<monster name="Skullfrost" file="summons/skullfrost.xml" />
 	<monster name="Grovebeast" file="summons/grovebeast.xml" />
 
 	<!-- Forgotten Knowledge Quest -->
-	<monster file="quests/forgotten_knowledge/bosses/dragonking_zyrtarch.xml" name="dragonking zyrtarch" />
-	<monster file="quests/forgotten_knowledge/bosses/lady_tenebris.xml" name="lady tenebris" />
-	<monster file="quests/forgotten_knowledge/bosses/lloyd.xml" name="lloyd" />
-	<monster file="quests/forgotten_knowledge/bosses/melting_frozen_horror.xml" name="melting frozen horror" />
-	<monster file="quests/forgotten_knowledge/bosses/mounted_thorn_knight.xml" name="mounted thorn knight" />
-	<monster file="quests/forgotten_knowledge/bosses/solid_frozen_horror.xml" name="solid frozen horror" />
-	<monster file="quests/forgotten_knowledge/bosses/soul_of_dragonking_zyrtarch.xml" name="soul of dragonking zyrtarch" />
-	<monster file="quests/forgotten_knowledge/bosses/the_last_lore_keeper.xml" name="the last lore keeper" />
-	<monster file="quests/forgotten_knowledge/bosses/the_freezing_time_guardian.xml" name="the freezing time guardian" />
-	<monster file="quests/forgotten_knowledge/bosses/the_blazing_time_guardian.xml" name="the blazing time guardian" />
-	<monster file="quests/forgotten_knowledge/bosses/the_time_guardian.xml" name="the time guardian" />
-	<monster file="quests/forgotten_knowledge/bosses/the_shielded_thorn_knight.xml" name="the shielded thorn knight" />
-	<monster file="quests/forgotten_knowledge/bosses/the_enraged_thorn_knight.xml" name="the enraged thorn knight" />
-	<monster file="quests/forgotten_knowledge/bosses/thorn_steed.xml" name="thorn steed" />
-	<monster file="quests/forgotten_knowledge/possessed_tree.xml" name="possessed tree" />
-	<monster file="quests/forgotten_knowledge/baby_dragon.xml" name="baby dragon" />
-	<monster file="quests/forgotten_knowledge/shadow_fiend.xml" name="shadow fiend" />
-	<monster file="quests/forgotten_knowledge/corrupted_soul.xml" name="corrupted soul" />
-	<monster file="quests/forgotten_knowledge/time_keeper.xml" name="time keeper" />
-	<monster file="quests/forgotten_knowledge/lost_time.xml" name="lost time" />
-	<monster file="quests/forgotten_knowledge/sword_of_vegeance.xml" name="sword of vegeance" />
-	<monster file="quests/forgotten_knowledge/time_waster.xml" name="time waster" />
-	<monster file="quests/forgotten_knowledge/thorn_minion.xml" name="thorn minion" />
-	<monster file="quests/forgotten_knowledge/icicle.xml" name="icicle" />
-	<monster file="quests/forgotten_knowledge/dragon_egg.xml" name="dragon egg" />
-	<monster file="quests/forgotten_knowledge/shadow_tentacle.xml" name="shadow tentacle" />
-	<monster file="quests/forgotten_knowledge/soulcatcher.xml" name="soulcatcher" />
-	<monster file="quests/forgotten_knowledge/frozen_minion.xml" name="frozen minion" />
-	<monster file="quests/forgotten_knowledge/unbound_blightwalker.xml" name="unbound blightwalker" />
-	<monster file="quests/forgotten_knowledge/unbound_defiler.xml" name="unbound defiler" />
-	<monster file="quests/forgotten_knowledge/unbound_demon.xml" name="unbound demon" />
-	<monster file="quests/forgotten_knowledge/unbound_demon_outcast.xml" name="unbound demon outcast" />
+	<monster name="Dragonking yrtarch" file="quests/forgotten_knowledge/bosses/dragonking_zyrtarch.xml" />
+	<monster name="Lady Tenebris" file="quests/forgotten_knowledge/bosses/lady_tenebris.xml" />
+	<monster name="Lloyd" file="quests/forgotten_knowledge/bosses/lloyd.xml" />
+	<monster name="Melting Frozen Horror" file="quests/forgotten_knowledge/bosses/melting_frozen_horror.xml" />
+	<monster name="Mounted Thorn Knight" file="quests/forgotten_knowledge/bosses/mounted_thorn_knight.xml" />
+	<monster name="Solid Frozen Horror" file="quests/forgotten_knowledge/bosses/solid_frozen_horror.xml" />
+	<monster name="Soul of Dragonking Zyrtarch" file="quests/forgotten_knowledge/bosses/soul_of_dragonking_zyrtarch.xml" />
+	<monster name="The Last Lore Keeper" file="quests/forgotten_knowledge/bosses/the_last_lore_keeper.xml" />
+	<monster name="The Freezing Time Guardian" file="quests/forgotten_knowledge/bosses/the_freezing_time_guardian.xml" />
+	<monster name="The Blazing Time Guardian" file="quests/forgotten_knowledge/bosses/the_blazing_time_guardian.xml" />
+	<monster name="The Time Guardian"  file="quests/forgotten_knowledge/bosses/the_time_guardian.xml" />
+	<monster name="The Shielded Thorn Knight" file="quests/forgotten_knowledge/bosses/the_shielded_thorn_knight.xml" />
+	<monster name="The Enraged Thorn Knight" file="quests/forgotten_knowledge/bosses/the_enraged_thorn_knight.xml" />
+	<monster name="Thorn Steed" file="quests/forgotten_knowledge/bosses/thorn_steed.xml" />
+	<monster name="Possessed Tree" file="quests/forgotten_knowledge/possessed_tree.xml" />
+	<monster name="Baby Dragon" file="quests/forgotten_knowledge/baby_dragon.xml" />
+	<monster name="Shadow Fiend" file="quests/forgotten_knowledge/shadow_fiend.xml" />
+	<monster name="Corrupted Soul" file="quests/forgotten_knowledge/corrupted_soul.xml" />
+	<monster name="Time Keeper" file="quests/forgotten_knowledge/time_keeper.xml" />
+	<monster name="Lost Time" file="quests/forgotten_knowledge/lost_time.xml" />
+	<monster name="Sword of vegeance" file="quests/forgotten_knowledge/sword_of_vegeance.xml" />
+	<monster name="Time waster" file="quests/forgotten_knowledge/time_waster.xml" />
+	<monster name="Thorn minion" file="quests/forgotten_knowledge/thorn_minion.xml" />
+	<monster name="Icicle" file="quests/forgotten_knowledge/icicle.xml" />
+	<monster name="Dragon Egg" file="quests/forgotten_knowledge/dragon_egg.xml" />
+	<monster name="Shadow Tentacle" file="quests/forgotten_knowledge/shadow_tentacle.xml" />
+	<monster name="Soulcatcher" file="quests/forgotten_knowledge/soulcatcher.xml" />
+	<monster name="Frozen Minion" file="quests/forgotten_knowledge/frozen_minion.xml" />
+	<monster name="Unbound Blightwalker" file="quests/forgotten_knowledge/unbound_blightwalker.xml" />
+	<monster name="Unbound Defiler" file="quests/forgotten_knowledge/unbound_defiler.xml" />
+	<monster name="Unbound Demon" file="quests/forgotten_knowledge/unbound_demon.xml" />
+	<monster name="Unbound Demon Outcast" file="quests/forgotten_knowledge/unbound_demon_outcast.xml" />
 	<monster name="Animated Sword" file="quests/forgotten_knowledge/animated_sword.xml" />
 	<monster name="Bound Astral Power" file="quests/forgotten_knowledge/bound_astral_power.xml" />
 	<monster name="Sword of Vengeance" file="quests/forgotten_knowledge/sword_of_vengeance.xml" />
