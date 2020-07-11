@@ -726,7 +726,7 @@ NpcTable = {
 	[725] = {name = "henricus", position = {x = 32316, y = 32267, z = 8}},
 	[726] = {name = "partos", position = {x = 32323, y = 32280, z = 8}},
 	[727] = {name = "mazarius", position = {x = 33277, y = 32390, z = 8}},
-	[728] = {name = "mazarius", position = {x = 33277, y = 32390, z = 8}},
+	[728] = {name = "mazarius", position = {x = 33277, y = 32390, z = 9}},
 	[729] = {name = "jamesfrancis", position = {x = 31939, y = 32502, z = 8}},
 	[730] = {name = "gnommander", position = {x = 32248, y = 32604, z = 8}},
 	[731] = {name = "uso", position = {x = 32579, y = 32755, z = 8}},

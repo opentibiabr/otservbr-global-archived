@@ -549,7 +549,15 @@ void Player::addContainer(uint8_t cid, Container* container)
 		return;
 	}
 
+	if (!container) {
+		return;
+	}
+
 	if (container->getID() == ITEM_BROWSEFIELD) {
+		container->incrementReferenceCounter();
+	}
+
+	if (container->getID() == ITEM_GOLD_POUCH) {
 		container->incrementReferenceCounter();
 	}
 
@@ -558,6 +566,9 @@ void Player::addContainer(uint8_t cid, Container* container)
 		OpenContainer& openContainer = it->second;
 		Container* oldContainer = openContainer.container;
 		if (oldContainer->getID() == ITEM_BROWSEFIELD) {
+			oldContainer->decrementReferenceCounter();
+		}
+		if (oldContainer->getID() == ITEM_GOLD_POUCH) {
 			oldContainer->decrementReferenceCounter();
 		}
 
@@ -1029,6 +1040,10 @@ void Player::sendAddContainerItem(const Container* container, const Item* item)
 		return;
 	}
 
+	if (!container) {
+		return;
+	}
+
 	for (const auto& it : openContainers) {
 		const OpenContainer& openContainer = it.second;
 		if (openContainer.container != container) {
@@ -1037,6 +1052,15 @@ void Player::sendAddContainerItem(const Container* container, const Item* item)
 
 		uint16_t slot = openContainer.index;
 		if (container->getID() == ITEM_BROWSEFIELD) {
+			uint16_t containerSize = container->size() - 1;
+			uint16_t pageEnd = openContainer.index + container->capacity() - 1;
+			if (containerSize > pageEnd) {
+				slot = pageEnd;
+				item = container->getItemByIndex(pageEnd);
+			} else {
+				slot = containerSize;
+			}
+		} else if (container->getID() == ITEM_GOLD_POUCH) {
 			uint16_t containerSize = container->size() - 1;
 			uint16_t pageEnd = openContainer.index + container->capacity() - 1;
 			if (containerSize > pageEnd) {
@@ -1080,6 +1104,10 @@ void Player::sendUpdateContainerItem(const Container* container, uint16_t slot, 
 void Player::sendRemoveContainerItem(const Container* container, uint16_t slot)
 {
 	if (!client) {
+		return;
+	}
+
+	if (!container) {
 		return;
 	}
 
@@ -4872,11 +4900,6 @@ void Player::onEquipImbueItem(Imbuement* imbuement)
 		}
 	}
 
-	if (requestUpdate) {
-		sendStats();
-		sendSkills();
-	}
-
 	// speed
 	if (imbuement->speed != 0) {
 		g_game.changeSpeed(this, imbuement->speed);
@@ -4884,8 +4907,13 @@ void Player::onEquipImbueItem(Imbuement* imbuement)
 
 	// capacity
 	if (imbuement->capacity != 0) {
-		capacity += imbuement->capacity;
+		requestUpdate = true;
+		bonusCapacity = (capacity * imbuement->capacity)/100;
+	}
+
+	if (requestUpdate) {
 		sendStats();
+		sendSkills();
 	}
 
 	return;
@@ -4916,11 +4944,6 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 		}
 	}
 
-	if (requestUpdate) {
-		sendStats();
-		sendSkills();
-	}
-
 	// speed
 	if (imbuement->speed != 0) {
 		g_game.changeSpeed(this, -imbuement->speed);
@@ -4928,8 +4951,13 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 
 	// capacity
 	if (imbuement->capacity != 0) {
-		capacity -= imbuement->capacity;
+		requestUpdate = true;
+		bonusCapacity = 0;
+	}
+
+	if (requestUpdate) {
 		sendStats();
+		sendSkills();
 	}
 
 	return;

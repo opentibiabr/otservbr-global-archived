@@ -564,6 +564,7 @@ enum item_t : uint16_t {
 	ITEM_INBOX = 14404,
 	ITEM_MARKET = 14405,
 	ITEM_STORE_INBOX = 26052,
+	
 
 	ITEM_MALE_CORPSE = 3058,
 	ITEM_FEMALE_CORPSE = 3065,
@@ -598,6 +599,8 @@ enum item_t : uint16_t {
 	ITEM_WALKABLE_SEA_END = 4625,
 
 	ITEM_DOCUMENT_RO = 1968, //read-only
+
+	ITEM_STONE_SKIN_AMULET = 2197,
 };
 
 enum PlayerFlags : uint64_t {

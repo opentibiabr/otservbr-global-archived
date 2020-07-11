@@ -11,11 +11,9 @@ local function setStorage()
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
-						for _, c in pairs(creatures) do
-							if isPlayer(c) then
-								if c:getStorageValue(14320) < 1 then
-									c:setStorageValue(14320, 1) -- Access to boss Anomaly
-								end
+						for _, creature in pairs(creatures) do
+							if creature:isPlayer() and creature:getStorageValue(14320) < 1 then
+								creature:setStorageValue(14320, 1) -- Access to boss Anomaly
 							end
 						end
 					end
@@ -36,11 +34,9 @@ local function setStorage()
 				if tile then
 					local creatures = tile:getCreatures()
 					if creatures and #creatures > 0 then
-						for _, c in pairs(creatures) do
-							if isPlayer(c) then
-								if c:getStorageValue(14320) < 1 then
-									c:setStorageValue(14320, 1) -- Access to boss Anomaly
-								end
+						for _, creature in pairs(creatures) do
+							if creature:isPlayer() and creature:getStorageValue(14320) < 1 then -- hardcoded storges
+								creature:setStorageValue(14320, 1) -- Access to boss Anomaly
 							end
 						end
 					end
