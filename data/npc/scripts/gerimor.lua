@@ -516,6 +516,7 @@ local function creatureSayCallback(cid, type, msg)
 			if player:getStorageValue(Storage.CultsOfTibia.Questline) < 1 then
 				player:setStorageValue(Storage.CultsOfTibia.Questline, 1)
 			end
+			npcHandler.topic[cid] = 2
 		elseif player:getStorageValue(storage[cid]) > 0 then
 			npcHandler:say("You have not finished your work yet. Come back when you're done.", cid)
 			npcHandler.topic[cid] = 2
