@@ -158,6 +158,7 @@
 	<movevent event="StepIn" actionid="57240" script="quests/dangerous_depth/gnome_avalanche.lua"/>
 	<movevent event="StepIn" actionid="57241" script="quests/dangerous_depth/gnome_ordnance.lua"/>
 	<movevent event="StepIn" actionid="57242" script="quests/dangerous_depth/gnomes_ordnance_end.lua"/>
+	<movevent event="StepIn" itemid="25331" script="quests/dangerous_depth/lava_damage.lua"/>
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous_depth/lost_exiles.lua"/>
 	<movevent event="StepIn" actionid="57230" script="quests/dangerous_depth/warzone_entrance.lua"/>
 	<!-- demon helmet -->
