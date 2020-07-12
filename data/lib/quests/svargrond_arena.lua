@@ -7,8 +7,8 @@ TODO
 SvargrondArena = {
 	-- kick time in seconds (10 minutes)
 	kickTime = 600,
-	kickPosition = {x = 32251, y = 31098, z = 6},
-	rewardPosition = {x = 32222, y = 31080, z = 6},
+	kickPosition = Position({x = 32251, y = 31098, z = 6}),
+	rewardPosition = Position({x = 32222, y = 31080, z = 6}),
 
 	-- used to store event ids
 	kickEvents = {},
@@ -116,7 +116,7 @@ PITS = {
 }
 
 ARENA = {
-	[1] = {
+	[3264] = {
 		name = 'Greenhorn',
 		price = 1000,
 		questLog = Storage.SvargrondArena.QuestLogGreenhorn,
@@ -139,7 +139,7 @@ ARENA = {
 			desc = 'It is given to the courageous victor of the barbarian arena in greenhorn difficulty. Awarded to %s',
 		}
 	},
-	[2] = {
+	[3265] = {
 		name = 'Scrapper',
 		price = 5000,
 		questLog = Storage.SvargrondArena.QuestLogScrapper,
@@ -162,7 +162,7 @@ ARENA = {
 			desc = 'It is given to the courageous victor of the barbarian arena in scrapper difficulty. Awarded to %s.',
 		}
 	},
-	[3] = {
+	[3266] = {
 		name = 'Warlord',
 		price = 10000,
 		questLog = Storage.SvargrondArena.QuestLogWarlord,

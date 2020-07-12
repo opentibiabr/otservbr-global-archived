@@ -4831,7 +4831,8 @@ void Game::checkImbuements()
 		}
 
 		Player* player = item->getParent()->getCreature()->getPlayer();
-		if (!player->hasCondition(CONDITION_INFIGHT)) {
+		const ItemType& itemType = Item::items[item->getID()];
+		if (!player->hasCondition(CONDITION_INFIGHT) && !itemType.isContainer()) {
 			it++;
 			continue;
 		}
@@ -6520,6 +6521,9 @@ Guild* Game::getGuild(uint32_t id) const
 
 void Game::addGuild(Guild* guild)
 {
+  if (!guild) {
+    return;
+  }
 	guilds[guild->getId()] = guild;
 }
 

@@ -1,5 +1,5 @@
 function onThink(creature)
-	if not creature:isCreature() then
+	if not creature or not creature:isMonster() then
 		return false
 	end
 
@@ -7,7 +7,6 @@ function onThink(creature)
 	if realityQuakeStage == 0 then
 		if hp <= 80 and foreshockStage == 0 then
 			foreshockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
@@ -18,7 +17,6 @@ function onThink(creature)
 			foreshockStage = 1
 		elseif hp <= 60 and foreshockStage == 1 then
 			foreshockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
@@ -29,7 +27,6 @@ function onThink(creature)
 			foreshockStage = 2
 		elseif hp <= 40 and foreshockStage == 2 then
 			foreshockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("Aftershock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
@@ -40,7 +37,6 @@ function onThink(creature)
 			foreshockStage = 3
 		elseif hp <= 25 and foreshockStage == 3 then
 			foreshockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + aftershockHealth, false)
@@ -51,7 +47,6 @@ function onThink(creature)
 			foreshockStage = 4
 		elseif hp <= 10 and foreshockStage == 4 then
 			foreshockHealth = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 			local monster = Game.createMonster("aftershock", {x = 32208, y = 31248, z = 14}, false, true)
 			monster:addHealth(-monster:getHealth() + aftershockHealth, false)

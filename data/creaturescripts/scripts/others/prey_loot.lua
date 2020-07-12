@@ -13,7 +13,6 @@ function onKill(player, target, lastHit)
 			if (probability < player:getPreyBonusValue(slot)) then
 				target:registerEvent('bonusPreyLootDeath')
 				player:sendTextMessage(MESSAGE_HEALED, "You get extra loot due your active prey.")
-				target:say("Improved loot", TALKTYPE_MONSTER_SAY)
 				break
 			end
 		end

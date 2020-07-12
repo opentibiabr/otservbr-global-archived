@@ -1,15 +1,14 @@
-local boxramp = Action()
+local boxRamp = Action()
 
-function boxramp.onUse(player, item, frompos, item2, topos)
-
-    if player:getStorageValue(Storage.DeeplingsWorldChange.Crystal) == 12 then
+function boxRamp.onUse(player, item, frompos, item2, topos)
+	if player:getStorageValue(Storage.DeeplingsWorldChange.Crystal) == 12 then
 		player:removeItem(15568, 1)
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Clonk")
-        player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 13)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Clonk.")
+		player:setStorageValue(Storage.DeeplingsWorldChange.Crystal, 13)
+		return true
 	end
-	
-    return true
+	return false
 end
 
-boxramp:uid(28573)
-boxramp:register()
+boxRamp:uid(1106)
+boxRamp:register()

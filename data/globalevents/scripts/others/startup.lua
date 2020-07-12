@@ -16,12 +16,18 @@ function onStartup()
 	-- Corpse table
 	loadLuaMapAction(CorpseAction)
 	loadLuaMapUnique(CorpseUnique)
+	-- Doors key table
+	loadLuaMapAction(KeyDoorAction)
+	-- Doors level table
+	loadLuaMapAction(LevelDoorAction)
 	-- Doors quest table
 	loadLuaMapAction(QuestDoorAction)
 	loadLuaMapUnique(QuestDoorUnique)
 	-- Item table
 	loadLuaMapAction(ItemAction)
 	loadLuaMapUnique(ItemUnique)
+	-- Item Unmoveable table
+	loadLuaMapAction(ItemUnmoveableAction)
 	-- Lever table
 	loadLuaMapAction(LeverAction)
 	loadLuaMapUnique(LeverUnique)
@@ -34,6 +40,9 @@ function onStartup()
 	-- Tile table
 	loadLuaMapAction(TileAction)
 	loadLuaMapUnique(TileUnique)
+	-- Tile pick table
+	loadLuaMapAction(TilePickAction)
+
 	print("> Loaded all actions in the map")
 	print("> Loaded all uniques in the map")
 

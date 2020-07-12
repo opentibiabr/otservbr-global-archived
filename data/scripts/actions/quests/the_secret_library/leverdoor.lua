@@ -1,17 +1,14 @@
-local bonecave = Action()
+local leverDoor = Action()
 
-function bonecave.onUse(player, item, frompos, item2, topos)
-
-    if player:getStorageValue(Storage.TheSecretLibrary.Mota) == 3 then
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE,"Success")
-        player:setStorageValue(Storage.TheSecretLibrary.Mota, 4)
+function leverDoor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if player:getStorageValue(Storage.TheSecretLibrary.Mota) == 3 then
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a reward.")
+		player:setStorageValue(Storage.TheSecretLibrary.Mota, 4)
 		player:setStorageValue(Storage.TheSecretLibrary.MotaDoor, 1)
-    else
-        player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "empty")
-    end
-	
-    return true
+		return true
+	end
+	return false
 end
 
-bonecave:uid(26681)
-bonecave:register()
+leverDoor:uid(1084)
+leverDoor:register()

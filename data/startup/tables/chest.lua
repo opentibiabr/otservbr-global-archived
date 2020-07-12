@@ -1,7 +1,7 @@
 --[[
 	Look README.md for see the reserved action/unique numbers
 	From range 5000 to 6000 is reserved for keys chest
-	From range 6001 to 10000 is reserved for reward without a container (common)
+	From range 6001 to 8000 is reserved for reward without a container (common)
 	From range 10001 to 14000 is reserved for reward in a container
 	From range 14001 to 15000 is reserved for others scripts (varied rewards)
 
@@ -11,11 +11,14 @@
 	Reward with container
 	Varied rewards
 
-	The first three are automatic scripts, where it is only necessary to duplicate the table and configure the unique (or action)/itemId/itemPos/itemReward and etc and it will work, and the varied reward is for use by other scripts
+	There is no need to tamper with the chests scripts, just register a new table and configure correctly
+	So the quest will work in-game
 
 	Note:
 	The "for use of the map" variables are only used to create the action or unique on the map during startup
-	The "for use of the script" variables are used by the scripts, to allow a single script to manage all rewards of the same type
+
+	The "for use of the script" variables are used by the scripts
+	To allow a single script to manage all rewards of the same type
 ]]
 
 ChestAction = {
@@ -29,10 +32,20 @@ ChestAction = {
 ChestUnique = {
 	-- Keys quest
 	-- data\scripts\actions\system\quest_reward_key.lua
-	-- Panpipe key 4055 chest
+	-- Deeper fibula quest key 3980
 	[5000] = {
 		-- For use of the map
-		itemId = false,
+		itemId = 385,
+		itemPos = {x = 32219, y = 32401, z = 10},
+		-- For use of the script
+		keyAction = 3980,
+		itemReward = 2091,
+		storage = Storage.Quest.DeeperFibula.Key3980
+	},
+	-- Panpipe quest key 4055
+	[5001] = {
+		-- For use of the map
+		itemId = 1290,
 		itemPos = {x = 32652, y = 32107, z = 7},
 		-- For use of the script
 		keyAction = 4055,
@@ -40,9 +53,9 @@ ChestUnique = {
 		storage = Storage.Quest.Panpipe.Key4055Reward
 	},
 	-- Dawnport quest key 0010 chest
-	[5001] = {
+	[5002] = {
 		-- For use of the map
-		itemId = false,
+		itemId = 1717,
 		itemPos = {x = 32068, y = 31895, z = 3},
 		-- For use of the script
 		keyAction = 103,
@@ -114,42 +127,65 @@ ChestUnique = {
 		itemReward = {{23749, 1}},
 		storage = Storage.Quest.Dawnport.TornLogBook
 	},
+	-- Deeper fibula quest
+	-- Tower shield
+	[6008] = {
+		itemId = 2843,
+		itemPos = {x = 32239, y = 32471, z = 10},
+		itemReward = {{2528, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardTowerShield
+	},
+	-- Warrior helmet
+	[6009] = {
+		itemId = 2843,
+		itemPos = {x = 32239, y = 32478, z = 10},
+		itemReward = {{2475, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardWarriorHelmet
+	},
+	-- Dwarven ring
+	[6010] = {
+		itemId = 3058,
+		itemPos = {x = 32233, y = 32491, z = 10},
+		itemReward = {{2213, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardDwarvenRing
+	},
+	-- Elven aulet
+	[6011] = {
+		itemId = 2844,
+		itemPos = {x = 32245, y = 32492, z = 10},
+		itemReward = {{2198, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardElvenAmulet
+	},
+	-- Knight axe
+	[6012] = {
+		itemId = 3058,
+		itemPos = {x = 32256, y = 32500, z = 10},
+		itemReward = {{2430, 1}},
+		storage = Storage.Quest.DeeperFibula.RewardKnightAxe
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
 	-- Path: data\scripts\actions\system\quest_reward_container.lua
+
+	-- Ornamented shield quest
 	[10001] = {
-		-- For use of the map
-		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = z},
-		-- For use of the script
-		itemBag = containerId,
-		itemReward = {
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount}
-		},
-		weight = WeightContainerNumber,
-		storage = StorageKeyVariable
+		itemId = 2843,
+		itemPos = {x = 32778, y = 32282, z = 11},
+		itemBag = 1987,
+		keyItem = 2090,
+		keyAction = 3702,
+		itemReward = {{2600, 1}, {2457, 1}, {2524, 1}, {1955, 1}, {2383, 1}, {2201, 1}, {2164, 1}},
+		weight = 194,
+		storage = Storage.Quest.OrnamentedShield.Bag
 	},
-	-- Example of chest having key reward
 	[10002] = {
-		-- For use of the map
-		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = z},
-		-- For use of the script
-		itemBag = containerId,
-		itemReward = {
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount},
-			{itemId, itemCount}
-		},
-		weight = WeightContainerNumber,
-		keyItem = keyId,
-		keyAction = keyActionNumber,
-		storage = StorageKeyVariable
+		itemId = 1747,
+		itemPos = {x = 32769, y = 32302, z = 10},
+		itemBag = 1993,
+		itemReward = {{2071, 1}, {2175, 1}, {2199, 1}, {2152, 5} , {2169, 1}},
+		weight = 44,
+		storage = Storage.Quest.OrnamentedShield.RedBag
 	},
 
 	-- Reward of others scrips files (varied rewards)
