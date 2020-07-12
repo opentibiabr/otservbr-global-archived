@@ -1262,7 +1262,7 @@
 	<monster name="Grovebeast" file="summons/grovebeast.xml" />
 
 	<!-- Forgotten Knowledge Quest -->
-	<monster name="Dragonking yrtarch" file="quests/forgotten_knowledge/bosses/dragonking_zyrtarch.xml" />
+	<monster name="Dragonking Zyrtarch" file="quests/forgotten_knowledge/bosses/dragonking_zyrtarch.xml" />
 	<monster name="Lady Tenebris" file="quests/forgotten_knowledge/bosses/lady_tenebris.xml" />
 	<monster name="Lloyd" file="quests/forgotten_knowledge/bosses/lloyd.xml" />
 	<monster name="Melting Frozen Horror" file="quests/forgotten_knowledge/bosses/melting_frozen_horror.xml" />
