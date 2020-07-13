@@ -18,6 +18,7 @@ ITEM_WEDDING_RING = 2121
 ITEM_ENGRAVED_WEDDING_RING = 10502
 
 ropeSpots = {384, 418, 8278, 8592, 13189, 14436, 15635, 19518, 26019, 24621, 24622, 24623, 24624}
+specialRopeSpots = { 14435 }
 
 -- Impact Analyser
 -- Every 2 seconds

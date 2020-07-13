@@ -68,3 +68,24 @@ end
 function Tile.isPz(self)
 	return self:hasFlag(TILESTATE_PROTECTIONZONE)
 end
+
+function Tile:isRopeSpot()
+	if not self then
+		return false
+	end
+
+	if not self:getGround() then
+		return false
+	end
+
+	if table.contains(ropeSpots, self:getGround():getId()) then
+		return true
+	end
+
+	local thing = self:getThing(1)
+	if thing and table.contains(specialRopeSpots, thing:getId()) then
+		return true
+	end
+
+	return false
+end
