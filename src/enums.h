@@ -680,4 +680,13 @@ enum Resource_t : uint8_t
 	RESOURCE_PREY = 0x0A,
 };
 
+enum MagicEffectsType_t : uint8_t {
+  MAGIC_EFFECTS_END_LOOP = 0,//ends magic effect loop
+  MAGIC_EFFECTS_DELTA = 1,//needs uint8_t delta after type to adjust position
+  MAGIC_EFFECTS_DELAY = 2,//needs uint16_t delay after type to delay in miliseconds effect display
+  MAGIC_EFFECTS_CREATE_EFFECT = 3,//needs uint8_t effectid after type
+  MAGIC_EFFECTS_CREATE_DISTANCEEFFECT = 4,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
+  MAGIC_EFFECTS_CREATE_DISTANCEEFFECT_REVERSED = 5,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
+};
+
 #endif

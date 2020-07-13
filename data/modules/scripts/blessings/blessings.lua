@@ -135,6 +135,7 @@ Blessings.sendBlessDialog = function(player)
 		if v.type ~= Blessings.Types.PvP or Blessings.Config.HasToF then
 			msg:addU16(Blessings.BitWiseTable[v.id])
 			msg:addByte(player:getBlessingCount(v.id))
+			msg:addByte(0) -- Store Blessings Count
 		end
 	end
 

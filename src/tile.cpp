@@ -1647,3 +1647,22 @@ Item* Tile::getUseItem(int32_t index) const
 
 	return nullptr;
 }
+
+Item* Tile::getDoorItem() const
+{
+	const TileItemVector* items = getItemList();
+	if (!items || items->size() == 0) {
+    	return ground;
+  	}
+
+ 	if (items) {
+    	for (Item* item : *items) {
+      		const ItemType& it = Item::items[item->getID()];
+      		if (it.isDoor()) {
+        		return item;
+     		}
+    	}
+  	}
+
+	return nullptr;
+}

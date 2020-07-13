@@ -308,6 +308,18 @@ Thing* Game::internalGetThing(Player* player, const Position& pos, int32_t index
 				break;
 			}
 
+      		case STACKPOS_FIND_THING: {
+        		thing = tile->getUseItem(index);
+       			if (!thing) {
+          			thing = tile->getDoorItem();
+        		}
+
+        		if (!thing) {
+          			thing = tile->getTopDownItem();
+        		}
+        		break;
+      		}
+
 			default: {
 				thing = nullptr;
 				break;
@@ -2164,7 +2176,7 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		return;
 	}
 
-	Thing* thing = internalGetThing(player, pos, stackPos, spriteId, STACKPOS_USEITEM);
+	Thing* thing = internalGetThing(player, pos, stackPos, spriteId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
