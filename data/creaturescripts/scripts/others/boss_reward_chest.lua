@@ -113,6 +113,10 @@ local function resetAndSetTargetList(creature)
 end
 
 function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
+	-- player
+	if creature:isPlayer() then
+		return
+	end	
 	-- boss
 	local monsterType = creature:getType()
 	if monsterType:isRewardBoss() then -- Make sure it is a boss
