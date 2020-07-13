@@ -92,6 +92,8 @@
 	<outfit type="0" looktype="1283" name="Falconer" premium="yes" unlocked="no" enabled="yes" />	
 	<outfit type="0" looktype="1289" name="Dragon Slayer" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="0" looktype="1293" name="Trailblazer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1323" name="Revenant" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="0" looktype="1332" name="Jouster" premium="yes" unlocked="no" enabled="yes" />
 
 	<!-- Male outfits -->
 	<outfit type="1" looktype="128" name="Citizen" premium="no" unlocked="yes" enabled="yes" />
@@ -185,4 +187,6 @@
 	<outfit type="1" looktype="1282" name="Falconer" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1288" name="Dragon Slayer" premium="yes" unlocked="no" enabled="yes" />
 	<outfit type="1" looktype="1292" name="Trailblazer" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1322" name="Revenant" premium="yes" unlocked="no" enabled="yes" />
+	<outfit type="1" looktype="1331" name="Jouster" premium="yes" unlocked="no" enabled="yes" />
 </outfits>
