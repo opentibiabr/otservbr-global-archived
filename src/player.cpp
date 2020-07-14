@@ -848,6 +848,10 @@ Container* Player::getLootContainer(ObjectCategory_t category) const
 
 void Player::checkLootContainers(const Item* item)
 {
+  if (!item) {
+    return;
+  }
+
 	const Container* container = item->getContainer();
 	if (!container) {
 		return;

@@ -69,6 +69,10 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 
 void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 {
+  if (!item) {
+    return;
+  }
+
 	const ItemType& it = Item::items[item->getID()];
 
 	msg.add<uint16_t>(it.clientId);
@@ -1863,6 +1867,10 @@ void ProtocolGame::sendLootContainers()
 
 void ProtocolGame::sendLootStats(Item* item)
 {
+  if (!item) {
+    return;
+  }
+
 	NetworkMessage msg;
 	msg.addByte(0xCF);
 	AddItem(msg, item);

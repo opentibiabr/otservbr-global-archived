@@ -1942,6 +1942,10 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 
 ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCategory_t category /* = OBJECTCATEGORY_DEFAULT*/)
 {
+  if (!player || !item) {
+    return RETURNVALUE_NOTPOSSIBLE;
+  }
+
 	bool fallbackConsumed = false;
 	uint16_t baseId = 0;
 
@@ -2029,6 +2033,9 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 ObjectCategory_t Game::getObjectCategory(const Item* item)
 {
 	ObjectCategory_t category = OBJECTCATEGORY_DEFAULT;
+  if (!item) {
+    return OBJECTCATEGORY_NONE;
+  }
 
 	const ItemType& it = Item::items[item->getID()];
 	if (item->getWorth() != 0) {

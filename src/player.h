@@ -1393,6 +1393,10 @@ class Player final : public Creature, public Cylinder
 		}
 
 		bool isQuickLootListedItem(const Item* item) const {
+      if (!item) {
+        return false;
+      }
+
 			auto it = std::find(quickLootListClientIds.begin(), quickLootListClientIds.end(), item->getClientID());
 			return it != quickLootListClientIds.end();
 		}
