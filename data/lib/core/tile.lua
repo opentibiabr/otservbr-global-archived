@@ -82,7 +82,7 @@ function Tile:isRopeSpot()
 		return true
 	end
 
-	local thing = self:getThing(1)
+	local thing = self:getTopTopItem()
 	if thing and table.contains(specialRopeSpots, thing:getId()) then
 		return true
 	end
