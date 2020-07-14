@@ -95,7 +95,7 @@ local function getPlayerStats(bossId, playerGuid, autocreate)
 end
 
 local function resetAndSetTargetList(creature)
-	if not creature
+	if not creature then
 		return
 	end
 
