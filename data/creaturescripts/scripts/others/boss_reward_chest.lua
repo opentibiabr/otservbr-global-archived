@@ -124,7 +124,7 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 
 	-- boss
 	local monsterType = creature:getType()
-	if creature and monsterType:isRewardBoss() then -- Make sure it is a boss
+	if monsterType and monsterType:isRewardBoss() then -- Make sure it is a boss
 		local bossId = creature:getId()
 		local timestamp = os.time()
 
