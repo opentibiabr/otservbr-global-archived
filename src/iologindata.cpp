@@ -46,12 +46,12 @@ bool IOLoginData::LoginServerAuthentication(const std::string& name,
   return true;
 }
 
-uint32_t IOLoginData::gameworldAuthentication(const std::string& accountName, const std::string& password, std::string& characterName)
+uint32_t IOLoginData::gameworldAuthentication(const std::string& email, const std::string& password, std::string& characterName)
 {
   Database& db = Database::getInstance();
 
   std::ostringstream query;
-  query << "SELECT `id`, `password` FROM `accounts` WHERE `name` = " << db.escapeString(accountName);
+  query << "SELECT `id`, `password` FROM `accounts` WHERE `email` = " << db.escapeString(email);
   DBResult_ptr result = db.storeQuery(query.str());
   if (!result) {
     std::cout << "[IOLoginData::gameworldAuthentication] Account not found!" << std::endl;

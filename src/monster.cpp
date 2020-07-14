@@ -1130,7 +1130,7 @@ void Monster::pushItems(Tile* tile)
 		for (int32_t i = downItemSize; --i >= 0;) {
 			Item* item = items->at(i);
 			if (item && item->hasProperty(CONST_PROP_MOVEABLE) && (item->hasProperty(CONST_PROP_BLOCKPATH)
-					|| item->hasProperty(CONST_PROP_BLOCKSOLID))) {
+					|| item->hasProperty(CONST_PROP_BLOCKSOLID)) && item->getActionId() != 100 /* non-moveable action*/) {
 				if (moveCount < 20 && Monster::pushItem(item)) {
 					++moveCount;
 				} else if (!item->isCorpse() && g_game.internalRemoveItem(item) == RETURNVALUE_NOERROR) {

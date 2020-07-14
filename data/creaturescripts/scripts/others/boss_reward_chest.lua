@@ -94,24 +94,36 @@ local function getPlayerStats(bossId, playerGuid, autocreate)
 	return ret
 end
 
+local function resetAndSetTargetList(creature)
+	local bossId = creature:getId()
+	local info = globalBosses[bossId]
+	-- Reset all players' status
+	for _, player in pairs(info) do
+		player.active = false
+	end
+	-- Set all players in boss' target list as active in the fight
+	local targets = creature:getTargetList()
+	for _, target in ipairs(targets) do
+		if target:isPlayer() then
+			local stats = getPlayerStats(bossId, target:getGuid(), true)
+			stats.playerId = target:getId() -- Update player id
+			stats.active = true
+		end
+	end
+end
+
 function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
 	-- player
 	if creature:isPlayer() then
-		for bossId, tb in pairs(globalBosses) do
-			for playerId, tb2 in pairs(tb) do
-				if playerId == Player(creature:getId()):getGuid() then
-					globalBosses[bossId][playerId] = nil
-				end
-			end
-		end
 		return
-	end
-
+	end	
 	-- boss
 	local monsterType = creature:getType()
 	if monsterType:isRewardBoss() then -- Make sure it is a boss
 		local bossId = creature:getId()
 		local timestamp = os.time()
+
+		resetAndSetTargetList(creature)
 
 		local totalDamageOut, totalDamageIn, totalHealing = 0.1, 0.1, 0.1 -- avoid dividing by zero
 
@@ -190,21 +202,7 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 end
 
 function onThink(creature, interval)
-	local bossId = creature:getId()
-	local info = globalBosses[bossId]
-	-- Reset all players' status
-	for _, player in pairs(info) do
-		player.active = false
-	end
-	-- Set all players in boss' target list as active in the fight
-	local targets = creature:getTargetList()
-	for _, target in ipairs(targets) do
-		if target:isPlayer() then
-			local stats = getPlayerStats(bossId, target:getGuid(), true)
-			stats.playerId = target:getId() -- Update player id
-			stats.active = true
-		end
-	end
+	resetAndSetTargetList(creature)
 end
 
 function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)

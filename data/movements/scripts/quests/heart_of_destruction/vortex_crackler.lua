@@ -37,7 +37,7 @@ function onStepIn(creature, item, position, fromPosition)
 			local storePlayers, playerTile = {}
 			for i = 1, #positions1 do
 				playerTile = Tile(positions1[i]):getTopCreature()
-				if isPlayer(playerTile) then
+				if playerTile:isPlayer() then
 					storePlayers[#storePlayers + 1] = playerTile
 				end
 			end
@@ -48,7 +48,7 @@ function onStepIn(creature, item, position, fromPosition)
 			local storePlayers, playerTile = {}
 			for i = 1, #positions2 do
 				playerTile = Tile(positions2[i]):getTopCreature()
-				if isPlayer(playerTile) then
+				if playerTile:isPlayer() then
 					storePlayers[#storePlayers + 1] = playerTile
 				end
 			end
@@ -59,7 +59,7 @@ function onStepIn(creature, item, position, fromPosition)
 			local storePlayers, playerTile = {}
 			for i = 1, #positions3 do
 				playerTile = Tile(positions3[i]):getTopCreature()
-				if isPlayer(playerTile) then
+				if playerTile:isPlayer() then
 					storePlayers[#storePlayers + 1] = playerTile
 				end
 			end
@@ -70,7 +70,7 @@ function onStepIn(creature, item, position, fromPosition)
 			local storePlayers, playerTile = {}
 			for i = 1, #positions4 do
 				playerTile = Tile(positions4[i]):getTopCreature()
-				if isPlayer(playerTile) then
+				if playerTile:isPlayer() then
 					storePlayers[#storePlayers + 1] = playerTile
 				end
 			end
@@ -78,8 +78,8 @@ function onStepIn(creature, item, position, fromPosition)
 				cracklerTransform = true
 			end
 		end
-		creature:sendTextMessage(MESSAGE_INFO_DESCR, "Your presence begins to polarize the area!")
-		creature:getPosition():sendMagicEffect(48)
+		player:sendTextMessage(MESSAGE_INFO_DESCR, "Your presence begins to polarize the area!")
+		player:getPosition():sendMagicEffect(48)
 	end
 	return true
 end

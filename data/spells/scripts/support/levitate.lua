@@ -18,7 +18,7 @@ local function levitate(creature, parameter)
 end
 
 function onCastSpell(creature, variant)
-	local returnValue = levitate(creature, variant:getString())
+	local returnValue = levitate(creature, variant:getString():lower())
 	if returnValue ~= RETURNVALUE_NOERROR then
 		creature:sendCancelMessage(returnValue)
 		creature:getPosition():sendMagicEffect(CONST_ME_POFF)

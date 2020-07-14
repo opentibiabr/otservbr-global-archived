@@ -53,22 +53,18 @@ function lionsRockEntrance.onStepIn(creature, item, position, fromPosition)
 	if player:getStorageValue(Storage.LionsRock.Questline) >= 4 then
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo({x = 33122, y = 32308, z = 8})
-		player:sendTextMessage(
-			MESSAGE_EVENT_ADVANCE,
-			"You have passed the Lion's Tests and are now worthy to enter the inner sanctum!"
-		)
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE,
+					"You have passed the Lion's Tests and are now worthy to enter the inner sanctum!")
 		player:getPosition():sendMagicEffect(CONST_ME_THUNDER)
-		return true
 	else
 		player:getPosition():sendMagicEffect(CONST_ME_ENERGYHIT)
 		player:teleportTo(fromPosition, true)
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to pass the Lion's Tests to enter the inner sanctum!")
-		return false
 	end
 	return true
 end
 
-lionsRockEntrance:uid(30009)
+lionsRockEntrance:uid(35009)
 lionsRockEntrance:register()
 
 -- Lions rock sign
@@ -85,14 +81,14 @@ function lionsRockSigns.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	if player:getStorageValue(setting.needStorage) >= setting.value and player:getStorageValue(setting.needStorage) < 10 then
+	if player:getStorageValue(setting.needStorage) >= setting.value
+					and player:getStorageValue(setting.needStorage) < 10 then
 		if player:getStorageValue(setting.storage) < 0 then
 			if player:getItemCount(setting.item) == 1 then
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message1)
 				player:sendTextMessage(MESSAGE_EVENT_ADVANCE, setting.message2)
 				player:setStorageValue(setting.needStorage, player:getStorageValue(setting.needStorage) + 1)
 				player:setStorageValue(setting.storage, 1)
-				return true
 			end
 		end
 	end

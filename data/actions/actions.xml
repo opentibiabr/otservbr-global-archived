@@ -334,7 +334,7 @@
 	<action itemid="14405" function="market" />
 	<!-- worldchanges -->
 	<!-- deeplings -->
-	<action fromuid="25610" touid="25612" script="worldchanges/deeplings/bosses_reward.lua" />
+	<action fromuid="9302" touid="9304" script="worldchanges/deeplings/bosses_reward.lua" />
 	<!-- the mummy's curse -->
 	<action fromaid="50006" toaid="50010" script="worldchanges/the_mummys_curse/horestis_jars.lua" />
 	<!-- quests -->
@@ -361,6 +361,7 @@
 	<action itemid="18220" script="quests/bigfoot_burden/mushroom.lua" />
 	<action itemid="18225" script="quests/bigfoot_burden/shooting.lua" />
 	<action itemid="18312" script="quests/bigfoot_burden/matchmaker.lua" />
+	<action uniqueid="9307" script="quests/bigfoot_burden/mouthpiece.lua" />
 	<action itemid="18313" script="quests/bigfoot_burden/package.lua" />
 	<action fromid="18328" toid="18331" script="quests/bigfoot_burden/spores.lua" />
 	<action itemid="18336" script="quests/bigfoot_burden/stone.lua" />
@@ -559,7 +560,7 @@
 	<!-- hero of rathleton quest -->
 	<action actionid="24861" script="quests/hero_of_rathleton/machines_deep_terror.lua" />
 	<action actionid="24863" script="quests/hero_of_rathleton/machines_glooth_horror.lua" />
-	<action actionid="24867" script="quests/hero_of_rathleton/machines_professor_maxxen.lua" />
+	<action actionid="9299" script="quests/hero_of_rathleton/machines_professor_maxxen.lua" />
 	<action actionid="24865" script="quests/hero_of_rathleton/machines_lava.lua" />
 	<action uniqueid="24850" script="quests/hero_of_rathleton/reward.lua" />
 	<action itemid="24184" script="quests/hero_of_rathleton/raging_corpse.lua" allowfaruse="1" />
@@ -736,7 +737,7 @@
 	<action itemid="7496" script="quests/tibia_tales/ultimate_booze_beer_bottle.lua" />
 	<action itemid="8205" script="quests/tibia_tales/exterminator_flask.lua" />
 	<!-- tinder box quest -->
-	<action uniqueid="21137" script="quests/tinder_box/reward.lua" />
+	<action uniqueid="3263" script="quests/tinder_box/reward.lua" />
 	<action itemid="22728" script="quests/tinder_box/tinder_box.lua" />
 	<!-- unnatural selection -->
 	<action uniqueid="1052" script="quests/unnatural_selection/mission5_ray_of_light.lua" />

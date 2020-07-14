@@ -1,9 +1,16 @@
 Reserved action/unique for tables:
 
+Door level:
+The defined range is from 1000/1999
+Since the three numbers after 1 determine the level
+Example:
+Level 10 = 1010
+Level 100 = 1100
+
 Chest (action) = 5000/15000
 Chest (unique) = 5000/15000
 Keys = 5000/6000
-Reward without a container 6001/10000
+Reward without a container 6001/8000
 
 TeleportItem (action) = 15001/20000 (this is teleport items, not magic forcefield)
 TeleportItem (unique) = 15001/20000 (this is teleport items, not magic forcefield)
@@ -14,8 +21,10 @@ Corpse (unique) = 20000/22000
 DoorStorage (action) = It is not defined, because it uses storages as action
 DoorStorage (unique) = 22001/25000
 
-Tile (action) = 25001/30000
-Tile (unique) = 25001/30000
+Tile (action) = 25001/29000
+Tile (unique) = 25001/29000
+Tile remove/create item (action) = 29001/30000
+Tile remove/create item (unique) = 29001/30000
 
 Lever (action) = 30001/35000
 Lever (unique) = 30001/35000
@@ -41,7 +50,7 @@ Action IDS
 	Others reserved player action/storages
 	[100] = unmoveable/untrade/unusable items
 	[101] = use pick floor
-	[102] = well down action
+	[102] = down floor action
 	[103] = key 0010
 	[103-120] = keys action
 	[303] = key 0303
