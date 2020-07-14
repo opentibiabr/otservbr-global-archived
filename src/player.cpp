@@ -83,6 +83,7 @@ Player::~Player()
 
 	setWriteItem(nullptr);
 	setEditHouse(nullptr);
+	logged = false;
 }
 
 bool Player::setVocation(uint16_t vocId)
@@ -1250,6 +1251,8 @@ void Player::onRemoveTileItem(const Tile* fromTile, const Position& pos, const I
 			}
 		}
 	}
+
+  checkLootContainers(item);
 }
 
 void Player::onCreatureAppear(Creature* creature, bool isLogin)
@@ -1298,6 +1301,10 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 
 		g_game.checkPlayersRecord();
 		IOLoginData::updateOnlineStatus(guid, true);
+		if (!logged){
+			sendLootContainers();
+			logged = true;
+		}
 	}
 }
 
@@ -1540,6 +1547,8 @@ void Player::onRemoveContainerItem(const Container* container, const Item* item)
 			}
 		}
 	}
+
+  checkLootContainers(item);
 }
 
 void Player::onCloseContainer(const Container* container)
@@ -1594,6 +1603,8 @@ void Player::onRemoveInventoryItem(Item* item)
 			}
 		}
 	}
+
+  checkLootContainers(item);
 }
 
 void Player::checkTradeState(const Item* item)
@@ -3316,6 +3327,8 @@ void Player::postRemoveNotification(Thing* thing, const Cylinder* newParent, int
 
 	if (const Item* item = thing->getItem()) {
 		if (const Container* container = item->getContainer()) {
+      checkLootContainers(container);
+
 			if (container->isRemoved() || !Position::areInRange<1, 1, 0>(getPosition(), container->getPosition())) {
 				autoCloseContainers(container);
 			} else if (container->getTopParent() == this) {

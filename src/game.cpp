@@ -3736,6 +3736,22 @@ void Game::playerClearLootContainer(uint32_t playerId, ObjectCategory_t category
 	}
 }
 
+void Game::playerOpenLootContainer(uint32_t playerId, ObjectCategory_t category)
+{
+  Player* player = getPlayerByID(playerId);
+  if (!player) {
+    return;
+  }
+
+  Container* container = player->getLootContainer(category);
+  if (!container) {
+    return;
+  }
+
+  player->sendContainer(container->getClientID(), container, container->hasParent(), 0);
+}
+
+
 void Game::playerSetQuickLootFallback(uint32_t playerId, bool fallback)
 {
 	Player* player = getPlayerByID(playerId);

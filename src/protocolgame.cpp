@@ -976,20 +976,26 @@ void ProtocolGame::parseQuickLoot(NetworkMessage& msg)
 
 void ProtocolGame::parseLootContainer(NetworkMessage& msg)
 {
-	uint8_t action = msg.getByte();
-	if (action == 0) {
-		ObjectCategory_t category = (ObjectCategory_t)msg.getByte();
-		Position pos = msg.getPosition();
-		uint16_t spriteId = msg.get<uint16_t>();
-		uint8_t stackpos = msg.getByte();
-		addGameTask(&Game::playerSetLootContainer, player->getID(), category, pos, spriteId, stackpos);
-	} else if (action == 1) {
-		ObjectCategory_t category = (ObjectCategory_t)msg.getByte();
-		addGameTask(&Game::playerClearLootContainer, player->getID(), category);
-	} else if (action == 3) {
-		bool useMainAsFallback = msg.getByte() == 1;
-		addGameTask(&Game::playerSetQuickLootFallback, player->getID(), useMainAsFallback);
-	}
+  uint8_t action = msg.getByte();
+  if (action == 0) {
+    ObjectCategory_t category = (ObjectCategory_t)msg.getByte();
+    Position pos = msg.getPosition();
+    uint16_t spriteId = msg.get<uint16_t>();
+    uint8_t stackpos = msg.getByte();
+    addGameTask(&Game::playerSetLootContainer, player->getID(), category, pos, spriteId, stackpos);
+  }
+  else if (action == 1) {
+    ObjectCategory_t category = (ObjectCategory_t) msg.getByte();
+    addGameTask(&Game::playerClearLootContainer, player->getID(), category);
+  }
+  else if (action == 2) {
+    ObjectCategory_t category = (ObjectCategory_t)msg.getByte();
+    addGameTask(&Game::playerOpenLootContainer, player->getID(), category);
+  }
+  else if (action == 3) {
+    bool useMainAsFallback = msg.getByte() == 1;
+    addGameTask(&Game::playerSetQuickLootFallback, player->getID(), useMainAsFallback);
+  }
 }
 
 void ProtocolGame::parseQuickLootBlackWhitelist(NetworkMessage& msg)

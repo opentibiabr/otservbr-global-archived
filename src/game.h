@@ -407,7 +407,8 @@ class Game
 								uint16_t spriteId, uint8_t stackPos, Item* defaultItem = nullptr);
 		void playerSetLootContainer(uint32_t playerId, ObjectCategory_t category,
 								const Position& pos, uint16_t spriteId, uint8_t stackPos);
-		void playerClearLootContainer(uint32_t playerId, ObjectCategory_t category);
+    void playerClearLootContainer(uint32_t playerId, ObjectCategory_t category);;
+    void playerOpenLootContainer(uint32_t playerId, ObjectCategory_t category);
 		void playerSetQuickLootFallback(uint32_t playerId, bool fallback);
 		void playerQuickLootBlackWhitelist(uint32_t playerId,
 								QuickLootFilter_t filter, std::vector<uint16_t> clientIds);

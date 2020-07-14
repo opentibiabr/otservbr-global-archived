@@ -1657,6 +1657,7 @@ class Player final : public Creature, public Cylinder
 		bool addAttackSkillPoint = false;
 		bool inventoryAbilities[CONST_SLOT_LAST + 1] = {};
 		bool quickLootFallbackToMainContainer = false;
+		bool logged = false;
 
 		static uint32_t playerAutoID;
 
