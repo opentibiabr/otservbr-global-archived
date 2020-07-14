@@ -227,7 +227,7 @@ function Player.removeMoneyNpc(self, amount)
 		-- Removes player inventory money
 		self:removeMoney(amount)
 
-		self:sendTextMessage(MESSAGE_INFO_DESCR, ("Paid %d from inventory."):format(amount))
+		self:sendTextMessage(MESSAGE_INFO_DESCR, ("Paid %d gold from inventory."):format(amount))
 		return true
 
 	-- The player doens't have all the money with him
