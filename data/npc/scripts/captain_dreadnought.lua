@@ -27,28 +27,28 @@ npcHandler:addModule(VoiceModule:new(voices))
 
 --From topic of the citys name to topic of the "yes" msg
 local topicTable = {
+	[3] = 13,
+	[4] = 14,
+	[5] = 15,
+	[6] = 16,
+	[7] = 17,
+	[8] = 18,
 	[9] = 19,
 	[10] = 20,
-	[11] = 21,
-	[12] = 22,
-	[13] = 23,
-	[14] = 24,
-	[15] = 25,
-	[16] = 26,
-	[17] = 27
+	[11] = 21
 }
 
 --From topic of final msg "yes" to select town
 local townTable = {
-	[19] = TOWNS_LIST.AB_DENDRIEL,
-	[20] = TOWNS_LIST.ANKRAHMUN,
-	[21] = TOWNS_LIST.CARLIN,
-	[22] = TOWNS_LIST.DARASHIA,
-	[23] = TOWNS_LIST.EDRON,
-	[24] = TOWNS_LIST.LIBERTY_BAY,
-	[25] = TOWNS_LIST.PORT_HOPE,
-	[26] = TOWNS_LIST.THAIS,
-	[27] = TOWNS_LIST.VENORE
+	[13] = TOWNS_LIST.AB_DENDRIEL,
+	[14] = TOWNS_LIST.ANKRAHMUN,
+	[15] = TOWNS_LIST.CARLIN,
+	[16] = TOWNS_LIST.DARASHIA,
+	[17] = TOWNS_LIST.EDRON,
+	[18] = TOWNS_LIST.LIBERTY_BAY,
+	[19] = TOWNS_LIST.PORT_HOPE,
+	[20] = TOWNS_LIST.THAIS,
+	[21] = TOWNS_LIST.VENORE
 }
 
 local freeTown = {
@@ -80,20 +80,8 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then
 		npcHandler:say("Well, I can tell you stuff about {Ab'Dendriel}, {Ankrahmun}, {Carlin}, \z
 			{Darashia}, {Edron}, {Kazordoon}, {Liberty Bay}, {Port Hope}, {Svargrond}, {Thais}, {Venore} or {Yalahar}.", cid)
-		npcHandler.topic[cid] = 5
-	elseif msgcontains(msg, "sail") and npcHandler.topic[cid] == 0 then
-		npcHandler:say("So, you've decided on your new home city? Which one will it be?", cid)
-		npcHandler.topic[cid] = 7
-	elseif msgcontains(msg, "venore") and npcHandler.topic[cid] == 8 then
-		player:setTown(venoreTown)
-		player:teleportTo(venoreTown:getTemplePosition())
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:setStorageValue(Storage.Dawnport.Mainland, 1)
-		npcHandler:say("Cast off! Don't forget to talk to the guide at the port for directions to nearest bars... \z
-			err, shops and bank and such!", cid)
-		npcHandler.topic[cid] = 0
-		return true
-	elseif msgcontains(msg, "ab'dendriel") and npcHandler.topic[cid] == 5 then
+		npcHandler.topic[cid] = 2
+	elseif msgcontains(msg, "ab'dendriel") and npcHandler.topic[cid] == 2 then
 		npcHandler:say(
 			{
 				"Main city of the elves - lots of trees, bug milk and stuff that easily burns ...",
@@ -101,57 +89,57 @@ local function creatureSayCallback(cid, type, msg)
 					I can {sail} there if you like."
 			},
 		cid, false, true, 10)
-		npcHandler.topic[cid] = 9
-	elseif msgcontains(msg, "ankrahmun") and npcHandler.topic[cid] == 5 then
+		npcHandler.topic[cid] = 3
+	elseif msgcontains(msg, "ankrahmun") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
 			npcHandler:say("Only for premium travellers! Desert pyramid city close to the ocean, \z
 		some underground tombs where I heard it's not bad hunting. I can {sail} there if you like.",
 		cid)
-			npcHandler.topic[cid] = 10
+			npcHandler.topic[cid] = 4
 		else
 			npcHandler:say("You are not a premium account..",
 		cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, "carlin") and npcHandler.topic[cid] == 5 then
+	elseif msgcontains(msg, "carlin") and npcHandler.topic[cid] == 2 then
 			npcHandler:say("A city ruled by forthright independent women. Very clean and safe, \z
 			but also very strict on the booze, alas. But if that's what you like... I can {sail} there if you like.", cid)
-			npcHandler.topic[cid] = 11
-	elseif msgcontains(msg, "darashia") and npcHandler.topic[cid] == 5 then
+			npcHandler.topic[cid] = 5
+	elseif msgcontains(msg, "darashia") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
 			npcHandler:say("Only for premium travellers! One of the two desert cities. \z
 			Built around a lovely oasis. Lions, dragons... decent location for a newcomer. I can {sail} there if you like.", cid)
-			npcHandler.topic[cid] = 12
+			npcHandler.topic[cid] = 6
 		else
 			npcHandler:say("You are not a premium account..",
 		cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, "edron") and npcHandler.topic[cid] == 5 then
+	elseif msgcontains(msg, "edron") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
 			npcHandler:say("Only for premium travellers! Quiet little castle city on an island in the north-eastern \z
 			part of Tibia. Trolls, goblins, rotworms... good place for starters, too. I can {sail} there if you like.", cid)
-			npcHandler.topic[cid] = 13
+			npcHandler.topic[cid] = 7
 		else
 			npcHandler:say("You are not a premium account..",
 		cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, "kazordoon") and npcHandler.topic[cid] == 5 then
+	elseif msgcontains(msg, "kazordoon") and npcHandler.topic[cid] == 2 then
 		npcHandler:say("The underground dwarven city. Doesn't have a real harbour, so I can't bring you there, sorry.", cid)
-		npcHandler.topic[cid] = 5
-	elseif msgcontains(msg, "liberty bay") and npcHandler.topic[cid] == 5 then
+		npcHandler.topic[cid] = 8
+	elseif msgcontains(msg, "liberty bay") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
 			npcHandler:say("Only for premium travellers! Liberty Bay is on an island group in the South Seas. \z
 			Ah, home sweet home. Err. I mean, it's pirates galore. Good deal of tortoises, too. \z
 			Just be careful, then it's a good hunting location. I can {sail} there if you like.", cid)
-			npcHandler.topic[cid] = 14
+			npcHandler.topic[cid] = 9
 		else
 			npcHandler:say("You are not a premium account..",
 		cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, "port hope") and npcHandler.topic[cid] == 5 then
+	elseif msgcontains(msg, "port hope") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
 			npcHandler:say(
 			{
@@ -160,32 +148,32 @@ local function creatureSayCallback(cid, type, msg)
 				Except for crazy adventurers like these guys here on the island, obviously. Still, I can {sail} there if you like.",
 			},
 		cid, false, true, 10)
-			npcHandler.topic[cid] = 15
+			npcHandler.topic[cid] = 10
 		else
 			npcHandler:say("You are not a premium account..",
 		cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, "svargrond") and npcHandler.topic[cid] == 5 then
+	elseif msgcontains(msg, "svargrond") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
 			npcHandler:say("Negative, can't bring you there. \z
 			You gotta pass some sort of Barbarian test before they let you live there. \z
 			Still, you should go there sometime, I heard it's quite interesting.", cid)
-			npcHandler.topic[cid] = 5
+			npcHandler.topic[cid] = 11
 		else
 			npcHandler:say("You are not a premium account..",
 		cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif msgcontains(msg, "thais") and npcHandler.topic[cid] == 5 then
+	elseif msgcontains(msg, "thais") and npcHandler.topic[cid] == 2 then
 		npcHandler:say("Old-school city. Actually the oldest main city in Tibia. \z
 			Be careful on those streets, there are bandits everywhere. But I can {sail} there if you like.", cid)
-		npcHandler.topic[cid] = 16
-	elseif msgcontains(msg, "venore") and npcHandler.topic[cid] == 5 then
+		npcHandler.topic[cid] = 12
+	elseif msgcontains(msg, "venore") and npcHandler.topic[cid] == 2 then
 		npcHandler:say("Hohoh, one of the richest cities, filled with merchants and LOOT! Err. \z
 			I mean, it is HIGHLY recommendable for unexperienced and first-time adventurers. \z
 			Don't know why they built it over a stinking swamp though. I can {sail} there if you like.", cid)
-		npcHandler.topic[cid] = 17
+		npcHandler.topic[cid] = 13
 	elseif msgcontains(msg, "sail") then
 		for index, value in pairs(topicTable) do
 			if npcHandler.topic[cid] == index then
