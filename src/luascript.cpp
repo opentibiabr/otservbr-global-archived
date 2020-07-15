@@ -2089,6 +2089,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "getSpectators", LuaScriptInterface::luaGameGetSpectators);
 	registerMethod("Game", "getPlayers", LuaScriptInterface::luaGameGetPlayers);
 	registerMethod("Game", "loadMap", LuaScriptInterface::luaGameLoadMap);
+	registerMethod("Game", "loadSpawnFile", LuaScriptInterface::luaGameLoadSpawnFile);
 
 	registerMethod("Game", "getMonsterCount", LuaScriptInterface::luaGameGetMonsterCount);
 	registerMethod("Game", "getPlayerCount", LuaScriptInterface::luaGameGetPlayerCount);
@@ -4604,6 +4605,14 @@ int LuaScriptInterface::luaGameLoadMap(lua_State* L)
 		}
 	}));
 	return 0;
+}
+
+int LuaScriptInterface::luaGameLoadSpawnFile(lua_State* L)
+{
+	// Game.loadSpawnFile(fileName)
+	const std::string& fileName = getString(L, 1);
+	pushBoolean(L, g_game.loadCustomSpawnFile(fileName));
+	return 1;
 }
 
 int LuaScriptInterface::luaGameGetMonsterCount(lua_State* L)

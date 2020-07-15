@@ -250,6 +250,11 @@ void Game::loadMap(const std::string& path)
 	map.loadMap(path, false);
 }
 
+bool Game::loadCustomSpawnFile(const std::string& fileName)
+{
+	return map.spawns.loadCustomSpawnXml(fileName);
+}
+
 Cylinder* Game::internalGetCylinder(Player* player, const Position& pos) const
 {
 	if (pos.x != 0xFFFF) {

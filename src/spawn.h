@@ -96,12 +96,15 @@ class Spawns
 			return spawnList;
 		}
 
+		bool loadCustomSpawnXml(const std::string& _filename);
 	private:
 		std::forward_list<Npc*> npcList;
 		std::forward_list<Spawn> spawnList;
 		std::string filename;
 		bool loaded = false;
 		bool started = false;
+
+		std::forward_list<Spawn> customSpawnList;
 };
 
 static constexpr int32_t NONBLOCKABLE_SPAWN_INTERVAL = 1400;
