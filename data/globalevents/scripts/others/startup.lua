@@ -1,5 +1,5 @@
 function onStartup()
-	print(">> Loading map attributes.")
+	print(">> Loading map attributes")
 	-- Custom maps table
 	loadCustomMaps()
 	-- Npc table
