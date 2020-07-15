@@ -45,8 +45,6 @@ for i = 45, 60 do
 					local specCreature = Player(creatureTable[r])
 
 					if specCreature and specCreature:isPlayer() then
-						local vocationClientId = specCreature:getVocation():getClientId()
-
 						if specCreature:isKnight() then
 							specCreature:addCondition(condition1)
 						end
