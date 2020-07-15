@@ -1,6 +1,7 @@
 local UniqueTable = {
 	-- Dawnport vocation rewards
 	-- Sorcerer
+	ChestId = 1740
 	[14025] = {
 		itemBag = 1988,
 		itemReward = {{2643, 1}, {2175, 1}, {2190, 1}, {8819, 1}, {8820, 1}, {2649, 1}},
@@ -43,7 +44,7 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 
 	if player:getStorageValue(setting.storage) >= 0 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(UniqueTable.ChestId) .. " is empty.")
 		return true
 	end
 
