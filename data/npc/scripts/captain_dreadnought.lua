@@ -92,7 +92,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 3
 	elseif msgcontains(msg, "ankrahmun") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
-			npcHandler:say("Only for premium travellers! Desert pyramid city close to the ocean, \z
+			npcHandler:say("Only for premium travelers! Desert pyramid city close to the ocean, \z
 		some underground tombs where I heard it's not bad hunting. I can {sail} there if you like.",
 		cid)
 			npcHandler.topic[cid] = 4
@@ -107,7 +107,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler.topic[cid] = 5
 	elseif msgcontains(msg, "darashia") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
-			npcHandler:say("Only for premium travellers! One of the two desert cities. \z
+			npcHandler:say("Only for premium travelers! One of the two desert cities. \z
 			Built around a lovely oasis. Lions, dragons... decent location for a newcomer. I can {sail} there if you like.", cid)
 			npcHandler.topic[cid] = 6
 		else
@@ -117,7 +117,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 	elseif msgcontains(msg, "edron") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
-			npcHandler:say("Only for premium travellers! Quiet little castle city on an island in the north-eastern \z
+			npcHandler:say("Only for premium travelers! Quiet little castle city on an island in the north-eastern \z
 			part of Tibia. Trolls, goblins, rotworms... good place for starters, too. I can {sail} there if you like.", cid)
 			npcHandler.topic[cid] = 7
 		else
@@ -130,7 +130,7 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 8
 	elseif msgcontains(msg, "liberty bay") and npcHandler.topic[cid] == 2 then
 		if player:isPremium() then
-			npcHandler:say("Only for premium travellers! Liberty Bay is on an island group in the South Seas. \z
+			npcHandler:say("Only for premium travelers! Liberty Bay is on an island group in the South Seas. \z
 			Ah, home sweet home. Err. I mean, it's pirates galore. Good deal of tortoises, too. \z
 			Just be careful, then it's a good hunting location. I can {sail} there if you like.", cid)
 			npcHandler.topic[cid] = 9
@@ -143,7 +143,7 @@ local function creatureSayCallback(cid, type, msg)
 		if player:isPremium() then
 			npcHandler:say(
 			{
-				"Only for premium travellers! Port Hope is an outpost right in the middle of the jungle. ...",
+				"Only for premium travelers! Port Hope is an outpost right in the middle of the jungle. ...",
 				"Apes, bananas, hydras, tarantulas... Who'd want to go there? \z
 				Except for crazy adventurers like these guys here on the island, obviously. Still, I can {sail} there if you like.",
 			},
