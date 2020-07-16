@@ -186,6 +186,21 @@ ChestUnique = {
 		itemReward = {{2521, 1}},
 		storage = Storage.Quest.ThaisLighthouse.DarkShield
 	},
+	-- Studded shield quest (rookgaard)
+	-- Banana free account area
+	[6016] = {
+		itemId = 2725,
+		itemPos = {x = 32172, y = 32169, z = 7},
+		itemReward = {{2676, 1}},
+		storage = Storage.Quest.StuddedShield.BananaFree
+	},
+	-- Banana premium account area
+	[6017] = {
+		itemId = 2725,
+		itemPos = {x = 31983, y = 32193, z = 5},
+		itemReward = {{2676, 1}},
+		storage = Storage.Quest.StuddedShield.BananaPremium
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
