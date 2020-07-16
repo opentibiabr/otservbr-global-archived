@@ -43,7 +43,7 @@ function vocationReward.onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 
 	if player:getStorageValue(setting.storage) >= 0 then
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(setting.itemId) .. " is empty.")
+		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "The ".. getItemName(1740) .. " is empty.")
 		return true
 	end
 

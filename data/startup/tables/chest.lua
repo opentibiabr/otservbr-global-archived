@@ -313,6 +313,7 @@ ChestUnique = {
 		itemPos = {x = 31938, y = 32837, z = 7}
 	},
 	-- Dawnport vocation rewards
+	-- Path: data\scripts\actions\quests\dawnport\vocation_reward.lua
 	-- Sorcerer
 	[14025] = {
 		itemId = 1740,
