@@ -1698,7 +1698,9 @@ Storage = {
 			Bag = 10006,
 			RedBag = 10007
 		},
-		ShortSword = {},
+		ShortSword = {
+			Book = 10008
+		},
 		ThaisLighthouse = {},
 		-- update 6.0
 		StuddedShield = {},
