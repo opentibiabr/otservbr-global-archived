@@ -270,7 +270,7 @@ keywordHandler:addKeyword({"tibia"}, StdModule.say,
 keywordHandler:addKeyword({"castle"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "If you travel to Thais, you really should visit the marvellous castle there."
+		text = "If you travel to Thais, you really should visit the marvelous castle there."
 	}
 )
 keywordHandler:addKeyword({"mainland"}, StdModule.say,
@@ -449,7 +449,7 @@ keywordHandler:addKeyword({"dixi"}, StdModule.say,
 keywordHandler:addKeyword({"zerbrus"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "An extraordinary warrior. He's the first and last line of defence of {Rookgaard}."
+		text = "An extraordinary warrior. He's the first and last line of defense of {Rookgaard}."
 	}
 )
 keywordHandler:addAliasKeyword({"dallheim"})
@@ -488,7 +488,7 @@ keywordHandler:addAliasKeyword({"language"})
 keywordHandler:addKeyword({"food"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "My favourite dish is {salmon}. Oh please, bring me some."
+		text = "My favorite dish is {salmon}. Oh please, bring me some."
 	}
 )
 local salmonKeyword = keywordHandler:addKeyword({"salmon"}, StdModule.say,
