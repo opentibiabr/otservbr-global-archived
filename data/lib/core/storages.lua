@@ -1701,7 +1701,10 @@ Storage = {
 		ShortSword = {
 			Book = 10008
 		},
-		ThaisLighthouse = {},
+		ThaisLighthouse = {
+			BattleHammer = 10009,
+			DarkShield = 10010
+		},
 		-- update 6.0
 		StuddedShield = {},
 		-- update 6.1

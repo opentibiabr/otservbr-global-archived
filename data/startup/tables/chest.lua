@@ -171,6 +171,21 @@ ChestUnique = {
 		itemReward = {{1955, 1}},
 		storage = Storage.Quest.ShortSword.Book
 	},
+	-- Thais lighthouse quest
+	-- Battle hammer
+	[6014] = {
+		itemId = 1740,
+		itemPos = {x = 32225, y = 32265, z = 10},
+		itemReward = {{2417, 1}},
+		storage = Storage.Quest.ThaisLighthouse.BattleHammer
+	},
+	-- Dark shield
+	[6015] = {
+		itemId = 1740,
+		itemPos = {x = 32226, y = 32265, z = 10},
+		itemReward = {{2521, 1}},
+		storage = Storage.Quest.ThaisLighthouse.DarkShield
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
