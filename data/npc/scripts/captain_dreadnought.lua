@@ -55,9 +55,6 @@ local townTable = {
 	[23] = TOWNS_LIST.VENORE
 }
 
---Venore town
-local venoreTown = Town(TOWNS_LIST.VENORE)
-
 local function greetCallback(cid)
 	local player = Player(cid)
 	npcHandler:setMessage(
