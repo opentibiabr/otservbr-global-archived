@@ -626,7 +626,6 @@
 	<action uniqueid="1017" script="quests/others/orc_edron_lever.lua" />
 	<action uniqueid="1912" script="quests/others/desert_dungeon_lever_quest.lua" />
 	<action uniqueid="50023" script="quests/others/triangle_tower_lever.lua" />
-	<action fromaid="50023" toaid="50024" script="quests/others/thais_lighthouse_lever.lua" />
 	<action actionid="50027" script="quests/others/hellgate_lever.lua" />
 	<action actionid="50129" script="quests/others/life_ring_lever.lua" />
 	<action itemid="10523" script="quests/others/deeper_banuta_shortcut.lua" />
