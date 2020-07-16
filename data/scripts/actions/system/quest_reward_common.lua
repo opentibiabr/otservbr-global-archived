@@ -2,15 +2,39 @@
 -- You just need to add a new table in the data/startup/tables/chest.lua file
 -- This script will pull everything from there
 
+local AttributeTable = {
+	[6013] = {
+		text = [[
+Hardek *
+Bozo *
+Sam ****
+Oswald
+Partos ***
+Quentin *
+Tark ***
+Harsky ***
+Stutch *
+Ferumbras *
+Frodo **
+Noodles ****]]
+	}
+}
+
 local commonReward = Action()
-local function playerAddItem(params)
+local function playerAddItem(params, item)
 	local player = params.player
 	if not checkWeightAndBackpackRoom(player, params.weight, params.message) then
 		return false
 	end
-	player:addItem(params.itemid, params.itemcount)
+
+	addItem = player:addItem(params.itemid, params.itemcount)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, params.message .. ".")
 	player:setStorageValue(params.storage, 1)
+	-- If the item is writeable, just put its unique and the text in the "AttributeTable"
+	local attribute = AttributeTable[item.uid]
+	if attribute then
+		addItem:setAttribute(ITEM_ATTRIBUTE_TEXT, attribute.text)
+	end
 	return true
 end
 
@@ -47,7 +71,7 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 			addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
 		end
 
-		if not playerAddItem(addItemParams) then
+		if not playerAddItem(addItemParams, item) then
 			return true
 		end
 	end
