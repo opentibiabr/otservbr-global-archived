@@ -3,7 +3,7 @@ function onCastSpell(creature, var)
 	position:sendMagicEffect(CONST_ME_POFF)
 
 	local tile = Tile(position)
-	if not table.contains(ropeSpots, tile:getGround():getId()) then
+	if not tile:isRopeSpot() then
 		creature:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return false
 	end
