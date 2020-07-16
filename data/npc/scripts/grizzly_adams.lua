@@ -176,7 +176,7 @@ local function creatureSayCallback(cid, type, msg)
 			openShopWindow(cid, tradeItems, onBuy, onSell)
 			return npcHandler:say("It's my offer.", cid)
 		else
-			return npcHandler:say("You don't have any rank.", cid)			
+			return npcHandler:say("You don't have any rank.", cid)
 		end
 	elseif (msgcontains('join', msg) or msgcontains('yes', msg))
 			and npcHandler.topic[cid] == 0
