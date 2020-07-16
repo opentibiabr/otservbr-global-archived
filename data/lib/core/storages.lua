@@ -1706,7 +1706,10 @@ Storage = {
 			DarkShield = 10010
 		},
 		-- update 6.0
-		StuddedShield = {},
+		StuddedShield = {
+			BananaFree = 10011,
+			BananaPremium = 10012
+		},
 		-- update 6.1
 		EmperorsCookies = {},
 		ExplorerBrooch = {},
