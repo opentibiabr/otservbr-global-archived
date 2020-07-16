@@ -16,18 +16,28 @@ LeverUnique = {
 	-- Dark trails quest (The Ravager lever)
 	-- Path: data\scripts\actions\quests\dark_trails\lever_the_ravager.lua
 	[30001] = {
-		itemId = false,
+		itemId = 1945,
 		itemPos = {x = 33416, y = 32102, z = 10}
 	},
 	-- Death priest shargon lever
 	[30002] = {
-		itemId = false,
+		itemId = 1946,
 		itemPos = {x = 33582, y = 31844, z = 10}
 	},
 	-- The first dragon quest lever
 	-- Path: data\scripts\actions\quests\first_dragon\lever.lua
 	[30003] = {
-		itemId = false,
+		itemId = 9825,
 		itemPos = {x = 33583, y = 30992, z = 14}
+	},
+	-- Thais lighthouse quest
+	-- Path: data\scripts\quests\thais_lighthouse\action-lever.lua
+	[30004] = {
+		itemId = 1945,
+		itemPos = {x = 32227, y = 32278, z = 8}
+	},
+	[30005] = {
+		itemId = 1945,
+		itemPos = {x = 32225, y = 32285, z = 10}
 	},
 }
