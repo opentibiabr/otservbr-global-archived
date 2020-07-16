@@ -52,6 +52,7 @@ enum WorldType_t {
 	WORLD_TYPE_NO_PVP = 1,
 	WORLD_TYPE_PVP = 2,
 	WORLD_TYPE_PVP_ENFORCED = 3,
+	WORLD_TYPE_RETRO_PVP = 4
 };
 
 enum GameState_t {

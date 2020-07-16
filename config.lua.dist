@@ -1,6 +1,6 @@
 -- Combat settings
--- NOTE: valid values for worldType are: "pvp", "no-pvp" and "pvp-enforced"
-worldType = "pvp"
+-- NOTE: valid values for worldType are: "pvp", "no-pvp", "pvp-enforced" and "retro-pvp"
+worldType = "retro-pvp"
 hotkeyAimbotEnabled = true
 protectionLevel = 7
 pzLocked = 60 * 1000

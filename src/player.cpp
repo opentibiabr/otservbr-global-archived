@@ -2070,9 +2070,12 @@ void Player::death(Creature* lastHitCreature)
 			}
 		}
 		bool pvpDeath = false;
-		if(playerDmg > 0 || othersDmg > 0){
-			pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
+		bool deathPlayer = false;
+		if (playerDmg > 0 || othersDmg > 0) {
+			pvpDeath = (g_game.getWorldType() != WORLD_TYPE_RETRO_PVP && (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05));
+			deathPlayer = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
 		}
+
 		if (pvpDeath && sumLevels > level) {
 			double reduce = level / static_cast<double>(sumLevels);
 			unfairFightReduction = std::max<uint8_t>(20, std::floor((reduce * 100) + 0.5));
@@ -2088,6 +2091,10 @@ void Player::death(Creature* lastHitCreature)
 		}
 
 		sumMana += manaSpent;
+
+		if (g_game.getWorldType() == WORLD_TYPE_RETRO_PVP && getSkull() == SKULL_WHITE) {
+			setSkull(SKULL_NONE);
+		}
 
 		double deathLossPercent = getLostPercent() * (unfairFightReduction / 100.);
 
@@ -3614,8 +3621,8 @@ void Player::onAttackedCreature(Creature* target)
 	}
 
 	Player* targetPlayer = target->getPlayer();
-	if (targetPlayer && !isPartner(targetPlayer) && !isGuildMate(targetPlayer)) {
-		if (!pzLocked && g_game.getWorldType() == WORLD_TYPE_PVP_ENFORCED) {
+	if (targetPlayer && (g_game.getWorldType() == WORLD_TYPE_RETRO_PVP || !isPartner(targetPlayer)) && !isGuildMate(targetPlayer)) {
+		if (!pzLocked && (g_game.getWorldType() == WORLD_TYPE_PVP_ENFORCED || g_game.getWorldType() == WORLD_TYPE_RETRO_PVP)) {
 			pzLocked = true;
 			sendIcons();
 		}
@@ -3721,14 +3728,21 @@ bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
 			targetPlayer->setDropLoot(false);
 			targetPlayer->setSkillLoss(false);
 		} else if (!hasFlag(PlayerFlag_NotGainInFight) && !isPartner(targetPlayer)) {
-			if (!Combat::isInPvpZone(this, targetPlayer) && hasAttacked(targetPlayer) && !targetPlayer->hasAttacked(this) && !isGuildMate(targetPlayer) && targetPlayer != this) {
-				if (targetPlayer->hasKilled(this)) {
+			bool canGainUnjust = hasAttacked(targetPlayer);
+			if (!canGainUnjust && g_game.getWorldType() == WORLD_TYPE_RETRO_PVP) {
+				canGainUnjust = lastHit;
+			}
+
+			if (!Combat::isInPvpZone(this, targetPlayer) && canGainUnjust && !targetPlayer->hasAttacked(this) && !isGuildMate(targetPlayer) && targetPlayer != this) {
+				if (targetPlayer->hasKilled(this) && hasAttacked(targetPlayer)) {
 					for (auto& kill : targetPlayer->unjustifiedKills) {
 						if (kill.target == getGUID() && kill.unavenged) {
-							kill.unavenged = false;
 							auto it = attackedSet.find(targetPlayer->guid);
-							attackedSet.erase(it);
-							break;
+							if (it != attackedSet.end()) {
+								kill.unavenged = false;
+								attackedSet.erase(it);
+								break;
+							}
 						}
 					}
 				} else if (targetPlayer->getSkull() == SKULL_NONE && !isInWar(targetPlayer)) {
