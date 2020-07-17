@@ -27,7 +27,7 @@ local function playerAddItem(params, item)
 		return false
 	end
 
-	addItem = player:addItem(params.itemid, params.itemcount)
+	addItem = player:addItem(params.itemid, params.count)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, params.message .. ".")
 	player:setStorageValue(params.storage, 1)
 	-- If the item is writeable, just put its unique and the text in the "AttributeTable"
