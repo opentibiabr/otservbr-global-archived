@@ -1717,7 +1717,9 @@ Storage = {
 			Key3802 = 10015,
 			RopeReward = 10016,
 		},
-		ExplorerBrooch = {},
+		ExplorerBrooch = {
+			Reward = 10017
+		},
 		OrcFortress = {},
 		Panpipe = {
 			Key4055Reward = 11000
