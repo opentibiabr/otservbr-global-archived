@@ -26,21 +26,21 @@ keywordHandler:addKeyword({"sheriff"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
 		text = "Sometimes people get imprisoned for some time. \z
-				True criminals will be cast out and for comitting the worst crimes offenders are thrown into the hellgate."
+				True criminals will be cast out and for committing the worst crimes offenders are thrown into the hellgate."
 	}
 )
 keywordHandler:addKeyword({"executioner"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
 		text = "Sometimes people get imprisoned for some time. \z
-				True criminals will be cast out and for comitting the worst crimes offenders are thrown into the hellgate."
+				True criminals will be cast out and for committing the worst crimes offenders are thrown into the hellgate."
 	}
 )
 keywordHandler:addKeyword({"avenger"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
 		text = "Sometimes people get imprisoned for some time. \z
-				True criminals will be cast out and for comitting the worst crimes offenders are thrown into the hellgate."
+				True criminals will be cast out and for committing the worst crimes offenders are thrown into the hellgate."
 	}
 )
 keywordHandler:addKeyword({"hellgate"}, StdModule.say,
@@ -181,7 +181,7 @@ keywordHandler:addKeyword({"carlin"}, StdModule.say,
 keywordHandler:addKeyword({"venore"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
-		text = "The merchants of venore provide us with some usefull goods. \z
+		text = "The merchants of venore provide us with some useful goods. \z
 				Still I an convinced that they get more out of our bargain then we do."
 	}
 )
