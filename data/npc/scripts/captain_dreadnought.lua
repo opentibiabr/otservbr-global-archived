@@ -203,7 +203,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "sail") then
 		for index, value in pairs(topicTable) do
 			if npcHandler.topic[cid] == index then
-				npcHandler:say("So, you've decided on your new home city? Which one will it be?", cid)
+				npcHandler:say("So, you've decided on your new home city?", cid)
 				npcHandler.topic[cid] = value
 			end
 		end
