@@ -1726,7 +1726,8 @@ Storage = {
 			FireSword = 10020
 		},
 		Panpipe = {
-			Key4055Reward = 11000
+			Key4055 = 10021,
+			Reward = 10022
 		},
 		-- update 6.2
 		Draconia = {},
