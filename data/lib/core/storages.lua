@@ -1730,7 +1730,10 @@ Storage = {
 			Reward = 10022
 		},
 		-- update 6.2
-		Draconia = {},
+		Draconia = {
+			Reward1 = 10023,
+			Reward2 = 10024
+		},
 		-- update 6.4
 		AdornedUHRune = {},
 		BarbarianAxe = {},

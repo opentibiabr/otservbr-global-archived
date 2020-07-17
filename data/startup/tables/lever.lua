@@ -40,4 +40,10 @@ LeverUnique = {
 		itemId = 1945,
 		itemPos = {x = 32225, y = 32285, z = 10}
 	},
+	-- Draconia quest
+	-- Path: data\scripts\quests\draconia\action-lever.lua
+	[30006] = {
+		itemId = 1945,
+		itemPos = {x = 32792, y = 31595, z = 7}
+	},
 }

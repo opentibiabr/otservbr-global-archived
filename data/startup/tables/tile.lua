@@ -195,5 +195,18 @@ TileUnique = {
 		itemPos = {x = 32770, y = 32282, z = 10},
 		targetPos = {x = 32771, y = 32297, z = 10},
 		targetItem = 387
+	},
+	-- Draconia quest
+	[29002] = {
+		itemId = 426,
+		itemPos = {x = 32810, y = 31595, z = 5},
+		targetPos = {x = 32796, y = 31594, z = 5},
+		targetItem = 1025
+	},
+	[29003] = {
+		itemId = 426,
+		itemPos = {x = 32794, y = 31595, z = 5},
+		targetPos = {x = 32796, y = 31576, z = 5},
+		targetItem = 1025
 	}
 }

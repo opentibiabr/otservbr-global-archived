@@ -613,7 +613,6 @@
 	<!-- oramond quest -->
 	<action uniqueid="1020" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->
-	<action fromaid="4249" toaid="4250" script="quests/others/draconia_quest_walls.lua" />
 	<action actionid="5556" script="quests/others/plate_armor_quest.lua" />
 	<action actionid="5558" script="quests/others/black_knight_quest.lua" />
 	<action itemid="4863" script="quests/others/ectoplasm_container.lua" />

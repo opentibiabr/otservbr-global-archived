@@ -170,12 +170,6 @@
 	<!-- devil helmet -->
 	<movevent event="StepIn" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
 	<movevent event="StepOut" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
-	<!-- draconia -->
-	<movevent event="StepIn" actionid="4246" script="quests/draconia/escape.lua"/>
-	<movevent event="StepIn" actionid="4253" script="quests/draconia/exit.lua"/>
-	<movevent event="StepIn" fromaid="4247" toaid="4248" script="quests/draconia/fall.lua"/>
-	<movevent event="StepIn" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua"/>
-	<movevent event="StepOut" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua"/>
 	<!-- dreamer challenge -->
 	<movevent event="StepIn" fromuid="2241" touid="2242" script="quests/dreamer_challenge/carrot.lua"/>
 	<movevent event="StepIn" actionid="9049" script="quests/dreamer_challenge/clock_tile.lua"/>
