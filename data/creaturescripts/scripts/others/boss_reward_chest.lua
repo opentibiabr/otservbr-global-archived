@@ -95,6 +95,10 @@ local function getPlayerStats(bossId, playerGuid, autocreate)
 end
 
 local function resetAndSetTargetList(creature)
+	if not creature then
+		return
+	end
+
 	local bossId = creature:getId()
 	local info = globalBosses[bossId]
 	-- Reset all players' status
@@ -114,12 +118,13 @@ end
 
 function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
 	-- player
-	if creature:isPlayer() then
-		return
-	end	
+	if not creature or creature:isPlayer() then
+		return true
+	end
+
 	-- boss
 	local monsterType = creature:getType()
-	if monsterType:isRewardBoss() then -- Make sure it is a boss
+	if monsterType and monsterType:isRewardBoss() then -- Make sure it is a boss
 		local bossId = creature:getId()
 		local timestamp = os.time()
 
