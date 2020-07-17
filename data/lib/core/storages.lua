@@ -1711,7 +1711,12 @@ Storage = {
 			BananaPremium = 10012
 		},
 		-- update 6.1
-		EmperorsCookies = {},
+		EmperorsCookies = {
+			Key3800 = 10013,
+			Key3801 = 10014,
+			Key3802 = 10015,
+			RopeReward = 10016,
+		},
 		ExplorerBrooch = {},
 		OrcFortress = {},
 		Panpipe = {
