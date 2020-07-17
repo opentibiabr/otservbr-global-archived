@@ -221,12 +221,19 @@ ChestUnique = {
 		itemReward = {{2676, 1}},
 		storage = Storage.Quest.StuddedShield.BananaPremium
 	},
-	-- Rope (kazoordon, emperor's cookies quest)
+	-- Rope (kazordoon, emperor's cookies quest)
 	[6018] = {
 		itemId = 1740,
 		itemPos = {x = 32604, y = 31908, z = 3},
 		itemReward = {{2120, 1}},
 		storage = Storage.Quest.EmperorsCookies.RopeReward
+	},
+	-- Explorer brooch quest (kazordoon)
+	[6019] = {
+		itemId = 3058,
+		itemPos = {x = 32636, y = 31873, z = 10},
+		itemReward = {{4873, 1}},
+		storage = Storage.Quest.ExplorerBrooch.Reward
 	},
 
 	-- Reward inside of container, there is also the option to put a key inside
