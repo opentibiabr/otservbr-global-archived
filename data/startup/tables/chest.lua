@@ -62,6 +62,26 @@ ChestUnique = {
 		itemReward = 23763,
 		storage = Storage.Quest.Dawnport.Key0010
 	},
+	-- Emperor's cookies quest key 3800
+	[5003] = {
+		-- For use of the map
+		itemId = 1740,
+		itemPos = {x = 32605, y = 31908, z = 3},
+		-- For use of the script
+		keyAction = 3800,
+		itemReward = 2089,
+		storage = Storage.Quest.EmperorsCookies.Key3800
+	},
+	-- Emperor's cookies quest key 3802
+	[5004] = {
+		-- For use of the map
+		itemId = 1740,
+		itemPos = {x = 32599, y = 31923, z = 6},
+		-- For use of the script
+		keyAction = 3802,
+		itemReward = 2089,
+		storage = Storage.Quest.EmperorsCookies.Key3802
+	},
 
 	-- Rewards without a container (commom reward), it is only received by the player, are the common rewards
 	-- Just duplicate the table and configure correctly, the scripts already register the entire table automatically
@@ -201,6 +221,13 @@ ChestUnique = {
 		itemReward = {{2676, 1}},
 		storage = Storage.Quest.StuddedShield.BananaPremium
 	},
+	-- Rope (kazoordon, emperor's cookies quest)
+	[6018] = {
+		itemId = 1740,
+		itemPos = {x = 32604, y = 31908, z = 3},
+		itemReward = {{2120, 1}},
+		storage = Storage.Quest.EmperorsCookies.RopeReward
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -224,6 +251,16 @@ ChestUnique = {
 		itemReward = {{2071, 1}, {2175, 1}, {2199, 1}, {2152, 5} , {2169, 1}},
 		weight = 44,
 		storage = Storage.Quest.OrnamentedShield.RedBag
+	},
+	[10003] = {
+		itemId = 1740,
+		itemPos = {x = 32648, y = 31905, z = 3},
+		itemBag = 1987,
+		keyItem = 2089,
+		keyAction = 3801,
+		itemReward = {{2687, 20}, {2687, 7}},
+		weight = 44,
+		storage = Storage.Quest.EmperorsCookies.Key3801
 	},
 
 	-- Reward of others scrips files (varied rewards)
