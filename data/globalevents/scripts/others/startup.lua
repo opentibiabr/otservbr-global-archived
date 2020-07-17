@@ -26,7 +26,9 @@ function onStartup()
 	-- Item table
 	loadLuaMapAction(ItemAction)
 	loadLuaMapUnique(ItemUnique)
-	-- Item Unmoveable table
+	-- Item daily reward table
+	loadLuaMapAction(DailyRewardAction)
+	-- Item unmoveable table
 	loadLuaMapAction(ItemUnmoveableAction)
 	-- Lever table
 	loadLuaMapAction(LeverAction)

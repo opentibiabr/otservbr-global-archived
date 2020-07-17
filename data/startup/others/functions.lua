@@ -28,6 +28,13 @@ function loadLuaMapAction(tablename)
 				if value.itemId == false and tile:getGround() then
 					tile:getGround():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
 				end
+				if value.isDailyReward then
+					if item:isContainer() then
+						if item:getSize() > 0 then
+							item:getItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+						end
+					end
+				end
 			end
 		end
 	end

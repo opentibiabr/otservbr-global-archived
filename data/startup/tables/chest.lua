@@ -257,6 +257,19 @@ ChestUnique = {
 		itemReward = {{2392, 1}},
 		storage = Storage.Quest.OrcFortress.FireSword
 	},
+	-- Draconia quest
+	[6023] = {
+		itemId = 1740,
+		itemPos = {x = 32803, y = 31582, z = 2},
+		itemReward = {{2396, 1}, {2409, 1}},
+		storage = Storage.Quest.Draconia.Reward1
+	},
+	[6024] = {
+		itemId = 1740,
+		itemPos = {x = 32804, y = 31582, z = 2},
+		itemReward = {{2197, 5}, {2167, 1}},
+		storage = Storage.Quest.Draconia.Reward2
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
