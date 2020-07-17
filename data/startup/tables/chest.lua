@@ -50,7 +50,7 @@ ChestUnique = {
 		-- For use of the script
 		keyAction = 4055,
 		itemReward = 2088,
-		storage = Storage.Quest.Panpipe.Key4055Reward
+		storage = Storage.Quest.Panpipe.Key4055
 	},
 	-- Dawnport quest key 0010 chest
 	[5002] = {
@@ -290,6 +290,14 @@ ChestUnique = {
 		itemReward = {{2687, 20}, {2687, 7}},
 		weight = 44,
 		storage = Storage.Quest.EmperorsCookies.Key3801
+	},
+	[10004] = {
+		itemId = 1740,
+		itemPos = {x = 32644, y = 32131, z = 8},
+		itemBag = 1987,
+		itemReward = {{2150, 2}, {2166, 1}, {2074, 1}},
+		weight = 44,
+		storage = Storage.Quest.Panpipe.Reward
 	},
 
 	-- Reward of others scrips files (varied rewards)

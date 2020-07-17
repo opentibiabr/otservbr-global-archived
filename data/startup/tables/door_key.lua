@@ -37,5 +37,10 @@ KeyDoorAction = {
 	[3980] = {
 		itemId = false,
 		itemPos = {{x = 32277, y = 32420, z = 10}}
+	},
+	-- Door of the key 4055 (panpipe quest)
+	[4055] = {
+		itemId = false,
+		itemPos = {{x = 32643, y = 32128, z = 8}}
 	}
 }
