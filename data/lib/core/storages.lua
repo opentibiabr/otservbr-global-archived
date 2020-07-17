@@ -1720,7 +1720,11 @@ Storage = {
 		ExplorerBrooch = {
 			Reward = 10017
 		},
-		OrcFortress = {},
+		OrcFortress = {
+			KnightAxe = 10018,
+			KnightArmor = 10019,
+			FireSword = 10020
+		},
 		Panpipe = {
 			Key4055Reward = 11000
 		},
