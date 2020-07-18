@@ -1753,7 +1753,10 @@ Storage = {
 			DemonHelmet = 10031,
 			DemonShield = 10032
 		},
-		DoubleHero = {},
+		DoubleHero = {
+			RedGem = 10033,
+			ClubRing = 10034
+		},
 		EdronGoblin = {},
 		FireAxe = {},
 		PoisonDaggers = {},
