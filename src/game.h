@@ -45,12 +45,14 @@ enum stackPosType_t {
 	STACKPOS_TOPDOWN_ITEM,
 	STACKPOS_USEITEM,
 	STACKPOS_USETARGET,
+  	STACKPOS_FIND_THING,
 };
 
 enum WorldType_t {
 	WORLD_TYPE_NO_PVP = 1,
 	WORLD_TYPE_PVP = 2,
 	WORLD_TYPE_PVP_ENFORCED = 3,
+	WORLD_TYPE_RETRO_PVP = 4
 };
 
 enum GameState_t {
@@ -98,6 +100,7 @@ class Game
 
 		bool loadMainMap(const std::string& filename);
 		void loadMap(const std::string& path);
+		bool loadCustomSpawnFile(const std::string& fileName);
 
 		/**
 		  * Get the map size - info purpose only

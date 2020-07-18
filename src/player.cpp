@@ -549,7 +549,15 @@ void Player::addContainer(uint8_t cid, Container* container)
 		return;
 	}
 
+	if (!container) {
+		return;
+	}
+
 	if (container->getID() == ITEM_BROWSEFIELD) {
+		container->incrementReferenceCounter();
+	}
+
+	if (container->getID() == ITEM_GOLD_POUCH) {
 		container->incrementReferenceCounter();
 	}
 
@@ -558,6 +566,9 @@ void Player::addContainer(uint8_t cid, Container* container)
 		OpenContainer& openContainer = it->second;
 		Container* oldContainer = openContainer.container;
 		if (oldContainer->getID() == ITEM_BROWSEFIELD) {
+			oldContainer->decrementReferenceCounter();
+		}
+		if (oldContainer->getID() == ITEM_GOLD_POUCH) {
 			oldContainer->decrementReferenceCounter();
 		}
 
@@ -1029,6 +1040,10 @@ void Player::sendAddContainerItem(const Container* container, const Item* item)
 		return;
 	}
 
+	if (!container) {
+		return;
+	}
+
 	for (const auto& it : openContainers) {
 		const OpenContainer& openContainer = it.second;
 		if (openContainer.container != container) {
@@ -1037,6 +1052,15 @@ void Player::sendAddContainerItem(const Container* container, const Item* item)
 
 		uint16_t slot = openContainer.index;
 		if (container->getID() == ITEM_BROWSEFIELD) {
+			uint16_t containerSize = container->size() - 1;
+			uint16_t pageEnd = openContainer.index + container->capacity() - 1;
+			if (containerSize > pageEnd) {
+				slot = pageEnd;
+				item = container->getItemByIndex(pageEnd);
+			} else {
+				slot = containerSize;
+			}
+		} else if (container->getID() == ITEM_GOLD_POUCH) {
 			uint16_t containerSize = container->size() - 1;
 			uint16_t pageEnd = openContainer.index + container->capacity() - 1;
 			if (containerSize > pageEnd) {
@@ -1080,6 +1104,10 @@ void Player::sendUpdateContainerItem(const Container* container, uint16_t slot, 
 void Player::sendRemoveContainerItem(const Container* container, uint16_t slot)
 {
 	if (!client) {
+		return;
+	}
+
+	if (!container) {
 		return;
 	}
 
@@ -2042,9 +2070,12 @@ void Player::death(Creature* lastHitCreature)
 			}
 		}
 		bool pvpDeath = false;
-		if(playerDmg > 0 || othersDmg > 0){
-			pvpDeath = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
+		bool deathPlayer = false;
+		if (playerDmg > 0 || othersDmg > 0) {
+			pvpDeath = (g_game.getWorldType() != WORLD_TYPE_RETRO_PVP && (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05));
+			deathPlayer = (Player::lastHitIsPlayer(lastHitCreature) || playerDmg / (playerDmg + static_cast<double>(othersDmg)) >= 0.05);
 		}
+
 		if (pvpDeath && sumLevels > level) {
 			double reduce = level / static_cast<double>(sumLevels);
 			unfairFightReduction = std::max<uint8_t>(20, std::floor((reduce * 100) + 0.5));
@@ -2060,6 +2091,10 @@ void Player::death(Creature* lastHitCreature)
 		}
 
 		sumMana += manaSpent;
+
+		if (g_game.getWorldType() == WORLD_TYPE_RETRO_PVP && getSkull() == SKULL_WHITE) {
+			setSkull(SKULL_NONE);
+		}
 
 		double deathLossPercent = getLostPercent() * (unfairFightReduction / 100.);
 
@@ -3586,8 +3621,8 @@ void Player::onAttackedCreature(Creature* target)
 	}
 
 	Player* targetPlayer = target->getPlayer();
-	if (targetPlayer && !isPartner(targetPlayer) && !isGuildMate(targetPlayer)) {
-		if (!pzLocked && g_game.getWorldType() == WORLD_TYPE_PVP_ENFORCED) {
+	if (targetPlayer && (g_game.getWorldType() == WORLD_TYPE_RETRO_PVP || !isPartner(targetPlayer)) && !isGuildMate(targetPlayer)) {
+		if (!pzLocked && (g_game.getWorldType() == WORLD_TYPE_PVP_ENFORCED || g_game.getWorldType() == WORLD_TYPE_RETRO_PVP)) {
 			pzLocked = true;
 			sendIcons();
 		}
@@ -3693,14 +3728,21 @@ bool Player::onKilledCreature(Creature* target, bool lastHit/* = true*/)
 			targetPlayer->setDropLoot(false);
 			targetPlayer->setSkillLoss(false);
 		} else if (!hasFlag(PlayerFlag_NotGainInFight) && !isPartner(targetPlayer)) {
-			if (!Combat::isInPvpZone(this, targetPlayer) && hasAttacked(targetPlayer) && !targetPlayer->hasAttacked(this) && !isGuildMate(targetPlayer) && targetPlayer != this) {
-				if (targetPlayer->hasKilled(this)) {
+			bool canGainUnjust = hasAttacked(targetPlayer);
+			if (!canGainUnjust && g_game.getWorldType() == WORLD_TYPE_RETRO_PVP) {
+				canGainUnjust = lastHit;
+			}
+
+			if (!Combat::isInPvpZone(this, targetPlayer) && canGainUnjust && !targetPlayer->hasAttacked(this) && !isGuildMate(targetPlayer) && targetPlayer != this) {
+				if (targetPlayer->hasKilled(this) && hasAttacked(targetPlayer)) {
 					for (auto& kill : targetPlayer->unjustifiedKills) {
 						if (kill.target == getGUID() && kill.unavenged) {
-							kill.unavenged = false;
 							auto it = attackedSet.find(targetPlayer->guid);
-							attackedSet.erase(it);
-							break;
+							if (it != attackedSet.end()) {
+								kill.unavenged = false;
+								attackedSet.erase(it);
+								break;
+							}
 						}
 					}
 				} else if (targetPlayer->getSkull() == SKULL_NONE && !isInWar(targetPlayer)) {
@@ -4872,11 +4914,6 @@ void Player::onEquipImbueItem(Imbuement* imbuement)
 		}
 	}
 
-	if (requestUpdate) {
-		sendStats();
-		sendSkills();
-	}
-
 	// speed
 	if (imbuement->speed != 0) {
 		g_game.changeSpeed(this, imbuement->speed);
@@ -4884,8 +4921,13 @@ void Player::onEquipImbueItem(Imbuement* imbuement)
 
 	// capacity
 	if (imbuement->capacity != 0) {
-		capacity += imbuement->capacity;
+		requestUpdate = true;
+		bonusCapacity = (capacity * imbuement->capacity)/100;
+	}
+
+	if (requestUpdate) {
 		sendStats();
+		sendSkills();
 	}
 
 	return;
@@ -4916,11 +4958,6 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 		}
 	}
 
-	if (requestUpdate) {
-		sendStats();
-		sendSkills();
-	}
-
 	// speed
 	if (imbuement->speed != 0) {
 		g_game.changeSpeed(this, -imbuement->speed);
@@ -4928,8 +4965,13 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 
 	// capacity
 	if (imbuement->capacity != 0) {
-		capacity -= imbuement->capacity;
+		requestUpdate = true;
+		bonusCapacity = 0;
+	}
+
+	if (requestUpdate) {
 		sendStats();
+		sendSkills();
 	}
 
 	return;

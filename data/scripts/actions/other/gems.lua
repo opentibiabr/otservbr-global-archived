@@ -16,7 +16,7 @@ local shrine = {
 	[2149] = {
 		targetAction = 15003,
 		-- shrinePosition = {x = 32973, y = 32225, z = 7},
-		destination = {x = 33539, y = 32263, z = 7}
+		destination = {x = 33539, y = 32209, z = 7}
 	},
 	[2150] = {
 		targetAction = 15004,

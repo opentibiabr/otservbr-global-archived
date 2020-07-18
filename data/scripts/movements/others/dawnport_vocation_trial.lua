@@ -11,9 +11,9 @@ function dawnportVocationTrial.onStepIn(creature, item, position, fromPosition)
 		local centerPosition = Position(32065, 31891, 5)
 		if centerPosition:getDistance(fromPosition) < centerPosition:getDistance(position) then
 			-- Blocks the vocation trial after level 20
-			if player:getLevel() >= 20 then
-				player:teleportTo(fromPosition, true)
-				player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+			local getVocation = player:getVocation()
+			if getVocation and getVocation:getId() == vocation.first.id
+			or getVocation:getId() == vocation.second.id and player:getLevel() < 20 then
 				return true
 			end
 			-- On step in the tile

@@ -61,9 +61,10 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	local normalVortex = vortex[item.actionid]
+	local bossVortex = accessVortex[item.actionid]
+	local uBosses = finalBosses[item.actionid]
 	if normalVortex then
 		player:teleportTo(normalVortex)
-	local bossVortex = accessVortex[item.actionid]
 	elseif bossVortex then
 		if player:getStorageValue(bossVortex.storage) >= 1 then
 			if player:getStorageValue(bossVortex.storageTime) < os.time() then
@@ -76,7 +77,6 @@ function onStepIn(creature, item, position, fromPosition)
 			player:teleportTo(fromPosition)
 			player:sendTextMessage(19, "You don't have access to this portal.")
 		end
-	local uBosses = finalBosses[item.actionid]
 	elseif uBosses then
 		if player:getStorageValue(uBosses.storage1) >= 1
 		and player:getStorageValue(uBosses.storage2) >= 1

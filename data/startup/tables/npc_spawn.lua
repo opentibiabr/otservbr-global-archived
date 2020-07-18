@@ -953,36 +953,3 @@ NpcTable = {
 	[952] = {name = "ramina", position = {x = 33903, y = 31495, z = 7}},
 	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}}
 }
-
-CustomNpcTable = {
-	--Custom map (event room)
-	--Trade island
-	[1] = {name = "alesar", position = {x = 953, y = 948, z = 7}},
-	[2] = {name = "yaman", position = {x = 983, y = 951, z = 7}},
-	[3] = {name = "nah_bob", position = {x = 956, y = 977, z = 7}},
-	[4] = {name = "guide_kroak", position = {x = 976, y = 977, z = 7}},
-	[5] = {name = "rashid", position = {x = 984, y = 994, z = 7}},
-	[6] = {name = "haroun", position = {x = 956, y = 998, z = 7}},
-	[7] = {name = "hanna", position = {x = 983, y = 951, z = 6}},
-	[8] = {name = "yasir", position = {x = 963, y = 959, z = 6}},
-	[9] = {name = "lailene", position = {x = 991, y = 969, z = 6}},
-	[10] = {name = "alexander", position = {x = 957, y = 976, z = 6}},
-	[11] = {name = "esrik", position = {x = 985, y = 991, z = 6}},
-	[12] = {name = "rock_in_a_hard_place", position = {x = 956, y = 997, z = 6}},
-	[13] = {name = "tamoril", position = {x = 1002, y = 992, z = 5}},
-	--NPC beach
-	[14] = {name = "zuma_magehide", position = {x = 1058, y = 1020, z = 7}},
-	[15] = {name = "runtel_blackspark", position = {x = 1067, y = 1020, z = 7}},
-	[16] = {name = "rock_in_a_hard_place", position = {x = 993, y = 1034, z = 7}},
-	[17] = {name = "archery", position = {x = 990, y = 1027, z = 7}},
-	[18] = {name = "hanna", position = {x = 1003, y = 1019, z = 7}},
-	[19] = {name = "yasir", position = {x = 984, y = 1029, z = 6}},
-	[20] = {name = "haroun", position = {x = 988, y = 1024, z = 6}},
-	[21] = {name = "alesar", position = {x = 996, y = 1024, z = 6}},
-	[22] = {name = "esrik", position = {x = 1000, y = 1026, z = 6}},
-	[23] = {name = "yaman", position = {x = 1004, y = 1031, z = 6}},
-	[24] = {name = "rashid", position = {x = 998, y = 1036, z = 6}},
-	[25] = {name = "nah_bob", position = {x = 992, y = 1036, z = 6}},
-	[26] = {name = "cassino", position = {x = 32354, y = 32226, z = 7}},
-	[27] = {name = "tamoril", position = {x = 1013, y = 1024, z = 5}}
-}

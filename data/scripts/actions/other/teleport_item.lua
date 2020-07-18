@@ -7,7 +7,7 @@ function teleportItem.onUse(player, item, fromPosition, target, toPosition, isHo
 	-- Scarlett Etzel teleport item
 	if item.uid == 15003 then
 		if roomIsOccupied({x = 33396, y = 32648, z = 6}, 11, 11)
-					or Game.getStorageValue(setting.clearRoomStorage) == 1 then
+					or Game.getStorageValue(GlobalStorage.ScarlettEtzelEventTime) == 1 then
 			player:say("Someone is fighting against the boss! You need wait awhile.", TALKTYPE_MONSTER_SAY)
 			return true
 		end

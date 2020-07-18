@@ -250,6 +250,11 @@ void Game::loadMap(const std::string& path)
 	map.loadMap(path, false);
 }
 
+bool Game::loadCustomSpawnFile(const std::string& fileName)
+{
+	return map.spawns.loadCustomSpawnXml(fileName);
+}
+
 Cylinder* Game::internalGetCylinder(Player* player, const Position& pos) const
 {
 	if (pos.x != 0xFFFF) {
@@ -307,6 +312,18 @@ Thing* Game::internalGetThing(Player* player, const Position& pos, int32_t index
 				}
 				break;
 			}
+
+      		case STACKPOS_FIND_THING: {
+        		thing = tile->getUseItem(index);
+       			if (!thing) {
+          			thing = tile->getDoorItem();
+        		}
+
+        		if (!thing) {
+          			thing = tile->getTopDownItem();
+        		}
+        		break;
+      		}
 
 			default: {
 				thing = nullptr;
@@ -2164,7 +2181,7 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		return;
 	}
 
-	Thing* thing = internalGetThing(player, pos, stackPos, spriteId, STACKPOS_USEITEM);
+	Thing* thing = internalGetThing(player, pos, stackPos, spriteId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
@@ -4831,7 +4848,8 @@ void Game::checkImbuements()
 		}
 
 		Player* player = item->getParent()->getCreature()->getPlayer();
-		if (!player->hasCondition(CONDITION_INFIGHT)) {
+		const ItemType& itemType = Item::items[item->getID()];
+		if (!player->hasCondition(CONDITION_INFIGHT) && !itemType.isContainer()) {
 			it++;
 			continue;
 		}

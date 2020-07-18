@@ -1,6 +1,5 @@
 function onThink(creature)
-
-	if not creature:isCreature() then
+	if not creature or not creature:isMonster() then
 		return false
 	end
 

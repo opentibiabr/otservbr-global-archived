@@ -613,7 +613,6 @@
 	<!-- oramond quest -->
 	<action uniqueid="1020" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->
-	<action fromaid="4249" toaid="4250" script="quests/others/draconia_quest_walls.lua" />
 	<action actionid="5556" script="quests/others/plate_armor_quest.lua" />
 	<action actionid="5558" script="quests/others/black_knight_quest.lua" />
 	<action itemid="4863" script="quests/others/ectoplasm_container.lua" />
@@ -626,7 +625,6 @@
 	<action uniqueid="1017" script="quests/others/orc_edron_lever.lua" />
 	<action uniqueid="1912" script="quests/others/desert_dungeon_lever_quest.lua" />
 	<action uniqueid="50023" script="quests/others/triangle_tower_lever.lua" />
-	<action fromaid="50023" toaid="50024" script="quests/others/thais_lighthouse_lever.lua" />
 	<action actionid="50027" script="quests/others/hellgate_lever.lua" />
 	<action actionid="50129" script="quests/others/life_ring_lever.lua" />
 	<action itemid="10523" script="quests/others/deeper_banuta_shortcut.lua" />

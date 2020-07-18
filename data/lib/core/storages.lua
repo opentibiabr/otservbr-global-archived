@@ -1698,19 +1698,42 @@ Storage = {
 			Bag = 10006,
 			RedBag = 10007
 		},
-		ShortSword = {},
-		ThaisLighthouse = {},
+		ShortSword = {
+			Book = 10008
+		},
+		ThaisLighthouse = {
+			BattleHammer = 10009,
+			DarkShield = 10010
+		},
 		-- update 6.0
-		StuddedShield = {},
+		StuddedShield = {
+			BananaFree = 10011,
+			BananaPremium = 10012
+		},
 		-- update 6.1
-		EmperorsCookies = {},
-		ExplorerBrooch = {},
-		OrcFortress = {},
+		EmperorsCookies = {
+			Key3800 = 10013,
+			Key3801 = 10014,
+			Key3802 = 10015,
+			RopeReward = 10016,
+		},
+		ExplorerBrooch = {
+			Reward = 10017
+		},
+		OrcFortress = {
+			KnightAxe = 10018,
+			KnightArmor = 10019,
+			FireSword = 10020
+		},
 		Panpipe = {
-			Key4055Reward = 11000
+			Key4055 = 10021,
+			Reward = 10022
 		},
 		-- update 6.2
-		Draconia = {},
+		Draconia = {
+			Reward1 = 10023,
+			Reward2 = 10024
+		},
 		-- update 6.4
 		AdornedUHRune = {},
 		BarbarianAxe = {},

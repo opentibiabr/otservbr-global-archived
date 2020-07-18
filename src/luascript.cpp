@@ -1593,6 +1593,11 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_KEG_START)
 	registerEnum(ITEM_KEG_END)
 
+	registerEnum(ITEM_STONE_SKIN_AMULET)
+
+	registerEnum(ITEM_GOLD_POUCH)
+	registerEnum(ITEM_STORE_INBOX)
+
 	registerEnum(IMBUEMENT_SLOT)
 
 	registerEnum(PlayerFlag_CannotUseCombat)
@@ -1791,6 +1796,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(WORLD_TYPE_NO_PVP)
 	registerEnum(WORLD_TYPE_PVP)
 	registerEnum(WORLD_TYPE_PVP_ENFORCED)
+	registerEnum(WORLD_TYPE_RETRO_PVP)
 
 	// Use with container:addItem, container:addItemEx and possibly other functions.
 	registerEnum(FLAG_NOLIMIT)
@@ -2089,6 +2095,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Game", "getSpectators", LuaScriptInterface::luaGameGetSpectators);
 	registerMethod("Game", "getPlayers", LuaScriptInterface::luaGameGetPlayers);
 	registerMethod("Game", "loadMap", LuaScriptInterface::luaGameLoadMap);
+	registerMethod("Game", "loadSpawnFile", LuaScriptInterface::luaGameLoadSpawnFile);
 
 	registerMethod("Game", "getMonsterCount", LuaScriptInterface::luaGameGetMonsterCount);
 	registerMethod("Game", "getPlayerCount", LuaScriptInterface::luaGameGetPlayerCount);
@@ -4604,6 +4611,14 @@ int LuaScriptInterface::luaGameLoadMap(lua_State* L)
 		}
 	}));
 	return 0;
+}
+
+int LuaScriptInterface::luaGameLoadSpawnFile(lua_State* L)
+{
+	// Game.loadSpawnFile(fileName)
+	const std::string& fileName = getString(L, 1);
+	pushBoolean(L, g_game.loadCustomSpawnFile(fileName));
+	return 1;
 }
 
 int LuaScriptInterface::luaGameGetMonsterCount(lua_State* L)

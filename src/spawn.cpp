@@ -125,6 +125,104 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 	return true;
 }
 
+bool Spawns::loadCustomSpawnXml(const std::string& _filename)
+{
+	if (!loaded) {
+		std::cout << "Error - Spawns::loadCustomSpawnXml - trying to load custom spawn xml before game startup. FileName: " << _filename << std::endl;
+		return false;
+	}
+
+	pugi::xml_document doc;
+	pugi::xml_parse_result result = doc.load_file(_filename.c_str());
+	if (!result) {
+		printXMLError("Error - Spawns::loadCustomSpawnXml", _filename, result);
+		return false;
+	}
+
+	for (pugi::xml_node spawnNode = doc.child("spawns").first_child(); spawnNode; spawnNode = spawnNode.next_sibling()) {
+		Position centerPos(
+			pugi::cast<uint16_t>(spawnNode.attribute("centerx").value()),
+			pugi::cast<uint16_t>(spawnNode.attribute("centery").value()),
+			pugi::cast<uint16_t>(spawnNode.attribute("centerz").value())
+			);
+
+		int32_t radius;
+		pugi::xml_attribute radiusAttribute = spawnNode.attribute("radius");
+		if (radiusAttribute) {
+			radius = pugi::cast<int32_t>(radiusAttribute.value());
+		} else {
+			radius = -1;
+		}
+
+		customSpawnList.emplace_front(centerPos, radius);
+		Spawn& spawn = customSpawnList.front();
+
+		std::forward_list<Npc*> tmpNpcList;
+
+		for (pugi::xml_node childNode = spawnNode.first_child(); childNode; childNode = childNode.next_sibling()) {
+			if (strcasecmp(childNode.name(), "monster") == 0) {
+				pugi::xml_attribute nameAttribute = childNode.attribute("name");
+				if (!nameAttribute) {
+					continue;
+				}
+
+				Direction dir;
+
+				pugi::xml_attribute directionAttribute = childNode.attribute("direction");
+				if (directionAttribute) {
+					dir = static_cast<Direction>(pugi::cast<uint16_t>(directionAttribute.value()));
+				} else {
+					dir = DIRECTION_NORTH;
+				}
+
+				Position pos(
+					centerPos.x + pugi::cast<uint16_t>(childNode.attribute("x").value()),
+					centerPos.y + pugi::cast<uint16_t>(childNode.attribute("y").value()),
+					centerPos.z
+					);
+
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000;
+				if (interval > MINSPAWN_INTERVAL) {
+					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
+				} else {
+					std::cout << "[Warning - Spawns::loadCustomSpawnXml - '" << _filename.c_str() << "'] " << nameAttribute.as_string() << ' ' << pos << " spawntime can not be less than " << MINSPAWN_INTERVAL / 1000 << " seconds." << std::endl;
+				}
+			} else if (strcasecmp(childNode.name(), "npc") == 0) {
+				pugi::xml_attribute nameAttribute = childNode.attribute("name");
+				if (!nameAttribute) {
+					continue;
+				}
+
+				Npc* npc = Npc::createNpc(nameAttribute.as_string());
+				if (!npc) {
+					continue;
+				}
+
+				pugi::xml_attribute directionAttribute = childNode.attribute("direction");
+				if (directionAttribute) {
+					npc->setDirection(static_cast<Direction>(pugi::cast<uint16_t>(directionAttribute.value())));
+				}
+
+				npc->setMasterPos(Position(
+					centerPos.x + pugi::cast<uint16_t>(childNode.attribute("x").value()),
+					centerPos.y + pugi::cast<uint16_t>(childNode.attribute("y").value()),
+					centerPos.z
+					), radius);
+
+				tmpNpcList.push_front(npc);
+			}
+		}
+
+		for (Npc* npc : tmpNpcList) {
+			g_game.placeCreature(npc, npc->getMasterPos(), false, true);
+		}
+
+		spawn.startup();
+	}
+
+	return true;
+}
+
 void Spawns::startup()
 {
 	if (!loaded || isStarted()) {

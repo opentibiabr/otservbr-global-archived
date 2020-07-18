@@ -1,7 +1,7 @@
 -- Table Path: data/startup/tables/teleport.lua
-local teleport = Action()
+local teleport = MoveEvent()
 
-function teleport.onUse(creature, item, fromPosition, target, toPosition, isHotkey)
+function teleport.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true

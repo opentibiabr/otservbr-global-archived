@@ -28,6 +28,13 @@ function loadLuaMapAction(tablename)
 				if value.itemId == false and tile:getGround() then
 					tile:getGround():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
 				end
+				if value.isDailyReward then
+					if item:isContainer() then
+						if item:getSize() > 0 then
+							item:getItem():setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
+						end
+					end
+				end
 			end
 		end
 	end
@@ -118,15 +125,25 @@ function loadLuaNpcs(tablename)
 	Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
 end
 
+-- Function for load the map and spawn custom
 function loadCustomMaps()
 	for index, value in ipairs(CustomMapTable) do
 		if value.enabled then
 			-- It's load the map
-			Game.loadMap(value.file)
-			Game.setStorageValue(Storage.NpcSpawn, 1)
+			Game.loadMap(value.mapFile)
+			print("> Loaded " .. value.mapName .. " map")
+
+			-- It's load the spawn
+			-- 10 * 1000 = 10 seconds delay for load the spawn after loading the map
+			if value.spawnFile then
+				addEvent(
+				function()
+					Game.loadSpawnFile(value.spawnFile)
+					print("> Loaded " .. value.mapName .. " spawn")
+				end, 10 * 1000)
+			end
 		end
 	end
-	print("> Loaded " .. (#CustomMapTable) .. " custom maps.")
 end
 
 -- Functions that cannot be used in reload command, so they have been moved here

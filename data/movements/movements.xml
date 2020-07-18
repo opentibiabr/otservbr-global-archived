@@ -158,6 +158,7 @@
 	<movevent event="StepIn" actionid="57240" script="quests/dangerous_depth/gnome_avalanche.lua"/>
 	<movevent event="StepIn" actionid="57241" script="quests/dangerous_depth/gnome_ordnance.lua"/>
 	<movevent event="StepIn" actionid="57242" script="quests/dangerous_depth/gnomes_ordnance_end.lua"/>
+	<movevent event="StepIn" itemid="25331" script="quests/dangerous_depth/lava_damage.lua"/>
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous_depth/lost_exiles.lua"/>
 	<movevent event="StepIn" actionid="57230" script="quests/dangerous_depth/warzone_entrance.lua"/>
 	<!-- demon helmet -->
@@ -169,12 +170,6 @@
 	<!-- devil helmet -->
 	<movevent event="StepIn" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
 	<movevent event="StepOut" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
-	<!-- draconia -->
-	<movevent event="StepIn" actionid="4246" script="quests/draconia/escape.lua"/>
-	<movevent event="StepIn" actionid="4253" script="quests/draconia/exit.lua"/>
-	<movevent event="StepIn" fromaid="4247" toaid="4248" script="quests/draconia/fall.lua"/>
-	<movevent event="StepIn" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua"/>
-	<movevent event="StepOut" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua"/>
 	<!-- dreamer challenge -->
 	<movevent event="StepIn" fromuid="2241" touid="2242" script="quests/dreamer_challenge/carrot.lua"/>
 	<movevent event="StepIn" actionid="9049" script="quests/dreamer_challenge/clock_tile.lua"/>
@@ -315,9 +310,6 @@
 	<movevent event="StepIn" actionid="25200" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" actionid="25300" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" fromuid="3264" touid="3266" script="quests/svargrond_arena/arena_trophy.lua"/>
-	<!-- thais lighthouse -->
-	<movevent event="StepIn" fromaid="50025" toaid="50026" script="quests/thais_lighthouse/thais_lighthouse.lua"/>
-	<movevent event="StepOut" actionid="50025" script="quests/thais_lighthouse/thais_lighthouse.lua"/>
 	<!-- the ancient tombs -->
 	<movevent event="AddItem" tileitem="1" actionid="60626" script="quests/the_ancient_tombs/craft_helmet.lua"/>
 	<movevent event="StepIn" uniqueid="50138" script="quests/the_ancient_tombs/enter_ashmunrah_teleport_switche_done.lua"/>

@@ -1,5 +1,5 @@
 function onThink(creature)
-	if not creature:isCreature() then
+	if not creature or not creature:isMonster() then
 		return false
 	end
 
@@ -7,7 +7,6 @@ function onThink(creature)
 		if eradicatorWeak == 0 then
 			local pos = creature:getPosition()
 			local health = creature:getHealth()
-			local from = creature:getId()
 			creature:remove()
 
 			local monster = Game.createMonster("eradicator2", pos, false, true)
@@ -22,7 +21,6 @@ function onThink(creature)
 		elseif eradicatorWeak == 1 then
 			local pos = creature:getPosition()
 			local health = creature:getHealth()
-			local from = creature:getId()
 
 			creature:remove()
 

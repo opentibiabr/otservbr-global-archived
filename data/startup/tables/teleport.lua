@@ -64,6 +64,18 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32112, y = 31936, z = 8}
 	},
+	-- Draconia quest
+	-- Exit teleport
+	-- Path: data\scripts\movements\quests\draconia\movement-exit_teleport.lua
+	[35011] = {
+		itemId = 1387,
+		itemPos = {x = 32805, y = 31587, z = 1}
+	},
+	-- Path: data\scripts\movements\quests\draconia\movement-escape.lua
+	[35012] = {
+		itemId = 1387,
+		itemPos = {x = 32815, y = 31599, z = 9}
+	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)
 	-- Path: data\scripts\movements\others\teleport.lua
@@ -85,6 +97,39 @@ TeleportUnique = {
 		itemPos = {x = 32234, y = 32502, z = 10},
 		-- For use of the script
 		destination = {x = 32210, y = 32437, z = 10},
+		effect = CONST_ME_TELEPORT
+	},
+	-- Draconia quest teleports
+	[38003] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 32675, y = 31646, z = 10},
+		-- For use of the script
+		destination = {x = 32725, y = 31589, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	[38004] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 32669, y = 31653, z = 10},
+		-- For use of the script
+		destination = {x = 32679, y = 31673, z = 10},
+		effect = CONST_ME_TELEPORT
+	},
+	[38005] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 32794, y = 31576, z = 5},
+		-- For use of the script
+		destination = {x = 32812, y = 31577, z = 5},
+		effect = CONST_ME_TELEPORT
+	},
+	[38006] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 32812, y = 31576, z = 5},
+		-- For use of the script
+		destination = {x = 32794, y = 31577, z = 5},
 		effect = CONST_ME_TELEPORT
 	}
 }

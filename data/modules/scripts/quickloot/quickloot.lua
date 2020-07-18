@@ -502,7 +502,7 @@ function Player.setQuickLootBackpack(self, categoryId, containerSlot, containerP
 		return
 	end
 
-	if container.itemid == GOLD_POUCH and categoryId ~= QuickLootCategory.Gold then
+	if container.itemid == ITEM_GOLD_POUCH and categoryId ~= QuickLootCategory.Gold then
 		self:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 		return
 	end
