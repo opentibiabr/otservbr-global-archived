@@ -104,8 +104,8 @@ end
 local function greetCallback(cid)
 	local player = Player(cid)
 	if player:getStorageValue(JOIN_STOR) == -1 then
-		npcHandler:setMessage(MESSAGE_GREET, "Welcome |PLAYERNAME|. \z
-											Would you like to join the 'Paw and Fur - Hunting Elite'?")
+		npcHandler:setMessage(MESSAGE_GREET,
+					"Welcome |PLAYERNAME|. Would you like to join the 'Paw and Fur - Hunting Elite'?")
 	else
 		npcHandler:setMessage(MESSAGE_GREET, 'Welcome back old chap. What brings you here this time?')
 	end
