@@ -334,6 +334,14 @@ ChestUnique = {
 		weight = 44,
 		storage = Storage.Quest.Panpipe.Reward
 	},
+	[10005] = {
+		itemId = 1738,
+		itemPos = {x = 33199, y = 31923, z = 11},
+		itemBag = 1987,
+		itemReward = {{2148, 98}, {2148, 77}, {2143, 3}},
+		weight = 27,
+		storage = Storage.Quest.BerserkerTreasure.Reward
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest

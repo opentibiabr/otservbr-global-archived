@@ -1742,7 +1742,9 @@ Storage = {
 			BarbarianAxe = 10026,
 			Scimitar = 10027
 		},
-		BerserkerTreasure = {},
+		BerserkerTreasure = {
+			Reward = 10028
+		},
 		DarkArmor = {},
 		DemonHelmet = {},
 		DoubleHero = {},
