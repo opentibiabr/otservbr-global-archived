@@ -72,7 +72,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local current = GHOST_DETECTOR_MAP[player:getGuid()]
 	if not current then
-		local random = getFreeSand()
+		local random = Position.getFreeSand()
 		GHOST_DETECTOR_MAP[player:getGuid()] = random
 		current = random
 	end
