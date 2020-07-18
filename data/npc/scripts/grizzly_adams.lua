@@ -104,8 +104,8 @@ end
 local function greetCallback(cid)
 	local player = Player(cid)
 	if player:getStorageValue(JOIN_STOR) == -1 then
-		npcHandler:setMessage(MESSAGE_GREET, 
-							"Welcome |PLAYERNAME|. Would you like to join the 'Paw and Fur - Hunting Elite'?")
+		npcHandler:setMessage(MESSAGE_GREET, "Welcome |PLAYERNAME|. \z
+											Would you like to join the 'Paw and Fur - Hunting Elite'?")
 	else
 		npcHandler:setMessage(MESSAGE_GREET, 'Welcome back old chap. What brings you here this time?')
 	end
@@ -136,11 +136,10 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	if items[item].buy then
 		if player:removeMoneyNpc(amount * items[item].buy) then
 			player:addItem(items[item].id, amount)
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, 
-										"Bought "..amount.."x "..items[item].name.." for "..items[item].buy * amount.." gold coins.")
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "Bought \z
+								"..amount.."x "..items[item].name.." for "..items[item].buy * amount.." gold coins.")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, 
-										"You don't have enough money.")
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have enough money.")
 		end
 	end
 	return true
@@ -151,11 +150,10 @@ local function onSell(cid, item, subType, amount, ignoreCap, inBackpacks)
 	if items[item].sell then
 		if player:removeItem(items[item].id, amount) then
 			player:addMoney(items[item].sell * amount)
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, 
-										"Sold "..amount.."x "..items[item].name.." for "..items[item].sell * amount.." gold coins.")
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "Sold "..amount.."x \z
+															"..items[item].name.." for "..items[item].sell * amount.." gold coins.")
 		else
-			return player:sendTextMessage(MESSAGE_INFO_DESCR, 
-										"You don't have the items you're trying to sell.")
+			return player:sendTextMessage(MESSAGE_INFO_DESCR, "You don't have the items you're trying to sell.")
 		end
 	end
 	return true
@@ -187,9 +185,9 @@ local function creatureSayCallback(cid, type, msg)
 			and npcHandler.topic[cid] == 0
 			and player:getStorageValue(JOIN_STOR) ~= 1 then
 		player:setStorageValue(JOIN_STOR, 1)
-		npcHandler:say("Great! " ..
-					"A warm welcome to our newest member: |PLAYERNAME|! " ..
-					"Ask me for a {task} if you want to go on a hunt.", cid)
+		npcHandler:say("Great! \z
+					A warm welcome to our newest member: |PLAYERNAME|! \z
+					Ask me for a {task} if you want to go on a hunt.", cid)
 	elseif isInArray({'tasks', 'task', 'mission'}, msg:lower()) then
 		local can = player:getTasks()
 		if player:getStorageValue(JOIN_STOR) == -1 then
