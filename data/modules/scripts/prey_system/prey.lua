@@ -1,3 +1,5 @@
+dofile('data/modules/scripts/prey_system/assets.lua')
+
 Prey = {
 	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick",
 	Version = "5.0",
@@ -32,7 +34,8 @@ Prey.StateTypes = {
 	INACTIVE = 1,
 	ACTIVE = 2,
 	SELECTION = 3,
-	SELECTION_CHANGE_MONSTER = 4
+	SELECTION_CHANGE_MONSTER = 4,
+	SELECTION_WITH_WILDCARD = 6
 }
 
 Prey.UnlockTypes = {
@@ -45,6 +48,8 @@ Prey.Actions = {
 	NEW_LIST = 0,
 	NEW_BONUS = 1,
 	SELECT = 2,
+	LIST_ALL_MONSTERS = 3,
+	SELECT_ALL_MONSTERS = 4,
 	TICK_LOCK = 5
 }
 
@@ -197,6 +202,43 @@ function Player.getRerollPrice(self)
 	return (self:getLevel() * 150)
 end
 
+function getNameByRace(race)
+    local monsterTable = Bestiary.Monsters[race]
+	return monsterTable.name
+end
+
+function Player.getMonsterList(self)
+	local repeatedList = {}
+    local sortList = {}
+	local monsterList = {}
+
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+		if (self:getPreyCurrentMonster(slot) ~= '') then
+			repeatedList[#repeatedList + 1] = self:getPreyCurrentMonster(slot)
+		end
+		if (self:getPreyMonsterList(slot) ~= '') then
+			local currentList = self:getPreyMonsterList(slot):split(";")
+			for i = 1, #currentList do
+				repeatedList[#repeatedList + 1] = currentList[i]
+			end
+		end
+	end
+	
+	-- Insert the monstersId
+	for i = 1, #preyRaceIds do
+		table.insert(sortList, preyRaceIds[i])
+	end
+
+    -- Do not allow repeated monsters
+	for k, v in pairs(sortList) do
+		if not table.contains(repeatedList, getNameByRace(tonumber(v))) then
+			table.insert(monsterList, v)
+		end
+	end
+	
+	return monsterList
+end
+
 function Player.setAutomaticBonus(self, slot)
 	local monster = self:getPreyCurrentMonster(slot)
 
@@ -264,6 +306,28 @@ function Player.preyAction(self, msg)
 		self:setPreyCurrentMonster(slot, "")
 		self:setPreyMonsterList(slot, self:createMonsterList())
 		self:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
+
+	-- Listreroll with wildcards
+	elseif (action == Prey.Actions.LIST_ALL_MONSTERS) then
+
+		-- Removing bonus rerolls
+		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 5)
+
+		self:setPreyCurrentMonster(slot, "")
+		self:setPreyMonsterList(slot, "")
+		self:setPreyState(slot, Prey.StateTypes.SELECTION_WITH_WILDCARD)
+
+	-- Select monster from the list
+	elseif (action == Prey.Actions.SELECT_ALL_MONSTERS) then
+		local race = msg:getU16()
+		local race = getNameByRace(race)
+	
+		-- Converts RaceID to String
+		self:setPreyCurrentMonster(slot, race)
+
+		self:setPreyState(slot, Prey.StateTypes.ACTIVE)
+		self:setPreyMonsterList(slot, "")
+		self:setPreyTimeLeft(slot, 7200) -- 2 hours
 
 	-- Bonus reroll
 	elseif (action == Prey.Actions.NEW_BONUS) then
@@ -471,6 +535,26 @@ function Player.sendPreyData(self, slot)
 		msg:addByte(slot)
 		msg:addByte(slotState)
 		msg:addByte(self:getPreyUnlocked(slot))
+
+	elseif slotState == Prey.StateTypes.SELECTION_WITH_WILDCARD then
+		local raceList = self:getMonsterList()
+
+		msg:addByte(slot) -- slot number
+		msg:addByte(slotState) -- slot state
+		
+		-- Check if has any bonus
+		if self:getPreyBonusType(slot) < 1 then
+			self:setRandomBonusValue(slot, true, true)
+		end
+		
+		msg:addByte(self:getPreyBonusType(slot)) -- bonus type
+		msg:addU16(self:getPreyBonusValue(slot)) -- bonus value
+		msg:addByte(self:getPreyBonusGrade(slot)) -- bonus grade
+		msg:addU16(#raceList) -- monsters count
+		
+		for i = 1, #raceList do
+			msg:addU16(raceList[i]) -- raceID
+		end
 	end
 
 	-- Next free reroll
