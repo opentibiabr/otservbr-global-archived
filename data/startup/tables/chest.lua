@@ -270,6 +270,13 @@ ChestUnique = {
 		itemReward = {{2197, 5}, {2167, 1}},
 		storage = Storage.Quest.Draconia.Reward2
 	},
+	-- Adorned UH rune quest
+	[6025] = {
+		itemId = 1738,
+		itemPos = {x = 33136, y = 31601, z = 15},
+		itemReward = {{12559, 1}},
+		storage = Storage.Quest.AdornedUHRune.Reward
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
