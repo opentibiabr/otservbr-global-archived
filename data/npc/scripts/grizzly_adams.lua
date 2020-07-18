@@ -391,7 +391,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msg:lower() == "yes" and npcHandler.topic[cid] == 3 then
 		player:setStorageValue(QUESTSTORAGE_BASE + cancel[cid], -1)
 		player:setStorageValue(KILLSSTORAGE_BASE + cancel[cid], -1)
-		npcHandler:say("You have cancelled the task " .. (tasks[cancel[cid]].name or tasks[cancel[cid]].raceName) .. ".", cid)
+		npcHandler:say("You have canceled the task " .. (tasks[cancel[cid]].name or tasks[cancel[cid]].raceName) .. ".", cid)
 		npcHandler.topic[cid] = 0
 	elseif isInArray({"points", "rank"}, msg:lower()) then
 		if player:getPawAndFurPoints() < 1 then
