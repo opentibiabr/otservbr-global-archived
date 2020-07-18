@@ -303,12 +303,6 @@ local config = {
 		formerValue = 3,
 		newValue = 4
 	},
-	[50126] = {
-		items = {
-			{itemId = 2489, count = 1}
-		},
-		storage = 857439
-	},
 	[65201] = {
 		items = {
 			{itemId = 2087, actionId = 3980}

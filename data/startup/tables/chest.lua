@@ -292,6 +292,13 @@ ChestUnique = {
 		itemReward = {{2419, 1}},
 		storage = Storage.Quest.BarbarianAxe.Scimitar
 	},
+	-- Dark armor quest
+	[6028] = {
+		itemId = 3128,
+		itemPos = {x = 33178, y = 31870, z = 12},
+		itemReward = {{2489, 1}},
+		storage = Storage.Quest.DarkArmor.Reward
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag

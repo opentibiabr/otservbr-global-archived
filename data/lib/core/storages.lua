@@ -1745,7 +1745,9 @@ Storage = {
 		BerserkerTreasure = {
 			Reward = 10028
 		},
-		DarkArmor = {},
+		DarkArmor = {
+			Reward = 10029
+		},
 		DemonHelmet = {},
 		DoubleHero = {},
 		EdronGoblin = {},
