@@ -199,7 +199,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if talkState[cid] == 'track' then
 		if msgcontains(msg, 'yes') then
-			GHOST_DETECTOR_MAP[player:getGuid()] = getFreeSand()
+			GHOST_DETECTOR_MAP[player:getGuid()] = Position.getFreeSand()
 			player:addItem(21555, 1)
 			player:setStorageValue(SPIKE_UPPER_TRACK_MAIN, 0)
 			npcHandler:say('Gnometastic! Use this tracking device in the caves and locate the residual spirit energy. If you lose the tracking device, you\'ll have to bring your own. Gnomux sells all the equipment that is required for our missions.', cid)
