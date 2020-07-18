@@ -131,5 +131,30 @@ TeleportUnique = {
 		-- For use of the script
 		destination = {x = 32794, y = 31577, z = 5},
 		effect = CONST_ME_TELEPORT
-	}
+	},
+	-- Demom helmet quest teleports
+	[38007] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 33278, y = 31592, z = 11},
+		-- For use of the script
+		destination = {x = 33281, y = 31592, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	[38008] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 33286, y = 31589, z = 12},
+		-- For use of the script
+		destination = {x = 33277, y = 31592, z = 11},
+		effect = CONST_ME_TELEPORT
+	},
+	[38009] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 33324, y = 31592, z = 14},
+		-- For use of the script
+		destination = {x = 33324, y = 31575, z = 15},
+		effect = CONST_ME_TELEPORT
+	},
 }

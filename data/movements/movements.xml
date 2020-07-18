@@ -161,8 +161,6 @@
 	<movevent event="StepIn" itemid="25331" script="quests/dangerous_depth/lava_damage.lua"/>
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous_depth/lost_exiles.lua"/>
 	<movevent event="StepIn" actionid="57230" script="quests/dangerous_depth/warzone_entrance.lua"/>
-	<!-- demon helmet -->
-	<movevent event="StepIn" actionid="980" script="quests/demon_helmet/walls.lua"/>
 	<!-- demon oak -->
 	<movevent event="StepIn" itemid="8292" script="quests/demon_oak/area_damage.lua"/>
 	<movevent event="StepIn" uniqueid="9000" script="quests/demon_oak/entrance.lua"/>
