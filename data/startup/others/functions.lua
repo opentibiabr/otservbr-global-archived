@@ -148,7 +148,7 @@ end
 
 -- Functions that cannot be used in reload command, so they have been moved here
 -- Prey slots consumption
-function preyTimeLeft(player, slot)
+local function preyTimeLeft(player, slot)
 	local timeLeft = player:getPreyTimeLeft(slot) / 60
 	local monster = player:getPreyCurrentMonster(slot)
 	if (timeLeft > 0) then
@@ -161,7 +161,17 @@ function preyTimeLeft(player, slot)
 		else
 			timeLeft = timeLeft - 0
 		end
-		if (timeLeft < 1) then
+		-- Expiring prey as there's no timeLeft
+		if (timeLeft < 1) and player:getPreyTick(slot) == 1 then
+			player:setAutomaticBonus(slot)
+			player:sendPreyData(slot)
+			return true
+		elseif (timeLeft < 1) and player:getPreyTick(slot) == 2 then
+			player:setAutomaticBonus(slot)
+			player:sendPreyData(slot)
+			return true
+		end	
+		if (timeLeft < 1) then		
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired.", monster:lower()))
 			player:setPreyCurrentMonster(slot, "")
 		end

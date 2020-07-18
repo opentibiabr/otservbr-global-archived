@@ -1039,6 +1039,7 @@ class LuaScriptInterface
 		static int luaPlayerGetPreyBonusValue(lua_State * L);
 		static int luaPlayerGetPreyBonusGrade(lua_State * L);
 		static int luaPlayerGetPreyBonusRerolls(lua_State * L);
+		static int luaPlayerGetPreyTick(lua_State * L);
 		// SET
 		static int luaPlayerSetPreyState(lua_State * L);
 		static int luaPlayerSetPreyUnlocked(lua_State * L);
@@ -1051,6 +1052,7 @@ class LuaScriptInterface
 		static int luaPlayerSetPreyBonusValue(lua_State * L);
 		static int luaPlayerSetPreyBonusGrade(lua_State * L);
 		static int luaPlayerSetPreyBonusRerolls(lua_State * L);
+		static int luaPlayerSetPreyTick(lua_State * L);
 		//
 
 		static int luaPlayerGetClient(lua_State* L);
