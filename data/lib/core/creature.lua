@@ -197,12 +197,3 @@ function Creature.checkCreatureInsideDoor(player, toPosition)
 		creature:teleportTo(toPosition, true)
 	end
 end
-
--- Checks if there is a creature in a certain position (creaturePosition)
--- If so, teleports to another position (teleportToPosition)
-function Creature.getCreatureInPosition(creaturePosition, teleportToPosition)
-	local creature = Tile(creaturePosition):getTopCreature()
-	if creature then
-		creature:teleportTo(teleportToPosition, true)
-	end
-end

@@ -177,3 +177,12 @@ function Position.getDirectionTo(pos1, pos2)
 	end
 	return dir
 end
+
+-- Checks if there is a creature in a certain position (position)
+-- If so, teleports to another position (teleportTo)
+function Position:hasCreature(position, teleportTo)
+	local creature = Tile(position):getTopCreature()
+	if creature then
+		creature:teleportTo(teleportTo, true)
+	end
+end
