@@ -321,6 +321,21 @@ ChestUnique = {
 		itemReward = {{2520, 1}},
 		storage = Storage.Quest.DemonHelmet.DemonShield
 	},
+	-- Double hero quest
+	-- Red gem
+	[6032] = {
+		itemId = 1738,
+		itemPos = {x = 33109, y = 31679, z = 13},
+		itemReward = {{2156, 1}},
+		storage = Storage.Quest.DoubleHero.RedGem
+	},
+	-- Club ring
+	[6033] = {
+		itemId = 1738,
+		itemPos = {x = 33110, y = 31679, z = 13},
+		itemReward = {{2209, 1}},
+		storage = Storage.Quest.DoubleHero.ClubRing
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
