@@ -6,7 +6,8 @@ TilePickAction = {
 	[101] = {
 		itemId = false,
 		itemPos = {
-			{x = 32774, y = 32289, z = 10}
+			{x = 32774, y = 32289, z = 10},
+			{x = 33094, y = 31626, z = 13}
 		}
 	}
 }

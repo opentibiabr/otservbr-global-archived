@@ -407,8 +407,6 @@
 	<action itemid="31993" script="quests/dangerous_depth/using_crystals.lua" />
 	<!-- access crystal -->
 	<action fromaid="57350" toaid="57367" script="quests/dangerous_depth/warzone_crystals.lua" />
-	<!-- demon helmet quest -->
-	<action uniqueid="2005" script="quests/demon_helmet/lever.lua" />
 	<!-- demon oak -->
 	<action itemid="8293" script="quests/demon_oak/demon_oak.lua" />
 	<action uniqueid="1001" script="quests/demon_oak/demon_oak_gravestone.lua" />

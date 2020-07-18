@@ -90,5 +90,10 @@ KeyDoorAction = {
 	[4055] = {
 		itemId = false,
 		itemPos = {{x = 32643, y = 32128, z = 8}}
+	},
+	-- Door of the key 6010 (demon helmet quest)
+	[6010] = {
+		itemId = 5098,
+		itemPos = {{x = 33211, y = 31634, z = 13}}
 	}
 }

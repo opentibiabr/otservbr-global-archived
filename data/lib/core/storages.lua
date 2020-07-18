@@ -1748,7 +1748,11 @@ Storage = {
 		DarkArmor = {
 			Reward = 10029
 		},
-		DemonHelmet = {},
+		DemonHelmet = {
+			SteelBoots = 10030,
+			DemonHelmet = 10031,
+			DemonShield = 10032
+		},
 		DoubleHero = {},
 		EdronGoblin = {},
 		FireAxe = {},

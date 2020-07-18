@@ -45845,47 +45845,47 @@
 	<item id="35172" article="a" name="roasted wyvern wings">
 		<attribute key="weight" value="7400" />
 		<attribute key="description" value="Wyverns are tough and renitent, unless roasted gently." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35173" article="a" name="carrot pie">
 		<attribute key="weight" value="620" />
 		<attribute key="description" value="This pie is fruity and spicy at the same time, which makes it absolutely delicious. Try to control yourself." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35174" article="a" name="tropical marinated tiger">
 		<attribute key="weight" value="900" />
 		<attribute key="description" value="This delicious tiger meat is marinated in a tasty exotic sauce." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35175" article="a" name="delicatessen salad">
 		<attribute key="weight" value="600" />
 		<attribute key="description" value="A true gourmet salad with some very tasty but also not very healthy ingredients." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35176" article="a" name="chilli con carniphila">
 		<attribute key="weight" value="820" />
 		<attribute key="description" value="Spicy chilly combined with delicious minced carniphila meat, salad is already included." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35177" article="a" name="svargrond salmon filet">
 		<attribute key="weight" value="780" />
 		<attribute key="description" value="Fresh from the coast of Svargrond, this salmon lives up to traditional northern cuisine." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35178" article="a" name="carrion casserole">
 		<attribute key="weight" value="1200" />
 		<attribute key="description" value="This traditional casserole made of leftovers is beefy and actually smells quite good." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35179" article="a" name="consecrated beef">
 		<attribute key="weight" value="1100" />
 		<attribute key="description" value="Tasty beef with an aromatic sauce and parsley potatoes." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35180" article="an" name="overcooked noodles">
 		<attribute key="weight" value="100" />
 		<attribute key="description" value="Not exactly 'al dente' yet some just seem to love it." />
-		<attribute key="moveable" key="0" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="35197" name="Badbara">
 		<attribute key="weight" value="600" />
