@@ -1738,7 +1738,10 @@ Storage = {
 		AdornedUHRune = {
 			Reward = 10025
 		},
-		BarbarianAxe = {},
+		BarbarianAxe = {
+			BarbarianAxe = 10026,
+			Scimitar = 10027
+		},
 		BerserkerTreasure = {},
 		DarkArmor = {},
 		DemonHelmet = {},
