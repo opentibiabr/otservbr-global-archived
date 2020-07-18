@@ -1735,7 +1735,9 @@ Storage = {
 			Reward2 = 10024
 		},
 		-- update 6.4
-		AdornedUHRune = {},
+		AdornedUHRune = {
+			Reward = 10025
+		},
 		BarbarianAxe = {},
 		BerserkerTreasure = {},
 		DarkArmor = {},
