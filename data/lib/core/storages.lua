@@ -1757,7 +1757,10 @@ Storage = {
 			RedGem = 10033,
 			ClubRing = 10034
 		},
-		EdronGoblin = {},
+		EdronGoblin = {
+			SilverAmulet = 10035,
+			SteelShield = 10036
+		},
 		FireAxe = {},
 		PoisonDaggers = {},
 		Ring = {},

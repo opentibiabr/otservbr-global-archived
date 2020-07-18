@@ -336,6 +336,21 @@ ChestUnique = {
 		itemReward = {{2209, 1}},
 		storage = Storage.Quest.DoubleHero.ClubRing
 	},
+	-- Edron goblin quest
+	-- Silver amulet
+	[6034] = {
+		itemId = 1738,
+		itemPos = {x = 33095, y = 31800, z = 10},
+		itemReward = {{2170, 200}},
+		storage = Storage.Quest.EdronGoblin.SilverAmulet
+	},
+	-- Steel shield
+	[6035] = {
+		itemId = 1738,
+		itemPos = {x = 33095, y = 31801, z = 10},
+		itemReward = {{2509, 1}},
+		storage = Storage.Quest.EdronGoblin.SteelShield
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
