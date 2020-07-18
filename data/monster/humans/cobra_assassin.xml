@@ -32,7 +32,7 @@
 	</attacks>
 	<defenses armor="81" defense="81" />
 	<elements>
-		<element physicalPercent="80" />
+		<element physicalPercent="20" />
 	</elements>
 	<immunities>
 		<immunity earth="1" />
