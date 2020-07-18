@@ -52,6 +52,7 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 		local itemid = setting.itemReward[i][1]
 		local count = setting.itemReward[i][2]
 		local itemDescriptions = getItemDescriptions(itemid)
+		local itemArticle = itemDescriptions.article
 		local itemName = itemDescriptions.name
 		local addItemParams = {
 			player = player,
@@ -61,13 +62,14 @@ function commonReward.onUse(player, item, fromPosition, itemEx, toPosition)
 			storage = setting.storage
 		}
 
-		if count > 1 and (ItemType(itemid):isStackable() or ItemType(itemid):getCharges() > 0) then
+		if count > 1 and ItemType(itemid):isStackable() then
 			if (itemDescriptions.plural) then
 				itemName = itemDescriptions.plural
 			end
 			addItemParams.message = "You have found " .. count .. " " .. itemName
+		elseif ItemType(itemid):getCharges() > 0 then
+			addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
 		else
-			local itemArticle = itemDescriptions.article
 			addItemParams.message = "You have found " .. itemArticle .. " " .. itemName
 		end
 
