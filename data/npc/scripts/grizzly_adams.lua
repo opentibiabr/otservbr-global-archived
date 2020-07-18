@@ -366,7 +366,7 @@ local function creatureSayCallback(cid, type, msg)
 			text = text .. "{" .. (tasks[id].name or tasks[id].raceName) .. "}" .. sep
 		end
 		if started and #started > 0 then
-			npcHandler:say("Cancelling a task will make the counter restart. Which of these tasks you want cancel?" .. (#started > 1 and "" or "") .. " " .. text, cid)
+			npcHandler:say("Canceling a task will make the counter restart. Which of these tasks you want cancel?" .. (#started > 1 and "" or "") .. " " .. text, cid)
 			npcHandler.topic[cid] = 2
 		else
 			npcHandler:say("You haven't started any task yet.", cid)
@@ -374,7 +374,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif getTaskByName(msg) and npcHandler.topic[cid] == 2 and isInArray(getPlayerStartedTasks(cid), getTaskByName(msg)) then
 		local task = getTaskByName(msg)
 		if player:getStorageValue(KILLSSTORAGE_BASE + task) > 0 then
-			npcHandler:say("You currently killed " .. player:getStorageValue(KILLSSTORAGE_BASE + task) .. "/" .. tasks[task].killsRequired .. " " .. tasks[task].raceName .. ". Cancelling this task will restart the count. Are you sure you want to cancel this task?", cid)
+			npcHandler:say("You currently killed " .. player:getStorageValue(KILLSSTORAGE_BASE + task) .. "/" .. tasks[task].killsRequired .. " " .. tasks[task].raceName .. ". Canceling this task will restart the count. Are you sure you want to cancel this task?", cid)
 		else
 			npcHandler:say("Are you sure you want to cancel this task?", cid)
 		end
