@@ -14,10 +14,7 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		Tile(stonePosition):getItemById(1355):remove()
 		item:transform(1946)
 	elseif item.itemid == 1946 then
-		local creature = Tile(stonePosition):getTopCreature()
-		if creature then
-			creature:teleportTo({x = 33315, y = 31575, z = 15}, true)
-		end
+		Position:hasCreature(stonePosition, {x = 33315, y = 31575, z = 15})
 		Tile(teleportPosition):getItemById(1387):remove()
 		Position(teleportPosition):sendMagicEffect(CONST_ME_POFF)
 		Game.createItem(1355, 1, stonePosition)

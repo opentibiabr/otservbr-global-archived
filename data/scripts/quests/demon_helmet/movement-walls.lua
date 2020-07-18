@@ -45,10 +45,7 @@ function walls.onStepOut(creature, item, position, fromPosition)
 	end
 
 	for i = 1, #wallsPositions do
-		local creature = Tile(wallsPositions[i]):getTopCreature()
-		if creature then
-			creature:teleportTo({x = 33211, y = 31631, z = 13}, true)
-		end
+		Position:hasCreature(wallsPositions[i], {x = 33211, y = 31631, z = 13})
 		Game.createItem(1050, 1, wallsPositions[i])
 	end
 	return true
