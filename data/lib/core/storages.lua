@@ -1787,7 +1787,10 @@ Storage = {
 			DragonLance = 10047,
 			VampireShield = 10048
 		},
-		WeddingRing = {},
+		WeddingRing = {
+			DragonNecklace = 10049,
+			WeedingRing = 10050
+		},
 		-- update 6.5
 		AlawarsVault = {},
 		-- update 7.1

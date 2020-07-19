@@ -404,6 +404,21 @@ ChestUnique = {
 		itemReward = {{2534, 1}},
 		storage = Storage.Quest.VampireShield.VampireShield
 	},
+	-- Weeding ring quest
+	-- Dragon necklace
+	[6043] = {
+		itemId = 1738,
+		itemPos = {x = 33158, y = 31621, z = 15},
+		itemReward = {{2201, 200}},
+		storage = Storage.Quest.WeddingRing.DragonNecklace
+	},
+	-- Weeding ring
+	[6044] = {
+		itemId = 1738,
+		itemPos = {x = 33158, y = 31622, z = 15},
+		itemReward = {{2121, 1}},
+		storage = Storage.Quest.WeddingRing.WeedingRing
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
