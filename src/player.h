@@ -1302,6 +1302,15 @@ class Player final : public Creature, public Cylinder
 			return nextAction <= OTSYS_TIME();
 		}
 
+		bool canDoPush() const {
+			return lastPush <= OTSYS_TIME();
+		}
+
+		void setDoPush(int32_t value) {
+			if (lastPush < (OTSYS_TIME() + value))
+				lastPush = OTSYS_TIME() + value;
+		}
+
 		void setModuleDelay(uint8_t byteortype, int16_t delay) {
 			moduleDelayMap[byteortype] = OTSYS_TIME() + delay;
 		}
@@ -1517,6 +1526,7 @@ class Player final : public Creature, public Cylinder
 		int64_t lastPing;
 		int64_t lastPong;
 		int64_t nextAction = 0;
+		int64_t lastPush = 0;
 
 		std::vector<Kill> unjustifiedKills;
 

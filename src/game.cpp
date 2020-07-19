@@ -751,6 +751,14 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 			this, player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
 		player->setNextActionTask(task);
 		return;
+	} else if (classicAttack) {
+		if (!player->canDoPush()) {
+			uint32_t delay = 500;
+			SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerMoveCreatureByID,
+				this, player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
+			g_scheduler.addEvent(task);
+			return;
+		}
 	}
 
 	player->setNextActionTask(nullptr);
@@ -762,7 +770,12 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
 			SchedulerTask* task = createSchedulerTask(g_config.getNumber(ConfigManager::PUSH_DISTANCE_DELAY), std::bind(&Game::playerMoveCreatureByID, this,
 				player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
-			player->setNextWalkActionTask(task);
+			if (!classicAttack) {
+				g_scheduler.addEvent(task);
+				player->setDoPush(500);
+			} else {
+				player->setNextWalkActionTask(task);
+			}
 		} else {
 			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
 		}
