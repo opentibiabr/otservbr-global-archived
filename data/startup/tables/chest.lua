@@ -444,6 +444,16 @@ ChestUnique = {
 		weight = 60,
 		storage = Storage.Quest.PoisonDaggers.BackpackReward
 	},
+	-- Shaman treasure quest
+	-- Bag with 3 blank runes
+	[10008] = {
+		itemId = 2843,
+		itemPos = {x = 33127, y = 31885, z = 9},
+		itemBag = 1987,
+		itemReward = {{2260, 3}},
+		weight = 15,
+		storage = Storage.Quest.ShamanTreasure.Bag
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
