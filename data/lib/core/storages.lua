@@ -1792,7 +1792,10 @@ Storage = {
 			WeedingRing = 10050
 		},
 		-- update 6.5
-		AlawarsVault = {},
+		AlawarsVault = {
+			WhitePearl = 10051,
+			Broadsword = 10052
+		},
 		-- update 7.1
 		BlackKnight = {},
 		DragonTower = {},
@@ -2094,7 +2097,8 @@ Storage = {
 		GraveDanger = {},
 		-- update 12.30
 		FeasterOfSouls = {},
-		PoltergeistOutfits = {}
+		PoltergeistOutfits = {},
+		Key4502 = 15000
 	}
 }
 

@@ -157,4 +157,23 @@ TeleportUnique = {
 		destination = {x = 33324, y = 31575, z = 15},
 		effect = CONST_ME_TELEPORT
 	},
+	-- Alawar's vault quest
+	-- Entrance
+	[38010] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 32187, y = 31622, z = 8},
+		-- For use of the script
+		destination = {x = 32107, y = 31567, z = 9},
+		effect = CONST_ME_TELEPORT
+	}
+	-- Exit
+	[38011] = {
+		-- For use of the Map
+		itemId = 1387,
+		itemPos = {x = 32107, y = 31566, z = 9},
+		-- For use of the script
+		destination = {x = 32189, y = 31625, z = 4},
+		effect = CONST_ME_TELEPORT
+	}
 }

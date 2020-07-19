@@ -58,7 +58,7 @@ if Modules == nil then
 		end
 
 		local player = Player(cid)
-		local cost, costMessage = parameters.cost, '%d gold coins'
+		local cost, costMessage = parameters.cost, '%d gold'
 		if cost and cost > 0 then
 			if parameters.discount then
 				cost = cost - StdModule.travelDiscount(player, parameters.discount)
@@ -234,11 +234,11 @@ if Modules == nil then
 			end
 
 			player:teleportTo(destination)
-			destination:sendMagicEffect(CONST_ME_TELEPORT)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 
 			setPlayerStorageValue(cid, StorageNpcExhaust, 3 + os.time())
 			player:teleportTo(destination)
-			destination:sendMagicEffect(CONST_ME_TELEPORT)
+			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 
 			-- What a foolish Quest - Mission 3
 			if player:getStorageValue(Storage.WhatAFoolish.PieBoxTimer) > os.time() then
