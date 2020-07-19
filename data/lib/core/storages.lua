@@ -1761,7 +1761,10 @@ Storage = {
 			SilverAmulet = 10035,
 			SteelShield = 10036
 		},
-		FireAxe = {},
+		FireAxe = {
+			Bag = 10037,
+			FireAxe = 10038
+		},
 		PoisonDaggers = {},
 		Ring = {},
 		ShamanTreasure = {},
