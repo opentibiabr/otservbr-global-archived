@@ -1534,6 +1534,7 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(ITEM_ATTRIBUTE_DOORID)
 	registerEnum(ITEM_ATTRIBUTE_SPECIAL)
 	registerEnum(ITEM_ATTRIBUTE_OPENCONTAINER)
+	registerEnum(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)
 
 	registerEnum(ITEM_TYPE_DEPOT)
 	registerEnum(ITEM_TYPE_REWARDCHEST)
@@ -1755,34 +1756,6 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(TILESTATE_FLOORCHANGE_SOUTH_ALT)
 	registerEnum(TILESTATE_FLOORCHANGE_EAST_ALT)
 	registerEnum(TILESTATE_SUPPORTS_HANGABLE)
-
-	registerEnum(LOOT_UNASSIGNED)
-	registerEnum(LOOT_GOLD)
-	registerEnum(LOOT_ARMOR)
-	registerEnum(LOOT_AMULET)
-	registerEnum(LOOT_BOOTS)
-	registerEnum(LOOT_CONTAINER)
-	registerEnum(LOOT_CREATURE_PRODUCT)
-	registerEnum(LOOT_DECORATION)
-	registerEnum(LOOT_FOOD)
-	registerEnum(LOOT_HELMET)
-	registerEnum(LOOT_LEGS)
-	registerEnum(LOOT_OTHER)
-	registerEnum(LOOT_POTION)
-	registerEnum(LOOT_RING)
-	registerEnum(LOOT_RUNE)
-	registerEnum(LOOT_SHIELD)
-	registerEnum(LOOT_TOOL)
-	registerEnum(LOOT_VALUABLE)
-	registerEnum(LOOT_WEAPON_AMMO)
-	registerEnum(LOOT_WEAPON_AXE)
-	registerEnum(LOOT_WEAPON_CLUB)
-	registerEnum(LOOT_WEAPON_DISTANCE)
-	registerEnum(LOOT_WEAPON_SWORD)
-	registerEnum(LOOT_WEAPON_WAND)
-	registerEnum(LOOT_STASH_RETRIEVE)
-	registerEnum(LOOT_START)
-	registerEnum(LOOT_END)
 
 	registerEnum(WEAPON_NONE)
 	registerEnum(WEAPON_SWORD)
@@ -2433,8 +2406,6 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "getFreeCapacity", LuaScriptInterface::luaPlayerGetFreeCapacity);
 
-	registerMethod("Player", "canOpenCorpse", LuaScriptInterface::luaPlayerCanOpenCorpse);
-
 	registerMethod("Player", "getKills", LuaScriptInterface::luaPlayerGetKills);
 	registerMethod("Player", "setKills", LuaScriptInterface::luaPlayerSetKills);
 
@@ -2842,7 +2813,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("ItemType", "getExtraDefense", LuaScriptInterface::luaItemTypeGetExtraDefense);
 	registerMethod("ItemType", "getImbuingSlots", LuaScriptInterface::luaItemTypeGetImbuingSlots);
 	registerMethod("ItemType", "getArmor", LuaScriptInterface::luaItemTypeGetArmor);
-	registerMethod("ItemType", "getLootCategory", LuaScriptInterface::luaItemTypeGetLootCategory);
 	registerMethod("ItemType", "getWeaponType", LuaScriptInterface::luaItemTypeGetWeaponType);
 
 	registerMethod("ItemType", "getElementType", LuaScriptInterface::luaItemTypeGetElementType);
@@ -8631,24 +8601,6 @@ int LuaScriptInterface::luaPlayerGetFreeCapacity(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaPlayerCanOpenCorpse(lua_State* L)
-{
-	// player:canOpenCorpse(corpseOwner)
-	Player* player = getUserdata<Player>(L, 1);
-	if (!player) {
-		lua_pushnil(L);
-		return 1;
-	}
-	if (player) {
-		uint32_t corpseOwner = getNumber<uint32_t>(L, 2);
-		pushBoolean(L, player->canOpenCorpse(corpseOwner));
-	}
-	else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
 int LuaScriptInterface::luaPlayerGetKills(lua_State* L)
 {
 	// player:getKills()
@@ -13304,18 +13256,6 @@ int LuaScriptInterface::luaItemTypeGetArmor(lua_State* L)
 	const ItemType* itemType = getUserdata<const ItemType>(L, 1);
 	if (itemType) {
 		lua_pushnumber(L, itemType->armor);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaItemTypeGetLootCategory(lua_State* L)
-{
-	// itemType:getLootCategory()
-	const ItemType* itemType = getUserdata<const ItemType>(L, 1);
-	if (itemType) {
-		lua_pushnumber(L, itemType->quickLootCategory);
 	} else {
 		lua_pushnil(L);
 	}

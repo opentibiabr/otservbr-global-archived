@@ -57,6 +57,32 @@ enum ItemTypes_t {
 	ITEM_TYPE_SUPPLY,
 	ITEM_TYPE_REWARDCHEST,
 	ITEM_TYPE_CARPET,
+	ITEM_TYPE_CREATUREPRODUCT,
+	ITEM_TYPE_FOOD,
+	ITEM_TYPE_VALUABLE,
+	ITEM_TYPE_POTION,
+
+	ITEM_TYPE_ARMOR,
+	ITEM_TYPE_AMULET,
+	ITEM_TYPE_BOOTS,
+	ITEM_TYPE_DECORATION,
+	ITEM_TYPE_HELMET,
+	ITEM_TYPE_LEGS,
+	ITEM_TYPE_OTHER,
+	ITEM_TYPE_RING,
+	ITEM_TYPE_SHIELD,
+	ITEM_TYPE_TOOLS,
+	ITEM_TYPE_AMMO,
+	ITEM_TYPE_AXE,
+	ITEM_TYPE_CLUB,
+	ITEM_TYPE_DISTANCE,
+	ITEM_TYPE_SWORD,
+	ITEM_TYPE_WAND,
+
+	ITEM_TYPE_RETRIEVE,
+	ITEM_TYPE_GOLD,
+	ITEM_TYPE_UNASSIGNED,
+
 	ITEM_TYPE_LAST,
 };
 
@@ -241,7 +267,6 @@ class ItemType
 
 		MagicEffectClasses magicEffect = CONST_ME_NONE;
 		Direction bedPartnerDir = DIRECTION_NONE;
-		QuickLootCategory_t quickLootCategory = LOOT_NONE;
 		WeaponType_t weaponType = WEAPON_NONE;
 		Ammo_t ammoType = AMMO_NONE;
 		ShootType_t shootType = CONST_ANI_NONE;
@@ -330,6 +355,8 @@ class Items
 		NameMap nameToItems;
 
 	private:
+		ItemTypes_t getLootType(const std::string& strValue);
+
 		std::map<uint16_t, uint16_t> reverseItemMap;
 		std::vector<ItemType> items;
 		InventoryVector inventory;

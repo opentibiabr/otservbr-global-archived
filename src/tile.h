@@ -267,8 +267,8 @@ class Tile : public Cylinder
 		void postAddNotification(Thing* thing, const Cylinder* oldParent, int32_t index, cylinderlink_t link = LINK_OWNER) override final;
 		void postRemoveNotification(Thing* thing, const Cylinder* newParent, int32_t index, cylinderlink_t link = LINK_OWNER) override final;
 
-		void internalAddThing(Thing* thing) override final;
-		void internalAddThing(uint32_t index, Thing* thing) override;
+		void internalAddThing(Thing* thing) override;
+		void virtual internalAddThing(uint32_t index, Thing* thing) override;
 
 		const Position& getPosition() const override final {
 			return tilePos;
@@ -279,7 +279,7 @@ class Tile : public Cylinder
 		}
 
 		Item* getUseItem(int32_t index) const;
-    	Item* getDoorItem() const;
+		Item* getDoorItem() const;
 
 		Item* getGround() const {
 			return ground;
