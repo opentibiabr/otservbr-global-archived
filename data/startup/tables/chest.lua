@@ -454,6 +454,16 @@ ChestUnique = {
 		weight = 15,
 		storage = Storage.Quest.ShamanTreasure.Bag
 	},
+	-- Strong potions quest
+	-- Green bag with 5 strong mana potions
+	[10009] = {
+		itemId = 1738,
+		itemPos = {x = 33163, y = 31603, z = 15},
+		itemBag = 1991,
+		itemReward = {{7589, 5}},
+		weight = 15,
+		storage = Storage.Quest.StrongPotions.Reward
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
