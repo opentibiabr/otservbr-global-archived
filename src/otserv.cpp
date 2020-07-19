@@ -272,8 +272,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		g_game.setWorldType(WORLD_TYPE_NO_PVP);
 	} else if (worldType == "pvp-enforced") {
 		g_game.setWorldType(WORLD_TYPE_PVP_ENFORCED);
-	} else if (worldType == "retro-pvp") {
-		g_game.setWorldType(WORLD_TYPE_RETRO_PVP);
 	} else {
 		std::cout << std::endl;
 
