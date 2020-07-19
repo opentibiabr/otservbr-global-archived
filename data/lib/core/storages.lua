@@ -1778,7 +1778,10 @@ Storage = {
 		StrongPotions = {
 			Reward = 10043
 		},
-		TrollCave = {},
+		TrollCave = {
+			GarlicNecklace = 10044,
+			BrassLegs = 10045
+		},
 		VampireShield = {},
 		WeddingRing = {},
 		-- update 6.5
