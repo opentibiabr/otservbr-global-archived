@@ -49457,6 +49457,947 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="37629" name="unknown"/>
+	<item id="37641" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="37642" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="37641" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="37643" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="37642" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="37644" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="37643" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>	
+	<item id="38629" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38630" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38629" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38631" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38630" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38632" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38631" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38633" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38634" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38633" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38635" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38634" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38636" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38635" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38637" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38638" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38637" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38639" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38638" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38640" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38639" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38641" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38642" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38641" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38643" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38642" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38644" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38643" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38649" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38650" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38649" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38651" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38650" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38652" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38651" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38657" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38658" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38657" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38659" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38658" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38660" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38659" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38691" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38692" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38691" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38693" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38692" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38694" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38693" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38703" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38704" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38703" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38705" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38704" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38706" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38705" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38707" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38708" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38707" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38709" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38708" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38710" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38709" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38721" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38722" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38721" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38723" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38722" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38724" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38723" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38733" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38734" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38733" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38735" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38734" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38736" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38735" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38755" name="malice's horn">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38756" name="malice's spine">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38757" name="cruelty's claw">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38758" name="cruelty's chest">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38760" name="megalomania's skull">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38762" name="vial of hatred">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38763" name="megalomania's essence">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38767" name="head of many faces">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38769" name="telescope eye">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38770" name="crown of cloak of terror">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38771" name="hand brachiodemon">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38772" name="head brachiodemon">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38773" name="roots">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38797" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38798" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38797" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38799" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38798" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38800" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38799" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38813" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38814" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38813" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38815" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38814" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38816" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="38815" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38817" name="crawler's essence">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38849" name="jaws">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38857" name="goblet of gloom">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38858" name="brooch of embracement">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38859" name="gruesome fan">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38860" name="diabolic skull">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38907" name="spectral horseshoe">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38908" name="spectral saddle">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38909" name="spectral horse tack">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38910" name="the skull of a beast">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38911" name="bracelet of strenghtening">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38913" name="cask with goblin zombie">
+		<attribute key="weight" value="230" />
+	</item>
+	<item id="38915" article="a" name="lion ring">
+		<attribute key="armor" value="2" />
+		<attribute key="skillcriticalchance" value="2" />
+		<attribute key="skillcriticaldamage" value="2" />
+		<attribute key="weight" value="90" />
+		<attribute key="slotType" value="ring" />
+		<attribute key="quicklootcategory" value="ring" />
+	</item>
+	<item id="38917" article="a" name="soulcutter sword">
+		<attribute key="weight" value="6300" />
+		<attribute key="defense" value="32" />
+		<attribute key="attack" value="7" />
+		<attribute key="elementDeath" value="45" />
+		<attribute key="extradef" value="3" />
+		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifeamount" value="5" />
+		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanaamount" value="3" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="quicklootcategory" value="weaponsword" />
+		<attribute key="skillSword" value="5" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38918" article="a" name="soulshredder sword">
+		<attribute key="weight" value="7200" />
+		<attribute key="defense" value="35" />
+		<attribute key="attack" value="10" />
+		<attribute key="elementIce" value="47" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="quicklootcategory" value="weaponsword" />
+		<attribute key="skillSword" value="5" />
+		<attribute key="imbuingSlots" value="3" />
+	</item>
+	<item id="38919" article="a" name="soulbiter axe">
+		<attribute key="weight" value="4000" />
+		<attribute key="defense" value="32" />
+		<attribute key="attack" value="7" />
+		<attribute key="elementDeath" value="45" />
+		<attribute key="extradef" value="3" />
+		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifeamount" value="5" />
+		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanaamount" value="3" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="quicklootcategory" value="weaponaxe" />
+		<attribute key="skillAxe" value="5" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38920" article="a" name="souleater axe">
+		<attribute key="weight" value="7200" />
+		<attribute key="defense" value="35" />
+		<attribute key="attack" value="10" />
+		<attribute key="elementIce" value="47" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="quicklootcategory" value="weaponaxe" />
+		<attribute key="skillAxe" value="5" />
+		<attribute key="imbuingSlots" value="3" />
+	</item>
+	<item id="38921" article="a" name="soulcrusher club">
+		<attribute key="weight" value="4100" />
+		<attribute key="defense" value="33" />
+		<attribute key="attack" value="6" />
+		<attribute key="elementIce" value="46" />
+		<attribute key="extradef" value="3" />
+		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifeamount" value="5" />
+		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanaamount" value="3" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="quicklootcategory" value="weaponclub" />
+		<attribute key="skillClub" value="5" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38922" article="a" name="soulmaimer club">
+		<attribute key="weight" value="8900" />
+		<attribute key="defense" value="35" />
+		<attribute key="attack" value="10" />
+		<attribute key="elementEnergy" value="47" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="quicklootcategory" value="weaponclub" />
+		<attribute key="skillClub" value="5" />
+		<attribute key="imbuingSlots" value="3" />
+	</item>
+	<item id="38923" article="a" name="soulbleeder bow">
+		<attribute key="weight" value="4700" />
+		<attribute key="weaponType" value="distance" />
+		<attribute key="quicklootcategory" value="weapondistance" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="range" value="6" />
+		<attribute key="attack" value="8" />
+		<attribute key="HitChance" value="5" />
+		<attribute key="skillDist" value="4" />
+		<attribute key="absorbPercentHoly" value="7" />
+		<attribute key="ammoType" value="arrow" />
+		<attribute key="imbuingSlots" value="3" />
+	</item>
+	<item id="38924" article="a" name="soulpiercer crossbow">
+		<attribute key="weight" value="4000" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="quicklootcategory" value="weapondistance" />
+		<attribute key="range" value="6"/>
+		<attribute key="hitChance" value="6"/>
+		<attribute key="attack" value="9"/>
+		<attribute key="skillDist" value="4" />
+		<attribute key="absorbPercentDeath" value="7" />
+		<attribute key="weaponType" value="distance"/>
+		<attribute key="ammoType" value="bolt"/>
+		<attribute key="imbuingSlots" value="3"/>
+	</item>
+	<item id="38925" article="a" name="soultainter wand">
+		<attribute key="weaponType" value="wand" />
+		<attribute key="quicklootcategory" value="weaponwand" />
+		<attribute key="range" value="6" />
+		<attribute key="shootType" value="death" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="absorbPercentDeath" value="12" />
+		<attribute key="magiclevelpoints" value="5" />
+		<attribute key="weight" value="1900" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38926" article="a" name="soulhexer rod">
+		<attribute key="weaponType" value="wand" />
+		<attribute key="quicklootcategory" value="weaponwand" />
+		<attribute key="range" value="6" />
+		<attribute key="shootType" value="smallice" />
+		<attribute key="magiclevelpoints" value="5" />
+		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifeamount" value="5" />
+		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanaamount" value="3" />
+		<attribute key="absorbPercentIce" value="12" />
+		<attribute key="weight" value="2500" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38927" article="a" name="soulshanks legs">
+		<attribute key="weight" value="1200" />
+		<attribute key="armor" value="10"/>
+		<attribute key="magiclevelpoints" value="3"/>
+		<attribute key="absorbPercentDeath" value="10" />
+		<attribute key="slotType" value="legs"/>
+	</item>
+	<item id="38928" article="a" name="soulstrider legs">
+		<attribute key="weight" value="1200" />
+		<attribute key="armor" value="10"/>
+		<attribute key="magiclevelpoints" value="3"/>
+		<attribute key="absorbPercentDeath" value="10" />
+		<attribute key="slotType" value="legs"/>
+	</item>
+	<item id="38929" article="a" name="soulshell armor">
+		<attribute key="slotType" value="body" />
+		<attribute key="quicklootcategory" value="armor" />
+		<attribute key="armor" value="18" />
+		<attribute key="skillDist" value="4"/>
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentFire" value="15" />
+		<attribute key="weight" value="2400" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38930" article="a" name="soulmantel armor">
+		<attribute key="slotType" value="body" />
+		<attribute key="quicklootcategory" value="armor" />
+		<attribute key="armor" value="17" />
+		<attribute key="magiclevelpoints" value="4" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="weight" value="2400" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38931" article="a" name="soulshroud armor">
+		<attribute key="slotType" value="body" />
+		<attribute key="quicklootcategory" value="armor" />
+		<attribute key="armor" value="17" />
+		<attribute key="magiclevelpoints" value="4" />
+		<attribute key="absorbPercentDeath" value="10" />
+		<attribute key="weight" value="2400" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38932" name="pair of soulwalkers">
+		<attribute key="weight" value="1300"/>
+		<attribute key="slotType" value="feet"/>
+		<attribute key="armor" value="4"/>
+		<attribute key="skillSword" value="1" />
+		<attribute key="skillAxe" value="1" />
+		<attribute key="skillClub" value="1" />
+		<attribute key="absorbPercentPhysical" value="7" />
+		<attribute key="absorbPercentFire" value="5" />
+		<attribute key="speed" value="30"/>
+		<attribute key="quicklootcategory" value="boots" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="38933" name="pair of soulstalkers">
+		<attribute key="weight" value="1300"/>
+		<attribute key="slotType" value="feet"/>
+		<attribute key="armor" value="3"/>
+		<attribute key="skillDist" value="1"/>
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="speed" value="40"/>
+		<attribute key="quicklootcategory" value="boots" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="38934" article="a" name="soulbastion shield">
+		<attribute key="weight" value="5800" />
+		<attribute key="quicklootcategory" value="shield" />
+		<attribute key="defense" value="42"/>
+		<attribute key="absorbPercentPhysical" value="10" />
+		<attribute key="absorbPercentDeath" value="10" />
+		<attribute key="weaponType" value="shield"/>
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="38935" name="katex' blood">
+		<attribute key="weight" value="70" />
+	</item>
+	<item id="38936" article="an" name="utua's poison">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="70" />
+	</item>	
+	<item id="38937" article="a" name="yirkas' egg">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="250" />
+	</item>
+	<item id="38938" article="a" name="srezz' eye">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="80" />
+	</item>
+	<item id="38973" article="a" name="capricious heart">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="75" />
+	</item>
+	<item id="38974" article="an" name="infernal heart">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="75" />
+	</item>
+	<item id="38975" article="a" name="hazardous heart">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="75" />
+	</item>
+	<item id="38976" article="a" name="mould heart">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="75" />
+	</item>
+	<item id="38977" article="a" name="distorted heart">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38978" article="a" name="vibrant heart">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="75" />
+	</item>
+	<item id="38979" article="a" name="vibrant robe">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38980" article="a" name="capricious robe">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38981" article="an" name="infernal robe">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38982" article="a" name="hazardous robe">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38983" article="a" name="mould robe">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38984" article="a" name="distorted robe">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="180" />
+	</item>
+	<item id="38985" article="a" name="lion longbow">
+		<attribute key="weight" value="4800" />
+		<attribute key="weaponType" value="distance" />
+		<attribute key="quicklootcategory" value="weapondistance" />
+		<attribute key="slotType" value="two-handed" />
+		<attribute key="range" value="6" />
+		<attribute key="attack" value="6" />
+		<attribute key="HitChance" value="4" />
+		<attribute key="skillDist" value="2" />
+		<attribute key="absorbPercentIce" value="5" />
+		<attribute key="ammoType" value="arrow" />
+		<attribute key="imbuingSlots" value="3" />
+	</item>
+	<item id="38986" article="a" name="lion rod">
+		<attribute key="weaponType" value="wand" />
+		<attribute key="quicklootcategory" value="weaponwand" />
+		<attribute key="range" value="4" />
+		<attribute key="shootType" value="smallice" />
+		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="weight" value="3700" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38987" article="a" name="lion wand">
+		<attribute key="weaponType" value="wand" />
+		<attribute key="quicklootcategory" value="weaponwand" />
+		<attribute key="range" value="4" />
+		<attribute key="shootType" value="smallice" />
+		<attribute key="magiclevelpoints" value="2" />
+		<attribute key="skillcriticalchance" value="10" />
+		<attribute key="skillcriticaldamage" value="10" />
+		<attribute key="weight" value="3300" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38988" article="a" name="lion spellbook">
+		<attribute key="weight" value="2500" />
+		<attribute key="magiclevelpoints" value="4" />
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentIce" value="7" />
+		<attribute key="defense" value="20" />
+		<attribute key="weaponType" value="shield" />
+		<attribute key="quicklootcategory" value="shield" />
+		<attribute key="imbuingSlots" value="1" />
+	</item>
+	<item id="38989" article="a" name="lion shield">
+		<attribute key="weight" value="6500" />
+		<attribute key="quicklootcategory" value="shield" />
+		<attribute key="defense" value="39"/>
+		<attribute key="absorbPercentPhysical" value="7" />
+		<attribute key="absorbPercentEarth" value="10" />
+		<attribute key="weaponType" value="shield"/>
+	</item>
+	<item id="38990" article="a" name="lion longsword">
+		<attribute key="weight" value="7500" />
+		<attribute key="defense" value="31" />
+		<attribute key="attack" value="8" />
+		<attribute key="elementEarth" value="44" />
+		<attribute key="extradef" value="2" />
+		<attribute key="weaponType" value="sword" />
+		<attribute key="quicklootcategory" value="weaponsword" />
+		<attribute key="skillSword" value="3" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38991" article="a" name="lion spangenhelm">
+		<attribute key="weight" value="4800" />
+		<attribute key="armor" value="7" />
+		<attribute key="skillDist" value="3"/>
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentEarth" value="5" />
+		<attribute key="slotType" value="head" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38992" article="a" name="lion plate">
+		<attribute key="slotType" value="body" />
+		<attribute key="quicklootcategory" value="armor" />
+		<attribute key="armor" value="17" />
+		<attribute key="skillSword" value="3" />
+		<attribute key="skillAxe" value="3" />
+		<attribute key="skillClub" value="3" />
+		<attribute key="absorbPercentPhysical" value="6" />
+		<attribute key="weight" value="15000" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="38993" article="a" name="lion amulet">
+		<attribute key="weight" value="680" />
+		<attribute key="armor" value="3" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="absorbPercentPhysical" value="3" />
+		<attribute key="absorbPercentIce" value="7" />
+		<attribute key="showattributes" value="1" />
+		<attribute key="quicklootcategory" value="amulet" />
+	</item>
+	<item id="38995" article="a" name="lion crest">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="1240" />
+	</item>
+	<item id="38996" article="a" name="broken longbow">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="1240" />
+	</item>
+	<item id="38997" article="a" name="lion cloak patch">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="38998" article="a" name="lion seal">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="38999" article="a" name="fur shred">
+		<attribute key="showcount" value="0" />
+		<attribute key="weight" value="500" />
+	</item>
+	<item id="39008" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39009" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39008" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39010" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39009" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39011" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39010" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39012" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39013" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39012" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39014" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39013" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39015" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39014" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39016" article="a" name="dead corpse">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39017" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39016" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39018" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39017" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39019" article="a" name="dead corpse">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39018" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39020" article="a" name="dead werelioness">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39021" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39021" article="a" name="dead werelioness">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39022" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39022" article="a" name="dead werelioness">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39023" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39023" article="a" name="dead werelioness">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39079" article="a" name="dead white lion">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39080" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39080" article="a" name="dead white lion">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39081" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39081" article="a" name="dead white lion">
+		<attribute key="containerSize" value="48" />
+		<attribute key="decayTo" value="39082" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39082" article="a" name="dead white lion">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39088" article="a" name="lion axe">
+		<attribute key="weight" value="7500" />
+		<attribute key="defense" value="31" />
+		<attribute key="attack" value="8" />
+		<attribute key="elementEarth" value="44" />
+		<attribute key="extradef" value="2" />
+		<attribute key="weaponType" value="axe" />
+		<attribute key="quicklootcategory" value="weaponaxe" />
+		<attribute key="skillAxe" value="3" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="39089" article="a" name="lion hammer">
+		<attribute key="weight" value="6500" />
+		<attribute key="defense" value="31" />
+		<attribute key="attack" value="8" />
+		<attribute key="elementEarth" value="44" />
+		<attribute key="extradef" value="2" />
+		<attribute key="weaponType" value="club" />
+		<attribute key="quicklootcategory" value="weaponclub" />
+		<attribute key="skillClub" value="3" />
+		<attribute key="imbuingSlots" value="2" />
+	</item>
+	<item id="39093" name="red silk flower">
+		<attribute key="description" value="The petals are made of silk, the buds and pistil of rubies. The werelions of the Darama Desert often use such flowers as love pledges." />
+		<attribute key="weight" value="30" />
+	</item>
+	<item id="39105" article="a" name="sleep shawl">
+		<attribute key="slotType" value="necklace" />
+		<attribute key="weight" value="430" />
+	</item>
+	<item id="39106" article="a" name="pendulet">
+		<attribute key="slotType" value="necklace" />
+		<attribute key="weight" value="650" />
+	</item>
 	<!-- liquids vial -->
 	<item id="40001" name="water" />
 	<item id="40002" name="blood" />
