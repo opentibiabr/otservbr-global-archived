@@ -409,6 +409,7 @@ ChestUnique = {
 		weight = 27,
 		storage = Storage.Quest.BerserkerTreasure.Reward
 	},
+	-- Fire axe quest
 	-- Bag
 	[10006] = {
 		itemId = 2843,
