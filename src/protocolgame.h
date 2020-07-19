@@ -137,7 +137,7 @@ class ProtocolGame final : public Protocol
 		void parseToggleMount(NetworkMessage& msg);
 
 		// Imbuements
-		void parseApplyImbuemente(NetworkMessage& msg);
+		void parseApplyImbuement(NetworkMessage& msg);
 		void parseClearingImbuement(NetworkMessage& msg);
 		void parseCloseImbuingWindow(NetworkMessage& msg);
 
