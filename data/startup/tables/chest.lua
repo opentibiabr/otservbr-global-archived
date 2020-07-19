@@ -389,6 +389,21 @@ ChestUnique = {
 		itemReward = {{2478, 1}},
 		storage = Storage.Quest.TrollCave.BrassLegs
 	},
+	-- Vampire shield quest
+	-- Dragon lance
+	[6041] = {
+		itemId = 1738,
+		itemPos = {x = 33189, y = 31688, z = 14},
+		itemReward = {{2414, 1}},
+		storage = Storage.Quest.VampireShield.DragonLance
+	},
+	-- Dragon lance
+	[6042] = {
+		itemId = 1738,
+		itemPos = {x = 33195, y = 31688, z = 14},
+		itemReward = {{2534, 1}},
+		storage = Storage.Quest.VampireShield.VampireShield
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -476,8 +491,18 @@ ChestUnique = {
 		itemPos = {x = 33163, y = 31603, z = 15},
 		itemBag = 1991,
 		itemReward = {{7589, 5}},
-		weight = 15,
+		weight = 23,
 		storage = Storage.Quest.StrongPotions.Reward
+	},
+	-- Vampire shield quest
+	-- Bag
+	[10010] = {
+		itemId = 1738,
+		itemPos = {x = 33188, y = 31682, z = 14},
+		itemBag = 1987,
+		itemReward = {{2174, 1}, {2144, 1}, {2194, 1}},
+		weight = 16,
+		storage = Storage.Quest.VampireShield.Bag
 	},
 
 	-- Reward of others scrips files (varied rewards)

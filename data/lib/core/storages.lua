@@ -1782,7 +1782,11 @@ Storage = {
 			GarlicNecklace = 10044,
 			BrassLegs = 10045
 		},
-		VampireShield = {},
+		VampireShield = {
+			Bag = 10046,
+			DragonLance = 10047,
+			VampireShield = 10048
+		},
 		WeddingRing = {},
 		-- update 6.5
 		AlawarsVault = {},
