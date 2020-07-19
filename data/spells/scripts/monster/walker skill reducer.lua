@@ -38,22 +38,24 @@ for i = 45, 60 do
 				v = getThingfromPos({x=pos.x, y=pos.y, z=pos.z, stackpos=i}).uid
 			end
 		end
+
 		if #creatureTable ~= nil and #creatureTable > 0 then
 			for r = 1, #creatureTable do
 				if creatureTable[r] ~= creature then
-					local player = Player(creatureTable[r])
-					local vocationClientId = player:getVocation():getClientId()
+					local specCreature = Player(creatureTable[r])
 
-					if isPlayer(creatureTable[r]) == true
-					and table.contains(VOCATION.ID.SORCERER, VOCATION.ID.DRUID, vocationClientId) then
-						player:addCondition(condition2)
-					elseif isPlayer(creatureTable[r]) == true
-					and table.contains(VOCATION.ID.PALADIN, vocationClientId) then
-						player:addCondition(condition3)
-					elseif isPlayer(creatureTable[r]) == true
-					and table.contains(VOCATION.ID.KNIGHT, vocationClientId) then
-						player:addCondition(condition1)
-					elseif isMonster(creatureTable[r]) == true then
+					if specCreature and specCreature:isPlayer() then
+						if specCreature:isKnight() then
+							specCreature:addCondition(condition1)
+						end
+
+						if specCreature:isMage() then
+							specCreature:addCondition(condition2)
+						end
+						
+						if specCreature:isPaladin() then
+							specCreature:addCondition(condition3)
+						end
 					end
 				end
 			end

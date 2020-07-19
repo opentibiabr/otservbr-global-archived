@@ -211,7 +211,7 @@ void mainLoader(int, char*[], ServiceManager* services) {
 
 	if (g_config.getBoolean(ConfigManager::OPTIMIZE_DATABASE)
 			&& !DatabaseManager::optimizeTables()) {
-		std::cout << "> No tables were optimized." << std::endl;
+		std::cout << "> No tables were optimized" << std::endl;
 	}
 
 	// load vocations

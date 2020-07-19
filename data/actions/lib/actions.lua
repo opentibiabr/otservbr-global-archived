@@ -301,8 +301,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 
 	local tile = Tile(toPosition)
-	local ground = tile:getGround()
-	if ground and table.contains(ropeSpots, ground.itemid) then
+	if tile:isRopeSpot() then
 		player:teleportTo(toPosition:moveUpstairs())
 		if target.itemid == 8592 then
 			if player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 22 then

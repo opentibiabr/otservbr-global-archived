@@ -1698,37 +1698,104 @@ Storage = {
 			Bag = 10006,
 			RedBag = 10007
 		},
-		ShortSword = {},
-		ThaisLighthouse = {},
+		ShortSword = {
+			Book = 10008
+		},
+		ThaisLighthouse = {
+			BattleHammer = 10009,
+			DarkShield = 10010
+		},
 		-- update 6.0
-		StuddedShield = {},
+		StuddedShield = {
+			BananaFree = 10011,
+			BananaPremium = 10012
+		},
 		-- update 6.1
-		EmperorsCookies = {},
-		ExplorerBrooch = {},
-		OrcFortress = {},
+		EmperorsCookies = {
+			Key3800 = 10013,
+			Key3801 = 10014,
+			Key3802 = 10015,
+			RopeReward = 10016,
+		},
+		ExplorerBrooch = {
+			Reward = 10017
+		},
+		OrcFortress = {
+			KnightAxe = 10018,
+			KnightArmor = 10019,
+			FireSword = 10020
+		},
 		Panpipe = {
-			Key4055Reward = 11000
+			Key4055 = 10021,
+			Reward = 10022
 		},
 		-- update 6.2
-		Draconia = {},
+		Draconia = {
+			Reward1 = 10023,
+			Reward2 = 10024
+		},
 		-- update 6.4
-		AdornedUHRune = {},
-		BarbarianAxe = {},
-		BerserkerTreasure = {},
-		DarkArmor = {},
-		DemonHelmet = {},
-		DoubleHero = {},
-		EdronGoblin = {},
-		FireAxe = {},
-		PoisonDaggers = {},
-		Ring = {},
-		ShamanTreasure = {},
-		StrongPotions = {},
-		TrollCave = {},
-		VampireShield = {},
-		WeddingRing = {},
+		AdornedUHRune = {
+			Reward = 10025
+		},
+		BarbarianAxe = {
+			BarbarianAxe = 10026,
+			Scimitar = 10027
+		},
+		BerserkerTreasure = {
+			Reward = 10028
+		},
+		DarkArmor = {
+			Reward = 10029
+		},
+		DemonHelmet = {
+			SteelBoots = 10030,
+			DemonHelmet = 10031,
+			DemonShield = 10032
+		},
+		DoubleHero = {
+			RedGem = 10033,
+			ClubRing = 10034
+		},
+		EdronGoblin = {
+			SilverAmulet = 10035,
+			SteelShield = 10036
+		},
+		FireAxe = {
+			Bag = 10037,
+			FireAxe = 10038
+		},
+		PoisonDaggers = {
+			BackpackReward = 10039
+		},
+		Ring = {
+			TimeRing = 10040,
+			SwordRing = 10041
+		},
+		ShamanTreasure = {
+			Bag = 10042
+		},
+		StrongPotions = {
+			Reward = 10043
+		},
+		TrollCave = {
+			GarlicNecklace = 10044,
+			BrassLegs = 10045
+		},
+		VampireShield = {
+			Bag = 10046,
+			DragonLance = 10047,
+			VampireShield = 10048
+		},
+		WeddingRing = {
+			DragonNecklace = 10049,
+			WeedingRing = 10050
+		},
 		-- update 6.5
-		AlawarsVault = {},
+		AlawarsVault = {
+			WhitePearl = 10051,
+			Broadsword = 10052
+		},
 		-- update 7.1
 		BlackKnight = {},
 		DragonTower = {},
@@ -2030,7 +2097,8 @@ Storage = {
 		GraveDanger = {},
 		-- update 12.30
 		FeasterOfSouls = {},
-		PoltergeistOutfits = {}
+		PoltergeistOutfits = {},
+		Key4502 = 15000
 	}
 }
 

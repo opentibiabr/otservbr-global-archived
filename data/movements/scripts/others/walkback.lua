@@ -2,7 +2,7 @@ local SPECIAL_QUESTS = {2215, 2216, 10544, 12374, 12513, 26300, 27300, 28300}
 
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
-	if not player then
+	if not player or player:getAccountType() ~= ACCOUNT_TYPE_NORMAL then
 		return true
 	end
 

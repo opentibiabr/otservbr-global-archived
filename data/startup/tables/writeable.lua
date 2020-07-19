@@ -845,7 +845,7 @@ SignTable = {
 		text = "Rise, Heroes!"
 	},
 	[8] = {
-		itemId = 815,
+		itemId = 1815,
 		itemPos = {x = 32057, y = 31893, z = 6},
 		text = "Careful with the dustbin! Every item you throw into it will be PERMANENTLY deleted. \z
 		So consider carefully if you really, really want to delete an item before you lay it on the dustbin."

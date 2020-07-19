@@ -26,7 +26,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	else
 		item:transform(transformTo[item:getId()])
 		if math.random(100) > 60 then
-			player:teleportTo(getFreePosition(area[1], area[2]))
+			player:teleportTo(Position.getFreePosition(area[1], area[2]))
 			player:getPosition():sendMagicEffect(11)
 		end
 	end
