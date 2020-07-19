@@ -1765,7 +1765,9 @@ Storage = {
 			Bag = 10037,
 			FireAxe = 10038
 		},
-		PoisonDaggers = {},
+		PoisonDaggers = {
+			BackpackReward = 10039
+		},
 		Ring = {},
 		ShamanTreasure = {},
 		StrongPotions = {},
