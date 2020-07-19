@@ -45,31 +45,31 @@ void Items::clear()
 using LootTypeNames = std::unordered_map<std::string, ItemTypes_t>;
 
 LootTypeNames lootTypeNames = {
-	{"armor",		ITEM_TYPE_ARMOR},
-	{"amulet",		ITEM_TYPE_AMULET},
-	{"legs",		ITEM_TYPE_BOOTS},
-	{"container",	ITEM_TYPE_CONTAINER},
-	{"decoration",	ITEM_TYPE_DECORATION},
-	{"food",		ITEM_TYPE_FOOD},
-	{"head",		ITEM_TYPE_HELMET},
-	{"legs",		ITEM_TYPE_LEGS},
-	{"other",		ITEM_TYPE_OTHER},
-	{"potion",		ITEM_TYPE_POTION},
-	{"ring",		ITEM_TYPE_RING},
-	{"rune",		ITEM_TYPE_RUNE},
-	{"shield",		ITEM_TYPE_SHIELD},
-	{"tools",		ITEM_TYPE_TOOLS},
-	{"valuables",	ITEM_TYPE_VALUABLE},
-	{"ammo",		ITEM_TYPE_AMMO},
-	{"axe",			ITEM_TYPE_AXE},
-	{"club",		ITEM_TYPE_CLUB},
-	{"distance",	ITEM_TYPE_DISTANCE},
-	{"sword",		ITEM_TYPE_SWORD},
-	{"wand",		ITEM_TYPE_WAND},
-	{"product",		ITEM_TYPE_CREATUREPRODUCT},
-	{"retrieve",	ITEM_TYPE_RETRIEVE},
-	{"gold",		ITEM_TYPE_GOLD},
-	{"unassigned",	ITEM_TYPE_UNASSIGNED},
+	{"armor", ITEM_TYPE_ARMOR},
+	{"amulet", ITEM_TYPE_AMULET},
+	{"boots", ITEM_TYPE_BOOTS},
+	{"container", ITEM_TYPE_CONTAINER},
+	{"decoration", ITEM_TYPE_DECORATION},
+	{"food", ITEM_TYPE_FOOD},
+	{"head", ITEM_TYPE_HELMET},
+	{"legs", ITEM_TYPE_LEGS},
+	{"other", ITEM_TYPE_OTHER},
+	{"potion", ITEM_TYPE_POTION},
+	{"ring", ITEM_TYPE_RING},
+	{"rune", ITEM_TYPE_RUNE},
+	{"shield", ITEM_TYPE_SHIELD},
+	{"tools", ITEM_TYPE_TOOLS},
+	{"valuables", ITEM_TYPE_VALUABLE},
+	{"ammo", ITEM_TYPE_AMMO},
+	{"axe", ITEM_TYPE_AXE},
+	{"club", ITEM_TYPE_CLUB},
+	{"distance", ITEM_TYPE_DISTANCE},
+	{"sword", ITEM_TYPE_SWORD},
+	{"wand", ITEM_TYPE_WAND},
+	{"creatureproduct", ITEM_TYPE_CREATUREPRODUCT},
+	{"retrieve", ITEM_TYPE_RETRIEVE},
+	{"gold", ITEM_TYPE_GOLD},
+	{"unassigned", ITEM_TYPE_UNASSIGNED},
 };
 
 ItemTypes_t Items::getLootType(const std::string& strValue)
@@ -658,6 +658,8 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 			} else {
 				std::cout << "[Warning - Items::parseItemNode] Unknown effect: " << valueAttribute.as_string() << std::endl;
 			}
+		} else if (tmpStrValue == "loottype") {
+			it.type = getLootType(valueAttribute.as_string());
 		} else if (tmpStrValue == "range") {
 			it.shootRange = pugi::cast<uint16_t>(valueAttribute.value());
 		} else if (tmpStrValue == "stopduration") {
