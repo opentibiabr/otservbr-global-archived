@@ -1775,7 +1775,9 @@ Storage = {
 		ShamanTreasure = {
 			Bag = 10042
 		},
-		StrongPotions = {},
+		StrongPotions = {
+			Reward = 10043
+		},
 		TrollCave = {},
 		VampireShield = {},
 		WeddingRing = {},
