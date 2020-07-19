@@ -419,6 +419,16 @@ ChestUnique = {
 		weight = 27,
 		storage = Storage.Quest.FireAxe.Bag
 	},
+	-- Poison daggers quest
+	-- Backpack reward
+	[10007] = {
+		itemId = 1741,
+		itemPos = {x = 33155, y = 31880, z = 11},
+		itemBag = 1988,
+		itemReward = {{2545, 30}, {2411, 1}, {2411, 1}},
+		weight = 60,
+		storage = Storage.Quest.PoisonDaggers.BackpackReward
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
