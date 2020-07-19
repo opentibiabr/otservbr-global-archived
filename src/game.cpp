@@ -744,7 +744,8 @@ void Game::playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, 
 
 void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Position& movingCreatureOrigPos, Tile* toTile)
 {
-	if (!player->canDoAction()) {
+	bool classicAttack = g_config.getBoolean(ConfigManager::CLASSIC_ATTACK_SPEED);
+	if (!player->canDoAction() && !classicAttack) {
 		uint32_t delay = player->getNextActionTime();
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerMoveCreatureByID,
 			this, player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
