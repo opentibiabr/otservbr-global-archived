@@ -1768,7 +1768,10 @@ Storage = {
 		PoisonDaggers = {
 			BackpackReward = 10039
 		},
-		Ring = {},
+		Ring = {
+			TimeRing = 10040,
+			SwordRing = 10041
+		},
 		ShamanTreasure = {},
 		StrongPotions = {},
 		TrollCave = {},
