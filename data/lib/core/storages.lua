@@ -1772,7 +1772,9 @@ Storage = {
 			TimeRing = 10040,
 			SwordRing = 10041
 		},
-		ShamanTreasure = {},
+		ShamanTreasure = {
+			Bag = 10042
+		},
 		StrongPotions = {},
 		TrollCave = {},
 		VampireShield = {},
