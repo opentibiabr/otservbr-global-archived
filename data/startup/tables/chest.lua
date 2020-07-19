@@ -450,7 +450,7 @@ ChestUnique = {
 		itemId = 2843,
 		itemPos = {x = 33127, y = 31885, z = 9},
 		itemBag = 1987,
-		itemReward = {{2260, 1}, {2260, 1}, {2260, 1}},
+		itemReward = {{2260, 3}},
 		weight = 15,
 		storage = Storage.Quest.ShamanTreasure.Bag
 	},
