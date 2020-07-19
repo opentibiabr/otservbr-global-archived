@@ -28,16 +28,20 @@
 
 extern Game g_game;
 
-bool Map::loadMap(const std::string& identifier, bool loadHouses)
+bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns)
 {
+	int64_t start = OTSYS_TIME();
 	IOMap loader;
 	if (!loader.loadMap(this, identifier)) {
 		std::cout << "[Fatal - Map::loadMap] " << loader.getLastErrorString() << std::endl;
 		return false;
 	}
 
-	if (!IOMap::loadSpawns(this)) {
-		std::cout << "[Warning - Map::loadMap] Failed to load spawn data." << std::endl;
+	if (loadSpawns) {
+		if (!IOMap::loadSpawns(this)) {
+			std::cout << "[Warning - Map::loadMap] Failed to load spawn data." << std::endl;
+		}
+		std::cout << "> Loaded spawns in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	}
 
 	if (loadHouses) {

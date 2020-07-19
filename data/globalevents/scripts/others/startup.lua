@@ -1,13 +1,14 @@
 function onStartup()
 	print(">> Loading map attributes")
-	-- Custom maps table
-	loadCustomMaps()
 	-- Npc table
 	loadLuaNpcs(NpcTable)
 	-- Sign table
 	loadLuaMapSign(SignTable)
+	print("> Loaded " .. (#SignTable) .. " signs in the map")
 	-- Book table
 	loadLuaMapBook(BookTable)
+	print("> Loaded " .. (#BookTable) .. " books in the map")
+
 
 	-- Action and unique tables
 	-- Chest table
@@ -47,6 +48,10 @@ function onStartup()
 
 	print("> Loaded all actions in the map")
 	print("> Loaded all uniques in the map")
+
+	print(">> Loading custom maps")
+	-- Custom maps table
+	loadCustomMaps()
 
 	for i = 1, #startupGlobalStorages do
 		Game.setStorageValue(startupGlobalStorages[i], 0)

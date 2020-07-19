@@ -9,14 +9,14 @@ function loadLuaMapAction(tablename)
 			if tile then
 				-- Checks that you have no items created
 				if tile:getItemCountById(value.itemId) == 0 then
-					-- If not have items created, this create the item
-					item = Game.createItem(value.itemId, 1, value.itemPos[i])
+					print(">> Wrong item id found")
+					print(string.format("> Action id: %d, item id: %d", key, value.itemId))
 				end
-				if not item then
+				if tile:getItemCountById(value.itemId) == 1 then
 					item = tile:getItemById(value.itemId)
 				end
 				-- If he found the item, add the action id.
-				if item then
+				if item and value.itemId ~= false then
 					item:setAttribute(ITEM_ATTRIBUTE_ACTIONID, index)
 				end
 				if value.itemId == false and tile:getTopDownItem() then
@@ -49,10 +49,10 @@ function loadLuaMapUnique(tablename)
 		if tile then
 			-- Checks that you have no items created
 			if tile:getItemCountById(value.itemId) == 0 then
-				-- If not have items created, thisc create the item
-				item = Game.createItem(value.itemId, 1, value.itemPos)
+				print(">> Wrong item id found")
+				print(string.format("> Unique id: %d, item id: %d", key, value.itemId))
 			end
-			if not item then
+			if tile:getItemCountById(value.itemId) == 1 then
 				item = tile:getItemById(value.itemId)
 			end
 			-- If he found the item, add the unique id
@@ -72,10 +72,10 @@ function loadLuaMapSign(tablename)
 		if tile then
 			-- Checks that you have no items created
 			if tile:getItemCountById(value.itemId) == 0 then
-				-- Create item
-				item = Game.createItem(value.itemId, 1, value.itemPos)
+				print(">> Wrong item id found")
+				print(string.format("> Sign id: %d, item id: %d", key, value.itemId))
 			end
-			if not item then
+			if tile:getItemCountById(value.itemId) == 1 then
 				item = tile:getItemById(value.itemId)
 			end
 			-- If he found the item, add the text
@@ -84,7 +84,6 @@ function loadLuaMapSign(tablename)
 			end
 		end
 	end
-	print("> Loaded " .. (#SignTable) .. " signs in the map.")
 end
 
 function loadLuaMapBook(tablename)
@@ -108,7 +107,6 @@ function loadLuaMapBook(tablename)
 			end
 		end
 	end
-	print("> Loaded " .. (#BookTable) .. " books in the map.")
 end
 
 function loadLuaNpcs(tablename)
@@ -121,8 +119,8 @@ function loadLuaNpcs(tablename)
 			end
 		end
 	end
-	print(string.format("> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters.\n> \z
-	Loaded %d towns with %d houses in total.", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
+	print(string.format("> Loaded ".. (#NpcTable) .." npcs and spawned %d monsters\n> \z
+	Loaded %d towns with %d houses in total", Game.getMonsterCount(), #Game.getTowns(), #Game.getHouses()))
 end
 
 -- Function for load the map and spawn custom
@@ -140,7 +138,7 @@ function loadCustomMaps()
 				function()
 					Game.loadSpawnFile(value.spawnFile)
 					print("> Loaded " .. value.mapName .. " spawn")
-				end, 10 * 1000)
+				end, 30 * 1000)
 			end
 		end
 	end
