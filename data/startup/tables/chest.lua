@@ -336,6 +336,29 @@ ChestUnique = {
 		itemReward = {{2209, 1}},
 		storage = Storage.Quest.DoubleHero.ClubRing
 	},
+	-- Edron goblin quest
+	-- Silver amulet
+	[6034] = {
+		itemId = 1738,
+		itemPos = {x = 33095, y = 31800, z = 10},
+		itemReward = {{2170, 200}},
+		storage = Storage.Quest.EdronGoblin.SilverAmulet
+	},
+	-- Steel shield
+	[6035] = {
+		itemId = 1738,
+		itemPos = {x = 33095, y = 31801, z = 10},
+		itemReward = {{2509, 1}},
+		storage = Storage.Quest.EdronGoblin.SteelShield
+	},
+	-- Fire axe quest
+	-- Fire axe
+	[6036] = {
+		itemId = 1740,
+		itemPos = {x = 33084, y = 31650, z = 12},
+		itemReward = {{2432, 1}},
+		storage = Storage.Quest.FireAxe.FireAxe
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -385,6 +408,15 @@ ChestUnique = {
 		itemReward = {{2148, 98}, {2148, 77}, {2143, 3}},
 		weight = 27,
 		storage = Storage.Quest.BerserkerTreasure.Reward
+	},
+	-- Bag
+	[10006] = {
+		itemId = 2843,
+		itemPos = {x = 33078, y = 31656, z = 11},
+		itemBag = 1987,
+		itemReward = {{2214, 1}, {2201, 200}, {2145, 7}},
+		weight = 27,
+		storage = Storage.Quest.FireAxe.Bag
 	},
 
 	-- Reward of others scrips files (varied rewards)
