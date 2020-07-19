@@ -419,6 +419,21 @@ ChestUnique = {
 		itemReward = {{2121, 1}},
 		storage = Storage.Quest.WeddingRing.WeedingRing
 	},
+	-- Alawars vault quest
+	-- White pearl
+	[6045] = {
+		itemId = 1740,
+		itemPos = {x = 32105, y = 31567, z = 9},
+		itemReward = {{2143, 3}},
+		storage = Storage.Quest.AlawarsVault.WhitePearl
+	},
+	-- Broadsword
+	[6046] = {
+		itemId = 1740,
+		itemPos = {x = 32109, y = 31567, z = 9},
+		itemReward = {{2413, 1}},
+		storage = Storage.Quest.AlawarsVault.Broadsword
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -518,6 +533,17 @@ ChestUnique = {
 		itemReward = {{2174, 1}, {2144, 1}, {2194, 1}},
 		weight = 16,
 		storage = Storage.Quest.VampireShield.Bag
+	},
+	-- Key 4502 quest
+	[10011] = {
+		itemId = 1740,
+		itemPos = {x = 32201, y = 31571, z = 10},
+		itemBag = 1987,
+		keyItem = 2089,
+		keyAction = 4502,
+		itemReward = {{2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
+		weight = 80,
+		storage = Storage.Quest.Key4502
 	},
 
 	-- Reward of others scrips files (varied rewards)

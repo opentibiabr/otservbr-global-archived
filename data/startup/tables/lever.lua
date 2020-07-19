@@ -52,4 +52,10 @@ LeverUnique = {
 		itemId = 1945,
 		itemPos = {x = 33330, y = 31574, z = 15}
 	},
+	-- Alawar's vault quest
+	-- Path: data\scripts\quests\alawars_ault\action-lever.lua
+	[30008] = {
+		itemId = 1945,
+		itemPos = {x = 32180, y = 31633, z = 8}
+	}
 }

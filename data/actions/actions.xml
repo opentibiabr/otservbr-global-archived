@@ -617,7 +617,6 @@
 	<action itemid="7494" script="quests/others/holy_water.lua" />
 	<action actionid="5632" script="quests/others/serpentine_tower_torch.lua" />
 	<action actionid="5633" script="quests/others/serpentine_tower_lever.lua" />
-	<action actionid="4210" script="quests/others/senja_castle_lever.lua" />
 	<action actionid="19910" script="quests/others/steal_from_thieves.lua" />
 	<action uniqueid="1016" script="quests/others/iron_helmet_lever.lua" />
 	<action uniqueid="1017" script="quests/others/orc_edron_lever.lua" />
