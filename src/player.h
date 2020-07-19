@@ -1560,6 +1560,7 @@ class Player final : public Creature, public Cylinder
 		int64_t lastMarketInteraction = 0;  //Custom: Anti bug do market
 		int64_t lastPing;
 		int64_t lastPong;
+		int64_t nextAction = 0;
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
 
