@@ -2154,16 +2154,33 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		return;
 	}
 
-	if (!player->canDoAction()) {
+	bool canDoAction = player->canDoAction();
+	const ItemType& it = Item::items[item->getID()];
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		canDoAction = player->canDoPotionAction();
+	}
+
+	if (!canDoAction) {
 		uint32_t delay = player->getNextActionTime();
+		if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+			delay = player->getNextPotionActionTime();
+		}
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerUseItemEx, this,
 							  playerId, fromPos, fromStackPos, fromSpriteId, toPos, toStackPos, toSpriteId));
-		player->setNextActionTask(task);
+		if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+			player->setNextPotionActionTask(task);
+		} else {
+			player->setNextActionTask(task);
+		}
 		return;
 	}
 
 	player->resetIdleTime();
-	player->setNextActionTask(nullptr);
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		player->setNextPotionActionTask(nullptr);
+	} else {
+		player->setNextActionTask(nullptr);
+	}
 
 	g_actions->useItemEx(player, fromPos, toPos, toStackPos, item, isHotkey);
 }
@@ -2214,11 +2231,24 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		return;
 	}
 
-	if (!player->canDoAction()) {
+	bool canDoAction = player->canDoAction();
+	const ItemType& it = Item::items[item->getID()];
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		canDoAction = player->canDoPotionAction();
+	}
+
+	if (!canDoAction) {
 		uint32_t delay = player->getNextActionTime();
+		if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+			delay = player->getNextPotionActionTime();
+		}
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerUseItem, this,
 							  playerId, pos, stackPos, index, spriteId));
-		player->setNextActionTask(task);
+		if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+			player->setNextPotionActionTask(task);
+		} else {
+			player->setNextActionTask(task);
+		}
 		return;
 	}
 
