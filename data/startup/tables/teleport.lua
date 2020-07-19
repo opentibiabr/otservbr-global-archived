@@ -166,7 +166,7 @@ TeleportUnique = {
 		-- For use of the script
 		destination = {x = 32107, y = 31567, z = 9},
 		effect = CONST_ME_TELEPORT
-	}
+	},
 	-- Exit
 	[38011] = {
 		-- For use of the Map
@@ -175,5 +175,5 @@ TeleportUnique = {
 		-- For use of the script
 		destination = {x = 32189, y = 31625, z = 4},
 		effect = CONST_ME_TELEPORT
-	}
+	},
 }
