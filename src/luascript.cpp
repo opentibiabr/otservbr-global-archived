@@ -2609,6 +2609,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getPreyBonusValue", LuaScriptInterface::luaPlayerGetPreyBonusValue);
 	registerMethod("Player", "getPreyBonusGrade", LuaScriptInterface::luaPlayerGetPreyBonusGrade);
 	registerMethod("Player", "getPreyBonusRerolls", LuaScriptInterface::luaPlayerGetPreyBonusRerolls);
+	registerMethod("Player", "getPreyTick", LuaScriptInterface::luaPlayerGetPreyTick);
 	// SET
 	registerMethod("Player", "setPreyState", LuaScriptInterface::luaPlayerSetPreyState);
 	registerMethod("Player", "setPreyUnlocked", LuaScriptInterface::luaPlayerSetPreyUnlocked);
@@ -2621,6 +2622,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "setPreyBonusValue", LuaScriptInterface::luaPlayerSetPreyBonusValue);
 	registerMethod("Player", "setPreyBonusGrade", LuaScriptInterface::luaPlayerSetPreyBonusGrade);
 	registerMethod("Player", "setPreyBonusRerolls", LuaScriptInterface::luaPlayerSetPreyBonusRerolls);
+	registerMethod("Player", "setPreyTick", LuaScriptInterface::luaPlayerSetPreyTick);
 
 	registerMethod("Player", "getHouse", LuaScriptInterface::luaPlayerGetHouse);
 	registerMethod("Player", "sendHouseWindow", LuaScriptInterface::luaPlayerSendHouseWindow);
@@ -3205,7 +3207,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Imbuement", "isPremium", LuaScriptInterface::luaImbuementIsPremium);
 	registerMethod("Imbuement", "getElementDamage", LuaScriptInterface::luaImbuementGetElementDamage);
 	registerMethod("Imbuement", "getCombatType", LuaScriptInterface::luaImbuementGetCombatType);
-
 
 }
 
@@ -10872,6 +10873,20 @@ int LuaScriptInterface::luaPlayerGetPreyBonusRerolls(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerGetPreyTick(lua_State* L)
+{
+	// player:getPreyTick(slot)
+	Player* player = getUserdata<Player>(L, 1);
+	uint16_t slot = getNumber<uint16_t>(L, 2);
+	if (player) {
+		lua_pushnumber(L, player->getPreyTick(slot));
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 // SET
 int LuaScriptInterface::luaPlayerSetPreyState(lua_State* L)
 {
@@ -11030,6 +11045,21 @@ int LuaScriptInterface::luaPlayerSetPreyBonusRerolls(lua_State* L)
 	if (player) {
 		uint16_t value = getNumber<uint16_t>(L, 2);
 		player->preyBonusRerolls = value;
+	}
+	else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetPreyTick(lua_State* L)
+{
+	// player:setPreyTick(slot, tick)
+	Player* player = getUserdata<Player>(L, 1);
+	uint16_t slot = getNumber<uint16_t>(L, 2);
+	uint16_t tick = getNumber<uint16_t>(L, 3);
+	if (player) {
+		player->preySlotTick[slot] = tick;
 	}
 	else {
 		lua_pushnil(L);

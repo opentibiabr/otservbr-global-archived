@@ -250,8 +250,13 @@ class Player final : public Creature, public Cylinder
 		uint16_t getPreyBonusGrade(uint16_t slot) const {
 			return preySlotBonusGrade[slot];
 		}
+
 		uint16_t getPreyBonusRerolls() const {
 			return preyBonusRerolls;
+		}
+
+		uint16_t getPreyTick(uint16_t slot) const {
+			return preySlotTick[slot];
 		}
 		//
 
@@ -1598,6 +1603,7 @@ class Player final : public Creature, public Cylinder
 		std::vector<uint16_t> preySlotBonusType = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusValue = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusGrade = { 0, 0, 0 };
+		std::vector<uint16_t> preySlotTick = { 0, 0, 0 };
 
 		uint8_t soul = 0;
 		uint8_t levelPercent = 0;

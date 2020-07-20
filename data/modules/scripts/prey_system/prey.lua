@@ -1,7 +1,9 @@
+dofile('data/modules/scripts/prey_system/assets.lua')
+
 Prey = {
 	Credits = "System remake: Westwol ~ Packet logic: Cjaker ~  Formulas: slavidodo ~  Revision: Rick",
-	Version = "4.5",
-	LastUpdate = "18/02/20",
+	Version = "5.0",
+	LastUpdate = "18/07/20",
 }
 
 CONST_PREY_SLOT_FIRST = 0
@@ -18,10 +20,12 @@ CONST_BONUS_DAMAGE_REDUCTION = 1
 CONST_BONUS_XP_BONUS = 2
 CONST_BONUS_IMPROVED_LOOT = 3
 
-STORE_SLOT_STORAGE = 63253
-
 Prey.Config = {
-	ListRerollPrice = 2000
+	PreyTime = 7200, -- Milliseconds
+	StoreSlotStorage = 63253,
+	ListRerollPrice = 150,
+	BonusRerollPrice = 1,
+	SelectWithWildCardPrice = 5,
 }
 
 Prey.S_Packets = {
@@ -36,7 +40,8 @@ Prey.StateTypes = {
 	INACTIVE = 1,
 	ACTIVE = 2,
 	SELECTION = 3,
-	SELECTION_CHANGE_MONSTER = 4
+	SELECTION_CHANGE_MONSTER = 4,
+	SELECTION_WITH_WILDCARD = 6
 }
 
 Prey.UnlockTypes = {
@@ -49,6 +54,9 @@ Prey.Actions = {
 	NEW_LIST = 0,
 	NEW_BONUS = 1,
 	SELECT = 2,
+	LIST_ALL_MONSTERS = 3,
+	SELECT_ALL_MONSTERS = 4,
+	TICK_LOCK = 5
 }
 
 Prey.C_Packets = {
@@ -57,10 +65,10 @@ Prey.C_Packets = {
 }
 
 Prey.Bonuses = {
-	[CONST_BONUS_DAMAGE_BOOST] = {step = 2, min = 7, max = 25},
-	[CONST_BONUS_DAMAGE_REDUCTION] = {step = 2, min = 12, max = 30},
-	[CONST_BONUS_XP_BONUS] = {step = 3, min = 13, max = 40},
-	[CONST_BONUS_IMPROVED_LOOT] = {step = 3, min = 13, max = 40}
+	[CONST_BONUS_DAMAGE_BOOST] = {7, 9, 11, 13, 15, 17, 19, 21, 23, 25},
+	[CONST_BONUS_DAMAGE_REDUCTION] = {12, 14, 16, 18, 20, 22, 24, 26, 28, 30},
+	[CONST_BONUS_XP_BONUS] = {13, 16, 19, 22, 25, 28, 31, 34, 37, 40},
+	[CONST_BONUS_IMPROVED_LOOT] = {13, 16, 19, 22, 25, 28, 31, 34, 37, 40}
 }
 
 Prey.MonsterList = {
@@ -124,36 +132,24 @@ end
 -- Core functions
 function Player.setRandomBonusValue(self, slot, bonus, typeChange)
 	local type = self:getPreyBonusType(slot)
-
-	local min = Prey.Bonuses[type].min
-	local max = Prey.Bonuses[type].max
-	local step = Prey.Bonuses[type].step
-
+	local bonusValue = math.random(1, 10)
+	local starUP = math.random(1, 3)
+	local value = Prey.Bonuses[type][bonusValue]
+	local bonusGrade = self:getPreyBonusGrade(slot)
+	
 	if bonus then
 		if typeChange then
-			self:setPreyBonusValue(slot, math.random(min, max))
+			self:setPreyBonusGrade(slot, bonusValue)
+			self:setPreyBonusValue(slot, value)
 		else
-			local oldValue = self:getPreyBonusValue(slot)
-			if (oldValue + step >= max) then
-				self:setPreyBonusValue(slot, max)
-			else
-				while (self:getPreyBonusValue(slot) - oldValue < step) do
-					self:setPreyBonusValue(slot, math.random(min, max))
-				end
+			local upgradeStar = bonusGrade + starUP
+			if upgradeStar >= 10 then
+				upgradeStar = 10
 			end
+			local newBonus = Prey.Bonuses[type][upgradeStar]
+			self:setPreyBonusGrade(slot, upgradeStar)
+			self:setPreyBonusValue(slot, newBonus)
 		end
-	else
-		self:setPreyBonusValue(slot, math.random(min, max))
-	end
-	if (self:getPreyBonusValue(slot) == 0) then
-		self:setPreyBonusValue(slot, math.random(min, max))
-	end
-	self:setPreyBonusGrade(slot, math.floor((self:getPreyBonusValue(slot) - min) / (max - min) * 10))
-	if (self:getPreyBonusGrade(slot) == 10 and self:getPreyBonusValue(slot) < max) then
-		self:setPreyBonusGrade(slot, self:getPreyBonusGrade(slot) - 1)
-	end
-	if (self:getPreyBonusGrade(slot) == 0 and self:getPreyBonusValue(slot) >= min) then
-		self:setPreyBonusGrade(slot, 1)
 	end
 end
 
@@ -209,8 +205,68 @@ function Player.getMinutesUntilFreeReroll(self, slot)
 end
 
 function Player.getRerollPrice(self)
-	return (self:getLevel() / 2) * 100
+	return (self:getLevel() * Prey.Config.ListRerollPrice)
 end
+
+function getNameByRace(race)
+    local monsterTable = Bestiary.Monsters[race]
+	return monsterTable.name
+end
+
+function Player.getMonsterList(self)
+	local repeatedList = {}
+    local sortList = {}
+	local monsterList = {}
+
+	for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+		if (self:getPreyCurrentMonster(slot) ~= '') then
+			repeatedList[#repeatedList + 1] = self:getPreyCurrentMonster(slot)
+		end
+		if (self:getPreyMonsterList(slot) ~= '') then
+			local currentList = self:getPreyMonsterList(slot):split(";")
+			for i = 1, #currentList do
+				repeatedList[#repeatedList + 1] = currentList[i]
+			end
+		end
+	end
+	
+	-- Insert the monstersId
+	for i = 1, #preyRaceIds do
+		table.insert(sortList, preyRaceIds[i])
+	end
+
+    -- Do not allow repeated monsters
+	for k, v in pairs(sortList) do
+		if not table.contains(repeatedList, getNameByRace(tonumber(v))) then
+			table.insert(monsterList, v)
+		end
+	end
+	
+	return monsterList
+end
+
+function Player.setAutomaticBonus(self, slot)
+	local monster = self:getPreyCurrentMonster(slot)
+
+	-- Automatic Bonus Reroll
+	if self:getPreyTick(slot) == 1 and self:getPreyBonusRerolls() >= 1 then
+		self:setPreyBonusType(slot, self:getDiffBonus(slot))
+		self:setRandomBonusValue(slot, true, true)
+		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 1)
+		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey bonus was automatically rolled.", monster:lower()))
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
+	
+	-- Lock Prey
+	elseif self:getPreyTick(slot) == 2 and self:getPreyBonusRerolls() >= 5 then
+		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 5)
+		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey time was automatically renewed.", monster:lower()))
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
+	else
+		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired because you don't have enough prey wildcards.", monster:lower()))
+		self:setPreyCurrentMonster(slot, "")
+		self:setPreyTick(slot, 0)
+	end	
+end	
 
 function onRecvbyte(player, msg, byte)
 	if (byte == Prey.C_Packets.RequestData) then
@@ -257,6 +313,28 @@ function Player.preyAction(self, msg)
 		self:setPreyMonsterList(slot, self:createMonsterList())
 		self:setPreyState(slot, Prey.StateTypes.SELECTION_CHANGE_MONSTER)
 
+	-- Listreroll with wildcards
+	elseif (action == Prey.Actions.LIST_ALL_MONSTERS) then
+
+		-- Removing bonus rerolls
+		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 5)
+
+		self:setPreyCurrentMonster(slot, "")
+		self:setPreyMonsterList(slot, "")
+		self:setPreyState(slot, Prey.StateTypes.SELECTION_WITH_WILDCARD)
+
+	-- Select monster from the list
+	elseif (action == Prey.Actions.SELECT_ALL_MONSTERS) then
+		local race = msg:getU16()
+		local race = getNameByRace(race)
+	
+		-- Converts RaceID to String
+		self:setPreyCurrentMonster(slot, race)
+
+		self:setPreyState(slot, Prey.StateTypes.ACTIVE)
+		self:setPreyMonsterList(slot, "")
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
+
 	-- Bonus reroll
 	elseif (action == Prey.Actions.NEW_BONUS) then
 
@@ -275,8 +353,8 @@ function Player.preyAction(self, msg)
 		-- Calculating new bonus
 		local oldType = self:getPreyBonusType(slot)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
-		self:setRandomBonusValue(slot, true, (oldType ~= self:getPreyBonusType(slot) and true or false))
-		self:setPreyTimeLeft(slot, 7200) -- 2 hours
+		self:setRandomBonusValue(slot, true, false)
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 
 	-- Select monster from list
 	elseif (action == Prey.Actions.SELECT) then
@@ -298,6 +376,18 @@ function Player.preyAction(self, msg)
 
 		-- Proceeding to prey monster selection
 		self:selectPreyMonster(slot, monsterList[selectedMonster + 1])
+
+	-- Automatic Reroll/Lock
+	elseif (action == Prey.Actions.TICK_LOCK) then
+	
+		local button = msg:getByte()
+		if button == 1 then
+			self:setPreyTick(slot, 1)
+		elseif button == 2 then
+			self:setPreyTick(slot, 2)
+		else
+			self:setPreyTick(slot, 0)
+		end
 	end
 
 	-- Perfom slot update
@@ -319,7 +409,7 @@ function Player.selectPreyMonster(self, slot, monster)
 		-- Generating random prey type
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		-- Generating random bonus stats
-		self:setRandomBonusValue(slot, false, false)
+		self:setRandomBonusValue(slot, true, true)
 	elseif (self:getPreyBonusGrade(slot) == 0) then
 		-- Generating random prey type
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
@@ -334,7 +424,7 @@ function Player.selectPreyMonster(self, slot, monster)
 	-- Cleaning up monsterList
 	self:setPreyMonsterList(slot, "")
 	-- Time left
-	self:setPreyTimeLeft(slot, 7200) -- 2 hours
+	self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 end
 
 function Player.sendPreyData(self, slot)
@@ -357,7 +447,7 @@ function Player.sendPreyData(self, slot)
 
 	-- Unlock store slot
 	if self:getPreyState(CONST_PREY_SLOT_THIRD) == 0 then
-		if self:getStorageValue(STORE_SLOT_STORAGE) == 1	then
+		if self:getStorageValue(Prey.Config.StoreSlotStorage) == 1	then
 			self:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
 			self:setPreyState(CONST_PREY_SLOT_THIRD, 1)
 		else
@@ -367,6 +457,7 @@ function Player.sendPreyData(self, slot)
 	end
 
 	local slotState = self:getPreyState(slot)
+	local tickState = self:getPreyTick(slot)
 
 	local msg = NetworkMessage()
 	msg:addByte(Prey.S_Packets.PreyData) -- packet header
@@ -450,12 +541,33 @@ function Player.sendPreyData(self, slot)
 		msg:addByte(slot)
 		msg:addByte(slotState)
 		msg:addByte(self:getPreyUnlocked(slot))
+
+	elseif slotState == Prey.StateTypes.SELECTION_WITH_WILDCARD then
+		local raceList = self:getMonsterList()
+
+		msg:addByte(slot) -- slot number
+		msg:addByte(slotState) -- slot state
+		
+		-- Check if has any bonus
+		if self:getPreyBonusType(slot) < 1 then
+			self:setRandomBonusValue(slot, true, true)
+		end
+		
+		msg:addByte(self:getPreyBonusType(slot)) -- bonus type
+		msg:addU16(self:getPreyBonusValue(slot)) -- bonus value
+		msg:addByte(self:getPreyBonusGrade(slot)) -- bonus grade
+		msg:addU16(#raceList) -- monsters count
+		
+		for i = 1, #raceList do
+			msg:addU16(raceList[i]) -- raceID
+		end
 	end
 
 	-- Next free reroll
 	msg:addU16(self:getMinutesUntilFreeReroll(slot))
-	-- Feature unavailable (wildcards)
-	msg:addByte(0x00)
+
+	-- Automatic Reroll/Lock Prey
+	msg:addByte(tickState)
 
 	-- send prey message
 	msg:sendToPlayer(self)
@@ -478,8 +590,8 @@ function Player:sendPreyRerollPrice()
 	
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
-	msg:addByte(0x01) -- wildcards
-	msg:addByte(0x05) -- select directly
+	msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
+	msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
 
 	msg:sendToPlayer(self)
 end

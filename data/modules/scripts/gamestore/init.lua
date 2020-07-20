@@ -549,7 +549,7 @@ function sendShowStoreOffers(playerId, category)
 						disabledReason = "You already have this mount."
 					end
 				elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
-					local unlockedColumns = player:getStorageValue(STORE_SLOT_STORAGE)
+					local unlockedColumns = player:getStorageValue(Prey.Config.StoreSlotStorage)
 					if (unlockedColumns == 1) then
 						disabled = 1
 						disabledReason = "You already have 3 slots released."
@@ -1202,8 +1202,8 @@ function GameStore.processExpBoostPuchase(player)
 end
 
 function GameStore.processPreySlotPurchase(player)
-	if player:getStorageValue(STORE_SLOT_STORAGE) < 1 then
-		player:setStorageValue(STORE_SLOT_STORAGE, 1)
+	if player:getStorageValue(Prey.Config.StoreSlotStorage) < 1 then
+		player:setStorageValue(Prey.Config.StoreSlotStorage, 1)
 		player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
 		player:setPreyState(CONST_PREY_SLOT_THIRD, 1)
 
