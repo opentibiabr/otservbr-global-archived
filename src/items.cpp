@@ -469,6 +469,14 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 				it.type = ITEM_TYPE_RUNE;
 			} else if (tmpStrValue == "supply") {
 				it.type = ITEM_TYPE_SUPPLY;
+			} else if (tmpStrValue == "creatureproduct") {
+				it.type = ITEM_TYPE_CREATUREPRODUCT;
+			} else if (tmpStrValue == "food") {
+				it.type = ITEM_TYPE_FOOD;
+			} else if (tmpStrValue == "valuable") {
+				it.type = ITEM_TYPE_VALUABLE;
+			} else if (tmpStrValue == "potion") {
+				it.type = ITEM_TYPE_POTION;
 			} else {
 				std::cout << "[Warning - Items::parseItemNode] Unknown type: " << valueAttribute.as_string() << std::endl;
 			}
