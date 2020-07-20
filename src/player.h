@@ -1452,6 +1452,17 @@ class Player final : public Creature, public Cylinder
 
 		uint16_t getFreeBackpackSlots() const;
 
+		bool walkExhausted() {
+			if (hasCondition(CONDITION_PARALYZE)) {
+				return lastWalking > OTSYS_TIME();
+			}
+
+			return false;
+		}
+
+		void setWalkExhaust(int64_t value) {
+			lastWalking = OTSYS_TIME() + value;
+		}
 
   /*****************************************************************************
    * Interfaces
@@ -1563,6 +1574,7 @@ class Player final : public Creature, public Cylinder
 		int64_t nextAction = 0;
 		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
+		int64_t lastWalking = 0;
 
 		std::vector<Kill> unjustifiedKills;
 

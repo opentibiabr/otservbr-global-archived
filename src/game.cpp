@@ -2419,6 +2419,14 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		}
 	}
 
+	const ItemType& it = Item::items[item->getID()];
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		if (player->walkExhausted()) {
+			player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+			return;
+		}
+	}
+
 	if (ret != RETURNVALUE_NOERROR) {
 		if (ret == RETURNVALUE_TOOFARAWAY) {
 			Position itemPos = fromPos;
@@ -2444,7 +2452,11 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 
 				SchedulerTask* task = createSchedulerTask(400, std::bind(&Game::playerUseItemEx, this,
 									  playerId, itemPos, itemStackPos, fromSpriteId, toPos, toStackPos, toSpriteId));
-				player->setNextWalkActionTask(task);
+				if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+					player->setNextPotionActionTask(task);
+				} else {
+					player->setNextWalkActionTask(task);
+				}
 			} else {
 				player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
 			}
@@ -2456,7 +2468,6 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 	}
 
 	bool canDoAction = player->canDoAction();
-	const ItemType& it = Item::items[item->getID()];
 	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
 		canDoAction = player->canDoPotionAction();
 	}
@@ -2511,6 +2522,14 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 		return;
 	}
 
+	const ItemType& it = Item::items[item->getID()];
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		if (player->walkExhausted()) {
+			player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+			return;
+		}
+	}
+
 	ReturnValue ret = g_actions->canUse(player, pos);
 	if (ret != RETURNVALUE_NOERROR) {
 		if (ret == RETURNVALUE_TOOFARAWAY) {
@@ -2521,7 +2540,11 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 
 				SchedulerTask* task = createSchedulerTask(400, std::bind(&Game::playerUseItem, this,
 									  playerId, pos, stackPos, index, spriteId));
-				player->setNextWalkActionTask(task);
+				if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+					player->setNextPotionActionTask(task);
+				} else {
+					player->setNextWalkActionTask(task);
+				}
 				return;
 			}
 
@@ -2533,7 +2556,6 @@ void Game::playerUseItem(uint32_t playerId, const Position& pos, uint8_t stackPo
 	}
 
 	bool canDoAction = player->canDoAction();
-	const ItemType& it = Item::items[item->getID()];
 	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
 		canDoAction = player->canDoPotionAction();
 	}
@@ -2595,6 +2617,13 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 		return;
 	}
 
+	const ItemType& it = Item::items[item->getID()];
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		if (player->walkExhausted()) {
+			player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+			return;
+		}
+	}
 	Position toPos = creature->getPosition();
 	Position walkToPos = fromPos;
 	ReturnValue ret = g_actions->canUse(player, fromPos);
@@ -2629,7 +2658,11 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 
 				SchedulerTask* task = createSchedulerTask(400, std::bind(&Game::playerUseWithCreature, this,
 									  playerId, itemPos, itemStackPos, creatureId, spriteId));
-				player->setNextWalkActionTask(task);
+				if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+					player->setNextPotionActionTask(task);
+				} else {
+					player->setNextWalkActionTask(task);
+				}
 			} else {
 				player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
 			}
@@ -2640,16 +2673,33 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 		return;
 	}
 
-	if (!player->canDoAction()) {
+	bool canDoAction = player->canDoAction();
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		canDoAction = player->canDoPotionAction();
+	}
+
+	if (!canDoAction) {
 		uint32_t delay = player->getNextActionTime();
+		if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+			delay = player->getNextPotionActionTime();
+		}
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerUseWithCreature, this,
 							  playerId, fromPos, fromStackPos, creatureId, spriteId));
-		player->setNextActionTask(task);
+
+		if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+			player->setNextPotionActionTask(task);
+		} else {
+			player->setNextActionTask(task);
+		}
 		return;
 	}
 
 	player->resetIdleTime();
-	player->setNextActionTask(nullptr);
+	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		player->setNextPotionActionTask(nullptr);
+	} else {
+		player->setNextActionTask(nullptr);
+	}
 
 	g_actions->useItemEx(player, fromPos, creature->getPosition(), creature->getParent()->getThingIndex(creature), item, isHotkey, creature);
 }
@@ -4214,8 +4264,11 @@ void Game::playerSay(uint32_t playerId, uint16_t channelId, SpeakClasses type,
 
 bool Game::playerSaySpell(Player* player, SpeakClasses type, const std::string& text)
 {
-	std::string words = text;
+	if (player->walkExhausted()) {
+		return true;
+	}
 
+	std::string words = text;
 	TalkActionResult_t result = g_talkActions->playerSaySpell(player, type, words);
 	if (result == TALKACTION_BREAK) {
 		return true;

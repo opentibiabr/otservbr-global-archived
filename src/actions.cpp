@@ -456,13 +456,19 @@ bool Actions::useItem(Player* player, const Position& pos, uint8_t index, Item* 
 {
 	const ItemType& it = Item::items[item->getID()];
 	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		if (player->walkExhausted()) {
+			player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+			return false;
+		}
+
 		player->setNextPotionAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
 	} else {
 		player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
 	}
 
 	if (isHotkey) {
-		showUseHotkeyMessage(player, item, player->getItemTypeCount(item->getID(), -1));
+		uint16_t subType = item->getSubType();
+		showUseHotkeyMessage(player, item, player->getItemTypeCount(item->getID(), subType != item->getItemCount() ? subType : -1));
 	}
 
 	ReturnValue ret = internalUseItem(player, pos, index, item, isHotkey);
@@ -478,6 +484,10 @@ bool Actions::useItemEx(Player* player, const Position& fromPos, const Position&
 {
 	const ItemType& it = Item::items[item->getID()];
 	if (it.isRune() || it.type == ITEM_TYPE_POTION) {
+		if (player->walkExhausted()) {
+			player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+			return false;
+		}
 		player->setNextPotionAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
 	} else {
 		player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::EX_ACTIONS_DELAY_INTERVAL));
@@ -496,7 +506,8 @@ bool Actions::useItemEx(Player* player, const Position& fromPos, const Position&
 	}
 
 	if (isHotkey) {
-		showUseHotkeyMessage(player, item, player->getItemTypeCount(item->getID(), -1));
+		uint16_t subType = item->getSubType();
+		showUseHotkeyMessage(player, item, player->getItemTypeCount(item->getID(), subType != item->getItemCount() ? subType : -1));
 	}
 
 	if (action->function) {
