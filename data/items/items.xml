@@ -1761,7 +1761,7 @@
 		<attribute key="weight" value="4500" />
 	</item>
 	<item id="2044" article="a" name="lamp">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="3000" />
 		<attribute key="stopduration" value="1" />
@@ -1777,7 +1777,7 @@
 		<attribute key="weight" value="3000" />
 	</item>
 	<item id="2047" article="a" name="candlestick">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="300" />
 		<attribute key="stopduration" value="1" />
@@ -1795,7 +1795,7 @@
 		<attribute key="duration" value="60" />
 	</item>
 	<item id="2050" article="a" name="torch">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="500" />
 		<attribute key="stopduration" value="1" />
@@ -2210,7 +2210,7 @@
 		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="2162" article="a" name="magic light wand">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="1500" />
 		<attribute key="stopduration" value="1" />
@@ -2304,7 +2304,7 @@
 		<attribute key="charges" value="1" />
 	</item>
 	<item id="2174" article="a" name="strange symbol">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="200" />
 	</item>
@@ -4561,7 +4561,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="30" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="bolt" />
 		<attribute key="maxHitChance" value="87" />
@@ -4571,7 +4571,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="25" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="arrow" />
 		<attribute key="maxHitChance" value="91" />
@@ -4581,7 +4581,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="23" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="poisonarrow" />
 		<attribute key="maxHitChance" value="91" />
@@ -4591,7 +4591,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="27" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="burstarrow" />
 		<attribute key="maxHitChance" value="100" />
@@ -4601,7 +4601,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="40" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="powerbolt" />
 		<attribute key="maxHitChance" value="91" />
@@ -9770,7 +9770,7 @@
 	</item>
 	<item id="5811" article="a" name="mermaid" />
 	<item id="5812" article="a" name="skull candle">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="2200" />
 		<attribute key="decayTo" value="2229" />
@@ -12018,7 +12018,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="72" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="infernalbolt" />
 		<attribute key="maxHitChance" value="91" />
@@ -13028,7 +13028,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="33" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="piercingbolt" />
 		<attribute key="maxHitChance" value="87" />
@@ -13038,7 +13038,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="28" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="sniperarrow" />
 		<attribute key="maxHitChance" value="100" />
@@ -13048,7 +13048,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="38" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="onyxarrow" />
 		<attribute key="maxHitChance" value="94" />
@@ -15043,7 +15043,7 @@
 		<attribute key="attack" value="14" />
 		<attribute key="elementEnergy" value="14" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="flasharrow" />
 		<attribute key="maxHitChance" value="91" />
@@ -15054,7 +15054,7 @@
 		<attribute key="attack" value="14" />
 		<attribute key="elementIce" value="14" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="shiverarrow" />
 		<attribute key="maxHitChance" value="91" />
@@ -15065,7 +15065,7 @@
 		<attribute key="attack" value="14" />
 		<attribute key="elementFire" value="14" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="flammingarrow" />
 		<attribute key="maxHitChance" value="91" />
@@ -15115,7 +15115,7 @@
 		<attribute key="attack" value="14" />
 		<attribute key="elementEarth" value="14" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="shootType" value="eartharrow" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="maxHitChance" value="91" />
@@ -25887,7 +25887,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="33" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="tarsalarrow" />
 		<attribute key="maxHitChance" value="94" />
@@ -25897,7 +25897,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="36" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="vortexbolt" />
 		<attribute key="maxHitChance" value="89" />
@@ -26660,7 +26660,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="36" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="vortexbolt" />
 		<attribute key="maxHitChance" value="90" />
@@ -26670,7 +26670,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="65" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="crystallinearrow" />
 		<attribute key="maxHitChance" value="95" />
@@ -27139,7 +27139,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="66" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="prismaticbolt" />
 		<attribute key="maxHitChance" value="90" />
@@ -27149,7 +27149,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="56" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="drillbolt" />
 		<attribute key="maxHitChance" value="90" />
@@ -27160,7 +27160,7 @@
 		<attribute key="attack" value="27" />
 		<attribute key="elementEarth" value="27" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="envenomedarrow" />
 		<attribute key="maxHitChance" value="93" />
@@ -31825,7 +31825,7 @@
 		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="21695" article="a" name="sun mirror">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="150" />
 	</item>
@@ -31850,7 +31850,7 @@
 		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="21699" article="a" name="trapped lightning">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="100" />
 	</item>
@@ -31863,12 +31863,12 @@
 		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="21703" article="an" name="eye of the storm">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="150" />
 	</item>
 	<item id="21705" article="a" name="glass of goo">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="170" />
 	</item>
@@ -34231,7 +34231,7 @@
 		<attribute key="slotType" value="ammo" />
 		<attribute key="attack" value="20" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="arrow" />
 		<attribute key="maxHitChance" value="40" />
@@ -36205,7 +36205,7 @@
 		<attribute key="weight" value="200" />
 	</item>
 	<item id="25381" article="a" name="rift lamp">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="slotType" value="ammo" />
 		<attribute key="weight" value="200" />
 	</item>
@@ -37804,7 +37804,7 @@
 		<attribute key="description" value="It is of foreboding, reddish colour and pulses steadily. You have the feeling that something dangerous is moving inside." />
 	</item>
 	<item id="26342" article="a" name="devourer core">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="description" value="The core of the devourer has the power to provide you with a powerfull charge that allows you to challenge him again immediately." />
 		<attribute key="weight" value="560" />
 	</item>
@@ -39386,7 +39386,7 @@
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="spectralbolt" />
 		<attribute key="maxHitChance" value="100" />
@@ -39401,7 +39401,7 @@
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="diamondarrow" />
 		<attribute key="maxHitChance" value="100" />
@@ -45514,7 +45514,7 @@
 		<attribute key="weight" value="420" />
 	</item>
 	<item id="35054" article="a" name="golden bell">
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="loottype" value="creatureproduct" />
 		<attribute key="weight" value="155" />
 	</item>
@@ -48907,7 +48907,7 @@
 		<attribute key="weight" value="170" />
 	</item>
 	<item id="37426" article="a" name="soulforged lantern" >
-		<attribute key="loottype" value="weaponammo" />
+		<attribute key="loottype" value="ammo" />
 		<attribute key="weight" value="3000" />
 		<attribute key="description" value="Forged of tormented souls, this item might grant protection from the powers of the pale worm, but it has a chance to burn out in the process." />
 	</item>
