@@ -148,7 +148,7 @@ end
 
 -- Functions that cannot be used in reload command, so they have been moved here
 -- Prey slots consumption
-local function preyTimeLeft(player, slot)
+function preyTimeLeft(player, slot)
 	local timeLeft = player:getPreyTimeLeft(slot) / 60
 	local monster = player:getPreyCurrentMonster(slot)
 	if (timeLeft > 0) then

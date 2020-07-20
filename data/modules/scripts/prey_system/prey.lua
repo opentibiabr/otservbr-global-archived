@@ -20,7 +20,13 @@ CONST_BONUS_DAMAGE_REDUCTION = 1
 CONST_BONUS_XP_BONUS = 2
 CONST_BONUS_IMPROVED_LOOT = 3
 
-STORE_SLOT_STORAGE = 63253
+Prey.Config = {
+	PreyTime = 7200, -- Milliseconds
+	StoreSlotStorage = 63253,
+	ListRerollPrice = 150,
+	BonusRerollPrice = 1,
+	SelectWithWildCardPrice = 5,
+}
 
 Prey.S_Packets = {
 	ShowDialog = 0xED,
@@ -199,7 +205,7 @@ function Player.getMinutesUntilFreeReroll(self, slot)
 end
 
 function Player.getRerollPrice(self)
-	return (self:getLevel() * 150)
+	return (self:getLevel() * Prey.Config.ListRerollPrice)
 end
 
 function getNameByRace(race)
@@ -248,13 +254,13 @@ function Player.setAutomaticBonus(self, slot)
 		self:setRandomBonusValue(slot, true, true)
 		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 1)
 		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey bonus was automatically rolled.", monster:lower()))
-		self:setPreyTimeLeft(slot, 7200) -- 2 hours
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 	
 	-- Lock Prey
 	elseif self:getPreyTick(slot) == 2 and self:getPreyBonusRerolls() >= 5 then
 		self:setPreyBonusRerolls(self:getPreyBonusRerolls() - 5)
 		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey time was automatically renewed.", monster:lower()))
-		self:setPreyTimeLeft(slot, 7200) -- 2 hours
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 	else
 		self:sendTextMessage(MESSAGE_EVENT_ADVANCE, string.format("Your %s's prey has expired because you don't have enough prey wildcards.", monster:lower()))
 		self:setPreyCurrentMonster(slot, "")
@@ -327,7 +333,7 @@ function Player.preyAction(self, msg)
 
 		self:setPreyState(slot, Prey.StateTypes.ACTIVE)
 		self:setPreyMonsterList(slot, "")
-		self:setPreyTimeLeft(slot, 7200) -- 2 hours
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 
 	-- Bonus reroll
 	elseif (action == Prey.Actions.NEW_BONUS) then
@@ -348,7 +354,7 @@ function Player.preyAction(self, msg)
 		local oldType = self:getPreyBonusType(slot)
 		self:setPreyBonusType(slot, math.random(CONST_BONUS_DAMAGE_BOOST, CONST_BONUS_IMPROVED_LOOT))
 		self:setRandomBonusValue(slot, true, false)
-		self:setPreyTimeLeft(slot, 7200) -- 2 hours
+		self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 
 	-- Select monster from list
 	elseif (action == Prey.Actions.SELECT) then
@@ -418,7 +424,7 @@ function Player.selectPreyMonster(self, slot, monster)
 	-- Cleaning up monsterList
 	self:setPreyMonsterList(slot, "")
 	-- Time left
-	self:setPreyTimeLeft(slot, 7200) -- 2 hours
+	self:setPreyTimeLeft(slot, Prey.Config.PreyTime)
 end
 
 function Player.sendPreyData(self, slot)
@@ -441,7 +447,7 @@ function Player.sendPreyData(self, slot)
 
 	-- Unlock store slot
 	if self:getPreyState(CONST_PREY_SLOT_THIRD) == 0 then
-		if self:getStorageValue(STORE_SLOT_STORAGE) == 1	then
+		if self:getStorageValue(Prey.Config.StoreSlotStorage) == 1	then
 			self:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
 			self:setPreyState(CONST_PREY_SLOT_THIRD, 1)
 		else
@@ -584,8 +590,8 @@ function Player:sendPreyRerollPrice()
 	
 	msg:addByte(Prey.S_Packets.PreyRerollPrice)
 	msg:addU32(self:getRerollPrice())
-	msg:addByte(0x01) -- wildcards
-	msg:addByte(0x05) -- select directly
+	msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
+	msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
 
 	msg:sendToPlayer(self)
 end
