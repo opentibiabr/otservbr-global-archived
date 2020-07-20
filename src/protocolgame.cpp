@@ -485,7 +485,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
 		case 0xD4: parseToggleMount(msg); break;
-		case 0xD5: parseApplyImbuemente(msg); break;
+		case 0xD5: parseApplyImbuement(msg); break;
 		case 0xD6: parseClearingImbuement(msg); break;
 		case 0xD7: parseCloseImbuingWindow(msg); break;
 		case 0xDC: parseAddVip(msg); break;
@@ -819,7 +819,7 @@ void ProtocolGame::parseToggleMount(NetworkMessage& msg)
 	addGameTask(&Game::playerToggleMount, player->getID(), mount);
 }
 
-void ProtocolGame::parseApplyImbuemente(NetworkMessage& msg)
+void ProtocolGame::parseApplyImbuement(NetworkMessage& msg)
 {
 	uint8_t slot = msg.getByte();
 	uint32_t imbuementId = msg.get<uint32_t>();
@@ -3596,6 +3596,10 @@ void ProtocolGame::addImbuementInfo(NetworkMessage& msg, uint32_t imbuid)
 
 void ProtocolGame::sendImbuementWindow(Item* item)
 {
+	if (!item || item->isRemoved()) {
+		return;
+	}
+
 	const ItemType& it = Item::items[item->getID()];
 	uint8_t slot = it.imbuingSlots;
 	bool itemHasImbue = false;
