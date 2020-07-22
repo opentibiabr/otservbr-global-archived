@@ -354,7 +354,7 @@ ChestUnique = {
 	-- Fire axe quest
 	-- Fire axe
 	[6036] = {
-		itemId = 1740,
+		itemId = 2843,
 		itemPos = {x = 33084, y = 31650, z = 12},
 		itemReward = {{2432, 1}},
 		storage = Storage.Quest.FireAxe.FireAxe
@@ -487,7 +487,7 @@ ChestUnique = {
 	-- Fire axe quest
 	-- Bag
 	[10006] = {
-		itemId = 2843,
+		itemId = 1740,
 		itemPos = {x = 33078, y = 31656, z = 11},
 		itemBag = 1987,
 		itemReward = {{2214, 1}, {2201, 200}, {2145, 7}},
