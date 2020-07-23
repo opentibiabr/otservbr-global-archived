@@ -1797,7 +1797,11 @@ Storage = {
 			Broadsword = 10052
 		},
 		-- update 7.1
-		BlackKnight = {},
+		BlackKnight = {
+			Key5010 = 10053,
+			CrownArmor = 10054,
+			CrownShield = 10055
+		},
 		DragonTower = {},
 		TimeRing = {},
 		-- update 7.2

@@ -8,7 +8,9 @@ function onStartup()
 	-- Book table
 	loadLuaMapBook(BookTable)
 	print("> Loaded " .. (#BookTable) .. " books in the map")
-
+	-- Book table
+	loadLuaMapBook(DocumentsTable)
+	print("> Loaded " .. (#DocumentsTable) .. " books in the map")
 
 	-- Action and unique tables
 	-- Chest table
