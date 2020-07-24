@@ -1806,7 +1806,11 @@ Storage = {
 			Backpack1 = 10056,
 			Backpack2 = 10057
 		},
-		TimeRing = {},
+		TimeRing = {
+			CrystallBall = 10058,
+			TimeRing = 10059,
+			ElvenAmulet = 10060
+		},
 		-- update 7.2
 		Behemoth = {},
 		ParchmentRoom = {},
