@@ -1802,7 +1802,10 @@ Storage = {
 			CrownArmor = 10054,
 			CrownShield = 10055
 		},
-		DragonTower = {},
+		DragonTower = {
+			Backpack1 = 10056,
+			Backpack2 = 10057
+		},
 		TimeRing = {},
 		-- update 7.2
 		Behemoth = {},
