@@ -568,6 +568,25 @@ ChestUnique = {
 		weight = 80,
 		storage = Storage.Quest.Key4502
 	},
+	-- Dragon tower quest
+	-- Backpack 1
+	[10012] = {
+		itemId = 1738,
+		itemPos = {x = 33072, y = 32169, z = 2},
+		itemBag = 1988,
+		itemReward = {{7620, 1}, {7618, 1}, {2546, 30}, {2545, 60}},
+		weight = 80,
+		storage = Storage.Quest.DragonTower.Backpack1
+	},
+	-- Backpack 2
+	[10013] = {
+		itemId = 1738,
+		itemPos = {x = 33078, y = 32169, z = 2},
+		itemBag = 1988,
+		itemReward = {{2456, 1}, {2146, 2}},
+		weight = 50,
+		storage = Storage.Quest.DragonTower.Backpack2
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
