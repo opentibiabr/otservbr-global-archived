@@ -457,6 +457,28 @@ ChestUnique = {
 		itemReward = {{2519, 1}},
 		storage = Storage.Quest.BlackKnight.CrownShield
 	},
+	-- TIme ring quest
+	-- Crystal ball
+	[6049] = {
+		itemId = 1740,
+		itemPos = {x = 33038, y = 32171, z = 9},
+		itemReward = {{2192, 1}},
+		storage = Storage.Quest.TimeRing.CrystalBall
+	},
+	-- Time ring
+	[6050] = {
+		itemId = 1740,
+		itemPos = {x = 33039, y = 32171, z = 9},
+		itemReward = {{2169, 1}},
+		storage = Storage.Quest.TimeRing.TimeRing
+	},
+	-- Elven amulet
+	[6051] = {
+		itemId = 1740,
+		itemPos = {x = 33040, y = 32171, z = 9},
+		itemReward = {{2198, 1}},
+		storage = Storage.Quest.TimeRing.ElvenAmulet
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
