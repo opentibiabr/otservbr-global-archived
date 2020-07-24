@@ -32,7 +32,7 @@
 			<attribute key="areaEffect" value="mortarea" />
 		</attack>
 		<attack name="holy" interval="1700" chance="35" radius="3" min="-250" max="-400">
-			<attribute key="areaEffect" value="HOLYAREA" />
+			<attribute key="areaEffect" value="holyarea" />
 		</attack>
 		<attack name="energy" interval="1700" chance="13" range="4" radius="4" target="1" min="-400" max="-450">
 			<attribute key="areaEffect" value="energyarea"/>
