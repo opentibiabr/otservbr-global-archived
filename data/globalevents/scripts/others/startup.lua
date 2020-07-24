@@ -8,7 +8,7 @@ function onStartup()
 	-- Book table
 	loadLuaMapBook(BookTable)
 	print("> Loaded " .. (#BookTable) .. " books in the map")
-	-- Book table
+	-- Documents table
 	loadLuaMapBook(DocumentsTable)
 	print("> Loaded " .. (#DocumentsTable) .. " books in the map")
 
