@@ -25,7 +25,7 @@
      		<attribute key="shootEffect" value="envenomedarrow"/>
      	</attack>
  		<attack name="energy" interval="1500" chance="25" length="4" spread="0" min="-300" max="-650">
-			<attribute key="areaEffect" value="ENERGY" /> 
+			<attribute key="areaEffect" value="energy" /> 
 		</attack>
 		<attack name="death" interval="1500" chance="35"  radius="4" target="1"  min="-300" max="-650">
 			<attribute key="areaEffect" value="mortarea" />

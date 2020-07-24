@@ -26,13 +26,13 @@
      		<attribute key="shootEffect" value="envenomedarrow"/>
      	</attack>
  		<attack name="energy" interval="1700" chance="25" length="4" spread="0" min="-150" max="-550">
-			<attribute key="areaEffect" value="ENERGY" /> 
+			<attribute key="areaEffect" value="energy" /> 
 		</attack>
 		<attack name="death" interval="1700" chance="35"  radius="4" min="-150" max="-550">
 			<attribute key="areaEffect" value="mortarea" />
 		</attack> 
 		<attack name="energy" interval="1700" chance="20"  radius="4" min="-150" max="-550">
-			<attribute key="areaEffect" value="ENERGYAREA" />
+			<attribute key="areaEffect" value="energyarea" />
 		</attack> 
  	</attacks>
 	<defenses armor="82" defense="40" />

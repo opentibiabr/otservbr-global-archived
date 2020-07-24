@@ -23,7 +23,7 @@
 			<attribute key="areaEffect" value="POFF" />
 		</attack>
 		<attack name="fire" interval="2000" chance="1" radius="1" min="-100" max="-150">
-			<attribute key="areaEffect" value="ENERGYAREA" />
+			<attribute key="areaEffect" value="energyarea" />
 		</attack>
 		<attack name="lifedrain" interval="2000" chance="111" target="1" radius="4" min="-100" max="-150">
 			<attribute key="areaEffect" value="redspark" />

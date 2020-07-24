@@ -35,7 +35,7 @@
 			<attribute key="areaEffect" value="HOLYAREA" />
 		</attack>
 		<attack name="energy" interval="2000" chance="13" range="4" radius="4" target="1" min="-400" max="-550">
-			<attribute key="areaEffect" value="ENERGYAREA"/>
+			<attribute key="areaEffect" value="energyarea"/>
 		</attack>
 	</attacks>
 	<defenses armor="85" defense="40" />
