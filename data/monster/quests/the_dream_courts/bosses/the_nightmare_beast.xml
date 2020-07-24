@@ -31,38 +31,51 @@
 		<immunity paralyze="1" />
 	</immunities>
 	<loot>
-		<item name="ultimate spirit potion" countmax="20" chance="60780" />
-		<item name="supreme health potion" countmax="6" chance="4920" />
-		<item name="silver token" countmax="3" chance="4920" />
-		<item name="gold token" countmax="3" chance="4920" />
-        <item name="platinum coin" countmax="5" chance="60780" />
-		<item name="crystal coin" countmax="2" chance="10000" />
-		<item name="berserk potion" countmax="10" chance="10000" />
-		<item name="bullseye potion" countmax="10" chance="10000" />
-		<item name="mastermind potion" countmax="10" chance="10000" />
-		<item name="royal star" countmax="100" chance="10000" />
-		<item name="blue gem" chance="160" />
-		<item name="green gem" chance="160" />
-		<item name="piggy bank" chance="160" />
-		<item name="red gem" chance="160" />
-		<item name="violet gem" chance="160" />
-		<item name="yellow gem" chance="160" />
-		<item name="beast's nightmare-cushion" chance="160" />
-		<item id="26198" chance="160" /> <!-- collar of blue plasma -->
-		<item id="26199" chance="160" /> <!-- collar of green plasma -->
-		<item id="26200" chance="160" /> <!-- collar of red plasma -->
-		<item name="dragon figurine" chance="160" />
-		<item name="huge chunk of crude iron" chance="160" />
-		<item id="26185" chance="160" /><!-- ring of blue plasma -->
-		<item id="26187" chance="160" /><!-- ring of green plasma -->
-		<item id="26189" chance="160" /><!-- ring of red plasma -->
-		<item name="ring of the sky" chance="160" />
-		<item name="dark whispers" chance="100" />
-		<item name="enchanted sleep shawl" chance="100" />
-		<item name="ice shield" chance="100" />
-		<item name="purple tendril lantern" chance="100" />
-		<item name="soul stone" chance="100" />
-		<item name="turquoise tendril lantern" chance="100" />
-		<item name="unicorn figurine" chance="100" />
+		<item name="platinum coin" countmax="5" chance="100000" />
+		<item name="piggy bank" chance="100000" />
+		<item name="mysterious remains" chance="100000" />
+		<item name="energy bar" chance="100000" />
+		<item name="silver token" countmax="4" chance="97120" />
+		<item name="gold token" countmax="3" chance="76980" />
+		<item name="ultimate spirit potion" countmin="6" countmax="14" chance="63310" />
+		<item name="supreme health potion" countmax="6" chance="53240" />
+		<item name="ultimate spirit potion" countmin="6" countmax="20" chance="47480" />
+		<item name="huge chunk of crude iron" chance="40290" />
+		<item name="red gem" chance="32370" />
+		<item name="yellow gem" chance="28780" />
+		<item name="royal star" countmax="100" chance="25900" />
+		<item name="berserk potion" countmax="10" chance="24460" />
+		<item name="blue gem" chance="18710" />
+		<item name="mastermind potion" countmax="10" chance="17990" />
+		<item name="green gem" chance="17270" />
+		<item name="crystal coin" chance="17270" />
+		<item name="skull staff" chance="16550" />
+		<item name="bullseye potion" countmax="10" chance="13670" />
+		<item name="ice shield" chance="13670" />
+		<item name="chaos mace" chance="13670" />
+		<item name="gold ingot" chance="12950" />
+		<item id="7633" chance="10790" /> <!-- giant shimmering pearl -->
+		<item id="26200" chance="10070" /> <!-- collar of red plasma -->
+		<item id="26198" chance="9350" /> <!-- collar of blue plasma -->
+		<item id="26187" chance="8630" /><!-- ring of green plasma -->
+		<item name="ring of the sky" chance="8630" />
+		<item id="26199" chance="7910" /> <!-- collar of green plasma -->
+		<item name="beast's nightmare-cushion" chance="6470" />
+		<item name="violet gem" chance="6470" />
+		<item name="magic sulphur" chance="6470" />
+		<item name="purple tendril lantern" chance="5760" />
+		<item id="26185" chance="5040" /><!-- ring of blue plasma -->
+		<item id="26189" chance="5040" /><!-- ring of red plasma -->
+		<item name="soul stone" chance="5040" />
+		<item name="dragon figurine" chance="5040" />
+		<item name="giant sapphire" chance="4320" />
+		<item name="giant emerald" chance="4320" />
+		<item name="turquoise tendril lantern" chance="2880" />
+		<item name="dark whispers" chance="2880" />
+		<item name="arcane staff" chance="2880" />
+		<item name="giant ruby" chance="2880" />
+		<item name="abyss hammer" chance="2160" />
+		<item name="enchanted sleep shawl" chance="2160" />
+		<item name="unicorn figurine" chance="1000" />
 	</loot>
 </monster>
