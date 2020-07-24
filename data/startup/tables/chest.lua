@@ -22,11 +22,19 @@
 ]]
 
 ChestAction = {
-	-- Keys action
+	-- Keys quest
+	-- data\scripts\actions\system\quest_reward_key.lua
+	-- Black knight quest key 5010
 	[5000] = {
-		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = zz}
-	},
+		itemId = 2720,
+		itemPos = {
+			{x = 32800, y = 31959, z = 7},
+			{x = 32813, y = 31964, z = 7}
+		},
+		keyAction = 5010,
+		itemReward = 2088,
+		storage = Storage.Quest.BlackKnight.Key5010
+	}
 }
 
 ChestUnique = {
@@ -433,6 +441,21 @@ ChestUnique = {
 		itemPos = {x = 32109, y = 31567, z = 9},
 		itemReward = {{2413, 1}},
 		storage = Storage.Quest.AlawarsVault.Broadsword
+	},
+	-- Black knight quest
+	-- Crown armor
+	[6047] = {
+		itemId = 2720,
+		itemPos = {x = 32868, y = 31955, z = 11},
+		itemReward = {{2487, 1}},
+		storage = Storage.Quest.BlackKnight.CrownArmor
+	},
+	-- Crown shield
+	[6048] = {
+		itemId = 2720,
+		itemPos = {x = 32880, y = 31955, z = 11},
+		itemReward = {{2519, 1}},
+		storage = Storage.Quest.BlackKnight.CrownShield
 	},
 
 	-- Reward inside of container, there is also the option to put a key inside

@@ -856,3 +856,16 @@ SignTable = {
 		text = "Southern Trade Room"
 	}
 }
+
+DocumentsTable = {
+	[1] = {
+		itemId = 1953,
+		itemPos = {x = 32854, y = 31992, z = 11},
+		text = [[
+What I thought to be digging men are in fact strange green creatures with many arms or eyestalks, who can dig very fast. I think they are called "Beholders".
+They did not attack me yet, although I am sure they can sense me. Who knows, maybe they have no interest in me, and I can use their tunnels to get out of here? I will not attack them, unless I have to defend myself.
+I stopped counting the days, because I lost all feeling for time down here.
+
+Oh, how I long to see humans again!]]
+	}
+}
