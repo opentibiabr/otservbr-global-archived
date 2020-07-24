@@ -47587,7 +47587,7 @@
 		<attribute key="quicklootcategory" value="creatureproduct" />
 		<attribute key="weight" value="70" />
 	</item>
-	<item id="36428" article="a" name="noble cap">
+	<item id="36428" article="a" name="noble cape">
 		<attribute key="quicklootcategory" value="creatureproduct" />
 		<attribute key="weight" value="100" />
 	</item>
@@ -48905,7 +48905,7 @@
 	<item id="37428" article="a" name="grimace" >
 		<attribute key="weight" value="60" />
 	</item>
-	<item id="37429" article="a" name="bloody tear">
+	<item id="37429" name="bloody tears">
 		<attribute key="weight" value="20" />
 		<attribute key="showcount" value="1" />
 	</item>
