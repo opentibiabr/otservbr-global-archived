@@ -49736,13 +49736,13 @@
 	<item id="38755" name="Malice's horn">
 		<attribute key="weight" value="150" />
 	</item>
-	<item id="38756" name="malice's spine">
+	<item id="38756" name="Malice's spine">
 		<attribute key="weight" value="230" />
 	</item>
-	<item id="38757" name="cruelty's claw">
+	<item id="38757" name="Cruelty's claw">
 		<attribute key="weight" value="140" />
 	</item>
-	<item id="38758" name="cruelty's chest">
+	<item id="38758" name="Cruelty's chest">
 		<attribute key="weight" value="140" />
 	</item>
 	<item id="38759" name="Greed's arm">
@@ -49754,7 +49754,7 @@
 	<item id="38761" name="Spite's spirit">
 		<attribute key="weight" value="110" />
 	</item>
-	<item id="38762" name="vial of hatred">
+	<item id="38762" name="vial of Hatred">
 		<attribute key="weight" value="110" />
 	</item>
 	<item id="38763" name="Megalomania's essence">
