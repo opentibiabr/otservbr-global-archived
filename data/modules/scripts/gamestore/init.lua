@@ -532,8 +532,7 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have this mount."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
-			local unlockedColumns = self:getPreyState(2)
-			if (unlockedColumns ~= STATE_LOCKED) then
+			if self:getStorageValue(Prey.Config.StoreSlotStorage) == 1 then
 				disabled = 1
 				disabledReason = "You already have 3 slots released."
 			end
@@ -1383,16 +1382,20 @@ function GameStore.processExpBoostPuchase(player)
 end
 
 function GameStore.processPreySlotPurchase(player)
-	if (player:getPreyState(2) ~= STATE_LOCKED) then
-		return error({code = 0, message = "You already have 3 slots released."})
-	end
+	if player:getStorageValue(Prey.Config.StoreSlotStorage) < 1 then
+		player:setStorageValue(Prey.Config.StoreSlotStorage, 1)
+		player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
+		player:setPreyState(CONST_PREY_SLOT_THIRD, 1)
 
-	player:changePreyState(2, STATE_SELECTION)
+		-- Update Prey Data
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end
 end
 
 function GameStore.processPreyBonusReroll(player, offerCount)
-	local amount = math.max(player:getBonusRerollCount(), 0)
-	player:setBonusRerollCount(offerCount + amount)
+	player:setPreyBonusRerolls(player:getPreyBonusRerolls() + offerCount)
 end
 
 function GameStore.processTempleTeleportPurchase(player)
