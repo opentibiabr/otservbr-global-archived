@@ -547,11 +547,16 @@
 	<monster name="Blightwalker" file="undeads/blightwalker.xml" />
 	<monster name="Blood Beast" file="undeads/blood_beast.xml" />
 	<monster name="Burster Spectre" file="undeads/burster_spectre.xml" />
+	<monster name="Cursed Prospector" file="undeads/cursed_prospector.xml" />
+	<monster name="Evil Prospector" file="undeads/evil_prospector.xml" />
+	<monster name="Flimsy Lost Soul" file="undeads/flimsy_lost_soul.xml" />
+	<monster name="Freakish Lost Soul" file="undeads/freakish_lost_soul.xml" />
 	<monster name="Gazer Spectre" file="undeads/gazer_spectre.xml" />
 	<monster name="Ghost" file="undeads/ghost.xml" />
 	<monster name="Gravedigger" file="undeads/gravedigger.xml" />
 	<monster name="Grave Guard" file="undeads/grave_guard.xml" />
 	<monster name="Hand of Cursed Fate" file="undeads/hand_of_cursed_fate.xml" />
+	<monster name="Mean Lost Soul" file="undeads/mean_lost_soul.xml" />
 	<monster name="Souleater" file="undeads/souleater.xml" />
 	<monster name="Spectre" file="undeads/spectre.xml" />
 	<monster name="Ripper Spectre" file="undeads/ripper_spectre.xml" />
@@ -588,7 +593,7 @@
 	<monster name="Undead Elite Gladiator" file="undeads/undead_elite_gladiator.xml" />
 	<monster name="Undead Gladiator" file="undeads/undead_gladiator.xml" />
 	<monster name="Undead Mine Worker" file="undeads/undead_mine_worker.xml" />
-	
+
 	<!-- Vermins -->
 	<monster name="Centipede" file="vermins/centipede.xml" />
 	<monster name="Crawler" file="vermins/crawler.xml" />
@@ -684,7 +689,13 @@
 	<monster name="Lost Gnome" file="quests/dangerous_depth/lost_gnome.xml" />
 	<monster name="Gnome Pack Crawler" file="quests/dangerous_depth/gnome_pack_crawler.xml" />
 	<monster name="Organic Matter" file="quests/dangerous_depth/organic_matter.xml" />
-	
+
+	<!-- Feaster of Souls -->
+	<monster name="Irgix the Flimsy" file="quests/feaster_of_souls/irgix_the_flimsy.xml" />
+	<monster name="The Fear Feaster" file="quests/feaster_of_souls/the_fear_feaster.xml" />
+	<monster name="Unaz the Mean" file="quests/feaster_of_souls/unaz_the_mean.xml" />
+	<monster name="Vok the Freakish" file="quests/feaster_of_souls/vok_the_freakish.xml" />
+
 	<!-- Hidden Threats Quest -->
 	<monster name="Cave Spider" file="quests/hidden_threats/cave_spider.xml" />
 	
@@ -843,10 +854,28 @@
 	<monster name="Wrath of the Emperor" file="quests/wrath_of_the_emperor/wrath_of_the_emperor.xml" />
 	
 	<!-- The Grave Danger Quest -->
+	<monster name="Count Vlarkorth" file="quests/grave_danger/bosses/count_vlarkorth.xml" />
+	<monster name="Duke Krule" file="quests/grave_danger/bosses/duke_krule.xml" />
+	<monster name="Earl Osam" file="quests/grave_danger/bosses/earl_osam.xml" />
+	<monster name="Lord Azaram" file="quests/grave_danger/bosses/lord_azaram.xml" />
 	<monster name="Scarlett Etzel" file="quests/grave_danger/bosses/scarlett_etzel.xml" />
+	<monster name="Sir Baeloc" file="quests/grave_danger/bosses/sir_baeloc.xml" />
+	<monster name="Sir Nictros" file="quests/grave_danger/bosses/sir_nictros.xml" />
 	<monster name="Black Cobra" file="quests/grave_danger/black_cobra.xml" />
 	<monster name="Cart Packed with Gold" file="quests/grave_danger/cart_packed_with_gold.xml" />
-	
+	<monster name="Condensed Sins" file="quests/grave_danger/condensed_sins.xml" />
+	<monster name="Dark Druid" file="quests/grave_danger/dark_druid.xml" />
+	<monster name="Dark Knight" file="quests/grave_danger/dark_knight.xml" />
+	<monster name="Dark Paladin" file="quests/grave_danger/dark_paladin.xml" />
+	<monster name="Dark Sorcerer" file="quests/grave_danger/dark_sorcerer.xml" />
+	<monster name="Fetter" file="quests/grave_danger/fetter.xml" />
+	<monster name="Retainer of Baeloc" file="quests/grave_danger/retainer_of_baeloc.xml" />
+	<monster name="Risen Soldier" file="quests/grave_danger/risen_soldier.xml" />
+	<monster name="Shard of Magnor" file="quests/grave_danger/shard_of_magnor.xml" />
+	<monster name="Soulless Minion" file="quests/grave_danger/soulless_minion.xml" />
+	<monster name="Squire of Nictros" file="quests/grave_danger/squire_of_nictros.xml" />
+	<monster name="Vampiric Blood" file="quests/grave_danger/vampiric_blood.xml" />
+
 	<!-- The Secret Library Quest -->
 	<monster name="The Scourge of Oblivion" file="quests/the_secret_library/bosses/the_scourge_of_oblivion.xml" />
 	<monster name="Brokul" file="quests/the_secret_library/bosses/brokul.xml" />
@@ -877,9 +906,11 @@
 	<monster name="The Lily of Night" file="quests/the_secret_library/the_lily_of_night.xml" />
 	<monster name="Librarian" file="quests/the_secret_library/librarian.xml" />
 	<monster name="Lokathmor" file="quests/the_secret_library/lokathmor.xml" />
+	<monster name="Lokathmor" file="quests/the_secret_library/lokathmor_stuck.xml" />
 	<monster name="Neutral Deepling Warrior" file="quests/the_secret_library/neutral_deepling_warrior.xml" />
 	<monster name="Malicious Minion" file="quests/the_secret_library/malicious_minion.xml" />
 	<monster name="Mazzinor" file="quests/the_secret_library/mazzinor.xml" />
+	<monster name="Supercharged Mazzinor" file="quests/the_secret_library/supercharged_mazzinor.xml"/>
 	<monster name="Mean Minion" file="quests/the_secret_library/mean_minion.xml" />
 	<monster name="Ravenous Beyondling" file="quests/the_secret_library/ravenous_beyondling.xml" />
 	<monster name="Rift Breacher" file="quests/the_secret_library/rift_breacher.xml" />
