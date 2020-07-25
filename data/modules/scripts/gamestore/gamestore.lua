@@ -3815,7 +3815,7 @@ GameStore.Categories = {
           type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE,
         },
         {
-          icons = { "Hireling_Cook.png" },
+          icons = { "Hireling_Cooking.png" },
           name = "Hireling Cook",
           price = 900,
           id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.COOKING,
@@ -3884,7 +3884,7 @@ GameStore.Categories = {
           type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
         },
         {
-          icons = { "Hireling_Cook.png" },
+          icons = { "Hireling_Cooking.png" },
           name = "Cook Dress",
           price = 500,
           id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.COOKING,
@@ -4225,7 +4225,7 @@ GameStore.Categories = {
           name = "Temple Teleport",
           price = 15,          
           description = "<i>Teleports you instantly to your home temple.</i>\n\n{character}\n{useicon} use it to teleport you to your home temple</i>\n{battlesign}\n{info} does not work in no-logout zones or close to a character's home temple",
-          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+          type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE,
         },              
       }, 
   },
