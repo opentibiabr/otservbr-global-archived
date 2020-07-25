@@ -3815,7 +3815,7 @@ GameStore.Categories = {
           type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE,
         },
         {
-          icons = { "Hireling_Cooking.png" },
+          icons = { "Hireling_Cook.png" },
           name = "Hireling Cook",
           price = 900,
           id = HIRELING_STORAGE.SKILL + HIRELING_SKILLS.COOKING,
@@ -3884,7 +3884,7 @@ GameStore.Categories = {
           type = GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT,
         },
         {
-          icons = { "Hireling_Cooking.png" },
+          icons = { "Hireling_Cook.png" },
           name = "Cook Dress",
           price = 500,
           id = HIRELING_STORAGE.OUTFIT + HIRELING_OUTFITS.COOKING,
