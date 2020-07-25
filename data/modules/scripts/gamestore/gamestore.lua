@@ -4178,15 +4178,6 @@ GameStore.Categories = {
           description = "<i>No matter where you are in Tibia, claim your daily reward on the spot!</i>\n\n{character}\n{info} added to your reward wall\n{info} maximum amount that can be owned by character: 90",
           type = GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS,
         },
-        {                
-          icons = { "Charm_Expansion_Offer.png" },
-          name = "Charm Expansions",
-          price = 450,
-          id = 65011,                
-          count = 250,
-                    description = "<i>No matter where you are in Tibia, claim your Charms on the spot!</i>\n\n{character}\n{info} added to your charms.",
-          type = GameStore.OfferTypes.OFFER_TYPE_CHARMS,
-        }, 
         {
           icons = { "Magic_Gold_Converter.png" },
           name = "Magic Gold Converter",
