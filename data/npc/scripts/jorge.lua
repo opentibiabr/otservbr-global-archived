@@ -45,7 +45,8 @@ local items = {
      [27] = {name = "Pigeon Trophy", id = 36101},
      [28] = {name = "Phoenix Statue", id = 24682},
      [29] = {name = "The Mexcalibur", id = 21470},
-     [30] = {name = "TibiaHispano Emblem", id = 29216}
+     [30] = {name = "TibiaHispano Emblem", id = 29216},
+     [31] = {name = "Goromaphone", id = 39045}
 }
 
 local function greetCallback(cid)
