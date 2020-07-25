@@ -537,9 +537,13 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have 3 slots released."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-			if (self:getStorageValue(51052) == 6 and (os.time() - self:getStorageValue(51053)) < 86400) then
+			if self:getStorageValue(51052) == 6 then
 				disabled = 1
 				disabledReason = "You can't buy XP Boost for today."
+			end
+			if (os.time() - self:getStorageValue(51053) < 86400) then
+				disabled = 1
+				disabledReason = "You allready have an active XP boost."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL then
 			local skill = (HIRELING_STORAGE.SKILL + offer.id)
