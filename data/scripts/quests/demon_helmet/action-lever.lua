@@ -7,7 +7,7 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1945 then
 		local teleport = Game.createItem(1387, 1, teleportPosition)
 		if teleport then
-			teleport:setDestination({x = 33316, y = 31574, z = 15})
+			teleport:setDestination({x = 33328, y = 31592, z = 14})
 			Position(teleportPosition):sendMagicEffect(CONST_ME_TELEPORT)
 		end
 
