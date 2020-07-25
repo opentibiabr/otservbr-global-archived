@@ -38,9 +38,11 @@
 			<attribute key="areaEffect" value="blueshimmer"/>
 		</defense>		
 	</defenses>
+	<!--
 	<summons maxSummons="3">
 		<summon name="Soul Scourge" interval="2000" chance="20" />
 	</summons>
+	-->
 	<elements>
 		<element firePercent="20" />
 	</elements> 
