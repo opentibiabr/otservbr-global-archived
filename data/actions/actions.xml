@@ -32,7 +32,7 @@
 	<action itemid="13307" script="mounts/mounts.lua" />
 	<action itemid="13508" script="mounts/mounts.lua" />
 	<action itemid="13498" script="mounts/mounts.lua" />
-	<action itemid="13537" script="mounts/mount_donkey.lua" />
+	<action itemid="13537" script="mounts/mounts.lua" />
 	<action fromid="13535" toid="13536" script="mounts/mounts.lua" />
 	<action fromid="13538" toid="13539" script="mounts/mounts.lua" />
 	<action fromid="13938" toid="13939" script="mounts/mounts.lua" />
