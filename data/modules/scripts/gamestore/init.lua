@@ -560,17 +560,40 @@ function Player.canBuyOffer(self, offer)
 				disabled = 1
 				disabledReason = "You already have an active XP boost."
 			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING then
+			if self:getHirelingsCount() >= 10 then
+				disabled = 1
+				disabledReason = "You already have bought the maximum number of allowed hirelings."
+			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL then
 			local skill = (HIRELING_STORAGE.SKILL + offer.id)
 			if self:hasHirelingSkill(skill) then
 				disabled = 1
 				disabledReason = "This skill is already unlocked."
 			end
+			if self:getHirelingsCount() <= 0 then
+				disabled = 1
+				disabledReason = "You need to have a hireling."
+			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT then
 			local outfit = offer.id - HIRELING_STORAGE.OUTFIT
 			if self:hasHirelingOutfit(outfit) then
 				disabled = 1
 				disabledReason = "This hireling outfit is already unlocked."
+			end
+			if self:getHirelingsCount() <= 0 then
+				disabled = 1
+				disabledReason = "You need to have a hireling."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_NAMECHANGE then
+			if self:getHirelingsCount() <= 0 then
+				disabled = 1
+				disabledReason = "You need to have a hireling."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE then
+			if self:getHirelingsCount() <= 0 then
+				disabled = 1
+				disabledReason = "You need to have a hireling."
 			end
 		end
 	end
