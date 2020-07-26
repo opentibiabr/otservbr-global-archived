@@ -4140,7 +4140,23 @@ GameStore.Categories = {
           id = 65003,
           description = "<i>Turns your female character into a male one - or vice versa.</i>\n\n{character}\n{activated}\n{info} you will keep all outfits you have purchased or earned in quest",
           type = GameStore.OfferTypes.OFFER_TYPE_SEXCHANGE,
-        },                
+        },
+        {                
+          icons = { "World_Transfer.png" },
+          name = "World Transfer",
+          price = 500,                
+          id = 65007,
+          description = "<i>Use a Character World Transfer to move your character to a new game world, if you have not transferred this character within the last 6 months.</i>\n\n{character}\n{info} destination world can still be changed on the website after purchase\n{info} talk to NPC Sharon and logout on the transfer platform to finalise the transfer\n\n{info} restrictions for a Character World Transfer:\n&#8226; characters can only transfer to game worlds with same or stricter pvp rules",
+          type = GameStore.OfferTypes.OFFER_TYPE_WORLDTRANSFER,
+        },
+        {                
+          icons = { "Express_World_Transfer.png" },
+          name = "Express World Transfer",
+          price = 500,                
+          id = 65009,
+          description = "<i>Use a Character Express World Transfer to move your character to a new game world if you have already transferred this character within the last 6 months.</i>\n\n{character}\n{info} destination world can still be changed on the website after purchase\n{info} talk to NPC Sharon and logout on the transfer platform to finalise the transfer\n\n{info} restrictions for a Character World Transfer:\n&#8226; characters can only transfer to game worlds with same or stricter pvp rules",
+          type = GameStore.OfferTypes.OFFER_TYPE_EXPRESSWORLDTRANSFER,
+        },
       },
   },
 -- Usefull Things  
@@ -4225,7 +4241,7 @@ GameStore.Categories = {
           price = 15,          
           description = "<i>Teleports you instantly to your home temple.</i>\n\n{character}\n{useicon} use it to teleport you to your home temple</i>\n{battlesign}\n{info} does not work in no-logout zones or close to a character's home temple",
           type = GameStore.OfferTypes.OFFER_TYPE_TEMPLE,
-        },              
+        },
       }, 
   },
 }   

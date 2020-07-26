@@ -31,7 +31,9 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_HIRELING_NAMECHANGE = 21,
 	OFFER_TYPE_HIRELING_SEXCHANGE = 22,
 	OFFER_TYPE_HIRELING_SKILL = 23,
-	OFFER_TYPE_HIRELING_OUTFIT = 24
+	OFFER_TYPE_HIRELING_OUTFIT = 24,
+	OFFER_TYPE_WORLDTRANSFER = 25,
+	OFFER_TYPE_EXPRESSWORLDTRANSFER = 26
 }
 
 GameStore.ActionType = {
@@ -73,7 +75,7 @@ end
 
 GameStore.ClientOfferTypes = {
 	CLIENT_STORE_OFFER_OTHER = 0,
-	CLIENT_STORE_OFFER_NAMECHANGE = 1
+	CLIENT_STORE_OFFER_NAMECHANGE = 1,
 }
 
 GameStore.HistoryTypes = {
@@ -315,12 +317,14 @@ function parseBuyStoreOffer(playerId, msg)
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL and
 			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT and
+			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_WORLDTRANSFER and
+			offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPRESSWORLDTRANSFER and
 	not offer.id) then
 		return queueSendStoreAlertToUser("This offer is unavailable [1]", 350, playerId, GameStore.StoreErrors.STORE_ERROR_INFORMATION)
 	end
 
 	-- At this point the purchase is assumed to be formatted correctly
-	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(51052)] or offer.price
+	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(Storage.ExpBoost)] or offer.price
 
 	if not player:canRemoveCoins(offerPrice) then
 		return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
@@ -354,6 +358,8 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE   then GameStore.processHirelingChangeSexPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL       then GameStore.processHirelingSkillPurchase(player, offer)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT      then GameStore.processHirelingOutfitPurchase(player, offer)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_WORLDTRANSFER        then GameStore.processWorldTransferPurchase(player, offer)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPRESSWORLDTRANSFER then GameStore.processExpressWorldTransferPurchase(player, offer)
 		else
 			-- This should never happen by our convention, but just in case the guarding condition is messed up...
 			error({code = 0, message = "This offer is unavailable [2]"})
@@ -378,6 +384,7 @@ function parseBuyStoreOffer(playerId, msg)
 		sendUpdateCoinBalance(playerId)
 		return addPlayerEvent(sendStorePurchaseSuccessful, 650, playerId, message)		
 	end
+
 	return true
 end
 
@@ -472,6 +479,8 @@ function Player.canBuyOffer(self, offer)
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_POUNCH and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL and
 	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT and
+	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_WORLDTRANSFER and
+	offer.type ~= GameStore.OfferTypes.OFFER_TYPE_EXPRESSWORLDTRANSFER and
 	not offer.id then
 		disabled = 1
 	end
@@ -552,11 +561,11 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have 3 slots released."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-			if self:getStorageValue(51052) == 6 then
+			if self:getStorageValue(Storage.ExpBoost) == 6 then
 				disabled = 1
 				disabledReason = "You can't buy XP Boost for today."
 			end
-			if (os.time() - self:getStorageValue(51053) < 86400) then
+			if (os.time() - self:getStorageValue(Storage.ExpBoostCooldown) < 86400) then
 				disabled = 1
 				disabledReason = "You already have an active XP boost."
 			end
@@ -594,6 +603,20 @@ function Player.canBuyOffer(self, offer)
 			if self:getHirelingsCount() <= 0 then
 				disabled = 1
 				disabledReason = "You need to have a hireling."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_WORLDTRANSFER then
+			if self:getStorageValue(Storage.WorldTransfer) == 1 then
+				disabled = 1
+				disabledReason = "You already have an active world transfer on this character."
+			end
+			if (os.time() - self:getStorageValue(Storage.WorldTransferCooldown) < 86400) then
+				disabled = 1
+				disabledReason = "You can't transfer this character still has cooldown."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPRESSWORLDTRANSFER then
+			if self:getStorageValue(Storage.WorldTransfer) == 1 then
+				disabled = 1
+				disabledReason = "You already have an active world transfer on this character."
 			end
 		end
 	end
@@ -662,7 +685,7 @@ function sendShowStoreOffers(playerId, category, redirectId)
 			for _, off in ipairs(offer.offers) do
 				xpBoostPrice = nil
 				if offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-					xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(51052)]
+					xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(Storage.ExpBoost)]
 				end
 
 				msg:addU32(off.id)
@@ -1209,6 +1232,18 @@ function GameStore.processAllBlessingsPurchase(player)
 	end
 end
 
+function GameStore.processWorldTransferPurchase(player, offer)
+	local playerId = player:getId()
+
+	addPlayerEvent(HandleWorldTransfer, 200, playerId, offer)
+end
+
+function GameStore.processExpressWorldTransferPurchase(player, offer)
+	local playerId = player:getId()
+
+	addPlayerEvent(HandleWorldTransfer, 200, playerId, offer)
+end
+
 function GameStore.processInstantRewardAccess(player, offerCount)
 	if player:getCollectionTokens() + offerCount >= 91 then
 		return error({code = 1, message = "You cannot own more than 90 reward tokens."})
@@ -1404,12 +1439,12 @@ function GameStore.processExpBoostPuchase(player)
 	player:setStoreXpBoost(50)
 	player:setExpBoostStamina(currentExpBoostTime + 3600)
 
-	if (player:getStorageValue(51052) == -1 or player:getStorageValue(51052) == 6) then
-		player:setStorageValue(51052, 1)
+	if (player:getStorageValue(Storage.ExpBoost) == -1 or player:getStorageValue(Storage.ExpBoost) == 6) then
+		player:setStorageValue(Storage.ExpBoost, 1)
 	end
 
-	player:setStorageValue(51052, player:getStorageValue(51052) + 1)
-	player:setStorageValue(51053, os.time()) -- last bought
+	player:setStorageValue(Storage.ExpBoost, player:getStorageValue(Storage.ExpBoost) + 1)
+	player:setStorageValue(Storage.ExpBoostCooldown, os.time()) -- last bought
 end
 
 function GameStore.processPreySlotPurchase(player)
@@ -1764,4 +1799,64 @@ function HandleHirelingSexChange(playerId, offer)
 	end
 
 	player:sendHirelingSelectionModal('Choose a Hireling', 'Select a hireling below', cb, {offer=offer})
+end
+
+function HandleWorldTransfer(playerId, offer)
+	local player = Player(playerId);
+
+	local cb = function(playerId, data, world_id)
+		local offer = data.offer
+		local player = Player(playerId);
+
+		if not world_id then
+			player:addCoinsBalance(data.offer.price)
+			GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name .. ' ('.. player:getName() ..')', (offer.price) * 1)
+			return player:showInfoModal("Cancel","You have cancel character world transfer.")
+		end
+
+		if not player:removeCoinsBalance(data.offer.price) then
+			return player:showInfoModal("Error", "Transaction error")
+		end
+
+		player:setStorageValue(Storage.WorldTransferId, world_id)
+		GameStore.insertHistory(player:getAccountId(), GameStore.HistoryTypes.HISTORY_TYPE_NONE, offer.name .. ' ('.. player:getName() ..')', (offer.price) * -1)
+		player:setStorageValue(Storage.WorldTransfer, 1)
+		player:setStorageValue(Storage.WorldTransferCooldown, os.time() + 30 * 24 * 60 * 60)
+		player:save()
+	end
+
+	player:sendWorldSelectionModal('Character World Transfer', 'Character: '.. player:getName() ..'\n\nThe following conditions muste be met before you can purchase a Character World Transfer.\n\nYour character has no red skull.\n\nYour character has no black skull.\n\nYour character is not member of guild.\n\nYour character does not own a house.\n\nYou fulfil all conditions for a Character World Transfer. Please select the game world to wich you like to transfer.\n\n Select a world below', cb, {offer=offer})
+end
+
+function Player:sendWorldSelectionModal(title, message, callback, data)
+	local gameworlds = {
+	    [1] = {id = "1", name = "Lordaeron PVP"},
+	    [2] = {id = "2", name = "Arthas PVE"},
+	}
+
+	local modal = ModalWindow {
+		title = title,
+		message = message
+	}
+	local gameworld
+	for i = 1, #gameworlds do
+	gameworld = gameworlds[i]
+	local choice = modal:addChoice(gameworld.name, gameworld.id)
+	choice.gameworld = gameworld.id
+	end
+
+	local playerId = self:getId()
+	local internalConfirm = function(button, choice)
+		local world_id = choice and choice.gameworld or nil
+		callback(playerId, data, world_id)
+	end
+
+	local internalCancel = function(btn, choice) callback(playerId, data, nil) end
+
+	modal:addButton('Select',internalConfirm)
+	modal:setDefaultEnterButton('Select')
+	modal:addButton('Cancel',internalCancel)
+	modal:setDefaultEscapeButton('Cancel')
+
+	modal:sendToPlayer(self)
 end
