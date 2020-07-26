@@ -28,7 +28,7 @@ local function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say({
 			"I can tell you about the {requirements} for a transfer, and about what happens to your {skills}, {quests}, {money} and {items} ...",
-			"I can also {check} if you fulfil the requirements. And I can then teleport you to the departure platform."
+			"I can also {check} if you fulfill the requirements. And I can then teleport you to the departure platform."
 			}, cid)
 			npcHandler.topic[cid] = 2
 		end
@@ -126,7 +126,7 @@ local function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 3 then
 			npcHandler:say({
 			"Well, that is a definite requirement! ...",
-			"I will only check if you fulfil all in-game requirements."
+			"I will only check if you fulfill all in-game requirements."
 			}, cid)
 		npcHandler.topic[cid] = 0
 		end
@@ -134,8 +134,9 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
-npcHandler:setMessage(MESSAGE_WALKAWAY, "Bye-bye, |PLAYERNAME|! Don't forget - if you relog on the platform and fulfil all requirements, your character will arrive on your new world.")
-npcHandler:setMessage(MESSAGE_FAREWELL, "Bye-bye, |PLAYERNAME|! Don't forget - if you relog on the platform and fulfil all requirements, your character will arrive on your new world.")
+npcHandler:setMessage(MESSAGE_WALKAWAY, "Bye-bye, |PLAYERNAME|! Don't forget - if you relog on the platform and 
+l all requirements, your character will arrive on your new world.")
+npcHandler:setMessage(MESSAGE_FAREWELL, "Bye-bye, |PLAYERNAME|! Don't forget - if you relog on the platform and fulfill all requirements, your character will arrive on your new world.")
 npcHandler:setMessage(MESSAGE_GREET, "Welcome to Travora, |PLAYERNAME|! I suppose you're here for the {Character World Transfer}.")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
