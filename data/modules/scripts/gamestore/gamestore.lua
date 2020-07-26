@@ -4204,7 +4204,7 @@ GameStore.Categories = {
         },
         {
           icons = { "Prey_Bonus_Reroll.png" },
-          name = "5x Prey Wildcard",
+          name = "Prey Wildcard",
           price = 50,
           id = 65008,
           count = 5,
@@ -4213,7 +4213,7 @@ GameStore.Categories = {
         },
         {
           icons = { "Prey_Bonus_Reroll.png" },
-          name = "20x Prey Wildcard",
+          name = "Prey Wildcard",
           price = 200,
           count = 20,
           description = "<i>Use Prey Wildcards to reroll the bonus of an active prey, to lock your active prey or to select a prey of your choice.</i>\n\n{character}\n{info} added directly to Prey dialog\n{info} maximum amount that can be owned by character: 50",
