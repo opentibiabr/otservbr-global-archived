@@ -49733,44 +49733,96 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38755" name="malice's horn">
+	<item id="38755" name="Malice's horn">
+		<attribute key="weight" value="150" />
+	</item>
+	<item id="38756" name="Malice's spine">
 		<attribute key="weight" value="230" />
 	</item>
-	<item id="38756" name="malice's spine">
-		<attribute key="weight" value="230" />
+	<item id="38757" name="Cruelty's claw">
+		<attribute key="weight" value="140" />
 	</item>
-	<item id="38757" name="cruelty's claw">
-		<attribute key="weight" value="230" />
+	<item id="38758" name="Cruelty's chest">
+		<attribute key="weight" value="140" />
 	</item>
-	<item id="38758" name="cruelty's chest">
-		<attribute key="weight" value="230" />
+	<item id="38759" name="Greed's arm">
+		<attribute key="weight" value="125" />
 	</item>
-	<item id="38760" name="megalomania's skull">
-		<attribute key="weight" value="230" />
+	<item id="38760" name="Megalomania's skull">
+		<attribute key="weight" value="100" />
 	</item>
-	<item id="38762" name="vial of hatred">
-		<attribute key="weight" value="230" />
+	<item id="38761" name="Spite's spirit">
+		<attribute key="weight" value="110" />
 	</item>
-	<item id="38763" name="megalomania's essence">
-		<attribute key="weight" value="230" />
+	<item id="38762" name="vial of Hatred">
+		<attribute key="weight" value="110" />
 	</item>
-	<item id="38767" name="head of many faces">
-		<attribute key="weight" value="230" />
+	<item id="38763" name="Megalomania's essence">
+		<attribute key="weight" value="110" />
 	</item>
-	<item id="38769" name="telescope eye">
-		<attribute key="weight" value="230" />
+	<item id="38764" article="a" name="rod" plural="rods">
+		<attribute key="weight" value="90" />
 	</item>
-	<item id="38770" name="crown of cloak of terror">
-		<attribute key="weight" value="230" />
+	<item id="38765" name="salt">
+		<attribute key="weight" value="200" />
 	</item>
-	<item id="38771" name="hand brachiodemon">
-		<attribute key="weight" value="230" />
+	<item id="38766" article="an" name="empty cask">
+		<attribute key="weight" value="2000" />
 	</item>
-	<item id="38772" name="head brachiodemon">
-		<attribute key="weight" value="230" />
+	<item id="38767" article="an" name="head" plural="heads"> <!--many faces-->
+		<attribute key="weight" value="60" />
+	</item>
+	<item id="38768" article="an" name="apron" plural="aprons">
+		<attribute key="weight" value="60" />
+	</item>
+	<item id="38769" article="a" name="telescope eye" plural="telescope eyes">
+		<attribute key="weight" value="30" />
+	</item>
+	<item id="38770" article="a" name="crown" plural="crowns">
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="38771" article="a" name="hand" plural="hands"> <!--brachiodemon-->
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="38772" article="a" name="head" plural="heads"> <!--brachiodemon-->
+		<attribute key="weight" value="90" />
 	</item>
 	<item id="38773" name="roots">
-		<attribute key="weight" value="230" />
+		<attribute key="weight" value="90" />
+	</item>
+	<item id="38774" article="a" name="cask">
+		<attribute key="weight" value="2600" />
+		<attribute key="description" value="There is one salted rat in it." />
+	</item>
+	<item id="38775" article="a" name="cask">
+		<attribute key="weight" value="3200" />
+		<attribute key="description" value="There are two salted rats in it." />
+	</item>
+	<item id="38776" article="a" name="cask">
+		<attribute key="weight" value="3800" />
+		<attribute key="description" value="There are three salted rats in it." />
+	</item>
+	<item id="38777" article="a" name="cask">
+		<attribute key="weight" value="4400" />
+		<attribute key="description" value="There are four salted rats in it." />
+	</item>
+	<item id="38778" article="a" name="werehyaena nose" plural="werehyaena noses">
+		<attribute key="weight" value="100" />
+	</item>
+	<item id="38779" article="a" name="werehyaena talisman" plural="werehyaena talismans">
+		<attribute key="weight" value="80" />
+	</item>
+	<item id="38780" article="a" name="ivory carving" plural="ivory carvings">
+		<attribute key="weight" value="140" />
+	</item>
+	<item id="38781" article="a" name="cave rat">
+		<attribute key="weight" value="600" />
+	</item>
+	<item id="38782" article="a" name="hard-boiled hydra egg" plural="hard-boiled hydra eggs">
+		<attribute key="weight" value="2000" />
+	</item>
+	<item id="38785" name="cleansed sanity">
+		<attribute key="weight" value="2000" />
 	</item>
 	<item id="38797" article="a" name="dead corpse">
 		<attribute key="decayTo" value="0" />
@@ -49818,41 +49870,58 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="blood" />
 	</item>
-	<item id="38817" name="crawler's essence">
+	<item id="38817" name="crawler's essence" plural="crawler's essences">
 		<attribute key="weight" value="230" />
 	</item>
 	<item id="38849" name="jaws">
 		<attribute key="weight" value="230" />
 	</item>
-	<item id="38857" name="goblet of gloom">
-		<attribute key="weight" value="230" />
+	<item id="38856" article="a" name="figurine of Greed" plural="figurines of Greed">
+		<attribute key="weight" value="44" />
 	</item>
-	<item id="38858" name="brooch of embracement">
-		<attribute key="weight" value="230" />
+	<item id="38857" article="a" name="goblet of gloom" plural="goblets of gloom">
+		<attribute key="weight" value="190" />
+		<attribute key="description" value="It is adorned with rubies." />
 	</item>
-	<item id="38859" name="gruesome fan">
-		<attribute key="weight" value="230" />
+	<item id="38858" article="a" name="brooch of embracement" plural="brooches of embracement">
+		<attribute key="weight" value="80" />
+		<attribute key="description" value="The oval gem looks like a huge onyx." />
 	</item>
-	<item id="38860" name="diabolic skull">
-		<attribute key="weight" value="230" />
+	<item id="38859" article="a" name="gruesome fan" plural="gruesome fans">
+		<attribute key="weight" value="170" />
+		<attribute key="description" value="It is made of spider legs and human skin." />
 	</item>
-	<item id="38907" name="spectral horseshoe">
-		<attribute key="weight" value="230" />
+	<item id="38860" article="a" name="diabolic skull" plural="diabolic skulls">
+		<attribute key="weight" value="210" />
+		<attribute key="description" value="It is made of gold and rubies." />
 	</item>
-	<item id="38908" name="spectral saddle">
-		<attribute key="weight" value="230" />
+	<item id="38907" article="a" name="spectral horseshoe" plural="spectral horseshoes">
+		<attribute key="weight" value="120" />
 	</item>
-	<item id="38909" name="spectral horse tack">
-		<attribute key="weight" value="230" />
+	<item id="38908" article="a" name="spectral saddle" plural="spectral saddles">
+		<attribute key="weight" value="270" />
+	</item>
+	<item id="38909" article="a" name="spectral horse tack" plural="spectral horse tacks">
+		<attribute key="weight" value="80" />
 	</item>
 	<item id="38910" name="the skull of a beast">
 		<attribute key="weight" value="230" />
+		<attribute key="description" value="Unleash the beast." />
 	</item>
-	<item id="38911" name="bracelet of strenghtening">
-		<attribute key="weight" value="230" />
+	<item id="38911" article="a" name="bracelet of strengthening">
+		<attribute key="weight" value="150" />
 	</item>
-	<item id="38913" name="cask with goblin zombie">
-		<attribute key="weight" value="230" />
+	<item id="38912" name="chopped lion mane petals">
+		<attribute key="weight" value="10" />
+		<attribute key="description" value="They are red and orange and exhale a faint stench of incense." />
+	</item>
+	<item id="38913" article="a" name="cask">
+		<attribute key="weight" value="5500" />
+		<attribute key="description" value="A goblin zombie is stuffed into it." />
+	</item>
+	<item id="38914" name="Seal of Quality">
+		<attribute key="weight" value="1000" />
+		<attribute key="description" value="It was awarded by a CM as a token of gratitude for valuable feedback." />
 	</item>
 	<item id="38915" article="a" name="lion ring">
 		<attribute key="armor" value="2" />
@@ -50086,6 +50155,133 @@
 	<item id="38938" article="a" name="srezz' eye">
 		<attribute key="showcount" value="0" />
 		<attribute key="weight" value="80" />
+	</item>
+	<item id="38939" article="a" name="slab with a hyaena">
+	</item>
+	<item id="38940" article="a" name="slab with a snake">
+	</item>
+	<item id="38941" article="a" name="slab with a lizard">
+	</item>
+	<item id="38942" article="a" name="slab with a scorpion">
+	</item>
+	<item id="38944" article="a" name="bag you desire">
+	</item>
+	<item id="38946" article="a" name="magic forcefield">
+	</item>
+	<item id="38953" article="a" name="dead phantom">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38954" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38953" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38955" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38954" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38956" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38955" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38957" article="a" name="dead phantom">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38958" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38957" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38959" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38958" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38960" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38959" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38961" article="a" name="dead phantom">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38962" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38961" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38963" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38962" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38964" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38963" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38965" article="a" name="dead phantom">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38966" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38965" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38967" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38966" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38968" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38967" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38969" article="a" name="dead phantom">
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38970" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38969" />
+		<attribute key="duration" value="600" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38971" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38970" />
+		<attribute key="duration" value="900" />
+		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="38972" article="a" name="dead phantom">
+		<attribute key="containerSize" value="24" />
+		<attribute key="decayTo" value="38971" />
+		<attribute key="duration" value="10" />
+		<attribute key="corpseType" value="blood" />
 	</item>
 	<item id="38973" article="a" name="capricious heart">
 		<attribute key="showcount" value="0" />
@@ -50340,6 +50536,14 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="600" />
 		<attribute key="corpseType" value="blood" />
+	</item>
+	<item id="39044" name="Fitzwilliam's Special Reserve">
+		<attribute key="weight" value="100" />
+		<attribute key="description" value="A fine but practically ancient wine. It's absolutely not advised to actually drink it." />
+	</item>
+	<item id="39045" name="Goromaphone">
+		<attribute key="weight" value="6660" />
+		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
 	<item id="39079" article="a" name="dead white lion">
 		<attribute key="containerSize" value="48" />
