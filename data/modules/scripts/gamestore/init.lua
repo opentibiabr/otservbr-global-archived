@@ -333,7 +333,7 @@ function parseBuyStoreOffer(playerId, msg)
 		if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM               then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS then GameStore.processInstantRewardAccess(player, offer.count)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS      then GameStore.processCharmsPurchase(player, offer.count)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS         then GameStore.processCharmsPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.blessid, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM        then GameStore.processPremiumPurchase(player, offer.id)
@@ -530,6 +530,11 @@ function Player.canBuyOffer(self, offer)
 			if hasMount == true then
 				disabled = 1
 				disabledReason = "You already have this mount."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS then
+			if self:getCollectionTokens() >= 90 then
+				disabled = 1
+				disabledReason = "You already have maximum of reward tokens."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
 			if self:getStorageValue(Prey.Config.StoreSlotStorage) == 1 then
@@ -1175,8 +1180,8 @@ function GameStore.processInstantRewardAccess(player, offerCount)
 	player:setCollectionTokens(player:getCollectionTokens() + offerCount)
 end
 
-function GameStore.processCharmsPurchase(player, offerCount)
-	player:setCharmPoints(player:getCharmPoints() + offerCount)
+function GameStore.processCharmsPurchase(player)
+	player:setCharmRuneSlotExpansion(true)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
