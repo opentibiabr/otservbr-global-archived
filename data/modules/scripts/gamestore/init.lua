@@ -1316,13 +1316,6 @@ function GameStore.processOutfitPurchase(player, offerSexIdTable, addon)
 		then
 			error({ code = 0, message = "There has been an issue with your outfit purchase. Your purchase has been cancelled."})
 		else
-			-- Guild System
-			local g = player:getGuild()
-			if g then
-				local pts = CONFIG_GUILD_MONSTERS.buyingOutfit.pts
-				g:setGuildPoints(g:getGuildPoints() + pts)
-				g:broadcastMessage(string.format(CONFIG_GUILD_MONSTERS.buyingOutfit.msg, player:getName(), pts), MESSAGE_EVENT_ADVANCE)
-			end
 			player:addOutfitAddon(offerSexIdTable.male, _addon)
 			player:addOutfitAddon(offerSexIdTable.female, _addon)
 		end
@@ -1330,13 +1323,6 @@ function GameStore.processOutfitPurchase(player, offerSexIdTable, addon)
 end
 
 function GameStore.processMountPurchase(player, offerId)
-	-- Guild System
-	local g = player:getGuild()
-	if g then
-		local pts = CONFIG_GUILD_MONSTERS.buyingMount.pts
-		g:setGuildPoints(g:getGuildPoints() + pts)
-		g:broadcastMessage(string.format(CONFIG_GUILD_MONSTERS.buyingMount.msg, player:getName(), pts), MESSAGE_EVENT_ADVANCE)
-	end
 	player:addMount(offerId)
 end
 
