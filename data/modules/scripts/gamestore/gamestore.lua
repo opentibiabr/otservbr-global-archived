@@ -4174,7 +4174,7 @@ GameStore.Categories = {
           name = "Instant Reward Access",
           price = 100,              
           id = 65004,
-          count = 30,
+          count = 1,
           description = "<i>No matter where you are in Tibia, claim your daily reward on the spot!</i>\n\n{character}\n{info} added to your reward wall\n{info} maximum amount that can be owned by character: 90",
           type = GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS,
         },
