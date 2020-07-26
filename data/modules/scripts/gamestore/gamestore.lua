@@ -4158,7 +4158,7 @@ GameStore.Categories = {
           itemtype = 26378,
           count = 500,
           description = "<i>Changes either a stack of 100 gold pieces into 1 platinum coin, or a stack of 100 platinum coins into 1 crystal coin!</i>\n\n{character}\n{storeinbox}\n{useicon} use it on a stack of 100 to change it to the superior currency\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES,
         },
         {
           icons = { "Gold_Pouch.png" },
