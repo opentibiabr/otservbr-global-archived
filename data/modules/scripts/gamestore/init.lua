@@ -25,12 +25,13 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_POUNCH = 15,
 	OFFER_TYPE_ALLBLESSINGS = 16,
 	OFFER_TYPE_INSTANT_REWARD_ACCESS = 17,
-	OFFER_TYPE_TRAINING = 18,
-	OFFER_TYPE_HIRELING = 19,
-	OFFER_TYPE_HIRELING_NAMECHANGE = 20,
-	OFFER_TYPE_HIRELING_SEXCHANGE = 21,
-	OFFER_TYPE_HIRELING_SKILL = 22,
-	OFFER_TYPE_HIRELING_OUTFIT = 23
+	OFFER_TYPE_CHARMS = 18,
+	OFFER_TYPE_TRAINING = 19,
+	OFFER_TYPE_HIRELING = 20,
+	OFFER_TYPE_HIRELING_NAMECHANGE = 21,
+	OFFER_TYPE_HIRELING_SEXCHANGE = 22,
+	OFFER_TYPE_HIRELING_SKILL = 23,
+	OFFER_TYPE_HIRELING_OUTFIT = 24
 }
 
 GameStore.ActionType = {
@@ -148,8 +149,7 @@ GameStore.DefaultDescriptions = {
  	EXPBOOST    = { "Are you tired of leveling slow? try it!" },
  	PREYSLOT    = { "It's hunting season! Activate a prey to gain a bonus when hunting a certain monster. Every character can purchase one Permanent Prey Slot, which enables the activation of an additional prey. \nIf you activate a prey, you can select one monster out of nine. The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. The bonus value may range from 5% to 50%. Your prey will be active for 2 hours hunting time: the duration of an active prey will only be reduced while you are hunting." },
  	PREYBONUS   = { "You activated a prey but do not like the randomly selected bonus? Roll for a new one! Here you can purchase five Prey Bonus Rerolls! \nA Bonus Reroll allows you to get a bonus with a higher value (max. 50%). The bonus for your prey will be selected randomly from one of the following: damage boost, damage reduction, bonus XP, improved loot. The 2 hours hunting time will start anew once you have rolled for a new bonus. Your prey monster will stay the same." },
- 	TEMPLE      = { "Need a quick way home? Buy this transportation service to get instantly teleported to your home temple. \n\nNote, you cannot use this service while having a battle sign or a protection zone block. Further, the service will not work in no-logout zones or close to your home temple." },
- 	INSTANTREWARDACCESS = {"No time to travel to a Daily Reward Shrine? Purchase %dx Instant Reward Access!\nNo matter where you are in Tibia, an Instant Reward Access allow you to claim your daily reward on the spot.\nNote that the Instant Reward Access can only be used by the character that purchased it in the Store."}
+ 	TEMPLE      = { "Need a quick way home? Buy this transportation service to get instantly teleported to your home temple. \n\nNote, you cannot use this service while having a battle sign or a protection zone block. Further, the service will not work in no-logout zones or close to your home temple." }
 }
 
 --==Parsing==--
@@ -332,7 +332,8 @@ function parseBuyStoreOffer(playerId, msg)
 	local pcallOk, pcallError = pcall(function()
 		if offer.type == GameStore.OfferTypes.OFFER_TYPE_ITEM               then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_POUNCH         then GameStore.processItemPurchase(player, offer.itemtype, offer.count)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS         then GameStore.processRewardAccess(player, offer.count)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_INSTANT_REWARD_ACCESS then GameStore.processInstantRewardAccess(player, offer.count)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS      then GameStore.processCharmsPurchase(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_BLESSINGS      then GameStore.processSignleBlessingPurchase(player, offer.blessid, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS   then GameStore.processAllBlessingsPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREMIUM        then GameStore.processPremiumPurchase(player, offer.id)
@@ -531,15 +532,18 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have this mount."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
-			local unlockedColumns = self:getPreyState(2)
-			if (unlockedColumns ~= STATE_LOCKED) then
+			if self:getStorageValue(Prey.Config.StoreSlotStorage) == 1 then
 				disabled = 1
 				disabledReason = "You already have 3 slots released."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-			if (self:getStorageValue(51052) == 6 and (os.time() - self:getStorageValue(51053)) < 86400) then
+			if self:getStorageValue(51052) == 6 then
 				disabled = 1
 				disabledReason = "You can't buy XP Boost for today."
+			end
+			if (os.time() - self:getStorageValue(51053) < 86400) then
+				disabled = 1
+				disabledReason = "You already have an active XP boost."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SKILL then
 			local skill = (HIRELING_STORAGE.SKILL + offer.id)
@@ -981,10 +985,6 @@ GameStore.getDefaultDescription = function(offerType, count)
 		descList = GameStore.DefaultDescriptions.PREYBONUS
 	elseif offerType == t.OFFER_TYPE_TEMPLE then
 		descList = GameStore.DefaultDescriptions.TEMPLE
-	elseif offerType == t.OFFER_TYPE_INSTANT_REWARD_ACCESS then
-		return string.format(GameStore.DefaultDescriptions.INSTANTREWARDACCESS[1], count or 30)
-	else
-		return ""
 	end
 
 	return descList[math.floor(math.random(1, #descList))] or ""
@@ -1171,8 +1171,12 @@ function GameStore.processAllBlessingsPurchase(player)
 	end
 end
 
-function GameStore.processRewardAccess(player, offerCount)
-	player:addRewardTokens(offerCount or 1)
+function GameStore.processInstantRewardAccess(player, offerCount)
+	player:setCollectionTokens(player:getCollectionTokens() + offerCount)
+end
+
+function GameStore.processCharmsPurchase(player, offerCount)
+	player:setCharmPoints(player:getCharmPoints() + offerCount)
 end
 
 function GameStore.processPremiumPurchase(player, offerId)
@@ -1382,16 +1386,20 @@ function GameStore.processExpBoostPuchase(player)
 end
 
 function GameStore.processPreySlotPurchase(player)
-	if (player:getPreyState(2) ~= STATE_LOCKED) then
-		return error({code = 0, message = "You already have 3 slots released."})
-	end
+	if player:getStorageValue(Prey.Config.StoreSlotStorage) < 1 then
+		player:setStorageValue(Prey.Config.StoreSlotStorage, 1)
+		player:setPreyUnlocked(CONST_PREY_SLOT_THIRD, 2)
+		player:setPreyState(CONST_PREY_SLOT_THIRD, 1)
 
-	player:changePreyState(2, STATE_SELECTION)
+		-- Update Prey Data
+		for slot = CONST_PREY_SLOT_FIRST, CONST_PREY_SLOT_THIRD do
+			player:sendPreyData(slot)
+		end
+	end
 end
 
 function GameStore.processPreyBonusReroll(player, offerCount)
-	local amount = math.max(player:getBonusRerollCount(), 0)
-	player:setBonusRerollCount(offerCount + amount)
+	player:setPreyBonusRerolls(player:getPreyBonusRerolls() + offerCount)
 end
 
 function GameStore.processTempleTeleportPurchase(player)
