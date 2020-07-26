@@ -99,7 +99,7 @@ local function creatureSayCallback(cid, type, msg)
 			elseif player:getGuild() then
 			npcHandler:say("You have to leave your guild.", cid)
 			npcHandler.topic[cid] = 1
-			elseif player:getStorageValue(51054) ~= 1 then
+			elseif player:getStorageValue(Storage.WorldTransfer) ~= 1 then
 			npcHandler:say("You have to pay for this service at ingame shop.", cid)
 			npcHandler.topic[cid] = 1
 		else
