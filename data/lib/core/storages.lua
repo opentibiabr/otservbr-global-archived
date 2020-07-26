@@ -133,6 +133,11 @@ Storage = {
 	DwarvenLegs = 30049,
 	PrinceDrazzakTime = 30050,
 	StoreExaust = 30051,
+	ExpBoost = 30052,
+	ExpBoostCooldown = 30053,
+	WorldTransfer = 30054,
+	WorldTransferCooldown = 30055,
+	WorldTransferId = 30056,
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
