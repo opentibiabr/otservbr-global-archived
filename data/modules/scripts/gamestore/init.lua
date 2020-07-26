@@ -1825,7 +1825,7 @@ function HandleWorldTransfer(playerId, offer)
 		player:save()
 	end
 
-	player:sendWorldSelectionModal('Character World Transfer', 'Character: '.. player:getName() ..'\n\nThe following conditions muste be met before you can purchase a Character World Transfer.\n\nYour character has no red skull.\n\nYour character has no black skull.\n\nYour character is not member of guild.\n\nYour character does not own a house.\n\nYou fulfil all conditions for a Character World Transfer. Please select the game world to wich you like to transfer.\n\n Select a world below', cb, {offer=offer})
+	player:sendWorldSelectionModal('Character World Transfer', 'Character: '.. player:getName() ..'\n\nThe following conditions muste be met before you can purchase a Character World Transfer.\n\nYour character has no red skull.\n\nYour character has no black skull.\n\nYour character is not member of guild.\n\nYour character does not own a house.\n\nYou fulfill all conditions for a Character World Transfer. Please select the game world to which you like to transfer.\n\n Select a world below', cb, {offer=offer})
 end
 
 function Player:sendWorldSelectionModal(title, message, callback, data)
