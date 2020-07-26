@@ -117,8 +117,8 @@ local function creatureSayCallback(cid, type, msg)
 			player:teleportTo(destination)
 			destination:sendMagicEffect(CONST_ME_TELEPORT)
 			npcHandler:say("Here you go! Just relog on this platform and you will be at the new server. I wish you a new and happy life!", cid)
-			db.query("UPDATE `players` SET `world_id` = " .. player:getStorageValue(51056) .. " WHERE `id` = " .. player:getGuid())
-			player:setStorageValue(51054, 0)
+			db.query("UPDATE `players` SET `world_id` = " .. player:getStorageValue(Storage.WorldTransferId) .. " WHERE `id` = " .. player:getGuid())
+			player:setStorageValue(Storage.WorldTransferId, 0)
 			addEvent(function() player:remove() end, 500)
 			npcHandler.topic[cid] = 0
 		end
