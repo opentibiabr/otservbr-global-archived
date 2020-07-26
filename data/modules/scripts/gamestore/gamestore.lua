@@ -4184,7 +4184,7 @@ GameStore.Categories = {
           price = 450,
           id = 65005,                
           count = 250,
-          description = "<i>No matter where you are in Tibia, claim your charms on the spot!</i>\n\n{character}\n{info} added to your charms in cyclopedia.\n{info} maximum amount that can be owned by character: 18570",
+          description = "<i>Assign as many of your unlocked Charms as you like and get a 25% discount whenever you are removing a Charm from a creature!</i>\n\n{character}\n{once}",
           type = GameStore.OfferTypes.OFFER_TYPE_CHARMS,
         }, 
         {
