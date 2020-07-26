@@ -573,7 +573,7 @@ function Player.canBuyOffer(self, offer)
 			end
 			if self:getHirelingsCount() == 0 then
 				disabled = 1
-				disabledReason = "You need have an hireled."
+				disabledReason = "You need have an hireling."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_OUTFIT then
 			local outfit = offer.id - HIRELING_STORAGE.OUTFIT
@@ -583,17 +583,17 @@ function Player.canBuyOffer(self, offer)
 			end
 			if self:getHirelingsCount() == 0 then
 				disabled = 1
-				disabledReason = "You need have an hireled."
+				disabledReason = "You need have an hireling."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_NAMECHANGE then
 			if self:getHirelingsCount() == 0 then
 				disabled = 1
-				disabledReason = "You need have an hireled."
+				disabledReason = "You need have an hireling."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE then
 			if self:getHirelingsCount() == 0 then
 				disabled = 1
-				disabledReason = "You need have an hireled."
+				disabledReason = "You need have an hireling."
 			end
 		end
 	end
