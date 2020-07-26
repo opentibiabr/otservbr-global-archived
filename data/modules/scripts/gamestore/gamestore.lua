@@ -308,7 +308,7 @@ GameStore.Categories = {
           itemtype = 32385, 
           charges = 500, 
           description = "<i>Use it to train your axe fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your axe fighting skill\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_TRAINING, 
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         }, 	
         {
           icons = { "Exercise_Bow.png" },
@@ -317,7 +317,7 @@ GameStore.Categories = {
           itemtype = 32387, 
           charges = 500, 
           description = "<i>Use it to train your distance fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your distance fighting skill\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_TRAINING, 
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
           icons = { "Exercise_Club.png" },
@@ -326,7 +326,7 @@ GameStore.Categories = {
           itemtype = 32386, 
           charges = 500,      
           description = "<i>Use it to train your club fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your club fighting skill\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_TRAINING, 
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
           icons = { "Exercise_Rod.png" },
@@ -335,7 +335,7 @@ GameStore.Categories = {
           itemtype = 32388, 
           charges = 500,      
           description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_TRAINING, 
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
           icons = { "Exercise_Sword.png" },
@@ -344,7 +344,7 @@ GameStore.Categories = {
           itemtype = 32384, 
           charges = 500,       
           description = "<i>Use it to train your sword fighting skill on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your sword fighting skill\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_TRAINING, 
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },
         {
           icons = { "Exercise_Wand.png" },
@@ -353,7 +353,7 @@ GameStore.Categories = {
           itemtype = 32389, 
           charges = 500, 
           description = "<i>Use it to train your magic level on an exercise dummy!</i>\n\n{character}\n{storeinbox}\n{info} use it on an exercise dummy to train your magic level\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_TRAINING, 
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES, 
         },	 
     },
  },
@@ -4156,9 +4156,9 @@ GameStore.Categories = {
           name = "Gold Converter",
           price = 5,
           itemtype = 26378,
-          count = 500,
+          charges = 500,
           description = "<i>Changes either a stack of 100 gold pieces into 1 platinum coin, or a stack of 100 platinum coins into 1 crystal coin!</i>\n\n{character}\n{storeinbox}\n{useicon} use it on a stack of 100 to change it to the superior currency\n{info} usable 500 times a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES,
         },
         {
           icons = { "Gold_Pouch.png" },
@@ -4191,9 +4191,9 @@ GameStore.Categories = {
           name = "Magic Gold Converter",
           price = 15,
           itemtype = 32109,
-          count = 500,
+          charges = 500,
           description = "<i>Changes automatically either a stack of 100 gold pieces into 1 platinum coin, or a stack of 100 platinum coins into 1 crystal coin!</i>\n\n{character}\n{storeinbox}\n{useicon} use it to activate or deactivate the automatic conversion\n{info} converts all stacks of 100 gold or platinum in the inventory whenever it is activated\n{info} deactivated upon purchase\n{info} usable for 500 conversions a piece",
-          type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
+          type = GameStore.OfferTypes.OFFER_TYPE_CHARGES,
         },
         {
           icons = { "Permanent_Prey_Slot.png" },

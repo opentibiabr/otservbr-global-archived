@@ -10,23 +10,23 @@ GameStore.OfferTypes = {
 	OFFER_TYPE_NONE = 0,
 	OFFER_TYPE_ITEM = 1,
 	OFFER_TYPE_STACKABLE = 2,
-	OFFER_TYPE_OUTFIT = 3,
-	OFFER_TYPE_OUTFIT_ADDON = 4,
-	OFFER_TYPE_MOUNT = 5,
-	OFFER_TYPE_NAMECHANGE = 6,
-	OFFER_TYPE_SEXCHANGE = 7,
-	OFFER_TYPE_HOUSE = 8,
-	OFFER_TYPE_EXPBOOST = 9,
-	OFFER_TYPE_PREYSLOT = 10,
-	OFFER_TYPE_PREYBONUS = 11,
-	OFFER_TYPE_TEMPLE = 12,
-	OFFER_TYPE_BLESSINGS = 13,
-	OFFER_TYPE_PREMIUM = 14,
-	OFFER_TYPE_POUNCH = 15,
-	OFFER_TYPE_ALLBLESSINGS = 16,
-	OFFER_TYPE_INSTANT_REWARD_ACCESS = 17,
-	OFFER_TYPE_CHARMS = 18,
-	OFFER_TYPE_TRAINING = 19,
+	OFFER_TYPE_CHARGES = 3,
+	OFFER_TYPE_OUTFIT = 4,
+	OFFER_TYPE_OUTFIT_ADDON = 5,
+	OFFER_TYPE_MOUNT = 6,
+	OFFER_TYPE_NAMECHANGE = 7,
+	OFFER_TYPE_SEXCHANGE = 8,
+	OFFER_TYPE_HOUSE = 9,
+	OFFER_TYPE_EXPBOOST = 10,
+	OFFER_TYPE_PREYSLOT = 11,
+	OFFER_TYPE_PREYBONUS = 12,
+	OFFER_TYPE_TEMPLE = 13,
+	OFFER_TYPE_BLESSINGS = 14,
+	OFFER_TYPE_PREMIUM = 15,
+	OFFER_TYPE_POUNCH = 16,
+	OFFER_TYPE_ALLBLESSINGS = 17,
+	OFFER_TYPE_INSTANT_REWARD_ACCESS = 18,
+	OFFER_TYPE_CHARMS = 19,
 	OFFER_TYPE_HIRELING = 20,
 	OFFER_TYPE_HIRELING_NAMECHANGE = 21,
 	OFFER_TYPE_HIRELING_SEXCHANGE = 22,
@@ -61,7 +61,7 @@ function convertType(type)
 		[GameStore.OfferTypes.OFFER_TYPE_ITEM] = GameStore.ConverType.SHOW_ITEM,
 		[GameStore.OfferTypes.OFFER_TYPE_STACKABLE] = GameStore.ConverType.SHOW_ITEM,
 		[GameStore.OfferTypes.OFFER_TYPE_HOUSE] = GameStore.ConverType.SHOW_ITEM,
-		[GameStore.OfferTypes.OFFER_TYPE_TRAINING] = GameStore.ConverType.SHOW_ITEM,
+		[GameStore.OfferTypes.OFFER_TYPE_CHARGES] = GameStore.ConverType.SHOW_ITEM,
 	}
 
 	if not types[type] then
@@ -348,7 +348,7 @@ function parseBuyStoreOffer(playerId, msg)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT       then GameStore.processPreySlotPurchase(player)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS      then GameStore.processPreyBonusReroll(player, offer.count)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TEMPLE         then GameStore.processTempleTeleportPurchase(player)
-		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_TRAINING       then GameStore.processTrainingPurchase(player, offer.itemtype, offer.name, offer.charges)
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARGES         then GameStore.processChargesPurchase(player, offer.itemtype, offer.name, offer.charges)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING       then local hirelingName = msg:getString(); GameStore.processHirelingPurchase(player, offer, productType, hirelingName)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_NAMECHANGE  then local hirelingName = msg:getString(); GameStore.processHirelingChangeNamePurchase(player, offer, productType, hirelingName)
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_HIRELING_SEXCHANGE   then GameStore.processHirelingChangeSexPurchase(player, offer)
@@ -535,6 +535,16 @@ function Player.canBuyOffer(self, offer)
 			if self:getCollectionTokens() >= 90 then
 				disabled = 1
 				disabledReason = "You already have maximum of reward tokens."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYBONUS then
+			if self:getPreyBonusRerolls() >= 50 then
+				disabled = 1
+				disabledReason = "You already have maximum of prey wildcards."
+			end
+		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_CHARMS then
+			if self:getStorageValue(Bestiary.Storage.PLAYER_CHARM_SLOT_EXPANSION) == 1 then
+				disabled = 1
+				disabledReason = "You already have charm expansion."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_PREYSLOT then
 			if self:getStorageValue(Prey.Config.StoreSlotStorage) == 1 then
@@ -1140,7 +1150,7 @@ function GameStore.processItemPurchase(player, offerId, offerCount)
 		return error({ code = 0, message = "Please make sure you have free slots in your store inbox."})
 	end
 end
-function GameStore.processTrainingPurchase(player, itemtype, name, charges)
+function GameStore.processChargesPurchase(player, itemtype, name, charges)
 	if player:getFreeCapacity() < ItemType(itemtype):getWeight(1) then
 		return error({ code = 0, message = "Please make sure you have free capacity to hold this item."})
 	end
@@ -1177,6 +1187,9 @@ function GameStore.processAllBlessingsPurchase(player)
 end
 
 function GameStore.processInstantRewardAccess(player, offerCount)
+	if player:getCollectionTokens() + offerCount >= 91 then
+		return error({code = 1, message = "You cannot own more than 90 reward tokens."})
+	end
 	player:setCollectionTokens(player:getCollectionTokens() + offerCount)
 end
 
@@ -1404,6 +1417,9 @@ function GameStore.processPreySlotPurchase(player)
 end
 
 function GameStore.processPreyBonusReroll(player, offerCount)
+	if player:getPreyBonusRerolls() + offerCount >= 51 then
+		return error({code = 1, message = "You cannot own more than 50 prey wildcards."})
+	end
 	player:setPreyBonusRerolls(player:getPreyBonusRerolls() + offerCount)
 end
 
