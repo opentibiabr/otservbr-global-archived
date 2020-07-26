@@ -141,7 +141,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	-- Heal and help dialog
 	if msgcontains(msg, "healing") and npcHandler.topic[cid] == 0 then
-		if player.getLevel() < 8 then
+		if player:getLevel() < 8 then
 			if health < 40 or player:getCondition(CONDITION_POISON) then
 				if health < 40 then
 					player:addHealth(40 - health)
@@ -153,6 +153,8 @@ local function creatureSayCallback(cid, type, msg)
 				end
 				npcHandler:say("You are hurt, my child. I will heal your wounds.", cid)
 				npcHandler.topic[cid] = 0
+			else
+				return npcHandler:say("You do not need any healing right now.", cid)
 			end
 		end
 	elseif msgcontains(msg, "help") and npcHandler.topic[cid] == 0 then
