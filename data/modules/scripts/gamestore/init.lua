@@ -75,7 +75,7 @@ end
 
 GameStore.ClientOfferTypes = {
 	CLIENT_STORE_OFFER_OTHER = 0,
-	CLIENT_STORE_OFFER_NAMECHANGE = 1,
+	CLIENT_STORE_OFFER_NAMECHANGE = 1
 }
 
 GameStore.HistoryTypes = {
