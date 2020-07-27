@@ -3,7 +3,7 @@
 TeleportAction = {
 	[35001] = { -- The Cursed Crystal teleports
 		itemId = 21721,
-		itemPos = {{x = 961, y = 1177, z = 9}, {x = 961, y = 1177, z = 10}, {x = 925, y = 1154, z = 11}, {x = 925, y = 1154, z = 10}}
+		itemPos = {{x = 31973, y = 32905, z = 10}, {x = 31973, y = 32905, z = 11}, {x = 32009, y = 32928, z = 10}, {x = 32009, y = 32928, z = 9}}
 	}
 }
 
