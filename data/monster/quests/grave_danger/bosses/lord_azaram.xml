@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lord Azaram" nameDescription="a Lord Azaram" race="venom" experience="6300" speed="250" script="rewardboss.lua">
+	<health now="50000" max="50000"/>
+	<look type="1223" head="0" body="38" legs="94" feet="82" addons="3" corpse="36434" />
+	<targetchange interval="4000" chance="10" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
+	<flags>
+		<flag rewardboss="1"/>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-200" max="-600"/>
+		<attack name="physical" interval="2000" chance="25"  length="7" spread="0" min="-400" max="-1000">
+			<attribute key="areaEffect" value="stones" />
+		</attack> 
+		<attack name="poison" interval="2000" chance="15" length="7" spread="3" min="-400" max="-1000">
+			<attribute key="areaEffect" value="poison"/>
+		</attack> 
+	</attacks>   
+	<defenses armor="78" defense="25">
+		<defense name="healing" interval="2000" chance="50" min="150" max="550">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>		
+	</defenses>
+	<summons maxSummons="3">
+		<summon name="Condensed Sins" interval="2000" chance="50" />
+	</summons> 
+	<elements>
+		<element firePercent="20" />
+	</elements> 
+	<defenses armor="88" defense="88"/>
+	<immunities>
+		<immunity invisible="1"/>
+		<immunity paralyze="1"/>
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="5" chance="100000" />
+		<item name="silver token" countmax="2" chance="100000" />
+		<item name="ultimate spirit potion" countmin="6" countmax="20" chance="70370" />
+		<item name="ultimate mana potion" countmin="6" countmax="14" chance="55560" />	<item name="supreme health potion" countmin="6" countmax="14" chance="51850" />
+		<item name="red gem" chance="40740" />
+		<item name="blue gem" chance="29630" />
+		<item name="yellow gem" chance="29630" />
+		<item name="bullseye potion" countmax="10" chance="25930" />
+		<item name="knight armor" chance="22220" />
+		<item name="green gem" countmax="2" chance="22220" />
+		<item name="mastermind potion" countmax="10" chance="18520" />
+		<item id="26199" chance="18520" /><!-- collar of green plasma -->
+		<item name="lightning headband" chance="18520" />
+		<item name="berserk potion" countmax="10" chance="14810" />
+		<item name="crystal coin" chance="14810" />
+		<item id="26187" chance="11110" /><!-- ring of green plasma -->
+		<item name="gold ingot" chance="11110" />
+		<item id="26200" chance="11110" /><!-- collar of red plasma -->
+		<item id="26189" chance="11110" /><!-- ring of red plasma -->
+		<item name="huge chunk of crude iron" chance="7410" />
+		<item name="haunted blade" chance="7410" />
+		<item name="bear skin" chance="3700" />
+		<item id="26198" chance="3700" /><!-- collar of blue plasma -->
+		<item name="giant ruby" chance="3700" />
+		<item name="violet gem" chance="3700" />
+		<item name="young lich worm" chance="3700" />
+		<item name="rotten heart" chance="3700" />
+		<item id="26185" chance="3700" /><!-- ring of blue plasma -->
+		<item name="giant emerald" chance="3700" />
+		<item name="embrace of nature" chance="1090" />
+		<item name="terra helmet" chance="400" />
+		<item name="ancient liche bone" chance="185" />
+		<item name="final judgement" chance="155" />
+		<item name="noble cape" chance="155" />
+	</loot>
+</monster> 

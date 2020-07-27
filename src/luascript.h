@@ -1593,6 +1593,13 @@ class LuaScriptInterface
 		static int luaImbuementGetElementDamage(lua_State* L);
 		static int luaImbuementGetCombatType(lua_State* L);
 
+		// Mounts
+		static int luaCreateMount(lua_State* L);
+		static int luaMountGetName(lua_State* L);
+		static int luaMountGetId(lua_State* L);
+		static int luaMountGetClientId(lua_State* L);
+		static int luaMountGetSpeed(lua_State* L);
+
 		//
 		std::string lastLuaError;
 
