@@ -308,6 +308,9 @@
 	<movevent event="StepIn" actionid="25200" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" actionid="25300" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" fromuid="3264" touid="3266" script="quests/svargrond_arena/arena_trophy.lua"/>
+	<!-- the cursed crystal --> 
+	<movevent event="StepIn" actionid="35001" script="quests/the_cursed_crystal/StepIn_CursedCrystal.lua"/>
+	<movevent event="StepIn" actionid="25018" script="quests/the_cursed_crystal/StepIn_CursedCrystal.lua"/>
 	<!-- the ancient tombs -->
 	<movevent event="AddItem" tileitem="1" actionid="60626" script="quests/the_ancient_tombs/craft_helmet.lua"/>
 	<movevent event="StepIn" uniqueid="50138" script="quests/the_ancient_tombs/enter_ashmunrah_teleport_switche_done.lua"/>
