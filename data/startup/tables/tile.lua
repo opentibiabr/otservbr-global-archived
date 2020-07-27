@@ -146,7 +146,7 @@ TileAction = {
 	-- The cursed crystal medusa message
 	[25018] = {
 		itemId = 104,
-		itemPos = {{x = 970, y = 1167, z = 10}, {x = 970, y = 1167, z = 10}}
+		itemPos = {{x = 32017, y = 32917, z = 10}, {x = 32017, y = 32918, z = 10}}
 	},
 }
 
