@@ -1813,7 +1813,12 @@ Storage = {
 			ElvenAmulet = 10060
 		},
 		-- update 7.2
-		Behemoth = {},
+		Behemoth = {
+			Bag = 10061,
+			GuardianHalberd = 10062,
+			DemonShield = 10063,
+			GoldenArmor = 10064
+		},
 		ParchmentRoom = {},
 		TheQueenOfTheBanshees = {},
 		-- update 7.24

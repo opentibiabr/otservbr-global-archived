@@ -479,6 +479,28 @@ ChestUnique = {
 		itemReward = {{2198, 1}},
 		storage = Storage.Quest.TimeRing.ElvenAmulet
 	},
+	-- Behemoth quest
+	-- Guardian halberd
+	[6052] = {
+		itemId = 1740,
+		itemPos = {x = 33295, y = 31658, z = 13},
+		itemReward = {{2427, 1}},
+		storage = Storage.Quest.Behemoth.GuardianHalberd
+	},
+	-- Demon shield
+	[6053] = {
+		itemId = 1740,
+		itemPos = {x = 33297, y = 31658, z = 13},
+		itemReward = {{2520, 1}},
+		storage = Storage.Quest.Behemoth.DemonShield
+	},
+	-- Golden armor
+	[6054] = {
+		itemId = 1740,
+		itemPos = {x = 33298, y = 31658, z = 13},
+		itemReward = {{2466, 1}},
+		storage = Storage.Quest.Behemoth.GoldenArmor
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -608,6 +630,16 @@ ChestUnique = {
 		itemReward = {{2456, 1}, {2146, 2}},
 		weight = 50,
 		storage = Storage.Quest.DragonTower.Backpack2
+	},
+	-- Behemoth quest
+	-- Bag
+	[10014] = {
+		itemId = 1740,
+		itemPos = {x = 33294, y = 31658, z = 13},
+		itemBag = 1987,
+		itemReward = {{2145, 3}, {2146, 4}, {2124, 1}, {2168, 1}, {2171, 1}},
+		weight = 50,
+		storage = Storage.Quest.Behemoth.Bag
 	},
 
 	-- Reward of others scrips files (varied rewards)

@@ -350,8 +350,6 @@
 	<action uniqueid="3110" script="quests/barbarian_test/mead.lua" />
 	<!-- bastion forge -->
 	<action itemid="32421" script="falcons/falcon_shield.lua" />
-	<!-- behemoth quest -->
-	<action uniqueid="2007" script="quests/behemoth/lever.lua" />
 	<!-- bigfoot_burden quest -->
 	<action itemid="18305" script="quests/bigfoot_burden/beer.lua" />
 	<action fromuid="3124" touid="3127" script="quests/bigfoot_burden/music.lua" />
