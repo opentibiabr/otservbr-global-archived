@@ -1,9 +1,9 @@
 -- Look README.md for see the reserved action/unique numbers
 
 TeleportAction = {
-	[35001] = {
-		itemId = false,
-		itemPos = {{x = xxxxx, y = yyyyy, z = z}}
+	[35001] = { -- The Cursed Crystal teleports
+		itemId = 21721,
+		itemPos = {{x = 961, y = 1177, z = 9}, {x = 961, y = 1177, z = 10}, {x = 925, y = 1154, z = 11}, {x = 925, y = 1154, z = 10}}
 	}
 }
 
