@@ -268,13 +268,9 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	msg.skipBytes(3); // U16 dat revision, game preview state
 
-	if (clientVersion >= 1149 && clientVersion < 1200) {
-		// on 1149.6xxx, this was removed later.
-		// extra byte for "optimise connection stability"
-		if (msg.getLength() - msg.getBufferPosition() > 128) {
-			shouldAddExivaRestrictions = true;
-			msg.skipBytes(1);
-		}
+	// In version 12.40.10030 we have 13 extra bytes
+	if (msg.getLength() - msg.getBufferPosition() == 141) {
+		msg.skipBytes(13);
 	}
 
 	if (!Protocol::RSA_decrypt(msg)) {
@@ -1762,6 +1758,8 @@ void ProtocolGame::sendShop(Npc* npc, const ShopInfoList& itemList)
 	msg.addByte(0x7A);
 	msg.addString(npc->getName());
 	msg.add<uint16_t>(3031); // TO-DO Coin used
+
+	msg.addString(std::string()); // ??
 
 	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
@@ -3431,6 +3429,8 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 	msg.addByte(lightInfo.color);
 
 	msg.add<uint16_t>(creature->getStepSpeed() / 2);
+
+	msg.addByte(0); // Icons
 
 	msg.addByte(player->getSkullClient(creature));
 	msg.addByte(player->getPartyShield(otherPlayer));

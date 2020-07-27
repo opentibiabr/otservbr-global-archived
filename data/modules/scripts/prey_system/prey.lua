@@ -593,5 +593,11 @@ function Player:sendPreyRerollPrice()
 	msg:addByte(Prey.Config.BonusRerollPrice) -- wildcards
 	msg:addByte(Prey.Config.SelectWithWildCardPrice) -- select directly
 
+	-- Feature unavailable
+	msg:addU32(0)
+	msg:addU32(0)
+	msg:addByte(0)
+	msg:addByte(0)
+
 	msg:sendToPlayer(self)
 end
