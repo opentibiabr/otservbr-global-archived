@@ -1,9 +1,13 @@
 -- Look README.md for see the reserved action/unique numbers
 
 ItemAction = {
-	[40001] = {
-		itemId = false,
-		itemPos = {{x = xxxxx, y = yyyyy, z = z},}
+	[40001] = { -- The cursed crystal skeletons
+		itemId = 33156,
+		itemPos = {{x = 926, y = 1156, z = 8}, {x = 983, y = 1163, z = 8}}
+	},
+	[40002] = { -- The cursed crystal red crystal
+		itemId = 23941,
+		itemPos = {{x = 974, y = 1167, z = 10}}
 	}
 }
 
