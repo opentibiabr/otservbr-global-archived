@@ -26,7 +26,6 @@ bathtubEnter:register()
 
 local bathtubExit = MoveEvent()
 function bathtubExit.onStepOut(creature, item, position, fromPosition)
-    --print("onStepOut")
     if not creature:isPlayer() then
 		return false
     end
