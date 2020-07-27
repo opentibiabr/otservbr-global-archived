@@ -662,7 +662,7 @@ struct CombatDamage
 
 using MarketOfferList = std::list<MarketOffer>;
 using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
-using ShopInfoList = std::list<ShopInfo>;
+using ShopInfoList = std::vector<ShopInfo>;
 
 enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_NONE = 0,
