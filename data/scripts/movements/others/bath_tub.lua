@@ -1,27 +1,29 @@
 local bathtubEnter = MoveEvent()
-local filledBathTub = 29313
 local playerBathTub = 29323
-
 
 function bathtubEnter.onStepIn(creature, item, position, fromPosition)
     if not creature:isPlayer() then
 		return false
     end
 
-    local bathTile = Tile(fromPosition)
-    if bathTile and bathTile:getTopCreature() then
-        return false
+    local bathTile = Tile(position)
+    if bathTile then
+      local bottomCreature = bathTile:getBottomCreature()
+      if bottomCreature ~= creature then
+        creature:teleportTo(fromPosition, true)
+        return true
+      end
     end
 
     local condition = Condition(CONDITION_OUTFIT)
     condition:setOutfit({lookTypeEx = playerBathTub})
     condition:setTicks(-1)
 
-	creature:addCondition(condition)
+    creature:addCondition(condition)
 	return true
 end
 
-bathtubEnter:id(filledBathTub)
+bathtubEnter:id(BATHTUB_FILLED)
 bathtubEnter:register()
 
 local bathtubExit = MoveEvent()
@@ -34,5 +36,5 @@ function bathtubExit.onStepOut(creature, item, position, fromPosition)
     return true
 end
 
-bathtubExit:id(filledBathTub)
+bathtubExit:id(BATHTUB_FILLED)
 bathtubExit:register()
