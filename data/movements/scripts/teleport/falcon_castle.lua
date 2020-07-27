@@ -15,8 +15,8 @@ function onStepIn(creature, item, position, fromPosition)
 			if(item.actionid == 57604)then
 				if(player:getStorageValue(Storage.TheSecretLibrary.TheOrderOfTheFalcon.OberonTimer) > os.time())then
 					player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have faced this boss in the last 20 hours.")
-					player:teleportTo(Position(fromPosition), false)
-					doSendMagicEffect(Position(fromPosition), CONST_ME_TELEPORT)
+					player:teleportTo(fromPosition, true)
+					player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 					return false
 				end
 			end
