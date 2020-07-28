@@ -9,11 +9,13 @@ local setting = {
 -- Start Script
 function onUse(creature, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1945 and item.actionid == 57605 then
-		if roomIsOccupied(setting.centerRoom, 10, 10) then
+	local clearOberonRoom = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)       
+	for index, spectatorcheckface in ipairs(clearOberonRoom) do
+		if spectatorcheckface:isPlayer() then
 			creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting against the boss! You need wait awhile.")
-			return true
+			return false
 		end
-	local clearOberonRoom = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)          
+	end	
 	for index, removeOberon in ipairs(clearOberonRoom) do
 		if (removeOberon:isMonster()) then
 			removeOberon:remove()
