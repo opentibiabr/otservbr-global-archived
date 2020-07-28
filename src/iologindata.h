@@ -1,8 +1,6 @@
 /**
- * @file iologindata.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +17,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_IOLOGINDATA_H_
-#define OT_SRC_IOLOGINDATA_H_
+#ifndef FS_IOLOGINDATA_H_28B0440BEC594654AC0F4E1A5E42B2EF
+#define FS_IOLOGINDATA_H_28B0440BEC594654AC0F4E1A5E42B2EF
 
-#include "account.h"
+#include "account.hpp"
 #include "player.h"
 #include "database.h"
 
@@ -31,14 +29,13 @@ using ItemBlockList = std::list<std::pair<int32_t, Item*>>;
 class IOLoginData
 {
 	public:
-		static Account loadAccount(uint32_t accno);
-		static bool saveAccount(const Account& acc);
 
-		static bool loginserverAuthentication(const std::string& name, const std::string& password, Account& account);
+		static bool LoginServerAuthentication(const std::string& name,
+                                          const std::string& password);
 		static uint32_t gameworldAuthentication(const std::string& accountName, const std::string& password, std::string& characterName);
 
-		static AccountType_t getAccountType(uint32_t accountId);
-		static void setAccountType(uint32_t accountId, AccountType_t accountType);
+		static account::AccountType getAccountType(uint32_t accountId);
+		static void setAccountType(uint32_t accountId, account::AccountType accountType);
 		static void updateOnlineStatus(uint32_t guid, bool login);
 		static bool preloadPlayer(Player* player, const std::string& name);
 
@@ -64,7 +61,7 @@ class IOLoginData
 		static void addPremiumDays(uint32_t accountId, int32_t addDays);
 		static void removePremiumDays(uint32_t accountId, int32_t removeDays);
 
-	protected:
+	private:
 		using ItemMap = std::map<uint32_t, std::pair<Item*, uint32_t>>;
 
 		static void loadItems(ItemMap& itemMap, DBResult_ptr result);

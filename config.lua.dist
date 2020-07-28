@@ -29,34 +29,27 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-motd = "Bem vindo ao Open-TibiaBR!"
+motd = "Bem vindo ao OTServBR-Global!"
 onePlayerOnlinePerAccount = true
 allowClones = false
-serverName = "Open-TibiaBR"
+serverName = "OTServBR-Global"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
 maxItem = 2000
 maxContainer = 100
 
--- Version Manual
-clientVersionMin = 1100
-clientVersionMax = 1200
-clientVersionStr = "Only support outdated 10.00 and version 12.00"
+--- Version
+clientVersion = 1200
+clientVersionStr = "12.00"
 
 -- Depot Limit
 freeDepotLimit = 2000
 premiumDepotLimit = 10000
-depotBoxes = 17
+depotBoxes = 18
 
 -- GameStore
 gamestoreByModules = true
-
--- Quest Sytem
-loadQuestLua = true
-
--- Expert Pvp Config
-expertPvp = false
 
 -- Deaths
 -- NOTE: Leave deathLosePercent as -1 if you want to use the default
@@ -66,20 +59,23 @@ deathLosePercent = -1
 
 -- Houses
 -- NOTE: set housePriceEachSQM to -1 to disable the ingame buy house functionality
+-- Periods: daily/weekly/monthly/yearly/never
 housePriceEachSQM = 1000
 houseRentPeriod = "never"
 
 -- Item Usage
--- Do not touch here
--- Avoid use of WIPE program to crash the distro
-timeBetweenActions = 500
-timeBetweenExActions = 700
+timeBetweenActions = 200
+timeBetweenExActions = 1000
+
+-- Push Delay
+pushDelay = 1000
+pushDistanceDelay = 1500
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
 -- NOTE: unzip the map world.rar
 mapName = "otservbr"
-mapAuthor = "Open-TibiaBR"
+mapAuthor = "OTServBR"
 
 -- Market
 marketOfferDuration = 30 * 24 * 60 * 60
@@ -91,7 +87,7 @@ maxMarketOffersAtATimePerPlayer = 100
 mysqlHost = "127.0.0.1"
 mysqlUser = "root"
 mysqlPass = ""
-mysqlDatabase = ""
+mysqlDatabase = "otservbr-global"
 mysqlPort = 3306
 mysqlSock = ""
 
@@ -106,11 +102,21 @@ emoteSpells = false
 classicEquipmentSlots = false
 allowWalkthrough = true
 coinPacketSize = 25
-coinImagesURL = "http://localhost/images/store/"
+coinImagesURL = "http://127.0.0.1/images/store/"
 classicAttackSpeed = false
+showScriptsLogInConsole = false
+
+-- Server Save
+-- NOTE: serverSaveNotifyDuration in minutes
+serverSaveNotifyMessage = true
+serverSaveNotifyDuration = 5
+serverSaveCleanMap = false
+serverSaveClose = false
+serverSaveShutdown = true
 
 -- Rates
--- NOTE: rateExp is not used if you have enabled stages in data/XML/stages.xml
+-- NOTE: rateExp is used as a fallback only
+-- To configure experience rate see file data/stages.lua
 rateExp = 1
 rateSkill = 50
 rateLoot = 3
@@ -142,5 +148,5 @@ startupDatabaseOptimization = true
 -- Status server information
 ownerName = "OTServBR-Global"
 ownerEmail = ""
-url = "https://github.com/opentibiabr/OTServBR-Global"
+url = "https://github.com/opentibiabr/otservbr-global"
 location = "South America"

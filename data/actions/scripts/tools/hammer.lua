@@ -96,7 +96,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 		-- ROTTIMN START
 	elseif targetActionId == 42501 then
-			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
+			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 
 			local wood1 = Position(32647, 32216, 7)
 			local wooda = Tile(wood1):getItemById(13170)
@@ -106,14 +106,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			addEvent(remove01, 2*60*1000)
 			end
 
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)
+			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
 
 			-- parte 2
 			elseif targetActionId == 42502 then
-			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
+			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 
 			local wood11 = Position(32660, 32213, 7)
 			local woodaa = Tile(wood11):getItemById(13170)
@@ -123,14 +123,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			addEvent(remove02, 2*60*1000)
 			end
 
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)
+			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
 
 			-- parte 3
 			elseif targetActionId == 42503 then
-			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
+			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 			local wood111 = Position(32644, 32183, 6)
 			local woodaaa = Tile(wood111):getItemById(13172)
 			if woodaaa then
@@ -139,14 +139,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			addEvent(remove03, 2*60*1000)
 			end
 
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)
+			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
 
 			-- parte 4
 			elseif targetActionId == 42504 then
-			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
+			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 			local wood1111 = Position(32660, 32201, 7)
 			local woodaaaa = Tile(wood1111):getItemById(13171)
 			if woodaaaa then
@@ -155,14 +155,14 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			addEvent(remove04, 2*60*1000)
 			end
 
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)
+			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end
 
 			-- parte 5
 			elseif targetActionId == 42505 then
-			if player:getStorageValue(41600) == 3 and player:getStorageValue(41500) < 6 then
+			if player:getStorageValue(41600) == 3 and player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 			local wood11111 = Position(32652, 32200, 5)
 			local woodaaaaa = Tile(wood11111):getItemById(13172)
 			if woodaaaaa then
@@ -171,7 +171,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			addEvent(remove05, 2*60*1000)
 			end
 
-			player:setStorageValue(41500, player:getStorageValue(41500) +1)
+			player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) +1)
 			player:sendTextMessage(MESSAGE_INFO_DESCR, "You fixed this broken wall.")
 			else player:sendTextMessage(MESSAGE_INFO_DESCR, "You already fixed many broken walls today.")
 			end

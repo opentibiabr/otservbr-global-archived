@@ -1,8 +1,6 @@
 /**
- * @file monsters.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,6 +41,21 @@ spellBlock_t::~spellBlock_t()
 	}
 }
 
+void MonsterType::loadLoot(MonsterType* monsterType, LootBlock lootBlock)
+{
+	if (lootBlock.childLoot.empty()) {
+		bool isContainer = Item::items[lootBlock.id].isContainer();
+		if (isContainer) {
+			for (LootBlock child : lootBlock.childLoot) {
+				lootBlock.childLoot.push_back(child);
+			}
+		}
+		monsterType->info.lootItems.push_back(lootBlock);
+	} else {
+		monsterType->info.lootItems.push_back(lootBlock);
+	}
+}
+
 bool Monsters::loadFromXml(bool reloading /*= false*/)
 {
 	unloadedMonsters = {};
@@ -58,6 +71,12 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 	for (auto monsterNode : doc.child("monsters").children()) {
 		std::string name = asLowerCaseString(monsterNode.attribute("name").as_string());
 		std::string file = "data/monster/" + std::string(monsterNode.attribute("file").as_string());
+		auto forceLoad = g_config.getBoolean(ConfigManager::FORCE_MONSTERTYPE_LOAD);
+		if (forceLoad) {
+			loadMonster(file, name, true);
+			continue;
+		}
+
 		if (reloading && monsters.find(name) != monsters.end()) {
 			loadMonster(file, name, true);
 		} else {
@@ -799,7 +818,7 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 	}
 
 	if ((attr = monsterNode.attribute("speed"))) {
-		mType->info.baseSpeed = pugi::cast<int32_t>(attr.value()) * 2.55;
+		mType->info.baseSpeed = pugi::cast<int32_t>(attr.value());
 	}
 
 	if ((attr = monsterNode.attribute("manacost"))) {
@@ -853,8 +872,6 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.isSummonable = attr.as_bool();
 			} else if (strcasecmp(attrName, "rewardboss") == 0) {
 				mType->info.isRewardBoss = attr.as_bool();
-			} else if (strcasecmp(attrName, "preyable") == 0) {
-				mType->info.isPreyable = attr.as_bool();
 			} else if (strcasecmp(attrName, "attackable") == 0) {
 				mType->info.isAttackable = attr.as_bool();
 			} else if (strcasecmp(attrName, "hostile") == 0) {
@@ -924,6 +941,32 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 			mType->info.changeTargetChance = pugi::cast<int32_t>(attr.value());
 		} else {
 			std::cout << "[Warning - Monsters::loadMonster] Missing targetchange chance. " << file << std::endl;
+		}
+	}
+	
+	if ((node = monsterNode.child("targetstrategies"))) {
+		if ((attr = node.attribute("nearest"))) {
+			mType->info.targetStrategiesNearestPercent = pugi::cast<int32_t>(attr.value());
+		} else {
+			std::cout << "[Warning - Monsters::loadMonster] Missing targetStrategiesNearestPercent. " << file << std::endl;
+		}
+
+		if ((attr = node.attribute("health"))) {
+			mType->info.targetStrategiesLowerHPPercent = pugi::cast<int32_t>(attr.value());
+		} else {
+			std::cout << "[Warning - Monsters::loadMonster] Missing targetStrategiesLowerHPPercent. " << file << std::endl;
+		}
+
+		if ((attr = node.attribute("damage"))) {
+			mType->info.targetStrategiesMostDamagePercent = pugi::cast<int32_t>(attr.value());
+		} else {
+			std::cout << "[Warning - Monsters::loadMonster] Missing targetStrategiesMostDamagePercent. " << file << std::endl;
+		}
+
+		if ((attr = node.attribute("random"))) {
+			mType->info.targetStrategiesRandom = pugi::cast<int32_t>(attr.value());
+		} else {
+			std::cout << "[Warning - Monsters::loadMonster] Missing targetStrategiesRandom. " << file << std::endl;
 		}
 	}
 
@@ -1246,6 +1289,29 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 	return mType;
 }
 
+bool MonsterType::loadCallback(LuaScriptInterface* scriptInterface)
+{
+	int32_t id = scriptInterface->getEvent();
+	if (id == -1) {
+		std::cout << "[Warning - MonsterType::loadCallback] Event not found. " << std::endl;
+		return false;
+	}
+
+	info.scriptInterface = scriptInterface;
+	if (info.eventType == MONSTERS_EVENT_THINK) {
+		info.thinkEvent = id;
+	} else if (info.eventType == MONSTERS_EVENT_APPEAR) {
+		info.creatureAppearEvent = id;
+	} else if (info.eventType == MONSTERS_EVENT_DISAPPEAR) {
+		info.creatureDisappearEvent = id;
+	} else if (info.eventType == MONSTERS_EVENT_MOVE) {
+		info.creatureMoveEvent = id;
+	} else if (info.eventType == MONSTERS_EVENT_SAY) {
+		info.creatureSayEvent = id;
+	}
+	return true;
+}
+
 bool Monsters::loadLootItem(const pugi::xml_node& node, LootBlock& lootBlock)
 {
 	pugi::xml_attribute attr;
@@ -1278,6 +1344,12 @@ bool Monsters::loadLootItem(const pugi::xml_node& node, LootBlock& lootBlock)
 		lootBlock.countmax = std::max<int32_t>(1, pugi::cast<int32_t>(attr.value()));
 	} else {
 		lootBlock.countmax = 1;
+	}
+	
+	if ((attr = node.attribute("countmin"))) {
+		lootBlock.countmin = std::max<int32_t>(1, pugi::cast<int32_t>(attr.value()));
+	} else {
+		lootBlock.countmin = 1;
 	}
 
 	if ((attr = node.attribute("chance")) || (attr = node.attribute("chance1"))) {
@@ -1356,19 +1428,6 @@ void Monsters::loadLootContainer(const pugi::xml_node& node, LootBlock& lBlock)
 	}
 }
 
-// Prey Monsters
-std::vector<std::string> Monsters::getPreyMonsters()
-{
-	std::vector<std::string> monsterList;
-	for (const auto& m : monsters) {
-		if (m.second.info.experience > 0 && m.second.info.isPreyable && !m.second.info.isRewardBoss && m.second.info.staticAttackChance > 0) {
-			monsterList.push_back(m.first);
-		}
-	}
-
-	return monsterList;
-}
-
 MonsterType* Monsters::getMonsterType(const std::string& name)
 {
 	std::string lowerCaseName = asLowerCaseString(name);
@@ -1391,29 +1450,4 @@ void Monsters::addMonsterType(const std::string& name, MonsterType* mType)
 	// https://stackoverflow.com/questions/1486904/how-do-i-best-silence-a-warning-about-unused-variables
 	(void) mType;
 	mType = &monsters[asLowerCaseString(name)];
-}
-
-bool Monsters::loadCallback(LuaScriptInterface* luaScriptInterface, MonsterType* mType)
-{
-	if (!luaScriptInterface) {
-		std::cout << "Failure: [Monsters::loadCallback] scriptInterface == nullptr." << std::endl;
-		return false;
-	}
-
-	int32_t id = luaScriptInterface->getEvent();
-
-	if (mType->info.eventType == MONSTERS_EVENT_THINK) {
-		mType->info.thinkEvent = id;
-	} else if (mType->info.eventType == MONSTERS_EVENT_APPEAR) {
-		mType->info.creatureAppearEvent = id;
-	} else if (mType->info.eventType == MONSTERS_EVENT_DISAPPEAR) {
-		mType->info.creatureDisappearEvent = id;
-	} else if (mType->info.eventType == MONSTERS_EVENT_MOVE) {
-		mType->info.creatureMoveEvent = id;
-	} else if (mType->info.eventType == MONSTERS_EVENT_SAY) {
-		mType->info.creatureSayEvent = id;
-	}
-
-	luaScriptInterface->getScriptEnv()->setScriptId(id, luaScriptInterface);
-	return true;
 }

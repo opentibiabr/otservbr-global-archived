@@ -1,8 +1,6 @@
 /**
- * @file enums.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_ENUMS_H_
-#define OT_SRC_ENUMS_H_
+#ifndef FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
+#define FS_ENUMS_H_003445999FEE4A67BCECBE918B0124CE
+
+#include <list>
 
 enum RuleViolationType_t : uint8_t {
 	REPORT_TYPE_NAME = 0,
@@ -93,6 +93,7 @@ enum itemAttrTypes : uint32_t {
 	ITEM_ATTRIBUTE_DOORID = 1 << 22,
 	ITEM_ATTRIBUTE_SPECIAL = 1 << 23,
 	ITEM_ATTRIBUTE_IMBUINGSLOTS = 1 << 24,
+	ITEM_ATTRIBUTE_OPENCONTAINER = 1 << 25,
 	ITEM_ATTRIBUTE_CUSTOM = 1U << 31
 };
 
@@ -135,6 +136,7 @@ enum CreatureType_t : uint8_t {
 	CREATURETYPE_SUMMONPLAYER = 3,
 	CREATURETYPE_SUMMON_OWN = 3,
 	CREATURETYPE_SUMMON_OTHERS = 4,
+	CREATURETYPE_HIDDEN = 5,
 };
 
 enum OperatingSystem_t : uint8_t {
@@ -150,15 +152,6 @@ enum OperatingSystem_t : uint8_t {
 	CLIENTOS_OTCLIENT_MAC = 12,
 };
 
-enum SpellGroup_t : uint8_t {
-	SPELLGROUP_NONE = 0,
-	SPELLGROUP_ATTACK = 1,
-	SPELLGROUP_HEALING = 2,
-	SPELLGROUP_SUPPORT = 3,
-	SPELLGROUP_SPECIAL = 4,
-	SPELLGROUP_CONJURE = 5,
-};
-
 // New Prey
 enum PreySlotNum_t : uint8_t
 {
@@ -167,14 +160,7 @@ enum PreySlotNum_t : uint8_t
 	PREY_SLOTNUM_THIRD = 2,
 };
 
-enum PreySlotStatus_t : uint16_t
-{
-	PREY_SLOT_LOCKED = 0,
-	PREY_SLOT_UNLOCKED = 1,
-};
-
-
-enum PreyState_t : uint16_t
+enum PreyState_t : uint8_t
 {
 	PREY_STATE_LOCKED = 0,
 	PREY_STATE_INACTIVE = 1,
@@ -195,18 +181,19 @@ enum PreyBonusType_t : uint8_t
 	PREY_BONUS_LAST = PREY_BONUS_IMPROVED_LOOT,
 };
 
+enum SpellGroup_t : uint8_t {
+	SPELLGROUP_NONE = 0,
+	SPELLGROUP_ATTACK = 1,
+	SPELLGROUP_HEALING = 2,
+	SPELLGROUP_SUPPORT = 3,
+	SPELLGROUP_SPECIAL = 4,
+	SPELLGROUP_CONJURE = 5,
+};
+
 enum SpellType_t : uint8_t {
 	SPELL_UNDEFINED = 0,
 	SPELL_INSTANT = 1,
 	SPELL_RUNE = 2,
-};
-
-enum AccountType_t : uint8_t {
-	ACCOUNT_TYPE_NORMAL = 1,
-	ACCOUNT_TYPE_TUTOR = 2,
-	ACCOUNT_TYPE_SENIORTUTOR = 3,
-	ACCOUNT_TYPE_GAMEMASTER = 4,
-	ACCOUNT_TYPE_GOD = 5
 };
 
 enum RaceType_t : uint8_t {
@@ -311,6 +298,7 @@ enum ConditionParam_t {
 	CONDITION_PARAM_SKILL_MANA_LEECH_CHANCE = 51,
 	CONDITION_PARAM_SKILL_MANA_LEECH_AMOUNT = 52,
 	CONDITION_PARAM_DISABLE_DEFENSE = 53,
+	CONDITION_PARAM_STAT_CAPACITYPERCENT = 54
 };
 
 enum BlockType_t : uint8_t {
@@ -347,9 +335,10 @@ enum stats_t {
 	STAT_MAXMANAPOINTS,
 	STAT_SOULPOINTS, // unused
 	STAT_MAGICPOINTS,
+	STAT_CAPACITY,
 
 	STAT_FIRST = STAT_MAXHITPOINTS,
-	STAT_LAST = STAT_MAGICPOINTS
+	STAT_LAST = STAT_CAPACITY
 };
 
 enum formulaType_t {
@@ -457,6 +446,7 @@ enum ReturnValue {
 	RETURNVALUE_NOTENOUGHMANA,
 	RETURNVALUE_NOTENOUGHSOUL,
 	RETURNVALUE_YOUAREEXHAUSTED,
+	RETURNVALUE_YOUCANNOTUSEOBJECTSTHATFAST,
 	RETURNVALUE_PLAYERISNOTREACHABLE,
 	RETURNVALUE_CANONLYUSETHISRUNEONCREATURES,
 	RETURNVALUE_ACTIONNOTPERMITTEDINPROTECTIONZONE,
@@ -490,6 +480,7 @@ enum ReturnValue {
 	RETURNVALUE_TRADEPLAYERALREADYOWNSAHOUSE,
 	RETURNVALUE_TRADEPLAYERHIGHESTBIDDER,
 	RETURNVALUE_YOUCANNOTTRADETHISHOUSE,
+	RETURNVALUE_YOUDONTHAVEREQUIREDPROFESSION,
 	RETURNVALUE_NOTENOUGHFISTLEVEL,
 	RETURNVALUE_NOTENOUGHCLUBLEVEL,
 	RETURNVALUE_NOTENOUGHSWORDLEVEL,
@@ -671,7 +662,7 @@ struct CombatDamage
 
 using MarketOfferList = std::list<MarketOffer>;
 using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
-using ShopInfoList = std::list<ShopInfo>;
+using ShopInfoList = std::vector<ShopInfo>;
 
 enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_NONE = 0,
@@ -680,6 +671,22 @@ enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_DISAPPEAR = 3,
 	MONSTERS_EVENT_MOVE = 4,
 	MONSTERS_EVENT_SAY = 5,
+};
+
+enum Resource_t : uint8_t
+{
+	RESOURCE_BANK = 0x00,
+	RESOURCE_INVENTORY = 0x01,
+	RESOURCE_PREY = 0x0A,
+};
+
+enum MagicEffectsType_t : uint8_t {
+  MAGIC_EFFECTS_END_LOOP = 0,//ends magic effect loop
+  MAGIC_EFFECTS_DELTA = 1,//needs uint8_t delta after type to adjust position
+  MAGIC_EFFECTS_DELAY = 2,//needs uint16_t delay after type to delay in miliseconds effect display
+  MAGIC_EFFECTS_CREATE_EFFECT = 3,//needs uint8_t effectid after type
+  MAGIC_EFFECTS_CREATE_DISTANCEEFFECT = 4,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
+  MAGIC_EFFECTS_CREATE_DISTANCEEFFECT_REVERSED = 5,//needs uint8_t and deltaX(int8_t), deltaY(int8_t) after type
 };
 
 #endif

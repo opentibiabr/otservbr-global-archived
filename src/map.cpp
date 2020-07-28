@@ -1,8 +1,6 @@
 /**
- * @file map.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,19 +24,24 @@
 #include "combat.h"
 #include "creature.h"
 #include "game.h"
+#include "monster.h"
 
 extern Game g_game;
 
-bool Map::loadMap(const std::string& identifier, bool loadHouses)
+bool Map::loadMap(const std::string& identifier, bool loadHouses, bool loadSpawns)
 {
+	int64_t start = OTSYS_TIME();
 	IOMap loader;
 	if (!loader.loadMap(this, identifier)) {
 		std::cout << "[Fatal - Map::loadMap] " << loader.getLastErrorString() << std::endl;
 		return false;
 	}
 
-	if (!IOMap::loadSpawns(this)) {
-		std::cout << "[Warning - Map::loadMap] Failed to load spawn data." << std::endl;
+	if (loadSpawns) {
+		if (!IOMap::loadSpawns(this)) {
+			std::cout << "[Warning - Map::loadMap] Failed to load spawn data." << std::endl;
+		}
+		std::cout << "> Loaded spawns in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	}
 
 	if (loadHouses) {
@@ -457,7 +460,7 @@ void Map::clearSpectatorCache()
 }
 
 bool Map::canThrowObjectTo(const Position& fromPos, const Position& toPos, bool checkLineOfSight /*= true*/,
-						   int32_t rangex /*= Map::maxClientViewportX*/, int32_t rangey /*= Map::maxClientViewportY*/) const
+                           int32_t rangex /*= Map::maxClientViewportX*/, int32_t rangey /*= Map::maxClientViewportY*/) const
 {
 	//z checks
 	//underground 8->15
@@ -845,7 +848,8 @@ int_fast32_t AStarNodes::getTileWalkCost(const Creature& creature, const Tile* t
 
 	if (const MagicField* field = tile->getFieldItem()) {
 		CombatType_t combatType = field->getCombatType();
-		if (!creature.isImmune(combatType) && !creature.hasCondition(Combat::DamageToConditionType(combatType))) {
+		const Monster* monster = creature.getMonster();
+		if (!creature.isImmune(combatType) && !creature.hasCondition(Combat::DamageToConditionType(combatType)) && (monster && !monster->canWalkOnFieldType(combatType))) {
 			cost += MAP_NORMALWALKCOST * 18;
 		}
 	}
@@ -1006,7 +1010,7 @@ uint32_t Map::clean() const
 	}
 
 	std::cout << "> CLEAN: Removed " << count << " item" << (count != 1 ? "s" : "")
-			  << " from " << tiles << " tile" << (tiles != 1 ? "s" : "") << " in "
-			  << (OTSYS_TIME() - start) / (1000.) << " seconds." << std::endl;
+	          << " from " << tiles << " tile" << (tiles != 1 ? "s" : "") << " in "
+	          << (OTSYS_TIME() - start) / (1000.) << " seconds." << std::endl;
 	return count;
 }

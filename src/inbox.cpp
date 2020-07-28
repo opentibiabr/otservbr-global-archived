@@ -1,8 +1,6 @@
 /**
- * @file inbox.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +24,7 @@
 
 Inbox::Inbox(uint16_t type) : Container(type, 30, false, true)
 {
-	maxInboxItems = 500;
+	maxInboxItems = std::numeric_limits<uint16_t>::max();
 }
 
 ReturnValue Inbox::queryAdd(int32_t, const Thing& thing, uint32_t,

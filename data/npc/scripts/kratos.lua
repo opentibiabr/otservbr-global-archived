@@ -2,10 +2,18 @@ local keywordHandler = KeywordHandler:new()
 local npcHandler = NpcHandler:new(keywordHandler)
 NpcSystem.parseParameters(npcHandler)
 
-function onCreatureAppear(cid)			npcHandler:onCreatureAppear(cid)			end
-function onCreatureDisappear(cid)		npcHandler:onCreatureDisappear(cid)			end
-function onCreatureSay(cid, type, msg) npcHandler:onCreatureSay(cid, type, msg)	end
-function onThink()				npcHandler:onThink()					end
+function onCreatureAppear(cid)
+	npcHandler:onCreatureAppear(cid)
+end
+function onCreatureDisappear(cid)
+	npcHandler:onCreatureDisappear(cid)
+end
+function onCreatureSay(cid, type, msg)
+	npcHandler:onCreatureSay(cid, type, msg)
+end
+function onThink()
+	npcHandler:onThink()
+end
 
 -- ID, Count, Price
 local eventShopItems = {
@@ -31,7 +39,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif (msg == "event shop") then
 		npcHandler:say("Entre no nosso site, clique em {Events} => {Events Shop}.", cid)
 	end
-	
+
 	if (eventShopItems[msg]) then
 		npcHandler.topic[cid] = 0
 		local itemId, itemCount, itemPrice = eventShopItems[msg][1], eventShopItems[msg][2], eventShopItems[msg][3]
@@ -39,7 +47,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Deseja comprar o item {" ..msg.. "} por " ..itemPrice.. "x?", cid)
 			npcHandler.topic[cid] = msg
 		else
-			npcHandler:say("Você não tem " ..itemPrice.. " {Event Token(s)}!", cid)
+			npcHandler:say("Vocï¿½ nï¿½o tem " ..itemPrice.. " {Event Token(s)}!", cid)
 			return true
 		end
 	end
@@ -47,13 +55,13 @@ local function creatureSayCallback(cid, type, msg)
 	if (eventShopItems[npcHandler.topic[cid]]) then
 		local itemId, itemCount, itemPrice = eventShopItems[npcHandler.topic[cid]][1], eventShopItems[npcHandler.topic[cid]][2], eventShopItems[npcHandler.topic[cid]][3]
 		if (msg == "no" or
-			msg == "não") then
-			npcHandler:say("Então qual item deseja comprar?", cid)
+			msg == "nï¿½o") then
+			npcHandler:say("Entï¿½o qual item deseja comprar?", cid)
 			npcHandler.topic[cid] = 0
 		elseif (msg == "yes" or
 				msg == "sim") then
 			if (player:getItemCount(26143) > 0) then
-				npcHandler:say("Você comprou o Item {" ..npcHandler.topic[cid].."} " ..itemCount.. "x por " ..itemPrice.. " {Event Token(s)}!", cid)
+				npcHandler:say("Vocï¿½ comprou o Item {" ..npcHandler.topic[cid].."} " ..itemCount.. "x por " ..itemPrice.. " {Event Token(s)}!", cid)
 				player:removeItem(26143, itemPrice)
 				player:addItem(itemId, itemCount)
 			end
@@ -65,7 +73,7 @@ local voices = { {text = 'Troco itens por Event Tokens, venha ver minhas ofertas
 npcHandler:addModule(VoiceModule:new(voices))
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
-npcHandler:setMessage(MESSAGE_GREET, 'Olá, |PLAYERNAME|! Caso não me conheça, vá no site e clique em {Event Shop}. Deseja trocar seus Event Tokens? fale {ofertas}.')
-npcHandler:setMessage(MESSAGE_FAREWELL, 'Foi ótimo negociar com você, |PLAYERNAME|.')
-npcHandler:setMessage(MESSAGE_WALKAWAY, 'Foi ótimo negociar com você, |PLAYERNAME|.')
+npcHandler:setMessage(MESSAGE_GREET, 'Olï¿½, |PLAYERNAME|! Caso nï¿½o me conheï¿½a, vï¿½ no site e clique em {Event Shop}. Deseja trocar seus Event Tokens? fale {ofertas}.')
+npcHandler:setMessage(MESSAGE_FAREWELL, 'Foi ï¿½timo negociar com vocï¿½, |PLAYERNAME|.')
+npcHandler:setMessage(MESSAGE_WALKAWAY, 'Foi ï¿½timo negociar com vocï¿½, |PLAYERNAME|.')
 npcHandler:addModule(FocusModule:new())

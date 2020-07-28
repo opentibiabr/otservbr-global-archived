@@ -1,8 +1,6 @@
 /**
- * @file creature.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -188,7 +186,7 @@ void Creature::onIdleStatus()
 	}
 }
 
-void Creature::onWalk()
+void Creature::onCreatureWalk()
 {
 	if (getWalkDelay() <= 0) {
 		Direction dir;
@@ -365,7 +363,7 @@ void Creature::onAddTileItem(const Tile* tileItem, const Position& pos)
 }
 
 void Creature::onUpdateTileItem(const Tile* updateTile, const Position& pos, const Item*,
-								const ItemType& oldType, const Item*, const ItemType& newType)
+                                const ItemType& oldType, const Item*, const ItemType& newType)
 {
 	if (!isMapLoaded) {
 		return;
@@ -451,7 +449,7 @@ void Creature::onAttackedCreatureChangeZone(ZoneType_t zone)
 }
 
 void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Position& newPos,
-							  const Tile* oldTile, const Position& oldPos, bool teleport)
+                              const Tile* oldTile, const Position& oldPos, bool teleport)
 {
 	if (creature == this) {
 		lastStep = OTSYS_TIME();
@@ -470,16 +468,14 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 		}
 
 		if (!summons.empty()) {
-			//check if any of our summons is out of range (+/- 1 floors or 30 tiles away)
+			//check if any of our summons is out of range (+/- 2 floors or 30 tiles away)
 			std::forward_list<Creature*> despawnList;
 			for (Creature* summon : summons) {
 				const Position& pos = summon->getPosition();
-				if (Position::getDistanceZ(newPos, pos) > 0 || (std::max<int32_t>(Position::getDistanceX(newPos, pos), Position::getDistanceY(newPos, pos)) > 30)) {
-					if (!summon->getMonster()->isPet()) {
-						despawnList.push_front(summon);
-					} else {
-						g_game.internalTeleport(summon, summon->getMaster()->getPosition(), true);
-					}
+				if (summon->getMonster()->isPet() && (Position::getDistanceZ(newPos, pos) >= 1 || (std::max<int32_t>(Position::getDistanceX(newPos, pos), Position::getDistanceY(newPos, pos)) >= 15))) {
+					g_game.internalTeleport(summon, summon->getMaster()->getPosition(), true);
+				} else if (!summon->getMonster()->isPet() && (Position::getDistanceZ(newPos, pos) >= 2 || (std::max<int32_t>(Position::getDistanceX(newPos, pos), Position::getDistanceY(newPos, pos)) >= 30))) {
+					despawnList.push_front(summon);
 				}
 			}
 
@@ -591,6 +587,7 @@ void Creature::onCreatureMove(Creature* creature, const Tile* newTile, const Pos
 	if (creature == followCreature || (creature == this && followCreature)) {
 		if (hasFollowPath) {
 			isUpdatingPath = true;
+			g_dispatcher.addTask(createTask(std::bind(&Game::updateCreatureWalk, &g_game, getID())));
 		}
 
 		if (newPos.z != oldPos.z || !canSee(followCreature->getPosition())) {
@@ -621,7 +618,7 @@ void Creature::onDeath()
 	Creature* lastHitCreature = g_game.getCreatureByID(lastHitCreatureId);
 	Creature* lastHitCreatureMaster;
 	if (lastHitCreature) {
-		lastHitUnjustified = lastHitCreature->onKilledCreature(this);
+		lastHitUnjustified = lastHitCreature->onKilledCreature(this, true);
 		lastHitCreatureMaster = lastHitCreature->getMaster();
 	} else {
 		lastHitCreatureMaster = nullptr;
@@ -768,6 +765,9 @@ void Creature::changeHealth(int32_t healthChange, bool sendHealthChange/* = true
 	if (sendHealthChange && oldHealth != health) {
 		g_game.addCreatureHealth(this);
 	}
+	if (health <= 0) {
+		g_dispatcher.addTask(createTask(std::bind(&Game::executeDeath, &g_game, getID())));
+	}
 }
 
 void Creature::changeMana(int32_t manaChange)
@@ -807,7 +807,7 @@ void Creature::drainMana(Creature* attacker, int32_t manaLoss)
 }
 
 BlockType_t Creature::blockHit(Creature* attacker, CombatType_t combatType, int32_t& damage,
-							   bool checkDefense /* = false */, bool checkArmor /* = false */, bool /* field  = false */)
+                               bool checkDefense /* = false */, bool checkArmor /* = false */, bool /* field  = false */)
 {
 	BlockType_t blockType = BLOCK_NONE;
 
@@ -1099,16 +1099,16 @@ void Creature::onAttackedCreatureKilled(Creature* target)
 	}
 }
 
-bool Creature::onKilledCreature(Creature* target, bool)
+bool Creature::onKilledCreature(Creature* target, bool lastHit)
 {
 	if (master) {
-		master->onKilledCreature(target);
+		master->onKilledCreature(target, lastHit);
 	}
 
 	//scripting event - onKill
 	const CreatureEventList& killEvents = getCreatureEvents(CREATURE_EVENT_KILL);
 	for (CreatureEvent* killEvent : killEvents) {
-		killEvent->executeOnKill(this, target);
+		killEvent->executeOnKill(this, target, lastHit);
 	}
 	return false;
 }
@@ -1396,7 +1396,7 @@ int64_t Creature::getStepDuration() const
 	int32_t stepSpeed = getStepSpeed();
 	if (stepSpeed > -Creature::speedB) {
 		calculatedStepSpeed = floor((Creature::speedA * log((stepSpeed / 2) + Creature::speedB) + Creature::speedC) + 0.5);
-		if (calculatedStepSpeed <= 0) {
+		if (calculatedStepSpeed == 0) {
 			calculatedStepSpeed = 1;
 		}
 	} else {
@@ -1526,7 +1526,7 @@ CreatureEventList Creature::getCreatureEvents(CreatureEventType_t type)
 }
 
 bool FrozenPathingConditionCall::isInRange(const Position& startPos, const Position& testPos,
-		const FindPathParams& fpp) const
+        const FindPathParams& fpp) const
 {
 	if (fpp.fullPathSearch) {
 		if (testPos.x > targetPos.x + fpp.maxTargetDist) {
@@ -1573,7 +1573,7 @@ bool FrozenPathingConditionCall::isInRange(const Position& startPos, const Posit
 }
 
 bool FrozenPathingConditionCall::operator()(const Position& startPos, const Position& testPos,
-		const FindPathParams& fpp, int32_t& bestMatchDist) const
+        const FindPathParams& fpp, int32_t& bestMatchDist) const
 {
 	if (!isInRange(startPos, testPos, fpp)) {
 		return false;

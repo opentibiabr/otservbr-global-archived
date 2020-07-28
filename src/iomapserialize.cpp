@@ -1,8 +1,6 @@
-﻿/**
- * @file iomapserialize.cpp
- * 
+/**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,7 +61,7 @@ void IOMapSerialize::loadHouseItems(Map* map)
 			loadItem(propStream, tile);
 		}
 	} while (result->next());
-	std::cout << "> Loaded house items in: " << (OTSYS_TIME() - start) / (1000.) << " s" << std::endl;
+	std::cout << "> Loaded house items in: " << (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 }
 
 bool IOMapSerialize::saveHouseItems()
@@ -111,7 +109,7 @@ bool IOMapSerialize::saveHouseItems()
 	//End the transaction
 	bool success = transaction.commit();
 	std::cout << "> Saved house items in: " <<
-			  (OTSYS_TIME() - start) / (1000.) << " s" << std::endl;
+			  (OTSYS_TIME() - start) / (1000.) << " seconds" << std::endl;
 	return success;
 }
 

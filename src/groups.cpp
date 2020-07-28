@@ -1,8 +1,6 @@
 /**
- * @file groups.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,7 +46,7 @@ const std::unordered_map<std::string, PlayerFlags> ParsePlayerFlagMap = {
 	{"cannotbebanned", PlayerFlag_CannotBeBanned},
 	{"cannotbepushed", PlayerFlag_CannotBePushed},
 	{"hasinfinitecapacity", PlayerFlag_HasInfiniteCapacity},
-	{"cannotpushallcreatures", PlayerFlag_CanPushAllCreatures},
+	{"canpushallcreatures", PlayerFlag_CanPushAllCreatures},
 	{"cantalkredprivate", PlayerFlag_CanTalkRedPrivate},
 	{"cantalkredchannel", PlayerFlag_CanTalkRedChannel},
 	{"talkorangehelpchannel", PlayerFlag_TalkOrangeHelpChannel},
@@ -97,6 +95,7 @@ bool Groups::load()
 				}
 			}
 		}
+
 		groups.push_back(group);
 	}
 	return true;

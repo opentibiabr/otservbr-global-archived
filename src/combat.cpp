@@ -1,8 +1,6 @@
 /**
- * @file combat.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -487,7 +485,6 @@ CallBack* Combat::getCallback(CallBackParam_t key)
 void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatParams& params, CombatDamage* data)
 {
 	assert(data);
-
 	CombatDamage damage = *data;
 	if (caster && caster->getPlayer()) {
 		Item* tool = caster->getPlayer()->getWeapon();
@@ -498,9 +495,8 @@ void Combat::CombatHealthFunc(Creature* caster, Creature* target, const CombatPa
 		return;
 	}
 
-	if ((damage.primary.value < 0 || damage.secondary.value < 0) && caster) {
-		Player* targetPlayer = target->getPlayer();
-		if (targetPlayer && caster->getPlayer() && targetPlayer->getSkull() != SKULL_BLACK) {
+	if ((damage.primary.value < 0 || damage.secondary.value < 0)) {
+		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
 			damage.primary.value /= 2;
 			damage.secondary.value /= 2;
 		}
@@ -517,7 +513,7 @@ void Combat::CombatManaFunc(Creature* caster, Creature* target, const CombatPara
 	assert(data);
 	CombatDamage damage = *data;
 	if (damage.primary.value < 0) {
-		if (caster && caster->getPlayer() && target->getPlayer()) {
+		if (caster && caster->getPlayer() && target->getSkull() != SKULL_BLACK && target->getPlayer()) {
 			damage.primary.value /= 2;
 		}
 	}
@@ -683,6 +679,36 @@ void Combat::addDistanceEffect(Creature* caster, const Position& fromPos, const 
 	}
 }
 
+void Combat::doCombat(Creature* caster, Creature* target) const
+{
+	//target combat callback function
+	if (params.combatType != COMBAT_NONE) {
+		CombatDamage damage = getCombatDamage(caster, target);
+		if (damage.primary.type != COMBAT_MANADRAIN) {
+			doCombatHealth(caster, target, damage, params);
+		} else {
+			doCombatMana(caster, target, damage, params);
+		}
+	} else {
+		doCombatDefault(caster, target, params);
+	}
+}
+
+void Combat::doCombat(Creature* caster, const Position& position) const
+{
+	//area combat callback function
+	if (params.combatType != COMBAT_NONE) {
+		CombatDamage damage = getCombatDamage(caster, nullptr);
+		if (damage.primary.type != COMBAT_MANADRAIN) {
+			doCombatHealth(caster, position, area.get(), damage, params);
+		} else {
+			doCombatMana(caster, position, area.get(), damage, params);
+		}
+	} else {
+		CombatFunc(caster, position, area.get(), params, CombatNullFunc, nullptr);
+	}
+}
+
 void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat* area, const CombatParams& params, CombatFunction func, CombatDamage* data)
 {
 	std::forward_list<Tile*> tileList;
@@ -743,12 +769,14 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 	}
 	//
 	CombatDamage tmpDamage;
-	if(data) {
-		tmpDamage.origin = data->origin;
-		tmpDamage.primary.type = data->primary.type;
-		tmpDamage.primary.value = data->primary.value;
-		tmpDamage.critical = data->critical;
-	}
+    if(data) {
+        tmpDamage.origin = data->origin;
+        tmpDamage.primary.type = data->primary.type;
+        tmpDamage.primary.value = data->primary.value;        
+        tmpDamage.secondary.type = data->secondary.type;
+        tmpDamage.secondary.value = data->secondary.value;
+        tmpDamage.critical = data->critical;
+    }
 	tmpDamage.affected = affected;
 	for (Tile* tile : tileList) {
 		if (canDoCombat(caster, tile, params.aggressive) != RETURNVALUE_NOERROR) {
@@ -786,56 +814,6 @@ void Combat::CombatFunc(Creature* caster, const Position& pos, const AreaCombat*
 	postCombatEffects(caster, pos, params);
 }
 
-void Combat::doCombat(Creature* caster, Creature* target) const
-{
-	//target combat callback function
-	if (params.combatType != COMBAT_NONE) {
-		CombatDamage damage = getCombatDamage(caster, target);
-		if(caster && caster->getPlayer()){
-			// Critical damage
-			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
-			if (chance != 0 && uniform_random(1, 100) <= chance) {
-				damage.critical = true;
-				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
-				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
-			}
-		}
-
-		if (damage.primary.type != COMBAT_MANADRAIN) {
-			doCombatHealth(caster, target, damage, params);
-		} else {
-			doCombatMana(caster, target, damage, params);
-		}
-	} else {
-		doCombatDefault(caster, target, params);
-	}
-}
-
-void Combat::doCombat(Creature* caster, const Position& position) const
-{
-	//area combat callback function
-	if (params.combatType != COMBAT_NONE) {
-		CombatDamage damage = getCombatDamage(caster, nullptr);
-
-		if(caster && caster->getPlayer()){
-			// Critical damage
-			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
-			if (chance != 0 && uniform_random(1, 100) <= chance) {
-				damage.critical = true;
-				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
-				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
-			}
-		}
-		if (damage.primary.type != COMBAT_MANADRAIN) {
-			doCombatHealth(caster, position, area.get(), damage, params);
-		} else {
-			doCombatMana(caster, position, area.get(), damage, params);
-		}
-	} else {
-		CombatFunc(caster, position, area.get(), params, CombatNullFunc, nullptr);
-	}
-}
-
 void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& damage, const CombatParams& params)
 {
 	bool canCombat = !params.aggressive || (caster != target && Combat::canDoCombat(caster, target) == RETURNVALUE_NOERROR);
@@ -843,20 +821,38 @@ void Combat::doCombatHealth(Creature* caster, Creature* target, CombatDamage& da
 		g_game.addMagicEffect(target->getPosition(), params.impactEffect);
 	}
 
+	if(caster && caster->getPlayer()){
+			// Critical damage
+			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
+				damage.critical = true;
+				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+			}
+		}
 	if (canCombat) {
+		if (caster && params.distanceEffect != CONST_ANI_NONE) {
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
+		}
+
 		CombatHealthFunc(caster, target, params, &damage);
 		if (params.targetCallback) {
 			params.targetCallback->onTargetCombat(caster, target);
-		}
-
-		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
 
 void Combat::doCombatHealth(Creature* caster, const Position& position, const AreaCombat* area, CombatDamage& damage, const CombatParams& params)
 {
+		if(caster && caster->getPlayer()){
+			// Critical damage
+			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+			if (damage.primary.type != COMBAT_HEALING && chance != 0 && uniform_random(1, 100) <= chance) {
+				damage.critical = true;
+				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+			}
+		}
 	CombatFunc(caster, position, area, params, CombatHealthFunc, &damage);
 }
 
@@ -867,20 +863,38 @@ void Combat::doCombatMana(Creature* caster, Creature* target, CombatDamage& dama
 		g_game.addMagicEffect(target->getPosition(), params.impactEffect);
 	}
 
+	if(caster && caster->getPlayer()){
+		// Critical damage
+		uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+		if (chance != 0 && uniform_random(1, 100) <= chance) {
+			damage.critical = true;
+			damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+			damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+		}
+	}
 	if (canCombat) {
+		if (caster && params.distanceEffect != CONST_ANI_NONE) {
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
+		}
+
 		CombatManaFunc(caster, target, params, &damage);
 		if (params.targetCallback) {
 			params.targetCallback->onTargetCombat(caster, target);
-		}
-
-		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
 
 void Combat::doCombatMana(Creature* caster, const Position& position, const AreaCombat* area, CombatDamage& damage, const CombatParams& params)
 {
+	if(caster && caster->getPlayer()){
+			// Critical damage
+			uint16_t chance = caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_CHANCE);
+			if (chance != 0 && uniform_random(1, 100) <= chance) {
+				damage.critical = true;
+				damage.primary.value += (damage.primary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+				damage.secondary.value += (damage.secondary.value * caster->getPlayer()->getSkillLevel(SKILL_CRITICAL_HIT_DAMAGE ))/100;
+			}
+		}
 	CombatFunc(caster, position, area, params, CombatManaFunc, &damage);
 }
 
@@ -897,13 +911,13 @@ void Combat::doCombatCondition(Creature* caster, Creature* target, const CombatP
 	}
 
 	if (canCombat) {
+		if (caster && params.distanceEffect != CONST_ANI_NONE) {
+			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
+		}
+
 		CombatConditionFunc(caster, target, params, nullptr);
 		if (params.targetCallback) {
 			params.targetCallback->onTargetCombat(caster, target);
-		}
-
-		if (caster && params.distanceEffect != CONST_ANI_NONE) {
-			addDistanceEffect(caster, caster->getPosition(), target->getPosition(), params.distanceEffect);
 		}
 	}
 }
@@ -980,7 +994,11 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 	LuaScriptInterface::pushUserdata<Player>(L, player);
 	LuaScriptInterface::setMetatable(L, -1, "Player");
 
+	int16_t elementAttack = 0; // To calculate elemental damage after executing spell script and get real damage.
+	int32_t attackValue = 7; // default start attack value
 	int parameters = 1;
+	bool shouldCalculateSecondaryDamage = false;
+
 	switch (type) {
 		case COMBAT_FORMULA_LEVELMAGIC: {
 			//onGetPlayerMinMaxValues(player, level, maglevel)
@@ -994,19 +1012,31 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 			//onGetPlayerMinMaxValues(player, attackSkill, attackValue, attackFactor)
 			Item* tool = player->getWeapon();
 			const Weapon* weapon = g_weapons->getWeapon(tool);
+			Item* item = nullptr;
 
-			int32_t attackValue = 7;
 			if (weapon) {
 				attackValue = tool->getAttack();
 				if (tool->getWeaponType() == WEAPON_AMMO) {
-					Item* item = player->getWeapon(true);
+					item = player->getWeapon(true);
 					if (item) {
 						attackValue += item->getAttack();
 					}
 				}
 
-				damage.secondary.type = weapon->getElementType();
-				damage.secondary.value = weapon->getElementDamage(player, nullptr, tool);
+				CombatType_t elementType = weapon->getElementType();
+				damage.secondary.type = elementType;
+
+				if (elementType != COMBAT_NONE) {
+					if (weapon) {
+						elementAttack = weapon->getElementDamageValue();
+						shouldCalculateSecondaryDamage = true;
+						attackValue += elementAttack;
+					}
+				}
+				else {
+					shouldCalculateSecondaryDamage = false;
+				}
+		
 				if (useCharges) {
 					uint16_t charges = tool->getCharges();
 					if (charges != 0) {
@@ -1015,7 +1045,7 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 				}
 			}
 
-			lua_pushnumber(L, player->getWeaponSkill(tool));
+			lua_pushnumber(L, player->getWeaponSkill(item ? item : tool));
 			lua_pushnumber(L, attackValue);
 			lua_pushnumber(L, player->getAttackFactor());
 			parameters += 3;
@@ -1032,11 +1062,27 @@ void ValueCallback::getMinMaxValues(Player* player, CombatDamage& damage, bool u
 	int size0 = lua_gettop(L);
 	if (lua_pcall(L, parameters, 2, 0) != 0) {
 		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
-	} else {
-		damage.primary.value = normal_random(
+	}
+	else {
+
+		int32_t defaultDmg = normal_random(
 			LuaScriptInterface::getNumber<int32_t>(L, -2),
 			LuaScriptInterface::getNumber<int32_t>(L, -1)
 		);
+
+		if (shouldCalculateSecondaryDamage) {
+			double factor = (double)elementAttack / (double)attackValue; //attack value here is phys dmg + element dmg
+			int32_t elementDamage = std::round(defaultDmg * factor);
+			int32_t physDmg = std::round(defaultDmg * (1.0 - factor));
+			damage.primary.value = physDmg;
+			damage.secondary.value = elementDamage;
+
+		} else {
+			damage.primary.value = defaultDmg;
+			damage.secondary.type = COMBAT_NONE;
+			damage.secondary.value = 0;
+		}
+		
 		lua_pop(L, 2);
 	}
 

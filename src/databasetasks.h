@@ -1,8 +1,6 @@
 /**
- * @file databasetasks.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +17,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_DATABASETASKS_H_
-#define OT_SRC_DATABASETASKS_H_
+#ifndef FS_DATABASETASKS_H_9CBA08E9F5FEBA7275CCEE6560059576
+#define FS_DATABASETASKS_H_9CBA08E9F5FEBA7275CCEE6560059576
 
 #include <condition_variable>
 #include "thread_holder_base.h"
@@ -39,10 +37,12 @@ struct DatabaseTask {
 class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 {
 	public:
-		DatabaseTasks() = default;
-		void start();
-		void flush();
-		void shutdown();
+		DatabaseTasks();
+    bool SetDatabaseInterface(Database *database);
+    void start();
+    void startThread();
+    void flush();
+    void shutdown();
 
 		void addTask(std::string query, std::function<void(DBResult_ptr, bool)> callback = nullptr, bool store = false);
 
@@ -50,7 +50,7 @@ class DatabaseTasks : public ThreadHolder<DatabaseTasks>
 	private:
 		void runTask(const DatabaseTask& task);
 
-		Database db;
+		Database *db_;
 		std::thread thread;
 		std::list<DatabaseTask> tasks;
 		std::mutex taskLock;

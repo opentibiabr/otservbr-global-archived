@@ -1,8 +1,6 @@
 /**
- * @file raids.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -327,8 +325,6 @@ bool AnnounceEvent::configureRaidEvent(const pugi::xml_node& eventNode)
 			messageType = MESSAGE_INFO_DESCR;
 		} else if (tmpStrValue == "smallstatus") {
 			messageType = MESSAGE_STATUS_SMALL;
-		} else if (tmpStrValue == "blueconsole") {
-			messageType = MESSAGE_STATUS_CONSOLE_BLUE;
 		} else if (tmpStrValue == "redconsole") {
 			messageType = MESSAGE_STATUS_CONSOLE_RED;
 		} else {

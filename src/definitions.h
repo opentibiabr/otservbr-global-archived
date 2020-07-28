@@ -1,8 +1,6 @@
- /**
- * @file definitions.h
- * 
+/**
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,22 +17,25 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_DEFINITIONS_H_
-#define OT_SRC_DEFINITIONS_H_
+#ifndef FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
+#define FS_DEFINITIONS_H_877452FEC245450C9F96B8FD268D8963
 
 static constexpr auto STATUS_SERVER_NAME = "OTServBR - Global";
-static constexpr auto STATUS_SERVER_VERSION = "Based on TFS 1.3";
-static constexpr auto STATUS_SERVER_CREDITS = "OTServBR Team and Contributors, OTXServer (Mattyx Gomez) and The Forgotten Server Developers";
+static constexpr auto STATUS_SERVER_VERSION = "TFS 1.3";
+static constexpr auto STATUS_SERVER_DEVELOPERS = "OTServBR, Mark Samman and The Forgotten Server Developers";
 
-static constexpr auto CLIENT_VERSION_MIN = 1100;
-static constexpr auto CLIENT_VERSION_MAX = 1200;
-static constexpr auto CLIENT_VERSION_STR = "12.00";
+static constexpr auto CLIENT_VERSION = 1220;
+static constexpr auto CLIENT_VERSION_STR = "12.20";
 
 static constexpr auto AUTHENTICATOR_DIGITS = 6U;
 static constexpr auto AUTHENTICATOR_PERIOD = 30U;
 
 #ifndef __FUNCTION__
 #define __FUNCTION__ __func__
+#endif
+
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #endif
 
 #ifndef _USE_MATH_DEFINES
@@ -60,7 +61,7 @@ static constexpr auto AUTHENTICATOR_PERIOD = 30U;
 #pragma warning(disable:4244) // 'argument' : conversion from 'type1' to 'type2', possible loss of data
 #pragma warning(disable:4250) // 'class1' : inherits 'class2::member' via dominance
 #pragma warning(disable:4267) // 'var' : conversion from 'size_t' to 'type', possible loss of data
-#pragma warning(disable:4351) // new behavior: elements of array will be default initialized
+#pragma warning(disable:4319) // '~': zero extending 'unsigned int' to 'lua_Number' of greater size
 #pragma warning(disable:4458) // declaration hides class member
 #pragma warning(disable:4101) // local variable not referenced
 #pragma warning(disable:4996) // declaration std::fpos<_Mbstatet>::seekpos
@@ -78,5 +79,7 @@ static constexpr auto AUTHENTICATOR_PERIOD = 30U;
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
+
+typedef int error_t;
 
 #endif

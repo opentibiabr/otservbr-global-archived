@@ -1,5 +1,3 @@
-local talk = TalkAction("/attr")
-
 local itemFunctions = {
 	["actionid"] = { isActive = true, targetFunction = function (item, target) return item:setActionId(target) end },
 	["action"] = { isActive = true, targetFunction = function (item, target) return item:setActionId(target) end },
@@ -40,7 +38,7 @@ local playerFunctions = {
 	["stamina"] = { isActive = true, targetFunction = function (player, target) return player:setStamina(target) end },
 	["town"] = { isActive = true, targetFunction = function (player, target) return player:setTown(Town(target)) end },
 	["balance"] = { isActive = true, targetFunction = function (player, target) return player:setBankBalance(target + player:getBankBalance()) end },
-	["save"] = { isActive = true, targetFunction = function (player, target) return target:save() end },
+	["save"] = { isActive = true, targetFunction = function (player, target) return player:save() end },
 	["type"] = { isActive = true, targetFunction = function (player, target) return player:setAccountType(target) end },
 	["skullTime"] = { isActive = true, targetFunction = function (player, target) return player:setSkullTime(target) end },
 	["maxMana"] = { isActive = true, targetFunction = function (player, target) return player:setMaxMana(target) end },
@@ -50,7 +48,9 @@ local playerFunctions = {
 	["premium"] = { isActive = true, targetFunction = function (player, target) return player:addPremiumDays(target) end }
 }
 
-function talk.onSay(player, words, param)
+local attributes = TalkAction("/attr")
+
+function attributes.onSay(player, words, param)
 	if not player:getGroup():getAccess() or player:getAccountType() < ACCOUNT_TYPE_GOD then
 		return true
 	end
@@ -104,5 +104,5 @@ function talk.onSay(player, words, param)
 	return false
 end
 
-talk:separator(" ")
-talk:register()
+attributes:separator(" ")
+attributes:register()

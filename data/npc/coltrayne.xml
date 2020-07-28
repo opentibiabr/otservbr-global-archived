@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Coltrayne" walkinterval="2000" floorchange="0" script="coltrayne.lua">
+	<health now="100" max="100"/>
+	<look type="134" head="114" body="38" legs="124" feet="78" addons="0"/>
+
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="    Arrow,2544,3;    Axe,2386,20;    bolt,2543,4;    bow,2684,1;    Chain Helmet,2458,52;    health,2651,8;    rune,2455,500;    Dagger,2379,5;     Dagger,2485,16;    Dagger,2380,8;    Dagger,2650,10;    Dagger,2467,25;    Dagger,2461,12;    Dagger,2649,10;    Dagger,2384,15;    Dagger,2385,25;    Dagger,2550,12;    Dagger,2406,30;     Dagger,2405,8;    Dagger,2389,10;    Dagger,2482,63;    Dagger,2526,50;     escudo,2512,15"/>
+
+		<parameter key="shop_sellable" value="        flaskpequeno,2696,2;     Axe,2386,7;    flaskpequeno,2449,5;    flaskpequeno,2460,22;      flaskpequeno,2464,40;    Chain Helmet,2458,12;    Copper Shield,2530,50;    Dagger,2379,2;    Doublet,2485,3;    Hand Axe,2380,4;    Hatchet,2388,25;    Katana,2412,35;    Leather Armor,2467,5;    Leather Boots,2643,2;    Legion Helmet,2480,22;    Mace,2398,30;    flaskpequeno,2420,6;    flaskpequeno,2510,40;    Rapier,2384,5;    Sabre,2385,12;    flaskpequeno,2550,3;    Short Sword,2406,10;    Short Sword,2405,2;    Spear,2389,3;    Studded Armor,2484,10;    Studded Helmet,2482,20;    Studded Legs,2468,15;    Studded Shield,2526,16;    Studded Legs,2376,25;    Studded Legs,2473,25;    naoapagar,2511,25 "/>
+		<parameter key="message_farewell" value="May enlightenment be your path, |PLAYERNAME|."/>
+		<parameter key="message_walkaway" value="May enlightenment be your path, |PLAYERNAME|."/>
+		<parameter key="message_sendtrade" value="Of course, just browse through my offers."/>
+		<parameter key="message_greet" value="Be mourned pilgrim in flesh. I'm selling general goods."/>
+	</parameters>
+
+</npc>

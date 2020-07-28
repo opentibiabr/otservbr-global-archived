@@ -1,8 +1,6 @@
 /**
- * @file condition.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -430,23 +428,28 @@ void ConditionAttributes::updatePercentStats(Player* player)
 			case STAT_MAGICPOINTS:
 				stats[i] = static_cast<int32_t>(player->getBaseMagicLevel() * ((statsPercent[i] - 100) / 100.f));
 				break;
+
+			case STAT_CAPACITY:
+				stats[i] = static_cast<int32_t>(player->getCapacity() * (statsPercent[i] / 100.f));
+				break;
 		}
 	}
 }
 
 void ConditionAttributes::updateStats(Player* player)
 {
-	bool needUpdateStats = false;
+	bool needUpdate = false;
 
 	for (int32_t i = STAT_FIRST; i <= STAT_LAST; ++i) {
 		if (stats[i]) {
-			needUpdateStats = true;
+			needUpdate = true;
 			player->setVarStats(static_cast<stats_t>(i), stats[i]);
 		}
 	}
 
-	if (needUpdateStats) {
+	if (needUpdate) {
 		player->sendStats();
+		player->sendSkills();
 	}
 }
 
@@ -487,30 +490,25 @@ void ConditionAttributes::endCondition(Creature* creature)
 {
 	Player* player = creature->getPlayer();
 	if (player) {
-		bool needUpdateSkills = false;
+		bool needUpdate = false;
 
 		for (int32_t i = SKILL_FIRST; i <= SKILL_LAST; ++i) {
 			if (skills[i] || skillsPercent[i]) {
-				needUpdateSkills = true;
+				needUpdate = true;
 				player->setVarSkill(static_cast<skills_t>(i), -skills[i]);
 			}
 		}
 
-		if (needUpdateSkills) {
-			player->sendSkills();
-		}
-
-		bool needUpdateStats = false;
-
 		for (int32_t i = STAT_FIRST; i <= STAT_LAST; ++i) {
 			if (stats[i]) {
-				needUpdateStats = true;
+				needUpdate = true;
 				player->setVarStats(static_cast<stats_t>(i), -stats[i]);
 			}
 		}
 
-		if (needUpdateStats) {
+		if (needUpdate) {
 			player->sendStats();
+			player->sendSkills();
 		}
 	}
 
@@ -670,6 +668,11 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 
 		case CONDITION_PARAM_DISABLE_DEFENSE: {
 			disableDefense = (value != 0);
+			return true;
+		}
+
+		case CONDITION_PARAM_STAT_CAPACITYPERCENT: {
+			statsPercent[STAT_CAPACITY] = std::max<int32_t>(0, value);
 			return true;
 		}
 

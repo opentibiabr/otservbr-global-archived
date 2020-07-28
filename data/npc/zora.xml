@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Zora" walkinterval="2000" floorchange="0" script="zora.lua">
+	<health now="100" max="100"/>
+	<look type="155" head="95" body="21" legs="23" feet="114" addons="1"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="    fishing rod, 2580, 150;    green backpack, 1998, 20;    green bag, 1991, 4;    hand auger, 36169, 25;    net, 36324, 50;    pick, 2553, 50;    rope, 2120, 50;    scythe, 2550, 50;    shovel, 2554, 50"/>
+	</parameters>
+</npc>

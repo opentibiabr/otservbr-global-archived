@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Ramina" walkinterval="2000" floorchange="0" script="ramina.lua">
+	<health now="100" max="100"/>
+	<look type="1199" head="114" body="0" legs="15" feet="79" addons="0"/>
+	<parameters>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="shop_buyable" value="    banana,2676,3;    grapes,2681,5;    melon,2682,10;    carrot,2684,4;    tomato,2685,5;    pumpkin,2683,10;    orange,2675,7;"/>
+		<parameter key="shop_sellable" value="    empty honey glass,36166,270;    jar of honey,36167,300;"/>
+	</parameters>
+</npc>

@@ -1,8 +1,6 @@
 /**
- * @file game.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +17,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_GAME_H_
-#define OT_SRC_GAME_H_
+#ifndef FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
+#define FS_GAME_H_3EC96D67DD024E6093B3BAC29B7A6D7F
 
-#include "account.h"
+#include "account.hpp"
 #include "combat.h"
 #include "groups.h"
 #include "map.h"
@@ -33,7 +31,6 @@
 #include "raids.h"
 #include "npc.h"
 #include "wildcardtree.h"
-#include "quests.h"
 #include "gamestore.h"
 
 class ServiceManager;
@@ -48,6 +45,7 @@ enum stackPosType_t {
 	STACKPOS_TOPDOWN_ITEM,
 	STACKPOS_USEITEM,
 	STACKPOS_USETARGET,
+  	STACKPOS_FIND_THING,
 };
 
 enum WorldType_t {
@@ -73,7 +71,7 @@ enum LightState_t {
 	LIGHT_STATE_SUNRISE,
 };
 
-static constexpr int32_t EVENT_LIGHTINTERVAL = 7500;
+static constexpr int32_t EVENT_LIGHTINTERVAL = 10000;
 static constexpr int32_t EVENT_DECAYINTERVAL = 250;
 static constexpr int32_t EVENT_DECAY_BUCKETS = 4;
 static constexpr int32_t EVENT_IMBUEMENTINTERVAL = 250;
@@ -101,6 +99,7 @@ class Game
 
 		bool loadMainMap(const std::string& filename);
 		void loadMap(const std::string& path);
+		bool loadCustomSpawnFile(const std::string& fileName);
 
 		/**
 		  * Get the map size - info purpose only
@@ -217,7 +216,8 @@ class Game
 		  * \param c Creature to remove
 		  */
 		bool removeCreature(Creature* creature, bool isLogout = true);
-
+		void executeDeath(uint32_t creatureId);
+		
 		void addCreatureCheck(Creature* creature);
 		static void removeCreatureCheck(Creature* creature);
 
@@ -232,6 +232,9 @@ class Game
 		}
 		uint32_t getPlayersRecord() const {
 			return playersRecord;
+		}
+		uint16_t getItemsPriceCount() const {
+			return itemsSaleCount;
 		}
 
 		LightInfo getWorldLightInfo() const;
@@ -271,7 +274,7 @@ class Game
 		  * \param flags optional flags to modifiy the default behaviour
 		  * \returns true if the removal was successful
 		  */
-		bool removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags = 0);
+		bool removeMoney(Cylinder* cylinder, uint64_t money, uint32_t flags = 0, bool useBank = false);
 
 		/**
 		  * Add item(s) with monetary value
@@ -325,6 +328,8 @@ class Game
 		void playerDebugAssert(uint32_t playerId, const std::string& assertLine, const std::string& date, const std::string& description, const std::string& comment);
 		void playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, uint8_t button, uint8_t choice);
 		void playerReportRuleViolationReport(uint32_t playerId, const std::string& targetName, uint8_t reportType, uint8_t reportReason, const std::string& comment, const std::string& translation);
+
+		void updatePlayerSaleItems(uint32_t playerId);
 
 		bool internalStartTrade(Player* player, Player* partner, Item* tradeItem);
 		void internalCloseTrade(Player* player);
@@ -420,7 +425,7 @@ class Game
 
 		std::forward_list<Item*> getMarketItemList(uint16_t wareId, uint16_t sufficientCount, DepotLocker* depotLocker);
 
-		static void updatePremium(Account& account);
+		static void updatePremium(account::Account& account);
 
 		void cleanup();
 		void shutdown();
@@ -437,7 +442,6 @@ class Game
 		void changeLight(const Creature* creature);
 		void updateCreatureSkull(const Creature* player);
 		void updatePlayerShield(Player* player);
-		void updatePlayerHelpers(const Player& player);
 		void updateCreatureType(Creature* creature);
 		void updateCreatureWalkthrough(const Creature* creature);
 
@@ -477,8 +481,7 @@ class Game
 			return lightHour;
 		}
 
-		bool loadExperienceStages();
-		uint64_t getExperienceStage(uint32_t level);
+		bool loadItemsPrice();
 
 		void loadMotdNum();
 		void saveMotdNum() const;
@@ -488,6 +491,7 @@ class Game
 
 		void sendOfflineTrainingDialog(Player* player);
 
+		const std::map<uint16_t, uint32_t>& getItemsPrice() const { return itemsPriceMap; }
 		const std::unordered_map<uint32_t, Player*>& getPlayers() const { return players; }
 		const std::map<uint32_t, Npc*>& getNpcs() const { return npcs; }
 
@@ -527,15 +531,14 @@ class Game
 		Map map;
 		Mounts mounts;
 		Raids raids;
-		Quests quests;
 		GameStore gameStore;
 
 		std::forward_list<Item*> toDecayItems;
 		std::forward_list<Item*> toImbuedItems;
 
-	protected:
+	private:
 		void checkImbuements();
-
+		void applyImbuementEffects(Creature* attacker, int32_t realDamage);
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
 		void playerWhisper(Player* player, const std::string& text);
 		bool playerYell(Player* player, const std::string& text);
@@ -598,9 +601,8 @@ class Game
 		std::string motdHash;
 		uint32_t motdNum = 0;
 
-		uint32_t lastStageLevel = 0;
-		bool stagesEnabled = false;
-		bool useLastStageLevel = false;
+		std::map<uint16_t, uint32_t> itemsPriceMap;
+		uint16_t itemsSaleCount;
 };
 
 #endif

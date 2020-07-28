@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name="Etzel" walkinterval="2000" floorchange="0" script="etzel.lua">
+	<health now="100" max="100"/>
+	<look type="66" head="0" body="0" legs="0" feet="0" addons="0"/>
+	<parameters>
+		<parameter key="message_greet" value="Hello |PLAYERNAME|. Im selling a lot of potions but also buy a vial ask me for a {trade}."/>
+		<parameter key="module_shop" value="1"/>
+		<parameter key="message_farewell" value="Take care of you, young one. coughs"/>
+		<parameter key="message_walkaway" value="Take care of you, young one. coughs"/>
+		<parameter key="shop_buyable" value="great spirit potion,8472,190;great mana potion,7590,120;great health potion,7591,250;strong mana potion,7589,80;health potion,7618,45;mana potion,7620,50;ultimate health potion,8473,310"/>
+		<parameter key="shop_sellable" value="empty potion flask,7634,5;empty potion flask,7635,5;empty potion flask,7636,5;vial,2006,5"/>
+	</parameters>
+</npc>

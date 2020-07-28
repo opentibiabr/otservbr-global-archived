@@ -2,7 +2,7 @@ local SPECIAL_QUESTS = {2215, 2216, 10544, 12374, 12513, 26300, 27300, 28300}
 
 function onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
-	if not player then
+	if not player or player:getAccountType() ~= ACCOUNT_TYPE_NORMAL then
 		return true
 	end
 
@@ -11,14 +11,14 @@ function onStepIn(creature, item, position, fromPosition)
 	end
 
 	if position == fromPosition then
-		if creature:isPlayer() then
+		if player:isPlayer() then
 			local temple = creature:getTown():getTemplePosition()
-			creature:teleportTo(temple, false)
+			player:teleportTo(temple, false)
 		else
-			creature:remove()
+			player:remove()
 		end
 	else
-		creature:teleportTo(fromPosition, false)
+		creature:teleportTo(fromPosition, true)
 	end
 
 	return true

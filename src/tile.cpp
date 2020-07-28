@@ -1,8 +1,6 @@
 /**
- * @file tile.cpp
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,6 +33,7 @@
 #include "teleport.h"
 #include "trashholder.h"
 #include "housetile.h"
+#include "iomap.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -377,7 +376,7 @@ Thing* Tile::getTopVisibleThing(const Creature* creature)
 
 void Tile::onAddTileItem(Item* item)
 {
-	if (item->hasProperty(CONST_PROP_MOVEABLE) || item->getContainer()) {
+	if ((item->hasProperty(CONST_PROP_MOVEABLE) || item->getContainer()) || (item->isWrapable() && !item->hasProperty(CONST_PROP_MOVEABLE) && !item->hasProperty(CONST_PROP_BLOCKPATH))) {
 		auto it = g_game.browseFields.find(this);
 		if (it != g_game.browseFields.end()) {
 			it->second->addItemBack(item);
@@ -407,7 +406,7 @@ void Tile::onAddTileItem(Item* item)
 
 void Tile::onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newItem, const ItemType& newType)
 {
-	if (newItem->hasProperty(CONST_PROP_MOVEABLE) || newItem->getContainer()) {
+	if ((newItem->hasProperty(CONST_PROP_MOVEABLE) || newItem->getContainer()) || (newItem->isWrapable() && newItem->hasProperty(CONST_PROP_MOVEABLE) && !oldItem->hasProperty(CONST_PROP_BLOCKPATH))) {
 		auto it = g_game.browseFields.find(this);
 		if (it != g_game.browseFields.end()) {
 			int32_t index = it->second->getThingIndex(oldItem);
@@ -416,7 +415,7 @@ void Tile::onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newIte
 				newItem->setParent(this);
 			}
 		}
-	} else if (oldItem->hasProperty(CONST_PROP_MOVEABLE) || oldItem->getContainer()) {
+	} else if ((oldItem->hasProperty(CONST_PROP_MOVEABLE) || oldItem->getContainer()) || (oldItem->isWrapable() && !oldItem->hasProperty(CONST_PROP_MOVEABLE) && !oldItem->hasProperty(CONST_PROP_BLOCKPATH))) {
 		auto it = g_game.browseFields.find(this);
 		if (it != g_game.browseFields.end()) {
 			Cylinder* oldParent = oldItem->getParent();
@@ -445,7 +444,7 @@ void Tile::onUpdateTileItem(Item* oldItem, const ItemType& oldType, Item* newIte
 
 void Tile::onRemoveTileItem(const SpectatorHashSet& spectators, const std::vector<int32_t>& oldStackPosVector, Item* item)
 {
-	if (item->hasProperty(CONST_PROP_MOVEABLE) || item->getContainer()) {
+	if ((item->hasProperty(CONST_PROP_MOVEABLE) || item->getContainer()) || (item->isWrapable() && !item->hasProperty(CONST_PROP_MOVEABLE) && !item->hasProperty(CONST_PROP_BLOCKPATH))) {
 		auto it = g_game.browseFields.find(this);
 		if (it != g_game.browseFields.end()) {
 			it->second->removeThing(item, item->getItemCount());
@@ -499,6 +498,12 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileF
 		if (const Monster* monster = creature->getMonster()) {
 			if (hasFlag(TILESTATE_PROTECTIONZONE | TILESTATE_FLOORCHANGE | TILESTATE_TELEPORT) && !monster->isPet()) {
 				return RETURNVALUE_NOTPOSSIBLE;
+			}
+
+			if (monster->isSummon()) {
+				if (ground->getID() >= ITEM_WALKABLE_SEA_START && ground->getID() <= ITEM_WALKABLE_SEA_END) { 
+					return RETURNVALUE_NOTPOSSIBLE;
+				}
 			}
 
 			const CreatureVector* creatures = getCreatures();
@@ -628,12 +633,6 @@ ReturnValue Tile::queryAdd(int32_t, const Thing& thing, uint32_t, uint32_t tileF
 		const TileItemVector* items = getItemList();
 		if (items && items->size() >= 0x3E8) {
 			return RETURNVALUE_NOTPOSSIBLE;
-		}
-
-		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 1000000) {
-				return RETURNVALUE_NOTPOSSIBLE;
-			}
 		}
 
 		if (hasBitSet(FLAG_NOLIMIT, tileFlags)) {
@@ -853,12 +852,6 @@ void Tile::addThing(int32_t, Thing* thing)
 			return /*RETURNVALUE_NOTPOSSIBLE*/;
 		}
 
-		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 1000000) {
-				return /*RETURNVALUE_NOTPOSSIBLE*/;
-			}
-		}
-
 		item->setParent(this);
 
 		const ItemType& itemType = Item::items[item->getID()];
@@ -942,7 +935,7 @@ void Tile::addThing(int32_t, Thing* thing)
 
 			items = makeItemList();
 			items->insert(items->getBeginDownItem(), item);
-			items->addDownItemCount(1);
+			items->increaseDownItemCount();
 			onAddTileItem(item);
 		}
 	}
@@ -1124,7 +1117,7 @@ void Tile::removeThing(Thing* thing, uint32_t count)
 
 			item->setParent(nullptr);
 			items->erase(it);
-			items->addDownItemCount(-1);
+			items->decreaseDownItemCount();
 			onRemoveTileItem(spectators, oldStackPosVector, item);
 		}
 	}
@@ -1438,6 +1431,31 @@ void Tile::postRemoveNotification(Thing* thing, const Cylinder* newParent, int32
 void Tile::internalAddThing(Thing* thing)
 {
 	internalAddThing(0, thing);
+	if (!thing->getParent()) {
+		return;
+	}
+
+	if (HouseTile* houseTile = dynamic_cast<HouseTile*>(thing->getTile())) {
+		if (Item* item = thing->getItem()) {
+			if (item->getParent() != this) {
+				return;
+			}
+
+			Door* door = item->getDoor();
+			House* house = houseTile->getHouse();
+			if (door) {
+				if (door->getDoorId() != 0) {
+					house->addDoor(door);
+				}
+			}
+			else {
+				BedItem* bed = item->getBed();
+				if (bed) {
+					house->addBed(bed);
+				}
+			}
+		}
+	}
 }
 
 void Tile::internalAddThing(uint32_t, Thing* thing)
@@ -1469,12 +1487,6 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 			return /*RETURNVALUE_NOTPOSSIBLE*/;
 		}
 
-		if (hasFlag(TILESTATE_PROTECTIONZONE) || !hasFlag(TILESTATE_PROTECTIONZONE)) {
-			if (item->getWeight() >= 1000000) {
-				return /*RETURNVALUE_NOTPOSSIBLE*/;
-			}
-		}
-
 		if (itemType.alwaysOnTop) {
 			bool isInserted = false;
 			for (auto it = items->getBeginTopItem(), end = items->getEndTopItem(); it != end; ++it) {
@@ -1490,7 +1502,7 @@ void Tile::internalAddThing(uint32_t, Thing* thing)
 			}
 		} else {
 			items->insert(items->getBeginDownItem(), item);
-			items->addDownItemCount(1);
+			items->increaseDownItemCount();
 		}
 
 		setTileFlags(item);
@@ -1636,108 +1648,21 @@ Item* Tile::getUseItem(int32_t index) const
 	return nullptr;
 }
 
-HouseTile::HouseTile(int32_t initX, int32_t initY, int32_t initZ, House* initHouse) :
-	DynamicTile(initX, initY, initZ), house(initHouse) {}
-
-void HouseTile::addThing(int32_t index, Thing* thing)
+Item* Tile::getDoorItem() const
 {
-	Tile::addThing(index, thing);
+	const TileItemVector* items = getItemList();
+	if (!items || items->size() == 0) {
+    	return ground;
+  	}
 
-	if (!thing->getParent()) {
-		return;
-	}
+ 	if (items) {
+    	for (Item* item : *items) {
+      		const ItemType& it = Item::items[item->getID()];
+      		if (it.isDoor()) {
+        		return item;
+     		}
+    	}
+  	}
 
-	if (Item* item = thing->getItem()) {
-		updateHouse(item);
-	}
-}
-
-void HouseTile::internalAddThing(uint32_t index, Thing* thing)
-{
-	Tile::internalAddThing(index, thing);
-
-	if (!thing->getParent()) {
-		return;
-	}
-
-	if (Item* item = thing->getItem()) {
-		updateHouse(item);
-	}
-}
-
-void HouseTile::updateHouse(Item* item)
-{
-	if (item->getParent() != this) {
-		return;
-	}
-
-	Door* door = item->getDoor();
-	if (door) {
-		if (door->getDoorId() != 0) {
-			house->addDoor(door);
-		}
-	}
-	else {
-		BedItem* bed = item->getBed();
-		if (bed) {
-			house->addBed(bed);
-		}
-	}
-}
-
-ReturnValue HouseTile::queryAdd(int32_t index, const Thing& thing, uint32_t count, uint32_t tileFlags, Creature* actor/* = nullptr*/) const
-{
-	if (const Creature* creature = thing.getCreature()) {
-		if (const Player* player = creature->getPlayer()) {
-			if (!house->isInvited(player)) {
-				return RETURNVALUE_PLAYERISNOTINVITED;
-			}
-		}
-		else if (const Monster* monster = creature->getMonster()) {
-			if (monster->isSummon()) {
-				if (monster->isPet() && house->isInvited(monster->getMaster()->getPlayer())) {
-					return RETURNVALUE_NOERROR;
-				}
-				else {
-					return RETURNVALUE_NOTPOSSIBLE;
-				}
-			}
-		}
-	}
-	else if (thing.getItem() && actor) {
-		Player* actorPlayer = actor->getPlayer();
-		if (!house->isInvited(actorPlayer)) {
-			return RETURNVALUE_CANNOTTHROW;
-		}
-	}
-	return Tile::queryAdd(index, thing, count, tileFlags, actor);
-}
-
-Tile* HouseTile::queryDestination(int32_t& index, const Thing& thing, Item** destItem, uint32_t& tileFlags)
-{
-	if (const Creature* creature = thing.getCreature()) {
-		if (const Player* player = creature->getPlayer()) {
-			if (!house->isInvited(player)) {
-				const Position& entryPos = house->getEntryPosition();
-				Tile* destTile = g_game.map.getTile(entryPos);
-				if (!destTile) {
-					std::cout << "Error: [HouseTile::queryDestination] House entry not correct"
-						<< " - Name: " << house->getName()
-						<< " - House id: " << house->getId()
-						<< " - Tile not found: " << entryPos << std::endl;
-
-					destTile = g_game.map.getTile(player->getTemplePosition());
-					if (!destTile) {
-						destTile = &(Tile::nullptr_tile);
-					}
-				}
-
-				index = -1;
-				*destItem = nullptr;
-				return destTile;
-			}
-		}
-	}
-
-	return Tile::queryDestination(index, thing, destItem, tileFlags);
+	return nullptr;
 }

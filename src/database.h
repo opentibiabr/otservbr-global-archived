@@ -1,8 +1,6 @@
 /**
- * @file database.h
- * 
  * The Forgotten Server - a free and open-source MMORPG server emulator
- * Copyright (C) 2019 Mark Samman <mark.samman@gmail.com>
+ * Copyright (C) 2019  Mark Samman <mark.samman@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,12 +17,15 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef OT_SRC_DATABASE_H_
-#define OT_SRC_DATABASE_H_
+#ifndef FS_DATABASE_H_A484B0CDFDE542838F506DCE3D40C693
+#define FS_DATABASE_H_A484B0CDFDE542838F506DCE3D40C693
 
 #include <boost/lexical_cast.hpp>
-
 #include <mysql/mysql.h>
+#include <memory>
+#include <mutex>
+#include <map>
+#include <iostream>
 
 class DBResult;
 using DBResult_ptr = std::shared_ptr<DBResult>;
@@ -57,7 +58,22 @@ class Database
 		 */
 		bool connect();
 
-		/**
+    /**
+     * @brief Connect to the database using parameters
+     *
+     * @param host
+     * @param user
+     * @param password
+     * @param database
+     * @param port
+     * @param sock
+     * @return true Success
+     * @return false Fail
+     */
+    bool connect(const char *host, const char *user, const char *password,
+                const char *database, uint32_t port, const char *sock);
+
+    /**
 		 * Executes command.
 		 *
 		 * Executes query which doesn't generates results (eg. INSERT, UPDATE, DELETE...).
@@ -119,7 +135,7 @@ class Database
 			return maxPacketSize;
 		}
 
-	protected:
+	private:
 		/**
 		 * Transaction related methods.
 		 *
@@ -211,7 +227,7 @@ class DBInsert
 		bool addRow(std::ostringstream& row);
 		bool execute();
 
-	protected:
+	private:
 		std::string query;
 		std::string values;
 		size_t length;

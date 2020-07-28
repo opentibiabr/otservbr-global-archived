@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Cursed Prospector" nameDescription="Cursed Prospector" race="undead" experience="4200" speed="210" manacost="0">
+	<health now="3900" max="3900" />
+	<look type="1268" head="0" body="19" legs="0" feet="0" addons="1" corpse="37445" />
+	<targetchange interval="5000" chance="8" />
+	<targetstrategies nearest="100" health="0" damage="0" random="0" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" /> 
+		<flag canpushcreatures="1" />
+		<flag targetdistance="3" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="1"/>
+		<flag canwalkonfire="1"/>
+		<flag canwalkonpoison="1"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="-100" max="-200" />
+	   	<attack name="poison" interval="1700" chance="15" radius="3" target="1" min="-300" max="-550">
+     		<attribute key="shootEffect" value="envenomedarrow"/>
+     	</attack>
+ 		<attack name="energy" interval="1700" chance="25" length="4" spread="0" min="-150" max="-550">
+			<attribute key="areaEffect" value="energy" /> 
+		</attack>
+		<attack name="death" interval="1700" chance="35"  radius="3" min="-150" max="-550">
+			<attribute key="areaEffect" value="mortarea" />
+		</attack>
+		<attack name="holy" interval="1700" chance="35" radius="3" min="-250" max="-550">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="energy" interval="2000" chance="13" range="4" radius="4" target="1" min="-400" max="-550">
+			<attribute key="areaEffect" value="energyarea"/>
+		</attack>
+	</attacks>
+	<defenses armor="85" defense="40" />
+	<elements>
+		<element icePercent="0" />
+		<element earthPercent="0" />
+		<element holyPercent="60" />
+		<element firePercent="0" />
+		<element energyPercent="30" />
+		<element deathPercent="-10" />
+	</elements>
+	<immunities>
+		<immunity invisible="1" />
+		<immunity physical="1" />
+		<immunity paralyze="1" />
+	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="5" chance="100000" />
+		<item name="flash arrow" countmax="10" chance="17700" />
+		<item name="great spirit potion" countmax="2" chance="15190" />
+		<item name="spectral silver nugget" chance="11520" />
+		<item name="spectral gold nugget" chance="5680" />
+		<item name="emerald bangle" chance="1340" />
+		<item name="lightning boots" chance="1340" />
+		<item name="diamond" chance="1000" />
+		<item name="lightning robe" chance="1000" />
+		<item name="elven amulet" chance="1000" />
+		<item name="lightning legs" chance="830" />
+		<item name="shockwave amulet" chance="500" />
+	</loot>
+</monster>
