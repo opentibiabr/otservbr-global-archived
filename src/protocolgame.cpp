@@ -481,6 +481,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xCA: parseUpdateContainer(msg); break;
 		case 0xCB: parseBrowseField(msg); break;
 		case 0xCC: parseSeekInContainer(msg); break;
+		case 0xD0: parseTrackedQuestFlags(msg); break;
 		case 0xD2: addGameTask(&Game::playerRequestOutfit, player->getID()); break;
 		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
@@ -749,6 +750,16 @@ void ProtocolGame::parseOpenPrivateChannel(NetworkMessage& msg)
 {
 	const std::string receiver = msg.getString();
 	addGameTask(&Game::playerOpenPrivateChannel, player->getID(), receiver);
+}
+
+void ProtocolGame::parseTrackedQuestFlags(NetworkMessage& msg)
+{
+	std::vector<uint16_t> quests;
+	uint8_t missions = msg.getByte();
+	for (uint8_t i = 0; i < missions; ++i) {
+		quests.emplace_back(msg.get<uint16_t>());
+	}
+	g_game.playerResetTrackedQuests(player->getID(), quests);
 }
 
 void ProtocolGame::parseAutoWalk(NetworkMessage& msg)

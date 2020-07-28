@@ -172,6 +172,9 @@ class ProtocolGame final : public Protocol
 		void parseOpenPrivateChannel(NetworkMessage& msg);
 		void parseCloseChannel(NetworkMessage& msg);
 
+		// Quest track
+		void parseTrackedQuestFlags(NetworkMessage& msg);
+		
 		//Store methods
 		void parseStoreOpen(NetworkMessage &message);
 		void parseStoreRequestOffers(NetworkMessage &message);

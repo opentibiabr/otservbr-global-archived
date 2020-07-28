@@ -126,7 +126,9 @@ bool Events::load()
 				info.playerOnRequestQuestLine = event;
 			} else if (methodName == "onStorageUpdate") {
 				info.playerOnStorageUpdate = event;
-			}else if (methodName == "onRemoveCount") {
+			} else if (methodName == "onResetTrackedQuests") {
+				info.playerOnResetTrackedQuests = event;
+			} else if (methodName == "onRemoveCount") {
 				info.playerOnRemoveCount = event;
 			}else if (methodName == "canBeAppliedImbuement") {
 				info.playerCanBeAppliedImbuement = event;
@@ -1273,6 +1275,38 @@ void Events::eventOnStorageUpdate(Player* player, const uint32_t key, const int3
 	lua_pushnumber(L, currentTime);
 
 	scriptInterface.callVoidFunction(5);
+}
+
+void Events::eventPlayerOnResetTrackedQuests(Player* player, std::vector<uint16_t>& quests)
+{
+	// Player::onResetTrackedQuests(quests)
+	if (info.playerOnResetTrackedQuests == -1) {
+		return;
+	}
+
+	if (!scriptInterface.reserveScriptEnv()) {
+		std::cout << "[Error - Events::eventPlayerOnResetTrackedQuests] Call stack overflow" << std::endl;
+		return;
+	}
+
+	ScriptEnvironment* env = scriptInterface.getScriptEnv();
+	env->setScriptId(info.playerOnResetTrackedQuests, &scriptInterface);
+
+	lua_State* L = scriptInterface.getLuaState();
+	scriptInterface.pushFunction(info.playerOnResetTrackedQuests);
+
+	LuaScriptInterface::pushUserdata<Player>(L, player);
+	LuaScriptInterface::setMetatable(L, -1, "Player");
+
+	lua_createtable(L, quests.size(), 0);
+
+	int index = 0;
+	for (const auto& quest : quests) {
+		lua_pushnumber(L, quest);
+		lua_rawseti(L, -2, ++index);
+	}
+
+	scriptInterface.callVoidFunction(2);
 }
 
 // Monster
