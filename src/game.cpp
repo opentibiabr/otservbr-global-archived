@@ -2507,35 +2507,41 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		unWrapId = (uint16_t)tmp;
 	}
 
-		if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
-			uint16_t hiddenCharges = 0;
-			if (isCaskItem(item->getID())) {
-				hiddenCharges = item->getSubType();
-			}
-			uint16_t oldItemID = item->getID();
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			Item* newItem = transformItem(item, 26054);
-			ItemAttributes::CustomAttribute val;
-			val.set<int64_t>(oldItemID);
-			std::string key = "unWrapId";
-			newItem->setCustomAttribute(key, val);
-			item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-			if (hiddenCharges > 0) {
-				item->setDate(hiddenCharges);
-			}
-			startDecay(item);
+  // prevent to wrap a filled bath tube
+  if (item->getID() == 29313) {
+    player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+    return;
+  }
+
+	if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
+		uint16_t hiddenCharges = 0;
+		if (isCaskItem(item->getID())) {
+			hiddenCharges = item->getSubType();
 		}
-		else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
-			uint16_t hiddenCharges = item->getDate();
-			item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			transformItem(item, unWrapId);
-			if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
-				item->setSubType(hiddenCharges);
-			}
-			item->removeCustomAttribute("unWrapId");
-			startDecay(item);
+		uint16_t oldItemID = item->getID();
+		addMagicEffect(item->getPosition(), CONST_ME_POFF);
+		Item* newItem = transformItem(item, 26054);
+		ItemAttributes::CustomAttribute val;
+		val.set<int64_t>(oldItemID);
+		std::string key = "unWrapId";
+		newItem->setCustomAttribute(key, val);
+		item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
+		if (hiddenCharges > 0) {
+			item->setDate(hiddenCharges);
 		}
+		startDecay(item);
+	}
+	else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
+		uint16_t hiddenCharges = item->getDate();
+		item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
+		addMagicEffect(item->getPosition(), CONST_ME_POFF);
+		transformItem(item, unWrapId);
+		if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
+			item->setSubType(hiddenCharges);
+		}
+		item->removeCustomAttribute("unWrapId");
+		startDecay(item);
+	}
 }
 
 void Game::playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::string& text)
