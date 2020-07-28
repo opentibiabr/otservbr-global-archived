@@ -33,7 +33,7 @@ function onUse(creature, item, fromPosition, target, toPosition, isHotkey)
 			player:getPosition():sendMagicEffect(CONST_ME_POFF)
 			player:teleportTo(Position(setting.playerTeleport), false)
 			doSendMagicEffect(player:getPosition(), CONST_ME_TELEPORT)
-			setPlayerStorageValue(player,setting.storage, os.time() + 72000)
+			setPlayerStorageValue(player,setting.storage, os.time() + 20 * 60 * 60)
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have 20 minute(s) to defeat the boss.')
 				addEvent(function()
 					local spectatorsOberon = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)
@@ -44,7 +44,7 @@ function onUse(creature, item, fromPosition, target, toPosition, isHotkey)
 								player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Time is over.')
 							end
 						end
-				end, 1200000)
+				end, 20 * 60 * 1000)
 		end
 	end
 	return true
