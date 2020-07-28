@@ -1551,10 +1551,10 @@ void ProtocolGame::sendPreyRerollPrice(uint32_t price /*= 0*/, uint8_t wildcard 
 	msg.addByte(directly); // selectCreatureDirectly price (5 in tibia)
 
 	// Prey Task
-	playermsg.add<uint32_t>(0);
-	playermsg.add<uint32_t>(0);
-	playermsg.addByte(0); 
-	playermsg.addByte(0);
+	msg.add<uint32_t>(0);
+	msg.add<uint32_t>(0);
+	msg.addByte(0); 
+	msg.addByte(0);
 
 	writeToOutputBuffer(msg);
 }
