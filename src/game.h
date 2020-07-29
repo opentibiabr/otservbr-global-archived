@@ -538,7 +538,6 @@ class Game
 
 	private:
 		void checkImbuements();
-		void applyImbuementEffects(Creature* attacker, int32_t realDamage);
 		bool playerSaySpell(Player* player, SpeakClasses type, const std::string& text);
 		void playerWhisper(Player* player, const std::string& text);
 		bool playerYell(Player* player, const std::string& text);
