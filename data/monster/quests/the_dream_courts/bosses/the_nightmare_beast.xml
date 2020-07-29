@@ -75,7 +75,7 @@
 		<item name="arcane staff" chance="2880" />
 		<item name="giant ruby" chance="2880" />
 		<item name="abyss hammer" chance="2160" />
-		<item name="enchanted sleep shawl" chance="2160" />
+		<item id="34981" chance="2160" /> <!-- enchanted sleep shawl -->
 		<item name="unicorn figurine" chance="1000" />
 	</loot>
 </monster>
