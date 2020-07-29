@@ -39,8 +39,8 @@ function onUse(creature, item, fromPosition, target, toPosition, isHotkey)
             player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have 20 minute(s) to defeat the boss.')
 				addEvent(function()
 					local spectatorsOberon = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)
-						for i = 1, #spectatorsOberon, 1 do
-							if spectatorsOberon[i]:isPlayer() and (spectatorsOberon[i]:getName() == player:getName()) then
+						for u = 1, #spectatorsOberon, 1 do
+							if spectatorsOberon[u]:isPlayer() and (spectatorsOberon[u]:getName() == player:getName()) then
 								player:teleportTo(Position(setting.kickPosition))
 								player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 								player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Time is over.')
