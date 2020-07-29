@@ -44554,6 +44554,11 @@
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
+	<item id="34067" article="a" name="pendulet">
+		<attribute key="weight" value="650" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="quicklootcategory" value="amulet" />
+	</item>
 	<item id="34068" article="an" name="ectoplasmic shield">
 		<attribute key="weight" value="5800" />
 		<attribute key="weaponType" value="shield" />
@@ -45344,15 +45349,24 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEarth" value="24" />
 		<attribute key="absorbPercentPhysical" value="7" />
-		<attribute key="decayTo" value="34981" />
+		<attribute key="transformDeEquipTo" value="34981" />
+		<attribute key="decayTo" value="34066" />
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34981" article="a" name="sleep shawl">
-		<attribute key="weight" value="650" />
+	<item id="34981" article="an" name="enchanted sleep shawl">
+		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="armor" value="3" />
+		<attribute key="skillDist" value="3" />
+		<attribute key="absorbPercentEarth" value="24" />
+		<attribute key="absorbPercentPhysical" value="7" />
+		<attribute key="transformEquipTo" value="34980" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item id="34982" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
@@ -45362,15 +45376,23 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEnergy" value="18" />
 		<attribute key="absorbPercentPhysical" value="5" />
-		<attribute key="decayTo" value="34983" />
+		<attribute key="transformDeEquipTo" value="34983" />
+		<attribute key="decayTo" value="34067" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34983" article="a" name="pendulet">
+	<item id="34983" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="armor" value="2" />
+		<attribute key="skillDist" value="3" />
+		<attribute key="absorbPercentEnergy" value="18" />
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="transformEquipTo" value="34982" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item fromid="35007" toid="35008" article="a" name="closed door">
 		<attribute key="type" value="door" />
@@ -46012,26 +46034,31 @@
 		<attribute key="skilllifeamount" value="18" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="35236" name="amulet of theurgy">
+	<item id="35236" article="an" name="amulet of theurgy">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
-	<item id="35237" name="enchanted theurgic amulet">
+	<item id="35237" article="an" name="enchanted theurgic amulet">
 		<attribute key="weight" value="500" />
 		<attribute key="duration" value="7200" />
+		<attribute key="showduration" value="1" />
 		<attribute key="decayTo" value="35236" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="transformDeEquipTo" value="35238" />
 		<attribute key="magiclevelpoints" value="3" />
 		<attribute key="armor" value="2" />
 		<attribute key="absorbPercentPhysical" value="3" />
 		<attribute key="absorbPercentEarth" value="14" />
 	</item>
-	<item id="35238" name="enchanted theurgic amulet">
+	<item id="35238" article="an" name="enchanted theurgic amulet">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="transformEquipTo" value="35237" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
 		<attribute key="magiclevelpoints" value="3" />
 		<attribute key="armor" value="2" />
 		<attribute key="absorbPercentPhysical" value="3" />
@@ -50597,10 +50624,6 @@
 	<item id="39105" article="a" name="sleep shawl">
 		<attribute key="slotType" value="necklace" />
 		<attribute key="weight" value="430" />
-	</item>
-	<item id="39106" article="a" name="pendulet">
-		<attribute key="slotType" value="necklace" />
-		<attribute key="weight" value="650" />
 	</item>
 	<!-- liquids vial -->
 	<item id="40001" name="water" />
