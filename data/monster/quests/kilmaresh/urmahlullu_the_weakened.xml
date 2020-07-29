@@ -77,5 +77,11 @@
 		<item name="giant emerald" chance="6000" />
 		<item id="36098" chance="100000" />
 		<item name="rainbow necklace" chance="6000" />
+		<item name="giant sapphire" chance="6000" /> 
+		<item name="winged backpack" chance="250" />
+		<item name="rainbow necklace" chance="160" />
+		<item id="35238" chance="160" />
+		<item name="Sun Medal" chance="160" />
+		<item name="Sunray Emblem" chance="160" />
 	</loot>
 </monster>
