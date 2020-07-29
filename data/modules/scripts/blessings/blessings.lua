@@ -203,21 +203,25 @@ Blessings.getPvpBlessingCost = function(level)
 end
 
 Blessings.useCharm = function(player, item)
-	local useItem = Blessings.Charms[item.itemid]
+	for index, value in pairs(Blessings.All) do
+		if item.itemid == value.charm then
+			local useItem = value
 	if not useItem then
 		return true
 	end
 
-	if player:hasBlessing(useItem.blessId) then
+	if player:hasBlessing(useItem.id) then
 		player:say('You already possess this blessing.', TALKTYPE_MONSTER_SAY)
 		return true
 	end
 
-	player:addBlessing(useItem.blessId, 1)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, useItem.text .. ' protects you.')
+	player:addBlessing(useItem.id, 1)
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, useItem.name .. ' protects you.')
 	player:getPosition():sendMagicEffect(CONST_ME_LOSEENERGY)
 	item:remove(1)
 	return true
+		end
+	end
 end
 
 Blessings.checkBless = function(player)
