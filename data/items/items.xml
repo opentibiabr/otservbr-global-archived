@@ -44549,7 +44549,7 @@
 		<attribute key="absorbPercentIce" value="3" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="34066" article="a" name="sleep shawl">
+	<item id="34066" article="an" name="sleep shawl">
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
@@ -45336,7 +45336,7 @@
 		<attribute key="duration" value="600" />
 		<attribute key="showduration" value="1" />
 	</item>
-	<item id="34980" article="a" name="enchanted sleep shawl">
+	<item id="34980" article="an" name="enchanted sleep shawl">
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
@@ -45350,7 +45350,7 @@
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34981" article="a" name="enchanted sleep shawl">
+	<item id="34981" article="an" name="enchanted sleep shawl">
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
@@ -45377,7 +45377,7 @@
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34983" article="a" name="enchanted pendulet">
+	<item id="34983" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
@@ -46029,12 +46029,12 @@
 		<attribute key="skilllifeamount" value="18" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="35236" name="amulet of theurgy">
+	<item id="35236" article="an" name="amulet of theurgy">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
-	<item id="35237" name="enchanted theurgic amulet">
+	<item id="35237" article="an" name="enchanted theurgic amulet">
 		<attribute key="weight" value="500" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
@@ -46047,7 +46047,7 @@
 		<attribute key="absorbPercentPhysical" value="3" />
 		<attribute key="absorbPercentEarth" value="14" />
 	</item>
-	<item id="35238" name="enchanted theurgic amulet">
+	<item id="35238" article="an" name="enchanted theurgic amulet">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
@@ -50620,7 +50620,7 @@
 		<attribute key="slotType" value="necklace" />
 		<attribute key="weight" value="430" />
 	</item>
-	<item id="34067" article="a" name="pendulet">
+	<item id="34067" article="an" name="pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
