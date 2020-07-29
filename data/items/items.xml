@@ -44549,8 +44549,13 @@
 		<attribute key="absorbPercentIce" value="3" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="34066" article="an" name="sleep shawl">
+	<item id="34066" article="a" name="sleep shawl">
 		<attribute key="weight" value="430" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="quicklootcategory" value="amulet" />
+	</item>
+	<item id="34067" article="a" name="pendulet">
+		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
@@ -50619,11 +50624,6 @@
 	<item id="39105" article="a" name="sleep shawl">
 		<attribute key="slotType" value="necklace" />
 		<attribute key="weight" value="430" />
-	</item>
-	<item id="34067" article="an" name="pendulet">
-		<attribute key="weight" value="650" />
-		<attribute key="slotType" value="necklace" />
-		<attribute key="quicklootcategory" value="amulet" />
 	</item>
 	<!-- liquids vial -->
 	<item id="40001" name="water" />
