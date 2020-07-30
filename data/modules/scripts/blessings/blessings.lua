@@ -205,20 +205,20 @@ end
 Blessings.useCharm = function(player, item)
 	for index, value in pairs(Blessings.All) do
 		if item.itemid == value.charm then
-	if not value then
-		return true
-	end
+			if not value then
+				return true
+			end
 
-	if player:hasBlessing(value.id) then
-		player:say('You already possess this blessing.', TALKTYPE_MONSTER_SAY)
-		return true
-	end
+			if player:hasBlessing(value.id) then
+				player:say('You already possess this blessing.', TALKTYPE_MONSTER_SAY)
+				return true
+			end
 
-	player:addBlessing(value.id, 1)
-	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, value.name .. ' protects you.')
-	player:getPosition():sendMagicEffect(CONST_ME_LOSEENERGY)
-	item:remove(1)
-	return true
+			player:addBlessing(value.id, 1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, value.name .. ' protects you.')
+			player:getPosition():sendMagicEffect(CONST_ME_LOSEENERGY)
+			item:remove(1)
+			return true
 		end
 	end
 end
