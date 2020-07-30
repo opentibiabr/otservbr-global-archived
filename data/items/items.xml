@@ -37029,10 +37029,6 @@
 		<attribute key="decayTo" value="26045" />
 		<attribute key="duration" value="40" />
 	</item>
-	<item id="26134" article="a" name="dead dread intruder">
-		<attribute key="containerSize" value="30" />
-		<attribute key="duration" value="40" />
-	</item>
 	<item id="26045" article="a" name="dead sparkion">
 		<attribute key="containerSize" value="30" />
 		<attribute key="decayTo" value="26046" />
@@ -37048,9 +37044,25 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="10" />
 	</item>
-	<item id="26048" article="a" name="dead Breach Brood">
+	<item id="26048" article="a" name="slain breach brood">
 		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="26049" />
 		<attribute key="duration" value="40" />
+	</item>
+	<item id="26049" article="a" name="slain breach brood">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26050" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26050" article="a" name="slain breach brood">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26051" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26051" article="a" name="slain breach brood">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="10" />
 	</item>
 	<item id="26052" article="your" name="store inbox">
 		<attribute key="containerSize" value="20" />
@@ -37370,6 +37382,26 @@
 		<attribute key="transformEquipTo" value="26132" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
+	</item>
+	<item id="26134" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26135" />
+		<attribute key="duration" value="40" />
+	</item>
+	<item id="26135" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26136" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26136" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26137" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26137" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="10" />
 	</item>
 	<item fromid="26138" toid="26140" name="vortex" >
 		<attribute key="type" value="teleport" />
