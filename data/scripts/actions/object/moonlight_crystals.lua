@@ -3,7 +3,7 @@ local moonlightCrystals = Action()
 function moonlightCrystals.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid == 24716 then
 		target:transform(24717)
-		item:remove()
+		item:remove(1)
 		return true
 	elseif target.itemid == 24718 then
         if (player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 0) or (player:getStorageValue(Storage.Grimvale.WereHelmetEnchant) == 1) then
