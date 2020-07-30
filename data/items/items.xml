@@ -35534,7 +35534,6 @@
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="armor" value="9" />
-		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="transformEquipTo" value="24744" />
 		<attribute key="stopduration" value="1" />
@@ -35548,7 +35547,6 @@
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillClub" value="1" />
 		<attribute key="armor" value="9" />
-		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -35561,7 +35559,6 @@
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillSword" value="1" />
 		<attribute key="armor" value="9" />
-		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -35574,7 +35571,6 @@
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillAxe" value="1" />
 		<attribute key="armor" value="9" />
-		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showattributes" value="1" />
@@ -35593,7 +35589,6 @@
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillDist" value="1" />
 		<attribute key="armor" value="9" />
-		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showattributes" value="1" />
