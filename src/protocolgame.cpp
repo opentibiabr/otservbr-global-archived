@@ -884,8 +884,8 @@ void ProtocolGame::parseUpdateContainer(NetworkMessage& msg)
 
 void ProtocolGame::parseTeleport(NetworkMessage& msg)
 {
-	auto pos = msg.getPosition();
-	addGameTask(&Game::playerTeleport, player->getID(), pos);
+	Position newPosition = msg.getPosition();
+	addGameTask(&Game::playerTeleport, player->getID(), newPosition);
 }
 
 void ProtocolGame::parseThrow(NetworkMessage& msg)
