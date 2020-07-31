@@ -645,7 +645,7 @@ enum PlayerFlags : uint64_t {
 };
 
 enum PlayerCustomFlags : uint64_t {
-	PlayerCustomFlag_CanMapClickTeleport = 1 << 0,
+  PlayerCustomFlag_CanMapClickTeleport = 1 << 0,
 };
 
 enum ReloadTypes_t : uint8_t  {
