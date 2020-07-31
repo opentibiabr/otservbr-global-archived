@@ -101,8 +101,8 @@ bool Groups::load()
 		}
 		group.customflags = pugi::cast<uint64_t>(groupNode.attribute("customflags").value());
 		if (pugi::xml_node node = groupNode.child("customflags")) {
-			for (auto flagNode : node.children()) {
-				pugi::xml_attribute attr = flagNode.first_attribute();
+			for (auto customflagNode : node.children()) {
+				pugi::xml_attribute attr = customflagNode.first_attribute();
 				if (!attr || (attr && !attr.as_bool())) {
 					continue;
 				}
