@@ -66,7 +66,7 @@ const std::unordered_map<std::string, PlayerFlags> ParsePlayerFlagMap = {
 };
 
 const std::unordered_map<std::string, PlayerCustomFlags> ParsePlayerCustomFlagMap = {
-	{"canmapclickteleport", PlayerCustomFlag_CanMapClickTeleport}
+  {"canmapclickteleport", PlayerCustomFlag_CanMapClickTeleport}
 };
 
 bool Groups::load()
@@ -99,9 +99,9 @@ bool Groups::load()
 				}
 			}
 		}
-		group.customflags = pugi::cast<uint64_t>(groupNode.attribute("customflags").value());
-		if (pugi::xml_node node = groupNode.child("customflags")) {
-			for (auto customflagNode : node.children()) {
+    group.customflags = pugi::cast<uint64_t>(groupNode.attribute("customflags").value());
+    if (pugi::xml_node node = groupNode.child("customflags")) {
+      for (auto customflagNode : node.children()) {
 				pugi::xml_attribute attr = customflagNode.first_attribute();
 				if (!attr || (attr && !attr.as_bool())) {
 					continue;
