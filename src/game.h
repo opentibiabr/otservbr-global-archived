@@ -337,6 +337,7 @@ class Game
 		void broadcastMessage(const std::string& text, MessageClasses type) const;
 
 		//Implementation of player invoked events
+    void playerTeleport(uint32_t playerId, const Position& pos);
 		void playerMoveThing(uint32_t playerId, const Position& fromPos, uint16_t spriteId, uint8_t fromStackPos,
 							 const Position& toPos, uint8_t count);
 		void playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, const Position& movingCreatureOrigPos, const Position& toPos);

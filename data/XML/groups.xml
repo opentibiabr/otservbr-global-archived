@@ -56,6 +56,9 @@
 			<flag cannotbemuted="1" />
 			<flag isalwayspremium="1" />
 		</flags>
+		<customflags>
+			<customflag canmapclickteleport="0" />
+		</customflags>
 	</group>
 	<group id="5" name="community manager" access="1" maxdepotitems="0" maxvipentries="200">
 		<flags>
@@ -98,6 +101,9 @@
 			<flag cannotbemuted="1" />
 			<flag isalwayspremium="1" />
 		</flags>
+		<customflags>
+			<customflag canmapclickteleport="0" />
+		</customflags>
 	</group>
 	<group id="6" name="god" access="1" maxdepotitems="0" maxvipentries="200">
 		<flags>
@@ -140,5 +146,8 @@
 			<flag cannotbemuted="1" />
 			<flag isalwayspremium="1" />
 		</flags>
+		<customflags>
+			<customflag canmapclickteleport="1" />
+		</customflags>
 	</group>
 </groups>

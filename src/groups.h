@@ -23,6 +23,7 @@
 struct Group {
 	std::string name;
 	uint64_t flags;
+	uint64_t customflags;
 	uint32_t maxDepotItems;
 	uint32_t maxVipEntries;
 	uint16_t id;

@@ -679,6 +679,18 @@ void Game::executeDeath(uint32_t creatureId)
 	}
 }
 
+void Game::playerTeleport(uint32_t playerId, const Position& newPosition) {
+  Player* player = getPlayerByID(playerId);
+  if (!player || !player->hasCustomFlag(PlayerCustomFlag_CanMapClickTeleport)) {
+    return;
+  }
+
+  ReturnValue returnValue = g_game.internalTeleport(player, newPosition, false);
+  if (returnValue != RETURNVALUE_NOERROR) {
+    player->sendCancelMessage(returnValue);
+  }
+}
+
 void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
                            uint16_t spriteId, uint8_t fromStackPos, const Position& toPos, uint8_t count)
 {

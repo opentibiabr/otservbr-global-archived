@@ -433,6 +433,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x70: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_EAST); break;
 		case 0x71: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_SOUTH); break;
 		case 0x72: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_WEST); break;
+		case 0x73: parseTeleport(msg); break;
 		case 0x78: parseThrow(msg); break;
 		case 0x79: parseLookInShop(msg); break;
 		case 0x7A: parsePlayerPurchase(msg); break;
@@ -879,6 +880,12 @@ void ProtocolGame::parseUpdateContainer(NetworkMessage& msg)
 {
 	uint8_t cid = msg.getByte();
 	addGameTask(&Game::playerUpdateContainer, player->getID(), cid);
+}
+
+void ProtocolGame::parseTeleport(NetworkMessage& msg)
+{
+	Position newPosition = msg.getPosition();
+	addGameTask(&Game::playerTeleport, player->getID(), newPosition);
 }
 
 void ProtocolGame::parseThrow(NetworkMessage& msg)
