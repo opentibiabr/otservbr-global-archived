@@ -6,5 +6,5 @@ function onUpdateDatabase()
    `raceid` varchar(250)  NOT NULL default '',
    PRIMARY KEY  (`date`)
    ) AS SELECT 42 AS date, "name" AS boostname, 69 AS raceid]])
-    return true -- true = There are others migrations file | false = this is the last migration file
+    return true
 end
