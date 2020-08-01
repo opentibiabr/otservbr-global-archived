@@ -15,7 +15,7 @@ function Monster:onDropLoot(corpse)
 		local monsterLoot = mType:getLoot()
 		for i = 1, #monsterLoot do
 			local item = corpse:createLootItem(monsterLoot[i])
-			if (self:getName():lower() == (BoostedCreature.name):lower()) then
+			if self:getName():lower() == (BoostedCreature.name):lower() then
 				local itemBoosted = corpse:createLootItem(monsterLoot[i])
 			end
 			if not item then
