@@ -762,7 +762,7 @@ function Player:onGainExperience(source, exp, rawExp)
 	end
 			
 	-- Boosted creature
-	if (source:getName():lower() == BoostedCreature.name:lower()) then
+	if source:getName():lower() == BoostedCreature.name:lower() then
 		exp = exp * 2
 	end
 
