@@ -12,7 +12,7 @@ function BoostedCreature:startup()
         local booldnamestamp = result.getStream(bodate, "boostname")
         local bodatestamp = result.getStream(bodate, "date")
         result.free(bodate)
-	if (bodatestamp == os.date("%d")) then -- Same day, after restarted server.
+	if bodatestamp == os.date("%d") then -- Same day, after restarted server.
         self.name = booldnamestamp
 	else -- New day, roll new creature.
 		local cloneTable = {}
