@@ -886,7 +886,6 @@
 	<monster name="Grand Canon Dominus" file="quests/the_secret_library/bosses/grand_canon_dominus.xml" />
 	<monster name="Grand Chaplain Gaunder" file="quests/the_secret_library/bosses/grand_chaplain_gaunder.xml" />
 	<monster name="Grand Commander Soeren" file="quests/the_secret_library/bosses/grand_commander_soeren.xml" />
-	<monster name="Grand Master Oberon" file="quests/the_secret_library/bosses/grand_master_oberon.xml" />
 	<monster name="Preceptor Lazare" file="quests/the_secret_library/bosses/preceptor_lazare.xml" />
 	<monster name="Thawing Dragon Lord" file="quests/the_secret_library/bosses/thawing_dragon_lord.xml" />
 	<monster name="Biting Cold" file="quests/the_secret_library/biting_cold.xml" />
