@@ -5499,7 +5499,7 @@ function Player.sendQuestLog(self)
 	for questId = 1, #Quests do
 		if self:questIsStarted(questId) then
 			msg:addU16(questId)
-			msg:addString(Quests[questId].name .. ""..(self:questIsCompleted(questId) and " (completed)" or ""))
+			msg:addString(Quests[questId].name .. (self:questIsCompleted(questId) and " (completed)" or ""))
 			msg:addByte(self:questIsCompleted(questId))
 		end
 	end
@@ -5537,16 +5537,12 @@ function Player.sendTrackedQuests(self, remainingQuests, missions)
 	msg:addByte(0xD0)
 	msg:addByte(0x01)
 	msg:addByte(remainingQuests)
-	local count = #missions
-	msg:addByte(count)
-	for i = 1, count do
-		local mission = missions[i]
-		if mission then
-			msg:addU16(mission.missionId)
-			msg:addString(mission.questName)
-			msg:addString(mission.missionName)
-			msg:addString(mission.missionDesc)
-		end
+	msg:addByte(#missions)
+	for _, mission in ipairs(missions) do
+		msg:addU16(mission.missionId)
+		msg:addString(mission.questName)
+		msg:addString(mission.missionName)
+		msg:addString(mission.missionDesc)
 	end
 	msg:sendToPlayer(self)
 	msg:delete()

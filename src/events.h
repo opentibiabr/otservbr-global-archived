@@ -65,7 +65,6 @@ class Events
 		int32_t playerOnRequestQuestLog = -1;
 		int32_t playerOnRequestQuestLine = -1;
 		int32_t playerOnStorageUpdate = -1;
-		int32_t playerOnResetTrackedQuests = -1;
 		int32_t playerOnRemoveCount = -1;
 		int32_t playerCanBeAppliedImbuement = -1;
 		int32_t playerOnApplyImbuement = -1;
@@ -116,7 +115,6 @@ class Events
 		void eventPlayerOnRequestQuestLog(Player* player);
 		void eventPlayerOnRequestQuestLine(Player* player, uint16_t questId);
 		void eventOnStorageUpdate(Player* player, const uint32_t key, const int32_t value, int32_t oldValue, uint64_t currentTime);
-		void eventPlayerOnResetTrackedQuests(Player* player, std::vector<uint16_t>& quests);
 		bool eventPlayerCanBeAppliedImbuement(Player* player, Imbuement* imbuement, Item* item);
 		void eventPlayerOnApplyImbuement(Player* player, Imbuement* imbuement, Item* item, uint8_t slot, bool protectionCharm);
 		void eventPlayerClearImbuement(Player* player, Item* item, uint8_t slot);

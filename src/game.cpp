@@ -2034,16 +2034,6 @@ void Game::playerOpenPrivateChannel(uint32_t playerId, std::string& receiver)
 	player->sendOpenPrivateChannel(receiver);
 }
 
-void Game::playerResetTrackedQuests(uint32_t playerId, std::vector<uint16_t>& quests)
-{
-	Player* player = getPlayerByID(playerId);
-	if (!player) {
-		return;
-	}
-
-	g_events->eventPlayerOnResetTrackedQuests(player, quests);
-}
-
 void Game::playerCloseNpcChannel(uint32_t playerId)
 {
 	Player* player = getPlayerByID(playerId);

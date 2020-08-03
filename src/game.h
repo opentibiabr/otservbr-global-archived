@@ -347,7 +347,6 @@ class Game
 		void playerEquipItem(uint32_t playerId, uint16_t spriteId);
 		void playerMove(uint32_t playerId, Direction direction);
 		void playerCreatePrivateChannel(uint32_t playerId);
-		void playerResetTrackedQuests(uint32_t playerId, std::vector<uint16_t>& quests);
 		void playerChannelInvite(uint32_t playerId, const std::string& name);
 		void playerChannelExclude(uint32_t playerId, const std::string& name);
 		void playerRequestChannels(uint32_t playerId);

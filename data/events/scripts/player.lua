@@ -788,10 +788,6 @@ function Player:onStorageUpdate(key, value, oldValue, currentFrameTime)
 	self:updateStorage(key, value, oldValue, currentFrameTime)
 end
 
-function Player:onResetTrackedQuests(quests)
-	self:resetTrackedMissions(quests)
-end
-
 function Player:canBeAppliedImbuement(imbuement, item)
 	local categories = {}
 	local slots = ItemType(item:getId()):getImbuingSlots()
