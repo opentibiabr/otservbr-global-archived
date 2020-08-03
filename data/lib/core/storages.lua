@@ -442,7 +442,8 @@ Storage = {
 	},
 	Grimvale = {
 		-- Reserved storage from 50380 - 50399
-		SilverVein = 50380
+		SilverVein = 50380,
+		WereHelmetEnchant = 50381
 	},
 	HeroRathleton = {
 		-- Reserved storage from 50400 - 50419

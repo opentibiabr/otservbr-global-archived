@@ -389,6 +389,10 @@ class Player final : public Creature, public Cylinder
 			return (group->flags & value) != 0;
 		}
 
+		bool hasCustomFlag(PlayerCustomFlags value) const {
+			return (group->customflags & value) != 0;
+		}
+
 		BedItem* getBedItem() {
 			return bedItem;
 		}

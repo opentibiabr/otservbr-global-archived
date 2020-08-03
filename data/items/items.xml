@@ -35377,8 +35377,14 @@
 	<item id="24744" article="an" name="enchanted werewolf helmet">
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
+		<attribute key="transformDeEquipTo" value="24783" />
 		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="armor" value="9" />
+		<attribute key="decayTo" value="24718" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item id="24745" article="the" name="remains of feroxa">
 		<attribute key="containerSize" value="28" />
@@ -35455,11 +35461,53 @@
 		<attribute key="duration" value="10" />
 		<attribute key="corpseType" value="undead" />
 	</item>
-	<item fromid="24769" toid="24772" article="an" name="enchanted werewolf helmet">
+	<item id="24769" article="an" name="enchanted werewolf helmet">
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
+		<attribute key="transformDeEquipTo" value="24784" />
 		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillClub" value="1" />
 		<attribute key="armor" value="9" />
+		<attribute key="decayTo" value="24718" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
+	</item>
+	<item id="24770" article="an" name="enchanted werewolf helmet">
+		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />
+		<attribute key="transformDeEquipTo" value="24785" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillSword" value="1" />
+		<attribute key="armor" value="9" />
+		<attribute key="decayTo" value="24718" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
+	</item>
+	<item id="24771" article="an" name="enchanted werewolf helmet">
+		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />
+		<attribute key="transformDeEquipTo" value="24786" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillAxe" value="1" />
+		<attribute key="armor" value="9" />
+		<attribute key="decayTo" value="24718" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
+	</item>
+	<item id="24772" article="an" name="enchanted werewolf helmet">
+		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />
+		<attribute key="transformDeEquipTo" value="24788" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillDist" value="1" />
+		<attribute key="armor" value="9" />
+		<attribute key="decayTo" value="24718" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item id="24774" name="Store coins">
 		<attribute key="weight" value="0" />
@@ -35479,11 +35527,53 @@
 		<attribute key="duration" value="300" />
 		<attribute key="corpseType" value="undead" />
 	</item>
-	<item fromid="24783" toid="24786" article="an" name="enchanted werewolf helmet">
+	<item id="24783" article="an" name="enchanted werewolf helmet">
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="armor" value="9" />
+		<attribute key="showduration" value="1" />
+		<attribute key="transformEquipTo" value="24744" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showattributes" value="1" />
+	</item>
+	<item id="24784" article="an" name="enchanted werewolf helmet">
+		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />
+		<attribute key="transformEquipTo" value="24769" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillClub" value="1" />
+		<attribute key="armor" value="9" />
+		<attribute key="showduration" value="1" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showattributes" value="1" />
+	</item>
+	<item id="24785" article="an" name="enchanted werewolf helmet">
+		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />
+		<attribute key="transformEquipTo" value="24770" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillSword" value="1" />
+		<attribute key="armor" value="9" />
+		<attribute key="showduration" value="1" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showattributes" value="1" />
+	</item>
+	<item id="24786" article="an" name="enchanted werewolf helmet">
+		<attribute key="weight" value="2500" />
+		<attribute key="slotType" value="head" />
+		<attribute key="transformEquipTo" value="24771" />
+		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillAxe" value="1" />
+		<attribute key="armor" value="9" />
+		<attribute key="showduration" value="1" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="24787" name="remains owin">
 		<attribute key="containerSize" value="24" />
@@ -35494,8 +35584,14 @@
 	<item id="24788" article="an" name="enchanted werewolf helmet">
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
+		<attribute key="transformEquipTo" value="24772" />
 		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="absorbPercentPhysical" value="4" />
+		<attribute key="skillDist" value="1" />
 		<attribute key="armor" value="9" />
+		<attribute key="showduration" value="1" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="24789" name="remains owin">
 		<attribute key="decayTo" value="0" />
@@ -37029,10 +37125,6 @@
 		<attribute key="decayTo" value="26045" />
 		<attribute key="duration" value="40" />
 	</item>
-	<item id="26134" article="a" name="dead dread intruder">
-		<attribute key="containerSize" value="30" />
-		<attribute key="duration" value="40" />
-	</item>
 	<item id="26045" article="a" name="dead sparkion">
 		<attribute key="containerSize" value="30" />
 		<attribute key="decayTo" value="26046" />
@@ -37048,9 +37140,25 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="10" />
 	</item>
-	<item id="26048" article="a" name="dead Breach Brood">
+	<item id="26048" article="a" name="slain breach brood">
 		<attribute key="containerSize" value="30" />
+		<attribute key="decayTo" value="26049" />
 		<attribute key="duration" value="40" />
+	</item>
+	<item id="26049" article="a" name="slain breach brood">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26050" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26050" article="a" name="slain breach brood">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26051" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26051" article="a" name="slain breach brood">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="10" />
 	</item>
 	<item id="26052" article="your" name="store inbox">
 		<attribute key="containerSize" value="20" />
@@ -37370,6 +37478,26 @@
 		<attribute key="transformEquipTo" value="26132" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
+	</item>
+	<item id="26134" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26135" />
+		<attribute key="duration" value="40" />
+	</item>
+	<item id="26135" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26136" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26136" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="26137" />
+		<attribute key="duration" value="10" />
+	</item>
+	<item id="26137" article="a" name="slain intruder">
+		<attribute key="containerSize" value="20" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="10" />
 	</item>
 	<item fromid="26138" toid="26140" name="vortex" >
 		<attribute key="type" value="teleport" />
@@ -40869,7 +40997,7 @@
 		<attribute key="wrapableTo" value="26054" />
 	</item>
 	<item id="29313" article="a" name="bath tub">
-		<attribute key="wrapableTo" value="26054" />
+		<attribute key="moveable" value="0" />
 	</item>
 	<item id="29314" article="a" name="terrarium spider">
 		<attribute key="description" value="A spider minding her own business." />
@@ -44554,6 +44682,11 @@
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
+	<item id="34067" article="a" name="pendulet">
+		<attribute key="weight" value="650" />
+		<attribute key="slotType" value="necklace" />
+		<attribute key="quicklootcategory" value="amulet" />
+	</item>
 	<item id="34068" article="an" name="ectoplasmic shield">
 		<attribute key="weight" value="5800" />
 		<attribute key="weaponType" value="shield" />
@@ -45344,15 +45477,24 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEarth" value="24" />
 		<attribute key="absorbPercentPhysical" value="7" />
-		<attribute key="decayTo" value="34981" />
+		<attribute key="transformDeEquipTo" value="34981" />
+		<attribute key="decayTo" value="34066" />
 		<attribute key="duration" value="3600" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34981" article="a" name="sleep shawl">
-		<attribute key="weight" value="650" />
+	<item id="34981" article="an" name="enchanted sleep shawl">
+		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="armor" value="3" />
+		<attribute key="skillDist" value="3" />
+		<attribute key="absorbPercentEarth" value="24" />
+		<attribute key="absorbPercentPhysical" value="7" />
+		<attribute key="transformEquipTo" value="34980" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="duration" value="3600" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item id="34982" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
@@ -45362,15 +45504,23 @@
 		<attribute key="skillDist" value="3" />
 		<attribute key="absorbPercentEnergy" value="18" />
 		<attribute key="absorbPercentPhysical" value="5" />
-		<attribute key="decayTo" value="34983" />
+		<attribute key="transformDeEquipTo" value="34983" />
+		<attribute key="decayTo" value="34067" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
 		<attribute key="showattributes" value="1" />
 	</item>
-	<item id="34983" article="a" name="pendulet">
+	<item id="34983" article="an" name="enchanted pendulet">
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="armor" value="2" />
+		<attribute key="skillDist" value="3" />
+		<attribute key="absorbPercentEnergy" value="18" />
+		<attribute key="absorbPercentPhysical" value="5" />
+		<attribute key="transformEquipTo" value="34982" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item fromid="35007" toid="35008" article="a" name="closed door">
 		<attribute key="type" value="door" />
@@ -46012,26 +46162,31 @@
 		<attribute key="skilllifeamount" value="18" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="35236" name="amulet of theurgy">
+	<item id="35236" article="an" name="amulet of theurgy">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
-	<item id="35237" name="enchanted theurgic amulet">
+	<item id="35237" article="an" name="enchanted theurgic amulet">
 		<attribute key="weight" value="500" />
 		<attribute key="duration" value="7200" />
+		<attribute key="showduration" value="1" />
 		<attribute key="decayTo" value="35236" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="transformDeEquipTo" value="35238" />
 		<attribute key="magiclevelpoints" value="3" />
 		<attribute key="armor" value="2" />
 		<attribute key="absorbPercentPhysical" value="3" />
 		<attribute key="absorbPercentEarth" value="14" />
 	</item>
-	<item id="35238" name="enchanted theurgic amulet">
+	<item id="35238" article="an" name="enchanted theurgic amulet">
 		<attribute key="weight" value="500" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
+		<attribute key="transformEquipTo" value="35237" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
 		<attribute key="magiclevelpoints" value="3" />
 		<attribute key="armor" value="2" />
 		<attribute key="absorbPercentPhysical" value="3" />
@@ -50597,10 +50752,6 @@
 	<item id="39105" article="a" name="sleep shawl">
 		<attribute key="slotType" value="necklace" />
 		<attribute key="weight" value="430" />
-	</item>
-	<item id="39106" article="a" name="pendulet">
-		<attribute key="slotType" value="necklace" />
-		<attribute key="weight" value="650" />
 	</item>
 	<!-- liquids vial -->
 	<item id="40001" name="water" />

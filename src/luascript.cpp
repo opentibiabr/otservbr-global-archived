@@ -1639,6 +1639,8 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(PlayerFlag_CannotBeMuted)
 	registerEnum(PlayerFlag_IsAlwaysPremium)
 
+	registerEnum(PlayerCustomFlag_CanMapClickTeleport)
+
 	registerEnum(PLAYERSEX_FEMALE)
 	registerEnum(PLAYERSEX_MALE)
 
@@ -2727,10 +2729,12 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Group", "getId", LuaScriptInterface::luaGroupGetId);
 	registerMethod("Group", "getName", LuaScriptInterface::luaGroupGetName);
 	registerMethod("Group", "getFlags", LuaScriptInterface::luaGroupGetFlags);
+	registerMethod("Group", "getCustomFlags", LuaScriptInterface::luaGroupGetCustomFlags);
 	registerMethod("Group", "getAccess", LuaScriptInterface::luaGroupGetAccess);
 	registerMethod("Group", "getMaxDepotItems", LuaScriptInterface::luaGroupGetMaxDepotItems);
 	registerMethod("Group", "getMaxVipEntries", LuaScriptInterface::luaGroupGetMaxVipEntries);
 	registerMethod("Group", "hasFlag", LuaScriptInterface::luaGroupHasFlag);
+	registerMethod("Group", "hasCustomFlag", LuaScriptInterface::luaGroupHasCustomFlag);
 
 	// Vocation
 	registerClass("Vocation", "", LuaScriptInterface::luaVocationCreate);
@@ -12164,6 +12168,18 @@ int LuaScriptInterface::luaGroupGetFlags(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaGroupGetCustomFlags(lua_State* L)
+{
+	// group:getCustomFlags()
+	Group* group = getUserdata<Group>(L, 1);
+	if (group) {
+		lua_pushnumber(L, group->customflags);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaGroupGetAccess(lua_State* L)
 {
 	// group:getAccess()
@@ -12207,6 +12223,19 @@ int LuaScriptInterface::luaGroupHasFlag(lua_State* L)
 	if (group) {
 		PlayerFlags flag = getNumber<PlayerFlags>(L, 2);
 		pushBoolean(L, (group->flags & flag) != 0);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaGroupHasCustomFlag(lua_State* L)
+{
+	// group:hasCustomFlag(flag)
+	Group* group = getUserdata<Group>(L, 1);
+	if (group) {
+		PlayerCustomFlags customflag = getNumber<PlayerCustomFlags>(L, 2);
+		pushBoolean(L, (group->customflags & customflag) != 0);
 	} else {
 		lua_pushnil(L);
 	}

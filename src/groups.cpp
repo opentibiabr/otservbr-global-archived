@@ -65,6 +65,10 @@ const std::unordered_map<std::string, PlayerFlags> ParsePlayerFlagMap = {
 	{"isalwayspremium", PlayerFlag_IsAlwaysPremium}
 };
 
+const std::unordered_map<std::string, PlayerCustomFlags> ParsePlayerCustomFlagMap = {
+  {"canmapclickteleport", PlayerCustomFlag_CanMapClickTeleport}
+};
+
 bool Groups::load()
 {
 	pugi::xml_document doc;
@@ -92,6 +96,20 @@ bool Groups::load()
 				auto parseFlag = ParsePlayerFlagMap.find(attr.name());
 				if (parseFlag != ParsePlayerFlagMap.end()) {
 					group.flags |= parseFlag->second;
+				}
+			}
+		}
+    group.customflags = pugi::cast<uint64_t>(groupNode.attribute("customflags").value());
+    if (pugi::xml_node node = groupNode.child("customflags")) {
+      for (auto customflagNode : node.children()) {
+				pugi::xml_attribute attr = customflagNode.first_attribute();
+				if (!attr || (attr && !attr.as_bool())) {
+					continue;
+				}
+
+				auto parseCustomFlag = ParsePlayerCustomFlagMap.find(attr.name());
+				if (parseCustomFlag != ParsePlayerCustomFlagMap.end()) {
+					group.customflags |= parseCustomFlag->second;
 				}
 			}
 		}
