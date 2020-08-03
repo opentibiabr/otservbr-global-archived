@@ -172,7 +172,7 @@ class ProtocolGame final : public Protocol
 		void parseOpenChannel(NetworkMessage& msg);
 		void parseOpenPrivateChannel(NetworkMessage& msg);
 		void parseCloseChannel(NetworkMessage& msg);
-		
+
 		//Store methods
 		void parseStoreOpen(NetworkMessage &message);
 		void parseStoreRequestOffers(NetworkMessage &message);
