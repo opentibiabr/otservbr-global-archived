@@ -3551,8 +3551,8 @@ if not Quests then
 					endvalue = 3,
 					states = {
 						[1] = "Buy a fire bug at Liberty Bay and infiltrate Nargor. \z
-						Find the pirates' harbour and use the fire bug to sabotage their catapult there.",
-						[2] = "You were able to sabotage the catapult in the pirate\'s harbour. \z
+						Find the pirates' harbor and use the fire bug to sabotage their catapult there.",
+						[2] = "You were able to sabotage the catapult in the pirate\'s harbor. \z
 						Report back to Ray Striker to tell him about mission.",
 						[3] = "Ray Striker was pleased to hear about successful sabotage. \z
 						If you haven't done so yet, ask him for other missions."
@@ -4390,7 +4390,7 @@ But you should be carefully, since the vase is very fragile.",
 					missionId = 339, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Get the toy mouse of Queen Eloise\'s cat and show it to Carina, the jeweller in Venore, to scare her.",
+						[1] = "Get the toy mouse of Queen Eloise\'s cat and show it to Carina, the jeweler in Venore, to scare her.",
 						[2] = "You have finished your seventh mission and should ask Bozo for the next mission."
 					}
 				},
@@ -4732,7 +4732,7 @@ But you should be carefully, since the vase is very fragile.",
 					missionId = 366, startvalue = 0,
 					endvalue = 20,
 					description = "Treasure is the favorite of the dragon lords. \z
-					Find and take Kalyassa\'s treasures spread accross the world."
+					Find and take Kalyassa\'s treasures spread across the world."
 				},
 				[3] = {
 					name = "Knowledge",
