@@ -67,7 +67,6 @@ local transformItems = {
 	[27100] = 27101, [27101] = 27100, --parrot
 	[27102] = 27104, [27103] = 27102, --skull lamp
 	[27888] = 27886, [27887] = 27888, --vengothic lamp
-	[29312] = 29313, [29313] = 29312, --bath tub
 	[29314] = 29315, --spider terrarium
 	[29317] = 29319, [29319] = 29317, --hrodmiran weapons rack
 	[29320] = 29318, [29318] = 29320, --hrodmiran weapons rack side

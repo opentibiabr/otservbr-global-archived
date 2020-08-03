@@ -112,6 +112,7 @@ class ProtocolGame final : public Protocol
 		void parseDebugAssert(NetworkMessage& msg);
 		void parseRuleViolationReport(NetworkMessage &msg);
 
+		void parseTeleport(NetworkMessage& msg);
 		void parseThrow(NetworkMessage& msg);
 		void parseUseItemEx(NetworkMessage& msg);
 		void parseUseWithCreature(NetworkMessage& msg);

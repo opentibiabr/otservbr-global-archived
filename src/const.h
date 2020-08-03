@@ -644,6 +644,10 @@ enum PlayerFlags : uint64_t {
 	PlayerFlag_IsAlwaysPremium = static_cast<uint64_t>(1) << 37,
 };
 
+enum PlayerCustomFlags : uint64_t {
+  PlayerCustomFlag_CanMapClickTeleport = 1 << 0,
+};
+
 enum ReloadTypes_t : uint8_t  {
 	RELOAD_TYPE_ALL,
 	RELOAD_TYPE_ACTIONS,
