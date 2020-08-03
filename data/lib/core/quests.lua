@@ -849,7 +849,7 @@ if not Quests then
 							Now, bring your stake to Amanda in Edron for the next line of the prayer.",
 						[7] = "You received Amanda\'s prayer: &quot;Wicked curses shall be broken&quot;. \z
 							Now, bring your stake to Kasmir in Darashia for the next line of the prayer.",
-						[8] = "You received Kasmir\'s prayer: &quot;Let there be honour and humility&quot;. \z
+						[8] = "You received Kasmir\'s prayer: &quot;Let there be honor and humility&quot;. \z
 							Now, bring your stake to Rahkem in Ankrahmun for the next line of the prayer.",
 						[9] = "You received Rahkem\'s prayer: &quot;Let there be power and compassion&quot;. \z
 							Now, bring your stake to Brewster in Port Hope for the next line of the prayer.",
@@ -4669,7 +4669,7 @@ But you should be carefully, since the vase is very fragile.",
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the Thorn Knight and shattered the root of evil with all your might. \z
-						The honour of being a guardian of the glade indeed comes with pride as well as responsibility."
+						The honor of being a guardian of the glade indeed comes with pride as well as responsibility."
 					}
 				},
 				[4] = {
