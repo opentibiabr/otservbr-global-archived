@@ -8,7 +8,7 @@ if not Quests then
 				[1] = {
 					name = "Joining the Explorers",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 1,
+					missionId = 1, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "The mission should be simple to fulfil. You have to seek out Uzgod in \z
@@ -20,7 +20,7 @@ if not Quests then
 				[2] = {
 					name = "The Ice Delivery",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 5,
+					missionId = 2, startvalue = 5,
 					endvalue = 7,
 					states = {
 						[5] = "Take this ice pick and use it on a block of ice in the caves beneath Folda. \z
@@ -32,7 +32,7 @@ if not Quests then
 				[3] = {
 					name = "The Butterfly Hunt",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 8,
+					missionId = 3, startvalue = 8,
 					endvalue = 16,
 					states = {
 						[8] = "This preparation kit will allow you to collect a PURPLE butterfly you have killed. \z
@@ -51,23 +51,23 @@ if not Quests then
 				[4] = {
 					name = "The Plant Collection",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 17,
+					missionId = 4, startvalue = 17,
 					endvalue = 26,
 					states = {
-						[17] = "Take botanist's container. Use it on a jungle bells plant to collect a sample.",
+						[17] = "Take botanist\'s container. Use it on a jungle bells plant to collect a sample.",
 						[18] = "Report about your plant collection to Explorer Society representative.",
 						[19] = "Ask for plant collection when you are ready to continue.",
-						[20] = "Use botanist's container on a witches cauldron to collect a sample.",
+						[20] = "Use botanist\'s container on a witches cauldron to collect a sample.",
 						[21] = "Report about your plant collection to Explorer Society representative.",
 						[22] = "Ask for plant collection when you are ready to continue.",
-						[23] = "Use this botanist's container on a giant jungle rose to obtain a sample.",
+						[23] = "Use this botanist\'s container on a giant jungle rose to obtain a sample.",
 						[24] = "Report about your plant collection to Explorer Society representative."
 					}
 				},
 				[5] = {
 					name = "The Lizard Urn",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 27,
+					missionId = 5, startvalue = 27,
 					endvalue = 29,
 					states = {
 						[27] = "In the south-east of Tiquanda is a small settlement of the lizard people. \z
@@ -79,7 +79,7 @@ if not Quests then
 				[6] = {
 					name = "The Bonelord Secret",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 30,
+					missionId = 6, startvalue = 30,
 					endvalue = 32,
 					states = {
 						[30] = "Travel to the city of Darashia and then head north-east for the pyramid. \z
@@ -90,7 +90,7 @@ if not Quests then
 				[7] = {
 					name = "The Orc Powder",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 33,
+					missionId = 7, startvalue = 33,
 					endvalue = 35,
 					states = {
 						[33] = "As far as we can tell, the orcs maintain some sort of training facility \z
@@ -102,7 +102,7 @@ if not Quests then
 				[8] = {
 					name = "The Elven Poetry",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 36,
+					missionId = 8, startvalue = 36,
 					endvalue = 38,
 					states = {
 						[36] = "This mission is easy but nonetheless vital. Travel Hellgate beneath Ab'Dendriel and get the book.",
@@ -112,7 +112,7 @@ if not Quests then
 				[9] = {
 					name = "The Memory Stone",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 39,
+					missionId = 9, startvalue = 39,
 					endvalue = 41,
 					states = {
 						[39] = "In the ruins of north-western Edron you should be able to find a memory stone. ",
@@ -122,7 +122,7 @@ if not Quests then
 				[10] = {
 					name = "The Rune Writings",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 42,
+					missionId = 10, startvalue = 42,
 					endvalue = 47,
 					states = {
 						[42] = "Somewhere under the ape infested city of Banuta, one can find dungeons \z
@@ -134,7 +134,7 @@ if not Quests then
 				[11] = {
 					name = "The Ectoplasm",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 45,
+					missionId = 11, startvalue = 45,
 					endvalue = 47,
 					states = {
 						[45] = "Take ectoplasm container and use it on a ghost that was recently slain.",
@@ -144,7 +144,7 @@ if not Quests then
 				[12] = {
 					name = "The Spectral Dress",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 48,
+					missionId = 12, startvalue = 48,
 					endvalue = 50,
 					states = {
 						[48] = "The queen of the banshees lives in the so called Ghostlands, south west of Carlin. \z
@@ -155,7 +155,7 @@ if not Quests then
 				[13] = {
 					name = "The Spectral Stone",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 51,
+					missionId = 13, startvalue = 51,
 					endvalue = 55,
 					states = {
 						[51] = "Please travel to our second base and ask them to mail us their latest research reports. \z
@@ -169,7 +169,7 @@ if not Quests then
 				[14] = {
 					name = "The Astral Portals",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 56,
+					missionId = 14, startvalue = 56,
 					endvalue = 56,
 					states = {
 						[56] = "Both carvings are now charged and harmonised. You are able to travel in zero time from \z
@@ -179,7 +179,7 @@ if not Quests then
 				[15] = {
 					name = "The Island of Dragons",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 57,
+					missionId = 15, startvalue = 57,
 					endvalue = 58,
 					states = {
 						[57] = "Travel to Okolnir and try to find a proof for the existence of dragon lords there in the old times. \z
@@ -190,7 +190,7 @@ if not Quests then
 				[16] = {
 					name = "The Ice Music",
 					storageid = Storage.ExplorerSociety.QuestLine,
-					startvalue = 60,
+					missionId = 16, startvalue = 60,
 					endvalue = 61,
 					states = {
 						[60] = "There is a cave on Hrodmir, north of the southernmost barbarian camp Krimhorn. \z
@@ -203,7 +203,7 @@ if not Quests then
 				[17] = {
 					name = "The Undersea Kingdom",
 					storageid = Storage.ExplorerSociety.CalassaQuest,
-					startvalue = 1,
+					missionId = 17, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Captain Max will bring you to Calassa whenever you are ready. \z
@@ -221,7 +221,7 @@ if not Quests then
 				[1] = {
 					name = "Method",
 					storageid = Storage.SpiritHunters.Mission01,
-					startvalue = 1,
+					missionId = 18, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Use the item on the tombstones.",
@@ -231,7 +231,7 @@ if not Quests then
 				[2] = {
 					name = "First Mission",
 					storageid = Storage.SpiritHunters.Mission01,
-					startvalue = 2,
+					missionId = 19, startvalue = 2,
 					endvalue = 4,
 					states = {
 						[3] = "Talk to Sinclair and take the ghost residue.",
@@ -241,7 +241,7 @@ if not Quests then
 				[3] = {
 					name = "Second Mission",
 					storageid = Storage.SpiritHunters.Mission01,
-					startvalue = 4,
+					missionId = 20, startvalue = 4,
 					endvalue = 6,
 					states = {
 						[5] = "You need to get more samples of ghosts.",
@@ -258,7 +258,7 @@ if not Quests then
 				[1] = {
 					name = "First Task",
 					storageid = Storage.SpikeTaskQuest.Gnomilly,
-					startvalue = 0,
+					missionId = 21, startvalue = 0,
 					endvalue = 100,
 					description = function(player)
 						return string.format(
@@ -270,7 +270,7 @@ if not Quests then
 				[2] = {
 					name = "Second Task",
 					storageid = Storage.SpikeTaskQuest.Gnombold.Points,
-					startvalue = 0,
+					missionId = 22, startvalue = 0,
 					endvalue = 100,
 					description = function(player)
 						return string.format(
@@ -282,7 +282,7 @@ if not Quests then
 				[3] = {
 					name = "Third Task",
 					storageid = Storage.SpikeTaskQuest.Gnomargery.Points,
-					startvalue = 0,
+					missionId = 23, startvalue = 0,
 					endvalue = 100,
 					description = function(player)
 						return string.format(
@@ -294,14 +294,14 @@ if not Quests then
 			}
 		},
 		[4] = {
-			name = "A Father's Burden",
+			name = "A Father\'s Burden",
 			startstorageid = Storage.FathersBurden.QuestLog,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "The Birthday Presents",
 					storageid = Storage.FathersBurden.Status,
-					startvalue = 1,
+					missionId = 24, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Gather the material Tereban listed. \z
@@ -312,17 +312,17 @@ if not Quests then
 				[2] = {
 					name = "The Magic Bow - Sinew",
 					storageid = Storage.FathersBurden.Sinew,
-					startvalue = 1,
+					missionId = 25, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find the wyvern Heoni in the Edron mountains and take his sinew to Tereban.",
-						[2] = "You delivered Heoni's sinew to Tereban."
+						[2] = "You delivered Heoni\'s sinew to Tereban."
 					}
 				},
 				[3] = {
 					name = "The Magic Bow - Wood",
 					storageid = Storage.FathersBurden.Wood,
-					startvalue = 1,
+					missionId = 26, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find the special wood in the barbarian camps of Hrodmir and bring it to Tereban. \z
@@ -333,7 +333,7 @@ if not Quests then
 				[4] = {
 					name = "The Magic Robe - Cloth",
 					storageid = Storage.FathersBurden.Cloth,
-					startvalue = 1,
+					missionId = 27, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find the spectral cloth hidden deep in the crypts of the isle of the kings and bring it to Tereban. \z
@@ -344,7 +344,7 @@ if not Quests then
 				[5] = {
 					name = "The Magic Robe - Silk",
 					storageid = Storage.FathersBurden.Silk,
-					startvalue = 1,
+					missionId = 28, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find exquisite silk in the spider caves of southern Zao and deliver it to Tereban.",
@@ -354,7 +354,7 @@ if not Quests then
 				[6] = {
 					name = "The Magic Rod - Crystal",
 					storageid = Storage.FathersBurden.Crystal,
-					startvalue = 1,
+					missionId = 29, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find a magic crystal in the tomb buried under the sand east of Ankrahmun and bring it to Tereban.",
@@ -364,7 +364,7 @@ if not Quests then
 				[7] = {
 					name = "The Magic Rod - Root",
 					storageid = Storage.FathersBurden.Root,
-					startvalue = 1,
+					missionId = 30, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find the mystic root under the city of Banuta and bring it to Tereban.",
@@ -374,7 +374,7 @@ if not Quests then
 				[8] = {
 					name = "The Magic Shield - Iron",
 					storageid = Storage.FathersBurden.Iron,
-					startvalue = 1,
+					missionId = 31, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find some old iron in the mines of Kazordoon for Tereban. Don't get lost - \z
@@ -385,7 +385,7 @@ if not Quests then
 				[9] = {
 					name = "The Magic Shield - Scale",
 					storageid = Storage.FathersBurden.Scale,
-					startvalue = 1,
+					missionId = 32, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find the dragon Glitterscale in the caves north of Thais and take its scale to Tereban.",
@@ -395,14 +395,14 @@ if not Quests then
 			}
 		},
 		[5] = {
-			name = "Bigfoot's Burden",
+			name = "Bigfoot\'s Burden",
 			startstorageid = Storage.BigfootBurden.QuestLine,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Looking for Gnomerik",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 1,
+					missionId = 33, startvalue = 1,
 					endvalue = 2,
 					description = "The dwarf Xelvar has sent you to meet the gnome Gnomerik. \z
 						He can recruit you to the Bigfoot Company. \z
@@ -411,17 +411,17 @@ if not Quests then
 				[2] = {
 					name = "A New Recruit",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 3,
+					missionId = 34, startvalue = 3,
 					endvalue = 4,
 					description = "You have found the gnomish recruiter and are ready to become a Bigfoot."
 				},
 				[3] = {
 					name = "Recruitment: A Test in Gnomology",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 5,
+					missionId = 35, startvalue = 5,
 					endvalue = 7,
 					states = {
-						[5] = "Pass Gnomerik's test by answering his questions. \z
+						[5] = "Pass Gnomerik\'s test by answering his questions. \z
 							If you fail to get a high enough score drink a mushroom beer and start again.",
 						[6] = "You have passed the gnomish psychology test and can proceed to the medical exam. \z
 							Talk to Gnomespector about your next examination."
@@ -430,14 +430,14 @@ if not Quests then
 				[4] = {
 					name = "Recruitment: Medical Examination",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 8,
+					missionId = 36, startvalue = 8,
 					endvalue = 9,
 					description = "Walk through the g-ray apparatus for your g-raying."
 				},
 				[5] = {
 					name = "Recruitment: Ear Examination",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 10,
+					missionId = 37, startvalue = 10,
 					endvalue = 12,
 					states = {
 						[10] = "You have been g-rayed. It has been an ... unexpected experience. Now you are ready for your \z
@@ -449,7 +449,7 @@ if not Quests then
 				[6] = {
 					name = "Recruitment: Gnomish Warfare",
 					storageid = Storage.BigfootBurden.Shooting,
-					startvalue = 0,
+					missionId = 38, startvalue = 0,
 					endvalue = 5,
 					description = function(player)
 						return string.format(
@@ -462,14 +462,14 @@ if not Quests then
 				[7] = {
 					name = "Recruitment: Gnomish Warfare",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 15,
+					missionId = 39, startvalue = 15,
 					endvalue = 16,
 					description = "You are now ready for your endurance test. Talk to Gnomewart about it."
 				},
 				[8] = {
 					name = "Recruitment: Endurance Test",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 17,
+					missionId = 40, startvalue = 17,
 					endvalue = 20,
 					states = {
 						[17] = "Enter the lower chamber for your endurance test. Reach the teleporter north of the hall.",
@@ -480,7 +480,7 @@ if not Quests then
 				[9] = {
 					name = "Recruitment: Soul Melody",
 					storageid = Storage.BigfootBurden.QuestLine,
-					startvalue = 21,
+					missionId = 41, startvalue = 21,
 					endvalue = 23,
 					states = {
 						[21] = "Find your personal soul melody by trial and error. \z
@@ -491,14 +491,14 @@ if not Quests then
 				[10] = {
 					name = "Recruitment",
 					storageid = Storage.BigfootBurden.QuestLineComplete,
-					startvalue = 1,
+					missionId = 42, startvalue = 1,
 					endvalue = 2,
 					description = "You are now a true member of the Bigfoot company."
 				},
 				[11] = {
 					name = "Gnome Reputation",
 					storageid = Storage.BigfootBurden.Rank,
-					startvalue = 0,
+					missionId = 43, startvalue = 0,
 					endvalue = 999999,
 					description = function(player)
 						return string.format(
@@ -506,12 +506,12 @@ if not Quests then
 						\nReputation   30 - I \nReputation  120 - II \nReputation  480 - III \nReputation 1440 - IV \n",
 							(math.max(player:getStorageValue(Storage.BigfootBurden.Rank), 0))
 						)
-					end
+						end
 				},
 				[12] = {
 					name = "Daily Minor: Crystal Keeper",
 					storageid = Storage.BigfootBurden.RepairedCrystalCount,
-					startvalue = 0,
+					missionId = 44, startvalue = 0,
 					endvalue = 5,
 					description = function(player)
 						return string.format(
@@ -524,7 +524,7 @@ if not Quests then
 				[13] = {
 					name = "Daily Minor: Raiders of the Lost Spark",
 					storageid = Storage.BigfootBurden.ExtractedCount,
-					startvalue = 0,
+					missionId = 45, startvalue = 0,
 					endvalue = 7,
 					description = function(player)
 						return string.format(
@@ -537,7 +537,7 @@ if not Quests then
 				[14] = {
 					name = "Daily Minor Plus: Exterminators",
 					storageid = Storage.BigfootBurden.ExterminatedCount,
-					startvalue = 0,
+					missionId = 46, startvalue = 0,
 					endvalue = 10,
 					description = function(player)
 						return string.format(
@@ -549,7 +549,7 @@ if not Quests then
 				[15] = {
 					name = "Daily Minor Plus: Mushroom Digger",
 					storageid = Storage.BigfootBurden.MushroomCount,
-					startvalue = 0,
+					missionId = 47, startvalue = 0,
 					endvalue = 3,
 					description = function(player)
 						return string.format(
@@ -563,7 +563,7 @@ if not Quests then
 				[16] = {
 					name = "Daily Major: Matchmaker",
 					storageid = Storage.BigfootBurden.MatchmakerStatus,
-					startvalue = 0,
+					missionId = 48, startvalue = 0,
 					endvalue = 1,
 					states = {
 						[0] = "You have to enter the crystal caves and find a crystal that is fitting the crystal you got \z
@@ -572,9 +572,9 @@ if not Quests then
 					}
 				},
 				[17] = {
-					name = "Daily Major: The Tinker's Bell",
+					name = "Daily Major: The Tinker\'s Bell",
 					storageid = Storage.BigfootBurden.GolemCount,
-					startvalue = 0,
+					missionId = 49, startvalue = 0,
 					endvalue = 4,
 					description = function(player)
 						return string.format(
@@ -587,7 +587,7 @@ if not Quests then
 				[18] = {
 					name = "Daily Major Advanced: Spores",
 					storageid = Storage.BigfootBurden.SporeCount,
-					startvalue = 0,
+					missionId = 50, startvalue = 0,
 					endvalue = 4,
 					description = "Gather spores in the correct order. \z
 						Your spore gathering list will display the next color you have to look for."
@@ -595,37 +595,37 @@ if not Quests then
 				[19] = {
 					name = "Daily Major Advanced: Yet Another Grinding",
 					storageid = Storage.BigfootBurden.GrindstoneStatus,
-					startvalue = 0,
+					missionId = 51, startvalue = 0,
 					endvalue = 2,
 					description = "Gather a grindstone from the lava area en report back."
 				},
 				[20] = {
 					name = "Gnomish War Hero (Warzone 1)",
 					storageid = Storage.BigfootBurden.Warzone1Access,
-					startvalue = 1,
+					missionId = 52, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Deliver the Deathstrike's snippet to gnomission to enter the first warzone for free.",
+						[1] = "Deliver the Deathstrike\'s snippet to gnomission to enter the first warzone for free.",
 						[2] = "You may enter the first warzone without using a mission crystal."
 					}
 				},
 				[21] = {
 					name = "Gnomish War Hero (Warzone 2)",
 					storageid = Storage.BigfootBurden.Warzone2Access,
-					startvalue = 1,
+					missionId = 53, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Deliver the Gnomevil's hat to gnomission to enter the second warzone for free.",
+						[1] = "Deliver the Gnomevil\'s hat to gnomission to enter the second warzone for free.",
 						[2] = "You may enter the second warzone without using a mission crystal."
 					}
 				},
 				[22] = {
 					name = "Gnomish War Hero (Warzone 3)",
 					storageid = Storage.BigfootBurden.Warzone3Access,
-					startvalue = 1,
+					missionId = 54, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Deliver the Abyssador's lash to gnomission to enter the third warzone for free.",
+						[1] = "Deliver the Abyssador\'s lash to gnomission to enter the third warzone for free.",
 						[2] = "You may enter the third warzone without using a mission crystal."
 					}
 				}
@@ -639,7 +639,7 @@ if not Quests then
 				[1] = {
 					name = "Barbarian Test 1: Barbarian Booze",
 					storageid = Storage.BarbarianTest.Mission01,
-					startvalue = 1,
+					missionId = 55, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Talk to Sven about mead and give him a honeycomb. For each honeycomb you will be allowed 20 sips.",
@@ -650,7 +650,7 @@ if not Quests then
 				[2] = {
 					name = "Barbarian Test 2: The Bear Hugging",
 					storageid = Storage.BarbarianTest.Mission02,
-					startvalue = 1,
+					missionId = 56, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Sven gave you a Mead Horn. Fill it with mead from the bucket behind Sven (brown contents) \z
@@ -663,7 +663,7 @@ if not Quests then
 				[3] = {
 					name = "Barbarian Test 3: The Mammoth Pushing",
 					storageid = Storage.BarbarianTest.Mission03,
-					startvalue = 1,
+					missionId = 57, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Go to the north-west of Svargrond and find the Mammoth. Drink your three mugs of mead, \z
@@ -682,7 +682,7 @@ if not Quests then
 				[1] = {
 					name = "Prove Your Worzz!",
 					storageid = Storage.ChildrenoftheRevolution.Mission00,
-					startvalue = 1,
+					missionId = 58, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your Mission is to go to a little camp of lizards at north-east of the Dragonblaze Peaks. \z
@@ -693,10 +693,10 @@ if not Quests then
 				[2] = {
 					name = "Mission 1: Corruption",
 					storageid = Storage.ChildrenoftheRevolution.Mission01,
-					startvalue = 1,
+					missionId = 59, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Go to the Temple of Equilibrium (it's marked on your map) and find out what happened there.",
+						[1] = "Go to the Temple of Equilibrium (it\'s marked on your map) and find out what happened there.",
 						[2] = "The temple has been corrupted and is lost. Zalamon should be informed about this as soon as possible.",
 						[3] = "You already reported Zalamon about the Temple! Ask him for new mission!"
 					}
@@ -704,7 +704,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 2: Imperial Zzecret Weaponzz",
 					storageid = Storage.ChildrenoftheRevolution.Mission02,
-					startvalue = 1,
+					missionId = 60, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Go into the small camp Chaochai to the north of the Dragonblaze Peaks \z
@@ -718,12 +718,12 @@ if not Quests then
 				[4] = {
 					name = "Mission 3: Zee Killing Fieldzz",
 					storageid = Storage.ChildrenoftheRevolution.Mission03,
-					startvalue = 1,
+					missionId = 61, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Get the poison from Zalamon's storage room. Then go to the teleporter to the Muggy Plains and head \z
+						[1] = "Get the poison from Zalamon\'s storage room. Then go to the teleporter to the Muggy Plains and head \z
 							east from there to the rice fields. Go to the very top rice field and use the poison anywhere on the water.",
-						[2] = "The rice has been poisoned. This will weaken the Emperor's army significantly. \z
+						[2] = "The rice has been poisoned. This will weaken the Emperor\'s army significantly. \z
 							Return and tell Zalamon about your success.",
 						[3] = "You already reported Zalamon about your success! Ask him for new mission!"
 					}
@@ -731,13 +731,13 @@ if not Quests then
 				[5] = {
 					name = "Mission 4: Zze Way of Zztonezz",
 					storageid = Storage.ChildrenoftheRevolution.Mission04,
-					startvalue = 1,
+					missionId = 62, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Your mission is to find a way to enter the north of the valley and find a \z
 						passage to the great gate itself. Search any temples or settlements you come across for hidden passages.",
 						[2] = "Report Zalamon about the strange symbols that you found.",
-						[3] = "Get the greasy oil from Zalamon's storage room and put them on the levers that you found.",
+						[3] = "Get the greasy oil from Zalamon\'s storage room and put them on the levers that you found.",
 						[4] = "Due to being extra greasy, the leavers can now be moved.",
 						[5] = "You found the right combination for the puzzle in the mountains and triggered some kind of mechanism. \z
 							You should head back to Zalamon to report your success.",
@@ -748,7 +748,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 5: Phantom Army",
 					storageid = Storage.ChildrenoftheRevolution.Mission05,
-					startvalue = 1,
+					missionId = 63, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your mission is to use the portal in the chamber beyond the mechanism. \z
@@ -767,7 +767,7 @@ if not Quests then
 				[1] = {
 					name = "The Marid and the Efreet - Djinn Greeting",
 					storageid = Storage.DjinnWar.Faction.Greeting,
-					startvalue = 1,
+					missionId = 64, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Melchior told you the word &quot;Djanni'hah&quot; which can be used to talk to Djinns. \z
@@ -778,7 +778,7 @@ if not Quests then
 				[2] = {
 					name = "The Marid and the Efreet - Marid Faction",
 					storageid = Storage.DjinnWar.Faction.MaridDoor,
-					startvalue = 1,
+					missionId = 65, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have joined the Marid. These friendly, blue Djinns are honest and fair allies. \z
@@ -789,7 +789,7 @@ if not Quests then
 				[3] = {
 					name = "The Efreet and the Efreet - Efreet Faction",
 					storageid = Storage.DjinnWar.Faction.EfreetDoor,
-					startvalue = 1,
+					missionId = 66, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have joined the Efreet. These evil, green Djinns are always up to mischievous pranks. \z
@@ -807,7 +807,7 @@ if not Quests then
 				[1] = {
 					name = "The Sweaty Cyclops",
 					storageid = Storage.FriendsandTraders.TheSweatyCyclops,
-					startvalue = 1,
+					missionId = 67, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Big Ben, the cyclops in Ab'Dendriel sends you to bring him 3 bast skirts for his woman. \z
@@ -819,7 +819,7 @@ if not Quests then
 				[2] = {
 					name = "The Mermaid Marina",
 					storageid = Storage.FriendsandTraders.TheMermaidMarina,
-					startvalue = 1,
+					missionId = 68, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Marina, the mermaid north of Sabrehaven sends you to bring her 50 honeycombs. \z
@@ -831,29 +831,29 @@ if not Quests then
 				[3] = {
 					name = "The Blessed Stake",
 					storageid = Storage.FriendsandTraders.TheBlessedStake,
-					startvalue = 1,
+					missionId = 69, startvalue = 1,
 					endvalue = 12,
 					states = {
 						[1] = "Quentin told you about an old prayer which can bind holy energy to an object. \z
 							Each of its ten lines has to be recited by a different priest though. \z
 							Bring Quentin a wooden stake from Gamon to start.",
-						[2] = "You received Quentin's prayer: &quot;Light shall be near - and darkness afar&quot;. \z
+						[2] = "You received Quentin\'s prayer: &quot;Light shall be near - and darkness afar&quot;. \z
 							Now, bring your stake to Tibra in the Carlin church for the next line of the prayer.",
-						[3] = "You received Tibra's prayer: &quot;Hope may fill your heart - doubt shall be banned&quot;. \z
+						[3] = "You received Tibra\'s prayer: &quot;Hope may fill your heart - doubt shall be banned&quot;. \z
 							Now, bring your stake to Maealil in the Elven settlement for the next line of the prayer.",
-						[4] = "You received Maealil's prayer: &quot;Peace may fill your soul - evil shall be cleansed&quot;. \z
+						[4] = "You received Maealil\'s prayer: &quot;Peace may fill your soul - evil shall be cleansed&quot;. \z
 							Now, bring your stake to Yberius in the Venore temple for the next line of the prayer.",
 						[5] = "You received Yberius' prayer: &quot;Protection will be granted - from dangers at hand&quot;. \z
 							Now, bring your stake to Isimov in the dwarven settlement for the next line of the prayer.",
-						[6] = "You received Isimov's prayer: &quot;Unclean spirits shall be repelled&quot;. \z
+						[6] = "You received Isimov\'s prayer: &quot;Unclean spirits shall be repelled&quot;. \z
 							Now, bring your stake to Amanda in Edron for the next line of the prayer.",
-						[7] = "You received Amanda's prayer: &quot;Wicked curses shall be broken&quot;. \z
+						[7] = "You received Amanda\'s prayer: &quot;Wicked curses shall be broken&quot;. \z
 							Now, bring your stake to Kasmir in Darashia for the next line of the prayer.",
-						[8] = "You received Kasmir's prayer: &quot;Let there be honour and humility&quot;. \z
+						[8] = "You received Kasmir\'s prayer: &quot;Let there be honor and humility&quot;. \z
 							Now, bring your stake to Rahkem in Ankrahmun for the next line of the prayer.",
-						[9] = "You received Rahkem's prayer: &quot;Let there be power and compassion&quot;. \z
+						[9] = "You received Rahkem\'s prayer: &quot;Let there be power and compassion&quot;. \z
 							Now, bring your stake to Brewster in Port Hope for the next line of the prayer.",
-						[10] = "You received Brewster's prayer: &quot;Your hand shall be guided - your feet shall \z
+						[10] = "You received Brewster\'s prayer: &quot;Your hand shall be guided - your feet shall \z
 							walk in harmony&quot;. Now, bring your stake to Tyrias in Liberty Bay for the next line of the prayer.",
 						[11] = "You received Tyrias' prayer: &quot;Your mind shall be a vessel for joy, light \z
 							and wisdom&quot;. He wasn't exactly happy though and said that if you need some mumbo jumbo again, \z
@@ -872,7 +872,7 @@ if not Quests then
 				[1] = {
 					name = "Hot Cuisine",
 					storageid = Storage.HotCuisineQuest.QuestLog,
-					startvalue = 1,
+					missionId = 70, startvalue = 1,
 					endvalue = 16,
 					states = {
 						[1] = "You've become the apprentice of Maltre Jean Pierre. \z
@@ -896,7 +896,7 @@ if not Quests then
 						[10] = "You have completed the ninth dish, the tenth dish he will teach you to prepare is Carrot Cake. \z
 							Bring him the ingredients he told you.",
 						[11] = "You have completed the tenth dish. You are now able to obtain the cookbook from \z
-							Jean Pierre's room upstairs.",
+							Jean Pierre\'s room upstairs.",
 						[12] = "The eleventh dish he will teach you to prepare is Coconut Shrimp Bake. \z
 							Bring him the ingredients he told you.",
 						[13] = "You have completed the eleventh dish, the twelfth dish he will teach you to prepare is Blackjack. \z
@@ -918,7 +918,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 01: Something Rotten",
 					storageid = Storage.InServiceofYalahar.Mission01,
-					startvalue = 1,
+					missionId = 71, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Palimuth asked you to help with some sewer malfunctions. \z
@@ -933,7 +933,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 02: Watching the Watchmen",
 					storageid = Storage.InServiceofYalahar.Mission02,
-					startvalue = 1,
+					missionId = 72, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "You have to find all 7 guards and give a report to them. \z
@@ -950,7 +950,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 03: Death to the Deathbringer",
 					storageid = Storage.InServiceofYalahar.Mission03,
-					startvalue = 1,
+					missionId = 73, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Get the notes in Palimuths room and read them. Talk to Palimuth again when you've read the notes.",
@@ -966,7 +966,7 @@ if not Quests then
 				[4] = {
 					name = "Mission 04: Good to be Kingpin",
 					storageid = Storage.InServiceofYalahar.Mission04,
-					startvalue = 1,
+					missionId = 74, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Ask Palimuth for mission.",
@@ -982,7 +982,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 05: Food or Fight",
 					storageid = Storage.InServiceofYalahar.Mission05,
-					startvalue = 1,
+					missionId = 75, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "Ask Palimuth for mission.",
@@ -1002,7 +1002,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 06: Frightening Fuel",
 					storageid = Storage.InServiceofYalahar.Mission06,
-					startvalue = 1,
+					missionId = 76, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Ask Palimuth for mission.",
@@ -1020,7 +1020,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 07: A Fishy Mission",
 					storageid = Storage.InServiceofYalahar.Mission07,
-					startvalue = 1,
+					missionId = 77, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Ask Palimuth for mission.",
@@ -1036,7 +1036,7 @@ if not Quests then
 				[8] = {
 					name = "Mission 08: Dangerous Machinations",
 					storageid = Storage.InServiceofYalahar.Mission08,
-					startvalue = 1,
+					missionId = 78, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Ask Palimuth for mission.",
@@ -1050,11 +1050,11 @@ if not Quests then
 				[9] = {
 					name = "Mission 09: Decision",
 					storageid = Storage.InServiceofYalahar.Mission09,
-					startvalue = 1,
+					missionId = 79, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "You now need to decide between supporting Palimuth or the Yalahari's goal. \z
-							To choose Palimuth's good side go to him, and simply ask him for a mission mission. \z
+						[1] = "You now need to decide between supporting Palimuth or the Yalahari\'s goal. \z
+							To choose Palimuth\'s good side go to him, and simply ask him for a mission mission. \z
 							Likewise, to join the Yalahari (Azerus) (bad side) go to him and say the same.",
 						[2] = "you already decided!"
 					}
@@ -1062,7 +1062,7 @@ if not Quests then
 				[10] = {
 					name = "Mission 10: The Final Battle",
 					storageid = Storage.InServiceofYalahar.Mission10,
-					startvalue = 1,
+					missionId = 80, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Palimuth told you that a circle of Yalahari is planning some kind of ritual. They plan to create \z
@@ -1085,7 +1085,7 @@ if not Quests then
 				[1] = {
 					name = "Paw and Fur: Member",
 					storageid = 2500,
-					startvalue = 0,
+					missionId = 81, startvalue = 0,
 					endvalue = 10,
 					description = function(player)
 						return string.format(
@@ -1097,7 +1097,7 @@ if not Quests then
 				[2] = {
 					name = "Paw and Fur: Ranger",
 					storageid = 2500,
-					startvalue = 11,
+					missionId = 82, startvalue = 11,
 					endvalue = 40,
 					description = function(player)
 						return string.format(
@@ -1109,7 +1109,7 @@ if not Quests then
 				[3] = {
 					name = "Paw and Fur: Big Game Hunter",
 					storageid = 2500,
-					startvalue = 41,
+					missionId = 83, startvalue = 41,
 					endvalue = 69,
 					description = function(player)
 						return string.format(
@@ -1122,7 +1122,7 @@ if not Quests then
 				[4] = {
 					name = "Paw and Fur: Trophy Hunter",
 					storageid = 2500,
-					startvalue = 70,
+					missionId = 84, startvalue = 70,
 					endvalue = 99,
 					description = function(player)
 						return string.format(
@@ -1136,7 +1136,7 @@ if not Quests then
 				[5] = {
 					name = "Paw and Fur: Elite Hunter",
 					storageid = 2500,
-					startvalue = 100,
+					missionId = 85, startvalue = 100,
 					endvalue = 9999,
 					description = function(player)
 						return string.format(
@@ -1150,7 +1150,7 @@ if not Quests then
 				[6] = {
 					name = "Paw and Fur: Tiquandas Revenge",
 					storageid = Storage.KillingInTheNameOf.TiquandasRevengeTeleport,
-					startvalue = 1,
+					missionId = 86, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Grizzly Adams told you that there is Tiquandas Revenge hiding somewhere in the jungle of Port Hope. \z
@@ -1161,7 +1161,7 @@ if not Quests then
 				[7] = {
 					name = "Paw and Fur: Demodras",
 					storageid = Storage.KillingInTheNameOf.DemodrasTeleport,
-					startvalue = 1,
+					missionId = 87, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Grizzly Adams wanted you to go look for Demodras' hideout. \z
@@ -1172,7 +1172,7 @@ if not Quests then
 				[8] = {
 					name = "Paw and Fur: The Snapper",
 					storageid = 34100,
-					startvalue = 1,
+					missionId = 88, startvalue = 1,
 					endvalue = 2,
 					description = "Grizzly told you about the Snapper, a crocodile that already killed many citizens of Port Hope. \z
 						Try find its hideout and kill it."
@@ -1180,196 +1180,196 @@ if not Quests then
 				[9] = {
 					name = "Paw and Fur: Hide",
 					storageid = 34101,
-					startvalue = 1,
+					missionId = 89, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[10] = {
 					name = "Paw and Fur: Deathbine",
 					storageid = 34102,
-					startvalue = 1,
+					missionId = 90, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[11] = {
 					name = "Paw and Fur: The Bloodtusk",
 					storageid = 34103,
-					startvalue = 1,
+					missionId = 91, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[12] = {
 					name = "Paw and Fur: Shardhead",
 					storageid = 34104,
-					startvalue = 1,
+					missionId = 92, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[13] = {
 					name = "Paw and Fur: Esmerelda",
 					storageid = 34105,
-					startvalue = 1,
+					missionId = 93, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[14] = {
 					name = "Paw and Fur: Fleshcrawler",
 					storageid = 34106,
-					startvalue = 1,
+					missionId = 94, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[15] = {
 					name = "Paw and Fur: Ribstride",
 					storageid = 34107,
-					startvalue = 1,
+					missionId = 95, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[16] = {
 					name = "Paw and Fur: Bloodweb",
 					storageid = 34108,
-					startvalue = 1,
+					missionId = 96, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[17] = {
 					name = "Paw and Fur: Thul",
 					storageid = 34109,
-					startvalue = 1,
+					missionId = 97, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[18] = {
 					name = "Paw and Fur: The Old Widow",
 					storageid = 34110,
-					startvalue = 1,
+					missionId = 98, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[19] = {
 					name = "Paw and Fur: Hemming",
 					storageid = 34111,
-					startvalue = 1,
+					missionId = 99, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[20] = {
 					name = "Paw and Fur: Tormentor",
 					storageid = 34112,
-					startvalue = 1,
+					missionId = 100, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[21] = {
 					name = "Paw and Fur: Flameborn",
 					storageid = 34113,
-					startvalue = 1,
+					missionId = 101, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[22] = {
 					name = "Paw and Fur: Fazzrah",
 					storageid = 34114,
-					startvalue = 1,
+					missionId = 102, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[23] = {
 					name = "Paw and Fur: Tromphonyte",
 					storageid = 34115,
-					startvalue = 1,
+					missionId = 103, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[24] = {
 					name = "Paw and Fur: Sulphur Scuttler",
 					storageid = 34116,
-					startvalue = 1,
+					missionId = 104, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[25] = {
 					name = "Paw and Fur: Bruise Payne",
 					storageid = 34117,
-					startvalue = 1,
+					missionId = 105, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[26] = {
 					name = "Paw and Fur: The Many",
 					storageid = 34118,
-					startvalue = 1,
+					missionId = 106, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[27] = {
 					name = "Paw and Fur: The Noxious Spawn",
 					storageid = 34119,
-					startvalue = 1,
+					missionId = 107, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[28] = {
 					name = "Paw and Fur: Gorgo",
 					storageid = 34120,
-					startvalue = 1,
+					missionId = 108, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[29] = {
 					name = "Paw and Fur: Stonecracker",
 					storageid = 34121,
-					startvalue = 1,
+					missionId = 109, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[30] = {
 					name = "Paw and Fur: Leviathan",
 					storageid = 34122,
-					startvalue = 1,
+					missionId = 110, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[31] = {
 					name = "Paw and Fur: Kerberos",
 					storageid = 34123,
-					startvalue = 1,
+					missionId = 111, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[32] = {
 					name = "Paw and Fur: Ethershreck",
 					storageid = 34124,
-					startvalue = 1,
+					missionId = 112, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[33] = {
 					name = "Paw and Fur: Paiz the Pauperizer",
 					storageid = 34125,
-					startvalue = 1,
+					missionId = 113, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[34] = {
 					name = "Paw and Fur: Bretzecutioner",
 					storageid = 34126,
-					startvalue = 1,
+					missionId = 114, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[35] = {
 					name = "Paw and Fur: Zanakeph",
 					storageid = 34127,
-					startvalue = 1,
+					missionId = 115, startvalue = 1,
 					endvalue = 2,
 					description = "Try find its hideout and kill it."
 				},
 				[36] = {
 					name = "Edron City - Elite Hunting: Trolls",
 					storageid = 1501,
-					startvalue = 0,
+					missionId = 116, startvalue = 0,
 					endvalue = 100,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1379,7 +1379,7 @@ if not Quests then
 				[37] = {
 					name = "Edron City - Elite Hunting: Goblins",
 					storageid = 1502,
-					startvalue = 0,
+					missionId = 117, startvalue = 0,
 					endvalue = 150,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1389,7 +1389,7 @@ if not Quests then
 				[38] = {
 					name = "Paw and Fur: Minotaurs",
 					storageid = 65002,
-					startvalue = 0,
+					missionId = 118, startvalue = 0,
 					endvalue = 5000,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1399,7 +1399,7 @@ if not Quests then
 				[39] = {
 					name = "Paw and Fur: Necromancers and Priestess",
 					storageid = 65001,
-					startvalue = 0,
+					missionId = 119, startvalue = 0,
 					endvalue = 4000,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1412,7 +1412,7 @@ if not Quests then
 				[40] = {
 					name = "Paw and Fur: Crocodiles",
 					storageid = 65003,
-					startvalue = 0,
+					missionId = 120, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1422,7 +1422,7 @@ if not Quests then
 				[41] = {
 					name = "Paw and Fur: Badgers",
 					storageid = 65004,
-					startvalue = 0,
+					missionId = 121, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1432,7 +1432,7 @@ if not Quests then
 				[42] = {
 					name = "Paw and Fur: Tarantulas",
 					storageid = 65005,
-					startvalue = 0,
+					missionId = 122, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1442,7 +1442,7 @@ if not Quests then
 				[43] = {
 					name = "Paw and Fur: Carniphilas",
 					storageid = 65006,
-					startvalue = 0,
+					missionId = 123, startvalue = 0,
 					endvalue = 150,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1452,7 +1452,7 @@ if not Quests then
 				[44] = {
 					name = "Paw and Fur: Stone Golems",
 					storageid = 65007,
-					startvalue = 0,
+					missionId = 124, startvalue = 0,
 					endvalue = 200,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1462,7 +1462,7 @@ if not Quests then
 				[45] = {
 					name = "Paw and Fur: Mammoths",
 					storageid = 65008,
-					startvalue = 0,
+					missionId = 125, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1472,7 +1472,7 @@ if not Quests then
 				[46] = {
 					name = "Paw and Fur: Gnarlhounds",
 					storageid = 65009,
-					startvalue = 0,
+					missionId = 126, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1482,7 +1482,7 @@ if not Quests then
 				[47] = {
 					name = "Paw and Fur: Terramites",
 					storageid = 65010,
-					startvalue = 0,
+					missionId = 127, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1492,7 +1492,7 @@ if not Quests then
 				[48] = {
 					name = "Paw and Fur: Apes",
 					storageid = 65011,
-					startvalue = 0,
+					missionId = 128, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1502,7 +1502,7 @@ if not Quests then
 				[49] = {
 					name = "Paw and Fur: Thornback Tortoises",
 					storageid = 65012,
-					startvalue = 0,
+					missionId = 129, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1515,7 +1515,7 @@ if not Quests then
 				[50] = {
 					name = "Paw and Fur: Gargoyles",
 					storageid = 65013,
-					startvalue = 0,
+					missionId = 130, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1525,7 +1525,7 @@ if not Quests then
 				[51] = {
 					name = "Paw and Fur: Ice Golems",
 					storageid = 65014,
-					startvalue = 0,
+					missionId = 131, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1535,7 +1535,7 @@ if not Quests then
 				[52] = {
 					name = "Paw and Fur: Quara Scouts",
 					storageid = 65015,
-					startvalue = 0,
+					missionId = 132, startvalue = 0,
 					endvalue = 400,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1545,7 +1545,7 @@ if not Quests then
 				[53] = {
 					name = "Paw and Fur: Mutated Rats",
 					storageid = 65016,
-					startvalue = 0,
+					missionId = 133, startvalue = 0,
 					endvalue = 400,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1555,7 +1555,7 @@ if not Quests then
 				[54] = {
 					name = "Paw and Fur: Ancient Scarabs",
 					storageid = 65017,
-					startvalue = 0,
+					missionId = 134, startvalue = 0,
 					endvalue = 250,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1565,7 +1565,7 @@ if not Quests then
 				[55] = {
 					name = "Paw and Fur: Wyverns",
 					storageid = 65018,
-					startvalue = 0,
+					missionId = 135, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1575,7 +1575,7 @@ if not Quests then
 				[56] = {
 					name = "Paw and Fur: Lancer Beetles",
 					storageid = 65019,
-					startvalue = 0,
+					missionId = 136, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1585,7 +1585,7 @@ if not Quests then
 				[57] = {
 					name = "Paw and Fur: Wailing Widows",
 					storageid = 65020,
-					startvalue = 0,
+					missionId = 137, startvalue = 0,
 					endvalue = 400,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1595,7 +1595,7 @@ if not Quests then
 				[58] = {
 					name = "Paw and Fur: Killer Caimans",
 					storageid = 65021,
-					startvalue = 0,
+					missionId = 138, startvalue = 0,
 					endvalue = 250,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1605,7 +1605,7 @@ if not Quests then
 				[59] = {
 					name = "Paw and Fur: Bonebeasts",
 					storageid = 65022,
-					startvalue = 0,
+					missionId = 139, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1615,7 +1615,7 @@ if not Quests then
 				[60] = {
 					name = "Paw and Fur: Crystal Spiders",
 					storageid = 65023,
-					startvalue = 0,
+					missionId = 140, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1625,7 +1625,7 @@ if not Quests then
 				[61] = {
 					name = "Paw and Fur: Mutated Tigers",
 					storageid = 65024,
-					startvalue = 0,
+					missionId = 141, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1635,7 +1635,7 @@ if not Quests then
 				[62] = {
 					name = "Paw and Fur: Underwater Quara",
 					storageid = 65025,
-					startvalue = 0,
+					missionId = 142, startvalue = 0,
 					endvalue = 600,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1645,7 +1645,7 @@ if not Quests then
 				[63] = {
 					name = "Paw and Fur: Giant Spiders",
 					storageid = 65026,
-					startvalue = 0,
+					missionId = 143, startvalue = 0,
 					endvalue = 500,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1655,7 +1655,7 @@ if not Quests then
 				[64] = {
 					name = "Paw and Fur: Werewolves",
 					storageid = 65027,
-					startvalue = 0,
+					missionId = 144, startvalue = 0,
 					endvalue = 300,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1665,7 +1665,7 @@ if not Quests then
 				[65] = {
 					name = "Paw and Fur: Nightmares",
 					storageid = 65028,
-					startvalue = 0,
+					missionId = 145, startvalue = 0,
 					endvalue = 400,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1675,7 +1675,7 @@ if not Quests then
 				[66] = {
 					name = "Paw and Fur: Hellspawns",
 					storageid = 65029,
-					startvalue = 0,
+					missionId = 146, startvalue = 0,
 					endvalue = 600,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1685,7 +1685,7 @@ if not Quests then
 				[67] = {
 					name = "Paw and Fur: High Class Lizards",
 					storageid = 65030,
-					startvalue = 0,
+					missionId = 147, startvalue = 0,
 					endvalue = 800,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1698,7 +1698,7 @@ if not Quests then
 				[68] = {
 					name = "Paw and Fur: Stampors",
 					storageid = 65031,
-					startvalue = 0,
+					missionId = 148, startvalue = 0,
 					endvalue = 600,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1708,7 +1708,7 @@ if not Quests then
 				[69] = {
 					name = "Paw and Fur: Brimstone Bugs",
 					storageid = 65032,
-					startvalue = 0,
+					missionId = 149, startvalue = 0,
 					endvalue = 500,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1718,7 +1718,7 @@ if not Quests then
 				[70] = {
 					name = "Paw and Fur: Mutated Bats",
 					storageid = 65033,
-					startvalue = 0,
+					missionId = 150, startvalue = 0,
 					endvalue = 400,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1728,7 +1728,7 @@ if not Quests then
 				[71] = {
 					name = "Paw and Fur: Hydras",
 					storageid = 65034,
-					startvalue = 0,
+					missionId = 151, startvalue = 0,
 					endvalue = 650,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1738,7 +1738,7 @@ if not Quests then
 				[72] = {
 					name = "Paw and Fur: Serpent Spawns",
 					storageid = 65035,
-					startvalue = 0,
+					missionId = 152, startvalue = 0,
 					endvalue = 800,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1748,7 +1748,7 @@ if not Quests then
 				[73] = {
 					name = "Paw and Fur: Medusas",
 					storageid = 65036,
-					startvalue = 0,
+					missionId = 153, startvalue = 0,
 					endvalue = 500,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1758,7 +1758,7 @@ if not Quests then
 				[74] = {
 					name = "Paw and Fur: Behemoths",
 					storageid = 65037,
-					startvalue = 0,
+					missionId = 154, startvalue = 0,
 					endvalue = 700,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1768,7 +1768,7 @@ if not Quests then
 				[75] = {
 					name = "Paw and Fur: Sea Serpents and Young Sea Serpents",
 					storageid = 65038,
-					startvalue = 0,
+					missionId = 155, startvalue = 0,
 					endvalue = 900,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1781,7 +1781,7 @@ if not Quests then
 				[76] = {
 					name = "Paw and Fur: Hellhounds",
 					storageid = 65039,
-					startvalue = 0,
+					missionId = 156, startvalue = 0,
 					endvalue = 250,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1791,7 +1791,7 @@ if not Quests then
 				[77] = {
 					name = "Paw and Fur: Ghastly Dragons",
 					storageid = 65040,
-					startvalue = 0,
+					missionId = 157, startvalue = 0,
 					endvalue = 500,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1801,7 +1801,7 @@ if not Quests then
 				[78] = {
 					name = "Paw and Fur: Drakens",
 					storageid = 65041,
-					startvalue = 0,
+					missionId = 158, startvalue = 0,
 					endvalue = 900,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1811,7 +1811,7 @@ if not Quests then
 				[79] = {
 					name = "Paw and Fur: Destroyers",
 					storageid = 65042,
-					startvalue = 0,
+					missionId = 159, startvalue = 0,
 					endvalue = 650,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1821,7 +1821,7 @@ if not Quests then
 				[80] = {
 					name = "Paw and Fur: Undead Dragons",
 					storageid = 65043,
-					startvalue = 0,
+					missionId = 160, startvalue = 0,
 					endvalue = 400,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1831,7 +1831,7 @@ if not Quests then
 				[81] = {
 					name = "Paw and Fur: Demons",
 					storageid = 65044,
-					startvalue = 0,
+					missionId = 161, startvalue = 0,
 					endvalue = 6666,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1841,7 +1841,7 @@ if not Quests then
 				[82] = {
 					name = "Paw and Fur: Green Djinns or Efreets",
 					storageid = 65045,
-					startvalue = 0,
+					missionId = 162, startvalue = 0,
 					endvalue = 500,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1854,7 +1854,7 @@ if not Quests then
 				[83] = {
 					name = "Paw and Fur: Blue Djinns or Marids",
 					storageid = 65046,
-					startvalue = 0,
+					missionId = 163, startvalue = 0,
 					endvalue = 500,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1867,7 +1867,7 @@ if not Quests then
 				[84] = {
 					name = "Paw and Fur: Pirates",
 					storageid = 65047,
-					startvalue = 0,
+					missionId = 164, startvalue = 0,
 					endvalue = 3000,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1877,7 +1877,7 @@ if not Quests then
 				[85] = {
 					name = "Paw and Fur: Pirates Second",
 					storageid = 65048,
-					startvalue = 0,
+					missionId = 165, startvalue = 0,
 					endvalue = 3000,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1887,7 +1887,7 @@ if not Quests then
 				[86] = {
 					name = "Turmoil of War",
 					storageid = 65049,
-					startvalue = 0,
+					missionId = 166, startvalue = 0,
 					endvalue = 5000,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1900,7 +1900,7 @@ if not Quests then
 				[87] = {
 					name = "Paw and Fur: Necromancers and Priestess",
 					storageid = 65050,
-					startvalue = 0,
+					missionId = 167, startvalue = 0,
 					endvalue = 4000,
 					avoidMsgOnEveryUpdate = true,
 					description = function(player)
@@ -1920,7 +1920,7 @@ if not Quests then
 				[1] = {
 					name = "Assassin Addon: The Red Death",
 					storageid = Storage.OutfitQuest.AssassinSecondAddon,
-					startvalue = 1,
+					missionId = 168, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Atrad wants only two items from you for his old katana: a behemoth claw and a nose ring, \z
@@ -1931,7 +1931,7 @@ if not Quests then
 				[2] = {
 					name = "Citizen Addon: Backpack",
 					storageid = Storage.OutfitQuest.Citizen.MissionBackpack,
-					startvalue = 1,
+					missionId = 169, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Collect 100 pieces of minotaur leather and bring it to either Amber or Lubo \z
@@ -1943,7 +1943,7 @@ if not Quests then
 				[3] = {
 					name = "Citizen Addon: Feather Hat",
 					storageid = Storage.OutfitQuest.Citizen.MissionHat,
-					startvalue = 1,
+					missionId = 170, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Collect a legion helmet, 100 chicken feathers and 50 honeycombs and bring them to either \z
@@ -1953,7 +1953,7 @@ if not Quests then
 				[4] = {
 					name = "Barbarian Outfit Quest",
 					storageid = Storage.OutfitQuest.BarbarianAddon,
-					startvalue = 1,
+					missionId = 171, startvalue = 1,
 					endvalue = 17,
 					states = {
 						[1] = "Bron told you that his brother Ajax in Northport needs to learn that violence is not \z
@@ -1970,7 +1970,7 @@ if not Quests then
 						[7] = "In order to make a shirt as a present for Ajax, Bron wants you to bring him 50 Pieces of \z
 							Red Cloth and 50 Pieces of Green Cloth.",
 						[8] = "Bron wants you to bring him 10 Spider Silk Yarn.",
-						[9] = "Bron wants you to bring him the Warrior's Sweat.",
+						[9] = "Bron wants you to bring him the Warrior\'s Sweat.",
 						[10] = "You brought him all required items! accept it!",
 						[11] = "You got the Barbarian Wig Addon! Bring now the present from Bron to Ajax!",
 						[12] = "Bring Ajax in Northport 100 Iron Ore.",
@@ -1984,7 +1984,7 @@ if not Quests then
 				[5] = {
 					name = "Beggar Outfit: The Newest Fashion",
 					storageid = Storage.OutfitQuest.BeggarOutfit,
-					startvalue = 1,
+					missionId = 172, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Your current task is to bring Hugo 20 pieces of brown cloth, like the worn and ragged ghoul clothing.",
@@ -1992,7 +1992,7 @@ if not Quests then
 							If you don't know how to get leather, you should ask Kalvin.",
 						[3] = "Your current task is to bring 10 bat wings to Hugo.",
 						[4] = "Your current task is to bring 30 heaven blossoms to Hugo. Elves are said to cultivate these flowers.",
-						[5] = "You brought all items required for the &quot;poor man's look&quot; to Hugo. \z
+						[5] = "You brought all items required for the &quot;poor man\'s look&quot; to Hugo. \z
 							He told you to come back to him after a whole day has passed, then the outfit should be finished.",
 						[6] = "You got the outfit!"
 					}
@@ -2000,7 +2000,7 @@ if not Quests then
 				[6] = {
 					name = "Druid Outfit Quest",
 					storageid = Storage.OutfitQuest.DruidHatAddon,
-					startvalue = 1,
+					missionId = 173, startvalue = 1,
 					endvalue = 10,
 					states = {
 						[1] = "Ceiron sends you to collect a sample of the blooming Griffinclaw.",
@@ -2011,16 +2011,16 @@ if not Quests then
 						[4] = "Ask Ceiron for task.",
 						[5] = "Bring Ceiron 100 ounces of demon dust.",
 						[6] = "Ask Ceiron for task.",
-						[7] = "The last mission is to find and retrieve Ceiron's Wolf Tooth Chain lost inside the Orc Fortress.",
+						[7] = "The last mission is to find and retrieve Ceiron\'s Wolf Tooth Chain lost inside the Orc Fortress.",
 						[8] = "Ask Ceiron for Faolan.",
-						[9] = "Head over to Cormaya, find A Majestic Warwolf's Cave and ask her about an addon.",
+						[9] = "Head over to Cormaya, find A Majestic Warwolf\'s Cave and ask her about an addon.",
 						[10] = "You got the Outfit!"
 					}
 				},
 				[7] = {
 					name = "Hunter Outfit Quest",
 					storageid = Storage.OutfitQuest.HunterHatAddon,
-					startvalue = 1,
+					missionId = 174, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Elane sends you to Liberty Bay to bring her the Crossbow from the Cult.",
@@ -2033,13 +2033,13 @@ if not Quests then
 				[8] = {
 					name = "Knight Addon: Helmet",
 					storageid = Storage.OutfitQuest.Knight.MissionHelmet,
-					startvalue = 1,
+					missionId = 175, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Your current task is to bring 100 perfect behemoth fangs to Gregor in Thais.",
 						[2] = "Your current task is to retrieve the helmet of Ramsay the Reckless from Banuta. \z
 							These pesky apes steal everything they can get their dirty hands on.",
-						[3] = "Your current task is to obtain a flask of warrior's sweat, which can be magicially extracted \z
+						[3] = "Your current task is to obtain a flask of warrior\'s sweat, which can be magicially extracted \z
 							from headgear worn by a true warrior, but only in small amounts. Djinns are said to be good at this.",
 						[4] = "Your current task is to bring royal steel to Gregor in Thais. \z
 							Royal steel can only be refined by very skilled smiths.",
@@ -2051,7 +2051,7 @@ if not Quests then
 				[9] = {
 					name = "Mage &amp; Summoner Outfit Quest (Wand)",
 					storageid = Storage.OutfitQuest.MageSummoner.AddonWand,
-					startvalue = 1,
+					missionId = 176, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "You found Angelina in a Prison. She told you a secret: \z
@@ -2059,7 +2059,7 @@ if not Quests then
 						[2] = "Lynda send you to bring her a sample of all five wands and five rods \z
 							(Snakebite, Moonlight, Necrotic, Terra, Hailstorm, Vortex, Dragonbreath, Decay, Cosmic Energy and Inferno)",
 						[3] = "Bring Lynda 10 ounces of magic sulphur",
-						[4] = "Bring Lynda the Necromancer's soul stone",
+						[4] = "Bring Lynda the Necromancer\'s soul stone",
 						[5] = "Bring Lynda 20 ankhs now to complete the ritual.",
 						[6] = "You need to wait 3 hours for the ritual to be completed",
 						[7] = "You got the Outfit!"
@@ -2068,7 +2068,7 @@ if not Quests then
 				[10] = {
 					name = "Mage &amp; Summoner Outfit Quest (Fluid Belt)",
 					storageid = Storage.OutfitQuest.MageSummoner.AddonBelt,
-					startvalue = 1,
+					missionId = 177, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Now you can get a lottery ticket at Sandra for 100 empty vials.",
@@ -2078,7 +2078,7 @@ if not Quests then
 				[11] = {
 					name = "Female Mage and Male Summoner Addon: Headgear",
 					storageid = Storage.OutfitQuest.MageSummoner.MissionHatCloak,
-					startvalue = 1,
+					missionId = 178, startvalue = 1,
 					endvalue = 11,
 					states = {
 						[1] = "Your current task is to bring 70 bat wings to Myra in Port Hope.",
@@ -2102,7 +2102,7 @@ if not Quests then
 				[12] = {
 					name = "Norseman Outfit Quest",
 					storageid = Storage.OutfitQuest.NorsemanAddon,
-					startvalue = 1,
+					missionId = 179, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Bring Hjaern 5 frostheart shards to get the first Addon. Ask him for shard!",
@@ -2113,7 +2113,7 @@ if not Quests then
 				[13] = {
 					name = "Warrior Addon: Shoulder Spike",
 					storageid = Storage.OutfitQuest.WarriorShoulderAddon,
-					startvalue = 1,
+					missionId = 180, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "Your current task is to bring 100 hardened bones to Trisha in Carlin. \z
@@ -2135,7 +2135,7 @@ if not Quests then
 				[14] = {
 					name = "Wizard Outfits Quest",
 					storageid = Storage.OutfitQuest.WizardAddon,
-					startvalue = 1,
+					missionId = 181, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "Bring Lugri the Medusa shield!",
@@ -2150,7 +2150,7 @@ if not Quests then
 				[15] = {
 					name = "Pirate Outfit Quest (Sabre)",
 					storageid = Storage.OutfitQuest.PirateSabreAddon,
-					startvalue = 1,
+					missionId = 182, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Bring Duncan 100 Eye Patches from pirates!",
@@ -2163,10 +2163,10 @@ if not Quests then
 				[16] = {
 					name = "Oriental Addon: Hipwear",
 					storageid = Storage.OutfitQuest.firstOrientalAddon,
-					startvalue = 1,
+					missionId = 183, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Your current task is to find a mermaid's comb. \z
+						[1] = "Your current task is to find a mermaid\'s comb. \z
 							If you have ever encountered a mermaid, you should ask her. \z
 							Bring the comb to Habdel if you are male or to Ishina if you are female.",
 						[2] = "You have received the first oriental addon."
@@ -2175,7 +2175,7 @@ if not Quests then
 				[17] = {
 					name = "Oriental Addon: Headgear",
 					storageid = Storage.OutfitQuest.secondOrientalAddon,
-					startvalue = 1,
+					missionId = 184, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Your current task is to bring 100 pieces of ape fur to Razan if you are male, \z
@@ -2191,7 +2191,7 @@ if not Quests then
 				[18] = {
 					name = "Shaman Addon: Staff",
 					storageid = Storage.OutfitQuest.Shaman.MissionStaff,
-					startvalue = 1,
+					missionId = 185, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Try to find a monster which sometimes lurks in the Tiquandian jungle as the revenge of the jungle \z
@@ -2201,7 +2201,7 @@ if not Quests then
 				[19] = {
 					name = "Shaman Addon: Mask",
 					storageid = Storage.OutfitQuest.Shaman.MissionMask,
-					startvalue = 1,
+					missionId = 186, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your current task is to collect 5 tribal masks from the dworcs and 5 banana staves from the apes. \z
@@ -2211,14 +2211,14 @@ if not Quests then
 			}
 		},
 		[14] = {
-			name = "Sam's Old Backpack",
+			name = "Sam\'s Old Backpack",
 			startstorageid = Storage.SamsOldBackpack,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "Dwarven Armor Quest",
 					storageid = Storage.SamsOldBackpack,
-					startvalue = 1,
+					missionId = 187, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Sam sends you to see Kroox in Kazordoon to get a special dwarven armor. \z
@@ -2238,7 +2238,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 1: The Plans",
 					storageid = Storage.SeaOfLight.Mission1,
-					startvalue = 1,
+					missionId = 188, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Spectulus in Edron has sent you on a mission to find out the whereabouts of a certain inventor. \z
@@ -2256,7 +2256,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 2: The Collector",
 					storageid = Storage.SeaOfLight.Mission2,
-					startvalue = 1,
+					missionId = 189, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Spectulus asked you to enter the Lost Mines beneath Edron and recover a rare crystal. In exchange for \z
@@ -2269,12 +2269,12 @@ if not Quests then
 				[3] = {
 					name = "Mission 3: The Mirror Crystal",
 					storageid = Storage.SeaOfLight.Mission3,
-					startvalue = 1,
+					missionId = 190, startvalue = 1,
 					endvalue = 4,
 					states = {
-						[1] = "In order to access the lair of the Collector, you will need to find the creature's well on \z
-							an ice isle near Carlin. To donate the rare crystal overcome your greed and use it at the well's pedestal.",
-						[2] = "You offered the rare crystal to the creature and can now enter the Collector's lair. \z
+						[1] = "In order to access the lair of the Collector, you will need to find the creature\'s well on \z
+							an ice isle near Carlin. To donate the rare crystal overcome your greed and use it at the well\'s pedestal.",
+						[2] = "You offered the rare crystal to the creature and can now enter the Collector\'s lair. \z
 							Its crystal chamber cannot be accessed by outsiders. You need to find a way to snatch the Mirror Crystal.",
 						[3] = "The Collector has been defeated. \z
 							You packed the fragile Mirror Crystal into the device Spectulus gave you. \z
@@ -2293,7 +2293,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 1: From Thais with Love",
 					storageid = Storage.SecretService.TBIMission01,
-					startvalue = 1,
+					missionId = 191, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your first mission is to deliver a warning to the Venoreans. \z
@@ -2305,12 +2305,12 @@ if not Quests then
 				[2] = {
 					name = "Mission 1: For Your Eyes Only",
 					storageid = Storage.SecretService.AVINMission01,
-					startvalue = 1,
+					missionId = 192, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Your first task is to deliver a letter to Gamel in thais, If he is a bit reluctant, be persuasive.",
 						[2] = "Gamel sent his thugs on you, defeat them and deliver the letter to Gamel!",
-						[3] = "After defeating Gamel's thugs, he found you to be persuasive enough to accept the letter. \z
+						[3] = "After defeating Gamel\'s thugs, he found you to be persuasive enough to accept the letter. \z
 							Report back to Uncle!",
 						[4] = "You have reported back that you have completed your task. Ask Uncle for a new mission!"
 					}
@@ -2318,7 +2318,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 1: Borrowed Knowledge",
 					storageid = Storage.SecretService.CGBMission01,
-					startvalue = 1,
+					missionId = 193, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Emma has requested that you steal a Nature Magic Spellbook in the Edron academy.",
@@ -2328,18 +2328,18 @@ if not Quests then
 				[4] = {
 					name = "Mission 2: Operation Green Claw",
 					storageid = Storage.SecretService.TBIMission02,
-					startvalue = 1,
+					missionId = 194, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your next mission is to find some information about one of \z
 							their missing agents in The Green Claw Swamp.",
-						[2] = "You have delivered the Black Knight's notes to Chester, ask him for a new mission!"
+						[2] = "You have delivered the Black Knight\'s notes to Chester, ask him for a new mission!"
 					}
 				},
 				[5] = {
 					name = "Mission 2: A File Between Friends",
 					storageid = Storage.SecretService.AVINMission02,
-					startvalue = 1,
+					missionId = 195, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your next task is to retrieve a file named AH-X17L89.",
@@ -2349,7 +2349,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 2: Codename:Lumberjack",
 					storageid = Storage.SecretService.CGBMission02,
-					startvalue = 1,
+					missionId = 196, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Emma has requested that you retrieve a Rotten Heart of a Tree from \z
@@ -2360,7 +2360,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 3: Treachery in Port Hope",
 					storageid = Storage.SecretService.TBIMission03,
-					startvalue = 1,
+					missionId = 197, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your next mission is to retrieve some evidence that the traders in Port Hope are up to no good!",
@@ -2371,7 +2371,7 @@ if not Quests then
 				[8] = {
 					name = "Mission 3: What Men are Made of",
 					storageid = Storage.SecretService.AVINMission03,
-					startvalue = 1,
+					missionId = 198, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Your next task is to bring a barrel of beer to the Secret Tavern in the sewers of Carlin.",
@@ -2384,7 +2384,7 @@ if not Quests then
 				[9] = {
 					name = "Mission 3: Rust in Peace",
 					storageid = Storage.SecretService.CGBMission03,
-					startvalue = 1,
+					missionId = 199, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Emma has requested that you damage the Ironhouse of Venore, use the \z
@@ -2396,7 +2396,7 @@ if not Quests then
 				[10] = {
 					name = "Mission 4: Objective Hellgate",
 					storageid = Storage.SecretService.TBIMission04,
-					startvalue = 1,
+					missionId = 200, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your next mission is to investigate for some documents in Hellgate.",
@@ -2406,10 +2406,10 @@ if not Quests then
 				[11] = {
 					name = "Mission 4: Pawn Captures Knight",
 					storageid = Storage.SecretService.AVINMission04,
-					startvalue = 1,
+					missionId = 201, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Your next task is to travel to the Black Knight's Villa and kill the Black Knight!",
+						[1] = "Your next task is to travel to the Black Knight\'s Villa and kill the Black Knight!",
 						[2] = "You have killed the Black Knight, report back to Uncle!",
 						[3] = "You have reported back that you have completed your task, ask Uncle for a new mission!"
 					}
@@ -2417,7 +2417,7 @@ if not Quests then
 				[12] = {
 					name = "Mission 4: Plot for A Plan",
 					storageid = Storage.SecretService.CGBMission04,
-					startvalue = 1,
+					missionId = 202, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Emma has requested that you retrieve the Building Plans for a ship from the Venore shipyard.",
@@ -2427,7 +2427,7 @@ if not Quests then
 				[13] = {
 					name = "Mission 5: Coldfinger",
 					storageid = Storage.SecretService.TBIMission05,
-					startvalue = 1,
+					missionId = 203, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your next mission is to travel to the southern barbarians camp and place false evidence!",
@@ -2438,7 +2438,7 @@ if not Quests then
 				[14] = {
 					name = "Mission 5: A Cryptic Mission",
 					storageid = Storage.SecretService.AVINMission05,
-					startvalue = 1,
+					missionId = 204, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your next task is to travel to the Isle of the Kings and find a ring.",
@@ -2448,7 +2448,7 @@ if not Quests then
 				[15] = {
 					name = "Mission 5: No Admittance",
 					storageid = Storage.SecretService.CGBMission05,
-					startvalue = 1,
+					missionId = 205, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Emma has requested that you find some hints in the ruins of Dark Cathedral.",
@@ -2458,11 +2458,11 @@ if not Quests then
 				[16] = {
 					name = "Mission 6: The Weakest Spot",
 					storageid = Storage.SecretService.TBIMission06,
-					startvalue = 1,
+					missionId = 206, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your next mission is to disguise yourself as an amazon and destroy a \z
-							beer casket in the north-east corner in the cellar of Svargrond's Tavern.",
+							beer casket in the north-east corner in the cellar of Svargrond\'s Tavern.",
 						[2] = "You have succesfully destroyed the beer casket disguised as an amazon, report back to Chester!",
 						[3] = "You have reported back that you have completed your mission, ask Chester for a new mission!"
 					}
@@ -2470,7 +2470,7 @@ if not Quests then
 				[17] = {
 					name = "Mission 6: A Little Bribe Won't Hurt",
 					storageid = Storage.SecretService.AVINMission06,
-					startvalue = 1,
+					missionId = 207, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your next task is to bribe a barbarian in the large barbarian camp with a weapons crate.",
@@ -2481,7 +2481,7 @@ if not Quests then
 				[18] = {
 					name = "Mission 6: News From the Past",
 					storageid = Storage.SecretService.CGBMission06,
-					startvalue = 1,
+					missionId = 208, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Emma has requested that you go to the Isle of the Kings and retrieve a book.",
@@ -2491,7 +2491,7 @@ if not Quests then
 				[19] = {
 					name = "Mission 7: Licence to Kill",
 					storageid = Storage.SecretService.Mission07,
-					startvalue = 1,
+					missionId = 209, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "A Mad Technomancer in Kazordoon is trying to blackmail the city! \z
@@ -2507,51 +2507,51 @@ if not Quests then
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
-					name = "Omruc's Treasure",
+					name = "Omruc\'s Treasure",
 					storageid = Storage.TheAncientTombs.OmrucsTreasure,
-					startvalue = 1,
+					missionId = 210, startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Omruc and received a helmet adornment"
 				},
 				[2] = {
 					name = "Thalas' Treasure",
 					storageid = Storage.TheAncientTombs.ThalasTreasure,
-					startvalue = 1,
+					missionId = 211, startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Thalas and received a Gem Holder"
 				},
 				[3] = {
-					name = "Diphtrah's Treasure",
+					name = "Diphtrah\'s Treasure",
 					storageid = Storage.TheAncientTombs.DiphtrahsTreasure,
-					startvalue = 1,
+					missionId = 212, startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Dipthrah and received a Damaged Helmet"
 				},
 				[4] = {
 					name = "Mahrdis' Treasure",
 					storageid = Storage.TheAncientTombs.MahrdisTreasure,
-					startvalue = 1,
+					missionId = 213, startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Mahrdis and received a Helmet Ornament"
 				},
 				[5] = {
-					name = "Vashresamun's Treasure",
+					name = "Vashresamun\'s Treasure",
 					storageid = Storage.TheAncientTombs.VashresamunsTreasure,
-					startvalue = 1,
+					missionId = 214, startvalue = 1,
 					endvalue = 1,
-					description = "You solved the musical riddles of Vashresamun's Tomb and received a left horn."
+					description = "You solved the musical riddles of Vashresamun\'s Tomb and received a left horn."
 				},
 				[6] = {
 					name = "Morguthis' Treasure",
 					storageid = Storage.TheAncientTombs.MorguthisTreasure,
-					startvalue = 1,
+					missionId = 215, startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Morguthis and received a Right Horn"
 				},
 				[7] = {
 					name = "Rahemos' Treasure",
 					storageid = Storage.TheAncientTombs.RahemosTreasure,
-					startvalue = 1,
+					missionId = 216, startvalue = 1,
 					endvalue = 1,
 					description = "You defeated Rahemos and received a Helmet Piece"
 				}
@@ -2565,7 +2565,7 @@ if not Quests then
 				[1] = {
 					name = "Hairycles' Missions",
 					storageid = Storage.TheApeCity.Questline,
-					startvalue = 1,
+					missionId = 217, startvalue = 1,
 					endvalue = 18,
 					states = {
 						[1] = "Find whisper moss in the dworc settlement south of Port Hope and bring it back to Hairycles.",
@@ -2618,14 +2618,14 @@ if not Quests then
 				[1] = {
 					name = "The Cockroach Plague",
 					storageid = Storage.RookgaardTutorialIsland.SantiagoQuestLog,
-					startvalue = 1,
+					missionId = 218, startvalue = 1,
 					endvalue = 11,
 					states = {
 						[1] = "You have found a fisherman called Santiago, who has a little problem. \z
 							Maybe you should talk to him again to find out more.",
 						[2] = "Santiago asked you to go into his house. Upstairs you will find a chest. \z
 							You can keep what you find inside of it. Once you got that, talk to Santiago again.",
-						[3] = "You have found Santiago's Coat and reported back to him. \z
+						[3] = "You have found Santiago\'s Coat and reported back to him. \z
 							Your quest is not done yet, you should talk to him a bit more.",
 						[4] = "Santiago gave you a weapon. After equipping it, go to the cellar of his house to find out \z
 							about the cockroach plague.",
@@ -2644,7 +2644,7 @@ if not Quests then
 				[2] = {
 					name = "Collecting Wood",
 					storageid = Storage.RookgaardTutorialIsland.ZirellaQuestLog,
-					startvalue = 1,
+					missionId = 219, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "You have a vague idea that Zirella might need you for collecting firewood, \z
@@ -2665,7 +2665,7 @@ if not Quests then
 				[3] = {
 					name = "A Hungry Tailor",
 					storageid = Storage.RookgaardTutorialIsland.CarlosQuestLog,
-					startvalue = 1,
+					missionId = 220, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "You found another person named Carlos. You should talk to him learn how to change your outfit.",
@@ -2681,7 +2681,7 @@ if not Quests then
 						[7] = "You sucessfully learnt how to change your outfit and how to trade with NPCs. \z
 							Time to head over the bridge to Rookgaard!",
 						[8] = "You have passed the bridge to Rookgaard and have sucessfully completed the Tutorial. \z
-							If you want to skip the tutorial in the future with a new character, simply say 'skip tutorial' to Santiago."
+							If you want to skip the tutorial in the future with a new character, simply say \'skip tutorial' to Santiago."
 					}
 				}
 			}
@@ -2694,7 +2694,7 @@ if not Quests then
 				[1] = {
 					name = "Efreet Mission 1: The Supply Thief",
 					storageid = Storage.DjinnWar.EfreetFaction.Mission01,
-					startvalue = 1,
+					missionId = 221, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Travel to Thais and keep your eyes open for something that might give you a clue on the supply thief.",
@@ -2707,24 +2707,24 @@ if not Quests then
 				[2] = {
 					name = "Efreet Mission 2: The Tear of Daraman",
 					storageid = Storage.DjinnWar.EfreetFaction.Mission02,
-					startvalue = 1,
+					missionId = 222, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Sneak into Ashta'daramai and steal a &quot;Tear of Daraman&quot;. \z
 							For more information about these gems visit the Efreet library.",
 						[2] = "You have successfully managed to steal a Tear of Daraman from Ashta'daramai. Bring it to Alesar.",
-						[3] = "You have delivered Daraman's Tear. \z
+						[3] = "You have delivered Daraman\'s Tear. \z
 							Alesar seemed very satisfied and told you that Malor himself might have another mission for you."
 					}
 				},
 				[3] = {
 					name = "Efreet Mission 3: The Sleeping Lamp",
 					storageid = Storage.DjinnWar.EfreetFaction.Mission03,
-					startvalue = 1,
+					missionId = 223, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Malor asked you to find Fa'hradin's sleeping lamp in the orc fortress at Ulderek's Rock. \z
-							Then, sneak into Ashta'daramai and exchange Gabel's sleeping lamp with Fa'hradin's lamp.",
+						[1] = "Malor asked you to find Fa'hradin\'s sleeping lamp in the orc fortress at Ulderek\'s Rock. \z
+							Then, sneak into Ashta'daramai and exchange Gabel\'s sleeping lamp with Fa'hradin\'s lamp.",
 						[2] = "You successfully exchanged the lamps. Malor will be happy to hear about this.",
 						[3] = "The Efreet are very satisfied with your help. King Malor allowed you to trade with Yaman and Alesar."
 					}
@@ -2739,7 +2739,7 @@ if not Quests then
 				[1] = {
 					name = "Marid Mission 1: The Dwarven Kitchen",
 					storageid = Storage.DjinnWar.MaridFaction.Mission01,
-					startvalue = 1,
+					missionId = 224, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Bring a cookbook of the dwarven kitchen to Bo'ques.",
@@ -2750,7 +2750,7 @@ if not Quests then
 				[2] = {
 					name = "Marid Mission 2: The Spyreport",
 					storageid = Storage.DjinnWar.MaridFaction.Mission02,
-					startvalue = 1,
+					missionId = 225, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Fa'hradin asked you to sneak into the Efreet fortress Mal'ouqhah and find their undercover spy. \z
@@ -2762,21 +2762,21 @@ if not Quests then
 				[3] = {
 					name = "Rata'Mari and the Cheese",
 					storageid = Storage.DjinnWar.MaridFaction.RataMari,
-					startvalue = 1,
+					missionId = 226, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have promised Rata'Mari cheese. Once you deliver some to him, he will hand over his spyreport.",
-						[2] = "You got Rata'Mari's spyreport. He seems to be quite happy with the cheese you brought him."
+						[2] = "You got Rata'Mari\'s spyreport. He seems to be quite happy with the cheese you brought him."
 					}
 				},
 				[4] = {
 					name = "Marid Mission 3: The Sleeping Lamp",
 					storageid = Storage.DjinnWar.MaridFaction.Mission03,
-					startvalue = 1,
+					missionId = 227, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Gabel asked you to find Fa'hradin's sleeping lamp in the orc fortress at Ulderek's Rock. \z
-							Then, sneak into Mal'ouqhah and exchange Malor's sleeping lamp with Fa'hradin's lamp.",
+						[1] = "Gabel asked you to find Fa'hradin\'s sleeping lamp in the orc fortress at Ulderek\'s Rock. \z
+							Then, sneak into Mal'ouqhah and exchange Malor\'s sleeping lamp with Fa'hradin\'s lamp.",
 						[2] = "You successfully exchanged the lamps. Gabel will be happy to hear about this.",
 						[3] = "The Marid deeply appreciate your help. King Gabel allowed you to trade with Haroun and Nah'bob."
 					}
@@ -2791,7 +2791,7 @@ if not Quests then
 				[1] = {
 					name = "Going Down",
 					storageid = Storage.HiddenCityOfBeregar.GoingDown,
-					startvalue = 1,
+					missionId = 228, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Deliver 3 Gear Wheels to Xorlosh.",
@@ -2802,7 +2802,7 @@ if not Quests then
 				[2] = {
 					name = "Justice for All",
 					storageid = Storage.HiddenCityOfBeregar.JusticeForAll,
-					startvalue = 1,
+					missionId = 229, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Nokmir told you that he is falsely accused of being a thief. \z
@@ -2810,7 +2810,7 @@ if not Quests then
 							Furthermore you should try to find that ring which belongs to Rerun.",
 						[2] = "You should talking to Grombur about Nokmir.",
 						[3] = "You should try to find that ring which belongs to Rerun everywhere in the mine.",
-						[4] = "You have found Rerun's ring. Bring the ring to the emperor Rehal and talk to him about Nokmir.",
+						[4] = "You have found Rerun\'s ring. Bring the ring to the emperor Rehal and talk to him about Nokmir.",
 						[5] = "You informed emperor Rehal about your recent discoveries and he acquitted Nokmir of being a thief.",
 						[6] = "You told Nokmir about his acquittal and he granted you access to the northern mine."
 					}
@@ -2818,7 +2818,7 @@ if not Quests then
 				[3] = {
 					name = "Pythius the Rotten",
 					storageid = Storage.FirewalkerBoots,
-					startvalue = 1,
+					missionId = 230, startvalue = 1,
 					endvalue = 1,
 					states = {
 						[1] = "You won the battle against the malicious undead dragon Pythius the Rotten. \z
@@ -2828,7 +2828,7 @@ if not Quests then
 				[4] = {
 					name = "Sweet as Chocolate Cake",
 					storageid = Storage.HiddenCityOfBeregar.SweetAsChocolateCake,
-					startvalue = 1,
+					missionId = 231, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Bake a Chocolate Cake and bring it to Bolfona at the bar.",
@@ -2840,7 +2840,7 @@ if not Quests then
 				[5] = {
 					name = "The Good Guard",
 					storageid = Storage.HiddenCityOfBeregar.TheGoodGuard,
-					startvalue = 1,
+					missionId = 232, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Grombur asked you to get him a cask of dwarven brown ale. \z
@@ -2858,7 +2858,7 @@ if not Quests then
 				[1] = {
 					name = "Befriending the Musher",
 					storageid = Storage.TheIceIslands.Mission01,
-					startvalue = 1,
+					missionId = 233, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Find Sniffler the husky of Iskan. He should be somewhere north west of the town. \z
@@ -2872,7 +2872,7 @@ if not Quests then
 				[2] = {
 					name = "Nibelor 1: Breaking the Ice",
 					storageid = Storage.TheIceIslands.Mission02,
-					startvalue = 1,
+					missionId = 234, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Chakoyas may use the ice for a passage to the west and attack Svargrond. Use the rocks at east \z
@@ -2886,7 +2886,7 @@ if not Quests then
 				[3] = {
 					name = "Nibelor 2: Ecological Terrorism",
 					storageid = Storage.TheIceIslands.Mission03,
-					startvalue = 1,
+					missionId = 235, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Siflind send you to travel to a distant land to get ants from an Ant-Hill to \z
@@ -2900,7 +2900,7 @@ if not Quests then
 				[4] = {
 					name = "Nibelor 3: Artful Sabotage",
 					storageid = Storage.TheIceIslands.Mission04,
-					startvalue = 1,
+					missionId = 236, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Siflind gave you a Vial of Paint to use on some Baby Seals. \z
@@ -2911,7 +2911,7 @@ if not Quests then
 				[5] = {
 					name = "Nibelor 4: Berserk Brewery",
 					storageid = Storage.TheIceIslands.Mission05,
-					startvalue = 1,
+					missionId = 237, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "The first things needed are 5 bat wings to brew a berserker elixir. Bring her them!",
@@ -2925,7 +2925,7 @@ if not Quests then
 				[6] = {
 					name = "Nibelor 5: Cure the Dogs",
 					storageid = Storage.TheIceIslands.Mission06,
-					startvalue = 1,
+					missionId = 238, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "To cure Nilsor dogs, bring him the 1st of 7 ingredients: a Part of the Sun Adorer Cactus. \z
@@ -2951,7 +2951,7 @@ if not Quests then
 				[7] = {
 					name = "The Secret of Helheim",
 					storageid = Storage.TheIceIslands.Mission07,
-					startvalue = 1,
+					missionId = 239, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Hjaern might have a mission for you. So maybe you go and talk to him.",
@@ -2963,10 +2963,10 @@ if not Quests then
 				[8] = {
 					name = "The Contact",
 					storageid = Storage.TheIceIslands.Mission08,
-					startvalue = 1,
+					missionId = 240, startvalue = 1,
 					endvalue = 4,
 					states = {
-						[1] = "Get out of Nibelor and go to the Svargrond Explorer's Society. Ask Lurik for the mission.",
+						[1] = "Get out of Nibelor and go to the Svargrond Explorer\'s Society. Ask Lurik for the mission.",
 						[2] = "Get to the raider camp, then follow to the extreme south where you find lots of barbarians. \z
 						Near the southern most coastline, try looking for the NPC Nor. Ask him about Memory Crystal.",
 						[3] = "Go back to Lurik and deliver him the memory crystal.",
@@ -2977,7 +2977,7 @@ if not Quests then
 				[9] = {
 					name = "Formorgar Mines 1: The Mission",
 					storageid = Storage.TheIceIslands.Mission09,
-					startvalue = 1,
+					missionId = 241, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Find the entrance of the Formorgar Mines. \z
@@ -2989,7 +2989,7 @@ if not Quests then
 				[10] = {
 					name = "Formorgar Mines 2: Ghostwhisperer",
 					storageid = Storage.TheIceIslands.Mission10,
-					startvalue = 1,
+					missionId = 242, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Go back to the mine and ask the restless soul about his story.",
@@ -2999,7 +2999,7 @@ if not Quests then
 				[11] = {
 					name = "Formorgar Mines 3: The Secret",
 					storageid = Storage.TheIceIslands.Mission11,
-					startvalue = 1,
+					missionId = 243, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "The Cultists plan is to create a new demon army for their master to conquer the world. \z
@@ -3011,7 +3011,7 @@ if not Quests then
 				[12] = {
 					name = "Formorgar Mines 4: Retaliation",
 					storageid = Storage.TheIceIslands.Mission12,
-					startvalue = 1,
+					missionId = 244, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Hjaern gave you a spirit charm of cold. Travel to the mines and find four \z
@@ -3033,7 +3033,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 1: Interrogation",
 					storageid = Storage.TheInquisition.Mission01,
-					startvalue = 1,
+					missionId = 245, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "Your mission is to investigate the 5 guards in Thais regarding the Heretic behavior. \z
@@ -3049,7 +3049,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 2: Eclipse",
 					storageid = Storage.TheInquisition.Mission02,
-					startvalue = 1,
+					missionId = 246, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Henricus tells you to get The Witches' Grimoire, he sends you to Femor Hills where you \z
@@ -3063,11 +3063,11 @@ if not Quests then
 				[3] = {
 					name = "Mission 3: Vampire Hunt",
 					storageid = Storage.TheInquisition.Mission03,
-					startvalue = 1,
+					missionId = 247, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Henricus wants you to find the Dwarfish Vampire Hunter, Storkus, located west of the Dwarf Bridge. \z
-						It's good idea bring your 20 Vampire Dusts with you to save some time.",
+						It\'s good idea bring your 20 Vampire Dusts with you to save some time.",
 						[2] = "Go Back to Storkus the Dwarf and ask for Mission.",
 						[3] = "Now Storkus wants you to kill a vampire lord, The Count in the Green Claw Swamp, \z
 						The Count is located near to the Blood Herb Quest. To summon The Count, \z
@@ -3080,7 +3080,7 @@ if not Quests then
 				[4] = {
 					name = "Mission 4: The Haunted Ruin",
 					storageid = Storage.TheInquisition.Mission04,
-					startvalue = 1,
+					missionId = 248, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Henricus will gave you a Special Flask (vial of holy water). Go to Liberty Bay \z
@@ -3092,7 +3092,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 5: Essential Gathering",
 					storageid = Storage.TheInquisition.Mission05,
-					startvalue = 1,
+					missionId = 249, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Henricus wants 20 Demonic Essences as a proof of your accomplishments.",
@@ -3103,7 +3103,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 6: The Demon Ungreez",
 					storageid = Storage.TheInquisition.Mission06,
-					startvalue = 1,
+					missionId = 250, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Henricus wants you to kill a demon called Ungreez. Head to Edron Hero Cave and go down a few levels.",
@@ -3114,7 +3114,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 7: The Shadow Nexus",
 					storageid = Storage.TheInquisition.Mission07,
-					startvalue = 1,
+					missionId = 251, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Your mission is to go to the Demon Forge and slay seven of The Ruthless Seven Minions. \z
@@ -3135,7 +3135,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 01: New Land",
 					storageid = Storage.TheNewFrontier.Mission01,
-					startvalue = 1,
+					missionId = 252, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Ongulf sends you to explore the passage to the east of farmine.",
@@ -3146,7 +3146,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 02: From Kazordoon With Love",
 					storageid = Storage.TheNewFrontier.Mission02,
-					startvalue = 1,
+					missionId = 253, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Ongulf will tell you that he needs to send a message to the dwarves in Kazordoon. \z
@@ -3163,7 +3163,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 03: Strangers in the Night",
 					storageid = Storage.TheNewFrontier.Mission03,
-					startvalue = 1,
+					missionId = 254, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "You need to find the tribe which lives in the mountains. \z
@@ -3175,7 +3175,7 @@ if not Quests then
 				[4] = {
 					name = "Mission 04: The Mine Is Mine",
 					storageid = Storage.TheNewFrontier.Mission04,
-					startvalue = 1,
+					missionId = 255, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Head back to the levers and this time use the left one. \z
@@ -3186,7 +3186,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 05: Getting Things Busy",
 					storageid = Storage.TheNewFrontier.Mission05,
-					startvalue = 1,
+					missionId = 256, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "This mission consists of getting support from 6 people (King Tibianus in Thais, Leeland in Venore, \z
@@ -3213,7 +3213,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 06: Days Of Doom",
 					storageid = Storage.TheNewFrontier.Mission06,
-					startvalue = 1,
+					missionId = 257, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Go to Curos, leader of the Orcs, in the middle of the Zao Steppe in the north-east area of an Orc camp. \z
@@ -3226,7 +3226,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 07: Messengers Of Peace",
 					storageid = Storage.TheNewFrontier.Mission07,
-					startvalue = 1,
+					missionId = 258, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "You now have to contact the Lizards, the real rulers of Zao. \z
@@ -3238,7 +3238,7 @@ if not Quests then
 				[8] = {
 					name = "Mission 08: An Offer You Can't Refuse",
 					storageid = Storage.TheNewFrontier.Mission08,
-					startvalue = 1,
+					missionId = 259, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Take the boat at the northern of Dragonblaze Peaks to tournament Isle. \z
@@ -3250,7 +3250,7 @@ if not Quests then
 				[9] = {
 					name = "Mission 09: Mortal Combat",
 					storageid = Storage.TheNewFrontier.Mission09,
-					startvalue = 1,
+					missionId = 260, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "You have to go into the Arena with another player, \z
@@ -3262,7 +3262,7 @@ if not Quests then
 				[10] = {
 					name = "Mission 10: New Horizons",
 					storageid = Storage.TheNewFrontier.Mission10,
-					startvalue = 1,
+					missionId = 261, startvalue = 1,
 					endvalue = 1,
 					description = "You now have permission to use the Magic Carpet on the mountain above Farmine, \z
 						Cael now accepts more Tomes of Knowledge from you and you got the Warmaster Outfit!"
@@ -3270,7 +3270,7 @@ if not Quests then
 				[11] = {
 					name = "Tome of Knowledge Counter",
 					storageid = Storage.TheNewFrontier.TomeofKnowledge,
-					startvalue = 1,
+					missionId = 262, startvalue = 1,
 					endvalue = 12,
 					states = {
 						[1] = "You brought the fist Tome of Knowledge to Cael. He learnt more about the lizard culture. \z
@@ -3319,7 +3319,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 01 - Check Postal Routes",
 					storageid = Storage.Postman.Mission01,
-					startvalue = 1,
+					missionId = 263, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Kevin wants you to travel with Captain Bluebear to Carlin.",
@@ -3333,7 +3333,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 02 - Fix Mailbox",
 					storageid = Storage.Postman.Mission02,
-					startvalue = 1,
+					missionId = 264, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to fix one of their Mailboxes located on Folda with a crowbar.",
@@ -3344,11 +3344,11 @@ if not Quests then
 				[3] = {
 					name = "Mission 03 - Bill Delivery",
 					storageid = Storage.Postman.Mission03,
-					startvalue = 1,
+					missionId = 265, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to deliver a bill to the stage magician David Brassacres. \z
-						He's hiding from his creditors somewhere in Venore.",
+						He\'s hiding from his creditors somewhere in Venore.",
 						[2] = "You have delivered the bill to the stage magician David Brassacres, report back to Kevin!",
 						[3] = "You have reported back that you have completed the mission."
 					}
@@ -3356,7 +3356,7 @@ if not Quests then
 				[4] = {
 					name = "Mission 04 - Aggressive Dogs",
 					storageid = Storage.Postman.Mission04,
-					startvalue = 1,
+					missionId = 266, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Kevin has asked you to deliver 20 Bones to him.",
@@ -3366,7 +3366,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 05 - Present Delivery",
 					storageid = Storage.Postman.Mission05,
-					startvalue = 1,
+					missionId = 267, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Kevin has asked you to retrieve the present behind the door on the \z
@@ -3379,7 +3379,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 06 - New Uniforms",
 					storageid = Storage.Postman.Mission06,
-					startvalue = 1,
+					missionId = 268, startvalue = 1,
 					endvalue = 13,
 					states = {
 						[1] = "Kevin has asked you to travel to Venore and negotiate with Hugo for new uniforms.",
@@ -3402,7 +3402,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 07 - Measurements",
 					storageid = Storage.Postman.Mission07,
-					startvalue = 1,
+					missionId = 269, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "Kevin wants you to bring him the measurements of Benjamin, Lokur, Dove, Liane, Chrystal and Olrik.",
@@ -3418,7 +3418,7 @@ if not Quests then
 				[8] = {
 					name = "Mission 08 - Missing Courier",
 					storageid = Storage.Postman.Mission08,
-					startvalue = 1,
+					missionId = 270, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to find the missing courier Waldo or at least his posthorn.",
@@ -3429,7 +3429,7 @@ if not Quests then
 				[9] = {
 					name = "Mission 09 - Dear Santa",
 					storageid = Storage.Postman.Mission09,
-					startvalue = 1,
+					missionId = 271, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Kevin wants you to deliver som letters to Santa Claus on Vega.",
@@ -3441,7 +3441,7 @@ if not Quests then
 				[10] = {
 					name = "Mission 10 - Mintwallin",
 					storageid = Storage.Postman.Mission10,
-					startvalue = 1,
+					missionId = 272, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Kevin wants you to deliver a letter  to Markwin, king of Mintwallin from his mother.",
@@ -3452,7 +3452,7 @@ if not Quests then
 				[11] = {
 					name = "Postman Rank",
 					storageid = Storage.Postman.Rank,
-					startvalue = 1,
+					missionId = 273, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Assistant Postman",
@@ -3472,7 +3472,7 @@ if not Quests then
 				[1] = {
 					name = "A Djinn in Love",
 					storageid = Storage.TheShatteredIsles.ADjinnInLove,
-					startvalue = 1,
+					missionId = 274, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "You need to return to Marina and ask her for a date with Ocelus.",
@@ -3480,14 +3480,14 @@ if not Quests then
 						[3] = "Ocelus told you to get a poem for him, if you didn't buy one already, \z
 						head to Ab'Dendriel and buy a Love Poem from Elvith.",
 						[4] = "You need to go recite the poem to Marina and impress her \z
-						with the Djinn's romantic and poetic abilities.",
+						with the Djinn\'s romantic and poetic abilities.",
 						[5] = "After reciting the poem to Marina, she decided to date Ocelus and release Ray Striker from her spell."
 					}
 				},
 				[2] = {
 					name = "A Poem for the Mermaid",
 					storageid = Storage.TheShatteredIsles.APoemForTheMermaid,
-					startvalue = 1,
+					missionId = 275, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "You need to find the man-stealing mermaid and try to break her spell over poor Raymond, \z
@@ -3501,7 +3501,7 @@ if not Quests then
 				[3] = {
 					name = "Access to Goroma",
 					storageid = Storage.TheShatteredIsles.AccessToGoroma,
-					startvalue = 1,
+					missionId = 276, startvalue = 1,
 					endvalue = 1,
 					description = "After helping Jack Fate to collect the 30 woodpieces, \z
 						Jack Fate in Liberty Bay will bring you to Goroma."
@@ -3509,71 +3509,71 @@ if not Quests then
 				[4] = {
 					name = "Access to Laguna Island",
 					storageid = Storage.TheShatteredIsles.AccessToLagunaIsland,
-					startvalue = 1,
+					missionId = 277, startvalue = 1,
 					endvalue = 1,
-					description = "After arranging a date for Marina and Ocelus, you are allowed to use Marina's sea turtles. \z
+					description = "After arranging a date for Marina and Ocelus, you are allowed to use Marina\'s sea turtles. \z
 						They will bring you to the idyllic Laguna Islands."
 				},
 				[5] = {
 					name = "Access to Meriana",
 					storageid = Storage.TheShatteredIsles.AccessToMeriana,
-					startvalue = 1,
+					missionId = 278, startvalue = 1,
 					endvalue = 1,
-					description = "After earning the trust of the governor's daughter Eleonore, \z
+					description = "After earning the trust of the governor\'s daughter Eleonore, \z
 						Captain Waverider in Liberty Bay will bring you to Meriana if you tell him the secret codeword 'peg leg'."
 				},
 				[6] = {
 					name = "Access to Nargor",
 					storageid = Storage.TheShatteredIsles.AccessToNargor,
-					startvalue = 1,
+					missionId = 279, startvalue = 1,
 					endvalue = 1,
 					description = "After convincing the people in Sabrehaven that you are a trustworthy hero, \z
 					Sebastian will sail you to Nargor."
 				},
 				[7] = {
-					name = "Ray's Mission 1: Fafnar's Fire",
+					name = "Ray\'s Mission 1: Fafnar\'s Fire",
 					storageid = Storage.TheShatteredIsles.RaysMission1,
-					startvalue = 1,
+					missionId = 280, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Ray Striker asked you to travel to Edron and pretend to the alchemist Sandra that you are the one \z
 						whom the other pirates sent to get the fire. When she asks for a payment, tell her \z
 						'Your continued existence is payment enough'.",
 						[2] = "Sandra will be enraged and will cut any deals with pirates. Report back to Raymond Striker.",
-						[3] = "Ray Striker was pleased to hear about Sandra's rage. If you haven't done so yet, \z
+						[3] = "Ray Striker was pleased to hear about Sandra\'s rage. If you haven't done so yet, \z
 						ask him for other missions."
 					}
 				},
 				[8] = {
-					name = "Ray's Mission 2: Sabotage",
+					name = "Ray\'s Mission 2: Sabotage",
 					storageid = Storage.TheShatteredIsles.RaysMission2,
-					startvalue = 1,
+					missionId = 281, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Buy a fire bug at Liberty Bay and infiltrate Nargor. \z
-						Find the pirates' harbour and use the fire bug to sabotage their catapult there.",
-						[2] = "You were able to sabotage the catapult in the pirate's harbour. \z
+						Find the pirates' harbor and use the fire bug to sabotage their catapult there.",
+						[2] = "You were able to sabotage the catapult in the pirate\'s harbor. \z
 						Report back to Ray Striker to tell him about mission.",
 						[3] = "Ray Striker was pleased to hear about successful sabotage. \z
 						If you haven't done so yet, ask him for other missions."
 					}
 				},
 				[9] = {
-					name = "Ray's Mission 3: Spy Mission",
+					name = "Ray\'s Mission 3: Spy Mission",
 					storageid = Storage.TheShatteredIsles.RaysMission3,
-					startvalue = 1,
+					missionId = 282, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Travel to Nargor and try to enter de pirate's tavern by deceiving the guard in front of it. \z
+						[1] = "Travel to Nargor and try to enter de pirate\'s tavern by deceiving the guard in front of it. \z
 						Read all the plans which you can find in the tavern and report back to Striker.",
-						[2] = "You studied all of the pirate's plans in their tavern which will give insight about their next strikes. \z
+						[2] = "You studied all of the pirate\'s plans in their tavern which will give insight about their next strikes. \z
 						If you haven't done so yet, ask Ray for another mission."
 					}
 				},
 				[10] = {
-					name = "Ray's Mission 4: Proof of Death",
+					name = "Ray\'s Mission 4: Proof of Death",
 					storageid = Storage.TheShatteredIsles.RaysMission4,
-					startvalue = 1,
+					missionId = 283, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Travel to Nargor and try to find out more about the mission Klaus offers. \z
@@ -3591,7 +3591,7 @@ if not Quests then
 				[11] = {
 					name = "Reputation in Sabrehaven: Suspicious",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
-					startvalue = 2,
+					missionId = 284, startvalue = 2,
 					endvalue = 13,
 					states = {
 						[2] = "Ariella asked you for a few days of adequate supply. \z
@@ -3619,7 +3619,7 @@ if not Quests then
 				[12] = {
 					name = "Reputation in Sabrehaven: Friendly",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
-					startvalue = 14,
+					missionId = 285, startvalue = 14,
 					endvalue = 17,
 					states = {
 						[14] = "You have finished five missions. People in Sabrehaven seem to start trusting you. \z
@@ -3633,7 +3633,7 @@ if not Quests then
 				[13] = {
 					name = "Reputation in Sabrehaven: Cordial",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
-					startvalue = 18,
+					missionId = 286, startvalue = 18,
 					endvalue = 19,
 					description = "You have finished eight missions. \z
 					People in Sabrehaven seem to trust you, but there is still one last mission left."
@@ -3641,7 +3641,7 @@ if not Quests then
 				[14] = {
 					name = "Reputation in Sabrehaven: Loyal",
 					storageid = Storage.TheShatteredIsles.ReputationInSabrehaven,
-					startvalue = 20,
+					missionId = 287, startvalue = 20,
 					endvalue = 22,
 					states = {
 						[20] = "You have finished nine missions. People in Sabrehaven are considering you as one of them.",
@@ -3652,14 +3652,14 @@ if not Quests then
 				[15] = {
 					name = "The Counterspell",
 					storageid = Storage.TheShatteredIsles.TheCounterspell,
-					startvalue = 1,
+					missionId = 288, startvalue = 1,
 					endvalue = 4,
 					states = {
-						[1] = "You have begun Chondur's ritual. Bring him a fresh dead chicken so that he can begin to \z
+						[1] = "You have begun Chondur\'s ritual. Bring him a fresh dead chicken so that he can begin to \z
 						create a counterspell which will allow you to pass the magical barrier on Goroma.",
-						[2] = "You have begun Chondur's ritual. Bring him a fresh dead rat so that he can continue \z
+						[2] = "You have begun Chondur\'s ritual. Bring him a fresh dead rat so that he can continue \z
 						creating a counterspell which will allow you to pass the magical barrier on Goroma.",
-						[3] = "You have begun Chondur's ritual. Bring him a fresh dead black sheep so that he can \z
+						[3] = "You have begun Chondur\'s ritual. Bring him a fresh dead black sheep so that he can \z
 						complete his counterspell which will allow you to pass the magical barrier on Goroma.",
 						[4] = "You may pass the energy barrier on Goroma. The counterspell Chondur created for you \z
 						with his ritual will allow you to withstand the evil magic of the cultist."
@@ -3668,7 +3668,7 @@ if not Quests then
 				[16] = {
 					name = "The Errand",
 					storageid = Storage.TheShatteredIsles.TheErrand,
-					startvalue = 1,
+					missionId = 289, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You told Eleonore to run a small errand. Deliver the 200 gold pieces she \z
@@ -3677,12 +3677,12 @@ if not Quests then
 					}
 				},
 				[17] = {
-					name = "The Governor's Daughter",
+					name = "The Governor\'s Daughter",
 					storageid = Storage.TheShatteredIsles.TheGovernorDaughter,
-					startvalue = 1,
+					missionId = 290, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "You promised to find Eleonore's lost ring. She told you that a parrot stole it from her \z
+						[1] = "You promised to find Eleonore\'s lost ring. She told you that a parrot stole it from her \z
 						dressing table and flew to the nearby mountains. You might need a rake to retrieve the ring.",
 						[2] = "You found the ring. Return it to Eleonore.",
 						[3] = "You returned the ring to Eleonore."
@@ -3698,7 +3698,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 1: Ivory Poaching",
 					storageid = Storage.ThievesGuild.Mission01,
-					startvalue = 1,
+					missionId = 291, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Dorian wants you to collect 10 elephant tusks and deliver them to him.",
@@ -3708,10 +3708,10 @@ if not Quests then
 				[2] = {
 					name = "Mission 2: Burglary",
 					storageid = Storage.ThievesGuild.Mission02,
-					startvalue = 1,
+					missionId = 292, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Dorian wants you to steal a vase from Sarina, the owner of Carlin's general store.",
+						[1] = "Dorian wants you to steal a vase from Sarina, the owner of Carlin\'s general store.",
 						[2] = "You have stolen the vase, report back to Dorian!",
 						[3] = "You have delivered the stolen vase to Dorian, ask him for a new mission!"
 					}
@@ -3719,18 +3719,18 @@ if not Quests then
 				[3] = {
 					name = "Mission 3: Invitation",
 					storageid = Storage.ThievesGuild.Mission03,
-					startvalue = 1,
+					missionId = 293, startvalue = 1,
 					endvalue = 3,
 					states = {
-						[1] = "Your task is to somehow convince Oswald to hand you an invitation to the king's ball.",
-						[2] = "You have received the invitation to the King's ball, report back to Dorian!",
+						[1] = "Your task is to somehow convince Oswald to hand you an invitation to the king\'s ball.",
+						[2] = "You have received the invitation to the King\'s ball, report back to Dorian!",
 						[3] = "You have delivered the invitation to Dorian, ask him for a new mission!"
 					}
 				},
 				[4] = {
 					name = "Mission 4: Bridge Robbery",
 					storageid = Storage.ThievesGuild.Mission04,
-					startvalue = 1,
+					missionId = 294, startvalue = 1,
 					endvalue = 8,
 					states = {
 						[1] = "Dorian wants you to find a forger in the outlaw camp, go talk to Snake eye.",
@@ -3746,7 +3746,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 5: Enforcing Debts",
 					storageid = Storage.ThievesGuild.Mission05,
-					startvalue = 1,
+					missionId = 295, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your mission is to travel to Tiquanda. Fina a hidden smuggler cave to the north of Port Hope \z
@@ -3757,7 +3757,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 6: Fishnapping",
 					storageid = Storage.ThievesGuild.Mission06,
-					startvalue = 1,
+					missionId = 296, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Dorian wants you to fishnap Theodore Loveless' fish, first you need to get the key to his room. \z
@@ -3770,7 +3770,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 7: Blackmail",
 					storageid = Storage.ThievesGuild.Mission07,
-					startvalue = 1,
+					missionId = 297, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your current task is to find compromising information about one of the \z
@@ -3781,7 +3781,7 @@ if not Quests then
 				[8] = {
 					name = "Mission 8: Message",
 					storageid = Storage.ThievesGuild.Mission08,
-					startvalue = 1,
+					missionId = 298, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Dorian wants you to deliver a message to his competitors in the dark cathedral.",
@@ -3800,7 +3800,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 1: Trophy",
 					storageid = Storage.TravellingTrader.Mission01,
-					startvalue = 1,
+					missionId = 299, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your first mission for becoming a recognized trader is to bring the \z
@@ -3811,7 +3811,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 2: Delivery",
 					storageid = Storage.TravellingTrader.Mission02,
-					startvalue = 1,
+					missionId = 300, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Your mission is to get the package from Willard the weapon dealer at Edron.",
@@ -3825,7 +3825,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 3: Cheese",
 					storageid = Storage.TravellingTrader.Mission03,
-					startvalue = 1,
+					missionId = 301, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Rashid wants you to pick his special order from Miraia in Darashia. \z
@@ -3837,12 +3837,13 @@ if not Quests then
 				[4] = {
 					name = "Mission 4: Vase",
 					storageid = Storage.TravellingTrader.Mission04,
-					startvalue = 1,
+					missionId = 302, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Rashid have ordered a special elven vase from Briasol in Ab'Dendriel. \z
 						He asks you to buy it from Briasol and bring it back. \z
-						\nBut you should be carefully, since the vase is very fragile.",
+						
+But you should be carefully, since the vase is very fragile.",
 						[2] = "Now carefully bring the vase back to Rashid.",
 						[3] = "You have completed this mission. Talk with Rashid to continue."
 					}
@@ -3850,7 +3851,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 5: Make a deal",
 					storageid = Storage.TravellingTrader.Mission05,
-					startvalue = 1,
+					missionId = 303, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "This time, Rashid is testing your trading skills to buy a Crimson Sword from Uzgod. \z
@@ -3862,7 +3863,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 6: Goldfish",
 					storageid = Storage.TravellingTrader.Mission06,
-					startvalue = 1,
+					missionId = 304, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Rashid wants you to bring him a Goldfish Bowl.",
@@ -3872,7 +3873,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 7: Declare",
 					storageid = Storage.TravellingTrader.Mission07,
-					startvalue = 1,
+					missionId = 305, startvalue = 1,
 					endvalue = 1,
 					states = {
 						[1] = "Rashid has declare you as one of his recognized traders, \z
@@ -3889,49 +3890,49 @@ if not Quests then
 				[1] = {
 					name = "The Hidden Seal",
 					storageid = Storage.QueenOfBanshees.FirstSeal,
-					startvalue = 1,
+					missionId = 306, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the first seal."
 				},
 				[2] = {
 					name = "The Seal of Logic",
 					storageid = Storage.QueenOfBanshees.SixthSeal,
-					startvalue = 1,
+					missionId = 307, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the sixth seal."
 				},
 				[3] = {
 					name = "The Seal of True Path",
 					storageid = Storage.QueenOfBanshees.FifthSeal,
-					startvalue = 1,
+					missionId = 308, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fifth seal."
 				},
 				[4] = {
 					name = "The Seal of Sacrifice",
 					storageid = Storage.QueenOfBanshees.FourthSeal,
-					startvalue = 1,
+					missionId = 309, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fourth seal."
 				},
 				[5] = {
 					name = "The Seal of Demonrage",
 					storageid = Storage.QueenOfBanshees.ThirdSeal,
-					startvalue = 1,
+					missionId = 310, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the third seal."
 				},
 				[6] = {
 					name = "The Plague Seal",
 					storageid = Storage.QueenOfBanshees.SecondSeal,
-					startvalue = 1,
+					missionId = 311, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the second seal."
 				},
 				[7] = {
 					name = "All Seals",
 					storageid = Storage.QueenOfBanshees.LastSeal,
-					startvalue = 1,
+					missionId = 312, startvalue = 1,
 					endvalue = 1,
 					description = "You broke all the seals."
 				}
@@ -3945,7 +3946,7 @@ if not Quests then
 				[1] = {
 					name = "Barbarian Arena - Greenhorn Mode",
 					storageid = Storage.SvargrondArena.QuestLogGreenhorn,
-					startvalue = 1,
+					missionId = 313, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have to defeat all enemies in this mode.",
@@ -3955,7 +3956,7 @@ if not Quests then
 				[2] = {
 					name = "Barbarian Arena - Scrapper Mode",
 					storageid = Storage.SvargrondArena.QuestLogScrapper,
-					startvalue = 1,
+					missionId = 314, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have to defeat all enemies in this mode.",
@@ -3965,7 +3966,7 @@ if not Quests then
 				[3] = {
 					name = "Barbarian Arena - Warlord Mode",
 					storageid = Storage.SvargrondArena.QuestLogWarlord,
-					startvalue = 1,
+					missionId = 315, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have to defeat all enemies in this mode.",
@@ -3991,11 +3992,11 @@ if not Quests then
 				[2] = {
 					name = "The Investigation",
 					storageid = Storage.WhiteRavenMonastery.Diary,
-					startvalue = 1,
+					missionId = 316, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Investigate the catacombs. Abbot Costello should be interested in information about brother Fugio.",
-						[2] = "You returned Fugio's Diary. \z
+						[2] = "You returned Fugio\'s Diary. \z
 						Costello was very thankful about your help and gave you a blessed ankh as reward."
 					}
 				}
@@ -4014,15 +4015,15 @@ if not Quests then
 					states = {
 						[1] = "Kazzan sent you to talk with Ubaid and Umar to offer an appeasement treaty to the Djinn races. \z
 						Talk to Umar first.",
-						[2] = "Umar said he won't be part of Kazzan's plans. Now you need to try with Ubaid.",
+						[2] = "Umar said he won't be part of Kazzan\'s plans. Now you need to try with Ubaid.",
 						[3] = "Umar and Ubaid said they won't be part of those plans. Return to Kazzan and collect your reward.",
 						[4] = "You have completed the quest!"
 					}
 				},
 				[2] = {
-					name = "Arito's Task",
+					name = "Arito\'s Task",
 					storageid = Storage.TibiaTales.AritosTask,
-					startvalue = 1,
+					missionId = 317, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Arito asked you to make a peace agreement between him and the Nomads.",
@@ -4031,9 +4032,9 @@ if not Quests then
 					}
 				},
 				[3] = {
-					name = "Lion's Rock",
+					name = "Lion\'s Rock",
 					storageid = Storage.LionsRock.Questline,
-					startvalue = 1,
+					missionId = 318, startvalue = 1,
 					endvalue = 12,
 					states = {
 						[1] = "You have discovered the Lion's Rock. If you pass the following tests you may enter the inner sanctum.\z
@@ -4088,7 +4089,7 @@ if not Quests then
 				[4] = {
 					name = "Against the Spider Cult",
 					storageid = Storage.TibiaTales.AgainstTheSpiderCult,
-					startvalue = 1,
+					missionId = 319, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "Daniel Steelsoul in Edron wants you to infiltrate the Edron Orc Cave and destroy 4 Spider Eggs.",
@@ -4102,7 +4103,7 @@ if not Quests then
 				[4] = {
 					name = "An Interest In Botany",
 					storageid = Storage.TibiaTales.AnInterestInBotany,
-					startvalue = 1,
+					missionId = 320, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Rabaz in Farmine asked you to collect samples from rare plant specimen in Zao. \z
@@ -4117,7 +4118,7 @@ if not Quests then
 				[5] = {
 					name = "Graves Sanctified - In Progress",
 					storageid = Storage.TibiaTales.RestInHallowedGround.HolyWater,
-					startvalue = 1,
+					missionId = 321, startvalue = 1,
 					endvalue = 15,
 					description = function(player)
 						return string.format(
@@ -4129,7 +4130,7 @@ if not Quests then
 				[6] = {
 					name = "Into the Bone Pit",
 					storageid = Storage.TibiaTales.IntoTheBonePit,
-					startvalue = 1,
+					missionId = 322, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Search the Cursed Bone Pit in the dungeon north of Thais and dig for a \z
@@ -4141,7 +4142,7 @@ if not Quests then
 				[7] = {
 					name = "Rest in Hallowed Ground",
 					storageid = Storage.TibiaTales.RestInHallowedGround.Questline,
-					startvalue = 1,
+					missionId = 323, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Go to the white raven monastery and ask for some holy water for Amanda.",
@@ -4155,7 +4156,7 @@ if not Quests then
 				[8] = {
 					name = "The Exterminator",
 					storageid = Storage.TibiaTales.TheExterminator,
-					startvalue = 1,
+					missionId = 324, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Padreia in Carlin asked you to exterminate the slimes in the sewers of \z
@@ -4168,7 +4169,7 @@ if not Quests then
 				[9] = {
 					name = "The Ultimate Booze",
 					storageid = Storage.TibiaTales.ultimateBoozeQuest,
-					startvalue = 1,
+					missionId = 325, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Boozer in Vernore asked you to bring him some special dwarven brown ale. \z
@@ -4180,26 +4181,26 @@ if not Quests then
 				[10] = {
 					name = "Jack to the Future",
 					storageid = Storage.TibiaTales.JackFutureQuest.QuestLine,
-					startvalue = 1,
+					missionId = 326, startvalue = 1,
 					endvalue = 11,
 					states = {
 						[1] = "Spectulus told you about a failed experiment he once did, involving an intern \z
-						named Jack, and asked you to help him rescue Jack. Go to Jack's house and talk to him \z
+						named Jack, and asked you to help him rescue Jack. Go to Jack\'s house and talk to him \z
 						about Spectulus.",
 						[2] = "You have talked to Jack and found out that he is not remembering the time \z
 						accident or Spectulus. Return to Spectulus in the Edron Academy to tell him about \z
 						your findings.",
-						[3] = "Spectulus wants you to trigger Jack's memory. Jack used to like his red cushioned \z
+						[3] = "Spectulus wants you to trigger Jack\'s memory. Jack used to like his red cushioned \z
 						chair, an old globe, a telescope, a large amphora and a rocking horse. Place those in his \z
 						room and ask him about it.",
 						[4] = "You have talked to Jack about the furniture you placed in his house. Report it back \z
 						to Spectulus in the Edron Academy.",
 						[5] = "Spectulus sent you once again to his former intern Jack. Explain the incident to the \z
-						people close to him. Talk to Jack's mother and sister and return to Spectulus to report their reaction.",
-						[6] = "You have talked with Jack's mother and sister. Report it back to Spectulus.",
+						people close to him. Talk to Jack\'s mother and sister and return to Spectulus to report their reaction.",
+						[6] = "You have talked with Jack\'s mother and sister. Report it back to Spectulus.",
 						[7] = "Spectulus suggested asking Jack abouthis hobbies. Make Jack leave his hobby be by whateber \z
 						means it takes. Only by doing this he will be separated from what distracts him from his former self.",
-						[8] = "You found out and destroyed Jack's hobby. Jack is now finally ready and beginning to change. \z
+						[8] = "You found out and destroyed Jack\'s hobby. Jack is now finally ready and beginning to change. \z
 						He event seems to start remembering Spectulus and the Academy.",
 						[9] = "Jack is finally remembering Spectulus and the Academy. Report back your mission.",
 						[10] = "Spectulus found out that you were convincing the wrong Jack. His real intern was transported \z
@@ -4219,7 +4220,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 1: Skulled",
 					storageid = Storage.UnnaturalSelection.Mission01,
-					startvalue = 1,
+					missionId = 327, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your mission is to find the Holy Skull. It is in a cave in the northern orc settlement, \z
@@ -4231,7 +4232,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 2: All Around the World",
 					storageid = Storage.UnnaturalSelection.Mission02,
-					startvalue = 1,
+					missionId = 328, startvalue = 1,
 					endvalue = 13,
 					states = {
 						[1] = "You received the Skull of a Caveman and need to explore the world, letting the skull see everything. \z
@@ -4264,7 +4265,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 3: Dance Dance Evolution",
 					storageid = Storage.UnnaturalSelection.Mission03,
-					startvalue = 1,
+					missionId = 329, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Lazaran told you to go to Ulala, who is located above Lazaran.",
@@ -4276,7 +4277,7 @@ if not Quests then
 				[4] = {
 					name = "Mission 4: Bits and Pieces",
 					storageid = Storage.UnnaturalSelection.Mission04,
-					startvalue = 1,
+					missionId = 330, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Now the god Krunus is pleased, another god called Pandor needs to be pleased. \z
@@ -4287,7 +4288,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 5: Ray of Light",
 					storageid = Storage.UnnaturalSelection.Mission05,
-					startvalue = 1,
+					missionId = 331, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "The third god which needs to be pleased is called Fasuon. \z
@@ -4299,7 +4300,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 6: Firewater Burn",
 					storageid = Storage.UnnaturalSelection.Mission06,
-					startvalue = 1,
+					missionId = 332, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Speak with Lazaran and tell the gods are pleased now.",
@@ -4317,7 +4318,7 @@ if not Quests then
 				[1] = {
 					name = "What a foolish Quest - Tasks of a Fool",
 					storageid = Storage.WhatAFoolish.Mission1,
-					startvalue = 1,
+					missionId = 333, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Cut a flower at the Whiteflower Temple south of Thais. Then report to Bozo about your mission.",
@@ -4327,7 +4328,7 @@ if not Quests then
 				[2] = {
 					name = "What a foolish Quest - That stinks!",
 					storageid = Storage.WhatAFoolish.Mission2,
-					startvalue = 1,
+					missionId = 334, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "It sometimes stinks to be a fool. \z
@@ -4339,7 +4340,7 @@ if not Quests then
 				[3] = {
 					name = "What a foolish Quest - A Piece of Cake",
 					storageid = Storage.WhatAFoolish.Mission3,
-					startvalue = 1,
+					missionId = 335, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Get 12 pies from Mirabell in Edron. Then report to Bozo about your mission.",
@@ -4349,18 +4350,18 @@ if not Quests then
 				[4] = {
 					name = "What a foolish Quest - Fool Spirits",
 					storageid = Storage.WhatAFoolish.Mission4,
-					startvalue = 1,
+					missionId = 336, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Get 18 vials of wine for Bozo. Then report to Bozo about your mission.",
-						[2] = "Exchange the crates in front of Xodet's house and return to Bozo with the swapped crate.",
+						[2] = "Exchange the crates in front of Xodet\'s house and return to Bozo with the swapped crate.",
 						[3] = "You have finished your fourth mission and should ask Bozo for the next mission."
 					}
 				},
 				[5] = {
 					name = "What a foolish Quest - Watch out for the foolish",
 					storageid = Storage.WhatAFoolish.Mission5,
-					startvalue = 1,
+					missionId = 337, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Steal the magic watch from the Triangle Tower west of Jakundaf Desert. \z
@@ -4373,30 +4374,30 @@ if not Quests then
 				[6] = {
 					name = "What a foolish Quest - The queen of farts",
 					storageid = Storage.WhatAFoolish.Mission6,
-					startvalue = 1,
+					missionId = 338, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Get Bozo 4 pieces of minotaur leather.",
 						[2] = "Get Bozo a piece of giant spider silk.",
 						[3] = "Ask Bozo about your mission, he might be finished with the whoopee cushion by now.",
-						[4] = "Place the whoopee cushion on the queen's throne in Carlin by using the cushion with the throne.",
+						[4] = "Place the whoopee cushion on the queen\'s throne in Carlin by using the cushion with the throne.",
 						[5] = "You have finished your sixth mission and should ask Bozo for the next mission."
 					}
 				},
 				[7] = {
 					name = "What a foolish Quest - For your mice only",
 					storageid = Storage.WhatAFoolish.Mission7,
-					startvalue = 1,
+					missionId = 339, startvalue = 1,
 					endvalue = 2,
 					states = {
-						[1] = "Get the toy mouse of Queen Eloise's cat and show it to Carina, the jeweller in Venore, to scare her.",
+						[1] = "Get the toy mouse of Queen Eloise\'s cat and show it to Carina, the jeweler in Venore, to scare her.",
 						[2] = "You have finished your seventh mission and should ask Bozo for the next mission."
 					}
 				},
 				[8] = {
 					name = "What a foolish Quest - Smoking is a foolish thing",
 					storageid = Storage.WhatAFoolish.Mission8,
-					startvalue = 1,
+					missionId = 340, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Gather some easily inflammable sulphur using a spoon on an inactive lava hole.",
@@ -4407,9 +4408,9 @@ if not Quests then
 					}
 				},
 				[9] = {
-					name = "What a foolish Quest - A fool's bargain",
+					name = "What a foolish Quest - A fool\'s bargain",
 					storageid = Storage.WhatAFoolish.Mission9,
-					startvalue = 1,
+					missionId = 341, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Bozo wants you to fill a vial with the blood of a stalker. \z
@@ -4424,7 +4425,7 @@ if not Quests then
 				[10] = {
 					name = "What a foolish Quest - A sweet surprise",
 					storageid = Storage.WhatAFoolish.Mission10,
-					startvalue = 1,
+					missionId = 342, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Deliver a cookie to Avar Tar, Simon, Ariella, Lorbas, King Markwin, \z
@@ -4435,7 +4436,7 @@ if not Quests then
 				[11] = {
 					name = "What a foolish Quest - The final foolishness",
 					storageid = Storage.WhatAFoolish.Mission11,
-					startvalue = 1,
+					missionId = 343, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Gather 5 pieces of white cloth for Bozo. Then report about your mission.",
@@ -4443,13 +4444,13 @@ if not Quests then
 						cloth an old and worn look. Some ancient altar should suit your needs best - use the white cloth on it.",
 						[3] = "Use your mummy disguise to scare the caliph Kazzan in Darashia. \z
 						DON'T use the disguise too early or you will fail the quest.",
-						[4] = "You have finished all of Bozo's missions and you are a complete fool now. Yay!"
+						[4] = "You have finished all of Bozo\'s missions and you are a complete fool now. Yay!"
 					}
 				},
 				[12] = {
 					name = "What a foolish Quest - To become a complete fool",
 					storageid = Storage.WhatAFoolish.JesterOutfit,
-					startvalue = 4,
+					missionId = 344, startvalue = 4,
 					endvalue = 4,
 					states = {
 						[4] = "Now that you have a basic outfit, you should talk to Bozo about your missions to gain further rewards."
@@ -4465,7 +4466,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 01: Catering the Lions Den",
 					storageid = Storage.WrathoftheEmperor.Mission01,
-					startvalue = 1,
+					missionId = 345, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "You must bring Zalamon 3 nails and a piece of wood so that he can make a Marked Crate for you.",
@@ -4478,7 +4479,7 @@ if not Quests then
 				[2] = {
 					name = "Mission 02: First Contact",
 					storageid = Storage.WrathoftheEmperor.Mission02,
-					startvalue = 1,
+					missionId = 346, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Chartan needs you to reactivate the teleport to the Muggy Plains. \z
@@ -4492,7 +4493,7 @@ if not Quests then
 				[3] = {
 					name = "Mission 03: The Keeper",
 					storageid = Storage.WrathoftheEmperor.Mission03,
-					startvalue = 1,
+					missionId = 347, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Zalamon gives you a Flask of Plant Poison to destroy plants in the garden \z
@@ -4504,7 +4505,7 @@ if not Quests then
 				[4] = {
 					name = "Mission 04: Sacrament of the Snake",
 					storageid = Storage.WrathoftheEmperor.Mission04,
-					startvalue = 1,
+					missionId = 348, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Zalamon now wants you to go to Deeper Banuta and get an Ancient Sceptre \z
@@ -4519,7 +4520,7 @@ if not Quests then
 				[5] = {
 					name = "Mission 05: New in Town",
 					storageid = Storage.WrathoftheEmperor.Mission05,
-					startvalue = 1,
+					missionId = 349, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Zalamon tells you that you have to go inside the city. \z
@@ -4532,7 +4533,7 @@ if not Quests then
 				[6] = {
 					name = "Mission 06: The Office Job",
 					storageid = Storage.WrathoftheEmperor.Mission06,
-					startvalue = 0,
+					missionId = 350, startvalue = 0,
 					endvalue = 4,
 					description = function(player)
 						return string.format(
@@ -4545,7 +4546,7 @@ if not Quests then
 				[7] = {
 					name = "Mission 07: A Noble Cause",
 					storageid = Storage.WrathoftheEmperor.Mission07,
-					startvalue = 0,
+					missionId = 351, startvalue = 0,
 					endvalue = 6,
 					description = function(player)
 						return string.format(
@@ -4558,7 +4559,7 @@ if not Quests then
 				[8] = {
 					name = "Mission 08: Uninvited Guests",
 					storageid = Storage.WrathoftheEmperor.Mission08,
-					startvalue = 1,
+					missionId = 352, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your mission is to reach your rebel contact Zizzle in the imperial palace. \z
@@ -4570,7 +4571,7 @@ if not Quests then
 				[9] = {
 					name = "Mission 09: The Sleeping Dragon",
 					storageid = Storage.WrathoftheEmperor.Mission09,
-					startvalue = 1,
+					missionId = 353, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "To enter the inner realms of the Emperor you need to free the mind of a dragon. \z
@@ -4581,28 +4582,28 @@ if not Quests then
 				[10] = {
 					name = "Mission 10: A Message of Freedom",
 					storageid = Storage.WrathoftheEmperor.Mission10,
-					startvalue = 1,
+					missionId = 354, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "After solving the riddle, and talking again to the Sleeping Dragon you got a Spiritual Charm. \z
 						Report back to Zizzle.",
 						[2] = "You possess the key to enter the inner realms of the emperor. \z
 						Start with the one in the north-west and work your way clockwise trough the room and kill those manifestation. \z
-						Then use your sceptre on the remain to destroy the emperor's influence over the crystal.",
+						Then use your sceptre on the remain to destroy the emperor\'s influence over the crystal.",
 						[3] = "You possess the key to enter the inner realms of the emperor. \z
-						You destroyed 1 of 4 emperor's influences.",
+						You destroyed 1 of 4 emperor\'s influences.",
 						[4] = "You possess the key to enter the inner realms of the emperor. \z
-						You destroyed 2 of 4 emperor's influences.",
+						You destroyed 2 of 4 emperor\'s influences.",
 						[5] = "You possess the key to enter the inner realms of the emperor. \z
-						You destroyed 3 of 4 emperor's influences.",
+						You destroyed 3 of 4 emperor\'s influences.",
 						[6] = "You possess the key to enter the inner realms of the emperor. \z
-						You destroyed all emperor's influences."
+						You destroyed all emperor\'s influences."
 					}
 				},
 				[11] = {
 					name = "Mission 11: Payback Time",
 					storageid = Storage.WrathoftheEmperor.Mission11,
-					startvalue = 1,
+					missionId = 355, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your Mission is to kill Zalamon. Step into the teleporter to confront him. \z
@@ -4613,7 +4614,7 @@ if not Quests then
 				[12] = {
 					name = "Mission 12: Just Rewards",
 					storageid = Storage.WrathoftheEmperor.Mission12,
-					startvalue = 0,
+					missionId = 356, startvalue = 0,
 					endvalue = 1,
 					states = {
 						[0] = "The Emperor has promised you wealth beyond measure. Go claim it in the ministry.",
@@ -4630,7 +4631,7 @@ if not Quests then
 				[1] = {
 					name = "To Take Roots",
 					storageid = Storage.Oramond.MissionToTakeRoots,
-					startvalue = 1,
+					missionId = 357, startvalue = 1,
 					endvalue = 3000,
 					description = "Five Juicy roots from the outskirts of Rathleton may already help feed the poor. \z
 					Try to find a city official to deliver them to or go to the Rathleton poor house."
@@ -4645,7 +4646,7 @@ if not Quests then
 				[1] = {
 					name = "Circle of the Black Sphinx",
 					storageid = Storage.ForgottenKnowledge.LadyTenebrisKilled,
-					startvalue = 0,
+					missionId = 358, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the rogue Lady Tenebris."
@@ -4654,7 +4655,7 @@ if not Quests then
 				[2] = {
 					name = "Bane of the Cosmic Force",
 					storageid = Storage.ForgottenKnowledge.LloydKilled,
-					startvalue = 0,
+					missionId = 359, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You calmed poor, misguided Lloyd. All he wanted was protection from the outside world. \z
@@ -4664,36 +4665,36 @@ if not Quests then
 				[3] = {
 					name = "The Desecrated Glade",
 					storageid = Storage.ForgottenKnowledge.ThornKnightKilled,
-					startvalue = 0,
+					missionId = 360, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the Thorn Knight and shattered the root of evil with all your might. \z
-						The honour of being a guardian of the glade indeed comes with pride as well as responsibility."
+						The honor of being a guardian of the glade indeed comes with pride as well as responsibility."
 					}
 				},
 				[4] = {
 					name = "The Unwary Mage",
 					storageid = Storage.ForgottenKnowledge.DragonkingKilled,
-					startvalue = 0,
+					missionId = 361, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "With help of Ivalisse from the temple of the Astral Shapers in Thais and her father, \z
-						you averted the Dragon King's menace deep in the Zao Muggy Plains."
+						you averted the Dragon King\'s menace deep in the Zao Muggy Plains."
 					}
 				},
 				[5] = {
 					name = "Dragon in Distress",
 					storageid = Storage.ForgottenKnowledge.HorrorKilled,
-					startvalue = 0,
+					missionId = 362, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
-						[1] = "You saved the Dragon Mother's egg and she melted the ice wall that blocked your way."
+						[1] = "You saved the Dragon Mother\'s egg and she melted the ice wall that blocked your way."
 					}
 				},
 				[6] = {
 					name = "Time is a Window",
 					storageid = Storage.ForgottenKnowledge.TimeGuardianKilled,
-					startvalue = 0,
+					missionId = 363, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the Time Guardian and are free to return to your own time. \z
@@ -4703,7 +4704,7 @@ if not Quests then
 				[7] = {
 					name = "Final Fight",
 					storageid = Storage.ForgottenKnowledge.LastLoreKilled,
-					startvalue = 0,
+					missionId = 364, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "Description Fault."
@@ -4719,7 +4720,7 @@ if not Quests then
 				[1] = {
 					name = "Power",
 					storageid = Storage.FirstDragon.DragonCounter,
-					startvalue = 0,
+					missionId = 365, startvalue = 0,
 					endvalue = 200,
 					description = function(player)
 						return ("You already hunted %d/200 dragons."):format(player:getStorageValue(Storage.FirstDragon.DragonCounter))
@@ -4728,23 +4729,23 @@ if not Quests then
 				[2] = {
 					name = "Treasure",
 					storageid = Storage.FirstDragon.ChestCounter,
-					startvalue = 0,
+					missionId = 366, startvalue = 0,
 					endvalue = 20,
 					description = "Treasure is the favorite of the dragon lords. \z
-					Find and take Kalyassa's treasures spread accross the world."
+					Find and take Kalyassa\'s treasures spread across the world."
 				},
 				[3] = {
 					name = "Knowledge",
 					storageid = Storage.FirstDragon.GelidrazahAccess,
-					startvalue = 0,
+					missionId = 367, startvalue = 0,
 					endvalue = 1,
-					description = "You learned that frost dragon's incitement is the thirst for knowledge, \z
-					perhaps if you bring some to Gelidrazah's you'll meet him."
+					description = "You learned that frost dragon\'s incitement is the thirst for knowledge, \z
+					perhaps if you bring some to Gelidrazah\'s you'll meet him."
 				},
 				[4] = {
 					name = "Life",
 					storageid = Storage.FirstDragon.SecretsCounter,
-					startvalue = 0,
+					missionId = 368, startvalue = 0,
 					endvalue = 3,
 					description = "Undead dragons aspires for life. \z
 					No better way to see life as it grows around the world, is there?"
@@ -4759,7 +4760,7 @@ if not Quests then
 				[1] = {
 					name = "The Strengthtening of the Minotaurs",
 					storageid = Storage.CultsOfTibia.Minotaurs.JamesfrancisTask,
-					startvalue = 0,
+					missionId = 369, startvalue = 0,
 					endvalue = 50,
 					description = function(player)
 						return ("James asked you to enter the cave for hunting 50 empowered minotaurs. \z
@@ -4771,7 +4772,7 @@ if not Quests then
 				[2] = {
 					name = "The Strengthtening of the Minotaurs",
 					storageid = Storage.CultsOfTibia.Minotaurs.Mission,
-					startvalue = 1,
+					missionId = 370, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Gerimor told you that the naturalist Jamesfrancis is an expert of minotaurs. \z
@@ -4786,11 +4787,11 @@ if not Quests then
 				[3] = {
 					name = "Patron of Arts",
 					storageid = Storage.CultsOfTibia.MotA.Mission,
-					startvalue = 1,
+					missionId = 371, startvalue = 1,
 					endvalue = 15,
 					states = {
 						[1] = "The Druid of Cronor gave you the hint that the Thais exhibition has expanded. \z
-						The new section is called MOTA (Museum of Tibian Arts). It's really worth a visit.",
+						The new section is called MOTA (Museum of Tibian Arts). It\'s really worth a visit.",
 						[2] = "Gareth told you how to become a patron of the arts. To fulfil your duty you have to manage some tasks. \z
 						First you have to investigate the crime scene of a theft in the museum.",
 						[3] = "You found a ransom note, wich requests you to pay some money for \z
@@ -4802,7 +4803,7 @@ if not Quests then
 						[6] = "You have to go to Angelo and get a magnifier to investigate all small \z
 						pictures in the entrance hall of the MOTA. One of them should be a fake.",
 						[7] = "Angelo allowed you to take a magnifier from a crate next to the cave entrance.",
-						[8] = "You've fetched the magnifier from Angelo's crate. You're ready for your job in the museum.",
+						[8] = "You've fetched the magnifier from Angelo\'s crate. You're ready for your job in the museum.",
 						[9] = "Indeed! One of the investigated small pictures is fake. Report to Gareth!",
 						[10] = "After you told Gareth about the fake painting, he asked you to go to Angelo to get a new picture.",
 						[11] = "Angelo was not willing to give you a new picture. \z
@@ -4818,7 +4819,7 @@ if not Quests then
 				[4] = {
 					name = "Barkless",
 					storageid = Storage.CultsOfTibia.Barkless.Mission,
-					startvalue = 1,
+					missionId = 372, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "The members of the Barkless follow a rigid path of hardship and sacrifice. \z
@@ -4828,10 +4829,7 @@ if not Quests then
 						The hardest part, however, is yet to come. Give your life to the ice... to become true and purified.",
 						[3] = function(player)
 							return ("You survived the Trial. Barkless now have the right to see the cult leader but a \z
-							powerful relic is sealing the path.\nBarkless markings broken to reverse the power of the cult object: \z
-							%d of 10"):format(
-								math.max(player:getStorageValue(Storage.CultsOfTibia.Barkless.Objects), 0)
-							)
+							powerful relic is sealing the path. Barkless markings broken to reverse the power of the cult object: \z %d of 10"):format(math.max(player:getStorageValue(Storage.CultsOfTibia.Barkless.Objects), 0))
 						end,
 						[4] = "You broke enough Barkless markings to now reverse the seal \z
 						held up by the cult object in the ritual chamber. \z
@@ -4848,7 +4846,7 @@ if not Quests then
 				[5] = {
 					name = "Misguided",
 					storageid = Storage.CultsOfTibia.Misguided.Mission,
-					startvalue = 1,
+					missionId = 373, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "ASD",
@@ -4856,9 +4854,7 @@ if not Quests then
 						hinted at something weird going on in a cave. He seemed too confused to decide whether to stop you.",
 						[3] = function(player)
 							return ("While rubbish, the amulet you equipe emits a strange aura of splendour. \z
-							You feel an urge to fulfill the amulets hunger for especific deaths... \nExorcisms: %d/5 "):format(
-								math.max(player:getStorageValue(Storage.CultsOfTibia.Misguided.Exorcisms), 0)
-							)
+							You feel an urge to fulfill the amulets hunger for especific deaths... Exorcisms: %d/5 "):format(math.max(player:getStorageValue(Storage.CultsOfTibia.Misguided.Exorcisms), 0))
 						end,
 						[4] = "You defeated the cult leader of Misguided by uncovering the true master to pull his strings \z
 						and freeing this world from its malicious existance. Return to Gerimor to tell him about the victory.",
@@ -4868,7 +4864,7 @@ if not Quests then
 				[6] = {
 					name = "The Orc Idol",
 					storageid = Storage.CultsOfTibia.Orcs.Mission,
-					startvalue = 1,
+					missionId = 374, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "ASD",
@@ -4881,7 +4877,7 @@ if not Quests then
 				[7] = {
 					name = "The Secret of the Sandy Cave",
 					storageid = Storage.CultsOfTibia.Life.Mission,
-					startvalue = 1,
+					missionId = 375, startvalue = 1,
 					endvalue = 10,
 					states = {
 						[1] = "ASD",
@@ -4905,7 +4901,7 @@ if not Quests then
 				[8] = {
 					name = "Zathroth Remmants",
 					storageid = Storage.CultsOfTibia.Humans.Mission,
-					startvalue = 1,
+					missionId = 376, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = function(player)
@@ -4930,7 +4926,7 @@ if not Quests then
 				[1] = {
 					name = "Dwarves: Home Improvement",
 					storageid = Storage.DangerousDepths.Dwarves.Home,
-					startvalue = 1,
+					missionId = 377, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -4949,7 +4945,7 @@ if not Quests then
 				[2] = {
 					name = "Dwarves: Subterranean Life",
 					storageid = Storage.DangerousDepths.Dwarves.Subterranean,
-					startvalue = 1,
+					missionId = 378, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -4966,7 +4962,7 @@ if not Quests then
 				[3] = {
 					name = "Gnomes: Gnomal Warming Measurements",
 					storageid = Storage.DangerousDepths.Gnomes.Measurements,
-					startvalue = 1,
+					missionId = 379, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -4988,7 +4984,7 @@ if not Quests then
 				[4] = {
 					name = "Gnomes: Ordnance",
 					storageid = Storage.DangerousDepths.Gnomes.Ordnance,
-					startvalue = 1,
+					missionId = 380, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Gnomus sent you to find and rescue the gnome ordnance the outpost is currently waiting for. \z
@@ -5009,7 +5005,7 @@ if not Quests then
 				[5] = {
 					name = "Gnomes: Uncharted Territory",
 					storageid = Storage.DangerousDepths.Gnomes.Charting,
-					startvalue = 1,
+					missionId = 381, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5033,7 +5029,7 @@ if not Quests then
 				[6] = {
 					name = "Scouts: Explosive Growth",
 					storageid = Storage.DangerousDepths.Scouts.Growth,
-					startvalue = 1,
+					missionId = 382, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5055,7 +5051,7 @@ if not Quests then
 				[7] = {
 					name = "Scouts: Pesticide",
 					storageid = Storage.DangerousDepths.Scouts.Diremaw,
-					startvalue = 1,
+					missionId = 383, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5079,7 +5075,7 @@ if not Quests then
 				[1] = {
 					name = "Mission 01: Troubled Animals",
 					storageid = Storage.ThreatenedDreams.TroubledMission01,
-					startvalue = 1,
+					missionId = 384, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "STATE 1",
@@ -5099,7 +5095,7 @@ if not Quests then
 				[1] = {
 					name = "The Great Dragon Hunt",
 					storageid = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton,
-					startvalue = 0,
+					missionId = 385, startvalue = 0,
 					endvalue = 2,
 					description = function(player)
 						return ("You are exploring the Kha'zeel Dragon Lairs. Others obviously found a terrible end here. \z
@@ -5118,7 +5114,7 @@ if not Quests then
 				[1] = {
 					name = "In the Adventures Outpost",
 					storageid = Storage.Quest.Dawnport.GoMain,
-					startvalue = 1,
+					missionId = 386, startvalue = 1,
 					endvalue = 2,
 					description = "You have reached the Outpost, where young heroes are trained in combat and hunting. \z
 					When you have reached level 8 at least, you can leave for the Mainland. Talk to Inigo if you have questions."
@@ -5126,7 +5122,7 @@ if not Quests then
 				[2] = {
 					name = "The Lost Amulet",
 					storageid = Storage.Quest.Dawnport.TheLostAmulet,
-					startvalue = 1,
+					missionId = 387, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Mr Morris tasked you to find an ancient amulet that was lost somewhare on Dawnport - probably next to a corpse somewhare.",
@@ -5137,7 +5133,7 @@ if not Quests then
 				[3] = {
 					name = "The Stolen Log Book",
 					storageid = Storage.Quest.Dawnport.TheStolenLogBook,
-					startvalue = 1,
+					missionId = 388, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Mr Morris urged you fo find a log book that was stolen by trolls.",
@@ -5147,7 +5143,7 @@ if not Quests then
 				[4] = {
 					name = "The Rare Herb",
 					storageid = Storage.Quest.Dawnport.TheRareHerb,
-					startvalue = 1,
+					missionId = 389, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Mr Morris needs the rae Dawnfire herb harvested and brought to hin. It grows on grey sand only, he said.",
@@ -5158,10 +5154,10 @@ if not Quests then
 				[5] = {
 					name = "The Dorm Key",
 					storageid = Storage.Quest.Dawnport.TheDormKey,
-					startvalue = 1,
+					missionId = 390, startvalue = 1,
 					endvalue = 5,
 					states = {
-						[1] = "The key to the adventurer's dormitory has disappeared. Maybe you can find it. Ask around to find out who was the last to have seen it.",
+						[1] = "The key to the adventurer\'s dormitory has disappeared. Maybe you can find it. Ask around to find out who was the last to have seen it.",
 						[2] = "use the fishing rod in the nearby lake to fish old nasty",
 						[3] = "Come back to Woblin with Old Nasty",
 						[4] = "Come back to Mr Morris with key 0010",
@@ -5171,7 +5167,7 @@ if not Quests then
 				[6] = {
 					name = "Task: Mountain Trolls",
 					storageid = 65062,
-					startvalue = 0,
+					missionId = 391, startvalue = 0,
 					endvalue = 20,
 					description =
 					function(player)
@@ -5182,7 +5178,7 @@ if not Quests then
 				[7] = {
 					name = "Task: Muglex Clan Footman",
 					storageid = 65061,
-					startvalue = 0,
+					missionId = 392, startvalue = 0,
 					endvalue = 20,
 					description =
 					function(player)
@@ -5193,7 +5189,7 @@ if not Quests then
 				[8] = {
 					name = "Task: Minotaur Bruisers",
 					storageid = 65060,
-					startvalue = 0,
+					missionId = 393, startvalue = 0,
 					endvalue = 20,
 					description =
 					function(player)
@@ -5210,15 +5206,81 @@ if not LastQuestlogUpdate then
 	LastQuestlogUpdate = {}
 end
 
+if not PlayerTrackedMissionsData then
+	PlayerTrackedMissionsData = {}
+end
+
 -- Text functions
+
 function evaluateText(value, player)
 	if type(value) == "function" then
 		return tostring(value(player))
 	end
+
 	return tostring(value)
 end
 
 -- Game functions
+
+function Player.hasTrackingQuest(self, missionId)
+	local trackedQuests = PlayerTrackedMissionsData[self:getId()]
+	if trackedQuests then
+		for i = 1, #trackedQuests do
+			local mission = trackedQuests[i]
+			if mission and mission.missionId == missionId then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+function Player.getQuestDataByMissionId(self, missionId)
+	for questId = 1, #Quests do
+		local quest = Game.getQuest(questId)
+		if quest then
+			if quest.missions then
+				for i = 1, #quest.missions do
+					local mission = quest.missions[i]
+					if mission and mission.missionId == missionId then
+						return quest.name, questId, i
+					end
+				end
+			end
+		end
+	end
+	return false
+end
+
+function Player.resetTrackedMissions(self, missions)
+	local maxAllowed = self:getAllowedTrackedQuestCount()
+	PlayerTrackedMissionsData[self:getId()] = {}
+	for i = 1, #missions do
+		local missionId = missions[i]
+		local questName, questId, missionIndex = self:getQuestDataByMissionId(missionId)
+		if questName and questId and missionIndex then
+			if self:missionIsStarted(questId, missionIndex) then
+				local data = {
+					missionId = missionId, 
+					questName = questName, 
+					missionName = self:getMissionName(questId, missionIndex), 
+					missionDesc = self:getMissionDescription(questId, missionIndex)
+				}
+				table.insert(PlayerTrackedMissionsData[self:getId()], data)
+				if #PlayerTrackedMissionsData[self:getId()] >= maxAllowed then
+					break
+				end
+			end
+		end
+	end
+
+	self:sendTrackedQuests(maxAllowed - #PlayerTrackedMissionsData[self:getId()], PlayerTrackedMissionsData[self:getId()])
+end
+
+function Player.getAllowedTrackedQuestCount(self)
+	return self:isPremium() and 25 or 10
+end
+
 function Game.isValidQuest(questId)
 	return (Quests and Quests[questId])
 end
@@ -5249,6 +5311,30 @@ function Game.getMission(questId, missionId)
 		return Quests[questId].missions[missionId]
 	end
 	return false
+end
+
+function Player.getMissionsData(self, storage)
+	local missions = {}
+	for questId = 1, #Quests do
+		local quest = Game.getQuest(questId)
+		if quest and quest.missions then
+			for missionId = 1, #quest.missions do
+				local started = self:missionIsStarted(questId, missionId)
+				if started then
+					local mission = quest.missions[missionId]
+					if mission.storageid == storage then
+						local data = {
+							missionId = mission.missionId,
+							missionName = self:getMissionName(questId, missionId),
+							missionDesc = self:getMissionDescription(questId, missionId)
+						}
+						missions[#missions + 1] = data
+					end
+				end
+			end
+		end
+	end
+	return missions
 end
 
 function Game.isQuestStorage(key, value, oldValue)
@@ -5315,12 +5401,10 @@ function Game.addQuest(quest)
 end
 
 -- Player functions
+
 function Player.questIsStarted(self, questId)
 	local quest = Game.getQuest(questId)
-	if
-		quest and self:getStorageValue(quest.startstorageid) ~= -1 or
-			self:getStorageValue(quest.startstorageid) >= quest.startstoragevalue
-	 then
+	if quest and self:getStorageValue(quest.startstorageid) ~= -1 or self:getStorageValue(quest.startstorageid) >= quest.startstoragevalue then
 		return true
 	end
 	return false
@@ -5344,9 +5428,6 @@ function Player.questIsCompleted(self, questId)
 	if quest then
 		local missions = quest.missions
 		if missions then
-			-- if(self:missionIsCompleted(questId, #missions))then
-			-- return true
-			-- end
 			for missionId = 1, #missions do
 				if not self:missionIsCompleted(questId, missionId) then
 					return false
@@ -5386,6 +5467,14 @@ function Player.getMissionName(self, questId, missionId)
 	return ""
 end
 
+function Player.getMissionId(self, questId, missionId)
+	local mission = Game.getMission(questId, missionId)
+	if mission then
+		return mission.missionId
+	end
+	return 0
+end
+
 function Player.getMissionDescription(self, questId, missionId)
 	local mission = Game.getMission(questId, missionId)
 	if mission then
@@ -5403,15 +5492,6 @@ function Player.getMissionDescription(self, questId, missionId)
 	return "An error has occurred, please contact a gamemaster."
 end
 
-function Player.sendQuestTracker(self)
-	local msg = NetworkMessage()
-	msg:addByte(0xD0) -- Byte quest tracker
-	msg:addByte(1) -- Send quests of quest log ??
-	msg:addU16(1) -- Unknown
-	msg:sendToPlayer(self)
-	msg:delete()
-end
-
 function Player.sendQuestLog(self)
 	local msg = NetworkMessage()
 	msg:addByte(0xF0)
@@ -5419,7 +5499,7 @@ function Player.sendQuestLog(self)
 	for questId = 1, #Quests do
 		if self:questIsStarted(questId) then
 			msg:addU16(questId)
-			msg:addString(Quests[questId].name .. "" .. (self:questIsCompleted(questId) and " (completed)" or ""))
+			msg:addString(Quests[questId].name .. (self:questIsCompleted(questId) and " (completed)" or ""))
 			msg:addByte(self:questIsCompleted(questId))
 		end
 	end
@@ -5428,7 +5508,6 @@ function Player.sendQuestLog(self)
 end
 
 function Player.sendQuestLine(self, questId)
-	-- consider migrate to ProtocolGame.cpp
 	local quest = Game.getQuest(questId)
 	if quest then
 		local missions = quest.missions
@@ -5439,27 +5518,45 @@ function Player.sendQuestLine(self, questId)
 		if missions then
 			for missionId = 1, #missions do
 				if self:missionIsStarted(questId, missionId) then
-					msg:addU16(questId)
+					if (self:getClient().version >= 1120)then
+						msg:addU16(self:getMissionId(questId, missionId))
+					end
 					msg:addString(self:getMissionName(questId, missionId))
 					msg:addString(self:getMissionDescription(questId, missionId))
 				end
 			end
 		end
-
-		self:sendQuestTracker()
+		
 		msg:sendToPlayer(self)
 		msg:delete()
 	end
 end
 
-function Player.updateStorage(self, key, value, oldValue, currentFrameTime)
-	local guid = self:getGuid()
-	if LastQuestlogUpdate[guid] ~= currentFrameTime and Game.isQuestStorage(key, value, oldValue) then
-		LastQuestlogUpdate[guid] = currentFrameTime
-		if Game.sendQuestLogUpdatedMessage(value) then
-			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your questlog has been updated.")
-		end
+function Player.sendTrackedQuests(self, remainingQuests, missions)
+	local msg = NetworkMessage()
+	msg:addByte(0xD0)
+	msg:addByte(0x01)
+	msg:addByte(remainingQuests)
+	msg:addByte(#missions)
+	for _, mission in ipairs(missions) do
+		msg:addU16(mission.missionId)
+		msg:addString(mission.questName)
+		msg:addString(mission.missionName)
+		msg:addString(mission.missionDesc)
 	end
+	msg:sendToPlayer(self)
+	msg:delete()
+end
+
+function Player.sendUpdateTrackedQuest(self, mission)
+	local msg = NetworkMessage()
+	msg:addByte(0xD0)
+	msg:addByte(0x00)
+	msg:addU16(mission.missionId)
+	msg:addString(mission.missionName)
+	msg:addString(mission.missionDesc)
+	msg:sendToPlayer(self)
+	msg:delete()
 end
 
 function Game.sendQuestLogUpdatedMessage(oldValue)
@@ -5474,6 +5571,24 @@ function Game.sendQuestLogUpdatedMessage(oldValue)
 					end
 				end
 			end
+		end
+	end
+	return true
+end
+
+function Player.updateStorage(self, key, value, oldValue, currentFrameTime)
+	local playerId = self:getId()
+	if LastQuestlogUpdate[playerId] ~= currentFrameTime and Game.isQuestStorage(key, value, oldValue) then
+		LastQuestlogUpdate[playerId] = currentFrameTime
+		if Game.sendQuestLogUpdatedMessage(value) then
+			self:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Your questlog has been updated.")
+		end
+	end
+	local missions = self:getMissionsData(key)
+	for i = 1, #missions do
+		local mission = missions[i]
+		if self:hasTrackingQuest(mission.missionId) then
+			self:sendUpdateTrackedQuest(mission)
 		end
 	end
 	return true
