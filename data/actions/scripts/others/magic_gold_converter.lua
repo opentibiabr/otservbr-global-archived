@@ -13,23 +13,20 @@ local function start_converter(pid, itemid)
 				if charges_n >= 1 then
 					local quickLootBackpacks = player:getQuickLootBackpacks()
 					if player:getItemCount(ITEM_GOLD_COIN) >= 100 then
-						local goldcount = math.floor(player:getItemCount(ITEM_GOLD_COIN) / 100)
-						player:removeItem(ITEM_GOLD_COIN, goldcount * 100)
-						local platitem = player:addItem(ITEM_PLATINUM_COIN, goldcount)
+						player:removeItem(ITEM_GOLD_COIN, 100)
+						local platitem = player:addItem(ITEM_PLATINUM_COIN, 1)
+						item:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
 						lootItem(player, quickLootBackpacks, platitem)
+					elseif player:getItemCount(ITEM_PLATINUM_COIN) >= 100 then
+						player:removeItem(ITEM_PLATINUM_COIN, 100)
+						local ccitem = player:addItem(ITEM_CRYSTAL_COIN, 1)
 						item:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
-					end
-					if player:getItemCount(ITEM_PLATINUM_COIN) >= 100 then
-						local platcount = math.floor(player:getItemCount(ITEM_PLATINUM_COIN) / 100)
-						player:removeItem(ITEM_PLATINUM_COIN, platcount * 100)
-						local ccitem = player:addItem(ITEM_CRYSTAL_COIN, platcount)
 						lootItem(player, quickLootBackpacks, ccitem)
-						item:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
 					end
 					local converting = addEvent(start_converter, 200, pid, itemid)
 				else
-						item:remove(1)
-						stopEvent(converting)
+					item:remove(1)
+					stopEvent(converting)
 				end
 			end
 		else
