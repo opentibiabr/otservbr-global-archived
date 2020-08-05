@@ -557,18 +557,11 @@ void Player::addContainer(uint8_t cid, Container* container)
 		container->incrementReferenceCounter();
 	}
 
-	if (container->getID() == ITEM_GOLD_POUCH) {
-		container->incrementReferenceCounter();
-	}
-
 	auto it = openContainers.find(cid);
 	if (it != openContainers.end()) {
 		OpenContainer& openContainer = it->second;
 		Container* oldContainer = openContainer.container;
 		if (oldContainer->getID() == ITEM_BROWSEFIELD) {
-			oldContainer->decrementReferenceCounter();
-		}
-		if (oldContainer->getID() == ITEM_GOLD_POUCH) {
 			oldContainer->decrementReferenceCounter();
 		}
 
@@ -1052,15 +1045,6 @@ void Player::sendAddContainerItem(const Container* container, const Item* item)
 
 		uint16_t slot = openContainer.index;
 		if (container->getID() == ITEM_BROWSEFIELD) {
-			uint16_t containerSize = container->size() - 1;
-			uint16_t pageEnd = openContainer.index + container->capacity() - 1;
-			if (containerSize > pageEnd) {
-				slot = pageEnd;
-				item = container->getItemByIndex(pageEnd);
-			} else {
-				slot = containerSize;
-			}
-		} else if (container->getID() == ITEM_GOLD_POUCH) {
 			uint16_t containerSize = container->size() - 1;
 			uint16_t pageEnd = openContainer.index + container->capacity() - 1;
 			if (containerSize > pageEnd) {
