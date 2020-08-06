@@ -57,6 +57,8 @@
 	<action itemid="36411" script="mounts/mounts.lua" />
 	<!--music box-->
 	<action itemid="18511" script="mounts/music_box.lua" />
+	<!--crystal sword = golem wrench-->
+	<action itemid="7449" script="mounts/golem.lua"/>
 	<!-- oramond -->
 	<action itemid="22944" script="oramond/teleport_west.lua" />
 	<action itemid="22949" script="oramond/teleport_north.lua" />
