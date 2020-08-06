@@ -1,4 +1,4 @@
-local storage = 51015
+local storage = Storage.OutfitQuest.GoldenOutfit
  
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     local resultId = db.storeQuery("SELECT `player_id` FROM `player_storage` WHERE `key` = " .. storage .. " AND `value` >= 3;")
