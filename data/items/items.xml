@@ -41548,7 +41548,7 @@
 	<item id="30699" article="a" name="stone tablet with ley lines">
 		<attribute key="weight" value="4000" />
 	</item>
-	<item id="30700" article="a" name="crimson nightshade blossoms">
+	<item id="30700" article="a" name="crimson nightshade blossom">
 		<attribute key="weight" value="100" />
 	</item>
 	<item fromid="30709" toid="30710" article="a" name="reinforced crystal-resonators"/>
@@ -41808,7 +41808,7 @@
 		<attribute key="quicklootcategory" value="creatureproduct" />
 		<attribute key="weight" value="100" />
 	</item>
-	<item id="30828" name="deepworm spike roots.">
+	<item id="30828" name="deepworm spike roots">
 		<attribute key="quicklootcategory" value="creatureproduct" />
 		<attribute key="weight" value="70" />
 	</item>
@@ -42052,7 +42052,7 @@
 		<attribute key="quicklootcategory" value="other" />
 		<attribute key="weight" value="500" />
 	</item>
-	<item fromid="30941" toid="30947" name="reserved sprite"/>
+	<item fromid="30942" toid="30947" name="reserved sprite"/>
 	<item id="30948" article="a" name="heavy crystal fragment">
 		<attribute key="quicklootcategory" value="other" />
 		<attribute key="weight" value="1000" />
@@ -42073,7 +42073,17 @@
 	<item fromid="31724" toid="31725" name="obsidian pipes"/>
 	<item fromid="31730" toid="31882" article="an" name="unknown mountain wall"/>
 	<item fromid="31885" toid="31891" article="an" name="unknown wall"/>
-	<item fromid="31892" toid="31943" name="unknown item" />
+	<item id="31892" name="unknown item">
+	</item>
+	<item id="31893" article="a" name="glowing key fragment">
+		<attribute key="weight" value="250" />
+		<attribute key="description" value="The key fragment is still glowing." />
+	</item>
+	<item id="31894" article="an" name="intermediate state">
+		<attribute key="weight" value="250" />
+		<attribute key="description" value="The key is not finished yet." />
+	</item>
+	<item fromid="31895" toid="31943" name="unknown item" />
 	<item fromid="31944" toid="31945" article="an" name="item pile"/>
 	<item fromid="31946" toid="31947" article="a" name="dark stone totem"/>
 	<item fromid="31948" toid="31952" article="a" name="dark stone pile"/>
@@ -42754,7 +42764,7 @@
 		<attribute key="weaponType" value="sword" />
 		<attribute key="quicklootcategory" value="weaponsword" />
 		<attribute key="slotType" value="two-handed" />
-		<attribute key="attack" value="54" />
+		<attribute key="attack" value="56" />
 		<attribute key="defense" value="34" />
 		<attribute key="skillSword" value="4" />
 		<attribute key="absorbPercentEarth" value="10" />
@@ -44981,7 +44991,7 @@
 		<attribute key="quicklootcategory" value="valuable" />
 		<attribute key="weight" value="150" />
 	</item>
-	<item id="34699" article="a" name="giant amethyst">
+	<item id="34699" article="a" name="giant sapphire" >
 		<attribute key="quicklootcategory" value="valuable" />
 		<attribute key="weight" value="150" />
 	</item>
@@ -45487,10 +45497,6 @@
 		<attribute key="weight" value="430" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
-		<attribute key="armor" value="3" />
-		<attribute key="skillDist" value="3" />
-		<attribute key="absorbPercentEarth" value="24" />
-		<attribute key="absorbPercentPhysical" value="7" />
 		<attribute key="transformEquipTo" value="34980" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="duration" value="3600" />
@@ -45514,10 +45520,6 @@
 		<attribute key="weight" value="650" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
-		<attribute key="armor" value="2" />
-		<attribute key="skillDist" value="3" />
-		<attribute key="absorbPercentEnergy" value="18" />
-		<attribute key="absorbPercentPhysical" value="5" />
 		<attribute key="transformEquipTo" value="34982" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
@@ -46164,7 +46166,6 @@
 	</item>
 	<item id="35236" article="an" name="amulet of theurgy">
 		<attribute key="weight" value="500" />
-		<attribute key="slotType" value="necklace" />
 		<attribute key="quicklootcategory" value="amulet" />
 	</item>
 	<item id="35237" article="an" name="enchanted theurgic amulet">
@@ -46187,10 +46188,6 @@
 		<attribute key="transformEquipTo" value="35237" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
-		<attribute key="magiclevelpoints" value="3" />
-		<attribute key="armor" value="2" />
-		<attribute key="absorbPercentPhysical" value="3" />
-		<attribute key="absorbPercentEarth" value="14" />
 	</item>
 	<item fromid="35239" toid="35241" name="reserveds sprites"/>
 	<item id="35242" article="a" name="sequoia trunk"/>
@@ -49025,13 +49022,11 @@
 		<attribute key="weight" value="170" />
 	</item>
 	<item id="37420" article="a" name="burial shroud">
-		<attribute key="armor" value="12" />
 		<attribute key="slotType" value="body" />
 		<attribute key="quicklootcategory" value="armor" />
 		<attribute key="weight" value="500" />
-		<attribute key="skillDist" value="2" />
-		<attribute key="imbuingSlots" value="1" />
 		<attribute key="absorbPercentDeath" value="5" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="37421" article="a" name="yarn" >
 		<attribute key="weight" value="130" />
@@ -49060,7 +49055,7 @@
 	<item id="37428" article="a" name="grimace" >
 		<attribute key="weight" value="60" />
 	</item>
-	<item id="37429" name="bloody tears">
+	<item id="37429" name="bloody tear">
 		<attribute key="weight" value="20" />
 		<attribute key="showcount" value="1" />
 	</item>
@@ -49156,7 +49151,7 @@
 		<attribute key="armor" value="8" />
 		<attribute key="slotType" value="legs" />
 		<attribute key="quicklootcategory" value="legs" />
-		<attribute key="absorbPercentFire" value="4" />
+		<attribute key="absorbPercentHoly" value="8" />
 		<attribute key="magiclevelpoints" value="1" />
 	</item>
 	<item id="37454" name="pair of nightmare boots">
@@ -49164,7 +49159,7 @@
 		<attribute key="weight" value="1300" />
 		<attribute key="slotType" value="feet" />
 		<attribute key="quicklootcategory" value="boots" />
-		<attribute key="absorbPercentFire" value="5" />
+		<attribute key="absorbPercentEnergy" value="6" />
 		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
@@ -49181,7 +49176,7 @@
 		<attribute key="quicklootcategory" value="ring" />
 		<attribute key="absorbPercentDeath" value="7" />
 	</item>
-	<item id="37457" article="a" name="giant sapphire" >
+	<item id="37457" article="a" name="giant amethyst">
 		<attribute key="quicklootcategory" value="valuable" />
 		<attribute key="weight" value="170" />
 		<attribute key="showcount" value="1" />
@@ -49209,9 +49204,8 @@
 		<attribute key="quicklootcategory" value="armor" />
 		<attribute key="weight" value="12300" />
 		<attribute key="armor" value="17" />
-		<attribute key="skillDist" value="3" />
-		<attribute key="absorbPercentPhysical" value="6" />
-		<attribute key="absorbPercentFire" value="4" />
+		<attribute key="skillDist" value="2" />
+		<attribute key="absorbPercentPhysical" value="3" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="37464" name="the spectral scrap of cloth" >
@@ -49301,8 +49295,10 @@
 	<item id="37539" article="a" name="phantasmal hair" >
 		<attribute key="weight" value="50" />
 	</item>
-	<item id="37540" article="a" name="unknow" >
-		<attribute key="weight" value="4" />
+	<item id="37540" article="a" name="pair of old bracers" >
+		<attribute key="weight" value="20" />
+		<attribute key="armor" value="1"/>
+		<attribute key="slotType" value="body"/>
 	</item>
 	<item id="37541" article="a" name="unknow" >
 		<attribute key="weight" value="4" />
@@ -50079,30 +50075,27 @@
 		<attribute key="description" value="It was awarded by a CM as a token of gratitude for valuable feedback." />
 	</item>
 	<item id="38915" article="a" name="lion ring">
-		<attribute key="armor" value="2" />
-		<attribute key="skillcriticalchance" value="2" />
-		<attribute key="skillcriticaldamage" value="2" />
-		<attribute key="weight" value="90" />
+		<attribute key="weight" value="40" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="quicklootcategory" value="ring" />
 	</item>
-	<item id="38917" article="a" name="soulcutter sword">
+	<item id="38917" article="a" name="soulcutter">
 		<attribute key="weight" value="6300" />
 		<attribute key="defense" value="32" />
 		<attribute key="attack" value="7" />
 		<attribute key="elementDeath" value="45" />
 		<attribute key="extradef" value="3" />
-		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifechance" value="100" />
 		<attribute key="skilllifeamount" value="5" />
-		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanachance" value="100" />
 		<attribute key="skillmanaamount" value="3" />
 		<attribute key="weaponType" value="sword" />
 		<attribute key="quicklootcategory" value="weaponsword" />
 		<attribute key="skillSword" value="5" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38918" article="a" name="soulshredder sword">
-		<attribute key="weight" value="7200" />
+	<item id="38918" article="a" name="soulshredder">
+		<attribute key="weight" value="8100" />
 		<attribute key="defense" value="35" />
 		<attribute key="attack" value="10" />
 		<attribute key="elementIce" value="47" />
@@ -50114,22 +50107,22 @@
 		<attribute key="skillSword" value="5" />
 		<attribute key="imbuingSlots" value="3" />
 	</item>
-	<item id="38919" article="a" name="soulbiter axe">
+	<item id="38919" article="a" name="soulbiter">
 		<attribute key="weight" value="4000" />
 		<attribute key="defense" value="32" />
 		<attribute key="attack" value="7" />
 		<attribute key="elementDeath" value="45" />
 		<attribute key="extradef" value="3" />
-		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifechance" value="100" />
 		<attribute key="skilllifeamount" value="5" />
-		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanachance" value="100" />
 		<attribute key="skillmanaamount" value="3" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="quicklootcategory" value="weaponaxe" />
 		<attribute key="skillAxe" value="5" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38920" article="a" name="souleater axe">
+	<item id="38920" article="a" name="souleater">
 		<attribute key="weight" value="7200" />
 		<attribute key="defense" value="35" />
 		<attribute key="attack" value="10" />
@@ -50142,22 +50135,22 @@
 		<attribute key="skillAxe" value="5" />
 		<attribute key="imbuingSlots" value="3" />
 	</item>
-	<item id="38921" article="a" name="soulcrusher club">
+	<item id="38921" article="a" name="soulcrusher">
 		<attribute key="weight" value="4100" />
 		<attribute key="defense" value="33" />
+		<attribute key="extradef" value="3" />
 		<attribute key="attack" value="6" />
 		<attribute key="elementIce" value="46" />
-		<attribute key="extradef" value="3" />
-		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifechance" value="100" />
 		<attribute key="skilllifeamount" value="5" />
-		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanachance" value="100" />
 		<attribute key="skillmanaamount" value="3" />
 		<attribute key="weaponType" value="club" />
 		<attribute key="quicklootcategory" value="weaponclub" />
 		<attribute key="skillClub" value="5" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38922" article="a" name="soulmaimer club">
+	<item id="38922" article="a" name="soulmaimer">
 		<attribute key="weight" value="8900" />
 		<attribute key="defense" value="35" />
 		<attribute key="attack" value="10" />
@@ -50170,7 +50163,7 @@
 		<attribute key="skillClub" value="5" />
 		<attribute key="imbuingSlots" value="3" />
 	</item>
-	<item id="38923" article="a" name="soulbleeder bow">
+	<item id="38923" article="a" name="soulbleeder">
 		<attribute key="weight" value="4700" />
 		<attribute key="weaponType" value="distance" />
 		<attribute key="quicklootcategory" value="weapondistance" />
@@ -50183,7 +50176,7 @@
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="imbuingSlots" value="3" />
 	</item>
-	<item id="38924" article="a" name="soulpiercer crossbow">
+	<item id="38924" article="a" name="soulpiercer">
 		<attribute key="weight" value="4000" />
 		<attribute key="slotType" value="two-handed" />
 		<attribute key="quicklootcategory" value="weapondistance" />
@@ -50196,7 +50189,7 @@
 		<attribute key="ammoType" value="bolt"/>
 		<attribute key="imbuingSlots" value="3"/>
 	</item>
-	<item id="38925" article="a" name="soultainter wand">
+	<item id="38925" article="a" name="soultainter">
 		<attribute key="weaponType" value="wand" />
 		<attribute key="quicklootcategory" value="weaponwand" />
 		<attribute key="range" value="6" />
@@ -50208,45 +50201,45 @@
 		<attribute key="weight" value="1900" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38926" article="a" name="soulhexer rod">
+	<item id="38926" article="a" name="soulhexer">
 		<attribute key="weaponType" value="wand" />
 		<attribute key="quicklootcategory" value="weaponwand" />
 		<attribute key="range" value="6" />
 		<attribute key="shootType" value="smallice" />
 		<attribute key="magiclevelpoints" value="5" />
-		<attribute key="skilllifechance" value="5" />
+		<attribute key="skilllifechance" value="100" />
 		<attribute key="skilllifeamount" value="5" />
-		<attribute key="skillmanachance" value="3" />
+		<attribute key="skillmanachance" value="100" />
 		<attribute key="skillmanaamount" value="3" />
 		<attribute key="absorbPercentIce" value="12" />
 		<attribute key="weight" value="2500" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38927" article="a" name="soulshanks legs">
-		<attribute key="weight" value="1200" />
+	<item id="38927" article="a" name="soulshanks">
+		<attribute key="weight" value="3800" />
 		<attribute key="armor" value="10"/>
 		<attribute key="magiclevelpoints" value="3"/>
 		<attribute key="absorbPercentDeath" value="10" />
 		<attribute key="slotType" value="legs"/>
 	</item>
-	<item id="38928" article="a" name="soulstrider legs">
-		<attribute key="weight" value="1200" />
+	<item id="38928" article="a" name="soulstrider">
+		<attribute key="weight" value="3800" />
 		<attribute key="armor" value="10"/>
 		<attribute key="magiclevelpoints" value="3"/>
-		<attribute key="absorbPercentDeath" value="10" />
+		<attribute key="absorbPercentFire" value="10" />
 		<attribute key="slotType" value="legs"/>
 	</item>
-	<item id="38929" article="a" name="soulshell armor">
+	<item id="38929" article="a" name="soulshell">
 		<attribute key="slotType" value="body" />
 		<attribute key="quicklootcategory" value="armor" />
 		<attribute key="armor" value="18" />
 		<attribute key="skillDist" value="4"/>
 		<attribute key="absorbPercentPhysical" value="3" />
 		<attribute key="absorbPercentFire" value="15" />
-		<attribute key="weight" value="2400" />
+		<attribute key="weight" value="12300" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38930" article="a" name="soulmantel armor">
+	<item id="38930" article="a" name="soulmantel">
 		<attribute key="slotType" value="body" />
 		<attribute key="quicklootcategory" value="armor" />
 		<attribute key="armor" value="17" />
@@ -50255,7 +50248,7 @@
 		<attribute key="weight" value="2400" />
 		<attribute key="imbuingSlots" value="2" />
 	</item>
-	<item id="38931" article="a" name="soulshroud armor">
+	<item id="38931" article="a" name="soulshroud">
 		<attribute key="slotType" value="body" />
 		<attribute key="quicklootcategory" value="armor" />
 		<attribute key="armor" value="17" />
@@ -50287,7 +50280,7 @@
 		<attribute key="quicklootcategory" value="boots" />
 		<attribute key="imbuingSlots" value="1" />
 	</item>
-	<item id="38934" article="a" name="soulbastion shield">
+	<item id="38934" article="a" name="soulbastion">
 		<attribute key="weight" value="5800" />
 		<attribute key="quicklootcategory" value="shield" />
 		<attribute key="defense" value="42"/>
@@ -50551,9 +50544,9 @@
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="38991" article="a" name="lion spangenhelm">
-		<attribute key="weight" value="4800" />
+		<attribute key="weight" value="3000" />
 		<attribute key="armor" value="7" />
-		<attribute key="skillDist" value="3"/>
+		<attribute key="skillDist" value="2"/>
 		<attribute key="absorbPercentPhysical" value="3" />
 		<attribute key="absorbPercentEarth" value="5" />
 		<attribute key="slotType" value="head" />
@@ -50572,7 +50565,7 @@
 		<attribute key="imbuingSlots" value="2" />
 	</item>
 	<item id="38993" article="a" name="lion amulet">
-		<attribute key="weight" value="680" />
+		<attribute key="weight" value="520" />
 		<attribute key="armor" value="3" />
 		<attribute key="slotType" value="necklace" />
 		<attribute key="absorbPercentPhysical" value="3" />
