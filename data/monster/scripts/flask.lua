@@ -3,10 +3,8 @@ function onThink(monster, creature, type, message)
 		return
 	end
 	if monster:getStorageValue(GlobalStorage.CobraBastionFlask) < 0 then -- Reutilizing storage value
-		local percentageHealth = monster:getMaxHealth() * (7/10)
-		if monster:getHealth() > percentageHealth then
-			monster:setHealth(percentageHealth)
-		end
+		local percentageHealth = monster:getHealth() * (7/10)
+		monster:setHealth(percentageHealth)
 		doSendMagicEffect(monster:getPosition(), CONST_ME_GREENSMOKE)
 		monster:setStorageValue(GlobalStorage.CobraBastionFlask, 0) -- Reutilizing storage value
 	end
