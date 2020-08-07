@@ -4,6 +4,7 @@ local Poswall1 = {x = 32941, y = 32754, z = 12}
 local Poswall2 = {x = 32942, y = 32754, z = 12}
 local Poswall3 = {x = 32943, y = 32754, z = 12}
 local Poswall4 = {x = 32944, y = 32754, z = 12}
+local failMessages = {"Waaaaaah", "You are too afraid to destroy this object"}
 
 function createWall() --creates walls
 	Game.createItem(3514,1,Poswall1)
@@ -25,7 +26,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 					doTransformItem(item.uid, 13495)
 					setGlobalStorageValue(GlobalStorage.TheMummysCurse, 1)
 				else
-					player:say("Waaaaaah", "You are too afraid to destroy this object", TALKTYPE_ORANGE_1)
+					player:say(failMessages[math.random(#failMessages)], TALKTYPE_ORANGE_1)
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
 					setPlayerStorageValue(cid, Storage.TheMummysCurse.Time1, os.time()+exaustedSeconds*1800)
 				end
@@ -42,7 +43,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 						doTransformItem(item.uid, 13495)
 						setGlobalStorageValue(GlobalStorage.TheMummysCurse, 2)
 					else
-						player:say("Waaaaaah", "You are too afraid to destroy this object", TALKTYPE_ORANGE_1)
+						player:say(failMessages[math.random(#failMessages)], TALKTYPE_ORANGE_1)
 						player:getPosition():sendMagicEffect(CONST_ME_POFF)
 						setPlayerStorageValue(cid, Storage.TheMummysCurse.Time2, os.time()+exaustedSeconds*1800)
 					end
@@ -62,7 +63,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 						doTransformItem(item.uid, 13495)
 						setGlobalStorageValue(GlobalStorage.TheMummysCurse, 3)
 					else
-						player:say("Waaaaaah", "You are too afraid to destroy this object", TALKTYPE_ORANGE_1)
+						player:say(failMessages[math.random(#failMessages)], TALKTYPE_ORANGE_1)
 						player:getPosition():sendMagicEffect(CONST_ME_POFF)
 						setPlayerStorageValue(cid, Storage.TheMummysCurse.Time3, os.time()+exaustedSeconds*1800)
 					end
@@ -83,7 +84,7 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 						doTransformItem(item.uid, 13495)
 						setGlobalStorageValue(GlobalStorage.TheMummysCurse, 4)
 					else
-						player:say("Waaaaaah", "You are too afraid to destroy this object", TALKTYPE_ORANGE_1)
+						player:say(failMessages[math.random(#failMessages)], TALKTYPE_ORANGE_1)
 						player:getPosition():sendMagicEffect(CONST_ME_POFF)
 						setPlayerStorageValue(cid, Storage.TheMummysCurse.Time4, os.time()+exaustedSeconds*1800)
 					end
