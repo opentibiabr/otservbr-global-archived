@@ -49055,7 +49055,7 @@
 	<item id="37428" article="a" name="grimace">
 		<attribute key="weight" value="60" />
 	</item>
-	<item id="37429" name="bloody tear">
+	<item id="37429" name="bloody tears">
 		<attribute key="weight" value="20" />
 		<attribute key="showcount" value="1" />
 	</item>
