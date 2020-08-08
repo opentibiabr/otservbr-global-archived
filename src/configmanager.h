@@ -126,6 +126,7 @@ class ConfigManager
 			SERVER_SAVE_NOTIFY_DURATION,
 			PUSH_DELAY,
 			PUSH_DISTANCE_DELAY,
+			STASH_ITEMS,
 
 			LAST_INTEGER_CONFIG /* this must be the last one */
 		};
