@@ -3051,6 +3051,8 @@
 	<movevent event="DeEquip" itemid="35056" slot="backpack" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="33318" slot="backpack" function="onEquipItem"/>
 	<movevent event="DeEquip" itemid="33318" slot="backpack" function="onDeEquipItem"/>
+	<movevent event="Equip" itemid="37455" slot="backpack" function="onEquipItem"/>
+	<movevent event="DeEquip" itemid="37455" slot="backpack" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="25950" slot="hand" function="onEquipItem"/>
 	<movevent event="DeEquip" itemid="25950" slot="hand" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="22420" slot="hand" function="onEquipItem"/>
