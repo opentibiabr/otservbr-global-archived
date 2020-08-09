@@ -4965,7 +4965,7 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 }
 
 void Player::stowContainer(Item* item, uint32_t count,  bool stowalltype/* = false*/) {
-	if (item == NULL || !isItemStorable(item)) {
+	if (item == nullptr || !isItemStorable(item)) {
 		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
 	}
@@ -5030,6 +5030,11 @@ void Player::stowContainer(Item* item, uint32_t count,  bool stowalltype/* = fal
 
 
 bool Player::isItemStorable(Item* item) {
+  
+	if (item == nullptr) {
+		return nullptr;
+	}
+	
 	auto isContainerAndHasSomethingInside = item->getContainer() != NULL && item->getContainer()->getItemList().size() > 0;
 	return (item->isStackable() &&
 		item->getID() != ITEM_GOLD_COIN &&
