@@ -44,6 +44,7 @@
 #include "modules.h"
 #include "imbuements.h"
 #include "account.hpp"
+#include "iostash.h"
 
 extern ConfigManager g_config;
 extern Actions* g_actions;
@@ -1091,6 +1092,13 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 			(Position::getDistanceZ(mapFromPos, mapToPos) * 4 > item->getThrowRange())) {
 		player->sendCancelMessage(RETURNVALUE_DESTINATIONOUTOFREACH);
 		return;
+	}
+
+	if (toCylinder->getContainer() != NULL &&
+		toCylinder->getItem()->getID() == ITEM_LOCKER1 &&
+		toPos.getZ() == ITEM_SUPPLY_STASH_INDEX) {
+		player->stowContainer(item, count);		
+			return;
 	}
 
 	if (!canThrowObjectTo(mapFromPos, mapToPos)) {
@@ -2674,6 +2682,147 @@ void Game::playerBrowseField(uint32_t playerId, const Position& pos)
 		player->addContainer(dummyContainerId, container);
 		player->sendContainer(dummyContainerId, container, false, 0);
 	}
+}
+
+void Game::playerStowItem(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos, uint32_t count)
+{
+	if (!player->isPremium()) {
+		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing || count == 0) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || (item->getClientID() != spriteId && static_cast<uint32_t>(item->getItemCount()) >= count)) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+	player->stowContainer(item, count);
+}
+
+void Game::playerStowAllItems(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos)
+{
+	if (!player->isPremium()) {
+		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || item->getClientID() != spriteId) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		// moving towards stow items means we'll loose supply stash availability
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	auto itemCID = Item::items.getItemIdByClientId(spriteId).id;
+	uint16_t allitems = player->getItemTypeCount(itemCID, -1);
+
+	player->stowContainer(item, static_cast<uint32_t>(allitems), true);
+}
+
+void Game::playerStashWithdraw(Player* player, uint16_t spriteId, uint32_t count, uint8_t)
+{
+	if (player->hasFlag(PlayerFlag_CannotPickupItem)) {
+		return;
+	}
+
+	const ItemType& it = Item::items.getItemIdByClientId(spriteId);
+	if (it.id == 0 || count == 0) {
+		return;
+	}
+
+	if (player->getFreeBackpackSlots() == 0) {
+		player->sendCancelMessage(RETURNVALUE_NOTENOUGHROOM);
+		return;
+	}
+
+	if (player->getFreeCapacity() < 100) {
+		player->sendCancelMessage(RETURNVALUE_NOTENOUGHCAPACITY);
+		return;
+	}
+
+	int32_t NDSlots = ((player->getFreeBackpackSlots()) - (count < 100 ? 1 : (count / 100)));
+	uint32_t SlotsWith = count;
+	uint32_t noSlotsWith = 0;
+
+	if (NDSlots <= 0) {
+		SlotsWith = (player->getFreeBackpackSlots() * 100);
+		noSlotsWith = (count - SlotsWith);
+	}
+
+	uint32_t capWith = count;
+	uint32_t noCapWith = 0;
+	if (player->getFreeCapacity() < (count * it.weight)) {
+		capWith = (player->getFreeCapacity() / it.weight);
+		noCapWith = (count - capWith);
+	}
+
+	std::stringstream ss;
+	uint32_t WithdrawCount = (SlotsWith > capWith ? capWith : SlotsWith);
+	uint32_t NoWithdrawCount = (noSlotsWith < noCapWith ? noCapWith : noSlotsWith);
+	const char * NoWithdrawMsg = (noSlotsWith < noCapWith ? "capacity" : "slots");
+
+	if (WithdrawCount != count) {
+		ss << "Retrieved " << WithdrawCount << "x " << it.name << ".\n";
+		ss << NoWithdrawCount << "x are impossible to retrieve due to insufficient inventory " << NoWithdrawMsg << ".";
+	} else {
+		ss << "Retrieved " << WithdrawCount << "x " << it.name << '.';
+	}
+
+	std::string stringResult = ss.str();
+	player->sendCancelMessage(stringResult);
+
+	if (IOStash::withdrawItem(player->guid, spriteId, WithdrawCount)) {
+		player->addItemFromStash(it.id, WithdrawCount);
+	} else {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);		
+	}
+}
+
+void Game::playerStowContainer(Player* player, const Position& pos, uint16_t spriteId, uint8_t stackpos)
+{
+	if (!player->isPremium()) {
+		player->sendCancelMessage(RETURNVALUE_YOUNEEDPREMIUMACCOUNT);
+		return;
+	}
+
+	Thing* thing = internalGetThing(player, pos, stackpos, 0, STACKPOS_TOPDOWN_ITEM);
+	if (!thing) {
+		return;
+	}
+
+	Item* item = thing->getItem();
+	if (!item || item->getClientID() != spriteId) {
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	if (pos.x != 0xFFFF && !Position::areInRange<1, 1, 0>(pos, player->getPosition())) {
+		// moving towards stow items means we'll loose supply stash availability
+		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		return;
+	}
+
+	player->stowContainer(item, static_cast<uint32_t>(item->getItemCount()));
 }
 
 void Game::playerSeekInContainer(uint32_t playerId, uint8_t containerId, uint16_t index)
@@ -5577,29 +5726,31 @@ void Game::playerCreateMarketOffer(uint32_t playerId, uint8_t type, uint16_t spr
       }
       account.RemoveCoins(static_cast<uint32_t>(amount));
     } else {
-      std::forward_list<Item *> itemList = getMarketItemList(it.wareId, amount, depotLocker);
+				uint16_t stashmath = amount;
+				uint16_t stashminus = IOStash::getStashItemCount(player->guid, it.wareId);
+				if (stashminus > 0) {
+					stashmath = (amount - (amount > stashminus ? stashminus : amount));
+					IOStash::withdrawItem(player->guid, it.wareId, (amount > stashminus ? stashminus : amount));
+				}
 
-			if (itemList.empty()) {
-				return;
-			}
+		std::forward_list<Item *> itemList = getMarketItemList(it.wareId, stashmath, depotLocker);
 
+			if (!itemList.empty()) {        
 			if (it.stackable) {
-				uint16_t tmpAmount = amount;
+				uint16_t tmpAmount = stashmath;
 				for (Item *item : itemList) {
 					uint16_t removeCount = std::min<uint16_t>(tmpAmount, item->getItemCount());
 					tmpAmount -= removeCount;
 					internalRemoveItem(item, removeCount);
 
-					if (tmpAmount == 0) {
-						break;
-					}
 				}
 			} else {
 				for (Item *item : itemList) {
 					internalRemoveItem(item);
 				}
 			}
-    }
+		}
+   }
 
     g_game.removeMoney(player, fee, 0, true);
 	} else {
