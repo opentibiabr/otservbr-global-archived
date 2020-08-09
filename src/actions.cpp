@@ -547,6 +547,10 @@ namespace {
 
 bool enterStash(Player* player, Item*, const Position&, Thing*, const Position&, bool)
 {
+	if (!player) {
+		return false;
+	}
+
 	if (player->getLastDepotId() == -1) {
 		return false;
 }
@@ -556,6 +560,10 @@ return true;
   
 bool enterMarket(Player* player, Item*, const Position&, Thing*,
 														const Position&, bool) {
+	if (!player) {
+		return false;
+	}
+	
 	if (player->getLastDepotId() == -1) {
 		return false;
 	}
