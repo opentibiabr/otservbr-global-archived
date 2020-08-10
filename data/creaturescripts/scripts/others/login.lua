@@ -49,7 +49,10 @@ function onLogin(player)
 	if player:getGroup():getId() >= 4 then
 		player:setGhostMode(true)
 	end
-
+	-- Boosted creature
+	player:sendTextMessage(MESSAGE_LOOT, "Today's boosted creature: " .. BoostedCreature.name .. " \
+	Boosted creatures yield more experience points, carry more loot than usual and respawn at a faster rate.")
+		
 	-- Stamina
 	nextUseStaminaTime[playerId] = 1
 

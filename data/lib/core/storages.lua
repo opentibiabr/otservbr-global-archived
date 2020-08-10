@@ -1274,6 +1274,11 @@ Storage = {
 			Sister = 51527,
 			Statue = 51528,
 			LastMissionState = 51529
+		},
+	TheCursedCrystal = {
+		Oneeyedjoe = 51530, 
+		MedusaOil = 51531,
+		Questline = 51532
 		}
 	},
 	TheShatteredIsles = {
@@ -2262,7 +2267,8 @@ GlobalStorage = {
 	TheMummysCurse = 65008,
 	OberonEventTime = 65009,
 	PrinceDrazzakEventTime = 65010,
-	ScarlettEtzelEventTime = 65011
+	ScarlettEtzelEventTime = 65011,
+	CobraBastionFlask = 65012
 }
 
 

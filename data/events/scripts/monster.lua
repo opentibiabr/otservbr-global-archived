@@ -15,13 +15,21 @@ function Monster:onDropLoot(corpse)
 		local monsterLoot = mType:getLoot()
 		for i = 1, #monsterLoot do
 			local item = corpse:createLootItem(monsterLoot[i])
+			if self:getName():lower() == (BoostedCreature.name):lower() then
+				local itemBoosted = corpse:createLootItem(monsterLoot[i])
+			end
 			if not item then
 				print('[Warning] DropLoot:', 'Could not add loot item to corpse.')
 			end
 		end
 
 		if player then
-			local text = ("Loot of %s: %s"):format(mType:getNameDescription(), corpse:getContentDescription())
+			local text = {}
+			if self:getName():lower() == (BoostedCreature.name):lower() then
+				 text = ("Loot of %s: %s (boosted loot)"):format(mType:getNameDescription(), corpse:getContentDescription())
+			else
+				 text = ("Loot of %s: %s"):format(mType:getNameDescription(), corpse:getContentDescription())			
+			end
 			local party = player:getParty()
 			if party then
 				party:broadcastPartyLoot(text)
@@ -30,7 +38,6 @@ function Monster:onDropLoot(corpse)
 			end
 			player:updateKillTracker(self, corpse)
 		end
-
 	else
 		local text = ("Loot of %s: nothing (due to low stamina)"):format(mType:getNameDescription())
 		local party = player:getParty()

@@ -2117,7 +2117,7 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		return;
 	}
 
-	Thing* thing = internalGetThing(player, fromPos, fromStackPos, fromSpriteId, STACKPOS_USEITEM);
+	Thing* thing = internalGetThing(player, fromPos, fromStackPos, fromSpriteId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
@@ -2272,7 +2272,7 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 		}
 	}
 
-	Thing* thing = internalGetThing(player, fromPos, fromStackPos, spriteId, STACKPOS_USEITEM);
+	Thing* thing = internalGetThing(player, fromPos, fromStackPos, spriteId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
