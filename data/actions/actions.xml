@@ -761,7 +761,7 @@
 	<action uniqueid="3200" script="quests/wrath_of_the_emperor/mission12_just_rewards.lua" />
 	<!-- grave danger -->
 	<action uniqueid="40028" script="quests/grave_danger/cobra_bastion/scarlett.lua"/>
-	<action actionid="40001" script="quests/grave_danger/cobra_bastion/scarlett.lua"/>
+	<action actionid="40003" script="quests/grave_danger/cobra_bastion/scarlett.lua"/>
 
 	<!-- Hireling Lamp -->
 	<action itemid="34070" script="others/hirelinglamp.lua" />

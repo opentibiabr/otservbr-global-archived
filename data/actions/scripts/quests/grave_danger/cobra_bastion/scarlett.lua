@@ -24,7 +24,7 @@ local transformTo = {
 
 local function createArmor(id, amount, pos)
 	local armor = Game.createItem(id, amount, pos)
-	if armor then armor:setActionId(40001) end 
+	if armor then armor:setActionId(40003) end 
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
@@ -63,7 +63,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			SCARLETT_MAY_TRANSFORM = 0
 			addEvent(kickPlayersAfterTime, 30*60*1000, playersTable, info.fromPos, info.toPos, info.exitPos)
 		end
-	elseif item.actionid == 40001 then
+	elseif item.actionid == 40003 then
 		if isInArray(transformTo, item.itemid) then
 			local pilar = transformTo[item.itemid]
 			if pilar then
