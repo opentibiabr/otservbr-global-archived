@@ -4213,7 +4213,7 @@ But you should be carefully, since the vase is very fragile.",
 				[11] = {
 					name = "The Cursed Crystal",
 					storageid = Storage.TibiaTales.TheCursedCrystal.Questline,
-					startvalue = 0,
+					missionId = 327, startvalue = 0,
 					endvalue = 4,
 					states = {
 						[0] = "A pirate told you about an evil artifact down in the crystal caves under Nargor.\z
@@ -4239,7 +4239,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "Mission 1: Skulled",
 					storageid = Storage.UnnaturalSelection.Mission01,
-					missionId = 327, startvalue = 1,
+					missionId = 328, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Your mission is to find the Holy Skull. It is in a cave in the northern orc settlement, \z
@@ -4251,7 +4251,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "Mission 2: All Around the World",
 					storageid = Storage.UnnaturalSelection.Mission02,
-					missionId = 328, startvalue = 1,
+					missionId = 329, startvalue = 1,
 					endvalue = 13,
 					states = {
 						[1] = "You received the Skull of a Caveman and need to explore the world, letting the skull see everything. \z
@@ -4284,7 +4284,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Mission 3: Dance Dance Evolution",
 					storageid = Storage.UnnaturalSelection.Mission03,
-					missionId = 329, startvalue = 1,
+					missionId = 330, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Lazaran told you to go to Ulala, who is located above Lazaran.",
@@ -4296,7 +4296,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "Mission 4: Bits and Pieces",
 					storageid = Storage.UnnaturalSelection.Mission04,
-					missionId = 330, startvalue = 1,
+					missionId = 331, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Now the god Krunus is pleased, another god called Pandor needs to be pleased. \z
@@ -4307,7 +4307,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "Mission 5: Ray of Light",
 					storageid = Storage.UnnaturalSelection.Mission05,
-					missionId = 331, startvalue = 1,
+					missionId = 332, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "The third god which needs to be pleased is called Fasuon. \z
@@ -4319,7 +4319,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "Mission 6: Firewater Burn",
 					storageid = Storage.UnnaturalSelection.Mission06,
-					missionId = 332, startvalue = 1,
+					missionId = 333, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Speak with Lazaran and tell the gods are pleased now.",
@@ -4337,7 +4337,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "What a foolish Quest - Tasks of a Fool",
 					storageid = Storage.WhatAFoolish.Mission1,
-					missionId = 333, startvalue = 1,
+					missionId = 334, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Cut a flower at the Whiteflower Temple south of Thais. Then report to Bozo about your mission.",
@@ -4347,7 +4347,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "What a foolish Quest - That stinks!",
 					storageid = Storage.WhatAFoolish.Mission2,
-					missionId = 334, startvalue = 1,
+					missionId = 335, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "It sometimes stinks to be a fool. \z
@@ -4359,7 +4359,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "What a foolish Quest - A Piece of Cake",
 					storageid = Storage.WhatAFoolish.Mission3,
-					missionId = 335, startvalue = 1,
+					missionId = 336, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Get 12 pies from Mirabell in Edron. Then report to Bozo about your mission.",
@@ -4369,7 +4369,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "What a foolish Quest - Fool Spirits",
 					storageid = Storage.WhatAFoolish.Mission4,
-					missionId = 336, startvalue = 1,
+					missionId = 337, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Get 18 vials of wine for Bozo. Then report to Bozo about your mission.",
@@ -4380,7 +4380,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "What a foolish Quest - Watch out for the foolish",
 					storageid = Storage.WhatAFoolish.Mission5,
-					missionId = 337, startvalue = 1,
+					missionId = 338, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Steal the magic watch from the Triangle Tower west of Jakundaf Desert. \z
@@ -4393,7 +4393,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "What a foolish Quest - The queen of farts",
 					storageid = Storage.WhatAFoolish.Mission6,
-					missionId = 338, startvalue = 1,
+					missionId = 339, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Get Bozo 4 pieces of minotaur leather.",
@@ -4406,7 +4406,7 @@ But you should be carefully, since the vase is very fragile.",
 				[7] = {
 					name = "What a foolish Quest - For your mice only",
 					storageid = Storage.WhatAFoolish.Mission7,
-					missionId = 339, startvalue = 1,
+					missionId = 340, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Get the toy mouse of Queen Eloise\'s cat and show it to Carina, the jeweler in Venore, to scare her.",
@@ -4416,7 +4416,7 @@ But you should be carefully, since the vase is very fragile.",
 				[8] = {
 					name = "What a foolish Quest - Smoking is a foolish thing",
 					storageid = Storage.WhatAFoolish.Mission8,
-					missionId = 340, startvalue = 1,
+					missionId = 341, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Gather some easily inflammable sulphur using a spoon on an inactive lava hole.",
@@ -4429,7 +4429,7 @@ But you should be carefully, since the vase is very fragile.",
 				[9] = {
 					name = "What a foolish Quest - A fool\'s bargain",
 					storageid = Storage.WhatAFoolish.Mission9,
-					missionId = 341, startvalue = 1,
+					missionId = 342, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Bozo wants you to fill a vial with the blood of a stalker. \z
@@ -4444,7 +4444,7 @@ But you should be carefully, since the vase is very fragile.",
 				[10] = {
 					name = "What a foolish Quest - A sweet surprise",
 					storageid = Storage.WhatAFoolish.Mission10,
-					missionId = 342, startvalue = 1,
+					missionId = 343, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Deliver a cookie to Avar Tar, Simon, Ariella, Lorbas, King Markwin, \z
@@ -4455,7 +4455,7 @@ But you should be carefully, since the vase is very fragile.",
 				[11] = {
 					name = "What a foolish Quest - The final foolishness",
 					storageid = Storage.WhatAFoolish.Mission11,
-					missionId = 343, startvalue = 1,
+					missionId = 344, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "Gather 5 pieces of white cloth for Bozo. Then report about your mission.",
@@ -4469,7 +4469,7 @@ But you should be carefully, since the vase is very fragile.",
 				[12] = {
 					name = "What a foolish Quest - To become a complete fool",
 					storageid = Storage.WhatAFoolish.JesterOutfit,
-					missionId = 344, startvalue = 4,
+					missionId = 345, startvalue = 4,
 					endvalue = 4,
 					states = {
 						[4] = "Now that you have a basic outfit, you should talk to Bozo about your missions to gain further rewards."
@@ -4485,7 +4485,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "Mission 01: Catering the Lions Den",
 					storageid = Storage.WrathoftheEmperor.Mission01,
-					missionId = 345, startvalue = 1,
+					missionId = 346, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "You must bring Zalamon 3 nails and a piece of wood so that he can make a Marked Crate for you.",
@@ -4498,7 +4498,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "Mission 02: First Contact",
 					storageid = Storage.WrathoftheEmperor.Mission02,
-					missionId = 346, startvalue = 1,
+					missionId = 347, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Chartan needs you to reactivate the teleport to the Muggy Plains. \z
@@ -4512,7 +4512,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Mission 03: The Keeper",
 					storageid = Storage.WrathoftheEmperor.Mission03,
-					missionId = 347, startvalue = 1,
+					missionId = 348, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Zalamon gives you a Flask of Plant Poison to destroy plants in the garden \z
@@ -4524,7 +4524,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "Mission 04: Sacrament of the Snake",
 					storageid = Storage.WrathoftheEmperor.Mission04,
-					missionId = 348, startvalue = 1,
+					missionId = 349, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Zalamon now wants you to go to Deeper Banuta and get an Ancient Sceptre \z
@@ -4539,7 +4539,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "Mission 05: New in Town",
 					storageid = Storage.WrathoftheEmperor.Mission05,
-					missionId = 349, startvalue = 1,
+					missionId = 350, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Zalamon tells you that you have to go inside the city. \z
@@ -4552,7 +4552,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "Mission 06: The Office Job",
 					storageid = Storage.WrathoftheEmperor.Mission06,
-					missionId = 350, startvalue = 0,
+					missionId = 351, startvalue = 0,
 					endvalue = 4,
 					description = function(player)
 						return string.format(
@@ -4565,7 +4565,7 @@ But you should be carefully, since the vase is very fragile.",
 				[7] = {
 					name = "Mission 07: A Noble Cause",
 					storageid = Storage.WrathoftheEmperor.Mission07,
-					missionId = 351, startvalue = 0,
+					missionId = 352, startvalue = 0,
 					endvalue = 6,
 					description = function(player)
 						return string.format(
@@ -4578,7 +4578,7 @@ But you should be carefully, since the vase is very fragile.",
 				[8] = {
 					name = "Mission 08: Uninvited Guests",
 					storageid = Storage.WrathoftheEmperor.Mission08,
-					missionId = 352, startvalue = 1,
+					missionId = 353, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your mission is to reach your rebel contact Zizzle in the imperial palace. \z
@@ -4590,7 +4590,7 @@ But you should be carefully, since the vase is very fragile.",
 				[9] = {
 					name = "Mission 09: The Sleeping Dragon",
 					storageid = Storage.WrathoftheEmperor.Mission09,
-					missionId = 353, startvalue = 1,
+					missionId = 354, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "To enter the inner realms of the Emperor you need to free the mind of a dragon. \z
@@ -4601,7 +4601,7 @@ But you should be carefully, since the vase is very fragile.",
 				[10] = {
 					name = "Mission 10: A Message of Freedom",
 					storageid = Storage.WrathoftheEmperor.Mission10,
-					missionId = 354, startvalue = 1,
+					missionId = 355, startvalue = 1,
 					endvalue = 6,
 					states = {
 						[1] = "After solving the riddle, and talking again to the Sleeping Dragon you got a Spiritual Charm. \z
@@ -4622,7 +4622,7 @@ But you should be carefully, since the vase is very fragile.",
 				[11] = {
 					name = "Mission 11: Payback Time",
 					storageid = Storage.WrathoftheEmperor.Mission11,
-					missionId = 355, startvalue = 1,
+					missionId = 356, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Your Mission is to kill Zalamon. Step into the teleporter to confront him. \z
@@ -4633,7 +4633,7 @@ But you should be carefully, since the vase is very fragile.",
 				[12] = {
 					name = "Mission 12: Just Rewards",
 					storageid = Storage.WrathoftheEmperor.Mission12,
-					missionId = 356, startvalue = 0,
+					missionId = 357, startvalue = 0,
 					endvalue = 1,
 					states = {
 						[0] = "The Emperor has promised you wealth beyond measure. Go claim it in the ministry.",
@@ -4650,7 +4650,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "To Take Roots",
 					storageid = Storage.Oramond.MissionToTakeRoots,
-					missionId = 357, startvalue = 1,
+					missionId = 358, startvalue = 1,
 					endvalue = 3000,
 					description = "Five Juicy roots from the outskirts of Rathleton may already help feed the poor. \z
 					Try to find a city official to deliver them to or go to the Rathleton poor house."
@@ -4665,7 +4665,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "Circle of the Black Sphinx",
 					storageid = Storage.ForgottenKnowledge.LadyTenebrisKilled,
-					missionId = 358, startvalue = 0,
+					missionId = 359, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the rogue Lady Tenebris."
@@ -4674,7 +4674,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "Bane of the Cosmic Force",
 					storageid = Storage.ForgottenKnowledge.LloydKilled,
-					missionId = 359, startvalue = 0,
+					missionId = 360, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You calmed poor, misguided Lloyd. All he wanted was protection from the outside world. \z
@@ -4684,7 +4684,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "The Desecrated Glade",
 					storageid = Storage.ForgottenKnowledge.ThornKnightKilled,
-					missionId = 360, startvalue = 0,
+					missionId = 361, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the Thorn Knight and shattered the root of evil with all your might. \z
@@ -4694,7 +4694,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "The Unwary Mage",
 					storageid = Storage.ForgottenKnowledge.DragonkingKilled,
-					missionId = 361, startvalue = 0,
+					missionId = 362, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "With help of Ivalisse from the temple of the Astral Shapers in Thais and her father, \z
@@ -4704,7 +4704,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "Dragon in Distress",
 					storageid = Storage.ForgottenKnowledge.HorrorKilled,
-					missionId = 362, startvalue = 0,
+					missionId = 363, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You saved the Dragon Mother\'s egg and she melted the ice wall that blocked your way."
@@ -4713,7 +4713,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "Time is a Window",
 					storageid = Storage.ForgottenKnowledge.TimeGuardianKilled,
-					missionId = 363, startvalue = 0,
+					missionId = 364, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "You defeated the Time Guardian and are free to return to your own time. \z
@@ -4723,7 +4723,7 @@ But you should be carefully, since the vase is very fragile.",
 				[7] = {
 					name = "Final Fight",
 					storageid = Storage.ForgottenKnowledge.LastLoreKilled,
-					missionId = 364, startvalue = 0,
+					missionId = 365, startvalue = 0,
 					endvalue = 1522018605,
 					states = {
 						[1] = "Description Fault."
@@ -4739,7 +4739,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "Power",
 					storageid = Storage.FirstDragon.DragonCounter,
-					missionId = 365, startvalue = 0,
+					missionId = 366, startvalue = 0,
 					endvalue = 200,
 					description = function(player)
 						return ("You already hunted %d/200 dragons."):format(player:getStorageValue(Storage.FirstDragon.DragonCounter))
@@ -4748,7 +4748,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "Treasure",
 					storageid = Storage.FirstDragon.ChestCounter,
-					missionId = 366, startvalue = 0,
+					missionId = 367, startvalue = 0,
 					endvalue = 20,
 					description = "Treasure is the favorite of the dragon lords. \z
 					Find and take Kalyassa\'s treasures spread across the world."
@@ -4756,7 +4756,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Knowledge",
 					storageid = Storage.FirstDragon.GelidrazahAccess,
-					missionId = 367, startvalue = 0,
+					missionId = 368, startvalue = 0,
 					endvalue = 1,
 					description = "You learned that frost dragon\'s incitement is the thirst for knowledge, \z
 					perhaps if you bring some to Gelidrazah\'s you'll meet him."
@@ -4764,7 +4764,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "Life",
 					storageid = Storage.FirstDragon.SecretsCounter,
-					missionId = 368, startvalue = 0,
+					missionId = 369, startvalue = 0,
 					endvalue = 3,
 					description = "Undead dragons aspires for life. \z
 					No better way to see life as it grows around the world, is there?"
@@ -4779,7 +4779,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "The Strengthtening of the Minotaurs",
 					storageid = Storage.CultsOfTibia.Minotaurs.JamesfrancisTask,
-					missionId = 369, startvalue = 0,
+					missionId = 370, startvalue = 0,
 					endvalue = 50,
 					description = function(player)
 						return ("James asked you to enter the cave for hunting 50 empowered minotaurs. \z
@@ -4791,7 +4791,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "The Strengthtening of the Minotaurs",
 					storageid = Storage.CultsOfTibia.Minotaurs.Mission,
-					missionId = 370, startvalue = 1,
+					missionId = 371, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "Gerimor told you that the naturalist Jamesfrancis is an expert of minotaurs. \z
@@ -4806,7 +4806,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Patron of Arts",
 					storageid = Storage.CultsOfTibia.MotA.Mission,
-					missionId = 371, startvalue = 1,
+					missionId = 372, startvalue = 1,
 					endvalue = 15,
 					states = {
 						[1] = "The Druid of Cronor gave you the hint that the Thais exhibition has expanded. \z
@@ -4838,7 +4838,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "Barkless",
 					storageid = Storage.CultsOfTibia.Barkless.Mission,
-					missionId = 372, startvalue = 1,
+					missionId = 373, startvalue = 1,
 					endvalue = 7,
 					states = {
 						[1] = "The members of the Barkless follow a rigid path of hardship and sacrifice. \z
@@ -4865,7 +4865,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "Misguided",
 					storageid = Storage.CultsOfTibia.Misguided.Mission,
-					missionId = 373, startvalue = 1,
+					missionId = 374, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "ASD",
@@ -4883,7 +4883,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "The Orc Idol",
 					storageid = Storage.CultsOfTibia.Orcs.Mission,
-					missionId = 374, startvalue = 1,
+					missionId = 375, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "ASD",
@@ -4896,7 +4896,7 @@ But you should be carefully, since the vase is very fragile.",
 				[7] = {
 					name = "The Secret of the Sandy Cave",
 					storageid = Storage.CultsOfTibia.Life.Mission,
-					missionId = 375, startvalue = 1,
+					missionId = 376, startvalue = 1,
 					endvalue = 10,
 					states = {
 						[1] = "ASD",
@@ -4920,7 +4920,7 @@ But you should be carefully, since the vase is very fragile.",
 				[8] = {
 					name = "Zathroth Remmants",
 					storageid = Storage.CultsOfTibia.Humans.Mission,
-					missionId = 376, startvalue = 1,
+					missionId = 377, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = function(player)
@@ -4945,7 +4945,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "Dwarves: Home Improvement",
 					storageid = Storage.DangerousDepths.Dwarves.Home,
-					missionId = 377, startvalue = 1,
+					missionId = 378, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -4964,7 +4964,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "Dwarves: Subterranean Life",
 					storageid = Storage.DangerousDepths.Dwarves.Subterranean,
-					missionId = 378, startvalue = 1,
+					missionId = 379, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -4981,7 +4981,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Gnomes: Gnomal Warming Measurements",
 					storageid = Storage.DangerousDepths.Gnomes.Measurements,
-					missionId = 379, startvalue = 1,
+					missionId = 380, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5003,7 +5003,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "Gnomes: Ordnance",
 					storageid = Storage.DangerousDepths.Gnomes.Ordnance,
-					missionId = 380, startvalue = 1,
+					missionId = 381, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Gnomus sent you to find and rescue the gnome ordnance the outpost is currently waiting for. \z
@@ -5024,7 +5024,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "Gnomes: Uncharted Territory",
 					storageid = Storage.DangerousDepths.Gnomes.Charting,
-					missionId = 381, startvalue = 1,
+					missionId = 382, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5048,7 +5048,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "Scouts: Explosive Growth",
 					storageid = Storage.DangerousDepths.Scouts.Growth,
-					missionId = 382, startvalue = 1,
+					missionId = 383, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5070,7 +5070,7 @@ But you should be carefully, since the vase is very fragile.",
 				[7] = {
 					name = "Scouts: Pesticide",
 					storageid = Storage.DangerousDepths.Scouts.Diremaw,
-					missionId = 383, startvalue = 1,
+					missionId = 384, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = function(player)
@@ -5094,7 +5094,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "Mission 01: Troubled Animals",
 					storageid = Storage.ThreatenedDreams.TroubledMission01,
-					missionId = 384, startvalue = 1,
+					missionId = 385, startvalue = 1,
 					endvalue = 4,
 					states = {
 						[1] = "STATE 1",
@@ -5114,7 +5114,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "The Great Dragon Hunt",
 					storageid = Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton,
-					missionId = 385, startvalue = 0,
+					missionId = 386, startvalue = 0,
 					endvalue = 2,
 					description = function(player)
 						return ("You are exploring the Kha'zeel Dragon Lairs. Others obviously found a terrible end here. \z
@@ -5133,7 +5133,7 @@ But you should be carefully, since the vase is very fragile.",
 				[1] = {
 					name = "In the Adventures Outpost",
 					storageid = Storage.Quest.Dawnport.GoMain,
-					missionId = 386, startvalue = 1,
+					missionId = 387, startvalue = 1,
 					endvalue = 2,
 					description = "You have reached the Outpost, where young heroes are trained in combat and hunting. \z
 					When you have reached level 8 at least, you can leave for the Mainland. Talk to Inigo if you have questions."
@@ -5141,7 +5141,7 @@ But you should be carefully, since the vase is very fragile.",
 				[2] = {
 					name = "The Lost Amulet",
 					storageid = Storage.Quest.Dawnport.TheLostAmulet,
-					missionId = 387, startvalue = 1,
+					missionId = 388, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Mr Morris tasked you to find an ancient amulet that was lost somewhare on Dawnport - probably next to a corpse somewhare.",
@@ -5152,7 +5152,7 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "The Stolen Log Book",
 					storageid = Storage.Quest.Dawnport.TheStolenLogBook,
-					missionId = 388, startvalue = 1,
+					missionId = 389, startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "Mr Morris urged you fo find a log book that was stolen by trolls.",
@@ -5162,7 +5162,7 @@ But you should be carefully, since the vase is very fragile.",
 				[4] = {
 					name = "The Rare Herb",
 					storageid = Storage.Quest.Dawnport.TheRareHerb,
-					missionId = 389, startvalue = 1,
+					missionId = 390, startvalue = 1,
 					endvalue = 3,
 					states = {
 						[1] = "Mr Morris needs the rae Dawnfire herb harvested and brought to hin. It grows on grey sand only, he said.",
@@ -5173,7 +5173,7 @@ But you should be carefully, since the vase is very fragile.",
 				[5] = {
 					name = "The Dorm Key",
 					storageid = Storage.Quest.Dawnport.TheDormKey,
-					missionId = 390, startvalue = 1,
+					missionId = 391, startvalue = 1,
 					endvalue = 5,
 					states = {
 						[1] = "The key to the adventurer\'s dormitory has disappeared. Maybe you can find it. Ask around to find out who was the last to have seen it.",
@@ -5186,7 +5186,7 @@ But you should be carefully, since the vase is very fragile.",
 				[6] = {
 					name = "Task: Mountain Trolls",
 					storageid = 65062,
-					missionId = 391, startvalue = 0,
+					missionId = 392, startvalue = 0,
 					endvalue = 20,
 					description =
 					function(player)
@@ -5197,7 +5197,7 @@ But you should be carefully, since the vase is very fragile.",
 				[7] = {
 					name = "Task: Muglex Clan Footman",
 					storageid = 65061,
-					missionId = 392, startvalue = 0,
+					missionId = 393, startvalue = 0,
 					endvalue = 20,
 					description =
 					function(player)
@@ -5208,7 +5208,7 @@ But you should be carefully, since the vase is very fragile.",
 				[8] = {
 					name = "Task: Minotaur Bruisers",
 					storageid = 65060,
-					missionId = 393, startvalue = 0,
+					missionId = 394, startvalue = 0,
 					endvalue = 20,
 					description =
 					function(player)
