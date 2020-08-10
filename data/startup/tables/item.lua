@@ -8,7 +8,31 @@ ItemAction = {
 	[40002] = { -- The cursed crystal red crystal
 		itemId = 23941,
 		itemPos = {{x = 32022, y = 32918, z = 10}}
-	}
+	},
+	-- Grave danger quest
+	-- data\scripts\actions\quests\grave_danger\cobra_bastion\scarlett.lua
+	[40003] = {
+		itemId = false,
+		itemPos = {
+			{x = 33390, y = 32642, z = 6},
+			{x = 33394, y = 32642, z = 6},
+			{x = 33398, y = 32642, z = 6},
+			{x = 33402, y = 32642, z = 6},
+			{x = 33390, y = 32646, z = 6},
+			{x = 33394, y = 32646, z = 6},
+			{x = 33398, y = 32646, z = 6},
+			{x = 33402, y = 32646, z = 6},
+			{x = 33390, y = 32650, z = 6},
+			{x = 33394, y = 32650, z = 6},
+			{x = 33398, y = 32650, z = 6},
+			{x = 33402, y = 32650, z = 6},
+			{x = 33390, y = 32654, z = 6},
+			{x = 33394, y = 32654, z = 6},
+			{x = 33398, y = 32654, z = 6},
+			{x = 33402, y = 32654, z = 6},
+			{x = 33398, y = 32640, z = 6},
+			{x = 33395, y = 32667, z = 6}
+		}
 }
 
 ItemUnique = {
@@ -122,5 +146,11 @@ ItemUnique = {
 	[40027] = {
 		itemId = false,
 		itemPos = {x = 32028, y = 31882, z = 7}
+	},
+	-- Grave danger (cobra bastion)
+	-- data\scripts\actions\quests\grave_danger\cobra_bastion
+	[40028] = {
+		itemId = 36319,
+		itemPos = {x = 33395, y = 32660, z = 6}
 	}
 }
