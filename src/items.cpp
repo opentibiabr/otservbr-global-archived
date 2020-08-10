@@ -936,7 +936,7 @@ void Items::parseItemNode(const pugi::xml_node& itemNode, uint16_t id)
 				other.transformToFree = it.id;
 			}
 
-			if (it.transformToOnUse[PLAYERSEX_FEMALE] == 0) {
+			if (it.transformToOnUse[PLAYERSEX_FEMALE] == 2) {
 				it.transformToOnUse[PLAYERSEX_FEMALE] = value;
 			}
 		} else if (tmpStrValue == "femaletransformto" || tmpStrValue == "femalesleeper") {
