@@ -33,6 +33,7 @@ ItemAction = {
 			{x = 33398, y = 32640, z = 6},
 			{x = 33395, y = 32667, z = 6}
 		}
+	}
 }
 
 ItemUnique = {
