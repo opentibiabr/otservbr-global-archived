@@ -335,11 +335,11 @@ Thing* Game::internalGetThing(Player* player, const Position& pos, int32_t index
 			//do extra checks here if the thing is accessable
 			if (thing && thing->getItem()) {
 				if (tile->hasProperty(CONST_PROP_ISVERTICAL)) {
-					if (player->getPosition().x + 1 == tile->getPosition().x) {
+					if (player->getPosition().x + 1 == tile->getPosition().x && thing->getItem()->isHangable()) {
 						thing = nullptr;
 					}
 				} else { // horizontal
-					if (player->getPosition().y + 1 == tile->getPosition().y) {
+					if (player->getPosition().y + 1 == tile->getPosition().y && thing->getItem()->isHangable()) {
 						thing = nullptr;
 					}
 				}
