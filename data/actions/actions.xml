@@ -672,6 +672,18 @@
 	<!-- spirithunters quest -->
 	<action itemid="12670" script="quests/spirit_hunters/magical_device.lua" />
 	<action itemid="12671" script="quests/spirit_hunters/magical_device.lua" />
+	<!-- the cursed crystal -->
+	<action actionid="40001" script="quests/the_cursed_crystal/Misc.lua" />
+	<action actionid="40002" script="quests/the_cursed_crystal/Misc.lua" />
+	<action itemid="18416" script="tools/grinder.lua" />
+	<action itemid="23875" script="quests/the_cursed_crystal/Ointment.lua" />
+	<action fromid="23873" toid="23874" script="quests/the_cursed_crystal/MedusaOil.lua" />
+	<action itemid="23876" script="quests/the_cursed_crystal/MedusaOil.lua" />
+	<action itemid="12422" script="quests/the_cursed_crystal/MedusaOil.lua" />
+	<action itemid="10025" script="quests/the_cursed_crystal/MedusaOil.lua" />
+	<action itemid="5902" script="quests/the_cursed_crystal/Misc.lua" />
+	<action itemid="23941" script="quests/the_cursed_crystal/Misc.lua" />
+	<action itemid="23923" script="quests/the_cursed_crystal/Misc.lua" />
 	<!-- the ancient tombs quest -->
 	<action fromaid="12121" toaid="12123" script="quests/the_ancient_tombs/active_teleport_switches.lua" />
 	<action actionid="12107" script="quests/the_ancient_tombs/oasis_lever_door.lua" />

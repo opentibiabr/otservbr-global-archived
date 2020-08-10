@@ -1274,6 +1274,11 @@ Storage = {
 			Sister = 51527,
 			Statue = 51528,
 			LastMissionState = 51529
+		},
+	TheCursedCrystal = {
+		Oneeyedjoe = 51530, 
+		MedusaOil = 51531,
+		Questline = 51532
 		}
 	},
 	TheShatteredIsles = {

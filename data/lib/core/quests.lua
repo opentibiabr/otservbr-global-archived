@@ -4209,6 +4209,25 @@ But you should be carefully, since the vase is very fragile.",
 							return string.format("%s", getJackLastMissionState(player))
 						end
 					}
+				},
+				[11] = {
+					name = "The Cursed Crystal",
+					storageid = Storage.TibiaTales.TheCursedCrystal.Questline,
+					startvalue = 0,
+					endvalue = 4,
+					states = {
+						[0] = "A pirate told you about an evil artifact down in the crystal caves under Nargor.\z
+						 It is a big crystal that affects the caves in a negative manner. Perhaps a jarring,\z
+						very loud sound could destroy it.",
+						[1] = "You found an old inscription to a mysterious recipe: 'vial of emb... fl... and \z
+						mix ... a medusa's bl... Then ... the dust of ... crystal ... get Medusa's Ointm... able \z
+						to unpetrify ...'",
+						[2] = "You mixed the proper ingredients to create a special salve. The Medusa's Ointment. \z
+						With this balm you may unpetrify a petrified object.",
+						[3] = "With the Medusa's Ointment you unpetrified a banshee's scream near the evil crystal. \z
+						Thus the baleful artefact was destroyed. You should return to One-Eyed Joe.",
+						[4] = "You have completed the Quest!"
+					}
 				}
 			}
 		},
