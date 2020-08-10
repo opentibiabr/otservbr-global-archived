@@ -48,6 +48,10 @@ GameStore.CointType = {
 	Tournament = 2,
 }
 
+GameStore.Storages = {
+	expBoostCount = 51052
+}
+
 GameStore.ConverType = {
 	SHOW_NONE = 0,
 	SHOW_MOUNT = 1,
@@ -341,7 +345,7 @@ function parseBuyStoreOffer(playerId, msg)
 	end
 
 	-- At this point the purchase is assumed to be formatted correctly
-	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(51052)] or offer.price
+	local offerPrice = offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST and GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)] or offer.price
 
 	if not player:canRemoveCoins(offerPrice) then
 		return queueSendStoreAlertToUser("You don't have enough coins. Your purchase has been cancelled.", 250, playerId)
@@ -575,11 +579,12 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You already have 3 slots released."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-			if self:getStorageValue(51052) == 6 then
+			local remainingBoost = self:getExpBoostStamina()
+			if self:getStorageValue(GameStore.Storages.expBoostCount) == 6 then
 				disabled = 1
 				disabledReason = "You can't buy XP Boost for today."
 			end
-			if (os.time() - self:getStorageValue(51053) < 86400) then
+			if (remainingBoost > 0) then
 				disabled = 1
 				disabledReason = "You already have an active XP boost."
 			end
@@ -699,7 +704,7 @@ function sendShowStoreOffers(playerId, category, redirectId)
 			for _, off in ipairs(offer.offers) do
 				xpBoostPrice = nil
 				if offer.type == GameStore.OfferTypes.OFFER_TYPE_EXPBOOST then
-					xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(51052)]
+					xpBoostPrice = GameStore.ExpBoostValues[player:getStorageValue(GameStore.Storages.expBoostCount)]
 				end
 
 				msg:addU32(off.id)
@@ -1447,16 +1452,16 @@ end
 
 function GameStore.processExpBoostPuchase(player)
 	local currentExpBoostTime = player:getExpBoostStamina()
+	local expBoostCount = player:getStorageValue(GameStore.Storages.expBoostCount)
 
 	player:setStoreXpBoost(50)
 	player:setExpBoostStamina(currentExpBoostTime + 3600)
 
-	if (player:getStorageValue(51052) == -1 or player:getStorageValue(51052) == 6) then
-		player:setStorageValue(51052, 1)
+	if (player:getStorageValue(GameStore.Storages.expBoostCount) == -1 or expBoostCount == 6) then
+		player:setStorageValue(GameStore.Storages.expBoostCount, 1)
 	end
 
-	player:setStorageValue(51052, player:getStorageValue(51052) + 1)
-	player:setStorageValue(51053, os.time()) -- last bought
+	player:setStorageValue(GameStore.Storages.expBoostCount, expBoostCount + 1)
 end
 
 function GameStore.processPreySlotPurchase(player)
