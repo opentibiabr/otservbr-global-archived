@@ -2264,7 +2264,8 @@ GlobalStorage = {
 	TheMummysCurse = 65008,
 	OberonEventTime = 65009,
 	PrinceDrazzakEventTime = 65010,
-	ScarlettEtzelEventTime = 65011
+	ScarlettEtzelEventTime = 65011,
+	CobraBastionFlask = 65012
 }
 
 

@@ -65,6 +65,7 @@
 	<action itemid="23422" script="oramond/elevator.lua" />
 	<action itemid="23429" script="oramond/elevator.lua" />
 	<!-- others -->
+	<action fromid="36131" toid="36132" script="others/cobra_flask.lua" />	
 	<action itemid="6558" script="others/concentrated_demonic_blood.lua" />
 	<action fromid="11258" toid="11262" script="others/blessing_charms.lua" />
 	<action fromid="28036" toid="28037" script="others/blessing_charms.lua" />
