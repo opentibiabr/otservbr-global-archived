@@ -9,8 +9,8 @@ function loadLuaMapAction(tablename)
 			if tile then
 				-- Checks that you have no items created
 				if tile:getItemCountById(value.itemId) == 0 then
-					print(">> Wrong item id found")
-					print(string.format("> Action id: %d, item id: %d", key, value.itemId))
+					-- If not have items created, this create the item
+					item = Game.createItem(value.itemId, 1, value.itemPos[i])
 				end
 				if tile:getItemCountById(value.itemId) == 1 then
 					item = tile:getItemById(value.itemId)
