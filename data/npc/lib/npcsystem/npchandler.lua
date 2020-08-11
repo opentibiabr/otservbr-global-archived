@@ -384,7 +384,7 @@ if NpcHandler == nil then
 					npc:setSpeechBubble(2)
 				end
 			else
-				if self:getMessage(MESSAGE_GREET) then
+				if self:getMessage(MESSAGE_GREET) and npc:getSpeechBubble() < 1 then
 					npc:setSpeechBubble(1)
 				end
 			end
