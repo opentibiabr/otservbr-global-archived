@@ -129,6 +129,7 @@
 	<action itemid="7737" script="others/costume_bags.lua" />
 	<action itemid="7739" script="others/costume_bags.lua" />
 	<action itemid="9076" script="others/costume_bags.lua" />
+	<action itemid="27617" script="others/costume_bags.lua" />
 	<action itemid="13941" script="others/cup_of_molten_gold.lua" />
 	<action fromid="32384" toid="32386" script="others/exercise_training.lua" />
 	<action fromid="32387" toid="32389" script="others/exercise_training.lua" allowfaruse="1" />
