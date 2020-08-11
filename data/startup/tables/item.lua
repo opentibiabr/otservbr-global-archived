@@ -3,11 +3,14 @@
 ItemAction = {
 	[40001] = { -- The cursed crystal skeletons
 		itemId = 33156,
-		itemPos = {x = 31974, y = 32907, z = 8}, {x = 32031, y = 32914, z = 8}
+		itemPos = {
+			{x = 31974, y = 32907, z = 8},
+			{x = 32031, y = 32914, z = 8}
+		}
 	},
 	[40002] = { -- The cursed crystal red crystal
 		itemId = 23941,
-		itemPos = {x = 32022, y = 32918, z = 10}
+		itemPos = {{x = 32022, y = 32918, z = 10}}
 	},
 	-- Grave danger quest
 	-- data\scripts\actions\quests\grave_danger\cobra_bastion\scarlett.lua
