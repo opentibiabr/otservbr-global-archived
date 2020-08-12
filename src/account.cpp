@@ -168,8 +168,8 @@ error_t Account::RegisterCoinsTransaction(CoinTransactionType type,
 
   std::ostringstream query;
   query << "INSERT INTO `coins_transactions` (`account_id`, `type`, `amount`,"
-          " `description`) VALUES (" << id_ << ", " << type << ", "<< coins
-          << "," << db_->escapeString(description) << ")";
+          " `description`) VALUES (" << id_ << ", " << static_cast<uint16_t>(type) << ", "<< coins
+          << ", " << db_->escapeString(description) << ")";
 
   if (!db_->executeQuery(query.str())) {
       return ERROR_DB;
