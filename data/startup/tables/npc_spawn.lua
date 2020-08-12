@@ -951,5 +951,6 @@ NpcTable = {
 	[950] = {name = "ninev", position = {x = 33871, y = 31528, z = 7}},
 	[951] = {name = "ninos", position = {x = 33904, y = 31498, z = 7}},
 	[952] = {name = "ramina", position = {x = 33903, y = 31495, z = 7}},
-	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}}
+	[953] = {name = "orc_berserker_npc", position = {x = 32777, y = 31237, z = 7}},
+	[954] = {name = "one_eyed_joe", position = {x = 32025, y = 32884, z = 6}}
 }

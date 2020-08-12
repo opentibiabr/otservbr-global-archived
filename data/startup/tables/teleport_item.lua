@@ -67,13 +67,5 @@ TeleportItemUnique = {
 		-- For use of the script (data\scripts\actions\other\teleport_item.lua)
 		destination = {x = 33314, y = 32647, z = 6},
 		effect = CONST_ME_TELEPORT
-	},
-	[15003] = {
-		-- For use of the map
-		itemId = 36319,
-		itemPos = {x = 33395, y = 32660, z = 6},
-		-- For use of the script (data\scripts\actions\other\teleport_item.lua)
-		destination = {x = 33395, y = 32658, z = 6},
-		effect = CONST_ME_TELEPORT
 	}
 }

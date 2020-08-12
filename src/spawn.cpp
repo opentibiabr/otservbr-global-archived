@@ -91,7 +91,25 @@ bool Spawns::loadFromXml(const std::string& fromFilename)
 					centerPos.y + pugi::cast<uint16_t>(childNode.attribute("y").value()),
 					centerPos.z
 				);
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / g_config.getNumber(ConfigManager::RATE_SPAWN);
+				
+				int32_t boostedrate;
+				
+				Database& db = Database::getInstance();
+				std::ostringstream query;
+				query << "SELECT `boostname` FROM `boosted_creature`";
+				DBResult_ptr BoostedName = db.storeQuery(query.str());
+				
+				if (!BoostedName) {
+					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
+					return false;
+				}
+				if (nameAttribute.value() == BoostedName->getString("boostname")) {
+					boostedrate = 2;
+				} else {
+					boostedrate = 1;
+				}
+				
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate);
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {
@@ -180,8 +198,25 @@ bool Spawns::loadCustomSpawnXml(const std::string& _filename)
 					centerPos.y + pugi::cast<uint16_t>(childNode.attribute("y").value()),
 					centerPos.z
 					);
+				
+				int32_t boostedrate;
+				
+				Database& db = Database::getInstance();
+				std::ostringstream query;
+				query << "SELECT `boostname` FROM `boosted_creature`";
+				DBResult_ptr BoostedName = db.storeQuery(query.str());
+				
+				if (!BoostedName) {
+					std::cout << "[Warning - Boosted creature] Failed to detect boosted creature database." << std::endl;
+					return false;
+				}
+				if (nameAttribute.value() == BoostedName->getString("boostname")) {
+					boostedrate = 2;
+				} else {
+					boostedrate = 1;
+				}			
 
-				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000;
+				uint32_t interval = pugi::cast<uint32_t>(childNode.attribute("spawntime").value()) * 1000 / (g_config.getNumber(ConfigManager::RATE_SPAWN) * boostedrate);
 				if (interval > MINSPAWN_INTERVAL) {
 					spawn.addMonster(nameAttribute.as_string(), pos, dir, interval);
 				} else {

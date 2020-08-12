@@ -760,6 +760,11 @@ function Player:onGainExperience(source, exp, rawExp)
 			self:setStaminaXpBoost(100)
 		end
 	end
+			
+	-- Boosted creature
+	if source:getName():lower() == BoostedCreature.name:lower() then
+		exp = exp * 2
+	end
 
 	self:setBaseXpGain(displayRate * 100)
 	return exp

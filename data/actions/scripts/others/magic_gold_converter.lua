@@ -7,36 +7,38 @@ local function start_converter(pid, itemid)
 	if player ~= nil then
 	
 	local item = player:getItemById(itemid,true)
-		if player:getItemCount(itemid) >= 1 then -- verificar se o player ainda tem magic gold converter na BP
+		if player:getItemCount(itemid) >= 1 then
 			if item:hasAttribute(ITEM_ATTRIBUTE_CHARGES) then
-				local charges_n = item:getAttribute(ITEM_ATTRIBUTE_CHARGES) -- pegar as cargas
-				if charges_n >= 1 then -- se houver cargas, prosseguimos
-					if player:getItemCount(ITEM_GOLD_COIN) >= 100 then -- precisamos verificar se o player tem pelo menos uma pilha de 100
-						player:removeItem(ITEM_GOLD_COIN, 100) -- removemos a pilha com 100 gold coins
-						player:addItem(ITEM_PLATINUM_COIN, 1) -- adicionamos 1 platinum (100 gold)
-						item:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1)) -- sempre remover 1 carga ao trocar uma pilha com 100
-					end
-					if player:getItemCount(ITEM_PLATINUM_COIN) >= 100 then
-						player:removeItem(ITEM_PLATINUM_COIN, 100)
-						player:addItem(ITEM_CRYSTAL_COIN, 1)
+				local charges_n = item:getAttribute(ITEM_ATTRIBUTE_CHARGES)
+				if charges_n >= 1 then
+					local quickLootBackpacks = player:getQuickLootBackpacks()
+					if player:getItemCount(ITEM_GOLD_COIN) >= 100 then
+						player:removeItem(ITEM_GOLD_COIN, 100)
+						local platitem = player:addItem(ITEM_PLATINUM_COIN, 1)
 						item:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
+						lootItem(player, quickLootBackpacks, platitem)
+					elseif player:getItemCount(ITEM_PLATINUM_COIN) >= 100 then
+						player:removeItem(ITEM_PLATINUM_COIN, 100)
+						local ccitem = player:addItem(ITEM_CRYSTAL_COIN, 1)
+						item:setAttribute(ITEM_ATTRIBUTE_CHARGES,(charges_n-1))
+						lootItem(player, quickLootBackpacks, ccitem)
 					end
-					local converting = addEvent(start_converter, 100, pid, itemid) -- garante que o magic gold converter fique trocando gold automaticamente
+					local converting = addEvent(start_converter, 200, pid, itemid)
 				else
-						item:remove(1) -- se as cargas acabarem, removeremos o item
-						stopEvent(converting) -- ao remover o item precisamos parar a verificação automática
+					item:remove(1)
+					stopEvent(converting)
 				end
 			end
 		else
-			stopEvent(converting) -- caso o magic gold converter ativo acabe ou não esteja mais na BP
+			stopEvent(converting)
 		end
 	end
 	return true
 end
 
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-		item:transform(converterIds[item.itemid]) --transforma o gold converter inativo para ativo
+		item:transform(converterIds[item.itemid])
 		item:decay() 
-		start_converter(player:getId(), 33299) -- ultimo a ser chamado pq retorna true
+		start_converter(player:getId(), 33299)
 	return true
 end
