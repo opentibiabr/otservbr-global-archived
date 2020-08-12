@@ -54,7 +54,7 @@ TeleportItemAction = {
 TeleportItemUnique = {
 	[15001] = {
 		-- For use of the map
-		itemId = 4978,
+		itemId = 36508,
 		itemPos = {x = 33315, y = 32647, z = 6},
 		-- For use of the script (data\scripts\actions\other\teleport_item.lua)
 		destination = {x = 33384, y = 32627, z = 7},
