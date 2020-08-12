@@ -39500,7 +39500,6 @@
 		<attribute key="attack" value="78" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
-		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="quicklootcategory" value="weaponammo" />
 		<attribute key="ammoType" value="bolt" />
