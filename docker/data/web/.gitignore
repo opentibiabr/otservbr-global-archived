@@ -1,4 +1,43 @@
-# Ignore everything in this directory
-*
-# Except this file
-!.gitignore
+Thumbs.db
+.DS_Store
+.idea
+tmp
+
+releases
+config.local.php
+PERSONAL_NOTES
+
+# all custom templates
+templates/*
+!templates/tibiacom
+!templates/kathrine
+
+# guild images
+images/guilds/*
+!images/guilds/default.gif
+
+# cache
+system/cache/*
+!system/cache/index.html
+!system/cache/twig/index.html
+!system/cache/signatures/index.html
+!system/cache/plugins/index.html
+
+# logs
+system/logs/*
+!system/logs/index.html
+
+# data
+system/data/*
+!system/data/index.html
+
+# plugins
+plugins/*
+!plugins/.htaccess
+!plugins/example.json
+!plugins/account-create-hint.json
+!plugins/account-create-hint
+landing
+
+# others/rest
+system/pages/downloads.php

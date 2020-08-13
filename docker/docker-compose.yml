@@ -18,7 +18,7 @@ services:
 
   otdb:
     container_name: otdb
-    build: 
+    build:
       context: ../
       dockerfile: ./docker/Dockerfile.database
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
       - "3306:3306"
     volumes:
       - db-volume:/var/lib/mysql
-  
+
   otweb:
     container_name: otwebsite
     image: webdevops/php-nginx:alpine-php7
@@ -49,7 +49,7 @@ services:
 
   otlogin:
     container_name: otwebsite_login
-    build: 
+    build:
       context: ./
       dockerfile: ./Dockerfile.login
     restart: unless-stopped
