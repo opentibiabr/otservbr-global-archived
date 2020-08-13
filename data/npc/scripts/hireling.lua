@@ -842,7 +842,7 @@ local function onBuy(cid, item, charges, amount, ignoreCap, inBackpacks)
 		player:addItem(itemType:getId(), amount)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	elseif itemType:getCharges() then
-		player:addItem(itemType:getId(), amount)
+		player:addItem(itemType:getId(), charges)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	else
 		player:addItem(itemType:getId(), amount)
