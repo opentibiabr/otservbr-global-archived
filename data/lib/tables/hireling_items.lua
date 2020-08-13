@@ -124,11 +124,11 @@ HIRELING_GOODS  =  {
 		{name = "crowbar", id = 2416, buy = 260, sell = 50},
 		{name = "dagger", id = 2379, buy = 5, sell = 2},
 		{name = "doublet", id = 2485, buy = 16, sell = 3},
-		{name = "dwarven shield", id = 2525, buy = 500, sell = 100},
-		{name = "exercise axe", id = 32385, buy = 262500, sell = 500},
-		{name = "exercise bow", id = 32387, buy = 262500, sell = 500},
-		{name = "exercise club", id = 32386, buy = 262500, sell = 500},
-		{name = "exercise sword", id = 32384, buy = 262500, sell = 500},
+		{name = "dwarven shield", id = 2525, buy = 500, sell = 100, charges = 500},
+		{name = "exercise axe", id = 32385, buy = 262500, sell = 500, charges = 500},
+		{name = "exercise bow", id = 32387, buy = 262500, sell = 500, charges = 500},
+		{name = "exercise club", id = 32386, buy = 262500, sell = 500, charges = 500},
+		{name = "exercise sword", id = 32384, buy = 262500, sell = 500, charges = 500},
 		{name = "hand axe", id = 2380, buy = 8, sell = 4},
 		{name = "iron helmet", id = 2459, buy = 390, sell = 150},
 		{name = "jacket", id = 2650, buy = 12, sell = 1},
@@ -186,8 +186,8 @@ HIRELING_GOODS  =  {
 		{name = "vortex bolt", id = 15649, buy = 6}
 	},
 	WANDS  =  {
-		{name = "exercise rod", id = 32388, buy = 262500},
-		{name = "exercise wand", id = 32389, buy = 262500},
+		{name = "exercise rod", id = 32388, buy = 262500, charges = 500},
+		{name = "exercise wand", id = 32389, buy = 262500, charges = 500},
 		{name = "hailstorm rod", id = 2183, buy = 15000},
 		{name = "moonlight rod", id = 2186, buy = 1000},
 		{name = "necrotic rod", id = 2185, buy = 5000},
@@ -207,8 +207,8 @@ HIRELING_GOODS  =  {
 		{name = "wand of vortex", id = 2190, buy = 500}
 	},
 	RODS  =  {
-		{name = "exercise rod", id = 32388, buy = 262500},
-		{name = "exercise wand", id = 32389, buy = 262500},
+		{name = "exercise rod", id = 32388, buy = 262500, charges = 500},
+		{name = "exercise wand", id = 32389, buy = 262500, charges = 500},
 		{name = "hailstorm rod", id = 2183, buy = 15000},
 		{name = "moonlight rod", id = 2186, buy = 1000},
 		{name = "necrotic rod", id = 2185, buy = 5000},
