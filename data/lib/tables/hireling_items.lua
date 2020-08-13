@@ -124,7 +124,7 @@ HIRELING_GOODS  =  {
 		{name = "crowbar", id = 2416, buy = 260, sell = 50},
 		{name = "dagger", id = 2379, buy = 5, sell = 2},
 		{name = "doublet", id = 2485, buy = 16, sell = 3},
-		{name = "dwarven shield", id = 2525, buy = 500, sell = 100, charges = 500},
+		{name = "dwarven shield", id = 2525, buy = 500, sell = 100},
 		{name = "exercise axe", id = 32385, buy = 262500, sell = 500, charges = 500},
 		{name = "exercise bow", id = 32387, buy = 262500, sell = 500, charges = 500},
 		{name = "exercise club", id = 32386, buy = 262500, sell = 500, charges = 500},
