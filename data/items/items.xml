@@ -39500,7 +39500,6 @@
 		<attribute key="attack" value="78" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
-		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="quicklootcategory" value="weaponammo" />
 		<attribute key="ammoType" value="bolt" />
@@ -44244,6 +44243,8 @@
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
 	<item fromid="33471" toid="33474" article="a" name="timber table"/>
+	<!-- asura entrance-->
+	<item id="33477" article="a" name="wall mirror"/>
 	<item fromid="33491" toid="33492" name="fluorescent fungi">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -48083,9 +48084,7 @@
 	</item>
 	<item id="36503" name="scorpion grave"/>
 	<item id="36504" name="scorpion grave"/>
-	<item id="36508" article="a" name="unknown">
-		<attribute key="weight" value="240" />
-	</item>
+	<item id="36508" article="a" name="stout hawser"/>
 	<item id="36509" name="omniscient owl">
 		<attribute key="weight" value="910" />
 		<attribute key="description" value="This incospicuous owl will answer every question. Awarded by TibiaQA.com." />

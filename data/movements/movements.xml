@@ -359,7 +359,7 @@
 	<movevent event="StepIn" uniqueid="50020" script="quests/the_queen_of_the_banshees/the_third_seal_flame.lua"/>
 	<movevent event="StepIn" actionid="50016" script="quests/the_queen_of_the_banshees/the_third_seal_warlock_tile.lua"/>
 	<!-- the secret library -->
-	<movevent event="StepIn" fromaid="64007" toaid="64012" script="quests/the_secret_library/teleport.lua"/>
+	<movevent event="StepIn" fromaid="64007" toaid="64014" script="quests/the_secret_library/teleport.lua"/>
 	<!-- the sharttered isles  -->
 	<movevent event="StepIn" actionid="4000" script="quests/the_sharttered_isles/energy_barrier.lua"/>
 	<movevent event="StepIn" actionid="12585" script="quests/the_sharttered_isles/teleport.lua"/>
