@@ -77,8 +77,8 @@ switch ($action) {
 		// error_log(json_encode($account));
 
 		if (!$account->isLoaded() || $account->getPassword() != $current_password) {
-			sendError(json_encode($result));
-			// sendError('Account name or password is not correct.');
+			// sendError(json_encode($result));
+			sendError('Account name or password is not correct.');
 		}
 
 		$players = $db->query("select {$columns} from players where account_id = " . $account->getId())->fetchAll();
