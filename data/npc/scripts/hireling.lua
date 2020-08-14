@@ -833,6 +833,11 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	if itemType:getWrapableTo() ~= 0 then
 		itemType = ItemType(itemType:getWrapableTo())
 	end
+	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+	if not backpack or backpack:getEmptySlots(true) < 1 then
+		player:sendCancelMessage(RETURNVALUE_NOTENOUGHROOM)
+		return false
+	end
 	if not ignoreCap and player:getFreeCapacity() < itemType:getWeight(amount) then
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'You don\'t have enough cap.')
 	end
