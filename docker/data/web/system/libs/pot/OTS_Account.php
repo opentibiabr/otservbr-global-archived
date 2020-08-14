@@ -211,6 +211,7 @@ public function find($name)
 	{
 		$this->load($id['id']);
 	}
+	
 }
 
 public function findEmail($email)

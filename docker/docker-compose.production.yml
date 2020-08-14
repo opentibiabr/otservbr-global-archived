@@ -3,7 +3,7 @@ version: "3.3"
 services:
   otserver:
     container_name: otserver
-    image: midukan/docker_otserver
+    image: midukan/endless_server
     entrypoint: /opt/otserver/otbr
     ports:
       - "7171:7171"
@@ -46,7 +46,7 @@ services:
 
   otlogin:
     container_name: otwebsite_login
-    image: midukan/docker_login
+    image: midukan/docker_otlogin
     command: python ./login.py
     restart: unless-stopped
     volumes:
