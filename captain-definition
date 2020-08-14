@@ -1,4 +1,4 @@
 {
     "schemaVersion": 2,
-    "dockerfilePath": "webdevops/php-nginx:alpine-php7"
+    "dockerfilePath": "./Dockerfile.server.production"
 }
