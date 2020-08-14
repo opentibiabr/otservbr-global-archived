@@ -5034,6 +5034,8 @@ bool Player::isItemStorable(Item* item) {
 	return (item->isStackable() &&
 		item->getID() != ITEM_GOLD_COIN &&
 		item->getID() != ITEM_PLATINUM_COIN &&
+		item->getID() != ITEM_DIAMOND_ARROW && // arrow
+		item->getID() != ITEM_SPECTRAL_BOLT && // bolt
 		item->getID() != ITEM_CRYSTAL_COIN) ||
 		isContainerAndHasSomethingInside;
 }
