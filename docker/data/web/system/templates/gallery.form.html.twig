@@ -1,0 +1,32 @@
+<form method="post" action="{{ link }}">
+	{% if action == 'edit' %}
+	<input type="hidden" name="id" value="{{ id }}" />
+	{% endif %}
+	<table width="100%" border="0" cellspacing="1" cellpadding="4">
+		<tr>
+			<td bgcolor="{{ config.vdarkborder }}" class="white"><b>{% if action == 'edit' %}Edit{% else %}Add{% endif %} image</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="{{ config.darkborder }}">
+				<table border="0" cellpadding="1">
+					<tr>
+						<td>Comment:</td>
+						<td><textarea name="comment" maxlength="255" cols="50" rows="5">{% if comment is not null %}{{ comment }}{% endif %}</textarea></td>
+					<tr/>
+					<tr>
+						<td>Image URL:</td>
+						<td><input name="image" value="{% if image is not null %}{{ image }}{% endif %}" size="50" maxlength="255"/></td>
+					<tr/>
+					<tr>
+						<td>Author:</td>
+						<td><input name="author" value="{% if author is not null %}{{ author }}{% endif %}" size="50" maxlength="50"/></td>
+					<tr/>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="Submit"/>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>
+<br/><br/>

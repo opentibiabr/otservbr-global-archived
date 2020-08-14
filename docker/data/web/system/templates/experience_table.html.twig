@@ -1,0 +1,26 @@
+This is a list of the experience points that are required to advance to the various levels.
+Remember you can also check the respective skill bar in your skill window of the client to check your progress towards the next level.<br/><br/>
+
+<table bgcolor="{{ config.darkborder }}" border="0" cellpadding="4" cellspacing="1" width="100%">
+	<tr bgcolor="{{ config.vdarkborder }}">
+		<td class="white" colspan="5"><b>Experience Table</b></td>
+	</tr>
+	<tr>
+	{% for i in 0..config.experiencetable_columns-1 %}
+		<td>
+			<table border="0" cellpadding="2" cellspacing="1" width="100%">
+				<tr bgcolor="{{ config.lightborder }}">
+					<td><b>Level</b></td>
+					<td><b>Experience</b></td>
+				</tr>
+				{% for level in i * config.experiencetable_rows + 1..i * config.experiencetable_rows + (config.experiencetable_rows + 1) - 1 %}
+				<tr bgcolor="{{ config.lightborder }}">
+					<td>{{ level }}</td>
+					<td>{{ experience[level] }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</td>
+	{% endfor %}
+	</tr>
+</table>

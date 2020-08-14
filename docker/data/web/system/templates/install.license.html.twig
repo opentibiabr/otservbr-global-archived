@@ -1,0 +1,6 @@
+<form action="{{ constant('BASE_URL') }}install/" method="post">
+	<input type="hidden" name="step" id="step" value="requirements" />
+	<textarea rows="10" cols="80" readonly="1">{{ license }}</textarea>
+
+	{{ buttons|raw }}
+</form>

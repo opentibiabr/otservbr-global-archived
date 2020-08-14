@@ -1,0 +1,187 @@
+<div class="TableContainer">
+	<table class="Table1" cellpadding="0" cellspacing="0" style="background-color: {{ config.lightborder }}">
+		<div class="CaptionContainer">
+			<div class="CaptionInnerContainer">
+				<span class="CaptionEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionBorderTop" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<div class="Text" >Support in game</div>
+				<span class="CaptionVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<span class="CaptionBorderBottom" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+			</div>
+		</div>
+
+		<tr>
+			<td>
+				<div class="InnerTableContainer">
+					{% set i = 0 %}
+					{% if config.team_style == 1 %}
+
+						<table border="0" cellpadding="4" cellspacing="1" width="100%">
+							<tr bgcolor="{{ config.vdarkborder }}">
+								<td width="10%" class="white">
+									<b>Group</b>
+								</td>
+
+								{% if config.team_display_outfit %}
+								<td width="5%" class="white">
+									<b>Outfit</b>
+								</td>
+								{% endif %}
+
+								<td width="40%" class="white">
+									<b>Name</b>
+								</td>
+
+								{% if config.team_display_status %}
+								<td class="white">
+									<b>Status</b>
+								</td>
+								{% endif %}
+
+								{% if (config.multiworld or config.team_display_world) %}
+								<td class="white">
+									<b>World</b>
+								</td>
+								{% endif %}
+
+								{% if config.team_display_lastlogin %}
+								<td class="white">
+									<b>Last login</b>
+								</td>
+								{% endif %}
+							</tr>
+
+							{% for group in groupmember|reverse %}
+								{% if group.members is not empty %}
+									{% for member in group.members|reverse %}
+									{% set i = i + 1 %}
+									<tr bgcolor="{{ getStyle(i) }}" style="height: 32px;">
+										<td>{{ group.group_name }}</td>
+
+										{% if config.team_display_outfit %}
+										<td>
+											<img style="position: absolute; margin-top: {% if member.player.looktype in [75, 266, 302] %}-16px;margin-left:-0px;{% else %} -45px; margin-left: -30px;{%  endif %}" src="{{ member.outfit }}" alt="player outfit"/>
+										</td>
+										{% endif %}
+
+										<td>
+											{% if config.account_country %}
+												{{ member.flag_image|raw }}
+											{% endif %}
+											{{ member.link|raw }}
+										</td>
+
+										{% if config.team_display_status %}
+										<td>
+											{% if member.status %}
+												<span style="color: green"><b>Online</b></span>
+											{% else %}
+												<span style="color: red"><b>Offline</b></span>
+											{% endif %}
+										</td>
+										{% endif %}
+
+										{% if (config.multiworld or config.team_display_world) %}
+										<td>
+											<span><b>{{ member.world_name }}</b></span>
+										</td>
+										{% endif %}
+
+										{% if config.team_display_lastlogin %}
+										<td>
+											<span>{{ member.last_login }}</span>
+										</td>
+										{% endif %}
+									</tr>
+									{% endfor %}
+								{% endif %}
+							{% endfor %}
+						</table>
+					{% elseif config.team_style == 2 %}
+						{% for group in groupmember|reverse %}
+							{% if group.members is not empty %}
+							<div style="text-align:center"><h2>{{ group.group_name }}</h2></div>
+
+							<table cellspacing="1" cellpadding="4" border="0" width="100%">
+								<tr bgcolor="{{ config.vdarkborder }}">
+									{% if config.team_display_outfit %}
+									<td width="5%" class="white">
+										<b>Outfit</b>
+									</td>
+									{% endif %}
+
+									<td width="40%" class="white">
+										<b>Name</b>
+									</td>
+
+									{% if config.team_display_status %}
+									<td class="white">
+										<b>Status</b>
+									</td>
+									{% endif %}
+
+									{% if (config.multiworld or config.team_display_world) %}
+									<td class="white">
+										<b>World</b>
+									</td>
+									{% endif %}
+
+									{% if config.team_display_lastlogin %}
+									<td class="white">
+										<b>Last login</b>
+									</td>
+									{% endif %}
+								</tr>
+
+								{% for member in group.members %}
+								{% set i = i + 1 %}
+									<tr bgcolor="{{ getStyle(i) }}" style="height: 32px;">
+									{% if config.team_display_outfit %}
+									<td>
+										<img style="position: absolute; margin-top: {% if member.player.looktype in [75, 266, 302] %}-16px;margin-left:-0px;{% else %} -45px; margin-left: -30px;{%  endif %}" src="{{ member.outfit }}" alt="player outfit"/>
+									</td>
+									{% endif %}
+
+									<td>
+										{% if config.account_country %}
+											{{ member.flag_image|raw }}
+										{% endif %}
+										{{ member.link|raw }}
+									</td>
+
+									{% if config.team_display_status %}
+									<td>
+										{% if member.status %}
+											<span style="color: green"><b>Online</b></span>
+										{% else %}
+											<span style="color: red"><b>Offline</b></span>
+										{% endif %}
+									</td>
+									{% endif %}
+
+									{% if (config.multiworld or config.team_display_world) %}
+									<td>
+										<span><b>{{ member.world_name }}</b></span>
+									</td>
+									{% endif %}
+
+									{% if config.team_display_lastlogin %}
+									<td>
+										<span>{{ member.last_login }}</span>
+									</td>
+									{% endif %}
+								</tr>
+								{% endfor %}
+							</table>
+							{% endif %}
+						{% endfor %}
+					{% endif %}
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

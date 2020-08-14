@@ -1,0 +1,57 @@
+<form action="?subtopic=guilds&action=create&todo=save" method="post">
+	<table width="100%" border="0" cellspacing="1" cellpadding="4">
+		<tr>
+			<td bgcolor="{{ config.vdarkborder }}" class="white"><B>Create a {{ config.lua.serverName }} Guild</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="{{ config.darkborder }}">
+				<table border="0" cellspacing="8" cellpadding="0">
+					<tr>
+						<td>
+							<table border="0" cellspacing="5" cellpadding="0">
+								<tr>
+									<td width="150" valign="top">
+										<b>Leader: </b>
+									</td>
+									<td>
+										<select name="name">
+											{% for player in players %}
+											<option>{{ player }}</option>
+											{% endfor %}
+										</select><br/>
+										<span style="font-size: 10px">(Name of leader of new guild.)</span>
+									</td>
+								</tr>
+								<tr>
+									<td width="150" valign="top"><b>Guild name: </b></td>
+									<td>
+										<input name="guild" value="" size="30" maxlength="50"/><br/>
+										<span style="font-size: 10px">(Here write name of your new guild.)</span></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table border=0 width=100%>
+		<tr>
+			<td align="center">
+				<img src="{{ template_path }}/images/general/blank.gif" width=120 height=1 border=0><br/>
+			</td>
+			<td align="center" valign="top">
+				{{ include('buttons.submit.html.twig') }}
+</form>
+			</td>
+			<td align="center">
+				<form  action="?subtopic=guilds" method="post">
+					{{ include('buttons.back.html.twig') }}
+				</form>
+			</td>
+			<td align="center">
+				<img src="{{ template_path }}/images/general/blank.gif" width="120" height="1" border="0"><br>
+			</td>
+		</tr>
+	</table>

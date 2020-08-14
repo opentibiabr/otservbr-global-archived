@@ -1,0 +1,201 @@
+<style type="text/css">
+
+	.ts_Spells > input[type="radio"] {
+		position: absolute;
+		left: -200vw;
+	}
+
+	.ts_Spells .tab-panel {
+		display: none;
+	}
+
+	.ts_Spells > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+	.ts_Spells > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+	.ts_Spells > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+	.ts_Spells > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+	.ts_Spells > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+	.ts_Spells > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+		display: block;
+	}
+
+	.ts_Spells > label {
+		position: relative;
+		display: inline-block;
+		padding: 10px 10px 10px;
+		margin-bottom: 10px;
+		border: 1px solid transparent;
+		border-bottom: 0;
+		cursor: pointer;
+		font-weight: 600;
+		background-color: {{ config.vdarkborder }};
+		color: #fff;
+	}
+</style>
+
+{% if canEdit %}
+	<form method="post" action="{{ getLink('spells') }}">
+		<input type="hidden" name="reload_spells" value="yes"/>
+		<input type="submit" value="(admin) Reload spells"/>
+	</form>
+{% endif %}
+
+<form action="{{ getLink('spells') }}" method="post">
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr bgcolor="{{ config.vdarkborder }}">
+			<td class="white"><b>Spell Search</b></td>
+		</tr>
+		<tr bgcolor="{{ config.darkborder }}">
+			<td>
+				<table border="0" cellpadding="1">
+					<tr>
+						<td>Only for vocation: <select name="vocation_id">
+								<option value="all" {% if post_vocation_id == 'all' %} selected{% endif %}>All</option>
+								{% for id, vocation in config.vocations %}
+									<option value="{{ id }}"{% if id == post_vocation_id and post_vocation_id != "all" and post_vocation_id != '' %} selected{% endif %}>{{ vocation }}</option>
+								{% endfor %}
+							</select>
+						</td>
+						<td>
+							{{ include('buttons.submit.html.twig') }}
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>
+<br/>
+
+<div class="ts_Spells">
+	<input type="radio" name="ts_Spells" id="tab_instant" aria-controls="instant" checked>
+	<label for="tab_instant">Instant</label>
+
+	<input type="radio" name="ts_Spells" id="tab_conjure" aria-controls="conjure">
+	<label for="tab_conjure">Conjure</label>
+
+	<input type="radio" name="ts_Spells" id="tab_rune" aria-controls="rune">
+	<label for="tab_rune">Rune</label>
+
+	<div class="tab-panels">
+		<section id="instant" class="tab-panel">
+			<table id="tb_instantSpells">
+				<thead>
+				<th>Name</th>
+				<th>Words</th>
+				<th>Level</th>
+				<th>Mana</th>
+				<th>Vocations</th>
+				</thead>
+				<tbody>
+				{% set i = 0 %}
+				{% set y = 0 %}
+				{% for spell in spells %}
+					{% set i = i + 1 %}
+					{% if spell.type == 1 %}
+						{% set y = y + 1 %}
+						<tr>
+							<td>{{ spell.name }}</td>
+							<td>{{ spell.words }}</td>
+							<td>{{ spell.level }}</td>
+							<td>{{ spell.mana }}</td>
+							<td>
+								{% if spell.vocations|length > 0 %}
+									<span style="font-size: 10px">{{ spell.vocations|raw }}</span>
+								{% else %}
+									{{ config.vocations[post_vocation_id] }}
+								{% endif %}
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+				</tbody>
+			</table>
+		</section>
+		<section id="conjure" class="tab-panel">
+			<table id="tb_conjureSpells">
+				<thead>
+				<th>Name</th>
+				<th>Words</th>
+				<th>Level</th>
+				<th>Mana</th>
+				<th>Soul</th>
+				<th>Item</th>
+				<th>Reagent</th>
+				<th>Vocations</th>
+				</thead>
+				<tbody>
+				{% set i = 0 %}
+				{% set y = 0 %}
+				{% for spell in spells %}
+					{% set i = i + 1 %}
+					{% if spell.type == 2 %}
+						{% set y = y + 1 %}
+						<tr>
+							<td>{{ spell.name }}</td>
+							<td>{{ spell.words }}</td>
+							<td>{{ spell.level }}</td>
+							<td>{{ spell.mana }}</td>
+							<td>{{ spell.soul }}</td>
+							<td>
+								<small>
+									{% if (spell.conjure_count < 150) and ( spell.conjure_count > 0) %} {{ spell.conjure_count }}x
+										<br/>{% endif %}</small>
+								<img src="{{ item_path }}/{{ spell.conjure_id }}.gif"
+									 width="32" height="32" border="0"
+									 alt="{{ spell.conjure_id }}"></td>
+							<td>{% if (spell.reagent > 0) %}
+									<img src="{{ item_path }}/{{ spell.reagent }}.gif"
+										 width="32" height="32" border="0"
+										 alt="{{ spell.reagent }}">{% else %}---{% endif %}</td>
+							<td>
+								{% if spell.vocations|length > 0 %}
+									<span style="font-size: 10px">{{ spell.vocations|raw }}</span>
+								{% else %}
+									{{ config.vocations[post_vocation_id] }}
+								{% endif %}
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+				</tbody>
+			</table>
+		</section>
+
+		<section id="rune" class="tab-panel">
+			<table id="tb_runeSpells">
+				<thead>
+				<th>Name</th>
+				<th>Level</th>
+				<th>Magic Level</th>
+				<th>Item</th>
+				<th>Vocations</th>
+				</thead>
+				<tbody>
+				{% set i = 0 %}
+				{% set y = 0 %}
+				{% for spell in spells %}
+					{% set i = i + 1 %}
+					{% if spell.type == 3 %}
+						{% set y = y + 1 %}
+						<tr>
+							<td>{{ spell.name }}</td>
+							<td>{{ spell.level }}</td>
+							<td>{{ spell.maglevel }}</td>
+							<td><img src="{{ item_path }}/{{ spell.item_id }}.gif"
+									 width="32" height="32" border="0"
+									 alt="{{ spell.item_id }}"></td>
+							<td>
+								{% if spell.vocations|length > 0 %}
+									<span style="font-size: 10px">{{ spell.vocations|raw }}</span>
+								{% else %}
+									{{ config.vocations[post_vocation_id] }}
+								{% endif %}
+							</td>
+						</tr>
+					{% endif %}
+				{% endfor %}
+				</tbody>
+			</table>
+		</section>
+	</div>
+</div>

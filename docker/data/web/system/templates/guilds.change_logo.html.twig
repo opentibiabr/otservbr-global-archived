@@ -1,0 +1,37 @@
+<div style="text-align:center"><h2>Change guild logo</h2></div>
+Here you can change logo of your guild.<br/>Actuall logo: <img src="images/guilds/{{ guild_logo }}" height="64" width="64"><br/><br/>
+<form enctype="multipart/form-data" action="?subtopic=guilds&guild={{ guild.getName() }}&action=change_logo" method="post" id="upload_form">
+	<input type="hidden" name="todo" value="save" />
+	<input type="hidden" name="MAX_FILE_SIZE" value="{{ max_image_size_b }}" />
+	Select new logo: <input name="newlogo" id="newlogo" type="file" />
+	<input type="submit" value="Send new logo" />
+</form>
+Only <b>jpg, gif, png, bmp</b> pictures. Max. size: <b>{{ config.guild_image_size_kb }} KB</b><br>
+<br/>
+{% spaceless %}
+<div style="text-align:center">
+	<form action="?subtopic=guilds&guild={{ guild.getName() }}&action=manager" method="post">
+		<div class="BigButton" style="background-image:url({{ template_path }}/images/global/buttons/sbutton.gif)">
+			{{ include('buttons.back.html.twig') }}
+		</div>
+	</form>
+</div>
+{% endspaceless %}
+<script type="text/javascript">
+	$(function() {
+		$('#upload_form').submit(function (event) {
+			var max_img_size = {{ config.guild_image_size_kb * 1024 }};
+			var input = document.getElementById("newlogo");
+			// check for browser support (may need to be modified)
+			if (input.files && input.files.length == 1) {
+				if (input.files[0].size > max_img_size) {
+					alert("The file must be less than " + (max_img_size / 1024) + "KB");
+					event.preventDefault();
+					return false;
+				}
+			}
+
+			return true;
+		});
+	});
+</script>

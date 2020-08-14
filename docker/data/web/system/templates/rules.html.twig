@@ -1,0 +1,8 @@
+{% if constant('PAGE') == 'rules' %}
+<b>{{ config.lua.serverName }} Rules</b><br/>
+<textarea rows="25" wrap="physical" cols="70" readonly="true">
+{% endif %}
+{{ getCustomPage('rules_on_the_page') }}
+{% if constant('PAGE') == 'rules' %}
+	</textarea>
+{% endif %}

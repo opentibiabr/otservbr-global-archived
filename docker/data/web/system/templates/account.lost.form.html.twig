@@ -1,0 +1,35 @@
+The Lost Account Interface can help you to get back your account name and password. Please enter your character name and select what you want to do.<br/>
+<form action="?subtopic=lostaccount&action=step1" method=post>
+	<input type="hidden" name="character" value="">
+	<table cellspacing="1" cellpadding="4" border="0" width="100%">
+		<tr>
+			<td bgcolor="{{ config.vdarkborder }}" class="white"><b>Please enter your character name</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="{{ config.darkborder }}">
+				<input type="text" name="nick" size="40" autofocus/><br>
+			</td>
+		</tr>
+	</table>
+	<table cellspacing="1" cellpadding="4" border="0" width="100%">
+		<tr>
+			<td bgcolor="{{ config.vdarkborder }}" class="white"><b>What do you want?</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="{{ config.darkborder }}">
+				<input type="radio" name="action_type" id="action_type_email" value="email">
+				<label for="action_type_email"> Send me new password and my account name to account e-mail adress.</label><br/>
+				<input type=radio name="action_type" id="action_type_key" value="reckey">
+				<label for="action_type_key"> I got <b>recovery key</b> and want set new password and e-mail adress to my account.</label><br/>
+			</td>
+		</tr>
+	</table>
+	<br/>
+	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+		<tr>
+			<td align="center">
+				{{ include('buttons.submit.html.twig') }}
+			</td>
+		</tr>
+	</table>
+</form>

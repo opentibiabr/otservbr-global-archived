@@ -1,0 +1,47 @@
+<form method="post" action="{{ link }}">
+	{% if action == 'edit_board' %}
+	<input type="hidden" name="id" value="{{ id }}" />
+	{% endif %}
+	<table width="100%" border="0" cellspacing="1" cellpadding="4">
+		<tr>
+			<td bgcolor="{{ config.vdarkborder }}" class="white"><b>{% if action == 'edit' %}Edit{% else %}Add{% endif %} board</b></td>
+		</tr>
+		<tr>
+			<td bgcolor="{{ config.darkborder }}">
+				<table border="0" cellpadding="1">
+					<tr>
+						<td>Name:</td>
+						<td><input name="name" value="{% if name is not null %}{{ name }}{% endif %}" size="29" maxlength="29"/></td>
+					<tr>
+						<td>Description:</td>
+						<td><textarea name="description" maxlength="300" cols="50" rows="5">{% if description is not null %}{{ description }}{% endif %}</textarea></td>
+					<tr/>
+					<tr>
+						<td>Access:</td>
+						<td>
+							<select name="access">
+								{% for id, group in groups %}
+									<option value="{{ group.getId() }}"{% if access == group.getId() %} selected{% endif %}>{{ group.getName() }}</option>
+								{% endfor %}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Guild:</td>
+						<td>
+							<select name="guild">
+								<option value="0"{% if guild == 0 %} selected{% endif %}>----</option>
+								{% for guild_ in guilds %}
+									<option value="{{ guild_.id }}"{% if guild == guild_.id %} selected{% endif %}>{{ guild_.name }}</option>
+								{% endfor %}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="Submit"/>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>

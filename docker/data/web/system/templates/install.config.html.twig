@@ -1,0 +1,71 @@
+<form action="{{ constant('BASE_URL') }}install/" method="post" autocomplete="off">
+	<input type="hidden" name="step" id="step" value="database" />
+	<table>
+		{% for value in ['server_path', 'mail_admin', 'mail_address'] %}
+		<tr>
+			<td>
+				<label for="vars_{{ value }}">
+					<span>{{ locale['step_config_' ~ value]  }}</span>
+				</label>
+				<br>
+				<input type="text" name="vars[{{ value }}]" id="vars_{{ value }}"{% if session['var_' ~ value] is not null %} value="{{ session['var_' ~ value] }}"{% endif %}/>
+			</td>
+			<td>
+				<em>{{ locale['step_config_' ~ value ~ '_desc'] }}</em>
+			</td>
+		</tr>
+		{% endfor %}
+		<tr>
+			<td>
+				<label for="vars_date_timezone">
+					<span>{{ locale.step_config_timezone }}</span>
+				</label>
+				<br/>
+				<select name="vars[date_timezone]" id="vars_date_timezone">
+					{% for timezone in timezones %}
+					<option value="{{ timezone }}"{% if (session['var_date_timezone'] is not null and session['var_date_timezone'] == timezone) or (session['var_date_timezone'] is null and timezone == 'Europe/Berlin') %} selected{% endif %}>{{ timezone }}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<em>{{ locale.step_config_timezone_desc }}</em>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="vars_client">
+					<span>{{ locale.step_config_client }}</span>
+				</label>
+				<br/>
+				<select name="vars[client]" id="vars_client">
+					{% for id, version in clients %}
+					<option value="{{ id }}"{% if session['var_client'] is not null and session['var_client'] == id %} selected{% endif %}>{{ version }}</option>
+					{% endfor %}
+				</select>
+			</td>
+			<td>
+				<em>{{ locale.step_config_client_desc }}</em>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="vars_usage">
+					<span>{{ locale.step_config_usage }}</span>
+				</label>
+				<br/>
+				<input type="hidden" value="0" name="vars[usage]">
+				<input type="checkbox" name="vars[usage]" id="vars_usage" value="1"{% if session['var_usage'] is null or session['var_usage'] == 1 %} checked{% endif %}/>
+			</td>
+			<td>
+				<em>{{ locale.step_config_usage_desc }}</em>
+			</td>
+		</tr>
+	</table>
+
+	{% if errors is defined %}
+		{% for error in errors %}
+			<p class="error">{{ error }}</p>
+		{% endfor %}
+	{% endif %}
+	{{ buttons|raw }}
+</form>

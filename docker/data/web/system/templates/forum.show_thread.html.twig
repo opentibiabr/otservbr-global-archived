@@ -1,0 +1,75 @@
+<a href="{{ getLink('forum') }}">Boards</a> >> <a href="{{ getLink('forum/board/' ~ section.id) }}">{{ section.name }}</a> >> <b>{{ thread_starter.post_topic }}</b>
+<br/><br/>
+<a href="?subtopic=forum&action=new_post&thread_id={{ thread_id }}"><img src="images/forum/post.gif" border="0" /></a><br/>
+<br/>
+Page: {{ links_to_pages|raw }}<br/>
+<table width="100%">
+	<tr bgcolor="{{ config.lightborder }}" width="100%">
+		<td colspan="2">
+			<span style="font-size: 18px"><b>{{ thread_starter.post_topic }}</b></span>
+			<span style="font-size: 10px"><br/>
+			by {{ author_link|raw }}</span>
+		</td>
+	</tr>
+	<tr bgcolor="{{ config.vdarkborder }}">
+		<td width="200">
+			<span style="color: white; font-size: 10px"><b>Author</b></span>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	{% set i = 0 %}
+	{% for post in posts %}
+	<tr bgcolor="{{ getStyle(i) }}">
+		{% set i = i + 1 %}
+		<td valign="top">{{ post.player_link|raw }}<br/>
+			{% if post.outfit is defined %}
+			<img style="margin-left:{% if post.player.getLookType() in [75, 266, 302] %}-0px;margin-top:-0px;width:64px;height:64px;{% else %}-60px;margin-top:-60px;width:128px;height:128px;{% endif %}" src="{{ post.outfit }}" alt="player outfit"/>
+			<br />
+			{% endif %}
+			<span style="font-size: 10px">
+				{% if post.group is defined %}
+					Position: {{ post.group }}<br />
+				{% endif %}
+
+				Profession: {{ post.vocation }}<br />
+				Level: {{ post.player.getLevel() }} <br />
+				{% if post.guildRank is defined %}
+					{{ guildRank }}<br />
+				{% endif %}
+				<br />Posts: {{ post.author_posts_count }}<br />
+			</span>
+		</td>
+		<td valign="top">{{ post.content|raw }} </td></tr>
+		<tr bgcolor="{{ getStyle(i) }}">
+			<td>
+				<span style="font-size: 10px">{{ post.date|date('d.m.y H:i:s') }}
+					{% if post.edited_by is defined %}
+					<br />Edited by {{ post.edited_by }}
+					<br />on {{ post.edit_date|date('d.m.y H:i:s') }}
+					{% endif %}
+				</span>
+			</td>
+			<td>
+				{% if is_moderator %}
+					{% if post.first_post != post.id %}
+						<a href="?subtopic=forum&action=remove_post&id={{ post.id }}" title="Remove Post" onclick="return confirm('Are you sure you want remove post of {{ post.player.getName() }}?')"><img src="images/del.png"/></a>
+					{% else %}
+						<a href="?subtopic=forum&action=move_thread&id={{ post.id }}" title="Move Thread"><img src="images/icons/arrow_right.gif"/></a>
+						<a href="?subtopic=forum&action=remove_post&id={{ post.id }}" title="Remove Thread" target="_blank" onclick="return confirm('Are you sure you want remove thread > {{ post.post_topic}} <?')"><img src="images/del.png"/></a>
+					{% endif %}
+					{% if logged and (post.player.getAccount().getId() == account_logged.getId() or is_moderator) %}
+						<a href="?subtopic=forum&action=edit_post&id={{ post.id }}" title="Edit Post" target="_blank">
+							<img src="images/edit.png"/></a>
+					{% endif %}
+					{% if logged %}
+						<a href="?subtopic=forum&action=new_post&thread_id={{ thread_id }}&quote={{ post.id }}" title="Quote Post"><img src="images/icons/comment_add.png"/></a>
+					{% endif %}
+				{% endif %}
+			</td>
+		</tr>
+		{% set i = i + 1 %}
+	{% endfor %}
+</table>
+<br/>
+<a href="?subtopic=forum&action=new_post&thread_id={{ thread_id }}"><img src="images/forum/post.gif" border="0" /></a>

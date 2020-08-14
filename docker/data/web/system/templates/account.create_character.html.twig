@@ -1,0 +1,148 @@
+Please choose a name{% if config.character_samples|length > 1 %}, vocation{% endif %}
+{% if config.character_towns|length > 1 %}, town{% endif %}
+ and sex for your character. <br/>
+In any case the name must not violate the naming conventions stated in the <a href="?subtopic=rules" target="_blank" >{{ config.lua.serverName }} Rules</a>, or your character might get deleted or name locked.
+{% if account_logged.getPlayersList()|length >= config.characters_per_account %}
+<b><span style="color: red"> You have maximum number of characters per account on your account. Delete one before you make new.</span></b>
+{% endif %}
+<br/><br/>
+<form action="{{ getLink('account/character/create') }}" method="post">
+	<input type="hidden" name="save" value="1">
+	<div class="TableContainer">
+		<table class="Table3" cellpadding="0" cellspacing="0">
+			<div class="CaptionContainer">
+				<div class="CaptionInnerContainer">
+					<span class="CaptionEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+					<span class="CaptionEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+					<span class="CaptionBorderTop" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+					<span class="CaptionVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+					<div class="Text" >Create Character</div>
+					<span class="CaptionVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+					<span class="CaptionBorderBottom" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+					<span class="CaptionEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+					<span class="CaptionEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				</div>
+			</div>
+			<tr>
+				<td>
+					<div class="InnerTableContainer">
+						<table style="width:100%;">
+							<tr>
+								<td>
+									<div class="TableShadowContainerRightTop">
+										<div class="TableShadowRightTop" style="background-image:url({{ template_path }}/images/content/table-shadow-rt.gif);"></div>
+									</div>
+									<div class="TableContentAndRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-rm.gif);">
+										<div class="TableContentContainer">
+											<table class="TableContent" width="100%">
+												<tr class="LabelH">
+													<td style="width:50%;">
+														<span>Name</span>
+													</td>
+													<td>
+														<span>Sex</span>
+													</td>
+												</tr>
+												<tr class="Odd">
+													<td>
+														<input name="name" id="character_name" value="{{ name }}" size="{{ config.character_name_max_length }}" maxlength="{{ config.character_name_max_length }}" >
+														<img id="character_indicator" src="images/global/general/{% if not save or errors.name is defined %}n{% endif %}ok.gif" />
+														<br/>
+														<span style="font-size: 10px">
+															<div id="character_error">{% if not save or errors.name is defined %}Please enter your character name.{% endif %}</div>
+														</span>
+													</td>
+													<td>
+														{% set i = 0 %}
+														{% for id, gender in config.genders|reverse(true) %}
+														{% set i = i + 1 %}
+														<input type="radio" name="sex" id="sex{{ i }}" value="{{ id }}"{% if sex is not null and sex == id %} checked="checked"{% endif %}
+														><label for="sex{{ i }}">{{ gender|lower }}</label><br/>
+														{% endfor %}
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+						</table>
+					</div>
+					<div class="InnerTableContainer">
+						<table style="width: 100%;">
+							<tr>
+								{% if config.character_samples|length > 1 %}
+								<td>
+									<table class="TableContent" width="100%">
+										<tr class="Odd" valign="top">
+											<td width="160"><br/><b>Select your vocation:</b></td>
+											<td>
+												<table class="TableContent" width="100%" >
+													{% for key, sample_char in config.character_samples %}
+													<tr>
+														<td>
+															<input type="radio" name="vocation" id="vocation{{ key }}" value="{{ key }}"
+															{% if vocation is not null and vocation == key %} checked="checked"{% endif %}>
+															<label for="vocation{{ key }}">{{ config['vocations'][key] }}</label>
+														</td>
+													</tr>
+													{% endfor %}
+												</table>
+											</td>
+										</tr>
+									</table>
+								{% endif %}
+								{% if config.character_towns|length > 1 %}
+								<td>
+									<table class="TableContent" width="100%">
+										<tr class="Odd" valign="top">
+											<td width="160"><br/><b>Select your city:</b></td>
+											<td>
+												<table class="TableContent" width="100%">
+													{% for town_id in config.character_towns %}
+													<tr>
+														<td>
+															<input type="radio" name="town" id="town{{ town_id }}" value="{{ town_id }}"
+															{% if town is not null and town == town_id %} checked="checked"{% endif %}>
+															<label for="town{{ town_id }}">{{ config.towns[town_id] }}</label>
+														</td>
+													</tr>
+													{% endfor %}
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								{% endif %}
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<br/>
+	<table style="width:100%;">
+		<tr align="center">
+			<td>
+				<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td style="border:0px;">
+							{{ include('buttons.submit.html.twig') }}
+						</td>
+					</tr>
+</form>
+				</table>
+			</td>
+			<td>
+				<table border="0" cellspacing="0" cellpadding="0">
+					<form action="{{ getLink('account/manage') }}" method="post">
+						<tr>
+							<td style="border:0px;">
+								{{ include('buttons.back.html.twig') }}
+							</td>
+						</tr>
+					</form>
+				</table>
+			</td>
+		</tr>
+	</table>
+<script type="text/javascript" src="tools/check_name.js"></script>

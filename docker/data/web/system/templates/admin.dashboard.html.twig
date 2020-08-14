@@ -1,0 +1,102 @@
+<div class="row">
+	<div class="col-md-6">
+		<div class="box box-warning">
+			<div class="box-header with-border">
+				<h3 class="box-title">Maintenance</h3>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="box-body">
+				<form action="?p=dashboard&maintenance" method="post" class="form-horizontal">
+					<div class="box-body">
+						<div class="form-group">
+							<label for="status" class="col-sm-2 control-label">Website:</label>
+							<div class="col-sm-10">
+								<select class="form-control" id="status" name="status">
+									<option value="0"{% if not is_closed %} selected{% endif %}>Open</option>
+									<option value="1"{% if is_closed %} selected{% endif %}>Closed</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="message" class="col-sm-2 control-label">Message:<br>
+								<small>(only if closed)</small>
+							</label>
+							<div class="col-sm-10">
+                                <textarea name="message" cols="40" class="form-control" rows="5" maxlength="255"
+										  placeholder="Enter ...">{{ closed_message }}</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<a href="?p=dashboard&clear_cache" onclick="return confirm('Are you sure?');"><span
+									class="btn btn-danger">Clear cache</span></a>
+						<div class="pull-right">
+							<input type="submit" class="btn btn-primary" value="Update"/>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{% if points is iterable %}
+		<div class="col-md-3">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">Top 10 - Most premium points</h3>
+				</div>
+				<div class="box-body no-padding">
+					<table class="table table-condensed">
+						<tbody>
+						<tr>
+							<th>#</th>
+							<th>Account {{ account_type }}</th>
+							<th>Premium points</th>
+						</tr>
+						{% set i = 0 %}
+						{% for result in points %}
+							{% set i = i + 1 %}
+							<tr>
+								<td>{{ i }}</td>
+								<td>{{ result.name }}</td>
+								<td>{{ result.premium_points }}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	{% if coins is iterable %}
+		<div class="col-md-3">
+			<div class="box">
+				<div class="box-header">
+					<h3 class="box-title">Top 10 - Most coins</h3>
+				</div>
+				<div class="box-body no-padding">
+					<table class="table table-condensed">
+						<tbody>
+						<tr>
+							<th>#</th>
+							<th>Account {{ account_type }}</th>
+							<th>Tibia coins</th>
+						</tr>
+						{% set i = 0 %}
+						{% for result in coins %}
+							{% set i = i + 1 %}
+							<tr>
+								<td>{{ i }}</td>
+								<td>{{ result.name }}</td>
+								<td>{{ result.coins }}</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+</div>

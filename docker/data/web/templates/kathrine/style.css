@@ -1,0 +1,895 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	background: #a7a597 url('images/background.jpg') no-repeat top left;
+	margin: 0px;
+	padding: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #373737;
+}
+
+#page
+{
+	width: 780px;
+	margin: auto;
+}
+
+#header
+{
+	width: 780px;
+	height: 245px;
+	background: url('images/logo.png') no-repeat;
+	float: left;
+}
+
+#tabs
+{
+	width: 580px;
+	height: 32px;
+	background: url('images/tabs-bg.png') no-repeat;
+	float: left;
+	padding-left: 200px;
+}
+
+	#tabs .tab
+	{
+		width: 112px;
+		height: 20px;
+		background: url('images/tab.png') no-repeat;
+		float: left;
+		text-align: center;
+		color: #E2E2E2;
+		font-weight: bold;
+		padding-top: 12px;
+		cursor: pointer;
+	}
+	
+	#tabs .tab:hover
+	{
+		text-decoration: underline;
+	}
+	
+	#tabs .tab-active
+	{
+		width: 113px;
+		height: 22px;
+		background: url('images/tab-active.png') no-repeat;
+		float: left;
+		text-align: center;
+		color: #FFFFFF;
+		font-weight: bold;
+		padding-top: 10px;
+		cursor: pointer;
+	}
+	
+#mainsubmenu
+{
+	width: 760px;
+	height: 42px;
+	background: url('images/submenu.png') no-repeat;
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+	#mainsubmenu a
+	{
+		display: block;
+		float: left;
+		padding: 5px;
+		color: #FFFFFF;
+		font-weight: bold;
+		margin-top: 7px;
+		text-decoration: none;
+	}
+	
+	#mainsubmenu a:hover
+	{
+		text-decoration: underline;
+	}
+	
+	#mainsubmenu .separator
+	{
+		width: 2px;
+		height: 32px;
+		display: block;
+		float: left;
+		background: url('images/separator.png') no-repeat;
+	}
+	
+#content
+{
+	width: 780px;
+	background: url('images/site-bg.png') repeat-y;
+	float: left;
+}
+
+	#margins
+	{
+		width: 760px;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		margin-bot: 5px;
+		text-align: justify;
+	}
+
+#content-bot
+{
+	width: 780px;
+	height: 28px;
+	background: url('images/site-bot.png') no-repeat;
+	float: left;
+}
+
+#copyrights
+{
+	width: 740px;
+	padding: 10px;
+	float: left;
+	text-align: center;
+}
+
+#news-submenu,
+#account-submenu,
+#community-submenu,
+#library-submenu,
+#shops-submenu
+{
+	display: none;
+}
+
+a
+{
+	color: #990000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover
+{
+	color: #FF0000;
+}
+
+.white, .whites
+{
+	color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+/** -------------------------------
+ *  Stylesheet declarations for the
+ *  NEW TABLES
+ *  -------------------------------
+ */
+
+.TableContainer {
+  border: 1px solid #d0cdb4;
+  position: relative;
+  width: 100%;
+  font-size: 10px;
+}
+.TableContainer .Odd {
+  background-color: #e5e3d7;
+}
+.TableContainer .Even {
+  background-color: #d0cdb4;
+}
+
+/* TABLEHEADER DECORATION */
+.TableContainer .CaptionContainer {
+  position: relative;
+  font-size: 10pt;
+  background-color: #afab89 !important;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+}
+.TableContainer .CaptionContainer .CaptionInnerContainer {
+	position: relative;
+  background-color: #afab89;
+  width: 100%;
+  height: 100%;
+  padding-top: 3px;
+  padding-bottom: 4px;
+}
+.TableContainer .CaptionContainer .Text {
+	font-family: Verdana, Arial, Times New Roman, sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.TableContainer .CaptionContainer .CaptionEdgeLeftTop {
+	position: absolute;
+  width: 5px;
+  height: 5px;
+	top: -2px;
+  left: -2px;
+  z-index: 50;
+}
+.TableContainer .CaptionContainer .CaptionEdgeRightTop {
+	position: absolute;
+  width: 5px;
+  height: 5px;
+	top: -2px;
+  right: -2px;
+  z-index: 50;
+}
+.TableContainer .CaptionContainer .CaptionEdgeLeftBottom {
+	position: absolute;
+  width: 5px;
+  height: 5px;
+	left: -2px;
+	bottom: -3px;
+  z-index: 50;
+}
+.TableContainer .CaptionContainer .CaptionEdgeRightBottom {
+	position: absolute;
+  width: 5px;
+  height: 5px;
+	right: -2px;
+	bottom: -3px;
+  z-index: 50;
+}
+.TableContainer .CaptionContainer .CaptionBorderTop {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0px;
+  top: -1px;
+}
+.TableContainer .CaptionContainer .CaptionBorderBottom {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0px;
+  bottom: -2px;
+}
+.TableContainer .CaptionContainer .CaptionVerticalLeft {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  left: -1px;
+  top: 0px;
+}
+.TableContainer .CaptionContainer .CaptionVerticalRight {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  right: -1px;
+  top: 0px;
+}
+* html .TableContainer .CaptionContainer .CaptionEdgeRightTop {
+  right: -3px;
+}
+* html .TableContainer .CaptionContainer .CaptionEdgeLeftBottom {
+  bottom: -4px;
+}
+* html .TableContainer .CaptionContainer .CaptionEdgeRightBottom {
+  right: -3px;
+  bottom: -4px;
+}
+* html .TableContainer .CaptionContainer .CaptionBorderBottom {
+  bottom: -3;
+}
+* html .TableContainer .CaptionContainer .CaptionVerticalRight {
+  right: -2px;
+}
+/* TABLE CONTENT */
+.TableContentContainer {
+  border: 1px solid #afab89;
+  position: relative;
+  margin-right: 4px;
+  height: 100%;
+  background-color: #d0cdb4;
+  padding: 0px;
+}
+.TableContent {
+  width: 100%;
+  border-collapse: collapse;
+}
+.TableContent td {
+  padding-left: 5px;
+  padding-top: 2px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+/* INNERLYOUT 1 */
+.TableContainer .Table1 {
+  width: 100%;
+  background-color: #d0cdb4;
+  border: 2px solid #afab89;
+}
+.TableContainer .Table1 .InnerTableContainer {
+  padding: 5px;
+}
+/* INNERLYOUT 2 */
+.TableContainer .Table2 {
+  width: 100%;
+  border: 2px solid #afab89;
+  background-color: #e5e3d7;
+  padding: 0px;
+  margin: 0px;
+  border-collapse: collapse;
+}
+.TableContainer .Table2 td {
+  padding: 0px;
+  margin: 0px;
+}
+.TableContainer .Table2 .InnerTableContainer {
+  margin-top: 1px;
+}
+.TableContainer .Table2 .InnerTableContainer table {
+  border-collapse: collapse;
+}
+.TableContainer .Table2 .InnerTableContainer td {
+  padding-top: 2px;
+  padding-left: 5px;
+  padding-bottom: 2px;
+  padding-right: 5px;
+  border: 1px solid #e5e3d7;
+}
+/* INNERLYOUT 3 */
+.TableContainer .Table3 {
+  width: 100%;
+  border: 2px solid #afab89;
+  background-color: #e5e3d7;
+}
+.TableContainer .Table3 .InnerTableContainer {
+  width: 100%;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+.TableContainer .Table3 .TableContentAndRightShadow td {
+  border: 1px solid #e5e3d7;
+}
+/* INNERLYOUT 4 */
+.TableContainer .Table4 {
+  width: 100%;
+  border: 2px solid #afab89;
+  background-color: #e5e3d7;
+}
+.TableContainer .Table4 .InnerTableContainer {
+  width: 100%;
+  position: relative;
+  margin-top: 3px;
+}
+.TableContainer .Table4 .TableContentAndRightShadow .TableContent td {
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+/* INNERLYOUT 5 */
+.TableContainer .Table5 {
+  width: 100%;
+  border: 2px solid #afab89;
+  background-color: #e5e3d7;
+}
+.TableContainer .Table5 .InnerTableContainer {
+  width: 100%;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+.TableContainer .Table5 .TableContentAndRightShadow .TableContent td {
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+/* SHADOWS */
+.TableShadowContainerRightTop {
+  position: relative;
+  top: 0px;
+  right: 3px;
+  margin-right: 0px;
+  font-size: 10px;
+  float: right;
+  z-index: 99;
+}
+.TableShadowRightTop {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 4px;
+  height: 5px;
+  z-index: 99;
+}
+.TableContentAndRightShadow {
+  position: relative;
+  background-repeat: repeat-y;
+  background-position: top right;
+  margin-right: 3px;
+  font-size: 10px;
+}
+.TableShadowContainer {
+  position: relative;
+  widht: 100%;
+  margin-right: 5px;
+}
+.TableBottomShadow {
+  position: relative;
+  font-size: 10px;
+  height: 5px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+.TableBottomLeftShadow {
+  position: relative;
+  height: 5px;
+  width: 4px;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+}
+.TableBottomRightShadow {
+  position: relative;
+  float: right;
+  right: -2px;
+  top: 0px;
+  height: 5px;
+  width: 4px;
+}
+/* LABELS */
+.LabelV {
+  font-weight: bold;
+  padding-right: 10px;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.LabelH {
+  font-weight: bold;
+  padding-right: 10px;
+  white-space: nowrap;
+  background-color: #afab89;
+
+}
+.LabelH td {
+  background-color: #afab89;
+  padding-left: 5px;
+  padding-top: 2px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+
+/* BUTTONS */
+.InnerTableButtonRow {
+  width: 100%;
+  padding-left: 1px;
+  padding-right: 0px;
+  padding-bottom: 4px;
+  border: 0px;
+}
+.InnerTableButtonRow td {
+  padding-right: 4px;
+}
+.BigButton {
+  position: relative;
+  width: 135px;
+  height: 25px;
+  z-index: 10;
+}
+.BigButtonOver {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 137px;
+  height: 25px;
+  visibility: hidden;
+  z-index: 15;
+}
+.ButtonText {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 25px;
+  width: 135px;
+  z-index: 20;
+}
+.TopButtonContainer {
+  position: relative;
+  right: 4px;
+  top: 4px;
+  z-index: 60;
+}
+* html .TopButtonContainer {
+  right: 27px;
+}
+.TopButtonContainer .TopButton {
+  position: absolute;
+  right: 0px;
+  z-index: 55;
+}
+.Content .BoxContent .Odd {
+  background-color: #d0cdb4;
+  padding: 2px;
+}
+
+.Content .BoxContent .Even {
+  background-color: #e5e3d7;
+  padding: 2px;
+}
+
+.Content .NewsCategoryIconSmall {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+}
+.Content .BoxContent .Odd {
+  background-color: #d0cdb4;
+  padding: 2px;
+}
+
+.Content .BoxContent .Even {
+  background-color: #e5e3d7;
+  padding: 2px;
+}
+
+.Content .NewsCategoryIconSmall {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+}
+.Content .BoxContent .Odd {
+  background-color: #d0cdb4;
+  padding: 2px;
+}
+
+.Content .BoxContent .Even {
+  background-color: #e5e3d7;
+  padding: 2px;
+}
+
+.Content .NewsCategoryIconSmall {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+}
+
+/* News Ticker */
+
+.Content #NewsTicker .BoxContent {
+  padding: 5px;
+  min-height: 90px;
+  height: auto !important;
+  height: 100px;
+}
+
+.Content #NewsTicker .BoxContent .Row {
+  position: relative;
+  width: 100%;
+}
+
+.Content #NewsTicker .NewsTickerIcon {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 16px;
+  width: 16px;
+  background-repeat: no-repeat;
+}
+
+.Content #NewsTicker .NewsTickerText {
+  font-size: 9pt;
+  position: relative;
+  margin-left: 20px;
+}
+
+.Content #NewsTicker .NewsTickerDate {
+  font-size: 7pt;
+  position: absolute;
+  top: 0px;
+  float: left;
+}
+
+.Content #NewsTicker .NewsTickerShortText {
+  margin-left: 85px;
+  height: 14px;
+}
+
+.Content #NewsTicker .NewsTickerFullText {
+  margin-left: 85px;
+  margin-right: 20px;
+  display: none;
+}
+
+.Content #NewsTicker .NewsTickerExtend {
+  position: relative;
+  right: 0px;
+  top: 1px;
+  right: 1px;
+  height: 12px;
+  width: 12px;
+  background-repeat: no-repeat;
+  float: right;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Featured Article */
+
+.Content #FeaturedArticle .BoxContent {
+  position:relative;
+  height: 100px;
+  padding: 5px;
+  padding-left: 10px;
+  min-height: 100px;
+  height: auto !important;
+  height: 110px;
+  line-height: 10.5pt;
+}
+
+.Content #FeaturedArticle #TeaserThumbnail {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  height: 100px;
+  width: 150px;
+  margin-left: 10px;
+  background-color: black;
+  z-index: 90;
+  float: right;
+}
+
+#ContentHelper #FeaturedArticle:first-child .BoxContent {
+  padding: 10px;
+}
+
+.Content #FeaturedArticle #TeaserText {
+  height: 100px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.Content #FeaturedArticle #Link {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 89 165 0 0;
+  z-index: 99;
+}
+
+.Content #FeaturedArticle .NewsHeadlineBackground {
+  position: relative;
+  height: 28px;
+  margin-bottom: 5px;
+  background-repeat: repeat-x;
+  border-left: 1px solid #d0cdb4;
+  border-right: 1px solid #d0cdb4;
+}
+
+.Content #FeaturedArticle .NewsHeadlineIcon {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  float:left;
+}
+
+.Content #FeaturedArticle .NewsHeadlineDate {
+  font-size: 7pt;
+  position: absolute;
+  top: 9px;
+  left: 50px;
+  width: 85px;
+  color: white;
+}
+
+.Content #FeaturedArticle .NewsHeadlineText {
+  position: relative;
+  top: 8px;
+  left: 135px;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
+}
+
+/* News */
+
+.Content #News .BoxContent {
+  min-height: 100px;
+  height: auto !important;
+  height: 110px;
+}
+
+.Content #News .NewsHeadlineBackground {
+  position: relative;
+  height: 28px;
+  margin-bottom: 5px;
+  background-repeat: repeat-x;
+  border-left: 1px solid #d0cdb4;
+  border-right: 1px solid #d0cdb4;
+}
+
+.Content #News .NewsHeadlineIcon {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Content #News .NewsHeadlineDate {
+  font-size: 7pt;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  width: 85px;
+  color: white;
+}
+
+.Content #News .NewsHeadlineText {
+  position: relative;
+  top: 7px;
+  left: 135px;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
+}
+
+.Content #News .NewsHeadlineAuthor {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
+}
+
+/* News Archive */
+
+.Content #NewsArchive .NewsHeadlineBackground {
+  position: relative;
+  height: 28px;
+  margin-bottom: 5px;
+  background-repeat: repeat-x;
+  border-left: 1px solid #d0cdb4;
+  border-right: 1px solid #d0cdb4;
+}
+
+.Content #NewsArchive .NewsHeadlineIcon {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.Content #NewsArchive .NewsHeadlineDate {
+  font-size: 7pt;
+  position: absolute;
+  top: 9px;
+  left: 50px;
+  width: 85px;
+  color: white;
+}
+
+.Content #NewsArchive .NewsHeadlineText {
+  position: relative;
+  top: 7px;
+  left: 135px;
+  font-size: 10pt;
+  font-weight: bold;
+  color: white;
+}
+
+/** --------------------------------------
+ *  ### not final versions for tests
+ *  ### concerning the new payment process
+ *  --------------------------------------
+ */
+
+/* new error handling concept tests */
+
+.FormFieldError {
+  font-size: 8pt;
+  color: red;
+}
+.SmallBox {
+  position: relative;
+  font-size: 1px;
+}
+.SmallBox .ErrorMessage {
+  font-size: 8pt;
+  position: relative;
+  color: red;
+  height: 100%;
+  background-color: #d0cdb4;
+  padding: 5px;
+  padding-left: 43px;
+}
+.SmallBox .Message {
+  font-size: 10pt;
+  position: relative;
+  height: 100%;
+  background-color: #d0cdb4;
+  padding: 10px;
+}
+.SmallBox .ErrorMessage ul {
+  padding-left: 15px;
+}
+.SmallBox .BoxFrameHorizontal {
+  position: relative;
+  height: 4px;
+}
+.SmallBox .BoxFrameVerticalRight {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 3px;
+  background-repeat: repeat-y;
+  height: 100%;
+}
+.SmallBox .BoxFrameVerticalLeft {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 3px;
+  background-repeat: repeat-y;
+  height: 100%;
+}
+.SmallBox .MessageContainer {
+  position: relative;
+  height: 100%;
+}
+.SmallBox .BoxFrameEdgeLeftTop {
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  width: 5px;
+  height: 5px;
+}
+.SmallBox .BoxFrameEdgeLeftBottom {
+  position: absolute;
+  left: -1px;
+  bottom: -1px;
+  width: 5px;
+  height: 5px;
+}
+.SmallBox .BoxFrameEdgeRightTop {
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 5px;
+  height: 5px;
+}
+.SmallBox .BoxFrameEdgeRightBottom {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 5px;
+  height: 5px;
+}
+.SmallBox .AttentionSign {
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  width: 30px;
+  height: 26px;
+}

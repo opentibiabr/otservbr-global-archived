@@ -1,0 +1,113 @@
+<table border="0" cellspacing="1" cellpadding="4" width="100%">
+	<tr bgcolor="{{ config.vdarkborder }}">
+		<td class="white"><b>Server Status</b></td>
+	</tr>
+{% if players|length == 0 %}
+	<tr bgcolor="{{ config.darkborder }}"><td>Currently no one is playing on {{ config.lua.serverName }}.</td></tr></table>
+{% else %}
+	<tr bgcolor="{{ config.darkborder }}">
+		<td>
+			{% if not status.online %}
+			Server is offline.<br/>
+			{% else %}
+				{% if config.online_afk %}
+					{% set players_count = players|length %}
+					{% set afk = players_count - status.players %}
+					{% if afk < 0 %}
+						{% set players_count = players_count + afk|abs %}
+						{% set afk = 0 %}
+					{% endif %}
+					Currently there are <b>{{ status.players }}</b> active and <b>{{ afk }}</b> AFK players.<br/>
+					Total number of players: <b>{{ players_count }}</b>.<br/>
+				{% else %}
+					Currently {{ players|length }} players are online.<br/>
+				{% endif %}
+			{% endif %}
+		</td>
+	</tr>
+</table>
+<br/>
+	{# vocation statistics #}
+	{% if config.online_vocations %}
+<br/>
+		{% if config.online_vocations_images %}
+	<table width="200" cellspacing="1" cellpadding="0" border="0" align="center">
+		<tr bgcolor="{{ config.darkborder }}">
+			<td><img src="images/sorcerer.png" /></td>
+			<td><img src="images/druid.png" /></td>
+			<td><img src="images/paladin.png" /></td>
+			<td><img src="images/knight.png" /></td>
+		</tr>
+		<tr bgcolor="{{ config.vdarkborder }}">
+			<td class="white" style="text-align: center;"><strong>Sorcerers</strong></td>
+			<td class="white" style="text-align: center;"><strong>Druids</strong></td>
+			<td class="white" style="text-align: center;"><strong>Paladins</strong></td>
+			<td class="white" style="text-align: center;"><strong>Knights</strong></td>
+		</tr>
+		<tr bgcolor="{{ config.lightborder }}">
+			<td style="text-align: center;">{{ vocs[1] }}</td>
+			<td style="text-align: center;">{{ vocs[2] }}</td>
+			<td style="text-align: center;">{{ vocs[3] }}</td>
+			<td style="text-align: center;">{{ vocs[4] }}</td>
+		</tr>
+	</table>
+	<div style="text-align: center;">&nbsp;</div>
+		{% else %}
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr bgcolor="{{ config.vdarkborder }}">
+			<td class="white" colspan="2"><b>Vocation statistics</b></td>
+		</tr>
+
+		{% for i in 1..config.vocations_amount %}
+		<tr bgcolor="{{ getStyle(i) }}">
+			<td width="25%">{{ config.vocations[i] }}</td>
+			<td width="75%">{{ vocs[i] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+<br/>
+		{% endif %}
+	{% endif %}
+
+	{# show skulls #}
+	{% if config.online_skulls %}
+<table width="100%" cellspacing="1">
+	<tr>
+		<td style="background: {{ config.darkborder }};" align="center">
+			<img src="images/white_skull.gif"/> - 1 - 6 Frags<br/>
+			<img src="images/red_skull.gif"/> - 6+ Frags or Red Skull<br/>
+			<img src="images/black_skull.gif"/> - 10+ Frags or Black Skull
+		</td>
+	</tr>
+</table>
+	{% endif %}
+
+<table border="0" cellspacing="1" cellpadding="4" width="100%">
+	<tr bgcolor="{{ config.vdarkborder }}">
+		{% if config.account_country %}
+		<td width="11px"><a href="?subtopic=online&order=country" class="white">#</A></td>
+		{% endif %}
+		{% if config.online_outfit %}
+		<td class="white"><b>Outfit</b></td>
+		{% endif %}
+		<td width="60%"><a href="?subtopic=online&order=name" class="white">Name</A></td>
+		<td width="20%"><a href="?subtopic=online&order=level" class="white">Level</A></td>
+		<td width="20%"><a href="?subtopic=online&order=vocation" class="white">Vocation</td>
+	</tr>
+	{% set i = 0 %}
+	{% for player in players %}
+		{% set i = i + 1 %}
+		<tr bgcolor="{{ getStyle(i) }}">
+		{% if config.account_country %}
+			<td>{{ player.country_image|raw }}</td>
+		{% endif %}
+		{% if config.online_outfit %}
+			<td width="5%"><img style="position:absolute;margin-top:{% if player.player.looktype in [75, 266, 302] %}-20px;margin-left:-0px;{% else %}-45px;margin-left:-25px;{%  endif %}" src="{{ player.outfit }}" alt="player outfit"/></td>
+		{% endif %}
+			<td>{{ player.name|raw }}{{ player.skull }}</td>
+			<td>{{ player.level }}</td>
+			<td>{{ player.vocation }}</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endif %}

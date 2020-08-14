@@ -1,0 +1,519 @@
+<div class="SmallBox">
+	<div class="MessageContainer">
+		<div class="BoxFrameHorizontal" style="background-image:url({{ template_path }}/images/content/box-frame-horizontal.gif);"></div>
+	<div class="BoxFrameEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="BoxFrameEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="Message">
+			<div class="BoxFrameVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></div>
+			<div class="BoxFrameVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></div>
+			<table>
+				<tr>
+					<td width="100%"></td>
+					<td>
+						<table border="0" cellspacing="0" cellpadding="0" >
+							<form action="{{ getLink('account/logout') }}" method="post" >
+								<tr>
+									<td style="border:0px;">
+										{{ include('buttons.logout.html.twig') }}
+									</td>
+								</tr>
+							</form>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="BoxFrameHorizontal" style="background-image:url({{ template_path }}/images/content/box-frame-horizontal.gif);"></div>
+		<div class="BoxFrameEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="BoxFrameEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+	</div>
+</div>
+<br/>
+<div style="text-align:center">
+	<table style="margin-left: auto; margin-right: auto;">
+		<tr>
+			<td>
+				<img src="{{ template_path }}/images/content/headline-bracer-left.gif" />
+			</td>
+			<td style="text-align:center;vertical-align:middle;horizontal-align:center;font-size:17px;font-weight:bold;" >{{ welcome_message }}<br/></td>
+			<td><img src="{{ template_path }}/images/content/headline-bracer-right.gif" /></td>
+		</tr>
+	</table>
+	<br/>
+</div>
+{# if account dont have recovery key show hint #}
+{% if recovery_key is empty %}
+<div class="SmallBox">
+	<div class="MessageContainer">
+		<div class="BoxFrameHorizontal" style="background-image:url({{ template_path }}/images/content/box-frame-horizontal.gif);"></div>
+		<div class="BoxFrameEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="BoxFrameEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="Message">
+			<div class="BoxFrameVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></div>
+			<div class="BoxFrameVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></div>
+			<table>
+				<tr>
+					<td class="LabelV" >Hint:</td>
+					<td style="width:100%;" >You can register your account for increased protection. Click on "Register Account" and get your free recovery key today!</td>
+				</tr>
+			</table>
+			<div style="text-align:center">
+				<table border="0" cellspacing="0" cellpadding="0" style="margin-left: auto; margin-right: auto;">
+					<form action="{{ getLink('account/register') }}" method="post">
+						<tr>
+							<td style="border:0;">
+								{{ include('buttons.register_account.html.twig') }}
+							</td>
+						</tr>
+					</form>
+				</table>
+			</div>
+		</div>
+		<div class="BoxFrameHorizontal" style="background-image:url({{ template_path }}/images/content/box-frame-horizontal.gif);"></div>
+		<div class="BoxFrameEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="BoxFrameEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+	</div>
+</div>
+<br/>
+{% endif %}
+
+{% if email_request %}
+<div class="SmallBox">
+	<div class="MessageContainer">
+		<div class="BoxFrameHorizontal" style="background-image:url({{ template_path }}/images/content/box-frame-horizontal.gif);"></div>
+		<div class="BoxFrameEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="BoxFrameEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="Message">
+			<div class="BoxFrameVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></div>
+			<div class="BoxFrameVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></div>
+			<table>
+				<tr>
+					<td class="LabelV" >Note:</td>
+					<td style="width:100%;" >A request has been submitted to change the email address of this account to <b>{{ email_new }}</b>. After <b>{{ email_new_time|date("j F Y, G:i:s") }}</b> you can accept the new email address and finish the process. Please cancel the request if you do not want your email address to be changed! Also cancel the request if you have no access to the new email address!</td>
+				</tr>
+			</table>
+			<div style="text-align:center">
+				<table border="0" cellspacing="0" cellpadding="0">
+					<form action="{{ getLink('account/email') }}" method="post">
+						<tr>
+							<td style="border:0px;">
+								{{ include('buttons.edit.html.twig') }}
+							</td>
+						</tr>
+					</form>
+				</table>
+			</div>
+		</div>
+		<div class="BoxFrameHorizontal" style="background-image:url({{ template_path }}/images/content/box-frame-horizontal.gif);"></div>
+		<div class="BoxFrameEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+		<div class="BoxFrameEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></div>
+	</div>
+</div>
+<br/><br/>
+{% endif %}
+<a name="General+Information" ></a>
+<div class="TopButtonContainer">
+	<div class="TopButton">
+		<a href="#top">
+			<img style="border:0px;" src="{{ template_path }}/images/content/back-to-top.gif" />
+		</a>
+	</div>
+</div>
+<div class="TableContainer">
+	<table class="Table3" cellpadding="0" cellspacing="0">
+		<div class="CaptionContainer">
+			<div class="CaptionInnerContainer">
+				<span class="CaptionEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionBorderTop" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<div class="Text" >General Information</div>
+				<span class="CaptionVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<span class="CaptionBorderBottom" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+			</div>
+		</div>
+		<tr>
+			<td>
+				<div class="InnerTableContainer">
+					<table style="width:100%;" >
+						<tr>
+							<td>
+								<div class="TableShadowContainerRightTop">
+									<div class="TableShadowRightTop" style="background-image:url({{ template_path }}/images/content/table-shadow-rt.gif);"></div>
+								</div>
+								<div class="TableContentAndRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-rm.gif);">
+									<div class="TableContentContainer">
+										<table class="TableContent" width="100%">
+											<tr style="background-color: {{ config.lightborder }};" >
+												<td class="LabelV" >Account {% if constant('USE_ACCOUNT_NAME') %}Name{% else %}Number{% endif %}:</td>
+												<td style="width:90%;" >{{ account }}</td>
+											</tr>
+											<tr style="background-color: {{ config.darkborder }};" >
+												<td class="LabelV" >Email Address:</td>
+												<td style="width:90%;" >{{ account_email ~ email_change}}</td>
+											</tr>
+											<tr style="background-color: {{ config.lightborder }};" >
+												<td class="LabelV" >Created:</td>
+												<td>{{ account_created|date("j F Y, G:i:s") }}</td>
+											</tr>
+											<tr style="background-color: {{ config.darkborder }};" >
+												<td class="LabelV" >Last Login:</td>
+												<td>{{ "now"|date("j F Y, G:i:s") }}</td>
+											</tr>
+											{% autoescape false %}
+											<tr style="background-color: {{ config.lightborder }};" >
+												<td class="LabelV" >Account Status:</td>
+												<td>{{ account_status }}</td>
+											</tr>
+											<tr style="background-color: {{ config.darkborder }};" >
+												<td class="LabelV" >Registered:</td>
+												<td>{{ account_registered }}</td>
+											</tr>
+											{% endautoescape %}
+										</table>
+									</div>
+								</div>
+								<div class="TableShadowContainer">
+									<div class="TableBottomShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bm.gif);" >
+										<div class="TableBottomLeftShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bl.gif);"></div>
+										<div class="TableBottomRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-br.gif);"></div>  									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table class="InnerTableButtonRow" cellpadding="0" cellspacing="0">
+									<tr>
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0">
+												<form action="{{ getLink('account/password') }}" method="post">
+													<tr>
+														<td style="border:0px;" >
+															{{ include('buttons.change_password.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0">
+												<form action="{{ getLink('account/email') }}" method="post">
+													<tr>
+														<td style="border:0px;">
+															<input type="hidden" name="newemail" value=""/>
+															<input type="hidden" name="newemaildate" value="0">
+															{{ include('buttons.change_email.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+										<td width="100%"></td>
+										{# show button "register account" #}
+										{% if recovery_key is empty %}
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0">
+												<form action="{{ getLink('account/register') }}" method="post">
+													<tr>
+														<td style="border:0px;">
+															{{ include('buttons.register_account.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+										{% endif %}
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<br/>
+<a name="Public+Information"></a>
+<div class="TopButtonContainer">
+	<div class="TopButton">
+		<a href="#top">
+			<img style="border:0px;" src="{{ template_path }}/images/content/back-to-top.gif"/>
+		</a>
+	</div>
+</div>
+<div class="TableContainer">
+	<table class="Table5" cellpadding="0" cellspacing="0">
+		<div class="CaptionContainer">
+			<div class="CaptionInnerContainer">
+				<span class="CaptionEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionBorderTop" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<div class="Text" >Public Information</div>
+				<span class="CaptionVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<span class="CaptionBorderBottom" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+			</div>
+		</div>
+		<tr>
+			<td>
+				<div class="InnerTableContainer">
+					<table style="width:100%;">
+						<tr>
+							<td>
+								<div class="TableShadowContainerRightTop">
+									<div class="TableShadowRightTop" style="background-image:url({{ template_path }}/images/content/table-shadow-rt.gif);" ></div>
+								</div>
+								<div class="TableContentAndRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-rm.gif);" >
+									<div class="TableContentContainer">
+										<table class="TableContent" width="100%">
+											<tr>
+												<td>
+													<table style="width:100%;">
+														<tr>
+															<td class="LabelV" >Real Name:</td>
+															<td style="width:90%;" >{{ account_rlname }}</td>
+														</tr>
+														<tr>
+															<td class="LabelV" >Location:</td>
+															<td style="width:90%;" >{{ account_location }}</td>
+														</tr>
+													</table>
+												</td>
+												<td align=right>
+													<table border="0" cellspacing="0" cellpadding="0">
+														<form action="{{ getLink('account/info') }}" method="post">
+															<tr>
+																<td style="border:0px;">
+																	{{ include('buttons.edit.html.twig') }}
+																</td>
+															</tr>
+														</form>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="TableShadowContainer">
+									<div class="TableBottomShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bm.gif);">
+										<div class="TableBottomLeftShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bl.gif);"></div>
+										<div class="TableBottomRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-br.gif);"></div>  									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<br/>
+<a name="Account+Logs" ></a>
+<div class="TopButtonContainer">
+	<div class="TopButton">
+		<a href="#top">
+			<img style="border:0px;" src="{{ template_path }}/images/content/back-to-top.gif"/>
+		</a>
+	</div>
+</div>
+<div class="TableContainer">
+	<table class="Table5" cellpadding="0" cellspacing="0">
+		<div class="CaptionContainer">
+			<div class="CaptionInnerContainer">
+				<span class="CaptionEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionBorderTop" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<div class="Text" >Account logs</div>
+				<span class="CaptionVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<span class="CaptionBorderBottom" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+			</div>
+		</div>
+		<tr>
+			<td>
+				<div class="InnerTableContainer">
+					<table style="width:100%;">
+						<tr>
+							<td>
+								<div class="TableShadowContainerRightTop">
+									<div class="TableShadowRightTop" style="background-image:url({{ template_path }}/images/content/table-shadow-rt.gif);"></div>
+								</div>
+								<div class="TableContentAndRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-rm.gif);" >
+									<div class="TableContentContainer" >
+										<table class="TableContent" width="100%">
+											<tr class="LabelH">
+												<td style="width:60%">Action</td>
+												<td style="width:25%">Date</td>
+												<td style="width:15%">IP</td>
+											</tr>
+											{% autoescape false %}
+											{% set i = 0 %}
+											{% for action in actions %}
+												{% set i = i + 1 %}
+											<tr style="background-color: {{ getStyle(i) }}">
+												<td>{{ action.action }}</td>
+												<td>{{ action.date|date("jS F Y H:i:s") }}</td>
+												<td>{{ action.ip }}</td>
+											</tr>
+											{% endfor %}
+											{% endautoescape %}
+										</table>
+									</div>
+								</div>
+								<div class="TableShadowContainer" >
+									<div class="TableBottomShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bm.gif);" >
+										<div class="TableBottomLeftShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bl.gif);"></div>
+										<div class="TableBottomRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-br.gif);"></div>
+									</div>
+								</div>
+							</td>
+							<td align=right>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<br/>
+<a name="Characters" ></a>
+<div class="TopButtonContainer">
+	<div class="TopButton" >
+		<a href="#top">
+			<img style="border:0px;" src="{{ template_path }}/images/content/back-to-top.gif" />
+		</a>
+	</div>
+</div>
+<div class="TableContainer">
+	<table class="Table5" cellpadding="0" cellspacing="0">
+		<div class="CaptionContainer" >
+			<div class="CaptionInnerContainer">
+				<span class="CaptionEdgeLeftTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightTop" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionBorderTop" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionVerticalLeft" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<div class="Text">Characters</div>
+				<span class="CaptionVerticalRight" style="background-image:url({{ template_path }}/images/content/box-frame-vertical.gif);"></span>
+				<span class="CaptionBorderBottom" style="background-image:url({{ template_path }}/images/content/table-headline-border.gif);"></span>
+				<span class="CaptionEdgeLeftBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+				<span class="CaptionEdgeRightBottom" style="background-image:url({{ template_path }}/images/content/box-frame-edge.gif);"></span>
+			</div>
+		</div>
+		<tr>
+			<td>
+				<div class="InnerTableContainer">
+					<table style="width:100%;">
+						<tr>
+							<td>
+								<div class="TableShadowContainerRightTop">
+									<div class="TableShadowRightTop" style="background-image:url({{ template_path }}/images/content/table-shadow-rt.gif);"></div>
+								</div>
+								<div class="TableContentAndRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-rm.gif);">
+									<div class="TableContentContainer">
+										<table class="TableContent" width="100%">
+											<tr class="LabelH">
+												<td style="width:65%">Name</td>
+												<td style="width:15%">Level</td>
+												<td style="width:7%">Status</td>
+												<td style="width:5%">&#160;</td>
+											</tr>
+											{% set i = 0 %}
+											{% for player in players %}
+												{% set i = i + 1 %}
+											<tr style="background-color: {{ getStyle(i) }};">
+												<td>
+													<nobr>{{ i }}. {{ player.getName() }}{% if player.isDeleted() %}<span style="color: red"><b> [ DELETED ] </b></span>{% endif %}</nobr>
+												</td>
+												<td>
+													<nobr>{{ player.getLevel() }} {{ config.vocations[player.getVocation()] }}</nobr>
+												</td>
+												{% if player.isOnline() %}
+												<td><span style="color: green"><b>Online</b></span></td>
+												{% else %}
+												<td><span style="color: red"><b>Offline</b></span></td>
+												{% endif %}
+												<td>[<a href="{{ getLink('account/character/comment/' ~ player.getName|urlencode) }}" >Edit</a>]</td>
+											</tr>
+											{% endfor %}
+										</table>
+									</div>
+								</div>
+								<div class="TableShadowContainer">
+									<div class="TableBottomShadow" style="background-image:url('.$template_path.'/images/content/table-shadow-bm.gif);" >
+										<div class="TableBottomLeftShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-bl.gif);"></div>
+										<div class="TableBottomRightShadow" style="background-image:url({{ template_path }}/images/content/table-shadow-br.gif);"></div>  									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table class="InnerTableButtonRow" cellpadding="0" cellspacing="0" >
+									<tr>
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0" >
+												<form action="{{ getLink('account/character/create') }}" method="post" >
+													<tr>
+														<td style="border:0px;" >
+															{{ include('buttons.create_character.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+										{% if config.account_change_character_name %}
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0" >
+												<form action="{{ getLink('account/character/name') }}" method="post" >
+													<tr>
+														<td style="border:0px;" >
+															{{ include('buttons.change_name.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+										{% endif %}
+										{% if config.account_change_character_sex %}
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0" >
+												<form action="{{ getLink('account/character/sex') }}" method="post" >
+													<tr>
+														<td style="border:0px;" >
+															{{ include('buttons.change_sex.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+										{% endif %}
+										<td style="width:100%;" ></td>
+										<td>
+											<table border="0" cellspacing="0" cellpadding="0">
+												<form action="{{ getLink('account/character/delete') }}" method="post">
+													<tr>
+														<td style="border:0px;">
+															{{ include('buttons.delete_character.html.twig') }}
+														</td>
+													</tr>
+												</form>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<br/><br/>

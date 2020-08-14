@@ -1,0 +1,17 @@
+<h2>{{ title }}</h2><br/>
+{{ description|raw }}
+{% if custom_buttons is defined %}
+{{ custom_buttons|raw }}
+{% else %}
+<div style="text-align: center; margin: 0 auto;">
+	<table border="0" cellspacing="0" cellpadding="0">
+		<form action="{{ getLink('account/manage') }}" method="post">
+			<tr>
+				<td style="border:0px; text-align: center;">
+					<input type="submit" name="Back" value="Back"/>
+				</td>
+			</tr>
+		</form>
+	</table>
+</div>
+{% endif %}

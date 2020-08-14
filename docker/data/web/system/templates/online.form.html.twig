@@ -1,0 +1,25 @@
+<br/>
+<form action="{{ getLink('characters') }}" method=post>
+	<table width="100%" border="0" cellspacing="1" cellpadding="4">
+		<tr>
+			<td bgcolor="{{ config.vdarkborder }}" class="white">
+				<b>Search Character</b>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="{{ config.darkborder }}">
+				<table border="0" cellpadding="1">
+					<tr>
+						<td>Name:</td>
+						<td>
+							<input name="name" value=""size=29 maxlength=29>
+						</td>
+						<td>
+							{{ include('buttons.submit.html.twig') }}
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>

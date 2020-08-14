@@ -1,0 +1,19 @@
+
+language: php
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+  - 7.4
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - composer require jakub-onderka/php-parallel-lint --no-suggest --no-progress --no-interaction --no-ansi --quiet --optimize-autoloader
+
+script:
+  - php vendor/bin/parallel-lint --no-progress --no-colors --exclude vendor . 

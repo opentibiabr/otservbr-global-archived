@@ -1,0 +1,12 @@
+<div style="text-align:center"><h2>Change guild description</h2></div>
+Here you can change description of your guild.<br/>
+<form enctype="multipart/form-data" action="?subtopic=guilds&guild={{ guild.getName() }}&action=change_description" method="post">
+	<input type="hidden" name="todo" value="save"/>
+	<textarea name="description" cols="60" rows="{{ rows }}">{{ guild.getCustomField('description')|raw }}</textarea><br>
+	(max. {{ config.guild_description_lines_limit }} lines, max. {{ config.guild_description_chars_limit }} chars) <input type="submit" value="Save description"/></form><br/>
+<br/>
+<div style="text-align:center">
+	<form action="?subtopic=guilds&guild={{ guild.getName() }}&action=manager" method="post">
+		{{ include('buttons.back.html.twig') }}
+	</form>
+</div>

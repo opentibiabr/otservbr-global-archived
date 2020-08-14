@@ -1,0 +1,63 @@
+<b>Boards</b>
+<table width="100%">
+	<tr bgcolor="{{ config.vdarkborder }}">
+		<td>
+			<span style="color: white; font-size: 10px"><b>Board</b></span>
+		</td>
+		<td>
+			<span style="color: white; font-size: 10px"><b>Posts</b></span>
+		</td>
+		<td>
+			<span style="color: white; font-size: 10px"><b>Threads</b></span>
+		</td>
+		<td align="center">
+			<span style="color: white; font-size: 10px"><b>Last Post</b></span>
+		</td>
+		{% if canEdit %}
+			<td>
+				<span style="color: white; font-size: 10px"><b>Options</b></span>
+			</td>
+		{% endif %}
+	</tr>
+	{% set i = 0 %}
+	{% for board in boards %}
+	{% set i = i + 1 %}
+	<tr bgcolor="{{ getStyle(i) }}">
+		<td>
+			<a href="{{ board.link }}">{{ board.name }}</a><br /><small>{{ board.description }}</small>
+		</td>
+		<td>{{ board.posts }}</td>
+		<td>{{ board.threads }}</td>
+		<td>
+		{% if board.last_post.name is not null %}
+		{{ board.last_post.date|date("d.m.y H:i:s") }}<br/>by {{ board.last_post.player_link|raw }}
+		{% else %}
+		No posts
+		{% endif %}
+		</td>
+		{% if canEdit %}
+			<td>
+				<a href="?subtopic=forum&action=edit_board&id={{ board.id }}" title="Edit">
+					<img src="images/edit.png"/>Edit
+				</a>
+				<a id="delete" href="?subtopic=forum&action=delete_board&id={{ board.id }}" onclick="return confirm('Are you sure?');" title="Delete">
+					<img src="images/del.png"/>Delete
+				</a>
+				<a href="?subtopic=forum&action=hide_board&id={{ board.id }}" title="{% if board.hidden != 1 %}Hide{% else %}Show{% endif %}">
+					<img src="images/{% if board.hidden != 1 %}success{% else %}error{% endif %}.png"/>{% if board.hidden != 1 %}Hide{% else %}Show{% endif %}
+				</a>
+				{% if i != 1 %}
+					<a href="?subtopic=forum&action=moveup_board&id={{ board.id }}" title="Move up">
+						<img src="images/icons/arrow_up.gif"/>Move up
+					</a>
+				{% endif %}
+				{% if i != last %}
+					<a href="?subtopic=forum&action=movedown_board&id={{ board.id }}" title="Move down">
+						<img src="images/icons/arrow_down.gif"/>Move down
+					</a>
+				{% endif %}
+			</td>
+		{% endif %}
+	</tr>
+	{% endfor %}
+</table>

@@ -1,0 +1,102 @@
+<div style="text-align:center">
+    <h1>{{ config.lua.serverName }}</h1>
+    <h3>
+        {%  if experienceStages %}
+        Experience stages: {{ experienceStages }}<br>
+        {%  endif %}
+        Commands: <a href="{{ getLink('commands') }}">Look here</a><br>
+        Team: <a href="{{ getLink('team') }}">Look here</a><br>
+    </h3>
+</div>
+
+<ul>
+    <h2>Server Info:</h2>
+    <li>IP: <b>{{ serverIp }}</b> (Port: <b>{{ config.lua.loginPort }}</b>)</li>
+    {%  if clientVersion %}
+    <li>Client: <b>{{ clientVersion }}</b></li>
+    {%  endif %}
+    <li>Online: <b>24/7</b></li>
+    {%  if globalSaveHour %}
+    <li>Global save: <b>{{ globalSaveHour }}:00</b></li>
+    {%  endif %}
+    <li>World type: <b>{{ config.lua.worldType|upper }} <i>(Protection level: {{ protectionLevel }})</i></b></li>
+    <li>House rent: {{ houseRent }}.</li><br>
+    {%  if houseOld %}
+    <li>Houses with inactive owners are cleaned after 30 days.</li>
+    {%  endif %}
+
+    <h2>Rates</h2>
+    {%  if rateExp is defined %}
+    <li>Exp Rate: <b>x{{ rateExp }}</b></li>
+    {%  endif %}
+    {%  if rateExpFromPlayers %}
+        <li>Exp Rate from Players: <b>x{{ rateExpFromPlayers }}</b></li>
+    {%  endif %}
+    {%  if rateMagic is defined %}
+    <li>Magic Level: <b>x{{ rateMagic }}</b></li>
+    {%  endif %}
+    {%  if rateSkill is defined %}
+    <li>Skills: <b>x{{ rateSkill }}</b></li>
+    {% endif %}
+    {%  if rateLoot is defined %}
+    <li>Loot: <b>x{{ rateLoot }}</b></li>
+    {%  endif %}
+    {%  if rateSpawn is defined %}
+    <li>Spawn: <b>x{{ rateSpawn }}</b></li>
+    {%  endif %}
+    {%  if houseLevel %}
+    <li>Houses: <b>{{ houseLevel }} level</b></li>
+    {%  endif %}
+    <li>Guilds: <b>{{ config.guild_need_level }} level</b> (Create via website)</li>
+    <br>
+
+    <h2>Frags & Skull system</h2>
+    <li>PZ Lock: <b>{{ pzLocked / (60 * 1000) }} min</b></li>
+    {%  if whiteSkullTime %}
+    <li>White Skull Time: <b>{{ whiteSkullTime }} min</b></li>
+    {%  endif %}
+    <li>Red skull length: <b>{{ redSkullLength / (24 * 60 * 60) }} days</b></li>
+    {% if blackSkull %}
+    <li>Black skull length: <b>{{ blackSkullLength / (24 * 60 * 60) }} days</b></li>
+    {%  endif %}
+	{% if killsToRedSkull is defined %}
+    <li>Kills to red skull: <b>{{ config.lua.killsToRedSkull }}</b></li>
+    {%  elseif config.lua.dailyFragsToRedSkull is defined or config.lua.kills_per_day_red_skull is defined %}
+    <li>
+        <h3>Red skull</h3>
+        <ul>
+            <li>{{ dailyFragsToRedSkull }} frags daily</li>
+            <li>{{ weeklyFragsToRedSkull }} frags weekly</li>
+            <li>{{ monthlyFragsToRedSkull }} frags monthly</li>
+        </ul>
+        {% if blackSkull and config.lua.dailyFragsToBlackSkull is defined or config.lua.kills_per_day_black_skull is defined %}
+        <h3>Black skull</h3>
+        <ul>
+            <li>{{ dailyFragsToBlackSkull }} frags daily</li>
+            <li>{{ weeklyFragsToBlackSkull }} frags weekly</li>
+            <li>{{ monthlyFragsToBlackSkull }} frags monthly</li>
+        </ul>
+        {% elseif config.lua.dailyFragsToBanishment is defined %}
+        <h3>Banishment</h3>
+        <ul>
+            <li>{{ config.lua.dailyFragsToBanishment }} frags daily</li>
+            <li>{{ config.lua.weeklyFragsToBanishment }} frags weekly</li>
+            <li>{{ config.lua.monthlyFragsToBanishment }} frags monthly</li>
+        </ul>
+        {% endif %}
+    </li>
+    {% endif %}
+    {% if banishmentLength %}
+    <li>Banishment length: <b>{{ banishmentLength }} days</b></li>
+    {% endif %}
+	{% if finalBanishmentLength %}
+    <li>Final banishment length: <b>{{ finalBanishmentLength }} days</b></li>
+    {% endif %}
+	{% if ipBanishmentLength %}
+    <li>IP banishment length: <b>{{ ipBanishmentLength }} days</b></li>
+    {% endif %}
+    <br>
+    <h2>Other</h2>
+    <li>Respect our <a href="{{ getLink('rules') }}">rules</a>.</li>
+    <li>Please report rule violations (Botters, players breaking rules etc) with <b>CTRL + R</b>.</li>
+</ul>

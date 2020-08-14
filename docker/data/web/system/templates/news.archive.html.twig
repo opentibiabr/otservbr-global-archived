@@ -1,0 +1,21 @@
+<table border="0" cellspacing="1" cellpadding="4" width="100%">
+	<tr bgcolor="{{ config.vdarkborder }}">
+		<td colspan="3" class="white"><b>News archive</b></td>
+	</tr>
+
+	{% set i = 0 %}
+	{% for news in newses %}
+	{% set i = i + 1 %}
+	<tr bgcolor="{{ getStyle(i) }}">
+		<td width=4%>
+			<div style="text-align:center">
+				<img src="{{ template_path }}/images/news/icon_{{ news.icon_id }}_small.gif"/>
+			</div>
+		</td>
+		<td>{{ news.date|date('j.n.Y') }}</td>
+		<td>
+			<b><a href="{{ news.link }}">{{ news.title }}</a></b>
+		</td>
+	</tr>
+	{% endfor %}
+</table>

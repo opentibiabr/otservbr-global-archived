@@ -1,0 +1,41 @@
+.error, .success, .note, .warning {
+	font-weight: bold;
+	font-size: 11px;
+	padding: 4px 10px 4px 24px;
+	background-repeat: no-repeat;
+	background-position: 5px 6px;
+	border-style: solid;
+	border-width: 1px;
+}
+.error {
+	background-color: #FDD9D9;
+	border-color: #FBA3A3;
+	color: #D80303;
+}
+.error-image {
+	background-image: url(images/error.gif);
+}
+.success {
+	background-color: #E4FCD9;
+	border-color: #BFFDA3;
+	color: #35A502;
+}
+.success-image {
+	background-image: url(images/success.gif);
+}
+.note {
+	background-color: #DDEAFA;
+	border-color: #A3D8FD;
+	color: #026DA5;
+}
+.note-image {
+	background-image: url(images/note.gif);
+}
+.warning {
+	background-color: #FBF0B3;
+	border-color: #FBBB95;
+	color: #FD6002;
+}
+.warning-image {
+	background-image: url(images/warning.gif);
+}

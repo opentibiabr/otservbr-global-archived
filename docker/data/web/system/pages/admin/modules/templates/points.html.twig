@@ -1,0 +1,29 @@
+{% if points is iterable %}
+	<div class="col-md-3">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Top 10 - Most premium points</h3>
+			</div>
+			<div class="box-body no-padding">
+				<table class="table table-condensed">
+					<tbody>
+					<tr>
+						<th>#</th>
+						<th>Account {{ account_type }}</th>
+						<th>Premium points</th>
+					</tr>
+					{% set i = 0 %}
+					{% for result in points %}
+						{% set i = i + 1 %}
+						<tr>
+							<td>{{ i }}</td>
+							<td>{{ result.name }}</td>
+							<td>{{ result.premium_points }}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endif %}

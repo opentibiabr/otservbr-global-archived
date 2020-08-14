@@ -1,0 +1,32 @@
+var list = new Array();
+{% set i = 0 %}
+{% for cat in categories %}
+	{% if cat.id != 'shops' or config.gifts_system %}
+	list[{{ i }}] = '{{ cat.id }}';
+	{% endif %}
+{% set i = i + 1 %}
+{% endfor %}
+
+function initMenu()
+{
+	var length = list.length;
+	for(i = 0; i < length; i++)
+	{
+		if(list[i] == category)
+		{
+			document.getElementById(list[i]).className = 'tab-active';
+			document.getElementById(list[i] + "-submenu").style.display = 'block';
+		}
+		else
+		{
+			document.getElementById(list[i]).className = 'tab';
+			document.getElementById(list[i] + "-submenu").style.display = 'none';
+		}
+	}
+}
+
+function menuSwitch(cat)
+{
+	category = cat;
+	initMenu();
+}

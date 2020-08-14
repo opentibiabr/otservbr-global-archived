@@ -1,0 +1,16 @@
+<div style="text-align:center"><h2>Change guild MOTD</h2></div>
+Here you can change MOTD (Message of the Day, showed in game!) of your guild.<br/>
+<form enctype="multipart/form-data" action="?subtopic=guilds&guild={{ guild.getName() }}&action=change_motd" method="post">
+	<input type="hidden" name="todo" value="save"/>
+	<textarea name="motd" cols="60" rows="3">{{ guild.getCustomField('motd')|raw }}</textarea><br/>
+	(max. {{ config.guild_motd_chars_limit }} chars) <input type="submit" value="Save MOTD" /></form><br/>
+<br/>
+{% spaceless %}
+<div style="text-align:center">
+	<form action="?subtopic=guilds&guild={{ guild.getName() }}&action=manager" method="post">
+		<div class="BigButton" style="background-image:url({{ template_path }}/images/global/buttons/sbutton.gif)">
+			{{ include('buttons.back.html.twig') }}
+		</div>
+	</form>
+</div>
+{% endspaceless %}
