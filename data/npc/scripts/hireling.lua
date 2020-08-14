@@ -838,13 +838,16 @@ local function onBuy(cid, item, charges, amount, ignoreCap, inBackpacks)
 	end
 	if not player:removeMoneyNpc(items[item].buyPrice * amount) then
 		selfSay("You don't have enough money.", cid)
-	elseif itemType:isStackable()then
+	elseif itemType:isStackable() then
+		print("1")
 		player:addItem(itemType:getId(), amount)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
-	elseif itemType:getCharges() then
-		player:addItem(itemType:getId(), charges)
+	elseif itemType:getCharges() >= 1 then
+		print("2")
+		player:addItem(itemType:getId(), amount, true, charges)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	else
+		print("3")
 		player:addItem(itemType:getId(), amount)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	end
