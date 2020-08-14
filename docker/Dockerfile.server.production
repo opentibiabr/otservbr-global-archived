@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libpugixml-dev \
   unzip
 
-RUN cd /otserver && git reset --hard && git pull
+CMD cd /otserver && git reset --hard && git pull
 
 WORKDIR /opt/otserver
 
