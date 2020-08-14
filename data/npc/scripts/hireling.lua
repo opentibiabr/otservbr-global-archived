@@ -820,12 +820,12 @@ local function setNewTradeTable(table)
 	local items, item = {}
 	for i = 1, #table do
 		item = table[i]
-		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, charges = item.charges, realName = item.name}
+		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = item.subType, realName = item.name}
 	end
 	return items
 end
 
-local function onBuy(cid, item, charges, amount, ignoreCap, inBackpacks)
+local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	local player = Player(cid)
 	local creatureId = Creature(cid):getId()
 	local items = setNewTradeTable(getTable(creatureId))
@@ -838,17 +838,8 @@ local function onBuy(cid, item, charges, amount, ignoreCap, inBackpacks)
 	end
 	if not player:removeMoneyNpc(items[item].buyPrice * amount) then
 		selfSay("You don't have enough money.", cid)
-	elseif itemType:isStackable() then
-		print("1")
-		player:addItem(itemType:getId(), amount)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
-	elseif itemType:getCharges() >= 1 then
-		print("2")
-		player:addItem(itemType:getId(), amount, true, charges)
-		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	else
-		print("3")
-		player:addItem(itemType:getId(), amount)
+		player:addItem(itemType:getId(), amount, true, subType)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	end
 	return true
