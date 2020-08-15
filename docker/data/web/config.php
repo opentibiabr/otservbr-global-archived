@@ -144,11 +144,11 @@ $config = array(
 
 	// new character config
 	'character_samples' => array( // vocations, format: ID_of_vocation => 'Name of Character to copy'
-		//0 => 'Rook Sample',
-		1 => 'Sorcerer Sample',
-		2 => 'Druid Sample',
-		3 => 'Paladin Sample',
-		4 => 'Knight Sample'
+		0 => 'Rook Sample',
+		//1 => 'Sorcerer Sample',
+		//2 => 'Druid Sample',
+		//3 => 'Paladin Sample',
+		//4 => 'Knight Sample'
 	),
 	
 	// it must show limited number of players after using search in character page
