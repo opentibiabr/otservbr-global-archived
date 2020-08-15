@@ -26,7 +26,7 @@ RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sle
 
 COPY config.lua.dist ./
 
-RUN cp config.lua.dist config.lua \
+RUN cp config.lua.dev config.lua \
   && sed -i '/mysqlHost = .*$/c\mysqlHost = "otdb"' config.lua \
   && sed -i '/mysqlUser = .*$/c\mysqlUser = "otserver"' config.lua \
   && sed -i '/mysqlPass = .*$/c\mysqlPass = "otserver"' config.lua \
