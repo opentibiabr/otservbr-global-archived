@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libpugixml-dev \
   unzip
 
-WORKDIR /otserver
+WORKDIR /tmp/otserver
 
 COPY . .
 
@@ -33,4 +33,4 @@ COPY config.lua.dist ./
 RUN cp config.lua.dist config.lua \
   && unzip -o data/world/world.zip -d data/world/
 
-ENTRYPOINT /opt/otserver/otbr
+ENTRYPOINT cp /tmp/otserver/* /otserver && /opt/otserver/otbr
