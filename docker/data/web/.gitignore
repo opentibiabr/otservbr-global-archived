@@ -19,6 +19,9 @@ images/guilds/*
 # items images
 images/items/*
 
+# outfit images
+images/outfit-images/*
+
 # cache
 system/cache/*
 !system/cache/index.html
