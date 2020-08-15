@@ -14,9 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libpugixml-dev \
   unzip
 
-WORKDIR /tmp/otserver
+# WORKDIR /tmp/otserver
 
-COPY . .
+# COPY . .
 
 WORKDIR /opt/otserver
 
@@ -33,4 +33,5 @@ COPY config.lua.dist ./
 RUN cp config.lua.dist config.lua \
   && unzip -o data/world/world.zip -d data/world/
 
-ENTRYPOINT cp -r /tmp/otserver/* /otserver && /opt/otserver/otbr
+# ENTRYPOINT cp -r /tmp/otserver/* /otserver && /opt/otserver/otbr
+ENTRYPOINT git add . && git commit -am 'CapRover Entrypoint Commit' && git push && git pull && /opt/otserver/otbr

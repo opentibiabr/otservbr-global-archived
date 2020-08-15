@@ -24,7 +24,7 @@ COPY key.pem CMakeLists.txt ./
 # RUN rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug -DDEBUG_LOG=ON .. && make -j`nproc` && cp otbr /opt/otserver
 RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sleep 5 && cp otbr /opt/otserver
 
-COPY config.lua.dist ./
+COPY config.lua.dev ./
 
 RUN cp config.lua.dev config.lua \
   && sed -i '/mysqlHost = .*$/c\mysqlHost = "otdb"' config.lua \

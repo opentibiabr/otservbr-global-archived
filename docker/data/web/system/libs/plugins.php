@@ -268,8 +268,9 @@ class Plugins {
 			}
 
 			if($continue) {
+
 				if(!$zip->extractTo(BASE)) { // "Real" Install
-					self::$error = 'There was a problem with extracting zip archive to base directory.';
+					self::$error = 'There was a problem with extracting zip archive to base directory. - ' . BASE;
 					$zip->close();
 					return false;
 				}
