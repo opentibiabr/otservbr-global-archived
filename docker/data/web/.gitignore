@@ -16,6 +16,9 @@ templates/*
 images/guilds/*
 !images/guilds/default.gif
 
+# items images
+images/items/*
+
 # cache
 system/cache/*
 !system/cache/index.html
