@@ -11,23 +11,26 @@
  */
 
 $config['pagSeguro'] = array(
-	'email' => 'john@doe.com',
+	'email' => 'bruno@midukan.com.br',
 	'environment' => 'production', // production, sandbox
 	'token' => array(
 		'production' => 'yourtokenhere',
 		'sandbox' => 'yourtokenhere',
 	),
 	'urlRedirect' => '?subtopic=points&action=final', // default should be good
-	'productName' => 'Premium Points', // or Coins
+	'productName' => 'Endless Coins', // or Coins
 	'productValue' => 1.00,
-	'doublePoints' => false, // should points be doubled? for example: for 5 points donated you become 10.
-	'donationType' => 'points', // what should be added to player account? points/coins
+	'doublePoints' => date('yyyymmdd') <= 20200820 ? true : false , // should points be doubled? for example: for 5 points donated you become 10.
+	'donationType' => 'coins', // what should be added to player account? points/coins
 	'options' => array( // cost => points/coins
 		'5,00' => 5,
-		'10,00' => 10,
-		'20,00' => 20,
-		'40,00' => 40,
-		'60,00' => 60,
+		'10,00' => 12,
+		'20,00' => 28,
+		'40,00' => 64,
+		'60,00' => 102,
+		'100,00' => 200,
+		'200,00' => 450,
+		'500,00' => 1300,
 	)
 );
 ?>
