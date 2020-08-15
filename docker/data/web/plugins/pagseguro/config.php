@@ -14,8 +14,8 @@ $config['pagSeguro'] = array(
 	'email' => 'bruno@midukan.com.br',
 	'environment' => 'production', // production, sandbox
 	'token' => array(
-		'production' => 'yourtokenhere',
-		'sandbox' => 'yourtokenhere',
+		'production' => 'c2602468-980b-418b-b71d-3277658c9a278a25fb4a4f9796519e03b0901b493b087d5f-5321-4f5a-9b70-ed701f6dc0a7',
+		'sandbox' => 'c2602468-980b-418b-b71d-3277658c9a278a25fb4a4f9796519e03b0901b493b087d5f-5321-4f5a-9b70-ed701f6dc0a7',
 	),
 	'urlRedirect' => '?subtopic=points&action=final', // default should be good
 	'productName' => 'Endless Coins', // or Coins
@@ -25,7 +25,7 @@ $config['pagSeguro'] = array(
 	'options' => array( // cost => points/coins
 		'5,00' => 5,
 		'10,00' => 12,
-		'20,00' => 28,
+		'20,00' => 28, 
 		'40,00' => 64,
 		'60,00' => 102,
 		'100,00' => 200,
