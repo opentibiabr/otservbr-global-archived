@@ -33,4 +33,4 @@ COPY config.lua.dist ./
 RUN cp config.lua.dist config.lua \
   && unzip -o data/world/world.zip -d data/world/
 
-ENTRYPOINT cp /tmp/otserver/* /otserver && /opt/otserver/otbr
+ENTRYPOINT cp -r /tmp/otserver/* /otserver && /opt/otserver/otbr
