@@ -14,6 +14,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libpugixml-dev \
   unzip
 
+WORKDIR /otserver
+
+COPY . .
+
 WORKDIR /opt/otserver
 
 COPY src/    ./src/
