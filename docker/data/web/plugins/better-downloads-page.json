@@ -1,0 +1,10 @@
+{
+	"name": "better-downloads-page",
+	"description": "Downloads page looking more Tibish for MyAAC.",
+	"version": "1.0",
+	"author": "slawkens",
+	"contact": "slawkens@gmail.com",
+	"require": {
+		"myaac": "0.5.0"
+	}
+ }

@@ -32,12 +32,12 @@ system/data/*
 !system/data/index.html
 
 # plugins
-plugins/*
-!plugins/.htaccess
-!plugins/example.json
-!plugins/account-create-hint.json
-!plugins/account-create-hint
+#plugins/*
+#!plugins/.htaccess
+#!plugins/example.json
+#!plugins/account-create-hint.json
+#!plugins/account-create-hint
 landing
 
 # others/rest
-system/pages/downloads.php
+# system/pages/downloads.php
