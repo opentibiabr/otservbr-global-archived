@@ -3,7 +3,7 @@ local position = Position(33395, 32666, 5)
 local cobraEmptyFlask = GlobalEvent("Cobraflask")
 
 function cobraEmptyFlask.onThink(interval)
-local flask = Tile(positions):getItemById(36132)
+local flask = Tile(position):getItemById(36132)
 if not(flask) then
 	Game.createItem(36132, 1, position)
 end
