@@ -1,0 +1,299 @@
+* {
+	margin: 0; padding: 0;
+}
+body {
+	text-align: center;
+	font: 12px Verdana;
+	color: #000000;
+	background-color: #000000;
+}
+img {
+	border: 0;
+}
+
+.break {
+	font-size: 0;
+	width: 0; height: 0;
+	clear: both;
+}
+.alignleft {
+	float: left;
+	margin: 4px 10px 5px 0;
+}
+.alignright {
+	float: right;
+	margin: 4px 0 5px 10px;
+}
+.aligncenter {
+	text-align: center;
+}
+
+/** BEGIN wrapper **/
+#wrapper {
+	background: #ffffff url(images/background.jpg) repeat-x 0 0;
+	width: 980px;
+}
+
+#header {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 15px;
+}
+
+#footer {
+	padding-top: 15px;
+	border-top: 1px solid #eee;
+	margin-top: 10px;
+	text-align: right;
+	color: #555;
+}
+
+#header h1 {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+#header span {
+	font-size: 25px;
+	color: #000;
+	font-weight: bold;
+	padding-left: 40px;
+	line-height: 80px;
+}
+
+#version {
+	float: right;
+	color: #000;
+	font-size: 17px;
+	padding-top: 25px;
+	padding-right: 5px;
+}
+
+/** BEGIN body **/
+#body {
+	background: url(images/wrapper.gif) repeat-y 0 0;
+}
+/** END body **/
+
+/** BEGIN content **/
+#content {
+	width: 642px;
+	float: left;
+	padding: 20px 18px 20px 20px;
+	color: #434242;
+}
+
+	/** begin headers **/
+	h1, h2, h3, h4, h5, h6 {
+		font-family: Tahoma;
+		margin-bottom: 10px;
+	}
+	h2, h3, h4, h5, h6 {
+		margin-top: 30px;
+	}
+	h1 { font-size: 2em; }
+	h2 { font-size: 1.6em; }
+	h3 { font-size: 1.3em; }
+	h4, h5, h6 { font-size: 1em; }
+	/** end headers **/
+	
+	/** begin messages **/
+	.error, .success, .note, .warning {
+		font-weight: bold;
+		font-size: 0.9em;
+		padding: 4px 10px 4px 24px;
+		background-repeat: no-repeat;
+		background-position: 5px 6px;
+		border-style: solid;
+		border-width: 1px;
+		line-height: 1.6em;
+		margin-bottom: 10px;
+	}
+	.error {
+		background-color: #FDD9D9;
+		background-image: url(images/error.gif);
+		border-color: #FBA3A3;
+		color: #D80303;
+	}
+	.success {
+		background-color: #E4FCD9;
+		background-image: url(images/success.gif);
+		border-color: #BFFDA3;
+		color: #35A502;
+	}
+	.note {
+		background-color: #DDEAFA;
+		background-image: url(images/note.gif);
+		border-color: #A3D8FD;
+		color: #026DA5;
+	}
+	.warning {
+		background-color: #FBF0B3;
+		background-image: url(images/warning.gif);
+		border-color: #FBBB95;
+		color: #FD6002;
+	}
+	/** end messages **/
+	
+	/** begin form **/
+	form {
+		border: 1px solid #DDDDDD;
+		padding: 16px;
+	}
+		form .input {
+			padding-top: 12px;
+			clear: both;
+		}
+		form .first { 
+			padding-top: 0;
+		}
+		form .input p {
+			margin-bottom: 7px !important;
+		}
+		form input {
+			margin-right: 5px;
+		}
+		form label {
+			margin-right: 10px;
+			color: #8B8B8B;
+		}
+		form input.text, form textarea {
+			border: 1px solid #BEBDBD;
+			font-size: 1em;
+			font-family: Verdana;
+			background-color: #F3F3F3;
+			color: #808080;
+			padding: 2px;
+			max-width: 100%;
+		}
+		.positive, .negative {
+			font-size: 0.9em;
+			font-weight: bold;
+			padding: 1px 0 0 20px;
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			display: inline;
+			margin-top: 2px;
+		}
+		.positive {
+			background-image: url(images/positive.gif);
+			color: #35A502;
+		}
+		.negative {
+			background-image: url(images/negative.gif);
+			color: #D80303;
+		}
+		form textarea {
+			line-height: 1.6em;
+		}
+		form button, form input.button {
+			font-size: 0.9em;
+			font-family: Verdana;
+			font-weight: bold;
+			color: #ffffff;
+			background: #B6B4B4 url(images/button.gif) repeat-x 0 0;
+			border: 1px solid #B6B4B4;
+			padding: 5px 10px;
+		}
+	/** end form **/
+	
+	/** begin table **/
+	table {
+		
+	}
+		table th {
+			font-size: 0.9em;
+			color: #ffffff;
+			background-color: #679BC5;
+			padding: 2px 4px;
+			line-height: 1.6em;
+		}
+		table td {
+			line-height: 1.6em;
+			padding: 2px 4px;
+		}
+		table tr.odd td { background-color: #EEEEEE; }
+		table tr.even td { background-color: #E5E5E5; }
+		
+	/** end table **/
+	
+	/** begin paragraphs, lists, etc. **/
+	#content p {
+		line-height: 1.6em;
+		margin-bottom: 10px;
+	}
+	#content ul, #content ol {
+		list-style-position: inside;
+	}
+	#content li {
+		line-height: 1.6em;
+		padding: 2px 0 2px 0;
+	}
+	a {
+		color: #679BC5;
+	}
+	a:hover {
+		color: #ff0000;
+		text-decoration: none;
+	}
+	blockquote {
+		padding: 10px;
+		background-color: #eeeeee;
+		line-height: 1.6em;
+		border-width: 2px 0 1px;
+		border-style: solid;
+		border-color: #e0e0e0;
+	}
+	/** end paragraphs, lists, etc. **/
+
+/** END content **/
+
+/** BEGIN sidebar **/
+#sidebar {
+	width: 300px;
+	float: right;
+	padding: 10px 0;
+}
+	#sidebar h2 {
+		background: green url(images/sidehead.gif) no-repeat 0 0;
+		margin: 0 10px;
+		font-size: 1em;
+		color: #ffffff;
+		padding: 7px 10px;
+	}
+	#sidebar ul {
+		list-style-type: none;
+		background: #E0E0E0 url(images/sidebody.gif) no-repeat 0 bottom;
+		padding: 10px;
+		margin: 0 10px 10px;
+	}
+	#sidebar ul li {
+		padding: 4px 0 4px 14px;
+		background: none;
+		line-height: 1.6em;
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+	#sidebar ul li a {
+		color: #000000;
+		text-decoration: none;
+	}
+	#sidebar ul li a:hover {
+		text-decoration: none;
+		color: #ff0000;
+	}
+	
+	#sidebar ul li a:active {
+		text-decoration: none;
+		color: #ff0000;
+	}
+	
+	#sidebar ul li current {
+		text-decoration: none;
+		color: #ff0000;
+	}
+	.current {
+		text-decoration: none;
+		color: #ff0000;
+	}

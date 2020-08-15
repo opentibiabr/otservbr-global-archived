@@ -947,9 +947,9 @@ function load_config_lua($filename)
 				if(0 !== strpos($key, '--'))
 				{
 					$value = trim($tmp_exp[1]);
-					if(strpos($value, '--') !== false) {// found some deep comment
-						$value = preg_replace('/--.*$/i', '', $value);
-					}
+					//if(strpos($value, '--') !== false) {// found some deep comment
+					//	$value = preg_replace('/--.*$/i', '', $value);
+					//}
 
 					if(is_numeric($value))
 						$result[$key] = (float) $value;
