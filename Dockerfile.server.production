@@ -14,6 +14,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libpugixml-dev \
   unzip
 
+WORKDIR /tmp/otserver
+
+COPY . .
+
 WORKDIR /opt/otserver
 
 COPY src/    ./src/
@@ -26,11 +30,7 @@ RUN rm -rf build && mkdir build && cd build && cmake .. && make -j`nproc` && sle
 
 COPY config.lua.dist ./
 
-RUN cp config.lua.dev config.lua \
-  && sed -i '/mysqlHost = .*$/c\mysqlHost = "otdb"' config.lua \
-  && sed -i '/mysqlUser = .*$/c\mysqlUser = "otserver"' config.lua \
-  && sed -i '/mysqlPass = .*$/c\mysqlPass = "otserver"' config.lua \
-  && sed -i '/mysqlDatabase = .*$/c\mysqlDatabase = "otserver"' config.lua \
+RUN cp config.lua.dist config.lua \
   && unzip -o data/world/world.zip -d data/world/
 
-ENTRYPOINT /opt/otserver/otbr
+ENTRYPOINT cp -r /tmp/otserver/* /otserver && /opt/otserver/otbr

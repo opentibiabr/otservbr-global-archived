@@ -74,7 +74,7 @@ switch ($action) {
 		$current_password = encrypt(($config_salt_enabled ? $account->getCustomField('salt') : '') . $result->password);
 
 		// (json_encode($account));
-		// error_log(json_encode($account));
+		// error_log(json_encode($account)); 
 
 		if (!$account->isLoaded() || $account->getPassword() != $current_password) {
 			// sendError(json_encode($result));
@@ -130,4 +130,3 @@ function create_char($player) {
 		'remainingdailytournamentplaytime' => 0
 	];
 }
-

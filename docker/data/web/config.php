@@ -166,8 +166,28 @@ $config = array(
 	// list of towns
 	// if you use TFS 1.3 with support for 'towns' table in database, then you can ignore this - it will be configured automatically (generated from your .OTBM map)
 	'towns' => array(
-		0 => 'No town',
-		1 => 'Sample town'
+		1 => 'Dawnport Tutorial',
+		2 => 'Dawnport',
+		3 => 'Rookgaard',
+		4 => 'Island of Destiny',
+		5 => 'Ab Dendriel',
+		6 => 'Carlin',
+		7 => 'Kazordoon',
+		8 => 'Thais',
+		9 => 'Venore',
+		10 => 'Ankrahmun',
+		11 => 'Edron',
+		12 => 'Farmine',
+		13 => 'Darashia',
+		14 => 'Liberty Bay',
+		15 => 'Port Hope',
+		16 => 'Svargrond',
+		17 => 'Yalahar',
+		18 => 'Gray Beach',
+		19 => 'Krailos',
+		20 => 'Rathleton',
+		21 => 'Roshamuul',
+		22 => 'Issavi'
 	),
 
 	// guilds
