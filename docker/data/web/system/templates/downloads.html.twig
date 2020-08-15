@@ -1,0 +1,215 @@
+
+  <div class="TableContainer">
+			<table class="Table4" cellpadding="0" cellspacing="0">
+				<div class="CaptionContainer">
+					<div class="CaptionInnerContainer">
+						<span class="CaptionEdgeLeftTop" style="background-image:url(images/global/content/box-frame-edge.gif)"/></span>
+						<span class="CaptionEdgeRightTop" style="background-image:url(images/global/content/box-frame-edge.gif)"/></span>
+						<span class="CaptionBorderTop" style="background-image:url(images/global/content/table-headline-border.gif)"></span>
+						<span class="CaptionVerticalLeft" style="background-image:url(images/global/content/box-frame-vertical.gif)"/></span>
+						<div class="Text">Download Client</div>
+						<span class="CaptionVerticalRight" style="background-image:url(images/global/content/box-frame-vertical.gif)"/></span>
+						<span class="CaptionBorderBottom" style="background-image:url(images/global/content/table-headline-border.gif)"></span>
+						<span class="CaptionEdgeLeftBottom" style="background-image:url(images/global/content/box-frame-edge.gif)"/></span>
+						<span class="CaptionEdgeRightBottom" style="background-image:url(images/global/content/box-frame-edge.gif)"/></span>
+					</div>
+				</div>
+				<tr>
+					<td>
+						<div class="InnerTableContainer">
+							<table style="width:100%">
+								<tr>
+									<td>
+										<table width="100%" cellpadding=0 cellspacing=0>
+											<tr>
+												<td style="vertical-align:top">
+													<div class="TableShadowContainerRightTop">
+														<div class="TableShadowRightTop" style="background-image:url(images/global/content/table-shadow-rt.gif)"></div>
+													</div>
+													<div class="TableContentAndRightShadow" style="background-image:url(images/global/content/table-shadow-rm.gif)">
+														<div class="TableContentContainer">
+															<table class="TableContent" width="100%">
+																<tr>
+																	<td>
+																		<table style="width:100%;text-align:center">
+																			<tr>
+																				<td><a type="application/octet-stream" target="_top"><img style="width:180px;height:180px;border:0px" src="images/account/download_windows.png"/></a></td>
+																				{% if downloads_config.ip_changer is defined and downloads_config.ip_changer != false %}
+																				<td><a type="application/octet-stream" target="_top"><img style="width:180px;height:180px;border:0px" src="images/account/download_ipchanger.png"/><br/>
+																					</a></td>
+																				{% endif %}
+																			</tr>
+																			<tr>
+																				<td valign="top">
+																					{% set count = downloads_config.clients|length %}
+																					{% set i = 0 %}
+																					{% for name, link in downloads_config.clients %}
+																					{% set i = i + 1 %}
+																					<a href="{{ link }}" target="_blank" type="application/octet-stream" target="_top">{{ name }}</a>{% if i < count %} |{% endif %}
+																					{% endfor %}
+																					{% if downloads_config.minimap %}
+																					<br/>
+																					<a href="https://tibiamaps.io/downloads" target="_blank" type="application/octet-stream" target="_top"> Minimap</a></br>
+																					{% endif %}
+																				</td>
+																				{% if downloads_config.ip_changer is defined and downloads_config.ip_changer != false %}
+																				<td valign="top"><a href="{{ downloads_config.ip_changer }}" target="_blank" type="application/octet-stream" target="_top">Standalone IP Changer</a>
+																				{% endif %}
+			
+																			</tr>
+																			<tr>
+																				<td colspan="{% if downloads_config.ip_changer is defined and downloads_config.ip_changer != false %}2{% else %}1{% endif %}" >[<span class="HelpLink" style="width: 18px; height: 18px;" ><a href="#"><span class="HelperDivIndicator" onMouseOver="ActivateHelperDiv($(this), 'Requirements:', '<p><b>Windows:</b><ul><li>Windows XP (Service Pack 2 or higher)/Vista/7</li><li>DirectX version 5.0 or later, or OpenGL</li><li>147 MB free space on your hard disk</li><li>A connection to the internet</li></ul><b>Linux:</b><ul><li>Linux with libc version 6 or later</li><li>X-Window system installed</li><li>Hardware accelerated graphics driver</li><li>146 MB free hard disk space</li><li>A connection to the internet</li><ul></ul>', '');" onMouseOut="$('#HelperDivContainer').hide();" >system requirements</span></a></span>]</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</div>
+													</div>
+													<div class="TableShadowContainer">
+														<div class="TableBottomShadow" style="background-image:url(images/global/content/table-shadow-bm.gif)">
+															<div class="TableBottomLeftShadow" style="background-image:url(images/global/content/table-shadow-bl.gif)"></div>
+															<div class="TableBottomRightShadow" style="background-image:url(images/global/content/table-shadow-br.gif)"></div>
+														</div>
+													</div>
+												</td>
+												<td style="vertical-align:top"><div class="TableShadowContainerRightTop">
+														<div class="TableShadowRightTop" style="background-image:url(images/global/content/table-shadow-rt.gif)"></div>
+													</div>
+													<div class="TableContentAndRightShadow" style="background-image:url(images/global/content/table-shadow-rm.gif)">
+														<div class="TableContentContainer">
+															<table class="TableContent" width="100%">
+																<tr>
+																	<td style="text-align:center"><img style="width:254px;height:218px;margin:7px" src="images/account/successful_download.jpg"/></td>
+																</tr>
+															</table>
+														</div>
+													</div>
+													<div class="TableShadowContainer">
+														<div class="TableBottomShadow" style="background-image:url(images/global/content/table-shadow-bm.gif)">
+															<div class="TableBottomLeftShadow" style="background-image:url(images/global/content/table-shadow-bl.gif)"></div>
+															<div class="TableBottomRightShadow" style="background-image:url(images/global/content/table-shadow-br.gif)"></div>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+								<tr>
+									<td>
+										<div class="TableShadowContainerRightTop">
+											<div class="TableShadowRightTop" style="background-image:url(images/global/content/table-shadow-rt.gif)"></div>
+										</div>
+										<div class="TableContentAndRightShadow" style="background-image:url(images/global/content/table-shadow-rm.gif)">
+											<div class="TableContentContainer">
+												<table class="TableContent" width="100%">
+													<tr>
+														<td class="LabelV">Disclaimer</td>
+													</tr>
+													<tr>
+														<td>The software and any related documentation is provided "as is" without warranty of any kind. The entire risk arising out of use of the software remains with you. In no event shall {{ config.lua.serverName }} be liable for any damages to your computer or loss of data.</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="TableShadowContainer">
+											<div class="TableBottomShadow" style="background-image:url(images/global/content/table-shadow-bm.gif)">
+												<div class="TableBottomLeftShadow" style="background-image:url(images/global/content/table-shadow-bl.gif)"></div>
+												<div class="TableBottomRightShadow" style="background-image:url(images/global/content/table-shadow-br.gif)"></div>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</table>
+				</div>
+			</td>
+		</tr>
+<style type="text/css">
+/* helper div */
+.HelperDivIndicator {
+  position: relative;
+  cursor: help;
+}
+#HelperDivContainer {
+  display: none;
+  position: absolute;
+  width: 225px;
+  z-index: 1000;
+  color: #5A2800;
+  font-family: Verdana,Arial,Times New Roman,sans-serif;
+  font-size: 9pt;
+  text-align: left;
+  padding: 10px;
+  border: 1px double #5A2800;
+  margin-left: 8px;
+}
+#HelperDivContainer .HelperDivArrow {
+  position: absolute;
+  top: -1px;
+  left: -8px;
+  width: 8px;
+  height: 13px;
+}
+#HelperDivContainer #HelperDivHeadline {
+  font-size: 12pt;
+  font-weight: bold;
+}
+#HelperDivContainer #HelperDivHeadline {
+  position: relative;
+  white-space: normal;
+  text-align: justify;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+#HelperDivContainer .Ornament {
+  width: 220px;
+}
+#HelperDivContainer #HelperDivText {
+  text-align: justify;
+}
+#HelperDivContainer #HelperDivText ul {
+  padding-left: 20px;
+}
+</style>
+<script type="text/javascript">
+// displays a helper div at the current mause position
+function ActivateHelperDiv(a_Object, a_Title, a_Text, a_HelperDivPositionID)
+{
+  // initialize variables
+  var l_Left = 0;
+  var l_Top = 0;
+  var l_WindowHeight = $(window).height();
+  var l_PageHeight = $(document).height();
+  var l_ScrollTop = $(document).scrollTop();
+  // set the new content of the tool tip
+  $('#HelperDivHeadline').html(a_Title);
+  $('#HelperDivText').html(a_Text);
+  // check additional parameter and set the position
+  if (a_HelperDivPositionID.length > 0) {
+    l_Left = $('#' + a_HelperDivPositionID).offset().left;
+    l_Top = $('#' + a_HelperDivPositionID).offset().top;
+  } else {
+    l_Left = (a_Object.offset().left + a_Object.width());
+    l_Top = a_Object.offset().top;
+  }
+  // get new tool tip height
+  var l_ToolTipHeight = $('#HelperDivContainer').outerHeight();
+  // check if the tool tip fits in the browser window
+  if ((l_Top - l_ScrollTop + l_ToolTipHeight) > l_WindowHeight) {
+    var l_TopBefore = l_Top;
+    l_Top = (l_ScrollTop + l_WindowHeight - l_ToolTipHeight);
+    if (l_Top < l_ScrollTop) {
+      l_Top = l_ScrollTop;
+    }
+    $('.HelperDivArrow').css('top', (l_TopBefore - l_Top));
+  } else {
+    console.log('# FIT#');
+    $('.HelperDivArrow').css('top', -1);
+  }
+  // set position and display the tool tip
+  $('#HelperDivContainer').css('top', l_Top);
+  $('#HelperDivContainer').css('left', l_Left);
+  $('#HelperDivContainer').show();
+}
+</script>
