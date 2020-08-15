@@ -23,14 +23,14 @@ $config['pagSeguro'] = array(
 	'doublePoints' => date('yyyymmdd') <= 20200820 ? true : false , // should points be doubled? for example: for 5 points donated you become 10.
 	'donationType' => 'coins', // what should be added to player account? points/coins
 	'options' => array( // cost => points/coins
-		'5,00' => 5,
-		'10,00' => 12,
-		'20,00' => 28, 
-		'40,00' => 64,
-		'60,00' => 102,
-		'100,00' => 200,
-		'200,00' => 450,
-		'500,00' => 1300,
+		'1,00' => 10, // 0
+		//'10,00' => 125, // 25
+		//'20,00' => 275, 
+		//'40,00' => 650,
+		//'60,00' => 1025,
+		//'100,00' => 2000,
+		///'200,00' => 4500,
+		//'500,00' => 13000,
 	)
 );
 ?>
