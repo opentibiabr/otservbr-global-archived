@@ -84,6 +84,10 @@
 						'Logs' => 'logs',
 						'Reports' => 'reports',
 					),
+					'Logs' => array(
+						'Logs' => 'logs',
+						'Reports' => 'reports',
+					),
 				);
 
 				$i = 0;
