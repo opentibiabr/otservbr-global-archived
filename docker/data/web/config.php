@@ -260,7 +260,7 @@ $config = array(
 	'news_author' => true, // show author of the news
 
 	// gifts/shop system
-	'gifts_system' => false,
+	'gifts_system' => true,
 
 	// support/system
 	'bug_report' => true, // this configurable has no effect, its always enabled

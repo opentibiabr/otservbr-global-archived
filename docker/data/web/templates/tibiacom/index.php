@@ -317,7 +317,7 @@ if(isset($config['boxes']))
 
 <?php
 $menus = get_template_menus();
-
+// print_r($config['menu_categories']);
 foreach($config['menu_categories'] as $id => $cat) {
 	if(!isset($menus[$id]) || ($id == MENU_CATEGORY_SHOP && !$config['gifts_system'])) {
 		continue;
