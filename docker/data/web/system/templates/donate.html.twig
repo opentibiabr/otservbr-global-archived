@@ -1,0 +1,41 @@
+<table width="100%" border="0" cellpadding="4" cellspacing="1">
+	<tbody>
+	<tr>
+		<td colspan="3" bgcolor="{{ config.vdarkborder }}" class="white"><span class="style4">Donate to receive points</span></td>
+	</tr>
+	<tr bgcolor="{{ config.vdarkborder }}">
+		<td class="white" width="35%"><b>Donation</b></td>
+		<td class="white" width="35%"><b>Points</b></td>
+	</tr>
+	{% set i = 1 %}
+	{% for price, points in config.pagSeguro.options %}
+	<tr bgcolor="{{ getStyle(i) }}"><td>R${{ price }}</td><td><img src="images/content/bullet.gif"> {{ points }} Points</td></tr>
+	{% set i = i + 1 %}
+	{% endfor %}
+	</tbody>
+</table>
+</br>
+<form target="pagseguro" method="post" action="{{ getLink('pagseguro') }}">
+	<input type="hidden" name="reference" value="{% if constant('USE_ACCOUNT_NAME') %}{{ account_logged.getName() }}{% else %}{{ account_logged.getId() }}{% endif %}">
+	<table border="0" cellpadding="4" cellspacing="1" width="100%">
+		<tbody>
+		<tr bgcolor="{{ config.vdarkborder }}" class="white">
+			<th colspan="2"><strong>Choose the number of points you want to donate.</strong></th>
+		</tr>
+		<tr bgcolor="{{ config.darkborder }}">
+			<td width="10%">Your account</td>
+			<td><strong>{% if constant('USE_ACCOUNT_NAME') %}{{ account_logged.getName() }}{% else %}{{ account_logged.getId() }}{% endif %}</strong></td>
+		</tr>
+		<tr bgcolor="{{ config.darkborder }}">
+			<td width="10%">Points</td>
+			<td><input name="itemCount" type="number" min="1" size="5" maxlength="5" required/></td>
+		</tr>
+		<tr bgcolor="{{ config.darkborder }}">
+			<td colspan="2">
+				<input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/carrinhoproprio/btnFinalizar.jpg" name="submit" {% if is_localhost %}disabled{% endif %}/>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</form>
+<b><span style="color:#ff0000;">OBS:</span></b> Points are delivered <b>automatically</b> after the <u>approved</u> of your payment by PagSeguro.
