@@ -34,4 +34,4 @@ RUN cp config.lua.dist config.lua \
   && unzip -o data/world/world.zip -d data/world/
 
 # ENTRYPOINT cp -r /tmp/otserver/* /otserver && /opt/otserver/otbr
-ENTRYPOINT git add . && git commit -am 'CapRover Entrypoint Commit' && git push && git pull && /opt/otserver/otbr
+ENTRYPOINT cd /otserver && git add . && git commit -am 'CapRover Entrypoint Commit' && git pull && git push && /opt/otserver/otbr
