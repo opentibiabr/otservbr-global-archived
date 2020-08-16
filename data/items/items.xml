@@ -2147,6 +2147,7 @@
 	</item>
 	<item id="2148" article="a" name="gold coin">
 		<attribute key="quicklootcategory" value="gold" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2149" article="a" name="small emerald">
@@ -2164,6 +2165,7 @@
 	</item>
 	<item id="2152" article="a" name="platinum coin">
 		<attribute key="quicklootcategory" value="gold" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2153" article="a" name="violet gem">
@@ -2196,6 +2198,7 @@
 	</item>
 	<item id="2160" article="a" name="crystal coin">
 		<attribute key="quicklootcategory" value="gold" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2161" article="a" name="strange talisman">
@@ -39503,6 +39506,7 @@
 		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="quicklootcategory" value="weaponammo" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="spectralbolt" />
 		<attribute key="maxHitChance" value="100" />
@@ -39518,6 +39522,7 @@
 		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="quicklootcategory" value="weaponammo" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="ammoType" value="arrow" />
 		<attribute key="shootType" value="diamondarrow" />
 		<attribute key="maxHitChance" value="100" />
@@ -49015,6 +49020,7 @@
 	</item>
 	<item id="37418" article="a" name="skull coin">
 		<attribute key="quicklootcategory" value="other" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="25" />
 		<attribute key="showcount" value="1" />
 	</item>
