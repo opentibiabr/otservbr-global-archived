@@ -45,7 +45,7 @@ gamestoreByModules = true
 
 deathLosePercent = -1
 
-housePriceEachSQM = 20000
+housePriceEachSQM = 10000
 houseRentPeriod = "monthly"
 
 timeBetweenActions = 200
@@ -92,7 +92,7 @@ serverSaveShutdown = true
 rateExp = 1
 rateSkill = 50
 rateLoot = 3
-rateMagic = 25
+rateMagic = 10
 rateSpawn = 1
 
 rateMonsterHealth = 1.0
