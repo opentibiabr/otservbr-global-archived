@@ -42575,37 +42575,31 @@
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32385" article="an" name="exercise axe">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32386" article="an" name="exercise club">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32387" article="an" name="exercise bow">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32388" article="an" name="exercise rod">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32389" article="an" name="exercise wand">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32390" article="a" name="baby rotworm">
 		<attribute key="wrapableTo" value="26054" />
