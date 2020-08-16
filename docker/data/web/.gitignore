@@ -7,6 +7,9 @@ releases
 config.local.php
 PERSONAL_NOTES
 
+#install
+install
+
 # all custom templates
 templates/*
 !templates/tibiacom
@@ -18,6 +21,9 @@ images/guilds/*
 
 # items images
 images/items/*
+
+# outfit images
+images/outfit-images/*
 
 # cache
 system/cache/*

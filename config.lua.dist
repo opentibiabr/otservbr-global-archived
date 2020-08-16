@@ -45,7 +45,7 @@ gamestoreByModules = true
 
 deathLosePercent = -1
 
-housePriceEachSQM = 1000
+housePriceEachSQM = 20000
 houseRentPeriod = "monthly"
 
 timeBetweenActions = 200
