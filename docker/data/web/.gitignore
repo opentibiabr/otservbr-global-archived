@@ -25,6 +25,9 @@ images/items/*
 # outfit images
 images/outfit-images/*
 
+# outfit images
+images/store/*
+
 # cache
 system/cache/*
 !system/cache/index.html
