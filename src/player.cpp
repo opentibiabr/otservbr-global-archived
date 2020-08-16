@@ -4966,7 +4966,7 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 
 void Player::stowContainer(Item* item, uint32_t count,  bool stowalltype/* = false*/) {
 	if (item == nullptr || !isItemStorable(item)) {
-		sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+		sendCancelMessage("This item cannot be stowed here.");
 		return;
 	}
 
