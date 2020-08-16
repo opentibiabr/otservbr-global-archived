@@ -5029,15 +5029,8 @@ void Player::stowContainer(Item* item, uint32_t count,  bool stowalltype/* = fal
 
 
 bool Player::isItemStorable(Item* item) {
-  
 	auto isContainerAndHasSomethingInside = item->getContainer() != NULL && item->getContainer()->getItemList().size() > 0;
-	return (item->isStackable() &&
-		item->getID() != ITEM_GOLD_COIN &&
-		item->getID() != ITEM_PLATINUM_COIN &&
-		item->getID() != ITEM_DIAMOND_ARROW && // arrow
-		item->getID() != ITEM_SPECTRAL_BOLT && // bolt
-		item->getID() != ITEM_CRYSTAL_COIN) ||
-		isContainerAndHasSomethingInside;
+	return (item->isStowable() || isContainerAndHasSomethingInside);
 }
 
 ItemDeque Player::getAllStorableItemsInContainer(Item* container) {
