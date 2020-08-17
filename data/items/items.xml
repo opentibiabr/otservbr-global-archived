@@ -9747,12 +9747,15 @@
 		<attribute key="weight" value="500" />
 	</item>
 	<item id="5805" article="a" name="golden goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5806" article="a" name="silver goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5807" article="a" name="bronze goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5808" name="orshabaal's brain">
@@ -35390,7 +35393,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformDeEquipTo" value="24783" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="armor" value="9" />
@@ -35477,7 +35480,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformDeEquipTo" value="24784" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillClub" value="1" />
 		<attribute key="armor" value="9" />
@@ -35489,7 +35492,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformDeEquipTo" value="24785" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillSword" value="1" />
 		<attribute key="armor" value="9" />
@@ -35501,7 +35504,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformDeEquipTo" value="24786" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillAxe" value="1" />
 		<attribute key="armor" value="9" />
@@ -35513,7 +35516,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformDeEquipTo" value="24788" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillDist" value="1" />
 		<attribute key="armor" value="9" />
@@ -35542,7 +35545,7 @@
 	<item id="24783" article="an" name="enchanted werewolf helmet">
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="magiclevelpoints" value="1" />
 		<attribute key="armor" value="9" />
@@ -35555,7 +35558,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformEquipTo" value="24769" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillClub" value="1" />
 		<attribute key="armor" value="9" />
@@ -35567,7 +35570,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformEquipTo" value="24770" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillSword" value="1" />
 		<attribute key="armor" value="9" />
@@ -35579,7 +35582,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformEquipTo" value="24771" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillAxe" value="1" />
 		<attribute key="armor" value="9" />
@@ -35597,7 +35600,7 @@
 		<attribute key="weight" value="2500" />
 		<attribute key="slotType" value="head" />
 		<attribute key="transformEquipTo" value="24772" />
-		<attribute key="quicklootcategory" value="helmet" />
+		<attribute key="loottype" value="helmet" />
 		<attribute key="absorbPercentPhysical" value="4" />
 		<attribute key="skillDist" value="1" />
 		<attribute key="armor" value="9" />
