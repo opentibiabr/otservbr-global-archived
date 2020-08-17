@@ -29,12 +29,6 @@ local config = {
 		formerValue = 27,
 		newValue = 28
 	},
-	[3004] = {
-		items = {
-			{itemId = 2229}, {itemId = 2151, count = 2}, {itemId = 2165}, {itemId = 2230}, {itemId = 2091, actionId = 6010}
-		},
-		storage = Storage.QuestChests.ParchmentRoomQuest
-	},
 	[3005] = {
 		items = {
 			{itemId = 4857}

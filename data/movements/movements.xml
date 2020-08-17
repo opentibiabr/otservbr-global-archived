@@ -280,8 +280,6 @@
 	<movevent event="StepIn" pos="33498;32613;8" script="quests/nightmare_isles/teleport.lua"/>
 	<!-- exit -->
 	<movevent event="StepIn" fromaid="64103" toaid="64128" script="quests/nightmare_isles/teleport_ladder.lua"/>
-	<!-- parchment room -->
-	<movevent event="removeitem" actionid="60999" script="quests/parchment_room/parchment_room.lua"/>
 	<!-- pits of inferno -->
 	<movevent event="StepIn" fromaid="16772" toaid="16774" script="quests/pits_of_inferno/bazir_tile.lua"/>
 	<movevent event="StepIn" fromaid="50082" toaid="50083" script="quests/pits_of_inferno/bazir_tile.lua"/>
