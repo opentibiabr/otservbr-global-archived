@@ -9743,12 +9743,15 @@
 		<attribute key="weight" value="500" />
 	</item>
 	<item id="5805" article="a" name="golden goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5806" article="a" name="silver goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5807" article="a" name="bronze goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5808" name="orshabaal's brain">
