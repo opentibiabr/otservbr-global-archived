@@ -336,11 +336,11 @@ Thing* Game::internalGetThing(Player* player, const Position& pos, int32_t index
 			//do extra checks here if the thing is accessable
 			if (thing && thing->getItem()) {
 				if (tile->hasProperty(CONST_PROP_ISVERTICAL)) {
-					if (player->getPosition().x + 1 == tile->getPosition().x) {
+					if (player->getPosition().x + 1 == tile->getPosition().x && thing->getItem()->isHangable()) {
 						thing = nullptr;
 					}
 				} else { // horizontal
-					if (player->getPosition().y + 1 == tile->getPosition().y) {
+					if (player->getPosition().y + 1 == tile->getPosition().y && thing->getItem()->isHangable()) {
 						thing = nullptr;
 					}
 				}
@@ -670,6 +670,26 @@ bool Game::removeCreature(Creature* creature, bool isLogout/* = true*/)
 		removeCreature(summon);
 	}
 	return true;
+}
+
+void Game::executeDeath(uint32_t creatureId)
+{
+	Creature* creature = getCreatureByID(creatureId);
+	if (creature && !creature->isRemoved()) {
+		creature->onDeath();
+	}
+}
+
+void Game::playerTeleport(uint32_t playerId, const Position& newPosition) {
+  Player* player = getPlayerByID(playerId);
+  if (!player || !player->hasCustomFlag(PlayerCustomFlag_CanMapClickTeleport)) {
+    return;
+  }
+
+  ReturnValue returnValue = g_game.internalTeleport(player, newPosition, false);
+  if (returnValue != RETURNVALUE_NOERROR) {
+    player->sendCancelMessage(returnValue);
+  }
 }
 
 void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
@@ -2398,7 +2418,7 @@ void Game::playerUseItemEx(uint32_t playerId, const Position& fromPos, uint8_t f
 		return;
 	}
 
-	Thing* thing = internalGetThing(player, fromPos, fromStackPos, fromSpriteId, STACKPOS_USEITEM);
+	Thing* thing = internalGetThing(player, fromPos, fromStackPos, fromSpriteId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
@@ -2553,7 +2573,7 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position& fromPos, uin
 		}
 	}
 
-	Thing* thing = internalGetThing(player, fromPos, fromStackPos, spriteId, STACKPOS_USEITEM);
+	Thing* thing = internalGetThing(player, fromPos, fromStackPos, spriteId, STACKPOS_FIND_THING);
 	if (!thing) {
 		player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
 		return;
@@ -2800,35 +2820,41 @@ void Game::playerWrapableItem(uint32_t playerId, const Position& pos, uint8_t st
 		unWrapId = (uint16_t)tmp;
 	}
 
-		if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
-			uint16_t hiddenCharges = 0;
-			if (isCaskItem(item->getID())) {
-				hiddenCharges = item->getSubType();
-			}
-			uint16_t oldItemID = item->getID();
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			Item* newItem = transformItem(item, 26054);
-			ItemAttributes::CustomAttribute val;
-			val.set<int64_t>(oldItemID);
-			std::string key = "unWrapId";
-			newItem->setCustomAttribute(key, val);
-			item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
-			if (hiddenCharges > 0) {
-				item->setDate(hiddenCharges);
-			}
-			startDecay(item);
+  // prevent to wrap a filled bath tube
+  if (item->getID() == 29313) {
+    player->sendCancelMessage(RETURNVALUE_NOTPOSSIBLE);
+    return;
+  }
+
+	if (item->isWrapable() && item->getID() != TRANSFORM_BOX_ID) {
+		uint16_t hiddenCharges = 0;
+		if (isCaskItem(item->getID())) {
+			hiddenCharges = item->getSubType();
 		}
-		else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
-			uint16_t hiddenCharges = item->getDate();
-			item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
-			addMagicEffect(item->getPosition(), CONST_ME_POFF);
-			transformItem(item, unWrapId);
-			if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
-				item->setSubType(hiddenCharges);
-			}
-			item->removeCustomAttribute("unWrapId");
-			startDecay(item);
+		uint16_t oldItemID = item->getID();
+		addMagicEffect(item->getPosition(), CONST_ME_POFF);
+		Item* newItem = transformItem(item, 26054);
+		ItemAttributes::CustomAttribute val;
+		val.set<int64_t>(oldItemID);
+		std::string key = "unWrapId";
+		newItem->setCustomAttribute(key, val);
+		item->setSpecialDescription("Unwrap it in your own house to create a <" + itemName + ">.");
+		if (hiddenCharges > 0) {
+			item->setDate(hiddenCharges);
 		}
+		startDecay(item);
+	}
+	else if (item->getID() == TRANSFORM_BOX_ID && unWrapId != 0) {
+		uint16_t hiddenCharges = item->getDate();
+		item->removeAttribute(ITEM_ATTRIBUTE_DESCRIPTION);
+		addMagicEffect(item->getPosition(), CONST_ME_POFF);
+		transformItem(item, unWrapId);
+		if (hiddenCharges > 0 && isCaskItem(unWrapId)) {
+			item->setSubType(hiddenCharges);
+		}
+		item->removeCustomAttribute("unWrapId");
+		startDecay(item);
+	}
 }
 
 void Game::playerWriteItem(uint32_t playerId, uint32_t windowTextId, const std::string& text)
@@ -4426,8 +4452,6 @@ void Game::checkCreatures(size_t index)
 				creature->onThink(EVENT_CREATURE_THINK_INTERVAL);
 				creature->onAttacking(EVENT_CREATURE_THINK_INTERVAL);
 				creature->executeConditions(EVENT_CREATURE_THINK_INTERVAL);
-			} else {
-				creature->onDeath();
 			}
 			++it;
 		} else {
@@ -4874,7 +4898,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 					tmpPlayer->sendTextMessage(message);
 				}
 
-				applyImbuementEffects(attackerPlayer, manaDamage);
 				damage.primary.value -= manaDamage;
 				if (damage.primary.value < 0) {
 					damage.secondary.value = std::max<int32_t>(0, damage.secondary.value + damage.primary.value);
@@ -4935,23 +4958,31 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 		// Using real damage
 		if (attackerPlayer) {
 			//life leech
-			if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE)) {
+			uint16_t lifeChance = attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE);
+      		uint16_t lifeSkill = attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT);
+			if (normal_random(0, 100) < lifeChance) {
 				CombatParams tmpParams;
 				CombatDamage tmpDamage;
+
+				int affected = damage.affected;
 				tmpDamage.origin = ORIGIN_SPELL;
 				tmpDamage.primary.type = COMBAT_HEALING;
-				tmpDamage.primary.value = std::round(realDamage * (attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT) /100.));
+				tmpDamage.primary.value = std::round(realDamage * (lifeSkill / 100.) * (0.2 * affected + 0.9)) / affected;
 
 				Combat::doCombatHealth(nullptr, attackerPlayer, tmpDamage, tmpParams);
 			}
 
 			//mana leech
-			if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_CHANCE)) {
+			uint16_t manaChance = attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_CHANCE);
+      		uint16_t manaSkill = attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT);
+			if (normal_random(0, 100) < manaChance) {
 				CombatParams tmpParams;
 				CombatDamage tmpDamage;
+
+				int affected = damage.affected;
 				tmpDamage.origin = ORIGIN_SPELL;
 				tmpDamage.primary.type = COMBAT_MANADRAIN;
-				tmpDamage.primary.value = std::round(realDamage * (attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT) /100.));
+				tmpDamage.primary.value = std::round(realDamage * (manaSkill / 100.) * (0.1 * affected + 0.9)) / affected;
 
 				Combat::doCombatMana(nullptr, attackerPlayer, tmpDamage, tmpParams);
 			}
@@ -5451,34 +5482,6 @@ void Game::checkImbuements()
 
 	lastImbuedBucket = bucket;
 	cleanup();
-}
-
-void Game::applyImbuementEffects(Creature * attacker, int32_t realDamage)
-{
-	Player *attackerPlayer = (Player *)attacker;
-	if (attackerPlayer) {
-		if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_CHANCE)) {
-			CombatParams tmpParams;
-			CombatDamage tmpDamage;
-			tmpDamage.origin = ORIGIN_SPELL;
-			tmpDamage.primary.type = COMBAT_HEALING;
-			tmpDamage.primary.value = std::round(realDamage * (attackerPlayer->getSkillLevel(SKILL_LIFE_LEECH_AMOUNT) / 100.));
-
-			Combat::doCombatHealth(nullptr, attackerPlayer, tmpDamage, tmpParams);
-		}
-
-		//mana leech
-		if (normal_random(0, 100) < attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_CHANCE)) {
-			CombatParams tmpParams;
-			CombatDamage tmpDamage;
-			tmpDamage.origin = ORIGIN_SPELL;
-			tmpDamage.primary.type = COMBAT_MANADRAIN;
-			tmpDamage.primary.value = std::round(realDamage * (attackerPlayer->getSkillLevel(SKILL_MANA_LEECH_AMOUNT) / 100.));
-
-			Combat::doCombatMana(nullptr, attackerPlayer, tmpDamage, tmpParams);
-		}
-	}
-
 }
 
 void Game::checkLight()
@@ -7043,6 +7046,17 @@ void Game::playerAnswerModalWindow(uint32_t playerId, uint32_t modalWindowId, ui
 			creatureEvent->executeModalWindow(player, modalWindowId, button, choice);
 		}
 	}
+}
+
+void Game::updatePlayerSaleItems(uint32_t playerId)
+{
+	Player* player = getPlayerByID(playerId);
+	if (!player) {
+		return;
+	}
+
+	player->sendSaleItemList();
+	player->setScheduledSaleUpdate(false);
 }
 
 void Game::addPlayer(Player* player)

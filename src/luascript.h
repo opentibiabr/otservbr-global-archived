@@ -1041,6 +1041,7 @@ class LuaScriptInterface
 		static int luaPlayerGetPreyBonusValue(lua_State * L);
 		static int luaPlayerGetPreyBonusGrade(lua_State * L);
 		static int luaPlayerGetPreyBonusRerolls(lua_State * L);
+		static int luaPlayerGetPreyTick(lua_State * L);
 		// SET
 		static int luaPlayerSetPreyState(lua_State * L);
 		static int luaPlayerSetPreyUnlocked(lua_State * L);
@@ -1053,6 +1054,7 @@ class LuaScriptInterface
 		static int luaPlayerSetPreyBonusValue(lua_State * L);
 		static int luaPlayerSetPreyBonusGrade(lua_State * L);
 		static int luaPlayerSetPreyBonusRerolls(lua_State * L);
+		static int luaPlayerSetPreyTick(lua_State * L);
 		//
 
 		static int luaPlayerGetClient(lua_State* L);
@@ -1154,10 +1156,12 @@ class LuaScriptInterface
 		static int luaGroupGetId(lua_State* L);
 		static int luaGroupGetName(lua_State* L);
 		static int luaGroupGetFlags(lua_State* L);
+		static int luaGroupGetCustomFlags(lua_State* L);
 		static int luaGroupGetAccess(lua_State* L);
 		static int luaGroupGetMaxDepotItems(lua_State* L);
 		static int luaGroupGetMaxVipEntries(lua_State* L);
 		static int luaGroupHasFlag(lua_State* L);
+		static int luaGroupHasCustomFlag(lua_State* L);
 
 		// Vocation
 		static int luaVocationCreate(lua_State* L);
@@ -1591,6 +1595,13 @@ class LuaScriptInterface
 		static int luaImbuementIsPremium(lua_State* L);
 		static int luaImbuementGetElementDamage(lua_State* L);
 		static int luaImbuementGetCombatType(lua_State* L);
+
+		// Mounts
+		static int luaCreateMount(lua_State* L);
+		static int luaMountGetName(lua_State* L);
+		static int luaMountGetId(lua_State* L);
+		static int luaMountGetClientId(lua_State* L);
+		static int luaMountGetSpeed(lua_State* L);
 
 		//
 		std::string lastLuaError;

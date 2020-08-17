@@ -13,6 +13,14 @@ LevelDoorAction = {
 			{x = 32804, y = 31583, z = 2}
 		}
 	},
+	-- Doors for level 30
+	[1030] = {
+		itemId = false,
+		itemPos = {
+			{x = 33302, y = 31691, z = 11},
+			{x = 33302, y = 31692, z = 11}
+		}
+	},
 	-- Doors for level 40
 	[1040] = {
 		itemId = false,
@@ -24,7 +32,9 @@ LevelDoorAction = {
 	[1050] = {
 		itemId = false,
 		itemPos = {
-			{x = 32212, y = 32435, z = 10}
+			{x = 32212, y = 32435, z = 10},
+			{x = 32874, y = 31974, z = 12},
+			{x = 32875, y = 31974, z = 12}
 		}
 	},
 	-- Doors for level 60
@@ -40,6 +50,13 @@ LevelDoorAction = {
 		itemPos = {
 			{x = 33190, y = 31684, z = 14},
 			{x = 33195, y = 31684, z = 14}
+		}
+	},
+	-- Doors for level 80
+	[1080] = {
+		itemId = false,
+		itemPos = {
+			{x = 33297, y = 31670, z = 14}
 		}
 	},
 	-- Doors for level 100

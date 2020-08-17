@@ -1,9 +1,9 @@
 -- Look README.md for see the reserved action/unique numbers
 
 TeleportAction = {
-	[35001] = {
-		itemId = false,
-		itemPos = {{x = xxxxx, y = yyyyy, z = z}}
+	[35001] = { -- The Cursed Crystal teleports
+		itemId = 21721,
+		itemPos = {{x = 31973, y = 32905, z = 10}, {x = 31973, y = 32905, z = 11}, {x = 32009, y = 32928, z = 10}, {x = 32009, y = 32928, z = 9}}
 	}
 }
 
@@ -176,4 +176,18 @@ TeleportUnique = {
 		destination = {x = 32189, y = 31625, z = 4},
 		effect = CONST_ME_TELEPORT
 	},
+	-- Black knight quest entrance
+	[38012] = {
+		itemId = 1387,
+		itemPos = {x = 32874, y = 31941, z = 12},
+		destination = {x = 32874, y = 31948, z = 11},
+		effect = CONST_ME_TELEPORT
+	},
+	-- Black knight quest exit
+	[38013] = {
+		itemId = 1387,
+		itemPos = {x = 32874, y = 31955, z = 11},
+		destination = {x = 32874, y = 31942, z = 12},
+		effect = CONST_ME_TELEPORT
+	}
 }

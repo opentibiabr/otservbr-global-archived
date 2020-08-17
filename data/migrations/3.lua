@@ -1,5 +1,9 @@
 function onUpdateDatabase()
-	print("> Updating database to version 4 (quickloot)")
-	db.query("ALTER TABLE `players` ADD `quickloot_fallback` TINYINT DEFAULT 0")
-	return true
+    print("> Updating database to version 4 (prey tick)")
+
+    db.query([[
+        ALTER TABLE `prey_slots`
+            ADD `tick` smallint(3) NOT NULL DEFAULT '0';
+    ]])
+    return true
 end

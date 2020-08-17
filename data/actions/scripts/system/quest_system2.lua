@@ -117,12 +117,6 @@ local config = {
 		needItem = {itemId = 2344},
 		effect = CONST_ME_MAGIC_RED
 	},
-	[3027] = {
-		items = {
-			{itemId = 2487}
-		},
-		storage = Storage.QuestChests.BlackKnightTreeCrownArmor
-	},
 	[3062] = {
 		items = {
 			{itemId = 8262}
@@ -219,12 +213,6 @@ local config = {
 			{itemId = 2463}
 		},
 		storage = Storage.GhostShipQuest
-	},
-	[9055] = {
-		items = {
-			{itemId = 2519}
-		},
-		storage = Storage.QuestChests.BlackKnightTreeCrownShield
 	},
 	[9136] = {
 		items = {

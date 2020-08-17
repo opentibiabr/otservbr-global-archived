@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Lokathmor" nameDescription="Lokathmor" race="blood" experience="0" speed="0">
+	<health now="300000" max="300000"/>
+	<look type="1062" head="22" body="22" legs="79" feet="97" corpse="33964"/>
+	<targetchange interval="2000" chance="4"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag runonhealth="0"/>
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" skill="150" attack="250"/>
+		<attack name="lifedrain" interval="2000" chance="8" range="7" radius="5" target="1" min="-2500" max="-2800">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="redspark"/>
+		</attack>
+		<attack name="death" interval="1000" chance="8" radius="9" target="0" min="-1500" max="-1900">
+			<attribute key="areaEffect" value="mortarea"/>
+		</attack>
+		<attack name="poisoncondition" interval="5000" chance="18" length="0" spread="0" min="-2000" max="-2500">
+			<attribute key="areaEffect" value="greenspark"/>
+		</attack>
+		<attack name="poison" max="-255" chance="20" interval="1000" min="-1000" range="7" target="0" radius="6">
+			<attribute value="bluebubble" key="areaEffect"/>
+		</attack>
+		<attack name="physical" interval="2000" chance="8" range="7" target="1" min="-170" max="-200">
+			<attribute key="shootEffect" value="whirlwindaxe"/>
+			<attribute key="areaEffect" value="explosionarea"/>
+		</attack>
+	</attacks>
+	<immunities>
+		<immunity death="1" />
+		<immunity ice="1" />
+		<immunity holy="1" />
+		<immunity earth="1" />
+		<immunity physical="1" />
+		<immunity fire="1" />
+		<immunity energy="1" />
+		<immunity invisibility="1" />
+		<immunity paralyze="1" />
+	</immunities>
+</monster>

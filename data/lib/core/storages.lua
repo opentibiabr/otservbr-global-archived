@@ -132,6 +132,7 @@ Storage = {
 	Navigator = 30048,
 	DwarvenLegs = 30049,
 	PrinceDrazzakTime = 30050,
+	StoreExaust = 30051,
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
@@ -441,7 +442,8 @@ Storage = {
 	},
 	Grimvale = {
 		-- Reserved storage from 50380 - 50399
-		SilverVein = 50380
+		SilverVein = 50380,
+		WereHelmetEnchant = 50381
 	},
 	HeroRathleton = {
 		-- Reserved storage from 50400 - 50419
@@ -1272,6 +1274,11 @@ Storage = {
 			Sister = 51527,
 			Statue = 51528,
 			LastMissionState = 51529
+		},
+	TheCursedCrystal = {
+		Oneeyedjoe = 51530, 
+		MedusaOil = 51531,
+		Questline = 51532
 		}
 	},
 	TheShatteredIsles = {
@@ -1664,7 +1671,10 @@ Storage = {
 	GraveDanger = {
 		-- Reserved storage from 52310 - 52339
 		Questline = 52310,
-		ScarlettEtzel = 52311
+		CobraBastion = {
+			Questline = 52311,
+			ScarlettTimer = 52312
+		}
 	},
 	RottinWoodAndMaried = {
 		-- Reserved storage from 52340 - 52349
@@ -1797,11 +1807,27 @@ Storage = {
 			Broadsword = 10052
 		},
 		-- update 7.1
-		BlackKnight = {},
-		DragonTower = {},
-		TimeRing = {},
+		BlackKnight = {
+			Key5010 = 10053,
+			CrownArmor = 10054,
+			CrownShield = 10055
+		},
+		DragonTower = {
+			Backpack1 = 10056,
+			Backpack2 = 10057
+		},
+		TimeRing = {
+			CrystallBall = 10058,
+			TimeRing = 10059,
+			ElvenAmulet = 10060
+		},
 		-- update 7.2
-		Behemoth = {},
+		Behemoth = {
+			Bag = 10061,
+			GuardianHalberd = 10062,
+			DemonShield = 10063,
+			GoldenArmor = 10064
+		},
 		ParchmentRoom = {},
 		TheQueenOfTheBanshees = {},
 		-- update 7.24
@@ -2241,7 +2267,8 @@ GlobalStorage = {
 	TheMummysCurse = 65008,
 	OberonEventTime = 65009,
 	PrinceDrazzakEventTime = 65010,
-	ScarlettEtzelEventTime = 65011
+	ScarlettEtzelEventTime = 65011,
+	CobraBastionFlask = 65012
 }
 
 

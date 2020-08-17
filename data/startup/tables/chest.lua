@@ -22,11 +22,19 @@
 ]]
 
 ChestAction = {
-	-- Keys action
+	-- Keys quest
+	-- data\scripts\actions\system\quest_reward_key.lua
+	-- Black knight quest key 5010
 	[5000] = {
-		itemId = false,
-		itemPos = {x = xxxxx, y = yyyyy, z = zz}
-	},
+		itemId = 2720,
+		itemPos = {
+			{x = 32800, y = 31959, z = 7},
+			{x = 32813, y = 31964, z = 7}
+		},
+		keyAction = 5010,
+		itemReward = 2088,
+		storage = Storage.Quest.BlackKnight.Key5010
+	}
 }
 
 ChestUnique = {
@@ -354,7 +362,7 @@ ChestUnique = {
 	-- Fire axe quest
 	-- Fire axe
 	[6036] = {
-		itemId = 1740,
+		itemId = 2843,
 		itemPos = {x = 33084, y = 31650, z = 12},
 		itemReward = {{2432, 1}},
 		storage = Storage.Quest.FireAxe.FireAxe
@@ -434,6 +442,65 @@ ChestUnique = {
 		itemReward = {{2413, 1}},
 		storage = Storage.Quest.AlawarsVault.Broadsword
 	},
+	-- Black knight quest
+	-- Crown armor
+	[6047] = {
+		itemId = 2720,
+		itemPos = {x = 32868, y = 31955, z = 11},
+		itemReward = {{2487, 1}},
+		storage = Storage.Quest.BlackKnight.CrownArmor
+	},
+	-- Crown shield
+	[6048] = {
+		itemId = 2720,
+		itemPos = {x = 32880, y = 31955, z = 11},
+		itemReward = {{2519, 1}},
+		storage = Storage.Quest.BlackKnight.CrownShield
+	},
+	-- TIme ring quest
+	-- Crystal ball
+	[6049] = {
+		itemId = 1740,
+		itemPos = {x = 33038, y = 32171, z = 9},
+		itemReward = {{2192, 1}},
+		storage = Storage.Quest.TimeRing.CrystalBall
+	},
+	-- Time ring
+	[6050] = {
+		itemId = 1740,
+		itemPos = {x = 33039, y = 32171, z = 9},
+		itemReward = {{2169, 1}},
+		storage = Storage.Quest.TimeRing.TimeRing
+	},
+	-- Elven amulet
+	[6051] = {
+		itemId = 1740,
+		itemPos = {x = 33040, y = 32171, z = 9},
+		itemReward = {{2198, 1}},
+		storage = Storage.Quest.TimeRing.ElvenAmulet
+	},
+	-- Behemoth quest
+	-- Guardian halberd
+	[6052] = {
+		itemId = 1740,
+		itemPos = {x = 33295, y = 31658, z = 13},
+		itemReward = {{2427, 1}},
+		storage = Storage.Quest.Behemoth.GuardianHalberd
+	},
+	-- Demon shield
+	[6053] = {
+		itemId = 1740,
+		itemPos = {x = 33297, y = 31658, z = 13},
+		itemReward = {{2520, 1}},
+		storage = Storage.Quest.Behemoth.DemonShield
+	},
+	-- Golden armor
+	[6054] = {
+		itemId = 1740,
+		itemPos = {x = 33298, y = 31658, z = 13},
+		itemReward = {{2466, 1}},
+		storage = Storage.Quest.Behemoth.GoldenArmor
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -487,7 +554,7 @@ ChestUnique = {
 	-- Fire axe quest
 	-- Bag
 	[10006] = {
-		itemId = 2843,
+		itemId = 1740,
 		itemPos = {x = 33078, y = 31656, z = 11},
 		itemBag = 1987,
 		itemReward = {{2214, 1}, {2201, 200}, {2145, 7}},
@@ -544,6 +611,35 @@ ChestUnique = {
 		itemReward = {{2148, 23}, {2260, 1}, {2410, 4}, {2490, 1}},
 		weight = 80,
 		storage = Storage.Quest.Key4502
+	},
+	-- Dragon tower quest
+	-- Backpack 1
+	[10012] = {
+		itemId = 1738,
+		itemPos = {x = 33072, y = 32169, z = 2},
+		itemBag = 1988,
+		itemReward = {{7620, 1}, {7618, 1}, {2546, 30}, {2545, 60}},
+		weight = 80,
+		storage = Storage.Quest.DragonTower.Backpack1
+	},
+	-- Backpack 2
+	[10013] = {
+		itemId = 1738,
+		itemPos = {x = 33078, y = 32169, z = 2},
+		itemBag = 1988,
+		itemReward = {{2456, 1}, {2146, 2}},
+		weight = 50,
+		storage = Storage.Quest.DragonTower.Backpack2
+	},
+	-- Behemoth quest
+	-- Bag
+	[10014] = {
+		itemId = 1740,
+		itemPos = {x = 33294, y = 31658, z = 13},
+		itemBag = 1987,
+		itemReward = {{2145, 3}, {2146, 4}, {2124, 1}, {2168, 1}, {2171, 1}},
+		weight = 50,
+		storage = Storage.Quest.Behemoth.Bag
 	},
 
 	-- Reward of others scrips files (varied rewards)

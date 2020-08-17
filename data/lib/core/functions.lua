@@ -870,3 +870,47 @@ function Player:saveSpecialStorage()
 		db.query(string.format("INSERT INTO `player_misc` (`player_id`, `info`) VALUES (%d, %s)", self:getGuid(), db.escapeBlob(tmp, #tmp)))
 	end
 end
+
+-- Can be used in every boss
+function kickPlayersAfterTime(players, fromPos, toPos, exit)
+	for _, pid in pairs(players) do
+		local player = Player(pid)
+		if player and player:getPosition():isInRange(fromPos, toPos) then
+			player:teleportTo(exit)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You were kicked by exceding time inside the boss room.')
+		end
+	end
+end
+
+function Player:doCheckBossRoom(bossName, fromPos, toPos)
+	if self then
+		for x = fromPos.x, toPos.x do
+			for y = fromPos.y, toPos.y do
+				for z = fromPos.z, toPos.z do
+					local sqm = Tile(Position(x, y, z))
+					if sqm then
+						if sqm:getTopCreature() and sqm:getTopCreature():isPlayer() then
+							self:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You must wait. Someone is challenging '..bossName..' now.')
+							return false
+						end
+					end
+				end
+			end
+		end
+		-- Room cleaning
+		for x = fromPos.x, toPos.x do
+			for y = fromPos.y, toPos.y do
+				for z = fromPos.z, toPos.z do
+					local sqm = Tile(Position(x, y, z))
+					if sqm and sqm:getTopCreature() then
+						local monster = sqm:getTopCreature()
+						if monster then
+							monster:remove()
+						end
+					end
+				end
+			end
+		end
+	end
+	return true
+end	

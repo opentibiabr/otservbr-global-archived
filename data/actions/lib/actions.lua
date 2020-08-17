@@ -2,6 +2,11 @@ local holeId = {
 	294, 369, 370, 383, 392, 408, 409, 410, 427, 428, 430, 462, 469, 470, 482, 484, 485, 489, 924, 3135, 3136, 7933, 7938, 8170, 8286, 8285, 8284, 8281, 8280, 8279, 8277, 8276, 8567, 8585, 8596, 8595, 8249, 8250, 8251, 8252, 8253, 8254, 8255, 8256, 8592, 8972, 9606, 9625, 13190, 14461, 19519, 21536, 26020
 }
 
+local Itemsgrinder = {
+	[7759] = {item_id = 34642, effect = CONST_ME_BLUE_FIREWORKS}, -- Sapphire dust
+	[18416] = {item_id = 23876, effect = CONST_ME_GREENSMOKE} -- Pinch of crystal dust
+	}
+
 local holes = {
 	468, 481, 483, 7932, 23712
 }
@@ -968,4 +973,32 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		return false
 	end
 	return true
+end
+
+function onGrindItem(player, item, fromPosition, target, toPosition)
+if not(target.itemid == 23942) then
+	return false
+end
+	for index, value in pairs(Itemsgrinder) do
+		if item.itemid == index then		
+			local topParent = item:getTopParent()
+	if topParent.isItem and (not topParent:isItem() or topParent.itemid ~= 460) then
+		local parent = item:getParent()
+		if not parent:isTile() and (parent:addItem(value.item_id, 1) or topParent:addItem(value.item_id, 1)) then
+			item:remove(1)
+			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You grind a " .. ItemType(index):getName() .. " into fine, " .. ItemType(value.item_id):getName() .. ".")
+			doSendMagicEffect(target:getPosition(), value.effect)
+			return true
+		else
+			Game.createItem(value.item_id, 1, item:getPosition())
+		end
+	else
+	Game.createItem(value.item_id, 1, item:getPosition())
+	end
+	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You grind a " .. ItemType(index):getName() .. " into fine, " .. ItemType(value.item_id):getName() .. ".")
+	item:remove(1)
+	doSendMagicEffect(target:getPosition(), value.effect)
+			return
+		end
+	end
 end

@@ -250,8 +250,13 @@ class Player final : public Creature, public Cylinder
 		uint16_t getPreyBonusGrade(uint16_t slot) const {
 			return preySlotBonusGrade[slot];
 		}
+
 		uint16_t getPreyBonusRerolls() const {
 			return preyBonusRerolls;
+		}
+
+		uint16_t getPreyTick(uint16_t slot) const {
+			return preySlotTick[slot];
 		}
 		//
 
@@ -382,6 +387,10 @@ class Player final : public Creature, public Cylinder
 
 		bool hasFlag(PlayerFlags value) const {
 			return (group->flags & value) != 0;
+		}
+
+		bool hasCustomFlag(PlayerCustomFlags value) const {
+			return (group->customflags & value) != 0;
 		}
 
 		BedItem* getBedItem() {
@@ -682,7 +691,7 @@ class Player final : public Creature, public Cylinder
 		void onWalkComplete() override;
 
 		void stopWalk();
-		void openShopWindow(Npc* npc, const std::list<ShopInfo>& shop);
+		void openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop);
 		bool closeShopWindow(bool sendCloseShopWindow = true);
 		bool updateSaleShopList(const Item* item);
 		bool hasShopItemForSale(uint32_t itemId, uint8_t subType) const;
@@ -1345,6 +1354,14 @@ class Player final : public Creature, public Cylinder
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
 
+		void setScheduledSaleUpdate(bool scheduled) {
+			scheduledSaleUpdate = scheduled;
+		}
+
+		bool getScheduledSaleUpdate() {
+			return scheduledSaleUpdate;
+		}
+
 		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
 			return openContainers;
 		}
@@ -1520,7 +1537,7 @@ class Player final : public Creature, public Cylinder
 		std::vector<OutfitEntry> outfits;
 		GuildWarVector guildWarVector;
 
-		std::list<ShopInfo> shopItemList;
+		std::vector<ShopInfo> shopItemList;
 
 		std::forward_list<Party*> invitePartyList;
 		std::forward_list<uint32_t> modalWindows;
@@ -1633,6 +1650,7 @@ class Player final : public Creature, public Cylinder
 		std::vector<uint16_t> preySlotBonusType = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusValue = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusGrade = { 0, 0, 0 };
+		std::vector<uint16_t> preySlotTick = { 0, 0, 0 };
 
 		uint8_t soul = 0;
 		uint8_t levelPercent = 0;
@@ -1658,6 +1676,7 @@ class Player final : public Creature, public Cylinder
 		bool inventoryAbilities[CONST_SLOT_LAST + 1] = {};
 		bool quickLootFallbackToMainContainer = false;
 		bool logged = false;
+		bool scheduledSaleUpdate = false;
 
 		static uint32_t playerAutoID;
 
