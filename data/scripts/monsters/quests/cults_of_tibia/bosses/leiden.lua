@@ -1,0 +1,96 @@
+local mType = Game.createMonsterType("Leiden")
+local monster = {}
+
+monster.description = "Leiden"
+monster.experience = 0
+monster.outfit = {
+	lookType = 988,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 30000
+monster.maxHealth = 30000
+monster.race = "blood"
+monster.corpse = 0
+monster.speed = 240
+monster.summonCost = 390
+monster.maxSummons = 2
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 20
+}
+
+monster.flags = {
+	isSummonable = true,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = true,
+	isPushable = false,
+	isBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 95,
+	targetdistance = 0,
+	runHealth = 0,
+	isHealthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.summons = {
+	{name = "Barkless Fanatic", chance = 20, interval = 2000},
+	{name = "Barkless Fanatic", chance = 30, interval = 2000}
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "Bring me the pain! Make me suffer!", yell = false}
+}
+
+monster.loot = {
+}
+
+monster.attacks = {
+	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -400, effect = CONST_ME_DRAWBLOOD}
+}
+
+monster.defenses = {
+	defense = 50,
+	armor = 35
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 100},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = false},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

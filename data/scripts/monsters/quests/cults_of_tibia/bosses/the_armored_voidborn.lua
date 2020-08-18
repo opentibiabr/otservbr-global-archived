@@ -1,0 +1,92 @@
+local mType = Game.createMonsterType("The Armored Voidborn")
+local monster = {}
+
+monster.description = "The Armored Voidborn"
+monster.experience = 0
+monster.outfit = {
+	lookType = 987,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 50000
+monster.maxHealth = 50000
+monster.race = "blood"
+monster.corpse = 0
+monster.speed = 250
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 5000,
+	chance = 50
+}
+
+monster.flags = {
+	isSummonable = false,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = false,
+	isPushable = false,
+	isBoss = false,
+	illusionable = true,
+	canPushItems = false,
+	canPushCreatures = false,
+	staticAttackChance = 95,
+	targetdistance = 1,
+	runHealth = 0,
+	isHealthHidden = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+}
+
+monster.attacks = {
+	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -400, type = COMBAT_DEATH, length = 7, spread = 5, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 30, minDamage = -250, maxDamage = -440, type = COMBAT_ENERGY, target = false}
+}
+
+monster.defenses = {
+	defense = 50,
+	armor = 50
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 99},
+	{type = COMBAT_ENERGYDAMAGE, percent = 99},
+	{type = COMBAT_EARTHDAMAGE, percent = 99},
+	{type = COMBAT_FIREDAMAGE, percent = 99},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 99},
+	{type = COMBAT_HOLYDAMAGE , percent = 99},
+	{type = COMBAT_DEATHDAMAGE , percent = 99}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

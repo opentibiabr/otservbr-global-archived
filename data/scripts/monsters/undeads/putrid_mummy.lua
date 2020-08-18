@@ -1,0 +1,104 @@
+local mType = Game.createMonsterType("Putrid Mummy")
+local monster = {}
+
+monster.description = "a putrid mummy"
+monster.experience = 900
+monster.outfit = {
+	lookType = 976,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 1500
+monster.maxHealth = 1500
+monster.race = "undead"
+monster.corpse = 6004
+monster.speed = 150
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.flags = {
+	isSummonable = false,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = false,
+	isPushable = false,
+	isBoss = false,
+	illusionable = true,
+	canPushItems = true,
+	canPushCreatures = false,
+	staticAttackChance = 95,
+	targetdistance = 1,
+	runHealth = 0,
+	isHealthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = true
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "Come to mummy!", yell = false},
+	{text = "We will make you one of us!", yell = false}
+}
+
+monster.loot = {
+	{id = "gold coin", chance = 60870, maxCount = 62},
+	{id = 13472, chance = 3840},
+	{id = "black pearl", chance = 1280},
+	{id = "little bowl of myrrh", chance = 13550},
+	{id = "single human eye", chance = 8950},
+	{id = "green gem", chance = 3070},
+	{id = "green bandage", chance = 1100},
+	{id = "scarab coin", chance = 8180, maxCount = 3},
+	{id = "poison dagger", chance = 1530}
+}
+
+monster.attacks = {
+	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -100, maxDamage = -150, type = COMBAT_EARTH, range = 1, ShootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = true},
+	{name ="speed", interval = 2000, chance = 15, SpeedChange = -226, Duration = 10000}
+}
+
+monster.defenses = {
+	defense = 40,
+	armor = 40,
+	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 150, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = -20},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = -25},
+	{type = COMBAT_DEATHDAMAGE , percent = 100}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)
