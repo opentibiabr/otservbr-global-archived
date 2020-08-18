@@ -15043,53 +15043,53 @@ int LuaScriptInterface::luaMonsterTypeChangeTargetSpeed(lua_State* L)
 
 int LuaScriptInterface::luaMonsterTypeCanWalkOnEnergy(lua_State* L)
 {
-	// get: monsterType:canWalkOnEnergy() set: monsterType:canWalkOnEnergy(bool)
-	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
-	if (monsterType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, monsterType->info.canWalkOnEnergy);
-		} else {
-			monsterType->info.canWalkOnEnergy = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
+    // get: monsterType:canWalkOnEnergy() set: monsterType:canWalkOnEnergy(bool)
+    MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+    if (monsterType) {
+        if (lua_gettop(L) == 1) {
+            pushBoolean(L, monsterType->info.canWalkOnEnergy);
+        } else {
+            monsterType->info.canWalkOnEnergy = getBoolean(L, 2);
+            pushBoolean(L, true);
+        }
+    } else {
+        lua_pushnil(L);
+    }
+    return 1;
 }
 
 int LuaScriptInterface::luaMonsterTypeCanWalkOnFire(lua_State* L)
 {
-	// get: monsterType:canWalkOnFire() set: monsterType:canWalkOnFire(bool)
-	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
-	if (monsterType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, monsterType->info.canWalkOnFire);
-		} else {
-			monsterType->info.canWalkOnFire = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
+    // get: monsterType:canWalkOnFire() set: monsterType:canWalkOnFire(bool)
+    MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+    if (monsterType) {
+        if (lua_gettop(L) == 1) {
+            pushBoolean(L, monsterType->info.canWalkOnFire);
+        } else {
+            monsterType->info.canWalkOnFire = getBoolean(L, 2);
+            pushBoolean(L, true);
+        }
+    } else {
+        lua_pushnil(L);
+    }
+    return 1;
 }
 
 int LuaScriptInterface::luaMonsterTypeCanWalkOnPoison(lua_State* L)
 {
-	// get: monsterType:canWalkOnPoison() set: monsterType:canWalkOnPoison(bool)
-	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
-	if (monsterType) {
-		if (lua_gettop(L) == 1) {
-			pushBoolean(L, monsterType->info.canWalkOnPoison);
-		} else {
-			monsterType->info.canWalkOnPoison = getBoolean(L, 2);
-			pushBoolean(L, true);
-		}
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
+    // get: monsterType:canWalkOnPoison() set: monsterType:canWalkOnPoison(bool)
+    MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+    if (monsterType) {
+        if (lua_gettop(L) == 1) {
+            pushBoolean(L, monsterType->info.canWalkOnPoison);
+        } else {
+            monsterType->info.canWalkOnPoison = getBoolean(L, 2);
+            pushBoolean(L, true);
+        }
+    } else {
+        lua_pushnil(L);
+    }
+    return 1;
 }
 
 // Loot
