@@ -15041,8 +15041,7 @@ int LuaScriptInterface::luaMonsterTypeChangeTargetSpeed(lua_State* L)
 	return 1;
 }
 
-int LuaScriptInterface::luaMonsterTypeCanWalkOnEnergy(lua_State* L)
-{
+int LuaScriptInterface::luaMonsterTypeCanWalkOnEnergy(lua_State* L) {
     // get: monsterType:canWalkOnEnergy() set: monsterType:canWalkOnEnergy(bool)
     MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
     if (monsterType) {
@@ -15058,8 +15057,7 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnEnergy(lua_State* L)
     return 1;
 }
 
-int LuaScriptInterface::luaMonsterTypeCanWalkOnFire(lua_State* L)
-{
+int LuaScriptInterface::luaMonsterTypeCanWalkOnFire(lua_State* L) {
     // get: monsterType:canWalkOnFire() set: monsterType:canWalkOnFire(bool)
     MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
     if (monsterType) {
@@ -15075,8 +15073,7 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnFire(lua_State* L)
     return 1;
 }
 
-int LuaScriptInterface::luaMonsterTypeCanWalkOnPoison(lua_State* L)
-{
+int LuaScriptInterface::luaMonsterTypeCanWalkOnPoison(lua_State* L) {
     // get: monsterType:canWalkOnPoison() set: monsterType:canWalkOnPoison(bool)
     MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
     if (monsterType) {
