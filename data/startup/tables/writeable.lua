@@ -867,5 +867,10 @@ They did not attack me yet, although I am sure they can sense me. Who knows, may
 I stopped counting the days, because I lost all feeling for time down here.
 
 Oh, how I long to see humans again!]]
+	},
+	[2] = {
+		itemId = 1953,
+		itemPos = {x = 33063, y = 31624, z = 15},
+		text = "Buried forever that he never shall return. Don't remove this seal or bad things may happen."
 	}
 }

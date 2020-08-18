@@ -1828,7 +1828,9 @@ Storage = {
 			DemonShield = 10063,
 			GoldenArmor = 10064
 		},
-		ParchmentRoom = {},
+		ParchmentRoom = {
+			Bag = 10065
+		},
 		TheQueenOfTheBanshees = {},
 		-- update 7.24
 		GiantSmithhammer = {},

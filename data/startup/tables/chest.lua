@@ -641,6 +641,18 @@ ChestUnique = {
 		weight = 50,
 		storage = Storage.Quest.Behemoth.Bag
 	},
+	-- Parchment room quest
+	-- Bag
+	[10015] = {
+		itemId = 1742,
+		itemPos = {x = 33063, y = 31624, z = 15},
+		itemBag = 1987,
+		keyItem = 2091,
+		keyAction = 6010,
+		itemReward = {{2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
+		weight = 42,
+		storage = Storage.Quest.ParchmentRoom.Bag
+	},
 
 	-- Reward of others scrips files (varied rewards)
 	-- The First dragon Quest
