@@ -18,17 +18,22 @@ monster.changeTarget = {
 }
 
 monster.flags = {
-	summonable = false,
-	attackable = true,
-	rewardboss = false,
-	hostile = true,
-	convinceable = false,
-	illusionable = true,
+	isSummonable = false,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = false,
+	isPushable = false,
+	rewardBoss = true,
+	illusionable = false,
 	canPushItems = true,
-	canPushCreatures = false,
-	preyable = false,
-	targetDistance = 1,
+	canPushCreatures = true,
 	staticAttackChance = 80,
+	targetdistance = 1,
+	runHealth = 0,
+	isHealthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 	respawnType = RESPAWN_IN_ALL
 }
 
@@ -73,6 +78,9 @@ mType.onThink = function(monster, interval)
 end
 
 mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
 end
 
 mType.onDisappear = function(monster, creature)

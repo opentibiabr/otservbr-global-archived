@@ -26,17 +26,22 @@ monster.changeTarget = {
 }
 
 monster.flags = {
-	summonable = false,
-	attackable = true,
-	rewardboss = true,
-	hostile = true,
-	convinceable = false,
+	isSummonable = false,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = false,
+	isPushable = false,
+	rewardBoss = true,
 	illusionable = false,
 	canPushItems = true,
-	canPushCreatures = false,
-	preyable = false,
-	targetDistance = 1,
+	canPushCreatures = true,
 	staticAttackChance = 80,
+	targetdistance = 1,
+	runHealth = 0,
+	isHealthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false,
 	respawnType = RESPAWN_IN_ALL
 }
 
