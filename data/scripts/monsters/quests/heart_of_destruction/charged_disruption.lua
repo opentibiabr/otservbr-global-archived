@@ -39,6 +39,11 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
+monster.events = {
+	"ChargedDisruptionTransform",
+	"HeartMinionDeath"
+}
+
 monster.light = {
 	level = 0,
 	color = 0
