@@ -3011,8 +3011,19 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		}
 	}
 
-	sendBasicData();
 	sendInventoryClientIds();
+  	Item* slotItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+  	if (slotItem) {
+    	Container* mainBackpack = slotItem->getContainer();
+		Container* hasQuickLootContainer = player->getLootContainer(OBJECTCATEGORY_DEFAULT);
+		if (mainBackpack && !hasQuickLootContainer) {
+    		player->setLootContainer(OBJECTCATEGORY_DEFAULT, mainBackpack);
+    		sendInventoryItem(CONST_SLOT_BACKPACK, player->getInventoryItem(CONST_SLOT_BACKPACK));
+	 	}
+  	}
+
+  	sendLootContainers();
+  	sendBasicData();
 	initPreyData();
 
 	player->sendClientCheck();

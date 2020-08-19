@@ -1864,7 +1864,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 		ReturnValue ret = internalQuickLootItem(player, item, category);
 		if (ret == RETURNVALUE_NOTENOUGHCAPACITY) {
 			shouldNotifyCapacity = true;
-		} else if (ret == RETURNVALUE_NOTENOUGHROOM) {
+		} else if (ret == RETURNVALUE_CONTAINERNOTENOUGHROOM) {
 			shouldNotifyNotEnoughRoom = category;
 		}
 
@@ -1951,7 +1951,7 @@ void Game::internalQuickLootCorpse(Player* player, Container* corpse)
 		ss << "Attention! The loot you are trying to pick up is too heavy for you to carry.";
 	} else if (shouldNotifyNotEnoughRoom != OBJECTCATEGORY_NONE) {
 		ss.str(std::string());
-		ss << "Attention! The container for " << getObjectCategoryName(shouldNotifyNotEnoughRoom) << " is full.";
+		ss << "Attention! The container assigned to category " << getObjectCategoryName(shouldNotifyNotEnoughRoom) << " is full.";
 	} else {
 		return;
 	}
@@ -1976,8 +1976,17 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 
 	Container* lootContainer = player->getLootContainer(category);
 	if (!lootContainer) {
-		if (player->quickLootFallbackToMainContainer || player->getProtocolVersion() < 1150) {
-			Item* fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+    	if (player->quickLootFallbackToMainContainer) {
+    		Item* fallbackItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+
+      	if (fallbackItem) {
+        	Container* mainBackpack = fallbackItem->getContainer();
+        	if (mainBackpack && !fallbackConsumed) {
+          		player->setLootContainer(OBJECTCATEGORY_DEFAULT, mainBackpack);
+          		player->sendInventoryItem(CONST_SLOT_BACKPACK, player->getInventoryItem(CONST_SLOT_BACKPACK));
+        	}
+      	}
+
 			lootContainer = fallbackItem ? fallbackItem->getContainer() : nullptr;
 			fallbackConsumed = true;
 		} else {
@@ -2014,7 +2023,7 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 			Container* subContainer = cur ? cur->getContainer() : nullptr;
 			it.advance();
 
-			if (subContainer && (fallbackConsumed || baseId == 0 || subContainer->getID() == baseId)) {
+			if (subContainer && (fallbackConsumed || baseId == 0)) {
 				lastSubContainer = subContainer;
 				lootContainer = subContainer;
 				obtainedNewContainer = true;
@@ -2026,7 +2035,7 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 		if (!obtainedNewContainer && lastSubContainer && lastSubContainer->size() > 0) {
 			Item* cur = lastSubContainer->getItemByIndex(lastSubContainer->size() - 1);
 			Container* subContainer = cur ? cur->getContainer() : nullptr;
-			if (subContainer && (fallbackConsumed || baseId == 0 || subContainer->getID() == baseId)) {
+			if (subContainer && (fallbackConsumed || baseId == 0)) {
 				lootContainer = subContainer;
 				obtainedNewContainer = true;
 			}

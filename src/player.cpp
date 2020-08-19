@@ -1283,12 +1283,8 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			}
 		}
 
-		g_game.checkPlayersRecord();
+    	g_game.checkPlayersRecord();
 		IOLoginData::updateOnlineStatus(guid, true);
-		if (!logged){
-			sendLootContainers();
-			logged = true;
-		}
 	}
 }
 
