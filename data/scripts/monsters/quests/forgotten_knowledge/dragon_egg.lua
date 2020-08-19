@@ -39,6 +39,11 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
+monster.events = {
+	"DragonEggPrepareDeath",
+	"DragonEggHealthChange"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

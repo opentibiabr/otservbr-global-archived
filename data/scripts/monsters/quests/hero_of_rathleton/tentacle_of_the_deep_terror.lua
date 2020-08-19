@@ -45,6 +45,8 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
+monster.events = {"TentacleDeep"}
+
 monster.light = {
 	level = 0,
 	color = 0

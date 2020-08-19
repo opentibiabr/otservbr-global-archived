@@ -45,6 +45,8 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
+monster.events = {"ChargingOutDeath"}
+
 monster.light = {
 	level = 0,
 	color = 0

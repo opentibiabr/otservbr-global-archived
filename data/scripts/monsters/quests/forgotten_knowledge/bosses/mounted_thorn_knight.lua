@@ -45,6 +45,11 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
+monster.events = {
+	"ThornKnightDeath",
+	"HealthForgotten"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

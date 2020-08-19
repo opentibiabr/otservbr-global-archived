@@ -45,6 +45,11 @@ monster.flags = {
 	canWalkOnPoison = false
 }
 
+monster.events = {
+	"HeartBossDeath",
+	"OutburstCharge"
+}
+
 monster.light = {
 	level = 0,
 	color = 0

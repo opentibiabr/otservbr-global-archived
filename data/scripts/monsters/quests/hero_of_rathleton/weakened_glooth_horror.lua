@@ -45,6 +45,8 @@ monster.flags = {
 	canWalkOnPoison = true
 }
 
+monster.events = {"GloothHorror"}
+
 monster.light = {
 	level = 0,
 	color = 0
