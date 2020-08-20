@@ -46211,7 +46211,9 @@
 	<item fromid="35279" toid="35282" article="a" name="veined rock"/>
 	<item fromid="35283" toid="35284" article="a" name="ruddy obelisk"/>
 	<item fromid="35285" toid="35286" article="a" name="pile of ruddy ashlars"/>
-	<item fromid="35287" toid="35288" article="an" name="ancient sepulchre"/>
+	<item fromid="35287" toid="35288" article="an" name="ancient sepulchre">
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item fromid="35289" toid="35304" article="a" name="sphinx statue"/>
 	<item fromid="35305" toid="35447" name="reserved sprite"/>
 	<item id="35448" article="a" name="cobra statue"/>
