@@ -32,7 +32,7 @@ monster.flags = {
 	isHostile = true,
 	isConvinceable = false,
 	isPushable = false,
-	rewardBoss = true,
+	rewardBoss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
@@ -113,9 +113,6 @@ mType.onThink = function(monster, interval)
 end
 
 mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
 end
 
 mType.onDisappear = function(monster, creature)
