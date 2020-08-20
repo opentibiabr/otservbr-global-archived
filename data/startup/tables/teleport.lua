@@ -3,7 +3,12 @@
 TeleportAction = {
 	[35001] = { -- The Cursed Crystal teleports
 		itemId = 21721,
-		itemPos = {{x = 31973, y = 32905, z = 10}, {x = 31973, y = 32905, z = 11}, {x = 32009, y = 32928, z = 10}, {x = 32009, y = 32928, z = 9}}
+		itemPos = {
+			{x = 31973, y = 32905, z = 10},
+			{x = 31973, y = 32905, z = 11},
+			{x = 32009, y = 32928, z = 10},
+			{x = 32009, y = 32928, z = 9}
+		}
 	}
 }
 
@@ -188,6 +193,13 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32874, y = 31955, z = 11},
 		destination = {x = 32874, y = 31942, z = 12},
+		effect = CONST_ME_TELEPORT
+	}
+	-- Black knight quest exit
+	[38014] = {
+		itemId = 27718,
+		itemPos = {x = 33395, y = 32659, z = 6},
+		destination = {x = 33395, y = 32664, z = 6},
 		effect = CONST_ME_TELEPORT
 	}
 }
