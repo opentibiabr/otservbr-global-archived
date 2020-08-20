@@ -2023,7 +2023,7 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 			Container* subContainer = cur ? cur->getContainer() : nullptr;
 			it.advance();
 
-			if (subContainer && (fallbackConsumed || baseId == 0)) {
+			if (subContainer) {
 				lastSubContainer = subContainer;
 				lootContainer = subContainer;
 				obtainedNewContainer = true;
@@ -2035,7 +2035,8 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 		if (!obtainedNewContainer && lastSubContainer && lastSubContainer->size() > 0) {
 			Item* cur = lastSubContainer->getItemByIndex(lastSubContainer->size() - 1);
 			Container* subContainer = cur ? cur->getContainer() : nullptr;
-			if (subContainer && (fallbackConsumed || baseId == 0)) {
+
+			if (subContainer) {
 				lootContainer = subContainer;
 				obtainedNewContainer = true;
 			}
@@ -3680,7 +3681,7 @@ void Game::playerQuickLoot(uint32_t playerId, const Position& pos, uint16_t spri
 		std::stringstream ss;
 		if (ret == RETURNVALUE_NOTENOUGHCAPACITY) {
 			ss << "Attention! The loot you are trying to pick up is too heavy for you to carry.";
-		} else if (ret == RETURNVALUE_NOTENOUGHROOM) {
+		} else if (ret == RETURNVALUE_CONTAINERNOTENOUGHROOM) {
 			ss << "Attention! The container for " << getObjectCategoryName(category) << " is full.";
 		} else {
 			if (ret == RETURNVALUE_NOERROR) {
