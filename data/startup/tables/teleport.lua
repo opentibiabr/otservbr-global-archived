@@ -195,7 +195,7 @@ TeleportUnique = {
 		destination = {x = 32874, y = 31942, z = 12},
 		effect = CONST_ME_TELEPORT
 	},
-	-- Black knight quest exit
+	-- Scarlett etzel exit
 	[38014] = {
 		itemId = 27718,
 		itemPos = {x = 33395, y = 32659, z = 6},
