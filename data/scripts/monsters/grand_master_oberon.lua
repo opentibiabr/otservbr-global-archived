@@ -2,18 +2,21 @@ local mType = Game.createMonsterType("Grand Master Oberon")
 local immunity = CreatureEvent("OberonImmunity")
 local monster = {}
 monster.description = "an grand master oberon"
-monster.experience = 1
+monster.experience = 20000
 monster.outfit = {
-	lookType = 1072
+	lookType = 1072,
+	lookHead = 57,
+	lookBody = 75,
+	lookLegs = 38,
+	lookFeet = 86,
+	lookAddons = 1
 }
-condition:setOutfit(lookTypeEx, lookType, lookHead, lookBody, lookLegs, lookFeet, lookAddons, lookMount)
 
-monster.health = 99200
+monster.health = 30000
 monster.maxHealth = monster.health
-monster.race = "fire"
-monster.corpse = 5995
-monster.speed = 280
-monster.maxSummons = 2
+monster.race = "blood"
+monster.corpse = 33368
+monster.speed = 290
 
 monster.changeTarget = {
 	interval = 4*1000,
@@ -21,71 +24,60 @@ monster.changeTarget = {
 }
 
 monster.flags = {
+	rewardboss = true,
 	summonable = false,
 	attackable = true,
-	rewardboss = false,
 	hostile = true,
-	convinceable = false,
 	illusionable = false,
+	convinceable = false,
+	pushable = false,
 	canPushItems = true,
 	canPushCreatures = true,
-	preyable = false,
 	targetDistance = 1,
-	staticAttackChance = 70,
+	staticAttackChance = 85,
+	runonhealth = false,
+	canwalkonenergy = true,
+	canwalkonfire = true,
+	canwalkonpoison = true,
+	preyable = false,
 	respawnType = RESPAWN_IN_ALL
 }
 
-monster.summons = {
-	-- {name = "demon", chance = 10, interval = 2*1000}
-}
-
-monster.voices = {
-	interval = 5000,
-	chance = 10,
-	{text = "I'm an example", yell = false},
-	{text = "You shall bow", yell = false},
-}
-
 monster.loot = {
-	{id = "gold coin", chance = 60000, maxCount = 100},
-	{id = "bag", chance = 60000,
-		child = {
-			{id = "platin coin", chance = 60000, maxCount = 100},
-			{id = "crystal coin", chance = 60000, maxCount = 100}
-		}
-	}
+	{id = "spatial warp almanac", chance = 60000, maxCount = 1},
+	{id = "Grant of Arms", chance = 600, maxCount = 1},
+	{id = "Falcon Battleaxe", chance = 100, maxCount = 1},
+	{id = "Falcon Bow", chance = 100, maxCount = 1},
+	{id = "Falcon Circlet", chance = 100, maxCount = 1},
+	{id = "Falcon Coif", chance = 100, maxCount = 1},
+	{id = "Falcon Longsword", chance = 100, maxCount = 1},	
+	{id = "Falcon Mace", chance = 100, maxCount = 1},
+	{id = "Falcon Rod", chance = 100, maxCount = 1},
+	{id = "Falcon Bow", chance = 100, maxCount = 1},
+	{id = "Falcon wand", chance = 100, maxCount = 1},
+	{id = "Falcon Shield", chance = 100, maxCount = 1},
+	{id = "Falcon Greaves", chance = 100, maxCount = 1},
+	{id = "Falcon Plate", chance = 100, maxCount = 1},
 }
 
 monster.attacks = {
-	{name = "melee", attack = 130, skill = 70, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
-	{name = "energy strike", range = 1, chance = 10, interval = 2*1000, minDamage = -210, maxDamage = -300, target = true},
-	{name = "combat", type = COMBAT_MANADRAIN, chance = 10, interval = 2*1000, minDamage = 0, maxDamage = -120, target = true, range = 7, effect = CONST_ME_MAGIC_BLUE},
-	{name = "combat", type = COMBAT_FIREDAMAGE, chance = 20, interval = 2*1000, minDamage = -150, maxDamage = -250, radius = 1, target = true, effect = CONST_ME_FIREAREA, shootEffect = CONST_ANI_FIRE},
-	{name = "speed", chance = 15, interval = 2*1000, speed = -700, radius = 1, target = true, duration = 30*1000, effect = CONST_ME_MAGIC_RED},
-	{name = "firefield", chance = 10, interval = 2*1000, range = 7, radius = 1, target = true, shootEffect = CONST_ANI_FIRE},
-	{name = "combat", type = COMBAT_LIFEDRAIN, chance = 10, interval = 2*1000, length = 8, spread = 0, minDamage = -300, maxDamage = -490, effect = CONST_ME_PURPLEENERGY}
+	{name = "melee", attack = 230, skill = 150, effect = CONST_ME_DRAWBLOOD, interval = 2*1000},
+	{name = "combat", type = COMBAT_HOLYDAMAGE, chance = 80, interval = 6*1000, length = 8, spread = 0, minDamage = -1000, maxDamage = -2290, effect = CONST_ME_HOLYAREA},
+	{name = "combat", type = COMBAT_EARTHDAMAGE, chance = 20, interval = 2*1000, radius = 5, minDamage = -700, maxDamage = -1500, effect = CONST_ME_HITAREA},
+	{name = "combat", type = COMBAT_DEATHDAMAGE, chance = 10, interval = 4*1000, range = 7, minDamage = -800, maxDamage = -1500, target = true, effect = CONST_ME_MORTAREA}
 }
 
 monster.defenses = {
-	defense = 55,
-	armor = 55,
-	{name = "combat", type = COMBAT_HEALING, chance = 15, interval = 2*1000, minDamage = 180, maxDamage = 250, effect = CONST_ME_MAGIC_BLUE},
-	{name = "speed", chance = 15, interval = 2*1000, speed = 320, effect = CONST_ME_MAGIC_RED}
+	defense = 82,
+	armor = 60,
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = 30},
-	{type = COMBAT_DEATHDAMAGE, percent = 30},
-	{type = COMBAT_ENERGYDAMAGE, percent = 50},
-	{type = COMBAT_EARTHDAMAGE, percent = 40},
-	{type = COMBAT_ICEDAMAGE, percent = -10},
-	{type = COMBAT_HOLYDAMAGE, percent = -10}
+	{type = COMBAT_PHYSICALDAMAGE, percent = 10},
+	{type = COMBAT_DEATHDAMAGE, percent = 55}
 }
 
 monster.immunities = {
-	{type = "fire", combat = true, condition = true},
-	{type = "drown", condition = true},
-	{type = "lifedrain", combat = true},
 	{type = "paralyze", condition = true},
 	{type = "invisible", condition = true}
 }
@@ -118,6 +110,7 @@ local config = {
 	storage = {
 		asking = 1,
 		life = 2,
+		exhaust = 3,
 	},
 	monster = {
 		"Falcon Knight",
@@ -156,6 +149,9 @@ mType.onAppear = function(monster, creature)
 		monster:setStorageValue(config.storage.asking, 1)
 		monster:setStorageValue(config.storage.life, 1)
 	end
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
 end
 
 mType.onDisappear = function(monster, creature)
@@ -165,8 +161,10 @@ mType.onMove = function(monster, creature, fromPosition, toPosition)
 end
 
 mType.onSay = function(monster, creature, type, message)
-	if creature:isPlayer() then
+	local exhaust = config.storage.exhaust
+	if creature:isPlayer() and monster:getStorageValue(exhaust) <= os.time() then
 		message = message:lower()
+		monster:setStorageValue(exhaust, os.time() + 1)
 		for i, v in pairs(responses) do
 			if message == v.msg:lower() then
 				local asking_storage = monster:getStorageValue(config.storage.asking)
