@@ -1,6 +1,12 @@
 -- Look README.md for see the reserved action/unique numbers
 
 ItemAction = {
+	--Parchment room quest
+	-- data\scripts\quests\parchment_room\movement-parchment.lua
+	[104] = {
+		itemId = 1953,
+		itemPos = {{x = 33063, y = 31624, z = 15}}
+	},
 	[40001] = { -- The cursed crystal skeletons
 		itemId = 33156,
 		itemPos = {

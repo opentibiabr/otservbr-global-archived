@@ -126,7 +126,7 @@ function onRecvbyte(player, msg, byte)
 		end
 
 		local thing = itemTile:getThing(stackPos)
-		if thing then
+		if thing and thing:isItem() then
 			local corpseOwner = thing:getCorpseOwner()
 			if corpseOwner ~= 0 and not player:canOpenCorpse(corpseOwner) then
 				player:sendCancelMessage("You are not the owner.")

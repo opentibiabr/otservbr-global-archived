@@ -570,7 +570,7 @@ QuestDoorAction = {
 		itemPos = {
 			{x = 32233, y = 31098, z = 7},
 			{x = 32233, y = 31099, z = 7},
-			{x = 32233, y = 310100, z = 7}
+			{x = 32233, y = 31100, z = 7}
 		}
 	},
 	[Storage.SvargrondArena.GreenhornDoor] = {

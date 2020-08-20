@@ -95,7 +95,7 @@ if NpcHandler == nil then
 			[MESSAGE_NEEDMONEY] = "You don't have enough money.",
 			[MESSAGE_MISSINGITEM] = "You don't have so many.",
 			[MESSAGE_NEEDITEM] = "You do not have this object.",
-			[MESSAGE_NEEDSPACE] = "You do not have enough capacity.",
+			[MESSAGE_NEEDSPACE] = "There is not enought room.",
 			[MESSAGE_NEEDMORESPACE] = "You do not have enough capacity for all items.",
 			[MESSAGE_IDLETIMEOUT] = "Good bye.",
 			[MESSAGE_WALKAWAY] = "",

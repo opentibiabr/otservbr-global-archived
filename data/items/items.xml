@@ -9743,12 +9743,15 @@
 		<attribute key="weight" value="500" />
 	</item>
 	<item id="5805" article="a" name="golden goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5806" article="a" name="silver goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5807" article="a" name="bronze goblet">
+		<attribute key="writeable" value="0" />
 		<attribute key="weight" value="1500" />
 	</item>
 	<item id="5808" name="orshabaal's brain">
@@ -39500,7 +39503,6 @@
 		<attribute key="attack" value="78" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
-		<attribute key="showduration" value="1" />
 		<attribute key="weaponType" value="ammunition" />
 		<attribute key="quicklootcategory" value="weaponammo" />
 		<attribute key="ammoType" value="bolt" />
@@ -42576,37 +42578,31 @@
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32385" article="an" name="exercise axe">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32386" article="an" name="exercise club">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32387" article="an" name="exercise bow">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32388" article="an" name="exercise rod">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32389" article="an" name="exercise wand">
 		<attribute key="charges" value="500" />
 		<attribute key="showcharges" value="1" />
 		<attribute key="weight" value="1000" />
-		<attribute key="moveable" value="0" />
 	</item>
 	<item id="32390" article="a" name="baby rotworm">
 		<attribute key="wrapableTo" value="26054" />
@@ -44244,6 +44240,8 @@
 		<attribute key="description" value="Souvenir from Thais Museum." />
 	</item>
 	<item fromid="33471" toid="33474" article="a" name="timber table"/>
+	<!-- asura entrance-->
+	<item id="33477" article="a" name="wall mirror"/>
 	<item fromid="33491" toid="33492" name="fluorescent fungi">
 		<attribute key="wrapableTo" value="26054" />
 	</item>
@@ -46213,7 +46211,9 @@
 	<item fromid="35279" toid="35282" article="a" name="veined rock"/>
 	<item fromid="35283" toid="35284" article="a" name="ruddy obelisk"/>
 	<item fromid="35285" toid="35286" article="a" name="pile of ruddy ashlars"/>
-	<item fromid="35287" toid="35288" article="an" name="ancient sepulchre"/>
+	<item fromid="35287" toid="35288" article="an" name="ancient sepulchre">
+		<attribute key="floorchange" value="down" />
+	</item>
 	<item fromid="35289" toid="35304" article="a" name="sphinx statue"/>
 	<item fromid="35305" toid="35447" name="reserved sprite"/>
 	<item id="35448" article="a" name="cobra statue"/>
@@ -48083,9 +48083,7 @@
 	</item>
 	<item id="36503" name="scorpion grave"/>
 	<item id="36504" name="scorpion grave"/>
-	<item id="36508" article="a" name="unknown">
-		<attribute key="weight" value="240" />
-	</item>
+	<item id="36508" article="a" name="stout hawser"/>
 	<item id="36509" name="omniscient owl">
 		<attribute key="weight" value="910" />
 		<attribute key="description" value="This incospicuous owl will answer every question. Awarded by TibiaQA.com." />
