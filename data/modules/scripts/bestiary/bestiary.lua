@@ -1,5 +1,6 @@
 
 Bestiary = {}
+BestiaryTracker = {}
 
 Bestiary.Credits = {
 	Developer = "fernando mieza (flyckks), gpedro, lbaah, Ticardo (Rick), DudZ, Ruiivo",
@@ -34,7 +35,8 @@ Bestiary.C_Packets = {
 	RequestBestiaryData = 0xe1,
 	RequestBestiaryOverview = 0xe2,
 	RequestBestiaryMonsterData = 0xe3,
-	RequestBestiaryCharmUnlock = 0xe4
+	RequestBestiaryCharmUnlock = 0xe4,
+	RequestBestiaryTracker = 0x2a
 }
 
 Bestiary.findRaceByName = function(race)
@@ -413,6 +415,9 @@ function onRecvbyte(player, msg, byte)
 	elseif (byte == Bestiary.C_Packets.RequestBestiaryCharmUnlock) then
 		Bestiary.sendBuyCharmRune(player, msg)
 		Bestiary.sendCharms(player)
+	elseif (byte == Bestiary.C_Packets.RequestBestiaryTracker) then
+		local racetrackerid = msg:getU16()
+		player:addBestiaryTracker(racetrackerid)
 	end
 end
 
@@ -546,6 +551,28 @@ function Player.setCharmRuneSlotExpansion(self, onOff)
 	self:setStorageValue(Bestiary.Storage.PLAYER_CHARM_SLOT_EXPANSION, onOff and 1 or 0)
 end
 
+function Player.refreshBestiaryTracker(self)
+	if not(BestiaryTracker[self:getId()]) then
+		return
+	end
+	local msg = NetworkMessage()
+	msg:addByte(0xB9)
+	msg:addByte(#BestiaryTracker[self:getId()]) -- capacity
+		for index, value in pairs(BestiaryTracker[self:getId()]) do
+			msg:addU16(value) -- race
+			msg:addU32(self:getBestiaryKillCount(value)) -- total
+			msg:addU16(Bestiary.Monsters[value].FirstUnlock) -- stage one
+			msg:addU16(Bestiary.Monsters[value].SecondUnlock) -- stage two
+			msg:addU16(Bestiary.Monsters[value].toKill) -- stage three
+			if Bestiary.GetKillStatus(Bestiary.Monsters[value], self:getBestiaryKillCount(value)) == 4 then
+				msg:addByte(4) -- is complete
+			else
+				msg:addByte(0) -- not complete
+			end
+		end
+	msg:sendToPlayer(self)
+end
+
 function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 	if type(monsterID) == "string" then
 		monsterID = Bestiary.MonstersName[monsterID]
@@ -574,7 +601,34 @@ function Player.addBestiaryKill(self, monsterID) --MonsterID can be Name
 		self:sendTextMessage(MESSAGE_STATUS_DEFAULT, 'You unlocked details for the creature "' .. monster.name .. '"')
 		self:addCharmPoints(monster.CharmsPoints)
 		self:sendBestiaryEntryChanged(monsterID)
+	end	
+	local trackedBestiary = BestiaryTracker[self:getId()]
+	if trackedBestiary then
+		for i = 1, #trackedBestiary do
+			local trackers = trackedBestiary[i]
+			if trackers and trackers == monsterID then
+				self:refreshBestiaryTracker()
+			end
+		end
 	end
+end
+
+function Player.addBestiaryTracker(self, raceid)
+	local trackedBestiary = BestiaryTracker[self:getId()]
+	if trackedBestiary then
+		for i = 1, #trackedBestiary do
+			local trackers = trackedBestiary[i]
+			if trackers and trackers == raceid then
+				table.remove(BestiaryTracker[self:getId()], i)
+				self:refreshBestiaryTracker()
+				return
+			end
+		end
+	else
+		BestiaryTracker[self:getId()] = {}
+	end
+		table.insert(BestiaryTracker[self:getId()], raceid)
+		self:refreshBestiaryTracker()
 end
 
 function Player.getCharmFromTarget(self, target)
