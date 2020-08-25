@@ -73,6 +73,8 @@ class ProtocolGame final : public Protocol
 		void AddItem(NetworkMessage& msg, const Item* item);
 		void AddItem(NetworkMessage& msg, uint16_t id, uint8_t count);
 
+		void sendLockerItems(std::map<uint16_t, uint16_t> itemMap, uint16_t count);
+
 		uint16_t getVersion() const {
 			return version;
 		}
@@ -104,6 +106,12 @@ class ProtocolGame final : public Protocol
 		void parseSay(NetworkMessage& msg);
 		void parseLookAt(NetworkMessage& msg);
 		void parseLookInBattleList(NetworkMessage& msg);
+
+		void parseQuickLoot(NetworkMessage& msg);
+		void parseLootContainer(NetworkMessage& msg);
+		void parseQuickLootBlackWhitelist(NetworkMessage& msg);
+		void parseRequestLockItems();
+
 		void parseFightModes(NetworkMessage& msg);
 		void parseAttack(NetworkMessage& msg);
 		void parseFollow(NetworkMessage& msg);
@@ -304,6 +312,10 @@ class ProtocolGame final : public Protocol
 
 		void sendContainer(uint8_t cid, const Container* container, bool hasParent, uint16_t firstIndex);
 		void sendCloseContainer(uint8_t cid);
+
+		//quickloot
+		void sendLootContainers();
+		void sendLootStats(Item* item);
 
 		//inventory
 		void sendInventoryItem(slots_t slot, const Item* item);

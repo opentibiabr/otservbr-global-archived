@@ -182,20 +182,6 @@ function Player:onLook(thing, position, distance)
 				description = string.format("%s, Unique ID: %d", description, uniqueId)
 			end
 
-			if thing:isContainer() then
-				local quickLootCategories = {}
-				local container = Container(thing.uid)
-				for categoryId = LOOT_START, LOOT_END do
-					if container ~= nil then
-						if container:hasQuickLootCategory(categoryId) then
-							table.insert(quickLootCategories, categoryId)
-						end
-					end
-				end
-
-				description = string.format("%s, QuickLootCategory: (%s)", description, table.concat(quickLootCategories, ", "))
-			end
-
 			local itemType = thing:getType()
 
 			local transformEquipId = itemType:getTransformEquipId()
@@ -436,16 +422,6 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 
 	-- Handle move items to the ground
 	if toPosition.x ~= CONTAINER_POSITION then
-		if item:isContainer() then
-			local container = Container(item.uid)
-			for categoryId = LOOT_START, LOOT_END do
-				if container:hasQuickLootCategory(categoryId) then
-					container:removeQuickLootCategory(categoryId)
-					self:setQuickLootBackpack(categoryId, nil)
-				end
-			end
-		end
-
 		return true
 	end
 

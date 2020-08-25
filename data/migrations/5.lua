@@ -1,3 +1,5 @@
 function onUpdateDatabase()
-    return false -- true = There are others migrations file | false = this is the last migration file
+    print("> Updating database to version 6 (quickloot)")
+    db.query("ALTER TABLE `players` ADD `quickloot_fallback` TINYINT DEFAULT 0")
+    return true
 end

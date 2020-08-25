@@ -1652,17 +1652,17 @@ Item* Tile::getDoorItem() const
 {
 	const TileItemVector* items = getItemList();
 	if (!items || items->size() == 0) {
-    	return ground;
-  	}
+		return ground;
+	}
 
- 	if (items) {
-    	for (Item* item : *items) {
-      		const ItemType& it = Item::items[item->getID()];
-      		if (it.isDoor()) {
-        		return item;
-     		}
-    	}
-  	}
+	if (items) {
+		for (Item* item : *items) {
+			const ItemType& it = Item::items[item->getID()];
+			if (it.isDoor()) {
+				return item;
+			}
+		}
+	}
 
 	return nullptr;
 }

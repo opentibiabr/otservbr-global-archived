@@ -5,6 +5,5 @@ function onUpdateDatabase()
         ALTER TABLE `prey_slots`
             ADD `tick` smallint(3) NOT NULL DEFAULT '0';
     ]])
-
     return true
 end
