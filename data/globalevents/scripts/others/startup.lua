@@ -1,4 +1,7 @@
 function onStartup()
+	print(">> Loading new prey list monsters")
+		dofile('data/modules/scripts/prey_system/preyMonsters.lua')
+	
 	print(">> Loading map attributes")
 	-- Npc table
 	loadLuaNpcs(NpcTable)
