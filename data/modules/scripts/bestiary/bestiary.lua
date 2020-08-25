@@ -28,7 +28,8 @@ Bestiary.S_Packets = {
 	SendBestiaryOverview = 0xd6,
 	SendBestiaryMonsterData = 0xd7,
 	SendBestiaryCharmsData = 0xd8,
-	SendBestiaryTracker = 0xd9
+	SendBestiaryTracker = 0xd9,
+	SendBestiaryTrackerTab = 0xB9
 }
 
 Bestiary.C_Packets = {
@@ -556,7 +557,7 @@ function Player.refreshBestiaryTracker(self)
 		return
 	end
 	local msg = NetworkMessage()
-	msg:addByte(0xB9)
+	msg:addByte(Bestiary.S_Packets.SendBestiaryTrackerTab)
 	msg:addByte(#BestiaryTracker[self:getId()]) -- capacity
 		for index, value in pairs(BestiaryTracker[self:getId()]) do
 			msg:addU16(value) -- race
