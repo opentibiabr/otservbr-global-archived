@@ -13,6 +13,11 @@ MonsterType.register = function(self, mask)
 	return registerMonsterType(self, mask)
 end
 
+registerMonsterType.name = function(mtype, mask)
+	if mask.name then
+		mtype:name(mask.name)
+	end
+end
 registerMonsterType.description = function(mtype, mask)
 	if mask.description then
 		mtype:nameDescription(mask.description)
@@ -119,6 +124,15 @@ registerMonsterType.flags = function(mtype, mask)
 		end
 		if mask.flags.staticAttackChance then
 			mtype:staticAttackChance(mask.flags.staticAttackChance)
+		end
+		if mask.flags.canWalkOnEnergy then
+			mtype:canWalkOnEnergy(mask.flags.canWalkOnEnergy)
+		end
+		if mask.flags.canWalkOnFire then
+			mtype:canWalkOnFire(mask.flags.canWalkOnFire)
+		end
+		if mask.flags.canWalkOnPoison then
+			mtype:canWalkOnPoison(mask.flags.canWalkOnPoison)
 		end
 	end
 end

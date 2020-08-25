@@ -12,7 +12,7 @@ function onStepIn(creature, item, position, fromPosition)
 	if item.actionid == 25300 then
 		player:addCondition(condition)
 
-		player:setStorageValue(Storage.SvargrondArena.PitDoor, 0)
+		player:setStorageValue(Storage.SvargrondArena.PitDoor, -1)
 		player:teleportTo(SvargrondArena.kickPosition)
 		player:say("Coward!", TALKTYPE_MONSTER_SAY)
 		SvargrondArena.cancelEvents(playerId)

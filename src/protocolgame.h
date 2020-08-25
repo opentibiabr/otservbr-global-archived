@@ -120,6 +120,7 @@ class ProtocolGame final : public Protocol
 		void parseDebugAssert(NetworkMessage& msg);
 		void parseRuleViolationReport(NetworkMessage &msg);
 
+		void parseTeleport(NetworkMessage& msg);
 		void parseThrow(NetworkMessage& msg);
 		void parseUseItemEx(NetworkMessage& msg);
 		void parseUseWithCreature(NetworkMessage& msg);
@@ -145,7 +146,7 @@ class ProtocolGame final : public Protocol
 		void parseToggleMount(NetworkMessage& msg);
 
 		// Imbuements
-		void parseApplyImbuemente(NetworkMessage& msg);
+		void parseApplyImbuement(NetworkMessage& msg);
 		void parseClearingImbuement(NetworkMessage& msg);
 		void parseCloseImbuingWindow(NetworkMessage& msg);
 
@@ -247,7 +248,7 @@ class ProtocolGame final : public Protocol
 		void sendGameNews();
 		void sendResourcesBalance(uint64_t money = 0, uint64_t bank = 0, uint64_t prey = 0);
 		void sendResourceBalance(Resource_t resourceType, uint64_t value);
-		void sendSaleItemList(const std::list<ShopInfo>& shop);
+		void sendSaleItemList(const std::vector<ShopInfo>& shop);
 		void sendMarketEnter(uint32_t depotId);
 		void updateCoinBalance();
 		void sendMarketLeave();

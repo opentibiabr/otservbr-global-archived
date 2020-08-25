@@ -1376,33 +1376,33 @@ bool isCaskItem(uint16_t itemId)
 std::string getObjectCategoryName(ObjectCategory_t category)
 {
 	switch (category) {
-		case OBJECTCATEGORY_ARMORS: return "armors";
-		case OBJECTCATEGORY_NECKLACES: return "amulets";
-		case OBJECTCATEGORY_BOOTS: return "boots";
-		case OBJECTCATEGORY_CONTAINERS: return "containers";
-		case OBJECTCATEGORY_DECORATION: return "decoration";
-		case OBJECTCATEGORY_FOOD: return "food";
-		case OBJECTCATEGORY_HELMETS: return "helmets";
-		case OBJECTCATEGORY_LEGS: return "legs";
-		case OBJECTCATEGORY_OTHERS: return "others";
-		case OBJECTCATEGORY_POTIONS: return "potions";
-		case OBJECTCATEGORY_RINGS: return "rings";
-		case OBJECTCATEGORY_RUNES: return "runes";
-		case OBJECTCATEGORY_SHIELDS: return "shields";
-		case OBJECTCATEGORY_TOOLS: return "tools";
-		case OBJECTCATEGORY_VALUABLES: return "valuables";
-		case OBJECTCATEGORY_AMMO: return "weapons: ammunition";
-		case OBJECTCATEGORY_AXES: return "weapons: axes";
-		case OBJECTCATEGORY_CLUBS: return "weapons: clubs";
-		case OBJECTCATEGORY_DISTANCEWEAPONS: return "weapons: distance";
-		case OBJECTCATEGORY_SWORDS: return "weapons: swords";
-		case OBJECTCATEGORY_WANDS: return "weapons: wands";
-		case OBJECTCATEGORY_PREMIUMSCROLLS: return "premium scrolls";
-		case OBJECTCATEGORY_TIBIACOINS: return "tibia coins";
-		case OBJECTCATEGORY_CREATUREPRODUCTS: return "creature products";
-		case OBJECTCATEGORY_STASHRETRIEVE: return "stash retrieve";
-		case OBJECTCATEGORY_GOLD: return "gold";
-		case OBJECTCATEGORY_DEFAULT: return "unassigned loot";
+		case OBJECTCATEGORY_ARMORS: return "Armors";
+		case OBJECTCATEGORY_NECKLACES: return "Amulets";
+		case OBJECTCATEGORY_BOOTS: return "Boots";
+		case OBJECTCATEGORY_CONTAINERS: return "Containers";
+		case OBJECTCATEGORY_DECORATION: return "Decoration";
+		case OBJECTCATEGORY_FOOD: return "Food";
+		case OBJECTCATEGORY_HELMETS: return "Helmets";
+		case OBJECTCATEGORY_LEGS: return "Legs";
+		case OBJECTCATEGORY_OTHERS: return "Others";
+		case OBJECTCATEGORY_POTIONS: return "Potions";
+		case OBJECTCATEGORY_RINGS: return "Rings";
+		case OBJECTCATEGORY_RUNES: return "Runes";
+		case OBJECTCATEGORY_SHIELDS: return "Shields";
+		case OBJECTCATEGORY_TOOLS: return "Tools";
+		case OBJECTCATEGORY_VALUABLES: return "Valuables";
+		case OBJECTCATEGORY_AMMO: return "Weapons: Ammunition";
+		case OBJECTCATEGORY_AXES: return "Weapons: Axes";
+		case OBJECTCATEGORY_CLUBS: return "Weapons: Clubs";
+		case OBJECTCATEGORY_DISTANCEWEAPONS: return "Weapons: Distance";
+		case OBJECTCATEGORY_SWORDS: return "Weapons: Swords";
+		case OBJECTCATEGORY_WANDS: return "Weapons: Wands";
+		case OBJECTCATEGORY_PREMIUMSCROLLS: return "Premium Scrolls";
+		case OBJECTCATEGORY_TIBIACOINS: return "Tibia Coins";
+		case OBJECTCATEGORY_CREATUREPRODUCTS: return "Creature Products";
+		case OBJECTCATEGORY_STASHRETRIEVE: return "Stash Retrieve";
+		case OBJECTCATEGORY_GOLD: return "Gold";
+		case OBJECTCATEGORY_DEFAULT: return "Unassigned Loot";
 		default: return std::string();
 	}
 }

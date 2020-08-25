@@ -250,8 +250,13 @@ class Player final : public Creature, public Cylinder
 		uint16_t getPreyBonusGrade(uint16_t slot) const {
 			return preySlotBonusGrade[slot];
 		}
+
 		uint16_t getPreyBonusRerolls() const {
 			return preyBonusRerolls;
+		}
+
+		uint16_t getPreyTick(uint16_t slot) const {
+			return preySlotTick[slot];
 		}
 		//
 
@@ -382,6 +387,10 @@ class Player final : public Creature, public Cylinder
 
 		bool hasFlag(PlayerFlags value) const {
 			return (group->flags & value) != 0;
+		}
+
+		bool hasCustomFlag(PlayerCustomFlags value) const {
+			return (group->customflags & value) != 0;
 		}
 
 		BedItem* getBedItem() {
@@ -682,7 +691,7 @@ class Player final : public Creature, public Cylinder
 		void onWalkComplete() override;
 
 		void stopWalk();
-		void openShopWindow(Npc* npc, const std::list<ShopInfo>& shop);
+		void openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop);
 		bool closeShopWindow(bool sendCloseShopWindow = true);
 		bool updateSaleShopList(const Item* item);
 		bool hasShopItemForSale(uint32_t itemId, uint8_t subType) const;
@@ -1321,14 +1330,6 @@ class Player final : public Creature, public Cylinder
 		bool canDoAction() const {
 			return nextAction <= OTSYS_TIME();
 		}
-		void setNextPotionAction(int64_t time) {
-			if (time > nextPotionAction) {
-				nextPotionAction = time;
-			}
-		}
-		bool canDoPotionAction() const {
-			return nextPotionAction <= OTSYS_TIME();
-		}
 
 		void setModuleDelay(uint8_t byteortype, int16_t delay) {
 			moduleDelayMap[byteortype] = OTSYS_TIME() + delay;
@@ -1342,7 +1343,6 @@ class Player final : public Creature, public Cylinder
 		}
 
 		uint32_t getNextActionTime() const;
-		uint32_t getNextPotionActionTime() const;
 
 		Item* getWriteItem(uint32_t& windowTextId, uint16_t& maxWriteLen);
 		void setWriteItem(Item* item, uint16_t maxWriteLen = 0);
@@ -1353,6 +1353,14 @@ class Player final : public Creature, public Cylinder
 		void learnInstantSpell(const std::string& spellName);
 		void forgetInstantSpell(const std::string& spellName);
 		bool hasLearnedInstantSpell(const std::string& spellName) const;
+
+		void setScheduledSaleUpdate(bool scheduled) {
+			scheduledSaleUpdate = scheduled;
+		}
+
+		bool getScheduledSaleUpdate() {
+			return scheduledSaleUpdate;
+		}
 
 		const std::map<uint8_t, OpenContainer>& getOpenContainers() const {
 			return openContainers;
@@ -1452,17 +1460,6 @@ class Player final : public Creature, public Cylinder
 
 		uint16_t getFreeBackpackSlots() const;
 
-		bool walkExhausted() {
-			if (hasCondition(CONDITION_PARALYZE)) {
-				return lastWalking > OTSYS_TIME();
-			}
-
-			return false;
-		}
-
-		void setWalkExhaust(int64_t value) {
-			lastWalking = OTSYS_TIME() + value;
-		}
 
   /*****************************************************************************
    * Interfaces
@@ -1488,7 +1485,6 @@ class Player final : public Creature, public Cylinder
 		void setNextWalkActionTask(SchedulerTask* task);
 		void setNextWalkTask(SchedulerTask* task);
 		void setNextActionTask(SchedulerTask* task);
-		void setNextPotionActionTask(SchedulerTask* task);
 
 		void death(Creature* lastHitCreature) override;
 		bool dropCorpse(Creature* lastHitCreature, Creature* mostDamageCreature, bool lastHitUnjustified, bool mostDamageUnjustified) override;
@@ -1541,7 +1537,7 @@ class Player final : public Creature, public Cylinder
 		std::vector<OutfitEntry> outfits;
 		GuildWarVector guildWarVector;
 
-		std::list<ShopInfo> shopItemList;
+		std::vector<ShopInfo> shopItemList;
 
 		std::forward_list<Party*> invitePartyList;
 		std::forward_list<uint32_t> modalWindows;
@@ -1572,9 +1568,7 @@ class Player final : public Creature, public Cylinder
 		int64_t lastPing;
 		int64_t lastPong;
 		int64_t nextAction = 0;
-		int64_t nextPotionAction = 0;
 		int64_t lastQuickLootNotification = 0;
-		int64_t lastWalking = 0;
 
 		std::vector<Kill> unjustifiedKills;
 
@@ -1606,7 +1600,6 @@ class Player final : public Creature, public Cylinder
 		uint32_t level = 1;
 		uint32_t magLevel = 0;
 		uint32_t actionTaskEvent = 0;
-		uint32_t actionPotionTaskEvent = 0;
 		uint32_t nextStepEvent = 0;
 		uint32_t walkTaskEvent = 0;
 		uint32_t MessageBufferTicks = 0;
@@ -1657,6 +1650,7 @@ class Player final : public Creature, public Cylinder
 		std::vector<uint16_t> preySlotBonusType = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusValue = {0, 0, 0};
 		std::vector<uint16_t> preySlotBonusGrade = { 0, 0, 0 };
+		std::vector<uint16_t> preySlotTick = { 0, 0, 0 };
 
 		uint8_t soul = 0;
 		uint8_t levelPercent = 0;
@@ -1682,6 +1676,7 @@ class Player final : public Creature, public Cylinder
 		bool inventoryAbilities[CONST_SLOT_LAST + 1] = {};
 		bool quickLootFallbackToMainContainer = false;
 		bool logged = false;
+		bool scheduledSaleUpdate = false;
 
 		static uint32_t playerAutoID;
 

@@ -327,6 +327,11 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	msg.skipBytes(3); // U16 dat revision, game preview state
 
+	// In version 12.40.10030 we have 13 extra bytes
+	if (msg.getLength() - msg.getBufferPosition() == 141) {
+		msg.skipBytes(13);
+	}
+
 	if (!Protocol::RSA_decrypt(msg)) {
 		std::cout << "[ProtocolGame::onRecvFirstMessage] RSA Decrypt Failed" << std::endl;
 		disconnect();
@@ -487,6 +492,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x70: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_EAST); break;
 		case 0x71: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_SOUTH); break;
 		case 0x72: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_WEST); break;
+		case 0x73: parseTeleport(msg); break;
 		case 0x78: parseThrow(msg); break;
 		case 0x79: parseLookInShop(msg); break;
 		case 0x7A: parsePlayerPurchase(msg); break;
@@ -539,7 +545,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		//g_dispatcher.addTask(createTask(std::bind(&Modules::executeOnRecvbyte, g_modules, player, msg, recvbyte)));
 		case 0xD3: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::parseSetOutfit, this, msg))); break;
 		case 0xD4: parseToggleMount(msg); break;
-		case 0xD5: parseApplyImbuemente(msg); break;
+		case 0xD5: parseApplyImbuement(msg); break;
 		case 0xD6: parseClearingImbuement(msg); break;
 		case 0xD7: parseCloseImbuingWindow(msg); break;
 		case 0xDC: parseAddVip(msg); break;
@@ -873,7 +879,7 @@ void ProtocolGame::parseToggleMount(NetworkMessage& msg)
 	addGameTask(&Game::playerToggleMount, player->getID(), mount);
 }
 
-void ProtocolGame::parseApplyImbuemente(NetworkMessage& msg)
+void ProtocolGame::parseApplyImbuement(NetworkMessage& msg)
 {
 	uint8_t slot = msg.getByte();
 	uint32_t imbuementId = msg.get<uint32_t>();
@@ -937,6 +943,12 @@ void ProtocolGame::parseUpdateContainer(NetworkMessage& msg)
 {
 	uint8_t cid = msg.getByte();
 	addGameTask(&Game::playerUpdateContainer, player->getID(), cid);
+}
+
+void ProtocolGame::parseTeleport(NetworkMessage& msg)
+{
+	Position newPosition = msg.getPosition();
+	addGameTask(&Game::playerTeleport, player->getID(), newPosition);
 }
 
 void ProtocolGame::parseThrow(NetworkMessage& msg)
@@ -1659,6 +1671,13 @@ void ProtocolGame::sendPreyRerollPrice(uint32_t price /*= 0*/, uint8_t wildcard 
 	msg.add<uint32_t>(price); // price
 	msg.addByte(wildcard); // wildcard
 	msg.addByte(directly); // selectCreatureDirectly price (5 in tibia)
+
+	// Prey Task
+	msg.add<uint32_t>(0);
+	msg.add<uint32_t>(0);
+	msg.addByte(0); 
+	msg.addByte(0);
+
 	writeToOutputBuffer(msg);
 }
 
@@ -1903,6 +1922,8 @@ void ProtocolGame::sendShop(Npc* npc, const ShopInfoList& itemList)
 	msg.addString(npc->getName());
 	msg.add<uint16_t>(3031); // TO-DO Coin used
 
+	msg.addString(std::string()); // ??
+
 	uint16_t itemsToSend = std::min<size_t>(itemList.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
 
@@ -1955,7 +1976,7 @@ void ProtocolGame::sendResourceBalance(Resource_t resourceType, uint64_t value)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendSaleItemList(const std::list<ShopInfo>& shop)
+void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo>& shop)
 {
 	sendResourcesBalance(player->getMoney(), player->getBankBalance());
 
@@ -2990,8 +3011,19 @@ void ProtocolGame::sendAddCreature(const Creature* creature, const Position& pos
 		}
 	}
 
-	sendBasicData();
 	sendInventoryClientIds();
+  	Item* slotItem = player->getInventoryItem(CONST_SLOT_BACKPACK);
+  	if (slotItem) {
+    	Container* mainBackpack = slotItem->getContainer();
+		Container* hasQuickLootContainer = player->getLootContainer(OBJECTCATEGORY_DEFAULT);
+		if (mainBackpack && !hasQuickLootContainer) {
+    		player->setLootContainer(OBJECTCATEGORY_DEFAULT, mainBackpack);
+    		sendInventoryItem(CONST_SLOT_BACKPACK, player->getInventoryItem(CONST_SLOT_BACKPACK));
+	 	}
+  	}
+
+  	sendLootContainers();
+  	sendBasicData();
 	initPreyData();
 
 	player->sendClientCheck();
@@ -3572,6 +3604,8 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 
 	msg.add<uint16_t>(creature->getStepSpeed() / 2);
 
+	msg.addByte(0); // Icons
+
 	msg.addByte(player->getSkullClient(creature));
 	msg.addByte(player->getPartyShield(otherPlayer));
 
@@ -3736,6 +3770,10 @@ void ProtocolGame::addImbuementInfo(NetworkMessage& msg, uint32_t imbuid)
 
 void ProtocolGame::sendImbuementWindow(Item* item)
 {
+	if (!item || item->isRemoved()) {
+		return;
+	}
+
 	const ItemType& it = Item::items[item->getID()];
 	uint8_t slot = it.imbuingSlots;
 	bool itemHasImbue = false;

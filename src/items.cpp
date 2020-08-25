@@ -59,7 +59,7 @@ LootTypeNames lootTypeNames = {
 	{"rune", ITEM_TYPE_RUNE},
 	{"shield", ITEM_TYPE_SHIELD},
 	{"tools", ITEM_TYPE_TOOLS},
-	{"valuables", ITEM_TYPE_VALUABLE},
+	{"valuable", ITEM_TYPE_VALUABLE},
 	{"ammo", ITEM_TYPE_AMMO},
 	{"axe", ITEM_TYPE_AXE},
 	{"club", ITEM_TYPE_CLUB},

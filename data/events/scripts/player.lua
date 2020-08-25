@@ -412,6 +412,14 @@ function Player:onMoveItem(item, count, fromPosition, toPosition, fromCylinder, 
 		end
 	end
 
+
+	-- Bath tube
+	local toTile = Tile(toCylinder:getPosition())
+	local topDownItem = toTile:getTopDownItem()
+	if topDownItem and table.contains({ BATHTUB_EMPTY, BATHTUB_FILLED }, topDownItem:getId()) then
+		return false
+	end
+
 	-- Handle move items to the ground
 	if toPosition.x ~= CONTAINER_POSITION then
 		return true
@@ -727,6 +735,11 @@ function Player:onGainExperience(source, exp, rawExp)
 		else
 			self:setStaminaXpBoost(100)
 		end
+	end
+			
+	-- Boosted creature
+	if source:getName():lower() == BoostedCreature.name:lower() then
+		exp = exp * 2
 	end
 
 	self:setBaseXpGain(displayRate * 100)

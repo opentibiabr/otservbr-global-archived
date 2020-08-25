@@ -29,12 +29,6 @@ local config = {
 		formerValue = 27,
 		newValue = 28
 	},
-	[3004] = {
-		items = {
-			{itemId = 2229}, {itemId = 2151, count = 2}, {itemId = 2165}, {itemId = 2230}, {itemId = 2091, actionId = 6010}
-		},
-		storage = Storage.QuestChests.ParchmentRoomQuest
-	},
 	[3005] = {
 		items = {
 			{itemId = 4857}
@@ -116,12 +110,6 @@ local config = {
 		newValue = 2,
 		needItem = {itemId = 2344},
 		effect = CONST_ME_MAGIC_RED
-	},
-	[3027] = {
-		items = {
-			{itemId = 2487}
-		},
-		storage = Storage.QuestChests.BlackKnightTreeCrownArmor
 	},
 	[3062] = {
 		items = {
@@ -219,12 +207,6 @@ local config = {
 			{itemId = 2463}
 		},
 		storage = Storage.GhostShipQuest
-	},
-	[9055] = {
-		items = {
-			{itemId = 2519}
-		},
-		storage = Storage.QuestChests.BlackKnightTreeCrownShield
 	},
 	[9136] = {
 		items = {

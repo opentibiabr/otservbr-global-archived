@@ -1,44 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<monster name="Mazzinor" nameDescription="Mazzinor" race="blood" experience="0" speed="230">
-	<health now="300000" max="300000" />
-	<look type="1062" head="85" body="27" legs="0" feet="0" addons="3" corpse="33964" />
-	<targetchange interval="2000" chance="4" />
+<monster name="Mazzinor" nameDescription="a mazzinor" race="blood" experience="100000" speed="230" script="rewardboss.lua">
+	<health now="300000" max="300000"/>
+	<look type="1062" head="85" body="27" legs="0" feet="0" addons="3" corpse="25151"/>
+	<targetchange interval="2000" chance="4"/>
 	<targetstrategies nearest="100" health="0" damage="0" random="0" />
 	<flags>
+		<flag rewardboss="1" />
 		<flag summonable="0" />
 		<flag attackable="1" />
 		<flag hostile="1" />
 		<flag illusionable="0" />
 		<flag convinceable="0" />
 		<flag pushable="0" />
-		<flag isblockable="0" />
 		<flag canpushitems="1" />
 		<flag canpushcreatures="1" />
+		<flag staticattack="98" />
 		<flag targetdistance="1" />
-		<flag staticattack="90" />
 		<flag runonhealth="0" />
 	</flags>
 	<attacks>
-		<attack name="melee" interval="2000" skill="90" attack="80" />
-		<attack name="lifedrain" interval="2000" chance="8" range="7" radius="5" target="1" min="-135" max="-280">
-			<attribute key="shootEffect" value="whirlwindaxe" />
-			<attribute key="areaEffect" value="redspark" />
+		<attack name="melee" interval="2000" skill="90" attack="80"/>
+		<!--
+		<attack name="mazzinor wave" interval="2000" chance="15"/>
+		-->
+		<attack name="divine missile" interval="2000" chance="10" target="1" min="-135" max="-700"/>
+		<attack name="berserk" interval="2000" chance="20" range="7" target="1" min="-90" max="-500"/>
+		<attack name="lifedrain" interval="2000" chance="10" range="7" radius="5" target="1" min="-135" max="-280">
+			<attribute key="areaEffect" value="blueshimmer"/>
 		</attack>
-		<attack name="physical" interval="2000" chance="8" range="7" target="1" min="-90" max="-200">
-			<attribute key="shootEffect" value="whirlwindaxe" />
-			<attribute key="areaEffect" value="explosionarea" />
+		<attack name="energy" interval="2000" chance="10" length="8" spread="0" min="-210" max="-600">
+			<attribute key="areaEffect" value="energyarea"/>
 		</attack>
+		<attack name="holy" interval="2000" chance="10" length="8" spread="3" min="-210" max="-700">
+			<attribute key="areaEffect" value="holyarea"/>
+		</attack>
+		<!--
+		<attack name="mazzinor wave" interval="2000" chance="15"/>
+		-->
 	</attacks>
-	<defenses armor="40" defense="40" />
+	<defenses armor="40" defense="40"/>
 	<elements>
-		<element physicalPercent="1" />
-		<element deathPercent="15" />
-		<element energyPercent="10" />
-		<element icePercent="10" />
-		<element earthPercent="20" />
+		<element physicalPercent="1"/>
+		<element deathPercent="15"/>
+		<element energyPercent="10"/>
+		<element icePercent="10"/>
+		<element earthPercent="20"/>
 	</elements>
 	<immunities>
-		<immunity paralyze="1" />
-		<immunity invisible="1" />
+		<immunity paralyze="1"/>
+		<immunity invisible="1"/>
 	</immunities>
+	<loot>
+		<item name="platinum coin" countmax="38" chance="90000"/>
+		<item name="crystal coin" countmax="5" chance="70000"/>
+		<item name="ultimate mana potion" countmax="8" chance="70000"/>
+		<item name="ultimate spirit potion" countmax="4" chance="70000"/>
+		<item name="supreme health potion" countmax="4" chance="70000"/>
+		<item name="berserk potion" countmax="2" chance="70000"/>
+		<item name="mastermind potion" countmax="2" chance="70000"/>
+		<item name="onyx chip" countmax="12" chance="70000"/>
+		<item name="small emerald" countmax="12" chance="70000"/>
+		<item name="demon horn" chance="70000"/>
+		<item name="lightning boots" chance="70000"/>
+		<item name="Red Gem" chance="70000"/>
+		<item name="violet gem" chance="70000"/>
+		<item name="stone skin amulet" chance="70000"/>
+		<item name="wand of starstorm" chance="70000"/>
+		<item name="gold token" countmax="4"  chance="30000"/>
+		<item name="assassin dagger" chance="30000"/>
+		<item name="crystalline armor" chance="30000"/>
+		<item name="dreaded cleaver" chance="30000"/>
+		<item name="frozen lightning" chance="30000"/>
+		<item name="sinister book" chance="1000"/>
+		<item name="wand of dimensions" chance="10"/>
+	</loot>
 </monster>

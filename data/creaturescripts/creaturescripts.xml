@@ -183,4 +183,7 @@
 	<event type="kill" name="LizardMagistratusKill" script="quests/wrath_of_the_emperor/lizard_magistratus_kill.lua"/>
 	<event type="kill" name="LizardNobleKill" script="quests/wrath_of_the_emperor/lizard_noble_kill.lua"/>
 	<event type="kill" name="ZalamonKill" script="quests/wrath_of_the_emperor/zalamon_kill.lua"/>
+	<!-- grave danger -->
+	<event type="healthchange" name="scarlettHealth" script="quests/grave_danger/cobra_bastion/scarlett.lua"/>
+	<event type="think" name="scarlettThink" script="quests/grave_danger/cobra_bastion/scarlett.lua"/>
 </creaturescripts>

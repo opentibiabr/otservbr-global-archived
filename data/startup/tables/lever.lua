@@ -57,5 +57,11 @@ LeverUnique = {
 	[30008] = {
 		itemId = 1945,
 		itemPos = {x = 32180, y = 31633, z = 8}
+	},
+	-- Behemoth quest
+	-- Path: data\scripts\quests\behemoth\action-lever.lua
+	[30009] = {
+		itemId = 1945,
+		itemPos = {x = 33290, y = 31715, z = 12}
 	}
 }
