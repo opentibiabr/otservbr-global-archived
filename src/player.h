@@ -466,9 +466,6 @@ class Player final : public Creature, public Cylinder
 		void setSupplyStashAvailable(bool value) {
 			supplyStashAvailable = value;
 		}
-		bool isSupplyStashAvailable() const {
-			return supplyStashAvailable;
-		}
 		void setLastDepotId(int16_t newId) {
 			lastDepotId = newId;
 		}
