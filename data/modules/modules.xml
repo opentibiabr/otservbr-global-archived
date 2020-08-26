@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modules>
 	<!-- Bestiary -->
+	<module type="recvbyte" byte="42" script="bestiary/bestiary.lua"/> <!-- Tracker -->
 	<module type="recvbyte" byte="225" script="bestiary/bestiary.lua" />
 	<module type="recvbyte" byte="226" script="bestiary/bestiary.lua" />
 	<module type="recvbyte" byte="227" script="bestiary/bestiary.lua" />
