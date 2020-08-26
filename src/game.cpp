@@ -727,7 +727,7 @@ void Game::playerMoveThing(uint32_t playerId, const Position& fromPos,
 		if (Position::areInRange<1, 1, 0>(movingCreature->getPosition(), player->getPosition())) {
 			SchedulerTask* task = createSchedulerTask(g_config.getNumber(ConfigManager::PUSH_DELAY), std::bind(&Game::playerMoveCreatureByID, this, player->getID(),
 			                                  movingCreature->getID(), movingCreature->getPosition(), tile->getPosition()));
-			player->setNextActionTask(task);
+			player->setNextActionPushTask(task);
 		} else {
 			playerMoveCreature(player, movingCreature, movingCreature->getPosition(), tile);
 		}
@@ -766,10 +766,11 @@ void Game::playerMoveCreatureByID(uint32_t playerId, uint32_t movingCreatureId, 
 void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Position& movingCreatureOrigPos, Tile* toTile)
 {
 	if (!player->canDoAction()) {
-		uint32_t delay = player->getNextActionTime();
+		uint32_t delay = 600; 
 		SchedulerTask* task = createSchedulerTask(delay, std::bind(&Game::playerMoveCreatureByID,
 			this, player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
-		player->setNextActionTask(task);
+
+		player->setNextActionPushTask(task);
 		return;
 	}
 
@@ -779,18 +780,29 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 		//need to walk to the creature first before moving it
 		std::forward_list<Direction> listDir;
 		if (player->getPathTo(movingCreatureOrigPos, listDir, 0, 1, true, true)) {
-			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk, this, player->getID(), listDir)));
-			SchedulerTask* task = createSchedulerTask(g_config.getNumber(ConfigManager::PUSH_DISTANCE_DELAY), std::bind(&Game::playerMoveCreatureByID, this,
+			g_dispatcher.addTask(createTask(std::bind(&Game::playerAutoWalk,
+											this, player->getID(), listDir)));
+
+			SchedulerTask* task = createSchedulerTask(600, std::bind(&Game::playerMoveCreatureByID, this,
 				player->getID(), movingCreature->getID(), movingCreatureOrigPos, toTile->getPosition()));
-			player->setNextWalkActionTask(task);
+
+			player->pushEvent(true);
+			player->setNextActionPushTask(task);
 		} else {
 			player->sendCancelMessage(RETURNVALUE_THEREISNOWAY);
 		}
 		return;
 	}
 
-	if ((!movingCreature->isPushable() && !player->hasFlag(PlayerFlag_CanPushAllCreatures)) ||
-			(movingCreature->isInGhostMode() && !player->isAccessPlayer())) {
+	player->pushEvent(false);
+	const Monster* monster = movingCreature->getMonster();
+	bool isPet = false;
+	if (monster) {
+		isPet = monster->isPet();
+	}
+
+	if (!isPet && ((!movingCreature->isPushable() && !player->hasFlag(PlayerFlag_CanPushAllCreatures)) ||
+				(movingCreature->isInGhostMode() && !player->isAccessPlayer()))) {
 		player->sendCancelMessage(RETURNVALUE_NOTMOVEABLE);
 		return;
 	}
@@ -826,6 +838,8 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 				return;
 			}
 		}
+
+		movingCreature->setLastPosition(movingCreature->getPosition());
 	}
 
 	if (!g_events->eventPlayerOnMoveCreature(player, movingCreature, movingCreaturePos, toPos)) {
@@ -836,6 +850,7 @@ void Game::playerMoveCreature(Player* player, Creature* movingCreature, const Po
 	if (ret != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(ret);
 	}
+	player->setLastPosition(player->getPosition());
 }
 
 ReturnValue Game::internalMoveCreature(Creature* creature, Direction direction, uint32_t flags /*= 0*/)
@@ -1123,6 +1138,10 @@ void Game::playerMoveItem(Player* player, const Position& fromPos,
 	ReturnValue ret = internalMoveItem(fromCylinder, toCylinder, toIndex, item, count, nullptr, 0, player);
 	if (ret != RETURNVALUE_NOERROR) {
 		player->sendCancelMessage(ret);
+	} else {
+		player->cancelPush();
+
+		g_events->eventPlayerOnItemMoved(player, item, count, fromPos, toPos, fromCylinder, toCylinder);
 	}
 }
 
@@ -4312,6 +4331,8 @@ bool Game::playerSaySpell(Player* player, SpeakClasses type, const std::string& 
 
 	result = g_spells->playerSaySpell(player, words);
 	if (result == TALKACTION_BREAK) {
+		player->cancelPush();
+
 		if (!g_config.getBoolean(ConfigManager::EMOTE_SPELLS)) {
 			return internalCreatureSay(player, TALKTYPE_SAY, words, false);
 		} else {
@@ -4427,6 +4448,9 @@ bool Game::internalCreatureTurn(Creature* creature, Direction dir)
 		return false;
 	}
 
+	if (Player* player = creature->getPlayer()) {
+		player->cancelPush();
+	}
 	creature->setDirection(dir);
 
 	//send to client

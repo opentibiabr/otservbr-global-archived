@@ -461,7 +461,7 @@ bool Actions::useItem(Player* player, const Position& pos, uint8_t index, Item* 
 			return false;
 		}
 
-		player->setNextPotionActionTask(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
+		player->setNextPotionAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
 	} else {
 		player->setNextAction(OTSYS_TIME() + g_config.getNumber(ConfigManager::ACTIONS_DELAY_INTERVAL));
 	}
