@@ -60,8 +60,6 @@ function onStepOut(creature, item, position, fromPosition)
 	end
 
 	item:transform(decreasing[item.itemid])
-	if creature:isSupplyStashAvailable() then
-		creature:setSpecialContainersAvailable(false)
-	end
+	creature:setSpecialContainersAvailable(false)
 	return true
 end
