@@ -3638,7 +3638,7 @@ void ProtocolGame::AddCreature(NetworkMessage& msg, const Creature* creature, bo
 		}
 	}
 
-if (creatureType == CREATURETYPE_PLAYER) {
+  if (creatureType == CREATURETYPE_PLAYER) {
         const Player* otherCreature = creature->getPlayer();
         if (otherCreature) {
             msg.addByte(otherCreature->getVocation()->getClientId());
