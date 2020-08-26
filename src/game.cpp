@@ -2020,7 +2020,6 @@ ReturnValue Game::internalQuickLootItem(Player* player, Item* item, ObjectCatego
 		} else {
 		ret = internalAddItem(lootContainer, item, INDEX_WHEREEVER);
 		}
-		// g_game.internalPlayerAddItem(this, newItem, true, lootContainer);
 		if (moveItem) {
 			remainderCount -= moveItem->getItemCount();
 		}
