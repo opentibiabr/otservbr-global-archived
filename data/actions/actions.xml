@@ -332,6 +332,8 @@
 	<action itemid="25419" script="valuables/random_items.lua" />
 	<action itemid="26165" script="valuables/random_items.lua" />
 	<action itemid="32014" script="valuables/random_items.lua" />
+	<!-- stash -->
+	<action itemid="32450" function="stash" />
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- worldchanges -->
