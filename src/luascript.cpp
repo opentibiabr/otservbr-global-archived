@@ -2511,7 +2511,6 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getGroup", LuaScriptInterface::luaPlayerGetGroup);
 	registerMethod("Player", "setGroup", LuaScriptInterface::luaPlayerSetGroup);
 
-	registerMethod("Player", "isSupplyStashAvailable", LuaScriptInterface::luaPlayerIsSupplyStashAvailable);
 	registerMethod("Player", "setSpecialContainersAvailable", LuaScriptInterface::luaPlayerSetSpecialContainersAvailable);
 	registerMethod("Player", "getStashCount", LuaScriptInterface::luaPlayerGetStashCounter);
 	registerMethod("Player", "OpenStash", LuaScriptInterface::luaPlayerOpenStash);
@@ -9551,18 +9550,6 @@ int LuaScriptInterface::luaPlayerSetGroup(lua_State* L)
 	if (player) {
 		player->setGroup(group);
 		pushBoolean(L, true);
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
-}
-
-int LuaScriptInterface::luaPlayerIsSupplyStashAvailable(lua_State* L)
-{
-	// player:isSupplyStashAvailable()
-	Player* player = getUserdata<Player>(L, 1);
-	if (player) {
-		lua_pushboolean(L, player->isSupplyStashAvailable());
 	} else {
 		lua_pushnil(L);
 	}
