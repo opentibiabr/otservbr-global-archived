@@ -33,6 +33,7 @@
 #include "movement.h"
 #include "scheduler.h"
 #include "weapons.h"
+#include "iostash.h"
 
 extern ConfigManager g_config;
 extern Game g_game;
@@ -958,6 +959,7 @@ DepotLocker* Player::getDepotLocker(uint32_t depotId)
 	depotLocker->setDepotId(depotId);
 	depotLocker->internalAddThing(Item::CreateItem(ITEM_MARKET));
 	depotLocker->internalAddThing(inbox);
+	depotLocker->internalAddThing(Item::CreateItem(ITEM_SUPPLY_STASH));
 	Container* depotChest = Item::CreateItemAsContainer(ITEM_DEPOT, g_config.getNumber(ConfigManager::DEPOT_BOXES));
 	for (uint8_t i = g_config.getNumber(ConfigManager::DEPOT_BOXES); i > 0; i--) {
 		DepotChest* depotBox = getDepotChest(i, true);
@@ -5045,6 +5047,111 @@ void Player::onDeEquipImbueItem(Imbuement* imbuement)
 	}
 
 	return;
+}
+
+bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
+	uint32_t stackCount = 100u;
+
+	while (itemCount > 0) {
+		auto addValue = itemCount > stackCount ? stackCount : itemCount;
+		itemCount -= addValue;
+		Item* newItem = Item::CreateItem(itemId, addValue);
+
+		if (g_game.internalQuickLootItem(this, newItem, OBJECTCATEGORY_STASHRETRIEVE) != RETURNVALUE_NOERROR) {
+			delete newItem;
+			return false;
+		}
+	}
+	return true;
+}
+
+void Player::stowContainer(Item* item, uint32_t count,  bool stowalltype/* = false*/) {
+	if (item == nullptr || !isItemStorable(item)) {
+		sendCancelMessage("This item cannot be stowed here.");
+		return;
+	}
+
+	ItemDeque itemList = ItemDeque();
+	std::map<uint16_t, std::pair<bool, uint32_t>> itemDict;	
+	uint32_t totalStowed = 0;
+	std::ostringstream retString;
+  const ItemType& itemType = Item::items[item->getID()];
+
+	if (itemType.isContainer()) {
+		itemList = getAllStorableItemsInContainer(item);
+	}	else {
+		itemList.push_back(item);
+	}
+
+	for (Item* i : itemList) {
+    auto sameItemCountSum = itemType.isContainer() ? i->getItemCount() : count;
+
+		if (itemDict.count(i->getClientID()) == 1) {
+			sameItemCountSum += itemDict[i->getClientID()].second;
+		}
+
+		itemDict[i->getClientID()] = std::pair<bool, uint32_t>(false, sameItemCountSum);
+	}
+
+		  if (itemList.size() == 0) {
+		  sendCancelMessage("There is nothing to stash in this container");
+			return;
+		  }
+
+	itemDict = IOStash::stashContainer(this->guid, itemDict, g_config.getNumber(ConfigManager::STASH_ITEMS));
+
+  if (itemDict.size() == 0) {
+    if(itemList.size() == 0)
+      sendCancelMessage("There is nothing to stash in this container");
+    else if (itemList.size() == 1 && !itemType.isContainer())
+      sendCancelMessage("You don't have capacity in the Supply Stash to store this item");
+    else
+      sendCancelMessage("You don't have capacity in the Supply Stash to store this container");
+    return;
+  }
+
+  if (itemType.isContainer()) {
+    for (auto itemToRemove : itemList) {
+      g_game.internalRemoveItem(itemToRemove, itemToRemove->getItemCount());
+      totalStowed += itemToRemove->getItemCount();
+    }
+  } else if (stowalltype) {
+	uint16_t allstowitems = this->getItemTypeCount(item->getID(), -1);
+	this->removeItemOfType(item->getID(), allstowitems, -1, false);
+    totalStowed += allstowitems;
+  } else {
+    g_game.internalRemoveItem(item, count);
+    totalStowed += count;
+  }
+
+	retString << "Stowed " << totalStowed << " object" << (totalStowed > 1 ? "s." : ".");
+	sendCancelMessage(retString.str());
+}
+
+
+bool Player::isItemStorable(Item* item) {
+	auto isContainerAndHasSomethingInside = item->getContainer() != NULL && item->getContainer()->getItemList().size() > 0;
+	return (item->isStowable() || isContainerAndHasSomethingInside);
+}
+
+ItemDeque Player::getAllStorableItemsInContainer(Item* container) {
+
+	auto allITems = container->getContainer()->getItemList();
+	ItemDeque toReturnList = ItemDeque();
+
+	for (auto item : allITems) {
+		if (item->getContainer() != NULL) {
+			auto subContainer = getAllStorableItemsInContainer(item);
+			for (auto subContItem : subContainer) {
+				toReturnList.push_back(subContItem);
+			}
+		}
+		else if (isItemStorable(item)) {
+			toReturnList.push_back(item);
+		}
+	}
+
+	return toReturnList;
 }
 
 /*******************************************************************************

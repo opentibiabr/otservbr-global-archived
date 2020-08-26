@@ -397,6 +397,11 @@ class ProtocolGame final : public Protocol
 		bool shouldAddExivaRestrictions = false;
 
 		void sendInventory();
+
+		void sendOpenStash();
+		void AddPlayerStowedItems(NetworkMessage& msg);
+		void parseStashWithdraw(NetworkMessage& msg);
+		void sendSpecialContainersAvailable(bool supplyStashAvailable);
 };
 
 #endif
