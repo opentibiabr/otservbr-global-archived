@@ -319,6 +319,25 @@ class Game
 		bool internalCreatureSay(Creature* creature, SpeakClasses type, const std::string& text,
 								 bool ghostMode, SpectatorHashSet* spectatorsPtr = nullptr, const Position* pos = nullptr);
 
+		/**
+		  * Player wants to loot a corpse
+		  * \param player Player pointer
+		  * \param corpse Container pointer to be looted
+		  */
+		void internalQuickLootCorpse(Player* player, Container* corpse);
+
+		/**
+		  * Player wants to loot a single item
+		  * \param player Player pointer
+		  * \param item Item pointer to be looted
+		  * \param category Category of the item
+		  * \returns true if the looting was successful
+		  */
+		ReturnValue internalQuickLootItem(Player* player, Item* item,
+									ObjectCategory_t category = OBJECTCATEGORY_DEFAULT);
+
+		ObjectCategory_t getObjectCategory(const Item* item);
+
 		void loadPlayersRecord();
 		void checkPlayersRecord();
 
@@ -379,7 +398,7 @@ class Game
 		void playerPurchaseItem(uint32_t playerId, uint16_t spriteId, uint8_t count, uint8_t amount,
 								bool ignoreCap = false, bool inBackpacks = false);
 		void playerSellItem(uint32_t playerId, uint16_t spriteId, uint8_t count,
-							uint8_t amount, bool ignoreEquipped = false);
+								uint8_t amount, bool ignoreEquipped = false);
 		void playerCloseShop(uint32_t playerId);
 		void playerLookInShop(uint32_t playerId, uint16_t spriteId, uint8_t count);
 		void playerCloseTrade(uint32_t playerId);
@@ -389,6 +408,16 @@ class Game
 		void playerSetFightModes(uint32_t playerId, fightMode_t fightMode, bool chaseMode, bool secureMode);
 		void playerLookAt(uint32_t playerId, const Position& pos, uint8_t stackPos);
 		void playerLookInBattleList(uint32_t playerId, uint32_t creatureId);
+		void playerQuickLoot(uint32_t playerId, const Position& pos,
+								uint16_t spriteId, uint8_t stackPos, Item* defaultItem = nullptr);
+		void playerSetLootContainer(uint32_t playerId, ObjectCategory_t category,
+								const Position& pos, uint16_t spriteId, uint8_t stackPos);
+    void playerClearLootContainer(uint32_t playerId, ObjectCategory_t category);;
+    void playerOpenLootContainer(uint32_t playerId, ObjectCategory_t category);
+		void playerSetQuickLootFallback(uint32_t playerId, bool fallback);
+		void playerQuickLootBlackWhitelist(uint32_t playerId,
+								QuickLootFilter_t filter, std::vector<uint16_t> clientIds);
+		void playerRequestLockFind(uint32_t playerId);
 		void playerRequestAddVip(uint32_t playerId, const std::string& name);
 		void playerRequestRemoveVip(uint32_t playerId, uint32_t guid);
 		void playerRequestEditVip(uint32_t playerId, uint32_t guid, const std::string& description, uint32_t icon, bool notify);

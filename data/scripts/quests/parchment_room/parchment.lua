@@ -1,24 +1,26 @@
 local demonPositions = {
-	Position(33060, 31623, 15),
-	Position(33066, 31623, 15),
-	Position(33060, 31627, 15),
-	Position(33066, 31627, 15)
+	{x = 33060, y = 31623, z= 15},
+	{x = 33066, y = 31623, z= 15},
+	{x = 33060, y = 31627, z= 15},
+	{x = 33066, y = 31627, z= 15}
 }
 
 local function recreateParchment(position)
 	local item = Tile(position):getItemById(1953)
 	if item then
-		item:setActionId(60999)
+		item:setActionId(104)
 	else
 		local parchment = Game.createItem(1953, 1, position)
 		if parchment then
-			parchment:setText("Buried forever that he never shall return. Don\'t remove this seal or bad things may happen.")
-			parchment:setActionId(60999)
+			parchment:setText("Buried forever that he never shall return. Don't remove this seal or bad things may happen.")
+			parchment:setActionId(104)
 		end
 	end
 end
 
-function onRemoveItem(item, tile, position)
+local parchment = MoveEvent()
+
+function parchment.onRemoveItem(item, tile, position)
 	item:removeAttribute(ITEM_ATTRIBUTE_ACTIONID)
 	addEvent(recreateParchment, 2 * 60 * 60 * 1000, position) -- 2 hours
 
@@ -27,3 +29,6 @@ function onRemoveItem(item, tile, position)
 	end
 	return true
 end
+
+parchment:aid(104)
+parchment:register()

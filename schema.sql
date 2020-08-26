@@ -152,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `marriage_status` bigint(20) UNSIGNED NOT NULL DEFAULT '0',
   `marriage_spouse` int(11) NOT NULL DEFAULT '-1',
   `bonus_rerolls` bigint(21) NOT NULL DEFAULT '0',
+  `quickloot_fallback` tinyint(1) DEFAULT '0',
   INDEX `account_id` (`account_id`),
   INDEX `vocation` (`vocation`),
   CONSTRAINT `players_pk` PRIMARY KEY (`id`),

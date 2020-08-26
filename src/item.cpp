@@ -583,8 +583,8 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 		}
 
 		case ATTR_OPENCONTAINER: {
-			int32_t openContainer;
-			if (!propStream.read<int32_t>(openContainer)) {
+			uint8_t openContainer;
+			if (!propStream.read<uint8_t>(openContainer)) {
 				return ATTR_READ_ERROR;
 			}
 
@@ -629,6 +629,16 @@ Attr_ReadValue Item::readAttr(AttrTypes_t attr, PropStream& propStream)
 			}
 
 			setStrAttr(ITEM_ATTRIBUTE_SPECIAL, special);
+			break;
+		}
+
+		case ATTR_QUICKLOOTCONTAINER: {
+			uint32_t flags;
+			if (!propStream.read<uint32_t>(flags)) {
+				return ATTR_READ_ERROR;
+			}
+
+			setIntAttr(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER, flags);
 			break;
 		}
 
@@ -829,7 +839,7 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 
 	if (hasAttribute(ITEM_ATTRIBUTE_OPENCONTAINER)) {
 		propWriteStream.write<uint8_t>(ATTR_OPENCONTAINER);
-		propWriteStream.write<int32_t>(getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER));
+		propWriteStream.write<uint8_t>(getIntAttr(ITEM_ATTRIBUTE_OPENCONTAINER));
 	}
 
 	if (hasAttribute(ITEM_ATTRIBUTE_ARMOR)) {
@@ -863,6 +873,11 @@ void Item::serializeAttr(PropWriteStream& propWriteStream) const
 			// Serializing value type and value
 			entry.second.serialize(propWriteStream);
 		}
+	}
+
+	if (hasAttribute(ITEM_ATTRIBUTE_QUICKLOOTCONTAINER)) {
+		propWriteStream.write<uint8_t>(ATTR_QUICKLOOTCONTAINER);
+		propWriteStream.write<uint32_t>(getQuicklootAttr());
 	}
 }
 

@@ -1274,6 +1274,11 @@ Storage = {
 			Sister = 51527,
 			Statue = 51528,
 			LastMissionState = 51529
+		},
+	TheCursedCrystal = {
+		Oneeyedjoe = 51530, 
+		MedusaOil = 51531,
+		Questline = 51532
 		}
 	},
 	TheShatteredIsles = {
@@ -1666,7 +1671,10 @@ Storage = {
 	GraveDanger = {
 		-- Reserved storage from 52310 - 52339
 		Questline = 52310,
-		ScarlettEtzel = 52311
+		CobraBastion = {
+			Questline = 52311,
+			ScarlettTimer = 52312
+		}
 	},
 	RottinWoodAndMaried = {
 		-- Reserved storage from 52340 - 52349
@@ -1820,7 +1828,9 @@ Storage = {
 			DemonShield = 10063,
 			GoldenArmor = 10064
 		},
-		ParchmentRoom = {},
+		ParchmentRoom = {
+			Bag = 10065
+		},
 		TheQueenOfTheBanshees = {},
 		-- update 7.24
 		GiantSmithhammer = {},
@@ -2259,7 +2269,8 @@ GlobalStorage = {
 	TheMummysCurse = 65008,
 	OberonEventTime = 65009,
 	PrinceDrazzakEventTime = 65010,
-	ScarlettEtzelEventTime = 65011
+	ScarlettEtzelEventTime = 65011,
+	CobraBastionFlask = 65012
 }
 
 
