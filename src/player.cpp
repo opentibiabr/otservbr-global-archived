@@ -1285,7 +1285,7 @@ void Player::onCreatureAppear(Creature* creature, bool isLogin)
 			}
 		}
 
-    	g_game.checkPlayersRecord();
+		g_game.checkPlayersRecord();
 		IOLoginData::updateOnlineStatus(guid, true);
 	}
 }
@@ -1641,15 +1641,58 @@ void Player::setNextActionTask(SchedulerTask* task)
 		actionTaskEvent = 0;
 	}
 
+	if (!inEventMovePush)
+		cancelPush();
+
 	if (task) {
 		actionTaskEvent = g_scheduler.addEvent(task);
-		resetIdleTime();
+	}
+}
+
+void Player::setNextActionPushTask(SchedulerTask* task)
+{
+	if (actionTaskEventPush != 0) {
+		g_scheduler.stopEvent(actionTaskEventPush);
+		actionTaskEventPush = 0;
+	}
+
+	if (task) {
+		actionTaskEventPush = g_scheduler.addEvent(task);
+	}
+}
+
+void Player::setNextPotionActionTask(SchedulerTask* task)
+{
+	if (actionPotionTaskEvent != 0) {
+		g_scheduler.stopEvent(actionPotionTaskEvent);
+		actionPotionTaskEvent = 0;
+	}
+
+	cancelPush();
+
+	if (task) {
+		actionPotionTaskEvent = g_scheduler.addEvent(task);
+		//resetIdleTime();
 	}
 }
 
 uint32_t Player::getNextActionTime() const
 {
 	return std::max<int64_t>(SCHEDULER_MINTICKS, nextAction - OTSYS_TIME());
+}
+
+uint32_t Player::getNextPotionActionTime() const
+{
+	return std::max<int64_t>(SCHEDULER_MINTICKS, nextPotionAction - OTSYS_TIME());
+}
+
+void Player::cancelPush()
+{
+	if (actionTaskEventPush !=  0) {
+		g_scheduler.stopEvent(actionTaskEventPush);
+		actionTaskEventPush = 0;
+		inEventMovePush = false;
+	}
 }
 
 void Player::onThink(uint32_t interval)
