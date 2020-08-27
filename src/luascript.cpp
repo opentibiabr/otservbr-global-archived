@@ -40,6 +40,7 @@
 #include "script.h"
 #include "weapons.h"
 #include "imbuements.h"
+#include "iostash.h"
 
 extern Chat* g_chat;
 extern Game g_game;
@@ -2509,6 +2510,10 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "getGroup", LuaScriptInterface::luaPlayerGetGroup);
 	registerMethod("Player", "setGroup", LuaScriptInterface::luaPlayerSetGroup);
+
+	registerMethod("Player", "setSpecialContainersAvailable", LuaScriptInterface::luaPlayerSetSpecialContainersAvailable);
+	registerMethod("Player", "getStashCount", LuaScriptInterface::luaPlayerGetStashCounter);
+	registerMethod("Player", "OpenStash", LuaScriptInterface::luaPlayerOpenStash);
 
 	registerMethod("Player", "getStamina", LuaScriptInterface::luaPlayerGetStamina);
 	registerMethod("Player", "setStamina", LuaScriptInterface::luaPlayerSetStamina);
@@ -8826,6 +8831,20 @@ int LuaScriptInterface::luaPlayerGetDepotLocker(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerGetStashCounter(lua_State* L)
+{
+	// player:getStashCount()
+	const Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		StashItemList list = IOStash::getStoredItems(player->guid);
+		uint32_t sizeStash = IOStash::getStashSize(list);
+		lua_pushnumber(L, sizeStash);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 int LuaScriptInterface::luaPlayerGetDepotChest(lua_State* L)
 {
 	// player:getDepotChest(depotId[, autoCreate = false])
@@ -9243,6 +9262,17 @@ int LuaScriptInterface::luaPlayerSetOfflineTrainingSkill(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerOpenStash(lua_State* L)
+{	
+	// player:OpenStash()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		return 1;
+	}
+	player->sendOpenStash();
+	return 1;
+}
+
 int LuaScriptInterface::luaPlayerGetItemCount(lua_State* L)
 {
 	// player:getItemCount(itemId[, subType = -1])
@@ -9519,6 +9549,21 @@ int LuaScriptInterface::luaPlayerSetGroup(lua_State* L)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 		player->setGroup(group);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaPlayerSetSpecialContainersAvailable(lua_State* L)
+{
+	// player:setSpecialContainersAvailable(supplyStashAvailable)
+	bool supplyStashAvailable = getBoolean(L, 2);
+	Player* player = getUserdata<Player>(L, 1);
+	if (player) {
+		player->setSupplyStashAvailable(supplyStashAvailable);
+		player->sendSpecialContainersAvailable(supplyStashAvailable);
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
