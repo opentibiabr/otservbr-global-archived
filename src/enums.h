@@ -702,6 +702,7 @@ struct CombatDamage
 	}
 };
 
+using StashItemList = std::map<uint16_t, uint32_t>;
 using MarketOfferList = std::list<MarketOffer>;
 using HistoryMarketOfferList = std::list<HistoryMarketOffer>;
 using ShopInfoList = std::vector<ShopInfo>;
@@ -713,6 +714,13 @@ enum MonstersEvent_t : uint8_t {
 	MONSTERS_EVENT_DISAPPEAR = 3,
 	MONSTERS_EVENT_MOVE = 4,
 	MONSTERS_EVENT_SAY = 5,
+};
+
+enum Supply_Stash_Actions_t : uint8_t {
+	SUPPLY_STASH_ACTION_STOW_ITEM = 0,
+	SUPPLY_STASH_ACTION_STOW_CONTAINER = 1,
+	SUPPLY_STASH_ACTION_STOW_STACK = 2,
+	SUPPLY_STASH_ACTION_WITHDRAW = 3
 };
 
 enum Resource_t : uint8_t

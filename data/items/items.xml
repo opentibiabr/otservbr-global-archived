@@ -2149,6 +2149,7 @@
 	</item>
 	<item id="2148" article="a" name="gold coin">
 		<attribute key="loottype" value="gold" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2149" article="a" name="small emerald">
@@ -2166,6 +2167,7 @@
 	</item>
 	<item id="2152" article="a" name="platinum coin">
 		<attribute key="loottype" value="gold" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2153" article="a" name="violet gem">
@@ -2198,6 +2200,7 @@
 	</item>
 	<item id="2160" article="a" name="crystal coin">
 		<attribute key="loottype" value="gold" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="10" />
 	</item>
 	<item id="2161" article="a" name="strange talisman">
@@ -39516,6 +39519,7 @@
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
 		<attribute key="weaponType" value="ammunition" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="loottype" value="ammo" />
 		<attribute key="ammoType" value="bolt" />
 		<attribute key="shootType" value="spectralbolt" />
@@ -39526,6 +39530,7 @@
 	<item id="29057" article="a" name="diamond arrow">
 		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ammo" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="attack" value="37" />
 		<attribute key="decayTo" value="0" />
 		<attribute key="duration" value="3600" />
@@ -49026,6 +49031,7 @@
 	</item>
 	<item id="37418" article="a" name="skull coin">
 		<attribute key="loottype" value="other" />
+		<attribute key="notstowable" value="1" />
 		<attribute key="weight" value="25" />
 		<attribute key="showcount" value="1" />
 	</item>

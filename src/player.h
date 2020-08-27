@@ -463,7 +463,9 @@ class Player final : public Creature, public Cylinder
 		bool isInMarket() const {
 			return inMarket;
 		}
-
+		void setSupplyStashAvailable(bool value) {
+			supplyStashAvailable = value;
+		}
 		void setLastDepotId(int16_t newId) {
 			lastDepotId = newId;
 		}
@@ -711,6 +713,10 @@ class Player final : public Creature, public Cylinder
 		bool hasShield() const;
 		bool isAttackable() const override;
 		static bool lastHitIsPlayer(Creature* lastHitCreature);
+
+		//stash functions
+		bool addItemFromStash(uint16_t itemId, uint32_t itemCount);
+		void stowContainer(Item* item, uint32_t count, bool stowalltype = false);
 
 		void changeHealth(int32_t healthChange, bool sendHealthChange = true) override;
 		void changeMana(int32_t manaChange) override;
@@ -1255,6 +1261,11 @@ class Player final : public Creature, public Cylinder
 				client->sendChannelsDialog();
 			}
 		}
+		void sendSpecialContainersAvailable(bool supplyStashAvailable) {
+			if (client) {
+				client->sendSpecialContainersAvailable(supplyStashAvailable);
+			}
+		}
 		void sendOpenPrivateChannel(const std::string& receiver) {
 			if (client) {
 				client->sendOpenPrivateChannel(receiver);
@@ -1315,6 +1326,13 @@ class Player final : public Creature, public Cylinder
 
 		void receivePing() {
 			lastPong = OTSYS_TIME();
+		}
+
+		void sendOpenStash()
+		{
+			if (client) {
+				client->sendOpenStash();
+			}
 		}
 
 		void onThink(uint32_t interval) override;
@@ -1481,6 +1499,9 @@ class Player final : public Creature, public Cylinder
 		void removeExperience(uint64_t exp, bool sendText = false);
 
 		void updateInventoryWeight();
+
+		bool isItemStorable(Item* item);
+		ItemDeque getAllStorableItemsInContainer(Item* container);
 
 		void setNextWalkActionTask(SchedulerTask* task);
 		void setNextWalkTask(SchedulerTask* task);
@@ -1677,6 +1698,7 @@ class Player final : public Creature, public Cylinder
 		bool quickLootFallbackToMainContainer = false;
 		bool logged = false;
 		bool scheduledSaleUpdate = false;
+		bool supplyStashAvailable = false;
 
 		static uint32_t playerAutoID;
 

@@ -133,21 +133,6 @@ local function sendSkillNotLearned(cid, SKILL)
 
 	npcHandler:say(message, cid)
 end
-
--- ----------------------[[ STEWARD FUNCTIONS ]] ------------------------------
-
-local function openPlayerStash(cid)
-	local player = Player(cid)
-	if not player then return end
-	local client = player:getClient()
-	if client.os == CLIENTOS_NEW_WINDOWS and client.version >= 1180 then
-		SupplyStash.sendOpenWindow(player)
-	else
-		player:sendCancelMessage("You must use a newer client to open the supply stash")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-	end
-end
-
 -- ----------------------[[ END STEWARD FUNCTIONS ]] ------------------------------
 --[[
 ############################################################################
@@ -1049,7 +1034,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif msgcontains(msg, "stash") then
 			if hireling:hasSkill(HIRELING_SKILLS.STEWARD) then
 				npcHandler:say(GREETINGS.STASH, cid)
-				openPlayerStash(cid)
+				player:OpenStash()
 			else
 				sendSkillNotLearned(cid, HIRELING_SKILLS.STEWARD)
 			end

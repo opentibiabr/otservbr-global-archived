@@ -38,6 +38,7 @@
 #include "modules.h"
 #include "spells.h"
 #include "imbuements.h"
+#include "iostash.h"
 
 extern Game g_game;
 extern ConfigManager g_config;
@@ -477,6 +478,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x14: g_dispatcher.addTask(createTask(std::bind(&ProtocolGame::logout, getThis(), true, false))); break;
 		case 0x1D: addGameTask(&Game::playerReceivePingBack, player->getID()); break;
 		case 0x1E: addGameTask(&Game::playerReceivePing, player->getID()); break;
+		case 0x28: parseStashWithdraw(msg); break;
 		case 0x32: parseExtendedOpcode(msg); break; //otclient extended opcode
 		case 0x64: parseAutoWalk(msg); break;
 		case 0x65: addGameTask(&Game::playerMove, player->getID(), DIRECTION_NORTH); break;
@@ -2106,7 +2108,25 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 			depotItems[itemType.wareId] += Item::countByType(item, -1);
 		}
 	} while (!containerList.empty());
+	StashItemList stashToSend = IOStash::getStoredItems(player->guid);
+	uint16_t size = 0;
+		for (auto item : stashToSend)
+		{
+			size += ceil(item.second);
+		}
 
+		do {
+		for (auto item : stashToSend) {
+
+			const ItemType& itemType = Item::items[Item::items.getItemIdByClientId(item.first).id];
+			if (itemType.wareId == 0) {
+				continue;
+			}
+
+			size = size - item.second;
+			depotItems[itemType.wareId] +=  item.second;
+		}
+	} while (size > 0);
 	uint16_t itemsToSend = std::min<size_t>(depotItems.size(), std::numeric_limits<uint16_t>::max());
 	msg.add<uint16_t>(itemsToSend);
 
@@ -3848,6 +3868,15 @@ void ProtocolGame::AddWorldLight(NetworkMessage& msg, LightInfo lightInfo)
 	msg.addByte(lightInfo.color);
 }
 
+void ProtocolGame::sendSpecialContainersAvailable(bool supplyStashAvailable)
+{
+	NetworkMessage msg;
+	msg.addByte(0x2A);
+	msg.addByte(supplyStashAvailable ? 0x01 : 0x00);
+	msg.addByte(0x00); // 0x00 if player can use 'show in market' option. TO DO
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::AddCreatureLight(NetworkMessage& msg, const Creature* creature)
 {
 	LightInfo lightInfo = creature->getCreatureLight();
@@ -4090,6 +4119,66 @@ void ProtocolGame::reloadCreature(const Creature* creature)
 	}
 
 	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::sendOpenStash()
+{
+	NetworkMessage msg;
+	msg.addByte(0x29);
+	AddPlayerStowedItems(msg);
+	writeToOutputBuffer(msg);
+}
+
+void ProtocolGame::AddPlayerStowedItems(NetworkMessage& msg)
+{
+	StashItemList list = IOStash::getStoredItems(player->guid);
+
+	msg.add<uint16_t>(list.size());
+
+	for (auto item : list)
+	{
+		msg.add<uint16_t>(item.first);
+		msg.add<uint32_t>(item.second);
+	}
+	msg.add<uint16_t>(g_config.getNumber(ConfigManager::STASH_ITEMS) - IOStash::getStashSize(list));
+}
+
+void ProtocolGame::parseStashWithdraw(NetworkMessage& msg)
+{
+	Supply_Stash_Actions_t action = static_cast<Supply_Stash_Actions_t>(msg.getByte());
+	switch (action) {
+		case SUPPLY_STASH_ACTION_STOW_ITEM: {
+			Position pos = msg.getPosition();
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint8_t stackpos = msg.getByte();
+			uint32_t count = static_cast<uint32_t>(msg.getByte());
+			g_game.playerStowItem(player, pos, spriteId, stackpos, count);
+			break;
+		}
+		case SUPPLY_STASH_ACTION_STOW_CONTAINER: {	
+			Position pos = msg.getPosition();
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint8_t stackpos = msg.getByte();
+			g_game.playerStowContainer(player, pos, spriteId, stackpos);
+			break;
+		}
+		case SUPPLY_STASH_ACTION_STOW_STACK: {
+			Position pos = msg.getPosition();
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint8_t stackpos = msg.getByte();
+			g_game.playerStowAllItems(player, pos, spriteId, stackpos);
+			break;
+		}
+		case SUPPLY_STASH_ACTION_WITHDRAW: {
+
+			uint16_t spriteId = msg.get<uint16_t>();
+			uint32_t count = msg.get<uint32_t>();
+			uint8_t stackpos = msg.getByte(); // TODO: wtf is this variable
+			g_game.playerStashWithdraw(player, spriteId, count, stackpos);
+			sendOpenStash();
+			break;
+		}
+	}
 }
 
 void ProtocolGame::sendLockerItems(std::map<uint16_t, uint16_t> itemMap, uint16_t count)

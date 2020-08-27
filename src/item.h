@@ -920,6 +920,9 @@ class Item : virtual public Thing
 		bool isStackable() const {
 			return items[id].stackable;
 		}
+		bool isStowable() const {
+			return items[id].stackable && !(items[id].notstowable);
+		}
 		bool isAlwaysOnTop() const {
 			return items[id].alwaysOnTop;
 		}

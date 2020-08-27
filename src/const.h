@@ -468,6 +468,7 @@ enum GuildEmblems_t : uint8_t {
 enum item_t : uint16_t {
 	ITEM_BROWSEFIELD = 460, // for internal use
 
+	ITEM_SUPPLY_STASH_INDEX = 1, //for internal use
 	ITEM_DEPOT_NULL = 25452, // for internal use
 	ITEM_GOLD_POUCH = 26377,
 	TRANSFORM_BOX_ID = 26054, // for internal use
@@ -531,6 +532,7 @@ enum item_t : uint16_t {
 	ITEM_INBOX = 14404,
 	ITEM_MARKET = 14405,
 	ITEM_STORE_INBOX = 26052,
+	ITEM_SUPPLY_STASH = 32450,
 	
 
 	ITEM_MALE_CORPSE = 3058,
