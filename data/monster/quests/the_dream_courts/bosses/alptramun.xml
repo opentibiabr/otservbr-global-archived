@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monster name="Alptramun" nameDescription="Alptramun" race="blood" experience="55000" speed="250" script="rewardboss.lua">
-	<health now="22" max="22" />
+	<health now="200000" max="200000" />
 	<look type="1143" corpse="34793" />
 	<targetchange interval="4000" chance="10" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
