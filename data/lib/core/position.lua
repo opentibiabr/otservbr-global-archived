@@ -186,3 +186,58 @@ function Position:hasCreature(position, teleportTo)
 		creature:teleportTo(teleportTo, true)
 	end
 end
+
+--[[
+If the script have one lever and item to revert uses:
+Position.RevertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effectName)
+
+If not have lever, use only the first two variables
+Revert item: Position.revertItem(createItemPosition, createItemId)
+"effectName" variable is optional
+]]
+function Position.revertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effectName)
+	local tile = Tile(tilePosition)
+	if tile then
+		local lever = tile:getItemById(itemId)
+		if lever then
+			leverItem:transform(itemTransform)
+		end
+	end
+
+	local getItemTile = Tile(createItemPosition)
+	if getItemTile then
+		local getItemId = getItemTile:getItemById(createItemId)
+		if not getItemId then
+			Game.createItem(createItemId, 1, createItemPosition)
+			createItemPosition:sendMagicEffect(effectName)
+		end
+	end
+end
+
+-- Position.RemoveItem(tilePosition, itemId, effectName)
+-- Variable "effectName" is optional
+function Position.createItem(tilePosition, itemId, effectName)
+	local tile = Tile(tilePosition)
+	if tile then
+		local thing = tile:getItemById(itemId)
+		if not thing then
+			Game.createItem(itemId, 1, tilePosition)
+		end
+		tilePosition:sendMagicEffect(effectName)
+	end
+end
+
+-- Position.RemoveItem(position, itemId, effectName)
+-- Variable "effectName" is optional
+function Position.removeItem(tilePosition, itemId, effectName)
+	local tile = Tile(tilePosition)
+	if not tile then
+		return true
+	end
+
+	local thing = tile:getItemById(itemId)
+	if thing then
+		thing:remove()
+		tilePosition:sendMagicEffect(effectName)
+	end
+end

@@ -63,5 +63,44 @@ LeverUnique = {
 	[30009] = {
 		itemId = 1945,
 		itemPos = {x = 33290, y = 31715, z = 12}
+	},
+	-- The queen of the banshees quest
+	-- Path: data\scripts\quests\the_queen_of_the_banshees\action(1)-first_seal_lever.lua
+	[30010] = {
+		itemId = 1945,
+		itemPos = {x = 32313, y = 31908, z = 12}
+	},
+	[30011] = {
+		itemId = 1945,
+		itemPos = {x = 32210, y = 31888, z = 12}
+	},
+	[30012] = {
+		itemId = 1945,
+		itemPos = {x = 32266, y = 31861, z = 11}
+	},
+	-- Path: data\scripts\quests\the_queen_of_the_banshees\action(6)-sixth_seal_lever.lua
+	[30013] = {
+		itemId = 1945,
+		itemPos = {x = 32310, y = 31975, z = 13}
+	},
+	[30014] = {
+		itemId = 1945,
+		itemPos = {x = 32310, y = 31976, z = 13}
+	},
+	[30015] = {
+		itemId = 1945,
+		itemPos = {x = 32312, y = 31975, z = 13}
+	},
+	[30016] = {
+		itemId = 1945,
+		itemPos = {x = 32312, y = 31976, z = 13}
+	},
+	[30017] = {
+		itemId = 1945,
+		itemPos = {x = 32314, y = 31975, z = 13}
+	},
+	[30018] = {
+		itemId = 1945,
+		itemPos = {x = 32314, y = 31976, z = 13}
 	}
 }

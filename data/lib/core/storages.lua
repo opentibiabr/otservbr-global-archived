@@ -1831,7 +1831,11 @@ Storage = {
 		ParchmentRoom = {
 			Bag = 10065
 		},
-		TheQueenOfTheBanshees = {},
+		TheQueenOfTheBanshees = {
+			QuestLine = 10066,
+			FirstSeal = 10067,
+			SixthSeal = 10068,
+		},
 		-- update 7.24
 		GiantSmithhammer = {},
 		MadMageRoom = {},

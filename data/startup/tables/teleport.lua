@@ -81,6 +81,16 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32815, y = 31599, z = 9}
 	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(1)-first_seal_flame.lua
+	[35013] = {
+		itemId = 8058,
+		itemPos = {x = 32278, y = 31903, z = 13}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(6)-sixth_seal_flame.lua
+	[35014] = {
+		itemId = 8058,
+		itemPos = {x = 32311, y = 31978, z = 13}
+	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)
 	-- Path: data\scripts\movements\others\teleport.lua
@@ -193,6 +203,25 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32874, y = 31955, z = 11},
 		destination = {x = 32874, y = 31942, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	-- The queen of the banshees teleports
+	[38014] = {
+		itemId = 1387,
+		itemPos = {x = 32262, y = 31889, z = 10},
+		destination = {x = 32259, y = 31892, z = 10},
+		effect = CONST_ME_TELEPORT
+	},
+	[38015] = {
+		itemId = 1387,
+		itemPos = {x = 32266, y = 31857, z = 12},
+		destination = {x = 32266, y = 31864, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	[38016] = {
+		itemId = 1387,
+		itemPos = {x = 32266, y = 31863, z = 12},
+		destination = {x = 32266, y = 31858, z = 12},
 		effect = CONST_ME_TELEPORT
 	}
 }

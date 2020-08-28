@@ -146,8 +146,21 @@ TileAction = {
 	-- The cursed crystal medusa message
 	[25018] = {
 		itemId = 104,
-		itemPos = {{x = 32017, y = 32917, z = 10}, {x = 32017, y = 32918, z = 10}}
+		itemPos = {
+			{x = 32017, y = 32917, z = 10},
+			{x = 32017, y = 32918, z = 10}
+		}
 	},
+	-- The queen of the banshees quest
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(1)-first_seal_teleport_back.lua
+	[25019] = {
+		itemId = 9023,
+		itemPos = {
+			{x = 32265, y = 31898, z = 12},
+			{x = 32266, y = 31898, z = 12},
+			{x = 32267, y = 31898, z = 12}
+		}
+	}
 }
 
 TileUnique = {
