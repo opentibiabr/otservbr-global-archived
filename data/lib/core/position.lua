@@ -189,7 +189,7 @@ end
 
 --[[
 If the script have one lever and item to revert uses:
-Position.RevertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effectName)
+Position.revertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effectName)
 
 If not have lever, use only the first two variables
 Revert item: Position.revertItem(createItemPosition, createItemId)
@@ -214,7 +214,7 @@ function Position.revertItem(createItemPosition, createItemId, tilePosition, ite
 	end
 end
 
--- Position.RemoveItem(tilePosition, itemId, effectName)
+-- Position.createItem(tilePosition, itemId, effectName)
 -- Variable "effectName" is optional
 function Position.createItem(tilePosition, itemId, effectName)
 	local tile = Tile(tilePosition)
@@ -227,7 +227,7 @@ function Position.createItem(tilePosition, itemId, effectName)
 	end
 end
 
--- Position.RemoveItem(position, itemId, effectName)
+-- Position.removeItem(position, itemId, effectName)
 -- Variable "effectName" is optional
 function Position.removeItem(tilePosition, itemId, effectName)
 	local tile = Tile(tilePosition)
