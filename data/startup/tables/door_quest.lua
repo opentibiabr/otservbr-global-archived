@@ -10,7 +10,7 @@ QuestDoorAction = {
 		itemPos = {{x = 32455, y = 31967, z = 14}}
 	},
 	-- The queens of the banshee door
-	[Storage.QueenOfBanshees.LastSeal] = {
+	[Storage.Quest.TheQueenOfTheBanshees.LastSeal] = {
 		itemId = false,
 		itemPos = {
 			{x = 32246, y = 31861, z = 14},
@@ -539,7 +539,7 @@ QuestDoorAction = {
 		itemPos = {{x = 31978, y = 32856, z = 3}}
 	},
 	-- The queen of the banshees door
-	[Storage.QueenOfBanshees.KissDoor] = {
+	[Storage.Quest.TheQueenOfTheBanshees.KissDoor] = {
 		itemId = false,
 		itemPos = {
 			{x = 32223, y = 31872, z = 14},

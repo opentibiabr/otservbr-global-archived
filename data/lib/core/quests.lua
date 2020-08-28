@@ -3884,54 +3884,54 @@ But you should be carefully, since the vase is very fragile.",
 		},
 		[30] = {
 			name = "The Queen of the Banshees",
-			startstorageid = Storage.QueenOfBanshees.FirstSeal,
+			startstorageid = Storage.Quest.TheQueenOfTheBanshees.FirstSeal,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "The Hidden Seal",
-					storageid = Storage.QueenOfBanshees.FirstSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FirstSeal,
 					missionId = 306, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the first seal."
 				},
 				[2] = {
 					name = "The Seal of Logic",
-					storageid = Storage.QueenOfBanshees.SixthSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.SixthSeal,
 					missionId = 307, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the sixth seal."
 				},
 				[3] = {
 					name = "The Seal of True Path",
-					storageid = Storage.QueenOfBanshees.FifthSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FifthSeal,
 					missionId = 308, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fifth seal."
 				},
 				[4] = {
 					name = "The Seal of Sacrifice",
-					storageid = Storage.QueenOfBanshees.FourthSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FourthSeal,
 					missionId = 309, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fourth seal."
 				},
 				[5] = {
 					name = "The Seal of Demonrage",
-					storageid = Storage.QueenOfBanshees.ThirdSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.ThirdSeal,
 					missionId = 310, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the third seal."
 				},
 				[6] = {
 					name = "The Plague Seal",
-					storageid = Storage.QueenOfBanshees.SecondSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.SecondSeal,
 					missionId = 311, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the second seal."
 				},
 				[7] = {
 					name = "All Seals",
-					storageid = Storage.QueenOfBanshees.LastSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.LastSeal,
 					missionId = 312, startvalue = 1,
 					endvalue = 1,
 					description = "You broke all the seals."

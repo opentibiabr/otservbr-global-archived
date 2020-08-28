@@ -200,7 +200,7 @@ function Position.revertItem(createItemPosition, createItemId, tilePosition, ite
 	if tile then
 		local lever = tile:getItemById(itemId)
 		if lever then
-			leverItem:transform(itemTransform)
+			lever:transform(itemTransform)
 		end
 	end
 
@@ -209,7 +209,7 @@ function Position.revertItem(createItemPosition, createItemId, tilePosition, ite
 		local getItemId = getItemTile:getItemById(createItemId)
 		if not getItemId then
 			Game.createItem(createItemId, 1, createItemPosition)
-			createItemPosition:sendMagicEffect(effectName)
+			Position(createItemPosition):sendMagicEffect(effectName)
 		end
 	end
 end
@@ -218,12 +218,14 @@ end
 -- Variable "effectName" is optional
 function Position.createItem(tilePosition, itemId, effectName)
 	local tile = Tile(tilePosition)
-	if tile then
-		local thing = tile:getItemById(itemId)
-		if not thing then
-			Game.createItem(itemId, 1, tilePosition)
-		end
-		tilePosition:sendMagicEffect(effectName)
+	if not tile then
+		return true
+	end
+
+	local thing = tile:getItemById(itemId)
+	if not thing then
+		Game.createItem(itemId, 1, tilePosition)
+		Position(tilePosition):sendMagicEffect(effectName)
 	end
 end
 
@@ -238,6 +240,6 @@ function Position.removeItem(tilePosition, itemId, effectName)
 	local thing = tile:getItemById(itemId)
 	if thing then
 		thing:remove()
-		tilePosition:sendMagicEffect(effectName)
+		Position(tilePosition):sendMagicEffect(effectName)
 	end
 end

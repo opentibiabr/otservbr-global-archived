@@ -1,14 +1,14 @@
 local UniqueTable = {
 	[30010] = {
-		position = Position(32259, 31891, 10),
+		position = {x = 32259, y = 31891, z = 10},
 		revert = true
 	},
 	[30011] = {
-		position = Position(32259, 31890, 10),
+		position = {x = 32259, y = 31890, z = 10},
 		revert = true
 	},
 	[30012] = {
-		position = Position(32266, 31860, 11),
+		position = {x = 32266, y = 31860, z = 11},
 		revert = true
 	}
 }
@@ -22,9 +22,16 @@ function leverFirstSeal.onUse(player, item, fromPosition, target, toPosition, is
 	end
 
 	if item.uid == 30012 then
-		if item.itemid == 1946 then
-			return false
+		if item.itemid == 1945 then
+			Position.removeItem(wall.position, 1498)
+			Position.createItem(wall.position, 369)
+			item:transform(1946)
+		elseif item.itemid == 1946 then
+			Position.removeItem(wall.position, 369)
+			Position.createItem(wall.position, 1498)
+			item:transform(1945)
 		end
+		return true
 	end
 
 	if item.itemid == 1945 then

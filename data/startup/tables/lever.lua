@@ -68,11 +68,11 @@ LeverUnique = {
 	-- Path: data\scripts\quests\the_queen_of_the_banshees\action(1)-first_seal_lever.lua
 	[30010] = {
 		itemId = 1945,
-		itemPos = {x = 32313, y = 31908, z = 12}
+		itemPos = {x = 32315, y = 31910, z = 12}
 	},
 	[30011] = {
 		itemId = 1945,
-		itemPos = {x = 32210, y = 31888, z = 12}
+		itemPos = {x = 32212, y = 31888, z = 12}
 	},
 	[30012] = {
 		itemId = 1945,
