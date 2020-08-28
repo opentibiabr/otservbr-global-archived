@@ -719,11 +719,6 @@
 	<action uniqueid="3400" script="quests/the_outlaw_camp/oven.lua" />
 	<action uniqueid="3401" script="quests/the_outlaw_camp/power_switch.lua" />
 	<action uniqueid="3402" script="quests/the_outlaw_camp/power_burn.lua" />
-	<!-- the queen of the banshees quest -->
-	<action fromuid="49998" touid="50002" script="quests/the_queen_of_the_banshees/the_first_seal.lua" />
-	<action fromuid="50005" touid="50010" script="quests/the_queen_of_the_banshees/the_sixth_seal.lua" />
-	<action fromuid="50015" touid="50019" script="quests/the_queen_of_the_banshees/the_third_seal.lua" />
-	<action actionid="50021" script="quests/the_queen_of_the_banshees/last_door.lua" />
 	<!-- the secret library quest -->
 	<action actionid="64019" script="quests/the_secret_library/asura_mirror.lua" />
 	<!-- the tainted soul quest -->
