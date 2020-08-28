@@ -18,20 +18,22 @@ local leverFirstSeal = Action()
 function leverFirstSeal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local wall = UniqueTable[item.uid]
 	if not wall then
-		return true
+		return false
 	end
 
 	if item.uid == 30012 then
-		if item.itemid == 1945 then
+		if item.itemid == 32400 then
 			Position.removeItem(wall.position, 1498)
 			Position.createItem(wall.position, 369)
 			item:transform(1946)
+			return true
 		elseif item.itemid == 1946 then
 			Position.removeItem(wall.position, 369)
 			Position.createItem(wall.position, 1498)
-			item:transform(1945)
+			item:transform(32400)
+			return true
 		end
-		return true
+		return false
 	end
 
 	if item.itemid == 1945 then

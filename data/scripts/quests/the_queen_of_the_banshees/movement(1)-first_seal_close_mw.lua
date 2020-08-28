@@ -43,8 +43,9 @@ function firstSealCloseMw.onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local pos = {x = 32266, y = 31860, z = 11}
-	Position.revertItem(pos, 1498, {x = 32266, y = 31861, z = 11}, 1945, 1946)
+	local magicWallPosition = {x = 32266, y = 31860, z = 11}
+	Position.removeItem(magicWallPosition, 369)
+	Position.revertItem(magicWallPosition, 1498, {x = 32266, y = 31861, z = 11}, 32400, 1946)
 	return true
 end
 

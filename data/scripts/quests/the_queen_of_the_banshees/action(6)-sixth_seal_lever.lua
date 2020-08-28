@@ -12,17 +12,28 @@ local sixthSeal = Action()
 function sixthSeal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local lever = UniqueTable[item.uid]
 	if not lever then
-		return true
+		return false
 	end
 
 	local tile = Tile(lever)
-	local campfire = tile:getItemById(item.itemid == 1945 and 1423 or 1421)
-	if campfire then
-		campfire:transform(item.itemid == 1945 and 1421 or 1423)
+	if tile then
+		if item.itemid == 1945 then
+			local campfire = tile:getItemById(1423)
+			if campfire then
+				campfire:transform(1421)
+			end
+			item:transform(1946)
+			return true
+		elseif item.itemid == 1946 then
+			local campfire = tile:getItemById(1421)
+			if campfire then
+				campfire:transform(1423)
+			end
+			item:transform(1945)
+			return true
+		end
 	end
-
-	item:transform(item.itemid == 1945 and 1946 or 1945)
-	return true
+	return false
 end
 
 for index, value in pairs(UniqueTable) do
