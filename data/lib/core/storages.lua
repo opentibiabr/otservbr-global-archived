@@ -1330,18 +1330,6 @@ Storage = {
 		MissionDemodras = 51616,
 		DemodrasTeleport = 51617
 	},
-	QueenOfBanshees = {
-		-- Reserved storage from 51630 - 51649
-		FirstSeal = 51630,
-		SecondSeal = 51631,
-		ThirdSeal = 51632,
-		FourthSeal = 51633,
-		FifthSeal = 51634,
-		SixthSeal = 51635,
-		LastSeal = 51636,
-		ThirdSealWarlocks = 51637,
-		KissDoor = 51638
-	},
 	HotCuisineQuest = {
 		-- Reserved storage from 51650 - 51659
 		QuestStart = 51650,
@@ -1834,7 +1822,14 @@ Storage = {
 		TheQueenOfTheBanshees = {
 			QuestLine = 10066,
 			FirstSeal = 10067,
-			SixthSeal = 10068,
+			SecondSeal = 10068,
+			ThirdSeal = 10069,
+			FourthSeal = 10070,
+			FifthSeal = 10071,
+			SixthSeal = 10072,
+			LastSeal = 10073,
+			ThirdSealWarlocks = 10074,
+			KissDoor = 10075
 		},
 		-- update 7.24
 		GiantSmithhammer = {},
