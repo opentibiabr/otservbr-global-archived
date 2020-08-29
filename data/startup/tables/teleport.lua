@@ -91,6 +91,11 @@ TeleportUnique = {
 		itemId = 8058,
 		itemPos = {x = 32311, y = 31978, z = 13}
 	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(5)-fifth_seal_flame.lua
+	[35015] = {
+		itemId = 8058,
+		itemPos = {x = 32192, y = 31938, z = 14}
+	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)
 	-- Path: data\scripts\movements\others\teleport.lua

@@ -3790,7 +3790,7 @@ if not Quests then
 					states = {
 						[1] = "Rashid have ordered a special elven vase from Briasol in Ab'Dendriel. \z
 						He asks you to buy it from Briasol and bring it back. \z
-						
+
 But you should be carefully, since the vase is very fragile.",
 						[2] = "Now carefully bring the vase back to Rashid.",
 						[3] = "You have completed this mission. Talk with Rashid to continue."
@@ -5228,9 +5228,9 @@ function Player.resetTrackedMissions(self, missions)
 		if questName and questId and missionIndex then
 			if self:missionIsStarted(questId, missionIndex) then
 				local data = {
-					missionId = missionId, 
-					questName = questName, 
-					missionName = self:getMissionName(questId, missionIndex), 
+					missionId = missionId,
+					questName = questName,
+					missionName = self:getMissionName(questId, missionIndex),
 					missionDesc = self:getMissionDescription(questId, missionIndex)
 				}
 				table.insert(PlayerTrackedMissionsData[self:getId()], data)
@@ -5493,7 +5493,7 @@ function Player.sendQuestLine(self, questId)
 				end
 			end
 		end
-		
+
 		msg:sendToPlayer(self)
 		msg:delete()
 	end

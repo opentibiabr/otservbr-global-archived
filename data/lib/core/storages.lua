@@ -1826,10 +1826,11 @@ Storage = {
 			ThirdSeal = 10069,
 			FourthSeal = 10070,
 			FifthSeal = 10071,
-			SixthSeal = 10072,
-			LastSeal = 10073,
-			ThirdSealWarlocks = 10074,
-			KissDoor = 10075
+			FifthSealTile = 10072,
+			SixthSeal = 10073,
+			LastSeal = 10074,
+			ThirdSealWarlocks = 10075,
+			KissDoor = 10076
 		},
 		-- update 7.24
 		GiantSmithhammer = {},
