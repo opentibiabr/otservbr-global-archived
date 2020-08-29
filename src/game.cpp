@@ -1268,8 +1268,16 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 		uint32_t n;
 		if (item->equals(toItem)) {
 			n = std::min<uint32_t>(100 - toItem->getItemCount(), m);
-			toCylinder->updateThing(toItem, toItem->getID(), toItem->getItemCount() + n);
-			updateItem = toItem;
+			// Update same decay item count
+			if (toItem->getDecaying() == DECAYING_TRUE) {
+				updateItem = toItem->clone();
+				updateItem->setItemCount(toItem->getItemCount() + n);
+				toCylinder->removeThing(toItem, toItem->getItemCount());
+				toCylinder->addThing(index, updateItem);
+			} else {
+				toCylinder->updateThing(toItem, toItem->getID(), toItem->getItemCount() + n);
+				updateItem = toItem;
+			}
 		} else {
 			n = 0;
 		}
