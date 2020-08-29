@@ -9,6 +9,14 @@ TeleportAction = {
 			{x = 32009, y = 32928, z = 10},
 			{x = 32009, y = 32928, z = 9}
 		}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(2)-second_seal_pearl.lua
+	[35002] = {
+		itemId = 1387,
+		itemPos = {
+			{x = 32176, y = 31869, z = 15},
+			{x = 32177, y = 31869, z = 15}
+		}
 	}
 }
 
@@ -95,6 +103,16 @@ TeleportUnique = {
 	[35015] = {
 		itemId = 8058,
 		itemPos = {x = 32192, y = 31938, z = 14}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(4)-fourth_seal_flame.lua
+	[35016] = {
+		itemId = 8058,
+		itemPos = {x = 32250, y = 31892, z = 14}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(2)-secondx_seal_flame.lua
+	[35017] = {
+		itemId = 8058,
+		itemPos = {x = 32171, y = 31853, z = 15}
 	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)

@@ -198,7 +198,12 @@ TileAction = {
 			{x = 32189, y = 31940, z = 14},
 			{x = 32191, y = 31940, z = 14}
 		}
-	}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(4)-fourth_seal_sacrifice.lua
+	[25022] = {
+		itemId = 425,
+		itemPos = {{x = 32243, y = 31892, z = 14}}
+	},
 }
 
 TileUnique = {
