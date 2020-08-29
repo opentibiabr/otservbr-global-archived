@@ -118,3 +118,8 @@ end
 if nextDelayPreyReroll == nil then
 	nextDelayPreyReroll = {}
 end
+
+-- Delay potion
+if not playerDelayPotion then
+	playerDelayPotion = {}
+end

@@ -210,6 +210,15 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return false
 	end
 
+	-- Delay potion
+	if not playerDelayPotion[player:getId()] then
+		playerDelayPotion[player:getId()] = 0
+	end
+	if playerDelayPotion[player:getId()] > os.mtime() then
+		player:sendTextMessage(MESSAGE_STATUS_SMALL, Game.getReturnMessage(RETURNVALUE_YOUAREEXHAUSTED))
+		return true
+	end
+
 	local potion = potions[item:getId()]
 	if potion.level and player:getLevel() < potion.level or potion.vocations and not table.contains(potion.vocations, player:getVocation():getClientId()) and not (player:getGroup():getId() >= 2) then
 		player:say(potion.description, TALKTYPE_MONSTER_SAY)
@@ -240,6 +249,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		player:addCondition(exhaust)
 		player:setStorageValue(38412, player:getStorageValue(38412)+1)
 	end
+
+	-- Delay potion
+	playerDelayPotion[player:getId()] = os.mtime() + 500
 
 	if potion.condition then
 		player:addCondition(potion.condition)
