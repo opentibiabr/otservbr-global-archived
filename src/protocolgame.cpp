@@ -717,7 +717,7 @@ void ProtocolGame::onPressHotkeyEquip(NetworkMessage& msg)
 			  if (ammoItem) {
 				ObjectCategory_t category = g_game.getObjectCategory(ammoItem);
 				if (ammoItem->getID() == item->getID()) {
-				  if (ammoItem->getDecaying() == DECAYING_TRUE ||
+				  if (item->getDuration() > 0 ||
 				  ammoItem->getItemCount() == 100 ||
 				  ammoItem->getItemCount() == player->getItemTypeCount(ammoItem->getID())) {
 					ret = g_game.internalQuickLootItem(player, ammoItem, category);
@@ -746,7 +746,7 @@ void ProtocolGame::onPressHotkeyEquip(NetworkMessage& msg)
 		  }
 		if (item->getItemCount() < 100 && 
 		item->getItemCount() < player->getItemTypeCount(item->getID(), -1) &&
-		item->getDecaying() != DECAYING_TRUE) {
+		item->getDuration() <= 0) {
 		  uint16_t itemId = item->getID();
 		  uint16_t count = 0;
 			while (player->getItemTypeCount(item->getID())) {
