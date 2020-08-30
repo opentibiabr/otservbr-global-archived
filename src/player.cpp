@@ -5101,8 +5101,7 @@ bool Player::addItemFromStash(uint16_t itemId, uint32_t itemCount) {
 		Item* newItem = Item::CreateItem(itemId, addValue);
 
 		if (g_game.internalQuickLootItem(this, newItem, OBJECTCATEGORY_STASHRETRIEVE) != RETURNVALUE_NOERROR) {
-			delete newItem;
-			return false;
+			g_game.internalPlayerAddItem(this, newItem, true);
 		}
 	}
 	return true;
