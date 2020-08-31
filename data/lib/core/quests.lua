@@ -5282,20 +5282,24 @@ end
 
 function Player.getMissionsData(self, storage)
 	local missions = {}
-	for questId = 1, #Quests do
-		local quest = Game.getQuest(questId)
-		if quest and quest.missions then
-			for missionId = 1, #quest.missions do
-				local started = self:missionIsStarted(questId, missionId)
-				if started then
-					local mission = quest.missions[missionId]
-					if mission.storageid == storage then
-						local data = {
-							missionId = mission.missionId,
-							missionName = self:getMissionName(questId, missionId),
-							missionDesc = self:getMissionDescription(questId, missionId)
-						}
-						missions[#missions + 1] = data
+	if questId then
+		for questId = 1, #Quests do
+			local quest = Game.getQuest(questId)
+			if quest and quest.missions then
+				if missionId then
+					for missionId = 1, #quest.missions do
+						local started = self:missionIsStarted(questId, missionId)
+						if started then
+							local mission = quest.missions[missionId]
+							if mission.storageid == storage then
+								local data = {
+									missionId = mission.missionId,
+									missionName = self:getMissionName(questId, missionId),
+									missionDesc = self:getMissionDescription(questId, missionId)
+								}
+								missions[#missions + 1] = data
+							end
+						end
 					end
 				end
 			end
@@ -5485,9 +5489,7 @@ function Player.sendQuestLine(self, questId)
 		if missions then
 			for missionId = 1, #missions do
 				if self:missionIsStarted(questId, missionId) then
-					if (self:getClient().version >= 1120)then
-						msg:addU16(self:getMissionId(questId, missionId))
-					end
+					msg:addU16(self:getMissionId(questId, missionId))
 					msg:addString(self:getMissionName(questId, missionId))
 					msg:addString(self:getMissionDescription(questId, missionId))
 				end
