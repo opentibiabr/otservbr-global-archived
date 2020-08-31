@@ -25,6 +25,7 @@ function fourthSealFlame.onStepIn(creature, item, position, fromPosition)
 
 	Position(bloodPos):sendMagicEffect(CONST_ME_MAGIC_RED)
 	player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FourthSeal, 1)
+	player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FourthSealDoor, 1)
 	player:teleportTo({x = 32261, y = 31849, z = 15})
 	player:getPosition():sendMagicEffect(CONST_ME_MAGIC_RED)
 	return true

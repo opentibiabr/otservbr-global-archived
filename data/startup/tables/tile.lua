@@ -204,6 +204,14 @@ TileAction = {
 		itemId = 425,
 		itemPos = {{x = 32243, y = 31892, z = 14}}
 	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(3)-third_seal_warlock_tile.lua
+	[25023] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32215, y = 31838, z = 15},
+			{x = 32216, y = 31838, z = 15}
+		}
+	}
 }
 
 TileUnique = {

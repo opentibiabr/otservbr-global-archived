@@ -1455,7 +1455,8 @@ Storage = {
 		-- Reserved storage from 52030 - 52039
 		QuestLog = 52030,
 		Passage = 52031,
-		Diary = 52032
+		Diary = 52032,
+		Door = 52033
 	},
 	FathersBurden = {
 		-- Reserved storage from 52040 - 52059
@@ -1683,6 +1684,9 @@ Storage = {
 	-- News quest development
 	-- New storages
 	Quest = {
+		SimpleChest = {
+			FamilyBrooch = 9000
+		},
 		-- update pre-6.0
 		DeeperFibula = {
 			Key3980 = 10000,
@@ -1820,17 +1824,33 @@ Storage = {
 			Bag = 10065
 		},
 		TheQueenOfTheBanshees = {
-			QuestLine = 10066,
-			FirstSeal = 10067,
-			SecondSeal = 10068,
-			ThirdSeal = 10069,
-			FourthSeal = 10070,
-			FifthSeal = 10071,
-			FifthSealTile = 10072,
-			SixthSeal = 10073,
-			LastSeal = 10074,
-			ThirdSealWarlocks = 10075,
-			KissDoor = 10076
+			Reward = {
+				StoneSkinAmulet = 10066,
+				StealthRing = 10067,
+				TowerShield = 10068,
+				GiantSword = 10069,
+				BootsOfHaste = 10070,
+				PlatinumCoin = 10071
+			},
+			QuestLine = 10072,
+			FirstSeal = 10073,
+			FirstSealDoor = 10074,
+			SecondSeal = 10075,
+			SecondSealDoor = 10076,
+			ThirdSeal = 10077,
+			ThirdSealDoor = 10078,
+			ThirdSealWarlocks = 10079,
+			FourthSeal = 10080,
+			FourthSealDoor = 10081,
+			FifthSeal = 10082,
+			FifthSealDoor = 10083,
+			FifthSealTile = 10084,
+			SixthSeal = 10085,
+			SixthSealDoor = 10086,
+			LastSeal = 10087,
+			LastSealDoor = 10088,
+			BansheeDoor = 10089,
+			FinalBattle = 10090
 		},
 		-- update 7.24
 		GiantSmithhammer = {},

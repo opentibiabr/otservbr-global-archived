@@ -214,6 +214,13 @@ function Position.revertItem(createItemPosition, createItemId, tilePosition, ite
 	end
 end
 
+function Position.transformItem(transformPosition, itemId, transformId)
+	local thing = Tile(transformPosition):getItemById(itemId)
+	if thing then
+		thing:transform(transformId)
+	end
+end
+
 -- Position.createItem(tilePosition, itemId, effectName)
 -- Variable "effectName" is optional
 function Position.createItem(tilePosition, itemId, effectName)

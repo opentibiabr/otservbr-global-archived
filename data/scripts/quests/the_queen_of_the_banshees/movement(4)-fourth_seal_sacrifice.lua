@@ -1,10 +1,3 @@
-local positions = {
-	{x = 32242, y = 31891, z = 14},
-	{x = 32243, y = 31891, z = 14},
-	{x = 32242, y = 31893, z = 14},
-	{x = 32243, y = 31893, z = 14}
-}
-
 local fourthSealSacrifice = MoveEvent()
 
 function fourthSealSacrifice.onAddItem(moveitem, tileitem, position)
@@ -12,8 +5,8 @@ function fourthSealSacrifice.onAddItem(moveitem, tileitem, position)
 		return true
 	end
 
-	for i = 1, #positions do
-		Position(positions[i]):sendMagicEffect(CONST_ME_DRAWBLOOD)
+	for i = 1, #fourthSealTable.positions do
+		Position(fourthSealTable.positions[i]):sendMagicEffect(CONST_ME_DRAWBLOOD)
 	end
 	return true
 end

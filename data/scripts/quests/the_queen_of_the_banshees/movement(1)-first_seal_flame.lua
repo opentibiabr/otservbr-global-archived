@@ -8,6 +8,7 @@ function firstSealFlame.onStepIn(creature, item, position, fromPosition)
 
 	if player:getStorageValue(Storage.Quest.TheQueenOfTheBanshees.FirstSeal) < 1 then
 		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FirstSeal, 1)
+		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FirstSealDoor, 1)
 		player:teleportTo({x = 32266, y = 31849, z = 15})
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 		Game.createMonster('ghost', Position(32276, 31902, 13), false, true)

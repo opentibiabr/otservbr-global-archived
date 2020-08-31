@@ -1,8 +1,3 @@
-local setting = {
-	{position = {x = 32173, y = 31871, z = 15}, pearlId = 2143},
-	{position = {x = 32180, y = 31871, z = 15}, pearlId = 2144}
-}
-
 local secondSealPearl = MoveEvent()
 
 function secondSealPearl.onStepIn(creature, item, position, fromPosition)
@@ -18,8 +13,8 @@ function secondSealPearl.onStepIn(creature, item, position, fromPosition)
 	end
 
 	local pearlItems = {}
-	for i = 1, #setting do
-		local pearlItem = Tile(setting[i].position):getItemById(setting[i].pearlId)
+	for i = 1, #secondSealTable.positions do
+		local pearlItem = Tile(secondSealTable.positions[i].position):getItemById(secondSealTable.positions[i].pearlId)
 		if not pearlItem then
 			player:teleportTo(fromPosition, true)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)

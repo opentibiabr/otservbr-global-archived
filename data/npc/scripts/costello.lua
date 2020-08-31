@@ -22,8 +22,10 @@ function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, 'fugio') then
-		if player:getStorageValue(Storage.QuestChests.FamilyBrooch) == 1 then
-			npcHandler:say('To be honest, I fear the omen in my dreams may be true. Perhaps Fugio is unable to see the danger down there. Perhaps ... you are willing to investigate this matter?', cid)
+		if player:getStorageValue(Storage.Quest.SimpleChest.FamilyBrooch) == 1 then
+			npcHandler:say('To be honest, I fear the omen in my dreams may be true. \z
+					Perhaps Fugio is unable to see the danger down there. \z
+					Perhaps ... you are willing to investigate this matter?', cid)
 			npcHandler.topic[cid] = 1
 		end
 	elseif msgcontains(msg, 'diary') then
@@ -47,6 +49,7 @@ function creatureSayCallback(cid, type, msg)
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say('Thank you very much! From now on you may open the warded doors to the catacombs.', cid)
 			player:setStorageValue(Storage.WhiteRavenMonastery.Diary, 1)
+			player:setStorageValue(Storage.WhiteRavenMonastery.Door, 1)
 		elseif npcHandler.topic[cid] == 2 then
 			if not player:removeItem(2325, 1) then
 				npcHandler:say('Uhm, as you wish.', cid)

@@ -3843,18 +3843,18 @@ But you should be carefully, since the vase is very fragile.",
 					description = "You broke the first seal."
 				},
 				[2] = {
-					name = "The Seal of Logic",
-					storageid = Storage.Quest.TheQueenOfTheBanshees.SixthSeal,
+					name = "The Plague Seal",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.SecondSeal,
 					missionId = 307, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the sixth seal."
+					description = "You broke the second seal."
 				},
 				[3] = {
-					name = "The Seal of True Path",
-					storageid = Storage.Quest.TheQueenOfTheBanshees.FifthSeal,
+					name = "The Seal of Demonrage",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.ThirdSeal,
 					missionId = 308, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the fifth seal."
+					description = "You broke the third seal."
 				},
 				[4] = {
 					name = "The Seal of Sacrifice",
@@ -3864,25 +3864,32 @@ But you should be carefully, since the vase is very fragile.",
 					description = "You broke the fourth seal."
 				},
 				[5] = {
-					name = "The Seal of Demonrage",
-					storageid = Storage.Quest.TheQueenOfTheBanshees.ThirdSeal,
+					name = "The Seal of True Path",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FifthSeal,
 					missionId = 310, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the third seal."
+					description = "You broke the fifth seal."
 				},
 				[6] = {
-					name = "The Plague Seal",
-					storageid = Storage.Quest.TheQueenOfTheBanshees.SecondSeal,
+					name = "The Seal of Logic",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.SixthSeal,
 					missionId = 311, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the second seal."
+					description = "You broke the sixth seal."
 				},
 				[7] = {
-					name = "All Seals",
+					name = "The Kiss of the Banshee Queen",
 					storageid = Storage.Quest.TheQueenOfTheBanshees.LastSeal,
 					missionId = 312, startvalue = 1,
 					endvalue = 1,
-					description = "You broke all the seals."
+					description = "The Banshee Queen kissed you. This meant your death, and part of your soul always belongs to her now. You broke the last seal."
+				},
+				[8] = {
+					name = "The Final Battle",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FinalBattle,
+					missionId = 313, startvalue = 1,
+					endvalue = 1,
+					description = "You have braved all dangers of the Banshee Quest and escaped the dungeon alive. The end room is sealed for you from now on."
 				}
 			}
 		},
@@ -3914,7 +3921,8 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Barbarian Arena - Warlord Mode",
 					storageid = Storage.SvargrondArena.QuestLogWarlord,
-					missionId = 315, startvalue = 1,
+					missionId = 315,
+					startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have to defeat all enemies in this mode.",
@@ -5282,20 +5290,24 @@ end
 
 function Player.getMissionsData(self, storage)
 	local missions = {}
-	for questId = 1, #Quests do
-		local quest = Game.getQuest(questId)
-		if quest and quest.missions then
-			for missionId = 1, #quest.missions do
-				local started = self:missionIsStarted(questId, missionId)
-				if started then
-					local mission = quest.missions[missionId]
-					if mission.storageid == storage then
-						local data = {
-							missionId = mission.missionId,
-							missionName = self:getMissionName(questId, missionId),
-							missionDesc = self:getMissionDescription(questId, missionId)
-						}
-						missions[#missions + 1] = data
+	if questId then
+		for questId = 1, #Quests do
+			local quest = Game.getQuest(questId)
+			if quest and quest.missions then
+				if missionId then
+					for missionId = 1, #quest.missions do
+						local started = self:missionIsStarted(questId, missionId)
+						if started then
+							local mission = quest.missions[missionId]
+							if mission.storageid == storage then
+								local data = {
+									missionId = mission.missionId,
+									missionName = self:getMissionName(questId, missionId),
+									missionDesc = self:getMissionDescription(questId, missionId)
+								}
+								missions[#missions + 1] = data
+							end
+						end
 					end
 				end
 			end

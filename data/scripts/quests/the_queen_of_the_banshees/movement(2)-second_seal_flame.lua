@@ -8,6 +8,7 @@ function secondSealFlame.onStepIn(creature, item, position, fromPosition)
 
 	if player:getStorageValue(Storage.Quest.TheQueenOfTheBanshees.SecondSeal) < 1 then
 		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.SecondSeal, 1)
+		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.SecondSealDoor, 1)
 		player:teleportTo(Position(32272, 31849, 15))
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else
@@ -17,6 +18,6 @@ function secondSealFlame.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-secondSealFlame:uid(35017)
+secondSealFlame:uid(35014)
 secondSealFlame:type("stepin")
 secondSealFlame:register()

@@ -10,6 +10,7 @@ function fifthSealFlame.onStepIn(creature, item, position, fromPosition)
 					and player:getStorageValue(Storage.Quest.TheQueenOfTheBanshees.FifthSealTile) == 9 then
 		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FifthSealTile, 1)
 		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FifthSeal, 1)
+		player:setStorageValue(Storage.Quest.TheQueenOfTheBanshees.FifthSealDoor, 1)
 		player:teleportTo({x = 32268, y = 31856, z = 15})
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	else
@@ -19,5 +20,5 @@ function fifthSealFlame.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-fifthSealFlame:uid(35015)
+fifthSealFlame:uid(35017)
 fifthSealFlame:register()

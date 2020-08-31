@@ -1,22 +1,7 @@
-local UniqueTable = {
-	[30010] = {
-		position = {x = 32259, y = 31891, z = 10},
-		revert = true
-	},
-	[30011] = {
-		position = {x = 32259, y = 31890, z = 10},
-		revert = true
-	},
-	[30012] = {
-		position = {x = 32266, y = 31860, z = 11},
-		revert = true
-	}
-}
-
 local leverFirstSeal = Action()
 
 function leverFirstSeal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	local wall = UniqueTable[item.uid]
+	local wall = firstSealTable[item.uid]
 	if not wall then
 		return false
 	end
@@ -53,7 +38,7 @@ function leverFirstSeal.onUse(player, item, fromPosition, target, toPosition, is
 	return true
 end
 
-for index, value in pairs(UniqueTable) do
+for index, value in pairs(firstSealTable) do
 	leverFirstSeal:uid(index)
 end
 
