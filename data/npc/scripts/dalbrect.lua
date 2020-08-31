@@ -68,7 +68,7 @@ keywordHandler:addKeyword({"passage"}, StdModule.say,
 	{
 		npcHandler = npcHandler,
 		text = "I have only sailed to the isle of the kings once or twice. \z
-				I dare not anger the monks by bringing travellers there without their permission."
+				I dare not anger the monks by bringing travelers there without their permission."
 	},
 	
 function(player)
