@@ -192,7 +192,7 @@ bool IOStash::withdrawItem(uint32_t playerId, uint16_t itemId, uint16_t count)
 		query << "UPDATE `player_stash` SET `item_count` = " << remainingCount << " WHERE `item_id` = " << itemId << " AND `player_id` = " << playerId;
 	}
 	else {
-		query << "DELETE FROM `player_stash` WHERE `item_id` = " << itemId;
+		query << "DELETE FROM `player_stash` WHERE `item_id` = " << itemId << " AND `player_id` = " << playerId;
 	}
 
 	db.executeQuery(query.str());
