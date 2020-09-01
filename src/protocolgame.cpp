@@ -593,7 +593,7 @@ void ProtocolGame::parseHotkeyEquip(NetworkMessage& msg)
 		return;
 	}
 	uint16_t spriteid = msg.get<uint16_t>();
-	g_game.onPressHotkeyEquip(player, spriteid);
+  addGameTask(&Game::onPressHotkeyEquip, player, spriteid);
 	return;	
 }
 
