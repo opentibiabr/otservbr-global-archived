@@ -331,7 +331,7 @@ class ProtocolGame final : public Protocol
 		void sendUpdateLootTracker(Item* item);
 		
 		// Hotkey equip/dequip item
-		void onPressHotkeyEquip(NetworkMessage& msg);
+		void parseHotkeyEquip(NetworkMessage& msg);
 
 		//Help functions
 
