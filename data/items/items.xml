@@ -42691,6 +42691,7 @@
 		<attribute key="description" value="Contrary to popular belief the fennec does not use his ears, which are the largest amongst foxes, to fly, soar or stabilise his balance. They mainly serve to dissipate heat."/>
 		<attribute key="wrapableTo" value="26054" />
 	</item>
+	<item id="32400" article="a" name="lever" />
 	<item id="32401" article="a" name="Citizen Doll">
 		<attribute key="weight" value="2200" />
 		<attribute key="description" value="This doll carries the story of all Tibians in their legendary citizen outfit. Awarded by TibiaTV.com.br." />

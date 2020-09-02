@@ -1330,18 +1330,6 @@ Storage = {
 		MissionDemodras = 51616,
 		DemodrasTeleport = 51617
 	},
-	QueenOfBanshees = {
-		-- Reserved storage from 51630 - 51649
-		FirstSeal = 51630,
-		SecondSeal = 51631,
-		ThirdSeal = 51632,
-		FourthSeal = 51633,
-		FifthSeal = 51634,
-		SixthSeal = 51635,
-		LastSeal = 51636,
-		ThirdSealWarlocks = 51637,
-		KissDoor = 51638
-	},
 	HotCuisineQuest = {
 		-- Reserved storage from 51650 - 51659
 		QuestStart = 51650,
@@ -1467,7 +1455,8 @@ Storage = {
 		-- Reserved storage from 52030 - 52039
 		QuestLog = 52030,
 		Passage = 52031,
-		Diary = 52032
+		Diary = 52032,
+		Door = 52033
 	},
 	FathersBurden = {
 		-- Reserved storage from 52040 - 52059
@@ -1695,6 +1684,9 @@ Storage = {
 	-- News quest development
 	-- New storages
 	Quest = {
+		SimpleChest = {
+			FamilyBrooch = 9000
+		},
 		-- update pre-6.0
 		DeeperFibula = {
 			Key3980 = 10000,
@@ -1831,7 +1823,35 @@ Storage = {
 		ParchmentRoom = {
 			Bag = 10065
 		},
-		TheQueenOfTheBanshees = {},
+		TheQueenOfTheBanshees = {
+			Reward = {
+				StoneSkinAmulet = 10066,
+				StealthRing = 10067,
+				TowerShield = 10068,
+				GiantSword = 10069,
+				BootsOfHaste = 10070,
+				PlatinumCoin = 10071
+			},
+			QuestLine = 10072,
+			FirstSeal = 10073,
+			FirstSealDoor = 10074,
+			SecondSeal = 10075,
+			SecondSealDoor = 10076,
+			ThirdSeal = 10077,
+			ThirdSealDoor = 10078,
+			ThirdSealWarlocks = 10079,
+			FourthSeal = 10080,
+			FourthSealDoor = 10081,
+			FifthSeal = 10082,
+			FifthSealDoor = 10083,
+			FifthSealTile = 10084,
+			SixthSeal = 10085,
+			SixthSealDoor = 10086,
+			LastSeal = 10087,
+			LastSealDoor = 10088,
+			BansheeDoor = 10089,
+			FinalBattle = 10090
+		},
 		-- update 7.24
 		GiantSmithhammer = {},
 		MadMageRoom = {},

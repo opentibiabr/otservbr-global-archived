@@ -3790,7 +3790,7 @@ if not Quests then
 					states = {
 						[1] = "Rashid have ordered a special elven vase from Briasol in Ab'Dendriel. \z
 						He asks you to buy it from Briasol and bring it back. \z
-						
+
 But you should be carefully, since the vase is very fragile.",
 						[2] = "Now carefully bring the vase back to Rashid.",
 						[3] = "You have completed this mission. Talk with Rashid to continue."
@@ -3832,57 +3832,64 @@ But you should be carefully, since the vase is very fragile.",
 		},
 		[30] = {
 			name = "The Queen of the Banshees",
-			startstorageid = Storage.QueenOfBanshees.FirstSeal,
+			startstorageid = Storage.Quest.TheQueenOfTheBanshees.FirstSeal,
 			startstoragevalue = 1,
 			missions = {
 				[1] = {
 					name = "The Hidden Seal",
-					storageid = Storage.QueenOfBanshees.FirstSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FirstSeal,
 					missionId = 306, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the first seal."
 				},
 				[2] = {
-					name = "The Seal of Logic",
-					storageid = Storage.QueenOfBanshees.SixthSeal,
+					name = "The Plague Seal",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.SecondSeal,
 					missionId = 307, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the sixth seal."
+					description = "You broke the second seal."
 				},
 				[3] = {
-					name = "The Seal of True Path",
-					storageid = Storage.QueenOfBanshees.FifthSeal,
+					name = "The Seal of Demonrage",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.ThirdSeal,
 					missionId = 308, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the fifth seal."
+					description = "You broke the third seal."
 				},
 				[4] = {
 					name = "The Seal of Sacrifice",
-					storageid = Storage.QueenOfBanshees.FourthSeal,
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FourthSeal,
 					missionId = 309, startvalue = 1,
 					endvalue = 1,
 					description = "You broke the fourth seal."
 				},
 				[5] = {
-					name = "The Seal of Demonrage",
-					storageid = Storage.QueenOfBanshees.ThirdSeal,
+					name = "The Seal of True Path",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FifthSeal,
 					missionId = 310, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the third seal."
+					description = "You broke the fifth seal."
 				},
 				[6] = {
-					name = "The Plague Seal",
-					storageid = Storage.QueenOfBanshees.SecondSeal,
+					name = "The Seal of Logic",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.SixthSeal,
 					missionId = 311, startvalue = 1,
 					endvalue = 1,
-					description = "You broke the second seal."
+					description = "You broke the sixth seal."
 				},
 				[7] = {
-					name = "All Seals",
-					storageid = Storage.QueenOfBanshees.LastSeal,
+					name = "The Kiss of the Banshee Queen",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.LastSeal,
 					missionId = 312, startvalue = 1,
 					endvalue = 1,
-					description = "You broke all the seals."
+					description = "The Banshee Queen kissed you. This meant your death, and part of your soul always belongs to her now. You broke the last seal."
+				},
+				[8] = {
+					name = "The Final Battle",
+					storageid = Storage.Quest.TheQueenOfTheBanshees.FinalBattle,
+					missionId = 313, startvalue = 1,
+					endvalue = 1,
+					description = "You have braved all dangers of the Banshee Quest and escaped the dungeon alive. The end room is sealed for you from now on."
 				}
 			}
 		},
@@ -3914,7 +3921,8 @@ But you should be carefully, since the vase is very fragile.",
 				[3] = {
 					name = "Barbarian Arena - Warlord Mode",
 					storageid = Storage.SvargrondArena.QuestLogWarlord,
-					missionId = 315, startvalue = 1,
+					missionId = 315,
+					startvalue = 1,
 					endvalue = 2,
 					states = {
 						[1] = "You have to defeat all enemies in this mode.",
@@ -5228,9 +5236,9 @@ function Player.resetTrackedMissions(self, missions)
 		if questName and questId and missionIndex then
 			if self:missionIsStarted(questId, missionIndex) then
 				local data = {
-					missionId = missionId, 
-					questName = questName, 
-					missionName = self:getMissionName(questId, missionIndex), 
+					missionId = missionId,
+					questName = questName,
+					missionName = self:getMissionName(questId, missionIndex),
 					missionDesc = self:getMissionDescription(questId, missionIndex)
 				}
 				table.insert(PlayerTrackedMissionsData[self:getId()], data)
@@ -5495,7 +5503,7 @@ function Player.sendQuestLine(self, questId)
 				end
 			end
 		end
-		
+
 		msg:sendToPlayer(self)
 		msg:delete()
 	end
