@@ -5943,6 +5943,10 @@ function Player.updateStorage(self, key, value, oldValue, currentFrameTime)
 	end
 end
 
+local function sendPrint(questId, index)
+	print(string.format("> Quest id: %d, mission: %d", questId, index))
+end
+
 for questId = 1, #Quests do
 	local quest = Game.getQuest(questId)
 	if quest then
@@ -5950,23 +5954,23 @@ for questId = 1, #Quests do
 			if index then
 				if not value.name then
 					print(">> Wrong mission name found")
-					print(string.format("> Quest id: %d, mission: %d", questId, index))
+					sendPrint(questId, index)
 				end
 				if not value.storageId then
 					print(">> Wrong mission storage found")
-					print(string.format("> Quest id: %d, mission: %d", questId, index))
+					sendPrint(questId, index)
 				end
 				if not value.missionId then
 					print(">> Wrong mission id found")
-					print(string.format("> Quest id: %d, mission: %d", questId, index))
+					sendPrint(questId, index)
 				end
 				if not value.startValue then
 					print(">> Wrong mission start value found")
-					print(string.format("> Quest id: %d, mission: %d", questId, index))
+					sendPrint(questId, index)
 				end
 				if not value.endValue then
 					print(">> Wrong mission end value found")
-					print(string.format("> Quest id: %d, mission: %d", questId, index))
+					sendPrint(questId, index)
 				end
 			end
 		end
