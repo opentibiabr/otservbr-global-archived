@@ -1227,4 +1227,5 @@
 	<instant name="pixie skill reducer" words="###469" blockwalls="1" aggressive="1" needtarget="0" exhaustion="2000" needlearn="1"  script="monster/pixie skill reducer.lua" />
 	<instant name="Ice Crystal Bomb" words="###470"  direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ice_crystal_bomb.lua"/>
 	<instant name="summon challenge" words="###471" blockwalls="1" needtarget="0" needlearn="1" script="monster/summonchallenge.lua"/>
+	<instant name="werelion wave" words="###472" direction="1" exhaustion="2000" needlearn="1" script="monster/werelion_wave.lua"/>
 </spells>

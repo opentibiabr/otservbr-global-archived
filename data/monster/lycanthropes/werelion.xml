@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Werelion" nameDescription="a werelion" race="blood" experience="2400" skull="none" speed="210" manacost="0">
+	<health now="2800" max="2800"/>
+	<look type="1301" head="58" body="2" legs="94" feet="0" addons="3" mount="0" corpse="38660"/>
+	<targetchange interval="2000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag hidehealth="0"/>
+		<flag lightcolor="0"/>
+		<flag lightlevel="1"/>
+		<flag runonhealth="5"/>
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" length="0" min="0" max="-300"/>
+		<attack name="werelion wave" interval="2000" chance="20" min="-150" max="-250" />
+		<attack name="holy" interval="2000" chance="10" target="1" range="3" spread="0" min="-300" max="-410">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="holy" interval="2000" chance="10" target="1" range="3" min="-170" max="-350">
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="20" min="100" max="150">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element deathPercent="45"/>
+		<element icePercent="-25"/>
+		<element firePercent="25"/>
+		<element earthPercent="50"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="5" chance="100000" />
+		<item name="Great Spirit Potion" countmax="2" chance="100000" />
+		<item name="Small Enchanted Ruby" countmax="2" chance="5000" />
+		<item name="Meat" countmax="2" chance="5000" />
+		<item name="Crystal Sword" chance="5000" />
+		<item name="Lion's Mane" countmax="1" chance="5000" />
+		<item name="Silver Brooch" chance="1500" />
+		<item name="Small Diamond" countmax="2" chance="1500" />
+		<item name="War Hammer" chance="1500" />
+		<item name="Doublet" chance="1500" />
+		<item name="Dark Shield" chance="1500" />
+		<item name="Titan Axe" chance="1500" />
+		<item name="Spiked Squelcher" chance="1500" />
+		<item name="Glorious Axe" chance="1500" />
+		<item name="Spirit Cloak" chance="1500" />
+		<item name="Onyx Chip" chance="1500" />
+		<item name="Coral Brooch" countmax="1" chance="1500" />
+		<item name="Ivory Carving" countmax="1" chance="1500" />
+		<item name="Rainbow Quartz" countmax="1" chance="1500" />
+		<item name="Noble Axe" chance="500" />
+		<item name="White Silk Flower" countmax="1" chance="500" />
+		<item name="Lion Figurine" chance="100" />
+	</loot>
+</monster>

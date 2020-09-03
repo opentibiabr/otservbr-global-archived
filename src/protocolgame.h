@@ -329,6 +329,9 @@ class ProtocolGame final : public Protocol
 		void sendUpdateSupplyTracker(const Item* item);
 		void sendUpdateImpactTracker(int32_t quantity, bool isHeal);
 		void sendUpdateLootTracker(Item* item);
+		
+		// Hotkey equip/dequip item
+		void parseHotkeyEquip(NetworkMessage& msg);
 
 		//Help functions
 
