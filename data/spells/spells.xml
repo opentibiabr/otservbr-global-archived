@@ -381,7 +381,7 @@
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="attack" spellid="43" name="Strong Ice Wave" words="exevo gran frigo hur" lvl="40" mana="170" direction="1" exhaustion="4000" groupcooldown="2000" needlearn="0" script="attack/strong ice wave.lua">
+	<instant group="attack" spellid="43" name="Strong Ice Wave" words="exevo gran frigo hur" lvl="40" mana="170" direction="1" exhaustion="8000" groupcooldown="2000" needlearn="0" script="attack/strong ice wave.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
