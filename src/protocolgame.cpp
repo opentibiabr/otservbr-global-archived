@@ -495,6 +495,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0x71: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_SOUTH); break;
 		case 0x72: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerTurn, player->getID(), DIRECTION_WEST); break;
 		case 0x73: parseTeleport(msg); break;
+		case 0x77: parseHotkeyEquip(msg); break;
 		case 0x78: parseThrow(msg); break;
 		case 0x79: parseLookInShop(msg); break;
 		case 0x7A: parsePlayerPurchase(msg); break;
@@ -573,7 +574,6 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 //		case 0xFD: parseStoreOpenTransactionHistory(msg); break;
 //		case 0xFE: parseStoreRequestTransactionHistory(msg); break;
 
-		//case 0x77 Equip Hotkey.
 		//case 0xDF, 0xE0, 0xE1, 0xFB, 0xFC, 0xFD, 0xFE Premium Shop.
 
 		default:
@@ -585,6 +585,16 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 			disconnect();
 		}
 	*/
+}
+
+void ProtocolGame::parseHotkeyEquip(NetworkMessage& msg)
+{
+	if (!player) {
+		return;
+	}
+	uint16_t spriteid = msg.get<uint16_t>();
+  addGameTask(&Game::onPressHotkeyEquip, player, spriteid);
+	return;	
 }
 
 void ProtocolGame::GetTileDescription(const Tile* tile, NetworkMessage& msg)
