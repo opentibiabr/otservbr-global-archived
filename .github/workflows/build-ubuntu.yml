@@ -51,7 +51,7 @@ jobs:
 
     - name: Clean workspace
       shell: bash
-      run: find . -maxdepth 1 ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
+      run: find . -maxdepth 1 ! -name otbr ! -name data ! -name config.lua.dist ! -name key.pem ! -name LICENSE ! -name README.md ! -name schema.sql -exec rm -r {} \;
 
     - name: Prepare datapack contents
       shell: bash
