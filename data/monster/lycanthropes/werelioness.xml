@@ -27,7 +27,7 @@
 		<attack name="holy" interval="2000" chance="10" target="1" range="3" spread="0" min="-300" max="-410">
 			<attribute key="areaEffect" value="holyarea" />
 		</attack>	
-		<attack name="holy" interval="2000" chance="10" target="1" range="3" range="1" min="-170" max="-350">
+		<attack name="holy" interval="2000" chance="10" target="1" range="3" min="-170" max="-350">
 			<attribute key="shootEffect" value="holy" />
 		</attack>
 		<attack name="fire" interval="2000" chance="10" length="4" spread="1" min="-250" max="-300">
