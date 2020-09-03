@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Werelioness" nameDescription="a werelioness" race="blood" experience="2500" skull="none" speed="210" manacost="0">
+	<health now="3000" max="3000"/>
+	<look type="1301" head="58" body="2" legs="94" feet="94" addons="0" mount="0" corpse="39020"/>
+	<targetchange interval="2000" chance="20"/>
+	<flags>
+		<flag summonable="0"/>
+		<flag attackable="1"/>
+		<flag hostile="1"/>
+		<flag illusionable="0"/>
+		<flag convinceable="0"/>
+		<flag pushable="0"/>
+		<flag canpushitems="1"/>
+		<flag canpushcreatures="1"/>
+		<flag targetdistance="1"/>
+		<flag staticattack="90"/>
+		<flag hidehealth="0"/>
+		<flag lightcolor="0"/>
+		<flag lightlevel="1"/>
+		<flag runonhealth="5"/>
+		<flag canwalkonenergy="1" />
+		<flag canwalkonfire="1" />
+		<flag canwalkonpoison="1" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" chance="100" length="0" min="0" max="-300"/>
+		<attack name="holy" interval="2000" chance="10" target="1" range="3" spread="0" min="-300" max="-410">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>	
+		<attack name="holy" interval="2000" chance="10" target="1" range="3" min="-170" max="-350">
+			<attribute key="shootEffect" value="holy" />
+		</attack>
+		<attack name="fire" interval="2000" chance="10" length="4" spread="1" min="-250" max="-300">
+			<attribute key="areaEffect" value="firearea" />
+		</attack>
+	</attacks>
+	<defenses armor="40" defense="40">
+		<defense name="healing" interval="2000" chance="20" min="100" max="150">
+			<attribute key="areaEffect" value="blueshimmer"/>
+		</defense>
+	</defenses>
+	<elements>
+		<element holyPercent="-5"/>
+		<element deathPercent="50"/>
+		<element icePercent="25"/>
+		<element firePercent="35"/>
+		<element earthPercent="40"/>
+	</elements>
+	<immunities>
+		<immunity paralyze="1"/>
+		<immunity drunk="1"/>
+		<immunity invisible="1"/>
+	</immunities>
+	<loot>
+		<item name="Platinum Coin" countmax="5" chance="100000" />
+		<item name="Gold Coin" countmax="60" chance="100000" />
+		<item name="Small Enchanted Sapphire" countmax="2" chance="5000" />
+		<item name="Black Pearl" countmax="2" chance="5000" />
+		<item name="Ham" countmax="2" chance="5000" />
+		<item name="Meat" countmax="2" chance="5000" />
+		<item name="Soul Orb" countmax="2" chance="5000" />
+		<item name="White Pearl" countmax="2" chance="1500" />
+		<item name="Ankh" chance="5000" />
+		<item name="Crystal Sword" chance="5000" />
+		<item name="Serpent Sword" chance="5000" />
+		<item name="Rapier" chance="5000" />
+		<item name="Lion's Mane" countmax="1" chance="5000" />
+		<item name="Lightning Headband" chance="1500" />
+		<item name="Steel Helmet" chance="1500" />
+		<item name="Doublet" chance="1500" />
+		<item name="Ivory Carving" countmax="1" chance="1500" />
+		<item name="Magma Legs" chance="500" />
+		<item name="Crown Helmet" chance="500" />
+		<item name="White Silk Flower" countmax="1" chance="200" />
+		<item name="Lion Figurine" chance="100" />
+	</loot>
+</monster>
