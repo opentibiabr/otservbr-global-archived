@@ -1,6 +1,19 @@
-local setting = {
-	storage = Storage.CupCake,
-	exaust = 600 -- Is in seconds (600 = 10 minutes)
+local data = {
+[31719] = {
+	Type = "mana",
+	ExhaustStor = Storage.BlueberryCupcake,
+	timestamp = 10
+	},
+[31720] = {
+	Type = "health",
+	ExhaustStor = Storage.StrawberryCupcake,
+	timestamp = 10
+	},
+[31721] = {
+	Type = "skill",
+	ExhaustStor = Storage.LemonCupcake,
+	timestamp = 10
+	}
 }
 
 local lemon = Condition(CONDITION_ATTRIBUTES)
@@ -8,25 +21,26 @@ lemon:setParameter(CONDITION_PARAM_TICKS, 60 * 60 * 1000)
 lemon:setParameter(CONDITION_PARAM_SKILL_DISTANCE, 10)
 
 function onUse(player, item, fromPos, itemEx, toPos)
-	if player:getStorageValue(setting.storage) <= os.time() then
-		if (item.itemid == 31719) then
-			doPlayerAddMana(getPlayerMaxMana(cid))
-			player:say("Mmmm.",TALKTYPE_ORANGE_1)
-			player:removeItem(item.uid, 1)
-			player:setStorageValue(setting.storage, os.time() + setting.exhaust)
-		elseif (item.itemid == 31720) then
-			player:addHealth(getCreatureMaxHealth(cid))
-			player:say("Mmmm.",TALKTYPE_ORANGE_1)
-			player:removeItem(item.uid, 1)
-			player:setStorageValue(setting.storage, os.time() + setting.exhaust)
-		elseif (item.itemid == 31721) then
-			player:say("Mmmm.",TALKTYPE_ORANGE_1)
+local foundItem = data[item.itemid]
+	if not(foundItem) then
+		return
+	end
+	if (player:getStorageValue(foundItem.ExhaustStor)) < os.time() then
+		if foundItem.Type == "mana" then
+			player:addMana(player:getMaxMana())	
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your mana has been refilled.")
+		elseif foundItem.Type == "health" then
+			player:addHealth(player:getMaxHealth())
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "Your health has been refilled.")
+		elseif foundItem.Type == "skill" then
 			player:addCondition(lemon)
-			player:removeItem(item.uid, 1)
-			player:setStorageValue(setting.storage, os.time() + setting.exhaust)
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You feel more focused.")
 		end
+		player:say("Mmmm.",TALKTYPE_ORANGE_1)
+		item:remove(1)
+		player:setStorageValue(foundItem.ExhaustStor, os.time() + (foundItem.timestamp * 60))	
 	else
-		player:sendCancelMessage("You are full or you've already eaten a dish within 10 minutes.")
+		player:sendTextMessage(MESSAGE_STATUS_SMALL, "You need to wait before using it again.")
 	end
 	return true
 end
