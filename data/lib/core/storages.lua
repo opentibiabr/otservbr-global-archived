@@ -113,7 +113,7 @@ Storage = {
 	ExerciseDummyExhaust = 30029,
 	SamsOldBackpack = 30030,
 	SamsOldBackpackDoor = 30031,
-	CupCake = 30032,
+	StrawberryCupcake = 30032,
 	ChayenneReward = 30033,
 	SwampDiggingTimeout = 30034,
 	HydraEggQuest = 30035,
@@ -133,6 +133,8 @@ Storage = {
 	DwarvenLegs = 30049,
 	PrinceDrazzakTime = 30050,
 	StoreExaust = 30051,
+	LemonCupcake = 30052,
+	BlueberryCupcake = 30053,
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
