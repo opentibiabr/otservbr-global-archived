@@ -1,8 +1,8 @@
 local upFloorIds = {23668}
 
-local sewergrateTeleport = Action()
+local sewerGrateTeleport = Action()
 
-function sewergrateTeleport.onUse(cid, item, fromPosition, itemEx, toPosition)
+function sewerGrateTeleport.onUse(cid, item, fromPosition, itemEx, toPosition)
 	if isInArray(upFloorIds, item.itemid) == TRUE then
 		fromPosition.x = fromPosition.x + 1
 		fromPosition.z = fromPosition.z - 2
@@ -11,5 +11,5 @@ function sewergrateTeleport.onUse(cid, item, fromPosition, itemEx, toPosition)
 	return TRUE
 end
 
-sewergrateTeleport:id(23668)
-sewergrateTeleport:register()
+sewerGrateTeleport:id(23668)
+sewerGrateTeleport:register()

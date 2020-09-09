@@ -16,9 +16,9 @@ local function internalBedTransform(item, target, toPosition, itemArray)
 	item:remove()
 end
 
-local bedmodificationKits = Action()
+local bedModificationKits = Action()
 
-function bedmodificationKits.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+function bedModificationKits.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local newBed = beds[item.itemid]
 	if not newBed then
 		return false
@@ -50,5 +50,5 @@ function bedmodificationKits.onUse(player, item, fromPosition, target, toPositio
 	return true
 end
 
-bedmodificationKits:id(7904, 7905, 7906, 7907, 20252)
-bedmodificationKits:register()
+bedModificationKits:id(7904, 7905, 7906, 7907, 20252)
+bedModificationKits:register()

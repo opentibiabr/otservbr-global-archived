@@ -1,6 +1,6 @@
-local createsugarOat = Action()
+local createSugarOat = Action()
 
-function createsugarOat.onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
+function createSugarOat.onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
      local player = Player(cid)
      if itemEx.itemid == 2694 then
          if toPosition.x ~= CONTAINER_POSITION then
@@ -16,5 +16,5 @@ function createsugarOat.onUse(cid, item, fromPosition, itemEx, toPosition, isHot
      return true
 end
 
-createsugarOat:id(5467)
-createsugarOat:register()
+createSugarOat:id(5467)
+createSugarOat:register()
