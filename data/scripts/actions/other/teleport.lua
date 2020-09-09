@@ -12,5 +12,5 @@ function teleport.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	return true
 end
 
-teleport:id(1386, 3678, 5543, 22845, 22846, 33397, 35005, 36097)
+teleport:id(430, 1386, 3678, 5543, 22845, 22846, 33397, 35005, 36097)
 teleport:register()
