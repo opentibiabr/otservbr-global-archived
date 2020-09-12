@@ -1,9 +1,9 @@
 local savingEvent = 0
-function save(delay)
+function saveLoop(delay)
 	saveServer()
 	SaveHirelings()
 	if delay > 0 then
-		savingEvent = addEvent(save, delay, delay)
+		savingEvent = addEvent(saveLoop, delay, delay)
 	end
 end
 
@@ -13,7 +13,7 @@ function save.onSay(player, words, param)
 	if player:getGroup():getAccess() then
 		if isNumber(param) then
 			stopEvent(savingEvent)
-			save(tonumber(param) * 60 * 1000)
+			saveLoop(tonumber(param) * 60 * 1000)
 		else
 			saveServer()
 			SaveHirelings()
