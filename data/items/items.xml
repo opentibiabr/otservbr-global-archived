@@ -42823,7 +42823,7 @@
 		<attribute key="loottype" value="axe" />
 		<attribute key="slotType" value="two-handed" />
 		<attribute key="attack" value="10" />
-		<attribute key="elementEnergy" value="45" />
+		<attribute key="elementEnergy" value="47" />
 		<attribute key="defense" value="33" />
 		<attribute key="skillAxe" value="4" />
 		<attribute key="absorbPercentEnergy" value="12" />
