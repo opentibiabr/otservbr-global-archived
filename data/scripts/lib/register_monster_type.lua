@@ -125,13 +125,13 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.staticAttackChance then
 			mtype:staticAttackChance(mask.flags.staticAttackChance)
 		end
-		if mask.flags.canWalkOnEnergy then
+		if mask.flags.canWalkOnEnergy ~= nil then
 			mtype:canWalkOnEnergy(mask.flags.canWalkOnEnergy)
 		end
-		if mask.flags.canWalkOnFire then
+		if mask.flags.canWalkOnFire ~= nil then
 			mtype:canWalkOnFire(mask.flags.canWalkOnFire)
 		end
-		if mask.flags.canWalkOnPoison then
+		if mask.flags.canWalkOnPoison ~= nil then
 			mtype:canWalkOnPoison(mask.flags.canWalkOnPoison)
 		end
 	end
@@ -153,6 +153,23 @@ registerMonsterType.changeTarget = function(mtype, mask)
 		end
 		if mask.changeTarget.interval then
 			mtype:changeTargetSpeed(mask.changeTarget.interval)
+		end
+	end
+end
+
+registerMonsterType.strategiesTarget  = function(mtype, mask)
+	if mask.strategiesTarget then
+		if mask.strategiesTarget.nearest then
+			mtype:strategiesTargetNearest(mask.strategiesTarget.nearest)
+		end
+		if mask.strategiesTarget.health then
+			mtype:strategiesTargetHealth(mask.strategiesTarget.health)
+		end
+		if mask.strategiesTarget.damage then
+			mtype:strategiesTargetDamage(mask.strategiesTarget.damage)
+		end
+		if mask.strategiesTarget.random then
+			mtype:strategiesTargetRandom(mask.strategiesTarget.random)
 		end
 	end
 end
