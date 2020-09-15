@@ -353,6 +353,8 @@
 	<monster name="Werebear" file="lycanthropes/werebear.xml" />
 	<monster name="Werebadger" file="lycanthropes/werebadger.xml" />
 	<monster name="Werefox" file="lycanthropes/werefox.xml" />
+	<monster name="Werelioness" file="lycanthropes/werelioness.xml" />
+	<monster name="Werelion" file="lycanthropes/werelion.xml" />
 	
 	<!-- Magicals -->
 	<monster name="Animated Feather" file="magicals/animated_feather.xml" />
@@ -485,6 +487,7 @@
 	<monster name="Vulcongra" file="mammals/vulcongra.xml" />
 	<monster name="Water Buffalo" file="mammals/water_buffalo.xml" />
 	<monster name="White Deer" file="mammals/white_deer.xml" />
+	<monster name="White Lion" file="mammals/white_lion.xml" />
 	
 	<!-- Plants -->
 	<monster name="Bane Bringer" file="plants/bane_bringer.xml" />

@@ -17,5 +17,5 @@ function sacrificeTeleport.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-sacrificeTeleport:uid(30010)
+sacrificeTeleport:uid(35010)
 sacrificeTeleport:register()

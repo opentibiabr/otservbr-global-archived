@@ -9,6 +9,14 @@ TeleportAction = {
 			{x = 32009, y = 32928, z = 10},
 			{x = 32009, y = 32928, z = 9}
 		}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(2)-second_seal_pearl.lua
+	[35002] = {
+		itemId = 1387,
+		itemPos = {
+			{x = 32176, y = 31869, z = 15},
+			{x = 32177, y = 31869, z = 15}
+		}
 	}
 }
 
@@ -80,6 +88,42 @@ TeleportUnique = {
 	[35012] = {
 		itemId = 1387,
 		itemPos = {x = 32815, y = 31599, z = 9}
+	},
+	-- The queen of the banshees quest
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(1)-first_seal_flame.lua
+	[35013] = {
+		itemId = 8058,
+		itemPos = {x = 32278, y = 31903, z = 13}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(2)-second_seal_flame.lua
+	[35014] = {
+		itemId = 8058,
+		itemPos = {x = 32171, y = 31853, z = 15}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(3)-third_seal_flame.lua
+	[35015] = {
+		itemId = 8058,
+		itemPos = {x = 32215, y = 31849, z = 15}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(4)-fourth_seal_flame.lua
+	[35016] = {
+		itemId = 8058,
+		itemPos = {x = 32250, y = 31892, z = 14}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(5)-fifth_seal_flame.lua
+	[35017] = {
+		itemId = 8058,
+		itemPos = {x = 32192, y = 31938, z = 14}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(6)-sixth_seal_flame.lua
+	[35018] = {
+		itemId = 8058,
+		itemPos = {x = 32311, y = 31978, z = 13}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(7)-last_seal_flame.lua
+	[35019] = {
+		itemId = 1387,
+		itemPos = {x = 32219, y = 31913, z = 15}
 	},
 
 	-- Simple teleports (They are registered automatically, without just configuring the table correctly)
@@ -193,6 +237,25 @@ TeleportUnique = {
 		itemId = 1387,
 		itemPos = {x = 32874, y = 31955, z = 11},
 		destination = {x = 32874, y = 31942, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	-- The queen of the banshees teleports
+	[38014] = {
+		itemId = 1387,
+		itemPos = {x = 32262, y = 31889, z = 10},
+		destination = {x = 32259, y = 31892, z = 10},
+		effect = CONST_ME_TELEPORT
+	},
+	[38015] = {
+		itemId = 1387,
+		itemPos = {x = 32266, y = 31857, z = 12},
+		destination = {x = 32266, y = 31864, z = 12},
+		effect = CONST_ME_TELEPORT
+	},
+	[38016] = {
+		itemId = 1387,
+		itemPos = {x = 32266, y = 31863, z = 12},
+		destination = {x = 32266, y = 31858, z = 12},
 		effect = CONST_ME_TELEPORT
 	}
 }
