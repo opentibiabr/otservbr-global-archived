@@ -4,8 +4,8 @@ combat:setParameter(COMBAT_PARAM_EFFECT, CONST_ME_BIGCLOUDS)
 combat:setArea(createCombatArea(AREA_CIRCLE6X6))
 
 function onGetFormulaValues(player, level, magicLevel)
-	local min = (level / 5) + (magicLevel * 4) + 75
-	local max = (level / 5) + (magicLevel * 10) + 150
+	local min = (level / 5) + (maglevel * 7)
+	local max = (level / 5) + (maglevel * 14)
 	return -min, -max
 end
 
