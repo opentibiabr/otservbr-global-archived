@@ -84,27 +84,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 
-	-- Shadow Nexus
-	if isInArray({8753, 8755, 8757}, target.itemid) then
-		target:transform(target.itemid + 1)
-		target:decay()
-		nexusMessage(player, player:getName() .. ' damaged the shadow nexus! You can\'t damage it while it\'s burning.')
-		shadowNexusPosition:sendMagicEffect(CONST_ME_HOLYAREA)
-
-	elseif target.itemid == 8759 then
-		if player:getStorageValue(Storage.TheInquisition.Questline) < 22 then
-			-- The Inquisition Questlog- 'Mission 7: The Shadow Nexus'
-			player:setStorageValue(Storage.TheInquisition.Mission07, 2)
-			player:setStorageValue(Storage.TheInquisition.Questline, 22)
-		end
-
-		for i = 1, #effectPositions do
-			effectPositions[i]:sendMagicEffect(CONST_ME_HOLYAREA)
-		end
-
-		nexusMessage(player, player:getName() .. ' destroyed the shadow nexus! In 20 seconds it will return to its original state.')
-		item:remove(1)
-	elseif target.actionid == 4007 and target.actionid == 4024 then
+	if target.actionid == 4007 and target.actionid == 4024 then
 		local graveStorage = storages[target.actionid]
 		if player:getStorageValue(graveStorage) == 1
 				or player:getStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline) ~= 3 then
@@ -124,5 +104,35 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 		toPosition:sendMagicEffect(CONST_ME_MAGIC_BLUE)
 	end
+
+	-- Shadow Nexus
+if isInArray({8753, 8755, 8757}, target.itemid) then
+	if target.itemid == 8757 then
+		Game.setStorageValue(GlobalStorage.Inquisition, math.random(4,5))
+	end
+		target:transform(target.itemid + 1)
+		target:setAttribute(ITEM_ATTRIBUTE_DURATION, 20000)
+		target:decay()
+		nexusMessage(player, player:getName() .. ' damaged the shadow nexus! You can\'t damage it while it\'s burning.')
+		toPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
+elseif target.itemid == 8759 then
+	if Game.getStorageValue(GlobalStorage.Inquisition) > 0 then
+		Game.setStorageValue(GlobalStorage.Inquisition, (Game.getStorageValue(GlobalStorage.Inquisition)-1))
+		if player:getStorageValue(Storage.TheInquisition.Questline) < 22 then
+			-- The Inquisition Questlog- 'Mission 7: The Shadow Nexus'
+			player:setStorageValue(Storage.TheInquisition.Mission07, 2)
+			player:setStorageValue(Storage.TheInquisition.Questline, 22)
+		end
+		for i = 1, #effectPositions do
+			effectPositions[i]:sendMagicEffect(CONST_ME_HOLYAREA)
+		end
+		nexusMessage(player, player:getName() .. ' destroyed the shadow nexus! In 10 seconds it will return to its original state.')
+		item:remove(1)
+		toPosition:sendMagicEffect(CONST_ME_HOLYAREA)
+	else
+	target:transform(8753)
+	end
+	end
+
 	return true
-end
+en
