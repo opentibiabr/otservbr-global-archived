@@ -2153,6 +2153,7 @@ Storage = {
 }
 
 GlobalStorage = {
+	Inquisition = 8417542318,
 	DangerousDepths = {
 		-- Reserved storage from 60001 - 60009
 		Geodes = {
