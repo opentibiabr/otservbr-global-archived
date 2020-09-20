@@ -135,4 +135,4 @@ elseif target.itemid == 8759 then
 	end
 
 	return true
-en
+end
