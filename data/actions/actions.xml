@@ -392,8 +392,6 @@
 	<action fromaid="50122" toaid="50125" script="quests/the_hidden_city_of_beregar/coal_exit_wagons.lua" />
 	<action fromuid="50113" touid="50123" script="quests/the_hidden_city_of_beregar/wagon_maze_levers.lua" />
 	<action uniqueid="50124" script="quests/the_hidden_city_of_beregar/wagon_maze_exit.lua" />
-	<!-- the lost brother quest -->
-	<action actionid="12441" script="quests/the_lost_brother/asura_mirror.lua" />
 	<!-- the new frontier quest -->
 	<action uniqueid="3157" script="quests/the_new_frontier/arena.lua" />
 	<action actionid="45440" script="quests/the_new_frontier/outfit.lua" />
