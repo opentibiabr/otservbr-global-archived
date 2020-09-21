@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local childrenZalamon = Action()
+function childrenZalamon.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.TheNewFrontier.Mission08) >= 2 and player:getStorageValue(Storage.WrathoftheEmperor.Mission11) < 2 then
 		if item.itemid == 10791 then
 			player:teleportTo(toPosition, true)
@@ -9,3 +10,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+childrenZalamon:uid(3170)
+childrenZalamon:register()

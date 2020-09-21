@@ -47,11 +47,6 @@
 	<action itemid="18339" script="quests/bigfoot_burden/pig.lua" />
 	<action itemid="18343" script="quests/bigfoot_burden/repair.lua" />
 	<action uniqueid="3143" script="quests/bigfoot_burden/warzone1_crystal.lua" />
-	<!-- children of the revolution quest -->
-	<action uniqueid="3164" script="quests/children_of_the_revolution/mission3_chest.lua" />
-	<action itemid="10760" script="quests/children_of_the_revolution/mission3_poison_water.lua" />
-	<action itemid="11106" script="quests/children_of_the_revolution/mission4_grease_oil.lua" />
-	<action uniqueid="3170" script="quests/children_of_the_revolution/zalamon_door.lua" />
 	<!-- cults of tibia quest -->
 	<action fromaid="5500" toaid="5506" script="quests/cults_of_tibia/bosses_levers.lua" />
 	<action actionid="5520" script="quests/cults_of_tibia/lever_mota.lua" />

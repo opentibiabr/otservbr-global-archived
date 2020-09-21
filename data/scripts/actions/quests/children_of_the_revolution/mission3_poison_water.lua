@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local childrenPoison = Action()
+function childrenPoison.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 8012 then
 		return false
 	end
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+childrenPoison:id(10760)
+childrenPoison:register()

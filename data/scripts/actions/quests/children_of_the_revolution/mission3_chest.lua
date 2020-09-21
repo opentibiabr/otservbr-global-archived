@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local childrenMission3 = Action()
+function childrenMission3.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.ChildrenoftheRevolution.Questline) == 9 then
 		player:setStorageValue(Storage.ChildrenoftheRevolution.Questline, 10)
 		player:addItem(10760, 1)
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+childrenMission3:uid(3164)
+childrenMission3:register()
