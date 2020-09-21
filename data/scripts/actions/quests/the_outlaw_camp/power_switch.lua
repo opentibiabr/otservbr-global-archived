@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local powerSwitch = Action()
+function powerSwitch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local wall = Tile(Position({x=32604, y=32216, z=9}))
 	local power2pos = Position({x = 32613, y = 32220, z = 10})
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		item:transform(item.itemid == 1945 and 1946 or 1945)
 	return true
 end
+
+powerSwitch:uid(3401)
+powerSwitch:register()

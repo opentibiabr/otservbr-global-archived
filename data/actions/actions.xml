@@ -339,10 +339,6 @@
 	<action fromaid="8005" toaid="8006" script="quests/the_new_frontier/lever.lua" />
 	<action fromuid="3153" touid="3154" script="quests/the_new_frontier/vine.lua" />
 	<action uniqueid="3156" script="quests/the_new_frontier/retreat.lua" />
-	<!-- the outlaw camp quest -->
-	<action uniqueid="3400" script="quests/the_outlaw_camp/oven.lua" />
-	<action uniqueid="3401" script="quests/the_outlaw_camp/power_switch.lua" />
-	<action uniqueid="3402" script="quests/the_outlaw_camp/power_burn.lua" />
 	<!-- the secret library quest -->
 	<action actionid="64019" script="quests/the_secret_library/asura_mirror.lua" />
 	<!-- thieves guild quest -->

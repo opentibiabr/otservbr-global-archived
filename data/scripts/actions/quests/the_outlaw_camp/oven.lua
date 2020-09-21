@@ -3,7 +3,8 @@ local config = {
 	[1946] = {position = {Position(32623, 32189, 9), Position(32623, 32188, 9)}}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local oven = Action()
+function oven.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 	return true
 end
+
+oven:uid(3400)
+oven:register()

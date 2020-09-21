@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local power = Action()
+function power.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local power1 = Tile(Position({x = 32613, y = 32220, z = 10}))
 	local barrel = Tile(Position({x = 32614, y = 32209, z = 10}))
@@ -15,3 +16,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 	return true
 end
+
+power:id(3402)
+power:register()
