@@ -251,10 +251,6 @@
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
 	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
-	<!-- koshei amulet quest -->
-	<action itemid="8266" script="quests/koshei_amulet/boss.lua" />
-	<action uniqueid="3070" script="quests/koshei_amulet/switch.lua" />
-	<action actionid="40532" script="quests/koshei_amulet/bag.lua" />
 	<!-- lower roshamuul quest -->
 	<action itemid="22387" script="quests/lower_roshamuul/mixture.lua" />
 	<action itemid="22388" script="quests/lower_roshamuul/mixture.lua" />

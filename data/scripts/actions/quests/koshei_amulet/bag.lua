@@ -9,7 +9,8 @@ Date of death: unknown
 There are not many things known about this man. He appeared out of nowhere and lived here for nearly ten years. Even though he was communicative, he never told anything about his profession or what he did for a living. First he lived in Darashia 2, Flat 11 for about two years. During that time he was roaming around, travelling the lands of Darama and often visiting the Bath of Dreams and the minotaur pyramid in the North.
 Then it was discovered that he had built a tower south of the mountains. It is unexplained how he managed to do that because no one has been seen to help him. Anyway, the remains of his tower are still there. ...]]
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bag = Action()
+function bag.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (player:getStorageValue(483293) == -1) then
 		local bag = player:addItem(1987, 1)
 		if (bag) then
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+bag:aid(40532)
+bag:register()

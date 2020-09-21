@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local boss = Action()
+function boss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 8272 then
 		return false
 	end
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+boss:id(8266)
+boss:register()
