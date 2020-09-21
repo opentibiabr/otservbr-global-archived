@@ -355,10 +355,6 @@
 	<action fromaid="12501" toaid="12502" script="quests/the_thieves_guild/climbing_vine.lua" />
 	<action itemid="8762" script="quests/the_thieves_guild/fish_napping_key.lua" />
 	<action actionid="12505" script="quests/the_thieves_guild/fish_napping_door.lua" />
-	<!-- threatened dreams quest -->
-	<action uniqueid="34123" script="quests/threatened_dreams/poacher_chest.lua" />
-	<action itemid="34592" script="quests/threatened_dreams/poacher_use.lua" />
-	<action uniqueid="1039" script="quests/threatened_dreams/lever.lua" />
 	<!-- what a foolish quest -->
 	<action itemid="7478" script="quests/what_a_foolish/flask.lua" />
 	<action itemid="7482" script="quests/what_a_foolish/crate.lua" />

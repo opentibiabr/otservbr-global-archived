@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local poacher = Action()
+function poacher.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if target.itemid == 2160 then
         target:decay()
         item:remove(1)
@@ -7,3 +8,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
         return true
     end
 end
+
+poacher:id(34592)
+poacher:register()
