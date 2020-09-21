@@ -27,7 +27,8 @@ local function createArmor(id, amount, pos)
 	if armor then armor:setActionId(40003) end 
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local scarlettUid = Action()
+function scarlettUid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local playersTable = {}
 	if item:getUniqueId() == 40028 then
 		if player:doCheckBossRoom(info.bossName, info.fromPos, info.toPos) then
@@ -63,7 +64,17 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			SCARLETT_MAY_TRANSFORM = 0
 			addEvent(kickPlayersAfterTime, 30*60*1000, playersTable, info.fromPos, info.toPos, info.exitPos)
 		end
-	elseif item.actionid == 40003 then
+	end
+	return true
+end
+
+scarlettUid:uid(40028)
+scarlettUid:register()
+
+
+local scarlettAid = Action();
+function scarlettAid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if item.actionid == 40003 then
 		if isInArray(transformTo, item.itemid) then
 			local pilar = transformTo[item.itemid]
 			if pilar then
@@ -89,3 +100,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+scarlettAid:aid(40003)
+scarlettAid:register()
