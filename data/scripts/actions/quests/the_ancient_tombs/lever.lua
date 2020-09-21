@@ -18,7 +18,8 @@ local config = {
 	bridgeId = 5770
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theAncientLever = Action()
+function theAncientLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local leverLeft, lever = item.itemid == 1945
 	for i = 1, #config.leverPositions do
 		lever = Tile(config.leverPositions[i]):getItemById(leverLeft and 1945 or 1946)
@@ -58,3 +59,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+theAncientLever:aid(12120)
+theAncientLever:register()

@@ -13,7 +13,8 @@ local function resetScript(position, storage)
 	Game.setStorageValue(storage, Game.getStorageValue(storage) - 1)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theAncientActiveTeleport = Action()
+function theAncientActiveTeleport.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local storage = config[item.actionid]
 	if not storage then
 		return true
@@ -28,3 +29,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	addEvent(resetScript, 20 * 60 * 1000, toPosition, storage)
 	return true
 end
+
+theAncientActiveTeleport:aid(12121,12122,12123)
+theAncientActiveTeleport:register()

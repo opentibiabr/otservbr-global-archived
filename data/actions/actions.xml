@@ -295,11 +295,6 @@
 	<action itemid="21564" script="quests/spike_tasks/fertilizer.lua" />
 	<action itemid="21566" script="quests/spike_tasks/lode_stone.lua" />
 	<action itemid="21568" script="quests/spike_tasks/lode_stone.lua" />
-	<!-- the ancient tombs quest -->
-	<action fromaid="12121" toaid="12123" script="quests/the_ancient_tombs/active_teleport_switches.lua" />
-	<action actionid="12107" script="quests/the_ancient_tombs/oasis_lever_door.lua" />
-	<action actionid="12105" script="quests/the_ancient_tombs/ruins_instruments.lua" />
-	<action actionid="12120" script="quests/the_ancient_tombs/lever.lua" />
 	<!-- the hidden city of beregar -->
 	<action actionid="50128" script="quests/the_hidden_city_of_beregar/deeper_mine_wagon.lua" />
 	<action fromaid="50098" toaid="50108" script="quests/the_hidden_city_of_beregar/ore_wagon.lua" />

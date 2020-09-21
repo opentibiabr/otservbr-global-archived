@@ -8,7 +8,8 @@ local config = {
 
 local storage = Storage.TheAncientTombs.VashresamunInstruments
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theAncientRuinsInstru = Action()
+function theAncientRuinsInstru.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetTable = config[item.itemid]
 	if not targetTable then
 		player:setStorageValue(storage, 0)
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+theAncientRuinsInstru:aid(12105)
+theAncientRuinsInstru:register()
