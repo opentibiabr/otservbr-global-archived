@@ -426,8 +426,6 @@
 	<!-- tibia tales quest -->
 	<action itemid="7496" script="quests/tibia_tales/ultimate_booze_beer_bottle.lua" />
 	<action itemid="8205" script="quests/tibia_tales/exterminator_flask.lua" />
-	<!-- unnatural selection -->
-	<action uniqueid="1052" script="quests/unnatural_selection/mission5_ray_of_light.lua" />
 	<!-- what a foolish quest -->
 	<action itemid="7478" script="quests/what_a_foolish/flask.lua" />
 	<action itemid="7482" script="quests/what_a_foolish/crate.lua" />
