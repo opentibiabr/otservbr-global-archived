@@ -359,8 +359,6 @@
 	<action actionid="12505" script="quests/the_thieves_guild/fish_napping_door.lua" />
 	<!-- the travelling trader quest -->
 	<action actionid="1108" script="quests/the_travelling_trader/outlaw_camp_door.lua" />
-	<!-- their masters voice quest -->
-	<action itemid="13601" script="quests/their_master_voice/slime_gobbler.lua" />
 	<!-- threatened dreams quest -->
 	<action uniqueid="34123" script="quests/threatened_dreams/poacher_chest.lua" />
 	<action itemid="34592" script="quests/threatened_dreams/poacher_use.lua" />
