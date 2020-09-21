@@ -273,9 +273,6 @@
 	<action itemid="22504" script="quests/lower_roshamuul/trough.lua" />
 	<action itemid="22513" script="quests/lower_roshamuul/bone.lua" />
 	<action itemid="22535" script="quests/lower_roshamuul/resonance_chamber.lua" />
-	<!-- mysterious ornate quest -->
-	<action itemid="25395" script="quests/mysterious_ornate/mysterious_metal_egg.lua" />
-	<action itemid="21382" script="quests/mysterious_ornate/mysterious_metal_egg.lua" />
 	<!-- oramond quest -->
 	<action uniqueid="1020" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->
