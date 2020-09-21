@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local closed = Action()
+function closed.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if toPosition.x == CONTAINER_POSITION then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'Use it on the ground to set the trap.')
 		return true
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'The silvered trap has been set and cannot be removed from its current position.')
 	return true
 end
+
+closed:id(24730)
+closed:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local silver = Action()
+function silver.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid == 2578 or target.itemid == 2579 then
 		target:transform(24730)
 		item:remove()
@@ -9,3 +10,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+silver:id(24714)
+silver:register()

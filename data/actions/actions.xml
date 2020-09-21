@@ -206,9 +206,6 @@
 	<action itemid="21406" script="quests/gravedigger/hallowed.lua" />
 	<action itemid="21401" script="quests/gravedigger/tears.lua" />
 	<action itemid="21402" script="quests/gravedigger/flask.lua" />
-	<!-- grimvale quest -->
-	<action itemid="24730" script="quests/grimvale/closed_silvered_trap.lua" />
-	<action itemid="24714" script="quests/grimvale/silver_liquid.lua" />
 	<!-- heart of destruction quest -->
 	<action itemid="26342" script="quests/heart_of_destruction/devourer_access.lua" />
 	<action itemid="26194" script="quests/heart_of_destruction/sparkion_eggs.lua" />
