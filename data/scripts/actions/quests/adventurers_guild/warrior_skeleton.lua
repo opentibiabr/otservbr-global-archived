@@ -1,3 +1,4 @@
+local warriorSkeleton = Action()
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:getStorageValue(Storage.AdventurersGuild.GreatDragonHunt.WarriorSkeleton) < 1 then
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have discovered a deceased warrior's skeleton. It seems he tried to hunt the dragons around here - and failed.")
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+warriorSkeleton:aid(50806)
+warriorSkeleton:register()

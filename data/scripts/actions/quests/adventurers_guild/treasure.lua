@@ -11,7 +11,8 @@ local items = {
     { description = 'a health potion', items = {{ id = 7588, count = 8 }} }
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local treasure = Action()
+function treasure.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:getStorageValue(Storage.AdventurersGuild.GreatDragonHunt.DragonCounter) >= 50 then
         local treasure = items[math.random(#items)]
         player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "It is impossible to take along all of the treasures here. Buy you pick out " .. treasure.description)
@@ -43,3 +44,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+treasure:aid(50808)
+treasure:register()
