@@ -5,7 +5,8 @@ local config = {
 	[4] = "Sweet Mangonaise Elixir\n- 100 eggs\n- 50 mangoes\n- 10 honeycombs\n- 1 bottle of bug milk\n- 1 blessed wooden stake\n\n"
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local cook = Action()
+function cook.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local text = {}
 	for i = 1, 4 do
 		text[#text + 1] = config[i]
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:showTextDialog(item.itemid, table.concat(text))
 	return true
 end
+
+cook:id(12497)
+cook:register()

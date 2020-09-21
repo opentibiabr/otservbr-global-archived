@@ -227,9 +227,6 @@
 	<action actionid="24865" script="quests/hero_of_rathleton/machines_lava.lua" />
 	<action uniqueid="24850" script="quests/hero_of_rathleton/reward.lua" />
 	<action itemid="24184" script="quests/hero_of_rathleton/raging_corpse.lua" allowfaruse="1" />
-	<!-- hot cuisine quest -->
-	<action itemid="10006" script="quests/hot_cuisine/cookbook1.lua" />
-	<action itemid="12497" script="quests/hot_cuisine/cookbook2.lua" />
 	<!-- ice islands quest -->
 	<action fromid="7243" toid="7244" script="quests/ice_islands/anthill.lua" />
 	<action itemid="7289" script="quests/ice_islands/charm.lua" />
