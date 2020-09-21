@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local outlaw = Action()
+function outlaw.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.TravellingTrader.Mission02) == 3 then
 		if item.itemid == 1223 then
 			player:teleportTo(toPosition, true)
@@ -9,3 +10,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+outlaw:aid(1108)
+outlaw:register()
