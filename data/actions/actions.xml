@@ -349,8 +349,6 @@
 	<action uniqueid="3402" script="quests/the_outlaw_camp/power_burn.lua" />
 	<!-- the secret library quest -->
 	<action actionid="64019" script="quests/the_secret_library/asura_mirror.lua" />
-	<!-- the tainted soul quest -->
-	<action itemid="2800" script="quests/the_tainted_soul/star_herb.lua" />
 	<!-- thieves guild quest -->
 	<action itemid="8693" script="quests/the_thieves_guild/dwarf_disguise_kit.lua" />
 	<action itemid="8701" script="quests/the_thieves_guild/note.lua" />

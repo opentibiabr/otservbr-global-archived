@@ -1,9 +1,10 @@
 local config = { 
 	antlers = 11214,
 	antler_talisman = 24664
-	}
+}
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local star = Action()
+function star.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if target.itemid == config.antlers then
 		item:transform(config.antler_talisman)
@@ -14,3 +15,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+star:id(2800)
+star:register()
