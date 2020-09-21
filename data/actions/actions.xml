@@ -101,8 +101,6 @@
 	<action uniqueid="2272" script="quests/dreamer_challenge/tic_tac.lua" />
 	<action actionid="8033" script="quests/dreamer_challenge/tic_tac_teleport.lua" />
 	<action fromuid="2246" touid="2249" script="quests/dreamer_challenge/walls.lua" />
-	<!-- druid outfit quest -->
-	<action itemid="5938" script="quests/druid_outfit/waterskin.lua" />
 	<!-- elemental_spheres -->
 	<action uniqueid="1010" script="quests/elemental_spheres/lever.lua" />
 	<action fromuid="1011" touid="1014" script="quests/elemental_spheres/lord_of_elements_lever.lua" />
