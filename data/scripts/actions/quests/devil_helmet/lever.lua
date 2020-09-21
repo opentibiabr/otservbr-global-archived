@@ -4,8 +4,8 @@ local removePositions = {
 }
 
 local closeId = 1025
-
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local lever = Action()
+function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove(1)
 	Game.createItem(closeId, 1, Position(32592, 32105, 14))
 	Game.createItem(closeId, 1, Position(32592, 32106, 14))
@@ -14,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+lever:aid(20594)
+lever:register()

@@ -100,8 +100,6 @@
 	<action itemid="8293" script="quests/demon_oak/demon_oak.lua" />
 	<action uniqueid="1001" script="quests/demon_oak/demon_oak_gravestone.lua" />
 	<action fromuid="1002" touid="1005" script="quests/demon_oak/demon_oak_chest.lua" />
-	<!-- devil helmet quest -->
-	<action actionid="20594" script="quests/devil_helmet/lever.lua" />
 	<!-- dreamer_challenge quest -->
 	<action fromuid="3041" touid="3043" script="quests/dreamer_challenge/lever_nightmare.lua" />
 	<action fromuid="3045" touid="3047" script="quests/dreamer_challenge/lever_brotherhood.lua" />
