@@ -293,10 +293,6 @@
 	<action uniqueid="50105" script="quests/pits_of_inferno/bazir_maze_lever.lua" />
 	<action uniqueid="50106" script="quests/pits_of_inferno/fire_throne_lever.lua" />
 	<action actionid="50160" script="quests/pits_of_inferno/maze_stone.lua" />
-	<!-- postman quest -->
-	<action itemid="2330" script="quests/postman/package.lua" />
-	<action itemid="2331" script="quests/postman/present.lua" />
-	<action uniqueid="3118" script="quests/postman/waldos_posthorn.lua" />
 	<!-- rottin wood and married men quest -->
 	<action itemid="13173" script="quests/rottin_wood_and_married_men/trap.lua" />
 	<action itemid="13176" script="quests/rottin_wood_and_married_men/corpse.lua" />

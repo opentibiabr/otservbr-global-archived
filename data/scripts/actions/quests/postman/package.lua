@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local package = Action()
+function package.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid == 101 and target.itemid == 2334 then
 		if player:getStorageValue(Storage.Postman.Mission09) == 2 then
 			player:setStorageValue(Storage.Postman.Mission09, 3)
@@ -8,3 +9,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+package:id(2330)
+package:register()
