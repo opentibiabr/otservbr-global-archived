@@ -342,9 +342,6 @@
 	<action actionid="12107" script="quests/the_ancient_tombs/oasis_lever_door.lua" />
 	<action actionid="12105" script="quests/the_ancient_tombs/ruins_instruments.lua" />
 	<action actionid="12120" script="quests/the_ancient_tombs/lever.lua" />
-	<!-- - the ape city quest -->
-	<action fromuid="1040" touid="1041" script="quests/the_ape_city/mission9_catacombs_lever.lua" />
-	<action itemid="4846" script="quests/the_ape_city/mission9_catacombs_snake_destroyer.lua" />
 	<!-- the hidden city of beregar -->
 	<action actionid="50128" script="quests/the_hidden_city_of_beregar/deeper_mine_wagon.lua" />
 	<action fromaid="50098" toaid="50108" script="quests/the_hidden_city_of_beregar/ore_wagon.lua" />

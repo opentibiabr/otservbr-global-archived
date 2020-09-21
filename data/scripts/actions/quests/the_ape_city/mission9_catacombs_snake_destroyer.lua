@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local miss9 = Action()
+function miss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 4861 then
 		return false
 	end
@@ -15,3 +16,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_FIREAREA)
 	return true
 end
+
+miss9:id(4846)
+miss9:register()

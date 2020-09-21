@@ -34,7 +34,8 @@ local function revertWalls(leverPosition)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local miss9 = Action()
+function miss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, 'It doesn\'t move.')
 		return true
@@ -84,3 +85,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(1946)
 	return true
 end
+
+miss9:uid(1040, 1041)
+miss9:register()
