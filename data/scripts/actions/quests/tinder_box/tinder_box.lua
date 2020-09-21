@@ -1,11 +1,9 @@
--- <action itemid="22728" script="tinderBox.lua" />
-
 local config = {
 	item = 22728,
 	target = 22727,
 	reward = 22726,
 }
-
+local tinder_box = Action()
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if item.itemid == config.item and target.itemid == config.target then
@@ -16,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+tinder_box:id(22728)
+tinder_box:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local reward = Action()
+function reward.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if player:getStorageValue(12450) >= os.time() then
 		return player:sendCancelMessage("The pile of bones is empty.")
@@ -7,3 +8,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:setStorageValue(12450, os.time() + 20 * 3600)
 	return player:sendTextMessage(MESSAGE_INFO_DESCR, "You have found a tinder box.")
 end
+
+reward:uid(3263)
+reward:register()
