@@ -1,3 +1,4 @@
+local greenTear = Action()
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission02) ~= 1 then
 		return true
@@ -8,3 +9,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a tear of daraman.")
 	return true
 end
+
+greenTear:aid(5390)
+greenTear:register()

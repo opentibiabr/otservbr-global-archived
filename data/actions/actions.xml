@@ -223,8 +223,6 @@
 	<action itemid="21406" script="quests/gravedigger/hallowed.lua" />
 	<action itemid="21401" script="quests/gravedigger/tears.lua" />
 	<action itemid="21402" script="quests/gravedigger/flask.lua" />
-	<!-- green djinn quest -->
-	<action actionid="5390" script="quests/green_djinn/tear.lua" />
 	<!-- grimvale quest -->
 	<action itemid="24730" script="quests/grimvale/closed_silvered_trap.lua" />
 	<action itemid="24714" script="quests/grimvale/silver_liquid.lua" />
