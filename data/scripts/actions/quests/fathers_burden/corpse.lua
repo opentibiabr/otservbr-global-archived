@@ -3,6 +3,7 @@ local config = {
 	[12546] = {itemId = 12504, storage = Storage.FathersBurden.Corpse.Sinew, text = 'Heoni\'s sinew'}
 }
 
+local fathers = Action()
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local corpse = config[item.itemid]
 	if not corpse then
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:say('You acquired ' .. corpse.text, TALKTYPE_MONSTER_SAY)
 	return true
 end
+
+fathers:id(12545, 12546)
+fathers:register()

@@ -134,8 +134,6 @@
 	<action itemid="7242" script="quests/explorer_society/resonance.lua" />
 	<action itemid="4851" script="quests/explorer_society/stone.lua" />
 	<action itemid="4853" script="quests/explorer_society/tracing_paper.lua" />
-	<!-- father's burden quest -->
-	<action fromid="12545" toid="12546" script="quests/fathers_burden/corpse.lua" />
 	<!-- ferumbras ascendant quest -->
 	<action actionid="53821" script="quests/ferumbras_ascendant/lever_first.lua" />
 	<action actionid="53822" script="quests/ferumbras_ascendant/lever_second.lua" />
