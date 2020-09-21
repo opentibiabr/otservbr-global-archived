@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local exterminator = Action()
+function exterminator.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 4207 then
 		return false
 	end
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
 	return true
 end
+
+exterminator:id(8205)
+exterminator:register()

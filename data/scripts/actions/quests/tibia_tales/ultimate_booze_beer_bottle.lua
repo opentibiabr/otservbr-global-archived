@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local ultimate = Action()
+function ultimate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 8176 then
 		return false
 	end
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_SOUND_YELLOW)
 	return true
 end
+
+ultimate:id(7496)
+ultimate:register()

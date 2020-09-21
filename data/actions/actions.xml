@@ -359,9 +359,6 @@
 	<action uniqueid="34123" script="quests/threatened_dreams/poacher_chest.lua" />
 	<action itemid="34592" script="quests/threatened_dreams/poacher_use.lua" />
 	<action uniqueid="1039" script="quests/threatened_dreams/lever.lua" />
-	<!-- tibia tales quest -->
-	<action itemid="7496" script="quests/tibia_tales/ultimate_booze_beer_bottle.lua" />
-	<action itemid="8205" script="quests/tibia_tales/exterminator_flask.lua" />
 	<!-- what a foolish quest -->
 	<action itemid="7478" script="quests/what_a_foolish/flask.lua" />
 	<action itemid="7482" script="quests/what_a_foolish/crate.lua" />
