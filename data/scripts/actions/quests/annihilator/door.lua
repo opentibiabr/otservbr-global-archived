@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local door = Action()
+function door.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.TheAnnihilator.AnnihilatorDone) < 1 then
 		if item.actionid == 51690 then
 			if item.itemid == 5114 then
@@ -19,3 +20,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+door:aid(51690)
+door:register()

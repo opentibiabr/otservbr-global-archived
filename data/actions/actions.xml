@@ -34,9 +34,6 @@
 	<!-- adventurer's guild quest -->
 	<action actionid="50806" script="quests/adventurers_guild/warrior_skeleton.lua" />
 	<action actionid="50808" script="quests/adventurers_guild/treasure.lua" />
-	<!-- annihilator quest -->
-	<action actionid="51690" script="quests/annihilator/door.lua" />
-	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
 	<!-- bigfoot_burden quest -->
 	<action itemid="18305" script="quests/bigfoot_burden/beer.lua" />
 	<action fromuid="3124" touid="3127" script="quests/bigfoot_burden/music.lua" />
