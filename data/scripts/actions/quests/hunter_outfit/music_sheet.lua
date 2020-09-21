@@ -5,7 +5,8 @@ local config = {
 	[6090] = {storage = Storage.OutfitQuest.HunterMusicSheet04, text = 'fourth'}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local music = Action()
+function music.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -22,3 +23,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+music:id(6087, 6088, 6089, 6090)
+music:register()

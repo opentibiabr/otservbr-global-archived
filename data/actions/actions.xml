@@ -233,9 +233,6 @@
 	<!-- hot cuisine quest -->
 	<action itemid="10006" script="quests/hot_cuisine/cookbook1.lua" />
 	<action itemid="12497" script="quests/hot_cuisine/cookbook2.lua" />
-	<!-- hunter outfits quest -->
-	<action actionid="33216" script="quests/hunter_outfit/all_hymn_piano_teleport.lua" />
-	<action fromid="6087" toid="6090" script="quests/hunter_outfit/music_sheet.lua" />
 	<!-- ice islands quest -->
 	<action fromid="7243" toid="7244" script="quests/ice_islands/anthill.lua" />
 	<action itemid="7289" script="quests/ice_islands/charm.lua" />
