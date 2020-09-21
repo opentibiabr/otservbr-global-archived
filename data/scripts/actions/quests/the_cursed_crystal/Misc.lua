@@ -1,12 +1,31 @@
-function onUse(cid, item, frompos, item2, topos)
-local user1 = Player(cid)
+local miscItem = Action()
+function miscItem.onUse(cid, item, frompos, item2, topos)
+	local user1 = Player(cid)
 	if (item.itemid == 5902) then
 		if ((item2.itemid == 1786) or (item2.itemid == 1788) or (item2.itemid == 1790) or (item2.itemid == 1792)) then
 			item:remove(1)
 			doPlayerAddItem(cid,10025,1)
 		end
 		return
+	elseif (item.itemid == 23923) then
+		if (((user1:getPosition().x - TCC_VORTEX_POSITION.x) < 4) and ((user1:getPosition().x - TCC_VORTEX_POSITION.x) > -4)) and
+		(((user1:getPosition().y - TCC_VORTEX_POSITION.y) < 4) and ((user1:getPosition().y - TCC_VORTEX_POSITION.y) > -4)) then
+			Game.createItem(8632, 1, TCC_VORTEX_POSITION)
+			Tile(TCC_VORTEX_POSITION):getItemById(8632):setActionId(35001)
+			doSendMagicEffect(user1:getPosition(), CONST_ME_SOUND_WHITE)
+			user1:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As you use the small bell an unearthly sound rings out sweetly. At the same moment, the lake's waters begin to whirl.")
+				addEvent(function() 
+					Tile(TCC_VORTEX_POSITION):getItemById(8632):remove() 
+				end, 10000)		
+		end
 	end
+end
+
+miscItem:id(5902,23923,23941)
+miscItem:register()
+
+local miscAction = Action()
+function miscAction.onUse(cid, item, frompos, item2, topos)
 	if (item.actionid == 40001) and (item:getPosition() == TCC_SKELETON_PAPER_POS) then -- 40028
 		if (user1:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 1) then
 			user1:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a sheet of paper.")
@@ -35,16 +54,8 @@ local user1 = Player(cid)
 			end
 			return
 		end
-	elseif (item.itemid == 23923) then
-		if (((user1:getPosition().x - TCC_VORTEX_POSITION.x) < 4) and ((user1:getPosition().x - TCC_VORTEX_POSITION.x) > -4)) and
-		(((user1:getPosition().y - TCC_VORTEX_POSITION.y) < 4) and ((user1:getPosition().y - TCC_VORTEX_POSITION.y) > -4)) then
-			Game.createItem(8632, 1, TCC_VORTEX_POSITION)
-			Tile(TCC_VORTEX_POSITION):getItemById(8632):setActionId(35001)
-			doSendMagicEffect(user1:getPosition(), CONST_ME_SOUND_WHITE)
-			user1:sendTextMessage(MESSAGE_EVENT_ADVANCE, "As you use the small bell an unearthly sound rings out sweetly. At the same moment, the lake's waters begin to whirl.")
-				addEvent(function() 
-					Tile(TCC_VORTEX_POSITION):getItemById(8632):remove() 
-				end, 10000)		
-		end
 	end
 end
+
+miscAction:id(40001, 40002)
+miscAction:register()

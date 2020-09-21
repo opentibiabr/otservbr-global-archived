@@ -3,8 +3,10 @@ local ItemsCursed = {
 	[23873] = {usedID = 12422, finalID = 23874}, -- Flask with oil and blood
 	[23874] = {usedID = 23876, finalID = 23875}, -- Medusa's oilment
 	[23876] = {usedID = 23874, finalID = 23875} -- Medusa's oilment
-	}
-function onUse(player, item, frompos, item2, topos)
+}
+
+local medusa = Action()
+function medusa.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if (item.itemid == 23875) and (item2.itemid == 11337) then
 		if(player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) == 2)then
 			if not(((Player(player):getPosition().x - TCC_PILLARPETRIFIED.x) < 5) and ((Player(player):getPosition().x - TCC_PILLARPETRIFIED.x) > -5) and 
@@ -68,5 +70,8 @@ function onUse(player, item, frompos, item2, topos)
 			return
 		end
 	end
-player:sendTextMessage(MESSAGE_STATUS_SMALL, "Sorry, not possible.")
+	player:sendTextMessage(MESSAGE_STATUS_SMALL, "Sorry, not possible.")
 end
+
+medusa:id(10025,12422,23873,23874,23876)
+medusa:register()

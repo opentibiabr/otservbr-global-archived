@@ -1,4 +1,5 @@
-function onUse(player, item, frompos, item2, topos)
+local ointment = Action()
+function ointment.onUse(player, item, frompos, item2, topos)
 		-- The Cursed Crystal quest:
 	if (item.itemid == 23875) and (item2.itemid == 11337) then
 		if(player:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) == 2)then
@@ -25,3 +26,6 @@ function onUse(player, item, frompos, item2, topos)
 		-- elseif
 	end
 end
+
+ointment:id(23875)
+ointment:register()
