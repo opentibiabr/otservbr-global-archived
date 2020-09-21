@@ -1,4 +1,5 @@
- function onUse(cid, item, fromPosition, itemEx, toPosition)
+ local magical = Action()
+ function magical.onUse(cid, item, fromPosition, itemEx, toPosition)
 	local player = Player(cid)
 	if item:getId() == 12670 then
 		if itemEx.itemid == 8059 then
@@ -37,3 +38,6 @@
 		end
 	end
  end
+
+ magical:id(12670,12671)
+ magical:register()
