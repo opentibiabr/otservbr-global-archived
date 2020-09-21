@@ -37,10 +37,6 @@
 	<!-- annihilator quest -->
 	<action actionid="51690" script="quests/annihilator/door.lua" />
 	<action uniqueid="2208" script="quests/annihilator/lever.lua" />
-	<!-- barbarian test quest -->
-	<action fromid="7174" toid="7176" script="quests/barbarian_test/horn.lua" />
-	<action fromid="7140" toid="7141" script="quests/barbarian_test/horn.lua" />
-	<action uniqueid="3110" script="quests/barbarian_test/mead.lua" />
 	<!-- bigfoot_burden quest -->
 	<action itemid="18305" script="quests/bigfoot_burden/beer.lua" />
 	<action fromuid="3124" touid="3127" script="quests/bigfoot_burden/music.lua" />
