@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local charm = Action()
+function charm.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 1354 then
 		return false
 	end
@@ -43,3 +44,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+charm:id(7289)
+charm:register()

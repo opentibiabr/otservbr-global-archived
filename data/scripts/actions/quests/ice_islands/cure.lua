@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local cure = Action()
+function cure.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 7106 then
 		return false
 	end
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+cure:id(7286)
+cure:register()

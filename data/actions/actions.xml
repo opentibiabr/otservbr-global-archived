@@ -227,12 +227,6 @@
 	<action actionid="24865" script="quests/hero_of_rathleton/machines_lava.lua" />
 	<action uniqueid="24850" script="quests/hero_of_rathleton/reward.lua" />
 	<action itemid="24184" script="quests/hero_of_rathleton/raging_corpse.lua" allowfaruse="1" />
-	<!-- ice islands quest -->
-	<action fromid="7243" toid="7244" script="quests/ice_islands/anthill.lua" />
-	<action itemid="7289" script="quests/ice_islands/charm.lua" />
-	<action itemid="7286" script="quests/ice_islands/cure.lua" />
-	<action itemid="7253" script="quests/ice_islands/paint.lua" />
-	<action itemid="2361" script="quests/ice_islands/yakchal.lua" />
 	<!-- in service of yalahar quest -->
 	<action itemid="9737" script="quests/in_service_of_yalahar/charm.lua" />
 	<action itemid="9733" script="quests/in_service_of_yalahar/formula.lua" />

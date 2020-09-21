@@ -6,7 +6,8 @@ local function transformBack(position, itemId, transformId)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local paint = Action()
+function paint.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 7178 then
 		return false
 	end
@@ -24,3 +25,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+paint:id(7253)
+paint:register()

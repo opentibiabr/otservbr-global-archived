@@ -10,7 +10,8 @@ local function summonMonster(name, position)
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local yakchal = Action()
+function yakchal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local sarcophagus = Position(32205, 31002, 14)
 	if toPosition.x == sarcophagus.x and toPosition.y == sarcophagus.y and toPosition.z == sarcophagus.z and target.itemid == 7362 and item.itemid == 2361 then
 		if Game.getStorageValue(GlobalStorage.Yakchal) < os.time() then
@@ -39,3 +40,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+yakchal:id(2361)
+yakchal:register()
