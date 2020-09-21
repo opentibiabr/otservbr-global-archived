@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local broken = Action()
+function broken.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
 	local position = {x = 32655, y = 32205, z = 7} --32655, 32205, 7
 	if player:getStorageValue(Storage.RottinWoodAndMaried.RottinStart) < 6 then
 		player:setStorageValue(Storage.RottinWoodAndMaried.RottinStart, 6)
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	return true
 end
+
+broken:aid(42501,42502,42503,42504,42505)
+broken:register()

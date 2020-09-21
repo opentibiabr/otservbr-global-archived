@@ -293,14 +293,6 @@
 	<action uniqueid="50105" script="quests/pits_of_inferno/bazir_maze_lever.lua" />
 	<action uniqueid="50106" script="quests/pits_of_inferno/fire_throne_lever.lua" />
 	<action actionid="50160" script="quests/pits_of_inferno/maze_stone.lua" />
-	<!-- rottin wood and married men quest -->
-	<action itemid="13173" script="quests/rottin_wood_and_married_men/trap.lua" />
-	<action itemid="13176" script="quests/rottin_wood_and_married_men/corpse.lua" />
-	<action actionid="42501" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<action actionid="42502" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<action actionid="42503" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<action actionid="42504" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<action actionid="42505" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<!-- secret service quest -->
 	<action itemid="7700" script="quests/secret_service/amazon_disguise_kit.lua" />
 	<action itemid="7697" script="quests/secret_service/ring.lua" />
