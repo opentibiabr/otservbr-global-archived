@@ -305,8 +305,6 @@
 	<action actionid="42503" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<action actionid="42504" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
 	<action actionid="42505" script="quests/rottin_wood_and_married_men/broken_wall.lua" />
-	<!-- secret library -->
-	<action actionid="34000" script="quests/secret_library/brokul_lever.lua" />
 	<!-- secret service quest -->
 	<action itemid="7700" script="quests/secret_service/amazon_disguise_kit.lua" />
 	<action itemid="7697" script="quests/secret_service/ring.lua" />

@@ -33,8 +33,9 @@ local function resetBoss(bossConfig, bossId)
         spectators[i]:teleportTo(bossConfig.exit)
     end
 end
- 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+
+local brokul = Action()
+function brokul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
    
     if item.itemid == 1946 then
         local bossConfig = bossConfig[item:getActionId()]
@@ -96,3 +97,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
  
     return true
 end
+
+brokul:aid(34000)
+brokul:register()
