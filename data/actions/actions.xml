@@ -277,7 +277,6 @@
 	<action fromaid="23700" toaid="23701" script="quests/in_service_of_yalahar/yalahar_machine_war_golems.lua" />
 	<!-- inquisition quest -->
 	<action fromuid="1006" touid="1009" script="quests/inquisition/brother_lever.lua" />
-	<action itemid="8753" script="quests/inquisition/mw.lua" />
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
 	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
