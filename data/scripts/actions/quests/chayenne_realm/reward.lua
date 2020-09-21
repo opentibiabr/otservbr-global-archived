@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local reward = Action()
+function reward.onUse(player, item, fromPosition, itemEx, toPosition)
 	if player:getStorageValue(Storage.ChayenneReward) < 1 then
 		local backpack = player:addItem(5949, 1)
 		backpack:addItem(18511, 1)
@@ -16,3 +17,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	return true
 end
+
+reward:aid(55023)
+reward:register()

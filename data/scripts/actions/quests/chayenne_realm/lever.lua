@@ -1,4 +1,5 @@
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+local lever = Action()
+function lever.onUse(cid, item, fromPosition, itemEx, toPosition)
 	if item.itemid == 1945 then
 		if getGlobalStorageValue(71543) <= os.time() then
 			if getPlayerItemCount(cid, 16015) >= 1 then
@@ -16,3 +17,6 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 		doTransformItem(getTileItemById({x = 33080, y = 32582, z = 3},1946).uid,1945)
 	end
 end
+
+lever:aid(55021)
+lever:register()

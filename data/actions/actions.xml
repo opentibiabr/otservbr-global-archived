@@ -53,9 +53,6 @@
 	<action itemid="18339" script="quests/bigfoot_burden/pig.lua" />
 	<action itemid="18343" script="quests/bigfoot_burden/repair.lua" />
 	<action uniqueid="3143" script="quests/bigfoot_burden/warzone1_crystal.lua" />
-	<!-- chayenne realm quest -->
-	<action actionid="55021" script="quests/chayenne_realm/lever.lua" />
-	<action actionid="55023" script="quests/chayenne_realm/reward.lua" />
 	<!-- children of the revolution quest -->
 	<action uniqueid="3164" script="quests/children_of_the_revolution/mission3_chest.lua" />
 	<action itemid="10760" script="quests/children_of_the_revolution/mission3_poison_water.lua" />
