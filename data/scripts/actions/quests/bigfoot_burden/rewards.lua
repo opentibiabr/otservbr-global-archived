@@ -41,7 +41,8 @@ local rewards = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootRewards = Action()
+function bigfootRewards.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.uid == 3147 then
 		if player:getStorageValue(Storage.BigfootBurden.WarzoneStatus) == 4 then
 			player:setStorageValue(Storage.BigfootBurden.WarzoneStatus, 5)
@@ -91,3 +92,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+bigfootRewards:uid(3147,3148,3149,3150)
+bigfootRewards:register()

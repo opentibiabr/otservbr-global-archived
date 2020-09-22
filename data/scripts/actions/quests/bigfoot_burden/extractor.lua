@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootExtractor = Action()
+function bigfootExtractor.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local extractedCount = player:getStorageValue(Storage.BigfootBurden.ExtractedCount)
 	if extractedCount == 7
 			or player:getStorageValue(Storage.BigfootBurden.MissionRaidersOfTheLostSpark) ~= 1 then
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_ENERGYHIT)
 	return true
 end
+
+bigfootExtractor:id(18213)
+bigfootExtractor:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootMatch = Action()
+function bigfootMatch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid < 18320 and target.itemid > 18326 then
 		return false
 	end
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove()
 	return true
 end
+
+bigfootMatch:id(18312)
+bigfootMatch:register()

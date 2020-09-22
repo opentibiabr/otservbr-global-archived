@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootShooting = Action()
+function bigfootShooting.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local playerPos = player:getPosition()
 	if player:getStorageValue(Storage.BigfootBurden.Shooting) < 5 then
 		local pos = Position(playerPos.x, playerPos.y - 5, 10)
@@ -28,3 +29,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+bigfootShooting:id(18225)
+bigfootShooting:register()

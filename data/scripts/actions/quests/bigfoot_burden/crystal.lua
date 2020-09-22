@@ -5,7 +5,8 @@ local function returnCrystal(position, id)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootCystal = Action()
+function bigfootCystal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local repairedCount = player:getStorageValue(Storage.BigfootBurden.RepairedCrystalCount)
 	if repairedCount == 5 or player:getStorageValue(Storage.BigfootBurden.MissionCrystalKeeper) ~= 1 then
 		return false
@@ -22,3 +23,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+bigfootCystal:id(18219)
+bigfootCystal:register()

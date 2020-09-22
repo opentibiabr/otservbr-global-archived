@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootPig = Action()
+function bigfootPig.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 18341 then
 		return false
 	end
@@ -19,3 +20,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_GROUNDSHAKER)
 	return true
 end
+
+bigfootPig:id(18339)
+bigfootPig:register()

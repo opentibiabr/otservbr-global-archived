@@ -8,7 +8,8 @@ local cToneStorages = {
 	Storage.BigfootBurden.MelodyTone7
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootMusic = Action()
+function bigfootMusic.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.BigfootBurden.QuestLine) == 21 then
 		print('a')
 		local value = player:getStorageValue(Storage.BigfootBurden.MelodyStatus)
@@ -29,3 +30,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+bigfootMusic:uid(3124,3125,3126,3127)
+bigfootMusic:register()

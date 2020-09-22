@@ -30,8 +30,8 @@ local function createTp()
     return true
 end
 
-
-function onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
+local bigfootWarzoneCrystal = Action()
+function bigfootWarzoneCrystal.onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
     local config = warzoneConfig.findByName("Deathstrike")
     if Game.getStorageValue(96974) < 1 then
         Game.setStorageValue(96974, 1)
@@ -54,3 +54,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition, isHotkey)
     end
     return true
 end
+
+bigfootWarzoneCrystal:uid(3143)
+bigfootWarzoneCrystal:register()

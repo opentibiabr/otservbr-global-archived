@@ -31,22 +31,6 @@
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- quests -->
-	<!-- bigfoot_burden quest -->
-	<action itemid="18305" script="quests/bigfoot_burden/beer.lua" />
-	<action fromuid="3124" touid="3127" script="quests/bigfoot_burden/music.lua" />
-	<action fromuid="3147" touid="3150" script="quests/bigfoot_burden/rewards.lua" />
-	<action itemid="18213" script="quests/bigfoot_burden/extractor.lua" />
-	<action itemid="18219" script="quests/bigfoot_burden/crystal.lua" />
-	<action itemid="18220" script="quests/bigfoot_burden/mushroom.lua" />
-	<action itemid="18225" script="quests/bigfoot_burden/shooting.lua" />
-	<action itemid="18312" script="quests/bigfoot_burden/matchmaker.lua" />
-	<action uniqueid="9307" script="quests/bigfoot_burden/mouthpiece.lua" />
-	<action itemid="18313" script="quests/bigfoot_burden/package.lua" />
-	<action fromid="18328" toid="18331" script="quests/bigfoot_burden/spores.lua" />
-	<action itemid="18336" script="quests/bigfoot_burden/stone.lua" />
-	<action itemid="18339" script="quests/bigfoot_burden/pig.lua" />
-	<action itemid="18343" script="quests/bigfoot_burden/repair.lua" />
-	<action uniqueid="3143" script="quests/bigfoot_burden/warzone1_crystal.lua" />
 	<!-- cults of tibia quest -->
 	<action fromaid="5500" toaid="5506" script="quests/cults_of_tibia/bosses_levers.lua" />
 	<action actionid="5520" script="quests/cults_of_tibia/lever_mota.lua" />

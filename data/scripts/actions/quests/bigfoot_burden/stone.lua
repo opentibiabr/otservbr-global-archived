@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootStone = Action()
+function bigfootStone.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.BigfootBurden.GrindstoneStatus) == 1 or player:getStorageValue(Storage.BigfootBurden.MissionGrindstoneHunt) ~= 1 then
 		return false
 	end
@@ -16,3 +17,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:addItem(18337, 1)
 	return true
 end
+
+bigfootStone:id(18336)
+bigfootStone:register()

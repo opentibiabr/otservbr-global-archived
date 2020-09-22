@@ -5,7 +5,8 @@ local function revertAid(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootMushroom = Action()
+function bigfootMushroom.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item:hasAttribute(ITEM_ATTRIBUTE_ACTIONID) then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have to wait to extract spores from this mushroom.")
 		return true
@@ -19,3 +20,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+bigfootMushroom:id(18220)
+bigfootMushroom:register()

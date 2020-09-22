@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootRepair = Action()
+function bigfootRepair.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not target:isMonster() then
 		return false
 	end
@@ -23,3 +24,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+bigfootRepair:id(18343)
+bigfootRepair:register()

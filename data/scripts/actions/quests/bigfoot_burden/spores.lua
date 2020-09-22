@@ -5,7 +5,8 @@ local config = {
 	[18331] = 18224
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local bigfootSpores = Action()
+function bigfootSpores.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local spores = config[item.itemid]
 	if not spores then
 		return false
@@ -30,3 +31,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_GREEN_RINGS)
 	return true
 end
+
+bigfootSpores:id(18328,18329,18330,18331)
+bigfootSpores:register()
