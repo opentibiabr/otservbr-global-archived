@@ -8,7 +8,7 @@ local config = {
 }
 
 local dangerousDepthChart = Action()
-function dangerousDepthPump.onUse(player, item, isHotkey)
+function dangerousDepthChart.onUse(player, item, isHotkey)
 	if not player then
 		return true
 	end
@@ -66,5 +66,5 @@ function dangerousDepthPump.onUse(player, item, isHotkey)
 	return true
 end
 
-dangerousDepthPump:id(31931)
-dangerousDepthPump:register()
+dangerousDepthChart:id(31931)
+dangerousDepthChart:register()
