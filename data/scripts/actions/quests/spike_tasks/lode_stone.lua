@@ -7,7 +7,8 @@ local area = { --area where to teleport
 	Position(32152, 32502, 11), Position(32365, 32725, 12)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksStone = Action()
+function spikeTasksStone.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(SPIKE_MIDDLE_CHARGE_MAIN) ~= 0 then
 		return false
 	end
@@ -32,3 +33,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return toPosition:sendMagicEffect(12)
 end
+
+spikeTasksStone:id(21557,21566,21568)
+spikeTasksStone:register()

@@ -6,7 +6,8 @@ local chance = {
 	{1, "You've found nothing special."}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksShovel = Action()
+function spikeTasksShovel.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if isInArray({-1, 4}, player:getStorageValue(SPIKE_UPPER_MOUND_MAIN)) then
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
@@ -37,3 +38,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return toPosition:sendMagicEffect(35)
 end
+
+spikeTasksShovel:id(21553)
+spikeTasksShovel:register()

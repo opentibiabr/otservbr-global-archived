@@ -14,7 +14,8 @@ if not SPIKE_LOWER_HOTTEST_POOL then
 	SPIKE_LOWER_HOTTEST_POOL = math.random(#hot_lava_pools)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksThermometer = Action()
+function spikeTasksThermometer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local status = player:getStorageValue(SPIKE_LOWER_LAVA_MAIN)
 
 	if isInArray({-1, 1}, status) then
@@ -31,3 +32,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+spikeTasksThermometer:id(21556)
+spikeTasksThermometer:register()

@@ -1,6 +1,7 @@
 local summon = {"Spider", "Larva", "Scarab", "Tarantula"}
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksNests = Action()
+function spikeTasksNests.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if isInArray({-1, 8}, player:getStorageValue(SPIKE_MIDDLE_NEST_MAIN)) then
 		return false
 	end
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(17)
 	return true
 end
+
+spikeTasksNests:id(21559)
+spikeTasksNests:register()

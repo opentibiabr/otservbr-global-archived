@@ -63,7 +63,8 @@ local function getSearchString(fromPos, toPos)
 	return ((type(text[distance]) == "table") and text[distance][level] or text[distance]) .. ((distance ~= 0) and dirs[direction] or '')
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksGhost = Action()
+function spikeTasksGhost.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local stat = player:getStorageValue(SPIKE_UPPER_TRACK_MAIN)
 
 	if isInArray({-1, 3}, stat) then
@@ -93,3 +94,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+spikeTasksGhost:id(21555)
+spikeTasksGhost:register()

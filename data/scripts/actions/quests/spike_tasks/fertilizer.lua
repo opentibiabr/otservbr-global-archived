@@ -2,7 +2,8 @@ if not FERTILIZED_MUSHROOMS then
 	FERTILIZED_MUSHROOMS = {}
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksFertilizer = Action()
+function spikeTasksFertilizer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if isInArray({-1, 4}, player:getStorageValue(SPIKE_MIDDLE_MUSHROOM_MAIN)) then
 		return false
 	end
@@ -30,3 +31,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return toPosition:sendMagicEffect(46)
 end
+
+spikeTasksFertilizer:id(21564)
+spikeTasksFertilizer:register()

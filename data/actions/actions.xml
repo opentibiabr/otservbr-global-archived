@@ -248,16 +248,6 @@
 	<action uniqueid="50105" script="quests/pits_of_inferno/bazir_maze_lever.lua" />
 	<action uniqueid="50106" script="quests/pits_of_inferno/fire_throne_lever.lua" />
 	<action actionid="50160" script="quests/pits_of_inferno/maze_stone.lua" />
-	<!-- spike tasks quest -->
-	<action itemid="21553" script="quests/spike_tasks/spirit_shovel.lua" />
-	<action itemid="21554" script="quests/spike_tasks/tuning_fork.lua" />
-	<action itemid="21555" script="quests/spike_tasks/ghost_detector.lua" />
-	<action itemid="21556" script="quests/spike_tasks/thermometer.lua" />
-	<action itemid="21557" script="quests/spike_tasks/lode_stone.lua" />
-	<action itemid="21559" script="quests/spike_tasks/nests.lua" />
-	<action itemid="21564" script="quests/spike_tasks/fertilizer.lua" />
-	<action itemid="21566" script="quests/spike_tasks/lode_stone.lua" />
-	<action itemid="21568" script="quests/spike_tasks/lode_stone.lua" />
 	<!-- the hidden city of beregar -->
 	<action actionid="50128" script="quests/the_hidden_city_of_beregar/deeper_mine_wagon.lua" />
 	<action fromaid="50098" toaid="50108" script="quests/the_hidden_city_of_beregar/ore_wagon.lua" />

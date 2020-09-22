@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local spikeTasksFork = Action()
+function spikeTasksFork.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if isInArray({-1, 7}, player:getStorageValue(SPIKE_UPPER_PACIFIER_MAIN)) then
 		return player:sendCancelMessage(RETURNVALUE_NOTPOSSIBLE)
 	end
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(24)
 	return true
 end
+
+spikeTasksFork:id(21554)
+spikeTasksFork:register()
