@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishWorn = Action()
+function whatFoolishWorn.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 4204 then
 		return false
 	end
@@ -14,3 +15,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(7501)
 	return true
 end
+
+whatFoolishWorn:id(7500)
+whatFoolishWorn:register()

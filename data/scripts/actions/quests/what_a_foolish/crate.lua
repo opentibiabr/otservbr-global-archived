@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishCrate = Action()
+function whatFoolishCrate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 7481 then
 		return false
 	end
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid + 1)
 	return true
 end
+
+whatFoolishCrate:id(7482)
+whatFoolishCrate:register()

@@ -258,15 +258,6 @@
 	<action fromaid="50122" toaid="50125" script="quests/the_hidden_city_of_beregar/coal_exit_wagons.lua" />
 	<action fromuid="50113" touid="50123" script="quests/the_hidden_city_of_beregar/wagon_maze_levers.lua" />
 	<action uniqueid="50124" script="quests/the_hidden_city_of_beregar/wagon_maze_exit.lua" />
-	<!-- what a foolish quest -->
-	<action itemid="7478" script="quests/what_a_foolish/flask.lua" />
-	<action itemid="7482" script="quests/what_a_foolish/crate.lua" />
-	<action itemid="7485" script="quests/what_a_foolish/cushion.lua" />
-	<action itemid="7486" script="quests/what_a_foolish/cat_basket.lua" />
-	<action itemid="7490" script="quests/what_a_foolish/contract.lua" />
-	<action itemid="7500" script="quests/what_a_foolish/worn_cloth.lua" />
-	<action itemid="7502" script="quests/what_a_foolish/disguise.lua" />
-	<action itemid="8187" script="quests/what_a_foolish/watch.lua" />
 	<!-- wrath of the emperor -->
 	<action itemid="12284" script="quests/wrath_of_the_emperor/mission01_crate.lua" />
 	<action fromuid="3171" touid="3174" script="quests/wrath_of_the_emperor/mission01_lights.lua" />

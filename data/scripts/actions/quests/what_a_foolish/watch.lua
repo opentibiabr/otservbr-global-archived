@@ -3,7 +3,8 @@ local targetDestination = {
 	Position(32646, 31903, 3)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishWatch = Action()
+function whatFoolishWatch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= 11 then
 		return false
 	end
@@ -23,3 +24,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:say('You are travelling in time', TALKTYPE_MONSTER_SAY)
 	return true
 end
+
+whatFoolishWatch:id(8187)
+whatFoolishWatch:register()

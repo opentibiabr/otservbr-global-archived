@@ -14,7 +14,8 @@ local function removeKitty(monsterId)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishCat = Action()
+function whatFoolishCat.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.WhatAFoolish.Questline) ~= 19
 			or player:getStorageValue(Storage.WhatAFoolish.CatBasket) == 1 then
 		return false
@@ -35,3 +36,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	addEvent(removeKitty, 10000, monster.uid)
 	return true
 end
+
+whatFoolishCat:id(7486)
+whatFoolishCat:register()

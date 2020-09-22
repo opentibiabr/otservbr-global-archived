@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishContract = Action()
+function whatFoolishContract.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 7492 then
 		return false
 	end
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	target:transform(7491)
 	return true
 end
+
+whatFoolishContract:id(7490)
+whatFoolishContract:register()

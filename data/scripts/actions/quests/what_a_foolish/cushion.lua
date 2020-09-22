@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishCushion = Action()
+function whatFoolishCushion.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 4202 then
 		return false
 	end
@@ -15,3 +16,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove()
 	return true
 end
+
+whatFoolishCushion:id(7485)
+whatFoolishCushion:register()

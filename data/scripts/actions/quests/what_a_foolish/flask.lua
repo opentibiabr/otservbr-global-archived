@@ -8,7 +8,8 @@ local poisonField = Condition(CONDITION_OUTFIT)
 poisonField:setTicks(8000)
 poisonField:setOutfit({lookTypeEx = 1496})
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local whatFoolishFlask = Action()
+function whatFoolishFlask.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetItem = config[target.itemid]
 	if not targetItem then
 		return false
@@ -23,3 +24,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(targetItem.transformId)
 	return true
 end
+
+whatFoolishFlask:id(7478)
+whatFoolishFlask:register()
