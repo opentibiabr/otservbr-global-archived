@@ -31,50 +31,6 @@
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- quests -->
-	<!-- ferumbras ascendant quest -->
-	<action actionid="53821" script="quests/ferumbras_ascendant/lever_first.lua" />
-	<action actionid="53822" script="quests/ferumbras_ascendant/lever_second.lua" />
-	<action actionid="53823" script="quests/ferumbras_ascendant/lever_third.lua" />
-	<action actionid="53824" script="quests/ferumbras_ascendant/lever_four.lua" />
-	<action itemid="10602" script="quests/ferumbras_ascendant/sacrifice.lua" />
-	<action itemid="2747" script="quests/ferumbras_ascendant/sacrifice.lua" />
-	<action itemid="24826" script="quests/ferumbras_ascendant/sacrifice.lua" />
-	<action itemid="24814" script="quests/ferumbras_ascendant/sacrifice.lua" />
-	<action itemid="24817" script="quests/ferumbras_ascendant/statue.lua" />
-	<action itemid="25529" script="quests/ferumbras_ascendant/grave_flower.lua" />
-	<action itemid="24910" script="quests/ferumbras_ascendant/bone_flute.lua" />
-	<action actionid="54386" script="quests/ferumbras_ascendant/bone_flute_wall.lua" />
-	<action fromaid="54381" toaid="54385" script="quests/ferumbras_ascendant/color_levers.lua" />
-	<action fromaid="54388" toaid="54389" script="quests/ferumbras_ascendant/tarbaz_notes.lua" />
-	<action actionid="34305" script="quests/ferumbras_ascendant/habitat_roshamuul.lua" />
-	<action actionid="34306" script="quests/ferumbras_ascendant/habitat_grass.lua" />
-	<action actionid="34307" script="quests/ferumbras_ascendant/habitat_mushroom.lua" />
-	<action actionid="34308" script="quests/ferumbras_ascendant/habitat_desert.lua" />
-	<action actionid="34309" script="quests/ferumbras_ascendant/habitat_venom.lua" />
-	<action actionid="34310" script="quests/ferumbras_ascendant/habitat_ice.lua" />
-	<action actionid="34311" script="quests/ferumbras_ascendant/habitat_corrupted.lua" />
-	<action actionid="34312" script="quests/ferumbras_ascendant/habitat_dimension.lua" />
-	<action actionid="34300" script="quests/ferumbras_ascendant/flower_puzzle_lever.lua" />
-	<action actionid="34324" script="quests/ferumbras_ascendant/habitat_lever.lua" />
-	<action fromid="25423" toid="25424" script="quests/ferumbras_ascendant/ferumbras_amulet.lua" />
-	<action fromid="25425" toid="25426" script="quests/ferumbras_ascendant/ferumbras_mana_keg.lua" />
-	<action fromid="25427" toid="25428" script="quests/ferumbras_ascendant/scroll_of_ascension.lua" />
-	<action fromid="25429" toid="25430" script="quests/ferumbras_ascendant/boots_of_homecoming.lua" />
-	<action itemid="25354" script="quests/ferumbras_ascendant/purified_soul.lua" />
-	<action itemid="24838" script="quests/ferumbras_ascendant/teleportation_rod.lua" />
-	<action uniqueid="1021" script="quests/ferumbras_ascendant/ferumbras_lever.lua" />
-	<action uniqueid="1022" script="quests/ferumbras_ascendant/plagirath_lever.lua" />
-	<action uniqueid="1023" script="quests/ferumbras_ascendant/ragiaz_lever.lua" />
-	<action uniqueid="1024" script="quests/ferumbras_ascendant/razzagorn_lever.lua" />
-	<action uniqueid="1025" script="quests/ferumbras_ascendant/mazoran_lever.lua" />
-	<action uniqueid="1026" script="quests/ferumbras_ascendant/zamulosh_lever.lua" />
-	<action uniqueid="1027" script="quests/ferumbras_ascendant/tarbaz_lever.lua" />
-	<action uniqueid="1028" script="quests/ferumbras_ascendant/shulgrax_lever.lua" />
-	<action uniqueid="1029" script="quests/ferumbras_ascendant/the_shatterer_lever.lua" />
-	<action uniqueid="1030" script="quests/ferumbras_ascendant/rat_lever.lua" />
-	<action fromuid="1031" touid="1034" script="quests/ferumbras_ascendant/the_shatterer_levers.lua" />
-	<action uniqueid="1035" script="quests/ferumbras_ascendant/reward.lua" />
-	<action itemid="34784" script="quests/ferumbras_ascendant/mysterious_scroll.lua" />
 	<!-- forgotten knowledge -->
 	<action itemid="26402" script="quests/forgotten_knowledge/lantern.lua" />
 	<action itemid="26406" script="quests/forgotten_knowledge/lantern.lua" />
