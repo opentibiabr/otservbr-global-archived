@@ -15,7 +15,8 @@ local config = {
 
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local cultsOfTibiaCult = Action()
+function cultsOfTibiaCult.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local stg = math.max(player:getStorageValue(Storage.CultsOfTibia.Barkless.Objects), 0)
 	if stg >= 10 then
 		if player:getStorageValue(Storage.CultsOfTibia.Barkless.Mission) >= 4 then
@@ -48,3 +49,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, msg)
 	return true
 end
+
+cultsOfTibiaCult:aid(5535)
+cultsOfTibiaCult:register()

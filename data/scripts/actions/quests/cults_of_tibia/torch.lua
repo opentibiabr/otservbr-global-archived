@@ -1,8 +1,10 @@
 local config = {
 	{position = Position(32396, 31806, 8), itemId = 1050}
 }
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-		local wallItem
+
+local cultsOfTibiaTouch = Action()
+function cultsOfTibiaTouch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local wallItem
 	if Game.getStorageValue(12345) >= os.time() then
 		player:getPosition():sendMagicEffect(CONST_ME_POFF)
 	else
@@ -17,5 +19,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 	end
-return true
+	return true
 end
+
+cultsOfTibiaTouch:aid(5524)
+cultsOfTibiaTouch:register()

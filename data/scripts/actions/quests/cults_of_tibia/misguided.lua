@@ -38,7 +38,8 @@ local function changeMap(mapName)
 	end
 end
 
-function onUse(player, item, position, target, targetPosition)
+local cultsOfTibiaMisguided = Action()
+function cultsOfTibiaMisguided.onUse(player, item, position, target, targetPosition)
 	local monster = Monster(target)
 	if not monster then
 		return false
@@ -63,3 +64,6 @@ function onUse(player, item, position, target, targetPosition)
 	end
 	return true
 end
+
+cultsOfTibiaMisguided:id(28658)
+cultsOfTibiaMisguided:register()

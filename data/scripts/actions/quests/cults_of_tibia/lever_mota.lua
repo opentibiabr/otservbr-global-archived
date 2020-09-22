@@ -3,7 +3,8 @@ local transformid = {
 	[10030] = 10029
 }
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local cultsOfTibiaLeverMota = Action()
+function cultsOfTibiaLeverMota.onUse(player, item, fromPosition, itemEx, toPosition)
 	local posPedra = Position()
 	local posPedra2 = Position()
 	local posPedra3 = Position()
@@ -55,3 +56,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	item:transform(transformid[item:getId()])
 	return true
 end
+
+cultsOfTibiaLeverMota:aid(5520)
+cultsOfTibiaLeverMota:register()

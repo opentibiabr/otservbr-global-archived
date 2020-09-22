@@ -1,7 +1,6 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-local posDocument = Position(33279, 32169, 8)
-
-
+local cultsOfTibiaDocument = Action()
+function cultsOfTibiaDocument.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local posDocument = Position(33279, 32169, 8)
 	-- Document
 	if item:getPosition() == posDocument then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 2 then
@@ -13,7 +12,8 @@ local posDocument = Position(33279, 32169, 8)
 			player:setStorageValue(Storage.CultsOfTibia.MotA.Mission, 3)
 		end
 	end
-
-
 	return true
 end
+
+cultsOfTibiaDocument:aid(5522)
+cultsOfTibiaDocument:register()

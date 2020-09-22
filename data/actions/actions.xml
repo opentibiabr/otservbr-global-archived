@@ -31,18 +31,6 @@
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- quests -->
-	<!-- cults of tibia quest -->
-	<action fromaid="5500" toaid="5506" script="quests/cults_of_tibia/bosses_levers.lua" />
-	<action actionid="5520" script="quests/cults_of_tibia/lever_mota.lua" />
-	<action actionid="5522" script="quests/cults_of_tibia/document.lua" />
-	<action actionid="5523" script="quests/cults_of_tibia/crate.lua" />
-	<action actionid="5524" script="quests/cults_of_tibia/torch.lua" />
-	<action actionid="5535" script="quests/cults_of_tibia/cult_symbol.lua" />
-	<action actionid="5536" script="quests/cults_of_tibia/last_object.lua" />
-	<action itemid="28667" script="quests/cults_of_tibia/magnifier.lua" />
-	<action itemid="28666" script="quests/cults_of_tibia/analyser.lua" />
-	<action itemid="28665" script="quests/cults_of_tibia/counter_agent.lua" />
-	<action itemid="28658" script="quests/cults_of_tibia/misguided.lua" />
 	<!--
 	dangerous_depths quest (warzone 4, 5 and 6)
 	57230 -> portals for enter in the warzones;

@@ -111,36 +111,37 @@ local function transformMonster(itid, action, monster, frompos, topos, _temp)
 end
 
 local function ativarGeyser(player)
-local frompos = Position(33119, 31913, 15) -- Checagem
-local topos = Position(33142, 31936, 15) -- Checagem
-if(isPlayerInArea(frompos, topos)) then
-	addEvent(function()
-		local rand = math.random(1,12)
-		local geyserPos = Position(geyser[rand])
-		local checar1 = Tile(Position(geyserPos)):getItemById(28868)
-		if checar1 then
-			addEvent(function()
-				local player1 = Game.getPlayers()[1]
-				Game.createItem(28869, 1, geyserPos)
-				player1:say("SPLASH!", TALKTYPE_MONSTER_SAY, false, false, geyserPos)
-				addEvent(function()
-					local checar2 = Tile(Position(geyserPos)):getItemById(28869)
-					if checar2 then
-					checar2:remove()
-					end
-				end, 9 * 1000)
-			end, 5 * 1000)
-		elseif checar2 then
-			return false
-		end
+	local frompos = Position(33119, 31913, 15) -- Checagem
+	local topos = Position(33142, 31936, 15) -- Checagem
+	if(isPlayerInArea(frompos, topos)) then
 		addEvent(function()
-		ativarGeyser() end, 1 * 1000)
-	end, 8 * 1000)
-end
-return true
+			local rand = math.random(1,12)
+			local geyserPos = Position(geyser[rand])
+			local checar1 = Tile(Position(geyserPos)):getItemById(28868)
+			if checar1 then
+				addEvent(function()
+					local player1 = Game.getPlayers()[1]
+					Game.createItem(28869, 1, geyserPos)
+					player1:say("SPLASH!", TALKTYPE_MONSTER_SAY, false, false, geyserPos)
+					addEvent(function()
+						local checar2 = Tile(Position(geyserPos)):getItemById(28869)
+						if checar2 then
+						checar2:remove()
+						end
+					end, 9 * 1000)
+				end, 5 * 1000)
+			elseif checar2 then
+				return false
+			end
+			addEvent(function()
+			ativarGeyser() end, 1 * 1000)
+		end, 8 * 1000)
+	end
+	return true
 end
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local cultsOfTibiaLevers = Action()
+function cultsOfTibiaLevers.onUse(player, item, fromPosition, itemEx, toPosition)
 	local players = {}
 	local ittable = {}
 	local blockmonsters = {"Leiden", "Wine Cask", "Liqour Spirit", "Ravennous Hunger"}
@@ -192,7 +193,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 		kickerPlayerRoomAfferMin(convertTable, frompos, topos, Position(33121, 31951, 15), "You were kicked for exceeding the time limit within the boss room.", '', 60, true, ittable, blockmonsters)
 		end
 	end
-
 	if item:getActionId() == 5502 and item:getId() == 9826 then -- Leiden
 		if player:getPosition() == Position(33162, 31893, 15) then
 			local teleport = 0
@@ -533,3 +533,6 @@ end
 	end
 	return true
 end
+
+cultsOfTibiaLevers:aid(5500,5501,5502,5503,5504,5505,5506)
+cultsOfTibiaLevers:register()

@@ -1,7 +1,6 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-local posCrate = Position(33300, 32277, 12)
-
-
+local cultsOfTibiaCrate = Action()
+function cultsOfTibiaCrate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	local posCrate = Position(33300, 32277, 12)
 	-- Document
 	if item:getPosition() == posCrate then
 		if player:getStorageValue(Storage.CultsOfTibia.MotA.Mission) == 7 then
@@ -14,7 +13,8 @@ local posCrate = Position(33300, 32277, 12)
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "This crate belongs to Angelo. You should talk to him before taking something out.")
 		end
 	end
-
-
 	return true
 end
+
+cultsOfTibiaCrate:aid(5523)
+cultsOfTibiaCrate:register()
