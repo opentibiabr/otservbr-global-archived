@@ -755,11 +755,14 @@ function Player:onGainSkillTries(skill, tries)
 		return tries
 	end
 
+	local skillRate = configManager.getNumber(configKeys.RATE_SKILL)
+	local magicRate = configManager.getNumber(configKeys.RATE_MAGIC)
+
 	if(skill == SKILL_MAGLEVEL) then -- Magic getLevel
-		return tries * getRateFromTable(magicLevelStages, self:getMagicLevel(), 1)
+		return tries * getRateFromTable(magicLevelStages, self:getMagicLevel(), magicRate)
 	end
 
-	return tries * getRateFromTable(skillsStages, self:getEffectiveSkillLevel(skill), 1)
+	return tries * getRateFromTable(skillsStages, self:getEffectiveSkillLevel(skill), skillRate)
 end
 
 function Player:onRemoveCount(item)
