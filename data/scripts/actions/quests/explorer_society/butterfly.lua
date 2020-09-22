@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local explorerSocietyButterfly = Action()
+function explorerSocietyButterfly.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid == 4993 and player:getStorageValue(Storage.ExplorerSociety.TheButterflyHunt) == 8  and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 8 then
 		player:setStorageValue(Storage.ExplorerSociety.TheButterflyHunt, 9)
 		player:setStorageValue(Storage.ExplorerSociety.QuestLine, 9)
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+explorerSocietyButterfly:id(4865)
+explorerSocietyButterfly:register()

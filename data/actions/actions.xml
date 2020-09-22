@@ -86,14 +86,6 @@
 	<action uniqueid="2272" script="quests/dreamer_challenge/tic_tac.lua" />
 	<action actionid="8033" script="quests/dreamer_challenge/tic_tac_teleport.lua" />
 	<action fromuid="2246" touid="2249" script="quests/dreamer_challenge/walls.lua" />
-	<!-- explorer_society quest -->
-	<action itemid="4869" script="quests/explorer_society/botanist.lua" />
-	<action itemid="4865" script="quests/explorer_society/butterfly.lua" />
-	<action uniqueid="3017" script="quests/explorer_society/dragon.lua" />
-	<action itemid="4856" script="quests/explorer_society/icicle.lua" />
-	<action itemid="7242" script="quests/explorer_society/resonance.lua" />
-	<action itemid="4851" script="quests/explorer_society/stone.lua" />
-	<action itemid="4853" script="quests/explorer_society/tracing_paper.lua" />
 	<!-- ferumbras ascendant quest -->
 	<action actionid="53821" script="quests/ferumbras_ascendant/lever_first.lua" />
 	<action actionid="53822" script="quests/ferumbras_ascendant/lever_second.lua" />

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local explorerSocietyDragon = Action()
+function explorerSocietyDragon.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if player:getStorageValue(Storage.ExplorerSociety.TheIslandofDragons) == 57 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 57 then
         player:setStorageValue(Storage.ExplorerSociety.TheIslandofDragons, 58)
 		player:setStorageValue(Storage.ExplorerSociety.QuestLine, 58)
@@ -7,3 +8,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     end
     return true
 end
+
+explorerSocietyDragon:uid(3017)
+explorerSocietyDragon:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local explorerSocietyStone = Action()
+function explorerSocietyStone.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.uid == 3015 and player:getStorageValue(Storage.ExplorerSociety.TheSpectralStone) == 53 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 53 and player:getStorageValue(Storage.ExplorerSociety.SpectralStone) == 1 then -- mission taken from Angus
 		player:setStorageValue(Storage.ExplorerSociety.TheSpectralStone, 54)
 		player:setStorageValue(Storage.ExplorerSociety.QuestLine, 54)
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+explorerSocietyStone:id(4851)
+explorerSocietyStone:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local explorerSocietyBotanist = Action()
+function explorerSocietyBotanist.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid == 4138 and player:getStorageValue(Storage.ExplorerSociety.ThePlantCollection) == 17 and player:getStorageValue(Storage.ExplorerSociety.QuestLine) == 17 then
 		player:setStorageValue(Storage.ExplorerSociety.ThePlantCollection, 18)
 		player:setStorageValue(Storage.ExplorerSociety.QuestLine, 18)
@@ -27,3 +28,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+explorerSocietyBotanist:id(4869)
+explorerSocietyBotanist:register()
