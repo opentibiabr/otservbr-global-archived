@@ -1,18 +1,18 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-if not player then
-	return true
-end
+local dangerousDepthPesticide = Action()
+function dangerousDepthPesticide.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if not player then
+		return true
+	end
 
-if not target:isItem() then
-return false
-end
+	if not target:isItem() then
+		return false
+	end
 
-if target:isCreature() then
-return false
-end
+	if target:isCreature() then
+		return false
+	end
 
 	local r = math.random(1, 100)
-
 	local corpseId = 30729
 	local posTarget = target:getPosition()
 
@@ -37,3 +37,6 @@ end
 
 	return true
 end
+
+dangerousDepthPesticide:id(30733)
+dangerousDepthPesticide:register()

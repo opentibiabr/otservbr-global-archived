@@ -119,7 +119,8 @@ local function explode(item)
 	c:say("Tsssss...!", TALKTYPE_MONSTER_SAY, false, false, position)
 end
 
-function onUse(player, item)
+local dangerousDepthLever = Action()
+function dangerousDepthLever.onUse(player, item)
 	if not player then
 		return true
 	end
@@ -146,3 +147,6 @@ function onUse(player, item)
 	item:transform(transformid[item:getId()])
 	return true
 end
+
+dangerousDepthLever:aid(57234)
+dangerousDepthLever:register()

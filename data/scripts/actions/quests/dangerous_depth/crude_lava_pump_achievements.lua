@@ -18,7 +18,8 @@ local function explosion(item)
 	end
 end
 
-function onUse(player, item)
+local dangerousDepthArchievements = Action()
+function dangerousDepthArchievements.onUse(player, item)
 	if not player then
 		return true
 	end
@@ -60,3 +61,6 @@ function onUse(player, item)
 	end
 	return true
 end
+
+dangerousDepthArchievements:aid(57303)
+dangerousDepthArchievements:register()

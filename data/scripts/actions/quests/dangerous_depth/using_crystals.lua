@@ -406,7 +406,8 @@ local function startWarzoneVI()
 	end, 10*1000)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dangerousDepthCrystals = Action()
+function dangerousDepthCrystals.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not player then
 		return true
 	end
@@ -532,3 +533,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+dangerousDepthCrystals:id(31993)
+dangerousDepthCrystals:register()

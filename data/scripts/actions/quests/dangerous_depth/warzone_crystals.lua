@@ -52,7 +52,8 @@ local function createCrystal(crystalId, player)
 	return true
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dangerousDepthWarzoneCrystals = Action()
+function dangerousDepthWarzoneCrystals.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local crystalTimer = crystals[item:getActionId()]
 	if not crystalTimer or crystalTimer > os.time() then
 		return true
@@ -66,3 +67,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+for value = 57350, 57367 do
+	dangerousDepthWarzoneCrystals:aid(value)
+end
+dangerousDepthWarzoneCrystals:register()

@@ -31,25 +31,6 @@
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- quests -->
-	<!--
-	dangerous_depths quest (warzone 4, 5 and 6)
-	57230 -> portals for enter in the warzones;
-	57231 -> sqm for scolt the lost exiles;
-	57232 -> portals for the machine room;
-	-->
-	<action actionid="57233" script="quests/dangerous_depth/wooden_trash.lua" />
-	<action uniqueid="57234" script="quests/dangerous_depth/gnomish_chest.lua" />
-	<action fromuid="57235" touid="57236" script="quests/dangerous_depth/gnome_items.lua" />
-	<action actionid="57234" script="quests/dangerous_depth/lever_barrel.lua" />
-	<action fromaid="57300" toaid="57302" script="quests/dangerous_depth/crude_lava_pump.lua" />
-	<action actionid="57303" script="quests/dangerous_depth/crude_lava_pump_achievements.lua" />
-	<!-- used items -->
-	<action itemid="30733" script="quests/dangerous_depth/gnomish_pesticide.lua" />
-	<action itemid="31930" script="quests/dangerous_depth/gnome_trignometre.lua" />
-	<action itemid="31931" script="quests/dangerous_depth/gnome_chart.lua" />
-	<action itemid="31993" script="quests/dangerous_depth/using_crystals.lua" />
-	<!-- access crystal -->
-	<action fromaid="57350" toaid="57367" script="quests/dangerous_depth/warzone_crystals.lua" />
 	<!-- ferumbras ascendant quest -->
 	<action actionid="53821" script="quests/ferumbras_ascendant/lever_first.lua" />
 	<action actionid="53822" script="quests/ferumbras_ascendant/lever_second.lua" />

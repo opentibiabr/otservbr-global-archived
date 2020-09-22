@@ -1,4 +1,5 @@
-function onUse(player, item)
+local dangerousDepthItems = Action()
+function dangerousDepthItems.onUse(player, item)
 	if item:getUniqueId() == 57235 then
 		if player:getStorageValue(Storage.DangerousDepths.Gnomes.GnomeChartPaper) == 1 then -- Permissão para usar o baú == 1 then
 			player:addItem(31931, 1)
@@ -18,3 +19,6 @@ function onUse(player, item)
 	end
 	return true
 end
+
+dangerousDepthItems:uid(57235,57236)
+dangerousDepthItems:register()

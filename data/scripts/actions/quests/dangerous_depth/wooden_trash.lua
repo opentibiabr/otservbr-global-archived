@@ -1,4 +1,5 @@
-function onUse(creature, item)
+local dangerousDepthWooden = Action()
+function dangerousDepthWooden.onUse(creature, item)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
@@ -26,3 +27,6 @@ function onUse(creature, item)
 	end
 	return true
 end
+
+dangerousDepthWooden:aid(57233)
+dangerousDepthWooden:register()
