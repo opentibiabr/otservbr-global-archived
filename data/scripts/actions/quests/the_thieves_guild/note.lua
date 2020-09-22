@@ -7,7 +7,8 @@ local function removeNote(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theThievesNote = Action()
+function theThievesNote.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 12509 then
 		return false
 	end
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+theThievesNote:id(8701)
+theThievesNote:register()

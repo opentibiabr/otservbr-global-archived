@@ -260,12 +260,6 @@
 	<action uniqueid="50124" script="quests/the_hidden_city_of_beregar/wagon_maze_exit.lua" />
 	<!-- the secret library quest -->
 	<action actionid="64019" script="quests/the_secret_library/asura_mirror.lua" />
-	<!-- thieves guild quest -->
-	<action itemid="8693" script="quests/the_thieves_guild/dwarf_disguise_kit.lua" />
-	<action itemid="8701" script="quests/the_thieves_guild/note.lua" />
-	<action fromaid="12501" toaid="12502" script="quests/the_thieves_guild/climbing_vine.lua" />
-	<action itemid="8762" script="quests/the_thieves_guild/fish_napping_key.lua" />
-	<action actionid="12505" script="quests/the_thieves_guild/fish_napping_door.lua" />
 	<!-- what a foolish quest -->
 	<action itemid="7478" script="quests/what_a_foolish/flask.lua" />
 	<action itemid="7482" script="quests/what_a_foolish/crate.lua" />

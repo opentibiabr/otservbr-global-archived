@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theThievesKey = Action()
+function theThievesKey.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 12505 then
 		return false
 	end
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+theThievesKey:id(8762)
+theThievesKey:register()
