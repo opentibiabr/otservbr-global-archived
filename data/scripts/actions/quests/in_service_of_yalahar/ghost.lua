@@ -5,7 +5,8 @@ local config = {
 	[9773] = 9742
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharGhost = Action()
+function inServiceYalaharGhost.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local transformId = config[target.itemid]
 	if not transformId then
 		return true
@@ -31,3 +32,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inServiceYalaharGhost:id(9741)
+inServiceYalaharGhost:register()

@@ -18,7 +18,8 @@ local mechanisms2 = {
 	[1019] = {pos = {x = 32780, y = 31115, z = 7}}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharMechanism = Action()
+function inServiceYalaharMechanism.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(mechanisms[item.uid]) then
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) >= mechanisms[item.uid].value) then
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -34,3 +35,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inServiceYalaharMechanism:uid(1018,1019)
+for value = 3091, 3102 do
+	inServiceYalaharMechanism:uid(value)
+end
+inServiceYalaharMechanism:register()

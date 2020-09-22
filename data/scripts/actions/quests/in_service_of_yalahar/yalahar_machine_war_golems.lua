@@ -23,7 +23,8 @@ local function disableMachine(storage)
 	Game.setStorageValue(storage, -1)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharWarGolem = Action()
+function inServiceYalaharWarGolem.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local machineGroup = config[item.actionid]
 	if not machineGroup then
 		return true
@@ -48,3 +49,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You insert all 4 gear wheels, them adjusting the teleporter to transport you to the deeper floor')
 	return true
 end
+
+inServiceYalaharWarGolem:aid(23700,23701)
+inServiceYalaharWarGolem:register()

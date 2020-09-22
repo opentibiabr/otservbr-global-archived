@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharReward = Action()
+function inServiceYalaharReward.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 3088) then
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) == 53) then
 			player:setStorageValue(Storage.InServiceofYalahar.Questline, 54)
@@ -43,3 +44,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+inServiceYalaharReward:uid(3088,3089,3090)
+inServiceYalaharReward:register()

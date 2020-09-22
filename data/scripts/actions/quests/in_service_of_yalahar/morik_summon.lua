@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharMorik = Action()
+function inServiceYalaharMorik.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.uid == 1015 then
 		if player:getStorageValue(Storage.InServiceofYalahar.Questline) == 31
 		and player:getStorageValue(Storage.InServiceofYalahar.MorikSummon) < 1 then
@@ -9,3 +10,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inServiceYalaharMorik:uid(1015)
+inServiceYalaharMorik:register()

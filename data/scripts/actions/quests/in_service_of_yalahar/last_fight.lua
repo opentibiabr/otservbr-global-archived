@@ -54,7 +54,8 @@ Game.createMonster(name, position, false, true)
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharLastFight = Action()
+function inServiceYalaharLastFight.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if Game.getStorageValue(GlobalStorage.InServiceOfYalahar.LastFight) == 1 then
 		player:say('You have to wait some time before this globe charges.', TALKTYPE_MONSTER_SAY)
 		return true
@@ -89,3 +90,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	addEvent(doClearAreaAzerus, 5 * 60 * 1000)
 	return true
 end
+
+inServiceYalaharLastFight:uid(3086)
+inServiceYalaharLastFight:register()

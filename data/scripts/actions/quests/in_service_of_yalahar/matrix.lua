@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharMatrix = Action()
+function inServiceYalaharMatrix.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if isInArray({7915, 7916}, target.itemid) and target.actionid == 100 then
 		if isInArray({9743, 9744}, item.itemid) and player:getStorageValue(Storage.InServiceofYalahar.MatrixState) < 1 then
 			player:setStorageValue(Storage.InServiceofYalahar.MatrixState, 1)
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inServiceYalaharMatrix:id(9743,9744)
+inServiceYalaharMatrix:register()

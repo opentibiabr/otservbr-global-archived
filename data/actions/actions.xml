@@ -90,18 +90,6 @@
 	<action actionid="14331" script="quests/heart_of_destruction/outburst_lever.lua" />
 	<action actionid="14332" script="quests/heart_of_destruction/final_lever.lua" />
 	<action uniqueid="1038" script="quests/heart_of_destruction/reward.lua" />
-	<!-- in service of yalahar quest -->
-	<action itemid="9737" script="quests/in_service_of_yalahar/charm.lua" />
-	<action itemid="9733" script="quests/in_service_of_yalahar/formula.lua" />
-	<action itemid="9741" script="quests/in_service_of_yalahar/ghost.lua" />
-	<action uniqueid="3086" script="quests/in_service_of_yalahar/last_fight.lua" />
-	<action fromid="9743" toid="9744" script="quests/in_service_of_yalahar/matrix.lua" />
-	<action fromuid="3091" touid="3102" script="quests/in_service_of_yalahar/mechanism.lua" />
-	<action fromuid="1018" touid="1019" script="quests/in_service_of_yalahar/mechanism.lua" />
-	<action fromuid="3081" touid="3082" script="quests/in_service_of_yalahar/mr_west_door.lua" />
-	<action fromuid="3088" touid="3090" script="quests/in_service_of_yalahar/reward.lua" />
-	<action uniqueid="1015" script="quests/in_service_of_yalahar/morik_summon.lua" />
-	<action fromaid="23700" toaid="23701" script="quests/in_service_of_yalahar/yalahar_machine_war_golems.lua" />
 	<!-- inquisition quest -->
 	<action fromuid="1006" touid="1009" script="quests/inquisition/brother_lever.lua" />
 	<action itemid="8753" script="quests/inquisition/mw.lua" />

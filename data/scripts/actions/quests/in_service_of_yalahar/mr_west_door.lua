@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharWest = Action()
+function inServiceYalaharWest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 3081) then
 		if(player:getStorageValue(Storage.InServiceofYalahar.Questline) >= 24) then
 			if(item.itemid == 5288) then
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inServiceYalaharWest:uid(3081,3082)
+inServiceYalaharWest:register()

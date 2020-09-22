@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inServiceYalaharCharm = Action()
+function inServiceYalaharCharm.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid == 100 and target.itemid == 471 then
 		if player:getStorageValue(Storage.InServiceofYalahar.Questline) == 36 then
 			player:removeItem(9737, 1)
@@ -15,3 +16,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inServiceYalaharCharm:id(9737)
+inServiceYalaharCharm:register()
