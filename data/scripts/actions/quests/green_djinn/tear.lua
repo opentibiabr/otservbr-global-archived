@@ -1,5 +1,5 @@
 local greenTear = Action()
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+function greenTear.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.DjinnWar.EfreetFaction.Mission02) ~= 1 then
 		return true
 	end
