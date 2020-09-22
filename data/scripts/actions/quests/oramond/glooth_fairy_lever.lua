@@ -37,7 +37,8 @@ local function PrepareEnter()
 	Game.createMonster("Glooth Fairy", {x=33688,y=31937,z=9})
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local oramondGloothLever = Action()
+function oramondGloothLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9827 then
 		if getGlobalStorageValue(18081) >= os.time() then
 			doPlayerSendTextMessage(player, 19, "You need to wait 15 minutes to use again.")
@@ -62,3 +63,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 9827 and 9828 or 9827)
 	return true
 end
+
+oramondGloothLever:uid(1020)
+oramondGloothLever:register()

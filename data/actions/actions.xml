@@ -62,8 +62,6 @@
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
 	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
-	<!-- oramond quest -->
-	<action uniqueid="1020" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->
 	<action actionid="5556" script="quests/others/plate_armor_quest.lua" />
 	<action actionid="5558" script="quests/others/black_knight_quest.lua" />
