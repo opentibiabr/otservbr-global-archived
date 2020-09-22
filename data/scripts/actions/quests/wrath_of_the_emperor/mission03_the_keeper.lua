@@ -2,7 +2,8 @@ local function revertKeeperstorage()
 	Game.setStorageValue(Storage.WrathoftheEmperor.Mission03, 0)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss3Keeper = Action()
+function wrathEmperorMiss3Keeper.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 12320 and target.actionid == 8026 then
 		if Game.getStorageValue(Storage.WrathoftheEmperor.Mission03) < 5 then
 			Game.setStorageValue(Storage.WrathoftheEmperor.Mission03, math.max(0, Game.getStorageValue(Storage.WrathoftheEmperor.Mission03)) + 1)
@@ -23,3 +24,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+wrathEmperorMiss3Keeper:id(12316,12320)
+wrathEmperorMiss3Keeper:register()

@@ -13,8 +13,8 @@ local config = {
 	arenaPosition = Position(33359, 31406, 10)
 }
 
-
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss11Payback = Action()
+function wrathEmperorMiss11Payback.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if Game.getStorageValue(Storage.WrathoftheEmperor.Mission11) == 1 then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'The arena is already in use.')
@@ -49,3 +49,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 	return true
 end
+
+wrathEmperorMiss11Payback:uid(3198)
+wrathEmperorMiss11Payback:register()

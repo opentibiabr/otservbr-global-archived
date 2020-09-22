@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss9Sleeping = Action()
+function wrathEmperorMiss9Sleeping.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.WrathoftheEmperor.InterdimensionalPotion) == 1 then
 		return true
 	end
@@ -9,3 +10,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove()
 	return true
 end
+
+wrathEmperorMiss9Sleeping:id(12328)
+wrathEmperorMiss9Sleeping:register()

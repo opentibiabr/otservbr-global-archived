@@ -5,7 +5,8 @@ local function transformLamp(position, itemId, transformId)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss1Light = Action()
+function wrathEmperorMiss1Light.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.uid == 3171) then
 		if Game.getStorageValue(GlobalStorage.WrathOfTheEmperor.Light01) ~= 1 then
 			Game.setStorageValue(GlobalStorage.WrathOfTheEmperor.Light01, 1)
@@ -52,3 +53,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+wrathEmperorMiss1Light:uid(3171,3172,3173,3174)
+wrathEmperorMiss1Light:register()

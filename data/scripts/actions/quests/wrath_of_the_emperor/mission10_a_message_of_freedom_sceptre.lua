@@ -5,7 +5,8 @@ local boss = {
 	[3196] = "spite of the emperor",
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss10Message = Action()
+function wrathEmperorMiss10Message.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if boss[target.uid] and target.itemid == 12383 then
 		target:transform(11753)
 		Game.createMonster(boss[target.uid], {x = toPosition.x + 4, y = toPosition.y, z = toPosition.z})
@@ -54,3 +55,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+wrathEmperorMiss10Message:id(12318)
+wrathEmperorMiss10Message:register()

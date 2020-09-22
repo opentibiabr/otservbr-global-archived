@@ -14,8 +14,8 @@ local function revertWater(position)
 	end
 end
 
-
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss2FirstContact = Action()
+function wrathEmperorMiss2FirstContact.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	-- clay with the sacred earth
 	if (item.itemid == 12285 and target.itemid == 12297) or (item.itemid == 12297 and target.itemid == 12285) then
 		player:say("You carefully mix the clay with the sacred earth.", TALKTYPE_MONSTER_SAY)
@@ -53,3 +53,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+wrathEmperorMiss2FirstContact:id(12285,12289,12290,12297,12300,12303)
+wrathEmperorMiss2FirstContact:register()

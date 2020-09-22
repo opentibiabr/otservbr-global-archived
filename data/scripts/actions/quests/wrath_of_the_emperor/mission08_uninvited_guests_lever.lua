@@ -3,7 +3,8 @@ local config = {
 	[3185] = Position(33078, 31080, 13)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local wrathEmperorMiss8Uninvited = Action()
+function wrathEmperorMiss8Uninvited.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetPosition = config[item.uid]
 	if not targetPosition then
 		return true
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	targetPosition:sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end
+
+wrathEmperorMiss8Uninvited:uid(3184,3185)
+wrathEmperorMiss8Uninvited:register()
