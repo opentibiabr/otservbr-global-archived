@@ -1,3 +1,4 @@
+-- NEED REVIEW
 local config = {
 	gatePositions = {
 		Position(32569, 31421, 9),
@@ -13,7 +14,8 @@ local config = {
 	tileID = 3154
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenBeregar = Action()
+function theHiddenBeregar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local tile, thing, thing2 , creature, lever, leverstatus
 	leverstatus = item.itemid
 	for i = 1, #config.leverPositions do
@@ -42,3 +44,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+theHiddenBeregar:id()
+theHiddenBeregar:register()

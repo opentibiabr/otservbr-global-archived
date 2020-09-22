@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenTunnel = Action()
+function theHiddenTunnel.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local rubblePosition = Position(32619, 31514, 9)
 	if Tile(rubblePosition):getItemById(5709) then
 		player:teleportTo(Position(32580, 31487, 9))
@@ -29,3 +30,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+theHiddenTunnel:aid(50115)
+theHiddenTunnel:register()

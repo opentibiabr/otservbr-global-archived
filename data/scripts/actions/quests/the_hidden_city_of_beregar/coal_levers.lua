@@ -5,7 +5,8 @@ local config = {
 	[50111] = {actionId = 50125, wagonPos = Position(32690, 31495, 11)}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenCoalLevers = Action()
+function theHiddenCoalLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.uid]
 	if not useItem then
 		return true
@@ -24,3 +25,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 10044 and 10045 or 10044)
 	return true
 end
+
+theHiddenCoalLevers:uid(50108,50109,50110,50111)
+theHiddenCoalLevers:register()

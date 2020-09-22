@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenGapWagon = Action()
+function theHiddenGapWagon.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local tile = Tile(Position(32571, 31508, 9))
 	if not tile:getItemById(7122) then
 		player:teleportTo(Position(32580, 31487, 9))
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+theHiddenGapWagon:aid(50112)
+theHiddenGapWagon:register()

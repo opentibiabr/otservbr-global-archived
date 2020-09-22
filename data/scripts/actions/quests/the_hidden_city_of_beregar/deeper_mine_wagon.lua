@@ -3,7 +3,8 @@ local config = {
 	[2] = Position(32611, 31513, 9)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenDeeper = Action()
+function theHiddenDeeper.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.HiddenCityOfBeregar.RoyalRescue) >= 3 then
 		player:teleportTo(Position(32611, 31513, 9), true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end
+
+theHiddenDeeper:aid(50128)
+theHiddenDeeper:register()

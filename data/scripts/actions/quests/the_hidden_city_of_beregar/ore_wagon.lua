@@ -12,7 +12,8 @@ local config = {
 	[50108] = Position(32687, 31470, 13)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenOreWagon = Action()
+function theHiddenOreWagon.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetPosition = config[item.actionid]
 	if not targetPosition then
 		return true
@@ -27,3 +28,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+for value = 50098, 50108 do
+	theHiddenOreWagon:aid(value)
+end
+theHiddenOreWagon:register()

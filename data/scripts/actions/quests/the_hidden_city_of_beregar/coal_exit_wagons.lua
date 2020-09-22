@@ -5,7 +5,8 @@ local config = {
 	[50125] = Position(32690, 31495, 11) -- room with lava that I couldn't find, setting destination to the same as mushroom quest
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenCoalExit = Action()
+function theHiddenCoalExit.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetPosition = config[item.actionid]
 	if not targetPosition then
 		return true
@@ -16,3 +17,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove()
 	return true
 end
+
+theHiddenCoalExit:aid(50122,50123,50124,50125)
+theHiddenCoalExit:register()

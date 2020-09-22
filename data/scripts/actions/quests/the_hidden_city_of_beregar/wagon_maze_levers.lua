@@ -12,7 +12,8 @@ local levers = {
 	{uniqueId = 50123, railPos = Position(32688, 31469, 13)}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theHiddenWagonLevers = Action()
+function theHiddenWagonLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	for i = 1, #config do
 		local table = config[i]
@@ -28,3 +29,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 10044 and 10045 or 10044)
 	return true
 end
+
+for value = 50113, 50123 do
+	theHiddenWagonLevers:uid(value)
+end
+theHiddenWagonLevers:register()

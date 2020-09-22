@@ -115,14 +115,4 @@
 	<action itemid="10523" script="quests/others/deeper_banuta_shortcut.lua" />
 	<action actionid="50161" script="quests/others/calassa_comb_door.lua" />
 	<action itemid="5468" script="quests/others/fire_bug.lua" />
-	<!-- the hidden city of beregar -->
-	<action actionid="50128" script="quests/the_hidden_city_of_beregar/deeper_mine_wagon.lua" />
-	<action fromaid="50098" toaid="50108" script="quests/the_hidden_city_of_beregar/ore_wagon.lua" />
-	<action actionid="50112" script="quests/the_hidden_city_of_beregar/gap_wagon.lua" />
-	<action actionid="50115" script="quests/the_hidden_city_of_beregar/tunnel_wagon.lua" />
-	<action actionid="50117" script="quests/the_hidden_city_of_beregar/coal_wagon.lua" />
-	<action fromuid="50108" touid="50111" script="quests/the_hidden_city_of_beregar/coal_levers.lua" />
-	<action fromaid="50122" toaid="50125" script="quests/the_hidden_city_of_beregar/coal_exit_wagons.lua" />
-	<action fromuid="50113" touid="50123" script="quests/the_hidden_city_of_beregar/wagon_maze_levers.lua" />
-	<action uniqueid="50124" script="quests/the_hidden_city_of_beregar/wagon_maze_exit.lua" />
 </actions>
