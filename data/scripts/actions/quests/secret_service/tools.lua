@@ -4,7 +4,8 @@ local config = {
 	[7962] = 10511 -- AVIN
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local secretServiceTools = Action()
+function secretServiceTools.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -16,3 +17,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove()
 	return true
 end
+
+secretServiceTools:id(7960,7961,7962)
+secretServiceTools:register()

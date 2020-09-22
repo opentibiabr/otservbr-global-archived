@@ -248,12 +248,6 @@
 	<action uniqueid="50105" script="quests/pits_of_inferno/bazir_maze_lever.lua" />
 	<action uniqueid="50106" script="quests/pits_of_inferno/fire_throne_lever.lua" />
 	<action actionid="50160" script="quests/pits_of_inferno/maze_stone.lua" />
-	<!-- secret service quest -->
-	<action itemid="7700" script="quests/secret_service/amazon_disguise_kit.lua" />
-	<action itemid="7697" script="quests/secret_service/ring.lua" />
-	<action fromid="7960" toid="7962" script="quests/secret_service/tools.lua" />
-	<action itemid="7698" script="quests/secret_service/rust_bugs.lua" />
-	<action actionid="12574" script="quests/secret_service/lever.lua" />
 	<!-- spike tasks quest -->
 	<action itemid="21553" script="quests/spike_tasks/spirit_shovel.lua" />
 	<action itemid="21554" script="quests/spike_tasks/tuning_fork.lua" />

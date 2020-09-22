@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local secretServiceBugs = Action()
+function secretServiceBugs.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.uid ~= 12579 then
 		return false
 	end
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+secretServiceBugs:id(7698)
+secretServiceBugs:register()

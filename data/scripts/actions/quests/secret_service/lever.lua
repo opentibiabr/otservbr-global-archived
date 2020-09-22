@@ -20,7 +20,8 @@ local monsters = {
 	{monster = 'mad technomancer', monsterPos = Position(32571, 31859, 14)}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local secretServiceLever = Action()
+function secretServiceLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1945 then
 		for i = 1, #monsters do
 			Game.createMonster(monsters[i].monster, monsters[i].monsterPos)
@@ -30,3 +31,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
  	return true
 end
+
+secretServiceLever:aid(12574)
+secretServiceLever:register()
