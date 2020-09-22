@@ -5,7 +5,8 @@ local config = {
 	[VOCATION.CLIENT_ID.KNIGHT] = {x = 33087, y = 32096, z = 13}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local elementalSpheresMachine1 = Action()
+function elementalSpheresMachine1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local destination = config[player:getVocation():getClientId()]
 	if table.contains({7911, 7912}, item.itemid) then
 		local gemCount = player:getStorageValue(Storage.ElementalSphere.MachineGemCount)
@@ -40,3 +41,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+elementalSpheresMachine1:id(7911, 7912, 7915, 7916)
+elementalSpheresMachine1:register()

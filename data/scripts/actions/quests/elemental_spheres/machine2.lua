@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local elementalSpheresMachine2 = Action()
+function elementalSpheresMachine2.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not isInRange(toPosition, Position(33238, 31806, 12), Position(33297, 31865, 12)) then
 		return false
 	end
@@ -22,3 +23,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+elementalSpheresMachine2:id(7913,7914,7917,7918)
+elementalSpheresMachine2:register()

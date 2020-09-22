@@ -12,7 +12,8 @@ local globalTable = {
 	[VOCATION.CLIENT_ID.KNIGHT] = 10008
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local elementalSpheresSoils2 = Action()
+function elementalSpheresSoils2.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not table.contains({7917, 7918, 7913, 7914}, target.itemid) then
 		return false
 	end
@@ -35,3 +36,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove(1)
 	return true
 end
+
+elementalSpheresSoils2:id(8300,8304,8305,8306)
+elementalSpheresSoils2:register()

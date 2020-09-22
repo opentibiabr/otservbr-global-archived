@@ -109,7 +109,8 @@ local function areMachinesCharged()
 	return true
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local elementalSpheresLordLever = Action()
+function elementalSpheresLordLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		return true
 	end
@@ -166,3 +167,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+elementalSpheresLordLever:uid(1011, 1012, 1013, 1014)
+elementalSpheresLordLever:register()

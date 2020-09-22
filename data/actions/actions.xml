@@ -86,17 +86,6 @@
 	<action uniqueid="2272" script="quests/dreamer_challenge/tic_tac.lua" />
 	<action actionid="8033" script="quests/dreamer_challenge/tic_tac_teleport.lua" />
 	<action fromuid="2246" touid="2249" script="quests/dreamer_challenge/walls.lua" />
-	<!-- elemental_spheres -->
-	<action uniqueid="1010" script="quests/elemental_spheres/lever.lua" />
-	<action fromuid="1011" touid="1014" script="quests/elemental_spheres/lord_of_elements_lever.lua" />
-	<action fromid="7911" toid="7912" script="quests/elemental_spheres/machine1.lua" />
-	<action fromid="7913" toid="7914" script="quests/elemental_spheres/machine2.lua" />
-	<action fromid="7915" toid="7916" script="quests/elemental_spheres/machine1.lua" />
-	<action fromid="7917" toid="7918" script="quests/elemental_spheres/machine2.lua" />
-	<action fromid="8298" toid="8299" script="quests/elemental_spheres/soils1.lua" />
-	<action fromid="8302" toid="8303" script="quests/elemental_spheres/soils1.lua" />
-	<action fromid="8304" toid="8306" script="quests/elemental_spheres/soils2.lua" />
-	<action itemid="8300" script="quests/elemental_spheres/soils2.lua" />
 	<!-- explorer_society quest -->
 	<action itemid="4869" script="quests/explorer_society/botanist.lua" />
 	<action itemid="4865" script="quests/explorer_society/butterfly.lua" />

@@ -25,7 +25,8 @@ local config = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local elementalSpheresLever = Action()
+function elementalSpheresLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		item:transform(1945)
 		return true
@@ -67,3 +68,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid + 1)
 	return true
 end
+
+elementalSpheresLever:uid(1010)
+elementalSpheresLever:register()

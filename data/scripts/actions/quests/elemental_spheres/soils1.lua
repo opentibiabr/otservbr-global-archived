@@ -5,7 +5,8 @@ local config = {
 	[8303] = {targetId = 8567, createId = 1495}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local elementalSpheresSouls1 = Action()
+function elementalSpheresSouls1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local soil = config[item.itemid]
 	if not soil then
 		return true
@@ -32,3 +33,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid, item.type - 1)
 	return true
 end
+
+elementalSpheresSouls1:id(8298,8299,8302,8303)
+elementalSpheresSouls1:register()
