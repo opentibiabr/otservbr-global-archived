@@ -463,8 +463,8 @@ local function transformArea()
 	return true
 end
 
-local ferumbrasAscendantHabitatRoshmuul = Action()
-function ferumbrasAscendantHabitatRoshmuul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local ferumbrasAscendantHabitatRoshamuul = Action()
+function ferumbrasAscendantHabitatRoshamuul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 10044 then
 		if Game.getStorageValue(GlobalStorage.FerumbrasAscendant.Habitats.Roshamuul) >= 1 then
 			player:say('The lever are stucke, need some time to it can be moveable again.', TALKTYPE_MONSTER_SAY)
@@ -490,5 +490,5 @@ function ferumbrasAscendantHabitatRoshmuul.onUse(player, item, fromPosition, tar
 	return true
 end
 
-ferumbrasAscendantHabitatRoshmuul:aid(34305)
-ferumbrasAscendantHabitatRoshmuul:register()
+ferumbrasAscendantHabitatRoshamuul:aid(34305)
+ferumbrasAscendantHabitatRoshamuul:register()

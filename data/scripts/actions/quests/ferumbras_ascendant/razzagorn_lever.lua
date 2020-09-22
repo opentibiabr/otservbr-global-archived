@@ -4,8 +4,8 @@ local config = {
 	newPosition = Position(33419, 32467, 14)
 }
 
-local ferumbrasAscendantRazzogornLever = Action()
-function ferumbrasAscendantRazzogornLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local ferumbrasAscendantRazzagornLever = Action()
+function ferumbrasAscendantRazzagornLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(33386, 32455, 14) then
 			item:transform(9826)
@@ -38,5 +38,5 @@ function ferumbrasAscendantRazzogornLever.onUse(player, item, fromPosition, targ
 	return true
 end
 
-ferumbrasAscendantRazzogornLever:uid(1024)
-ferumbrasAscendantRazzogornLever:register()
+ferumbrasAscendantRazzagornLever:uid(1024)
+ferumbrasAscendantRazzagornLever:register()

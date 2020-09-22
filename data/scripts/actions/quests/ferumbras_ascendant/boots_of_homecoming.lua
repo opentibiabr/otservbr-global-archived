@@ -1,5 +1,5 @@
-local ferumbrasAscendantHomeComming = Action()
-function ferumbrasAscendantHomeComming.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local ferumbrasAscendantHomeComing = Action()
+function ferumbrasAscendantHomeComing.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local boots = player:getSlotItem(CONST_SLOT_FEET)
 	if boots ~= item or boots ~= item then
@@ -24,5 +24,5 @@ function ferumbrasAscendantHomeComming.onUse(player, item, fromPosition, target,
 	return true
 end
 
-ferumbrasAscendantHomeComming:id(25429,25430)
-ferumbrasAscendantHomeComming:register()
+ferumbrasAscendantHomeComing:id(25429,25430)
+ferumbrasAscendantHomeComing:register()

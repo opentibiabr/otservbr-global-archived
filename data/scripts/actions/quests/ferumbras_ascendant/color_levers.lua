@@ -1,5 +1,5 @@
-local ferumbrasAscendantColorLecers = Action()
-function ferumbrasAscendantColorLecers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local ferumbrasAscendantColorLevers = Action()
+function ferumbrasAscendantColorLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.FerumbrasAscension.FirstDoor) >= 1 then
 		item:transform(item.itemid == 10044 and 10045 or 10044)
 		return true
@@ -40,5 +40,5 @@ function ferumbrasAscendantColorLecers.onUse(player, item, fromPosition, target,
 	return true
 end
 
-ferumbrasAscendantColorLecers:aid(54381,54382,54383,54384,54385)
-ferumbrasAscendantColorLecers:register()
+ferumbrasAscendantColorLevers:aid(54381,54382,54383,54384,54385)
+ferumbrasAscendantColorLevers:register()
