@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersDeeper = Action()
+function othersDeeper.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 62378 then
 		return false
 	end
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersDeeper:id(10523)
+othersDeeper:register()

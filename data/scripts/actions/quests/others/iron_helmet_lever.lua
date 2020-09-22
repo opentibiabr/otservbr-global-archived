@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersIronHelmet = Action()
+function othersIronHelmet.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local tile = Tile(Position({ x = 32780 , y = 32231 , z = 8}))
 	if item.itemid == 1945 then
 		if tile:getItemById(387) then
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersIronHelmet:uid(1016)
+othersIronHelmet:register()

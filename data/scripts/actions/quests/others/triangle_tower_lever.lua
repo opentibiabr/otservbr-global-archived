@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersTriangle = Action()
+function othersTriangle.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local tile = Tile(Position({x = 32566, y = 32119, z = 7}))
 	if item.itemid == 1945 then
 		if tile:getItemById(1025) then
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersTriangle:uid(50023)
+othersTriangle:register()

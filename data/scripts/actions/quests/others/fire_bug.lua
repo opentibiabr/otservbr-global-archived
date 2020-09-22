@@ -27,7 +27,8 @@ local positions = {
 	Position(32849, 32232, 9)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersFireBug = Action()
+function othersFireBug.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid == 54387 and target.itemid == 25531 then
 		if player:getStorageValue(Storage.FerumbrasAscension.BasinCounter) >= 8 or player:getStorageValue(Storage.FerumbrasAscension.BoneFlute) < 1 then
 			return false
@@ -65,3 +66,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return false
 end
+
+othersFireBug:id(5468)
+othersFireBug:register()

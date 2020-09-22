@@ -37,21 +37,4 @@
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
 	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
-	<!-- others (quests) -->
-	<action actionid="5556" script="quests/others/plate_armor_quest.lua" />
-	<action actionid="5558" script="quests/others/black_knight_quest.lua" />
-	<action itemid="4863" script="quests/others/ectoplasm_container.lua" />
-	<action itemid="7494" script="quests/others/holy_water.lua" />
-	<action actionid="5632" script="quests/others/serpentine_tower_torch.lua" />
-	<action actionid="5633" script="quests/others/serpentine_tower_lever.lua" />
-	<action actionid="19910" script="quests/others/steal_from_thieves.lua" />
-	<action uniqueid="1016" script="quests/others/iron_helmet_lever.lua" />
-	<action uniqueid="1017" script="quests/others/orc_edron_lever.lua" />
-	<action uniqueid="1912" script="quests/others/desert_dungeon_lever_quest.lua" />
-	<action uniqueid="50023" script="quests/others/triangle_tower_lever.lua" />
-	<action actionid="50027" script="quests/others/hellgate_lever.lua" />
-	<action actionid="50129" script="quests/others/life_ring_lever.lua" />
-	<action itemid="10523" script="quests/others/deeper_banuta_shortcut.lua" />
-	<action actionid="50161" script="quests/others/calassa_comb_door.lua" />
-	<action itemid="5468" script="quests/others/fire_bug.lua" />
 </actions>

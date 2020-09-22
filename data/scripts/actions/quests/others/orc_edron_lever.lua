@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersOrcEdron = Action()
+function othersOrcEdron.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local tile = Tile(Position(33171, 31897, 8))
 	if item.itemid == 1945 then
 		local stoneItem = tile:getItemById(1285)
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersOrcEdron:uid(1017)
+othersOrcEdron:register()

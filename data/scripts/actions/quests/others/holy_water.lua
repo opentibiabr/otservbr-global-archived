@@ -41,9 +41,10 @@ local storages = {
 local config = { 
 	antler_talisman = 24664,
 	sacred_antler_talisman = 24665
-	}
+}
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersHolyWater = Action()
+function othersHolyWater.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if target.itemid == config.antler_talisman then
 		item:transform(config.sacred_antler_talisman)
@@ -126,3 +127,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersHolyWater:id(7494)
+othersHolyWater:register()

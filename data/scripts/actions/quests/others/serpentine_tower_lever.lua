@@ -5,7 +5,8 @@ local walls = {
 	{position = Position(33149, 32868, 9), relocatePosition = Position(33149, 32869, 9)}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersSerpentineLever = Action()
+function othersSerpentineLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1945 then
 		local wallItem
 		for i = 1, #walls do
@@ -28,3 +29,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersSerpentineLever:aid(5633)
+othersSerpentineLever:register()

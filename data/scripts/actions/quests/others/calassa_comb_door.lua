@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersCalassa = Action()
+function othersCalassa.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 5745 then
 		return false
 	end
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:teleportTo(toPosition, true)
 	return true
 end
+
+othersCalassa:aid(50161)
+othersCalassa:register()

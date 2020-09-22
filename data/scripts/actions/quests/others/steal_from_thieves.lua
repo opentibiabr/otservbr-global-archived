@@ -1,7 +1,9 @@
 local chests = {
 	[19910] = {itemid = 7587},
 }
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+
+local othersSteal = Action()
+function othersSteal.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if chests[item.uid] then
 		if player:getStorageValue(Storage.QuestChests.StealFromThieves) > 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'It\'s empty.')
@@ -16,3 +18,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+othersSteal:aid(19910)
+othersSteal:register()

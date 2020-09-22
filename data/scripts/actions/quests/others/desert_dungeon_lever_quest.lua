@@ -29,7 +29,8 @@ local config = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local othersDesert = Action()
+function othersDesert.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 
 	if item.itemid ~= 1945 then
@@ -76,3 +77,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+othersDesert:uid(1912)
+othersDesert:register()
