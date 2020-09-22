@@ -43,7 +43,8 @@ local function cleanRaid()
 	end
 end
 
-function onUse(cid, item, fromPosition, itemEx, toPosition)
+local lowerRoshamuulChamber = Action()
+function lowerRoshamuulChamber.onUse(cid, item, fromPosition, itemEx, toPosition)
 	local player = Player(cid)
 	local max,time,monster = 0,0,""
 
@@ -102,3 +103,6 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 		player:sendCancelMessage('You need to wait')
 	end
 end
+
+lowerRoshamuulChamber:id(22535)
+lowerRoshamuulChamber:register()

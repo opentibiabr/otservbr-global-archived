@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local lowerRoshamuulMortar = Action()
+function lowerRoshamuulMortar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     if (target == nil) or not target:isItem() then
         return false
     end
@@ -9,3 +10,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
     end
     return true
 end
+
+lowerRoshamuulMortar:id(22503)
+lowerRoshamuulMortar:register()

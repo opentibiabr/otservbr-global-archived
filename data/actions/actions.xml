@@ -215,15 +215,6 @@
 	<action fromuid="1300" touid="1308" script="quests/inquisition/rewards.lua" />
 	<action actionid="1004" script="quests/inquisition/ungreez_door.lua" />
 	<action actionid="2002" script="quests/inquisition/vampire_hunt.lua" />
-	<!-- lower roshamuul quest -->
-	<action itemid="22387" script="quests/lower_roshamuul/mixture.lua" />
-	<action itemid="22388" script="quests/lower_roshamuul/mixture.lua" />
-	<action itemid="22459" script="quests/lower_roshamuul/chalk.lua" />
-	<action itemid="22467" script="quests/lower_roshamuul/gravel.lua" />
-	<action itemid="22503" script="quests/lower_roshamuul/mortar.lua" />
-	<action itemid="22504" script="quests/lower_roshamuul/trough.lua" />
-	<action itemid="22513" script="quests/lower_roshamuul/bone.lua" />
-	<action itemid="22535" script="quests/lower_roshamuul/resonance_chamber.lua" />
 	<!-- oramond quest -->
 	<action uniqueid="1020" script="quests/oramond/glooth_fairy_lever.lua" />
 	<!-- others (quests) -->

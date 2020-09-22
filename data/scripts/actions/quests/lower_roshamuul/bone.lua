@@ -5,7 +5,8 @@ local function revertBone(position, itemId, transformId)
 		end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local lowerRoshamuulBone = Action()
+function lowerRoshamuulBone.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local rand = math.random(1, 100)
 	if item.itemid == 22513 then
 		if rand <= 20 then
@@ -23,3 +24,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 end
+
+lowerRoshamuulBone:id(22513)
+lowerRoshamuulBone:register()
