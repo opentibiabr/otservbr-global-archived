@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerScroll = Action()
+function gravediggerScroll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.GravediggerOfDrefia.Mission53) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission54) < 1 then
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission54, 1)
 		player:setStorageValue(Storage.GravediggerOfDrefia.Mission55, 1)
@@ -7,3 +8,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerScroll:aid(4662)
+gravediggerScroll:register()

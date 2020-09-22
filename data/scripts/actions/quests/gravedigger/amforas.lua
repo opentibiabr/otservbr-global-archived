@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerAmforas = Action()
+function gravediggerAmforas.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.GravediggerOfDrefia.Mission05) == 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission06) ~= 1 then
 		local chances = math.random(30)
 		if chances == 13 then
@@ -15,3 +16,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerAmforas:aid(4630)
+gravediggerAmforas:register()

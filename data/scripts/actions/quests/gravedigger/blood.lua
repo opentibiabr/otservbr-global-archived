@@ -3,7 +3,8 @@ local config = {
 	[4645] = {storageKey = {Storage.GravediggerOfDrefia.Mission36a, Storage.GravediggerOfDrefia.Mission37}, message = 'The blood in the vial is of a strange colour, as if tainted.', itemId = 21419}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerBlood = Action()
+function gravediggerBlood.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetItem = config[target.actionid]
 	if not targetItem then
 		return true
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerBlood:id(21417)
+gravediggerBlood:register()

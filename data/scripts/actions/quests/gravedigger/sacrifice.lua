@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerSacrifice = Action()
+function gravediggerSacrifice.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.GravediggerOfDrefia.Mission74) == 1 then --and player:getStorageValue(Storage.GravediggerOfDrefia.Mission73) < 1 and player:getStorageValue(Storage.GravediggerOfDrefia.Mission74) < 1 then
 		local skullItem = Tile(Position(33015, 32418, 11)):getItemById(21476)
 		if skullItem then
@@ -12,6 +13,9 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerSacrifice:id(21251)
+gravediggerSacrifice:register()
 
 -- SE DER RUIM AI EM CIMA, COLOCAR ESSE:
 

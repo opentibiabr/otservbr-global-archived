@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerStatue = Action()
+function gravediggerStatue.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 21429 then
 		return false
 	end
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerStatue:aid(4636)
+gravediggerStatue:register()

@@ -6,7 +6,8 @@ local config = {
 	[4667] = {Storage.GravediggerOfDrefia.Mission38c, Storage.GravediggerOfDrefia.Mission66}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerPyramids2 = Action()
+function gravediggerPyramids2.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local cStorages = config[target.actionid]
 	if not cStorages then
 		return true
@@ -21,3 +22,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerPyramids2:id(21249)
+gravediggerPyramids2:register()

@@ -31,31 +31,6 @@
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- quests -->
-	<!-- gravedigger -->
-	<action actionid="4630" script="quests/gravedigger/amforas.lua" />
-	<action actionid="4631" script="quests/gravedigger/brain.lua" />
-	<action itemid="21407" script="quests/gravedigger/bones.lua" />
-	<action itemid="21245" script="quests/gravedigger/tincture.lua" />
-	<action actionid="4636" script="quests/gravedigger/statue.lua" />
-	<action itemid="21247" script="quests/gravedigger/chalk.lua" />
-	<action itemid="21482" script="quests/gravedigger/key1.lua" />
-	<action itemid="21489" script="quests/gravedigger/key2.lua" />
-	<action itemid="21448" script="quests/gravedigger/candles.lua" />
-	<action itemid="21248" script="quests/gravedigger/monks.lua" />
-	<action itemid="21417" script="quests/gravedigger/blood.lua" />
-	<action itemid="21449" script="quests/gravedigger/pyramids1.lua" />
-	<action itemid="21249" script="quests/gravedigger/pyramids2.lua" />
-	<action actionid="4650" script="quests/gravedigger/palanca.lua" />
-	<action itemid="21464" script="quests/gravedigger/cape.lua" />
-	<action actionid="4662" script="quests/gravedigger/scroll.lua" />
-	<action actionid="4669" script="quests/gravedigger/bookcase.lua" />
-	<action uniqueid="4663" script="quests/gravedigger/caixa.lua" />
-	<action itemid="21251" script="quests/gravedigger/sacrifice.lua" />
-	<action fromaid="4651" toaid="4653" script="quests/gravedigger/inscriptions.lua" />
-	<action itemid="21446" script="quests/gravedigger/ashes.lua" />
-	<action itemid="21406" script="quests/gravedigger/hallowed.lua" />
-	<action itemid="21401" script="quests/gravedigger/tears.lua" />
-	<action itemid="21402" script="quests/gravedigger/flask.lua" />
 	<!-- inquisition quest -->
 	<action fromuid="1006" touid="1009" script="quests/inquisition/brother_lever.lua" />
 	<action itemid="8753" script="quests/inquisition/mw.lua" />

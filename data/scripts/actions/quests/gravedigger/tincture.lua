@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerTincture = Action()
+function gravediggerTincture.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 4635 then
 		return false
 	end
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerTincture:id(21245)
+gravediggerTincture:register()

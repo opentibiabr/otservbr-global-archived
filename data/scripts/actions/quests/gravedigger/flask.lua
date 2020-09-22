@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerFlask = Action()
+function gravediggerFlask.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 2817 then
 		return false
 	end
@@ -11,3 +12,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerFlask:id(21402)
+gravediggerFlask:register()

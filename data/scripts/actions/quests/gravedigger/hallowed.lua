@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerHallowed = Action()
+function gravediggerHallowed.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 4634 then
 		return false
 	end
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerHallowed:id(21406)
+gravediggerHallowed:register()

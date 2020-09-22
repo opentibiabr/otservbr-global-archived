@@ -4,7 +4,8 @@ local config = {
 	[4643] = {storageKey = {Storage.GravediggerOfDrefia.Mission32b, Storage.GravediggerOfDrefia.Mission33}, message = 'A shade emerges and snatches the candle from your hands.'}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local gravediggerMonks = Action()
+function gravediggerMonks.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetItem = config[target.actionid]
 	if not targetItem then
 		return true
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+gravediggerMonks:id(21248)
+gravediggerMonks:register()
