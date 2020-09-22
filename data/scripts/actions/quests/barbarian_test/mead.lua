@@ -1,5 +1,5 @@
-local mead = Action()
-function mead.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local barbarianMead = Action()
+function barbarianMead.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.BarbarianTest.Questline) == 2 and player:getStorageValue(Storage.BarbarianTest.MeadTotalSips) <= 20 then
 		if math.random(5) > 1 then
 			player:say('The world seems to spin but you manage to stay on your feet.', TALKTYPE_MONSTER_SAY)
@@ -25,5 +25,5 @@ function mead.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-mead:uid(3110)
-mead:register()
+barbarianMead:uid(3110)
+barbarianMead:register()

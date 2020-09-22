@@ -1,5 +1,5 @@
-local closed = Action()
-function closed.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local grimValeClosed = Action()
+function grimValeClosed.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if toPosition.x == CONTAINER_POSITION then
 		player:sendTextMessage(MESSAGE_STATUS_SMALL, 'Use it on the ground to set the trap.')
 		return true
@@ -15,5 +15,5 @@ function closed.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-closed:id(24730)
-closed:register()
+grimValeClosed:id(24730)
+grimValeClosed:register()

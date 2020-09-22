@@ -34,8 +34,8 @@ local function revertWalls(leverPosition)
 	end
 end
 
-local miss9 = Action()
-function miss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theApeMiss9 = Action()
+function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		player:sendTextMessage(MESSAGE_INFO_DESCR, 'It doesn\'t move.')
 		return true
@@ -86,5 +86,5 @@ function miss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-miss9:uid(1040, 1041)
-miss9:register()
+theApeMiss9:uid(1040, 1041)
+theApeMiss9:register()

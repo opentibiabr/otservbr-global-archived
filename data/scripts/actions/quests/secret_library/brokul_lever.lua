@@ -34,8 +34,8 @@ local function resetBoss(bossConfig, bossId)
     end
 end
 
-local brokul = Action()
-function brokul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local secretBrokul = Action()
+function secretBrokul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
    
     if item.itemid == 1946 then
         local bossConfig = bossConfig[item:getActionId()]
@@ -98,5 +98,5 @@ function brokul.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     return true
 end
 
-brokul:aid(34000)
-brokul:register()
+secretBrokul:aid(34000)
+secretBrokul:register()

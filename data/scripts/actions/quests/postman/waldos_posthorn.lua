@@ -1,5 +1,5 @@
-local waldos = Action()
-function waldos.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local postmanWaldos = Action()
+function postmanWaldos.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.Postman.Mission08) == 1 then
 		player:setStorageValue(Storage.Postman.Mission08, 2)
 		player:addItem(2332, 1)
@@ -10,5 +10,5 @@ function waldos.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-waldos:uid(3118)
-waldos:register()
+postmanWaldos:uid(3118)
+postmanWaldos:register()

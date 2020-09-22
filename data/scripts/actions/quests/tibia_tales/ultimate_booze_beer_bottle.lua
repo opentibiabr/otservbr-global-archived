@@ -1,5 +1,5 @@
-local ultimate = Action()
-function ultimate.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local ultimateBoozer = Action()
+function ultimateBoozer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 8176 then
 		return false
 	end
@@ -14,5 +14,5 @@ function ultimate.onUse(player, item, fromPosition, target, toPosition, isHotkey
 	return true
 end
 
-ultimate:id(7496)
-ultimate:register()
+ultimateBoozer:id(7496)
+ultimateBoozer:register()

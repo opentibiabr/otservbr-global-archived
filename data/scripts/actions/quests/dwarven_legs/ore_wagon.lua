@@ -1,5 +1,5 @@
-local oreWagon = Action()
-function oreWagon.onUse(player, item, fromPosition, itemEx, toPosition)
+local dwarvenOreWagon = Action()
+function dwarvenOreWagon.onUse(player, item, fromPosition, itemEx, toPosition)
 	if item.actionid == 50109 then
 		if player:getStorageValue(Storage.DwarvenLegs) < 1 then
 			player:teleportTo({x = 32624, y = 31514, z = 9})
@@ -22,5 +22,5 @@ function oreWagon.onUse(player, item, fromPosition, itemEx, toPosition)
 	return false
 end
 
-oreWagon:aid(50109, 50110)
-oreWagon:register()
+dwarvenOreWagon:aid(50109, 50110)
+dwarvenOreWagon:register()

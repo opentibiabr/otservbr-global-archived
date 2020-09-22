@@ -2,8 +2,8 @@ local chests = {
 	[34123] = {itemid = 28596, count = 1}
 }
 
-local poacher = Action()
-function poacher.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local poacherChest = Action()
+function poacherChest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if chests[item.uid] then
 		if player:getStorageValue(34123) == 1 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'It\'s empty.')
@@ -25,5 +25,5 @@ function poacher.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-poacher:uid(34123)
-poacher:register()
+poacherChest:uid(34123)
+poacherChest:register()

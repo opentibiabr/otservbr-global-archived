@@ -2,8 +2,8 @@ local function sendSleepEffect(position)
 	position:sendMagicEffect(CONST_ME_SLEEP)
 end
 
-local horn = Action()
-function horn.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local barbarianHorn = Action()
+function barbarianHorn.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.uid == 3110 and item.itemid == 7140 then
 		player:say('You fill your horn with ale.', TALKTYPE_MONSTER_SAY)
 		item:transform(7141)
@@ -46,5 +46,5 @@ function horn.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-horn:id(7140,7141,7174,7175,7176)
-horn:register()
+barbarianHorn:id(7140,7141,7174,7175,7176)
+barbarianHorn:register()

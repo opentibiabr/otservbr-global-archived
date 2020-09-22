@@ -1,5 +1,5 @@
-local miscItem = Action()
-function miscItem.onUse(cid, item, frompos, item2, topos)
+local theCursedMiscItem = Action()
+function theCursedMiscItem.onUse(cid, item, frompos, item2, topos)
 	local user1 = Player(cid)
 	if (item.itemid == 5902) then
 		if ((item2.itemid == 1786) or (item2.itemid == 1788) or (item2.itemid == 1790) or (item2.itemid == 1792)) then
@@ -21,11 +21,11 @@ function miscItem.onUse(cid, item, frompos, item2, topos)
 	end
 end
 
-miscItem:id(5902,23923,23941)
-miscItem:register()
+theCursedMiscItem:id(5902,23923,23941)
+theCursedMiscItem:register()
 
-local miscAction = Action()
-function miscAction.onUse(cid, item, frompos, item2, topos)
+local theCursedMiscAction = Action()
+function theCursedMiscAction.onUse(cid, item, frompos, item2, topos)
 	if (item.actionid == 40001) and (item:getPosition() == TCC_SKELETON_PAPER_POS) then -- 40028
 		if (user1:getStorageValue(Storage.TibiaTales.TheCursedCrystal.Oneeyedjoe) < 1) then
 			user1:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have found a sheet of paper.")
@@ -57,5 +57,5 @@ function miscAction.onUse(cid, item, frompos, item2, topos)
 	end
 end
 
-miscAction:id(40001, 40002)
-miscAction:register()
+theCursedMiscAction:id(40001, 40002)
+theCursedMiscAction:register()

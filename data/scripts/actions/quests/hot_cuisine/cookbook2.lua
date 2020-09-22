@@ -5,8 +5,8 @@ local config = {
 	[4] = "Sweet Mangonaise Elixir\n- 100 eggs\n- 50 mangoes\n- 10 honeycombs\n- 1 bottle of bug milk\n- 1 blessed wooden stake\n\n"
 }
 
-local cook = Action()
-function cook.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local hotCuisineCook2 = Action()
+function hotCuisineCook2.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local text = {}
 	for i = 1, 4 do
 		text[#text + 1] = config[i]
@@ -15,5 +15,5 @@ function cook.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-cook:id(12497)
-cook:register()
+hotCuisineCook2:id(12497)
+hotCuisineCook2:register()

@@ -1,5 +1,5 @@
-local lever = Action()
-function lever.onUse(cid, item, fromPosition, itemEx, toPosition)
+local chayenneLever = Action()
+function chayenneLever.onUse(cid, item, fromPosition, itemEx, toPosition)
 	if item.itemid == 1945 then
 		if getGlobalStorageValue(71543) <= os.time() then
 			if getPlayerItemCount(cid, 16015) >= 1 then
@@ -18,5 +18,5 @@ function lever.onUse(cid, item, fromPosition, itemEx, toPosition)
 	end
 end
 
-lever:aid(55021)
-lever:register()
+chayenneLever:aid(55021)
+chayenneLever:register()

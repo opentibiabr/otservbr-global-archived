@@ -1,7 +1,7 @@
-local slime = Action()
-function slime.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local slimeGobbler = Action()
+function slimeGobbler.onUse(player, item, fromPosition, target, toPosition, isHotkey)
     return Gobbler_onUse(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
-slime:id(13601)
-slime:register()
+slimeGobbler:id(13601)
+slimeGobbler:register()

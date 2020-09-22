@@ -27,8 +27,8 @@ local function createArmor(id, amount, pos)
 	if armor then armor:setActionId(40003) end 
 end
 
-local scarlettUid = Action()
-function scarlettUid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local graveScarlettUid = Action()
+function graveScarlettUid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local playersTable = {}
 	if item:getUniqueId() == 40028 then
 		if player:doCheckBossRoom(info.bossName, info.fromPos, info.toPos) then
@@ -68,12 +68,12 @@ function scarlettUid.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-scarlettUid:uid(40028)
-scarlettUid:register()
+graveScarlettUid:uid(40028)
+graveScarlettUid:register()
 
 
-local scarlettAid = Action();
-function scarlettAid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local graveScarlettAid = Action();
+function graveScarlettAid.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.actionid == 40003 then
 		if isInArray(transformTo, item.itemid) then
 			local pilar = transformTo[item.itemid]
@@ -101,5 +101,5 @@ function scarlettAid.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-scarlettAid:aid(40003)
-scarlettAid:register()
+graveScarlettAid:aid(40003)
+graveScarlettAid:register()

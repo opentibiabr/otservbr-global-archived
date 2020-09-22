@@ -1,4 +1,4 @@
-local present = Action()
+local postmanPresent = Action()
 function present.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove(1)
 	toPosition:sendMagicEffect(CONST_ME_POFF)
@@ -6,5 +6,5 @@ function present.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-present:id(2331)
-present:register()
+postmanPresent:id(2331)
+postmanPresent:register()

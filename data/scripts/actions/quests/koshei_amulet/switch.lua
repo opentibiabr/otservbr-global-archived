@@ -15,8 +15,8 @@ local function revertCoffin()
 	end
 end
 
-local switch = Action()
-function switch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local kosheiSwitch = Action()
+function kosheiSwitch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local statuesInOrder, statueItem = true
 	for i = 1, #config do
 		local statue = config[i]
@@ -41,5 +41,5 @@ function switch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-switch:uid(3070)
-switch:register()
+kosheiSwitch:uid(3070)
+kosheiSwitch:register()

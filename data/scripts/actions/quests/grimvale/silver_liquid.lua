@@ -1,5 +1,5 @@
-local silver = Action()
-function silver.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local grimValeSilver = Action()
+function grimValeSilver.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid == 2578 or target.itemid == 2579 then
 		target:transform(24730)
 		item:remove()
@@ -11,5 +11,5 @@ function silver.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-silver:id(24714)
-silver:register()
+grimValeSilver:id(24714)
+grimValeSilver:register()

@@ -1,5 +1,5 @@
-local exterminator = Action()
-function exterminator.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local exterminatorFlask = Action()
+function exterminatorFlask.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 4207 then
 		return false
 	end
@@ -14,5 +14,5 @@ function exterminator.onUse(player, item, fromPosition, target, toPosition, isHo
 	return true
 end
 
-exterminator:id(8205)
-exterminator:register()
+exterminatorFlask:id(8205)
+exterminatorFlask:register()

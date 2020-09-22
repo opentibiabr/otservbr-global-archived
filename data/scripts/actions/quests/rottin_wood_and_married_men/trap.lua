@@ -34,8 +34,9 @@ function removeTrap()
     return TRUE
 end
 
-local trap = Action()
-function trap.onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
+
+local rottinWoodtrap = Action()
+function rottinWoodtrap.onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 	if(item.itemid == 13173) then
 		if(itemEx.itemid == 11436) then
 			if(getPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Mission03) == 5) and getPlayerStorageValue(cid, Storage.RottinWoodAndMaried.Trap) < 3 then
@@ -67,5 +68,5 @@ function trap.onUse(cid, item, fromPosition, itemEx, toPosition, isHotkey)
 	return true
 end
 
-trap:id(13173)
-trap:register()
+rottinWoodtrap:id(13173)
+rottinWoodtrap:register()

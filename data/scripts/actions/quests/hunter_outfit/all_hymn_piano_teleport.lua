@@ -1,7 +1,7 @@
 local portpos = Position({x = 32402, y = 32794, z = 9})
 
-local all = Action()
-function all.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local hunterAll = Action()
+function hunterAll.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.OutfitQuest.HunterMusicSheet01) == 1 and player:getStorageValue(Storage.OutfitQuest.HunterMusicSheet02) == 1 and player:getStorageValue(Storage.OutfitQuest.HunterMusicSheet03) == 1 and player:getStorageValue(Storage.OutfitQuest.HunterMusicSheet04) == 1 then
 		player:teleportTo(portpos, false)
 		portpos:sendMagicEffect(CONST_ME_TELEPORT)
@@ -13,5 +13,5 @@ function all.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-all:aid(33216)
-all:register()
+hunterAll:aid(33216)
+hunterAll:register()

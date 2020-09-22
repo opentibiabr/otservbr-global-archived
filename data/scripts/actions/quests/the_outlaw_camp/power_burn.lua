@@ -1,5 +1,5 @@
-local power = Action()
-function power.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theOutlawPower = Action()
+function theOutlawPower.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local power1 = Tile(Position({x = 32613, y = 32220, z = 10}))
 	local barrel = Tile(Position({x = 32614, y = 32209, z = 10}))
@@ -17,5 +17,5 @@ function power.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-power:id(3402)
-power:register()
+theOutlawPower:id(3402)
+theOutlawPower:register()

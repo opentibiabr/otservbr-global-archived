@@ -1,5 +1,5 @@
-local waterSkin = Action()
-function waterSkin.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local druidWaterSkin = Action()
+function druidWaterSkin.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 5663 then
 		return false
 	end
@@ -9,5 +9,5 @@ function waterSkin.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-waterSkin:id(5938)
-waterSkin:register()
+druidWaterSkin:id(5938)
+druidWaterSkin:register()

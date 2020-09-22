@@ -17,8 +17,8 @@ local playerPositions = {
 	{fromPos = {x = 33642, y = 32362, z = 13}, toPos = {x = 33619, y = 32567, z = 13}}
 }
 
-local lever = Action()
-function lever.onUse(player, item, fromPosition, target, toPosition, monster, isHotkey)
+local threatenedLever = Action()
+function threatenedLever.onUse(player, item, fromPosition, target, toPosition, monster, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(33638, 32562, 13) then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You need 5 players to fight with this boss.")
@@ -52,5 +52,5 @@ function lever.onUse(player, item, fromPosition, target, toPosition, monster, is
 	return true
 end
 
-lever:uid(1039)
-lever:register()
+threatenedLever:uid(1039)
+threatenedLever:register()

@@ -1,5 +1,5 @@
-local miss9 = Action()
-function miss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theApeMiss9 = Action()
+function theApeMiss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 4861 then
 		return false
 	end
@@ -17,5 +17,5 @@ function miss9.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-miss9:id(4846)
-miss9:register()
+theApeMiss9:id(4846)
+theApeMiss9:register()

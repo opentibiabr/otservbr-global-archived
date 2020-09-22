@@ -1,5 +1,6 @@
-local powerSwitch = Action()
-function powerSwitch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+
+local theOutlawPowerSwitch = Action()
+function theOutlawPowerSwitch.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local wall = Tile(Position({x=32604, y=32216, z=9}))
 	local power2pos = Position({x = 32613, y = 32220, z = 10})
@@ -15,5 +16,5 @@ function powerSwitch.onUse(player, item, fromPosition, target, toPosition, isHot
 	return true
 end
 
-powerSwitch:uid(3401)
-powerSwitch:register()
+theOutlawPowerSwitch:uid(3401)
+theOutlawPowerSwitch:register()

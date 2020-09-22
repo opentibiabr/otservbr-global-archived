@@ -1,5 +1,5 @@
-local antHill = Action()
-function antHill.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local iceAntHill = Action()
+function iceAntHill.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local mast = {x = 32360, y = 31365, z = 7}
 	if target.itemid == 3323 and item.itemid == 7243 then
 		if player:getStorageValue(Storage.TheIceIslands.Questline) == 6 then
@@ -20,5 +20,5 @@ function antHill.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-antHill:id(7243,7244)
-antHill:register()
+iceAntHill:id(7243,7244)
+iceAntHill:register()

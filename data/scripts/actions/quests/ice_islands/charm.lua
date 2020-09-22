@@ -1,5 +1,5 @@
-local charm = Action()
-function charm.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local iceCharm = Action()
+function iceCharm.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 1354 then
 		return false
 	end
@@ -45,5 +45,5 @@ function charm.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-charm:id(7289)
-charm:register()
+iceCharm:id(7289)
+iceCharm:register()

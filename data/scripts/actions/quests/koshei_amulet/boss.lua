@@ -1,5 +1,5 @@
-local boss = Action()
-function boss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local kosheiBoss = Action()
+function kosheiBoss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 8272 then
 		return false
 	end
@@ -13,5 +13,5 @@ function boss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-boss:id(8266)
-boss:register()
+kosheiBoss:id(8266)
+kosheiBoss:register()

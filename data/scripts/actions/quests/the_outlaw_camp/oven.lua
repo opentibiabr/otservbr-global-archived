@@ -3,8 +3,8 @@ local config = {
 	[1946] = {position = {Position(32623, 32189, 9), Position(32623, 32188, 9)}}
 }
 
-local oven = Action()
-function oven.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theOutlawOven = Action()
+function theOutlawOven.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -20,5 +20,5 @@ function oven.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-oven:uid(3400)
-oven:register()
+theOutlawOven:uid(3400)
+theOutlawOven:register()

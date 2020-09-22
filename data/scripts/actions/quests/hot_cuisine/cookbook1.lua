@@ -11,8 +11,8 @@ local config = {
 	[10] = "Carrot Cake\n- 5 Carrots\n- 1 Vial of milk\n- 1 Lemon\n- 10 Ounces of flour\n- 2 Eggs\n- 10 Cookies\n- 2 Peanuts"
 }
 
-local cook = Action()
-function cook.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local hotCuisineCook1 = Action()
+function hotCuisineCook1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local text = {}
 	for i = 1, 10 do
 		text[#text + 1] = config[i]
@@ -21,5 +21,5 @@ function cook.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	return true
 end
 
-cook:id(10006)
-cook:register()
+hotCuisineCook1:id(10006)
+hotCuisineCook1:register()
