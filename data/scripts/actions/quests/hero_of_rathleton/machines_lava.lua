@@ -6,7 +6,8 @@ local function revertMachine(position, itemId, transformId)
 	Game.setStorageValue(GlobalStorage.HeroRathleton.FourthMachines, Game.getStorageValue(GlobalStorage.HeroRathleton.FourthMachines) - 1)
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local heroRathletonLava = Action()
+function heroRathletonLava.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 24112 then
 		return false
 	end
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:say('~Zzzz~\n The machine is working!', TALKTYPE_MONSTER_SAY, false, nil, toPosition)
 	return true
 end
+
+heroRathletonLava:aid(24865)
+heroRathletonLava:register()

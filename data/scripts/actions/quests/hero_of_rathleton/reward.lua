@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local heroRathletonReward = Action()
+function heroRathletonReward.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(24850) < 1 then
 		player:addItem(23574, 5)
 		player:addItem(2152, 4)
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+heroRathletonReward:uid(24850)
+heroRathletonReward:register()

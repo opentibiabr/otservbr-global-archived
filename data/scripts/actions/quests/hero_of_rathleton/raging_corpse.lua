@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local heroRathletonCorpse = Action()
+function heroRathletonCorpse.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.itemid ~= 8641 then
 		return false
 	end
@@ -7,3 +8,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	target:getPosition():sendMagicEffect(CONST_ME_FIREAREA)
 	return true
 end
+
+heroRathletonCorpse:id(24184)
+heroRathletonCorpse:allowFarUse(true)
+heroRathletonCorpse:register()

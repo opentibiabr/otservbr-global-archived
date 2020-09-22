@@ -197,13 +197,6 @@
 	<action actionid="14331" script="quests/heart_of_destruction/outburst_lever.lua" />
 	<action actionid="14332" script="quests/heart_of_destruction/final_lever.lua" />
 	<action uniqueid="1038" script="quests/heart_of_destruction/reward.lua" />
-	<!-- hero of rathleton quest -->
-	<action actionid="24861" script="quests/hero_of_rathleton/machines_deep_terror.lua" />
-	<action actionid="24863" script="quests/hero_of_rathleton/machines_glooth_horror.lua" />
-	<action actionid="9299" script="quests/hero_of_rathleton/machines_professor_maxxen.lua" />
-	<action actionid="24865" script="quests/hero_of_rathleton/machines_lava.lua" />
-	<action uniqueid="24850" script="quests/hero_of_rathleton/reward.lua" />
-	<action itemid="24184" script="quests/hero_of_rathleton/raging_corpse.lua" allowfaruse="1" />
 	<!-- in service of yalahar quest -->
 	<action itemid="9737" script="quests/in_service_of_yalahar/charm.lua" />
 	<action itemid="9733" script="quests/in_service_of_yalahar/formula.lua" />
