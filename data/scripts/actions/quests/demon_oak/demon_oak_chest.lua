@@ -5,7 +5,8 @@ local chests = {
 	[1005] = {itemid = 16112, count = 1}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local demonOakChest = Action()
+function demonOakChest.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if chests[item.uid] then
 		if player:getStorageValue(Storage.DemonOak.Done) ~= 2 then
 			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'It\'s empty.')
@@ -24,3 +25,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+demonOakChest:id(1002, 1003, 1004, 1005)
+demonOakChest:register()

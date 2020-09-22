@@ -58,7 +58,8 @@ local function getRandomSummonPosition()
 	return config.summonPositions[math.random(#config.summonPositions)]
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local demonOak = Action()
+function demonOak.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if not isInArray(config.demonOakIds, target.itemid) then
 		return true
 	end
@@ -126,3 +127,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	doTargetCombatHealth(0, player, COMBAT_EARTHDAMAGE, -170, -210, CONST_ME_BIGPLANTS)
 	return true
 end
+
+demonOak:id(8293)
+demonOak:register()
