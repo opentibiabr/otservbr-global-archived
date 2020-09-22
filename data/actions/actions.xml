@@ -62,14 +62,6 @@
 	<action itemid="31993" script="quests/dangerous_depth/using_crystals.lua" />
 	<!-- access crystal -->
 	<action fromaid="57350" toaid="57367" script="quests/dangerous_depth/warzone_crystals.lua" />
-	<!-- dreamer_challenge quest -->
-	<action fromuid="3041" touid="3043" script="quests/dreamer_challenge/lever_nightmare.lua" />
-	<action fromuid="3045" touid="3047" script="quests/dreamer_challenge/lever_brotherhood.lua" />
-	<action fromid="7844" toid="7846" script="quests/dreamer_challenge/documents.lua" />
-	<action uniqueid="2004" script="quests/dreamer_challenge/stone_teleport.lua" />
-	<action uniqueid="2272" script="quests/dreamer_challenge/tic_tac.lua" />
-	<action actionid="8033" script="quests/dreamer_challenge/tic_tac_teleport.lua" />
-	<action fromuid="2246" touid="2249" script="quests/dreamer_challenge/walls.lua" />
 	<!-- ferumbras ascendant quest -->
 	<action actionid="53821" script="quests/ferumbras_ascendant/lever_first.lua" />
 	<action actionid="53822" script="quests/ferumbras_ascendant/lever_second.lua" />

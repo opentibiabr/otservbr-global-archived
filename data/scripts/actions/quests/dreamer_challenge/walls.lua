@@ -32,7 +32,8 @@ local function revertLever(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dreamerWalls = Action()
+function dreamerWalls.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local walls = config[item.uid]
 	if not walls then
 		return true
@@ -56,3 +57,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+dreamerWalls:id(2246,2247,2248,2249)
+dreamerWalls:register()

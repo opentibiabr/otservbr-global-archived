@@ -11,7 +11,8 @@ local function revertLever(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dreamerNightmareLever = Action()
+function dreamerNightmareLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		return true
 	end
@@ -71,3 +72,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 end
+
+dreamerNightmareLever:uid(3041,3042,3043)
+dreamerNightmareLever:register()

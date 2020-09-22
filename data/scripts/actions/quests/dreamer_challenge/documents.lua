@@ -15,7 +15,8 @@ local config = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dreamerDocuments = Action()
+function dreamerDocuments.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.itemid]
 	if not useItem then
 		return true
@@ -61,3 +62,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+dreamerDocuments:id(7844,7845,7846)
+dreamerDocuments:register()

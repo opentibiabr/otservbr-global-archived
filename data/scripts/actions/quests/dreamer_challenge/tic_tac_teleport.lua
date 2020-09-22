@@ -10,7 +10,8 @@ local config = {
 	{position = Position(32842, 32267, 14), itemId = 2638}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dreamerTicTacTeleport = Action()
+function dreamerTicTacTeleport.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 
 	iterateArea(
@@ -62,3 +63,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+dreamerTicTacTeleport:aid(8033)
+dreamerTicTacTeleport:register()

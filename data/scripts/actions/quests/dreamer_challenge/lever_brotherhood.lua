@@ -11,7 +11,8 @@ local function revertLever(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dreamerBrotherhoodLever = Action()
+function dreamerBrotherhoodLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		return true
 	end
@@ -71,3 +72,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		end
 	end
 end
+
+dreamerBrotherhoodLever:uid(3045,3046,3047)
+dreamerBrotherhoodLever:register()

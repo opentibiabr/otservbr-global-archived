@@ -23,7 +23,8 @@ local config = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local dreamerStone = Action()
+function dreamerStone.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local lever = config[item.itemid]
 	if not lever then
 		return true
@@ -71,3 +72,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+dreamerStone:uid(2004)
+dreamerStone:register()
