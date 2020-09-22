@@ -3,7 +3,8 @@ local config = {
 	[3154] = Position(33020, 31536, 4)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theNewFrontierVine = Action()
+function theNewFrontierVine.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetPosition = config[item.uid]
 	if not targetPosition then
 		return true
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	targetPosition:sendMagicEffect(CONST_ME_POFF)
 	return true
 end
+
+theNewFrontierVine:id(3153,3154)
+theNewFrontierVine:register()

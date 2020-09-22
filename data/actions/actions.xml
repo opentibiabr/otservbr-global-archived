@@ -258,13 +258,6 @@
 	<action fromaid="50122" toaid="50125" script="quests/the_hidden_city_of_beregar/coal_exit_wagons.lua" />
 	<action fromuid="50113" touid="50123" script="quests/the_hidden_city_of_beregar/wagon_maze_levers.lua" />
 	<action uniqueid="50124" script="quests/the_hidden_city_of_beregar/wagon_maze_exit.lua" />
-	<!-- the new frontier quest -->
-	<action uniqueid="3157" script="quests/the_new_frontier/arena.lua" />
-	<action actionid="45440" script="quests/the_new_frontier/outfit.lua" />
-	<action itemid="11100" script="quests/the_new_frontier/beaver.lua" />
-	<action fromaid="8005" toaid="8006" script="quests/the_new_frontier/lever.lua" />
-	<action fromuid="3153" touid="3154" script="quests/the_new_frontier/vine.lua" />
-	<action uniqueid="3156" script="quests/the_new_frontier/retreat.lua" />
 	<!-- the secret library quest -->
 	<action actionid="64019" script="quests/the_secret_library/asura_mirror.lua" />
 	<!-- thieves guild quest -->

@@ -1,5 +1,5 @@
-
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theNewFrontierBeaver = Action()
+function theNewFrontierBeaver.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid == 8002 then
 		if player:getStorageValue(Storage.TheNewFrontier.Questline) == 5 and player:getStorageValue(Storage.TheNewFrontier.Beaver1) < 1 then
 			Game.createMonster("thieving squirrel", toPosition)
@@ -42,3 +42,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+theNewFrontierBeaver:id(11100)
+theNewFrontierBeaver:register()

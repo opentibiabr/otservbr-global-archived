@@ -1,4 +1,5 @@
-function onUse(player, item)
+local theNewFrontierOutfit = Action()
+function theNewFrontierOutfit.onUse(player, item)
 	if player:getStorageValue(Storage.TheNewFrontier.Questline) == 26 then
 		player:addOutfit(335, 0)
 		player:addOutfit(336, 0)
@@ -8,3 +9,6 @@ function onUse(player, item)
 	end
 	return true
 end
+
+theNewFrontierOutfit:aid(45440)
+theNewFrontierOutfit:register()

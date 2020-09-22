@@ -3,7 +3,8 @@ local config = {
 	[8006] = Position(33065, 31489, 15)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local theNewFrontierLever = Action()
+function theNewFrontierLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetPosition = config[item.actionid]
 	if not targetPosition then
 		return true
@@ -36,3 +37,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	targetPosition:sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end
+
+theNewFrontierLever:aid(8005,8006)
+theNewFrontierLever:register()
