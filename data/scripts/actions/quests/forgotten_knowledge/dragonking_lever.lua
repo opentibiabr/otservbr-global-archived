@@ -11,7 +11,8 @@ local monsters = {
 	{position = Position(33363, 31176, 10)}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeDragonking = Action()
+function forgottenKnowledgeDragonking.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(33391, 31178, 10) then
 			item:transform(9826)
@@ -55,3 +56,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeDragonking:aid(24880)
+forgottenKnowledgeDragonking:register()

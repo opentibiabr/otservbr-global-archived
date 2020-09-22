@@ -3,7 +3,8 @@ local config = {
 	[26406] = {transformId = 26402}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeLantern = Action()
+function forgottenKnowledgeLantern.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local lantern = config[item.itemid]
 	if not lantern then
 		return true
@@ -27,3 +28,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(lantern.transformId)
 	return true
 end
+
+forgottenKnowledgeLantern:id(26402,26406)
+forgottenKnowledgeLantern:register()

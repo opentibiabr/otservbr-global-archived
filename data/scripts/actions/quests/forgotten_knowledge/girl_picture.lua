@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeGirl = Action()
+function forgottenKnowledgeGirl.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.ForgottenKnowledge.GirlPicture) >= 1 then
 		return false
 	end
@@ -7,3 +8,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:remove()
 	return true
 end
+
+forgottenKnowledgeGirl:id(26400)
+forgottenKnowledgeGirl:register()

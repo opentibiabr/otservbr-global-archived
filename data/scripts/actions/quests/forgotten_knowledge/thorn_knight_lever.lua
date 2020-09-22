@@ -4,7 +4,8 @@ local config = {
 	newPosition = Position(32624, 32886, 14)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeThorn = Action()
+function forgottenKnowledgeThorn.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(32657, 32877, 14) then
 			item:transform(9826)
@@ -45,3 +46,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeThorn:aid(24879)
+forgottenKnowledgeThorn:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeBird = Action()
+function forgottenKnowledgeBird.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 26480 then
 		if target:getName():lower() ~= 'cave parrot' then
 			return false
@@ -22,3 +23,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:getPosition():sendMagicEffect(CONST_ME_HEARTS)
 	return true
 end
+
+forgottenKnowledgeBird:id(26480,26481)
+forgottenKnowledgeBird:register()

@@ -9,7 +9,8 @@ local bosses = {
 	{bossPosition = Position(32980, 31664, 13), bossName = 'The Blazing Time Guardian'}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeGuardianLever = Action()
+function forgottenKnowledgeGuardianLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(33010, 31660, 14) then
 			item:transform(9826)
@@ -49,3 +50,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeGuardianLever:aid(24883)
+forgottenKnowledgeGuardianLever:register()

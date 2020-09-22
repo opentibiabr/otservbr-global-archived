@@ -25,7 +25,8 @@ local function clearForgottenLloyd()
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeLever = Action()
+function forgottenKnowledgeLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(32759, 32868, 14) then
 			item:transform(9826)
@@ -66,3 +67,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeLever:aid(24881)
+forgottenKnowledgeLever:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeOldDesk = Action()
+function forgottenKnowledgeOldDesk.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.ForgottenKnowledge.SilverKey) >= 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You already get an old silver key.')
 		return true
@@ -18,3 +19,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:setStorageValue(Storage.ForgottenKnowledge.OldDesk, 1)
 	return true
 end
+
+forgottenKnowledgeOldDesk:aid(24875)
+forgottenKnowledgeOldDesk:register()

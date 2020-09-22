@@ -39,7 +39,8 @@ local function turnOff(storage, counter)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeMechanism = Action()
+function forgottenKnowledgeMechanism.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local lever = config[item.actionid]
 	if item.itemid == 10044 then
 		if Game.getStorageValue(lever.storage) >= 1 then
@@ -58,3 +59,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeMechanism:aid(26663,26664)
+forgottenKnowledgeMechanism:register()

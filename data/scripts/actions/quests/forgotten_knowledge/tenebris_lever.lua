@@ -18,7 +18,8 @@ local function clearTenebris()
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeTenebris = Action()
+function forgottenKnowledgeTenebris.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(32902, 31623, 14) then
 			return true
@@ -59,3 +60,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeTenebris:aid(24878)
+forgottenKnowledgeTenebris:register()

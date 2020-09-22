@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeFount = Action()
+function forgottenKnowledgeFount.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.ForgottenKnowledge.Phial) >= 1 then
 		return false
 	end
@@ -7,3 +8,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:setStorageValue(Storage.ForgottenKnowledge.Phial, 1)
 	return true
 end
+
+forgottenKnowledgeFount:id(27803,27804,27805,27806)
+forgottenKnowledgeFount:register()

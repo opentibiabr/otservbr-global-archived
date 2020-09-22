@@ -7,7 +7,8 @@ local config = {
 	{pos = Position(31989, 32823, 15), monster = 'an astral glyph'}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeLastLore = Action()
+function forgottenKnowledgeLastLore.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(32019, 32844, 14) then
 			item:transform(9826)
@@ -54,3 +55,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeLastLore:aid(24884)
+forgottenKnowledgeLastLore:register()

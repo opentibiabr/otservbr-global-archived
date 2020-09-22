@@ -198,6 +198,7 @@ local items = {
 	{itemid = 17933, position = Position(32743, 32116, 11)},
 	{itemid = 9043, position = Position(32743,32116, 11)}
 }
+
 local dry = {
 		{itemid = 17727, position = Position(32732, 32113, 11)},
 	{itemid = 11561, position = Position(32732,32113, 11)},
@@ -370,6 +371,7 @@ local function revertItem(position, itemId, transformId)
 		item:transform(transformId)
 	end
 end
+
 local function revertTree()
 	iterateArea(
 		function(position)
@@ -412,7 +414,9 @@ local function revertTree()
 		pos:sendMagicEffect(CONST_ME_POFF)
 	end
 end
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+
+local forgottenKnowledgePlant = Action()
+function forgottenKnowledgePlant.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 26479 then
 		if target.itemid ~= 26482 then
 			return false
@@ -500,3 +504,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgePlant:id(26478,26479)
+forgottenKnowledgePlant:register()

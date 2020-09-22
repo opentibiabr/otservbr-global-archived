@@ -31,26 +31,6 @@
 	<!-- market -->
 	<action itemid="14405" function="market" />
 	<!-- quests -->
-	<!-- forgotten knowledge -->
-	<action itemid="26402" script="quests/forgotten_knowledge/lantern.lua" />
-	<action itemid="26406" script="quests/forgotten_knowledge/lantern.lua" />
-	<action actionid="24875" script="quests/forgotten_knowledge/old_desk.lua" />
-	<action itemid="26400" script="quests/forgotten_knowledge/girl_picture.lua" />
-	<action fromaid="24876" toaid="24877" script="quests/forgotten_knowledge/secret_wall.lua" />
-	<action fromid="26480" toid="26481" script="quests/forgotten_knowledge/bird_cage.lua" />
-	<action fromid="27803" toid="27806" script="quests/forgotten_knowledge/fount.lua" />
-	<action fromid="26478" toid="26479" script="quests/forgotten_knowledge/plant.lua" />
-	<action fromaid="26663" toaid="26664" script="quests/forgotten_knowledge/servants_mechanism.lua" />
-	<action itemid="27764" script="quests/forgotten_knowledge/time_machine.lua" />
-	<action itemid="26397" script="quests/forgotten_knowledge/lost_time.lua" />
-	<!-- levers -->
-	<action actionid="24878" script="quests/forgotten_knowledge/tenebris_lever.lua" />
-	<action actionid="24879" script="quests/forgotten_knowledge/thorn_knight_lever.lua" />
-	<action actionid="24880" script="quests/forgotten_knowledge/dragonking_lever.lua" />
-	<action actionid="24881" script="quests/forgotten_knowledge/lloyd_lever.lua" />
-	<action actionid="24882" script="quests/forgotten_knowledge/horror_lever.lua" />
-	<action actionid="24883" script="quests/forgotten_knowledge/time_guardian_lever.lua" />
-	<action actionid="24884" script="quests/forgotten_knowledge/last_lore_lever.lua" />
 	<!-- gravedigger -->
 	<action actionid="4630" script="quests/gravedigger/amforas.lua" />
 	<action actionid="4631" script="quests/gravedigger/brain.lua" />

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeSecret = Action()
+function forgottenKnowledgeSecret.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.actionid == 24877 then
 		player:teleportTo(Position(32891, 31620, 10))
 		return true
@@ -13,3 +14,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:teleportTo(Position(32924, 31637, 14))
 	return true
 end
+
+forgottenKnowledgeSecret:aid(24876,24877)
+forgottenKnowledgeSecret:register()

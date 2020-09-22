@@ -11,7 +11,8 @@ local monsters = {
 	{monster = 'melting frozen horror', pos = Position(32267, 31071, 14)}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local forgottenKnowledgeHorror = Action()
+function forgottenKnowledgeHorror.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 9825 then
 		if player:getPosition() ~= Position(32302, 31088, 14) then
 			item:transform(9826)
@@ -52,3 +53,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+forgottenKnowledgeHorror:aid(24882)
+forgottenKnowledgeHorror:register()
