@@ -1,6 +1,7 @@
 local goPos = {x = 32813, y = 32754, z = 9}
 
-function onUse(creature, item, position, fromPosition, pos, target, toPosition)
+local asuraMirror = Action()
+function asuraMirror.onUse(creature, item, position, fromPosition, pos, target, toPosition)
     local player = creature:getPlayer()
     if not player then
         return
@@ -14,3 +15,6 @@ function onUse(creature, item, position, fromPosition, pos, target, toPosition)
         player:sendCancelMessage('You do not have enough level.')
     end
 end
+
+asuraMirror:aid(64019)
+asuraMirror:register()
