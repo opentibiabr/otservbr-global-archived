@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local heartDestructionReward = Action()
+function heartDestructionReward.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if item.uid == 1038 then
 		if player:getStorageValue(14337) < 1 then
@@ -19,3 +20,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+heartDestructionReward:uid(1038)
+heartDestructionReward:register()

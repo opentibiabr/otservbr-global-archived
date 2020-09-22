@@ -322,7 +322,8 @@ function clearDevourer()
 end
 -- FUNCTIONS END
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local heartDestructionFinal = Action()
+function heartDestructionFinal.onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
 		hungerPositions = {
@@ -467,3 +468,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	return true
 end
+
+heartDestructionFinal:aid(14332)
+heartDestructionFinal:register()

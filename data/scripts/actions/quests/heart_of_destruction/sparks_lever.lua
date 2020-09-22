@@ -133,8 +133,8 @@ function renewSparks()
 end
 
 -- FUNCTIONS END
-
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local heartDestructionSparks = Action()
+function heartDestructionSparks.onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
 		playerPositions = {
@@ -192,3 +192,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 
 	return true
 end
+
+heartDestructionSparks:aid(14328)
+heartDestructionSparks:register()

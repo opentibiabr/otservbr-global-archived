@@ -179,7 +179,8 @@ function teleportToCharger()
 end
 -- FUNCTIONS END
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local heartDestructionCharges = Action()
+function heartDestructionCharges.onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
 		playerPositions = {
@@ -255,3 +256,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 
 	return true
 end
+
+heartDestructionCharges:aid(14320)
+heartDestructionCharges:register()

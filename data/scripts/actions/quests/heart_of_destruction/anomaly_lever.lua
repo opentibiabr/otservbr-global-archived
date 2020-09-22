@@ -51,7 +51,8 @@ local function clearArea()
 end
 -- FUNCTIONS END
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local heartDestructionAnomaly = Action()
+function heartDestructionAnomaly.onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
 		playerPositions = {
@@ -118,3 +119,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	return true
 end
+
+heartDestructionAnomaly:aid(14325)
+heartDestructionAnomaly:register()

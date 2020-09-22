@@ -1,7 +1,7 @@
 -- FUNCTIONS
 local function doCheckArea()
-	local upConer = {x = 32223, y = 31273, z = 14}       -- upLeftCorner
-	local downConer = {x = 32246, y = 31297, z = 14}     -- downRightCorner
+	local upConer = {x = 32324, y = 31239, z = 14}       -- upLeftCorner
+	local downConer = {x = 32347, y = 31263, z = 14}     -- downRightCorner
 
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
@@ -25,8 +25,8 @@ local function doCheckArea()
 end
 
 local function clearArea()
-	local upConer = {x = 32223, y = 31273, z = 14}       -- upLeftCorner
-	local downConer = {x = 32246, y = 31297, z = 14}     -- downRightCorner
+	local upConer = {x = 32324, y = 31239, z = 14}       -- upLeftCorner
+	local downConer = {x = 32347, y = 31263, z = 14}     -- downRightCorner
 
 	for i=upConer.x, downConer.x do
 		for j=upConer.y, downConer.y do
@@ -38,7 +38,7 @@ local function clearArea()
 					if creatures and #creatures > 0 then
 						for _, c in pairs(creatures) do
 							if isPlayer(c) then
-								c:teleportTo({x = 32208, y = 31372, z = 14})
+								c:teleportTo({x = 32088, y = 31321, z = 13})
 							elseif isMonster(c) then
 								c:remove()
 							end
@@ -48,27 +48,27 @@ local function clearArea()
 			end
 		end
 	end
-	stopEvent(areaOutburst1)
 end
 -- FUNCTIONS END
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local heartDestructionRupture = Action()
+function heartDestructionRupture.onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
 		playerPositions = {
-			Position(32207, 31284, 14),
-			Position(32207, 31285, 14),
-			Position(32207, 31286, 14),
-			Position(32207, 31287, 14),
-			Position(32207, 31288, 14)
+			Position(32309, 31248, 14),
+			Position(32309, 31249, 14),
+			Position(32309, 31250, 14),
+			Position(32309, 31251, 14),
+			Position(32309, 31252, 14)
 		},
 
-		newPos = {x = 32234, y = 31292, z = 14},
+		newPos = {x = 32335, y = 31257, z = 14},
 	}
 
-	local pushPos = {x = 32207, y = 31284, z = 14}
+	local pushPos = {x = 32309, y = 31248, z = 14}
 
-	if item.actionid == 14331 then
+	if item.actionid == 14327 then
 		if item.itemid == 9825 then
 			if player:getPosition().x == pushPos.x and player:getPosition().y == pushPos.y and player:getPosition().z == pushPos.z then
 
@@ -89,25 +89,25 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 						players = storePlayers[i]
 						config.playerPositions[i]:sendMagicEffect(CONST_ME_POFF)
 						players:teleportTo(config.newPos)
-						players:setStorageValue(14331, os.time() + 20*60*60)
+						players:setStorageValue(14323, os.time() + 20*60*60)
 					end
 					Position(config.newPos):sendMagicEffect(11)
 
-					areaOutburst1 = addEvent(clearArea, 15 * 60000)
+					areaRupture1 = addEvent(clearArea, 15 * 60000)
 
-					Game.createMonster("Spark of Destruction", {x = 32229, y = 31282, z = 14}, false, true)
-					Game.createMonster("Spark of Destruction", {x = 32230, y = 31287, z = 14}, false, true)
-					Game.createMonster("Spark of Destruction", {x = 32237, y = 31287, z = 14}, false, true)
-					Game.createMonster("Spark of Destruction", {x = 32238, y = 31282, z = 14}, false, true)
-					Game.createMonster("Outburst", {x = 32234, y = 31284, z = 14}, false, true)
+					ruptureResonanceStage = 0
+					resonanceActive = false
 
-					outburstStage = 0
-					outburstHealth = 290000
+					Game.createMonster("Spark of Destruction", {x = 32331, y = 31254, z = 14}, false, true)
+					Game.createMonster("Spark of Destruction", {x = 32338, y = 31254, z = 14}, false, true)
+					Game.createMonster("Spark of Destruction", {x = 32330, y = 31250, z = 14}, false, true)
+					Game.createMonster("Spark of Destruction", {x = 32338, y = 31250, z = 14}, false, true)
+					Game.createMonster("Rupture", {x = 32332, y = 31250, z = 14}, false, true)
 
-					local vortex = Tile({x = 32225, y = 31285, z = 14}):getItemById(26138)
+					local vortex = Tile({x = 32326, y = 31250, z = 14}):getItemById(26138)
 					if vortex then
 						vortex:transform(26139)
-						vortex:setActionId(14350)
+						vortex:setActionId(14343)
 					end
 				else
 					player:sendTextMessage(19, "Someone is in the area.")
@@ -120,3 +120,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 	end
 	return true
 end
+
+heartDestructionRupture:aid(14327)
+heartDestructionRupture:register()

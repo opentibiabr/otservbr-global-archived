@@ -56,20 +56,6 @@
 	<action itemid="21406" script="quests/gravedigger/hallowed.lua" />
 	<action itemid="21401" script="quests/gravedigger/tears.lua" />
 	<action itemid="21402" script="quests/gravedigger/flask.lua" />
-	<!-- heart of destruction quest -->
-	<action itemid="26342" script="quests/heart_of_destruction/devourer_access.lua" />
-	<action itemid="26194" script="quests/heart_of_destruction/sparkion_eggs.lua" />
-	<action fromid="26340" toid="26341" script="quests/heart_of_destruction/sparkion_eggs.lua" />
-	<action actionid="14320" script="quests/heart_of_destruction/charges_lever.lua" />
-	<action actionid="14325" script="quests/heart_of_destruction/anomaly_lever.lua" />
-	<action actionid="14326" script="quests/heart_of_destruction/cracklers_lever.lua" />
-	<action actionid="14327" script="quests/heart_of_destruction/rupture_lever.lua" />
-	<action actionid="14328" script="quests/heart_of_destruction/sparks_lever.lua" />
-	<action actionid="14329" script="quests/heart_of_destruction/quake_lever.lua" />
-	<action actionid="14330" script="quests/heart_of_destruction/eradicator_lever.lua" />
-	<action actionid="14331" script="quests/heart_of_destruction/outburst_lever.lua" />
-	<action actionid="14332" script="quests/heart_of_destruction/final_lever.lua" />
-	<action uniqueid="1038" script="quests/heart_of_destruction/reward.lua" />
 	<!-- inquisition quest -->
 	<action fromuid="1006" touid="1009" script="quests/inquisition/brother_lever.lua" />
 	<action itemid="8753" script="quests/inquisition/mw.lua" />

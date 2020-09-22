@@ -123,7 +123,8 @@ local function createVortex()
 end
 -- FUNCTIONS END
 
-function onUse(player, item, fromPosition, itemEx, toPosition)
+local heartDestructionCracklers = Action()
+function heartDestructionCracklers.onUse(player, item, fromPosition, itemEx, toPosition)
 
 	local config = {
 		playerPositions = {
@@ -196,3 +197,6 @@ function onUse(player, item, fromPosition, itemEx, toPosition)
 
 	return true
 end
+
+heartDestructionCracklers:aid(14326)
+heartDestructionCracklers:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local heartDestructionEggs = Action()
+function heartDestructionEggs.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local config = {
 		[26194] = {mountId = 94, message = "You receive the permission to ride a sparkion"},
 		[26340] = {mountId = 98, message = "You receive the permission to ride a neon sparkid"},
@@ -20,3 +21,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+heartDestructionEggs:id(26194,26340,26341)
+heartDestructionEggs:register()

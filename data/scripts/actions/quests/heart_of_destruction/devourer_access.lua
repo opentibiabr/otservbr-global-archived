@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local heartDestructionDevourer = Action()
+function heartDestructionDevourer.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	if player:getStorageValue(14333) > os.time() then
 		player:setStorageValue(14333, -1)
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	return true
 end
+
+heartDestructionDevourer:id(26342)
+heartDestructionDevourer:register()
