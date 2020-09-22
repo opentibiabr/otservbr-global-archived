@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoMazeStone = Action()
+function pitsOfInfernoMazeStone.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1946 then
 		return false
 	end
@@ -14,3 +15,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(1946)
 	return true
 end
+
+pitsOfInfernoMazeStone:aid(50160)
+pitsOfInfernoMazeStone:register()

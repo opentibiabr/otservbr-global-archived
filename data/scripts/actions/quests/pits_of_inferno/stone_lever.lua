@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoStoneLever = Action()
+function pitsOfInfernoStoneLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid == 1945 then
 		local stonePosition = Position(32849, 32282, 10)
 		local stoneItem = Tile(stonePosition):getItemById(1304)
@@ -10,3 +11,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+pitsOfInfernoStoneLever:uid(3300)
+pitsOfInfernoStoneLever:register()

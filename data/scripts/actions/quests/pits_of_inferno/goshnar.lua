@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoGoshnar = Action()
+function pitsOfInfernoGoshnar.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if target.actionid ~= 2023 then
 		return false
 	end
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	toPosition:sendMagicEffect(CONST_ME_TELEPORT)
 	return true
 end
+
+pitsOfInfernoGoshnar:aid(2022)
+pitsOfInfernoGoshnar:register()

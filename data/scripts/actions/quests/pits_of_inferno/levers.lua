@@ -27,7 +27,8 @@ local function revertLever(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoLevers = Action()
+function pitsOfInfernoLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		return false
 	end
@@ -63,3 +64,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	addEvent(revertLever, 15 * 60 * 1000, toPosition)
 	return true
 end
+
+for value = 2050, 2065 do
+	pitsOfInfernoLevers:uid(value)
+end
+pitsOfInfernoLevers:register()

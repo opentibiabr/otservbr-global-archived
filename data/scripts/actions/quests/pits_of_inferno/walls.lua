@@ -15,7 +15,8 @@ local function doRemoveFirewalls(fwPos)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoWalls = Action()
+function pitsOfInfernoWalls.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if(item.itemid == 1945) then
 		doRemoveFirewalls(pos[item.uid])
 		Position(pos[item.uid]):sendMagicEffect(CONST_ME_FIREAREA)
@@ -26,3 +27,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 	return true
 end
+
+pitsOfInfernoWalls:uid(2025,2026,2027,2028)
+pitsOfInfernoWalls:register()

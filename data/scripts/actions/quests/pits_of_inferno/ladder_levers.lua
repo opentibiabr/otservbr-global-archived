@@ -1,6 +1,7 @@
 local pos = { Position(32861, 32305, 11), Position(32860, 32313, 11) }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoLadderLevers = Action()
+function pitsOfInfernoLadderLevers.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		return false
 	end
@@ -28,3 +29,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+pitsOfInfernoLadderLevers:uid(3301,3302)
+pitsOfInfernoLadderLevers:register()

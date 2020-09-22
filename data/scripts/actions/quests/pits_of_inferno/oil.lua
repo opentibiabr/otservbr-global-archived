@@ -11,7 +11,8 @@ local function revertLever(position)
 	end
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoOil = Action()
+function pitsOfInfernoOil.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if item.itemid ~= 1945 then
 		return false
 	end
@@ -31,3 +32,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	addEvent(revertLever, 10 * 60 * 1000, toPosition)
 	return true
 end
+
+pitsOfInfernoOil:uid(1037)
+pitsOfInfernoOil:register()

@@ -115,20 +115,6 @@
 	<action itemid="10523" script="quests/others/deeper_banuta_shortcut.lua" />
 	<action actionid="50161" script="quests/others/calassa_comb_door.lua" />
 	<action itemid="5468" script="quests/others/fire_bug.lua" />
-	<!-- pits of inferno quest -->
-	<action actionid="8815" script="quests/pits_of_inferno/fountain.lua" />
-	<action actionid="2022" script="quests/pits_of_inferno/goshnar.lua" />
-	<action fromuid="2050" touid="2065" script="quests/pits_of_inferno/levers.lua" />
-	<action uniqueid="1037" script="quests/pits_of_inferno/oil.lua" />
-	<action uniqueid="3300" script="quests/pits_of_inferno/stone_lever.lua" />
-	<action fromuid="2025" touid="2028" script="quests/pits_of_inferno/walls.lua" />
-	<action fromuid="3301" touid="3302" script="quests/pits_of_inferno/ladder_levers.lua" />
-	<action uniqueid="3304" script="quests/pits_of_inferno/trap_lever.lua" />
-	<action fromaid="39511" toaid="39512" script="quests/pits_of_inferno/bazir_mirror.lua" />
-	<action fromuid="50095" touid="50104" script="quests/pits_of_inferno/bazir_wrong_levers.lua" />
-	<action uniqueid="50105" script="quests/pits_of_inferno/bazir_maze_lever.lua" />
-	<action uniqueid="50106" script="quests/pits_of_inferno/fire_throne_lever.lua" />
-	<action actionid="50160" script="quests/pits_of_inferno/maze_stone.lua" />
 	<!-- the hidden city of beregar -->
 	<action actionid="50128" script="quests/the_hidden_city_of_beregar/deeper_mine_wagon.lua" />
 	<action fromaid="50098" toaid="50108" script="quests/the_hidden_city_of_beregar/ore_wagon.lua" />

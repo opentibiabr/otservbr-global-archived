@@ -10,7 +10,8 @@ local config = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoBlackMirror = Action()
+function pitsOfInfernoBlackMirror.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local useItem = config[item.actionid]
 	if not useItem then
 		return true
@@ -28,3 +29,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+pitsOfInfernoBlackMirror:aid(39511,39512)
+pitsOfInfernoBlackMirror:register()

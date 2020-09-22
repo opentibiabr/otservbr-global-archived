@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local pitsOfInfernoTrapLever = Action()
+function pitsOfInfernoTrapLever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 
@@ -12,3 +13,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+pitsOfInfernoTrapLever:uid(3304)
+pitsOfInfernoTrapLever:register()
