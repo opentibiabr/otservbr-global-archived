@@ -45,5 +45,5 @@ function theHiddenBeregar.onUse(player, item, fromPosition, target, toPosition, 
 	return true
 end
 
-theHiddenBeregar:id()
-theHiddenBeregar:register()
+--theHiddenBeregar:id()
+--theHiddenBeregar:register()

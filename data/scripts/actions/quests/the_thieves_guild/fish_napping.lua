@@ -10,5 +10,5 @@ function theThievesNapping.onUse(player, item, fromPosition, target, toPosition,
 	return true
 end
 
-theThievesNapping:id()
-theThievesNapping:register()
+--theThievesNapping:id()
+--theThievesNapping:register()
