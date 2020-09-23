@@ -8,7 +8,8 @@ local areas = {
 	{ from = Position(32993, 32632, 7), to = Position(33042, 32688, 7) }
 }
 
-function onKill(creature, target)
+local adventurersGuildHunt = CreatureEvent("TheGreatDragonHuntKill")
+function adventurersGuildHunt.onKill(creature, target)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
@@ -27,3 +28,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+adventurersGuildHunt:register()
