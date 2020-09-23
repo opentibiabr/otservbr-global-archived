@@ -4,7 +4,8 @@ local range = {
 	to = Position(32365, 32759, 10)
 }
 
-function onKill(creature, target)
+local upperSpikeKill = CreatureEvent("UpperSpikeKill")
+function upperSpikeKill.onKill(creature, target)
 	if not isInArray({-1, 7}, creature:getStorageValue(SPIKE_UPPER_KILL_MAIN)) then
 		if creature:getPosition():isInRange(range.from, range.to) then
 			if target:isMonster() and (target:getMaster() == nil) and (target:getName():lower() == "demon skeleton") then
@@ -18,3 +19,5 @@ function onKill(creature, target)
 		end
 	end
 end
+
+upperSpikeKill:register()

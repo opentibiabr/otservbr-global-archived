@@ -4,7 +4,8 @@ local range = {
 	to = Position(32345, 32710, 15)
 }
 
-function onKill(creature, target)
+local lowerSpikeKill = CreatureEvent("LowerSpikeKill")
+function lowerSpikeKill.onKill(creature, target)
 	if not isInArray({-1, 7}, creature:getStorageValue(SPIKE_LOWER_KILL_MAIN)) then
 		if creature:getPosition():isInRange(range.from, range.to) then
 			if target:isMonster() and (target:getMaster() == nil) and (target:getName():lower() == "drillworm") then
@@ -18,3 +19,5 @@ function onKill(creature, target)
 		end
 	end
 end
+
+lowerSpikeKill:register()

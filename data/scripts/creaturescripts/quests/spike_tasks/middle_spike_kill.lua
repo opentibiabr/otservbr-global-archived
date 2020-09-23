@@ -4,7 +4,8 @@ local range = {
 	to = Position(32380, 32725, 12)
 }
 
-function onKill(creature, target)
+local middleSpikeKill = CreatureEvent("MiddleSpikeKill")
+function middleSpikeKill.onKill(creature, target)
 	if not isInArray({-1, 7}, creature:getStorageValue(SPIKE_MIDDLE_KILL_MAIN)) then
 		if creature:getPosition():isInRange(range.from, range.to) then
 			if target:isMonster() and (target:getMaster() == nil) and (target:getName():lower() == "crystalcrusher") then
@@ -18,3 +19,5 @@ function onKill(creature, target)
 		end
 	end
 end
+
+middleSpikeKill:register()
