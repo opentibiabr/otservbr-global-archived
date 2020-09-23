@@ -30,5 +30,4 @@
 	<action itemid="32450" function="stash" />
 	<!-- market -->
 	<action itemid="14405" function="market" />
-	<!-- quests -->
 </actions>
