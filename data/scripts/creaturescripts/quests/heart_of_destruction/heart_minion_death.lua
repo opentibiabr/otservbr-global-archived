@@ -1,4 +1,5 @@
-function onDeath(creature)
+local heartMinionDeath = CreatureEvent("HeartMinionDeath")
+function heartMinionDeath.onDeath(creature)
 	if not creature or not creature:isMonster() then -- éMonstro!
 		return true
 	end
@@ -23,3 +24,5 @@ function onDeath(creature)
 	end
 	return true
 end
+
+heartMinionDeath:register()

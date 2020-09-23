@@ -1,4 +1,5 @@
-function onThink(creature)
+local aftershockTransform = CreatureEvent("AftershockTransform")
+function aftershockTransform.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -60,3 +61,5 @@ function onThink(creature)
 	end
 	return true
 end
+
+aftershockTransform:register()

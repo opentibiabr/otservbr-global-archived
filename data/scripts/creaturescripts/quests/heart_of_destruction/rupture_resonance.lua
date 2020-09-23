@@ -1,4 +1,5 @@
-function onThink(creature)
+local ruptureResonance = CreatureEvent("RuptureResonance")
+function ruptureResonance.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -48,3 +49,5 @@ function onThink(creature)
 
 	return true
 end
+
+ruptureResonance:register()

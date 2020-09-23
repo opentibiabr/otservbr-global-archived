@@ -1,4 +1,5 @@
-function onDeath(creature)
+local chargedAnomalyDeath = CreatureEvent("ChargedAnomalyDeath")
+function chargedAnomalyDeath.onDeath(creature)
 	if Game.getStorageValue(14322) == 1 then
 		local monster = Game.createMonster("anomaly", {x = 32271, y = 31249, z = 14}, false, true)
 		monster:addHealth(-72500, false)
@@ -14,3 +15,5 @@ function onDeath(creature)
 	end
 	return true
 end
+
+chargedAnomalyDeath:register()

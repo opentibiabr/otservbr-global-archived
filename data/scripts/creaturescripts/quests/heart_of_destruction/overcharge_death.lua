@@ -46,7 +46,8 @@ local function setStorage()
 	end
 end
 
-function onDeath(creature)
+local overchargeDeath = CreatureEvent("OverchargeDeath")
+function overchargeDeath.onDeath(creature)
 
 	Game.setStorageValue(14321, Game.getStorageValue(14321) + 1)
 
@@ -58,3 +59,5 @@ function onDeath(creature)
 
 	return true
 end
+
+overchargeDeath:register()

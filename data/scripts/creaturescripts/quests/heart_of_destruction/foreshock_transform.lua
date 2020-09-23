@@ -1,4 +1,5 @@
-function onThink(creature)
+local foreshockTransform = CreatureEvent("ForeshockTransform")
+function foreshockTransform.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -59,3 +60,5 @@ function onThink(creature)
 	end
 	return true
 end
+
+foreshockTransform:register()

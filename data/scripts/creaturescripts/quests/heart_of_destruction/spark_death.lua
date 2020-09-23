@@ -21,7 +21,8 @@ local function setStorage()
 	end
 end
 
-function onDeath(creature)
+local sparkDeath = CreatureEvent("SparkDeath")
+function sparkDeath.onDeath(creature)
 	if unstableSparksCount < 10 then
 		unstableSparksCount = unstableSparksCount + 1
 		creature:say("The death of the spark charges the room!", TALKTYPE_MONSTER_YELL, isInGhostMode, pid, {x = 32143, y = 31308, z = 14})
@@ -32,3 +33,5 @@ function onDeath(creature)
 	end
 	return true
 end
+
+sparkDeath:register()

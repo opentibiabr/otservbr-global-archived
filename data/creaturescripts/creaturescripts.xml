@@ -63,27 +63,4 @@
 	<event type="kill" name="ReplicaServant" script="quests/forgotten_knowledge/replica_servants.lua"/>
 	<event type="death" name="ThornKnightDeath" script="quests/forgotten_knowledge/thorn_knight_death.lua"/>
 	<event type="preparedeath" name="TimeGuardianHealth" script="quests/forgotten_knowledge/time_guardian_health.lua"/>
-	<!-- heart of destruction -->
-	<event type="think" name="AftershockTransform" script="quests/heart_of_destruction/aftershock_transform.lua"/>
-	<event type="think" name="AnomalyTransform" script="quests/heart_of_destruction/anomaly_transform.lua"/>
-	<event type="death" name="ChargedAnomalyDeath" script="quests/heart_of_destruction/charged_anomaly_death.lua"/>
-	<event type="think" name="ChargedDisruptionTransform" script="quests/heart_of_destruction/charged_disruption_transform.lua"/>
-	<event type="death" name="ChargerSpawn" script="quests/heart_of_destruction/charger_spawn.lua"/>
-	<event type="death" name="ChargingOutDeath" script="quests/heart_of_destruction/charging_out_death.lua"/>
-	<event type="think" name="CracklerTransform" script="quests/heart_of_destruction/crackler_transform.lua"/>
-	<event type="death" name="DepolarizedDeath" script="quests/heart_of_destruction/depolarized_death.lua"/>
-	<event type="think" name="DepolarizedTransform" script="quests/heart_of_destruction/depolarized_transform.lua"/>
-	<event type="death" name="DevourerStorage" script="quests/heart_of_destruction/devourer_player_death.lua"/>
-	<event type="think" name="DisruptionTransform" script="quests/heart_of_destruction/disruption_transform.lua"/>
-	<event type="think" name="EradicatorTransform" script="quests/heart_of_destruction/eradicator_transform.lua"/>
-	<event type="think" name="ForeshockTransform" script="quests/heart_of_destruction/foreshock_transform.lua"/>
-	<event type="death" name="HeartBossDeath" script="quests/heart_of_destruction/heart_boss_death.lua"/>
-	<event type="death" name="HeartMinionDeath" script="quests/heart_of_destruction/heart_minion_death.lua"/>
-	<event type="think" name="OutburstCharge" script="quests/heart_of_destruction/outburst_charge.lua"/>
-	<event type="death" name="OverchargeDeath" script="quests/heart_of_destruction/overcharge_death.lua"/>
-	<event type="healthchange" name="RuptureHeal" script="quests/heart_of_destruction/rupture_heal.lua"/>
-	<event type="think" name="RuptureResonance" script="quests/heart_of_destruction/rupture_resonance.lua"/>
-	<event type="death" name="ShocksDeath" script="quests/heart_of_destruction/shocks_death.lua"/>
-	<event type="death" name="SparkDeath" script="quests/heart_of_destruction/spark_death.lua"/>
-	<event type="death" name="SparkDevourerDeath" script="quests/heart_of_destruction/spark_devourer_death.lua"/>
 </creaturescripts>

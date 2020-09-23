@@ -1,4 +1,5 @@
-function onThink(creature)
+local outburstCharge = CreatureEvent("OutburstCharge")
+function outburstCharge.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -47,3 +48,5 @@ function onThink(creature)
 	end
 	return true
 end
+
+outburstCharge:register()

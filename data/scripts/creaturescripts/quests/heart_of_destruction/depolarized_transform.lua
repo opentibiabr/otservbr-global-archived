@@ -1,4 +1,5 @@
-function onThink(creature)
+local depolarizedTransform = CreatureEvent("DepolarizedTransform")
+function depolarizedTransform.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -10,3 +11,5 @@ function onThink(creature)
 	end
 	return true
 end
+
+depolarizedTransform:register()

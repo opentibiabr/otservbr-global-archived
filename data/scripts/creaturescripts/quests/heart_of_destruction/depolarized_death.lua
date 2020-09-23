@@ -23,7 +23,8 @@ local function setStorage()
 	end
 end
 
-function onDeath(creature)
+locla depolarizedDeath = CreatureEvent("DepolarizedDeath")
+function depolarizedDeath.onDeath(creature)
 
 	Game.setStorageValue(14323, Game.getStorageValue(14323) + 1)
 	if Game.getStorageValue(14323) == 10 then
@@ -33,3 +34,5 @@ function onDeath(creature)
 	end
 	return true
 end
+
+depolarizedDeath:register()

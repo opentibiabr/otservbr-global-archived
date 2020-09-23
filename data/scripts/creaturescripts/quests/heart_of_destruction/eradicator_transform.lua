@@ -1,4 +1,5 @@
-function onThink(creature)
+local eradicatorTransform = CreatureEvent("EradicatorTransform")
+function eradicatorTransform.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -33,3 +34,5 @@ function onThink(creature)
 	end
 	return true
 end
+
+eradicatorTransform:register()

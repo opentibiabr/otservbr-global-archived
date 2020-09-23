@@ -22,6 +22,9 @@ local function minionExplode(monster)
     end
 end
 
-function onThink(monster)
+local disruptionTransform = CreatureEvent("DisruptionTransform")
+function disruptionTransform.onThink(monster)
     minionExplode(monster)
 end
+
+disruptionTransform:register()

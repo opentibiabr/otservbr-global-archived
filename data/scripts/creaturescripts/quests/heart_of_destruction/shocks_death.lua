@@ -1,4 +1,5 @@
-function onDeath(creature)
+local shocksDeath = CreatureEvent("ShocksDeath")
+function shocksDeath.onDeath(creature)
 	if not creature or not creature:isMonster() then
 		return true
 	end
@@ -34,3 +35,5 @@ function onDeath(creature)
 
 	return true
 end
+
+shocksDeath:register()

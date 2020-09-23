@@ -72,7 +72,8 @@ local function setStorage(fromPos, toPos, storage)
 	end
 end
 
-function onDeath(creature)
+local heartBossDeath = CreatureEvent("HeartBossDeath")
+function heartBossDeath.onDeath(creature)
 
 	local bosses = {
 		["anomaly"] = {
@@ -132,3 +133,5 @@ function onDeath(creature)
 	end
 	return true
 end
+
+heartBossDeath:register()

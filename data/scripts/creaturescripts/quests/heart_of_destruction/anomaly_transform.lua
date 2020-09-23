@@ -1,4 +1,5 @@
-function onThink(creature)
+local anomalyTransform = CreatureEvent("AnomalyTransform")
+function anomalyTransform.onThink(creature)
 	if not creature or not creature:isMonster() then
 		return false
 	end
@@ -39,3 +40,5 @@ function onThink(creature)
 	end
 	return true
 end
+
+anomalyTransform:register()
