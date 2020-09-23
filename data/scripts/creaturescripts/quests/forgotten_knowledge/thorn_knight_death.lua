@@ -8,7 +8,8 @@ local function checkBlood(position)
 		end
 	end
 end
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local thornKnightDeath = CreatureEvent("ThornKnightDeath")
+function thornKnightDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster then
 		return true
@@ -26,3 +27,4 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	end
 	return true
 end
+thornKnightDeath:register()

@@ -8,7 +8,8 @@ local servants = {
 		playerStorage = Storage.ForgottenKnowledge.DiamondServantCounter
 	}
 }
-function onKill(creature, target)
+local replicaServant = CreatureEvent("ReplicaServant")
+function replicaServant.onKill(creature, target)
 	local player = creature:getPlayer()
 	if not player then
 		return true
@@ -41,3 +42,4 @@ function onKill(creature, target)
 	player:setStorageValue(bossConfig.playerStorage, player:getStorageValue(bossConfig.playerStorage) + 1)
 	return true
 end
+replicaServant:register()

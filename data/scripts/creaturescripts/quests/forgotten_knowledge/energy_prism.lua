@@ -1,4 +1,5 @@
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local energyPrism = CreatureEvent("EnergyPrism")
+function energyPrism.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if not Tile(Position(32799, 32826, 14)):getTopCreature() then
 		if creature:getHealth() < creature:getMaxHealth() then
 			creature:say('*zap!*', TALKTYPE_MONSTER_SAY)
@@ -8,3 +9,4 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+energyPrism:register()

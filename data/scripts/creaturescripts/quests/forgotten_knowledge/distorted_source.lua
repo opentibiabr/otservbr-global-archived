@@ -1,4 +1,5 @@
-function onThink(creature)
+local distortedSource = CreatureEvent("DistortedSource")
+function distortedSource.onThink(creature)
 	local health, difference, glyph, pos = 0, 0, Tile(Position(31989, 32823, 15)):getTopCreature(), creature:getPosition()
 	if creature:getHealth() <= 40000 then
 		creature:addHealth(10000, false)
@@ -36,3 +37,4 @@ function onThink(creature)
 		end
 	end
 end
+distortedSource:register()

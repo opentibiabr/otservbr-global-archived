@@ -24,7 +24,8 @@ local function revertLloyd(creature, cosmic)
 	end
 end
 
-function onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
+local lloydPrepareDeath = CreatureEvent("LloydPrepareDeath")
+function lloydPrepareDeath.onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
 	if not creature:getName():lower() == "lloyd" and creature:isMonster() then
 		return true
 	end
@@ -44,3 +45,4 @@ function onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
 	end
 	return true
 end
+lloydPrepareDeath:register()

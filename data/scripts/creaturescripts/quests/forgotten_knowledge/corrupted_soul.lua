@@ -5,7 +5,8 @@ local function removeVortex(pos)
 	end
 end
 
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local corruptedSoul = CreatureEvent("CorruptedSoul")
+function corruptedSoul.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster then
 		return true
@@ -24,3 +25,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	addEvent(removeVortex, 30 * 1000, pos)
 	return true
 end
+
+corruptedSoul:register()

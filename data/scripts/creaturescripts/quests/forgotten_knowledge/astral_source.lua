@@ -1,4 +1,5 @@
-function onThink(creature)
+local astralSource = CreatureEvent("AstralSource")
+function astralSource.onThink(creature)
 	local hp = (creature:getHealth() / creature:getMaxHealth()) * 100
 	local health, difference, glyph, pos = 0, 0, Tile(Position(31989, 32823, 15)):getTopCreature(), creature:getPosition()
 	if hp < 5.5 and Game.getStorageValue(GlobalStorage.ForgottenKnowledge.AstralGlyph) >= 1 then
@@ -26,3 +27,4 @@ function onThink(creature)
 		creature:addHealth(10000, false)
 	end
 end
+astralSource:register()

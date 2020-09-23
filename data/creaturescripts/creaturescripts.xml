@@ -46,21 +46,4 @@
 	<event type="logout" name="HirelingLogoutPlayer" script="others/hireling_logout.lua" />
 
 	<!-- quests -->
-	<!-- forgotten knowledge -->
-	<event type="death" name="AstralGlyphDeath" script="quests/forgotten_knowledge/astral_glyph_death.lua"/>
-	<event type="think" name="AstralSource" script="quests/forgotten_knowledge/astral_source.lua"/>
-	<event type="kill" name="BossesForgottenKill" script="quests/forgotten_knowledge/bosses_kill.lua"/>
-	<event type="kill" name="AstralPower" script="quests/forgotten_knowledge/bound_astral_power.lua"/>
-	<event type="death" name="CorruptedSoul" script="quests/forgotten_knowledge/corrupted_soul.lua"/>
-	<event type="think" name="DistortedSource" script="quests/forgotten_knowledge/distorted_source.lua"/>
-	<event type="healthchange" name="DragonEggHealthChange" script="quests/forgotten_knowledge/dragon_egg.lua"/>
-	<event type="preparedeath" name="DragonEggPrepareDeath" script="quests/forgotten_knowledge/dragon_egg.lua"/>
-	<event type="healthchange" name="EnergyPrism" script="quests/forgotten_knowledge/energy_prism.lua"/>
-	<event type="kill" name="EnergyPrismDeath" script="quests/forgotten_knowledge/energy_prism_death.lua"/>
-	<event type="healthchange" name="HealthForgotten" script="quests/forgotten_knowledge/healthchange_forgotten.lua"/>
-	<event type="preparedeath" name="LloydPrepareDeath" script="quests/forgotten_knowledge/lloyd_preparedeath.lua"/>
-	<event type="death" name="PossessedTree" script="quests/forgotten_knowledge/possessed_tree.lua"/>
-	<event type="kill" name="ReplicaServant" script="quests/forgotten_knowledge/replica_servants.lua"/>
-	<event type="death" name="ThornKnightDeath" script="quests/forgotten_knowledge/thorn_knight_death.lua"/>
-	<event type="preparedeath" name="TimeGuardianHealth" script="quests/forgotten_knowledge/time_guardian_health.lua"/>
 </creaturescripts>

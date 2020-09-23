@@ -1,5 +1,6 @@
 local monsters = {"unbound blightwalker", "unbound demon", "unbound demon outcast", "unbound defiler"}
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local possessedTree = CreatureEvent("PossessedTree")
+function possessedTree.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster then
 		return true
@@ -12,3 +13,4 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	addEvent(Game.createMonster, 60 * 1000, "possessed tree", targetMonster:getPosition(), true, true)
 	return true
 end
+possessedTree:register()

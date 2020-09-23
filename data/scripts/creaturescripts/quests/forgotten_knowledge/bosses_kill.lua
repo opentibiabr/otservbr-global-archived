@@ -13,7 +13,8 @@ local bosses = {
 	["an astral glyph"] = {}
 }
 
-function onKill(creature, target)
+local bossesForgottenKill = CreatureEvents("BossesForgottenKill")
+function bossesForgottenKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster or targetMonster:getMaster() then
 		return true
@@ -48,3 +49,4 @@ function onKill(creature, target)
 	end
 	return true
 end
+bossesForgottenKill:register()

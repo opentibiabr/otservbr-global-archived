@@ -1,4 +1,5 @@
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local healthForgotten = CreatureEvent("HealthForgotten")
+function healthForgotten.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	local name = creature:getName():lower()
 	if name == "lady tenebris" then
 		local spectators = Game.getSpectators(creature:getPosition(), false, false, 7, 7, 7, 7)
@@ -20,3 +21,5 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	primaryDamage = primaryDamage + 100 / 100. * primaryDamage
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+healthForgotten:register()

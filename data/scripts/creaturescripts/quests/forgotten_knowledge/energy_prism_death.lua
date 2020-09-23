@@ -1,5 +1,6 @@
 local cosmic = {'cosmic energy prism a', 'cosmic energy prism b', 'cosmic energy prism c', 'cosmic energy prism d'}
-function onKill(creature, target)
+local energyPrismDeath = CreatureEvent("EnergyPrismDeath")
+function energyPrismDeath.onKill(creature, target)
 	local player = creature:getPlayer()
 	if not player then
 		return true
@@ -22,3 +23,4 @@ function onKill(creature, target)
 	end
 	return true
 end
+energyPrismDeath:register()

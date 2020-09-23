@@ -36,15 +36,18 @@ local function changeHorror()
 	addEvent(revertHorror, 20 * 1000)
 end
 
-function onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
+local dragonEggPrepareDeath = CreatureEvent("DragonEggPrepareDeath")
+function dragonEggPrepareDeath.onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
 	if not creature:getName():lower() == "dragon egg" and creature:isMonster() then
 		return true
 	end
 	creature:addHealth(1, false)
 	return true
 end
+dragonEggPrepareDeath:register()
 
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local dragonEggHealthChange = CreatureEvent("DragonEggHealthChange")
+function dragonEggHealthChange.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if creature:getName():lower() == 'dragon egg' then
 		if primaryType == COMBAT_HEALING then
 			doTargetCombatHealth(0, creature, COMBAT_ICEDAMAGE, -primaryDamage, -primaryDamage, CONST_ME_MAGIC_GREEN)
@@ -63,3 +66,4 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+dragonEggHealthChange:register()
