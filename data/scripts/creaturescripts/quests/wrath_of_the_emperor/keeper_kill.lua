@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local keeperKill = CreatureEvent("KeeperKill")
+function keeperKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -9,3 +10,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+keeperKill:register()

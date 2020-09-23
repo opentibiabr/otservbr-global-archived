@@ -130,10 +130,4 @@
 	<event type="kill" name="YielothaxKill" script="quests/raging_mage_tower/yielothax_kill.lua"/>
 	<event type="death" name="RagingMage1" script="quests/raging_mage_tower/raging_mage_1.lua"/>
 	<event type="death" name="RagingMage2" script="quests/raging_mage_tower/raging_mage_2.lua"/>
-	<!-- wrath of the emperor -->
-	<event type="kill" name="BossesKill" script="quests/wrath_of_the_emperor/bosses_kill.lua"/>
-	<event type="kill" name="KeeperKill" script="quests/wrath_of_the_emperor/keeper_kill.lua"/>
-	<event type="kill" name="LizardMagistratusKill" script="quests/wrath_of_the_emperor/lizard_magistratus_kill.lua"/>
-	<event type="kill" name="LizardNobleKill" script="quests/wrath_of_the_emperor/lizard_noble_kill.lua"/>
-	<event type="kill" name="ZalamonKill" script="quests/wrath_of_the_emperor/zalamon_kill.lua"/>
 </creaturescripts>

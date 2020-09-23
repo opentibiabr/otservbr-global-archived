@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local lizardMagistratusKill = CreatureEvent("LizardMagistratusKill")
+function lizardMagistratusKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -16,3 +17,5 @@ function onKill(creature, target)
 
 	return true
 end
+
+lizardMagistratusKill:register()

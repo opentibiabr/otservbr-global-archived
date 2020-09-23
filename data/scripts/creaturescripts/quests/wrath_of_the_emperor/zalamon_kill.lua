@@ -13,7 +13,8 @@ local bossForms = {
 	}
 }
 
-function onKill(player, target)
+local zalamonKill = CreatureEvent("ZalamonKill")
+function zalamonKill.onKill(player, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -44,3 +45,5 @@ function onKill(player, target)
 	end
 	return true
 end
+
+zalamonKill:register()

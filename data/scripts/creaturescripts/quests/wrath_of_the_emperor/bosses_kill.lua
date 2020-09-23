@@ -13,7 +13,8 @@ local bosses = {
 		storage = GlobalStorage.WrathOfTheEmperor.Bosses.Spite},
 }
 
-function onKill(creature, target)
+local bossesKill = CreatureEvent("BossesKill")
+function bossesKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -34,3 +35,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+bossesKill:register()
