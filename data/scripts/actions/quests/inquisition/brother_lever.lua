@@ -69,7 +69,8 @@ local config = {
 	}
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inquisitionBrother = Action()
+function inquisitionBrother.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetLever = config[item.uid]
 	if not targetLever then
 		return true
@@ -89,3 +90,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	item:transform(item.itemid == 1945 and 1946 or 1945)
 	return true
 end
+
+inquisitionBrother:uid(1006,1007,1008,1009)
+inquisitionBrother:register()

@@ -1,4 +1,5 @@
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inquisitionUngreez = Action()
+function inquisitionUngreez.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.TheInquisition.Questline) == 18 then
 		if item.actionid == 1004 then
 			if item.itemid == 5114 then
@@ -19,3 +20,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+inquisitionUngreez:aid(1004)
+inquisitionUngreez:register()

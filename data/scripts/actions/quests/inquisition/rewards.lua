@@ -10,7 +10,8 @@ local rewards = {
 	[1308] = 8854
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inquisitionRewards = Action()
+function inquisitionRewards.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.TheInquisition.Reward) < 1 then
 		player:setStorageValue(Storage.TheInquisition.Reward, 1)
 		player:setStorageValue(Storage.TheInquisition.Questline, 25)
@@ -27,3 +28,8 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	end
 	return true
 end
+
+for value = 1300, 1308 do
+	inquisitionRewards:uid(value)
+end
+inquisitionRewards:register()

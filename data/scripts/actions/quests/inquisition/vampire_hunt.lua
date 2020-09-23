@@ -4,7 +4,8 @@ local altars = {
 	Position(32781, 31982, 9)
 }
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local inquisitionVampire = Action()
+function inquisitionVampire.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	if player:getStorageValue(Storage.TheInquisition.Questline) == 8 then
 		player:setStorageValue(Storage.TheInquisition.Questline, 9)
 		player:setStorageValue(Storage.TheInquisition.Mission03, 4) -- The Inquisition Questlog- "Mission 3: Vampire Hunt"
@@ -25,3 +26,6 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		return true
 	end
 end
+
+inquisitionVampire:aid(2002)
+inquisitionVampire:register()
