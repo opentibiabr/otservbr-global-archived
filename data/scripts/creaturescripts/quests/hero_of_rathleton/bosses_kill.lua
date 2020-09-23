@@ -42,7 +42,8 @@ local function revertTeleport(position, itemId, transformId, destination)
 	end
 end
 
-function onKill(creature, target)
+local rathletonBossKill = CreatureEvent("RathletonBossKill")
+function rathletonBossKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster or targetMonster:getMaster() then
 		return true
@@ -71,3 +72,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+rathletonBossKill:register()

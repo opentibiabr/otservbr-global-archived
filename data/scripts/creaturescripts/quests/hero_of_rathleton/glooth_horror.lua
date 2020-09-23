@@ -5,7 +5,8 @@ local config = {
 	{name = 'Strong Glooth Horror', monster = 'Empowered Glooth Horror'}
 }
 
-function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
+local gloothHorror = CreatureEvent("GloothHorror")
+function gloothHorror.onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster or targetMonster:getMaster() then
 		return true
@@ -25,3 +26,5 @@ function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDa
 	end
 	return true
 end
+
+gloothHorror:register()

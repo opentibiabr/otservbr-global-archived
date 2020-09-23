@@ -124,10 +124,6 @@
 	<event type="death" name="ShocksDeath" script="quests/heart_of_destruction/shocks_death.lua"/>
 	<event type="death" name="SparkDeath" script="quests/heart_of_destruction/spark_death.lua"/>
 	<event type="death" name="SparkDevourerDeath" script="quests/heart_of_destruction/spark_devourer_death.lua"/>
-	<!-- hero of rathleton -->
-	<event type="death" name="TentacleDeep" script="quests/hero_of_rathleton/tentacle.lua"/>
-	<event type="kill" name="RathletonBossKill" script="quests/hero_of_rathleton/bosses_kill.lua"/>
-	<event type="death" name="GloothHorror" script="quests/hero_of_rathleton/glooth_horror.lua"/>
 	<!-- inquisition_quest -->
 	<event type="kill" name="InquisitionBossKill" script="quests/inquisition/inquisition_boss.lua"/>
 	<event type="kill" name="UngreezKill" script="quests/inquisition/inquisition_ungreez.lua"/>

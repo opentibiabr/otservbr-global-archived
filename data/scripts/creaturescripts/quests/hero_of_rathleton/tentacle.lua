@@ -17,7 +17,8 @@ local function checkTentacle()
 	end
 end
 
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local tentacleDeep = CreatureEvent("TentacleDeep")
+function tentacleDeep.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster then
 		return true
@@ -25,3 +26,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	addEvent(checkTentacle, 5 * 1000)
 	return true
 end
+
+tentacleDeep:register()
