@@ -13,7 +13,8 @@ local function clearArena()
 	end
 end
 
-function onKill(creature, target)
+local tireczKill = CreatureEvent("TireczKill")
+function tireczKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -40,3 +41,5 @@ function onKill(creature, target)
 	clearArena()
 	return true
 end
+
+tireczKill:register()

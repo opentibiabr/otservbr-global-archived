@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local shardOfCorruptionKill = CreatureEvent("ShardOfCorruptionKill")
+function shardOfCorruptionKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -16,3 +17,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+shardOfCorruptionKill:register()
