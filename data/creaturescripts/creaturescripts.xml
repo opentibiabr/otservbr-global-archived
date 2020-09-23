@@ -146,8 +146,6 @@
 	<!-- their masters voice worldchange -->
 	<event type="death" name="ServantDeath" script="quests/their_masters_voice/servant_death.lua"/>
 	<event type="death" name="MageDeath" script="quests/their_masters_voice/mage_death.lua"/>
-	<!-- thieves guild -->
-	<event type="kill" name="NomadKill" script="quests/thieves_guild/nomad_kill.lua"/>
 	<!-- wrath of the emperor -->
 	<event type="kill" name="BossesKill" script="quests/wrath_of_the_emperor/bosses_kill.lua"/>
 	<event type="kill" name="KeeperKill" script="quests/wrath_of_the_emperor/keeper_kill.lua"/>
