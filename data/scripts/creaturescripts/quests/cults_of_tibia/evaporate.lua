@@ -36,7 +36,8 @@ end
 
 setCombatCallback(combat, CALLBACK_PARAM_TARGETTILE, "onTargetTile")
 
-function onThink(creature)
+local evaporate = CreatureEvent("Evaporate")
+function evaporate.onThink(creature)
 	local hp = (creature:getHealth()/creature:getMaxHealth())*100
 	if hp < 60.0 then
 		addEvent(function(cid)
@@ -52,3 +53,5 @@ function onThink(creature)
 		end, 100, creature:getId())
 	end
 end
+
+evaporate:register()

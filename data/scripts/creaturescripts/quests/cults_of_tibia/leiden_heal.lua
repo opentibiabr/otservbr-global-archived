@@ -1,4 +1,5 @@
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local leidenHeal = CreatureEvent("LeidenHeal")
+function leidenHeal.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if creature:getName():lower() == "leiden" then
 		if attacker and attacker:isPlayer() then
 			primaryType = COMBAT_HEALING
@@ -13,3 +14,5 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+leidenHeal:register()

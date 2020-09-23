@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local essenceOfMalice = CreatureEvent("EssenceOfMalice")
+function essenceOfMalice.onKill(creature, target)
 	if not creature:isMonster() or creature:getMaster() then
 		return false
 	end
@@ -27,3 +28,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+essenceOfMalice:register()

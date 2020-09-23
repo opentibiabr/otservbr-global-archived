@@ -47,7 +47,8 @@ local function spawnSandMonster(name, _time)
 	return true
 end
 
-function onThink(creature)
+local sandkingThink = CreatureEvent("SandkingThink")
+function sandkingThink.onThink(creature)
 	if not creature:isMonster() then
 		return true
 	end
@@ -97,8 +98,10 @@ function onThink(creature)
 	end
 	return true
 end
+sandkingThink:register()
 
-function onDeath(creature, attacker, corpse)
+local sandkingDeath = CreatureEvent("SandkingDeath")
+function sandkingDeath.onDeath(creature, attacker, corpse)
 	if not creature:isMonster() then
 		return true
 	end
@@ -124,8 +127,11 @@ function onDeath(creature, attacker, corpse)
 	end
 	return true
 end
+sandkingDeath:register()
 
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+
+local sandHealth = CreatureEvent("SandHealth")
+function sandHealth.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if not creature:isMonster() then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
@@ -145,3 +151,4 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+sandHealth:register()

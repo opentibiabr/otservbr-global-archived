@@ -1,4 +1,5 @@
-function onKill(creature, target, item)
+local vortexCarlin = CreatureEvent("VortexCarlin")
+function vortexCarlin.onKill(creature, target, item)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
@@ -25,3 +26,5 @@ function onKill(creature, target, item)
 	end
 	return true
 end
+
+vortexCarlin:register()

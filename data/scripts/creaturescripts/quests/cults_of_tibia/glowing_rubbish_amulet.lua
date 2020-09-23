@@ -1,4 +1,5 @@
-function onKill(creature, killed)
+local glowingRubbishAmulet = CreatureEvent("GlowingRubbishAmulet")
+function glowingRubbishAmulet.onKill(creature, killed)
 	local player = Player(creature)
 	if not player then
 		return true
@@ -39,3 +40,5 @@ function onKill(creature, killed)
 	end
 	return true
 end
+
+glowingRubbishAmulet:register()

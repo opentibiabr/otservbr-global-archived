@@ -16,7 +16,8 @@ local function DestruirRaio1(fromPos, toPos, id, dir)
 	end
 end
 
-function onDeath(creature, attacker)
+local machineDeath = CreatureEvent("MachineDeath")
+function machineDeath.onDeath(creature, attacker)
 	if not creature:isMonster() then
 		return true
 	end
@@ -55,7 +56,10 @@ function onDeath(creature, attacker)
 	return true
 end
 
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+machineDeath:register()
+
+local machineHealth = CreatureEvent("MachineHealth")
+function machineHealth.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	local frompos = Position(33123, 31846, 15) -- Checagem
 	local topos = Position(33149, 31871, 15) -- Checagem
 
@@ -99,3 +103,5 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+machineHealth:register()

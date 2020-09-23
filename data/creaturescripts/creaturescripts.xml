@@ -46,25 +46,6 @@
 	<event type="logout" name="HirelingLogoutPlayer" script="others/hireling_logout.lua" />
 
 	<!-- quests -->
-	<!-- cults_of_tibia_quest -->
-	<event type="kill" name="BossesCults" script="quests/cults_of_tibia/bosses_mission_cults.lua"/>
-	<event type="kill" name="VortexCarlin" script="quests/cults_of_tibia/carlin_vortex_spawn.lua"/>
-	<event type="think" name="CheckTile" script="quests/cults_of_tibia/check_tile.lua"/>
-	<event type="kill" name="DestroyedPillar" script="quests/cults_of_tibia/destroyed_pillar.lua"/>
-	<event type="kill" name="EssenceOfMalice" script="quests/cults_of_tibia/essence_of_malice.lua"/>
-	<event type="think" name="Evaporate" script="quests/cults_of_tibia/evaporate.lua"/>
-	<event type="kill" name="GlowingRubbishAmulet" script="quests/cults_of_tibia/glowing_rubbish_amulet.lua"/>
-	<event type="healthchange" name="LeidenHeal" script="quests/cults_of_tibia/leiden_heal.lua"/>
-	<event type="death" name="MachineDeath" script="quests/cults_of_tibia/machine.lua"/>
-	<event type="healthchange" name="MachineHealth" script="quests/cults_of_tibia/machine.lua"/>
-	<event type="kill" name="MinotaurTask" script="quests/cults_of_tibia/minotaur_task_count.lua"/>
-	<event type="healthchange" name="HealthPillar" script="quests/cults_of_tibia/pillar_health.lua"/>
-	<event type="think" name="SandkingThink" script="quests/cults_of_tibia/sandking.lua"/>
-	<event type="death" name="SandkingDeath" script="quests/cults_of_tibia/sandking.lua"/>
-	<event type="healthchange" name="SandHealth" script="quests/cults_of_tibia/sandking.lua"/>
-	<event type="death" name="SpawnBoss" script="quests/cults_of_tibia/spawn_boss.lua"/>
-	<event type="think" name="Splash" script="quests/cults_of_tibia/splash.lua"/>
-	<event type="healthchange" name="YalahariHealth" script="quests/cults_of_tibia/zarcorix_reflect_damage.lua"/>
 	<!-- ferumbras ascedant-->
 	<event type="death" name="BoneCapsule" script="quests/ferumbras_ascendant/bone_capsule.lua"/>
 	<event type="kill" name="AscendantBossesKill" script="quests/ferumbras_ascendant/bosses_kill.lua"/>

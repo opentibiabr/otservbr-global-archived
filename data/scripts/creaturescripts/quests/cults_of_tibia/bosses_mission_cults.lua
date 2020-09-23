@@ -1,4 +1,5 @@
-function onKill(player, creature)
+local bossesCults = CreatureEvent("BossesCults")
+function bossesCults.onKill(player, creature)
 	local bosses = {
 		["ravennous hunger"] = {storage = Storage.CultsOfTibia.Barkless.Mission, value = 6},
 		["the souldespoiler"] = {storage = Storage.CultsOfTibia.Misguided.Mission, value = 4},
@@ -56,3 +57,5 @@ function onKill(player, creature)
 	end
 	return true
 end
+
+bossesCults:register()

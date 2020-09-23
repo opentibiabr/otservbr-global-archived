@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local destroyedPillar = CreatureEvent("DestroyedPillar")
+function destroyedPillar.onKill(creature, target)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
@@ -71,3 +72,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+destroyedPillar:register()

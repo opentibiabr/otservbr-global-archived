@@ -1,4 +1,5 @@
-function onThink(creature)
+local splash = CreatureEvent("Splash")
+function splash.onThink(creature)
 	local hp = (creature:getHealth()/creature:getMaxHealth())*100
 	if hp < 85.0 then
 		addEvent(function(cid)
@@ -13,3 +14,5 @@ function onThink(creature)
 		end, 100, creature:getId())
 	end
 end
+
+splash:register()

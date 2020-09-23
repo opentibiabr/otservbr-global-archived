@@ -1,4 +1,5 @@
-function onDeath(creature, target)
+local spawnBoss = CreatureEvent("SpawnBoss")
+function spawnBoss.onDeath(creature, target)
 	if not creature or not creature:isMonster() then
 		return true
 	end
@@ -10,3 +11,5 @@ function onDeath(creature, target)
 	end
 	return true
 end
+
+spawnBoss:register()

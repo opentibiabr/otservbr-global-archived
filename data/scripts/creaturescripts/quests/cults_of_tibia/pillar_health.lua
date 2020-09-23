@@ -6,7 +6,8 @@ local defensor = {
 	["malkhar deathbringer"] = Position(33098, 31915, 15),
 }
 
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local healthPillar = CreatureEvent("HealthPillar")
+function healthPillar.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if not creature:isMonster() then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
@@ -24,3 +25,5 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+healthPillar:register()
