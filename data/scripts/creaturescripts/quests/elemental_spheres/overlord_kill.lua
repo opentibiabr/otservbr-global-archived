@@ -6,7 +6,8 @@ local overlords = {
 	['lord of the elements'] = {}
 }
 
-function onKill(creature, target)
+local elementalSpheresOver = CreatureEvent("OverlordKill")
+function elementalSpheresOver.onKill(creature, target)
 	if not target:isMonster() then
 		return true
 	end
@@ -28,3 +29,5 @@ function onKill(creature, target)
 	creature:say('You slayed ' .. bossName .. '.', TALKTYPE_MONSTER_SAY)
 	return true
 end
+
+elementalSpheresOver:register()

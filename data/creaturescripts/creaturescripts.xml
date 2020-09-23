@@ -82,8 +82,6 @@
 	<event type="think" name="TheBaronFromBelowThink" script="quests/dangerous_depths/the_baron_from_below.lua"/>
 	<event type="kill" name="TheBaronFromBelowKill" script="quests/dangerous_depths/the_baron_from_below.lua"/>
 	<event type="healthchange" name="TheDukeHealFireDamage" script="quests/dangerous_depths/the_duke_heal_fire_damage.lua"/>
-	<!-- elemental spheres -->
-	<event type="kill" name="OverlordKill" script="quests/elemental_spheres/overlord_kill.lua"/>
 	<!-- ferumbras ascedant-->
 	<event type="death" name="BoneCapsule" script="quests/ferumbras_ascendant/bone_capsule.lua"/>
 	<event type="kill" name="AscendantBossesKill" script="quests/ferumbras_ascendant/bosses_kill.lua"/>
