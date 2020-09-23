@@ -140,8 +140,6 @@
 	<event type="kill" name="YielothaxKill" script="quests/raging_mage_tower/yielothax_kill.lua"/>
 	<event type="death" name="RagingMage1" script="quests/raging_mage_tower/raging_mage_1.lua"/>
 	<event type="death" name="RagingMage2" script="quests/raging_mage_tower/raging_mage_2.lua"/>
-	<!-- secret service -->
-	<event type="kill" name="BlackKnightKill" script="quests/secret_service/black_knight_kill.lua"/>
 	<!-- spike tasks -->
 	<event type="kill" name="LowerSpikeKill" script="quests/spike_tasks/lower_spike_kill.lua"/>
 	<event type="kill" name="MiddleSpikeKill" script="quests/spike_tasks/middle_spike_kill.lua"/>
