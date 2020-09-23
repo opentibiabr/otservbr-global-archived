@@ -1,4 +1,5 @@
-function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
+local ragingMage1 = CreatureEvent("RagingMage1")
+function ragingMage1.onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
 	local playerDoubleMageKill = 775558
 	local yielothaxKillStorage = 673003
 	local enoughKills = 775559
@@ -34,3 +35,5 @@ function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDa
 		return true
 	end
 end
+
+ragingMage1:register()

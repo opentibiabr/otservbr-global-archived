@@ -1,4 +1,5 @@
-function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
+local ragingMage2 = CreatureEvent("RagingMage2")
+function ragingMage2.onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster or targetMonster:getName():lower() ~= 'raging mage' then
 		return true
@@ -21,3 +22,5 @@ function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDa
 	Game.setStorageValue(775559, 0)
 	return true
 end
+
+ragingMage2:register()

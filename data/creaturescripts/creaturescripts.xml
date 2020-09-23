@@ -115,10 +115,4 @@
 	<event type="death" name="ShocksDeath" script="quests/heart_of_destruction/shocks_death.lua"/>
 	<event type="death" name="SparkDeath" script="quests/heart_of_destruction/spark_death.lua"/>
 	<event type="death" name="SparkDevourerDeath" script="quests/heart_of_destruction/spark_devourer_death.lua"/>
-	<!-- raging mage tower worldchange -->
-	<event type="kill" name="EnergizedRagingMageKill" script="quests/raging_mage_tower/energized_raging_mage_kill.lua"/>
-	<event type="kill" name="ragingMageKill" script="quests/raging_mage_tower/raging_mage_kill.lua"/>
-	<event type="kill" name="YielothaxKill" script="quests/raging_mage_tower/yielothax_kill.lua"/>
-	<event type="death" name="RagingMage1" script="quests/raging_mage_tower/raging_mage_1.lua"/>
-	<event type="death" name="RagingMage2" script="quests/raging_mage_tower/raging_mage_2.lua"/>
 </creaturescripts>

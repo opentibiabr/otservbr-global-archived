@@ -1,4 +1,5 @@
-function onKill(cid, target, damage, flags, corpse)
+local ragingMageKill = CreatureEvent("ragingMageKill")
+function ragingMageKill.onKill(cid, target, damage, flags, corpse)
 	if(isMonster(target)) then
 		if(string.lower(getCreatureName(target)) == "raging mage") then
 			 broadcastMessage("The remains of the Raging Mage are scattered on the floor of his Tower. The dimensional portal quakes.", MESSAGE_EVENT_ADVANCE)
@@ -9,3 +10,5 @@ function onKill(cid, target, damage, flags, corpse)
 	end
 	return true
 end
+
+ragingMageKill:register()

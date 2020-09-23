@@ -1,4 +1,5 @@
-function onKill(player, creature, damage, flags)
+local energizedRagingMageKill = CreatureEvent("EnergizedRagingMageKill")
+function energizedRagingMageKill.onKill(player, creature, damage, flags)
 	if not creature or not creature:isMonster() then
 		return true
 	end
@@ -19,3 +20,5 @@ function onKill(player, creature, damage, flags)
 
 	return true
 end
+
+energizedRagingMageKill:register()
