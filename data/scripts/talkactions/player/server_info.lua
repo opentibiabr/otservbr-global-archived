@@ -10,7 +10,7 @@ function serverInfo.onSay(player, words, param)
 	.. "\nDistance Skill rate: " .. getRateFromTable(skillsStages, player:getEffectiveSkillLevel(SKILL_DISTANCE), configRateSkill)
 	.. "\nShield Skill rate: " .. getRateFromTable(skillsStages, player:getEffectiveSkillLevel(SKILL_SHIELD), configRateSkill)
 	.. "\nFist Skill rate: " .. getRateFromTable(skillsStages, player:getEffectiveSkillLevel(SKILL_FIST), configRateSkill)
-	.. "\nMagic rate: " .. getRateFromTable(experienceStages, player:getMagicLevel(), configManager.getNumber(configKeys.RATE_MAGIC))
+	.. "\nMagic rate: " .. getRateFromTable(magicLevelStages, player:getMagicLevel(), configManager.getNumber(configKeys.RATE_MAGIC))
 	.. "\nLoot rate: " .. configManager.getNumber(configKeys.RATE_LOOT))
 	return false
 end
