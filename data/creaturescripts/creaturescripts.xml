@@ -137,9 +137,6 @@
 	<event type="kill" name="LowerSpikeKill" script="quests/spike_tasks/lower_spike_kill.lua"/>
 	<event type="kill" name="MiddleSpikeKill" script="quests/spike_tasks/middle_spike_kill.lua"/>
 	<event type="kill" name="UpperSpikeKill" script="quests/spike_tasks/upper_spike_kill.lua"/>
-	<!-- their masters voice worldchange -->
-	<event type="death" name="ServantDeath" script="quests/their_masters_voice/servant_death.lua"/>
-	<event type="death" name="MageDeath" script="quests/their_masters_voice/mage_death.lua"/>
 	<!-- wrath of the emperor -->
 	<event type="kill" name="BossesKill" script="quests/wrath_of_the_emperor/bosses_kill.lua"/>
 	<event type="kill" name="KeeperKill" script="quests/wrath_of_the_emperor/keeper_kill.lua"/>
