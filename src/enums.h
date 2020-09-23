@@ -398,10 +398,10 @@ enum ConditionId_t : int8_t {
 };
 
 enum PlayerSex_t : uint8_t {
+	PLAYERSEX_FEMALE = 0,
 	PLAYERSEX_MALE = 1,
-	PLAYERSEX_FEMALE = 2,
 
-	PLAYERSEX_LAST = PLAYERSEX_FEMALE
+	PLAYERSEX_LAST = PLAYERSEX_MALE
 };
 
 enum Vocation_t : uint16_t {
