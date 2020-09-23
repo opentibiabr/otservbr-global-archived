@@ -101,9 +101,6 @@
 	<event type="kill" name="ReplicaServant" script="quests/forgotten_knowledge/replica_servants.lua"/>
 	<event type="death" name="ThornKnightDeath" script="quests/forgotten_knowledge/thorn_knight_death.lua"/>
 	<event type="preparedeath" name="TimeGuardianHealth" script="quests/forgotten_knowledge/time_guardian_health.lua"/>
-	<!-- grimvale -->
-	<event type="death" name="FeroxaDeath" script="quests/grimvale/feroxa_transform.lua"/>
-	<event type="think" name="FeroxaTransform" script="quests/grimvale/feroxa_transform.lua"/>
 	<!-- heart of destruction -->
 	<event type="think" name="AftershockTransform" script="quests/heart_of_destruction/aftershock_transform.lua"/>
 	<event type="think" name="AnomalyTransform" script="quests/heart_of_destruction/anomaly_transform.lua"/>

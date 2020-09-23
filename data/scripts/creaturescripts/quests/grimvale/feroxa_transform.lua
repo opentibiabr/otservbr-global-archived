@@ -1,4 +1,5 @@
-function onThink(creature)
+local feroxaTransform = CreatureEvent("FeroxaTransform")
+function feroxaTransform.onThink(creature)
 	if creature:getName():lower() ~= 'feroxa' then
 		return true
 	end
@@ -22,10 +23,15 @@ function onThink(creature)
 	end
 end
 
-function onDeath(creature, corpse, deathList)
+feroxaTransform:register()
+
+local feroxaDeath = CreatureEvent("FeroxaDeath")
+function feroxaDeath.onDeath(creature, corpse, deathList)
 	local pool = Tile(creature:getPosition()):getItemById(2016)
 	if pool then
 		pool:remove()
 	end
 	Game.createMonster("Feroxa5", creature:getPosition(), true, true)
 end
+
+feroxaDeath:register()
