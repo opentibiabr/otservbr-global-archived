@@ -4,7 +4,8 @@ local bosses = {
 	['obujos'] = {status = 4, storage = Storage.DeeplingBosses.Obujos},
 }
 
-function onKill(creature, target)
+local deeplingBosses = CreatureEvent("DeeplingBosses")
+function deeplingBosses.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -25,3 +26,5 @@ function onKill(creature, target)
 		end
 	end
 end
+
+deeplingBosses:register()
