@@ -124,9 +124,6 @@
 	<event type="death" name="ShocksDeath" script="quests/heart_of_destruction/shocks_death.lua"/>
 	<event type="death" name="SparkDeath" script="quests/heart_of_destruction/spark_death.lua"/>
 	<event type="death" name="SparkDevourerDeath" script="quests/heart_of_destruction/spark_devourer_death.lua"/>
-	<!-- inquisition_quest -->
-	<event type="kill" name="InquisitionBossKill" script="quests/inquisition/inquisition_boss.lua"/>
-	<event type="kill" name="UngreezKill" script="quests/inquisition/inquisition_ungreez.lua"/>
 	<!-- raging mage tower worldchange -->
 	<event type="kill" name="EnergizedRagingMageKill" script="quests/raging_mage_tower/energized_raging_mage_kill.lua"/>
 	<event type="kill" name="ragingMageKill" script="quests/raging_mage_tower/raging_mage_kill.lua"/>

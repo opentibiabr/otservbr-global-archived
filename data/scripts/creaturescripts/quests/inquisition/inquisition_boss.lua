@@ -8,7 +8,8 @@ local bosses = {
 	['hellgorak'] = 205
 }
 
-function onKill(player, target)
+local inquisitionBossKill = CreatureEvent("UngreezKill")
+function inquisitionBossKill.onKill(player, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -32,3 +33,5 @@ function onKill(player, target)
 	end
 	return true
 end
+
+inquisitionBossKill:register()
