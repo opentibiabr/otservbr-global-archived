@@ -1,4 +1,5 @@
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local disgustingOozeDeath = CreatureEvent("DisgustingOozeDeath")
+function disgustingOozeDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster or targetMonster:getName():lower() ~= 'disgusting ooze' then
 		return true
@@ -16,3 +17,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	end
 	return true
 end
+
+disgustingOozeDeath:register()

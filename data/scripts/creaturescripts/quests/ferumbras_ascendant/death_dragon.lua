@@ -1,4 +1,5 @@
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local deathDragon = CreatureEvent("DeathDragon")
+function deathDragon.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster or targetMonster:getName():lower() ~= 'death dragon' then
 		return true
@@ -19,3 +20,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	end
 	return true
 end
+
+deathDragon:register()

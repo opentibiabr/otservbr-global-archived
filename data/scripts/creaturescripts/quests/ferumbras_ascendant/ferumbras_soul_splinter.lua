@@ -1,4 +1,5 @@
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local ferumbrasSoulSplinter = CreatureEvent("FerumbrasSoulSplinter")
+function ferumbrasSoulSplinter.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	if not targetMonster or targetMonster:getName():lower() ~= 'ferumbras soul splinter' then
 		return true
@@ -10,3 +11,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	end
 	return true
 end
+
+ferumbrasSoulSplinter:register()

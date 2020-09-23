@@ -46,16 +46,6 @@
 	<event type="logout" name="HirelingLogoutPlayer" script="others/hireling_logout.lua" />
 
 	<!-- quests -->
-	<!-- ferumbras ascedant-->
-	<event type="death" name="BoneCapsule" script="quests/ferumbras_ascendant/bone_capsule.lua"/>
-	<event type="kill" name="AscendantBossesKill" script="quests/ferumbras_ascendant/bosses_kill.lua"/>
-	<event type="death" name="DeathDragon" script="quests/ferumbras_ascendant/death_dragon.lua"/>
-	<event type="death" name="DisgustingOozeDeath" script="quests/ferumbras_ascendant/disgusting_ooze_death.lua"/>
-	<event type="think" name="zamuloshclone" script="quests/ferumbras_ascendant/zamulosh_clone.lua"/>
-	<event type="death" name="FerumbrasMortalShell" script="quests/ferumbras_ascendant/ferumbras_mortal_shell_death.lua"/>
-	<event type="death" name="FerumbrasSoulSplinter" script="quests/ferumbras_ascendant/ferumbras_soul_splinter.lua"/>
-	<event type="death" name="RiftInvaderDeath" script="quests/ferumbras_ascendant/rift_invader_death.lua"/>
-	<event type="kill" name="TheShattererKill" script="quests/ferumbras_ascendant/the_shatterer_kill.lua"/>
 	<!-- forgotten knowledge -->
 	<event type="death" name="AstralGlyphDeath" script="quests/forgotten_knowledge/astral_glyph_death.lua"/>
 	<event type="think" name="AstralSource" script="quests/forgotten_knowledge/astral_source.lua"/>

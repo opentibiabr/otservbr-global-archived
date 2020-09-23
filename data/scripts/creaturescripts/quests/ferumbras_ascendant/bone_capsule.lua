@@ -1,4 +1,5 @@
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local boneCapsule = CreatureEvent("BoneCapsule")
+function boneCapsule.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local targetMonster = creature:getMonster()
 	local position = targetMonster:getPosition()
 	position:sendMagicEffect(CONST_ME_POFF)
@@ -16,3 +17,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	ragiaz:addHealth(math.random(25000, 35000), true, true)
 	return true
 end
+
+boneCapsule:register()

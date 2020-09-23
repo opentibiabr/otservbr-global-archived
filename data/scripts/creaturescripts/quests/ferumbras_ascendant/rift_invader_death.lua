@@ -9,7 +9,8 @@ local crystals = {
 	[8] = {fromPosition = Position(33386, 31470, 14), toPosition = Position(33388, 31472, 14), crystalPosition = Position(33387, 31471, 14), globalStorage = GlobalStorage.FerumbrasAscendant.Crystals.Crystal8}
 }
 
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local riftInvaderDeath = CreatureEvent("RiftInvaderDeath")
+function riftInvaderDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	if not targetMonster or targetMonster:getName():lower() ~= 'rift invader' then
 		return true
 	end
@@ -53,3 +54,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	end, 10 * 1000)
 	return true
 end
+
+riftInvaderDeath:register()

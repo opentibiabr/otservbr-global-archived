@@ -77,7 +77,8 @@ local function revert()
 	end
 end
 
-function onKill(creature, target)
+local theShattererKill = CreatureEvent("TheShattererKill")
+function theShattererKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster or targetMonster:getMaster() or targetMonster:getName():lower() ~= 'the shatterer' then
 		return true
@@ -106,3 +107,5 @@ function onKill(creature, target)
 	Game.setStorageValue(GlobalStorage.FerumbrasAscendant.TheShattererTimer, 0)
 	return true
 end
+
+theShattererKill:register()
