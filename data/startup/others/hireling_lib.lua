@@ -37,8 +37,8 @@ HIRELING_SKILLS = {
 }
 
 HIRELING_SEX = {
-	MALE = 1,
-	FEMALE = 2
+	FEMALE = 0,
+	MALE = 1
 }
 
 HIRELING_OUTFIT_DEFAULT = { name = "Citizen", female = 1107, male = 1108 }
