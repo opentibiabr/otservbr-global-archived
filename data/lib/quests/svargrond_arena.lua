@@ -116,7 +116,7 @@ PITS = {
 }
 
 ARENA = {
-	[3264] = {
+	[1] = {
 		name = 'Greenhorn',
 		price = 1000,
 		questLog = Storage.SvargrondArena.QuestLogGreenhorn,
@@ -132,14 +132,9 @@ ARENA = {
 			[8] = 'rocky',
 			[9] = 'cursed gladiator',
 			[10] = 'orcus the cruel'
-		},
-		reward = {
-			trophy = 5807,
-			trophyStorage = Storage.SvargrondArena.TrophyGreenhorn,
-			desc = 'It is given to the courageous victor of the barbarian arena in greenhorn difficulty. Awarded to %s',
 		}
 	},
-	[3265] = {
+	[2] = {
 		name = 'Scrapper',
 		price = 5000,
 		questLog = Storage.SvargrondArena.QuestLogScrapper,
@@ -155,14 +150,9 @@ ARENA = {
 			[8] = 'spirit of earth',
 			[9] = 'spirit of water',
 			[10] = 'spirit of fire'
-		},
-		reward = {
-			trophy = 5806,
-			trophyStorage = Storage.SvargrondArena.TrophyScrapper,
-			desc = 'It is given to the courageous victor of the barbarian arena in scrapper difficulty. Awarded to %s.',
 		}
 	},
-	[3266] = {
+	[3] = {
 		name = 'Warlord',
 		price = 10000,
 		questLog = Storage.SvargrondArena.QuestLogWarlord,
@@ -178,12 +168,25 @@ ARENA = {
 			[8] = 'fallen mooh\'tah master ghar',
 			[9] = 'deathbringer',
 			[10] = 'the obliverator'
-		},
-		reward = {
-			trophy = 5805,
-			trophyStorage = Storage.SvargrondArena.TrophyWarlord,
-			desc = 'It is given to the courageous victor of the barbarian arena in warlord difficulty. Awarded to %s.',
 		}
+	}
+}
+
+ARENA_TROPHY = {
+	[3264] = {
+		trophy = 5807,
+		trophyStorage = Storage.SvargrondArena.TrophyGreenhorn,
+		desc = 'It is given to the courageous victor of the barbarian arena in greenhorn difficulty. Awarded to %s',
+	},
+	[3265] = {
+		trophy = 5806,
+		trophyStorage = Storage.SvargrondArena.TrophyScrapper,
+		desc = 'It is given to the courageous victor of the barbarian arena in scrapper difficulty. Awarded to %s.',
+	},
+	[3266] = {
+		trophy = 5805,
+		trophyStorage = Storage.SvargrondArena.TrophyWarlord,
+		desc = 'It is given to the courageous victor of the barbarian arena in warlord difficulty. Awarded to %s.',
 	}
 }
 

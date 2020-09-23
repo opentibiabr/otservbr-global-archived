@@ -39,20 +39,19 @@ local function creatureSayCallback(cid, type, msg)
 		if player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) < 1 then
 			npcHandler:say(
 				{
-					"Ah, you found the amulet! Ah. Really? Poor Dormovo. \z
-						Always a bit hasty. Forgot his rope, or food, or potions - \z
-						it was to be expected he would meet an early end. Oh, well.",
-					"Here is your reward, as promised."
+					"One of our ...less fortunate members lost an ancient amulet somewhere on the island, \z
+					along with his life. If you could retrieve the amulet at least, there's a little reward. \z
+					Would you go on that errand?"
 				},
 			cid, false, true, 10)
 			npcHandler.topic[cid] = 1
 		elseif player:getStorageValue(Storage.Quest.Dawnport.TheLostAmulet) == 2 and player:getItemCount(23750) == 1 then
 			npcHandler:say(
-			{
-				"Ah, you found the amulet! Ah. Really? Poor Dormovo. Always a bit hasty. \z
-					Forgot his rope, or food, or potions - it was to be expected he would meet an early end. Oh, well.",
-				"Here is your reward, as promised."
-			},
+				{
+					"Ah, you found the amulet! Ah. Really? Poor Dormovo. \z
+					Always a bit hasty. Forgot his rope, or food, or potions - \z
+					it was to be expected he would meet an early end. Oh, well. ..."
+				},
 			cid, false, true, 0)
 			player:removeItem(23750, 1)
 			player:addItem(2148, 50)

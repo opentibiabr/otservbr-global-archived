@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <monster name="Goldhanded Cultist" nameDescription="a goldhanded cultist" race="blood" experience="2000" speed="230">
 	<health now="3000" max="3000" />
-	<look type="132" head="95" body="79" legs="41" feet="94" addons="2" corpse="8186" />
+	<look type="132" head="95" body="79" legs="41" feet="94" addons="2" corpse="3058" />
 	<targetchange interval="4000" chance="10" />
 	<targetstrategies nearest="70" health="10" damage="10" random="10" />
 	<flags>

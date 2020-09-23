@@ -6,7 +6,7 @@ combat:setParameter(COMBAT_PARAM_DISPEL, CONDITION_PARALYZE)
 
 function onGetFormulaValues(player, level, maglevel)
 	local min = (level / 5) + (maglevel * 4) + 25
-	local max = (level / 5) + (maglevel * 8) + 50
+	local max = (level / 5) + (maglevel * 7.95) + 51
 	return min, max
 end
 

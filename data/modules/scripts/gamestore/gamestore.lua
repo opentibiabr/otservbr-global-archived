@@ -372,7 +372,7 @@ GameStore.Categories = {
           itemtype = 28579, 
           count = 500, 
           description = "<i>Fill up potions to restore your hit points no matter where you are!</i>\n\n{character}\n{vocationlevelcheck}\n{storeinboxicon} potions created from this keg will be sent to your Store inbox and can only be stored there and in depot box\n{info} usable 500 times a piece\n{info} saves capacity because it's constant weight equals only 250 potions",
-          type = GameStore.OfferTypes.OFFER_TYPE_ITEM,
+          type = GameStore.OfferTypes.OFFER_TYPE_STACKABLE,
         },
         {
           icons = { "Strong_Health_Keg.png" },

@@ -959,12 +959,12 @@
 	<house name="Uthemath I e" houseid="3631" entryx="33195" entryy="32806" entryz="7" rent="80000" townid="10" size="16" />
 	<house name="Uthemath I f" houseid="3632" entryx="33189" entryy="32816" entryz="7" rent="150000" townid="10" size="46" />
 	<house name="Uthemath II" houseid="3633" entryx="33208" entryy="32816" entryz="7" rent="250000" guildhall="true" townid="10" size="76" />
-	<house name="Marketplace 1" houseid="3634" entryx="33937" entryy="31505" entryz="7" rent="400000" townid="22" size="61" />
+	<house name="Marketplace 1" houseid="3634" entryx="33937" entryy="31505" entryz="7" rent="400000" townid="22" size="67" />
 	<house name="Marketplace 2" houseid="3635" entryx="33951" entryy="31501" entryz="7" rent="400000" townid="22" size="74" />
-	<house name="Quay 1" houseid="3636" entryx="33896" entryy="31544" entryz="7" rent="200000" townid="22" size="109" />
-	<house name="Quay 2" houseid="3637" entryx="33885" entryy="31552" entryz="7" rent="200000" townid="22" size="76" />
-	<house name="Halls of Sun and Sea" houseid="3638" entryx="33909" entryy="31535" entryz="7" rent="1000000" guildhall="true" townid="22" size="352" />
-	<house name="Palace Vicinity" houseid="3639" entryx="33866" entryy="31516" entryz="7" rent="200000" townid="22" size="105" />
+	<house name="Quay 1" houseid="3636" entryx="33885" entryy="31552" entryz="7" rent="200000" townid="22" size="76" />
+	<house name="Quay 2" houseid="3637" entryx="33896" entryy="31544" entryz="7" rent="200000" townid="22" size="121" />
+	<house name="Halls of Sun and Sea" houseid="3638" entryx="33909" entryy="31535" entryz="7" rent="1000000" guildhall="true" townid="22" size="334" />
+	<house name="Palace Vicinity" houseid="3639" entryx="33866" entryy="31516" entryz="7" rent="200000" townid="22" size="109" />
 	<house name="Wave Tower" houseid="3640" entryx="33879" entryy="31525" entryz="7" rent="400000" townid="22" size="166" />
 	<house name="Old Sanctuary of God King Qjell" houseid="3641" entryx="33473" entryy="31310" entryz="9" rent="300000" townid="18" size="408" />
 	<house name="Old Heritage Estate" houseid="3642" entryx="33598" entryy="31909" entryz="6" rent="600000" townid="20" size="231" />

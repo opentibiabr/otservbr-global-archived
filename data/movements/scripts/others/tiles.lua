@@ -34,7 +34,9 @@ function onStepIn(creature, item, position, fromPosition)
 				depotItems = depotItems + player:getDepotChest(id, true):getItemHoldingCount()
 			end
 
-			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or "."))
+			player:sendTextMessage(MESSAGE_STATUS_DEFAULT,  "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or ".") .. "\
+			Your supply stash contains " .. player:getStashCount() .. " item" .. (player:getStashCount()	 > 1 and "s." or "."))
+			player:setSpecialContainersAvailable(true)
 			return true
 		end
 	end
@@ -58,5 +60,6 @@ function onStepOut(creature, item, position, fromPosition)
 	end
 
 	item:transform(decreasing[item.itemid])
+	creature:setSpecialContainersAvailable(false)
 	return true
 end

@@ -501,6 +501,56 @@ ChestUnique = {
 		itemReward = {{2466, 1}},
 		storage = Storage.Quest.Behemoth.GoldenArmor
 	},
+	-- Family brooch quest
+	[6055] = {
+		itemId = 1744,
+		itemPos = {x = 32248, y = 31866, z = 8},
+		itemReward = {{2318, 1}},
+		storage = Storage.Quest.SimpleChest.FamilyBrooch
+	},
+	-- The queen of the banshees quest
+	-- Stone skin amulet
+	[6056] = {
+		itemId = 1740,
+		itemPos = {x = 32212, y = 31896, z = 15},
+		itemReward = {{2197, 1}},
+		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.StoneSkinAmulet
+	},
+	-- Stone skin amulet
+	[6057] = {
+		itemId = 1740,
+		itemPos = {x = 32226, y = 31896, z = 15},
+		itemReward = {{2165, 1}},
+		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.StealthRing
+	},
+	-- Tower shield
+	[6058] = {
+		itemId = 1740,
+		itemPos = {x = 32212, y = 31910, z = 15},
+		itemReward = {{2528, 1}},
+		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.TowerShield
+	},
+	-- Giant sword
+	[6059] = {
+		itemId = 1740,
+		itemPos = {x = 32226, y = 31910, z = 15},
+		itemReward = {{2393, 1}},
+		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.GiantSword
+	},
+	-- Boots of haste
+	[6060] = {
+		itemId = 1740,
+		itemPos = {x = 32218, y = 31912, z = 15},
+		itemReward = {{2195, 1}},
+		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.BootsOfHaste
+	},
+	-- 100 platinum coins
+	[6061] = {
+		itemId = 1740,
+		itemPos = {x = 32220, y = 31912, z = 15},
+		itemReward = {{2152, 100}},
+		storage = Storage.Quest.TheQueenOfTheBanshees.Reward.PlatinumCoin
+	},
 
 	-- Reward inside of container, there is also the option to put a key inside
 	-- If the table has a variable for key, (keyItem and keyAction) then it is inside the bag
@@ -640,6 +690,18 @@ ChestUnique = {
 		itemReward = {{2145, 3}, {2146, 4}, {2124, 1}, {2168, 1}, {2171, 1}},
 		weight = 50,
 		storage = Storage.Quest.Behemoth.Bag
+	},
+	-- Parchment room quest
+	-- Bag
+	[10015] = {
+		itemId = 1742,
+		itemPos = {x = 33063, y = 31624, z = 15},
+		itemBag = 1987,
+		keyItem = 2091,
+		keyAction = 6010,
+		itemReward = {{2229, 1}, {2151, 2}, {2165, 1}, {2230, 1}},
+		weight = 42,
+		storage = Storage.Quest.ParchmentRoom.Bag
 	},
 
 	-- Reward of others scrips files (varied rewards)

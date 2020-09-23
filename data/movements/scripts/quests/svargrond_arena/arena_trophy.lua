@@ -4,12 +4,12 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-	local arenaId = ARENA[item.uid]
+	local arenaId = ARENA_TROPHY[item.uid]
 	if not arenaId then
 		return true
 	end
 
-	local storage = arenaId.reward.trophyStorage
+	local storage = arenaId.trophyStorage
 	if player:getStorageValue(storage) == 1 then
 		return true
 	end
@@ -17,9 +17,9 @@ function onStepIn(creature, item, position, fromPosition)
 	local rewardPosition = player:getPosition()
 	rewardPosition.y = rewardPosition.y - 1
 
-	local rewardItem = Game.createItem(arenaId.reward.trophy, 1, rewardPosition)
+	local rewardItem = Game.createItem(arenaId.trophy, 1, rewardPosition)
 	if rewardItem then
-		rewardItem:setDescription(string.format(arenaId.reward.desc, player:getName()))
+		rewardItem:setDescription(string.format(arenaId.desc, player:getName()))
 	end
 
 	player:setStorageValue(storage, 1)
