@@ -7,7 +7,7 @@ local config = {
 	},
 	playerPosition = Position(32352, 32226, 7), -- NpcPos(x-2) player must stay on this position to talk with npc
 	dicerCounter = Position(32352, 32225, 7), --	NpcPos(x-1, y-1) 	counter position
-	dadoPos = Position(32354, 32225, 7) --NpcPos(y-1)
+	diePos = Position(32354, 32225, 7) --NpcPos(y-1)
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -133,7 +133,7 @@ local dadimid = {5792, 5793, 5794, 5795, 5796, 5797}
 local daddd = 0
 local haveDie = false
 	for x = 1, 6 do
-		daddd = Tile(config.dadoPos):getItemById(dadimid[x])
+		daddd = Tile(config.diePos):getItemById(dadimid[x])
 		if daddd then
 		haveDie = true
 			break
@@ -142,10 +142,10 @@ local haveDie = false
 	if haveDie then
 		daddd:transform(dadimid[number])
 	else
-		Game.createItem((5791+number), 1, config.dadoPos)
+		Game.createItem((5791+number), 1, config.diePos)
 	end
-		thisNpc:say(thisNpc:getName() .. " rolled a ".. number .. ".", TALKTYPE_MONSTER_SAY, false, true, config.dadoPos)
-		config.dadoPos:sendMagicEffect(CONST_ME_CRAPS)
+		thisNpc:say(thisNpc:getName() .. " rolled a ".. number .. ".", TALKTYPE_MONSTER_SAY, false, true, config.diePos)
+		config.diePos:sendMagicEffect(CONST_ME_CRAPS)
 		if table.contains({"low", "l"}, msg) then
 			if table.contains({1, 2, 3}, number) then
 				local wonMoney = math.ceil(bet * (config.bet.win / 100))
