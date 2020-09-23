@@ -131,9 +131,6 @@
 	<!-- inquisition_quest -->
 	<event type="kill" name="InquisitionBossKill" script="quests/inquisition/inquisition_boss.lua"/>
 	<event type="kill" name="UngreezKill" script="quests/inquisition/inquisition_ungreez.lua"/>
-	<!-- killing in the name of... -->
-	<event type="kill" name="KillingInTheNameOfKill" script="quests/killing_in_the_name_of/kill.lua"/>
-	<event type="kill" name="KillingInTheNameOfMinotaurKill" script="quests/killing_in_the_name_of/minotaur_kill.lua"/>
 	<!-- raging mage tower worldchange -->
 	<event type="kill" name="EnergizedRagingMageKill" script="quests/raging_mage_tower/energized_raging_mage_kill.lua"/>
 	<event type="kill" name="ragingMageKill" script="quests/raging_mage_tower/raging_mage_kill.lua"/>

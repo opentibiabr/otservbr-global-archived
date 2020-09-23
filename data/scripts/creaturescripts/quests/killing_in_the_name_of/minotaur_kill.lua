@@ -15,7 +15,8 @@ local minotaurs = {
 	"minotaur amazon"
 }
 
-function onKill(player, target)
+local killingInTheNameOfMinotaurKill = CreatureEvent("KillingInTheNameOfMinotaurKill")
+function killingInTheNameOfMinotaurKill.onKill(player, target)
 	if target:isPlayer() or target:getMaster() then
 		return true
 	end
@@ -30,3 +31,5 @@ function onKill(player, target)
 	end
 	return true
 end
+
+killingInTheNameOfMinotaurKill:register()

@@ -1,4 +1,5 @@
-function onKill(player, target)
+local killingInTheNameOfKill = CreatureEvent("KillingInTheNameOfKill")
+function killingInTheNameOfKill.onKill(player, target)
 	if target:isPlayer() or target:getMaster() then
 		return true
 	end
@@ -40,3 +41,5 @@ function onKill(player, target)
 	end
 	return true
 end
+
+killingInTheNameOfKill:register()
