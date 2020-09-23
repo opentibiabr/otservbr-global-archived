@@ -63,7 +63,8 @@ local function changeScarlett(creatureid)
 	addEvent(eventRemoveFreeze, 4*1000, creature:getId(), true)
 end
 
-function onThink(creature)
+local scarlettThink = CreatureEvent("scarlettThink")
+function scarlettThink.onThink(creature)
 	if not creature:isMonster() then
 		return true
 	end
@@ -84,7 +85,10 @@ function onThink(creature)
 	return true
 end
 
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+scarlettThink:register()
+
+local scarlettHealth = CreatureEvent("scarlettHealth")
+function scarlettHealth.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if not creature:isMonster() then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
@@ -108,3 +112,5 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	SCARLETT_MAY_DIE = 0
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+scarlettHealth:register()
