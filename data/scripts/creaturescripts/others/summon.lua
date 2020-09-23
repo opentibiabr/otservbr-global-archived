@@ -7,7 +7,8 @@ local summon = {
 
 local summonStorage = Storage.PetSummon
 
-function onLogin(player)
+local summonLogin = CreatureEvent("SummonLogin")
+function summonLogin.onLogin(player)
 	local vocation = summon[player:getVocation()]
 	local summonName
 	local petTimeLeft = player:getStorageValue(summonStorage) - player:getLastLogout()
@@ -29,9 +30,10 @@ function onLogin(player)
 	end
 	return true
 end
+summonLogin:register()
 
-
-function onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
+local summonThink = CreatureEvent("SummonThink")
+function summonThink.onThink(creature, interval, item, position, lastPosition, fromPosition, toPosition)
 	local player = creature:getMaster()
 	if not player then
 		return true
@@ -43,8 +45,10 @@ function onThink(creature, interval, item, position, lastPosition, fromPosition,
 	end
 	return true
 end
+summonThink:register()
 
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local summonDeath = CreatureEvent("SummonDeath")
+function summonDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
 	local player = creature:getMaster()
 	if not player then
 		return false
@@ -55,3 +59,4 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	end
 	return true
 end
+summonDeath:register()

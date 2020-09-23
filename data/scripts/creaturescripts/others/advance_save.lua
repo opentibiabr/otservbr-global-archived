@@ -4,7 +4,8 @@ local config = {
 	effect = false
 }
 
-function onAdvance(player, skill, oldLevel, newLevel)
+local advanceSave = CreatureEvent("AdvanceSave")
+function advanceSave.onAdvance(player, skill, oldLevel, newLevel)
 	if skill ~= SKILL_LEVEL or newLevel <= oldLevel then
 		return true
 	end
@@ -23,3 +24,4 @@ function onAdvance(player, skill, oldLevel, newLevel)
 	end
 	return true
 end
+advanceSave:register()

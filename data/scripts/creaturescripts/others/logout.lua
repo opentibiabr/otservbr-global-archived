@@ -1,4 +1,5 @@
-function onLogout(player)
+local playerLogout = CreatureEvent("PlayerLogout")
+function playerLogout.onLogout(player)
 	local playerId = player:getId()
 	if nextUseStaminaTime[playerId] ~= nil then
 		nextUseStaminaTime[playerId] = nil
@@ -21,3 +22,4 @@ function onLogout(player)
 	player:setStorageValue(17101,0)
 	return true
 end
+playerLogout:register()

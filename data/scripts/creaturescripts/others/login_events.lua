@@ -1,4 +1,5 @@
-function onLogin(player)
+local loginEvents = CreatureEvent("LoginEvents")
+function loginEvents.onLogin(player)
 
 	local events = {
 		--Monster
@@ -102,3 +103,4 @@ function onLogin(player)
 	end
 	return true
 end
+loginEvents:register()

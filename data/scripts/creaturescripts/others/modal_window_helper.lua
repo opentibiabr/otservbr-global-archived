@@ -1,4 +1,5 @@
-function onModalWindow(player, modalWindowId, buttonId, choiceId)
+local modalWindowHelper = CreatureEvent("ModalWindowHelper")
+function modalWindowHelper.onModalWindow(player, modalWindowId, buttonId, choiceId)
 	local modalWindow
 	for _, window in ipairs(modalWindows.windows) do
 		if window.id == modalWindowId then
@@ -29,3 +30,4 @@ function onModalWindow(player, modalWindowId, buttonId, choiceId)
 	end
 	return true
 end
+modalWindowHelper:register()

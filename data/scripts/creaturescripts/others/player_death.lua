@@ -1,6 +1,7 @@
 local deathListEnabled = true
 
-function onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
+local playerDeath = CreatureEvent("PlayerDeath")
+function playerDeath.onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
 	local playerId = player:getId()
 	if nextUseStaminaTime[playerId] ~= nil then
 		nextUseStaminaTime[playerId] = nil
@@ -89,3 +90,4 @@ function onDeath(player, corpse, killer, mostDamageKiller, unjustified, mostDama
 		end
 	end
 end
+playerDeath:register()

@@ -24,7 +24,8 @@ local function onMovementRemoveProtection(cid, oldPos, time)
 	addEvent(onMovementRemoveProtection, 1000, cid, oldPos, time - 1)
 end
 
-function onLogin(player)
+local playerLogin = CreatureEvent("PlayerLogin")
+function playerLogin.onLogin(player)
 	local items = {
 		{2120, 1},
 		{2148, 3}
@@ -146,3 +147,4 @@ function onLogin(player)
 	end
 	return true
 end
+playerLogin:register()

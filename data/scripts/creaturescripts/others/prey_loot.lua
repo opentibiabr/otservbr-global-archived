@@ -1,6 +1,7 @@
 local BONUS_RATE = 3
 
-function onKill(player, target, lastHit)
+local preyLootBonusKill = CreatureEvent("PreyLootBonusKill")
+function preyLootBonusKill.onKill(player, target, lastHit)
 	-- Monster verify
 	if not target:isMonster() or target:getMaster() then
 		return true
@@ -19,8 +20,10 @@ function onKill(player, target, lastHit)
 	end
 	return true
 end
+preyLootBonusKill:register()
 
-function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
+local bonusPreyLootDeath = CreatureEvent("BonusPreyLootDeath")
+function bonusPreyLootDeath.onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDamageUnjustified)
 	if not creature then
 		return true
 	end
@@ -41,3 +44,4 @@ function onDeath(creature, corpse, killer, mostDamageKiller, unjustified, mostDa
 	end
 	return true
 end
+bonusPreyLootDeath:register()

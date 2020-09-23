@@ -19,31 +19,4 @@
 	<event type="death" name="WhiteDeerScoutsDeath" script="monster/white_deer_scout.lua"/>
 	<event type="death" name="Wyda" script="monster/wyda.lua"/>
 	<event type="think" name="ZavarashHide" script="monster/zavarash_hide.lua"/>
-
-	<!-- others -->
-	<event type="advance" name="AdvanceSave" script="others/advance_save.lua"/>
-	<event type="login" name="AdventurerBlessingLogin" script="others/adventure_blessing_login.lua"/>
-	<event type="kill" name="BestiaryOnKill" script="others/bestiary_kill.lua"/>
-	<event type="login" name="LoginBossPlayer" script="others/boss_reward_chest.lua"/>
-	<event type="death" name="BossDeath" script="others/boss_reward_chest.lua"/>
-	<event type="healthchange" name="BossParticipation" script="others/boss_reward_chest.lua"/>
-	<event type="think" name="BossThink" script="others/boss_reward_chest.lua"/>
-	<event type="death" name="DropLoot" script="others/droploot.lua"/>
-	<event type="login" name="PlayerLogin" script="others/login.lua"/>
-	<event type="login" name="LoginEvents" script="others/login_events.lua"/>
-	<event type="logout" name="PlayerLogout" script="others/logout.lua"/>
-	<event type="modalwindow" name="ModalWindowHelper" script="others/modal_window_helper.lua"/>
-	<event type="login" name="OfflineTraining" script="others/offline_training.lua"/>
-	<event type="death" name="PlayerDeath" script="others/player_death.lua"/>
-	<event type="kill" name="PreyLootBonusKill" script="others/prey_loot.lua"/>
-	<event type="death" name="BonusPreyLootDeath" script="others/prey_loot.lua"/>
-	<event type="login" name="RegenerateStamina" script="others/regenerate_stamina.lua"/>
-	<event type="advance" name="RookgaardAdvance" script="others/rookgaard_advance.lua"/>
-	<event type="login" name="SummonLogin" script="others/summon.lua"/>
-	<event type="think" name="SummonThink" script="others/summon.lua"/>
-	<event type="death" name="SummonDeath" script="others/summon.lua"/>
-	<!-- Hirelings -->
-	<event type="logout" name="HirelingLogoutPlayer" script="others/hireling_logout.lua" />
-
-	<!-- quests -->
 </creaturescripts>

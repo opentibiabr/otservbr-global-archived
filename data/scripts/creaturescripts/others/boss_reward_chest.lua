@@ -116,7 +116,8 @@ local function resetAndSetTargetList(creature)
 	end
 end
 
-function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
+local bossDeath = CreatureEvent("BossDeath")
+function bossDeath.onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified, mostDamageUnjustified)
 	-- player
 	if not creature or creature:isPlayer() then
 		return true
@@ -205,12 +206,16 @@ function onDeath(creature, corpse, killer, mostDamageKiller, lastHitUnjustified,
 	end
 	return true
 end
+bossDeath:register()
 
-function onThink(creature, interval)
+local bossThink = CreatureEvent("BossThink")
+function bossThink.onThink(creature, interval)
 	resetAndSetTargetList(creature)
 end
+bossThink:register()
 
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local bossParticipation = CreatureEvent("BossParticipation")
+function bossParticipation.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if not next(globalBosses) then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
@@ -239,8 +244,11 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+bossParticipation:register()
 
-function onLogin(player)
+local loginBossPlayer = CreatureEvent("LoginBossPlayer")
+function loginBossPlayer.onLogin(player)
 	player:registerEvent("BossDeath")
 	return true
 end
+loginBossPlayer:register()

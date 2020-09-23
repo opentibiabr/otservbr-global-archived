@@ -1,4 +1,5 @@
-function onKill(player, creature, lastHit)
+local bestiaryOnKill = CreatureEvent("BestiaryOnKill")
+function bestiaryOnKill.onKill(player, creature, lastHit)
 	if not player:isPlayer() or not creature:isMonster() or creature:getMaster() or creature:isPlayer() then
 		return true
 	end
@@ -12,3 +13,4 @@ function onKill(player, creature, lastHit)
 
 	return true
 end
+bestiaryOnKill:register()
