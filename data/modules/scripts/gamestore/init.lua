@@ -761,7 +761,11 @@ function sendShowStoreOffers(playerId, category, redirectId)
 				
 				tryOnType = 1
 			elseif type == GameStore.ConverType.SHOW_HIRELING then
-				msg:addByte(player:getSex())
+				if player:getSex() == PLAYERSEX_MALE then
+					msg:addByte(1)
+				else
+					msg:addByte(2)
+				end
 				msg:addU16(offer.sexId.male)
 				msg:addU16(offer.sexId.female)
 				local outfit = player:getOutfit()
