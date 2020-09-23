@@ -15,7 +15,8 @@ local function transformTeleport(open)
 	end
 end
 
-function onKill(creature, target)
+local versperothKill = CreatureEvent("VersperothKill")
+function versperothKill.onKill(creature, target)
 	local config = warzoneConfig.findByName("Abyssador")
 	local targetMonster = target:getMonster()
 	if not targetMonster then
@@ -44,3 +45,5 @@ function onKill(creature, target)
 	addEvent(warzoneConfig.resetRoom, 30 * 60 * 1000, config, "You were teleported out by the gnomish emergency device.", true)
 	return true
 end
+
+versperothKill:register()

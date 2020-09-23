@@ -10,7 +10,6 @@ local positionsWall = {
 	{x = 33098, y = 31976, z = 11}
 }
 
-
 local function recreateCrystals(c)
 	for i = 1, #positionsWall do
 		local crystal = Tile(positionsWall[i]):getItemById(c.wall) or nil
@@ -31,7 +30,8 @@ local function recreateCrystals(c)
 	end
 end
 
-function onKill(player, target)
+local parasiteWarzone = CreatureEvent("ParasiteWarzone")
+function parasiteWarzone.onKill(player, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return false
@@ -81,3 +81,5 @@ function onKill(player, target)
 	end
 	return true
 end
+
+parasiteWarzone:register()

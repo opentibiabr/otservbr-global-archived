@@ -1,5 +1,6 @@
 -- This will kick the players in 1 min after the boss is dead AND add the 20 hours delay to go in again
-function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
+local bossWarzoneDeath = CreatureEvent("BossWarzoneDeath")
+function bossWarzoneDeath.onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjustified, mostdamageunjustified)
     local info = warzoneConfig.findByName(creature:getName())
     if not info then
         return true
@@ -13,3 +14,5 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
     addEvent(warzoneConfig.resetRoom, 60 * 1000, info, "You were teleported out by the gnomish emergency device.", false)
     return true
 end
+
+bossWarzoneDeath:register()

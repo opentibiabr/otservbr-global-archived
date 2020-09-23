@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local wigglerKill = CreatureEvent("WigglerKill")
+function wigglerKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -15,3 +16,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+wigglerKill:register()
