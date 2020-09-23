@@ -53,7 +53,8 @@ local function summonHungry(creature)
 	end
 end
 
-function onThink(creature)
+local theBaronFromBelowThink = CreatureEvent("TheBaronFromBelowThink")
+function theBaronFromBelowThink.onThink(creature)
 	if not creature:isMonster() then
 		return true
 	end
@@ -64,7 +65,10 @@ function onThink(creature)
 	return true
 end
 
-function onKill(player, creature)
+theBaronFromBelowThink:register()
+
+local theBaronFromBelowKill = CreatureEvent("TheBaronFromBelowKill")
+function theBaronFromBelowKill.onKill(player, creature)
 	if not player:isPlayer() then
 		return true
 	end
@@ -79,3 +83,5 @@ function onKill(player, creature)
 		end
 	end
 end
+
+theBaronFromBelowKill:register()

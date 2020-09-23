@@ -6,7 +6,8 @@ local function revert(position, toPosition)
 	end
 end
 
-function onKill(creature, creature)
+local bossesMissionDepth = CreatureEvent("BossesMissionDepth")
+function bossesMissionDepth.onKill(creature, creature)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
@@ -43,3 +44,5 @@ function onKill(creature, creature)
 	end
 	return true
 end
+
+bossesMissionDepth:register()

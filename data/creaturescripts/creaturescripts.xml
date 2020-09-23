@@ -65,15 +65,6 @@
 	<event type="death" name="SpawnBoss" script="quests/cults_of_tibia/spawn_boss.lua"/>
 	<event type="think" name="Splash" script="quests/cults_of_tibia/splash.lua"/>
 	<event type="healthchange" name="YalahariHealth" script="quests/cults_of_tibia/zarcorix_reflect_damage.lua"/>
-	<!-- dangerous_depths -->
-	<event type="kill" name="BossesMissionDepth" script="quests/dangerous_depths/bosses_mission_depths.lua"/>
-	<event type="think" name="FieryHeartThink" script="quests/dangerous_depths/fiery_heart.lua"/>
-	<event type="kill" name="LostExileKill" script="quests/dangerous_depths/lost_exile_task.lua"/>
-	<event type="think" name="SnailSlimeKill" script="quests/dangerous_depths/snail_slime_kill.lua"/>
-	<event type="kill" name="SnailSlimeKill" script="quests/dangerous_depths/snail_slime_kill.lua"/>
-	<event type="think" name="TheBaronFromBelowThink" script="quests/dangerous_depths/the_baron_from_below.lua"/>
-	<event type="kill" name="TheBaronFromBelowKill" script="quests/dangerous_depths/the_baron_from_below.lua"/>
-	<event type="healthchange" name="TheDukeHealFireDamage" script="quests/dangerous_depths/the_duke_heal_fire_damage.lua"/>
 	<!-- ferumbras ascedant-->
 	<event type="death" name="BoneCapsule" script="quests/ferumbras_ascendant/bone_capsule.lua"/>
 	<event type="kill" name="AscendantBossesKill" script="quests/ferumbras_ascendant/bosses_kill.lua"/>

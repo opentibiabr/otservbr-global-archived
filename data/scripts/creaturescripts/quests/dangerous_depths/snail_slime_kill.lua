@@ -41,7 +41,8 @@ local function summonSlimes(master)
 	end
 end
 
-function onThink(creature)
+local snailSlimeThink = CreatureEvent("SnailSlimeThink")
+function snailSlimeThink.onThink(creature)
 	if not creature:isMonster() then
 		return true
 	end
@@ -54,7 +55,10 @@ function onThink(creature)
 	return true
 end
 
-function onKill(player, creature)
+snailSlimeThink:register()
+
+local snailSlimeKill = CreatureEvent("SnailSlimeKill")
+function snailSlimeKill.onKill(player, creature)
 	if not player:isPlayer() then
 			return true
 		end
@@ -73,3 +77,5 @@ function onKill(player, creature)
 	end
 return true
 end
+
+snailSlimeKill:register()

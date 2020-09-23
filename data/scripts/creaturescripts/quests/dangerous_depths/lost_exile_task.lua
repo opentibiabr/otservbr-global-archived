@@ -1,4 +1,5 @@
-function onKill(creature, target)
+local lostExileKill = CreatureEvent("LostExileKill")
+function lostExileKill.onKill(creature, target)
 	if not creature or not creature:isPlayer() then
 		return true
 	end
@@ -39,3 +40,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+lostExileKill:register()

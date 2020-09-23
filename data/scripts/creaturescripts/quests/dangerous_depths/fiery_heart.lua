@@ -41,7 +41,8 @@ local function suicideHeart(creature)
 	end
 end
 
-function onThink(creature)
+local fieryHeartThink = CreatureEvent("FieryHeartThink")
+function fieryHeartThink.onThink(creature)
 	if not creature:isMonster() then
 		return true
 	end
@@ -77,3 +78,5 @@ function onThink(creature)
 
 	return true
 end
+
+fieryHeartThink:register()
