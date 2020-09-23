@@ -92,8 +92,6 @@
 	<event type="death" name="FerumbrasSoulSplinter" script="quests/ferumbras_ascendant/ferumbras_soul_splinter.lua"/>
 	<event type="death" name="RiftInvaderDeath" script="quests/ferumbras_ascendant/rift_invader_death.lua"/>
 	<event type="kill" name="TheShattererKill" script="quests/ferumbras_ascendant/the_shatterer_kill.lua"/>
-	<!-- firewalker boots -->
-	<event type="kill" name="PythiusTheRottenKill" script="quests/firewalker_boots/pythius_the_rotten_kill.lua"/>
 	<!-- forgotten knowledge -->
 	<event type="death" name="AstralGlyphDeath" script="quests/forgotten_knowledge/astral_glyph_death.lua"/>
 	<event type="think" name="AstralSource" script="quests/forgotten_knowledge/astral_source.lua"/>
