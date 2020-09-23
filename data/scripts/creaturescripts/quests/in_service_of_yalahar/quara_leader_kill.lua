@@ -4,7 +4,8 @@ local quaraLeaders = {
 	['splasher'] = Storage.InServiceofYalahar.QuaraSplasher
 }
 
-function onKill(creature, target)
+local quaraLeaders = CreatureEvent("QuaraLeaders")
+function quaraLeaders.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -26,3 +27,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+quaraLeaders:register()

@@ -4,7 +4,8 @@ local diseasedTrio = {
 	['diseased fred'] = Storage.InServiceofYalahar.DiseasedFred
 }
 
-function onKill(creature, target)
+local diseasedTrio = CreatureEvent("DiseasedTrio")
+function diseasedTrio.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
 		return true
@@ -29,3 +30,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+diseasedTrio:register()

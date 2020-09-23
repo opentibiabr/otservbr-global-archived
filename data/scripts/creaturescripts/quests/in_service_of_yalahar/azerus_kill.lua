@@ -7,7 +7,8 @@ local function removeTeleport(position)
 	end
 end
 
-function onKill(creature, target)
+local azerus = CreatureEvent("Azerus")
+function azerus.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster or targetMonster:getName():lower() ~= 'azerus' then
 		return true
@@ -36,3 +37,5 @@ function onKill(creature, target)
 	end
 	return true
 end
+
+azerus:register()
