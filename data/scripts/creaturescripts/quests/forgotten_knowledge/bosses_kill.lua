@@ -13,7 +13,7 @@ local bosses = {
 	["an astral glyph"] = {}
 }
 
-local bossesForgottenKill = CreatureEvents("BossesForgottenKill")
+local bossesForgottenKill = CreatureEvent("BossesForgottenKill")
 function bossesForgottenKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster or targetMonster:getMaster() then

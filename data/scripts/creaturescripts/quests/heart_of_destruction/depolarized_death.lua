@@ -23,7 +23,7 @@ local function setStorage()
 	end
 end
 
-locla depolarizedDeath = CreatureEvent("DepolarizedDeath")
+local depolarizedDeath = CreatureEvent("DepolarizedDeath")
 function depolarizedDeath.onDeath(creature)
 
 	Game.setStorageValue(14323, Game.getStorageValue(14323) + 1)

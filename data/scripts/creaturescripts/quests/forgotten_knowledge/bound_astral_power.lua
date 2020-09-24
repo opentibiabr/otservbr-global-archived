@@ -5,7 +5,7 @@ local positions = {
 	[4] = {pos = Position(31995, 32856, 15), nextPos = Position(31975, 32856, 15)}
 }
 
-local astralPower = CreatureEvents("AstralPower")
+local astralPower = CreatureEvent("AstralPower")
 function astralPower.onKill(creature, target)
 	local player = creature:getPlayer()
 	if not player then

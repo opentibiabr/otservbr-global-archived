@@ -1,4 +1,4 @@
-local blackKnightKill = CreatureScript("BlackKnightKill")
+local blackKnightKill = CreatureEvent("BlackKnightKill")
 function blackKnightKill.onKill(creature, target)
 	local targetMonster = target:getMonster()
 	if not targetMonster then
