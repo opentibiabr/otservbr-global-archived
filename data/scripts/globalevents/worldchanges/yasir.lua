@@ -99,4 +99,4 @@ function yasir.onStartup()
 		end
 	end
 end
-yasir.register()
+yasir:register()

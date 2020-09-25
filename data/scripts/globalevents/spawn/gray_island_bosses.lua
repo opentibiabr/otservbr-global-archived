@@ -21,4 +21,4 @@ function gray.onStartup()
 	return true
 end
 
-gray.register()
+gray:register()

@@ -54,4 +54,4 @@ function grimvaleRespawn.onStartup()
 	end
 	return true
 end
-grimvaleRespawn.register()
+grimvaleRespawn:register()

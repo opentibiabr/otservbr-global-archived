@@ -27,4 +27,4 @@ function theirmastersvoice.onStartup()
 		end
 	end
 end
-theirmastersvoice.register()
+theirmastersvoice:register()

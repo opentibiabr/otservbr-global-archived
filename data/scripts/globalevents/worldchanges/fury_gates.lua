@@ -62,4 +62,4 @@ function furygates.onStartup(interval)
 	end
 	return true
 end
-furygates.register()
+furygates:register()
