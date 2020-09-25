@@ -1,6 +1,7 @@
 local mountIds = {22, 25, 26}
 
-function onThink(interval)
+local rentedMounts = GlobalEvent("rentedmounts")
+function rentedMounts.onThink(interval)
 	local players = Game.getPlayers()
 	if #players == 0 then
 		return true
@@ -28,3 +29,6 @@ function onThink(interval)
 	end
 	return true
 end
+
+rentedMounts:interval(15000)
+rentedMounts:register()
