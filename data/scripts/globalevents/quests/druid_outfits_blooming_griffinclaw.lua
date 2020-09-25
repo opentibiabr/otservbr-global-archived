@@ -30,4 +30,4 @@ function druidOutfit.onStartup()
 	return true
 end
 
-druidOutfit.register()
+druidOutfit:register()
