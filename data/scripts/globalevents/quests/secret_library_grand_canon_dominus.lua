@@ -18,7 +18,9 @@ local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     end
     return false
 end
-function onThink(interval, lastExecution)
+
+local canonDominus = GlobalEvent("canon dominus")
+function canonDominus.onThink(interval, lastExecution)
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
@@ -28,3 +30,6 @@ function onThink(interval, lastExecution)
     boss:setReward(true)
     return true
 end
+
+canonDominus:interval(900000)
+canonDominus:register()

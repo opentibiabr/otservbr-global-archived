@@ -13,7 +13,8 @@ local sounds = {
 	'You can have my demon set, if you help me get out of here!'
 }
 
-function onThink(interval, lastExecution)
+local demonOakVoices = GlobalEvent("demon oak voices")
+function demonOakVoices.onThink(interval, lastExecution)
 	local spectators, spectator = Game.getSpectators(DEMON_OAK_POSITION, false, true, 0, 15, 0, 15)
 	local sound = sounds[math.random(#sounds)]
 	for i = 1, #spectators do
@@ -25,3 +26,7 @@ function onThink(interval, lastExecution)
 	end
 	return true
 end
+
+
+demonOakVoices:interval(15000)
+demonOakVoices:register()

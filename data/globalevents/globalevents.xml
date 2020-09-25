@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-	<!-- quests -->
-	<globalevent name="demon oak voices" interval="15000" script="quests/demon_oak_voices.lua" />
-	<globalevent name="blooming griffinclaw" type="startup" script="quests/druid_outfits_blooming_griffinclaw.lua" />
-	<globalevent name="effect" interval="3000" script="quests/ferumbras_ascendant_effect_1.lua"/>
-	<globalevent name="effcts" interval="4000" script="quests/ferumbras_ascendant_effect_2.lua"/>
-	<globalevent name="grimvale" interval="60000" script="quests/grimvale_feroxa.lua" />
-	<globalevent name="bosses poi" interval="46800000" script="quests/pits_of_inferno_bosses.lua"/>
-	<globalevent name="canon dominus" interval="900000" script="quests/secret_library_grand_canon_dominus.lua" />
-	<globalevent name="chaplaingaunder" interval="900000" script="quests/secret_library_grand_chaplain_gaunder.lua" />
-	<globalevent name="grand commander" interval="900000" script="quests/secret_library_grand_commander_soeren.lua" />
-	<globalevent name="preceptor lazare" interval="900000" script="quests/secret_library_preceptor_lazare.lua" />
-	<globalevent name="spawn damage" interval="9000" script="quests/secret_library_spawn_damage.lua" />
-	<globalevent name="mad" interval="14400000" script="quests/their_master_voice_mad_mage.lua"/>
-
 	<!-- spawn -->
 	<globalevent name="gray island bosses" type="startup" script="spawn/gray_island_bosses.lua"/>
 	<globalevent name="grimvale respawn" type="startup" script="spawn/grimvale_respawn.lua" />

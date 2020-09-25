@@ -8,7 +8,8 @@ local spawns = {
 	[7] = {position = Position(32785,32290,15), monster = 'The Handmaiden'}
 }
 
-function onThink(interval, lastExecution)
+local bossesPoi = GlobalEvent("bosses poi")
+function bossesPoi.onThink(interval, lastExecution)
 	local spawn = spawns[math.random(#spawns)]
 	local monster = Game.createMonster(spawn.monster, spawn.position, true, true)
 
@@ -18,3 +19,6 @@ function onThink(interval, lastExecution)
 	end
 	return true
 end
+
+bossesPoi:interval(46800000)
+bossesPoi:register()

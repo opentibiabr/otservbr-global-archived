@@ -1,7 +1,7 @@
 local config = {
-    monsterName = 'Preceptor Lazare',
-    bossPosition = Position(33373, 31348, 3),
-    centerPosition = Position(33373, 31348, 3),
+    monsterName = 'Grand Commander Soeren',
+    bossPosition = Position(33376, 31320, 2),
+    centerPosition = Position(33376, 31320, 2),
     rangeX = 50,
     rangeY = 50
 }
@@ -18,7 +18,9 @@ local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     end
     return false
 end
-function onThink(interval, lastExecution)
+
+local grandCommander = GlobalEvent("grand commander")
+function grandCommander.onThink(interval, lastExecution)
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
@@ -28,3 +30,6 @@ function onThink(interval, lastExecution)
     boss:setReward(true)
     return true
 end
+
+grandCommander:interval(900000)
+grandCommander:register()

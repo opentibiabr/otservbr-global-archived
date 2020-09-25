@@ -8,7 +8,8 @@ local spawns = {
 	[7] = {position = Position(33335,31873,9), monster = 'Mad Mage'}
 }
 
-function onThink(interval, lastExecution)
+local mad = GlobalEvent("mad")
+function mad.onThink(interval, lastExecution)
 	local spawn = spawns[math.random(#spawns)]
 	local monster = Game.createMonster(spawn.monster, spawn.position, true, true)
 	monster:setReward(true)
@@ -19,3 +20,6 @@ function onThink(interval, lastExecution)
 	end
 	return true
 end
+
+mad:interval(14400000)
+mad:register()

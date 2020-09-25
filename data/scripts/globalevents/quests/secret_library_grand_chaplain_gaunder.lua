@@ -19,7 +19,9 @@ local function checkBoss(centerPosition, rangeX, rangeY, bossName)
     end
     return false
 end
- function onThink(interval, lastExecution)
+
+local chaplaingaunder = GlobalEvent("chaplaingaunder")
+function chaplaingaunder.onThink(interval, lastExecution)
     if checkBoss(config.centerPosition, config.rangeX, config.rangeY, config.monsterName) then
         return true
     end
@@ -29,3 +31,6 @@ end
     boss:setReward(true)
     return true
 end
+
+chaplaingaunder:interval(900000)
+chaplaingaunder:register()

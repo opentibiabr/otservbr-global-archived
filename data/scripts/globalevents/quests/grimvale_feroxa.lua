@@ -91,7 +91,8 @@ local function spectators()
 	addEvent(Game.broadcastMessage, 15 * 60 * 1000, 'Half of the current full moon is visible now, there are still a lot of clouds in front of it.', MESSAGE_EVENT_ADVANCE)
 end
 
-function onThink(interval, lastExecution)
+local grimVale = GlobalEvent("grimvale")
+function grimVale.onThink(interval, lastExecution)
 	local chance = Game.getStorageValue(GlobalStorage.Feroxa.Chance)
 	if Game.getStorageValue(GlobalStorage.Feroxa.Active) >= 1 then
 		return true
@@ -113,3 +114,5 @@ function onThink(interval, lastExecution)
 	end
 	return true
 end
+grimVale:interval(60000)
+grimVale:register()

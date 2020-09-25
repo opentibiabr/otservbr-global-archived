@@ -24,7 +24,10 @@ local function bloom()
 	addEvent(bloom, bloomHours * 60 * 60 * 1000)
 end
 
-function onStartup()
+local druidOutfit = GlobalEvent("blooming griffinclaw")
+function druidOutfit.onStartup()
 	bloom()
 	return true
 end
+
+druidOutfit.register()

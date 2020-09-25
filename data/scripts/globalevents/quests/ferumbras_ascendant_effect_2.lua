@@ -15,7 +15,8 @@ local effects = {
     {position = Position(33464, 32817, 14), text = '', effect = 73},
 }
 
-function onThink(interval)
+local ferumbrasEffect2 = GlobalEvent("effcts")
+function ferumbrasEffect2.onThink(interval)
     for i = 1, #effects do
         local settings = effects[i]
         if settings.effect then
@@ -24,3 +25,6 @@ function onThink(interval)
     end
     return true
 end
+
+ferumbrasEffect2:interval(4000)
+ferumbrasEffect2:register()

@@ -47,7 +47,8 @@ local effects = {
 	{fromPosition = Position(32545, 32610, 12), toPosition = Position(32545, 32612, 12), effect = CONST_ME_FIREAREA},
 }
 
-function onThink(interval)
+local spawnDamage = GlobalEvent("spawn damage")
+function spawnDamage.onThink(interval)
 	local jolf
 	for i = 1, #effects do
 		local settings = effects[i]
@@ -78,3 +79,6 @@ function onThink(interval)
 	end
 	return true
 end
+
+spawnDamage:interval(9000)
+spawnDamage:register()
