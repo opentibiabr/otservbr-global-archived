@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-	<!-- spawn -->
-	<globalevent name="gray island bosses" type="startup" script="spawn/gray_island_bosses.lua"/>
-	<globalevent name="grimvale respawn" type="startup" script="spawn/grimvale_respawn.lua" />
-	<globalevent name="mawhawk" interval="14399999" script="spawn/mawhawk.lua"/>
-	<globalevent name="spawn raids" interval="60000" script="spawn/raids.lua"/>
-	<globalevent type="startup" name="rashid" script="spawn/rashid.lua"/>
-	<globalevent name="thawing dragon lord" interval="900000" script="spawn/thawing_dragon_lord.lua" />
-
 	<!-- others -->
 	<globalevent type="record" name="playerrecord" script="others/online_record.lua" />
 	<globalevent name="serversave" time="05:55:00" script="others/server_save.lua" />

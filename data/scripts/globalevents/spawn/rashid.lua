@@ -1,4 +1,5 @@
-function onStartup()
+local rashid = GlobalEvent("spawn raids")
+function rashid.onStartup()
    local days = {
       [1] = Position(32328, 31782, 6), --sunday
       [2] = Position(32207, 31155, 7), --monday
@@ -17,3 +18,4 @@ function onStartup()
    end
    return true
 end
+rashid:register()

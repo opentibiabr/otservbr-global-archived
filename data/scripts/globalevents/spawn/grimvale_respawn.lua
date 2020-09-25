@@ -24,7 +24,8 @@ function Game.createRandom(position)
 	return true
 end
 
-function onStartup()
+local grimvaleRespawn = GlobalEvent("grimvale respawn")
+function grimvaleRespawn.onStartup()
 	local contador = 1
 	if spawnDay == tonumber(currentDay) then
 		table.insert(monsters, 'wereboar')
@@ -53,3 +54,4 @@ function onStartup()
 	end
 	return true
 end
+grimvaleRespawn.register()

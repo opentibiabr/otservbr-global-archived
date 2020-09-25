@@ -42,7 +42,8 @@ local raids = {
 	}
 }
 
-function onThink(interval, lastExecution, thinkInterval)
+local spawnRaids = GlobalEvent("spawn raids")
+function spawnRaids.onThink(interval, lastExecution, thinkInterval)
 	local day, date = os.date('%A'), getRealDate()
 
 	local raidDays = {}
@@ -65,3 +66,6 @@ function onThink(interval, lastExecution, thinkInterval)
 	end
 	return true
 end
+
+spawnRaids:interval(60000)
+spawnRaids:register()
