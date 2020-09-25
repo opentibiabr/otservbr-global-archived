@@ -1,4 +1,5 @@
-function onThink(creature)
+local shargonGrowthCheck = CreatureEvent("ShargonGrowthCheck")
+function shargonGrowthCheck.onThink(creature)
 	local tilePos = Tile({x=creature:getPosition().x+math.random(-1, 1), y=creature:getPosition().y+math.random(-1, 1), z=creature:getPosition().z })
 	if not tilePos then
 		return true
@@ -12,3 +13,4 @@ function onThink(creature)
 	end
 	return true
 end
+shargonGrowthCheck:register()

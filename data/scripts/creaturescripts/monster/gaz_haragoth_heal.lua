@@ -4,7 +4,8 @@ condition:setParameter(CONDITION_PARAM_TICKS, 7 * 1000)
 condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
 condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 7 * 1000)
 
-function onThink(creature)
+local gazHaragothHeal = CreatureEvent("GazHaragothHeal")
+function gazHaragothHeal.onThink(creature)
 	local hp = (creature:getHealth()/creature:getMaxHealth())*100
 	if (hp < 12.5 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888)) then
 		creature:addCondition(condition)
@@ -21,3 +22,4 @@ function onThink(creature)
 		end, 7000, creature:getId())
 	end
 end
+gazHaragothHeal:register()

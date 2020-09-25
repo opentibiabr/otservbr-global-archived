@@ -1,4 +1,5 @@
-function onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
+local sharedLife = CreatureEvent("SharedLife")
+function sharedLife.onHealthChange(creature, attacker, primaryDamage, primaryType, secondaryDamage, secondaryType, origin)
 	if not creature:isMonster() then
 		return primaryDamage, primaryType, secondaryDamage, secondaryType
 	end
@@ -26,3 +27,4 @@ function onHealthChange(creature, attacker, primaryDamage, primaryType, secondar
 	end
     return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+sharedLife:register()

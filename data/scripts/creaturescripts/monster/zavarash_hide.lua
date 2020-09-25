@@ -5,7 +5,8 @@ local condition2 = Condition(CONDITION_OUTFIT)
 condition2:setTicks(-1)
 condition2:setOutfit({lookTypeEx = 1548})
 
-function onThink(creature)
+local zavarashHide = CreatureEvent("ZavarashHide")
+function zavarashHide.onThink(creature)
 	local hp, cpos = (creature:getHealth()/creature:getMaxHealth())*100, creature:getPosition()
 
 	if creature:getName():lower() == "zavarash" and (hp < 100) then
@@ -26,3 +27,4 @@ function onThink(creature)
 	end
 	return true
 end
+zavarashHide:register()

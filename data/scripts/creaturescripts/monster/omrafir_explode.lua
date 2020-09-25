@@ -19,7 +19,8 @@ function boom(cid)
 	return true
 end
 
-function onThink(creature)
+local omrafirExplode = CreatureEvent("OmrafirExplode")
+function omrafirExplode.onThink(creature)
 	local hp = (creature:getHealth()/creature:getMaxHealth())*100
 	local summons = creature:getSummons()
 	if hp <= 50 and #summons < 4 and not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) and
@@ -37,3 +38,4 @@ function onThink(creature)
 	end
 	return true
 end
+omrafirExplode:register()

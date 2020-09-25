@@ -1,4 +1,5 @@
-function onThink(creature)
+local greaterMinion = CreatureEvent("GreaterMinion")
+function greaterMinion.onThink(creature)
 	addEvent(function(cid)
 		local creature = Creature(cid)
 		if not creature then
@@ -19,3 +20,4 @@ function onThink(creature)
 		return true
 	end, 7000, creature:getId())
 end
+greaterMinion:register()

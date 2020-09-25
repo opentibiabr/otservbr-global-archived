@@ -1,4 +1,5 @@
-function onThink(creature)
+local superiorMinion = CreatureEvent("SuperiorMinion")
+function superiorMinion.onThink(creature)
 	addEvent(function(cid)
 		local creature = Creature(cid)
 		if not creature then
@@ -14,3 +15,4 @@ function onThink(creature)
 		return true
 	end, 7000, creature:getId())
 end
+superiorMinion:register()

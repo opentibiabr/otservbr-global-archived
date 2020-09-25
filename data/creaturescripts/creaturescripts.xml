@@ -1,22 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <creaturescripts>
-	<!-- monsters -->
-	<event type="think" name="GazHaragothHeal" script="monster/gaz_haragoth_heal.lua"/>
-	<event type="think" name="GreaterMinion" script="monster/greater_minion.lua"/>
-	<event type="preparedeath" name="HirintrorHeal" script="monster/hirintror_heal.lua"/>
-	<event type="kill" name="LowerRoshamuul" script="monster/lower_roshamuul.lua"/>
-	<event type="think" name="NecromanticMinion" script="monster/necromantic_minion.lua"/>
-	<event type="death" name="NorthernPike" script="monster/northern_pike.lua"/>
-	<event type="think" name="OmrafirExplode" script="monster/omrafir_explode.lua"/>
-	<event type="healthchange" name="SharedLife" script="monster/shared_life.lua"/>
-	<event type="think" name="ShargonGrowthCheck" script="monster/shargon_growth_check.lua"/>
-	<event type="think" name="ShlorgTeleport" script="monster/shlorg_teleport.lua"/>
-	<event type="think" name="SuperiorMinion" script="monster/superior_minion.lua"/>
-	<event type="think" name="ThePaleCountKill" script="monster/the_pale_count_kill.lua"/>
-	<event type="think" name="TheWelterEgg" script="monster/the_welter_egg.lua"/>
-	<event type="preparedeath" name="WhitePaleHeal" script="monster/white_pale_heal.lua"/>
-	<event type="death" name="WhiteDeerDeath" script="monster/white_deer.lua"/>
-	<event type="death" name="WhiteDeerScoutsDeath" script="monster/white_deer_scout.lua"/>
-	<event type="death" name="Wyda" script="monster/wyda.lua"/>
-	<event type="think" name="ZavarashHide" script="monster/zavarash_hide.lua"/>
 </creaturescripts>

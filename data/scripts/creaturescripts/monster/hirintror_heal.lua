@@ -4,7 +4,8 @@ condition:setParameter(CONDITION_PARAM_TICKS, 15 * 60 * 1000)
 condition:setParameter(CONDITION_PARAM_HEALTHGAIN, 0.01)
 condition:setParameter(CONDITION_PARAM_HEALTHTICKS, 15 * 60 * 1000)
 
-function onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
+local hirintrorHeal = CreatureEvent("HirintrorHeal")
+function hirintrorHeal.onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
     if creature:getName():lower() == "hirintror" then
         if not creature:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT, 88888) then
             creature:addCondition(condition)
@@ -16,3 +17,4 @@ function onPrepareDeath(creature, lastHitKiller, mostDamageKiller)
     end
     return true
 end
+hirintrorHeal:register()

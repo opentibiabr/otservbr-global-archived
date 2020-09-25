@@ -5,7 +5,8 @@ local position = {
     [4] = {pos = {x=33164, y=31744, z=9}}
 }
 
-function onThink(creature)
+local shlorgTeleport = CreatureEvent("ShlorgTeleport")
+function shlorgTeleport.onThink(creature)
 	local chance = math.random(1, 100)
 	if chance < 7 then
 		if(not creature:isMonster()) then
@@ -17,3 +18,4 @@ function onThink(creature)
 		return true
 	end
 end
+shlorgTeleport:register()

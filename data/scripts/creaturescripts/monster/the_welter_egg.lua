@@ -1,4 +1,5 @@
-function onThink(creature)
+local theWelterEgg = CreatureEvent("TheWelterEgg")
+function theWelterEgg.onThink(creature)
 	addEvent(function(cid)
 		local creature = Creature(cid)
 		if not creature then
@@ -14,3 +15,4 @@ function onThink(creature)
 		return true
 	end, 10000, creature:getId())
 end
+theWelterEgg:register()

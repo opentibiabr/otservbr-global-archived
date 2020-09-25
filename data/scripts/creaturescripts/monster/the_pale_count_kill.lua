@@ -1,4 +1,5 @@
-function onThink(creature)
+local thePaleCountKill = CreatureEvent("ThePaleCountKill")
+function thePaleCountKill.onThink(creature)
 	local hp = (creature:getHealth()/creature:getMaxHealth())*100
 	if (hp < 75) then
 		creature:say("Dare to follow me to my Sanctuary below and you shall DIE!", TALKTYPE_ORANGE_1)
@@ -7,3 +8,4 @@ function onThink(creature)
 	end
 	return true
 end
+thePaleCountKill:register()
