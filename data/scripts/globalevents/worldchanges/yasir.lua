@@ -55,7 +55,8 @@ local function spawnYasir(position)
 	end
 end
 
-function onStartup()
+local yasir = GlobalEvent("yasir")
+function yasir.onStartup()
 	if yasirEnabled then
 		if math.random(100) <= yasirChance then
 			local randTown = config[math.random(#config)]
@@ -98,3 +99,4 @@ function onStartup()
 		end
 	end
 end
+yasir.register()

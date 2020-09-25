@@ -1,4 +1,5 @@
-function onStartup()
+local theirmastersvoice = GlobalEvent("theirmastersvoice")
+function theirmastersvoice.onStartup()
 	local eventEnabled = true
 	local eventChance = 20
 	local function fillFungus(fromPosition, toPosition)
@@ -26,3 +27,4 @@ function onStartup()
 		end
 	end
 end
+theirmastersvoice.register()

@@ -1,4 +1,5 @@
-function onStartup(interval)
+local furygates = GlobalEvent("furygates")
+function furygates.onStartup(interval)
 	local chance = math.random(1, 6)
 	if (chance == 1) then -- venore
 		setGlobalStorageValue(9710, 1)
@@ -61,3 +62,4 @@ function onStartup(interval)
 	end
 	return true
 end
+furygates.register()

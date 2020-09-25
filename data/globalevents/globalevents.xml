@@ -1,7 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-	<!-- world changes -->
-	<globalevent name="furygates" type="startup" script="worldchanges/fury_gates.lua" />
-	<globalevent name="theirmastersvoice" type="startup" script="worldchanges/their_masters_voice.lua" />
-	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
 </globalevents>
