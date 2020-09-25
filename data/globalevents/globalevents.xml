@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-	<!-- others -->
-	<globalevent type="record" name="playerrecord" script="others/online_record.lua" />
-	<globalevent name="serversave" time="05:55:00" script="others/server_save.lua" />
-	<globalevent type="startup" name="serverstartup" script="others/startup.lua" />
-	<globalevent name="hirelingSave" type="shutdown" script="others/hireling_save.lua"/>
-
 	<!-- world changes -->
 	<globalevent name="furygates" type="startup" script="worldchanges/fury_gates.lua" />
 	<globalevent name="theirmastersvoice" type="startup" script="worldchanges/their_masters_voice.lua" />
