@@ -318,7 +318,12 @@ DailyReward.init = function(playerId)
 			end
 		end
 	end
-
+	-- Daily reward golden icon
+	if DailyReward.isRewardTaken(player:getId()) then
+		player:sendDailyRewardCollectionState(0)
+	else
+		player:sendDailyRewardCollectionState(1)
+	end
 	player:loadDailyRewardBonuses()
 end
 
