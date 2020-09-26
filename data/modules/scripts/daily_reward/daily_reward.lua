@@ -308,8 +308,7 @@ DailyReward.init = function(playerId)
 	if not player then
 		return false
 	end
-	local nextServerSave = Game.getLastServerSave() + DailyReward.serverTimeThreshold
-	if player:getNextRewardTime() < nextServerSave then
+	if player:getNextRewardTime() < Game.getLastServerSave() then
 		if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
 			player:setStreakLevel(0)
 			player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
