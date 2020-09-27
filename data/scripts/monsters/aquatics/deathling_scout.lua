@@ -12,15 +12,10 @@ monster.maxHealth = 7200
 monster.race = "blood"
 monster.corpse = 33373
 monster.speed = 310
-monster.runHealth = 20
 
 monster.changeTarget = {
 	interval = 4*1000,
 	chance = 10
-}
-
-monster.strategiesTarget = {
-	nearest = 100,
 }
 
 monster.flags = {
@@ -35,10 +30,10 @@ monster.flags = {
 	canPushCreatures = true,
 	staticAttackChance = 90,
 	targetDistance = 0,
-	runHealth = 0,
+	runHealth = 20,
 	healthHidden = false,
 	canWalkOnEnergy = false,
-	canWalkOnFire = false,
+	canWalkOnFire = true,
 	canWalkOnPoison = false
 }
 

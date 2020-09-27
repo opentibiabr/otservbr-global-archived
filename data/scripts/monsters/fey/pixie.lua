@@ -11,7 +11,6 @@ monster.maxHealth = monster.health
 monster.race = "blood"
 monster.corpse = 29098
 monster.speed = 240
-monster.runHealth = 30
 
 monster.changeTarget = {
 	interval = 4*1000,
@@ -30,6 +29,7 @@ monster.flags = {
 	preyable = false,
 	targetDistance = 4,
 	staticAttackChance = 70,
+	runHealth = 30,
 	respawnType = RESPAWN_IN_ALL
 }
 
