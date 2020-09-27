@@ -66,12 +66,12 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 17, minDamage = -300, maxDamage = -350, range = 7, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -250, type = COMBAT_DEATH, range = 6, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 3000, chance = 25, minDamage = -180, maxDamage = -250, type = COMBAT_DEATH, range = 5, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 3000, chance = 25, minDamage = -180, maxDamage = -250, type = COMBAT_ICE, range = 5, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -250, type = COMBAT_ICE, range = 6, effect = CONST_ME_ICETORNADO, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -250, type = COMBAT_DEATHDAMAGE, range = 6, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 3000, chance = 25, minDamage = -180, maxDamage = -250, type = COMBAT_DEATHDAMAGE, range = 5, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 3000, chance = 25, minDamage = -180, maxDamage = -250, type = COMBAT_ICEDAMAGE, range = 5, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -250, type = COMBAT_ICEDAMAGE, range = 6, effect = CONST_ME_ICETORNADO, target = true},
 	{name ="combat", interval = 2000, chance = 17, minDamage = -300, maxDamage = -350, range = 5, target = true}
 }
 

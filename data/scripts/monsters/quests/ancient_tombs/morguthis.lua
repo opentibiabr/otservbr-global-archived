@@ -86,11 +86,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 65, interval = 4000}},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 65, interval = 4000}},
 	{name ="combat", interval = 3000, chance = 7, minDamage = -55, maxDamage = -550, type = COMBAT_LIFEDRAIN, range = 1, target = false},
 	{name ="speed", interval = 1000, chance = 25, SpeedChange = -650, Duration = 50000},
-	{name ="combat", interval = 1000, chance = 20, minDamage = -40, maxDamage = -400, type = COMBAT_PHYSICAL, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 3000, chance = 7, minDamage = -50, maxDamage = -500, type = COMBAT_PHYSICAL, effect = CONST_ME_MORTAREA, target = false}
+	{name ="combat", interval = 1000, chance = 20, minDamage = -40, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 3000, chance = 7, minDamage = -50, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_MORTAREA, target = false}
 }
 
 monster.defenses = {

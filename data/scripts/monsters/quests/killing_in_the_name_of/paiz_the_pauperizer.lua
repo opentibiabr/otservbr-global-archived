@@ -93,10 +93,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -240, maxDamage = -550, type = COMBAT_FIRE, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -200, maxDamage = -350, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -280, maxDamage = -450, type = COMBAT_EARTH, range = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_POFF, target = true},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -240, maxDamage = -550, type = COMBAT_FIREDAMAGE, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -200, maxDamage = -350, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -280, maxDamage = -450, type = COMBAT_EARTHDAMAGE, range = 4, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_POFF, target = true},
 	{name ="combat", interval = 2000, chance = 10, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 11, minDamage = -20, maxDamage = -20, range = 7, shootEffect = CONST_ANI_POISON, target = false}

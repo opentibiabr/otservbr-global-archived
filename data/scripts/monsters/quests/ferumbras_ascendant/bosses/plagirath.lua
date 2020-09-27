@@ -93,10 +93,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = -1300, maxDamage = -2250, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_EARTH, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_DEATH, range = 4, effect = CONST_ME_POFF, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -1000, maxDamage = -1200, type = COMBAT_EARTH, length = 10, spread = 3, effect = CONST_ME_POFF, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -1300, maxDamage = -2250, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_DEATHDAMAGE, range = 4, effect = CONST_ME_POFF, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -1000, maxDamage = -1200, type = COMBAT_EARTHDAMAGE, length = 10, spread = 3, effect = CONST_ME_POFF, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -1500, maxDamage = -1900, type = COMBAT_LIFEDRAIN, length = 10, spread = 3, effect = CONST_ME_POFF, target = false},
 	{name ="speed", interval = 2000, chance = 20, SpeedChange = -600, Duration = 20000},
 	{name ="combat", interval = 20000, chance = 25, target = false}

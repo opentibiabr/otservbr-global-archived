@@ -74,11 +74,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -350, maxDamage = -500, length = 1, spread = 0, target = true},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -300, maxDamage = -500, type = COMBAT_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -350, maxDamage = -550, type = COMBAT_FIRE, range = 1, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 8, minDamage = -400, maxDamage = -580, type = COMBAT_HOLY, length = 6, spread = 3, effect = CONST_ME_HOLYAREA, target = false}
+	{name ="combat", interval = 2000, chance = 12, minDamage = -300, maxDamage = -500, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -350, maxDamage = -550, type = COMBAT_FIREDAMAGE, range = 1, shootEffect = CONST_ANI_FIRE, target = false},
+	{name ="combat", interval = 2000, chance = 8, minDamage = -400, maxDamage = -580, type = COMBAT_HOLYDAMAGE, length = 6, spread = 3, effect = CONST_ME_HOLYAREA, target = false}
 }
 
 monster.defenses = {

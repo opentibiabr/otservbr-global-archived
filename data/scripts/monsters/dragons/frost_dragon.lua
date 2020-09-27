@@ -89,13 +89,13 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -225, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -225, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -175, maxDamage = -380, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_POFF, target = false},
 	{name ="speed", interval = 2000, chance = 5, SpeedChange = -700, Duration = 12000},
 	{name ="speed", interval = 2000, chance = 15, SpeedChange = -850, Duration = 18000},
-	{name ="combat", interval = 2000, chance = 5, minDamage = -60, maxDamage = -120, type = COMBAT_ICE, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -240, type = COMBAT_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 5, minDamage = 0, maxDamage = -220, type = COMBAT_PHYSICAL, length = 1, spread = 0, effect = CONST_ME_POFF, target = false},
+	{name ="combat", interval = 2000, chance = 5, minDamage = -60, maxDamage = -120, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICETORNADO, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -240, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 2000, chance = 5, minDamage = 0, maxDamage = -220, type = COMBAT_PHYSICALDAMAGE, length = 1, spread = 0, effect = CONST_ME_POFF, target = false},
 	{name ="speed", interval = 2000, chance = 20, SpeedChange = -600, Duration = 12000}
 }
 

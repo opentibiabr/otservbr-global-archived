@@ -95,10 +95,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 1000, chance = 100, skill = 150, attack = 280, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -900, maxDamage = -1500, type = COMBAT_DEATH, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -210, maxDamage = -600, type = COMBAT_DEATH, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -210, maxDamage = -600, type = COMBAT_DEATH, range = 7, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 1000, chance = 100, skill = 150, attack = 280, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -900, maxDamage = -1500, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -210, maxDamage = -600, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -210, maxDamage = -600, type = COMBAT_DEATHDAMAGE, range = 7, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 100, skill = 90, attack = 250, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 12, minDamage = -1500, maxDamage = -2000, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_DRAWBLOOD, target = false}
 }

@@ -92,8 +92,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -50, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -65, maxDamage = -180, type = COMBAT_HOLY, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -50, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 1000, chance = 13, minDamage = -65, maxDamage = -180, type = COMBAT_HOLYDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = false},
 	{name ="combat", interval = 1000, chance = 25, minDamage = -20, maxDamage = -45, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = false}
 }
 

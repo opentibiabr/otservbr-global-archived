@@ -88,10 +88,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = -200, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -400, type = COMBAT_HOLY, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -280, maxDamage = -450, type = COMBAT_ENERGY, length = 4, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -400, type = COMBAT_PHYSICAL, effect = CONST_ME_BLOCKHIT, target = true}
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -200, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -400, type = COMBAT_HOLYDAMAGE, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -280, maxDamage = -450, type = COMBAT_ENERGYDAMAGE, length = 4, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -400, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_BLOCKHIT, target = true}
 }
 
 monster.defenses = {

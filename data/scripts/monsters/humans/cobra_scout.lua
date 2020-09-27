@@ -73,10 +73,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 22, minDamage = -350, maxDamage = -450, type = COMBAT_EARTH, shootEffect = CONST_ANI_SNIPERARROW, target = true},
-	{name ="combat", interval = 2000, chance = 16, minDamage = -300, maxDamage = -420, type = COMBAT_EARTH, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 12, minDamage = -300, maxDamage = -380, type = COMBAT_PHYSICAL, effect = CONST_ME_GROUNDSHAKER, target = false}
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 22, minDamage = -350, maxDamage = -450, type = COMBAT_EARTHDAMAGE, shootEffect = CONST_ANI_SNIPERARROW, target = true},
+	{name ="combat", interval = 2000, chance = 16, minDamage = -300, maxDamage = -420, type = COMBAT_EARTHDAMAGE, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -300, maxDamage = -380, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_GROUNDSHAKER, target = false}
 }
 
 monster.defenses = {

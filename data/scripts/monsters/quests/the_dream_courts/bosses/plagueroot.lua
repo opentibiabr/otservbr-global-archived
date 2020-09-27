@@ -99,15 +99,15 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, skill = 210, attack = 260, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 210, attack = 260, effect = CONST_ME_DRAWBLOOD},
 	-- fire
 	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 1000, chance = 7, minDamage = -200, maxDamage = -1000, range = 2, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 1000, chance = 7, minDamage = -50, maxDamage = -150, type = COMBAT_PHYSICAL, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 1000, chance = 50, minDamage = -20, maxDamage = -100, type = COMBAT_FIRE, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 1000, chance = 7, minDamage = -50, maxDamage = -150, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 1000, chance = 50, minDamage = -20, maxDamage = -100, type = COMBAT_FIREDAMAGE, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="firefield", interval = 1000, chance = 4, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 1000, chance = 34, minDamage = -50, maxDamage = -150, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -50, maxDamage = -100, type = COMBAT_FIRE, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -30, maxDamage = -100, type = COMBAT_FIRE, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false}
+	{name ="combat", interval = 1000, chance = 34, minDamage = -50, maxDamage = -150, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 1000, chance = 13, minDamage = -50, maxDamage = -100, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
+	{name ="combat", interval = 1000, chance = 10, minDamage = -30, maxDamage = -100, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false}
 }
 
 monster.defenses = {

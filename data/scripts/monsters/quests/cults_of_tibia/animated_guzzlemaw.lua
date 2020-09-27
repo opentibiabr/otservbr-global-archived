@@ -97,11 +97,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -499, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -499, effect = CONST_ME_DRAWBLOOD},
 	-- bleed
 	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 10, minDamage = -500, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -900, type = COMBAT_PHYSICAL, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -500, type = COMBAT_PHYSICAL, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -900, type = COMBAT_PHYSICALDAMAGE, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
 	{name ="speed", interval = 2000, chance = 15, SpeedChange = -800, Duration = 15000},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -800, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
 }

@@ -71,12 +71,12 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -800, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -350, maxDamage = -900, type = COMBAT_ENERGY, length = 10, spread = 3, effect = CONST_ME_BIGCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATH, effect = CONST_ME_SMALLCLOUDS, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -750, type = COMBAT_PHYSICAL, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -800, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -350, maxDamage = -900, type = COMBAT_ENERGYDAMAGE, length = 10, spread = 3, effect = CONST_ME_BIGCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_SMALLCLOUDS, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -750, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -400, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_BLUE, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_ENERGY, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_ENERGYDAMAGE, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -900, target = false},
 	{name ="combat", interval = 2000, chance = 40, target = false}
 }

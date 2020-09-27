@@ -79,9 +79,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -210, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -260, maxDamage = -450, type = COMBAT_ICE, length = 10, spread = 3, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -150, maxDamage = -280, type = COMBAT_DROWN, effect = CONST_ME_BUBBLES, target = true},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -210, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -260, maxDamage = -450, type = COMBAT_ICEDAMAGE, length = 10, spread = 3, effect = CONST_ME_ICETORNADO, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -150, maxDamage = -280, type = COMBAT_DROWNDAMAGE, effect = CONST_ME_BUBBLES, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -80, maxDamage = -140, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -140, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 10, range = 5, target = false}

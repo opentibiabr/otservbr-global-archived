@@ -73,10 +73,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, skill = 65, attack = 24, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 15, minDamage = -60, maxDamage = -130, type = COMBAT_ENERGY, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
-	{name ="combat", interval = 1000, chance = 13, minDamage = -85, maxDamage = -115, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 1000, chance = 17, minDamage = -135, maxDamage = -175, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 65, attack = 24, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 1000, chance = 15, minDamage = -60, maxDamage = -130, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="combat", interval = 1000, chance = 13, minDamage = -85, maxDamage = -115, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
+	{name ="combat", interval = 1000, chance = 17, minDamage = -135, maxDamage = -175, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -40, maxDamage = -120, range = 7, shootEffect = CONST_ANI_POISON, target = false},
 	{name ="combat", interval = 1000, chance = 12, minDamage = -110, maxDamage = -130, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="speed", interval = 1000, chance = 10, SpeedChange = -850, Duration = 20000},

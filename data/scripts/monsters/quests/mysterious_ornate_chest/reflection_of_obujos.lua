@@ -71,11 +71,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 360, interval = 4000}},
-	{name ="combat", interval = 3000, chance = 23, minDamage = -200, maxDamage = -800, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -1200, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 360, interval = 4000}},
+	{name ="combat", interval = 3000, chance = 23, minDamage = -200, maxDamage = -800, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 3500, chance = 20, minDamage = -200, maxDamage = -600, type = COMBAT_MANADRAIN, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_BIGCLOUDS, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -200, maxDamage = -800, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 1200, chance = 7, minDamage = -600, maxDamage = -1300, type = COMBAT_ICE, length = 8, spread = 3, effect = CONST_ME_GIANTICE, target = false},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -200, maxDamage = -800, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 1200, chance = 7, minDamage = -600, maxDamage = -1300, type = COMBAT_ICEDAMAGE, length = 8, spread = 3, effect = CONST_ME_GIANTICE, target = false},
 	{name ="combat", interval = 2000, chance = 14, minDamage = -600, maxDamage = -1600, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_ICETORNADO, target = false}
 }
 

@@ -94,13 +94,13 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -603, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -603, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 5, range = 5, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -920, maxDamage = -1280, range = 5, effect = CONST_ME_SMALLCLOUDS, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -80, maxDamage = -230, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, type = COMBAT_DEATH, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -110, maxDamage = -180, type = COMBAT_DEATH, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -250, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -110, maxDamage = -180, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
 	{name ="speed", interval = 2000, chance = 20, SpeedChange = -800, Duration = 30000}
 }
 

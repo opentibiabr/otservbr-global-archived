@@ -91,12 +91,12 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, skill = 140, attack = 80, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 7, minDamage = -650, maxDamage = -900, type = COMBAT_PHYSICAL, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 140, attack = 80, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 7, minDamage = -650, maxDamage = -900, type = COMBAT_PHYSICALDAMAGE, length = 8, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -850, maxDamage = -2260, type = COMBAT_LIFEDRAIN, length = 10, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -640, maxDamage = -800, type = COMBAT_LIFEDRAIN, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -420, maxDamage = -954, type = COMBAT_ENERGY, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -640, maxDamage = -800, type = COMBAT_EARTH, effect = CONST_ME_STONES, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -420, maxDamage = -954, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -640, maxDamage = -800, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_STONES, target = true},
 	{name ="combat", interval = 2000, chance = 20, target = false}
 }
 

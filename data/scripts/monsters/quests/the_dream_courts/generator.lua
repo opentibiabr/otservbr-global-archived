@@ -60,7 +60,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 10, minDamage = -206, maxDamage = -252, effect = CONST_ME_GREEN_RINGS, target = false}
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 10, minDamage = -206, maxDamage = -252, effect = CONST_ME_GREEN_RINGS, target = false}
 }
 
 monster.defenses = {

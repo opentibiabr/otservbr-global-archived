@@ -70,9 +70,9 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 6000, chance = 60, minDamage = -100, maxDamage = -180, type = COMBAT_FIRE, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
-	{name ="combat", interval = 3000, chance = 50, minDamage = -70, maxDamage = -115, type = COMBAT_FIRE, range = 10, effect = CONST_ME_FIREAREA, target = true}
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 6000, chance = 60, minDamage = -100, maxDamage = -180, type = COMBAT_FIREDAMAGE, length = 8, spread = 3, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 3000, chance = 50, minDamage = -70, maxDamage = -115, type = COMBAT_FIREDAMAGE, range = 10, effect = CONST_ME_FIREAREA, target = true}
 }
 
 monster.defenses = {

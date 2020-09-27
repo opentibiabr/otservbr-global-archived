@@ -88,11 +88,11 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = -400, maxDamage = -580, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -400, maxDamage = -580, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -270, maxDamage = -390, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -280, maxDamage = -410, type = COMBAT_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="combat", interval = 2000, chance = 5200, minDamage = -280, maxDamage = -370, type = COMBAT_ICE, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -290, type = COMBAT_ICE, length = 5, spread = 3, effect = CONST_ME_ICEATTACK, target = false}
+	{name ="combat", interval = 2000, chance = 25, minDamage = -280, maxDamage = -410, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICEAREA, target = true},
+	{name ="combat", interval = 2000, chance = 5200, minDamage = -280, maxDamage = -370, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -290, type = COMBAT_ICEDAMAGE, length = 5, spread = 3, effect = CONST_ME_ICEATTACK, target = false}
 }
 
 monster.defenses = {

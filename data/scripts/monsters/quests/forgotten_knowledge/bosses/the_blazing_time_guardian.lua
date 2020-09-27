@@ -83,10 +83,10 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, skill = 190, attack = 300, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_ENERGY, length = 9, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_ENERGY, length = 9, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 190, attack = 300, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_DEATHDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYHIT, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_ENERGYDAMAGE, length = 9, spread = 3, effect = CONST_ME_ENERGYHIT, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -600, maxDamage = -780, type = COMBAT_ENERGYDAMAGE, length = 9, spread = 3, effect = CONST_ME_ENERGYAREA, target = false},
 	-- energy damage
 	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 2000, chance = 20, minDamage = -2000, maxDamage = -2000, effect = CONST_ME_BLOCKHIT, target = false},
 	-- bleed

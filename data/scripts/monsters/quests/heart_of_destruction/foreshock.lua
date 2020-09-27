@@ -71,12 +71,12 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 100, minDamage = -400, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_ENERGY, length = 10, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -400, maxDamage = -1000, type = COMBAT_PHYSICAL, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_PHYSICAL, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_HOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -300, type = COMBAT_PHYSICAL, length = 2, spread = 0, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -400, maxDamage = -1000, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 10, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -400, maxDamage = -1000, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_HITAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -600, type = COMBAT_PHYSICALDAMAGE, length = 10, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -350, maxDamage = -800, type = COMBAT_HOLYDAMAGE, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -300, type = COMBAT_PHYSICALDAMAGE, length = 2, spread = 0, effect = CONST_ME_HITAREA, target = false},
 	{name ="combat", interval = 2000, chance = 40, target = false}
 }
 
