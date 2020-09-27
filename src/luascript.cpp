@@ -2994,13 +2994,13 @@ void LuaScriptInterface::registerFunctions()
     registerMethod("MonsterType", "canWalkOnPoison",
                   LuaScriptInterface::luaMonsterTypeCanWalkOnPoison);
 
-    registerMethod("MonsterType", "nearest",
+    registerMethod("MonsterType", "strategiesTargetNearest",
                   LuaScriptInterface::luaMonsterTypeStrategiesTargetNearest);
-    registerMethod("MonsterType", "health",
+    registerMethod("MonsterType", "strategiesTargetHealth",
                   LuaScriptInterface::luaMonsterTypeStrategiesTargetHealth);
-    registerMethod("MonsterType", "damage",
+    registerMethod("MonsterType", "strategiesTargetDamage",
                   LuaScriptInterface::luaMonsterTypeStrategiesTargetDamage);
-    registerMethod("MonsterType", "random",
+    registerMethod("MonsterType", "strategiesTargetRandom",
                   LuaScriptInterface::luaMonsterTypeStrategiesTargetRandom);
 
 	// Loot

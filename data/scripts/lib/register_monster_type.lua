@@ -157,16 +157,16 @@ end
 registerMonsterType.strategiesTarget  = function(mtype, mask)
 	if mask.strategiesTarget then
 		if mask.strategiesTarget.nearest then
-			mtype:nearest(mask.strategiesTarget.nearest)
+			mtype:strategiesTargetNearest(mask.strategiesTarget.nearest)
 		end
 		if mask.strategiesTarget.health then
-			mtype:health(mask.strategiesTarget.health)
+			mtype:strategiesTargetHealth(mask.strategiesTarget.health)
 		end
 		if mask.strategiesTarget.damage then
-			mtype:damage(mask.strategiesTarget.damage)
+			mtype:strategiesTargetDamage(mask.strategiesTarget.damage)
 		end
 		if mask.strategiesTarget.random then
-			mtype:random(mask.strategiesTarget.random)
+			mtype:strategiesTargetRandom(mask.strategiesTarget.random)
 		end
 	end
 end
@@ -474,7 +474,7 @@ registerMonsterType.defenses = function(mtype, mask)
 							spell:setCombatEffect(defense.effect)
 						end
 						if defense.shootEffect then
-							spell:setCombatShootEffect(defense.shootEffect)
+							spell:setCombatshootEffect(defense.shootEffect)
 						end
 					end
 				elseif defense.script then
