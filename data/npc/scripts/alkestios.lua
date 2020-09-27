@@ -22,12 +22,19 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if msgcontains(msg, "mission") then
-        npcHandler:say({
-            "I indeed have some troubles since I'm travelling this part of the world. When I took over the body of a white deer I wasn't aware that such an animal is a sought after quarry for hunters and poachers. ...",
-            "Now I'm living in the constant danger of being caught and killed. Of course, I could just take over another animal but this deer has really grown on me. I'd like to help this beautiful stag but I need your assistance. Are you willing to help me?"
-        }, cid)
-        npcHandler.topic[cid] = 1
-
+        if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission02) == 1) then
+            npcHandler:say({
+                "You succeeded! It seems the poachers have read your little faked story about killing white deer and the ensuing doom. They stopped chasing me. Thank you! ...",
+                "You proved yourself trustworthy - at least as far as I am concerned. But as I told you I'm actually not a real animal. If you want to enter our hidden island, you must prove that you are also willing to help real animals. Would you do that?"
+            }, cid)
+            npcHandler.topic[cid] = 2
+        else
+            npcHandler:say({
+                "I indeed have some troubles since I'm travelling this part of the world. When I took over the body of a white deer I wasn't aware that such an animal is a sought after quarry for hunters and poachers. ...",
+                "Now I'm living in the constant danger of being caught and killed. Of course, I could just take over another animal but this deer has really grown on me. I'd like to help this beautiful stag but I need your assistance. Are you willing to help me?"
+            }, cid)
+            npcHandler.topic[cid] = 1
+        end
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, "yes") then
 			npcHandler:say({
@@ -40,7 +47,13 @@ local function creatureSayCallback(cid, type, msg)
 		elseif msgcontains(msg, "no") then
 			npcHandler:say("Then not.", cid)
 		end
-		npcHandler.topic[cid] = 0
+        npcHandler.topic[cid] = 0
+    elseif npcHandler.topic[cid] == 2 then
+        npcHandler:say({
+            "I heard there is a problem with a wolf mother and her whelps. However, I don't know more about it. One of my sisters, Ikassis, has taken over the body of a snake. ...",
+            "She knows more about the wolf. Seek her out in the north-west of Edron, near a circle of standing stones."
+        }, cid)
+        player:setStorageValue(Storage.ThreatenedDreams.TroubledMission03, 1)
 	end
 	return true
 end
@@ -64,4 +77,3 @@ npcHandler:setMessage(MESSAGE_WALKAWAY, "May your path always be even.")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
 npcHandler:addModule(FocusModule:new())
-

@@ -72,6 +72,22 @@ local function creatureSayCallback(cid, type, msg)
 				npcHandler.topic[cid] = 0
 			end
 		end
+	elseif msgcontains(msg, 'book') then
+		npcHandler:say({
+			'I see: You want me to add an additional story to this book. A legend about how it brings ill luck to kill a white deer. I could do that, yes. It costs 5000 gold, however. Are you still interested?'
+		}, cid)
+		npcHandler.topic[cid] = 5
+	elseif npcHandler.topic[cid] == 5 then
+		if msgcontains(msg, "yes") then
+			if ( (player:getItem(28596) >= 1) and (player:getMoney() > 5000) )then
+				player:removeMoney(5000)
+				npcHandler:say({
+					"Well then. Here, take the book, I added the story. Oh, just a piece of advice: Not to inflame prejudice but poachers are of rather simple disposition. I doubt they are ardent readers. ...",
+					"So if you want to make sure they read this anytime soon, perhaps don't hide the book in a shelf or chest. Make sure to place it somewhere where they will find it easily, like very obviously on a table or something."
+				}, cid)
+				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 1)
+			end
+		end
 	end
 	return true
 end
