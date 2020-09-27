@@ -4,18 +4,46 @@ Look README.md for look the reserved action/unique
 
 ]]
 QuestDoorAction = {
-	-- Sams old backpack door
-	[Storage.SamsOldBackpackDoor] = {
-		itemId = false,
-		itemPos = {{x = 32455, y = 31967, z = 14}}
-	},
 	-- The queens of the banshee door
-	[Storage.QueenOfBanshees.LastSeal] = {
-		itemId = false,
+	[Storage.Quest.TheQueenOfTheBanshees.BansheeDoor] = {
+		itemId = 5114,
 		itemPos = {
 			{x = 32246, y = 31861, z = 14},
 			{x = 32246, y = 31862, z = 14}
 		}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.FirstSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31872, z = 14}}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.SecondSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31875, z = 14}}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.ThirdSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31878, z = 14}}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.FourthSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31881, z = 14}}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.FifthSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31884, z = 14}}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.SixthSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31887, z = 14}}
+	},
+	[Storage.Quest.TheQueenOfTheBanshees.LastSealDoor] = {
+		itemId = 5105,
+		itemPos = {{x = 32223, y = 31890, z = 14}}
+	},
+	-- Sams old backpack door
+	[Storage.SamsOldBackpackDoor] = {
+		itemId = false,
+		itemPos = {{x = 32455, y = 31967, z = 14}}
 	},
 	-- Edron
 	[Storage.Kilmaresh.Sixth.Favor] = {
@@ -538,19 +566,6 @@ QuestDoorAction = {
 		itemId = false,
 		itemPos = {{x = 31978, y = 32856, z = 3}}
 	},
-	-- The queen of the banshees door
-	[Storage.QueenOfBanshees.KissDoor] = {
-		itemId = false,
-		itemPos = {
-			{x = 32223, y = 31872, z = 14},
-			{x = 32223, y = 31875, z = 14},
-			{x = 32223, y = 31878, z = 14},
-			{x = 32223, y = 31881, z = 14},
-			{x = 32223, y = 31884, z = 14},
-			{x = 32223, y = 31887, z = 14},
-			{x = 32223, y = 31890, z = 14}
-		}
-	},
 	-- Hot cuisine door
 	[Storage.HotCuisineQuest.CookbookDoor] = {
 		itemId = false,
@@ -619,7 +634,14 @@ QuestDoorAction = {
 		itemId = false,
 		itemPos = {{x = 32316, y = 31757, z = 9}}
 	},
-
+	-- White raven monastery door
+	[Storage.WhiteRavenMonastery.Door] = {
+		itemId = false,
+		itemPos = {
+			{x = 32171, y = 31936, z = 7},
+			{x = 32169, y = 31933, z = 7}
+		}
+	}
 }
 
 QuestDoorUnique = {

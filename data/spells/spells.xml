@@ -381,7 +381,7 @@
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
-	<instant group="attack" spellid="43" name="Strong Ice Wave" words="exevo gran frigo hur" lvl="40" mana="170" direction="1" exhaustion="4000" groupcooldown="2000" needlearn="0" script="attack/strong ice wave.lua">
+	<instant group="attack" spellid="43" name="Strong Ice Wave" words="exevo gran frigo hur" lvl="40" mana="170" direction="1" exhaustion="8000" groupcooldown="2000" needlearn="0" script="attack/strong ice wave.lua">
 		<vocation name="Druid" />
 		<vocation name="Elder Druid" />
 	</instant>
@@ -1228,4 +1228,5 @@
 	<instant name="Ice Crystal Bomb" words="###470"  direction="1" selftarget="1" exhaustion="2000" needlearn="1"  script="monster/ice_crystal_bomb.lua"/>
 	<instant name="summon challenge" words="###471" blockwalls="1" needtarget="0" needlearn="1" script="monster/summonchallenge.lua"/>
 	<instant name="energized raging mage skill reducer" words="###472" blockwalls="1" needtarget="0" needlearn="1" script="monster/energized raging mage skill reducer.lua"/>
+	<instant name="werelion wave" words="###472" direction="1" exhaustion="2000" needlearn="1" script="monster/werelion_wave.lua"/>
 </spells>

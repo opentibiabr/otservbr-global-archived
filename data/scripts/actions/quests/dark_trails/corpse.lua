@@ -1,6 +1,6 @@
-local corpse = Action()
+local darkCorpse = Action()
 
-function corpse.onUse(player)
+function darkCorpse.onUse(player)
 	if player:getStorageValue(Storage.DarkTrails.Mission14) == 1 then
 		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Quandon has been murdered! You should report to Sholley about it!.')
 		player:setStorageValue(Storage.DarkTrails.Mission14, 2)
@@ -10,5 +10,5 @@ function corpse.onUse(player)
 	return true
 end
 
-corpse:uid(20001)
-corpse:register()
+darkCorpse:uid(20001)
+darkCorpse:register()

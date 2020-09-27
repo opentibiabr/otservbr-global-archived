@@ -186,3 +186,70 @@ function Position:hasCreature(position, teleportTo)
 		creature:teleportTo(teleportTo, true)
 	end
 end
+
+--[[
+If the script have one lever and item to revert uses:
+Position.revertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effect)
+
+If not have lever, use only the first two variables
+Revert item: Position.revertItem(createItemPosition, createItemId)
+"effect" variable is optional
+]]
+function Position.revertItem(positionCreateItem, itemIdCreate, positionTransform, itemId, itemTransform, effect)
+	local tile = Tile(positionTransform)
+	if tile then
+		local lever = tile:getItemById(itemId)
+		if lever then
+			lever:transform(itemTransform)
+		end
+	end
+
+	local getItemTile = Tile(positionCreateItem)
+	if getItemTile then
+		local getItemId = getItemTile:getItemById(itemIdCreate)
+		if not getItemId then
+			Game.createItem(itemIdCreate, 1, positionCreateItem)
+			Position(positionCreateItem):sendMagicEffect(effect)
+		end
+	end
+end
+
+-- Position.transformItem(itemPosition, itemId, itemTransform, effect)
+-- Variable "effect" is optional
+function Position.transformItem(itemPosition, itemId, itemTransform, effect)
+	local thing = Tile(itemPosition):getItemById(itemId)
+	if thing then
+		thing:transform(itemTransform)
+		Position(itemPosition):sendMagicEffect(effect)
+	end
+end
+
+-- Position.createItem(tilePosition, itemId, effect)
+-- Variable "effect" is optional
+function Position.createItem(itemPosition, itemId, effect)
+	local tile = Tile(itemPosition)
+	if not tile then
+		return true
+	end
+
+	local thing = tile:getItemById(itemId)
+	if not thing then
+		Game.createItem(itemId, 1, itemPosition)
+		Position(itemPosition):sendMagicEffect(effect)
+	end
+end
+
+-- Position.removeItem(position, itemId, effect)
+-- Variable "effect" is optional
+function Position.removeItem(tilePosition, itemId, effect)
+	local tile = Tile(tilePosition)
+	if not tile then
+		return true
+	end
+
+	local thing = tile:getItemById(itemId)
+	if thing then
+		thing:remove()
+		Position(tilePosition):sendMagicEffect(effect)
+	end
+end

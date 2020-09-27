@@ -426,14 +426,15 @@ void Weapon::internalUseWeapon(Player* player, Item* item, Creature* target, int
 		damage.primary.type = params.combatType;
 		damage.secondary.type = getElementType();
 
-		if (damage.secondary.type != COMBAT_NONE) {
-			damage = Weapon::getCombatDamage(damage, player, item, damageModifier);
-		}
-		else {
-			damage.primary.value = (getWeaponDamage(player, target, item) * damageModifier) / 100;
-			damage.secondary.value = getElementDamage(player, target, item);
-		}
-		Combat::doCombatHealth(player, target, damage, params);
+    if (damage.secondary.type == COMBAT_NONE) {
+    	damage.primary.value = (getWeaponDamage(player, target, item) * damageModifier) / 100;
+    	damage.secondary.value = 0;
+    } else {
+    	damage.primary.value = (getWeaponDamage(player, target, item) * damageModifier) / 100;
+    	damage.secondary.value = (getElementDamage(player, target, item) * damageModifier) / 100;
+    }
+
+	  	Combat::doCombatHealth(player, target, damage, params);
 	}
 
 	onUsedWeapon(player, item, target->getTile());
@@ -866,6 +867,7 @@ int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* t
 	if (item->getWeaponType() == WEAPON_AMMO) {
 		Item* weapon = player->getWeapon(true);
 		if (weapon) {
+      		attackValue += item->getAttack();
 			attackValue += weapon->getAttack();
 		}
 	}
@@ -873,15 +875,16 @@ int32_t WeaponDistance::getElementDamage(const Player* player, const Creature* t
 	int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
 	float attackFactor = player->getAttackFactor();
 
-	int32_t minValue = player->getLevel() / 5;
-	int32_t maxValue = Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, false);
-	if (target) {
-		if (target->getPlayer()) {
-			minValue = static_cast<int32_t>(std::ceil(player->getLevel() * 0.1));
-		} else {
-			minValue = static_cast<int32_t>(std::ceil(player->getLevel() * 0.2));
-		}
-	}
+  	int32_t minValue = std::round(player->getLevel() / 5);
+  	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + minValue) / 2;
+
+  	if (target) {
+    	if (target->getPlayer()) {
+      		minValue /= 4;
+   		} else {
+      		minValue /= 2;
+    	}
+  	}
 
 	return -normal_random(minValue, static_cast<int32_t>(maxValue * player->getVocation()->distDamageMultiplier));
 }
@@ -895,10 +898,17 @@ int16_t WeaponDistance::getElementDamageValue() const
 int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* target, const Item* item, bool maxDamage /*= false*/) const
 {
 	int32_t attackValue = item->getAttack();
+  	bool hasElement = false;
 
 	if (item->getWeaponType() == WEAPON_AMMO) {
 		Item* weapon = player->getWeapon(true);
 		if (weapon) {
+      		const ItemType& it = Item::items[item->getID()];
+      		if (it.abilities && it.abilities->elementDamage != 0) {
+        		attackValue += it.abilities->elementDamage;
+        		hasElement = true;
+      		}
+
 			attackValue += weapon->getAttack();
 		}
 	}
@@ -906,21 +916,25 @@ int32_t WeaponDistance::getWeaponDamage(const Player* player, const Creature* ta
 	int32_t attackSkill = player->getSkillLevel(SKILL_DISTANCE);
 	float attackFactor = player->getAttackFactor();
 
-	int32_t maxValue = static_cast<int32_t>(Weapons::getMaxWeaponDamage(player->getLevel(), attackSkill, attackValue, attackFactor, false) * player->getVocation()->distDamageMultiplier);
+  	int32_t minValue = player->getLevel() / 5;
+  	int32_t maxValue = std::round((0.09f * attackFactor) * attackSkill * attackValue + minValue);
 	if (maxDamage) {
 		return -maxValue;
 	}
 
-	int32_t minValue;
-	if (target) {
-		if (target->getPlayer()) {
-			minValue = static_cast<int32_t>(std::ceil(player->getLevel() * 0.1));
-		} else {
-			minValue = static_cast<int32_t>(std::ceil(player->getLevel() * 0.2));
-		}
-	} else {
-		minValue = 0;
-	}
+  	if (target->getPlayer()) {
+    	if (hasElement) {
+      	minValue /= 4;
+    	} else {
+      	minValue /= 2;
+    	}
+  	} else {
+    	if (hasElement) {
+      	maxValue /= 2;
+     	minValue /= 2;
+    	}
+  	}
+
 	return -normal_random(minValue, maxValue);
 }
 

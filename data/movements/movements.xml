@@ -344,18 +344,6 @@
 	<movevent event="StepIn" actionid="12135" script="quests/the_new_frontier/minotaur_boss.lua"/>
 	<movevent event="StepIn" actionid="8007" script="quests/the_new_frontier/trap.lua"/>
 	<movevent event="StepIn" actionid="8000" script="quests/the_new_frontier/wayout.lua"/>
-	<!-- the queen of the banshees -->
-	<movevent event="StepIn" uniqueid="50012" script="quests/the_queen_of_the_banshees/the_fifth_seal_flame.lua"/>
-	<movevent event="StepIn" fromaid="50014" toaid="50015" script="quests/the_queen_of_the_banshees/the_fifth_seal_path.lua"/>
-	<movevent event="StepIn" uniqueid="50004" script="quests/the_queen_of_the_banshees/the_first_seal_flame.lua"/>
-	<movevent event="StepIn" uniqueid="50014" script="quests/the_queen_of_the_banshees/the_fourth_seal_flame.lua"/>
-	<movevent event="AddItem" tileitem="1" uniqueid="50013" script="quests/the_queen_of_the_banshees/the_fourth_seal_sacrifice.lua"/>
-	<movevent event="StepIn" uniqueid="50022" script="quests/the_queen_of_the_banshees/the_last_flame.lua"/>
-	<movevent event="StepIn" uniqueid="50021" script="quests/the_queen_of_the_banshees/the_second_seal_flame.lua"/>
-	<movevent event="StepIn" actionid="50017" script="quests/the_queen_of_the_banshees/the_second_seal_pearl.lua"/>
-	<movevent event="StepIn" uniqueid="50011" script="quests/the_queen_of_the_banshees/the_sixth_seal_flame.lua"/>
-	<movevent event="StepIn" uniqueid="50020" script="quests/the_queen_of_the_banshees/the_third_seal_flame.lua"/>
-	<movevent event="StepIn" actionid="50016" script="quests/the_queen_of_the_banshees/the_third_seal_warlock_tile.lua"/>
 	<!-- the secret library -->
 	<movevent event="StepIn" fromaid="64007" toaid="64014" script="quests/the_secret_library/teleport.lua"/>
 	<!-- the sharttered isles  -->
