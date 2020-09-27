@@ -76,7 +76,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -230, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -120, maxDamage = -170, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_SPEAR, target = false}
+	{name ="combat", interval = 2000, chance = 20, minDamage = -120, maxDamage = -170, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_SPEAR, target = false}
 }
 
 monster.defenses = {

@@ -82,9 +82,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, skill = 150, attack = 100, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 900, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -400, type = COMBAT_LIFEDRAIN, range = 7, ShootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 2000, chance = 15, range = 7, ShootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_BIGPLANTS, target = true},
-	{name ="combat", interval = 2000, chance = 15, range = 7, ShootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_PLANTATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -400, type = COMBAT_LIFEDRAIN, range = 7, shootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_BIGPLANTS, target = true},
+	{name ="combat", interval = 2000, chance = 15, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_PLANTATTACK, target = true},
 	{name ="combat", interval = 2000, chance = 13, minDamage = -100, maxDamage = -200, type = COMBAT_MANADRAIN, effect = CONST_ME_POISONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 12, target = false},
 	{name ="combat", interval = 2000, chance = 15, target = false},

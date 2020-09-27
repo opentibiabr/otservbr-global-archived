@@ -86,7 +86,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -143, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -20, maxDamage = -60, type = COMBAT_EARTH, range = 7, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -20, maxDamage = -60, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -75, maxDamage = -140, type = COMBAT_EARTH, length = 4, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -130, maxDamage = -170, type = COMBAT_EARTH, length = 4, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="speed", interval = 2000, chance = 10, SpeedChange = -600, Duration = 15000}

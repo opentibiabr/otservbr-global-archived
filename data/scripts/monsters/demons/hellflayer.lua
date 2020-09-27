@@ -98,14 +98,14 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 200, maxDamage = -869, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_FIRE, startDamage = 0, interval = 9000}},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -170, maxDamage = -300, type = COMBAT_FIRE, range = 7, ShootEffect = CONST_ANI_POISON, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -170, maxDamage = -300, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_POISON, target = false},
 	{name ="combat", interval = 2000, chance = 20, target = false},
 	{name ="combat", interval = 2000, chance = 20, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATH, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATH, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -50, maxDamage = -200, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -550, type = COMBAT_FIRE, ShootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -550, type = COMBAT_FIRE, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
 	{name ="combat", interval = 2000, chance = 5, range = 5, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 300, maxDamage = -500, type = COMBAT_PHYSICAL, ShootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_SLEEP, target = true}
+	{name ="combat", interval = 2000, chance = 10, minDamage = 300, maxDamage = -500, type = COMBAT_PHYSICAL, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_SLEEP, target = true}
 }
 
 monster.defenses = {

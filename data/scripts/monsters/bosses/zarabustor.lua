@@ -84,9 +84,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -130, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -250, type = COMBAT_FIRE, range = 7, ShootEffect = CONST_ANI_BURSTARROW, effect = CONST_ME_FIREAREA, target = true},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_FIRE, target = true},
-	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -250, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -250, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_BURSTARROW, effect = CONST_ME_FIREAREA, target = true},
+	{name ="firefield", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_FIRE, target = true},
+	{name ="combat", interval = 2000, chance = 25, minDamage = 0, maxDamage = -250, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -130, maxDamage = -350, type = COMBAT_ENERGY, length = 8, spread = 3, effect = CONST_ME_BIGCLOUDS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -250, type = COMBAT_MANADRAIN, range = 7, target = false},
 	{name ="speed", interval = 2000, chance = 15, SpeedChange = -330, Duration = 20000},

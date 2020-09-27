@@ -92,9 +92,9 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = -200, maxDamage = -700, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1400, chance = 20, minDamage = -200, maxDamage = -800, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_INFERNALBOLT, target = false},
-	{name ="combat", interval = 1500, chance = 20, minDamage = -300, maxDamage = -1100, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_POWERBOLT, target = false},
-	{name ="combat", interval = 1600, chance = 20, minDamage = -100, maxDamage = -720, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_ENERGYBALL, target = false},
+	{name ="combat", interval = 1400, chance = 20, minDamage = -200, maxDamage = -800, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_INFERNALBOLT, target = false},
+	{name ="combat", interval = 1500, chance = 20, minDamage = -300, maxDamage = -1100, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_POWERBOLT, target = false},
+	{name ="combat", interval = 1600, chance = 20, minDamage = -100, maxDamage = -720, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_ENERGYBALL, target = false},
 	{name ="combat", interval = 1500, chance = 14, minDamage = -300, maxDamage = -1000, type = COMBAT_HOLY, range = 7, effect = CONST_ME_HOLYDAMAGE, target = false}
 }
 

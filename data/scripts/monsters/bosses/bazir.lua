@@ -132,16 +132,16 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, skill = 200, attack = 250, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 7, minDamage = -100, maxDamage = -1000, type = COMBAT_MANADRAIN, range = 7, ShootEffect = CONST_ANI_ENERGY, effect = CONST_ME_POFF, target = false},
-	{name ="drunk", interval = 1000, chance = 7, range = 7, ShootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
-	{name ="combat", interval = 1000, chance = 9, range = 7, ShootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 1000, chance = 7, minDamage = -100, maxDamage = -1000, type = COMBAT_MANADRAIN, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_POFF, target = false},
+	{name ="drunk", interval = 1000, chance = 7, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 1000, chance = 9, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 1000, chance = 13, minDamage = -400, maxDamage = -700, type = COMBAT_LIFEDRAIN, effect = CONST_ME_LOSEENERGY, target = false},
 	{name ="combat", interval = 1000, chance = 10, minDamage = -400, maxDamage = -700, type = COMBAT_MANADRAIN, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="speed", interval = 1000, chance = 12, SpeedChange = -1900, Duration = 60000},
 	{name ="combat", interval = 1000, chance = 8, effect = CONST_ME_HITAREA, target = false},
 	{name ="outfit", interval = 1000, chance = 2},
 	{name ="outfit", interval = 1000, chance = 2},
-	{name ="combat", interval = 1000, chance = 34, minDamage = -100, maxDamage = -900, type = COMBAT_FIRE, range = 7, ShootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 1000, chance = 34, minDamage = -100, maxDamage = -900, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -500, maxDamage = -850, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false}
 }
 

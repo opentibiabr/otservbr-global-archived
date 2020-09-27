@@ -95,11 +95,11 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -499, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 600, interval = 4000}},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -700, maxDamage = -900, length = 5, spread = 3, effect = CONST_ME_HITBYPOISON, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -300, type = COMBAT_PHYSICAL, ShootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_SLEEP, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -300, type = COMBAT_PHYSICAL, shootEffect = CONST_ANI_EXPLOSION, effect = CONST_ME_SLEEP, target = true},
 	{name ="speed", interval = 2000, chance = 20, SpeedChange = -800, Duration = 15000},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -130, maxDamage = -300, type = COMBAT_MANADRAIN, effect = CONST_ME_SOUND_RED, target = false},
 	{name ="combat", interval = 2000, chance = 20, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATH, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
+	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -500, type = COMBAT_DEATH, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true}
 }
 
 monster.defenses = {

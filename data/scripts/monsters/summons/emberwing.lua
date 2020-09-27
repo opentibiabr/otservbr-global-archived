@@ -67,10 +67,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -200, maxDamage = -270, type = COMBAT_HOLY, range = 5, ShootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -200, maxDamage = -270, type = COMBAT_FIRE, range = 5, ShootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -170, maxDamage = -230, type = COMBAT_FIRE, range = 5, ShootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -170, maxDamage = -230, type = COMBAT_HOLY, range = 5, ShootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true}
+	{name ="combat", interval = 2000, chance = 18, minDamage = -200, maxDamage = -270, type = COMBAT_HOLY, range = 5, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true},
+	{name ="combat", interval = 2000, chance = 18, minDamage = -200, maxDamage = -270, type = COMBAT_FIRE, range = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 18, minDamage = -170, maxDamage = -230, type = COMBAT_FIRE, range = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 18, minDamage = -170, maxDamage = -230, type = COMBAT_HOLY, range = 5, shootEffect = CONST_ANI_HOLY, effect = CONST_ME_HOLYAREA, target = true}
 }
 
 monster.defenses = {

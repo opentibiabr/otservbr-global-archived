@@ -84,7 +84,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -150, maxDamage = -250, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -410, type = COMBAT_HOLY, range = 3, effect = CONST_ME_HOLYAREA, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -170, maxDamage = -350, type = COMBAT_HOLY, range = 3, ShootEffect = CONST_ANI_HOLY, target = true}
+	{name ="combat", interval = 2000, chance = 10, minDamage = -170, maxDamage = -350, type = COMBAT_HOLY, range = 3, shootEffect = CONST_ANI_HOLY, target = true}
 }
 
 monster.defenses = {

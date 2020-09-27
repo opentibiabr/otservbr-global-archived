@@ -71,7 +71,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -180, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 100, minDamage = -10, maxDamage = -50, type = COMBAT_DROWN, length = 5, spread = 6, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="speed", interval = 4000, chance = 100, SpeedChange = -400, Duration = 10000},
-	{name ="combat", interval = 6000, chance = 100, minDamage = 0, maxDamage = -40, type = COMBAT_PHYSICAL, range = 5, ShootEffect = CONST_ANI_LARGEROCK, target = true}
+	{name ="combat", interval = 6000, chance = 100, minDamage = 0, maxDamage = -40, type = COMBAT_PHYSICAL, range = 5, shootEffect = CONST_ANI_LARGEROCK, target = true}
 }
 
 monster.defenses = {

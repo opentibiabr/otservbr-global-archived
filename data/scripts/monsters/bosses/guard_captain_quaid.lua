@@ -90,10 +90,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -580, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -500, maxDamage = -620, type = COMBAT_EARTH, ShootEffect = CONST_ANI_EARTH, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 22, minDamage = -450, maxDamage = -700, type = COMBAT_PHYSICAL, ShootEffect = CONST_ANI_THROWINGKNIFE, target = true},
+	{name ="combat", interval = 2000, chance = 18, minDamage = -500, maxDamage = -620, type = COMBAT_EARTH, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 2000, chance = 22, minDamage = -450, maxDamage = -700, type = COMBAT_PHYSICAL, shootEffect = CONST_ANI_THROWINGKNIFE, target = true},
 	{name ="combat", interval = 2000, chance = 14, minDamage = -350, maxDamage = -550, type = COMBAT_PHYSICAL, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -400, maxDamage = -550, type = COMBAT_FIRE, ShootEffect = CONST_ANI_BURSTARROW, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -400, maxDamage = -550, type = COMBAT_FIRE, shootEffect = CONST_ANI_BURSTARROW, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 2000, chance = 12, minDamage = -300, maxDamage = -480, type = COMBAT_EARTH, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONHIT, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -300, maxDamage = -450, type = COMBAT_EARTH, effect = CONST_ME_GREEN_RINGS, target = false}
 }

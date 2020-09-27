@@ -95,8 +95,8 @@ monster.attacks = {
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 17, minDamage = -500, maxDamage = -660, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 14, minDamage = -200, maxDamage = -450, type = COMBAT_DEATH, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 18, minDamage = -150, maxDamage = -270, type = COMBAT_ICE, range = 7, ShootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
-	{name ="combat", interval = 2000, chance = 13, minDamage = -120, maxDamage = -230, type = COMBAT_ICE, range = 1, ShootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 18, minDamage = -150, maxDamage = -270, type = COMBAT_ICE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 13, minDamage = -120, maxDamage = -230, type = COMBAT_ICE, range = 1, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = true},
 	{name ="combat", interval = 2000, chance = 9, target = false}
 }
 

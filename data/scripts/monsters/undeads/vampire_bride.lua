@@ -89,9 +89,9 @@ monster.loot = {
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -190, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 3000, chance = 15, minDamage = -60, maxDamage = -130, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_MAGIC_RED, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -150, type = COMBAT_DEATH, range = 7, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 4000, chance = 5, minDamage = -60, maxDamage = -150, type = COMBAT_DEATH, range = 7, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_HEARTS, target = true},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -150, type = COMBAT_ENERGY, range = 7, ShootEffect = CONST_ANI_ENERGY, target = true}
+	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -150, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 4000, chance = 5, minDamage = -60, maxDamage = -150, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_HEARTS, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -150, type = COMBAT_ENERGY, range = 7, shootEffect = CONST_ANI_ENERGY, target = true}
 }
 
 monster.defenses = {

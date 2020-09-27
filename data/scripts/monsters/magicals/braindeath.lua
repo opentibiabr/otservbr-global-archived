@@ -87,10 +87,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -93, maxDamage = -170, type = COMBAT_ENERGY, range = 7, ShootEffect = CONST_ANI_ENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -75, maxDamage = -125, type = COMBAT_FIRE, range = 7, ShootEffect = CONST_ANI_FIRE, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -85, maxDamage = -170, type = COMBAT_DEATH, range = 7, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -65, maxDamage = -125, type = COMBAT_EARTH, range = 7, ShootEffect = CONST_ANI_POISON, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -93, maxDamage = -170, type = COMBAT_ENERGY, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -75, maxDamage = -125, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -85, maxDamage = -170, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -65, maxDamage = -125, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_POISON, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -75, maxDamage = -85, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -155, type = COMBAT_MANADRAIN, range = 7, target = false}
 }

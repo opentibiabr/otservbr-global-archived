@@ -107,7 +107,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -1088, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 10, minDamage = -250, maxDamage = -500, type = COMBAT_PHYSICAL, length = 10, spread = 3, effect = CONST_ME_MORTAREA, target = false},
-	{name ="combat", interval = 1000, chance = 8, minDamage = -30, maxDamage = -760, type = COMBAT_DEATH, ShootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 1000, chance = 8, minDamage = -30, maxDamage = -760, type = COMBAT_DEATH, shootEffect = CONST_ANI_DEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 9, minDamage = -200, maxDamage = -585, type = COMBAT_EARTH, length = 8, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 1000, chance = 8, minDamage = 0, maxDamage = -430, type = COMBAT_ICE, effect = CONST_ME_ICETORNADO, target = false},
 	{name ="drunk", interval = 3000, chance = 11, effect = CONST_ME_SOUND_PURPLE, target = false},

@@ -79,14 +79,14 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -110, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -72, maxDamage = -105, type = COMBAT_EARTH, range = 7, ShootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_GREEN_RINGS, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -100, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_POFF, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -72, maxDamage = -105, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_GREEN_RINGS, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -100, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_POFF, target = true},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 20, minDamage = -200, maxDamage = -260, length = 6, spread = 3, effect = CONST_ME_BIGPLANTS, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 20, minDamage = -200, maxDamage = -260, length = 6, spread = 3, effect = CONST_ME_BIGPLANTS, target = false},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -100, maxDamage = -140, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -100, maxDamage = -140, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
 	{name ="speed", interval = 2000, chance = 10, SpeedChange = -330, Duration = 5000}
 }
 

@@ -99,9 +99,9 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -120, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -350, range = 3, length = 6, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -250, type = COMBAT_MANADRAIN, range = 3, length = 5, spread = 5, effect = CONST_ME_SMOKE, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -290, type = COMBAT_LIFEDRAIN, range = 3, length = 5, spread = 5, ShootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -290, type = COMBAT_LIFEDRAIN, range = 3, length = 5, spread = 5, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_POISONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -70, maxDamage = -250, range = 7, target = false},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_ENERGY, target = false}
+	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, target = false}
 }
 
 monster.defenses = {

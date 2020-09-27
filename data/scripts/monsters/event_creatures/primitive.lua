@@ -89,8 +89,8 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -32, effect = CONST_ME_DRAWBLOOD},
-	{name ="drunk", interval = 1000, chance = 20, range = 7, ShootEffect = CONST_ANI_ENERGY, target = false},
-	{name ="combat", interval = 1000, chance = 34, minDamage = -20, maxDamage = -20, type = COMBAT_FIRE, range = 7, ShootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
+	{name ="drunk", interval = 1000, chance = 20, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="combat", interval = 1000, chance = 34, minDamage = -20, maxDamage = -20, type = COMBAT_FIRE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="outfit", interval = 1000, chance = 2}
 }
 

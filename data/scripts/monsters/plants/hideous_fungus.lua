@@ -92,10 +92,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -430, type = COMBAT_EARTH, range = 7, ShootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -550, type = COMBAT_ICE, length = 8, spread = 3, ShootEffect = CONST_ANI_SNOWBALL, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -430, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_SMALLPLANTS, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -550, type = COMBAT_ICE, length = 8, spread = 3, shootEffect = CONST_ANI_SNOWBALL, target = false},
 	{name ="speed", interval = 2000, chance = 10, SpeedChange = -600, Duration = 60000},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_SMALLSTONE, effect = CONST_ME_STUN, target = true},
+	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_SMALLSTONE, effect = CONST_ME_STUN, target = true},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -400, maxDamage = -640, range = 7, effect = CONST_ME_HITBYPOISON, target = false}
 }

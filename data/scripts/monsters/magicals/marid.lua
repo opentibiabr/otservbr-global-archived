@@ -91,10 +91,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -250, type = COMBAT_ENERGY, range = 7, ShootEffect = CONST_ANI_ENERGYBALL, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -250, type = COMBAT_ENERGY, range = 7, shootEffect = CONST_ANI_ENERGYBALL, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -30, maxDamage = -90, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="speed", interval = 2000, chance = 15, SpeedChange = -650, Duration = 1500},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
 	{name ="outfit", interval = 2000, chance = 1},
 	{name ="combat", interval = 2000, chance = 15, range = 5, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -30, maxDamage = -90, type = COMBAT_ENERGY, effect = CONST_ME_ENERGYHIT, target = false}

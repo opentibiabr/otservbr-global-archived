@@ -83,7 +83,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -520, effect = CONST_ME_DRAWBLOOD},
-	{name ="firefield", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_FIRE, target = false},
+	{name ="firefield", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -392, maxDamage = -1500, type = COMBAT_FIRE, length = 8, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -60, maxDamage = -330, type = COMBAT_FIRE, range = 7, effect = CONST_ME_HITBYFIRE, target = false},
 	{name ="combat", interval = 2000, chance = 15, target = false}

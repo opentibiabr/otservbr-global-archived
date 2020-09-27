@@ -90,8 +90,8 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, minDamage = 0, maxDamage = -515},
 	-- earth damage
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 15, range = 7, minDamage = -60, maxDamage = -115, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
-	{name ="drunk", interval = 2000, chance = 11, minDamage = -60, maxDamage = -115, type = COMBAT_ENERGY, range = 7, ShootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 15, range = 7, minDamage = -60, maxDamage = -115, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
+	{name ="drunk", interval = 2000, chance = 11, minDamage = -60, maxDamage = -115, type = COMBAT_ENERGY, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_EXPLOSIONAREA, target = true}
 }
 
 monster.defenses = {

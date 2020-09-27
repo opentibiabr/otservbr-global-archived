@@ -82,8 +82,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 19, minDamage = -200, maxDamage = -400, type = COMBAT_LIFEDRAIN, effect = CONST_ME_MAGIC_RED, target = false},
 	-- bleed
 	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 9, minDamage = -400, maxDamage = -600, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 8, minDamage = -250, maxDamage = -400, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
-	{name ="combat", interval = 2000, chance = 13, minDamage = -200, maxDamage = -400, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_WHIRLWINDCLUB, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="combat", interval = 2000, chance = 8, minDamage = -250, maxDamage = -400, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
+	{name ="combat", interval = 2000, chance = 13, minDamage = -200, maxDamage = -400, type = COMBAT_PHYSICAL, range = 7, shootEffect = CONST_ANI_WHIRLWINDCLUB, effect = CONST_ME_EXPLOSIONHIT, target = true},
 	{name ="combat", interval = 2000, chance = 6, target = false}
 }
 

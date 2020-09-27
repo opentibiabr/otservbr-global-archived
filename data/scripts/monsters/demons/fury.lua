@@ -92,7 +92,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -300, type = COMBAT_DEATH, effect = CONST_ME_DRAWBLOOD, target = false},
 	{name ="combat", interval = 2000, chance = 5, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -120, maxDamage = -300, type = COMBAT_LIFEDRAIN, effect = CONST_ME_HITAREA, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -125, maxDamage = -250, type = COMBAT_DEATH, range = 7, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -125, maxDamage = -250, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false},
 	{name ="speed", interval = 2000, chance = 15, SpeedChange = -800, Duration = 30000}
 }
 

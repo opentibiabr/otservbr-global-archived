@@ -69,7 +69,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = -1400, maxDamage = -1800, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_DEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_MANADRAIN, length = 9, spread = 1, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_PHYSICAL, range = 6, ShootEffect = CONST_ANI_ARROW, effect = CONST_ME_EXPLOSIONAREA, target = true}
+	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1250, type = COMBAT_PHYSICAL, range = 6, shootEffect = CONST_ANI_ARROW, effect = CONST_ME_EXPLOSIONAREA, target = true}
 }
 
 monster.defenses = {

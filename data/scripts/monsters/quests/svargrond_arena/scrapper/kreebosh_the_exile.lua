@@ -74,8 +74,8 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 6000, chance = 80, minDamage = 0, maxDamage = -120, type = COMBAT_FIRE, effect = CONST_ME_ENERGYHIT, target = false},
 	{name ="speed", interval = 3500, chance = 35, SpeedChange = -450, Duration = 20000},
-	{name ="combat", interval = 6000, chance = 40, minDamage = -20, maxDamage = -100, type = COMBAT_PHYSICAL, range = 5, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
-	{name ="combat", interval = 5000, chance = 20, minDamage = -40, maxDamage = -200, type = COMBAT_ENERGY, range = 5, ShootEffect = CONST_ANI_ENERGY, effect = CONST_ME_FIREAREA, target = true},
+	{name ="combat", interval = 6000, chance = 40, minDamage = -20, maxDamage = -100, type = COMBAT_PHYSICAL, range = 5, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = true},
+	{name ="combat", interval = 5000, chance = 20, minDamage = -40, maxDamage = -200, type = COMBAT_ENERGY, range = 5, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_FIREAREA, target = true},
 	{name ="drunk", interval = 1000, chance = 20, range = 5, target = true},
 	{name ="outfit", interval = 2000, chance = 50}
 }

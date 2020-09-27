@@ -71,7 +71,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -168, maxDamage = -100, type = COMBAT_ENERGY, range = 6, ShootEffect = CONST_ANI_ENERGY, effect = CONST_ME_PURPLEENERGY, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -168, maxDamage = -100, type = COMBAT_ENERGY, range = 6, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_PURPLEENERGY, target = true},
 	-- energy damage
 	{name ="combat", type = COMBAT_ENERGYDAMAGE, interval = 1000, chance = 15, effect = CONST_ME_YELLOWENERGY, target = false}
 }

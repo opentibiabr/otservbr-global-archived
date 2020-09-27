@@ -85,10 +85,10 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = -100, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -700, maxDamage = -850, type = COMBAT_ICE, range = 7, ShootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 10, minDamage = -100, maxDamage = -380, type = COMBAT_ICE, range = 7, ShootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -350, maxDamage = -980, type = COMBAT_ICE, length = 5, spread = 3, ShootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 1000, chance = 12, minDamage = -230, maxDamage = -880, type = COMBAT_ICE, range = 7, ShootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
+	{name ="combat", interval = 1000, chance = 10, minDamage = -700, maxDamage = -850, type = COMBAT_ICE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="combat", interval = 1000, chance = 10, minDamage = -100, maxDamage = -380, type = COMBAT_ICE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -350, maxDamage = -980, type = COMBAT_ICE, length = 5, spread = 3, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="combat", interval = 1000, chance = 12, minDamage = -230, maxDamage = -880, type = COMBAT_ICE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICETORNADO, target = false}
 }
 
 monster.defenses = {

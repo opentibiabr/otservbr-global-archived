@@ -83,8 +83,8 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -200, type = COMBAT_EARTH, range = 7, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -250, type = COMBAT_EARTH, range = 7, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POFF, target = true},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -200, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -150, maxDamage = -250, type = COMBAT_EARTH, range = 7, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POFF, target = true},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 21, minDamage = -200, maxDamage = -310, effect = CONST_ME_GREEN_RINGS, target = false}
 }

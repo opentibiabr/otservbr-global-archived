@@ -100,7 +100,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -350, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -250, maxDamage = -350, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -250, maxDamage = -350, type = COMBAT_PHYSICAL, effect = CONST_ME_BLOCKHIT, target = true},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -300, type = COMBAT_DEATH, range = 7, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false}
+	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -300, type = COMBAT_DEATH, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_SMALLCLOUDS, target = false}
 }
 
 monster.defenses = {

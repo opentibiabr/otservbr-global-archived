@@ -103,7 +103,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 12, minDamage = 0, maxDamage = -400, type = COMBAT_PHYSICAL, effect = CONST_ME_DRAWBLOOD, target = false},
 	{name ="combat", interval = 2000, chance = 13, minDamage = -100, maxDamage = -700, type = COMBAT_LIFEDRAIN, length = 5, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = true},
 	-- bleed
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 16, minDamage = -400, maxDamage = -600, ShootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 16, minDamage = -400, maxDamage = -600, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_STONES, target = true},
 	{name ="combat", interval = 2000, chance = 15, target = false}
 }
 

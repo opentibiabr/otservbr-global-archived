@@ -99,7 +99,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = -300, maxDamage = -1800, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -600, maxDamage = -1000, type = COMBAT_PHYSICAL, length = 8, spread = 3, effect = CONST_ME_BLOCKHIT, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -450, maxDamage = -900, type = COMBAT_PHYSICAL, effect = CONST_ME_BLOCKHIT, target = false},
-	{name ="combat", interval = 2000, chance = 25, minDamage = -300, maxDamage = -600, type = COMBAT_HOLY, ShootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="combat", interval = 2000, chance = 25, minDamage = -300, maxDamage = -600, type = COMBAT_HOLY, shootEffect = CONST_ANI_SMALLHOLY, effect = CONST_ME_HOLYDAMAGE, target = true},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -700, maxDamage = -1000, target = false},
 	{name ="combat", interval = 2000, chance = 40, target = false}
 }

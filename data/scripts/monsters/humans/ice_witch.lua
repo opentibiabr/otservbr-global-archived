@@ -80,7 +80,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -60, effect = CONST_ME_DRAWBLOOD},
 	{name ="outfit", interval = 2000, chance = 1},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -60, maxDamage = -130, type = COMBAT_ICE, length = 5, spread = 2, effect = CONST_ME_ICETORNADO, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -55, maxDamage = -115, type = COMBAT_ICE, range = 7, ShootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -55, maxDamage = -115, type = COMBAT_ICE, range = 7, shootEffect = CONST_ANI_SMALLICE, effect = CONST_ME_ICEATTACK, target = true},
 	{name ="speed", interval = 2000, chance = 15, SpeedChange = -600, Duration = 20000}
 }
 

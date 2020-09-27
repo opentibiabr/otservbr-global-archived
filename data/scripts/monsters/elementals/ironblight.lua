@@ -94,9 +94,9 @@ monster.loot = {
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
 	-- poison
-	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -460, maxDamage = -480, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
-	{name ="combat", interval = 2000, chance = 15, minDamage = -260, maxDamage = -350, type = COMBAT_ICE, length = 7, spread = 3, ShootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = false},
-	{name ="combat", interval = 2000, chance = 20, minDamage = -180, maxDamage = -250, type = COMBAT_EARTH, ShootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_BIGPLANTS, target = true},
+	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -460, maxDamage = -480, shootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -260, maxDamage = -350, type = COMBAT_ICE, length = 7, spread = 3, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = false},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -180, maxDamage = -250, type = COMBAT_EARTH, shootEffect = CONST_ANI_GREENSTAR, effect = CONST_ME_BIGPLANTS, target = true},
 	{name ="speed", interval = 2000, chance = 10, SpeedChange = -800, Duration = 30000}
 }
 

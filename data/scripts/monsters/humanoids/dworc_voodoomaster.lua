@@ -80,10 +80,10 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -20, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -40, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="speed", interval = 2000, chance = 10, SpeedChange = -800, Duration = 5000},
-	{name ="drunk", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_ENERGY, effect = CONST_ME_TELEPORT, target = false},
+	{name ="drunk", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_ENERGY, effect = CONST_ME_TELEPORT, target = false},
 	{name ="outfit", interval = 2000, chance = 10},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -6, maxDamage = -18, type = COMBAT_EARTH, effect = CONST_ME_GREEN_RINGS, target = false},
-	{name ="poisonfield", interval = 2000, chance = 10, range = 7, ShootEffect = CONST_ANI_POISON, target = true}
+	{name ="poisonfield", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_POISON, target = true}
 }
 
 monster.defenses = {

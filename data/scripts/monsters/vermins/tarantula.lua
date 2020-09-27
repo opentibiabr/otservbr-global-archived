@@ -72,7 +72,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="combat", interval = 2000, chance = 100, minDamage = 0, maxDamage = -90, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 40, interval = 4000}},
-	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTH, range = 1, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_CARNIPHILA, target = true}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_EARTH, range = 1, shootEffect = CONST_ANI_POISON, effect = CONST_ME_CARNIPHILA, target = true}
 }
 
 monster.defenses = {

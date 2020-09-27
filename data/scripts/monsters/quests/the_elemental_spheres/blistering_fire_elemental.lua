@@ -74,7 +74,7 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 11, minDamage = -65, maxDamage = -510, type = COMBAT_FIRE, length = 7, spread = 3, target = false},
 	-- fire
 	{name ="combat", type = COMBAT_FIREDAMAGE, interval = 1000, chance = 12, minDamage = -50, maxDamage = -200, effect = CONST_ME_FIREAREA, target = false},
-	{name ="firefield", interval = 1000, chance = 15, range = 7, ShootEffect = CONST_ANI_FIRE, target = true}
+	{name ="firefield", interval = 1000, chance = 15, range = 7, shootEffect = CONST_ANI_FIRE, target = true}
 }
 
 monster.defenses = {

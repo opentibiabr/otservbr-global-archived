@@ -80,7 +80,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -65, maxDamage = -320, type = COMBAT_EARTH, length = 8, spread = 3, effect = CONST_ME_CARNIPHILA, target = false},
 	{name ="speed", interval = 2000, chance = 25, SpeedChange = -300, Duration = 15000},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -250, type = COMBAT_ICE, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false},
-	{name ="combat", interval = 2000, chance = 10, minDamage = -70, maxDamage = -155, type = COMBAT_ICE, range = 7, ShootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = false}
+	{name ="combat", interval = 2000, chance = 10, minDamage = -70, maxDamage = -155, type = COMBAT_ICE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEATTACK, target = false}
 }
 
 monster.defenses = {
