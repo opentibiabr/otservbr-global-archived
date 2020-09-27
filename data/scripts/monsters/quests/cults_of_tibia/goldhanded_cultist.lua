@@ -16,7 +16,7 @@ monster.outfit = {
 monster.health = 3000
 monster.maxHealth = 3000
 monster.race = "blood"
-monster.corpse = 8186
+monster.corpse = 3058
 monster.speed = 230
 monster.summonCost = 0
 monster.maxSummons = 0
@@ -26,13 +26,20 @@ monster.changeTarget = {
 	chance = 10
 }
 
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
 monster.flags = {
 	isSummonable = false,
 	isAttackable = true,
 	isHostile = true,
 	isConvinceable = false,
 	isPushable = false,
-	isBoss = false,
+	rewardboss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,

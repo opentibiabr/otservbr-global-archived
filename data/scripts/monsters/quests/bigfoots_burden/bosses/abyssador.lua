@@ -26,13 +26,20 @@ monster.changeTarget = {
 	chance = 10
 }
 
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
 monster.flags = {
 	isSummonable = false,
 	isAttackable = true,
 	isHostile = true,
 	isConvinceable = false,
 	isPushable = false,
-	rewardBoss = false,
+	rewardboss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
@@ -108,20 +115,5 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onThink = function(monster, interval)
-end
-
-mType.onAppear = function(monster, creature)
-end
-
-mType.onDisappear = function(monster, creature)
-end
-
-mType.onMove = function(monster, creature, fromPosition, toPosition)
-end
-
-mType.onSay = function(monster, creature, type, message)
-end
 
 mType:register(monster)

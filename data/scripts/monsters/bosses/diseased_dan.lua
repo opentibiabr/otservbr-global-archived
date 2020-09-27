@@ -26,6 +26,13 @@ monster.changeTarget = {
 	chance = 0
 }
 
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
 monster.flags = {
 	isSummonable = false,
 	isAttackable = true,
@@ -96,12 +103,6 @@ monster.immunities = {
 	{type = "invisible", condition = true},
 	{type = "bleed", condition = false}
 }
-
-mType.onAppear = function(monster, creature)
-	if monster:getType():isRewardBoss() then
-		monster:setReward(true)
-	end
-end
 
 mType.onThink = function(monster, interval)
 end

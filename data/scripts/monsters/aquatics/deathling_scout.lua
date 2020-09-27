@@ -1,5 +1,6 @@
 local mType = Game.createMonsterType("Deathling Scout")
 local monster = {}
+
 monster.description = "a deathling scout"
 monster.experience = 6300
 monster.outfit = {
@@ -7,7 +8,7 @@ monster.outfit = {
 }
 
 monster.health = 7200
-monster.maxHealth = monster.health
+monster.maxHealth = 7200
 monster.race = "blood"
 monster.corpse = 33373
 monster.speed = 310
@@ -18,39 +19,52 @@ monster.changeTarget = {
 	chance = 10
 }
 
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
 monster.flags = {
-	summonable = false,
-	attackable = true,
+	isSummonable = false,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = false,
+	isPushable = false,
 	rewardboss = false,
-	hostile = true,
-	convinceable = false,
 	illusionable = false,
 	canPushItems = true,
-	canPushCreatures = false,
-	preyable = false,
-	targetDistance = 1,
-	staticAttackChance = 80,
-	respawnType = RESPAWN_IN_ALL
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetdistance = 0,
+	runHealth = 0,
+	isHealthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
 }
 
 monster.loot = {
-	{id = 18304, minCount = 1, maxCount = 25, chance = 24680}, 	-- Crystalline Arrow
-	{id = 15488, chance = 13980},								-- Deepling Filet
-	{id = 2149, minCount = 1, maxCount = 12, chance = 21360},	-- Small Emerald
-	{id = 15425, chance = 20470},								-- Deepling Warts
-	{id = 15426, chance = 12120},								-- Deeptags
-	{id = 7591, chance = 8510},									-- Great Health Potion
-	{id = 15452, chance = 9010},								-- Deepling Ridge
-	{id = 7590, chance = 8180},									-- Great Mana Potion
-	{id = 15649, minCount = 2, maxCount = 25, chance = 22690},  -- Vortex Bolt
-	{id = 13870, chance = 5560},								-- Eye of a Deepling
-	{id = 5895, chance = 730},									-- Fish Fin
-	{id = 13838, chance = 5300},								-- Heavy Trident
-	{id = 15453, chance = 2420},								-- Warrior's Shield
-	{id = 15451, chance = 3180},								-- Warrior's Axe
-	{id = 2168, chance = 2420},									-- Life Ring
-	{id = 7759, minCount = 1, maxCount = 8, chance = 11260},    -- Small Enchanted Sapphire
-	{id = 15403, chance = 500},									-- Necklace of the Deep
+	{id = "crystalline arrow", chance = 29860, maxCount = 25},
+	{id = "Vortex Bolt", chance = 26340, maxCount = 25},
+	{id = "Small Emerald", chance = 25110, maxCount = 12},
+	{id = "Deepling Warts", chance = 24480},
+	{id = "Deeptags", chance = 15100},
+	{id = "Deepling Filet", chance = 14630},
+	{id = "Small Enchanted Sapphire", chance = 13000, maxCount = 8},
+	{id = "Deepling Ridge", chance = 11240},
+	{id = "Great Mana Potion", chance = 10000},
+	{id = "Great Health Potion", chance = 10000},
+	{id = "Heavy Trident", chance = 6620},
+	{id = "Eye of a Deepling", chance = 6070},
+	{id = "Warrior's Shield", chance = 3630},
+	{id = "Warrior's Axe", chance = 3470},
+	{id = "Life Ring", chance = 3000},
+	{id = "Fish Fin", chance = 920},
+	{id = "Necklace of the Deep", chance = 440}
 }
 
 monster.attacks = {
@@ -62,20 +76,27 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 72,
-	armor = 72,
+	armor = 72
 }
 
 monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
 	{type = COMBAT_EARTHDAMAGE, percent = -10},
-	{type = COMBAT_DEATHDAMAGE, percent = 10},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 10}
 }
 
 monster.immunities = {
-	{type = "fire", combat = true, condition = true},
-	{type = "ice", combat = true, condition = true},
-	{type = "paralyze", condition = true},
-	{type = "invisible", condition = true}
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
 }
 
 monster.voices = {

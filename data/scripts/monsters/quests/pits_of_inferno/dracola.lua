@@ -26,13 +26,20 @@ monster.changeTarget = {
 	chance = 5
 }
 
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
 monster.flags = {
 	isSummonable = false,
 	isAttackable = true,
 	isHostile = true,
 	isConvinceable = false,
 	isPushable = false,
-	isBoss = false,
+	rewardboss = false,
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = true,
@@ -80,7 +87,7 @@ monster.attacks = {
 	{name ="combat", interval = 3000, chance = 20, minDamage = -800, maxDamage = -1000, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -120, maxDamage = -750, range = 7, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},
 	-- drown
-	{name ="combat", interval = 1000, chance = 20, length = 8, spread = 3, type = CONDITION_DROWN, effect = CONST_ME_POFF, target = false},
+	{name ="combat", type = CONDITION_DROWN, interval = 1000, chance = 20, length = 8, spread = 3, effect = CONST_ME_POFF, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -300, maxDamage = -870, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_FIRE, effect = CONST_ME_DRAWBLOOD, target = true},
 	{name ="combat", interval = 3000, chance = 10, minDamage = 0, maxDamage = -750, type = COMBAT_PHYSICAL, range = 7, ShootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 1000, chance = 23, minDamage = -50, maxDamage = -175, range = 7, ShootEffect = CONST_ANI_POISON, effect = CONST_ME_POISONAREA, target = true},

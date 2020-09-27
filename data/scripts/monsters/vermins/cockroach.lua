@@ -26,13 +26,17 @@ monster.changeTarget = {
 	chance = 0
 }
 
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
 monster.flags = {
 	isSummonable = false,
 	isAttackable = true,
 	isHostile = false,
 	isConvinceable = false,
 	isPushable = true,
-	isBoss = false,
+	rewardboss = false,
 	illusionable = false,
 	canPushItems = false,
 	canPushCreatures = false,

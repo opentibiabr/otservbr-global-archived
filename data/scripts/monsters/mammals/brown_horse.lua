@@ -1,6 +1,7 @@
 local mType = Game.createMonsterType("Brown Horse")
 local monster = {}
 
+monster.name = "Horse"
 monster.description = "a horse"
 monster.experience = 0
 monster.outfit = {
@@ -26,13 +27,17 @@ monster.changeTarget = {
 	chance = 20
 }
 
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
 monster.flags = {
 	isSummonable = false,
 	isAttackable = true,
 	isHostile = false,
 	isConvinceable = false,
 	isPushable = true,
-	isBoss = false,
+	rewardboss = false,
 	illusionable = false,
 	canPushItems = false,
 	canPushCreatures = false,

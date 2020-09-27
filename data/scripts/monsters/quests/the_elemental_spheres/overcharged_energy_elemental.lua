@@ -27,7 +27,6 @@ monster.flags = {
 	illusionable = false,
 	canPushItems = true,
 	canPushCreatures = false,
-	preyable = false,
 	targetDistance = 1,
 	staticAttackChance = 80,
 	respawnType = RESPAWN_IN_ALL

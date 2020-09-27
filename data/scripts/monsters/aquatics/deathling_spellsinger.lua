@@ -1,5 +1,6 @@
 local mType = Game.createMonsterType("Deathling Spellsinger")
 local monster = {}
+
 monster.description = "a deathling spellsinger"
 monster.experience = 6400
 monster.outfit = {
@@ -7,49 +8,65 @@ monster.outfit = {
 }
 
 monster.health = 7200
-monster.maxHealth = monster.health
+monster.maxHealth = 7200
 monster.race = "blood"
 monster.corpse = 32549
 monster.speed = 310
+monster.summonCost = 0
+monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 4*1000,
+	interval = 4000,
 	chance = 10
 }
 
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
 monster.flags = {
-	summonable = false,
-	attackable = true,
+	isSummonable = false,
+	isAttackable = true,
+	isHostile = true,
+	isConvinceable = false,
+	isPushable = true,
 	rewardboss = false,
-	hostile = true,
-	convinceable = false,
 	illusionable = false,
 	canPushItems = true,
-	canPushCreatures = false,
-	preyable = false,
-	targetDistance = 1,
-	staticAttackChance = 80,
-	respawnType = RESPAWN_IN_ALL
+	canPushCreatures = true,
+	staticAttackChance = 60,
+	targetdistance = 0,
+	runHealth = 20,
+	isHealthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
 }
 
 monster.loot = {
-	{id = 2152, minCount = 1, maxCount = 14, chance = 83670},	-- Platinum Coin
-	{id = 18304, minCount = 1, maxCount = 25, chance = 26650},	-- Crystalline Arrow
-	{id = 15488, chance = 13040},								-- Deepling Filet
-	{id = 2149, minCount = 1, maxCount = 14, chance = 12610},	-- Small Emerald
-	{id = 15425, chance = 9890},								-- Deepling Warts
-	{id = 7591, chance = 9310},									-- Great Health Potion
-	{id = 15452, chance = 8450},								-- Deepling Ridge
-	{id = 7590, chance = 6880},									-- Great Mana Potion
-	{id = 15649, minCount = 2, maxCount = 25, chance = 6590},	-- Vortex Bolt
-	{id = 13870, chance = 4870},								-- Eye of a Deepling
-	{id = 5895, chance = 3870},									-- Fish Fin
-	{id = 13838, chance = 3720},								-- Heavy Trident
-	{id = 15453, chance = 3150},								-- Warrior's Shield
-	{id = 15451, chance = 2870},								-- Warrior's Axe
-	{id = 2168, chance = 2290},									-- Life Ring
-	{id = 7759, minCount = 1, maxCount = 4, chance = 1720},		-- Small Enchanted Sapphire
-	{id = 15403, chance = 290},									-- Necklace of the Deep
+	{id = "platinum coin", chance = 100000, maxCount = 14},
+	{id = "crystalline arrow", chance = 29000, maxCount = 25},
+	{id = "Small Emerald", chance = 15000, maxCount = 14},
+	{id = "Deepling Filet", chance = 14630},
+	{id = "Deeptags", chance = 14100},
+	{id = "Deepling Ridge", chance = 11240},
+	{id = "Great Mana Potion", chance = 10000},
+	{id = "Great Health Potion", chance = 10000},
+	{id = "Deepling Warts", chance = 10000},
+	{id = "Vortex Bolt", chance = 6500, maxCount = 25},
+	{id = "Eye of a Deepling", chance = 6070},
+	{id = "Warrior's Shield", chance = 4200},
+	{id = "Heavy Trident", chance = 4000},
+	{id = "Warrior's Axe", chance = 4000},
+	{id = "Fish Fin", chance = 3650},
+	{id = "Life Ring", chance = 2870},
+	{id = "Small Enchanted Sapphire", chance = 2220, maxCount = 4},
+	{id = "Necklace of the Deep", chance = 330}
 }
 
 monster.attacks = {
@@ -61,27 +78,34 @@ monster.attacks = {
 
 monster.defenses = {
 	defense = 72,
-	armor = 72,
+	armor = 72
 }
 
 monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
 	{type = COMBAT_ENERGYDAMAGE, percent = -10},
 	{type = COMBAT_EARTHDAMAGE, percent = -10},
-	{type = COMBAT_DEATHDAMAGE, percent = 10},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 10}
 }
 
 monster.immunities = {
-	{type = "fire", combat = true, condition = true},
-	{type = "ice", combat = true, condition = true},
-	{type = "paralyze", condition = true},
-	{type = "invisible", condition = true}
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
 }
 
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = 'BOQOL "°', yell = false},
-    {text = 'QOL" VBOXCL°', yell = false},
+	{text = 'BOQOL"°', yell = false},
+	{text = 'QOL" VBOXCL°', yell = false}
 }
 
 mType.onThink = function(monster, interval)
