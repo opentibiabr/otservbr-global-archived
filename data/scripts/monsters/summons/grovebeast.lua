@@ -34,19 +34,19 @@ monster.strategiesTarget = {
 }
 
 monster.flags = {
-	isSummonable = true,
-	isAttackable = true,
-	isHostile = false,
+	summonable = true,
+	attackable = true,
+	hostile = false,
 	isConvinceable = true,
-	isPushable = true,
-	rewardboss = false,
+	pushable = true,
+	rewardBoss = false,
 	illusionable = false,
 	canPushItems = false,
 	canPushCreatures = true,
 	staticAttackChance = 90,
-	targetdistance = 0,
+	targetDistance = 0,
 	runHealth = 0,
-	isHealthHidden = false,
+	healthHidden = false,
 	canWalkOnEnergy = false,
 	canWalkOnFire = false,
 	canWalkOnPoison = false
