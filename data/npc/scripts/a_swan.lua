@@ -34,7 +34,7 @@ local function creatureSayCallback(cid, type, msg)
         elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 13) then
             if player:getItemCount(28605) >= 5 then
                 player:removeItem(28605, 5)
-                player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01, 14)
+                player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 14)
                 npcHandler:say({
                     "This is everything that remained of my cloak? That's terrible! However, I guess I can put the feathers together again. Yes, that should be enough feathers. ...",
                     "Please give them to me so I can restore my cloak. But don't watch me! Swan maidens don't like to be observed. Nature's blessings, human being. I will tell Ikassis that you have been of great assistance."
