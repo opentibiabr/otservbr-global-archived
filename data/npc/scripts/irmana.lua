@@ -22,9 +22,7 @@ function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	print("Msg: ".. msg)
 	if (msgcontains(msg, "fur")) then
-		print("Fur entrei")
 		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 6) then
 			npcHandler:say({
 				"A wolf whelp fur? Well, some months ago a hunter came here - a rather scruffy, smelly guy. I would have thrown him out instantly, but he had to offer some fine pelts. One of them was the fur of a very young wolf. ...",
@@ -38,7 +36,7 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Alright. Here is the fur.", cid)
 
 	elseif(msgcontains(msg, "addon")) then
-		print("addon")
+
 		if(getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
 			npcHandler.topic[cid] = 1
@@ -49,7 +47,6 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You have already bought the two addons.", cid)
 		end
 	elseif(msgcontains(msg, "yes")) then
-		print("yes")
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say("Especially for you, mylady, we are offering a pretty {hat} and a beautiful {dress} like the ones I wear. Which one are you interested in?", cid)
 			npcHandler.topic[cid] = 2
