@@ -41,7 +41,7 @@ HIRELING_SEX = {
 	MALE = 1
 }
 
-HIRELING_OUTFIT_DEFAULT = { name = "Citizen", female = 136, male = 128 }
+HIRELING_OUTFIT_DEFAULT = { name = "Citizen", female = 1107, male = 1108 }
 
 HIRELING_OUTFITS = {
 	BANKER = 1, -- 1<<0

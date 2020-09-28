@@ -1,13 +1,13 @@
 local config = {
 	bet = {
-		min = 100000, -- gold coins // 30k
-		max = 500000,
-		win = 200, -- 120% high/low
-		winNum = 300, -- 300% numbers
+		min = 10000, -- gold coins // 30k
+		max = 10000000000, 
+		win = 180, -- 170% high/low
+		winNum = 500, -- 300% numbers
 	},
-
-	playerPosition = Position(32352, 32226, 7), -- player must stay on this position to talk with npc
-	dicerCounter = Position(32353, 32225, 7), -- counter position
+	playerPosition = Position(32352, 32226, 7), -- NpcPos(x-2) player must stay on this position to talk with npc
+	dicerCounter = Position(32352, 32225, 7), --	NpcPos(x-1, y-1) 	counter position
+	diePos = Position(32354, 32225, 7) --NpcPos(y-1)
 }
 
 local keywordHandler = KeywordHandler:new()
@@ -17,12 +17,15 @@ NpcSystem.parseParameters(npcHandler)
 function onCreatureAppear(cid)
 	npcHandler:onCreatureAppear(cid)
 end
+
 function onCreatureDisappear(cid)
 	npcHandler:onCreatureDisappear(cid)
 end
+
 function onCreatureSay(cid, type, msg)
 	npcHandler:onCreatureSay(cid, type, msg)
 end
+
 function onThink()
 	npcHandler:onThink()
 	local tile = Tile(config.playerPosition)
@@ -115,58 +118,104 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler:unGreet(cid)
 		return false
 	end
-
 	local thisNpc = Npc(getNpcCid())
-	if table.contains({"low", "high", "h", "l", "1", "2", "3", "4", "5", "6"}, msg) then
+	if table.contains({"low", "high", "h", "l", "1", "2", "3", "4", "5", "6", "odd", "impar", "par", "even"}, msg) then
 		local bet = getBetValue()
 		if not bet then
-			npcHandler:say("Your bet is higher or lower than the max (".. config.bet.max ..") or min (".. config.bet.min ..") bet.", cid)
+			npcHandler:say("Your bet is lower than the min {".. config.bet.min .."}gps or higher than the max {"..config.bet.max.."}gps bet.", cid)
 			npcHandler.topic[cid] = 0
 			return true
 		end
+player:say(msg, TALKTYPE_SAY, false, true, player:getPosition())
+		local number = math.random(6)
 
-		local number = math.random(1, 6)
-		thisNpc:say(thisNpc:getName() .. " rolled a ".. number .. ".", TALKTYPE_MONSTER_SAY)
-		thisNpc:getPosition():sendMagicEffect(CONST_ME_CRAPS)
+local dadimid = {5792, 5793, 5794, 5795, 5796, 5797}
+local daddd = 0
+local haveDie = false
+	for x = 1, 6 do
+		daddd = Tile(config.diePos):getItemById(dadimid[x])
+		if daddd then
+		haveDie = true
+			break
+		end
+	end
+	if haveDie then
+		daddd:transform(dadimid[number])
+	else
+		Game.createItem((5791+number), 1, config.diePos)
+	end
+		thisNpc:say(thisNpc:getName() .. " rolled a ".. number .. ".", TALKTYPE_MONSTER_SAY, false, true, config.diePos)
+		config.diePos:sendMagicEffect(CONST_ME_CRAPS)
 		if table.contains({"low", "l"}, msg) then
 			if table.contains({1, 2, 3}, number) then
-				local wonMoney = bet * (config.bet.win / 100)
-				npcHandler:say("Congratulations, you won! Here's your (".. wonMoney ..") gold coins.", cid)
+				local wonMoney = math.ceil(bet * (config.bet.win / 100))
+				thisNpc:say("You won! Here's your ".. wonMoney .." gold coins.", TALKTYPE_SAY)
 				config.dicerCounter:sendMagicEffect(math.random(29, 31))
 				for _, coin in pairs(createMoney(wonMoney)) do
 					Game.createItem(coin[1], coin[2], config.dicerCounter)
 				end
 			else
-				npcHandler:say("No luck this time, you lost.", cid)
+
+				thisNpc:say("You have lost your "..bet.." gold coins.", TALKTYPE_SAY)
+
 			end
 		elseif table.contains({"high", "h"}, msg) then
 			if table.contains({4, 5, 6}, number) then
-				local wonMoney = bet * (config.bet.win / 100)
-				npcHandler:say("Congratulations, you won! Here's your (".. wonMoney ..") gold coins.", cid)
+				local wonMoney = math.ceil(bet * (config.bet.win / 100))
+				thisNpc:say("You won! Here's your ".. wonMoney .." gold coins.", TALKTYPE_SAY)
 				config.dicerCounter:sendMagicEffect(math.random(29, 31))
 				for _, coin in pairs(createMoney(wonMoney)) do
 					Game.createItem(coin[1], coin[2], config.dicerCounter)
 				end
 			else
-				npcHandler:say("No luck this time, you lost.", cid)
+
+				thisNpc:say("You have lost your "..bet.." gold coins.", TALKTYPE_SAY)
+
 			end
+		elseif table.contains({"odd", "impar"}, msg) then
+			if table.contains({1, 3, 5}, number) then
+				local wonMoney = math.ceil(bet * (config.bet.win / 100))
+				thisNpc:say("You won! Here's your ".. wonMoney .." gold coins.", TALKTYPE_SAY)
+				config.dicerCounter:sendMagicEffect(math.random(29, 31))
+				for _, coin in pairs(createMoney(wonMoney)) do
+					Game.createItem(coin[1], coin[2], config.dicerCounter)
+				end
+			else
+
+				thisNpc:say("You have lost your "..bet.." gold coins.", TALKTYPE_SAY)
+
+		end
+		elseif table.contains({"par", "even"}, msg) then
+			if table.contains({2, 4, 6}, number) then
+				local wonMoney = math.ceil(bet * (config.bet.win / 100))
+				thisNpc:say("You won! Here's your ".. wonMoney .." gold coins.", TALKTYPE_SAY)
+				config.dicerCounter:sendMagicEffect(math.random(29, 31))
+				for _, coin in pairs(createMoney(wonMoney)) do
+					Game.createItem(coin[1], coin[2], config.dicerCounter)
+				end
+			else
+
+				thisNpc:say("You have lost your "..bet.." gold coins.", TALKTYPE_SAY)
+
+		end
 		elseif table.contains({"1", "2", "3", "4", "5", "6"}, msg) then
 			if number == tonumber(msg) then
-				local wonMoney = bet * (config.bet.winNum / 100)
-				npcHandler:say("Congratulations, you won! Here's your (".. wonMoney ..") gold coins.", cid)
+				local wonMoney = math.ceil(bet * (config.bet.winNum / 100))
+				thisNpc:say("You won! Here's your ".. wonMoney .." gold coins.", TALKTYPE_SAY)
 				config.dicerCounter:sendMagicEffect(math.random(29, 31))
 				for _, coin in pairs(createMoney(wonMoney)) do
 					Game.createItem(coin[1], coin[2], config.dicerCounter)
 				end
 			else
-				npcHandler:say("No luck this time, you lost.", cid)
+
+				thisNpc:say("You have lost your "..bet.." gold coins.", TALKTYPE_SAY)
+
 			end
 		end
 	end
 	return true
 end
-
-npcHandler:setMessage(MESSAGE_GREET, "Welcome to my cassino! I'm offering {high/low} and {numbers}, to start just put your {money} on {counter} and say {number} or {high/low}.")
+npcHandler:setMessage(MESSAGE_GREET, "Welcome to the Cassino! Here we play with: \n [PAYOUT 180%] {HIGH / LOW}: High for 4, 5, 6 and Low for 1, 2, and 3 - {ODD / EVEN }: Odd for 1, 3, 5 and Even for 2, 4 and 6 \n [PAYOUT 500%] {NUMBERS}: You choose the number, and if you get it right ... {$$$$$}")
 npcHandler:setMessage(MESSAGE_FAREWELL, 'Good bye.')
 npcHandler:setMessage(MESSAGE_WALKAWAY, 'Good bye.')
 

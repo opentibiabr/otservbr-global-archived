@@ -16534,27 +16534,27 @@
 	<item id="8753" article="the" name="shadow nexus" />
 	<item id="8754" article="the" name="shadow nexus">
 		<attribute key="decayTo" value="8755" />
-		<attribute key="duration" value="30" />
+		<attribute key="duration" value="20" />
 	</item>
 	<item id="8755" article="the" name="shadow nexus">
 		<attribute key="decayTo" value="8753" />
-		<attribute key="duration" value="20" />
+		<attribute key="duration" value="300" />
 	</item>
 	<item id="8756" article="the" name="shadow nexus">
 		<attribute key="decayTo" value="8757" />
-		<attribute key="duration" value="30" />
+		<attribute key="duration" value="20" />
 	</item>
 	<item id="8757" article="the" name="shadow nexus">
 		<attribute key="decayTo" value="8753" />
-		<attribute key="duration" value="20" />
+		<attribute key="duration" value="300" />
 	</item>
 	<item id="8758" article="the" name="shadow nexus">
 		<attribute key="decayTo" value="8759" />
-		<attribute key="duration" value="30" />
+		<attribute key="duration" value="20" />
 	</item>
 	<item id="8759" article="the" name="shadow nexus">
 		<attribute key="decayTo" value="8753" />
-		<attribute key="duration" value="20" />
+		<attribute key="duration" value="15" />
 	</item>
 	<item id="8760" article="a" name="valuable vase">
 		<attribute key="weight" value="1000" />

@@ -1,38 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <globalevents>
-	<!-- quests -->
-	<globalevent name="demon oak voices" interval="15000" script="quests/demon_oak_voices.lua" />
-	<globalevent name="blooming griffinclaw" type="startup" script="quests/druid_outfits_blooming_griffinclaw.lua" />
-	<globalevent name="effect" interval="3000" script="quests/ferumbras_ascendant_effect_1.lua"/>
-	<globalevent name="effcts" interval="4000" script="quests/ferumbras_ascendant_effect_2.lua"/>
-	<globalevent name="grimvale" interval="60000" script="quests/grimvale_feroxa.lua" />
-	<globalevent name="bosses poi" interval="46800000" script="quests/pits_of_inferno_bosses.lua"/>
-	<globalevent name="canon dominus" interval="900000" script="quests/secret_library_grand_canon_dominus.lua" />
-	<globalevent name="chaplaingaunder" interval="900000" script="quests/secret_library_grand_chaplain_gaunder.lua" />
-	<globalevent name="grand commander" interval="900000" script="quests/secret_library_grand_commander_soeren.lua" />
-	<globalevent name="preceptor lazare" interval="900000" script="quests/secret_library_preceptor_lazare.lua" />
-	<globalevent name="spawn damage" interval="9000" script="quests/secret_library_spawn_damage.lua" />
-	<globalevent name="mad" interval="14400000" script="quests/their_master_voice_mad_mage.lua"/>
-
-	<!-- spawn -->
-	<globalevent name="gray island bosses" type="startup" script="spawn/gray_island_bosses.lua"/>
-	<globalevent name="grimvale respawn" type="startup" script="spawn/grimvale_respawn.lua" />
-	<globalevent name="mawhawk" interval="14399999" script="spawn/mawhawk.lua"/>
-	<globalevent name="spawn raids" interval="60000" script="spawn/raids.lua"/>
-	<globalevent type="startup" name="rashid" script="spawn/rashid.lua"/>
-	<globalevent name="thawing dragon lord" interval="900000" script="spawn/thawing_dragon_lord.lua" />
-
-	<!-- others -->
-	<globalevent name="checkinbox" interval="30000" script="others/check_inbox.lua"/>
-	<globalevent name="rentedmounts" interval="15000" script="others/check_mount.lua" />
-	<globalevent interval="100000" name="guildwar" script="others/guild_war.lua"/>
-	<globalevent type="record" name="playerrecord" script="others/online_record.lua" />
-	<globalevent name="serversave" time="05:55:00" script="others/server_save.lua" />
-	<globalevent type="startup" name="serverstartup" script="others/startup.lua" />
-	<globalevent name="hirelingSave" type="shutdown" script="others/hireling_save.lua"/>
-
-	<!-- world changes -->
-	<globalevent name="furygates" type="startup" script="worldchanges/fury_gates.lua" />
-	<globalevent name="theirmastersvoice" type="startup" script="worldchanges/their_masters_voice.lua" />
-	<globalevent type="startup" name="yasir" script="worldchanges/yasir.lua"/>
 </globalevents>
