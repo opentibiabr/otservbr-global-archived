@@ -30,8 +30,8 @@ Imbuements_Weapons = {
 	["armor_energy"] = {30883},
 	["armor_only_energy"] = {34061},
 	["armor_ice"] = {36414},
-	["armor_earth"] = {34056, 36413, 38931},
-	["armor_death"] = {15407, 36418}
+	["armor_earth"] = {34056, 36413},
+	["armor_death"] = {15407, 36418, 38931}
 }
 
 local equipitems = {
