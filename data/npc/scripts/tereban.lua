@@ -134,6 +134,8 @@ function creatureSayCallback(cid, type, msg)
 					"The magic carpet made a beeline from Edron to Darashia. You should search along this line on the ground. Good luck!"
 				}, cid)
 				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 12)
+				player:setStorageValue(Storage.ThreatenedDreams.TatteredSwanFeathers, 0) -- Start Mission 'Tattered Swan Feathers'
+				
 			else
 				npcHandler:say("You are not on that mission.", cid)
 				npcHandler.topic[cid] = 0

@@ -5453,6 +5453,20 @@ if not Quests then
 						[11] = "STATE 11",
 						[12] = "STATE 12"
 					}
+				},
+				[2] = {
+					name = "Mission 02: Tattered Swan Feathers",
+					storageId = Storage.ThreatenedDreams.TroubledMission01,
+					missionId = 10400,
+					startValue = 1,
+					endValue = 11,
+					states = {
+						[1] = "STATE 1",
+						[2] = "STATE 2",
+						[3] = "STATE 3",
+						[4] = "STATE 4",
+						[5] = "STATE 5"
+					}
 				}
 			}
 		},

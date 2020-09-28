@@ -165,6 +165,8 @@
 	<movevent event="StepIn" itemid="8292" script="quests/demon_oak/area_damage.lua"/>
 	<movevent event="StepIn" uniqueid="9000" script="quests/demon_oak/entrance.lua"/>
 	<movevent event="StepIn" fromuid="9001" touid="9005" script="quests/demon_oak/squares.lua"/>
+	<!-- threatened dreams -->
+	<movevent event="StepIn" fromaid="50301" toaid="50305" script="quests/threatened_dreams/swan_feathers.lua"/>
 	<!-- devil helmet -->
 	<movevent event="StepIn" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
 	<movevent event="StepOut" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
