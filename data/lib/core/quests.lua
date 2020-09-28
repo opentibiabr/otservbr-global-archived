@@ -5450,7 +5450,8 @@ if not Quests then
 						[8] = "STATE 8",
 						[9] = "STATE 9",
 						[10] = "STATE 10",
-						[11] = "STATE 11"
+						[11] = "STATE 11",
+						[12] = "STATE 12"
 					}
 				}
 			}
