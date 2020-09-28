@@ -43,9 +43,10 @@ local function creatureSayCallback(cid, type, msg)
 				"I guess he mentioned Ulderek's Rock. Please search for them and - be they alive or not - return and tell me what happened to them."
 			}, cid)
 			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)
-
+            npcHandler.topic[cid] = 0
 		elseif msgcontains(msg, "no") then
-			npcHandler:say("Then not.", cid)
+            npcHandler:say("Then not.", cid)
+            npcHandler.topic[cid] = 0
 		end
         npcHandler.topic[cid] = 0
 	end

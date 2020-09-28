@@ -44,7 +44,7 @@ local function creatureSayCallback(cid, type, msg)
 				"At night it will weep bloody tears and only at night you will meet the ghost there. Take this talisman so you may be able to talk with animals and even plants and stones. Just don't expect that all of them will answer you."
 			}, cid)
 			player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 6)
-
+            npcHandler.topic[cid] = 0
 		elseif msgcontains(msg, "no") then
 			npcHandler:say("Then not.", cid)
 		end

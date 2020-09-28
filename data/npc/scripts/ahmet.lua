@@ -85,9 +85,11 @@ local function creatureSayCallback(cid, type, msg)
 						"So if you want to make sure they read this anytime soon, perhaps don't hide the book in a shelf or chest. Make sure to place it somewhere where they will find it easily, like very obviously on a table or something."
 					}, cid)
 					player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 2)
+					npcHandler.topic[cid] = 0
 				end
 			else
 				npcHandler:say("You have already completed this mission.", cid)
+				npcHandler.topic[cid] = 0
 			end
 
 		end
