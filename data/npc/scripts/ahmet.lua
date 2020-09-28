@@ -79,14 +79,19 @@ local function creatureSayCallback(cid, type, msg)
 		npcHandler.topic[cid] = 5
 	elseif npcHandler.topic[cid] == 5 then
 		if msgcontains(msg, "yes") then
-			if ( (player:getItem(28596) >= 1) and (player:getMoney() > 5000) )then
-				player:removeMoney(5000)
-				npcHandler:say({
-					"Well then. Here, take the book, I added the story. Oh, just a piece of advice: Not to inflame prejudice but poachers are of rather simple disposition. I doubt they are ardent readers. ...",
-					"So if you want to make sure they read this anytime soon, perhaps don't hide the book in a shelf or chest. Make sure to place it somewhere where they will find it easily, like very obviously on a table or something."
-				}, cid)
-				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 2)
+			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 1) then
+				if ( (player:getItem(28596) >= 1) and (player:getMoney() > 5000) )then
+					player:removeMoney(5000)
+					npcHandler:say({
+						"Well then. Here, take the book, I added the story. Oh, just a piece of advice: Not to inflame prejudice but poachers are of rather simple disposition. I doubt they are ardent readers. ...",
+						"So if you want to make sure they read this anytime soon, perhaps don't hide the book in a shelf or chest. Make sure to place it somewhere where they will find it easily, like very obviously on a table or something."
+					}, cid)
+					player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 2)
+				end
+			else
+				npcHandler:say("You have already completed this mission.", cid)
 			end
+
 		end
 	end
 	return true
