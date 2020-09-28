@@ -31,6 +31,13 @@ local function creatureSayCallback(cid, type, msg)
                 "A troll stalked me while I was bathing in the river and he stole my cloak. Now I am trapped in the form of a swan. Please, can you find the thief and bring back the cloak?"
             }, cid)
             npcHandler.topic[cid] = 1
+        elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 13) then
+            player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01, 14)
+            npcHandler:say({
+                "This is everything that remained of my cloak? That's terrible! However, I guess I can put the feathers together again. Yes, that should be enough feathers. ...",
+                "Please give them to me so I can restore my cloak. But don't watch me! Swan maidens don't like to be observed. Nature's blessings, human being. I will tell Ikassis that you have been of great assistance."
+            }, cid)
+            npcHandler.topic[cid] = 0
         else
             npcHandler:say("You are not on that mission.", cid)
 			npcHandler.topic[cid] = 0
