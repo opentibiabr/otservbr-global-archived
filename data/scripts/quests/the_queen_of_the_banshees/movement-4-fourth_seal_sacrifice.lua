@@ -12,5 +12,5 @@ function fourthSealSacrifice.onAddItem(moveitem, tileitem, position)
 end
 
 fourthSealSacrifice:type("additem")
-fourthSealSacrifice:id(2016)
+fourthSealSacrifice:id(426)
 fourthSealSacrifice:register()
