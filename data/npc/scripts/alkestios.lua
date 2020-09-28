@@ -53,7 +53,7 @@ local function creatureSayCallback(cid, type, msg)
             "I heard there is a problem with a wolf mother and her whelps. However, I don't know more about it. One of my sisters, Ikassis, has taken over the body of a snake. ...",
             "She knows more about the wolf. Seek her out in the north-west of Edron, near a circle of standing stones."
         }, cid)
-        player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 4)
+        player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 5)
 	end
 	return true
 end
