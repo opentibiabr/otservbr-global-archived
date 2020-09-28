@@ -212,18 +212,18 @@
 		<attribute key="item" value="10611" count="20" />
 		<attribute key="item" value="12658" count="10" />
 	</imbuement>
-	<imbuement name="Hide Dragon" base="1" category="6" iconid="34">
+	<imbuement name="Dragon Hide" base="1" category="6" iconid="34">
 		<attribute key="description" value="Reduces fire damage by 3%." />
 		<attribute key="effect" type="reduction" combat="fire" value="3" />
 		<attribute key="item" value="5877" count="20" />
 	</imbuement>
-	<imbuement name="Hide Dragon" base="2" category="6" iconid="34">
+	<imbuement name="Dragon Hide" base="2" category="6" iconid="34">
 		<attribute key="description" value="Reduces fire damage by 8%." />
 		<attribute key="effect" type="reduction" combat="fire" value="8" />
 		<attribute key="item" value="5877" count="20" />
 		<attribute key="item" value="18425" count="10" />
 	</imbuement>
-	<imbuement name="Hide Dragon" base="3" category="6" iconid="34">
+	<imbuement name="Dragon Hide" base="3" category="6" iconid="34">
 		<attribute key="description" value="Reduces fire damage by 15%." />
 		<attribute key="effect" type="reduction" combat="fire" value="15" />
 		<attribute key="item" value="5877" count="20" />
