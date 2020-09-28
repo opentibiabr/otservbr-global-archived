@@ -5438,7 +5438,7 @@ if not Quests then
 					storageId = Storage.ThreatenedDreams.TroubledMission01,
 					missionId = 10387,
 					startValue = 1,
-					endValue = 9,
+					endValue = 11,
 					states = {
 						[1] = "STATE 1",
 						[2] = "STATE 2",
@@ -5449,7 +5449,8 @@ if not Quests then
 						[7] = "STATE 7",
 						[8] = "STATE 8",
 						[9] = "STATE 9",
-						[10] = "STATE 10"
+						[10] = "STATE 10",
+						[11] = "STATE 11"
 					}
 				}
 			}
