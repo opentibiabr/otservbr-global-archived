@@ -21,7 +21,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if msgcontains(msg, "mission") then
+    if msgcontains(msg, "mission") then
         if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 2) then
             npcHandler:say({
                 "You succeeded! It seems the poachers have read your little faked story about killing white deer and the ensuing doom. They stopped chasing me. Thank you! ...",
