@@ -5452,10 +5452,10 @@ if not Quests then
 						[10] = "STATE 10",
 						[11] = "STATE 11",
 						[12] = "STATE 12",
+						[13] = "STATE 13",
 						[14] = "STATE 14",
 						[15] = "STATE 15",
-						[16] = "STATE 16",
-						[17] = "STATE 17"
+						[16] = "STATE 16"
 					}
 				},
 				[2] = {
