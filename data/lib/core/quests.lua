@@ -5444,7 +5444,9 @@ if not Quests then
 						[2] = "STATE 2",
 						[3] = "STATE 3",
 						[4] = "STATE 4",
-						[5] = "STATE 5"
+						[5] = "STATE 5",
+						[6] = "STATE 6",
+						[7] = "STATE 7"
 					}
 				}
 			}

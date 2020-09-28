@@ -43,7 +43,7 @@ local function creatureSayCallback(cid, type, msg)
 				"Please search it out and examine it closely. Perhaps you will find something you can use against them in order to stop them from hunting white deer."
 			}, cid)
 			player:setStorageValue(Storage.ThreatenedDreams.Start, 1)
-
+            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 1)
 		elseif msgcontains(msg, "no") then
 			npcHandler:say("Then not.", cid)
 		end
@@ -53,7 +53,7 @@ local function creatureSayCallback(cid, type, msg)
             "I heard there is a problem with a wolf mother and her whelps. However, I don't know more about it. One of my sisters, Ikassis, has taken over the body of a snake. ...",
             "She knows more about the wolf. Seek her out in the north-west of Edron, near a circle of standing stones."
         }, cid)
-        player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 3)
+        player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 4)
 	end
 	return true
 end

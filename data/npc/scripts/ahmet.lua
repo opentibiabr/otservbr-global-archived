@@ -85,7 +85,7 @@ local function creatureSayCallback(cid, type, msg)
 					"Well then. Here, take the book, I added the story. Oh, just a piece of advice: Not to inflame prejudice but poachers are of rather simple disposition. I doubt they are ardent readers. ...",
 					"So if you want to make sure they read this anytime soon, perhaps don't hide the book in a shelf or chest. Make sure to place it somewhere where they will find it easily, like very obviously on a table or something."
 				}, cid)
-				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 1)
+				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 2)
 			end
 		end
 	end

@@ -19,7 +19,7 @@ function poacherChest.onUse(player, item, fromPosition, target, toPosition, isHo
 
 		player:addItem(chest.itemid, chest.count)
 		player:setStorageValue(34123, 1)
-		player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 2)
+		player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 3)
 	end
 
 	return true
