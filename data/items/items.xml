@@ -49194,7 +49194,7 @@
 		<attribute key="weight" value="7200" />
 		<attribute key="defense" value="30" />
 		<attribute key="attack" value="5" />
-		<attribute key="elementFire" value="45" />
+		<attribute key="elementFire" value="49" />
 		<attribute key="weaponType" value="axe" />
 		<attribute key="loottype" value="axe" />
 		<attribute key="slotType" value="two-handed" />
