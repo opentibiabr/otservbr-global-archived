@@ -2783,6 +2783,47 @@ void ProtocolGame::sendDistanceShoot(const Position& from, const Position& to, u
 	writeToOutputBuffer(msg);
 }
 
+void ProtocolGame::sendRestingStatus(uint8_t protection)
+{
+	if (!player) {
+		return;
+	}
+
+	NetworkMessage msg;
+	msg.addByte(0xA9);
+	msg.addByte(protection); // 1 / 0
+	int32_t PlayerdailyStreak = 0;
+	player->getStorageValue(STORAGEVALUE_DAILYREWARD, PlayerdailyStreak);	
+	msg.addByte(PlayerdailyStreak < 2 ? 0 : 1);
+	if (PlayerdailyStreak < 2)  {
+		msg.addString("Resting Area (no active bonus)");
+	} else {
+		std::ostringstream ss;
+		ss << "Active Resting Area Bonuses: ";
+	if (PlayerdailyStreak < DAILY_REWARD_DOUBLE_HP_REGENERATION) {
+		ss << "\nHit Points Regeneration";
+	} else {
+		ss << "\nDouble Hit Points Regeneration";
+	}
+	if (PlayerdailyStreak >= DAILY_REWARD_MP_REGENERATION) {
+		if (PlayerdailyStreak < DAILY_REWARD_DOUBLE_MP_REGENERATION) {
+		ss << ",\nMana Points Regeneration";
+		} else {
+		ss << ",\nDouble Mana Points Regeneration";
+		}
+	}
+	if (PlayerdailyStreak >= DAILY_REWARD_STAMINA_REGENERATION) {
+		ss << ",\nStamina Points Regeneration";
+	}
+	if (PlayerdailyStreak >= DAILY_REWARD_SOUL_REGENERATION) {
+		ss << ",\nSoul Points Regeneration";
+	}
+		ss << ".";
+		msg.addString(ss.str());
+	}
+	writeToOutputBuffer(msg);
+}
+
 void ProtocolGame::sendMagicEffect(const Position& pos, uint8_t type)
 {
 	if (!canSee(pos)) {
