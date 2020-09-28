@@ -22,8 +22,23 @@ function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
+	print("Msg: ".. msg)
+	if (msgcontains(msg, "fur")) then
+		print("Fur entrei")
+		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 6) then
+			npcHandler:say({
+				"A wolf whelp fur? Well, some months ago a hunter came here - a rather scruffy, smelly guy. I would have thrown him out instantly, but he had to offer some fine pelts. One of them was the fur of a very young wolf. ...",
+				"I was not delighted that he obviously killed such a young animal. When I confronted him, he said he wanted to raise it as a companion but it unfortunately died. A sad story. In the end, I bought some of his pelts, among them the whelp fur. ...",
+				"You can have it if this is important for you. I would sell it for 1000 gold. Are you interested?"
+			}, cid)
+			npcHandler.topic[cid] = 8
+		end
+	elseif ( (msgcontains(msg, "yes")) and (npcHandler.topic[cid] == 8) ) then
+		player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)
+		npcHandler:say("Alright. Here is the fur.", cid)
 
-	if(msgcontains(msg, "addon")) then
+	elseif(msgcontains(msg, "addon")) then
+		print("addon")
 		if(getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
 			npcHandler.topic[cid] = 1
@@ -33,8 +48,8 @@ function creatureSayCallback(cid, type, msg)
 		else
 			npcHandler:say("You have already bought the two addons.", cid)
 		end
-
 	elseif(msgcontains(msg, "yes")) then
+		print("yes")
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say("Especially for you, mylady, we are offering a pretty {hat} and a beautiful {dress} like the ones I wear. Which one are you interested in?", cid)
 			npcHandler.topic[cid] = 2
@@ -89,21 +104,25 @@ function creatureSayCallback(cid, type, msg)
 			end
 		end
 	elseif(msgcontains(msg, "hat") or msgcontains(msg, "accessory")) and (npcHandler.topic[cid] == 2 and getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
+		print("hat")
 		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", cid)
 		selfSay("This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...", cid)
 		selfSay("I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...", cid)
 		npcHandler:say("Are you interested in purchasing this accessory?", cid)
 		npcHandler.topic[cid] = 3
 	elseif(msgcontains(msg, "dress") or msgcontains(msg, "coat")) and (npcHandler.topic[cid] == 2 and getPlayerStorageValue(cid, Storage.Irmana2) < 1) then
+		print("dress")
 		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", cid)
 		selfSay("This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...", cid)
 		selfSay("I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...", cid)
 		npcHandler:say("Are you interested in purchasing this accessory?", cid)
 		npcHandler.topic[cid] = 4
 	elseif(msgcontains(msg, "red robe")) then
+		print("red robe")
 		npcHandler:say("Have you found a {Red Robe} for me?", cid)
 		npcHandler.topic[cid] = 5
 	elseif(msgcontains(msg, "mystic turban")) then
+		print("mystic turban")
 		npcHandler:say("Have you found a {Mystic Turban} for me?", cid)
 		npcHandler.topic[cid] = 6
 	elseif(msgcontains(msg, "green tunic")) then
