@@ -22,8 +22,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
     if msgcontains(msg, "mission") then
-        local storage = player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01)
-        if (storage == 6) then
+        if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 6) then
             npcHandler:say({
                 "I'm heartbroken, traveler. Some months ago, I was taking care of my three newborn whelps. They just opened their eyes and started exploring the wilderness as a hunter came by. ...",
                 "He shot me and took my three puppies with him. I have no idea where he brought them or whether they are still alive. This uncertainty harrows me and thus I'm unable to find peace. Will you help me?"
