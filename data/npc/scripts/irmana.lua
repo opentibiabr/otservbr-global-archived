@@ -36,7 +36,6 @@ function creatureSayCallback(cid, type, msg)
 		npcHandler:say("Alright. Here is the fur.", cid)
 
 	elseif(msgcontains(msg, "addon")) then
-
 		if(getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
 			npcHandler.topic[cid] = 1
@@ -101,25 +100,21 @@ function creatureSayCallback(cid, type, msg)
 			end
 		end
 	elseif(msgcontains(msg, "hat") or msgcontains(msg, "accessory")) and (npcHandler.topic[cid] == 2 and getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
-		print("hat")
 		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", cid)
 		selfSay("This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...", cid)
 		selfSay("I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...", cid)
 		npcHandler:say("Are you interested in purchasing this accessory?", cid)
 		npcHandler.topic[cid] = 3
 	elseif(msgcontains(msg, "dress") or msgcontains(msg, "coat")) and (npcHandler.topic[cid] == 2 and getPlayerStorageValue(cid, Storage.Irmana2) < 1) then
-		print("dress")
 		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", cid)
 		selfSay("This is why we have established our brand-new instalment sale. You can choose to either pay the price at once, or if you want to be safe, by instalments of 10000 gold pieces. ...", cid)
 		selfSay("I also have to inform you that once you started paying for one of the accessories, you have to finish the payment first before you can start paying for the other one, of course. ...", cid)
 		npcHandler:say("Are you interested in purchasing this accessory?", cid)
 		npcHandler.topic[cid] = 4
 	elseif(msgcontains(msg, "red robe")) then
-		print("red robe")
 		npcHandler:say("Have you found a {Red Robe} for me?", cid)
 		npcHandler.topic[cid] = 5
 	elseif(msgcontains(msg, "mystic turban")) then
-		print("mystic turban")
 		npcHandler:say("Have you found a {Mystic Turban} for me?", cid)
 		npcHandler.topic[cid] = 6
 	elseif(msgcontains(msg, "green tunic")) then

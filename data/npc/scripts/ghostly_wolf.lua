@@ -28,6 +28,10 @@ local function creatureSayCallback(cid, type, msg)
                 "He shot me and took my three puppies with him. I have no idea where he brought them or whether they are still alive. This uncertainty harrows me and thus I'm unable to find peace. Will you help me?"
             }, cid)
             npcHandler.topic[cid] = 1
+        elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 7) then
+            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 8)
+            npcHandler:say("I guess I will stick around for a time to watch over the grave. After this final watch I will find peace, I can feel this. Thank you, human being. You redeemed me.", cid)
+            npcHandler.topic[cid] = 0
         end
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, "yes") then
