@@ -30,6 +30,9 @@ function creatureSayCallback(cid, type, msg)
 				"You can have it if this is important for you. I would sell it for 1000 gold. Are you interested?"
 			}, cid)
 			npcHandler.topic[cid] = 8
+		else
+			npcHandler:say("You are not on that mission.", cid)
+			npcHandler.topic[cid] = 0
 		end
 	elseif ( (msgcontains(msg, "yes")) and (npcHandler.topic[cid] == 8) ) then
 		player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)

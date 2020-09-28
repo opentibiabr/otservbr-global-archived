@@ -73,9 +73,7 @@ local function creatureSayCallback(cid, type, msg)
 			end
 		end
 	elseif msgcontains(msg, 'book') then
-		npcHandler:say({
-			'I see: You want me to add an additional story to this book. A legend about how it brings ill luck to kill a white deer. I could do that, yes. It costs 5000 gold, however. Are you still interested?'
-		}, cid)
+		npcHandler:say('I see: You want me to add an additional story to this book. A legend about how it brings ill luck to kill a white deer. I could do that, yes. It costs 5000 gold, however. Are you still interested?', cid)
 		npcHandler.topic[cid] = 5
 	elseif npcHandler.topic[cid] == 5 then
 		if msgcontains(msg, "yes") then

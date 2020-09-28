@@ -32,6 +32,9 @@ local function creatureSayCallback(cid, type, msg)
             player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 8)
             npcHandler:say("I guess I will stick around for a time to watch over the grave. After this final watch I will find peace, I can feel this. Thank you, human being. You redeemed me.", cid)
             npcHandler.topic[cid] = 0
+        else
+            npcHandler:say("You are not on that mission.", cid)
+            npcHandler.topic[cid] = 0
         end
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, "yes") then

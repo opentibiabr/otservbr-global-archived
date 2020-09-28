@@ -29,6 +29,9 @@ local function creatureSayCallback(cid, type, msg)
                 "Thus I can't cross the ocean to reach Cormaya. Will you help me?"
             }, cid)
             npcHandler.topic[cid] = 1
+        else
+            npcHandler:say("You are not on that mission.")
+            npcHandler.topic[cid] = 0
         end
 	elseif npcHandler.topic[cid] == 1 then
 		if msgcontains(msg, "yes") then
