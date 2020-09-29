@@ -3,15 +3,6 @@ local spawns = {
 	[1] = {		nameAdd = "ghostly_wolf",	nameRem = "Ghostly Wolf",		spawnByType =  "night",		position = { x = 33332, y = 32052, z = 7 }	}
 }
 
-local function getTibiaTimerDayOrNight2()
-	local light = getWorldLight()
-	if (light == 40) then
-		return "night"
-	else
-		return "day"
-	end
-end
-
 local function typeTimeInverter(typeTime)
 	if (typeTime == "night") then
 		return "day"
