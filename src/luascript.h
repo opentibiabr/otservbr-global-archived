@@ -837,6 +837,7 @@ class LuaScriptInterface
 		static int luaCreatureGetDamageMap(lua_State* L);
 
 		static int luaCreatureGetSummons(lua_State* L);
+		static int luaCreatureHasBeenSummoned(lua_State* L);
 
 		static int luaCreatureGetDescription(lua_State* L);
 

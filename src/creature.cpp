@@ -1145,6 +1145,9 @@ void Creature::onGainExperience(uint64_t gainExp, Creature* target)
 }
 
 bool Creature::setMaster(Creature* newMaster) {
+	// Persists if this creature has ever been a summon
+	this->summoned = true;
+
 	if (!newMaster && !master) {
 		return false;
 	}

@@ -2406,6 +2406,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Creature", "getDamageMap", LuaScriptInterface::luaCreatureGetDamageMap);
 
 	registerMethod("Creature", "getSummons", LuaScriptInterface::luaCreatureGetSummons);
+	registerMethod("Creature", "hasBeenSummoned", LuaScriptInterface::luaCreatureHasBeenSummoned);
 
 	registerMethod("Creature", "getDescription", LuaScriptInterface::luaCreatureGetDescription);
 
@@ -8402,6 +8403,19 @@ int LuaScriptInterface::luaCreatureGetSummons(lua_State* L)
 		setCreatureMetatable(L, -1, summon);
 		lua_rawseti(L, -2, ++index);
 	}
+	return 1;
+}
+
+int LuaScriptInterface::luaCreatureHasBeenSummoned(lua_State* L)
+{
+	// creature:hasBeenSummoned()
+	Creature* creature = getUserdata<Creature>(L, 1);
+	if (creature) {
+		pushBoolean(L, creature->hasBeenSummoned());
+	} else {
+		lua_pushnil(L);
+	}
+
 	return 1;
 }
 

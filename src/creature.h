@@ -296,6 +296,12 @@ class Creature : virtual public Thing
 		bool isSummon() const {
 			return master != nullptr;
 		}
+		/**
+		 * hasBeenSummoned doesn't guarantee master still exists
+		 */ 
+		bool hasBeenSummoned() const {
+			return summoned;
+		}
 		Creature* getMaster() const {
 			return master;
 		}
@@ -504,6 +510,16 @@ class Creature : virtual public Thing
 		Creature* attackedCreature = nullptr;
 		Creature* master = nullptr;
 		Creature* followCreature = nullptr;
+
+		/**
+		 * We need to persist if this creature is summon or not because when we
+		 * increment the bestiary count, the master might be gone before we can
+		 * check if this summon has a master and mistakenly count it kill.
+		 * 
+		 * @see BestiaryOnKill
+		 * @see Monster::death()
+		 */
+		bool summoned = false;
 
 		uint64_t lastStep = 0;
 		uint32_t referenceCounter = 0;
