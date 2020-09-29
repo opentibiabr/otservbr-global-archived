@@ -58,6 +58,7 @@ local items = {
           ['sleep shawl'] = {noChargeID = 34066, ChargeID = 34981},
           ['blister ring'] = {noChargeID = 36392, ChargeID = 36456},
           ['theurgic amulet'] = {noChargeID = 35236, ChargeID = 35238},
+          ['ring of souls'] = {noChargeID = 37456, ChargeID = 37471}
      }
 }
 

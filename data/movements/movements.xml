@@ -2891,6 +2891,30 @@
 		<vocation name="Royal Paladin" showInDescription="0"/>
 	</movevent>
 	<movevent event="DeEquip" itemid="34981" slot="necklace" function="onDeEquipItem"/>
+	<movevent event="Equip" itemid="37456" slot="ring" level="200" function="onEquipItem">
+		<!-- ring of souls (discharged) -->
+		<vocation name="Sorcerer"/>
+		<vocation name="Master Sorcerer" showInDescription="0"/>
+		<vocation name="Druid"/>
+		<vocation name="Elder Druid" showInDescription="0"/>
+	</movevent>
+	<movevent event="DeEquip" itemid="37456" slot="ring" function="onDeEquipItem"/>
+	<movevent event="Equip" itemid="37470" slot="ring" level="200" function="onEquipItem">
+		<!-- ring of souls (on) -->
+		<vocation name="Sorcerer"/>
+		<vocation name="Master Sorcerer" showInDescription="0"/>
+		<vocation name="Druid"/>
+		<vocation name="Elder Druid" showInDescription="0"/>
+	</movevent>
+	<movevent event="DeEquip" itemid="37470" slot="ring" function="onDeEquipItem"/>
+	<movevent event="Equip" itemid="37471" slot="ring" level="200" function="onEquipItem">
+		<!-- ring of souls (off) -->
+		<vocation name="Sorcerer"/>
+		<vocation name="Master Sorcerer" showInDescription="0"/>
+		<vocation name="Druid"/>
+		<vocation name="Elder Druid" showInDescription="0"/>
+	</movevent>
+	<movevent event="DeEquip" itemid="37471" slot="ring" function="onDeEquipItem"/>
 	<movevent event="Equip" itemid="35150" slot="necklace" level="220" function="onEquipItem">
 		<!-- rainbow necklace -->
 	</movevent>
