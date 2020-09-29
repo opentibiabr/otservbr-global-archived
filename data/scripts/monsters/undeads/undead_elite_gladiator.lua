@@ -1,0 +1,115 @@
+local mType = Game.createMonsterType("Undead Elite Gladiator")
+local monster = {}
+
+monster.description = "an undead elite gladiator"
+monster.experience = 4740
+monster.outfit = {
+	lookType = 306,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 8000
+monster.maxHealth = 8000
+monster.race = "undead"
+monster.corpse = 9823
+monster.speed = 300
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "Platinum Coin", chance = 44000, maxCount = 40},
+	{id = "Belted Cape", chance = 500},
+	{id = "Ultimate Health Potion", chance = 500, maxCount = 2},
+	{id = "Throwing Star", chance = 500, maxCount = 18},
+	{id = "Knight Axe", chance = 250},
+	{id = 2419, chance = 500},
+	{id = "protection amulet", chance = 250},
+	{id = "hunting spear", chance = 250},
+	{id = "broken gladiator shield", chance = 250},
+	{id = "dark helmet", chance = 250},
+	{id = "flask of warrior's sweat", chance = 250},
+	{id = "plate armor", chance = 250},
+	{id = "plate legs", chance = 250},
+	{id = "two handed sword", chance = 250},
+	{id = "Great Health Potion", chance = 250, maxCount = 2},
+	{id = "stealth ring", chance = 230},
+	{id = "crusader helmet", chance = 150},
+	{id = "Relic Sword", chance = 150}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 100, maxDamage = 550, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 1500, chance = 20, minDamage = 300, maxDamage = 550, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_WHIRLWINDSWORD, target = false},
+	{name ="combat", interval = 1000, chance = 15, minDamage = 300, maxDamage = 500, type = COMBAT_LIFEDRAIN, range = 5, effect = CONST_ME_HITAREA, target = false}
+}
+
+monster.defenses = {
+	defense = 45,
+	armor = 85,
+	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_MAGIC_BLUE}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 20},
+	{type = COMBAT_EARTHDAMAGE, percent = -10},
+	{type = COMBAT_FIREDAMAGE, percent = 80},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 10},
+	{type = COMBAT_DEATHDAMAGE , percent = -5}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

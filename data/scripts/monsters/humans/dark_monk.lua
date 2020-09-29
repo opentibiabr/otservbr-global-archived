@@ -1,0 +1,116 @@
+local mType = Game.createMonsterType("Dark Monk")
+local monster = {}
+
+monster.description = "a dark monk"
+monster.experience = 145
+monster.outfit = {
+	lookType = 225,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 190
+monster.maxHealth = 190
+monster.race = "blood"
+monster.corpse = 20371
+monster.speed = 230
+monster.summonCost = 480
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 5000,
+	chance = 0
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 20,
+	damage = 10,
+}
+
+monster.flags = {
+	summonable = true,
+	attackable = true,
+	hostile = true,
+	convinceable = true,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = true,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "You are no match to us!", yell = false},
+	{text = "This is where your path will end!", yell = false},
+	{text = "Your end has come!", yell = false}
+}
+
+monster.loot = {
+	{id = 1949, chance = 1790},
+	{id = "brown flask", chance = 380},
+	{id = 2044, chance = 550},
+	{id = "gold coin", chance = 14600, maxCount = 18},
+	{id = "power ring", chance = 120},
+	{id = "life crystal", chance = 990},
+	{id = "ankh", chance = 900},
+	{id = "sandals", chance = 890},
+	{id = "bread", chance = 20550},
+	{id = "mana potion", chance = 790},
+	{id = "book of prayers", chance = 1900},
+	{id = "dark rosary", chance = 10500},
+	{id = "rope belt", chance = 6666},
+	{id = "safety pin", chance = 990}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -100, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -20, maxDamage = -50, type = COMBAT_LIFEDRAIN, range = 1, effect = CONST_ME_MAGIC_RED, target = false}
+}
+
+monster.defenses = {
+	defense = 25,
+	armor = 25,
+	{name ="combat", interval = 2000, chance = 15, minDamage = 25, maxDamage = 49, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 2000, chance = 15, SpeedChange = 300, Duration = 6000}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = -20},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = -10},
+	{type = COMBAT_DEATHDAMAGE , percent = 40}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

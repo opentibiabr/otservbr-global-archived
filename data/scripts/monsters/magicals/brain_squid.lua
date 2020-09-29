@@ -1,0 +1,123 @@
+local mType = Game.createMonsterType("Brain Squid")
+local monster = {}
+
+monster.description = "a brain squid"
+monster.experience = 17850
+monster.outfit = {
+	lookType = 1059,
+	lookHead = 97,
+	lookBody = 18,
+	lookLegs = 61,
+	lookFeet = 85,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 18000
+monster.maxHealth = 18000
+monster.race = "undead"
+monster.corpse = 33329
+monster.speed = 430
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 5000,
+	chance = 8
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "Violet Crystal Shard", chance = 900, maxCount = 4},
+	{id = "Platinum Coin", chance = 100000, maxCount = 12},
+	{id = "Glowing Rune", chance = 900, maxCount = 4},
+	{id = "Instable Proto Matter", chance = 1200, maxCount = 4},
+	{id = "Energy Ball", chance = 1200, maxCount = 4},
+	{id = "Energy Bar", chance = 1200, maxCount = 4},
+	{id = "Energy Drink", chance = 1200, maxCount = 4},
+	{id = "Odd Organ", chance = 1200, maxCount = 4},
+	{id = "Frozen Lightning", chance = 1200, maxCount = 4},
+	{id = 33315, chance = 1200, maxCount = 3},
+	{id = "Small Ruby", chance = 1200, maxCount = 4},
+	{id = "Violet Gem", chance = 1200, maxCount = 4},
+	{id = "Blue Crystal Splinter", chance = 1200, maxCount = 4},
+	{id = "Cyan Crystal Fragment", chance = 1200, maxCount = 4},
+	{id = "Ultimate Mana Potion", chance = 1200, maxCount = 4},
+	{id = "Piece of Dead Brain", chance = 1200, maxCount = 4},
+	{id = "Wand of Defiance", chance = 800},
+	{id = "Lightning Headband", chance = 950},
+	{id = "Lightning Pendant", chance = 850},
+	{id = "Might Ring", chance = 1300},
+	{id = "Slime Heart", chance = 1200, maxCount = 4},
+	{id = 26200, chance = 560},
+	{id = 26198, chance = 560},
+	{id = 26199, chance = 560},
+	{id = 26189, chance = 560},
+	{id = 26185, chance = 560},
+	{id = 26187, chance = 560}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -100, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -200, maxDamage = -470, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGY, target = false},
+	{name ="combat", interval = 2000, chance = 13, minDamage = -200, maxDamage = -505, type = COMBAT_ENERGYDAMAGE, effect = CONST_ME_ENERGYAREA, target = false}
+}
+
+monster.defenses = {
+	defense = 40,
+	armor = 82
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 90},
+	{type = COMBAT_EARTHDAMAGE, percent = 30},
+	{type = COMBAT_FIREDAMAGE, percent = 50},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 50},
+	{type = COMBAT_HOLYDAMAGE , percent = 70},
+	{type = COMBAT_DEATHDAMAGE , percent = 50}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

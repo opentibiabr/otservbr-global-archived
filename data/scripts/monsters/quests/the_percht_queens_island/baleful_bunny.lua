@@ -1,0 +1,106 @@
+local mType = Game.createMonsterType("Baleful Bunny")
+local monster = {}
+
+monster.description = "an baleful bunny"
+monster.experience = 450
+monster.outfit = {
+	lookType = 1157,
+	lookHead = 95,
+	lookBody = 42,
+	lookLegs = 19,
+	lookFeet = 57,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 500
+monster.maxHealth = 500
+monster.race = "blood"
+monster.corpse = 35137
+monster.speed = 340
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 5000,
+	chance = 8
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "Borborygmus... borborygmus...", yell = false}
+}
+
+monster.loot = {
+	{id = "platinum coin", chance = 100000},
+	{id = "terra amulet", chance = 8480},
+	{id = "snakebite rod", chance = 7420},
+	{id = "leaf star", chance = 7120, maxCount = 2},
+	{id = "lightning pendant", chance = 6820},
+	{id = "strange talisman", chance = 5760},
+	{id = "sacred tree amulet", chance = 2730},
+	{id = "yetislippers", chance = 450}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -100, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 1, minDamage = -100, maxDamage = -150, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_POFF, target = true},
+	{name ="combat", interval = 2000, chance = 1, minDamage = -100, maxDamage = -150, type = COMBAT_FIREDAMAGE, effect = CONST_ME_ENERGYAREA, target = false},
+	{name ="combat", interval = 2000, chance = 111, minDamage = -100, maxDamage = -150, type = COMBAT_LIFEDRAIN, effect = CONST_ME_DRAWBLOOD, target = true}
+}
+
+monster.defenses = {
+	defense = 35,
+	armor = 35
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 5},
+	{type = COMBAT_EARTHDAMAGE, percent = 5},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

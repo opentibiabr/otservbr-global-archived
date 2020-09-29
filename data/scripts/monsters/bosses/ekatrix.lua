@@ -1,0 +1,127 @@
+local mType = Game.createMonsterType("Ekatrix")
+local monster = {}
+
+monster.description = "Ekatrix"
+monster.experience = 200
+monster.outfit = {
+	lookType = 54,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 500
+monster.maxHealth = 500
+monster.race = "blood"
+monster.corpse = 20535
+monster.speed = 102
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = true,
+	illusionable = true,
+	canPushItems = true,
+	canPushCreatures = false,
+	staticAttackChance = 90,
+	targetDistance = 4,
+	runHealth = 30,
+	healthHidden = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "gold coin", chance = 100000, maxCount = 60},
+	{id = "witch broom", chance = 100000},
+	{id = "cape", chance = 62500},
+	{id = "wolf tooth chain", chance = 41670},
+	{id = "broom", chance = 37500},
+	{id = "coat", chance = 37500},
+	{id = "cookie", chance = 25000, maxCount = 10},
+	{id = "star herb", chance = 8333},
+	{id = "bag of apple slices", chance = 4170},
+	{id = "necrotic rod", chance = 4170}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -20, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -30, maxDamage = -60, type = COMBAT_FIREDAMAGE, range = 5, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_HITBYFIRE, target = false},
+	{name ="firefield", interval = 2000, chance = 10, range = 5, shootEffect = CONST_ANI_FIRE, target = true}
+}
+
+monster.defenses = {
+	defense = 10,
+	armor = 10
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = -5},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 20},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = -5},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
+
+mType:register(monster)

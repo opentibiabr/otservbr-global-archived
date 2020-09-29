@@ -11,7 +11,7 @@ function onDeath(creature, corpse, lasthitkiller, mostdamagekiller, lasthitunjus
 	return true
 end
 
-local zamuloshClone = CreatureEvent("zamuloshclone")
+local zamuloshClone = CreatureEvent("ZamuloshClone")
 function zamuloshClone.onThink(creature)
 	local spectators = Game.getSpectators(Position(33644, 32757, 11), false, false, 10, 10, 10, 10)
 	for i = 1, #spectators do

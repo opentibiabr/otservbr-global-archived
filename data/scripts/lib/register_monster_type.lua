@@ -48,11 +48,6 @@ registerMonsterType.health = function(mtype, mask)
 		mtype:health(mask.health)
 	end
 end
-registerMonsterType.runHealth = function(mtype, mask)
-	if mask.runHealth then
-		mtype:runHealth(mask.runHealth)
-	end
-end
 registerMonsterType.maxSummons = function(mtype, mask)
 	if mask.maxSummons then
 		mtype:maxSummons(mask.maxSummons)
@@ -83,11 +78,11 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.attackable ~= nil then
 			mtype:isAttackable(mask.flags.attackable)
 		end
-		if mask.flags.healthHidden ~= nil then
-			mtype:isHealthHidden(mask.flags.healthHidden)
-		end
 		if mask.flags.convinceable ~= nil then
 			mtype:isConvinceable(mask.flags.convinceable)
+		end
+		if mask.flags.summonable ~= nil then
+			mtype:isSummonable(mask.flags.summonable)
 		end
 		if mask.flags.illusionable ~= nil then
 			mtype:isIllusionable(mask.flags.illusionable)
@@ -95,17 +90,17 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.hostile ~= nil then
 			mtype:isHostile(mask.flags.hostile)
 		end
+		if mask.flags.healthHidden ~= nil then
+			mtype:isHealthHidden(mask.flags.healthHidden)
+		end
 		if mask.flags.pushable ~= nil then
 			mtype:isPushable(mask.flags.pushable)
 		end
 		if mask.flags.canPushItems ~= nil then
 			mtype:canPushItems(mask.flags.canPushItems)
 		end
-		if mask.flags.rewardboss then
-			mtype:isRewardBoss(mask.flags.rewardboss)
-		end
-		if mask.flags.preyable then
-			mtype:isPreyable(mask.flags.preyable)
+		if mask.flags.rewardBoss then
+			mtype:isRewardBoss(mask.flags.rewardBoss)
 		end
 		if mask.flags.pet then
 			mtype:isPet(mask.flags.pet)
@@ -122,16 +117,19 @@ registerMonsterType.flags = function(mtype, mask)
 		if mask.flags.targetDistance then
 			mtype:targetDistance(mask.flags.targetDistance)
 		end
+		if mask.flags.runHealth then
+			mtype:runHealth(mask.flags.runHealth)
+		end
 		if mask.flags.staticAttackChance then
 			mtype:staticAttackChance(mask.flags.staticAttackChance)
 		end
-		if mask.flags.canWalkOnEnergy then
+		if mask.flags.canWalkOnEnergy ~= nil then
 			mtype:canWalkOnEnergy(mask.flags.canWalkOnEnergy)
 		end
-		if mask.flags.canWalkOnFire then
+		if mask.flags.canWalkOnFire ~= nil then
 			mtype:canWalkOnFire(mask.flags.canWalkOnFire)
 		end
-		if mask.flags.canWalkOnPoison then
+		if mask.flags.canWalkOnPoison ~= nil then
 			mtype:canWalkOnPoison(mask.flags.canWalkOnPoison)
 		end
 	end
@@ -153,6 +151,22 @@ registerMonsterType.changeTarget = function(mtype, mask)
 		end
 		if mask.changeTarget.interval then
 			mtype:changeTargetSpeed(mask.changeTarget.interval)
+		end
+	end
+end
+registerMonsterType.strategiesTarget  = function(mtype, mask)
+	if mask.strategiesTarget then
+		if mask.strategiesTarget.nearest then
+			mtype:strategiesTargetNearest(mask.strategiesTarget.nearest)
+		end
+		if mask.strategiesTarget.health then
+			mtype:strategiesTargetHealth(mask.strategiesTarget.health)
+		end
+		if mask.strategiesTarget.damage then
+			mtype:strategiesTargetDamage(mask.strategiesTarget.damage)
+		end
+		if mask.strategiesTarget.random then
+			mtype:strategiesTargetRandom(mask.strategiesTarget.random)
 		end
 	end
 end
@@ -460,7 +474,7 @@ registerMonsterType.defenses = function(mtype, mask)
 							spell:setCombatEffect(defense.effect)
 						end
 						if defense.shootEffect then
-							spell:setCombatShootEffect(defense.shootEffect)
+							spell:setCombatshootEffect(defense.shootEffect)
 						end
 					end
 				elseif defense.script then

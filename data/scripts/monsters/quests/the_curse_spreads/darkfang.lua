@@ -1,0 +1,129 @@
+local mType = Game.createMonsterType("Darkfang")
+local monster = {}
+
+monster.description = "a darkfang"
+monster.experience = 4000
+monster.outfit = {
+	lookType = 308,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 4800
+monster.maxHealth = 4800
+monster.race = "blood"
+monster.corpse = 20380
+monster.speed = 250
+monster.summonCost = 0
+monster.maxSummons = 2
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.summons = {
+	{name = "Gloom Wolf", chance = 20, interval = 2000}
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "The ferocity of wolves will frighten the fearful! Roarrr!", yell = false},
+	{text = "You are my next meal! Grrr!", yell = false}
+}
+
+monster.loot = {
+	{id = "gold coin", chance = 13600000, maxCount = 100},
+	{id = "gold coin", chance = 13600000, maxCount = 100},
+	{id = "platinum coin", chance = 13600000, maxCount = 10},
+	{id = "berserk potion", chance = 13600000, maxCount = 3},
+	{id = "black pearl", chance = 13600000, maxCount = 3},
+	{id = "onyx chip", chance = 13600000, maxCount = 5},
+	{id = "small enchanted sapphire", chance = 13600000, maxCount = 10},
+	{id = "ultimate health potion", chance = 13600000, maxCount = 5},
+	{id = "platinum amulet", chance = 13600000},
+	{id = "stone skin amulet", chance = 13600000},
+	{id = 2169, chance = 13600000},
+	{id = "troll green", chance = 13600000, maxCount = 2},
+	{id = "werewolf fur", chance = 13600000, maxCount = 2},
+	{id = "wolf paw", chance = 13600000, maxCount = 2},
+	{id = "bonebreaker", chance = 400},
+	{id = "dreaded cleaver", chance = 400},
+	{id = "werewolf amulet", chance = 400},
+	{id = "sai", chance = 250},
+	{id = 7394, chance = 13600000},
+	{id = "silver token", chance = 250},
+	{id = "wolf backpack", chance = 100}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -290, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, range = 1, target = false},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -300, type = COMBAT_LIFEDRAIN, effect = CONST_ME_SOUND_RED, target = false},
+	{name ="combat", interval = 2000, chance = 18, minDamage = 200, maxDamage = 340, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_GROUNDSHAKER, target = false},
+	{name ="speed", interval = 2000, chance = 15, SpeedChange = -600, Duration = 20000}
+}
+
+monster.defenses = {
+	defense = 45,
+	armor = 40,
+	{name ="combat", interval = 4000, chance = 15, minDamage = 150, maxDamage = 345, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 50},
+	{type = COMBAT_ENERGYDAMAGE, percent = 50},
+	{type = COMBAT_EARTHDAMAGE, percent = 50},
+	{type = COMBAT_FIREDAMAGE, percent = 50},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 50},
+	{type = COMBAT_HOLYDAMAGE , percent = 50},
+	{type = COMBAT_DEATHDAMAGE , percent = 50}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

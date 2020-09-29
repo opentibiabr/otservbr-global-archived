@@ -1,0 +1,114 @@
+local mType = Game.createMonsterType("Young Goanna")
+local monster = {}
+
+monster.description = "a young goanna"
+monster.experience = 6100
+monster.outfit = {
+	lookType = 1196,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 6200
+monster.maxHealth = 6200
+monster.race = "blood"
+monster.corpse = 36244
+monster.speed = 380
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 10,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "Platinum Coin", chance = 100000, maxCount = 3},
+	{id = "Envenomed Arrow", chance = 68000, maxCount = 35},
+	{id = "Terra Rod", chance = 10900},
+	{id = "Goanna Meat", chance = 9800},
+	{id = "Snakebite Rod", chance = 9000},
+	{id = "Blue Goanna Scale", chance = 7900},
+	{id = "Goanna Claw", chance = 4300},
+	{id = "Serpent Sword", chance = 4000},
+	{id = "Leaf Star", chance = 3800, maxCount = 3},
+	{id = "Silver Amulet", chance = 3800},
+	{id = "Springsprout Rod", chance = 2700},
+	{id = "Scared Frog", chance = 2100},
+	{id = "Terra Amulet", chance = 1100},
+	{id = "Lizard Heart", chance = 800},
+	{id = "Sacred Tree Amulet", chance = 800},
+	{id = "Small Tortoise", chance = 550},
+	{id = "Fur Armor", chance = 270},
+	{id = "Terra Hood", chance = 250}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -230, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 15, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -300, maxDamage = -490, type = COMBAT_EARTHDAMAGE, range = 3, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_EXPLOSIONHIT, target = true}
+}
+
+monster.defenses = {
+	defense = 78,
+	armor = 78,
+	{name ="speed", interval = 2000, chance = 5, SpeedChange = 350, Duration = 5000}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = -20},
+	{type = COMBAT_EARTHDAMAGE, percent = 80},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

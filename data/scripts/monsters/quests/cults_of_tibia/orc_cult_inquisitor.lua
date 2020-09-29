@@ -1,0 +1,114 @@
+local mType = Game.createMonsterType("Orc Cult Inquisitor")
+local monster = {}
+
+monster.description = "an orc cult inquisitor"
+monster.experience = 1150
+monster.outfit = {
+	lookType = 8,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 1500
+monster.maxHealth = 1500
+monster.race = "blood"
+monster.corpse = 5980
+monster.speed = 125
+monster.summonCost = 590
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = true,
+	attackable = true,
+	hostile = true,
+	convinceable = true,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 95,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "You unorcish scum will die!", yell = true}
+}
+
+monster.loot = {
+	{id = "strong health potion", chance = 18390},
+	{id = "gold coin", chance = 100000, maxCount = 221},
+	{id = "black pearl", chance = 510, maxCount = 2},
+	{id = "berserk potion", chance = 2940},
+	{id = "small ruby", chance = 4020, maxCount = 5},
+	{id = "battle axe", chance = 6340},
+	{id = "bug meat", chance = 17160},
+	{id = "red mushroom", chance = 7730, maxCount = 3},
+	{id = "halberd", chance = 9890},
+	{id = "orcish axe", chance = 850},
+	{id = "cultish robe", chance = 9890},
+	{id = "ham", chance = 8960},
+	{id = "orc tooth", chance = 5410},
+	{id = "orcish gear", chance = 15460},
+	{id = "orc leather", chance = 7730}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -500, effect = CONST_ME_DRAWBLOOD}
+}
+
+monster.defenses = {
+	defense = 40,
+	armor = 40,
+	{name ="speed", interval = 2000, chance = 30, SpeedChange = 290, Duration = 6000}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = false},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)
