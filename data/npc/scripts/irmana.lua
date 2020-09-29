@@ -101,6 +101,15 @@ function creatureSayCallback(cid, type, msg)
 			else
 				npcHandler:say('Are you trying to mess with me?!', cid)
 			end
+		elseif npcHandler.topic[cid] == 8 then
+			if player:getMoney() >= 1000 then
+				player:removeMoney(1000)
+				player:addItem(28599, 1) -- Fur of a Wolf Whelp
+				npcHandler:say("Alright. Here is the fur.", cid)
+				npcHandler.topic[cid] = 0
+			else
+				npcHandler:say('Are you trying to mess with me?!', cid)
+			end
 		end
 	elseif(msgcontains(msg, "hat") or msgcontains(msg, "accessory")) and (npcHandler.topic[cid] == 2 and getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
 		selfSay("This accessory requires a small fee of 150000 gold pieces. Of course, we do not want to put you at any risk to be attacked while carrying this huge amount of money. ...", cid)
