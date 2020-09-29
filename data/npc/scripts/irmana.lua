@@ -34,10 +34,6 @@ function creatureSayCallback(cid, type, msg)
 			npcHandler:say("You are not on that mission.", cid)
 			npcHandler.topic[cid] = 0
 		end
-	elseif ( (msgcontains(msg, "yes")) and (npcHandler.topic[cid] == 8) ) then
-		player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)
-		npcHandler:say("Alright. Here is the fur.", cid)
-
 	elseif(msgcontains(msg, "addon")) then
 		if(getPlayerStorageValue(cid, Storage.Irmana1) < 1) then
 			npcHandler:say("Currently we are offering accessories for the nobleman - and, of course, noblewoman - outfit. Would you like to hear more about our offer?", cid)
@@ -106,6 +102,7 @@ function creatureSayCallback(cid, type, msg)
 				player:removeMoney(1000)
 				player:addItem(28599, 1) -- Fur of a Wolf Whelp
 				npcHandler:say("Alright. Here is the fur.", cid)
+				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)
 				npcHandler.topic[cid] = 0
 			else
 				npcHandler:say('Are you trying to mess with me?!', cid)
