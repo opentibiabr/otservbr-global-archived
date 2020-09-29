@@ -29,8 +29,8 @@ local function creatureSayCallback(cid, type, msg)
                 "Thus I can't cross the ocean to reach Cormaya. Will you help me?"
             }, cid)
             npcHandler.topic[cid] = 1
-        elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 8) then
-            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 9)
+        elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 11) then
+            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 12)
             npcHandler:say("The wolf's ghost has found peace. Thank you, human being. However, there is someone else who needs help: A sister of mine who's bereft of something very precious. You'll find her in the guise of a swan at a small river south-east of here.", cid)
             npcHandler.topic[cid] = 0
         else

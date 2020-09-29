@@ -23,7 +23,7 @@ function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
 	if (msgcontains(msg, "fur")) then
-		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 6) then
+		if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 8) then
 			npcHandler:say({
 				"A wolf whelp fur? Well, some months ago a hunter came here - a rather scruffy, smelly guy. I would have thrown him out instantly, but he had to offer some fine pelts. One of them was the fur of a very young wolf. ...",
 				"I was not delighted that he obviously killed such a young animal. When I confronted him, he said he wanted to raise it as a companion but it unfortunately died. A sad story. In the end, I bought some of his pelts, among them the whelp fur. ...",
@@ -102,7 +102,7 @@ function creatureSayCallback(cid, type, msg)
 				player:removeMoney(1000)
 				player:addItem(28599, 1) -- Fur of a Wolf Whelp
 				npcHandler:say("Alright. Here is the fur.", cid)
-				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 7)
+				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 9)
 				npcHandler.topic[cid] = 0
 			else
 				npcHandler:say('Are you trying to mess with me?!', cid)

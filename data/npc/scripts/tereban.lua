@@ -123,7 +123,7 @@ function creatureSayCallback(cid, type, msg)
 
 	if npcHandler.topic[cid] == 0 then
 		if msgcontains(msg, 'cloak') then
-			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 11) then
+			if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 14) then
 				npcHandler:say({
 					"I met this troll when he was hanging around near the town. He carried something I would consider rather uncharacteristic for a troll: a stunningly beautiful cloak entirely made of white feathers. I was curious and asked him if he would sell it. ...",
 					"He seemed to be more interested in some of my coins and a piece of meat than in this unusual garment. Therefore, we made a trade: He got some meat and coins and I got the cloak. ...",
@@ -133,7 +133,7 @@ function creatureSayCallback(cid, type, msg)
 					"But the actual storm began when we were in the air above the Darama. The feathers are now scattered all over the desert I guess. Rather futile to look out for them but if you really want to try: ...",
 					"The magic carpet made a beeline from Edron to Darashia. You should search along this line on the ground. Good luck!"
 				}, cid)
-				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 12)
+				player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 15)
 				player:setStorageValue(Storage.ThreatenedDreams.TatteredSwanFeathers, 0) -- Start Mission 'Tattered Swan Feathers'
 				
 			else

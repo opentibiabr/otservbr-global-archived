@@ -28,12 +28,12 @@ local function creatureSayCallback(cid, type, msg)
                 "You proved yourself trustworthy - at least as far as I am concerned. But as I told you I'm actually not a real animal. If you want to enter our hidden island, you must prove that you are also willing to help real animals. Would you do that?"
             }, cid)
             npcHandler.topic[cid] = 2
-        elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 14) then
+        elseif (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 16) then
             npcHandler:say({
                 "I'm very happy that you could help fae and animals alike. You earned our trust and may now visit our secret realm. I marked you with an arcane fae seal. Hereby you will be able to use the elemental shrines strewn about Tibia. ...",
                 "There are fire, ice, energy and earth shrines. If you don't know their locations you can also reach them by most temples in this world. The elemental shrines will transport you to Feyrist now that you bear the magical seal."
             }, cid)
-            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 15)
+            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 17)
         else
             npcHandler:say({
                 "I indeed have some troubles since I'm travelling this part of the world. When I took over the body of a white deer I wasn't aware that such an animal is a sought after quarry for hunters and poachers. ...",
