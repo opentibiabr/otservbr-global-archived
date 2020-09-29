@@ -44,8 +44,8 @@ function spawnsByTime.onThink(interval, lastExecution)
 	local light = getWorldLight()
 	local dayOrNight = getTibiaTimerDayOrNight()
 
-	print("Now is ".. dayOrNight ..", Light "..light.." and Tibia Time "..getFormattedWorldTime(time).." (".. time ..").")
 	if (nowType ~= dayOrNight) then
+		print("Now is ".. dayOrNight ..", Light "..light.." and Tibia Time "..getFormattedWorldTime(time).." (".. time ..").")
 		removerNpcs(spawns, typeTimeInverter(dayOrNight)) -- Remove
 		addNpcs(spawns, dayOrNight) -- Add
 		nowType = dayOrNight -- Change flag controller
@@ -53,5 +53,5 @@ function spawnsByTime.onThink(interval, lastExecution)
 	return true
 end
 
-spawnsByTime:interval(2000)
+spawnsByTime:interval(60000)
 spawnsByTime:register()
