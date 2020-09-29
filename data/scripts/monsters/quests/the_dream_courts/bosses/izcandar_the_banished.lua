@@ -1,0 +1,129 @@
+local mType = Game.createMonsterType("Izcandar the Banished")
+local monster = {}
+
+monster.description = "Izcandar the Banished"
+monster.experience = 6900
+monster.outfit = {
+	lookType = 1137,
+	lookHead = 1,
+	lookBody = 114,
+	lookLegs = 76,
+	lookFeet = 0,
+	lookAddons = 2,
+	lookMount = 0
+}
+
+monster.health = 7600
+monster.maxHealth = 7600
+monster.race = "blood"
+monster.corpse = 6068
+monster.speed = 250
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "berserk potion", chance = 100000, maxCount = 10},
+	{id = "crystal coin", chance = 100000},
+	{id = "energy bar", chance = 100000},
+	{id = "giant sapphire", chance = 100000},
+	{id = "gold token", chance = 100000, maxCount = 2},
+	{id = "silver token", chance = 100000, maxCount = 2},
+	{id = "royal star", chance = 100000, maxCount = 100},
+	{id = "green gem", chance = 100000, maxCount = 2},
+	{id = "huge chunk of crude iron", chance = 25100},
+	{id = "mysterious remains", chance = 25000},
+	{id = "piggy bank", chance = 12800},
+	{id = "platinum coin", chance = 12000, maxCount = 10},
+	{id = "supreme health potion", chance = 12000, maxCount = 10},
+	{id = "ultimate mana potion", chance = 12000, maxCount = 20}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -5, effect = CONST_ME_DRAWBLOOD}
+}
+
+monster.defenses = {
+	defense = 0,
+	armor = 76
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType.onThink = function(monster, interval)
+end
+
+mType.onAppear = function(monster, creature)
+	if monster:getType():isRewardBoss() then
+		monster:setReward(true)
+	end
+end
+
+mType.onDisappear = function(monster, creature)
+end
+
+mType.onMove = function(monster, creature, fromPosition, toPosition)
+end
+
+mType.onSay = function(monster, creature, type, message)
+end
+
+mType:register(monster)

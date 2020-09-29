@@ -1,0 +1,108 @@
+local mType = Game.createMonsterType("Clay Guardian")
+local monster = {}
+
+monster.description = "a clay guardian"
+monster.experience = 400
+monster.outfit = {
+	lookType = 333,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 625
+monster.maxHealth = 625
+monster.race = "undead"
+monster.corpse = 13972
+monster.speed = 230
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = true,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 60,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "small stone", chance = 10000, maxCount = 10},
+	{id = "gold coin", chance = 50000, maxCount = 100},
+	{id = "gold coin", chance = 50000, maxCount = 63},
+	{id = "blank rune", chance = 25000},
+	{id = "earth arrow", chance = 5555, maxCount = 8},
+	{id = "small topaz", chance = 320},
+	{id = "lump of earth", chance = 25000},
+	{id = "clay lump", chance = 1100}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -125, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -30, maxDamage = -150, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_GREEN_RINGS, target = false},
+	{name ="combat", interval = 2000, chance = 50, minDamage = -20, maxDamage = -30, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_POFF, target = false}
+}
+
+monster.defenses = {
+	defense = 25,
+	armor = 25,
+	{name ="combat", interval = 2000, chance = 10, minDamage = 40, maxDamage = 130, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 40},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = -5},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 50},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 50}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

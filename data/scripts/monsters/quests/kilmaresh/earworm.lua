@@ -1,0 +1,107 @@
+local mType = Game.createMonsterType("Earworm")
+local monster = {}
+
+monster.description = "an earworm"
+monster.experience = 2000
+monster.outfit = {
+	lookType = 26,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 4000
+monster.maxHealth = 4000
+monster.race = "blood"
+monster.corpse = 36497
+monster.speed = 155
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "Platinum Coin", chance = 82000, maxCount = 2},
+	{id = "Envenomed Arrow", chance = 68000, maxCount = 47},
+	{id = "Earth Arrow", chance = 65000, maxCount = 21},
+	{id = "Worm", chance = 61500, maxCount = 3},
+	{id = "Lump of Dirt", chance = 42000},
+	{id = "Green Memory Shard", chance = 35000},
+	{id = "Blue Memory Shard", chance = 35000},
+	{id = "Violet Memory Shard", chance = 32000},
+	{id = "Terra Amulet", chance = 26000},
+	{id = "Terra hood", chance = 16500},
+	{id = "Sacred Tree Amulet", chance = 12300}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -240, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 25, interval = 4000}},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -320, maxDamage = -450, type = COMBAT_EARTHDAMAGE, range = 5, shootEffect = CONST_ANI_POISON, effect = CONST_ME_SOUND_GREEN, target = true},
+	{name ="combat", interval = 2000, chance = 12, minDamage = -280, maxDamage = -350, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_GROUNDSHAKER, target = false}
+}
+
+monster.defenses = {
+	defense = 46,
+	armor = 46
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

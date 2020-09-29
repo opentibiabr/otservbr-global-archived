@@ -1,0 +1,118 @@
+local mType = Game.createMonsterType("Crazed Summer Vanguard")
+local monster = {}
+
+monster.description = "a Crazed Summer Vanguard"
+monster.experience = 5000
+monster.outfit = {
+	lookType = 1136,
+	lookHead = 20,
+	lookBody = 94,
+	lookLegs = 20,
+	lookFeet = 81,
+	lookAddons = 1,
+	lookMount = 0
+}
+
+monster.health = 5500
+monster.maxHealth = 5500
+monster.race = "blood"
+monster.corpse = 34715
+monster.speed = 390
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "I see colours, all colours! Or are these just illusions?", yell = false},
+	{text = "La di da di doo!!", yell = false}
+}
+
+monster.loot = {
+	{id = "platinum coin", chance = 1000000, maxCount = 13},
+	{id = "elven astral observer", chance = 1000000, maxCount = 2},
+	{id = "dream essence egg", chance = 15000},
+	{id = "belted cape", chance = 11550},
+	{id = "two handed sword", chance = 13550},
+	{id = "seeds", chance = 14750},
+	{id = 2419, chance = 17550},
+	{id = "knife", chance = 15650},
+	{id = "dragon necklace", chance = 14550},
+	{id = "magma amulet", chance = 1655},
+	{id = "wand of dragonbreath", chance = 15150},
+	{id = "wand of draconia", chance = 1263},
+	{id = "magma boots", chance = 11100},
+	{id = "sun fruit", chance = 1800},
+	{id = "bullseye potion", chance = 800}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -160, maxDamage = -530, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -270, maxDamage = -710, type = COMBAT_FIREDAMAGE, length = 3, spread = 0, effect = CONST_ME_FIREAREA, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -250, maxDamage = -300, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, target = false},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -350, maxDamage = -380, type = COMBAT_FIREDAMAGE, effect = CONST_ME_EXPLOSIONHIT, target = true},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -350, type = COMBAT_FIREDAMAGE, effect = CONST_ME_EXPLOSIONAREA, target = true}
+}
+
+monster.defenses = {
+	defense = 20,
+	armor = 70
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 30},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 100},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 100},
+	{type = COMBAT_ICEDAMAGE, percent = -10},
+	{type = COMBAT_HOLYDAMAGE , percent = 50},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = true},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

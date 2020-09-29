@@ -1,0 +1,158 @@
+local mType = Game.createMonsterType("Ghazbaran")
+local monster = {}
+
+monster.description = "Ghazbaran"
+monster.experience = 15000
+monster.outfit = {
+	lookType = 12,
+	lookHead = 0,
+	lookBody = 123,
+	lookLegs = 97,
+	lookFeet = 94,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 60000
+monster.maxHealth = 60000
+monster.race = "undead"
+monster.corpse = 6068
+monster.speed = 400
+monster.summonCost = 0
+monster.maxSummons = 4
+
+monster.changeTarget = {
+	interval = 10000,
+	chance = 20
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 98,
+	targetDistance = 1,
+	runHealth = 3500,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.summons = {
+	{name = "Deathslicer", chance = 20, interval = 4000}
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "COME AND GIVE ME SOME AMUSEMENT", yell = false},
+	{text = "IS THAT THE BEST YOU HAVE TO OFFER, TIBIANS?", yell = true},
+	{text = "I AM GHAZBARAN OF THE TRIANGLE... AND I AM HERE TO CHALLENGE YOU ALL.", yell = true},
+	{text = "FLAWLESS VICTORY!", yell = true}
+}
+
+monster.loot = {
+	{id = "blue tome", chance = 20000},
+	{id = "teddy bear", chance = 12500},
+	{id = 2124, chance = 8333},
+	{id = "white pearl", chance = 25000, maxCount = 15},
+	{id = "black pearl", chance = 11111, maxCount = 14},
+	{id = "small diamond", chance = 25000, maxCount = 5},
+	{id = "small sapphire", chance = 25000, maxCount = 10},
+	{id = "small emerald", chance = 25000, maxCount = 10},
+	{id = "small amethyst", chance = 25000, maxCount = 17},
+	{id = "talon", chance = 12500, maxCount = 7},
+	{id = "platinum coin", chance = 100000, maxCount = 69},
+	{id = "green gem", chance = 20000},
+	{id = "blue gem", chance = 14285},
+	{id = "might ring", chance = 12500},
+	{id = "stealth ring", chance = 12500},
+	{id = "strange symbol", chance = 11111},
+	{id = "life crystal", chance = 12500},
+	{id = "mind stone", chance = 20000},
+	{id = "gold ring", chance = 20000},
+	{id = "ring of healing", chance = 20000},
+	{id = "twin axe", chance = 11111},
+	{id = "golden armor", chance = 8333},
+	{id = "magic plate armor", chance = 8333},
+	{id = "demon shield", chance = 12500},
+	{id = "golden boots", chance = 8333},
+	{id = "demon horn", chance = 33333, maxCount = 2},
+	{id = 6300, chance = 25000},
+	{id = "demonic essence", chance = 100000},
+	{id = "ruthless axe", chance = 14285},
+	{id = "assassin star", chance = 12500, maxCount = 44},
+	{id = "havoc blade", chance = 16666},
+	{id = "ravenwing", chance = 14285},
+	{id = "great mana potion", chance = 20000},
+	{id = "great health potion", chance = 20000},
+	{id = "glacier kilt", chance = 8333},
+	{id = "great spirit potion", chance = 25000},
+	{id = "ultimate health potion", chance = 25000},
+	{id = "oceanborn leviathan armor", chance = 16666},
+	{id = "frozen plate", chance = 8333},
+	{id = "spellbook of warding", chance = 20000},
+	{id = "spellbook of mind control", chance = 11111},
+	{id = "spellbook of lost souls", chance = 16666},
+	{id = "spellscroll of prophecies", chance = 25000},
+	{id = "spellbook of dark mysteries", chance = 20000}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -2191, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 40, minDamage = -250, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 3000, chance = 34, minDamage = -120, maxDamage = -500, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 4000, chance = 30, minDamage = -100, maxDamage = -800, type = COMBAT_ENERGYDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
+	{name ="combat", interval = 3000, chance = 20, minDamage = -200, maxDamage = -480, type = COMBAT_PHYSICALDAMAGE, range = 14, effect = CONST_ME_POFF, target = false},
+	{name ="combat", interval = 4000, chance = 15, minDamage = -100, maxDamage = -650, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 4000, chance = 18, minDamage = -200, maxDamage = -600, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_LOSEENERGY, target = false},
+	{name ="combat", interval = 3000, chance = 15, minDamage = -200, maxDamage = -750, effect = CONST_ME_DRAWBLOOD}
+}
+
+monster.defenses = {
+	defense = 65,
+	armor = 55,
+	{name ="combat", interval = 3000, chance = 35, minDamage = 300, maxDamage = 800, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
+	{name ="speed", interval = 4000, chance = 80, SpeedChange = 440, Duration = 6000}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 1},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 100},
+	{type = COMBAT_HOLYDAMAGE , percent = -1},
+	{type = COMBAT_DEATHDAMAGE , percent = 1}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

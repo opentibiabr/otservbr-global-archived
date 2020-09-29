@@ -6,10 +6,14 @@ combat:setParameter(COMBAT_PARAM_USECHARGES, 1)
 combat:setArea(createCombatArea(AREA_SQUARE1X1))
 
 function onGetFormulaValues(player, skill, attack, factor)
-	local skillTotal = skill * attack
-	local levelTotal = player:getLevel() / 5
-	return -(((skillTotal * 0.12) + 12) + (levelTotal)), -(((skillTotal * 0.15) + 27) + (levelTotal))
+	local level = player:getLevel()
+	
+	local min = (level / 5) + (skill + 2 * attack) * 1.1
+	local max = (level / 5) + (skill + 2 * attack) * 3
+
+	return -min, -max
 end
+
 
 combat:setCallback(CALLBACK_PARAM_SKILLVALUE, "onGetFormulaValues")
 

@@ -422,11 +422,14 @@ uint16_t Player::getClientIcons() const
 
 	if (tile->hasFlag(TILESTATE_PROTECTIONZONE)) {
 		icons |= ICON_PIGEON;
+		client->sendRestingStatus(1);
 
 		// Don't show ICON_SWORDS if player is in protection zone.
 		if (hasBitSet(ICON_SWORDS, icons)) {
 			icons &= ~ICON_SWORDS;
 		}
+	} else {
+		client->sendRestingStatus(0);
 	}
 
 	// Game client debugs with 10 or more icons

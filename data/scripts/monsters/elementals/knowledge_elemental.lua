@@ -1,0 +1,113 @@
+local mType = Game.createMonsterType("Knowledge Elemental")
+local monster = {}
+
+monster.description = "a knowledge elemental"
+monster.experience = 10710
+monster.outfit = {
+	lookType = 1065,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 10500
+monster.maxHealth = 10500
+monster.race = "undead"
+monster.corpse = 33349
+monster.speed = 460
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 5000,
+	chance = 8
+}
+
+monster.strategiesTarget = {
+	nearest = 100,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = true,
+	staticAttackChance = 90,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+}
+
+monster.loot = {
+	{id = "Platinum Coin", chance = 100000, maxCount = 9},
+	{id = "Book Page", chance = 10000, maxCount = 6},
+	{id = "Small Amethyst", chance = 10000, maxCount = 8},
+	{id = "Glowing Rune", chance = 10000, maxCount = 3},
+	{id = "Quill", chance = 10000, maxCount = 3},
+	{id = "Silken Bookmark", chance = 10000, maxCount = 3},
+	{id = "Flash Arrow", chance = 10000, maxCount = 6},
+	{id = "Throwing Star", chance = 10000, maxCount = 10},
+	{id = "Crystal Sword", chance = 10000},
+	{id = "Energy Ring", chance = 10000},
+	{id = "Guardian Shield", chance = 10000},
+	{id = "Mana Potion", chance = 10000, maxCount = 10},
+	{id = "Ultimate Mana Potion", chance = 10000, maxCount = 8},
+	{id = "Ultimate Health Potion", chance = 10000, maxCount = 8},
+	{id = "Wand of Cosmic Energy", chance = 300}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = -100, maxDamage = -400, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 10, minDamage = -200, maxDamage = -680, type = COMBAT_HOLYDAMAGE, effect = CONST_ME_HOLYDAMAGE, target = true},
+	{name ="combat", interval = 2000, chance = 14, minDamage = -200, maxDamage = -680, type = COMBAT_ENERGYDAMAGE, range = 7, shootEffect = CONST_ANI_ENERGY, target = false}
+}
+
+monster.defenses = {
+	defense = 33,
+	armor = 76,
+	{name ="combat", interval = 2000, chance = 40, minDamage = 100, maxDamage = 300, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_BLOCKHIT, target = false},
+	{name ="combat", interval = 200, chance = 55, minDamage = 100, maxDamage = 300, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_ENERGYHIT, target = false}
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 100},
+	{type = COMBAT_EARTHDAMAGE, percent = 10},
+	{type = COMBAT_FIREDAMAGE, percent = -10},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 10},
+	{type = COMBAT_HOLYDAMAGE , percent = 50},
+	{type = COMBAT_DEATHDAMAGE , percent = -10}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

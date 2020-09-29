@@ -1,0 +1,119 @@
+local mType = Game.createMonsterType("Minotaur Cult Zealot")
+local monster = {}
+
+monster.description = "a minotaur cult zealot"
+monster.experience = 1350
+monster.outfit = {
+	lookType = 29,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 1800
+monster.maxHealth = 1800
+monster.race = "blood"
+monster.corpse = 5983
+monster.speed = 250
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = false,
+	staticAttackChance = 95,
+	targetDistance = 1,
+	runHealth = 0,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "Kirll Karrrl!", yell = false},
+	{text = "Kaplar!", yell = false}
+}
+
+monster.loot = {
+	{id = "gold coin", chance = 100000, maxCount = 150},
+	{id = "snakebite rod", chance = 11670},
+	{id = "taurus mace", chance = 5360},
+	{id = "cultish robe", chance = 9200},
+	{id = "purple robe", chance = 16230},
+	{id = "strong mana potion", chance = 10660, maxCount = 3},
+	{id = "small ruby", chance = 2030, maxCount = 2},
+	{id = "small topaz", chance = 2680, maxCount = 2},
+	{id = "yellow gem", chance = 220},
+	{id = "platinum coin", chance = 39350, maxCount = 3},
+	{id = "small emerald", chance = 2540, maxCount = 2},
+	{id = "small sapphire", chance = 2170, maxCount = 2},
+	{id = "small diamond", chance = 2900, maxCount = 2},
+	{id = "small amethyst", chance = 2610, maxCount = 2},
+	{id = "red piece of cloth", chance = 2460},
+	{id = "red gem", chance = 70},
+	{id = "minotaur leather", chance = 4780},
+	{id = "minotaur horn", chance = 2320, maxCount = 2}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -180, maxDamage = -230, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, target = true},
+	{name ="combat", interval = 2000, chance = 20, minDamage = -180, maxDamage = -250, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_EXPLOSIONHIT, target = true}
+}
+
+monster.defenses = {
+	defense = 30,
+	armor = 30
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 0},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
+	{type = COMBAT_FIREDAMAGE, percent = 0},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 0},
+	{type = COMBAT_HOLYDAMAGE , percent = 0},
+	{type = COMBAT_DEATHDAMAGE , percent = 0}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = false},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

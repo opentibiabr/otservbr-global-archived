@@ -1,0 +1,123 @@
+local mType = Game.createMonsterType("Stone Devourer")
+local monster = {}
+
+monster.description = "a stone devourer"
+monster.experience = 2900
+monster.outfit = {
+	lookType = 486,
+	lookHead = 0,
+	lookBody = 0,
+	lookLegs = 0,
+	lookFeet = 0,
+	lookAddons = 0,
+	lookMount = 0
+}
+
+monster.health = 4200
+monster.maxHealth = 4200
+monster.race = "undead"
+monster.corpse = 18375
+monster.speed = 300
+monster.summonCost = 0
+monster.maxSummons = 0
+
+monster.changeTarget = {
+	interval = 4000,
+	chance = 10
+}
+
+monster.strategiesTarget = {
+	nearest = 70,
+	health = 10,
+	damage = 10,
+	random = 10,
+}
+
+monster.flags = {
+	summonable = false,
+	attackable = true,
+	hostile = true,
+	convinceable = false,
+	pushable = false,
+	rewardBoss = false,
+	illusionable = false,
+	canPushItems = true,
+	canPushCreatures = false,
+	staticAttackChance = 80,
+	targetDistance = 1,
+	runHealth = 1,
+	healthHidden = false,
+	canWalkOnEnergy = false,
+	canWalkOnFire = false,
+	canWalkOnPoison = false
+}
+
+monster.light = {
+	level = 0,
+	color = 0
+}
+
+monster.voices = {
+	interval = 5000,
+	chance = 10,
+	{text = "Rumble!", yell = false}
+}
+
+monster.loot = {
+	{id = "gold coin", chance = 100000, maxCount = 100},
+	{id = "platinum coin", chance = 92000, maxCount = 7},
+	{id = "stone skin amulet", chance = 2270},
+	{id = "dwarven ring", chance = 2840},
+	{id = "giant sword", chance = 570},
+	{id = "crystal mace", chance = 850},
+	{id = "war axe", chance = 920},
+	{id = "sapphire hammer", chance = 1490},
+	{id = "spiked squelcher", chance = 1490},
+	{id = "glorious axe", chance = 3340},
+	{id = "strong health potion", chance = 13840, maxCount = 2},
+	{id = "strong mana potion", chance = 14900, maxCount = 2},
+	{id = "great mana potion", chance = 15610, maxCount = 2},
+	{id = "mana potion", chance = 15050, maxCount = 2},
+	{id = "ultimate health potion", chance = 14410},
+	{id = 8748, chance = 11360},
+	{id = "ancient stone", chance = 12850},
+	{id = "crystalline arrow", chance = 9940, maxCount = 10},
+	{id = "green crystal splinter", chance = 6960},
+	{id = "cyan crystal fragment", chance = 6810},
+	{id = "stone nose", chance = 18679},
+	{id = "crystalline spikes", chance = 16320}
+}
+
+monster.attacks = {
+	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, minDamage = 0, maxDamage = -990, effect = CONST_ME_DRAWBLOOD},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -230, maxDamage = -460, type = COMBAT_EARTHDAMAGE, range = 7, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_STONES, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -650, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_LARGEROCK, target = true},
+	{name ="combat", interval = 2000, chance = 15, minDamage = -150, maxDamage = -260, type = COMBAT_LIFEDRAIN, length = 5, spread = 3, effect = CONST_ME_STONES, target = false}
+}
+
+monster.defenses = {
+	defense = 35,
+	armor = 35
+}
+
+monster.elements = {
+	{type = COMBAT_PHYSICALDAMAGE, percent = 1},
+	{type = COMBAT_ENERGYDAMAGE, percent = 30},
+	{type = COMBAT_EARTHDAMAGE, percent = 100},
+	{type = COMBAT_FIREDAMAGE, percent = 100},
+	{type = COMBAT_LIFEDRAIN, percent = 0},
+	{type = COMBAT_MANADRAIN, percent = 0},
+	{type = COMBAT_DROWNDAMAGE, percent = 0},
+	{type = COMBAT_ICEDAMAGE, percent = 30},
+	{type = COMBAT_HOLYDAMAGE , percent = 30},
+	{type = COMBAT_DEATHDAMAGE , percent = 1}
+}
+
+monster.immunities = {
+	{type = "paralyze", condition = true},
+	{type = "outfit", condition = false},
+	{type = "invisible", condition = true},
+	{type = "bleed", condition = false}
+}
+
+mType:register(monster)

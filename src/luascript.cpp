@@ -2994,6 +2994,15 @@ void LuaScriptInterface::registerFunctions()
     registerMethod("MonsterType", "canWalkOnPoison",
                   LuaScriptInterface::luaMonsterTypeCanWalkOnPoison);
 
+    registerMethod("MonsterType", "strategiesTargetNearest",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetNearest);
+    registerMethod("MonsterType", "strategiesTargetHealth",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetHealth);
+    registerMethod("MonsterType", "strategiesTargetDamage",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetDamage);
+    registerMethod("MonsterType", "strategiesTargetRandom",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetRandom);
+
 	// Loot
 	registerClass("Loot", "", LuaScriptInterface::luaCreateLoot);
 	registerMetaMethod("Loot", "__gc", LuaScriptInterface::luaDeleteLoot);
@@ -15058,7 +15067,7 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnEnergy(lua_State* L) {
         if (lua_gettop(L) == 1) {
             pushBoolean(L, monsterType->info.canWalkOnEnergy);
         } else {
-            monsterType->info.canWalkOnEnergy = getBoolean(L, 2);
+            monsterType->info.canWalkOnEnergy = getBoolean(L, 2, true);
             pushBoolean(L, true);
         }
     } else {
@@ -15074,7 +15083,7 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnFire(lua_State* L) {
         if (lua_gettop(L) == 1) {
             pushBoolean(L, monsterType->info.canWalkOnFire);
         } else {
-            monsterType->info.canWalkOnFire = getBoolean(L, 2);
+            monsterType->info.canWalkOnFire = getBoolean(L, 2, true);
             pushBoolean(L, true);
         }
     } else {
@@ -15090,13 +15099,81 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnPoison(lua_State* L) {
         if (lua_gettop(L) == 1) {
             pushBoolean(L, monsterType->info.canWalkOnPoison);
         } else {
-            monsterType->info.canWalkOnPoison = getBoolean(L, 2);
+            monsterType->info.canWalkOnPoison = getBoolean(L, 2, true);
             pushBoolean(L, true);
         }
     } else {
         lua_pushnil(L);
     }
     return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetNearest(lua_State* L)
+{
+	// monsterType:strategiesTargetNearest()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetHealth(lua_State* L)
+{
+	// monsterType:strategiesTargetHealth()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetDamage(lua_State* L)
+{
+	// monsterType:strategiesTargetDamage()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetRandom(lua_State* L)
+{
+	// monsterType:strategiesTargetRandom()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
 }
 
 // Loot
@@ -16912,10 +16989,10 @@ int LuaScriptInterface::luaMoveEventType(lua_State* L)
 			moveevent->setEventType(MOVE_EVENT_DEEQUIP);
 			moveevent->equipFunction = moveevent->DeEquipItem;
 		} else if (tmpStr == "additem") {
-			moveevent->setEventType(MOVE_EVENT_ADD_ITEM);
+			moveevent->setEventType(MOVE_EVENT_ADD_ITEM_ITEMTILE);
 			moveevent->moveFunction = moveevent->AddItemField;
 		} else if (tmpStr == "removeitem") {
-			moveevent->setEventType(MOVE_EVENT_REMOVE_ITEM);
+			moveevent->setEventType(MOVE_EVENT_REMOVE_ITEM_ITEMTILE);
 			moveevent->moveFunction = moveevent->RemoveItemField;
 		} else {
 			std::cout << "Error: [MoveEvent::configureMoveEvent] No valid event name " << typeName << std::endl;
