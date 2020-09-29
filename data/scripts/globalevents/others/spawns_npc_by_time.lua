@@ -14,9 +14,7 @@ end
 local function addNpcs(tablename, typeTime)
 	for index, value in pairs(tablename) do
 		if value.nameAdd and value.position and value.spawnByType == typeTime then
-			--local spawn = Game.createNpc(value.nameAdd, value.position)
-			local spawn = Npc("Ghostly Wolf"):place({ x = 33332, y = 32052, z = 7 })
-			
+			local spawn = Game.createNpc(value.nameAdd, value.position)
 			if spawn then
 				print("> NPC "..value.nameAdd.."  Added!")
 				spawn:setMasterPos(value.position)
