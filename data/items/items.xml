@@ -49238,10 +49238,10 @@
 		<attribute key="imbuingSlots" value="1" />
 	</item>
 	<item id="37456" article="a" name="ring of souls">
-		<attribute key="weight" value="90" />
+		<attribute key="description" value="This ring is out of magic energy." />
+		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
-		<attribute key="absorbPercentDeath" value="7" />
 	</item>
 	<item id="37457" article="a" name="giant amethyst">
 		<attribute key="loottype" value="valuable" />
@@ -49299,24 +49299,28 @@
 	</item>
 	<item id="37469" article="a" name="raw crystal deposit" />
 	<item id="37470" article="a" name="ring of souls">
-		<attribute key="weight" value="90" />
+		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
-		<attribute key="absorbPercentDeath" value="7" />
 		<attribute key="decayTo" value="37456" />
 		<attribute key="transformDeEquipTo" value="37471" />
 		<attribute key="duration" value="7200" />
 		<attribute key="showduration" value="1" />
 		<attribute key="description" value="Wearing it makes you feel a little weaker than usual." />
+		<attribute key="absorbPercentPhysical" value="2" />
+		<attribute key="absorbPercentLifeDrain" value="10" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="37471" article="a" name="ring of souls">
-		<attribute key="weight" value="90" />
+		<attribute key="weight" value="80" />
 		<attribute key="slotType" value="ring" />
 		<attribute key="loottype" value="ring" />
 		<attribute key="transformEquipTo" value="37470" />
 		<attribute key="stopduration" value="1" />
 		<attribute key="showduration" value="1" />
-		<attribute key="absorbPercentDeath" value="7" />
+		<attribute key="absorbPercentPhysical" value="2" />
+		<attribute key="absorbPercentLifeDrain" value="10" />
+		<attribute key="showattributes" value="1" />
 	</item>
 	<item id="37472" article="a" name="unknow" />
 	<item id="37473" article="a" name="unknow" />
