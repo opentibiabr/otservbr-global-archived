@@ -60,6 +60,8 @@ function onStepOut(creature, item, position, fromPosition)
 	end
 
 	item:transform(decreasing[item.itemid])
-	creature:setSpecialContainersAvailable(false)
+	if creature:isPlayer() then
+		creature:setSpecialContainersAvailable(false)
+	end
 	return true
 end
