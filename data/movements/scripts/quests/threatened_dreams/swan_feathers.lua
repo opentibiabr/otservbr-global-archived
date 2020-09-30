@@ -14,7 +14,7 @@ function onStepIn(creature, item, position, fromPosition)
 		return true
 	end
 
-    if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 12) then
+    if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 15) then
         if (player:getStorageValue(Storage.ThreatenedDreams.TatteredSwanFeathers) <= 5) then
             if (player:getStorageValue(item.actionid) == 1) then
                 player:sendCancelMessage("You have already completed this mission.")
