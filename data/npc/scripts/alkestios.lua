@@ -22,7 +22,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
     if msgcontains(msg, "mission") then
-        if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 2) then
+        if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 4) then
             npcHandler:say({
                 "You succeeded! It seems the poachers have read your little faked story about killing white deer and the ensuing doom. They stopped chasing me. Thank you! ...",
                 "You proved yourself trustworthy - at least as far as I am concerned. But as I told you I'm actually not a real animal. If you want to enter our hidden island, you must prove that you are also willing to help real animals. Would you do that?"
