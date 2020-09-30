@@ -22,7 +22,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	local player = Player(cid)
     if msgcontains(msg, "mission") then
-        if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 3) then
+        if (player:getStorageValue(Storage.ThreatenedDreams.TroubledMission01) == 5) then
             npcHandler:say({
                 "One of my sisters, in the disguise of a nightingale, told me that Alkestios would send you. There is a problem which is not concerning me but a wolf mother on the small island Cormaya. ...",
                 "As we, the fae, consider ourselves guardians and protectors of plants and animals, it is important for me to help this wolf. Unfortunately, I can't do it myself because at the moment I'm bound to this vessel, this snake. ...",
@@ -34,7 +34,7 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler:say("The wolf's ghost has found peace. Thank you, human being. However, there is someone else who needs help: A sister of mine who's bereft of something very precious. You'll find her in the guise of a swan at a small river south-east of here.", cid)
             npcHandler.topic[cid] = 0
         else
-            npcHandler:say("You are not on that mission.")
+            npcHandler:say("You are not on that mission.", cid)
             npcHandler.topic[cid] = 0
         end
 	elseif npcHandler.topic[cid] == 1 then
