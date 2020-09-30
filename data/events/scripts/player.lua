@@ -939,3 +939,7 @@ function Player:onCombat(target, item, primaryDamage, primaryType, secondaryDama
 
 	return primaryDamage, primaryType, secondaryDamage, secondaryType
 end
+
+function Player:onChangeZone(zone)
+	print("Changed!")
+end

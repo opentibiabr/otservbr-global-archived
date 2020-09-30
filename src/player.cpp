@@ -1310,26 +1310,27 @@ void Player::onFollowCreatureDisappear(bool isLogout)
 
 void Player::onChangeZone(ZoneType_t zone)
 {
-	if (zone == ZONE_PROTECTION) {
-		if (attackedCreature && !hasFlag(PlayerFlag_IgnoreProtectionZone)) {
-			setAttackedCreature(nullptr);
-			onAttackedCreatureDisappear(false);
-		}
+  if (zone == ZONE_PROTECTION) {
+    if (attackedCreature && !hasFlag(PlayerFlag_IgnoreProtectionZone)) {
+      setAttackedCreature(nullptr);
+      onAttackedCreatureDisappear(false);
+    }
 
-		if (!group->access && isMounted()) {
-			dismount();
-			g_game.internalCreatureChangeOutfit(this, defaultOutfit);
-			wasMounted = true;
-		}
-	} else {
-		if (wasMounted) {
-			toggleMount(true);
-			wasMounted = false;
-		}
-	}
-
-	g_game.updateCreatureWalkthrough(this);
-	sendIcons();
+    if (!group->access && isMounted()) {
+      dismount();
+      g_game.internalCreatureChangeOutfit(this, defaultOutfit);
+      wasMounted = true;
+    }
+  }
+  else {
+    if (wasMounted) {
+      toggleMount(true);
+      wasMounted = false;
+    }
+  }
+ 	g_game.updateCreatureWalkthrough(this);
+ 	sendIcons();
+	g_events->eventPlayerOnChangeZone(this, zone);
 }
 
 void Player::onAttackedCreatureChangeZone(ZoneType_t zone)
