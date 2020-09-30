@@ -1423,7 +1423,16 @@ class LuaScriptInterface
 		static int luaLootSetSubType(lua_State* L);
 		static int luaLootSetChance(lua_State* L);
 		static int luaLootSetActionId(lua_State* L);
-		static int luaLootSetDescription(lua_State* L);
+		static int luaLootSetText(lua_State* L);
+		static int luaLootSetNameItem(lua_State* L);
+		static int luaLootSetArticle(lua_State* L);
+		static int luaLootSetAttack(lua_State* L);
+		static int luaLootSetDefense(lua_State* L);
+		static int luaLootSetExtraDefense(lua_State* L);
+		static int luaLootSetArmor(lua_State* L);
+		static int luaLootSetShootRange(lua_State* L);
+		static int luaLootSetHitChance(lua_State* L);
+		static int luaLootSetUnique(lua_State* L);
 		static int luaLootAddChildLoot(lua_State* L);
 
 		// MonsterSpell
