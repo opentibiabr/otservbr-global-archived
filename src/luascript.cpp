@@ -3010,6 +3010,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Loot", "delete", LuaScriptInterface::luaDeleteLoot);
 
 	registerMethod("Loot", "setId", LuaScriptInterface::luaLootSetId);
+	registerMethod("Loot", "setMinCount", LuaScriptInterface::luaLootSetMinCount);
 	registerMethod("Loot", "setMaxCount", LuaScriptInterface::luaLootSetMaxCount);
 	registerMethod("Loot", "setSubType", LuaScriptInterface::luaLootSetSubType);
 	registerMethod("Loot", "setChance", LuaScriptInterface::luaLootSetChance);
