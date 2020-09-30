@@ -42,14 +42,19 @@ local function creatureSayCallback(cid, type, msg)
             npcHandler.topic[cid] = 1
         end
 	elseif npcHandler.topic[cid] == 1 then
-		if msgcontains(msg, "yes") then
-			npcHandler:say({
-				"Your decision honours you. However, if you consider killing the poachers in question I ask you to halt. We, the fae, are rather peaceful beings and abhor bloodshed. Therefore, we must find another way to solve this problem. ...",
-				"I already have an idea: Some birds told me that poachers are a superstitious lot. Perhaps we can get them with their own misbelief. I know that the poachers have a kind of camp north of the Green Claw Swamps. ...",
-				"Please search it out and examine it closely. Perhaps you will find something you can use against them in order to stop them from hunting white deer."
-			}, cid)
-			player:setStorageValue(Storage.ThreatenedDreams.Start, 1)
-            player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 1)
+        if msgcontains(msg, "yes") then
+            if (player:getStorageValue(Storage.ThreatenedDreams.Start) == 1) then
+                npcHandler:say("You have already started this mission.", cid)
+                npcHandler.topic[cid] = 0
+            else
+			    npcHandler:say({
+    				"Your decision honours you. However, if you consider killing the poachers in question I ask you to halt. We, the fae, are rather peaceful beings and abhor bloodshed. Therefore, we must find another way to solve this problem. ...",
+				    "I already have an idea: Some birds told me that poachers are a superstitious lot. Perhaps we can get them with their own misbelief. I know that the poachers have a kind of camp north of the Green Claw Swamps. ...",
+				    "Please search it out and examine it closely. Perhaps you will find something you can use against them in order to stop them from hunting white deer."
+			    }, cid)
+			    player:setStorageValue(Storage.ThreatenedDreams.Start, 1)
+                player:setStorageValue(Storage.ThreatenedDreams.TroubledMission01, 1)
+            end
 		elseif msgcontains(msg, "no") then
 			npcHandler:say("Then not.", cid)
 		end
