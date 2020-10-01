@@ -7704,7 +7704,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 		case RELOAD_TYPE_EVENTS: return g_events->load();
 		case RELOAD_TYPE_GLOBALEVENTS: return g_globalEvents->reload();
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
-		case RELOAD_TYPE_MONSTERS: return g_monsters.reload();
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
 		case RELOAD_TYPE_MOVEMENTS: return g_moveEvents->reload();
@@ -7719,9 +7718,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 		case RELOAD_TYPE_SPELLS: {
 			if (!g_spells->reload()) {
 				std::cout << "[Error - Game::reload] Failed to reload spells." << std::endl;
-				std::terminate();
-			} else if (!g_monsters.reload()) {
-				std::cout << "[Error - Game::reload] Failed to reload monsters." << std::endl;
 				std::terminate();
 			}
 			return true;
@@ -7754,15 +7750,11 @@ bool Game::reload(ReloadTypes_t reloadType)
 			if (!g_spells->reload()) {
 				std::cout << "[Error - Game::reload] Failed to reload spells." << std::endl;
 				std::terminate();
-			} else if (!g_monsters.reload()) {
-				std::cout << "[Error - Game::reload] Failed to reload monsters." << std::endl;
-				std::terminate();
 			}
 
 			g_actions->reload();
 			g_config.reload();
 			g_creatureEvents->reload();
-			g_monsters.reload();
 			g_moveEvents->reload();
 			Npcs::reload();
 			raids.reload() && raids.startup();
