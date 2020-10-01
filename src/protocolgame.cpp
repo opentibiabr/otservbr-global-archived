@@ -2172,7 +2172,7 @@ void ProtocolGame::sendCoinBalance()
 
 	msg.add<uint32_t>(player->coinBalance); // Normal Coins
 	msg.add<uint32_t>(player->coinBalance); // Transferable Coins
-	msg.add<uint32_t>(player->coinBalance); // Reserved Acution Coins
+	msg.add<uint32_t>(player->coinBalance); // Reserved Auction Coins
 	msg.add<uint32_t>(0); // Tournament Coins
 
 	writeToOutputBuffer(msg);
