@@ -70,7 +70,7 @@ monster.loot = {
 }
 
 monster.attacks = {
-	{name ="combat", type = COMBAT_PHYSICALDAMAGE, interval = 2000, chance = 100, skill = 78, attack = 50, effect = CONST_ME_DRAWBLOOD},
+	{name ="melee", interval = 2000, chance = 100, skill = 78, attack = 50, effect = CONST_ME_DRAWBLOOD},
 	{name ="speed", interval = 2000, chance = 18, SpeedChange = 0, Duration = 20000},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -50, maxDamage = -120, type = COMBAT_ICEDAMAGE, range = 7, effect = CONST_ME_ICETORNADO, target = false},
 	{name ="speed", interval = 2000, chance = 12, SpeedChange = 0, Duration = 20000},
