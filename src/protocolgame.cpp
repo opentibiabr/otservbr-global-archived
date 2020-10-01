@@ -1701,7 +1701,7 @@ void ProtocolGame::sendPreyData(PreySlotNum_t slot, PreyState_t slotState)
 
 	msg.addByte(slotState);
 	msg.addByte(0x00); // empty byte
-	msg.add<uint16_t>(0); // next free roll
+	msg.add<uint32_t>(0); // next free roll
 	msg.addByte(0x00); // wildCards
 
 	writeToOutputBuffer(msg);
@@ -1994,7 +1994,6 @@ void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo>& shop)
 
 	NetworkMessage msg;
 	msg.addByte(0x7B);
-	msg.add<uint64_t>(player->getMoney() + player->getBankBalance());
 
 	std::map<uint16_t, uint32_t> saleMap;
 
@@ -2171,8 +2170,9 @@ void ProtocolGame::sendCoinBalance()
 	msg.addByte(0xDF);
 	msg.addByte(0x01);
 
-	msg.add<uint32_t>(player->coinBalance); //total coins
-	msg.add<uint32_t>(player->coinBalance); //transferable coins
+	msg.add<uint32_t>(player->coinBalance); // Normal Coins
+	msg.add<uint32_t>(player->coinBalance); // Transferable Coins
+	msg.add<uint32_t>(player->coinBalance); // Reserved Auction Coins
 	msg.add<uint32_t>(0); // Tournament Coins
 
 	writeToOutputBuffer(msg);
@@ -2655,6 +2655,7 @@ void ProtocolGame::sendCreatureSay(const Creature* creature, SpeakClasses type, 
 	msg.add<uint32_t>(++statementId);
 
 	msg.addString(creature->getName());
+	msg.addByte(0x00); // Show (Traded)
 
 	//Add level only for players
 	if (const Player* speaker = creature->getPlayer()) {
@@ -2683,11 +2684,21 @@ void ProtocolGame::sendToChannel(const Creature* creature, SpeakClasses type, co
 	msg.add<uint32_t>(++statementId);
 	if (!creature) {
 		msg.add<uint32_t>(0x00);
+    	if (statementId != 0) {
+        	msg.addByte(0x00); // Show (Traded)
+    	}
 	} else if (type == TALKTYPE_CHANNEL_R2) {
 		msg.add<uint32_t>(0x00);
+    	if (statementId != 0) {
+        	msg.addByte(0x00); // Show (Traded)
+    	}
 		type = TALKTYPE_CHANNEL_R1;
 	} else {
 		msg.addString(creature->getName());
+		if (statementId != 0) {
+      		msg.addByte(0x00); // Show (Traded)
+    	}
+
 		//Add level only for players
 		if (const Player* speaker = creature->getPlayer()) {
 			msg.add<uint16_t>(speaker->getLevel());
@@ -2710,9 +2721,15 @@ void ProtocolGame::sendPrivateMessage(const Player* speaker, SpeakClasses type, 
 	msg.add<uint32_t>(++statementId);
 	if (speaker) {
 		msg.addString(speaker->getName());
+    	if (statementId != 0) {
+      		msg.addByte(0x00); // Show (Traded)
+    	}
 		msg.add<uint16_t>(speaker->getLevel());
 	} else {
 		msg.add<uint32_t>(0x00);
+    	if (statementId != 0) {
+      		msg.addByte(0x00); // Show (Traded)
+    	}
 	}
 	msg.addByte(type);
 	msg.addString(text);
@@ -3146,7 +3163,7 @@ void ProtocolGame::sendMoveCreature(const Creature* creature, const Position& ne
 			}
 			writeToOutputBuffer(msg);
 		}
-	} else if (canSee(oldPos) && canSee(creature->getPosition())) {
+  	} else if (canSee(oldPos) && canSee(newPos)) {
 		if (teleport || (oldPos.z == 7 && newPos.z >= 8) || oldStackPos >= 10) {
 			sendRemoveTileThing(oldPos, oldStackPos);
 			sendAddCreature(creature, newPos, newStackPos, false);
@@ -3155,12 +3172,12 @@ void ProtocolGame::sendMoveCreature(const Creature* creature, const Position& ne
 			msg.addByte(0x6D);
 			msg.addPosition(oldPos);
 			msg.addByte(oldStackPos);
-			msg.addPosition(creature->getPosition());
+      		msg.addPosition(newPos);
 			writeToOutputBuffer(msg);
 		}
 	} else if (canSee(oldPos)) {
 		sendRemoveTileThing(oldPos, oldStackPos);
-	} else if (canSee(creature->getPosition())) {
+  	} else if (canSee(newPos)) {
 		sendAddCreature(creature, newPos, newStackPos, false);
 	}
 }
@@ -3258,6 +3275,8 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, Item* item, uint16_t ma
 		msg.add<uint16_t>(0x00);
 	}
 
+  	msg.addByte(0x00); // Show (Traded)
+
 	time_t writtenDate = item->getDate();
 	if (writtenDate != 0) {
 		msg.addString(formatDateShort(writtenDate));
@@ -3277,6 +3296,7 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, uint32_t itemId, const 
 	msg.add<uint16_t>(text.size());
 	msg.addString(text);
 	msg.add<uint16_t>(0x00);
+  	msg.addByte(0x00); // Show (Traded)
 	msg.add<uint16_t>(0x00);
 	writeToOutputBuffer(msg);
 }
