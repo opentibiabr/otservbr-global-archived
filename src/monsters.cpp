@@ -60,11 +60,6 @@ bool Monsters::loadFromXml(bool reloading /*= false*/)
 {
 	unloadedMonsters = {};
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file("data/monster/monsters.xml");
-	if (!result) {
-		printXMLError("Error - Monsters::loadFromXml", "data/monster/monsters.xml", result);
-		return false;
-	}
 
 	loaded = true;
 

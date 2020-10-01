@@ -166,9 +166,6 @@ void Signals::sighupHandler()
 	g_game.raids.startup();
 	std::cout << "Reloaded raids." << std::endl;
 
-	g_spells->reload();
-	std::cout << "Reloaded monsters." << std::endl;
-
 	g_monsters.reload();
 	std::cout << "Reloaded spells." << std::endl;
 
