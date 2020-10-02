@@ -1190,11 +1190,11 @@ class Player final : public Creature, public Cylinder
 				client->sendShop(npc, shopItemList);
 			}
 		}
-		void sendSaleItemList() const {
-			if (client) {
-				client->sendSaleItemList(shopItemList);
-			}
-		}
+    void sendSaleItemList(const std::map<uint32_t, uint32_t>& inventoryMap) const {
+      if (client) {
+        client->sendSaleItemList(shopItemList, inventoryMap);
+      }
+    }
 		void sendCloseShop() const {
 			if (client) {
 				client->sendCloseShop();
@@ -1568,6 +1568,7 @@ class Player final : public Creature, public Cylinder
 		std::map<uint32_t, uint32_t>& getAllItemTypeCount(std::map<uint32_t, uint32_t>& countMap) const override;
 		Item* getItemByClientId(uint16_t clientId) const;
 		std::map<uint16_t, uint16_t> getInventoryClientIds() const;
+    void getAllItemTypeCountAndSubtype(std::map<uint32_t, uint32_t>& countMap) const;
 		Thing* getThing(size_t index) const override;
 
 		void internalAddThing(Thing* thing) override;
