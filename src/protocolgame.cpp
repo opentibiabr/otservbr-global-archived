@@ -2142,9 +2142,9 @@ void ProtocolGame::sendCoinBalance()
 	msg.addByte(0xDF);
 	msg.addByte(0x01);
 
-	msg.add<uint32_t>(player->coinBalance); //total coins
-	msg.add<uint32_t>(player->coinBalance); //transferable coins
-  msg.add<uint32_t>(player->coinBalance); //transferable coins
+	msg.add<uint32_t>(player->coinBalance); // Normal Coins
+	msg.add<uint32_t>(player->coinBalance); // Transferable Coins
+	msg.add<uint32_t>(player->coinBalance); // Reserved Auction Coins
 	msg.add<uint32_t>(0); // Tournament Coins
 
 	writeToOutputBuffer(msg);
