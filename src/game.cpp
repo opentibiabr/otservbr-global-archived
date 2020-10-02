@@ -7548,7 +7548,10 @@ void Game::updatePlayerSaleItems(uint32_t playerId)
 		return;
 	}
 
-	player->sendSaleItemList();
+  std::map<uint32_t, uint32_t> tempInventoryMap;
+  player->getAllItemTypeCountAndSubtype(tempInventoryMap);
+
+	player->sendSaleItemList(tempInventoryMap);
 	player->setScheduledSaleUpdate(false);
 }
 

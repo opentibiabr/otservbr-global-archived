@@ -560,7 +560,7 @@ void ProtocolGame::parsePacket(NetworkMessage& msg)
 		case 0xEF: if (!g_config.getBoolean(ConfigManager::STOREMODULES)) { parseCoinTransfer(msg); } break; /* premium coins transfer */
 		case 0xF0: addGameTaskTimed(DISPATCHER_TASK_EXPIRATION, &Game::playerShowQuestLog, player->getID()); break;
 		case 0xF1: parseQuestLine(msg); break;
-		case 0xF2: parseRuleViolationReport(msg); break;
+    // case 0xF2: parseRuleViolationReport(msg); break;
 		case 0xF3: /* get object info */ break;
 		case 0xF4: parseMarketLeave(); break;
 		case 0xF5: parseMarketBrowse(msg); break;
@@ -1988,94 +1988,66 @@ void ProtocolGame::sendResourceBalance(Resource_t resourceType, uint64_t value)
 	writeToOutputBuffer(msg);
 }
 
-void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo>& shop)
+void ProtocolGame::sendSaleItemList(const std::vector<ShopInfo>& shop, const std::map<uint32_t, uint32_t>& inventoryMap)
 {
-	sendResourcesBalance(player->getMoney(), player->getBankBalance());
+  //Since we already have full inventory map we shouldn't call getMoney here - it is simply wasting cpu power
+  uint64_t playerMoney = 0;
+  auto it = inventoryMap.find(ITEM_CRYSTAL_COIN);
+  if (it != inventoryMap.end()) {
+    playerMoney += static_cast<uint64_t>(it->second) * 10000;
+  }
+  it = inventoryMap.find(ITEM_PLATINUM_COIN);
+  if (it != inventoryMap.end()) {
+    playerMoney += static_cast<uint64_t>(it->second) * 100;
+  }
+  it = inventoryMap.find(ITEM_GOLD_COIN);
+  if (it != inventoryMap.end()) {
+    playerMoney += static_cast<uint64_t>(it->second);
+  }
 
-	NetworkMessage msg;
-	msg.addByte(0x7B);
+  NetworkMessage msg;
+  msg.addByte(0xEE);
+  msg.addByte(0x00);
+  msg.add<uint64_t>(player->getBankBalance());
+  msg.addByte(0xEE);
+  msg.addByte(0x01);
+  msg.add<uint64_t>(playerMoney);
+  msg.addByte(0x7B);
+  msg.add<uint64_t>(playerMoney);
 
-	std::map<uint16_t, uint32_t> saleMap;
+  uint8_t itemsToSend = 0;
+  auto msgPosition = msg.getBufferPosition();
+  msg.skipBytes(1);
 
-	if (shop.size() <= 5) {
-		// For very small shops it's not worth it to create the complete map
-		for (const ShopInfo& shopInfo : shop) {
-			if (shopInfo.sellPrice == 0) {
-				continue;
-			}
+  for (const ShopInfo& shopInfo : shop) {
+    if (shopInfo.sellPrice == 0) {
+      continue;
+    }
 
-			int8_t subtype = -1;
+    uint32_t index = static_cast<uint32_t>(shopInfo.itemId);
+    if (Item::items[shopInfo.itemId].isFluidContainer()) {
+      index |= (static_cast<uint32_t>(shopInfo.subType) << 16);
+    }
 
-			const ItemType& itemType = Item::items[shopInfo.itemId];
-			if (itemType.hasSubType() && !itemType.stackable) {
-				subtype = (shopInfo.subType == 0 ? -1 : shopInfo.subType);
-			}
+    it = inventoryMap.find(index);
+    if (it != inventoryMap.end()) {
+      msg.addItemId(shopInfo.itemId);
+      msg.addByte(std::min<uint32_t>(it->second, std::numeric_limits<uint8_t>::max()));
+      if (++itemsToSend >= 0xFF) {
+        break;
+      }
+    }
+  }
 
-			uint32_t count = player->getItemTypeCount(shopInfo.itemId, subtype);
-			if (count > 0) {
-				saleMap[shopInfo.itemId] = count;
-			}
-		}
-	} else {
-		// Large shop, it's better to get a cached map of all item counts and use it
-		// We need a temporary map since the finished map should only contain items
-		// available in the shop
-		std::map<uint32_t, uint32_t> tempSaleMap;
-		player->getAllItemTypeCount(tempSaleMap);
-
-		// We must still check manually for the special items that require subtype matches
-		// (That is, fluids such as potions etc., actually these items are very few since
-		// health potions now use their own ID)
-		for (const ShopInfo& shopInfo : shop) {
-			if (shopInfo.sellPrice == 0) {
-				continue;
-			}
-
-			int8_t subtype = -1;
-
-			const ItemType& itemType = Item::items[shopInfo.itemId];
-			if (itemType.hasSubType() && !itemType.stackable) {
-				subtype = (shopInfo.subType == 0 ? -1 : shopInfo.subType);
-			}
-
-			if (subtype != -1) {
-				uint32_t count;
-				if (!itemType.isFluidContainer() && !itemType.isSplash()) {
-					count = player->getItemTypeCount(shopInfo.itemId, subtype); // This shop item requires extra checks
-				} else {
-					count = subtype;
-				}
-
-				if (count > 0) {
-					saleMap[shopInfo.itemId] = count;
-				}
-			} else {
-				std::map<uint32_t, uint32_t>::const_iterator findIt = tempSaleMap.find(shopInfo.itemId);
-				if (findIt != tempSaleMap.end() && findIt->second > 0) {
-					saleMap[shopInfo.itemId] = findIt->second;
-				}
-			}
-		}
-	}
-
-	uint8_t itemsToSend = std::min<size_t>(saleMap.size(), std::numeric_limits<uint8_t>::max());
-	msg.addByte(itemsToSend);
-
-	uint8_t i = 0;
-	for (std::map<uint16_t, uint32_t>::const_iterator it = saleMap.begin(); i < itemsToSend; ++it, ++i) {
-		msg.addItemId(it->first);
-		msg.addByte(std::min<uint32_t>(it->second, std::numeric_limits<uint8_t>::max()));
-	}
-
-	writeToOutputBuffer(msg);
+  msg.setBufferPosition(msgPosition);
+  msg.addByte(itemsToSend);
+  writeToOutputBuffer(msg);
 }
 
 void ProtocolGame::sendMarketEnter(uint32_t depotId)
 {
 	NetworkMessage msg;
 	msg.addByte(0xF6);
-
-	msg.add<uint64_t>(player->getBankBalance());
 	msg.addByte(std::min<uint32_t>(IOMarket::getPlayerOfferCount(player->getGUID()), std::numeric_limits<uint8_t>::max()));
 
 	DepotLocker* depotLocker = player->getDepotLocker(depotId);
@@ -2655,7 +2627,7 @@ void ProtocolGame::sendCreatureSay(const Creature* creature, SpeakClasses type, 
 	msg.add<uint32_t>(++statementId);
 
 	msg.addString(creature->getName());
-	msg.addByte(0x00); // Show (Traded)
+  msg.addByte(0x00); // Show (Traded)
 
 	//Add level only for players
 	if (const Player* speaker = creature->getPlayer()) {
@@ -2684,20 +2656,20 @@ void ProtocolGame::sendToChannel(const Creature* creature, SpeakClasses type, co
 	msg.add<uint32_t>(++statementId);
 	if (!creature) {
 		msg.add<uint32_t>(0x00);
-    	if (statementId != 0) {
-        	msg.addByte(0x00); // Show (Traded)
-    	}
+    if (statementId != 0) {
+      msg.addByte(0x00); // Show (Traded)
+    }
 	} else if (type == TALKTYPE_CHANNEL_R2) {
 		msg.add<uint32_t>(0x00);
-    	if (statementId != 0) {
-        	msg.addByte(0x00); // Show (Traded)
-    	}
+    if (statementId != 0) {
+      msg.addByte(0x00); // Show (Traded)
+    }
 		type = TALKTYPE_CHANNEL_R1;
 	} else {
 		msg.addString(creature->getName());
-		if (statementId != 0) {
-      		msg.addByte(0x00); // Show (Traded)
-    	}
+    if (statementId != 0) {
+      msg.addByte(0x00); // Show (Traded)
+    }
 
 		//Add level only for players
 		if (const Player* speaker = creature->getPlayer()) {
@@ -2721,15 +2693,15 @@ void ProtocolGame::sendPrivateMessage(const Player* speaker, SpeakClasses type, 
 	msg.add<uint32_t>(++statementId);
 	if (speaker) {
 		msg.addString(speaker->getName());
-    	if (statementId != 0) {
-      		msg.addByte(0x00); // Show (Traded)
-    	}
+    if (statementId != 0) {
+      msg.addByte(0x00); // Show (Traded)
+    }
 		msg.add<uint16_t>(speaker->getLevel());
 	} else {
 		msg.add<uint32_t>(0x00);
-    	if (statementId != 0) {
-      		msg.addByte(0x00); // Show (Traded)
-    	}
+    if (statementId != 0) {
+      msg.addByte(0x00); // Show (Traded)
+    }
 	}
 	msg.addByte(type);
 	msg.addString(text);
@@ -3163,7 +3135,7 @@ void ProtocolGame::sendMoveCreature(const Creature* creature, const Position& ne
 			}
 			writeToOutputBuffer(msg);
 		}
-  	} else if (canSee(oldPos) && canSee(newPos)) {
+  } else if (canSee(oldPos) && canSee(newPos)) {
 		if (teleport || (oldPos.z == 7 && newPos.z >= 8) || oldStackPos >= 10) {
 			sendRemoveTileThing(oldPos, oldStackPos);
 			sendAddCreature(creature, newPos, newStackPos, false);
@@ -3172,12 +3144,12 @@ void ProtocolGame::sendMoveCreature(const Creature* creature, const Position& ne
 			msg.addByte(0x6D);
 			msg.addPosition(oldPos);
 			msg.addByte(oldStackPos);
-      		msg.addPosition(newPos);
+      msg.addPosition(newPos);
 			writeToOutputBuffer(msg);
 		}
 	} else if (canSee(oldPos)) {
 		sendRemoveTileThing(oldPos, oldStackPos);
-  	} else if (canSee(newPos)) {
+  } else if (canSee(newPos)) {
 		sendAddCreature(creature, newPos, newStackPos, false);
 	}
 }
@@ -3275,7 +3247,7 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, Item* item, uint16_t ma
 		msg.add<uint16_t>(0x00);
 	}
 
-  	msg.addByte(0x00); // Show (Traded)
+  msg.addByte(0x00); // Show (Traded)
 
 	time_t writtenDate = item->getDate();
 	if (writtenDate != 0) {
@@ -3296,7 +3268,7 @@ void ProtocolGame::sendTextWindow(uint32_t windowTextId, uint32_t itemId, const 
 	msg.add<uint16_t>(text.size());
 	msg.addString(text);
 	msg.add<uint16_t>(0x00);
-  	msg.addByte(0x00); // Show (Traded)
+  msg.addByte(0x00); // Show (Traded)
 	msg.add<uint16_t>(0x00);
 	writeToOutputBuffer(msg);
 }

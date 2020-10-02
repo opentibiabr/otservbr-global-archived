@@ -1414,8 +1414,11 @@ void Player::onRemoveCreature(Creature* creature, bool isLogout)
 void Player::openShopWindow(Npc* npc, const std::vector<ShopInfo>& shop)
 {
 	shopItemList = std::move(shop);
-	sendShop(npc);
-	sendSaleItemList();
+  std::map<uint32_t, uint32_t> tempInventoryMap;
+  getAllItemTypeCountAndSubtype(tempInventoryMap);
+
+  sendShop(npc);
+  sendSaleItemList(tempInventoryMap);
 }
 
 bool Player::closeShopWindow(bool sendCloseShopWindow /*= true*/)
@@ -3260,6 +3263,36 @@ std::map<uint16_t, uint16_t> Player::getInventoryClientIds() const
 		}
 	}
 	return itemMap;
+}
+
+void Player::getAllItemTypeCountAndSubtype(std::map<uint32_t, uint32_t>& countMap) const
+{
+  for (int32_t i = CONST_SLOT_FIRST; i <= CONST_SLOT_LAST; i++) {
+    Item* item = inventory[i];
+    if (!item) {
+      continue;
+    }
+
+    uint16_t itemId = item->getID();
+    if (Item::items[itemId].isFluidContainer()) {
+      countMap[static_cast<uint32_t>(itemId) | (static_cast<uint32_t>(item->getFluidType()) << 16)] += item->getItemCount();
+    } else {
+      countMap[static_cast<uint32_t>(itemId)] += item->getItemCount();
+    }
+
+    if (Container* container = item->getContainer()) {
+      for (ContainerIterator it = container->iterator(); it.hasNext(); it.advance()) {
+        item = (*it);
+
+        itemId = item->getID();
+        if (Item::items[itemId].isFluidContainer()) {
+          countMap[static_cast<uint32_t>(itemId) | (static_cast<uint32_t>(item->getFluidType()) << 16)] += item->getItemCount();
+        } else {
+          countMap[static_cast<uint32_t>(itemId)] += item->getItemCount();
+        }
+      }
+    }
+  }
 }
 
 Thing* Player::getThing(size_t index) const
