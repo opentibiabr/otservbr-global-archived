@@ -17,10 +17,10 @@ function tiles.onStepIn(creature, item, position, fromPosition)
 	item:transform(increasing[item.itemid])
 
 	if item.actionid >= 1000 then
-		if creature:getLevel() < item.actionid - 1000 then
-			creature:teleportTo(fromPosition, false)
+		if player:getLevel() < item.actionid - 1000 then
+			player:teleportTo(fromPosition, false)
 			position:sendMagicEffect(CONST_ME_MAGIC_BLUE)
-			creature:sendTextMessage(MESSAGE_INFO_DESCR, "The tile seems to be protected against unwanted intruders.")
+			player:sendTextMessage(MESSAGE_INFO_DESCR, "The tile seems to be protected against unwanted intruders.")
 		end
 		return true
 	end
@@ -36,7 +36,7 @@ function tiles.onStepIn(creature, item, position, fromPosition)
 				depotItems = depotItems + player:getDepotChest(id, true):getItemHoldingCount()
 			end
 
-			player:sendTextMessage(MESSAGE_STATUS_DEFAULT,  "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or ".") .. "\
+			player:sendTextMessage(MESSAGE_STATUS_DEFAULT, "Your depot contains " .. depotItems .. " item" .. (depotItems > 1 and "s." or ".") .. "\
 			Your supply stash contains " .. player:getStashCount() .. " item" .. (player:getStashCount()	 > 1 and "s." or "."))
 			player:setSpecialContainersAvailable(true)
 			return true
@@ -66,14 +66,14 @@ function tiles.onStepOut(creature, item, position, fromPosition)
 		return false
 	end
 
-	if creature:isPlayer() and creature:isInGhostMode() then
+	local player = creature:getPlayer()
+	if not player or player:isInGhostMode() then
 		return true
 	end
 
 	item:transform(decreasing[item.itemid])
-	if creature:isPlayer() then
-		creature:setSpecialContainersAvailable(false)
-	end
+	player:setSpecialContainersAvailable(false)
+	return true
 end
 
 tiles:type("stepout")
