@@ -12,7 +12,7 @@ local secondCombat = Combat()
 secondCombat:setParameter(COMBAT_PARAM_TYPE, COMBAT_EARTHDAMAGE)
 secondCombat:addCondition(condition)
 
-local viperStar = Weapon(WEAPON_AMMO)
+local viperStar = Weapon(WEAPON_DISTANCE)
 
 function viperStar.onUseWeapon(player, variant)
 	local boolean = combat:execute(player, variant)
@@ -29,7 +29,6 @@ end
 
 viperStar:id(7366)
 viperStar:attack(28)
-viperStar:ammoType("arrow")
 viperStar:breakChance(9)
 viperStar:shootType(CONST_ANI_GREENSTAR)
 viperStar:maxHitChance(76)
