@@ -43,7 +43,7 @@ riddle:type("stepin")
 riddle:aid(2245, 2246)
 riddle:register()
 
-local riddle = MoveEvent()
+riddle = MoveEvent()
 
 function riddle.onStepOut(creature, item, position, fromPosition)
 	item:transform(426)

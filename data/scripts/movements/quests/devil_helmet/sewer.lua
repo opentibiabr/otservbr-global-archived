@@ -22,7 +22,7 @@ sewer:type("stepin")
 sewer:uid(65203)
 sewer:register()
 
-local sewer = MoveEvent()
+sewer = MoveEvent()
 
 function sewer.onStepOut(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
