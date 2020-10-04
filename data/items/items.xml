@@ -39536,15 +39536,20 @@
 	<item id="29052" article="a" name="wood tile" />
 	<item fromid="29053" toid="29055" article="an" name="unknown wall" />
 	<item id="29056" article="an" name="energized tile" />
-	<item id="29059" article="a" name="royal star">
-		<attribute key="weight" value="220" />
-		<attribute key="attack" value="64" />
-		<attribute key="elementFire" value="2" />
+	<item id="29057" article="a" name="diamond arrow">
+		<attribute key="weight" value="80" />
+		<attribute key="slotType" value="ammo" />
+		<attribute key="notstowable" value="1" />
+		<attribute key="attack" value="37" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="3600" />
+		<attribute key="weaponType" value="ammunition" />
+		<attribute key="loottype" value="ammo" />
+		<attribute key="ammoType" value="arrow" />
+		<attribute key="shootType" value="diamondarrow" />
 		<attribute key="maxHitChance" value="100" />
-		<attribute key="weaponType" value="distance" />
-		<attribute key="loottype" value="distance" />
-		<attribute key="shootType" value="royalstar" />
-		<attribute key="range" value="5" />
+		<attribute key="stopduration" value="1" />
+		<attribute key="showduration" value="1" />
 	</item>
 	<item id="29058" article="a" name="spectral bolt">
 		<attribute key="weight" value="90" />
@@ -39561,21 +39566,15 @@
 		<attribute key="stopduration" value="0" />
 		<attribute key="showduration" value="1" />
 	</item>
-	<item id="29057" article="a" name="diamond arrow">
-		<attribute key="weight" value="80" />
-		<attribute key="slotType" value="ammo" />
-		<attribute key="notstowable" value="1" />
-		<attribute key="attack" value="37" />
-		<attribute key="decayTo" value="0" />
-		<attribute key="duration" value="3600" />
-		<attribute key="showduration" value="1" />
-		<attribute key="weaponType" value="ammunition" />
-		<attribute key="loottype" value="ammo" />
-		<attribute key="ammoType" value="arrow" />
-		<attribute key="shootType" value="diamondarrow" />
+	<item id="29059" article="a" name="royal star">
+		<attribute key="weight" value="220" />
+		<attribute key="attack" value="64" />
+		<attribute key="elementFire" value="2" />
 		<attribute key="maxHitChance" value="100" />
-		<attribute key="stopduration" value="0" />
-		<attribute key="showduration" value="1" />
+		<attribute key="weaponType" value="distance" />
+		<attribute key="loottype" value="distance" />
+		<attribute key="shootType" value="royalstar" />
+		<attribute key="range" value="5" />
 	</item>
 	<item id="29060" article="a" name="wand of darkness">
 		<attribute key="description" value="Temporary magic powers enchant this staff." />
