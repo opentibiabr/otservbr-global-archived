@@ -5,8 +5,8 @@ local weapons = {
 		level = 180,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- phantasmal axe
 	{
@@ -19,8 +19,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- tagralt blade
 	{
@@ -29,8 +29,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- bow of cataclysm
 	{
@@ -39,8 +39,8 @@ local weapons = {
 		level = 220,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- mortal mace
 	{
@@ -51,8 +51,8 @@ local weapons = {
 		mana = 21,
 		damage = {70, 110},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- cobra rod
 	{
@@ -63,8 +63,8 @@ local weapons = {
 		mana = 22,
 		damage = {94, 100},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- cobra wand
 	{
@@ -73,8 +73,8 @@ local weapons = {
 		level = 220,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- cobra sword
 	{
@@ -83,8 +83,8 @@ local weapons = {
 		level = 220,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- cobra axe
 	{
@@ -93,8 +93,8 @@ local weapons = {
 		level = 220,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- cobra club
 	{
@@ -103,8 +103,8 @@ local weapons = {
 		level = 220,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- cobra crossbow
 	{
@@ -119,10 +119,10 @@ local weapons = {
 		mana = 24,
 		damage = {88, 108},
 		vocation = {
-			{"Sorcerer", true,
-			{"Druid", true, true,
-			{"Master Sorcerer",
-			{"Elder Druid"
+			{"Sorcerer", true},
+			{"Druid", true, true},
+			{"Master Sorcerer"},
+			{"Elder Druid"}
 		}
 	}, -- energized limb
 	{
@@ -131,8 +131,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- winterblade
 	{
@@ -141,8 +141,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- summerblade
 	{
@@ -151,8 +151,8 @@ local weapons = {
 		level = 230,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- resizer
 	{
@@ -161,8 +161,8 @@ local weapons = {
 		level = 220,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- living vine bow
 	{
@@ -221,10 +221,10 @@ local weapons = {
 		mana = 23,
 		damage = {80, 120},
 		vocation = {
-			{"Sorcerer", true,
-			{"Druid", true, true,
-			{"Master Sorcerer",
-			{"Elder Druid"
+			{"Sorcerer", true},
+			{"Druid", true, true},
+			{"Master Sorcerer"},
+			{"Elder Druid"}
 		}
 	}, -- deepling fork
 	{
@@ -235,10 +235,10 @@ local weapons = {
 		mana = 23,
 		damage = {86, 98},
 		vocation = {
-			{"Sorcerer", true,
-			{"Druid", true, true,
-			{"Master Sorcerer",
-			{"Elder Druid"
+			{"Sorcerer", true},
+			{"Druid", true, true},
+			{"Master Sorcerer"},
+			{"Elder Druid"}
 		}
 	}, -- deepling ceremonial dagger
 	{
@@ -247,8 +247,8 @@ local weapons = {
 		level = 300,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- falcon mace
 	{
@@ -257,8 +257,8 @@ local weapons = {
 		level = 300,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- falcon battleaxe
 	{
@@ -267,8 +267,8 @@ local weapons = {
 		level = 300,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- falcon longsword
 	{
@@ -277,8 +277,8 @@ local weapons = {
 		level = 300,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- falcon bow
 	{
@@ -289,8 +289,8 @@ local weapons = {
 		mana = 21,
 		damage = {86, 102},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- falcon wand
 	{
@@ -301,8 +301,8 @@ local weapons = {
 		mana = 20,
 		damage = {87, 101},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- falcon rod
 	{
@@ -311,8 +311,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- gnome sword
 	{
@@ -331,8 +331,8 @@ local weapons = {
 		mana = 20,
 		damage = {80, 110},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- rod of destruction
 	{
@@ -343,8 +343,8 @@ local weapons = {
 		mana = 20,
 		damage = {80, 110},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of destruction
 	{
@@ -353,8 +353,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crossbow of destruction
 	{
@@ -363,8 +363,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- bow of destruction
 	{
@@ -373,8 +373,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- hammer of destruction
 	{
@@ -383,8 +383,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- mace of destruction
 	{
@@ -393,8 +393,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- chopper of destruction
 	{
@@ -403,8 +403,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- axe of destruction
 	{
@@ -413,8 +413,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- slayer of destruction
 	{
@@ -423,8 +423,8 @@ local weapons = {
 		level = 200,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- blade of destruction
 	{
@@ -891,8 +891,8 @@ local weapons = {
 		mana = 15,
 		damage = {80, 100},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of darkness
 	{
@@ -924,10 +924,10 @@ local weapons = {
 		mana = 18,
 		damage = {63, 77},
 		vocation = {
-			{"Sorcerer", true,
-			{"Druid", true, true,
-			{"Master Sorcerer",
-			{"Elder Druid"
+			{"Sorcerer", true},
+			{"Druid", true, true},
+			{"Master Sorcerer"},
+			{"Elder Druid"}
 		}
 	}, -- dream blossom staff
 	{
@@ -938,8 +938,8 @@ local weapons = {
 		mana = 18,
 		damage = {70, 105},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- rod of carving
 	{
@@ -950,8 +950,8 @@ local weapons = {
 		mana = 18,
 		damage = {70, 105},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of carving
 	{
@@ -960,8 +960,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crossbow of carving
 	{
@@ -970,8 +970,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- bow of carving
 	{
@@ -980,8 +980,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- hammer of carving
 	{
@@ -990,8 +990,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- mace of carving
 	{
@@ -1000,8 +1000,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- chopper of carving
 	{
@@ -1010,8 +1010,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- axe of carving
 	{
@@ -1020,8 +1020,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- slayer of carving
 	{
@@ -1030,8 +1030,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- blade of carving
 	{
@@ -1042,8 +1042,8 @@ local weapons = {
 		mana = 18,
 		damage = {70, 105},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- rod of remedy
 	{
@@ -1054,8 +1054,8 @@ local weapons = {
 		mana = 18,
 		damage = {70, 105},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of remedy
 	{
@@ -1064,8 +1064,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crossbow of remedy
 	{
@@ -1074,8 +1074,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- bow of remedy
 	{
@@ -1084,8 +1084,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- hammer of remedy
 	{
@@ -1094,8 +1094,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- mace of remedy
 	{
@@ -1104,8 +1104,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- chopper of remedy
 	{
@@ -1114,8 +1114,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- axe of remedy
 	{
@@ -1124,8 +1124,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- slayer of remedy
 	{
@@ -1134,8 +1134,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- blade of remedy
 	{
@@ -1146,8 +1146,8 @@ local weapons = {
 		mana = 18,
 		damage = {70, 105},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- rod of mayhem
 	{
@@ -1158,8 +1158,8 @@ local weapons = {
 		mana = 18,
 		damage = {70, 105},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of mayhem
 	{
@@ -1168,8 +1168,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crossbow of mayhem
 	{
@@ -1178,8 +1178,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- bow of mayhem
 	{
@@ -1188,8 +1188,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- hammer of mayhem
 	{
@@ -1198,8 +1198,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- mace of mayhem
 	{
@@ -1208,8 +1208,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- chopper of mayhem
 	{
@@ -1218,8 +1218,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- axe of mayhem
 	{
@@ -1228,8 +1228,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- slayer of mayhem
 	{
@@ -1238,8 +1238,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- blade of mayhem
 	{
@@ -1248,8 +1248,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- rift crossbow
 	{
@@ -1258,8 +1258,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- rift bow
 	{
@@ -1270,8 +1270,8 @@ local weapons = {
 		mana = 19,
 		damage = {80, 110},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- ferumbras' staff (enchanted)
 	{
@@ -1282,8 +1282,8 @@ local weapons = {
 		mana = 17,
 		damage = {65, 95},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- ferumbras' staff (failed)
 	{
@@ -1324,8 +1324,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- ogre sceptra
 	{
@@ -1367,8 +1367,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- glooth axe
 	{
@@ -1377,8 +1377,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- glooth blade
 	{
@@ -1388,8 +1388,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- glooth club
 	{
@@ -1441,8 +1441,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- umbral master crossbow
 	{
@@ -1451,8 +1451,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- umbral crossbow
 	{
@@ -1461,8 +1461,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crude umbral crossbow
 	{
@@ -1471,8 +1471,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- umbral master bow
 	{
@@ -1481,8 +1481,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- umbral bow
 	{
@@ -1491,8 +1491,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crude umbral bow
 	{
@@ -1501,8 +1501,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral master hammer
 	{
@@ -1511,8 +1511,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral hammer
 	{
@@ -1521,8 +1521,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- crude umbral hammer
 	{
@@ -1531,8 +1531,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral master mace
 	{
@@ -1541,8 +1541,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral mace
 	{
@@ -1551,8 +1551,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- crude umbral mace
 	{
@@ -1561,8 +1561,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral master chopper
 	{
@@ -1571,8 +1571,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral chopper
 	{
@@ -1581,8 +1581,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- guardian halberd
 	{
@@ -1591,8 +1591,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral master axe
 	{
@@ -1601,8 +1601,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral axe
 	{
@@ -1611,8 +1611,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- crude umbral axe
 	{
@@ -1621,8 +1621,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral master slayer
 	{
@@ -1631,8 +1631,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral slayer
 	{
@@ -1641,8 +1641,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- crude umbral slayer
 	{
@@ -1651,8 +1651,8 @@ local weapons = {
 		level = 250,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral masterblade
 	{
@@ -1661,8 +1661,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- umbral blade
 	{
@@ -1671,8 +1671,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- crude umbral blade
 	{
@@ -1686,8 +1686,8 @@ local weapons = {
 		level = 70,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- triple bolt crossbow
 	{
@@ -1702,8 +1702,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- pair of iron fists
 	{
@@ -1730,7 +1730,7 @@ local weapons = {
 		mana = 2,
 		damage = {8, 18},
 		vocation = {
-			{"None", true
+			{"None", true}
 		}
 	}, -- sorc and druid staff
 	{
@@ -1738,7 +1738,7 @@ local weapons = {
 		type = WEAPON_DISTANCE,
 		breakChance = 3,
 		vocation = {
-			{"None", true
+			{"None", true}
 		}
 	}, -- mean paladin spear
 	{
@@ -1746,7 +1746,7 @@ local weapons = {
 		type = WEAPON_SWORD,
 		unproperly = true,
 		vocation = {
-			{"None", true
+			{"None", true}
 		}
 	}, -- mean knight sword
 	{
@@ -1761,8 +1761,8 @@ local weapons = {
 		level = 105,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- mycological bow
 	{
@@ -1771,8 +1771,8 @@ local weapons = {
 		level = 90,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- crystal crossbow
 	{
@@ -1822,8 +1822,8 @@ local weapons = {
 		mana = 17,
 		damage = {75, 95},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- glacial rod
 	{
@@ -1834,8 +1834,8 @@ local weapons = {
 		mana = 17,
 		damage = {75, 95},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- muck rod
 	{
@@ -1846,8 +1846,8 @@ local weapons = {
 		mana = 17,
 		damage = {75, 95},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of everblazing
 	{
@@ -1858,8 +1858,8 @@ local weapons = {
 		mana = 17,
 		damage = {75, 95},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of defiance
 	{
@@ -1880,8 +1880,8 @@ local weapons = {
 		level = 150,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- thorn spitter
 	{
@@ -1910,8 +1910,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- ornate crossbow
 	{
@@ -1920,8 +1920,8 @@ local weapons = {
 		level = 85,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- hive bow
 	{
@@ -1968,8 +1968,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- shimmer wand
 	{
@@ -1978,8 +1978,8 @@ local weapons = {
 		level = 40,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- shimmer bow
 	{
@@ -1990,8 +1990,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- shimmer rod
 	{
@@ -2018,8 +2018,8 @@ local weapons = {
 		mana = 9,
 		damage = {44, 62},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of dimensions
 	{
@@ -2040,8 +2040,8 @@ local weapons = {
 		level = 58,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- twiceslicer
 	{
@@ -2056,8 +2056,8 @@ local weapons = {
 		level = 20,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- twin hooks
 	{
@@ -2066,8 +2066,8 @@ local weapons = {
 		level = 55,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- drachaku
 	{
@@ -2082,8 +2082,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- sai
 	{
@@ -2134,8 +2134,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- the calamity
 	{
@@ -2156,8 +2156,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- the stomper
 	{
@@ -2178,8 +2178,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- demonwing axe
 	{
@@ -2202,8 +2202,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of voodoo
 	{
@@ -2214,8 +2214,8 @@ local weapons = {
 		mana = 5,
 		damage = {23, 37},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of draconia
 	{
@@ -2226,8 +2226,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of starmstorm
 	{
@@ -2238,8 +2238,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- springsprout rod
 	{
@@ -2250,8 +2250,8 @@ local weapons = {
 		mana = 5,
 		damage = {23, 37},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- northwind rod
 	{
@@ -2262,8 +2262,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- underworld rod
 	{
@@ -2272,8 +2272,8 @@ local weapons = {
 		level = 70,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- elethriel's elemental bow
 	{
@@ -2282,8 +2282,8 @@ local weapons = {
 		level = 40,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- silkweaver bow
 	{
@@ -2292,8 +2292,8 @@ local weapons = {
 		level = 60,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- yol's bow
 	{
@@ -2302,8 +2302,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- composite hornbow
 	{
@@ -2312,8 +2312,8 @@ local weapons = {
 		level = 80,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- warsinger bow
 	{
@@ -2322,8 +2322,8 @@ local weapons = {
 		level = 80,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- ironworker
 	{
@@ -2332,8 +2332,8 @@ local weapons = {
 		level = 100,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- devileye
 	{
@@ -2342,8 +2342,8 @@ local weapons = {
 		level = 130,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- royal crossbow
 	{
@@ -2352,8 +2352,8 @@ local weapons = {
 		level = 60,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- chain bolter
 	{
@@ -2362,8 +2362,8 @@ local weapons = {
 		level = 45,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- modified crossbow
 	{
@@ -2385,8 +2385,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- energy war hammer
 	{
@@ -2424,8 +2424,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- energy war axe
 	{
@@ -2435,8 +2435,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- energy headchopper
 	{
@@ -2467,8 +2467,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- energy dragon slayer
 	{
@@ -2478,8 +2478,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- energy blacksteel sword
 	{
@@ -2508,8 +2508,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- earth war hammer
 	{
@@ -2547,8 +2547,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- earth war axe
 	{
@@ -2558,8 +2558,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- earth headchopper
 	{
@@ -2590,8 +2590,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- earth dragon slayer
 	{
@@ -2601,8 +2601,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- earth blacksteel sword
 	{
@@ -2659,8 +2659,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- icy war hammer
 	{
@@ -2698,8 +2698,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- icy war axe
 	{
@@ -2709,8 +2709,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- icy headchopper
 	{
@@ -2741,8 +2741,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- icy dragon slayer
 	{
@@ -2752,8 +2752,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- icy blacksteel sword
 	{
@@ -2782,8 +2782,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- fiery war hammer
 	{
@@ -2821,8 +2821,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- fiery war axe
 	{
@@ -2832,8 +2832,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- fiery headchopper
 	{
@@ -2864,8 +2864,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- fiery dragon slayer
 	{
@@ -2875,8 +2875,8 @@ local weapons = {
 		unproperly = true,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- fiery blacksteel sword
 	{
@@ -2916,8 +2916,8 @@ local weapons = {
 		level = 30,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- glorious axe
 	{
@@ -2926,8 +2926,8 @@ local weapons = {
 		level = 85,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- executioner
 	{
@@ -2936,8 +2936,8 @@ local weapons = {
 		level = 30,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- spiked squelcher
 	{
@@ -2952,8 +2952,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- hammer of prophecy
 	{
@@ -2962,8 +2962,8 @@ local weapons = {
 		level = 25,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- crystal sword
 	{
@@ -2982,8 +2982,8 @@ local weapons = {
 		level = 45,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- angelic axe
 	{
@@ -3034,8 +3034,8 @@ local weapons = {
 		level = 55,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- bonebreaker
 	{
@@ -3068,8 +3068,8 @@ local weapons = {
 		level = 85,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- skullcrusher
 	{
@@ -3126,8 +3126,8 @@ local weapons = {
 		level = 60,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- abyss hammer
 	{
@@ -3136,8 +3136,8 @@ local weapons = {
 		level = 40,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- titan axe
 	{
@@ -3176,8 +3176,8 @@ local weapons = {
 		level = 30,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- haunted blade
 	{
@@ -3186,8 +3186,8 @@ local weapons = {
 		level = 35,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- blacksteel sword
 	{
@@ -3196,8 +3196,8 @@ local weapons = {
 		level = 70,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- havoc blade
 	{
@@ -3212,8 +3212,8 @@ local weapons = {
 		level = 65,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- berserker
 	{
@@ -3222,8 +3222,8 @@ local weapons = {
 		level = 45,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- dragon slayer
 	{
@@ -3238,8 +3238,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- thaian sword
 	{
@@ -3272,8 +3272,8 @@ local weapons = {
 		level = 40,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- mercenary sword
 	{
@@ -3300,8 +3300,8 @@ local weapons = {
 		level = 60,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- demonrage sword
 	{
@@ -3316,8 +3316,8 @@ local weapons = {
 		level = 35,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- headchopper
 	{
@@ -3374,8 +3374,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- ruthless axe
 	{
@@ -3391,8 +3391,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- the avenger
 	{
@@ -3405,8 +3405,8 @@ local weapons = {
 		level = 75,
 		unproperly = true,
 		vocation = {
-			{"Paladin", true,
-			{"Royal Paladin"
+			{"Paladin", true},
+			{"Royal Paladin"}
 		}
 	}, -- arbalest
 	{
@@ -3475,8 +3475,8 @@ local weapons = {
 		level = 65,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- war axe
 	{
@@ -3491,8 +3491,8 @@ local weapons = {
 		level = 70,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- heavy mace
 	{
@@ -3519,8 +3519,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- twin axe
 	{
@@ -3541,8 +3541,8 @@ local weapons = {
 		level = 65,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- hammer of wrath
 	{
@@ -3551,8 +3551,8 @@ local weapons = {
 		level = 70,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- ravager's axe
 	{
@@ -3569,8 +3569,8 @@ local weapons = {
 		level = 25,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- daramian waraxe
 	{
@@ -3703,8 +3703,8 @@ local weapons = {
 		level = 95,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- great axe
 	{
@@ -3717,8 +3717,8 @@ local weapons = {
 		itemId = 2413,
 		type = WEAPON_SWORD,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- broadsword
 	{
@@ -3744,8 +3744,8 @@ local weapons = {
 		level = 120,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- warlord sword
 	{
@@ -3802,8 +3802,8 @@ local weapons = {
 		type = WEAPON_SWORD,
 		action = "removecharge",
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- ice rapier
 	{
@@ -3820,8 +3820,8 @@ local weapons = {
 		level = 55,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- giant sword
 	{
@@ -3836,8 +3836,8 @@ local weapons = {
 		level = 50,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- war hammer
 	{
@@ -3846,8 +3846,8 @@ local weapons = {
 		level = 140,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- magic longsword
 	{
@@ -3865,8 +3865,8 @@ local weapons = {
 		level = 25,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- double axe
 	{
@@ -3908,8 +3908,8 @@ local weapons = {
 		type = WEAPON_AXE,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- battle axe
 	{
@@ -3918,8 +3918,8 @@ local weapons = {
 		level = 20,
 		unproperly = true,
 		vocation = {
-			{"Knight", true,
-			{"Elite Knight"
+			{"Knight", true},
+			{"Elite Knight"}
 		}
 	}, -- two handed sword
 	{
@@ -3938,7 +3938,7 @@ local weapons = {
 		mana = 3,
 		damage = {13, 25},
 		vocation = {
-			{"Sorcerer", true,
+			{"Sorcerer", true},
 			{"Master Sorcerer"}
 		}
 	}, -- wand of dragonbreath
@@ -3950,8 +3950,8 @@ local weapons = {
 		mana = 1,
 		damage = {8, 18},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of vortex
 	{
@@ -3962,7 +3962,7 @@ local weapons = {
 		mana = 8,
 		damage = {37, 53},
 		vocation = {
-			{"Sorcerer", true,
+			{"Sorcerer", true},
 			{"Master Sorcerer"}
 		}
 	}, -- wand of cosmic energy
@@ -3974,8 +3974,8 @@ local weapons = {
 		mana = 5,
 		damage = {23, 37},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of decay
 	{
@@ -3986,8 +3986,8 @@ local weapons = {
 		mana = 8,
 		damage = {56, 74},
 		vocation = {
-			{"Sorcerer", true,
-			{"Master Sorcerer"
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
 		}
 	}, -- wand of inferno
 	{
@@ -3998,8 +3998,8 @@ local weapons = {
 		mana = 3,
 		damage = {13, 25},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- moonlight rod
 	{
@@ -4011,7 +4011,7 @@ local weapons = {
 		damage = {23, 37},
 		vocation = {
 			{"Druid", true},
-			{"Elder Druid"
+			{"Elder Druid"}
 		}
 	}, -- necrotic rod
 	{
@@ -4022,8 +4022,8 @@ local weapons = {
 		mana = 13,
 		damage = {56, 74},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- hailstorm rod
 	{
@@ -4034,8 +4034,8 @@ local weapons = {
 		mana = 2,
 		damage = {8, 18},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- snakebit rod
 	{
@@ -4046,8 +4046,8 @@ local weapons = {
 		mana = 8,
 		damage = {37, 53},
 		vocation = {
-			{"Druid", true,
-			{"Elder Druid"
+			{"Druid", true},
+			{"Elder Druid"}
 		}
 	}, -- terra rod
 	{
@@ -4058,10 +4058,11 @@ local weapons = {
 	{
 		itemId = 1294,
 		type = WEAPON_DISTANCE,
-		breakChance = 3} -- small stone
+		breakChance = 3
+	} -- small stone
 }
 
-for index, weaponTable in ipairs(weapons) don
+for index, weaponTable in ipairs(weapons) do
 	local weapon = Weapon(weaponTable.type)
 	weapon:id(weaponTable.itemId)
 
@@ -4088,7 +4089,7 @@ for index, weaponTable in ipairs(weapons) don
 	end
 	if(weaponTable.vocation) then
 		for index, vocation in ipairs(weaponTable.vocation) do
-			weapon:vocation(vocation[1], vocation[2] or false, v[3] or false)
+			weapon:vocation(vocation[1], vocation[2] or false, vocation[3] or false)
 		end
 	end
 
