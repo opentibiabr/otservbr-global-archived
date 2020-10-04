@@ -45,8 +45,6 @@ taskShooting:type("stepin")
 taskShooting:aid(8030)
 taskShooting:register()
 
-local taskShooting = MoveEvent()
-
 function taskShooting.onStepOut(creature, item, position, fromPosition)
 	Game.setStorageValue(fromPosition.x, 0)
 

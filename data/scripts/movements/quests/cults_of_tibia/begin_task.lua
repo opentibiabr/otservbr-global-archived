@@ -46,8 +46,6 @@ beginTask:type("equip")
 beginTask:id(28657, 28658)
 beginTask:register()
 
-local beginTask = MoveEvent()
-
 function beginTask.onDeEquip(player, item, slot, isCheck)
 	item:setAttribute(ITEM_ATTRIBUTE_DECAYSTATE, 0)
 	return true
