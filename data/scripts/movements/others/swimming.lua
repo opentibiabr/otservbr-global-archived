@@ -26,6 +26,8 @@ swimming:type("stepin")
 swimming:id(4620, 4621, 4622, 4623, 4624, 4625)
 swimming:register()
 
+local swimming = MoveEvent()
+
 function swimming.onStepOut(creature, item, position, fromPosition)
 	if not creature:isPlayer() then
 		return false

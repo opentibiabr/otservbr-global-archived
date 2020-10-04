@@ -37,6 +37,8 @@ drowning:register()
 
 local underWater = {5405, 5406, 5407, 5408, 5409, 5410, 5743, 5744, 5764, 9671, 9672, 9673, 10019}
 
+local drowning = MoveEvent()
+
 function drowning.onStepOut(player, item, pos)
 local cid = player:getId()
    if player:isPlayer() then

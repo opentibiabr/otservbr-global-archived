@@ -124,6 +124,8 @@ tar:type("stepin")
 tar:aid(5530, 5531)
 tar:register()
 
+local tar = MoveEvent()
+
 function tar.onStepOut(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
