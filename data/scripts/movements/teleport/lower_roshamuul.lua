@@ -7,9 +7,9 @@ local roshamuulCaves = {
     Position(33527, 32597, 8)
 }
 
-local roshamuulCaves = MoveEvent()
+local lowerRoshamuul = MoveEvent()
 
-function roshamuulCaves.onStepIn(creature, item, position, fromPosition)
+function lowerRoshamuul.onStepIn(creature, item, position, fromPosition)
     if not creature:isPlayer() then
         return false
     end
@@ -22,7 +22,7 @@ function roshamuulCaves.onStepIn(creature, item, position, fromPosition)
     return true
 end
 
-roshamuulCaves:type("stepin")
-roshamuulCaves:id(22456)
-roshamuulCaves:aid(1500)
-roshamuulCaves:register()
+lowerRoshamuul:type("stepin")
+lowerRoshamuul:id(22456)
+lowerRoshamuul:aid(1500)
+lowerRoshamuul:register()

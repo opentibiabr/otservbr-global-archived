@@ -50,7 +50,7 @@ stoneTeleport:type("additem")
 stoneTeleport:aid(8034)
 stoneTeleport:register()
 
-local stoneTeleport = MoveEvent()
+stoneTeleport = MoveEvent()
 
 function stoneTeleport.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()

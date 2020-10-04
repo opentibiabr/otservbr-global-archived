@@ -30,7 +30,7 @@ drawbridge:type("stepin")
 drawbridge:aid(4002)
 drawbridge:register()
 
-local drawbridge = MoveEvent()
+drawbridge = MoveEvent()
 
 function drawbridge.onStepOut(creature, item, position, fromPosition)
 	local player = creature:getPlayer()

@@ -18,7 +18,7 @@ ladder:type("stepin")
 ladder:uid(2002)
 ladder:register()
 
-local ladder = MoveEvent()
+ladder = MoveEvent()
 
 function ladder.onStepOut(creature, item, position, fromPosition)
 	local player = creature:getPlayer()

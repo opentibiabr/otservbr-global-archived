@@ -90,7 +90,7 @@ vortexCrackler:type("stepin")
 vortexCrackler:id(26127)
 vortexCrackler:register()
 
-local vortexCrackler = MoveEvent()
+vortexCrackler = MoveEvent()
 
 function vortexCrackler.onStepOut(creature, item, position, fromPosition)
 	cracklerTransform = false
