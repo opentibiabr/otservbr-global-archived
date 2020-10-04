@@ -765,6 +765,9 @@ void Creature::changeHealth(int32_t healthChange, bool sendHealthChange/* = true
 	if (sendHealthChange && oldHealth != health) {
 		g_game.addCreatureHealth(this);
 	}
+	if (health <= 0) {
+		g_dispatcher.addTask(createTask(std::bind(&Game::executeDeath, &g_game, getID())));
+	}
 }
 
 void Creature::changeMana(int32_t manaChange)
@@ -1142,6 +1145,9 @@ void Creature::onGainExperience(uint64_t gainExp, Creature* target)
 }
 
 bool Creature::setMaster(Creature* newMaster) {
+	// Persists if this creature has ever been a summon
+	this->summoned = true;
+
 	if (!newMaster && !master) {
 		return false;
 	}

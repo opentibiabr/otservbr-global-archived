@@ -40,8 +40,8 @@ maxItem = 2000
 maxContainer = 100
 
 --- Version
-clientVersion = 1200
-clientVersionStr = "12.00"
+clientVersion = 1251
+clientVersionStr = "12.51"
 
 -- Depot Limit
 freeDepotLimit = 2000
@@ -115,8 +115,8 @@ serverSaveClose = false
 serverSaveShutdown = true
 
 -- Rates
--- NOTE: rateExp is used as a fallback only
--- To configure experience rate see file data/stages.lua
+-- NOTE: rateExp, rateSkill and rateMagic is used as a fallback only
+-- To configure rates see file data/stages.lua
 rateExp = 1
 rateSkill = 50
 rateLoot = 3

@@ -133,21 +133,6 @@ local function sendSkillNotLearned(cid, SKILL)
 
 	npcHandler:say(message, cid)
 end
-
--- ----------------------[[ STEWARD FUNCTIONS ]] ------------------------------
-
-local function openPlayerStash(cid)
-	local player = Player(cid)
-	if not player then return end
-	local client = player:getClient()
-	if client.os == CLIENTOS_NEW_WINDOWS and client.version >= 1180 then
-		SupplyStash.sendOpenWindow(player)
-	else
-		player:sendCancelMessage("You must use a newer client to open the supply stash")
-		player:getPosition():sendMagicEffect(CONST_ME_POFF)
-	end
-end
-
 -- ----------------------[[ END STEWARD FUNCTIONS ]] ------------------------------
 --[[
 ############################################################################
@@ -820,7 +805,7 @@ local function setNewTradeTable(table)
 	local items, item = {}
 	for i = 1, #table do
 		item = table[i]
-		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = 0, realName = item.name}
+		items[item.id] = {itemId = item.id, buyPrice = item.buy, sellPrice = item.sell, subType = item.subType, realName = item.name}
 	end
 	return items
 end
@@ -829,18 +814,22 @@ local function onBuy(cid, item, subType, amount, ignoreCap, inBackpacks)
 	local player = Player(cid)
 	local creatureId = Creature(cid):getId()
 	local items = setNewTradeTable(getTable(creatureId))
-	local ittype = ItemType(items[item].itemId)
-	if ittype:getWrapableTo() ~= 0 then
-		ittype = ItemType(ittype:getWrapableTo())
+	local itemType = ItemType(items[item].itemId)
+	if itemType:getWrapableTo() ~= 0 then
+		itemType = ItemType(itemType:getWrapableTo())
 	end
-	if not ignoreCap and player:getFreeCapacity() < ittype:getWeight(amount) then
+	local backpack = player:getSlotItem(CONST_SLOT_BACKPACK)
+	if not backpack or backpack:getEmptySlots(true) < 1 then
+		player:sendCancelMessage(RETURNVALUE_NOTENOUGHROOM)
+		return false
+	end
+	if not ignoreCap and player:getFreeCapacity() < itemType:getWeight(amount) then
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'You don\'t have enough cap.')
 	end
 	if not player:removeMoneyNpc(items[item].buyPrice * amount) then
 		selfSay("You don't have enough money.", cid)
 	else
-		player:addItem(ittype:getId(), amount)
-
+		player:addItem(itemType:getId(), amount, true, subType)
 		return player:sendTextMessage(MESSAGE_INFO_DESCR, 'Bought '..amount..'x '..items[item].realName..' for '..items[item].buyPrice * amount..' gold coins.')
 	end
 	return true
@@ -1045,7 +1034,7 @@ local function creatureSayCallback(cid, type, msg)
 		elseif msgcontains(msg, "stash") then
 			if hireling:hasSkill(HIRELING_SKILLS.STEWARD) then
 				npcHandler:say(GREETINGS.STASH, cid)
-				openPlayerStash(cid)
+				player:OpenStash()
 			else
 				sendSkillNotLearned(cid, HIRELING_SKILLS.STEWARD)
 			end

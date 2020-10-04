@@ -143,6 +143,75 @@ TileAction = {
 		itemId = 406,
 		itemPos = {{x = 32068, y = 31880, z = 6}}
 	},
+	-- The cursed crystal medusa message
+	[25018] = {
+		itemId = 104,
+		itemPos = {
+			{x = 32017, y = 32917, z = 10},
+			{x = 32017, y = 32918, z = 10}
+		}
+	},
+	-- The queen of the banshees quest
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(1)-first_seal_teleport_back.lua
+	[25019] = {
+		itemId = 9023,
+		itemPos = {
+			{x = 32265, y = 31898, z = 12},
+			{x = 32266, y = 31898, z = 12},
+			{x = 32267, y = 31898, z = 12}
+		}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(5)-fifth_seal_path.lua
+	[25020] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32187, y = 31937, z = 14},
+			{x = 32188, y = 31937, z = 14},
+			{x = 32188, y = 31938, z = 14},
+			{x = 32189, y = 31938, z = 14},
+			{x = 32189, y = 31939, z = 14},
+			{x = 32189, y = 31940, z = 14},
+			{x = 32190, y = 31940, z = 14},
+			{x = 32191, y = 31939, z = 14},
+			{x = 32191, y = 31938, z = 14}
+		}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(5)-fifth_seal_path.lua
+	[25021] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32187, y = 31936, z = 14},
+			{x = 32188, y = 31936, z = 14},
+			{x = 32189, y = 31936, z = 14},
+			{x = 32190, y = 31936, z = 14},
+			{x = 32191, y = 31936, z = 14},
+			{x = 32189, y = 31937, z = 14},
+			{x = 32190, y = 31937, z = 14},
+			{x = 32191, y = 31937, z = 14},
+			{x = 32187, y = 31938, z = 14},
+			{x = 32190, y = 31938, z = 14},
+			{x = 32187, y = 31939, z = 14},
+			{x = 32188, y = 31939, z = 14},
+			{x = 32190, y = 31939, z = 14},
+			{x = 32187, y = 31940, z = 14},
+			{x = 32188, y = 31940, z = 14},
+			{x = 32189, y = 31940, z = 14},
+			{x = 32191, y = 31940, z = 14}
+		}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(4)-fourth_seal_sacrifice.lua
+	[25022] = {
+		itemId = 425,
+		itemPos = {{x = 32243, y = 31892, z = 14}}
+	},
+	-- Path: data\scripts\movements\quests\the_queen_of_the_banshees\movement(3)-third_seal_warlock_tile.lua
+	[25023] = {
+		itemId = 426,
+		itemPos = {
+			{x = 32215, y = 31838, z = 15},
+			{x = 32216, y = 31838, z = 15}
+		}
+	}
 }
 
 TileUnique = {
@@ -181,6 +250,10 @@ TileUnique = {
 		itemId = 23808,
 		itemPos = {x = 33077, y = 32298, z = 9}
 	},
+	[25010] = {
+		itemId = 426,
+		itemPos = {x = 32225, y = 32268, z = 9}
+	},
 
 	-- Remove/create item on stepIn
 	-- Reserved uniques range from 29001/30000
@@ -191,5 +264,18 @@ TileUnique = {
 		itemPos = {x = 32770, y = 32282, z = 10},
 		targetPos = {x = 32771, y = 32297, z = 10},
 		targetItem = 387
+	},
+	-- Draconia quest
+	[29002] = {
+		itemId = 426,
+		itemPos = {x = 32810, y = 31595, z = 5},
+		targetPos = {x = 32796, y = 31594, z = 5},
+		targetItem = 1025
+	},
+	[29003] = {
+		itemId = 426,
+		itemPos = {x = 32794, y = 31595, z = 5},
+		targetPos = {x = 32796, y = 31576, z = 5},
+		targetItem = 1025
 	}
 }

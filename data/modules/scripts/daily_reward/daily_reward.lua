@@ -1,7 +1,8 @@
 DailyRewardSystem = {
-	Developer = "Westwol",
-	Version = "1.1",
-	lastUpdate = "04/06/2019 - 01:00"
+	Developer = "Westwol, Marcosvf132",
+	Version = "1.2",
+	lastUpdate = "26/09/2020 - 02:00",
+	ToDo = "Move this system to CPP"
 }
 
 local ServerPackets = {
@@ -11,7 +12,7 @@ local ServerPackets = {
 	CloseRewardWall = 0xE3, -- is it necessary?
 	DailyRewardBasic = 0xE4, -- Done
 	DailyRewardHistory = 0xE5, -- Done
-	RestingAreaState = 0xA9 -- unodne
+	-- RestingAreaState = 0xA9 -- Moved to cpp
 }
 
 local ClientPackets = {
@@ -58,6 +59,14 @@ local DAILY_REWARD_SYSTEM_TYPE_XP_BOOST = 3
 local DAILY_REWARD_STATUS_FREE = 0
 local DAILY_REWARD_STATUS_PREMIUM = 1
 
+local DailyRewardItems = {
+	[0] = {7618, 7620}, -- God/no vocation character
+	[VOCATION.CLIENT_ID.PALADIN] = {7618, 7588, 7620, 7589, 8472, 26030, 2316, 2274, 2291, 2266, 2310, 2262, 2277, 2313, 2305, 2301, 2303, 2302, 2304, 2271, 2265, 2293, 2286, 2289, 2308, 2288, 2268, 2315},
+	[VOCATION.CLIENT_ID.DRUID] = {7618, 7620, 7589, 7590, 26029, 2316, 2274, 2291, 2266, 2310, 2262, 2277, 2313, 2305, 2301, 2303, 2302, 2269, 2304, 2271, 2265, 2293, 2286, 2289, 2308, 2288, 2268, 2315},
+	[VOCATION.CLIENT_ID.SORCERER] = {7618, 7620, 7589, 7590, 26029, 2316, 2274, 2291, 2266, 2310, 2262, 2277, 2313, 2305, 2301, 2303, 2302, 2304, 2271, 2265, 2293, 2286, 2289, 2308, 2288, 2268, 2315},
+	[VOCATION.CLIENT_ID.KNIGHT] = {7618, 7588, 7591, 8473, 26031, 7620, 2316, 2274, 2291, 2266, 2310, 2262, 2277, 2313, 2305, 2301, 2303, 2302, 2304, 2271, 2265, 2293, 2286, 2289, 2308, 2288, 2268, 2315},
+}
+
 DailyReward = {
 	testMode = false,
 	serverTimeThreshold = (24 * 60 * 60), -- Counting down 24hours from last server save
@@ -65,7 +74,7 @@ DailyReward = {
 	storages = {
 		-- Player
 		currentDayStreak = 14897,
-		currentStreakLevel = 14898,
+		currentStreakLevel = 14898, -- Cpp uses the same storage value on const.h (STORAGEVALUE_DAILYREWARD)
 		nextRewardTime = 14899,
 		collectionTokens = 14901,
 		staminaBonus = 14902,
@@ -91,81 +100,46 @@ DailyReward = {
 		[1] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = {
-				items = {7618, 7588, 7620, 7589, 8472, 2290, 2266, 2310, 2277, 2301, 2265},
-				itemsToPick = 5
-			},
-			premiumAccount = {
-				items = {7618, 7588, 7620, 7589, 8472, 2290, 2266, 2310, 2277, 2301, 2265},
-				itemsToPick = 10
-			}
+			freeAccount = 5,
+			premiumAccount = 10
 		},
 		[2] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = {
-				items = {7618, 7588, 7620, 7589, 8472, 2290, 2266, 2310, 2277, 2301, 2265},
-				itemsToPick = 5
-			},
-			premiumAccount = {
-				items = {7618, 7588, 7620, 7589, 8472, 2290, 2266, 2310, 2277, 2301, 2265},
-				itemsToPick = 10
-			}
+			freeAccount = 5,
+			premiumAccount = 10
 		},
 		[3] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_TWO,
-			freeAccount = {
-				rerollCount = 1
-			},
-			premiumAccount = {
-				rerollCount = 2
-			}
+			freeAccount = 1,
+			premiumAccount = 2
 		},
 		[4] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = {
-				items = {7618, 7588, 7620, 7589, 8472, 2290, 2266, 2310, 2277, 2301, 2265},
-				itemsToPick = 10
-			},
-			premiumAccount = {
-				items = {7618, 7588, 7620, 7589, 8472, 2290, 2266, 2310, 2277, 2301, 2265},
-				itemsToPick = 20
-			}
+			freeAccount = 10,
+			premiumAccount = 20
 		},
 		[5] = {
 			type = DAILY_REWARD_TYPE_PREY_REROLL,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_TWO,
-			freeAccount = {
-				rerollCount = 1
-			},
-			premiumAccount = {
-				rerollCount = 2
-			}
+			freeAccount = 1,
+			premiumAccount = 2
 		},
 		[6] = {
 			type = DAILY_REWARD_TYPE_ITEM,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_ONE,
-			freeAccount = {
-				items = {32124, 32125, 32126, 32127, 32128, 32129},
-				itemsToPick = 1
-			},
-			premiumAccount = {
-				items = {32124, 32125, 32126, 32127, 32128, 32129},
-				itemsToPick = 2
-			},
+			items = {32124, 32125, 32126, 32127, 32128, 32129},
+			freeAccount = 1,
+			premiumAccount = 2,
 			itemCharges = 50
 		},
 		[7] = {
 			type = DAILY_REWARD_TYPE_XP_BOOST,
 			systemType = DAILY_REWARD_SYSTEM_TYPE_TWO,
-			freeAccount = {
-				xpminutes = 10
-			},
-			premiumAccount = {
-				xpminutes = 30
-			}
+			freeAccount = 10,
+			premiumAccount = 30
 		}
 		-- Storage reward template
 		--[[[5] = {
@@ -268,7 +242,7 @@ DailyReward.loadDailyReward = function(playerId, source)
 	player:sendCollectionResource(player:getCollectionTokens())
 	player:sendDailyReward()
 	player:sendOpenRewardWall(source)
-	player:sendDailyRewardCollectionState(false)
+	player:sendDailyRewardCollectionState(0)
 	return true
 end
 
@@ -303,7 +277,11 @@ end
 
 function Player.iterateTest(self)
 	local dailyTable = DailyReward.rewards[5]
-	local reward = dailyTable.premiumAccount
+	local reward = DailyRewardItems[self:getVocation():getClientId()]
+
+	if not(reward) then
+		reward = {}
+	end
 
 	for i = 1, #reward.things do
 		for j = 1, #reward.things[i].storages do
@@ -324,42 +302,13 @@ DailyReward.isRewardTaken = function(playerId)
 	return false
 end
 
-DailyReward.updateDailyRewardStats = function(playerId, zone)
-	local player = Player(playerId)
-
-	if not player then
-		return false
-	end
-
-	local normal, protected = 0, 1
-	local disabled, active = 0, 1
-
-	if player:getTile():hasFlag(TILESTATE_PROTECTIONZONE) then
-		if player:isRestingAreaBonusActive() then
-			player:loadDailyRewardBonuses()
-			--print(string.format("> %s loaded daily reward bonuses.", player:getName()))
-			player:sendRestingAreaState(protected, active)
-		else
-			player:sendRestingAreaState(protected, disabled)
-		end
-	else
-		player:disableDailyRewardBonuses()
-		player:sendRestingAreaState(normal, player:isRestingAreaBonusActive())
-	end
-
-end
-
 DailyReward.init = function(playerId)
 	local player = Player(playerId)
 
 	if not player then
 		return false
 	end
-
-	local rewardTime = player:getNextRewardTime() + DailyReward.serverTimeThreshold + 60 -- 1 minutes timegrace
-	local nextServerSave = Game.getLastServerSave() + DailyReward.serverTimeThreshold
-
-	if rewardTime < nextServerSave then
+	if player:getNextRewardTime() < Game.getLastServerSave() then
 		if player:getStorageValue(DailyReward.storages.notifyReset) ~= Game.getLastServerSave() then
 			player:setStreakLevel(0)
 			player:setStorageValue(DailyReward.storages.notifyReset, Game.getLastServerSave())
@@ -368,14 +317,22 @@ DailyReward.init = function(playerId)
 			end
 		end
 	end
-
-	DailyReward.updateDailyRewardStats(playerId)
+	-- Daily reward golden icon
+	if DailyReward.isRewardTaken(player:getId()) then
+		player:sendDailyRewardCollectionState(0)
+	else
+		player:sendDailyRewardCollectionState(1)
+	end
+	player:loadDailyRewardBonuses()
 end
 
 DailyReward.processReward = function(playerId, source)
 	DailyReward.pickedReward(playerId)
 	DailyReward.loadDailyReward(playerId, source)
-	DailyReward.updateDailyRewardStats(playerId)
+	local player = Player(playerId)
+	if player then
+		player:loadDailyRewardBonuses()
+	end
 	return true
 end
 
@@ -383,18 +340,20 @@ function Player.sendOpenRewardWall(self, shrine)
 	local msg = NetworkMessage()
 	msg:addByte(ServerPackets.OpenRewardWall) -- initial packet
 	msg:addByte(shrine) -- isPlayer taking bonus from reward shrine (1) - taking it from a instant bonus reward (0)
-	if DailyReward.testMode then
+	if DailyReward.testMode or not(DailyReward.isRewardTaken(self:getId())) then
 		msg:addU32(0)
 	else
-		msg:addU32(self:getNextRewardTime())
+		msg:addU32(Game.getLastServerSave() + DailyReward.serverTimeThreshold)
 	end
 	msg:addByte(self:getDayStreak()) -- current reward? day = 0, day 1, ... this should be resetted to 0 every week imo
-	local dailyReward_taken = 0 -- 0 / 1 / 2
-	msg:addByte(dailyReward_taken) -- state (player already took reward? but just make sure noone wpe)
-	if dailyReward_taken ~= 0 then
-		msg:addString("Sorry, you have already taken your daily reward or you are unable to collect it.")
+	if DailyReward.isRewardTaken(self:getId()) then -- state (player already took reward? but just make sure noone wpe)
+		msg:addByte(1)
+		msg:addString("Sorry, you have already taken your daily reward or you are unable to collect it.") -- Unknown message
+		msg:addU32(0) --timeLeft to pickUp reward without loosing streak
+	else
+		msg:addByte(0)
+		msg:addU32(Game.getLastServerSave() + DailyReward.serverTimeThreshold) --timeLeft to pickUp reward without loosing streak
 	end
-	msg:addU32(0) --timeLeft to pickUp reward without loosing streak//this should be 0 if reward has been already picked
 	msg:addU16(self:getStreakLevel()) -- day strike
 	msg:addU16(24) -- unknown
 	msg:sendToPlayer(self)
@@ -417,7 +376,7 @@ function Player.selectDailyReward(self, msg)
 		return false
 	end
 
-	local source = msg:getByte() -- 1 -> shrine / 0 -> tibia panel
+	local source = msg:getByte() -- 0 -> shrine / 1 -> tibia panel
 	if not DailyReward.isShrine(source) then
 		if self:getCollectionTokens() < 1 then
 			self:sendError("You do not have enough collection tokens to proceed.")
@@ -452,9 +411,9 @@ function Player.selectDailyReward(self, msg)
 		end
 
 		if self:isPremium() then
-			count = dailyTable.premiumAccount.itemsToPick
+			count = dailyTable.premiumAccount
 		else
-			count = dailyTable.freeAccount.itemsToPick
+			count = dailyTable.freeAccount
 		end
 
 		if counter > count then
@@ -499,49 +458,35 @@ function Player.selectDailyReward(self, msg)
 		reward = dailyTable.freeAccount
 	end
 
-	if (dailyTable.type == DAILY_REWARD_TYPE_STORAGE) then
-		local description = ""
-		for i = 1, #reward.things do
-			for j = 1, #reward.things[i].storages do
-				self:setStorageValue(reward.things[i].storages[j].storageId, reward.things[i].storages[j].value)
-			end
-			if i ~= #reward.things then
-				description = description .. reward.things[i].name .. ", "
-			else
-				description = description .. reward.things[i].name .. "."
-			end
-		end
-		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
-			" .. self:getDayStreak() + 1 .. ". Picked reward: " .. description)
-		DailyReward.processReward(playerId, source)
-	end
+	-- if (dailyTable.type == DAILY_REWARD_TYPE_STORAGE) then
+		-- local description = ""
+		-- for i = 1, #reward.things do
+			-- for j = 1, #reward.things[i].storages do
+				-- self:setStorageValue(reward.things[i].storages[j].storageId, reward.things[i].storages[j].value)
+			-- end
+			-- if i ~= #reward.things then
+				-- description = description .. reward.things[i].name .. ", "
+			-- else
+				-- description = description .. reward.things[i].name .. "."
+			-- end
+		-- end
+		-- DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
+			-- " .. self:getDayStreak() + 1 .. ". Picked reward: " .. description)
+		-- DailyReward.processReward(playerId, source)
+	-- end
 
 	if (dailyTable.type == DAILY_REWARD_TYPE_XP_BOOST) then
-
-		--[[local window = ModalWindow {
-			title = 'Warning',
-			message = 'You still have 20 minutes XP Boost from a previous daily reward left. \z
-				If you claim your daily reward now, you will lose this remaining time.'
-		}
-		window:addButton('Ok', function(button, choice)
-			DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
-				" .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward.xpminutes .. " minutes.")
-			DailyReward.processReward(playerId, source)
-		end)
-		window:addButton('Cancel')
-		window:sendToPlayer(self)]]
-
-		self:setExpBoostStamina(self:getExpBoostStamina() + (reward.xpminutes * 60))
+		self:setExpBoostStamina(self:getExpBoostStamina() + (reward * 60))
 		self:setStoreXpBoost(50)
 		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
-			" .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward.xpminutes .. " minutes.")
+			" .. self:getDayStreak() + 1 .. ". Picked reward: XP Bonus for " .. reward .. " minutes.")
 		DailyReward.processReward(playerId, source)
 	end
 
 	if (dailyTable.type == DAILY_REWARD_TYPE_PREY_REROLL) then
-		self:setPreyBonusRerolls(self:getPreyBonusRerolls() + reward.rerollCount)
+		self:setPreyBonusRerolls(self:getPreyBonusRerolls() + reward)
 		DailyReward.insertHistory(self:getGuid(), self:getDayStreak(), "Claimed reward no. \z
-			" .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward.rerollCount .. "x Prey bonus reroll(s)")
+			" .. self:getDayStreak() + 1 .. ". Picked reward: " .. reward .. "x Prey bonus reroll(s)")
 		DailyReward.processReward(playerId, source)
 	end
 
@@ -553,20 +498,6 @@ function Player.sendError(self, error)
 	msg:addByte(ServerPackets.ShowDialog)
 	msg:addByte(0x14)
 	msg:addString(error)
-	msg:sendToPlayer(self)
-end
-
-function Player.sendRestingAreaState(self, zone, state)
-	local msg = NetworkMessage()
-
-	msg:addByte(ServerPackets.RestingAreaState)
-	msg:addByte(zone) -- [1 if protection zone, 0 if not]
-	msg:addByte(state) -- [inactive = 0, active = 1]
-	if state == 1 then
-		msg:addString("Within Resting Area")
-	else
-		msg:addString("Resting Area (no active bonus)")
-	end
 	msg:sendToPlayer(self)
 end
 
@@ -601,18 +532,42 @@ function Player.readDailyReward(self, msg, currentDay, state)
 	local dailyTable = DailyReward.rewards[currentDay]
 	local type, systemType = dailyTable.type, dailyTable.systemType
 	local rewards = nil
-	if (state == DAILY_REWARD_STATUS_FREE) then
-		rewards = dailyTable.freeAccount
+	local itemsToPick = 0
+	if currentDay == 3 or (currentDay >= 5 and currentDay <= 7) then
+		rewards = dailyTable.items
+		if (state == DAILY_REWARD_STATUS_FREE) then
+			itemsToPick = dailyTable.freeAccount
+		else
+			itemsToPick = dailyTable.premiumAccount
+		end
 	else
-		rewards = dailyTable.premiumAccount
+		if systemType == 1 then
+			if (state == DAILY_REWARD_STATUS_FREE) then
+				rewards = DailyRewardItems[self:getVocation():getClientId()]
+				itemsToPick = dailyTable.freeAccount
+			else
+				rewards = DailyRewardItems[self:getVocation():getClientId()]
+				itemsToPick = dailyTable.premiumAccount
+			end
+
+			if not(rewards) then
+				rewards = {}
+			end
+		else
+			if (state == DAILY_REWARD_STATUS_FREE) then
+				rewards = dailyTable.freeAccount
+			else
+				rewards = dailyTable.premiumAccount
+			end
+		end
 	end
 	msg:addByte(systemType)
 	if (systemType == 1) then
 		if (type == DAILY_REWARD_TYPE_ITEM) then
-			msg:addByte(rewards.itemsToPick)
-			msg:addByte(#rewards.items)
-			for i = 1, #rewards.items do
-				local itemId = rewards.items[i]
+			msg:addByte(itemsToPick)
+			msg:addByte(#rewards)
+			for i = 1, #rewards do
+				local itemId = rewards[i]
 				local itemType = ItemType(itemId)
 				local itemName = itemType:getArticle() .. " " .. getItemName(itemId)
 				local itemWeight = itemType:getWeight()
@@ -623,21 +578,21 @@ function Player.readDailyReward(self, msg, currentDay, state)
 		end
 	elseif (systemType == 2) then
 		if (type == DAILY_REWARD_TYPE_STORAGE) then
-			msg:addByte(#rewards.things)
-			for i = 1, #rewards.things do
-				msg:addByte(DAILY_REWARD_SYSTEM_TYPE_OTHER) -- type
-				msg:addU16(rewards.things[i].id * 100)
-				msg:addString(rewards.things[i].name)
-				msg:addByte(rewards.things[i].quantity)
-			end
+			-- msg:addByte(#rewards.things)
+			-- for i = 1, #rewards.things do
+				-- msg:addByte(DAILY_REWARD_SYSTEM_TYPE_OTHER) -- type
+				-- msg:addU16(rewards.things[i].id * 100)
+				-- msg:addString(rewards.things[i].name)
+				-- msg:addByte(rewards.things[i].quantity)
+			-- end
 		elseif (type == DAILY_REWARD_TYPE_PREY_REROLL) then
 			msg:addByte(DAILY_REWARD_SYSTEM_SKIP)
 			msg:addByte(DAILY_REWARD_SYSTEM_TYPE_PREY_REROLL)
-			msg:addByte(rewards.rerollCount)
+			msg:addByte(itemsToPick)
 		elseif (type == DAILY_REWARD_TYPE_XP_BOOST) then
 			msg:addByte(DAILY_REWARD_SYSTEM_SKIP)
 			msg:addByte(DAILY_REWARD_SYSTEM_TYPE_XP_BOOST)
-			msg:addU16(rewards.xpminutes)
+			msg:addU16(itemsToPick)
 		end
 	end
 end
@@ -659,124 +614,4 @@ function Player.sendDailyReward(self)
 	end
 	msg:addByte(1) -- Unknown
 	msg:sendToPlayer(self)
-end
-
-local items = {}
-local function sendItemChoose(player, items, current)
-
-	local playerId = player:getId()
-
-	local dailyTable = DailyReward.rewards[player:getDayStreak() + 1]
-	if not dailyTable then
-		self:sendError("Something went wrong and we cannot process this request.")
-		return false
-	end
-
-	if player:isPremium() then
-		rewards = dailyTable.premiumAccount
-	else
-		rewards = dailyTable.freeAccount
-	end
-
-	local window = ModalWindow {
-		title = 'Daily Reward Wall',
-		message = 'Please choose '.. rewards.itemsToPick ..' items of the list.'
-	}
-
-	if not items.table then
-		items.table = {} -- empty table
-		for i = 1, #rewards.items do
-			local itemId = rewards.items[i]
-			local itemType = ItemType(itemId)
-			local itemName = itemType:getArticle() .. " " .. getItemName(itemId)
-			items.table[i] = {
-				id = i,
-				itemId = itemId,
-				itemName = itemName,
-				amount = 0
-			}
-		end
-	else
-		items.table = items.table
-	end
-
-	-- Adding choices
-	for i = 1, #items.table do
-		local id = items.table[i].itemId
-		local name = items.table[i].itemName
-		local itemId = items.table[i].id
-		local amount = items.table[i].amount
-		local choice = window:addChoice(name .. " : " .. amount)
-		choice.id = id
-	end
-
-	local currentCount = 0
-	for i = 1, #items.table do
-		local count = items.table[i].amount
-		currentCount = currentCount + count
-	end
-
-	local remainingItems = rewards.itemsToPick - currentCount
-
-	window:addButton('<', function(button, choice)
-		items.table[choice.id].amount = math.max(0, items.table[choice.id].amount - 1)
-		sendItemChoose(player, items, choice)
-	end)
-
-	window:addButton('|>>', function(button, choice)
-		items.table[choice.id].amount = math.max(0, items.table[choice.id].amount + remainingItems)
-		sendItemChoose(player, items, choice)
-	end)
-
-
-	window:addButton('Confirm', function(button, choice)
-
-		if currentCount ~= rewards.itemsToPick then
-			sendItemChoose(player, items, choice)
-			return false
-		end
-
-		local descount, totalCap = 0, 0
-		for i = 1, #items.table do
-			local item = items.table[i]
-			local count = item.amount
-			if count ~= 0 then
-				descount = descount + 1
-				totalCap = totalCap + ItemType(item.itemId):getWeight(count)
-			end
-		end
-
-		if player:getFreeCapacity() < totalCap then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You do not have enough capacity to claim the reward.")
-			return false
-		end
-
-		local inbox = player:getSlotItem(CONST_SLOT_STORE_INBOX)
-		if inbox and inbox:getEmptySlots() < descount then
-			player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Please make sure you have free slots in your store inbox.")
-			return false
-		end
-
-		local description = ""
-		local j = 1
-		for i = 1, #items.table do
-			local item = items.table[i]
-			local count = item.amount
-			if count ~= 0 then
-				inbox:addItem(item.itemId, count)
-				if j ~= descount then
-					description = description .. "" .. item.amount .. "x " .. getItemName(item.itemId) .. ", "
-				else
-					description = description .. "" .. item.amount .. "x " .. getItemName(item.itemId) .. "."
-				end
-				j = j + 1
-			end
-		end
-		player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have claimed " .. description)
-		DailyReward.insertHistory(player:getGuid(), player:getDayStreak(), "Claimed reward no. \z
-			" .. player:getDayStreak() + 1 .. ". Picked items: " .. description)
-		DailyReward.pickedReward(playerId)
-	end)
-	window:addButton('Abort')
-	window:sendToPlayer(player)
 end

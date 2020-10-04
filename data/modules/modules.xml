@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modules>
 	<!-- Bestiary -->
+	<module type="recvbyte" byte="42" script="bestiary/bestiary.lua"/> <!-- Tracker -->
 	<module type="recvbyte" byte="225" script="bestiary/bestiary.lua" />
 	<module type="recvbyte" byte="226" script="bestiary/bestiary.lua" />
 	<module type="recvbyte" byte="227" script="bestiary/bestiary.lua" />
@@ -16,20 +17,15 @@
 	<module type="recvbyte" byte="253" script="gamestore/gamestore.lua"/>
 	<module type="recvbyte" byte="254" script="gamestore/gamestore.lua"/>
 
-	<!-- EquipObject -->
-	<module type="recvbyte" byte="119" delay="1000" script="equip_object/equip_object.lua"/>
-
-	<!-- QuickLoot -->
-	<module type="recvbyte" byte="143" script="quickloot/quickloot.lua"/>
-	<module type="recvbyte" byte="144" script="quickloot/quickloot.lua"/>
-	<module type="recvbyte" byte="145" script="quickloot/quickloot.lua"/>
-
 	<!-- Prey System -->
 	<module type="recvbyte" byte="235" script="prey_system/prey.lua" />
 	<module type="recvbyte" byte="237" script="prey_system/prey.lua" />
 
 	<!-- Blessings -->
 	<module type="recvbyte" byte="207" script="blessings/blessings.lua" />
+
+	<!-- Quest Tracking -->
+	<module type="recvbyte" byte="208" script="questtrack/questtrack.lua"/>
 
 	<!-- Cults of Tibia -->
 	<module type="recvbyte" byte="15" script="cults_of_tibia/death.lua" />

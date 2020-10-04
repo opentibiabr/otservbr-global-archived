@@ -113,7 +113,7 @@ Storage = {
 	ExerciseDummyExhaust = 30029,
 	SamsOldBackpack = 30030,
 	SamsOldBackpackDoor = 30031,
-	CupCake = 30032,
+	StrawberryCupcake = 30032,
 	ChayenneReward = 30033,
 	SwampDiggingTimeout = 30034,
 	HydraEggQuest = 30035,
@@ -132,6 +132,9 @@ Storage = {
 	Navigator = 30048,
 	DwarvenLegs = 30049,
 	PrinceDrazzakTime = 30050,
+	StoreExaust = 30051,
+	LemonCupcake = 30052,
+	BlueberryCupcake = 30053,
 	--[[
 	Old storages
 	Over time, this will be dropped and replaced by the table above
@@ -441,7 +444,8 @@ Storage = {
 	},
 	Grimvale = {
 		-- Reserved storage from 50380 - 50399
-		SilverVein = 50380
+		SilverVein = 50380,
+		WereHelmetEnchant = 50381
 	},
 	HeroRathleton = {
 		-- Reserved storage from 50400 - 50419
@@ -1272,6 +1276,11 @@ Storage = {
 			Sister = 51527,
 			Statue = 51528,
 			LastMissionState = 51529
+		},
+	TheCursedCrystal = {
+		Oneeyedjoe = 51530, 
+		MedusaOil = 51531,
+		Questline = 51532
 		}
 	},
 	TheShatteredIsles = {
@@ -1322,18 +1331,6 @@ Storage = {
 		TiquandasRevengeTeleport = 51615,
 		MissionDemodras = 51616,
 		DemodrasTeleport = 51617
-	},
-	QueenOfBanshees = {
-		-- Reserved storage from 51630 - 51649
-		FirstSeal = 51630,
-		SecondSeal = 51631,
-		ThirdSeal = 51632,
-		FourthSeal = 51633,
-		FifthSeal = 51634,
-		SixthSeal = 51635,
-		LastSeal = 51636,
-		ThirdSealWarlocks = 51637,
-		KissDoor = 51638
 	},
 	HotCuisineQuest = {
 		-- Reserved storage from 51650 - 51659
@@ -1460,7 +1457,8 @@ Storage = {
 		-- Reserved storage from 52030 - 52039
 		QuestLog = 52030,
 		Passage = 52031,
-		Diary = 52032
+		Diary = 52032,
+		Door = 52033
 	},
 	FathersBurden = {
 		-- Reserved storage from 52040 - 52059
@@ -1664,7 +1662,10 @@ Storage = {
 	GraveDanger = {
 		-- Reserved storage from 52310 - 52339
 		Questline = 52310,
-		ScarlettEtzel = 52311
+		CobraBastion = {
+			Questline = 52311,
+			ScarlettTimer = 52312
+		}
 	},
 	RottinWoodAndMaried = {
 		-- Reserved storage from 52340 - 52349
@@ -1685,6 +1686,9 @@ Storage = {
 	-- News quest development
 	-- New storages
 	Quest = {
+		SimpleChest = {
+			FamilyBrooch = 9000
+		},
 		-- update pre-6.0
 		DeeperFibula = {
 			Key3980 = 10000,
@@ -1701,44 +1705,155 @@ Storage = {
 		ShortSword = {
 			Book = 10008
 		},
-		ThaisLighthouse = {},
+		ThaisLighthouse = {
+			BattleHammer = 10009,
+			DarkShield = 10010
+		},
 		-- update 6.0
-		StuddedShield = {},
+		StuddedShield = {
+			BananaFree = 10011,
+			BananaPremium = 10012
+		},
 		-- update 6.1
-		EmperorsCookies = {},
-		ExplorerBrooch = {},
-		OrcFortress = {},
+		EmperorsCookies = {
+			Key3800 = 10013,
+			Key3801 = 10014,
+			Key3802 = 10015,
+			RopeReward = 10016,
+		},
+		ExplorerBrooch = {
+			Reward = 10017
+		},
+		OrcFortress = {
+			KnightAxe = 10018,
+			KnightArmor = 10019,
+			FireSword = 10020
+		},
 		Panpipe = {
-			Key4055Reward = 11000
+			Key4055 = 10021,
+			Reward = 10022
 		},
 		-- update 6.2
-		Draconia = {},
+		Draconia = {
+			Reward1 = 10023,
+			Reward2 = 10024
+		},
 		-- update 6.4
-		AdornedUHRune = {},
-		BarbarianAxe = {},
-		BerserkerTreasure = {},
-		DarkArmor = {},
-		DemonHelmet = {},
-		DoubleHero = {},
-		EdronGoblin = {},
-		FireAxe = {},
-		PoisonDaggers = {},
-		Ring = {},
-		ShamanTreasure = {},
-		StrongPotions = {},
-		TrollCave = {},
-		VampireShield = {},
-		WeddingRing = {},
+		AdornedUHRune = {
+			Reward = 10025
+		},
+		BarbarianAxe = {
+			BarbarianAxe = 10026,
+			Scimitar = 10027
+		},
+		BerserkerTreasure = {
+			Reward = 10028
+		},
+		DarkArmor = {
+			Reward = 10029
+		},
+		DemonHelmet = {
+			SteelBoots = 10030,
+			DemonHelmet = 10031,
+			DemonShield = 10032
+		},
+		DoubleHero = {
+			RedGem = 10033,
+			ClubRing = 10034
+		},
+		EdronGoblin = {
+			SilverAmulet = 10035,
+			SteelShield = 10036
+		},
+		FireAxe = {
+			Bag = 10037,
+			FireAxe = 10038
+		},
+		PoisonDaggers = {
+			BackpackReward = 10039
+		},
+		Ring = {
+			TimeRing = 10040,
+			SwordRing = 10041
+		},
+		ShamanTreasure = {
+			Bag = 10042
+		},
+		StrongPotions = {
+			Reward = 10043
+		},
+		TrollCave = {
+			GarlicNecklace = 10044,
+			BrassLegs = 10045
+		},
+		VampireShield = {
+			Bag = 10046,
+			DragonLance = 10047,
+			VampireShield = 10048
+		},
+		WeddingRing = {
+			DragonNecklace = 10049,
+			WeedingRing = 10050
+		},
 		-- update 6.5
-		AlawarsVault = {},
+		AlawarsVault = {
+			WhitePearl = 10051,
+			Broadsword = 10052
+		},
 		-- update 7.1
-		BlackKnight = {},
-		DragonTower = {},
-		TimeRing = {},
+		BlackKnight = {
+			Key5010 = 10053,
+			CrownArmor = 10054,
+			CrownShield = 10055
+		},
+		DragonTower = {
+			Backpack1 = 10056,
+			Backpack2 = 10057
+		},
+		TimeRing = {
+			CrystallBall = 10058,
+			TimeRing = 10059,
+			ElvenAmulet = 10060
+		},
 		-- update 7.2
-		Behemoth = {},
-		ParchmentRoom = {},
-		TheQueenOfTheBanshees = {},
+		Behemoth = {
+			Bag = 10061,
+			GuardianHalberd = 10062,
+			DemonShield = 10063,
+			GoldenArmor = 10064
+		},
+		ParchmentRoom = {
+			Bag = 10065
+		},
+		TheQueenOfTheBanshees = {
+			Reward = {
+				StoneSkinAmulet = 10066,
+				StealthRing = 10067,
+				TowerShield = 10068,
+				GiantSword = 10069,
+				BootsOfHaste = 10070,
+				PlatinumCoin = 10071
+			},
+			QuestLine = 10072,
+			FirstSeal = 10073,
+			FirstSealDoor = 10074,
+			SecondSeal = 10075,
+			SecondSealDoor = 10076,
+			ThirdSeal = 10077,
+			ThirdSealDoor = 10078,
+			ThirdSealWarlocks = 10079,
+			FourthSeal = 10080,
+			FourthSealDoor = 10081,
+			FifthSeal = 10082,
+			FifthSealDoor = 10083,
+			FifthSealTile = 10084,
+			SixthSeal = 10085,
+			SixthSealDoor = 10086,
+			LastSeal = 10087,
+			LastSealDoor = 10088,
+			BansheeDoor = 10089,
+			FinalBattle = 10090
+		},
 		-- update 7.24
 		GiantSmithhammer = {},
 		MadMageRoom = {},
@@ -2032,7 +2147,8 @@ Storage = {
 		GraveDanger = {},
 		-- update 12.30
 		FeasterOfSouls = {},
-		PoltergeistOutfits = {}
+		PoltergeistOutfits = {},
+		Key4502 = 15000
 	}
 }
 
@@ -2175,7 +2291,9 @@ GlobalStorage = {
 	TheMummysCurse = 65008,
 	OberonEventTime = 65009,
 	PrinceDrazzakEventTime = 65010,
-	ScarlettEtzelEventTime = 65011
+	ScarlettEtzelEventTime = 65011,
+	CobraBastionFlask = 65012,
+	Inquisition = 65013
 }
 
 

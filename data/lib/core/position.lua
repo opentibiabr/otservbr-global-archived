@@ -73,37 +73,37 @@ function Position:isInRange(from, to)
 	return false
 end
 
-function Position:moveDownstairs()    
-    local swap = function (lhs, rhs)
-        lhs.x, rhs.x = rhs.x, lhs.x
-        lhs.y, rhs.y = rhs.y, lhs.y
-        lhs.z, rhs.z = rhs.z, lhs.z
-    end
+function Position:moveDownstairs()
+	local swap = function (lhs, rhs)
+		lhs.x, rhs.x = rhs.x, lhs.x
+		lhs.y, rhs.y = rhs.y, lhs.y
+		lhs.z, rhs.z = rhs.z, lhs.z
+	end
 
-    self.z = self.z + 1
+	self.z = self.z + 1
 
-    local defaultPosition = self + Position.directionOffset[DIRECTION_SOUTH]
+	local defaultPosition = self + Position.directionOffset[DIRECTION_SOUTH]
 	local tile = Tile(defaultPosition)
-	if not tile then return false end	
-	
-    if not tile:isWalkable(false, false, false, false, true) then
-        for direction = DIRECTION_NORTH, DIRECTION_NORTHEAST do
-            if direction == DIRECTION_SOUTH then
-                direction = DIRECTION_WEST
-            end
+	if not tile then return false end
 
-            local position = self + Position.directionOffset[direction]
+	if not tile:isWalkable(false, false, false, false, true) then
+		for direction = DIRECTION_NORTH, DIRECTION_NORTHEAST do
+			if direction == DIRECTION_SOUTH then
+				direction = DIRECTION_WEST
+			end
+
+			local position = self + Position.directionOffset[direction]
 			local newTile = Tile(position)
 			if not newTile then return false end
-			
-            if newTile:isWalkable(false, false, false, false, true) then
-                swap(self, position)
-                return self
-            end
-        end
-    end
-    swap(self, defaultPosition)
-    return self
+
+			if newTile:isWalkable(false, false, false, false, true) then
+				swap(self, position)
+				return self
+			end
+		end
+	end
+	swap(self, defaultPosition)
+	return self
 end
 
 function Position.getTile(self)
@@ -111,48 +111,48 @@ function Position.getTile(self)
 end
 
 function Position:compare(position)
-    return self.x == position.x and self.y == position.y and self.z == position.z
+	return self.x == position.x and self.y == position.y and self.z == position.z
 end
 
 function Position:isInRange(fromPosition, toPosition)
-    return (self.x >= fromPosition.x and self.y >= fromPosition.y and self.z >= fromPosition.z
-        and self.x <= toPosition.x and self.y <= toPosition.y and self.z <= toPosition.z)
+	return (self.x >= fromPosition.x and self.y >= fromPosition.y and self.z >= fromPosition.z
+		and self.x <= toPosition.x and self.y <= toPosition.y and self.z <= toPosition.z)
 end
 
-function getFreePosition(from, to)
-    local result, tries = Position(from.x, from.y, from.z), 0
-    repeat
-        local x, y, z = math.random(from.x, to.x), math.random(from.y, to.y), math.random(from.z, to.z)
-        result = Position(x, y, z)
-        tries = tries + 1
-        if tries >= 20 then
-            return result
-        end
-		
+function Position.getFreePosition(from, to)
+	local result, tries = Position(from.x, from.y, from.z), 0
+	repeat
+		local x, y, z = math.random(from.x, to.x), math.random(from.y, to.y), math.random(from.z, to.z)
+		result = Position(x, y, z)
+		tries = tries + 1
+		if tries >= 20 then
+			return result
+		end
+
 		local tile = Tile(result)
-		
-    until tile and tile:isWalkable(false, false, false, false, true)
-    return result
+
+	until tile and tile:isWalkable(false, false, false, false, true)
+	return result
 end
 
-function getFreeSand()
-    local from, to = ghost_detector_area.from, ghost_detector_area.to
-    local result, tries = Position(from.x, from.y, from.z), 0
-    repeat
-        local x, y, z = math.random(from.x, to.x), math.random(from.y, to.y), math.random(from.z, to.z)
-        result = Position(x, y, z)
-        tries = tries + 1
-        if tries >= 50 then
-            return result
-        end
-		
+function Position.getFreeSand()
+	local from, to = ghost_detector_area.from, ghost_detector_area.to
+	local result, tries = Position(from.x, from.y, from.z), 0
+	repeat
+		local x, y, z = math.random(from.x, to.x), math.random(from.y, to.y), math.random(from.z, to.z)
+		result = Position(x, y, z)
+		tries = tries + 1
+		if tries >= 50 then
+			return result
+		end
+
 		local tile = Tile(result)
-		
-    until tile and tile:isWalkable(false, false, false, false, true) and tile:getGround():getName() == "grey sand"
-    return result
+
+	until tile and tile:isWalkable(false, false, false, false, true) and tile:getGround():getName() == "grey sand"
+	return result
 end
 
-function getDirectionTo(pos1, pos2)
+function Position.getDirectionTo(pos1, pos2)
 	local dir = DIRECTION_NORTH
 	if (pos1.x > pos2.x) then
 		dir = DIRECTION_WEST
@@ -176,4 +176,80 @@ function getDirectionTo(pos1, pos2)
 		end
 	end
 	return dir
+end
+
+-- Checks if there is a creature in a certain position (position)
+-- If so, teleports to another position (teleportTo)
+function Position:hasCreature(position, teleportTo)
+	local creature = Tile(position):getTopCreature()
+	if creature then
+		creature:teleportTo(teleportTo, true)
+	end
+end
+
+--[[
+If the script have one lever and item to revert uses:
+Position.revertItem(createItemPosition, createItemId, tilePosition, itemTransform, itemId, effect)
+
+If not have lever, use only the first two variables
+Revert item: Position.revertItem(createItemPosition, createItemId)
+"effect" variable is optional
+]]
+function Position.revertItem(positionCreateItem, itemIdCreate, positionTransform, itemId, itemTransform, effect)
+	local tile = Tile(positionTransform)
+	if tile then
+		local lever = tile:getItemById(itemId)
+		if lever then
+			lever:transform(itemTransform)
+		end
+	end
+
+	local getItemTile = Tile(positionCreateItem)
+	if getItemTile then
+		local getItemId = getItemTile:getItemById(itemIdCreate)
+		if not getItemId then
+			Game.createItem(itemIdCreate, 1, positionCreateItem)
+			Position(positionCreateItem):sendMagicEffect(effect)
+		end
+	end
+end
+
+-- Position.transformItem(itemPosition, itemId, itemTransform, effect)
+-- Variable "effect" is optional
+function Position.transformItem(itemPosition, itemId, itemTransform, effect)
+	local thing = Tile(itemPosition):getItemById(itemId)
+	if thing then
+		thing:transform(itemTransform)
+		Position(itemPosition):sendMagicEffect(effect)
+	end
+end
+
+-- Position.createItem(tilePosition, itemId, effect)
+-- Variable "effect" is optional
+function Position.createItem(itemPosition, itemId, effect)
+	local tile = Tile(itemPosition)
+	if not tile then
+		return true
+	end
+
+	local thing = tile:getItemById(itemId)
+	if not thing then
+		Game.createItem(itemId, 1, itemPosition)
+		Position(itemPosition):sendMagicEffect(effect)
+	end
+end
+
+-- Position.removeItem(position, itemId, effect)
+-- Variable "effect" is optional
+function Position.removeItem(tilePosition, itemId, effect)
+	local tile = Tile(tilePosition)
+	if not tile then
+		return true
+	end
+
+	local thing = tile:getItemById(itemId)
+	if thing then
+		thing:remove()
+		Position(tilePosition):sendMagicEffect(effect)
+	end
 end

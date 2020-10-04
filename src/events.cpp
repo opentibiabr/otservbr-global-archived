@@ -126,7 +126,7 @@ bool Events::load()
 				info.playerOnRequestQuestLine = event;
 			} else if (methodName == "onStorageUpdate") {
 				info.playerOnStorageUpdate = event;
-			}else if (methodName == "onRemoveCount") {
+			} else if (methodName == "onRemoveCount") {
 				info.playerOnRemoveCount = event;
 			}else if (methodName == "canBeAppliedImbuement") {
 				info.playerCanBeAppliedImbuement = event;

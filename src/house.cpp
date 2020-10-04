@@ -460,6 +460,7 @@ void AccessList::parseList(const std::string& list)
 {
 	playerList.clear();
 	guildRankList.clear();
+	allowEveryone = false;
 	this->list = list;
 	if (list.empty()) {
 		return;
@@ -485,6 +486,8 @@ void AccessList::parseList(const std::string& list)
 			} else {
 				addGuildRank(line.substr(0, at_pos - 1), line.substr(at_pos + 1));
 			}
+		} else if (line == "*") {
+			allowEveryone = true;
 		} else if (line.find_first_of("!*?") != std::string::npos) {
 			// Remove regular expressions since they don't make much sense in houses
 			continue;
@@ -549,6 +552,10 @@ void AccessList::addGuildRank(const std::string& name, const std::string& guildN
 
 bool AccessList::isInList(const Player* player)
 {
+	if (allowEveryone) {
+		return true;
+	}
+
 	auto playerIt = playerList.find(player->getGUID());
 	if (playerIt != playerList.end()) {
 		return true;

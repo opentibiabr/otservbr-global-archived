@@ -161,8 +161,6 @@
 	<movevent event="StepIn" itemid="25331" script="quests/dangerous_depth/lava_damage.lua"/>
 	<movevent event="StepIn" actionid="57231" script="quests/dangerous_depth/lost_exiles.lua"/>
 	<movevent event="StepIn" actionid="57230" script="quests/dangerous_depth/warzone_entrance.lua"/>
-	<!-- demon helmet -->
-	<movevent event="StepIn" actionid="980" script="quests/demon_helmet/walls.lua"/>
 	<!-- demon oak -->
 	<movevent event="StepIn" itemid="8292" script="quests/demon_oak/area_damage.lua"/>
 	<movevent event="StepIn" uniqueid="9000" script="quests/demon_oak/entrance.lua"/>
@@ -170,12 +168,6 @@
 	<!-- devil helmet -->
 	<movevent event="StepIn" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
 	<movevent event="StepOut" uniqueid="65203" script="quests/devil_helmet/sewer.lua"/>
-	<!-- draconia -->
-	<movevent event="StepIn" actionid="4246" script="quests/draconia/escape.lua"/>
-	<movevent event="StepIn" actionid="4253" script="quests/draconia/exit.lua"/>
-	<movevent event="StepIn" fromaid="4247" toaid="4248" script="quests/draconia/fall.lua"/>
-	<movevent event="StepIn" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua"/>
-	<movevent event="StepOut" fromaid="4251" toaid="4252" script="quests/draconia/walls.lua"/>
 	<!-- dreamer challenge -->
 	<movevent event="StepIn" fromuid="2241" touid="2242" script="quests/dreamer_challenge/carrot.lua"/>
 	<movevent event="StepIn" actionid="9049" script="quests/dreamer_challenge/clock_tile.lua"/>
@@ -288,8 +280,6 @@
 	<movevent event="StepIn" pos="33498;32613;8" script="quests/nightmare_isles/teleport.lua"/>
 	<!-- exit -->
 	<movevent event="StepIn" fromaid="64103" toaid="64128" script="quests/nightmare_isles/teleport_ladder.lua"/>
-	<!-- parchment room -->
-	<movevent event="removeitem" actionid="60999" script="quests/parchment_room/parchment_room.lua"/>
 	<!-- pits of inferno -->
 	<movevent event="StepIn" fromaid="16772" toaid="16774" script="quests/pits_of_inferno/bazir_tile.lua"/>
 	<movevent event="StepIn" fromaid="50082" toaid="50083" script="quests/pits_of_inferno/bazir_tile.lua"/>
@@ -316,9 +306,9 @@
 	<movevent event="StepIn" actionid="25200" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" actionid="25300" script="quests/svargrond_arena/arena_pit.lua"/>
 	<movevent event="StepIn" fromuid="3264" touid="3266" script="quests/svargrond_arena/arena_trophy.lua"/>
-	<!-- thais lighthouse -->
-	<movevent event="StepIn" fromaid="50025" toaid="50026" script="quests/thais_lighthouse/thais_lighthouse.lua"/>
-	<movevent event="StepOut" actionid="50025" script="quests/thais_lighthouse/thais_lighthouse.lua"/>
+	<!-- the cursed crystal --> 
+	<movevent event="StepIn" actionid="35001" script="quests/the_cursed_crystal/StepIn_CursedCrystal.lua"/>
+	<movevent event="StepIn" actionid="25018" script="quests/the_cursed_crystal/StepIn_CursedCrystal.lua"/>
 	<!-- the ancient tombs -->
 	<movevent event="AddItem" tileitem="1" actionid="60626" script="quests/the_ancient_tombs/craft_helmet.lua"/>
 	<movevent event="StepIn" uniqueid="50138" script="quests/the_ancient_tombs/enter_ashmunrah_teleport_switche_done.lua"/>
@@ -354,20 +344,8 @@
 	<movevent event="StepIn" actionid="12135" script="quests/the_new_frontier/minotaur_boss.lua"/>
 	<movevent event="StepIn" actionid="8007" script="quests/the_new_frontier/trap.lua"/>
 	<movevent event="StepIn" actionid="8000" script="quests/the_new_frontier/wayout.lua"/>
-	<!-- the queen of the banshees -->
-	<movevent event="StepIn" uniqueid="50012" script="quests/the_queen_of_the_banshees/the_fifth_seal_flame.lua"/>
-	<movevent event="StepIn" fromaid="50014" toaid="50015" script="quests/the_queen_of_the_banshees/the_fifth_seal_path.lua"/>
-	<movevent event="StepIn" uniqueid="50004" script="quests/the_queen_of_the_banshees/the_first_seal_flame.lua"/>
-	<movevent event="StepIn" uniqueid="50014" script="quests/the_queen_of_the_banshees/the_fourth_seal_flame.lua"/>
-	<movevent event="AddItem" tileitem="1" uniqueid="50013" script="quests/the_queen_of_the_banshees/the_fourth_seal_sacrifice.lua"/>
-	<movevent event="StepIn" uniqueid="50022" script="quests/the_queen_of_the_banshees/the_last_flame.lua"/>
-	<movevent event="StepIn" uniqueid="50021" script="quests/the_queen_of_the_banshees/the_second_seal_flame.lua"/>
-	<movevent event="StepIn" actionid="50017" script="quests/the_queen_of_the_banshees/the_second_seal_pearl.lua"/>
-	<movevent event="StepIn" uniqueid="50011" script="quests/the_queen_of_the_banshees/the_sixth_seal_flame.lua"/>
-	<movevent event="StepIn" uniqueid="50020" script="quests/the_queen_of_the_banshees/the_third_seal_flame.lua"/>
-	<movevent event="StepIn" actionid="50016" script="quests/the_queen_of_the_banshees/the_third_seal_warlock_tile.lua"/>
 	<!-- the secret library -->
-	<movevent event="StepIn" fromaid="64007" toaid="64012" script="quests/the_secret_library/teleport.lua"/>
+	<movevent event="StepIn" fromaid="64007" toaid="64014" script="quests/the_secret_library/teleport.lua"/>
 	<!-- the sharttered isles  -->
 	<movevent event="StepIn" actionid="4000" script="quests/the_sharttered_isles/energy_barrier.lua"/>
 	<movevent event="StepIn" actionid="12585" script="quests/the_sharttered_isles/teleport.lua"/>

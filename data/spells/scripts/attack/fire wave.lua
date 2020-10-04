@@ -6,11 +6,10 @@ local area = createCombatArea(AREA_WAVE4, AREADIAGONAL_WAVE4)
 combat:setArea(area)
 
 function onGetFormulaValues(player, level, maglevel)
-	local min = (level / 5) + (maglevel * 1.2) + 7
+	local min = (level / 5) + (maglevel * 1.25) + 4
 	local max = (level / 5) + (maglevel * 2) + 12
 	return -min, -max
 end
-
 combat:setCallback(CALLBACK_PARAM_LEVELMAGICVALUE, "onGetFormulaValues")
 
 function onCastSpell(creature, var)

@@ -143,7 +143,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 
   # cmake -DCMAKE_BUILD_TYPE=Debug ..
   # Ubuntu 16.04
-  if(CMAKE_CXX_COMPILER_VERSION STREQUAL "5.4.0")
+  if(CMAKE_CXX_COMPILER_VERSION STREQUAL "5.4.0" OR CMAKE_CXX_COMPILER_VERSION STREQUAL "5.5.0")
     set(CMAKE_CXX_FLAGS_DEBUG   "-Wall -Wextra -Werror -pipe -O0 -g -Wconversion -Wlogical-op -Wold-style-cast -Wuseless-cast -Wdouble-promotion -Wshadow -Wformat=2 -Wno-error")
   else()
     # Ubuntu 18.04
