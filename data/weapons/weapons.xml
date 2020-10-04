@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <weapons>
-	<!-- diamond arrow -->
-	<distance id="2545" action="removecount" script="poison_arrow.lua" />
-	<!-- poison arrow -->
-	<distance id="2546" action="removecount" script="burst_arrow.lua" />
-	<!-- burst arrow -->
-	<distance id="7366" breakchance="9" script="viper_star.lua" />
-	<!-- viper star -->
-	<distance id="29057" action="removecount" unproperly="1" level="150" script="diamond_arrow.lua" />
 </weapons>
