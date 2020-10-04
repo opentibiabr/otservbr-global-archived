@@ -1,4 +1,4 @@
-local items = {
+local equipmentsTable = {
   {
     itemid = 37471,
     type = "equip",
@@ -1104,7 +1104,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- deepling fork
   {
@@ -1122,7 +1122,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- deepling ceremonial dagger
   {
@@ -1170,7 +1170,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- falcon escutcheon
   {
@@ -1188,7 +1188,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- falcon shield
   {
@@ -1206,7 +1206,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- falcon greaves
   {
@@ -1222,7 +1222,7 @@ local items = {
     level = 300,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- falcon plate
   {
@@ -1248,7 +1248,7 @@ local items = {
     level = 300,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- falcon wand
   {
@@ -1264,7 +1264,7 @@ local items = {
     level = 300,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- falcon rod
   {
@@ -1282,7 +1282,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- falcon coif
   {
@@ -1300,7 +1300,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- falcon circlet
   {
@@ -1348,7 +1348,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Royal Paladin"},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- gnome shield
   {
@@ -1366,7 +1366,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- gnome legs
   {
@@ -1382,7 +1382,7 @@ local items = {
     level = 200,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- gnome armor
   {
@@ -1400,7 +1400,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- gnome helmet
   {
@@ -1458,7 +1458,7 @@ local items = {
     level = 200,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- rod of destruction
   {
@@ -1474,7 +1474,7 @@ local items = {
     level = 200,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of destruction
   {
@@ -2792,7 +2792,7 @@ local items = {
     level = 41,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of darkness
   {
@@ -2840,7 +2840,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- dream blossom staff
   {
@@ -2858,7 +2858,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- wooden spellbook
   {
@@ -2879,26 +2879,18 @@ local items = {
     slot = "ring",
     level = 50
   }, -- butterfly ring
+  --[[
   {
-    itemid = 28658,
-    type = "equip",
-    slot = "necklace"
-  }, -- glowing rubbish amulet
+    glowing rubbish amulet
+    itemid = 28658
+    begin task
+  }
   {
-    itemid = 28658,
-    type = "deequip",
-    slot = "necklace"
-  }, -- glowing rubbish amulet
-  {
-    itemid = 28657,
-    type = "equip",
-    slot = "necklace"
-  }, -- rubbish amulet
-  {
-    itemid = 28657,
-    type = "deequip",
-    slot = "necklace"
-  }, -- rubbish amulet
+    rubbish amulet
+    itemid = 28657
+    begin task
+  }
+  ]]
   {
     itemid = 27756,
     type = "equip",
@@ -2986,7 +2978,7 @@ local items = {
     level = 150,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- collar of red plasma
   {
@@ -3004,7 +2996,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- collar of green plasma
   {
@@ -3020,7 +3012,7 @@ local items = {
     level = 150,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- collar of blue plasma
   {
@@ -3036,7 +3028,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- ring of red plasma
   {
@@ -3052,7 +3044,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- ring of red plasma
   {
@@ -3070,7 +3062,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- ring of green plasma
   {
@@ -3088,7 +3080,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- ring of green plasma
   {
@@ -3104,7 +3096,7 @@ local items = {
     level = 100,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- ring of blue plasma
   {
@@ -3120,7 +3112,7 @@ local items = {
     level = 100,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- ring of blue plasma
   {
@@ -3136,7 +3128,7 @@ local items = {
     level = 150,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- collar of red plasma
   {
@@ -3154,7 +3146,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- collar of green plasma
   {
@@ -3222,7 +3214,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- tiara of power
   {
@@ -3240,7 +3232,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- tiara of power
   {
@@ -3256,7 +3248,7 @@ local items = {
     level = 100,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- rod of carving
   {
@@ -3272,7 +3264,7 @@ local items = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of carving
   {
@@ -3368,7 +3360,7 @@ local items = {
     level = 100,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- rod of remedy
   {
@@ -3384,7 +3376,7 @@ local items = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of remedy
   {
@@ -3470,7 +3462,7 @@ local items = {
     level = 100,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- rod of mayhem
   {
@@ -3486,7 +3478,7 @@ local items = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of mayhem
   {
@@ -3670,7 +3662,7 @@ local items = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- ferumbras' staff (enchanted)
   {
@@ -3686,7 +3678,7 @@ local items = {
     level = 65,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- ferumbras' staff (failed)
   {
@@ -3778,7 +3770,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- book of lies
   {
@@ -3856,7 +3848,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- frostmind raiment
   {
@@ -3874,7 +3866,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- thundermind raiment
   {
@@ -3892,7 +3884,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- earthmind raiment
   {
@@ -3910,7 +3902,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- firemind raiment
   {
@@ -3926,7 +3918,7 @@ local items = {
     level = 200,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- frostsoul tabard
   {
@@ -3942,7 +3934,7 @@ local items = {
     level = 200,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- thundersoul tabard
   {
@@ -3958,7 +3950,7 @@ local items = {
     level = 200,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- earthsoul tabard
   {
@@ -3974,7 +3966,7 @@ local items = {
     level = 200,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- firesoul tabard
   {
@@ -3990,7 +3982,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- frostheart platemail
   {
@@ -4006,7 +3998,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- frostheart hauberk
   {
@@ -4022,7 +4014,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- frostheart cuirass
   {
@@ -4038,7 +4030,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- thunderheart platemail
   {
@@ -4054,7 +4046,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- thunderheart hauberk
   {
@@ -4070,7 +4062,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- thunderheart cuirass
   {
@@ -4086,7 +4078,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- earthheart platemail
   {
@@ -4102,7 +4094,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- earthheart hauberk
   {
@@ -4118,7 +4110,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- earthheart cuirass
   {
@@ -4134,7 +4126,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- fireheart platemail
   {
@@ -4150,7 +4142,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- fireheart hauberk
   {
@@ -4166,7 +4158,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- fireheart cuirass
   {
@@ -4214,7 +4206,7 @@ local items = {
     level = 37,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- ogre sceptra
   {
@@ -4290,7 +4282,7 @@ local items = {
     level = 100,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- enchanted werewolf helmet
   {
@@ -4306,7 +4298,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- enchanted werewolf helmet
   {
@@ -4322,7 +4314,7 @@ local items = {
     level = 100,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- enchanted werewolf helmet
   {
@@ -4338,7 +4330,9 @@ local items = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"},
+      {"Druid", true},
+      {"Elder Druid"}
     }
   }, -- enchanted werewolf helmet
   {
@@ -4422,7 +4416,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- oriental shoes
   {
@@ -4513,54 +4507,24 @@ local items = {
     type = "deequip",
     slot = "shield"
   }, -- broken wooden shield
+  --[[
   {
-    itemid = 23771,
-    type = "equip",
-    slot = "shield",
-    vocation = {
-      {"Sorcerer", true},
-      {"Druid", true, true},
-      {"Master Sorcerer"},
-      {"Elder Druid"
-    }
-  }, -- spellbook of the novice
+    spellbook of the novice
+    itemid = 23771
+    dawnport scripted equipment
+  },
+
   {
-    itemid = 23771,
-    type = "deequip",
-    slot = "shield"
-  }, -- spellbook of the novice
+    the chiller
+    itemid = 23721
+    dawnport scripted equipment
+  },
   {
-    itemid = 23721,
-    type = "equip",
-    slot = "hand",
-    level = 1,
-    vocation = {
-      {"Druid", true},
-      {"Elder Druid"
-    }
-  }, -- the chiller
-  {
-    itemid = 23721,
-    type = "deequip",
-    slot = "hand",
-    level = 1
-  }, -- the chiller
-  {
-    itemid = 23719,
-    type = "equip",
-    slot = "hand",
-    level = 1,
-    vocation = {
-      {"Sorcerer", true},
-      {"Master Sorcerer"
-    }
-  }, -- the scorcher
-  {
-    itemid = 23719,
-    type = "deequip",
-    slot = "hand",
-    level = 1
-  }, -- the scorcher
+    the scorcher
+    itemid = 23719
+    dawnport scripted equipment
+  },
+  ]]
   {
     itemid = 23666,
     type = "equip",
@@ -4600,7 +4564,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glooth amulet
   {
@@ -4730,7 +4694,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- metal spats
   {
@@ -4769,7 +4733,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- mooh'tah plate
   {
@@ -4786,7 +4750,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- rubber cap
   {
@@ -4804,7 +4768,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glooth cape
   {
@@ -4884,7 +4848,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- umbral master spellbook
   {
@@ -4902,7 +4866,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- umbral spellbook
   {
@@ -4920,7 +4884,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- crude umbral spellbook
   {
@@ -5188,7 +5152,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- furious frock
   {
@@ -5235,7 +5199,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- icy culottes
   {
@@ -5431,7 +5395,7 @@ local items = {
     slot = "hand",
     level = 1,
     vocation = {
-      {"None", true
+      {"None", true}
     }
   }, -- sorc and druid staff
   {
@@ -5569,7 +5533,7 @@ local items = {
     level = 65,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glacial rod
   {
@@ -5585,7 +5549,7 @@ local items = {
     level = 65,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- muck rod
   {
@@ -5601,7 +5565,7 @@ local items = {
     level = 150,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- prismatic shield
   {
@@ -5617,7 +5581,7 @@ local items = {
     level = 65,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of everblazing
   {
@@ -5657,7 +5621,7 @@ local items = {
     level = 150,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- prismatic boots
   {
@@ -5673,7 +5637,7 @@ local items = {
     level = 150,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- prismatic legs
   {
@@ -5691,7 +5655,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- prismatic armor
   {
@@ -5707,7 +5671,7 @@ local items = {
     level = 150,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- prismatic helmet
   {
@@ -5737,7 +5701,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of vigilance
   {
@@ -5755,7 +5719,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- gill legs
   {
@@ -5773,7 +5737,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- gill coat
   {
@@ -5791,7 +5755,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- gill gugel
   {
@@ -5827,7 +5791,7 @@ local items = {
     level = 65,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of defiance
   {
@@ -5865,7 +5829,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of ancient arcana
   {
@@ -6025,7 +5989,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- calopteryx cape
   {
@@ -6081,7 +6045,7 @@ local items = {
     level = 130,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- ornate shield
   {
@@ -6097,7 +6061,7 @@ local items = {
     level = 185,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- ornate legs
   {
@@ -6115,7 +6079,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- depth scutum
   {
@@ -6131,7 +6095,7 @@ local items = {
     level = 150,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- depth calcei
   {
@@ -6149,7 +6113,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- depth ocrea
   {
@@ -6177,7 +6141,7 @@ local items = {
     level = 150,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- depth lorica
   {
@@ -6193,7 +6157,7 @@ local items = {
     level = 200,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- ornate chestplate
   {
@@ -6261,7 +6225,7 @@ local items = {
     level = 40,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- shimmer wand
   {
@@ -6297,7 +6261,7 @@ local items = {
     level = 40,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- shimmer rod
   {
@@ -6341,7 +6305,7 @@ local items = {
     type = "equip",
     slot = "ring",
     vocation = {
-      {"None", true
+      {"None", true}
     }
   }, -- star ring
   {
@@ -6349,7 +6313,7 @@ local items = {
     type = "deequip",
     slot = "ring",
     vocation = {
-      {"None", true
+      {"None", true}
     }
   }, -- star ring
   {
@@ -6357,7 +6321,7 @@ local items = {
     type = "equip",
     slot = "ring",
     vocation = {
-      {"None", true
+      {"None", true}
     }
   }, -- star ring
   {
@@ -6365,7 +6329,7 @@ local items = {
     type = "deequip",
     slot = "ring",
     vocation = {
-      {"None", true
+      {"None", true}
     }
   }, -- star ring
   {
@@ -6375,7 +6339,7 @@ local items = {
     level = 37,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of dimensions
   {
@@ -6392,7 +6356,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- mage's cap
   {
@@ -6489,7 +6453,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- snake god's wristguard
   {
@@ -6507,7 +6471,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- draken boots
   {
@@ -6523,7 +6487,7 @@ local items = {
     level = 100,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- elite draken helmet
   {
@@ -6539,7 +6503,7 @@ local items = {
     level = 80,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- shield of corruption
   {
@@ -6557,7 +6521,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- royal scale robe
   {
@@ -6573,7 +6537,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- royal draken mail
   {
@@ -6590,7 +6554,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- cobra crown
   {
@@ -6617,7 +6581,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- elite draken mail
   {
@@ -6675,7 +6639,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- jade hat
   {
@@ -6693,7 +6657,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- Zaoan robe
   {
@@ -6711,7 +6675,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellweaver's robe
   {
@@ -6818,7 +6782,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- Zaoan helmet
   {
@@ -6835,7 +6799,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- Zaoan armor
   {
@@ -6903,7 +6867,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- guardian boots
   {
@@ -6931,7 +6895,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- dragon scale boots
   {
@@ -6949,7 +6913,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- crystal boots
   {
@@ -6966,7 +6930,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- witch hat
   {
@@ -7395,7 +7359,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- batwing hat
   {
@@ -7477,7 +7441,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- yalahari mask
   {
@@ -7493,7 +7457,7 @@ local items = {
     level = 80,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- yalahari leg piece
   {
@@ -7509,7 +7473,7 @@ local items = {
     level = 80,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- yalahari armor
   {
@@ -7654,7 +7618,7 @@ local items = {
     slot = "legs",
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- ranger legs
   {
@@ -7669,7 +7633,7 @@ local items = {
     level = 42,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of voodoo
   {
@@ -7685,7 +7649,7 @@ local items = {
     level = 22,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of draconia
   {
@@ -7701,7 +7665,7 @@ local items = {
     level = 37,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of starmstorm
   {
@@ -7719,7 +7683,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of dark mysteries
   {
@@ -7735,7 +7699,7 @@ local items = {
     level = 37,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- springsprout rod
   {
@@ -7751,7 +7715,7 @@ local items = {
     level = 22,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- northwind rod
   {
@@ -7767,7 +7731,7 @@ local items = {
     level = 42,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- underworld rod
   {
@@ -7783,7 +7747,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- terran rainbow shield
   {
@@ -7799,7 +7763,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- sparking rainbow shield
   {
@@ -7815,7 +7779,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- icy rainbow shield
   {
@@ -7831,7 +7795,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- fiery rainbow shield
   {
@@ -7847,7 +7811,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- rainbow shield
   {
@@ -7865,7 +7829,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellscroll of prophecies
   {
@@ -7883,7 +7847,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of lost souls
   {
@@ -7901,7 +7865,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of mind control
   {
@@ -7919,7 +7883,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of warding
   {
@@ -7937,7 +7901,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook of enlightenment
   {
@@ -7954,7 +7918,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- ethno coat
   {
@@ -7968,7 +7932,7 @@ local items = {
     slot = "armor",
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- paladin armor
   {
@@ -7983,7 +7947,7 @@ local items = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- robe of the underworld
   {
@@ -7999,7 +7963,7 @@ local items = {
     level = 85,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- skullcracker armor
   {
@@ -8015,7 +7979,7 @@ local items = {
     level = 100,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- master archer's armor
   {
@@ -8031,7 +7995,7 @@ local items = {
     level = 75,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- frozen plate
   {
@@ -8047,7 +8011,7 @@ local items = {
     level = 75,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- molten plate
   {
@@ -8063,7 +8027,7 @@ local items = {
     level = 75,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- divine plate
   {
@@ -8079,7 +8043,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- oceanborn leviathan armor
   {
@@ -8095,7 +8059,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- windborn colossus armor
   {
@@ -8111,7 +8075,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- earthborn titan armor
   {
@@ -8127,7 +8091,7 @@ local items = {
     level = 100,
     vocation = {
       {"Knight", true},
-      {"Elite Knight"
+      {"Elite Knight"}
     }
   }, -- fireborn giant armor
   {
@@ -8145,7 +8109,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- swamplair armor
   {
@@ -8163,7 +8127,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- voltage armor
   {
@@ -8181,7 +8145,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- crystalline armor
   {
@@ -8199,7 +8163,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- lavos armor
   {
@@ -8254,7 +8218,7 @@ local items = {
     slot = "armor",
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- belted cape
   {
@@ -8270,7 +8234,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- focus cape
   {
@@ -8286,7 +8250,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spirit cloak
   {
@@ -8301,7 +8265,7 @@ local items = {
     level = 75,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- greenwood coat
   {
@@ -8317,7 +8281,7 @@ local items = {
     level = 75,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- velvet mantle
   {
@@ -8333,7 +8297,7 @@ local items = {
     level = 75,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- dragon robe
   {
@@ -8349,7 +8313,7 @@ local items = {
     level = 75,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- robe of the ice queen
   {
@@ -8365,7 +8329,7 @@ local items = {
     level = 65,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- dark lord's cape
   {
@@ -8494,7 +8458,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- mage hat
   {
@@ -8510,7 +8474,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- magician's robe
   {
@@ -8606,7 +8570,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- terra hood
   {
@@ -8622,7 +8586,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glacier mask
   {
@@ -8638,7 +8602,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- lightning headband
   {
@@ -8654,7 +8618,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- magma monocle
   {
@@ -8671,7 +8635,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- magma coat
   {
@@ -8689,7 +8653,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- lightning robe
   {
@@ -8707,7 +8671,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glacier robe
   {
@@ -8725,7 +8689,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glacier kilt
   {
@@ -8743,7 +8707,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- lightning legs
   {
@@ -8761,7 +8725,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- magma legs
   {
@@ -8779,7 +8743,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- lightning boots
   {
@@ -8797,7 +8761,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- glacier shoes
   {
@@ -8815,7 +8779,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- magma boots
   {
@@ -8881,7 +8845,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- terra boots
   {
@@ -8899,7 +8863,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- terra legs
   {
@@ -8917,7 +8881,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- terra mantle
   {
@@ -10862,7 +10826,7 @@ local items = {
     slot = "head",
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- wood cape
   {
@@ -10906,7 +10870,7 @@ local items = {
     slot = "armor",
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- ranger's cloak
   {
@@ -11583,7 +11547,7 @@ local items = {
     level = 60,
     vocation = {
       {"Paladin", true},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- amazon armor
   {
@@ -11670,7 +11634,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- dragon scale mail
   {
@@ -11716,7 +11680,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- crown legs
   {
@@ -11732,7 +11696,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- crown armor
   {
@@ -11838,7 +11802,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- knight legs
   {
@@ -11854,7 +11818,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- knight armor
   {
@@ -11900,7 +11864,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- magic plate armor
   {
@@ -11926,7 +11890,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- golden legs
   {
@@ -11972,7 +11936,7 @@ local items = {
       {"Knight", true},
       {"Paladin", true, true},
       {"Elite Knight"},
-      {"Royal Paladin"
+      {"Royal Paladin"}
     }
   }, -- golden armor
   {
@@ -12948,7 +12912,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- hat of the mad
   {
@@ -13203,7 +13167,7 @@ local items = {
     level = 13,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of dragonbreath
   {
@@ -13219,7 +13183,7 @@ local items = {
     level = 6,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of vortex
   {
@@ -13235,7 +13199,7 @@ local items = {
     level = 26,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of cosmic energy
   {
@@ -13251,7 +13215,7 @@ local items = {
     level = 19,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of decay
   {
@@ -13267,7 +13231,7 @@ local items = {
     level = 33,
     vocation = {
       {"Sorcerer", true},
-      {"Master Sorcerer"
+      {"Master Sorcerer"}
     }
   }, -- wand of inferno
   {
@@ -13283,7 +13247,7 @@ local items = {
     level = 13,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- moonlight rod
   {
@@ -13299,7 +13263,7 @@ local items = {
     level = 19,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- necrotic rod
   {
@@ -13315,7 +13279,7 @@ local items = {
     level = 33,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- hailstorm rod
   {
@@ -13331,7 +13295,7 @@ local items = {
     level = 6,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- snakebit rod
   {
@@ -13347,7 +13311,7 @@ local items = {
     level = 26,
     vocation = {
       {"Druid", true},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- terra rod
   {
@@ -13374,7 +13338,7 @@ local items = {
       {"Sorcerer", true},
       {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Elder Druid"
+      {"Elder Druid"}
     }
   }, -- spellbook
   {
@@ -14026,22 +13990,22 @@ local items = {
   } -- small stone
 }
 
-for _, i in ipairs(items) do
+for index, equipments in ipairs(equipmentsTable) do
   local movement = MoveEvent()
-  movement:id(i.itemid)
+  movement:id(equipments.itemid)
 
-  if(i.type) then
-    movement:type(i.type)
+  if(equipments.type) then
+    movement:type(equipments.type)
   end
-  if(i.slot) then
-    movement:slot(i.slot)
+  if(equipments.slot) then
+    movement:slot(equipments.slot)
   end
-  if(i.level) then
-    movement:level(i.level)
+  if(equipments.level) then
+    movement:level(equipments.level)
   end
-  if(i.vocation) then
-    for _, v in ipairs(i.vocation) do
-      movement:vocation(v[1], v[2] or false, v[3] or false)
+  if(equipments.vocation) then
+    for vocationIndex, vocation in ipairs(equipments.vocation) do
+      movement:vocation(vocation[1], vocation[2] or false, vocation[3] or false)
     end
   end
   movement:register()
