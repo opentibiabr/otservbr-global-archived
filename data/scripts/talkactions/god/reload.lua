@@ -29,10 +29,6 @@ local reloadTypes = {
 	["mount"] = RELOAD_TYPE_MOUNTS,
 	["mounts"] = RELOAD_TYPE_MOUNTS,
 
-	["move"] = RELOAD_TYPE_MOVEMENTS,
-	["movement"] = RELOAD_TYPE_MOVEMENTS,
-	["movements"] = RELOAD_TYPE_MOVEMENTS,
-
 	["npc"] = RELOAD_TYPE_NPCS,
 	["npcs"] = RELOAD_TYPE_NPCS,
 

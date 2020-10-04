@@ -7709,7 +7709,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 		case RELOAD_TYPE_ITEMS: return Item::items.reload();
 		case RELOAD_TYPE_MODULES: return g_modules->reload();
 		case RELOAD_TYPE_MOUNTS: return mounts.reload();
-		case RELOAD_TYPE_MOVEMENTS: return g_moveEvents->reload();
 		case RELOAD_TYPE_IMBUEMENTS: return g_imbuements->reload();
 		case RELOAD_TYPE_NPCS: {
 			Npcs::reload();
@@ -7752,7 +7751,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			g_actions->reload();
 			g_config.reload();
 			g_creatureEvents->reload();
-			g_moveEvents->reload();
 			Npcs::reload();
 			raids.reload() && raids.startup();
 			g_talkActions->reload();

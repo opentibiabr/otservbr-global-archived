@@ -26,7 +26,6 @@
 
 #include "pugicast.h"
 
-extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 
 Items::Items()
@@ -90,7 +89,6 @@ bool Items::reload()
 		return false;
 	}
 
-	g_moveEvents->reload();
 	g_weapons->loadDefaults();
 	return true;
 }
