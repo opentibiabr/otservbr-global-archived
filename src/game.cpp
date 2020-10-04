@@ -7728,12 +7728,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 
 		case RELOAD_TYPE_TALKACTIONS: return g_talkActions->reload();
 
-		case RELOAD_TYPE_WEAPONS: {
-			bool results = g_weapons->reload();
-			g_weapons->loadDefaults();
-			return results;
-		}
-
 		case RELOAD_TYPE_SCRIPTS: {
 			// commented out stuff is TODO, once we approach further in revscriptsys
 			g_actions->clear(true);
@@ -7763,7 +7757,6 @@ bool Game::reload(ReloadTypes_t reloadType)
 			raids.reload() && raids.startup();
 			g_talkActions->reload();
 			Item::items.reload();
-			g_weapons->reload();
 			g_weapons->clear(true);
 			g_weapons->loadDefaults();
 			mounts.reload();

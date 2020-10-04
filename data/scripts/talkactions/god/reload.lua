@@ -51,9 +51,6 @@ local reloadTypes = {
 	["talkaction"] = RELOAD_TYPE_TALKACTIONS,
 	["talkactions"] = RELOAD_TYPE_TALKACTIONS,
 
-	["weapon"] = RELOAD_TYPE_WEAPONS,
-	["weapons"] = RELOAD_TYPE_WEAPONS,
-
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
 	["libs"] = RELOAD_TYPE_GLOBAL
 }

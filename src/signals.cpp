@@ -28,7 +28,6 @@
 #include "spells.h"
 #include "talkaction.h"
 #include "movement.h"
-#include "weapons.h"
 #include "raids.h"
 #include "mounts.h"
 #include "globalevent.h"
@@ -48,7 +47,6 @@ extern Monsters g_monsters;
 extern TalkActions* g_talkActions;
 extern MoveEvents* g_moveEvents;
 extern Spells* g_spells;
-extern Weapons* g_weapons;
 extern Game g_game;
 extern CreatureEvents* g_creatureEvents;
 extern GlobalEvents* g_globalEvents;
@@ -174,10 +172,6 @@ void Signals::sighupHandler()
 
 	Item::items.reload();
 	std::cout << "Reloaded items." << std::endl;
-
-	g_weapons->reload();
-	g_weapons->loadDefaults();
-	std::cout << "Reloaded weapons." << std::endl;
 
 	g_game.mounts.reload();
 	std::cout << "Reloaded mounts." << std::endl;
