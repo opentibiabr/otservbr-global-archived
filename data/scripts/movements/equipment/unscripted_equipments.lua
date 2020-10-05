@@ -1,5 +1,59 @@
 local equipmentsTable = {
   {
+    itemid = 38993,
+    type = "equip",
+    slot = "necklace",
+    level = 150
+  }, -- lion amulet
+  {
+    itemid = 38992,
+    type = "deequip",
+    slot = "necklace",
+    level = 150
+  }, -- lion amulet
+  {
+    itemid = 38992,
+    type = "deequip",
+    slot = "armor",
+    level = 270
+  }, -- lion plate
+  {
+    itemid = 38992,
+    type = "equip",
+    slot = "armor",
+    level = 270,
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- lion plate
+  {
+    itemid = 38915,
+    type = "deequip",
+    slot = "ring",
+    level = 270
+  }, -- lion ring
+  {
+    itemid = 38915,
+    type = "equip",
+    slot = "ring",
+    level = 270,
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- lion ring
+  {
+    itemid = 37540,
+    type = "equip",
+    slot = "armor"
+  }, -- pair of old bracers
+  {
+    itemid = 37540,
+    type = "deequip",
+    slot = "armor"
+  }, -- pair of old bracers
+  {
     itemid = 37471,
     type = "equip",
     slot = "ring",
@@ -4276,13 +4330,29 @@ local equipmentsTable = {
     slot = "necklace"
   }, -- enchanted werewolf amulet
   {
-    itemid = 24786,
+    itemid = 24788,
     type = "equip",
     slot = "head",
     level = 100,
     vocation = {
       {"Paladin", true},
       {"Royal Paladin"}
+    }
+  }, -- enchanted werewolf helmet (paladin)
+  {
+    itemid = 24788,
+    type = "deequip",
+    slot = "head",
+    level = 100
+  }, -- enchanted werewolf helmet (paladin)
+  {
+    itemid = 24786,
+    type = "equip",
+    slot = "head",
+    level = 100,
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
     }
   }, -- enchanted werewolf helmet
   {
@@ -4313,8 +4383,8 @@ local equipmentsTable = {
     slot = "head",
     level = 100,
     vocation = {
-      {"Druid", true},
-      {"Elder Druid"}
+      {"Knight", true},
+      {"Elite Knight"}
     }
   }, -- enchanted werewolf helmet
   {
@@ -4330,17 +4400,81 @@ local equipmentsTable = {
     level = 100,
     vocation = {
       {"Sorcerer", true},
+      {"Druid", true, true},
       {"Master Sorcerer"},
-      {"Druid", true},
       {"Elder Druid"}
     }
-  }, -- enchanted werewolf helmet
+  }, -- enchanted werewolf helmet (mage)
   {
     itemid = 24783,
     type = "deequip",
     slot = "head",
     level = 100
-  }, -- enchanted werewolf helmet
+  }, -- enchanted werewolf helmet (mage)
+  {
+    itemid = 24772,
+    type = "equip",
+    slot = "head",
+    level = 100,
+    vocation = {
+      {"Paladin", true},
+      {"Royal Paladin"}
+    }
+  }, -- enchanted werewolf helmet (paladin)
+  {
+    itemid = 24772,
+    type = "deequip",
+    slot = "head",
+    level = 100
+  }, -- enchanted werewolf helmet (paladin)
+  {
+    itemid = 24771,
+    type = "equip",
+    slot = "head",
+    level = 100,
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- enchanted werewolf helmet (knight)
+  {
+    itemid = 24771,
+    type = "deequip",
+    slot = "head",
+    level = 100
+  }, -- enchanted werewolf helmet (knight)
+  {
+    itemid = 24770,
+    type = "equip",
+    slot = "head",
+    level = 100,
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- enchanted werewolf helmet (knight)
+  {
+    itemid = 24770,
+    type = "deequip",
+    slot = "head",
+    level = 100
+  }, -- enchanted werewolf helmet (knight)
+  {
+    itemid = 24769,
+    type = "equip",
+    slot = "head",
+    level = 100,
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- enchanted werewolf helmet (knight)
+  {
+    itemid = 24769,
+    type = "deequip",
+    slot = "head",
+    level = 100
+  }, -- enchanted werewolf helmet (knight)
   {
     itemid = 24743,
     type = "equip",
