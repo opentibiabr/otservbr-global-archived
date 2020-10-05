@@ -51,16 +51,6 @@ class Action : public Event
 		 */
 		bool configureEvent(const pugi::xml_node& node) override;
 
-		/**
-		 * @brief Reads XML attribute 'function'
-		 *
-		 * @param attr XML Attribute
-		 * @param isScripted True if it has a script
-		 * @return true
-		 * @return false
-		 */
-		bool loadFunction(const pugi::xml_attribute& attr, bool isScripted) override;
-
 		//scripting
 
 		/**

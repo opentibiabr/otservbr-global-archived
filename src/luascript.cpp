@@ -2511,7 +2511,7 @@ void LuaScriptInterface::registerFunctions()
 
 	registerMethod("Player", "setSpecialContainersAvailable", LuaScriptInterface::luaPlayerSetSpecialContainersAvailable);
 	registerMethod("Player", "getStashCount", LuaScriptInterface::luaPlayerGetStashCounter);
-	registerMethod("Player", "OpenStash", LuaScriptInterface::luaPlayerOpenStash);
+	registerMethod("Player", "openStash", LuaScriptInterface::luaPlayerOpenStash);
 
 	registerMethod("Player", "getStamina", LuaScriptInterface::luaPlayerGetStamina);
 	registerMethod("Player", "setStamina", LuaScriptInterface::luaPlayerSetStamina);
@@ -2659,6 +2659,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Player", "getFreeBackpackSlots", LuaScriptInterface::luaPlayerGetFreeBackpackSlots);
 
 	registerMethod("Player", "isOffline", LuaScriptInterface::luaPlayerIsOffline);
+
+	registerMethod("Player", "openMarket", LuaScriptInterface::luaPlayerOpenMarket);
 
 	// Monster
 	registerClass("Monster", "Creature", LuaScriptInterface::luaMonsterCreate);
@@ -9283,12 +9285,17 @@ int LuaScriptInterface::luaPlayerSetOfflineTrainingSkill(lua_State* L)
 }
 
 int LuaScriptInterface::luaPlayerOpenStash(lua_State* L)
-{	
-	// player:OpenStash()
+{
+	// player:openStash()
 	Player* player = getUserdata<Player>(L, 1);
 	if (!player) {
 		return 1;
 	}
+
+	if (player->getLastDepotId() == -1) {
+		return 0;
+  	}
+
 	player->sendOpenStash();
 	return 1;
 }
@@ -10725,6 +10732,17 @@ int LuaScriptInterface::luaPlayerSendImbuementPanel(lua_State* L)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 		Item* item = getUserdata<Item>(L, 2);
+		const ItemType& it = Item::items[item->getID()];
+		if(it.imbuingSlots <= 0 ) {
+			player->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
+			return 0;
+		}
+
+		if (item->getTopParent() != player) {
+			player->sendTextMessage(MESSAGE_STATUS_SMALL, "You have to pick up the item to imbue it.");
+			return 0;
+		}
+
 		player->sendImbuementWindow(item);
 		pushBoolean(L, true);
 	} else {
@@ -11588,6 +11606,24 @@ int LuaScriptInterface::luaPlayerIsOffline(lua_State* L)
 	return 1;
 }
 
+int LuaScriptInterface::luaPlayerOpenMarket(lua_State* L)
+{
+	// player:openMarket()
+	Player* player = getUserdata<Player>(L, 1);
+	if (!player) {
+		lua_pushnil(L);
+		return 1;
+	}
+
+	if (player->getLastDepotId() == -1) {
+		return 0;
+	}
+
+	player->sendMarketEnter(player->getLastDepotId());
+	pushBoolean(L, true);
+	return 1;
+}
+
 // Monster
 int LuaScriptInterface::luaMonsterCreate(lua_State* L)
 {
@@ -12004,7 +12040,7 @@ int LuaScriptInterface::luaNpcPlace(lua_State* L)
 	if (!npc) {
 		lua_pushnil(L);
 		return 1;
-	} 
+	}
 
 	const Position& position = getPosition(L, 2);
 	bool extended = getBoolean(L, 3, false);

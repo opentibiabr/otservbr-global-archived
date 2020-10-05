@@ -18,12 +18,12 @@ local freeDummies = {32142, 32149}
 local skillRateDefault = configManager.getNumber(configKeys.RATE_SKILL)
 local magicRateDefault = configManager.getNumber(configKeys.RATE_MAGIC)
 
-local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
+local function startTraining(pid, startPos, itemid, dummyPosition, dummyBonus, dummyId)
     local player = Player(pid)
     if player ~= nil then
-    if Tile(fpos):getItemById(dummyId) then
+    if Tile(dummyPosition):getItemById(dummyId) then
         local pos_n = player:getPosition()
-        if start_pos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
+        if startPos:getDistance(pos_n) == 0 and getTilePzInfo(pos_n) then
             if player:getItemCount(itemid) >= 1 then
                 local exercise = player:getItemById(itemid,true)
                 if exercise:isItem() then
@@ -36,24 +36,24 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
 
                             if skills[itemid].id == SKILL_MAGLEVEL then
                                 local magicRate = getRateFromTable(magicLevelStages, player:getMagicLevel(), magicRateDefault)
-                                if not bonusDummy then
+                                if not dummyBonus then
                                     player:addManaSpent(math.ceil(500*magicRate))
                                 else
                                     player:addManaSpent(math.ceil(500*magicRate)*1.1) -- 10%
                                 end
                             else
                                 local skillRate = getRateFromTable(skillsStages, player:getEffectiveSkillLevel(skills[itemid].id), skillRateDefault)
-                                if not bonusDummy then
+                                if not dummyBonus then
                                     player:addSkillTries(skills[itemid].id, 1*skillRate)
                                 else
                                     player:addSkillTries(skills[itemid].id, (1*skillRate)*1.1) -- 10%
                                 end
                             end
-                                fpos:sendMagicEffect(CONST_ME_HITAREA)
+                                dummyPosition:sendMagicEffect(CONST_ME_HITAREA)
                             if skills[itemid].range then
-                                pos_n:sendDistanceEffect(fpos, skills[itemid].range)
+                                pos_n:sendDistanceEffect(dummyPosition, skills[itemid].range)
                             end
-                            local training = addEvent(start_train, voc:getAttackSpeed(), pid,start_pos,itemid,fpos,bonusDummy,dummyId)
+                            local training = addEvent(startTraining, voc:getAttackSpeed(), pid, startPos, itemid, dummyPosition, dummyBonus, dummyId)
                             player:setStorageValue(Storage.isTraining,1)
                         else
                             exercise:remove(1)
@@ -81,34 +81,56 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
             player:setStorageValue(Storage.isTraining,0)
         end
     end
-  
+
     return true
 end
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
-    local start_pos = player:getPosition()
+local exerciseTraining = Action()
+
+function exerciseTraining.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+    local startPos = player:getPosition()
     if player:getStorageValue(Storage.isTraining) == 1 then
         player:sendTextMessage(MESSAGE_INFO_DESCR, "You are already training.")
         return false
     end
     if target:isItem() then
         if isInArray(houseDummies,target:getId()) then
-            if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+            if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
                 stopEvent(training)
                 return true
             end
             player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-            start_train(player:getId(),start_pos,item.itemid,target:getPosition(), true, target:getId())
+            startTraining(player:getId(),startPos,item.itemid,target:getPosition(), true, target:getId())
         elseif isInArray(freeDummies, target:getId()) then
-            if not skills[item.itemid].range and (start_pos:getDistance(target:getPosition()) > 1) then
+            if not skills[item.itemid].range and (startPos:getDistance(target:getPosition()) > 1) then
                 player:sendTextMessage(MESSAGE_INFO_DESCR, "Get closer to the dummy.")
                 stopEvent(training)
                 return true
             end
             player:sendTextMessage(MESSAGE_INFO_DESCR, "You started training.")
-            start_train(player:getId(),start_pos,item.itemid,target:getPosition(), false, target:getId())
+            startTraining(player:getId(),startPos,item.itemid,target:getPosition(), false, target:getId())
         end
     end
     return true
 end
+
+for id = 32124, 32126 do
+    exerciseTraining:id(id)
+end
+
+for id = 32127, 32129 do
+    exerciseTraining:id(id)
+    exerciseTraining:allowFarUse(true)
+end
+
+for id = 32384, 32386 do
+    exerciseTraining:id(id)
+end
+
+for id = 32387, 32389 do
+    exerciseTraining:id(id)
+    exerciseTraining:allowFarUse(true)
+end
+
+exerciseTraining:register()

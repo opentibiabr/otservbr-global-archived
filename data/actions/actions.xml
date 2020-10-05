@@ -1,33 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
-	<!-- others -->
-	<action fromid="2376" toid="2404" script="others/destroy.lua" />
-	<action itemid="2406" script="others/destroy.lua" />
-	<action fromid="2408" toid="2415" script="others/destroy.lua" />
-	<action fromid="2417" toid="2419" script="others/destroy.lua" />
-	<action fromid="2421" toid="2453" script="others/destroy.lua" />
-	<action fromid="32384" toid="32386" script="others/exercise_training.lua" />
-	<action fromid="32387" toid="32389" script="others/exercise_training.lua" allowfaruse="1" />
-	<action fromid="32124" toid="32126" script="others/exercise_training.lua" />
-	<action fromid="32127" toid="32129" script="others/exercise_training.lua" allowfaruse="1" />
-	<action fromaid="50030" toaid="50056" script="others/thais_exhibition.lua" />
-	<!-- imbuement system -->
-	<action fromid="27728" toid="27729" function="imbuement" />
-	<action fromid="27850" toid="27851" function="imbuement" />
-	<!-- systems -->
-	<action actionid="2000" script="system/quest_system1.lua" />
-	<action actionid="2001" script="system/quest_system2.lua" />
-	<action actionid="2016" script="system/quest_system1.lua" />
-	<action actionid="2215" script="system/quest_system1.lua" />
-	<action actionid="10544" script="system/quest_system1.lua" />
-	<action actionid="12374" script="system/quest_system1.lua" />
-	<action actionid="12513" script="system/quest_system1.lua" />
-	<action actionid="26300" script="system/quest_system1.lua" />
-	<action actionid="27300" script="system/quest_system1.lua" />
-	<action actionid="28300" script="system/quest_system1.lua" />
-	<action uniqueid="64140" script="system/quest_system1.lua" />
-	<!-- stash -->
-	<action itemid="32450" function="stash" />
-	<!-- market -->
-	<action itemid="14405" function="market" />
 </actions>

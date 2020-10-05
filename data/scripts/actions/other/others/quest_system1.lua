@@ -32,7 +32,9 @@ local achievementChest = {
 
 local hotaQuest = {50950, 50951, 50952, 50953, 50954, 50955}
 
-function onUse(player, item, fromPosition, target, toPosition, isHotkey)
+local questSystem1 = Action()
+
+function questSystem1.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local storage = specialQuests[item.actionid]
 	if not storage then
 		storage = item.uid
@@ -137,3 +139,11 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	player:setStorageValue(storage, 1)
 	return true
 end
+
+for index, value in pairs(specialQuests) do
+	questSystem1:aid(index)
+end
+questSystem1:aid(2000)
+questSystem1:uid(64140)
+
+questSystem1:register()
