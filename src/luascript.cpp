@@ -9292,10 +9292,6 @@ int LuaScriptInterface::luaPlayerOpenStash(lua_State* L)
 		return 1;
 	}
 
-	if (player->getLastDepotId() == -1) {
-		return 0;
-  	}
-
 	player->sendOpenStash();
 	return 1;
 }
@@ -10732,17 +10728,6 @@ int LuaScriptInterface::luaPlayerSendImbuementPanel(lua_State* L)
 	Player* player = getUserdata<Player>(L, 1);
 	if (player) {
 		Item* item = getUserdata<Item>(L, 2);
-		const ItemType& it = Item::items[item->getID()];
-		if(it.imbuingSlots <= 0 ) {
-			player->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
-			return 0;
-		}
-
-		if (item->getTopParent() != player) {
-			player->sendTextMessage(MESSAGE_STATUS_SMALL, "You have to pick up the item to imbue it.");
-			return 0;
-		}
-
 		player->sendImbuementWindow(item);
 		pushBoolean(L, true);
 	} else {
@@ -11613,10 +11598,6 @@ int LuaScriptInterface::luaPlayerOpenMarket(lua_State* L)
 	if (!player) {
 		lua_pushnil(L);
 		return 1;
-	}
-
-	if (player->getLastDepotId() == -1) {
-		return 0;
 	}
 
 	player->sendMarketEnter(player->getLastDepotId());

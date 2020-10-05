@@ -2050,6 +2050,14 @@ void ProtocolGame::sendMarketEnter(uint32_t depotId)
 	msg.addByte(0xF6);
 	msg.addByte(std::min<uint32_t>(IOMarket::getPlayerOfferCount(player->getGUID()), std::numeric_limits<uint8_t>::max()));
 
+	if (!depotId) {
+		return;
+	}
+
+	if (player->getLastDepotId() == -1) {
+		return;
+	}
+
 	DepotLocker* depotLocker = player->getDepotLocker(depotId);
 	if (!depotLocker) {
 		msg.add<uint16_t>(0x00);
@@ -3842,8 +3850,19 @@ void ProtocolGame::sendImbuementWindow(Item* item)
 		return;
 	}
 
+	if (item->getTopParent() != player) {
+		player->sendTextMessage(MESSAGE_STATUS_SMALL,
+			"You have to pick up the item to imbue it.");
+		return;
+	}
+
 	const ItemType& it = Item::items[item->getID()];
 	uint8_t slot = it.imbuingSlots;
+	if(slot <= 0 ) {
+		player->sendTextMessage(MESSAGE_STATUS_SMALL, "This item is not imbuable.");
+		return;
+	}
+
 	bool itemHasImbue = false;
 	for (uint8_t i = 0; i < slot; i++) {
 		uint32_t info = item->getImbuement(i);
@@ -4162,6 +4181,10 @@ void ProtocolGame::reloadCreature(const Creature* creature)
 
 void ProtocolGame::sendOpenStash()
 {
+	if (player->getLastDepotId() == -1) {
+		return;
+  	}
+
 	NetworkMessage msg;
 	msg.addByte(0x29);
 	AddPlayerStowedItems(msg);
