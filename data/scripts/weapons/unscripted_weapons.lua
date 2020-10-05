@@ -1,5 +1,173 @@
 local weapons = {
 	{
+		itemId = 38990,
+		type = WEAPON_SWORD,
+		level = 270,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- lion longsword
+	{
+		itemId = 39089,
+		type = WEAPON_CLUB,
+		level = 270,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- lion hammer
+	{
+		itemId = 39088,
+		type = WEAPON_AXE,
+		level = 270,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- lion axe
+	{
+		itemId = 38987,
+		type = WEAPON_WAND,
+		wandType = "ice",
+		level = 220,
+		mana = 21,
+		damage = {89, 109},
+		vocation = {
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
+		}
+	}, -- lion wand
+	{
+		itemId = 38986,
+		type = WEAPON_WAND,
+		wandType = "ice",
+		level = 270,
+		mana = 20,
+		damage = {85, 105},
+		vocation = {
+			{"Druid", true},
+			{"Elder Druid"}
+		}
+	}, -- lion rod
+	{
+		itemId = 38985,
+		type = WEAPON_DISTANCE,
+		level = 270,
+		unproperly = true,
+		vocation = {
+			{"Paladin", true},
+			{"Royal Paladin"}
+		}
+	}, -- lion longbow
+	{
+		itemId = 38926,
+		type = WEAPON_WAND,
+		wandType = "ice",
+		level = 400,
+		mana = 21,
+		damage = {98, 118},
+		vocation = {
+			{"Druid", true},
+			{"Elder Druid"}
+		}
+	}, -- soulhexer rod
+	{
+		itemId = 38925,
+		type = WEAPON_WAND,
+		wandType = "death",
+		level = 400,
+		mana = 21,
+		damage = {100, 120},
+		vocation = {
+			{"Sorcerer", true},
+			{"Master Sorcerer"}
+		}
+	}, -- soultainter wand
+	{
+		itemId = 38924,
+		type = WEAPON_DISTANCE,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Paladin", true},
+			{"Royal Paladin"}
+		}
+	}, -- soulpiercer crossbow
+	{
+		itemId = 38923,
+		type = WEAPON_DISTANCE,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Paladin", true},
+			{"Royal Paladin"}
+		}
+	}, -- soulbleeder bow
+	{
+		itemId = 38922,
+		type = WEAPON_CLUB,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- soulmaimer club
+	{
+		itemId = 38921,
+		type = WEAPON_CLUB,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- soulcrusher club
+	{
+		itemId = 38920,
+		type = WEAPON_AXE,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- souleater axe
+	{
+		itemId = 38919,
+		type = WEAPON_AXE,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- soulbiter axe
+	{
+		itemId = 38918,
+		type = WEAPON_SWORD,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- soulshredder sword
+	{
+		itemId = 38917,
+		type = WEAPON_SWORD,
+		level = 400,
+		unproperly = true,
+		vocation = {
+			{"Knight", true},
+			{"Elite Knight"}
+		}
+	}, -- soulcutter sword
+	{
 		itemId = 37451,
 		type = WEAPON_AXE,
 		level = 180,
