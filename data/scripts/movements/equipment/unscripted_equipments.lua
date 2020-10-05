@@ -6,7 +6,7 @@ local equipmentsTable = {
     level = 150
   }, -- lion amulet
   {
-    itemid = 38992,
+    itemid = 38993,
     type = "deequip",
     slot = "necklace",
     level = 150
@@ -27,6 +27,144 @@ local equipmentsTable = {
       {"Elite Knight"}
     }
   }, -- lion plate
+  {
+    itemid = 38991,
+    type = "deequip",
+    slot = "head"
+  }, -- lion spangenhelm
+  {
+    itemid = 38991,
+    type = "equip",
+    slot = "head",
+    level = 230
+    vocation = {
+      {"Paladin", true},
+      {"Royal Paladin"}
+    }
+  }, -- lion spangenhelm
+  {
+    itemid = 38934,
+    type = "deequip",
+    slot = "shield"
+  }, -- soulbastion shield
+  {
+    itemid = 38934,
+    type = "equip",
+    slot = "shield",
+    level = 400
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- soulbastion shield
+  {
+    itemid = 38933,
+    type = "deequip",
+    slot = "feet"
+  }, -- pair of soulstalkers
+  {
+    itemid = 38933,
+    type = "equip",
+    slot = "feet",
+    level = 400
+    vocation = {
+      {"Paladin", true},
+      {"Royal Paladin"}
+    }
+  }, -- pair of soulstalkers
+  {
+    itemid = 38932,
+    type = "deequip",
+    slot = "feet"
+  }, -- pair of soulwalkers
+  {
+    itemid = 38932,
+    type = "equip",
+    slot = "feet",
+    level = 400
+    vocation = {
+      {"Knight", true},
+      {"Elite Knight"}
+    }
+  }, -- pair of soulwalkers
+  {
+    itemid = 38931,
+    type = "deequip",
+    slot = "armor"
+  }, -- soulshroud armor
+  {
+    itemid = 38931,
+    type = "equip",
+    slot = "armor",
+    level = 400
+    vocation = {
+      {"Druid", true},
+      {"Elder Druid"}
+    }
+  }, -- soulshroud armor
+  {
+    itemid = 38930,
+    type = "deequip",
+    slot = "armor"
+  }, -- soulmantel armor
+  {
+    itemid = 38930,
+    type = "equip",
+    slot = "armor",
+    level = 400
+    vocation = {
+      {"Sorcerer", true},
+      {"Master Sorcerer"}
+    }
+  }, -- soulmantel armor
+  {
+    itemid = 38929,
+    type = "deequip",
+    slot = "armor",
+    level = 400
+  }, -- soulshell armor
+  {
+    itemid = 38929,
+    type = "equip",
+    slot = "armor",
+    level = 400,
+    vocation = {
+      {"Paladin", true},
+      {"Royal Paladin"}
+    }
+  }, -- soulshell armor
+  {
+    itemid = 38928,
+    type = "deequip",
+    slot = "legs",
+    level = 400
+  }, -- soulstrider legs
+  {
+    itemid = 38928,
+    type = "equip",
+    slot = "legs",
+    level = 400,
+    vocation = {
+      {"Druid", true},
+      {"Elder Druid"}
+    }
+  }, -- soulstrider legs
+  {
+    itemid = 38927,
+    type = "deequip",
+    slot = "legs",
+    level = 400
+  }, -- soulshanks legs
+  {
+    itemid = 38927,
+    type = "equip",
+    slot = "legs",
+    level = 400,
+    vocation = {
+      {"Sorcerer", true},
+      {"Master Sorcerer"}
+    }
+  }, -- soulshanks legs
   {
     itemid = 38915,
     type = "deequip",
