@@ -316,6 +316,12 @@ function parseRequestStoreOffers(playerId, msg)
 			category = GameStore.getCategoryByName("Useful Things")
 		end
 		
+		-- Third prey slot offerId
+		-- We can't use offerId 0
+		if subAction == 0 then 
+			redirectId = 65008
+		end
+
 		if category then
 			addPlayerEvent(sendShowStoreOffers, 50, playerId, category, redirectId)
 		end
@@ -658,11 +664,7 @@ function sendShowStoreOffers(playerId, category, redirectId)
 	msg:addByte(GameStore.SendingPackets.S_StoreOffers)
 	msg:addString(category.name)
 
-	if redirectId ~= 0 then
-		msg:addU32(redirectId)
-	else 
-		msg:addU32(0)
-	end
+	msg:addU32(redirectId or 0)
 
 	msg:addByte(0) -- Window Type
 	msg:addByte(0) -- Collections Size
