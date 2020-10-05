@@ -1,6 +1,7 @@
-local mType = Game.createMonsterType("Orc Warlord")
+local mType = Game.createMonsterType("Orc Helmet")
 local monster = {}
 
+monster.name = "Orc Warlord"
 monster.description = "an orc warlord"
 monster.experience = 670
 monster.outfit = {
@@ -86,7 +87,7 @@ monster.loot = {
 	{id = 7891, chance = 250},
 	{id = 7395, chance = 80},
 	{id = 2165, chance = 80},
-	{id = 2537, chance = 5000}
+	{id = 2499, chance = 5000}
 }
 
 monster.attacks = {
