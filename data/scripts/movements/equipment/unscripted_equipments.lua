@@ -36,12 +36,29 @@ local equipmentsTable = {
     itemid = 38991,
     type = "equip",
     slot = "head",
-    level = 230
+    level = 230,
     vocation = {
       {"Paladin", true},
       {"Royal Paladin"}
     }
   }, -- lion spangenhelm
+  {
+    itemid = 38988,
+    type = "deequip",
+    slot = "shield"
+  }, -- lion spellbook
+  {
+    itemid = 38988,
+    type = "equip",
+    slot = "shield",
+    level = 220
+    vocation = {
+      {"Sorcerer", true},
+      {"Druid", true, true},
+      {"Master Sorcerer"},
+      {"Elder Druid"}
+    }
+  }, -- lion spellbook
   {
     itemid = 38934,
     type = "deequip",
