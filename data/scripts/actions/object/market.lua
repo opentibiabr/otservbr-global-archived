@@ -1,7 +1,7 @@
 local market = Action()
 
 function market.onUse(player, item, fromPosition, target, toPosition, isHotkey)
-	player:sendOpenMarket()
+	player:openMarket()
 	return true
 end
 
