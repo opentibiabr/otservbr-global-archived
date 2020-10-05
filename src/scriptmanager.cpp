@@ -114,7 +114,7 @@ bool ScriptingManager::loadScriptSystems()
 	}
 
 	g_moveEvents = new MoveEvents();
-	if (!g_moveEvents()) {
+	if (!g_moveEvents) {
 		return false;
 	}
 

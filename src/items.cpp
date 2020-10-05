@@ -21,7 +21,6 @@
 
 #include "items.h"
 #include "spells.h"
-#include "movement.h"
 #include "weapons.h"
 
 #include "pugicast.h"
