@@ -14,22 +14,32 @@ local function finditem(self, cylinder, conv)
 		cylinder = self:getSlotItem(CONST_SLOT_BACKPACK)
 		finditem(self, self:getSlotItem(CONST_SLOT_STORE_INBOX), conv)
 	end
+
 	if cylinder and cylinder:isContainer() then
-		for fromid, toid in pairs(data.coins) do
-			for i = 0, cylinder:getSize() - 1 do
-				local item = cylinder:getItem(i)
-				if item:isContainer() then
-					finditem(self, Container(item.uid), conv)		
-				elseif item:getId() == fromid and item:getCount() == 100 then
-					item:remove()
-					if not(cylinder:addItem(toid, 1)) then
-						player:addItem(toid, 1)
+		for i = 0, cylinder:getSize() - 1 do
+			local item = cylinder:getItem(i)
+			if item:isContainer() then
+				if finditem(self, Container(item.uid), conv) then
+					-- Breaks the recursion from going into the next items in this cylinder
+					return true
+				end
+			else
+				for fromid, toid in pairs(data.coins) do
+					if item:getId() == fromid and item:getCount() == 100 then						
+						item:remove()
+						if not(cylinder:addItem(toid, 1)) then
+							player:addItem(toid, 1)
+						end
+						
+						conv:setAttribute(ITEM_ATTRIBUTE_CHARGES, conv:getAttribute(ITEM_ATTRIBUTE_CHARGES) - 1)
+
+						return true
 					end
-					conv:setAttribute(ITEM_ATTRIBUTE_CHARGES,(conv:getAttribute(ITEM_ATTRIBUTE_CHARGES)-1))
-					break
 				end
 			end
 		end
+		-- End of items in this cylinder, returning to parent cylinder or finishing iteration
+		return false
 	end
 end
 
