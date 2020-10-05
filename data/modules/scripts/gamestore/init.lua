@@ -535,7 +535,6 @@ function Player.canBuyOffer(self, offer)
 				disabledReason = "You reached the maximum amount for this blessing."
 			end
 		elseif offer.type == GameStore.OfferTypes.OFFER_TYPE_ALLBLESSINGS then
-			local haveAllBlessings = false
 			for i = 1, 8 do
 				if self:getBlessingCount(i) >= 5 then
 					disabled = 1
