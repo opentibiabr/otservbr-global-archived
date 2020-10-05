@@ -21,12 +21,10 @@
 
 #include "items.h"
 #include "spells.h"
-#include "movement.h"
 #include "weapons.h"
 
 #include "pugicast.h"
 
-extern MoveEvents* g_moveEvents;
 extern Weapons* g_weapons;
 
 Items::Items()
@@ -90,7 +88,6 @@ bool Items::reload()
 		return false;
 	}
 
-	g_moveEvents->reload();
 	g_weapons->loadDefaults();
 	return true;
 }

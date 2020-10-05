@@ -114,8 +114,7 @@ bool ScriptingManager::loadScriptSystems()
 	}
 
 	g_moveEvents = new MoveEvents();
-	if (!g_moveEvents->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load move events!" << std::endl;
+	if (!g_moveEvents) {
 		return false;
 	}
 

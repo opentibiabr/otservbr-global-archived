@@ -27,7 +27,6 @@
 #include "configmanager.h"
 #include "spells.h"
 #include "talkaction.h"
-#include "movement.h"
 #include "raids.h"
 #include "mounts.h"
 #include "globalevent.h"
@@ -45,7 +44,6 @@ extern ConfigManager g_config;
 extern Actions* g_actions;
 extern Monsters g_monsters;
 extern TalkActions* g_talkActions;
-extern MoveEvents* g_moveEvents;
 extern Spells* g_spells;
 extern Game g_game;
 extern CreatureEvents* g_creatureEvents;
@@ -153,9 +151,6 @@ void Signals::sighupHandler()
 
 	g_creatureEvents->reload();
 	std::cout << "Reloaded creature scripts." << std::endl;
-
-	g_moveEvents->reload();
-	std::cout << "Reloaded movements." << std::endl;
 
 	Npcs::reload();
 	std::cout << "Reloaded npcs." << std::endl;
