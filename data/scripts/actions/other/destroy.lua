@@ -24,7 +24,6 @@ function destroy.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 	end
-	print("go")
 	return onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
