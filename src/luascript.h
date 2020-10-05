@@ -837,6 +837,7 @@ class LuaScriptInterface
 		static int luaCreatureGetDamageMap(lua_State* L);
 
 		static int luaCreatureGetSummons(lua_State* L);
+		static int luaCreatureHasBeenSummoned(lua_State* L);
 
 		static int luaCreatureGetDescription(lua_State* L);
 
@@ -1407,6 +1408,11 @@ class LuaScriptInterface
         static int luaMonsterTypeCanWalkOnEnergy(lua_State* L);
         static int luaMonsterTypeCanWalkOnFire(lua_State* L);
         static int luaMonsterTypeCanWalkOnPoison(lua_State* L);
+
+        static int luaMonsterTypeStrategiesTargetNearest(lua_State* L);
+        static int luaMonsterTypeStrategiesTargetHealth(lua_State* L);
+        static int luaMonsterTypeStrategiesTargetDamage(lua_State* L);
+        static int luaMonsterTypeStrategiesTargetRandom(lua_State* L);
 
 		// Loot
 		static int luaCreateLoot(lua_State* L);

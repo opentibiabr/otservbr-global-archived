@@ -26,9 +26,6 @@ local reloadTypes = {
 	["module"] = RELOAD_TYPE_MODULES,
 	["modules"] = RELOAD_TYPE_MODULES,
 
-	["monster"] = RELOAD_TYPE_MONSTERS,
-	["monsters"] = RELOAD_TYPE_MONSTERS,
-
 	["mount"] = RELOAD_TYPE_MOUNTS,
 	["mounts"] = RELOAD_TYPE_MOUNTS,
 
@@ -53,9 +50,6 @@ local reloadTypes = {
 	["talk"] = RELOAD_TYPE_TALKACTIONS,
 	["talkaction"] = RELOAD_TYPE_TALKACTIONS,
 	["talkactions"] = RELOAD_TYPE_TALKACTIONS,
-
-	["weapon"] = RELOAD_TYPE_WEAPONS,
-	["weapons"] = RELOAD_TYPE_WEAPONS,
 
 	["scripts"] = RELOAD_TYPE_SCRIPTS,
 	["libs"] = RELOAD_TYPE_GLOBAL

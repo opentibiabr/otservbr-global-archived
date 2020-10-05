@@ -148,6 +148,9 @@ void mainLoader(int, char*[], ServiceManager* services) {
 		"https://otserv.com.br/ and https://forums.otserv.com.br" << std::endl;
 	std::cout << std::endl;
 
+	std::cout << "Client Version: " << CLIENT_VERSION_STR
+													<< std::endl;
+
 	// check if config.lua or config.lua.dist exist
 	std::ifstream c_test("./config.lua");
 	if (!c_test.is_open()) {
@@ -242,18 +245,6 @@ void mainLoader(int, char*[], ServiceManager* services) {
 	std::cout << ">> Loading lua scripts" << std::endl;
 	if (!g_scripts->loadScripts("scripts", false, false)) {
 		startupErrorMessage("Failed to load lua scripts");
-		return;
-	}
-
-	std::cout << ">> Loading monsters" << std::endl;
-	if (!g_monsters.loadFromXml()) {
-		startupErrorMessage("Unable to load monsters!");
-		return;
-	}
-
-	std::cout << ">> Loading lua monsters" << std::endl;
-	if (!g_scripts->loadScripts("monster", false, false)) {
-		startupErrorMessage("Failed to load lua monsters");
 		return;
 	}
 

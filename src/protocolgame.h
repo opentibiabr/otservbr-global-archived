@@ -249,7 +249,7 @@ class ProtocolGame final : public Protocol
 		void sendGameNews();
 		void sendResourcesBalance(uint64_t money = 0, uint64_t bank = 0, uint64_t prey = 0);
 		void sendResourceBalance(Resource_t resourceType, uint64_t value);
-		void sendSaleItemList(const std::vector<ShopInfo>& shop);
+    void sendSaleItemList(const std::vector<ShopInfo>& shop, const std::map<uint32_t, uint32_t>& inventoryMap);
 		void sendMarketEnter(uint32_t depotId);
 		void updateCoinBalance();
 		void sendMarketLeave();
