@@ -184,6 +184,156 @@ if not equipmentsTable then
 			}
 		}, -- soulshanks legs
 		{
+			itemid = 38926,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulhexer
+		{
+			itemid = 38926,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Druid", true},
+				{"Elder Druid"}
+			}
+		}, -- soulhexer
+		{
+			itemid = 38925,
+			type = "deequip",
+			slot = "hand",
+		}, -- soultainter
+		{
+			itemid = 38925,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Sorcerer", true},
+				{"Master Sorcerer"}
+			}
+		}, -- soultainter
+		{
+			itemid = 38924,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulpiercer
+		{
+			itemid = 38924,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- soulpiercer
+		{
+			itemid = 38923,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulbleeder
+		{
+			itemid = 38923,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- soulbleeder
+		{
+			itemid = 38922,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulmaimer
+		{
+			itemid = 38922,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- soulmaimer
+		{
+			itemid = 38921,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulcrusher
+		{
+			itemid = 38921,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- soulcrusher
+		{
+			itemid = 38920,
+			type = "deequip",
+			slot = "hand",
+		}, -- souleater
+		{
+			itemid = 38920,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- souleater
+		{
+			itemid = 38919,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulbiter
+		{
+			itemid = 38919,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- soulbiter
+		{
+			itemid = 38918,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulshredder
+		{
+			itemid = 38918,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- soulshredder
+		{
+			itemid = 38917,
+			type = "deequip",
+			slot = "hand",
+		}, -- soulcutter
+		{
+			itemid = 38917,
+			type = "equip",
+			slot = "hand",
+			level = 400,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- soulcutter
+		{
 			itemid = 38915,
 			type = "deequip",
 			slot = "ring",
