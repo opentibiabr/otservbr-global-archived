@@ -1392,6 +1392,11 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 		return RETURNVALUE_NOERROR; //silently ignore move
 	}
 
+	// 'Move up' stackable items fix
+	if (item->isStackable() && count == 255) {
+		count = item->getItemCount();
+	}
+
 	//check if we can add this item
 	ReturnValue ret = toCylinder->queryAdd(index, *item, count, flags, actor);
 	if (ret == RETURNVALUE_NEEDEXCHANGE) {
