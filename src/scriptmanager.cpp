@@ -89,8 +89,7 @@ bool ScriptingManager::loadScriptSystems()
 	g_chat = new Chat();
 
 	g_weapons = new Weapons();
-	if (!g_weapons->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load weapons!" << std::endl;
+	if (!g_weapons) {
 		return false;
 	}
 
@@ -115,8 +114,7 @@ bool ScriptingManager::loadScriptSystems()
 	}
 
 	g_moveEvents = new MoveEvents();
-	if (!g_moveEvents->loadFromXml()) {
-		std::cout << "> ERROR: Unable to load move events!" << std::endl;
+	if (!g_moveEvents) {
 		return false;
 	}
 

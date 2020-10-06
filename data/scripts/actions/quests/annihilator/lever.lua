@@ -43,15 +43,15 @@ function lever.onUse(player, item, fromPosition, target, toPosition, isHotkey)
 
 			storePlayers[#storePlayers + 1] = playerTile
 		end
+		local specsP = Game.getSpectators(config.centerDemonRoomPosition, false, true, 3, 3, 2, 2)
+		if #specsP ~= 0 then
+				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
+				return true
+		end
 
 		local specs, spec = Game.getSpectators(config.centerDemonRoomPosition, false, false, 3, 3, 2, 2)
 		for i = 1, #specs do
 			spec = specs[i]
-			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the quest room.")
-				return true
-			end
-
 			spec:remove()
 		end
 

@@ -681,7 +681,26 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 	}
 }
 
-void ConditionRegeneration::addCondition(Creature*, const Condition* addCondition)
+bool ConditionRegeneration::startCondition(Creature* creature)
+{
+	if (!Condition::startCondition(creature)) {
+		return false;
+	}
+
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
+	}
+	return true;
+}
+
+void ConditionRegeneration::endCondition(Creature* creature)
+{
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
+	}
+}
+
+void ConditionRegeneration::addCondition(Creature* creature, const Condition* addCondition)
 {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
@@ -693,6 +712,10 @@ void ConditionRegeneration::addCondition(Creature*, const Condition* addConditio
 
 		healthGain = conditionRegen.healthGain;
 		manaGain = conditionRegen.manaGain;
+	}
+
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
 	}
 }
 
@@ -731,17 +754,24 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 {
 	internalHealthTicks += interval;
 	internalManaTicks += interval;
-
-	if (creature->getZone() != ZONE_PROTECTION) {
+	Player* player = creature->getPlayer();
+	int32_t PlayerdailyStreak = 0;
+	if (player) {
+		player->getStorageValue(STORAGEVALUE_DAILYREWARD, PlayerdailyStreak);
+	}
+	if (creature->getZone() != ZONE_PROTECTION || PlayerdailyStreak >= DAILY_REWARD_HP_REGENERATION) {
 		if (internalHealthTicks >= healthTicks) {
 			internalHealthTicks = 0;
 
 			int32_t realHealthGain = creature->getHealth();
-			creature->changeHealth(healthGain);
+			if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_HP_REGENERATION) {
+				creature->changeHealth(healthGain * 2); // Double regen from daily reward
+			} else {
+				creature->changeHealth(healthGain);
+			}
 			realHealthGain = creature->getHealth() - realHealthGain;
 
 			if (isBuff && realHealthGain > 0) {
-				Player* player = creature->getPlayer();
 				if (player) {
 					std::string healString = std::to_string(realHealthGain) + (realHealthGain != 1 ? " hitpoints." : " hitpoint.");
 
@@ -765,9 +795,16 @@ bool ConditionRegeneration::executeCondition(Creature* creature, int32_t interva
 			}
 		}
 
+	}
+
+	if (creature->getZone() != ZONE_PROTECTION || PlayerdailyStreak >= DAILY_REWARD_MP_REGENERATION) {
 		if (internalManaTicks >= manaTicks) {
 			internalManaTicks = 0;
-			creature->changeMana(manaGain);
+			if (creature->getZone() == ZONE_PROTECTION && PlayerdailyStreak >= DAILY_REWARD_DOUBLE_MP_REGENERATION) {
+				creature->changeMana(manaGain * 2); // Double regen from daily reward
+			} else {
+				creature->changeMana(manaGain);
+			}
 		}
 	}
 

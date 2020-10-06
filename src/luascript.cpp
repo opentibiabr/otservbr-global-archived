@@ -1952,17 +1952,14 @@ void LuaScriptInterface::registerFunctions()
 	registerEnum(RELOAD_TYPE_GLOBAL)
 	registerEnum(RELOAD_TYPE_GLOBALEVENTS)
 	registerEnum(RELOAD_TYPE_ITEMS)
-	registerEnum(RELOAD_TYPE_MONSTERS)
 	registerEnum(RELOAD_TYPE_MODULES)
 	registerEnum(RELOAD_TYPE_MOUNTS)
-	registerEnum(RELOAD_TYPE_MOVEMENTS)
 	registerEnum(RELOAD_TYPE_NPCS)
 	registerEnum(RELOAD_TYPE_RAIDS)
 	registerEnum(RELOAD_TYPE_SCRIPTS)
 	registerEnum(RELOAD_TYPE_STAGES)
 	registerEnum(RELOAD_TYPE_SPELLS)
 	registerEnum(RELOAD_TYPE_TALKACTIONS)
-	registerEnum(RELOAD_TYPE_WEAPONS)
 	registerEnum(RELOAD_TYPE_IMBUEMENTS)
 
 	registerEnum(ZONE_PROTECTION)
@@ -2406,6 +2403,7 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("Creature", "getDamageMap", LuaScriptInterface::luaCreatureGetDamageMap);
 
 	registerMethod("Creature", "getSummons", LuaScriptInterface::luaCreatureGetSummons);
+	registerMethod("Creature", "hasBeenSummoned", LuaScriptInterface::luaCreatureHasBeenSummoned);
 
 	registerMethod("Creature", "getDescription", LuaScriptInterface::luaCreatureGetDescription);
 
@@ -2993,6 +2991,15 @@ void LuaScriptInterface::registerFunctions()
                   LuaScriptInterface::luaMonsterTypeCanWalkOnFire);
     registerMethod("MonsterType", "canWalkOnPoison",
                   LuaScriptInterface::luaMonsterTypeCanWalkOnPoison);
+
+    registerMethod("MonsterType", "strategiesTargetNearest",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetNearest);
+    registerMethod("MonsterType", "strategiesTargetHealth",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetHealth);
+    registerMethod("MonsterType", "strategiesTargetDamage",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetDamage);
+    registerMethod("MonsterType", "strategiesTargetRandom",
+                  LuaScriptInterface::luaMonsterTypeStrategiesTargetRandom);
 
 	// Loot
 	registerClass("Loot", "", LuaScriptInterface::luaCreateLoot);
@@ -8393,6 +8400,19 @@ int LuaScriptInterface::luaCreatureGetSummons(lua_State* L)
 		setCreatureMetatable(L, -1, summon);
 		lua_rawseti(L, -2, ++index);
 	}
+	return 1;
+}
+
+int LuaScriptInterface::luaCreatureHasBeenSummoned(lua_State* L)
+{
+	// creature:hasBeenSummoned()
+	Creature* creature = getUserdata<Creature>(L, 1);
+	if (creature) {
+		pushBoolean(L, creature->hasBeenSummoned());
+	} else {
+		lua_pushnil(L);
+	}
+
 	return 1;
 }
 
@@ -15058,7 +15078,7 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnEnergy(lua_State* L) {
         if (lua_gettop(L) == 1) {
             pushBoolean(L, monsterType->info.canWalkOnEnergy);
         } else {
-            monsterType->info.canWalkOnEnergy = getBoolean(L, 2);
+            monsterType->info.canWalkOnEnergy = getBoolean(L, 2, true);
             pushBoolean(L, true);
         }
     } else {
@@ -15074,7 +15094,7 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnFire(lua_State* L) {
         if (lua_gettop(L) == 1) {
             pushBoolean(L, monsterType->info.canWalkOnFire);
         } else {
-            monsterType->info.canWalkOnFire = getBoolean(L, 2);
+            monsterType->info.canWalkOnFire = getBoolean(L, 2, true);
             pushBoolean(L, true);
         }
     } else {
@@ -15090,13 +15110,81 @@ int LuaScriptInterface::luaMonsterTypeCanWalkOnPoison(lua_State* L) {
         if (lua_gettop(L) == 1) {
             pushBoolean(L, monsterType->info.canWalkOnPoison);
         } else {
-            monsterType->info.canWalkOnPoison = getBoolean(L, 2);
+            monsterType->info.canWalkOnPoison = getBoolean(L, 2, true);
             pushBoolean(L, true);
         }
     } else {
         lua_pushnil(L);
     }
     return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetNearest(lua_State* L)
+{
+	// monsterType:strategiesTargetNearest()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetHealth(lua_State* L)
+{
+	// monsterType:strategiesTargetHealth()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetDamage(lua_State* L)
+{
+	// monsterType:strategiesTargetDamage()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeStrategiesTargetRandom(lua_State* L)
+{
+	// monsterType:strategiesTargetRandom()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.changeTargetChance);
+		} else {
+			monsterType->info.changeTargetChance = getNumber<int32_t>(L, 2);
+			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
 }
 
 // Loot
@@ -16912,10 +17000,10 @@ int LuaScriptInterface::luaMoveEventType(lua_State* L)
 			moveevent->setEventType(MOVE_EVENT_DEEQUIP);
 			moveevent->equipFunction = moveevent->DeEquipItem;
 		} else if (tmpStr == "additem") {
-			moveevent->setEventType(MOVE_EVENT_ADD_ITEM);
+			moveevent->setEventType(MOVE_EVENT_ADD_ITEM_ITEMTILE);
 			moveevent->moveFunction = moveevent->AddItemField;
 		} else if (tmpStr == "removeitem") {
-			moveevent->setEventType(MOVE_EVENT_REMOVE_ITEM);
+			moveevent->setEventType(MOVE_EVENT_REMOVE_ITEM_ITEMTILE);
 			moveevent->moveFunction = moveevent->RemoveItemField;
 		} else {
 			std::cout << "Error: [MoveEvent::configureMoveEvent] No valid event name " << typeName << std::endl;
@@ -17339,6 +17427,7 @@ int LuaScriptInterface::luaCreateWeapon(lua_State* L)
 				pushUserdata<WeaponMelee>(L, weapon);
 				setMetatable(L, -1, "Weapon");
 				weapon->weaponType = type;
+				weapon->fromLua = true;
 			} else {
 				lua_pushnil(L);
 			}
@@ -17351,6 +17440,7 @@ int LuaScriptInterface::luaCreateWeapon(lua_State* L)
 				pushUserdata<WeaponDistance>(L, weapon);
 				setMetatable(L, -1, "Weapon");
 				weapon->weaponType = type;
+				weapon->fromLua = true;
 			} else {
 				lua_pushnil(L);
 			}
@@ -17362,6 +17452,7 @@ int LuaScriptInterface::luaCreateWeapon(lua_State* L)
 				pushUserdata<WeaponWand>(L, weapon);
 				setMetatable(L, -1, "Weapon");
 				weapon->weaponType = type;
+				weapon->fromLua = true;
 			} else {
 				lua_pushnil(L);
 			}
@@ -17402,8 +17493,9 @@ int LuaScriptInterface::luaWeaponAction(lua_State* L)
 int LuaScriptInterface::luaWeaponRegister(lua_State* L)
 {
 	// weapon:register()
-	Weapon* weapon = getUserdata<Weapon>(L, 1);
-	if (weapon) {
+	Weapon** weaponPtr = getRawUserdata<Weapon>(L, 1);
+	if (weaponPtr && *weaponPtr) {
+		Weapon* weapon = *weaponPtr;
 		if (weapon->weaponType == WEAPON_DISTANCE || weapon->weaponType == WEAPON_AMMO) {
 			weapon = getUserdata<WeaponDistance>(L, 1);
 		} else if (weapon->weaponType == WEAPON_WAND) {
@@ -17425,6 +17517,7 @@ int LuaScriptInterface::luaWeaponRegister(lua_State* L)
 
 		weapon->configureWeapon(it);
 		pushBoolean(L, g_weapons->registerLuaEvent(weapon));
+		weapon = nullptr; // Releases weapon, removing the luascript reference
 	} else {
 		lua_pushnil(L);
 	}
@@ -17676,7 +17769,7 @@ int LuaScriptInterface::luaWeaponId(lua_State* L)
 	// weapon:id(id)
 	Weapon* weapon = getUserdata<Weapon>(L, 1);
 	if (weapon) {
-		weapon->setID(getNumber<uint32_t>(L, 2));
+		weapon->setID(getNumber<uint16_t>(L, 2));
 		pushBoolean(L, true);
 	} else {
 		lua_pushnil(L);
