@@ -247,7 +247,7 @@ if not equipmentsTable then
 			itemid = 38922,
 			type = "deequip",
 			slot = "hand",
-			}, -- soulmaimer
+		}, -- soulmaimer
 		{
 			itemid = 38922,
 			type = "equip",
