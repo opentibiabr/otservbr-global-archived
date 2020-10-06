@@ -681,7 +681,26 @@ bool ConditionAttributes::setParam(ConditionParam_t param, int32_t value)
 	}
 }
 
-void ConditionRegeneration::addCondition(Creature*, const Condition* addCondition)
+bool ConditionRegeneration::startCondition(Creature* creature)
+{
+	if (!Condition::startCondition(creature)) {
+		return false;
+	}
+
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
+	}
+	return true;
+}
+
+void ConditionRegeneration::endCondition(Creature* creature)
+{
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
+	}
+}
+
+void ConditionRegeneration::addCondition(Creature* creature, const Condition* addCondition)
 {
 	if (updateCondition(addCondition)) {
 		setTicks(addCondition->getTicks());
@@ -693,6 +712,10 @@ void ConditionRegeneration::addCondition(Creature*, const Condition* addConditio
 
 		healthGain = conditionRegen.healthGain;
 		manaGain = conditionRegen.manaGain;
+	}
+
+	if (Player* player = creature->getPlayer()) {
+		player->sendStats();
 	}
 }
 

@@ -185,6 +185,8 @@ class ConditionRegeneration final : public ConditionGeneric
 		ConditionRegeneration(ConditionId_t initId, ConditionType_t initType, int32_t iniTicks, bool initBuff = false, uint32_t initSubId = 0):
 			ConditionGeneric(initId, initType, iniTicks, initBuff, initSubId) {}
 
+		bool startCondition(Creature* creature) override;
+		void endCondition(Creature* creature) override;
 		void addCondition(Creature* creature, const Condition* addCondition) override;
 		bool executeCondition(Creature* creature, int32_t interval) override;
 
