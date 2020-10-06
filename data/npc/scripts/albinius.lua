@@ -51,7 +51,7 @@ local function creatureSayCallback(cid, type, msg)
 
 	if msgcontains(msg, 'temple') then
 		npcHandler:say({
-			"The temple has been restored to its former glory, yet we strife to live and praise in the Shaper ways. Do you still need me to take some old tomes from you my child?"
+			"The temple has been restored to its former glory, yet we strife to live and praise in the {Shaper} ways. Do you still need me to take some old {tomes} from you my child?"
 		}, cid)
 		npcHandler.topic[cid] = 1
 	end
@@ -226,6 +226,7 @@ local function creatureSayCallback(cid, type, msg)
 	return true
 end
 
+npcHandler:setMessage(MESSAGE_GREET, "Greetings, pilgrim. Welcome to the halls of hope. We are the keepers of this {temple} and welcome everyone willing to contribute.")
 npcHandler:setMessage(MESSAGE_WALKAWAY, "Oh... farewell, child.")
 
 npcHandler:setCallback(CALLBACK_MESSAGE_DEFAULT, creatureSayCallback)
