@@ -317,7 +317,7 @@ if not equipmentsTable then
                 {"Knight", true},
                 {"Elite Knight"}
             }
-        }, -- soulshredder 
+        }, -- soulshredder
 		{
             itemid = 38917,
             type = "deequip",
