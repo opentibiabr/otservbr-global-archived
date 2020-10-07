@@ -8,7 +8,9 @@ local config = { -- Ref: https://www.tibiawiki.com.br/wiki/Threatened_Dreams_Que
     }
 }
 
-function onStepIn(creature, item, position, fromPosition)
+local swanFeathers = MoveEvent()
+
+function swanFeathers.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return true
@@ -36,3 +38,6 @@ function onStepIn(creature, item, position, fromPosition)
     end
 	return true
 end
+
+swanFeathers:aid(50301,50302,50303,50304,50305)
+swanFeathers:register()
