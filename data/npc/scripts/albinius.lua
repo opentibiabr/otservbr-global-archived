@@ -55,10 +55,19 @@ local function creatureSayCallback(cid, type, msg)
 		}, cid)
 		npcHandler.topic[cid] = 1
 	end
-	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 and player:getItemCount(26654) >= 5 then
-		player:removeItem(26654, 5)
-		npcHandler:say('Thank you very much for your contribution, child. Your first step in the ways of the {Shapers} has been taken.', cid)
-		player:setStorageValue(Storage.ForgottenKnowledge.Tomes, 1)
+	if msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then
+		if (player:getStorageValue(Storage.ForgottenKnowledge.Tomes) == 1) then
+			npcHandler:say('You already offered enough tomes for us to study and rebuild this temple. Thank you, my child.', cid)
+			npcHandler.topic[cid] = 0
+		else
+			if (player:getItemCount(26654) >= 5) then
+				player:removeItem(26654, 5)
+				npcHandler:say('Thank you very much for your contribution, child. Your first step in the ways of the {Shapers} has been taken.', cid)
+				player:setStorageValue(Storage.ForgottenKnowledge.Tomes, 1)
+			else
+				npcHandler:say('You need 5 heavy old tome.', cid)
+			end
+		end
 	elseif  msgcontains(msg, "no") and npcHandler.topic[cid] == 1 then
 		npcHandler:say('I understand. Return to me if you change your mind, my child.', cid)
 		npcHandler:releaseFocus(cid)

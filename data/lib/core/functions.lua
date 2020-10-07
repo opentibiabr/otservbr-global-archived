@@ -9,6 +9,15 @@ function getDistanceBetween(firstPosition, secondPosition)
 	return posDif
 end
 
+function getTibiaTimerDayOrNight()
+	local light = getWorldLight()
+	if (light == 40) then
+		return "night"
+	else
+		return "day"
+	end
+end
+
 function getFormattedWorldTime()
 	local worldTime = getWorldTime()
 	local hours = math.floor(worldTime / 60)
