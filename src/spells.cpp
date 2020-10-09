@@ -524,7 +524,7 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 		cooldown = pugi::cast<uint32_t>(attr.value());
 	}
 
-	if (attr = node.attribute("setPzLocked")) {
+	if ((attr = node.attribute("setPzLocked"))) {
 		pzLocked = attr.as_bool();
 	}
 
