@@ -26,5 +26,5 @@ function demonOakChest.onUse(player, item, fromPosition, target, toPosition, isH
 	return true
 end
 
-demonOakChest:id(1002, 1003, 1004, 1005)
+demonOakChest:uid(1002, 1003, 1004, 1005)
 demonOakChest:register()
