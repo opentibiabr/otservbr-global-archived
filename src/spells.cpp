@@ -524,6 +524,10 @@ bool Spell::configureSpell(const pugi::xml_node& node)
 		cooldown = pugi::cast<uint32_t>(attr.value());
 	}
 
+	if ((attr = node.attribute("setPzLocked"))) {
+		pzLocked = attr.as_bool();
+	}
+
 	if ((attr = node.attribute("premium")) || (attr = node.attribute("prem"))) {
 		premium = attr.as_bool();
 	}
@@ -1248,6 +1252,11 @@ bool RuneSpell::executeUse(Player* player, Item* item, const Position&, Thing* t
 		g_game.transformItem(item, item->getID(), newCount);
 		player->updateSupplyTracker(item);
 	}
+
+	if (getPzOnUse() && g_game.getWorldType() == WORLD_TYPE_PVP) {
+		player->addInFightTicks(true);
+	}
+
 	return true;
 }
 
