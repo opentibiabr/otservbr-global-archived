@@ -92,7 +92,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 65,
 	armor = 45,
-	{name ="speed", interval = 2000, chance = 8, SpeedChange = 790, Duration = 10000},
+	{name ="speed", interval = 2000, chance = 8, speedChange = 790, duration = 10000},
 	{name ="combat", interval = 2000, chance = 25, minDamage = 600, maxDamage = 1090, type = COMBAT_HEALING, effect = CONST_ME_HITBYFIRE, target = false}
 }
 

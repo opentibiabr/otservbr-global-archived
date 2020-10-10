@@ -91,19 +91,19 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -225, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -175, maxDamage = -380, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_POFF, target = false},
-	{name ="speed", interval = 2000, chance = 5, SpeedChange = -700, Duration = 12000},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -850, Duration = 18000},
+	{name ="speed", interval = 2000, chance = 5, speedChange = -700, duration = 12000},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -850, duration = 18000},
 	{name ="combat", interval = 2000, chance = 5, minDamage = -60, maxDamage = -120, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICETORNADO, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -100, maxDamage = -240, type = COMBAT_ICEDAMAGE, effect = CONST_ME_ICEAREA, target = true},
 	{name ="combat", interval = 2000, chance = 5, minDamage = 0, maxDamage = -220, type = COMBAT_PHYSICALDAMAGE, length = 1, spread = 0, effect = CONST_ME_POFF, target = false},
-	{name ="speed", interval = 2000, chance = 20, SpeedChange = -600, Duration = 12000}
+	{name ="speed", interval = 2000, chance = 20, speedChange = -600, duration = 12000}
 }
 
 monster.defenses = {
 	defense = 45,
 	armor = 45,
 	{name ="combat", interval = 2000, chance = 10, minDamage = 150, maxDamage = 200, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 290, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 290, duration = 5000}
 }
 
 monster.elements = {

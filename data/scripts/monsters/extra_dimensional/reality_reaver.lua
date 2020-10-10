@@ -100,7 +100,7 @@ monster.defenses = {
 	defense = 50,
 	armor = 50,
 	{name ="invisible", interval = 2000, chance = 15, effect = CONST_ME_POFF},
-	{name ="speed", interval = 2000, chance = 10, SpeedChange = 380, Duration = 8000}
+	{name ="speed", interval = 2000, chance = 10, speedChange = 380, duration = 8000}
 }
 
 monster.elements = {

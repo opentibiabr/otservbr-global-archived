@@ -93,14 +93,14 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 15, minDamage = 120, maxDamage = 450, type = COMBAT_FIREDAMAGE, length = 1, spread = 0, effect = CONST_ME_HITBYFIRE, target = false},
 	{name ="combat", interval = 1000, chance = 10, minDamage = 150, maxDamage = 350, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 300, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -100, Duration = 30000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -100, duration = 30000}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 77,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 50, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 320, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 320, duration = 5000}
 }
 
 monster.elements = {

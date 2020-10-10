@@ -72,7 +72,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -550, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 40, minDamage = 0, maxDamage = -980, type = COMBAT_EARTHDAMAGE, effect = CONST_ME_HITBYPOISON, target = false},
 	{name ="combat", interval = 2000, chance = 50, minDamage = -200, maxDamage = -300, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="speed", interval = 2000, chance = 20, SpeedChange = -400, Duration = 10000}
+	{name ="speed", interval = 2000, chance = 20, speedChange = -400, duration = 10000}
 }
 
 monster.defenses = {

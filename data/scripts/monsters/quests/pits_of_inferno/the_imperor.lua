@@ -94,7 +94,7 @@ monster.defenses = {
 	armor = 15,
 	{name ="combat", interval = 2000, chance = 35, minDamage = 275, maxDamage = 840, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 21, target = false},
-	{name ="speed", interval = 2000, chance = 12, SpeedChange = 1496, Duration = 5000},
+	{name ="speed", interval = 2000, chance = 12, speedChange = 1496, duration = 5000},
 	{name ="invisible", interval = 2000, chance = 11, effect = CONST_ME_TELEPORT}
 }
 

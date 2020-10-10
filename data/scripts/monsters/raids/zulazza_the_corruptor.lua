@@ -97,7 +97,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 40, minDamage = -500, maxDamage = -800, type = COMBAT_PHYSICALDAMAGE, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 30, minDamage = -300, maxDamage = -800, effect = CONST_ME_POISONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 25, minDamage = -50, maxDamage = -130, type = COMBAT_MANADRAIN, range = 7, effect = CONST_ME_MAGIC_GREEN, target = true},
-	{name ="speed", interval = 2000, chance = 20, SpeedChange = -500, Duration = 20000}
+	{name ="speed", interval = 2000, chance = 20, speedChange = -500, duration = 20000}
 }
 
 monster.defenses = {

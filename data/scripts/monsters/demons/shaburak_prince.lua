@@ -90,7 +90,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -40, maxDamage = -90, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREATTACK, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -100, maxDamage = -200, type = COMBAT_FIREDAMAGE, length = 4, spread = 3, effect = CONST_ME_FIREATTACK, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -150, maxDamage = -250, type = COMBAT_FIREDAMAGE, length = 4, spread = 3, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -700, Duration = 15000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -700, duration = 15000}
 }
 
 monster.defenses = {

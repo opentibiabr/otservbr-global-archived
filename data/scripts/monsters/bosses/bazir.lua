@@ -137,7 +137,7 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 9, range = 7, shootEffect = CONST_ANI_LARGEROCK, effect = CONST_ME_ENERGYAREA, target = false},
 	{name ="combat", interval = 1000, chance = 13, minDamage = -400, maxDamage = -700, type = COMBAT_LIFEDRAIN, effect = CONST_ME_LOSEENERGY, target = false},
 	{name ="combat", interval = 1000, chance = 10, minDamage = -400, maxDamage = -700, type = COMBAT_MANADRAIN, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 1000, chance = 12, SpeedChange = -1900, Duration = 60000},
+	{name ="speed", interval = 1000, chance = 12, speedChange = -1900, duration = 60000},
 	{name ="combat", interval = 1000, chance = 8, effect = CONST_ME_HITAREA, target = false},
 	{name ="outfit", interval = 1000, chance = 2},
 	{name ="outfit", interval = 1000, chance = 2},
@@ -150,7 +150,7 @@ monster.defenses = {
 	armor = 160,
 	{name ="combat", interval = 1000, chance = 15, minDamage = 5000, maxDamage = 10000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="combat", interval = 1000, chance = 25, minDamage = 2000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 1000, chance = 8, SpeedChange = 1901, Duration = 5000},
+	{name ="speed", interval = 1000, chance = 8, speedChange = 1901, duration = 5000},
 	{name ="invisible", interval = 1000, chance = 4, effect = CONST_ME_MAGIC_BLUE},
 	{name ="invisible", interval = 1000, chance = 17, effect = CONST_ME_MAGIC_BLUE},
 	{name ="outfit", interval = 1000, chance = 2}
