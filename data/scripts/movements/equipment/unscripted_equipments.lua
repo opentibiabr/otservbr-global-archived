@@ -1,4 +1,5 @@
 if not equipmentsTable then
+
 	equipmentsTable = {
 		{
 			itemid = 38993,
@@ -12,6 +13,16 @@ if not equipmentsTable then
 			slot = "necklace",
 			level = 150
 		}, -- lion amulet
+		{
+			itemid = 38990,
+			type = "equip",
+			slot = "hand",
+		}, -- lion longsword
+		{
+			itemid = 38990,
+			type = "deequip",
+			slot = "hand",
+		}, -- lion longsword
 		{
 			itemid = 38992,
 			type = "deequip",
