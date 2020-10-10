@@ -30684,6 +30684,18 @@
 	</item>
 	<item id="20667" article="an" name="assassin" />
 	<item id="20668" article="a" name="shadowy statue" />
+	<item id="20669" article="a" name="magic wall">
+		<attribute key="type" value="magicfield" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="20" />
+		<attribute key="blocking" value="1" />
+	</item>
+	<item id="20670" article="a" name="rush wood">
+		<attribute key="type" value="magicfield" />
+		<attribute key="decayTo" value="0" />
+		<attribute key="duration" value="45" />
+		<attribute key="blocking" value="1" />
+	</item>
 	<item fromid="20671" toid="20691" article="a" name="basalt crystal wall" />
 	<item fromid="20692" toid="20700" article="the" name="spike of a crystal drill" />
 	<item fromid="20701" toid="20715" article="a" name="basalt crystal wall" />
