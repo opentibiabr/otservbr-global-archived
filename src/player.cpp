@@ -4149,14 +4149,6 @@ Skulls_t Player::getSkullClient(const Creature* creature) const
 			}
 		}
 
-		if (isInWar(player)) {
-			return SKULL_GREEN;
-		}
-
-		if (!player->getGuildWarVector().empty() && guild == player->getGuild()) {
-			return SKULL_GREEN;
-		}
-
 		if (player->hasKilled(this)) {
 			return SKULL_ORANGE;
 		}
