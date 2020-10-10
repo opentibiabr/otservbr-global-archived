@@ -98,7 +98,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, target = false},
 	{name ="combat", interval = 2000, chance = 10, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -140, maxDamage = -180, type = COMBAT_FIREDAMAGE, effect = CONST_ME_HITBYFIRE, target = false},
-	{name ="speed", interval = 2000, chance = 10, SpeedChange = -800, Duration = 20000}
+	{name ="speed", interval = 2000, chance = 10, speedChange = -800, duration = 20000}
 }
 
 monster.defenses = {

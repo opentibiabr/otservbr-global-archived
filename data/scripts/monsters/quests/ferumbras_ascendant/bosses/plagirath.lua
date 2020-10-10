@@ -98,7 +98,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 20, minDamage = -500, maxDamage = -900, type = COMBAT_DEATHDAMAGE, range = 4, effect = CONST_ME_POFF, target = true},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -1000, maxDamage = -1200, type = COMBAT_EARTHDAMAGE, length = 10, spread = 3, effect = CONST_ME_POFF, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -1500, maxDamage = -1900, type = COMBAT_LIFEDRAIN, length = 10, spread = 3, effect = CONST_ME_POFF, target = false},
-	{name ="speed", interval = 2000, chance = 20, SpeedChange = -600, Duration = 20000},
+	{name ="speed", interval = 2000, chance = 20, speedChange = -600, duration = 20000},
 	{name ="combat", interval = 20000, chance = 25, target = false}
 }
 
@@ -106,7 +106,7 @@ monster.defenses = {
 	defense = 55,
 	armor = 55,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 3000, maxDamage = 4000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 30, SpeedChange = 440, Duration = 6000},
+	{name ="speed", interval = 2000, chance = 30, speedChange = 440, duration = 6000},
 	{name ="combat", interval = 2000, chance = 15, target = false},
 	{name ="combat", interval = 2000, chance = 17, target = false}
 }

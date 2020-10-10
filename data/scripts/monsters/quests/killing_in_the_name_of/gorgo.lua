@@ -80,7 +80,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -450, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 42, interval = 4000}},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -21, maxDamage = -350, type = COMBAT_LIFEDRAIN, range = 7, shootEffect = CONST_ANI_EARTH, effect = CONST_ME_CARNIPHILA, target = true},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -500, type = COMBAT_EARTHDAMAGE, length = 8, spread = 3, effect = CONST_ME_CARNIPHILA, target = false},
-	{name ="speed", interval = 2000, chance = 25, SpeedChange = -400, Duration = 10000},
+	{name ="speed", interval = 2000, chance = 25, speedChange = -400, duration = 10000},
 	{name ="outfit", interval = 2000, chance = 1}
 }
 

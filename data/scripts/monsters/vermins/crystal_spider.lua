@@ -85,15 +85,15 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -250, effect = CONST_ME_DRAWBLOOD, condition = {type = CONDITION_POISON, startDamage = 160, interval = 4000}},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -800, Duration = 15000},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -800, duration = 15000},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -50, maxDamage = -100, type = COMBAT_ICEDAMAGE, range = 7, shootEffect = CONST_ANI_ICE, effect = CONST_ME_ICEAREA, target = true},
-	{name ="speed", interval = 2000, chance = 20, SpeedChange = -600, Duration = 10000}
+	{name ="speed", interval = 2000, chance = 20, speedChange = -600, duration = 10000}
 }
 
 monster.defenses = {
 	defense = 0,
 	armor = 43,
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 250, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 250, duration = 5000}
 }
 
 monster.elements = {

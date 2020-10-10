@@ -80,7 +80,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -1, maxDamage = -10, type = COMBAT_EARTHDAMAGE, length = 6, spread = 3, effect = CONST_ME_SMALLPLANTS, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -1, maxDamage = -12, type = COMBAT_PHYSICALDAMAGE, length = 7, spread = 3, effect = CONST_ME_EXPLOSIONAREA, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = 0, maxDamage = -8, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
-	{name ="speed", interval = 1000, chance = 6, SpeedChange = -100, Duration = 20000},
+	{name ="speed", interval = 1000, chance = 6, speedChange = -100, duration = 20000},
 	{name ="outfit", interval = 2000, chance = 10}
 }
 

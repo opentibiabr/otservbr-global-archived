@@ -98,14 +98,14 @@ monster.attacks = {
 	{name ="firefield", interval = 2000, chance = 10, range = 7, shootEffect = CONST_ANI_FIRE, target = true},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -50, maxDamage = -200, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = -10, maxDamage = -100, range = 1, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -100, Duration = 30000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -100, duration = 30000}
 }
 
 monster.defenses = {
 	defense = 55,
 	armor = 55,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 50, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 320, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 320, duration = 5000}
 }
 
 monster.elements = {

@@ -79,7 +79,7 @@ monster.attacks = {
 	{name ="combat", interval = 1000, chance = 17, minDamage = -135, maxDamage = -175, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_SUDDENDEATH, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 1000, chance = 15, minDamage = -40, maxDamage = -120, range = 7, shootEffect = CONST_ANI_POISON, target = false},
 	{name ="combat", interval = 1000, chance = 12, minDamage = -110, maxDamage = -130, type = COMBAT_LIFEDRAIN, range = 7, effect = CONST_ME_MAGIC_RED, target = false},
-	{name ="speed", interval = 1000, chance = 10, SpeedChange = -850, Duration = 20000},
+	{name ="speed", interval = 1000, chance = 10, speedChange = -850, duration = 20000},
 	{name ="combat", interval = 1000, chance = 8, minDamage = -35, maxDamage = -85, length = 8, spread = 3, effect = CONST_ME_GREEN_RINGS, target = false},
 	{name ="combat", interval = 1000, chance = 6, minDamage = -75, maxDamage = -85, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 1000, chance = 9, minDamage = -150, maxDamage = -250, type = COMBAT_MANADRAIN, length = 8, spread = 3, effect = CONST_ME_LOSEENERGY, target = false}

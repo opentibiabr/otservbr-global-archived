@@ -95,7 +95,7 @@ monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -351, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 2000, chance = 15, minDamage = 0, maxDamage = -220, type = COMBAT_PHYSICALDAMAGE, range = 7, shootEffect = CONST_ANI_WHIRLWINDAXE, effect = CONST_ME_EXPLOSIONAREA, target = true},
 	{name ="drunk", interval = 2000, chance = 15, shootEffect = CONST_ANI_WHIRLWINDCLUB, effect = CONST_ME_SOUND_RED, target = true},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -650, Duration = 15000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -650, duration = 15000}
 }
 
 monster.defenses = {

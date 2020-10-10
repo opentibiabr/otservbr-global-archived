@@ -136,7 +136,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 15, minDamage = -250, maxDamage = -500, type = COMBAT_PHYSICALDAMAGE, range = 7, effect = CONST_ME_SOUND_RED, target = false},
 	{name ="combat", interval = 2000, chance = 20, minDamage = -200, maxDamage = -450, type = COMBAT_PHYSICALDAMAGE, effect = CONST_ME_LOSEENERGY, target = false},
 	{name ="combat", interval = 3000, chance = 15, minDamage = -100, maxDamage = -200, effect = CONST_ME_DRAWBLOOD},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -400, Duration = 20000},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -400, duration = 20000},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -70, maxDamage = -320, type = COMBAT_MANADRAIN, effect = CONST_ME_HITAREA, target = true},
 	{name ="combat", interval = 2000, chance = 5, target = false}
 }
@@ -146,7 +146,7 @@ monster.defenses = {
 	armor = 55,
 	{name ="combat", interval = 3000, chance = 35, minDamage = 800, maxDamage = 1100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
 	{name ="combat", interval = 9000, chance = 15, minDamage = 3800, maxDamage = 4000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 4000, chance = 80, SpeedChange = 470, Duration = 6000}
+	{name ="speed", interval = 4000, chance = 80, speedChange = 470, duration = 6000}
 }
 
 monster.elements = {
