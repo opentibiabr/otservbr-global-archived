@@ -4283,7 +4283,7 @@ bool Player::isPromoted() const
 double Player::getLostPercent() const
 {
 	int32_t blessingCount = 0;
-	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS) ? 8 : 6;
+	uint8_t maxBlessing = (operatingSystem == CLIENTOS_NEW_WINDOWS || operatingSystem == CLIENTOS_NEW_MAC) ? 8 : 6;
 	for (int i = 2; i <= maxBlessing; i++) {
 		if (hasBlessing(i)) {
 			blessingCount++;
