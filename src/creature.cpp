@@ -409,16 +409,12 @@ void Creature::onCreatureAppear(Creature* creature, bool isLogin)
 
 void Creature::onRemoveCreature(Creature* creature, bool)
 {
-	onCreatureDisappear(creature, true);
-	if (creature == this) {
-		if (master && !master->isRemoved()) {
-			setMaster(nullptr);
-		}
-	} else if (isMapLoaded) {
-		if (creature->getPosition().z == getPosition().z) {
-			updateTileCache(creature->getTile(), creature->getPosition());
-		}
-	}
+  onCreatureDisappear(creature, true);
+  if (creature != this && isMapLoaded) {
+    if (creature->getPosition().z == getPosition().z) {
+      updateTileCache(creature->getTile(), creature->getPosition());
+    }
+  }
 }
 
 void Creature::onCreatureDisappear(const Creature* creature, bool isLogout)
