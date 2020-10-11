@@ -244,7 +244,10 @@ class MonsterSpell
 		bool combatSpell = false;
 		bool isMelee = false;
 
+		// For outfit spells
 		Outfit_t outfit = {};
+		int16_t item = 0;
+
 		ShootType_t shoot = CONST_ANI_NONE;
 		MagicEffectClasses effect = CONST_ME_NONE;
 		ConditionType_t conditionType = CONDITION_NONE;

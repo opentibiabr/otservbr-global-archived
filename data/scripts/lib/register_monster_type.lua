@@ -365,6 +365,13 @@ registerMonsterType.attacks = function(mtype, mask)
 					if attack.shootEffect then
 						spell:setCombatShootEffect(attack.shootEffect)
 					end
+					if attack.name == "outfit" then
+						if attack.outfit then
+							spell:setOutfit(attack.outfit)
+						elseif attack.item then
+							spell:setItem(attack.item)
+						end
+					end
 				end
 			elseif attack.script then
 				spell:setScriptName(attack.script)
@@ -478,6 +485,13 @@ registerMonsterType.defenses = function(mtype, mask)
 						end
 						if defense.shootEffect then
 							spell:setCombatshootEffect(defense.shootEffect)
+						end
+						if defense.name == "outfit" then
+							if defense.outfit then
+								spell:setOutfit(defense.outfit)
+							elseif defense.item then
+								spell:setItem(defense.item)
+							end
 						end
 					end
 				elseif defense.script then

@@ -3039,6 +3039,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterSpell", "setConditionTickInterval", LuaScriptInterface::luaMonsterSpellSetConditionTickInterval);
 	registerMethod("MonsterSpell", "setCombatShootEffect", LuaScriptInterface::luaMonsterSpellSetCombatShootEffect);
 	registerMethod("MonsterSpell", "setCombatEffect", LuaScriptInterface::luaMonsterSpellSetCombatEffect);
+	registerMethod("MonsterSpell", "setOutfit", LuaScriptInterface::luaMonsterSpellSetOutfit);
+	registerMethod("MonsterSpell", "setItem", LuaScriptInterface::luaMonsterSpellSetItem);
 
 	// Party
 	registerClass("Party", "", LuaScriptInterface::luaPartyCreate);
@@ -15596,6 +15598,33 @@ int LuaScriptInterface::luaMonsterSpellSetCombatEffect(lua_State* L)
 	}
 	return 1;
 }
+
+int LuaScriptInterface::luaMonsterSpellSetOutfit(lua_State* L)
+{
+	// monsterSpell:setOutfit(effect)
+	MonsterSpell* spell = getUserdata<MonsterSpell>(L, 1);
+	if (spell) {
+		spell->outfit = getOutfit(L, 2);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterSpellSetItem(lua_State* L)
+{
+	// monsterSpell:setItem(effect)
+	MonsterSpell* spell = getUserdata<MonsterSpell>(L, 1);
+	if (spell) {
+		spell->item = getNumber<int16_t>(L, 2);
+		pushBoolean(L, true);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
 
 // Party
 int32_t LuaScriptInterface::luaPartyCreate(lua_State* L)
