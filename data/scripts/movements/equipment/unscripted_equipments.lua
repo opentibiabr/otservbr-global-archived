@@ -26,12 +26,7 @@ if not equipmentsTable then
 		{
 			itemid = 38990,
 			type = "deequip",
-			slot = "hand",
-			level = 270,
-			vocation = {
-				{"Knight", true},
-				{"Elite Knight"}
-			}
+			slot = "hand"
 		}, -- lion longsword
 		{
 			itemid = 38992,
