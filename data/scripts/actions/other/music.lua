@@ -25,7 +25,7 @@ local MusicEffect = {
 	[2371] = CONST_ME_SOUND_BLUE, 	--Horn of Sundering
 	[2372] = CONST_ME_SOUND_GREEN, 	--Lyre
 	[2373] = CONST_ME_SOUND_BLUE, 	--Panpipes
-	[2374] = CONST_ME_SOUND_GREEN, 	--Wooden Flute
+	[2070] = CONST_ME_SOUND_GREEN, 	--Wooden Flute
 	--
 	[3951] = CONST_ME_SOUND_BLUE, 	--Bongo Drum
 	[3952] = CONST_ME_SOUND_GREEN, 	--Didgeridoo

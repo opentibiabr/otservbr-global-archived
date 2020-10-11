@@ -74,7 +74,7 @@ monster.loot = {
 	{id = "talon", chance = 750},
 	{id = "hailstorm rod", chance = 1100},
 	{id = 2192, chance = 1250},
-	{id = 2374, chance = 1400},
+	{id = 2070, chance = 1400},
 	{id = "clerical mace", chance = 1500},
 	{id = "black shield", chance = 210},
 	{id = "red apple", chance = 7500, maxCount = 2},
