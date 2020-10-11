@@ -367,7 +367,7 @@ registerMonsterType.attacks = function(mtype, mask)
 					end
 				end
 			elseif attack.script then
-				spell:setScriptName(attack.script)
+				spell:setScriptName("monster/" .. attack.script .. ".lua")
 				if attack.interval then
 					spell:setInterval(attack.interval)
 				end
@@ -481,7 +481,7 @@ registerMonsterType.defenses = function(mtype, mask)
 						end
 					end
 				elseif defense.script then
-					spell:setScriptName(defense.script)
+					spell:setScriptName("monster/" .. defense.script .. ".lua")
 					if defense.interval then
 						spell:setInterval(defense.interval)
 					end
