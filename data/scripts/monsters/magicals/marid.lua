@@ -55,7 +55,7 @@ monster.light = {
 }
 
 monster.summons = {
-	{name = "blue djinn", chance = 10, interval = 2000, max = 2}
+	{name = "blue djinn", chance = 10, interval = 20000, max = 2}
 }
 
 monster.voices = {
@@ -76,7 +76,7 @@ monster.loot = {
 	{id = "gold coin", chance = 60000, maxCount = 30},
 	{id = "blue gem", chance = 110},
 	{id = "hailstorm rod", chance = 770},
-	{id = 2374, chance = 5000},
+	{id = 2070, chance = 5000},
 	{id = "heavy machete", chance = 4530},
 	{id = "mystic turban", chance = 290},
 	{id = "blueberry", chance = 65000, maxCount = 29},
