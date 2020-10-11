@@ -56,6 +56,17 @@ function Monster:onSpawn(position)
 
 	if not self:getType():canSpawn(position) then
 		self:remove()
+	elseif (self:getRespawnType() > 0) then -- NOT RECOMENDED TO USE
+		local time = getWorldTime()
+		local dayOrNight = getTibiaTimerDayOrNight(getFormattedWorldTime(time))
+		local respawnType = {
+			[1] = "day",
+			[2] = "night"
+		}
+		if ( respawnType[self:getRespawnType()] ~= dayOrNight ) then
+			print("Monster Removed: ".. self:getName() .."  respawnType: ".. self:getRespawnType())
+			self:remove()
+		end
 	else
 		local spec = Game.getSpectators(position, false, false)
 		for _, pid in pairs(spec) do
