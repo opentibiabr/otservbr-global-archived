@@ -59,6 +59,56 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "hand"
 		}, -- lion longsword
+				{
+			itemid = 38986,
+			type = "equip",
+			slot = "hand",
+		}, -- lion rod
+		{
+			itemid = 38986,
+			type = "deequip",
+			slot = "hand",
+		}, -- lion rod		
+				{
+			itemid = 38987,
+			type = "equip",
+			slot = "hand",
+		}, -- lion wand
+		{
+			itemid = 38987,
+			type = "deequip",
+			slot = "hand",
+		}, -- lion wand
+		{
+			itemid = 39088,
+			type = "equip",
+			slot = "hand",
+		}, -- lion axe
+		{
+			itemid = 39088,
+			type = "deequip",
+			slot = "hand",
+		}, -- lion axe
+				{
+			itemid = 39089,
+			type = "equip",
+			slot = "hand",
+		}, -- lion hammer
+		{
+			itemid = 39089,
+			type = "deequip",
+			slot = "hand",
+		}, -- lion hammer
+				{
+			itemid = 38985,
+			type = "equip",
+			slot = "hand",
+		}, -- lion longbow
+		{
+			itemid = 38985,
+			type = "deequip",
+			slot = "hand",
+		}, -- lion longbow
 		{
 			itemid = 38988,
 			type = "deequip",
