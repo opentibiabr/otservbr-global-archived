@@ -155,16 +155,16 @@ bool Events::load()
 }
 
 // Monster
-void Events::eventMonsterOnSpawn(Monster* monster, const Position& position)
+bool Events::eventMonsterOnSpawn(Monster* monster, const Position& position, bool startup, bool artificial)
 {
-	// Monster:onSpawn(position) or Monster.onSpawn(self, position)
+	// Monster:onSpawn(position, startup, artificial)
 	if (info.monsterOnSpawn == -1) {
-		return;
+		return true;
 	}
 
 	if (!scriptInterface.reserveScriptEnv()) {
-		std::cout << "[Error - Events::eventMonsterOnSpawn] Call stack overflow" << std::endl;
-		return;
+		std::cout << "[Error - Events::monsterOnSpawn] Call stack overflow" << std::endl;
+		return false;
 	}
 
 	ScriptEnvironment* env = scriptInterface.getScriptEnv();
@@ -176,14 +176,10 @@ void Events::eventMonsterOnSpawn(Monster* monster, const Position& position)
 	LuaScriptInterface::pushUserdata<Monster>(L, monster);
 	LuaScriptInterface::setMetatable(L, -1, "Monster");
 	LuaScriptInterface::pushPosition(L, position);
+	LuaScriptInterface::pushBoolean(L, startup);
+	LuaScriptInterface::pushBoolean(L, artificial);
 
-	if (scriptInterface.protectedCall(L, 2, 1) != 0) {
-		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::popString(L));
-	} else {
-		lua_pop(L, 1);
-	}
-
-	scriptInterface.resetScriptEnv();
+	return scriptInterface.callFunction(4);
 }
 
 // Creature

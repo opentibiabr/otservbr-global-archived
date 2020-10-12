@@ -334,6 +334,10 @@ bool Spawn::isInSpawnZone(const Position& pos)
 bool Spawn::spawnMonster(uint32_t spawnId, MonsterType* mType, const Position& pos, Direction dir, bool startup /*= false*/)
 {
 	std::unique_ptr<Monster> monster_ptr(new Monster(mType));
+	if (!g_events->eventMonsterOnSpawn(monster_ptr.get(), pos, startup, false)) {
+		return false;
+	}
+
 	if (startup) {
 		//No need to send out events to the surrounding since there is no one out there to listen!
 		if (!g_game.internalPlaceCreature(monster_ptr.get(), pos, true)) {
@@ -353,7 +357,6 @@ bool Spawn::spawnMonster(uint32_t spawnId, MonsterType* mType, const Position& p
 
 	spawnedMap.insert(spawned_pair(spawnId, monster));
 	spawnMap[spawnId].lastSpawn = OTSYS_TIME();
-	g_events->eventMonsterOnSpawn(monster, pos);
 	return true;
 }
 
@@ -396,16 +399,6 @@ void Spawn::checkSpawn()
 
 	if (spawnedMap.size() < spawnMap.size()) {
 		checkSpawnEvent = g_scheduler.addEvent(createSchedulerTask(getInterval(), std::bind(&Spawn::checkSpawn, this)));
-	}
-}
-
-void Spawn::scheduleSpawn(uint32_t spawnId, spawnBlock_t& sb, uint16_t interval)
-{
-	if (interval <= 0) {
-		spawnMonster(spawnId, sb.mType, sb.pos, sb.direction);
-	} else {
-		g_game.addMagicEffect(sb.pos, CONST_ME_TELEPORT);
-		g_scheduler.addEvent(createSchedulerTask(1400, std::bind(&Spawn::scheduleSpawn, this, spawnId, sb, interval - NONBLOCKABLE_SPAWN_INTERVAL)));
 	}
 }
 

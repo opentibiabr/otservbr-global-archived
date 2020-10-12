@@ -122,7 +122,7 @@ class Events
 
 		// Monster
 		void eventMonsterOnDropLoot(Monster* monster, Container* corpse);
-		void eventMonsterOnSpawn(Monster* monster, const Position& position);
+		bool eventMonsterOnSpawn(Monster* monster, const Position& position, bool startup, bool artificial);
 
 	private:
 		LuaScriptInterface scriptInterface;

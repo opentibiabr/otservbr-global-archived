@@ -543,21 +543,22 @@ int LuaScriptInterface::luaErrorHandler(lua_State* L)
 
 bool LuaScriptInterface::callFunction(int params)
 {
-	bool result = false;
-	int size = lua_gettop(luaState);
-	if (protectedCall(luaState, params, 1) != 0) {
-		LuaScriptInterface::reportError(nullptr, LuaScriptInterface::getString(luaState, -1));
-	} else {
-		result = LuaScriptInterface::getBoolean(luaState, -1);
-	}
+  bool result = false;
+  int size = lua_gettop(luaState);
+  if (protectedCall(luaState, params, 1) != 0) {
+    LuaScriptInterface::reportError(nullptr, LuaScriptInterface::getString(luaState, -1));
+  }
+  else {
+    result = LuaScriptInterface::getBoolean(luaState, -1);
+  }
 
-	lua_pop(luaState, 1);
-	if ((lua_gettop(luaState) + params + 1) != size) {
-		LuaScriptInterface::reportError(nullptr, "Stack size changed!");
-	}
+  lua_pop(luaState, 1);
+  if ((lua_gettop(luaState) + params + 1) != size) {
+    LuaScriptInterface::reportError(nullptr, "Stack size changed!");
+  }
 
-	resetScriptEnv();
-	return result;
+  resetScriptEnv();
+  return result;
 }
 
 void LuaScriptInterface::callVoidFunction(int params)
@@ -4983,33 +4984,34 @@ int LuaScriptInterface::luaGameCreateTile(lua_State* L)
 
 int LuaScriptInterface::luaGameCreateMonsterType(lua_State* L)
 {
-	// Game.createMonsterType(name)
-	if (getScriptEnv()->getScriptInterface() != &g_scripts->getScriptInterface()) {
-		reportErrorFunc("MonsterTypes can only be registered in the Scripts interface.");
-		lua_pushnil(L);
-		return 1;
-	}
+  // Game.createMonsterType(name)
+  if (getScriptEnv()->getScriptInterface() != &g_scripts->getScriptInterface()) {
+    reportErrorFunc("MonsterTypes can only be registered in the Scripts interface.");
+    lua_pushnil(L);
+    return 1;
+  }
 
-	MonsterType* monsterType = g_monsters.getMonsterType(getString(L, 1));
-	if (monsterType) {
-		monsterType->info.lootItems.clear();
-		monsterType->info.attackSpells.clear();
-		monsterType->info.defenseSpells.clear();
-		pushUserdata<MonsterType>(L, monsterType);
-		setMetatable(L, -1, "MonsterType");
-	} else if (isString(L, 1)) {
-		monsterType = new MonsterType();
-		std::string name = getString(L, 1);
-		g_monsters.addMonsterType(name, monsterType);
-		monsterType = g_monsters.getMonsterType(getString(L, 1));
-		monsterType->name = name;
-		monsterType->nameDescription = "a " + name;
-		pushUserdata<MonsterType>(L, monsterType);
-		setMetatable(L, -1, "MonsterType");
-	} else {
-		lua_pushnil(L);
-	}
-	return 1;
+  const std::string& name = getString(L, 1);
+  if (name.length() == 0) {
+    lua_pushnil(L);
+    return 1;
+  }
+
+  MonsterType* monsterType = g_monsters.getMonsterType(name, false);
+  if (!monsterType) {
+    monsterType = &g_monsters.monsters[asLowerCaseString(name)];
+    monsterType->name = name;
+    monsterType->nameDescription = "a " + name;
+  }
+  else {
+    monsterType->info.lootItems.clear();
+    monsterType->info.attackSpells.clear();
+    monsterType->info.defenseSpells.clear();
+  }
+
+  pushUserdata<MonsterType>(L, monsterType);
+  setMetatable(L, -1, "MonsterType");
+  return 1;
 }
 
 int LuaScriptInterface::luaGameStartRaid(lua_State* L)

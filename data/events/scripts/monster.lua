@@ -49,7 +49,7 @@ function Monster:onDropLoot(corpse)
 	end
 end
 
-function Monster:onSpawn(position)
+function Monster:onSpawn(position, startup, artificial)
 	if self:getType():isRewardBoss() then
 		self:setReward(true)
 	end
