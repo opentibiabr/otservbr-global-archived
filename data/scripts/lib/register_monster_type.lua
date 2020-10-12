@@ -298,7 +298,7 @@ registerMonsterType.attacks = function(mtype, mask)
 						if attack.condition.type then
 							spell:setConditionType(attack.condition.type)
 						end
-						local startDamnage = 0
+						local startDamage = 0
 						if attack.condition.startDamage then
 							startDamage = attack.condition.startDamage
 						end
@@ -333,8 +333,8 @@ registerMonsterType.attacks = function(mtype, mask)
 					if attack.duration then
 						spell:setConditionDuration(attack.duration)
 					end
-					if attack.speed then
-						spell:setConditionSpeedChange(attack.speed)
+					if attack.speedChange then
+						spell:setConditionSpeedChange(attack.speedChange)
 					end
 					if attack.target then
 						spell:setNeedTarget(attack.target)
@@ -412,7 +412,7 @@ registerMonsterType.defenses = function(mtype, mask)
 							if defense.condition.type then
 								spell:setConditionType(defense.condition.type)
 							end
-							local startDamnage = 0
+							local startDamage = 0
 							if defense.condition.startDamage then
 								startDamage = defense.condition.startDamage
 							end
@@ -447,8 +447,8 @@ registerMonsterType.defenses = function(mtype, mask)
 						if defense.duration then
 							spell:setConditionDuration(defense.duration)
 						end
-						if defense.speed then
-							spell:setConditionSpeedChange(defense.speed)
+						if defense.speedChange then
+							spell:setConditionSpeedChange(defense.speedChange)
 						end
 						if defense.target then
 							spell:setNeedTarget(defense.target)

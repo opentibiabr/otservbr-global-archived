@@ -92,7 +92,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 3000, chance = 100, minDamage = -200, maxDamage = -300, effect = CONST_ME_DRAWBLOOD},
-	{name ="speed", interval = 1000, chance = 10, SpeedChange = -700, Duration = 8000}
+	{name ="speed", interval = 1000, chance = 10, speedChange = -700, duration = 8000}
 }
 
 monster.defenses = {

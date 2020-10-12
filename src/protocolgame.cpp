@@ -59,7 +59,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, uint16_t id, uint8_t count)
 		msg.addByte(count);
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[count & 7]);
-	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
+	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 		msg.addByte(0x00);
 	}
 
@@ -82,7 +82,7 @@ void ProtocolGame::AddItem(NetworkMessage& msg, const Item* item)
 		msg.addByte(std::min<uint16_t>(0xFF, item->getItemCount()));
 	} else if (it.isSplash() || it.isFluidContainer()) {
 		msg.addByte(fluidMap[item->getFluidType() & 7]);
-	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
+	} else if (it.isContainer() && player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 		const Container* container = item->getContainer();
 		if (container && container->getHoldingPlayer() == player) {
 			uint32_t lootFlags = 0;
@@ -319,7 +319,7 @@ void ProtocolGame::onRecvFirstMessage(NetworkMessage& msg)
 
 	OperatingSystem_t operatingSystem = static_cast<OperatingSystem_t>(msg.get<uint16_t>());
 
-	if (operatingSystem <= CLIENTOS_NEW_WINDOWS) 
+	if (operatingSystem <= CLIENTOS_NEW_MAC) 
 		enableCompact();
 
 	version = msg.get<uint16_t>();
@@ -3759,7 +3759,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
 
 	msg.add<uint16_t>(player->getMagicLevel());
 		
-	if (player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
+	if (player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 		msg.add<uint16_t>(player->getBaseMagicLevel());
 	}
 
@@ -3770,7 +3770,7 @@ void ProtocolGame::AddPlayerSkills(NetworkMessage& msg)
 		msg.add<uint16_t>(std::min<int32_t>(player->getSkillLevel(i), std::numeric_limits<uint16_t>::max()));
 		msg.add<uint16_t>(player->getBaseSkill(i));
 		
-		if (player->getOperatingSystem() <= CLIENTOS_NEW_WINDOWS) {
+		if (player->getOperatingSystem() <= CLIENTOS_NEW_MAC) {
 			msg.add<uint16_t>(player->getBaseSkill(i));
 		}
 

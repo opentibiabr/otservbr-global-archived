@@ -100,7 +100,7 @@ monster.defenses = {
 	defense = 40,
 	armor = 40,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 120, maxDamage = 225, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_GREEN, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 400, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 400, duration = 5000}
 }
 
 monster.elements = {

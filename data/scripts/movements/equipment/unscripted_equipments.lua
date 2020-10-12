@@ -1,4 +1,5 @@
 if not equipmentsTable then
+
 	equipmentsTable = {
 		{
 			itemid = 38993,
@@ -43,6 +44,21 @@ if not equipmentsTable then
 				{"Royal Paladin"}
 			}
 		}, -- lion spangenhelm
+		{
+			itemid = 38990,
+			type = "equip",
+			slot = "hand",
+			level = 270,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- lion longsword
+		{
+			itemid = 38990,
+			type = "deequip",
+			slot = "hand"
+		}, -- lion longsword
 		{
 			itemid = 38988,
 			type = "deequip",

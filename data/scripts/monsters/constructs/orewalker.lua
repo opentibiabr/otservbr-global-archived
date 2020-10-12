@@ -100,7 +100,7 @@ monster.attacks = {
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -800, maxDamage = -1080, shootEffect = CONST_ANI_SMALLEARTH, effect = CONST_ME_SMALLPLANTS, target = true},
 	{name ="drunk", interval = 2000, chance = 15, effect = CONST_ME_SOUND_PURPLE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -800, Duration = 20000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -800, duration = 20000}
 }
 
 monster.defenses = {

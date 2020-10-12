@@ -99,7 +99,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -600, maxDamage = -1300, type = COMBAT_MANADRAIN, length = 8, spread = 3, effect = CONST_ME_MORTAREA, target = false},
 	{name ="combat", interval = 2000, chance = 15, target = false},
 	{name ="combat", interval = 2000, chance = 15, minDamage = -220, maxDamage = -350, type = COMBAT_FIREDAMAGE, effect = CONST_ME_FIREAREA, target = true},
-	{name ="speed", interval = 2000, chance = 10, SpeedChange = -800, Duration = 30000},
+	{name ="speed", interval = 2000, chance = 10, speedChange = -800, duration = 30000},
 	{name ="combat", interval = 2000, chance = 30, minDamage = -280, maxDamage = -350, type = COMBAT_FIREDAMAGE, effect = CONST_ME_HITBYFIRE, target = false}
 }
 

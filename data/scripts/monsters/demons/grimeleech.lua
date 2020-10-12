@@ -112,7 +112,7 @@ monster.defenses = {
 	{name ="combat", interval = 2000, chance = 16, minDamage = 130, maxDamage = 205, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_RED, target = false},
 	{name ="combat", interval = 2000, chance = 9, effect = CONST_ME_MAGIC_GREEN, target = false},
 	{name ="combat", interval = 2000, chance = 10, effect = CONST_ME_DRAWBLOOD, target = false},
-	{name ="speed", interval = 2000, chance = 12, SpeedChange = 532, Duration = 4000}
+	{name ="speed", interval = 2000, chance = 12, speedChange = 532, duration = 4000}
 }
 
 monster.elements = {

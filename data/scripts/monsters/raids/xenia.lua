@@ -77,7 +77,7 @@ monster.attacks = {
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 320, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 320, duration = 5000}
 }
 
 monster.elements = {

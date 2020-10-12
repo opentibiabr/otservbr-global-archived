@@ -129,7 +129,7 @@ monster.loot = {
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, skill = 230, attack = 210, effect = CONST_ME_DRAWBLOOD},
 	{name ="combat", interval = 1000, chance = 8, minDamage = -800, maxDamage = -1900, type = COMBAT_DEATHDAMAGE, effect = CONST_ME_MORTAREA, target = false},
-	{name ="speed", interval = 1000, chance = 12, SpeedChange = -850, Duration = 60000},
+	{name ="speed", interval = 1000, chance = 12, speedChange = -850, duration = 60000},
 	{name ="combat", interval = 1000, chance = 10, minDamage = -600, maxDamage = -1450, effect = CONST_ME_HITAREA, target = false},
 	{name ="combat", interval = 3000, chance = 13, minDamage = -300, maxDamage = -800, type = COMBAT_FIREDAMAGE, range = 7, shootEffect = CONST_ANI_FIRE, effect = CONST_ME_FIREAREA, target = true},
 	{name ="combat", interval = 3000, chance = 8, minDamage = -600, maxDamage = -700, type = COMBAT_MANADRAIN, effect = CONST_ME_ENERGYAREA, target = false},
@@ -143,7 +143,7 @@ monster.defenses = {
 	defense = 145,
 	armor = 188,
 	{name ="combat", interval = 1000, chance = 15, minDamage = 1000, maxDamage = 3000, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 8, SpeedChange = 480, Duration = 6000}
+	{name ="speed", interval = 2000, chance = 8, speedChange = 480, duration = 6000}
 }
 
 monster.elements = {

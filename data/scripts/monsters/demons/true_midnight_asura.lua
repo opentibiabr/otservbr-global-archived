@@ -97,7 +97,7 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = 0, maxDamage = -70, type = COMBAT_MANADRAIN, range = 7, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 400, type = COMBAT_LIFEDRAIN, length = 8, spread = 3, effect = CONST_ME_PURPLEENERGY, target = false},
 	{name ="combat", interval = 2000, chance = 10, minDamage = 100, maxDamage = 400, type = COMBAT_DEATHDAMAGE, length = 8, spread = 3, effect = CONST_ME_BLACKSMOKE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -100, Duration = 30000},
+	{name ="speed", interval = 2000, chance = 15, speedChange = -100, duration = 30000},
 	{name ="drunk", interval = 2000, chance = 10, range = 3, effect = CONST_ME_STUN, target = true}
 }
 
@@ -105,7 +105,7 @@ monster.defenses = {
 	defense = 55,
 	armor = 75,
 	{name ="combat", interval = 2000, chance = 15, minDamage = 50, maxDamage = 100, type = COMBAT_HEALING, effect = CONST_ME_MAGIC_BLUE, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 320, Duration = 5000},
+	{name ="speed", interval = 2000, chance = 15, speedChange = 320, duration = 5000},
 	{name ="invisible", interval = 2000, chance = 20, effect = CONST_ME_MAGIC_BLUE}
 }
 

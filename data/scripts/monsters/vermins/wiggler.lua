@@ -84,13 +84,13 @@ monster.attacks = {
 	{name ="combat", interval = 2000, chance = 10, minDamage = -180, maxDamage = -270, type = COMBAT_EARTHDAMAGE, length = 4, spread = 3, target = false},
 	-- poison
 	{name ="combat", type = COMBAT_EARTHDAMAGE, interval = 2000, chance = 10, minDamage = -160, maxDamage = -200, range = 7, shootEffect = CONST_ANI_POISONARROW, effect = CONST_ME_SMALLPLANTS, target = false},
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = -700, Duration = 30000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = -700, duration = 30000}
 }
 
 monster.defenses = {
 	defense = 15,
 	armor = 15,
-	{name ="speed", interval = 2000, chance = 15, SpeedChange = 510, Duration = 5000}
+	{name ="speed", interval = 2000, chance = 15, speedChange = 510, duration = 5000}
 }
 
 monster.elements = {

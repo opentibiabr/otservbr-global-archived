@@ -2037,7 +2037,7 @@ GameStore.Categories = {
         {
           icons = { "Outfit_Sinister_Archer_Male_Addon_3.png", "Outfit_Sinister_Archer_Female_Addon_3.png" },
           name = "Full Sinister Archer Outfit",
-          price = 120,
+          price = 600,
           sexId = {female = 1103,  male = 1102},
           addon = 3,
           description = "{character}\n{info} colours can be changed using the Outfit dialog\n{info} includes basic outfit and 2 addons which can be selected individually\n\n<i>From an early age, the Sinister Archer has been fascinated by people's dark machinations and perversions. Sinister Archers claim that they advocate the good and that they only use their arrows to pierce the hearts of those who have committed many crimes and misdeeds. However, they are still viewed by the public with much suspicion due to their dubious appearance. To keep their identity secret, they often hide themselves behind a skull-like face guard that can easily withstand even axe and club blows.</i>",

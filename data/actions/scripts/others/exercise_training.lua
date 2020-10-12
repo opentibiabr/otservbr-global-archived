@@ -44,9 +44,9 @@ local function start_train(pid,start_pos,itemid,fpos, bonusDummy, dummyId)
                             else
                                 local skillRate = getRateFromTable(skillsStages, player:getEffectiveSkillLevel(skills[itemid].id), skillRateDefault)
                                 if not bonusDummy then
-                                    player:addSkillTries(skills[itemid].id, 1*skillRate)
+                                    player:addSkillTries(skills[itemid].id, 7*skillRate)
                                 else
-                                    player:addSkillTries(skills[itemid].id, (1*skillRate)*1.1) -- 10%
+                                    player:addSkillTries(skills[itemid].id, (7*skillRate)*1.1) -- 10%
                                 end
                             end
                                 fpos:sendMagicEffect(CONST_ME_HITAREA)
