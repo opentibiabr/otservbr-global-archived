@@ -1393,7 +1393,8 @@ ReturnValue Game::internalMoveItem(Cylinder* fromCylinder, Cylinder* toCylinder,
 	}
 
 	// 'Move up' stackable items fix
-	if (item->isStackable() && count == 255) {
+	//  Cip's client never sends the count of stackables when using "Move up" menu option
+	if (item->isStackable() && count == 255 && fromCylinder->getParent() == toCylinder) {
 		count = item->getItemCount();
 	}
 
