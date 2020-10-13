@@ -63,6 +63,10 @@ function Creature:onTargetCombat(target)
 		end
 	end
 
+	if target and target:isMonster() then
+		target:registerEvent("ReflectSystem")
+	end
+	
 	if target:isPlayer() then
 		if self:isMonster() then
 			local protectionStorage = target:getStorageValue(Storage.combatProtectionStorage)
