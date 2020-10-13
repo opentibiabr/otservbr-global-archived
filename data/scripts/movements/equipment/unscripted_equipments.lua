@@ -2,6 +2,36 @@ if not equipmentsTable then
 
 	equipmentsTable = {
 		{
+			itemid = 39089,
+			type = "equip",
+			slot = "hand",
+			level = 270,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- lion hammer
+		{
+			itemid = 39089,
+			type = "deequip",
+			slot = "hand"
+		}, -- lion hammer
+		{
+			itemid = 39088,
+			type = "equip",
+			slot = "hand",
+			level = 270,
+			vocation = {
+				{"Knight", true},
+				{"Elite Knight"}
+			}
+		}, -- lion axe
+		{
+			itemid = 39088,
+			type = "deequip",
+			slot = "hand"
+		}, -- lion axe
+		{
 			itemid = 38993,
 			type = "equip",
 			slot = "necklace",
@@ -59,56 +89,6 @@ if not equipmentsTable then
 			type = "deequip",
 			slot = "hand"
 		}, -- lion longsword
-				{
-			itemid = 38986,
-			type = "equip",
-			slot = "hand",
-		}, -- lion rod
-		{
-			itemid = 38986,
-			type = "deequip",
-			slot = "hand",
-		}, -- lion rod		
-				{
-			itemid = 38987,
-			type = "equip",
-			slot = "hand",
-		}, -- lion wand
-		{
-			itemid = 38987,
-			type = "deequip",
-			slot = "hand",
-		}, -- lion wand
-		{
-			itemid = 39088,
-			type = "equip",
-			slot = "hand",
-		}, -- lion axe
-		{
-			itemid = 39088,
-			type = "deequip",
-			slot = "hand",
-		}, -- lion axe
-				{
-			itemid = 39089,
-			type = "equip",
-			slot = "hand",
-		}, -- lion hammer
-		{
-			itemid = 39089,
-			type = "deequip",
-			slot = "hand",
-		}, -- lion hammer
-				{
-			itemid = 38985,
-			type = "equip",
-			slot = "hand",
-		}, -- lion longbow
-		{
-			itemid = 38985,
-			type = "deequip",
-			slot = "hand",
-		}, -- lion longbow
 		{
 			itemid = 38988,
 			type = "deequip",
@@ -126,6 +106,51 @@ if not equipmentsTable then
 				{"Elder Druid"}
 			}
 		}, -- lion spellbook
+		{
+			itemid = 38987,
+			type = "equip",
+			slot = "hand",
+			level = 220,
+			vocation = {
+				{"Sorcerer", true},
+				{"Master Sorcerer"}
+			}
+		}, -- lion wand
+		{
+			itemid = 38987,
+			type = "deequip",
+			slot = "hand"
+		}, -- lion wand
+		{
+			itemid = 38986,
+			type = "equip",
+			slot = "hand",
+			level = 270,
+			vocation = {
+				{"Druid", true},
+				{"Elder Druid"}
+			}
+		}, -- lion rod
+		{
+			itemid = 38986,
+			type = "deequip",
+			slot = "hand"
+		}, -- lion rod
+		{
+			itemid = 38985,
+			type = "equip",
+			slot = "hand",
+			level = 270,
+			vocation = {
+				{"Paladin", true},
+				{"Royal Paladin"}
+			}
+		}, -- lion longbow
+		{
+			itemid = 38985,
+			type = "deequip",
+			slot = "hand"
+		}, -- lion longbow
 		{
 			itemid = 38934,
 			type = "deequip",
